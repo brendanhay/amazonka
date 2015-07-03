@@ -7283,7 +7283,7 @@
                         "name": "_trResourceType",
                         "shape": "String",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of resource with which the tag is associated. Valid resource types\n-- are:  Cluster CIDR/IP EC2 security group Snapshot Cluster security group Subnet group\n-- HSM connection HSM certificate Parameter group\n--\n-- For more information about Amazon Redshift resource types and constructing\n-- ARNs, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)\u003e in the\n-- Amazon Redshift Cluster Management Guide.",
+                        "documentation": "-- | The type of resource with which the tag is associated. Valid resource types\n-- are:  Cluster CIDR/IP EC2 security group Snapshot Cluster security group Subnet group\n-- HSM connection HSM certificate Parameter group\n--\n-- For more information about Amazon Redshift resource types and constructing\n-- ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the\n-- Amazon Redshift Cluster Management Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -7321,7 +7321,7 @@
                         "name": "_trResourceType",
                         "shape": "String",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of resource with which the tag is associated. Valid resource types\n-- are:  Cluster CIDR/IP EC2 security group Snapshot Cluster security group Subnet group\n-- HSM connection HSM certificate Parameter group\n--\n-- For more information about Amazon Redshift resource types and constructing\n-- ARNs, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)\u003e in the\n-- Amazon Redshift Cluster Management Guide.",
+                        "documentation": "-- | The type of resource with which the tag is associated. Valid resource types\n-- are:  Cluster CIDR/IP EC2 security group Snapshot Cluster security group Subnet group\n-- HSM connection HSM certificate Parameter group\n--\n-- For more information about Amazon Redshift resource types and constructing\n-- ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the\n-- Amazon Redshift Cluster Management Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -8427,7 +8427,7 @@
             "pager": null,
             "name": "AuthorizeClusterSecurityGroupIngress",
             "method": "post",
-            "documentation": "-- | Adds an inbound (ingress) rule to an Amazon Redshift security group.\n-- Depending on whether the application accessing your cluster is running on the\n-- Internet or an EC2 instance, you can authorize inbound access to either a\n-- Classless Interdomain Routing (CIDR) IP address range or an EC2 security\n-- group. You can add as many as 20 ingress rules to an Amazon Redshift security\n-- group.\n--\n-- The EC2 security group must be defined in the AWS region where the cluster\n-- resides.  For an overview of CIDR blocks, see the Wikipedia article on \u003chttp://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing\u003e.\n--\n-- You must also associate the security group with a cluster so that clients\n-- running on these IP addresses or the EC2 instance are authorized to connect\n-- to the cluster. For information about managing security groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Workingwith Security Groups\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Adds an inbound (ingress) rule to an Amazon Redshift security group.\n-- Depending on whether the application accessing your cluster is running on the\n-- Internet or an EC2 instance, you can authorize inbound access to either a\n-- Classless Interdomain Routing (CIDR) IP address range or an EC2 security\n-- group. You can add as many as 20 ingress rules to an Amazon Redshift security\n-- group.\n--\n-- The EC2 security group must be defined in the AWS region where the cluster\n-- resides.  For an overview of CIDR blocks, see the Wikipedia article on <http://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing Classless Inter-Domain Routing>.\n--\n-- You must also associate the security group with a cluster so that clients\n-- running on these IP addresses or the EC2 instance are authorized to connect\n-- to the cluster. For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Workingwith Security Groups> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8729,7 +8729,7 @@
             "pager": null,
             "name": "AuthorizeSnapshotAccess",
             "method": "post",
-            "documentation": "-- | Authorizes the specified AWS customer account to restore the specified\n-- snapshot.\n--\n-- For more information about working with snapshots, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Authorizes the specified AWS customer account to restore the specified\n-- snapshot.\n--\n-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8990,7 +8990,7 @@
             "pager": null,
             "name": "CopyClusterSnapshot",
             "method": "post",
-            "documentation": "-- | Copies the specified automated cluster snapshot to a new manual cluster\n-- snapshot. The source must be an automated snapshot and it must be in the\n-- available state.\n--\n-- When you delete a cluster, Amazon Redshift deletes any automated snapshots\n-- of the cluster. Also, when the retention period of the snapshot expires,\n-- Amazon Redshift automatically deletes it. If you want to keep an automated\n-- snapshot for a longer period, you can make a manual copy of the snapshot.\n-- Manual snapshots are retained until you delete them.\n--\n-- For more information about working with snapshots, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Copies the specified automated cluster snapshot to a new manual cluster\n-- snapshot. The source must be an automated snapshot and it must be in the\n-- available state.\n--\n-- When you delete a cluster, Amazon Redshift deletes any automated snapshots\n-- of the cluster. Also, when the retention period of the snapshot expires,\n-- Amazon Redshift automatically deletes it. If you want to keep an automated\n-- snapshot for a longer period, you can make a manual copy of the snapshot.\n-- Manual snapshots are retained until you delete them.\n--\n-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9251,7 +9251,7 @@
             "pager": null,
             "name": "CreateCluster",
             "method": "post",
-            "documentation": "-- | Creates a new cluster. To create the cluster in virtual private cloud (VPC),\n-- you must provide cluster subnet group name. If you don't provide a cluster\n-- subnet group name or the cluster security group parameter, Amazon Redshift\n-- creates a non-VPC cluster, it associates the default cluster security group\n-- with the cluster. For more information about managing clusters, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html AmazonRedshift Clusters\u003e in the /Amazon Redshift Cluster Management Guide/ .",
+            "documentation": "-- | Creates a new cluster. To create the cluster in virtual private cloud (VPC),\n-- you must provide cluster subnet group name. If you don't provide a cluster\n-- subnet group name or the cluster security group parameter, Amazon Redshift\n-- creates a non-VPC cluster, it associates the default cluster security group\n-- with the cluster. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html AmazonRedshift Clusters> in the /Amazon Redshift Cluster Management Guide/ .",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -9306,7 +9306,7 @@
                         "name": "_ccNodeType",
                         "shape": "String",
                         "locationName": "NodeType",
-                        "documentation": "-- | The node type to be provisioned for the cluster. For information about node\n-- types, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes  Working with Clusters\u003e in the /Amazon Redshift Cluster ManagementGuide/.\n--\n-- Valid Values: 'dw1.xlarge' | 'dw1.8xlarge' | 'dw2.large' | 'dw2.8xlarge'.",
+                        "documentation": "-- | The node type to be provisioned for the cluster. For information about node\n-- types, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes  Working with Clusters> in the /Amazon Redshift Cluster ManagementGuide/.\n--\n-- Valid Values: 'dw1.xlarge' | 'dw1.8xlarge' | 'dw2.large' | 'dw2.8xlarge'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -9324,7 +9324,7 @@
                         "name": "_ccMasterUsername",
                         "shape": "String",
                         "locationName": "MasterUsername",
-                        "documentation": "-- | The user name associated with the master user account for the cluster that\n-- is being created.\n--\n-- Constraints:\n--\n-- Must be 1 - 128 alphanumeric characters. First character must be a letter. Cannot be a reserved word. A list of reserved words can be found in\n-- \u003chttp://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words\u003e in the Amazon Redshift Database Developer Guide.",
+                        "documentation": "-- | The user name associated with the master user account for the cluster that\n-- is being created.\n--\n-- Constraints:\n--\n-- Must be 1 - 128 alphanumeric characters. First character must be a letter. Cannot be a reserved word. A list of reserved words can be found in\n-- <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -9493,7 +9493,7 @@
                         "name": "_ccDBName",
                         "shape": "String",
                         "locationName": "DBName",
-                        "documentation": "-- | The name of the first database to be created when the cluster is created.\n--\n-- To create additional databases after the cluster is created, connect to the\n-- cluster with a SQL client and use SQL commands to create a database. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database\u003e in the Amazon Redshift Database\n-- Developer Guide.\n--\n-- Default: 'dev'\n--\n-- Constraints:\n--\n-- Must contain 1 to 64 alphanumeric characters. Must contain only lowercase\n-- letters. Cannot be a word that is reserved by the service. A list of reserved\n-- words can be found in \u003chttp://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words\u003e in the Amazon Redshift Database\n-- Developer Guide.",
+                        "documentation": "-- | The name of the first database to be created when the cluster is created.\n--\n-- To create additional databases after the cluster is created, connect to the\n-- cluster with a SQL client and use SQL commands to create a database. For more\n-- information, go to <http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database> in the Amazon Redshift Database\n-- Developer Guide.\n--\n-- Default: 'dev'\n--\n-- Constraints:\n--\n-- Must contain 1 to 64 alphanumeric characters. Must contain only lowercase\n-- letters. Cannot be a word that is reserved by the service. A list of reserved\n-- words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database\n-- Developer Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9601,7 +9601,7 @@
                         "name": "_ccPreferredMaintenanceWindow",
                         "shape": "String",
                         "locationName": "PreferredMaintenanceWindow",
-                        "documentation": "-- | The weekly time range (in UTC) during which automated cluster maintenance\n-- can occur.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region, occurring on a random day of the week. For more information about\n-- the time blocks for each region, see \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows\u003e in Amazon Redshift\n-- Cluster Management Guide.\n--\n-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun\n--\n-- Constraints: Minimum 30-minute window.",
+                        "documentation": "-- | The weekly time range (in UTC) during which automated cluster maintenance\n-- can occur.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region, occurring on a random day of the week. For more information about\n-- the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift\n-- Cluster Management Guide.\n--\n-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun\n--\n-- Constraints: Minimum 30-minute window.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9619,7 +9619,7 @@
                         "name": "_ccClusterParameterGroupName",
                         "shape": "String",
                         "locationName": "ClusterParameterGroupName",
-                        "documentation": "-- | The name of the parameter group to be associated with this cluster.\n--\n-- Default: The default Amazon Redshift cluster parameter group. For\n-- information about the default parameter group, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with AmazonRedshift Parameter Groups\u003e\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens. First character must\n-- be a letter. Cannot end with a hyphen or contain two consecutive hyphens.",
+                        "documentation": "-- | The name of the parameter group to be associated with this cluster.\n--\n-- Default: The default Amazon Redshift cluster parameter group. For\n-- information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with AmazonRedshift Parameter Groups>\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens. First character must\n-- be a letter. Cannot end with a hyphen or contain two consecutive hyphens.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9709,7 +9709,7 @@
                         "name": "_ccNumberOfNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumberOfNodes",
-                        "documentation": "-- | The number of compute nodes in the cluster. This parameter is required when\n-- the ClusterType parameter is specified as 'multi-node'.\n--\n-- For information about determining how many nodes you need, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes  Workingwith Clusters\u003e in the /Amazon Redshift Cluster Management Guide/.\n--\n-- If you don't specify this parameter, you get a single-node cluster. When\n-- requesting a multi-node cluster, you must specify the number of nodes that\n-- you want in the cluster.\n--\n-- Default: '1'\n--\n-- Constraints: Value must be at least 1 and no more than 100.",
+                        "documentation": "-- | The number of compute nodes in the cluster. This parameter is required when\n-- the ClusterType parameter is specified as 'multi-node'.\n--\n-- For information about determining how many nodes you need, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes  Workingwith Clusters> in the /Amazon Redshift Cluster Management Guide/.\n--\n-- If you don't specify this parameter, you get a single-node cluster. When\n-- requesting a multi-node cluster, you must specify the number of nodes that\n-- you want in the cluster.\n--\n-- Default: '1'\n--\n-- Constraints: Value must be at least 1 and no more than 100.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -9799,7 +9799,7 @@
                         "name": "_ccElasticIp",
                         "shape": "String",
                         "locationName": "ElasticIp",
-                        "documentation": "-- | The Elastic IP (EIP) address for the cluster.\n--\n-- Constraints: The cluster must be provisioned in EC2-VPC and\n-- publicly-accessible through an Internet gateway. For more information about\n-- provisioning clusters in EC2-VPC, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch YourCluster\u003e in the Amazon Redshift Cluster Management Guide.",
+                        "documentation": "-- | The Elastic IP (EIP) address for the cluster.\n--\n-- Constraints: The cluster must be provisioned in EC2-VPC and\n-- publicly-accessible through an Internet gateway. For more information about\n-- provisioning clusters in EC2-VPC, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch YourCluster> in the Amazon Redshift Cluster Management Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -9927,7 +9927,7 @@
                         "name": "_ccClusterParameterGroupName",
                         "shape": "String",
                         "locationName": "ClusterParameterGroupName",
-                        "documentation": "-- | The name of the parameter group to be associated with this cluster.\n--\n-- Default: The default Amazon Redshift cluster parameter group. For\n-- information about the default parameter group, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with AmazonRedshift Parameter Groups\u003e\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens. First character must\n-- be a letter. Cannot end with a hyphen or contain two consecutive hyphens.",
+                        "documentation": "-- | The name of the parameter group to be associated with this cluster.\n--\n-- Default: The default Amazon Redshift cluster parameter group. For\n-- information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with AmazonRedshift Parameter Groups>\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens. First character must\n-- be a letter. Cannot end with a hyphen or contain two consecutive hyphens.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -10017,7 +10017,7 @@
                         "name": "_ccDBName",
                         "shape": "String",
                         "locationName": "DBName",
-                        "documentation": "-- | The name of the first database to be created when the cluster is created.\n--\n-- To create additional databases after the cluster is created, connect to the\n-- cluster with a SQL client and use SQL commands to create a database. For more\n-- information, go to \u003chttp://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database\u003e in the Amazon Redshift Database\n-- Developer Guide.\n--\n-- Default: 'dev'\n--\n-- Constraints:\n--\n-- Must contain 1 to 64 alphanumeric characters. Must contain only lowercase\n-- letters. Cannot be a word that is reserved by the service. A list of reserved\n-- words can be found in \u003chttp://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words\u003e in the Amazon Redshift Database\n-- Developer Guide.",
+                        "documentation": "-- | The name of the first database to be created when the cluster is created.\n--\n-- To create additional databases after the cluster is created, connect to the\n-- cluster with a SQL client and use SQL commands to create a database. For more\n-- information, go to <http://docs.aws.amazon.com/redshift/latest/dg/t_creating_database.html Create a Database> in the Amazon Redshift Database\n-- Developer Guide.\n--\n-- Default: 'dev'\n--\n-- Constraints:\n--\n-- Must contain 1 to 64 alphanumeric characters. Must contain only lowercase\n-- letters. Cannot be a word that is reserved by the service. A list of reserved\n-- words can be found in <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database\n-- Developer Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -10035,7 +10035,7 @@
                         "name": "_ccElasticIp",
                         "shape": "String",
                         "locationName": "ElasticIp",
-                        "documentation": "-- | The Elastic IP (EIP) address for the cluster.\n--\n-- Constraints: The cluster must be provisioned in EC2-VPC and\n-- publicly-accessible through an Internet gateway. For more information about\n-- provisioning clusters in EC2-VPC, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch YourCluster\u003e in the Amazon Redshift Cluster Management Guide.",
+                        "documentation": "-- | The Elastic IP (EIP) address for the cluster.\n--\n-- Constraints: The cluster must be provisioned in EC2-VPC and\n-- publicly-accessible through an Internet gateway. For more information about\n-- provisioning clusters in EC2-VPC, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch YourCluster> in the Amazon Redshift Cluster Management Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -10143,7 +10143,7 @@
                         "name": "_ccMasterUsername",
                         "shape": "String",
                         "locationName": "MasterUsername",
-                        "documentation": "-- | The user name associated with the master user account for the cluster that\n-- is being created.\n--\n-- Constraints:\n--\n-- Must be 1 - 128 alphanumeric characters. First character must be a letter. Cannot be a reserved word. A list of reserved words can be found in\n-- \u003chttp://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words\u003e in the Amazon Redshift Database Developer Guide.",
+                        "documentation": "-- | The user name associated with the master user account for the cluster that\n-- is being created.\n--\n-- Constraints:\n--\n-- Must be 1 - 128 alphanumeric characters. First character must be a letter. Cannot be a reserved word. A list of reserved words can be found in\n-- <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words> in the Amazon Redshift Database Developer Guide.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -10161,7 +10161,7 @@
                         "name": "_ccNodeType",
                         "shape": "String",
                         "locationName": "NodeType",
-                        "documentation": "-- | The node type to be provisioned for the cluster. For information about node\n-- types, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes  Working with Clusters\u003e in the /Amazon Redshift Cluster ManagementGuide/.\n--\n-- Valid Values: 'dw1.xlarge' | 'dw1.8xlarge' | 'dw2.large' | 'dw2.8xlarge'.",
+                        "documentation": "-- | The node type to be provisioned for the cluster. For information about node\n-- types, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes  Working with Clusters> in the /Amazon Redshift Cluster ManagementGuide/.\n--\n-- Valid Values: 'dw1.xlarge' | 'dw1.8xlarge' | 'dw2.large' | 'dw2.8xlarge'.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -10179,7 +10179,7 @@
                         "name": "_ccNumberOfNodes",
                         "shape": "IntegerOptional",
                         "locationName": "NumberOfNodes",
-                        "documentation": "-- | The number of compute nodes in the cluster. This parameter is required when\n-- the ClusterType parameter is specified as 'multi-node'.\n--\n-- For information about determining how many nodes you need, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes  Workingwith Clusters\u003e in the /Amazon Redshift Cluster Management Guide/.\n--\n-- If you don't specify this parameter, you get a single-node cluster. When\n-- requesting a multi-node cluster, you must specify the number of nodes that\n-- you want in the cluster.\n--\n-- Default: '1'\n--\n-- Constraints: Value must be at least 1 and no more than 100.",
+                        "documentation": "-- | The number of compute nodes in the cluster. This parameter is required when\n-- the ClusterType parameter is specified as 'multi-node'.\n--\n-- For information about determining how many nodes you need, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#how-many-nodes  Workingwith Clusters> in the /Amazon Redshift Cluster Management Guide/.\n--\n-- If you don't specify this parameter, you get a single-node cluster. When\n-- requesting a multi-node cluster, you must specify the number of nodes that\n-- you want in the cluster.\n--\n-- Default: '1'\n--\n-- Constraints: Value must be at least 1 and no more than 100.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -10215,7 +10215,7 @@
                         "name": "_ccPreferredMaintenanceWindow",
                         "shape": "String",
                         "locationName": "PreferredMaintenanceWindow",
-                        "documentation": "-- | The weekly time range (in UTC) during which automated cluster maintenance\n-- can occur.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region, occurring on a random day of the week. For more information about\n-- the time blocks for each region, see \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows\u003e in Amazon Redshift\n-- Cluster Management Guide.\n--\n-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun\n--\n-- Constraints: Minimum 30-minute window.",
+                        "documentation": "-- | The weekly time range (in UTC) during which automated cluster maintenance\n-- can occur.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: A 30-minute window selected at random from an 8-hour block of time\n-- per region, occurring on a random day of the week. For more information about\n-- the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift\n-- Cluster Management Guide.\n--\n-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun\n--\n-- Constraints: Minimum 30-minute window.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -10372,7 +10372,7 @@
             "pager": null,
             "name": "CreateClusterParameterGroup",
             "method": "post",
-            "documentation": "-- | Creates an Amazon Redshift parameter group.\n--\n-- Creating parameter groups is independent of creating clusters. You can\n-- associate a cluster with a parameter group when you create the cluster. You\n-- can also associate an existing cluster with a parameter group after the\n-- cluster is created by using 'ModifyCluster'.\n--\n-- Parameters in the parameter group define specific behavior that applies to\n-- the databases you create on the cluster. For more information about managing\n-- parameter groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups\u003e in the /AmazonRedshift Cluster Management Guide/.",
+            "documentation": "-- | Creates an Amazon Redshift parameter group.\n--\n-- Creating parameter groups is independent of creating clusters. You can\n-- associate a cluster with a parameter group when you create the cluster. You\n-- can also associate an existing cluster with a parameter group after the\n-- cluster is created by using 'ModifyCluster'.\n--\n-- Parameters in the parameter group define specific behavior that applies to\n-- the databases you create on the cluster. For more information about managing\n-- parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups> in the /AmazonRedshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10673,7 +10673,7 @@
             "pager": null,
             "name": "CreateClusterSecurityGroup",
             "method": "post",
-            "documentation": "-- | Creates a new Amazon Redshift security group. You use security groups to\n-- control access to non-VPC clusters.\n--\n-- For information about managing security groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon RedshiftCluster Security Groups\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Creates a new Amazon Redshift security group. You use security groups to\n-- control access to non-VPC clusters.\n--\n-- For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon RedshiftCluster Security Groups> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -10933,7 +10933,7 @@
             "pager": null,
             "name": "CreateClusterSnapshot",
             "method": "post",
-            "documentation": "-- | Creates a manual snapshot of the specified cluster. The cluster must be in\n-- the 'available' state.\n--\n-- For more information about working with snapshots, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Creates a manual snapshot of the specified cluster. The cluster must be in\n-- the 'available' state.\n--\n-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11193,7 +11193,7 @@
             "pager": null,
             "name": "CreateClusterSubnetGroup",
             "method": "post",
-            "documentation": "-- | Creates a new Amazon Redshift subnet group. You must provide a list of one\n-- or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC)\n-- when creating Amazon Redshift subnet group.\n--\n-- For information about subnet groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html Amazon Redshift Cluster SubnetGroups\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Creates a new Amazon Redshift subnet group. You must provide a list of one\n-- or more subnets in your existing Amazon Virtual Private Cloud (Amazon VPC)\n-- when creating Amazon Redshift subnet group.\n--\n-- For information about subnet groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-cluster-subnet-groups.html Amazon Redshift Cluster SubnetGroups> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -11959,7 +11959,7 @@
             "pager": null,
             "name": "CreateHsmClientCertificate",
             "method": "post",
-            "documentation": "-- | Creates an HSM client certificate that an Amazon Redshift cluster will use to\n-- connect to the client's HSM in order to store and retrieve the keys used to\n-- encrypt the cluster databases.\n--\n-- The command returns a public key, which you must store in the HSM. In\n-- addition to creating the HSM certificate, you must create an Amazon Redshift\n-- HSM configuration that provides a cluster the information needed to store and\n-- use encryption keys in the HSM. For more information, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware SecurityModules\u003e in the Amazon Redshift Cluster Management Guide.",
+            "documentation": "-- | Creates an HSM client certificate that an Amazon Redshift cluster will use to\n-- connect to the client's HSM in order to store and retrieve the keys used to\n-- encrypt the cluster databases.\n--\n-- The command returns a public key, which you must store in the HSM. In\n-- addition to creating the HSM certificate, you must create an Amazon Redshift\n-- HSM configuration that provides a cluster the information needed to store and\n-- use encryption keys in the HSM. For more information, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware SecurityModules> in the Amazon Redshift Cluster Management Guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12178,7 +12178,7 @@
             "pager": null,
             "name": "CreateHsmConfiguration",
             "method": "post",
-            "documentation": "-- | Creates an HSM configuration that contains the information required by an\n-- Amazon Redshift cluster to store and use database encryption keys in a\n-- Hardware Security Module (HSM). After creating the HSM configuration, you can\n-- specify it as a parameter when creating a cluster. The cluster will then\n-- store its encryption keys in the HSM.\n--\n-- In addition to creating an HSM configuration, you must also create an HSM\n-- client certificate. For more information, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules\u003e in\n-- the Amazon Redshift Cluster Management Guide.",
+            "documentation": "-- | Creates an HSM configuration that contains the information required by an\n-- Amazon Redshift cluster to store and use database encryption keys in a\n-- Hardware Security Module (HSM). After creating the HSM configuration, you can\n-- specify it as a parameter when creating a cluster. The cluster will then\n-- store its encryption keys in the HSM.\n--\n-- In addition to creating an HSM configuration, you must also create an HSM\n-- client certificate. For more information, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-HSM.html Hardware Security Modules> in\n-- the Amazon Redshift Cluster Management Guide.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12762,7 +12762,7 @@
             "pager": null,
             "name": "DeleteCluster",
             "method": "post",
-            "documentation": "-- | Deletes a previously provisioned cluster. A successful response from the web\n-- service indicates that the request was received correctly. Use 'DescribeClusters' to monitor the status of the deletion. The delete operation cannot be\n-- canceled or reverted once submitted. For more information about managing\n-- clusters, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters\u003e in the /Amazon Redshift ClusterManagement Guide/ .\n--\n-- If you want to shut down the cluster and retain it for future use, set /SkipFinalClusterSnapshot/ to 'false' and specify a name for /FinalClusterSnapshotIdentifier/. You can\n-- later restore this snapshot to resume using the cluster. If a final cluster\n-- snapshot is requested, the status of the cluster will be \"final-snapshot\"\n-- while the snapshot is being taken, then it's \"deleting\" once Amazon Redshift\n-- begins deleting the cluster.\n--\n-- For more information about managing clusters, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters\u003e\n-- in the /Amazon Redshift Cluster Management Guide/ .",
+            "documentation": "-- | Deletes a previously provisioned cluster. A successful response from the web\n-- service indicates that the request was received correctly. Use 'DescribeClusters' to monitor the status of the deletion. The delete operation cannot be\n-- canceled or reverted once submitted. For more information about managing\n-- clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift ClusterManagement Guide/ .\n--\n-- If you want to shut down the cluster and retain it for future use, set /SkipFinalClusterSnapshot/ to 'false' and specify a name for /FinalClusterSnapshotIdentifier/. You can\n-- later restore this snapshot to resume using the cluster. If a final cluster\n-- snapshot is requested, the status of the cluster will be \"final-snapshot\"\n-- while the snapshot is being taken, then it's \"deleting\" once Amazon Redshift\n-- begins deleting the cluster.\n--\n-- For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>\n-- in the /Amazon Redshift Cluster Management Guide/ .",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -13104,7 +13104,7 @@
             "pager": null,
             "name": "DeleteClusterSecurityGroup",
             "method": "post",
-            "documentation": "-- | Deletes an Amazon Redshift security group.\n--\n-- You cannot delete a security group that is associated with any clusters. You\n-- cannot delete the default security group.  For information about managing\n-- security groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups\u003e in the /AmazonRedshift Cluster Management Guide/.",
+            "documentation": "-- | Deletes an Amazon Redshift security group.\n--\n-- You cannot delete a security group that is associated with any clusters. You\n-- cannot delete the default security group.  For information about managing\n-- security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups> in the /AmazonRedshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14270,7 +14270,7 @@
             },
             "name": "DescribeClusterParameterGroups",
             "method": "post",
-            "documentation": "-- | Returns a list of Amazon Redshift parameter groups, including parameter\n-- groups you created and the default parameter group. For each parameter group,\n-- the response includes the parameter group name, description, and parameter\n-- group family name. You can optionally specify a name to retrieve the\n-- description of a specific parameter group.\n--\n-- For more information about managing parameter groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups\u003e in the /Amazon Redshift Cluster Management Guide/.\n--\n-- If you specify both tag keys and tag values in the same request, Amazon\n-- Redshift returns all parameter groups that match any combination of the\n-- specified keys and values. For example, if you have 'owner' and 'environment' for\n-- tag keys, and 'admin' and 'test' for tag values, all parameter groups that have\n-- any combination of those values are returned.\n--\n-- If both tag keys and values are omitted from the request, parameter groups\n-- are returned regardless of whether they have tag keys or values associated\n-- with them.",
+            "documentation": "-- | Returns a list of Amazon Redshift parameter groups, including parameter\n-- groups you created and the default parameter group. For each parameter group,\n-- the response includes the parameter group name, description, and parameter\n-- group family name. You can optionally specify a name to retrieve the\n-- description of a specific parameter group.\n--\n-- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups> in the /Amazon Redshift Cluster Management Guide/.\n--\n-- If you specify both tag keys and tag values in the same request, Amazon\n-- Redshift returns all parameter groups that match any combination of the\n-- specified keys and values. For example, if you have 'owner' and 'environment' for\n-- tag keys, and 'admin' and 'test' for tag values, all parameter groups that have\n-- any combination of those values are returned.\n--\n-- If both tag keys and values are omitted from the request, parameter groups\n-- are returned regardless of whether they have tag keys or values associated\n-- with them.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14638,7 +14638,7 @@
             },
             "name": "DescribeClusterParameters",
             "method": "post",
-            "documentation": "-- | Returns a detailed list of parameters contained within the specified Amazon\n-- Redshift parameter group. For each parameter the response includes\n-- information such as parameter name, description, data type, value, whether\n-- the parameter value is modifiable, and so on.\n--\n-- You can specify /source/ filter to retrieve parameters of only specific type.\n-- For example, to retrieve parameters that were modified by a user action such\n-- as from 'ModifyClusterParameterGroup', you can specify /source/ equal to /user/.\n--\n-- For more information about managing parameter groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Returns a detailed list of parameters contained within the specified Amazon\n-- Redshift parameter group. For each parameter the response includes\n-- information such as parameter name, description, data type, value, whether\n-- the parameter value is modifiable, and so on.\n--\n-- You can specify /source/ filter to retrieve parameters of only specific type.\n-- For example, to retrieve parameters that were modified by a user action such\n-- as from 'ModifyClusterParameterGroup', you can specify /source/ equal to /user/.\n--\n-- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14966,7 +14966,7 @@
             },
             "name": "DescribeClusterSecurityGroups",
             "method": "post",
-            "documentation": "-- | Returns information about Amazon Redshift security groups. If the name of a\n-- security group is specified, the response will contain only information about\n-- only that security group.\n--\n-- For information about managing security groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon RedshiftCluster Security Groups\u003e in the /Amazon Redshift Cluster Management Guide/.\n--\n-- If you specify both tag keys and tag values in the same request, Amazon\n-- Redshift returns all security groups that match any combination of the\n-- specified keys and values. For example, if you have 'owner' and 'environment' for\n-- tag keys, and 'admin' and 'test' for tag values, all security groups that have\n-- any combination of those values are returned.\n--\n-- If both tag keys and values are omitted from the request, security groups\n-- are returned regardless of whether they have tag keys or values associated\n-- with them.",
+            "documentation": "-- | Returns information about Amazon Redshift security groups. If the name of a\n-- security group is specified, the response will contain only information about\n-- only that security group.\n--\n-- For information about managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon RedshiftCluster Security Groups> in the /Amazon Redshift Cluster Management Guide/.\n--\n-- If you specify both tag keys and tag values in the same request, Amazon\n-- Redshift returns all security groups that match any combination of the\n-- specified keys and values. For example, if you have 'owner' and 'environment' for\n-- tag keys, and 'admin' and 'test' for tag values, all security groups that have\n-- any combination of those values are returned.\n--\n-- If both tag keys and values are omitted from the request, security groups\n-- are returned regardless of whether they have tag keys or values associated\n-- with them.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15488,7 +15488,7 @@
                         "name": "_dcs1StartTime",
                         "shape": "TStamp",
                         "locationName": "StartTime",
-                        "documentation": "-- | A value that requests only snapshots created at or after the specified time.\n-- The time value is specified in ISO 8601 format. For more information about\n-- ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.\u003e\n--\n-- Example: '2012-07-16T18:00:00Z'",
+                        "documentation": "-- | A value that requests only snapshots created at or after the specified time.\n-- The time value is specified in ISO 8601 format. For more information about\n-- ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>\n--\n-- Example: '2012-07-16T18:00:00Z'",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -15506,7 +15506,7 @@
                         "name": "_dcs1EndTime",
                         "shape": "TStamp",
                         "locationName": "EndTime",
-                        "documentation": "-- | A time value that requests only snapshots created at or before the specified\n-- time. The time value is specified in ISO 8601 format. For more information\n-- about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.\u003e\n--\n-- Example: '2012-07-16T18:00:00Z'",
+                        "documentation": "-- | A time value that requests only snapshots created at or before the specified\n-- time. The time value is specified in ISO 8601 format. For more information\n-- about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>\n--\n-- Example: '2012-07-16T18:00:00Z'",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -15634,7 +15634,7 @@
                         "name": "_dcs1EndTime",
                         "shape": "TStamp",
                         "locationName": "EndTime",
-                        "documentation": "-- | A time value that requests only snapshots created at or before the specified\n-- time. The time value is specified in ISO 8601 format. For more information\n-- about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.\u003e\n--\n-- Example: '2012-07-16T18:00:00Z'",
+                        "documentation": "-- | A time value that requests only snapshots created at or before the specified\n-- time. The time value is specified in ISO 8601 format. For more information\n-- about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>\n--\n-- Example: '2012-07-16T18:00:00Z'",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -15742,7 +15742,7 @@
                         "name": "_dcs1StartTime",
                         "shape": "TStamp",
                         "locationName": "StartTime",
-                        "documentation": "-- | A value that requests only snapshots created at or after the specified time.\n-- The time value is specified in ISO 8601 format. For more information about\n-- ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.\u003e\n--\n-- Example: '2012-07-16T18:00:00Z'",
+                        "documentation": "-- | A value that requests only snapshots created at or after the specified time.\n-- The time value is specified in ISO 8601 format. For more information about\n-- ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>\n--\n-- Example: '2012-07-16T18:00:00Z'",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -16275,7 +16275,7 @@
             },
             "name": "DescribeClusterVersions",
             "method": "post",
-            "documentation": "-- | Returns descriptions of the available Amazon Redshift cluster versions. You\n-- can call this operation even before creating any clusters to learn more about\n-- the Amazon Redshift versions. For more information about managing clusters,\n-- go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters\u003e in the /Amazon Redshift Cluster Management Guide/\n--",
+            "documentation": "-- | Returns descriptions of the available Amazon Redshift cluster versions. You\n-- can call this operation even before creating any clusters to learn more about\n-- the Amazon Redshift versions. For more information about managing clusters,\n-- go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16602,7 +16602,7 @@
             },
             "name": "DescribeClusters",
             "method": "post",
-            "documentation": "-- | Returns properties of provisioned clusters including general cluster\n-- properties, cluster database properties, maintenance and backup properties,\n-- and security and access properties. This operation supports pagination. For\n-- more information about managing clusters, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters\u003e in\n-- the /Amazon Redshift Cluster Management Guide/ .\n--\n-- If you specify both tag keys and tag values in the same request, Amazon\n-- Redshift returns all clusters that match any combination of the specified\n-- keys and values. For example, if you have 'owner' and 'environment' for tag keys,\n-- and 'admin' and 'test' for tag values, all clusters that have any combination of\n-- those values are returned.\n--\n-- If both tag keys and values are omitted from the request, clusters are\n-- returned regardless of whether they have tag keys or values associated with\n-- them.",
+            "documentation": "-- | Returns properties of provisioned clusters including general cluster\n-- properties, cluster database properties, maintenance and backup properties,\n-- and security and access properties. This operation supports pagination. For\n-- more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in\n-- the /Amazon Redshift Cluster Management Guide/ .\n--\n-- If you specify both tag keys and tag values in the same request, Amazon\n-- Redshift returns all clusters that match any combination of the specified\n-- keys and values. For example, if you have 'owner' and 'environment' for tag keys,\n-- and 'admin' and 'test' for tag values, all clusters that have any combination of\n-- those values are returned.\n--\n-- If both tag keys and values are omitted from the request, clusters are\n-- returned regardless of whether they have tag keys or values associated with\n-- them.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16953,7 +16953,7 @@
             },
             "name": "DescribeDefaultClusterParameters",
             "method": "post",
-            "documentation": "-- | Returns a list of parameter settings for the specified parameter group\n-- family.\n--\n-- For more information about managing parameter groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Returns a list of parameter settings for the specified parameter group\n-- family.\n--\n-- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -17216,7 +17216,7 @@
             "pager": null,
             "name": "DescribeEventCategories",
             "method": "post",
-            "documentation": "-- | Displays a list of event categories for all event source types, or for a\n-- specified source type. For a list of the event categories and source types,\n-- go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications\u003e.",
+            "documentation": "-- | Displays a list of event categories for all event source types, or for a\n-- specified source type. For a list of the event categories and source types,\n-- go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-event-notifications.html Amazon Redshift Event Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -17846,7 +17846,7 @@
                         "name": "_deStartTime",
                         "shape": "TStamp",
                         "locationName": "StartTime",
-                        "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: '2009-07-08T18:00Z'",
+                        "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>\n--\n-- Example: '2009-07-08T18:00Z'",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -17864,7 +17864,7 @@
                         "name": "_deEndTime",
                         "shape": "TStamp",
                         "locationName": "EndTime",
-                        "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: '2009-07-08T18:00Z'",
+                        "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>\n--\n-- Example: '2009-07-08T18:00Z'",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -17956,7 +17956,7 @@
                         "name": "_deEndTime",
                         "shape": "TStamp",
                         "locationName": "EndTime",
-                        "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: '2009-07-08T18:00Z'",
+                        "documentation": "-- | The end of the time interval for which to retrieve events, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>\n--\n-- Example: '2009-07-08T18:00Z'",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     },
@@ -18046,7 +18046,7 @@
                         "name": "_deStartTime",
                         "shape": "TStamp",
                         "locationName": "StartTime",
-                        "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the \u003chttp://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.\u003e\n--\n-- Example: '2009-07-08T18:00Z'",
+                        "documentation": "-- | The beginning of the time interval to retrieve events for, specified in ISO\n-- 8601 format. For more information about ISO 8601, go to the <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipediapage.>\n--\n-- Example: '2009-07-08T18:00Z'",
                         "typeExposed": "Maybe UTCTime",
                         "type": "Maybe ISO8601"
                     }
@@ -19272,7 +19272,7 @@
             },
             "name": "DescribeOrderableClusterOptions",
             "method": "post",
-            "documentation": "-- | Returns a list of orderable cluster options. Before you create a new cluster\n-- you can use this operation to find what options are available, such as the\n-- EC2 Availability Zones (AZ) in the specific AWS region that you can specify,\n-- and the node types you can request. The node types differ by available\n-- storage, memory, CPU and price. With the cost involved you might want to\n-- obtain a list of cluster options in the specific region and specify values\n-- when creating a cluster. For more information about managing clusters, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters\u003e in the /Amazon Redshift Cluster Management Guide/",
+            "documentation": "-- | Returns a list of orderable cluster options. Before you create a new cluster\n-- you can use this operation to find what options are available, such as the\n-- EC2 Availability Zones (AZ) in the specific AWS region that you can specify,\n-- and the node types you can request. The node types differ by available\n-- storage, memory, CPU and price. With the cost involved you might want to\n-- obtain a list of cluster options in the specific region and specify values\n-- when creating a cluster. For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in the /Amazon Redshift Cluster Management Guide/",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -19599,7 +19599,7 @@
             },
             "name": "DescribeReservedNodeOfferings",
             "method": "post",
-            "documentation": "-- | Returns a list of the available reserved node offerings by Amazon Redshift\n-- with their descriptions including the node type, the fixed and recurring\n-- costs of reserving the node and duration the node will be reserved for you.\n-- These descriptions help you determine which reserve node offering you want to\n-- purchase. You then use the unique offering ID in you call to 'PurchaseReservedNodeOffering' to reserve one or more nodes for your Amazon Redshift cluster.\n--\n-- For more information about managing parameter groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html PurchasingReserved Nodes\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Returns a list of the available reserved node offerings by Amazon Redshift\n-- with their descriptions including the node type, the fixed and recurring\n-- costs of reserving the node and duration the node will be reserved for you.\n-- These descriptions help you determine which reserve node offering you want to\n-- purchase. You then use the unique offering ID in you call to 'PurchaseReservedNodeOffering' to reserve one or more nodes for your Amazon Redshift cluster.\n--\n-- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html PurchasingReserved Nodes> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -20837,7 +20837,7 @@
                         "name": "_dtResourceType",
                         "shape": "String",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of resource with which you want to view tags. Valid resource types\n-- are:  Cluster CIDR/IP EC2 security group Snapshot Cluster security group Subnet group\n-- HSM connection HSM certificate Parameter group\n--\n-- For more information about Amazon Redshift resource types and constructing\n-- ARNs, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)\u003e in the\n-- Amazon Redshift Cluster Management Guide.",
+                        "documentation": "-- | The type of resource with which you want to view tags. Valid resource types\n-- are:  Cluster CIDR/IP EC2 security group Snapshot Cluster security group Subnet group\n-- HSM connection HSM certificate Parameter group\n--\n-- For more information about Amazon Redshift resource types and constructing\n-- ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the\n-- Amazon Redshift Cluster Management Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -20983,7 +20983,7 @@
                         "name": "_dtResourceType",
                         "shape": "String",
                         "locationName": "ResourceType",
-                        "documentation": "-- | The type of resource with which you want to view tags. Valid resource types\n-- are:  Cluster CIDR/IP EC2 security group Snapshot Cluster security group Subnet group\n-- HSM connection HSM certificate Parameter group\n--\n-- For more information about Amazon Redshift resource types and constructing\n-- ARNs, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)\u003e in the\n-- Amazon Redshift Cluster Management Guide.",
+                        "documentation": "-- | The type of resource with which you want to view tags. Valid resource types\n-- are:  Cluster CIDR/IP EC2 security group Snapshot Cluster security group Subnet group\n-- HSM connection HSM certificate Parameter group\n--\n-- For more information about Amazon Redshift resource types and constructing\n-- ARNs, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/constructing-redshift-arn.html Constructing an Amazon Redshift Amazon Resource Name (ARN)> in the\n-- Amazon Redshift Cluster Management Guide.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -22161,7 +22161,7 @@
                         "name": "_escDestinationRegion",
                         "shape": "String",
                         "locationName": "DestinationRegion",
-                        "documentation": "-- | The destination region that you want to copy snapshots to.\n--\n-- Constraints: Must be the name of a valid region. For more information, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints\u003e in the Amazon Web Services General Reference.",
+                        "documentation": "-- | The destination region that you want to copy snapshots to.\n--\n-- Constraints: Must be the name of a valid region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -22245,7 +22245,7 @@
                         "name": "_escDestinationRegion",
                         "shape": "String",
                         "locationName": "DestinationRegion",
-                        "documentation": "-- | The destination region that you want to copy snapshots to.\n--\n-- Constraints: Must be the name of a valid region. For more information, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints\u003e in the Amazon Web Services General Reference.",
+                        "documentation": "-- | The destination region that you want to copy snapshots to.\n--\n-- Constraints: Must be the name of a valid region. For more information, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints> in the Amazon Web Services General Reference.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -22366,7 +22366,7 @@
             "pager": null,
             "name": "ModifyCluster",
             "method": "post",
-            "documentation": "-- | Modifies the settings for a cluster. For example, you can add another\n-- security or parameter group, update the preferred maintenance window, or\n-- change the master user password. Resetting a cluster password or modifying\n-- the security groups associated with a cluster do not need a reboot. However,\n-- modifying a parameter group requires a reboot for parameters to take effect.\n-- For more information about managing clusters, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters\u003e\n-- in the /Amazon Redshift Cluster Management Guide/ .\n--\n-- You can also change node type and the number of nodes to scale up or down\n-- the cluster. When resizing a cluster, you must specify both the number of\n-- nodes and the node type even if one of the parameters does not change.",
+            "documentation": "-- | Modifies the settings for a cluster. For example, you can add another\n-- security or parameter group, update the preferred maintenance window, or\n-- change the master user password. Resetting a cluster password or modifying\n-- the security groups associated with a cluster do not need a reboot. However,\n-- modifying a parameter group requires a reboot for parameters to take effect.\n-- For more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters>\n-- in the /Amazon Redshift Cluster Management Guide/ .\n--\n-- You can also change node type and the number of nodes to scale up or down\n-- the cluster. When resizing a cluster, you must specify both the number of\n-- nodes and the node type even if one of the parameters does not change.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -22672,7 +22672,7 @@
                         "name": "_mcClusterVersion",
                         "shape": "String",
                         "locationName": "ClusterVersion",
-                        "documentation": "-- | The new version number of the Amazon Redshift engine to upgrade to.\n--\n-- For major version upgrades, if a non-default cluster parameter group is\n-- currently in use, a new cluster parameter group in the cluster parameter\n-- group family for the new version must be specified. The new cluster parameter\n-- group can be the default for that cluster parameter group family. For more\n-- information about managing parameter groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift ParameterGroups\u003e in the /Amazon Redshift Cluster Management Guide/.\n--\n-- Example: '1.0'",
+                        "documentation": "-- | The new version number of the Amazon Redshift engine to upgrade to.\n--\n-- For major version upgrades, if a non-default cluster parameter group is\n-- currently in use, a new cluster parameter group in the cluster parameter\n-- group family for the new version must be specified. The new cluster parameter\n-- group can be the default for that cluster parameter group family. For more\n-- information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift ParameterGroups> in the /Amazon Redshift Cluster Management Guide/.\n--\n-- Example: '1.0'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -22872,7 +22872,7 @@
                         "name": "_mcClusterVersion",
                         "shape": "String",
                         "locationName": "ClusterVersion",
-                        "documentation": "-- | The new version number of the Amazon Redshift engine to upgrade to.\n--\n-- For major version upgrades, if a non-default cluster parameter group is\n-- currently in use, a new cluster parameter group in the cluster parameter\n-- group family for the new version must be specified. The new cluster parameter\n-- group can be the default for that cluster parameter group family. For more\n-- information about managing parameter groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift ParameterGroups\u003e in the /Amazon Redshift Cluster Management Guide/.\n--\n-- Example: '1.0'",
+                        "documentation": "-- | The new version number of the Amazon Redshift engine to upgrade to.\n--\n-- For major version upgrades, if a non-default cluster parameter group is\n-- currently in use, a new cluster parameter group in the cluster parameter\n-- group family for the new version must be specified. The new cluster parameter\n-- group can be the default for that cluster parameter group family. For more\n-- information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift ParameterGroups> in the /Amazon Redshift Cluster Management Guide/.\n--\n-- Example: '1.0'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -23137,7 +23137,7 @@
             "pager": null,
             "name": "ModifyClusterParameterGroup",
             "method": "post",
-            "documentation": "-- | Modifies the parameters of a parameter group.\n--\n-- For more information about managing parameter groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Modifies the parameters of a parameter group.\n--\n-- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon RedshiftParameter Groups> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -24261,7 +24261,7 @@
             "pager": null,
             "name": "PurchaseReservedNodeOffering",
             "method": "post",
-            "documentation": "-- | Allows you to purchase reserved nodes. Amazon Redshift offers a predefined\n-- set of reserved node offerings. You can purchase one of the offerings. You\n-- can call the 'DescribeReservedNodeOfferings' API to obtain the available\n-- reserved node offerings. You can call this API by providing a specific\n-- reserved node offering and the number of nodes you want to reserve.\n--\n-- For more information about managing parameter groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html PurchasingReserved Nodes\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Allows you to purchase reserved nodes. Amazon Redshift offers a predefined\n-- set of reserved node offerings. You can purchase one of the offerings. You\n-- can call the 'DescribeReservedNodeOfferings' API to obtain the available\n-- reserved node offerings. You can call this API by providing a specific\n-- reserved node offering and the number of nodes you want to reserve.\n--\n-- For more information about managing parameter groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/purchase-reserved-node-instance.html PurchasingReserved Nodes> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -24481,7 +24481,7 @@
             "pager": null,
             "name": "RebootCluster",
             "method": "post",
-            "documentation": "-- | Reboots a cluster. This action is taken as soon as possible. It results in a\n-- momentary outage to the cluster, during which the cluster status is set to 'rebooting'. A cluster event is created when the reboot is completed. Any pending\n-- cluster modifications (see 'ModifyCluster') are applied at this reboot. For\n-- more information about managing clusters, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters\u003e in\n-- the /Amazon Redshift Cluster Management Guide/",
+            "documentation": "-- | Reboots a cluster. This action is taken as soon as possible. It results in a\n-- momentary outage to the cluster, during which the cluster status is set to 'rebooting'. A cluster event is created when the reboot is completed. Any pending\n-- cluster modifications (see 'ModifyCluster') are applied at this reboot. For\n-- more information about managing clusters, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html Amazon Redshift Clusters> in\n-- the /Amazon Redshift Cluster Management Guide/",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -24958,7 +24958,7 @@
             "pager": null,
             "name": "RestoreFromClusterSnapshot",
             "method": "post",
-            "documentation": "-- | Creates a new cluster from a snapshot. Amazon Redshift creates the resulting\n-- cluster with the same configuration as the original cluster from which the\n-- snapshot was created, except that the new cluster is created with the default\n-- cluster security and parameter group. After Amazon Redshift creates the\n-- cluster you can use the 'ModifyCluster' API to associate a different security\n-- group and different parameter group with the restored cluster.\n--\n-- If you restore a cluster into a VPC, you must provide a cluster subnet\n-- group where you want the cluster restored.\n--\n-- For more information about working with snapshots, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Creates a new cluster from a snapshot. Amazon Redshift creates the resulting\n-- cluster with the same configuration as the original cluster from which the\n-- snapshot was created, except that the new cluster is created with the default\n-- cluster security and parameter group. After Amazon Redshift creates the\n-- cluster you can use the 'ModifyCluster' API to associate a different security\n-- group and different parameter group with the restored cluster.\n--\n-- If you restore a cluster into a VPC, you must provide a cluster subnet\n-- group where you want the cluster restored.\n--\n-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -25315,7 +25315,7 @@
                         "name": "_rfcsClusterParameterGroupName",
                         "shape": "String",
                         "locationName": "ClusterParameterGroupName",
-                        "documentation": "-- | The name of the parameter group to be associated with this cluster.\n--\n-- Default: The default Amazon Redshift cluster parameter group. For\n-- information about the default parameter group, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with AmazonRedshift Parameter Groups\u003e.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens. First character must\n-- be a letter. Cannot end with a hyphen or contain two consecutive hyphens.",
+                        "documentation": "-- | The name of the parameter group to be associated with this cluster.\n--\n-- Default: The default Amazon Redshift cluster parameter group. For\n-- information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with AmazonRedshift Parameter Groups>.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens. First character must\n-- be a letter. Cannot end with a hyphen or contain two consecutive hyphens.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -25369,7 +25369,7 @@
                         "name": "_rfcsPreferredMaintenanceWindow",
                         "shape": "String",
                         "locationName": "PreferredMaintenanceWindow",
-                        "documentation": "-- | The weekly time range (in UTC) during which automated cluster maintenance\n-- can occur.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: The value selected for the cluster from which the snapshot was\n-- taken. For more information about the time blocks for each region, see \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows\u003e in Amazon Redshift Cluster Management Guide.\n--\n-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun\n--\n-- Constraints: Minimum 30-minute window.",
+                        "documentation": "-- | The weekly time range (in UTC) during which automated cluster maintenance\n-- can occur.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: The value selected for the cluster from which the snapshot was\n-- taken. For more information about the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.\n--\n-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun\n--\n-- Constraints: Minimum 30-minute window.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -25497,7 +25497,7 @@
                         "name": "_rfcsClusterParameterGroupName",
                         "shape": "String",
                         "locationName": "ClusterParameterGroupName",
-                        "documentation": "-- | The name of the parameter group to be associated with this cluster.\n--\n-- Default: The default Amazon Redshift cluster parameter group. For\n-- information about the default parameter group, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with AmazonRedshift Parameter Groups\u003e.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens. First character must\n-- be a letter. Cannot end with a hyphen or contain two consecutive hyphens.",
+                        "documentation": "-- | The name of the parameter group to be associated with this cluster.\n--\n-- Default: The default Amazon Redshift cluster parameter group. For\n-- information about the default parameter group, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Working with AmazonRedshift Parameter Groups>.\n--\n-- Constraints:\n--\n-- Must be 1 to 255 alphanumeric characters or hyphens. First character must\n-- be a letter. Cannot end with a hyphen or contain two consecutive hyphens.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -25659,7 +25659,7 @@
                         "name": "_rfcsPreferredMaintenanceWindow",
                         "shape": "String",
                         "locationName": "PreferredMaintenanceWindow",
-                        "documentation": "-- | The weekly time range (in UTC) during which automated cluster maintenance\n-- can occur.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: The value selected for the cluster from which the snapshot was\n-- taken. For more information about the time blocks for each region, see \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows\u003e in Amazon Redshift Cluster Management Guide.\n--\n-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun\n--\n-- Constraints: Minimum 30-minute window.",
+                        "documentation": "-- | The weekly time range (in UTC) during which automated cluster maintenance\n-- can occur.\n--\n-- Format: 'ddd:hh24:mi-ddd:hh24:mi'\n--\n-- Default: The value selected for the cluster from which the snapshot was\n-- taken. For more information about the time blocks for each region, see <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#rs-maintenance-windows Maintenance Windows> in Amazon Redshift Cluster Management Guide.\n--\n-- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun\n--\n-- Constraints: Minimum 30-minute window.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -25834,7 +25834,7 @@
             "pager": null,
             "name": "RevokeClusterSecurityGroupIngress",
             "method": "post",
-            "documentation": "-- | Revokes an ingress rule in an Amazon Redshift security group for a\n-- previously authorized IP range or Amazon EC2 security group. To add an\n-- ingress rule, see 'AuthorizeClusterSecurityGroupIngress'. For information about\n-- managing security groups, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups\u003e in\n-- the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Revokes an ingress rule in an Amazon Redshift security group for a\n-- previously authorized IP range or Amazon EC2 security group. To add an\n-- ingress rule, see 'AuthorizeClusterSecurityGroupIngress'. For information about\n-- managing security groups, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-security-groups.html Amazon Redshift Cluster Security Groups> in\n-- the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -26136,7 +26136,7 @@
             "pager": null,
             "name": "RevokeSnapshotAccess",
             "method": "post",
-            "documentation": "-- | Removes the ability of the specified AWS customer account to restore the\n-- specified snapshot. If the account is currently restoring the snapshot, the\n-- restore will run to completion.\n--\n-- For more information about working with snapshots, go to \u003chttp://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots\u003e in the /Amazon Redshift Cluster Management Guide/.",
+            "documentation": "-- | Removes the ability of the specified AWS customer account to restore the\n-- specified snapshot. If the account is currently restoring the snapshot, the\n-- restore will run to completion.\n--\n-- For more information about working with snapshots, go to <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-snapshots.html Amazon RedshiftSnapshots> in the /Amazon Redshift Cluster Management Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

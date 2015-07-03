@@ -1186,7 +1186,7 @@
             "pager": null,
             "name": "CreateDomain",
             "method": "post",
-            "documentation": "-- | The 'CreateDomain' operation creates a new domain. The domain name should be\n-- unique among the domains associated with the Access Key ID provided in the\n-- request. The 'CreateDomain' operation may take 10 or more seconds to complete.\n--\n-- The client can create up to 100 domains per account.\n--\n-- If the client requires additional domains, go to \u003chttp://aws.amazon.com/contact-us/simpledb-limit-request/ http://aws.amazon.com/contact-us/simpledb-limit-request/\u003e.",
+            "documentation": "-- | The 'CreateDomain' operation creates a new domain. The domain name should be\n-- unique among the domains associated with the Access Key ID provided in the\n-- request. The 'CreateDomain' operation may take 10 or more seconds to complete.\n--\n-- The client can create up to 100 domains per account.\n--\n-- If the client requires additional domains, go to <http://aws.amazon.com/contact-us/simpledb-limit-request/ http://aws.amazon.com/contact-us/simpledb-limit-request/>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2495,7 +2495,7 @@
             },
             "name": "ListDomains",
             "method": "post",
-            "documentation": "-- | The 'ListDomains' operation lists all domains associated with the Access Key\n-- ID. It returns domain names up to the limit set by \u003c#MaxNumberOfDomains MaxNumberOfDomains\u003e. A \u003c#NextToken NextToken\u003e is returned if there are more than 'MaxNumberOfDomains' domains. Calling 'ListDomains' successive times with the 'NextToken' provided by the operation returns up to 'MaxNumberOfDomains' more domain names with each successive operation call.",
+            "documentation": "-- | The 'ListDomains' operation lists all domains associated with the Access Key\n-- ID. It returns domain names up to the limit set by <#MaxNumberOfDomains MaxNumberOfDomains>. A <#NextToken NextToken> is returned if there are more than 'MaxNumberOfDomains' domains. Calling 'ListDomains' successive times with the 'NextToken' provided by the operation returns up to 'MaxNumberOfDomains' more domain names with each successive operation call.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

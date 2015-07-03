@@ -910,7 +910,7 @@
                         "name": "_lbaCrossZoneLoadBalancing",
                         "shape": "CrossZoneLoadBalancing",
                         "locationName": "CrossZoneLoadBalancing",
-                        "documentation": "-- | If enabled, the load balancer routes the request traffic evenly across all\n-- back-end instances regardless of the Availability Zones.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html Enable Cross-Zone Load Balancing\u003e in the /ElasticLoad Balancing Developer Guide/.",
+                        "documentation": "-- | If enabled, the load balancer routes the request traffic evenly across all\n-- back-end instances regardless of the Availability Zones.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html Enable Cross-Zone Load Balancing> in the /ElasticLoad Balancing Developer Guide/.",
                         "typeExposed": "Maybe CrossZoneLoadBalancing",
                         "type": "Maybe CrossZoneLoadBalancing"
                     },
@@ -928,7 +928,7 @@
                         "name": "_lbaAccessLog",
                         "shape": "AccessLog",
                         "locationName": "AccessLog",
-                        "documentation": "-- | If enabled, the load balancer captures detailed information of all requests\n-- and delivers the information to the Amazon S3 bucket that you specify.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html Enable Access Logs\u003e in the /Elastic Load BalancingDeveloper Guide/.",
+                        "documentation": "-- | If enabled, the load balancer captures detailed information of all requests\n-- and delivers the information to the Amazon S3 bucket that you specify.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html Enable Access Logs> in the /Elastic Load BalancingDeveloper Guide/.",
                         "typeExposed": "Maybe AccessLog",
                         "type": "Maybe AccessLog"
                     },
@@ -946,7 +946,7 @@
                         "name": "_lbaConnectionDraining",
                         "shape": "ConnectionDraining",
                         "locationName": "ConnectionDraining",
-                        "documentation": "-- | If enabled, the load balancer allows existing requests to complete before the\n-- load balancer shifts traffic away from a deregistered or unhealthy back-end\n-- instance.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html Enable Connection Draining\u003e in the /Elastic LoadBalancing Developer Guide/.",
+                        "documentation": "-- | If enabled, the load balancer allows existing requests to complete before the\n-- load balancer shifts traffic away from a deregistered or unhealthy back-end\n-- instance.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html Enable Connection Draining> in the /Elastic LoadBalancing Developer Guide/.",
                         "typeExposed": "Maybe ConnectionDraining",
                         "type": "Maybe ConnectionDraining"
                     },
@@ -964,7 +964,7 @@
                         "name": "_lbaConnectionSettings",
                         "shape": "ConnectionSettings",
                         "locationName": "ConnectionSettings",
-                        "documentation": "-- | If enabled, the load balancer allows the connections to remain idle (no data\n-- is sent over the connection) for the specified duration.\n--\n-- By default, Elastic Load Balancing maintains a 60-second idle connection\n-- timeout for both front-end and back-end connections of your load balancer.\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html Configure Idle Connection Timeout\u003e in the /ElasticLoad Balancing Developer Guide/.",
+                        "documentation": "-- | If enabled, the load balancer allows the connections to remain idle (no data\n-- is sent over the connection) for the specified duration.\n--\n-- By default, Elastic Load Balancing maintains a 60-second idle connection\n-- timeout for both front-end and back-end connections of your load balancer.\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html Configure Idle Connection Timeout> in the /ElasticLoad Balancing Developer Guide/.",
                         "typeExposed": "Maybe ConnectionSettings",
                         "type": "Maybe ConnectionSettings"
                     },
@@ -1002,7 +1002,7 @@
                         "name": "_lbaAccessLog",
                         "shape": "AccessLog",
                         "locationName": "AccessLog",
-                        "documentation": "-- | If enabled, the load balancer captures detailed information of all requests\n-- and delivers the information to the Amazon S3 bucket that you specify.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html Enable Access Logs\u003e in the /Elastic Load BalancingDeveloper Guide/.",
+                        "documentation": "-- | If enabled, the load balancer captures detailed information of all requests\n-- and delivers the information to the Amazon S3 bucket that you specify.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-access-logs.html Enable Access Logs> in the /Elastic Load BalancingDeveloper Guide/.",
                         "typeExposed": "Maybe AccessLog",
                         "type": "Maybe AccessLog"
                     },
@@ -1038,7 +1038,7 @@
                         "name": "_lbaConnectionDraining",
                         "shape": "ConnectionDraining",
                         "locationName": "ConnectionDraining",
-                        "documentation": "-- | If enabled, the load balancer allows existing requests to complete before the\n-- load balancer shifts traffic away from a deregistered or unhealthy back-end\n-- instance.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html Enable Connection Draining\u003e in the /Elastic LoadBalancing Developer Guide/.",
+                        "documentation": "-- | If enabled, the load balancer allows existing requests to complete before the\n-- load balancer shifts traffic away from a deregistered or unhealthy back-end\n-- instance.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-conn-drain.html Enable Connection Draining> in the /Elastic LoadBalancing Developer Guide/.",
                         "typeExposed": "Maybe ConnectionDraining",
                         "type": "Maybe ConnectionDraining"
                     },
@@ -1056,7 +1056,7 @@
                         "name": "_lbaConnectionSettings",
                         "shape": "ConnectionSettings",
                         "locationName": "ConnectionSettings",
-                        "documentation": "-- | If enabled, the load balancer allows the connections to remain idle (no data\n-- is sent over the connection) for the specified duration.\n--\n-- By default, Elastic Load Balancing maintains a 60-second idle connection\n-- timeout for both front-end and back-end connections of your load balancer.\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html Configure Idle Connection Timeout\u003e in the /ElasticLoad Balancing Developer Guide/.",
+                        "documentation": "-- | If enabled, the load balancer allows the connections to remain idle (no data\n-- is sent over the connection) for the specified duration.\n--\n-- By default, Elastic Load Balancing maintains a 60-second idle connection\n-- timeout for both front-end and back-end connections of your load balancer.\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/config-idle-timeout.html Configure Idle Connection Timeout> in the /ElasticLoad Balancing Developer Guide/.",
                         "typeExposed": "Maybe ConnectionSettings",
                         "type": "Maybe ConnectionSettings"
                     },
@@ -1074,7 +1074,7 @@
                         "name": "_lbaCrossZoneLoadBalancing",
                         "shape": "CrossZoneLoadBalancing",
                         "locationName": "CrossZoneLoadBalancing",
-                        "documentation": "-- | If enabled, the load balancer routes the request traffic evenly across all\n-- back-end instances regardless of the Availability Zones.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html Enable Cross-Zone Load Balancing\u003e in the /ElasticLoad Balancing Developer Guide/.",
+                        "documentation": "-- | If enabled, the load balancer routes the request traffic evenly across all\n-- back-end instances regardless of the Availability Zones.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/enable-disable-crosszone-lb.html Enable Cross-Zone Load Balancing> in the /ElasticLoad Balancing Developer Guide/.",
                         "typeExposed": "Maybe CrossZoneLoadBalancing",
                         "type": "Maybe CrossZoneLoadBalancing"
                     }
@@ -1811,7 +1811,7 @@
                         "name": "_lbdCanonicalHostedZoneName",
                         "shape": "DNSName",
                         "locationName": "CanonicalHostedZoneName",
-                        "documentation": "-- | The Amazon Route 53 hosted zone associated with the load balancer.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html Using Domain Names With Elastic Load Balancing\u003e in\n-- the /Elastic Load Balancing Developer Guide/.",
+                        "documentation": "-- | The Amazon Route 53 hosted zone associated with the load balancer.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html Using Domain Names With Elastic Load Balancing> in\n-- the /Elastic Load Balancing Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2101,7 +2101,7 @@
                         "name": "_lbdCanonicalHostedZoneName",
                         "shape": "DNSName",
                         "locationName": "CanonicalHostedZoneName",
-                        "documentation": "-- | The Amazon Route 53 hosted zone associated with the load balancer.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html Using Domain Names With Elastic Load Balancing\u003e in\n-- the /Elastic Load Balancing Developer Guide/.",
+                        "documentation": "-- | The Amazon Route 53 hosted zone associated with the load balancer.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/using-domain-names-with-elb.html Using Domain Names With Elastic Load Balancing> in\n-- the /Elastic Load Balancing Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3619,7 +3619,7 @@
             "pager": null,
             "name": "AddTags",
             "method": "post",
-            "documentation": "-- | Adds the specified tags to the specified load balancer. Each load balancer\n-- can have a maximum of 10 tags.\n--\n-- Each tag consists of a key and an optional value. If a tag with the same key\n-- is already associated with the load balancer, 'AddTags' updates its value.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging\u003e in the /Elastic Load Balancing DeveloperGuide/.",
+            "documentation": "-- | Adds the specified tags to the specified load balancer. Each load balancer\n-- can have a maximum of 10 tags.\n--\n-- Each tag consists of a key and an optional value. If a tag with the same key\n-- is already associated with the load balancer, 'AddTags' updates its value.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging> in the /Elastic Load Balancing DeveloperGuide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3841,7 +3841,7 @@
             "pager": null,
             "name": "ApplySecurityGroupsToLoadBalancer",
             "method": "post",
-            "documentation": "-- | Associates one or more security groups with your load balancer in a virtual\n-- private cloud (VPC). The specified security groups override the previously\n-- associated security groups.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html Manage Security Groups for Amazon VPC\u003e in the /Elastic Load Balancing Developer Guide/.",
+            "documentation": "-- | Associates one or more security groups with your load balancer in a virtual\n-- private cloud (VPC). The specified security groups override the previously\n-- associated security groups.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/USVPC_ApplySG.html Manage Security Groups for Amazon VPC> in the /Elastic Load Balancing Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4064,7 +4064,7 @@
             "pager": null,
             "name": "AttachLoadBalancerToSubnets",
             "method": "post",
-            "documentation": "-- | Adds one or more subnets to the set of configured subnets for the specified\n-- load balancer.\n--\n-- The load balancer evenly distributes requests across all registered subnets.\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Elastic Load Balancing in Amazon VPC\u003e in the /ElasticLoad Balancing Developer Guide/.",
+            "documentation": "-- | Adds one or more subnets to the set of configured subnets for the specified\n-- load balancer.\n--\n-- The load balancer evenly distributes requests across all registered subnets.\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Elastic Load Balancing in Amazon VPC> in the /ElasticLoad Balancing Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4284,7 +4284,7 @@
             "pager": null,
             "name": "ConfigureHealthCheck",
             "method": "post",
-            "documentation": "-- | Specifies the health check settings to use when evaluating the health state\n-- of your back-end instances.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck Health Checks\u003e in the /Elastic Load BalancingDeveloper Guide/.",
+            "documentation": "-- | Specifies the health check settings to use when evaluating the health state\n-- of your back-end instances.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#healthcheck Health Checks> in the /Elastic Load BalancingDeveloper Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4443,7 +4443,7 @@
             "pager": null,
             "name": "CreateAppCookieStickinessPolicy",
             "method": "post",
-            "documentation": "-- | Generates a stickiness policy with sticky session lifetimes that follow that\n-- of an application-generated cookie. This policy can be associated only with\n-- HTTP/HTTPS listeners.\n--\n-- This policy is similar to the policy created by 'CreateLBCookieStickinessPolicy', except that the lifetime of the special Elastic Load Balancing cookie, 'AWSELB', follows the lifetime of the application-generated cookie specified in the\n-- policy configuration. The load balancer only inserts a new stickiness cookie\n-- when the application response includes a new application cookie.\n--\n-- If the application cookie is explicitly removed or expires, the session\n-- stops being sticky until a new application cookie is issued.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsAppCookies Application-Controlled Session Stickiness\u003e in the /Elastic Load Balancing Developer Guide/.",
+            "documentation": "-- | Generates a stickiness policy with sticky session lifetimes that follow that\n-- of an application-generated cookie. This policy can be associated only with\n-- HTTP/HTTPS listeners.\n--\n-- This policy is similar to the policy created by 'CreateLBCookieStickinessPolicy', except that the lifetime of the special Elastic Load Balancing cookie, 'AWSELB', follows the lifetime of the application-generated cookie specified in the\n-- policy configuration. The load balancer only inserts a new stickiness cookie\n-- when the application response includes a new application cookie.\n--\n-- If the application cookie is explicitly removed or expires, the session\n-- stops being sticky until a new application cookie is issued.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsAppCookies Application-Controlled Session Stickiness> in the /Elastic Load Balancing Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4644,7 +4644,7 @@
             "pager": null,
             "name": "CreateLBCookieStickinessPolicy",
             "method": "post",
-            "documentation": "-- | Generates a stickiness policy with sticky session lifetimes controlled by the\n-- lifetime of the browser (user-agent) or a specified expiration period. This\n-- policy can be associated only with HTTP/HTTPS listeners.\n--\n-- When a load balancer implements this policy, the load balancer uses a\n-- special cookie to track the back-end server instance for each request. When\n-- the load balancer receives a request, it first checks to see if this cookie\n-- is present in the request. If so, the load balancer sends the request to the\n-- application server specified in the cookie. If not, the load balancer sends\n-- the request to a server that is chosen based on the existing load-balancing\n-- algorithm.\n--\n-- A cookie is inserted into the response for binding subsequent requests from\n-- the same user to that server. The validity of the cookie is based on the\n-- cookie expiration time, which is specified in the policy configuration.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsLBCookies Duration-Based Session Stickiness\u003e in the /ElasticLoad Balancing Developer Guide/.",
+            "documentation": "-- | Generates a stickiness policy with sticky session lifetimes controlled by the\n-- lifetime of the browser (user-agent) or a specified expiration period. This\n-- policy can be associated only with HTTP/HTTPS listeners.\n--\n-- When a load balancer implements this policy, the load balancer uses a\n-- special cookie to track the back-end server instance for each request. When\n-- the load balancer receives a request, it first checks to see if this cookie\n-- is present in the request. If so, the load balancer sends the request to the\n-- application server specified in the cookie. If not, the load balancer sends\n-- the request to a server that is chosen based on the existing load-balancing\n-- algorithm.\n--\n-- A cookie is inserted into the response for binding subsequent requests from\n-- the same user to that server. The validity of the cookie is based on the\n-- cookie expiration time, which is specified in the policy configuration.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_StickySessions.html#US_EnableStickySessionsLBCookies Duration-Based Session Stickiness> in the /ElasticLoad Balancing Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4907,7 +4907,7 @@
             "pager": null,
             "name": "CreateLoadBalancer",
             "method": "post",
-            "documentation": "-- | Creates a load balancer.\n--\n-- If the call completes successfully, a new load balancer is created with a\n-- unique Domain Name Service (DNS) name. The DNS name includes the name of the\n-- AWS region in which the load balancer was created. For example, the DNS name\n-- might end with either of the following:\n--\n-- 'us-east-1.elb.amazonaws.com'   'us-west-2.elb.amazonaws.com'   For\n-- information about the AWS regions supported by Elastic Load Balancing, see \u003chttp://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints\u003e in the /Amazon Web Services General Reference/.\n--\n-- You can create up to 20 load balancers per region per account. You can\n-- request an increase for the number of load balancers for your account. For\n-- more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits\u003e in the /Elastic LoadBalancing Developer Guide/.\n--\n-- Elastic Load Balancing supports load balancing your EC2 instances launched\n-- in either the EC2-Classic or EC2-VPC platform. For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html Elastic Load Balancing in EC2-Classic\u003e or \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Elastic Load Balancing in a VPC\u003e in the /Elastic Load Balancing DeveloperGuide/.",
+            "documentation": "-- | Creates a load balancer.\n--\n-- If the call completes successfully, a new load balancer is created with a\n-- unique Domain Name Service (DNS) name. The DNS name includes the name of the\n-- AWS region in which the load balancer was created. For example, the DNS name\n-- might end with either of the following:\n--\n-- 'us-east-1.elb.amazonaws.com'   'us-west-2.elb.amazonaws.com'   For\n-- information about the AWS regions supported by Elastic Load Balancing, see <http://docs.aws.amazon.com/general/latest/gr/rande.html#elb_region Regions and Endpoints> in the /Amazon Web Services General Reference/.\n--\n-- You can create up to 20 load balancers per region per account. You can\n-- request an increase for the number of load balancers for your account. For\n-- more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-limits.html Elastic Load Balancing Limits> in the /Elastic LoadBalancing Developer Guide/.\n--\n-- Elastic Load Balancing supports load balancing your EC2 instances launched\n-- in either the EC2-Classic or EC2-VPC platform. For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForEC2.html Elastic Load Balancing in EC2-Classic> or <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/UserScenariosForVPC.html Elastic Load Balancing in a VPC> in the /Elastic Load Balancing DeveloperGuide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4962,7 +4962,7 @@
                         "name": "_clbTags",
                         "shape": "TagList",
                         "locationName": "Tags",
-                        "documentation": "-- | A list of tags to assign to the load balancer.\n--\n-- For more information about tagging your load balancer, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging\u003e in the /Elastic Load Balancing Developer Guide/.",
+                        "documentation": "-- | A list of tags to assign to the load balancer.\n--\n-- For more information about tagging your load balancer, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging> in the /Elastic Load Balancing Developer Guide/.",
                         "typeExposed": "NonEmpty Tag",
                         "type": "List1 \"member\" Tag"
                     }
@@ -5028,7 +5028,7 @@
                         "name": "_clbListeners",
                         "shape": "Listeners",
                         "locationName": "Listeners",
-                        "documentation": "-- | The listeners.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listener Configurations for Elastic Load Balancing\u003e\n-- in the /Elastic Load Balancing Developer Guide/.",
+                        "documentation": "-- | The listeners.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listener Configurations for Elastic Load Balancing>\n-- in the /Elastic Load Balancing Developer Guide/.",
                         "typeExposed": "[Listener]",
                         "type": "List \"member\" Listener"
                     },
@@ -5100,7 +5100,7 @@
                         "name": "_clbScheme",
                         "shape": "LoadBalancerScheme",
                         "locationName": "Scheme",
-                        "documentation": "-- | The type of a load balancer. Valid only for load balancers in a VPC.\n--\n-- By default, Elastic Load Balancing creates an Internet-facing load balancer\n-- with a publicly resolvable DNS name, which resolves to public IP addresses.\n-- For more information about Internet-facing and Internal load balancers, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers\u003e in the /Elastic Load Balancing Developer Guide/.\n--\n-- Specify 'internal' to create an internal load balancer with a DNS name that\n-- resolves to private IP addresses.",
+                        "documentation": "-- | The type of a load balancer. Valid only for load balancers in a VPC.\n--\n-- By default, Elastic Load Balancing creates an Internet-facing load balancer\n-- with a publicly resolvable DNS name, which resolves to public IP addresses.\n-- For more information about Internet-facing and Internal load balancers, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers> in the /Elastic Load Balancing Developer Guide/.\n--\n-- Specify 'internal' to create an internal load balancer with a DNS name that\n-- resolves to private IP addresses.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5138,7 +5138,7 @@
                         "name": "_clbListeners",
                         "shape": "Listeners",
                         "locationName": "Listeners",
-                        "documentation": "-- | The listeners.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listener Configurations for Elastic Load Balancing\u003e\n-- in the /Elastic Load Balancing Developer Guide/.",
+                        "documentation": "-- | The listeners.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-listener-config.html Listener Configurations for Elastic Load Balancing>\n-- in the /Elastic Load Balancing Developer Guide/.",
                         "typeExposed": "[Listener]",
                         "type": "List \"member\" Listener"
                     },
@@ -5174,7 +5174,7 @@
                         "name": "_clbScheme",
                         "shape": "LoadBalancerScheme",
                         "locationName": "Scheme",
-                        "documentation": "-- | The type of a load balancer. Valid only for load balancers in a VPC.\n--\n-- By default, Elastic Load Balancing creates an Internet-facing load balancer\n-- with a publicly resolvable DNS name, which resolves to public IP addresses.\n-- For more information about Internet-facing and Internal load balancers, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers\u003e in the /Elastic Load Balancing Developer Guide/.\n--\n-- Specify 'internal' to create an internal load balancer with a DNS name that\n-- resolves to private IP addresses.",
+                        "documentation": "-- | The type of a load balancer. Valid only for load balancers in a VPC.\n--\n-- By default, Elastic Load Balancing creates an Internet-facing load balancer\n-- with a publicly resolvable DNS name, which resolves to public IP addresses.\n-- For more information about Internet-facing and Internal load balancers, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/vpc-loadbalancer-types.html Internet-facing and Internal Load Balancers> in the /Elastic Load Balancing Developer Guide/.\n--\n-- Specify 'internal' to create an internal load balancer with a DNS name that\n-- resolves to private IP addresses.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5228,7 +5228,7 @@
                         "name": "_clbTags",
                         "shape": "TagList",
                         "locationName": "Tags",
-                        "documentation": "-- | A list of tags to assign to the load balancer.\n--\n-- For more information about tagging your load balancer, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging\u003e in the /Elastic Load Balancing Developer Guide/.",
+                        "documentation": "-- | A list of tags to assign to the load balancer.\n--\n-- For more information about tagging your load balancer, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#tagging-elb Tagging> in the /Elastic Load Balancing Developer Guide/.",
                         "typeExposed": "NonEmpty Tag",
                         "type": "List1 \"member\" Tag"
                     }
@@ -5272,7 +5272,7 @@
             "pager": null,
             "name": "CreateLoadBalancerListeners",
             "method": "post",
-            "documentation": "-- | Creates one or more listeners for the specified load balancer. If a listener\n-- with the specified port does not already exist, it is created; otherwise, the\n-- properties of the new listener must match the properties of the existing\n-- listener.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html Add a Listener to Your Load Balancer\u003e in the /Elastic Load Balancing Developer Guide/.",
+            "documentation": "-- | Creates one or more listeners for the specified load balancer. If a listener\n-- with the specified port does not already exist, it is created; otherwise, the\n-- properties of the new listener must match the properties of the existing\n-- listener.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/us-add-listener.html Add a Listener to Your Load Balancer> in the /Elastic Load Balancing Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -6196,7 +6196,7 @@
             "pager": null,
             "name": "DeregisterInstancesFromLoadBalancer",
             "method": "post",
-            "documentation": "-- | Deregisters the specified instances from the specified load balancer. After\n-- the instance is deregistered, it no longer receives traffic from the load\n-- balancer.\n--\n-- You can use 'DescribeLoadBalancers' to verify that the instance is\n-- deregistered from the load balancer.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register Amazon EC2 Instances\u003e in\n-- the /Elastic Load Balancing Developer Guide/.",
+            "documentation": "-- | Deregisters the specified instances from the specified load balancer. After\n-- the instance is deregistered, it no longer receives traffic from the load\n-- balancer.\n--\n-- You can use 'DescribeLoadBalancers' to verify that the instance is\n-- deregistered from the load balancer.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register Amazon EC2 Instances> in\n-- the /Elastic Load Balancing Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -7969,7 +7969,7 @@
             "pager": null,
             "name": "DisableAvailabilityZonesForLoadBalancer",
             "method": "post",
-            "documentation": "-- | Removes the specified Availability Zones from the set of Availability Zones\n-- for the specified load balancer.\n--\n-- There must be at least one Availability Zone registered with a load balancer\n-- at all times. After an Availability Zone is removed, all instances registered\n-- with the load balancer that are in the removed Availability Zone go into the 'OutOfService' state. Then, the load balancer attempts to equally balance the traffic among\n-- its remaining Availability Zones.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html Disable an Availability Zone from a Load-BalancedApplication\u003e in the /Elastic Load Balancing Developer Guide/.",
+            "documentation": "-- | Removes the specified Availability Zones from the set of Availability Zones\n-- for the specified load balancer.\n--\n-- There must be at least one Availability Zone registered with a load balancer\n-- at all times. After an Availability Zone is removed, all instances registered\n-- with the load balancer that are in the removed Availability Zone go into the 'OutOfService' state. Then, the load balancer attempts to equally balance the traffic among\n-- its remaining Availability Zones.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_ShrinkLBApp04.html Disable an Availability Zone from a Load-BalancedApplication> in the /Elastic Load Balancing Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8192,7 +8192,7 @@
             "pager": null,
             "name": "EnableAvailabilityZonesForLoadBalancer",
             "method": "post",
-            "documentation": "-- | Adds the specified Availability Zones to the set of Availability Zones for\n-- the specified load balancer.\n--\n-- The load balancer evenly distributes requests across all its registered\n-- Availability Zones that contain instances.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone\u003e in the /Elastic LoadBalancing Developer Guide/.",
+            "documentation": "-- | Adds the specified Availability Zones to the set of Availability Zones for\n-- the specified load balancer.\n--\n-- The load balancer evenly distributes requests across all its registered\n-- Availability Zones that contain instances.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_AddLBAvailabilityZone.html Add Availability Zone> in the /Elastic LoadBalancing Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8429,7 +8429,7 @@
             "pager": null,
             "name": "ModifyLoadBalancerAttributes",
             "method": "post",
-            "documentation": "-- | Modifies the attributes of the specified load balancer.\n--\n-- You can modify the load balancer attributes, such as 'AccessLogs', 'ConnectionDraining', and 'CrossZoneLoadBalancing' by either enabling or disabling them. Or, you\n-- can modify the load balancer attribute 'ConnectionSettings' by specifying an\n-- idle connection timeout value for your load balancer.\n--\n-- For more information, see the following in the /Elastic Load BalancingDeveloper Guide/:\n--\n-- \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing Cross-Zone Load Balancing\u003e \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining\u003e \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html Access Logs\u003e \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout Idle ConnectionTimeout\u003e",
+            "documentation": "-- | Modifies the attributes of the specified load balancer.\n--\n-- You can modify the load balancer attributes, such as 'AccessLogs', 'ConnectionDraining', and 'CrossZoneLoadBalancing' by either enabling or disabling them. Or, you\n-- can modify the load balancer attribute 'ConnectionSettings' by specifying an\n-- idle connection timeout value for your load balancer.\n--\n-- For more information, see the following in the /Elastic Load BalancingDeveloper Guide/:\n--\n-- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#request-routing Cross-Zone Load Balancing> <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#conn-drain Connection Draining> <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/access-log-collection.html Access Logs> <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/TerminologyandKeyConcepts.html#idle-timeout Idle ConnectionTimeout>",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8649,7 +8649,7 @@
             "pager": null,
             "name": "RegisterInstancesWithLoadBalancer",
             "method": "post",
-            "documentation": "-- | Adds the specified instances to the specified load balancer.\n--\n-- The instance must be a running instance in the same network as the load\n-- balancer (EC2-Classic or the same VPC). If you have EC2-Classic instances and\n-- a load balancer in a VPC with ClassicLink enabled, you can link the\n-- EC2-Classic instances to that VPC and then register the linked EC2-Classic\n-- instances with the load balancer in the VPC.\n--\n-- Note that 'RegisterInstanceWithLoadBalancer' completes when the request has\n-- been registered. Instance registration happens shortly afterwards. To check\n-- the state of the registered instances, use 'DescribeLoadBalancers' or 'DescribeInstanceHealth'.\n--\n-- After the instance is registered, it starts receiving traffic and requests\n-- from the load balancer. Any instance that is not in one of the Availability\n-- Zones registered for the load balancer is moved to the 'OutOfService' state. If\n-- an Availability Zone is added to the load balancer later, any instances\n-- registered with the load balancer move to the 'InService' state.\n--\n-- If you stop an instance registered with a load balancer and then start it,\n-- the IP addresses associated with the instance changes. Elastic Load Balancing\n-- cannot recognize the new IP address, which prevents it from routing traffic\n-- to the instances. We recommend that you use the following sequence: stop the\n-- instance, deregister the instance, start the instance, and then register the\n-- instance. To deregister instances from a load balancer, use 'DeregisterInstancesFromLoadBalancer'.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register EC2 Instances\u003e in the /Elastic Load Balancing Developer Guide/.",
+            "documentation": "-- | Adds the specified instances to the specified load balancer.\n--\n-- The instance must be a running instance in the same network as the load\n-- balancer (EC2-Classic or the same VPC). If you have EC2-Classic instances and\n-- a load balancer in a VPC with ClassicLink enabled, you can link the\n-- EC2-Classic instances to that VPC and then register the linked EC2-Classic\n-- instances with the load balancer in the VPC.\n--\n-- Note that 'RegisterInstanceWithLoadBalancer' completes when the request has\n-- been registered. Instance registration happens shortly afterwards. To check\n-- the state of the registered instances, use 'DescribeLoadBalancers' or 'DescribeInstanceHealth'.\n--\n-- After the instance is registered, it starts receiving traffic and requests\n-- from the load balancer. Any instance that is not in one of the Availability\n-- Zones registered for the load balancer is moved to the 'OutOfService' state. If\n-- an Availability Zone is added to the load balancer later, any instances\n-- registered with the load balancer move to the 'InService' state.\n--\n-- If you stop an instance registered with a load balancer and then start it,\n-- the IP addresses associated with the instance changes. Elastic Load Balancing\n-- cannot recognize the new IP address, which prevents it from routing traffic\n-- to the instances. We recommend that you use the following sequence: stop the\n-- instance, deregister the instance, start the instance, and then register the\n-- instance. To deregister instances from a load balancer, use 'DeregisterInstancesFromLoadBalancer'.\n--\n-- For more information, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_DeReg_Reg_Instances.html Deregister and Register EC2 Instances> in the /Elastic Load Balancing Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8969,7 +8969,7 @@
             "pager": null,
             "name": "SetLoadBalancerListenerSSLCertificate",
             "method": "post",
-            "documentation": "-- | Sets the certificate that terminates the specified listener's SSL\n-- connections. The specified certificate replaces any prior certificate that\n-- was used on the same load balancer and port.\n--\n-- For more information about updating your SSL certificate, see \u003chttp://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating anSSL Certificate for a Load Balancer\u003e in the /Elastic Load Balancing DeveloperGuide/.",
+            "documentation": "-- | Sets the certificate that terminates the specified listener's SSL\n-- connections. The specified certificate replaces any prior certificate that\n-- was used on the same load balancer and port.\n--\n-- For more information about updating your SSL certificate, see <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/US_UpdatingLoadBalancerSSL.html Updating anSSL Certificate for a Load Balancer> in the /Elastic Load Balancing DeveloperGuide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

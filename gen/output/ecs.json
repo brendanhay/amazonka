@@ -2065,7 +2065,7 @@
                         "name": "_viAgentHash",
                         "shape": "String",
                         "locationName": "agentHash",
-                        "documentation": "-- | The Git commit hash for the Amazon ECS container agent build on the \u003chttps://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent \u003e GitHub repository.",
+                        "documentation": "-- | The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2127,7 +2127,7 @@
                         "name": "_viAgentHash",
                         "shape": "String",
                         "locationName": "agentHash",
-                        "documentation": "-- | The Git commit hash for the Amazon ECS container agent build on the \u003chttps://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent \u003e GitHub repository.",
+                        "documentation": "-- | The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2165,7 +2165,7 @@
                         "name": "_viAgentHash",
                         "shape": "String",
                         "locationName": "agentHash",
-                        "documentation": "-- | The Git commit hash for the Amazon ECS container agent build on the \u003chttps://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent \u003e GitHub repository.",
+                        "documentation": "-- | The Git commit hash for the Amazon ECS container agent build on the <https://github.com/aws/amazon-ecs-agent/commits/master amazon-ecs-agent > GitHub repository.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2885,7 +2885,7 @@
                         "name": "_cdLinks",
                         "shape": "StringList",
                         "locationName": "links",
-                        "documentation": "-- | The 'link' parameter allows containers to communicate with each other without\n-- the need for port mappings, using the 'name' parameter. For more information on\n-- linking Docker containers, see \u003chttps://docs.docker.com/userguide/dockerlinks/ https://docs.docker.com/userguide/dockerlinks/\u003e.",
+                        "documentation": "-- | The 'link' parameter allows containers to communicate with each other without\n-- the need for port mappings, using the 'name' parameter. For more information on\n-- linking Docker containers, see <https://docs.docker.com/userguide/dockerlinks/ https://docs.docker.com/userguide/dockerlinks/>.",
                         "typeExposed": "[Text]",
                         "type": "List \"links\" Text"
                     },
@@ -2939,7 +2939,7 @@
                         "name": "_cdEntryPoint",
                         "shape": "StringList",
                         "locationName": "entryPoint",
-                        "documentation": "-- | Early versions of the Amazon ECS container agent do not properly handle 'entryPoint' parameters. If you have problems using 'entryPoint', update your container\n-- agent or enter your commands and arguments as 'command' array items instead.\n--\n-- The 'ENTRYPOINT' that is passed to the container. For more information on the\n-- Docker 'ENTRYPOINT' parameter, see \u003chttps://docs.docker.com/reference/builder/#entrypoint https://docs.docker.com/reference/builder/#entrypoint\u003e.",
+                        "documentation": "-- | Early versions of the Amazon ECS container agent do not properly handle 'entryPoint' parameters. If you have problems using 'entryPoint', update your container\n-- agent or enter your commands and arguments as 'command' array items instead.\n--\n-- The 'ENTRYPOINT' that is passed to the container. For more information on the\n-- Docker 'ENTRYPOINT' parameter, see <https://docs.docker.com/reference/builder/#entrypoint https://docs.docker.com/reference/builder/#entrypoint>.",
                         "typeExposed": "[Text]",
                         "type": "List \"entryPoint\" Text"
                     },
@@ -2957,7 +2957,7 @@
                         "name": "_cdCommand",
                         "shape": "StringList",
                         "locationName": "command",
-                        "documentation": "-- | The 'CMD' that is passed to the container. For more information on the Docker 'CMD' parameter, see \u003chttps://docs.docker.com/reference/builder/#cmd https://docs.docker.com/reference/builder/#cmd\u003e.",
+                        "documentation": "-- | The 'CMD' that is passed to the container. For more information on the Docker 'CMD' parameter, see <https://docs.docker.com/reference/builder/#cmd https://docs.docker.com/reference/builder/#cmd>.",
                         "typeExposed": "[Text]",
                         "type": "List \"command\" Text"
                     },
@@ -3109,7 +3109,7 @@
                         "name": "_cdLinks",
                         "shape": "StringList",
                         "locationName": "links",
-                        "documentation": "-- | The 'link' parameter allows containers to communicate with each other without\n-- the need for port mappings, using the 'name' parameter. For more information on\n-- linking Docker containers, see \u003chttps://docs.docker.com/userguide/dockerlinks/ https://docs.docker.com/userguide/dockerlinks/\u003e.",
+                        "documentation": "-- | The 'link' parameter allows containers to communicate with each other without\n-- the need for port mappings, using the 'name' parameter. For more information on\n-- linking Docker containers, see <https://docs.docker.com/userguide/dockerlinks/ https://docs.docker.com/userguide/dockerlinks/>.",
                         "typeExposed": "[Text]",
                         "type": "List \"links\" Text"
                     },
@@ -3163,7 +3163,7 @@
                         "name": "_cdEntryPoint",
                         "shape": "StringList",
                         "locationName": "entryPoint",
-                        "documentation": "-- | Early versions of the Amazon ECS container agent do not properly handle 'entryPoint' parameters. If you have problems using 'entryPoint', update your container\n-- agent or enter your commands and arguments as 'command' array items instead.\n--\n-- The 'ENTRYPOINT' that is passed to the container. For more information on the\n-- Docker 'ENTRYPOINT' parameter, see \u003chttps://docs.docker.com/reference/builder/#entrypoint https://docs.docker.com/reference/builder/#entrypoint\u003e.",
+                        "documentation": "-- | Early versions of the Amazon ECS container agent do not properly handle 'entryPoint' parameters. If you have problems using 'entryPoint', update your container\n-- agent or enter your commands and arguments as 'command' array items instead.\n--\n-- The 'ENTRYPOINT' that is passed to the container. For more information on the\n-- Docker 'ENTRYPOINT' parameter, see <https://docs.docker.com/reference/builder/#entrypoint https://docs.docker.com/reference/builder/#entrypoint>.",
                         "typeExposed": "[Text]",
                         "type": "List \"entryPoint\" Text"
                     },
@@ -3181,7 +3181,7 @@
                         "name": "_cdCommand",
                         "shape": "StringList",
                         "locationName": "command",
-                        "documentation": "-- | The 'CMD' that is passed to the container. For more information on the Docker 'CMD' parameter, see \u003chttps://docs.docker.com/reference/builder/#cmd https://docs.docker.com/reference/builder/#cmd\u003e.",
+                        "documentation": "-- | The 'CMD' that is passed to the container. For more information on the Docker 'CMD' parameter, see <https://docs.docker.com/reference/builder/#cmd https://docs.docker.com/reference/builder/#cmd>.",
                         "typeExposed": "[Text]",
                         "type": "List \"command\" Text"
                     },
@@ -3255,7 +3255,7 @@
                         "name": "_cdCommand",
                         "shape": "StringList",
                         "locationName": "command",
-                        "documentation": "-- | The 'CMD' that is passed to the container. For more information on the Docker 'CMD' parameter, see \u003chttps://docs.docker.com/reference/builder/#cmd https://docs.docker.com/reference/builder/#cmd\u003e.",
+                        "documentation": "-- | The 'CMD' that is passed to the container. For more information on the Docker 'CMD' parameter, see <https://docs.docker.com/reference/builder/#cmd https://docs.docker.com/reference/builder/#cmd>.",
                         "typeExposed": "[Text]",
                         "type": "List \"command\" Text"
                     },
@@ -3291,7 +3291,7 @@
                         "name": "_cdEntryPoint",
                         "shape": "StringList",
                         "locationName": "entryPoint",
-                        "documentation": "-- | Early versions of the Amazon ECS container agent do not properly handle 'entryPoint' parameters. If you have problems using 'entryPoint', update your container\n-- agent or enter your commands and arguments as 'command' array items instead.\n--\n-- The 'ENTRYPOINT' that is passed to the container. For more information on the\n-- Docker 'ENTRYPOINT' parameter, see \u003chttps://docs.docker.com/reference/builder/#entrypoint https://docs.docker.com/reference/builder/#entrypoint\u003e.",
+                        "documentation": "-- | Early versions of the Amazon ECS container agent do not properly handle 'entryPoint' parameters. If you have problems using 'entryPoint', update your container\n-- agent or enter your commands and arguments as 'command' array items instead.\n--\n-- The 'ENTRYPOINT' that is passed to the container. For more information on the\n-- Docker 'ENTRYPOINT' parameter, see <https://docs.docker.com/reference/builder/#entrypoint https://docs.docker.com/reference/builder/#entrypoint>.",
                         "typeExposed": "[Text]",
                         "type": "List \"entryPoint\" Text"
                     },
@@ -3363,7 +3363,7 @@
                         "name": "_cdLinks",
                         "shape": "StringList",
                         "locationName": "links",
-                        "documentation": "-- | The 'link' parameter allows containers to communicate with each other without\n-- the need for port mappings, using the 'name' parameter. For more information on\n-- linking Docker containers, see \u003chttps://docs.docker.com/userguide/dockerlinks/ https://docs.docker.com/userguide/dockerlinks/\u003e.",
+                        "documentation": "-- | The 'link' parameter allows containers to communicate with each other without\n-- the need for port mappings, using the 'name' parameter. For more information on\n-- linking Docker containers, see <https://docs.docker.com/userguide/dockerlinks/ https://docs.docker.com/userguide/dockerlinks/>.",
                         "typeExposed": "[Text]",
                         "type": "List \"links\" Text"
                     },
@@ -4483,7 +4483,7 @@
                         "name": "_tdContainerDefinitions",
                         "shape": "ContainerDefinitions",
                         "locationName": "containerDefinitions",
-                        "documentation": "-- | A list of container definitions in JSON format that describe the different\n-- containers that make up your task. For more information on container\n-- definition parameters and defaults, see \u003chttp://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions\u003e in the /Amazon EC2 Container Service Developer Guide/.",
+                        "documentation": "-- | A list of container definitions in JSON format that describe the different\n-- containers that make up your task. For more information on container\n-- definition parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2 Container Service Developer Guide/.",
                         "typeExposed": "[ContainerDefinition]",
                         "type": "List \"containerDefinitions\" ContainerDefinition"
                     },
@@ -4537,7 +4537,7 @@
                         "name": "_tdVolumes",
                         "shape": "VolumeList",
                         "locationName": "volumes",
-                        "documentation": "-- | The list of volumes in a task. For more information on volume definition\n-- parameters and defaults, see \u003chttp://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions\u003e in the /Amazon EC2Container Service Developer Guide/.",
+                        "documentation": "-- | The list of volumes in a task. For more information on volume definition\n-- parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2Container Service Developer Guide/.",
                         "typeExposed": "[Volume]",
                         "type": "List \"volumes\" Volume"
                     }
@@ -4581,7 +4581,7 @@
                         "name": "_tdContainerDefinitions",
                         "shape": "ContainerDefinitions",
                         "locationName": "containerDefinitions",
-                        "documentation": "-- | A list of container definitions in JSON format that describe the different\n-- containers that make up your task. For more information on container\n-- definition parameters and defaults, see \u003chttp://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions\u003e in the /Amazon EC2 Container Service Developer Guide/.",
+                        "documentation": "-- | A list of container definitions in JSON format that describe the different\n-- containers that make up your task. For more information on container\n-- definition parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2 Container Service Developer Guide/.",
                         "typeExposed": "[ContainerDefinition]",
                         "type": "List \"containerDefinitions\" ContainerDefinition"
                     },
@@ -4635,7 +4635,7 @@
                         "name": "_tdVolumes",
                         "shape": "VolumeList",
                         "locationName": "volumes",
-                        "documentation": "-- | The list of volumes in a task. For more information on volume definition\n-- parameters and defaults, see \u003chttp://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions\u003e in the /Amazon EC2Container Service Developer Guide/.",
+                        "documentation": "-- | The list of volumes in a task. For more information on volume definition\n-- parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2Container Service Developer Guide/.",
                         "typeExposed": "[Volume]",
                         "type": "List \"volumes\" Volume"
                     }
@@ -4655,7 +4655,7 @@
                         "name": "_tdContainerDefinitions",
                         "shape": "ContainerDefinitions",
                         "locationName": "containerDefinitions",
-                        "documentation": "-- | A list of container definitions in JSON format that describe the different\n-- containers that make up your task. For more information on container\n-- definition parameters and defaults, see \u003chttp://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions\u003e in the /Amazon EC2 Container Service Developer Guide/.",
+                        "documentation": "-- | A list of container definitions in JSON format that describe the different\n-- containers that make up your task. For more information on container\n-- definition parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2 Container Service Developer Guide/.",
                         "typeExposed": "[ContainerDefinition]",
                         "type": "List \"containerDefinitions\" ContainerDefinition"
                     },
@@ -4727,7 +4727,7 @@
                         "name": "_tdVolumes",
                         "shape": "VolumeList",
                         "locationName": "volumes",
-                        "documentation": "-- | The list of volumes in a task. For more information on volume definition\n-- parameters and defaults, see \u003chttp://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions\u003e in the /Amazon EC2Container Service Developer Guide/.",
+                        "documentation": "-- | The list of volumes in a task. For more information on volume definition\n-- parameters and defaults, see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2Container Service Developer Guide/.",
                         "typeExposed": "[Volume]",
                         "type": "List \"volumes\" Volume"
                     }
@@ -12447,7 +12447,7 @@
             "pager": null,
             "name": "RegisterTaskDefinition",
             "method": "post",
-            "documentation": "-- | Registers a new task definition from the supplied 'family' and 'containerDefinitions'. Optionally, you can add data volumes to your containers with the 'volumes'\n-- parameter. For more information on task definition parameters and defaults,\n-- see \u003chttp://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions\u003e in the /Amazon EC2 Container Service DeveloperGuide/.",
+            "documentation": "-- | Registers a new task definition from the supplied 'family' and 'containerDefinitions'. Optionally, you can add data volumes to your containers with the 'volumes'\n-- parameter. For more information on task definition parameters and defaults,\n-- see <http://docs.aws.amazon.com/AmazonECS/latest/developerguide/task_defintions.html Amazon ECS Task Definitions> in the /Amazon EC2 Container Service DeveloperGuide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

@@ -1319,7 +1319,7 @@
                         "name": "_ciRelatedEvents",
                         "shape": "RelatedEventList",
                         "locationName": "relatedEvents",
-                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
+                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?>.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
                         "typeExposed": "[Text]",
                         "type": "List \"relatedEvents\" Text"
                     },
@@ -1597,7 +1597,7 @@
                         "name": "_ciRelatedEvents",
                         "shape": "RelatedEventList",
                         "locationName": "relatedEvents",
-                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
+                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?>.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
                         "typeExposed": "[Text]",
                         "type": "List \"relatedEvents\" Text"
                     },
@@ -1797,7 +1797,7 @@
                         "name": "_ciRelatedEvents",
                         "shape": "RelatedEventList",
                         "locationName": "relatedEvents",
-                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see \u003chttp://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?\u003e.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
+                        "documentation": "-- | A list of CloudTrail event IDs.\n--\n-- A populated field indicates that the current configuration was initiated by\n-- the events recorded in the CloudTrail log. For more information about\n-- CloudTrail, see <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html What is AWS CloudTrail?>.\n--\n-- An empty field indicates that the current configuration was not initiated by\n-- any event.",
                         "typeExposed": "[Text]",
                         "type": "List \"relatedEvents\" Text"
                     },

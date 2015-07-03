@@ -1008,7 +1008,7 @@
                         "name": "_lcClassicLinkVPCId",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "ClassicLinkVPCId",
-                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute CloudUser Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1026,7 +1026,7 @@
                         "name": "_lcClassicLinkVPCSecurityGroups",
                         "shape": "ClassicLinkVPCSecurityGroups",
                         "locationName": "ClassicLinkVPCSecurityGroups",
-                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon ElasticCompute Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -1262,7 +1262,7 @@
                         "name": "_lcClassicLinkVPCId",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "ClassicLinkVPCId",
-                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute CloudUser Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1280,7 +1280,7 @@
                         "name": "_lcClassicLinkVPCSecurityGroups",
                         "shape": "ClassicLinkVPCSecurityGroups",
                         "locationName": "ClassicLinkVPCSecurityGroups",
-                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon ElasticCompute Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -1839,7 +1839,7 @@
                         "name": "_asgPlacementGroup",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "PlacementGroup",
-                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups\u003e.",
+                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2201,7 +2201,7 @@
                         "name": "_asgPlacementGroup",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "PlacementGroup",
-                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups\u003e.",
+                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -3382,7 +3382,7 @@
                     "name": "_atAdjustmentType",
                     "shape": "XmlStringMaxLen255",
                     "locationName": "AdjustmentType",
-                    "documentation": "-- | The policy adjustment type. The valid values are 'ChangeInCapacity', 'ExactCapacity', and 'PercentChangeInCapacity'.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling\u003e in the /Auto Scaling Developer Guide/\n-- .",
+                    "documentation": "-- | The policy adjustment type. The valid values are 'ChangeInCapacity', 'ExactCapacity', and 'PercentChangeInCapacity'.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling Developer Guide/\n-- .",
                     "typeExposed": "Maybe Text",
                     "type": "Maybe Text"
                 },
@@ -3408,7 +3408,7 @@
                         "name": "_atAdjustmentType",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "AdjustmentType",
-                        "documentation": "-- | The policy adjustment type. The valid values are 'ChangeInCapacity', 'ExactCapacity', and 'PercentChangeInCapacity'.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling\u003e in the /Auto Scaling Developer Guide/\n-- .",
+                        "documentation": "-- | The policy adjustment type. The valid values are 'ChangeInCapacity', 'ExactCapacity', and 'PercentChangeInCapacity'.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling Developer Guide/\n-- .",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -3428,7 +3428,7 @@
                         "name": "_atAdjustmentType",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "AdjustmentType",
-                        "documentation": "-- | The policy adjustment type. The valid values are 'ChangeInCapacity', 'ExactCapacity', and 'PercentChangeInCapacity'.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling\u003e in the /Auto Scaling Developer Guide/\n-- .",
+                        "documentation": "-- | The policy adjustment type. The valid values are 'ChangeInCapacity', 'ExactCapacity', and 'PercentChangeInCapacity'.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling Developer Guide/\n-- .",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5074,7 +5074,7 @@
                         "name": "_asidLifecycleState",
                         "shape": "XmlStringMaxLen32",
                         "locationName": "LifecycleState",
-                        "documentation": "-- | The lifecycle state for the instance. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html#AutoScalingStates Auto ScalingInstance States\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The lifecycle state for the instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html#AutoScalingStates Auto ScalingInstance States> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -5225,7 +5225,7 @@
                         "name": "_asidLifecycleState",
                         "shape": "XmlStringMaxLen32",
                         "locationName": "LifecycleState",
-                        "documentation": "-- | The lifecycle state for the instance. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html#AutoScalingStates Auto ScalingInstance States\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The lifecycle state for the instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html#AutoScalingStates Auto ScalingInstance States> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -5303,7 +5303,7 @@
             "pager": null,
             "name": "AttachInstances",
             "method": "post",
-            "documentation": "-- | Attaches one or more EC2 instances to the specified Auto Scaling group.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach Amazon EC2 Instances to Your Existing AutoScaling Group\u003e in the /Auto Scaling Developer Guide/.",
+            "documentation": "-- | Attaches one or more EC2 instances to the specified Auto Scaling group.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/attach-instance-asg.html Attach Amazon EC2 Instances to Your Existing AutoScaling Group> in the /Auto Scaling Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5464,7 +5464,7 @@
             "pager": null,
             "name": "CompleteLifecycleAction",
             "method": "post",
-            "documentation": "-- | Completes the lifecycle action for the associated token initiated under the\n-- given lifecycle hook with the specified result.\n--\n-- This operation is a part of the basic sequence for adding a lifecycle hook\n-- to an Auto Scaling group:\n--\n-- Create a notification target. A target can be either an Amazon SQS queue or\n-- an Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to\n-- publish lifecycle notifications to the designated SQS queue or SNS topic. Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate.\n-- If necessary, record the lifecycle action heartbeat to keep the instance in\n-- a pending state.  Complete the lifecycle action.  For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State\u003e and \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State\u003e in the /Auto Scaling Developer Guide/.",
+            "documentation": "-- | Completes the lifecycle action for the associated token initiated under the\n-- given lifecycle hook with the specified result.\n--\n-- This operation is a part of the basic sequence for adding a lifecycle hook\n-- to an Auto Scaling group:\n--\n-- Create a notification target. A target can be either an Amazon SQS queue or\n-- an Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to\n-- publish lifecycle notifications to the designated SQS queue or SNS topic. Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate.\n-- If necessary, record the lifecycle action heartbeat to keep the instance in\n-- a pending state.  Complete the lifecycle action.  For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State> and <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State> in the /Auto Scaling Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5921,7 +5921,7 @@
                         "name": "_casgInstanceId",
                         "shape": "XmlStringMaxLen16",
                         "locationName": "InstanceId",
-                        "documentation": "-- | The ID of the EC2 instance used to create a launch configuration for the\n-- group. Alternatively, use the 'LaunchConfigurationName' parameter to specify a\n-- launch configuration instead of an EC2 instance.\n--\n-- When you specify an ID of an instance, Auto Scaling creates a new launch\n-- configuration and associates it with the group. This launch configuration\n-- derives its attributes from the specified instance, with the exception of the\n-- block device mapping.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 InstanceID\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The ID of the EC2 instance used to create a launch configuration for the\n-- group. Alternatively, use the 'LaunchConfigurationName' parameter to specify a\n-- launch configuration instead of an EC2 instance.\n--\n-- When you specify an ID of an instance, Auto Scaling creates a new launch\n-- configuration and associates it with the group. This launch configuration\n-- derives its attributes from the specified instance, with the exception of the\n-- block device mapping.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 InstanceID> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -5957,7 +5957,7 @@
                         "name": "_casgDefaultCooldown",
                         "shape": "Cooldown",
                         "locationName": "DefaultCooldown",
-                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes before\n-- another scaling activity can start.\n--\n-- If 'DefaultCooldown' is not specified, the default value is 300. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns\u003e in the /Auto ScalingDeveloper Guide/.",
+                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes before\n-- another scaling activity can start.\n--\n-- If 'DefaultCooldown' is not specified, the default value is 300. For more\n-- information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns> in the /Auto ScalingDeveloper Guide/.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -5975,7 +5975,7 @@
                         "name": "_casgLoadBalancerNames",
                         "shape": "LoadBalancerNames",
                         "locationName": "LoadBalancerNames",
-                        "documentation": "-- | One or more load balancers.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group\u003e in the /AutoScaling Developer Guide/.",
+                        "documentation": "-- | One or more load balancers.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group> in the /AutoScaling Developer Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -5993,7 +5993,7 @@
                         "name": "_casgHealthCheckType",
                         "shape": "XmlStringMaxLen32",
                         "locationName": "HealthCheckType",
-                        "documentation": "-- | The service to use for the health checks. The valid values are 'EC2' and 'ELB'.\n--\n-- By default, health checks use Amazon EC2 instance status checks to determine\n-- the health of an instance. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks\u003e.",
+                        "documentation": "-- | The service to use for the health checks. The valid values are 'EC2' and 'ELB'.\n--\n-- By default, health checks use Amazon EC2 instance status checks to determine\n-- the health of an instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6011,7 +6011,7 @@
                         "name": "_casgHealthCheckGracePeriod",
                         "shape": "HealthCheckGracePeriod",
                         "locationName": "HealthCheckGracePeriod",
-                        "documentation": "-- | The amount of time, in seconds, after an EC2 instance comes into service that\n-- Auto Scaling starts checking its health. During this time, any health check\n-- failures for the instance are ignored.\n--\n-- This parameter is required if you are adding an 'ELB' health check.\n-- Frequently, new instances need to warm up, briefly, before they can pass a\n-- health check. To provide ample warm-up time, set the health check grace\n-- period of the group to match the expected startup period of your application.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.html Add an Elastic Load Balancing Health Check to YourAuto Scaling Group\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The amount of time, in seconds, after an EC2 instance comes into service that\n-- Auto Scaling starts checking its health. During this time, any health check\n-- failures for the instance are ignored.\n--\n-- This parameter is required if you are adding an 'ELB' health check.\n-- Frequently, new instances need to warm up, briefly, before they can pass a\n-- health check. To provide ample warm-up time, set the health check grace\n-- period of the group to match the expected startup period of your application.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.html Add an Elastic Load Balancing Health Check to YourAuto Scaling Group> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -6029,7 +6029,7 @@
                         "name": "_casgPlacementGroup",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "PlacementGroup",
-                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups\u003e.",
+                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6047,7 +6047,7 @@
                         "name": "_casgVPCZoneIdentifier",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "VPCZoneIdentifier",
-                        "documentation": "-- | A comma-separated list of subnet identifiers for your virtual private cloud\n-- (VPC).\n--\n-- If you specify subnets and Availability Zones with this call, ensure that\n-- the subnets' Availability Zones match the Availability Zones specified.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC\u003e in the /Auto ScalingDeveloper Guide/.",
+                        "documentation": "-- | A comma-separated list of subnet identifiers for your virtual private cloud\n-- (VPC).\n--\n-- If you specify subnets and Availability Zones with this call, ensure that\n-- the subnets' Availability Zones match the Availability Zones specified.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC> in the /Auto ScalingDeveloper Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6065,7 +6065,7 @@
                         "name": "_casgTerminationPolicies",
                         "shape": "TerminationPolicies",
                         "locationName": "TerminationPolicies",
-                        "documentation": "-- | One or more termination policies used to select the instance to terminate.\n-- These policies are executed in the order that they are listed.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | One or more termination policies used to select the instance to terminate.\n-- These policies are executed in the order that they are listed.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -6083,7 +6083,7 @@
                         "name": "_casgTags",
                         "shape": "Tags",
                         "locationName": "Tags",
-                        "documentation": "-- | The tag to be created or updated. Each tag should be defined by its resource\n-- type, resource ID, key, value, and a propagate flag. Valid values: key=/value/,\n-- value=/value/, propagate=/true/ or /false/. Value and propagate are optional\n-- parameters.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags\u003e in\n-- the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The tag to be created or updated. Each tag should be defined by its resource\n-- type, resource ID, key, value, and a propagate flag. Valid values: key=/value/,\n-- value=/value/, propagate=/true/ or /false/. Value and propagate are optional\n-- parameters.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags> in\n-- the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"member\" Tag"
                     }
@@ -6139,7 +6139,7 @@
                         "name": "_casgDefaultCooldown",
                         "shape": "Cooldown",
                         "locationName": "DefaultCooldown",
-                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes before\n-- another scaling activity can start.\n--\n-- If 'DefaultCooldown' is not specified, the default value is 300. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns\u003e in the /Auto ScalingDeveloper Guide/.",
+                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes before\n-- another scaling activity can start.\n--\n-- If 'DefaultCooldown' is not specified, the default value is 300. For more\n-- information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns> in the /Auto ScalingDeveloper Guide/.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -6175,7 +6175,7 @@
                         "name": "_casgHealthCheckGracePeriod",
                         "shape": "HealthCheckGracePeriod",
                         "locationName": "HealthCheckGracePeriod",
-                        "documentation": "-- | The amount of time, in seconds, after an EC2 instance comes into service that\n-- Auto Scaling starts checking its health. During this time, any health check\n-- failures for the instance are ignored.\n--\n-- This parameter is required if you are adding an 'ELB' health check.\n-- Frequently, new instances need to warm up, briefly, before they can pass a\n-- health check. To provide ample warm-up time, set the health check grace\n-- period of the group to match the expected startup period of your application.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.html Add an Elastic Load Balancing Health Check to YourAuto Scaling Group\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The amount of time, in seconds, after an EC2 instance comes into service that\n-- Auto Scaling starts checking its health. During this time, any health check\n-- failures for the instance are ignored.\n--\n-- This parameter is required if you are adding an 'ELB' health check.\n-- Frequently, new instances need to warm up, briefly, before they can pass a\n-- health check. To provide ample warm-up time, set the health check grace\n-- period of the group to match the expected startup period of your application.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-add-elb-healthcheck.html Add an Elastic Load Balancing Health Check to YourAuto Scaling Group> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -6193,7 +6193,7 @@
                         "name": "_casgHealthCheckType",
                         "shape": "XmlStringMaxLen32",
                         "locationName": "HealthCheckType",
-                        "documentation": "-- | The service to use for the health checks. The valid values are 'EC2' and 'ELB'.\n--\n-- By default, health checks use Amazon EC2 instance status checks to determine\n-- the health of an instance. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks\u003e.",
+                        "documentation": "-- | The service to use for the health checks. The valid values are 'EC2' and 'ELB'.\n--\n-- By default, health checks use Amazon EC2 instance status checks to determine\n-- the health of an instance. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6211,7 +6211,7 @@
                         "name": "_casgInstanceId",
                         "shape": "XmlStringMaxLen16",
                         "locationName": "InstanceId",
-                        "documentation": "-- | The ID of the EC2 instance used to create a launch configuration for the\n-- group. Alternatively, use the 'LaunchConfigurationName' parameter to specify a\n-- launch configuration instead of an EC2 instance.\n--\n-- When you specify an ID of an instance, Auto Scaling creates a new launch\n-- configuration and associates it with the group. This launch configuration\n-- derives its attributes from the specified instance, with the exception of the\n-- block device mapping.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 InstanceID\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The ID of the EC2 instance used to create a launch configuration for the\n-- group. Alternatively, use the 'LaunchConfigurationName' parameter to specify a\n-- launch configuration instead of an EC2 instance.\n--\n-- When you specify an ID of an instance, Auto Scaling creates a new launch\n-- configuration and associates it with the group. This launch configuration\n-- derives its attributes from the specified instance, with the exception of the\n-- block device mapping.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-asg-from-instance.html Create an Auto Scaling Group Using an EC2 InstanceID> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6247,7 +6247,7 @@
                         "name": "_casgLoadBalancerNames",
                         "shape": "LoadBalancerNames",
                         "locationName": "LoadBalancerNames",
-                        "documentation": "-- | One or more load balancers.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group\u003e in the /AutoScaling Developer Guide/.",
+                        "documentation": "-- | One or more load balancers.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SetUpASLBApp.html Load Balance Your Auto Scaling Group> in the /AutoScaling Developer Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -6301,7 +6301,7 @@
                         "name": "_casgPlacementGroup",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "PlacementGroup",
-                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups\u003e.",
+                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6319,7 +6319,7 @@
                         "name": "_casgTags",
                         "shape": "Tags",
                         "locationName": "Tags",
-                        "documentation": "-- | The tag to be created or updated. Each tag should be defined by its resource\n-- type, resource ID, key, value, and a propagate flag. Valid values: key=/value/,\n-- value=/value/, propagate=/true/ or /false/. Value and propagate are optional\n-- parameters.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags\u003e in\n-- the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The tag to be created or updated. Each tag should be defined by its resource\n-- type, resource ID, key, value, and a propagate flag. Valid values: key=/value/,\n-- value=/value/, propagate=/true/ or /false/. Value and propagate are optional\n-- parameters.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags> in\n-- the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Tag]",
                         "type": "List \"member\" Tag"
                     },
@@ -6337,7 +6337,7 @@
                         "name": "_casgTerminationPolicies",
                         "shape": "TerminationPolicies",
                         "locationName": "TerminationPolicies",
-                        "documentation": "-- | One or more termination policies used to select the instance to terminate.\n-- These policies are executed in the order that they are listed.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | One or more termination policies used to select the instance to terminate.\n-- These policies are executed in the order that they are listed.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -6355,7 +6355,7 @@
                         "name": "_casgVPCZoneIdentifier",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "VPCZoneIdentifier",
-                        "documentation": "-- | A comma-separated list of subnet identifiers for your virtual private cloud\n-- (VPC).\n--\n-- If you specify subnets and Availability Zones with this call, ensure that\n-- the subnets' Availability Zones match the Availability Zones specified.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC\u003e in the /Auto ScalingDeveloper Guide/.",
+                        "documentation": "-- | A comma-separated list of subnet identifiers for your virtual private cloud\n-- (VPC).\n--\n-- If you specify subnets and Availability Zones with this call, ensure that\n-- the subnets' Availability Zones match the Availability Zones specified.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC> in the /Auto ScalingDeveloper Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -6557,7 +6557,7 @@
                         "name": "_clcImageId",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "ImageId",
-                        "documentation": "-- | The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "documentation": "-- | The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances.\n-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI> in the /Amazon Elastic Compute CloudUser Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6575,7 +6575,7 @@
                         "name": "_clcKeyName",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "KeyName",
-                        "documentation": "-- | The name of the key pair. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs\u003e in\n-- the /Amazon Elastic Compute Cloud User Guide/.",
+                        "documentation": "-- | The name of the key pair. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs> in\n-- the /Amazon Elastic Compute Cloud User Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6593,7 +6593,7 @@
                         "name": "_clcSecurityGroups",
                         "shape": "SecurityGroups",
                         "locationName": "SecurityGroups",
-                        "documentation": "-- | One or more security groups with which to associate the instances.\n--\n-- If your instances are launched in EC2-Classic, you can either specify\n-- security group names or the security group IDs. For more information about\n-- security groups for EC2-Classic, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups\u003e in the /AmazonElastic Compute Cloud User Guide/.\n--\n-- If your instances are launched in a VPC, specify security group IDs. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC\u003e in the /Amazon VirtualPrivate Cloud User Guide/.",
+                        "documentation": "-- | One or more security groups with which to associate the instances.\n--\n-- If your instances are launched in EC2-Classic, you can either specify\n-- security group names or the security group IDs. For more information about\n-- security groups for EC2-Classic, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /AmazonElastic Compute Cloud User Guide/.\n--\n-- If your instances are launched in a VPC, specify security group IDs. For\n-- more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon VirtualPrivate Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -6611,7 +6611,7 @@
                         "name": "_clcClassicLinkVPCId",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "ClassicLinkVPCId",
-                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute CloudUser Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6629,7 +6629,7 @@
                         "name": "_clcClassicLinkVPCSecurityGroups",
                         "shape": "ClassicLinkVPCSecurityGroups",
                         "locationName": "ClassicLinkVPCSecurityGroups",
-                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon ElasticCompute Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -6647,7 +6647,7 @@
                         "name": "_clcUserData",
                         "shape": "XmlStringUserData",
                         "locationName": "UserData",
-                        "documentation": "-- | The user data to make available to the launched EC2 instances. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data\u003e in the /Amazon ElasticCompute Cloud User Guide/.\n--\n-- At this time, launch configurations don't support compressed (zipped) user\n-- data files.",
+                        "documentation": "-- | The user data to make available to the launched EC2 instances. For more\n-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data> in the /Amazon ElasticCompute Cloud User Guide/.\n--\n-- At this time, launch configurations don't support compressed (zipped) user\n-- data files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6665,7 +6665,7 @@
                         "name": "_clcInstanceId",
                         "shape": "XmlStringMaxLen16",
                         "locationName": "InstanceId",
-                        "documentation": "-- | The ID of the EC2 instance to use to create the launch configuration.\n--\n-- The new launch configuration derives attributes from the instance, with the\n-- exception of the block device mapping.\n--\n-- To create a launch configuration with a block device mapping or override any\n-- other instance attributes, specify them as part of the same request.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance\u003e\n-- in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The ID of the EC2 instance to use to create the launch configuration.\n--\n-- The new launch configuration derives attributes from the instance, with the\n-- exception of the block device mapping.\n--\n-- To create a launch configuration with a block device mapping or override any\n-- other instance attributes, specify them as part of the same request.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance>\n-- in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6683,7 +6683,7 @@
                         "name": "_clcInstanceType",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "InstanceType",
-                        "documentation": "-- | The instance type of the Amazon EC2 instance. For information about\n-- available Amazon EC2 instance types, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes  Available Instance Types\u003e in the /Amazon Elastic Cloud Compute User Guide./",
+                        "documentation": "-- | The instance type of the Amazon EC2 instance. For information about\n-- available Amazon EC2 instance types, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes  Available Instance Types> in the /Amazon Elastic Cloud Compute User Guide./",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6737,7 +6737,7 @@
                         "name": "_clcBlockDeviceMappings",
                         "shape": "BlockDeviceMappings",
                         "locationName": "BlockDeviceMappings",
-                        "documentation": "-- | One or more mappings that specify how block devices are exposed to the\n-- instance. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping\u003e in the /AmazonElastic Compute Cloud User Guide/.",
+                        "documentation": "-- | One or more mappings that specify how block devices are exposed to the\n-- instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping> in the /AmazonElastic Compute Cloud User Guide/.",
                         "typeExposed": "[BlockDeviceMapping]",
                         "type": "List \"member\" BlockDeviceMapping"
                     },
@@ -6755,7 +6755,7 @@
                         "name": "_clcInstanceMonitoring",
                         "shape": "InstanceMonitoring",
                         "locationName": "InstanceMonitoring",
-                        "documentation": "-- | Enables detailed monitoring if it is disabled. Detailed monitoring is enabled\n-- by default.\n--\n-- When detailed monitoring is enabled, Amazon Cloudwatch generates metrics\n-- every minute and your account is charged a fee. When you disable detailed\n-- monitoring, by specifying 'False', Cloudwatch generates metrics every 5\n-- minutes. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitor Your Auto Scaling Instances\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | Enables detailed monitoring if it is disabled. Detailed monitoring is enabled\n-- by default.\n--\n-- When detailed monitoring is enabled, Amazon Cloudwatch generates metrics\n-- every minute and your account is charged a fee. When you disable detailed\n-- monitoring, by specifying 'False', Cloudwatch generates metrics every 5\n-- minutes. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitor Your Auto Scaling Instances> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe InstanceMonitoring",
                         "type": "Maybe InstanceMonitoring"
                     },
@@ -6773,7 +6773,7 @@
                         "name": "_clcSpotPrice",
                         "shape": "SpotPrice",
                         "locationName": "SpotPrice",
-                        "documentation": "-- | The maximum hourly price to be paid for any Spot Instance launched to fulfill\n-- the request. Spot Instances are launched when the price you specify exceeds\n-- the current Spot market price. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launch SpotInstances in Your Auto Scaling Group\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The maximum hourly price to be paid for any Spot Instance launched to fulfill\n-- the request. Spot Instances are launched when the price you specify exceeds\n-- the current Spot market price. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launch SpotInstances in Your Auto Scaling Group> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6791,7 +6791,7 @@
                         "name": "_clcIamInstanceProfile",
                         "shape": "XmlStringMaxLen1600",
                         "locationName": "IamInstanceProfile",
-                        "documentation": "-- | The name or the Amazon Resource Name (ARN) of the instance profile associated\n-- with the IAM role for the instance.\n--\n-- Amazon EC2 instances launched with an IAM role will automatically have AWS\n-- security credentials available. You can use IAM roles with Auto Scaling to\n-- automatically enable applications running on your Amazon EC2 instances to\n-- securely access other AWS resources. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch AutoScaling Instances with an IAM Role\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The name or the Amazon Resource Name (ARN) of the instance profile associated\n-- with the IAM role for the instance.\n--\n-- Amazon EC2 instances launched with an IAM role will automatically have AWS\n-- security credentials available. You can use IAM roles with Auto Scaling to\n-- automatically enable applications running on your Amazon EC2 instances to\n-- securely access other AWS resources. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch AutoScaling Instances with an IAM Role> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6809,7 +6809,7 @@
                         "name": "_clcEbsOptimized",
                         "shape": "EbsOptimized",
                         "locationName": "EbsOptimized",
-                        "documentation": "-- | Indicates whether the instance is optimized for Amazon EBS I/O. By default,\n-- the instance is not optimized for EBS I/O. The optimization provides\n-- dedicated throughput to Amazon EBS and an optimized configuration stack to\n-- provide optimal I/O performance. This optimization is not available with all\n-- instance types. Additional usage charges apply. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances\u003e in the /Amazon Elastic Compute Cloud User Guide/.",
+                        "documentation": "-- | Indicates whether the instance is optimized for Amazon EBS I/O. By default,\n-- the instance is not optimized for EBS I/O. The optimization provides\n-- dedicated throughput to Amazon EBS and an optimized configuration stack to\n-- provide optimal I/O performance. This optimization is not available with all\n-- instance types. Additional usage charges apply. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in the /Amazon Elastic Compute Cloud User Guide/.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -6827,7 +6827,7 @@
                         "name": "_clcAssociatePublicIpAddress",
                         "shape": "AssociatePublicIpAddress",
                         "locationName": "AssociatePublicIpAddress",
-                        "documentation": "-- | Used for groups that launch instances into a virtual private cloud (VPC).\n-- Specifies whether to assign a public IP address to each instance. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC\u003e in the /Auto Scaling DeveloperGuide/.\n--\n-- If you specify a value for this parameter, be sure to specify at least one\n-- subnet using the /VPCZoneIdentifier/ parameter when you create your group.\n--\n-- Default: If the instance is launched into a default subnet, the default is 'true'. If the instance is launched into a nondefault subnet, the default is 'false'.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide//as-supported-platforms.html Supported Platforms\u003e in the /Amazon Elastic ComputeCloud User Guide/.",
+                        "documentation": "-- | Used for groups that launch instances into a virtual private cloud (VPC).\n-- Specifies whether to assign a public IP address to each instance. For more\n-- information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC> in the /Auto Scaling DeveloperGuide/.\n--\n-- If you specify a value for this parameter, be sure to specify at least one\n-- subnet using the /VPCZoneIdentifier/ parameter when you create your group.\n--\n-- Default: If the instance is launched into a default subnet, the default is 'true'. If the instance is launched into a nondefault subnet, the default is 'false'.\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide//as-supported-platforms.html Supported Platforms> in the /Amazon Elastic ComputeCloud User Guide/.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -6845,7 +6845,7 @@
                         "name": "_clcPlacementTenancy",
                         "shape": "XmlStringMaxLen64",
                         "locationName": "PlacementTenancy",
-                        "documentation": "-- | The tenancy of the instance. An instance with a tenancy of 'dedicated' runs on\n-- single-tenant hardware and can only be launched in a VPC.\n--\n-- You must set the value of this parameter to 'dedicated' if want to launch\n-- Dedicated Instances in a shared tenancy VPC (VPC with instance placement\n-- tenancy attribute set to 'default').\n--\n-- If you specify a value for this parameter, be sure to specify at least one\n-- VPC subnet using the /VPCZoneIdentifier/ parameter when you create your group.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC\u003e in the /Auto ScalingDeveloper Guide/.\n--\n-- Valid values: 'default' | 'dedicated'",
+                        "documentation": "-- | The tenancy of the instance. An instance with a tenancy of 'dedicated' runs on\n-- single-tenant hardware and can only be launched in a VPC.\n--\n-- You must set the value of this parameter to 'dedicated' if want to launch\n-- Dedicated Instances in a shared tenancy VPC (VPC with instance placement\n-- tenancy attribute set to 'default').\n--\n-- If you specify a value for this parameter, be sure to specify at least one\n-- VPC subnet using the /VPCZoneIdentifier/ parameter when you create your group.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC> in the /Auto ScalingDeveloper Guide/.\n--\n-- Valid values: 'default' | 'dedicated'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -6865,7 +6865,7 @@
                         "name": "_clcAssociatePublicIpAddress",
                         "shape": "AssociatePublicIpAddress",
                         "locationName": "AssociatePublicIpAddress",
-                        "documentation": "-- | Used for groups that launch instances into a virtual private cloud (VPC).\n-- Specifies whether to assign a public IP address to each instance. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC\u003e in the /Auto Scaling DeveloperGuide/.\n--\n-- If you specify a value for this parameter, be sure to specify at least one\n-- subnet using the /VPCZoneIdentifier/ parameter when you create your group.\n--\n-- Default: If the instance is launched into a default subnet, the default is 'true'. If the instance is launched into a nondefault subnet, the default is 'false'.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide//as-supported-platforms.html Supported Platforms\u003e in the /Amazon Elastic ComputeCloud User Guide/.",
+                        "documentation": "-- | Used for groups that launch instances into a virtual private cloud (VPC).\n-- Specifies whether to assign a public IP address to each instance. For more\n-- information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC> in the /Auto Scaling DeveloperGuide/.\n--\n-- If you specify a value for this parameter, be sure to specify at least one\n-- subnet using the /VPCZoneIdentifier/ parameter when you create your group.\n--\n-- Default: If the instance is launched into a default subnet, the default is 'true'. If the instance is launched into a nondefault subnet, the default is 'false'.\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide//as-supported-platforms.html Supported Platforms> in the /Amazon Elastic ComputeCloud User Guide/.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -6883,7 +6883,7 @@
                         "name": "_clcBlockDeviceMappings",
                         "shape": "BlockDeviceMappings",
                         "locationName": "BlockDeviceMappings",
-                        "documentation": "-- | One or more mappings that specify how block devices are exposed to the\n-- instance. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping\u003e in the /AmazonElastic Compute Cloud User Guide/.",
+                        "documentation": "-- | One or more mappings that specify how block devices are exposed to the\n-- instance. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/block-device-mapping-concepts.html Block Device Mapping> in the /AmazonElastic Compute Cloud User Guide/.",
                         "typeExposed": "[BlockDeviceMapping]",
                         "type": "List \"member\" BlockDeviceMapping"
                     },
@@ -6901,7 +6901,7 @@
                         "name": "_clcClassicLinkVPCId",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "ClassicLinkVPCId",
-                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "documentation": "-- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances to.\n-- This parameter can only be used if you are launching EC2-Classic instances.\n-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon Elastic Compute CloudUser Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6919,7 +6919,7 @@
                         "name": "_clcClassicLinkVPCSecurityGroups",
                         "shape": "ClassicLinkVPCSecurityGroups",
                         "locationName": "ClassicLinkVPCSecurityGroups",
-                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink\u003e in the /Amazon ElasticCompute Cloud User Guide/.",
+                        "documentation": "-- | The IDs of one or more security groups for the VPC specified in 'ClassicLinkVPCId'. This parameter is required if 'ClassicLinkVPCId' is specified, and cannot be\n-- used otherwise. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink> in the /Amazon ElasticCompute Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -6937,7 +6937,7 @@
                         "name": "_clcEbsOptimized",
                         "shape": "EbsOptimized",
                         "locationName": "EbsOptimized",
-                        "documentation": "-- | Indicates whether the instance is optimized for Amazon EBS I/O. By default,\n-- the instance is not optimized for EBS I/O. The optimization provides\n-- dedicated throughput to Amazon EBS and an optimized configuration stack to\n-- provide optimal I/O performance. This optimization is not available with all\n-- instance types. Additional usage charges apply. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances\u003e in the /Amazon Elastic Compute Cloud User Guide/.",
+                        "documentation": "-- | Indicates whether the instance is optimized for Amazon EBS I/O. By default,\n-- the instance is not optimized for EBS I/O. The optimization provides\n-- dedicated throughput to Amazon EBS and an optimized configuration stack to\n-- provide optimal I/O performance. This optimization is not available with all\n-- instance types. Additional usage charges apply. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSOptimized.html Amazon EBS-Optimized Instances> in the /Amazon Elastic Compute Cloud User Guide/.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -6955,7 +6955,7 @@
                         "name": "_clcIamInstanceProfile",
                         "shape": "XmlStringMaxLen1600",
                         "locationName": "IamInstanceProfile",
-                        "documentation": "-- | The name or the Amazon Resource Name (ARN) of the instance profile associated\n-- with the IAM role for the instance.\n--\n-- Amazon EC2 instances launched with an IAM role will automatically have AWS\n-- security credentials available. You can use IAM roles with Auto Scaling to\n-- automatically enable applications running on your Amazon EC2 instances to\n-- securely access other AWS resources. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch AutoScaling Instances with an IAM Role\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The name or the Amazon Resource Name (ARN) of the instance profile associated\n-- with the IAM role for the instance.\n--\n-- Amazon EC2 instances launched with an IAM role will automatically have AWS\n-- security credentials available. You can use IAM roles with Auto Scaling to\n-- automatically enable applications running on your Amazon EC2 instances to\n-- securely access other AWS resources. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-iam-role.html Launch AutoScaling Instances with an IAM Role> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6973,7 +6973,7 @@
                         "name": "_clcImageId",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "ImageId",
-                        "documentation": "-- | The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances.\n-- For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI\u003e in the /Amazon Elastic Compute CloudUser Guide/.",
+                        "documentation": "-- | The ID of the Amazon Machine Image (AMI) to use to launch your EC2 instances.\n-- For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/finding-an-ami.html Finding an AMI> in the /Amazon Elastic Compute CloudUser Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -6991,7 +6991,7 @@
                         "name": "_clcInstanceId",
                         "shape": "XmlStringMaxLen16",
                         "locationName": "InstanceId",
-                        "documentation": "-- | The ID of the EC2 instance to use to create the launch configuration.\n--\n-- The new launch configuration derives attributes from the instance, with the\n-- exception of the block device mapping.\n--\n-- To create a launch configuration with a block device mapping or override any\n-- other instance attributes, specify them as part of the same request.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance\u003e\n-- in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The ID of the EC2 instance to use to create the launch configuration.\n--\n-- The new launch configuration derives attributes from the instance, with the\n-- exception of the block device mapping.\n--\n-- To create a launch configuration with a block device mapping or override any\n-- other instance attributes, specify them as part of the same request.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/create-lc-with-instanceID.html Create a Launch Configuration Using an EC2 Instance>\n-- in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7009,7 +7009,7 @@
                         "name": "_clcInstanceMonitoring",
                         "shape": "InstanceMonitoring",
                         "locationName": "InstanceMonitoring",
-                        "documentation": "-- | Enables detailed monitoring if it is disabled. Detailed monitoring is enabled\n-- by default.\n--\n-- When detailed monitoring is enabled, Amazon Cloudwatch generates metrics\n-- every minute and your account is charged a fee. When you disable detailed\n-- monitoring, by specifying 'False', Cloudwatch generates metrics every 5\n-- minutes. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitor Your Auto Scaling Instances\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | Enables detailed monitoring if it is disabled. Detailed monitoring is enabled\n-- by default.\n--\n-- When detailed monitoring is enabled, Amazon Cloudwatch generates metrics\n-- every minute and your account is charged a fee. When you disable detailed\n-- monitoring, by specifying 'False', Cloudwatch generates metrics every 5\n-- minutes. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-instance-monitoring.html Monitor Your Auto Scaling Instances> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe InstanceMonitoring",
                         "type": "Maybe InstanceMonitoring"
                     },
@@ -7027,7 +7027,7 @@
                         "name": "_clcInstanceType",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "InstanceType",
-                        "documentation": "-- | The instance type of the Amazon EC2 instance. For information about\n-- available Amazon EC2 instance types, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes  Available Instance Types\u003e in the /Amazon Elastic Cloud Compute User Guide./",
+                        "documentation": "-- | The instance type of the Amazon EC2 instance. For information about\n-- available Amazon EC2 instance types, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#AvailableInstanceTypes  Available Instance Types> in the /Amazon Elastic Cloud Compute User Guide./",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7063,7 +7063,7 @@
                         "name": "_clcKeyName",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "KeyName",
-                        "documentation": "-- | The name of the key pair. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs\u003e in\n-- the /Amazon Elastic Compute Cloud User Guide/.",
+                        "documentation": "-- | The name of the key pair. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html Amazon EC2 Key Pairs> in\n-- the /Amazon Elastic Compute Cloud User Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7099,7 +7099,7 @@
                         "name": "_clcPlacementTenancy",
                         "shape": "XmlStringMaxLen64",
                         "locationName": "PlacementTenancy",
-                        "documentation": "-- | The tenancy of the instance. An instance with a tenancy of 'dedicated' runs on\n-- single-tenant hardware and can only be launched in a VPC.\n--\n-- You must set the value of this parameter to 'dedicated' if want to launch\n-- Dedicated Instances in a shared tenancy VPC (VPC with instance placement\n-- tenancy attribute set to 'default').\n--\n-- If you specify a value for this parameter, be sure to specify at least one\n-- VPC subnet using the /VPCZoneIdentifier/ parameter when you create your group.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC\u003e in the /Auto ScalingDeveloper Guide/.\n--\n-- Valid values: 'default' | 'dedicated'",
+                        "documentation": "-- | The tenancy of the instance. An instance with a tenancy of 'dedicated' runs on\n-- single-tenant hardware and can only be launched in a VPC.\n--\n-- You must set the value of this parameter to 'dedicated' if want to launch\n-- Dedicated Instances in a shared tenancy VPC (VPC with instance placement\n-- tenancy attribute set to 'default').\n--\n-- If you specify a value for this parameter, be sure to specify at least one\n-- VPC subnet using the /VPCZoneIdentifier/ parameter when you create your group.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC> in the /Auto ScalingDeveloper Guide/.\n--\n-- Valid values: 'default' | 'dedicated'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7135,7 +7135,7 @@
                         "name": "_clcSecurityGroups",
                         "shape": "SecurityGroups",
                         "locationName": "SecurityGroups",
-                        "documentation": "-- | One or more security groups with which to associate the instances.\n--\n-- If your instances are launched in EC2-Classic, you can either specify\n-- security group names or the security group IDs. For more information about\n-- security groups for EC2-Classic, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups\u003e in the /AmazonElastic Compute Cloud User Guide/.\n--\n-- If your instances are launched in a VPC, specify security group IDs. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC\u003e in the /Amazon VirtualPrivate Cloud User Guide/.",
+                        "documentation": "-- | One or more security groups with which to associate the instances.\n--\n-- If your instances are launched in EC2-Classic, you can either specify\n-- security group names or the security group IDs. For more information about\n-- security groups for EC2-Classic, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html Amazon EC2 Security Groups> in the /AmazonElastic Compute Cloud User Guide/.\n--\n-- If your instances are launched in a VPC, specify security group IDs. For\n-- more information, see <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_SecurityGroups.html Security Groups for Your VPC> in the /Amazon VirtualPrivate Cloud User Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -7153,7 +7153,7 @@
                         "name": "_clcSpotPrice",
                         "shape": "SpotPrice",
                         "locationName": "SpotPrice",
-                        "documentation": "-- | The maximum hourly price to be paid for any Spot Instance launched to fulfill\n-- the request. Spot Instances are launched when the price you specify exceeds\n-- the current Spot market price. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launch SpotInstances in Your Auto Scaling Group\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | The maximum hourly price to be paid for any Spot Instance launched to fulfill\n-- the request. Spot Instances are launched when the price you specify exceeds\n-- the current Spot market price. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US-SpotInstances.html Launch SpotInstances in Your Auto Scaling Group> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -7171,7 +7171,7 @@
                         "name": "_clcUserData",
                         "shape": "XmlStringUserData",
                         "locationName": "UserData",
-                        "documentation": "-- | The user data to make available to the launched EC2 instances. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data\u003e in the /Amazon ElasticCompute Cloud User Guide/.\n--\n-- At this time, launch configurations don't support compressed (zipped) user\n-- data files.",
+                        "documentation": "-- | The user data to make available to the launched EC2 instances. For more\n-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html Instance Metadata and User Data> in the /Amazon ElasticCompute Cloud User Guide/.\n--\n-- At this time, launch configurations don't support compressed (zipped) user\n-- data files.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -7215,7 +7215,7 @@
             "pager": null,
             "name": "CreateOrUpdateTags",
             "method": "post",
-            "documentation": "-- | Creates or updates tags for the specified Auto Scaling group.\n--\n-- A tag's definition is composed of a resource ID, resource type, key and\n-- value, and the propagate flag. Value and the propagate flag are optional\n-- parameters. See the Request Parameters for more information.  For more\n-- information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags\u003e in the /AutoScaling Developer Guide/.",
+            "documentation": "-- | Creates or updates tags for the specified Auto Scaling group.\n--\n-- A tag's definition is composed of a resource ID, resource type, key and\n-- value, and the propagate flag. Value and the propagate flag are optional\n-- parameters. See the Request Parameters for more information.  For more\n-- information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASTagging.html Add, Modify, or Remove Auto Scaling Group Tags> in the /AutoScaling Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -8513,7 +8513,7 @@
             "pager": null,
             "name": "DescribeAccountLimits",
             "method": "post",
-            "documentation": "-- | Describes the current Auto Scaling resource limits for your AWS account.\n--\n-- For information about requesting an increase in these limits, see \u003chttp://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWSService Limits\u003e.",
+            "documentation": "-- | Describes the current Auto Scaling resource limits for your AWS account.\n--\n-- For information about requesting an increase in these limits, see <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWSService Limits>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12176,7 +12176,7 @@
             "pager": null,
             "name": "DetachInstances",
             "method": "post",
-            "documentation": "-- | Removes one or more instances from the specified Auto Scaling group. After\n-- the instances are detached, you can manage them independently from the rest\n-- of the Auto Scaling group.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group\u003e\n-- in the /Auto Scaling Developer Guide/.",
+            "documentation": "-- | Removes one or more instances from the specified Auto Scaling group. After\n-- the instances are detached, you can manage them independently from the rest\n-- of the Auto Scaling group.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/detach-instance-asg.html Detach EC2 Instances from Your Auto Scaling Group>\n-- in the /Auto Scaling Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -12802,7 +12802,7 @@
             "pager": null,
             "name": "EnterStandby",
             "method": "post",
-            "documentation": "-- | Moves the specified instances into 'Standby' mode.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State\u003e in the /Auto ScalingDeveloper Guide/.",
+            "documentation": "-- | Moves the specified instances into 'Standby' mode.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State> in the /Auto ScalingDeveloper Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -13106,7 +13106,7 @@
                         "name": "_epHonorCooldown",
                         "shape": "HonorCooldown",
                         "locationName": "HonorCooldown",
-                        "documentation": "-- | Set to 'True' if you want Auto Scaling to wait for the cooldown period\n-- associated with the Auto Scaling group to complete before executing the\n-- policy.\n--\n-- Set to 'False' if you want Auto Scaling to circumvent the cooldown period\n-- associated with the Auto Scaling group and execute the policy before the\n-- cooldown period ends.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns\u003e in the /AutoScaling Developer Guide/.",
+                        "documentation": "-- | Set to 'True' if you want Auto Scaling to wait for the cooldown period\n-- associated with the Auto Scaling group to complete before executing the\n-- policy.\n--\n-- Set to 'False' if you want Auto Scaling to circumvent the cooldown period\n-- associated with the Auto Scaling group and execute the policy before the\n-- cooldown period ends.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns> in the /AutoScaling Developer Guide/.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     }
@@ -13144,7 +13144,7 @@
                         "name": "_epHonorCooldown",
                         "shape": "HonorCooldown",
                         "locationName": "HonorCooldown",
-                        "documentation": "-- | Set to 'True' if you want Auto Scaling to wait for the cooldown period\n-- associated with the Auto Scaling group to complete before executing the\n-- policy.\n--\n-- Set to 'False' if you want Auto Scaling to circumvent the cooldown period\n-- associated with the Auto Scaling group and execute the policy before the\n-- cooldown period ends.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns\u003e in the /AutoScaling Developer Guide/.",
+                        "documentation": "-- | Set to 'True' if you want Auto Scaling to wait for the cooldown period\n-- associated with the Auto Scaling group to complete before executing the\n-- policy.\n--\n-- Set to 'False' if you want Auto Scaling to circumvent the cooldown period\n-- associated with the Auto Scaling group and execute the policy before the\n-- cooldown period ends.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns> in the /AutoScaling Developer Guide/.",
                         "typeExposed": "Maybe Bool",
                         "type": "Maybe Bool"
                     },
@@ -13267,7 +13267,7 @@
             "pager": null,
             "name": "ExitStandby",
             "method": "post",
-            "documentation": "-- | Moves the specified instances out of 'Standby' mode.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State\u003e in the /Auto ScalingDeveloper Guide/.",
+            "documentation": "-- | Moves the specified instances out of 'Standby' mode.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingInServiceState.html Auto Scaling InService State> in the /Auto ScalingDeveloper Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -13428,7 +13428,7 @@
             "pager": null,
             "name": "PutLifecycleHook",
             "method": "post",
-            "documentation": "-- | Creates or updates a lifecycle hook for the specified Auto Scaling Group.\n--\n-- A lifecycle hook tells Auto Scaling that you want to perform an action on an\n-- instance that is not actively in service; for example, either when the\n-- instance launches or before the instance terminates.\n--\n-- This operation is a part of the basic sequence for adding a lifecycle hook\n-- to an Auto Scaling group:\n--\n-- Create a notification target. A target can be either an Amazon SQS queue or\n-- an Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to\n-- publish lifecycle notifications to the designated SQS queue or SNS topic. Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate.\n-- If necessary, record the lifecycle action heartbeat to keep the instance in\n-- a pending state. Complete the lifecycle action.  For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State\u003e and \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State\u003e in the /Auto Scaling Developer Guide/.",
+            "documentation": "-- | Creates or updates a lifecycle hook for the specified Auto Scaling Group.\n--\n-- A lifecycle hook tells Auto Scaling that you want to perform an action on an\n-- instance that is not actively in service; for example, either when the\n-- instance launches or before the instance terminates.\n--\n-- This operation is a part of the basic sequence for adding a lifecycle hook\n-- to an Auto Scaling group:\n--\n-- Create a notification target. A target can be either an Amazon SQS queue or\n-- an Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to\n-- publish lifecycle notifications to the designated SQS queue or SNS topic. Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate.\n-- If necessary, record the lifecycle action heartbeat to keep the instance in\n-- a pending state. Complete the lifecycle action.  For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State> and <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State> in the /Auto Scaling Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -13835,7 +13835,7 @@
             "pager": null,
             "name": "PutNotificationConfiguration",
             "method": "post",
-            "documentation": "-- | Configures an Auto Scaling group to send notifications when specified events\n-- take place. Subscribers to this topic can have messages for events delivered\n-- to an endpoint such as a web server or email address.\n--\n-- For more information see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html Getting Notifications When Your Auto Scaling GroupChanges\u003e in the /Auto Scaling Developer Guide/.\n--\n-- This configuration overwrites an existing configuration.",
+            "documentation": "-- | Configures an Auto Scaling group to send notifications when specified events\n-- take place. Subscribers to this topic can have messages for events delivered\n-- to an endpoint such as a web server or email address.\n--\n-- For more information see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/ASGettingNotifications.html Getting Notifications When Your Auto Scaling GroupChanges> in the /Auto Scaling Developer Guide/.\n--\n-- This configuration overwrites an existing configuration.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14190,7 +14190,7 @@
                         "name": "_pspAdjustmentType",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "AdjustmentType",
-                        "documentation": "-- | Specifies whether the 'ScalingAdjustment' is an absolute number or a percentage\n-- of the current capacity. Valid values are 'ChangeInCapacity', 'ExactCapacity',\n-- and 'PercentChangeInCapacity'.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling\u003e in the /Auto Scaling Developer Guide/\n-- .",
+                        "documentation": "-- | Specifies whether the 'ScalingAdjustment' is an absolute number or a percentage\n-- of the current capacity. Valid values are 'ChangeInCapacity', 'ExactCapacity',\n-- and 'PercentChangeInCapacity'.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling Developer Guide/\n-- .",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -14251,7 +14251,7 @@
                         "name": "_pspCooldown",
                         "shape": "Cooldown",
                         "locationName": "Cooldown",
-                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes and before\n-- the next scaling activity can start.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns\u003e in the /AutoScaling Developer Guide/.",
+                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes and before\n-- the next scaling activity can start.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns> in the /AutoScaling Developer Guide/.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -14289,7 +14289,7 @@
                         "name": "_pspAdjustmentType",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "AdjustmentType",
-                        "documentation": "-- | Specifies whether the 'ScalingAdjustment' is an absolute number or a percentage\n-- of the current capacity. Valid values are 'ChangeInCapacity', 'ExactCapacity',\n-- and 'PercentChangeInCapacity'.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling\u003e in the /Auto Scaling Developer Guide/\n-- .",
+                        "documentation": "-- | Specifies whether the 'ScalingAdjustment' is an absolute number or a percentage\n-- of the current capacity. Valid values are 'ChangeInCapacity', 'ExactCapacity',\n-- and 'PercentChangeInCapacity'.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/as-scale-based-on-demand.html Dynamic Scaling> in the /Auto Scaling Developer Guide/\n-- .",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -14325,7 +14325,7 @@
                         "name": "_pspCooldown",
                         "shape": "Cooldown",
                         "locationName": "Cooldown",
-                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes and before\n-- the next scaling activity can start.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns\u003e in the /AutoScaling Developer Guide/.",
+                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes and before\n-- the next scaling activity can start.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns> in the /AutoScaling Developer Guide/.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -14423,7 +14423,7 @@
             "pager": null,
             "name": "PutScheduledUpdateGroupAction",
             "method": "post",
-            "documentation": "-- | Creates or updates a scheduled scaling action for an Auto Scaling group.\n-- When updating a scheduled scaling action, if you leave a parameter\n-- unspecified, the corresponding value remains unchanged in the affected Auto\n-- Scaling group.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html Scheduled Scaling\u003e in the /Auto Scaling DeveloperGuide/.\n--\n-- Auto Scaling supports the date and time expressed in \"YYYY-MM-DDThh:mm:ssZ\"\n-- format in UTC/GMT only.\n--\n--",
+            "documentation": "-- | Creates or updates a scheduled scaling action for an Auto Scaling group.\n-- When updating a scheduled scaling action, if you leave a parameter\n-- unspecified, the corresponding value remains unchanged in the affected Auto\n-- Scaling group.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/schedule_time.html Scheduled Scaling> in the /Auto Scaling DeveloperGuide/.\n--\n-- Auto Scaling supports the date and time expressed in \"YYYY-MM-DDThh:mm:ssZ\"\n-- format in UTC/GMT only.\n--\n--",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -14609,7 +14609,7 @@
                         "name": "_psugaRecurrence",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "Recurrence",
-                        "documentation": "-- | The time when recurring future actions will start. Start time is specified\n-- by the user following the Unix cron syntax format. For information about cron\n-- syntax, go to \u003chttp://en.wikipedia.org/wiki/Cron Wikipedia, The Free Encyclopedia\u003e.\n--\n-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the\n-- boundaries of when the recurring action will start and stop.",
+                        "documentation": "-- | The time when recurring future actions will start. Start time is specified\n-- by the user following the Unix cron syntax format. For information about cron\n-- syntax, go to <http://en.wikipedia.org/wiki/Cron Wikipedia, The Free Encyclopedia>.\n--\n-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the\n-- boundaries of when the recurring action will start and stop.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14773,7 +14773,7 @@
                         "name": "_psugaRecurrence",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "Recurrence",
-                        "documentation": "-- | The time when recurring future actions will start. Start time is specified\n-- by the user following the Unix cron syntax format. For information about cron\n-- syntax, go to \u003chttp://en.wikipedia.org/wiki/Cron Wikipedia, The Free Encyclopedia\u003e.\n--\n-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the\n-- boundaries of when the recurring action will start and stop.",
+                        "documentation": "-- | The time when recurring future actions will start. Start time is specified\n-- by the user following the Unix cron syntax format. For information about cron\n-- syntax, go to <http://en.wikipedia.org/wiki/Cron Wikipedia, The Free Encyclopedia>.\n--\n-- When 'StartTime' and 'EndTime' are specified with 'Recurrence', they form the\n-- boundaries of when the recurring action will start and stop.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -14871,7 +14871,7 @@
             "pager": null,
             "name": "RecordLifecycleActionHeartbeat",
             "method": "post",
-            "documentation": "-- | Records a heartbeat for the lifecycle action associated with a specific\n-- token. This extends the timeout by the length of time defined by the 'HeartbeatTimeout' parameter of 'PutLifecycleHook'.\n--\n-- This operation is a part of the basic sequence for adding a lifecycle hook\n-- to an Auto Scaling group:\n--\n-- Create a notification target. A target can be either an Amazon SQS queue or\n-- an Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to\n-- publish lifecycle notifications to the designated SQS queue or SNS topic. Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate.\n-- If necessary, record the lifecycle action heartbeat to keep the instance in\n-- a pending state. Complete the lifecycle action.  For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State\u003e and \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State\u003e in the /Auto Scaling Developer Guide/.",
+            "documentation": "-- | Records a heartbeat for the lifecycle action associated with a specific\n-- token. This extends the timeout by the length of time defined by the 'HeartbeatTimeout' parameter of 'PutLifecycleHook'.\n--\n-- This operation is a part of the basic sequence for adding a lifecycle hook\n-- to an Auto Scaling group:\n--\n-- Create a notification target. A target can be either an Amazon SQS queue or\n-- an Amazon SNS topic. Create an IAM role. This role allows Auto Scaling to\n-- publish lifecycle notifications to the designated SQS queue or SNS topic. Create the lifecycle hook. You can create a hook that acts when instances launch or when instances terminate.\n-- If necessary, record the lifecycle action heartbeat to keep the instance in\n-- a pending state. Complete the lifecycle action.  For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingPendingState.html Auto Scaling Pending State> and <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State> in the /Auto Scaling Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15072,7 +15072,7 @@
             "pager": null,
             "name": "ResumeProcesses",
             "method": "post",
-            "documentation": "-- | Resumes the specified suspended Auto Scaling processes for the specified Auto\n-- Scaling group. To resume specific processes, use the 'ScalingProcesses'\n-- parameter. To resume all processes, omit the 'ScalingProcesses' parameter. For\n-- more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes\u003e in the /AutoScaling Developer Guide/.",
+            "documentation": "-- | Resumes the specified suspended Auto Scaling processes for the specified Auto\n-- Scaling group. To resume specific processes, use the 'ScalingProcesses'\n-- parameter. To resume all processes, omit the 'ScalingProcesses' parameter. For\n-- more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes> in the /AutoScaling Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15435,7 +15435,7 @@
             "pager": null,
             "name": "SetInstanceHealth",
             "method": "post",
-            "documentation": "-- | Sets the health status of the specified instance.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks\u003e in the /Auto Scaling Developer Guide/.",
+            "documentation": "-- | Sets the health status of the specified instance.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/healthcheck.html Health Checks> in the /Auto Scaling Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -15637,7 +15637,7 @@
             "pager": null,
             "name": "SuspendProcesses",
             "method": "post",
-            "documentation": "-- | Suspends the specified Auto Scaling processes for the specified Auto Scaling\n-- group. To suspend specific processes, use the 'ScalingProcesses' parameter. To\n-- suspend all processes, omit the 'ScalingProcesses' parameter.\n--\n-- Note that if you suspend either the 'Launch' or 'Terminate' process types, it\n-- can prevent other process types from functioning properly.\n--\n-- To resume processes that have been suspended, use 'ResumeProcesses'.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes\u003e in the /Auto Scaling Developer Guide/.",
+            "documentation": "-- | Suspends the specified Auto Scaling processes for the specified Auto Scaling\n-- group. To suspend specific processes, use the 'ScalingProcesses' parameter. To\n-- suspend all processes, omit the 'ScalingProcesses' parameter.\n--\n-- Note that if you suspend either the 'Launch' or 'Terminate' process types, it\n-- can prevent other process types from functioning properly.\n--\n-- To resume processes that have been suspended, use 'ResumeProcesses'.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/US_SuspendResume.html Suspend and Resume Auto Scaling Processes> in the /Auto Scaling Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -16236,7 +16236,7 @@
                         "name": "_uasgDefaultCooldown",
                         "shape": "Cooldown",
                         "locationName": "DefaultCooldown",
-                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes before\n-- another scaling activity can start. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html UnderstandingAuto Scaling Cooldowns\u003e.",
+                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes before\n-- another scaling activity can start. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html UnderstandingAuto Scaling Cooldowns>.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -16272,7 +16272,7 @@
                         "name": "_uasgHealthCheckGracePeriod",
                         "shape": "HealthCheckGracePeriod",
                         "locationName": "HealthCheckGracePeriod",
-                        "documentation": "-- | The amount of time, in second, that Auto Scaling waits before checking the\n-- health status of an instance. The grace period begins when the instance\n-- passes System Status and the Instance Status checks from Amazon EC2. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html DescribeInstanceStatus\u003e.",
+                        "documentation": "-- | The amount of time, in second, that Auto Scaling waits before checking the\n-- health status of an instance. The grace period begins when the instance\n-- passes System Status and the Instance Status checks from Amazon EC2. For more\n-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html DescribeInstanceStatus>.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -16290,7 +16290,7 @@
                         "name": "_uasgPlacementGroup",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "PlacementGroup",
-                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups\u003e.",
+                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16308,7 +16308,7 @@
                         "name": "_uasgVPCZoneIdentifier",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "VPCZoneIdentifier",
-                        "documentation": "-- | The subnet identifier for the Amazon VPC connection, if applicable. You can\n-- specify several subnets in a comma-separated list.\n--\n-- When you specify 'VPCZoneIdentifier' with 'AvailabilityZones', ensure that the\n-- subnets' Availability Zones match the values you specify for 'AvailabilityZones'\n-- .\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC\u003e in the /Auto ScalingDeveloper Guide/.",
+                        "documentation": "-- | The subnet identifier for the Amazon VPC connection, if applicable. You can\n-- specify several subnets in a comma-separated list.\n--\n-- When you specify 'VPCZoneIdentifier' with 'AvailabilityZones', ensure that the\n-- subnets' Availability Zones match the values you specify for 'AvailabilityZones'\n-- .\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC> in the /Auto ScalingDeveloper Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16326,7 +16326,7 @@
                         "name": "_uasgTerminationPolicies",
                         "shape": "TerminationPolicies",
                         "locationName": "TerminationPolicies",
-                        "documentation": "-- | A standalone termination policy or a list of termination policies used to\n-- select the instance to terminate. The policies are executed in the order that\n-- they are listed.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | A standalone termination policy or a list of termination policies used to\n-- select the instance to terminate. The policies are executed in the order that\n-- they are listed.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     }
@@ -16382,7 +16382,7 @@
                         "name": "_uasgDefaultCooldown",
                         "shape": "Cooldown",
                         "locationName": "DefaultCooldown",
-                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes before\n-- another scaling activity can start. For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html UnderstandingAuto Scaling Cooldowns\u003e.",
+                        "documentation": "-- | The amount of time, in seconds, after a scaling activity completes before\n-- another scaling activity can start. For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html UnderstandingAuto Scaling Cooldowns>.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -16418,7 +16418,7 @@
                         "name": "_uasgHealthCheckGracePeriod",
                         "shape": "HealthCheckGracePeriod",
                         "locationName": "HealthCheckGracePeriod",
-                        "documentation": "-- | The amount of time, in second, that Auto Scaling waits before checking the\n-- health status of an instance. The grace period begins when the instance\n-- passes System Status and the Instance Status checks from Amazon EC2. For more\n-- information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html DescribeInstanceStatus\u003e.",
+                        "documentation": "-- | The amount of time, in second, that Auto Scaling waits before checking the\n-- health status of an instance. The grace period begins when the instance\n-- passes System Status and the Instance Status checks from Amazon EC2. For more\n-- information, see <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeInstanceStatus.html DescribeInstanceStatus>.",
                         "typeExposed": "Maybe Int",
                         "type": "Maybe Int"
                     },
@@ -16508,7 +16508,7 @@
                         "name": "_uasgPlacementGroup",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "PlacementGroup",
-                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see \u003chttp://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups\u003e.",
+                        "documentation": "-- | The name of the placement group into which you'll launch your instances, if\n-- any. For more information, see <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -16526,7 +16526,7 @@
                         "name": "_uasgTerminationPolicies",
                         "shape": "TerminationPolicies",
                         "locationName": "TerminationPolicies",
-                        "documentation": "-- | A standalone termination policy or a list of termination policies used to\n-- select the instance to terminate. The policies are executed in the order that\n-- they are listed.\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group\u003e in the /Auto Scaling Developer Guide/.",
+                        "documentation": "-- | A standalone termination policy or a list of termination policies used to\n-- select the instance to terminate. The policies are executed in the order that\n-- they are listed.\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your AutoScaling Group> in the /Auto Scaling Developer Guide/.",
                         "typeExposed": "[Text]",
                         "type": "List \"member\" Text"
                     },
@@ -16544,7 +16544,7 @@
                         "name": "_uasgVPCZoneIdentifier",
                         "shape": "XmlStringMaxLen255",
                         "locationName": "VPCZoneIdentifier",
-                        "documentation": "-- | The subnet identifier for the Amazon VPC connection, if applicable. You can\n-- specify several subnets in a comma-separated list.\n--\n-- When you specify 'VPCZoneIdentifier' with 'AvailabilityZones', ensure that the\n-- subnets' Availability Zones match the values you specify for 'AvailabilityZones'\n-- .\n--\n-- For more information, see \u003chttp://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC\u003e in the /Auto ScalingDeveloper Guide/.",
+                        "documentation": "-- | The subnet identifier for the Amazon VPC connection, if applicable. You can\n-- specify several subnets in a comma-separated list.\n--\n-- When you specify 'VPCZoneIdentifier' with 'AvailabilityZones', ensure that the\n-- subnets' Availability Zones match the values you specify for 'AvailabilityZones'\n-- .\n--\n-- For more information, see <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon VPC> in the /Auto ScalingDeveloper Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }

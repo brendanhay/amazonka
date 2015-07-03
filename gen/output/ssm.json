@@ -2365,7 +2365,7 @@
                         "name": "_cdContent",
                         "shape": "DocumentContent",
                         "locationName": "Content",
-                        "documentation": "-- | A valid JSON file. For more information about the contents of this file, see \u003chttp://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document\u003e.",
+                        "documentation": "-- | A valid JSON file. For more information about the contents of this file, see <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2411,7 +2411,7 @@
                         "name": "_cdContent",
                         "shape": "DocumentContent",
                         "locationName": "Content",
-                        "documentation": "-- | A valid JSON file. For more information about the contents of this file, see \u003chttp://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document\u003e.",
+                        "documentation": "-- | A valid JSON file. For more information about the contents of this file, see <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -2460,7 +2460,7 @@
                         "name": "_cdContent",
                         "shape": "DocumentContent",
                         "locationName": "Content",
-                        "documentation": "-- | A valid JSON file. For more information about the contents of this file, see \u003chttp://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document\u003e.",
+                        "documentation": "-- | A valid JSON file. For more information about the contents of this file, see <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },

@@ -217,7 +217,7 @@
                         "name": "_mavDataType",
                         "shape": "String",
                         "locationName": "DataType",
-                        "documentation": "-- | Amazon SNS supports the following logical data types: String, Number, and\n-- Binary. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types\u003e.",
+                        "documentation": "-- | Amazon SNS supports the following logical data types: String, Number, and\n-- Binary. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     }
@@ -241,7 +241,7 @@
                         "name": "_mavStringValue",
                         "shape": "String",
                         "locationName": "StringValue",
-                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.",
+                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -297,7 +297,7 @@
                         "name": "_mavDataType",
                         "shape": "String",
                         "locationName": "DataType",
-                        "documentation": "-- | Amazon SNS supports the following logical data types: String, Number, and\n-- Binary. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types\u003e.",
+                        "documentation": "-- | Amazon SNS supports the following logical data types: String, Number, and\n-- Binary. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMessageAttributes.html#SNSMessageAttributes.DataTypes Message Attribute Data Types>.",
                         "typeExposed": "Text",
                         "type": "Text"
                     },
@@ -315,7 +315,7 @@
                         "name": "_mavStringValue",
                         "shape": "String",
                         "locationName": "StringValue",
-                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see \u003chttp://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters\u003e.",
+                        "documentation": "-- | Strings are Unicode with UTF8 binary encoding. For a list of code values, see <http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters http://en.wikipedia.org/wiki/ASCII#ASCII_printable_characters>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1317,7 +1317,7 @@
             "pager": null,
             "name": "CreatePlatformApplication",
             "method": "post",
-            "documentation": "-- | Creates a platform application object for one of the supported push\n-- notification services, such as APNS and GCM, to which devices and mobile apps\n-- may register. You must specify PlatformPrincipal and PlatformCredential\n-- attributes when using the 'CreatePlatformApplication' action. The\n-- PlatformPrincipal is received from the notification service. For\n-- APNS/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". For GCM,\n-- PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client\n-- id\". The PlatformCredential is also received from the notification service.\n-- For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM,\n-- PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client\n-- secret\". The PlatformApplicationArn that is returned when using 'CreatePlatformApplication' is then used as an attribute for the 'CreatePlatformEndpoint' action. For more\n-- information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
+            "documentation": "-- | Creates a platform application object for one of the supported push\n-- notification services, such as APNS and GCM, to which devices and mobile apps\n-- may register. You must specify PlatformPrincipal and PlatformCredential\n-- attributes when using the 'CreatePlatformApplication' action. The\n-- PlatformPrincipal is received from the notification service. For\n-- APNS/APNS_SANDBOX, PlatformPrincipal is \"SSL certificate\". For GCM,\n-- PlatformPrincipal is not applicable. For ADM, PlatformPrincipal is \"client\n-- id\". The PlatformCredential is also received from the notification service.\n-- For APNS/APNS_SANDBOX, PlatformCredential is \"private key\". For GCM,\n-- PlatformCredential is \"API key\". For ADM, PlatformCredential is \"client\n-- secret\". The PlatformApplicationArn that is returned when using 'CreatePlatformApplication' is then used as an attribute for the 'CreatePlatformEndpoint' action. For more\n-- information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1418,7 +1418,7 @@
                         "name": "_cpaAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes\u003e",
+                        "documentation": "-- | For a list of attributes, see <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     }
@@ -1438,7 +1438,7 @@
                         "name": "_cpaAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes\u003e",
+                        "documentation": "-- | For a list of attributes, see <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     },
@@ -1579,7 +1579,7 @@
             "pager": null,
             "name": "CreatePlatformEndpoint",
             "method": "post",
-            "documentation": "-- | Creates an endpoint for a device and mobile app on one of the supported push\n-- notification services, such as GCM and APNS. 'CreatePlatformEndpoint' requires\n-- the PlatformApplicationArn that is returned from 'CreatePlatformApplication'.\n-- The EndpointArn that is returned when using 'CreatePlatformEndpoint' can then\n-- be used by the 'Publish' action to send a message to a mobile app or by the 'Subscribe' action for subscription to a topic. The 'CreatePlatformEndpoint' action is\n-- idempotent, so if the requester already owns an endpoint with the same device\n-- token and attributes, that endpoint's ARN is returned without creating a new\n-- endpoint. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e\n-- .\n--\n-- When using 'CreatePlatformEndpoint' with Baidu, two attributes must be\n-- provided: ChannelId and UserId. The token field must also contain the\n-- ChannelId. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html Creating an Amazon SNS Endpoint for Baidu\u003e\n-- .",
+            "documentation": "-- | Creates an endpoint for a device and mobile app on one of the supported push\n-- notification services, such as GCM and APNS. 'CreatePlatformEndpoint' requires\n-- the PlatformApplicationArn that is returned from 'CreatePlatformApplication'.\n-- The EndpointArn that is returned when using 'CreatePlatformEndpoint' can then\n-- be used by the 'Publish' action to send a message to a mobile app or by the 'Subscribe' action for subscription to a topic. The 'CreatePlatformEndpoint' action is\n-- idempotent, so if the requester already owns an endpoint with the same device\n-- token and attributes, that endpoint's ARN is returned without creating a new\n-- endpoint. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>\n-- .\n--\n-- When using 'CreatePlatformEndpoint' with Baidu, two attributes must be\n-- provided: ChannelId and UserId. The token field must also contain the\n-- ChannelId. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePushBaiduEndpoint.html Creating an Amazon SNS Endpoint for Baidu>\n-- .",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1703,7 +1703,7 @@
                         "name": "_cpeAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes\u003e.",
+                        "documentation": "-- | For a list of attributes, see <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     }
@@ -1723,7 +1723,7 @@
                         "name": "_cpeAttributes",
                         "shape": "MapStringToString",
                         "locationName": "Attributes",
-                        "documentation": "-- | For a list of attributes, see \u003chttp://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes\u003e.",
+                        "documentation": "-- | For a list of attributes, see <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.",
                         "typeExposed": "HashMap Text Text",
                         "type": "EMap \"entry\" \"key\" \"value\" Text Text"
                     },
@@ -1882,7 +1882,7 @@
             "pager": null,
             "name": "CreateTopic",
             "method": "post",
-            "documentation": "-- | Creates a topic to which notifications can be published. Users can create at\n-- most 3000 topics. For more information, see \u003chttp://aws.amazon.com/sns/ http://aws.amazon.com/sns\u003e. This\n-- action is idempotent, so if the requester already owns a topic with the\n-- specified name, that topic's ARN is returned without creating a new topic.",
+            "documentation": "-- | Creates a topic to which notifications can be published. Users can create at\n-- most 3000 topics. For more information, see <http://aws.amazon.com/sns/ http://aws.amazon.com/sns>. This\n-- action is idempotent, so if the requester already owns a topic with the\n-- specified name, that topic's ARN is returned without creating a new topic.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2022,7 +2022,7 @@
             "pager": null,
             "name": "DeleteEndpoint",
             "method": "post",
-            "documentation": "-- | Deletes the endpoint from Amazon SNS. This action is idempotent. For more\n-- information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
+            "documentation": "-- | Deletes the endpoint from Amazon SNS. This action is idempotent. For more\n-- information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2162,7 +2162,7 @@
             "pager": null,
             "name": "DeletePlatformApplication",
             "method": "post",
-            "documentation": "-- | Deletes a platform application object for one of the supported push\n-- notification services, such as APNS and GCM. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.",
+            "documentation": "-- | Deletes a platform application object for one of the supported push\n-- notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2503,7 +2503,7 @@
             "pager": null,
             "name": "GetEndpointAttributes",
             "method": "post",
-            "documentation": "-- | Retrieves the endpoint attributes for a device on one of the supported push\n-- notification services, such as GCM and APNS. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.",
+            "documentation": "-- | Retrieves the endpoint attributes for a device on one of the supported push\n-- notification services, such as GCM and APNS. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -2704,7 +2704,7 @@
             "pager": null,
             "name": "GetPlatformApplicationAttributes",
             "method": "post",
-            "documentation": "-- | Retrieves the attributes of the platform application object for the supported\n-- push notification services, such as APNS and GCM. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
+            "documentation": "-- | Retrieves the attributes of the platform application object for the supported\n-- push notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3331,7 +3331,7 @@
             },
             "name": "ListEndpointsByPlatformApplication",
             "method": "post",
-            "documentation": "-- | Lists the endpoints and endpoint attributes for devices in a supported push\n-- notification service, such as GCM and APNS. The results for 'ListEndpointsByPlatformApplication' are paginated and return a limited list of endpoints, up to 100. If\n-- additional records are available after the first page results, then a\n-- NextToken string will be returned. To receive the next page, you call 'ListEndpointsByPlatformApplication' again using the NextToken string received from the previous call. When there\n-- are no more records to return, NextToken will be null. For more information,\n-- see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
+            "documentation": "-- | Lists the endpoints and endpoint attributes for devices in a supported push\n-- notification service, such as GCM and APNS. The results for 'ListEndpointsByPlatformApplication' are paginated and return a limited list of endpoints, up to 100. If\n-- additional records are available after the first page results, then a\n-- NextToken string will be returned. To receive the next page, you call 'ListEndpointsByPlatformApplication' again using the NextToken string received from the previous call. When there\n-- are no more records to return, NextToken will be null. For more information,\n-- see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -3577,7 +3577,7 @@
             },
             "name": "ListPlatformApplications",
             "method": "post",
-            "documentation": "-- | Lists the platform application objects for the supported push notification\n-- services, such as APNS and GCM. The results for 'ListPlatformApplications' are\n-- paginated and return a limited list of applications, up to 100. If additional\n-- records are available after the first page results, then a NextToken string\n-- will be returned. To receive the next page, you call 'ListPlatformApplications'\n-- using the NextToken string received from the previous call. When there are no\n-- more records to return, NextToken will be null. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications\u003e.",
+            "documentation": "-- | Lists the platform application objects for the supported push notification\n-- services, such as APNS and GCM. The results for 'ListPlatformApplications' are\n-- paginated and return a limited list of applications, up to 100. If additional\n-- records are available after the first page results, then a NextToken string\n-- will be returned. To receive the next page, you call 'ListPlatformApplications'\n-- using the NextToken string received from the previous call. When there are no\n-- more records to return, NextToken will be null. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4623,7 +4623,7 @@
                         "name": "_pMessageStructure",
                         "shape": "messageStructure",
                         "locationName": "MessageStructure",
-                        "documentation": "-- | Set 'MessageStructure' to 'json' if you want to send a different message for each\n-- protocol. For example, using one publish action, you can send a short message\n-- to your SMS subscribers and a longer message to your email subscribers. If\n-- you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:\n--\n-- be a syntactically valid JSON object; and contain at least a top-level JSON\n-- key of \"default\" with a value that is a string.   You can define other\n-- top-level keys that define the message you want to send to a specific\n-- transport protocol (e.g., \"http\").\n--\n-- For information about sending different messages for each protocol using the\n-- AWS Management Console, go to \u003chttp://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol\u003e in\n-- the /Amazon Simple Notification Service Getting Started Guide/.\n--\n-- Valid value: 'json'",
+                        "documentation": "-- | Set 'MessageStructure' to 'json' if you want to send a different message for each\n-- protocol. For example, using one publish action, you can send a short message\n-- to your SMS subscribers and a longer message to your email subscribers. If\n-- you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:\n--\n-- be a syntactically valid JSON object; and contain at least a top-level JSON\n-- key of \"default\" with a value that is a string.   You can define other\n-- top-level keys that define the message you want to send to a specific\n-- transport protocol (e.g., \"http\").\n--\n-- For information about sending different messages for each protocol using the\n-- AWS Management Console, go to <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol> in\n-- the /Amazon Simple Notification Service Getting Started Guide/.\n--\n-- Valid value: 'json'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4697,7 +4697,7 @@
                         "name": "_pMessageStructure",
                         "shape": "messageStructure",
                         "locationName": "MessageStructure",
-                        "documentation": "-- | Set 'MessageStructure' to 'json' if you want to send a different message for each\n-- protocol. For example, using one publish action, you can send a short message\n-- to your SMS subscribers and a longer message to your email subscribers. If\n-- you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:\n--\n-- be a syntactically valid JSON object; and contain at least a top-level JSON\n-- key of \"default\" with a value that is a string.   You can define other\n-- top-level keys that define the message you want to send to a specific\n-- transport protocol (e.g., \"http\").\n--\n-- For information about sending different messages for each protocol using the\n-- AWS Management Console, go to \u003chttp://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol\u003e in\n-- the /Amazon Simple Notification Service Getting Started Guide/.\n--\n-- Valid value: 'json'",
+                        "documentation": "-- | Set 'MessageStructure' to 'json' if you want to send a different message for each\n-- protocol. For example, using one publish action, you can send a short message\n-- to your SMS subscribers and a longer message to your email subscribers. If\n-- you set 'MessageStructure' to 'json', the value of the 'Message' parameter must:\n--\n-- be a syntactically valid JSON object; and contain at least a top-level JSON\n-- key of \"default\" with a value that is a string.   You can define other\n-- top-level keys that define the message you want to send to a specific\n-- transport protocol (e.g., \"http\").\n--\n-- For information about sending different messages for each protocol using the\n-- AWS Management Console, go to <http://docs.aws.amazon.com/sns/latest/gsg/Publish.html#sns-message-formatting-by-protocol Create Different Messages for Each Protocol> in\n-- the /Amazon Simple Notification Service Getting Started Guide/.\n--\n-- Valid value: 'json'",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -4955,7 +4955,7 @@
             "pager": null,
             "name": "SetEndpointAttributes",
             "method": "post",
-            "documentation": "-- | Sets the attributes for an endpoint for a device on one of the supported push\n-- notification services, such as GCM and APNS. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.",
+            "documentation": "-- | Sets the attributes for an endpoint for a device on one of the supported push\n-- notification services, such as GCM and APNS. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -5115,7 +5115,7 @@
             "pager": null,
             "name": "SetPlatformApplicationAttributes",
             "method": "post",
-            "documentation": "-- | Sets the attributes of the platform application object for the supported push\n-- notification services, such as APNS and GCM. For more information, see \u003chttp://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications\u003e.",
+            "documentation": "-- | Sets the attributes of the platform application object for the supported push\n-- notification services, such as APNS and GCM. For more information, see <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html UsingAmazon SNS Mobile Push Notifications>.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

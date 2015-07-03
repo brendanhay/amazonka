@@ -2186,7 +2186,7 @@
                         "name": "_aoSynonyms",
                         "shape": "String",
                         "locationName": "Synonyms",
-                        "documentation": "-- | A JSON object that defines synonym groups and aliases. A synonym group is an\n-- array of arrays, where each sub-array is a group of terms where each term in\n-- the group is considered a synonym of every other term in the group. The\n-- aliases value is an object that contains a collection of string:value pairs\n-- where the string specifies a term and the array of values specifies each of\n-- the aliases for that term. An alias is considered a synonym of the specified\n-- term, but the term is not considered a synonym of the alias. For more\n-- information about specifying synonyms, see \u003chttp://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms\u003e in the /Amazon CloudSearchDeveloper Guide/.",
+                        "documentation": "-- | A JSON object that defines synonym groups and aliases. A synonym group is an\n-- array of arrays, where each sub-array is a group of terms where each term in\n-- the group is considered a synonym of every other term in the group. The\n-- aliases value is an object that contains a collection of string:value pairs\n-- where the string specifies a term and the array of values specifies each of\n-- the aliases for that term. An alias is considered a synonym of the specified\n-- term, but the term is not considered a synonym of the alias. For more\n-- information about specifying synonyms, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms> in the /Amazon CloudSearchDeveloper Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -2350,7 +2350,7 @@
                         "name": "_aoSynonyms",
                         "shape": "String",
                         "locationName": "Synonyms",
-                        "documentation": "-- | A JSON object that defines synonym groups and aliases. A synonym group is an\n-- array of arrays, where each sub-array is a group of terms where each term in\n-- the group is considered a synonym of every other term in the group. The\n-- aliases value is an object that contains a collection of string:value pairs\n-- where the string specifies a term and the array of values specifies each of\n-- the aliases for that term. An alias is considered a synonym of the specified\n-- term, but the term is not considered a synonym of the alias. For more\n-- information about specifying synonyms, see \u003chttp://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms\u003e in the /Amazon CloudSearchDeveloper Guide/.",
+                        "documentation": "-- | A JSON object that defines synonym groups and aliases. A synonym group is an\n-- array of arrays, where each sub-array is a group of terms where each term in\n-- the group is considered a synonym of every other term in the group. The\n-- aliases value is an object that contains a collection of string:value pairs\n-- where the string specifies a term and the array of values specifies each of\n-- the aliases for that term. An alias is considered a synonym of the specified\n-- term, but the term is not considered a synonym of the alias. For more\n-- information about specifying synonyms, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html#synonyms Synonyms> in the /Amazon CloudSearchDeveloper Guide/.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -5578,7 +5578,7 @@
             "pager": null,
             "name": "BuildSuggesters",
             "method": "post",
-            "documentation": "-- | Indexes the search suggestions. For more information, see \u003chttp://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters ConfiguringSuggesters\u003e in the /Amazon CloudSearch Developer Guide/.",
+            "documentation": "-- | Indexes the search suggestions. For more information, see <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html#configuring-suggesters ConfiguringSuggesters> in the /Amazon CloudSearch Developer Guide/.",
             "documentationUrl": null,
             "request": {
                 "deriving": [

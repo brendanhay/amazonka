@@ -1583,7 +1583,7 @@
                         "name": "_cgrGrantToken",
                         "shape": "GrantTokenType",
                         "locationName": "GrantToken",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1633,7 +1633,7 @@
                         "name": "_cgrGrantToken",
                         "shape": "GrantTokenType",
                         "locationName": "GrantToken",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     },
@@ -1689,7 +1689,7 @@
                         "name": "_cgrGrantToken",
                         "shape": "GrantTokenType",
                         "locationName": "GrantToken",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "Maybe Text",
                         "type": "Maybe Text"
                     }
@@ -1705,7 +1705,7 @@
             "pager": null,
             "name": "CreateGrant",
             "method": "post",
-            "documentation": "-- | Adds a grant to a key to specify who can access the key and under what\n-- conditions. Grants are alternate permission mechanisms to key policies. For\n-- more information about grants, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants\u003e in the developer guide. If a grant\n-- is absent, access to the key is evaluated based on IAM policies attached to\n-- the user.  'ListGrants' 'RetireGrant' 'RevokeGrant'",
+            "documentation": "-- | Adds a grant to a key to specify who can access the key and under what\n-- conditions. Grants are alternate permission mechanisms to key policies. For\n-- more information about grants, see <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants> in the developer guide. If a grant\n-- is absent, access to the key is evaluated based on IAM policies attached to\n-- the user.  'ListGrants' 'RetireGrant' 'RevokeGrant'",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -1823,7 +1823,7 @@
                         "name": "_cgGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -1953,7 +1953,7 @@
                         "name": "_cgGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -1991,7 +1991,7 @@
                         "name": "_cgGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     },
@@ -2583,7 +2583,7 @@
                         "name": "_dEncryptionContext",
                         "shape": "EncryptionContextType",
                         "locationName": "EncryptionContext",
-                        "documentation": "-- | The encryption context. If this was specified in the 'Encrypt' function, it\n-- must be specified here or the decryption operation will fail. For more\n-- information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context\u003e.",
+                        "documentation": "-- | The encryption context. If this was specified in the 'Encrypt' function, it\n-- must be specified here or the decryption operation will fail. For more\n-- information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -2601,7 +2601,7 @@
                         "name": "_dGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -2659,7 +2659,7 @@
                         "name": "_dEncryptionContext",
                         "shape": "EncryptionContextType",
                         "locationName": "EncryptionContext",
-                        "documentation": "-- | The encryption context. If this was specified in the 'Encrypt' function, it\n-- must be specified here or the decryption operation will fail. For more\n-- information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context\u003e.",
+                        "documentation": "-- | The encryption context. If this was specified in the 'Encrypt' function, it\n-- must be specified here or the decryption operation will fail. For more\n-- information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -2677,7 +2677,7 @@
                         "name": "_dGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -2715,7 +2715,7 @@
                         "name": "_dEncryptionContext",
                         "shape": "EncryptionContextType",
                         "locationName": "EncryptionContext",
-                        "documentation": "-- | The encryption context. If this was specified in the 'Encrypt' function, it\n-- must be specified here or the decryption operation will fail. For more\n-- information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context\u003e.",
+                        "documentation": "-- | The encryption context. If this was specified in the 'Encrypt' function, it\n-- must be specified here or the decryption operation will fail. For more\n-- information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -2733,7 +2733,7 @@
                         "name": "_dGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -3950,7 +3950,7 @@
                         "name": "_eEncryptionContext",
                         "shape": "EncryptionContextType",
                         "locationName": "EncryptionContext",
-                        "documentation": "-- | Name/value pair that specifies the encryption context to be used for\n-- authenticated encryption. If used here, the same value must be supplied to\n-- the 'Decrypt' API or decryption will fail. For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html EncryptionContext\u003e.",
+                        "documentation": "-- | Name/value pair that specifies the encryption context to be used for\n-- authenticated encryption. If used here, the same value must be supplied to\n-- the 'Decrypt' API or decryption will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html EncryptionContext>.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -3968,7 +3968,7 @@
                         "name": "_eGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -4044,7 +4044,7 @@
                         "name": "_eEncryptionContext",
                         "shape": "EncryptionContextType",
                         "locationName": "EncryptionContext",
-                        "documentation": "-- | Name/value pair that specifies the encryption context to be used for\n-- authenticated encryption. If used here, the same value must be supplied to\n-- the 'Decrypt' API or decryption will fail. For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html EncryptionContext\u003e.",
+                        "documentation": "-- | Name/value pair that specifies the encryption context to be used for\n-- authenticated encryption. If used here, the same value must be supplied to\n-- the 'Decrypt' API or decryption will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html EncryptionContext>.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -4062,7 +4062,7 @@
                         "name": "_eGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -4082,7 +4082,7 @@
                         "name": "_eEncryptionContext",
                         "shape": "EncryptionContextType",
                         "locationName": "EncryptionContext",
-                        "documentation": "-- | Name/value pair that specifies the encryption context to be used for\n-- authenticated encryption. If used here, the same value must be supplied to\n-- the 'Decrypt' API or decryption will fail. For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html EncryptionContext\u003e.",
+                        "documentation": "-- | Name/value pair that specifies the encryption context to be used for\n-- authenticated encryption. If used here, the same value must be supplied to\n-- the 'Decrypt' API or decryption will fail. For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html EncryptionContext>.",
                         "typeExposed": "HashMap Text Text",
                         "type": "Map Text Text"
                     },
@@ -4100,7 +4100,7 @@
                         "name": "_eGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     },
@@ -4347,7 +4347,7 @@
             "pager": null,
             "name": "GenerateDataKey",
             "method": "post",
-            "documentation": "-- | Generates a data key that you can use in your application to locally encrypt\n-- data. This call returns a plaintext version of the key in the 'Plaintext' field\n-- of the response object and an encrypted copy of the key in the 'CiphertextBlob'\n-- field. The key is encrypted by using the master key specified by the 'KeyId'\n-- field. To decrypt the encrypted key, pass it to the 'Decrypt' API.\n--\n-- We recommend that you use the following pattern to locally encrypt data:\n-- call the 'GenerateDataKey' API, use the key returned in the 'Plaintext' response\n-- field to locally encrypt data, and then erase the plaintext data key from\n-- memory. Store the encrypted data key (contained in the 'CiphertextBlob' field)\n-- alongside of the locally encrypted data.\n--\n-- You should not call the 'Encrypt' function to re-encrypt your data keys within\n-- a region. 'GenerateDataKey' always returns the data key encrypted and tied to\n-- the customer master key that will be used to decrypt it. There is no need to\n-- decrypt it twice.  If you decide to use the optional 'EncryptionContext'\n-- parameter, you must also store the context in full or at least store enough\n-- information along with the encrypted data to be able to reconstruct the\n-- context when submitting the ciphertext to the 'Decrypt' API. It is a good\n-- practice to choose a context that you can reconstruct on the fly to better\n-- secure the ciphertext. For more information about how this parameter is used,\n-- see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context\u003e.\n--\n-- To decrypt data, pass the encrypted data key to the 'Decrypt' API. 'Decrypt'\n-- uses the associated master key to decrypt the encrypted data key and returns\n-- it as plaintext. Use the plaintext data key to locally decrypt your data and\n-- then erase the key from memory. You must specify the encryption context, if\n-- any, that you specified when you generated the key. The encryption context is\n-- logged by CloudTrail, and you can use this log to help track the use of\n-- particular data.",
+            "documentation": "-- | Generates a data key that you can use in your application to locally encrypt\n-- data. This call returns a plaintext version of the key in the 'Plaintext' field\n-- of the response object and an encrypted copy of the key in the 'CiphertextBlob'\n-- field. The key is encrypted by using the master key specified by the 'KeyId'\n-- field. To decrypt the encrypted key, pass it to the 'Decrypt' API.\n--\n-- We recommend that you use the following pattern to locally encrypt data:\n-- call the 'GenerateDataKey' API, use the key returned in the 'Plaintext' response\n-- field to locally encrypt data, and then erase the plaintext data key from\n-- memory. Store the encrypted data key (contained in the 'CiphertextBlob' field)\n-- alongside of the locally encrypted data.\n--\n-- You should not call the 'Encrypt' function to re-encrypt your data keys within\n-- a region. 'GenerateDataKey' always returns the data key encrypted and tied to\n-- the customer master key that will be used to decrypt it. There is no need to\n-- decrypt it twice.  If you decide to use the optional 'EncryptionContext'\n-- parameter, you must also store the context in full or at least store enough\n-- information along with the encrypted data to be able to reconstruct the\n-- context when submitting the ciphertext to the 'Decrypt' API. It is a good\n-- practice to choose a context that you can reconstruct on the fly to better\n-- secure the ciphertext. For more information about how this parameter is used,\n-- see <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.\n--\n-- To decrypt data, pass the encrypted data key to the 'Decrypt' API. 'Decrypt'\n-- uses the associated master key to decrypt the encrypted data key and returns\n-- it as plaintext. Use the plaintext data key to locally decrypt your data and\n-- then erase the key from memory. You must specify the encryption context, if\n-- any, that you specified when you generated the key. The encryption context is\n-- logged by CloudTrail, and you can use this log to help track the use of\n-- particular data.",
             "documentationUrl": null,
             "request": {
                 "deriving": [
@@ -4447,7 +4447,7 @@
                         "name": "_gdkGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -4559,7 +4559,7 @@
                         "name": "_gdkGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -4597,7 +4597,7 @@
                         "name": "_gdkGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     },
@@ -4908,7 +4908,7 @@
                         "name": "_gdkwpGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -5020,7 +5020,7 @@
                         "name": "_gdkwpGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -5058,7 +5058,7 @@
                         "name": "_gdkwpGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     },
@@ -7913,7 +7913,7 @@
                         "name": "_reGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -8025,7 +8025,7 @@
                         "name": "_reGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     }
@@ -8099,7 +8099,7 @@
                         "name": "_reGrantTokens",
                         "shape": "GrantTokenList",
                         "locationName": "GrantTokens",
-                        "documentation": "-- | For more information, see \u003chttp://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens\u003e.",
+                        "documentation": "-- | For more information, see <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.",
                         "typeExposed": "[Text]",
                         "type": "List \"GrantTokens\" Text"
                     },

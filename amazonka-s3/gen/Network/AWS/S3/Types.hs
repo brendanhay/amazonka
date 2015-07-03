@@ -2805,7 +2805,7 @@ data Object = Object
     { _oETag         :: Text
     , _oKey          :: Text
     , _oLastModified :: RFC822
-    , _oOwner        :: Owner
+    , _oOwner        :: Maybe Owner
     , _oSize         :: Int
     , _oStorageClass :: ObjectStorageClass
     } deriving (Eq, Read, Show)
@@ -2820,7 +2820,7 @@ data Object = Object
 --
 -- * 'oLastModified' @::@ 'UTCTime'
 --
--- * 'oOwner' @::@ 'Owner'
+-- * 'oOwner' @::@ 'Maybe' 'Owner'
 --
 -- * 'oSize' @::@ 'Int'
 --
@@ -2831,15 +2831,14 @@ object' :: Text -- ^ 'oKey'
         -> Text -- ^ 'oETag'
         -> Int -- ^ 'oSize'
         -> ObjectStorageClass -- ^ 'oStorageClass'
-        -> Owner -- ^ 'oOwner'
         -> Object
-object' p1 p2 p3 p4 p5 p6 = Object
+object' p1 p2 p3 p4 p5 = Object
     { _oKey          = p1
     , _oLastModified = withIso _Time (const id) p2
     , _oETag         = p3
     , _oSize         = p4
     , _oStorageClass = p5
-    , _oOwner        = p6
+    , _oOwner        = Nothing
     }
 
 oETag :: Lens' Object Text
@@ -2851,7 +2850,7 @@ oKey = lens _oKey (\s a -> s { _oKey = a })
 oLastModified :: Lens' Object UTCTime
 oLastModified = lens _oLastModified (\s a -> s { _oLastModified = a }) . _Time
 
-oOwner :: Lens' Object Owner
+oOwner :: Lens' Object (Maybe Owner)
 oOwner = lens _oOwner (\s a -> s { _oOwner = a })
 
 oSize :: Lens' Object Int
@@ -2866,7 +2865,7 @@ instance FromXML Object where
         <$> x .@  "ETag"
         <*> x .@  "Key"
         <*> x .@  "LastModified"
-        <*> x .@  "Owner"
+        <*> x .@? "Owner"
         <*> x .@  "Size"
         <*> x .@  "StorageClass"
 

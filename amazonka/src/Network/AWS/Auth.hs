@@ -5,7 +5,7 @@
 {-# LANGUAGE ViewPatterns      #-}
 
 -- Module      : Network.AWS.Auth
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -25,17 +25,17 @@ module Network.AWS.Auth
     , SecurityToken (..)
     , accessKey
     , secretKey
-    -- ** Credentials
+    -- ** Retrieving authentication
     , Credentials   (..)
+    , Auth
+    , getAuth
+    -- $credentials
     , fromKeys
     , fromSession
     , fromEnv
     , fromEnvKeys
     , fromProfile
     , fromProfileName
-    -- ** Retrieving authentication
-    , Auth
-    , getAuth
     ) where
 
 import           Control.Applicative
@@ -66,6 +66,12 @@ accessKey = "AWS_ACCESS_KEY"
 secretKey :: Text -- ^ 'AWS_SECRET_KEY'
 secretKey = "AWS_SECRET_KEY"
 
+{- $credentials
+'getAuth' is implemented using the following @from*@-styled functions below.
+Both 'fromKeys' and 'fromSession' can be used directly to avoid the 'MonadIO'
+constraint.
+-}
+
 -- | Explicit access and secret keys.
 fromKeys :: AccessKey -> SecretKey -> Auth
 fromKeys a s = Auth (AuthEnv a s Nothing Nothing)
@@ -74,7 +80,7 @@ fromKeys a s = Auth (AuthEnv a s Nothing Nothing)
 fromSession :: AccessKey -> SecretKey -> SecurityToken -> Auth
 fromSession a s t = Auth (AuthEnv a s (Just t) Nothing)
 
--- | Determines how authentication information is retrieved.
+-- | Determines how AuthN/AuthZ information is retrieved.
 data Credentials
     = FromKeys AccessKey SecretKey
       -- ^ Explicit access and secret keys.

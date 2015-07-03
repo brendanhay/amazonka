@@ -5,17 +5,15 @@
 
 {-# OPTIONS_HADDOCK show-extensions #-}
 
+-- |
 -- Module      : Control.Monad.Trans.AWS
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : MPL 2.0
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
--- | The core module for making requests to the various AWS services and
+--
+-- The core module for making requests to the various AWS services and
 -- building your own Monad transformer stack.
 module Control.Monad.Trans.AWS
     (
@@ -125,6 +123,8 @@ import           Network.AWS.Waiter
 -- FIXME: Philosophical notes on the use of lenses, and notes about template-haskell usage.
 -- FIXME: Notes about associated response types, signers, service configuration.
 -- FIXME: {-# OPTIONS_HADDOCK show-extensions #-} everywhere?
+-- FIXME: Correct haddock module headings
+-- FIXME: Remove personal email address
 
 {- $usage
 This modules provides a set of common operations against the remote
@@ -148,28 +148,29 @@ underlying IAM role/profile.
 As a basic example, you might wish to store an object in an S3 bucket using
 <http://hackage.haskell.org/package/amazonka-s3 amazonka-s3>:
 
-> {-# LANGUAGE OverloadedStrings #-}
->
-> import Control.Lens
-> import Network.AWS
-> import Network.AWS.S3
-> import System.IO
->
-> example :: IO (Either Error PutObjectResponse)
-> example = do
->     -- To create the configuration, 'newEnv' is used. The Region and the desired mechanism for supplying or retrieving the Credentials is specified.
->     -- In this case, Discover will cause the library to try a number of options such as environment variables, or an instance's IAM profile:
->     e <- newEnv Frankfurt Discover
->
->     -- A new logger to replace the default noop logger is created, with the logger set to print debug information and errors to stdout:
->     l <- newLogger Debug stdout
->
->     -- The payload for the S3 object is retrieved from a FilePath:
->     b <- sourceFileIO "local/path/to/object-payload"
->
->     -- We now run the AWS computation with the overriden logger, performing the PutObject request:
->     runAWS (e & envLogger .~ l) $
->         send $ putObject "bucket-name" "object-key" b
+@
+import Control.Lens
+import Network.AWS
+import Network.AWS.S3
+import System.IO
+
+example :: IO (Either Error PutObjectResponse)
+example = do
+    -- To specify configuration preferences, 'newEnv' is used to create a new 'Env'. The 'Region' denotes the AWS region requests will be performed against,
+    -- and 'Credentials' is used to specify the desired mechanism for supplying or retrieving AuthN/AuthZ information.
+    -- In this case, 'Discover' will cause the library to try a number of options such as default environment variables, or an instance's IAM profile:
+    e <- newEnv Frankfurt Discover
+
+    -- A new logger to replace the default noop logger is created, with the logger set to print debug information and errors to stdout:
+    l <- newLogger Debug stdout
+
+    -- The payload (and hash) for the S3 object is retrieved from a FilePath:
+    b <- sourceFileIO "local\/path\/to\/object-payload"
+
+    -- We now run the AWS computation with the overriden logger, performing the PutObject request:
+    runAWS (e & envLogger .~ l) $
+        send (putObject "bucket-name" "object-key" b)
+@
 -}
 
 {- $embedding
@@ -255,25 +256,26 @@ The following example demonstrates retrieving two objects from S3 concurrently:
 -}
 
 {- $constraints
-The function signatures in this module use constraints specifying
-<http://hackage.haskell.org/package/mtl mtl> classes in order to keep the
-related functions as general as possible.  In fact, 'AWST' and 'AWS' are simply
-type aliases representing potential specialisations of 'MonadAWS'. The
-functions in this module will specialise to your application stack if it also
-fulfils these constraints, making it easy to embed any AWS related computation
-in your application.  An extended example is provided in #usage, below.
+The function signatures in this module specify constraints using <http://hackage.haskell.org/package/mtl mtl>
+classes in order to keep assumptions as general as possible.  In fact, 'AWST' and 'AWS' are simply
+type aliases representing potential specialisations of 'MonadAWS'. All functions
+in this module will specialise to your application stack if it also fulfils these
+constraints, making it easy to embed any AWS related computation in your application.
+An extended example is provided in #usage.
 
-The two commonly used constraints you will see are:
+The two core constraints that you will frequently see are:
 
-For some environment 'r' - a 'Lens' is provided by 'AWSEnv' 'r' to obtain the AWS specific 'Env' contained in 'r':
+For some environment 'r', a 'Lens' is provided by 'AWSEnv' 'r' to obtain the AWS specific 'Env' contained in 'r':
 
-> (MonadReader r m, AWSEnv r)
+@
+(MonadReader r m, AWSEnv r)
+@
 
-and:
+and for some error 'e', a 'Prism' is provided to de/construct the AWS specific 'Error' within 'e':
 
-For some error 'e' - a 'Prism' is provided to de/construct the AWS specific 'Error' within 'e':
-
-> (MonadError e m, AWSEnv e)
+@
+(MonadError e m, AWSEnv e)
+@
 -}
 
 -- | A convenient alias that specialises the common <http://hackage.haskell.org/package/mtl mtl>

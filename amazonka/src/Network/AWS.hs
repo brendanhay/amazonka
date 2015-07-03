@@ -8,8 +8,11 @@
 {-# LANGUAGE TypeFamilies        #-}
 {-# LANGUAGE ViewPatterns        #-}
 
+{-# OPTIONS_HADDOCK show-extensions #-}
+
+-- |
 -- Module      : Network.AWS
--- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
+-- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -17,9 +20,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
--- | The core module for making requests to the various AWS services and
--- building your own Monad transformer stack.
+--
+-- The core module for making requests to the various AWS services.
 module Network.AWS
     (
     -- $usage

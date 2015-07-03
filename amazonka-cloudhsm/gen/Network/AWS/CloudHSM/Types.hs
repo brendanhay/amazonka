@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -55,7 +54,7 @@ instance AWSService CloudHSM where
             , _svcPrefix = "cloudhsm"
             , _svcVersion = "2014-05-30"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -106,7 +105,9 @@ instance ToText ClientVersion where
         V51 -> "5.1"
         V53 -> "5.3"
 
-instance Hashable ClientVersion
+instance Hashable ClientVersion where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ClientVersion
 instance ToHeader ClientVersion
 
@@ -133,7 +134,9 @@ instance ToText CloudHSMObjectState where
         Ready -> "ready"
         Updating -> "updating"
 
-instance Hashable CloudHSMObjectState
+instance Hashable CloudHSMObjectState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CloudHSMObjectState
 instance ToHeader CloudHSMObjectState
 
@@ -172,7 +175,9 @@ instance ToText HSMStatus where
         HSTerminating -> "terminating"
         HSUpdating -> "updating"
 
-instance Hashable HSMStatus
+instance Hashable HSMStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery HSMStatus
 instance ToHeader HSMStatus
 
@@ -193,7 +198,9 @@ instance ToText SubscriptionType where
     toText = \case
         Production -> "production"
 
-instance Hashable SubscriptionType
+instance Hashable SubscriptionType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SubscriptionType
 instance ToHeader SubscriptionType
 

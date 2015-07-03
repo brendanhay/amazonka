@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -77,7 +76,7 @@ instance AWSService ImportExport where
             , _svcPrefix = "importexport"
             , _svcVersion = "2010-06-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -217,7 +216,9 @@ instance ToText JobType where
         Export -> "export"
         Import -> "import"
 
-instance Hashable JobType
+instance Hashable JobType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery JobType
 instance ToHeader JobType
 

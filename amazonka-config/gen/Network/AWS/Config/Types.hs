@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -160,7 +159,7 @@ instance AWSService Config where
             , _svcPrefix = "config"
             , _svcVersion = "2014-11-12"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -307,7 +306,9 @@ instance ToText ChronologicalOrder where
         Forward -> "forward"
         Reverse -> "reverse"
 
-instance Hashable ChronologicalOrder
+instance Hashable ChronologicalOrder where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ChronologicalOrder
 instance ToHeader ChronologicalOrder
 
@@ -337,7 +338,9 @@ instance ToText ConfigurationItemStatus where
         Failed -> "failed"
         OK -> "ok"
 
-instance Hashable ConfigurationItemStatus
+instance Hashable ConfigurationItemStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ConfigurationItemStatus
 instance ToHeader ConfigurationItemStatus
 
@@ -364,7 +367,9 @@ instance ToText DeliveryStatus where
         NotApplicable -> "not_applicable"
         Success -> "success"
 
-instance Hashable DeliveryStatus
+instance Hashable DeliveryStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DeliveryStatus
 instance ToHeader DeliveryStatus
 
@@ -391,7 +396,9 @@ instance ToText RecorderStatus where
         RSPending -> "pending"
         RSSuccess -> "success"
 
-instance Hashable RecorderStatus
+instance Hashable RecorderStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RecorderStatus
 instance ToHeader RecorderStatus
 
@@ -451,7 +458,9 @@ instance ToText ResourceType where
         AWSEC2VPNGateway -> "aws::ec2::vpngateway"
         AWSEC2Volume -> "aws::ec2::volume"
 
-instance Hashable ResourceType
+instance Hashable ResourceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ResourceType
 instance ToHeader ResourceType
 

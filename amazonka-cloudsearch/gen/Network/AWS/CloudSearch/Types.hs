@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -307,7 +306,7 @@ instance AWSService CloudSearch where
             , _svcPrefix = "cloudsearch"
             , _svcVersion = "2013-01-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -386,7 +385,9 @@ instance ToText AlgorithmicStemming where
         ASMinimal -> "minimal"
         ASNone -> "none"
 
-instance Hashable AlgorithmicStemming
+instance Hashable AlgorithmicStemming where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AlgorithmicStemming
 instance ToHeader AlgorithmicStemming
 
@@ -511,7 +512,9 @@ instance ToText AnalysisSchemeLanguage where
         ZHHans -> "zh-hans"
         ZHHant -> "zh-hant"
 
-instance Hashable AnalysisSchemeLanguage
+instance Hashable AnalysisSchemeLanguage where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AnalysisSchemeLanguage
 instance ToHeader AnalysisSchemeLanguage
 
@@ -566,7 +569,9 @@ instance ToText IndexFieldType where
         Text -> "text"
         TextArray -> "text-array"
 
-instance Hashable IndexFieldType
+instance Hashable IndexFieldType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery IndexFieldType
 instance ToHeader IndexFieldType
 
@@ -608,7 +613,9 @@ instance ToText OptionState where
         Processing -> "processing"
         RequiresIndexDocuments -> "requiresindexdocuments"
 
-instance Hashable OptionState
+instance Hashable OptionState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery OptionState
 instance ToHeader OptionState
 
@@ -652,7 +659,9 @@ instance ToText PartitionInstanceType where
         SearchM3Medium -> "search.m3.medium"
         SearchM3XLarge -> "search.m3.xlarge"
 
-instance Hashable PartitionInstanceType
+instance Hashable PartitionInstanceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery PartitionInstanceType
 instance ToHeader PartitionInstanceType
 
@@ -679,7 +688,9 @@ instance ToText SuggesterFuzzyMatching where
         Low -> "low"
         None -> "none"
 
-instance Hashable SuggesterFuzzyMatching
+instance Hashable SuggesterFuzzyMatching where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SuggesterFuzzyMatching
 instance ToHeader SuggesterFuzzyMatching
 

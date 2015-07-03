@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -149,7 +148,7 @@ instance AWSService WorkSpaces where
             , _svcPrefix = "workspaces"
             , _svcVersion = "2015-04-08"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -205,7 +204,9 @@ instance ToText Compute where
         Standard -> "standard"
         Value -> "value"
 
-instance Hashable Compute
+instance Hashable Compute where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Compute
 instance ToHeader Compute
 
@@ -238,7 +239,9 @@ instance ToText WorkspaceDirectoryState where
         Registered -> "registered"
         Registering -> "registering"
 
-instance Hashable WorkspaceDirectoryState
+instance Hashable WorkspaceDirectoryState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery WorkspaceDirectoryState
 instance ToHeader WorkspaceDirectoryState
 
@@ -262,7 +265,9 @@ instance ToText WorkspaceDirectoryType where
         ADConnector -> "ad_connector"
         SimpleAD -> "simple_ad"
 
-instance Hashable WorkspaceDirectoryType
+instance Hashable WorkspaceDirectoryType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery WorkspaceDirectoryType
 instance ToHeader WorkspaceDirectoryType
 
@@ -310,7 +315,9 @@ instance ToText WorkspaceState where
         WSTerminating -> "terminating"
         WSUnhealthy -> "unhealthy"
 
-instance Hashable WorkspaceState
+instance Hashable WorkspaceState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery WorkspaceState
 instance ToHeader WorkspaceState
 

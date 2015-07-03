@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -182,7 +181,7 @@ instance AWSService CloudFormation where
             , _svcPrefix = "cloudformation"
             , _svcVersion = "2010-05-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -233,7 +232,9 @@ instance ToText Capability where
     toText = \case
         CapabilityIAM -> "capability_iam"
 
-instance Hashable Capability
+instance Hashable Capability where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Capability
 instance ToHeader Capability
 
@@ -260,7 +261,9 @@ instance ToText OnFailure where
         Delete -> "delete"
         Rollback -> "rollback"
 
-instance Hashable OnFailure
+instance Hashable OnFailure where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery OnFailure
 instance ToHeader OnFailure
 
@@ -281,7 +284,9 @@ instance ToText ResourceSignalStatus where
         Failure -> "failure"
         Success -> "success"
 
-instance Hashable ResourceSignalStatus
+instance Hashable ResourceSignalStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ResourceSignalStatus
 instance ToHeader ResourceSignalStatus
 
@@ -326,7 +331,9 @@ instance ToText ResourceStatus where
         UpdateFailed -> "update_failed"
         UpdateINProgress -> "update_in_progress"
 
-instance Hashable ResourceStatus
+instance Hashable ResourceStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ResourceStatus
 instance ToHeader ResourceStatus
 
@@ -392,7 +399,9 @@ instance ToText StackStatus where
         SSUpdateRollbackFailed -> "update_rollback_failed"
         SSUpdateRollbackINProgress -> "update_rollback_in_progress"
 
-instance Hashable StackStatus
+instance Hashable StackStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StackStatus
 instance ToHeader StackStatus
 

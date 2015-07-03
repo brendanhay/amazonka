@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -289,7 +288,7 @@ instance AWSService ElasticBeanstalk where
             , _svcPrefix = "elasticbeanstalk"
             , _svcVersion = "2010-12-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -392,7 +391,9 @@ instance ToText ConfigurationDeploymentStatus where
         Failed -> "failed"
         Pending -> "pending"
 
-instance Hashable ConfigurationDeploymentStatus
+instance Hashable ConfigurationDeploymentStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ConfigurationDeploymentStatus
 instance ToHeader ConfigurationDeploymentStatus
 
@@ -416,7 +417,9 @@ instance ToText ConfigurationOptionValueType where
         List -> "list"
         Scalar -> "scalar"
 
-instance Hashable ConfigurationOptionValueType
+instance Hashable ConfigurationOptionValueType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ConfigurationOptionValueType
 instance ToHeader ConfigurationOptionValueType
 
@@ -446,7 +449,9 @@ instance ToText EnvironmentHealth where
         Red -> "red"
         Yellow -> "yellow"
 
-instance Hashable EnvironmentHealth
+instance Hashable EnvironmentHealth where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EnvironmentHealth
 instance ToHeader EnvironmentHealth
 
@@ -470,7 +475,9 @@ instance ToText EnvironmentInfoType where
         Bundle -> "bundle"
         Tail -> "tail"
 
-instance Hashable EnvironmentInfoType
+instance Hashable EnvironmentInfoType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EnvironmentInfoType
 instance ToHeader EnvironmentInfoType
 
@@ -503,7 +510,9 @@ instance ToText EnvironmentStatus where
         Terminating -> "terminating"
         Updating -> "updating"
 
-instance Hashable EnvironmentStatus
+instance Hashable EnvironmentStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EnvironmentStatus
 instance ToHeader EnvironmentStatus
 
@@ -539,7 +548,9 @@ instance ToText EventSeverity where
         LevelTrace -> "trace"
         LevelWarn -> "warn"
 
-instance Hashable EventSeverity
+instance Hashable EventSeverity where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EventSeverity
 instance ToHeader EventSeverity
 
@@ -563,7 +574,9 @@ instance ToText ValidationSeverity where
         VSError' -> "error"
         VSWarning -> "warning"
 
-instance Hashable ValidationSeverity
+instance Hashable ValidationSeverity where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ValidationSeverity
 instance ToHeader ValidationSeverity
 

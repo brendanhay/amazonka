@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -106,7 +105,7 @@ instance AWSService CloudSearchDomains where
             , _svcPrefix = "cloudsearchdomain"
             , _svcVersion = "2013-01-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -154,7 +153,9 @@ instance ToText ContentType where
         ApplicationJSON -> "application/json"
         ApplicationXML -> "application/xml"
 
-instance Hashable ContentType
+instance Hashable ContentType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ContentType
 instance ToHeader ContentType
 
@@ -184,7 +185,9 @@ instance ToText QueryParser where
         Simple -> "simple"
         Structured -> "structured"
 
-instance Hashable QueryParser
+instance Hashable QueryParser where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery QueryParser
 instance ToHeader QueryParser
 

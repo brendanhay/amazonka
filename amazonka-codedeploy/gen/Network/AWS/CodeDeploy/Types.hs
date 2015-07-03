@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -312,7 +311,7 @@ instance AWSService CodeDeploy where
             , _svcPrefix = "codedeploy"
             , _svcVersion = "2014-10-06"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -647,7 +646,9 @@ instance ToText ApplicationRevisionSortBy where
         LastUsedTime -> "lastusedtime"
         RegisterTime -> "registertime"
 
-instance Hashable ApplicationRevisionSortBy
+instance Hashable ApplicationRevisionSortBy where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ApplicationRevisionSortBy
 instance ToHeader ApplicationRevisionSortBy
 
@@ -674,7 +675,9 @@ instance ToText BundleType where
         TGZ -> "tgz"
         Zip -> "zip"
 
-instance Hashable BundleType
+instance Hashable BundleType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery BundleType
 instance ToHeader BundleType
 
@@ -734,7 +737,9 @@ instance ToText DeployErrorCode where
         Throttled -> "throttled"
         Timeout -> "timeout"
 
-instance Hashable DeployErrorCode
+instance Hashable DeployErrorCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DeployErrorCode
 instance ToHeader DeployErrorCode
 
@@ -758,7 +763,9 @@ instance ToText DeploymentCreator where
         Autoscaling -> "autoscaling"
         User -> "user"
 
-instance Hashable DeploymentCreator
+instance Hashable DeploymentCreator where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DeploymentCreator
 instance ToHeader DeploymentCreator
 
@@ -794,7 +801,9 @@ instance ToText DeploymentStatus where
         Stopped -> "stopped"
         Succeeded -> "succeeded"
 
-instance Hashable DeploymentStatus
+instance Hashable DeploymentStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DeploymentStatus
 instance ToHeader DeploymentStatus
 
@@ -824,7 +833,9 @@ instance ToText EC2TagFilterType where
         KeyOnly -> "key_only"
         ValueOnly -> "value_only"
 
-instance Hashable EC2TagFilterType
+instance Hashable EC2TagFilterType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EC2TagFilterType
 instance ToHeader EC2TagFilterType
 
@@ -863,7 +874,9 @@ instance ToText InstanceStatus where
         ISSucceeded -> "succeeded"
         ISUnknown -> "unknown"
 
-instance Hashable InstanceStatus
+instance Hashable InstanceStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceStatus
 instance ToHeader InstanceStatus
 
@@ -902,7 +915,9 @@ instance ToText LifecycleErrorCode where
         Success -> "success"
         UnknownError -> "unknownerror"
 
-instance Hashable LifecycleErrorCode
+instance Hashable LifecycleErrorCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery LifecycleErrorCode
 instance ToHeader LifecycleErrorCode
 
@@ -938,7 +953,9 @@ instance ToText LifecycleEventStatus where
         LESSucceeded -> "succeeded"
         LESUnknown -> "unknown"
 
-instance Hashable LifecycleEventStatus
+instance Hashable LifecycleEventStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery LifecycleEventStatus
 instance ToHeader LifecycleEventStatus
 
@@ -965,7 +982,9 @@ instance ToText ListStateFilterAction where
         Ignore -> "ignore"
         Include -> "include"
 
-instance Hashable ListStateFilterAction
+instance Hashable ListStateFilterAction where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ListStateFilterAction
 instance ToHeader ListStateFilterAction
 
@@ -989,7 +1008,9 @@ instance ToText MinimumHealthyHostsType where
         FleetPercent -> "fleet_percent"
         HostCount -> "host_count"
 
-instance Hashable MinimumHealthyHostsType
+instance Hashable MinimumHealthyHostsType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MinimumHealthyHostsType
 instance ToHeader MinimumHealthyHostsType
 
@@ -1016,7 +1037,9 @@ instance ToText RegistrationStatus where
         Deregistered -> "deregistered"
         Registered -> "registered"
 
-instance Hashable RegistrationStatus
+instance Hashable RegistrationStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RegistrationStatus
 instance ToHeader RegistrationStatus
 
@@ -1040,7 +1063,9 @@ instance ToText RevisionLocationType where
         GitHub -> "github"
         S3 -> "s3"
 
-instance Hashable RevisionLocationType
+instance Hashable RevisionLocationType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RevisionLocationType
 instance ToHeader RevisionLocationType
 
@@ -1067,7 +1092,9 @@ instance ToText SortOrder where
         Ascending -> "ascending"
         Descending -> "descending"
 
-instance Hashable SortOrder
+instance Hashable SortOrder where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SortOrder
 instance ToHeader SortOrder
 
@@ -1091,7 +1118,9 @@ instance ToText StopStatus where
         SSPending -> "pending"
         SSSucceeded -> "succeeded"
 
-instance Hashable StopStatus
+instance Hashable StopStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StopStatus
 instance ToHeader StopStatus
 
@@ -1118,7 +1147,9 @@ instance ToText TagFilterType where
         TFTKeyOnly -> "key_only"
         TFTValueOnly -> "value_only"
 
-instance Hashable TagFilterType
+instance Hashable TagFilterType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery TagFilterType
 instance ToHeader TagFilterType
 

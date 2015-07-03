@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -179,7 +178,7 @@ instance AWSService DirectoryService where
             , _svcPrefix = "ds"
             , _svcVersion = "2015-04-16"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -280,7 +279,9 @@ instance ToText DirectorySize where
         Large -> "large"
         Small -> "small"
 
-instance Hashable DirectorySize
+instance Hashable DirectorySize where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DirectorySize
 instance ToHeader DirectorySize
 
@@ -334,7 +335,9 @@ instance ToText DirectoryStage where
         DSRestoreFailed -> "restorefailed"
         DSRestoring -> "restoring"
 
-instance Hashable DirectoryStage
+instance Hashable DirectoryStage where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DirectoryStage
 instance ToHeader DirectoryStage
 
@@ -358,7 +361,9 @@ instance ToText DirectoryType where
         ADConnector -> "adconnector"
         SimpleAD -> "simplead"
 
-instance Hashable DirectoryType
+instance Hashable DirectoryType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DirectoryType
 instance ToHeader DirectoryType
 
@@ -388,7 +393,9 @@ instance ToText RadiusAuthenticationProtocol where
         MSCHAPV2 -> "ms-chapv2"
         Pap -> "pap"
 
-instance Hashable RadiusAuthenticationProtocol
+instance Hashable RadiusAuthenticationProtocol where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RadiusAuthenticationProtocol
 instance ToHeader RadiusAuthenticationProtocol
 
@@ -418,7 +425,9 @@ instance ToText RadiusStatus where
         Creating -> "creating"
         Failed -> "failed"
 
-instance Hashable RadiusStatus
+instance Hashable RadiusStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RadiusStatus
 instance ToHeader RadiusStatus
 
@@ -445,7 +454,9 @@ instance ToText SnapshotStatus where
         SSCreating -> "creating"
         SSFailed -> "failed"
 
-instance Hashable SnapshotStatus
+instance Hashable SnapshotStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SnapshotStatus
 instance ToHeader SnapshotStatus
 
@@ -469,7 +480,9 @@ instance ToText SnapshotType where
         Auto -> "auto"
         Manual -> "manual"
 
-instance Hashable SnapshotType
+instance Hashable SnapshotType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SnapshotType
 instance ToHeader SnapshotType
 

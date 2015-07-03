@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -241,7 +240,7 @@ instance AWSService MachineLearning where
             , _svcPrefix = "machinelearning"
             , _svcVersion = "2014-12-12"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -317,7 +316,9 @@ instance ToText Algorithm where
     toText = \case
         Sgd -> "sgd"
 
-instance Hashable Algorithm
+instance Hashable Algorithm where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Algorithm
 instance ToHeader Algorithm
 
@@ -376,7 +377,9 @@ instance ToText BatchPredictionFilterVariable where
         BatchName -> "name"
         BatchStatus -> "status"
 
-instance Hashable BatchPredictionFilterVariable
+instance Hashable BatchPredictionFilterVariable where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery BatchPredictionFilterVariable
 instance ToHeader BatchPredictionFilterVariable
 
@@ -428,7 +431,9 @@ instance ToText DataSourceFilterVariable where
         DSFVDataName -> "name"
         DSFVDataStatus -> "status"
 
-instance Hashable DataSourceFilterVariable
+instance Hashable DataSourceFilterVariable where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DataSourceFilterVariable
 instance ToHeader DataSourceFilterVariable
 
@@ -455,7 +460,9 @@ instance ToText DetailsAttributes where
         Algorithm -> "algorithm"
         PredictiveModelType -> "predictivemodeltype"
 
-instance Hashable DetailsAttributes
+instance Hashable DetailsAttributes where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DetailsAttributes
 instance ToHeader DetailsAttributes
 
@@ -495,7 +502,9 @@ instance ToText EntityStatus where
         Inprogress -> "inprogress"
         Pending -> "pending"
 
-instance Hashable EntityStatus
+instance Hashable EntityStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EntityStatus
 instance ToHeader EntityStatus
 
@@ -553,7 +562,9 @@ instance ToText EvaluationFilterVariable where
         EFVEvalName -> "name"
         EFVEvalStatus -> "status"
 
-instance Hashable EvaluationFilterVariable
+instance Hashable EvaluationFilterVariable where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EvaluationFilterVariable
 instance ToHeader EvaluationFilterVariable
 
@@ -601,7 +612,9 @@ instance ToText MLModelFilterVariable where
         MLMFVTrainingDataSourceId -> "trainingdatasourceid"
         MLMFVTrainingDataURI -> "trainingdatauri"
 
-instance Hashable MLModelFilterVariable
+instance Hashable MLModelFilterVariable where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MLModelFilterVariable
 instance ToHeader MLModelFilterVariable
 
@@ -628,7 +641,9 @@ instance ToText MLModelType where
         Multiclass -> "multiclass"
         Regression -> "regression"
 
-instance Hashable MLModelType
+instance Hashable MLModelType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MLModelType
 instance ToHeader MLModelType
 
@@ -661,7 +676,9 @@ instance ToText RealtimeEndpointStatus where
         RESReady -> "ready"
         RESUpdating -> "updating"
 
-instance Hashable RealtimeEndpointStatus
+instance Hashable RealtimeEndpointStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RealtimeEndpointStatus
 instance ToHeader RealtimeEndpointStatus
 
@@ -690,7 +707,9 @@ instance ToText SortOrder where
         Asc -> "asc"
         Dsc -> "dsc"
 
-instance Hashable SortOrder
+instance Hashable SortOrder where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SortOrder
 instance ToHeader SortOrder
 

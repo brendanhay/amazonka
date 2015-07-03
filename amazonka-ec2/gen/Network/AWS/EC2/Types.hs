@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -1650,7 +1649,7 @@ instance AWSService EC2 where
             , _svcPrefix = "ec2"
             , _svcVersion = "2015-04-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -1690,7 +1689,9 @@ instance ToText AccountAttributeName where
         DefaultVPC -> "default-vpc"
         SupportedPlatforms -> "supported-platforms"
 
-instance Hashable AccountAttributeName
+instance Hashable AccountAttributeName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AccountAttributeName
 instance ToHeader AccountAttributeName
 
@@ -1714,7 +1715,9 @@ instance ToText AddressStatus where
         InVPC -> "invpc"
         MoveInProgress -> "moveinprogress"
 
-instance Hashable AddressStatus
+instance Hashable AddressStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AddressStatus
 instance ToHeader AddressStatus
 
@@ -1738,7 +1741,9 @@ instance ToText ArchitectureValues where
         I386 -> "i386"
         X8664 -> "x86_64"
 
-instance Hashable ArchitectureValues
+instance Hashable ArchitectureValues where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ArchitectureValues
 instance ToHeader ArchitectureValues
 
@@ -1768,7 +1773,9 @@ instance ToText AttachmentStatus where
         Detached -> "detached"
         Detaching -> "detaching"
 
-instance Hashable AttachmentStatus
+instance Hashable AttachmentStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AttachmentStatus
 instance ToHeader AttachmentStatus
 
@@ -1789,7 +1796,9 @@ instance ToText AvailabilityZoneState where
     toText = \case
         AZSAvailable -> "available"
 
-instance Hashable AvailabilityZoneState
+instance Hashable AvailabilityZoneState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AvailabilityZoneState
 instance ToHeader AvailabilityZoneState
 
@@ -1825,7 +1834,9 @@ instance ToText BatchState where
         BSFailed -> "failed"
         BSSubmitted -> "submitted"
 
-instance Hashable BatchState
+instance Hashable BatchState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery BatchState
 instance ToHeader BatchState
 
@@ -1864,7 +1875,9 @@ instance ToText BundleTaskState where
         BTSStoring -> "storing"
         BTSWaitingForShutdown -> "waiting-for-shutdown"
 
-instance Hashable BundleTaskState
+instance Hashable BundleTaskState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery BundleTaskState
 instance ToHeader BundleTaskState
 
@@ -1894,7 +1907,9 @@ instance ToText CancelBatchErrorCode where
         FleetRequestNotInCancellableState -> "fleetrequestnotincancellablestate"
         UnexpectedError -> "unexpectederror"
 
-instance Hashable CancelBatchErrorCode
+instance Hashable CancelBatchErrorCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CancelBatchErrorCode
 instance ToHeader CancelBatchErrorCode
 
@@ -1927,7 +1942,9 @@ instance ToText CancelSpotInstanceRequestState where
         CSIRSCompleted -> "completed"
         CSIRSOpen -> "open"
 
-instance Hashable CancelSpotInstanceRequestState
+instance Hashable CancelSpotInstanceRequestState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CancelSpotInstanceRequestState
 instance ToHeader CancelSpotInstanceRequestState
 
@@ -1948,7 +1965,9 @@ instance ToText ContainerFormat where
     toText = \case
         Ova -> "ova"
 
-instance Hashable ContainerFormat
+instance Hashable ContainerFormat where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ContainerFormat
 instance ToHeader ContainerFormat
 
@@ -1978,7 +1997,9 @@ instance ToText ConversionTaskState where
         CTSCancelling -> "cancelling"
         CTSCompleted -> "completed"
 
-instance Hashable ConversionTaskState
+instance Hashable ConversionTaskState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ConversionTaskState
 instance ToHeader ConversionTaskState
 
@@ -1999,7 +2020,9 @@ instance ToText CurrencyCodeValues where
     toText = \case
         Usd -> "usd"
 
-instance Hashable CurrencyCodeValues
+instance Hashable CurrencyCodeValues where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CurrencyCodeValues
 instance ToHeader CurrencyCodeValues
 
@@ -2023,7 +2046,9 @@ instance ToText DatafeedSubscriptionState where
         DSSActive -> "active"
         DSSInactive -> "inactive"
 
-instance Hashable DatafeedSubscriptionState
+instance Hashable DatafeedSubscriptionState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DatafeedSubscriptionState
 instance ToHeader DatafeedSubscriptionState
 
@@ -2047,7 +2072,9 @@ instance ToText DeviceType where
         EBS -> "ebs"
         InstanceStore -> "instance-store"
 
-instance Hashable DeviceType
+instance Hashable DeviceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DeviceType
 instance ToHeader DeviceType
 
@@ -2074,7 +2101,9 @@ instance ToText DiskImageFormat where
         VHD -> "vhd"
         VMDK -> "vmdk"
 
-instance Hashable DiskImageFormat
+instance Hashable DiskImageFormat where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DiskImageFormat
 instance ToHeader DiskImageFormat
 
@@ -2098,7 +2127,9 @@ instance ToText DomainType where
         DTStandard -> "standard"
         DTVPC -> "vpc"
 
-instance Hashable DomainType
+instance Hashable DomainType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DomainType
 instance ToHeader DomainType
 
@@ -2131,7 +2162,9 @@ instance ToText EventCode where
         SystemMaintenance -> "system-maintenance"
         SystemReboot -> "system-reboot"
 
-instance Hashable EventCode
+instance Hashable EventCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EventCode
 instance ToHeader EventCode
 
@@ -2158,7 +2191,9 @@ instance ToText EventType where
         FleetRequestChange -> "fleetrequestchange"
         InstanceChange -> "instancechange"
 
-instance Hashable EventType
+instance Hashable EventType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EventType
 instance ToHeader EventType
 
@@ -2185,7 +2220,9 @@ instance ToText ExportEnvironment where
         Microsoft -> "microsoft"
         VMware -> "vmware"
 
-instance Hashable ExportEnvironment
+instance Hashable ExportEnvironment where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ExportEnvironment
 instance ToHeader ExportEnvironment
 
@@ -2215,7 +2252,9 @@ instance ToText ExportTaskState where
         ETSCancelling -> "cancelling"
         ETSCompleted -> "completed"
 
-instance Hashable ExportTaskState
+instance Hashable ExportTaskState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ExportTaskState
 instance ToHeader ExportTaskState
 
@@ -2242,7 +2281,9 @@ instance ToText FlowLogsResourceType where
         FLRTSubnet -> "subnet"
         FLRTVPC -> "vpc"
 
-instance Hashable FlowLogsResourceType
+instance Hashable FlowLogsResourceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery FlowLogsResourceType
 instance ToHeader FlowLogsResourceType
 
@@ -2260,7 +2301,9 @@ instance ToText GatewayType where
     toText = \case
         IPsec1 -> "ipsec.1"
 
-instance Hashable GatewayType
+instance Hashable GatewayType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery GatewayType
 instance ToHeader GatewayType
 
@@ -2284,7 +2327,9 @@ instance ToText HypervisorType where
         Ovm -> "ovm"
         Xen -> "xen"
 
-instance Hashable HypervisorType
+instance Hashable HypervisorType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery HypervisorType
 instance ToHeader HypervisorType
 
@@ -2323,7 +2368,9 @@ instance ToText ImageAttributeName where
         RAMDisk -> "ramdisk"
         SRIOVNetSupport -> "sriovnetsupport"
 
-instance Hashable ImageAttributeName
+instance Hashable ImageAttributeName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ImageAttributeName
 instance ToHeader ImageAttributeName
 
@@ -2359,7 +2406,9 @@ instance ToText ImageState where
         ISPending -> "pending"
         ISTransient -> "transient"
 
-instance Hashable ImageState
+instance Hashable ImageState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ImageState
 instance ToHeader ImageState
 
@@ -2386,7 +2435,9 @@ instance ToText ImageTypeValues where
         ITVMachine -> "machine"
         ITVRAMDisk -> "ramdisk"
 
-instance Hashable ImageTypeValues
+instance Hashable ImageTypeValues where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ImageTypeValues
 instance ToHeader ImageTypeValues
 
@@ -2443,7 +2494,9 @@ instance ToText InstanceAttributeName where
         IANSourceDestCheck -> "sourcedestcheck"
         IANUserData -> "userdata"
 
-instance Hashable InstanceAttributeName
+instance Hashable InstanceAttributeName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceAttributeName
 instance ToHeader InstanceAttributeName
 
@@ -2461,7 +2514,9 @@ instance ToText InstanceLifecycleType where
     toText = \case
         Spot -> "spot"
 
-instance Hashable InstanceLifecycleType
+instance Hashable InstanceLifecycleType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceLifecycleType
 instance ToHeader InstanceLifecycleType
 
@@ -2497,7 +2552,9 @@ instance ToText InstanceStateName where
         ISNStopping -> "stopping"
         ISNTerminated -> "terminated"
 
-instance Hashable InstanceStateName
+instance Hashable InstanceStateName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceStateName
 instance ToHeader InstanceStateName
 
@@ -2671,7 +2728,9 @@ instance ToText InstanceType where
         T2Micro -> "t2.micro"
         T2Small -> "t2.small"
 
-instance Hashable InstanceType
+instance Hashable InstanceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceType
 instance ToHeader InstanceType
 
@@ -2701,7 +2760,9 @@ instance ToText ListingState where
         LisPending -> "pending"
         LisSold -> "sold"
 
-instance Hashable ListingState
+instance Hashable ListingState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ListingState
 instance ToHeader ListingState
 
@@ -2731,7 +2792,9 @@ instance ToText ListingStatus where
         LSClosed -> "closed"
         LSPending -> "pending"
 
-instance Hashable ListingStatus
+instance Hashable ListingStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ListingStatus
 instance ToHeader ListingStatus
 
@@ -2761,7 +2824,9 @@ instance ToText MonitoringState where
         MSEnabled -> "enabled"
         MSPending -> "pending"
 
-instance Hashable MonitoringState
+instance Hashable MonitoringState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MonitoringState
 instance ToHeader MonitoringState
 
@@ -2785,7 +2850,9 @@ instance ToText MoveStatus where
         MovingToVPC -> "movingtovpc"
         RestoringToClassic -> "restoringtoclassic"
 
-instance Hashable MoveStatus
+instance Hashable MoveStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MoveStatus
 instance ToHeader MoveStatus
 
@@ -2815,7 +2882,9 @@ instance ToText NetworkInterfaceAttribute where
         NIAGroupSet -> "groupset"
         NIASourceDestCheck -> "sourcedestcheck"
 
-instance Hashable NetworkInterfaceAttribute
+instance Hashable NetworkInterfaceAttribute where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery NetworkInterfaceAttribute
 instance ToHeader NetworkInterfaceAttribute
 
@@ -2842,7 +2911,9 @@ instance ToText NetworkInterfaceStatus where
         NISDetaching -> "detaching"
         NISINUse -> "in-use"
 
-instance Hashable NetworkInterfaceStatus
+instance Hashable NetworkInterfaceStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery NetworkInterfaceStatus
 instance ToHeader NetworkInterfaceStatus
 
@@ -2878,7 +2949,9 @@ instance ToText OfferingTypeValues where
         NOUpfront -> "no upfront"
         PartialUpfront -> "partial upfront"
 
-instance Hashable OfferingTypeValues
+instance Hashable OfferingTypeValues where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery OfferingTypeValues
 instance ToHeader OfferingTypeValues
 
@@ -2899,7 +2972,9 @@ instance ToText PermissionGroup where
     toText = \case
         PGAll -> "all"
 
-instance Hashable PermissionGroup
+instance Hashable PermissionGroup where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery PermissionGroup
 instance ToHeader PermissionGroup
 
@@ -2929,7 +3004,9 @@ instance ToText PlacementGroupState where
         PGSDeleting -> "deleting"
         PGSPending -> "pending"
 
-instance Hashable PlacementGroupState
+instance Hashable PlacementGroupState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery PlacementGroupState
 instance ToHeader PlacementGroupState
 
@@ -2950,7 +3027,9 @@ instance ToText PlacementStrategy where
     toText = \case
         Cluster -> "cluster"
 
-instance Hashable PlacementStrategy
+instance Hashable PlacementStrategy where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery PlacementStrategy
 instance ToHeader PlacementStrategy
 
@@ -2971,7 +3050,9 @@ instance ToText PlatformValues where
     toText = \case
         PVWindows -> "windows"
 
-instance Hashable PlatformValues
+instance Hashable PlatformValues where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery PlatformValues
 instance ToHeader PlatformValues
 
@@ -2995,7 +3076,9 @@ instance ToText ProductCodeValues where
         Devpay -> "devpay"
         Marketplace -> "marketplace"
 
-instance Hashable ProductCodeValues
+instance Hashable ProductCodeValues where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ProductCodeValues
 instance ToHeader ProductCodeValues
 
@@ -3025,7 +3108,9 @@ instance ToText RIProductDescription where
         Windows -> "windows"
         WindowsAmazonVPC -> "windows (amazon vpc)"
 
-instance Hashable RIProductDescription
+instance Hashable RIProductDescription where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RIProductDescription
 instance ToHeader RIProductDescription
 
@@ -3046,7 +3131,9 @@ instance ToText RecurringChargeFrequency where
     toText = \case
         Hourly -> "hourly"
 
-instance Hashable RecurringChargeFrequency
+instance Hashable RecurringChargeFrequency where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RecurringChargeFrequency
 instance ToHeader RecurringChargeFrequency
 
@@ -3091,7 +3178,9 @@ instance ToText ReportInstanceReasonCodes where
         PerformanceOther -> "performance-other"
         Unresponsive -> "unresponsive"
 
-instance Hashable ReportInstanceReasonCodes
+instance Hashable ReportInstanceReasonCodes where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReportInstanceReasonCodes
 instance ToHeader ReportInstanceReasonCodes
 
@@ -3112,7 +3201,9 @@ instance ToText ReportStatusType where
         Impaired -> "impaired"
         OK -> "ok"
 
-instance Hashable ReportStatusType
+instance Hashable ReportStatusType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReportStatusType
 instance ToHeader ReportStatusType
 
@@ -3139,7 +3230,9 @@ instance ToText ReservedInstanceState where
         PaymentPending -> "payment-pending"
         Retired -> "retired"
 
-instance Hashable ReservedInstanceState
+instance Hashable ReservedInstanceState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReservedInstanceState
 instance ToHeader ReservedInstanceState
 
@@ -3160,7 +3253,9 @@ instance ToText ResetImageAttributeName where
     toText = \case
         RIANLaunchPermission -> "launchpermission"
 
-instance Hashable ResetImageAttributeName
+instance Hashable ResetImageAttributeName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ResetImageAttributeName
 instance ToHeader ResetImageAttributeName
 
@@ -3226,7 +3321,9 @@ instance ToText ResourceType where
         VPNGateway -> "vpn-gateway"
         Volume -> "volume"
 
-instance Hashable ResourceType
+instance Hashable ResourceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ResourceType
 instance ToHeader ResourceType
 
@@ -3253,7 +3350,9 @@ instance ToText RouteOrigin where
         CreateRouteTable -> "createroutetable"
         EnableVGWRoutePropagation -> "enablevgwroutepropagation"
 
-instance Hashable RouteOrigin
+instance Hashable RouteOrigin where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RouteOrigin
 instance ToHeader RouteOrigin
 
@@ -3277,7 +3376,9 @@ instance ToText RouteState where
         RSActive -> "active"
         RSBlackhole -> "blackhole"
 
-instance Hashable RouteState
+instance Hashable RouteState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RouteState
 instance ToHeader RouteState
 
@@ -3301,7 +3402,9 @@ instance ToText RuleAction where
         Allow -> "allow"
         Deny -> "deny"
 
-instance Hashable RuleAction
+instance Hashable RuleAction where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RuleAction
 instance ToHeader RuleAction
 
@@ -3325,7 +3428,9 @@ instance ToText ShutdownBehavior where
         Stop -> "stop"
         Terminate -> "terminate"
 
-instance Hashable ShutdownBehavior
+instance Hashable ShutdownBehavior where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ShutdownBehavior
 instance ToHeader ShutdownBehavior
 
@@ -3346,7 +3451,9 @@ instance ToText SnapshotAttributeName where
         SANCreateVolumePermission -> "createvolumepermission"
         SANProductCodes -> "productcodes"
 
-instance Hashable SnapshotAttributeName
+instance Hashable SnapshotAttributeName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SnapshotAttributeName
 instance ToHeader SnapshotAttributeName
 
@@ -3370,7 +3477,9 @@ instance ToText SnapshotState where
         SSError' -> "error"
         SSPending -> "pending"
 
-instance Hashable SnapshotState
+instance Hashable SnapshotState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SnapshotState
 instance ToHeader SnapshotState
 
@@ -3403,7 +3512,9 @@ instance ToText SpotInstanceState where
         SISFailed -> "failed"
         SISOpen -> "open"
 
-instance Hashable SpotInstanceState
+instance Hashable SpotInstanceState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SpotInstanceState
 instance ToHeader SpotInstanceState
 
@@ -3427,7 +3538,9 @@ instance ToText SpotInstanceType where
         OneTime -> "one-time"
         Persistent -> "persistent"
 
-instance Hashable SpotInstanceType
+instance Hashable SpotInstanceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SpotInstanceType
 instance ToHeader SpotInstanceType
 
@@ -3457,7 +3570,9 @@ instance ToText State where
         Deleting -> "deleting"
         Pending -> "pending"
 
-instance Hashable State
+instance Hashable State where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery State
 instance ToHeader State
 
@@ -3478,7 +3593,9 @@ instance ToText StatusName where
     toText = \case
         Reachability -> "reachability"
 
-instance Hashable StatusName
+instance Hashable StatusName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StatusName
 instance ToHeader StatusName
 
@@ -3508,7 +3625,9 @@ instance ToText StatusType where
         InsufficientData -> "insufficient-data"
         Passed -> "passed"
 
-instance Hashable StatusType
+instance Hashable StatusType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StatusType
 instance ToHeader StatusType
 
@@ -3532,7 +3651,9 @@ instance ToText SubnetState where
         SubAvailable -> "available"
         SubPending -> "pending"
 
-instance Hashable SubnetState
+instance Hashable SubnetState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SubnetState
 instance ToHeader SubnetState
 
@@ -3565,7 +3686,9 @@ instance ToText SummaryStatus where
         SSNotApplicable -> "not-applicable"
         SSOK -> "ok"
 
-instance Hashable SummaryStatus
+instance Hashable SummaryStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SummaryStatus
 instance ToHeader SummaryStatus
 
@@ -3589,7 +3712,9 @@ instance ToText TelemetryStatus where
         Down -> "down"
         UP -> "up"
 
-instance Hashable TelemetryStatus
+instance Hashable TelemetryStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery TelemetryStatus
 instance ToHeader TelemetryStatus
 
@@ -3613,7 +3738,9 @@ instance ToText Tenancy where
         Dedicated -> "dedicated"
         Default -> "default"
 
-instance Hashable Tenancy
+instance Hashable Tenancy where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Tenancy
 instance ToHeader Tenancy
 
@@ -3640,7 +3767,9 @@ instance ToText TrafficType where
         All -> "all"
         Reject -> "reject"
 
-instance Hashable TrafficType
+instance Hashable TrafficType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery TrafficType
 instance ToHeader TrafficType
 
@@ -3664,7 +3793,9 @@ instance ToText VPCAttributeName where
         EnableDNSHostnames -> "enablednshostnames"
         EnableDNSSupport -> "enablednssupport"
 
-instance Hashable VPCAttributeName
+instance Hashable VPCAttributeName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VPCAttributeName
 instance ToHeader VPCAttributeName
 
@@ -3685,7 +3816,9 @@ instance ToText VPCState where
         VpcAvailable -> "available"
         VpcPending -> "pending"
 
-instance Hashable VPCState
+instance Hashable VPCState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VPCState
 instance ToHeader VPCState
 
@@ -3715,7 +3848,9 @@ instance ToText VPNState where
         VSDeleting -> "deleting"
         VSPending -> "pending"
 
-instance Hashable VPNState
+instance Hashable VPNState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VPNState
 instance ToHeader VPNState
 
@@ -3736,7 +3871,9 @@ instance ToText VPNStaticRouteSource where
     toText = \case
         Static -> "static"
 
-instance Hashable VPNStaticRouteSource
+instance Hashable VPNStaticRouteSource where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VPNStaticRouteSource
 instance ToHeader VPNStaticRouteSource
 
@@ -3760,7 +3897,9 @@ instance ToText VirtualizationType where
         HVM -> "hvm"
         Paravirtual -> "paravirtual"
 
-instance Hashable VirtualizationType
+instance Hashable VirtualizationType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VirtualizationType
 instance ToHeader VirtualizationType
 
@@ -3790,7 +3929,9 @@ instance ToText VolumeAttachmentState where
         VASDetached -> "detached"
         VASDetaching -> "detaching"
 
-instance Hashable VolumeAttachmentState
+instance Hashable VolumeAttachmentState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VolumeAttachmentState
 instance ToHeader VolumeAttachmentState
 
@@ -3814,7 +3955,9 @@ instance ToText VolumeAttributeName where
         VANAutoEnableIO -> "autoenableio"
         VANProductCodes -> "productcodes"
 
-instance Hashable VolumeAttributeName
+instance Hashable VolumeAttributeName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VolumeAttributeName
 instance ToHeader VolumeAttributeName
 
@@ -3847,7 +3990,9 @@ instance ToText VolumeState where
         VolError' -> "error"
         VolINUse -> "in-use"
 
-instance Hashable VolumeState
+instance Hashable VolumeState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VolumeState
 instance ToHeader VolumeState
 
@@ -3874,7 +4019,9 @@ instance ToText VolumeStatusInfoStatus where
         VSISInsufficientData -> "insufficient-data"
         VSISOK -> "ok"
 
-instance Hashable VolumeStatusInfoStatus
+instance Hashable VolumeStatusInfoStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VolumeStatusInfoStatus
 instance ToHeader VolumeStatusInfoStatus
 
@@ -3898,7 +4045,9 @@ instance ToText VolumeStatusName where
         IOEnabled -> "io-enabled"
         IOPerformance -> "io-performance"
 
-instance Hashable VolumeStatusName
+instance Hashable VolumeStatusName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VolumeStatusName
 instance ToHeader VolumeStatusName
 
@@ -3925,7 +4074,9 @@ instance ToText VolumeType where
         IO1 -> "io1"
         Standard -> "standard"
 
-instance Hashable VolumeType
+instance Hashable VolumeType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VolumeType
 instance ToHeader VolumeType
 

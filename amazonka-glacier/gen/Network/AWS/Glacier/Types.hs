@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -156,7 +155,7 @@ instance AWSService Glacier where
             , _svcPrefix = "glacier"
             , _svcVersion = "2012-06-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -234,7 +233,9 @@ instance ToText ActionCode where
         ArchiveRetrieval -> "archiveretrieval"
         InventoryRetrieval -> "inventoryretrieval"
 
-instance Hashable ActionCode
+instance Hashable ActionCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ActionCode
 instance ToHeader ActionCode
 
@@ -261,7 +262,9 @@ instance ToText StatusCode where
         InProgress -> "inprogress"
         Succeeded -> "succeeded"
 
-instance Hashable StatusCode
+instance Hashable StatusCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StatusCode
 instance ToHeader StatusCode
 

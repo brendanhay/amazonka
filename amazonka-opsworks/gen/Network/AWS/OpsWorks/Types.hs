@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -514,7 +513,7 @@ instance AWSService OpsWorks where
             , _svcPrefix = "opsworks"
             , _svcVersion = "2013-02-18"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -564,7 +563,9 @@ instance ToText AppAttributesKeys where
         DocumentRoot -> "documentroot"
         RailsEnv -> "railsenv"
 
-instance Hashable AppAttributesKeys
+instance Hashable AppAttributesKeys where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AppAttributesKeys
 instance ToHeader AppAttributesKeys
 
@@ -603,7 +604,9 @@ instance ToText AppType where
         Rails -> "rails"
         Static -> "static"
 
-instance Hashable AppType
+instance Hashable AppType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AppType
 instance ToHeader AppType
 
@@ -630,7 +633,9 @@ instance ToText Architecture where
         I386 -> "i386"
         X8664 -> "x86_64"
 
-instance Hashable Architecture
+instance Hashable Architecture where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Architecture
 instance ToHeader Architecture
 
@@ -657,7 +662,9 @@ instance ToText AutoScalingType where
         Load -> "load"
         Timer -> "timer"
 
-instance Hashable AutoScalingType
+instance Hashable AutoScalingType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AutoScalingType
 instance ToHeader AutoScalingType
 
@@ -714,7 +721,9 @@ instance ToText DeploymentCommandName where
         UpdateCustomCookbooks -> "update_custom_cookbooks"
         UpdateDependencies -> "update_dependencies"
 
-instance Hashable DeploymentCommandName
+instance Hashable DeploymentCommandName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DeploymentCommandName
 instance ToHeader DeploymentCommandName
 
@@ -807,7 +816,9 @@ instance ToText LayerAttributesKeys where
         RubyVersion -> "rubyversion"
         RubygemsVersion -> "rubygemsversion"
 
-instance Hashable LayerAttributesKeys
+instance Hashable LayerAttributesKeys where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery LayerAttributesKeys
 instance ToHeader LayerAttributesKeys
 
@@ -858,7 +869,9 @@ instance ToText LayerType where
         RailsApp -> "rails-app"
         Web -> "web"
 
-instance Hashable LayerType
+instance Hashable LayerType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery LayerType
 instance ToHeader LayerType
 
@@ -885,7 +898,9 @@ instance ToText RootDeviceType where
         EBS -> "ebs"
         InstanceStore -> "instance-store"
 
-instance Hashable RootDeviceType
+instance Hashable RootDeviceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RootDeviceType
 instance ToHeader RootDeviceType
 
@@ -918,7 +933,9 @@ instance ToText SourceType where
         S3 -> "s3"
         SVN -> "svn"
 
-instance Hashable SourceType
+instance Hashable SourceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SourceType
 instance ToHeader SourceType
 
@@ -942,7 +959,9 @@ instance ToText StackAttributesKeys where
     toText = \case
         Color -> "color"
 
-instance Hashable StackAttributesKeys
+instance Hashable StackAttributesKeys where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StackAttributesKeys
 instance ToHeader StackAttributesKeys
 
@@ -969,7 +988,9 @@ instance ToText VirtualizationType where
         HVM -> "hvm"
         Paravirtual -> "paravirtual"
 
-instance Hashable VirtualizationType
+instance Hashable VirtualizationType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VirtualizationType
 instance ToHeader VirtualizationType
 
@@ -996,7 +1017,9 @@ instance ToText VolumeType where
         IO1 -> "io1"
         Standard -> "standard"
 
-instance Hashable VolumeType
+instance Hashable VolumeType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VolumeType
 instance ToHeader VolumeType
 

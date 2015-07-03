@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -808,7 +807,7 @@ instance AWSService SWF where
             , _svcPrefix = "swf"
             , _svcVersion = "2012-01-25"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -901,7 +900,9 @@ instance ToText ActivityTaskTimeoutType where
         ATTTScheduleTOStart -> "schedule_to_start"
         ATTTStartTOClose -> "start_to_close"
 
-instance Hashable ActivityTaskTimeoutType
+instance Hashable ActivityTaskTimeoutType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ActivityTaskTimeoutType
 instance ToHeader ActivityTaskTimeoutType
 
@@ -925,7 +926,9 @@ instance ToText CancelTimerFailedCause where
         CTFCOperationNotPermitted -> "operation_not_permitted"
         CTFCTimerIDUnknown -> "timer_id_unknown"
 
-instance Hashable CancelTimerFailedCause
+instance Hashable CancelTimerFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CancelTimerFailedCause
 instance ToHeader CancelTimerFailedCause
 
@@ -949,7 +952,9 @@ instance ToText CancelWorkflowExecutionFailedCause where
         CanOperationNotPermitted -> "operation_not_permitted"
         CanUnhandledDecision -> "unhandled_decision"
 
-instance Hashable CancelWorkflowExecutionFailedCause
+instance Hashable CancelWorkflowExecutionFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CancelWorkflowExecutionFailedCause
 instance ToHeader CancelWorkflowExecutionFailedCause
 
@@ -976,7 +981,9 @@ instance ToText ChildPolicy where
         RequestCancel -> "request_cancel"
         Terminate -> "terminate"
 
-instance Hashable ChildPolicy
+instance Hashable ChildPolicy where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ChildPolicy
 instance ToHeader ChildPolicy
 
@@ -1015,7 +1022,9 @@ instance ToText CloseStatus where
         Terminated -> "terminated"
         TimedOut -> "timed_out"
 
-instance Hashable CloseStatus
+instance Hashable CloseStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CloseStatus
 instance ToHeader CloseStatus
 
@@ -1042,7 +1051,9 @@ instance ToText CompleteWorkflowExecutionFailedCause where
         CWEFCOperationNotPermitted -> "operation_not_permitted"
         CWEFCUnhandledDecision -> "unhandled_decision"
 
-instance Hashable CompleteWorkflowExecutionFailedCause
+instance Hashable CompleteWorkflowExecutionFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CompleteWorkflowExecutionFailedCause
 instance ToHeader CompleteWorkflowExecutionFailedCause
 
@@ -1087,7 +1098,9 @@ instance ToText ContinueAsNewWorkflowExecutionFailedCause where
         CANWEFCWorkflowTypeDeprecated -> "workflow_type_deprecated"
         CANWEFCWorkflowTypeDoesNotExist -> "workflow_type_does_not_exist"
 
-instance Hashable ContinueAsNewWorkflowExecutionFailedCause
+instance Hashable ContinueAsNewWorkflowExecutionFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ContinueAsNewWorkflowExecutionFailedCause
 instance ToHeader ContinueAsNewWorkflowExecutionFailedCause
 
@@ -1108,7 +1121,9 @@ instance ToText DecisionTaskTimeoutType where
     toText = \case
         StartTOClose -> "start_to_close"
 
-instance Hashable DecisionTaskTimeoutType
+instance Hashable DecisionTaskTimeoutType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DecisionTaskTimeoutType
 instance ToHeader DecisionTaskTimeoutType
 
@@ -1162,7 +1177,9 @@ instance ToText DecisionType where
         StartChildWorkflowExecution -> "startchildworkflowexecution"
         StartTimer -> "starttimer"
 
-instance Hashable DecisionType
+instance Hashable DecisionType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DecisionType
 instance ToHeader DecisionType
 
@@ -1321,7 +1338,9 @@ instance ToText EventType where
         WorkflowExecutionTerminated -> "workflowexecutionterminated"
         WorkflowExecutionTimedOut -> "workflowexecutiontimedout"
 
-instance Hashable EventType
+instance Hashable EventType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EventType
 instance ToHeader EventType
 
@@ -1345,7 +1364,9 @@ instance ToText ExecutionStatus where
         Closed -> "closed"
         Open -> "open"
 
-instance Hashable ExecutionStatus
+instance Hashable ExecutionStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ExecutionStatus
 instance ToHeader ExecutionStatus
 
@@ -1369,7 +1390,9 @@ instance ToText FailWorkflowExecutionFailedCause where
         FWEFCOperationNotPermitted -> "operation_not_permitted"
         FWEFCUnhandledDecision -> "unhandled_decision"
 
-instance Hashable FailWorkflowExecutionFailedCause
+instance Hashable FailWorkflowExecutionFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery FailWorkflowExecutionFailedCause
 instance ToHeader FailWorkflowExecutionFailedCause
 
@@ -1390,7 +1413,9 @@ instance ToText RecordMarkerFailedCause where
     toText = \case
         RMFCOperationNotPermitted -> "operation_not_permitted"
 
-instance Hashable RecordMarkerFailedCause
+instance Hashable RecordMarkerFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RecordMarkerFailedCause
 instance ToHeader RecordMarkerFailedCause
 
@@ -1414,7 +1439,9 @@ instance ToText RegistrationStatus where
         Deprecated -> "deprecated"
         Registered -> "registered"
 
-instance Hashable RegistrationStatus
+instance Hashable RegistrationStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RegistrationStatus
 instance ToHeader RegistrationStatus
 
@@ -1441,7 +1468,9 @@ instance ToText RequestCancelActivityTaskFailedCause where
         RCATFCActivityIDUnknown -> "activity_id_unknown"
         RCATFCOperationNotPermitted -> "operation_not_permitted"
 
-instance Hashable RequestCancelActivityTaskFailedCause
+instance Hashable RequestCancelActivityTaskFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RequestCancelActivityTaskFailedCause
 instance ToHeader RequestCancelActivityTaskFailedCause
 
@@ -1468,7 +1497,9 @@ instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
         RCEWEFCRequestCancelExternalWorkflowExecutionRateExceeded -> "request_cancel_external_workflow_execution_rate_exceeded"
         RCEWEFCUnknownExternalWorkflowExecution -> "unknown_external_workflow_execution"
 
-instance Hashable RequestCancelExternalWorkflowExecutionFailedCause
+instance Hashable RequestCancelExternalWorkflowExecutionFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RequestCancelExternalWorkflowExecutionFailedCause
 instance ToHeader RequestCancelExternalWorkflowExecutionFailedCause
 
@@ -1519,7 +1550,9 @@ instance ToText ScheduleActivityTaskFailedCause where
         SATFCOpenActivitiesLimitExceeded -> "open_activities_limit_exceeded"
         SATFCOperationNotPermitted -> "operation_not_permitted"
 
-instance Hashable ScheduleActivityTaskFailedCause
+instance Hashable ScheduleActivityTaskFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ScheduleActivityTaskFailedCause
 instance ToHeader ScheduleActivityTaskFailedCause
 
@@ -1546,7 +1579,9 @@ instance ToText SignalExternalWorkflowExecutionFailedCause where
         SEWEFCSignalExternalWorkflowExecutionRateExceeded -> "signal_external_workflow_execution_rate_exceeded"
         SEWEFCUnknownExternalWorkflowExecution -> "unknown_external_workflow_execution"
 
-instance Hashable SignalExternalWorkflowExecutionFailedCause
+instance Hashable SignalExternalWorkflowExecutionFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SignalExternalWorkflowExecutionFailedCause
 instance ToHeader SignalExternalWorkflowExecutionFailedCause
 
@@ -1597,7 +1632,9 @@ instance ToText StartChildWorkflowExecutionFailedCause where
         SCWEFCWorkflowTypeDeprecated -> "workflow_type_deprecated"
         SCWEFCWorkflowTypeDoesNotExist -> "workflow_type_does_not_exist"
 
-instance Hashable StartChildWorkflowExecutionFailedCause
+instance Hashable StartChildWorkflowExecutionFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StartChildWorkflowExecutionFailedCause
 instance ToHeader StartChildWorkflowExecutionFailedCause
 
@@ -1627,7 +1664,9 @@ instance ToText StartTimerFailedCause where
         TimerCreationRateExceeded -> "timer_creation_rate_exceeded"
         TimerIDAlreadyINUse -> "timer_id_already_in_use"
 
-instance Hashable StartTimerFailedCause
+instance Hashable StartTimerFailedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StartTimerFailedCause
 instance ToHeader StartTimerFailedCause
 
@@ -1648,7 +1687,9 @@ instance ToText WorkflowExecutionCancelRequestedCause where
     toText = \case
         ChildPolicyApplied -> "child_policy_applied"
 
-instance Hashable WorkflowExecutionCancelRequestedCause
+instance Hashable WorkflowExecutionCancelRequestedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery WorkflowExecutionCancelRequestedCause
 instance ToHeader WorkflowExecutionCancelRequestedCause
 
@@ -1675,7 +1716,9 @@ instance ToText WorkflowExecutionTerminatedCause where
         WETCEventLimitExceeded -> "event_limit_exceeded"
         WETCOperatorInitiated -> "operator_initiated"
 
-instance Hashable WorkflowExecutionTerminatedCause
+instance Hashable WorkflowExecutionTerminatedCause where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery WorkflowExecutionTerminatedCause
 instance ToHeader WorkflowExecutionTerminatedCause
 
@@ -1696,7 +1739,9 @@ instance ToText WorkflowExecutionTimeoutType where
     toText = \case
         WETTStartTOClose -> "start_to_close"
 
-instance Hashable WorkflowExecutionTimeoutType
+instance Hashable WorkflowExecutionTimeoutType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery WorkflowExecutionTimeoutType
 instance ToHeader WorkflowExecutionTimeoutType
 

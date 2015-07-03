@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -274,7 +273,7 @@ instance AWSService AutoScaling where
             , _svcPrefix = "autoscaling"
             , _svcVersion = "2011-01-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -377,7 +376,9 @@ instance ToText LifecycleState where
         TerminatingProceed -> "terminating:proceed"
         TerminatingWait -> "terminating:wait"
 
-instance Hashable LifecycleState
+instance Hashable LifecycleState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery LifecycleState
 instance ToHeader LifecycleState
 
@@ -425,7 +426,9 @@ instance ToText ScalingActivityStatusCode where
         WaitingForSpotInstanceId -> "waitingforspotinstanceid"
         WaitingForSpotInstanceRequestId -> "waitingforspotinstancerequestid"
 
-instance Hashable ScalingActivityStatusCode
+instance Hashable ScalingActivityStatusCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ScalingActivityStatusCode
 instance ToHeader ScalingActivityStatusCode
 

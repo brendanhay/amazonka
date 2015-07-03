@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -263,7 +262,7 @@ instance AWSService ECS where
             , _svcPrefix = "ecs"
             , _svcVersion = "2014-11-13"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -386,7 +385,9 @@ instance ToText AgentUpdateStatus where
         AUSUpdated -> "updated"
         AUSUpdating -> "updating"
 
-instance Hashable AgentUpdateStatus
+instance Hashable AgentUpdateStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AgentUpdateStatus
 instance ToHeader AgentUpdateStatus
 
@@ -413,7 +414,9 @@ instance ToText DesiredStatus where
         Running -> "running"
         Stopped -> "stopped"
 
-instance Hashable DesiredStatus
+instance Hashable DesiredStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DesiredStatus
 instance ToHeader DesiredStatus
 
@@ -437,7 +440,9 @@ instance ToText SortOrder where
         Asc -> "asc"
         Desc -> "desc"
 
-instance Hashable SortOrder
+instance Hashable SortOrder where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SortOrder
 instance ToHeader SortOrder
 
@@ -461,7 +466,9 @@ instance ToText TaskDefinitionStatus where
         Active -> "active"
         Inactive -> "inactive"
 
-instance Hashable TaskDefinitionStatus
+instance Hashable TaskDefinitionStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery TaskDefinitionStatus
 instance ToHeader TaskDefinitionStatus
 
@@ -488,7 +495,9 @@ instance ToText TransportProtocol where
         TCP -> "tcp"
         Udp -> "udp"
 
-instance Hashable TransportProtocol
+instance Hashable TransportProtocol where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery TransportProtocol
 instance ToHeader TransportProtocol
 

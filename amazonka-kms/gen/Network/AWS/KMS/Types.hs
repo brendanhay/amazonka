@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -104,7 +103,7 @@ instance AWSService KMS where
             , _svcPrefix = "kms"
             , _svcVersion = "2014-11-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -221,7 +220,9 @@ instance ToText DataKeySpec where
         AES128 -> "aes_128"
         AES256 -> "aes_256"
 
-instance Hashable DataKeySpec
+instance Hashable DataKeySpec where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DataKeySpec
 instance ToHeader DataKeySpec
 
@@ -263,7 +264,9 @@ instance ToText GrantOperation where
         ReEncryptTo -> "reencryptto"
         RetireGrant -> "retiregrant"
 
-instance Hashable GrantOperation
+instance Hashable GrantOperation where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery GrantOperation
 instance ToHeader GrantOperation
 
@@ -287,7 +290,9 @@ instance ToText KeyUsageType where
     toText = \case
         EncryptDecrypt -> "encrypt_decrypt"
 
-instance Hashable KeyUsageType
+instance Hashable KeyUsageType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery KeyUsageType
 instance ToHeader KeyUsageType
 

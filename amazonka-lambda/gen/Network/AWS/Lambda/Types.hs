@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -102,7 +101,7 @@ instance AWSService Lambda where
             , _svcPrefix = "lambda"
             , _svcVersion = "2015-03-31"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -193,7 +192,9 @@ instance ToText EventSourcePosition where
         Latest -> "latest"
         TrimHorizon -> "trim_horizon"
 
-instance Hashable EventSourcePosition
+instance Hashable EventSourcePosition where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EventSourcePosition
 instance ToHeader EventSourcePosition
 
@@ -220,7 +221,9 @@ instance ToText InvocationType where
         Event -> "event"
         RequestResponse -> "requestresponse"
 
-instance Hashable InvocationType
+instance Hashable InvocationType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InvocationType
 instance ToHeader InvocationType
 
@@ -244,7 +247,9 @@ instance ToText LogType where
         None -> "none"
         Tail -> "tail"
 
-instance Hashable LogType
+instance Hashable LogType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery LogType
 instance ToHeader LogType
 
@@ -268,7 +273,9 @@ instance ToText Runtime where
         JAVA8 -> "java8"
         Nodejs -> "nodejs"
 
-instance Hashable Runtime
+instance Hashable Runtime where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Runtime
 instance ToHeader Runtime
 

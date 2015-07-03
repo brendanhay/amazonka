@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -348,7 +347,7 @@ instance AWSService EMR where
             , _svcPrefix = "elasticmapreduce"
             , _svcVersion = "2009-03-31"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -407,7 +406,9 @@ instance ToText ActionOnFailure where
         TerminateCluster -> "terminate_cluster"
         TerminateJobFlow -> "terminate_job_flow"
 
-instance Hashable ActionOnFailure
+instance Hashable ActionOnFailure where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ActionOnFailure
 instance ToHeader ActionOnFailure
 
@@ -449,7 +450,9 @@ instance ToText ClusterState where
         Terminating -> "terminating"
         Waiting -> "waiting"
 
-instance Hashable ClusterState
+instance Hashable ClusterState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ClusterState
 instance ToHeader ClusterState
 
@@ -491,7 +494,9 @@ instance ToText ClusterStateChangeReasonCode where
         UserRequest -> "user_request"
         ValidationError -> "validation_error"
 
-instance Hashable ClusterStateChangeReasonCode
+instance Hashable ClusterStateChangeReasonCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ClusterStateChangeReasonCode
 instance ToHeader ClusterStateChangeReasonCode
 
@@ -539,7 +544,9 @@ instance ToText InstanceGroupState where
         IGSTerminated -> "terminated"
         IGSTerminating -> "terminating"
 
-instance Hashable InstanceGroupState
+instance Hashable InstanceGroupState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceGroupState
 instance ToHeader InstanceGroupState
 
@@ -569,7 +576,9 @@ instance ToText InstanceGroupStateChangeReasonCode where
         IGSCRCInternalError -> "internal_error"
         IGSCRCValidationError -> "validation_error"
 
-instance Hashable InstanceGroupStateChangeReasonCode
+instance Hashable InstanceGroupStateChangeReasonCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceGroupStateChangeReasonCode
 instance ToHeader InstanceGroupStateChangeReasonCode
 
@@ -596,7 +605,9 @@ instance ToText InstanceGroupType where
         IGTMaster -> "master"
         IGTTask -> "task"
 
-instance Hashable InstanceGroupType
+instance Hashable InstanceGroupType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceGroupType
 instance ToHeader InstanceGroupType
 
@@ -626,7 +637,9 @@ instance ToText InstanceRoleType where
         Master -> "master"
         Task -> "task"
 
-instance Hashable InstanceRoleType
+instance Hashable InstanceRoleType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceRoleType
 instance ToHeader InstanceRoleType
 
@@ -659,7 +672,9 @@ instance ToText InstanceState where
         ISRunning -> "running"
         ISTerminated -> "terminated"
 
-instance Hashable InstanceState
+instance Hashable InstanceState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceState
 instance ToHeader InstanceState
 
@@ -692,7 +707,9 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCInternalError -> "internal_error"
         ISCRCValidationError -> "validation_error"
 
-instance Hashable InstanceStateChangeReasonCode
+instance Hashable InstanceStateChangeReasonCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InstanceStateChangeReasonCode
 instance ToHeader InstanceStateChangeReasonCode
 
@@ -716,7 +733,9 @@ instance ToText MarketType where
         ONDemand -> "on_demand"
         Spot -> "spot"
 
-instance Hashable MarketType
+instance Hashable MarketType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MarketType
 instance ToHeader MarketType
 
@@ -755,7 +774,9 @@ instance ToText StepState where
         SSPending -> "pending"
         SSRunning -> "running"
 
-instance Hashable StepState
+instance Hashable StepState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StepState
 instance ToHeader StepState
 
@@ -779,7 +800,9 @@ instance ToText StepStateChangeReasonCode where
     toText = \case
         None -> "none"
 
-instance Hashable StepStateChangeReasonCode
+instance Hashable StepStateChangeReasonCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StepStateChangeReasonCode
 instance ToHeader StepStateChangeReasonCode
 

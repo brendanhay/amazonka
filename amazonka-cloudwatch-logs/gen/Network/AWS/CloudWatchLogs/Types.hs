@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -140,7 +139,7 @@ instance AWSService CloudWatchLogs where
             , _svcPrefix = "logs"
             , _svcVersion = "2014-03-28"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -219,7 +218,9 @@ instance ToText OrderBy where
         LastEventTime -> "lasteventtime"
         LogStreamName -> "logstreamname"
 
-instance Hashable OrderBy
+instance Hashable OrderBy where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery OrderBy
 instance ToHeader OrderBy
 

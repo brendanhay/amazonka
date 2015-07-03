@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -522,7 +521,7 @@ instance AWSService RDS where
             , _svcPrefix = "rds"
             , _svcVersion = "2014-10-31"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -878,7 +877,9 @@ instance ToText ApplyMethod where
         Immediate -> "immediate"
         PendingReboot -> "pending-reboot"
 
-instance Hashable ApplyMethod
+instance Hashable ApplyMethod where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ApplyMethod
 instance ToHeader ApplyMethod
 
@@ -908,7 +909,9 @@ instance ToText SourceType where
         DBSecurityGroup -> "db-security-group"
         DBSnapshot -> "db-snapshot"
 
-instance Hashable SourceType
+instance Hashable SourceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SourceType
 instance ToHeader SourceType
 

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -125,7 +124,7 @@ instance AWSService CognitoSync where
             , _svcPrefix = "cognito-sync"
             , _svcVersion = "2014-06-30"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -239,7 +238,9 @@ instance ToText BulkPublishStatus where
         NotStarted -> "not_started"
         Succeeded -> "succeeded"
 
-instance Hashable BulkPublishStatus
+instance Hashable BulkPublishStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery BulkPublishStatus
 instance ToHeader BulkPublishStatus
 
@@ -263,7 +264,9 @@ instance ToText Operation where
         Remove -> "remove"
         Replace -> "replace"
 
-instance Hashable Operation
+instance Hashable Operation where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Operation
 instance ToHeader Operation
 
@@ -293,7 +296,9 @@ instance ToText Platform where
         APNSSandbox -> "apns_sandbox"
         GCM -> "gcm"
 
-instance Hashable Platform
+instance Hashable Platform where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Platform
 instance ToHeader Platform
 
@@ -317,7 +322,9 @@ instance ToText StreamingStatus where
         Disabled -> "disabled"
         Enabled -> "enabled"
 
-instance Hashable StreamingStatus
+instance Hashable StreamingStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StreamingStatus
 instance ToHeader StreamingStatus
 

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -93,7 +92,7 @@ instance AWSService CloudTrail where
             , _svcPrefix = "cloudtrail"
             , _svcVersion = "2013-11-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -232,7 +231,9 @@ instance ToText LookupAttributeKey where
         ResourceType -> "resourcetype"
         Username -> "username"
 
-instance Hashable LookupAttributeKey
+instance Hashable LookupAttributeKey where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery LookupAttributeKey
 instance ToHeader LookupAttributeKey
 

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -283,9 +282,9 @@ module Network.AWS.S3.Types
     -- * Object
     , Object
     , object'
+    , objOwner
     , objETag
     , objSize
-    , objOwner
     , objKey
     , objStorageClass
     , objLastModified
@@ -458,7 +457,7 @@ instance AWSService S3 where
             , _svcPrefix = "s3"
             , _svcVersion = "2006-03-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -533,7 +532,9 @@ instance ToText BucketCannedACL where
         BCACannedPublicRead -> "public-read"
         BCACannedPublicReadWrite -> "public-read-write"
 
-instance Hashable BucketCannedACL
+instance Hashable BucketCannedACL where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery BucketCannedACL
 instance ToHeader BucketCannedACL
 
@@ -560,7 +561,9 @@ instance ToText BucketLogsPermission where
         Read -> "read"
         Write -> "write"
 
-instance Hashable BucketLogsPermission
+instance Hashable BucketLogsPermission where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery BucketLogsPermission
 instance ToHeader BucketLogsPermission
 
@@ -587,7 +590,9 @@ instance ToText BucketVersioningStatus where
         BVSEnabled -> "enabled"
         BVSSuspended -> "suspended"
 
-instance Hashable BucketVersioningStatus
+instance Hashable BucketVersioningStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery BucketVersioningStatus
 instance ToHeader BucketVersioningStatus
 
@@ -617,7 +622,9 @@ instance ToText EncodingType where
     toText = \case
         URL -> "url"
 
-instance Hashable EncodingType
+instance Hashable EncodingType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EncodingType
 instance ToHeader EncodingType
 
@@ -654,7 +661,9 @@ instance ToText Event where
         S3ObjectCreatedPut -> "s3:objectcreated:put"
         S3ReducedRedundancyLostObject -> "s3:reducedredundancylostobject"
 
-instance Hashable Event
+instance Hashable Event where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Event
 instance ToHeader Event
 
@@ -681,7 +690,9 @@ instance ToText ExpirationStatus where
         ESDisabled -> "disabled"
         ESEnabled -> "enabled"
 
-instance Hashable ExpirationStatus
+instance Hashable ExpirationStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ExpirationStatus
 instance ToHeader ExpirationStatus
 
@@ -708,7 +719,9 @@ instance ToText MFADelete where
         MDDisabled -> "disabled"
         MDEnabled -> "enabled"
 
-instance Hashable MFADelete
+instance Hashable MFADelete where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MFADelete
 instance ToHeader MFADelete
 
@@ -732,7 +745,9 @@ instance ToText MFADeleteStatus where
         MDSDisabled -> "disabled"
         MDSEnabled -> "enabled"
 
-instance Hashable MFADeleteStatus
+instance Hashable MFADeleteStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MFADeleteStatus
 instance ToHeader MFADeleteStatus
 
@@ -756,7 +771,9 @@ instance ToText MetadataDirective where
         Copy -> "copy"
         Replace -> "replace"
 
-instance Hashable MetadataDirective
+instance Hashable MetadataDirective where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MetadataDirective
 instance ToHeader MetadataDirective
 
@@ -792,7 +809,9 @@ instance ToText ObjectCannedACL where
         PublicRead -> "public-read"
         PublicReadWrite -> "public-read-write"
 
-instance Hashable ObjectCannedACL
+instance Hashable ObjectCannedACL where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ObjectCannedACL
 instance ToHeader ObjectCannedACL
 
@@ -819,7 +838,9 @@ instance ToText ObjectStorageClass where
         OSCReducedRedundancy -> "reduced_redundancy"
         OSCStandard -> "standard"
 
-instance Hashable ObjectStorageClass
+instance Hashable ObjectStorageClass where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ObjectStorageClass
 instance ToHeader ObjectStorageClass
 
@@ -840,7 +861,9 @@ instance ToText ObjectVersionStorageClass where
     toText = \case
         OVSCStandard -> "standard"
 
-instance Hashable ObjectVersionStorageClass
+instance Hashable ObjectVersionStorageClass where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ObjectVersionStorageClass
 instance ToHeader ObjectVersionStorageClass
 
@@ -864,7 +887,9 @@ instance ToText Payer where
         BucketOwner -> "bucketowner"
         Requester -> "requester"
 
-instance Hashable Payer
+instance Hashable Payer where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Payer
 instance ToHeader Payer
 
@@ -900,7 +925,9 @@ instance ToText Permission where
         PerWrite -> "write"
         PerWriteAcp -> "write_acp"
 
-instance Hashable Permission
+instance Hashable Permission where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Permission
 instance ToHeader Permission
 
@@ -927,7 +954,9 @@ instance ToText Protocol where
         HTTP -> "http"
         HTTPS -> "https"
 
-instance Hashable Protocol
+instance Hashable Protocol where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Protocol
 instance ToHeader Protocol
 
@@ -954,7 +983,9 @@ instance ToText ReplicationRuleStatus where
         Disabled -> "disabled"
         Enabled -> "enabled"
 
-instance Hashable ReplicationRuleStatus
+instance Hashable ReplicationRuleStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReplicationRuleStatus
 instance ToHeader ReplicationRuleStatus
 
@@ -987,7 +1018,9 @@ instance ToText ReplicationStatus where
         Pending -> "pending"
         Replica -> "replica"
 
-instance Hashable ReplicationStatus
+instance Hashable ReplicationStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReplicationStatus
 instance ToHeader ReplicationStatus
 
@@ -1010,7 +1043,9 @@ instance ToText RequestCharged where
     toText = \case
         RCRequester -> "requester"
 
-instance Hashable RequestCharged
+instance Hashable RequestCharged where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RequestCharged
 instance ToHeader RequestCharged
 
@@ -1036,7 +1071,9 @@ instance ToText RequestPayer where
     toText = \case
         RPRequester -> "requester"
 
-instance Hashable RequestPayer
+instance Hashable RequestPayer where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RequestPayer
 instance ToHeader RequestPayer
 
@@ -1057,7 +1094,9 @@ instance ToText ServerSideEncryption where
     toText = \case
         AES256 -> "aes256"
 
-instance Hashable ServerSideEncryption
+instance Hashable ServerSideEncryption where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ServerSideEncryption
 instance ToHeader ServerSideEncryption
 
@@ -1084,7 +1123,9 @@ instance ToText StorageClass where
         ReducedRedundancy -> "reduced_redundancy"
         Standard -> "standard"
 
-instance Hashable StorageClass
+instance Hashable StorageClass where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StorageClass
 instance ToHeader StorageClass
 
@@ -1108,7 +1149,9 @@ instance ToText TransitionStorageClass where
     toText = \case
         Glacier -> "glacier"
 
-instance Hashable TransitionStorageClass
+instance Hashable TransitionStorageClass where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery TransitionStorageClass
 instance ToHeader TransitionStorageClass
 
@@ -1138,7 +1181,9 @@ instance ToText Type where
         CanonicalUser -> "canonicaluser"
         Group -> "group"
 
-instance Hashable Type
+instance Hashable Type where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Type
 instance ToHeader Type
 
@@ -2334,11 +2379,11 @@ instance ToXML NotificationConfiguration where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'objOwner'
+--
 -- * 'objETag'
 --
 -- * 'objSize'
---
--- * 'objOwner'
 --
 -- * 'objKey'
 --
@@ -2346,25 +2391,29 @@ instance ToXML NotificationConfiguration where
 --
 -- * 'objLastModified'
 data Object = Object'
-    { _objETag         :: !ETag
+    { _objOwner        :: !(Maybe Owner)
+    , _objETag         :: !ETag
     , _objSize         :: !Int
-    , _objOwner        :: !Owner
     , _objKey          :: !ObjectKey
     , _objStorageClass :: !ObjectStorageClass
     , _objLastModified :: !RFC822
     } deriving (Eq,Show)
 
 -- | 'Object' smart constructor.
-object' :: ETag -> Int -> Owner -> ObjectKey -> ObjectStorageClass -> UTCTime -> Object
-object' pETag pSize pOwner pKey pStorageClass pLastModified =
+object' :: ETag -> Int -> ObjectKey -> ObjectStorageClass -> UTCTime -> Object
+object' pETag pSize pKey pStorageClass pLastModified =
     Object'
-    { _objETag = pETag
+    { _objOwner = Nothing
+    , _objETag = pETag
     , _objSize = pSize
-    , _objOwner = pOwner
     , _objKey = pKey
     , _objStorageClass = pStorageClass
     , _objLastModified = _Time # pLastModified
     }
+
+-- | FIXME: Undocumented member.
+objOwner :: Lens' Object (Maybe Owner)
+objOwner = lens _objOwner (\ s a -> s{_objOwner = a});
 
 -- | FIXME: Undocumented member.
 objETag :: Lens' Object ETag
@@ -2373,10 +2422,6 @@ objETag = lens _objETag (\ s a -> s{_objETag = a});
 -- | FIXME: Undocumented member.
 objSize :: Lens' Object Int
 objSize = lens _objSize (\ s a -> s{_objSize = a});
-
--- | FIXME: Undocumented member.
-objOwner :: Lens' Object Owner
-objOwner = lens _objOwner (\ s a -> s{_objOwner = a});
 
 -- | FIXME: Undocumented member.
 objKey :: Lens' Object ObjectKey
@@ -2393,7 +2438,7 @@ objLastModified = lens _objLastModified (\ s a -> s{_objLastModified = a}) . _Ti
 instance FromXML Object where
         parseXML x
           = Object' <$>
-              (x .@ "ETag") <*> (x .@ "Size") <*> (x .@ "Owner")
+              (x .@? "Owner") <*> (x .@ "ETag") <*> (x .@ "Size")
                 <*> (x .@ "Key")
                 <*> (x .@ "StorageClass")
                 <*> (x .@ "LastModified")

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -96,7 +95,7 @@ instance AWSService EFS where
             , _svcPrefix = "elasticfilesystem"
             , _svcVersion = "2015-02-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -244,7 +243,9 @@ instance ToText LifeCycleState where
         Deleted -> "deleted"
         Deleting -> "deleting"
 
-instance Hashable LifeCycleState
+instance Hashable LifeCycleState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery LifeCycleState
 instance ToHeader LifeCycleState
 

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -126,7 +125,7 @@ instance AWSService SQS where
             , _svcPrefix = "sqs"
             , _svcVersion = "2012-11-05"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -294,7 +293,9 @@ instance ToText QueueAttributeName where
         RedrivePolicy -> "redrivepolicy"
         VisibilityTimeout -> "visibilitytimeout"
 
-instance Hashable QueueAttributeName
+instance Hashable QueueAttributeName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery QueueAttributeName
 instance ToHeader QueueAttributeName
 

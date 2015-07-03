@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -110,7 +109,7 @@ instance AWSService SES where
             , _svcPrefix = "email"
             , _svcVersion = "2010-12-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -153,7 +152,9 @@ instance ToText IdentityType where
         Domain -> "domain"
         EmailAddress -> "emailaddress"
 
-instance Hashable IdentityType
+instance Hashable IdentityType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery IdentityType
 instance ToHeader IdentityType
 
@@ -177,7 +178,9 @@ instance ToText NotificationType where
         Complaint -> "complaint"
         Delivery -> "delivery"
 
-instance Hashable NotificationType
+instance Hashable NotificationType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery NotificationType
 instance ToHeader NotificationType
 
@@ -207,7 +210,9 @@ instance ToText VerificationStatus where
         Success -> "success"
         TemporaryFailure -> "temporaryfailure"
 
-instance Hashable VerificationStatus
+instance Hashable VerificationStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VerificationStatus
 instance ToHeader VerificationStatus
 

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -130,7 +129,7 @@ instance AWSService SSM where
             , _svcPrefix = "ssm"
             , _svcVersion = "2014-11-06"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -241,7 +240,9 @@ instance ToText AssociationFilterKey where
         AFKInstanceId -> "instanceid"
         AFKName -> "name"
 
-instance Hashable AssociationFilterKey
+instance Hashable AssociationFilterKey where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AssociationFilterKey
 instance ToHeader AssociationFilterKey
 
@@ -268,7 +269,9 @@ instance ToText AssociationStatusName where
         Pending -> "pending"
         Success -> "success"
 
-instance Hashable AssociationStatusName
+instance Hashable AssociationStatusName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AssociationStatusName
 instance ToHeader AssociationStatusName
 
@@ -292,7 +295,9 @@ instance ToText DocumentFilterKey where
     toText = \case
         Name -> "name"
 
-instance Hashable DocumentFilterKey
+instance Hashable DocumentFilterKey where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DocumentFilterKey
 instance ToHeader DocumentFilterKey
 
@@ -319,7 +324,9 @@ instance ToText DocumentStatus where
         Creating -> "creating"
         Deleting -> "deleting"
 
-instance Hashable DocumentStatus
+instance Hashable DocumentStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DocumentStatus
 instance ToHeader DocumentStatus
 
@@ -346,7 +353,9 @@ instance ToText Fault where
         Server -> "server"
         Unknown -> "unknown"
 
-instance Hashable Fault
+instance Hashable Fault where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Fault
 instance ToHeader Fault
 

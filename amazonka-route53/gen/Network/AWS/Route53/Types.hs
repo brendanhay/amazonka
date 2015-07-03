@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -232,7 +231,7 @@ instance AWSService Route53 where
             , _svcPrefix = "route53"
             , _svcVersion = "2013-04-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -444,7 +443,9 @@ instance ToText ChangeAction where
         Delete -> "delete"
         Upsert -> "upsert"
 
-instance Hashable ChangeAction
+instance Hashable ChangeAction where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ChangeAction
 instance ToHeader ChangeAction
 
@@ -468,7 +469,9 @@ instance ToText ChangeStatus where
         Insync -> "insync"
         Pending -> "pending"
 
-instance Hashable ChangeStatus
+instance Hashable ChangeStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ChangeStatus
 instance ToHeader ChangeStatus
 
@@ -492,7 +495,9 @@ instance ToText Failover where
         Primary -> "primary"
         Secondary -> "secondary"
 
-instance Hashable Failover
+instance Hashable Failover where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Failover
 instance ToHeader Failover
 
@@ -528,7 +533,9 @@ instance ToText HealthCheckType where
         HTTPStrMatch -> "http_str_match"
         TCP -> "tcp"
 
-instance Hashable HealthCheckType
+instance Hashable HealthCheckType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery HealthCheckType
 instance ToHeader HealthCheckType
 
@@ -579,7 +586,9 @@ instance ToText RecordType where
         Srv -> "srv"
         Txt -> "txt"
 
-instance Hashable RecordType
+instance Hashable RecordType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery RecordType
 instance ToHeader RecordType
 
@@ -606,7 +615,9 @@ instance ToText TagResourceType where
         Healthcheck -> "healthcheck"
         Hostedzone -> "hostedzone"
 
-instance Hashable TagResourceType
+instance Hashable TagResourceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery TagResourceType
 instance ToHeader TagResourceType
 
@@ -657,7 +668,9 @@ instance ToText VPCRegion where
         USWest1 -> "us-west-1"
         USWest2 -> "us-west-2"
 
-instance Hashable VPCRegion
+instance Hashable VPCRegion where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VPCRegion
 instance ToHeader VPCRegion
 

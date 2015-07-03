@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -466,7 +465,7 @@ instance AWSService CloudFront where
             , _svcPrefix = "cloudfront"
             , _svcVersion = "2015-04-17"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -765,7 +764,9 @@ instance ToText GeoRestrictionType where
         None -> "none"
         Whitelist -> "whitelist"
 
-instance Hashable GeoRestrictionType
+instance Hashable GeoRestrictionType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery GeoRestrictionType
 instance ToHeader GeoRestrictionType
 
@@ -795,7 +796,9 @@ instance ToText ItemSelection where
         ISNone -> "none"
         ISWhitelist -> "whitelist"
 
-instance Hashable ItemSelection
+instance Hashable ItemSelection where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ItemSelection
 instance ToHeader ItemSelection
 
@@ -837,7 +840,9 @@ instance ToText Method where
         Post -> "post"
         Put -> "put"
 
-instance Hashable Method
+instance Hashable Method where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Method
 instance ToHeader Method
 
@@ -864,7 +869,9 @@ instance ToText MinimumProtocolVersion where
         SSLV3 -> "sslv3"
         TLSV1 -> "tlsv1"
 
-instance Hashable MinimumProtocolVersion
+instance Hashable MinimumProtocolVersion where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery MinimumProtocolVersion
 instance ToHeader MinimumProtocolVersion
 
@@ -891,7 +898,9 @@ instance ToText OriginProtocolPolicy where
         HTTPOnly -> "http-only"
         MatchViewer -> "match-viewer"
 
-instance Hashable OriginProtocolPolicy
+instance Hashable OriginProtocolPolicy where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery OriginProtocolPolicy
 instance ToHeader OriginProtocolPolicy
 
@@ -921,7 +930,9 @@ instance ToText PriceClass where
         PriceClass200 -> "priceclass_200"
         PriceClassAll -> "priceclass_all"
 
-instance Hashable PriceClass
+instance Hashable PriceClass where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery PriceClass
 instance ToHeader PriceClass
 
@@ -948,7 +959,9 @@ instance ToText SSLSupportMethod where
         SNIOnly -> "sni-only"
         VIP -> "vip"
 
-instance Hashable SSLSupportMethod
+instance Hashable SSLSupportMethod where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SSLSupportMethod
 instance ToHeader SSLSupportMethod
 
@@ -978,7 +991,9 @@ instance ToText ViewerProtocolPolicy where
         HTTPSOnly -> "https-only"
         RedirectTOHTTPS -> "redirect-to-https"
 
-instance Hashable ViewerProtocolPolicy
+instance Hashable ViewerProtocolPolicy where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ViewerProtocolPolicy
 instance ToHeader ViewerProtocolPolicy
 

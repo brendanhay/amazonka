@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -116,7 +115,7 @@ instance AWSService Route53Domains where
             , _svcPrefix = "route53domains"
             , _svcVersion = "2014-05-15"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -195,7 +194,9 @@ instance ToText ContactType where
         PublicBody -> "public_body"
         Reseller -> "reseller"
 
-instance Hashable ContactType
+instance Hashable ContactType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ContactType
 instance ToHeader ContactType
 
@@ -903,7 +904,9 @@ instance ToText CountryCode where
         ZM -> "zm"
         ZW -> "zw"
 
-instance Hashable CountryCode
+instance Hashable CountryCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CountryCode
 instance ToHeader CountryCode
 
@@ -948,7 +951,9 @@ instance ToText DomainAvailability where
         UnavailablePremium -> "unavailable_premium"
         UnavailableRestricted -> "unavailable_restricted"
 
-instance Hashable DomainAvailability
+instance Hashable DomainAvailability where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery DomainAvailability
 instance ToHeader DomainAvailability
 
@@ -1026,7 +1031,9 @@ instance ToText ExtraParamName where
         SGIDNumber -> "sg_id_number"
         VatNumber -> "vat_number"
 
-instance Hashable ExtraParamName
+instance Hashable ExtraParamName where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ExtraParamName
 instance ToHeader ExtraParamName
 
@@ -1062,7 +1069,9 @@ instance ToText OperationStatus where
         Submitted -> "submitted"
         Successful -> "successful"
 
-instance Hashable OperationStatus
+instance Hashable OperationStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery OperationStatus
 instance ToHeader OperationStatus
 
@@ -1101,7 +1110,9 @@ instance ToText OperationType where
         UpdateDomainContact -> "update_domain_contact"
         UpdateNameserver -> "update_nameserver"
 
-instance Hashable OperationType
+instance Hashable OperationType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery OperationType
 instance ToHeader OperationType
 

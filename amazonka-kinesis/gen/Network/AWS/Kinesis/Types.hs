@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -110,7 +109,7 @@ instance AWSService Kinesis where
             , _svcPrefix = "kinesis"
             , _svcVersion = "2013-12-02"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -188,7 +187,9 @@ instance ToText ShardIteratorType where
         Latest -> "latest"
         TrimHorizon -> "trim_horizon"
 
-instance Hashable ShardIteratorType
+instance Hashable ShardIteratorType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ShardIteratorType
 instance ToHeader ShardIteratorType
 
@@ -218,7 +219,9 @@ instance ToText StreamStatus where
         Deleting -> "deleting"
         Updating -> "updating"
 
-instance Hashable StreamStatus
+instance Hashable StreamStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StreamStatus
 instance ToHeader StreamStatus
 

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -145,7 +144,7 @@ instance AWSService CloudWatch where
             , _svcPrefix = "monitoring"
             , _svcVersion = "2010-08-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -227,7 +226,9 @@ instance ToText ComparisonOperator where
         LessThanOrEqualToThreshold -> "lessthanorequaltothreshold"
         LessThanThreshold -> "lessthanthreshold"
 
-instance Hashable ComparisonOperator
+instance Hashable ComparisonOperator where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ComparisonOperator
 instance ToHeader ComparisonOperator
 
@@ -254,7 +255,9 @@ instance ToText HistoryItemType where
         ConfigurationUpdate -> "configurationupdate"
         StateUpdate -> "stateupdate"
 
-instance Hashable HistoryItemType
+instance Hashable HistoryItemType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery HistoryItemType
 instance ToHeader HistoryItemType
 
@@ -353,7 +356,9 @@ instance ToText StandardUnit where
         Terabytes -> "terabytes"
         TerabytesSecond -> "terabytes/second"
 
-instance Hashable StandardUnit
+instance Hashable StandardUnit where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StandardUnit
 instance ToHeader StandardUnit
 
@@ -380,7 +385,9 @@ instance ToText StateValue where
         InsufficientData -> "insufficient_data"
         OK -> "ok"
 
-instance Hashable StateValue
+instance Hashable StateValue where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StateValue
 instance ToHeader StateValue
 
@@ -413,7 +420,9 @@ instance ToText Statistic where
         SampleCount -> "samplecount"
         Sum -> "sum"
 
-instance Hashable Statistic
+instance Hashable Statistic where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Statistic
 instance ToHeader Statistic
 

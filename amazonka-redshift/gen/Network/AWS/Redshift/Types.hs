@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -492,7 +491,7 @@ instance AWSService Redshift where
             , _svcPrefix = "redshift"
             , _svcVersion = "2012-12-01"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -1007,7 +1006,9 @@ instance ToText ParameterApplyType where
         Dynamic -> "dynamic"
         Static -> "static"
 
-instance Hashable ParameterApplyType
+instance Hashable ParameterApplyType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ParameterApplyType
 instance ToHeader ParameterApplyType
 
@@ -1037,7 +1038,9 @@ instance ToText SourceType where
         ClusterSecurityGroup -> "cluster-security-group"
         ClusterSnapshot -> "cluster-snapshot"
 
-instance Hashable SourceType
+instance Hashable SourceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SourceType
 instance ToHeader SourceType
 

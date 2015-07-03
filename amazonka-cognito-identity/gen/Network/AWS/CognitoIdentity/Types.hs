@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -92,7 +91,7 @@ instance AWSService CognitoIdentity where
             , _svcPrefix = "cognito-identity"
             , _svcVersion = "2014-06-30"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -192,7 +191,9 @@ instance ToText CognitoErrorCode where
         AccessDenied -> "accessdenied"
         InternalServerError -> "internalservererror"
 
-instance Hashable CognitoErrorCode
+instance Hashable CognitoErrorCode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery CognitoErrorCode
 instance ToHeader CognitoErrorCode
 

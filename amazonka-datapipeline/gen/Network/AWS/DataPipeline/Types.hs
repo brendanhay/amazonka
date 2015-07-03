@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -147,7 +146,7 @@ instance AWSService DataPipeline where
             , _svcPrefix = "datapipeline"
             , _svcVersion = "2012-10-29"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -219,7 +218,9 @@ instance ToText OperatorType where
         OperatorLE -> "le"
         OperatorRefEQ -> "ref_eq"
 
-instance Hashable OperatorType
+instance Hashable OperatorType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery OperatorType
 instance ToHeader OperatorType
 
@@ -246,7 +247,9 @@ instance ToText TaskStatus where
         False' -> "false"
         Finished -> "finished"
 
-instance Hashable TaskStatus
+instance Hashable TaskStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery TaskStatus
 instance ToHeader TaskStatus
 

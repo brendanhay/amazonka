@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -388,7 +387,7 @@ instance AWSService ElastiCache where
             , _svcPrefix = "elasticache"
             , _svcVersion = "2015-02-02"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -663,7 +662,9 @@ instance ToText AZMode where
         CrossAZ -> "cross-az"
         SingleAZ -> "single-az"
 
-instance Hashable AZMode
+instance Hashable AZMode where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AZMode
 instance ToHeader AZMode
 
@@ -690,7 +691,9 @@ instance ToText AutomaticFailoverStatus where
         AFSEnabled -> "enabled"
         AFSEnabling -> "enabling"
 
-instance Hashable AutomaticFailoverStatus
+instance Hashable AutomaticFailoverStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AutomaticFailoverStatus
 instance ToHeader AutomaticFailoverStatus
 
@@ -714,7 +717,9 @@ instance ToText PendingAutomaticFailoverStatus where
         Disabled -> "disabled"
         Enabled -> "enabled"
 
-instance Hashable PendingAutomaticFailoverStatus
+instance Hashable PendingAutomaticFailoverStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery PendingAutomaticFailoverStatus
 instance ToHeader PendingAutomaticFailoverStatus
 
@@ -744,7 +749,9 @@ instance ToText SourceType where
         CacheSecurityGroup -> "cache-security-group"
         CacheSubnetGroup -> "cache-subnet-group"
 
-instance Hashable SourceType
+instance Hashable SourceType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SourceType
 instance ToHeader SourceType
 

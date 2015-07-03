@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -271,7 +270,7 @@ instance AWSService DynamoDB where
             , _svcPrefix = "dynamodb"
             , _svcVersion = "2012-08-10"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -368,7 +367,9 @@ instance ToText AttributeAction where
         Delete -> "delete"
         Put -> "put"
 
-instance Hashable AttributeAction
+instance Hashable AttributeAction where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AttributeAction
 instance ToHeader AttributeAction
 
@@ -425,7 +426,9 @@ instance ToText ComparisonOperator where
         NotNull -> "not_null"
         Null -> "null"
 
-instance Hashable ComparisonOperator
+instance Hashable ComparisonOperator where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ComparisonOperator
 instance ToHeader ComparisonOperator
 
@@ -449,7 +452,9 @@ instance ToText ConditionalOperator where
         And -> "and"
         OR -> "or"
 
-instance Hashable ConditionalOperator
+instance Hashable ConditionalOperator where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ConditionalOperator
 instance ToHeader ConditionalOperator
 
@@ -479,7 +484,9 @@ instance ToText IndexStatus where
         ISDeleting -> "deleting"
         ISUpdating -> "updating"
 
-instance Hashable IndexStatus
+instance Hashable IndexStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery IndexStatus
 instance ToHeader IndexStatus
 
@@ -503,7 +510,9 @@ instance ToText KeyType where
         Hash -> "hash"
         Range -> "range"
 
-instance Hashable KeyType
+instance Hashable KeyType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery KeyType
 instance ToHeader KeyType
 
@@ -533,7 +542,9 @@ instance ToText ProjectionType where
         Include -> "include"
         KeysOnly -> "keys_only"
 
-instance Hashable ProjectionType
+instance Hashable ProjectionType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ProjectionType
 instance ToHeader ProjectionType
 
@@ -567,7 +578,9 @@ instance ToText ReturnConsumedCapacity where
         RCCNone -> "none"
         RCCTotal -> "total"
 
-instance Hashable ReturnConsumedCapacity
+instance Hashable ReturnConsumedCapacity where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReturnConsumedCapacity
 instance ToHeader ReturnConsumedCapacity
 
@@ -591,7 +604,9 @@ instance ToText ReturnItemCollectionMetrics where
         RICMNone -> "none"
         RICMSize -> "size"
 
-instance Hashable ReturnItemCollectionMetrics
+instance Hashable ReturnItemCollectionMetrics where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReturnItemCollectionMetrics
 instance ToHeader ReturnItemCollectionMetrics
 
@@ -624,7 +639,9 @@ instance ToText ReturnValue where
         UpdatedNew -> "updated_new"
         UpdatedOld -> "updated_old"
 
-instance Hashable ReturnValue
+instance Hashable ReturnValue where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReturnValue
 instance ToHeader ReturnValue
 
@@ -651,7 +668,9 @@ instance ToText ScalarAttributeType where
         N -> "n"
         S -> "s"
 
-instance Hashable ScalarAttributeType
+instance Hashable ScalarAttributeType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ScalarAttributeType
 instance ToHeader ScalarAttributeType
 
@@ -684,7 +703,9 @@ instance ToText Select where
         Count -> "count"
         SpecificAttributes -> "specific_attributes"
 
-instance Hashable Select
+instance Hashable Select where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery Select
 instance ToHeader Select
 
@@ -714,7 +735,9 @@ instance ToText TableStatus where
         Deleting -> "deleting"
         Updating -> "updating"
 
-instance Hashable TableStatus
+instance Hashable TableStatus where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery TableStatus
 instance ToHeader TableStatus
 

@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -158,7 +157,7 @@ instance AWSService DirectConnect where
             , _svcPrefix = "directconnect"
             , _svcVersion = "2012-10-25"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseJSONError
             , _svcRetry = retry
@@ -243,7 +242,9 @@ instance ToText ConnectionState where
         CSRejected -> "rejected"
         CSRequested -> "requested"
 
-instance Hashable ConnectionState
+instance Hashable ConnectionState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ConnectionState
 instance ToHeader ConnectionState
 
@@ -290,7 +291,9 @@ instance ToText InterconnectState where
         ISPending -> "pending"
         ISRequested -> "requested"
 
-instance Hashable InterconnectState
+instance Hashable InterconnectState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery InterconnectState
 instance ToHeader InterconnectState
 
@@ -351,7 +354,9 @@ instance ToText VirtualInterfaceState where
         Rejected -> "rejected"
         Verifying -> "verifying"
 
-instance Hashable VirtualInterfaceState
+instance Hashable VirtualInterfaceState where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery VirtualInterfaceState
 instance ToHeader VirtualInterfaceState
 

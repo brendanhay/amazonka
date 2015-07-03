@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric     #-}
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE RecordWildCards   #-}
@@ -317,7 +316,7 @@ instance AWSService IAM where
             , _svcPrefix = "iam"
             , _svcVersion = "2010-05-08"
             , _svcEndpoint = defaultEndpoint svc
-            , _svcTimeout = 80000000
+            , _svcTimeout = Just 70000000
             , _svcStatus = statusSuccess
             , _svcError = parseXMLError
             , _svcRetry = retry
@@ -472,7 +471,9 @@ instance ToText AssignmentStatusType where
         Assigned -> "assigned"
         Unassigned -> "unassigned"
 
-instance Hashable AssignmentStatusType
+instance Hashable AssignmentStatusType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery AssignmentStatusType
 instance ToHeader AssignmentStatusType
 
@@ -502,7 +503,9 @@ instance ToText EntityType where
         Role -> "role"
         User -> "user"
 
-instance Hashable EntityType
+instance Hashable EntityType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery EntityType
 instance ToHeader EntityType
 
@@ -526,7 +529,9 @@ instance ToText PolicyScopeType where
         All -> "all"
         Local -> "local"
 
-instance Hashable PolicyScopeType
+instance Hashable PolicyScopeType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery PolicyScopeType
 instance ToHeader PolicyScopeType
 
@@ -544,7 +549,9 @@ instance ToText ReportFormatType where
     toText = \case
         TextCSV -> "text/csv"
 
-instance Hashable ReportFormatType
+instance Hashable ReportFormatType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReportFormatType
 instance ToHeader ReportFormatType
 
@@ -571,7 +578,9 @@ instance ToText ReportStateType where
         Inprogress -> "inprogress"
         Started -> "started"
 
-instance Hashable ReportStateType
+instance Hashable ReportStateType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery ReportStateType
 instance ToHeader ReportStateType
 
@@ -595,7 +604,9 @@ instance ToText StatusType where
         Active -> "active"
         Inactive -> "inactive"
 
-instance Hashable StatusType
+instance Hashable StatusType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery StatusType
 instance ToHeader StatusType
 
@@ -688,7 +699,9 @@ instance ToText SummaryKeyType where
         UsersQuota -> "usersquota"
         VersionsPerPolicyQuota -> "versionsperpolicyquota"
 
-instance Hashable SummaryKeyType
+instance Hashable SummaryKeyType where
+    hashWithSalt = hashUsing fromEnum
+
 instance ToQuery SummaryKeyType
 instance ToHeader SummaryKeyType
 

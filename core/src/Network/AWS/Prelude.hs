@@ -14,13 +14,12 @@ module Network.AWS.Prelude
 
 import           Control.Applicative         as Export ((<$>), (<*>), (<|>))
 import           Control.Lens                as Export hiding ((.=))
-import           Data.Hashable               as Export (Hashable)
+import           Data.Hashable               as Export (Hashable, hashUsing)
 import           Data.HashMap.Strict         as Export (HashMap)
 import           Data.List.NonEmpty          as Export (NonEmpty (..))
 import           Data.Maybe                  as Export
 import           Data.Monoid                 as Export (First, mconcat, mempty,
                                                         (<>))
-import           GHC.Generics                as Export (Generic)
 import           Network.AWS.Data.Base64     as Export
 import           Network.AWS.Data.Body       as Export
 import           Network.AWS.Data.ByteString as Export

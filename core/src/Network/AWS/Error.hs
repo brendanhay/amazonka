@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
@@ -35,7 +34,6 @@ import           Data.String
 import qualified Data.Text                   as Text
 import qualified Data.Text.Encoding          as Text
 import           Data.Typeable
-import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Text
@@ -52,7 +50,6 @@ newtype Abbrev = Abbrev Text
         ( Eq
         , Ord
         , Show
-        , Generic
         , IsString
         , FromXML
         , FromJSON
@@ -66,7 +63,6 @@ newtype ErrorCode = ErrorCode Text
         ( Eq
         , Ord
         , Show
-        , Generic
         , IsString
         , FromXML
         , FromJSON
@@ -80,7 +76,6 @@ newtype ErrorMessage = ErrorMessage Text
         ( Eq
         , Ord
         , Show
-        , Generic
         , IsString
         , FromXML
         , FromJSON
@@ -94,7 +89,6 @@ newtype RequestId = RequestId Text
         ( Eq
         , Ord
         , Show
-        , Generic
         , IsString
         , FromXML
         , FromJSON

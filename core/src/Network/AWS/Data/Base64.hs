@@ -1,4 +1,3 @@
-{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 -- Module      : Network.AWS.Data.Base64
@@ -20,7 +19,6 @@ import           Data.Aeson.Types
 import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteString.Base64      as Base64
 import qualified Data.Text.Encoding          as Text
-import           GHC.Generics
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Query
@@ -33,7 +31,7 @@ import           Network.AWS.Data.XML
 --
 -- Encoding/decoding is deferred to serialisation/deserialisation respectively.
 newtype Base64 = Base64 { unBase64 :: ByteString }
-    deriving (Eq, Read, Ord, Generic)
+    deriving (Eq, Read, Ord)
 
 -- FIXME: it's a mistake to wrap a ByteString since
 -- the underlying serialisers (JSON, XML) use Text internally.

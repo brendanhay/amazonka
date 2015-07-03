@@ -27,6 +27,8 @@ import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
 
+-- FIXME: this needs to be revisited.
+
 -- | Base64 encoded binary data.
 --
 -- Encoding/decoding is deferred to serialisation/deserialisation respectively.

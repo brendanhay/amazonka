@@ -106,6 +106,7 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
+import           Network.AWS.Data.Time
 import           Network.AWS.Error
 import           Network.AWS.Logger
 import           Network.HTTP.Client          hiding (Request, Response, Proxy)
@@ -150,11 +151,11 @@ data Retry = Exponential
 
 -- | Attributes and functions specific to an AWS service.
 data Service s = Service
-    { _svcAbbrev   :: Abbrev
+    { _svcAbbrev   :: !Abbrev
     , _svcPrefix   :: ByteString
     , _svcVersion  :: ByteString
     , _svcEndpoint :: Region -> Endpoint
-    , _svcTimeout  :: !Int
+    , _svcTimeout  :: Maybe Seconds
     , _svcStatus   :: Status -> Bool
     , _svcError    :: Abbrev -> Status -> [Header] -> LazyByteString -> Error
     , _svcRetry    :: Retry
@@ -233,7 +234,7 @@ data Signed v a where
               }
            -> Signed v a
 
-sgMeta :: Lens' (Signed v a) (Meta v)
+sgMeta :: ToBuilder (Meta v) => Lens' (Signed v a) (Meta v)
 sgMeta f (Signed m rq) = f m <&> \y -> Signed y rq
 
 -- Lens' specifically since 'a' cannot be substituted.

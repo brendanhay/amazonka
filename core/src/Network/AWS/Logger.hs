@@ -16,21 +16,15 @@
 -- request, response, and signing life-cycles.
 module Network.AWS.Logger
     (
-    -- * Levels
+    -- * Logging
       LogLevel  (..)
-
-    -- * Logger
     , Logger
     , newLogger
-
-    -- * Log functions
+    -- ** Functions
     , logError
     , logInfo
     , logDebug
     , logTrace
-
-    -- * Log messages
-    , ToBuilder (..)
     ) where
 
 import           Control.Monad

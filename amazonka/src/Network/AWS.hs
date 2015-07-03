@@ -20,90 +20,79 @@
 
 -- | The core module for making requests to the various AWS services and
 -- building your own Monad transformer stack.
-module Network.AWS where
-    -- (
-    -- -- * Monad
-    -- -- ** AWS
-    --   AWS
-    -- , runAWS
-    -- -- ** AWST
-    -- , AWST
-    -- , runAWST
-    -- -- ** Constraints
-    -- , MonadAWS
+module Network.AWS
+    (
+    -- $usage
 
-    -- -- * Requests
-    -- -- ** Synchronous
-    -- , send
-    -- , send_
-    -- , sendWith
-    -- -- ** Paginated
-    -- , paginate
-    -- , paginateWith
-    -- -- ** Eventual consistency
-    -- , await
-    -- , awaitWith
-    -- -- ** Pre-signing
-    -- , presign
-    -- , presignWith
-    -- -- ** Asynchronous
-    -- -- $async
+    -- * Requests
+    -- ** Synchronous
+      send
+    , sendWith
+    -- ** Paginated
+    , paginate
+    , paginateWith
+    -- ** Eventual consistency
+    , await
+    , awaitWith
+    -- ** Pre-signing
+    , presign
+    , presignURL
+    , presignWith
 
-    -- -- * Errors
-    -- , AWSError  (..)
-    -- , catching
-    -- , throwing
+    , module Network.AWS.Env
+    , module Network.AWS.Auth
+    , module Network.AWS.Logger
+    , module Network.AWS.Internal.Body
 
-    -- , Error
-    -- , ServiceError
-    -- , errorService
-    -- , errorStatus
-    -- , errorHeaders
-    -- , errorCode
-    -- , errorMessage
-    -- , errorRequestId
+    -- * Errors
+    , ErrorCode    (..)
+    , ErrorMessage (..)
+    , RequestId    (..)
 
-    -- -- * Regionalisation
-    -- , Region      (..)
+    -- ** General
+    , AWSError     (..)
+    , Error
 
-    -- -- * Environment
-    -- , AWSEnv (..)
-    -- , Env
-    -- -- ** Creating the environment
-    -- , newEnv
+    -- ** Service specific
+    , ServiceError
+    , errorService
+    , errorStatus
+    , errorHeaders
+    , errorCode
+    , errorMessage
+    , errorRequestId
 
-    -- -- ** Specifying credentials
-    -- , Credentials (..)
-    -- , accessKey
-    -- , secretKey
-    -- , fromKeys
-    -- , fromSession
-    -- , getAuth
+    -- ** Handling
+    , catching
 
-    -- -- * Streaming body helpers
-    -- , module Network.AWS.Internal.Body
+    -- * Types
+    , module Network.AWS.Types
 
-    -- -- * Types
-    -- , module Network.AWS.Types
-    -- , module Network.AWS.Logger
-    -- ) where
+    -- * Seconds
+    , Seconds      (..)
+    , _Seconds
+    , microseconds
+
+    -- * Serialisation
+    , ToText       (..)
+    , FromText     (..)
+    , ToBuilder    (..)
+    ) where
 
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
-import           Control.Monad.Catch          (MonadCatch (..), catch, throwM)
-import           Control.Monad.Error.Lens     (catching, throwing)
+import           Control.Monad.Catch          (MonadCatch (..), catch)
+import           Control.Monad.Error.Lens     (catching)
 import           Control.Monad.Except
-import           Control.Monad.Reader
 import           Control.Monad.Trans.Resource
-import           Control.Retry                (limitRetries)
 import           Data.Bifunctor
 import           Data.Conduit                 hiding (await)
 import           Data.Time                    (getCurrentTime)
+import           Network.AWS.Auth
+import           Network.AWS.Env
 import           Network.AWS.Error
-import           Network.AWS.Internal.Auth
 import           Network.AWS.Internal.Body
-import           Network.AWS.Internal.Env
 import           Network.AWS.Internal.Retry
 import           Network.AWS.Logger
 import           Network.AWS.Pager
@@ -112,22 +101,6 @@ import           Network.AWS.Request          (requestURL)
 import           Network.AWS.Types
 import           Network.AWS.Waiter
 import           Network.HTTP.Conduit         hiding (Proxy, Request, Response)
-
--- | This creates a new environment without debug logging and uses 'getAuth'
--- to expand/discover the supplied 'Credentials'.
---
--- Lenses such as 'envLogger' can be used to modify the 'Env' with a debug logger.
-getEnv :: MonadIO m
-       => Region
-       -> Credentials
-       -> Manager
-       -> m (Either String Env)
-getEnv r c m = runExceptT $ initial `liftM` ExceptT (getAuth m c)
-  where
-    initial = Env r logger check Nothing m
-
-    logger _ _ = return ()
-    check  _ _ = return True
 
 -- | Send a data type which is an instance of 'AWSRequest', returning either the
 -- associated 'Rs' response type if successful, or an 'Error'.
@@ -237,7 +210,7 @@ presignURL :: (MonadIO m, AWSEnv r, AWSPresigner (Sg (Sv a)), AWSRequest a)
            -> Integer     -- ^ Expiry time in seconds.
            -> a           -- ^ Request to presign.
            -> m ByteString
-presignURL e t ex = liftM (view requestURL) . presign e t ex
+presignURL e t ex = liftM requestURL . presign e t ex
 
 -- | Presign an HTTP request that expires after the specified amount of time
 -- in the future.
@@ -268,6 +241,28 @@ presignWith e svc t ex x =
         return . view sgRequest $
             presigned a (e ^. envRegion) t ex svc (request x)
 
+-- FIXME: info: Scope actions such that any HTTP response timeouts use
+-- the supplied number of seconds.
+--
+-- By default timeouts are taken from the request's 'Service' definition.
+-- This value is typically around 70s depending on the service.
+--
+-- If there is a timeout associated with the 'Env' 'Manager', this will take
+-- precedence over the 'Service' default for _all_ requests.
+--
+--
+-- The timeout selection is illustrated as:
+--
+-- * Use of 'timeout' to scope a specific timeout value.
+--
+-- * The 'Env' 'Manager' timeout if set.
+--
+-- * The 'Service' timeout if set.
+--
+-- * The default 'ClientRequest' timeout (approximately 30s).
+-- timeout :: (MonadReader r m, AWSEnv r) => Seconds -> m a -> m a
+-- timeout n = local (envManager . responseTimeout ?~ microseconds n)
+
 raw :: ( MonadCatch    m
        , MonadResource m
        , AWSEnv        r
@@ -278,22 +273,25 @@ raw :: ( MonadCatch    m
     -> Service s
     -> Request a
     -> m (Response a)
-raw (view env -> Env{..}) svc rq = catch go err >>= response _envLogger svc rq
+raw (view env -> e@Env{..}) svc x =
+    catch go err >>= response _envLogger svc x
   where
     go = do
         t          <- liftIO getCurrentTime
         Signed m s <- withAuth _envAuth $ \a ->
-            return (signed a _envRegion t svc rq)
+            return (signed a _envRegion t svc x)
 
-        logDebug _envLogger s -- debug:Signed
-        logTrace _envLogger m -- trace:Meta
+        let rq = s { responseTimeout = timeoutFor e svc }
 
-        x          <- liftResourceT (http s _envManager)
+        logTrace _envLogger m  -- trace:Signing:Meta
+        logDebug _envLogger rq -- debug:ClientRequest
 
-        logDebug _envLogger x -- debug:ClientResponse
+        rs         <- liftResourceT (http rq _envManager)
 
-        return $! Right x
+        logDebug _envLogger rs -- debug:ClientResponse
 
-    err e = do
-        logError _envLogger e -- error:HttpException
-        return $! Left e
+        return $! Right rs
+
+    err er = do
+        logError _envLogger er  -- error:HttpException
+        return $! Left er

@@ -4,7 +4,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
 
--- Module      : Network.AWS.Internal.Auth
+-- Module      : Network.AWS.Auth
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -16,7 +16,27 @@
 
 -- | Explicitly specify your Amazon AWS security credentials, or retrieve them
 -- from the underlying OS.
-module Network.AWS.Internal.Auth where
+module Network.AWS.Auth
+    (
+    -- * Authentication
+    -- ** Keys
+      AccessKey     (..)
+    , SecretKey     (..)
+    , SecurityToken (..)
+    , accessKey
+    , secretKey
+    -- ** Credentials
+    , Credentials   (..)
+    , fromKeys
+    , fromSession
+    , fromEnv
+    , fromEnvKeys
+    , fromProfile
+    , fromProfileName
+    -- ** Retrieving authentication
+    , Auth
+    , getAuth
+    ) where
 
 import           Control.Applicative
 import           Control.Concurrent
@@ -97,7 +117,7 @@ getAuth m = runExceptT . \case
     FromKeys    a s   -> return (fromKeys a s)
     FromSession a s t -> return (fromSession a s t)
     FromProfile n     -> show `withExceptT` ExceptT (fromProfileName m n)
-    FromEnv     a s   -> ExceptT (fromEnvVars a s)
+    FromEnv     a s   -> ExceptT (fromEnvKeys a s)
     Discover          -> ExceptT fromEnv `catchError` const (iam `catchError` const err)
       where
         iam = show `withExceptT` ExceptT (fromProfile m)
@@ -107,11 +127,11 @@ getAuth m = runExceptT . \case
 --
 -- /See:/ 'accessKey' and 'secretKey'
 fromEnv :: MonadIO m => m (Either String Auth)
-fromEnv = fromEnvVars accessKey secretKey
+fromEnv = fromEnvKeys accessKey secretKey
 
--- | Retrieve access and secret keys from specific environment variables.
-fromEnvVars :: MonadIO m => Text -> Text -> m (Either String Auth)
-fromEnvVars a s = runExceptT . liftM Auth $ AuthEnv
+-- | Retrieve 'Access' and 'Secret' keys from specific environment variables.
+fromEnvKeys :: MonadIO m => Text -> Text -> m (Either String Auth)
+fromEnvKeys a s = runExceptT . liftM Auth $ AuthEnv
     <$> (AccessKey <$> key a)
     <*> (SecretKey <$> key s)
     <*> pure Nothing

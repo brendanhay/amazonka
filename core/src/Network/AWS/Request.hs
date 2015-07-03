@@ -141,8 +141,8 @@ requestHeaders :: Lens' HTTP.Request HTTP.RequestHeaders
 requestHeaders f x =
     f (HTTP.requestHeaders x) <&> \y -> x { HTTP.requestHeaders = y }
 
-requestURL :: Getter ClientRequest ByteString
-requestURL = to (toBS . uri)
+requestURL :: ClientRequest -> ByteString
+requestURL = toBS . uri
   where
     uri x = scheme (HTTP.secure      x)
          <> build  (HTTP.host        x)
@@ -157,3 +157,4 @@ requestURL = to (toBS . uri)
         80  -> ""
         443 -> ""
         n   -> build ':' <> build n
+

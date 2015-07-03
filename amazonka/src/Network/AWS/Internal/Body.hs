@@ -12,6 +12,7 @@
 
 module Network.AWS.Internal.Body
     (
+    -- * Streaming
     -- ** Requests
       ToBody (..)
     , RqBody
@@ -19,7 +20,6 @@ module Network.AWS.Internal.Body
     , sourceHandle
     , sourceFile
     , sourceFileIO
-
     -- ** Responses
     , RsBody
     , _RsBody

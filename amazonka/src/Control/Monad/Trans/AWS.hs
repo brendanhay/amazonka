@@ -15,31 +15,105 @@
 
 -- | The core module for making requests to the various AWS services and
 -- building your own Monad transformer stack.
-module Control.Monad.Trans.AWS where
+module Control.Monad.Trans.AWS
+    (
+    -- * Constraints
+    -- $constraints
+      MonadAWS
+
+    -- ** AWST
+    , AWST
+    , runAWST
+
+    -- ** AWS
+    , AWS
+    , runAWS
+
+    -- ** Usage
+    -- $usage
+
+    -- * Requests
+    -- ** Synchronous
+    , send_
+    , send
+    , sendWith
+    -- ** Asynchronous
+    -- $async
+    -- ** Paginated
+    , paginate
+    , paginateWith
+    -- ** Eventual consistency
+    , await
+    , awaitWith
+    -- ** Pre-signing
+    , presign
+    , presignURL
+    , presignWith
+    -- ** Configuring
+    , within
+    , once
+    , timeout
+
+    , module Network.AWS.Env
+    , module Network.AWS.Auth
+    , module Network.AWS.Logger
+    , module Network.AWS.Internal.Body
+
+    -- * Errors
+    -- ** General
+    , AWSError     (..)
+    , Error
+
+    -- ** Service specific errors
+    , ServiceError
+    , errorService
+    , errorStatus
+    , errorHeaders
+    , errorCode
+    , errorMessage
+    , errorRequestId
+
+    -- ** Catching errors
+    , catching
+
+    -- ** Error types
+    , ErrorCode    (..)
+    , ErrorMessage (..)
+    , RequestId    (..)
+
+    -- * Types
+    , module Network.AWS.Types
+
+    -- * Seconds
+    , Seconds      (..)
+    , _Seconds
+    , microseconds
+
+    -- * Serialisation
+    , ToText       (..)
+    , FromText     (..)
+    , ToBuilder    (..)
+    ) where
 
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
-import           Control.Monad.Catch          (MonadCatch (..), catch, throwM)
+import           Control.Monad.Catch          (MonadCatch)
 import           Control.Monad.Error.Lens     (catching, throwing)
 import           Control.Monad.Except
 import           Control.Monad.Reader
 import           Control.Monad.Trans.Resource
-import           Control.Retry                (limitRetries)
 import           Data.Conduit                 hiding (await)
-import           Data.Time                    (getCurrentTime)
 import qualified Network.AWS                  as AWS
+import           Network.AWS.Auth
+import           Network.AWS.Env
 import           Network.AWS.Error
-import           Network.AWS.Internal.Auth
 import           Network.AWS.Internal.Body
-import           Network.AWS.Internal.Env
-import           Network.AWS.Internal.Retry
 import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.AWS.Waiter
-import           Network.HTTP.Conduit         hiding (Request, Response)
 
 -- FIXME: Add explanation about the use of constraints and
 --   how to build a monad transformer stack, embed it, etc.
@@ -47,19 +121,34 @@ import           Network.HTTP.Conduit         hiding (Request, Response)
 -- FIXME: Add note about *With variants.
 -- FIXME: Add note about using Control.Monad.Error.Lens.catching* + error prisms
 
--- Consider maybe exporting the common exception mechanisms like catching etc.
-
--- $async
+-- $constraints
 --
--- /See:/ <http://hackage.haskell.org/package/lifted-async lifted-async>
+-- The function signatures in this module are specified using constraints in
+-- an attempt to keep them as general as possible. In fact, 'AWST' and 'AWS'
+-- are simply type aliases representing potential specialisations of 'MonadAWS'.
+-- These functions will also specialise to whatever Monad stack you might be using
+-- if they also fulfill these constraints making it easy to embed any AWS related
+-- computation in your application. An extended example is provided in #usage, below.
+--
+-- The two commonly used constraints you will see are:
+--
+-- @
+-- -- For some environment 'r' - a 'Lens' is provided by 'AWSEnv' 'r' to obtain the AWS specific 'Env' contained in 'r':
+--
+-- (MonadReader r m, AWSEnv r)
+-- @
+--
+-- and:
+--
+-- @
+-- -- For some error 'e' - a 'Prism' is provided to de/construct the AWS specific 'Error' within 'e':
+-- (MonadError e m, AWSEnv e)
+-- @
 
+-- #usage#
 -- $usage
 --
--- The requirements for this to fulfill the constraints are that it can
--- specialise to:
---
--- (MonadReader r m, AWSEnv r) -- For some reader with environment 'r', a lens exists to obtain the AWS specific Env out of 'r'.
--- (MonadError  e m, AWSEnv e) -- For some error 'e', a prism exists to obtain the AWS specific Error out of 'e'.
+-- @
 -- newtype MyApp a = MyApp
 --     { unApp :: ExceptT MyErr (ReaderT MyEnv (ResourceT IO)) a
 --     } deriving ( Functor
@@ -77,19 +166,17 @@ import           Network.HTTP.Conduit         hiding (Request, Response)
 -- runApp :: MyEnv -> MyApp a -> IO (Either MyErr a)
 -- runApp e m = runResourceT $ runReaderT (runExceptT (unApp m)) e
 --
--- A custom application environment for whatever Monad stack you're using.
+-- -- A custom application environment for whatever Monad stack you're using:
 -- data MyEnv = MyEnv
 --     { _config :: Int
 --     , _env    :: Env
 --     }
 --
--- This class adds a lens pointing to the Network.AWS.Env in the user's
--- custom MyEnv type.
+-- -- This class adds a lens pointing to the Network.AWS.Env in the user's custom MyEnv type:
 -- instance AWSEnv MyEnv where
 --     env f s = f (_env s) <&> \a -> s { _env = a }
 --
--- A custom error for whatever application, containing a single constructor
--- that wraps the AWS errors.
+-- -- A custom error for whatever application, containing a single constructor that wraps the AWS errors:
 -- data MyErr where
 --     EndpointDisabled :: MyErr
 --     EndpointNotFound :: Text  -> MyErr
@@ -100,19 +187,24 @@ import           Network.HTTP.Conduit         hiding (Request, Response)
 --     -- The actual Network.AWS.Types.Error is embedd here:
 --     GeneralError     :: Error -> MyErr
 --
--- This class adds a prism to point to the Network.AWS.Types.Error
--- in the user's custom MyErr type.
+-- -- This class adds a prism to point to the Network.AWS.Types.Error in the user's custom MyErr type:
 -- instance AWSError MyErr where
 --     _Error = prism
 --         GeneralError
 --         (\case GeneralError e -> Right e
 --                x              -> Left  x)
 --
--- Control.Monad.Error.Lens can be used to catch AWS specific errors
+-- -- Control.Monad.Error.Lens.'catching' can be used to catch AWS specific errors:
 -- catching _ServiceError $ MyApp (send Bar)
 --   :: (ServiceError -> MyApp Bar) -> MyApp Bar
 
--- | A convenient alias that specialises the common constraints in this module.
+-- $async
+--
+-- /See:/ <http://hackage.haskell.org/package/lifted-async Control.Concurrent.Async.Lifted>
+
+-- | A convenient alias that specialises the common <http://hackage.haskell.org/package/mtl mtl>
+-- constraints in this moduleto the related <http://hackage.haskell.org/package/transformers transformers>
+-- types.
 type AWST m = ExceptT Error (ReaderT Env m)
 
 runAWST :: MonadResource m => Env -> AWST m a -> m (Either Error a)
@@ -142,9 +234,11 @@ within r = local (envRegion .~ r)
 -- | Scope an action such that any retry logic for the 'Service' is
 -- ignored and any requests will at most be sent once.
 once :: (MonadReader r m, AWSEnv r) => m a -> m a
-once = local $ \e ->
-    e & envRetryPolicy ?~ limitRetries 0
-      & envRetryCheck  .~ (\_ _ -> return False)
+once = local noRetries
+
+-- | Scope an action such that any HTTP response use this timeout value.
+timeout :: (MonadReader r m, AWSEnv r) => Seconds -> m a -> m a
+timeout s = local (envTimeout ?~ s)
 
 send_ :: (MonadAWS r e m, AWSRequest a) => a -> m ()
 send_ = void . send
@@ -227,9 +321,6 @@ presignWith :: ( MonadIO        m
             -> m ClientRequest
 presignWith svc t ex x = scoped $ \e -> AWS.presignWith e svc t ex x
 
-scoped :: (MonadReader r m, AWSEnv r) => (Env -> m a) -> m a
-scoped f = view env >>= f
-
 hoistError :: (MonadIO m, MonadError e m, AWSEnv r, AWSError e)
            => r
            -> Either Error a
@@ -239,3 +330,6 @@ hoistError e = \case
     Left  l -> do
         logError (e ^. envLogger) l -- error:ServiceError
         throwing _Error           l
+
+scoped :: (MonadReader r m, AWSEnv r) => (Env -> m a) -> m a
+scoped f = view env >>= f

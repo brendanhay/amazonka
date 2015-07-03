@@ -38,7 +38,9 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Network.AWS.Data.Base64
+          Network.AWS.Compat.Locale
+        , Network.AWS.Compat.Time
+        , Network.AWS.Data.Base64
         , Network.AWS.Data.Body
         , Network.AWS.Data.ByteString
         , Network.AWS.Data.Headers

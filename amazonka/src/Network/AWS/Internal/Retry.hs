@@ -23,9 +23,9 @@ module Network.AWS.Internal.Retry
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Retry
-import           Data.List                (intersperse)
+import           Data.List              (intersperse)
 import           Data.Monoid
-import           Network.AWS.Internal.Env
+import           Network.AWS.Env
 import           Network.AWS.Logger
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter

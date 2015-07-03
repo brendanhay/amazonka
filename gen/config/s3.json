@@ -24,7 +24,6 @@
             "requiredFields": [
                 "ETag",
                 "Size",
-                "Owner",
                 "Key",
                 "StorageClass",
                 "LastModified"

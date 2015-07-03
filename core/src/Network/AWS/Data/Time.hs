@@ -1,13 +1,13 @@
-{-# LANGUAGE CPP           #-}
-{-# LANGUAGE DataKinds           #-}
-{-# LANGUAGE FlexibleContexts    #-}
-{-# LANGUAGE FlexibleInstances   #-}
-{-# LANGUAGE GADTs               #-}
-{-# LANGUAGE KindSignatures      #-}
-{-# LANGUAGE LambdaCase          #-}
-{-# LANGUAGE OverloadedStrings   #-}
-{-# LANGUAGE ScopedTypeVariables #-}
-{-# LANGUAGE StandaloneDeriving  #-}
+{-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GADTs                      #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE KindSignatures             #-}
+{-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE ScopedTypeVariables        #-}
+{-# LANGUAGE StandaloneDeriving         #-}
 
 -- Module      : Network.AWS.Data.Time
 -- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
@@ -20,20 +20,22 @@
 -- Portability : non-portable (GHC extensions)
 
 module Network.AWS.Data.Time
-    ( Format (..)
+    (
+    -- * Time
+      Format (..)
     , Time   (..)
     , _Time
-
+    -- ** Formats
     , UTCTime
     , RFC822
     , ISO8601
     , BasicTime
     , AWSTime
     , POSIX
-
-    , parseTime
-    , defaultTimeLocale
-    , iso8601DateFormat
+    -- ** Seconds
+    , Seconds       (..)
+    , _Seconds
+    , microseconds
     ) where
 
 import           Control.Applicative
@@ -42,28 +44,33 @@ import           Data.Aeson
 import           Data.Attoparsec.Text        (Parser)
 import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteString.Char8       as BS
+import           Data.Monoid
 import           Data.Scientific
 import           Data.Tagged
 import qualified Data.Text                   as Text
 import           Data.Time                   (UTCTime)
 import           Data.Time.Clock.POSIX
 import           Data.Time.Format            (formatTime)
+import           Network.AWS.Compat.Locale
+import           Network.AWS.Compat.Time
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
 
-#if MIN_VERSION_time(1,5,0)
-import           Data.Time.Format (defaultTimeLocale, iso8601DateFormat)
-import           Data.Time.Format (ParseTime, TimeLocale, parseTimeM)
+-- | An integral value representing seconds.
+newtype Seconds = Seconds Int
+    deriving (Eq, Ord, Read, Show, Enum, Bounded, Num, Integral, Real)
 
-parseTime :: ParseTime a => TimeLocale -> String -> String -> Maybe a
-parseTime = parseTimeM True
-#else
-import           Data.Time.Format (parseTime)
-import           System.Locale    (defaultTimeLocale, iso8601DateFormat)
-#endif
+_Seconds :: Iso' Seconds Int
+_Seconds = iso (\(Seconds n) -> n) Seconds
+
+instance ToBuilder Seconds where
+    build (Seconds n) = build n <> "s"
+
+microseconds :: Seconds -> Int
+microseconds (Seconds n) = truncate (toRational n / 1000000)
 
 data Format
     = RFC822Format

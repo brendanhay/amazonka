@@ -1,6 +1,6 @@
-{-# LANGUAGE FlexibleInstances    #-}
-{-# LANGUAGE OverloadedStrings    #-}
-{-# LANGUAGE ViewPatterns         #-}
+{-# LANGUAGE FlexibleInstances #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 {-# OPTIONS_GHC -fno-warn-orphans #-}
 
@@ -27,8 +27,8 @@ parse :: FromJSON a => Object -> Script a
 parse = hoistEither . parseEither parseJSON . Object
 
 toEnv :: (Show a, A.ToJSON a) => a -> Script A.Object
-toEnv (A.toJSON -> A.Object o) = right o
-toEnv e                        = left $
+toEnv (A.toJSON -> A.Object o) = return o
+toEnv e                        = throwE $
     "Failed to extract JSON Object from: " ++ show e
 
 merge :: [Object] -> Object

@@ -39,7 +39,7 @@ dots "."  = False
 dots ".." = False
 dots _    = True
 
-createDir :: MonadIO m => FilePath -> EitherT String m ()
+createDir :: MonadIO m => FilePath -> ExceptT String m ()
 createDir = scriptIO . createDirectoryIfMissing True
 
 copyContents :: FilePath -> FilePath -> Script ()

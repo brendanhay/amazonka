@@ -28,27 +28,26 @@
 module Gen.Output where
 
 import           Control.Applicative
-import           Control.Arrow            ((&&&))
+import           Control.Arrow        ((&&&))
 import           Control.Error
-import           Control.Lens             hiding (mapping, op, (.=), (<.>))
+import           Control.Lens         hiding (mapping, op, (.=), (<.>))
 import           Data.Aeson
-import           Data.Aeson.Encode.Pretty
-import           Data.Aeson.Types         (Pair)
+import           Data.Aeson.Types     (Pair)
 import           Data.Bifunctor
-import           Data.CaseInsensitive     (CI)
-import qualified Data.CaseInsensitive     as CI
+import           Data.CaseInsensitive (CI)
+import qualified Data.CaseInsensitive as CI
 import           Data.Char
-import           Data.Function            (on)
+import           Data.Function        (on)
 import           Data.Hashable
-import           Data.HashMap.Strict      (HashMap)
-import qualified Data.HashMap.Strict      as Map
-import           Data.HashSet             (HashSet)
-import qualified Data.HashSet             as Set
+import           Data.HashMap.Strict  (HashMap)
+import qualified Data.HashMap.Strict  as Map
+import           Data.HashSet         (HashSet)
+import qualified Data.HashSet         as Set
 import           Data.List
-import           Data.Monoid              hiding (Product)
+import           Data.Monoid          hiding (Product)
 import           Data.SemVer
-import           Data.Text                (Text)
-import qualified Data.Text                as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 import           Gen.Documentation
 import           Gen.Filters

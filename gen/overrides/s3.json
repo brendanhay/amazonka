@@ -30,7 +30,6 @@
             "required": [
                 "ETag",
                 "Size",
-                "Owner",
                 "Key",
                 "StorageClass",
                 "LastModified"

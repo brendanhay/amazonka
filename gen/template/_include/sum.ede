@@ -17,9 +17,7 @@ instance ToText {{ shape.name }} where
         {{ ctor.key }} -> "{{ ctor.value }}"
       {% endfor %}
 
-instance Hashable {{ shape.name }} where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable {{ shape.name }}
 instance ToQuery {{ shape.name }}
 instance ToHeader {{ shape.name }}
 {% for inst in shape.instances %}

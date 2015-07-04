@@ -82,7 +82,7 @@ derivingOf = uniq . typ . typeOf
         TType      _ ds -> ds
         TLit       l    -> lit l
         TNatural        -> base <> num
-        TStream         -> [DShow]
+        TStream         -> [DShow, DGeneric]
         TMaybe     t    -> typ t
         TSensitive t    -> DShow : typ t
         TList      e    -> monoid <> intersect base (typ e)
@@ -103,8 +103,8 @@ string = [DOrd, DIsString]
 num    = [DOrd, DEnum, DNum, DIntegral, DReal]
 frac   = [DOrd, DRealFrac, DRealFloat]
 monoid = [DMonoid, DSemigroup]
-enum   = [DOrd, DEnum, DGeneric] <> base
-base   = [DEq, DRead, DShow]
+enum   = [DOrd, DEnum] <> base
+base   = [DEq, DRead, DShow, DGeneric]
 
 typeDefault :: TType -> Bool
 typeDefault = \case

@@ -1,5 +1,5 @@
 -- Module      : Network.AWS.Prelude
--- Copyright   : (c) 2013-2015 Brendan Hay
+-- Copyright   : (c) 2013-2015 Brendan Hay <brendan.g.hay@gmail.com>
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
 --               A copy of the MPL can be found in the LICENSE file or
@@ -14,12 +14,14 @@ module Network.AWS.Prelude
 
 import           Control.Applicative         as Export ((<$>), (<*>), (<|>))
 import           Control.Lens                as Export hiding ((.=))
-import           Data.Hashable               as Export (Hashable, hashUsing)
+import           Data.Data                   as Export (Data, Typeable)
+import           Data.Hashable               as Export (Hashable)
 import           Data.HashMap.Strict         as Export (HashMap)
 import           Data.List.NonEmpty          as Export (NonEmpty (..))
 import           Data.Maybe                  as Export
 import           Data.Monoid                 as Export (First, mconcat, mempty,
                                                         (<>))
+import           GHC.Generics                as Export (Generic)
 import           Network.AWS.Data.Base64     as Export
 import           Network.AWS.Data.Body       as Export
 import           Network.AWS.Data.ByteString as Export

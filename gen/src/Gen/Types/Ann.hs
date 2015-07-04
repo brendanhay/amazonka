@@ -96,6 +96,8 @@ data Derive
     | DMonoid
     | DSemigroup
     | DIsString
+    | DData
+    | DTypeable
     | DGeneric
       deriving (Eq, Ord, Show, Generic)
 

@@ -25,7 +25,7 @@ import           Control.Comonad.Cofree
 import           Control.Lens           hiding (enum, mapping, (??))
 import           Data.Foldable          (foldr')
 import qualified Data.HashSet           as Set
-import           Data.List              (intersect)
+import           Data.List              (delete, intersect)
 import           Data.Monoid
 import           Gen.Types
 
@@ -46,7 +46,7 @@ instance HasId a => TypeOf (Shape a) where
         shape = \case
             Ptr    _ ds          -> TType  (n ^. typeId) (ptr ds)
             Struct st            -> TType  (n ^. typeId) (struct st)
-            Enum   {}            -> TType  (n ^. typeId) enum
+            Enum   {}            -> TType  (n ^. typeId) (enum <> base)
             List (ListF i e)
                 | nonEmpty i     -> TList1 (typeOf e)
                 | otherwise      -> TList  (typeOf e)
@@ -59,7 +59,7 @@ instance HasId a => TypeOf (Shape a) where
             Blob | isStreaming i -> TStream
             l                    -> TLit l
 
-        ptr = uniq . mappend [DEq, DShow] . Set.toList
+        ptr = uniq . mappend (DRead `delete` base) . Set.toList
 
         struct st
             | isStreaming st = [DShow]
@@ -82,7 +82,7 @@ derivingOf = uniq . typ . typeOf
         TType      _ ds -> ds
         TLit       l    -> lit l
         TNatural        -> base <> num
-        TStream         -> [DShow, DGeneric]
+        TStream         -> [DShow, DData, DTypeable, DGeneric]
         TMaybe     t    -> typ t
         TSensitive t    -> DShow : typ t
         TList      e    -> monoid <> intersect base (typ e)
@@ -96,15 +96,15 @@ derivingOf = uniq . typ . typeOf
         Text   -> base <> string
         Blob   -> base
         Time   -> DOrd : base
-        Bool   -> enum
+        Bool   -> enum <> base
 
 string, num, frac, monoid, enum, base :: [Derive]
 string = [DOrd, DIsString]
-num    = [DOrd, DEnum, DNum, DIntegral, DReal]
+num    = DNum : DIntegral : DReal : enum
 frac   = [DOrd, DRealFrac, DRealFloat]
 monoid = [DMonoid, DSemigroup]
-enum   = [DOrd, DEnum] <> base
-base   = [DEq, DRead, DShow, DGeneric]
+enum   = [DOrd, DEnum]
+base   = [DEq, DRead, DShow, DData, DTypeable, DGeneric]
 
 typeDefault :: TType -> Bool
 typeDefault = \case

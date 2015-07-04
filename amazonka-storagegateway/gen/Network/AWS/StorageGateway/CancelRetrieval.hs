@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.CancelRetrieval
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.StorageGateway.Types
 data CancelRetrieval = CancelRetrieval'
     { _crGatewayARN :: !Text
     , _crTapeARN    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelRetrieval' smart constructor.
 cancelRetrieval :: Text -> Text -> CancelRetrieval
@@ -118,7 +120,7 @@ instance ToQuery CancelRetrieval where
 data CancelRetrievalResponse = CancelRetrievalResponse'
     { _crrTapeARN :: !(Maybe Text)
     , _crrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelRetrievalResponse' smart constructor.
 cancelRetrievalResponse :: Int -> CancelRetrievalResponse

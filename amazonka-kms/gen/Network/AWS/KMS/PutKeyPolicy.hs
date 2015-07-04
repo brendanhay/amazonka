@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.PutKeyPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ data PutKeyPolicy = PutKeyPolicy'
     { _pkpKeyId      :: !Text
     , _pkpPolicyName :: !Text
     , _pkpPolicy     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutKeyPolicy' smart constructor.
 putKeyPolicy :: Text -> Text -> Text -> PutKeyPolicy
@@ -113,7 +115,7 @@ instance ToQuery PutKeyPolicy where
 -- | /See:/ 'putKeyPolicyResponse' smart constructor.
 data PutKeyPolicyResponse =
     PutKeyPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutKeyPolicyResponse' smart constructor.
 putKeyPolicyResponse :: PutKeyPolicyResponse

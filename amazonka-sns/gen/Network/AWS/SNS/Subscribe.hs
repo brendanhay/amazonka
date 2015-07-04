@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.Subscribe
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data Subscribe = Subscribe'
     { _sEndpoint :: !(Maybe Endpoint)
     , _sTopicARN :: !Text
     , _sProtocol :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subscribe' smart constructor.
 subscribe :: Text -> Text -> Subscribe
@@ -142,7 +144,7 @@ instance ToQuery Subscribe where
 data SubscribeResponse = SubscribeResponse'
     { _srSubscriptionARN :: !(Maybe Text)
     , _srStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubscribeResponse' smart constructor.
 subscribeResponse :: Int -> SubscribeResponse

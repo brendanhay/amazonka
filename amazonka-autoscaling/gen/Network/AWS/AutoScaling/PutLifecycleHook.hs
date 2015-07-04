@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.PutLifecycleHook
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -98,7 +100,7 @@ data PutLifecycleHook = PutLifecycleHook'
     , _plhNotificationTargetARN :: !(Maybe Text)
     , _plhLifecycleHookName     :: !Text
     , _plhAutoScalingGroupName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLifecycleHook' smart constructor.
 putLifecycleHook :: Text -> Text -> PutLifecycleHook
@@ -223,7 +225,7 @@ instance ToQuery PutLifecycleHook where
 -- * 'plhrStatus'
 newtype PutLifecycleHookResponse = PutLifecycleHookResponse'
     { _plhrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLifecycleHookResponse' smart constructor.
 putLifecycleHookResponse :: Int -> PutLifecycleHookResponse

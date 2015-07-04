@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.DeleteMessageBatch
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ import           Network.AWS.SQS.Types
 data DeleteMessageBatch = DeleteMessageBatch'
     { _dmbQueueURL :: !Text
     , _dmbEntries  :: ![DeleteMessageBatchRequestEntry]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessageBatch' smart constructor.
 deleteMessageBatch :: Text -> DeleteMessageBatch
@@ -129,7 +131,7 @@ data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
     { _dmbrStatus     :: !Int
     , _dmbrSuccessful :: ![DeleteMessageBatchResultEntry]
     , _dmbrFailed     :: ![BatchResultErrorEntry]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessageBatchResponse' smart constructor.
 deleteMessageBatchResponse :: Int -> DeleteMessageBatchResponse

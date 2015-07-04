@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data DescribeLogGroups = DescribeLogGroups'
     { _dlgNextToken          :: !(Maybe Text)
     , _dlgLogGroupNamePrefix :: !(Maybe Text)
     , _dlgLimit              :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLogGroups' smart constructor.
 describeLogGroups :: DescribeLogGroups
@@ -138,7 +140,7 @@ data DescribeLogGroupsResponse = DescribeLogGroupsResponse'
     { _dlgrLogGroups :: !(Maybe [LogGroup])
     , _dlgrNextToken :: !(Maybe Text)
     , _dlgrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLogGroupsResponse' smart constructor.
 describeLogGroupsResponse :: Int -> DescribeLogGroupsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.DescribeTaskDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'dtdTaskDefinition'
 newtype DescribeTaskDefinition = DescribeTaskDefinition'
     { _dtdTaskDefinition :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTaskDefinition' smart constructor.
 describeTaskDefinition :: Text -> DescribeTaskDefinition
@@ -109,7 +111,7 @@ instance ToQuery DescribeTaskDefinition where
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
     { _descTaskDefinition :: !(Maybe TaskDefinition)
     , _descStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTaskDefinitionResponse' smart constructor.
 describeTaskDefinitionResponse :: Int -> DescribeTaskDefinitionResponse

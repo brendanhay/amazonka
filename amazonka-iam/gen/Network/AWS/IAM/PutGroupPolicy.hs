@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.PutGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data PutGroupPolicy = PutGroupPolicy'
     { _pgpGroupName      :: !Text
     , _pgpPolicyName     :: !Text
     , _pgpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutGroupPolicy' smart constructor.
 putGroupPolicy :: Text -> Text -> Text -> PutGroupPolicy
@@ -118,7 +120,7 @@ instance ToQuery PutGroupPolicy where
 -- | /See:/ 'putGroupPolicyResponse' smart constructor.
 data PutGroupPolicyResponse =
     PutGroupPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutGroupPolicyResponse' smart constructor.
 putGroupPolicyResponse :: PutGroupPolicyResponse

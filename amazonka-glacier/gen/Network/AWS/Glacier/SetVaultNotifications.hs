@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.SetVaultNotifications
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -89,7 +91,7 @@ data SetVaultNotifications = SetVaultNotifications'
     { _svnVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
     , _svnAccountId               :: !Text
     , _svnVaultName               :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultNotifications' smart constructor.
 setVaultNotifications :: Text -> Text -> SetVaultNotifications
@@ -144,7 +146,7 @@ instance ToQuery SetVaultNotifications where
 -- | /See:/ 'setVaultNotificationsResponse' smart constructor.
 data SetVaultNotificationsResponse =
     SetVaultNotificationsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultNotificationsResponse' smart constructor.
 setVaultNotificationsResponse :: SetVaultNotificationsResponse

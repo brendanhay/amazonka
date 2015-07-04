@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.ListContainerInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data ListContainerInstances = ListContainerInstances'
     { _lciCluster    :: !(Maybe Text)
     , _lciNextToken  :: !(Maybe Text)
     , _lciMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListContainerInstances' smart constructor.
 listContainerInstances :: ListContainerInstances
@@ -150,7 +152,7 @@ data ListContainerInstancesResponse = ListContainerInstancesResponse'
     { _lcirContainerInstanceARNs :: !(Maybe [Text])
     , _lcirNextToken             :: !(Maybe Text)
     , _lcirStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListContainerInstancesResponse' smart constructor.
 listContainerInstancesResponse :: Int -> ListContainerInstancesResponse

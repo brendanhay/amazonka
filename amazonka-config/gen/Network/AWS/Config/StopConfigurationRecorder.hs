@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Config.StopConfigurationRecorder
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- * 'scrConfigurationRecorderName'
 newtype StopConfigurationRecorder = StopConfigurationRecorder'
     { _scrConfigurationRecorderName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopConfigurationRecorder' smart constructor.
 stopConfigurationRecorder :: Text -> StopConfigurationRecorder
@@ -94,7 +96,7 @@ instance ToQuery StopConfigurationRecorder where
 -- | /See:/ 'stopConfigurationRecorderResponse' smart constructor.
 data StopConfigurationRecorderResponse =
     StopConfigurationRecorderResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopConfigurationRecorderResponse' smart constructor.
 stopConfigurationRecorderResponse :: StopConfigurationRecorderResponse

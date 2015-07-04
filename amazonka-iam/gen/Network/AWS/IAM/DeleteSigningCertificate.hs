@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteSigningCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data DeleteSigningCertificate = DeleteSigningCertificate'
     { _dscUserName      :: !(Maybe Text)
     , _dscCertificateId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSigningCertificate' smart constructor.
 deleteSigningCertificate :: Text -> DeleteSigningCertificate
@@ -99,7 +101,7 @@ instance ToQuery DeleteSigningCertificate where
 -- | /See:/ 'deleteSigningCertificateResponse' smart constructor.
 data DeleteSigningCertificateResponse =
     DeleteSigningCertificateResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSigningCertificateResponse' smart constructor.
 deleteSigningCertificateResponse :: DeleteSigningCertificateResponse

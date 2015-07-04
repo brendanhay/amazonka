@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.ListInvalidations
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data ListInvalidations = ListInvalidations'
     { _liMaxItems       :: !(Maybe Text)
     , _liMarker         :: !(Maybe Text)
     , _liDistributionId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInvalidations' smart constructor.
 listInvalidations :: Text -> ListInvalidations
@@ -123,7 +125,7 @@ instance ToQuery ListInvalidations where
 data ListInvalidationsResponse = ListInvalidationsResponse'
     { _lirStatus           :: !Int
     , _lirInvalidationList :: !InvalidationList
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInvalidationsResponse' smart constructor.
 listInvalidationsResponse :: Int -> InvalidationList -> ListInvalidationsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListAccountAliases
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.Response
 data ListAccountAliases = ListAccountAliases'
     { _laaMaxItems :: !(Maybe Nat)
     , _laaMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccountAliases' smart constructor.
 listAccountAliases :: ListAccountAliases
@@ -138,7 +140,7 @@ data ListAccountAliasesResponse = ListAccountAliasesResponse'
     , _laarIsTruncated    :: !(Maybe Bool)
     , _laarStatus         :: !Int
     , _laarAccountAliases :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
 listAccountAliasesResponse :: Int -> ListAccountAliasesResponse

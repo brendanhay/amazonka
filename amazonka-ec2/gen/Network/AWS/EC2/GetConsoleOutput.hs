@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.GetConsoleOutput
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ import           Network.AWS.Response
 data GetConsoleOutput = GetConsoleOutput'
     { _gcoDryRun     :: !(Maybe Bool)
     , _gcoInstanceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConsoleOutput' smart constructor.
 getConsoleOutput :: Text -> GetConsoleOutput
@@ -135,7 +137,7 @@ data GetConsoleOutputResponse = GetConsoleOutputResponse'
     , _gcorOutput     :: !(Maybe Text)
     , _gcorTimestamp  :: !(Maybe ISO8601)
     , _gcorStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConsoleOutputResponse' smart constructor.
 getConsoleOutputResponse :: Int -> GetConsoleOutputResponse

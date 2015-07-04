@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromS
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -92,7 +94,7 @@ data CreateDataSourceFromS = CreateDataSourceFromS'
     , _cdsfsComputeStatistics :: !(Maybe Bool)
     , _cdsfsDataSourceId      :: !Text
     , _cdsfsDataSpec          :: !S3DataSpec
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromS' smart constructor.
 createDataSourceFromS :: Text -> S3DataSpec -> CreateDataSourceFromS
@@ -191,7 +193,7 @@ instance ToQuery CreateDataSourceFromS where
 data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
     { _cdsfsrDataSourceId :: !(Maybe Text)
     , _cdsfsrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromSResponse' smart constructor.
 createDataSourceFromSResponse :: Int -> CreateDataSourceFromSResponse

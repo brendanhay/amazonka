@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteAutoScalingGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DeleteAutoScalingGroup = DeleteAutoScalingGroup'
     { _dasgForceDelete          :: !(Maybe Bool)
     , _dasgAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAutoScalingGroup' smart constructor.
 deleteAutoScalingGroup :: Text -> DeleteAutoScalingGroup
@@ -101,7 +103,7 @@ instance ToQuery DeleteAutoScalingGroup where
 -- | /See:/ 'deleteAutoScalingGroupResponse' smart constructor.
 data DeleteAutoScalingGroupResponse =
     DeleteAutoScalingGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAutoScalingGroupResponse' smart constructor.
 deleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse

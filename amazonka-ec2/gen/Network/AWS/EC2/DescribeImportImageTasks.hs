@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeImportImageTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data DescribeImportImageTasks = DescribeImportImageTasks'
     , _diitNextToken     :: !(Maybe Text)
     , _diitDryRun        :: !(Maybe Bool)
     , _diitMaxResults    :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportImageTasks' smart constructor.
 describeImportImageTasks :: DescribeImportImageTasks
@@ -147,7 +149,7 @@ data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
     { _diitrImportImageTasks :: !(Maybe [ImportImageTask])
     , _diitrNextToken        :: !(Maybe Text)
     , _diitrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportImageTasksResponse' smart constructor.
 describeImportImageTasksResponse :: Int -> DescribeImportImageTasksResponse

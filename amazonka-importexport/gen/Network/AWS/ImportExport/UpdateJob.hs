@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ImportExport.UpdateJob
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data UpdateJob = UpdateJob'
     , _ujManifest     :: !Text
     , _ujJobType      :: !JobType
     , _ujValidateOnly :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateJob' smart constructor.
 updateJob :: Text -> Text -> JobType -> Bool -> UpdateJob
@@ -151,7 +153,7 @@ data UpdateJobResponse = UpdateJobResponse'
     , _ujrWarningMessage :: !(Maybe Text)
     , _ujrArtifactList   :: !(Maybe [Artifact])
     , _ujrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateJobResponse' smart constructor.
 updateJobResponse :: Int -> UpdateJobResponse

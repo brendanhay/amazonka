@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.TerminateEnvironment
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data TerminateEnvironment = TerminateEnvironment'
     { _teTerminateResources :: !(Maybe Bool)
     , _teEnvironmentName    :: !(Maybe Text)
     , _teEnvironmentId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateEnvironment' smart constructor.
 terminateEnvironment :: TerminateEnvironment

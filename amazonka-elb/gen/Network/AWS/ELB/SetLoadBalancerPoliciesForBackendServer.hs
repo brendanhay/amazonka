@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data SetLoadBalancerPoliciesForBackendServer = SetLoadBalancerPoliciesForBackend
     { _slbpfbsLoadBalancerName :: !Text
     , _slbpfbsInstancePort     :: !Int
     , _slbpfbsPolicyNames      :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesForBackendServer' smart constructor.
 setLoadBalancerPoliciesForBackendServer :: Text -> Int -> SetLoadBalancerPoliciesForBackendServer
@@ -130,7 +132,7 @@ instance ToQuery
 -- * 'slbpfbsrStatus'
 newtype SetLoadBalancerPoliciesForBackendServerResponse = SetLoadBalancerPoliciesForBackendServerResponse'
     { _slbpfbsrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesForBackendServerResponse' smart constructor.
 setLoadBalancerPoliciesForBackendServerResponse :: Int -> SetLoadBalancerPoliciesForBackendServerResponse

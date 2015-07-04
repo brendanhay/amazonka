@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeRouteTables
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeRouteTables = DescribeRouteTables'
     { _drt2Filters       :: !(Maybe [Filter])
     , _drt2DryRun        :: !(Maybe Bool)
     , _drt2RouteTableIds :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRouteTables' smart constructor.
 describeRouteTables :: DescribeRouteTables
@@ -184,7 +186,7 @@ instance ToQuery DescribeRouteTables where
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
     { _drtrRouteTables :: !(Maybe [RouteTable])
     , _drtrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
 describeRouteTablesResponse :: Int -> DescribeRouteTablesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.TransferDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -118,7 +120,7 @@ data TransferDomain = TransferDomain'
     , _tdAdminContact                    :: !(Sensitive ContactDetail)
     , _tdRegistrantContact               :: !(Sensitive ContactDetail)
     , _tdTechContact                     :: !(Sensitive ContactDetail)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TransferDomain' smart constructor.
 transferDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> TransferDomain
@@ -340,7 +342,7 @@ instance ToQuery TransferDomain where
 data TransferDomainResponse = TransferDomainResponse'
     { _tdrStatus      :: !Int
     , _tdrOperationId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TransferDomainResponse' smart constructor.
 transferDomainResponse :: Int -> Text -> TransferDomainResponse

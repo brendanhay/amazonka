@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.ListMultipartUploads
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -95,7 +97,7 @@ data ListMultipartUploads = ListMultipartUploads'
     , _lmuLimit     :: !(Maybe Text)
     , _lmuAccountId :: !Text
     , _lmuVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: Text -> Text -> ListMultipartUploads
@@ -174,7 +176,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     { _lmurUploadsList :: !(Maybe [UploadListElement])
     , _lmurMarker      :: !(Maybe Text)
     , _lmurStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse

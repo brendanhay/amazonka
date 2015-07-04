@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateNetworkACLEntry
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -94,7 +96,7 @@ data CreateNetworkACLEntry = CreateNetworkACLEntry'
     , _cnaeRuleAction   :: !RuleAction
     , _cnaeEgress       :: !Bool
     , _cnaeCIDRBlock    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACLEntry' smart constructor.
 createNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> CreateNetworkACLEntry
@@ -187,7 +189,7 @@ instance ToQuery CreateNetworkACLEntry where
 -- | /See:/ 'createNetworkACLEntryResponse' smart constructor.
 data CreateNetworkACLEntryResponse =
     CreateNetworkACLEntryResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACLEntryResponse' smart constructor.
 createNetworkACLEntryResponse :: CreateNetworkACLEntryResponse

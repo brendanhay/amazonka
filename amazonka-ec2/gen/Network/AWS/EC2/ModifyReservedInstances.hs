@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ModifyReservedInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data ModifyReservedInstances = ModifyReservedInstances'
     { _mriClientToken          :: !(Maybe Text)
     , _mriReservedInstancesIds :: ![Text]
     , _mriTargetConfigurations :: ![ReservedInstancesConfiguration]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReservedInstances' smart constructor.
 modifyReservedInstances :: ModifyReservedInstances
@@ -126,7 +128,7 @@ instance ToQuery ModifyReservedInstances where
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
     { _mrirReservedInstancesModificationId :: !(Maybe Text)
     , _mrirStatus                          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReservedInstancesResponse' smart constructor.
 modifyReservedInstancesResponse :: Int -> ModifyReservedInstancesResponse

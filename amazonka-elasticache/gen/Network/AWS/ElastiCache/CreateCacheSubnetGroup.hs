@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data CreateCacheSubnetGroup = CreateCacheSubnetGroup'
     { _ccsgCacheSubnetGroupName        :: !Text
     , _ccsgCacheSubnetGroupDescription :: !Text
     , _ccsgSubnetIds                   :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSubnetGroup' smart constructor.
 createCacheSubnetGroup :: Text -> Text -> CreateCacheSubnetGroup
@@ -128,7 +130,7 @@ instance ToQuery CreateCacheSubnetGroup where
 data CreateCacheSubnetGroupResponse = CreateCacheSubnetGroupResponse'
     { _creCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
     , _creStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSubnetGroupResponse' smart constructor.
 createCacheSubnetGroupResponse :: Int -> CreateCacheSubnetGroupResponse

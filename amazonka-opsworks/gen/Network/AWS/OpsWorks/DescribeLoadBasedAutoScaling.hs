@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 -- * 'dlbasLayerIds'
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
     { _dlbasLayerIds :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBasedAutoScaling' smart constructor.
 describeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling
@@ -114,7 +116,7 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
     { _dlbasrLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
     , _dlbasrStatus                             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
 describeLoadBasedAutoScalingResponse :: Int -> DescribeLoadBasedAutoScalingResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AttachInternetGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ data AttachInternetGateway = AttachInternetGateway'
     { _aigDryRun            :: !(Maybe Bool)
     , _aigInternetGatewayId :: !Text
     , _aigVPCId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInternetGateway' smart constructor.
 attachInternetGateway :: Text -> Text -> AttachInternetGateway
@@ -106,7 +108,7 @@ instance ToQuery AttachInternetGateway where
 -- | /See:/ 'attachInternetGatewayResponse' smart constructor.
 data AttachInternetGatewayResponse =
     AttachInternetGatewayResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInternetGatewayResponse' smart constructor.
 attachInternetGatewayResponse :: AttachInternetGatewayResponse

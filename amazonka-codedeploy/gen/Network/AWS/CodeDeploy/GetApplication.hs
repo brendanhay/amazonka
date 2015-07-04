@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'gaApplicationName'
 newtype GetApplication = GetApplication'
     { _gaApplicationName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplication' smart constructor.
 getApplication :: Text -> GetApplication
@@ -104,7 +106,7 @@ instance ToQuery GetApplication where
 data GetApplicationResponse = GetApplicationResponse'
     { _garApplication :: !(Maybe ApplicationInfo)
     , _garStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplicationResponse' smart constructor.
 getApplicationResponse :: Int -> GetApplicationResponse

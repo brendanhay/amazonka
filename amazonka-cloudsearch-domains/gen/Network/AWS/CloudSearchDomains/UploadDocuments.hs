@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.UploadDocuments
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ import           Network.AWS.Response
 data UploadDocuments = UploadDocuments'
     { _udContentType :: !ContentType
     , _udDocuments   :: !RqBody
-    } deriving (Show)
+    } deriving (Show,Data,Typeable,Generic)
 
 -- | 'UploadDocuments' smart constructor.
 uploadDocuments :: ContentType -> RqBody -> UploadDocuments
@@ -148,7 +150,7 @@ data UploadDocumentsResponse = UploadDocumentsResponse'
     , _udrWarnings :: !(Maybe [DocumentServiceWarning])
     , _udrDeletes  :: !(Maybe Integer)
     , _udrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadDocumentsResponse' smart constructor.
 uploadDocumentsResponse :: Int -> UploadDocumentsResponse

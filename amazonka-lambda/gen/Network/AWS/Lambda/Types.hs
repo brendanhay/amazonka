@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -178,7 +180,7 @@ _ResourceNotFoundException =
 data EventSourcePosition
     = TrimHorizon
     | Latest
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EventSourcePosition where
     parser = takeLowerText >>= \case
@@ -192,9 +194,7 @@ instance ToText EventSourcePosition where
         Latest -> "latest"
         TrimHorizon -> "trim_horizon"
 
-instance Hashable EventSourcePosition where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EventSourcePosition
 instance ToQuery EventSourcePosition
 instance ToHeader EventSourcePosition
 
@@ -205,7 +205,7 @@ data InvocationType
     = Event
     | RequestResponse
     | DryRun
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InvocationType where
     parser = takeLowerText >>= \case
@@ -221,9 +221,7 @@ instance ToText InvocationType where
         Event -> "event"
         RequestResponse -> "requestresponse"
 
-instance Hashable InvocationType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InvocationType
 instance ToQuery InvocationType
 instance ToHeader InvocationType
 
@@ -233,7 +231,7 @@ instance ToJSON InvocationType where
 data LogType
     = None
     | Tail
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LogType where
     parser = takeLowerText >>= \case
@@ -247,9 +245,7 @@ instance ToText LogType where
         None -> "none"
         Tail -> "tail"
 
-instance Hashable LogType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable LogType
 instance ToQuery LogType
 instance ToHeader LogType
 
@@ -259,7 +255,7 @@ instance ToJSON LogType where
 data Runtime
     = JAVA8
     | Nodejs
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Runtime where
     parser = takeLowerText >>= \case
@@ -273,9 +269,7 @@ instance ToText Runtime where
         JAVA8 -> "java8"
         Nodejs -> "nodejs"
 
-instance Hashable Runtime where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Runtime
 instance ToQuery Runtime
 instance ToHeader Runtime
 
@@ -316,7 +310,7 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     , _esmcBatchSize             :: !(Maybe Nat)
     , _esmcStateTransitionReason :: !(Maybe Text)
     , _esmcLastModified          :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventSourceMappingConfiguration' smart constructor.
 eventSourceMappingConfiguration :: EventSourceMappingConfiguration
@@ -404,7 +398,7 @@ data FunctionCode = FunctionCode'
     , _fcS3Key           :: !(Maybe Text)
     , _fcZipFile         :: !(Maybe Base64)
     , _fcS3Bucket        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FunctionCode' smart constructor.
 functionCode :: FunctionCode
@@ -458,7 +452,7 @@ instance ToJSON FunctionCode where
 data FunctionCodeLocation = FunctionCodeLocation'
     { _fclLocation       :: !(Maybe Text)
     , _fclRepositoryType :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FunctionCodeLocation' smart constructor.
 functionCodeLocation :: FunctionCodeLocation
@@ -520,7 +514,7 @@ data FunctionConfiguration = FunctionConfiguration'
     , _fcTimeout      :: !(Maybe Nat)
     , _fcLastModified :: !(Maybe Text)
     , _fcDescription  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FunctionConfiguration' smart constructor.
 functionConfiguration :: FunctionConfiguration

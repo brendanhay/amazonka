@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 -- * 'dsds1DryRun'
 newtype DeleteSpotDatafeedSubscription = DeleteSpotDatafeedSubscription'
     { _dsds1DryRun :: Maybe Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSpotDatafeedSubscription' smart constructor.
 deleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription
@@ -91,7 +93,7 @@ instance ToQuery DeleteSpotDatafeedSubscription where
 -- | /See:/ 'deleteSpotDatafeedSubscriptionResponse' smart constructor.
 data DeleteSpotDatafeedSubscriptionResponse =
     DeleteSpotDatafeedSubscriptionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSpotDatafeedSubscriptionResponse' smart constructor.
 deleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse

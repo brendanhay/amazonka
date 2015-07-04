@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.CreateHAPG
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'chLabel'
 newtype CreateHAPG = CreateHAPG'
     { _chLabel :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHAPG' smart constructor.
 createHAPG :: Text -> CreateHAPG
@@ -104,7 +106,7 @@ instance ToQuery CreateHAPG where
 data CreateHAPGResponse = CreateHAPGResponse'
     { _chrHAPGARN :: !(Maybe Text)
     , _chrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHAPGResponse' smart constructor.
 createHAPGResponse :: Int -> CreateHAPGResponse

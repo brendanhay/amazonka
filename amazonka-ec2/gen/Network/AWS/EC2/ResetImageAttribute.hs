@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ResetImageAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ data ResetImageAttribute = ResetImageAttribute'
     { _resDryRun    :: !(Maybe Bool)
     , _resImageId   :: !Text
     , _resAttribute :: !ResetImageAttributeName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetImageAttribute' smart constructor.
 resetImageAttribute :: Text -> ResetImageAttributeName -> ResetImageAttribute
@@ -105,7 +107,7 @@ instance ToQuery ResetImageAttribute where
 -- | /See:/ 'resetImageAttributeResponse' smart constructor.
 data ResetImageAttributeResponse =
     ResetImageAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetImageAttributeResponse' smart constructor.
 resetImageAttributeResponse :: ResetImageAttributeResponse

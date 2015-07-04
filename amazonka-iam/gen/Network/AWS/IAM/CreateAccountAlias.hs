@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreateAccountAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- * 'caaAccountAlias'
 newtype CreateAccountAlias = CreateAccountAlias'
     { _caaAccountAlias :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccountAlias' smart constructor.
 createAccountAlias :: Text -> CreateAccountAlias
@@ -83,7 +85,7 @@ instance ToQuery CreateAccountAlias where
 -- | /See:/ 'createAccountAliasResponse' smart constructor.
 data CreateAccountAliasResponse =
     CreateAccountAliasResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccountAliasResponse' smart constructor.
 createAccountAliasResponse :: CreateAccountAliasResponse

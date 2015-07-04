@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.DeleteService
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 data DeleteService = DeleteService'
     { _dsCluster :: !(Maybe Text)
     , _dsService :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteService' smart constructor.
 deleteService :: Text -> DeleteService
@@ -110,7 +112,7 @@ instance ToQuery DeleteService where
 data DeleteServiceResponse = DeleteServiceResponse'
     { _dsrService :: !(Maybe ContainerService)
     , _dsrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteServiceResponse' smart constructor.
 deleteServiceResponse :: Int -> DeleteServiceResponse

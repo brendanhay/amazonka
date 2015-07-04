@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.DeprecateWorkflowType
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ import           Network.AWS.SWF.Types
 data DeprecateWorkflowType = DeprecateWorkflowType'
     { _depDomain       :: !Text
     , _depWorkflowType :: !WorkflowType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeprecateWorkflowType' smart constructor.
 deprecateWorkflowType :: Text -> WorkflowType -> DeprecateWorkflowType
@@ -128,7 +130,7 @@ instance ToQuery DeprecateWorkflowType where
 -- | /See:/ 'deprecateWorkflowTypeResponse' smart constructor.
 data DeprecateWorkflowTypeResponse =
     DeprecateWorkflowTypeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeprecateWorkflowTypeResponse' smart constructor.
 deprecateWorkflowTypeResponse :: DeprecateWorkflowTypeResponse

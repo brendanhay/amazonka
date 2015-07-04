@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeSuggesters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data DescribeSuggesters = DescribeSuggesters'
     { _desDeployed       :: !(Maybe Bool)
     , _desSuggesterNames :: !(Maybe [Text])
     , _desDomainName     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSuggesters' smart constructor.
 describeSuggesters :: Text -> DescribeSuggesters
@@ -134,7 +136,7 @@ instance ToQuery DescribeSuggesters where
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
     { _dsr1Status     :: !Int
     , _dsr1Suggesters :: ![SuggesterStatus]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
 describeSuggestersResponse :: Int -> DescribeSuggestersResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dvVolumeARN'
 newtype DeleteVolume = DeleteVolume'
     { _dvVolumeARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVolume' smart constructor.
 deleteVolume :: Text -> DeleteVolume
@@ -119,7 +121,7 @@ instance ToQuery DeleteVolume where
 data DeleteVolumeResponse = DeleteVolumeResponse'
     { _dvrVolumeARN :: !(Maybe Text)
     , _dvrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVolumeResponse' smart constructor.
 deleteVolumeResponse :: Int -> DeleteVolumeResponse

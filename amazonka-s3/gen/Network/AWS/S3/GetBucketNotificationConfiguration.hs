@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketNotificationConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.S3.Types
 -- * 'gbncBucket'
 newtype GetBucketNotificationConfiguration = GetBucketNotificationConfiguration'
     { _gbncBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketNotificationConfiguration' smart constructor.
 getBucketNotificationConfiguration :: BucketName -> GetBucketNotificationConfiguration

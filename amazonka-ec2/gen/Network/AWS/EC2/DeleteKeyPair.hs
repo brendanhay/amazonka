@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteKeyPair
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data DeleteKeyPair = DeleteKeyPair'
     { _dkpDryRun  :: !(Maybe Bool)
     , _dkpKeyName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteKeyPair' smart constructor.
 deleteKeyPair :: Text -> DeleteKeyPair
@@ -92,7 +94,7 @@ instance ToQuery DeleteKeyPair where
 -- | /See:/ 'deleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse =
     DeleteKeyPairResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteKeyPairResponse' smart constructor.
 deleteKeyPairResponse :: DeleteKeyPairResponse

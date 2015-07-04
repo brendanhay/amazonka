@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.CreateAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.Response
 data CreateAlias = CreateAlias'
     { _caAliasName   :: !Text
     , _caTargetKeyId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
@@ -117,7 +119,7 @@ instance ToQuery CreateAlias where
 -- | /See:/ 'createAliasResponse' smart constructor.
 data CreateAliasResponse =
     CreateAliasResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAliasResponse' smart constructor.
 createAliasResponse :: CreateAliasResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPNConnections
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeVPNConnections = DescribeVPNConnections'
     { _dvpncFilters          :: !(Maybe [Filter])
     , _dvpncVPNConnectionIds :: !(Maybe [Text])
     , _dvpncDryRun           :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNConnections' smart constructor.
 describeVPNConnections :: DescribeVPNConnections
@@ -170,7 +172,7 @@ instance ToQuery DescribeVPNConnections where
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
     { _dvcrVPNConnections :: !(Maybe [VPNConnection])
     , _dvcrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNConnectionsResponse' smart constructor.
 describeVPNConnectionsResponse :: Int -> DescribeVPNConnectionsResponse

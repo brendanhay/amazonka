@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.ListTagsForResource
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 -- * 'ltfrResourceName'
 newtype ListTagsForResource = ListTagsForResource'
     { _ltfrResourceName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource

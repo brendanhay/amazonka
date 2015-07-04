@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.RestoreFromClusterSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -136,7 +138,7 @@ data RestoreFromClusterSnapshot = RestoreFromClusterSnapshot'
     , _rfcsPort                             :: !(Maybe Int)
     , _rfcsClusterIdentifier                :: !Text
     , _rfcsSnapshotIdentifier               :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreFromClusterSnapshot' smart constructor.
 restoreFromClusterSnapshot :: Text -> Text -> RestoreFromClusterSnapshot
@@ -392,7 +394,7 @@ instance ToQuery RestoreFromClusterSnapshot where
 data RestoreFromClusterSnapshotResponse = RestoreFromClusterSnapshotResponse'
     { _rfcsrCluster :: !(Maybe Cluster)
     , _rfcsrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreFromClusterSnapshotResponse' smart constructor.
 restoreFromClusterSnapshotResponse :: Int -> RestoreFromClusterSnapshotResponse

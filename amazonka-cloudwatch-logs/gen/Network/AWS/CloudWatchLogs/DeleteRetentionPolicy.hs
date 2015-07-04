@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- * 'drpLogGroupName'
 newtype DeleteRetentionPolicy = DeleteRetentionPolicy'
     { _drpLogGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRetentionPolicy' smart constructor.
 deleteRetentionPolicy :: Text -> DeleteRetentionPolicy
@@ -90,7 +92,7 @@ instance ToQuery DeleteRetentionPolicy where
 -- | /See:/ 'deleteRetentionPolicyResponse' smart constructor.
 data DeleteRetentionPolicyResponse =
     DeleteRetentionPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRetentionPolicyResponse' smart constructor.
 deleteRetentionPolicyResponse :: DeleteRetentionPolicyResponse

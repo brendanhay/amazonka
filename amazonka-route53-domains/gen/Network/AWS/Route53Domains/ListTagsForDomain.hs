@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.ListTagsForDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Route53Domains.Types
 -- * 'ltfdDomainName'
 newtype ListTagsForDomain = ListTagsForDomain'
     { _ltfdDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForDomain' smart constructor.
 listTagsForDomain :: Text -> ListTagsForDomain
@@ -108,7 +110,7 @@ instance ToQuery ListTagsForDomain where
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
     { _ltfdrStatus  :: !Int
     , _ltfdrTagList :: ![Tag]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForDomainResponse' smart constructor.
 listTagsForDomainResponse :: Int -> ListTagsForDomainResponse

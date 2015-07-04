@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.CreateLoadBalancerListeners
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
     { _clblLoadBalancerName :: !Text
     , _clblListeners        :: ![Listener]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerListeners' smart constructor.
 createLoadBalancerListeners :: Text -> CreateLoadBalancerListeners
@@ -109,7 +111,7 @@ instance ToQuery CreateLoadBalancerListeners where
 -- * 'clblrStatus'
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
     { _clblrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerListenersResponse' smart constructor.
 createLoadBalancerListenersResponse :: Int -> CreateLoadBalancerListenersResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DeleteSnapshotCopyGrant
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- * 'dscgSnapshotCopyGrantName'
 newtype DeleteSnapshotCopyGrant = DeleteSnapshotCopyGrant'
     { _dscgSnapshotCopyGrantName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotCopyGrant' smart constructor.
 deleteSnapshotCopyGrant :: Text -> DeleteSnapshotCopyGrant
@@ -85,7 +87,7 @@ instance ToQuery DeleteSnapshotCopyGrant where
 -- | /See:/ 'deleteSnapshotCopyGrantResponse' smart constructor.
 data DeleteSnapshotCopyGrantResponse =
     DeleteSnapshotCopyGrantResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotCopyGrantResponse' smart constructor.
 deleteSnapshotCopyGrantResponse :: DeleteSnapshotCopyGrantResponse

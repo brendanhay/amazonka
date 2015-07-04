@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketCORS
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ data PutBucketCORS = PutBucketCORS'
     { _pbcContentMD5        :: !(Maybe Text)
     , _pbcCORSConfiguration :: !(Maybe CORSConfiguration)
     , _pbcBucket            :: !BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketCORS' smart constructor.
 putBucketCORS :: BucketName -> PutBucketCORS
@@ -102,7 +104,7 @@ instance ToQuery PutBucketCORS where
 -- | /See:/ 'putBucketCORSResponse' smart constructor.
 data PutBucketCORSResponse =
     PutBucketCORSResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketCORSResponse' smart constructor.
 putBucketCORSResponse :: PutBucketCORSResponse

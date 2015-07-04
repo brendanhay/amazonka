@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.DiscoverPollEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
     { _dpeCluster           :: !(Maybe Text)
     , _dpeContainerInstance :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiscoverPollEndpoint' smart constructor.
 discoverPollEndpoint :: DiscoverPollEndpoint
@@ -126,7 +128,7 @@ data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
     { _dperTelemetryEndpoint :: !(Maybe Text)
     , _dperEndpoint          :: !(Maybe Text)
     , _dperStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiscoverPollEndpointResponse' smart constructor.
 discoverPollEndpointResponse :: Int -> DiscoverPollEndpointResponse

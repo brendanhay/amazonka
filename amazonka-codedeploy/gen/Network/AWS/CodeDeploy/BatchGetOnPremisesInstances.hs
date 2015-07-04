@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'bgopiInstanceNames'
 newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
     { _bgopiInstanceNames :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetOnPremisesInstances' smart constructor.
 batchGetOnPremisesInstances :: BatchGetOnPremisesInstances
@@ -106,7 +108,7 @@ instance ToQuery BatchGetOnPremisesInstances where
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
     { _bgopirInstanceInfos :: !(Maybe [InstanceInfo])
     , _bgopirStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetOnPremisesInstancesResponse' smart constructor.
 batchGetOnPremisesInstancesResponse :: Int -> BatchGetOnPremisesInstancesResponse

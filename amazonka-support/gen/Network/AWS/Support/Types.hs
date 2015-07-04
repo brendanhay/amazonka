@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -251,7 +253,7 @@ _CaseCreationLimitExceeded =
 data Attachment = Attachment'
     { _attData     :: !(Maybe Base64)
     , _attFileName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Attachment' smart constructor.
 attachment :: Attachment
@@ -295,7 +297,7 @@ instance ToJSON Attachment where
 data AttachmentDetails = AttachmentDetails'
     { _adAttachmentId :: !(Maybe Text)
     , _adFileName     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachmentDetails' smart constructor.
 attachmentDetails :: AttachmentDetails
@@ -390,7 +392,7 @@ data CaseDetails = CaseDetails'
     , _cdCategoryCode         :: !(Maybe Text)
     , _cdTimeCreated          :: !(Maybe Text)
     , _cdServiceCode          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CaseDetails' smart constructor.
 caseDetails :: CaseDetails
@@ -499,7 +501,7 @@ instance FromJSON CaseDetails where
 data Category = Category'
     { _catName :: !(Maybe Text)
     , _catCode :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Category' smart constructor.
 category :: Category
@@ -546,7 +548,7 @@ data Communication = Communication'
     , _comSubmittedBy   :: !(Maybe Text)
     , _comTimeCreated   :: !(Maybe Text)
     , _comAttachmentSet :: !(Maybe [AttachmentDetails])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Communication' smart constructor.
 communication :: Communication
@@ -603,7 +605,7 @@ instance FromJSON Communication where
 data RecentCaseCommunications = RecentCaseCommunications'
     { _rccNextToken      :: !(Maybe Text)
     , _rccCommunications :: !(Maybe [Communication])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecentCaseCommunications' smart constructor.
 recentCaseCommunications :: RecentCaseCommunications
@@ -642,7 +644,7 @@ instance FromJSON RecentCaseCommunications where
 data SeverityLevel = SeverityLevel'
     { _slName :: !(Maybe Text)
     , _slCode :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SeverityLevel' smart constructor.
 severityLevel :: SeverityLevel
@@ -685,7 +687,7 @@ data SupportService = SupportService'
     { _ssCategories :: !(Maybe [Category])
     , _ssName       :: !(Maybe Text)
     , _ssCode       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SupportService' smart constructor.
 supportService :: SupportService
@@ -731,7 +733,7 @@ instance FromJSON SupportService where
 -- * 'tacssCostOptimizing'
 newtype TrustedAdvisorCategorySpecificSummary = TrustedAdvisorCategorySpecificSummary'
     { _tacssCostOptimizing :: Maybe TrustedAdvisorCostOptimizingSummary
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedAdvisorCategorySpecificSummary' smart constructor.
 trustedAdvisorCategorySpecificSummary :: TrustedAdvisorCategorySpecificSummary
@@ -774,7 +776,7 @@ data TrustedAdvisorCheckDescription = TrustedAdvisorCheckDescription'
     , _tacdDescription :: !Text
     , _tacdCategory    :: !Text
     , _tacdMetadata    :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedAdvisorCheckDescription' smart constructor.
 trustedAdvisorCheckDescription :: Text -> Text -> Text -> Text -> TrustedAdvisorCheckDescription
@@ -838,7 +840,7 @@ data TrustedAdvisorCheckRefreshStatus = TrustedAdvisorCheckRefreshStatus'
     { _tacrsCheckId                    :: !Text
     , _tacrsStatus                     :: !Text
     , _tacrsMillisUntilNextRefreshable :: !Integer
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedAdvisorCheckRefreshStatus' smart constructor.
 trustedAdvisorCheckRefreshStatus :: Text -> Text -> Integer -> TrustedAdvisorCheckRefreshStatus
@@ -898,7 +900,7 @@ data TrustedAdvisorCheckResult = TrustedAdvisorCheckResult'
     , _tacrResourcesSummary        :: !TrustedAdvisorResourcesSummary
     , _tacrCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
     , _tacrFlaggedResources        :: ![TrustedAdvisorResourceDetail]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedAdvisorCheckResult' smart constructor.
 trustedAdvisorCheckResult :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> TrustedAdvisorCheckResult
@@ -974,7 +976,7 @@ data TrustedAdvisorCheckSummary = TrustedAdvisorCheckSummary'
     , _tacsStatus                  :: !Text
     , _tacsResourcesSummary        :: !TrustedAdvisorResourcesSummary
     , _tacsCategorySpecificSummary :: !TrustedAdvisorCategorySpecificSummary
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedAdvisorCheckSummary' smart constructor.
 trustedAdvisorCheckSummary :: Text -> Text -> Text -> TrustedAdvisorResourcesSummary -> TrustedAdvisorCategorySpecificSummary -> TrustedAdvisorCheckSummary
@@ -1038,7 +1040,7 @@ instance FromJSON TrustedAdvisorCheckSummary where
 data TrustedAdvisorCostOptimizingSummary = TrustedAdvisorCostOptimizingSummary'
     { _tacosEstimatedMonthlySavings        :: !Double
     , _tacosEstimatedPercentMonthlySavings :: !Double
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedAdvisorCostOptimizingSummary' smart constructor.
 trustedAdvisorCostOptimizingSummary :: Double -> Double -> TrustedAdvisorCostOptimizingSummary
@@ -1089,7 +1091,7 @@ data TrustedAdvisorResourceDetail = TrustedAdvisorResourceDetail'
     , _tardRegion       :: !Text
     , _tardResourceId   :: !Text
     , _tardMetadata     :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedAdvisorResourceDetail' smart constructor.
 trustedAdvisorResourceDetail :: Text -> Text -> Text -> TrustedAdvisorResourceDetail
@@ -1158,7 +1160,7 @@ data TrustedAdvisorResourcesSummary = TrustedAdvisorResourcesSummary'
     , _tarsResourcesFlagged    :: !Integer
     , _tarsResourcesIgnored    :: !Integer
     , _tarsResourcesSuppressed :: !Integer
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedAdvisorResourcesSummary' smart constructor.
 trustedAdvisorResourcesSummary :: Integer -> Integer -> Integer -> Integer -> TrustedAdvisorResourcesSummary

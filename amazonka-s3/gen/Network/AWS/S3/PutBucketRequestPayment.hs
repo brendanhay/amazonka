@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketRequestPayment
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data PutBucketRequestPayment = PutBucketRequestPayment'
     { _pbrpContentMD5                  :: !(Maybe Text)
     , _pbrpBucket                      :: !BucketName
     , _pbrpRequestPaymentConfiguration :: !RequestPaymentConfiguration
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketRequestPayment' smart constructor.
 putBucketRequestPayment :: BucketName -> RequestPaymentConfiguration -> PutBucketRequestPayment
@@ -109,7 +111,7 @@ instance ToQuery PutBucketRequestPayment where
 -- | /See:/ 'putBucketRequestPaymentResponse' smart constructor.
 data PutBucketRequestPaymentResponse =
     PutBucketRequestPaymentResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketRequestPaymentResponse' smart constructor.
 putBucketRequestPaymentResponse :: PutBucketRequestPaymentResponse

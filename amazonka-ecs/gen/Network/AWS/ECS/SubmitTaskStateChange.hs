@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.SubmitTaskStateChange
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data SubmitTaskStateChange = SubmitTaskStateChange'
     , _stscCluster :: !(Maybe Text)
     , _stscReason  :: !(Maybe Text)
     , _stscTask    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitTaskStateChange' smart constructor.
 submitTaskStateChange :: SubmitTaskStateChange
@@ -135,7 +137,7 @@ instance ToQuery SubmitTaskStateChange where
 data SubmitTaskStateChangeResponse = SubmitTaskStateChangeResponse'
     { _stscrAcknowledgment :: !(Maybe Text)
     , _stscrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitTaskStateChangeResponse' smart constructor.
 submitTaskStateChangeResponse :: Int -> SubmitTaskStateChangeResponse

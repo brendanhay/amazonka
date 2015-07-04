@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -97,7 +99,7 @@ data CreateRoute = CreateRoute'
     , _crDryRun                 :: !(Maybe Bool)
     , _crRouteTableId           :: !Text
     , _crDestinationCIDRBlock   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRoute' smart constructor.
 createRoute :: Text -> Text -> CreateRoute
@@ -197,7 +199,7 @@ data CreateRouteResponse = CreateRouteResponse'
     { _crrReturn      :: !(Maybe Bool)
     , _crrClientToken :: !(Maybe Text)
     , _crrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRouteResponse' smart constructor.
 createRouteResponse :: Int -> CreateRouteResponse

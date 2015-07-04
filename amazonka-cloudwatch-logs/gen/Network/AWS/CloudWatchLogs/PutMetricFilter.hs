@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutMetricFilter
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data PutMetricFilter = PutMetricFilter'
     , _pmfFilterName            :: !Text
     , _pmfFilterPattern         :: !Text
     , _pmfMetricTransformations :: !(List1 MetricTransformation)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricFilter' smart constructor.
 putMetricFilter :: Text -> Text -> Text -> NonEmpty MetricTransformation -> PutMetricFilter
@@ -123,7 +125,7 @@ instance ToQuery PutMetricFilter where
 -- | /See:/ 'putMetricFilterResponse' smart constructor.
 data PutMetricFilterResponse =
     PutMetricFilterResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricFilterResponse' smart constructor.
 putMetricFilterResponse :: PutMetricFilterResponse

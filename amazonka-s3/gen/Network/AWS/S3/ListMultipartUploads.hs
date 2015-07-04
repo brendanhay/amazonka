@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.ListMultipartUploads
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -83,7 +85,7 @@ data ListMultipartUploads = ListMultipartUploads'
     , _lmuUploadIdMarker :: !(Maybe Text)
     , _lmuDelimiter      :: !(Maybe Char)
     , _lmuBucket         :: !BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: BucketName -> ListMultipartUploads
@@ -224,7 +226,7 @@ data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
     , _lmurNextUploadIdMarker :: !(Maybe Text)
     , _lmurDelimiter          :: !(Maybe Char)
     , _lmurStatus             :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse

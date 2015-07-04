@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.CreateFileSystem
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -92,7 +94,7 @@ import           Network.AWS.Response
 -- * 'cfsCreationToken'
 newtype CreateFileSystem = CreateFileSystem'
     { _cfsCreationToken :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateFileSystem' smart constructor.
 createFileSystem :: Text -> CreateFileSystem

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.DetachLoadBalancerFromSubnets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
     { _dlbfsLoadBalancerName :: !Text
     , _dlbfsSubnets          :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancerFromSubnets' smart constructor.
 detachLoadBalancerFromSubnets :: Text -> DetachLoadBalancerFromSubnets
@@ -116,7 +118,7 @@ instance ToQuery DetachLoadBalancerFromSubnets where
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
     { _dlbfsrSubnets :: !(Maybe [Text])
     , _dlbfsrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
 detachLoadBalancerFromSubnetsResponse :: Int -> DetachLoadBalancerFromSubnetsResponse

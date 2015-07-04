@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.ListVolumes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data ListVolumes = ListVolumes'
     { _lvMarker     :: !(Maybe Text)
     , _lvLimit      :: !(Maybe Nat)
     , _lvGatewayARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumes' smart constructor.
 listVolumes :: Text -> ListVolumes
@@ -155,7 +157,7 @@ data ListVolumesResponse = ListVolumesResponse'
     , _lvrMarker      :: !(Maybe Text)
     , _lvrVolumeInfos :: !(Maybe [VolumeInfo])
     , _lvrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumesResponse' smart constructor.
 listVolumesResponse :: Int -> ListVolumesResponse

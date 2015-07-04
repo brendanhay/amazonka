@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeTags
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ data DescribeTags = DescribeTags'
     { _dtFilters    :: !(Maybe [Filter])
     , _dtNextToken  :: !(Maybe Text)
     , _dtMaxRecords :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
@@ -139,7 +141,7 @@ data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrNextToken :: !(Maybe Text)
     , _dtrTags      :: !(Maybe [TagDescription])
     , _dtrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse

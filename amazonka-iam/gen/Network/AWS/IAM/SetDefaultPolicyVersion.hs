@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.SetDefaultPolicyVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
     { _sdpvPolicyARN :: !Text
     , _sdpvVersionId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDefaultPolicyVersion' smart constructor.
 setDefaultPolicyVersion :: Text -> Text -> SetDefaultPolicyVersion
@@ -105,7 +107,7 @@ instance ToQuery SetDefaultPolicyVersion where
 -- | /See:/ 'setDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse =
     SetDefaultPolicyVersionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDefaultPolicyVersionResponse' smart constructor.
 setDefaultPolicyVersionResponse :: SetDefaultPolicyVersionResponse

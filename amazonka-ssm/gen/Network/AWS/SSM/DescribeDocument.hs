@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.DescribeDocument
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.SSM.Types
 -- * 'ddName'
 newtype DescribeDocument = DescribeDocument'
     { _ddName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDocument' smart constructor.
 describeDocument :: Text -> DescribeDocument
@@ -99,7 +101,7 @@ instance ToQuery DescribeDocument where
 data DescribeDocumentResponse = DescribeDocumentResponse'
     { _desDocument :: !(Maybe DocumentDescription)
     , _desStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDocumentResponse' smart constructor.
 describeDocumentResponse :: Int -> DescribeDocumentResponse

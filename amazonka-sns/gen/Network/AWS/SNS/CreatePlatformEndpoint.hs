@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.CreatePlatformEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ data CreatePlatformEndpoint = CreatePlatformEndpoint'
     , _cpeAttributes             :: !(Maybe (Map Text Text))
     , _cpePlatformApplicationARN :: !Text
     , _cpeToken                  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlatformEndpoint' smart constructor.
 createPlatformEndpoint :: Text -> Text -> CreatePlatformEndpoint
@@ -156,7 +158,7 @@ instance ToQuery CreatePlatformEndpoint where
 data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
     { _cperEndpointARN :: !(Maybe Text)
     , _cperStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlatformEndpointResponse' smart constructor.
 createPlatformEndpointResponse :: Int -> CreatePlatformEndpointResponse

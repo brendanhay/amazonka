@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DetachVPNGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data DetachVPNGateway = DetachVPNGateway'
     { _detDryRun       :: !(Maybe Bool)
     , _detVPNGatewayId :: !Text
     , _detVPCId        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachVPNGateway' smart constructor.
 detachVPNGateway :: Text -> Text -> DetachVPNGateway
@@ -110,7 +112,7 @@ instance ToQuery DetachVPNGateway where
 -- | /See:/ 'detachVPNGatewayResponse' smart constructor.
 data DetachVPNGatewayResponse =
     DetachVPNGatewayResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachVPNGatewayResponse' smart constructor.
 detachVPNGatewayResponse :: DetachVPNGatewayResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ReplaceRouteTableAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
     { _rrtaDryRun        :: !(Maybe Bool)
     , _rrtaAssociationId :: !Text
     , _rrtaRouteTableId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRouteTableAssociation' smart constructor.
 replaceRouteTableAssociation :: Text -> Text -> ReplaceRouteTableAssociation
@@ -129,7 +131,7 @@ instance ToQuery ReplaceRouteTableAssociation where
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
     { _rrtarNewAssociationId :: !(Maybe Text)
     , _rrtarStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRouteTableAssociationResponse' smart constructor.
 replaceRouteTableAssociationResponse :: Int -> ReplaceRouteTableAssociationResponse

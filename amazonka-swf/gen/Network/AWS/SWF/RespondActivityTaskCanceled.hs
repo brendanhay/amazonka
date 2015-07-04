@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.RespondActivityTaskCanceled
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ import           Network.AWS.SWF.Types
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled'
     { _resDetails   :: !(Maybe Text)
     , _resTaskToken :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondActivityTaskCanceled' smart constructor.
 respondActivityTaskCanceled :: Text -> RespondActivityTaskCanceled
@@ -138,7 +140,7 @@ instance ToQuery RespondActivityTaskCanceled where
 -- | /See:/ 'respondActivityTaskCanceledResponse' smart constructor.
 data RespondActivityTaskCanceledResponse =
     RespondActivityTaskCanceledResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondActivityTaskCanceledResponse' smart constructor.
 respondActivityTaskCanceledResponse :: RespondActivityTaskCanceledResponse

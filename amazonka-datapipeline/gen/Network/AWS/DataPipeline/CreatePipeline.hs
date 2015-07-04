@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.CreatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data CreatePipeline = CreatePipeline'
     , _cpTags        :: !(Maybe [Tag])
     , _cpName        :: !Text
     , _cpUniqueId    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> CreatePipeline
@@ -149,7 +151,7 @@ instance ToQuery CreatePipeline where
 data CreatePipelineResponse = CreatePipelineResponse'
     { _cprStatus     :: !Int
     , _cprPipelineId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> Text -> CreatePipelineResponse

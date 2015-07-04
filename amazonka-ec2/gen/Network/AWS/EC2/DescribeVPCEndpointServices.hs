@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCEndpointServices
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
     { _dvesNextToken  :: !(Maybe Text)
     , _dvesDryRun     :: !(Maybe Bool)
     , _dvesMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCEndpointServices' smart constructor.
 describeVPCEndpointServices :: DescribeVPCEndpointServices
@@ -132,7 +134,7 @@ data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
     { _dvesrServiceNames :: !(Maybe [Text])
     , _dvesrNextToken    :: !(Maybe Text)
     , _dvesrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCEndpointServicesResponse' smart constructor.
 describeVPCEndpointServicesResponse :: Int -> DescribeVPCEndpointServicesResponse

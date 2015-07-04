@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAdjustmentTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -41,7 +43,7 @@ import           Network.AWS.Response
 -- | /See:/ 'describeAdjustmentTypes' smart constructor.
 data DescribeAdjustmentTypes =
     DescribeAdjustmentTypes'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAdjustmentTypes' smart constructor.
 describeAdjustmentTypes :: DescribeAdjustmentTypes
@@ -84,7 +86,7 @@ instance ToQuery DescribeAdjustmentTypes where
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
     { _datrAdjustmentTypes :: !(Maybe [AdjustmentType])
     , _datrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAdjustmentTypesResponse' smart constructor.
 describeAdjustmentTypesResponse :: Int -> DescribeAdjustmentTypesResponse

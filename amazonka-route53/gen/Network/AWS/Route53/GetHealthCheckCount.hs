@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheckCount
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -45,7 +47,7 @@ import           Network.AWS.Route53.Types
 -- /See:/ 'getHealthCheckCount' smart constructor.
 data GetHealthCheckCount =
     GetHealthCheckCount'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckCount' smart constructor.
 getHealthCheckCount :: GetHealthCheckCount
@@ -84,7 +86,7 @@ instance ToQuery GetHealthCheckCount where
 data GetHealthCheckCountResponse = GetHealthCheckCountResponse'
     { _ghccrStatus           :: !Int
     , _ghccrHealthCheckCount :: !Integer
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckCountResponse' smart constructor.
 getHealthCheckCountResponse :: Int -> Integer -> GetHealthCheckCountResponse

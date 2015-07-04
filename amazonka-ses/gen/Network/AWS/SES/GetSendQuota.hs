@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.GetSendQuota
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -45,7 +47,7 @@ import           Network.AWS.SES.Types
 -- | /See:/ 'getSendQuota' smart constructor.
 data GetSendQuota =
     GetSendQuota'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSendQuota' smart constructor.
 getSendQuota :: GetSendQuota
@@ -95,7 +97,7 @@ data GetSendQuotaResponse = GetSendQuotaResponse'
     , _gsqrSentLast24Hours :: !(Maybe Double)
     , _gsqrMax24HourSend   :: !(Maybe Double)
     , _gsqrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSendQuotaResponse' smart constructor.
 getSendQuotaResponse :: Int -> GetSendQuotaResponse

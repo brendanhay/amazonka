@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListGroupPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data ListGroupPolicies = ListGroupPolicies'
     { _lgpMaxItems  :: !(Maybe Nat)
     , _lgpMarker    :: !(Maybe Text)
     , _lgpGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupPolicies' smart constructor.
 listGroupPolicies :: Text -> ListGroupPolicies
@@ -152,7 +154,7 @@ data ListGroupPoliciesResponse = ListGroupPoliciesResponse'
     , _lgprIsTruncated :: !(Maybe Bool)
     , _lgprStatus      :: !Int
     , _lgprPolicyNames :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupPoliciesResponse' smart constructor.
 listGroupPoliciesResponse :: Int -> ListGroupPoliciesResponse

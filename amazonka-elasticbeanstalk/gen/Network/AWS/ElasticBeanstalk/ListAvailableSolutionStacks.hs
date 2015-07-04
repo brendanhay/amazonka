@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -42,7 +44,7 @@ import           Network.AWS.Response
 -- | /See:/ 'listAvailableSolutionStacks' smart constructor.
 data ListAvailableSolutionStacks =
     ListAvailableSolutionStacks'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAvailableSolutionStacks' smart constructor.
 listAvailableSolutionStacks :: ListAvailableSolutionStacks
@@ -95,7 +97,7 @@ data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
     { _lassrSolutionStacks       :: !(Maybe [Text])
     , _lassrSolutionStackDetails :: !(Maybe [SolutionStackDescription])
     , _lassrStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAvailableSolutionStacksResponse' smart constructor.
 listAvailableSolutionStacksResponse :: Int -> ListAvailableSolutionStacksResponse

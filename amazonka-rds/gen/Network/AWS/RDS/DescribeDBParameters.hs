@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data DescribeDBParameters = DescribeDBParameters'
     , _ddpMarker               :: !(Maybe Text)
     , _ddpSource               :: !(Maybe Text)
     , _ddpDBParameterGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBParameters' smart constructor.
 describeDBParameters :: Text -> DescribeDBParameters
@@ -172,7 +174,7 @@ data DescribeDBParametersResponse = DescribeDBParametersResponse'
     { _ddprParameters :: !(Maybe [Parameter])
     , _ddprMarker     :: !(Maybe Text)
     , _ddprStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBParametersResponse' smart constructor.
 describeDBParametersResponse :: Int -> DescribeDBParametersResponse

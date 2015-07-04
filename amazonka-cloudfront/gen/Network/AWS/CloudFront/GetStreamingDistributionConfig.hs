@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.GetStreamingDistributionConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'gsdcId'
 newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig'
     { _gsdcId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStreamingDistributionConfig' smart constructor.
 getStreamingDistributionConfig :: Text -> GetStreamingDistributionConfig
@@ -105,7 +107,7 @@ data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResp
     { _gsdcrStreamingDistributionConfig :: !(Maybe StreamingDistributionConfig)
     , _gsdcrETag                        :: !(Maybe Text)
     , _gsdcrStatus                      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStreamingDistributionConfigResponse' smart constructor.
 getStreamingDistributionConfigResponse :: Int -> GetStreamingDistributionConfigResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.UpdateFunctionCode
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ data UpdateFunctionCode = UpdateFunctionCode'
     , _updZipFile         :: !(Maybe Base64)
     , _updS3Bucket        :: !(Maybe Text)
     , _updFunctionName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateFunctionCode' smart constructor.
 updateFunctionCode :: Text -> UpdateFunctionCode

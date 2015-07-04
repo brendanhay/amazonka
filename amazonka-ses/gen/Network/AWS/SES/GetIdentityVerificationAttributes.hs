@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.GetIdentityVerificationAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.SES.Types
 -- * 'givaIdentities'
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
     { _givaIdentities :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityVerificationAttributes' smart constructor.
 getIdentityVerificationAttributes :: GetIdentityVerificationAttributes
@@ -112,7 +114,7 @@ instance ToQuery GetIdentityVerificationAttributes
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
     { _givarStatus                 :: !Int
     , _givarVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityVerificationAttributesResponse' smart constructor.
 getIdentityVerificationAttributesResponse :: Int -> GetIdentityVerificationAttributesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data DeleteApplicationVersion = DeleteApplicationVersion'
     { _davDeleteSourceBundle :: !(Maybe Bool)
     , _davApplicationName    :: !Text
     , _davVersionLabel       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplicationVersion' smart constructor.
 deleteApplicationVersion :: Text -> Text -> DeleteApplicationVersion
@@ -114,7 +116,7 @@ instance ToQuery DeleteApplicationVersion where
 -- | /See:/ 'deleteApplicationVersionResponse' smart constructor.
 data DeleteApplicationVersionResponse =
     DeleteApplicationVersionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplicationVersionResponse' smart constructor.
 deleteApplicationVersionResponse :: DeleteApplicationVersionResponse

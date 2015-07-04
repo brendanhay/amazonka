@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeEventCategories
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data DescribeEventCategories = DescribeEventCategories'
     { _decSourceType :: !(Maybe Text)
     , _decFilters    :: !(Maybe [Filter])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventCategories' smart constructor.
 describeEventCategories :: DescribeEventCategories
@@ -119,7 +121,7 @@ instance ToQuery DescribeEventCategories where
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
     { _decrEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
     , _decrStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
 describeEventCategoriesResponse :: Int -> DescribeEventCategoriesResponse

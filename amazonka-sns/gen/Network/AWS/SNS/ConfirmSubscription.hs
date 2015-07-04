@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.ConfirmSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ConfirmSubscription = ConfirmSubscription'
     { _csAuthenticateOnUnsubscribe :: !(Maybe Text)
     , _csTopicARN                  :: !Text
     , _csToken                     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmSubscription' smart constructor.
 confirmSubscription :: Text -> Text -> ConfirmSubscription
@@ -125,7 +127,7 @@ instance ToQuery ConfirmSubscription where
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
     { _csrSubscriptionARN :: !(Maybe Text)
     , _csrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmSubscriptionResponse' smart constructor.
 confirmSubscriptionResponse :: Int -> ConfirmSubscriptionResponse

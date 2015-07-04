@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.PutMetricData
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ import           Network.AWS.Response
 data PutMetricData = PutMetricData'
     { _pmdNamespace  :: !Text
     , _pmdMetricData :: ![MetricDatum]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricData' smart constructor.
 putMetricData :: Text -> PutMetricData
@@ -106,7 +108,7 @@ instance ToQuery PutMetricData where
 -- | /See:/ 'putMetricDataResponse' smart constructor.
 data PutMetricDataResponse =
     PutMetricDataResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricDataResponse' smart constructor.
 putMetricDataResponse :: PutMetricDataResponse

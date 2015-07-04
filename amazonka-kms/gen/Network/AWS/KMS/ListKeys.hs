@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.ListKeys
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data ListKeys = ListKeys'
     { _lkMarker :: !(Maybe Text)
     , _lkLimit  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeys' smart constructor.
 listKeys :: ListKeys
@@ -124,7 +126,7 @@ data ListKeysResponse = ListKeysResponse'
     , _lkrKeys       :: !(Maybe [KeyListEntry])
     , _lkrNextMarker :: !(Maybe Text)
     , _lkrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeysResponse' smart constructor.
 listKeysResponse :: Int -> ListKeysResponse

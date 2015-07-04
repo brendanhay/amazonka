@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeInstanceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data DescribeInstanceAttribute = DescribeInstanceAttribute'
     { _diaDryRun     :: !(Maybe Bool)
     , _diaInstanceId :: !Text
     , _diaAttribute  :: !InstanceAttributeName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceAttribute' smart constructor.
 describeInstanceAttribute :: Text -> InstanceAttributeName -> DescribeInstanceAttribute
@@ -196,7 +198,7 @@ data DescribeInstanceAttributeResponse = DescribeInstanceAttributeResponse'
     , _desProductCodes                      :: !(Maybe [ProductCode])
     , _desBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMapping])
     , _desStatus                            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceAttributeResponse' smart constructor.
 describeInstanceAttributeResponse :: Int -> DescribeInstanceAttributeResponse

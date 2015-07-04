@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.RegisterDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -107,7 +109,7 @@ data RegisterDomain = RegisterDomain'
     , _rdAdminContact                    :: !(Sensitive ContactDetail)
     , _rdRegistrantContact               :: !(Sensitive ContactDetail)
     , _rdTechContact                     :: !(Sensitive ContactDetail)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDomain' smart constructor.
 registerDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> RegisterDomain
@@ -307,7 +309,7 @@ instance ToQuery RegisterDomain where
 data RegisterDomainResponse = RegisterDomainResponse'
     { _rdrStatus      :: !Int
     , _rdrOperationId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDomainResponse' smart constructor.
 registerDomainResponse :: Int -> Text -> RegisterDomainResponse

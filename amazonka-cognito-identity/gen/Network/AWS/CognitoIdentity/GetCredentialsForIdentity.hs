@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetCredentialsForIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
     { _gcfiLogins     :: !(Maybe (Map Text Text))
     , _gcfiIdentityId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialsForIdentity' smart constructor.
 getCredentialsForIdentity :: Text -> GetCredentialsForIdentity
@@ -128,7 +130,7 @@ data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
     { _gcfirCredentials :: !(Maybe Credentials)
     , _gcfirIdentityId  :: !(Maybe Text)
     , _gcfirStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialsForIdentityResponse' smart constructor.
 getCredentialsForIdentityResponse :: Int -> GetCredentialsForIdentityResponse

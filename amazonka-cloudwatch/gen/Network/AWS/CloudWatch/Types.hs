@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -208,7 +210,7 @@ data ComparisonOperator
     | GreaterThanThreshold
     | LessThanOrEqualToThreshold
     | LessThanThreshold
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -226,9 +228,7 @@ instance ToText ComparisonOperator where
         LessThanOrEqualToThreshold -> "lessthanorequaltothreshold"
         LessThanThreshold -> "lessthanthreshold"
 
-instance Hashable ComparisonOperator where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ComparisonOperator
 instance ToQuery ComparisonOperator
 instance ToHeader ComparisonOperator
 
@@ -239,7 +239,7 @@ data HistoryItemType
     = StateUpdate
     | Action
     | ConfigurationUpdate
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText HistoryItemType where
     parser = takeLowerText >>= \case
@@ -255,9 +255,7 @@ instance ToText HistoryItemType where
         ConfigurationUpdate -> "configurationupdate"
         StateUpdate -> "stateupdate"
 
-instance Hashable HistoryItemType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable HistoryItemType
 instance ToQuery HistoryItemType
 instance ToHeader HistoryItemType
 
@@ -292,7 +290,7 @@ data StandardUnit
     | Seconds
     | BytesSecond
     | Bytes
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StandardUnit where
     parser = takeLowerText >>= \case
@@ -356,9 +354,7 @@ instance ToText StandardUnit where
         Terabytes -> "terabytes"
         TerabytesSecond -> "terabytes/second"
 
-instance Hashable StandardUnit where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StandardUnit
 instance ToQuery StandardUnit
 instance ToHeader StandardUnit
 
@@ -369,7 +365,7 @@ data StateValue
     = OK
     | InsufficientData
     | Alarm
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StateValue where
     parser = takeLowerText >>= \case
@@ -385,9 +381,7 @@ instance ToText StateValue where
         InsufficientData -> "insufficient_data"
         OK -> "ok"
 
-instance Hashable StateValue where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StateValue
 instance ToQuery StateValue
 instance ToHeader StateValue
 
@@ -400,7 +394,7 @@ data Statistic
     | Average
     | Minimum
     | Sum
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Statistic where
     parser = takeLowerText >>= \case
@@ -420,9 +414,7 @@ instance ToText Statistic where
         SampleCount -> "samplecount"
         Sum -> "sum"
 
-instance Hashable Statistic where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Statistic
 instance ToQuery Statistic
 instance ToHeader Statistic
 
@@ -453,7 +445,7 @@ data AlarmHistoryItem = AlarmHistoryItem'
     , _ahiHistoryData     :: !(Maybe Text)
     , _ahiTimestamp       :: !(Maybe ISO8601)
     , _ahiHistorySummary  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AlarmHistoryItem' smart constructor.
 alarmHistoryItem :: AlarmHistoryItem
@@ -527,7 +519,7 @@ data Datapoint = Datapoint'
     , _datSum         :: !(Maybe Double)
     , _datTimestamp   :: !(Maybe ISO8601)
     , _datUnit        :: !(Maybe StandardUnit)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Datapoint' smart constructor.
 datapoint :: Datapoint
@@ -601,7 +593,7 @@ instance FromXML Datapoint where
 data Dimension = Dimension'
     { _dimName  :: !Text
     , _dimValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Dimension' smart constructor.
 dimension :: Text -> Text -> Dimension
@@ -639,7 +631,7 @@ instance ToQuery Dimension where
 data DimensionFilter = DimensionFilter'
     { _dfValue :: !(Maybe Text)
     , _dfName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DimensionFilter' smart constructor.
 dimensionFilter :: Text -> DimensionFilter
@@ -682,7 +674,7 @@ data Metric = Metric'
     { _metMetricName :: !(Maybe Text)
     , _metNamespace  :: !(Maybe Text)
     , _metDimensions :: !(Maybe [Dimension])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Metric' smart constructor.
 metric :: Metric
@@ -782,7 +774,7 @@ data MetricAlarm = MetricAlarm'
     , _maAlarmActions                       :: !(Maybe [Text])
     , _maStatistic                          :: !(Maybe Statistic)
     , _maUnit                               :: !(Maybe StandardUnit)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricAlarm' smart constructor.
 metricAlarm :: MetricAlarm
@@ -980,7 +972,7 @@ data MetricDatum = MetricDatum'
     , _mdStatisticValues :: !(Maybe StatisticSet)
     , _mdUnit            :: !(Maybe StandardUnit)
     , _mdMetricName      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricDatum' smart constructor.
 metricDatum :: Text -> MetricDatum
@@ -1062,7 +1054,7 @@ data StatisticSet = StatisticSet'
     , _ssSum         :: !Double
     , _ssMinimum     :: !Double
     , _ssMaximum     :: !Double
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StatisticSet' smart constructor.
 statisticSet :: Double -> Double -> Double -> Double -> StatisticSet

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeResize
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ import           Network.AWS.Response
 -- * 'drClusterIdentifier'
 newtype DescribeResize = DescribeResize'
     { _drClusterIdentifier :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeResize' smart constructor.
 describeResize :: Text -> DescribeResize
@@ -164,7 +166,7 @@ data DescribeResizeResponse = DescribeResizeResponse'
     , _drrElapsedTimeInSeconds               :: !(Maybe Integer)
     , _drrTargetClusterType                  :: !(Maybe Text)
     , _drrStatus                             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeResizeResponse' smart constructor.
 describeResizeResponse :: Int -> DescribeResizeResponse

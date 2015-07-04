@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeregisterOnPremisesInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- * 'dopiInstanceName'
 newtype DeregisterOnPremisesInstance = DeregisterOnPremisesInstance'
     { _dopiInstanceName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterOnPremisesInstance' smart constructor.
 deregisterOnPremisesInstance :: Text -> DeregisterOnPremisesInstance
@@ -91,7 +93,7 @@ instance ToQuery DeregisterOnPremisesInstance where
 -- | /See:/ 'deregisterOnPremisesInstanceResponse' smart constructor.
 data DeregisterOnPremisesInstanceResponse =
     DeregisterOnPremisesInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterOnPremisesInstanceResponse' smart constructor.
 deregisterOnPremisesInstanceResponse :: DeregisterOnPremisesInstanceResponse

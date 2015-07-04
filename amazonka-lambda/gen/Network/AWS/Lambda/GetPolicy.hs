@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.GetPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'gpFunctionName'
 newtype GetPolicy = GetPolicy'
     { _gpFunctionName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicy' smart constructor.
 getPolicy :: Text -> GetPolicy
@@ -104,7 +106,7 @@ instance ToQuery GetPolicy where
 data GetPolicyResponse = GetPolicyResponse'
     { _gprPolicy :: !(Maybe Text)
     , _gprStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicyResponse' smart constructor.
 getPolicyResponse :: Int -> GetPolicyResponse

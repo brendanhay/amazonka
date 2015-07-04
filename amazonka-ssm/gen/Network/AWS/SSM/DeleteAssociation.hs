@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.DeleteAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.SSM.Types
 data DeleteAssociation = DeleteAssociation'
     { _delName       :: !Text
     , _delInstanceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAssociation' smart constructor.
 deleteAssociation :: Text -> Text -> DeleteAssociation
@@ -111,7 +113,7 @@ instance ToQuery DeleteAssociation where
 -- * 'delStatus'
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
     { _delStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAssociationResponse' smart constructor.
 deleteAssociationResponse :: Int -> DeleteAssociationResponse

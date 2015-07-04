@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaceBundles
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data DescribeWorkspaceBundles = DescribeWorkspaceBundles'
     { _dwbBundleIds :: !(Maybe (List1 Text))
     , _dwbOwner     :: !(Maybe Text)
     , _dwbNextToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkspaceBundles' smart constructor.
 describeWorkspaceBundles :: DescribeWorkspaceBundles
@@ -149,7 +151,7 @@ data DescribeWorkspaceBundlesResponse = DescribeWorkspaceBundlesResponse'
     { _dwbrBundles   :: !(Maybe [WorkspaceBundle])
     , _dwbrNextToken :: !(Maybe Text)
     , _dwbrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkspaceBundlesResponse' smart constructor.
 describeWorkspaceBundlesResponse :: Int -> DescribeWorkspaceBundlesResponse

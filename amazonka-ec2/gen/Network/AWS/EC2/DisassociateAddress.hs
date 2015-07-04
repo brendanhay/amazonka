@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DisassociateAddress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data DisassociateAddress = DisassociateAddress'
     { _disaAssociationId :: !(Maybe Text)
     , _disaPublicIP      :: !(Maybe Text)
     , _disaDryRun        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateAddress' smart constructor.
 disassociateAddress :: DisassociateAddress
@@ -111,7 +113,7 @@ instance ToQuery DisassociateAddress where
 -- | /See:/ 'disassociateAddressResponse' smart constructor.
 data DisassociateAddressResponse =
     DisassociateAddressResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateAddressResponse' smart constructor.
 disassociateAddressResponse :: DisassociateAddressResponse

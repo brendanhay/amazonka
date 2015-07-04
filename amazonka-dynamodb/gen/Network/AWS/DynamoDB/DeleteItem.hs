@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.DeleteItem
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -101,7 +103,7 @@ data DeleteItem = DeleteItem'
     , _diExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
     , _diTableName                   :: !Text
     , _diKey                         :: !(Map Text AttributeValue)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteItem' smart constructor.
 deleteItem :: Text -> DeleteItem
@@ -552,7 +554,7 @@ data DeleteItemResponse = DeleteItemResponse'
     , _dirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _dirAttributes            :: !(Maybe (Map Text AttributeValue))
     , _dirStatus                :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteItemResponse' smart constructor.
 deleteItemResponse :: Int -> DeleteItemResponse

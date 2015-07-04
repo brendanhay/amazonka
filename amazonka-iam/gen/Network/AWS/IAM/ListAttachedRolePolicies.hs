@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListAttachedRolePolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data ListAttachedRolePolicies = ListAttachedRolePolicies'
     , _larpMaxItems   :: !(Maybe Nat)
     , _larpMarker     :: !(Maybe Text)
     , _larpRoleName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedRolePolicies' smart constructor.
 listAttachedRolePolicies :: Text -> ListAttachedRolePolicies
@@ -160,7 +162,7 @@ data ListAttachedRolePoliciesResponse = ListAttachedRolePoliciesResponse'
     , _larprMarker           :: !(Maybe Text)
     , _larprIsTruncated      :: !(Maybe Bool)
     , _larprStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedRolePoliciesResponse' smart constructor.
 listAttachedRolePoliciesResponse :: Int -> ListAttachedRolePoliciesResponse

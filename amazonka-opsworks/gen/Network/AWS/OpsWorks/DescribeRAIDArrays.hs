@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeRAIDArrays
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribeRAIDArrays = DescribeRAIDArrays'
     { _draInstanceId   :: !(Maybe Text)
     , _draRAIDArrayIds :: !(Maybe [Text])
     , _draStackId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRAIDArrays' smart constructor.
 describeRAIDArrays :: DescribeRAIDArrays
@@ -136,7 +138,7 @@ instance ToQuery DescribeRAIDArrays where
 data DescribeRAIDArraysResponse = DescribeRAIDArraysResponse'
     { _drarRAIDArrays :: !(Maybe [RAIDArray])
     , _drarStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRAIDArraysResponse' smart constructor.
 describeRAIDArraysResponse :: Int -> DescribeRAIDArraysResponse

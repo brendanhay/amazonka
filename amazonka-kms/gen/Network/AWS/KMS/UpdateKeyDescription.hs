@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.UpdateKeyDescription
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 data UpdateKeyDescription = UpdateKeyDescription'
     { _ukdKeyId       :: !Text
     , _ukdDescription :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateKeyDescription' smart constructor.
 updateKeyDescription :: Text -> Text -> UpdateKeyDescription
@@ -103,7 +105,7 @@ instance ToQuery UpdateKeyDescription where
 -- | /See:/ 'updateKeyDescriptionResponse' smart constructor.
 data UpdateKeyDescriptionResponse =
     UpdateKeyDescriptionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateKeyDescriptionResponse' smart constructor.
 updateKeyDescriptionResponse :: UpdateKeyDescriptionResponse

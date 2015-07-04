@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data ListPolicies = ListPolicies'
     , _lpScope        :: !(Maybe PolicyScopeType)
     , _lpMaxItems     :: !(Maybe Nat)
     , _lpMarker       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicies' smart constructor.
 listPolicies :: ListPolicies
@@ -180,7 +182,7 @@ data ListPoliciesResponse = ListPoliciesResponse'
     , _lprIsTruncated :: !(Maybe Bool)
     , _lprPolicies    :: !(Maybe [Policy])
     , _lprStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPoliciesResponse' smart constructor.
 listPoliciesResponse :: Int -> ListPoliciesResponse

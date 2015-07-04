@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.CopySnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data CopySnapshot = CopySnapshot'
     { _csSourceSnapshotName :: !Text
     , _csTargetSnapshotName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
@@ -105,7 +107,7 @@ instance ToQuery CopySnapshot where
 data CopySnapshotResponse = CopySnapshotResponse'
     { _csrSnapshot :: !(Maybe Snapshot)
     , _csrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Int -> CopySnapshotResponse

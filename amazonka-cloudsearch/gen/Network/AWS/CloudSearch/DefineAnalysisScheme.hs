@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineAnalysisScheme
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data DefineAnalysisScheme = DefineAnalysisScheme'
     { _defiDomainName     :: !Text
     , _defiAnalysisScheme :: !AnalysisScheme
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineAnalysisScheme' smart constructor.
 defineAnalysisScheme :: Text -> AnalysisScheme -> DefineAnalysisScheme
@@ -115,7 +117,7 @@ instance ToQuery DefineAnalysisScheme where
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
     { _dasr1Status         :: !Int
     , _dasr1AnalysisScheme :: !AnalysisSchemeStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
 defineAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DefineAnalysisSchemeResponse

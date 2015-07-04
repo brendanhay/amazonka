@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 data DeleteCloudFrontOriginAccessIdentity = DeleteCloudFrontOriginAccessIdentity'
     { _dcfoaiIfMatch :: !(Maybe Text)
     , _dcfoaiId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCloudFrontOriginAccessIdentity' smart constructor.
 deleteCloudFrontOriginAccessIdentity :: Text -> DeleteCloudFrontOriginAccessIdentity
@@ -99,7 +101,7 @@ instance ToQuery DeleteCloudFrontOriginAccessIdentity
 -- | /See:/ 'deleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 data DeleteCloudFrontOriginAccessIdentityResponse =
     DeleteCloudFrontOriginAccessIdentityResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCloudFrontOriginAccessIdentityResponse' smart constructor.
 deleteCloudFrontOriginAccessIdentityResponse :: DeleteCloudFrontOriginAccessIdentityResponse

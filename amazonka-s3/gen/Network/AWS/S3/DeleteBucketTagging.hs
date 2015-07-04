@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketTagging
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -44,7 +46,7 @@ import           Network.AWS.S3.Types
 -- * 'dbtBucket'
 newtype DeleteBucketTagging = DeleteBucketTagging'
     { _dbtBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketTagging' smart constructor.
 deleteBucketTagging :: BucketName -> DeleteBucketTagging
@@ -77,7 +79,7 @@ instance ToQuery DeleteBucketTagging where
 -- | /See:/ 'deleteBucketTaggingResponse' smart constructor.
 data DeleteBucketTaggingResponse =
     DeleteBucketTaggingResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketTaggingResponse' smart constructor.
 deleteBucketTaggingResponse :: DeleteBucketTaggingResponse

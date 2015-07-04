@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListInstanceProfilesForRole
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data ListInstanceProfilesForRole = ListInstanceProfilesForRole'
     { _lipfrMaxItems :: !(Maybe Nat)
     , _lipfrMarker   :: !(Maybe Text)
     , _lipfrRoleName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfilesForRole' smart constructor.
 listInstanceProfilesForRole :: Text -> ListInstanceProfilesForRole
@@ -152,7 +154,7 @@ data ListInstanceProfilesForRoleResponse = ListInstanceProfilesForRoleResponse'
     , _lipfrrIsTruncated      :: !(Maybe Bool)
     , _lipfrrStatus           :: !Int
     , _lipfrrInstanceProfiles :: ![InstanceProfile]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfilesForRoleResponse' smart constructor.
 listInstanceProfilesForRoleResponse :: Int -> ListInstanceProfilesForRoleResponse

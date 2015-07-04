@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data DeleteInstance = DeleteInstance'
     { _diDeleteVolumes   :: !(Maybe Bool)
     , _diDeleteElasticIP :: !(Maybe Bool)
     , _diInstanceId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInstance' smart constructor.
 deleteInstance :: Text -> DeleteInstance
@@ -116,7 +118,7 @@ instance ToQuery DeleteInstance where
 -- | /See:/ 'deleteInstanceResponse' smart constructor.
 data DeleteInstanceResponse =
     DeleteInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInstanceResponse' smart constructor.
 deleteInstanceResponse :: DeleteInstanceResponse

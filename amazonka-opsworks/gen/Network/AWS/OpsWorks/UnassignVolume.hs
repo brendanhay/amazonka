@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UnassignVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'uvVolumeId'
 newtype UnassignVolume = UnassignVolume'
     { _uvVolumeId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignVolume' smart constructor.
 unassignVolume :: Text -> UnassignVolume
@@ -93,7 +95,7 @@ instance ToQuery UnassignVolume where
 -- | /See:/ 'unassignVolumeResponse' smart constructor.
 data UnassignVolumeResponse =
     UnassignVolumeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignVolumeResponse' smart constructor.
 unassignVolumeResponse :: UnassignVolumeResponse

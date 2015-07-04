@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.DeleteIdentityPool
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'delIdentityPoolId'
 newtype DeleteIdentityPool = DeleteIdentityPool'
     { _delIdentityPoolId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentityPool' smart constructor.
 deleteIdentityPool :: Text -> DeleteIdentityPool
@@ -92,7 +94,7 @@ instance ToQuery DeleteIdentityPool where
 -- | /See:/ 'deleteIdentityPoolResponse' smart constructor.
 data DeleteIdentityPoolResponse =
     DeleteIdentityPoolResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentityPoolResponse' smart constructor.
 deleteIdentityPoolResponse :: DeleteIdentityPoolResponse

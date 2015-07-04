@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.WorkSpaces.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -188,7 +190,7 @@ data Compute
     = Performance
     | Value
     | Standard
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Compute where
     parser = takeLowerText >>= \case
@@ -204,9 +206,7 @@ instance ToText Compute where
         Standard -> "standard"
         Value -> "value"
 
-instance Hashable Compute where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Compute
 instance ToQuery Compute
 instance ToHeader Compute
 
@@ -219,7 +219,7 @@ data WorkspaceDirectoryState
     | Registered
     | Registering
     | Deregistered
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText WorkspaceDirectoryState where
     parser = takeLowerText >>= \case
@@ -239,9 +239,7 @@ instance ToText WorkspaceDirectoryState where
         Registered -> "registered"
         Registering -> "registering"
 
-instance Hashable WorkspaceDirectoryState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable WorkspaceDirectoryState
 instance ToQuery WorkspaceDirectoryState
 instance ToHeader WorkspaceDirectoryState
 
@@ -251,7 +249,7 @@ instance FromJSON WorkspaceDirectoryState where
 data WorkspaceDirectoryType
     = ADConnector
     | SimpleAD
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText WorkspaceDirectoryType where
     parser = takeLowerText >>= \case
@@ -265,9 +263,7 @@ instance ToText WorkspaceDirectoryType where
         ADConnector -> "ad_connector"
         SimpleAD -> "simple_ad"
 
-instance Hashable WorkspaceDirectoryType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable WorkspaceDirectoryType
 instance ToQuery WorkspaceDirectoryType
 instance ToHeader WorkspaceDirectoryType
 
@@ -285,7 +281,7 @@ data WorkspaceState
     | WSRebuilding
     | WSAvailable
     | WSTerminated
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText WorkspaceState where
     parser = takeLowerText >>= \case
@@ -315,9 +311,7 @@ instance ToText WorkspaceState where
         WSTerminating -> "terminating"
         WSUnhealthy -> "unhealthy"
 
-instance Hashable WorkspaceState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable WorkspaceState
 instance ToQuery WorkspaceState
 instance ToHeader WorkspaceState
 
@@ -333,7 +327,7 @@ instance FromJSON WorkspaceState where
 -- * 'ctName'
 newtype ComputeType = ComputeType'
     { _ctName :: Maybe Compute
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ComputeType' smart constructor.
 computeType :: ComputeType
@@ -372,7 +366,7 @@ data DefaultWorkspaceCreationProperties = DefaultWorkspaceCreationProperties'
     , _dwcpEnableWorkDocs                  :: !(Maybe Bool)
     , _dwcpEnableInternetAccess            :: !(Maybe Bool)
     , _dwcpDefaultOu                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefaultWorkspaceCreationProperties' smart constructor.
 defaultWorkspaceCreationProperties :: DefaultWorkspaceCreationProperties
@@ -435,7 +429,7 @@ data FailedCreateWorkspaceRequest = FailedCreateWorkspaceRequest'
     { _fcwrWorkspaceRequest :: !(Maybe WorkspaceRequest)
     , _fcwrErrorCode        :: !(Maybe Text)
     , _fcwrErrorMessage     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FailedCreateWorkspaceRequest' smart constructor.
 failedCreateWorkspaceRequest :: FailedCreateWorkspaceRequest
@@ -484,7 +478,7 @@ data FailedWorkspaceChangeRequest = FailedWorkspaceChangeRequest'
     { _fwcrErrorCode    :: !(Maybe Text)
     , _fwcrWorkspaceId  :: !(Maybe Text)
     , _fwcrErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FailedWorkspaceChangeRequest' smart constructor.
 failedWorkspaceChangeRequest :: FailedWorkspaceChangeRequest
@@ -525,7 +519,7 @@ instance FromJSON FailedWorkspaceChangeRequest where
 -- * 'rebWorkspaceId'
 newtype RebootRequest = RebootRequest'
     { _rebWorkspaceId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootRequest' smart constructor.
 rebootRequest :: Text -> RebootRequest
@@ -552,7 +546,7 @@ instance ToJSON RebootRequest where
 -- * 'rrWorkspaceId'
 newtype RebuildRequest = RebuildRequest'
     { _rrWorkspaceId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebuildRequest' smart constructor.
 rebuildRequest :: Text -> RebuildRequest
@@ -579,7 +573,7 @@ instance ToJSON RebuildRequest where
 -- * 'trWorkspaceId'
 newtype TerminateRequest = TerminateRequest'
     { _trWorkspaceId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateRequest' smart constructor.
 terminateRequest :: Text -> TerminateRequest
@@ -605,7 +599,7 @@ instance ToJSON TerminateRequest where
 -- * 'usCapacity'
 newtype UserStorage = UserStorage'
     { _usCapacity :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UserStorage' smart constructor.
 userStorage :: UserStorage
@@ -656,7 +650,7 @@ data Workspace = Workspace'
     , _worErrorCode    :: !(Maybe Text)
     , _worWorkspaceId  :: !(Maybe Text)
     , _worErrorMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Workspace' smart constructor.
 workspace :: Workspace
@@ -749,7 +743,7 @@ data WorkspaceBundle = WorkspaceBundle'
     , _wbComputeType :: !(Maybe ComputeType)
     , _wbUserStorage :: !(Maybe UserStorage)
     , _wbDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'WorkspaceBundle' smart constructor.
 workspaceBundle :: WorkspaceBundle
@@ -843,7 +837,7 @@ data WorkspaceDirectory = WorkspaceDirectory'
     , _wdWorkspaceCreationProperties :: !(Maybe DefaultWorkspaceCreationProperties)
     , _wdDNSIPAddresses              :: !(Maybe [Text])
     , _wdDirectoryName               :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'WorkspaceDirectory' smart constructor.
 workspaceDirectory :: WorkspaceDirectory
@@ -950,7 +944,7 @@ data WorkspaceRequest = WorkspaceRequest'
     { _wrDirectoryId :: !Text
     , _wrUserName    :: !Text
     , _wrBundleId    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'WorkspaceRequest' smart constructor.
 workspaceRequest :: Text -> Text -> Text -> WorkspaceRequest

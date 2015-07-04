@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.ValidatePipelineDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data ValidatePipelineDefinition = ValidatePipelineDefinition'
     , _vpdParameterValues  :: !(Maybe [ParameterValue])
     , _vpdPipelineId       :: !Text
     , _vpdPipelineObjects  :: ![PipelineObject]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidatePipelineDefinition' smart constructor.
 validatePipelineDefinition :: Text -> ValidatePipelineDefinition
@@ -149,7 +151,7 @@ data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
     , _vpdrValidationWarnings :: !(Maybe [ValidationWarning])
     , _vpdrStatus             :: !Int
     , _vpdrErrored            :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
 validatePipelineDefinitionResponse :: Int -> Bool -> ValidatePipelineDefinitionResponse

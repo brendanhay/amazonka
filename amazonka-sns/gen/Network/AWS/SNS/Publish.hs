@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.Publish
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data Publish = Publish'
     , _pubTopicARN          :: !(Maybe Text)
     , _pubMessageStructure  :: !(Maybe Text)
     , _pubMessage           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Publish' smart constructor.
 publish :: Text -> Publish
@@ -213,7 +215,7 @@ instance ToQuery Publish where
 data PublishResponse = PublishResponse'
     { _prMessageId :: !(Maybe Text)
     , _prStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PublishResponse' smart constructor.
 publishResponse :: Int -> PublishResponse

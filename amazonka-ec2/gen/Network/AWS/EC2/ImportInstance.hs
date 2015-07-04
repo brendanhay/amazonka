@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ImportInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data ImportInstance = ImportInstance'
     , _iiDryRun              :: !(Maybe Bool)
     , _iiDescription         :: !(Maybe Text)
     , _iiPlatform            :: !PlatformValues
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstance' smart constructor.
 importInstance :: PlatformValues -> ImportInstance
@@ -142,7 +144,7 @@ instance ToQuery ImportInstance where
 data ImportInstanceResponse = ImportInstanceResponse'
     { _iirConversionTask :: !(Maybe ConversionTask)
     , _iirStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstanceResponse' smart constructor.
 importInstanceResponse :: Int -> ImportInstanceResponse

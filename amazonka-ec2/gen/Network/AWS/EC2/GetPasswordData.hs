@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.GetPasswordData
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ import           Network.AWS.Response
 data GetPasswordData = GetPasswordData'
     { _gpdDryRun     :: !(Maybe Bool)
     , _gpdInstanceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPasswordData' smart constructor.
 getPasswordData :: Text -> GetPasswordData
@@ -130,7 +132,7 @@ data GetPasswordDataResponse = GetPasswordDataResponse'
     , _gpdrInstanceId   :: !Text
     , _gpdrPasswordData :: !Text
     , _gpdrTimestamp    :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPasswordDataResponse' smart constructor.
 getPasswordDataResponse :: Int -> Text -> Text -> UTCTime -> GetPasswordDataResponse

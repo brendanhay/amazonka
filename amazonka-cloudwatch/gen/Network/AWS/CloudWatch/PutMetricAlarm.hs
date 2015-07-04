@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.PutMetricAlarm
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -107,7 +109,7 @@ data PutMetricAlarm = PutMetricAlarm'
     , _pmaEvaluationPeriods       :: !Nat
     , _pmaThreshold               :: !Double
     , _pmaComparisonOperator      :: !ComparisonOperator
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricAlarm' smart constructor.
 putMetricAlarm :: Text -> Text -> Text -> Statistic -> Natural -> Natural -> Double -> ComparisonOperator -> PutMetricAlarm
@@ -244,7 +246,7 @@ instance ToQuery PutMetricAlarm where
 -- | /See:/ 'putMetricAlarmResponse' smart constructor.
 data PutMetricAlarmResponse =
     PutMetricAlarmResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricAlarmResponse' smart constructor.
 putMetricAlarmResponse :: PutMetricAlarmResponse

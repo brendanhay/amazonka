@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -45,7 +47,7 @@ import           Network.AWS.Response
 -- * 'dlgLogGroupName'
 newtype DeleteLogGroup = DeleteLogGroup'
     { _dlgLogGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLogGroup' smart constructor.
 deleteLogGroup :: Text -> DeleteLogGroup
@@ -86,7 +88,7 @@ instance ToQuery DeleteLogGroup where
 -- | /See:/ 'deleteLogGroupResponse' smart constructor.
 data DeleteLogGroupResponse =
     DeleteLogGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLogGroupResponse' smart constructor.
 deleteLogGroupResponse :: DeleteLogGroupResponse

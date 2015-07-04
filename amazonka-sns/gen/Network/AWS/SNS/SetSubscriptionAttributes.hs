@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.SetSubscriptionAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ data SetSubscriptionAttributes = SetSubscriptionAttributes'
     { _ssaAttributeValue  :: !(Maybe Text)
     , _ssaSubscriptionARN :: !Text
     , _ssaAttributeName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetSubscriptionAttributes' smart constructor.
 setSubscriptionAttributes :: Text -> Text -> SetSubscriptionAttributes
@@ -108,7 +110,7 @@ instance ToQuery SetSubscriptionAttributes where
 -- | /See:/ 'setSubscriptionAttributesResponse' smart constructor.
 data SetSubscriptionAttributesResponse =
     SetSubscriptionAttributesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetSubscriptionAttributesResponse' smart constructor.
 setSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- * 'delParameterGroupName'
 newtype DeleteClusterParameterGroup = DeleteClusterParameterGroup'
     { _delParameterGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterParameterGroup' smart constructor.
 deleteClusterParameterGroup :: Text -> DeleteClusterParameterGroup
@@ -90,7 +92,7 @@ instance ToQuery DeleteClusterParameterGroup where
 -- | /See:/ 'deleteClusterParameterGroupResponse' smart constructor.
 data DeleteClusterParameterGroupResponse =
     DeleteClusterParameterGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterParameterGroupResponse' smart constructor.
 deleteClusterParameterGroupResponse :: DeleteClusterParameterGroupResponse

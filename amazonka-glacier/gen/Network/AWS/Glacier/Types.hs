@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -219,7 +221,7 @@ _MissingParameterValueException =
 data ActionCode
     = InventoryRetrieval
     | ArchiveRetrieval
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionCode where
     parser = takeLowerText >>= \case
@@ -233,9 +235,7 @@ instance ToText ActionCode where
         ArchiveRetrieval -> "archiveretrieval"
         InventoryRetrieval -> "inventoryretrieval"
 
-instance Hashable ActionCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ActionCode
 instance ToQuery ActionCode
 instance ToHeader ActionCode
 
@@ -246,7 +246,7 @@ data StatusCode
     = InProgress
     | Succeeded
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StatusCode where
     parser = takeLowerText >>= \case
@@ -262,9 +262,7 @@ instance ToText StatusCode where
         InProgress -> "inprogress"
         Succeeded -> "succeeded"
 
-instance Hashable StatusCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StatusCode
 instance ToQuery StatusCode
 instance ToHeader StatusCode
 
@@ -291,7 +289,7 @@ data ArchiveCreationOutput = ArchiveCreationOutput'
     { _acoArchiveId :: !(Maybe Text)
     , _acoChecksum  :: !(Maybe Text)
     , _acoLocation  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ArchiveCreationOutput' smart constructor.
 archiveCreationOutput :: ArchiveCreationOutput
@@ -333,7 +331,7 @@ instance FromJSON ArchiveCreationOutput where
 -- * 'drpRules'
 newtype DataRetrievalPolicy = DataRetrievalPolicy'
     { _drpRules :: Maybe [DataRetrievalRule]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DataRetrievalPolicy' smart constructor.
 dataRetrievalPolicy :: DataRetrievalPolicy
@@ -370,7 +368,7 @@ instance ToJSON DataRetrievalPolicy where
 data DataRetrievalRule = DataRetrievalRule'
     { _drrStrategy     :: !(Maybe Text)
     , _drrBytesPerHour :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DataRetrievalRule' smart constructor.
 dataRetrievalRule :: DataRetrievalRule
@@ -431,7 +429,7 @@ data DescribeVaultOutput = DescribeVaultOutput'
     , _dvoVaultARN          :: !(Maybe Text)
     , _dvoCreationDate      :: !(Maybe Text)
     , _dvoNumberOfArchives  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVaultOutput' smart constructor.
 describeVaultOutput :: DescribeVaultOutput
@@ -544,7 +542,7 @@ data GlacierJobDescription = GlacierJobDescription'
     , _gjdArchiveSizeInBytes           :: !(Maybe Integer)
     , _gjdStatusCode                   :: !(Maybe StatusCode)
     , _gjdInventorySizeInBytes         :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GlacierJobDescription' smart constructor.
 glacierJobDescription :: GlacierJobDescription
@@ -714,7 +712,7 @@ data InventoryRetrievalJobDescription = InventoryRetrievalJobDescription'
     , _irjdStartDate :: !(Maybe Text)
     , _irjdMarker    :: !(Maybe Text)
     , _irjdLimit     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InventoryRetrievalJobDescription' smart constructor.
 inventoryRetrievalJobDescription :: InventoryRetrievalJobDescription
@@ -789,7 +787,7 @@ data InventoryRetrievalJobInput = InventoryRetrievalJobInput'
     , _irjiStartDate :: !(Maybe Text)
     , _irjiMarker    :: !(Maybe Text)
     , _irjiLimit     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InventoryRetrievalJobInput' smart constructor.
 inventoryRetrievalJobInput :: InventoryRetrievalJobInput
@@ -860,7 +858,7 @@ data JobParameters = JobParameters'
     , _jpSNSTopic                     :: !(Maybe Text)
     , _jpType                         :: !(Maybe Text)
     , _jpDescription                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'JobParameters' smart constructor.
 jobParameters :: JobParameters
@@ -949,7 +947,7 @@ instance ToJSON JobParameters where
 data PartListElement = PartListElement'
     { _pleSHA256TreeHash :: !(Maybe Text)
     , _pleRangeInBytes   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PartListElement' smart constructor.
 partListElement :: PartListElement
@@ -996,7 +994,7 @@ data UploadListElement = UploadListElement'
     , _ulePartSizeInBytes    :: !(Maybe Integer)
     , _uleVaultARN           :: !(Maybe Text)
     , _uleCreationDate       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadListElement' smart constructor.
 uploadListElement :: UploadListElement
@@ -1052,7 +1050,7 @@ instance FromJSON UploadListElement where
 -- * 'vapPolicy'
 newtype VaultAccessPolicy = VaultAccessPolicy'
     { _vapPolicy :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VaultAccessPolicy' smart constructor.
 vaultAccessPolicy :: VaultAccessPolicy
@@ -1086,7 +1084,7 @@ instance ToJSON VaultAccessPolicy where
 data VaultNotificationConfig = VaultNotificationConfig'
     { _vncSNSTopic :: !(Maybe Text)
     , _vncEvents   :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VaultNotificationConfig' smart constructor.
 vaultNotificationConfig :: VaultNotificationConfig

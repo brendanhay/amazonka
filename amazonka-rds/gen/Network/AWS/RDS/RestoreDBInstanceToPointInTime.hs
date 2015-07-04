@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.RestoreDBInstanceToPointInTime
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -130,7 +132,7 @@ data RestoreDBInstanceToPointInTime = RestoreDBInstanceToPointInTime'
     , _rditpitStorageType                :: !(Maybe Text)
     , _rditpitSourceDBInstanceIdentifier :: !Text
     , _rditpitTargetDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreDBInstanceToPointInTime' smart constructor.
 restoreDBInstanceToPointInTime :: Text -> Text -> RestoreDBInstanceToPointInTime
@@ -402,7 +404,7 @@ instance ToQuery RestoreDBInstanceToPointInTime where
 data RestoreDBInstanceToPointInTimeResponse = RestoreDBInstanceToPointInTimeResponse'
     { _rditpitrDBInstance :: !(Maybe DBInstance)
     , _rditpitrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreDBInstanceToPointInTimeResponse' smart constructor.
 restoreDBInstanceToPointInTimeResponse :: Int -> RestoreDBInstanceToPointInTimeResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data CreateClusterSnapshot = CreateClusterSnapshot'
     { _ccsTags               :: !(Maybe [Tag])
     , _ccsSnapshotIdentifier :: !Text
     , _ccsClusterIdentifier  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSnapshot' smart constructor.
 createClusterSnapshot :: Text -> Text -> CreateClusterSnapshot
@@ -131,7 +133,7 @@ instance ToQuery CreateClusterSnapshot where
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
     { _cSnapshot :: !(Maybe Snapshot)
     , _cStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSnapshotResponse' smart constructor.
 createClusterSnapshotResponse :: Int -> CreateClusterSnapshotResponse

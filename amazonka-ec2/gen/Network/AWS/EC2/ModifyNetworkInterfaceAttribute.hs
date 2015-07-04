@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ModifyNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
     , _mniaDryRun             :: !(Maybe Bool)
     , _mniaDescription        :: !(Maybe AttributeValue)
     , _mniaNetworkInterfaceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyNetworkInterfaceAttribute' smart constructor.
 modifyNetworkInterfaceAttribute :: Text -> ModifyNetworkInterfaceAttribute
@@ -151,7 +153,7 @@ instance ToQuery ModifyNetworkInterfaceAttribute
 -- | /See:/ 'modifyNetworkInterfaceAttributeResponse' smart constructor.
 data ModifyNetworkInterfaceAttributeResponse =
     ModifyNetworkInterfaceAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyNetworkInterfaceAttributeResponse' smart constructor.
 modifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.ListVolumeInitiators
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'lviVolumeARN'
 newtype ListVolumeInitiators = ListVolumeInitiators'
     { _lviVolumeARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeInitiators' smart constructor.
 listVolumeInitiators :: Text -> ListVolumeInitiators
@@ -109,7 +111,7 @@ instance ToQuery ListVolumeInitiators where
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
     { _lvirInitiators :: !(Maybe [Text])
     , _lvirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeInitiatorsResponse' smart constructor.
 listVolumeInitiatorsResponse :: Int -> ListVolumeInitiatorsResponse

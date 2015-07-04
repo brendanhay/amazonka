@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribePlacementGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data DescribePlacementGroups = DescribePlacementGroups'
     { _dpg1GroupNames :: !(Maybe [Text])
     , _dpg1Filters    :: !(Maybe [Filter])
     , _dpg1DryRun     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePlacementGroups' smart constructor.
 describePlacementGroups :: DescribePlacementGroups
@@ -135,7 +137,7 @@ instance ToQuery DescribePlacementGroups where
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
     { _dpgrPlacementGroups :: !(Maybe [PlacementGroup])
     , _dpgrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
 describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse

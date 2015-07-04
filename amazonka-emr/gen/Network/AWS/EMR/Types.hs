@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -388,7 +390,7 @@ data ActionOnFailure
     | TerminateJobFlow
     | CancelAndWait
     | Continue
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActionOnFailure where
     parser = takeLowerText >>= \case
@@ -406,9 +408,7 @@ instance ToText ActionOnFailure where
         TerminateCluster -> "terminate_cluster"
         TerminateJobFlow -> "terminate_job_flow"
 
-instance Hashable ActionOnFailure where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ActionOnFailure
 instance ToQuery ActionOnFailure
 instance ToHeader ActionOnFailure
 
@@ -426,7 +426,7 @@ data ClusterState
     | Bootstrapping
     | Terminated
     | Waiting
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ClusterState where
     parser = takeLowerText >>= \case
@@ -450,9 +450,7 @@ instance ToText ClusterState where
         Terminating -> "terminating"
         Waiting -> "waiting"
 
-instance Hashable ClusterState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ClusterState
 instance ToQuery ClusterState
 instance ToHeader ClusterState
 
@@ -470,7 +468,7 @@ data ClusterStateChangeReasonCode
     | ValidationError
     | InternalError
     | InstanceFailure
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ClusterStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -494,9 +492,7 @@ instance ToText ClusterStateChangeReasonCode where
         UserRequest -> "user_request"
         ValidationError -> "validation_error"
 
-instance Hashable ClusterStateChangeReasonCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ClusterStateChangeReasonCode
 instance ToQuery ClusterStateChangeReasonCode
 instance ToHeader ClusterStateChangeReasonCode
 
@@ -514,7 +510,7 @@ data InstanceGroupState
     | IGSArrested
     | IGSRunning
     | IGSSuspended
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceGroupState where
     parser = takeLowerText >>= \case
@@ -544,9 +540,7 @@ instance ToText InstanceGroupState where
         IGSTerminated -> "terminated"
         IGSTerminating -> "terminating"
 
-instance Hashable InstanceGroupState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceGroupState
 instance ToQuery InstanceGroupState
 instance ToHeader InstanceGroupState
 
@@ -558,7 +552,7 @@ data InstanceGroupStateChangeReasonCode
     | IGSCRCInstanceFailure
     | IGSCRCInternalError
     | IGSCRCClusterTerminated
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceGroupStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -576,9 +570,7 @@ instance ToText InstanceGroupStateChangeReasonCode where
         IGSCRCInternalError -> "internal_error"
         IGSCRCValidationError -> "validation_error"
 
-instance Hashable InstanceGroupStateChangeReasonCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceGroupStateChangeReasonCode
 instance ToQuery InstanceGroupStateChangeReasonCode
 instance ToHeader InstanceGroupStateChangeReasonCode
 
@@ -589,7 +581,7 @@ data InstanceGroupType
     = IGTTask
     | IGTCore
     | IGTMaster
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceGroupType where
     parser = takeLowerText >>= \case
@@ -605,9 +597,7 @@ instance ToText InstanceGroupType where
         IGTMaster -> "master"
         IGTTask -> "task"
 
-instance Hashable InstanceGroupType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceGroupType
 instance ToQuery InstanceGroupType
 instance ToHeader InstanceGroupType
 
@@ -621,7 +611,7 @@ data InstanceRoleType
     = Master
     | Task
     | Core
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceRoleType where
     parser = takeLowerText >>= \case
@@ -637,9 +627,7 @@ instance ToText InstanceRoleType where
         Master -> "master"
         Task -> "task"
 
-instance Hashable InstanceRoleType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceRoleType
 instance ToQuery InstanceRoleType
 instance ToHeader InstanceRoleType
 
@@ -652,7 +640,7 @@ data InstanceState
     | ISRunning
     | ISBootstrapping
     | ISProvisioning
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceState where
     parser = takeLowerText >>= \case
@@ -672,9 +660,7 @@ instance ToText InstanceState where
         ISRunning -> "running"
         ISTerminated -> "terminated"
 
-instance Hashable InstanceState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceState
 instance ToQuery InstanceState
 instance ToHeader InstanceState
 
@@ -687,7 +673,7 @@ data InstanceStateChangeReasonCode
     | ISCRCInternalError
     | ISCRCClusterTerminated
     | ISCRCInstanceFailure
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -707,9 +693,7 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCInternalError -> "internal_error"
         ISCRCValidationError -> "validation_error"
 
-instance Hashable InstanceStateChangeReasonCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceStateChangeReasonCode
 instance ToQuery InstanceStateChangeReasonCode
 instance ToHeader InstanceStateChangeReasonCode
 
@@ -719,7 +703,7 @@ instance FromJSON InstanceStateChangeReasonCode where
 data MarketType
     = Spot
     | ONDemand
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MarketType where
     parser = takeLowerText >>= \case
@@ -733,9 +717,7 @@ instance ToText MarketType where
         ONDemand -> "on_demand"
         Spot -> "spot"
 
-instance Hashable MarketType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MarketType
 instance ToQuery MarketType
 instance ToHeader MarketType
 
@@ -752,7 +734,7 @@ data StepState
     | SSCancelled
     | SSInterrupted
     | SSPending
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StepState where
     parser = takeLowerText >>= \case
@@ -774,9 +756,7 @@ instance ToText StepState where
         SSPending -> "pending"
         SSRunning -> "running"
 
-instance Hashable StepState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StepState
 instance ToQuery StepState
 instance ToHeader StepState
 
@@ -788,7 +768,7 @@ instance FromJSON StepState where
 
 data StepStateChangeReasonCode =
     None
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StepStateChangeReasonCode where
     parser = takeLowerText >>= \case
@@ -800,9 +780,7 @@ instance ToText StepStateChangeReasonCode where
     toText = \case
         None -> "none"
 
-instance Hashable StepStateChangeReasonCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StepStateChangeReasonCode
 instance ToQuery StepStateChangeReasonCode
 instance ToHeader StepStateChangeReasonCode
 
@@ -840,7 +818,7 @@ data Application = Application'
     , _appArgs           :: !(Maybe [Text])
     , _appName           :: !(Maybe Text)
     , _appVersion        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Application' smart constructor.
 application :: Application
@@ -892,7 +870,7 @@ instance FromJSON Application where
 data BootstrapActionConfig = BootstrapActionConfig'
     { _bacName                  :: !Text
     , _bacScriptBootstrapAction :: !ScriptBootstrapActionConfig
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BootstrapActionConfig' smart constructor.
 bootstrapActionConfig :: Text -> ScriptBootstrapActionConfig -> BootstrapActionConfig
@@ -967,7 +945,7 @@ data Cluster = Cluster'
     , _cluId                      :: !Text
     , _cluName                    :: !Text
     , _cluStatus                  :: !ClusterStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Cluster' smart constructor.
 cluster :: Text -> Text -> ClusterStatus -> Cluster
@@ -1100,7 +1078,7 @@ instance FromJSON Cluster where
 data ClusterStateChangeReason = ClusterStateChangeReason'
     { _cscrCode    :: !(Maybe ClusterStateChangeReasonCode)
     , _cscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterStateChangeReason' smart constructor.
 clusterStateChangeReason :: ClusterStateChangeReason
@@ -1140,7 +1118,7 @@ data ClusterStatus = ClusterStatus'
     { _csState             :: !(Maybe ClusterState)
     , _csStateChangeReason :: !(Maybe ClusterStateChangeReason)
     , _csTimeline          :: !(Maybe ClusterTimeline)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterStatus' smart constructor.
 clusterStatus :: ClusterStatus
@@ -1190,7 +1168,7 @@ data ClusterSummary = ClusterSummary'
     , _csNormalizedInstanceHours :: !(Maybe Int)
     , _csName                    :: !(Maybe Text)
     , _csId                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterSummary' smart constructor.
 clusterSummary :: ClusterSummary
@@ -1248,7 +1226,7 @@ data ClusterTimeline = ClusterTimeline'
     { _ctReadyDateTime    :: !(Maybe POSIX)
     , _ctCreationDateTime :: !(Maybe POSIX)
     , _ctEndDateTime      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterTimeline' smart constructor.
 clusterTimeline :: ClusterTimeline
@@ -1295,7 +1273,7 @@ data Command = Command'
     { _comArgs       :: !(Maybe [Text])
     , _comScriptPath :: !(Maybe Text)
     , _comName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Command' smart constructor.
 command :: Command
@@ -1358,7 +1336,7 @@ data EC2InstanceAttributes = EC2InstanceAttributes'
     , _eiaEmrManagedMasterSecurityGroup  :: !(Maybe Text)
     , _eiaEC2SubnetId                    :: !(Maybe Text)
     , _eiaEC2AvailabilityZone            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EC2InstanceAttributes' smart constructor.
 ec2InstanceAttributes :: EC2InstanceAttributes
@@ -1453,7 +1431,7 @@ data HadoopJARStepConfig = HadoopJARStepConfig'
     , _hjscMainClass  :: !(Maybe Text)
     , _hjscProperties :: !(Maybe [KeyValue])
     , _hjscJAR        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HadoopJARStepConfig' smart constructor.
 hadoopJARStepConfig :: Text -> HadoopJARStepConfig
@@ -1510,7 +1488,7 @@ data HadoopStepConfig = HadoopStepConfig'
     , _hscJAR        :: !(Maybe Text)
     , _hscMainClass  :: !(Maybe Text)
     , _hscProperties :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HadoopStepConfig' smart constructor.
 hadoopStepConfig :: HadoopStepConfig
@@ -1577,7 +1555,7 @@ data Instance = Instance'
     , _insId               :: !(Maybe Text)
     , _insPrivateDNSName   :: !(Maybe Text)
     , _insPublicIPAddress  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
@@ -1667,7 +1645,7 @@ data InstanceGroup = InstanceGroup'
     , _igMarket                 :: !(Maybe MarketType)
     , _igName                   :: !(Maybe Text)
     , _igId                     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroup' smart constructor.
 instanceGroup :: InstanceGroup
@@ -1760,7 +1738,7 @@ data InstanceGroupConfig = InstanceGroupConfig'
     , _igcInstanceRole  :: !InstanceRoleType
     , _igcInstanceType  :: !Text
     , _igcInstanceCount :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupConfig' smart constructor.
 instanceGroupConfig :: InstanceRoleType -> Text -> Int -> InstanceGroupConfig
@@ -1823,7 +1801,7 @@ data InstanceGroupModifyConfig = InstanceGroupModifyConfig'
     { _igmcInstanceCount             :: !(Maybe Int)
     , _igmcEC2InstanceIdsToTerminate :: !(Maybe [Text])
     , _igmcInstanceGroupId           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupModifyConfig' smart constructor.
 instanceGroupModifyConfig :: Text -> InstanceGroupModifyConfig
@@ -1868,7 +1846,7 @@ instance ToJSON InstanceGroupModifyConfig where
 data InstanceGroupStateChangeReason = InstanceGroupStateChangeReason'
     { _igscrCode    :: !(Maybe InstanceGroupStateChangeReasonCode)
     , _igscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupStateChangeReason' smart constructor.
 instanceGroupStateChangeReason :: InstanceGroupStateChangeReason
@@ -1909,7 +1887,7 @@ data InstanceGroupStatus = InstanceGroupStatus'
     { _igsState             :: !(Maybe InstanceGroupState)
     , _igsStateChangeReason :: !(Maybe InstanceGroupStateChangeReason)
     , _igsTimeline          :: !(Maybe InstanceGroupTimeline)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupStatus' smart constructor.
 instanceGroupStatus :: InstanceGroupStatus
@@ -1955,7 +1933,7 @@ data InstanceGroupTimeline = InstanceGroupTimeline'
     { _igtReadyDateTime    :: !(Maybe POSIX)
     , _igtCreationDateTime :: !(Maybe POSIX)
     , _igtEndDateTime      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceGroupTimeline' smart constructor.
 instanceGroupTimeline :: InstanceGroupTimeline
@@ -1999,7 +1977,7 @@ instance FromJSON InstanceGroupTimeline where
 data InstanceStateChangeReason = InstanceStateChangeReason'
     { _iscrCode    :: !(Maybe InstanceStateChangeReasonCode)
     , _iscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceStateChangeReason' smart constructor.
 instanceStateChangeReason :: InstanceStateChangeReason
@@ -2039,7 +2017,7 @@ data InstanceStatus = InstanceStatus'
     { _isState             :: !(Maybe InstanceState)
     , _isStateChangeReason :: !(Maybe InstanceStateChangeReason)
     , _isTimeline          :: !(Maybe InstanceTimeline)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceStatus' smart constructor.
 instanceStatus :: InstanceStatus
@@ -2085,7 +2063,7 @@ data InstanceTimeline = InstanceTimeline'
     { _itReadyDateTime    :: !(Maybe POSIX)
     , _itCreationDateTime :: !(Maybe POSIX)
     , _itEndDateTime      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceTimeline' smart constructor.
 instanceTimeline :: InstanceTimeline
@@ -2169,7 +2147,7 @@ data JobFlowInstancesConfig = JobFlowInstancesConfig'
     , _jficKeepJobFlowAliveWhenNoSteps    :: !(Maybe Bool)
     , _jficTerminationProtected           :: !(Maybe Bool)
     , _jficPlacement                      :: !(Maybe PlacementType)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'JobFlowInstancesConfig' smart constructor.
 jobFlowInstancesConfig :: JobFlowInstancesConfig
@@ -2300,7 +2278,7 @@ instance ToJSON JobFlowInstancesConfig where
 data KeyValue = KeyValue'
     { _kvValue :: !(Maybe Text)
     , _kvKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyValue' smart constructor.
 keyValue :: KeyValue
@@ -2331,7 +2309,7 @@ instance ToJSON KeyValue where
 -- * 'ptAvailabilityZone'
 newtype PlacementType = PlacementType'
     { _ptAvailabilityZone :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PlacementType' smart constructor.
 placementType :: Text -> PlacementType
@@ -2360,7 +2338,7 @@ instance ToJSON PlacementType where
 data ScriptBootstrapActionConfig = ScriptBootstrapActionConfig'
     { _sbacArgs :: !(Maybe [Text])
     , _sbacPath :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScriptBootstrapActionConfig' smart constructor.
 scriptBootstrapActionConfig :: Text -> ScriptBootstrapActionConfig
@@ -2404,7 +2382,7 @@ data Step = Step'
     , _steConfig          :: !(Maybe HadoopStepConfig)
     , _steName            :: !(Maybe Text)
     , _steId              :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Step' smart constructor.
 step :: Step
@@ -2463,7 +2441,7 @@ data StepConfig = StepConfig'
     { _scActionOnFailure :: !(Maybe ActionOnFailure)
     , _scName            :: !Text
     , _scHadoopJARStep   :: !HadoopJARStepConfig
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepConfig' smart constructor.
 stepConfig :: Text -> HadoopJARStepConfig -> StepConfig
@@ -2505,7 +2483,7 @@ instance ToJSON StepConfig where
 data StepStateChangeReason = StepStateChangeReason'
     { _sscrCode    :: !(Maybe StepStateChangeReasonCode)
     , _sscrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepStateChangeReason' smart constructor.
 stepStateChangeReason :: StepStateChangeReason
@@ -2545,7 +2523,7 @@ data StepStatus = StepStatus'
     { _ssState             :: !(Maybe StepState)
     , _ssStateChangeReason :: !(Maybe StepStateChangeReason)
     , _ssTimeline          :: !(Maybe StepTimeline)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepStatus' smart constructor.
 stepStatus :: StepStatus
@@ -2597,7 +2575,7 @@ data StepSummary = StepSummary'
     , _ssConfig          :: !(Maybe HadoopStepConfig)
     , _ssName            :: !(Maybe Text)
     , _ssId              :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepSummary' smart constructor.
 stepSummary :: StepSummary
@@ -2656,7 +2634,7 @@ data StepTimeline = StepTimeline'
     { _stCreationDateTime :: !(Maybe POSIX)
     , _stEndDateTime      :: !(Maybe POSIX)
     , _stStartDateTime    :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StepTimeline' smart constructor.
 stepTimeline :: StepTimeline
@@ -2701,7 +2679,7 @@ instance FromJSON StepTimeline where
 data SupportedProductConfig = SupportedProductConfig'
     { _spcArgs :: !(Maybe [Text])
     , _spcName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SupportedProductConfig' smart constructor.
 supportedProductConfig :: SupportedProductConfig
@@ -2739,7 +2717,7 @@ instance ToJSON SupportedProductConfig where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag

@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -225,7 +227,7 @@ data LifeCycleState
     | Creating
     | Deleted
     | Available
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifeCycleState where
     parser = takeLowerText >>= \case
@@ -243,9 +245,7 @@ instance ToText LifeCycleState where
         Deleted -> "deleted"
         Deleting -> "deleting"
 
-instance Hashable LifeCycleState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable LifeCycleState
 instance ToQuery LifeCycleState
 instance ToHeader LifeCycleState
 
@@ -282,7 +282,7 @@ data FileSystemDescription = FileSystemDescription'
     , _fsdLifeCycleState       :: !LifeCycleState
     , _fsdNumberOfMountTargets :: !Nat
     , _fsdSizeInBytes          :: !FileSystemSize
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FileSystemDescription' smart constructor.
 fileSystemDescription :: Text -> Text -> Text -> UTCTime -> LifeCycleState -> Natural -> FileSystemSize -> FileSystemDescription
@@ -379,7 +379,7 @@ instance FromJSON FileSystemDescription where
 data FileSystemSize = FileSystemSize'
     { _fssTimestamp :: !(Maybe POSIX)
     , _fssValue     :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FileSystemSize' smart constructor.
 fileSystemSize :: Natural -> FileSystemSize
@@ -434,7 +434,7 @@ data MountTargetDescription = MountTargetDescription'
     , _mtdFileSystemId       :: !Text
     , _mtdSubnetId           :: !Text
     , _mtdLifeCycleState     :: !LifeCycleState
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MountTargetDescription' smart constructor.
 mountTargetDescription :: Text -> Text -> Text -> LifeCycleState -> MountTargetDescription
@@ -505,7 +505,7 @@ instance FromJSON MountTargetDescription where
 data Tag = Tag'
     { _tagKey   :: !Text
     , _tagValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag

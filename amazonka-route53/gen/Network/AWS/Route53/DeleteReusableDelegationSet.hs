@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.DeleteReusableDelegationSet
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Route53.Types
 -- * 'drdsId'
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
     { _drdsId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReusableDelegationSet' smart constructor.
 deleteReusableDelegationSet :: Text -> DeleteReusableDelegationSet
@@ -101,7 +103,7 @@ instance ToQuery DeleteReusableDelegationSet where
 -- * 'drdsrStatus'
 newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'
     { _drdsrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReusableDelegationSetResponse' smart constructor.
 deleteReusableDelegationSetResponse :: Int -> DeleteReusableDelegationSetResponse

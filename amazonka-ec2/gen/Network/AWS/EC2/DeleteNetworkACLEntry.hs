@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkACLEntry
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data DeleteNetworkACLEntry = DeleteNetworkACLEntry'
     , _dnaeNetworkACLId :: !Text
     , _dnaeRuleNumber   :: !Int
     , _dnaeEgress       :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkACLEntry' smart constructor.
 deleteNetworkACLEntry :: Text -> Int -> Bool -> DeleteNetworkACLEntry
@@ -114,7 +116,7 @@ instance ToQuery DeleteNetworkACLEntry where
 -- | /See:/ 'deleteNetworkACLEntryResponse' smart constructor.
 data DeleteNetworkACLEntryResponse =
     DeleteNetworkACLEntryResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkACLEntryResponse' smart constructor.
 deleteNetworkACLEntryResponse :: DeleteNetworkACLEntryResponse

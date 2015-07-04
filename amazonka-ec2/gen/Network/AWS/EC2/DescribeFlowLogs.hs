@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeFlowLogs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data DescribeFlowLogs = DescribeFlowLogs'
     , _desFilter     :: !(Maybe [Filter])
     , _desFlowLogIds :: !(Maybe [Text])
     , _desMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFlowLogs' smart constructor.
 describeFlowLogs :: DescribeFlowLogs
@@ -149,7 +151,7 @@ data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
     { _dflr1NextToken :: !(Maybe Text)
     , _dflr1FlowLogs  :: !(Maybe [FlowLog])
     , _dflr1Status    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFlowLogsResponse' smart constructor.
 describeFlowLogsResponse :: Int -> DescribeFlowLogsResponse

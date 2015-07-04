@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.ListDomainNames
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -41,7 +43,7 @@ import           Network.AWS.Response
 -- | /See:/ 'listDomainNames' smart constructor.
 data ListDomainNames =
     ListDomainNames'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainNames' smart constructor.
 listDomainNames :: ListDomainNames
@@ -85,7 +87,7 @@ instance ToQuery ListDomainNames where
 data ListDomainNamesResponse = ListDomainNamesResponse'
     { _ldnrDomainNames :: !(Maybe (Map Text Text))
     , _ldnrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainNamesResponse' smart constructor.
 listDomainNamesResponse :: Int -> ListDomainNamesResponse

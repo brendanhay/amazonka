@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data CreateDBSnapshot = CreateDBSnapshot'
     { _creTags                 :: !(Maybe [Tag])
     , _creDBSnapshotIdentifier :: !Text
     , _creDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSnapshot' smart constructor.
 createDBSnapshot :: Text -> Text -> CreateDBSnapshot
@@ -132,7 +134,7 @@ instance ToQuery CreateDBSnapshot where
 data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
     { _creDBSnapshot :: !(Maybe DBSnapshot)
     , _creStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSnapshotResponse' smart constructor.
 createDBSnapshotResponse :: Int -> CreateDBSnapshotResponse

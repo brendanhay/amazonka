@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.ListHAPGs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'lhNextToken'
 newtype ListHAPGs = ListHAPGs'
     { _lhNextToken :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHAPGs' smart constructor.
 listHAPGs :: ListHAPGs
@@ -110,7 +112,7 @@ data ListHAPGsResponse = ListHAPGsResponse'
     { _lhrNextToken :: !(Maybe Text)
     , _lhrStatus    :: !Int
     , _lhrHAPGList  :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHAPGsResponse' smart constructor.
 listHAPGsResponse :: Int -> ListHAPGsResponse

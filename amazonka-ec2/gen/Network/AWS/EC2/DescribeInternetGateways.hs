@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeInternetGateways
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ data DescribeInternetGateways = DescribeInternetGateways'
     { _desFilters            :: !(Maybe [Filter])
     , _desInternetGatewayIds :: !(Maybe [Text])
     , _desDryRun             :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInternetGateways' smart constructor.
 describeInternetGateways :: DescribeInternetGateways
@@ -146,7 +148,7 @@ instance ToQuery DescribeInternetGateways where
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
     { _digrInternetGateways :: !(Maybe [InternetGateway])
     , _digrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
 describeInternetGatewaysResponse :: Int -> DescribeInternetGatewaysResponse

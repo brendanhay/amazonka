@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.SetIdentityNotificationTopic
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
     { _sintSNSTopic         :: !(Maybe Text)
     , _sintIdentity         :: !Text
     , _sintNotificationType :: !NotificationType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityNotificationTopic' smart constructor.
 setIdentityNotificationTopic :: Text -> NotificationType -> SetIdentityNotificationTopic
@@ -134,7 +136,7 @@ instance ToQuery SetIdentityNotificationTopic where
 -- * 'sintrStatus'
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
     { _sintrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityNotificationTopicResponse' smart constructor.
 setIdentityNotificationTopicResponse :: Int -> SetIdentityNotificationTopicResponse

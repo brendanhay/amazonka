@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateDeployment
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ data CreateDeployment = CreateDeployment'
     , _cdComment     :: !(Maybe Text)
     , _cdStackId     :: !Text
     , _cdCommand     :: !DeploymentCommand
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> DeploymentCommand -> CreateDeployment
@@ -169,7 +171,7 @@ instance ToQuery CreateDeployment where
 data CreateDeploymentResponse = CreateDeploymentResponse'
     { _cdrDeploymentId :: !(Maybe Text)
     , _cdrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentResponse' smart constructor.
 createDeploymentResponse :: Int -> CreateDeploymentResponse

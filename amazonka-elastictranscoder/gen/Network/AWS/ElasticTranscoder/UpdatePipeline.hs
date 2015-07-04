@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.UpdatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ data UpdatePipeline = UpdatePipeline'
     , _upThumbnailConfig :: !(Maybe PipelineOutputConfig)
     , _upNotifications   :: !(Maybe Notifications)
     , _upId              :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipeline' smart constructor.
 updatePipeline :: Text -> UpdatePipeline
@@ -296,7 +298,7 @@ data UpdatePipelineResponse = UpdatePipelineResponse'
     { _uprWarnings :: !(Maybe [Warning])
     , _uprPipeline :: !(Maybe Pipeline)
     , _uprStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineResponse' smart constructor.
 updatePipelineResponse :: Int -> UpdatePipelineResponse

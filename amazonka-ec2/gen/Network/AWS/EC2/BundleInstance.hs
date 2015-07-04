@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.BundleInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data BundleInstance = BundleInstance'
     { _biDryRun     :: !(Maybe Bool)
     , _biInstanceId :: !Text
     , _biStorage    :: !Storage
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BundleInstance' smart constructor.
 bundleInstance :: Text -> Storage -> BundleInstance
@@ -133,7 +135,7 @@ instance ToQuery BundleInstance where
 data BundleInstanceResponse = BundleInstanceResponse'
     { _birBundleTask :: !(Maybe BundleTask)
     , _birStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BundleInstanceResponse' smart constructor.
 bundleInstanceResponse :: Int -> BundleInstanceResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListOnPremisesInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data ListOnPremisesInstances = ListOnPremisesInstances'
     { _lopiTagFilters         :: !(Maybe [TagFilter])
     , _lopiNextToken          :: !(Maybe Text)
     , _lopiRegistrationStatus :: !(Maybe RegistrationStatus)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOnPremisesInstances' smart constructor.
 listOnPremisesInstances :: ListOnPremisesInstances
@@ -146,7 +148,7 @@ data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
     { _lopirNextToken     :: !(Maybe Text)
     , _lopirInstanceNames :: !(Maybe [Text])
     , _lopirStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOnPremisesInstancesResponse' smart constructor.
 listOnPremisesInstancesResponse :: Int -> ListOnPremisesInstancesResponse

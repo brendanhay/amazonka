@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeLogStreams
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data DescribeLogStreams = DescribeLogStreams'
     , _desLogStreamNamePrefix :: !(Maybe Text)
     , _desLimit               :: !(Maybe Nat)
     , _desLogGroupName        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLogStreams' smart constructor.
 describeLogStreams :: Text -> DescribeLogStreams
@@ -176,7 +178,7 @@ data DescribeLogStreamsResponse = DescribeLogStreamsResponse'
     { _dlsrNextToken  :: !(Maybe Text)
     , _dlsrLogStreams :: !(Maybe [LogStream])
     , _dlsrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLogStreamsResponse' smart constructor.
 describeLogStreamsResponse :: Int -> DescribeLogStreamsResponse

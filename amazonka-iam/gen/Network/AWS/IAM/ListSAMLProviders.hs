@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListSAMLProviders
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -44,7 +46,7 @@ import           Network.AWS.Response
 -- | /See:/ 'listSAMLProviders' smart constructor.
 data ListSAMLProviders =
     ListSAMLProviders'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSAMLProviders' smart constructor.
 listSAMLProviders :: ListSAMLProviders
@@ -87,7 +89,7 @@ instance ToQuery ListSAMLProviders where
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
     { _lsamlprSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
     , _lsamlprStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSAMLProvidersResponse' smart constructor.
 listSAMLProvidersResponse :: Int -> ListSAMLProvidersResponse

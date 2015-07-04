@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribePrefixLists
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data DescribePrefixLists = DescribePrefixLists'
     , _dplPrefixListIds :: !(Maybe [Text])
     , _dplDryRun        :: !(Maybe Bool)
     , _dplMaxResults    :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePrefixLists' smart constructor.
 describePrefixLists :: DescribePrefixLists
@@ -159,7 +161,7 @@ data DescribePrefixListsResponse = DescribePrefixListsResponse'
     { _dplrNextToken   :: !(Maybe Text)
     , _dplrPrefixLists :: !(Maybe [PrefixList])
     , _dplrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePrefixListsResponse' smart constructor.
 describePrefixListsResponse :: Int -> DescribePrefixListsResponse

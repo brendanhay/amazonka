@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeployment
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'gdDeploymentId'
 newtype GetDeployment = GetDeployment'
     { _gdDeploymentId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeployment' smart constructor.
 getDeployment :: Text -> GetDeployment
@@ -104,7 +106,7 @@ instance ToQuery GetDeployment where
 data GetDeploymentResponse = GetDeploymentResponse'
     { _gdrDeploymentInfo :: !(Maybe DeploymentInfo)
     , _gdrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentResponse' smart constructor.
 getDeploymentResponse :: Int -> GetDeploymentResponse

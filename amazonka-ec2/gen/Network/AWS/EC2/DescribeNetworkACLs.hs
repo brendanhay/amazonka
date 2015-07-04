@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeNetworkACLs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeNetworkACLs = DescribeNetworkACLs'
     { _dnaclFilters       :: !(Maybe [Filter])
     , _dnaclDryRun        :: !(Maybe Bool)
     , _dnaclNetworkACLIds :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkACLs' smart constructor.
 describeNetworkACLs :: DescribeNetworkACLs
@@ -180,7 +182,7 @@ instance ToQuery DescribeNetworkACLs where
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
     { _dnarNetworkACLs :: !(Maybe [NetworkACL])
     , _dnarStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkACLsResponse' smart constructor.
 describeNetworkACLsResponse :: Int -> DescribeNetworkACLsResponse

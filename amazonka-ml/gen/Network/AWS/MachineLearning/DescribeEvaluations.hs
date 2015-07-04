@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.DescribeEvaluations
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -90,7 +92,7 @@ data DescribeEvaluations = DescribeEvaluations'
     , _deLT             :: !(Maybe Text)
     , _deFilterVariable :: !(Maybe EvaluationFilterVariable)
     , _deLE             :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvaluations' smart constructor.
 describeEvaluations :: DescribeEvaluations
@@ -260,7 +262,7 @@ data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
     { _der1Results   :: !(Maybe [Evaluation])
     , _der1NextToken :: !(Maybe Text)
     , _der1Status    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
 describeEvaluationsResponse :: Int -> DescribeEvaluationsResponse

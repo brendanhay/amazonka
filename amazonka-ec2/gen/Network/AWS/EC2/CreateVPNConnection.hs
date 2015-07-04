@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateVPNConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data CreateVPNConnection = CreateVPNConnection'
     , _cvcType              :: !Text
     , _cvcCustomerGatewayId :: !Text
     , _cvcVPNGatewayId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnection' smart constructor.
 createVPNConnection :: Text -> Text -> Text -> CreateVPNConnection
@@ -156,7 +158,7 @@ instance ToQuery CreateVPNConnection where
 data CreateVPNConnectionResponse = CreateVPNConnectionResponse'
     { _cvcrVPNConnection :: !(Maybe VPNConnection)
     , _cvcrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnectionResponse' smart constructor.
 createVPNConnectionResponse :: Int -> CreateVPNConnectionResponse

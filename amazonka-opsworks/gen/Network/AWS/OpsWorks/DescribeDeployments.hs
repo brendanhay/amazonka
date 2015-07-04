@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeDeployments
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribeDeployments = DescribeDeployments'
     { _ddAppId         :: !(Maybe Text)
     , _ddDeploymentIds :: !(Maybe [Text])
     , _ddStackId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeployments' smart constructor.
 describeDeployments :: DescribeDeployments
@@ -138,7 +140,7 @@ instance ToQuery DescribeDeployments where
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
     { _ddrDeployments :: !(Maybe [Deployment])
     , _ddrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeploymentsResponse' smart constructor.
 describeDeploymentsResponse :: Int -> DescribeDeploymentsResponse

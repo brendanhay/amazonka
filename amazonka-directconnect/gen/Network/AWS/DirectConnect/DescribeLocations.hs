@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeLocations
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -43,7 +45,7 @@ import           Network.AWS.Response
 -- | /See:/ 'describeLocations' smart constructor.
 data DescribeLocations =
     DescribeLocations'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLocations' smart constructor.
 describeLocations :: DescribeLocations
@@ -88,7 +90,7 @@ instance ToQuery DescribeLocations where
 data DescribeLocationsResponse = DescribeLocationsResponse'
     { _dlrLocations :: !(Maybe [Location])
     , _dlrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLocationsResponse' smart constructor.
 describeLocationsResponse :: Int -> DescribeLocationsResponse

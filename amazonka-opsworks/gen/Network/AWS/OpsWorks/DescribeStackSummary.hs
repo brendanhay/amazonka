@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeStackSummary
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 -- * 'dssStackId'
 newtype DescribeStackSummary = DescribeStackSummary'
     { _dssStackId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackSummary' smart constructor.
 describeStackSummary :: Text -> DescribeStackSummary
@@ -110,7 +112,7 @@ instance ToQuery DescribeStackSummary where
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
     { _dssrStackSummary :: !(Maybe StackSummary)
     , _dssrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackSummaryResponse' smart constructor.
 describeStackSummaryResponse :: Int -> DescribeStackSummaryResponse

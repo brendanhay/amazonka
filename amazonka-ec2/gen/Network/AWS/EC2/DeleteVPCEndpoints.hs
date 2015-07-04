@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPCEndpoints
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
     { _dveDryRun         :: !(Maybe Bool)
     , _dveVPCEndpointIds :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCEndpoints' smart constructor.
 deleteVPCEndpoints :: DeleteVPCEndpoints
@@ -111,7 +113,7 @@ instance ToQuery DeleteVPCEndpoints where
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
     { _dverUnsuccessful :: !(Maybe [UnsuccessfulItem])
     , _dverStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCEndpointsResponse' smart constructor.
 deleteVPCEndpointsResponse :: Int -> DeleteVPCEndpointsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data DescribeAutoScalingInstances = DescribeAutoScalingInstances'
     { _dasiNextToken   :: !(Maybe Text)
     , _dasiInstanceIds :: !(Maybe [Text])
     , _dasiMaxRecords  :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingInstances' smart constructor.
 describeAutoScalingInstances :: DescribeAutoScalingInstances
@@ -137,7 +139,7 @@ data DescribeAutoScalingInstancesResponse = DescribeAutoScalingInstancesResponse
     { _dasirNextToken            :: !(Maybe Text)
     , _dasirAutoScalingInstances :: !(Maybe [AutoScalingInstanceDetails])
     , _dasirStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingInstancesResponse' smart constructor.
 describeAutoScalingInstancesResponse :: Int -> DescribeAutoScalingInstancesResponse

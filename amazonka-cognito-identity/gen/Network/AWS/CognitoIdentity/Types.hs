@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -177,7 +179,7 @@ _LimitExceededException =
 data CognitoErrorCode
     = InternalServerError
     | AccessDenied
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CognitoErrorCode where
     parser = takeLowerText >>= \case
@@ -191,9 +193,7 @@ instance ToText CognitoErrorCode where
         AccessDenied -> "accessdenied"
         InternalServerError -> "internalservererror"
 
-instance Hashable CognitoErrorCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable CognitoErrorCode
 instance ToQuery CognitoErrorCode
 instance ToHeader CognitoErrorCode
 
@@ -218,7 +218,7 @@ data Credentials = Credentials'
     , _creExpiration   :: !(Maybe POSIX)
     , _creSecretKey    :: !(Maybe Text)
     , _creAccessKeyId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Credentials' smart constructor.
 credentials :: Credentials
@@ -273,7 +273,7 @@ data IdentityDescription = IdentityDescription'
     , _idCreationDate     :: !(Maybe POSIX)
     , _idLogins           :: !(Maybe [Text])
     , _idIdentityId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityDescription' smart constructor.
 identityDescription :: IdentityDescription
@@ -335,7 +335,7 @@ data IdentityPool = IdentityPool'
     , _ipIdentityPoolId                 :: !Text
     , _ipIdentityPoolName               :: !Text
     , _ipAllowUnauthenticatedIdentities :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityPool' smart constructor.
 identityPool :: Text -> Text -> Bool -> IdentityPool
@@ -410,7 +410,7 @@ instance ToJSON IdentityPool where
 data IdentityPoolShortDescription = IdentityPoolShortDescription'
     { _ipsdIdentityPoolId   :: !(Maybe Text)
     , _ipsdIdentityPoolName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityPoolShortDescription' smart constructor.
 identityPoolShortDescription :: IdentityPoolShortDescription
@@ -449,7 +449,7 @@ instance FromJSON IdentityPoolShortDescription where
 data UnprocessedIdentityId = UnprocessedIdentityId'
     { _uiiErrorCode  :: !(Maybe CognitoErrorCode)
     , _uiiIdentityId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnprocessedIdentityId' smart constructor.
 unprocessedIdentityId :: UnprocessedIdentityId

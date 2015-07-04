@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListUsers
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data ListUsers = ListUsers'
     { _luPathPrefix :: !(Maybe Text)
     , _luMaxItems   :: !(Maybe Nat)
     , _luMarker     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUsers' smart constructor.
 listUsers :: ListUsers
@@ -149,7 +151,7 @@ data ListUsersResponse = ListUsersResponse'
     , _lurIsTruncated :: !(Maybe Bool)
     , _lurStatus      :: !Int
     , _lurUsers       :: ![User]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUsersResponse' smart constructor.
 listUsersResponse :: Int -> ListUsersResponse

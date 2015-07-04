@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudTrail.UpdateTrail
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -85,7 +87,7 @@ data UpdateTrail = UpdateTrail'
     , _utCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _utS3BucketName               :: !(Maybe Text)
     , _utName                       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTrail' smart constructor.
 updateTrail :: Text -> UpdateTrail
@@ -210,7 +212,7 @@ data UpdateTrailResponse = UpdateTrailResponse'
     , _utrCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _utrS3BucketName               :: !(Maybe Text)
     , _utrStatus                     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTrailResponse' smart constructor.
 updateTrailResponse :: Int -> UpdateTrailResponse

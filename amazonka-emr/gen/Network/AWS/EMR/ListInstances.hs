@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.ListInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data ListInstances = ListInstances'
     , _liMarker             :: !(Maybe Text)
     , _liInstanceGroupId    :: !(Maybe Text)
     , _liClusterId          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstances' smart constructor.
 listInstances :: Text -> ListInstances
@@ -150,7 +152,7 @@ data ListInstancesResponse = ListInstancesResponse'
     { _lirInstances :: !(Maybe [Instance])
     , _lirMarker    :: !(Maybe Text)
     , _lirStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstancesResponse' smart constructor.
 listInstancesResponse :: Int -> ListInstancesResponse

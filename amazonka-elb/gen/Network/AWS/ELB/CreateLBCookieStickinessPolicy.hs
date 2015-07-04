@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.CreateLBCookieStickinessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
     { _clbcspCookieExpirationPeriod :: !(Maybe Integer)
     , _clbcspLoadBalancerName       :: !Text
     , _clbcspPolicyName             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLBCookieStickinessPolicy' smart constructor.
 createLBCookieStickinessPolicy :: Text -> Text -> CreateLBCookieStickinessPolicy
@@ -137,7 +139,7 @@ instance ToQuery CreateLBCookieStickinessPolicy where
 -- * 'clbcsprStatus'
 newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
     { _clbcsprStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLBCookieStickinessPolicyResponse' smart constructor.
 createLBCookieStickinessPolicyResponse :: Int -> CreateLBCookieStickinessPolicyResponse

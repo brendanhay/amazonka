@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.MoveAddressToVPC
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data MoveAddressToVPC = MoveAddressToVPC'
     { _matvDryRun   :: !(Maybe Bool)
     , _matvPublicIP :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MoveAddressToVPC' smart constructor.
 moveAddressToVPC :: Text -> MoveAddressToVPC
@@ -111,7 +113,7 @@ instance ToQuery MoveAddressToVPC where
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
     { _matvrAllocationId :: !(Maybe Text)
     , _matvrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MoveAddressToVPCResponse' smart constructor.
 moveAddressToVPCResponse :: Int -> MoveAddressToVPCResponse

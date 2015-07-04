@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.CreateAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data CreateAlias = CreateAlias'
     { _caDirectoryId :: !Text
     , _caAlias       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
@@ -128,7 +130,7 @@ data CreateAliasResponse = CreateAliasResponse'
     { _carDirectoryId :: !(Maybe Text)
     , _carAlias       :: !(Maybe Text)
     , _carStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAliasResponse' smart constructor.
 createAliasResponse :: Int -> CreateAliasResponse

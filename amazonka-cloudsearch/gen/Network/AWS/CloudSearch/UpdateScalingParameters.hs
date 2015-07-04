@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateScalingParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ import           Network.AWS.Response
 data UpdateScalingParameters = UpdateScalingParameters'
     { _uspDomainName        :: !Text
     , _uspScalingParameters :: !ScalingParameters
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateScalingParameters' smart constructor.
 updateScalingParameters :: Text -> ScalingParameters -> UpdateScalingParameters
@@ -120,7 +122,7 @@ instance ToQuery UpdateScalingParameters where
 data UpdateScalingParametersResponse = UpdateScalingParametersResponse'
     { _usprStatus            :: !Int
     , _usprScalingParameters :: !ScalingParametersStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateScalingParametersResponse' smart constructor.
 updateScalingParametersResponse :: Int -> ScalingParametersStatus -> UpdateScalingParametersResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'ccConnectionId'
 newtype ConfirmConnection = ConfirmConnection'
     { _ccConnectionId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmConnection' smart constructor.
 confirmConnection :: Text -> ConfirmConnection
@@ -107,7 +109,7 @@ instance ToQuery ConfirmConnection where
 data ConfirmConnectionResponse = ConfirmConnectionResponse'
     { _ccrConnectionState :: !(Maybe ConnectionState)
     , _ccrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmConnectionResponse' smart constructor.
 confirmConnectionResponse :: Int -> ConfirmConnectionResponse

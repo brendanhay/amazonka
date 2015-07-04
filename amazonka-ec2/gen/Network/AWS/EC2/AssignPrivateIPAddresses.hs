@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AssignPrivateIPAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data AssignPrivateIPAddresses = AssignPrivateIPAddresses'
     , _apiaAllowReassignment              :: !(Maybe Bool)
     , _apiaSecondaryPrivateIPAddressCount :: !(Maybe Int)
     , _apiaNetworkInterfaceId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignPrivateIPAddresses' smart constructor.
 assignPrivateIPAddresses :: Text -> AssignPrivateIPAddresses
@@ -136,7 +138,7 @@ instance ToQuery AssignPrivateIPAddresses where
 -- | /See:/ 'assignPrivateIPAddressesResponse' smart constructor.
 data AssignPrivateIPAddressesResponse =
     AssignPrivateIPAddressesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignPrivateIPAddressesResponse' smart constructor.
 assignPrivateIPAddressesResponse :: AssignPrivateIPAddressesResponse

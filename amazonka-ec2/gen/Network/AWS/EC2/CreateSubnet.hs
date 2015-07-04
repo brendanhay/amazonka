@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateSubnet
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -85,7 +87,7 @@ data CreateSubnet = CreateSubnet'
     , _creaDryRun           :: !(Maybe Bool)
     , _creaVPCId            :: !Text
     , _creaCIDRBlock        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSubnet' smart constructor.
 createSubnet :: Text -> Text -> CreateSubnet
@@ -154,7 +156,7 @@ instance ToQuery CreateSubnet where
 data CreateSubnetResponse = CreateSubnetResponse'
     { _creSubnet :: !(Maybe Subnet)
     , _creStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSubnetResponse' smart constructor.
 createSubnetResponse :: Int -> CreateSubnetResponse

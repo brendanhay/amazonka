@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.RequestEnvironmentInfo
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data RequestEnvironmentInfo = RequestEnvironmentInfo'
     { _reiEnvironmentName :: !(Maybe Text)
     , _reiEnvironmentId   :: !(Maybe Text)
     , _reiInfoType        :: !EnvironmentInfoType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestEnvironmentInfo' smart constructor.
 requestEnvironmentInfo :: EnvironmentInfoType -> RequestEnvironmentInfo
@@ -133,7 +135,7 @@ instance ToQuery RequestEnvironmentInfo where
 -- | /See:/ 'requestEnvironmentInfoResponse' smart constructor.
 data RequestEnvironmentInfoResponse =
     RequestEnvironmentInfoResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestEnvironmentInfoResponse' smart constructor.
 requestEnvironmentInfoResponse :: RequestEnvironmentInfoResponse

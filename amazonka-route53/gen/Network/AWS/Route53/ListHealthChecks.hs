@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.ListHealthChecks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ import           Network.AWS.Route53.Types
 data ListHealthChecks = ListHealthChecks'
     { _lhcMaxItems :: !(Maybe Text)
     , _lhcMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHealthChecks' smart constructor.
 listHealthChecks :: ListHealthChecks
@@ -154,7 +156,7 @@ data ListHealthChecksResponse = ListHealthChecksResponse'
     , _lhcrMarker       :: !Text
     , _lhcrIsTruncated  :: !Bool
     , _lhcrMaxItems     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHealthChecksResponse' smart constructor.
 listHealthChecksResponse :: Int -> Text -> Bool -> Text -> ListHealthChecksResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.AddTags
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data AddTags = AddTags'
     { _atLoadBalancerNames :: ![Text]
     , _atTags              :: !(List1 Tag)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: NonEmpty Tag -> AddTags
@@ -107,7 +109,7 @@ instance ToQuery AddTags where
 -- * 'atrStatus'
 newtype AddTagsResponse = AddTagsResponse'
     { _atrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse

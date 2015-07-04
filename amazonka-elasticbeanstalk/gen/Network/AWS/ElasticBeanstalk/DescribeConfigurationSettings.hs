@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data DescribeConfigurationSettings = DescribeConfigurationSettings'
     { _dcsTemplateName    :: !(Maybe Text)
     , _dcsEnvironmentName :: !(Maybe Text)
     , _dcsApplicationName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationSettings' smart constructor.
 describeConfigurationSettings :: Text -> DescribeConfigurationSettings
@@ -150,7 +152,7 @@ instance ToQuery DescribeConfigurationSettings where
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
     { _dcsrConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
     , _dcsrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationSettingsResponse' smart constructor.
 describeConfigurationSettingsResponse :: Int -> DescribeConfigurationSettingsResponse

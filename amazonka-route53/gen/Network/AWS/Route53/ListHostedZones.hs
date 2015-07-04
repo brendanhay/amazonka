@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.ListHostedZones
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -83,7 +85,7 @@ data ListHostedZones = ListHostedZones'
     { _lhzDelegationSetId :: !(Maybe Text)
     , _lhzMaxItems        :: !(Maybe Text)
     , _lhzMarker          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZones' smart constructor.
 listHostedZones :: ListHostedZones
@@ -167,7 +169,7 @@ data ListHostedZonesResponse = ListHostedZonesResponse'
     , _lhzrMarker      :: !Text
     , _lhzrIsTruncated :: !Bool
     , _lhzrMaxItems    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZonesResponse' smart constructor.
 listHostedZonesResponse :: Int -> Text -> Bool -> Text -> ListHostedZonesResponse

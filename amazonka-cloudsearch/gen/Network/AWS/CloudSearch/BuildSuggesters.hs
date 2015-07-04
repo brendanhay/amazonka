@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.BuildSuggesters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'bsDomainName'
 newtype BuildSuggesters = BuildSuggesters'
     { _bsDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BuildSuggesters' smart constructor.
 buildSuggesters :: Text -> BuildSuggesters
@@ -103,7 +105,7 @@ instance ToQuery BuildSuggesters where
 data BuildSuggestersResponse = BuildSuggestersResponse'
     { _bsrFieldNames :: !(Maybe [Text])
     , _bsrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BuildSuggestersResponse' smart constructor.
 buildSuggestersResponse :: Int -> BuildSuggestersResponse

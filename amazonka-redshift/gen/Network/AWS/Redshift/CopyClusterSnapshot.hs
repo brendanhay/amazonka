@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CopyClusterSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data CopyClusterSnapshot = CopyClusterSnapshot'
     { _ccsSourceSnapshotClusterIdentifier :: !(Maybe Text)
     , _ccsSourceSnapshotIdentifier        :: !Text
     , _ccsTargetSnapshotIdentifier        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyClusterSnapshot' smart constructor.
 copyClusterSnapshot :: Text -> Text -> CopyClusterSnapshot
@@ -152,7 +154,7 @@ instance ToQuery CopyClusterSnapshot where
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
     { _ccsrSnapshot :: !(Maybe Snapshot)
     , _ccsrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyClusterSnapshotResponse' smart constructor.
 copyClusterSnapshotResponse :: Int -> CopyClusterSnapshotResponse

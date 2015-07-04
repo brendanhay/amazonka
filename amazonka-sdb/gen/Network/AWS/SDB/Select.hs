@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.Select
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data Select = Select'
     { _selConsistentRead   :: !(Maybe Bool)
     , _selNextToken        :: !(Maybe Text)
     , _selSelectExpression :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Select' smart constructor.
 select :: Text -> Select
@@ -143,7 +145,7 @@ data SelectResponse = SelectResponse'
     { _srItems     :: !(Maybe [Item])
     , _srNextToken :: !(Maybe Text)
     , _srStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SelectResponse' smart constructor.
 selectResponse :: Int -> SelectResponse

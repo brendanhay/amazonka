@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudTrail.DeleteTrail
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 -- * 'dtName'
 newtype DeleteTrail = DeleteTrail'
     { _dtName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTrail' smart constructor.
 deleteTrail :: Text -> DeleteTrail
@@ -99,7 +101,7 @@ instance ToQuery DeleteTrail where
 -- * 'delStatus'
 newtype DeleteTrailResponse = DeleteTrailResponse'
     { _delStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTrailResponse' smart constructor.
 deleteTrailResponse :: Int -> DeleteTrailResponse

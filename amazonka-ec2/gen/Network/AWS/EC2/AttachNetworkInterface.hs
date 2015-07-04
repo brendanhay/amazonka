@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AttachNetworkInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data AttachNetworkInterface = AttachNetworkInterface'
     , _aniNetworkInterfaceId :: !Text
     , _aniInstanceId         :: !Text
     , _aniDeviceIndex        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachNetworkInterface' smart constructor.
 attachNetworkInterface :: Text -> Text -> Int -> AttachNetworkInterface
@@ -128,7 +130,7 @@ instance ToQuery AttachNetworkInterface where
 data AttachNetworkInterfaceResponse = AttachNetworkInterfaceResponse'
     { _anirAttachmentId :: !(Maybe Text)
     , _anirStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachNetworkInterfaceResponse' smart constructor.
 attachNetworkInterfaceResponse :: Int -> AttachNetworkInterfaceResponse

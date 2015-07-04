@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data UpdateGroup = UpdateGroup'
     { _ugNewGroupName :: !(Maybe Text)
     , _ugNewPath      :: !(Maybe Text)
     , _ugGroupName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGroup' smart constructor.
 updateGroup :: Text -> UpdateGroup
@@ -111,7 +113,7 @@ instance ToQuery UpdateGroup where
 -- | /See:/ 'updateGroupResponse' smart constructor.
 data UpdateGroupResponse =
     UpdateGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGroupResponse' smart constructor.
 updateGroupResponse :: UpdateGroupResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.EnableVolumeIO
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data EnableVolumeIO = EnableVolumeIO'
     { _evioDryRun   :: !(Maybe Bool)
     , _evioVolumeId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVolumeIO' smart constructor.
 enableVolumeIO :: Text -> EnableVolumeIO
@@ -92,7 +94,7 @@ instance ToQuery EnableVolumeIO where
 -- | /See:/ 'enableVolumeIOResponse' smart constructor.
 data EnableVolumeIOResponse =
     EnableVolumeIOResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVolumeIOResponse' smart constructor.
 enableVolumeIOResponse :: EnableVolumeIOResponse

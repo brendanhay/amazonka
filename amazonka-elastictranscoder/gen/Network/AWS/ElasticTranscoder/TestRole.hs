@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.TestRole
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data TestRole = TestRole'
     , _trInputBucket  :: !Text
     , _trOutputBucket :: !Text
     , _trTopics       :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestRole' smart constructor.
 testRole :: Text -> Text -> Text -> TestRole
@@ -143,7 +145,7 @@ data TestRoleResponse = TestRoleResponse'
     { _trrSuccess  :: !(Maybe Text)
     , _trrMessages :: !(Maybe [Text])
     , _trrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestRoleResponse' smart constructor.
 testRoleResponse :: Int -> TestRoleResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.ListDeadLetterSourceQueues
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.SQS.Types
 -- * 'ldlsqQueueURL'
 newtype ListDeadLetterSourceQueues = ListDeadLetterSourceQueues'
     { _ldlsqQueueURL :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeadLetterSourceQueues' smart constructor.
 listDeadLetterSourceQueues :: Text -> ListDeadLetterSourceQueues
@@ -102,7 +104,7 @@ instance ToQuery ListDeadLetterSourceQueues where
 data ListDeadLetterSourceQueuesResponse = ListDeadLetterSourceQueuesResponse'
     { _ldlsqrStatus    :: !Int
     , _ldlsqrQueueURLs :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeadLetterSourceQueuesResponse' smart constructor.
 listDeadLetterSourceQueuesResponse :: Int -> ListDeadLetterSourceQueuesResponse

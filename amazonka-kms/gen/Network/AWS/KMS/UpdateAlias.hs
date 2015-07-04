@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.UpdateAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.Response
 data UpdateAlias = UpdateAlias'
     { _uaAliasName   :: !Text
     , _uaTargetKeyId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAlias' smart constructor.
 updateAlias :: Text -> Text -> UpdateAlias
@@ -118,7 +120,7 @@ instance ToQuery UpdateAlias where
 -- | /See:/ 'updateAliasResponse' smart constructor.
 data UpdateAliasResponse =
     UpdateAliasResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAliasResponse' smart constructor.
 updateAliasResponse :: UpdateAliasResponse

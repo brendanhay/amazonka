@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateKeyPair
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ import           Network.AWS.Response
 data CreateKeyPair = CreateKeyPair'
     { _ckpDryRun  :: !(Maybe Bool)
     , _ckpKeyName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKeyPair' smart constructor.
 createKeyPair :: Text -> CreateKeyPair
@@ -133,7 +135,7 @@ data CreateKeyPairResponse = CreateKeyPairResponse'
     , _ckprKeyName        :: !Text
     , _ckprKeyFingerprint :: !Text
     , _ckprKeyMaterial    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKeyPairResponse' smart constructor.
 createKeyPairResponse :: Int -> Text -> Text -> Text -> CreateKeyPairResponse

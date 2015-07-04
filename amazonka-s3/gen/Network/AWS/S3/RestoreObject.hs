@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.RestoreObject
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data RestoreObject = RestoreObject'
     , _roRestoreRequest :: !(Maybe RestoreRequest)
     , _roBucket         :: !BucketName
     , _roKey            :: !ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'RestoreObject' smart constructor.
 restoreObject :: BucketName -> ObjectKey -> RestoreObject
@@ -136,7 +138,7 @@ instance ToQuery RestoreObject where
 data RestoreObjectResponse = RestoreObjectResponse'
     { _rorRequestCharged :: !(Maybe RequestCharged)
     , _rorStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreObjectResponse' smart constructor.
 restoreObjectResponse :: Int -> RestoreObjectResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ModifySnapshotAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ data ModifySnapshotAttribute = ModifySnapshotAttribute'
     , _msaOperationType          :: !(Maybe Text)
     , _msaDryRun                 :: !(Maybe Bool)
     , _msaSnapshotId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySnapshotAttribute' smart constructor.
 modifySnapshotAttribute :: Text -> ModifySnapshotAttribute
@@ -156,7 +158,7 @@ instance ToQuery ModifySnapshotAttribute where
 -- | /See:/ 'modifySnapshotAttributeResponse' smart constructor.
 data ModifySnapshotAttributeResponse =
     ModifySnapshotAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySnapshotAttributeResponse' smart constructor.
 modifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketACL
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ data PutBucketACL = PutBucketACL'
     , _pbaGrantWrite          :: !(Maybe Text)
     , _pbaACL                 :: !(Maybe BucketCannedACL)
     , _pbaBucket              :: !BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketACL' smart constructor.
 putBucketACL :: BucketName -> PutBucketACL
@@ -165,7 +167,7 @@ instance ToQuery PutBucketACL where
 -- | /See:/ 'putBucketACLResponse' smart constructor.
 data PutBucketACLResponse =
     PutBucketACLResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketACLResponse' smart constructor.
 putBucketACLResponse :: PutBucketACLResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.DeregisterContainerInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data DeregisterContainerInstance = DeregisterContainerInstance'
     { _derCluster           :: !(Maybe Text)
     , _derForce             :: !(Maybe Bool)
     , _derContainerInstance :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterContainerInstance' smart constructor.
 deregisterContainerInstance :: Text -> DeregisterContainerInstance
@@ -133,7 +135,7 @@ instance ToQuery DeregisterContainerInstance where
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
     { _dcirContainerInstance :: !(Maybe ContainerInstance)
     , _dcirStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterContainerInstanceResponse' smart constructor.
 deregisterContainerInstanceResponse :: Int -> DeregisterContainerInstanceResponse

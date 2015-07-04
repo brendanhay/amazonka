@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.RegisterContainerInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data RegisterContainerInstance = RegisterContainerInstance'
     , _rciInstanceIdentityDocument          :: !(Maybe Text)
     , _rciVersionInfo                       :: !(Maybe VersionInfo)
     , _rciTotalResources                    :: !(Maybe [Resource])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterContainerInstance' smart constructor.
 registerContainerInstance :: RegisterContainerInstance
@@ -157,7 +159,7 @@ instance ToQuery RegisterContainerInstance where
 data RegisterContainerInstanceResponse = RegisterContainerInstanceResponse'
     { _rcirContainerInstance :: !(Maybe ContainerInstance)
     , _rcirStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterContainerInstanceResponse' smart constructor.
 registerContainerInstanceResponse :: Int -> RegisterContainerInstanceResponse

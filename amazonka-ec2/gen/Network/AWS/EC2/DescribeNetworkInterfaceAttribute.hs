@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data DescribeNetworkInterfaceAttribute = DescribeNetworkInterfaceAttribute'
     { _dniaAttribute          :: !(Maybe NetworkInterfaceAttribute)
     , _dniaDryRun             :: !(Maybe Bool)
     , _dniaNetworkInterfaceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfaceAttribute' smart constructor.
 describeNetworkInterfaceAttribute :: Text -> DescribeNetworkInterfaceAttribute
@@ -145,7 +147,7 @@ data DescribeNetworkInterfaceAttributeResponse = DescribeNetworkInterfaceAttribu
     , _dniarAttachment         :: !(Maybe NetworkInterfaceAttachment)
     , _dniarDescription        :: !(Maybe AttributeValue)
     , _dniarStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfaceAttributeResponse' smart constructor.
 describeNetworkInterfaceAttributeResponse :: Int -> DescribeNetworkInterfaceAttributeResponse

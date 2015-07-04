@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeSnapshotCopyGrants
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
     , _dscg1MaxRecords            :: !(Maybe Int)
     , _dscg1Marker                :: !(Maybe Text)
     , _dscg1SnapshotCopyGrantName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotCopyGrants' smart constructor.
 describeSnapshotCopyGrants :: DescribeSnapshotCopyGrants
@@ -181,7 +183,7 @@ data DescribeSnapshotCopyGrantsResponse = DescribeSnapshotCopyGrantsResponse'
     { _dscgrSnapshotCopyGrants :: !(Maybe [SnapshotCopyGrant])
     , _dscgrMarker             :: !(Maybe Text)
     , _dscgrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotCopyGrantsResponse' smart constructor.
 describeSnapshotCopyGrantsResponse :: Int -> DescribeSnapshotCopyGrantsResponse

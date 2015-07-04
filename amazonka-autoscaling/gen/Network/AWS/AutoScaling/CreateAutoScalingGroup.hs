@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.CreateAutoScalingGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -108,7 +110,7 @@ data CreateAutoScalingGroup = CreateAutoScalingGroup'
     , _casgAutoScalingGroupName    :: !Text
     , _casgMinSize                 :: !Int
     , _casgMaxSize                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAutoScalingGroup' smart constructor.
 createAutoScalingGroup :: Text -> Int -> Int -> CreateAutoScalingGroup
@@ -307,7 +309,7 @@ instance ToQuery CreateAutoScalingGroup where
 -- | /See:/ 'createAutoScalingGroupResponse' smart constructor.
 data CreateAutoScalingGroupResponse =
     CreateAutoScalingGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAutoScalingGroupResponse' smart constructor.
 createAutoScalingGroupResponse :: CreateAutoScalingGroupResponse

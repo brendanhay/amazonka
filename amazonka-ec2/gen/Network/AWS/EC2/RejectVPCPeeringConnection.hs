@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.RejectVPCPeeringConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
     { _rvpcDryRun                 :: !(Maybe Bool)
     , _rvpcVPCPeeringConnectionId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RejectVPCPeeringConnection' smart constructor.
 rejectVPCPeeringConnection :: Text -> RejectVPCPeeringConnection
@@ -114,7 +116,7 @@ instance ToQuery RejectVPCPeeringConnection where
 data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
     { _rvpcrReturn :: !(Maybe Bool)
     , _rvpcrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RejectVPCPeeringConnectionResponse' smart constructor.
 rejectVPCPeeringConnectionResponse :: Int -> RejectVPCPeeringConnectionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data CreateDBSubnetGroup = CreateDBSubnetGroup'
     , _cdbsgDBSubnetGroupName        :: !Text
     , _cdbsgDBSubnetGroupDescription :: !Text
     , _cdbsgSubnetIds                :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSubnetGroup' smart constructor.
 createDBSubnetGroup :: Text -> Text -> CreateDBSubnetGroup
@@ -135,7 +137,7 @@ instance ToQuery CreateDBSubnetGroup where
 data CreateDBSubnetGroupResponse = CreateDBSubnetGroupResponse'
     { _cdsgrDBSubnetGroup :: !(Maybe DBSubnetGroup)
     , _cdsgrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSubnetGroupResponse' smart constructor.
 createDBSubnetGroupResponse :: Int -> CreateDBSubnetGroupResponse

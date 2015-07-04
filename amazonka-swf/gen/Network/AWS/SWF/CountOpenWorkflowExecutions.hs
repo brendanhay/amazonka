@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.CountOpenWorkflowExecutions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -92,7 +94,7 @@ data CountOpenWorkflowExecutions = CountOpenWorkflowExecutions'
     , _coweTagFilter       :: !(Maybe TagFilter)
     , _coweDomain          :: !Text
     , _coweStartTimeFilter :: !ExecutionTimeFilter
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CountOpenWorkflowExecutions' smart constructor.
 countOpenWorkflowExecutions :: Text -> ExecutionTimeFilter -> CountOpenWorkflowExecutions

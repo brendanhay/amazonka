@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.PutNotificationConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data PutNotificationConfiguration = PutNotificationConfiguration'
     { _pncAutoScalingGroupName :: !Text
     , _pncTopicARN             :: !Text
     , _pncNotificationTypes    :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutNotificationConfiguration' smart constructor.
 putNotificationConfiguration :: Text -> Text -> PutNotificationConfiguration
@@ -115,7 +117,7 @@ instance ToQuery PutNotificationConfiguration where
 -- | /See:/ 'putNotificationConfigurationResponse' smart constructor.
 data PutNotificationConfigurationResponse =
     PutNotificationConfigurationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutNotificationConfigurationResponse' smart constructor.
 putNotificationConfigurationResponse :: PutNotificationConfigurationResponse

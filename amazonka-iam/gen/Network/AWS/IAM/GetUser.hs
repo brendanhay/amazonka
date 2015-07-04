@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetUser
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'guUserName'
 newtype GetUser = GetUser'
     { _guUserName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUser' smart constructor.
 getUser :: GetUser
@@ -102,7 +104,7 @@ instance ToQuery GetUser where
 data GetUserResponse = GetUserResponse'
     { _gurStatus :: !Int
     , _gurUser   :: !User
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserResponse' smart constructor.
 getUserResponse :: Int -> User -> GetUserResponse

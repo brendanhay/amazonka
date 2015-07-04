@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.GetBulkPublishDetails
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 -- * 'gbpdIdentityPoolId'
 newtype GetBulkPublishDetails = GetBulkPublishDetails'
     { _gbpdIdentityPoolId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBulkPublishDetails' smart constructor.
 getBulkPublishDetails :: Text -> GetBulkPublishDetails
@@ -131,7 +133,7 @@ data GetBulkPublishDetailsResponse = GetBulkPublishDetailsResponse'
     , _gbpdrFailureMessage          :: !(Maybe Text)
     , _gbpdrBulkPublishStatus       :: !(Maybe BulkPublishStatus)
     , _gbpdrStatus                  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBulkPublishDetailsResponse' smart constructor.
 getBulkPublishDetailsResponse :: Int -> GetBulkPublishDetailsResponse

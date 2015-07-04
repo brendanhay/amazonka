@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.DescribeStep
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data DescribeStep = DescribeStep'
     { _dsClusterId :: !Text
     , _dsStepId    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStep' smart constructor.
 describeStep :: Text -> Text -> DescribeStep
@@ -113,7 +115,7 @@ instance ToQuery DescribeStep where
 data DescribeStepResponse = DescribeStepResponse'
     { _dsrStep   :: !(Maybe Step)
     , _dsrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStepResponse' smart constructor.
 describeStepResponse :: Int -> DescribeStepResponse

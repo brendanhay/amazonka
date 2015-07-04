@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketLifecycle
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ data PutBucketLifecycle = PutBucketLifecycle'
     { _putContentMD5             :: !(Maybe Text)
     , _putLifecycleConfiguration :: !(Maybe LifecycleConfiguration)
     , _putBucket                 :: !BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketLifecycle' smart constructor.
 putBucketLifecycle :: BucketName -> PutBucketLifecycle
@@ -104,7 +106,7 @@ instance ToQuery PutBucketLifecycle where
 -- | /See:/ 'putBucketLifecycleResponse' smart constructor.
 data PutBucketLifecycleResponse =
     PutBucketLifecycleResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketLifecycleResponse' smart constructor.
 putBucketLifecycleResponse :: PutBucketLifecycleResponse

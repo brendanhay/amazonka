@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data DeleteSecurityGroup = DeleteSecurityGroup'
     { _dsgGroupId   :: !(Maybe Text)
     , _dsgGroupName :: !(Maybe Text)
     , _dsgDryRun    :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSecurityGroup' smart constructor.
 deleteSecurityGroup :: DeleteSecurityGroup
@@ -108,7 +110,7 @@ instance ToQuery DeleteSecurityGroup where
 -- | /See:/ 'deleteSecurityGroupResponse' smart constructor.
 data DeleteSecurityGroupResponse =
     DeleteSecurityGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSecurityGroupResponse' smart constructor.
 deleteSecurityGroupResponse :: DeleteSecurityGroupResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListGroupsForUser
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ListGroupsForUser = ListGroupsForUser'
     { _lgfuMaxItems :: !(Maybe Nat)
     , _lgfuMarker   :: !(Maybe Text)
     , _lgfuUserName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupsForUser' smart constructor.
 listGroupsForUser :: Text -> ListGroupsForUser
@@ -144,7 +146,7 @@ data ListGroupsForUserResponse = ListGroupsForUserResponse'
     , _lgfurIsTruncated :: !(Maybe Bool)
     , _lgfurStatus      :: !Int
     , _lgfurGroups      :: ![Group]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupsForUserResponse' smart constructor.
 listGroupsForUserResponse :: Int -> ListGroupsForUserResponse

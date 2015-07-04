@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.AttachUserPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data AttachUserPolicy = AttachUserPolicy'
     { _aupUserName  :: !Text
     , _aupPolicyARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachUserPolicy' smart constructor.
 attachUserPolicy :: Text -> Text -> AttachUserPolicy
@@ -96,7 +98,7 @@ instance ToQuery AttachUserPolicy where
 -- | /See:/ 'attachUserPolicyResponse' smart constructor.
 data AttachUserPolicyResponse =
     AttachUserPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachUserPolicyResponse' smart constructor.
 attachUserPolicyResponse :: AttachUserPolicyResponse

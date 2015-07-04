@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteScheduledAction
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 data DeleteScheduledAction = DeleteScheduledAction'
     { _dsaAutoScalingGroupName :: !(Maybe Text)
     , _dsaScheduledActionName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteScheduledAction' smart constructor.
 deleteScheduledAction :: Text -> DeleteScheduledAction
@@ -90,7 +92,7 @@ instance ToQuery DeleteScheduledAction where
 -- | /See:/ 'deleteScheduledActionResponse' smart constructor.
 data DeleteScheduledActionResponse =
     DeleteScheduledActionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteScheduledActionResponse' smart constructor.
 deleteScheduledActionResponse :: DeleteScheduledActionResponse

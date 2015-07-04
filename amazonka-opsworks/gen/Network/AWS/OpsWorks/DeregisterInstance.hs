@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'derInstanceId'
 newtype DeregisterInstance = DeregisterInstance'
     { _derInstanceId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstance' smart constructor.
 deregisterInstance :: Text -> DeregisterInstance
@@ -96,7 +98,7 @@ instance ToQuery DeregisterInstance where
 -- | /See:/ 'deregisterInstanceResponse' smart constructor.
 data DeregisterInstanceResponse =
     DeregisterInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstanceResponse' smart constructor.
 deregisterInstanceResponse :: DeregisterInstanceResponse

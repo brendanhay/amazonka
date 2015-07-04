@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.DeleteStreamingDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
     { _dsdIfMatch :: !(Maybe Text)
     , _dsdId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStreamingDistribution' smart constructor.
 deleteStreamingDistribution :: Text -> DeleteStreamingDistribution
@@ -93,7 +95,7 @@ instance ToQuery DeleteStreamingDistribution where
 -- | /See:/ 'deleteStreamingDistributionResponse' smart constructor.
 data DeleteStreamingDistributionResponse =
     DeleteStreamingDistributionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStreamingDistributionResponse' smart constructor.
 deleteStreamingDistributionResponse :: DeleteStreamingDistributionResponse

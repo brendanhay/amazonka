@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.CreateAppCookieStickinessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data CreateAppCookieStickinessPolicy = CreateAppCookieStickinessPolicy'
     { _cacspLoadBalancerName :: !Text
     , _cacspPolicyName       :: !Text
     , _cacspCookieName       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAppCookieStickinessPolicy' smart constructor.
 createAppCookieStickinessPolicy :: Text -> Text -> Text -> CreateAppCookieStickinessPolicy
@@ -132,7 +134,7 @@ instance ToQuery CreateAppCookieStickinessPolicy
 -- * 'cacsprStatus'
 newtype CreateAppCookieStickinessPolicyResponse = CreateAppCookieStickinessPolicyResponse'
     { _cacsprStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAppCookieStickinessPolicyResponse' smart constructor.
 createAppCookieStickinessPolicyResponse :: Int -> CreateAppCookieStickinessPolicyResponse

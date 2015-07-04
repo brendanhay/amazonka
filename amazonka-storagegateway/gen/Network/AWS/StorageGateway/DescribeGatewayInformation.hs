@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeGatewayInformation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dgiGatewayARN'
 newtype DescribeGatewayInformation = DescribeGatewayInformation'
     { _dgiGatewayARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeGatewayInformation' smart constructor.
 describeGatewayInformation :: Text -> DescribeGatewayInformation
@@ -143,7 +145,7 @@ data DescribeGatewayInformationResponse = DescribeGatewayInformationResponse'
     , _dgirGatewayType                :: !(Maybe Text)
     , _dgirGatewayTimezone            :: !(Maybe Text)
     , _dgirStatus                     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeGatewayInformationResponse' smart constructor.
 describeGatewayInformationResponse :: Int -> DescribeGatewayInformationResponse

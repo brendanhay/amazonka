@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCPeeringConnections
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
     { _dvpcpcFilters                 :: !(Maybe [Filter])
     , _dvpcpcVPCPeeringConnectionIds :: !(Maybe [Text])
     , _dvpcpcDryRun                  :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCPeeringConnections' smart constructor.
 describeVPCPeeringConnections :: DescribeVPCPeeringConnections
@@ -168,7 +170,7 @@ instance ToQuery DescribeVPCPeeringConnections where
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
     { _dvpcpcrVPCPeeringConnections :: !(Maybe [VPCPeeringConnection])
     , _dvpcpcrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCPeeringConnectionsResponse' smart constructor.
 describeVPCPeeringConnectionsResponse :: Int -> DescribeVPCPeeringConnectionsResponse

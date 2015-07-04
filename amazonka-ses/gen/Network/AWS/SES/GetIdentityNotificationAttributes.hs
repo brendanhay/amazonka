@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.GetIdentityNotificationAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.SES.Types
 -- * 'ginaIdentities'
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'
     { _ginaIdentities :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityNotificationAttributes' smart constructor.
 getIdentityNotificationAttributes :: GetIdentityNotificationAttributes
@@ -114,7 +116,7 @@ instance ToQuery GetIdentityNotificationAttributes
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
     { _ginarStatus                 :: !Int
     , _ginarNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityNotificationAttributesResponse' smart constructor.
 getIdentityNotificationAttributesResponse :: Int -> GetIdentityNotificationAttributesResponse

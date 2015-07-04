@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -125,7 +127,7 @@ data CreateStack = CreateStack'
     , _csRegion                    :: !Text
     , _csServiceRoleARN            :: !Text
     , _csDefaultInstanceProfileARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> Text -> Text -> Text -> CreateStack
@@ -428,7 +430,7 @@ instance ToQuery CreateStack where
 data CreateStackResponse = CreateStackResponse'
     { _creStackId :: !(Maybe Text)
     , _creStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Int -> CreateStackResponse

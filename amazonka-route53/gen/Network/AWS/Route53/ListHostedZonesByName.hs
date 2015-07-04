@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.ListHostedZonesByName
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -84,7 +86,7 @@ data ListHostedZonesByName = ListHostedZonesByName'
     { _lhzbnHostedZoneId :: !(Maybe Text)
     , _lhzbnMaxItems     :: !(Maybe Text)
     , _lhzbnDNSName      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZonesByName' smart constructor.
 listHostedZonesByName :: ListHostedZonesByName
@@ -179,7 +181,7 @@ data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
     , _lhzbnrHostedZones      :: ![HostedZone]
     , _lhzbnrIsTruncated      :: !Bool
     , _lhzbnrMaxItems         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZonesByNameResponse' smart constructor.
 listHostedZonesByNameResponse :: Int -> Bool -> Text -> ListHostedZonesByNameResponse

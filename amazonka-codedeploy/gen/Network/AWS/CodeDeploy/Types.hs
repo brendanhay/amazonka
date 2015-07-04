@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -630,7 +632,7 @@ data ApplicationRevisionSortBy
     = RegisterTime
     | FirstUsedTime
     | LastUsedTime
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ApplicationRevisionSortBy where
     parser = takeLowerText >>= \case
@@ -646,9 +648,7 @@ instance ToText ApplicationRevisionSortBy where
         LastUsedTime -> "lastusedtime"
         RegisterTime -> "registertime"
 
-instance Hashable ApplicationRevisionSortBy where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ApplicationRevisionSortBy
 instance ToQuery ApplicationRevisionSortBy
 instance ToHeader ApplicationRevisionSortBy
 
@@ -659,7 +659,7 @@ data BundleType
     = Zip
     | TGZ
     | TAR
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BundleType where
     parser = takeLowerText >>= \case
@@ -675,9 +675,7 @@ instance ToText BundleType where
         TGZ -> "tgz"
         Zip -> "zip"
 
-instance Hashable BundleType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable BundleType
 instance ToQuery BundleType
 instance ToHeader BundleType
 
@@ -701,7 +699,7 @@ data DeployErrorCode
     | Timeout
     | NOEC2Subscription
     | IAMRolePermissions
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeployErrorCode where
     parser = takeLowerText >>= \case
@@ -737,9 +735,7 @@ instance ToText DeployErrorCode where
         Throttled -> "throttled"
         Timeout -> "timeout"
 
-instance Hashable DeployErrorCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DeployErrorCode
 instance ToQuery DeployErrorCode
 instance ToHeader DeployErrorCode
 
@@ -749,7 +745,7 @@ instance FromJSON DeployErrorCode where
 data DeploymentCreator
     = Autoscaling
     | User
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeploymentCreator where
     parser = takeLowerText >>= \case
@@ -763,9 +759,7 @@ instance ToText DeploymentCreator where
         Autoscaling -> "autoscaling"
         User -> "user"
 
-instance Hashable DeploymentCreator where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DeploymentCreator
 instance ToQuery DeploymentCreator
 instance ToHeader DeploymentCreator
 
@@ -779,7 +773,7 @@ data DeploymentStatus
     | InProgress
     | Succeeded
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeploymentStatus where
     parser = takeLowerText >>= \case
@@ -801,9 +795,7 @@ instance ToText DeploymentStatus where
         Stopped -> "stopped"
         Succeeded -> "succeeded"
 
-instance Hashable DeploymentStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DeploymentStatus
 instance ToQuery DeploymentStatus
 instance ToHeader DeploymentStatus
 
@@ -817,7 +809,7 @@ data EC2TagFilterType
     = KeyAndValue
     | ValueOnly
     | KeyOnly
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EC2TagFilterType where
     parser = takeLowerText >>= \case
@@ -833,9 +825,7 @@ instance ToText EC2TagFilterType where
         KeyOnly -> "key_only"
         ValueOnly -> "value_only"
 
-instance Hashable EC2TagFilterType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EC2TagFilterType
 instance ToQuery EC2TagFilterType
 instance ToHeader EC2TagFilterType
 
@@ -852,7 +842,7 @@ data InstanceStatus
     | ISUnknown
     | ISSkipped
     | ISPending
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceStatus where
     parser = takeLowerText >>= \case
@@ -874,9 +864,7 @@ instance ToText InstanceStatus where
         ISSucceeded -> "succeeded"
         ISUnknown -> "unknown"
 
-instance Hashable InstanceStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceStatus
 instance ToQuery InstanceStatus
 instance ToHeader InstanceStatus
 
@@ -893,7 +881,7 @@ data LifecycleErrorCode
     | ScriptFailed
     | ScriptNotExecutable
     | ScriptTimedOut
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifecycleErrorCode where
     parser = takeLowerText >>= \case
@@ -915,9 +903,7 @@ instance ToText LifecycleErrorCode where
         Success -> "success"
         UnknownError -> "unknownerror"
 
-instance Hashable LifecycleErrorCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable LifecycleErrorCode
 instance ToQuery LifecycleErrorCode
 instance ToHeader LifecycleErrorCode
 
@@ -931,7 +917,7 @@ data LifecycleEventStatus
     | LESSkipped
     | LESUnknown
     | LESPending
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifecycleEventStatus where
     parser = takeLowerText >>= \case
@@ -953,9 +939,7 @@ instance ToText LifecycleEventStatus where
         LESSucceeded -> "succeeded"
         LESUnknown -> "unknown"
 
-instance Hashable LifecycleEventStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable LifecycleEventStatus
 instance ToQuery LifecycleEventStatus
 instance ToHeader LifecycleEventStatus
 
@@ -966,7 +950,7 @@ data ListStateFilterAction
     = Include
     | Ignore
     | Exclude
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ListStateFilterAction where
     parser = takeLowerText >>= \case
@@ -982,9 +966,7 @@ instance ToText ListStateFilterAction where
         Ignore -> "ignore"
         Include -> "include"
 
-instance Hashable ListStateFilterAction where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ListStateFilterAction
 instance ToQuery ListStateFilterAction
 instance ToHeader ListStateFilterAction
 
@@ -994,7 +976,7 @@ instance ToJSON ListStateFilterAction where
 data MinimumHealthyHostsType
     = FleetPercent
     | HostCount
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MinimumHealthyHostsType where
     parser = takeLowerText >>= \case
@@ -1008,9 +990,7 @@ instance ToText MinimumHealthyHostsType where
         FleetPercent -> "fleet_percent"
         HostCount -> "host_count"
 
-instance Hashable MinimumHealthyHostsType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MinimumHealthyHostsType
 instance ToQuery MinimumHealthyHostsType
 instance ToHeader MinimumHealthyHostsType
 
@@ -1023,7 +1003,7 @@ instance FromJSON MinimumHealthyHostsType where
 data RegistrationStatus
     = Registered
     | Deregistered
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RegistrationStatus where
     parser = takeLowerText >>= \case
@@ -1037,9 +1017,7 @@ instance ToText RegistrationStatus where
         Deregistered -> "deregistered"
         Registered -> "registered"
 
-instance Hashable RegistrationStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RegistrationStatus
 instance ToQuery RegistrationStatus
 instance ToHeader RegistrationStatus
 
@@ -1049,7 +1027,7 @@ instance ToJSON RegistrationStatus where
 data RevisionLocationType
     = GitHub
     | S3
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RevisionLocationType where
     parser = takeLowerText >>= \case
@@ -1063,9 +1041,7 @@ instance ToText RevisionLocationType where
         GitHub -> "github"
         S3 -> "s3"
 
-instance Hashable RevisionLocationType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RevisionLocationType
 instance ToQuery RevisionLocationType
 instance ToHeader RevisionLocationType
 
@@ -1078,7 +1054,7 @@ instance FromJSON RevisionLocationType where
 data SortOrder
     = Ascending
     | Descending
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -1092,9 +1068,7 @@ instance ToText SortOrder where
         Ascending -> "ascending"
         Descending -> "descending"
 
-instance Hashable SortOrder where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SortOrder
 instance ToQuery SortOrder
 instance ToHeader SortOrder
 
@@ -1104,7 +1078,7 @@ instance ToJSON SortOrder where
 data StopStatus
     = SSSucceeded
     | SSPending
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StopStatus where
     parser = takeLowerText >>= \case
@@ -1118,9 +1092,7 @@ instance ToText StopStatus where
         SSPending -> "pending"
         SSSucceeded -> "succeeded"
 
-instance Hashable StopStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StopStatus
 instance ToQuery StopStatus
 instance ToHeader StopStatus
 
@@ -1131,7 +1103,7 @@ data TagFilterType
     = TFTKeyAndValue
     | TFTValueOnly
     | TFTKeyOnly
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TagFilterType where
     parser = takeLowerText >>= \case
@@ -1147,9 +1119,7 @@ instance ToText TagFilterType where
         TFTKeyOnly -> "key_only"
         TFTValueOnly -> "value_only"
 
-instance Hashable TagFilterType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable TagFilterType
 instance ToQuery TagFilterType
 instance ToHeader TagFilterType
 
@@ -1177,7 +1147,7 @@ data ApplicationInfo = ApplicationInfo'
     , _aiApplicationId   :: !(Maybe Text)
     , _aiApplicationName :: !(Maybe Text)
     , _aiCreateTime      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplicationInfo' smart constructor.
 applicationInfo :: ApplicationInfo
@@ -1227,7 +1197,7 @@ instance FromJSON ApplicationInfo where
 data AutoScalingGroup = AutoScalingGroup'
     { _asgHook :: !(Maybe Text)
     , _asgName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AutoScalingGroup' smart constructor.
 autoScalingGroup :: AutoScalingGroup
@@ -1270,7 +1240,7 @@ data DeploymentConfigInfo = DeploymentConfigInfo'
     , _dciMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
     , _dciDeploymentConfigId   :: !(Maybe Text)
     , _dciCreateTime           :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeploymentConfigInfo' smart constructor.
 deploymentConfigInfo :: DeploymentConfigInfo
@@ -1341,7 +1311,7 @@ data DeploymentGroupInfo = DeploymentGroupInfo'
     , _dgiDeploymentGroupId            :: !(Maybe Text)
     , _dgiAutoScalingGroups            :: !(Maybe [AutoScalingGroup])
     , _dgiDeploymentGroupName          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeploymentGroupInfo' smart constructor.
 deploymentGroupInfo :: DeploymentGroupInfo
@@ -1458,7 +1428,7 @@ data DeploymentInfo = DeploymentInfo'
     , _diIgnoreApplicationStopFailures :: !(Maybe Bool)
     , _diDeploymentGroupName           :: !(Maybe Text)
     , _diCreateTime                    :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeploymentInfo' smart constructor.
 deploymentInfo :: DeploymentInfo
@@ -1595,7 +1565,7 @@ data DeploymentOverview = DeploymentOverview'
     , _doInProgress :: !(Maybe Integer)
     , _doSucceeded  :: !(Maybe Integer)
     , _doFailed     :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeploymentOverview' smart constructor.
 deploymentOverview :: DeploymentOverview
@@ -1657,7 +1627,7 @@ data Diagnostics = Diagnostics'
     , _diaErrorCode  :: !(Maybe LifecycleErrorCode)
     , _diaScriptName :: !(Maybe Text)
     , _diaMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Diagnostics' smart constructor.
 diagnostics :: Diagnostics
@@ -1720,7 +1690,7 @@ data EC2TagFilter = EC2TagFilter'
     { _etfValue :: !(Maybe Text)
     , _etfKey   :: !(Maybe Text)
     , _etfType  :: !(Maybe EC2TagFilterType)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EC2TagFilter' smart constructor.
 ec2TagFilter :: EC2TagFilter
@@ -1772,7 +1742,7 @@ instance ToJSON EC2TagFilter where
 data ErrorInformation = ErrorInformation'
     { _eiCode    :: !(Maybe DeployErrorCode)
     , _eiMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ErrorInformation' smart constructor.
 errorInformation :: ErrorInformation
@@ -1846,7 +1816,7 @@ data GenericRevisionInfo = GenericRevisionInfo'
     , _griDeploymentGroups :: !(Maybe [Text])
     , _griLastUsedTime     :: !(Maybe POSIX)
     , _griDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenericRevisionInfo' smart constructor.
 genericRevisionInfo :: GenericRevisionInfo
@@ -1902,7 +1872,7 @@ instance FromJSON GenericRevisionInfo where
 data GitHubLocation = GitHubLocation'
     { _ghlCommitId   :: !(Maybe Text)
     , _ghlRepository :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GitHubLocation' smart constructor.
 gitHubLocation :: GitHubLocation
@@ -1962,7 +1932,7 @@ data InstanceInfo = InstanceInfo'
     , _iiIamUserARN     :: !(Maybe Text)
     , _iiInstanceName   :: !(Maybe Text)
     , _iiTags           :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceInfo' smart constructor.
 instanceInfo :: InstanceInfo
@@ -2033,7 +2003,7 @@ data InstanceSummary = InstanceSummary'
     , _isStatus          :: !(Maybe InstanceStatus)
     , _isLastUpdatedAt   :: !(Maybe POSIX)
     , _isLifecycleEvents :: !(Maybe [LifecycleEvent])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceSummary' smart constructor.
 instanceSummary :: InstanceSummary
@@ -2104,7 +2074,7 @@ data LifecycleEvent = LifecycleEvent'
     , _leLifecycleEventName :: !(Maybe Text)
     , _leDiagnostics        :: !(Maybe Diagnostics)
     , _leEndTime            :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LifecycleEvent' smart constructor.
 lifecycleEvent :: LifecycleEvent
@@ -2167,7 +2137,7 @@ instance FromJSON LifecycleEvent where
 data MinimumHealthyHosts = MinimumHealthyHosts'
     { _mhhValue :: !(Maybe Int)
     , _mhhType  :: !(Maybe MinimumHealthyHostsType)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MinimumHealthyHosts' smart constructor.
 minimumHealthyHosts :: MinimumHealthyHosts
@@ -2229,7 +2199,7 @@ data RevisionLocation = RevisionLocation'
     { _rlRevisionType   :: !(Maybe RevisionLocationType)
     , _rlS3Location     :: !(Maybe S3Location)
     , _rlGitHubLocation :: !(Maybe GitHubLocation)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevisionLocation' smart constructor.
 revisionLocation :: RevisionLocation
@@ -2292,7 +2262,7 @@ data S3Location = S3Location'
     , _slBucket     :: !(Maybe Text)
     , _slKey        :: !(Maybe Text)
     , _slVersion    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3Location' smart constructor.
 s3Location :: S3Location
@@ -2368,7 +2338,7 @@ instance ToJSON S3Location where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
@@ -2410,7 +2380,7 @@ data TagFilter = TagFilter'
     { _tfValue :: !(Maybe Text)
     , _tfKey   :: !(Maybe Text)
     , _tfType  :: !(Maybe TagFilterType)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TagFilter' smart constructor.
 tagFilter :: TagFilter
@@ -2462,7 +2432,7 @@ instance ToJSON TagFilter where
 data TimeRange = TimeRange'
     { _trStart :: !(Maybe POSIX)
     , _trEnd   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TimeRange' smart constructor.
 timeRange :: TimeRange

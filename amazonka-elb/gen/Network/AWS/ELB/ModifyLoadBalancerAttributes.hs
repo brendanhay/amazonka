@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.ModifyLoadBalancerAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ import           Network.AWS.Response
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
     { _mlbaLoadBalancerName       :: !Text
     , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLoadBalancerAttributes' smart constructor.
 modifyLoadBalancerAttributes :: Text -> LoadBalancerAttributes -> ModifyLoadBalancerAttributes
@@ -128,7 +130,7 @@ data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse
     { _mlbarLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
     , _mlbarLoadBalancerName       :: !(Maybe Text)
     , _mlbarStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLoadBalancerAttributesResponse' smart constructor.
 modifyLoadBalancerAttributesResponse :: Int -> ModifyLoadBalancerAttributesResponse

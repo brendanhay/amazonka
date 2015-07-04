@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.CreateSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data CreateSnapshot = CreateSnapshot'
     { _csName        :: !(Maybe Text)
     , _csDirectoryId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
@@ -116,7 +118,7 @@ instance ToQuery CreateSnapshot where
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _csrSnapshotId :: !(Maybe Text)
     , _csrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse

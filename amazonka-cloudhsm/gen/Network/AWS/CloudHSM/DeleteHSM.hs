@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.DeleteHSM
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'dhHSMARN'
 newtype DeleteHSM = DeleteHSM'
     { _dhHSMARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSM' smart constructor.
 deleteHSM :: Text -> DeleteHSM
@@ -99,7 +101,7 @@ instance ToQuery DeleteHSM where
 -- * 'delStatus'
 newtype DeleteHSMResponse = DeleteHSMResponse'
     { _delStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSMResponse' smart constructor.
 deleteHSMResponse :: Int -> DeleteHSMResponse

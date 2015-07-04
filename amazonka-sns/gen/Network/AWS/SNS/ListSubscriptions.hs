@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.ListSubscriptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.SNS.Types
 -- * 'lsNextToken'
 newtype ListSubscriptions = ListSubscriptions'
     { _lsNextToken :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSubscriptions' smart constructor.
 listSubscriptions :: ListSubscriptions
@@ -115,7 +117,7 @@ data ListSubscriptionsResponse = ListSubscriptionsResponse'
     { _lsrNextToken     :: !(Maybe Text)
     , _lsrSubscriptions :: !(Maybe [Subscription])
     , _lsrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSubscriptionsResponse' smart constructor.
 listSubscriptionsResponse :: Int -> ListSubscriptionsResponse

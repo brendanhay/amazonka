@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DetachInternetGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ data DetachInternetGateway = DetachInternetGateway'
     { _digDryRun            :: !(Maybe Bool)
     , _digInternetGatewayId :: !Text
     , _digVPCId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInternetGateway' smart constructor.
 detachInternetGateway :: Text -> Text -> DetachInternetGateway
@@ -105,7 +107,7 @@ instance ToQuery DetachInternetGateway where
 -- | /See:/ 'detachInternetGatewayResponse' smart constructor.
 data DetachInternetGatewayResponse =
     DetachInternetGatewayResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInternetGatewayResponse' smart constructor.
 detachInternetGatewayResponse :: DetachInternetGatewayResponse

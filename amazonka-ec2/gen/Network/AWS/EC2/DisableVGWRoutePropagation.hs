@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DisableVGWRoutePropagation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data DisableVGWRoutePropagation = DisableVGWRoutePropagation'
     { _dvrpRouteTableId :: !Text
     , _dvrpGatewayId    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVGWRoutePropagation' smart constructor.
 disableVGWRoutePropagation :: Text -> Text -> DisableVGWRoutePropagation
@@ -93,7 +95,7 @@ instance ToQuery DisableVGWRoutePropagation where
 -- | /See:/ 'disableVGWRoutePropagationResponse' smart constructor.
 data DisableVGWRoutePropagationResponse =
     DisableVGWRoutePropagationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVGWRoutePropagationResponse' smart constructor.
 disableVGWRoutePropagationResponse :: DisableVGWRoutePropagationResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotFleetRequests
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data DescribeSpotFleetRequests = DescribeSpotFleetRequests'
     , _dsfrNextToken           :: !(Maybe Text)
     , _dsfrDryRun              :: !(Maybe Bool)
     , _dsfrMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequests' smart constructor.
 describeSpotFleetRequests :: DescribeSpotFleetRequests
@@ -142,7 +144,7 @@ data DescribeSpotFleetRequestsResponse = DescribeSpotFleetRequestsResponse'
     { _dsfrrNextToken               :: !(Maybe Text)
     , _dsfrrStatus                  :: !Int
     , _dsfrrSpotFleetRequestConfigs :: ![SpotFleetRequestConfig]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequestsResponse' smart constructor.
 describeSpotFleetRequestsResponse :: Int -> DescribeSpotFleetRequestsResponse

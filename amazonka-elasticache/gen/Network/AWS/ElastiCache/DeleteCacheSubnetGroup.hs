@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'delCacheSubnetGroupName'
 newtype DeleteCacheSubnetGroup = DeleteCacheSubnetGroup'
     { _delCacheSubnetGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheSubnetGroup' smart constructor.
 deleteCacheSubnetGroup :: Text -> DeleteCacheSubnetGroup
@@ -90,7 +92,7 @@ instance ToQuery DeleteCacheSubnetGroup where
 -- | /See:/ 'deleteCacheSubnetGroupResponse' smart constructor.
 data DeleteCacheSubnetGroupResponse =
     DeleteCacheSubnetGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheSubnetGroupResponse' smart constructor.
 deleteCacheSubnetGroupResponse :: DeleteCacheSubnetGroupResponse

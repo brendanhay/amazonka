@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -304,7 +306,7 @@ _LimitExceededException =
 -- -   RandomForest - Random forest of decision trees.
 data Algorithm =
     Sgd
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Algorithm where
     parser = takeLowerText >>= \case
@@ -316,9 +318,7 @@ instance ToText Algorithm where
     toText = \case
         Sgd -> "sgd"
 
-instance Hashable Algorithm where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Algorithm
 instance ToQuery Algorithm
 instance ToHeader Algorithm
 
@@ -351,7 +351,7 @@ data BatchPredictionFilterVariable
     | BatchDataURI
     | BatchName
     | BatchLastUpdatedAt
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BatchPredictionFilterVariable where
     parser = takeLowerText >>= \case
@@ -377,9 +377,7 @@ instance ToText BatchPredictionFilterVariable where
         BatchName -> "name"
         BatchStatus -> "status"
 
-instance Hashable BatchPredictionFilterVariable where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable BatchPredictionFilterVariable
 instance ToQuery BatchPredictionFilterVariable
 instance ToHeader BatchPredictionFilterVariable
 
@@ -409,7 +407,7 @@ data DataSourceFilterVariable
     | DSFVDataLastUpdatedAt
     | DSFVDataName
     | DSFVDataIAMUser
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DataSourceFilterVariable where
     parser = takeLowerText >>= \case
@@ -431,9 +429,7 @@ instance ToText DataSourceFilterVariable where
         DSFVDataName -> "name"
         DSFVDataStatus -> "status"
 
-instance Hashable DataSourceFilterVariable where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DataSourceFilterVariable
 instance ToQuery DataSourceFilterVariable
 instance ToHeader DataSourceFilterVariable
 
@@ -446,7 +442,7 @@ instance ToJSON DataSourceFilterVariable where
 data DetailsAttributes
     = Algorithm
     | PredictiveModelType
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DetailsAttributes where
     parser = takeLowerText >>= \case
@@ -460,9 +456,7 @@ instance ToText DetailsAttributes where
         Algorithm -> "algorithm"
         PredictiveModelType -> "predictivemodeltype"
 
-instance Hashable DetailsAttributes where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DetailsAttributes
 instance ToQuery DetailsAttributes
 instance ToHeader DetailsAttributes
 
@@ -482,7 +476,7 @@ data EntityStatus
     | Deleted
     | Completed
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EntityStatus where
     parser = takeLowerText >>= \case
@@ -502,9 +496,7 @@ instance ToText EntityStatus where
         Inprogress -> "inprogress"
         Pending -> "pending"
 
-instance Hashable EntityStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EntityStatus
 instance ToQuery EntityStatus
 instance ToHeader EntityStatus
 
@@ -536,7 +528,7 @@ data EvaluationFilterVariable
     | EFVEvalIAMUser
     | EFVEvalMLModelId
     | EFVEvalLastUpdatedAt
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EvaluationFilterVariable where
     parser = takeLowerText >>= \case
@@ -562,9 +554,7 @@ instance ToText EvaluationFilterVariable where
         EFVEvalName -> "name"
         EFVEvalStatus -> "status"
 
-instance Hashable EvaluationFilterVariable where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EvaluationFilterVariable
 instance ToQuery EvaluationFilterVariable
 instance ToHeader EvaluationFilterVariable
 
@@ -582,7 +572,7 @@ data MLModelFilterVariable
     | MLMFVAlgorithm
     | MLMFVName
     | MLMFVLastUpdatedAt
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MLModelFilterVariable where
     parser = takeLowerText >>= \case
@@ -612,9 +602,7 @@ instance ToText MLModelFilterVariable where
         MLMFVTrainingDataSourceId -> "trainingdatasourceid"
         MLMFVTrainingDataURI -> "trainingdatauri"
 
-instance Hashable MLModelFilterVariable where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MLModelFilterVariable
 instance ToQuery MLModelFilterVariable
 instance ToHeader MLModelFilterVariable
 
@@ -625,7 +613,7 @@ data MLModelType
     = Multiclass
     | Regression
     | Binary
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MLModelType where
     parser = takeLowerText >>= \case
@@ -641,9 +629,7 @@ instance ToText MLModelType where
         Multiclass -> "multiclass"
         Regression -> "regression"
 
-instance Hashable MLModelType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MLModelType
 instance ToQuery MLModelType
 instance ToHeader MLModelType
 
@@ -658,7 +644,7 @@ data RealtimeEndpointStatus
     | RESReady
     | RESFailed
     | RESNone
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RealtimeEndpointStatus where
     parser = takeLowerText >>= \case
@@ -676,9 +662,7 @@ instance ToText RealtimeEndpointStatus where
         RESReady -> "ready"
         RESUpdating -> "updating"
 
-instance Hashable RealtimeEndpointStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RealtimeEndpointStatus
 instance ToQuery RealtimeEndpointStatus
 instance ToHeader RealtimeEndpointStatus
 
@@ -693,7 +677,7 @@ instance FromJSON RealtimeEndpointStatus where
 data SortOrder
     = Dsc
     | Asc
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -707,9 +691,7 @@ instance ToText SortOrder where
         Asc -> "asc"
         Dsc -> "dsc"
 
-instance Hashable SortOrder where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SortOrder
 instance ToQuery SortOrder
 instance ToHeader SortOrder
 
@@ -758,7 +740,7 @@ data BatchPrediction = BatchPrediction'
     , _bpCreatedByIAMUser            :: !(Maybe Text)
     , _bpMessage                     :: !(Maybe Text)
     , _bpOutputURI                   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchPrediction' smart constructor.
 batchPrediction :: BatchPrediction
@@ -913,7 +895,7 @@ data DataSource = DataSource'
     , _dsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
     , _dsRoleARN           :: !(Maybe Text)
     , _dsDataRearrangement :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DataSource' smart constructor.
 dataSource :: DataSource
@@ -1076,7 +1058,7 @@ data Evaluation = Evaluation'
     , _evaMessage                :: !(Maybe Text)
     , _evaEvaluationId           :: !(Maybe Text)
     , _evaEvaluationDataSourceId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Evaluation' smart constructor.
 evaluation :: Evaluation
@@ -1242,7 +1224,7 @@ data MLModel = MLModel'
     , _mlmTrainingDataSourceId        :: !(Maybe Text)
     , _mlmMessage                     :: !(Maybe Text)
     , _mlmMLModelType                 :: !(Maybe MLModelType)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MLModel' smart constructor.
 mLModel :: MLModel
@@ -1440,7 +1422,7 @@ instance FromJSON MLModel where
 -- * 'pmProperties'
 newtype PerformanceMetrics = PerformanceMetrics'
     { _pmProperties :: Maybe (Map Text Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PerformanceMetrics' smart constructor.
 performanceMetrics :: PerformanceMetrics
@@ -1491,7 +1473,7 @@ data Prediction = Prediction'
     , _prePredictedLabel  :: !(Maybe Text)
     , _prePredictedScores :: !(Maybe (Map Text Double))
     , _preDetails         :: !(Maybe (Map DetailsAttributes Text))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Prediction' smart constructor.
 prediction :: Prediction
@@ -1568,7 +1550,7 @@ data RDSDataSpec = RDSDataSpec'
     , _rdsdsServiceRole         :: !Text
     , _rdsdsSubnetId            :: !Text
     , _rdsdsSecurityGroupIds    :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RDSDataSpec' smart constructor.
 rdsDataSpec :: RDSDatabase -> Text -> RDSDatabaseCredentials -> Text -> Text -> Text -> Text -> RDSDataSpec
@@ -1680,7 +1662,7 @@ instance ToJSON RDSDataSpec where
 data RDSDatabase = RDSDatabase'
     { _rdsInstanceIdentifier :: !Text
     , _rdsDatabaseName       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RDSDatabase' smart constructor.
 rdsDatabase :: Text -> Text -> RDSDatabase
@@ -1724,7 +1706,7 @@ instance ToJSON RDSDatabase where
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
     { _rdsUsername :: !Text
     , _rdsPassword :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RDSDatabaseCredentials' smart constructor.
 rdsDatabaseCredentials :: Text -> Text -> RDSDatabaseCredentials
@@ -1772,7 +1754,7 @@ data RDSMetadata = RDSMetadata'
     , _rmDatabaseUserName :: !(Maybe Text)
     , _rmResourceRole     :: !(Maybe Text)
     , _rmServiceRole      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RDSMetadata' smart constructor.
 rdsMetadata :: RDSMetadata
@@ -1850,7 +1832,7 @@ data RealtimeEndpointInfo = RealtimeEndpointInfo'
     , _reiEndpointURL           :: !(Maybe Text)
     , _reiEndpointStatus        :: !(Maybe RealtimeEndpointStatus)
     , _reiPeakRequestsPerSecond :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RealtimeEndpointInfo' smart constructor.
 realtimeEndpointInfo :: RealtimeEndpointInfo
@@ -1927,7 +1909,7 @@ data RedshiftDataSpec = RedshiftDataSpec'
     , _redSelectSqlQuery      :: !Text
     , _redDatabaseCredentials :: !RedshiftDatabaseCredentials
     , _redS3StagingLocation   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RedshiftDataSpec' smart constructor.
 redshiftDataSpec :: RedshiftDatabase -> Text -> RedshiftDatabaseCredentials -> Text -> RedshiftDataSpec
@@ -1998,7 +1980,7 @@ instance ToJSON RedshiftDataSpec where
 data RedshiftDatabase = RedshiftDatabase'
     { _rdDatabaseName      :: !Text
     , _rdClusterIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RedshiftDatabase' smart constructor.
 redshiftDatabase :: Text -> Text -> RedshiftDatabase
@@ -2042,7 +2024,7 @@ instance ToJSON RedshiftDatabase where
 data RedshiftDatabaseCredentials = RedshiftDatabaseCredentials'
     { _rdcUsername :: !Text
     , _rdcPassword :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RedshiftDatabaseCredentials' smart constructor.
 redshiftDatabaseCredentials :: Text -> Text -> RedshiftDatabaseCredentials
@@ -2081,7 +2063,7 @@ data RedshiftMetadata = RedshiftMetadata'
     { _rSelectSqlQuery   :: !(Maybe Text)
     , _rRedshiftDatabase :: !(Maybe RedshiftDatabase)
     , _rDatabaseUserName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RedshiftMetadata' smart constructor.
 redshiftMetadata :: RedshiftMetadata
@@ -2132,7 +2114,7 @@ data S3DataSpec = S3DataSpec'
     , _sdsDataSchemaLocationS3 :: !(Maybe Text)
     , _sdsDataRearrangement    :: !(Maybe Text)
     , _sdsDataLocationS3       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3DataSpec' smart constructor.
 s3DataSpec :: Text -> S3DataSpec

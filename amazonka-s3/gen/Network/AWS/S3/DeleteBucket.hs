@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.DeleteBucket
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.S3.Types
 -- * 'dbBucket'
 newtype DeleteBucket = DeleteBucket'
     { _dbBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucket' smart constructor.
 deleteBucket :: BucketName -> DeleteBucket
@@ -78,7 +80,7 @@ instance ToQuery DeleteBucket where
 -- | /See:/ 'deleteBucketResponse' smart constructor.
 data DeleteBucketResponse =
     DeleteBucketResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketResponse' smart constructor.
 deleteBucketResponse :: DeleteBucketResponse

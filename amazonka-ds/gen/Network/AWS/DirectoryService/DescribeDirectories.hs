@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.DescribeDirectories
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data DescribeDirectories = DescribeDirectories'
     { _ddNextToken    :: !(Maybe Text)
     , _ddDirectoryIds :: !(Maybe [Text])
     , _ddLimit        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDirectories' smart constructor.
 describeDirectories :: DescribeDirectories
@@ -152,7 +154,7 @@ data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
     { _ddrDirectoryDescriptions :: !(Maybe [DirectoryDescription])
     , _ddrNextToken             :: !(Maybe Text)
     , _ddrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDirectoriesResponse' smart constructor.
 describeDirectoriesResponse :: Int -> DescribeDirectoriesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.ListBuckets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -43,7 +45,7 @@ import           Network.AWS.S3.Types
 -- | /See:/ 'listBuckets' smart constructor.
 data ListBuckets =
     ListBuckets'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBuckets' smart constructor.
 listBuckets :: ListBuckets
@@ -84,7 +86,7 @@ data ListBucketsResponse = ListBucketsResponse'
     { _lbrBuckets :: !(Maybe [Bucket])
     , _lbrOwner   :: !(Maybe Owner)
     , _lbrStatus  :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListBucketsResponse' smart constructor.
 listBucketsResponse :: Int -> ListBucketsResponse

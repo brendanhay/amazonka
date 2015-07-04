@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.GetInvalidation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data GetInvalidation = GetInvalidation'
     { _giDistributionId :: !Text
     , _giId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInvalidation' smart constructor.
 getInvalidation :: Text -> Text -> GetInvalidation
@@ -106,7 +108,7 @@ instance ToQuery GetInvalidation where
 data GetInvalidationResponse = GetInvalidationResponse'
     { _girInvalidation :: !(Maybe Invalidation)
     , _girStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInvalidationResponse' smart constructor.
 getInvalidationResponse :: Int -> GetInvalidationResponse

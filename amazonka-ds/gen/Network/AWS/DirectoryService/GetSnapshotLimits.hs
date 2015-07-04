@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.GetSnapshotLimits
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'gslDirectoryId'
 newtype GetSnapshotLimits = GetSnapshotLimits'
     { _gslDirectoryId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSnapshotLimits' smart constructor.
 getSnapshotLimits :: Text -> GetSnapshotLimits
@@ -104,7 +106,7 @@ instance ToQuery GetSnapshotLimits where
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
     { _gslrSnapshotLimits :: !(Maybe SnapshotLimits)
     , _gslrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSnapshotLimitsResponse' smart constructor.
 getSnapshotLimitsResponse :: Int -> GetSnapshotLimitsResponse

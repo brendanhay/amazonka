@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.STS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -155,7 +157,7 @@ _IDPRejectedClaimException =
 data AssumedRoleUser = AssumedRoleUser'
     { _aruAssumedRoleId :: !Text
     , _aruARN           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumedRoleUser' smart constructor.
 assumedRoleUser :: Text -> Text -> AssumedRoleUser
@@ -202,7 +204,7 @@ data Credentials = Credentials'
     , _creSecretAccessKey :: !Text
     , _creSessionToken    :: !Text
     , _creExpiration      :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Credentials' smart constructor.
 credentials :: Text -> Text -> Text -> UTCTime -> Credentials
@@ -251,7 +253,7 @@ instance FromXML Credentials where
 data FederatedUser = FederatedUser'
     { _fuFederatedUserId :: !Text
     , _fuARN             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FederatedUser' smart constructor.
 federatedUser :: Text -> Text -> FederatedUser

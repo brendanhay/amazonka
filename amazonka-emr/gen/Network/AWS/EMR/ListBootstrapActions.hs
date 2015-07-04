@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.ListBootstrapActions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data ListBootstrapActions = ListBootstrapActions'
     { _lbaMarker    :: !(Maybe Text)
     , _lbaClusterId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBootstrapActions' smart constructor.
 listBootstrapActions :: Text -> ListBootstrapActions
@@ -132,7 +134,7 @@ data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
     { _lbarBootstrapActions :: !(Maybe [Command])
     , _lbarMarker           :: !(Maybe Text)
     , _lbarStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBootstrapActionsResponse' smart constructor.
 listBootstrapActionsResponse :: Int -> ListBootstrapActionsResponse

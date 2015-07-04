@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotInstanceRequests
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
     { _dsirFilters                :: !(Maybe [Filter])
     , _dsirSpotInstanceRequestIds :: !(Maybe [Text])
     , _dsirDryRun                 :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotInstanceRequests' smart constructor.
 describeSpotInstanceRequests :: DescribeSpotInstanceRequests
@@ -258,7 +260,7 @@ instance ToQuery DescribeSpotInstanceRequests where
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
     { _dsirrSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
     , _dsirrStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotInstanceRequestsResponse' smart constructor.
 describeSpotInstanceRequestsResponse :: Int -> DescribeSpotInstanceRequestsResponse

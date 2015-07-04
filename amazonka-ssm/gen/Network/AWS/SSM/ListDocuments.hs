@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.ListDocuments
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data ListDocuments = ListDocuments'
     { _ldDocumentFilterList :: !(Maybe (List1 DocumentFilter))
     , _ldNextToken          :: !(Maybe Text)
     , _ldMaxResults         :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDocuments' smart constructor.
 listDocuments :: ListDocuments
@@ -130,7 +132,7 @@ data ListDocumentsResponse = ListDocumentsResponse'
     { _ldrDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
     , _ldrNextToken           :: !(Maybe Text)
     , _ldrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDocumentsResponse' smart constructor.
 listDocumentsResponse :: Int -> ListDocumentsResponse

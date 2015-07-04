@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetLoginProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'glpUserName'
 newtype GetLoginProfile = GetLoginProfile'
     { _glpUserName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLoginProfile' smart constructor.
 getLoginProfile :: Text -> GetLoginProfile
@@ -97,7 +99,7 @@ instance ToQuery GetLoginProfile where
 data GetLoginProfileResponse = GetLoginProfileResponse'
     { _glprStatus       :: !Int
     , _glprLoginProfile :: !LoginProfile
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLoginProfileResponse' smart constructor.
 getLoginProfileResponse :: Int -> LoginProfile -> GetLoginProfileResponse

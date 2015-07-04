@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.CreateService
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ data CreateService = CreateService'
     , _creServiceName    :: !Text
     , _creTaskDefinition :: !Text
     , _creDesiredCount   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateService' smart constructor.
 createService :: Text -> Text -> Int -> CreateService
@@ -175,7 +177,7 @@ instance ToQuery CreateService where
 data CreateServiceResponse = CreateServiceResponse'
     { _csrService :: !(Maybe ContainerService)
     , _csrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateServiceResponse' smart constructor.
 createServiceResponse :: Int -> CreateServiceResponse

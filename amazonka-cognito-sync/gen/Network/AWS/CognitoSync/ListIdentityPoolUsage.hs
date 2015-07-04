@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.ListIdentityPoolUsage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.Response
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
     { _lipuNextToken  :: !(Maybe Text)
     , _lipuMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolUsage' smart constructor.
 listIdentityPoolUsage :: ListIdentityPoolUsage
@@ -130,7 +132,7 @@ data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
     , _lipurNextToken          :: !(Maybe Text)
     , _lipurMaxResults         :: !(Maybe Int)
     , _lipurStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolUsageResponse' smart constructor.
 listIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse

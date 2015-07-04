@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.ModifyDBSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
     { _mdsgDBSubnetGroupDescription :: !(Maybe Text)
     , _mdsgDBSubnetGroupName        :: !Text
     , _mdsgSubnetIds                :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyDBSubnetGroup' smart constructor.
 modifyDBSubnetGroup :: Text -> ModifyDBSubnetGroup
@@ -125,7 +127,7 @@ instance ToQuery ModifyDBSubnetGroup where
 data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
     { _mdsgrDBSubnetGroup :: !(Maybe DBSubnetGroup)
     , _mdsgrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyDBSubnetGroupResponse' smart constructor.
 modifyDBSubnetGroupResponse :: Int -> ModifyDBSubnetGroupResponse

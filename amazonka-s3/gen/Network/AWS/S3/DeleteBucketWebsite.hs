@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketWebsite
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -44,7 +46,7 @@ import           Network.AWS.S3.Types
 -- * 'dbwBucket'
 newtype DeleteBucketWebsite = DeleteBucketWebsite'
     { _dbwBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketWebsite' smart constructor.
 deleteBucketWebsite :: BucketName -> DeleteBucketWebsite
@@ -77,7 +79,7 @@ instance ToQuery DeleteBucketWebsite where
 -- | /See:/ 'deleteBucketWebsiteResponse' smart constructor.
 data DeleteBucketWebsiteResponse =
     DeleteBucketWebsiteResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketWebsiteResponse' smart constructor.
 deleteBucketWebsiteResponse :: DeleteBucketWebsiteResponse

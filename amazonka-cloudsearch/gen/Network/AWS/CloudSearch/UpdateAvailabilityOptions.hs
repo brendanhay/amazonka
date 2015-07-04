@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateAvailabilityOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.Response
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
     { _uaoDomainName :: !Text
     , _uaoMultiAZ    :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAvailabilityOptions' smart constructor.
 updateAvailabilityOptions :: Text -> Bool -> UpdateAvailabilityOptions
@@ -122,7 +124,7 @@ instance ToQuery UpdateAvailabilityOptions where
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
     { _uaorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
     , _uaorStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAvailabilityOptionsResponse' smart constructor.
 updateAvailabilityOptionsResponse :: Int -> UpdateAvailabilityOptionsResponse

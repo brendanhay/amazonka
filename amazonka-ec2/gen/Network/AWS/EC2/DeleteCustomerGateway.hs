@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteCustomerGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data DeleteCustomerGateway = DeleteCustomerGateway'
     { _dcg1DryRun            :: !(Maybe Bool)
     , _dcg1CustomerGatewayId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCustomerGateway' smart constructor.
 deleteCustomerGateway :: Text -> DeleteCustomerGateway
@@ -94,7 +96,7 @@ instance ToQuery DeleteCustomerGateway where
 -- | /See:/ 'deleteCustomerGatewayResponse' smart constructor.
 data DeleteCustomerGatewayResponse =
     DeleteCustomerGatewayResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCustomerGatewayResponse' smart constructor.
 deleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse

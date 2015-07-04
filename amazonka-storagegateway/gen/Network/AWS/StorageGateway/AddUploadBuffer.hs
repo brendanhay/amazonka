@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.AddUploadBuffer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.StorageGateway.Types
 data AddUploadBuffer = AddUploadBuffer'
     { _aubGatewayARN :: !Text
     , _aubDiskIds    :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUploadBuffer' smart constructor.
 addUploadBuffer :: Text -> AddUploadBuffer
@@ -117,7 +119,7 @@ instance ToQuery AddUploadBuffer where
 data AddUploadBufferResponse = AddUploadBufferResponse'
     { _aubrGatewayARN :: !(Maybe Text)
     , _aubrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUploadBufferResponse' smart constructor.
 addUploadBufferResponse :: Int -> AddUploadBufferResponse

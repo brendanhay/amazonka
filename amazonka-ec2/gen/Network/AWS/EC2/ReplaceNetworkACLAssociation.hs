@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
     { _rnaaDryRun        :: !(Maybe Bool)
     , _rnaaAssociationId :: !Text
     , _rnaaNetworkACLId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLAssociation' smart constructor.
 replaceNetworkACLAssociation :: Text -> Text -> ReplaceNetworkACLAssociation
@@ -124,7 +126,7 @@ instance ToQuery ReplaceNetworkACLAssociation where
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
     { _rnaarNewAssociationId :: !(Maybe Text)
     , _rnaarStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLAssociationResponse' smart constructor.
 replaceNetworkACLAssociationResponse :: Int -> ReplaceNetworkACLAssociationResponse

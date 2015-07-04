@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeletePolicyVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data DeletePolicyVersion = DeletePolicyVersion'
     { _dpvPolicyARN :: !Text
     , _dpvVersionId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePolicyVersion' smart constructor.
 deletePolicyVersion :: Text -> Text -> DeletePolicyVersion
@@ -103,7 +105,7 @@ instance ToQuery DeletePolicyVersion where
 -- | /See:/ 'deletePolicyVersionResponse' smart constructor.
 data DeletePolicyVersionResponse =
     DeletePolicyVersionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePolicyVersionResponse' smart constructor.
 deletePolicyVersionResponse :: DeletePolicyVersionResponse

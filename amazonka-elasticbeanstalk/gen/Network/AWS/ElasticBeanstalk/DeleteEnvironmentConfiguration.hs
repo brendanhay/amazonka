@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteEnvironmentConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data DeleteEnvironmentConfiguration = DeleteEnvironmentConfiguration'
     { _decApplicationName :: !Text
     , _decEnvironmentName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEnvironmentConfiguration' smart constructor.
 deleteEnvironmentConfiguration :: Text -> Text -> DeleteEnvironmentConfiguration
@@ -104,7 +106,7 @@ instance ToQuery DeleteEnvironmentConfiguration where
 -- | /See:/ 'deleteEnvironmentConfigurationResponse' smart constructor.
 data DeleteEnvironmentConfigurationResponse =
     DeleteEnvironmentConfigurationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEnvironmentConfigurationResponse' smart constructor.
 deleteEnvironmentConfigurationResponse :: DeleteEnvironmentConfigurationResponse

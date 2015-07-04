@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListPresets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data ListPresets = ListPresets'
     { _lisAscending :: !(Maybe Text)
     , _lisPageToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPresets' smart constructor.
 listPresets :: ListPresets
@@ -125,7 +127,7 @@ data ListPresetsResponse = ListPresetsResponse'
     { _lisNextPageToken :: !(Maybe Text)
     , _lisPresets       :: !(Maybe [Preset])
     , _lisStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPresetsResponse' smart constructor.
 listPresetsResponse :: Int -> ListPresetsResponse

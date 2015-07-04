@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
     { _creTags                     :: !(Maybe [Tag])
     , _creClusterSecurityGroupName :: !Text
     , _creDescription              :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSecurityGroup' smart constructor.
 createClusterSecurityGroup :: Text -> Text -> CreateClusterSecurityGroup
@@ -135,7 +137,7 @@ instance ToQuery CreateClusterSecurityGroup where
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
     { _creClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _creStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSecurityGroupResponse' smart constructor.
 createClusterSecurityGroupResponse :: Int -> CreateClusterSecurityGroupResponse

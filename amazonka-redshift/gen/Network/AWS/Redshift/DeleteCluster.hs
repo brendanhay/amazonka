@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DeleteCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ data DeleteCluster = DeleteCluster'
     { _delSkipFinalClusterSnapshot       :: !(Maybe Bool)
     , _delFinalClusterSnapshotIdentifier :: !(Maybe Text)
     , _delClusterIdentifier              :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCluster' smart constructor.
 deleteCluster :: Text -> DeleteCluster
@@ -158,7 +160,7 @@ instance ToQuery DeleteCluster where
 data DeleteClusterResponse = DeleteClusterResponse'
     { _delCluster :: !(Maybe Cluster)
     , _delStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterResponse' smart constructor.
 deleteClusterResponse :: Int -> DeleteClusterResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.ConfigureHealthCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data ConfigureHealthCheck = ConfigureHealthCheck'
     { _chcLoadBalancerName :: !Text
     , _chcHealthCheck      :: !HealthCheck
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigureHealthCheck' smart constructor.
 configureHealthCheck :: Text -> HealthCheck -> ConfigureHealthCheck
@@ -109,7 +111,7 @@ instance ToQuery ConfigureHealthCheck where
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
     { _chcrHealthCheck :: !(Maybe HealthCheck)
     , _chcrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigureHealthCheckResponse' smart constructor.
 configureHealthCheckResponse :: Int -> ConfigureHealthCheckResponse

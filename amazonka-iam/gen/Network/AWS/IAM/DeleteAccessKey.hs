@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteAccessKey
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DeleteAccessKey = DeleteAccessKey'
     { _dakUserName    :: !(Maybe Text)
     , _dakAccessKeyId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccessKey' smart constructor.
 deleteAccessKey :: Text -> DeleteAccessKey
@@ -96,7 +98,7 @@ instance ToQuery DeleteAccessKey where
 -- | /See:/ 'deleteAccessKeyResponse' smart constructor.
 data DeleteAccessKeyResponse =
     DeleteAccessKeyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccessKeyResponse' smart constructor.
 deleteAccessKeyResponse :: DeleteAccessKeyResponse

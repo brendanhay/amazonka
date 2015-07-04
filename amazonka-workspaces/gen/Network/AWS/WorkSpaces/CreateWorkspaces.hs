@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.WorkSpaces.CreateWorkspaces
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.WorkSpaces.Types
 -- * 'cwWorkspaces'
 newtype CreateWorkspaces = CreateWorkspaces'
     { _cwWorkspaces :: List1 WorkspaceRequest
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateWorkspaces' smart constructor.
 createWorkspaces :: NonEmpty WorkspaceRequest -> CreateWorkspaces
@@ -112,7 +114,7 @@ data CreateWorkspacesResponse = CreateWorkspacesResponse'
     { _cwrFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
     , _cwrPendingRequests :: !(Maybe [Workspace])
     , _cwrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateWorkspacesResponse' smart constructor.
 createWorkspacesResponse :: Int -> CreateWorkspacesResponse

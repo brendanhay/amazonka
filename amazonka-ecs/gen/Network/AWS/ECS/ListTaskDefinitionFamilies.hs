@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.ListTaskDefinitionFamilies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
     { _ltdfFamilyPrefix :: !(Maybe Text)
     , _ltdfNextToken    :: !(Maybe Text)
     , _ltdfMaxResults   :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitionFamilies' smart constructor.
 listTaskDefinitionFamilies :: ListTaskDefinitionFamilies
@@ -153,7 +155,7 @@ data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
     { _ltdfrFamilies  :: !(Maybe [Text])
     , _ltdfrNextToken :: !(Maybe Text)
     , _ltdfrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitionFamiliesResponse' smart constructor.
 listTaskDefinitionFamiliesResponse :: Int -> ListTaskDefinitionFamiliesResponse

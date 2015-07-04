@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.UnmonitorInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data UnmonitorInstances = UnmonitorInstances'
     { _uiDryRun      :: !(Maybe Bool)
     , _uiInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnmonitorInstances' smart constructor.
 unmonitorInstances :: UnmonitorInstances
@@ -112,7 +114,7 @@ instance ToQuery UnmonitorInstances where
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
     { _uirInstanceMonitorings :: !(Maybe [InstanceMonitoring])
     , _uirStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnmonitorInstancesResponse' smart constructor.
 unmonitorInstancesResponse :: Int -> UnmonitorInstancesResponse

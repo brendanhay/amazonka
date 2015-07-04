@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.RunTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data RunTask = RunTask'
     , _rtCount          :: !(Maybe Int)
     , _rtStartedBy      :: !(Maybe Text)
     , _rtTaskDefinition :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunTask' smart constructor.
 runTask :: Text -> RunTask
@@ -173,7 +175,7 @@ data RunTaskResponse = RunTaskResponse'
     { _rtrFailures :: !(Maybe [Failure])
     , _rtrTasks    :: !(Maybe [Task])
     , _rtrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunTaskResponse' smart constructor.
 runTaskResponse :: Int -> RunTaskResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.GetFunctionConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.Response
 -- * 'gfcFunctionName'
 newtype GetFunctionConfiguration = GetFunctionConfiguration'
     { _gfcFunctionName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFunctionConfiguration' smart constructor.
 getFunctionConfiguration :: Text -> GetFunctionConfiguration

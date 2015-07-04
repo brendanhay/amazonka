@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ImportExport.GetStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ import           Network.AWS.Response
 data GetStatus = GetStatus'
     { _gsAPIVersion :: !(Maybe Text)
     , _gsJobId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStatus' smart constructor.
 getStatus :: Text -> GetStatus
@@ -187,7 +189,7 @@ data GetStatusResponse = GetStatusResponse'
     , _gsrProgressMessage       :: !(Maybe Text)
     , _gsrLocationMessage       :: !(Maybe Text)
     , _gsrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStatusResponse' smart constructor.
 getStatusResponse :: Int -> GetStatusResponse

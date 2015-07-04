@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteLaunchConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 -- * 'dlcLaunchConfigurationName'
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
     { _dlcLaunchConfigurationName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLaunchConfiguration' smart constructor.
 deleteLaunchConfiguration :: Text -> DeleteLaunchConfiguration
@@ -87,7 +89,7 @@ instance ToQuery DeleteLaunchConfiguration where
 -- | /See:/ 'deleteLaunchConfigurationResponse' smart constructor.
 data DeleteLaunchConfigurationResponse =
     DeleteLaunchConfigurationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLaunchConfigurationResponse' smart constructor.
 deleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse

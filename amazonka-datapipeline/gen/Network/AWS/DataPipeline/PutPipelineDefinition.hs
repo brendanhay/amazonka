@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.PutPipelineDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data PutPipelineDefinition = PutPipelineDefinition'
     , _ppdParameterValues  :: !(Maybe [ParameterValue])
     , _ppdPipelineId       :: !Text
     , _ppdPipelineObjects  :: ![PipelineObject]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutPipelineDefinition' smart constructor.
 putPipelineDefinition :: Text -> PutPipelineDefinition
@@ -161,7 +163,7 @@ data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
     , _ppdrValidationWarnings :: !(Maybe [ValidationWarning])
     , _ppdrStatus             :: !Int
     , _ppdrErrored            :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
 putPipelineDefinitionResponse :: Int -> Bool -> PutPipelineDefinitionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualInterfaces
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ import           Network.AWS.Response
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
     { _dviConnectionId       :: !(Maybe Text)
     , _dviVirtualInterfaceId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualInterfaces' smart constructor.
 describeVirtualInterfaces :: DescribeVirtualInterfaces
@@ -129,7 +131,7 @@ instance ToQuery DescribeVirtualInterfaces where
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
     { _desVirtualInterfaces :: !(Maybe [VirtualInterface])
     , _desStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
 describeVirtualInterfacesResponse :: Int -> DescribeVirtualInterfacesResponse

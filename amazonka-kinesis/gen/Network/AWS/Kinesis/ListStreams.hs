@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.ListStreams
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ import           Network.AWS.Response
 data ListStreams = ListStreams'
     { _lsLimit                    :: !(Maybe Nat)
     , _lsExclusiveStartStreamName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreams' smart constructor.
 listStreams :: ListStreams
@@ -147,7 +149,7 @@ data ListStreamsResponse = ListStreamsResponse'
     { _lsrStatus         :: !Int
     , _lsrStreamNames    :: ![Text]
     , _lsrHasMoreStreams :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamsResponse' smart constructor.
 listStreamsResponse :: Int -> Bool -> ListStreamsResponse

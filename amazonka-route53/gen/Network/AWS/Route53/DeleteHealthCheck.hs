@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.DeleteHealthCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Route53.Types
 -- * 'dhcHealthCheckId'
 newtype DeleteHealthCheck = DeleteHealthCheck'
     { _dhcHealthCheckId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHealthCheck' smart constructor.
 deleteHealthCheck :: Text -> DeleteHealthCheck
@@ -102,7 +104,7 @@ instance ToQuery DeleteHealthCheck where
 -- * 'dhcrStatus'
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
     { _dhcrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHealthCheckResponse' smart constructor.
 deleteHealthCheckResponse :: Int -> DeleteHealthCheckResponse

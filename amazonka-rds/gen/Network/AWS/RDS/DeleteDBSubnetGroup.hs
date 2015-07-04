@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'delDBSubnetGroupName'
 newtype DeleteDBSubnetGroup = DeleteDBSubnetGroup'
     { _delDBSubnetGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBSubnetGroup' smart constructor.
 deleteDBSubnetGroup :: Text -> DeleteDBSubnetGroup
@@ -93,7 +95,7 @@ instance ToQuery DeleteDBSubnetGroup where
 -- | /See:/ 'deleteDBSubnetGroupResponse' smart constructor.
 data DeleteDBSubnetGroupResponse =
     DeleteDBSubnetGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBSubnetGroupResponse' smart constructor.
 deleteDBSubnetGroupResponse :: DeleteDBSubnetGroupResponse

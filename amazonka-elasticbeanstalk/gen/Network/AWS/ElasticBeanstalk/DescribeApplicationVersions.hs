@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data DescribeApplicationVersions = DescribeApplicationVersions'
     { _dVersionLabels   :: !(Maybe [Text])
     , _dApplicationName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationVersions' smart constructor.
 describeApplicationVersions :: DescribeApplicationVersions
@@ -116,7 +118,7 @@ instance ToQuery DescribeApplicationVersions where
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
     { _davrApplicationVersions :: !(Maybe [ApplicationVersionDescription])
     , _davrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationVersionsResponse' smart constructor.
 describeApplicationVersionsResponse :: Int -> DescribeApplicationVersionsResponse

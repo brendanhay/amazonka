@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarms
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ data DescribeAlarms = DescribeAlarms'
     , _daStateValue      :: !(Maybe StateValue)
     , _daAlarmNames      :: !(Maybe [Text])
     , _daMaxRecords      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarms' smart constructor.
 describeAlarms :: DescribeAlarms
@@ -166,7 +168,7 @@ data DescribeAlarmsResponse = DescribeAlarmsResponse'
     { _darMetricAlarms :: !(Maybe [MetricAlarm])
     , _darNextToken    :: !(Maybe Text)
     , _darStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmsResponse' smart constructor.
 describeAlarmsResponse :: Int -> DescribeAlarmsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -118,7 +120,7 @@ data UpdateStack = UpdateStack'
     , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
     , _usHostnameTheme             :: !(Maybe Text)
     , _usStackId                   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
@@ -378,7 +380,7 @@ instance ToQuery UpdateStack where
 -- | /See:/ 'updateStackResponse' smart constructor.
 data UpdateStackResponse =
     UpdateStackResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStackResponse' smart constructor.
 updateStackResponse :: UpdateStackResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.UpdateTable
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data UpdateTable = UpdateTable'
     , _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
     , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
     , _utTableName                   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTable' smart constructor.
 updateTable :: Text -> UpdateTable
@@ -165,7 +167,7 @@ instance ToQuery UpdateTable where
 data UpdateTableResponse = UpdateTableResponse'
     { _utrTableDescription :: !(Maybe TableDescription)
     , _utrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTableResponse' smart constructor.
 updateTableResponse :: Int -> UpdateTableResponse

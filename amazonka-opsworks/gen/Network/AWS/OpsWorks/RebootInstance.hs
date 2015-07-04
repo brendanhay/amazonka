@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.RebootInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'riInstanceId'
 newtype RebootInstance = RebootInstance'
     { _riInstanceId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootInstance' smart constructor.
 rebootInstance :: Text -> RebootInstance
@@ -92,7 +94,7 @@ instance ToQuery RebootInstance where
 -- | /See:/ 'rebootInstanceResponse' smart constructor.
 data RebootInstanceResponse =
     RebootInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootInstanceResponse' smart constructor.
 rebootInstanceResponse :: RebootInstanceResponse

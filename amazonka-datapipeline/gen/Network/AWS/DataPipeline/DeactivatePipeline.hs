@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.DeactivatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data DeactivatePipeline = DeactivatePipeline'
     { _deaCancelActive :: !(Maybe Bool)
     , _deaPipelineId   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivatePipeline' smart constructor.
 deactivatePipeline :: Text -> DeactivatePipeline
@@ -117,7 +119,7 @@ instance ToQuery DeactivatePipeline where
 -- * 'deaStatus'
 newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
     { _deaStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivatePipelineResponse' smart constructor.
 deactivatePipelineResponse :: Int -> DeactivatePipelineResponse

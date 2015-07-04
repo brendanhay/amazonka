@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'dsdsDryRun'
 newtype DescribeSpotDatafeedSubscription = DescribeSpotDatafeedSubscription'
     { _dsdsDryRun :: Maybe Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotDatafeedSubscription' smart constructor.
 describeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription
@@ -109,7 +111,7 @@ instance ToQuery DescribeSpotDatafeedSubscription
 data DescribeSpotDatafeedSubscriptionResponse = DescribeSpotDatafeedSubscriptionResponse'
     { _dsdsrSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
     , _dsdsrStatus                   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotDatafeedSubscriptionResponse' smart constructor.
 describeSpotDatafeedSubscriptionResponse :: Int -> DescribeSpotDatafeedSubscriptionResponse

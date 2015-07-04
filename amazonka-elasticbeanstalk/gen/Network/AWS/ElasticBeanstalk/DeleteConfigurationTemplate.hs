@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteConfigurationTemplate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data DeleteConfigurationTemplate = DeleteConfigurationTemplate'
     { _dctApplicationName :: !Text
     , _dctTemplateName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteConfigurationTemplate' smart constructor.
 deleteConfigurationTemplate :: Text -> Text -> DeleteConfigurationTemplate
@@ -100,7 +102,7 @@ instance ToQuery DeleteConfigurationTemplate where
 -- | /See:/ 'deleteConfigurationTemplateResponse' smart constructor.
 data DeleteConfigurationTemplateResponse =
     DeleteConfigurationTemplateResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteConfigurationTemplateResponse' smart constructor.
 deleteConfigurationTemplateResponse :: DeleteConfigurationTemplateResponse

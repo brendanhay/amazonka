@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutObjectACL
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -88,7 +90,7 @@ data PutObjectACL = PutObjectACL'
     , _poaACL                 :: !(Maybe ObjectCannedACL)
     , _poaBucket              :: !BucketName
     , _poaKey                 :: !ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutObjectACL' smart constructor.
 putObjectACL :: BucketName -> ObjectKey -> PutObjectACL
@@ -201,7 +203,7 @@ instance ToQuery PutObjectACL where
 data PutObjectACLResponse = PutObjectACLResponse'
     { _poarRequestCharged :: !(Maybe RequestCharged)
     , _poarStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutObjectACLResponse' smart constructor.
 putObjectACLResponse :: Int -> PutObjectACLResponse

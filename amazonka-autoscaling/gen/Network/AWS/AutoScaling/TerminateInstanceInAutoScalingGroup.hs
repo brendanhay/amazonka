@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
     { _tiiasgInstanceId                     :: !Text
     , _tiiasgShouldDecrementDesiredCapacity :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstanceInAutoScalingGroup' smart constructor.
 terminateInstanceInAutoScalingGroup :: Text -> Bool -> TerminateInstanceInAutoScalingGroup
@@ -118,7 +120,7 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
     { _tiiasgrActivity :: !(Maybe Activity)
     , _tiiasgrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' smart constructor.
 terminateInstanceInAutoScalingGroupResponse :: Int -> TerminateInstanceInAutoScalingGroupResponse

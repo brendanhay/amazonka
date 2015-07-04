@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeOrderableDBInstanceOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data DescribeOrderableDBInstanceOptions = DescribeOrderableDBInstanceOptions'
     , _dodioMarker          :: !(Maybe Text)
     , _dodioVPC             :: !(Maybe Bool)
     , _dodioEngine          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOrderableDBInstanceOptions' smart constructor.
 describeOrderableDBInstanceOptions :: Text -> DescribeOrderableDBInstanceOptions
@@ -207,7 +209,7 @@ data DescribeOrderableDBInstanceOptionsResponse = DescribeOrderableDBInstanceOpt
     { _dodiorOrderableDBInstanceOptions :: !(Maybe [OrderableDBInstanceOption])
     , _dodiorMarker                     :: !(Maybe Text)
     , _dodiorStatus                     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOrderableDBInstanceOptionsResponse' smart constructor.
 describeOrderableDBInstanceOptionsResponse :: Int -> DescribeOrderableDBInstanceOptionsResponse

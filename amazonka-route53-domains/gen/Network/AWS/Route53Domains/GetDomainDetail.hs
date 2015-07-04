@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.GetDomainDetail
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ import           Network.AWS.Route53Domains.Types
 -- * 'gddDomainName'
 newtype GetDomainDetail = GetDomainDetail'
     { _gddDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDomainDetail' smart constructor.
 getDomainDetail :: Text -> GetDomainDetail
@@ -215,7 +217,7 @@ data GetDomainDetailResponse = GetDomainDetailResponse'
     , _gddrAdminContact      :: !(Sensitive ContactDetail)
     , _gddrRegistrantContact :: !(Sensitive ContactDetail)
     , _gddrTechContact       :: !(Sensitive ContactDetail)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDomainDetailResponse' smart constructor.
 getDomainDetailResponse :: Int -> Text -> ContactDetail -> ContactDetail -> ContactDetail -> GetDomainDetailResponse

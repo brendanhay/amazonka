@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.UploadPartCopy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -117,7 +119,7 @@ data UploadPartCopy = UploadPartCopy'
     , _upcKey                            :: !ObjectKey
     , _upcPartNumber                     :: !Int
     , _upcUploadId                       :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'UploadPartCopy' smart constructor.
 uploadPartCopy :: BucketName -> Text -> ObjectKey -> Int -> Text -> UploadPartCopy
@@ -318,7 +320,7 @@ data UploadPartCopyResponse = UploadPartCopyResponse'
     , _upcrSSECustomerKeyMD5    :: !(Maybe Text)
     , _upcrServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _upcrStatus               :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'UploadPartCopyResponse' smart constructor.
 uploadPartCopyResponse :: Int -> UploadPartCopyResponse

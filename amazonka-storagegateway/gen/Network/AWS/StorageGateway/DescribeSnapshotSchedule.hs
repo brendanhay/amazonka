@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeSnapshotSchedule
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dssVolumeARN'
 newtype DescribeSnapshotSchedule = DescribeSnapshotSchedule'
     { _dssVolumeARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotSchedule' smart constructor.
 describeSnapshotSchedule :: Text -> DescribeSnapshotSchedule
@@ -127,7 +129,7 @@ data DescribeSnapshotScheduleResponse = DescribeSnapshotScheduleResponse'
     , _dssrTimezone          :: !(Maybe Text)
     , _dssrDescription       :: !(Maybe Text)
     , _dssrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotScheduleResponse' smart constructor.
 describeSnapshotScheduleResponse :: Int -> DescribeSnapshotScheduleResponse

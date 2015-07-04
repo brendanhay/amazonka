@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.GetChange
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Route53.Types
 -- * 'gcId'
 newtype GetChange = GetChange'
     { _gcId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetChange' smart constructor.
 getChange :: Text -> GetChange
@@ -104,7 +106,7 @@ instance ToQuery GetChange where
 data GetChangeResponse = GetChangeResponse'
     { _gcrStatus     :: !Int
     , _gcrChangeInfo :: !ChangeInfo
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetChangeResponse' smart constructor.
 getChangeResponse :: Int -> ChangeInfo -> GetChangeResponse

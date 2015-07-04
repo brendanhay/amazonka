@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumeAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data DescribeVolumeAttribute = DescribeVolumeAttribute'
     { _dvaAttribute :: !(Maybe VolumeAttributeName)
     , _dvaDryRun    :: !(Maybe Bool)
     , _dvaVolumeId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeAttribute' smart constructor.
 describeVolumeAttribute :: Text -> DescribeVolumeAttribute
@@ -134,7 +136,7 @@ data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
     , _dvarVolumeId     :: !(Maybe Text)
     , _dvarAutoEnableIO :: !(Maybe AttributeBooleanValue)
     , _dvarStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeAttributeResponse' smart constructor.
 describeVolumeAttributeResponse :: Int -> DescribeVolumeAttributeResponse

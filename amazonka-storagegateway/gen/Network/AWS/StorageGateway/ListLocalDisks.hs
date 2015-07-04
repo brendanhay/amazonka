@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.ListLocalDisks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'lldGatewayARN'
 newtype ListLocalDisks = ListLocalDisks'
     { _lldGatewayARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLocalDisks' smart constructor.
 listLocalDisks :: Text -> ListLocalDisks
@@ -116,7 +118,7 @@ data ListLocalDisksResponse = ListLocalDisksResponse'
     { _lldrGatewayARN :: !(Maybe Text)
     , _lldrDisks      :: !(Maybe [Disk])
     , _lldrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLocalDisksResponse' smart constructor.
 listLocalDisksResponse :: Int -> ListLocalDisksResponse

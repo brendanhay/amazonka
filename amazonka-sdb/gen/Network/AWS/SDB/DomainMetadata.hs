@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.DomainMetadata
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.SDB.Types
 -- * 'dmDomainName'
 newtype DomainMetadata = DomainMetadata'
     { _dmDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DomainMetadata' smart constructor.
 domainMetadata :: Text -> DomainMetadata
@@ -126,7 +128,7 @@ data DomainMetadataResponse = DomainMetadataResponse'
     , _dmrTimestamp                :: !(Maybe Int)
     , _dmrItemCount                :: !(Maybe Int)
     , _dmrStatus                   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DomainMetadataResponse' smart constructor.
 domainMetadataResponse :: Int -> DomainMetadataResponse

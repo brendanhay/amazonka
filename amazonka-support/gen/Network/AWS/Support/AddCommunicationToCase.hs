@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.AddCommunicationToCase
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data AddCommunicationToCase = AddCommunicationToCase'
     , _actcCcEmailAddresses  :: !(Maybe [Text])
     , _actcAttachmentSetId   :: !(Maybe Text)
     , _actcCommunicationBody :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddCommunicationToCase' smart constructor.
 addCommunicationToCase :: Text -> AddCommunicationToCase
@@ -149,7 +151,7 @@ instance ToQuery AddCommunicationToCase where
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
     { _actcrResult :: !(Maybe Bool)
     , _actcrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddCommunicationToCaseResponse' smart constructor.
 addCommunicationToCaseResponse :: Int -> AddCommunicationToCaseResponse

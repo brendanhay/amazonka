@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- * 'delDBParameterGroupName'
 newtype DeleteDBParameterGroup = DeleteDBParameterGroup'
     { _delDBParameterGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBParameterGroup' smart constructor.
 deleteDBParameterGroup :: Text -> DeleteDBParameterGroup
@@ -91,7 +93,7 @@ instance ToQuery DeleteDBParameterGroup where
 -- | /See:/ 'deleteDBParameterGroupResponse' smart constructor.
 data DeleteDBParameterGroupResponse =
     DeleteDBParameterGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBParameterGroupResponse' smart constructor.
 deleteDBParameterGroupResponse :: DeleteDBParameterGroupResponse

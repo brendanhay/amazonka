@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.VerifyDomainIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.SES.Types
 -- * 'vdiDomain'
 newtype VerifyDomainIdentity = VerifyDomainIdentity'
     { _vdiDomain :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainIdentity' smart constructor.
 verifyDomainIdentity :: Text -> VerifyDomainIdentity
@@ -101,7 +103,7 @@ instance ToQuery VerifyDomainIdentity where
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
     { _vdirStatus            :: !Int
     , _vdirVerificationToken :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainIdentityResponse' smart constructor.
 verifyDomainIdentityResponse :: Int -> Text -> VerifyDomainIdentityResponse

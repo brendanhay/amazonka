@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.SetVaultAccessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data SetVaultAccessPolicy = SetVaultAccessPolicy'
     { _svapPolicy    :: !(Maybe VaultAccessPolicy)
     , _svapAccountId :: !Text
     , _svapVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultAccessPolicy' smart constructor.
 setVaultAccessPolicy :: Text -> Text -> SetVaultAccessPolicy
@@ -113,7 +115,7 @@ instance ToQuery SetVaultAccessPolicy where
 -- | /See:/ 'setVaultAccessPolicyResponse' smart constructor.
 data SetVaultAccessPolicyResponse =
     SetVaultAccessPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVaultAccessPolicyResponse' smart constructor.
 setVaultAccessPolicyResponse :: SetVaultAccessPolicyResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutObject
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -150,7 +152,7 @@ data PutObject = PutObject'
     , _poBucket                  :: !BucketName
     , _poKey                     :: !ObjectKey
     , _poBody                    :: !RqBody
-    } deriving (Show)
+    } deriving (Show,Data,Typeable,Generic)
 
 -- | 'PutObject' smart constructor.
 putObject :: BucketName -> ObjectKey -> RqBody -> PutObject
@@ -396,7 +398,7 @@ data PutObjectResponse = PutObjectResponse'
     , _porSSECustomerKeyMD5    :: !(Maybe Text)
     , _porServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _porStatus               :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutObjectResponse' smart constructor.
 putObjectResponse :: Int -> PutObjectResponse

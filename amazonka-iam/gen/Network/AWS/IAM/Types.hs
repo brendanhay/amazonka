@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -455,7 +457,7 @@ data AssignmentStatusType
     = Assigned
     | Unassigned
     | Any
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AssignmentStatusType where
     parser = takeLowerText >>= \case
@@ -471,9 +473,7 @@ instance ToText AssignmentStatusType where
         Assigned -> "assigned"
         Unassigned -> "unassigned"
 
-instance Hashable AssignmentStatusType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AssignmentStatusType
 instance ToQuery AssignmentStatusType
 instance ToHeader AssignmentStatusType
 
@@ -483,7 +483,7 @@ data EntityType
     | AWSManagedPolicy
     | User
     | Role
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EntityType where
     parser = takeLowerText >>= \case
@@ -503,9 +503,7 @@ instance ToText EntityType where
         Role -> "role"
         User -> "user"
 
-instance Hashable EntityType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EntityType
 instance ToQuery EntityType
 instance ToHeader EntityType
 
@@ -513,7 +511,7 @@ data PolicyScopeType
     = AWS
     | Local
     | All
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PolicyScopeType where
     parser = takeLowerText >>= \case
@@ -529,15 +527,13 @@ instance ToText PolicyScopeType where
         All -> "all"
         Local -> "local"
 
-instance Hashable PolicyScopeType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable PolicyScopeType
 instance ToQuery PolicyScopeType
 instance ToHeader PolicyScopeType
 
 data ReportFormatType =
     TextCSV
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReportFormatType where
     parser = takeLowerText >>= \case
@@ -549,9 +545,7 @@ instance ToText ReportFormatType where
     toText = \case
         TextCSV -> "text/csv"
 
-instance Hashable ReportFormatType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReportFormatType
 instance ToQuery ReportFormatType
 instance ToHeader ReportFormatType
 
@@ -562,7 +556,7 @@ data ReportStateType
     = Inprogress
     | Started
     | Complete
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReportStateType where
     parser = takeLowerText >>= \case
@@ -578,9 +572,7 @@ instance ToText ReportStateType where
         Inprogress -> "inprogress"
         Started -> "started"
 
-instance Hashable ReportStateType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReportStateType
 instance ToQuery ReportStateType
 instance ToHeader ReportStateType
 
@@ -590,7 +582,7 @@ instance FromXML ReportStateType where
 data StatusType
     = Inactive
     | Active
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
@@ -604,9 +596,7 @@ instance ToText StatusType where
         Active -> "active"
         Inactive -> "inactive"
 
-instance Hashable StatusType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StatusType
 instance ToQuery StatusType
 instance ToHeader StatusType
 
@@ -639,7 +629,7 @@ data SummaryKeyType
     | Policies
     | AccountMFAEnabled
     | MFADevices
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SummaryKeyType where
     parser = takeLowerText >>= \case
@@ -699,9 +689,7 @@ instance ToText SummaryKeyType where
         UsersQuota -> "usersquota"
         VersionsPerPolicyQuota -> "versionsperpolicyquota"
 
-instance Hashable SummaryKeyType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SummaryKeyType
 instance ToQuery SummaryKeyType
 instance ToHeader SummaryKeyType
 
@@ -737,7 +725,7 @@ data AccessKey = AccessKey'
     , _akAccessKeyId     :: !Text
     , _akStatus          :: !StatusType
     , _akSecretAccessKey :: !(Sensitive Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessKey' smart constructor.
 accessKey :: Text -> Text -> StatusType -> Text -> AccessKey
@@ -797,7 +785,7 @@ data AccessKeyLastUsed = AccessKeyLastUsed'
     { _akluLastUsedDate :: !ISO8601
     , _akluServiceName  :: !Text
     , _akluRegion       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessKeyLastUsed' smart constructor.
 accessKeyLastUsed :: UTCTime -> Text -> Text -> AccessKeyLastUsed
@@ -878,7 +866,7 @@ data AccessKeyMetadata = AccessKeyMetadata'
     , _akmCreateDate  :: !(Maybe ISO8601)
     , _akmUserName    :: !(Maybe Text)
     , _akmAccessKeyId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessKeyMetadata' smart constructor.
 accessKeyMetadata :: AccessKeyMetadata
@@ -935,7 +923,7 @@ instance FromXML AccessKeyMetadata where
 data AttachedPolicy = AttachedPolicy'
     { _apPolicyName :: !(Maybe Text)
     , _apPolicyARN  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachedPolicy' smart constructor.
 attachedPolicy :: AttachedPolicy
@@ -985,7 +973,7 @@ data Group = Group'
     , _groGroupId    :: !Text
     , _groARN        :: !Text
     , _groCreateDate :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Group' smart constructor.
 group' :: Text -> Text -> Text -> Text -> UTCTime -> Group
@@ -1067,7 +1055,7 @@ data GroupDetail = GroupDetail'
     , _gdGroupPolicyList         :: !(Maybe [PolicyDetail])
     , _gdGroupName               :: !(Maybe Text)
     , _gdAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GroupDetail' smart constructor.
 groupDetail :: GroupDetail
@@ -1166,7 +1154,7 @@ data InstanceProfile = InstanceProfile'
     , _ipARN                 :: !Text
     , _ipCreateDate          :: !ISO8601
     , _ipRoles               :: ![Role]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceProfile' smart constructor.
 instanceProfile :: Text -> Text -> Text -> Text -> UTCTime -> InstanceProfile
@@ -1240,7 +1228,7 @@ data LoginProfile = LoginProfile'
     { _lpPasswordResetRequired :: !(Maybe Bool)
     , _lpUserName              :: !Text
     , _lpCreateDate            :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoginProfile' smart constructor.
 loginProfile :: Text -> UTCTime -> LoginProfile
@@ -1289,7 +1277,7 @@ data MFADevice = MFADevice'
     { _mdUserName     :: !Text
     , _mdSerialNumber :: !Text
     , _mdEnableDate   :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MFADevice' smart constructor.
 mfaDevice :: Text -> Text -> UTCTime -> MFADevice
@@ -1367,7 +1355,7 @@ data ManagedPolicyDetail = ManagedPolicyDetail'
     , _mpdDefaultVersionId  :: !(Maybe Text)
     , _mpdAttachmentCount   :: !(Maybe Int)
     , _mpdDescription       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ManagedPolicyDetail' smart constructor.
 managedPolicyDetail :: ManagedPolicyDetail
@@ -1480,7 +1468,7 @@ instance FromXML ManagedPolicyDetail where
 -- * 'oidcpleARN'
 newtype OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'
     { _oidcpleARN :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OpenIDConnectProviderListEntry' smart constructor.
 openIDConnectProviderListEntry :: OpenIDConnectProviderListEntry
@@ -1536,7 +1524,7 @@ data PasswordPolicy = PasswordPolicy'
     , _ppRequireSymbols             :: !(Maybe Bool)
     , _ppRequireUppercaseCharacters :: !(Maybe Bool)
     , _ppAllowUsersToChangePassword :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PasswordPolicy' smart constructor.
 passwordPolicy :: PasswordPolicy
@@ -1656,7 +1644,7 @@ data Policy = Policy'
     , _polDefaultVersionId :: !(Maybe Text)
     , _polAttachmentCount  :: !(Maybe Int)
     , _polDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Policy' smart constructor.
 policy :: Policy
@@ -1765,7 +1753,7 @@ instance FromXML Policy where
 data PolicyDetail = PolicyDetail'
     { _pdPolicyDocument :: !(Maybe Text)
     , _pdPolicyName     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyDetail' smart constructor.
 policyDetail :: PolicyDetail
@@ -1804,7 +1792,7 @@ instance FromXML PolicyDetail where
 -- * 'pgGroupName'
 newtype PolicyGroup = PolicyGroup'
     { _pgGroupName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyGroup' smart constructor.
 policyGroup :: PolicyGroup
@@ -1836,7 +1824,7 @@ instance FromXML PolicyGroup where
 -- * 'prRoleName'
 newtype PolicyRole = PolicyRole'
     { _prRoleName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyRole' smart constructor.
 policyRole :: PolicyRole
@@ -1868,7 +1856,7 @@ instance FromXML PolicyRole where
 -- * 'puUserName'
 newtype PolicyUser = PolicyUser'
     { _puUserName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyUser' smart constructor.
 policyUser :: PolicyUser
@@ -1910,7 +1898,7 @@ data PolicyVersion = PolicyVersion'
     , _pvCreateDate       :: !(Maybe ISO8601)
     , _pvDocument         :: !(Maybe Text)
     , _pvIsDefaultVersion :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyVersion' smart constructor.
 policyVersion :: PolicyVersion
@@ -1988,7 +1976,7 @@ data Role = Role'
     , _rolRoleId                   :: !Text
     , _rolARN                      :: !Text
     , _rolCreateDate               :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Role' smart constructor.
 role :: Text -> Text -> Text -> Text -> UTCTime -> Role
@@ -2082,7 +2070,7 @@ data RoleDetail = RoleDetail'
     , _rdRoleId                   :: !(Maybe Text)
     , _rdRolePolicyList           :: !(Maybe [PolicyDetail])
     , _rdAttachedManagedPolicies  :: !(Maybe [AttachedPolicy])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RoleDetail' smart constructor.
 roleDetail :: RoleDetail
@@ -2177,7 +2165,7 @@ data SAMLProviderListEntry = SAMLProviderListEntry'
     { _samlpleARN        :: !(Maybe Text)
     , _samlpleCreateDate :: !(Maybe ISO8601)
     , _samlpleValidUntil :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SAMLProviderListEntry' smart constructor.
 sAMLProviderListEntry :: SAMLProviderListEntry
@@ -2224,7 +2212,7 @@ data ServerCertificate = ServerCertificate'
     { _serCertificateChain          :: !(Maybe Text)
     , _serServerCertificateMetadata :: !ServerCertificateMetadata
     , _serCertificateBody           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ServerCertificate' smart constructor.
 serverCertificate :: ServerCertificateMetadata -> Text -> ServerCertificate
@@ -2283,7 +2271,7 @@ data ServerCertificateMetadata = ServerCertificateMetadata'
     , _scmServerCertificateName :: !Text
     , _scmServerCertificateId   :: !Text
     , _scmARN                   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ServerCertificateMetadata' smart constructor.
 serverCertificateMetadata :: Text -> Text -> Text -> Text -> ServerCertificateMetadata
@@ -2363,7 +2351,7 @@ data SigningCertificate = SigningCertificate'
     , _scCertificateId   :: !Text
     , _scCertificateBody :: !Text
     , _scStatus          :: !StatusType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SigningCertificate' smart constructor.
 signingCertificate :: Text -> Text -> Text -> StatusType -> SigningCertificate
@@ -2438,7 +2426,7 @@ data User = User'
     , _useUserId           :: !Text
     , _useARN              :: !Text
     , _useCreateDate       :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'User' smart constructor.
 user :: Text -> Text -> Text -> Text -> UTCTime -> User
@@ -2545,7 +2533,7 @@ data UserDetail = UserDetail'
     , _udUserId                  :: !(Maybe Text)
     , _udUserPolicyList          :: !(Maybe [PolicyDetail])
     , _udAttachedManagedPolicies :: !(Maybe [AttachedPolicy])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UserDetail' smart constructor.
 userDetail :: UserDetail
@@ -2637,7 +2625,7 @@ data VirtualMFADevice = VirtualMFADevice'
     , _vmdUser             :: !(Maybe User)
     , _vmdEnableDate       :: !(Maybe ISO8601)
     , _vmdSerialNumber     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VirtualMFADevice' smart constructor.
 virtualMFADevice :: Text -> VirtualMFADevice

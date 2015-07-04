@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreateUser
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data CreateUser = CreateUser'
     { _cuPath     :: !(Maybe Text)
     , _cuUserName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUser' smart constructor.
 createUser :: Text -> CreateUser
@@ -114,7 +116,7 @@ instance ToQuery CreateUser where
 data CreateUserResponse = CreateUserResponse'
     { _curUser   :: !(Maybe User)
     , _curStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUserResponse' smart constructor.
 createUserResponse :: Int -> CreateUserResponse

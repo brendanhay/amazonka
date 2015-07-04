@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.AttachRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.Response
 data AttachRolePolicy = AttachRolePolicy'
     { _arpRoleName  :: !Text
     , _arpPolicyARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachRolePolicy' smart constructor.
 attachRolePolicy :: Text -> Text -> AttachRolePolicy
@@ -101,7 +103,7 @@ instance ToQuery AttachRolePolicy where
 -- | /See:/ 'attachRolePolicyResponse' smart constructor.
 data AttachRolePolicyResponse =
     AttachRolePolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachRolePolicyResponse' smart constructor.
 attachRolePolicyResponse :: AttachRolePolicyResponse

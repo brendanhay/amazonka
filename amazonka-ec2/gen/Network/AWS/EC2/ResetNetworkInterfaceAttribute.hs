@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ResetNetworkInterfaceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ data ResetNetworkInterfaceAttribute = ResetNetworkInterfaceAttribute'
     { _rniaSourceDestCheck    :: !(Maybe Text)
     , _rniaDryRun             :: !(Maybe Bool)
     , _rniaNetworkInterfaceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetNetworkInterfaceAttribute' smart constructor.
 resetNetworkInterfaceAttribute :: Text -> ResetNetworkInterfaceAttribute
@@ -108,7 +110,7 @@ instance ToQuery ResetNetworkInterfaceAttribute where
 -- | /See:/ 'resetNetworkInterfaceAttributeResponse' smart constructor.
 data ResetNetworkInterfaceAttributeResponse =
     ResetNetworkInterfaceAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetNetworkInterfaceAttributeResponse' smart constructor.
 resetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse

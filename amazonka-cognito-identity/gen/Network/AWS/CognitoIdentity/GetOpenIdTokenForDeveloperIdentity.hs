@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetOpenIdTokenForDeveloperIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ data GetOpenIdTokenForDeveloperIdentity = GetOpenIdTokenForDeveloperIdentity'
     , _goitfdiIdentityId     :: !(Maybe Text)
     , _goitfdiIdentityPoolId :: !Text
     , _goitfdiLogins         :: !(Map Text Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdTokenForDeveloperIdentity' smart constructor.
 getOpenIdTokenForDeveloperIdentity :: Text -> GetOpenIdTokenForDeveloperIdentity
@@ -181,7 +183,7 @@ data GetOpenIdTokenForDeveloperIdentityResponse = GetOpenIdTokenForDeveloperIden
     { _goitfdirToken      :: !(Maybe Text)
     , _goitfdirIdentityId :: !(Maybe Text)
     , _goitfdirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdTokenForDeveloperIdentityResponse' smart constructor.
 getOpenIdTokenForDeveloperIdentityResponse :: Int -> GetOpenIdTokenForDeveloperIdentityResponse

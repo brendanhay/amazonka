@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
     { _prcnoCacheNodeCount               :: !(Maybe Int)
     , _prcnoReservedCacheNodeId          :: !(Maybe Text)
     , _prcnoReservedCacheNodesOfferingId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedCacheNodesOffering' smart constructor.
 purchaseReservedCacheNodesOffering :: Text -> PurchaseReservedCacheNodesOffering
@@ -131,7 +133,7 @@ instance ToQuery PurchaseReservedCacheNodesOffering
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
     { _prcnorReservedCacheNode :: !(Maybe ReservedCacheNode)
     , _prcnorStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' smart constructor.
 purchaseReservedCacheNodesOfferingResponse :: Int -> PurchaseReservedCacheNodesOfferingResponse

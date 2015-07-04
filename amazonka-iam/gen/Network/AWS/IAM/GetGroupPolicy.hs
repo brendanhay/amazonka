@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ import           Network.AWS.Response
 data GetGroupPolicy = GetGroupPolicy'
     { _ggpGroupName  :: !Text
     , _ggpPolicyName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroupPolicy' smart constructor.
 getGroupPolicy :: Text -> Text -> GetGroupPolicy
@@ -125,7 +127,7 @@ data GetGroupPolicyResponse = GetGroupPolicyResponse'
     , _ggprGroupName      :: !Text
     , _ggprPolicyName     :: !Text
     , _ggprPolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroupPolicyResponse' smart constructor.
 getGroupPolicyResponse :: Int -> Text -> Text -> Text -> GetGroupPolicyResponse

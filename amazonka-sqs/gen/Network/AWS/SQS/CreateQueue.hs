@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.CreateQueue
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ import           Network.AWS.SQS.Types
 data CreateQueue = CreateQueue'
     { _cqAttributes :: !(Maybe (Map QueueAttributeName Text))
     , _cqQueueName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateQueue' smart constructor.
 createQueue :: Text -> CreateQueue
@@ -162,7 +164,7 @@ instance ToQuery CreateQueue where
 data CreateQueueResponse = CreateQueueResponse'
     { _cqrQueueURL :: !(Maybe Text)
     , _cqrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateQueueResponse' smart constructor.
 createQueueResponse :: Int -> CreateQueueResponse

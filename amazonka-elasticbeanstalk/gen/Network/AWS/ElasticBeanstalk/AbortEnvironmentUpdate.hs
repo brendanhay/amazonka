@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
     { _aeuEnvironmentName :: !(Maybe Text)
     , _aeuEnvironmentId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortEnvironmentUpdate' smart constructor.
 abortEnvironmentUpdate :: AbortEnvironmentUpdate
@@ -97,7 +99,7 @@ instance ToQuery AbortEnvironmentUpdate where
 -- | /See:/ 'abortEnvironmentUpdateResponse' smart constructor.
 data AbortEnvironmentUpdateResponse =
     AbortEnvironmentUpdateResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortEnvironmentUpdateResponse' smart constructor.
 abortEnvironmentUpdateResponse :: AbortEnvironmentUpdateResponse

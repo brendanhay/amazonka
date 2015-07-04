@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.CopyDBSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data CopyDBSnapshot = CopyDBSnapshot'
     { _cdsTags                       :: !(Maybe [Tag])
     , _cdsSourceDBSnapshotIdentifier :: !Text
     , _cdsTargetDBSnapshotIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyDBSnapshot' smart constructor.
 copyDBSnapshot :: Text -> Text -> CopyDBSnapshot
@@ -141,7 +143,7 @@ instance ToQuery CopyDBSnapshot where
 data CopyDBSnapshotResponse = CopyDBSnapshotResponse'
     { _cdsrDBSnapshot :: !(Maybe DBSnapshot)
     , _cdsrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyDBSnapshotResponse' smart constructor.
 copyDBSnapshotResponse :: Int -> CopyDBSnapshotResponse

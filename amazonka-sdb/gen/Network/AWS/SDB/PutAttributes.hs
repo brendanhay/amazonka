@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.PutAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -91,7 +93,7 @@ data PutAttributes = PutAttributes'
     , _paDomainName :: !Text
     , _paItemName   :: !Text
     , _paAttributes :: ![ReplaceableAttribute]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutAttributes' smart constructor.
 putAttributes :: Text -> Text -> PutAttributes
@@ -147,7 +149,7 @@ instance ToQuery PutAttributes where
 -- | /See:/ 'putAttributesResponse' smart constructor.
 data PutAttributesResponse =
     PutAttributesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutAttributesResponse' smart constructor.
 putAttributesResponse :: PutAttributesResponse

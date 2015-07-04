@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyCacheSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data ModifyCacheSubnetGroup = ModifyCacheSubnetGroup'
     { _mcsgSubnetIds                   :: !(Maybe [Text])
     , _mcsgCacheSubnetGroupDescription :: !(Maybe Text)
     , _mcsgCacheSubnetGroupName        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheSubnetGroup' smart constructor.
 modifyCacheSubnetGroup :: Text -> ModifyCacheSubnetGroup
@@ -127,7 +129,7 @@ instance ToQuery ModifyCacheSubnetGroup where
 data ModifyCacheSubnetGroupResponse = ModifyCacheSubnetGroupResponse'
     { _mcsgrCacheSubnetGroup :: !(Maybe CacheSubnetGroup)
     , _mcsgrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheSubnetGroupResponse' smart constructor.
 modifyCacheSubnetGroupResponse :: Int -> ModifyCacheSubnetGroupResponse

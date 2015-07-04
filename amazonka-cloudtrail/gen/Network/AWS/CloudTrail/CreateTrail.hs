@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudTrail.CreateTrail
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ data CreateTrail = CreateTrail'
     , _ctCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _ctName                       :: !Text
     , _ctS3BucketName               :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTrail' smart constructor.
 createTrail :: Text -> Text -> CreateTrail
@@ -207,7 +209,7 @@ data CreateTrailResponse = CreateTrailResponse'
     , _ctrCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _ctrS3BucketName               :: !(Maybe Text)
     , _ctrStatus                     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTrailResponse' smart constructor.
 createTrailResponse :: Int -> CreateTrailResponse

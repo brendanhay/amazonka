@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.ListOperations
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Route53Domains.Types
 data ListOperations = ListOperations'
     { _loMaxItems :: !(Maybe Int)
     , _loMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOperations' smart constructor.
 listOperations :: ListOperations
@@ -147,7 +149,7 @@ data ListOperationsResponse = ListOperationsResponse'
     { _lorNextPageMarker :: !(Maybe Text)
     , _lorStatus         :: !Int
     , _lorOperations     :: ![OperationSummary]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOperationsResponse' smart constructor.
 listOperationsResponse :: Int -> ListOperationsResponse

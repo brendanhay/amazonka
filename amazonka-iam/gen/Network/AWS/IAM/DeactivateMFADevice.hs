@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeactivateMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DeactivateMFADevice = DeactivateMFADevice'
     { _dmdUserName     :: !Text
     , _dmdSerialNumber :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivateMFADevice' smart constructor.
 deactivateMFADevice :: Text -> Text -> DeactivateMFADevice
@@ -97,7 +99,7 @@ instance ToQuery DeactivateMFADevice where
 -- | /See:/ 'deactivateMFADeviceResponse' smart constructor.
 data DeactivateMFADeviceResponse =
     DeactivateMFADeviceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivateMFADeviceResponse' smart constructor.
 deactivateMFADeviceResponse :: DeactivateMFADeviceResponse

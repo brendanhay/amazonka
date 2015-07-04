@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.ListResourceRecordSets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -112,7 +114,7 @@ data ListResourceRecordSets = ListResourceRecordSets'
     , _lrrsStartRecordIdentifier :: !(Maybe Text)
     , _lrrsMaxItems              :: !(Maybe Text)
     , _lrrsHostedZoneId          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListResourceRecordSets' smart constructor.
 listResourceRecordSets :: Text -> ListResourceRecordSets
@@ -241,7 +243,7 @@ data ListResourceRecordSetsResponse = ListResourceRecordSetsResponse'
     , _lrrsrResourceRecordSets   :: ![ResourceRecordSet]
     , _lrrsrIsTruncated          :: !Bool
     , _lrrsrMaxItems             :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListResourceRecordSetsResponse' smart constructor.
 listResourceRecordSetsResponse :: Int -> Bool -> Text -> ListResourceRecordSetsResponse

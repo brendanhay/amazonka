@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.DeleteFunction
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'dfFunctionName'
 newtype DeleteFunction = DeleteFunction'
     { _dfFunctionName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFunction' smart constructor.
 deleteFunction :: Text -> DeleteFunction
@@ -92,7 +94,7 @@ instance ToQuery DeleteFunction where
 -- | /See:/ 'deleteFunctionResponse' smart constructor.
 data DeleteFunctionResponse =
     DeleteFunctionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFunctionResponse' smart constructor.
 deleteFunctionResponse :: DeleteFunctionResponse

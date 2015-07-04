@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeDomains
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 -- * 'ddDomainNames'
 newtype DescribeDomains = DescribeDomains'
     { _ddDomainNames :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomains' smart constructor.
 describeDomains :: DescribeDomains
@@ -111,7 +113,7 @@ instance ToQuery DescribeDomains where
 data DescribeDomainsResponse = DescribeDomainsResponse'
     { _descStatus           :: !Int
     , _descDomainStatusList :: ![DomainStatus]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomainsResponse' smart constructor.
 describeDomainsResponse :: Int -> DescribeDomainsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -130,7 +132,7 @@ data RestoreDBInstanceFromDBSnapshot = RestoreDBInstanceFromDBSnapshot'
     , _rdifdsStorageType             :: !(Maybe Text)
     , _rdifdsDBInstanceIdentifier    :: !Text
     , _rdifdsDBSnapshotIdentifier    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreDBInstanceFromDBSnapshot' smart constructor.
 restoreDBInstanceFromDBSnapshot :: Text -> Text -> RestoreDBInstanceFromDBSnapshot
@@ -380,7 +382,7 @@ instance ToQuery RestoreDBInstanceFromDBSnapshot
 data RestoreDBInstanceFromDBSnapshotResponse = RestoreDBInstanceFromDBSnapshotResponse'
     { _rdifdsrDBInstance :: !(Maybe DBInstance)
     , _rdifdsrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreDBInstanceFromDBSnapshotResponse' smart constructor.
 restoreDBInstanceFromDBSnapshotResponse :: Int -> RestoreDBInstanceFromDBSnapshotResponse

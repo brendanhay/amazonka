@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -427,7 +429,7 @@ data ChangeAction
     = Create
     | Upsert
     | Delete
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ChangeAction where
     parser = takeLowerText >>= \case
@@ -443,9 +445,7 @@ instance ToText ChangeAction where
         Delete -> "delete"
         Upsert -> "upsert"
 
-instance Hashable ChangeAction where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ChangeAction
 instance ToQuery ChangeAction
 instance ToHeader ChangeAction
 
@@ -455,7 +455,7 @@ instance ToXML ChangeAction where
 data ChangeStatus
     = Pending
     | Insync
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ChangeStatus where
     parser = takeLowerText >>= \case
@@ -469,9 +469,7 @@ instance ToText ChangeStatus where
         Insync -> "insync"
         Pending -> "pending"
 
-instance Hashable ChangeStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ChangeStatus
 instance ToQuery ChangeStatus
 instance ToHeader ChangeStatus
 
@@ -481,7 +479,7 @@ instance FromXML ChangeStatus where
 data Failover
     = Secondary
     | Primary
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Failover where
     parser = takeLowerText >>= \case
@@ -495,9 +493,7 @@ instance ToText Failover where
         Primary -> "primary"
         Secondary -> "secondary"
 
-instance Hashable Failover where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Failover
 instance ToQuery Failover
 instance ToHeader Failover
 
@@ -513,7 +509,7 @@ data HealthCheckType
     | HTTPSStrMatch
     | HTTP
     | HTTPStrMatch
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText HealthCheckType where
     parser = takeLowerText >>= \case
@@ -533,9 +529,7 @@ instance ToText HealthCheckType where
         HTTPStrMatch -> "http_str_match"
         TCP -> "tcp"
 
-instance Hashable HealthCheckType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable HealthCheckType
 instance ToQuery HealthCheckType
 instance ToHeader HealthCheckType
 
@@ -556,7 +550,7 @@ data RecordType
     | Soa
     | Txt
     | Ptr
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RecordType where
     parser = takeLowerText >>= \case
@@ -586,9 +580,7 @@ instance ToText RecordType where
         Srv -> "srv"
         Txt -> "txt"
 
-instance Hashable RecordType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RecordType
 instance ToQuery RecordType
 instance ToHeader RecordType
 
@@ -601,7 +593,7 @@ instance ToXML RecordType where
 data TagResourceType
     = Healthcheck
     | Hostedzone
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TagResourceType where
     parser = takeLowerText >>= \case
@@ -615,9 +607,7 @@ instance ToText TagResourceType where
         Healthcheck -> "healthcheck"
         Hostedzone -> "hostedzone"
 
-instance Hashable TagResourceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable TagResourceType
 instance ToQuery TagResourceType
 instance ToHeader TagResourceType
 
@@ -638,7 +628,7 @@ data VPCRegion
     | EUCentral1
     | APSoutheast2
     | APSoutheast1
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VPCRegion where
     parser = takeLowerText >>= \case
@@ -668,9 +658,7 @@ instance ToText VPCRegion where
         USWest1 -> "us-west-1"
         USWest2 -> "us-west-2"
 
-instance Hashable VPCRegion where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VPCRegion
 instance ToQuery VPCRegion
 instance ToHeader VPCRegion
 
@@ -702,7 +690,7 @@ data AliasTarget = AliasTarget'
     { _atHostedZoneId         :: !Text
     , _atDNSName              :: !Text
     , _atEvaluateTargetHealth :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AliasTarget' smart constructor.
 aliasTarget :: Text -> Text -> Bool -> AliasTarget
@@ -774,7 +762,7 @@ instance ToXML AliasTarget where
 data Change = Change'
     { _chaAction            :: !ChangeAction
     , _chaResourceRecordSet :: !ResourceRecordSet
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Change' smart constructor.
 change :: ChangeAction -> ResourceRecordSet -> Change
@@ -813,7 +801,7 @@ instance ToXML Change where
 data ChangeBatch = ChangeBatch'
     { _cbComment :: !(Maybe Text)
     , _cbChanges :: !(List1 Change)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ChangeBatch' smart constructor.
 changeBatch :: NonEmpty Change -> ChangeBatch
@@ -861,7 +849,7 @@ data ChangeInfo = ChangeInfo'
     , _ciId          :: !Text
     , _ciStatus      :: !ChangeStatus
     , _ciSubmittedAt :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeInfo' smart constructor.
 changeInfo :: Text -> ChangeStatus -> UTCTime -> ChangeInfo
@@ -922,7 +910,7 @@ data DelegationSet = DelegationSet'
     { _dsId              :: !(Maybe Text)
     , _dsCallerReference :: !(Maybe Text)
     , _dsNameServers     :: !(List1 Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DelegationSet' smart constructor.
 delegationSet :: NonEmpty Text -> DelegationSet
@@ -970,7 +958,7 @@ data GeoLocation = GeoLocation'
     { _glSubdivisionCode :: !(Maybe Text)
     , _glCountryCode     :: !(Maybe Text)
     , _glContinentCode   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GeoLocation' smart constructor.
 geoLocation :: GeoLocation
@@ -1045,7 +1033,7 @@ data GeoLocationDetails = GeoLocationDetails'
     , _gldCountryCode     :: !(Maybe Text)
     , _gldContinentCode   :: !(Maybe Text)
     , _gldContinentName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GeoLocationDetails' smart constructor.
 geoLocationDetails :: GeoLocationDetails
@@ -1122,7 +1110,7 @@ data HealthCheck = HealthCheck'
     , _hcCallerReference    :: !Text
     , _hcHealthCheckConfig  :: !HealthCheckConfig
     , _hcHealthCheckVersion :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HealthCheck' smart constructor.
 healthCheck :: Text -> Text -> HealthCheckConfig -> Natural -> HealthCheck
@@ -1189,7 +1177,7 @@ data HealthCheckConfig = HealthCheckConfig'
     , _hccRequestInterval          :: !(Maybe Nat)
     , _hccPort                     :: !(Maybe Nat)
     , _hccType                     :: !HealthCheckType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HealthCheckConfig' smart constructor.
 healthCheckConfig :: HealthCheckType -> HealthCheckConfig
@@ -1291,7 +1279,7 @@ instance ToXML HealthCheckConfig where
 data HealthCheckObservation = HealthCheckObservation'
     { _hcoIPAddress    :: !(Maybe Text)
     , _hcoStatusReport :: !(Maybe StatusReport)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HealthCheckObservation' smart constructor.
 healthCheckObservation :: HealthCheckObservation
@@ -1337,7 +1325,7 @@ data HostedZone = HostedZone'
     , _hzId                     :: !Text
     , _hzName                   :: !Text
     , _hzCallerReference        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HostedZone' smart constructor.
 hostedZone :: Text -> Text -> Text -> HostedZone
@@ -1400,7 +1388,7 @@ instance FromXML HostedZone where
 data HostedZoneConfig = HostedZoneConfig'
     { _hzcPrivateZone :: !(Maybe Bool)
     , _hzcComment     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HostedZoneConfig' smart constructor.
 hostedZoneConfig :: HostedZoneConfig
@@ -1442,7 +1430,7 @@ instance ToXML HostedZoneConfig where
 -- * 'rrValue'
 newtype ResourceRecord = ResourceRecord'
     { _rrValue :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResourceRecord' smart constructor.
 resourceRecord :: Text -> ResourceRecord
@@ -1502,7 +1490,7 @@ data ResourceRecordSet = ResourceRecordSet'
     , _rrsName            :: !Text
     , _rrsType            :: !RecordType
     , _rrsResourceRecords :: !(List1 ResourceRecord)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ResourceRecordSet' smart constructor.
 resourceRecordSet :: Text -> RecordType -> NonEmpty ResourceRecord -> ResourceRecordSet
@@ -1639,7 +1627,7 @@ data ResourceTagSet = ResourceTagSet'
     { _rtsResourceId   :: !(Maybe Text)
     , _rtsResourceType :: !(Maybe TagResourceType)
     , _rtsTags         :: !(Maybe (List1 Tag))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResourceTagSet' smart constructor.
 resourceTagSet :: ResourceTagSet
@@ -1686,7 +1674,7 @@ instance FromXML ResourceTagSet where
 data StatusReport = StatusReport'
     { _srStatus      :: !(Maybe Text)
     , _srCheckedTime :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StatusReport' smart constructor.
 statusReport :: StatusReport
@@ -1725,7 +1713,7 @@ instance FromXML StatusReport where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
@@ -1761,7 +1749,7 @@ instance ToXML Tag where
 data VPC = VPC'
     { _vpcVPCRegion :: !(Maybe VPCRegion)
     , _vpcVPCId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPC' smart constructor.
 vpc :: VPC

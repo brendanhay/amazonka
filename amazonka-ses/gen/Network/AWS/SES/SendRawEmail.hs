@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.SendRawEmail
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -90,7 +92,7 @@ data SendRawEmail = SendRawEmail'
     { _sreDestinations :: !(Maybe [Text])
     , _sreSource       :: !(Maybe Text)
     , _sreRawMessage   :: !RawMessage
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendRawEmail' smart constructor.
 sendRawEmail :: RawMessage -> SendRawEmail
@@ -175,7 +177,7 @@ instance ToQuery SendRawEmail where
 data SendRawEmailResponse = SendRawEmailResponse'
     { _srerStatus    :: !Int
     , _srerMessageId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendRawEmailResponse' smart constructor.
 sendRawEmailResponse :: Int -> Text -> SendRawEmailResponse

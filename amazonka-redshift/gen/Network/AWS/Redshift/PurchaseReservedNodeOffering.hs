@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.PurchaseReservedNodeOffering
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ import           Network.AWS.Response
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
     { _prnoNodeCount              :: !(Maybe Int)
     , _prnoReservedNodeOfferingId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedNodeOffering' smart constructor.
 purchaseReservedNodeOffering :: Text -> PurchaseReservedNodeOffering
@@ -122,7 +124,7 @@ instance ToQuery PurchaseReservedNodeOffering where
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
     { _prnorReservedNode :: !(Maybe ReservedNode)
     , _prnorStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedNodeOfferingResponse' smart constructor.
 purchaseReservedNodeOfferingResponse :: Int -> PurchaseReservedNodeOfferingResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.UpdateContainerAgent
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data UpdateContainerAgent = UpdateContainerAgent'
     { _ucaCluster           :: !(Maybe Text)
     , _ucaContainerInstance :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateContainerAgent' smart constructor.
 updateContainerAgent :: Text -> UpdateContainerAgent
@@ -117,7 +119,7 @@ instance ToQuery UpdateContainerAgent where
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
     { _ucarContainerInstance :: !(Maybe ContainerInstance)
     , _ucarStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateContainerAgentResponse' smart constructor.
 updateContainerAgentResponse :: Int -> UpdateContainerAgentResponse

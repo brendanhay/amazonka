@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetInstanceProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'gipInstanceProfileName'
 newtype GetInstanceProfile = GetInstanceProfile'
     { _gipInstanceProfileName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInstanceProfile' smart constructor.
 getInstanceProfile :: Text -> GetInstanceProfile
@@ -101,7 +103,7 @@ instance ToQuery GetInstanceProfile where
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
     { _giprStatus          :: !Int
     , _giprInstanceProfile :: !InstanceProfile
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInstanceProfileResponse' smart constructor.
 getInstanceProfileResponse :: Int -> InstanceProfile -> GetInstanceProfileResponse

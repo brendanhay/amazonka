@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.AuthorizeSnapshotAccess
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data AuthorizeSnapshotAccess = AuthorizeSnapshotAccess'
     { _asaSnapshotClusterIdentifier :: !(Maybe Text)
     , _asaSnapshotIdentifier        :: !Text
     , _asaAccountWithRestoreAccess  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSnapshotAccess' smart constructor.
 authorizeSnapshotAccess :: Text -> Text -> AuthorizeSnapshotAccess
@@ -128,7 +130,7 @@ instance ToQuery AuthorizeSnapshotAccess where
 data AuthorizeSnapshotAccessResponse = AuthorizeSnapshotAccessResponse'
     { _asarSnapshot :: !(Maybe Snapshot)
     , _asarStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSnapshotAccessResponse' smart constructor.
 authorizeSnapshotAccessResponse :: Int -> AuthorizeSnapshotAccessResponse

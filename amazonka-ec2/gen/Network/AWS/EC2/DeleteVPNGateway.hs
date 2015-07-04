@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPNGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data DeleteVPNGateway = DeleteVPNGateway'
     { _dvgDryRun       :: !(Maybe Bool)
     , _dvgVPNGatewayId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNGateway' smart constructor.
 deleteVPNGateway :: Text -> DeleteVPNGateway
@@ -96,7 +98,7 @@ instance ToQuery DeleteVPNGateway where
 -- | /See:/ 'deleteVPNGatewayResponse' smart constructor.
 data DeleteVPNGatewayResponse =
     DeleteVPNGatewayResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNGatewayResponse' smart constructor.
 deleteVPNGatewayResponse :: DeleteVPNGatewayResponse

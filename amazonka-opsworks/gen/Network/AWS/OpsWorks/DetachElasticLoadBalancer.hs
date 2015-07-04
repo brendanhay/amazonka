@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DetachElasticLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
     { _delbElasticLoadBalancerName :: !Text
     , _delbLayerId                 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachElasticLoadBalancer' smart constructor.
 detachElasticLoadBalancer :: Text -> Text -> DetachElasticLoadBalancer
@@ -107,7 +109,7 @@ instance ToQuery DetachElasticLoadBalancer where
 -- | /See:/ 'detachElasticLoadBalancerResponse' smart constructor.
 data DetachElasticLoadBalancerResponse =
     DetachElasticLoadBalancerResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachElasticLoadBalancerResponse' smart constructor.
 detachElasticLoadBalancerResponse :: DetachElasticLoadBalancerResponse

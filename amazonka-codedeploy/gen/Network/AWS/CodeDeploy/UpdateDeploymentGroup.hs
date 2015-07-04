@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.UpdateDeploymentGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data UpdateDeploymentGroup = UpdateDeploymentGroup'
     , _udgAutoScalingGroups            :: !(Maybe [Text])
     , _udgApplicationName              :: !Text
     , _udgCurrentDeploymentGroupName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDeploymentGroup' smart constructor.
 updateDeploymentGroup :: Text -> Text -> UpdateDeploymentGroup
@@ -184,7 +186,7 @@ instance ToQuery UpdateDeploymentGroup where
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
     { _udgrHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
     , _udgrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDeploymentGroupResponse' smart constructor.
 updateDeploymentGroupResponse :: Int -> UpdateDeploymentGroupResponse

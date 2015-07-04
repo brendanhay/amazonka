@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.DisableKeyRotation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -44,7 +46,7 @@ import           Network.AWS.Response
 -- * 'dkrKeyId'
 newtype DisableKeyRotation = DisableKeyRotation'
     { _dkrKeyId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableKeyRotation' smart constructor.
 disableKeyRotation :: Text -> DisableKeyRotation
@@ -92,7 +94,7 @@ instance ToQuery DisableKeyRotation where
 -- | /See:/ 'disableKeyRotationResponse' smart constructor.
 data DisableKeyRotationResponse =
     DisableKeyRotationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableKeyRotationResponse' smart constructor.
 disableKeyRotationResponse :: DisableKeyRotationResponse

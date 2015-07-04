@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.ListTables
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data ListTables = ListTables'
     { _ltExclusiveStartTableName :: !(Maybe Text)
     , _ltLimit                   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTables' smart constructor.
 listTables :: ListTables
@@ -136,7 +138,7 @@ data ListTablesResponse = ListTablesResponse'
     { _ltrLastEvaluatedTableName :: !(Maybe Text)
     , _ltrTableNames             :: !(Maybe [Text])
     , _ltrStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTablesResponse' smart constructor.
 listTablesResponse :: Int -> ListTablesResponse

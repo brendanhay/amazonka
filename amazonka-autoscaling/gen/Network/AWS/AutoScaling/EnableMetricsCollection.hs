@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.EnableMetricsCollection
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data EnableMetricsCollection = EnableMetricsCollection'
     { _emcMetrics              :: !(Maybe [Text])
     , _emcAutoScalingGroupName :: !Text
     , _emcGranularity          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMetricsCollection' smart constructor.
 enableMetricsCollection :: Text -> Text -> EnableMetricsCollection
@@ -128,7 +130,7 @@ instance ToQuery EnableMetricsCollection where
 -- | /See:/ 'enableMetricsCollectionResponse' smart constructor.
 data EnableMetricsCollectionResponse =
     EnableMetricsCollectionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMetricsCollectionResponse' smart constructor.
 enableMetricsCollectionResponse :: EnableMetricsCollectionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.DeleteHostedZone
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ import           Network.AWS.Route53.Types
 -- * 'dhzId'
 newtype DeleteHostedZone = DeleteHostedZone'
     { _dhzId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHostedZone' smart constructor.
 deleteHostedZone :: Text -> DeleteHostedZone
@@ -109,7 +111,7 @@ instance ToQuery DeleteHostedZone where
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
     { _dhzrStatus     :: !Int
     , _dhzrChangeInfo :: !ChangeInfo
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHostedZoneResponse' smart constructor.
 deleteHostedZoneResponse :: Int -> ChangeInfo -> DeleteHostedZoneResponse

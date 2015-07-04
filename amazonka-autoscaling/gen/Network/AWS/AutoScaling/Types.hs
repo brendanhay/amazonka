@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -340,7 +342,7 @@ data LifecycleState
     | PendingProceed
     | Terminated
     | TerminatingProceed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LifecycleState where
     parser = takeLowerText >>= \case
@@ -376,9 +378,7 @@ instance ToText LifecycleState where
         TerminatingProceed -> "terminating:proceed"
         TerminatingWait -> "terminating:wait"
 
-instance Hashable LifecycleState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable LifecycleState
 instance ToQuery LifecycleState
 instance ToHeader LifecycleState
 
@@ -396,7 +396,7 @@ data ScalingActivityStatusCode
     | MidLifecycleAction
     | Cancelled
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ScalingActivityStatusCode where
     parser = takeLowerText >>= \case
@@ -426,9 +426,7 @@ instance ToText ScalingActivityStatusCode where
         WaitingForSpotInstanceId -> "waitingforspotinstanceid"
         WaitingForSpotInstanceRequestId -> "waitingforspotinstancerequestid"
 
-instance Hashable ScalingActivityStatusCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ScalingActivityStatusCode
 instance ToQuery ScalingActivityStatusCode
 instance ToHeader ScalingActivityStatusCode
 
@@ -473,7 +471,7 @@ data Activity = Activity'
     , _actCause                :: !Text
     , _actStartTime            :: !ISO8601
     , _actStatusCode           :: !ScalingActivityStatusCode
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Activity' smart constructor.
 activity :: Text -> Text -> Text -> UTCTime -> ScalingActivityStatusCode -> Activity
@@ -557,7 +555,7 @@ instance FromXML Activity where
 -- * 'atAdjustmentType'
 newtype AdjustmentType = AdjustmentType'
     { _atAdjustmentType :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AdjustmentType' smart constructor.
 adjustmentType :: AdjustmentType
@@ -587,7 +585,7 @@ instance FromXML AdjustmentType where
 data Alarm = Alarm'
     { _alaAlarmName :: !(Maybe Text)
     , _alaAlarmARN  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Alarm' smart constructor.
 alarm :: Alarm
@@ -676,7 +674,7 @@ data AutoScalingGroup = AutoScalingGroup'
     , _asgAvailabilityZones       :: !(List1 Text)
     , _asgHealthCheckType         :: !Text
     , _asgCreatedTime             :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AutoScalingGroup' smart constructor.
 autoScalingGroup :: Text -> Text -> Int -> Int -> Int -> Int -> NonEmpty Text -> Text -> UTCTime -> AutoScalingGroup
@@ -856,7 +854,7 @@ data AutoScalingInstanceDetails = AutoScalingInstanceDetails'
     , _asidLifecycleState          :: !Text
     , _asidHealthStatus            :: !Text
     , _asidLaunchConfigurationName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AutoScalingInstanceDetails' smart constructor.
 autoScalingInstanceDetails :: Text -> Text -> Text -> Text -> Text -> Text -> AutoScalingInstanceDetails
@@ -925,7 +923,7 @@ data BlockDeviceMapping = BlockDeviceMapping'
     , _bdmNoDevice    :: !(Maybe Bool)
     , _bdmEBS         :: !(Maybe EBS)
     , _bdmDeviceName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BlockDeviceMapping' smart constructor.
 blockDeviceMapping :: Text -> BlockDeviceMapping
@@ -993,7 +991,7 @@ data EBS = EBS'
     , _ebsIOPS                :: !(Maybe Nat)
     , _ebsVolumeType          :: !(Maybe Text)
     , _ebsSnapshotId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EBS' smart constructor.
 ebs :: EBS
@@ -1075,7 +1073,7 @@ instance ToQuery EBS where
 data EnabledMetric = EnabledMetric'
     { _emGranularity :: !(Maybe Text)
     , _emMetric      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnabledMetric' smart constructor.
 enabledMetric :: EnabledMetric
@@ -1127,7 +1125,7 @@ instance FromXML EnabledMetric where
 data Filter = Filter'
     { _filValues :: !(Maybe [Text])
     , _filName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
@@ -1174,7 +1172,7 @@ data Instance = Instance'
     , _insLifecycleState          :: !LifecycleState
     , _insHealthStatus            :: !Text
     , _insLaunchConfigurationName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Text -> Text -> LifecycleState -> Text -> Text -> Instance
@@ -1225,7 +1223,7 @@ instance FromXML Instance where
 -- * 'imEnabled'
 newtype InstanceMonitoring = InstanceMonitoring'
     { _imEnabled :: Maybe Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceMonitoring' smart constructor.
 instanceMonitoring :: InstanceMonitoring
@@ -1309,7 +1307,7 @@ data LaunchConfiguration = LaunchConfiguration'
     , _lcImageId                      :: !Text
     , _lcInstanceType                 :: !Text
     , _lcCreatedTime                  :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LaunchConfiguration' smart constructor.
 launchConfiguration :: Text -> Text -> Text -> UTCTime -> LaunchConfiguration
@@ -1501,7 +1499,7 @@ data LifecycleHook = LifecycleHook'
     , _lhRoleARN               :: !(Maybe Text)
     , _lhLifecycleTransition   :: !(Maybe Text)
     , _lhNotificationTargetARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LifecycleHook' smart constructor.
 lifecycleHook :: LifecycleHook
@@ -1600,7 +1598,7 @@ instance FromXML LifecycleHook where
 data LoadBalancerState = LoadBalancerState'
     { _lbsState            :: !(Maybe Text)
     , _lbsLoadBalancerName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoadBalancerState' smart constructor.
 loadBalancerState :: LoadBalancerState
@@ -1647,7 +1645,7 @@ instance FromXML LoadBalancerState where
 -- * 'mctMetric'
 newtype MetricCollectionType = MetricCollectionType'
     { _mctMetric :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricCollectionType' smart constructor.
 metricCollectionType :: MetricCollectionType
@@ -1690,7 +1688,7 @@ instance FromXML MetricCollectionType where
 -- * 'mgtGranularity'
 newtype MetricGranularityType = MetricGranularityType'
     { _mgtGranularity :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricGranularityType' smart constructor.
 metricGranularityType :: MetricGranularityType
@@ -1722,7 +1720,7 @@ data NotificationConfiguration = NotificationConfiguration'
     { _ncTopicARN             :: !(Maybe Text)
     , _ncAutoScalingGroupName :: !(Maybe Text)
     , _ncNotificationType     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NotificationConfiguration' smart constructor.
 notificationConfiguration :: NotificationConfiguration
@@ -1776,7 +1774,7 @@ instance FromXML NotificationConfiguration where
 -- * 'ptProcessName'
 newtype ProcessType = ProcessType'
     { _ptProcessName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ProcessType' smart constructor.
 processType :: Text -> ProcessType
@@ -1839,7 +1837,7 @@ data ScalingPolicy = ScalingPolicy'
     , _scaCooldown             :: !(Maybe Int)
     , _scaPolicyARN            :: !(Maybe Text)
     , _scaAlarms               :: !(Maybe [Alarm])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScalingPolicy' smart constructor.
 scalingPolicy :: ScalingPolicy
@@ -1916,7 +1914,7 @@ instance FromXML ScalingPolicy where
 data ScalingProcessQuery = ScalingProcessQuery'
     { _spqScalingProcesses     :: !(Maybe [Text])
     , _spqAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScalingProcessQuery' smart constructor.
 scalingProcessQuery :: Text -> ScalingProcessQuery
@@ -1995,7 +1993,7 @@ data ScheduledUpdateGroupAction = ScheduledUpdateGroupAction'
     , _sugaMinSize              :: !(Maybe Int)
     , _sugaEndTime              :: !(Maybe ISO8601)
     , _sugaAutoScalingGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScheduledUpdateGroupAction' smart constructor.
 scheduledUpdateGroupAction :: ScheduledUpdateGroupAction
@@ -2084,7 +2082,7 @@ instance FromXML ScheduledUpdateGroupAction where
 data SuspendedProcess = SuspendedProcess'
     { _spProcessName      :: !(Maybe Text)
     , _spSuspensionReason :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuspendedProcess' smart constructor.
 suspendedProcess :: SuspendedProcess
@@ -2128,7 +2126,7 @@ data Tag = Tag'
     , _tagResourceType      :: !Text
     , _tagPropagateAtLaunch :: !Bool
     , _tagValue             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Text -> Bool -> Text -> Tag
@@ -2191,7 +2189,7 @@ data TagDescription = TagDescription'
     , _tdKey               :: !Text
     , _tdPropagateAtLaunch :: !Bool
     , _tdValue             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TagDescription' smart constructor.
 tagDescription :: Text -> Text -> Text -> Bool -> Text -> TagDescription

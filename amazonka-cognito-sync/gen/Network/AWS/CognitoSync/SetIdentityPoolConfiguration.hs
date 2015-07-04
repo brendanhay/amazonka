@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.SetIdentityPoolConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
     { _sipcCognitoStreams :: !(Maybe CognitoStreams)
     , _sipcPushSync       :: !(Maybe PushSync)
     , _sipcIdentityPoolId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolConfiguration' smart constructor.
 setIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
@@ -142,7 +144,7 @@ data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse
     , _sipcrCognitoStreams :: !(Maybe CognitoStreams)
     , _sipcrPushSync       :: !(Maybe PushSync)
     , _sipcrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolConfigurationResponse' smart constructor.
 setIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse

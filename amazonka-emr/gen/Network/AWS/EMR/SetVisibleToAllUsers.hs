@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.SetVisibleToAllUsers
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data SetVisibleToAllUsers = SetVisibleToAllUsers'
     { _svtauJobFlowIds        :: ![Text]
     , _svtauVisibleToAllUsers :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVisibleToAllUsers' smart constructor.
 setVisibleToAllUsers :: Bool -> SetVisibleToAllUsers
@@ -109,7 +111,7 @@ instance ToQuery SetVisibleToAllUsers where
 -- | /See:/ 'setVisibleToAllUsersResponse' smart constructor.
 data SetVisibleToAllUsersResponse =
     SetVisibleToAllUsersResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetVisibleToAllUsersResponse' smart constructor.
 setVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse

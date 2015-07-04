@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeImageAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribeImageAttribute = DescribeImageAttribute'
     { _dia1DryRun    :: !(Maybe Bool)
     , _dia1ImageId   :: !Text
     , _dia1Attribute :: !ImageAttributeName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImageAttribute' smart constructor.
 describeImageAttribute :: Text -> ImageAttributeName -> DescribeImageAttribute
@@ -166,7 +168,7 @@ data DescribeImageAttributeResponse = DescribeImageAttributeResponse'
     , _diarBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _diarDescription         :: !(Maybe AttributeValue)
     , _diarStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImageAttributeResponse' smart constructor.
 describeImageAttributeResponse :: Int -> DescribeImageAttributeResponse

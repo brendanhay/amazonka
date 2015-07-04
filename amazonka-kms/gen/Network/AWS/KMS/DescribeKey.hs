@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.DescribeKey
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- * 'desKeyId'
 newtype DescribeKey = DescribeKey'
     { _desKeyId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKey' smart constructor.
 describeKey :: Text -> DescribeKey
@@ -109,7 +111,7 @@ instance ToQuery DescribeKey where
 data DescribeKeyResponse = DescribeKeyResponse'
     { _dkrKeyMetadata :: !(Maybe KeyMetadata)
     , _dkrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyResponse' smart constructor.
 describeKeyResponse :: Int -> DescribeKeyResponse

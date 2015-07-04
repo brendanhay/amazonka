@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.Invoke
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data Invoke = Invoke'
     , _invLogType        :: !(Maybe LogType)
     , _invClientContext  :: !(Maybe Text)
     , _invFunctionName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Invoke' smart constructor.
 invoke :: Text -> Invoke
@@ -179,7 +181,7 @@ data InvokeResponse = InvokeResponse'
     , _irLogResult     :: !(Maybe Text)
     , _irPayload       :: !(Maybe Base64)
     , _irStatusCode    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InvokeResponse' smart constructor.
 invokeResponse :: Int -> InvokeResponse

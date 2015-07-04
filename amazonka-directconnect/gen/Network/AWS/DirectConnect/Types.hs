@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -216,7 +218,7 @@ data ConnectionState
     | CSDown
     | CSRequested
     | CSRejected
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConnectionState where
     parser = takeLowerText >>= \case
@@ -242,9 +244,7 @@ instance ToText ConnectionState where
         CSRejected -> "rejected"
         CSRequested -> "requested"
 
-instance Hashable ConnectionState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ConnectionState
 instance ToQuery ConnectionState
 instance ToHeader ConnectionState
 
@@ -269,7 +269,7 @@ data InterconnectState
     | ISRequested
     | ISPending
     | ISDown
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InterconnectState where
     parser = takeLowerText >>= \case
@@ -291,9 +291,7 @@ instance ToText InterconnectState where
         ISPending -> "pending"
         ISRequested -> "requested"
 
-instance Hashable InterconnectState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InterconnectState
 instance ToQuery InterconnectState
 instance ToHeader InterconnectState
 
@@ -330,7 +328,7 @@ data VirtualInterfaceState
     | Verifying
     | Deleted
     | Available
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VirtualInterfaceState where
     parser = takeLowerText >>= \case
@@ -354,9 +352,7 @@ instance ToText VirtualInterfaceState where
         Rejected -> "rejected"
         Verifying -> "verifying"
 
-instance Hashable VirtualInterfaceState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VirtualInterfaceState
 instance ToQuery VirtualInterfaceState
 instance ToHeader VirtualInterfaceState
 
@@ -397,7 +393,7 @@ data Connection = Connection'
     , _conRegion          :: !(Maybe Text)
     , _conOwnerAccount    :: !(Maybe Text)
     , _conConnectionState :: !(Maybe ConnectionState)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Connection' smart constructor.
 connection :: Connection
@@ -478,7 +474,7 @@ instance FromJSON Connection where
 -- * 'conConnections'
 newtype Connections = Connections'
     { _conConnections :: Maybe [Connection]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Connections' smart constructor.
 connections :: Connections
@@ -532,7 +528,7 @@ data Interconnect = Interconnect'
     , _intBandwidth         :: !(Maybe Text)
     , _intInterconnectState :: !(Maybe InterconnectState)
     , _intRegion            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Interconnect' smart constructor.
 interconnect :: Interconnect
@@ -595,7 +591,7 @@ instance FromJSON Interconnect where
 data Location = Location'
     { _locLocationName :: !(Maybe Text)
     , _locLocationCode :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Location' smart constructor.
 location :: Location
@@ -649,7 +645,7 @@ data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
     , _newVlan                 :: !Int
     , _newAsn                  :: !Int
     , _newVirtualGatewayId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPrivateVirtualInterface' smart constructor.
 newPrivateVirtualInterface :: Text -> Int -> Int -> Text -> NewPrivateVirtualInterface
@@ -727,7 +723,7 @@ data NewPrivateVirtualInterfaceAllocation = NewPrivateVirtualInterfaceAllocation
     , _npviaVirtualInterfaceName :: !Text
     , _npviaVlan                 :: !Int
     , _npviaAsn                  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPrivateVirtualInterfaceAllocation' smart constructor.
 newPrivateVirtualInterfaceAllocation :: Text -> Int -> Int -> NewPrivateVirtualInterfaceAllocation
@@ -802,7 +798,7 @@ data NewPublicVirtualInterface = NewPublicVirtualInterface'
     , _npviAmazonAddress        :: !Text
     , _npviCustomerAddress      :: !Text
     , _npviRouteFilterPrefixes  :: ![RouteFilterPrefix]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPublicVirtualInterface' smart constructor.
 newPublicVirtualInterface :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterface
@@ -883,7 +879,7 @@ data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
     , _nAmazonAddress        :: !Text
     , _nCustomerAddress      :: !Text
     , _nRouteFilterPrefixes  :: ![RouteFilterPrefix]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPublicVirtualInterfaceAllocation' smart constructor.
 newPublicVirtualInterfaceAllocation :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterfaceAllocation
@@ -947,7 +943,7 @@ instance ToJSON NewPublicVirtualInterfaceAllocation
 -- * 'rfpCidr'
 newtype RouteFilterPrefix = RouteFilterPrefix'
     { _rfpCidr :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RouteFilterPrefix' smart constructor.
 routeFilterPrefix :: RouteFilterPrefix
@@ -989,7 +985,7 @@ instance ToJSON RouteFilterPrefix where
 data VirtualGateway = VirtualGateway'
     { _vgVirtualGatewayId    :: !(Maybe Text)
     , _vgVirtualGatewayState :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VirtualGateway' smart constructor.
 virtualGateway :: VirtualGateway
@@ -1067,7 +1063,7 @@ data VirtualInterface = VirtualInterface'
     , _viOwnerAccount          :: !(Maybe Text)
     , _viVirtualInterfaceName  :: !(Maybe Text)
     , _viVirtualInterfaceId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VirtualInterface' smart constructor.
 virtualInterface :: VirtualInterface

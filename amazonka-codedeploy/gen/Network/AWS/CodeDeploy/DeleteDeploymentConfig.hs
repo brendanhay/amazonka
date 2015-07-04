@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'ddcDeploymentConfigName'
 newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
     { _ddcDeploymentConfigName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentConfig' smart constructor.
 deleteDeploymentConfig :: Text -> DeleteDeploymentConfig
@@ -95,7 +97,7 @@ instance ToQuery DeleteDeploymentConfig where
 -- | /See:/ 'deleteDeploymentConfigResponse' smart constructor.
 data DeleteDeploymentConfigResponse =
     DeleteDeploymentConfigResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentConfigResponse' smart constructor.
 deleteDeploymentConfigResponse :: DeleteDeploymentConfigResponse

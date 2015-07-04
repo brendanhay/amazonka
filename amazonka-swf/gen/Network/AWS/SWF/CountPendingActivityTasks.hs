@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.CountPendingActivityTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ import           Network.AWS.SWF.Types
 data CountPendingActivityTasks = CountPendingActivityTasks'
     { _cpatDomain   :: !Text
     , _cpatTaskList :: !TaskList
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CountPendingActivityTasks' smart constructor.
 countPendingActivityTasks :: Text -> TaskList -> CountPendingActivityTasks

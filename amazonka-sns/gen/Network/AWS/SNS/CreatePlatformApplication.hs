@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.CreatePlatformApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data CreatePlatformApplication = CreatePlatformApplication'
     { _cpaName       :: !Text
     , _cpaPlatform   :: !Text
     , _cpaAttributes :: !(Map Text Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlatformApplication' smart constructor.
 createPlatformApplication :: Text -> Text -> CreatePlatformApplication
@@ -139,7 +141,7 @@ instance ToQuery CreatePlatformApplication where
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
     { _cparPlatformApplicationARN :: !(Maybe Text)
     , _cparStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlatformApplicationResponse' smart constructor.
 createPlatformApplicationResponse :: Int -> CreatePlatformApplicationResponse

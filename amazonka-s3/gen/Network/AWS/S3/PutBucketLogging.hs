@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketLogging
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ data PutBucketLogging = PutBucketLogging'
     { _pblContentMD5          :: !(Maybe Text)
     , _pblBucket              :: !BucketName
     , _pblBucketLoggingStatus :: !BucketLoggingStatus
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketLogging' smart constructor.
 putBucketLogging :: BucketName -> BucketLoggingStatus -> PutBucketLogging
@@ -104,7 +106,7 @@ instance ToQuery PutBucketLogging where
 -- | /See:/ 'putBucketLoggingResponse' smart constructor.
 data PutBucketLoggingResponse =
     PutBucketLoggingResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketLoggingResponse' smart constructor.
 putBucketLoggingResponse :: PutBucketLoggingResponse

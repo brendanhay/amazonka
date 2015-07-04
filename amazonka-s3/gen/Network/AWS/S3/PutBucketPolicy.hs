@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ data PutBucketPolicy = PutBucketPolicy'
     { _pbpContentMD5 :: !(Maybe Text)
     , _pbpBucket     :: !BucketName
     , _pbpPolicy     :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketPolicy' smart constructor.
 putBucketPolicy :: BucketName -> Text -> PutBucketPolicy
@@ -99,7 +101,7 @@ instance ToQuery PutBucketPolicy where
 -- | /See:/ 'putBucketPolicyResponse' smart constructor.
 data PutBucketPolicyResponse =
     PutBucketPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketPolicyResponse' smart constructor.
 putBucketPolicyResponse :: PutBucketPolicyResponse

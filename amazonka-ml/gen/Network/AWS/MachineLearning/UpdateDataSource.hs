@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.UpdateDataSource
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data UpdateDataSource = UpdateDataSource'
     { _udsDataSourceId   :: !Text
     , _udsDataSourceName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDataSource' smart constructor.
 updateDataSource :: Text -> Text -> UpdateDataSource
@@ -119,7 +121,7 @@ instance ToQuery UpdateDataSource where
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
     { _udsrDataSourceId :: !(Maybe Text)
     , _udsrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDataSourceResponse' smart constructor.
 updateDataSourceResponse :: Int -> UpdateDataSourceResponse

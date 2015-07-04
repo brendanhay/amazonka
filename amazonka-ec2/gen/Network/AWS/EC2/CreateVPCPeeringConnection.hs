@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateVPCPeeringConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
     , _cvpcVPCId       :: !(Maybe Text)
     , _cvpcPeerOwnerId :: !(Maybe Text)
     , _cvpcDryRun      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCPeeringConnection' smart constructor.
 createVPCPeeringConnection :: CreateVPCPeeringConnection
@@ -142,7 +144,7 @@ instance ToQuery CreateVPCPeeringConnection where
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
     { _cvpcrVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
     , _cvpcrStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCPeeringConnectionResponse' smart constructor.
 createVPCPeeringConnectionResponse :: Int -> CreateVPCPeeringConnectionResponse

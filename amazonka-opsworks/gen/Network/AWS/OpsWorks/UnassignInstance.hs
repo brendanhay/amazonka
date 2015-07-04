@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UnassignInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'unaInstanceId'
 newtype UnassignInstance = UnassignInstance'
     { _unaInstanceId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignInstance' smart constructor.
 unassignInstance :: Text -> UnassignInstance
@@ -94,7 +96,7 @@ instance ToQuery UnassignInstance where
 -- | /See:/ 'unassignInstanceResponse' smart constructor.
 data UnassignInstanceResponse =
     UnassignInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignInstanceResponse' smart constructor.
 unassignInstanceResponse :: UnassignInstanceResponse

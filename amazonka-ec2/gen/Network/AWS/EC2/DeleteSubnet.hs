@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteSubnet
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data DeleteSubnet = DeleteSubnet'
     { _del1DryRun   :: !(Maybe Bool)
     , _del1SubnetId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSubnet' smart constructor.
 deleteSubnet :: Text -> DeleteSubnet
@@ -92,7 +94,7 @@ instance ToQuery DeleteSubnet where
 -- | /See:/ 'deleteSubnetResponse' smart constructor.
 data DeleteSubnetResponse =
     DeleteSubnetResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSubnetResponse' smart constructor.
 deleteSubnetResponse :: DeleteSubnetResponse

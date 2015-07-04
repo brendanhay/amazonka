@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Config.GetResourceConfigHistory
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -84,7 +86,7 @@ data GetResourceConfigHistory = GetResourceConfigHistory'
     , _grchEarlierTime        :: !(Maybe POSIX)
     , _grchResourceType       :: !ResourceType
     , _grchResourceId         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetResourceConfigHistory' smart constructor.
 getResourceConfigHistory :: ResourceType -> Text -> GetResourceConfigHistory
@@ -186,7 +188,7 @@ data GetResourceConfigHistoryResponse = GetResourceConfigHistoryResponse'
     { _grchrNextToken          :: !(Maybe Text)
     , _grchrConfigurationItems :: !(Maybe [ConfigurationItem])
     , _grchrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetResourceConfigHistoryResponse' smart constructor.
 getResourceConfigHistoryResponse :: Int -> GetResourceConfigHistoryResponse

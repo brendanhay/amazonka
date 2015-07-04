@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.EnterStandby
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data EnterStandby = EnterStandby'
     { _esInstanceIds                    :: !(Maybe [Text])
     , _esAutoScalingGroupName           :: !Text
     , _esShouldDecrementDesiredCapacity :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnterStandby' smart constructor.
 enterStandby :: Text -> Bool -> EnterStandby
@@ -125,7 +127,7 @@ instance ToQuery EnterStandby where
 data EnterStandbyResponse = EnterStandbyResponse'
     { _esrActivities :: !(Maybe [Activity])
     , _esrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnterStandbyResponse' smart constructor.
 enterStandbyResponse :: Int -> EnterStandbyResponse

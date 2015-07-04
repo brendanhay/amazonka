@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
     { _dasgAutoScalingGroupNames :: !(Maybe [Text])
     , _dasgNextToken             :: !(Maybe Text)
     , _dasgMaxRecords            :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingGroups' smart constructor.
 describeAutoScalingGroups :: DescribeAutoScalingGroups
@@ -134,7 +136,7 @@ data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
     { _dasgrNextToken         :: !(Maybe Text)
     , _dasgrStatus            :: !Int
     , _dasgrAutoScalingGroups :: ![AutoScalingGroup]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
 describeAutoScalingGroupsResponse :: Int -> DescribeAutoScalingGroupsResponse

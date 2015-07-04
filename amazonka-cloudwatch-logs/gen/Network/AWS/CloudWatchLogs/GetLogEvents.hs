@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.GetLogEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ data GetLogEvents = GetLogEvents'
     , _gleLimit         :: !(Maybe Nat)
     , _gleLogGroupName  :: !Text
     , _gleLogStreamName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLogEvents' smart constructor.
 getLogEvents :: Text -> Text -> GetLogEvents
@@ -185,7 +187,7 @@ data GetLogEventsResponse = GetLogEventsResponse'
     , _glerNextForwardToken  :: !(Maybe Text)
     , _glerEvents            :: !(Maybe [OutputLogEvent])
     , _glerStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLogEventsResponse' smart constructor.
 getLogEventsResponse :: Int -> GetLogEventsResponse

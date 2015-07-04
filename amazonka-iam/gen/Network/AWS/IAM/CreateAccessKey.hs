@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreateAccessKey
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ import           Network.AWS.Response
 -- * 'cakUserName'
 newtype CreateAccessKey = CreateAccessKey'
     { _cakUserName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccessKey' smart constructor.
 createAccessKey :: CreateAccessKey
@@ -112,7 +114,7 @@ instance ToQuery CreateAccessKey where
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
     { _cakrStatus    :: !Int
     , _cakrAccessKey :: !AccessKey
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccessKeyResponse' smart constructor.
 createAccessKeyResponse :: Int -> AccessKey -> CreateAccessKeyResponse

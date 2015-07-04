@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ import           Network.AWS.StorageGateway.Types
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint'
     { _csfvrpVolumeARN           :: !Text
     , _csfvrpSnapshotDescription :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPoint' smart constructor.
 createSnapshotFromVolumeRecoveryPoint :: Text -> Text -> CreateSnapshotFromVolumeRecoveryPoint
@@ -148,7 +150,7 @@ data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRec
     , _csfvrprVolumeARN               :: !(Maybe Text)
     , _csfvrprSnapshotId              :: !(Maybe Text)
     , _csfvrprStatus                  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 createSnapshotFromVolumeRecoveryPointResponse :: Int -> CreateSnapshotFromVolumeRecoveryPointResponse

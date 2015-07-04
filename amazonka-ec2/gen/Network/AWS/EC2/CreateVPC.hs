@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateVPC
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data CreateVPC = CreateVPC'
     { _cvInstanceTenancy :: !(Maybe Tenancy)
     , _cvDryRun          :: !(Maybe Bool)
     , _cvCIDRBlock       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPC' smart constructor.
 createVPC :: Text -> CreateVPC
@@ -135,7 +137,7 @@ instance ToQuery CreateVPC where
 data CreateVPCResponse = CreateVPCResponse'
     { _cvrVPC    :: !(Maybe VPC)
     , _cvrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCResponse' smart constructor.
 createVPCResponse :: Int -> CreateVPCResponse

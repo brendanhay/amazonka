@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.DeprecateDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ import           Network.AWS.SWF.Types
 -- * 'depName'
 newtype DeprecateDomain = DeprecateDomain'
     { _depName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeprecateDomain' smart constructor.
 deprecateDomain :: Text -> DeprecateDomain
@@ -112,7 +114,7 @@ instance ToQuery DeprecateDomain where
 -- | /See:/ 'deprecateDomainResponse' smart constructor.
 data DeprecateDomainResponse =
     DeprecateDomainResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeprecateDomainResponse' smart constructor.
 deprecateDomainResponse :: DeprecateDomainResponse

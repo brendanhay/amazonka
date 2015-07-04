@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketWebsite
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.S3.Types
 -- * 'gbwBucket'
 newtype GetBucketWebsite = GetBucketWebsite'
     { _gbwBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketWebsite' smart constructor.
 getBucketWebsite :: BucketName -> GetBucketWebsite
@@ -108,7 +110,7 @@ data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
     , _gbwrRoutingRules          :: !(Maybe [RoutingRule])
     , _gbwrIndexDocument         :: !(Maybe IndexDocument)
     , _gbwrStatus                :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketWebsiteResponse' smart constructor.
 getBucketWebsiteResponse :: Int -> GetBucketWebsiteResponse

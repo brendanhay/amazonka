@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -265,7 +267,7 @@ _ClientException = _ServiceError . hasCode "ClientException"
 data DirectorySize
     = Small
     | Large
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DirectorySize where
     parser = takeLowerText >>= \case
@@ -279,9 +281,7 @@ instance ToText DirectorySize where
         Large -> "large"
         Small -> "small"
 
-instance Hashable DirectorySize where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DirectorySize
 instance ToQuery DirectorySize
 instance ToHeader DirectorySize
 
@@ -303,7 +303,7 @@ data DirectoryStage
     | DSInoperable
     | DSActive
     | DSCreating
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DirectoryStage where
     parser = takeLowerText >>= \case
@@ -335,9 +335,7 @@ instance ToText DirectoryStage where
         DSRestoreFailed -> "restorefailed"
         DSRestoring -> "restoring"
 
-instance Hashable DirectoryStage where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DirectoryStage
 instance ToQuery DirectoryStage
 instance ToHeader DirectoryStage
 
@@ -347,7 +345,7 @@ instance FromJSON DirectoryStage where
 data DirectoryType
     = ADConnector
     | SimpleAD
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DirectoryType where
     parser = takeLowerText >>= \case
@@ -361,9 +359,7 @@ instance ToText DirectoryType where
         ADConnector -> "adconnector"
         SimpleAD -> "simplead"
 
-instance Hashable DirectoryType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DirectoryType
 instance ToQuery DirectoryType
 instance ToHeader DirectoryType
 
@@ -375,7 +371,7 @@ data RadiusAuthenticationProtocol
     | MSCHAPV1
     | MSCHAPV2
     | Pap
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RadiusAuthenticationProtocol where
     parser = takeLowerText >>= \case
@@ -393,9 +389,7 @@ instance ToText RadiusAuthenticationProtocol where
         MSCHAPV2 -> "ms-chapv2"
         Pap -> "pap"
 
-instance Hashable RadiusAuthenticationProtocol where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RadiusAuthenticationProtocol
 instance ToQuery RadiusAuthenticationProtocol
 instance ToHeader RadiusAuthenticationProtocol
 
@@ -409,7 +403,7 @@ data RadiusStatus
     = Creating
     | Completed
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RadiusStatus where
     parser = takeLowerText >>= \case
@@ -425,9 +419,7 @@ instance ToText RadiusStatus where
         Creating -> "creating"
         Failed -> "failed"
 
-instance Hashable RadiusStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RadiusStatus
 instance ToQuery RadiusStatus
 instance ToHeader RadiusStatus
 
@@ -438,7 +430,7 @@ data SnapshotStatus
     = SSCompleted
     | SSFailed
     | SSCreating
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SnapshotStatus where
     parser = takeLowerText >>= \case
@@ -454,9 +446,7 @@ instance ToText SnapshotStatus where
         SSCreating -> "creating"
         SSFailed -> "failed"
 
-instance Hashable SnapshotStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SnapshotStatus
 instance ToQuery SnapshotStatus
 instance ToHeader SnapshotStatus
 
@@ -466,7 +456,7 @@ instance FromJSON SnapshotStatus where
 data SnapshotType
     = Auto
     | Manual
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SnapshotType where
     parser = takeLowerText >>= \case
@@ -480,9 +470,7 @@ instance ToText SnapshotType where
         Auto -> "auto"
         Manual -> "manual"
 
-instance Hashable SnapshotType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SnapshotType
 instance ToQuery SnapshotType
 instance ToHeader SnapshotType
 
@@ -501,7 +489,7 @@ instance FromJSON SnapshotType where
 data Attribute = Attribute'
     { _attValue :: !(Maybe Text)
     , _attName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Attribute' smart constructor.
 attribute :: Attribute
@@ -544,7 +532,7 @@ data Computer = Computer'
     { _comComputerId         :: !(Maybe Text)
     , _comComputerAttributes :: !(Maybe [Attribute])
     , _comComputerName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Computer' smart constructor.
 computer :: Computer
@@ -596,7 +584,7 @@ data DirectoryConnectSettings = DirectoryConnectSettings'
     , _dcsSubnetIds        :: ![Text]
     , _dcsCustomerDNSIPs   :: ![Text]
     , _dcsCustomerUserName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryConnectSettings' smart constructor.
 directoryConnectSettings :: Text -> Text -> DirectoryConnectSettings
@@ -663,7 +651,7 @@ data DirectoryConnectSettingsDescription = DirectoryConnectSettingsDescription'
     , _dcsdConnectIPs        :: !(Maybe [Text])
     , _dcsdSecurityGroupId   :: !(Maybe Text)
     , _dcsdAvailabilityZones :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryConnectSettingsDescription' smart constructor.
 directoryConnectSettingsDescription :: DirectoryConnectSettingsDescription
@@ -774,7 +762,7 @@ data DirectoryDescription = DirectoryDescription'
     , _ddType                     :: !(Maybe DirectoryType)
     , _ddConnectSettings          :: !(Maybe DirectoryConnectSettingsDescription)
     , _ddDescription              :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryDescription' smart constructor.
 directoryDescription :: DirectoryDescription
@@ -930,7 +918,7 @@ data DirectoryLimits = DirectoryLimits'
     , _dlCloudOnlyDirectoriesLimit        :: !(Maybe Nat)
     , _dlCloudOnlyDirectoriesCurrentCount :: !(Maybe Nat)
     , _dlCloudOnlyDirectoriesLimitReached :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryLimits' smart constructor.
 directoryLimits :: DirectoryLimits
@@ -993,7 +981,7 @@ instance FromJSON DirectoryLimits where
 data DirectoryVPCSettings = DirectoryVPCSettings'
     { _dvsVPCId     :: !Text
     , _dvsSubnetIds :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryVPCSettings' smart constructor.
 directoryVPCSettings :: Text -> DirectoryVPCSettings
@@ -1036,7 +1024,7 @@ data DirectoryVPCSettingsDescription = DirectoryVPCSettingsDescription'
     , _dvsdVPCId             :: !(Maybe Text)
     , _dvsdSecurityGroupId   :: !(Maybe Text)
     , _dvsdAvailabilityZones :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DirectoryVPCSettingsDescription' smart constructor.
 directoryVPCSettingsDescription :: DirectoryVPCSettingsDescription
@@ -1105,7 +1093,7 @@ data RadiusSettings = RadiusSettings'
     , _rsSharedSecret           :: !(Maybe (Sensitive Text))
     , _rsRadiusTimeout          :: !(Maybe Nat)
     , _rsRadiusPort             :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RadiusSettings' smart constructor.
 radiusSettings :: RadiusSettings
@@ -1210,7 +1198,7 @@ data Snapshot = Snapshot'
     , _snaName        :: !(Maybe Text)
     , _snaType        :: !(Maybe SnapshotType)
     , _snaSnapshotId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
@@ -1274,7 +1262,7 @@ data SnapshotLimits = SnapshotLimits'
     { _slManualSnapshotsLimitReached :: !(Maybe Bool)
     , _slManualSnapshotsCurrentCount :: !(Maybe Nat)
     , _slManualSnapshotsLimit        :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SnapshotLimits' smart constructor.
 snapshotLimits :: SnapshotLimits

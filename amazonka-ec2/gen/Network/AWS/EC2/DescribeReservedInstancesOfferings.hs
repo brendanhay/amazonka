@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesOfferings
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -109,7 +111,7 @@ data DescribeReservedInstancesOfferings = DescribeReservedInstancesOfferings'
     , _drioDryRun                       :: !(Maybe Bool)
     , _drioMaxResults                   :: !(Maybe Int)
     , _drioMaxInstanceCount             :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesOfferings' smart constructor.
 describeReservedInstancesOfferings :: DescribeReservedInstancesOfferings
@@ -318,7 +320,7 @@ data DescribeReservedInstancesOfferingsResponse = DescribeReservedInstancesOffer
     { _driorNextToken                  :: !(Maybe Text)
     , _driorReservedInstancesOfferings :: !(Maybe [ReservedInstancesOffering])
     , _driorStatus                     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesOfferingsResponse' smart constructor.
 describeReservedInstancesOfferingsResponse :: Int -> DescribeReservedInstancesOfferingsResponse

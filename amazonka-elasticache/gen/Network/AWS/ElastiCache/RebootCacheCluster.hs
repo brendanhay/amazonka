@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.RebootCacheCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ import           Network.AWS.Response
 data RebootCacheCluster = RebootCacheCluster'
     { _rccCacheClusterId       :: !Text
     , _rccCacheNodeIdsToReboot :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCacheCluster' smart constructor.
 rebootCacheCluster :: Text -> RebootCacheCluster
@@ -120,7 +122,7 @@ instance ToQuery RebootCacheCluster where
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
     { _rccrCacheCluster :: !(Maybe CacheCluster)
     , _rccrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCacheClusterResponse' smart constructor.
 rebootCacheClusterResponse :: Int -> RebootCacheClusterResponse

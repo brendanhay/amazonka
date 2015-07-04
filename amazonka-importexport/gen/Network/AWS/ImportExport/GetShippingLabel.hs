@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ImportExport.GetShippingLabel
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -93,7 +95,7 @@ data GetShippingLabel = GetShippingLabel'
     , _gslPhoneNumber     :: !(Maybe Text)
     , _gslStreet1         :: !(Maybe Text)
     , _gslJobIds          :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShippingLabel' smart constructor.
 getShippingLabel :: GetShippingLabel
@@ -208,7 +210,7 @@ data GetShippingLabelResponse = GetShippingLabelResponse'
     { _gslrShippingLabelURL :: !(Maybe Text)
     , _gslrWarning          :: !(Maybe Text)
     , _gslrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShippingLabelResponse' smart constructor.
 getShippingLabelResponse :: Int -> GetShippingLabelResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.ListDomains
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.SDB.Types
 data ListDomains = ListDomains'
     { _ldMaxNumberOfDomains :: !(Maybe Int)
     , _ldNextToken          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: ListDomains
@@ -125,7 +127,7 @@ data ListDomainsResponse = ListDomainsResponse'
     { _ldrDomainNames :: !(Maybe [Text])
     , _ldrNextToken   :: !(Maybe Text)
     , _ldrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse

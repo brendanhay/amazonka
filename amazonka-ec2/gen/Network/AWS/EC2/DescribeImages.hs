@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeImages
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data DescribeImages = DescribeImages'
     , _di2Filters         :: !(Maybe [Filter])
     , _di2ImageIds        :: !(Maybe [Text])
     , _di2DryRun          :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImages' smart constructor.
 describeImages :: DescribeImages
@@ -232,7 +234,7 @@ instance ToQuery DescribeImages where
 data DescribeImagesResponse = DescribeImagesResponse'
     { _descImages :: !(Maybe [Image])
     , _descStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImagesResponse' smart constructor.
 describeImagesResponse :: Int -> DescribeImagesResponse

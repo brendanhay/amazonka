@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -163,7 +165,7 @@ _TopicLimitExceededException =
 data Endpoint = Endpoint'
     { _endAttributes  :: !(Maybe (Map Text Text))
     , _endEndpointARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
@@ -222,7 +224,7 @@ data MessageAttributeValue = MessageAttributeValue'
     { _mavBinaryValue :: !(Maybe Base64)
     , _mavStringValue :: !(Maybe Text)
     , _mavDataType    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MessageAttributeValue' smart constructor.
 messageAttributeValue :: Text -> MessageAttributeValue
@@ -269,7 +271,7 @@ instance ToQuery MessageAttributeValue where
 data PlatformApplication = PlatformApplication'
     { _paPlatformApplicationARN :: !(Maybe Text)
     , _paAttributes             :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PlatformApplication' smart constructor.
 platformApplication :: PlatformApplication
@@ -315,7 +317,7 @@ data Subscription = Subscription'
     , _subTopicARN        :: !(Maybe Text)
     , _subEndpoint        :: !(Maybe Endpoint)
     , _subSubscriptionARN :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subscription' smart constructor.
 subscription :: Subscription
@@ -366,7 +368,7 @@ instance FromXML Subscription where
 -- * 'topTopicARN'
 newtype Topic = Topic'
     { _topTopicARN :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Topic' smart constructor.
 topic :: Topic

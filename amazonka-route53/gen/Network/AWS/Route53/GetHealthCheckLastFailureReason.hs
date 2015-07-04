@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.GetHealthCheckLastFailureReason
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Route53.Types
 -- * 'ghclfrHealthCheckId'
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'
     { _ghclfrHealthCheckId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckLastFailureReason' smart constructor.
 getHealthCheckLastFailureReason :: Text -> GetHealthCheckLastFailureReason
@@ -108,7 +110,7 @@ instance ToQuery GetHealthCheckLastFailureReason
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
     { _ghclfrrStatus                  :: !Int
     , _ghclfrrHealthCheckObservations :: ![HealthCheckObservation]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
 getHealthCheckLastFailureReasonResponse :: Int -> GetHealthCheckLastFailureReasonResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.GetQueueAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -99,7 +101,7 @@ import           Network.AWS.SQS.Types
 data GetQueueAttributes = GetQueueAttributes'
     { _gqaAttributeNames :: !(Maybe [QueueAttributeName])
     , _gqaQueueURL       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueAttributes' smart constructor.
 getQueueAttributes :: Text -> GetQueueAttributes
@@ -156,7 +158,7 @@ instance ToQuery GetQueueAttributes where
 data GetQueueAttributesResponse = GetQueueAttributesResponse'
     { _gqarAttributes :: !(Maybe (Map QueueAttributeName Text))
     , _gqarStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueAttributesResponse' smart constructor.
 getQueueAttributesResponse :: Int -> GetQueueAttributesResponse

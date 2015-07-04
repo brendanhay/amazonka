@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.Encrypt
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -81,7 +83,7 @@ data Encrypt = Encrypt'
     , _encGrantTokens       :: !(Maybe [Text])
     , _encKeyId             :: !Text
     , _encPlaintext         :: !(Sensitive Base64)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Encrypt' smart constructor.
 encrypt :: Text -> Base64 -> Encrypt
@@ -169,7 +171,7 @@ data EncryptResponse = EncryptResponse'
     { _erKeyId          :: !(Maybe Text)
     , _erCiphertextBlob :: !(Maybe Base64)
     , _erStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EncryptResponse' smart constructor.
 encryptResponse :: Int -> EncryptResponse

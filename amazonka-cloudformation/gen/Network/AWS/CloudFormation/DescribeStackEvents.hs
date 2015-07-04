@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStackEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.Response
 data DescribeStackEvents = DescribeStackEvents'
     { _dseNextToken :: !(Maybe Text)
     , _dseStackName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackEvents' smart constructor.
 describeStackEvents :: DescribeStackEvents
@@ -139,7 +141,7 @@ data DescribeStackEventsResponse = DescribeStackEventsResponse'
     { _dserNextToken   :: !(Maybe Text)
     , _dserStackEvents :: !(Maybe [StackEvent])
     , _dserStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackEventsResponse' smart constructor.
 describeStackEventsResponse :: Int -> DescribeStackEventsResponse

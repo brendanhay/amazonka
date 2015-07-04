@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteSAMLProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'dsamlpSAMLProviderARN'
 newtype DeleteSAMLProvider = DeleteSAMLProvider'
     { _dsamlpSAMLProviderARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSAMLProvider' smart constructor.
 deleteSAMLProvider :: Text -> DeleteSAMLProvider
@@ -87,7 +89,7 @@ instance ToQuery DeleteSAMLProvider where
 -- | /See:/ 'deleteSAMLProviderResponse' smart constructor.
 data DeleteSAMLProviderResponse =
     DeleteSAMLProviderResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSAMLProviderResponse' smart constructor.
 deleteSAMLProviderResponse :: DeleteSAMLProviderResponse

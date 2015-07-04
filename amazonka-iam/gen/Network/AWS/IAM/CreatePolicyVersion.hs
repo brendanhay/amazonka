@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreatePolicyVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data CreatePolicyVersion = CreatePolicyVersion'
     { _cpvSetAsDefault   :: !(Maybe Bool)
     , _cpvPolicyARN      :: !Text
     , _cpvPolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicyVersion' smart constructor.
 createPolicyVersion :: Text -> Text -> CreatePolicyVersion
@@ -137,7 +139,7 @@ instance ToQuery CreatePolicyVersion where
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
     { _cpvrPolicyVersion :: !(Maybe PolicyVersion)
     , _cpvrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicyVersionResponse' smart constructor.
 createPolicyVersionResponse :: Int -> CreatePolicyVersionResponse

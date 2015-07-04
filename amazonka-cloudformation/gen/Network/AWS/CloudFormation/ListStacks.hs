@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.ListStacks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data ListStacks = ListStacks'
     { _lsNextToken         :: !(Maybe Text)
     , _lsStackStatusFilter :: !(Maybe [StackStatus])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStacks' smart constructor.
 listStacks :: ListStacks
@@ -134,7 +136,7 @@ data ListStacksResponse = ListStacksResponse'
     { _lisStackSummaries :: !(Maybe [StackSummary])
     , _lisNextToken      :: !(Maybe Text)
     , _lisStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStacksResponse' smart constructor.
 listStacksResponse :: Int -> ListStacksResponse

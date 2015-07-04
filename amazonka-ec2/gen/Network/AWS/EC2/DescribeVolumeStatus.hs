@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeVolumeStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -103,7 +105,7 @@ data DescribeVolumeStatus = DescribeVolumeStatus'
     , _dvsNextToken  :: !(Maybe Text)
     , _dvsDryRun     :: !(Maybe Bool)
     , _dvsMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeStatus' smart constructor.
 describeVolumeStatus :: DescribeVolumeStatus
@@ -235,7 +237,7 @@ data DescribeVolumeStatusResponse = DescribeVolumeStatusResponse'
     { _dvsrNextToken      :: !(Maybe Text)
     , _dvsrVolumeStatuses :: !(Maybe [VolumeStatusItem])
     , _dvsrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeStatusResponse' smart constructor.
 describeVolumeStatusResponse :: Int -> DescribeVolumeStatusResponse

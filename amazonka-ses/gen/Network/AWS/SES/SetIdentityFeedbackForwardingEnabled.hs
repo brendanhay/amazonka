@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ import           Network.AWS.SES.Types
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
     { _siffeIdentity          :: !Text
     , _siffeForwardingEnabled :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityFeedbackForwardingEnabled' smart constructor.
 setIdentityFeedbackForwardingEnabled :: Text -> Bool -> SetIdentityFeedbackForwardingEnabled
@@ -129,7 +131,7 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
 -- * 'sifferStatus'
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
     { _sifferStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' smart constructor.
 setIdentityFeedbackForwardingEnabledResponse :: Int -> SetIdentityFeedbackForwardingEnabledResponse

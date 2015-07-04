@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.DeleteQueue
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.SQS.Types
 -- * 'dqQueueURL'
 newtype DeleteQueue = DeleteQueue'
     { _dqQueueURL :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteQueue' smart constructor.
 deleteQueue :: Text -> DeleteQueue
@@ -96,7 +98,7 @@ instance ToQuery DeleteQueue where
 -- | /See:/ 'deleteQueueResponse' smart constructor.
 data DeleteQueueResponse =
     DeleteQueueResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteQueueResponse' smart constructor.
 deleteQueueResponse :: DeleteQueueResponse

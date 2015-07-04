@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteChapCredentials
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.StorageGateway.Types
 data DeleteChapCredentials = DeleteChapCredentials'
     { _dTargetARN     :: !Text
     , _dInitiatorName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteChapCredentials' smart constructor.
 deleteChapCredentials :: Text -> Text -> DeleteChapCredentials
@@ -127,7 +129,7 @@ data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
     { _delTargetARN     :: !(Maybe Text)
     , _delInitiatorName :: !(Maybe Text)
     , _delStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteChapCredentialsResponse' smart constructor.
 deleteChapCredentialsResponse :: Int -> DeleteChapCredentialsResponse

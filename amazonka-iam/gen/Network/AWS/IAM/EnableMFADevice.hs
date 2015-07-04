@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.EnableMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data EnableMFADevice = EnableMFADevice'
     , _emdSerialNumber        :: !Text
     , _emdAuthenticationCode1 :: !Text
     , _emdAuthenticationCode2 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMFADevice' smart constructor.
 enableMFADevice :: Text -> Text -> Text -> Text -> EnableMFADevice
@@ -112,7 +114,7 @@ instance ToQuery EnableMFADevice where
 -- | /See:/ 'enableMFADeviceResponse' smart constructor.
 data EnableMFADeviceResponse =
     EnableMFADeviceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMFADeviceResponse' smart constructor.
 enableMFADeviceResponse :: EnableMFADeviceResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.DescribeWorkflowExecution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ import           Network.AWS.SWF.Types
 data DescribeWorkflowExecution = DescribeWorkflowExecution'
     { _dweDomain    :: !Text
     , _dweExecution :: !WorkflowExecution
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkflowExecution' smart constructor.
 describeWorkflowExecution :: Text -> WorkflowExecution -> DescribeWorkflowExecution
@@ -157,7 +159,7 @@ data DescribeWorkflowExecutionResponse = DescribeWorkflowExecutionResponse'
     , _dwerExecutionInfo               :: !WorkflowExecutionInfo
     , _dwerExecutionConfiguration      :: !WorkflowExecutionConfiguration
     , _dwerOpenCounts                  :: !WorkflowExecutionOpenCounts
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkflowExecutionResponse' smart constructor.
 describeWorkflowExecutionResponse :: Int -> WorkflowExecutionInfo -> WorkflowExecutionConfiguration -> WorkflowExecutionOpenCounts -> DescribeWorkflowExecutionResponse

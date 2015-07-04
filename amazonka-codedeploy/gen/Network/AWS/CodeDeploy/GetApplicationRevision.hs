@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetApplicationRevision
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data GetApplicationRevision = GetApplicationRevision'
     { _garApplicationName :: !Text
     , _garRevision        :: !RevisionLocation
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplicationRevision' smart constructor.
 getApplicationRevision :: Text -> RevisionLocation -> GetApplicationRevision
@@ -127,7 +129,7 @@ data GetApplicationRevisionResponse = GetApplicationRevisionResponse'
     , _garrApplicationName :: !(Maybe Text)
     , _garrRevision        :: !(Maybe RevisionLocation)
     , _garrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplicationRevisionResponse' smart constructor.
 getApplicationRevisionResponse :: Int -> GetApplicationRevisionResponse

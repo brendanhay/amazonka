@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.STS.AssumeRole
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -150,7 +152,7 @@ data AssumeRole = AssumeRole'
     , _arSerialNumber    :: !(Maybe Text)
     , _arRoleARN         :: !Text
     , _arRoleSessionName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRole' smart constructor.
 assumeRole :: Text -> Text -> AssumeRole
@@ -274,7 +276,7 @@ data AssumeRoleResponse = AssumeRoleResponse'
     , _arrCredentials      :: !(Maybe Credentials)
     , _arrAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleResponse' smart constructor.
 assumeRoleResponse :: Int -> AssumeRoleResponse

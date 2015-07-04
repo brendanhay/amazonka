@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
     , _drcnoOfferingType                 :: !(Maybe Text)
     , _drcnoDuration                     :: !(Maybe Text)
     , _drcnoReservedCacheNodesOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedCacheNodesOfferings' smart constructor.
 describeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferings
@@ -237,7 +239,7 @@ data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOff
     { _drcnorMarker                      :: !(Maybe Text)
     , _drcnorReservedCacheNodesOfferings :: !(Maybe [ReservedCacheNodesOffering])
     , _drcnorStatus                      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedCacheNodesOfferingsResponse' smart constructor.
 describeReservedCacheNodesOfferingsResponse :: Int -> DescribeReservedCacheNodesOfferingsResponse

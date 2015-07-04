@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.AttachLoadBalancerToSubnets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
     { _albtsLoadBalancerName :: !Text
     , _albtsSubnets          :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancerToSubnets' smart constructor.
 attachLoadBalancerToSubnets :: Text -> AttachLoadBalancerToSubnets
@@ -115,7 +117,7 @@ instance ToQuery AttachLoadBalancerToSubnets where
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
     { _albtsrSubnets :: !(Maybe [Text])
     , _albtsrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
 attachLoadBalancerToSubnetsResponse :: Int -> AttachLoadBalancerToSubnetsResponse

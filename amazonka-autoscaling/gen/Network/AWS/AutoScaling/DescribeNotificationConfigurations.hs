@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeNotificationConfigurations
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
     { _dncAutoScalingGroupNames :: !(Maybe [Text])
     , _dncNextToken             :: !(Maybe Text)
     , _dncMaxRecords            :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNotificationConfigurations' smart constructor.
 describeNotificationConfigurations :: DescribeNotificationConfigurations
@@ -141,7 +143,7 @@ data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurat
     { _dncrNextToken                  :: !(Maybe Text)
     , _dncrStatus                     :: !Int
     , _dncrNotificationConfigurations :: ![NotificationConfiguration]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
 describeNotificationConfigurationsResponse :: Int -> DescribeNotificationConfigurationsResponse

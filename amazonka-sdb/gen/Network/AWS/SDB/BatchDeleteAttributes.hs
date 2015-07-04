@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.BatchDeleteAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.SDB.Types
 data BatchDeleteAttributes = BatchDeleteAttributes'
     { _bdaDomainName :: !Text
     , _bdaItems      :: ![DeletableItem]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchDeleteAttributes' smart constructor.
 batchDeleteAttributes :: Text -> BatchDeleteAttributes
@@ -97,7 +99,7 @@ instance ToQuery BatchDeleteAttributes where
 -- | /See:/ 'batchDeleteAttributesResponse' smart constructor.
 data BatchDeleteAttributesResponse =
     BatchDeleteAttributesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchDeleteAttributesResponse' smart constructor.
 batchDeleteAttributesResponse :: BatchDeleteAttributesResponse

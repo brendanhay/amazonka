@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.DeleteBucketCORS
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -44,7 +46,7 @@ import           Network.AWS.S3.Types
 -- * 'dbcBucket'
 newtype DeleteBucketCORS = DeleteBucketCORS'
     { _dbcBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketCORS' smart constructor.
 deleteBucketCORS :: BucketName -> DeleteBucketCORS
@@ -76,7 +78,7 @@ instance ToQuery DeleteBucketCORS where
 -- | /See:/ 'deleteBucketCORSResponse' smart constructor.
 data DeleteBucketCORSResponse =
     DeleteBucketCORSResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketCORSResponse' smart constructor.
 deleteBucketCORSResponse :: DeleteBucketCORSResponse

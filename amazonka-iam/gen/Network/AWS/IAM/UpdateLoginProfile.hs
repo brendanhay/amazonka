@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateLoginProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data UpdateLoginProfile = UpdateLoginProfile'
     { _ulpPassword              :: !(Maybe (Sensitive Text))
     , _ulpPasswordResetRequired :: !(Maybe Bool)
     , _ulpUserName              :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLoginProfile' smart constructor.
 updateLoginProfile :: Text -> UpdateLoginProfile
@@ -105,7 +107,7 @@ instance ToQuery UpdateLoginProfile where
 -- | /See:/ 'updateLoginProfileResponse' smart constructor.
 data UpdateLoginProfileResponse =
     UpdateLoginProfileResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLoginProfileResponse' smart constructor.
 updateLoginProfileResponse :: UpdateLoginProfileResponse

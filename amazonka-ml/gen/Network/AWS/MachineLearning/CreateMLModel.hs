@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateMLModel
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -89,7 +91,7 @@ data CreateMLModel = CreateMLModel'
     , _cmlmMLModelId            :: !Text
     , _cmlmMLModelType          :: !MLModelType
     , _cmlmTrainingDataSourceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateMLModel' smart constructor.
 createMLModel :: Text -> MLModelType -> Text -> CreateMLModel
@@ -235,7 +237,7 @@ instance ToQuery CreateMLModel where
 data CreateMLModelResponse = CreateMLModelResponse'
     { _cmlmrMLModelId :: !(Maybe Text)
     , _cmlmrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateMLModelResponse' smart constructor.
 createMLModelResponse :: Int -> CreateMLModelResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeChapCredentials
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dccTargetARN'
 newtype DescribeChapCredentials = DescribeChapCredentials'
     { _dccTargetARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeChapCredentials' smart constructor.
 describeChapCredentials :: Text -> DescribeChapCredentials
@@ -111,7 +113,7 @@ instance ToQuery DescribeChapCredentials where
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
     { _dccrChapCredentials :: !(Maybe [ChapInfo])
     , _dccrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeChapCredentialsResponse' smart constructor.
 describeChapCredentialsResponse :: Int -> DescribeChapCredentialsResponse

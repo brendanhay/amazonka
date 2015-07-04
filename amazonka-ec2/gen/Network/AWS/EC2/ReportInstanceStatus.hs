@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ReportInstanceStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ data ReportInstanceStatus = ReportInstanceStatus'
     , _risInstances   :: ![Text]
     , _risStatus      :: !ReportStatusType
     , _risReasonCodes :: ![ReportInstanceReasonCodes]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportInstanceStatus' smart constructor.
 reportInstanceStatus :: ReportStatusType -> ReportInstanceStatus
@@ -176,7 +178,7 @@ instance ToQuery ReportInstanceStatus where
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse =
     ReportInstanceStatusResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportInstanceStatusResponse' smart constructor.
 reportInstanceStatusResponse :: ReportInstanceStatusResponse

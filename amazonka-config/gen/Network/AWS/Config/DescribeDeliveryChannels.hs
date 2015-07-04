@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Config.DescribeDeliveryChannels
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'ddcDeliveryChannelNames'
 newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
     { _ddcDeliveryChannelNames :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeliveryChannels' smart constructor.
 describeDeliveryChannels :: DescribeDeliveryChannels
@@ -111,7 +113,7 @@ instance ToQuery DescribeDeliveryChannels where
 data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'
     { _ddcrDeliveryChannels :: !(Maybe [DeliveryChannel])
     , _ddcrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeliveryChannelsResponse' smart constructor.
 describeDeliveryChannelsResponse :: Int -> DescribeDeliveryChannelsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListAttachedUserPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data ListAttachedUserPolicies = ListAttachedUserPolicies'
     , _laupMaxItems   :: !(Maybe Nat)
     , _laupMarker     :: !(Maybe Text)
     , _laupUserName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedUserPolicies' smart constructor.
 listAttachedUserPolicies :: Text -> ListAttachedUserPolicies
@@ -160,7 +162,7 @@ data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'
     , _lauprMarker           :: !(Maybe Text)
     , _lauprIsTruncated      :: !(Maybe Bool)
     , _lauprStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedUserPoliciesResponse' smart constructor.
 listAttachedUserPoliciesResponse :: Int -> ListAttachedUserPoliciesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.ChangeMessageVisibilityBatch
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ import           Network.AWS.SQS.Types
 data ChangeMessageVisibilityBatch = ChangeMessageVisibilityBatch'
     { _cmvbQueueURL :: !Text
     , _cmvbEntries  :: ![ChangeMessageVisibilityBatchRequestEntry]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeMessageVisibilityBatch' smart constructor.
 changeMessageVisibilityBatch :: Text -> ChangeMessageVisibilityBatch
@@ -138,7 +140,7 @@ data ChangeMessageVisibilityBatchResponse = ChangeMessageVisibilityBatchResponse
     { _cmvbrStatus     :: !Int
     , _cmvbrSuccessful :: ![ChangeMessageVisibilityBatchResultEntry]
     , _cmvbrFailed     :: ![BatchResultErrorEntry]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeMessageVisibilityBatchResponse' smart constructor.
 changeMessageVisibilityBatchResponse :: Int -> ChangeMessageVisibilityBatchResponse

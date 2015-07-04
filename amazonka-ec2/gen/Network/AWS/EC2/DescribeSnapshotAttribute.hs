@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeSnapshotAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
     { _dsaDryRun     :: !(Maybe Bool)
     , _dsaSnapshotId :: !Text
     , _dsaAttribute  :: !SnapshotAttributeName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotAttribute' smart constructor.
 describeSnapshotAttribute :: Text -> SnapshotAttributeName -> DescribeSnapshotAttribute
@@ -137,7 +139,7 @@ data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
     , _dsarProductCodes            :: !(Maybe [ProductCode])
     , _dsarSnapshotId              :: !(Maybe Text)
     , _dsarStatus                  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotAttributeResponse' smart constructor.
 describeSnapshotAttributeResponse :: Int -> DescribeSnapshotAttributeResponse

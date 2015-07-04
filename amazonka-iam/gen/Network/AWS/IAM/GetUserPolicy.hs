@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetUserPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ import           Network.AWS.Response
 data GetUserPolicy = GetUserPolicy'
     { _gupUserName   :: !Text
     , _gupPolicyName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserPolicy' smart constructor.
 getUserPolicy :: Text -> Text -> GetUserPolicy
@@ -125,7 +127,7 @@ data GetUserPolicyResponse = GetUserPolicyResponse'
     , _guprUserName       :: !Text
     , _guprPolicyName     :: !Text
     , _guprPolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserPolicyResponse' smart constructor.
 getUserPolicyResponse :: Int -> Text -> Text -> Text -> GetUserPolicyResponse

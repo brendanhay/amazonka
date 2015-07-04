@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudTrail.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -211,7 +213,7 @@ data LookupAttributeKey
     | Username
     | EventName
     | EventId
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LookupAttributeKey where
     parser = takeLowerText >>= \case
@@ -231,9 +233,7 @@ instance ToText LookupAttributeKey where
         ResourceType -> "resourcetype"
         Username -> "username"
 
-instance Hashable LookupAttributeKey where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable LookupAttributeKey
 instance ToQuery LookupAttributeKey
 instance ToHeader LookupAttributeKey
 
@@ -265,7 +265,7 @@ data Event = Event'
     , _eveCloudTrailEvent :: !(Maybe Text)
     , _eveEventName       :: !(Maybe Text)
     , _eveEventId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Event' smart constructor.
 event :: Event
@@ -327,7 +327,7 @@ instance FromJSON Event where
 data LookupAttribute = LookupAttribute'
     { _laAttributeKey   :: !LookupAttributeKey
     , _laAttributeValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupAttribute' smart constructor.
 lookupAttribute :: LookupAttributeKey -> Text -> LookupAttribute
@@ -363,7 +363,7 @@ instance ToJSON LookupAttribute where
 data Resource = Resource'
     { _resResourceType :: !(Maybe Text)
     , _resResourceName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Resource' smart constructor.
 resource :: Resource
@@ -423,7 +423,7 @@ data Trail = Trail'
     , _traIncludeGlobalServiceEvents :: !(Maybe Bool)
     , _traCloudWatchLogsRoleARN      :: !(Maybe Text)
     , _traS3BucketName               :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Trail' smart constructor.
 trail :: Trail

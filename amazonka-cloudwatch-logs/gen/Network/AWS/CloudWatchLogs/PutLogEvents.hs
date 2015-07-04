@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutLogEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data PutLogEvents = PutLogEvents'
     , _pleLogGroupName  :: !Text
     , _pleLogStreamName :: !Text
     , _pleLogEvents     :: !(List1 InputLogEvent)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLogEvents' smart constructor.
 putLogEvents :: Text -> Text -> NonEmpty InputLogEvent -> PutLogEvents
@@ -154,7 +156,7 @@ data PutLogEventsResponse = PutLogEventsResponse'
     { _plerRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
     , _plerNextSequenceToken     :: !(Maybe Text)
     , _plerStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLogEventsResponse' smart constructor.
 putLogEventsResponse :: Int -> PutLogEventsResponse

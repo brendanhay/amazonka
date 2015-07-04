@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.RespondActivityTaskCompleted
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ import           Network.AWS.SWF.Types
 data RespondActivityTaskCompleted = RespondActivityTaskCompleted'
     { _ratcResult    :: !(Maybe Text)
     , _ratcTaskToken :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondActivityTaskCompleted' smart constructor.
 respondActivityTaskCompleted :: Text -> RespondActivityTaskCompleted
@@ -140,7 +142,7 @@ instance ToQuery RespondActivityTaskCompleted where
 -- | /See:/ 'respondActivityTaskCompletedResponse' smart constructor.
 data RespondActivityTaskCompletedResponse =
     RespondActivityTaskCompletedResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondActivityTaskCompletedResponse' smart constructor.
 respondActivityTaskCompletedResponse :: RespondActivityTaskCompletedResponse

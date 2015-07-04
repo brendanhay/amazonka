@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.ListObjectVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -84,7 +86,7 @@ data ListObjectVersions = ListObjectVersions'
     , _lovMaxKeys         :: !(Maybe Int)
     , _lovDelimiter       :: !(Maybe Char)
     , _lovBucket          :: !BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListObjectVersions' smart constructor.
 listObjectVersions :: BucketName -> ListObjectVersions
@@ -224,7 +226,7 @@ data ListObjectVersionsResponse = ListObjectVersionsResponse'
     , _lovrIsTruncated         :: !(Maybe Bool)
     , _lovrDelimiter           :: !(Maybe Char)
     , _lovrStatus              :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListObjectVersionsResponse' smart constructor.
 listObjectVersionsResponse :: Int -> ListObjectVersionsResponse

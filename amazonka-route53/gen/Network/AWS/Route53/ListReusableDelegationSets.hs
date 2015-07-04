@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.ListReusableDelegationSets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ import           Network.AWS.Route53.Types
 data ListReusableDelegationSets = ListReusableDelegationSets'
     { _lrdsMaxItems :: !(Maybe Text)
     , _lrdsMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListReusableDelegationSets' smart constructor.
 listReusableDelegationSets :: ListReusableDelegationSets
@@ -150,7 +152,7 @@ data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
     , _lrdsrMarker         :: !Text
     , _lrdsrIsTruncated    :: !Bool
     , _lrdsrMaxItems       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
 listReusableDelegationSetsResponse :: Int -> Text -> Bool -> Text -> ListReusableDelegationSetsResponse

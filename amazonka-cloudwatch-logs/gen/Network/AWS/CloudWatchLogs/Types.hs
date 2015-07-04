@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -204,7 +206,7 @@ _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 data OrderBy
     = LogStreamName
     | LastEventTime
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OrderBy where
     parser = takeLowerText >>= \case
@@ -218,9 +220,7 @@ instance ToText OrderBy where
         LastEventTime -> "lasteventtime"
         LogStreamName -> "logstreamname"
 
-instance Hashable OrderBy where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable OrderBy
 instance ToQuery OrderBy
 instance ToHeader OrderBy
 
@@ -248,7 +248,7 @@ data FilteredLogEvent = FilteredLogEvent'
     , _fleMessage       :: !(Maybe Text)
     , _fleTimestamp     :: !(Maybe Nat)
     , _fleEventId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FilteredLogEvent' smart constructor.
 filteredLogEvent :: FilteredLogEvent
@@ -306,7 +306,7 @@ instance FromJSON FilteredLogEvent where
 data InputLogEvent = InputLogEvent'
     { _ileTimestamp :: !Nat
     , _ileMessage   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InputLogEvent' smart constructor.
 inputLogEvent :: Natural -> Text -> InputLogEvent
@@ -352,7 +352,7 @@ data LogGroup = LogGroup'
     , _lgLogGroupName      :: !(Maybe Text)
     , _lgRetentionInDays   :: !(Maybe Int)
     , _lgStoredBytes       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LogGroup' smart constructor.
 logGroup :: LogGroup
@@ -432,7 +432,7 @@ data LogStream = LogStream'
     , _lsStoredBytes         :: !(Maybe Nat)
     , _lsLastIngestionTime   :: !(Maybe Nat)
     , _lsLastEventTimestamp  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LogStream' smart constructor.
 logStream :: LogStream
@@ -514,7 +514,7 @@ data MetricFilter = MetricFilter'
     , _mfFilterName            :: !(Maybe Text)
     , _mfFilterPattern         :: !(Maybe Text)
     , _mfMetricTransformations :: !(Maybe (List1 MetricTransformation))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricFilter' smart constructor.
 metricFilter :: MetricFilter
@@ -564,7 +564,7 @@ data MetricFilterMatchRecord = MetricFilterMatchRecord'
     { _mfmrExtractedValues :: !(Maybe (Map Text Text))
     , _mfmrEventMessage    :: !(Maybe Text)
     , _mfmrEventNumber     :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricFilterMatchRecord' smart constructor.
 metricFilterMatchRecord :: MetricFilterMatchRecord
@@ -609,7 +609,7 @@ data MetricTransformation = MetricTransformation'
     { _mtMetricName      :: !Text
     , _mtMetricNamespace :: !Text
     , _mtMetricValue     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MetricTransformation' smart constructor.
 metricTransformation :: Text -> Text -> Text -> MetricTransformation
@@ -660,7 +660,7 @@ data OutputLogEvent = OutputLogEvent'
     { _oleIngestionTime :: !(Maybe Nat)
     , _oleMessage       :: !(Maybe Text)
     , _oleTimestamp     :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OutputLogEvent' smart constructor.
 outputLogEvent :: OutputLogEvent
@@ -704,7 +704,7 @@ data RejectedLogEventsInfo = RejectedLogEventsInfo'
     { _rleiTooOldLogEventEndIndex   :: !(Maybe Int)
     , _rleiTooNewLogEventStartIndex :: !(Maybe Int)
     , _rleiExpiredLogEventEndIndex  :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RejectedLogEventsInfo' smart constructor.
 rejectedLogEventsInfo :: RejectedLogEventsInfo
@@ -749,7 +749,7 @@ instance FromJSON RejectedLogEventsInfo where
 data SearchedLogStream = SearchedLogStream'
     { _slsLogStreamName      :: !(Maybe Text)
     , _slsSearchedCompletely :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SearchedLogStream' smart constructor.
 searchedLogStream :: SearchedLogStream
@@ -798,7 +798,7 @@ data SubscriptionFilter = SubscriptionFilter'
     , _sfLogGroupName   :: !(Maybe Text)
     , _sfFilterPattern  :: !(Maybe Text)
     , _sfRoleARN        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubscriptionFilter' smart constructor.
 subscriptionFilter :: SubscriptionFilter

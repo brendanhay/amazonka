@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListPolicyVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data ListPolicyVersions = ListPolicyVersions'
     { _lpvMaxItems  :: !(Maybe Nat)
     , _lpvMarker    :: !(Maybe Text)
     , _lpvPolicyARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicyVersions' smart constructor.
 listPolicyVersions :: Text -> ListPolicyVersions
@@ -139,7 +141,7 @@ data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
     , _lpvrMarker      :: !(Maybe Text)
     , _lpvrIsTruncated :: !(Maybe Bool)
     , _lpvrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicyVersionsResponse' smart constructor.
 listPolicyVersionsResponse :: Int -> ListPolicyVersionsResponse

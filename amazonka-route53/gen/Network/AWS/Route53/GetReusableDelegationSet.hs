@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.GetReusableDelegationSet
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Route53.Types
 -- * 'grdsId'
 newtype GetReusableDelegationSet = GetReusableDelegationSet'
     { _grdsId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetReusableDelegationSet' smart constructor.
 getReusableDelegationSet :: Text -> GetReusableDelegationSet
@@ -99,7 +101,7 @@ instance ToQuery GetReusableDelegationSet where
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
     { _grdsrStatus        :: !Int
     , _grdsrDelegationSet :: !DelegationSet
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetReusableDelegationSetResponse' smart constructor.
 getReusableDelegationSetResponse :: Int -> DelegationSet -> GetReusableDelegationSetResponse

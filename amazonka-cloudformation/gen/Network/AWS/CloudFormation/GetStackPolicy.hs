@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.GetStackPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'gspStackName'
 newtype GetStackPolicy = GetStackPolicy'
     { _gspStackName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStackPolicy' smart constructor.
 getStackPolicy :: Text -> GetStackPolicy
@@ -99,7 +101,7 @@ instance ToQuery GetStackPolicy where
 data GetStackPolicyResponse = GetStackPolicyResponse'
     { _gsprStackPolicyBody :: !(Maybe Text)
     , _gsprStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStackPolicyResponse' smart constructor.
 getStackPolicyResponse :: Int -> GetStackPolicyResponse

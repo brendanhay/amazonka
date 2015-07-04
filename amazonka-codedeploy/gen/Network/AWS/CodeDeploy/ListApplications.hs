@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListApplications
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'laNextToken'
 newtype ListApplications = ListApplications'
     { _laNextToken :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplications' smart constructor.
 listApplications :: ListApplications
@@ -113,7 +115,7 @@ data ListApplicationsResponse = ListApplicationsResponse'
     { _larNextToken    :: !(Maybe Text)
     , _larApplications :: !(Maybe [Text])
     , _larStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationsResponse' smart constructor.
 listApplicationsResponse :: Int -> ListApplicationsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudTrail.StopLogging
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'slName'
 newtype StopLogging = StopLogging'
     { _slName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopLogging' smart constructor.
 stopLogging :: Text -> StopLogging
@@ -104,7 +106,7 @@ instance ToQuery StopLogging where
 -- * 'slrStatus'
 newtype StopLoggingResponse = StopLoggingResponse'
     { _slrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopLoggingResponse' smart constructor.
 stopLoggingResponse :: Int -> StopLoggingResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.UnassignPrivateIPAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
     { _upiaNetworkInterfaceId :: !Text
     , _upiaPrivateIPAddresses :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignPrivateIPAddresses' smart constructor.
 unassignPrivateIPAddresses :: Text -> UnassignPrivateIPAddresses
@@ -96,7 +98,7 @@ instance ToQuery UnassignPrivateIPAddresses where
 -- | /See:/ 'unassignPrivateIPAddressesResponse' smart constructor.
 data UnassignPrivateIPAddressesResponse =
     UnassignPrivateIPAddressesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignPrivateIPAddressesResponse' smart constructor.
 unassignPrivateIPAddressesResponse :: UnassignPrivateIPAddressesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.GetVaultAccessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data GetVaultAccessPolicy = GetVaultAccessPolicy'
     { _gvapAccountId :: !Text
     , _gvapVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultAccessPolicy' smart constructor.
 getVaultAccessPolicy :: Text -> Text -> GetVaultAccessPolicy
@@ -116,7 +118,7 @@ instance ToQuery GetVaultAccessPolicy where
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
     { _gvaprPolicy :: !(Maybe VaultAccessPolicy)
     , _gvaprStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultAccessPolicyResponse' smart constructor.
 getVaultAccessPolicyResponse :: Int -> GetVaultAccessPolicyResponse

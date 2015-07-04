@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data DescribeDBSecurityGroups = DescribeDBSecurityGroups'
     , _ddbsgMaxRecords          :: !(Maybe Int)
     , _ddbsgMarker              :: !(Maybe Text)
     , _ddbsgDBSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBSecurityGroups' smart constructor.
 describeDBSecurityGroups :: DescribeDBSecurityGroups
@@ -158,7 +160,7 @@ data DescribeDBSecurityGroupsResponse = DescribeDBSecurityGroupsResponse'
     { _ddbsgrDBSecurityGroups :: !(Maybe [DBSecurityGroup])
     , _ddbsgrMarker           :: !(Maybe Text)
     , _ddbsgrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBSecurityGroupsResponse' smart constructor.
 describeDBSecurityGroupsResponse :: Int -> DescribeDBSecurityGroupsResponse

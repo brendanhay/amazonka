@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.EvaluateExpression
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data EvaluateExpression = EvaluateExpression'
     { _eePipelineId :: !Text
     , _eeObjectId   :: !Text
     , _eeExpression :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EvaluateExpression' smart constructor.
 evaluateExpression :: Text -> Text -> Text -> EvaluateExpression
@@ -128,7 +130,7 @@ instance ToQuery EvaluateExpression where
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
     { _eerStatus              :: !Int
     , _eerEvaluatedExpression :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EvaluateExpressionResponse' smart constructor.
 evaluateExpressionResponse :: Int -> Text -> EvaluateExpressionResponse

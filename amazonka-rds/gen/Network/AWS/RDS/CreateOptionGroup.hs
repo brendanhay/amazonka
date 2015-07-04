@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.CreateOptionGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data CreateOptionGroup = CreateOptionGroup'
     , _cogEngineName             :: !Text
     , _cogMajorEngineVersion     :: !Text
     , _cogOptionGroupDescription :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOptionGroup' smart constructor.
 createOptionGroup :: Text -> Text -> Text -> Text -> CreateOptionGroup
@@ -146,7 +148,7 @@ instance ToQuery CreateOptionGroup where
 data CreateOptionGroupResponse = CreateOptionGroupResponse'
     { _creaOptionGroup :: !(Maybe OptionGroup)
     , _creaStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOptionGroupResponse' smart constructor.
 createOptionGroupResponse :: Int -> CreateOptionGroupResponse

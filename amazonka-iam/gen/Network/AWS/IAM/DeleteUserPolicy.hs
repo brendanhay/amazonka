@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteUserPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data DeleteUserPolicy = DeleteUserPolicy'
     { _dupUserName   :: !Text
     , _dupPolicyName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserPolicy' smart constructor.
 deleteUserPolicy :: Text -> Text -> DeleteUserPolicy
@@ -97,7 +99,7 @@ instance ToQuery DeleteUserPolicy where
 -- | /See:/ 'deleteUserPolicyResponse' smart constructor.
 data DeleteUserPolicyResponse =
     DeleteUserPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserPolicyResponse' smart constructor.
 deleteUserPolicyResponse :: DeleteUserPolicyResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.AddTagsToOnPremisesInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 data AddTagsToOnPremisesInstances = AddTagsToOnPremisesInstances'
     { _attopiTags          :: ![Tag]
     , _attopiInstanceNames :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToOnPremisesInstances' smart constructor.
 addTagsToOnPremisesInstances :: AddTagsToOnPremisesInstances
@@ -105,7 +107,7 @@ instance ToQuery AddTagsToOnPremisesInstances where
 -- | /See:/ 'addTagsToOnPremisesInstancesResponse' smart constructor.
 data AddTagsToOnPremisesInstancesResponse =
     AddTagsToOnPremisesInstancesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToOnPremisesInstancesResponse' smart constructor.
 addTagsToOnPremisesInstancesResponse :: AddTagsToOnPremisesInstancesResponse

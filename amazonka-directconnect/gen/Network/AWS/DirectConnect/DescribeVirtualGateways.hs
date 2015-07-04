@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeVirtualGateways
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- | /See:/ 'describeVirtualGateways' smart constructor.
 data DescribeVirtualGateways =
     DescribeVirtualGateways'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualGateways' smart constructor.
 describeVirtualGateways :: DescribeVirtualGateways
@@ -96,7 +98,7 @@ instance ToQuery DescribeVirtualGateways where
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
     { _dvgrVirtualGateways :: !(Maybe [VirtualGateway])
     , _dvgrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualGatewaysResponse' smart constructor.
 describeVirtualGatewaysResponse :: Int -> DescribeVirtualGatewaysResponse

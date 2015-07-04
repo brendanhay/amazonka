@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.DeleteVaultNotifications
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ import           Network.AWS.Response
 data DeleteVaultNotifications = DeleteVaultNotifications'
     { _dvnAccountId :: !Text
     , _dvnVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultNotifications' smart constructor.
 deleteVaultNotifications :: Text -> Text -> DeleteVaultNotifications
@@ -112,7 +114,7 @@ instance ToQuery DeleteVaultNotifications where
 -- | /See:/ 'deleteVaultNotificationsResponse' smart constructor.
 data DeleteVaultNotificationsResponse =
     DeleteVaultNotificationsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultNotificationsResponse' smart constructor.
 deleteVaultNotificationsResponse :: DeleteVaultNotificationsResponse

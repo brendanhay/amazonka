@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateEventSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -100,7 +102,7 @@ data CreateEventSubscription = CreateEventSubscription'
     , _cesTags             :: !(Maybe [Tag])
     , _cesSubscriptionName :: !Text
     , _cesSNSTopicARN      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEventSubscription' smart constructor.
 createEventSubscription :: Text -> Text -> CreateEventSubscription
@@ -225,7 +227,7 @@ instance ToQuery CreateEventSubscription where
 data CreateEventSubscriptionResponse = CreateEventSubscriptionResponse'
     { _cesrEventSubscription :: !(Maybe EventSubscription)
     , _cesrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEventSubscriptionResponse' smart constructor.
 createEventSubscriptionResponse :: Int -> CreateEventSubscriptionResponse

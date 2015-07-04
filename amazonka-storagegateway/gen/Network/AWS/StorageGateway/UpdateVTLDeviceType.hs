@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateVTLDeviceType
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.StorageGateway.Types
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
     { _uvtldtVTLDeviceARN :: !Text
     , _uvtldtDeviceType   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVTLDeviceType' smart constructor.
 updateVTLDeviceType :: Text -> Text -> UpdateVTLDeviceType
@@ -121,7 +123,7 @@ instance ToQuery UpdateVTLDeviceType where
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
     { _uvtldtrVTLDeviceARN :: !(Maybe Text)
     , _uvtldtrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVTLDeviceTypeResponse' smart constructor.
 updateVTLDeviceTypeResponse :: Int -> UpdateVTLDeviceTypeResponse

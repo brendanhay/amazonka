@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -135,7 +137,7 @@ data CreateCacheCluster = CreateCacheCluster'
     , _cccCacheSecurityGroupNames    :: !(Maybe [Text])
     , _cccPort                       :: !(Maybe Int)
     , _cccCacheClusterId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheCluster' smart constructor.
 createCacheCluster :: Text -> CreateCacheCluster
@@ -482,7 +484,7 @@ instance ToQuery CreateCacheCluster where
 data CreateCacheClusterResponse = CreateCacheClusterResponse'
     { _cccrCacheCluster :: !(Maybe CacheCluster)
     , _cccrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheClusterResponse' smart constructor.
 createCacheClusterResponse :: Int -> CreateCacheClusterResponse

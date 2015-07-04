@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.DeleteTags
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data DeleteTags = DeleteTags'
     { _delFileSystemId :: !Text
     , _delTagKeys      :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
@@ -98,7 +100,7 @@ instance ToQuery DeleteTags where
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =
     DeleteTagsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTagsResponse' smart constructor.
 deleteTagsResponse :: DeleteTagsResponse

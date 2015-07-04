@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateVPNGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data CreateVPNGateway = CreateVPNGateway'
     { _cvgAvailabilityZone :: !(Maybe Text)
     , _cvgDryRun           :: !(Maybe Bool)
     , _cvgType             :: !GatewayType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNGateway' smart constructor.
 createVPNGateway :: GatewayType -> CreateVPNGateway
@@ -121,7 +123,7 @@ instance ToQuery CreateVPNGateway where
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
     { _cvgrVPNGateway :: !(Maybe VPNGateway)
     , _cvgrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNGatewayResponse' smart constructor.
 createVPNGatewayResponse :: Int -> CreateVPNGatewayResponse

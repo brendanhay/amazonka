@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.DeleteDirectory
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'delDirectoryId'
 newtype DeleteDirectory = DeleteDirectory'
     { _delDirectoryId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDirectory' smart constructor.
 deleteDirectory :: Text -> DeleteDirectory
@@ -104,7 +106,7 @@ instance ToQuery DeleteDirectory where
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
     { _dDirectoryId :: !(Maybe Text)
     , _dStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDirectoryResponse' smart constructor.
 deleteDirectoryResponse :: Int -> DeleteDirectoryResponse

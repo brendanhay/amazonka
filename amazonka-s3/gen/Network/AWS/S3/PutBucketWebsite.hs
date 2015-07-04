@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketWebsite
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ data PutBucketWebsite = PutBucketWebsite'
     { _pbwContentMD5           :: !(Maybe Text)
     , _pbwBucket               :: !BucketName
     , _pbwWebsiteConfiguration :: !WebsiteConfiguration
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketWebsite' smart constructor.
 putBucketWebsite :: BucketName -> WebsiteConfiguration -> PutBucketWebsite
@@ -102,7 +104,7 @@ instance ToQuery PutBucketWebsite where
 -- | /See:/ 'putBucketWebsiteResponse' smart constructor.
 data PutBucketWebsiteResponse =
     PutBucketWebsiteResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketWebsiteResponse' smart constructor.
 putBucketWebsiteResponse :: PutBucketWebsiteResponse

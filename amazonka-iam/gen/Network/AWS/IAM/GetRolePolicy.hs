@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ import           Network.AWS.Response
 data GetRolePolicy = GetRolePolicy'
     { _grpRoleName   :: !Text
     , _grpPolicyName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRolePolicy' smart constructor.
 getRolePolicy :: Text -> Text -> GetRolePolicy
@@ -128,7 +130,7 @@ data GetRolePolicyResponse = GetRolePolicyResponse'
     , _grprRoleName       :: !Text
     , _grprPolicyName     :: !Text
     , _grprPolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRolePolicyResponse' smart constructor.
 getRolePolicyResponse :: Int -> Text -> Text -> Text -> GetRolePolicyResponse

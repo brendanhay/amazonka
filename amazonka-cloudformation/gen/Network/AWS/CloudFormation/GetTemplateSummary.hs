@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.GetTemplateSummary
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ data GetTemplateSummary = GetTemplateSummary'
     { _gtsTemplateBody :: !(Maybe Text)
     , _gtsTemplateURL  :: !(Maybe Text)
     , _gtsStackName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplateSummary' smart constructor.
 getTemplateSummary :: GetTemplateSummary
@@ -177,7 +179,7 @@ data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
     , _gtsrCapabilities       :: !(Maybe [Capability])
     , _gtsrDescription        :: !(Maybe Text)
     , _gtsrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplateSummaryResponse' smart constructor.
 getTemplateSummaryResponse :: Int -> GetTemplateSummaryResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.ListVerifiedEmailAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.SES.Types
 -- | /See:/ 'listVerifiedEmailAddresses' smart constructor.
 data ListVerifiedEmailAddresses =
     ListVerifiedEmailAddresses'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVerifiedEmailAddresses' smart constructor.
 listVerifiedEmailAddresses :: ListVerifiedEmailAddresses
@@ -95,7 +97,7 @@ instance ToQuery ListVerifiedEmailAddresses where
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
     { _lvearVerifiedEmailAddresses :: !(Maybe [Text])
     , _lvearStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVerifiedEmailAddressesResponse' smart constructor.
 listVerifiedEmailAddressesResponse :: Int -> ListVerifiedEmailAddressesResponse

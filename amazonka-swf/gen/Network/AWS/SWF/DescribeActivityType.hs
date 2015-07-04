@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.DescribeActivityType
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ import           Network.AWS.SWF.Types
 data DescribeActivityType = DescribeActivityType'
     { _datDomain       :: !Text
     , _datActivityType :: !ActivityType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeActivityType' smart constructor.
 describeActivityType :: Text -> ActivityType -> DescribeActivityType
@@ -146,7 +148,7 @@ data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
     { _datrStatus        :: !Int
     , _datrTypeInfo      :: !ActivityTypeInfo
     , _datrConfiguration :: !ActivityTypeConfiguration
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeActivityTypeResponse' smart constructor.
 describeActivityTypeResponse :: Int -> ActivityTypeInfo -> ActivityTypeConfiguration -> DescribeActivityTypeResponse

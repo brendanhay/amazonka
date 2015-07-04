@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
     { _dcsg1CacheSecurityGroupName :: !(Maybe Text)
     , _dcsg1MaxRecords             :: !(Maybe Int)
     , _dcsg1Marker                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSecurityGroups' smart constructor.
 describeCacheSecurityGroups :: DescribeCacheSecurityGroups
@@ -147,7 +149,7 @@ data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
     { _dcsgr1CacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
     , _dcsgr1Marker              :: !(Maybe Text)
     , _dcsgr1Status              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
 describeCacheSecurityGroupsResponse :: Int -> DescribeCacheSecurityGroupsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ImportExport.CancelJob
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data CancelJob = CancelJob'
     { _canAPIVersion :: !(Maybe Text)
     , _canJobId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
@@ -108,7 +110,7 @@ instance ToQuery CancelJob where
 data CancelJobResponse = CancelJobResponse'
     { _canSuccess :: !(Maybe Bool)
     , _canStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse

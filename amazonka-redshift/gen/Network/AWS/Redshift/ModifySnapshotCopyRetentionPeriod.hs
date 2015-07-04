@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.ModifySnapshotCopyRetentionPeriod
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data ModifySnapshotCopyRetentionPeriod = ModifySnapshotCopyRetentionPeriod'
     { _mscrpClusterIdentifier :: !Text
     , _mscrpRetentionPeriod   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySnapshotCopyRetentionPeriod' smart constructor.
 modifySnapshotCopyRetentionPeriod :: Text -> Int -> ModifySnapshotCopyRetentionPeriod
@@ -126,7 +128,7 @@ instance ToQuery ModifySnapshotCopyRetentionPeriod
 data ModifySnapshotCopyRetentionPeriodResponse = ModifySnapshotCopyRetentionPeriodResponse'
     { _mscrprCluster :: !(Maybe Cluster)
     , _mscrprStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySnapshotCopyRetentionPeriodResponse' smart constructor.
 modifySnapshotCopyRetentionPeriodResponse :: Int -> ModifySnapshotCopyRetentionPeriodResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.CreateLunaClient
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data CreateLunaClient = CreateLunaClient'
     { _clcLabel       :: !(Maybe Text)
     , _clcCertificate :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLunaClient' smart constructor.
 createLunaClient :: Text -> CreateLunaClient
@@ -116,7 +118,7 @@ instance ToQuery CreateLunaClient where
 data CreateLunaClientResponse = CreateLunaClientResponse'
     { _clcrClientARN :: !(Maybe Text)
     , _clcrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLunaClientResponse' smart constructor.
 createLunaClientResponse :: Int -> CreateLunaClientResponse

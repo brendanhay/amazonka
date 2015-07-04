@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListSigningCertificates
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data ListSigningCertificates = ListSigningCertificates'
     { _lUserName :: !(Maybe Text)
     , _lMaxItems :: !(Maybe Nat)
     , _lMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSigningCertificates' smart constructor.
 listSigningCertificates :: ListSigningCertificates
@@ -153,7 +155,7 @@ data ListSigningCertificatesResponse = ListSigningCertificatesResponse'
     , _lisIsTruncated  :: !(Maybe Bool)
     , _lisStatus       :: !Int
     , _lisCertificates :: ![SigningCertificate]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSigningCertificatesResponse' smart constructor.
 listSigningCertificatesResponse :: Int -> ListSigningCertificatesResponse

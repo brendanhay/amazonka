@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.CreatePublicVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ import           Network.AWS.Response
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
     { _cpviConnectionId              :: !Text
     , _cpviNewPublicVirtualInterface :: !NewPublicVirtualInterface
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePublicVirtualInterface' smart constructor.
 createPublicVirtualInterface :: Text -> NewPublicVirtualInterface -> CreatePublicVirtualInterface

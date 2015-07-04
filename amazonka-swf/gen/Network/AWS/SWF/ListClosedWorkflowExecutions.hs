@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.ListClosedWorkflowExecutions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -115,7 +117,7 @@ data ListClosedWorkflowExecutions = ListClosedWorkflowExecutions'
     , _lcweStartTimeFilter   :: !(Maybe ExecutionTimeFilter)
     , _lcweMaximumPageSize   :: !(Maybe Nat)
     , _lcweDomain            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClosedWorkflowExecutions' smart constructor.
 listClosedWorkflowExecutions :: Text -> ListClosedWorkflowExecutions

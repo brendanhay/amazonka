@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineExpression
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data DefineExpression = DefineExpression'
     { _defDomainName :: !Text
     , _defExpression :: !Expression
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineExpression' smart constructor.
 defineExpression :: Text -> Expression -> DefineExpression
@@ -114,7 +116,7 @@ instance ToQuery DefineExpression where
 data DefineExpressionResponse = DefineExpressionResponse'
     { _derStatus     :: !Int
     , _derExpression :: !ExpressionStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineExpressionResponse' smart constructor.
 defineExpressionResponse :: Int -> ExpressionStatus -> DefineExpressionResponse

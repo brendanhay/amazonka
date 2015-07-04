@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.ListTagsForResource
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Route53.Types
 data ListTagsForResource = ListTagsForResource'
     { _ltfrResourceType :: !TagResourceType
     , _ltfrResourceId   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: TagResourceType -> Text -> ListTagsForResource
@@ -111,7 +113,7 @@ instance ToQuery ListTagsForResource where
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrStatus         :: !Int
     , _ltfrrResourceTagSet :: !ResourceTagSet
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: Int -> ResourceTagSet -> ListTagsForResourceResponse

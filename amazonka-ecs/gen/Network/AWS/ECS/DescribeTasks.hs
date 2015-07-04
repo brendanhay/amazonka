@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.DescribeTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data DescribeTasks = DescribeTasks'
     { _dtCluster :: !(Maybe Text)
     , _dtTasks   :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTasks' smart constructor.
 describeTasks :: DescribeTasks
@@ -119,7 +121,7 @@ data DescribeTasksResponse = DescribeTasksResponse'
     { _dtrFailures :: !(Maybe [Failure])
     , _dtrTasks    :: !(Maybe [Task])
     , _dtrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTasksResponse' smart constructor.
 describeTasksResponse :: Int -> DescribeTasksResponse

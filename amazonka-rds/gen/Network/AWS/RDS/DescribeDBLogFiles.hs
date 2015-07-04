@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBLogFiles
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ data DescribeDBLogFiles = DescribeDBLogFiles'
     , _ddlfMaxRecords           :: !(Maybe Int)
     , _ddlfMarker               :: !(Maybe Text)
     , _ddlfDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBLogFiles' smart constructor.
 describeDBLogFiles :: Text -> DescribeDBLogFiles
@@ -189,7 +191,7 @@ data DescribeDBLogFilesResponse = DescribeDBLogFilesResponse'
     { _ddlfrDescribeDBLogFiles :: !(Maybe [DescribeDBLogFilesDetails])
     , _ddlfrMarker             :: !(Maybe Text)
     , _ddlfrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBLogFilesResponse' smart constructor.
 describeDBLogFilesResponse :: Int -> DescribeDBLogFilesResponse

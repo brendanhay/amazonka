@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.AbortMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data AbortMultipartUpload = AbortMultipartUpload'
     , _amuBucket       :: !BucketName
     , _amuKey          :: !ObjectKey
     , _amuUploadId     :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'AbortMultipartUpload' smart constructor.
 abortMultipartUpload :: BucketName -> ObjectKey -> Text -> AbortMultipartUpload
@@ -126,7 +128,7 @@ instance ToQuery AbortMultipartUpload where
 data AbortMultipartUploadResponse = AbortMultipartUploadResponse'
     { _amurRequestCharged :: !(Maybe RequestCharged)
     , _amurStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortMultipartUploadResponse' smart constructor.
 abortMultipartUploadResponse :: Int -> AbortMultipartUploadResponse

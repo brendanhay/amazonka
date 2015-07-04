@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeTags
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -91,7 +93,7 @@ data DescribeTags = DescribeTags'
     , _dtTagKeys      :: !(Maybe [Text])
     , _dtMaxRecords   :: !(Maybe Int)
     , _dtMarker       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
@@ -213,7 +215,7 @@ data DescribeTagsResponse = DescribeTagsResponse'
     { _dtrMarker          :: !(Maybe Text)
     , _dtrTaggedResources :: !(Maybe [TaggedResource])
     , _dtrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse

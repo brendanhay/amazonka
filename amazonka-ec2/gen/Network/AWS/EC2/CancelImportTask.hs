@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CancelImportTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data CancelImportTask = CancelImportTask'
     { _citCancelReason :: !(Maybe Text)
     , _citImportTaskId :: !(Maybe Text)
     , _citDryRun       :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelImportTask' smart constructor.
 cancelImportTask :: CancelImportTask
@@ -126,7 +128,7 @@ data CancelImportTaskResponse = CancelImportTaskResponse'
     , _citrImportTaskId  :: !(Maybe Text)
     , _citrPreviousState :: !(Maybe Text)
     , _citrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelImportTaskResponse' smart constructor.
 cancelImportTaskResponse :: Int -> CancelImportTaskResponse

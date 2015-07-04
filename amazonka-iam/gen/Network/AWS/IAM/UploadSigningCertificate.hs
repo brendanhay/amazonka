@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UploadSigningCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ import           Network.AWS.Response
 data UploadSigningCertificate = UploadSigningCertificate'
     { _uplUserName        :: !(Maybe Text)
     , _uplCertificateBody :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSigningCertificate' smart constructor.
 uploadSigningCertificate :: Text -> UploadSigningCertificate
@@ -126,7 +128,7 @@ instance ToQuery UploadSigningCertificate where
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
     { _uscrStatus      :: !Int
     , _uscrCertificate :: !SigningCertificate
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
 uploadSigningCertificateResponse :: Int -> SigningCertificate -> UploadSigningCertificateResponse

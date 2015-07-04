@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.GetDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'gdId'
 newtype GetDistribution = GetDistribution'
     { _gdId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistribution' smart constructor.
 getDistribution :: Text -> GetDistribution
@@ -99,7 +101,7 @@ data GetDistributionResponse = GetDistributionResponse'
     { _gdrETag         :: !(Maybe Text)
     , _gdrDistribution :: !(Maybe Distribution)
     , _gdrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistributionResponse' smart constructor.
 getDistributionResponse :: Int -> GetDistributionResponse

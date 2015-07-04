@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetSAMLProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'gsamlpSAMLProviderARN'
 newtype GetSAMLProvider = GetSAMLProvider'
     { _gsamlpSAMLProviderARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSAMLProvider' smart constructor.
 getSAMLProvider :: Text -> GetSAMLProvider
@@ -110,7 +112,7 @@ data GetSAMLProviderResponse = GetSAMLProviderResponse'
     , _gsamlprValidUntil           :: !(Maybe ISO8601)
     , _gsamlprSAMLMetadataDocument :: !(Maybe Text)
     , _gsamlprStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSAMLProviderResponse' smart constructor.
 getSAMLProviderResponse :: Int -> GetSAMLProviderResponse

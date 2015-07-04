@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.AddCache
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.StorageGateway.Types
 data AddCache = AddCache'
     { _acGatewayARN :: !Text
     , _acDiskIds    :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddCache' smart constructor.
 addCache :: Text -> AddCache
@@ -117,7 +119,7 @@ instance ToQuery AddCache where
 data AddCacheResponse = AddCacheResponse'
     { _acrGatewayARN :: !(Maybe Text)
     , _acrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddCacheResponse' smart constructor.
 addCacheResponse :: Int -> AddCacheResponse

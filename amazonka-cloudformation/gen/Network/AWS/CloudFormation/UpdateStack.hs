@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.UpdateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -101,7 +103,7 @@ data UpdateStack = UpdateStack'
     , _usTemplateURL                 :: !(Maybe Text)
     , _usCapabilities                :: !(Maybe [Capability])
     , _usStackName                   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
@@ -279,7 +281,7 @@ instance ToQuery UpdateStack where
 data UpdateStackResponse = UpdateStackResponse'
     { _usrStackId :: !(Maybe Text)
     , _usrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStackResponse' smart constructor.
 updateStackResponse :: Int -> UpdateStackResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScheduledActions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data DescribeScheduledActions = DescribeScheduledActions'
     , _desEndTime              :: !(Maybe ISO8601)
     , _desAutoScalingGroupName :: !(Maybe Text)
     , _desScheduledActionNames :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScheduledActions' smart constructor.
 describeScheduledActions :: DescribeScheduledActions
@@ -175,7 +177,7 @@ data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
     { _dsarScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
     , _dsarNextToken                   :: !(Maybe Text)
     , _dsarStatus                      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
 describeScheduledActionsResponse :: Int -> DescribeScheduledActionsResponse

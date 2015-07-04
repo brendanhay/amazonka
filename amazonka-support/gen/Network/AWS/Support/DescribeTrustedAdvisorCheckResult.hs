@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckResult
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ import           Network.AWS.Support.Types
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
     { _dtacrLanguage :: !(Maybe Text)
     , _dtacrCheckId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckResult' smart constructor.
 describeTrustedAdvisorCheckResult :: Text -> DescribeTrustedAdvisorCheckResult
@@ -139,7 +141,7 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
     { _dtacrrResult :: !(Maybe TrustedAdvisorCheckResult)
     , _dtacrrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckResultResponse' smart constructor.
 describeTrustedAdvisorCheckResultResponse :: Int -> DescribeTrustedAdvisorCheckResultResponse

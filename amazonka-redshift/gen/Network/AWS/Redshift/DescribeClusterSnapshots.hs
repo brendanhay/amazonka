@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -103,7 +105,7 @@ data DescribeClusterSnapshots = DescribeClusterSnapshots'
     , _desEndTime            :: !(Maybe ISO8601)
     , _desMarker             :: !(Maybe Text)
     , _desOwnerAccount       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSnapshots' smart constructor.
 describeClusterSnapshots :: DescribeClusterSnapshots
@@ -262,7 +264,7 @@ data DescribeClusterSnapshotsResponse = DescribeClusterSnapshotsResponse'
     { _descSnapshots :: !(Maybe [Snapshot])
     , _descMarker    :: !(Maybe Text)
     , _descStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSnapshotsResponse' smart constructor.
 describeClusterSnapshotsResponse :: Int -> DescribeClusterSnapshotsResponse

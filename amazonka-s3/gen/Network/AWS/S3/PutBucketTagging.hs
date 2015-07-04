@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketTagging
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ data PutBucketTagging = PutBucketTagging'
     { _pbtContentMD5 :: !(Maybe Text)
     , _pbtBucket     :: !BucketName
     , _pbtTagging    :: !Tagging
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketTagging' smart constructor.
 putBucketTagging :: BucketName -> Tagging -> PutBucketTagging
@@ -102,7 +104,7 @@ instance ToQuery PutBucketTagging where
 -- | /See:/ 'putBucketTaggingResponse' smart constructor.
 data PutBucketTaggingResponse =
     PutBucketTaggingResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketTaggingResponse' smart constructor.
 putBucketTaggingResponse :: PutBucketTaggingResponse

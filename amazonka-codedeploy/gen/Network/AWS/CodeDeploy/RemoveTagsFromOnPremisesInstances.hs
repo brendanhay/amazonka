@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 data RemoveTagsFromOnPremisesInstances = RemoveTagsFromOnPremisesInstances'
     { _rtfopiTags          :: ![Tag]
     , _rtfopiInstanceNames :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromOnPremisesInstances' smart constructor.
 removeTagsFromOnPremisesInstances :: RemoveTagsFromOnPremisesInstances
@@ -109,7 +111,7 @@ instance ToQuery RemoveTagsFromOnPremisesInstances
 -- | /See:/ 'removeTagsFromOnPremisesInstancesResponse' smart constructor.
 data RemoveTagsFromOnPremisesInstancesResponse =
     RemoveTagsFromOnPremisesInstancesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromOnPremisesInstancesResponse' smart constructor.
 removeTagsFromOnPremisesInstancesResponse :: RemoveTagsFromOnPremisesInstancesResponse

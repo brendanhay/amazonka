@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.DescribeSeverityLevels
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Support.Types
 -- * 'dslLanguage'
 newtype DescribeSeverityLevels = DescribeSeverityLevels'
     { _dslLanguage :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSeverityLevels' smart constructor.
 describeSeverityLevels :: DescribeSeverityLevels
@@ -110,7 +112,7 @@ instance ToQuery DescribeSeverityLevels where
 data DescribeSeverityLevelsResponse = DescribeSeverityLevelsResponse'
     { _dslrSeverityLevels :: !(Maybe [SeverityLevel])
     , _dslrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSeverityLevelsResponse' smart constructor.
 describeSeverityLevelsResponse :: Int -> DescribeSeverityLevelsResponse

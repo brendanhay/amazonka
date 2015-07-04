@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteMetricFilter
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 data DeleteMetricFilter = DeleteMetricFilter'
     { _dLogGroupName :: !Text
     , _dFilterName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMetricFilter' smart constructor.
 deleteMetricFilter :: Text -> Text -> DeleteMetricFilter
@@ -98,7 +100,7 @@ instance ToQuery DeleteMetricFilter where
 -- | /See:/ 'deleteMetricFilterResponse' smart constructor.
 data DeleteMetricFilterResponse =
     DeleteMetricFilterResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMetricFilterResponse' smart constructor.
 deleteMetricFilterResponse :: DeleteMetricFilterResponse

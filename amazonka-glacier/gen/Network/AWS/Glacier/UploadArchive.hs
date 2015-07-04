@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.UploadArchive
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -106,7 +108,7 @@ data UploadArchive = UploadArchive'
     , _uaVaultName          :: !Text
     , _uaAccountId          :: !Text
     , _uaBody               :: !RqBody
-    } deriving (Show)
+    } deriving (Show,Data,Typeable,Generic)
 
 -- | 'UploadArchive' smart constructor.
 uploadArchive :: Text -> Text -> RqBody -> UploadArchive

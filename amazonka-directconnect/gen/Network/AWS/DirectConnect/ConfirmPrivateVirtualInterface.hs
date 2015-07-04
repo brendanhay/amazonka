@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
     { _cpviVirtualInterfaceId :: !Text
     , _cpviVirtualGatewayId   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPrivateVirtualInterface' smart constructor.
 confirmPrivateVirtualInterface :: Text -> Text -> ConfirmPrivateVirtualInterface
@@ -134,7 +136,7 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
     { _cpvirVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _cpvirStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPrivateVirtualInterfaceResponse' smart constructor.
 confirmPrivateVirtualInterfaceResponse :: Int -> ConfirmPrivateVirtualInterfaceResponse

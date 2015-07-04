@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.STS.GetSessionToken
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -89,7 +91,7 @@ data GetSessionToken = GetSessionToken'
     { _gstTokenCode       :: !(Maybe Text)
     , _gstDurationSeconds :: !(Maybe Nat)
     , _gstSerialNumber    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSessionToken' smart constructor.
 getSessionToken :: GetSessionToken
@@ -167,7 +169,7 @@ instance ToQuery GetSessionToken where
 data GetSessionTokenResponse = GetSessionTokenResponse'
     { _gstrCredentials :: !(Maybe Credentials)
     , _gstrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSessionTokenResponse' smart constructor.
 getSessionTokenResponse :: Int -> GetSessionTokenResponse

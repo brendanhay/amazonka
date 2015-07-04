@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.SetTimeBasedAutoScaling
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data SetTimeBasedAutoScaling = SetTimeBasedAutoScaling'
     { _stbasAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
     , _stbasInstanceId          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTimeBasedAutoScaling' smart constructor.
 setTimeBasedAutoScaling :: Text -> SetTimeBasedAutoScaling
@@ -107,7 +109,7 @@ instance ToQuery SetTimeBasedAutoScaling where
 -- | /See:/ 'setTimeBasedAutoScalingResponse' smart constructor.
 data SetTimeBasedAutoScalingResponse =
     SetTimeBasedAutoScalingResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTimeBasedAutoScalingResponse' smart constructor.
 setTimeBasedAutoScalingResponse :: SetTimeBasedAutoScalingResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UploadServerCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data UploadServerCertificate = UploadServerCertificate'
     , _uscServerCertificateName :: !Text
     , _uscCertificateBody       :: !Text
     , _uscPrivateKey            :: !(Sensitive Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadServerCertificate' smart constructor.
 uploadServerCertificate :: Text -> Text -> Text -> UploadServerCertificate
@@ -168,7 +170,7 @@ instance ToQuery UploadServerCertificate where
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
     { _uplServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
     , _uplStatus                    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadServerCertificateResponse' smart constructor.
 uploadServerCertificateResponse :: Int -> UploadServerCertificateResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.Response
 data DeleteCacheCluster = DeleteCacheCluster'
     { _dccFinalSnapshotIdentifier :: !(Maybe Text)
     , _dccCacheClusterId          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheCluster' smart constructor.
 deleteCacheCluster :: Text -> DeleteCacheCluster
@@ -117,7 +119,7 @@ instance ToQuery DeleteCacheCluster where
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
     { _dccrCacheCluster :: !(Maybe CacheCluster)
     , _dccrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheClusterResponse' smart constructor.
 deleteCacheClusterResponse :: Int -> DeleteCacheClusterResponse

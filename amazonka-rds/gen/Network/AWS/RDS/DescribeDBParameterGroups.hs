@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBParameterGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data DescribeDBParameterGroups = DescribeDBParameterGroups'
     , _ddpgDBParameterGroupName :: !(Maybe Text)
     , _ddpgMaxRecords           :: !(Maybe Int)
     , _ddpgMarker               :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBParameterGroups' smart constructor.
 describeDBParameterGroups :: DescribeDBParameterGroups
@@ -164,7 +166,7 @@ data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
     { _ddpgrMarker            :: !(Maybe Text)
     , _ddpgrDBParameterGroups :: !(Maybe [DBParameterGroup])
     , _ddpgrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBParameterGroupsResponse' smart constructor.
 describeDBParameterGroupsResponse :: Int -> DescribeDBParameterGroupsResponse

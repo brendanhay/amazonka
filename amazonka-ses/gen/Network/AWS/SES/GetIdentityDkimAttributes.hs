@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.GetIdentityDkimAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ import           Network.AWS.SES.Types
 -- * 'gidaIdentities'
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
     { _gidaIdentities :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityDkimAttributes' smart constructor.
 getIdentityDkimAttributes :: GetIdentityDkimAttributes
@@ -127,7 +129,7 @@ instance ToQuery GetIdentityDkimAttributes where
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
     { _gidarStatus         :: !Int
     , _gidarDkimAttributes :: !(Map Text IdentityDkimAttributes)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
 getIdentityDkimAttributesResponse :: Int -> GetIdentityDkimAttributesResponse

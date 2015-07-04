@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.RegisterTaskDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data RegisterTaskDefinition = RegisterTaskDefinition'
     { _rtdVolumes              :: !(Maybe [Volume])
     , _rtdFamily               :: !Text
     , _rtdContainerDefinitions :: ![ContainerDefinition]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterTaskDefinition' smart constructor.
 registerTaskDefinition :: Text -> RegisterTaskDefinition
@@ -132,7 +134,7 @@ instance ToQuery RegisterTaskDefinition where
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
     { _rtdrTaskDefinition :: !(Maybe TaskDefinition)
     , _rtdrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterTaskDefinitionResponse' smart constructor.
 registerTaskDefinitionResponse :: Int -> RegisterTaskDefinitionResponse

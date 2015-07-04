@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListInstanceProfiles
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data ListInstanceProfiles = ListInstanceProfiles'
     { _lipPathPrefix :: !(Maybe Text)
     , _lipMaxItems   :: !(Maybe Nat)
     , _lipMarker     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfiles' smart constructor.
 listInstanceProfiles :: ListInstanceProfiles
@@ -153,7 +155,7 @@ data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
     , _liprIsTruncated      :: !(Maybe Bool)
     , _liprStatus           :: !Int
     , _liprInstanceProfiles :: ![InstanceProfile]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfilesResponse' smart constructor.
 listInstanceProfilesResponse :: Int -> ListInstanceProfilesResponse

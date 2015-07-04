@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.AddTagsToResource
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data AddTagsToResource = AddTagsToResource'
     { _attrResourceName :: !Text
     , _attrTags         :: ![Tag]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToResource' smart constructor.
 addTagsToResource :: Text -> AddTagsToResource
@@ -99,7 +101,7 @@ instance ToQuery AddTagsToResource where
 -- | /See:/ 'addTagsToResourceResponse' smart constructor.
 data AddTagsToResourceResponse =
     AddTagsToResourceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToResourceResponse' smart constructor.
 addTagsToResourceResponse :: AddTagsToResourceResponse

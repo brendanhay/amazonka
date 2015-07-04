@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.QueryObjects
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data QueryObjects = QueryObjects'
     , _qoLimit      :: !(Maybe Int)
     , _qoPipelineId :: !Text
     , _qoSphere     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'QueryObjects' smart constructor.
 queryObjects :: Text -> Text -> QueryObjects
@@ -168,7 +170,7 @@ data QueryObjectsResponse = QueryObjectsResponse'
     , _qorIds            :: !(Maybe [Text])
     , _qorMarker         :: !(Maybe Text)
     , _qorStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'QueryObjectsResponse' smart constructor.
 queryObjectsResponse :: Int -> QueryObjectsResponse

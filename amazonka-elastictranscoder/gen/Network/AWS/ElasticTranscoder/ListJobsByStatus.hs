@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ListJobsByStatus = ListJobsByStatus'
     { _ljbsAscending :: !(Maybe Text)
     , _ljbsPageToken :: !(Maybe Text)
     , _ljbsStatus    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByStatus' smart constructor.
 listJobsByStatus :: Text -> ListJobsByStatus
@@ -137,7 +139,7 @@ data ListJobsByStatusResponse = ListJobsByStatusResponse'
     { _ljbsrNextPageToken :: !(Maybe Text)
     , _ljbsrJobs          :: !(Maybe [Job'])
     , _ljbsrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByStatusResponse' smart constructor.
 listJobsByStatusResponse :: Int -> ListJobsByStatusResponse

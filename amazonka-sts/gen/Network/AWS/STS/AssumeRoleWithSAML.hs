@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.STS.AssumeRoleWithSAML
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -123,7 +125,7 @@ data AssumeRoleWithSAML = AssumeRoleWithSAML'
     , _arwsamlRoleARN         :: !Text
     , _arwsamlPrincipalARN    :: !Text
     , _arwsamlSAMLAssertion   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleWithSAML' smart constructor.
 assumeRoleWithSAML :: Text -> Text -> Text -> AssumeRoleWithSAML
@@ -252,7 +254,7 @@ data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
     , _arwsamlrAssumedRoleUser  :: !(Maybe AssumedRoleUser)
     , _arwsamlrIssuer           :: !(Maybe Text)
     , _arwsamlrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleWithSAMLResponse' smart constructor.
 assumeRoleWithSAMLResponse :: Int -> AssumeRoleWithSAMLResponse

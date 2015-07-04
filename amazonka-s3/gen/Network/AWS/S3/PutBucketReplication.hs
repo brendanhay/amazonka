@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketReplication
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ data PutBucketReplication = PutBucketReplication'
     { _pbrContentMD5               :: !(Maybe Text)
     , _pbrBucket                   :: !BucketName
     , _pbrReplicationConfiguration :: !ReplicationConfiguration
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketReplication' smart constructor.
 putBucketReplication :: BucketName -> ReplicationConfiguration -> PutBucketReplication
@@ -104,7 +106,7 @@ instance ToQuery PutBucketReplication where
 -- | /See:/ 'putBucketReplicationResponse' smart constructor.
 data PutBucketReplicationResponse =
     PutBucketReplicationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketReplicationResponse' smart constructor.
 putBucketReplicationResponse :: PutBucketReplicationResponse

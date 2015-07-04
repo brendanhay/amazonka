@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeVolumes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data DescribeVolumes = DescribeVolumes'
     , _dvVolumeIds   :: !(Maybe [Text])
     , _dvRAIDArrayId :: !(Maybe Text)
     , _dvStackId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
@@ -145,7 +147,7 @@ instance ToQuery DescribeVolumes where
 data DescribeVolumesResponse = DescribeVolumesResponse'
     { _dvrVolumes :: !(Maybe [Volume])
     , _dvrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse

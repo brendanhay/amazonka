@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateLayer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -106,7 +108,7 @@ data UpdateLayer = UpdateLayer'
     , _ulUseEBSOptimizedInstances    :: !(Maybe Bool)
     , _ulAutoAssignElasticIPs        :: !(Maybe Bool)
     , _ulLayerId                     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLayer' smart constructor.
 updateLayer :: Text -> UpdateLayer
@@ -261,7 +263,7 @@ instance ToQuery UpdateLayer where
 -- | /See:/ 'updateLayerResponse' smart constructor.
 data UpdateLayerResponse =
     UpdateLayerResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLayerResponse' smart constructor.
 updateLayerResponse :: UpdateLayerResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -83,7 +85,7 @@ data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
     , _dcsgClusterSecurityGroupName :: !(Maybe Text)
     , _dcsgMaxRecords               :: !(Maybe Int)
     , _dcsgMarker                   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSecurityGroups' smart constructor.
 describeClusterSecurityGroups :: DescribeClusterSecurityGroups
@@ -207,7 +209,7 @@ data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsRespon
     { _dcsgr1ClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
     , _dcsgr1Marker                :: !(Maybe Text)
     , _dcsgr1Status                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSecurityGroupsResponse' smart constructor.
 describeClusterSecurityGroupsResponse :: Int -> DescribeClusterSecurityGroupsResponse

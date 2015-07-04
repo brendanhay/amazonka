@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.CreateConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ data CreateConnection = CreateConnection'
     { _ccLocation       :: !Text
     , _ccBandwidth      :: !Text
     , _ccConnectionName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateConnection' smart constructor.
 createConnection :: Text -> Text -> Text -> CreateConnection

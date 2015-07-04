@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.EnableKeyRotation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -44,7 +46,7 @@ import           Network.AWS.Response
 -- * 'ekrKeyId'
 newtype EnableKeyRotation = EnableKeyRotation'
     { _ekrKeyId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableKeyRotation' smart constructor.
 enableKeyRotation :: Text -> EnableKeyRotation
@@ -91,7 +93,7 @@ instance ToQuery EnableKeyRotation where
 -- | /See:/ 'enableKeyRotationResponse' smart constructor.
 data EnableKeyRotationResponse =
     EnableKeyRotationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableKeyRotationResponse' smart constructor.
 enableKeyRotationResponse :: EnableKeyRotationResponse

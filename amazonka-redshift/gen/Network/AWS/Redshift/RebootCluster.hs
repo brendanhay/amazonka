@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.RebootCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 -- * 'rcClusterIdentifier'
 newtype RebootCluster = RebootCluster'
     { _rcClusterIdentifier :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCluster' smart constructor.
 rebootCluster :: Text -> RebootCluster
@@ -102,7 +104,7 @@ instance ToQuery RebootCluster where
 data RebootClusterResponse = RebootClusterResponse'
     { _rcrCluster :: !(Maybe Cluster)
     , _rcrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootClusterResponse' smart constructor.
 rebootClusterResponse :: Int -> RebootClusterResponse

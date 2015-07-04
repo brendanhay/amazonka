@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.HeadObject
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -116,7 +118,7 @@ data HeadObject = HeadObject'
     , _hoIfNoneMatch          :: !(Maybe Text)
     , _hoBucket               :: !BucketName
     , _hoKey                  :: !ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'HeadObject' smart constructor.
 headObject :: BucketName -> ObjectKey -> HeadObject
@@ -334,7 +336,7 @@ data HeadObjectResponse = HeadObjectResponse'
     , _horServerSideEncryption    :: !(Maybe ServerSideEncryption)
     , _horContentType             :: !(Maybe Text)
     , _horStatus                  :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'HeadObjectResponse' smart constructor.
 headObjectResponse :: Int -> HeadObjectResponse

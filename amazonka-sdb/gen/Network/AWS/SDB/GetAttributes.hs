@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.GetAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data GetAttributes = GetAttributes'
     , _gaAttributeNames :: !(Maybe [Text])
     , _gaDomainName     :: !Text
     , _gaItemName       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAttributes' smart constructor.
 getAttributes :: Text -> Text -> GetAttributes
@@ -135,7 +137,7 @@ instance ToQuery GetAttributes where
 data GetAttributesResponse = GetAttributesResponse'
     { _garAttributes :: !(Maybe [Attribute])
     , _garStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAttributesResponse' smart constructor.
 getAttributesResponse :: Int -> GetAttributesResponse

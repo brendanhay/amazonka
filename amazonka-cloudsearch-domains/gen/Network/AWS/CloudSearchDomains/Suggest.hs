@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.Suggest
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ data Suggest = Suggest'
     { _sugSize      :: !(Maybe Integer)
     , _sugQuery     :: !Text
     , _sugSuggester :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Suggest' smart constructor.
 suggest :: Text -> Text -> Suggest
@@ -137,7 +139,7 @@ instance ToQuery Suggest where
 data SuggestResponse = SuggestResponse'
     { _srSuggest :: !(Maybe SuggestModel)
     , _srStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestResponse' smart constructor.
 suggestResponse :: Int -> SuggestResponse

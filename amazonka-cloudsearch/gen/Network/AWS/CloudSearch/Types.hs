@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -367,7 +369,7 @@ data AlgorithmicStemming
     | ASNone
     | ASMinimal
     | ASFull
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AlgorithmicStemming where
     parser = takeLowerText >>= \case
@@ -385,9 +387,7 @@ instance ToText AlgorithmicStemming where
         ASMinimal -> "minimal"
         ASNone -> "none"
 
-instance Hashable AlgorithmicStemming where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AlgorithmicStemming
 instance ToQuery AlgorithmicStemming
 instance ToHeader AlgorithmicStemming
 
@@ -432,7 +432,7 @@ data AnalysisSchemeLanguage
     | EN
     | TR
     | ZHHans
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AnalysisSchemeLanguage where
     parser = takeLowerText >>= \case
@@ -512,9 +512,7 @@ instance ToText AnalysisSchemeLanguage where
         ZHHans -> "zh-hans"
         ZHHant -> "zh-hant"
 
-instance Hashable AnalysisSchemeLanguage where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AnalysisSchemeLanguage
 instance ToQuery AnalysisSchemeLanguage
 instance ToHeader AnalysisSchemeLanguage
 
@@ -537,7 +535,7 @@ data IndexFieldType
     | DateArray
     | Int
     | Literal
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText IndexFieldType where
     parser = takeLowerText >>= \case
@@ -569,9 +567,7 @@ instance ToText IndexFieldType where
         Text -> "text"
         TextArray -> "text-array"
 
-instance Hashable IndexFieldType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable IndexFieldType
 instance ToQuery IndexFieldType
 instance ToHeader IndexFieldType
 
@@ -595,7 +591,7 @@ data OptionState
     | Active
     | RequiresIndexDocuments
     | Processing
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OptionState where
     parser = takeLowerText >>= \case
@@ -613,9 +609,7 @@ instance ToText OptionState where
         Processing -> "processing"
         RequiresIndexDocuments -> "requiresindexdocuments"
 
-instance Hashable OptionState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable OptionState
 instance ToQuery OptionState
 instance ToHeader OptionState
 
@@ -633,7 +627,7 @@ data PartitionInstanceType
     | SearchM1Large
     | SearchM1Small
     | SearchM3XLarge
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PartitionInstanceType where
     parser = takeLowerText >>= \case
@@ -659,9 +653,7 @@ instance ToText PartitionInstanceType where
         SearchM3Medium -> "search.m3.medium"
         SearchM3XLarge -> "search.m3.xlarge"
 
-instance Hashable PartitionInstanceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable PartitionInstanceType
 instance ToQuery PartitionInstanceType
 instance ToHeader PartitionInstanceType
 
@@ -672,7 +664,7 @@ data SuggesterFuzzyMatching
     = Low
     | None
     | High
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SuggesterFuzzyMatching where
     parser = takeLowerText >>= \case
@@ -688,9 +680,7 @@ instance ToText SuggesterFuzzyMatching where
         Low -> "low"
         None -> "none"
 
-instance Hashable SuggesterFuzzyMatching where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SuggesterFuzzyMatching
 instance ToQuery SuggesterFuzzyMatching
 instance ToHeader SuggesterFuzzyMatching
 
@@ -710,7 +700,7 @@ instance FromXML SuggesterFuzzyMatching where
 data AccessPoliciesStatus = AccessPoliciesStatus'
     { _apsOptions :: !Text
     , _apsStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessPoliciesStatus' smart constructor.
 accessPoliciesStatus :: Text -> OptionStatus -> AccessPoliciesStatus
@@ -755,7 +745,7 @@ data AnalysisOptions = AnalysisOptions'
     , _aoStemmingDictionary             :: !(Maybe Text)
     , _aoSynonyms                       :: !(Maybe Text)
     , _aoJapaneseTokenizationDictionary :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AnalysisOptions' smart constructor.
 analysisOptions :: AnalysisOptions
@@ -851,7 +841,7 @@ data AnalysisScheme = AnalysisScheme'
     { _asAnalysisOptions        :: !(Maybe AnalysisOptions)
     , _asAnalysisSchemeName     :: !Text
     , _asAnalysisSchemeLanguage :: !AnalysisSchemeLanguage
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AnalysisScheme' smart constructor.
 analysisScheme :: Text -> AnalysisSchemeLanguage -> AnalysisScheme
@@ -901,7 +891,7 @@ instance ToQuery AnalysisScheme where
 data AnalysisSchemeStatus = AnalysisSchemeStatus'
     { _assOptions :: !AnalysisScheme
     , _assStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AnalysisSchemeStatus' smart constructor.
 analysisSchemeStatus :: AnalysisScheme -> OptionStatus -> AnalysisSchemeStatus
@@ -936,7 +926,7 @@ instance FromXML AnalysisSchemeStatus where
 data AvailabilityOptionsStatus = AvailabilityOptionsStatus'
     { _aosOptions :: !Bool
     , _aosStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AvailabilityOptionsStatus' smart constructor.
 availabilityOptionsStatus :: Bool -> OptionStatus -> AvailabilityOptionsStatus
@@ -982,7 +972,7 @@ data DateArrayOptions = DateArrayOptions'
     , _datFacetEnabled  :: !(Maybe Bool)
     , _datSearchEnabled :: !(Maybe Bool)
     , _datDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DateArrayOptions' smart constructor.
 dateArrayOptions :: DateArrayOptions
@@ -1060,7 +1050,7 @@ data DateOptions = DateOptions'
     , _doSearchEnabled :: !(Maybe Bool)
     , _doSortEnabled   :: !(Maybe Bool)
     , _doDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DateOptions' smart constructor.
 dateOptions :: DateOptions
@@ -1133,7 +1123,7 @@ data DocumentSuggesterOptions = DocumentSuggesterOptions'
     { _dsoSortExpression :: !(Maybe Text)
     , _dsoFuzzyMatching  :: !(Maybe SuggesterFuzzyMatching)
     , _dsoSourceField    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DocumentSuggesterOptions' smart constructor.
 documentSuggesterOptions :: Text -> DocumentSuggesterOptions
@@ -1225,7 +1215,7 @@ data DomainStatus = DomainStatus'
     , _dsDomainId               :: !Text
     , _dsDomainName             :: !Text
     , _dsRequiresIndexDocuments :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DomainStatus' smart constructor.
 domainStatus :: Text -> Text -> Bool -> DomainStatus
@@ -1348,7 +1338,7 @@ data DoubleArrayOptions = DoubleArrayOptions'
     , _daoFacetEnabled  :: !(Maybe Bool)
     , _daoSearchEnabled :: !(Maybe Bool)
     , _daoDefaultValue  :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DoubleArrayOptions' smart constructor.
 doubleArrayOptions :: DoubleArrayOptions
@@ -1425,7 +1415,7 @@ data DoubleOptions = DoubleOptions'
     , _douSearchEnabled :: !(Maybe Bool)
     , _douSortEnabled   :: !(Maybe Bool)
     , _douDefaultValue  :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DoubleOptions' smart constructor.
 doubleOptions :: DoubleOptions
@@ -1498,7 +1488,7 @@ instance ToQuery DoubleOptions where
 data Expression = Expression'
     { _expExpressionName  :: !Text
     , _expExpressionValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Expression' smart constructor.
 expression :: Text -> Text -> Expression
@@ -1539,7 +1529,7 @@ instance ToQuery Expression where
 data ExpressionStatus = ExpressionStatus'
     { _esOptions :: !Expression
     , _esStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExpressionStatus' smart constructor.
 expressionStatus :: Expression -> OptionStatus -> ExpressionStatus
@@ -1609,7 +1599,7 @@ data IndexField = IndexField'
     , _ifIntOptions          :: !(Maybe IntOptions)
     , _ifIndexFieldName      :: !Text
     , _ifIndexFieldType      :: !IndexFieldType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexField' smart constructor.
 indexField :: Text -> IndexFieldType -> IndexField
@@ -1741,7 +1731,7 @@ instance ToQuery IndexField where
 data IndexFieldStatus = IndexFieldStatus'
     { _ifsOptions :: !IndexField
     , _ifsStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexFieldStatus' smart constructor.
 indexFieldStatus :: IndexField -> OptionStatus -> IndexFieldStatus
@@ -1787,7 +1777,7 @@ data IntArrayOptions = IntArrayOptions'
     , _iaoFacetEnabled  :: !(Maybe Bool)
     , _iaoSearchEnabled :: !(Maybe Bool)
     , _iaoDefaultValue  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IntArrayOptions' smart constructor.
 intArrayOptions :: IntArrayOptions
@@ -1864,7 +1854,7 @@ data IntOptions = IntOptions'
     , _ioSearchEnabled :: !(Maybe Bool)
     , _ioSortEnabled   :: !(Maybe Bool)
     , _ioDefaultValue  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IntOptions' smart constructor.
 intOptions :: IntOptions
@@ -1950,7 +1940,7 @@ data LatLonOptions = LatLonOptions'
     , _lloSearchEnabled :: !(Maybe Bool)
     , _lloSortEnabled   :: !(Maybe Bool)
     , _lloDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LatLonOptions' smart constructor.
 latLonOptions :: LatLonOptions
@@ -2018,7 +2008,7 @@ instance ToQuery LatLonOptions where
 data Limits = Limits'
     { _limMaximumReplicationCount :: !Nat
     , _limMaximumPartitionCount   :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Limits' smart constructor.
 limits :: Natural -> Natural -> Limits
@@ -2065,7 +2055,7 @@ data LiteralArrayOptions = LiteralArrayOptions'
     , _laoFacetEnabled  :: !(Maybe Bool)
     , _laoSearchEnabled :: !(Maybe Bool)
     , _laoDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LiteralArrayOptions' smart constructor.
 literalArrayOptions :: LiteralArrayOptions
@@ -2141,7 +2131,7 @@ data LiteralOptions = LiteralOptions'
     , _loSearchEnabled :: !(Maybe Bool)
     , _loSortEnabled   :: !(Maybe Bool)
     , _loDefaultValue  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LiteralOptions' smart constructor.
 literalOptions :: LiteralOptions
@@ -2220,7 +2210,7 @@ data OptionStatus = OptionStatus'
     , _osCreationDate    :: !ISO8601
     , _osUpdateDate      :: !ISO8601
     , _osState           :: !OptionState
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionStatus' smart constructor.
 optionStatus :: UTCTime -> UTCTime -> OptionState -> OptionStatus
@@ -2288,7 +2278,7 @@ data ScalingParameters = ScalingParameters'
     { _spDesiredInstanceType     :: !(Maybe PartitionInstanceType)
     , _spDesiredReplicationCount :: !(Maybe Nat)
     , _spDesiredPartitionCount   :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScalingParameters' smart constructor.
 scalingParameters :: ScalingParameters
@@ -2341,7 +2331,7 @@ instance ToQuery ScalingParameters where
 data ScalingParametersStatus = ScalingParametersStatus'
     { _spsOptions :: !ScalingParameters
     , _spsStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScalingParametersStatus' smart constructor.
 scalingParametersStatus :: ScalingParameters -> OptionStatus -> ScalingParametersStatus
@@ -2373,7 +2363,7 @@ instance FromXML ScalingParametersStatus where
 -- * 'seEndpoint'
 newtype ServiceEndpoint = ServiceEndpoint'
     { _seEndpoint :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ServiceEndpoint' smart constructor.
 serviceEndpoint :: ServiceEndpoint
@@ -2404,7 +2394,7 @@ instance FromXML ServiceEndpoint where
 data Suggester = Suggester'
     { _sugSuggesterName            :: !Text
     , _sugDocumentSuggesterOptions :: !DocumentSuggesterOptions
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Suggester' smart constructor.
 suggester :: Text -> DocumentSuggesterOptions -> Suggester
@@ -2447,7 +2437,7 @@ instance ToQuery Suggester where
 data SuggesterStatus = SuggesterStatus'
     { _ssOptions :: !Suggester
     , _ssStatus  :: !OptionStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggesterStatus' smart constructor.
 suggesterStatus :: Suggester -> OptionStatus -> SuggesterStatus
@@ -2494,7 +2484,7 @@ data TextArrayOptions = TextArrayOptions'
     , _taoAnalysisScheme   :: !(Maybe Text)
     , _taoHighlightEnabled :: !(Maybe Bool)
     , _taoDefaultValue     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TextArrayOptions' smart constructor.
 textArrayOptions :: TextArrayOptions
@@ -2571,7 +2561,7 @@ data TextOptions = TextOptions'
     , _toHighlightEnabled :: !(Maybe Bool)
     , _toSortEnabled      :: !(Maybe Bool)
     , _toDefaultValue     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TextOptions' smart constructor.
 textOptions :: TextOptions

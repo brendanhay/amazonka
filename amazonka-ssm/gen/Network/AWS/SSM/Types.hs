@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -226,7 +228,7 @@ _DocumentLimitExceeded =
 data AssociationFilterKey
     = AFKInstanceId
     | AFKName
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AssociationFilterKey where
     parser = takeLowerText >>= \case
@@ -240,9 +242,7 @@ instance ToText AssociationFilterKey where
         AFKInstanceId -> "instanceid"
         AFKName -> "name"
 
-instance Hashable AssociationFilterKey where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AssociationFilterKey
 instance ToQuery AssociationFilterKey
 instance ToHeader AssociationFilterKey
 
@@ -253,7 +253,7 @@ data AssociationStatusName
     = Pending
     | Success
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AssociationStatusName where
     parser = takeLowerText >>= \case
@@ -269,9 +269,7 @@ instance ToText AssociationStatusName where
         Pending -> "pending"
         Success -> "success"
 
-instance Hashable AssociationStatusName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AssociationStatusName
 instance ToQuery AssociationStatusName
 instance ToHeader AssociationStatusName
 
@@ -283,7 +281,7 @@ instance FromJSON AssociationStatusName where
 
 data DocumentFilterKey =
     Name
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DocumentFilterKey where
     parser = takeLowerText >>= \case
@@ -295,9 +293,7 @@ instance ToText DocumentFilterKey where
     toText = \case
         Name -> "name"
 
-instance Hashable DocumentFilterKey where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DocumentFilterKey
 instance ToQuery DocumentFilterKey
 instance ToHeader DocumentFilterKey
 
@@ -308,7 +304,7 @@ data DocumentStatus
     = Deleting
     | Creating
     | Active
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DocumentStatus where
     parser = takeLowerText >>= \case
@@ -324,9 +320,7 @@ instance ToText DocumentStatus where
         Creating -> "creating"
         Deleting -> "deleting"
 
-instance Hashable DocumentStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DocumentStatus
 instance ToQuery DocumentStatus
 instance ToHeader DocumentStatus
 
@@ -337,7 +331,7 @@ data Fault
     = Unknown
     | Server
     | Client
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Fault where
     parser = takeLowerText >>= \case
@@ -353,9 +347,7 @@ instance ToText Fault where
         Server -> "server"
         Unknown -> "unknown"
 
-instance Hashable Fault where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Fault
 instance ToQuery Fault
 instance ToHeader Fault
 
@@ -374,7 +366,7 @@ instance FromJSON Fault where
 data Association = Association'
     { _assInstanceId :: !(Maybe Text)
     , _assName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Association' smart constructor.
 association :: Association
@@ -417,7 +409,7 @@ data AssociationDescription = AssociationDescription'
     , _adStatus     :: !(Maybe AssociationStatus)
     , _adDate       :: !(Maybe POSIX)
     , _adName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociationDescription' smart constructor.
 associationDescription :: AssociationDescription
@@ -466,7 +458,7 @@ instance FromJSON AssociationDescription where
 data AssociationFilter = AssociationFilter'
     { _afKey   :: !AssociationFilterKey
     , _afValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociationFilter' smart constructor.
 associationFilter :: AssociationFilterKey -> Text -> AssociationFilter
@@ -506,7 +498,7 @@ data AssociationStatus = AssociationStatus'
     , _asDate           :: !POSIX
     , _asName           :: !AssociationStatusName
     , _asMessage        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociationStatus' smart constructor.
 associationStatus :: UTCTime -> AssociationStatusName -> Text -> AssociationStatus
@@ -562,7 +554,7 @@ instance ToJSON AssociationStatus where
 data CreateAssociationBatchRequestEntry = CreateAssociationBatchRequestEntry'
     { _cabreInstanceId :: !(Maybe Text)
     , _cabreName       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociationBatchRequestEntry' smart constructor.
 createAssociationBatchRequestEntry :: CreateAssociationBatchRequestEntry
@@ -613,7 +605,7 @@ data DocumentDescription = DocumentDescription'
     , _docSha1        :: !(Maybe Text)
     , _docCreatedDate :: !(Maybe POSIX)
     , _docName        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DocumentDescription' smart constructor.
 documentDescription :: DocumentDescription
@@ -663,7 +655,7 @@ instance FromJSON DocumentDescription where
 data DocumentFilter = DocumentFilter'
     { _dfKey   :: !DocumentFilterKey
     , _dfValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DocumentFilter' smart constructor.
 documentFilter :: DocumentFilterKey -> Text -> DocumentFilter
@@ -694,7 +686,7 @@ instance ToJSON DocumentFilter where
 -- * 'diName'
 newtype DocumentIdentifier = DocumentIdentifier'
     { _diName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DocumentIdentifier' smart constructor.
 documentIdentifier :: DocumentIdentifier
@@ -727,7 +719,7 @@ data FailedCreateAssociation = FailedCreateAssociation'
     { _fcaEntry   :: !(Maybe CreateAssociationBatchRequestEntry)
     , _fcaFault   :: !(Maybe Fault)
     , _fcaMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FailedCreateAssociation' smart constructor.
 failedCreateAssociation :: FailedCreateAssociation

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data ListDeploymentInstances = ListDeploymentInstances'
     { _ldiInstanceStatusFilter :: !(Maybe [InstanceStatus])
     , _ldiNextToken            :: !(Maybe Text)
     , _ldiDeploymentId         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentInstances' smart constructor.
 listDeploymentInstances :: Text -> ListDeploymentInstances
@@ -148,7 +150,7 @@ data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
     { _ldirNextToken     :: !(Maybe Text)
     , _ldirInstancesList :: !(Maybe [Text])
     , _ldirStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentInstancesResponse' smart constructor.
 listDeploymentInstancesResponse :: Int -> ListDeploymentInstancesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.ListMetrics
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data ListMetrics = ListMetrics'
     , _lmNamespace  :: !(Maybe Text)
     , _lmNextToken  :: !(Maybe Text)
     , _lmDimensions :: !(Maybe [DimensionFilter])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMetrics' smart constructor.
 listMetrics :: ListMetrics
@@ -144,7 +146,7 @@ data ListMetricsResponse = ListMetricsResponse'
     { _lmrMetrics   :: !(Maybe [Metric])
     , _lmrNextToken :: !(Maybe Text)
     , _lmrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMetricsResponse' smart constructor.
 listMetricsResponse :: Int -> ListMetricsResponse

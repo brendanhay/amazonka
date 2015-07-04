@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetAccessKeyLastUsed
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'gakluAccessKeyId'
 newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
     { _gakluAccessKeyId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccessKeyLastUsed' smart constructor.
 getAccessKeyLastUsed :: Text -> GetAccessKeyLastUsed
@@ -106,7 +108,7 @@ data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
     { _gaklurUserName          :: !(Maybe Text)
     , _gaklurAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
     , _gaklurStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccessKeyLastUsedResponse' smart constructor.
 getAccessKeyLastUsedResponse :: Int -> GetAccessKeyLastUsedResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstancesOfferings
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -83,7 +85,7 @@ data DescribeReservedDBInstancesOfferings = DescribeReservedDBInstancesOfferings
     , _drdioReservedDBInstancesOfferingId :: !(Maybe Text)
     , _drdioOfferingType                  :: !(Maybe Text)
     , _drdioDuration                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedDBInstancesOfferings' smart constructor.
 describeReservedDBInstancesOfferings :: DescribeReservedDBInstancesOfferings
@@ -227,7 +229,7 @@ data DescribeReservedDBInstancesOfferingsResponse = DescribeReservedDBInstancesO
     { _drdiorMarker                       :: !(Maybe Text)
     , _drdiorReservedDBInstancesOfferings :: !(Maybe [ReservedDBInstancesOffering])
     , _drdiorStatus                       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedDBInstancesOfferingsResponse' smart constructor.
 describeReservedDBInstancesOfferingsResponse :: Int -> DescribeReservedDBInstancesOfferingsResponse

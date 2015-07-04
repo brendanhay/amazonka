@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.GetIdentityPoolRoles
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'giprIdentityPoolId'
 newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
     { _giprIdentityPoolId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolRoles' smart constructor.
 getIdentityPoolRoles :: Text -> GetIdentityPoolRoles
@@ -113,7 +115,7 @@ data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
     { _giprrRoles          :: !(Maybe (Map Text Text))
     , _giprrIdentityPoolId :: !(Maybe Text)
     , _giprrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolRolesResponse' smart constructor.
 getIdentityPoolRolesResponse :: Int -> GetIdentityPoolRolesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.EnableSso
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data EnableSso = EnableSso'
     { _esUserName    :: !(Maybe Text)
     , _esPassword    :: !(Maybe (Sensitive Text))
     , _esDirectoryId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableSso' smart constructor.
 enableSso :: Text -> EnableSso
@@ -130,7 +132,7 @@ instance ToQuery EnableSso where
 -- * 'esrStatus'
 newtype EnableSsoResponse = EnableSsoResponse'
     { _esrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableSsoResponse' smart constructor.
 enableSsoResponse :: Int -> EnableSsoResponse

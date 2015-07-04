@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CancelReservedInstancesListing
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'crilReservedInstancesListingId'
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
     { _crilReservedInstancesListingId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelReservedInstancesListing' smart constructor.
 cancelReservedInstancesListing :: Text -> CancelReservedInstancesListing
@@ -105,7 +107,7 @@ instance ToQuery CancelReservedInstancesListing where
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
     { _crilrReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _crilrStatus                    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelReservedInstancesListingResponse' smart constructor.
 cancelReservedInstancesListingResponse :: Int -> CancelReservedInstancesListingResponse

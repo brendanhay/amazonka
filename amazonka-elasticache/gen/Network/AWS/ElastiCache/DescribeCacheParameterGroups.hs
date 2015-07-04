@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameterGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data DescribeCacheParameterGroups = DescribeCacheParameterGroups'
     { _dcpgCacheParameterGroupName :: !(Maybe Text)
     , _dcpgMaxRecords              :: !(Maybe Int)
     , _dcpgMarker                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParameterGroups' smart constructor.
 describeCacheParameterGroups :: DescribeCacheParameterGroups
@@ -148,7 +150,7 @@ data DescribeCacheParameterGroupsResponse = DescribeCacheParameterGroupsResponse
     { _dcpgrCacheParameterGroups :: !(Maybe [CacheParameterGroup])
     , _dcpgrMarker               :: !(Maybe Text)
     , _dcpgrStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParameterGroupsResponse' smart constructor.
 describeCacheParameterGroupsResponse :: Int -> DescribeCacheParameterGroupsResponse

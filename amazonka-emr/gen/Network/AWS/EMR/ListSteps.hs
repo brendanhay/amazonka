@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.ListSteps
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data ListSteps = ListSteps'
     , _lsStepStates :: !(Maybe [StepState])
     , _lsMarker     :: !(Maybe Text)
     , _lsClusterId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSteps' smart constructor.
 listSteps :: Text -> ListSteps
@@ -145,7 +147,7 @@ data ListStepsResponse = ListStepsResponse'
     { _lsrSteps  :: !(Maybe [StepSummary])
     , _lsrMarker :: !(Maybe Text)
     , _lsrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStepsResponse' smart constructor.
 listStepsResponse :: Int -> ListStepsResponse

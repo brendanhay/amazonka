@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeSpotFleetRequestHistory
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
     , _dsfrhMaxResults         :: !(Maybe Int)
     , _dsfrhSpotFleetRequestId :: !Text
     , _dsfrhStartTime          :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequestHistory' smart constructor.
 describeSpotFleetRequestHistory :: Text -> UTCTime -> DescribeSpotFleetRequestHistory
@@ -186,7 +188,7 @@ data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryRe
     , _dsfrhrStartTime          :: !ISO8601
     , _dsfrhrLastEvaluatedTime  :: !ISO8601
     , _dsfrhrHistoryRecords     :: ![HistoryRecord]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
 describeSpotFleetRequestHistoryResponse :: Int -> Text -> UTCTime -> UTCTime -> DescribeSpotFleetRequestHistoryResponse

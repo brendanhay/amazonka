@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeMetricFilters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data DescribeMetricFilters = DescribeMetricFilters'
     , _dmfNextToken        :: !(Maybe Text)
     , _dmfLimit            :: !(Maybe Nat)
     , _dmfLogGroupName     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricFilters' smart constructor.
 describeMetricFilters :: Text -> DescribeMetricFilters
@@ -149,7 +151,7 @@ data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
     { _dmfrNextToken     :: !(Maybe Text)
     , _dmfrMetricFilters :: !(Maybe [MetricFilter])
     , _dmfrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricFiltersResponse' smart constructor.
 describeMetricFiltersResponse :: Int -> DescribeMetricFiltersResponse

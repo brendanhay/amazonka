@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetObjectACL
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data GetObjectACL = GetObjectACL'
     , _goaRequestPayer :: !(Maybe RequestPayer)
     , _goaBucket       :: !BucketName
     , _goaKey          :: !ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetObjectACL' smart constructor.
 getObjectACL :: BucketName -> ObjectKey -> GetObjectACL
@@ -132,7 +134,7 @@ data GetObjectACLResponse = GetObjectACLResponse'
     , _goarGrants         :: !(Maybe [Grant])
     , _goarOwner          :: !(Maybe Owner)
     , _goarStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetObjectACLResponse' smart constructor.
 getObjectACLResponse :: Int -> GetObjectACLResponse

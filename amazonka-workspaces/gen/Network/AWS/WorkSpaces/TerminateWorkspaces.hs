@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.WorkSpaces.TerminateWorkspaces
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.WorkSpaces.Types
 -- * 'twTerminateWorkspaceRequests'
 newtype TerminateWorkspaces = TerminateWorkspaces'
     { _twTerminateWorkspaceRequests :: List1 TerminateRequest
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateWorkspaces' smart constructor.
 terminateWorkspaces :: NonEmpty TerminateRequest -> TerminateWorkspaces
@@ -118,7 +120,7 @@ instance ToQuery TerminateWorkspaces where
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
     { _twrFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
     , _twrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateWorkspacesResponse' smart constructor.
 terminateWorkspacesResponse :: Int -> TerminateWorkspacesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.ReportTaskProgress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ import           Network.AWS.Response
 data ReportTaskProgress = ReportTaskProgress'
     { _rtpFields :: !(Maybe [Field])
     , _rtpTaskId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskProgress' smart constructor.
 reportTaskProgress :: Text -> ReportTaskProgress
@@ -127,7 +129,7 @@ instance ToQuery ReportTaskProgress where
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
     { _rtprStatus   :: !Int
     , _rtprCanceled :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskProgressResponse' smart constructor.
 reportTaskProgressResponse :: Int -> Bool -> ReportTaskProgressResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.RemoveTags
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 data RemoveTags = RemoveTags'
     { _rtResourceId :: !Text
     , _rtTagKeys    :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
@@ -116,7 +118,7 @@ instance ToQuery RemoveTags where
 -- * 'rtrStatus'
 newtype RemoveTagsResponse = RemoveTagsResponse'
     { _rtrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DetachInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data DetachInstances = DetachInstances'
     { _diInstanceIds                    :: !(Maybe [Text])
     , _diAutoScalingGroupName           :: !Text
     , _diShouldDecrementDesiredCapacity :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInstances' smart constructor.
 detachInstances :: Text -> Bool -> DetachInstances
@@ -124,7 +126,7 @@ instance ToQuery DetachInstances where
 data DetachInstancesResponse = DetachInstancesResponse'
     { _dirActivities :: !(Maybe [Activity])
     , _dirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInstancesResponse' smart constructor.
 detachInstancesResponse :: Int -> DetachInstancesResponse

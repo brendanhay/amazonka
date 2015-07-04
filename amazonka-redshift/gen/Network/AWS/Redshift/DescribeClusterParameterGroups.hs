@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterParameterGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -85,7 +87,7 @@ data DescribeClusterParameterGroups = DescribeClusterParameterGroups'
     , _dcpgMaxRecords         :: !(Maybe Int)
     , _dcpgMarker             :: !(Maybe Text)
     , _dcpgParameterGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterParameterGroups' smart constructor.
 describeClusterParameterGroups :: DescribeClusterParameterGroups
@@ -206,7 +208,7 @@ data DescribeClusterParameterGroupsResponse = DescribeClusterParameterGroupsResp
     { _dcpgrMarker          :: !(Maybe Text)
     , _dcpgrParameterGroups :: !(Maybe [ClusterParameterGroup])
     , _dcpgrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterParameterGroupsResponse' smart constructor.
 describeClusterParameterGroupsResponse :: Int -> DescribeClusterParameterGroupsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.DeletePlatformApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.SNS.Types
 -- * 'dpaPlatformApplicationARN'
 newtype DeletePlatformApplication = DeletePlatformApplication'
     { _dpaPlatformApplicationARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePlatformApplication' smart constructor.
 deletePlatformApplication :: Text -> DeletePlatformApplication
@@ -87,7 +89,7 @@ instance ToQuery DeletePlatformApplication where
 -- | /See:/ 'deletePlatformApplicationResponse' smart constructor.
 data DeletePlatformApplicationResponse =
     DeletePlatformApplicationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePlatformApplicationResponse' smart constructor.
 deletePlatformApplicationResponse :: DeletePlatformApplicationResponse

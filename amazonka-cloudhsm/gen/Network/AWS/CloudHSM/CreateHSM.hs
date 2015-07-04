@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.CreateHSM
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data CreateHSM = CreateHSM'
     , _chSSHKey           :: !Text
     , _chIAMRoleARN       :: !Text
     , _chSubscriptionType :: !SubscriptionType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSM' smart constructor.
 createHSM :: Text -> Text -> Text -> SubscriptionType -> CreateHSM
@@ -176,7 +178,7 @@ instance ToQuery CreateHSM where
 data CreateHSMResponse = CreateHSMResponse'
     { _creHSMARN :: !(Maybe Text)
     , _creStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMResponse' smart constructor.
 createHSMResponse :: Int -> CreateHSMResponse

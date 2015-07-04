@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListRolePolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data ListRolePolicies = ListRolePolicies'
     { _lrpMaxItems :: !(Maybe Nat)
     , _lrpMarker   :: !(Maybe Text)
     , _lrpRoleName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolePolicies' smart constructor.
 listRolePolicies :: Text -> ListRolePolicies
@@ -152,7 +154,7 @@ data ListRolePoliciesResponse = ListRolePoliciesResponse'
     , _lrprIsTruncated :: !(Maybe Bool)
     , _lrprStatus      :: !Int
     , _lrprPolicyNames :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolePoliciesResponse' smart constructor.
 listRolePoliciesResponse :: Int -> ListRolePoliciesResponse

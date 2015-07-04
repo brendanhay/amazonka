@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.RestoreFromSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 -- * 'rfsSnapshotId'
 newtype RestoreFromSnapshot = RestoreFromSnapshot'
     { _rfsSnapshotId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreFromSnapshot' smart constructor.
 restoreFromSnapshot :: Text -> RestoreFromSnapshot
@@ -109,7 +111,7 @@ instance ToQuery RestoreFromSnapshot where
 -- * 'rfsrStatus'
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
     { _rfsrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreFromSnapshotResponse' smart constructor.
 restoreFromSnapshotResponse :: Int -> RestoreFromSnapshotResponse

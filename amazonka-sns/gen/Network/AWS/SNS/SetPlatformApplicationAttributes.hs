@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.SetPlatformApplicationAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.SNS.Types
 data SetPlatformApplicationAttributes = SetPlatformApplicationAttributes'
     { _spaaPlatformApplicationARN :: !Text
     , _spaaAttributes             :: !(Map Text Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetPlatformApplicationAttributes' smart constructor.
 setPlatformApplicationAttributes :: Text -> SetPlatformApplicationAttributes
@@ -123,7 +125,7 @@ instance ToQuery SetPlatformApplicationAttributes
 -- | /See:/ 'setPlatformApplicationAttributesResponse' smart constructor.
 data SetPlatformApplicationAttributesResponse =
     SetPlatformApplicationAttributesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetPlatformApplicationAttributesResponse' smart constructor.
 setPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse

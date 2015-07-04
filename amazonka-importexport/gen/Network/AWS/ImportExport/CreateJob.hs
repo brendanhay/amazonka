@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ImportExport.CreateJob
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ data CreateJob = CreateJob'
     , _cjJobType          :: !JobType
     , _cjManifest         :: !Text
     , _cjValidateOnly     :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateJob' smart constructor.
 createJob :: JobType -> Text -> Bool -> CreateJob
@@ -169,7 +171,7 @@ data CreateJobResponse = CreateJobResponse'
     , _cjrWarningMessage        :: !(Maybe Text)
     , _cjrArtifactList          :: !(Maybe [Artifact])
     , _cjrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Int -> CreateJobResponse

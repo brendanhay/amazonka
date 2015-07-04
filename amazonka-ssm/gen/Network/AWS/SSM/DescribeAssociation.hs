@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.DescribeAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.SSM.Types
 data DescribeAssociation = DescribeAssociation'
     { _daName       :: !Text
     , _daInstanceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAssociation' smart constructor.
 describeAssociation :: Text -> Text -> DescribeAssociation
@@ -112,7 +114,7 @@ instance ToQuery DescribeAssociation where
 data DescribeAssociationResponse = DescribeAssociationResponse'
     { _darAssociationDescription :: !(Maybe AssociationDescription)
     , _darStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAssociationResponse' smart constructor.
 describeAssociationResponse :: Int -> DescribeAssociationResponse

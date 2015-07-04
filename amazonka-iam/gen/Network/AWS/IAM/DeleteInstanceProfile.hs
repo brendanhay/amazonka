@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteInstanceProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'dipInstanceProfileName'
 newtype DeleteInstanceProfile = DeleteInstanceProfile'
     { _dipInstanceProfileName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInstanceProfile' smart constructor.
 deleteInstanceProfile :: Text -> DeleteInstanceProfile
@@ -89,7 +91,7 @@ instance ToQuery DeleteInstanceProfile where
 -- | /See:/ 'deleteInstanceProfileResponse' smart constructor.
 data DeleteInstanceProfileResponse =
     DeleteInstanceProfileResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInstanceProfileResponse' smart constructor.
 deleteInstanceProfileResponse :: DeleteInstanceProfileResponse

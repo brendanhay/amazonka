@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.TerminateWorkflowExecution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -97,7 +99,7 @@ data TerminateWorkflowExecution = TerminateWorkflowExecution'
     , _tweChildPolicy :: !(Maybe ChildPolicy)
     , _tweDomain      :: !Text
     , _tweWorkflowId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateWorkflowExecution' smart constructor.
 terminateWorkflowExecution :: Text -> Text -> TerminateWorkflowExecution
@@ -189,7 +191,7 @@ instance ToQuery TerminateWorkflowExecution where
 -- | /See:/ 'terminateWorkflowExecutionResponse' smart constructor.
 data TerminateWorkflowExecutionResponse =
     TerminateWorkflowExecutionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateWorkflowExecutionResponse' smart constructor.
 terminateWorkflowExecutionResponse :: TerminateWorkflowExecutionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.AddPermission
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ data AddPermission = AddPermission'
     , _apStatementId   :: !Text
     , _apAction        :: !Text
     , _apPrincipal     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> Text -> Text -> AddPermission
@@ -188,7 +190,7 @@ instance ToQuery AddPermission where
 data AddPermissionResponse = AddPermissionResponse'
     { _aprStatement :: !(Maybe Text)
     , _aprStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddPermissionResponse' smart constructor.
 addPermissionResponse :: Int -> AddPermissionResponse

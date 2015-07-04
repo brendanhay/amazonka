@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListApplicationRevisions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ data ListApplicationRevisions = ListApplicationRevisions'
     , _lisS3Bucket        :: !(Maybe Text)
     , _lisSortBy          :: !(Maybe ApplicationRevisionSortBy)
     , _lisApplicationName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationRevisions' smart constructor.
 listApplicationRevisions :: Text -> ListApplicationRevisions
@@ -202,7 +204,7 @@ data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
     { _larrNextToken :: !(Maybe Text)
     , _larrRevisions :: !(Maybe [RevisionLocation])
     , _larrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationRevisionsResponse' smart constructor.
 listApplicationRevisionsResponse :: Int -> ListApplicationRevisionsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.DeletePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'delId'
 newtype DeletePipeline = DeletePipeline'
     { _delId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
@@ -93,7 +95,7 @@ instance ToQuery DeletePipeline where
 -- * 'delStatus'
 newtype DeletePipelineResponse = DeletePipelineResponse'
     { _delStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePipelineResponse' smart constructor.
 deletePipelineResponse :: Int -> DeletePipelineResponse

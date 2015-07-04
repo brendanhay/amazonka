@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DisassociateElasticIP
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'deiElasticIP'
 newtype DisassociateElasticIP = DisassociateElasticIP'
     { _deiElasticIP :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateElasticIP' smart constructor.
 disassociateElasticIP :: Text -> DisassociateElasticIP
@@ -95,7 +97,7 @@ instance ToQuery DisassociateElasticIP where
 -- | /See:/ 'disassociateElasticIPResponse' smart constructor.
 data DisassociateElasticIPResponse =
     DisassociateElasticIPResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateElasticIPResponse' smart constructor.
 disassociateElasticIPResponse :: DisassociateElasticIPResponse

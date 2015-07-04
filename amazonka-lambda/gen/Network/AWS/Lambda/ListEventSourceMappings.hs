@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.ListEventSourceMappings
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data ListEventSourceMappings = ListEventSourceMappings'
     , _lesmMaxItems       :: !(Maybe Nat)
     , _lesmMarker         :: !(Maybe Text)
     , _lesmFunctionName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEventSourceMappings' smart constructor.
 listEventSourceMappings :: ListEventSourceMappings
@@ -159,7 +161,7 @@ data ListEventSourceMappingsResponse = ListEventSourceMappingsResponse'
     { _lesmrEventSourceMappings :: !(Maybe [EventSourceMappingConfiguration])
     , _lesmrNextMarker          :: !(Maybe Text)
     , _lesmrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEventSourceMappingsResponse' smart constructor.
 listEventSourceMappingsResponse :: Int -> ListEventSourceMappingsResponse

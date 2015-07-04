@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.StopInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 -- * 'siInstanceId'
 newtype StopInstance = StopInstance'
     { _siInstanceId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstance' smart constructor.
 stopInstance :: Text -> StopInstance
@@ -95,7 +97,7 @@ instance ToQuery StopInstance where
 -- | /See:/ 'stopInstanceResponse' smart constructor.
 data StopInstanceResponse =
     StopInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstanceResponse' smart constructor.
 stopInstanceResponse :: StopInstanceResponse

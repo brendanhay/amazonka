@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DetachNetworkInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ data DetachNetworkInterface = DetachNetworkInterface'
     { _dniForce        :: !(Maybe Bool)
     , _dniDryRun       :: !(Maybe Bool)
     , _dniAttachmentId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachNetworkInterface' smart constructor.
 detachNetworkInterface :: Text -> DetachNetworkInterface
@@ -104,7 +106,7 @@ instance ToQuery DetachNetworkInterface where
 -- | /See:/ 'detachNetworkInterfaceResponse' smart constructor.
 data DetachNetworkInterfaceResponse =
     DetachNetworkInterfaceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachNetworkInterfaceResponse' smart constructor.
 detachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse

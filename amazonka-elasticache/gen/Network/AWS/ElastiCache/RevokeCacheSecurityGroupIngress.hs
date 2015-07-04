@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
     { _rcsgiCacheSecurityGroupName  :: !Text
     , _rcsgiEC2SecurityGroupName    :: !Text
     , _rcsgiEC2SecurityGroupOwnerId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeCacheSecurityGroupIngress' smart constructor.
 revokeCacheSecurityGroupIngress :: Text -> Text -> Text -> RevokeCacheSecurityGroupIngress
@@ -127,7 +129,7 @@ instance ToQuery RevokeCacheSecurityGroupIngress
 data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
     { _rcsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _rcsgirStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' smart constructor.
 revokeCacheSecurityGroupIngressResponse :: Int -> RevokeCacheSecurityGroupIngressResponse

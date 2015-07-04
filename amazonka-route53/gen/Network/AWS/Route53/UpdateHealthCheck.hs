@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.UpdateHealthCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -84,7 +86,7 @@ data UpdateHealthCheck = UpdateHealthCheck'
     , _uhcFullyQualifiedDomainName :: !(Maybe Text)
     , _uhcPort                     :: !(Maybe Nat)
     , _uhcHealthCheckId            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateHealthCheck' smart constructor.
 updateHealthCheck :: Text -> UpdateHealthCheck
@@ -210,7 +212,7 @@ instance ToXML UpdateHealthCheck where
 data UpdateHealthCheckResponse = UpdateHealthCheckResponse'
     { _uhcrStatus      :: !Int
     , _uhcrHealthCheck :: !HealthCheck
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateHealthCheckResponse' smart constructor.
 updateHealthCheckResponse :: Int -> HealthCheck -> UpdateHealthCheckResponse

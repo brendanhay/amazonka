@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.GetJobOutput
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -112,7 +114,7 @@ data GetJobOutput = GetJobOutput'
     , _gjoAccountId :: !Text
     , _gjoVaultName :: !Text
     , _gjoJobId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobOutput' smart constructor.
 getJobOutput :: Text -> Text -> Text -> GetJobOutput
@@ -204,7 +206,7 @@ data GetJobOutputResponse = GetJobOutputResponse'
     , _gjorContentType        :: !(Maybe Text)
     , _gjorStatus             :: !Int
     , _gjorBody               :: !RsBody
-    } deriving (Show)
+    } deriving (Show,Data,Typeable,Generic)
 
 -- | 'GetJobOutputResponse' smart constructor.
 getJobOutputResponse :: Int -> RsBody -> GetJobOutputResponse

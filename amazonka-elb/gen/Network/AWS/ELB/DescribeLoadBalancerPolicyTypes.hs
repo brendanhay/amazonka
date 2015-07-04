@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'dlbptPolicyTypeNames'
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
     { _dlbptPolicyTypeNames :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPolicyTypes' smart constructor.
 describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
@@ -107,7 +109,7 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
     { _dlbptrPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
     , _dlbptrStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
 describeLoadBalancerPolicyTypesResponse :: Int -> DescribeLoadBalancerPolicyTypesResponse

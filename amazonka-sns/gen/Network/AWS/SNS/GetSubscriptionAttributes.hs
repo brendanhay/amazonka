@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.GetSubscriptionAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.SNS.Types
 -- * 'gsaSubscriptionARN'
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes'
     { _gsaSubscriptionARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSubscriptionAttributes' smart constructor.
 getSubscriptionAttributes :: Text -> GetSubscriptionAttributes
@@ -101,7 +103,7 @@ instance ToQuery GetSubscriptionAttributes where
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
     { _gsarAttributes :: !(Maybe (Map Text Text))
     , _gsarStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSubscriptionAttributesResponse' smart constructor.
 getSubscriptionAttributesResponse :: Int -> GetSubscriptionAttributesResponse

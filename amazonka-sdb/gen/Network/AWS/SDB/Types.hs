@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -218,7 +220,7 @@ data Attribute = Attribute'
     , _attAlternateNameEncoding  :: !(Maybe Text)
     , _attName                   :: !Text
     , _attValue                  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Attribute' smart constructor.
 attribute :: Text -> Text -> Attribute
@@ -272,7 +274,7 @@ instance ToQuery Attribute where
 data DeletableItem = DeletableItem'
     { _diAttributes :: !(Maybe [Attribute])
     , _diName       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletableItem' smart constructor.
 deletableItem :: Text -> DeletableItem
@@ -311,7 +313,7 @@ data Item = Item'
     { _iteAlternateNameEncoding :: !(Maybe Text)
     , _iteName                  :: !Text
     , _iteAttributes            :: ![Attribute]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Item' smart constructor.
 item :: Text -> Item
@@ -355,7 +357,7 @@ data ReplaceableAttribute = ReplaceableAttribute'
     { _raReplace :: !(Maybe Bool)
     , _raName    :: !Text
     , _raValue   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceableAttribute' smart constructor.
 replaceableAttribute :: Text -> Text -> ReplaceableAttribute
@@ -397,7 +399,7 @@ instance ToQuery ReplaceableAttribute where
 data ReplaceableItem = ReplaceableItem'
     { _riName       :: !Text
     , _riAttributes :: ![ReplaceableAttribute]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceableItem' smart constructor.
 replaceableItem :: Text -> ReplaceableItem
@@ -440,7 +442,7 @@ data UpdateCondition = UpdateCondition'
     { _ucExists :: !(Maybe Bool)
     , _ucValue  :: !(Maybe Text)
     , _ucName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateCondition' smart constructor.
 updateCondition :: UpdateCondition

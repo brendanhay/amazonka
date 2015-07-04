@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromRedshift
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -96,7 +98,7 @@ data CreateDataSourceFromRedshift = CreateDataSourceFromRedshift'
     , _cdsfrDataSourceId      :: !Text
     , _cdsfrDataSpec          :: !RedshiftDataSpec
     , _cdsfrRoleARN           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRedshift' smart constructor.
 createDataSourceFromRedshift :: Text -> RedshiftDataSpec -> Text -> CreateDataSourceFromRedshift
@@ -225,7 +227,7 @@ instance ToQuery CreateDataSourceFromRedshift where
 data CreateDataSourceFromRedshiftResponse = CreateDataSourceFromRedshiftResponse'
     { _cdsfrrDataSourceId :: !(Maybe Text)
     , _cdsfrrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRedshiftResponse' smart constructor.
 createDataSourceFromRedshiftResponse :: Int -> CreateDataSourceFromRedshiftResponse

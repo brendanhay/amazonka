@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListOpenIDConnectProviders
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -41,7 +43,7 @@ import           Network.AWS.Response
 -- | /See:/ 'listOpenIDConnectProviders' smart constructor.
 data ListOpenIDConnectProviders =
     ListOpenIDConnectProviders'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOpenIDConnectProviders' smart constructor.
 listOpenIDConnectProviders :: ListOpenIDConnectProviders
@@ -88,7 +90,7 @@ instance ToQuery ListOpenIDConnectProviders where
 data ListOpenIDConnectProvidersResponse = ListOpenIDConnectProvidersResponse'
     { _loidcprOpenIDConnectProviderList :: !(Maybe [OpenIDConnectProviderListEntry])
     , _loidcprStatus                    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOpenIDConnectProvidersResponse' smart constructor.
 listOpenIDConnectProvidersResponse :: Int -> ListOpenIDConnectProvidersResponse

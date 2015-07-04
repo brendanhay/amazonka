@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeAgentVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DescribeAgentVersions = DescribeAgentVersions'
     { _davConfigurationManager :: !(Maybe StackConfigurationManager)
     , _davStackId              :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAgentVersions' smart constructor.
 describeAgentVersions :: DescribeAgentVersions
@@ -118,7 +120,7 @@ instance ToQuery DescribeAgentVersions where
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
     { _davrAgentVersions :: !(Maybe [AgentVersion])
     , _davrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAgentVersionsResponse' smart constructor.
 describeAgentVersionsResponse :: Int -> DescribeAgentVersionsResponse

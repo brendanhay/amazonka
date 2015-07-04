@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeDHCPOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeDHCPOptions = DescribeDHCPOptions'
     { _ddoFilters        :: !(Maybe [Filter])
     , _ddoDHCPOptionsIds :: !(Maybe [Text])
     , _ddoDryRun         :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDHCPOptions' smart constructor.
 describeDHCPOptions :: DescribeDHCPOptions
@@ -147,7 +149,7 @@ instance ToQuery DescribeDHCPOptions where
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
     { _ddorDHCPOptions :: !(Maybe [DHCPOptions])
     , _ddorStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDHCPOptionsResponse' smart constructor.
 describeDHCPOptionsResponse :: Int -> DescribeDHCPOptionsResponse

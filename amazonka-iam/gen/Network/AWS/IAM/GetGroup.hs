@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data GetGroup = GetGroup'
     { _ggMaxItems  :: !(Maybe Nat)
     , _ggMarker    :: !(Maybe Text)
     , _ggGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroup' smart constructor.
 getGroup :: Text -> GetGroup
@@ -145,7 +147,7 @@ data GetGroupResponse = GetGroupResponse'
     , _ggrStatus      :: !Int
     , _ggrGroup       :: !Group
     , _ggrUsers       :: ![User]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroupResponse' smart constructor.
 getGroupResponse :: Int -> Group -> GetGroupResponse

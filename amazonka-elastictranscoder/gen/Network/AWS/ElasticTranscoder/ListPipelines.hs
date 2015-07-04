@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListPipelines
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data ListPipelines = ListPipelines'
     { _lpAscending :: !(Maybe Text)
     , _lpPageToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
@@ -124,7 +126,7 @@ data ListPipelinesResponse = ListPipelinesResponse'
     { _lprNextPageToken :: !(Maybe Text)
     , _lprPipelines     :: !(Maybe [Pipeline])
     , _lprStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse

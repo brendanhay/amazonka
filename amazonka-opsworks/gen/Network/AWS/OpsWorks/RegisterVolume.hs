@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.Response
 data RegisterVolume = RegisterVolume'
     { _rvEC2VolumeId :: !(Maybe Text)
     , _rvStackId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterVolume' smart constructor.
 registerVolume :: Text -> RegisterVolume
@@ -122,7 +124,7 @@ instance ToQuery RegisterVolume where
 data RegisterVolumeResponse = RegisterVolumeResponse'
     { _rvrVolumeId :: !(Maybe Text)
     , _rvrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterVolumeResponse' smart constructor.
 registerVolumeResponse :: Int -> RegisterVolumeResponse

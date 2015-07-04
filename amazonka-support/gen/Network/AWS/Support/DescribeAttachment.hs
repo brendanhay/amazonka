@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.DescribeAttachment
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Support.Types
 -- * 'daAttachmentId'
 newtype DescribeAttachment = DescribeAttachment'
     { _daAttachmentId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAttachment' smart constructor.
 describeAttachment :: Text -> DescribeAttachment
@@ -109,7 +111,7 @@ instance ToQuery DescribeAttachment where
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
     { _darAttachment :: !(Maybe Attachment)
     , _darStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAttachmentResponse' smart constructor.
 describeAttachmentResponse :: Int -> DescribeAttachmentResponse

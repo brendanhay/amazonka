@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.GenerateRandom
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- * 'grNumberOfBytes'
 newtype GenerateRandom = GenerateRandom'
     { _grNumberOfBytes :: Maybe Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateRandom' smart constructor.
 generateRandom :: GenerateRandom
@@ -100,7 +102,7 @@ instance ToQuery GenerateRandom where
 data GenerateRandomResponse = GenerateRandomResponse'
     { _grrPlaintext :: !(Maybe (Sensitive Base64))
     , _grrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateRandomResponse' smart constructor.
 generateRandomResponse :: Int -> GenerateRandomResponse

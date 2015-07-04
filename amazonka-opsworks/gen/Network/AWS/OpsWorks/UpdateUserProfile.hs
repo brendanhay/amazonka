@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateUserProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data UpdateUserProfile = UpdateUserProfile'
     , _uupSSHPublicKey        :: !(Maybe Text)
     , _uupAllowSelfManagement :: !(Maybe Bool)
     , _uupIAMUserARN          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateUserProfile' smart constructor.
 updateUserProfile :: Text -> UpdateUserProfile
@@ -128,7 +130,7 @@ instance ToQuery UpdateUserProfile where
 -- | /See:/ 'updateUserProfileResponse' smart constructor.
 data UpdateUserProfileResponse =
     UpdateUserProfileResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateUserProfileResponse' smart constructor.
 updateUserProfileResponse :: UpdateUserProfileResponse

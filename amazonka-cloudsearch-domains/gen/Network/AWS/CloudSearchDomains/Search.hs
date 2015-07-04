@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.Search
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -122,7 +124,7 @@ data Search = Search'
     , _seaFacet        :: !(Maybe Text)
     , _seaPartial      :: !(Maybe Bool)
     , _seaQuery        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Search' smart constructor.
 search :: Text -> Search
@@ -529,7 +531,7 @@ data SearchResponse = SearchResponse'
     { _seaFacets :: !(Maybe (Map Text BucketInfo))
     , _seaHits   :: !(Maybe Hits)
     , _seaStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SearchResponse' smart constructor.
 searchResponse :: Int -> SearchResponse

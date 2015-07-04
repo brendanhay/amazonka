@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketTagging
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.S3.Types
 -- * 'gbtBucket'
 newtype GetBucketTagging = GetBucketTagging'
     { _gbtBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketTagging' smart constructor.
 getBucketTagging :: BucketName -> GetBucketTagging
@@ -91,7 +93,7 @@ instance ToQuery GetBucketTagging where
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
     { _gbtrStatus :: !Int
     , _gbtrTagSet :: ![Tag]
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketTaggingResponse' smart constructor.
 getBucketTaggingResponse :: Int -> GetBucketTaggingResponse

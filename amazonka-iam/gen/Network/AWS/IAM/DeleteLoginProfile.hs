@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteLoginProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'dlpUserName'
 newtype DeleteLoginProfile = DeleteLoginProfile'
     { _dlpUserName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoginProfile' smart constructor.
 deleteLoginProfile :: Text -> DeleteLoginProfile
@@ -88,7 +90,7 @@ instance ToQuery DeleteLoginProfile where
 -- | /See:/ 'deleteLoginProfileResponse' smart constructor.
 data DeleteLoginProfileResponse =
     DeleteLoginProfileResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoginProfileResponse' smart constructor.
 deleteLoginProfileResponse :: DeleteLoginProfileResponse

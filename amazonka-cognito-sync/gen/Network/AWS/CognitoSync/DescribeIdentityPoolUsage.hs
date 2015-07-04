@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.DescribeIdentityPoolUsage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 -- * 'dipuIdentityPoolId'
 newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
     { _dipuIdentityPoolId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityPoolUsage' smart constructor.
 describeIdentityPoolUsage :: Text -> DescribeIdentityPoolUsage
@@ -107,7 +109,7 @@ instance ToQuery DescribeIdentityPoolUsage where
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
     { _dipurIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
     , _dipurStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityPoolUsageResponse' smart constructor.
 describeIdentityPoolUsageResponse :: Int -> DescribeIdentityPoolUsageResponse

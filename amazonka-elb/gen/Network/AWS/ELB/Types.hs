@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -377,7 +379,7 @@ data AccessLog = AccessLog'
     , _alS3BucketPrefix :: !(Maybe Text)
     , _alS3BucketName   :: !(Maybe Text)
     , _alEnabled        :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessLog' smart constructor.
 accessLog :: Bool -> AccessLog
@@ -437,7 +439,7 @@ instance ToQuery AccessLog where
 data AdditionalAttribute = AdditionalAttribute'
     { _aaValue :: !(Maybe Text)
     , _aaKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AdditionalAttribute' smart constructor.
 additionalAttribute :: AdditionalAttribute
@@ -477,7 +479,7 @@ instance ToQuery AdditionalAttribute where
 data AppCookieStickinessPolicy = AppCookieStickinessPolicy'
     { _acspPolicyName :: !(Maybe Text)
     , _acspCookieName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AppCookieStickinessPolicy' smart constructor.
 appCookieStickinessPolicy :: AppCookieStickinessPolicy
@@ -513,7 +515,7 @@ instance FromXML AppCookieStickinessPolicy where
 data BackendServerDescription = BackendServerDescription'
     { _bsdPolicyNames  :: !(Maybe [Text])
     , _bsdInstancePort :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BackendServerDescription' smart constructor.
 backendServerDescription :: BackendServerDescription
@@ -550,7 +552,7 @@ instance FromXML BackendServerDescription where
 data ConnectionDraining = ConnectionDraining'
     { _cdTimeout :: !(Maybe Int)
     , _cdEnabled :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConnectionDraining' smart constructor.
 connectionDraining :: Bool -> ConnectionDraining
@@ -588,7 +590,7 @@ instance ToQuery ConnectionDraining where
 -- * 'csIdleTimeout'
 newtype ConnectionSettings = ConnectionSettings'
     { _csIdleTimeout :: Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConnectionSettings' smart constructor.
 connectionSettings :: Natural -> ConnectionSettings
@@ -620,7 +622,7 @@ instance ToQuery ConnectionSettings where
 -- * 'czlbEnabled'
 newtype CrossZoneLoadBalancing = CrossZoneLoadBalancing'
     { _czlbEnabled :: Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CrossZoneLoadBalancing' smart constructor.
 crossZoneLoadBalancing :: Bool -> CrossZoneLoadBalancing
@@ -663,7 +665,7 @@ data HealthCheck = HealthCheck'
     , _hcTimeout            :: !Nat
     , _hcUnhealthyThreshold :: !Nat
     , _hcHealthyThreshold   :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HealthCheck' smart constructor.
 healthCheck :: Text -> Natural -> Natural -> Natural -> Natural -> HealthCheck
@@ -744,7 +746,7 @@ instance ToQuery HealthCheck where
 -- * 'insInstanceId'
 newtype Instance = Instance'
     { _insInstanceId :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
@@ -782,7 +784,7 @@ data InstanceState = InstanceState'
     , _isState       :: !(Maybe Text)
     , _isReasonCode  :: !(Maybe Text)
     , _isDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceState' smart constructor.
 instanceState :: InstanceState
@@ -860,7 +862,7 @@ instance FromXML InstanceState where
 data LBCookieStickinessPolicy = LBCookieStickinessPolicy'
     { _lbcspPolicyName             :: !(Maybe Text)
     , _lbcspCookieExpirationPeriod :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LBCookieStickinessPolicy' smart constructor.
 lBCookieStickinessPolicy :: LBCookieStickinessPolicy
@@ -913,7 +915,7 @@ data Listener = Listener'
     , _lisProtocol         :: !Text
     , _lisLoadBalancerPort :: !Int
     , _lisInstancePort     :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Listener' smart constructor.
 listener :: Text -> Int -> Natural -> Listener
@@ -990,7 +992,7 @@ instance ToQuery Listener where
 data ListenerDescription = ListenerDescription'
     { _ldPolicyNames :: !(Maybe [Text])
     , _ldListener    :: !(Maybe Listener)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListenerDescription' smart constructor.
 listenerDescription :: ListenerDescription
@@ -1036,7 +1038,7 @@ data LoadBalancerAttributes = LoadBalancerAttributes'
     , _lbaAdditionalAttributes   :: !(Maybe [AdditionalAttribute])
     , _lbaConnectionSettings     :: !(Maybe ConnectionSettings)
     , _lbaConnectionDraining     :: !(Maybe ConnectionDraining)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoadBalancerAttributes' smart constructor.
 loadBalancerAttributes :: LoadBalancerAttributes
@@ -1170,7 +1172,7 @@ data LoadBalancerDescription = LoadBalancerDescription'
     , _lbdListenerDescriptions      :: !(Maybe [ListenerDescription])
     , _lbdDNSName                   :: !(Maybe Text)
     , _lbdPolicies                  :: !(Maybe Policies)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoadBalancerDescription' smart constructor.
 loadBalancerDescription :: LoadBalancerDescription
@@ -1321,7 +1323,7 @@ data Policies = Policies'
     { _polOtherPolicies               :: !(Maybe [Text])
     , _polLBCookieStickinessPolicies  :: !(Maybe [LBCookieStickinessPolicy])
     , _polAppCookieStickinessPolicies :: !(Maybe [AppCookieStickinessPolicy])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Policies' smart constructor.
 policies :: Policies
@@ -1368,7 +1370,7 @@ instance FromXML Policies where
 data PolicyAttribute = PolicyAttribute'
     { _paAttributeValue :: !(Maybe Text)
     , _paAttributeName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyAttribute' smart constructor.
 policyAttribute :: PolicyAttribute
@@ -1404,7 +1406,7 @@ instance ToQuery PolicyAttribute where
 data PolicyAttributeDescription = PolicyAttributeDescription'
     { _padAttributeValue :: !(Maybe Text)
     , _padAttributeName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyAttributeDescription' smart constructor.
 policyAttributeDescription :: PolicyAttributeDescription
@@ -1448,7 +1450,7 @@ data PolicyAttributeTypeDescription = PolicyAttributeTypeDescription'
     , _patdDefaultValue  :: !(Maybe Text)
     , _patdAttributeName :: !(Maybe Text)
     , _patdDescription   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyAttributeTypeDescription' smart constructor.
 policyAttributeTypeDescription :: PolicyAttributeTypeDescription
@@ -1511,7 +1513,7 @@ data PolicyDescription = PolicyDescription'
     { _pdPolicyName                  :: !(Maybe Text)
     , _pdPolicyAttributeDescriptions :: !(Maybe [PolicyAttributeDescription])
     , _pdPolicyTypeName              :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyDescription' smart constructor.
 policyDescription :: PolicyDescription
@@ -1557,7 +1559,7 @@ data PolicyTypeDescription = PolicyTypeDescription'
     { _ptdPolicyTypeName                  :: !(Maybe Text)
     , _ptdDescription                     :: !(Maybe Text)
     , _ptdPolicyAttributeTypeDescriptions :: !(Maybe [PolicyAttributeTypeDescription])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PolicyTypeDescription' smart constructor.
 policyTypeDescription :: PolicyTypeDescription
@@ -1601,7 +1603,7 @@ instance FromXML PolicyTypeDescription where
 data SourceSecurityGroup = SourceSecurityGroup'
     { _ssgOwnerAlias :: !(Maybe Text)
     , _ssgGroupName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SourceSecurityGroup' smart constructor.
 sourceSecurityGroup :: SourceSecurityGroup
@@ -1636,7 +1638,7 @@ instance FromXML SourceSecurityGroup where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Tag
@@ -1674,7 +1676,7 @@ instance ToQuery Tag where
 data TagDescription = TagDescription'
     { _tdLoadBalancerName :: !(Maybe Text)
     , _tdTags             :: !(Maybe (List1 Tag))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TagDescription' smart constructor.
 tagDescription :: TagDescription
@@ -1708,7 +1710,7 @@ instance FromXML TagDescription where
 -- * 'tkoKey'
 newtype TagKeyOnly = TagKeyOnly'
     { _tkoKey :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TagKeyOnly' smart constructor.
 tagKeyOnly :: TagKeyOnly

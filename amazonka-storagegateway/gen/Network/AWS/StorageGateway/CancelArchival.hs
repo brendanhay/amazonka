@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.CancelArchival
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.StorageGateway.Types
 data CancelArchival = CancelArchival'
     { _caGatewayARN :: !Text
     , _caTapeARN    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelArchival' smart constructor.
 cancelArchival :: Text -> Text -> CancelArchival
@@ -117,7 +119,7 @@ instance ToQuery CancelArchival where
 data CancelArchivalResponse = CancelArchivalResponse'
     { _carTapeARN :: !(Maybe Text)
     , _carStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelArchivalResponse' smart constructor.
 cancelArchivalResponse :: Int -> CancelArchivalResponse

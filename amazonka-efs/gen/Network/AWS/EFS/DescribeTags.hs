@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.DescribeTags
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribeTags = DescribeTags'
     { _dtMaxItems     :: !(Maybe Nat)
     , _dtMarker       :: !(Maybe Text)
     , _dtFileSystemId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: Text -> DescribeTags
@@ -130,7 +132,7 @@ data DescribeTagsResponse = DescribeTagsResponse'
     , _dtrNextMarker :: !(Maybe Text)
     , _dtrStatus     :: !Int
     , _dtrTags       :: ![Tag]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse

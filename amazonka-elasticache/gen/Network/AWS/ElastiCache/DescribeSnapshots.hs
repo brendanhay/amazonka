@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data DescribeSnapshots = DescribeSnapshots'
     , _dsMarker         :: !(Maybe Text)
     , _dsSnapshotName   :: !(Maybe Text)
     , _dsSnapshotSource :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
@@ -168,7 +170,7 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dsr1Snapshots :: !(Maybe [Snapshot])
     , _dsr1Marker    :: !(Maybe Text)
     , _dsr1Status    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse

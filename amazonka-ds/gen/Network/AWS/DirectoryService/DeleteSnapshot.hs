@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.DeleteSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'dsSnapshotId'
 newtype DeleteSnapshot = DeleteSnapshot'
     { _dsSnapshotId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
@@ -104,7 +106,7 @@ instance ToQuery DeleteSnapshot where
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
     { _dsrSnapshotId :: !(Maybe Text)
     , _dsrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse

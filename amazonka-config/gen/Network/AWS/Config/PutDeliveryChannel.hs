@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Config.PutDeliveryChannel
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 -- * 'pdcDeliveryChannel'
 newtype PutDeliveryChannel = PutDeliveryChannel'
     { _pdcDeliveryChannel :: DeliveryChannel
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutDeliveryChannel' smart constructor.
 putDeliveryChannel :: DeliveryChannel -> PutDeliveryChannel
@@ -101,7 +103,7 @@ instance ToQuery PutDeliveryChannel where
 -- | /See:/ 'putDeliveryChannelResponse' smart constructor.
 data PutDeliveryChannelResponse =
     PutDeliveryChannelResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutDeliveryChannelResponse' smart constructor.
 putDeliveryChannelResponse :: PutDeliveryChannelResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.GetDataSource
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ import           Network.AWS.Response
 data GetDataSource = GetDataSource'
     { _gdsVerbose      :: !(Maybe Bool)
     , _gdsDataSourceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataSource' smart constructor.
 getDataSource :: Text -> GetDataSource
@@ -198,7 +200,7 @@ data GetDataSourceResponse = GetDataSourceResponse'
     , _gdsrRoleARN           :: !(Maybe Text)
     , _gdsrDataRearrangement :: !(Maybe Text)
     , _gdsrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataSourceResponse' smart constructor.
 getDataSourceResponse :: Int -> GetDataSourceResponse

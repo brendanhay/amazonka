@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'delClusterSecurityGroupName'
 newtype DeleteClusterSecurityGroup = DeleteClusterSecurityGroup'
     { _delClusterSecurityGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSecurityGroup' smart constructor.
 deleteClusterSecurityGroup :: Text -> DeleteClusterSecurityGroup
@@ -92,7 +94,7 @@ instance ToQuery DeleteClusterSecurityGroup where
 -- | /See:/ 'deleteClusterSecurityGroupResponse' smart constructor.
 data DeleteClusterSecurityGroupResponse =
     DeleteClusterSecurityGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSecurityGroupResponse' smart constructor.
 deleteClusterSecurityGroupResponse :: DeleteClusterSecurityGroupResponse

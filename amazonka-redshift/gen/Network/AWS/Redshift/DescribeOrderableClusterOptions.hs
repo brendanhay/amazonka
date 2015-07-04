@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeOrderableClusterOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
     , _docoMarker         :: !(Maybe Text)
     , _docoClusterVersion :: !(Maybe Text)
     , _docoNodeType       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOrderableClusterOptions' smart constructor.
 describeOrderableClusterOptions :: DescribeOrderableClusterOptions
@@ -179,7 +181,7 @@ data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsRe
     { _docorMarker                  :: !(Maybe Text)
     , _docorOrderableClusterOptions :: !(Maybe [OrderableClusterOption])
     , _docorStatus                  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOrderableClusterOptionsResponse' smart constructor.
 describeOrderableClusterOptionsResponse :: Int -> DescribeOrderableClusterOptionsResponse

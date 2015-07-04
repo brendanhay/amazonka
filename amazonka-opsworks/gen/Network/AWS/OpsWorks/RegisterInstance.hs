@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -86,7 +88,7 @@ data RegisterInstance = RegisterInstance'
     , _riRsaPublicKeyFingerprint :: !(Maybe Text)
     , _riRsaPublicKey            :: !(Maybe Text)
     , _riStackId                 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstance' smart constructor.
 registerInstance :: Text -> RegisterInstance
@@ -179,7 +181,7 @@ instance ToQuery RegisterInstance where
 data RegisterInstanceResponse = RegisterInstanceResponse'
     { _rirInstanceId :: !(Maybe Text)
     , _rirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstanceResponse' smart constructor.
 registerInstanceResponse :: Int -> RegisterInstanceResponse

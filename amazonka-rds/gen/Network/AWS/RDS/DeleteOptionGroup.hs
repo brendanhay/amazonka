@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DeleteOptionGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- * 'delOptionGroupName'
 newtype DeleteOptionGroup = DeleteOptionGroup'
     { _delOptionGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteOptionGroup' smart constructor.
 deleteOptionGroup :: Text -> DeleteOptionGroup
@@ -83,7 +85,7 @@ instance ToQuery DeleteOptionGroup where
 -- | /See:/ 'deleteOptionGroupResponse' smart constructor.
 data DeleteOptionGroupResponse =
     DeleteOptionGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteOptionGroupResponse' smart constructor.
 deleteOptionGroupResponse :: DeleteOptionGroupResponse

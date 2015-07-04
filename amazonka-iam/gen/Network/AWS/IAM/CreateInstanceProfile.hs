@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreateInstanceProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 data CreateInstanceProfile = CreateInstanceProfile'
     { _cipPath                :: !(Maybe Text)
     , _cipInstanceProfileName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceProfile' smart constructor.
 createInstanceProfile :: Text -> CreateInstanceProfile
@@ -118,7 +120,7 @@ instance ToQuery CreateInstanceProfile where
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
     { _ciprStatus          :: !Int
     , _ciprInstanceProfile :: !InstanceProfile
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceProfileResponse' smart constructor.
 createInstanceProfileResponse :: Int -> InstanceProfile -> CreateInstanceProfileResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.MergeShards
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -93,7 +95,7 @@ data MergeShards = MergeShards'
     { _msStreamName           :: !Text
     , _msShardToMerge         :: !Text
     , _msAdjacentShardToMerge :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeShards' smart constructor.
 mergeShards :: Text -> Text -> Text -> MergeShards
@@ -148,7 +150,7 @@ instance ToQuery MergeShards where
 -- | /See:/ 'mergeShardsResponse' smart constructor.
 data MergeShardsResponse =
     MergeShardsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeShardsResponse' smart constructor.
 mergeShardsResponse :: MergeShardsResponse

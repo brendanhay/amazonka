@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAccountLimits
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- | /See:/ 'describeAccountLimits' smart constructor.
 data DescribeAccountLimits =
     DescribeAccountLimits'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountLimits' smart constructor.
 describeAccountLimits :: DescribeAccountLimits
@@ -91,7 +93,7 @@ data DescribeAccountLimitsResponse = DescribeAccountLimitsResponse'
     { _dalrMaxNumberOfLaunchConfigurations :: !(Maybe Int)
     , _dalrMaxNumberOfAutoScalingGroups    :: !(Maybe Int)
     , _dalrStatus                          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountLimitsResponse' smart constructor.
 describeAccountLimitsResponse :: Int -> DescribeAccountLimitsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.DescribeCommunications
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data DescribeCommunications = DescribeCommunications'
     , _dBeforeTime :: !(Maybe Text)
     , _dMaxResults :: !(Maybe Nat)
     , _dCaseId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommunications' smart constructor.
 describeCommunications :: Text -> DescribeCommunications
@@ -174,7 +176,7 @@ data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
     { _dcrNextToken      :: !(Maybe Text)
     , _dcrCommunications :: !(Maybe [Communication])
     , _dcrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommunicationsResponse' smart constructor.
 describeCommunicationsResponse :: Int -> DescribeCommunicationsResponse

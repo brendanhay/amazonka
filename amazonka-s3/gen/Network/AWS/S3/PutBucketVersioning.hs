@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.PutBucketVersioning
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data PutBucketVersioning = PutBucketVersioning'
     , _pbvContentMD5              :: !(Maybe Text)
     , _pbvBucket                  :: !BucketName
     , _pbvVersioningConfiguration :: !VersioningConfiguration
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketVersioning' smart constructor.
 putBucketVersioning :: BucketName -> VersioningConfiguration -> PutBucketVersioning
@@ -116,7 +118,7 @@ instance ToQuery PutBucketVersioning where
 -- | /See:/ 'putBucketVersioningResponse' smart constructor.
 data PutBucketVersioningResponse =
     PutBucketVersioningResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketVersioningResponse' smart constructor.
 putBucketVersioningResponse :: PutBucketVersioningResponse

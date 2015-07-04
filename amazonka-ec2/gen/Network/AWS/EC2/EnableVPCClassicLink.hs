@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.EnableVPCClassicLink
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data EnableVPCClassicLink = EnableVPCClassicLink'
     { _evclDryRun :: !(Maybe Bool)
     , _evclVPCId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVPCClassicLink' smart constructor.
 enableVPCClassicLink :: Text -> EnableVPCClassicLink
@@ -114,7 +116,7 @@ instance ToQuery EnableVPCClassicLink where
 data EnableVPCClassicLinkResponse = EnableVPCClassicLinkResponse'
     { _evclrReturn :: !(Maybe Bool)
     , _evclrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVPCClassicLinkResponse' smart constructor.
 enableVPCClassicLinkResponse :: Int -> EnableVPCClassicLinkResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DescribeSubscriptionFilters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data DescribeSubscriptionFilters = DescribeSubscriptionFilters'
     , _dsfNextToken        :: !(Maybe Text)
     , _dsfLimit            :: !(Maybe Nat)
     , _dsfLogGroupName     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubscriptionFilters' smart constructor.
 describeSubscriptionFilters :: Text -> DescribeSubscriptionFilters
@@ -146,7 +148,7 @@ data DescribeSubscriptionFiltersResponse = DescribeSubscriptionFiltersResponse'
     { _dsfrSubscriptionFilters :: !(Maybe [SubscriptionFilter])
     , _dsfrNextToken           :: !(Maybe Text)
     , _dsfrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubscriptionFiltersResponse' smart constructor.
 describeSubscriptionFiltersResponse :: Int -> DescribeSubscriptionFiltersResponse

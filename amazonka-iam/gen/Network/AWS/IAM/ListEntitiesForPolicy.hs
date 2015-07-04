@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListEntitiesForPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ data ListEntitiesForPolicy = ListEntitiesForPolicy'
     , _lefpMaxItems     :: !(Maybe Nat)
     , _lefpMarker       :: !(Maybe Text)
     , _lefpPolicyARN    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEntitiesForPolicy' smart constructor.
 listEntitiesForPolicy :: Text -> ListEntitiesForPolicy
@@ -184,7 +186,7 @@ data ListEntitiesForPolicyResponse = ListEntitiesForPolicyResponse'
     , _lefprMarker       :: !(Maybe Text)
     , _lefprIsTruncated  :: !(Maybe Bool)
     , _lefprStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEntitiesForPolicyResponse' smart constructor.
 listEntitiesForPolicyResponse :: Int -> ListEntitiesForPolicyResponse

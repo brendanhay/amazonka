@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.SetStackPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ data SetStackPolicy = SetStackPolicy'
     { _sspStackPolicyBody :: !(Maybe Text)
     , _sspStackPolicyURL  :: !(Maybe Text)
     , _sspStackName       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetStackPolicy' smart constructor.
 setStackPolicy :: Text -> SetStackPolicy
@@ -107,7 +109,7 @@ instance ToQuery SetStackPolicy where
 -- | /See:/ 'setStackPolicyResponse' smart constructor.
 data SetStackPolicyResponse =
     SetStackPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetStackPolicyResponse' smart constructor.
 setStackPolicyResponse :: SetStackPolicyResponse

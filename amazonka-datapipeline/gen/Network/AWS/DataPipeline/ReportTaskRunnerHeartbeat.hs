@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
     { _rtrhHostname     :: !(Maybe Text)
     , _rtrhWorkerGroup  :: !(Maybe Text)
     , _rtrhTaskrunnerId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskRunnerHeartbeat' smart constructor.
 reportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
@@ -139,7 +141,7 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
     { _rtrhrStatus    :: !Int
     , _rtrhrTerminate :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
 reportTaskRunnerHeartbeatResponse :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse

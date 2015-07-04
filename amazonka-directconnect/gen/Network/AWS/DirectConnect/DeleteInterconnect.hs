@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.DeleteInterconnect
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'delInterconnectId'
 newtype DeleteInterconnect = DeleteInterconnect'
     { _delInterconnectId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInterconnect' smart constructor.
 deleteInterconnect :: Text -> DeleteInterconnect
@@ -104,7 +106,7 @@ instance ToQuery DeleteInterconnect where
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
     { _delInterconnectState :: !(Maybe InterconnectState)
     , _delStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInterconnectResponse' smart constructor.
 deleteInterconnectResponse :: Int -> DeleteInterconnectResponse

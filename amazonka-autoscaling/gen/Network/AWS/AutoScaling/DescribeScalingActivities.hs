@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScalingActivities
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data DescribeScalingActivities = DescribeScalingActivities'
     , _dsa1MaxRecords           :: !(Maybe Int)
     , _dsa1AutoScalingGroupName :: !(Maybe Text)
     , _dsa1ActivityIds          :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingActivities' smart constructor.
 describeScalingActivities :: DescribeScalingActivities
@@ -149,7 +151,7 @@ data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
     { _dNextToken  :: !(Maybe Text)
     , _dStatus     :: !Int
     , _dActivities :: ![Activity]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
 describeScalingActivitiesResponse :: Int -> DescribeScalingActivitiesResponse

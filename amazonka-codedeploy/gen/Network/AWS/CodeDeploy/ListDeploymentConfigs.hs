@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentConfigs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'ldcNextToken'
 newtype ListDeploymentConfigs = ListDeploymentConfigs'
     { _ldcNextToken :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentConfigs' smart constructor.
 listDeploymentConfigs :: ListDeploymentConfigs
@@ -114,7 +116,7 @@ data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
     { _ldcrNextToken             :: !(Maybe Text)
     , _ldcrDeploymentConfigsList :: !(Maybe [Text])
     , _ldcrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentConfigsResponse' smart constructor.
 listDeploymentConfigsResponse :: Int -> ListDeploymentConfigsResponse

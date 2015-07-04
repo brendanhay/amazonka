@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Config.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -292,7 +294,7 @@ _InvalidS3KeyPrefixException =
 data ChronologicalOrder
     = Forward
     | Reverse
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ChronologicalOrder where
     parser = takeLowerText >>= \case
@@ -306,9 +308,7 @@ instance ToText ChronologicalOrder where
         Forward -> "forward"
         Reverse -> "reverse"
 
-instance Hashable ChronologicalOrder where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ChronologicalOrder
 instance ToQuery ChronologicalOrder
 instance ToHeader ChronologicalOrder
 
@@ -320,7 +320,7 @@ data ConfigurationItemStatus
     | Discovered
     | Deleted
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConfigurationItemStatus where
     parser = takeLowerText >>= \case
@@ -338,9 +338,7 @@ instance ToText ConfigurationItemStatus where
         Failed -> "failed"
         OK -> "ok"
 
-instance Hashable ConfigurationItemStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ConfigurationItemStatus
 instance ToQuery ConfigurationItemStatus
 instance ToHeader ConfigurationItemStatus
 
@@ -351,7 +349,7 @@ data DeliveryStatus
     = Success
     | NotApplicable
     | Failure
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeliveryStatus where
     parser = takeLowerText >>= \case
@@ -367,9 +365,7 @@ instance ToText DeliveryStatus where
         NotApplicable -> "not_applicable"
         Success -> "success"
 
-instance Hashable DeliveryStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DeliveryStatus
 instance ToQuery DeliveryStatus
 instance ToHeader DeliveryStatus
 
@@ -380,7 +376,7 @@ data RecorderStatus
     = RSPending
     | RSFailure
     | RSSuccess
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RecorderStatus where
     parser = takeLowerText >>= \case
@@ -396,9 +392,7 @@ instance ToText RecorderStatus where
         RSPending -> "pending"
         RSSuccess -> "success"
 
-instance Hashable RecorderStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RecorderStatus
 instance ToQuery RecorderStatus
 instance ToHeader RecorderStatus
 
@@ -420,7 +414,7 @@ data ResourceType
     | AWSEC2CustomerGateway
     | AWSEC2RouteTable
     | AWSEC2Volume
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
@@ -458,9 +452,7 @@ instance ToText ResourceType where
         AWSEC2VPNGateway -> "aws::ec2::vpngateway"
         AWSEC2Volume -> "aws::ec2::volume"
 
-instance Hashable ResourceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ResourceType
 instance ToQuery ResourceType
 instance ToHeader ResourceType
 
@@ -492,7 +484,7 @@ data ConfigExportDeliveryInfo = ConfigExportDeliveryInfo'
     , _cediLastSuccessfulTime :: !(Maybe POSIX)
     , _cediLastStatus         :: !(Maybe DeliveryStatus)
     , _cediLastErrorMessage   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigExportDeliveryInfo' smart constructor.
 configExportDeliveryInfo :: ConfigExportDeliveryInfo
@@ -554,7 +546,7 @@ data ConfigStreamDeliveryInfo = ConfigStreamDeliveryInfo'
     , _csdiLastStatusChangeTime :: !(Maybe POSIX)
     , _csdiLastStatus           :: !(Maybe DeliveryStatus)
     , _csdiLastErrorMessage     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigStreamDeliveryInfo' smart constructor.
 configStreamDeliveryInfo :: ConfigStreamDeliveryInfo
@@ -651,7 +643,7 @@ data ConfigurationItem = ConfigurationItem'
     , _ciConfiguration                :: !(Maybe Text)
     , _ciConfigurationItemMD5Hash     :: !(Maybe Text)
     , _ciTags                         :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationItem' smart constructor.
 configurationItem :: ConfigurationItem
@@ -783,7 +775,7 @@ data ConfigurationRecorder = ConfigurationRecorder'
     { _crName           :: !(Maybe Text)
     , _crRecordingGroup :: !(Maybe RecordingGroup)
     , _crRoleARN        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationRecorder' smart constructor.
 configurationRecorder :: ConfigurationRecorder
@@ -856,7 +848,7 @@ data ConfigurationRecorderStatus = ConfigurationRecorderStatus'
     , _crsLastErrorMessage     :: !(Maybe Text)
     , _crsName                 :: !(Maybe Text)
     , _crsLastStartTime        :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationRecorderStatus' smart constructor.
 configurationRecorderStatus :: ConfigurationRecorderStatus
@@ -936,7 +928,7 @@ data DeliveryChannel = DeliveryChannel'
     , _dcSnsTopicARN  :: !(Maybe Text)
     , _dcName         :: !(Maybe Text)
     , _dcS3BucketName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliveryChannel' smart constructor.
 deliveryChannel :: DeliveryChannel
@@ -1004,7 +996,7 @@ data DeliveryChannelStatus = DeliveryChannelStatus'
     , _dcsConfigSnapshotDeliveryInfo :: !(Maybe ConfigExportDeliveryInfo)
     , _dcsConfigHistoryDeliveryInfo  :: !(Maybe ConfigExportDeliveryInfo)
     , _dcsName                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliveryChannelStatus' smart constructor.
 deliveryChannelStatus :: DeliveryChannelStatus
@@ -1061,7 +1053,7 @@ instance FromJSON DeliveryChannelStatus where
 data RecordingGroup = RecordingGroup'
     { _rgAllSupported  :: !(Maybe Bool)
     , _rgResourceTypes :: !(Maybe [ResourceType])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordingGroup' smart constructor.
 recordingGroup :: RecordingGroup
@@ -1117,7 +1109,7 @@ data Relationship = Relationship'
     { _relResourceId       :: !(Maybe Text)
     , _relResourceType     :: !(Maybe ResourceType)
     , _relRelationshipName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Relationship' smart constructor.
 relationship :: Relationship

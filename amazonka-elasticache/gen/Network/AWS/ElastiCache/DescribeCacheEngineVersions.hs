@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheEngineVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
     , _dcevEngine                    :: !(Maybe Text)
     , _dcevMaxRecords                :: !(Maybe Int)
     , _dcevMarker                    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheEngineVersions' smart constructor.
 describeCacheEngineVersions :: DescribeCacheEngineVersions
@@ -186,7 +188,7 @@ data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
     { _dcevrCacheEngineVersions :: !(Maybe [CacheEngineVersion])
     , _dcevrMarker              :: !(Maybe Text)
     , _dcevrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheEngineVersionsResponse' smart constructor.
 describeCacheEngineVersionsResponse :: Int -> DescribeCacheEngineVersionsResponse

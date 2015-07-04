@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.DeleteEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.SNS.Types
 -- * 'deEndpointARN'
 newtype DeleteEndpoint = DeleteEndpoint'
     { _deEndpointARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEndpoint' smart constructor.
 deleteEndpoint :: Text -> DeleteEndpoint
@@ -83,7 +85,7 @@ instance ToQuery DeleteEndpoint where
 -- | /See:/ 'deleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse =
     DeleteEndpointResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEndpointResponse' smart constructor.
 deleteEndpointResponse :: DeleteEndpointResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteLifecycleHook
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DeleteLifecycleHook = DeleteLifecycleHook'
     { _delLifecycleHookName    :: !Text
     , _delAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLifecycleHook' smart constructor.
 deleteLifecycleHook :: Text -> Text -> DeleteLifecycleHook
@@ -103,7 +105,7 @@ instance ToQuery DeleteLifecycleHook where
 -- * 'delStatus'
 newtype DeleteLifecycleHookResponse = DeleteLifecycleHookResponse'
     { _delStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLifecycleHookResponse' smart constructor.
 deleteLifecycleHookResponse :: Int -> DeleteLifecycleHookResponse

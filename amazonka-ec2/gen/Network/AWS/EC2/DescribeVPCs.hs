@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ data DescribeVPCs = DescribeVPCs'
     { _dv1Filters :: !(Maybe [Filter])
     , _dv1VPCIds  :: !(Maybe [Text])
     , _dv1DryRun  :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCs' smart constructor.
 describeVPCs :: DescribeVPCs
@@ -148,7 +150,7 @@ instance ToQuery DescribeVPCs where
 data DescribeVPCsResponse = DescribeVPCsResponse'
     { _dvrVPCs   :: !(Maybe [VPC])
     , _dvrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCsResponse' smart constructor.
 describeVPCsResponse :: Int -> DescribeVPCsResponse

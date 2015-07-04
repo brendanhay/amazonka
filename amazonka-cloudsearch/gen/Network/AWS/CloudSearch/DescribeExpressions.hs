@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeExpressions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data DescribeExpressions = DescribeExpressions'
     { _deDeployed        :: !(Maybe Bool)
     , _deExpressionNames :: !(Maybe [Text])
     , _deDomainName      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExpressions' smart constructor.
 describeExpressions :: Text -> DescribeExpressions
@@ -135,7 +137,7 @@ instance ToQuery DescribeExpressions where
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
     { _desStatus      :: !Int
     , _desExpressions :: ![ExpressionStatus]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
 describeExpressionsResponse :: Int -> DescribeExpressionsResponse

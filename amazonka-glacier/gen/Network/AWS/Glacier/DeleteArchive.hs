@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.DeleteArchive
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data DeleteArchive = DeleteArchive'
     { _daAccountId :: !Text
     , _daVaultName :: !Text
     , _daArchiveId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteArchive' smart constructor.
 deleteArchive :: Text -> Text -> Text -> DeleteArchive
@@ -128,7 +130,7 @@ instance ToQuery DeleteArchive where
 -- | /See:/ 'deleteArchiveResponse' smart constructor.
 data DeleteArchiveResponse =
     DeleteArchiveResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteArchiveResponse' smart constructor.
 deleteArchiveResponse :: DeleteArchiveResponse

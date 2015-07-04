@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetAccountSummary
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- | /See:/ 'getAccountSummary' smart constructor.
 data GetAccountSummary =
     GetAccountSummary'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountSummary' smart constructor.
 getAccountSummary :: GetAccountSummary
@@ -89,7 +91,7 @@ instance ToQuery GetAccountSummary where
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
     { _gasrSummaryMap :: !(Maybe (Map SummaryKeyType Int))
     , _gasrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountSummaryResponse' smart constructor.
 getAccountSummaryResponse :: Int -> GetAccountSummaryResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeServiceAccessPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ import           Network.AWS.Response
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
     { _dsapDeployed   :: !(Maybe Bool)
     , _dsapDomainName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceAccessPolicies' smart constructor.
 describeServiceAccessPolicies :: Text -> DescribeServiceAccessPolicies
@@ -122,7 +124,7 @@ instance ToQuery DescribeServiceAccessPolicies where
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
     { _dsaprStatus         :: !Int
     , _dsaprAccessPolicies :: !AccessPoliciesStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceAccessPoliciesResponse' smart constructor.
 describeServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> DescribeServiceAccessPoliciesResponse

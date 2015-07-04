@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.DeleteCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'dcCluster'
 newtype DeleteCluster = DeleteCluster'
     { _dcCluster :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCluster' smart constructor.
 deleteCluster :: Text -> DeleteCluster
@@ -104,7 +106,7 @@ instance ToQuery DeleteCluster where
 data DeleteClusterResponse = DeleteClusterResponse'
     { _delCluster :: !(Maybe Cluster)
     , _delStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterResponse' smart constructor.
 deleteClusterResponse :: Int -> DeleteClusterResponse

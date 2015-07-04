@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.RecordLifecycleActionHeartbeat
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ data RecordLifecycleActionHeartbeat = RecordLifecycleActionHeartbeat'
     { _rlahLifecycleHookName    :: !Text
     , _rlahAutoScalingGroupName :: !Text
     , _rlahLifecycleActionToken :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordLifecycleActionHeartbeat' smart constructor.
 recordLifecycleActionHeartbeat :: Text -> Text -> Text -> RecordLifecycleActionHeartbeat
@@ -137,7 +139,7 @@ instance ToQuery RecordLifecycleActionHeartbeat where
 -- * 'rlahrStatus'
 newtype RecordLifecycleActionHeartbeatResponse = RecordLifecycleActionHeartbeatResponse'
     { _rlahrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordLifecycleActionHeartbeatResponse' smart constructor.
 recordLifecycleActionHeartbeatResponse :: Int -> RecordLifecycleActionHeartbeatResponse

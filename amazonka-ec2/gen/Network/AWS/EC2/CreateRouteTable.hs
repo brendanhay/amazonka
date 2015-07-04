@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateRouteTable
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data CreateRouteTable = CreateRouteTable'
     { _crtDryRun :: !(Maybe Bool)
     , _crtVPCId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRouteTable' smart constructor.
 createRouteTable :: Text -> CreateRouteTable
@@ -110,7 +112,7 @@ instance ToQuery CreateRouteTable where
 data CreateRouteTableResponse = CreateRouteTableResponse'
     { _crtrRouteTable :: !(Maybe RouteTable)
     , _crtrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRouteTableResponse' smart constructor.
 createRouteTableResponse :: Int -> CreateRouteTableResponse

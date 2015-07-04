@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateAccountPasswordPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -85,7 +87,7 @@ data UpdateAccountPasswordPolicy = UpdateAccountPasswordPolicy'
     , _uappRequireSymbols             :: !(Maybe Bool)
     , _uappRequireUppercaseCharacters :: !(Maybe Bool)
     , _uappAllowUsersToChangePassword :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAccountPasswordPolicy' smart constructor.
 updateAccountPasswordPolicy :: UpdateAccountPasswordPolicy
@@ -207,7 +209,7 @@ instance ToQuery UpdateAccountPasswordPolicy where
 -- | /See:/ 'updateAccountPasswordPolicyResponse' smart constructor.
 data UpdateAccountPasswordPolicyResponse =
     UpdateAccountPasswordPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAccountPasswordPolicyResponse' smart constructor.
 updateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse

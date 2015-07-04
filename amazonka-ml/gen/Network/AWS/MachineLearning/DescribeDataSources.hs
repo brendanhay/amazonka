@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.DescribeDataSources
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -90,7 +92,7 @@ data DescribeDataSources = DescribeDataSources'
     , _ddsLT             :: !(Maybe Text)
     , _ddsFilterVariable :: !(Maybe DataSourceFilterVariable)
     , _ddsLE             :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataSources' smart constructor.
 describeDataSources :: DescribeDataSources
@@ -256,7 +258,7 @@ data DescribeDataSourcesResponse = DescribeDataSourcesResponse'
     { _dResults   :: !(Maybe [DataSource])
     , _dNextToken :: !(Maybe Text)
     , _dStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataSourcesResponse' smart constructor.
 describeDataSourcesResponse :: Int -> DescribeDataSourcesResponse

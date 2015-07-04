@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'dvVolumeId'
 newtype DeregisterVolume = DeregisterVolume'
     { _dvVolumeId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterVolume' smart constructor.
 deregisterVolume :: Text -> DeregisterVolume
@@ -95,7 +97,7 @@ instance ToQuery DeregisterVolume where
 -- | /See:/ 'deregisterVolumeResponse' smart constructor.
 data DeregisterVolumeResponse =
     DeregisterVolumeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterVolumeResponse' smart constructor.
 deregisterVolumeResponse :: DeregisterVolumeResponse

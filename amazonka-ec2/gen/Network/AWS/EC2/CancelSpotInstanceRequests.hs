@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CancelSpotInstanceRequests
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ import           Network.AWS.Response
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
     { _csirDryRun                 :: !(Maybe Bool)
     , _csirSpotInstanceRequestIds :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotInstanceRequests' smart constructor.
 cancelSpotInstanceRequests :: CancelSpotInstanceRequests
@@ -124,7 +126,7 @@ instance ToQuery CancelSpotInstanceRequests where
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
     { _csirrCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
     , _csirrStatus                        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotInstanceRequestsResponse' smart constructor.
 cancelSpotInstanceRequestsResponse :: Int -> CancelSpotInstanceRequestsResponse

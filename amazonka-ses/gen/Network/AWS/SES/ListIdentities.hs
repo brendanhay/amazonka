@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.ListIdentities
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data ListIdentities = ListIdentities'
     { _liIdentityType :: !(Maybe IdentityType)
     , _liNextToken    :: !(Maybe Text)
     , _liMaxItems     :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentities' smart constructor.
 listIdentities :: ListIdentities
@@ -138,7 +140,7 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
     { _lirNextToken  :: !(Maybe Text)
     , _lirStatus     :: !Int
     , _lirIdentities :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentitiesResponse' smart constructor.
 listIdentitiesResponse :: Int -> ListIdentitiesResponse

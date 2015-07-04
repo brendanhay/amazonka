@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.CreateTopic
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.SNS.Types
 -- * 'ctName'
 newtype CreateTopic = CreateTopic'
     { _ctName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTopic' smart constructor.
 createTopic :: Text -> CreateTopic
@@ -106,7 +108,7 @@ instance ToQuery CreateTopic where
 data CreateTopicResponse = CreateTopicResponse'
     { _ctrTopicARN :: !(Maybe Text)
     , _ctrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTopicResponse' smart constructor.
 createTopicResponse :: Int -> CreateTopicResponse

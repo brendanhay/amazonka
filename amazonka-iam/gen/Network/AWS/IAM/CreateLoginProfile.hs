@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreateLoginProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data CreateLoginProfile = CreateLoginProfile'
     { _clpPasswordResetRequired :: !(Maybe Bool)
     , _clpUserName              :: !Text
     , _clpPassword              :: !(Sensitive Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoginProfile' smart constructor.
 createLoginProfile :: Text -> Text -> CreateLoginProfile
@@ -121,7 +123,7 @@ instance ToQuery CreateLoginProfile where
 data CreateLoginProfileResponse = CreateLoginProfileResponse'
     { _clprStatus       :: !Int
     , _clprLoginProfile :: !LoginProfile
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoginProfileResponse' smart constructor.
 createLoginProfileResponse :: Int -> LoginProfile -> CreateLoginProfileResponse

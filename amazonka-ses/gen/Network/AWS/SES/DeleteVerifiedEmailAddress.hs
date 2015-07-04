@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.DeleteVerifiedEmailAddress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.SES.Types
 -- * 'dveaEmailAddress'
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
     { _dveaEmailAddress :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVerifiedEmailAddress' smart constructor.
 deleteVerifiedEmailAddress :: Text -> DeleteVerifiedEmailAddress
@@ -91,7 +93,7 @@ instance ToQuery DeleteVerifiedEmailAddress where
 -- | /See:/ 'deleteVerifiedEmailAddressResponse' smart constructor.
 data DeleteVerifiedEmailAddressResponse =
     DeleteVerifiedEmailAddressResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVerifiedEmailAddressResponse' smart constructor.
 deleteVerifiedEmailAddressResponse :: DeleteVerifiedEmailAddressResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreatePlacementGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data CreatePlacementGroup = CreatePlacementGroup'
     { _cpgDryRun    :: !(Maybe Bool)
     , _cpgGroupName :: !Text
     , _cpgStrategy  :: !PlacementStrategy
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlacementGroup' smart constructor.
 createPlacementGroup :: Text -> PlacementStrategy -> CreatePlacementGroup
@@ -110,7 +112,7 @@ instance ToQuery CreatePlacementGroup where
 -- | /See:/ 'createPlacementGroupResponse' smart constructor.
 data CreatePlacementGroupResponse =
     CreatePlacementGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlacementGroupResponse' smart constructor.
 createPlacementGroupResponse :: CreatePlacementGroupResponse

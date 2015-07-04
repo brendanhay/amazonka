@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeInstanceStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -92,7 +94,7 @@ data DescribeInstanceStatus = DescribeInstanceStatus'
     , _descInstanceIds         :: !(Maybe [Text])
     , _descDryRun              :: !(Maybe Bool)
     , _descMaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceStatus' smart constructor.
 describeInstanceStatus :: DescribeInstanceStatus
@@ -240,7 +242,7 @@ data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
     { _disrInstanceStatuses :: !(Maybe [InstanceStatus])
     , _disrNextToken        :: !(Maybe Text)
     , _disrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceStatusResponse' smart constructor.
 describeInstanceStatusResponse :: Int -> DescribeInstanceStatusResponse

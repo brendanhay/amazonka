@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ResetInstanceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ResetInstanceAttribute = ResetInstanceAttribute'
     { _riaDryRun     :: !(Maybe Bool)
     , _riaInstanceId :: !Text
     , _riaAttribute  :: !InstanceAttributeName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetInstanceAttribute' smart constructor.
 resetInstanceAttribute :: Text -> InstanceAttributeName -> ResetInstanceAttribute
@@ -114,7 +116,7 @@ instance ToQuery ResetInstanceAttribute where
 -- | /See:/ 'resetInstanceAttributeResponse' smart constructor.
 data ResetInstanceAttributeResponse =
     ResetInstanceAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetInstanceAttributeResponse' smart constructor.
 resetInstanceAttributeResponse :: ResetInstanceAttributeResponse

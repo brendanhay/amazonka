@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data DescribeAddresses = DescribeAddresses'
     , _daFilters       :: !(Maybe [Filter])
     , _daDryRun        :: !(Maybe Bool)
     , _daAllocationIds :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAddresses' smart constructor.
 describeAddresses :: DescribeAddresses
@@ -159,7 +161,7 @@ instance ToQuery DescribeAddresses where
 data DescribeAddressesResponse = DescribeAddressesResponse'
     { _darAddresses :: !(Maybe [Address])
     , _darStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAddressesResponse' smart constructor.
 describeAddressesResponse :: Int -> DescribeAddressesResponse

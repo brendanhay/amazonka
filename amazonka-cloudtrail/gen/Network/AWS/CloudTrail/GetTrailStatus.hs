@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudTrail.GetTrailStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 -- * 'gtsName'
 newtype GetTrailStatus = GetTrailStatus'
     { _gtsName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTrailStatus' smart constructor.
 getTrailStatus :: Text -> GetTrailStatus
@@ -148,7 +150,7 @@ data GetTrailStatusResponse = GetTrailStatusResponse'
     , _gtsrLatestNotificationTime            :: !(Maybe POSIX)
     , _gtsrStopLoggingTime                   :: !(Maybe POSIX)
     , _gtsrStatus                            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTrailStatusResponse' smart constructor.
 getTrailStatusResponse :: Int -> GetTrailStatusResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.SignalWorkflowExecution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -89,7 +91,7 @@ data SignalWorkflowExecution = SignalWorkflowExecution'
     , _sweDomain     :: !Text
     , _sweWorkflowId :: !Text
     , _sweSignalName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SignalWorkflowExecution' smart constructor.
 signalWorkflowExecution :: Text -> Text -> Text -> SignalWorkflowExecution
@@ -159,7 +161,7 @@ instance ToQuery SignalWorkflowExecution where
 -- | /See:/ 'signalWorkflowExecutionResponse' smart constructor.
 data SignalWorkflowExecutionResponse =
     SignalWorkflowExecutionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SignalWorkflowExecutionResponse' smart constructor.
 signalWorkflowExecutionResponse :: SignalWorkflowExecutionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ data DeleteRoute = DeleteRoute'
     { _drDryRun               :: !(Maybe Bool)
     , _drRouteTableId         :: !Text
     , _drDestinationCIDRBlock :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRoute' smart constructor.
 deleteRoute :: Text -> Text -> DeleteRoute
@@ -103,7 +105,7 @@ instance ToQuery DeleteRoute where
 -- | /See:/ 'deleteRouteResponse' smart constructor.
 data DeleteRouteResponse =
     DeleteRouteResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRouteResponse' smart constructor.
 deleteRouteResponse :: DeleteRouteResponse

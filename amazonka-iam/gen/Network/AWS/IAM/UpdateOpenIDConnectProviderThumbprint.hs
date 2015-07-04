@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ import           Network.AWS.Response
 data UpdateOpenIDConnectProviderThumbprint = UpdateOpenIDConnectProviderThumbprint'
     { _uoidcptOpenIDConnectProviderARN :: !Text
     , _uoidcptThumbprintList           :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateOpenIDConnectProviderThumbprint' smart constructor.
 updateOpenIDConnectProviderThumbprint :: Text -> UpdateOpenIDConnectProviderThumbprint
@@ -120,7 +122,7 @@ instance ToQuery
 -- | /See:/ 'updateOpenIDConnectProviderThumbprintResponse' smart constructor.
 data UpdateOpenIDConnectProviderThumbprintResponse =
     UpdateOpenIDConnectProviderThumbprintResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateOpenIDConnectProviderThumbprintResponse' smart constructor.
 updateOpenIDConnectProviderThumbprintResponse :: UpdateOpenIDConnectProviderThumbprintResponse

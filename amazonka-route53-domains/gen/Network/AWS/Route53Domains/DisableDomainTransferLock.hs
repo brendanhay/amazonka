@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.DisableDomainTransferLock
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Route53Domains.Types
 -- * 'ddtlDomainName'
 newtype DisableDomainTransferLock = DisableDomainTransferLock'
     { _ddtlDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableDomainTransferLock' smart constructor.
 disableDomainTransferLock :: Text -> DisableDomainTransferLock
@@ -121,7 +123,7 @@ instance ToQuery DisableDomainTransferLock where
 data DisableDomainTransferLockResponse = DisableDomainTransferLockResponse'
     { _ddtlrStatus      :: !Int
     , _ddtlrOperationId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableDomainTransferLockResponse' smart constructor.
 disableDomainTransferLockResponse :: Int -> Text -> DisableDomainTransferLockResponse

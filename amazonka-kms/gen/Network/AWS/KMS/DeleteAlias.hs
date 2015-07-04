@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.DeleteAlias
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -45,7 +47,7 @@ import           Network.AWS.Response
 -- * 'daAliasName'
 newtype DeleteAlias = DeleteAlias'
     { _daAliasName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAlias' smart constructor.
 deleteAlias :: Text -> DeleteAlias
@@ -88,7 +90,7 @@ instance ToQuery DeleteAlias where
 -- | /See:/ 'deleteAliasResponse' smart constructor.
 data DeleteAliasResponse =
     DeleteAliasResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAliasResponse' smart constructor.
 deleteAliasResponse :: DeleteAliasResponse

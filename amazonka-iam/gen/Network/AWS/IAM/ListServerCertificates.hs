@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListServerCertificates
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data ListServerCertificates = ListServerCertificates'
     { _lscPathPrefix :: !(Maybe Text)
     , _lscMaxItems   :: !(Maybe Nat)
     , _lscMarker     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServerCertificates' smart constructor.
 listServerCertificates :: ListServerCertificates
@@ -152,7 +154,7 @@ data ListServerCertificatesResponse = ListServerCertificatesResponse'
     , _lscrIsTruncated                   :: !(Maybe Bool)
     , _lscrStatus                        :: !Int
     , _lscrServerCertificateMetadataList :: ![ServerCertificateMetadata]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServerCertificatesResponse' smart constructor.
 listServerCertificatesResponse :: Int -> ListServerCertificatesResponse

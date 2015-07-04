@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.DescribeCases
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -95,7 +97,7 @@ data DescribeCases = DescribeCases'
     , _dcDisplayId             :: !(Maybe Text)
     , _dcLanguage              :: !(Maybe Text)
     , _dcMaxResults            :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCases' smart constructor.
 describeCases :: DescribeCases
@@ -219,7 +221,7 @@ data DescribeCasesResponse = DescribeCasesResponse'
     { _desCases     :: !(Maybe [CaseDetails])
     , _desNextToken :: !(Maybe Text)
     , _desStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCasesResponse' smart constructor.
 describeCasesResponse :: Int -> DescribeCasesResponse

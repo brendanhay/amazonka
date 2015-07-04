@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateReservedInstancesListing
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data CreateReservedInstancesListing = CreateReservedInstancesListing'
     , _crilInstanceCount       :: !Int
     , _crilPriceSchedules      :: ![PriceScheduleSpecification]
     , _crilClientToken         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReservedInstancesListing' smart constructor.
 createReservedInstancesListing :: Text -> Int -> Text -> CreateReservedInstancesListing
@@ -157,7 +159,7 @@ instance ToQuery CreateReservedInstancesListing where
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
     { _cReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _cStatus                    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
 createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse

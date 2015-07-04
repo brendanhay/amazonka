@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeConversionTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data DescribeConversionTasks = DescribeConversionTasks'
     { _dctConversionTaskIds :: !(Maybe [Text])
     , _dctFilters           :: !(Maybe [Filter])
     , _dctDryRun            :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConversionTasks' smart constructor.
 describeConversionTasks :: DescribeConversionTasks
@@ -124,7 +126,7 @@ instance ToQuery DescribeConversionTasks where
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
     { _dctrConversionTasks :: !(Maybe [ConversionTask])
     , _dctrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConversionTasksResponse' smart constructor.
 describeConversionTasksResponse :: Int -> DescribeConversionTasksResponse

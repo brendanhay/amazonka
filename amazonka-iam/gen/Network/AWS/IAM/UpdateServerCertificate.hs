@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateServerCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data UpdateServerCertificate = UpdateServerCertificate'
     { _updNewServerCertificateName :: !(Maybe Text)
     , _updNewPath                  :: !(Maybe Text)
     , _updServerCertificateName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServerCertificate' smart constructor.
 updateServerCertificate :: Text -> UpdateServerCertificate
@@ -119,7 +121,7 @@ instance ToQuery UpdateServerCertificate where
 -- | /See:/ 'updateServerCertificateResponse' smart constructor.
 data UpdateServerCertificateResponse =
     UpdateServerCertificateResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServerCertificateResponse' smart constructor.
 updateServerCertificateResponse :: UpdateServerCertificateResponse

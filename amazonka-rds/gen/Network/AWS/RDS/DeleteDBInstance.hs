@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ data DeleteDBInstance = DeleteDBInstance'
     { _ddiFinalDBSnapshotIdentifier :: !(Maybe Text)
     , _ddiSkipFinalSnapshot         :: !(Maybe Bool)
     , _ddiDBInstanceIdentifier      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBInstance' smart constructor.
 deleteDBInstance :: Text -> DeleteDBInstance
@@ -153,7 +155,7 @@ instance ToQuery DeleteDBInstance where
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
     { _ddirDBInstance :: !(Maybe DBInstance)
     , _ddirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBInstanceResponse' smart constructor.
 deleteDBInstanceResponse :: Int -> DeleteDBInstanceResponse

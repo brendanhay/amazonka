@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 -- * 'dtbasInstanceIds'
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
     { _dtbasInstanceIds :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTimeBasedAutoScaling' smart constructor.
 describeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling
@@ -115,7 +117,7 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
     { _dtbasrTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
     , _dtbasrStatus                             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
 describeTimeBasedAutoScalingResponse :: Int -> DescribeTimeBasedAutoScalingResponse

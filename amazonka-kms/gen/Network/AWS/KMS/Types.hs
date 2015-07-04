@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -206,7 +208,7 @@ _AlreadyExistsException =
 data DataKeySpec
     = AES128
     | AES256
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DataKeySpec where
     parser = takeLowerText >>= \case
@@ -220,9 +222,7 @@ instance ToText DataKeySpec where
         AES128 -> "aes_128"
         AES256 -> "aes_256"
 
-instance Hashable DataKeySpec where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DataKeySpec
 instance ToQuery DataKeySpec
 instance ToHeader DataKeySpec
 
@@ -238,7 +238,7 @@ data GrantOperation
     | Decrypt
     | ReEncryptTo
     | ReEncryptFrom
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText GrantOperation where
     parser = takeLowerText >>= \case
@@ -264,9 +264,7 @@ instance ToText GrantOperation where
         ReEncryptTo -> "reencryptto"
         RetireGrant -> "retiregrant"
 
-instance Hashable GrantOperation where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable GrantOperation
 instance ToQuery GrantOperation
 instance ToHeader GrantOperation
 
@@ -278,7 +276,7 @@ instance FromJSON GrantOperation where
 
 data KeyUsageType =
     EncryptDecrypt
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText KeyUsageType where
     parser = takeLowerText >>= \case
@@ -290,9 +288,7 @@ instance ToText KeyUsageType where
     toText = \case
         EncryptDecrypt -> "encrypt_decrypt"
 
-instance Hashable KeyUsageType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable KeyUsageType
 instance ToQuery KeyUsageType
 instance ToHeader KeyUsageType
 
@@ -317,7 +313,7 @@ data AliasListEntry = AliasListEntry'
     { _aleTargetKeyId :: !(Maybe Text)
     , _aleAliasName   :: !(Maybe Text)
     , _aleAliasARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AliasListEntry' smart constructor.
 aliasListEntry :: AliasListEntry
@@ -360,7 +356,7 @@ instance FromJSON AliasListEntry where
 data GrantConstraints = GrantConstraints'
     { _gcEncryptionContextEquals :: !(Maybe (Map Text Text))
     , _gcEncryptionContextSubset :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantConstraints' smart constructor.
 grantConstraints :: GrantConstraints
@@ -419,7 +415,7 @@ data GrantListEntry = GrantListEntry'
     , _gleConstraints       :: !(Maybe GrantConstraints)
     , _gleGranteePrincipal  :: !(Maybe Text)
     , _gleOperations        :: !(Maybe [GrantOperation])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantListEntry' smart constructor.
 grantListEntry :: GrantListEntry
@@ -491,7 +487,7 @@ instance FromJSON GrantListEntry where
 data KeyListEntry = KeyListEntry'
     { _kleKeyARN :: !(Maybe Text)
     , _kleKeyId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyListEntry' smart constructor.
 keyListEntry :: KeyListEntry
@@ -543,7 +539,7 @@ data KeyMetadata = KeyMetadata'
     , _kmCreationDate :: !(Maybe POSIX)
     , _kmDescription  :: !(Maybe Text)
     , _kmKeyId        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyMetadata' smart constructor.
 keyMetadata :: Text -> KeyMetadata

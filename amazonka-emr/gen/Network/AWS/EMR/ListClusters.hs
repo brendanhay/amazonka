@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.ListClusters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data ListClusters = ListClusters'
     , _lcMarker        :: !(Maybe Text)
     , _lcClusterStates :: !(Maybe [ClusterState])
     , _lcCreatedBefore :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClusters' smart constructor.
 listClusters :: ListClusters
@@ -152,7 +154,7 @@ data ListClustersResponse = ListClustersResponse'
     { _lcrMarker   :: !(Maybe Text)
     , _lcrClusters :: !(Maybe [ClusterSummary])
     , _lcrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Int -> ListClustersResponse

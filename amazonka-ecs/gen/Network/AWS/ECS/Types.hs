@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -363,7 +365,7 @@ data AgentUpdateStatus
     | AUSStaging
     | AUSUpdated
     | AUSUpdating
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AgentUpdateStatus where
     parser = takeLowerText >>= \case
@@ -385,9 +387,7 @@ instance ToText AgentUpdateStatus where
         AUSUpdated -> "updated"
         AUSUpdating -> "updating"
 
-instance Hashable AgentUpdateStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AgentUpdateStatus
 instance ToQuery AgentUpdateStatus
 instance ToHeader AgentUpdateStatus
 
@@ -398,7 +398,7 @@ data DesiredStatus
     = Pending
     | Stopped
     | Running
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DesiredStatus where
     parser = takeLowerText >>= \case
@@ -414,9 +414,7 @@ instance ToText DesiredStatus where
         Running -> "running"
         Stopped -> "stopped"
 
-instance Hashable DesiredStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DesiredStatus
 instance ToQuery DesiredStatus
 instance ToHeader DesiredStatus
 
@@ -426,7 +424,7 @@ instance ToJSON DesiredStatus where
 data SortOrder
     = Asc
     | Desc
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SortOrder where
     parser = takeLowerText >>= \case
@@ -440,9 +438,7 @@ instance ToText SortOrder where
         Asc -> "asc"
         Desc -> "desc"
 
-instance Hashable SortOrder where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SortOrder
 instance ToQuery SortOrder
 instance ToHeader SortOrder
 
@@ -452,7 +448,7 @@ instance ToJSON SortOrder where
 data TaskDefinitionStatus
     = Inactive
     | Active
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TaskDefinitionStatus where
     parser = takeLowerText >>= \case
@@ -466,9 +462,7 @@ instance ToText TaskDefinitionStatus where
         Active -> "active"
         Inactive -> "inactive"
 
-instance Hashable TaskDefinitionStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable TaskDefinitionStatus
 instance ToQuery TaskDefinitionStatus
 instance ToHeader TaskDefinitionStatus
 
@@ -481,7 +475,7 @@ instance FromJSON TaskDefinitionStatus where
 data TransportProtocol
     = Udp
     | TCP
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TransportProtocol where
     parser = takeLowerText >>= \case
@@ -495,9 +489,7 @@ instance ToText TransportProtocol where
         TCP -> "tcp"
         Udp -> "udp"
 
-instance Hashable TransportProtocol where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable TransportProtocol
 instance ToQuery TransportProtocol
 instance ToHeader TransportProtocol
 
@@ -538,7 +530,7 @@ data Cluster = Cluster'
     , _cluPendingTasksCount                 :: !(Maybe Int)
     , _cluClusterName                       :: !(Maybe Text)
     , _cluActiveServicesCount               :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Cluster' smart constructor.
 cluster :: Cluster
@@ -625,7 +617,7 @@ data Container = Container'
     , _conReason          :: !(Maybe Text)
     , _conName            :: !(Maybe Text)
     , _conExitCode        :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Container' smart constructor.
 container :: Container
@@ -725,7 +717,7 @@ data ContainerDefinition = ContainerDefinition'
     , _cdLinks        :: !(Maybe [Text])
     , _cdEssential    :: !(Maybe Bool)
     , _cdCpu          :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ContainerDefinition' smart constructor.
 containerDefinition :: ContainerDefinition
@@ -921,7 +913,7 @@ data ContainerInstance = ContainerInstance'
     , _ciAgentUpdateStatus    :: !(Maybe AgentUpdateStatus)
     , _ciPendingTasksCount    :: !(Maybe Int)
     , _ciRegisteredResources  :: !(Maybe [Resource])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ContainerInstance' smart constructor.
 containerInstance :: ContainerInstance
@@ -1026,7 +1018,7 @@ data ContainerOverride = ContainerOverride'
     { _coCommand     :: !(Maybe [Text])
     , _coEnvironment :: !(Maybe [KeyValuePair])
     , _coName        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ContainerOverride' smart constructor.
 containerOverride :: ContainerOverride
@@ -1108,7 +1100,7 @@ data ContainerService = ContainerService'
     , _csTaskDefinition :: !(Maybe Text)
     , _csServiceARN     :: !(Maybe Text)
     , _csRoleARN        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ContainerService' smart constructor.
 containerService :: ContainerService
@@ -1236,7 +1228,7 @@ data Deployment = Deployment'
     , _depId             :: !(Maybe Text)
     , _depTaskDefinition :: !(Maybe Text)
     , _depUpdatedAt      :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Deployment' smart constructor.
 deployment :: Deployment
@@ -1313,7 +1305,7 @@ instance FromJSON Deployment where
 data Failure = Failure'
     { _faiArn    :: !(Maybe Text)
     , _faiReason :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Failure' smart constructor.
 failure :: Failure
@@ -1344,7 +1336,7 @@ instance FromJSON Failure where
 -- * 'hvpSourcePath'
 newtype HostVolumeProperties = HostVolumeProperties'
     { _hvpSourcePath :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HostVolumeProperties' smart constructor.
 hostVolumeProperties :: HostVolumeProperties
@@ -1381,7 +1373,7 @@ instance ToJSON HostVolumeProperties where
 data KeyValuePair = KeyValuePair'
     { _kvpValue :: !(Maybe Text)
     , _kvpName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyValuePair' smart constructor.
 keyValuePair :: KeyValuePair
@@ -1424,7 +1416,7 @@ data LoadBalancer = LoadBalancer'
     { _lbLoadBalancerName :: !(Maybe Text)
     , _lbContainerName    :: !(Maybe Text)
     , _lbContainerPort    :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoadBalancer' smart constructor.
 loadBalancer :: LoadBalancer
@@ -1479,7 +1471,7 @@ data MountPoint = MountPoint'
     { _mpContainerPath :: !(Maybe Text)
     , _mpSourceVolume  :: !(Maybe Text)
     , _mpReadOnly      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MountPoint' smart constructor.
 mountPoint :: MountPoint
@@ -1535,7 +1527,7 @@ data NetworkBinding = NetworkBinding'
     , _nbProtocol      :: !(Maybe TransportProtocol)
     , _nbHostPort      :: !(Maybe Int)
     , _nbContainerPort :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkBinding' smart constructor.
 networkBinding :: NetworkBinding
@@ -1597,7 +1589,7 @@ data PortMapping = PortMapping'
     { _pmProtocol      :: !(Maybe TransportProtocol)
     , _pmHostPort      :: !(Maybe Int)
     , _pmContainerPort :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PortMapping' smart constructor.
 portMapping :: PortMapping
@@ -1686,7 +1678,7 @@ data Resource = Resource'
     , _resLongValue      :: !(Maybe Integer)
     , _resName           :: !(Maybe Text)
     , _resType           :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Resource' smart constructor.
 resource :: Resource
@@ -1764,7 +1756,7 @@ data ServiceEvent = ServiceEvent'
     { _seCreatedAt :: !(Maybe POSIX)
     , _seId        :: !(Maybe Text)
     , _seMessage   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ServiceEvent' smart constructor.
 serviceEvent :: ServiceEvent
@@ -1826,7 +1818,7 @@ data Task = Task'
     , _tasContainers           :: !(Maybe [Container])
     , _tasStartedBy            :: !(Maybe Text)
     , _tasTaskDefinitionARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Task' smart constructor.
 task :: Task
@@ -1920,7 +1912,7 @@ data TaskDefinition = TaskDefinition'
     , _tdTaskDefinitionARN    :: !(Maybe Text)
     , _tdRevision             :: !(Maybe Int)
     , _tdVolumes              :: !(Maybe [Volume])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TaskDefinition' smart constructor.
 taskDefinition :: TaskDefinition
@@ -1993,7 +1985,7 @@ instance FromJSON TaskDefinition where
 -- * 'toContainerOverrides'
 newtype TaskOverride = TaskOverride'
     { _toContainerOverrides :: Maybe [ContainerOverride]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TaskOverride' smart constructor.
 taskOverride :: TaskOverride
@@ -2031,7 +2023,7 @@ data VersionInfo = VersionInfo'
     { _viAgentVersion  :: !(Maybe Text)
     , _viAgentHash     :: !(Maybe Text)
     , _viDockerVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VersionInfo' smart constructor.
 versionInfo :: VersionInfo
@@ -2081,7 +2073,7 @@ instance ToJSON VersionInfo where
 data Volume = Volume'
     { _volName :: !(Maybe Text)
     , _volHost :: !(Maybe HostVolumeProperties)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Volume' smart constructor.
 volume :: Volume
@@ -2122,7 +2114,7 @@ instance ToJSON Volume where
 data VolumeFrom = VolumeFrom'
     { _vfSourceContainer :: !(Maybe Text)
     , _vfReadOnly        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeFrom' smart constructor.
 volumeFrom :: VolumeFrom

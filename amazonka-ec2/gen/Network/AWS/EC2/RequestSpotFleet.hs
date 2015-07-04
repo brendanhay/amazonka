@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.RequestSpotFleet
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data RequestSpotFleet = RequestSpotFleet'
     { _rsfDryRun                 :: !(Maybe Bool)
     , _rsfSpotFleetRequestConfig :: !SpotFleetRequestConfigData
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotFleet' smart constructor.
 requestSpotFleet :: SpotFleetRequestConfigData -> RequestSpotFleet
@@ -115,7 +117,7 @@ instance ToQuery RequestSpotFleet where
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
     { _rsfrStatus             :: !Int
     , _rsfrSpotFleetRequestId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotFleetResponse' smart constructor.
 requestSpotFleetResponse :: Int -> Text -> RequestSpotFleetResponse

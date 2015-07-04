@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.ListActivityTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -92,7 +94,7 @@ data ListActivityTypes = ListActivityTypes'
     , _latMaximumPageSize    :: !(Maybe Nat)
     , _latDomain             :: !Text
     , _latRegistrationStatus :: !RegistrationStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListActivityTypes' smart constructor.
 listActivityTypes :: Text -> RegistrationStatus -> ListActivityTypes
@@ -204,7 +206,7 @@ data ListActivityTypesResponse = ListActivityTypesResponse'
     { _latrNextPageToken :: !(Maybe Text)
     , _latrStatus        :: !Int
     , _latrTypeInfos     :: ![ActivityTypeInfo]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListActivityTypesResponse' smart constructor.
 listActivityTypesResponse :: Int -> ListActivityTypesResponse

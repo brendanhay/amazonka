@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.GetCognitoEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 -- * 'gceIdentityPoolId'
 newtype GetCognitoEvents = GetCognitoEvents'
     { _gceIdentityPoolId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCognitoEvents' smart constructor.
 getCognitoEvents :: Text -> GetCognitoEvents
@@ -105,7 +107,7 @@ instance ToQuery GetCognitoEvents where
 data GetCognitoEventsResponse = GetCognitoEventsResponse'
     { _gcerEvents :: !(Maybe (Map Text Text))
     , _gcerStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCognitoEventsResponse' smart constructor.
 getCognitoEventsResponse :: Int -> GetCognitoEventsResponse

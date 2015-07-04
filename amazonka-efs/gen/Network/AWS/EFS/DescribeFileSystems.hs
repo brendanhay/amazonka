@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.DescribeFileSystems
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -88,7 +90,7 @@ data DescribeFileSystems = DescribeFileSystems'
     , _dfsMaxItems      :: !(Maybe Nat)
     , _dfsCreationToken :: !(Maybe Text)
     , _dfsMarker        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFileSystems' smart constructor.
 describeFileSystems :: DescribeFileSystems
@@ -167,7 +169,7 @@ data DescribeFileSystemsResponse = DescribeFileSystemsResponse'
     , _dfsrMarker      :: !(Maybe Text)
     , _dfsrNextMarker  :: !(Maybe Text)
     , _dfsrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFileSystemsResponse' smart constructor.
 describeFileSystemsResponse :: Int -> DescribeFileSystemsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.RegisterRDSDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data RegisterRDSDBInstance = RegisterRDSDBInstance'
     , _rrdiRDSDBInstanceARN :: !Text
     , _rrdiDBUser           :: !Text
     , _rrdiDBPassword       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterRDSDBInstance' smart constructor.
 registerRDSDBInstance :: Text -> Text -> Text -> Text -> RegisterRDSDBInstance
@@ -124,7 +126,7 @@ instance ToQuery RegisterRDSDBInstance where
 -- | /See:/ 'registerRDSDBInstanceResponse' smart constructor.
 data RegisterRDSDBInstanceResponse =
     RegisterRDSDBInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterRDSDBInstanceResponse' smart constructor.
 registerRDSDBInstanceResponse :: RegisterRDSDBInstanceResponse

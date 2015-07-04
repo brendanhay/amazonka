@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeImportSnapshotTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
     , _distNextToken     :: !(Maybe Text)
     , _distDryRun        :: !(Maybe Bool)
     , _distMaxResults    :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportSnapshotTasks' smart constructor.
 describeImportSnapshotTasks :: DescribeImportSnapshotTasks
@@ -146,7 +148,7 @@ data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
     { _distrNextToken           :: !(Maybe Text)
     , _distrImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
     , _distrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportSnapshotTasksResponse' smart constructor.
 describeImportSnapshotTasksResponse :: Int -> DescribeImportSnapshotTasksResponse

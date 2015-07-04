@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data SwapEnvironmentCNAMEs = SwapEnvironmentCNAMEs'
     , _secnameDestinationEnvironmentId   :: !(Maybe Text)
     , _secnameSourceEnvironmentName      :: !(Maybe Text)
     , _secnameSourceEnvironmentId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SwapEnvironmentCNAMEs' smart constructor.
 swapEnvironmentCNAMEs :: SwapEnvironmentCNAMEs
@@ -133,7 +135,7 @@ instance ToQuery SwapEnvironmentCNAMEs where
 -- | /See:/ 'swapEnvironmentCNAMEsResponse' smart constructor.
 data SwapEnvironmentCNAMEsResponse =
     SwapEnvironmentCNAMEsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SwapEnvironmentCNAMEsResponse' smart constructor.
 swapEnvironmentCNAMEsResponse :: SwapEnvironmentCNAMEsResponse

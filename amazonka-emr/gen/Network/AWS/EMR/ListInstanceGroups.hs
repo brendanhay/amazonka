@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.ListInstanceGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data ListInstanceGroups = ListInstanceGroups'
     { _ligMarker    :: !(Maybe Text)
     , _ligClusterId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceGroups' smart constructor.
 listInstanceGroups :: Text -> ListInstanceGroups
@@ -130,7 +132,7 @@ data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
     { _ligrMarker         :: !(Maybe Text)
     , _ligrInstanceGroups :: !(Maybe [InstanceGroup])
     , _ligrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceGroupsResponse' smart constructor.
 listInstanceGroupsResponse :: Int -> ListInstanceGroupsResponse

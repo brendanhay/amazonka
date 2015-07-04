@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.DescribeBatchPredictions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -90,7 +92,7 @@ data DescribeBatchPredictions = DescribeBatchPredictions'
     , _dbpLT             :: !(Maybe Text)
     , _dbpFilterVariable :: !(Maybe BatchPredictionFilterVariable)
     , _dbpLE             :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBatchPredictions' smart constructor.
 describeBatchPredictions :: DescribeBatchPredictions
@@ -262,7 +264,7 @@ data DescribeBatchPredictionsResponse = DescribeBatchPredictionsResponse'
     { _desResults   :: !(Maybe [BatchPrediction])
     , _desNextToken :: !(Maybe Text)
     , _desStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBatchPredictionsResponse' smart constructor.
 describeBatchPredictionsResponse :: Int -> DescribeBatchPredictionsResponse

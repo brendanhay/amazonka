@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.DisableSso
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data DisableSso = DisableSso'
     { _disUserName    :: !(Maybe Text)
     , _disPassword    :: !(Maybe (Sensitive Text))
     , _disDirectoryId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableSso' smart constructor.
 disableSso :: Text -> DisableSso
@@ -130,7 +132,7 @@ instance ToQuery DisableSso where
 -- * 'disStatus'
 newtype DisableSsoResponse = DisableSsoResponse'
     { _disStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableSsoResponse' smart constructor.
 disableSsoResponse :: Int -> DisableSsoResponse

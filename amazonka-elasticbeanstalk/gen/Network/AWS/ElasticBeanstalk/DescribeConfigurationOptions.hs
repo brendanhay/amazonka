@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeConfigurationOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data DescribeConfigurationOptions = DescribeConfigurationOptions'
     , _dcoApplicationName   :: !(Maybe Text)
     , _dcoOptions           :: !(Maybe [OptionSpecification])
     , _dcoSolutionStackName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationOptions' smart constructor.
 describeConfigurationOptions :: DescribeConfigurationOptions
@@ -160,7 +162,7 @@ data DescribeConfigurationOptionsResponse = DescribeConfigurationOptionsResponse
     { _dcorOptions           :: !(Maybe [ConfigurationOptionDescription])
     , _dcorSolutionStackName :: !(Maybe Text)
     , _dcorStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationOptionsResponse' smart constructor.
 describeConfigurationOptionsResponse :: Int -> DescribeConfigurationOptionsResponse

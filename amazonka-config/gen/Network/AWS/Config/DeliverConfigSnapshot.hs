@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Config.DeliverConfigSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 -- * 'dcsDeliveryChannelName'
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
     { _dcsDeliveryChannelName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliverConfigSnapshot' smart constructor.
 deliverConfigSnapshot :: Text -> DeliverConfigSnapshot
@@ -116,7 +118,7 @@ instance ToQuery DeliverConfigSnapshot where
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
     { _dcsrConfigSnapshotId :: !(Maybe Text)
     , _dcsrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliverConfigSnapshotResponse' smart constructor.
 deliverConfigSnapshotResponse :: Int -> DeliverConfigSnapshotResponse

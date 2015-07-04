@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.GenerateDataKeyWithoutPlaintext
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data GenerateDataKeyWithoutPlaintext = GenerateDataKeyWithoutPlaintext'
     , _gdkwpNumberOfBytes     :: !(Maybe Nat)
     , _gdkwpGrantTokens       :: !(Maybe [Text])
     , _gdkwpKeyId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKeyWithoutPlaintext' smart constructor.
 generateDataKeyWithoutPlaintext :: Text -> GenerateDataKeyWithoutPlaintext
@@ -169,7 +171,7 @@ data GenerateDataKeyWithoutPlaintextResponse = GenerateDataKeyWithoutPlaintextRe
     { _gdkwprKeyId          :: !(Maybe Text)
     , _gdkwprCiphertextBlob :: !(Maybe Base64)
     , _gdkwprStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKeyWithoutPlaintextResponse' smart constructor.
 generateDataKeyWithoutPlaintextResponse :: Int -> GenerateDataKeyWithoutPlaintextResponse

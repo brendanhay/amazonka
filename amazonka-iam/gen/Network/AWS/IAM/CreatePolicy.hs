@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreatePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data CreatePolicy = CreatePolicy'
     , _cpDescription    :: !(Maybe Text)
     , _cpPolicyName     :: !Text
     , _cpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicy' smart constructor.
 createPolicy :: Text -> Text -> CreatePolicy
@@ -147,7 +149,7 @@ instance ToQuery CreatePolicy where
 data CreatePolicyResponse = CreatePolicyResponse'
     { _cprPolicy :: !(Maybe Policy)
     , _cprStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicyResponse' smart constructor.
 createPolicyResponse :: Int -> CreatePolicyResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.GetBatchPrediction
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 -- * 'gbpBatchPredictionId'
 newtype GetBatchPrediction = GetBatchPrediction'
     { _gbpBatchPredictionId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBatchPrediction' smart constructor.
 getBatchPrediction :: Text -> GetBatchPrediction
@@ -156,7 +158,7 @@ data GetBatchPredictionResponse = GetBatchPredictionResponse'
     , _gbprMessage                     :: !(Maybe Text)
     , _gbprOutputURI                   :: !(Maybe Text)
     , _gbprStatus                      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBatchPredictionResponse' smart constructor.
 getBatchPredictionResponse :: Int -> GetBatchPredictionResponse

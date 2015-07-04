@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.GetMLModel
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ import           Network.AWS.Response
 data GetMLModel = GetMLModel'
     { _gmlmVerbose   :: !(Maybe Bool)
     , _gmlmMLModelId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMLModel' smart constructor.
 getMLModel :: Text -> GetMLModel
@@ -201,7 +203,7 @@ data GetMLModelResponse = GetMLModelResponse'
     , _gmlmrMessage                     :: !(Maybe Text)
     , _gmlmrMLModelType                 :: !(Maybe MLModelType)
     , _gmlmrStatus                      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMLModelResponse' smart constructor.
 getMLModelResponse :: Int -> GetMLModelResponse

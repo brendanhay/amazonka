@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.GetKeyRotationStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 -- * 'gkrsKeyId'
 newtype GetKeyRotationStatus = GetKeyRotationStatus'
     { _gkrsKeyId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyRotationStatus' smart constructor.
 getKeyRotationStatus :: Text -> GetKeyRotationStatus
@@ -107,7 +109,7 @@ instance ToQuery GetKeyRotationStatus where
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
     { _gkrsrKeyRotationEnabled :: !(Maybe Bool)
     , _gkrsrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyRotationStatusResponse' smart constructor.
 getKeyRotationStatusResponse :: Int -> GetKeyRotationStatusResponse

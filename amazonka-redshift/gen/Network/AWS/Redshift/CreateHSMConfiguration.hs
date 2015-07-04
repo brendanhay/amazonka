@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateHSMConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ data CreateHSMConfiguration = CreateHSMConfiguration'
     , _chcHSMPartitionName           :: !Text
     , _chcHSMPartitionPassword       :: !Text
     , _chcHSMServerPublicCertificate :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMConfiguration' smart constructor.
 createHSMConfiguration :: Text -> Text -> Text -> Text -> Text -> Text -> CreateHSMConfiguration
@@ -172,7 +174,7 @@ instance ToQuery CreateHSMConfiguration where
 data CreateHSMConfigurationResponse = CreateHSMConfigurationResponse'
     { _chcrHSMConfiguration :: !(Maybe HSMConfiguration)
     , _chcrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMConfigurationResponse' smart constructor.
 createHSMConfigurationResponse :: Int -> CreateHSMConfigurationResponse

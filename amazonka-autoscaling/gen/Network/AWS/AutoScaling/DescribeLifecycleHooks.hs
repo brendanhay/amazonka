@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLifecycleHooks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
     { _dlhLifecycleHookNames   :: !(Maybe [Text])
     , _dlhAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHooks' smart constructor.
 describeLifecycleHooks :: Text -> DescribeLifecycleHooks
@@ -109,7 +111,7 @@ instance ToQuery DescribeLifecycleHooks where
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
     { _dlhrLifecycleHooks :: !(Maybe [LifecycleHook])
     , _dlhrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHooksResponse' smart constructor.
 describeLifecycleHooksResponse :: Int -> DescribeLifecycleHooksResponse

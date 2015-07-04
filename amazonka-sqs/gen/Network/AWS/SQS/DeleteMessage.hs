@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.DeleteMessage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ import           Network.AWS.SQS.Types
 data DeleteMessage = DeleteMessage'
     { _dmQueueURL      :: !Text
     , _dmReceiptHandle :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessage' smart constructor.
 deleteMessage :: Text -> Text -> DeleteMessage
@@ -110,7 +112,7 @@ instance ToQuery DeleteMessage where
 -- | /See:/ 'deleteMessageResponse' smart constructor.
 data DeleteMessageResponse =
     DeleteMessageResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessageResponse' smart constructor.
 deleteMessageResponse :: DeleteMessageResponse

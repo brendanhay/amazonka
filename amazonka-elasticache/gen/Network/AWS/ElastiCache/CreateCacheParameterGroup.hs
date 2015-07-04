@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data CreateCacheParameterGroup = CreateCacheParameterGroup'
     { _ccpgCacheParameterGroupName   :: !Text
     , _ccpgCacheParameterGroupFamily :: !Text
     , _ccpgDescription               :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheParameterGroup' smart constructor.
 createCacheParameterGroup :: Text -> Text -> Text -> CreateCacheParameterGroup
@@ -125,7 +127,7 @@ instance ToQuery CreateCacheParameterGroup where
 data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
     { _ccpgrCacheParameterGroup :: !(Maybe CacheParameterGroup)
     , _ccpgrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheParameterGroupResponse' smart constructor.
 createCacheParameterGroupResponse :: Int -> CreateCacheParameterGroupResponse

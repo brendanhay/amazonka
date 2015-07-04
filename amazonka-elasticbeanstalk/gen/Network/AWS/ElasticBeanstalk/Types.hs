@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -375,7 +377,7 @@ data ConfigurationDeploymentStatus
     = Pending
     | Deployed
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConfigurationDeploymentStatus where
     parser = takeLowerText >>= \case
@@ -391,9 +393,7 @@ instance ToText ConfigurationDeploymentStatus where
         Failed -> "failed"
         Pending -> "pending"
 
-instance Hashable ConfigurationDeploymentStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ConfigurationDeploymentStatus
 instance ToQuery ConfigurationDeploymentStatus
 instance ToHeader ConfigurationDeploymentStatus
 
@@ -403,7 +403,7 @@ instance FromXML ConfigurationDeploymentStatus where
 data ConfigurationOptionValueType
     = List
     | Scalar
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConfigurationOptionValueType where
     parser = takeLowerText >>= \case
@@ -417,9 +417,7 @@ instance ToText ConfigurationOptionValueType where
         List -> "list"
         Scalar -> "scalar"
 
-instance Hashable ConfigurationOptionValueType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ConfigurationOptionValueType
 instance ToQuery ConfigurationOptionValueType
 instance ToHeader ConfigurationOptionValueType
 
@@ -431,7 +429,7 @@ data EnvironmentHealth
     | Yellow
     | Green
     | Grey
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EnvironmentHealth where
     parser = takeLowerText >>= \case
@@ -449,9 +447,7 @@ instance ToText EnvironmentHealth where
         Red -> "red"
         Yellow -> "yellow"
 
-instance Hashable EnvironmentHealth where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EnvironmentHealth
 instance ToQuery EnvironmentHealth
 instance ToHeader EnvironmentHealth
 
@@ -461,7 +457,7 @@ instance FromXML EnvironmentHealth where
 data EnvironmentInfoType
     = Bundle
     | Tail
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EnvironmentInfoType where
     parser = takeLowerText >>= \case
@@ -475,9 +471,7 @@ instance ToText EnvironmentInfoType where
         Bundle -> "bundle"
         Tail -> "tail"
 
-instance Hashable EnvironmentInfoType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EnvironmentInfoType
 instance ToQuery EnvironmentInfoType
 instance ToHeader EnvironmentInfoType
 
@@ -490,7 +484,7 @@ data EnvironmentStatus
     | Launching
     | Terminated
     | Ready
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EnvironmentStatus where
     parser = takeLowerText >>= \case
@@ -510,9 +504,7 @@ instance ToText EnvironmentStatus where
         Terminating -> "terminating"
         Updating -> "updating"
 
-instance Hashable EnvironmentStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EnvironmentStatus
 instance ToQuery EnvironmentStatus
 instance ToHeader EnvironmentStatus
 
@@ -526,7 +518,7 @@ data EventSeverity
     | LevelWarn
     | LevelTrace
     | LevelFatal
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EventSeverity where
     parser = takeLowerText >>= \case
@@ -548,9 +540,7 @@ instance ToText EventSeverity where
         LevelTrace -> "trace"
         LevelWarn -> "warn"
 
-instance Hashable EventSeverity where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EventSeverity
 instance ToQuery EventSeverity
 instance ToHeader EventSeverity
 
@@ -560,7 +550,7 @@ instance FromXML EventSeverity where
 data ValidationSeverity
     = VSWarning
     | VSError'
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ValidationSeverity where
     parser = takeLowerText >>= \case
@@ -574,9 +564,7 @@ instance ToText ValidationSeverity where
         VSError' -> "error"
         VSWarning -> "warning"
 
-instance Hashable ValidationSeverity where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ValidationSeverity
 instance ToQuery ValidationSeverity
 instance ToHeader ValidationSeverity
 
@@ -607,7 +595,7 @@ data ApplicationDescription = ApplicationDescription'
     , _adApplicationName        :: !(Maybe Text)
     , _adConfigurationTemplates :: !(Maybe [Text])
     , _adDescription            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplicationDescription' smart constructor.
 applicationDescription :: ApplicationDescription
@@ -668,7 +656,7 @@ instance FromXML ApplicationDescription where
 -- * 'admApplication'
 newtype ApplicationDescriptionMessage = ApplicationDescriptionMessage'
     { _admApplication :: Maybe ApplicationDescription
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplicationDescriptionMessage' smart constructor.
 applicationDescriptionMessage :: ApplicationDescriptionMessage
@@ -710,7 +698,7 @@ data ApplicationVersionDescription = ApplicationVersionDescription'
     , _avdDateCreated     :: !(Maybe ISO8601)
     , _avdApplicationName :: !(Maybe Text)
     , _avdDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplicationVersionDescription' smart constructor.
 applicationVersionDescription :: ApplicationVersionDescription
@@ -766,7 +754,7 @@ instance FromXML ApplicationVersionDescription where
 -- * 'avdmApplicationVersion'
 newtype ApplicationVersionDescriptionMessage = ApplicationVersionDescriptionMessage'
     { _avdmApplicationVersion :: Maybe ApplicationVersionDescription
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplicationVersionDescriptionMessage' smart constructor.
 applicationVersionDescriptionMessage :: ApplicationVersionDescriptionMessage
@@ -794,7 +782,7 @@ instance FromXML ApplicationVersionDescriptionMessage
 -- * 'asgName'
 newtype AutoScalingGroup = AutoScalingGroup'
     { _asgName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AutoScalingGroup' smart constructor.
 autoScalingGroup :: AutoScalingGroup
@@ -849,7 +837,7 @@ data ConfigurationOptionDescription = ConfigurationOptionDescription'
     , _codDefaultValue   :: !(Maybe Text)
     , _codValueType      :: !(Maybe ConfigurationOptionValueType)
     , _codMinValue       :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationOptionDescription' smart constructor.
 configurationOptionDescription :: ConfigurationOptionDescription
@@ -1010,7 +998,7 @@ data ConfigurationOptionSetting = ConfigurationOptionSetting'
     , _cosResourceName :: !(Maybe Text)
     , _cosValue        :: !(Maybe Text)
     , _cosNamespace    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationOptionSetting' smart constructor.
 configurationOptionSetting :: ConfigurationOptionSetting
@@ -1085,7 +1073,7 @@ data ConfigurationSettingsDescription = ConfigurationSettingsDescription'
     , _csdDeploymentStatus  :: !(Maybe ConfigurationDeploymentStatus)
     , _csdSolutionStackName :: !(Maybe Text)
     , _csdDescription       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigurationSettingsDescription' smart constructor.
 configurationSettingsDescription :: ConfigurationSettingsDescription
@@ -1231,7 +1219,7 @@ data EnvironmentDescription = EnvironmentDescription'
     , _envEnvironmentId                :: !(Maybe Text)
     , _envSolutionStackName            :: !(Maybe Text)
     , _envDescription                  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentDescription' smart constructor.
 environmentDescription :: EnvironmentDescription
@@ -1392,7 +1380,7 @@ data EnvironmentInfoDescription = EnvironmentInfoDescription'
     , _eidEC2InstanceId   :: !(Maybe Text)
     , _eidInfoType        :: !(Maybe EnvironmentInfoType)
     , _eidMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentInfoDescription' smart constructor.
 environmentInfoDescription :: EnvironmentInfoDescription
@@ -1455,7 +1443,7 @@ data EnvironmentResourceDescription = EnvironmentResourceDescription'
     , _erdEnvironmentName      :: !(Maybe Text)
     , _erdLaunchConfigurations :: !(Maybe [LaunchConfiguration])
     , _erdAutoScalingGroups    :: !(Maybe [AutoScalingGroup])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentResourceDescription' smart constructor.
 environmentResourceDescription :: EnvironmentResourceDescription
@@ -1530,7 +1518,7 @@ instance FromXML EnvironmentResourceDescription where
 -- * 'erdLoadBalancer'
 newtype EnvironmentResourcesDescription = EnvironmentResourcesDescription'
     { _erdLoadBalancer :: Maybe LoadBalancerDescription
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentResourcesDescription' smart constructor.
 environmentResourcesDescription :: EnvironmentResourcesDescription
@@ -1564,7 +1552,7 @@ data EnvironmentTier = EnvironmentTier'
     { _etName    :: !(Maybe Text)
     , _etVersion :: !(Maybe Text)
     , _etType    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentTier' smart constructor.
 environmentTier :: EnvironmentTier
@@ -1629,7 +1617,7 @@ data EventDescription = EventDescription'
     , _edApplicationName :: !(Maybe Text)
     , _edEventDate       :: !(Maybe ISO8601)
     , _edMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventDescription' smart constructor.
 eventDescription :: EventDescription
@@ -1698,7 +1686,7 @@ instance FromXML EventDescription where
 -- * 'insId'
 newtype Instance = Instance'
     { _insId :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
@@ -1723,7 +1711,7 @@ instance FromXML Instance where
 -- * 'lcName'
 newtype LaunchConfiguration = LaunchConfiguration'
     { _lcName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LaunchConfiguration' smart constructor.
 launchConfiguration :: LaunchConfiguration
@@ -1751,7 +1739,7 @@ instance FromXML LaunchConfiguration where
 data Listener = Listener'
     { _lisProtocol :: !(Maybe Text)
     , _lisPort     :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Listener' smart constructor.
 listener :: Listener
@@ -1782,7 +1770,7 @@ instance FromXML Listener where
 -- * 'lbName'
 newtype LoadBalancer = LoadBalancer'
     { _lbName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoadBalancer' smart constructor.
 loadBalancer :: LoadBalancer
@@ -1813,7 +1801,7 @@ data LoadBalancerDescription = LoadBalancerDescription'
     { _lbdLoadBalancerName :: !(Maybe Text)
     , _lbdDomain           :: !(Maybe Text)
     , _lbdListeners        :: !(Maybe [Listener])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoadBalancerDescription' smart constructor.
 loadBalancerDescription :: LoadBalancerDescription
@@ -1856,7 +1844,7 @@ instance FromXML LoadBalancerDescription where
 data OptionRestrictionRegex = OptionRestrictionRegex'
     { _orrPattern :: !(Maybe Text)
     , _orrLabel   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionRestrictionRegex' smart constructor.
 optionRestrictionRegex :: OptionRestrictionRegex
@@ -1895,7 +1883,7 @@ data OptionSpecification = OptionSpecification'
     { _osOptionName   :: !(Maybe Text)
     , _osResourceName :: !(Maybe Text)
     , _osNamespace    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionSpecification' smart constructor.
 optionSpecification :: OptionSpecification
@@ -1937,7 +1925,7 @@ instance ToQuery OptionSpecification where
 data Queue = Queue'
     { _queURL  :: !(Maybe Text)
     , _queName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Queue' smart constructor.
 queue :: Queue
@@ -1971,7 +1959,7 @@ instance FromXML Queue where
 data S3Location = S3Location'
     { _slS3Key    :: !(Maybe Text)
     , _slS3Bucket :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3Location' smart constructor.
 s3Location :: S3Location
@@ -2011,7 +1999,7 @@ instance ToQuery S3Location where
 data SolutionStackDescription = SolutionStackDescription'
     { _ssdPermittedFileTypes :: !(Maybe [Text])
     , _ssdSolutionStackName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SolutionStackDescription' smart constructor.
 solutionStackDescription :: SolutionStackDescription
@@ -2048,7 +2036,7 @@ instance FromXML SolutionStackDescription where
 data SourceConfiguration = SourceConfiguration'
     { _scTemplateName    :: !(Maybe Text)
     , _scApplicationName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SourceConfiguration' smart constructor.
 sourceConfiguration :: SourceConfiguration
@@ -2084,7 +2072,7 @@ instance ToQuery SourceConfiguration where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
@@ -2115,7 +2103,7 @@ instance ToQuery Tag where
 -- * 'triName'
 newtype Trigger = Trigger'
     { _triName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Trigger' smart constructor.
 trigger :: Trigger
@@ -2149,7 +2137,7 @@ data ValidationMessage = ValidationMessage'
     , _vmSeverity   :: !(Maybe ValidationSeverity)
     , _vmNamespace  :: !(Maybe Text)
     , _vmMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidationMessage' smart constructor.
 validationMessage :: ValidationMessage

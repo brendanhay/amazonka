@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateUser
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data UpdateUser = UpdateUser'
     { _uuNewUserName :: !(Maybe Text)
     , _uuNewPath     :: !(Maybe Text)
     , _uuUserName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateUser' smart constructor.
 updateUser :: Text -> UpdateUser
@@ -113,7 +115,7 @@ instance ToQuery UpdateUser where
 -- | /See:/ 'updateUserResponse' smart constructor.
 data UpdateUserResponse =
     UpdateUserResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateUserResponse' smart constructor.
 updateUserResponse :: UpdateUserResponse

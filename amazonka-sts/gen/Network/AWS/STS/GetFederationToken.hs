@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.STS.GetFederationToken
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -129,7 +131,7 @@ data GetFederationToken = GetFederationToken'
     { _gftDurationSeconds :: !(Maybe Nat)
     , _gftPolicy          :: !(Maybe Text)
     , _gftName            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFederationToken' smart constructor.
 getFederationToken :: Text -> GetFederationToken
@@ -227,7 +229,7 @@ data GetFederationTokenResponse = GetFederationTokenResponse'
     , _gftrCredentials      :: !(Maybe Credentials)
     , _gftrFederatedUser    :: !(Maybe FederatedUser)
     , _gftrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFederationTokenResponse' smart constructor.
 getFederationTokenResponse :: Int -> GetFederationTokenResponse

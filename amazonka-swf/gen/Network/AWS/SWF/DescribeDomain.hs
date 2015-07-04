@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.DescribeDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ import           Network.AWS.SWF.Types
 -- * 'ddName'
 newtype DescribeDomain = DescribeDomain'
     { _ddName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomain' smart constructor.
 describeDomain :: Text -> DescribeDomain
@@ -126,7 +128,7 @@ data DescribeDomainResponse = DescribeDomainResponse'
     { _ddrStatus        :: !Int
     , _ddrDomainInfo    :: !DomainInfo
     , _ddrConfiguration :: !DomainConfiguration
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomainResponse' smart constructor.
 describeDomainResponse :: Int -> DomainInfo -> DomainConfiguration -> DescribeDomainResponse

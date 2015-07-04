@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.UploadPart
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -98,7 +100,7 @@ data UploadPart = UploadPart'
     , _upPartNumber           :: !Int
     , _upUploadId             :: !Text
     , _upBody                 :: !RqBody
-    } deriving (Show)
+    } deriving (Show,Data,Typeable,Generic)
 
 -- | 'UploadPart' smart constructor.
 uploadPart :: BucketName -> ObjectKey -> Int -> Text -> RqBody -> UploadPart
@@ -242,7 +244,7 @@ data UploadPartResponse = UploadPartResponse'
     , _uprSSECustomerKeyMD5    :: !(Maybe Text)
     , _uprServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _uprStatus               :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'UploadPartResponse' smart constructor.
 uploadPartResponse :: Int -> UploadPartResponse

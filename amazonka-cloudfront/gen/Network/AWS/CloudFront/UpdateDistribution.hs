@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.UpdateDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data UpdateDistribution = UpdateDistribution'
     { _udIfMatch            :: !(Maybe Text)
     , _udDistributionConfig :: !DistributionConfig
     , _udId                 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDistribution' smart constructor.
 updateDistribution :: DistributionConfig -> Text -> UpdateDistribution
@@ -129,7 +131,7 @@ data UpdateDistributionResponse = UpdateDistributionResponse'
     { _udrETag         :: !(Maybe Text)
     , _udrDistribution :: !(Maybe Distribution)
     , _udrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDistributionResponse' smart constructor.
 updateDistributionResponse :: Int -> UpdateDistributionResponse

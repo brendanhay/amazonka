@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetOpenIDConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'goidcpOpenIDConnectProviderARN'
 newtype GetOpenIDConnectProvider = GetOpenIDConnectProvider'
     { _goidcpOpenIDConnectProviderARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIDConnectProvider' smart constructor.
 getOpenIDConnectProvider :: Text -> GetOpenIDConnectProvider
@@ -118,7 +120,7 @@ data GetOpenIDConnectProviderResponse = GetOpenIDConnectProviderResponse'
     , _goidcprThumbprintList :: !(Maybe [Text])
     , _goidcprClientIDList   :: !(Maybe [Text])
     , _goidcprStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIDConnectProviderResponse' smart constructor.
 getOpenIDConnectProviderResponse :: Int -> GetOpenIDConnectProviderResponse

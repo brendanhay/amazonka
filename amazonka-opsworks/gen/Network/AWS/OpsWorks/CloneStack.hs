@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.CloneStack
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -139,7 +141,7 @@ data CloneStack = CloneStack'
     , _cloHostnameTheme             :: !(Maybe Text)
     , _cloSourceStackId             :: !Text
     , _cloServiceRoleARN            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloneStack' smart constructor.
 cloneStack :: Text -> Text -> CloneStack
@@ -469,7 +471,7 @@ instance ToQuery CloneStack where
 data CloneStackResponse = CloneStackResponse'
     { _csrStackId :: !(Maybe Text)
     , _csrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloneStackResponse' smart constructor.
 cloneStackResponse :: Int -> CloneStackResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.GetShardIterator
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -101,7 +103,7 @@ data GetShardIterator = GetShardIterator'
     , _gsiStreamName             :: !Text
     , _gsiShardId                :: !Text
     , _gsiShardIteratorType      :: !ShardIteratorType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIterator' smart constructor.
 getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
@@ -188,7 +190,7 @@ instance ToQuery GetShardIterator where
 data GetShardIteratorResponse = GetShardIteratorResponse'
     { _gsirShardIterator :: !(Maybe Text)
     , _gsirStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIteratorResponse' smart constructor.
 getShardIteratorResponse :: Int -> GetShardIteratorResponse

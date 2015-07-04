@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.CreateVault
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ import           Network.AWS.Response
 data CreateVault = CreateVault'
     { _cvAccountId :: !Text
     , _cvVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVault' smart constructor.
 createVault :: Text -> Text -> CreateVault
@@ -138,7 +140,7 @@ instance ToQuery CreateVault where
 data CreateVaultResponse = CreateVaultResponse'
     { _cvrLocation :: !(Maybe Text)
     , _cvrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVaultResponse' smart constructor.
 createVaultResponse :: Int -> CreateVaultResponse

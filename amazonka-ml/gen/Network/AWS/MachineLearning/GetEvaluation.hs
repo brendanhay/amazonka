@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.GetEvaluation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 -- * 'geEvaluationId'
 newtype GetEvaluation = GetEvaluation'
     { _geEvaluationId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEvaluation' smart constructor.
 getEvaluation :: Text -> GetEvaluation
@@ -156,7 +158,7 @@ data GetEvaluationResponse = GetEvaluationResponse'
     , _gerEvaluationId           :: !(Maybe Text)
     , _gerEvaluationDataSourceId :: !(Maybe Text)
     , _gerStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEvaluationResponse' smart constructor.
 getEvaluationResponse :: Int -> GetEvaluationResponse

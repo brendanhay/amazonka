@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dgGatewayARN'
 newtype DeleteGateway = DeleteGateway'
     { _dgGatewayARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGateway' smart constructor.
 deleteGateway :: Text -> DeleteGateway
@@ -121,7 +123,7 @@ instance ToQuery DeleteGateway where
 data DeleteGatewayResponse = DeleteGatewayResponse'
     { _dgrGatewayARN :: !(Maybe Text)
     , _dgrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGatewayResponse' smart constructor.
 deleteGatewayResponse :: Int -> DeleteGatewayResponse

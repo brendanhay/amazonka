@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data DescribeCacheParameters = DescribeCacheParameters'
     , _dcpMarker                  :: !(Maybe Text)
     , _dcpSource                  :: !(Maybe Text)
     , _dcpCacheParameterGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParameters' smart constructor.
 describeCacheParameters :: Text -> DescribeCacheParameters
@@ -164,7 +166,7 @@ data DescribeCacheParametersResponse = DescribeCacheParametersResponse'
     , _dcprParameters                      :: !(Maybe [Parameter])
     , _dcprMarker                          :: !(Maybe Text)
     , _dcprStatus                          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheParametersResponse' smart constructor.
 describeCacheParametersResponse :: Int -> DescribeCacheParametersResponse

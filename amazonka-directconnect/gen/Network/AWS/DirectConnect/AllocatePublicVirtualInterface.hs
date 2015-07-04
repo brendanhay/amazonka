@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.AllocatePublicVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data AllocatePublicVirtualInterface = AllocatePublicVirtualInterface'
     { _allConnectionId                        :: !Text
     , _allOwnerAccount                        :: !Text
     , _allNewPublicVirtualInterfaceAllocation :: !NewPublicVirtualInterfaceAllocation
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocatePublicVirtualInterface' smart constructor.
 allocatePublicVirtualInterface :: Text -> Text -> NewPublicVirtualInterfaceAllocation -> AllocatePublicVirtualInterface

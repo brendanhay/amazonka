@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.UpdateAssociationStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data UpdateAssociationStatus = UpdateAssociationStatus'
     { _uasName              :: !Text
     , _uasInstanceId        :: !Text
     , _uasAssociationStatus :: !AssociationStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssociationStatus' smart constructor.
 updateAssociationStatus :: Text -> Text -> AssociationStatus -> UpdateAssociationStatus
@@ -122,7 +124,7 @@ instance ToQuery UpdateAssociationStatus where
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
     { _uasrAssociationDescription :: !(Maybe AssociationDescription)
     , _uasrStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssociationStatusResponse' smart constructor.
 updateAssociationStatusResponse :: Int -> UpdateAssociationStatusResponse

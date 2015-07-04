@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.VerifyDomainDkim
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ import           Network.AWS.SES.Types
 -- * 'vddDomain'
 newtype VerifyDomainDkim = VerifyDomainDkim'
     { _vddDomain :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainDkim' smart constructor.
 verifyDomainDkim :: Text -> VerifyDomainDkim
@@ -116,7 +118,7 @@ instance ToQuery VerifyDomainDkim where
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
     { _vddrStatus     :: !Int
     , _vddrDkimTokens :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainDkimResponse' smart constructor.
 verifyDomainDkimResponse :: Int -> VerifyDomainDkimResponse

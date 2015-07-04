@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DeleteApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DeleteApplication = DeleteApplication'
     { _daTerminateEnvByForce :: !(Maybe Bool)
     , _daApplicationName     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplication' smart constructor.
 deleteApplication :: Text -> DeleteApplication
@@ -96,7 +98,7 @@ instance ToQuery DeleteApplication where
 -- | /See:/ 'deleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse =
     DeleteApplicationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplicationResponse' smart constructor.
 deleteApplicationResponse :: DeleteApplicationResponse

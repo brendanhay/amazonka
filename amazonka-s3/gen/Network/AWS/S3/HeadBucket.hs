@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.HeadBucket
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -45,7 +47,7 @@ import           Network.AWS.S3.Types
 -- * 'hbBucket'
 newtype HeadBucket = HeadBucket'
     { _hbBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'HeadBucket' smart constructor.
 headBucket :: BucketName -> HeadBucket
@@ -77,7 +79,7 @@ instance ToQuery HeadBucket where
 -- | /See:/ 'headBucketResponse' smart constructor.
 data HeadBucketResponse =
     HeadBucketResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HeadBucketResponse' smart constructor.
 headBucketResponse :: HeadBucketResponse

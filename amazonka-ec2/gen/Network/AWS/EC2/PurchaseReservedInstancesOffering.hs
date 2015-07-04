@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.PurchaseReservedInstancesOffering
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
     , _prioDryRun                      :: !(Maybe Bool)
     , _prioReservedInstancesOfferingId :: !Text
     , _prioInstanceCount               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedInstancesOffering' smart constructor.
 purchaseReservedInstancesOffering :: Text -> Int -> PurchaseReservedInstancesOffering
@@ -150,7 +152,7 @@ instance ToQuery PurchaseReservedInstancesOffering
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
     { _priorReservedInstancesId :: !(Maybe Text)
     , _priorStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedInstancesOfferingResponse' smart constructor.
 purchaseReservedInstancesOfferingResponse :: Int -> PurchaseReservedInstancesOfferingResponse

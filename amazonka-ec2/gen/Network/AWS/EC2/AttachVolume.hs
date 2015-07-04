@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AttachVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -93,7 +95,7 @@ data AttachVolume = AttachVolume'
     , _avVolumeId   :: !Text
     , _avInstanceId :: !Text
     , _avDevice     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVolume' smart constructor.
 attachVolume :: Text -> Text -> Text -> AttachVolume

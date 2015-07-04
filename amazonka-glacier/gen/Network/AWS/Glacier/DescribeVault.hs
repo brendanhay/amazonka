@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.DescribeVault
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ import           Network.AWS.Response
 data DescribeVault = DescribeVault'
     { _dvAccountId :: !Text
     , _dvVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVault' smart constructor.
 describeVault :: Text -> Text -> DescribeVault

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.CreateKey
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data CreateKey = CreateKey'
     { _ckKeyUsage    :: !(Maybe KeyUsageType)
     , _ckPolicy      :: !(Maybe Text)
     , _ckDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKey' smart constructor.
 createKey :: CreateKey
@@ -127,7 +129,7 @@ instance ToQuery CreateKey where
 data CreateKeyResponse = CreateKeyResponse'
     { _ckrKeyMetadata :: !(Maybe KeyMetadata)
     , _ckrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKeyResponse' smart constructor.
 createKeyResponse :: Int -> CreateKeyResponse

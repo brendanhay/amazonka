@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateDomainNameservers
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data UpdateDomainNameservers = UpdateDomainNameservers'
     { _udnFIAuthKey   :: !(Maybe Text)
     , _udnDomainName  :: !Text
     , _udnNameservers :: ![Nameserver]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainNameservers' smart constructor.
 updateDomainNameservers :: Text -> UpdateDomainNameservers
@@ -150,7 +152,7 @@ instance ToQuery UpdateDomainNameservers where
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
     { _udnrStatus      :: !Int
     , _udnrOperationId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainNameserversResponse' smart constructor.
 updateDomainNameserversResponse :: Int -> Text -> UpdateDomainNameserversResponse

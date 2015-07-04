@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteReplicationGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data DeleteReplicationGroup = DeleteReplicationGroup'
     { _drgFinalSnapshotIdentifier :: !(Maybe Text)
     , _drgRetainPrimaryCluster    :: !(Maybe Bool)
     , _drgReplicationGroupId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReplicationGroup' smart constructor.
 deleteReplicationGroup :: Text -> DeleteReplicationGroup
@@ -131,7 +133,7 @@ instance ToQuery DeleteReplicationGroup where
 data DeleteReplicationGroupResponse = DeleteReplicationGroupResponse'
     { _delReplicationGroup :: !(Maybe ReplicationGroup)
     , _delStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReplicationGroupResponse' smart constructor.
 deleteReplicationGroupResponse :: Int -> DeleteReplicationGroupResponse

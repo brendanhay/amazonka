@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.ReEncrypt
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data ReEncrypt = ReEncrypt'
     , _reGrantTokens                  :: !(Maybe [Text])
     , _reCiphertextBlob               :: !Base64
     , _reDestinationKeyId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReEncrypt' smart constructor.
 reEncrypt :: Base64 -> Text -> ReEncrypt
@@ -177,7 +179,7 @@ data ReEncryptResponse = ReEncryptResponse'
     , _rerKeyId          :: !(Maybe Text)
     , _rerCiphertextBlob :: !(Maybe Base64)
     , _rerStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReEncryptResponse' smart constructor.
 reEncryptResponse :: Int -> ReEncryptResponse

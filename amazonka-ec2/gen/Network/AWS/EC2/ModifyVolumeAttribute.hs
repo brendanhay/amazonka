@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ModifyVolumeAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data ModifyVolumeAttribute = ModifyVolumeAttribute'
     { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
     , _mvaDryRun       :: !(Maybe Bool)
     , _mvaVolumeId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVolumeAttribute' smart constructor.
 modifyVolumeAttribute :: Text -> ModifyVolumeAttribute
@@ -112,7 +114,7 @@ instance ToQuery ModifyVolumeAttribute where
 -- | /See:/ 'modifyVolumeAttributeResponse' smart constructor.
 data ModifyVolumeAttributeResponse =
     ModifyVolumeAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVolumeAttributeResponse' smart constructor.
 modifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.DeleteVaultAccessPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data DeleteVaultAccessPolicy = DeleteVaultAccessPolicy'
     { _dvapAccountId :: !Text
     , _dvapVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultAccessPolicy' smart constructor.
 deleteVaultAccessPolicy :: Text -> Text -> DeleteVaultAccessPolicy
@@ -104,7 +106,7 @@ instance ToQuery DeleteVaultAccessPolicy where
 -- | /See:/ 'deleteVaultAccessPolicyResponse' smart constructor.
 data DeleteVaultAccessPolicyResponse =
     DeleteVaultAccessPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultAccessPolicyResponse' smart constructor.
 deleteVaultAccessPolicyResponse :: DeleteVaultAccessPolicyResponse

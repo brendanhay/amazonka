@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateApp
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -90,7 +92,7 @@ data UpdateApp = UpdateApp'
     , _uaDomains          :: !(Maybe [Text])
     , _uaDescription      :: !(Maybe Text)
     , _uaAppId            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApp' smart constructor.
 updateApp :: Text -> UpdateApp
@@ -206,7 +208,7 @@ instance ToQuery UpdateApp where
 -- | /See:/ 'updateAppResponse' smart constructor.
 data UpdateAppResponse =
     UpdateAppResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAppResponse' smart constructor.
 updateAppResponse :: UpdateAppResponse

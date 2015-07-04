@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CancelBundleTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data CancelBundleTask = CancelBundleTask'
     { _cbtDryRun   :: !(Maybe Bool)
     , _cbtBundleId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelBundleTask' smart constructor.
 cancelBundleTask :: Text -> CancelBundleTask
@@ -106,7 +108,7 @@ instance ToQuery CancelBundleTask where
 data CancelBundleTaskResponse = CancelBundleTaskResponse'
     { _cbtrBundleTask :: !(Maybe BundleTask)
     , _cbtrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelBundleTaskResponse' smart constructor.
 cancelBundleTaskResponse :: Int -> CancelBundleTaskResponse

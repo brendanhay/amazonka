@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.GetTopicAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.SNS.Types
 -- * 'gtaTopicARN'
 newtype GetTopicAttributes = GetTopicAttributes'
     { _gtaTopicARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTopicAttributes' smart constructor.
 getTopicAttributes :: Text -> GetTopicAttributes
@@ -101,7 +103,7 @@ instance ToQuery GetTopicAttributes where
 data GetTopicAttributesResponse = GetTopicAttributesResponse'
     { _gtarAttributes :: !(Maybe (Map Text Text))
     , _gtarStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTopicAttributesResponse' smart constructor.
 getTopicAttributesResponse :: Int -> GetTopicAttributesResponse

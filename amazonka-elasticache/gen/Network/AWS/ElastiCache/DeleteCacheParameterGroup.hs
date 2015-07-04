@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 -- * 'delCacheParameterGroupName'
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
     { _delCacheParameterGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheParameterGroup' smart constructor.
 deleteCacheParameterGroup :: Text -> DeleteCacheParameterGroup
@@ -90,7 +92,7 @@ instance ToQuery DeleteCacheParameterGroup where
 -- | /See:/ 'deleteCacheParameterGroupResponse' smart constructor.
 data DeleteCacheParameterGroupResponse =
     DeleteCacheParameterGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheParameterGroupResponse' smart constructor.
 deleteCacheParameterGroupResponse :: DeleteCacheParameterGroupResponse

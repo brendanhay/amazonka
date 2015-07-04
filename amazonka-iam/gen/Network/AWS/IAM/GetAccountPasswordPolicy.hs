@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetAccountPasswordPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -43,7 +45,7 @@ import           Network.AWS.Response
 -- | /See:/ 'getAccountPasswordPolicy' smart constructor.
 data GetAccountPasswordPolicy =
     GetAccountPasswordPolicy'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountPasswordPolicy' smart constructor.
 getAccountPasswordPolicy :: GetAccountPasswordPolicy
@@ -86,7 +88,7 @@ instance ToQuery GetAccountPasswordPolicy where
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
     { _gapprStatus         :: !Int
     , _gapprPasswordPolicy :: !PasswordPolicy
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountPasswordPolicyResponse' smart constructor.
 getAccountPasswordPolicyResponse :: Int -> PasswordPolicy -> GetAccountPasswordPolicyResponse

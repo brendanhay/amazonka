@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyCacheCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -112,7 +114,7 @@ data ModifyCacheCluster = ModifyCacheCluster'
     , _mccNumCacheNodes              :: !(Maybe Int)
     , _mccCacheSecurityGroupNames    :: !(Maybe [Text])
     , _mccCacheClusterId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheCluster' smart constructor.
 modifyCacheCluster :: Text -> ModifyCacheCluster
@@ -430,7 +432,7 @@ instance ToQuery ModifyCacheCluster where
 data ModifyCacheClusterResponse = ModifyCacheClusterResponse'
     { _mccrCacheCluster :: !(Maybe CacheCluster)
     , _mccrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCacheClusterResponse' smart constructor.
 modifyCacheClusterResponse :: Int -> ModifyCacheClusterResponse

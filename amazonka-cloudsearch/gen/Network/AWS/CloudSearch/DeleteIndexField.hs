@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteIndexField
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 data DeleteIndexField = DeleteIndexField'
     { _dif1DomainName     :: !Text
     , _dif1IndexFieldName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIndexField' smart constructor.
 deleteIndexField :: Text -> Text -> DeleteIndexField
@@ -113,7 +115,7 @@ instance ToQuery DeleteIndexField where
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
     { _difrStatus     :: !Int
     , _difrIndexField :: !IndexFieldStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
 deleteIndexFieldResponse :: Int -> IndexFieldStatus -> DeleteIndexFieldResponse

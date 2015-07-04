@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.CompleteMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
     , _comBucket          :: !BucketName
     , _comKey             :: !ObjectKey
     , _comUploadId        :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: BucketName -> ObjectKey -> Text -> CompleteMultipartUpload
@@ -178,7 +180,7 @@ data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
     , _cSSEKMSKeyId          :: !(Maybe (Sensitive Text))
     , _cServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _cStatus               :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUploadResponse' smart constructor.
 completeMultipartUploadResponse :: Int -> CompleteMultipartUploadResponse

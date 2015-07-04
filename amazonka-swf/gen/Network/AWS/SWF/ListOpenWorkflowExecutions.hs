@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.ListOpenWorkflowExecutions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -107,7 +109,7 @@ data ListOpenWorkflowExecutions = ListOpenWorkflowExecutions'
     , _loweMaximumPageSize :: !(Maybe Nat)
     , _loweDomain          :: !Text
     , _loweStartTimeFilter :: !ExecutionTimeFilter
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOpenWorkflowExecutions' smart constructor.
 listOpenWorkflowExecutions :: Text -> ExecutionTimeFilter -> ListOpenWorkflowExecutions

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.DeleteIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.SES.Types
 -- * 'diIdentity'
 newtype DeleteIdentity = DeleteIdentity'
     { _diIdentity :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentity' smart constructor.
 deleteIdentity :: Text -> DeleteIdentity
@@ -98,7 +100,7 @@ instance ToQuery DeleteIdentity where
 -- * 'dirStatus'
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
     { _dirStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentityResponse' smart constructor.
 deleteIdentityResponse :: Int -> DeleteIdentityResponse

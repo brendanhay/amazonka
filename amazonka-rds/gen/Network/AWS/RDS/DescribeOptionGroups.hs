@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeOptionGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data DescribeOptionGroups = DescribeOptionGroups'
     , _dogMaxRecords         :: !(Maybe Int)
     , _dogMarker             :: !(Maybe Text)
     , _dogOptionGroupName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOptionGroups' smart constructor.
 describeOptionGroups :: DescribeOptionGroups
@@ -177,7 +179,7 @@ data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
     { _dogrMarker           :: !(Maybe Text)
     , _dogrOptionGroupsList :: !(Maybe [OptionGroup])
     , _dogrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOptionGroupsResponse' smart constructor.
 describeOptionGroupsResponse :: Int -> DescribeOptionGroupsResponse

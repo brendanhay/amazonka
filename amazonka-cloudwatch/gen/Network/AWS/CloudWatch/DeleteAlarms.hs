@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.DeleteAlarms
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -45,7 +47,7 @@ import           Network.AWS.Response
 -- * 'delAlarmNames'
 newtype DeleteAlarms = DeleteAlarms'
     { _delAlarmNames :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAlarms' smart constructor.
 deleteAlarms :: DeleteAlarms
@@ -80,7 +82,7 @@ instance ToQuery DeleteAlarms where
 -- | /See:/ 'deleteAlarmsResponse' smart constructor.
 data DeleteAlarmsResponse =
     DeleteAlarmsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAlarmsResponse' smart constructor.
 deleteAlarmsResponse :: DeleteAlarmsResponse

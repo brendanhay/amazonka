@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.STS.DecodeAuthorizationMessage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ import           Network.AWS.STS.Types
 -- * 'damEncodedMessage'
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage'
     { _damEncodedMessage :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DecodeAuthorizationMessage' smart constructor.
 decodeAuthorizationMessage :: Text -> DecodeAuthorizationMessage
@@ -128,7 +130,7 @@ instance ToQuery DecodeAuthorizationMessage where
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
     { _damrDecodedMessage :: !(Maybe Text)
     , _damrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DecodeAuthorizationMessageResponse' smart constructor.
 decodeAuthorizationMessageResponse :: Int -> DecodeAuthorizationMessageResponse

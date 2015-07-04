@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.UpdateStreamingDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data UpdateStreamingDistribution = UpdateStreamingDistribution'
     { _usdIfMatch                     :: !(Maybe Text)
     , _usdStreamingDistributionConfig :: !StreamingDistributionConfig
     , _usdId                          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStreamingDistribution' smart constructor.
 updateStreamingDistribution :: StreamingDistributionConfig -> Text -> UpdateStreamingDistribution
@@ -129,7 +131,7 @@ data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
     { _usdrETag                  :: !(Maybe Text)
     , _usdrStreamingDistribution :: !(Maybe StreamingDistribution)
     , _usdrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStreamingDistributionResponse' smart constructor.
 updateStreamingDistributionResponse :: Int -> UpdateStreamingDistributionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.UpdateFunctionConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
     , _ufcTimeout      :: !(Maybe Nat)
     , _ufcDescription  :: !(Maybe Text)
     , _ufcFunctionName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateFunctionConfiguration' smart constructor.
 updateFunctionConfiguration :: Text -> UpdateFunctionConfiguration

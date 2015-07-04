@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.DescribeServices
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data DescribeServices = DescribeServices'
     { _desCluster  :: !(Maybe Text)
     , _desServices :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
@@ -117,7 +119,7 @@ data DescribeServicesResponse = DescribeServicesResponse'
     { _dFailures :: !(Maybe [Failure])
     , _dServices :: !(Maybe [ContainerService])
     , _dStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse

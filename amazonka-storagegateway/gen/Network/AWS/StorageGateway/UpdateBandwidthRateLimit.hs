@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateBandwidthRateLimit
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
     { _ubrlAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
     , _ubrlAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
     , _ubrlGatewayARN                           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBandwidthRateLimit' smart constructor.
 updateBandwidthRateLimit :: Text -> UpdateBandwidthRateLimit
@@ -143,7 +145,7 @@ instance ToQuery UpdateBandwidthRateLimit where
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
     { _ubrlrGatewayARN :: !(Maybe Text)
     , _ubrlrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBandwidthRateLimitResponse' smart constructor.
 updateBandwidthRateLimitResponse :: Int -> UpdateBandwidthRateLimitResponse

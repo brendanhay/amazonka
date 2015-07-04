@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CheckDNSAvailability
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'cdaCNAMEPrefix'
 newtype CheckDNSAvailability = CheckDNSAvailability'
     { _cdaCNAMEPrefix :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CheckDNSAvailability' smart constructor.
 checkDNSAvailability :: Text -> CheckDNSAvailability
@@ -103,7 +105,7 @@ data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
     { _cdarFullyQualifiedCNAME :: !(Maybe Text)
     , _cdarAvailable           :: !(Maybe Bool)
     , _cdarStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CheckDNSAvailabilityResponse' smart constructor.
 checkDNSAvailabilityResponse :: Int -> CheckDNSAvailabilityResponse

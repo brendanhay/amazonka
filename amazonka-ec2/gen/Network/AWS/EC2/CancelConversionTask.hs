@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CancelConversionTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data CancelConversionTask = CancelConversionTask'
     { _cctReasonMessage    :: !(Maybe Text)
     , _cctDryRun           :: !(Maybe Bool)
     , _cctConversionTaskId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelConversionTask' smart constructor.
 cancelConversionTask :: Text -> CancelConversionTask
@@ -111,7 +113,7 @@ instance ToQuery CancelConversionTask where
 -- | /See:/ 'cancelConversionTaskResponse' smart constructor.
 data CancelConversionTaskResponse =
     CancelConversionTaskResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelConversionTaskResponse' smart constructor.
 cancelConversionTaskResponse :: CancelConversionTaskResponse

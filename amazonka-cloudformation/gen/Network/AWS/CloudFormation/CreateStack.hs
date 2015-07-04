@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.CreateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -95,7 +97,7 @@ data CreateStack = CreateStack'
     , _csTags             :: !(Maybe [Tag])
     , _csTimeoutInMinutes :: !(Maybe Nat)
     , _csStackName        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStack' smart constructor.
 createStack :: Text -> CreateStack
@@ -271,7 +273,7 @@ instance ToQuery CreateStack where
 data CreateStackResponse = CreateStackResponse'
     { _csrStackId :: !(Maybe Text)
     , _csrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStackResponse' smart constructor.
 createStackResponse :: Int -> CreateStackResponse

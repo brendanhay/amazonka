@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketLifecycle
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.S3.Types
 -- * 'getBucket'
 newtype GetBucketLifecycle = GetBucketLifecycle'
     { _getBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLifecycle' smart constructor.
 getBucketLifecycle :: BucketName -> GetBucketLifecycle
@@ -92,7 +94,7 @@ instance ToQuery GetBucketLifecycle where
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
     { _gblrRules  :: !(Maybe [Rule])
     , _gblrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLifecycleResponse' smart constructor.
 getBucketLifecycleResponse :: Int -> GetBucketLifecycleResponse

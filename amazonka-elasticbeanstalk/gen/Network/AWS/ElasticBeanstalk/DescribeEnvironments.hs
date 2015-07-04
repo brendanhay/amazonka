@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeEnvironments
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data DescribeEnvironments = DescribeEnvironments'
     , _desIncludedDeletedBackTo :: !(Maybe ISO8601)
     , _desApplicationName       :: !(Maybe Text)
     , _desIncludeDeleted        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironments' smart constructor.
 describeEnvironments :: DescribeEnvironments
@@ -164,7 +166,7 @@ instance ToQuery DescribeEnvironments where
 data DescribeEnvironmentsResponse = DescribeEnvironmentsResponse'
     { _desEnvironments :: !(Maybe [EnvironmentDescription])
     , _desStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironmentsResponse' smart constructor.
 describeEnvironmentsResponse :: Int -> DescribeEnvironmentsResponse

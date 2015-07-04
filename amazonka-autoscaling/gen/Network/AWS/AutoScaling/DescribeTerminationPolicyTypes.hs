@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -41,7 +43,7 @@ import           Network.AWS.Response
 -- | /See:/ 'describeTerminationPolicyTypes' smart constructor.
 data DescribeTerminationPolicyTypes =
     DescribeTerminationPolicyTypes'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTerminationPolicyTypes' smart constructor.
 describeTerminationPolicyTypes :: DescribeTerminationPolicyTypes
@@ -87,7 +89,7 @@ instance ToQuery DescribeTerminationPolicyTypes where
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
     { _dtptrTerminationPolicyTypes :: !(Maybe [Text])
     , _dtptrStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTerminationPolicyTypesResponse' smart constructor.
 describeTerminationPolicyTypesResponse :: Int -> DescribeTerminationPolicyTypesResponse

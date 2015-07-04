@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ModifyImageAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -84,7 +86,7 @@ data ModifyImageAttribute = ModifyImageAttribute'
     , _miaDryRun           :: !(Maybe Bool)
     , _miaDescription      :: !(Maybe AttributeValue)
     , _miaImageId          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyImageAttribute' smart constructor.
 modifyImageAttribute :: Text -> ModifyImageAttribute
@@ -183,7 +185,7 @@ instance ToQuery ModifyImageAttribute where
 -- | /See:/ 'modifyImageAttributeResponse' smart constructor.
 data ModifyImageAttributeResponse =
     ModifyImageAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyImageAttributeResponse' smart constructor.
 modifyImageAttributeResponse :: ModifyImageAttributeResponse

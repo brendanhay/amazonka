@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.AttachGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data AttachGroupPolicy = AttachGroupPolicy'
     { _agpGroupName :: !Text
     , _agpPolicyARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachGroupPolicy' smart constructor.
 attachGroupPolicy :: Text -> Text -> AttachGroupPolicy
@@ -96,7 +98,7 @@ instance ToQuery AttachGroupPolicy where
 -- | /See:/ 'attachGroupPolicyResponse' smart constructor.
 data AttachGroupPolicyResponse =
     AttachGroupPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachGroupPolicyResponse' smart constructor.
 attachGroupPolicyResponse :: AttachGroupPolicyResponse

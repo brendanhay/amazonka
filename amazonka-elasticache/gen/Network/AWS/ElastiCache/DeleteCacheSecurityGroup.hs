@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteCacheSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'dcsgCacheSecurityGroupName'
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
     { _dcsgCacheSecurityGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheSecurityGroup' smart constructor.
 deleteCacheSecurityGroup :: Text -> DeleteCacheSecurityGroup
@@ -90,7 +92,7 @@ instance ToQuery DeleteCacheSecurityGroup where
 -- | /See:/ 'deleteCacheSecurityGroupResponse' smart constructor.
 data DeleteCacheSecurityGroupResponse =
     DeleteCacheSecurityGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheSecurityGroupResponse' smart constructor.
 deleteCacheSecurityGroupResponse :: DeleteCacheSecurityGroupResponse

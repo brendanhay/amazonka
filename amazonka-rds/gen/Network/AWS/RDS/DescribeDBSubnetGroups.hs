@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBSubnetGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data DescribeDBSubnetGroups = DescribeDBSubnetGroups'
     , _ddsgFilters           :: !(Maybe [Filter])
     , _ddsgMaxRecords        :: !(Maybe Int)
     , _ddsgMarker            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBSubnetGroups' smart constructor.
 describeDBSubnetGroups :: DescribeDBSubnetGroups
@@ -161,7 +163,7 @@ data DescribeDBSubnetGroupsResponse = DescribeDBSubnetGroupsResponse'
     { _ddsgrDBSubnetGroups :: !(Maybe [DBSubnetGroup])
     , _ddsgrMarker         :: !(Maybe Text)
     , _ddsgrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBSubnetGroupsResponse' smart constructor.
 describeDBSubnetGroupsResponse :: Int -> DescribeDBSubnetGroupsResponse

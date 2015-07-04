@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.AddAttachmentsToSet
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ import           Network.AWS.Support.Types
 data AddAttachmentsToSet = AddAttachmentsToSet'
     { _aatsAttachmentSetId :: !(Maybe Text)
     , _aatsAttachments     :: ![Attachment]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddAttachmentsToSet' smart constructor.
 addAttachmentsToSet :: AddAttachmentsToSet
@@ -134,7 +136,7 @@ data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
     { _aatsrExpiryTime      :: !(Maybe Text)
     , _aatsrAttachmentSetId :: !(Maybe Text)
     , _aatsrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddAttachmentsToSetResponse' smart constructor.
 addAttachmentsToSetResponse :: Int -> AddAttachmentsToSetResponse

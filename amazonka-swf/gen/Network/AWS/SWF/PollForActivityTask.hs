@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.PollForActivityTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -92,7 +94,7 @@ data PollForActivityTask = PollForActivityTask'
     { _pfatIdentity :: !(Maybe Text)
     , _pfatDomain   :: !Text
     , _pfatTaskList :: !TaskList
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForActivityTask' smart constructor.
 pollForActivityTask :: Text -> TaskList -> PollForActivityTask
@@ -188,7 +190,7 @@ data PollForActivityTaskResponse = PollForActivityTaskResponse'
     , _pfatrStartedEventId    :: !Integer
     , _pfatrWorkflowExecution :: !WorkflowExecution
     , _pfatrActivityType      :: !ActivityType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForActivityTaskResponse' smart constructor.
 pollForActivityTaskResponse :: Int -> Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> PollForActivityTaskResponse

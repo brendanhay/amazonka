@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.DeleteTopic
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.SNS.Types
 -- * 'dtTopicARN'
 newtype DeleteTopic = DeleteTopic'
     { _dtTopicARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTopic' smart constructor.
 deleteTopic :: Text -> DeleteTopic
@@ -82,7 +84,7 @@ instance ToQuery DeleteTopic where
 -- | /See:/ 'deleteTopicResponse' smart constructor.
 data DeleteTopicResponse =
     DeleteTopicResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTopicResponse' smart constructor.
 deleteTopicResponse :: DeleteTopicResponse

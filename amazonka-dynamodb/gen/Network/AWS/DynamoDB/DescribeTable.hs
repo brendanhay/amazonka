@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.DescribeTable
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 -- * 'desTableName'
 newtype DescribeTable = DescribeTable'
     { _desTableName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTable' smart constructor.
 describeTable :: Text -> DescribeTable
@@ -111,7 +113,7 @@ instance ToQuery DescribeTable where
 data DescribeTableResponse = DescribeTableResponse'
     { _desTable  :: !(Maybe TableDescription)
     , _desStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTableResponse' smart constructor.
 describeTableResponse :: Int -> DescribeTableResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPNGateways
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeVPNGateways = DescribeVPNGateways'
     { _dvpngFilters       :: !(Maybe [Filter])
     , _dvpngDryRun        :: !(Maybe Bool)
     , _dvpngVPNGatewayIds :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNGateways' smart constructor.
 describeVPNGateways :: DescribeVPNGateways
@@ -158,7 +160,7 @@ instance ToQuery DescribeVPNGateways where
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
     { _dvgrVPNGateways :: !(Maybe [VPNGateway])
     , _dvgrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNGatewaysResponse' smart constructor.
 describeVPNGatewaysResponse :: Int -> DescribeVPNGatewaysResponse

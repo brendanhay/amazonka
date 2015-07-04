@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.Query
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -144,7 +146,7 @@ data Query = Query'
     , _queExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
     , _queIndexName                 :: !(Maybe Text)
     , _queTableName                 :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Query' smart constructor.
 query :: Text -> Query
@@ -768,7 +770,7 @@ data QueryResponse = QueryResponse'
     , _qrItems            :: !(Maybe [Map Text AttributeValue])
     , _qrConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _qrStatus           :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'QueryResponse' smart constructor.
 queryResponse :: Int -> QueryResponse

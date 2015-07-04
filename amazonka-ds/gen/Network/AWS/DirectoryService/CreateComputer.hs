@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.CreateComputer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ data CreateComputer = CreateComputer'
     , _ccDirectoryId                         :: !Text
     , _ccComputerName                        :: !Text
     , _ccPassword                            :: !(Sensitive Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateComputer' smart constructor.
 createComputer :: Text -> Text -> Text -> CreateComputer
@@ -150,7 +152,7 @@ instance ToQuery CreateComputer where
 data CreateComputerResponse = CreateComputerResponse'
     { _ccrComputer :: !(Maybe Computer)
     , _ccrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateComputerResponse' smart constructor.
 createComputerResponse :: Int -> CreateComputerResponse

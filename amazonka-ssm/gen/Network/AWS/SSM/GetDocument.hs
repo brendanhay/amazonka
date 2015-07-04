@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.GetDocument
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.SSM.Types
 -- * 'gdName'
 newtype GetDocument = GetDocument'
     { _gdName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDocument' smart constructor.
 getDocument :: Text -> GetDocument
@@ -103,7 +105,7 @@ data GetDocumentResponse = GetDocumentResponse'
     { _gdrContent :: !(Maybe Text)
     , _gdrName    :: !(Maybe Text)
     , _gdrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDocumentResponse' smart constructor.
 getDocumentResponse :: Int -> GetDocumentResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
     { _asgtlbLoadBalancerName :: !Text
     , _asgtlbSecurityGroups   :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplySecurityGroupsToLoadBalancer' smart constructor.
 applySecurityGroupsToLoadBalancer :: Text -> ApplySecurityGroupsToLoadBalancer
@@ -120,7 +122,7 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
     { _asgtlbrSecurityGroups :: !(Maybe [Text])
     , _asgtlbrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 applySecurityGroupsToLoadBalancerResponse :: Int -> ApplySecurityGroupsToLoadBalancerResponse

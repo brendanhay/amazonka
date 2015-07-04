@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateAccessKey
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data UpdateAccessKey = UpdateAccessKey'
     { _uakUserName    :: !(Maybe Text)
     , _uakAccessKeyId :: !Text
     , _uakStatus      :: !StatusType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAccessKey' smart constructor.
 updateAccessKey :: Text -> StatusType -> UpdateAccessKey
@@ -113,7 +115,7 @@ instance ToQuery UpdateAccessKey where
 -- | /See:/ 'updateAccessKeyResponse' smart constructor.
 data UpdateAccessKeyResponse =
     UpdateAccessKeyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAccessKeyResponse' smart constructor.
 updateAccessKeyResponse :: UpdateAccessKeyResponse

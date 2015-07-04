@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteSuggester
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data DeleteSuggester = DeleteSuggester'
     { _deleDomainName    :: !Text
     , _deleSuggesterName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSuggester' smart constructor.
 deleteSuggester :: Text -> Text -> DeleteSuggester
@@ -112,7 +114,7 @@ instance ToQuery DeleteSuggester where
 data DeleteSuggesterResponse = DeleteSuggesterResponse'
     { _deleStatus    :: !Int
     , _deleSuggester :: !SuggesterStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSuggesterResponse' smart constructor.
 deleteSuggesterResponse :: Int -> SuggesterStatus -> DeleteSuggesterResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.CreateDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'cdDistributionConfig'
 newtype CreateDistribution = CreateDistribution'
     { _cdDistributionConfig :: DistributionConfig
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDistribution' smart constructor.
 createDistribution :: DistributionConfig -> CreateDistribution
@@ -111,7 +113,7 @@ data CreateDistributionResponse = CreateDistributionResponse'
     , _cdrDistribution :: !(Maybe Distribution)
     , _cdrLocation     :: !(Maybe Text)
     , _cdrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDistributionResponse' smart constructor.
 createDistributionResponse :: Int -> CreateDistributionResponse

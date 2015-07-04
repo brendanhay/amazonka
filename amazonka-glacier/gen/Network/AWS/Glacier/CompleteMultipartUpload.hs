@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.CompleteMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -116,7 +118,7 @@ data CompleteMultipartUpload = CompleteMultipartUpload'
     , _cmuAccountId   :: !Text
     , _cmuVaultName   :: !Text
     , _cmuUploadId    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: Text -> Text -> Text -> CompleteMultipartUpload

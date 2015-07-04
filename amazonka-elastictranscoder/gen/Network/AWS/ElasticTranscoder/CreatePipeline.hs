@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data CreatePipeline = CreatePipeline'
     , _creName            :: !Text
     , _creInputBucket     :: !Text
     , _creRole            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> Text -> CreatePipeline
@@ -338,7 +340,7 @@ data CreatePipelineResponse = CreatePipelineResponse'
     { _creWarnings :: !(Maybe [Warning])
     , _crePipeline :: !(Maybe Pipeline)
     , _creStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> CreatePipelineResponse

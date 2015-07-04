@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteAccountPasswordPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -38,7 +40,7 @@ import           Network.AWS.Response
 -- | /See:/ 'deleteAccountPasswordPolicy' smart constructor.
 data DeleteAccountPasswordPolicy =
     DeleteAccountPasswordPolicy'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccountPasswordPolicy' smart constructor.
 deleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy
@@ -69,7 +71,7 @@ instance ToQuery DeleteAccountPasswordPolicy where
 -- | /See:/ 'deleteAccountPasswordPolicyResponse' smart constructor.
 data DeleteAccountPasswordPolicyResponse =
     DeleteAccountPasswordPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAccountPasswordPolicyResponse' smart constructor.
 deleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.ModifyEventSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data ModifyEventSubscription = ModifyEventSubscription'
     , _mesEventCategories  :: !(Maybe [Text])
     , _mesSourceIds        :: !(Maybe [Text])
     , _mesSubscriptionName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyEventSubscription' smart constructor.
 modifyEventSubscription :: Text -> ModifyEventSubscription
@@ -185,7 +187,7 @@ instance ToQuery ModifyEventSubscription where
 data ModifyEventSubscriptionResponse = ModifyEventSubscriptionResponse'
     { _mesrEventSubscription :: !(Maybe EventSubscription)
     , _mesrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyEventSubscriptionResponse' smart constructor.
 modifyEventSubscriptionResponse :: Int -> ModifyEventSubscriptionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress
     , _acsgiEC2SecurityGroupName     :: !(Maybe Text)
     , _acsgiCIDRIP                   :: !(Maybe Text)
     , _acsgiClusterSecurityGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeClusterSecurityGroupIngress' smart constructor.
 authorizeClusterSecurityGroupIngress :: Text -> AuthorizeClusterSecurityGroupIngress
@@ -159,7 +161,7 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
     { _acsgirClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _acsgirStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResponse' smart constructor.
 authorizeClusterSecurityGroupIngressResponse :: Int -> AuthorizeClusterSecurityGroupIngressResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.DeleteRealtimeEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 -- * 'dreMLModelId'
 newtype DeleteRealtimeEndpoint = DeleteRealtimeEndpoint'
     { _dreMLModelId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRealtimeEndpoint' smart constructor.
 deleteRealtimeEndpoint :: Text -> DeleteRealtimeEndpoint
@@ -112,7 +114,7 @@ data DeleteRealtimeEndpointResponse = DeleteRealtimeEndpointResponse'
     { _drerRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
     , _drerMLModelId            :: !(Maybe Text)
     , _drerStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRealtimeEndpointResponse' smart constructor.
 deleteRealtimeEndpointResponse :: Int -> DeleteRealtimeEndpointResponse

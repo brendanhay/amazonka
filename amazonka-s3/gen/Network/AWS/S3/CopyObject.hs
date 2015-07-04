@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.CopyObject
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -174,7 +176,7 @@ data CopyObject = CopyObject'
     , _coBucket                         :: !BucketName
     , _coCopySource                     :: !Text
     , _coKey                            :: !ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CopyObject' smart constructor.
 copyObject :: BucketName -> Text -> ObjectKey -> CopyObject
@@ -468,7 +470,7 @@ data CopyObjectResponse = CopyObjectResponse'
     , _corServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _corCopyObjectResult     :: !(Maybe CopyObjectResult)
     , _corStatus               :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CopyObjectResponse' smart constructor.
 copyObjectResponse :: Int -> CopyObjectResponse

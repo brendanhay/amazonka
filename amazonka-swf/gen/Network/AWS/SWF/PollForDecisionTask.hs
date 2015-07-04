@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.PollForDecisionTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -117,7 +119,7 @@ data PollForDecisionTask = PollForDecisionTask'
     , _pfdtMaximumPageSize :: !(Maybe Nat)
     , _pfdtDomain          :: !Text
     , _pfdtTaskList        :: !TaskList
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForDecisionTask' smart constructor.
 pollForDecisionTask :: Text -> TaskList -> PollForDecisionTask
@@ -267,7 +269,7 @@ data PollForDecisionTaskResponse = PollForDecisionTaskResponse'
     , _pfdtrWorkflowExecution      :: !WorkflowExecution
     , _pfdtrWorkflowType           :: !WorkflowType
     , _pfdtrEvents                 :: ![HistoryEvent]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForDecisionTaskResponse' smart constructor.
 pollForDecisionTaskResponse :: Int -> Text -> Integer -> WorkflowExecution -> WorkflowType -> PollForDecisionTaskResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.PurgeQueue
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.SQS.Types
 -- * 'pqQueueURL'
 newtype PurgeQueue = PurgeQueue'
     { _pqQueueURL :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurgeQueue' smart constructor.
 purgeQueue :: Text -> PurgeQueue
@@ -90,7 +92,7 @@ instance ToQuery PurgeQueue where
 -- | /See:/ 'purgeQueueResponse' smart constructor.
 data PurgeQueueResponse =
     PurgeQueueResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurgeQueueResponse' smart constructor.
 purgeQueueResponse :: PurgeQueueResponse

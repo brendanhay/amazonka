@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.DisableDomainAutoRenew
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Route53Domains.Types
 -- * 'ddarDomainName'
 newtype DisableDomainAutoRenew = DisableDomainAutoRenew'
     { _ddarDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableDomainAutoRenew' smart constructor.
 disableDomainAutoRenew :: Text -> DisableDomainAutoRenew
@@ -103,7 +105,7 @@ instance ToQuery DisableDomainAutoRenew where
 -- * 'ddarrStatus'
 newtype DisableDomainAutoRenewResponse = DisableDomainAutoRenewResponse'
     { _ddarrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableDomainAutoRenewResponse' smart constructor.
 disableDomainAutoRenewResponse :: Int -> DisableDomainAutoRenewResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.CreateCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'ccClusterName'
 newtype CreateCluster = CreateCluster'
     { _ccClusterName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: CreateCluster
@@ -105,7 +107,7 @@ instance ToQuery CreateCluster where
 data CreateClusterResponse = CreateClusterResponse'
     { _ccrCluster :: !(Maybe Cluster)
     , _ccrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Int -> CreateClusterResponse

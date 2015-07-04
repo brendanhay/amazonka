@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteServerCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 -- * 'dscServerCertificateName'
 newtype DeleteServerCertificate = DeleteServerCertificate'
     { _dscServerCertificateName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteServerCertificate' smart constructor.
 deleteServerCertificate :: Text -> DeleteServerCertificate
@@ -93,7 +95,7 @@ instance ToQuery DeleteServerCertificate where
 -- | /See:/ 'deleteServerCertificateResponse' smart constructor.
 data DeleteServerCertificateResponse =
     DeleteServerCertificateResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteServerCertificateResponse' smart constructor.
 deleteServerCertificateResponse :: DeleteServerCertificateResponse

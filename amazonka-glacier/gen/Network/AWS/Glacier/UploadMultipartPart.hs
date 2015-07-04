@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.UploadMultipartPart
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -117,7 +119,7 @@ data UploadMultipartPart = UploadMultipartPart'
     , _umpVaultName :: !Text
     , _umpUploadId  :: !Text
     , _umpBody      :: !RqBody
-    } deriving (Show)
+    } deriving (Show,Data,Typeable,Generic)
 
 -- | 'UploadMultipartPart' smart constructor.
 uploadMultipartPart :: Text -> Text -> Text -> RqBody -> UploadMultipartPart
@@ -205,7 +207,7 @@ instance ToQuery UploadMultipartPart where
 data UploadMultipartPartResponse = UploadMultipartPartResponse'
     { _umprChecksum :: !(Maybe Text)
     , _umprStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadMultipartPartResponse' smart constructor.
 uploadMultipartPartResponse :: Int -> UploadMultipartPartResponse

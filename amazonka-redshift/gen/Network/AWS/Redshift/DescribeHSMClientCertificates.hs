@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeHSMClientCertificates
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
     , _dhccHSMClientCertificateIdentifier :: !(Maybe Text)
     , _dhccMaxRecords                     :: !(Maybe Int)
     , _dhccMarker                         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMClientCertificates' smart constructor.
 describeHSMClientCertificates :: DescribeHSMClientCertificates
@@ -200,7 +202,7 @@ data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesRespon
     { _dhccrMarker                :: !(Maybe Text)
     , _dhccrHSMClientCertificates :: !(Maybe [HSMClientCertificate])
     , _dhccrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMClientCertificatesResponse' smart constructor.
 describeHSMClientCertificatesResponse :: Int -> DescribeHSMClientCertificatesResponse

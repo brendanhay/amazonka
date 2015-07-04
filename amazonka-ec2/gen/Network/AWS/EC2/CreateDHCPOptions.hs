@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateDHCPOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -89,7 +91,7 @@ import           Network.AWS.Response
 data CreateDHCPOptions = CreateDHCPOptions'
     { _cdoDryRun             :: !(Maybe Bool)
     , _cdoDHCPConfigurations :: ![NewDHCPConfiguration]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDHCPOptions' smart constructor.
 createDHCPOptions :: CreateDHCPOptions
@@ -144,7 +146,7 @@ instance ToQuery CreateDHCPOptions where
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
     { _cdorDHCPOptions :: !(Maybe DHCPOptions)
     , _cdorStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDHCPOptionsResponse' smart constructor.
 createDHCPOptionsResponse :: Int -> CreateDHCPOptionsResponse

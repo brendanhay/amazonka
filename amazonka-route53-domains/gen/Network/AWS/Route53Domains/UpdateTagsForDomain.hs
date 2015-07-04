@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateTagsForDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Route53Domains.Types
 data UpdateTagsForDomain = UpdateTagsForDomain'
     { _utfdTagsToUpdate :: !(Maybe [Tag])
     , _utfdDomainName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTagsForDomain' smart constructor.
 updateTagsForDomain :: Text -> UpdateTagsForDomain
@@ -169,7 +171,7 @@ instance ToQuery UpdateTagsForDomain where
 -- * 'utfdrStatus'
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
     { _utfdrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTagsForDomainResponse' smart constructor.
 updateTagsForDomainResponse :: Int -> UpdateTagsForDomainResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.DeleteObjects
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data DeleteObjects = DeleteObjects'
     , _delRequestPayer :: !(Maybe RequestPayer)
     , _delBucket       :: !BucketName
     , _delDelete       :: !Delete
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObjects' smart constructor.
 deleteObjects :: BucketName -> Delete -> DeleteObjects
@@ -140,7 +142,7 @@ data DeleteObjectsResponse = DeleteObjectsResponse'
     , _delDeleted        :: !(Maybe [DeletedObject])
     , _delErrors         :: !(Maybe [S3ServiceError])
     , _delStatus         :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObjectsResponse' smart constructor.
 deleteObjectsResponse :: Int -> DeleteObjectsResponse

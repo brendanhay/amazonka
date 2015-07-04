@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeWorkingStorage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dwsGatewayARN'
 newtype DescribeWorkingStorage = DescribeWorkingStorage'
     { _dwsGatewayARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkingStorage' smart constructor.
 describeWorkingStorage :: Text -> DescribeWorkingStorage
@@ -130,7 +132,7 @@ data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
     , _dwsrWorkingStorageAllocatedInBytes :: !(Maybe Integer)
     , _dwsrWorkingStorageUsedInBytes      :: !(Maybe Integer)
     , _dwsrStatus                         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkingStorageResponse' smart constructor.
 describeWorkingStorageResponse :: Int -> DescribeWorkingStorageResponse

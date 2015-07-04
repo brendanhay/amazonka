@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.UpdateServiceAccessPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data UpdateServiceAccessPolicies = UpdateServiceAccessPolicies'
     { _usapDomainName     :: !Text
     , _usapAccessPolicies :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServiceAccessPolicies' smart constructor.
 updateServiceAccessPolicies :: Text -> Text -> UpdateServiceAccessPolicies
@@ -116,7 +118,7 @@ instance ToQuery UpdateServiceAccessPolicies where
 data UpdateServiceAccessPoliciesResponse = UpdateServiceAccessPoliciesResponse'
     { _usaprStatus         :: !Int
     , _usaprAccessPolicies :: !AccessPoliciesStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServiceAccessPoliciesResponse' smart constructor.
 updateServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> UpdateServiceAccessPoliciesResponse

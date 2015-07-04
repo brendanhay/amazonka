@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -1675,7 +1677,7 @@ instance AWSService EC2 where
 data AccountAttributeName
     = SupportedPlatforms
     | DefaultVPC
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AccountAttributeName where
     parser = takeLowerText >>= \case
@@ -1689,9 +1691,7 @@ instance ToText AccountAttributeName where
         DefaultVPC -> "default-vpc"
         SupportedPlatforms -> "supported-platforms"
 
-instance Hashable AccountAttributeName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AccountAttributeName
 instance ToQuery AccountAttributeName
 instance ToHeader AccountAttributeName
 
@@ -1699,7 +1699,7 @@ data AddressStatus
     = MoveInProgress
     | InVPC
     | InClassic
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AddressStatus where
     parser = takeLowerText >>= \case
@@ -1715,9 +1715,7 @@ instance ToText AddressStatus where
         InVPC -> "invpc"
         MoveInProgress -> "moveinprogress"
 
-instance Hashable AddressStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AddressStatus
 instance ToQuery AddressStatus
 instance ToHeader AddressStatus
 
@@ -1727,7 +1725,7 @@ instance FromXML AddressStatus where
 data ArchitectureValues
     = I386
     | X8664
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ArchitectureValues where
     parser = takeLowerText >>= \case
@@ -1741,9 +1739,7 @@ instance ToText ArchitectureValues where
         I386 -> "i386"
         X8664 -> "x86_64"
 
-instance Hashable ArchitectureValues where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ArchitectureValues
 instance ToQuery ArchitectureValues
 instance ToHeader ArchitectureValues
 
@@ -1755,7 +1751,7 @@ data AttachmentStatus
     | Detaching
     | Attached
     | Attaching
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AttachmentStatus where
     parser = takeLowerText >>= \case
@@ -1773,9 +1769,7 @@ instance ToText AttachmentStatus where
         Detached -> "detached"
         Detaching -> "detaching"
 
-instance Hashable AttachmentStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AttachmentStatus
 instance ToQuery AttachmentStatus
 instance ToHeader AttachmentStatus
 
@@ -1784,7 +1778,7 @@ instance FromXML AttachmentStatus where
 
 data AvailabilityZoneState =
     AZSAvailable
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AvailabilityZoneState where
     parser = takeLowerText >>= \case
@@ -1796,9 +1790,7 @@ instance ToText AvailabilityZoneState where
     toText = \case
         AZSAvailable -> "available"
 
-instance Hashable AvailabilityZoneState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AvailabilityZoneState
 instance ToQuery AvailabilityZoneState
 instance ToHeader AvailabilityZoneState
 
@@ -1812,7 +1804,7 @@ data BatchState
     | BSActive
     | BSCancelledRunning
     | BSCancelledTerminating
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BatchState where
     parser = takeLowerText >>= \case
@@ -1834,9 +1826,7 @@ instance ToText BatchState where
         BSFailed -> "failed"
         BSSubmitted -> "submitted"
 
-instance Hashable BatchState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable BatchState
 instance ToQuery BatchState
 instance ToHeader BatchState
 
@@ -1851,7 +1841,7 @@ data BundleTaskState
     | BTSBundling
     | BTSCancelling
     | BTSFailed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BundleTaskState where
     parser = takeLowerText >>= \case
@@ -1875,9 +1865,7 @@ instance ToText BundleTaskState where
         BTSStoring -> "storing"
         BTSWaitingForShutdown -> "waiting-for-shutdown"
 
-instance Hashable BundleTaskState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable BundleTaskState
 instance ToQuery BundleTaskState
 instance ToHeader BundleTaskState
 
@@ -1889,7 +1877,7 @@ data CancelBatchErrorCode
     | FleetRequestIdMalformed
     | UnexpectedError
     | FleetRequestIdDoesNotExist
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CancelBatchErrorCode where
     parser = takeLowerText >>= \case
@@ -1907,9 +1895,7 @@ instance ToText CancelBatchErrorCode where
         FleetRequestNotInCancellableState -> "fleetrequestnotincancellablestate"
         UnexpectedError -> "unexpectederror"
 
-instance Hashable CancelBatchErrorCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable CancelBatchErrorCode
 instance ToQuery CancelBatchErrorCode
 instance ToHeader CancelBatchErrorCode
 
@@ -1922,7 +1908,7 @@ data CancelSpotInstanceRequestState
     | CSIRSOpen
     | CSIRSCompleted
     | CSIRSCancelled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CancelSpotInstanceRequestState where
     parser = takeLowerText >>= \case
@@ -1942,9 +1928,7 @@ instance ToText CancelSpotInstanceRequestState where
         CSIRSCompleted -> "completed"
         CSIRSOpen -> "open"
 
-instance Hashable CancelSpotInstanceRequestState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable CancelSpotInstanceRequestState
 instance ToQuery CancelSpotInstanceRequestState
 instance ToHeader CancelSpotInstanceRequestState
 
@@ -1953,7 +1937,7 @@ instance FromXML CancelSpotInstanceRequestState where
 
 data ContainerFormat =
     Ova
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ContainerFormat where
     parser = takeLowerText >>= \case
@@ -1965,9 +1949,7 @@ instance ToText ContainerFormat where
     toText = \case
         Ova -> "ova"
 
-instance Hashable ContainerFormat where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ContainerFormat
 instance ToQuery ContainerFormat
 instance ToHeader ContainerFormat
 
@@ -1979,7 +1961,7 @@ data ConversionTaskState
     | CTSActive
     | CTSCancelling
     | CTSCompleted
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConversionTaskState where
     parser = takeLowerText >>= \case
@@ -1997,9 +1979,7 @@ instance ToText ConversionTaskState where
         CTSCancelling -> "cancelling"
         CTSCompleted -> "completed"
 
-instance Hashable ConversionTaskState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ConversionTaskState
 instance ToQuery ConversionTaskState
 instance ToHeader ConversionTaskState
 
@@ -2008,7 +1988,7 @@ instance FromXML ConversionTaskState where
 
 data CurrencyCodeValues =
     Usd
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CurrencyCodeValues where
     parser = takeLowerText >>= \case
@@ -2020,9 +2000,7 @@ instance ToText CurrencyCodeValues where
     toText = \case
         Usd -> "usd"
 
-instance Hashable CurrencyCodeValues where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable CurrencyCodeValues
 instance ToQuery CurrencyCodeValues
 instance ToHeader CurrencyCodeValues
 
@@ -2032,7 +2010,7 @@ instance FromXML CurrencyCodeValues where
 data DatafeedSubscriptionState
     = DSSInactive
     | DSSActive
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DatafeedSubscriptionState where
     parser = takeLowerText >>= \case
@@ -2046,9 +2024,7 @@ instance ToText DatafeedSubscriptionState where
         DSSActive -> "active"
         DSSInactive -> "inactive"
 
-instance Hashable DatafeedSubscriptionState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DatafeedSubscriptionState
 instance ToQuery DatafeedSubscriptionState
 instance ToHeader DatafeedSubscriptionState
 
@@ -2058,7 +2034,7 @@ instance FromXML DatafeedSubscriptionState where
 data DeviceType
     = InstanceStore
     | EBS
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeviceType where
     parser = takeLowerText >>= \case
@@ -2072,9 +2048,7 @@ instance ToText DeviceType where
         EBS -> "ebs"
         InstanceStore -> "instance-store"
 
-instance Hashable DeviceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DeviceType
 instance ToQuery DeviceType
 instance ToHeader DeviceType
 
@@ -2085,7 +2059,7 @@ data DiskImageFormat
     = Raw
     | VHD
     | VMDK
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DiskImageFormat where
     parser = takeLowerText >>= \case
@@ -2101,9 +2075,7 @@ instance ToText DiskImageFormat where
         VHD -> "vhd"
         VMDK -> "vmdk"
 
-instance Hashable DiskImageFormat where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DiskImageFormat
 instance ToQuery DiskImageFormat
 instance ToHeader DiskImageFormat
 
@@ -2113,7 +2085,7 @@ instance FromXML DiskImageFormat where
 data DomainType
     = DTStandard
     | DTVPC
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DomainType where
     parser = takeLowerText >>= \case
@@ -2127,9 +2099,7 @@ instance ToText DomainType where
         DTStandard -> "standard"
         DTVPC -> "vpc"
 
-instance Hashable DomainType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DomainType
 instance ToQuery DomainType
 instance ToHeader DomainType
 
@@ -2142,7 +2112,7 @@ data EventCode
     | InstanceStop
     | SystemReboot
     | SystemMaintenance
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EventCode where
     parser = takeLowerText >>= \case
@@ -2162,9 +2132,7 @@ instance ToText EventCode where
         SystemMaintenance -> "system-maintenance"
         SystemReboot -> "system-reboot"
 
-instance Hashable EventCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EventCode
 instance ToQuery EventCode
 instance ToHeader EventCode
 
@@ -2175,7 +2143,7 @@ data EventType
     = Error'
     | InstanceChange
     | FleetRequestChange
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EventType where
     parser = takeLowerText >>= \case
@@ -2191,9 +2159,7 @@ instance ToText EventType where
         FleetRequestChange -> "fleetrequestchange"
         InstanceChange -> "instancechange"
 
-instance Hashable EventType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EventType
 instance ToQuery EventType
 instance ToHeader EventType
 
@@ -2204,7 +2170,7 @@ data ExportEnvironment
     = Citrix
     | Microsoft
     | VMware
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExportEnvironment where
     parser = takeLowerText >>= \case
@@ -2220,9 +2186,7 @@ instance ToText ExportEnvironment where
         Microsoft -> "microsoft"
         VMware -> "vmware"
 
-instance Hashable ExportEnvironment where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ExportEnvironment
 instance ToQuery ExportEnvironment
 instance ToHeader ExportEnvironment
 
@@ -2234,7 +2198,7 @@ data ExportTaskState
     | ETSCancelled
     | ETSCancelling
     | ETSActive
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExportTaskState where
     parser = takeLowerText >>= \case
@@ -2252,9 +2216,7 @@ instance ToText ExportTaskState where
         ETSCancelling -> "cancelling"
         ETSCompleted -> "completed"
 
-instance Hashable ExportTaskState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ExportTaskState
 instance ToQuery ExportTaskState
 instance ToHeader ExportTaskState
 
@@ -2265,7 +2227,7 @@ data FlowLogsResourceType
     = FLRTSubnet
     | FLRTNetworkInterface
     | FLRTVPC
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText FlowLogsResourceType where
     parser = takeLowerText >>= \case
@@ -2281,15 +2243,13 @@ instance ToText FlowLogsResourceType where
         FLRTSubnet -> "subnet"
         FLRTVPC -> "vpc"
 
-instance Hashable FlowLogsResourceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable FlowLogsResourceType
 instance ToQuery FlowLogsResourceType
 instance ToHeader FlowLogsResourceType
 
 data GatewayType =
     IPsec1
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText GatewayType where
     parser = takeLowerText >>= \case
@@ -2301,9 +2261,7 @@ instance ToText GatewayType where
     toText = \case
         IPsec1 -> "ipsec.1"
 
-instance Hashable GatewayType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable GatewayType
 instance ToQuery GatewayType
 instance ToHeader GatewayType
 
@@ -2313,7 +2271,7 @@ instance FromXML GatewayType where
 data HypervisorType
     = Xen
     | Ovm
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText HypervisorType where
     parser = takeLowerText >>= \case
@@ -2327,9 +2285,7 @@ instance ToText HypervisorType where
         Ovm -> "ovm"
         Xen -> "xen"
 
-instance Hashable HypervisorType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable HypervisorType
 instance ToQuery HypervisorType
 instance ToHeader HypervisorType
 
@@ -2344,7 +2300,7 @@ data ImageAttributeName
     | SRIOVNetSupport
     | ProductCodes
     | Description
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ImageAttributeName where
     parser = takeLowerText >>= \case
@@ -2368,9 +2324,7 @@ instance ToText ImageAttributeName where
         RAMDisk -> "ramdisk"
         SRIOVNetSupport -> "sriovnetsupport"
 
-instance Hashable ImageAttributeName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ImageAttributeName
 instance ToQuery ImageAttributeName
 instance ToHeader ImageAttributeName
 
@@ -2382,7 +2336,7 @@ data ImageState
     | ISPending
     | ISInvalid
     | ISTransient
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ImageState where
     parser = takeLowerText >>= \case
@@ -2406,9 +2360,7 @@ instance ToText ImageState where
         ISPending -> "pending"
         ISTransient -> "transient"
 
-instance Hashable ImageState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ImageState
 instance ToQuery ImageState
 instance ToHeader ImageState
 
@@ -2419,7 +2371,7 @@ data ImageTypeValues
     = ITVKernel
     | ITVMachine
     | ITVRAMDisk
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ImageTypeValues where
     parser = takeLowerText >>= \case
@@ -2435,9 +2387,7 @@ instance ToText ImageTypeValues where
         ITVMachine -> "machine"
         ITVRAMDisk -> "ramdisk"
 
-instance Hashable ImageTypeValues where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ImageTypeValues
 instance ToQuery ImageTypeValues
 instance ToHeader ImageTypeValues
 
@@ -2458,7 +2408,7 @@ data InstanceAttributeName
     | IANKernel
     | IANBlockDeviceMapping
     | IANSourceDestCheck
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceAttributeName where
     parser = takeLowerText >>= \case
@@ -2494,15 +2444,13 @@ instance ToText InstanceAttributeName where
         IANSourceDestCheck -> "sourcedestcheck"
         IANUserData -> "userdata"
 
-instance Hashable InstanceAttributeName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceAttributeName
 instance ToQuery InstanceAttributeName
 instance ToHeader InstanceAttributeName
 
 data InstanceLifecycleType =
     Spot
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceLifecycleType where
     parser = takeLowerText >>= \case
@@ -2514,9 +2462,7 @@ instance ToText InstanceLifecycleType where
     toText = \case
         Spot -> "spot"
 
-instance Hashable InstanceLifecycleType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceLifecycleType
 instance ToQuery InstanceLifecycleType
 instance ToHeader InstanceLifecycleType
 
@@ -2530,7 +2476,7 @@ data InstanceStateName
     | ISNShuttingDown
     | ISNRunning
     | ISNTerminated
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceStateName where
     parser = takeLowerText >>= \case
@@ -2552,9 +2498,7 @@ instance ToText InstanceStateName where
         ISNStopping -> "stopping"
         ISNTerminated -> "terminated"
 
-instance Hashable InstanceStateName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceStateName
 instance ToQuery InstanceStateName
 instance ToHeader InstanceStateName
 
@@ -2614,7 +2558,7 @@ data InstanceType
     | C34XLarge
     | M1Large
     | M1Medium
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceType where
     parser = takeLowerText >>= \case
@@ -2728,9 +2672,7 @@ instance ToText InstanceType where
         T2Micro -> "t2.micro"
         T2Small -> "t2.small"
 
-instance Hashable InstanceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable InstanceType
 instance ToQuery InstanceType
 instance ToHeader InstanceType
 
@@ -2742,7 +2684,7 @@ data ListingState
     | LisCancelled
     | LisSold
     | LisPending
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ListingState where
     parser = takeLowerText >>= \case
@@ -2760,9 +2702,7 @@ instance ToText ListingState where
         LisPending -> "pending"
         LisSold -> "sold"
 
-instance Hashable ListingState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ListingState
 instance ToQuery ListingState
 instance ToHeader ListingState
 
@@ -2774,7 +2714,7 @@ data ListingStatus
     | LSActive
     | LSCancelled
     | LSClosed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ListingStatus where
     parser = takeLowerText >>= \case
@@ -2792,9 +2732,7 @@ instance ToText ListingStatus where
         LSClosed -> "closed"
         LSPending -> "pending"
 
-instance Hashable ListingStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ListingStatus
 instance ToQuery ListingStatus
 instance ToHeader ListingStatus
 
@@ -2806,7 +2744,7 @@ data MonitoringState
     | MSEnabled
     | MSPending
     | MSDisabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MonitoringState where
     parser = takeLowerText >>= \case
@@ -2824,9 +2762,7 @@ instance ToText MonitoringState where
         MSEnabled -> "enabled"
         MSPending -> "pending"
 
-instance Hashable MonitoringState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MonitoringState
 instance ToQuery MonitoringState
 instance ToHeader MonitoringState
 
@@ -2836,7 +2772,7 @@ instance FromXML MonitoringState where
 data MoveStatus
     = RestoringToClassic
     | MovingToVPC
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MoveStatus where
     parser = takeLowerText >>= \case
@@ -2850,9 +2786,7 @@ instance ToText MoveStatus where
         MovingToVPC -> "movingtovpc"
         RestoringToClassic -> "restoringtoclassic"
 
-instance Hashable MoveStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MoveStatus
 instance ToQuery MoveStatus
 instance ToHeader MoveStatus
 
@@ -2864,7 +2798,7 @@ data NetworkInterfaceAttribute
     | NIAAttachment
     | NIADescription
     | NIASourceDestCheck
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText NetworkInterfaceAttribute where
     parser = takeLowerText >>= \case
@@ -2882,9 +2816,7 @@ instance ToText NetworkInterfaceAttribute where
         NIAGroupSet -> "groupset"
         NIASourceDestCheck -> "sourcedestcheck"
 
-instance Hashable NetworkInterfaceAttribute where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable NetworkInterfaceAttribute
 instance ToQuery NetworkInterfaceAttribute
 instance ToHeader NetworkInterfaceAttribute
 
@@ -2893,7 +2825,7 @@ data NetworkInterfaceStatus
     | NISAttaching
     | NISAvailable
     | NISDetaching
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText NetworkInterfaceStatus where
     parser = takeLowerText >>= \case
@@ -2911,9 +2843,7 @@ instance ToText NetworkInterfaceStatus where
         NISDetaching -> "detaching"
         NISINUse -> "in-use"
 
-instance Hashable NetworkInterfaceStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable NetworkInterfaceStatus
 instance ToQuery NetworkInterfaceStatus
 instance ToHeader NetworkInterfaceStatus
 
@@ -2927,7 +2857,7 @@ data OfferingTypeValues
     | HeavyUtilization
     | LightUtilization
     | PartialUpfront
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OfferingTypeValues where
     parser = takeLowerText >>= \case
@@ -2949,9 +2879,7 @@ instance ToText OfferingTypeValues where
         NOUpfront -> "no upfront"
         PartialUpfront -> "partial upfront"
 
-instance Hashable OfferingTypeValues where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable OfferingTypeValues
 instance ToQuery OfferingTypeValues
 instance ToHeader OfferingTypeValues
 
@@ -2960,7 +2888,7 @@ instance FromXML OfferingTypeValues where
 
 data PermissionGroup =
     PGAll
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PermissionGroup where
     parser = takeLowerText >>= \case
@@ -2972,9 +2900,7 @@ instance ToText PermissionGroup where
     toText = \case
         PGAll -> "all"
 
-instance Hashable PermissionGroup where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable PermissionGroup
 instance ToQuery PermissionGroup
 instance ToHeader PermissionGroup
 
@@ -2986,7 +2912,7 @@ data PlacementGroupState
     | PGSPending
     | PGSAvailable
     | PGSDeleted
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PlacementGroupState where
     parser = takeLowerText >>= \case
@@ -3004,9 +2930,7 @@ instance ToText PlacementGroupState where
         PGSDeleting -> "deleting"
         PGSPending -> "pending"
 
-instance Hashable PlacementGroupState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable PlacementGroupState
 instance ToQuery PlacementGroupState
 instance ToHeader PlacementGroupState
 
@@ -3015,7 +2939,7 @@ instance FromXML PlacementGroupState where
 
 data PlacementStrategy =
     Cluster
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PlacementStrategy where
     parser = takeLowerText >>= \case
@@ -3027,9 +2951,7 @@ instance ToText PlacementStrategy where
     toText = \case
         Cluster -> "cluster"
 
-instance Hashable PlacementStrategy where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable PlacementStrategy
 instance ToQuery PlacementStrategy
 instance ToHeader PlacementStrategy
 
@@ -3038,7 +2960,7 @@ instance FromXML PlacementStrategy where
 
 data PlatformValues =
     PVWindows
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PlatformValues where
     parser = takeLowerText >>= \case
@@ -3050,9 +2972,7 @@ instance ToText PlatformValues where
     toText = \case
         PVWindows -> "windows"
 
-instance Hashable PlatformValues where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable PlatformValues
 instance ToQuery PlatformValues
 instance ToHeader PlatformValues
 
@@ -3062,7 +2982,7 @@ instance FromXML PlatformValues where
 data ProductCodeValues
     = Marketplace
     | Devpay
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ProductCodeValues where
     parser = takeLowerText >>= \case
@@ -3076,9 +2996,7 @@ instance ToText ProductCodeValues where
         Devpay -> "devpay"
         Marketplace -> "marketplace"
 
-instance Hashable ProductCodeValues where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ProductCodeValues
 instance ToQuery ProductCodeValues
 instance ToHeader ProductCodeValues
 
@@ -3090,7 +3008,7 @@ data RIProductDescription
     | LinuxUnix
     | LinuxUnixAmazonVPC
     | Windows
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RIProductDescription where
     parser = takeLowerText >>= \case
@@ -3108,9 +3026,7 @@ instance ToText RIProductDescription where
         Windows -> "windows"
         WindowsAmazonVPC -> "windows (amazon vpc)"
 
-instance Hashable RIProductDescription where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RIProductDescription
 instance ToQuery RIProductDescription
 instance ToHeader RIProductDescription
 
@@ -3119,7 +3035,7 @@ instance FromXML RIProductDescription where
 
 data RecurringChargeFrequency =
     Hourly
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RecurringChargeFrequency where
     parser = takeLowerText >>= \case
@@ -3131,9 +3047,7 @@ instance ToText RecurringChargeFrequency where
     toText = \case
         Hourly -> "hourly"
 
-instance Hashable RecurringChargeFrequency where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RecurringChargeFrequency
 instance ToQuery RecurringChargeFrequency
 instance ToHeader RecurringChargeFrequency
 
@@ -3150,7 +3064,7 @@ data ReportInstanceReasonCodes
     | PerformanceInstanceStore
     | PerformanceEBSVolume
     | PasswordNotAvailable
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReportInstanceReasonCodes where
     parser = takeLowerText >>= \case
@@ -3178,16 +3092,14 @@ instance ToText ReportInstanceReasonCodes where
         PerformanceOther -> "performance-other"
         Unresponsive -> "unresponsive"
 
-instance Hashable ReportInstanceReasonCodes where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReportInstanceReasonCodes
 instance ToQuery ReportInstanceReasonCodes
 instance ToHeader ReportInstanceReasonCodes
 
 data ReportStatusType
     = OK
     | Impaired
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReportStatusType where
     parser = takeLowerText >>= \case
@@ -3201,9 +3113,7 @@ instance ToText ReportStatusType where
         Impaired -> "impaired"
         OK -> "ok"
 
-instance Hashable ReportStatusType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReportStatusType
 instance ToQuery ReportStatusType
 instance ToHeader ReportStatusType
 
@@ -3212,7 +3122,7 @@ data ReservedInstanceState
     | Retired
     | Active
     | PaymentFailed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReservedInstanceState where
     parser = takeLowerText >>= \case
@@ -3230,9 +3140,7 @@ instance ToText ReservedInstanceState where
         PaymentPending -> "payment-pending"
         Retired -> "retired"
 
-instance Hashable ReservedInstanceState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReservedInstanceState
 instance ToQuery ReservedInstanceState
 instance ToHeader ReservedInstanceState
 
@@ -3241,7 +3149,7 @@ instance FromXML ReservedInstanceState where
 
 data ResetImageAttributeName =
     RIANLaunchPermission
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResetImageAttributeName where
     parser = takeLowerText >>= \case
@@ -3253,9 +3161,7 @@ instance ToText ResetImageAttributeName where
     toText = \case
         RIANLaunchPermission -> "launchpermission"
 
-instance Hashable ResetImageAttributeName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ResetImageAttributeName
 instance ToQuery ResetImageAttributeName
 instance ToHeader ResetImageAttributeName
 
@@ -3277,7 +3183,7 @@ data ResourceType
     | VPNConnection
     | ReservedInstances
     | Instance
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceType where
     parser = takeLowerText >>= \case
@@ -3321,9 +3227,7 @@ instance ToText ResourceType where
         VPNGateway -> "vpn-gateway"
         Volume -> "volume"
 
-instance Hashable ResourceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ResourceType
 instance ToQuery ResourceType
 instance ToHeader ResourceType
 
@@ -3334,7 +3238,7 @@ data RouteOrigin
     = CreateRouteTable
     | CreateRoute
     | EnableVGWRoutePropagation
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RouteOrigin where
     parser = takeLowerText >>= \case
@@ -3350,9 +3254,7 @@ instance ToText RouteOrigin where
         CreateRouteTable -> "createroutetable"
         EnableVGWRoutePropagation -> "enablevgwroutepropagation"
 
-instance Hashable RouteOrigin where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RouteOrigin
 instance ToQuery RouteOrigin
 instance ToHeader RouteOrigin
 
@@ -3362,7 +3264,7 @@ instance FromXML RouteOrigin where
 data RouteState
     = RSActive
     | RSBlackhole
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RouteState where
     parser = takeLowerText >>= \case
@@ -3376,9 +3278,7 @@ instance ToText RouteState where
         RSActive -> "active"
         RSBlackhole -> "blackhole"
 
-instance Hashable RouteState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RouteState
 instance ToQuery RouteState
 instance ToHeader RouteState
 
@@ -3388,7 +3288,7 @@ instance FromXML RouteState where
 data RuleAction
     = Allow
     | Deny
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RuleAction where
     parser = takeLowerText >>= \case
@@ -3402,9 +3302,7 @@ instance ToText RuleAction where
         Allow -> "allow"
         Deny -> "deny"
 
-instance Hashable RuleAction where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RuleAction
 instance ToQuery RuleAction
 instance ToHeader RuleAction
 
@@ -3414,7 +3312,7 @@ instance FromXML RuleAction where
 data ShutdownBehavior
     = Stop
     | Terminate
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ShutdownBehavior where
     parser = takeLowerText >>= \case
@@ -3428,16 +3326,14 @@ instance ToText ShutdownBehavior where
         Stop -> "stop"
         Terminate -> "terminate"
 
-instance Hashable ShutdownBehavior where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ShutdownBehavior
 instance ToQuery ShutdownBehavior
 instance ToHeader ShutdownBehavior
 
 data SnapshotAttributeName
     = SANProductCodes
     | SANCreateVolumePermission
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SnapshotAttributeName where
     parser = takeLowerText >>= \case
@@ -3451,9 +3347,7 @@ instance ToText SnapshotAttributeName where
         SANCreateVolumePermission -> "createvolumepermission"
         SANProductCodes -> "productcodes"
 
-instance Hashable SnapshotAttributeName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SnapshotAttributeName
 instance ToQuery SnapshotAttributeName
 instance ToHeader SnapshotAttributeName
 
@@ -3461,7 +3355,7 @@ data SnapshotState
     = SSCompleted
     | SSError'
     | SSPending
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SnapshotState where
     parser = takeLowerText >>= \case
@@ -3477,9 +3371,7 @@ instance ToText SnapshotState where
         SSError' -> "error"
         SSPending -> "pending"
 
-instance Hashable SnapshotState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SnapshotState
 instance ToQuery SnapshotState
 instance ToHeader SnapshotState
 
@@ -3492,7 +3384,7 @@ data SpotInstanceState
     | SISFailed
     | SISActive
     | SISOpen
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SpotInstanceState where
     parser = takeLowerText >>= \case
@@ -3512,9 +3404,7 @@ instance ToText SpotInstanceState where
         SISFailed -> "failed"
         SISOpen -> "open"
 
-instance Hashable SpotInstanceState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SpotInstanceState
 instance ToQuery SpotInstanceState
 instance ToHeader SpotInstanceState
 
@@ -3524,7 +3414,7 @@ instance FromXML SpotInstanceState where
 data SpotInstanceType
     = Persistent
     | OneTime
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SpotInstanceType where
     parser = takeLowerText >>= \case
@@ -3538,9 +3428,7 @@ instance ToText SpotInstanceType where
         OneTime -> "one-time"
         Persistent -> "persistent"
 
-instance Hashable SpotInstanceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SpotInstanceType
 instance ToQuery SpotInstanceType
 instance ToHeader SpotInstanceType
 
@@ -3552,7 +3440,7 @@ data State
     | Pending
     | Deleted
     | Available
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText State where
     parser = takeLowerText >>= \case
@@ -3570,9 +3458,7 @@ instance ToText State where
         Deleting -> "deleting"
         Pending -> "pending"
 
-instance Hashable State where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable State
 instance ToQuery State
 instance ToHeader State
 
@@ -3581,7 +3467,7 @@ instance FromXML State where
 
 data StatusName =
     Reachability
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StatusName where
     parser = takeLowerText >>= \case
@@ -3593,9 +3479,7 @@ instance ToText StatusName where
     toText = \case
         Reachability -> "reachability"
 
-instance Hashable StatusName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StatusName
 instance ToQuery StatusName
 instance ToHeader StatusName
 
@@ -3607,7 +3491,7 @@ data StatusType
     | Passed
     | Initializing
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StatusType where
     parser = takeLowerText >>= \case
@@ -3625,9 +3509,7 @@ instance ToText StatusType where
         InsufficientData -> "insufficient-data"
         Passed -> "passed"
 
-instance Hashable StatusType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StatusType
 instance ToQuery StatusType
 instance ToHeader StatusType
 
@@ -3637,7 +3519,7 @@ instance FromXML StatusType where
 data SubnetState
     = SubPending
     | SubAvailable
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SubnetState where
     parser = takeLowerText >>= \case
@@ -3651,9 +3533,7 @@ instance ToText SubnetState where
         SubAvailable -> "available"
         SubPending -> "pending"
 
-instance Hashable SubnetState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SubnetState
 instance ToQuery SubnetState
 instance ToHeader SubnetState
 
@@ -3666,7 +3546,7 @@ data SummaryStatus
     | SSOK
     | SSImpaired
     | SSInsufficientData
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SummaryStatus where
     parser = takeLowerText >>= \case
@@ -3686,9 +3566,7 @@ instance ToText SummaryStatus where
         SSNotApplicable -> "not-applicable"
         SSOK -> "ok"
 
-instance Hashable SummaryStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SummaryStatus
 instance ToQuery SummaryStatus
 instance ToHeader SummaryStatus
 
@@ -3698,7 +3576,7 @@ instance FromXML SummaryStatus where
 data TelemetryStatus
     = Down
     | UP
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TelemetryStatus where
     parser = takeLowerText >>= \case
@@ -3712,9 +3590,7 @@ instance ToText TelemetryStatus where
         Down -> "down"
         UP -> "up"
 
-instance Hashable TelemetryStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable TelemetryStatus
 instance ToQuery TelemetryStatus
 instance ToHeader TelemetryStatus
 
@@ -3724,7 +3600,7 @@ instance FromXML TelemetryStatus where
 data Tenancy
     = Default
     | Dedicated
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Tenancy where
     parser = takeLowerText >>= \case
@@ -3738,9 +3614,7 @@ instance ToText Tenancy where
         Dedicated -> "dedicated"
         Default -> "default"
 
-instance Hashable Tenancy where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Tenancy
 instance ToQuery Tenancy
 instance ToHeader Tenancy
 
@@ -3751,7 +3625,7 @@ data TrafficType
     = Reject
     | Accept
     | All
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TrafficType where
     parser = takeLowerText >>= \case
@@ -3767,9 +3641,7 @@ instance ToText TrafficType where
         All -> "all"
         Reject -> "reject"
 
-instance Hashable TrafficType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable TrafficType
 instance ToQuery TrafficType
 instance ToHeader TrafficType
 
@@ -3779,7 +3651,7 @@ instance FromXML TrafficType where
 data VPCAttributeName
     = EnableDNSHostnames
     | EnableDNSSupport
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VPCAttributeName where
     parser = takeLowerText >>= \case
@@ -3793,16 +3665,14 @@ instance ToText VPCAttributeName where
         EnableDNSHostnames -> "enablednshostnames"
         EnableDNSSupport -> "enablednssupport"
 
-instance Hashable VPCAttributeName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VPCAttributeName
 instance ToQuery VPCAttributeName
 instance ToHeader VPCAttributeName
 
 data VPCState
     = VpcPending
     | VpcAvailable
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VPCState where
     parser = takeLowerText >>= \case
@@ -3816,9 +3686,7 @@ instance ToText VPCState where
         VpcAvailable -> "available"
         VpcPending -> "pending"
 
-instance Hashable VPCState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VPCState
 instance ToQuery VPCState
 instance ToHeader VPCState
 
@@ -3830,7 +3698,7 @@ data VPNState
     | VSAvailable
     | VSDeleted
     | VSDeleting
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VPNState where
     parser = takeLowerText >>= \case
@@ -3848,9 +3716,7 @@ instance ToText VPNState where
         VSDeleting -> "deleting"
         VSPending -> "pending"
 
-instance Hashable VPNState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VPNState
 instance ToQuery VPNState
 instance ToHeader VPNState
 
@@ -3859,7 +3725,7 @@ instance FromXML VPNState where
 
 data VPNStaticRouteSource =
     Static
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VPNStaticRouteSource where
     parser = takeLowerText >>= \case
@@ -3871,9 +3737,7 @@ instance ToText VPNStaticRouteSource where
     toText = \case
         Static -> "static"
 
-instance Hashable VPNStaticRouteSource where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VPNStaticRouteSource
 instance ToQuery VPNStaticRouteSource
 instance ToHeader VPNStaticRouteSource
 
@@ -3883,7 +3747,7 @@ instance FromXML VPNStaticRouteSource where
 data VirtualizationType
     = Paravirtual
     | HVM
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VirtualizationType where
     parser = takeLowerText >>= \case
@@ -3897,9 +3761,7 @@ instance ToText VirtualizationType where
         HVM -> "hvm"
         Paravirtual -> "paravirtual"
 
-instance Hashable VirtualizationType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VirtualizationType
 instance ToQuery VirtualizationType
 instance ToHeader VirtualizationType
 
@@ -3911,7 +3773,7 @@ data VolumeAttachmentState
     | VASAttaching
     | VASDetached
     | VASDetaching
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeAttachmentState where
     parser = takeLowerText >>= \case
@@ -3929,9 +3791,7 @@ instance ToText VolumeAttachmentState where
         VASDetached -> "detached"
         VASDetaching -> "detaching"
 
-instance Hashable VolumeAttachmentState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VolumeAttachmentState
 instance ToQuery VolumeAttachmentState
 instance ToHeader VolumeAttachmentState
 
@@ -3941,7 +3801,7 @@ instance FromXML VolumeAttachmentState where
 data VolumeAttributeName
     = VANProductCodes
     | VANAutoEnableIO
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeAttributeName where
     parser = takeLowerText >>= \case
@@ -3955,9 +3815,7 @@ instance ToText VolumeAttributeName where
         VANAutoEnableIO -> "autoenableio"
         VANProductCodes -> "productcodes"
 
-instance Hashable VolumeAttributeName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VolumeAttributeName
 instance ToQuery VolumeAttributeName
 instance ToHeader VolumeAttributeName
 
@@ -3968,7 +3826,7 @@ data VolumeState
     | VolDeleted
     | VolDeleting
     | VolINUse
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeState where
     parser = takeLowerText >>= \case
@@ -3990,9 +3848,7 @@ instance ToText VolumeState where
         VolError' -> "error"
         VolINUse -> "in-use"
 
-instance Hashable VolumeState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VolumeState
 instance ToQuery VolumeState
 instance ToHeader VolumeState
 
@@ -4003,7 +3859,7 @@ data VolumeStatusInfoStatus
     = VSISInsufficientData
     | VSISImpaired
     | VSISOK
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeStatusInfoStatus where
     parser = takeLowerText >>= \case
@@ -4019,9 +3875,7 @@ instance ToText VolumeStatusInfoStatus where
         VSISInsufficientData -> "insufficient-data"
         VSISOK -> "ok"
 
-instance Hashable VolumeStatusInfoStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VolumeStatusInfoStatus
 instance ToQuery VolumeStatusInfoStatus
 instance ToHeader VolumeStatusInfoStatus
 
@@ -4031,7 +3885,7 @@ instance FromXML VolumeStatusInfoStatus where
 data VolumeStatusName
     = IOPerformance
     | IOEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeStatusName where
     parser = takeLowerText >>= \case
@@ -4045,9 +3899,7 @@ instance ToText VolumeStatusName where
         IOEnabled -> "io-enabled"
         IOPerformance -> "io-performance"
 
-instance Hashable VolumeStatusName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VolumeStatusName
 instance ToQuery VolumeStatusName
 instance ToHeader VolumeStatusName
 
@@ -4058,7 +3910,7 @@ data VolumeType
     = Standard
     | IO1
     | GP2
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case
@@ -4074,9 +3926,7 @@ instance ToText VolumeType where
         IO1 -> "io1"
         Standard -> "standard"
 
-instance Hashable VolumeType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VolumeType
 instance ToQuery VolumeType
 instance ToHeader VolumeType
 
@@ -4095,7 +3945,7 @@ instance FromXML VolumeType where
 data AccountAttribute = AccountAttribute'
     { _aaAttributeValues :: !(Maybe [AccountAttributeValue])
     , _aaAttributeName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccountAttribute' smart constructor.
 accountAttribute :: AccountAttribute
@@ -4129,7 +3979,7 @@ instance FromXML AccountAttribute where
 -- * 'aavAttributeValue'
 newtype AccountAttributeValue = AccountAttributeValue'
     { _aavAttributeValue :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccountAttributeValue' smart constructor.
 accountAttributeValue :: AccountAttributeValue
@@ -4161,7 +4011,7 @@ data ActiveInstance = ActiveInstance'
     { _aiInstanceId            :: !(Maybe Text)
     , _aiInstanceType          :: !(Maybe Text)
     , _aiSpotInstanceRequestId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActiveInstance' smart constructor.
 activeInstance :: ActiveInstance
@@ -4220,7 +4070,7 @@ data Address = Address'
     , _addNetworkInterfaceId      :: !(Maybe Text)
     , _addPrivateIPAddress        :: !(Maybe Text)
     , _addPublicIP                :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Address' smart constructor.
 address :: Address
@@ -4290,7 +4140,7 @@ instance FromXML Address where
 -- * 'abvValue'
 newtype AttributeBooleanValue = AttributeBooleanValue'
     { _abvValue :: Maybe Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttributeBooleanValue' smart constructor.
 attributeBooleanValue :: AttributeBooleanValue
@@ -4320,7 +4170,7 @@ instance ToQuery AttributeBooleanValue where
 -- * 'avValue'
 newtype AttributeValue = AttributeValue'
     { _avValue :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttributeValue' smart constructor.
 attributeValue :: AttributeValue
@@ -4358,7 +4208,7 @@ data AvailabilityZone = AvailabilityZone'
     , _azState      :: !(Maybe AvailabilityZoneState)
     , _azZoneName   :: !(Maybe Text)
     , _azMessages   :: !(Maybe [AvailabilityZoneMessage])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AvailabilityZone' smart constructor.
 availabilityZone :: AvailabilityZone
@@ -4405,7 +4255,7 @@ instance FromXML AvailabilityZone where
 -- * 'azmMessage'
 newtype AvailabilityZoneMessage = AvailabilityZoneMessage'
     { _azmMessage :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AvailabilityZoneMessage' smart constructor.
 availabilityZoneMessage :: AvailabilityZoneMessage
@@ -4429,7 +4279,7 @@ instance FromXML AvailabilityZoneMessage where
 -- * 'bavValue'
 newtype BlobAttributeValue = BlobAttributeValue'
     { _bavValue :: Maybe Base64
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BlobAttributeValue' smart constructor.
 blobAttributeValue :: BlobAttributeValue
@@ -4464,7 +4314,7 @@ data BlockDeviceMapping = BlockDeviceMapping'
     , _bdmNoDevice    :: !(Maybe Text)
     , _bdmEBS         :: !(Maybe EBSBlockDevice)
     , _bdmDeviceName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BlockDeviceMapping' smart constructor.
 blockDeviceMapping :: Text -> BlockDeviceMapping
@@ -4548,7 +4398,7 @@ data BundleTask = BundleTask'
     , _btState           :: !BundleTaskState
     , _btStorage         :: !Storage
     , _btUpdateTime      :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BundleTask' smart constructor.
 bundleTask :: Text -> Text -> Text -> UTCTime -> BundleTaskState -> Storage -> UTCTime -> BundleTask
@@ -4619,7 +4469,7 @@ instance FromXML BundleTask where
 data BundleTaskError = BundleTaskError'
     { _bteCode    :: !(Maybe Text)
     , _bteMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BundleTaskError' smart constructor.
 bundleTaskError :: BundleTaskError
@@ -4654,7 +4504,7 @@ instance FromXML BundleTaskError where
 data CancelSpotFleetRequestsError = CancelSpotFleetRequestsError'
     { _csfreCode    :: !CancelBatchErrorCode
     , _csfreMessage :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotFleetRequestsError' smart constructor.
 cancelSpotFleetRequestsError :: CancelBatchErrorCode -> Text -> CancelSpotFleetRequestsError
@@ -4689,7 +4539,7 @@ instance FromXML CancelSpotFleetRequestsError where
 data CancelSpotFleetRequestsErrorItem = CancelSpotFleetRequestsErrorItem'
     { _csfreiSpotFleetRequestId :: !Text
     , _csfreiError              :: !CancelSpotFleetRequestsError
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotFleetRequestsErrorItem' smart constructor.
 cancelSpotFleetRequestsErrorItem :: Text -> CancelSpotFleetRequestsError -> CancelSpotFleetRequestsErrorItem
@@ -4728,7 +4578,7 @@ data CancelSpotFleetRequestsSuccessItem = CancelSpotFleetRequestsSuccessItem'
     { _csfrsiSpotFleetRequestId            :: !Text
     , _csfrsiCurrentSpotFleetRequestState  :: !BatchState
     , _csfrsiPreviousSpotFleetRequestState :: !BatchState
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotFleetRequestsSuccessItem' smart constructor.
 cancelSpotFleetRequestsSuccessItem :: Text -> BatchState -> BatchState -> CancelSpotFleetRequestsSuccessItem
@@ -4771,7 +4621,7 @@ instance FromXML CancelSpotFleetRequestsSuccessItem
 data CancelledSpotInstanceRequest = CancelledSpotInstanceRequest'
     { _csirState                 :: !(Maybe CancelSpotInstanceRequestState)
     , _csirSpotInstanceRequestId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelledSpotInstanceRequest' smart constructor.
 cancelledSpotInstanceRequest :: CancelledSpotInstanceRequest
@@ -4812,7 +4662,7 @@ data ClassicLinkInstance = ClassicLinkInstance'
     , _cliGroups     :: !(Maybe [GroupIdentifier])
     , _cliVPCId      :: !(Maybe Text)
     , _cliTags       :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClassicLinkInstance' smart constructor.
 classicLinkInstance :: ClassicLinkInstance
@@ -4869,7 +4719,7 @@ data ClientData = ClientData'
     , _cdUploadSize  :: !(Maybe Double)
     , _cdUploadEnd   :: !(Maybe ISO8601)
     , _cdComment     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClientData' smart constructor.
 clientData :: ClientData
@@ -4931,7 +4781,7 @@ data ConversionTask = ConversionTask'
     , _ctTags             :: !(Maybe [Tag])
     , _ctConversionTaskId :: !Text
     , _ctState            :: !ConversionTaskState
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConversionTask' smart constructor.
 conversionTask :: Text -> ConversionTaskState -> ConversionTask
@@ -5002,7 +4852,7 @@ instance FromXML ConversionTask where
 data CreateVolumePermission = CreateVolumePermission'
     { _cvpGroup  :: !(Maybe PermissionGroup)
     , _cvpUserId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVolumePermission' smart constructor.
 createVolumePermission :: CreateVolumePermission
@@ -5044,7 +4894,7 @@ instance ToQuery CreateVolumePermission where
 data CreateVolumePermissionModifications = CreateVolumePermissionModifications'
     { _cvpmRemove :: !(Maybe [CreateVolumePermission])
     , _cvpmAdd    :: !(Maybe [CreateVolumePermission])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVolumePermissionModifications' smart constructor.
 createVolumePermissionModifications :: CreateVolumePermissionModifications
@@ -5095,7 +4945,7 @@ data CustomerGateway = CustomerGateway'
     , _cgIPAddress         :: !Text
     , _cgState             :: !Text
     , _cgType              :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CustomerGateway' smart constructor.
 customerGateway :: Text -> Text -> Text -> Text -> Text -> CustomerGateway
@@ -5159,7 +5009,7 @@ instance FromXML CustomerGateway where
 data DHCPConfiguration = DHCPConfiguration'
     { _dcValues :: !(Maybe [AttributeValue])
     , _dcKey    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DHCPConfiguration' smart constructor.
 dhcpConfiguration :: DHCPConfiguration
@@ -5199,7 +5049,7 @@ data DHCPOptions = DHCPOptions'
     { _doDHCPConfigurations :: !(Maybe [DHCPConfiguration])
     , _doDHCPOptionsId      :: !(Maybe Text)
     , _doTags               :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DHCPOptions' smart constructor.
 dhcpOptions :: DHCPOptions
@@ -5247,7 +5097,7 @@ data DiskImage = DiskImage'
     { _diImage       :: !(Maybe DiskImageDetail)
     , _diVolume      :: !(Maybe VolumeDetail)
     , _diDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiskImage' smart constructor.
 diskImage :: DiskImage
@@ -5294,7 +5144,7 @@ data DiskImageDescription = DiskImageDescription'
     , _disFormat            :: !DiskImageFormat
     , _disSize              :: !Integer
     , _disImportManifestURL :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiskImageDescription' smart constructor.
 diskImageDescription :: DiskImageFormat -> Integer -> Text -> DiskImageDescription
@@ -5348,7 +5198,7 @@ data DiskImageDetail = DiskImageDetail'
     { _didFormat            :: !DiskImageFormat
     , _didBytes             :: !Integer
     , _didImportManifestURL :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiskImageDetail' smart constructor.
 diskImageDetail :: DiskImageFormat -> Integer -> Text -> DiskImageDetail
@@ -5394,7 +5244,7 @@ instance ToQuery DiskImageDetail where
 data DiskImageVolumeDescription = DiskImageVolumeDescription'
     { _divdSize :: !(Maybe Integer)
     , _divdId   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiskImageVolumeDescription' smart constructor.
 diskImageVolumeDescription :: Text -> DiskImageVolumeDescription
@@ -5441,7 +5291,7 @@ data EBSBlockDevice = EBSBlockDevice'
     , _ebdEncrypted           :: !(Maybe Bool)
     , _ebdVolumeType          :: !(Maybe VolumeType)
     , _ebdSnapshotId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EBSBlockDevice' smart constructor.
 ebsBlockDevice :: EBSBlockDevice
@@ -5544,7 +5394,7 @@ data EBSInstanceBlockDevice = EBSInstanceBlockDevice'
     , _eibdStatus              :: !(Maybe AttachmentStatus)
     , _eibdVolumeId            :: !(Maybe Text)
     , _eibdAttachTime          :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EBSInstanceBlockDevice' smart constructor.
 ebsInstanceBlockDevice :: EBSInstanceBlockDevice
@@ -5589,7 +5439,7 @@ instance FromXML EBSInstanceBlockDevice where
 data EBSInstanceBlockDeviceSpecification = EBSInstanceBlockDeviceSpecification'
     { _eibdsDeleteOnTermination :: !(Maybe Bool)
     , _eibdsVolumeId            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EBSInstanceBlockDeviceSpecification' smart constructor.
 ebsInstanceBlockDeviceSpecification :: EBSInstanceBlockDeviceSpecification
@@ -5629,7 +5479,7 @@ data EventInformation = EventInformation'
     { _eiInstanceId       :: !(Maybe Text)
     , _eiEventDescription :: !(Maybe Text)
     , _eiEventSubType     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventInformation' smart constructor.
 eventInformation :: EventInformation
@@ -5726,7 +5576,7 @@ data ExportTask = ExportTask'
     , _etInstanceExportDetails :: !InstanceExportDetails
     , _etState                 :: !ExportTaskState
     , _etStatusMessage         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExportTask' smart constructor.
 exportTask :: Text -> Text -> ExportToS3Task -> InstanceExportDetails -> ExportTaskState -> Text -> ExportTask
@@ -5791,7 +5641,7 @@ data ExportToS3Task = ExportToS3Task'
     , _etstContainerFormat :: !(Maybe ContainerFormat)
     , _etstS3Bucket        :: !(Maybe Text)
     , _etstDiskImageFormat :: !(Maybe DiskImageFormat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExportToS3Task' smart constructor.
 exportToS3Task :: ExportToS3Task
@@ -5847,7 +5697,7 @@ data ExportToS3TaskSpecification = ExportToS3TaskSpecification'
     , _etstsS3Prefix        :: !(Maybe Text)
     , _etstsS3Bucket        :: !(Maybe Text)
     , _etstsDiskImageFormat :: !(Maybe DiskImageFormat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExportToS3TaskSpecification' smart constructor.
 exportToS3TaskSpecification :: ExportToS3TaskSpecification
@@ -5901,7 +5751,7 @@ instance ToQuery ExportToS3TaskSpecification where
 data Filter = Filter'
     { _filValues :: !(Maybe [Text])
     , _filName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
@@ -5958,7 +5808,7 @@ data FlowLog = FlowLog'
     , _flDeliverLogsPermissionARN :: !(Maybe Text)
     , _flLogGroupName             :: !(Maybe Text)
     , _flFlowLogId                :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FlowLog' smart constructor.
 flowLog :: FlowLog
@@ -6039,7 +5889,7 @@ instance FromXML FlowLog where
 data GroupIdentifier = GroupIdentifier'
     { _giGroupId   :: !(Maybe Text)
     , _giGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GroupIdentifier' smart constructor.
 groupIdentifier :: GroupIdentifier
@@ -6083,7 +5933,7 @@ data HistoryRecord = HistoryRecord'
     { _hrTimestamp        :: !ISO8601
     , _hrEventType        :: !EventType
     , _hrEventInformation :: !EventInformation
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HistoryRecord' smart constructor.
 historyRecord :: UTCTime -> EventType -> EventInformation -> HistoryRecord
@@ -6134,7 +5984,7 @@ instance FromXML HistoryRecord where
 data IAMInstanceProfile = IAMInstanceProfile'
     { _iapARN :: !(Maybe Text)
     , _iapId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IAMInstanceProfile' smart constructor.
 iamInstanceProfile :: IAMInstanceProfile
@@ -6169,7 +6019,7 @@ instance FromXML IAMInstanceProfile where
 data IAMInstanceProfileSpecification = IAMInstanceProfileSpecification'
     { _iapsARN  :: !(Maybe Text)
     , _iapsName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IAMInstanceProfileSpecification' smart constructor.
 iamInstanceProfileSpecification :: IAMInstanceProfileSpecification
@@ -6210,7 +6060,7 @@ instance ToQuery IAMInstanceProfileSpecification
 data ICMPTypeCode = ICMPTypeCode'
     { _itcCode :: !(Maybe Int)
     , _itcType :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ICMPTypeCode' smart constructor.
 icmpTypeCode :: ICMPTypeCode
@@ -6261,7 +6111,7 @@ data IPPermission = IPPermission'
     , _ipToPort           :: !(Maybe Int)
     , _ipIPRanges         :: !(Maybe [IPRange])
     , _ipIPProtocol       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IPPermission' smart constructor.
 ipPermission :: Text -> IPPermission
@@ -6347,7 +6197,7 @@ instance ToQuery IPPermission where
 -- * 'irCIDRIP'
 newtype IPRange = IPRange'
     { _irCIDRIP :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IPRange' smart constructor.
 ipRange :: Text -> IPRange
@@ -6443,7 +6293,7 @@ data Image = Image'
     , _imaRootDeviceType      :: !DeviceType
     , _imaVirtualizationType  :: !VirtualizationType
     , _imaHypervisor          :: !HypervisorType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Image' smart constructor.
 image :: Text -> Text -> ImageState -> Text -> Bool -> ArchitectureValues -> ImageTypeValues -> DeviceType -> VirtualizationType -> HypervisorType -> Image
@@ -6630,7 +6480,7 @@ data ImageDiskContainer = ImageDiskContainer'
     , _idcUserBucket  :: !(Maybe UserBucket)
     , _idcDescription :: !(Maybe Text)
     , _idcSnapshotId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImageDiskContainer' smart constructor.
 imageDiskContainer :: ImageDiskContainer
@@ -6719,7 +6569,7 @@ data ImportImageTask = ImportImageTask'
     , _iitImportTaskId    :: !(Maybe Text)
     , _iitArchitecture    :: !(Maybe Text)
     , _iitDescription     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportImageTask' smart constructor.
 importImageTask :: ImportImageTask
@@ -6842,7 +6692,7 @@ data ImportInstanceLaunchSpecification = ImportInstanceLaunchSpecification'
     , _iilsPrivateIPAddress                  :: !(Maybe Text)
     , _iilsArchitecture                      :: !(Maybe ArchitectureValues)
     , _iilsPlacement                         :: !(Maybe Placement)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstanceLaunchSpecification' smart constructor.
 importInstanceLaunchSpecification :: ImportInstanceLaunchSpecification
@@ -6948,7 +6798,7 @@ data ImportInstanceTaskDetails = ImportInstanceTaskDetails'
     , _iitdPlatform    :: !(Maybe PlatformValues)
     , _iitdDescription :: !(Maybe Text)
     , _iitdVolumes     :: ![ImportInstanceVolumeDetailItem]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstanceTaskDetails' smart constructor.
 importInstanceTaskDetails :: ImportInstanceTaskDetails
@@ -7011,7 +6861,7 @@ data ImportInstanceVolumeDetailItem = ImportInstanceVolumeDetailItem'
     , _iivdiImage            :: !DiskImageDescription
     , _iivdiVolume           :: !DiskImageVolumeDescription
     , _iivdiStatus           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstanceVolumeDetailItem' smart constructor.
 importInstanceVolumeDetailItem :: Integer -> Text -> DiskImageDescription -> DiskImageVolumeDescription -> Text -> ImportInstanceVolumeDetailItem
@@ -7079,7 +6929,7 @@ data ImportSnapshotTask = ImportSnapshotTask'
     { _istSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
     , _istImportTaskId       :: !(Maybe Text)
     , _istDescription        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportSnapshotTask' smart constructor.
 importSnapshotTask :: ImportSnapshotTask
@@ -7130,7 +6980,7 @@ data ImportVolumeTaskDetails = ImportVolumeTaskDetails'
     , _ivtdAvailabilityZone :: !Text
     , _ivtdImage            :: !DiskImageDescription
     , _ivtdVolume           :: !DiskImageVolumeDescription
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportVolumeTaskDetails' smart constructor.
 importVolumeTaskDetails :: Integer -> Text -> DiskImageDescription -> DiskImageVolumeDescription -> ImportVolumeTaskDetails
@@ -7288,7 +7138,7 @@ data Instance = Instance'
     , _insVirtualizationType    :: !VirtualizationType
     , _insHypervisor            :: !HypervisorType
     , _insState                 :: !InstanceState
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Text -> Text -> Int -> InstanceType -> UTCTime -> Placement -> Monitoring -> ArchitectureValues -> DeviceType -> VirtualizationType -> HypervisorType -> InstanceState -> Instance
@@ -7559,7 +7409,7 @@ instance FromXML Instance where
 data InstanceBlockDeviceMapping = InstanceBlockDeviceMapping'
     { _ibdmEBS        :: !(Maybe EBSInstanceBlockDevice)
     , _ibdmDeviceName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceBlockDeviceMapping' smart constructor.
 instanceBlockDeviceMapping :: InstanceBlockDeviceMapping
@@ -7602,7 +7452,7 @@ data InstanceBlockDeviceMappingSpecification = InstanceBlockDeviceMappingSpecifi
     , _ibdmsNoDevice    :: !(Maybe Text)
     , _ibdmsEBS         :: !(Maybe EBSInstanceBlockDeviceSpecification)
     , _ibdmsDeviceName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceBlockDeviceMappingSpecification' smart constructor.
 instanceBlockDeviceMappingSpecification :: InstanceBlockDeviceMappingSpecification
@@ -7652,7 +7502,7 @@ instance ToQuery
 data InstanceCount = InstanceCount'
     { _icState         :: !(Maybe ListingState)
     , _icInstanceCount :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceCount' smart constructor.
 instanceCount :: InstanceCount
@@ -7688,7 +7538,7 @@ instance FromXML InstanceCount where
 data InstanceExportDetails = InstanceExportDetails'
     { _iedInstanceId        :: !(Maybe Text)
     , _iedTargetEnvironment :: !(Maybe ExportEnvironment)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceExportDetails' smart constructor.
 instanceExportDetails :: InstanceExportDetails
@@ -7723,7 +7573,7 @@ instance FromXML InstanceExportDetails where
 data InstanceMonitoring = InstanceMonitoring'
     { _imInstanceId :: !(Maybe Text)
     , _imMonitoring :: !(Maybe Monitoring)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceMonitoring' smart constructor.
 instanceMonitoring :: InstanceMonitoring
@@ -7794,7 +7644,7 @@ data InstanceNetworkInterface = InstanceNetworkInterface'
     , _iniPrivateDNSName     :: !(Maybe Text)
     , _iniDescription        :: !(Maybe Text)
     , _iniAssociation        :: !(Maybe InstanceNetworkInterfaceAssociation)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceNetworkInterface' smart constructor.
 instanceNetworkInterface :: InstanceNetworkInterface
@@ -7910,7 +7760,7 @@ data InstanceNetworkInterfaceAssociation = InstanceNetworkInterfaceAssociation'
     { _iniaPublicDNSName :: !(Maybe Text)
     , _iniaIPOwnerId     :: !(Maybe Text)
     , _iniaPublicIP      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceNetworkInterfaceAssociation' smart constructor.
 instanceNetworkInterfaceAssociation :: InstanceNetworkInterfaceAssociation
@@ -7962,7 +7812,7 @@ data InstanceNetworkInterfaceAttachment = InstanceNetworkInterfaceAttachment'
     , _iniaAttachmentId        :: !(Maybe Text)
     , _iniaAttachTime          :: !(Maybe ISO8601)
     , _iniaDeviceIndex         :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceNetworkInterfaceAttachment' smart constructor.
 instanceNetworkInterfaceAttachment :: InstanceNetworkInterfaceAttachment
@@ -8042,7 +7892,7 @@ data InstanceNetworkInterfaceSpecification = InstanceNetworkInterfaceSpecificati
     , _inisSecondaryPrivateIPAddressCount :: !(Maybe Int)
     , _inisDeviceIndex                    :: !(Maybe Int)
     , _inisDescription                    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceNetworkInterfaceSpecification' smart constructor.
 instanceNetworkInterfaceSpecification :: InstanceNetworkInterfaceSpecification
@@ -8171,7 +8021,7 @@ data InstancePrivateIPAddress = InstancePrivateIPAddress'
     , _ipiaPrivateIPAddress :: !(Maybe Text)
     , _ipiaPrivateDNSName   :: !(Maybe Text)
     , _ipiaAssociation      :: !(Maybe InstanceNetworkInterfaceAssociation)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstancePrivateIPAddress' smart constructor.
 instancePrivateIPAddress :: InstancePrivateIPAddress
@@ -8220,7 +8070,7 @@ instance FromXML InstancePrivateIPAddress where
 data InstanceState = InstanceState'
     { _isName :: !InstanceStateName
     , _isCode :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceState' smart constructor.
 instanceState :: InstanceStateName -> Int -> InstanceState
@@ -8271,7 +8121,7 @@ data InstanceStateChange = InstanceStateChange'
     { _iscInstanceId    :: !(Maybe Text)
     , _iscCurrentState  :: !(Maybe InstanceState)
     , _iscPreviousState :: !(Maybe InstanceState)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceStateChange' smart constructor.
 instanceStateChange :: InstanceStateChange
@@ -8324,7 +8174,7 @@ data InstanceStatus = InstanceStatus'
     , _isEvents           :: !(Maybe [InstanceStatusEvent])
     , _isInstanceStatus   :: !(Maybe InstanceStatusSummary)
     , _isInstanceState    :: !(Maybe InstanceState)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceStatus' smart constructor.
 instanceStatus :: InstanceStatus
@@ -8392,7 +8242,7 @@ data InstanceStatusDetails = InstanceStatusDetails'
     { _isdStatus        :: !(Maybe StatusType)
     , _isdImpairedSince :: !(Maybe ISO8601)
     , _isdName          :: !(Maybe StatusName)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceStatusDetails' smart constructor.
 instanceStatusDetails :: InstanceStatusDetails
@@ -8440,7 +8290,7 @@ data InstanceStatusEvent = InstanceStatusEvent'
     , _iseCode        :: !(Maybe EventCode)
     , _iseDescription :: !(Maybe Text)
     , _iseNotAfter    :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceStatusEvent' smart constructor.
 instanceStatusEvent :: InstanceStatusEvent
@@ -8491,7 +8341,7 @@ instance FromXML InstanceStatusEvent where
 data InstanceStatusSummary = InstanceStatusSummary'
     { _issDetails :: !(Maybe [InstanceStatusDetails])
     , _issStatus  :: !SummaryStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceStatusSummary' smart constructor.
 instanceStatusSummary :: SummaryStatus -> InstanceStatusSummary
@@ -8531,7 +8381,7 @@ data InternetGateway = InternetGateway'
     { _igAttachments       :: !(Maybe [InternetGatewayAttachment])
     , _igTags              :: !(Maybe [Tag])
     , _igInternetGatewayId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InternetGateway' smart constructor.
 internetGateway :: Text -> InternetGateway
@@ -8576,7 +8426,7 @@ instance FromXML InternetGateway where
 data InternetGatewayAttachment = InternetGatewayAttachment'
     { _igaState :: !AttachmentStatus
     , _igaVPCId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InternetGatewayAttachment' smart constructor.
 internetGatewayAttachment :: AttachmentStatus -> Text -> InternetGatewayAttachment
@@ -8611,7 +8461,7 @@ instance FromXML InternetGatewayAttachment where
 data KeyPairInfo = KeyPairInfo'
     { _kpiKeyFingerprint :: !(Maybe Text)
     , _kpiKeyName        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyPairInfo' smart constructor.
 keyPairInfo :: KeyPairInfo
@@ -8649,7 +8499,7 @@ instance FromXML KeyPairInfo where
 data LaunchPermission = LaunchPermission'
     { _lpGroup  :: !(Maybe PermissionGroup)
     , _lpUserId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LaunchPermission' smart constructor.
 launchPermission :: LaunchPermission
@@ -8689,7 +8539,7 @@ instance ToQuery LaunchPermission where
 data LaunchPermissionModifications = LaunchPermissionModifications'
     { _lpmRemove :: !(Maybe [LaunchPermission])
     , _lpmAdd    :: !(Maybe [LaunchPermission])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LaunchPermissionModifications' smart constructor.
 launchPermissionModifications :: LaunchPermissionModifications
@@ -8765,7 +8615,7 @@ data LaunchSpecification = LaunchSpecification'
     , _lsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _lsAddressingType      :: !(Maybe Text)
     , _lsPlacement           :: !(Maybe SpotPlacement)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LaunchSpecification' smart constructor.
 launchSpecification :: LaunchSpecification
@@ -8909,7 +8759,7 @@ instance ToQuery LaunchSpecification where
 -- * 'monState'
 newtype Monitoring = Monitoring'
     { _monState :: Maybe MonitoringState
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Monitoring' smart constructor.
 monitoring :: Monitoring
@@ -8937,7 +8787,7 @@ instance FromXML Monitoring where
 data MovingAddressStatus = MovingAddressStatus'
     { _masMoveStatus :: !(Maybe MoveStatus)
     , _masPublicIP   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MovingAddressStatus' smart constructor.
 movingAddressStatus :: MovingAddressStatus
@@ -8985,7 +8835,7 @@ data NetworkACL = NetworkACL'
     , _naAssociations :: !(Maybe [NetworkACLAssociation])
     , _naIsDefault    :: !(Maybe Bool)
     , _naTags         :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkACL' smart constructor.
 networkACL :: NetworkACL
@@ -9053,7 +8903,7 @@ data NetworkACLAssociation = NetworkACLAssociation'
     { _naaNetworkACLId            :: !(Maybe Text)
     , _naaSubnetId                :: !(Maybe Text)
     , _naaNetworkACLAssociationId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkACLAssociation' smart constructor.
 networkACLAssociation :: NetworkACLAssociation
@@ -9109,7 +8959,7 @@ data NetworkACLEntry = NetworkACLEntry'
     , _naePortRange    :: !(Maybe PortRange)
     , _naeCIDRBlock    :: !(Maybe Text)
     , _naeEgress       :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkACLEntry' smart constructor.
 networkACLEntry :: NetworkACLEntry
@@ -9224,7 +9074,7 @@ data NetworkInterface = NetworkInterface'
     , _niRequesterId        :: !(Maybe Text)
     , _niDescription        :: !(Maybe Text)
     , _niAssociation        :: !(Maybe NetworkInterfaceAssociation)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkInterface' smart constructor.
 networkInterface :: NetworkInterface
@@ -9372,7 +9222,7 @@ data NetworkInterfaceAssociation = NetworkInterfaceAssociation'
     , _niaAllocationId  :: !(Maybe Text)
     , _niaIPOwnerId     :: !(Maybe Text)
     , _niaPublicIP      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkInterfaceAssociation' smart constructor.
 networkInterfaceAssociation :: NetworkInterfaceAssociation
@@ -9440,7 +9290,7 @@ data NetworkInterfaceAttachment = NetworkInterfaceAttachment'
     , _niaInstanceOwnerId     :: !(Maybe Text)
     , _niaAttachTime          :: !(Maybe ISO8601)
     , _niaDeviceIndex         :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkInterfaceAttachment' smart constructor.
 networkInterfaceAttachment :: NetworkInterfaceAttachment
@@ -9507,7 +9357,7 @@ instance FromXML NetworkInterfaceAttachment where
 data NetworkInterfaceAttachmentChanges = NetworkInterfaceAttachmentChanges'
     { _niacDeleteOnTermination :: !(Maybe Bool)
     , _niacAttachmentId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkInterfaceAttachmentChanges' smart constructor.
 networkInterfaceAttachmentChanges :: NetworkInterfaceAttachmentChanges
@@ -9551,7 +9401,7 @@ data NetworkInterfacePrivateIPAddress = NetworkInterfacePrivateIPAddress'
     , _nipiaPrivateIPAddress :: !(Maybe Text)
     , _nipiaPrivateDNSName   :: !(Maybe Text)
     , _nipiaAssociation      :: !(Maybe NetworkInterfaceAssociation)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkInterfacePrivateIPAddress' smart constructor.
 networkInterfacePrivateIPAddress :: NetworkInterfacePrivateIPAddress
@@ -9599,7 +9449,7 @@ instance FromXML NetworkInterfacePrivateIPAddress
 data NewDHCPConfiguration = NewDHCPConfiguration'
     { _ndcValues :: !(Maybe [Text])
     , _ndcKey    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewDHCPConfiguration' smart constructor.
 newDHCPConfiguration :: NewDHCPConfiguration
@@ -9638,7 +9488,7 @@ data Placement = Placement'
     { _plaAvailabilityZone :: !(Maybe Text)
     , _plaTenancy          :: !(Maybe Tenancy)
     , _plaGroupName        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Placement' smart constructor.
 placement :: Placement
@@ -9691,7 +9541,7 @@ data PlacementGroup = PlacementGroup'
     { _pgState     :: !(Maybe PlacementGroupState)
     , _pgStrategy  :: !(Maybe PlacementStrategy)
     , _pgGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PlacementGroup' smart constructor.
 placementGroup :: PlacementGroup
@@ -9732,7 +9582,7 @@ instance FromXML PlacementGroup where
 data PortRange = PortRange'
     { _prTo   :: !(Maybe Int)
     , _prFrom :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PortRange' smart constructor.
 portRange :: PortRange
@@ -9773,7 +9623,7 @@ data PrefixList = PrefixList'
     { _plCIDRs          :: !(Maybe [Text])
     , _plPrefixListId   :: !(Maybe Text)
     , _plPrefixListName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PrefixList' smart constructor.
 prefixList :: PrefixList
@@ -9813,7 +9663,7 @@ instance FromXML PrefixList where
 -- * 'pliPrefixListId'
 newtype PrefixListId = PrefixListId'
     { _pliPrefixListId :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PrefixListId' smart constructor.
 prefixListId :: PrefixListId
@@ -9851,7 +9701,7 @@ data PriceSchedule = PriceSchedule'
     , _psTerm         :: !(Maybe Integer)
     , _psActive       :: !(Maybe Bool)
     , _psPrice        :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PriceSchedule' smart constructor.
 priceSchedule :: PriceSchedule
@@ -9912,7 +9762,7 @@ data PriceScheduleSpecification = PriceScheduleSpecification'
     { _pssCurrencyCode :: !(Maybe CurrencyCodeValues)
     , _pssTerm         :: !(Maybe Integer)
     , _pssPrice        :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PriceScheduleSpecification' smart constructor.
 priceScheduleSpecification :: PriceScheduleSpecification
@@ -9955,7 +9805,7 @@ instance ToQuery PriceScheduleSpecification where
 data PricingDetail = PricingDetail'
     { _pdCount :: !(Maybe Int)
     , _pdPrice :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PricingDetail' smart constructor.
 pricingDetail :: PricingDetail
@@ -9990,7 +9840,7 @@ instance FromXML PricingDetail where
 data PrivateIPAddressSpecification = PrivateIPAddressSpecification'
     { _piasPrimary          :: !(Maybe Bool)
     , _piasPrivateIPAddress :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PrivateIPAddressSpecification' smart constructor.
 privateIPAddressSpecification :: Text -> PrivateIPAddressSpecification
@@ -10032,7 +9882,7 @@ instance ToQuery PrivateIPAddressSpecification where
 data ProductCode = ProductCode'
     { _pcProductCodeType :: !(Maybe ProductCodeValues)
     , _pcProductCodeId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ProductCode' smart constructor.
 productCode :: ProductCode
@@ -10064,7 +9914,7 @@ instance FromXML ProductCode where
 -- * 'pvGatewayId'
 newtype PropagatingVGW = PropagatingVGW'
     { _pvGatewayId :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PropagatingVGW' smart constructor.
 propagatingVGW :: PropagatingVGW
@@ -10092,7 +9942,7 @@ instance FromXML PropagatingVGW where
 data RecurringCharge = RecurringCharge'
     { _rcFrequency :: !(Maybe RecurringChargeFrequency)
     , _rcAmount    :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecurringCharge' smart constructor.
 recurringCharge :: RecurringCharge
@@ -10127,7 +9977,7 @@ instance FromXML RecurringCharge where
 data RegionInfo = RegionInfo'
     { _riRegionName :: !(Maybe Text)
     , _riEndpoint   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegionInfo' smart constructor.
 regionInfo :: RegionInfo
@@ -10204,7 +10054,7 @@ data RequestSpotLaunchSpecification = RequestSpotLaunchSpecification'
     , _rslsBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
     , _rslsAddressingType      :: !(Maybe Text)
     , _rslsPlacement           :: !(Maybe SpotPlacement)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotLaunchSpecification' smart constructor.
 requestSpotLaunchSpecification :: RequestSpotLaunchSpecification
@@ -10342,7 +10192,7 @@ data Reservation = Reservation'
     , _resRequesterId   :: !(Maybe Text)
     , _resReservationId :: !Text
     , _resOwnerId       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Reservation' smart constructor.
 reservation :: Text -> Text -> Reservation
@@ -10400,7 +10250,7 @@ instance FromXML Reservation where
 data ReservedInstanceLimitPrice = ReservedInstanceLimitPrice'
     { _rilpAmount       :: !(Maybe Double)
     , _rilpCurrencyCode :: !(Maybe CurrencyCodeValues)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedInstanceLimitPrice' smart constructor.
 reservedInstanceLimitPrice :: ReservedInstanceLimitPrice
@@ -10480,7 +10330,7 @@ data ReservedInstances = ReservedInstances'
     , _riReservedInstancesId :: !(Maybe Text)
     , _riDuration            :: !(Maybe Integer)
     , _riTags                :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedInstances' smart constructor.
 reservedInstances :: ReservedInstances
@@ -10612,7 +10462,7 @@ data ReservedInstancesConfiguration = ReservedInstancesConfiguration'
     , _ricInstanceCount    :: !(Maybe Int)
     , _ricInstanceType     :: !(Maybe InstanceType)
     , _ricAvailabilityZone :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedInstancesConfiguration' smart constructor.
 reservedInstancesConfiguration :: ReservedInstancesConfiguration
@@ -10665,7 +10515,7 @@ instance ToQuery ReservedInstancesConfiguration where
 -- * 'riiReservedInstancesId'
 newtype ReservedInstancesId = ReservedInstancesId'
     { _riiReservedInstancesId :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedInstancesId' smart constructor.
 reservedInstancesId :: ReservedInstancesId
@@ -10719,7 +10569,7 @@ data ReservedInstancesListing = ReservedInstancesListing'
     , _rilInstanceCounts             :: !(Maybe [InstanceCount])
     , _rilReservedInstancesListingId :: !(Maybe Text)
     , _rilTags                       :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedInstancesListing' smart constructor.
 reservedInstancesListing :: ReservedInstancesListing
@@ -10832,7 +10682,7 @@ data ReservedInstancesModification = ReservedInstancesModification'
     , _rimStatusMessage                   :: !(Maybe Text)
     , _rimReservedInstancesModificationId :: !(Maybe Text)
     , _rimReservedInstancesIds            :: !(Maybe [ReservedInstancesId])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedInstancesModification' smart constructor.
 reservedInstancesModification :: ReservedInstancesModification
@@ -10914,7 +10764,7 @@ instance FromXML ReservedInstancesModification where
 data ReservedInstancesModificationResult = ReservedInstancesModificationResult'
     { _rimrReservedInstancesId :: !(Maybe Text)
     , _rimrTargetConfiguration :: !(Maybe ReservedInstancesConfiguration)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedInstancesModificationResult' smart constructor.
 reservedInstancesModificationResult :: ReservedInstancesModificationResult
@@ -10987,7 +10837,7 @@ data ReservedInstancesOffering = ReservedInstancesOffering'
     , _rioInstanceTenancy             :: !(Maybe Tenancy)
     , _rioFixedPrice                  :: !(Maybe Double)
     , _rioDuration                    :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedInstancesOffering' smart constructor.
 reservedInstancesOffering :: ReservedInstancesOffering
@@ -11117,7 +10967,7 @@ data Route = Route'
     , _rouInstanceOwnerId         :: !(Maybe Text)
     , _rouDestinationPrefixListId :: !(Maybe Text)
     , _rouDestinationCIDRBlock    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Route' smart constructor.
 route :: Route
@@ -11216,7 +11066,7 @@ data RouteTable = RouteTable'
     , _rtPropagatingVGWs :: !(Maybe [PropagatingVGW])
     , _rtAssociations    :: !(Maybe [RouteTableAssociation])
     , _rtTags            :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RouteTable' smart constructor.
 routeTable :: RouteTable
@@ -11289,7 +11139,7 @@ data RouteTableAssociation = RouteTableAssociation'
     , _rtaRouteTableAssociationId :: !(Maybe Text)
     , _rtaMain                    :: !(Maybe Bool)
     , _rtaSubnetId                :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RouteTableAssociation' smart constructor.
 routeTableAssociation :: RouteTableAssociation
@@ -11334,7 +11184,7 @@ instance FromXML RouteTableAssociation where
 -- * 'rimeEnabled'
 newtype RunInstancesMonitoringEnabled = RunInstancesMonitoringEnabled'
     { _rimeEnabled :: Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunInstancesMonitoringEnabled' smart constructor.
 runInstancesMonitoringEnabled :: Bool -> RunInstancesMonitoringEnabled
@@ -11377,7 +11227,7 @@ data S3Storage = S3Storage'
     , _ssBucket                :: !(Maybe Text)
     , _ssUploadPolicySignature :: !(Maybe Text)
     , _ssAWSAccessKeyId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3Storage' smart constructor.
 s3Storage :: S3Storage
@@ -11463,7 +11313,7 @@ data SecurityGroup = SecurityGroup'
     , _sgGroupId             :: !Text
     , _sgGroupName           :: !Text
     , _sgDescription         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SecurityGroup' smart constructor.
 securityGroup :: Text -> Text -> Text -> Text -> SecurityGroup
@@ -11570,7 +11420,7 @@ data Snapshot = Snapshot'
     , _snaProgress    :: !Text
     , _snaState       :: !SnapshotState
     , _snaEncrypted   :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Text -> Text -> Text -> Int -> Text -> UTCTime -> Text -> SnapshotState -> Bool -> Snapshot
@@ -11692,7 +11542,7 @@ data SnapshotDetail = SnapshotDetail'
     , _sdStatusMessage :: !(Maybe Text)
     , _sdDescription   :: !(Maybe Text)
     , _sdSnapshotId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SnapshotDetail' smart constructor.
 snapshotDetail :: SnapshotDetail
@@ -11781,7 +11631,7 @@ data SnapshotDiskContainer = SnapshotDiskContainer'
     , _sdcFormat      :: !(Maybe Text)
     , _sdcUserBucket  :: !(Maybe UserBucket)
     , _sdcDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SnapshotDiskContainer' smart constructor.
 snapshotDiskContainer :: SnapshotDiskContainer
@@ -11852,7 +11702,7 @@ data SnapshotTaskDetail = SnapshotTaskDetail'
     , _stdStatusMessage :: !(Maybe Text)
     , _stdDescription   :: !(Maybe Text)
     , _stdSnapshotId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SnapshotTaskDetail' smart constructor.
 snapshotTaskDetail :: SnapshotTaskDetail
@@ -11938,7 +11788,7 @@ data SpotDatafeedSubscription = SpotDatafeedSubscription'
     , _sdsBucket  :: !(Maybe Text)
     , _sdsOwnerId :: !(Maybe Text)
     , _sdsFault   :: !(Maybe SpotInstanceStateFault)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SpotDatafeedSubscription' smart constructor.
 spotDatafeedSubscription :: SpotDatafeedSubscription
@@ -11994,7 +11844,7 @@ data SpotFleetRequestConfig = SpotFleetRequestConfig'
     { _sfrcSpotFleetRequestId     :: !Text
     , _sfrcSpotFleetRequestState  :: !BatchState
     , _sfrcSpotFleetRequestConfig :: !SpotFleetRequestConfigData
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SpotFleetRequestConfig' smart constructor.
 spotFleetRequestConfig :: Text -> BatchState -> SpotFleetRequestConfigData -> SpotFleetRequestConfig
@@ -12054,7 +11904,7 @@ data SpotFleetRequestConfigData = SpotFleetRequestConfigData'
     , _sfrcdTargetCapacity                   :: !Int
     , _sfrcdIAMFleetRole                     :: !Text
     , _sfrcdLaunchSpecifications             :: !(List1 LaunchSpecification)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SpotFleetRequestConfigData' smart constructor.
 spotFleetRequestConfigData :: Text -> Int -> Text -> NonEmpty LaunchSpecification -> SpotFleetRequestConfigData
@@ -12194,7 +12044,7 @@ data SpotInstanceRequest = SpotInstanceRequest'
     , _sirValidFrom                :: !(Maybe ISO8601)
     , _sirTags                     :: !(Maybe [Tag])
     , _sirCreateTime               :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SpotInstanceRequest' smart constructor.
 spotInstanceRequest :: SpotInstanceRequest
@@ -12333,7 +12183,7 @@ instance FromXML SpotInstanceRequest where
 data SpotInstanceStateFault = SpotInstanceStateFault'
     { _sisfCode    :: !(Maybe Text)
     , _sisfMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SpotInstanceStateFault' smart constructor.
 spotInstanceStateFault :: SpotInstanceStateFault
@@ -12371,7 +12221,7 @@ data SpotInstanceStatus = SpotInstanceStatus'
     { _sisUpdateTime :: !(Maybe ISO8601)
     , _sisCode       :: !(Maybe Text)
     , _sisMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SpotInstanceStatus' smart constructor.
 spotInstanceStatus :: SpotInstanceStatus
@@ -12413,7 +12263,7 @@ instance FromXML SpotInstanceStatus where
 data SpotPlacement = SpotPlacement'
     { _spAvailabilityZone :: !(Maybe Text)
     , _spGroupName        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SpotPlacement' smart constructor.
 spotPlacement :: SpotPlacement
@@ -12464,7 +12314,7 @@ data SpotPrice = SpotPrice'
     , _spoInstanceType       :: !(Maybe InstanceType)
     , _spoAvailabilityZone   :: !(Maybe Text)
     , _spoTimestamp          :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SpotPrice' smart constructor.
 spotPrice :: SpotPrice
@@ -12518,7 +12368,7 @@ instance FromXML SpotPrice where
 data StateReason = StateReason'
     { _srCode    :: !(Maybe Text)
     , _srMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StateReason' smart constructor.
 stateReason :: StateReason
@@ -12574,7 +12424,7 @@ instance FromXML StateReason where
 -- * 'stoS3'
 newtype Storage = Storage'
     { _stoS3 :: Maybe S3Storage
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Storage' smart constructor.
 storage :: Storage
@@ -12626,7 +12476,7 @@ data Subnet = Subnet'
     , _subState                   :: !SubnetState
     , _subSubnetId                :: !Text
     , _subVPCId                   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subnet' smart constructor.
 subnet :: Text -> Int -> Text -> Bool -> Bool -> SubnetState -> Text -> Text -> Subnet
@@ -12707,7 +12557,7 @@ instance FromXML Subnet where
 data Tag = Tag'
     { _tagKey   :: !Text
     , _tagValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag
@@ -12756,7 +12606,7 @@ data TagDescription = TagDescription'
     , _tdResourceType :: !ResourceType
     , _tdKey          :: !Text
     , _tdValue        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TagDescription' smart constructor.
 tagDescription :: Text -> ResourceType -> Text -> Text -> TagDescription
@@ -12804,7 +12654,7 @@ instance FromXML TagDescription where
 data UnsuccessfulItem = UnsuccessfulItem'
     { _uiResourceId :: !(Maybe Text)
     , _uiError      :: !UnsuccessfulItemError
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnsuccessfulItem' smart constructor.
 unsuccessfulItem :: UnsuccessfulItemError -> UnsuccessfulItem
@@ -12841,7 +12691,7 @@ instance FromXML UnsuccessfulItem where
 data UnsuccessfulItemError = UnsuccessfulItemError'
     { _uieCode    :: !Text
     , _uieMessage :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnsuccessfulItemError' smart constructor.
 unsuccessfulItemError :: Text -> Text -> UnsuccessfulItemError
@@ -12876,7 +12726,7 @@ instance FromXML UnsuccessfulItemError where
 data UserBucket = UserBucket'
     { _ubS3Key    :: !(Maybe Text)
     , _ubS3Bucket :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UserBucket' smart constructor.
 userBucket :: UserBucket
@@ -12911,7 +12761,7 @@ instance ToQuery UserBucket where
 data UserBucketDetails = UserBucketDetails'
     { _ubdS3Key    :: !(Maybe Text)
     , _ubdS3Bucket :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UserBucketDetails' smart constructor.
 userBucketDetails :: UserBucketDetails
@@ -12943,7 +12793,7 @@ instance FromXML UserBucketDetails where
 -- * 'udData'
 newtype UserData = UserData'
     { _udData :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UserData' smart constructor.
 userData :: UserData
@@ -12974,7 +12824,7 @@ data UserIdGroupPair = UserIdGroupPair'
     { _uigpUserId    :: !(Maybe Text)
     , _uigpGroupId   :: !(Maybe Text)
     , _uigpGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UserIdGroupPair' smart constructor.
 userIdGroupPair :: UserIdGroupPair
@@ -13032,7 +12882,7 @@ data VGWTelemetry = VGWTelemetry'
     , _vtLastStatusChange   :: !(Maybe ISO8601)
     , _vtAcceptedRouteCount :: !(Maybe Int)
     , _vtStatusMessage      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VGWTelemetry' smart constructor.
 vgwTelemetry :: VGWTelemetry
@@ -13101,7 +12951,7 @@ data VPC = VPC'
     , _vpcIsDefault       :: !Bool
     , _vpcState           :: !VPCState
     , _vpcVPCId           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPC' smart constructor.
 vpc :: Text -> Text -> Tenancy -> Bool -> VPCState -> Text -> VPC
@@ -13169,7 +13019,7 @@ instance FromXML VPC where
 data VPCAttachment = VPCAttachment'
     { _vaState :: !(Maybe AttachmentStatus)
     , _vaVPCId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPCAttachment' smart constructor.
 vpcAttachment :: VPCAttachment
@@ -13207,7 +13057,7 @@ data VPCClassicLink = VPCClassicLink'
     { _vclVPCId              :: !(Maybe Text)
     , _vclTags               :: !(Maybe [Tag])
     , _vclClassicLinkEnabled :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPCClassicLink' smart constructor.
 vpcClassicLink :: VPCClassicLink
@@ -13265,7 +13115,7 @@ data VPCEndpoint = VPCEndpoint'
     , _veServiceName       :: !(Maybe Text)
     , _veVPCEndpointId     :: !(Maybe Text)
     , _veRouteTableIds     :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPCEndpoint' smart constructor.
 vpcEndpoint :: VPCEndpoint
@@ -13344,7 +13194,7 @@ data VPCPeeringConnection = VPCPeeringConnection'
     , _vRequesterVPCInfo       :: !(Maybe VPCPeeringConnectionVPCInfo)
     , _vExpirationTime         :: !(Maybe ISO8601)
     , _vTags                   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPCPeeringConnection' smart constructor.
 vpcPeeringConnection :: VPCPeeringConnection
@@ -13405,7 +13255,7 @@ instance FromXML VPCPeeringConnection where
 data VPCPeeringConnectionStateReason = VPCPeeringConnectionStateReason'
     { _vpcsrCode    :: !(Maybe Text)
     , _vpcsrMessage :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPCPeeringConnectionStateReason' smart constructor.
 vpcPeeringConnectionStateReason :: VPCPeeringConnectionStateReason
@@ -13445,7 +13295,7 @@ data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
     { _vpcviVPCId     :: !(Maybe Text)
     , _vpcviOwnerId   :: !(Maybe Text)
     , _vpcviCIDRBlock :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPCPeeringConnectionVPCInfo' smart constructor.
 vpcPeeringConnectionVPCInfo :: VPCPeeringConnectionVPCInfo
@@ -13510,7 +13360,7 @@ data VPNConnection = VPNConnection'
     , _vcCustomerGatewayConfiguration :: !Text
     , _vcState                        :: !VPNState
     , _vcType                         :: !GatewayType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPNConnection' smart constructor.
 vpnConnection :: Text -> Text -> Text -> VPNState -> GatewayType -> VPNConnection
@@ -13601,7 +13451,7 @@ instance FromXML VPNConnection where
 -- * 'vcoStaticRoutesOnly'
 newtype VPNConnectionOptions = VPNConnectionOptions'
     { _vcoStaticRoutesOnly :: Maybe Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPNConnectionOptions' smart constructor.
 vpnConnectionOptions :: VPNConnectionOptions
@@ -13629,7 +13479,7 @@ instance FromXML VPNConnectionOptions where
 -- * 'vcosStaticRoutesOnly'
 newtype VPNConnectionOptionsSpecification = VPNConnectionOptionsSpecification'
     { _vcosStaticRoutesOnly :: Maybe Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPNConnectionOptionsSpecification' smart constructor.
 vpnConnectionOptionsSpecification :: VPNConnectionOptionsSpecification
@@ -13673,7 +13523,7 @@ data VPNGateway = VPNGateway'
     , _vgAvailabilityZone :: !(Maybe Text)
     , _vgType             :: !(Maybe GatewayType)
     , _vgTags             :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPNGateway' smart constructor.
 vpnGateway :: VPNGateway
@@ -13739,7 +13589,7 @@ data VPNStaticRoute = VPNStaticRoute'
     { _vsrState                :: !(Maybe VPNState)
     , _vsrSource               :: !(Maybe VPNStaticRouteSource)
     , _vsrDestinationCIDRBlock :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPNStaticRoute' smart constructor.
 vpnStaticRoute :: VPNStaticRoute
@@ -13811,7 +13661,7 @@ data Volume = Volume'
     , _volState            :: !VolumeState
     , _volVolumeId         :: !Text
     , _volVolumeType       :: !VolumeType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Volume' smart constructor.
 volume :: Text -> UTCTime -> Bool -> Int -> Text -> VolumeState -> Text -> VolumeType -> Volume
@@ -13940,7 +13790,7 @@ data VolumeAttachment = VolumeAttachment'
     , _vDevice              :: !(Maybe Text)
     , _vVolumeId            :: !(Maybe Text)
     , _vAttachTime          :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeAttachment' smart constructor.
 volumeAttachment :: VolumeAttachment
@@ -13997,7 +13847,7 @@ instance FromXML VolumeAttachment where
 -- * 'vdSize'
 newtype VolumeDetail = VolumeDetail'
     { _vdSize :: Integer
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeDetail' smart constructor.
 volumeDetail :: Integer -> VolumeDetail
@@ -14032,7 +13882,7 @@ data VolumeStatusAction = VolumeStatusAction'
     , _vsaCode        :: !(Maybe Text)
     , _vsaDescription :: !(Maybe Text)
     , _vsaEventId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeStatusAction' smart constructor.
 volumeStatusAction :: VolumeStatusAction
@@ -14079,7 +13929,7 @@ instance FromXML VolumeStatusAction where
 data VolumeStatusDetails = VolumeStatusDetails'
     { _vsdStatus :: !(Maybe Text)
     , _vsdName   :: !(Maybe VolumeStatusName)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeStatusDetails' smart constructor.
 volumeStatusDetails :: VolumeStatusDetails
@@ -14123,7 +13973,7 @@ data VolumeStatusEvent = VolumeStatusEvent'
     , _vseDescription :: !(Maybe Text)
     , _vseNotAfter    :: !(Maybe ISO8601)
     , _vseEventId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeStatusEvent' smart constructor.
 volumeStatusEvent :: VolumeStatusEvent
@@ -14176,7 +14026,7 @@ instance FromXML VolumeStatusEvent where
 data VolumeStatusInfo = VolumeStatusInfo'
     { _vsiStatus  :: !(Maybe VolumeStatusInfoStatus)
     , _vsiDetails :: !(Maybe [VolumeStatusDetails])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeStatusInfo' smart constructor.
 volumeStatusInfo :: VolumeStatusInfo
@@ -14222,7 +14072,7 @@ data VolumeStatusItem = VolumeStatusItem'
     , _vsiAvailabilityZone :: !(Maybe Text)
     , _vsiEvents           :: !(Maybe [VolumeStatusEvent])
     , _vsiVolumeId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeStatusItem' smart constructor.
 volumeStatusItem :: VolumeStatusItem

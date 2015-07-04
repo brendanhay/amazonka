@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.CreateEventSourceMapping
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -88,7 +90,7 @@ data CreateEventSourceMapping = CreateEventSourceMapping'
     , _cesmEventSourceARN   :: !Text
     , _cesmFunctionName     :: !Text
     , _cesmStartingPosition :: !EventSourcePosition
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEventSourceMapping' smart constructor.
 createEventSourceMapping :: Text -> Text -> EventSourcePosition -> CreateEventSourceMapping

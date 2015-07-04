@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -863,7 +865,7 @@ _DBSubnetGroupDoesNotCoverEnoughAZs =
 data ApplyMethod
     = PendingReboot
     | Immediate
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ApplyMethod where
     parser = takeLowerText >>= \case
@@ -877,9 +879,7 @@ instance ToText ApplyMethod where
         Immediate -> "immediate"
         PendingReboot -> "pending-reboot"
 
-instance Hashable ApplyMethod where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ApplyMethod
 instance ToQuery ApplyMethod
 instance ToHeader ApplyMethod
 
@@ -891,7 +891,7 @@ data SourceType
     | DBSnapshot
     | DBParameterGroup
     | DBInstance
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -909,9 +909,7 @@ instance ToText SourceType where
         DBSecurityGroup -> "db-security-group"
         DBSnapshot -> "db-snapshot"
 
-instance Hashable SourceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SourceType
 instance ToQuery SourceType
 instance ToHeader SourceType
 
@@ -934,7 +932,7 @@ data AccountQuota = AccountQuota'
     { _aqMax              :: !(Maybe Integer)
     , _aqUsed             :: !(Maybe Integer)
     , _aqAccountQuotaName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccountQuota' smart constructor.
 accountQuota :: AccountQuota
@@ -976,7 +974,7 @@ instance FromXML AccountQuota where
 -- * 'azName'
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AvailabilityZone' smart constructor.
 availabilityZone :: AvailabilityZone
@@ -1013,7 +1011,7 @@ data Certificate = Certificate'
     , _cerCertificateIdentifier :: !(Maybe Text)
     , _cerThumbprint            :: !(Maybe Text)
     , _cerValidFrom             :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Certificate' smart constructor.
 certificate :: Certificate
@@ -1067,7 +1065,7 @@ instance FromXML Certificate where
 data CharacterSet = CharacterSet'
     { _csCharacterSetName        :: !(Maybe Text)
     , _csCharacterSetDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CharacterSet' smart constructor.
 characterSet :: CharacterSet
@@ -1119,7 +1117,7 @@ data DBEngineVersion = DBEngineVersion'
     , _devEngine                     :: !(Maybe Text)
     , _devDBParameterGroupFamily     :: !(Maybe Text)
     , _devDBEngineDescription        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBEngineVersion' smart constructor.
 dbEngineVersion :: DBEngineVersion
@@ -1302,7 +1300,7 @@ data DBInstance = DBInstance'
     , _diStatusInfos                           :: !(Maybe [DBInstanceStatusInfo])
     , _diDBName                                :: !(Maybe Text)
     , _diStorageType                           :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBInstance' smart constructor.
 dbInstance :: DBInstance
@@ -1625,7 +1623,7 @@ data DBInstanceStatusInfo = DBInstanceStatusInfo'
     , _disiNormal     :: !(Maybe Bool)
     , _disiStatusType :: !(Maybe Text)
     , _disiMessage    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBInstanceStatusInfo' smart constructor.
 dbInstanceStatusInfo :: DBInstanceStatusInfo
@@ -1683,7 +1681,7 @@ data DBParameterGroup = DBParameterGroup'
     { _dpgDBParameterGroupFamily :: !(Maybe Text)
     , _dpgDBParameterGroupName   :: !(Maybe Text)
     , _dpgDescription            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBParameterGroup' smart constructor.
 dbParameterGroup :: DBParameterGroup
@@ -1724,7 +1722,7 @@ instance FromXML DBParameterGroup where
 -- * 'dpgnmDBParameterGroupName'
 newtype DBParameterGroupNameMessage = DBParameterGroupNameMessage'
     { _dpgnmDBParameterGroupName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBParameterGroupNameMessage' smart constructor.
 dbParameterGroupNameMessage :: DBParameterGroupNameMessage
@@ -1763,7 +1761,7 @@ instance FromXML DBParameterGroupNameMessage where
 data DBParameterGroupStatus = DBParameterGroupStatus'
     { _dpgsDBParameterGroupName :: !(Maybe Text)
     , _dpgsParameterApplyStatus :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBParameterGroupStatus' smart constructor.
 dbParameterGroupStatus :: DBParameterGroupStatus
@@ -1819,7 +1817,7 @@ data DBSecurityGroup = DBSecurityGroup'
     , _dsgDBSecurityGroupName        :: !(Maybe Text)
     , _dsgEC2SecurityGroups          :: !(Maybe [EC2SecurityGroup])
     , _dsgDBSecurityGroupDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBSecurityGroup' smart constructor.
 dbSecurityGroup :: DBSecurityGroup
@@ -1886,7 +1884,7 @@ instance FromXML DBSecurityGroup where
 data DBSecurityGroupMembership = DBSecurityGroupMembership'
     { _dsgmStatus              :: !(Maybe Text)
     , _dsgmDBSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBSecurityGroupMembership' smart constructor.
 dbSecurityGroupMembership :: DBSecurityGroupMembership
@@ -1987,7 +1985,7 @@ data DBSnapshot = DBSnapshot'
     , _dsPercentProgress      :: !(Maybe Int)
     , _dsPort                 :: !(Maybe Int)
     , _dsStorageType          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBSnapshot' smart constructor.
 dbSnapshot :: DBSnapshot
@@ -2165,7 +2163,7 @@ data DBSubnetGroup = DBSubnetGroup'
     , _dbsSubnets                  :: !(Maybe [Subnet])
     , _dbsDBSubnetGroupDescription :: !(Maybe Text)
     , _dbsSubnetGroupStatus        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBSubnetGroup' smart constructor.
 dbSubnetGroup :: DBSubnetGroup
@@ -2222,7 +2220,7 @@ data DescribeDBLogFilesDetails = DescribeDBLogFilesDetails'
     { _ddlfdLastWritten :: !(Maybe Integer)
     , _ddlfdSize        :: !(Maybe Integer)
     , _ddlfdLogFileName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBLogFilesDetails' smart constructor.
 describeDBLogFilesDetails :: DescribeDBLogFilesDetails
@@ -2273,7 +2271,7 @@ data EC2SecurityGroup = EC2SecurityGroup'
     , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
     , _esgEC2SecurityGroupName    :: !(Maybe Text)
     , _esgEC2SecurityGroupId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EC2SecurityGroup' smart constructor.
 ec2SecurityGroup :: EC2SecurityGroup
@@ -2327,7 +2325,7 @@ instance FromXML EC2SecurityGroup where
 data Endpoint = Endpoint'
     { _endAddress :: !(Maybe Text)
     , _endPort    :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
@@ -2365,7 +2363,7 @@ data EngineDefaults = EngineDefaults'
     { _edDBParameterGroupFamily :: !(Maybe Text)
     , _edParameters             :: !(Maybe [Parameter])
     , _edMarker                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EngineDefaults' smart constructor.
 engineDefaults :: EngineDefaults
@@ -2421,7 +2419,7 @@ data Event = Event'
     , _eveDate             :: !(Maybe ISO8601)
     , _eveEventCategories  :: !(Maybe [Text])
     , _eveMessage          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Event' smart constructor.
 event :: Event
@@ -2477,7 +2475,7 @@ instance FromXML Event where
 data EventCategoriesMap = EventCategoriesMap'
     { _ecmSourceType      :: !(Maybe Text)
     , _ecmEventCategories :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventCategoriesMap' smart constructor.
 eventCategoriesMap :: EventCategoriesMap
@@ -2536,7 +2534,7 @@ data EventSubscription = EventSubscription'
     , _esSubscriptionCreationTime :: !(Maybe Text)
     , _esEventCategoriesList      :: !(Maybe [Text])
     , _esSourceIdsList            :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventSubscription' smart constructor.
 eventSubscription :: EventSubscription
@@ -2626,7 +2624,7 @@ instance FromXML EventSubscription where
 data Filter = Filter'
     { _filName   :: !Text
     , _filValues :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
@@ -2663,7 +2661,7 @@ instance ToQuery Filter where
 data IPRange = IPRange'
     { _irStatus :: !(Maybe Text)
     , _irCIDRIP :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IPRange' smart constructor.
 ipRange :: IPRange
@@ -2716,7 +2714,7 @@ data Option = Option'
     , _optVPCSecurityGroupMemberships :: !(Maybe [VPCSecurityGroupMembership])
     , _optDBSecurityGroupMemberships  :: !(Maybe [DBSecurityGroupMembership])
     , _optPort                        :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Option' smart constructor.
 option :: Option
@@ -2804,7 +2802,7 @@ data OptionConfiguration = OptionConfiguration'
     , _ocDBSecurityGroupMemberships  :: !(Maybe [Text])
     , _ocPort                        :: !(Maybe Int)
     , _ocOptionName                  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionConfiguration' smart constructor.
 optionConfiguration :: Text -> OptionConfiguration
@@ -2880,7 +2878,7 @@ data OptionGroup = OptionGroup'
     , _ogMajorEngineVersion                    :: !(Maybe Text)
     , _ogOptions                               :: !(Maybe [Option])
     , _ogOptionGroupName                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionGroup' smart constructor.
 optionGroup :: OptionGroup
@@ -2955,7 +2953,7 @@ instance FromXML OptionGroup where
 data OptionGroupMembership = OptionGroupMembership'
     { _ogmStatus          :: !(Maybe Text)
     , _ogmOptionGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionGroupMembership' smart constructor.
 optionGroupMembership :: OptionGroupMembership
@@ -3018,7 +3016,7 @@ data OptionGroupOption = OptionGroupOption'
     , _ogoPortRequired                      :: !(Maybe Bool)
     , _ogoOptionsDependedOn                 :: !(Maybe [Text])
     , _ogoDescription                       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionGroupOption' smart constructor.
 optionGroupOption :: OptionGroupOption
@@ -3133,7 +3131,7 @@ data OptionGroupOptionSetting = OptionGroupOptionSetting'
     , _ogosIsModifiable       :: !(Maybe Bool)
     , _ogosAllowedValues      :: !(Maybe Text)
     , _ogosSettingDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionGroupOptionSetting' smart constructor.
 optionGroupOptionSetting :: OptionGroupOptionSetting
@@ -3218,7 +3216,7 @@ data OptionSetting = OptionSetting'
     , _osAllowedValues :: !(Maybe Text)
     , _osDataType      :: !(Maybe Text)
     , _osDescription   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OptionSetting' smart constructor.
 optionSetting :: OptionSetting
@@ -3337,7 +3335,7 @@ data OrderableDBInstanceOption = OrderableDBInstanceOption'
     , _odioSupportsStorageEncryption :: !(Maybe Bool)
     , _odioVPC                       :: !(Maybe Bool)
     , _odioStorageType               :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OrderableDBInstanceOption' smart constructor.
 orderableDBInstanceOption :: OrderableDBInstanceOption
@@ -3456,7 +3454,7 @@ data Parameter = Parameter'
     , _parDataType             :: !(Maybe Text)
     , _parParameterName        :: !(Maybe Text)
     , _parDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
@@ -3567,7 +3565,7 @@ data PendingMaintenanceAction = PendingMaintenanceAction'
     , _pmaDescription          :: !(Maybe Text)
     , _pmaCurrentApplyDate     :: !(Maybe ISO8601)
     , _pmaForcedApplyDate      :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PendingMaintenanceAction' smart constructor.
 pendingMaintenanceAction :: PendingMaintenanceAction
@@ -3667,7 +3665,7 @@ data PendingModifiedValues = PendingModifiedValues'
     , _pmvAllocatedStorage        :: !(Maybe Int)
     , _pmvPort                    :: !(Maybe Int)
     , _pmvStorageType             :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PendingModifiedValues' smart constructor.
 pendingModifiedValues :: PendingModifiedValues
@@ -3766,7 +3764,7 @@ instance FromXML PendingModifiedValues where
 data RecurringCharge = RecurringCharge'
     { _rcRecurringChargeFrequency :: !(Maybe Text)
     , _rcRecurringChargeAmount    :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecurringCharge' smart constructor.
 recurringCharge :: RecurringCharge
@@ -3840,7 +3838,7 @@ data ReservedDBInstance = ReservedDBInstance'
     , _rdiRecurringCharges              :: !(Maybe [RecurringCharge])
     , _rdiFixedPrice                    :: !(Maybe Double)
     , _rdiDuration                      :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedDBInstance' smart constructor.
 reservedDBInstance :: ReservedDBInstance
@@ -3974,7 +3972,7 @@ data ReservedDBInstancesOffering = ReservedDBInstancesOffering'
     , _rdioRecurringCharges              :: !(Maybe [RecurringCharge])
     , _rdioFixedPrice                    :: !(Maybe Double)
     , _rdioDuration                      :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedDBInstancesOffering' smart constructor.
 reservedDBInstancesOffering :: ReservedDBInstancesOffering
@@ -4060,7 +4058,7 @@ instance FromXML ReservedDBInstancesOffering where
 data ResourcePendingMaintenanceActions = ResourcePendingMaintenanceActions'
     { _rpmaPendingMaintenanceActionDetails :: !(Maybe [PendingMaintenanceAction])
     , _rpmaResourceIdentifier              :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResourcePendingMaintenanceActions' smart constructor.
 resourcePendingMaintenanceActions :: ResourcePendingMaintenanceActions
@@ -4103,7 +4101,7 @@ data Subnet = Subnet'
     { _subSubnetStatus           :: !(Maybe Text)
     , _subSubnetIdentifier       :: !(Maybe Text)
     , _subSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
@@ -4145,7 +4143,7 @@ instance FromXML Subnet where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
@@ -4192,7 +4190,7 @@ instance ToQuery Tag where
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
     { _vsgmStatus             :: !(Maybe Text)
     , _vsgmVPCSecurityGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPCSecurityGroupMembership' smart constructor.
 vpcSecurityGroupMembership :: VPCSecurityGroupMembership

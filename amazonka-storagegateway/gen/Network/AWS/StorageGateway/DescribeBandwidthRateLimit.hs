@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeBandwidthRateLimit
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dbrlGatewayARN'
 newtype DescribeBandwidthRateLimit = DescribeBandwidthRateLimit'
     { _dbrlGatewayARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBandwidthRateLimit' smart constructor.
 describeBandwidthRateLimit :: Text -> DescribeBandwidthRateLimit
@@ -124,7 +126,7 @@ data DescribeBandwidthRateLimitResponse = DescribeBandwidthRateLimitResponse'
     , _dbrlrAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
     , _dbrlrAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
     , _dbrlrStatus                               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBandwidthRateLimitResponse' smart constructor.
 describeBandwidthRateLimitResponse :: Int -> DescribeBandwidthRateLimitResponse

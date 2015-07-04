@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.StartInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ data StartInstances = StartInstances'
     { _staAdditionalInfo :: !(Maybe Text)
     , _staDryRun         :: !(Maybe Bool)
     , _staInstanceIds    :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartInstances' smart constructor.
 startInstances :: StartInstances
@@ -138,7 +140,7 @@ instance ToQuery StartInstances where
 data StartInstancesResponse = StartInstancesResponse'
     { _staStartingInstances :: !(Maybe [InstanceStateChange])
     , _staStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartInstancesResponse' smart constructor.
 startInstancesResponse :: Int -> StartInstancesResponse

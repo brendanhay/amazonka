@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ChangePassword
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data ChangePassword = ChangePassword'
     { _cpOldPassword :: !(Sensitive Text)
     , _cpNewPassword :: !(Sensitive Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangePassword' smart constructor.
 changePassword :: Text -> Text -> ChangePassword
@@ -96,7 +98,7 @@ instance ToQuery ChangePassword where
 -- | /See:/ 'changePasswordResponse' smart constructor.
 data ChangePasswordResponse =
     ChangePasswordResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangePasswordResponse' smart constructor.
 changePasswordResponse :: ChangePasswordResponse

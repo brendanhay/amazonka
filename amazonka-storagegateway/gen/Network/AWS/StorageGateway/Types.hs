@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -229,7 +231,7 @@ data CachediSCSIVolume = CachediSCSIVolume'
     , _cscsivVolumeSizeInBytes     :: !(Maybe Integer)
     , _cscsivVolumeId              :: !(Maybe Text)
     , _cscsivVolumeType            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CachediSCSIVolume' smart constructor.
 cachediSCSIVolume :: CachediSCSIVolume
@@ -310,7 +312,7 @@ data ChapInfo = ChapInfo'
     , _ciSecretToAuthenticateInitiator :: !(Maybe Text)
     , _ciInitiatorName                 :: !(Maybe Text)
     , _ciSecretToAuthenticateTarget    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChapInfo' smart constructor.
 chapInfo :: ChapInfo
@@ -371,7 +373,7 @@ data DeviceiSCSIAttributes = DeviceiSCSIAttributes'
     , _dscsiaChapEnabled          :: !(Maybe Bool)
     , _dscsiaNetworkInterfaceId   :: !(Maybe Text)
     , _dscsiaNetworkInterfacePort :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeviceiSCSIAttributes' smart constructor.
 deviceiSCSIAttributes :: DeviceiSCSIAttributes
@@ -434,7 +436,7 @@ data Disk = Disk'
     , _disDiskSizeInBytes        :: !(Maybe Integer)
     , _disDiskStatus             :: !(Maybe Text)
     , _disDiskId                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Disk' smart constructor.
 disk :: Disk
@@ -503,7 +505,7 @@ data GatewayInfo = GatewayInfo'
     { _giGatewayARN              :: !(Maybe Text)
     , _giGatewayOperationalState :: !(Maybe Text)
     , _giGatewayType             :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GatewayInfo' smart constructor.
 gatewayInfo :: GatewayInfo
@@ -550,7 +552,7 @@ data NetworkInterface = NetworkInterface'
     { _niIPv6Address :: !(Maybe Text)
     , _niMACAddress  :: !(Maybe Text)
     , _niIPv4Address :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NetworkInterface' smart constructor.
 networkInterface :: NetworkInterface
@@ -618,7 +620,7 @@ data StorediSCSIVolume = StorediSCSIVolume'
     , _sscsivVolumeId              :: !(Maybe Text)
     , _sscsivVolumeType            :: !(Maybe Text)
     , _sscsivVolumeDiskId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StorediSCSIVolume' smart constructor.
 storediSCSIVolume :: StorediSCSIVolume
@@ -716,7 +718,7 @@ data Tape = Tape'
     , _tapTapeARN         :: !(Maybe Text)
     , _tapTapeSizeInBytes :: !(Maybe Integer)
     , _tapVTLDevice       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tape' smart constructor.
 tape :: Tape
@@ -794,7 +796,7 @@ data TapeArchive = TapeArchive'
     , _taTapeSizeInBytes :: !(Maybe Integer)
     , _taCompletionTime  :: !(Maybe POSIX)
     , _taRetrievedTo     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TapeArchive' smart constructor.
 tapeArchive :: TapeArchive
@@ -867,7 +869,7 @@ data TapeRecoveryPointInfo = TapeRecoveryPointInfo'
     , _trpiTapeRecoveryPointTime :: !(Maybe POSIX)
     , _trpiTapeARN               :: !(Maybe Text)
     , _trpiTapeSizeInBytes       :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TapeRecoveryPointInfo' smart constructor.
 tapeRecoveryPointInfo :: TapeRecoveryPointInfo
@@ -930,7 +932,7 @@ data VTLDevice = VTLDevice'
     , _vtldVTLDeviceARN               :: !(Maybe Text)
     , _vtldVTLDeviceType              :: !(Maybe Text)
     , _vtldVTLDeviceProductIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VTLDevice' smart constructor.
 vTLDevice :: VTLDevice
@@ -985,7 +987,7 @@ instance FromJSON VTLDevice where
 data VolumeInfo = VolumeInfo'
     { _viVolumeARN  :: !(Maybe Text)
     , _viVolumeType :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeInfo' smart constructor.
 volumeInfo :: VolumeInfo
@@ -1026,7 +1028,7 @@ data VolumeRecoveryPointInfo = VolumeRecoveryPointInfo'
     , _vrpiVolumeARN               :: !(Maybe Text)
     , _vrpiVolumeSizeInBytes       :: !(Maybe Integer)
     , _vrpiVolumeUsageInBytes      :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeRecoveryPointInfo' smart constructor.
 volumeRecoveryPointInfo :: VolumeRecoveryPointInfo
@@ -1085,7 +1087,7 @@ data VolumeiSCSIAttributes = VolumeiSCSIAttributes'
     , _vscsiaChapEnabled          :: !(Maybe Bool)
     , _vscsiaNetworkInterfaceId   :: !(Maybe Text)
     , _vscsiaNetworkInterfacePort :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeiSCSIAttributes' smart constructor.
 volumeiSCSIAttributes :: VolumeiSCSIAttributes

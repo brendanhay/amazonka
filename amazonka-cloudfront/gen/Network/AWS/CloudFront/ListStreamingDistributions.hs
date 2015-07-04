@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.ListStreamingDistributions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data ListStreamingDistributions = ListStreamingDistributions'
     { _lsdMaxItems :: !(Maybe Text)
     , _lsdMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamingDistributions' smart constructor.
 listStreamingDistributions :: ListStreamingDistributions
@@ -111,7 +113,7 @@ instance ToQuery ListStreamingDistributions where
 data ListStreamingDistributionsResponse = ListStreamingDistributionsResponse'
     { _lsdrStatus                    :: !Int
     , _lsdrStreamingDistributionList :: !StreamingDistributionList
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamingDistributionsResponse' smart constructor.
 listStreamingDistributionsResponse :: Int -> StreamingDistributionList -> ListStreamingDistributionsResponse

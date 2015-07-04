@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.DeleteDeploymentGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
     { _ddgApplicationName     :: !Text
     , _ddgDeploymentGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentGroup' smart constructor.
 deleteDeploymentGroup :: Text -> Text -> DeleteDeploymentGroup
@@ -118,7 +120,7 @@ instance ToQuery DeleteDeploymentGroup where
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
     { _ddgrHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
     , _ddgrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentGroupResponse' smart constructor.
 deleteDeploymentGroupResponse :: Int -> DeleteDeploymentGroupResponse

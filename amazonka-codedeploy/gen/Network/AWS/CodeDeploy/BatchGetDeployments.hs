@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.BatchGetDeployments
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'bgdDeploymentIds'
 newtype BatchGetDeployments = BatchGetDeployments'
     { _bgdDeploymentIds :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetDeployments' smart constructor.
 batchGetDeployments :: BatchGetDeployments
@@ -107,7 +109,7 @@ instance ToQuery BatchGetDeployments where
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
     { _bgdrDeploymentsInfo :: !(Maybe [DeploymentInfo])
     , _bgdrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetDeploymentsResponse' smart constructor.
 batchGetDeploymentsResponse :: Int -> BatchGetDeploymentsResponse

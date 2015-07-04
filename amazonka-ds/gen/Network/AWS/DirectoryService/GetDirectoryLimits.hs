@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.GetDirectoryLimits
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -43,7 +45,7 @@ import           Network.AWS.Response
 -- /See:/ 'getDirectoryLimits' smart constructor.
 data GetDirectoryLimits =
     GetDirectoryLimits'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDirectoryLimits' smart constructor.
 getDirectoryLimits :: GetDirectoryLimits
@@ -91,7 +93,7 @@ instance ToQuery GetDirectoryLimits where
 data GetDirectoryLimitsResponse = GetDirectoryLimitsResponse'
     { _gdlrDirectoryLimits :: !(Maybe DirectoryLimits)
     , _gdlrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDirectoryLimitsResponse' smart constructor.
 getDirectoryLimitsResponse :: Int -> GetDirectoryLimitsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateApp
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -98,7 +100,7 @@ data CreateApp = CreateApp'
     , _caStackId          :: !Text
     , _caName             :: !Text
     , _caType             :: !AppType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApp' smart constructor.
 createApp :: Text -> Text -> AppType -> CreateApp
@@ -239,7 +241,7 @@ instance ToQuery CreateApp where
 data CreateAppResponse = CreateAppResponse'
     { _carAppId  :: !(Maybe Text)
     , _carStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAppResponse' smart constructor.
 createAppResponse :: Int -> CreateAppResponse

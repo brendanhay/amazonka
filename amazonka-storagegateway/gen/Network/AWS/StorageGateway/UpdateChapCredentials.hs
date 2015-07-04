@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateChapCredentials
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data UpdateChapCredentials = UpdateChapCredentials'
     , _uccTargetARN                     :: !Text
     , _uccSecretToAuthenticateInitiator :: !Text
     , _uccInitiatorName                 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateChapCredentials' smart constructor.
 updateChapCredentials :: Text -> Text -> Text -> UpdateChapCredentials
@@ -164,7 +166,7 @@ data UpdateChapCredentialsResponse = UpdateChapCredentialsResponse'
     { _uccrTargetARN     :: !(Maybe Text)
     , _uccrInitiatorName :: !(Maybe Text)
     , _uccrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateChapCredentialsResponse' smart constructor.
 updateChapCredentialsResponse :: Int -> UpdateChapCredentialsResponse

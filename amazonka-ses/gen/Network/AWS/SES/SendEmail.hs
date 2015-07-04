@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.SendEmail
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -91,7 +93,7 @@ data SendEmail = SendEmail'
     , _seSource           :: !Text
     , _seDestination      :: !Destination
     , _seMessage          :: !Message
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendEmail' smart constructor.
 sendEmail :: Text -> Destination -> Message -> SendEmail
@@ -180,7 +182,7 @@ instance ToQuery SendEmail where
 data SendEmailResponse = SendEmailResponse'
     { _serStatus    :: !Int
     , _serMessageId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendEmailResponse' smart constructor.
 sendEmailResponse :: Int -> Text -> SendEmailResponse

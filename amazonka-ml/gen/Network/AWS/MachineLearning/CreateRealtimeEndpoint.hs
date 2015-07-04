@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateRealtimeEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'creMLModelId'
 newtype CreateRealtimeEndpoint = CreateRealtimeEndpoint'
     { _creMLModelId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRealtimeEndpoint' smart constructor.
 createRealtimeEndpoint :: Text -> CreateRealtimeEndpoint
@@ -117,7 +119,7 @@ data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
     { _crerRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
     , _crerMLModelId            :: !(Maybe Text)
     , _crerStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRealtimeEndpointResponse' smart constructor.
 createRealtimeEndpointResponse :: Int -> CreateRealtimeEndpointResponse

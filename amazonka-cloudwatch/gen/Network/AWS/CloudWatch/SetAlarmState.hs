@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.SetAlarmState
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data SetAlarmState = SetAlarmState'
     , _sasAlarmName       :: !Text
     , _sasStateValue      :: !StateValue
     , _sasStateReason     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetAlarmState' smart constructor.
 setAlarmState :: Text -> StateValue -> Text -> SetAlarmState
@@ -116,7 +118,7 @@ instance ToQuery SetAlarmState where
 -- | /See:/ 'setAlarmStateResponse' smart constructor.
 data SetAlarmStateResponse =
     SetAlarmStateResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetAlarmStateResponse' smart constructor.
 setAlarmStateResponse :: SetAlarmStateResponse

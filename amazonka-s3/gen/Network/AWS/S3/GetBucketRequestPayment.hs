@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketRequestPayment
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.S3.Types
 -- * 'gbrpBucket'
 newtype GetBucketRequestPayment = GetBucketRequestPayment'
     { _gbrpBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketRequestPayment' smart constructor.
 getBucketRequestPayment :: BucketName -> GetBucketRequestPayment
@@ -91,7 +93,7 @@ instance ToQuery GetBucketRequestPayment where
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
     { _gbrprPayer  :: !(Maybe Payer)
     , _gbrprStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketRequestPaymentResponse' smart constructor.
 getBucketRequestPaymentResponse :: Int -> GetBucketRequestPaymentResponse

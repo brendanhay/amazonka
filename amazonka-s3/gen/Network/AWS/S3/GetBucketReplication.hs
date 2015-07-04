@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketReplication
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.S3.Types
 -- * 'gbrBucket'
 newtype GetBucketReplication = GetBucketReplication'
     { _gbrBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketReplication' smart constructor.
 getBucketReplication :: BucketName -> GetBucketReplication
@@ -92,7 +94,7 @@ instance ToQuery GetBucketReplication where
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
     { _gbrrReplicationConfiguration :: !(Maybe ReplicationConfiguration)
     , _gbrrStatus                   :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketReplicationResponse' smart constructor.
 getBucketReplicationResponse :: Int -> GetBucketReplicationResponse

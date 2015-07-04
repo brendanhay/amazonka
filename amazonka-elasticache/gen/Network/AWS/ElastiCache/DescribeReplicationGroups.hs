@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeReplicationGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data DescribeReplicationGroups = DescribeReplicationGroups'
     { _descMaxRecords         :: !(Maybe Int)
     , _descMarker             :: !(Maybe Text)
     , _descReplicationGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReplicationGroups' smart constructor.
 describeReplicationGroups :: DescribeReplicationGroups
@@ -150,7 +152,7 @@ data DescribeReplicationGroupsResponse = DescribeReplicationGroupsResponse'
     { _drgrMarker            :: !(Maybe Text)
     , _drgrReplicationGroups :: !(Maybe [ReplicationGroup])
     , _drgrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReplicationGroupsResponse' smart constructor.
 describeReplicationGroupsResponse :: Int -> DescribeReplicationGroupsResponse

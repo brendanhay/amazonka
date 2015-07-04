@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'gcfoaicId'
 newtype GetCloudFrontOriginAccessIdentityConfig = GetCloudFrontOriginAccessIdentityConfig'
     { _gcfoaicId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCloudFrontOriginAccessIdentityConfig' smart constructor.
 getCloudFrontOriginAccessIdentityConfig :: Text -> GetCloudFrontOriginAccessIdentityConfig
@@ -108,7 +110,7 @@ data GetCloudFrontOriginAccessIdentityConfigResponse = GetCloudFrontOriginAccess
     { _gcfoaicrCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
     , _gcfoaicrETag                                 :: !(Maybe Text)
     , _gcfoaicrStatus                               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCloudFrontOriginAccessIdentityConfigResponse' smart constructor.
 getCloudFrontOriginAccessIdentityConfigResponse :: Int -> GetCloudFrontOriginAccessIdentityConfigResponse

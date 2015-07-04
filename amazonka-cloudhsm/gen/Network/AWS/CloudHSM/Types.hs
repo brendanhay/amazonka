@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -91,7 +93,7 @@ _CloudHSMInternalException =
 data ClientVersion
     = V51
     | V53
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ClientVersion where
     parser = takeLowerText >>= \case
@@ -105,9 +107,7 @@ instance ToText ClientVersion where
         V51 -> "5.1"
         V53 -> "5.3"
 
-instance Hashable ClientVersion where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ClientVersion
 instance ToQuery ClientVersion
 instance ToHeader ClientVersion
 
@@ -118,7 +118,7 @@ data CloudHSMObjectState
     = Updating
     | Degraded
     | Ready
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CloudHSMObjectState where
     parser = takeLowerText >>= \case
@@ -134,9 +134,7 @@ instance ToText CloudHSMObjectState where
         Ready -> "ready"
         Updating -> "updating"
 
-instance Hashable CloudHSMObjectState where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable CloudHSMObjectState
 instance ToQuery CloudHSMObjectState
 instance ToHeader CloudHSMObjectState
 
@@ -151,7 +149,7 @@ data HSMStatus
     | HSTerminating
     | HSSuspended
     | HSDegraded
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText HSMStatus where
     parser = takeLowerText >>= \case
@@ -175,9 +173,7 @@ instance ToText HSMStatus where
         HSTerminating -> "terminating"
         HSUpdating -> "updating"
 
-instance Hashable HSMStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable HSMStatus
 instance ToQuery HSMStatus
 instance ToHeader HSMStatus
 
@@ -186,7 +182,7 @@ instance FromJSON HSMStatus where
 
 data SubscriptionType =
     Production
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SubscriptionType where
     parser = takeLowerText >>= \case
@@ -198,9 +194,7 @@ instance ToText SubscriptionType where
     toText = \case
         Production -> "production"
 
-instance Hashable SubscriptionType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SubscriptionType
 instance ToQuery SubscriptionType
 instance ToHeader SubscriptionType
 

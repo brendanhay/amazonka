@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteTapeArchive
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dtaTapeARN'
 newtype DeleteTapeArchive = DeleteTapeArchive'
     { _dtaTapeARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTapeArchive' smart constructor.
 deleteTapeArchive :: Text -> DeleteTapeArchive
@@ -105,7 +107,7 @@ instance ToQuery DeleteTapeArchive where
 data DeleteTapeArchiveResponse = DeleteTapeArchiveResponse'
     { _dtar1TapeARN :: !(Maybe Text)
     , _dtar1Status  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTapeArchiveResponse' smart constructor.
 deleteTapeArchiveResponse :: Int -> DeleteTapeArchiveResponse

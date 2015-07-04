@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeReservedDBInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -88,7 +90,7 @@ data DescribeReservedDBInstances = DescribeReservedDBInstances'
     , _drdiReservedDBInstancesOfferingId :: !(Maybe Text)
     , _drdiOfferingType                  :: !(Maybe Text)
     , _drdiDuration                      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedDBInstances' smart constructor.
 describeReservedDBInstances :: DescribeReservedDBInstances
@@ -229,7 +231,7 @@ data DescribeReservedDBInstancesResponse = DescribeReservedDBInstancesResponse'
     { _drdirReservedDBInstances :: !(Maybe [ReservedDBInstance])
     , _drdirMarker              :: !(Maybe Text)
     , _drdirStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedDBInstancesResponse' smart constructor.
 describeReservedDBInstancesResponse :: Int -> DescribeReservedDBInstancesResponse

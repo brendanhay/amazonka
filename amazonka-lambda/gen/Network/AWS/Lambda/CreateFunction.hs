@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.CreateFunction
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -89,7 +91,7 @@ data CreateFunction = CreateFunction'
     , _cfRole         :: !Text
     , _cfHandler      :: !Text
     , _cfCode         :: !FunctionCode
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateFunction' smart constructor.
 createFunction :: Text -> Runtime -> Text -> Text -> FunctionCode -> CreateFunction

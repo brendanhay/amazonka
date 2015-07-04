@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.ListParts
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -98,7 +100,7 @@ data ListParts = ListParts'
     , _lpAccountId :: !Text
     , _lpVaultName :: !Text
     , _lpUploadId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListParts' smart constructor.
 listParts :: Text -> Text -> Text -> ListParts
@@ -203,7 +205,7 @@ data ListPartsResponse = ListPartsResponse'
     , _lprMarker             :: !(Maybe Text)
     , _lprCreationDate       :: !(Maybe Text)
     , _lprStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Int -> ListPartsResponse

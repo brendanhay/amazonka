@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.RefreshTrustedAdvisorCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Support.Types
 -- * 'rtacCheckId'
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
     { _rtacCheckId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RefreshTrustedAdvisorCheck' smart constructor.
 refreshTrustedAdvisorCheck :: Text -> RefreshTrustedAdvisorCheck
@@ -110,7 +112,7 @@ instance ToQuery RefreshTrustedAdvisorCheck where
 -- * 'rtacrStatus'
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
     { _rtacrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RefreshTrustedAdvisorCheckResponse' smart constructor.
 refreshTrustedAdvisorCheckResponse :: Int -> RefreshTrustedAdvisorCheckResponse

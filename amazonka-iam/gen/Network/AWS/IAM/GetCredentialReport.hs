@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetCredentialReport
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- | /See:/ 'getCredentialReport' smart constructor.
 data GetCredentialReport =
     GetCredentialReport'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialReport' smart constructor.
 getCredentialReport :: GetCredentialReport
@@ -96,7 +98,7 @@ data GetCredentialReportResponse = GetCredentialReportResponse'
     , _getGeneratedTime :: !(Maybe ISO8601)
     , _getReportFormat  :: !(Maybe ReportFormatType)
     , _getStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialReportResponse' smart constructor.
 getCredentialReportResponse :: Int -> GetCredentialReportResponse

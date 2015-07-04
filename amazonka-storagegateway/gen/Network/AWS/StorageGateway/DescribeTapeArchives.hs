@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapeArchives
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data DescribeTapeArchives = DescribeTapeArchives'
     { _dtaMarker   :: !(Maybe Text)
     , _dtaLimit    :: !(Maybe Nat)
     , _dtaTapeARNs :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapeArchives' smart constructor.
 describeTapeArchives :: DescribeTapeArchives
@@ -147,7 +149,7 @@ data DescribeTapeArchivesResponse = DescribeTapeArchivesResponse'
     { _dtarTapeArchives :: !(Maybe [TapeArchive])
     , _dtarMarker       :: !(Maybe Text)
     , _dtarStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapeArchivesResponse' smart constructor.
 describeTapeArchivesResponse :: Int -> DescribeTapeArchivesResponse

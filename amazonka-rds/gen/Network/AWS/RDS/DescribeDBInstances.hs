@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data DescribeDBInstances = DescribeDBInstances'
     , _ddbiDBInstanceIdentifier :: !(Maybe Text)
     , _ddbiMaxRecords           :: !(Maybe Int)
     , _ddbiMarker               :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBInstances' smart constructor.
 describeDBInstances :: DescribeDBInstances
@@ -163,7 +165,7 @@ data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
     { _desDBInstances :: !(Maybe [DBInstance])
     , _desMarker      :: !(Maybe Text)
     , _desStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBInstancesResponse' smart constructor.
 describeDBInstancesResponse :: Int -> DescribeDBInstancesResponse

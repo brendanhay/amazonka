@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStacks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data DescribeStacks = DescribeStacks'
     { _desNextToken :: !(Maybe Text)
     , _desStackName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStacks' smart constructor.
 describeStacks :: DescribeStacks
@@ -131,7 +133,7 @@ data DescribeStacksResponse = DescribeStacksResponse'
     { _dsrNextToken :: !(Maybe Text)
     , _dsrStacks    :: !(Maybe [Stack])
     , _dsrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Int -> DescribeStacksResponse

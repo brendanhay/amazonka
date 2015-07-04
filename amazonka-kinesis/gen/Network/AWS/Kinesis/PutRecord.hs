@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.PutRecord
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -107,7 +109,7 @@ data PutRecord = PutRecord'
     , _prStreamName                :: !Text
     , _prData                      :: !Base64
     , _prPartitionKey              :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecord' smart constructor.
 putRecord :: Text -> Base64 -> Text -> PutRecord
@@ -206,7 +208,7 @@ data PutRecordResponse = PutRecordResponse'
     { _prrStatus         :: !Int
     , _prrShardId        :: !Text
     , _prrSequenceNumber :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordResponse' smart constructor.
 putRecordResponse :: Int -> Text -> Text -> PutRecordResponse

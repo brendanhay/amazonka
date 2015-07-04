@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ModifyVPCEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data ModifyVPCEndpoint = ModifyVPCEndpoint'
     , _mveAddRouteTableIds    :: !(Maybe [Text])
     , _mveDryRun              :: !(Maybe Bool)
     , _mveVPCEndpointId       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCEndpoint' smart constructor.
 modifyVPCEndpoint :: Text -> ModifyVPCEndpoint
@@ -152,7 +154,7 @@ instance ToQuery ModifyVPCEndpoint where
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
     { _mverReturn :: !(Maybe Bool)
     , _mverStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCEndpointResponse' smart constructor.
 modifyVPCEndpointResponse :: Int -> ModifyVPCEndpointResponse

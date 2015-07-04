@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.ChangeMessageVisibility
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -85,7 +87,7 @@ data ChangeMessageVisibility = ChangeMessageVisibility'
     { _cmvQueueURL          :: !Text
     , _cmvReceiptHandle     :: !Text
     , _cmvVisibilityTimeout :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeMessageVisibility' smart constructor.
 changeMessageVisibility :: Text -> Text -> Int -> ChangeMessageVisibility
@@ -138,7 +140,7 @@ instance ToQuery ChangeMessageVisibility where
 -- | /See:/ 'changeMessageVisibilityResponse' smart constructor.
 data ChangeMessageVisibilityResponse =
     ChangeMessageVisibilityResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeMessageVisibilityResponse' smart constructor.
 changeMessageVisibilityResponse :: ChangeMessageVisibilityResponse

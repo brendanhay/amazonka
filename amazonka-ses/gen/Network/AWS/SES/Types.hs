@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -138,7 +140,7 @@ _MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected"
 data IdentityType
     = Domain
     | EmailAddress
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText IdentityType where
     parser = takeLowerText >>= \case
@@ -152,9 +154,7 @@ instance ToText IdentityType where
         Domain -> "domain"
         EmailAddress -> "emailaddress"
 
-instance Hashable IdentityType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable IdentityType
 instance ToQuery IdentityType
 instance ToHeader IdentityType
 
@@ -162,7 +162,7 @@ data NotificationType
     = Delivery
     | Bounce
     | Complaint
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText NotificationType where
     parser = takeLowerText >>= \case
@@ -178,9 +178,7 @@ instance ToText NotificationType where
         Complaint -> "complaint"
         Delivery -> "delivery"
 
-instance Hashable NotificationType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable NotificationType
 instance ToQuery NotificationType
 instance ToHeader NotificationType
 
@@ -190,7 +188,7 @@ data VerificationStatus
     | Success
     | TemporaryFailure
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VerificationStatus where
     parser = takeLowerText >>= \case
@@ -210,9 +208,7 @@ instance ToText VerificationStatus where
         Success -> "success"
         TemporaryFailure -> "temporaryfailure"
 
-instance Hashable VerificationStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VerificationStatus
 instance ToQuery VerificationStatus
 instance ToHeader VerificationStatus
 
@@ -233,7 +229,7 @@ instance FromXML VerificationStatus where
 data Body = Body'
     { _bodText :: !(Maybe Content)
     , _bodHTML :: !(Maybe Content)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Body' smart constructor.
 body :: Body
@@ -276,7 +272,7 @@ instance ToQuery Body where
 data Content = Content'
     { _conCharset :: !(Maybe Text)
     , _conData    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Content' smart constructor.
 content :: Text -> Content
@@ -321,7 +317,7 @@ data Destination = Destination'
     { _desBCCAddresses :: !(Maybe [Text])
     , _desCCAddresses  :: !(Maybe [Text])
     , _desToAddresses  :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Destination' smart constructor.
 destination :: Destination
@@ -369,7 +365,7 @@ data IdentityDkimAttributes = IdentityDkimAttributes'
     { _idaDkimTokens             :: !(Maybe [Text])
     , _idaDkimEnabled            :: !Bool
     , _idaDkimVerificationStatus :: !VerificationStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityDkimAttributes' smart constructor.
 identityDkimAttributes :: Bool -> VerificationStatus -> IdentityDkimAttributes
@@ -434,7 +430,7 @@ data IdentityNotificationAttributes = IdentityNotificationAttributes'
     , _inaComplaintTopic    :: !Text
     , _inaDeliveryTopic     :: !Text
     , _inaForwardingEnabled :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityNotificationAttributes' smart constructor.
 identityNotificationAttributes :: Text -> Text -> Text -> Bool -> IdentityNotificationAttributes
@@ -488,7 +484,7 @@ instance FromXML IdentityNotificationAttributes where
 data IdentityVerificationAttributes = IdentityVerificationAttributes'
     { _ivaVerificationToken  :: !(Maybe Text)
     , _ivaVerificationStatus :: !VerificationStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityVerificationAttributes' smart constructor.
 identityVerificationAttributes :: VerificationStatus -> IdentityVerificationAttributes
@@ -526,7 +522,7 @@ instance FromXML IdentityVerificationAttributes where
 data Message = Message'
     { _mesSubject :: !Content
     , _mesBody    :: !Body
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Message' smart constructor.
 message :: Content -> Body -> Message
@@ -559,7 +555,7 @@ instance ToQuery Message where
 -- * 'rmData'
 newtype RawMessage = RawMessage'
     { _rmData :: Base64
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RawMessage' smart constructor.
 rawMessage :: Base64 -> RawMessage
@@ -605,7 +601,7 @@ data SendDataPoint = SendDataPoint'
     , _sdpDeliveryAttempts :: !(Maybe Integer)
     , _sdpBounces          :: !(Maybe Integer)
     , _sdpTimestamp        :: !(Maybe ISO8601)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendDataPoint' smart constructor.
 sendDataPoint :: SendDataPoint

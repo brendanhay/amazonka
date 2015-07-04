@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeCommands
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribeCommands = DescribeCommands'
     { _dcInstanceId   :: !(Maybe Text)
     , _dcDeploymentId :: !(Maybe Text)
     , _dcCommandIds   :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommands' smart constructor.
 describeCommands :: DescribeCommands
@@ -137,7 +139,7 @@ instance ToQuery DescribeCommands where
 data DescribeCommandsResponse = DescribeCommandsResponse'
     { _dcrCommands :: !(Maybe [Command])
     , _dcrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommandsResponse' smart constructor.
 describeCommandsResponse :: Int -> DescribeCommandsResponse

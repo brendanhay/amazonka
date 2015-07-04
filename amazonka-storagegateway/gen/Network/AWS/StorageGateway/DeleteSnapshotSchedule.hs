@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DeleteSnapshotSchedule
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'delVolumeARN'
 newtype DeleteSnapshotSchedule = DeleteSnapshotSchedule'
     { _delVolumeARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotSchedule' smart constructor.
 deleteSnapshotSchedule :: Text -> DeleteSnapshotSchedule
@@ -111,7 +113,7 @@ instance ToQuery DeleteSnapshotSchedule where
 data DeleteSnapshotScheduleResponse = DeleteSnapshotScheduleResponse'
     { _dssr1VolumeARN :: !(Maybe Text)
     , _dssr1Status    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotScheduleResponse' smart constructor.
 deleteSnapshotScheduleResponse :: Int -> DeleteSnapshotScheduleResponse

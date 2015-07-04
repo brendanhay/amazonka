@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearchDomains.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -139,7 +141,7 @@ _SearchException = _ServiceError . hasCode "SearchException"
 data ContentType
     = ApplicationJSON
     | ApplicationXML
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ContentType where
     parser = takeLowerText >>= \case
@@ -153,9 +155,7 @@ instance ToText ContentType where
         ApplicationJSON -> "application/json"
         ApplicationXML -> "application/xml"
 
-instance Hashable ContentType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ContentType
 instance ToQuery ContentType
 instance ToHeader ContentType
 
@@ -167,7 +167,7 @@ data QueryParser
     | Dismax
     | Simple
     | Structured
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText QueryParser where
     parser = takeLowerText >>= \case
@@ -185,9 +185,7 @@ instance ToText QueryParser where
         Simple -> "simple"
         Structured -> "structured"
 
-instance Hashable QueryParser where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable QueryParser
 instance ToQuery QueryParser
 instance ToHeader QueryParser
 
@@ -206,7 +204,7 @@ instance ToJSON QueryParser where
 data Bucket = Bucket'
     { _bucValue :: !(Maybe Text)
     , _bucCount :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Bucket' smart constructor.
 bucket :: Bucket
@@ -240,7 +238,7 @@ instance FromJSON Bucket where
 -- * 'biBuckets'
 newtype BucketInfo = BucketInfo'
     { _biBuckets :: Maybe [Bucket]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BucketInfo' smart constructor.
 bucketInfo :: BucketInfo
@@ -268,7 +266,7 @@ instance FromJSON BucketInfo where
 -- * 'dswMessage'
 newtype DocumentServiceWarning = DocumentServiceWarning'
     { _dswMessage :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DocumentServiceWarning' smart constructor.
 documentServiceWarning :: DocumentServiceWarning
@@ -305,7 +303,7 @@ data Hit = Hit'
     , _hitId         :: !(Maybe Text)
     , _hitHighlights :: !(Maybe (Map Text Text))
     , _hitFields     :: !(Maybe (Map Text [Text]))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Hit' smart constructor.
 hit :: Hit
@@ -361,7 +359,7 @@ data Hits = Hits'
     , _hitHit    :: !(Maybe [Hit])
     , _hitStart  :: !(Maybe Integer)
     , _hitFound  :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Hits' smart constructor.
 hits :: Hits
@@ -412,7 +410,7 @@ instance FromJSON Hits where
 data SearchStatus = SearchStatus'
     { _ssRid    :: !(Maybe Text)
     , _ssTimems :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SearchStatus' smart constructor.
 searchStatus :: SearchStatus
@@ -452,7 +450,7 @@ data SuggestModel = SuggestModel'
     { _smFound       :: !(Maybe Integer)
     , _smSuggestions :: !(Maybe [SuggestionMatch])
     , _smQuery       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestModel' smart constructor.
 suggestModel :: SuggestModel
@@ -496,7 +494,7 @@ instance FromJSON SuggestModel where
 data SuggestStatus = SuggestStatus'
     { _sugRid    :: !(Maybe Text)
     , _sugTimems :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestStatus' smart constructor.
 suggestStatus :: SuggestStatus
@@ -537,7 +535,7 @@ data SuggestionMatch = SuggestionMatch'
     { _smSuggestion :: !(Maybe Text)
     , _smScore      :: !(Maybe Integer)
     , _smId         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestionMatch' smart constructor.
 suggestionMatch :: SuggestionMatch

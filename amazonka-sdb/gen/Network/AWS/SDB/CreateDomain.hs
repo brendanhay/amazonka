@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.CreateDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.SDB.Types
 -- * 'cdDomainName'
 newtype CreateDomain = CreateDomain'
     { _cdDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
@@ -89,7 +91,7 @@ instance ToQuery CreateDomain where
 -- | /See:/ 'createDomainResponse' smart constructor.
 data CreateDomainResponse =
     CreateDomainResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDomainResponse' smart constructor.
 createDomainResponse :: CreateDomainResponse

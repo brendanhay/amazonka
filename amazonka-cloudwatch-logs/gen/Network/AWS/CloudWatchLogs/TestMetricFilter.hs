@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.TestMetricFilter
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data TestMetricFilter = TestMetricFilter'
     { _tmfFilterPattern    :: !Text
     , _tmfLogEventMessages :: !(List1 Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestMetricFilter' smart constructor.
 testMetricFilter :: Text -> NonEmpty Text -> TestMetricFilter
@@ -112,7 +114,7 @@ instance ToQuery TestMetricFilter where
 data TestMetricFilterResponse = TestMetricFilterResponse'
     { _tmfrMatches :: !(Maybe [MetricFilterMatchRecord])
     , _tmfrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestMetricFilterResponse' smart constructor.
 testMetricFilterResponse :: Int -> TestMetricFilterResponse

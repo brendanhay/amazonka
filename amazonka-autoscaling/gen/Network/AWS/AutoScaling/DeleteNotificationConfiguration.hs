@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DeleteNotificationConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
     { _dncAutoScalingGroupName :: !Text
     , _dncTopicARN             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNotificationConfiguration' smart constructor.
 deleteNotificationConfiguration :: Text -> Text -> DeleteNotificationConfiguration
@@ -97,7 +99,7 @@ instance ToQuery DeleteNotificationConfiguration
 -- | /See:/ 'deleteNotificationConfigurationResponse' smart constructor.
 data DeleteNotificationConfigurationResponse =
     DeleteNotificationConfigurationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNotificationConfigurationResponse' smart constructor.
 deleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse

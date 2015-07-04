@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.StopDeployment
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'sdDeploymentId'
 newtype StopDeployment = StopDeployment'
     { _sdDeploymentId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopDeployment' smart constructor.
 stopDeployment :: Text -> StopDeployment
@@ -103,7 +105,7 @@ instance ToQuery StopDeployment where
 data StopDeploymentResponse = StopDeploymentResponse'
     { _sdrStatusMessage :: !(Maybe Text)
     , _sdrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopDeploymentResponse' smart constructor.
 stopDeploymentResponse :: Int -> StopDeploymentResponse

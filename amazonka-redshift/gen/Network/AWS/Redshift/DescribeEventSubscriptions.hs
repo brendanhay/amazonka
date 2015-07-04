@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeEventSubscriptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data DescribeEventSubscriptions = DescribeEventSubscriptions'
     { _des1SubscriptionName :: !(Maybe Text)
     , _des1MaxRecords       :: !(Maybe Int)
     , _des1Marker           :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventSubscriptions' smart constructor.
 describeEventSubscriptions :: DescribeEventSubscriptions
@@ -151,7 +153,7 @@ data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
     { _desrEventSubscriptionsList :: !(Maybe [EventSubscription])
     , _desrMarker                 :: !(Maybe Text)
     , _desrStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
 describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse

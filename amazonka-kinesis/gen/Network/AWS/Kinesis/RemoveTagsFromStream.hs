@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.RemoveTagsFromStream
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data RemoveTagsFromStream = RemoveTagsFromStream'
     { _rtfsStreamName :: !Text
     , _rtfsTagKeys    :: !(List1 Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromStream' smart constructor.
 removeTagsFromStream :: Text -> NonEmpty Text -> RemoveTagsFromStream
@@ -102,7 +104,7 @@ instance ToQuery RemoveTagsFromStream where
 -- | /See:/ 'removeTagsFromStreamResponse' smart constructor.
 data RemoveTagsFromStreamResponse =
     RemoveTagsFromStreamResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromStreamResponse' smart constructor.
 removeTagsFromStreamResponse :: RemoveTagsFromStreamResponse

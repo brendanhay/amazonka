@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.GetWorkflowExecutionHistory
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -88,7 +90,7 @@ data GetWorkflowExecutionHistory = GetWorkflowExecutionHistory'
     , _gwehMaximumPageSize :: !(Maybe Nat)
     , _gwehDomain          :: !Text
     , _gwehExecution       :: !WorkflowExecution
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetWorkflowExecutionHistory' smart constructor.
 getWorkflowExecutionHistory :: Text -> WorkflowExecution -> GetWorkflowExecutionHistory
@@ -197,7 +199,7 @@ data GetWorkflowExecutionHistoryResponse = GetWorkflowExecutionHistoryResponse'
     { _gwehrNextPageToken :: !(Maybe Text)
     , _gwehrStatus        :: !Int
     , _gwehrEvents        :: ![HistoryEvent]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetWorkflowExecutionHistoryResponse' smart constructor.
 getWorkflowExecutionHistoryResponse :: Int -> GetWorkflowExecutionHistoryResponse

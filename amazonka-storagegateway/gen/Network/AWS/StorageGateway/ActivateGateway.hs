@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.ActivateGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -91,7 +93,7 @@ data ActivateGateway = ActivateGateway'
     , _agGatewayName       :: !Text
     , _agGatewayTimezone   :: !Text
     , _agGatewayRegion     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivateGateway' smart constructor.
 activateGateway :: Text -> Text -> Text -> Text -> ActivateGateway
@@ -212,7 +214,7 @@ instance ToQuery ActivateGateway where
 data ActivateGatewayResponse = ActivateGatewayResponse'
     { _agrGatewayARN :: !(Maybe Text)
     , _agrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivateGatewayResponse' smart constructor.
 activateGatewayResponse :: Int -> ActivateGatewayResponse

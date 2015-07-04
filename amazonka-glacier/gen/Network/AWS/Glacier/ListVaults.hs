@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.ListVaults
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -81,7 +83,7 @@ data ListVaults = ListVaults'
     { _lvMarker    :: !(Maybe Text)
     , _lvLimit     :: !(Maybe Text)
     , _lvAccountId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVaults' smart constructor.
 listVaults :: Text -> ListVaults
@@ -150,7 +152,7 @@ data ListVaultsResponse = ListVaultsResponse'
     { _lvrMarker    :: !(Maybe Text)
     , _lvrVaultList :: !(Maybe [DescribeVaultOutput])
     , _lvrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVaultsResponse' smart constructor.
 listVaultsResponse :: Int -> ListVaultsResponse

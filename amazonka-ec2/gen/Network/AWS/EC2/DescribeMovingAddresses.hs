@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeMovingAddresses
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data DescribeMovingAddresses = DescribeMovingAddresses'
     , _dmaNextToken  :: !(Maybe Text)
     , _dmaDryRun     :: !(Maybe Bool)
     , _dmaMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMovingAddresses' smart constructor.
 describeMovingAddresses :: DescribeMovingAddresses
@@ -157,7 +159,7 @@ data DescribeMovingAddressesResponse = DescribeMovingAddressesResponse'
     { _dmarMovingAddressStatuses :: !(Maybe [MovingAddressStatus])
     , _dmarNextToken             :: !(Maybe Text)
     , _dmarStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMovingAddressesResponse' smart constructor.
 describeMovingAddressesResponse :: Int -> DescribeMovingAddressesResponse

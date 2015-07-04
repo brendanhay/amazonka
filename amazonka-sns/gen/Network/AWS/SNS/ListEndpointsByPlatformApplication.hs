@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.ListEndpointsByPlatformApplication
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ import           Network.AWS.SNS.Types
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
     { _lebpaNextToken              :: !(Maybe Text)
     , _lebpaPlatformApplicationARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEndpointsByPlatformApplication' smart constructor.
 listEndpointsByPlatformApplication :: Text -> ListEndpointsByPlatformApplication
@@ -143,7 +145,7 @@ data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplica
     { _lebparNextToken :: !(Maybe Text)
     , _lebparEndpoints :: !(Maybe [Endpoint])
     , _lebparStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEndpointsByPlatformApplicationResponse' smart constructor.
 listEndpointsByPlatformApplicationResponse :: Int -> ListEndpointsByPlatformApplicationResponse

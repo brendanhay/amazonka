@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.UpdateEventSourceMapping
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ data UpdateEventSourceMapping = UpdateEventSourceMapping'
     , _uesmBatchSize    :: !(Maybe Nat)
     , _uesmFunctionName :: !(Maybe Text)
     , _uesmUUID         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEventSourceMapping' smart constructor.
 updateEventSourceMapping :: Text -> UpdateEventSourceMapping

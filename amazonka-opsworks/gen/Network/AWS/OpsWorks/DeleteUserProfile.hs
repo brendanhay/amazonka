@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteUserProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'dupIAMUserARN'
 newtype DeleteUserProfile = DeleteUserProfile'
     { _dupIAMUserARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserProfile' smart constructor.
 deleteUserProfile :: Text -> DeleteUserProfile
@@ -91,7 +93,7 @@ instance ToQuery DeleteUserProfile where
 -- | /See:/ 'deleteUserProfileResponse' smart constructor.
 data DeleteUserProfileResponse =
     DeleteUserProfileResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserProfileResponse' smart constructor.
 deleteUserProfileResponse :: DeleteUserProfileResponse

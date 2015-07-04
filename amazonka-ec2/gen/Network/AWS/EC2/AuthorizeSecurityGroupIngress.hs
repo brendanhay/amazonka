@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AuthorizeSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -100,7 +102,7 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     , _asgiSourceSecurityGroupOwnerId :: !(Maybe Text)
     , _asgiSourceSecurityGroupName    :: !(Maybe Text)
     , _asgiDryRun                     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSecurityGroupIngress' smart constructor.
 authorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress
@@ -210,7 +212,7 @@ instance ToQuery AuthorizeSecurityGroupIngress where
 -- | /See:/ 'authorizeSecurityGroupIngressResponse' smart constructor.
 data AuthorizeSecurityGroupIngressResponse =
     AuthorizeSecurityGroupIngressResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSecurityGroupIngressResponse' smart constructor.
 authorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse

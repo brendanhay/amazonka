@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data DescribeTapes = DescribeTapes'
     , _dtLimit      :: !(Maybe Nat)
     , _dtTapeARNs   :: !(Maybe [Text])
     , _dtGatewayARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapes' smart constructor.
 describeTapes :: Text -> DescribeTapes
@@ -157,7 +159,7 @@ data DescribeTapesResponse = DescribeTapesResponse'
     { _desMarker :: !(Maybe Text)
     , _desTapes  :: !(Maybe [Tape])
     , _desStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapesResponse' smart constructor.
 describeTapesResponse :: Int -> DescribeTapesResponse

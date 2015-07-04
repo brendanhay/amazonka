@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.RegisterDevice
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data RegisterDevice = RegisterDevice'
     , _rdIdentityId     :: !Text
     , _rdPlatform       :: !Platform
     , _rdToken          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDevice' smart constructor.
 registerDevice :: Text -> Text -> Platform -> Text -> RegisterDevice
@@ -137,7 +139,7 @@ instance ToQuery RegisterDevice where
 data RegisterDeviceResponse = RegisterDeviceResponse'
     { _rdrDeviceId :: !(Maybe Text)
     , _rdrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDeviceResponse' smart constructor.
 registerDeviceResponse :: Int -> RegisterDeviceResponse

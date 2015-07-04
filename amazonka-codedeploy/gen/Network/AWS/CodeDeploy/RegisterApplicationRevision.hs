@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.RegisterApplicationRevision
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ data RegisterApplicationRevision = RegisterApplicationRevision'
     { _rarDescription     :: !(Maybe Text)
     , _rarApplicationName :: !Text
     , _rarRevision        :: !RevisionLocation
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterApplicationRevision' smart constructor.
 registerApplicationRevision :: Text -> RevisionLocation -> RegisterApplicationRevision
@@ -113,7 +115,7 @@ instance ToQuery RegisterApplicationRevision where
 -- | /See:/ 'registerApplicationRevisionResponse' smart constructor.
 data RegisterApplicationRevisionResponse =
     RegisterApplicationRevisionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterApplicationRevisionResponse' smart constructor.
 registerApplicationRevisionResponse :: RegisterApplicationRevisionResponse

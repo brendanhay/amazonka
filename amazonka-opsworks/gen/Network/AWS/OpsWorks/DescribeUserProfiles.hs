@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeUserProfiles
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'dupIAMUserARNs'
 newtype DescribeUserProfiles = DescribeUserProfiles'
     { _dupIAMUserARNs :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUserProfiles' smart constructor.
 describeUserProfiles :: DescribeUserProfiles
@@ -109,7 +111,7 @@ instance ToQuery DescribeUserProfiles where
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
     { _duprUserProfiles :: !(Maybe [UserProfile])
     , _duprStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUserProfilesResponse' smart constructor.
 describeUserProfilesResponse :: Int -> DescribeUserProfilesResponse

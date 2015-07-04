@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.Predict
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data Predict = Predict'
     { _preMLModelId       :: !Text
     , _preRecord          :: !(Map Text Text)
     , _prePredictEndpoint :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Predict' smart constructor.
 predict :: Text -> Text -> Predict
@@ -126,7 +128,7 @@ instance ToQuery Predict where
 data PredictResponse = PredictResponse'
     { _prPrediction :: !(Maybe Prediction)
     , _prStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PredictResponse' smart constructor.
 predictResponse :: Int -> PredictResponse

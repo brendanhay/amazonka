@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateSigningCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data UpdateSigningCertificate = UpdateSigningCertificate'
     { _uscUserName      :: !(Maybe Text)
     , _uscCertificateId :: !Text
     , _uscStatus        :: !StatusType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSigningCertificate' smart constructor.
 updateSigningCertificate :: Text -> StatusType -> UpdateSigningCertificate
@@ -112,7 +114,7 @@ instance ToQuery UpdateSigningCertificate where
 -- | /See:/ 'updateSigningCertificateResponse' smart constructor.
 data UpdateSigningCertificateResponse =
     UpdateSigningCertificateResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSigningCertificateResponse' smart constructor.
 updateSigningCertificateResponse :: UpdateSigningCertificateResponse

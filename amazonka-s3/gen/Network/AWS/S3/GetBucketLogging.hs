@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketLogging
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.S3.Types
 -- * 'gBucket'
 newtype GetBucketLogging = GetBucketLogging'
     { _gBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLogging' smart constructor.
 getBucketLogging :: BucketName -> GetBucketLogging
@@ -91,7 +93,7 @@ instance ToQuery GetBucketLogging where
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
     { _getLoggingEnabled :: !(Maybe LoggingEnabled)
     , _getStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLoggingResponse' smart constructor.
 getBucketLoggingResponse :: Int -> GetBucketLoggingResponse

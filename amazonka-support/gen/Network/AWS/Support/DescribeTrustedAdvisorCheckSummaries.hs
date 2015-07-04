@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Support.Types
 -- * 'dtacsCheckIds'
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'
     { _dtacsCheckIds :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckSummaries' smart constructor.
 describeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummaries
@@ -115,7 +117,7 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
     { _dtacsrStatus    :: !Int
     , _dtacsrSummaries :: ![TrustedAdvisorCheckSummary]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
 describeTrustedAdvisorCheckSummariesResponse :: Int -> DescribeTrustedAdvisorCheckSummariesResponse

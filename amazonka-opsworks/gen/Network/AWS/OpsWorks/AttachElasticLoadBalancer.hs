@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.AttachElasticLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.Response
 data AttachElasticLoadBalancer = AttachElasticLoadBalancer'
     { _aelbElasticLoadBalancerName :: !Text
     , _aelbLayerId                 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachElasticLoadBalancer' smart constructor.
 attachElasticLoadBalancer :: Text -> Text -> AttachElasticLoadBalancer
@@ -114,7 +116,7 @@ instance ToQuery AttachElasticLoadBalancer where
 -- | /See:/ 'attachElasticLoadBalancerResponse' smart constructor.
 data AttachElasticLoadBalancerResponse =
     AttachElasticLoadBalancerResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachElasticLoadBalancerResponse' smart constructor.
 attachElasticLoadBalancerResponse :: AttachElasticLoadBalancerResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.CopyOptionGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data CopyOptionGroup = CopyOptionGroup'
     , _copSourceOptionGroupIdentifier  :: !Text
     , _copTargetOptionGroupIdentifier  :: !Text
     , _copTargetOptionGroupDescription :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyOptionGroup' smart constructor.
 copyOptionGroup :: Text -> Text -> Text -> CopyOptionGroup
@@ -147,7 +149,7 @@ instance ToQuery CopyOptionGroup where
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
     { _cogrOptionGroup :: !(Maybe OptionGroup)
     , _cogrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyOptionGroupResponse' smart constructor.
 copyOptionGroupResponse :: Int -> CopyOptionGroupResponse

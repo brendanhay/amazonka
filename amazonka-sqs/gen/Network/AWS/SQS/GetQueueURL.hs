@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.GetQueueURL
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.SQS.Types
 data GetQueueURL = GetQueueURL'
     { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
     , _gquQueueName              :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueURL' smart constructor.
 getQueueURL :: Text -> GetQueueURL
@@ -118,7 +120,7 @@ instance ToQuery GetQueueURL where
 data GetQueueURLResponse = GetQueueURLResponse'
     { _gqurStatus   :: !Int
     , _gqurQueueURL :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueURLResponse' smart constructor.
 getQueueURLResponse :: Int -> Text -> GetQueueURLResponse

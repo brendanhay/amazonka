@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.ListObjects
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data ListObjects = ListObjects'
     , _loMaxKeys      :: !(Maybe Int)
     , _loDelimiter    :: !(Maybe Char)
     , _loBucket       :: !BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListObjects' smart constructor.
 listObjects :: BucketName -> ListObjects
@@ -205,7 +207,7 @@ data ListObjectsResponse = ListObjectsResponse'
     , _lorIsTruncated    :: !(Maybe Bool)
     , _lorDelimiter      :: !(Maybe Char)
     , _lorStatus         :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListObjectsResponse' smart constructor.
 listObjectsResponse :: Int -> ListObjectsResponse

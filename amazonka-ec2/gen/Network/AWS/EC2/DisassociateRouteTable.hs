@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DisassociateRouteTable
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DisassociateRouteTable = DisassociateRouteTable'
     { _drtDryRun        :: !(Maybe Bool)
     , _drtAssociationId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateRouteTable' smart constructor.
 disassociateRouteTable :: Text -> DisassociateRouteTable
@@ -102,7 +104,7 @@ instance ToQuery DisassociateRouteTable where
 -- | /See:/ 'disassociateRouteTableResponse' smart constructor.
 data DisassociateRouteTableResponse =
     DisassociateRouteTableResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateRouteTableResponse' smart constructor.
 disassociateRouteTableResponse :: DisassociateRouteTableResponse

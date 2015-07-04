@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateAssumeRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 data UpdateAssumeRolePolicy = UpdateAssumeRolePolicy'
     { _uarpRoleName       :: !Text
     , _uarpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssumeRolePolicy' smart constructor.
 updateAssumeRolePolicy :: Text -> Text -> UpdateAssumeRolePolicy
@@ -94,7 +96,7 @@ instance ToQuery UpdateAssumeRolePolicy where
 -- | /See:/ 'updateAssumeRolePolicyResponse' smart constructor.
 data UpdateAssumeRolePolicyResponse =
     UpdateAssumeRolePolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssumeRolePolicyResponse' smart constructor.
 updateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse

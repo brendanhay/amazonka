@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeVPCAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data DescribeVPCAttribute = DescribeVPCAttribute'
     { _dvpcaAttribute :: !(Maybe VPCAttributeName)
     , _dvpcaDryRun    :: !(Maybe Bool)
     , _dvpcaVPCId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCAttribute' smart constructor.
 describeVPCAttribute :: Text -> DescribeVPCAttribute
@@ -128,7 +130,7 @@ data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
     , _dvpcarEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
     , _dvpcarVPCId              :: !(Maybe Text)
     , _dvpcarStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCAttributeResponse' smart constructor.
 describeVPCAttributeResponse :: Int -> DescribeVPCAttributeResponse

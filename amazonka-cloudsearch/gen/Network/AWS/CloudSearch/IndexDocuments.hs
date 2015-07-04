@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.IndexDocuments
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'idDomainName'
 newtype IndexDocuments = IndexDocuments'
     { _idDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexDocuments' smart constructor.
 indexDocuments :: Text -> IndexDocuments
@@ -103,7 +105,7 @@ instance ToQuery IndexDocuments where
 data IndexDocumentsResponse = IndexDocumentsResponse'
     { _idrFieldNames :: !(Maybe [Text])
     , _idrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexDocumentsResponse' smart constructor.
 indexDocumentsResponse :: Int -> IndexDocumentsResponse

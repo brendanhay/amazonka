@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DetachGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DetachGroupPolicy = DetachGroupPolicy'
     { _dgpGroupName :: !Text
     , _dgpPolicyARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachGroupPolicy' smart constructor.
 detachGroupPolicy :: Text -> Text -> DetachGroupPolicy
@@ -96,7 +98,7 @@ instance ToQuery DetachGroupPolicy where
 -- | /See:/ 'detachGroupPolicyResponse' smart constructor.
 data DetachGroupPolicyResponse =
     DetachGroupPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachGroupPolicyResponse' smart constructor.
 detachGroupPolicyResponse :: DetachGroupPolicyResponse

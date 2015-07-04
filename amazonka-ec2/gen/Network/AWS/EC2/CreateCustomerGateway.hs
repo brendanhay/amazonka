@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateCustomerGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -85,7 +87,7 @@ data CreateCustomerGateway = CreateCustomerGateway'
     , _ccgType     :: !GatewayType
     , _ccgPublicIP :: !Text
     , _ccgBGPASN   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomerGateway' smart constructor.
 createCustomerGateway :: GatewayType -> Text -> Int -> CreateCustomerGateway
@@ -155,7 +157,7 @@ instance ToQuery CreateCustomerGateway where
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
     { _ccgrCustomerGateway :: !(Maybe CustomerGateway)
     , _ccgrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomerGatewayResponse' smart constructor.
 createCustomerGatewayResponse :: Int -> CreateCustomerGatewayResponse

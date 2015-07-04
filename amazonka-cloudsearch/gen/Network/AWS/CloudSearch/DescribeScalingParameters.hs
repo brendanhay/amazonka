@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeScalingParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 -- * 'dspDomainName'
 newtype DescribeScalingParameters = DescribeScalingParameters'
     { _dspDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingParameters' smart constructor.
 describeScalingParameters :: Text -> DescribeScalingParameters
@@ -105,7 +107,7 @@ instance ToQuery DescribeScalingParameters where
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
     { _dsprStatus            :: !Int
     , _dsprScalingParameters :: !ScalingParametersStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingParametersResponse' smart constructor.
 describeScalingParametersResponse :: Int -> ScalingParametersStatus -> DescribeScalingParametersResponse

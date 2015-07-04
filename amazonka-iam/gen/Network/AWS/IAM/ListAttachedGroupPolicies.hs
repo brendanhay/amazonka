@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListAttachedGroupPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data ListAttachedGroupPolicies = ListAttachedGroupPolicies'
     , _lagpMaxItems   :: !(Maybe Nat)
     , _lagpMarker     :: !(Maybe Text)
     , _lagpGroupName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedGroupPolicies' smart constructor.
 listAttachedGroupPolicies :: Text -> ListAttachedGroupPolicies
@@ -160,7 +162,7 @@ data ListAttachedGroupPoliciesResponse = ListAttachedGroupPoliciesResponse'
     , _lagprMarker           :: !(Maybe Text)
     , _lagprIsTruncated      :: !(Maybe Bool)
     , _lagprStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedGroupPoliciesResponse' smart constructor.
 listAttachedGroupPoliciesResponse :: Int -> ListAttachedGroupPoliciesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.ListIdentities
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data ListIdentities = ListIdentities'
     , _liNextToken      :: !(Maybe Text)
     , _liIdentityPoolId :: !Text
     , _liMaxResults     :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentities' smart constructor.
 listIdentities :: Text -> Natural -> ListIdentities
@@ -149,7 +151,7 @@ data ListIdentitiesResponse = ListIdentitiesResponse'
     , _lirNextToken      :: !(Maybe Text)
     , _lirIdentities     :: !(Maybe [IdentityDescription])
     , _lirStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentitiesResponse' smart constructor.
 listIdentitiesResponse :: Int -> ListIdentitiesResponse

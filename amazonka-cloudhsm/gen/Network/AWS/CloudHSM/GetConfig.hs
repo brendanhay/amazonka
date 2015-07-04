@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.GetConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data GetConfig = GetConfig'
     { _gcClientARN     :: !Text
     , _gcClientVersion :: !ClientVersion
     , _gcHAPGList      :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConfig' smart constructor.
 getConfig :: Text -> ClientVersion -> GetConfig
@@ -132,7 +134,7 @@ data GetConfigResponse = GetConfigResponse'
     , _gcrConfigCred :: !(Maybe Text)
     , _gcrConfigType :: !(Maybe Text)
     , _gcrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConfigResponse' smart constructor.
 getConfigResponse :: Int -> GetConfigResponse

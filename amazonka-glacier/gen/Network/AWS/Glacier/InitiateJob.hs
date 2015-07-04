@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.InitiateJob
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -185,7 +187,7 @@ data InitiateJob = InitiateJob'
     { _ijJobParameters :: !(Maybe JobParameters)
     , _ijAccountId     :: !Text
     , _ijVaultName     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateJob' smart constructor.
 initiateJob :: Text -> Text -> InitiateJob
@@ -254,7 +256,7 @@ data InitiateJobResponse = InitiateJobResponse'
     { _ijrJobId    :: !(Maybe Text)
     , _ijrLocation :: !(Maybe Text)
     , _ijrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateJobResponse' smart constructor.
 initiateJobResponse :: Int -> InitiateJobResponse

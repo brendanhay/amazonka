@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
     , _ccsgClusterSubnetGroupName :: !Text
     , _ccsgDescription            :: !Text
     , _ccsgSubnetIds              :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSubnetGroup' smart constructor.
 createClusterSubnetGroup :: Text -> Text -> CreateClusterSubnetGroup
@@ -146,7 +148,7 @@ instance ToQuery CreateClusterSubnetGroup where
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
     { _ccsgrClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
     , _ccsgrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSubnetGroupResponse' smart constructor.
 createClusterSubnetGroupResponse :: Int -> CreateClusterSubnetGroupResponse

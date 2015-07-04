@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.ListPlatformApplications
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.SNS.Types
 -- * 'lpaNextToken'
 newtype ListPlatformApplications = ListPlatformApplications'
     { _lpaNextToken :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPlatformApplications' smart constructor.
 listPlatformApplications :: ListPlatformApplications
@@ -124,7 +126,7 @@ data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
     { _lparPlatformApplications :: !(Maybe [PlatformApplication])
     , _lparNextToken            :: !(Maybe Text)
     , _lparStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPlatformApplicationsResponse' smart constructor.
 listPlatformApplicationsResponse :: Int -> ListPlatformApplicationsResponse

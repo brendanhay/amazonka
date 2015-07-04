@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DisableVPCClassicLink
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data DisableVPCClassicLink = DisableVPCClassicLink'
     { _disDryRun :: !(Maybe Bool)
     , _disVPCId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVPCClassicLink' smart constructor.
 disableVPCClassicLink :: Text -> DisableVPCClassicLink
@@ -107,7 +109,7 @@ instance ToQuery DisableVPCClassicLink where
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
     { _disReturn :: !(Maybe Bool)
     , _disStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVPCClassicLinkResponse' smart constructor.
 disableVPCClassicLinkResponse :: Int -> DisableVPCClassicLinkResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.ApplyPendingMaintenanceAction
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
     { _apmaResourceIdentifier :: !Text
     , _apmaApplyAction        :: !Text
     , _apmaOptInType          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplyPendingMaintenanceAction' smart constructor.
 applyPendingMaintenanceAction :: Text -> Text -> Text -> ApplyPendingMaintenanceAction
@@ -131,7 +133,7 @@ instance ToQuery ApplyPendingMaintenanceAction where
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
     { _apmarResourcePendingMaintenanceActions :: !(Maybe ResourcePendingMaintenanceActions)
     , _apmarStatus                            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplyPendingMaintenanceActionResponse' smart constructor.
 applyPendingMaintenanceActionResponse :: Int -> ApplyPendingMaintenanceActionResponse

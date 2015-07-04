@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateHSMClientCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ import           Network.AWS.Response
 data CreateHSMClientCertificate = CreateHSMClientCertificate'
     { _chccTags                           :: !(Maybe [Tag])
     , _chccHSMClientCertificateIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMClientCertificate' smart constructor.
 createHSMClientCertificate :: Text -> CreateHSMClientCertificate
@@ -122,7 +124,7 @@ instance ToQuery CreateHSMClientCertificate where
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
     { _chccrHSMClientCertificate :: !(Maybe HSMClientCertificate)
     , _chccrStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMClientCertificateResponse' smart constructor.
 createHSMClientCertificateResponse :: Int -> CreateHSMClientCertificateResponse

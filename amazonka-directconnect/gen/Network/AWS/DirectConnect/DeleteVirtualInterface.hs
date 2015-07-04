@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.DeleteVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'delVirtualInterfaceId'
 newtype DeleteVirtualInterface = DeleteVirtualInterface'
     { _delVirtualInterfaceId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualInterface' smart constructor.
 deleteVirtualInterface :: Text -> DeleteVirtualInterface
@@ -107,7 +109,7 @@ instance ToQuery DeleteVirtualInterface where
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
     { _dvirVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
     , _dvirStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualInterfaceResponse' smart constructor.
 deleteVirtualInterfaceResponse :: Int -> DeleteVirtualInterfaceResponse

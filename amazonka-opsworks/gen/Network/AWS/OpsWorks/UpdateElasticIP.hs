@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateElasticIP
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data UpdateElasticIP = UpdateElasticIP'
     { _ueiName      :: !(Maybe Text)
     , _ueiElasticIP :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateElasticIP' smart constructor.
 updateElasticIP :: Text -> UpdateElasticIP
@@ -103,7 +105,7 @@ instance ToQuery UpdateElasticIP where
 -- | /See:/ 'updateElasticIPResponse' smart constructor.
 data UpdateElasticIPResponse =
     UpdateElasticIPResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateElasticIPResponse' smart constructor.
 updateElasticIPResponse :: UpdateElasticIPResponse

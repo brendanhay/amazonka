@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -83,7 +85,7 @@ data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
     , _psugaEndTime              :: !(Maybe ISO8601)
     , _psugaAutoScalingGroupName :: !Text
     , _psugaScheduledActionName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutScheduledUpdateGroupAction' smart constructor.
 putScheduledUpdateGroupAction :: Text -> Text -> PutScheduledUpdateGroupAction
@@ -185,7 +187,7 @@ instance ToQuery PutScheduledUpdateGroupAction where
 -- | /See:/ 'putScheduledUpdateGroupActionResponse' smart constructor.
 data PutScheduledUpdateGroupActionResponse =
     PutScheduledUpdateGroupActionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutScheduledUpdateGroupActionResponse' smart constructor.
 putScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ data DescribeInstances = DescribeInstances'
     , _di1InstanceIds :: !(Maybe [Text])
     , _di1DryRun      :: !(Maybe Bool)
     , _di1MaxResults  :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
@@ -413,7 +415,7 @@ data DescribeInstancesResponse = DescribeInstancesResponse'
     { _dirNextToken    :: !(Maybe Text)
     , _dirReservations :: !(Maybe [Reservation])
     , _dirStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse

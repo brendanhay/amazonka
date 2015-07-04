@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.StopTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 data StopTask = StopTask'
     { _stCluster :: !(Maybe Text)
     , _stTask    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopTask' smart constructor.
 stopTask :: Text -> StopTask
@@ -112,7 +114,7 @@ instance ToQuery StopTask where
 data StopTaskResponse = StopTaskResponse'
     { _stoTask   :: !(Maybe Task)
     , _stoStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopTaskResponse' smart constructor.
 stopTaskResponse :: Int -> StopTaskResponse

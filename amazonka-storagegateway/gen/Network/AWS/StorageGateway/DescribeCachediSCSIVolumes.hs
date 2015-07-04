@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeCachediSCSIVolumes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dcscsivVolumeARNs'
 newtype DescribeCachediSCSIVolumes = DescribeCachediSCSIVolumes'
     { _dcscsivVolumeARNs :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCachediSCSIVolumes' smart constructor.
 describeCachediSCSIVolumes :: DescribeCachediSCSIVolumes
@@ -110,7 +112,7 @@ instance ToQuery DescribeCachediSCSIVolumes where
 data DescribeCachediSCSIVolumesResponse = DescribeCachediSCSIVolumesResponse'
     { _dcscsivrCachediSCSIVolumes :: !(Maybe [CachediSCSIVolume])
     , _dcscsivrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCachediSCSIVolumesResponse' smart constructor.
 describeCachediSCSIVolumesResponse :: Int -> DescribeCachediSCSIVolumesResponse

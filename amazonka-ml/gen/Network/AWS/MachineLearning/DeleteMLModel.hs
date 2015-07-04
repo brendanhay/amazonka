@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.DeleteMLModel
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 -- * 'dmlmMLModelId'
 newtype DeleteMLModel = DeleteMLModel'
     { _dmlmMLModelId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMLModel' smart constructor.
 deleteMLModel :: Text -> DeleteMLModel
@@ -111,7 +113,7 @@ instance ToQuery DeleteMLModel where
 data DeleteMLModelResponse = DeleteMLModelResponse'
     { _dmlmrMLModelId :: !(Maybe Text)
     , _dmlmrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMLModelResponse' smart constructor.
 deleteMLModelResponse :: Int -> DeleteMLModelResponse

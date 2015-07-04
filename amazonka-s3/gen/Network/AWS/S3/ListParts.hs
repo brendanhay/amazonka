@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.ListParts
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data ListParts = ListParts'
     , _lpBucket           :: !BucketName
     , _lpKey              :: !ObjectKey
     , _lpUploadId         :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListParts' smart constructor.
 listParts :: BucketName -> ObjectKey -> Text -> ListParts
@@ -206,7 +208,7 @@ data ListPartsResponse = ListPartsResponse'
     , _lprPartNumberMarker     :: !(Maybe Int)
     , _lprUploadId             :: !(Maybe Text)
     , _lprStatus               :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Int -> ListPartsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.RecordActivityTaskHeartbeat
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -98,7 +100,7 @@ import           Network.AWS.SWF.Types
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat'
     { _rathDetails   :: !(Maybe Text)
     , _rathTaskToken :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordActivityTaskHeartbeat' smart constructor.
 recordActivityTaskHeartbeat :: Text -> RecordActivityTaskHeartbeat
@@ -166,7 +168,7 @@ instance ToQuery RecordActivityTaskHeartbeat where
 data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
     { _rathrStatus          :: !Int
     , _rathrCancelRequested :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordActivityTaskHeartbeatResponse' smart constructor.
 recordActivityTaskHeartbeatResponse :: Int -> Bool -> RecordActivityTaskHeartbeatResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.DeleteMountTarget
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ import           Network.AWS.Response
 -- * 'dmtMountTargetId'
 newtype DeleteMountTarget = DeleteMountTarget'
     { _dmtMountTargetId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMountTarget' smart constructor.
 deleteMountTarget :: Text -> DeleteMountTarget
@@ -103,7 +105,7 @@ instance ToQuery DeleteMountTarget where
 -- | /See:/ 'deleteMountTargetResponse' smart constructor.
 data DeleteMountTargetResponse =
     DeleteMountTargetResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMountTargetResponse' smart constructor.
 deleteMountTargetResponse :: DeleteMountTargetResponse

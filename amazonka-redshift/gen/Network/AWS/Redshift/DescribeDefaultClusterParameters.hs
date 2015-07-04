@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeDefaultClusterParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
     { _ddcpMaxRecords           :: !(Maybe Int)
     , _ddcpMarker               :: !(Maybe Text)
     , _ddcpParameterGroupFamily :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDefaultClusterParameters' smart constructor.
 describeDefaultClusterParameters :: Text -> DescribeDefaultClusterParameters
@@ -159,7 +161,7 @@ instance ToQuery DescribeDefaultClusterParameters
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
     { _ddcprStatus                   :: !Int
     , _ddcprDefaultClusterParameters :: !DefaultClusterParameters
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDefaultClusterParametersResponse' smart constructor.
 describeDefaultClusterParametersResponse :: Int -> DefaultClusterParameters -> DescribeDefaultClusterParametersResponse

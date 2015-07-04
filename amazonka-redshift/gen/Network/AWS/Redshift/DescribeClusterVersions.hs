@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ data DescribeClusterVersions = DescribeClusterVersions'
     , _dcvMarker                      :: !(Maybe Text)
     , _dcvClusterParameterGroupFamily :: !(Maybe Text)
     , _dcvClusterVersion              :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterVersions' smart constructor.
 describeClusterVersions :: DescribeClusterVersions
@@ -170,7 +172,7 @@ data DescribeClusterVersionsResponse = DescribeClusterVersionsResponse'
     { _dcvrClusterVersions :: !(Maybe [ClusterVersion])
     , _dcvrMarker          :: !(Maybe Text)
     , _dcvrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterVersionsResponse' smart constructor.
 describeClusterVersionsResponse :: Int -> DescribeClusterVersionsResponse

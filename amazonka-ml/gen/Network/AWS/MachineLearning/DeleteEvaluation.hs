@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.DeleteEvaluation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 -- * 'deEvaluationId'
 newtype DeleteEvaluation = DeleteEvaluation'
     { _deEvaluationId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEvaluation' smart constructor.
 deleteEvaluation :: Text -> DeleteEvaluation
@@ -114,7 +116,7 @@ instance ToQuery DeleteEvaluation where
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
     { _derEvaluationId :: !(Maybe Text)
     , _derStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEvaluationResponse' smart constructor.
 deleteEvaluationResponse :: Int -> DeleteEvaluationResponse

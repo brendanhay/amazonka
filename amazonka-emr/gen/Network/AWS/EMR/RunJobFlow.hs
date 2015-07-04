@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.RunJobFlow
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -122,7 +124,7 @@ data RunJobFlow = RunJobFlow'
     , _rjfServiceRole          :: !(Maybe Text)
     , _rjfName                 :: !Text
     , _rjfInstances            :: !JobFlowInstancesConfig
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunJobFlow' smart constructor.
 runJobFlow :: Text -> JobFlowInstancesConfig -> RunJobFlow
@@ -289,7 +291,7 @@ instance ToQuery RunJobFlow where
 data RunJobFlowResponse = RunJobFlowResponse'
     { _rjfrJobFlowId :: !(Maybe Text)
     , _rjfrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunJobFlowResponse' smart constructor.
 runJobFlowResponse :: Int -> RunJobFlowResponse

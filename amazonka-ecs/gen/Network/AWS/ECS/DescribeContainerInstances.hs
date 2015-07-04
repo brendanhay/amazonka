@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.DescribeContainerInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DescribeContainerInstances = DescribeContainerInstances'
     { _dciCluster            :: !(Maybe Text)
     , _dciContainerInstances :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeContainerInstances' smart constructor.
 describeContainerInstances :: DescribeContainerInstances
@@ -123,7 +125,7 @@ data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
     { _desFailures           :: !(Maybe [Failure])
     , _desContainerInstances :: !(Maybe [ContainerInstance])
     , _desStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
 describeContainerInstancesResponse :: Int -> DescribeContainerInstancesResponse

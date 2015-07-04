@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DetachLoadBalancers
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data DetachLoadBalancers = DetachLoadBalancers'
     { _detAutoScalingGroupName :: !(Maybe Text)
     , _detLoadBalancerNames    :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancers' smart constructor.
 detachLoadBalancers :: DetachLoadBalancers
@@ -107,7 +109,7 @@ instance ToQuery DetachLoadBalancers where
 -- * 'detStatus'
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
     { _detStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancersResponse' smart constructor.
 detachLoadBalancersResponse :: Int -> DetachLoadBalancersResponse

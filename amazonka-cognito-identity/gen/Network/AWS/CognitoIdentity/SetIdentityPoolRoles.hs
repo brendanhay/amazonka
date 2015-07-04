@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.SetIdentityPoolRoles
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data SetIdentityPoolRoles = SetIdentityPoolRoles'
     { _siprIdentityPoolId :: !Text
     , _siprRoles          :: !(Map Text Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolRoles' smart constructor.
 setIdentityPoolRoles :: Text -> SetIdentityPoolRoles
@@ -105,7 +107,7 @@ instance ToQuery SetIdentityPoolRoles where
 -- | /See:/ 'setIdentityPoolRolesResponse' smart constructor.
 data SetIdentityPoolRolesResponse =
     SetIdentityPoolRolesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolRolesResponse' smart constructor.
 setIdentityPoolRolesResponse :: SetIdentityPoolRolesResponse

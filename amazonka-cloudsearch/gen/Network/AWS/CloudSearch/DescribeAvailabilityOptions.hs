@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeAvailabilityOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.Response
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
     { _daoDeployed   :: !(Maybe Bool)
     , _daoDomainName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityOptions' smart constructor.
 describeAvailabilityOptions :: Text -> DescribeAvailabilityOptions
@@ -122,7 +124,7 @@ instance ToQuery DescribeAvailabilityOptions where
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
     { _daorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
     , _daorStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityOptionsResponse' smart constructor.
 describeAvailabilityOptionsResponse :: Int -> DescribeAvailabilityOptionsResponse

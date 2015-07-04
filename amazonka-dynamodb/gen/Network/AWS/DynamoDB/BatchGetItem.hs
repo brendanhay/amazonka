@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.BatchGetItem
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -108,7 +110,7 @@ import           Network.AWS.Response
 data BatchGetItem = BatchGetItem'
     { _bgiReturnConsumedCapacity :: !(Maybe ReturnConsumedCapacity)
     , _bgiRequestItems           :: !(Map Text KeysAndAttributes)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetItem' smart constructor.
 batchGetItem :: BatchGetItem
@@ -268,7 +270,7 @@ data BatchGetItemResponse = BatchGetItemResponse'
     , _bgirResponses        :: !(Maybe (Map Text [Map Text AttributeValue]))
     , _bgirConsumedCapacity :: !(Maybe [ConsumedCapacity])
     , _bgirStatus           :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetItemResponse' smart constructor.
 batchGetItemResponse :: Int -> BatchGetItemResponse

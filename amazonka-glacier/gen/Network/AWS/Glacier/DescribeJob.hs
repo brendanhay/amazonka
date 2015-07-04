@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.DescribeJob
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -94,7 +96,7 @@ data DescribeJob = DescribeJob'
     { _djAccountId :: !Text
     , _djVaultName :: !Text
     , _djJobId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeJob' smart constructor.
 describeJob :: Text -> Text -> Text -> DescribeJob

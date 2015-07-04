@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateTapes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data CreateTapes = CreateTapes'
     , _ctClientToken       :: !Text
     , _ctNumTapesToCreate  :: !Nat
     , _ctTapeBarcodePrefix :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTapes' smart constructor.
 createTapes :: Text -> Integer -> Text -> Natural -> Text -> CreateTapes
@@ -163,7 +165,7 @@ instance ToQuery CreateTapes where
 data CreateTapesResponse = CreateTapesResponse'
     { _ctrTapeARNs :: !(Maybe [Text])
     , _ctrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTapesResponse' smart constructor.
 createTapesResponse :: Int -> CreateTapesResponse

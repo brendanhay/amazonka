@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.ListIdentityPools
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data ListIdentityPools = ListIdentityPools'
     { _lipNextToken  :: !(Maybe Text)
     , _lipMaxResults :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPools' smart constructor.
 listIdentityPools :: Natural -> ListIdentityPools
@@ -123,7 +125,7 @@ data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
     { _liprIdentityPools :: !(Maybe [IdentityPoolShortDescription])
     , _liprNextToken     :: !(Maybe Text)
     , _liprStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolsResponse' smart constructor.
 listIdentityPoolsResponse :: Int -> ListIdentityPoolsResponse

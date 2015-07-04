@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.ShutdownGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'shuGatewayARN'
 newtype ShutdownGateway = ShutdownGateway'
     { _shuGatewayARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ShutdownGateway' smart constructor.
 shutdownGateway :: Text -> ShutdownGateway
@@ -127,7 +129,7 @@ instance ToQuery ShutdownGateway where
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
     { _sgrGatewayARN :: !(Maybe Text)
     , _sgrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ShutdownGatewayResponse' smart constructor.
 shutdownGatewayResponse :: Int -> ShutdownGatewayResponse

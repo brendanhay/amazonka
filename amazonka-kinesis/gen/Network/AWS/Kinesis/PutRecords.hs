@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.PutRecords
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -112,7 +114,7 @@ import           Network.AWS.Response
 data PutRecords = PutRecords'
     { _pr1RecordEntries :: !(List1 PutRecordsRequestEntry)
     , _pr1StreamName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecords' smart constructor.
 putRecords :: NonEmpty PutRecordsRequestEntry -> Text -> PutRecords
@@ -177,7 +179,7 @@ data PutRecordsResponse = PutRecordsResponse'
     { _pFailedRecordCount :: !(Maybe Nat)
     , _pStatus            :: !Int
     , _pRecords           :: !(List1 PutRecordsResultEntry)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordsResponse' smart constructor.
 putRecordsResponse :: Int -> NonEmpty PutRecordsResultEntry -> PutRecordsResponse

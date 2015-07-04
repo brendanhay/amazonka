@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.DescribeMountTargets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data DescribeMountTargets = DescribeMountTargets'
     { _dmtMaxItems     :: !(Maybe Nat)
     , _dmtMarker       :: !(Maybe Text)
     , _dmtFileSystemId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargets' smart constructor.
 describeMountTargets :: Text -> DescribeMountTargets
@@ -130,7 +132,7 @@ data DescribeMountTargetsResponse = DescribeMountTargetsResponse'
     , _dmtrMarker       :: !(Maybe Text)
     , _dmtrNextMarker   :: !(Maybe Text)
     , _dmtrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargetsResponse' smart constructor.
 describeMountTargetsResponse :: Int -> DescribeMountTargetsResponse

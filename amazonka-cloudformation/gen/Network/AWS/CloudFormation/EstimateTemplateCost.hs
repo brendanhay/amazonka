@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.EstimateTemplateCost
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data EstimateTemplateCost = EstimateTemplateCost'
     { _etcParameters   :: !(Maybe [Parameter])
     , _etcTemplateBody :: !(Maybe Text)
     , _etcTemplateURL  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EstimateTemplateCost' smart constructor.
 estimateTemplateCost :: EstimateTemplateCost
@@ -132,7 +134,7 @@ instance ToQuery EstimateTemplateCost where
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
     { _etcrURL    :: !(Maybe Text)
     , _etcrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EstimateTemplateCostResponse' smart constructor.
 estimateTemplateCostResponse :: Int -> EstimateTemplateCostResponse

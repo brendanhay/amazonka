@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.DescribeWorkflowType
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ import           Network.AWS.SWF.Types
 data DescribeWorkflowType = DescribeWorkflowType'
     { _dwtDomain       :: !Text
     , _dwtWorkflowType :: !WorkflowType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkflowType' smart constructor.
 describeWorkflowType :: Text -> WorkflowType -> DescribeWorkflowType
@@ -144,7 +146,7 @@ data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
     { _dwtrStatus        :: !Int
     , _dwtrTypeInfo      :: !WorkflowTypeInfo
     , _dwtrConfiguration :: !WorkflowTypeConfiguration
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkflowTypeResponse' smart constructor.
 describeWorkflowTypeResponse :: Int -> WorkflowTypeInfo -> WorkflowTypeConfiguration -> DescribeWorkflowTypeResponse

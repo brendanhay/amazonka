@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateEvaluation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ data CreateEvaluation = CreateEvaluation'
     , _ceEvaluationId           :: !Text
     , _ceMLModelId              :: !Text
     , _ceEvaluationDataSourceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEvaluation' smart constructor.
 createEvaluation :: Text -> Text -> Text -> CreateEvaluation
@@ -159,7 +161,7 @@ instance ToQuery CreateEvaluation where
 data CreateEvaluationResponse = CreateEvaluationResponse'
     { _cerEvaluationId :: !(Maybe Text)
     , _cerStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateEvaluationResponse' smart constructor.
 createEvaluationResponse :: Int -> CreateEvaluationResponse

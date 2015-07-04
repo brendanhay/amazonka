@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.DeleteTable
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ import           Network.AWS.Response
 -- * 'dtTableName'
 newtype DeleteTable = DeleteTable'
     { _dtTableName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTable' smart constructor.
 deleteTable :: Text -> DeleteTable
@@ -118,7 +120,7 @@ instance ToQuery DeleteTable where
 data DeleteTableResponse = DeleteTableResponse'
     { _dtrTableDescription :: !(Maybe TableDescription)
     , _dtrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTableResponse' smart constructor.
 deleteTableResponse :: Int -> DeleteTableResponse

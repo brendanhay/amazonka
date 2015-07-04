@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
     { _lcfoaiMaxItems :: !(Maybe Text)
     , _lcfoaiMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentities' smart constructor.
 listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
@@ -119,7 +121,7 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
     { _lcfoairStatus                             :: !Int
     , _lcfoairCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 listCloudFrontOriginAccessIdentitiesResponse :: Int -> CloudFrontOriginAccessIdentityList -> ListCloudFrontOriginAccessIdentitiesResponse

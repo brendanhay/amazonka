@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.CreateHostedZone
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -92,7 +94,7 @@ data CreateHostedZone = CreateHostedZone'
     , _chzVPC              :: !(Maybe VPC)
     , _chzName             :: !Text
     , _chzCallerReference  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHostedZone' smart constructor.
 createHostedZone :: Text -> Text -> CreateHostedZone
@@ -206,7 +208,7 @@ data CreateHostedZoneResponse = CreateHostedZoneResponse'
     , _chzrChangeInfo    :: !ChangeInfo
     , _chzrDelegationSet :: !DelegationSet
     , _chzrLocation      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHostedZoneResponse' smart constructor.
 createHostedZoneResponse :: Int -> HostedZone -> ChangeInfo -> DelegationSet -> Text -> CreateHostedZoneResponse

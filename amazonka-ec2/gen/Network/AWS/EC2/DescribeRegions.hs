@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeRegions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data DescribeRegions = DescribeRegions'
     { _dr1RegionNames :: !(Maybe [Text])
     , _dr1Filters     :: !(Maybe [Filter])
     , _dr1DryRun      :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRegions' smart constructor.
 describeRegions :: DescribeRegions
@@ -128,7 +130,7 @@ instance ToQuery DescribeRegions where
 data DescribeRegionsResponse = DescribeRegionsResponse'
     { _drrRegions :: !(Maybe [RegionInfo])
     , _drrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRegionsResponse' smart constructor.
 describeRegionsResponse :: Int -> DescribeRegionsResponse

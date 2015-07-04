@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.DeleteDocument
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.SSM.Types
 -- * 'dName'
 newtype DeleteDocument = DeleteDocument'
     { _dName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDocument' smart constructor.
 deleteDocument :: Text -> DeleteDocument
@@ -97,7 +99,7 @@ instance ToQuery DeleteDocument where
 -- * 'ddrStatus'
 newtype DeleteDocumentResponse = DeleteDocumentResponse'
     { _ddrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDocumentResponse' smart constructor.
 deleteDocumentResponse :: Int -> DeleteDocumentResponse

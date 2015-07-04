@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.CreateDocument
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.SSM.Types
 data CreateDocument = CreateDocument'
     { _cdContent :: !Text
     , _cdName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDocument' smart constructor.
 createDocument :: Text -> Text -> CreateDocument
@@ -114,7 +116,7 @@ instance ToQuery CreateDocument where
 data CreateDocumentResponse = CreateDocumentResponse'
     { _cdrDocumentDescription :: !(Maybe DocumentDescription)
     , _cdrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDocumentResponse' smart constructor.
 createDocumentResponse :: Int -> CreateDocumentResponse

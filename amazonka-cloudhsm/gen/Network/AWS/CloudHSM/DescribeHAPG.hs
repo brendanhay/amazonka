@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.DescribeHAPG
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 -- * 'dHAPGARN'
 newtype DescribeHAPG = DescribeHAPG'
     { _dHAPGARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHAPG' smart constructor.
 describeHAPG :: Text -> DescribeHAPG
@@ -144,7 +146,7 @@ data DescribeHAPGResponse = DescribeHAPGResponse'
     , _desHAPGARN                 :: !(Maybe Text)
     , _desLabel                   :: !(Maybe Text)
     , _desStatus                  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHAPGResponse' smart constructor.
 describeHAPGResponse :: Int -> DescribeHAPGResponse

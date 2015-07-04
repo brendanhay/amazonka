@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheClusters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -86,7 +88,7 @@ data DescribeCacheClusters = DescribeCacheClusters'
     , _desMaxRecords        :: !(Maybe Int)
     , _desMarker            :: !(Maybe Text)
     , _desShowCacheNodeInfo :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheClusters' smart constructor.
 describeCacheClusters :: DescribeCacheClusters
@@ -177,7 +179,7 @@ data DescribeCacheClustersResponse = DescribeCacheClustersResponse'
     { _dCacheClusters :: !(Maybe [CacheCluster])
     , _dMarker        :: !(Maybe Text)
     , _dStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheClustersResponse' smart constructor.
 describeCacheClustersResponse :: Int -> DescribeCacheClustersResponse

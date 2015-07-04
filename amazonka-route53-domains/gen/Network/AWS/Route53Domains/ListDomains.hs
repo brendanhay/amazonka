@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.ListDomains
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Route53Domains.Types
 data ListDomains = ListDomains'
     { _ldMaxItems :: !(Maybe Int)
     , _ldMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: ListDomains
@@ -150,7 +152,7 @@ data ListDomainsResponse = ListDomainsResponse'
     { _ldrNextPageMarker :: !(Maybe Text)
     , _ldrStatus         :: !Int
     , _ldrDomains        :: ![DomainSummary]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse

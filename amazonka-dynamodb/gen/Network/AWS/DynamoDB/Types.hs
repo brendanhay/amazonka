@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -351,7 +353,7 @@ data AttributeAction
     = Add
     | Put
     | Delete
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AttributeAction where
     parser = takeLowerText >>= \case
@@ -367,9 +369,7 @@ instance ToText AttributeAction where
         Delete -> "delete"
         Put -> "put"
 
-instance Hashable AttributeAction where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AttributeAction
 instance ToQuery AttributeAction
 instance ToHeader AttributeAction
 
@@ -390,7 +390,7 @@ data ComparisonOperator
     | BeginsWith
     | NotNull
     | LE
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ComparisonOperator where
     parser = takeLowerText >>= \case
@@ -426,9 +426,7 @@ instance ToText ComparisonOperator where
         NotNull -> "not_null"
         Null -> "null"
 
-instance Hashable ComparisonOperator where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ComparisonOperator
 instance ToQuery ComparisonOperator
 instance ToHeader ComparisonOperator
 
@@ -438,7 +436,7 @@ instance ToJSON ComparisonOperator where
 data ConditionalOperator
     = And
     | OR
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ConditionalOperator where
     parser = takeLowerText >>= \case
@@ -452,9 +450,7 @@ instance ToText ConditionalOperator where
         And -> "and"
         OR -> "or"
 
-instance Hashable ConditionalOperator where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ConditionalOperator
 instance ToQuery ConditionalOperator
 instance ToHeader ConditionalOperator
 
@@ -466,7 +462,7 @@ data IndexStatus
     | ISDeleting
     | ISCreating
     | ISActive
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText IndexStatus where
     parser = takeLowerText >>= \case
@@ -484,9 +480,7 @@ instance ToText IndexStatus where
         ISDeleting -> "deleting"
         ISUpdating -> "updating"
 
-instance Hashable IndexStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable IndexStatus
 instance ToQuery IndexStatus
 instance ToHeader IndexStatus
 
@@ -496,7 +490,7 @@ instance FromJSON IndexStatus where
 data KeyType
     = Hash
     | Range
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText KeyType where
     parser = takeLowerText >>= \case
@@ -510,9 +504,7 @@ instance ToText KeyType where
         Hash -> "hash"
         Range -> "range"
 
-instance Hashable KeyType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable KeyType
 instance ToQuery KeyType
 instance ToHeader KeyType
 
@@ -526,7 +518,7 @@ data ProjectionType
     = Include
     | All
     | KeysOnly
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ProjectionType where
     parser = takeLowerText >>= \case
@@ -542,9 +534,7 @@ instance ToText ProjectionType where
         Include -> "include"
         KeysOnly -> "keys_only"
 
-instance Hashable ProjectionType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ProjectionType
 instance ToQuery ProjectionType
 instance ToHeader ProjectionType
 
@@ -562,7 +552,7 @@ data ReturnConsumedCapacity
     = RCCNone
     | RCCIndexes
     | RCCTotal
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReturnConsumedCapacity where
     parser = takeLowerText >>= \case
@@ -578,9 +568,7 @@ instance ToText ReturnConsumedCapacity where
         RCCNone -> "none"
         RCCTotal -> "total"
 
-instance Hashable ReturnConsumedCapacity where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReturnConsumedCapacity
 instance ToQuery ReturnConsumedCapacity
 instance ToHeader ReturnConsumedCapacity
 
@@ -590,7 +578,7 @@ instance ToJSON ReturnConsumedCapacity where
 data ReturnItemCollectionMetrics
     = RICMNone
     | RICMSize
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReturnItemCollectionMetrics where
     parser = takeLowerText >>= \case
@@ -604,9 +592,7 @@ instance ToText ReturnItemCollectionMetrics where
         RICMNone -> "none"
         RICMSize -> "size"
 
-instance Hashable ReturnItemCollectionMetrics where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReturnItemCollectionMetrics
 instance ToQuery ReturnItemCollectionMetrics
 instance ToHeader ReturnItemCollectionMetrics
 
@@ -619,7 +605,7 @@ data ReturnValue
     | AllNew
     | AllOld
     | UpdatedNew
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReturnValue where
     parser = takeLowerText >>= \case
@@ -639,9 +625,7 @@ instance ToText ReturnValue where
         UpdatedNew -> "updated_new"
         UpdatedOld -> "updated_old"
 
-instance Hashable ReturnValue where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReturnValue
 instance ToQuery ReturnValue
 instance ToHeader ReturnValue
 
@@ -652,7 +636,7 @@ data ScalarAttributeType
     = N
     | B
     | S
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ScalarAttributeType where
     parser = takeLowerText >>= \case
@@ -668,9 +652,7 @@ instance ToText ScalarAttributeType where
         N -> "n"
         S -> "s"
 
-instance Hashable ScalarAttributeType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ScalarAttributeType
 instance ToQuery ScalarAttributeType
 instance ToHeader ScalarAttributeType
 
@@ -685,7 +667,7 @@ data Select
     | AllAttributes
     | SpecificAttributes
     | AllProjectedAttributes
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Select where
     parser = takeLowerText >>= \case
@@ -703,9 +685,7 @@ instance ToText Select where
         Count -> "count"
         SpecificAttributes -> "specific_attributes"
 
-instance Hashable Select where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Select
 instance ToQuery Select
 instance ToHeader Select
 
@@ -717,7 +697,7 @@ data TableStatus
     | Updating
     | Creating
     | Active
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TableStatus where
     parser = takeLowerText >>= \case
@@ -735,9 +715,7 @@ instance ToText TableStatus where
         Deleting -> "deleting"
         Updating -> "updating"
 
-instance Hashable TableStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable TableStatus
 instance ToQuery TableStatus
 instance ToHeader TableStatus
 
@@ -757,7 +735,7 @@ instance FromJSON TableStatus where
 data AttributeDefinition = AttributeDefinition'
     { _adAttributeName :: !Text
     , _adAttributeType :: !ScalarAttributeType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttributeDefinition' smart constructor.
 attributeDefinition :: Text -> ScalarAttributeType -> AttributeDefinition
@@ -831,7 +809,7 @@ data AttributeValue = AttributeValue'
     , _avSS   :: !(Maybe [Text])
     , _avS    :: !(Maybe Text)
     , _avBOOL :: !(Maybe Bool)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'AttributeValue' smart constructor.
 attributeValue :: AttributeValue
@@ -934,7 +912,7 @@ instance ToJSON AttributeValue where
 data AttributeValueUpdate = AttributeValueUpdate'
     { _avuValue  :: !(Maybe AttributeValue)
     , _avuAction :: !(Maybe AttributeAction)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'AttributeValueUpdate' smart constructor.
 attributeValueUpdate :: AttributeValueUpdate
@@ -1038,7 +1016,7 @@ instance ToJSON AttributeValueUpdate where
 -- * 'capCapacityUnits'
 newtype Capacity = Capacity'
     { _capCapacityUnits :: Maybe Double
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Capacity' smart constructor.
 capacity :: Capacity
@@ -1082,7 +1060,7 @@ instance FromJSON Capacity where
 data Condition = Condition'
     { _conAttributeValueList :: !(Maybe [AttributeValue])
     , _conComparisonOperator :: !ComparisonOperator
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Condition' smart constructor.
 condition :: ComparisonOperator -> Condition
@@ -1294,7 +1272,7 @@ data ConsumedCapacity = ConsumedCapacity'
     , _ccLocalSecondaryIndexes  :: !(Maybe (Map Text Capacity))
     , _ccTable                  :: !(Maybe Capacity)
     , _ccTableName              :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConsumedCapacity' smart constructor.
 consumedCapacity :: ConsumedCapacity
@@ -1360,7 +1338,7 @@ data CreateGlobalSecondaryIndexAction = CreateGlobalSecondaryIndexAction'
     , _cgsiaKeySchema             :: !(List1 KeySchemaElement)
     , _cgsiaProjection            :: !Projection
     , _cgsiaProvisionedThroughput :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGlobalSecondaryIndexAction' smart constructor.
 createGlobalSecondaryIndexAction :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> CreateGlobalSecondaryIndexAction
@@ -1408,7 +1386,7 @@ instance ToJSON CreateGlobalSecondaryIndexAction
 -- * 'dgsiaIndexName'
 newtype DeleteGlobalSecondaryIndexAction = DeleteGlobalSecondaryIndexAction'
     { _dgsiaIndexName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGlobalSecondaryIndexAction' smart constructor.
 deleteGlobalSecondaryIndexAction :: Text -> DeleteGlobalSecondaryIndexAction
@@ -1435,7 +1413,7 @@ instance ToJSON DeleteGlobalSecondaryIndexAction
 -- * 'drKey'
 newtype DeleteRequest = DeleteRequest'
     { _drKey :: Map Text AttributeValue
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRequest' smart constructor.
 deleteRequest :: DeleteRequest
@@ -1498,7 +1476,7 @@ data ExpectedAttributeValue = ExpectedAttributeValue'
     , _eavExists             :: !(Maybe Bool)
     , _eavValue              :: !(Maybe AttributeValue)
     , _eavComparisonOperator :: !(Maybe ComparisonOperator)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ExpectedAttributeValue' smart constructor.
 expectedAttributeValue :: ExpectedAttributeValue
@@ -1740,7 +1718,7 @@ data GlobalSecondaryIndex = GlobalSecondaryIndex'
     , _gsiKeySchema             :: !(List1 KeySchemaElement)
     , _gsiProjection            :: !Projection
     , _gsiProvisionedThroughput :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GlobalSecondaryIndex' smart constructor.
 globalSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> ProvisionedThroughput -> GlobalSecondaryIndex
@@ -1808,7 +1786,7 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     , _gsidProjection            :: !(Maybe Projection)
     , _gsidItemCount             :: !(Maybe Integer)
     , _gsidIndexName             :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GlobalSecondaryIndexDescription' smart constructor.
 globalSecondaryIndexDescription :: GlobalSecondaryIndexDescription
@@ -1917,7 +1895,7 @@ data GlobalSecondaryIndexUpdate = GlobalSecondaryIndexUpdate'
     { _gsiuCreate :: !(Maybe CreateGlobalSecondaryIndexAction)
     , _gsiuDelete :: !(Maybe DeleteGlobalSecondaryIndexAction)
     , _gsiuUpdate :: !(Maybe UpdateGlobalSecondaryIndexAction)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GlobalSecondaryIndexUpdate' smart constructor.
 globalSecondaryIndexUpdate :: GlobalSecondaryIndexUpdate
@@ -1974,7 +1952,7 @@ instance ToJSON GlobalSecondaryIndexUpdate where
 data ItemCollectionMetrics = ItemCollectionMetrics'
     { _icmItemCollectionKey   :: !(Maybe (Map Text AttributeValue))
     , _icmSizeEstimateRangeGB :: !(Maybe [Double])
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ItemCollectionMetrics' smart constructor.
 itemCollectionMetrics :: ItemCollectionMetrics
@@ -2029,7 +2007,7 @@ instance FromJSON ItemCollectionMetrics where
 data KeySchemaElement = KeySchemaElement'
     { _kseAttributeName :: !Text
     , _kseKeyType       :: !KeyType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeySchemaElement' smart constructor.
 keySchemaElement :: Text -> KeyType -> KeySchemaElement
@@ -2088,7 +2066,7 @@ data KeysAndAttributes = KeysAndAttributes'
     , _kaaExpressionAttributeNames :: !(Maybe (Map Text Text))
     , _kaaAttributesToGet          :: !(Maybe (List1 Text))
     , _kaaKeys                     :: !(List1 (Map Text AttributeValue))
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'KeysAndAttributes' smart constructor.
 keysAndAttributes :: NonEmpty (HashMap Text AttributeValue) -> KeysAndAttributes
@@ -2212,7 +2190,7 @@ data LocalSecondaryIndex = LocalSecondaryIndex'
     { _lsiIndexName  :: !Text
     , _lsiKeySchema  :: !(List1 KeySchemaElement)
     , _lsiProjection :: !Projection
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LocalSecondaryIndex' smart constructor.
 localSecondaryIndex :: Text -> NonEmpty KeySchemaElement -> Projection -> LocalSecondaryIndex
@@ -2265,7 +2243,7 @@ data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
     , _lsidProjection     :: !(Maybe Projection)
     , _lsidItemCount      :: !(Maybe Integer)
     , _lsidIndexName      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LocalSecondaryIndexDescription' smart constructor.
 localSecondaryIndexDescription :: LocalSecondaryIndexDescription
@@ -2328,7 +2306,7 @@ instance FromJSON LocalSecondaryIndexDescription
 data Projection = Projection'
     { _proProjectionType   :: !(Maybe ProjectionType)
     , _proNonKeyAttributes :: !(Maybe (List1 Text))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Projection' smart constructor.
 projection :: Projection
@@ -2393,7 +2371,7 @@ instance ToJSON Projection where
 data ProvisionedThroughput = ProvisionedThroughput'
     { _ptReadCapacityUnits  :: !Nat
     , _ptWriteCapacityUnits :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ProvisionedThroughput' smart constructor.
 provisionedThroughput :: Natural -> Natural -> ProvisionedThroughput
@@ -2447,7 +2425,7 @@ data ProvisionedThroughputDescription = ProvisionedThroughputDescription'
     , _ptdWriteCapacityUnits     :: !(Maybe Nat)
     , _ptdNumberOfDecreasesToday :: !(Maybe Nat)
     , _ptdLastIncreaseDateTime   :: !(Maybe POSIX)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ProvisionedThroughputDescription' smart constructor.
 provisionedThroughputDescription :: ProvisionedThroughputDescription
@@ -2512,7 +2490,7 @@ instance FromJSON ProvisionedThroughputDescription
 -- * 'prItem'
 newtype PutRequest = PutRequest'
     { _prItem :: Map Text AttributeValue
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutRequest' smart constructor.
 putRequest :: PutRequest
@@ -2574,7 +2552,7 @@ data TableDescription = TableDescription'
     , _tdCreationDateTime       :: !(Maybe POSIX)
     , _tdItemCount              :: !(Maybe Integer)
     , _tdTableName              :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TableDescription' smart constructor.
 tableDescription :: TableDescription
@@ -2804,7 +2782,7 @@ instance FromJSON TableDescription where
 data UpdateGlobalSecondaryIndexAction = UpdateGlobalSecondaryIndexAction'
     { _ugsiaIndexName             :: !Text
     , _ugsiaProvisionedThroughput :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGlobalSecondaryIndexAction' smart constructor.
 updateGlobalSecondaryIndexAction :: Text -> ProvisionedThroughput -> UpdateGlobalSecondaryIndexAction
@@ -2845,7 +2823,7 @@ instance ToJSON UpdateGlobalSecondaryIndexAction
 data WriteRequest = WriteRequest'
     { _wrPutRequest    :: !(Maybe PutRequest)
     , _wrDeleteRequest :: !(Maybe DeleteRequest)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'WriteRequest' smart constructor.
 writeRequest :: WriteRequest

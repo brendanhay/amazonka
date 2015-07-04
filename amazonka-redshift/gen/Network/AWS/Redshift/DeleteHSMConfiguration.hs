@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DeleteHSMConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- * 'dhcHSMConfigurationIdentifier'
 newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
     { _dhcHSMConfigurationIdentifier :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSMConfiguration' smart constructor.
 deleteHSMConfiguration :: Text -> DeleteHSMConfiguration
@@ -85,7 +87,7 @@ instance ToQuery DeleteHSMConfiguration where
 -- | /See:/ 'deleteHSMConfigurationResponse' smart constructor.
 data DeleteHSMConfigurationResponse =
     DeleteHSMConfigurationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSMConfigurationResponse' smart constructor.
 deleteHSMConfigurationResponse :: DeleteHSMConfigurationResponse

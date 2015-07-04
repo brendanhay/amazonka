@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribeInstances = DescribeInstances'
     { _diInstanceIds :: !(Maybe [Text])
     , _diStackId     :: !(Maybe Text)
     , _diLayerId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
@@ -135,7 +137,7 @@ instance ToQuery DescribeInstances where
 data DescribeInstancesResponse = DescribeInstancesResponse'
     { _dirInstances :: !(Maybe [Instance])
     , _dirStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse

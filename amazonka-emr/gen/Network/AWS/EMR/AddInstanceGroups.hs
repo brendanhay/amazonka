@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.AddInstanceGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data AddInstanceGroups = AddInstanceGroups'
     { _aigInstanceGroups :: ![InstanceGroupConfig]
     , _aigJobFlowId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddInstanceGroups' smart constructor.
 addInstanceGroups :: Text -> AddInstanceGroups
@@ -120,7 +122,7 @@ data AddInstanceGroupsResponse = AddInstanceGroupsResponse'
     { _aigrJobFlowId        :: !(Maybe Text)
     , _aigrInstanceGroupIds :: !(Maybe [Text])
     , _aigrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddInstanceGroupsResponse' smart constructor.
 addInstanceGroupsResponse :: Int -> AddInstanceGroupsResponse

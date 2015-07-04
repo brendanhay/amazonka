@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.AttachInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data AttachInstances = AttachInstances'
     { _aiInstanceIds          :: !(Maybe [Text])
     , _aiAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInstances' smart constructor.
 attachInstances :: Text -> AttachInstances
@@ -94,7 +96,7 @@ instance ToQuery AttachInstances where
 -- | /See:/ 'attachInstancesResponse' smart constructor.
 data AttachInstancesResponse =
     AttachInstancesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInstancesResponse' smart constructor.
 attachInstancesResponse :: AttachInstancesResponse

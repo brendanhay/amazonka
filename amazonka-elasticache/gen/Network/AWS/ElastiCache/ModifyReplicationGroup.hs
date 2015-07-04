@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.ModifyReplicationGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -110,7 +112,7 @@ data ModifyReplicationGroup = ModifyReplicationGroup'
     , _mrgNotificationTopicARN        :: !(Maybe Text)
     , _mrgCacheSecurityGroupNames     :: !(Maybe [Text])
     , _mrgReplicationGroupId          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReplicationGroup' smart constructor.
 modifyReplicationGroup :: Text -> ModifyReplicationGroup
@@ -333,7 +335,7 @@ instance ToQuery ModifyReplicationGroup where
 data ModifyReplicationGroupResponse = ModifyReplicationGroupResponse'
     { _mrgrReplicationGroup :: !(Maybe ReplicationGroup)
     , _mrgrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReplicationGroupResponse' smart constructor.
 modifyReplicationGroupResponse :: Int -> ModifyReplicationGroupResponse

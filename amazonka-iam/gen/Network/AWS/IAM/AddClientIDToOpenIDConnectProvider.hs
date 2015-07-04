@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data AddClientIDToOpenIDConnectProvider = AddClientIDToOpenIDConnectProvider'
     { _acidtoidcpOpenIDConnectProviderARN :: !Text
     , _acidtoidcpClientID                 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddClientIDToOpenIDConnectProvider' smart constructor.
 addClientIDToOpenIDConnectProvider :: Text -> Text -> AddClientIDToOpenIDConnectProvider
@@ -105,7 +107,7 @@ instance ToQuery AddClientIDToOpenIDConnectProvider
 -- | /See:/ 'addClientIDToOpenIDConnectProviderResponse' smart constructor.
 data AddClientIDToOpenIDConnectProviderResponse =
     AddClientIDToOpenIDConnectProviderResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddClientIDToOpenIDConnectProviderResponse' smart constructor.
 addClientIDToOpenIDConnectProviderResponse :: AddClientIDToOpenIDConnectProviderResponse

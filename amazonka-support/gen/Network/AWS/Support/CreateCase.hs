@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.CreateCase
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -121,7 +123,7 @@ data CreateCase = CreateCase'
     , _ccAttachmentSetId   :: !(Maybe Text)
     , _ccSubject           :: !Text
     , _ccCommunicationBody :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCase' smart constructor.
 createCase :: Text -> Text -> CreateCase
@@ -238,7 +240,7 @@ instance ToQuery CreateCase where
 data CreateCaseResponse = CreateCaseResponse'
     { _ccrCaseId :: !(Maybe Text)
     , _ccrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCaseResponse' smart constructor.
 createCaseResponse :: Int -> CreateCaseResponse

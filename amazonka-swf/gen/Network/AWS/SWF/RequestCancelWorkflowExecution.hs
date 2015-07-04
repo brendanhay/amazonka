@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.RequestCancelWorkflowExecution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
     { _rcweRunId      :: !(Maybe Text)
     , _rcweDomain     :: !Text
     , _rcweWorkflowId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestCancelWorkflowExecution' smart constructor.
 requestCancelWorkflowExecution :: Text -> Text -> RequestCancelWorkflowExecution
@@ -140,7 +142,7 @@ instance ToQuery RequestCancelWorkflowExecution where
 -- | /See:/ 'requestCancelWorkflowExecutionResponse' smart constructor.
 data RequestCancelWorkflowExecutionResponse =
     RequestCancelWorkflowExecutionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestCancelWorkflowExecutionResponse' smart constructor.
 requestCancelWorkflowExecutionResponse :: RequestCancelWorkflowExecutionResponse

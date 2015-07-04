@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.RestoreAddressToClassic
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data RestoreAddressToClassic = RestoreAddressToClassic'
     { _ratcDryRun   :: !(Maybe Bool)
     , _ratcPublicIP :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreAddressToClassic' smart constructor.
 restoreAddressToClassic :: Text -> RestoreAddressToClassic
@@ -110,7 +112,7 @@ instance ToQuery RestoreAddressToClassic where
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
     { _ratcrPublicIP :: !(Maybe Text)
     , _ratcrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreAddressToClassicResponse' smart constructor.
 restoreAddressToClassicResponse :: Int -> RestoreAddressToClassicResponse

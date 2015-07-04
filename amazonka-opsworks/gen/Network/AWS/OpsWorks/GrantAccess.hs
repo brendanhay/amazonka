@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.GrantAccess
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data GrantAccess = GrantAccess'
     { _gaValidForInMinutes :: !(Maybe Nat)
     , _gaInstanceId        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantAccess' smart constructor.
 grantAccess :: Text -> GrantAccess
@@ -118,7 +120,7 @@ instance ToQuery GrantAccess where
 data GrantAccessResponse = GrantAccessResponse'
     { _garTemporaryCredential :: !(Maybe TemporaryCredential)
     , _garStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantAccessResponse' smart constructor.
 grantAccessResponse :: Int -> GrantAccessResponse

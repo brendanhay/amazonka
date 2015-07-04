@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.CreateDBSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data CreateDBSecurityGroup = CreateDBSecurityGroup'
     { _cdsgTags                       :: !(Maybe [Tag])
     , _cdsgDBSecurityGroupName        :: !Text
     , _cdsgDBSecurityGroupDescription :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSecurityGroup' smart constructor.
 createDBSecurityGroup :: Text -> Text -> CreateDBSecurityGroup
@@ -129,7 +131,7 @@ instance ToQuery CreateDBSecurityGroup where
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
     { _cDBSecurityGroup :: !(Maybe DBSecurityGroup)
     , _cStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSecurityGroupResponse' smart constructor.
 createDBSecurityGroupResponse :: Int -> CreateDBSecurityGroupResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.ListPipelines
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'lpMarker'
 newtype ListPipelines = ListPipelines'
     { _lpMarker :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
@@ -124,7 +126,7 @@ data ListPipelinesResponse = ListPipelinesResponse'
     , _lprMarker         :: !(Maybe Text)
     , _lprStatus         :: !Int
     , _lprPipelineIdList :: ![PipelineIdName]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse

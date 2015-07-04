@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AssociateAddress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -90,7 +92,7 @@ data AssociateAddress = AssociateAddress'
     , _assPrivateIPAddress   :: !(Maybe Text)
     , _assPublicIP           :: !(Maybe Text)
     , _assDryRun             :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateAddress' smart constructor.
 associateAddress :: AssociateAddress
@@ -184,7 +186,7 @@ instance ToQuery AssociateAddress where
 data AssociateAddressResponse = AssociateAddressResponse'
     { _assAssociationId :: !(Maybe Text)
     , _assStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateAddressResponse' smart constructor.
 associateAddressResponse :: Int -> AssociateAddressResponse

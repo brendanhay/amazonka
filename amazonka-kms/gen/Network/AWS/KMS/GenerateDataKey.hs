@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.GenerateDataKey
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -98,7 +100,7 @@ data GenerateDataKey = GenerateDataKey'
     , _gdkNumberOfBytes     :: !(Maybe Nat)
     , _gdkGrantTokens       :: !(Maybe [Text])
     , _gdkKeyId             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKey' smart constructor.
 generateDataKey :: Text -> GenerateDataKey
@@ -200,7 +202,7 @@ data GenerateDataKeyResponse = GenerateDataKeyResponse'
     , _gdkrPlaintext      :: !(Maybe (Sensitive Base64))
     , _gdkrCiphertextBlob :: !(Maybe Base64)
     , _gdkrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKeyResponse' smart constructor.
 generateDataKeyResponse :: Int -> GenerateDataKeyResponse

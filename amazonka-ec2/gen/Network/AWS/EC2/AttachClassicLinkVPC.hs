@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AttachClassicLinkVPC
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data AttachClassicLinkVPC = AttachClassicLinkVPC'
     , _aclvInstanceId :: !Text
     , _aclvVPCId      :: !Text
     , _aclvGroups     :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachClassicLinkVPC' smart constructor.
 attachClassicLinkVPC :: Text -> Text -> AttachClassicLinkVPC
@@ -141,7 +143,7 @@ instance ToQuery AttachClassicLinkVPC where
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
     { _aclvrReturn :: !(Maybe Bool)
     , _aclvrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachClassicLinkVPCResponse' smart constructor.
 attachClassicLinkVPCResponse :: Int -> AttachClassicLinkVPCResponse

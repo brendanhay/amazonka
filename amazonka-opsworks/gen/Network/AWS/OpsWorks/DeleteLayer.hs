@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DeleteLayer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'dlLayerId'
 newtype DeleteLayer = DeleteLayer'
     { _dlLayerId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLayer' smart constructor.
 deleteLayer :: Text -> DeleteLayer
@@ -94,7 +96,7 @@ instance ToQuery DeleteLayer where
 -- | /See:/ 'deleteLayerResponse' smart constructor.
 data DeleteLayerResponse =
     DeleteLayerResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLayerResponse' smart constructor.
 deleteLayerResponse :: DeleteLayerResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeLaunchConfigurations
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
     { _dlcLaunchConfigurationNames :: !(Maybe [Text])
     , _dlcNextToken                :: !(Maybe Text)
     , _dlcMaxRecords               :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLaunchConfigurations' smart constructor.
 describeLaunchConfigurations :: DescribeLaunchConfigurations
@@ -137,7 +139,7 @@ data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse
     { _dlcrNextToken            :: !(Maybe Text)
     , _dlcrStatus               :: !Int
     , _dlcrLaunchConfigurations :: ![LaunchConfiguration]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
 describeLaunchConfigurationsResponse :: Int -> DescribeLaunchConfigurationsResponse

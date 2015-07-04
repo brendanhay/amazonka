@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
     { _slbpolLoadBalancerName :: !Text
     , _slbpolLoadBalancerPort :: !Int
     , _slbpolPolicyNames      :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesOfListener' smart constructor.
 setLoadBalancerPoliciesOfListener :: Text -> Int -> SetLoadBalancerPoliciesOfListener
@@ -120,7 +122,7 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
 -- * 'slbpolrStatus'
 newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
     { _slbpolrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' smart constructor.
 setLoadBalancerPoliciesOfListenerResponse :: Int -> SetLoadBalancerPoliciesOfListenerResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.ListTagsForStream
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data ListTagsForStream = ListTagsForStream'
     { _ltfsLimit                :: !(Maybe Nat)
     , _ltfsExclusiveStartTagKey :: !(Maybe Text)
     , _ltfsStreamName           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForStream' smart constructor.
 listTagsForStream :: Text -> ListTagsForStream
@@ -134,7 +136,7 @@ data ListTagsForStreamResponse = ListTagsForStreamResponse'
     { _ltfsrStatus      :: !Int
     , _ltfsrTags        :: ![Tag]
     , _ltfsrHasMoreTags :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForStreamResponse' smart constructor.
 listTagsForStreamResponse :: Int -> Bool -> ListTagsForStreamResponse

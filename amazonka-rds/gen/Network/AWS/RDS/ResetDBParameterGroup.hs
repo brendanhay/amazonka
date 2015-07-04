@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.ResetDBParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data ResetDBParameterGroup = ResetDBParameterGroup'
     { _rdpgResetAllParameters   :: !(Maybe Bool)
     , _rdpgParameters           :: !(Maybe [Parameter])
     , _rdpgDBParameterGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetDBParameterGroup' smart constructor.
 resetDBParameterGroup :: Text -> ResetDBParameterGroup

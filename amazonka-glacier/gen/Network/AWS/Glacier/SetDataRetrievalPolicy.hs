@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.SetDataRetrievalPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 data SetDataRetrievalPolicy = SetDataRetrievalPolicy'
     { _sdrpPolicy    :: !(Maybe DataRetrievalPolicy)
     , _sdrpAccountId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDataRetrievalPolicy' smart constructor.
 setDataRetrievalPolicy :: Text -> SetDataRetrievalPolicy
@@ -109,7 +111,7 @@ instance ToQuery SetDataRetrievalPolicy where
 -- | /See:/ 'setDataRetrievalPolicyResponse' smart constructor.
 data SetDataRetrievalPolicyResponse =
     SetDataRetrievalPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDataRetrievalPolicyResponse' smart constructor.
 setDataRetrievalPolicyResponse :: SetDataRetrievalPolicyResponse

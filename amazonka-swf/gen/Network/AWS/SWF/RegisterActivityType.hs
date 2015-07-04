@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.RegisterActivityType
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -108,7 +110,7 @@ data RegisterActivityType = RegisterActivityType'
     , _ratDomain                            :: !Text
     , _ratName                              :: !Text
     , _ratVersion                           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterActivityType' smart constructor.
 registerActivityType :: Text -> Text -> Text -> RegisterActivityType
@@ -259,7 +261,7 @@ instance ToQuery RegisterActivityType where
 -- | /See:/ 'registerActivityTypeResponse' smart constructor.
 data RegisterActivityTypeResponse =
     RegisterActivityTypeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterActivityTypeResponse' smart constructor.
 registerActivityTypeResponse :: RegisterActivityTypeResponse

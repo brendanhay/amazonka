@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.DescribeApplications
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'daApplicationNames'
 newtype DescribeApplications = DescribeApplications'
     { _daApplicationNames :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplications' smart constructor.
 describeApplications :: DescribeApplications
@@ -103,7 +105,7 @@ instance ToQuery DescribeApplications where
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
     { _darApplications :: !(Maybe [ApplicationDescription])
     , _darStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationsResponse' smart constructor.
 describeApplicationsResponse :: Int -> DescribeApplicationsResponse

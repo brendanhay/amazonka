@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.CreateHealthCheck
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.Route53.Types
 data CreateHealthCheck = CreateHealthCheck'
     { _chcCallerReference   :: !Text
     , _chcHealthCheckConfig :: !HealthCheckConfig
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHealthCheck' smart constructor.
 createHealthCheck :: Text -> HealthCheckConfig -> CreateHealthCheck
@@ -135,7 +137,7 @@ data CreateHealthCheckResponse = CreateHealthCheckResponse'
     { _chcrStatus      :: !Int
     , _chcrHealthCheck :: !HealthCheck
     , _chcrLocation    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHealthCheckResponse' smart constructor.
 createHealthCheckResponse :: Int -> HealthCheck -> Text -> CreateHealthCheckResponse

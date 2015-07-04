@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.CreateAssociationBatch
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.SSM.Types
 -- * 'cabEntries'
 newtype CreateAssociationBatch = CreateAssociationBatch'
     { _cabEntries :: [CreateAssociationBatchRequestEntry]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociationBatch' smart constructor.
 createAssociationBatch :: CreateAssociationBatch
@@ -115,7 +117,7 @@ data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
     { _cabrSuccessful :: !(Maybe [AssociationDescription])
     , _cabrFailed     :: !(Maybe [FailedCreateAssociation])
     , _cabrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociationBatchResponse' smart constructor.
 createAssociationBatchResponse :: Int -> CreateAssociationBatchResponse

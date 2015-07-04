@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.ModifyMountTargetSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ import           Network.AWS.Response
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
     { _mmtsgSecurityGroups :: !(Maybe [Text])
     , _mmtsgMountTargetId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyMountTargetSecurityGroups' smart constructor.
 modifyMountTargetSecurityGroups :: Text -> ModifyMountTargetSecurityGroups
@@ -112,7 +114,7 @@ instance ToQuery ModifyMountTargetSecurityGroups
 -- | /See:/ 'modifyMountTargetSecurityGroupsResponse' smart constructor.
 data ModifyMountTargetSecurityGroupsResponse =
     ModifyMountTargetSecurityGroupsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyMountTargetSecurityGroupsResponse' smart constructor.
 modifyMountTargetSecurityGroupsResponse :: ModifyMountTargetSecurityGroupsResponse

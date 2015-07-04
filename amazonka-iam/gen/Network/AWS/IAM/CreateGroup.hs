@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreateGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data CreateGroup = CreateGroup'
     { _cgPath      :: !(Maybe Text)
     , _cgGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGroup' smart constructor.
 createGroup :: Text -> CreateGroup
@@ -113,7 +115,7 @@ instance ToQuery CreateGroup where
 data CreateGroupResponse = CreateGroupResponse'
     { _cgrStatus :: !Int
     , _cgrGroup  :: !Group
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGroupResponse' smart constructor.
 createGroupResponse :: Int -> Group -> CreateGroupResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ReadPipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'reaId'
 newtype ReadPipeline = ReadPipeline'
     { _reaId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadPipeline' smart constructor.
 readPipeline :: Text -> ReadPipeline
@@ -99,7 +101,7 @@ data ReadPipelineResponse = ReadPipelineResponse'
     { _reaWarnings :: !(Maybe [Warning])
     , _reaPipeline :: !(Maybe Pipeline)
     , _reaStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadPipelineResponse' smart constructor.
 readPipelineResponse :: Int -> ReadPipelineResponse

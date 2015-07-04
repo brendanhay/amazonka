@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CancelSpotFleetRequests
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data CancelSpotFleetRequests = CancelSpotFleetRequests'
     { _csfrDryRun              :: !(Maybe Bool)
     , _csfrSpotFleetRequestIds :: ![Text]
     , _csfrTerminateInstances  :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotFleetRequests' smart constructor.
 cancelSpotFleetRequests :: Bool -> CancelSpotFleetRequests
@@ -132,7 +134,7 @@ data CancelSpotFleetRequestsResponse = CancelSpotFleetRequestsResponse'
     { _csfrrSuccessfulFleetRequests   :: !(Maybe [CancelSpotFleetRequestsSuccessItem])
     , _csfrrUnsuccessfulFleetRequests :: !(Maybe [CancelSpotFleetRequestsErrorItem])
     , _csfrrStatus                    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotFleetRequestsResponse' smart constructor.
 cancelSpotFleetRequestsResponse :: Int -> CancelSpotFleetRequestsResponse

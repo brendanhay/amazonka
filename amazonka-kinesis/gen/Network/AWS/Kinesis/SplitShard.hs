@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.SplitShard
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -102,7 +104,7 @@ data SplitShard = SplitShard'
     { _ssStreamName         :: !Text
     , _ssShardToSplit       :: !Text
     , _ssNewStartingHashKey :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SplitShard' smart constructor.
 splitShard :: Text -> Text -> Text -> SplitShard
@@ -163,7 +165,7 @@ instance ToQuery SplitShard where
 -- | /See:/ 'splitShardResponse' smart constructor.
 data SplitShardResponse =
     SplitShardResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SplitShardResponse' smart constructor.
 splitShardResponse :: SplitShardResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPC
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data DeleteVPC = DeleteVPC'
     { _deleDryRun :: !(Maybe Bool)
     , _deleVPCId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPC' smart constructor.
 deleteVPC :: Text -> DeleteVPC
@@ -96,7 +98,7 @@ instance ToQuery DeleteVPC where
 -- | /See:/ 'deleteVPCResponse' smart constructor.
 data DeleteVPCResponse =
     DeleteVPCResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCResponse' smart constructor.
 deleteVPCResponse :: DeleteVPCResponse

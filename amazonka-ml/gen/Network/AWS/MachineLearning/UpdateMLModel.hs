@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.UpdateMLModel
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data UpdateMLModel = UpdateMLModel'
     { _umlmMLModelName    :: !(Maybe Text)
     , _umlmScoreThreshold :: !(Maybe Double)
     , _umlmMLModelId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMLModel' smart constructor.
 updateMLModel :: Text -> UpdateMLModel
@@ -133,7 +135,7 @@ instance ToQuery UpdateMLModel where
 data UpdateMLModelResponse = UpdateMLModelResponse'
     { _umlmrMLModelId :: !(Maybe Text)
     , _umlmrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMLModelResponse' smart constructor.
 updateMLModelResponse :: Int -> UpdateMLModelResponse

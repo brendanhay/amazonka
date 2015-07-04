@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ data DescribeSecurityGroups = DescribeSecurityGroups'
     , _dsg1Filters    :: !(Maybe [Filter])
     , _dsg1GroupIds   :: !(Maybe [Text])
     , _dsg1DryRun     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSecurityGroups' smart constructor.
 describeSecurityGroups :: DescribeSecurityGroups
@@ -186,7 +188,7 @@ instance ToQuery DescribeSecurityGroups where
 data DescribeSecurityGroupsResponse = DescribeSecurityGroupsResponse'
     { _dsgrSecurityGroups :: !(Maybe [SecurityGroup])
     , _dsgrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSecurityGroupsResponse' smart constructor.
 describeSecurityGroupsResponse :: Int -> DescribeSecurityGroupsResponse

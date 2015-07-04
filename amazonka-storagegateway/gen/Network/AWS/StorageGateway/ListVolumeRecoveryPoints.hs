@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.ListVolumeRecoveryPoints
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'lvrpGatewayARN'
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
     { _lvrpGatewayARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeRecoveryPoints' smart constructor.
 listVolumeRecoveryPoints :: Text -> ListVolumeRecoveryPoints
@@ -114,7 +116,7 @@ data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
     { _lvrprVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
     , _lvrprGatewayARN               :: !(Maybe Text)
     , _lvrprStatus                   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeRecoveryPointsResponse' smart constructor.
 listVolumeRecoveryPointsResponse :: Int -> ListVolumeRecoveryPointsResponse

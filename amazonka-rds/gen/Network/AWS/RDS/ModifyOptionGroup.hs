@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.ModifyOptionGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ModifyOptionGroup = ModifyOptionGroup'
     , _mogOptionsToRemove  :: !(Maybe [Text])
     , _mogApplyImmediately :: !(Maybe Bool)
     , _mogOptionGroupName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyOptionGroup' smart constructor.
 modifyOptionGroup :: Text -> ModifyOptionGroup
@@ -139,7 +141,7 @@ instance ToQuery ModifyOptionGroup where
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
     { _mogrOptionGroup :: !(Maybe OptionGroup)
     , _mogrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyOptionGroupResponse' smart constructor.
 modifyOptionGroupResponse :: Int -> ModifyOptionGroupResponse

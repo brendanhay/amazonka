@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.WorkSpaces.RebuildWorkspaces
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ import           Network.AWS.WorkSpaces.Types
 -- * 'rwRebuildWorkspaceRequests'
 newtype RebuildWorkspaces = RebuildWorkspaces'
     { _rwRebuildWorkspaceRequests :: List1 RebuildRequest
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebuildWorkspaces' smart constructor.
 rebuildWorkspaces :: NonEmpty RebuildRequest -> RebuildWorkspaces
@@ -127,7 +129,7 @@ instance ToQuery RebuildWorkspaces where
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
     { _rwrFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
     , _rwrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebuildWorkspacesResponse' smart constructor.
 rebuildWorkspacesResponse :: Int -> RebuildWorkspacesResponse

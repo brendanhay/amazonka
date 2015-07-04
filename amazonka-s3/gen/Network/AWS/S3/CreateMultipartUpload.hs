@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.CreateMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -144,7 +146,7 @@ data CreateMultipartUpload = CreateMultipartUpload'
     , _cmuContentType             :: !(Maybe Text)
     , _cmuBucket                  :: !BucketName
     , _cmuKey                     :: !ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CreateMultipartUpload' smart constructor.
 createMultipartUpload :: BucketName -> ObjectKey -> CreateMultipartUpload
@@ -371,7 +373,7 @@ data CreateMultipartUploadResponse = CreateMultipartUploadResponse'
     , _cmurUploadId             :: !(Maybe Text)
     , _cmurServerSideEncryption :: !(Maybe ServerSideEncryption)
     , _cmurStatus               :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CreateMultipartUploadResponse' smart constructor.
 createMultipartUploadResponse :: Int -> CreateMultipartUploadResponse

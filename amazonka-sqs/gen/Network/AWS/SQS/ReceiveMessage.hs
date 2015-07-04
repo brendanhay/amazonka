@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.ReceiveMessage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -111,7 +113,7 @@ data ReceiveMessage = ReceiveMessage'
     , _rmAttributeNames        :: !(Maybe [QueueAttributeName])
     , _rmMaxNumberOfMessages   :: !(Maybe Int)
     , _rmQueueURL              :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReceiveMessage' smart constructor.
 receiveMessage :: Text -> ReceiveMessage
@@ -227,7 +229,7 @@ instance ToQuery ReceiveMessage where
 data ReceiveMessageResponse = ReceiveMessageResponse'
     { _rmrMessages :: !(Maybe [Message])
     , _rmrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReceiveMessageResponse' smart constructor.
 receiveMessageResponse :: Int -> ReceiveMessageResponse

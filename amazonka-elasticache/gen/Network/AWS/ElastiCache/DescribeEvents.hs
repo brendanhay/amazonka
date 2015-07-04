@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -81,7 +83,7 @@ data DescribeEvents = DescribeEvents'
     , _deEndTime          :: !(Maybe ISO8601)
     , _deMarker           :: !(Maybe Text)
     , _deDuration         :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvents' smart constructor.
 describeEvents :: DescribeEvents
@@ -192,7 +194,7 @@ data DescribeEventsResponse = DescribeEventsResponse'
     { _derEvents :: !(Maybe [Event])
     , _derMarker :: !(Maybe Text)
     , _derStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Int -> DescribeEventsResponse

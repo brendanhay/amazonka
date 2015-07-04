@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.BatchPutAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -95,7 +97,7 @@ import           Network.AWS.SDB.Types
 data BatchPutAttributes = BatchPutAttributes'
     { _bpaDomainName :: !Text
     , _bpaItems      :: ![ReplaceableItem]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchPutAttributes' smart constructor.
 batchPutAttributes :: Text -> BatchPutAttributes
@@ -137,7 +139,7 @@ instance ToQuery BatchPutAttributes where
 -- | /See:/ 'batchPutAttributesResponse' smart constructor.
 data BatchPutAttributesResponse =
     BatchPutAttributesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchPutAttributesResponse' smart constructor.
 batchPutAttributesResponse :: BatchPutAttributesResponse

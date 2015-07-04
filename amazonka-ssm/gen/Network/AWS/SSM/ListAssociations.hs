@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.ListAssociations
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data ListAssociations = ListAssociations'
     { _laNextToken             :: !(Maybe Text)
     , _laMaxResults            :: !(Maybe Nat)
     , _laAssociationFilterList :: !(List1 AssociationFilter)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAssociations' smart constructor.
 listAssociations :: NonEmpty AssociationFilter -> ListAssociations
@@ -131,7 +133,7 @@ data ListAssociationsResponse = ListAssociationsResponse'
     { _larNextToken    :: !(Maybe Text)
     , _larAssociations :: !(Maybe [Association])
     , _larStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAssociationsResponse' smart constructor.
 listAssociationsResponse :: Int -> ListAssociationsResponse

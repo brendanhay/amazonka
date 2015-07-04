@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -514,7 +516,7 @@ data BucketCannedACL
     | BCACannedPrivate
     | BCACannedPublicReadWrite
     | BCACannedPublicRead
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BucketCannedACL where
     parser = takeLowerText >>= \case
@@ -532,9 +534,7 @@ instance ToText BucketCannedACL where
         BCACannedPublicRead -> "public-read"
         BCACannedPublicReadWrite -> "public-read-write"
 
-instance Hashable BucketCannedACL where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable BucketCannedACL
 instance ToQuery BucketCannedACL
 instance ToHeader BucketCannedACL
 
@@ -545,7 +545,7 @@ data BucketLogsPermission
     = FullControl
     | Read
     | Write
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BucketLogsPermission where
     parser = takeLowerText >>= \case
@@ -561,9 +561,7 @@ instance ToText BucketLogsPermission where
         Read -> "read"
         Write -> "write"
 
-instance Hashable BucketLogsPermission where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable BucketLogsPermission
 instance ToQuery BucketLogsPermission
 instance ToHeader BucketLogsPermission
 
@@ -576,7 +574,7 @@ instance ToXML BucketLogsPermission where
 data BucketVersioningStatus
     = BVSSuspended
     | BVSEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BucketVersioningStatus where
     parser = takeLowerText >>= \case
@@ -590,9 +588,7 @@ instance ToText BucketVersioningStatus where
         BVSEnabled -> "enabled"
         BVSSuspended -> "suspended"
 
-instance Hashable BucketVersioningStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable BucketVersioningStatus
 instance ToQuery BucketVersioningStatus
 instance ToHeader BucketVersioningStatus
 
@@ -610,7 +606,7 @@ instance ToXML BucketVersioningStatus where
 -- Amazon S3 encode the keys in the response.
 data EncodingType =
     URL
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EncodingType where
     parser = takeLowerText >>= \case
@@ -622,9 +618,7 @@ instance ToText EncodingType where
     toText = \case
         URL -> "url"
 
-instance Hashable EncodingType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable EncodingType
 instance ToQuery EncodingType
 instance ToHeader EncodingType
 
@@ -641,7 +635,7 @@ data Event
     | S3ObjectCreatedPost
     | S3ObjectCreatedCopy
     | S3ObjectCreatedCompleteMultipartUpload
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Event where
     parser = takeLowerText >>= \case
@@ -661,9 +655,7 @@ instance ToText Event where
         S3ObjectCreatedPut -> "s3:objectcreated:put"
         S3ReducedRedundancyLostObject -> "s3:reducedredundancylostobject"
 
-instance Hashable Event where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Event
 instance ToQuery Event
 instance ToHeader Event
 
@@ -676,7 +668,7 @@ instance ToXML Event where
 data ExpirationStatus
     = ESDisabled
     | ESEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExpirationStatus where
     parser = takeLowerText >>= \case
@@ -690,9 +682,7 @@ instance ToText ExpirationStatus where
         ESDisabled -> "disabled"
         ESEnabled -> "enabled"
 
-instance Hashable ExpirationStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ExpirationStatus
 instance ToQuery ExpirationStatus
 instance ToHeader ExpirationStatus
 
@@ -705,7 +695,7 @@ instance ToXML ExpirationStatus where
 data MFADelete
     = MDDisabled
     | MDEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MFADelete where
     parser = takeLowerText >>= \case
@@ -719,9 +709,7 @@ instance ToText MFADelete where
         MDDisabled -> "disabled"
         MDEnabled -> "enabled"
 
-instance Hashable MFADelete where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MFADelete
 instance ToQuery MFADelete
 instance ToHeader MFADelete
 
@@ -731,7 +719,7 @@ instance ToXML MFADelete where
 data MFADeleteStatus
     = MDSEnabled
     | MDSDisabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MFADeleteStatus where
     parser = takeLowerText >>= \case
@@ -745,9 +733,7 @@ instance ToText MFADeleteStatus where
         MDSDisabled -> "disabled"
         MDSEnabled -> "enabled"
 
-instance Hashable MFADeleteStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MFADeleteStatus
 instance ToQuery MFADeleteStatus
 instance ToHeader MFADeleteStatus
 
@@ -757,7 +743,7 @@ instance FromXML MFADeleteStatus where
 data MetadataDirective
     = Replace
     | Copy
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MetadataDirective where
     parser = takeLowerText >>= \case
@@ -771,9 +757,7 @@ instance ToText MetadataDirective where
         Copy -> "copy"
         Replace -> "replace"
 
-instance Hashable MetadataDirective where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MetadataDirective
 instance ToQuery MetadataDirective
 instance ToHeader MetadataDirective
 
@@ -787,7 +771,7 @@ data ObjectCannedACL
     | PublicRead
     | AuthenticatedRead
     | PublicReadWrite
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ObjectCannedACL where
     parser = takeLowerText >>= \case
@@ -809,9 +793,7 @@ instance ToText ObjectCannedACL where
         PublicRead -> "public-read"
         PublicReadWrite -> "public-read-write"
 
-instance Hashable ObjectCannedACL where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ObjectCannedACL
 instance ToQuery ObjectCannedACL
 instance ToHeader ObjectCannedACL
 
@@ -822,7 +804,7 @@ data ObjectStorageClass
     = OSCStandard
     | OSCReducedRedundancy
     | OSCGlacier
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ObjectStorageClass where
     parser = takeLowerText >>= \case
@@ -838,9 +820,7 @@ instance ToText ObjectStorageClass where
         OSCReducedRedundancy -> "reduced_redundancy"
         OSCStandard -> "standard"
 
-instance Hashable ObjectStorageClass where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ObjectStorageClass
 instance ToQuery ObjectStorageClass
 instance ToHeader ObjectStorageClass
 
@@ -849,7 +829,7 @@ instance FromXML ObjectStorageClass where
 
 data ObjectVersionStorageClass =
     OVSCStandard
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ObjectVersionStorageClass where
     parser = takeLowerText >>= \case
@@ -861,9 +841,7 @@ instance ToText ObjectVersionStorageClass where
     toText = \case
         OVSCStandard -> "standard"
 
-instance Hashable ObjectVersionStorageClass where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ObjectVersionStorageClass
 instance ToQuery ObjectVersionStorageClass
 instance ToHeader ObjectVersionStorageClass
 
@@ -873,7 +851,7 @@ instance FromXML ObjectVersionStorageClass where
 data Payer
     = BucketOwner
     | Requester
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Payer where
     parser = takeLowerText >>= \case
@@ -887,9 +865,7 @@ instance ToText Payer where
         BucketOwner -> "bucketowner"
         Requester -> "requester"
 
-instance Hashable Payer where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Payer
 instance ToQuery Payer
 instance ToHeader Payer
 
@@ -905,7 +881,7 @@ data Permission
     | PerWriteAcp
     | PerFullControl
     | PerRead
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Permission where
     parser = takeLowerText >>= \case
@@ -925,9 +901,7 @@ instance ToText Permission where
         PerWrite -> "write"
         PerWriteAcp -> "write_acp"
 
-instance Hashable Permission where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Permission
 instance ToQuery Permission
 instance ToHeader Permission
 
@@ -940,7 +914,7 @@ instance ToXML Permission where
 data Protocol
     = HTTPS
     | HTTP
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Protocol where
     parser = takeLowerText >>= \case
@@ -954,9 +928,7 @@ instance ToText Protocol where
         HTTP -> "http"
         HTTPS -> "https"
 
-instance Hashable Protocol where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Protocol
 instance ToQuery Protocol
 instance ToHeader Protocol
 
@@ -969,7 +941,7 @@ instance ToXML Protocol where
 data ReplicationRuleStatus
     = Enabled
     | Disabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReplicationRuleStatus where
     parser = takeLowerText >>= \case
@@ -983,9 +955,7 @@ instance ToText ReplicationRuleStatus where
         Disabled -> "disabled"
         Enabled -> "enabled"
 
-instance Hashable ReplicationRuleStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReplicationRuleStatus
 instance ToQuery ReplicationRuleStatus
 instance ToHeader ReplicationRuleStatus
 
@@ -1000,7 +970,7 @@ data ReplicationStatus
     | Replica
     | Failed
     | Complete
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ReplicationStatus where
     parser = takeLowerText >>= \case
@@ -1018,9 +988,7 @@ instance ToText ReplicationStatus where
         Pending -> "pending"
         Replica -> "replica"
 
-instance Hashable ReplicationStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ReplicationStatus
 instance ToQuery ReplicationStatus
 instance ToHeader ReplicationStatus
 
@@ -1031,7 +999,7 @@ instance FromXML ReplicationStatus where
 -- the request.
 data RequestCharged =
     RCRequester
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RequestCharged where
     parser = takeLowerText >>= \case
@@ -1043,9 +1011,7 @@ instance ToText RequestCharged where
     toText = \case
         RCRequester -> "requester"
 
-instance Hashable RequestCharged where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RequestCharged
 instance ToQuery RequestCharged
 instance ToHeader RequestCharged
 
@@ -1059,7 +1025,7 @@ instance FromXML RequestCharged where
 -- http:\/\/docs.aws.amazon.com\/AmazonS3\/latest\/dev\/ObjectsinRequesterPaysBuckets.html
 data RequestPayer =
     RPRequester
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RequestPayer where
     parser = takeLowerText >>= \case
@@ -1071,9 +1037,7 @@ instance ToText RequestPayer where
     toText = \case
         RPRequester -> "requester"
 
-instance Hashable RequestPayer where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RequestPayer
 instance ToQuery RequestPayer
 instance ToHeader RequestPayer
 
@@ -1082,7 +1046,7 @@ instance ToXML RequestPayer where
 
 data ServerSideEncryption =
     AES256
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ServerSideEncryption where
     parser = takeLowerText >>= \case
@@ -1094,9 +1058,7 @@ instance ToText ServerSideEncryption where
     toText = \case
         AES256 -> "aes256"
 
-instance Hashable ServerSideEncryption where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ServerSideEncryption
 instance ToQuery ServerSideEncryption
 instance ToHeader ServerSideEncryption
 
@@ -1109,7 +1071,7 @@ instance ToXML ServerSideEncryption where
 data StorageClass
     = Standard
     | ReducedRedundancy
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StorageClass where
     parser = takeLowerText >>= \case
@@ -1123,9 +1085,7 @@ instance ToText StorageClass where
         ReducedRedundancy -> "reduced_redundancy"
         Standard -> "standard"
 
-instance Hashable StorageClass where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StorageClass
 instance ToQuery StorageClass
 instance ToHeader StorageClass
 
@@ -1137,7 +1097,7 @@ instance ToXML StorageClass where
 
 data TransitionStorageClass =
     Glacier
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TransitionStorageClass where
     parser = takeLowerText >>= \case
@@ -1149,9 +1109,7 @@ instance ToText TransitionStorageClass where
     toText = \case
         Glacier -> "glacier"
 
-instance Hashable TransitionStorageClass where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable TransitionStorageClass
 instance ToQuery TransitionStorageClass
 instance ToHeader TransitionStorageClass
 
@@ -1165,7 +1123,7 @@ data Type
     = Group
     | CanonicalUser
     | AmazonCustomerByEmail
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Type where
     parser = takeLowerText >>= \case
@@ -1181,9 +1139,7 @@ instance ToText Type where
         CanonicalUser -> "canonicaluser"
         Group -> "group"
 
-instance Hashable Type where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Type
 instance ToQuery Type
 instance ToHeader Type
 
@@ -1203,7 +1159,7 @@ instance ToXML Type where
 data AccessControlPolicy = AccessControlPolicy'
     { _acpGrants :: !(Maybe [Grant])
     , _acpOwner  :: !(Maybe Owner)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccessControlPolicy' smart constructor.
 accessControlPolicy :: AccessControlPolicy
@@ -1238,7 +1194,7 @@ instance ToXML AccessControlPolicy where
 data Bucket = Bucket'
     { _bucCreationDate :: !RFC822
     , _bucName         :: !BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Bucket' smart constructor.
 bucket :: UTCTime -> BucketName -> Bucket
@@ -1267,7 +1223,7 @@ instance FromXML Bucket where
 -- * 'blsLoggingEnabled'
 newtype BucketLoggingStatus = BucketLoggingStatus'
     { _blsLoggingEnabled :: Maybe LoggingEnabled
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BucketLoggingStatus' smart constructor.
 bucketLoggingStatus :: BucketLoggingStatus
@@ -1291,7 +1247,7 @@ instance ToXML BucketLoggingStatus where
 -- * 'ccCORSRules'
 newtype CORSConfiguration = CORSConfiguration'
     { _ccCORSRules :: Maybe [CORSRule]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CORSConfiguration' smart constructor.
 corsConfiguration :: CORSConfiguration
@@ -1328,7 +1284,7 @@ data CORSRule = CORSRule'
     , _crAllowedHeaders :: !(Maybe [Text])
     , _crAllowedOrigins :: !(Maybe [Text])
     , _crExposeHeaders  :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CORSRule' smart constructor.
 corsRule :: CORSRule
@@ -1395,7 +1351,7 @@ instance ToXML CORSRule where
 -- * 'cpPrefix'
 newtype CommonPrefix = CommonPrefix'
     { _cpPrefix :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CommonPrefix' smart constructor.
 commonPrefix :: CommonPrefix
@@ -1418,7 +1374,7 @@ instance FromXML CommonPrefix where
 -- * 'cmuParts'
 newtype CompletedMultipartUpload = CompletedMultipartUpload'
     { _cmuParts :: Maybe (List1 CompletedPart)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CompletedMultipartUpload' smart constructor.
 completedMultipartUpload :: CompletedMultipartUpload
@@ -1445,7 +1401,7 @@ instance ToXML CompletedMultipartUpload where
 data CompletedPart = CompletedPart'
     { _cpPartNumber :: !Int
     , _cpETag       :: !ETag
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CompletedPart' smart constructor.
 completedPart :: Int -> ETag -> CompletedPart
@@ -1478,7 +1434,7 @@ instance ToXML CompletedPart where
 data Condition = Condition'
     { _conKeyPrefixEquals             :: !(Maybe Text)
     , _conHTTPErrorCodeReturnedEquals :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Condition' smart constructor.
 condition :: Condition
@@ -1530,7 +1486,7 @@ instance ToXML Condition where
 data CopyObjectResult = CopyObjectResult'
     { _corETag         :: !(Maybe ETag)
     , _corLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CopyObjectResult' smart constructor.
 copyObjectResult :: CopyObjectResult
@@ -1563,7 +1519,7 @@ instance FromXML CopyObjectResult where
 data CopyPartResult = CopyPartResult'
     { _cprETag         :: !(Maybe ETag)
     , _cprLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CopyPartResult' smart constructor.
 copyPartResult :: CopyPartResult
@@ -1593,7 +1549,7 @@ instance FromXML CopyPartResult where
 -- * 'cbcLocationConstraint'
 newtype CreateBucketConfiguration = CreateBucketConfiguration'
     { _cbcLocationConstraint :: Maybe Region
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CreateBucketConfiguration' smart constructor.
 createBucketConfiguration :: CreateBucketConfiguration
@@ -1622,7 +1578,7 @@ instance ToXML CreateBucketConfiguration where
 data Delete = Delete'
     { _delQuiet   :: !(Maybe Bool)
     , _delObjects :: ![ObjectIdentifier]
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Delete' smart constructor.
 delete' :: Delete
@@ -1666,7 +1622,7 @@ data DeleteMarkerEntry = DeleteMarkerEntry'
     , _dmeOwner        :: !(Maybe Owner)
     , _dmeKey          :: !(Maybe ObjectKey)
     , _dmeLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMarkerEntry' smart constructor.
 deleteMarkerEntry :: DeleteMarkerEntry
@@ -1724,7 +1680,7 @@ data DeletedObject = DeletedObject'
     , _delDeleteMarker          :: !(Maybe Bool)
     , _delDeleteMarkerVersionId :: !(Maybe Text)
     , _delKey                   :: !(Maybe ObjectKey)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeletedObject' smart constructor.
 deletedObject :: DeletedObject
@@ -1766,7 +1722,7 @@ instance FromXML DeletedObject where
 -- * 'desBucket'
 newtype Destination = Destination'
     { _desBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Destination' smart constructor.
 destination :: BucketName -> Destination
@@ -1794,7 +1750,7 @@ instance ToXML Destination where
 -- * 'edKey'
 newtype ErrorDocument = ErrorDocument'
     { _edKey :: ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ErrorDocument' smart constructor.
 errorDocument :: ObjectKey -> ErrorDocument
@@ -1823,7 +1779,7 @@ instance ToXML ErrorDocument where
 data Grant = Grant'
     { _graPermission :: !(Maybe Permission)
     , _graGrantee    :: !(Maybe Grantee)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Grant' smart constructor.
 grant :: Grant
@@ -1871,7 +1827,7 @@ data Grantee = Grantee'
     , _graID           :: !(Maybe Text)
     , _graDisplayName  :: !(Maybe Text)
     , _graType         :: !Type
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Grantee' smart constructor.
 grantee :: Type -> Grantee
@@ -1927,7 +1883,7 @@ instance ToXML Grantee where
 -- * 'idSuffix'
 newtype IndexDocument = IndexDocument'
     { _idSuffix :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexDocument' smart constructor.
 indexDocument :: Text -> IndexDocument
@@ -1961,7 +1917,7 @@ instance ToXML IndexDocument where
 data Initiator = Initiator'
     { _iniID          :: !(Maybe Text)
     , _iniDisplayName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Initiator' smart constructor.
 initiator :: Initiator
@@ -2000,7 +1956,7 @@ data LambdaFunctionConfiguration = LambdaFunctionConfiguration'
     { _lfcId                :: !(Maybe Text)
     , _lfcLambdaFunctionARN :: !Text
     , _lfcEvents            :: ![Event]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LambdaFunctionConfiguration' smart constructor.
 lambdaFunctionConfiguration :: Text -> LambdaFunctionConfiguration
@@ -2044,7 +2000,7 @@ instance ToXML LambdaFunctionConfiguration where
 -- * 'lcRules'
 newtype LifecycleConfiguration = LifecycleConfiguration'
     { _lcRules :: [Rule]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LifecycleConfiguration' smart constructor.
 lifecycleConfiguration :: LifecycleConfiguration
@@ -2071,7 +2027,7 @@ instance ToXML LifecycleConfiguration where
 data LifecycleExpiration = LifecycleExpiration'
     { _leDays :: !(Maybe Int)
     , _leDate :: !(Maybe RFC822)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LifecycleExpiration' smart constructor.
 lifecycleExpiration :: LifecycleExpiration
@@ -2113,7 +2069,7 @@ data LoggingEnabled = LoggingEnabled'
     { _leTargetBucket :: !(Maybe Text)
     , _leTargetGrants :: !(Maybe [TargetGrant])
     , _leTargetPrefix :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoggingEnabled' smart constructor.
 loggingEnabled :: LoggingEnabled
@@ -2180,7 +2136,7 @@ data MultipartUpload = MultipartUpload'
     , _muKey          :: !(Maybe ObjectKey)
     , _muStorageClass :: !(Maybe StorageClass)
     , _muUploadId     :: !(Maybe Text)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'MultipartUpload' smart constructor.
 multipartUpload :: MultipartUpload
@@ -2240,7 +2196,7 @@ instance FromXML MultipartUpload where
 -- * 'nveNoncurrentDays'
 newtype NoncurrentVersionExpiration = NoncurrentVersionExpiration'
     { _nveNoncurrentDays :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NoncurrentVersionExpiration' smart constructor.
 noncurrentVersionExpiration :: Int -> NoncurrentVersionExpiration
@@ -2282,7 +2238,7 @@ instance ToXML NoncurrentVersionExpiration where
 data NoncurrentVersionTransition = NoncurrentVersionTransition'
     { _nvtNoncurrentDays :: !Int
     , _nvtStorageClass   :: !TransitionStorageClass
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NoncurrentVersionTransition' smart constructor.
 noncurrentVersionTransition :: Int -> TransitionStorageClass -> NoncurrentVersionTransition
@@ -2331,7 +2287,7 @@ data NotificationConfiguration = NotificationConfiguration'
     { _ncQueueConfigurations          :: !(Maybe [QueueConfiguration])
     , _ncTopicConfigurations          :: !(Maybe [TopicConfiguration])
     , _ncLambdaFunctionConfigurations :: !(Maybe [LambdaFunctionConfiguration])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NotificationConfiguration' smart constructor.
 notificationConfiguration :: NotificationConfiguration
@@ -2397,7 +2353,7 @@ data Object = Object'
     , _objKey          :: !ObjectKey
     , _objStorageClass :: !ObjectStorageClass
     , _objLastModified :: !RFC822
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Object' smart constructor.
 object' :: ETag -> Int -> ObjectKey -> ObjectStorageClass -> UTCTime -> Object
@@ -2453,7 +2409,7 @@ instance FromXML Object where
 data ObjectIdentifier = ObjectIdentifier'
     { _oiVersionId :: !(Maybe ObjectVersionId)
     , _oiKey       :: !ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ObjectIdentifier' smart constructor.
 objectIdentifier :: ObjectKey -> ObjectIdentifier
@@ -2504,7 +2460,7 @@ data ObjectVersion = ObjectVersion'
     , _ovKey          :: !(Maybe ObjectKey)
     , _ovStorageClass :: !(Maybe ObjectVersionStorageClass)
     , _ovLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ObjectVersion' smart constructor.
 objectVersion :: ObjectVersion
@@ -2574,7 +2530,7 @@ instance FromXML ObjectVersion where
 data Owner = Owner'
     { _ownID          :: !(Maybe Text)
     , _ownDisplayName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Owner' smart constructor.
 owner :: Owner
@@ -2617,7 +2573,7 @@ data Part = Part'
     , _parSize         :: !(Maybe Int)
     , _parPartNumber   :: !(Maybe Int)
     , _parLastModified :: !(Maybe RFC822)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Part' smart constructor.
 part :: Part
@@ -2668,7 +2624,7 @@ data QueueConfiguration = QueueConfiguration'
     { _qcId       :: !(Maybe Text)
     , _qcQueueARN :: !Text
     , _qcEvents   :: ![Event]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'QueueConfiguration' smart constructor.
 queueConfiguration :: Text -> QueueConfiguration
@@ -2723,7 +2679,7 @@ data Redirect = Redirect'
     , _redHTTPRedirectCode     :: !(Maybe Text)
     , _redReplaceKeyWith       :: !(Maybe Text)
     , _redReplaceKeyPrefixWith :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Redirect' smart constructor.
 redirect :: Redirect
@@ -2792,7 +2748,7 @@ instance ToXML Redirect where
 data RedirectAllRequestsTo = RedirectAllRequestsTo'
     { _rartProtocol :: !(Maybe Protocol)
     , _rartHostName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RedirectAllRequestsTo' smart constructor.
 redirectAllRequestsTo :: Text -> RedirectAllRequestsTo
@@ -2835,7 +2791,7 @@ instance ToXML RedirectAllRequestsTo where
 data ReplicationConfiguration = ReplicationConfiguration'
     { _rcRole  :: !Text
     , _rcRules :: ![ReplicationRule]
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ReplicationConfiguration' smart constructor.
 replicationConfiguration :: Text -> ReplicationConfiguration
@@ -2882,7 +2838,7 @@ data ReplicationRule = ReplicationRule'
     , _rrPrefix      :: !Text
     , _rrStatus      :: !ReplicationRuleStatus
     , _rrDestination :: !Destination
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ReplicationRule' smart constructor.
 replicationRule :: Text -> ReplicationRuleStatus -> Destination -> ReplicationRule
@@ -2933,7 +2889,7 @@ instance ToXML ReplicationRule where
 -- * 'rpcPayer'
 newtype RequestPaymentConfiguration = RequestPaymentConfiguration'
     { _rpcPayer :: Payer
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestPaymentConfiguration' smart constructor.
 requestPaymentConfiguration :: Payer -> RequestPaymentConfiguration
@@ -2957,7 +2913,7 @@ instance ToXML RequestPaymentConfiguration where
 -- * 'rrDays'
 newtype RestoreRequest = RestoreRequest'
     { _rrDays :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreRequest' smart constructor.
 restoreRequest :: Int -> RestoreRequest
@@ -2984,7 +2940,7 @@ instance ToXML RestoreRequest where
 data RoutingRule = RoutingRule'
     { _rrCondition :: !(Maybe Condition)
     , _rrRedirect  :: !Redirect
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RoutingRule' smart constructor.
 routingRule :: Redirect -> RoutingRule
@@ -3044,7 +3000,7 @@ data Rule = Rule'
     , _rulID                          :: !(Maybe Text)
     , _rulPrefix                      :: !Text
     , _rulStatus                      :: !ExpirationStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Rule' smart constructor.
 rule :: Text -> ExpirationStatus -> Rule
@@ -3128,7 +3084,7 @@ data S3ServiceError = S3ServiceError'
     , _sseKey       :: !(Maybe ObjectKey)
     , _sseCode      :: !(Maybe Text)
     , _sseMessage   :: !(Maybe Text)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'S3ServiceError' smart constructor.
 s3ServiceError :: S3ServiceError
@@ -3173,7 +3129,7 @@ instance FromXML S3ServiceError where
 data Tag = Tag'
     { _tagKey   :: !ObjectKey
     , _tagValue :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: ObjectKey -> Text -> Tag
@@ -3205,7 +3161,7 @@ instance ToXML Tag where
 -- * 'tagTagSet'
 newtype Tagging = Tagging'
     { _tagTagSet :: [Tag]
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Tagging' smart constructor.
 tagging :: Tagging
@@ -3232,7 +3188,7 @@ instance ToXML Tagging where
 data TargetGrant = TargetGrant'
     { _tgPermission :: !(Maybe BucketLogsPermission)
     , _tgGrantee    :: !(Maybe Grantee)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TargetGrant' smart constructor.
 targetGrant :: TargetGrant
@@ -3278,7 +3234,7 @@ data TopicConfiguration = TopicConfiguration'
     { _tcId       :: !(Maybe Text)
     , _tcTopicARN :: !Text
     , _tcEvents   :: ![Event]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TopicConfiguration' smart constructor.
 topicConfiguration :: Text -> TopicConfiguration
@@ -3327,7 +3283,7 @@ data Transition = Transition'
     { _traDays         :: !(Maybe Int)
     , _traDate         :: !(Maybe RFC822)
     , _traStorageClass :: !(Maybe TransitionStorageClass)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Transition' smart constructor.
 transition :: Transition
@@ -3374,7 +3330,7 @@ instance ToXML Transition where
 data VersioningConfiguration = VersioningConfiguration'
     { _vcStatus    :: !(Maybe BucketVersioningStatus)
     , _vcMFADelete :: !(Maybe MFADelete)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VersioningConfiguration' smart constructor.
 versioningConfiguration :: VersioningConfiguration
@@ -3416,7 +3372,7 @@ data WebsiteConfiguration = WebsiteConfiguration'
     , _wcErrorDocument         :: !(Maybe ErrorDocument)
     , _wcRoutingRules          :: !(Maybe [RoutingRule])
     , _wcIndexDocument         :: !(Maybe IndexDocument)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'WebsiteConfiguration' smart constructor.
 websiteConfiguration :: WebsiteConfiguration

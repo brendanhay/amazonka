@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.DeleteHAPG
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 -- * 'dhHAPGARN'
 newtype DeleteHAPG = DeleteHAPG'
     { _dhHAPGARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHAPG' smart constructor.
 deleteHAPG :: Text -> DeleteHAPG
@@ -98,7 +100,7 @@ instance ToQuery DeleteHAPG where
 -- * 'dhrStatus'
 newtype DeleteHAPGResponse = DeleteHAPGResponse'
     { _dhrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHAPGResponse' smart constructor.
 deleteHAPGResponse :: Int -> DeleteHAPGResponse

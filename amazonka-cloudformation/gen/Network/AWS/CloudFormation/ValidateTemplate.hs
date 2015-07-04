@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.ValidateTemplate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data ValidateTemplate = ValidateTemplate'
     { _vtTemplateBody :: !(Maybe Text)
     , _vtTemplateURL  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateTemplate' smart constructor.
 validateTemplate :: ValidateTemplate
@@ -139,7 +141,7 @@ data ValidateTemplateResponse = ValidateTemplateResponse'
     , _vtrCapabilities       :: !(Maybe [Capability])
     , _vtrDescription        :: !(Maybe Text)
     , _vtrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateTemplateResponse' smart constructor.
 validateTemplateResponse :: Int -> ValidateTemplateResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.CreateOrUpdateTags
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 -- * 'coutTags'
 newtype CreateOrUpdateTags = CreateOrUpdateTags'
     { _coutTags :: [Tag]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOrUpdateTags' smart constructor.
 createOrUpdateTags :: CreateOrUpdateTags
@@ -95,7 +97,7 @@ instance ToQuery CreateOrUpdateTags where
 -- | /See:/ 'createOrUpdateTagsResponse' smart constructor.
 data CreateOrUpdateTagsResponse =
     CreateOrUpdateTagsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOrUpdateTagsResponse' smart constructor.
 createOrUpdateTagsResponse :: CreateOrUpdateTagsResponse

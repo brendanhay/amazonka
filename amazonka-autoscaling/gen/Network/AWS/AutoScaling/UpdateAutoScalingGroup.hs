@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.UpdateAutoScalingGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -114,7 +116,7 @@ data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
     , _uasgLaunchConfigurationName :: !(Maybe Text)
     , _uasgPlacementGroup          :: !(Maybe Text)
     , _uasgAutoScalingGroupName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAutoScalingGroup' smart constructor.
 updateAutoScalingGroup :: Text -> UpdateAutoScalingGroup
@@ -250,7 +252,7 @@ instance ToQuery UpdateAutoScalingGroup where
 -- | /See:/ 'updateAutoScalingGroupResponse' smart constructor.
 data UpdateAutoScalingGroupResponse =
     UpdateAutoScalingGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAutoScalingGroupResponse' smart constructor.
 updateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeCertificates
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribeCertificates = DescribeCertificates'
     , _dcCertificateIdentifier :: !(Maybe Text)
     , _dcMaxRecords            :: !(Maybe Int)
     , _dcMarker                :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCertificates' smart constructor.
 describeCertificates :: DescribeCertificates
@@ -153,7 +155,7 @@ data DescribeCertificatesResponse = DescribeCertificatesResponse'
     { _dcrCertificates :: !(Maybe [Certificate])
     , _dcrMarker       :: !(Maybe Text)
     , _dcrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCertificatesResponse' smart constructor.
 describeCertificatesResponse :: Int -> DescribeCertificatesResponse

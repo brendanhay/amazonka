@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -220,7 +222,7 @@ data BulkPublishStatus
     | INProgress
     | Succeeded
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BulkPublishStatus where
     parser = takeLowerText >>= \case
@@ -238,9 +240,7 @@ instance ToText BulkPublishStatus where
         NotStarted -> "not_started"
         Succeeded -> "succeeded"
 
-instance Hashable BulkPublishStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable BulkPublishStatus
 instance ToQuery BulkPublishStatus
 instance ToHeader BulkPublishStatus
 
@@ -250,7 +250,7 @@ instance FromJSON BulkPublishStatus where
 data Operation
     = Replace
     | Remove
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Operation where
     parser = takeLowerText >>= \case
@@ -264,9 +264,7 @@ instance ToText Operation where
         Remove -> "remove"
         Replace -> "replace"
 
-instance Hashable Operation where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Operation
 instance ToQuery Operation
 instance ToHeader Operation
 
@@ -278,7 +276,7 @@ data Platform
     | APNS
     | ADM
     | APNSSandbox
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Platform where
     parser = takeLowerText >>= \case
@@ -296,9 +294,7 @@ instance ToText Platform where
         APNSSandbox -> "apns_sandbox"
         GCM -> "gcm"
 
-instance Hashable Platform where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Platform
 instance ToQuery Platform
 instance ToHeader Platform
 
@@ -308,7 +304,7 @@ instance ToJSON Platform where
 data StreamingStatus
     = Enabled
     | Disabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamingStatus where
     parser = takeLowerText >>= \case
@@ -322,9 +318,7 @@ instance ToText StreamingStatus where
         Disabled -> "disabled"
         Enabled -> "enabled"
 
-instance Hashable StreamingStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StreamingStatus
 instance ToQuery StreamingStatus
 instance ToHeader StreamingStatus
 
@@ -349,7 +343,7 @@ data CognitoStreams = CognitoStreams'
     { _csStreamingStatus :: !(Maybe StreamingStatus)
     , _csStreamName      :: !(Maybe Text)
     , _csRoleARN         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CognitoStreams' smart constructor.
 cognitoStreams :: CognitoStreams
@@ -426,7 +420,7 @@ data Dataset = Dataset'
     , _datCreationDate     :: !(Maybe POSIX)
     , _datLastModifiedBy   :: !(Maybe Text)
     , _datIdentityId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Dataset' smart constructor.
 dataset :: Dataset
@@ -502,7 +496,7 @@ data IdentityPoolUsage = IdentityPoolUsage'
     , _ipuIdentityPoolId    :: !(Maybe Text)
     , _ipuDataStorage       :: !(Maybe Integer)
     , _ipuSyncSessionsCount :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityPoolUsage' smart constructor.
 identityPoolUsage :: IdentityPoolUsage
@@ -563,7 +557,7 @@ data IdentityUsage = IdentityUsage'
     , _iuDatasetCount     :: !(Maybe Int)
     , _iuDataStorage      :: !(Maybe Integer)
     , _iuIdentityId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IdentityUsage' smart constructor.
 identityUsage :: IdentityUsage
@@ -623,7 +617,7 @@ instance FromJSON IdentityUsage where
 data PushSync = PushSync'
     { _psApplicationARNs :: !(Maybe [Text])
     , _psRoleARN         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PushSync' smart constructor.
 pushSync :: PushSync
@@ -680,7 +674,7 @@ data Record = Record'
     , _recValue                  :: !(Maybe Text)
     , _recKey                    :: !(Maybe Text)
     , _recLastModifiedBy         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
 record :: Record
@@ -750,7 +744,7 @@ data RecordPatch = RecordPatch'
     , _rpOp                     :: !Operation
     , _rpKey                    :: !Text
     , _rpSyncCount              :: !Integer
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordPatch' smart constructor.
 recordPatch :: Operation -> Text -> Integer -> RecordPatch

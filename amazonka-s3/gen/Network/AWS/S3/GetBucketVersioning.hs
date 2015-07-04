@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketVersioning
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.S3.Types
 -- * 'gbvBucket'
 newtype GetBucketVersioning = GetBucketVersioning'
     { _gbvBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketVersioning' smart constructor.
 getBucketVersioning :: BucketName -> GetBucketVersioning
@@ -91,7 +93,7 @@ instance ToQuery GetBucketVersioning where
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
     { _gbvrMFADelete :: !(Maybe MFADeleteStatus)
     , _gbvrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketVersioningResponse' smart constructor.
 getBucketVersioningResponse :: Int -> GetBucketVersioningResponse

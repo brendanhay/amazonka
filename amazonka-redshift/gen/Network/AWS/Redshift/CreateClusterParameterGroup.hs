@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateClusterParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ data CreateClusterParameterGroup = CreateClusterParameterGroup'
     , _ccpgParameterGroupName   :: !Text
     , _ccpgParameterGroupFamily :: !Text
     , _ccpgDescription          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterParameterGroup' smart constructor.
 createClusterParameterGroup :: Text -> Text -> Text -> CreateClusterParameterGroup
@@ -158,7 +160,7 @@ instance ToQuery CreateClusterParameterGroup where
 data CreateClusterParameterGroupResponse = CreateClusterParameterGroupResponse'
     { _ccpgrClusterParameterGroup :: !(Maybe ClusterParameterGroup)
     , _ccpgrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterParameterGroupResponse' smart constructor.
 createClusterParameterGroupResponse :: Int -> CreateClusterParameterGroupResponse

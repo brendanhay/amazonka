@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ImportExport.ListJobs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data ListJobs = ListJobs'
     { _ljAPIVersion :: !(Maybe Text)
     , _ljMarker     :: !(Maybe Text)
     , _ljMaxJobs    :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: ListJobs
@@ -138,7 +140,7 @@ data ListJobsResponse = ListJobsResponse'
     { _ljrJobs        :: !(Maybe [Job])
     , _ljrIsTruncated :: !(Maybe Bool)
     , _ljrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse

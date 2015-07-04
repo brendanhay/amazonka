@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreateJob
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data CreateJob = CreateJob'
     , _cjOutputKeyPrefix :: !(Maybe Text)
     , _cjPipelineId      :: !Text
     , _cjInput           :: !JobInput
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateJob' smart constructor.
 createJob :: Text -> JobInput -> CreateJob
@@ -180,7 +182,7 @@ instance ToQuery CreateJob where
 data CreateJobResponse = CreateJobResponse'
     { _cjrJob    :: !(Maybe Job')
     , _cjrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateJobResponse' smart constructor.
 createJobResponse :: Int -> CreateJobResponse

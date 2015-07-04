@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.ListTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data ListTasks = ListTasks'
     , _ltServiceName       :: !(Maybe Text)
     , _ltContainerInstance :: !(Maybe Text)
     , _ltMaxResults        :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTasks' smart constructor.
 listTasks :: ListTasks
@@ -212,7 +214,7 @@ data ListTasksResponse = ListTasksResponse'
     { _ltrNextToken :: !(Maybe Text)
     , _ltrTaskARNs  :: !(Maybe [Text])
     , _ltrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTasksResponse' smart constructor.
 listTasksResponse :: Int -> ListTasksResponse

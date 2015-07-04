@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateNetworkInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -75,7 +77,7 @@ data CreateNetworkInterface = CreateNetworkInterface'
     , _cniDryRun                         :: !(Maybe Bool)
     , _cniDescription                    :: !(Maybe Text)
     , _cniSubnetId                       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkInterface' smart constructor.
 createNetworkInterface :: Text -> CreateNetworkInterface
@@ -178,7 +180,7 @@ instance ToQuery CreateNetworkInterface where
 data CreateNetworkInterfaceResponse = CreateNetworkInterfaceResponse'
     { _cnirNetworkInterface :: !(Maybe NetworkInterface)
     , _cnirStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkInterfaceResponse' smart constructor.
 createNetworkInterfaceResponse :: Int -> CreateNetworkInterfaceResponse

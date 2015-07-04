@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusterSubnetGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
     , _dClusterSubnetGroupName :: !(Maybe Text)
     , _dMaxRecords             :: !(Maybe Int)
     , _dMarker                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSubnetGroups' smart constructor.
 describeClusterSubnetGroups :: DescribeClusterSubnetGroups
@@ -193,7 +195,7 @@ data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
     { _dcsgrClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
     , _dcsgrMarker              :: !(Maybe Text)
     , _dcsgrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSubnetGroupsResponse' smart constructor.
 describeClusterSubnetGroupsResponse :: Int -> DescribeClusterSubnetGroupsResponse

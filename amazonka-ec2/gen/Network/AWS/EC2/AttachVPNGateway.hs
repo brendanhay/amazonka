@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AttachVPNGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data AttachVPNGateway = AttachVPNGateway'
     { _avgDryRun       :: !(Maybe Bool)
     , _avgVPNGatewayId :: !Text
     , _avgVPCId        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVPNGateway' smart constructor.
 attachVPNGateway :: Text -> Text -> AttachVPNGateway
@@ -118,7 +120,7 @@ instance ToQuery AttachVPNGateway where
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
     { _avgrVPCAttachment :: !(Maybe VPCAttachment)
     , _avgrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVPNGatewayResponse' smart constructor.
 attachVPNGatewayResponse :: Int -> AttachVPNGatewayResponse

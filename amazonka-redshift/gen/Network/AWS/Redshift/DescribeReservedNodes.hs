@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeReservedNodes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeReservedNodes = DescribeReservedNodes'
     { _drnReservedNodeId :: !(Maybe Text)
     , _drnMaxRecords     :: !(Maybe Int)
     , _drnMarker         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedNodes' smart constructor.
 describeReservedNodes :: DescribeReservedNodes
@@ -146,7 +148,7 @@ data DescribeReservedNodesResponse = DescribeReservedNodesResponse'
     { _drnrReservedNodes :: !(Maybe [ReservedNode])
     , _drnrMarker        :: !(Maybe Text)
     , _drnrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedNodesResponse' smart constructor.
 describeReservedNodesResponse :: Int -> DescribeReservedNodesResponse

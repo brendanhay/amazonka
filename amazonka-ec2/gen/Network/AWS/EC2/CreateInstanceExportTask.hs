@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateInstanceExportTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data CreateInstanceExportTask = CreateInstanceExportTask'
     , _cietExportToS3Task    :: !(Maybe ExportToS3TaskSpecification)
     , _cietDescription       :: !(Maybe Text)
     , _cietInstanceId        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceExportTask' smart constructor.
 createInstanceExportTask :: Text -> CreateInstanceExportTask
@@ -131,7 +133,7 @@ instance ToQuery CreateInstanceExportTask where
 data CreateInstanceExportTaskResponse = CreateInstanceExportTaskResponse'
     { _cietrExportTask :: !(Maybe ExportTask)
     , _cietrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceExportTaskResponse' smart constructor.
 createInstanceExportTaskResponse :: Int -> CreateInstanceExportTaskResponse

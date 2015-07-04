@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.DeleteDataset
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DeleteDataset = DeleteDataset'
     { _delIdentityPoolId :: !Text
     , _delIdentityId     :: !Text
     , _delDatasetName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDataset' smart constructor.
 deleteDataset :: Text -> Text -> Text -> DeleteDataset
@@ -130,7 +132,7 @@ instance ToQuery DeleteDataset where
 data DeleteDatasetResponse = DeleteDatasetResponse'
     { _delDataset :: !(Maybe Dataset)
     , _delStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDatasetResponse' smart constructor.
 deleteDatasetResponse :: Int -> DeleteDatasetResponse

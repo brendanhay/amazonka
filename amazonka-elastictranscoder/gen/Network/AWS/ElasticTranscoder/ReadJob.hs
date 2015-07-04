@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ReadJob
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'rjId'
 newtype ReadJob = ReadJob'
     { _rjId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadJob' smart constructor.
 readJob :: Text -> ReadJob
@@ -95,7 +97,7 @@ instance ToQuery ReadJob where
 data ReadJobResponse = ReadJobResponse'
     { _rjrStatus :: !Int
     , _rjrJob    :: !Job'
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadJobResponse' smart constructor.
 readJobResponse :: Int -> Job' -> ReadJobResponse

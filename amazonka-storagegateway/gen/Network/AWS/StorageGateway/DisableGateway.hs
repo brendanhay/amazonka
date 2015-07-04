@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DisableGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'disGatewayARN'
 newtype DisableGateway = DisableGateway'
     { _disGatewayARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableGateway' smart constructor.
 disableGateway :: Text -> DisableGateway
@@ -111,7 +113,7 @@ instance ToQuery DisableGateway where
 data DisableGatewayResponse = DisableGatewayResponse'
     { _dGatewayARN :: !(Maybe Text)
     , _dStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableGatewayResponse' smart constructor.
 disableGatewayResponse :: Int -> DisableGatewayResponse

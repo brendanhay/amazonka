@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -119,7 +121,7 @@ data DescribeSnapshots = DescribeSnapshots'
     , _ds1RestorableByUserIds :: !(Maybe [Text])
     , _ds1DryRun              :: !(Maybe Bool)
     , _ds1MaxResults          :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
@@ -272,7 +274,7 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _dsr1NextToken :: !(Maybe Text)
     , _dsr1Snapshots :: !(Maybe [Snapshot])
     , _dsr1Status    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse

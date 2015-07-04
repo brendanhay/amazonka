@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.MergeDeveloperIdentities
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data MergeDeveloperIdentities = MergeDeveloperIdentities'
     , _mdiDestinationUserIdentifier :: !Text
     , _mdiDeveloperProviderName     :: !Text
     , _mdiIdentityPoolId            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeDeveloperIdentities' smart constructor.
 mergeDeveloperIdentities :: Text -> Text -> Text -> Text -> MergeDeveloperIdentities
@@ -153,7 +155,7 @@ instance ToQuery MergeDeveloperIdentities where
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
     { _mdirIdentityId :: !(Maybe Text)
     , _mdirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeDeveloperIdentitiesResponse' smart constructor.
 mergeDeveloperIdentitiesResponse :: Int -> MergeDeveloperIdentitiesResponse

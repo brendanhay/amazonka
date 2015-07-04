@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.CreateDeploymentConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data CreateDeploymentConfig = CreateDeploymentConfig'
     { _cdcMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
     , _cdcDeploymentConfigName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentConfig' smart constructor.
 createDeploymentConfig :: Text -> CreateDeploymentConfig
@@ -133,7 +135,7 @@ instance ToQuery CreateDeploymentConfig where
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
     { _cdcrDeploymentConfigId :: !(Maybe Text)
     , _cdcrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentConfigResponse' smart constructor.
 createDeploymentConfigResponse :: Int -> CreateDeploymentConfigResponse

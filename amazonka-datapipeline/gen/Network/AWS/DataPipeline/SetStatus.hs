@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.SetStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data SetStatus = SetStatus'
     { _ssPipelineId :: !Text
     , _ssObjectIds  :: ![Text]
     , _ssStatus     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetStatus' smart constructor.
 setStatus :: Text -> Text -> SetStatus
@@ -115,7 +117,7 @@ instance ToQuery SetStatus where
 -- | /See:/ 'setStatusResponse' smart constructor.
 data SetStatusResponse =
     SetStatusResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetStatusResponse' smart constructor.
 setStatusResponse :: SetStatusResponse

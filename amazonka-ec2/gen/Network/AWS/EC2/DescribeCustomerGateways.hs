@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeCustomerGateways
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeCustomerGateways = DescribeCustomerGateways'
     { _dcgCustomerGatewayIds :: !(Maybe [Text])
     , _dcgFilters            :: !(Maybe [Filter])
     , _dcgDryRun             :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCustomerGateways' smart constructor.
 describeCustomerGateways :: DescribeCustomerGateways
@@ -157,7 +159,7 @@ instance ToQuery DescribeCustomerGateways where
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
     { _dcgrCustomerGateways :: !(Maybe [CustomerGateway])
     , _dcgrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCustomerGatewaysResponse' smart constructor.
 describeCustomerGatewaysResponse :: Int -> DescribeCustomerGatewaysResponse

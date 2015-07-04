@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.DeleteLunaClient
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- * 'delClientARN'
 newtype DeleteLunaClient = DeleteLunaClient'
     { _delClientARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLunaClient' smart constructor.
 deleteLunaClient :: Text -> DeleteLunaClient
@@ -95,7 +97,7 @@ instance ToQuery DeleteLunaClient where
 -- * 'dlcrStatus'
 newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
     { _dlcrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLunaClientResponse' smart constructor.
 deleteLunaClientResponse :: Int -> DeleteLunaClientResponse

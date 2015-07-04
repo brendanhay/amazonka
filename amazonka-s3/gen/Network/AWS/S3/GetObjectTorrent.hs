@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetObjectTorrent
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data GetObjectTorrent = GetObjectTorrent'
     { _gotRequestPayer :: !(Maybe RequestPayer)
     , _gotBucket       :: !BucketName
     , _gotKey          :: !ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetObjectTorrent' smart constructor.
 getObjectTorrent :: BucketName -> ObjectKey -> GetObjectTorrent
@@ -116,7 +118,7 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse'
     { _gotrRequestCharged :: !(Maybe RequestCharged)
     , _gotrStatus         :: !Int
     , _gotrBody           :: !RsBody
-    } deriving (Show)
+    } deriving (Show,Data,Typeable,Generic)
 
 -- | 'GetObjectTorrentResponse' smart constructor.
 getObjectTorrentResponse :: Int -> RsBody -> GetObjectTorrentResponse

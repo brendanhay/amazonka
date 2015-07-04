@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContact
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data UpdateDomainContact = UpdateDomainContact'
     , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
     , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
     , _udcDomainName        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContact' smart constructor.
 updateDomainContact :: Text -> UpdateDomainContact
@@ -177,7 +179,7 @@ instance ToQuery UpdateDomainContact where
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
     { _udcrStatus      :: !Int
     , _udcrOperationId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContactResponse' smart constructor.
 updateDomainContactResponse :: Int -> Text -> UpdateDomainContactResponse

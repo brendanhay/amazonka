@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.EnableVGWRoutePropagation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data EnableVGWRoutePropagation = EnableVGWRoutePropagation'
     { _evrpRouteTableId :: !Text
     , _evrpGatewayId    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVGWRoutePropagation' smart constructor.
 enableVGWRoutePropagation :: Text -> Text -> EnableVGWRoutePropagation
@@ -93,7 +95,7 @@ instance ToQuery EnableVGWRoutePropagation where
 -- | /See:/ 'enableVGWRoutePropagationResponse' smart constructor.
 data EnableVGWRoutePropagationResponse =
     EnableVGWRoutePropagationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableVGWRoutePropagationResponse' smart constructor.
 enableVGWRoutePropagationResponse :: EnableVGWRoutePropagationResponse

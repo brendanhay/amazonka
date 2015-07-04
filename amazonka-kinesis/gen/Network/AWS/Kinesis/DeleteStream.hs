@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.DeleteStream
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ import           Network.AWS.Response
 -- * 'dsStreamName'
 newtype DeleteStream = DeleteStream'
     { _dsStreamName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStream' smart constructor.
 deleteStream :: Text -> DeleteStream
@@ -106,7 +108,7 @@ instance ToQuery DeleteStream where
 -- | /See:/ 'deleteStreamResponse' smart constructor.
 data DeleteStreamResponse =
     DeleteStreamResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStreamResponse' smart constructor.
 deleteStreamResponse :: DeleteStreamResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.ListGeoLocations
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data ListGeoLocations = ListGeoLocations'
     , _lglMaxItems             :: !(Maybe Text)
     , _lglStartCountryCode     :: !(Maybe Text)
     , _lglStartContinentCode   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGeoLocations' smart constructor.
 listGeoLocations :: ListGeoLocations
@@ -183,7 +185,7 @@ data ListGeoLocationsResponse = ListGeoLocationsResponse'
     , _lglrGeoLocationDetailsList :: ![GeoLocationDetails]
     , _lglrIsTruncated            :: !Bool
     , _lglrMaxItems               :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGeoLocationsResponse' smart constructor.
 listGeoLocationsResponse :: Int -> Bool -> Text -> ListGeoLocationsResponse

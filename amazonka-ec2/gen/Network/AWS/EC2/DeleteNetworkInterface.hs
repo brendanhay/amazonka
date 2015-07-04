@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteNetworkInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data DeleteNetworkInterface = DeleteNetworkInterface'
     { _dni1DryRun             :: !(Maybe Bool)
     , _dni1NetworkInterfaceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkInterface' smart constructor.
 deleteNetworkInterface :: Text -> DeleteNetworkInterface
@@ -96,7 +98,7 @@ instance ToQuery DeleteNetworkInterface where
 -- | /See:/ 'deleteNetworkInterfaceResponse' smart constructor.
 data DeleteNetworkInterfaceResponse =
     DeleteNetworkInterfaceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNetworkInterfaceResponse' smart constructor.
 deleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse

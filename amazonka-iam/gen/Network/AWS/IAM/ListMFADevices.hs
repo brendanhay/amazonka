@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListMFADevices
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data ListMFADevices = ListMFADevices'
     { _lmdUserName :: !(Maybe Text)
     , _lmdMaxItems :: !(Maybe Nat)
     , _lmdMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMFADevices' smart constructor.
 listMFADevices :: ListMFADevices
@@ -147,7 +149,7 @@ data ListMFADevicesResponse = ListMFADevicesResponse'
     , _lmdrIsTruncated :: !(Maybe Bool)
     , _lmdrStatus      :: !Int
     , _lmdrMFADevices  :: ![MFADevice]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMFADevicesResponse' smart constructor.
 listMFADevicesResponse :: Int -> ListMFADevicesResponse

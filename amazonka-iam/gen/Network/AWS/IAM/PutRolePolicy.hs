@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.PutRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data PutRolePolicy = PutRolePolicy'
     { _prpRoleName       :: !Text
     , _prpPolicyName     :: !Text
     , _prpPolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRolePolicy' smart constructor.
 putRolePolicy :: Text -> Text -> Text -> PutRolePolicy
@@ -124,7 +126,7 @@ instance ToQuery PutRolePolicy where
 -- | /See:/ 'putRolePolicyResponse' smart constructor.
 data PutRolePolicyResponse =
     PutRolePolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRolePolicyResponse' smart constructor.
 putRolePolicyResponse :: PutRolePolicyResponse

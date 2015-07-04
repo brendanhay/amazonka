@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.AddRoleToInstanceProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
     { _artipInstanceProfileName :: !Text
     , _artipRoleName            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddRoleToInstanceProfile' smart constructor.
 addRoleToInstanceProfile :: Text -> Text -> AddRoleToInstanceProfile
@@ -96,7 +98,7 @@ instance ToQuery AddRoleToInstanceProfile where
 -- | /See:/ 'addRoleToInstanceProfileResponse' smart constructor.
 data AddRoleToInstanceProfileResponse =
     AddRoleToInstanceProfileResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddRoleToInstanceProfileResponse' smart constructor.
 addRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse

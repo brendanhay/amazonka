@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.ListWorkflowTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -89,7 +91,7 @@ data ListWorkflowTypes = ListWorkflowTypes'
     , _lwtMaximumPageSize    :: !(Maybe Nat)
     , _lwtDomain             :: !Text
     , _lwtRegistrationStatus :: !RegistrationStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListWorkflowTypes' smart constructor.
 listWorkflowTypes :: Text -> RegistrationStatus -> ListWorkflowTypes
@@ -202,7 +204,7 @@ data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
     { _lwtrNextPageToken :: !(Maybe Text)
     , _lwtrStatus        :: !Int
     , _lwtrTypeInfos     :: ![WorkflowTypeInfo]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListWorkflowTypesResponse' smart constructor.
 listWorkflowTypesResponse :: Int -> ListWorkflowTypesResponse

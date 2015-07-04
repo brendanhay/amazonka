@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.DisableRadius
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'drDirectoryId'
 newtype DisableRadius = DisableRadius'
     { _drDirectoryId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableRadius' smart constructor.
 disableRadius :: Text -> DisableRadius
@@ -100,7 +102,7 @@ instance ToQuery DisableRadius where
 -- * 'drrStatus'
 newtype DisableRadiusResponse = DisableRadiusResponse'
     { _drrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableRadiusResponse' smart constructor.
 disableRadiusResponse :: Int -> DisableRadiusResponse

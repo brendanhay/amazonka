@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateVPNConnectionRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
     { _cvcrVPNConnectionId      :: !Text
     , _cvcrDestinationCIDRBlock :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnectionRoute' smart constructor.
 createVPNConnectionRoute :: Text -> Text -> CreateVPNConnectionRoute
@@ -99,7 +101,7 @@ instance ToQuery CreateVPNConnectionRoute where
 -- | /See:/ 'createVPNConnectionRouteResponse' smart constructor.
 data CreateVPNConnectionRouteResponse =
     CreateVPNConnectionRouteResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnectionRouteResponse' smart constructor.
 createVPNConnectionRouteResponse :: CreateVPNConnectionRouteResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteVirtualMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 -- * 'dvmdSerialNumber'
 newtype DeleteVirtualMFADevice = DeleteVirtualMFADevice'
     { _dvmdSerialNumber :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualMFADevice' smart constructor.
 deleteVirtualMFADevice :: Text -> DeleteVirtualMFADevice
@@ -87,7 +89,7 @@ instance ToQuery DeleteVirtualMFADevice where
 -- | /See:/ 'deleteVirtualMFADeviceResponse' smart constructor.
 data DeleteVirtualMFADeviceResponse =
     DeleteVirtualMFADeviceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualMFADeviceResponse' smart constructor.
 deleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse

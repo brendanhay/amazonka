@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DetachVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -81,7 +83,7 @@ data DetachVolume = DetachVolume'
     , _dvDevice     :: !(Maybe Text)
     , _dvDryRun     :: !(Maybe Bool)
     , _dvVolumeId   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachVolume' smart constructor.
 detachVolume :: Text -> DetachVolume

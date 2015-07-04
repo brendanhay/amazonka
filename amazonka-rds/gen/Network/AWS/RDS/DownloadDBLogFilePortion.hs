@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DownloadDBLogFilePortion
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
     , _ddlfpMarker               :: !(Maybe Text)
     , _ddlfpDBInstanceIdentifier :: !Text
     , _ddlfpLogFileName          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DownloadDBLogFilePortion' smart constructor.
 downloadDBLogFilePortion :: Text -> Text -> DownloadDBLogFilePortion
@@ -179,7 +181,7 @@ data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
     , _ddlfprAdditionalDataPending :: !(Maybe Bool)
     , _ddlfprMarker                :: !(Maybe Text)
     , _ddlfprStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DownloadDBLogFilePortionResponse' smart constructor.
 downloadDBLogFilePortionResponse :: Int -> DownloadDBLogFilePortionResponse

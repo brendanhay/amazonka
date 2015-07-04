@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.CreateGrant
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data CreateGrant = CreateGrant'
     , _cgOperations        :: !(Maybe [GrantOperation])
     , _cgKeyId             :: !Text
     , _cgGranteePrincipal  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGrant' smart constructor.
 createGrant :: Text -> Text -> CreateGrant
@@ -183,7 +185,7 @@ data CreateGrantResponse = CreateGrantResponse'
     { _cgrGrantId    :: !(Maybe Text)
     , _cgrGrantToken :: !(Maybe Text)
     , _cgrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGrantResponse' smart constructor.
 createGrantResponse :: Int -> CreateGrantResponse

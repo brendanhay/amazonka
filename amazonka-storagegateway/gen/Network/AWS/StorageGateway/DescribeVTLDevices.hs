@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeVTLDevices
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data DescribeVTLDevices = DescribeVTLDevices'
     , _dvtldLimit         :: !(Maybe Nat)
     , _dvtldVTLDeviceARNs :: !(Maybe [Text])
     , _dvtldGatewayARN    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVTLDevices' smart constructor.
 describeVTLDevices :: Text -> DescribeVTLDevices
@@ -165,7 +167,7 @@ data DescribeVTLDevicesResponse = DescribeVTLDevicesResponse'
     , _dvtldrVTLDevices :: !(Maybe [VTLDevice])
     , _dvtldrMarker     :: !(Maybe Text)
     , _dvtldrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVTLDevicesResponse' smart constructor.
 describeVTLDevicesResponse :: Int -> DescribeVTLDevicesResponse

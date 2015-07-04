@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.CreateLaunchConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -120,7 +122,7 @@ data CreateLaunchConfiguration = CreateLaunchConfiguration'
     , _clcPlacementTenancy             :: !(Maybe Text)
     , _clcBlockDeviceMappings          :: !(Maybe [BlockDeviceMapping])
     , _clcLaunchConfigurationName      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLaunchConfiguration' smart constructor.
 createLaunchConfiguration :: Text -> CreateLaunchConfiguration
@@ -372,7 +374,7 @@ instance ToQuery CreateLaunchConfiguration where
 -- | /See:/ 'createLaunchConfigurationResponse' smart constructor.
 data CreateLaunchConfigurationResponse =
     CreateLaunchConfigurationResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLaunchConfigurationResponse' smart constructor.
 createLaunchConfigurationResponse :: CreateLaunchConfigurationResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeScalingProcessTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -42,7 +44,7 @@ import           Network.AWS.Response
 -- | /See:/ 'describeScalingProcessTypes' smart constructor.
 data DescribeScalingProcessTypes =
     DescribeScalingProcessTypes'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingProcessTypes' smart constructor.
 describeScalingProcessTypes :: DescribeScalingProcessTypes
@@ -86,7 +88,7 @@ instance ToQuery DescribeScalingProcessTypes where
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
     { _dsptrProcesses :: !(Maybe [ProcessType])
     , _dsptrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingProcessTypesResponse' smart constructor.
 describeScalingProcessTypesResponse :: Int -> DescribeScalingProcessTypesResponse

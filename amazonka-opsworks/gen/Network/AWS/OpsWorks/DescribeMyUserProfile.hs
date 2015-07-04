@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeMyUserProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.Response
 -- | /See:/ 'describeMyUserProfile' smart constructor.
 data DescribeMyUserProfile =
     DescribeMyUserProfile'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMyUserProfile' smart constructor.
 describeMyUserProfile :: DescribeMyUserProfile
@@ -94,7 +96,7 @@ instance ToQuery DescribeMyUserProfile where
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
     { _dmuprUserProfile :: !(Maybe SelfUserProfile)
     , _dmuprStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMyUserProfileResponse' smart constructor.
 describeMyUserProfileResponse :: Int -> DescribeMyUserProfileResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.InitiateMultipartUpload
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -99,7 +101,7 @@ data InitiateMultipartUpload = InitiateMultipartUpload'
     , _imuArchiveDescription :: !(Maybe Text)
     , _imuAccountId          :: !Text
     , _imuVaultName          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateMultipartUpload' smart constructor.
 initiateMultipartUpload :: Text -> Text -> InitiateMultipartUpload
@@ -184,7 +186,7 @@ data InitiateMultipartUploadResponse = InitiateMultipartUploadResponse'
     { _imurLocation :: !(Maybe Text)
     , _imurUploadId :: !(Maybe Text)
     , _imurStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateMultipartUploadResponse' smart constructor.
 initiateMultipartUploadResponse :: Int -> InitiateMultipartUploadResponse

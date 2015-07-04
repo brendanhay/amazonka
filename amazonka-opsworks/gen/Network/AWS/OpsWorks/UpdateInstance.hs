@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -94,7 +96,7 @@ data UpdateInstance = UpdateInstance'
     , _uiArchitecture         :: !(Maybe Architecture)
     , _uiAMIId                :: !(Maybe Text)
     , _uiInstanceId           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateInstance' smart constructor.
 updateInstance :: Text -> UpdateInstance
@@ -254,7 +256,7 @@ instance ToQuery UpdateInstance where
 -- | /See:/ 'updateInstanceResponse' smart constructor.
 data UpdateInstanceResponse =
     UpdateInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateInstanceResponse' smart constructor.
 updateInstanceResponse :: UpdateInstanceResponse

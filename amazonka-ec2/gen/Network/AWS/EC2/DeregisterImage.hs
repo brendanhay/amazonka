@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeregisterImage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 data DeregisterImage = DeregisterImage'
     { _diDryRun  :: !(Maybe Bool)
     , _diImageId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterImage' smart constructor.
 deregisterImage :: Text -> DeregisterImage
@@ -94,7 +96,7 @@ instance ToQuery DeregisterImage where
 -- | /See:/ 'deregisterImageResponse' smart constructor.
 data DeregisterImageResponse =
     DeregisterImageResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterImageResponse' smart constructor.
 deregisterImageResponse :: DeregisterImageResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.StartWorkflowExecution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -115,7 +117,7 @@ data StartWorkflowExecution = StartWorkflowExecution'
     , _staDomain                       :: !Text
     , _staWorkflowId                   :: !Text
     , _staWorkflowType                 :: !WorkflowType
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartWorkflowExecution' smart constructor.
 startWorkflowExecution :: Text -> Text -> WorkflowType -> StartWorkflowExecution
@@ -307,7 +309,7 @@ instance ToQuery StartWorkflowExecution where
 data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse'
     { _swerRunId  :: !(Maybe Text)
     , _swerStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartWorkflowExecutionResponse' smart constructor.
 startWorkflowExecutionResponse :: Int -> StartWorkflowExecutionResponse

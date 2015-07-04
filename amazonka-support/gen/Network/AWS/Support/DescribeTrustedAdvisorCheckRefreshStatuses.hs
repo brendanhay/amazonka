@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Support.Types
 -- * 'dtacrsCheckIds'
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'
     { _dtacrsCheckIds :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatuses' smart constructor.
 describeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses
@@ -115,7 +117,7 @@ instance ToQuery
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
     { _dtacrsrStatus   :: !Int
     , _dtacrsrStatuses :: ![TrustedAdvisorCheckRefreshStatus]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 describeTrustedAdvisorCheckRefreshStatusesResponse :: Int -> DescribeTrustedAdvisorCheckRefreshStatusesResponse

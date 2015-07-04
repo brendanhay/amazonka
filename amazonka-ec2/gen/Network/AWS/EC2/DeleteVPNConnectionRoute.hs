@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteVPNConnectionRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 data DeleteVPNConnectionRoute = DeleteVPNConnectionRoute'
     { _dvcrVPNConnectionId      :: !Text
     , _dvcrDestinationCIDRBlock :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNConnectionRoute' smart constructor.
 deleteVPNConnectionRoute :: Text -> Text -> DeleteVPNConnectionRoute
@@ -95,7 +97,7 @@ instance ToQuery DeleteVPNConnectionRoute where
 -- | /See:/ 'deleteVPNConnectionRouteResponse' smart constructor.
 data DeleteVPNConnectionRouteResponse =
     DeleteVPNConnectionRouteResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNConnectionRouteResponse' smart constructor.
 deleteVPNConnectionRouteResponse :: DeleteVPNConnectionRouteResponse

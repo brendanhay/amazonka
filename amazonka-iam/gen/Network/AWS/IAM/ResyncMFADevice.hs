@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ResyncMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ResyncMFADevice = ResyncMFADevice'
     , _rmdSerialNumber        :: !Text
     , _rmdAuthenticationCode1 :: !Text
     , _rmdAuthenticationCode2 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResyncMFADevice' smart constructor.
 resyncMFADevice :: Text -> Text -> Text -> Text -> ResyncMFADevice
@@ -114,7 +116,7 @@ instance ToQuery ResyncMFADevice where
 -- | /See:/ 'resyncMFADeviceResponse' smart constructor.
 data ResyncMFADeviceResponse =
     ResyncMFADeviceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResyncMFADeviceResponse' smart constructor.
 resyncMFADeviceResponse :: ResyncMFADeviceResponse

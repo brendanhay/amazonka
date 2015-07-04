@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -992,7 +994,7 @@ _UnauthorizedOperation =
 data ParameterApplyType
     = Dynamic
     | Static
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ParameterApplyType where
     parser = takeLowerText >>= \case
@@ -1006,9 +1008,7 @@ instance ToText ParameterApplyType where
         Dynamic -> "dynamic"
         Static -> "static"
 
-instance Hashable ParameterApplyType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ParameterApplyType
 instance ToQuery ParameterApplyType
 instance ToHeader ParameterApplyType
 
@@ -1020,7 +1020,7 @@ data SourceType
     | Cluster
     | ClusterSecurityGroup
     | ClusterSnapshot
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -1038,9 +1038,7 @@ instance ToText SourceType where
         ClusterSecurityGroup -> "cluster-security-group"
         ClusterSnapshot -> "cluster-snapshot"
 
-instance Hashable SourceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SourceType
 instance ToQuery SourceType
 instance ToHeader SourceType
 
@@ -1056,7 +1054,7 @@ instance FromXML SourceType where
 -- * 'awraAccountId'
 newtype AccountWithRestoreAccess = AccountWithRestoreAccess'
     { _awraAccountId :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AccountWithRestoreAccess' smart constructor.
 accountWithRestoreAccess :: AccountWithRestoreAccess
@@ -1083,7 +1081,7 @@ instance FromXML AccountWithRestoreAccess where
 -- * 'azName'
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AvailabilityZone' smart constructor.
 availabilityZone :: AvailabilityZone
@@ -1198,7 +1196,7 @@ data Cluster = Cluster'
     , _cluDBName                           :: !(Maybe Text)
     , _cluTags                             :: !(Maybe [Tag])
     , _cluClusterNodes                     :: !(Maybe [ClusterNode])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Cluster' smart constructor.
 cluster :: Cluster
@@ -1447,7 +1445,7 @@ data ClusterNode = ClusterNode'
     { _cnNodeRole         :: !(Maybe Text)
     , _cnPrivateIPAddress :: !(Maybe Text)
     , _cnPublicIPAddress  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterNode' smart constructor.
 clusterNode :: ClusterNode
@@ -1494,7 +1492,7 @@ data ClusterParameterGroup = ClusterParameterGroup'
     , _cpgDescription          :: !(Maybe Text)
     , _cpgParameterGroupName   :: !(Maybe Text)
     , _cpgTags                 :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterParameterGroup' smart constructor.
 clusterParameterGroup :: ClusterParameterGroup
@@ -1547,7 +1545,7 @@ instance FromXML ClusterParameterGroup where
 data ClusterParameterGroupNameMessage = ClusterParameterGroupNameMessage'
     { _cpgnmParameterGroupStatus :: !(Maybe Text)
     , _cpgnmParameterGroupName   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterParameterGroupNameMessage' smart constructor.
 clusterParameterGroupNameMessage :: ClusterParameterGroupNameMessage
@@ -1589,7 +1587,7 @@ data ClusterParameterGroupStatus = ClusterParameterGroupStatus'
     { _cpgsClusterParameterStatusList :: !(Maybe [ClusterParameterStatus])
     , _cpgsParameterApplyStatus       :: !(Maybe Text)
     , _cpgsParameterGroupName         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterParameterGroupStatus' smart constructor.
 clusterParameterGroupStatus :: ClusterParameterGroupStatus
@@ -1639,7 +1637,7 @@ data ClusterParameterStatus = ClusterParameterStatus'
     { _cpsParameterApplyErrorDescription :: !(Maybe Text)
     , _cpsParameterName                  :: !(Maybe Text)
     , _cpsParameterApplyStatus           :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterParameterStatus' smart constructor.
 clusterParameterStatus :: ClusterParameterStatus
@@ -1708,7 +1706,7 @@ data ClusterSecurityGroup = ClusterSecurityGroup'
     , _cEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
     , _cDescription              :: !(Maybe Text)
     , _cTags                     :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterSecurityGroup' smart constructor.
 clusterSecurityGroup :: ClusterSecurityGroup
@@ -1770,7 +1768,7 @@ instance FromXML ClusterSecurityGroup where
 data ClusterSecurityGroupMembership = ClusterSecurityGroupMembership'
     { _csgmStatus                   :: !(Maybe Text)
     , _csgmClusterSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterSecurityGroupMembership' smart constructor.
 clusterSecurityGroupMembership :: ClusterSecurityGroupMembership
@@ -1810,7 +1808,7 @@ data ClusterSnapshotCopyStatus = ClusterSnapshotCopyStatus'
     { _cscsRetentionPeriod       :: !(Maybe Integer)
     , _cscsDestinationRegion     :: !(Maybe Text)
     , _cscsSnapshotCopyGrantName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterSnapshotCopyStatus' smart constructor.
 clusterSnapshotCopyStatus :: ClusterSnapshotCopyStatus
@@ -1866,7 +1864,7 @@ data ClusterSubnetGroup = ClusterSubnetGroup'
     , _csgSubnetGroupStatus      :: !(Maybe Text)
     , _csgDescription            :: !(Maybe Text)
     , _csgTags                   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterSubnetGroup' smart constructor.
 clusterSubnetGroup :: ClusterSubnetGroup
@@ -1934,7 +1932,7 @@ data ClusterVersion = ClusterVersion'
     { _cvClusterParameterGroupFamily :: !(Maybe Text)
     , _cvClusterVersion              :: !(Maybe Text)
     , _cvDescription                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterVersion' smart constructor.
 clusterVersion :: ClusterVersion
@@ -1979,7 +1977,7 @@ data DefaultClusterParameters = DefaultClusterParameters'
     { _dcpParameters           :: !(Maybe [Parameter])
     , _dcpMarker               :: !(Maybe Text)
     , _dcpParameterGroupFamily :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefaultClusterParameters' smart constructor.
 defaultClusterParameters :: DefaultClusterParameters
@@ -2034,7 +2032,7 @@ data EC2SecurityGroup = EC2SecurityGroup'
     , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
     , _esgEC2SecurityGroupName    :: !(Maybe Text)
     , _esgTags                    :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EC2SecurityGroup' smart constructor.
 ec2SecurityGroup :: EC2SecurityGroup
@@ -2085,7 +2083,7 @@ instance FromXML EC2SecurityGroup where
 data ElasticIPStatus = ElasticIPStatus'
     { _eisStatus    :: !(Maybe Text)
     , _eisElasticIP :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ElasticIPStatus' smart constructor.
 elasticIPStatus :: ElasticIPStatus
@@ -2120,7 +2118,7 @@ instance FromXML ElasticIPStatus where
 data Endpoint = Endpoint'
     { _endAddress :: !(Maybe Text)
     , _endPort    :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
@@ -2169,7 +2167,7 @@ data Event = Event'
     , _eveEventCategories  :: !(Maybe [Text])
     , _eveMessage          :: !(Maybe Text)
     , _eveEventId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Event' smart constructor.
 event :: Event
@@ -2238,7 +2236,7 @@ instance FromXML Event where
 data EventCategoriesMap = EventCategoriesMap'
     { _ecmSourceType :: !(Maybe Text)
     , _ecmEvents     :: !(Maybe [EventInfoMap])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventCategoriesMap' smart constructor.
 eventCategoriesMap :: EventCategoriesMap
@@ -2280,7 +2278,7 @@ data EventInfoMap = EventInfoMap'
     , _eimSeverity         :: !(Maybe Text)
     , _eimEventCategories  :: !(Maybe [Text])
     , _eimEventId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventInfoMap' smart constructor.
 eventInfoMap :: EventInfoMap
@@ -2355,7 +2353,7 @@ data EventSubscription = EventSubscription'
     , _esEventCategoriesList      :: !(Maybe [Text])
     , _esSourceIdsList            :: !(Maybe [Text])
     , _esTags                     :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EventSubscription' smart constructor.
 eventSubscription :: EventSubscription
@@ -2476,7 +2474,7 @@ data HSMClientCertificate = HSMClientCertificate'
     { _hccHSMClientCertificateIdentifier :: !(Maybe Text)
     , _hccHSMClientCertificatePublicKey  :: !(Maybe Text)
     , _hccTags                           :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HSMClientCertificate' smart constructor.
 hsmClientCertificate :: HSMClientCertificate
@@ -2532,7 +2530,7 @@ data HSMConfiguration = HSMConfiguration'
     , _hcDescription                :: !(Maybe Text)
     , _hcHSMIPAddress               :: !(Maybe Text)
     , _hcTags                       :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HSMConfiguration' smart constructor.
 hsmConfiguration :: HSMConfiguration
@@ -2593,7 +2591,7 @@ data HSMStatus = HSMStatus'
     { _hsStatus                         :: !(Maybe Text)
     , _hsHSMConfigurationIdentifier     :: !(Maybe Text)
     , _hsHSMClientCertificateIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HSMStatus' smart constructor.
 hsmStatus :: HSMStatus
@@ -2644,7 +2642,7 @@ data IPRange = IPRange'
     { _irStatus :: !(Maybe Text)
     , _irCIDRIP :: !(Maybe Text)
     , _irTags   :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IPRange' smart constructor.
 ipRange :: IPRange
@@ -2698,7 +2696,7 @@ data LoggingStatus = LoggingStatus'
     , _lsBucketName                 :: !(Maybe Text)
     , _lsLoggingEnabled             :: !(Maybe Bool)
     , _lsLastFailureMessage         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoggingStatus' smart constructor.
 loggingStatus :: LoggingStatus
@@ -2764,7 +2762,7 @@ data OrderableClusterOption = OrderableClusterOption'
     , _ocoClusterType       :: !(Maybe Text)
     , _ocoClusterVersion    :: !(Maybe Text)
     , _ocoNodeType          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OrderableClusterOption' smart constructor.
 orderableClusterOption :: OrderableClusterOption
@@ -2834,7 +2832,7 @@ data Parameter = Parameter'
     , _parDataType             :: !(Maybe Text)
     , _parParameterName        :: !(Maybe Text)
     , _parDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
@@ -2943,7 +2941,7 @@ data PendingModifiedValues = PendingModifiedValues'
     , _pmvClusterType                      :: !(Maybe Text)
     , _pmvClusterVersion                   :: !(Maybe Text)
     , _pmvNodeType                         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PendingModifiedValues' smart constructor.
 pendingModifiedValues :: PendingModifiedValues
@@ -3011,7 +3009,7 @@ instance FromXML PendingModifiedValues where
 data RecurringCharge = RecurringCharge'
     { _rcRecurringChargeFrequency :: !(Maybe Text)
     , _rcRecurringChargeAmount    :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecurringCharge' smart constructor.
 recurringCharge :: RecurringCharge
@@ -3080,7 +3078,7 @@ data ReservedNode = ReservedNode'
     , _rnRecurringCharges       :: !(Maybe [RecurringCharge])
     , _rnFixedPrice             :: !(Maybe Double)
     , _rnDuration               :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedNode' smart constructor.
 reservedNode :: ReservedNode
@@ -3205,7 +3203,7 @@ data ReservedNodeOffering = ReservedNodeOffering'
     , _rnoRecurringCharges       :: !(Maybe [RecurringCharge])
     , _rnoFixedPrice             :: !(Maybe Double)
     , _rnoDuration               :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedNodeOffering' smart constructor.
 reservedNodeOffering :: ReservedNodeOffering
@@ -3297,7 +3295,7 @@ data RestoreStatus = RestoreStatus'
     , _rsProgressInMegaBytes                    :: !(Maybe Integer)
     , _rsElapsedTimeInSeconds                   :: !(Maybe Integer)
     , _rsSnapshotSizeInMegaBytes                :: !(Maybe Integer)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreStatus' smart constructor.
 restoreStatus :: RestoreStatus
@@ -3440,7 +3438,7 @@ data Snapshot = Snapshot'
     , _snaTags                                   :: !(Maybe [Tag])
     , _snaActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
     , _snaPort                                   :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
@@ -3672,7 +3670,7 @@ data SnapshotCopyGrant = SnapshotCopyGrant'
     { _scgKMSKeyId              :: !(Maybe Text)
     , _scgSnapshotCopyGrantName :: !(Maybe Text)
     , _scgTags                  :: !(Maybe [Tag])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SnapshotCopyGrant' smart constructor.
 snapshotCopyGrant :: SnapshotCopyGrant
@@ -3720,7 +3718,7 @@ data Subnet = Subnet'
     { _subSubnetStatus           :: !(Maybe Text)
     , _subSubnetIdentifier       :: !(Maybe Text)
     , _subSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
@@ -3761,7 +3759,7 @@ instance FromXML Subnet where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
@@ -3802,7 +3800,7 @@ data TaggedResource = TaggedResource'
     { _trResourceType :: !(Maybe Text)
     , _trTag          :: !(Maybe Tag)
     , _trResourceName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TaggedResource' smart constructor.
 taggedResource :: TaggedResource
@@ -3860,7 +3858,7 @@ instance FromXML TaggedResource where
 data VPCSecurityGroupMembership = VPCSecurityGroupMembership'
     { _vsgmStatus             :: !(Maybe Text)
     , _vsgmVPCSecurityGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPCSecurityGroupMembership' smart constructor.
 vpcSecurityGroupMembership :: VPCSecurityGroupMembership

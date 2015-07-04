@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.DescribeStream
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data DescribeStream = DescribeStream'
     { _desExclusiveStartShardId :: !(Maybe Text)
     , _desLimit                 :: !(Maybe Nat)
     , _desStreamName            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
@@ -161,7 +163,7 @@ instance ToQuery DescribeStream where
 data DescribeStreamResponse = DescribeStreamResponse'
     { _dsrStatus            :: !Int
     , _dsrStreamDescription :: !StreamDescription
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: Int -> StreamDescription -> DescribeStreamResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteOpenIDConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'doidcpOpenIDConnectProviderARN'
 newtype DeleteOpenIDConnectProvider = DeleteOpenIDConnectProvider'
     { _doidcpOpenIDConnectProviderARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteOpenIDConnectProvider' smart constructor.
 deleteOpenIDConnectProvider :: Text -> DeleteOpenIDConnectProvider
@@ -92,7 +94,7 @@ instance ToQuery DeleteOpenIDConnectProvider where
 -- | /See:/ 'deleteOpenIDConnectProviderResponse' smart constructor.
 data DeleteOpenIDConnectProviderResponse =
     DeleteOpenIDConnectProviderResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteOpenIDConnectProviderResponse' smart constructor.
 deleteOpenIDConnectProviderResponse :: DeleteOpenIDConnectProviderResponse

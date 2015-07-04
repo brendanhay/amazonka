@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateDataSourceFromRDS
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
     , _creDataSourceId      :: !Text
     , _creRDSData           :: !RDSDataSpec
     , _creRoleARN           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRDS' smart constructor.
 createDataSourceFromRDS :: Text -> RDSDataSpec -> Text -> CreateDataSourceFromRDS
@@ -220,7 +222,7 @@ instance ToQuery CreateDataSourceFromRDS where
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
     { _cDataSourceId :: !(Maybe Text)
     , _cStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRDSResponse' smart constructor.
 createDataSourceFromRDSResponse :: Int -> CreateDataSourceFromRDSResponse

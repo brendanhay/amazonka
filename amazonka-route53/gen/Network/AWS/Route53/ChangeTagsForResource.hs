@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.ChangeTagsForResource
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ChangeTagsForResource = ChangeTagsForResource'
     , _ctfrAddTags       :: !(Maybe (List1 Tag))
     , _ctfrResourceType  :: !TagResourceType
     , _ctfrResourceId    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeTagsForResource' smart constructor.
 changeTagsForResource :: TagResourceType -> Text -> ChangeTagsForResource
@@ -142,7 +144,7 @@ instance ToXML ChangeTagsForResource where
 -- * 'ctfrrStatus'
 newtype ChangeTagsForResourceResponse = ChangeTagsForResourceResponse'
     { _ctfrrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeTagsForResourceResponse' smart constructor.
 changeTagsForResourceResponse :: Int -> ChangeTagsForResourceResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.RequestSpotInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -91,7 +93,7 @@ data RequestSpotInstances = RequestSpotInstances'
     , _rsiValidFrom             :: !(Maybe ISO8601)
     , _rsiDryRun                :: !(Maybe Bool)
     , _rsiSpotPrice             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotInstances' smart constructor.
 requestSpotInstances :: Text -> RequestSpotInstances
@@ -238,7 +240,7 @@ instance ToQuery RequestSpotInstances where
 data RequestSpotInstancesResponse = RequestSpotInstancesResponse'
     { _rsirSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
     , _rsirStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotInstancesResponse' smart constructor.
 requestSpotInstancesResponse :: Int -> RequestSpotInstancesResponse

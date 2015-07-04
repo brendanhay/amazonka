@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ModifySubnetAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 data ModifySubnetAttribute = ModifySubnetAttribute'
     { _msaMapPublicIPOnLaunch :: !(Maybe AttributeBooleanValue)
     , _msaSubnetId            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySubnetAttribute' smart constructor.
 modifySubnetAttribute :: Text -> ModifySubnetAttribute
@@ -91,7 +93,7 @@ instance ToQuery ModifySubnetAttribute where
 -- | /See:/ 'modifySubnetAttributeResponse' smart constructor.
 data ModifySubnetAttributeResponse =
     ModifySubnetAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySubnetAttributeResponse' smart constructor.
 modifySubnetAttributeResponse :: ModifySubnetAttributeResponse

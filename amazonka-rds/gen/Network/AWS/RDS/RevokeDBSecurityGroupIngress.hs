@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.RevokeDBSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
     , _rdsgiCIDRIP                  :: !(Maybe Text)
     , _rdsgiEC2SecurityGroupId      :: !(Maybe Text)
     , _rdsgiDBSecurityGroupName     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeDBSecurityGroupIngress' smart constructor.
 revokeDBSecurityGroupIngress :: Text -> RevokeDBSecurityGroupIngress
@@ -156,7 +158,7 @@ instance ToQuery RevokeDBSecurityGroupIngress where
 data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
     { _rdsgirDBSecurityGroup :: !(Maybe DBSecurityGroup)
     , _rdsgirStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeDBSecurityGroupIngressResponse' smart constructor.
 revokeDBSecurityGroupIngressResponse :: Int -> RevokeDBSecurityGroupIngressResponse

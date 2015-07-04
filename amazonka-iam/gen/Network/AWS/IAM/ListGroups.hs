@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ListGroups = ListGroups'
     { _lgPathPrefix :: !(Maybe Text)
     , _lgMaxItems   :: !(Maybe Nat)
     , _lgMarker     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroups' smart constructor.
 listGroups :: ListGroups
@@ -148,7 +150,7 @@ data ListGroupsResponse = ListGroupsResponse'
     , _lgrIsTruncated :: !(Maybe Bool)
     , _lgrStatus      :: !Int
     , _lgrGroups      :: ![Group]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupsResponse' smart constructor.
 listGroupsResponse :: Int -> ListGroupsResponse

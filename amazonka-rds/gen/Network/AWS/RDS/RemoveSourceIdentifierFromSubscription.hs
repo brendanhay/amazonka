@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'
     { _rsifsSubscriptionName :: !Text
     , _rsifsSourceIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveSourceIdentifierFromSubscription' smart constructor.
 removeSourceIdentifierFromSubscription :: Text -> Text -> RemoveSourceIdentifierFromSubscription
@@ -117,7 +119,7 @@ instance ToQuery
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
     { _rsifsrEventSubscription :: !(Maybe EventSubscription)
     , _rsifsrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
 removeSourceIdentifierFromSubscriptionResponse :: Int -> RemoveSourceIdentifierFromSubscriptionResponse

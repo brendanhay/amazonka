@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -257,7 +259,7 @@ data QueueAttributeName
     | Policy
     | CreatedTimestamp
     | ApproximateNumberOfMessagesNotVisible
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText QueueAttributeName where
     parser = takeLowerText >>= \case
@@ -293,9 +295,7 @@ instance ToText QueueAttributeName where
         RedrivePolicy -> "redrivepolicy"
         VisibilityTimeout -> "visibilitytimeout"
 
-instance Hashable QueueAttributeName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable QueueAttributeName
 instance ToQuery QueueAttributeName
 instance ToHeader QueueAttributeName
 
@@ -321,7 +321,7 @@ data BatchResultErrorEntry = BatchResultErrorEntry'
     , _breeId          :: !Text
     , _breeSenderFault :: !Bool
     , _breeCode        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchResultErrorEntry' smart constructor.
 batchResultErrorEntry :: Text -> Bool -> Text -> BatchResultErrorEntry
@@ -383,7 +383,7 @@ data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequ
     { _chaVisibilityTimeout :: !(Maybe Int)
     , _chaId                :: !Text
     , _chaReceiptHandle     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeMessageVisibilityBatchRequestEntry' smart constructor.
 changeMessageVisibilityBatchRequestEntry :: Text -> Text -> ChangeMessageVisibilityBatchRequestEntry
@@ -424,7 +424,7 @@ instance ToQuery
 -- * 'cmvbreId'
 newtype ChangeMessageVisibilityBatchResultEntry = ChangeMessageVisibilityBatchResultEntry'
     { _cmvbreId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeMessageVisibilityBatchResultEntry' smart constructor.
 changeMessageVisibilityBatchResultEntry :: Text -> ChangeMessageVisibilityBatchResultEntry
@@ -456,7 +456,7 @@ instance FromXML
 data DeleteMessageBatchRequestEntry = DeleteMessageBatchRequestEntry'
     { _dmbreId            :: !Text
     , _dmbreReceiptHandle :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessageBatchRequestEntry' smart constructor.
 deleteMessageBatchRequestEntry :: Text -> Text -> DeleteMessageBatchRequestEntry
@@ -491,7 +491,7 @@ instance ToQuery DeleteMessageBatchRequestEntry where
 -- * 'delId'
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
     { _delId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessageBatchResultEntry' smart constructor.
 deleteMessageBatchResultEntry :: Text -> DeleteMessageBatchResultEntry
@@ -535,7 +535,7 @@ data Message = Message'
     , _mesMessageId              :: !(Maybe Text)
     , _mesReceiptHandle          :: !(Maybe Text)
     , _mesMD5OfMessageAttributes :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Message' smart constructor.
 message :: Message
@@ -632,7 +632,7 @@ data MessageAttributeValue = MessageAttributeValue'
     , _mavStringValue      :: !(Maybe Text)
     , _mavBinaryListValues :: !(Maybe [Base64])
     , _mavDataType         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MessageAttributeValue' smart constructor.
 messageAttributeValue :: Text -> MessageAttributeValue
@@ -716,7 +716,7 @@ data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
     , _senDelaySeconds      :: !(Maybe Int)
     , _senId                :: !Text
     , _senMessageBody       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessageBatchRequestEntry' smart constructor.
 sendMessageBatchRequestEntry :: Text -> Text -> SendMessageBatchRequestEntry
@@ -776,7 +776,7 @@ data SendMessageBatchResultEntry = SendMessageBatchResultEntry'
     , _smbreId                     :: !Text
     , _smbreMessageId              :: !Text
     , _smbreMD5OfMessageBody       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessageBatchResultEntry' smart constructor.
 sendMessageBatchResultEntry :: Text -> Text -> Text -> SendMessageBatchResultEntry

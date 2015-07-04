@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.CreateStorageLocation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -43,7 +45,7 @@ import           Network.AWS.Response
 -- | /See:/ 'createStorageLocation' smart constructor.
 data CreateStorageLocation =
     CreateStorageLocation'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStorageLocation' smart constructor.
 createStorageLocation :: CreateStorageLocation
@@ -85,7 +87,7 @@ instance ToQuery CreateStorageLocation where
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
     { _cslrS3Bucket :: !(Maybe Text)
     , _cslrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStorageLocationResponse' smart constructor.
 createStorageLocationResponse :: Int -> CreateStorageLocationResponse

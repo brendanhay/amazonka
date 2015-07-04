@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListAccessKeys
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data ListAccessKeys = ListAccessKeys'
     { _lakUserName :: !(Maybe Text)
     , _lakMaxItems :: !(Maybe Nat)
     , _lakMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccessKeys' smart constructor.
 listAccessKeys :: ListAccessKeys
@@ -154,7 +156,7 @@ data ListAccessKeysResponse = ListAccessKeysResponse'
     , _lakrIsTruncated       :: !(Maybe Bool)
     , _lakrStatus            :: !Int
     , _lakrAccessKeyMetadata :: ![AccessKeyMetadata]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccessKeysResponse' smart constructor.
 listAccessKeysResponse :: Int -> ListAccessKeysResponse

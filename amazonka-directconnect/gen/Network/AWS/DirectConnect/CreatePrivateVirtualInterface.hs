@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.CreatePrivateVirtualInterface
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ import           Network.AWS.Response
 data CreatePrivateVirtualInterface = CreatePrivateVirtualInterface'
     { _creConnectionId               :: !Text
     , _creNewPrivateVirtualInterface :: !NewPrivateVirtualInterface
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePrivateVirtualInterface' smart constructor.
 createPrivateVirtualInterface :: Text -> NewPrivateVirtualInterface -> CreatePrivateVirtualInterface

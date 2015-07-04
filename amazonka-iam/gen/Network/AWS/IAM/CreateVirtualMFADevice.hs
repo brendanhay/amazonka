@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreateVirtualMFADevice
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ import           Network.AWS.Response
 data CreateVirtualMFADevice = CreateVirtualMFADevice'
     { _cvmdPath                 :: !(Maybe Text)
     , _cvmdVirtualMFADeviceName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVirtualMFADevice' smart constructor.
 createVirtualMFADevice :: Text -> CreateVirtualMFADevice
@@ -130,7 +132,7 @@ instance ToQuery CreateVirtualMFADevice where
 data CreateVirtualMFADeviceResponse = CreateVirtualMFADeviceResponse'
     { _cvmdrStatus           :: !Int
     , _cvmdrVirtualMFADevice :: !VirtualMFADevice
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVirtualMFADeviceResponse' smart constructor.
 createVirtualMFADeviceResponse :: Int -> VirtualMFADevice -> CreateVirtualMFADeviceResponse

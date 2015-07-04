@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.CreateTable
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -86,7 +88,7 @@ data CreateTable = CreateTable'
     , _ctTableName              :: !Text
     , _ctKeySchema              :: !(List1 KeySchemaElement)
     , _ctProvisionedThroughput  :: !ProvisionedThroughput
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTable' smart constructor.
 createTable :: Text -> NonEmpty KeySchemaElement -> ProvisionedThroughput -> CreateTable
@@ -270,7 +272,7 @@ instance ToQuery CreateTable where
 data CreateTableResponse = CreateTableResponse'
     { _ctrTableDescription :: !(Maybe TableDescription)
     , _ctrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTableResponse' smart constructor.
 createTableResponse :: Int -> CreateTableResponse

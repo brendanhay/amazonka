@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreateSAMLProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ import           Network.AWS.Response
 data CreateSAMLProvider = CreateSAMLProvider'
     { _csamlpSAMLMetadataDocument :: !Text
     , _csamlpName                 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSAMLProvider' smart constructor.
 createSAMLProvider :: Text -> Text -> CreateSAMLProvider
@@ -139,7 +141,7 @@ instance ToQuery CreateSAMLProvider where
 data CreateSAMLProviderResponse = CreateSAMLProviderResponse'
     { _csamlprSAMLProviderARN :: !(Maybe Text)
     , _csamlprStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSAMLProviderResponse' smart constructor.
 createSAMLProviderResponse :: Int -> CreateSAMLProviderResponse

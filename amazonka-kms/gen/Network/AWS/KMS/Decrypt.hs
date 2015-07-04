@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.Decrypt
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data Decrypt = Decrypt'
     { _decEncryptionContext :: !(Maybe (Map Text Text))
     , _decGrantTokens       :: !(Maybe [Text])
     , _decCiphertextBlob    :: !Base64
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Decrypt' smart constructor.
 decrypt :: Base64 -> Decrypt
@@ -143,7 +145,7 @@ data DecryptResponse = DecryptResponse'
     { _drKeyId     :: !(Maybe Text)
     , _drPlaintext :: !(Maybe (Sensitive Base64))
     , _drStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DecryptResponse' smart constructor.
 decryptResponse :: Int -> DecryptResponse

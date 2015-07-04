@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateSnapshotSchedule
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
     , _ussVolumeARN         :: !Text
     , _ussStartAt           :: !Nat
     , _ussRecurrenceInHours :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSnapshotSchedule' smart constructor.
 updateSnapshotSchedule :: Text -> Natural -> Natural -> UpdateSnapshotSchedule
@@ -155,7 +157,7 @@ instance ToQuery UpdateSnapshotSchedule where
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
     { _ussrVolumeARN :: !(Maybe Text)
     , _ussrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSnapshotScheduleResponse' smart constructor.
 updateSnapshotScheduleResponse :: Int -> UpdateSnapshotScheduleResponse

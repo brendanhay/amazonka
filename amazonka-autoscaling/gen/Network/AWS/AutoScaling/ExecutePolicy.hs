@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.ExecutePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ data ExecutePolicy = ExecutePolicy'
     { _epHonorCooldown        :: !(Maybe Bool)
     , _epAutoScalingGroupName :: !(Maybe Text)
     , _epPolicyName           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExecutePolicy' smart constructor.
 executePolicy :: Text -> ExecutePolicy
@@ -109,7 +111,7 @@ instance ToQuery ExecutePolicy where
 -- | /See:/ 'executePolicyResponse' smart constructor.
 data ExecutePolicyResponse =
     ExecutePolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExecutePolicyResponse' smart constructor.
 executePolicyResponse :: ExecutePolicyResponse

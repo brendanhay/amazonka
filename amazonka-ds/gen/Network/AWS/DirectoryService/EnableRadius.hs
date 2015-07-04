@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.EnableRadius
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data EnableRadius = EnableRadius'
     { _erDirectoryId    :: !Text
     , _erRadiusSettings :: !RadiusSettings
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableRadius' smart constructor.
 enableRadius :: Text -> RadiusSettings -> EnableRadius
@@ -112,7 +114,7 @@ instance ToQuery EnableRadius where
 -- * 'errStatus'
 newtype EnableRadiusResponse = EnableRadiusResponse'
     { _errStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableRadiusResponse' smart constructor.
 enableRadiusResponse :: Int -> EnableRadiusResponse

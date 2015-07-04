@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateStorediSCSIVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -89,7 +91,7 @@ data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
     , _csscsivPreserveExistingData :: !Bool
     , _csscsivTargetName           :: !Text
     , _csscsivNetworkInterfaceId   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStorediSCSIVolume' smart constructor.
 createStorediSCSIVolume :: Text -> Text -> Bool -> Text -> Text -> CreateStorediSCSIVolume
@@ -204,7 +206,7 @@ data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
     , _csscsivrVolumeARN         :: !(Maybe Text)
     , _csscsivrVolumeSizeInBytes :: !(Maybe Integer)
     , _csscsivrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStorediSCSIVolumeResponse' smart constructor.
 createStorediSCSIVolumeResponse :: Int -> CreateStorediSCSIVolumeResponse

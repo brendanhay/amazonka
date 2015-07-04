@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.CreateDBParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -83,7 +85,7 @@ data CreateDBParameterGroup = CreateDBParameterGroup'
     , _cDBParameterGroupName   :: !Text
     , _cDBParameterGroupFamily :: !Text
     , _cDescription            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBParameterGroup' smart constructor.
 createDBParameterGroup :: Text -> Text -> Text -> CreateDBParameterGroup
@@ -160,7 +162,7 @@ instance ToQuery CreateDBParameterGroup where
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
     { _cdpgrDBParameterGroup :: !(Maybe DBParameterGroup)
     , _cdpgrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBParameterGroupResponse' smart constructor.
 createDBParameterGroupResponse :: Int -> CreateDBParameterGroupResponse

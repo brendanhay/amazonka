@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.ModifyHAPG
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ data ModifyHAPG = ModifyHAPG'
     { _mhPartitionSerialList :: !(Maybe [Text])
     , _mhLabel               :: !(Maybe Text)
     , _mhHAPGARN             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHAPG' smart constructor.
 modifyHAPG :: Text -> ModifyHAPG
@@ -120,7 +122,7 @@ instance ToQuery ModifyHAPG where
 data ModifyHAPGResponse = ModifyHAPGResponse'
     { _mhrHAPGARN :: !(Maybe Text)
     , _mhrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHAPGResponse' smart constructor.
 modifyHAPGResponse :: Int -> ModifyHAPGResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.SetCognitoEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data SetCognitoEvents = SetCognitoEvents'
     { _sceIdentityPoolId :: !Text
     , _sceEvents         :: !(Map Text Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetCognitoEvents' smart constructor.
 setCognitoEvents :: Text -> SetCognitoEvents
@@ -106,7 +108,7 @@ instance ToQuery SetCognitoEvents where
 -- | /See:/ 'setCognitoEventsResponse' smart constructor.
 data SetCognitoEventsResponse =
     SetCognitoEventsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetCognitoEventsResponse' smart constructor.
 setCognitoEventsResponse :: SetCognitoEventsResponse

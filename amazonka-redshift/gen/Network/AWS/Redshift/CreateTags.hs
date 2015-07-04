@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateTags
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data CreateTags = CreateTags'
     { _ctResourceName :: !Text
     , _ctTags         :: ![Tag]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTags' smart constructor.
 createTags :: Text -> CreateTags
@@ -104,7 +106,7 @@ instance ToQuery CreateTags where
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse =
     CreateTagsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTagsResponse' smart constructor.
 createTagsResponse :: CreateTagsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DeleteDBSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'ddsgDBSecurityGroupName'
 newtype DeleteDBSecurityGroup = DeleteDBSecurityGroup'
     { _ddsgDBSecurityGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBSecurityGroup' smart constructor.
 deleteDBSecurityGroup :: Text -> DeleteDBSecurityGroup
@@ -95,7 +97,7 @@ instance ToQuery DeleteDBSecurityGroup where
 -- | /See:/ 'deleteDBSecurityGroupResponse' smart constructor.
 data DeleteDBSecurityGroupResponse =
     DeleteDBSecurityGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBSecurityGroupResponse' smart constructor.
 deleteDBSecurityGroupResponse :: DeleteDBSecurityGroupResponse

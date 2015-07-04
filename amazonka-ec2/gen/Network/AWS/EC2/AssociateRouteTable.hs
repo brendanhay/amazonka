@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AssociateRouteTable
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data AssociateRouteTable = AssociateRouteTable'
     { _artDryRun       :: !(Maybe Bool)
     , _artSubnetId     :: !Text
     , _artRouteTableId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateRouteTable' smart constructor.
 associateRouteTable :: Text -> Text -> AssociateRouteTable
@@ -125,7 +127,7 @@ instance ToQuery AssociateRouteTable where
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
     { _artrAssociationId :: !(Maybe Text)
     , _artrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateRouteTableResponse' smart constructor.
 associateRouteTableResponse :: Int -> AssociateRouteTableResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.SubscribeToDataset
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data SubscribeToDataset = SubscribeToDataset'
     , _stdIdentityId     :: !Text
     , _stdDatasetName    :: !Text
     , _stdDeviceId       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubscribeToDataset' smart constructor.
 subscribeToDataset :: Text -> Text -> Text -> Text -> SubscribeToDataset
@@ -134,7 +136,7 @@ instance ToQuery SubscribeToDataset where
 -- * 'stdrStatus'
 newtype SubscribeToDatasetResponse = SubscribeToDatasetResponse'
     { _stdrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubscribeToDatasetResponse' smart constructor.
 subscribeToDatasetResponse :: Int -> SubscribeToDatasetResponse

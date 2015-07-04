@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ImportVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data ImportVolume = ImportVolume'
     , _ivAvailabilityZone :: !Text
     , _ivImage            :: !DiskImageDetail
     , _ivVolume           :: !VolumeDetail
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportVolume' smart constructor.
 importVolume :: Text -> DiskImageDetail -> VolumeDetail -> ImportVolume
@@ -140,7 +142,7 @@ instance ToQuery ImportVolume where
 data ImportVolumeResponse = ImportVolumeResponse'
     { _ivrConversionTask :: !(Maybe ConversionTask)
     , _ivrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportVolumeResponse' smart constructor.
 importVolumeResponse :: Int -> ImportVolumeResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.SetLoadBasedAutoScaling
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data SetLoadBasedAutoScaling = SetLoadBasedAutoScaling'
     , _slbasEnable      :: !(Maybe Bool)
     , _slbasDownScaling :: !(Maybe AutoScalingThresholds)
     , _slbasLayerId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBasedAutoScaling' smart constructor.
 setLoadBasedAutoScaling :: Text -> SetLoadBasedAutoScaling
@@ -136,7 +138,7 @@ instance ToQuery SetLoadBasedAutoScaling where
 -- | /See:/ 'setLoadBasedAutoScalingResponse' smart constructor.
 data SetLoadBasedAutoScalingResponse =
     SetLoadBasedAutoScalingResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBasedAutoScalingResponse' smart constructor.
 setLoadBasedAutoScalingResponse :: SetLoadBasedAutoScalingResponse

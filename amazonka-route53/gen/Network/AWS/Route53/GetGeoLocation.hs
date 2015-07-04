@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.GetGeoLocation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data GetGeoLocation = GetGeoLocation'
     { _gglSubdivisionCode :: !(Maybe Text)
     , _gglCountryCode     :: !(Maybe Text)
     , _gglContinentCode   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGeoLocation' smart constructor.
 getGeoLocation :: GetGeoLocation
@@ -133,7 +135,7 @@ instance ToQuery GetGeoLocation where
 data GetGeoLocationResponse = GetGeoLocationResponse'
     { _gglrStatus             :: !Int
     , _gglrGeoLocationDetails :: !GeoLocationDetails
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGeoLocationResponse' smart constructor.
 getGeoLocationResponse :: Int -> GeoLocationDetails -> GetGeoLocationResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateMaintenanceStartTime
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data UpdateMaintenanceStartTime = UpdateMaintenanceStartTime'
     , _umstHourOfDay    :: !Nat
     , _umstMinuteOfHour :: !Nat
     , _umstDayOfWeek    :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMaintenanceStartTime' smart constructor.
 updateMaintenanceStartTime :: Text -> Natural -> Natural -> Natural -> UpdateMaintenanceStartTime
@@ -147,7 +149,7 @@ instance ToQuery UpdateMaintenanceStartTime where
 data UpdateMaintenanceStartTimeResponse = UpdateMaintenanceStartTimeResponse'
     { _umstrGatewayARN :: !(Maybe Text)
     , _umstrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMaintenanceStartTimeResponse' smart constructor.
 updateMaintenanceStartTimeResponse :: Int -> UpdateMaintenanceStartTimeResponse

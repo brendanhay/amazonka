@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmsForMetric
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data DescribeAlarmsForMetric = DescribeAlarmsForMetric'
     , _dafmUnit       :: !(Maybe StandardUnit)
     , _dafmMetricName :: !Text
     , _dafmNamespace  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmsForMetric' smart constructor.
 describeAlarmsForMetric :: Text -> Text -> DescribeAlarmsForMetric
@@ -150,7 +152,7 @@ instance ToQuery DescribeAlarmsForMetric where
 data DescribeAlarmsForMetricResponse = DescribeAlarmsForMetricResponse'
     { _dafmrMetricAlarms :: !(Maybe [MetricAlarm])
     , _dafmrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmsForMetricResponse' smart constructor.
 describeAlarmsForMetricResponse :: Int -> DescribeAlarmsForMetricResponse

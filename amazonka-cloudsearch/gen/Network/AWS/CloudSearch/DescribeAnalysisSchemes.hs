@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeAnalysisSchemes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
     { _descDeployed            :: !(Maybe Bool)
     , _descAnalysisSchemeNames :: !(Maybe [Text])
     , _descDomainName          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAnalysisSchemes' smart constructor.
 describeAnalysisSchemes :: Text -> DescribeAnalysisSchemes
@@ -136,7 +138,7 @@ instance ToQuery DescribeAnalysisSchemes where
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
     { _dasrStatus          :: !Int
     , _dasrAnalysisSchemes :: ![AnalysisSchemeStatus]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
 describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse

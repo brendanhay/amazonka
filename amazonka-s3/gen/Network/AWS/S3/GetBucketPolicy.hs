@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.S3.Types
 -- * 'gbpBucket'
 newtype GetBucketPolicy = GetBucketPolicy'
     { _gbpBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketPolicy' smart constructor.
 getBucketPolicy :: BucketName -> GetBucketPolicy
@@ -90,7 +92,7 @@ instance ToQuery GetBucketPolicy where
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
     { _gbprPolicy :: !(Maybe Text)
     , _gbprStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketPolicyResponse' smart constructor.
 getBucketPolicyResponse :: Int -> GetBucketPolicyResponse

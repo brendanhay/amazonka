@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data CreateSnapshot = CreateSnapshot'
     { _csCacheClusterId :: !Text
     , _csSnapshotName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
@@ -107,7 +109,7 @@ instance ToQuery CreateSnapshot where
 data CreateSnapshotResponse = CreateSnapshotResponse'
     { _cSnapshot :: !(Maybe Snapshot)
     , _cStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse

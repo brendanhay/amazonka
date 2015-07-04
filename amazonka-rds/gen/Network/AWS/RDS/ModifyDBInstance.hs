@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.ModifyDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -135,7 +137,7 @@ data ModifyDBInstance = ModifyDBInstance'
     , _mdiOptionGroupName            :: !(Maybe Text)
     , _mdiStorageType                :: !(Maybe Text)
     , _mdiDBInstanceIdentifier       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyDBInstance' smart constructor.
 modifyDBInstance :: Text -> ModifyDBInstance
@@ -592,7 +594,7 @@ instance ToQuery ModifyDBInstance where
 data ModifyDBInstanceResponse = ModifyDBInstanceResponse'
     { _mdirDBInstance :: !(Maybe DBInstance)
     , _mdirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyDBInstanceResponse' smart constructor.
 modifyDBInstanceResponse :: Int -> ModifyDBInstanceResponse

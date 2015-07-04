@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.AllocateConnectionOnInterconnect
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -76,7 +78,7 @@ data AllocateConnectionOnInterconnect = AllocateConnectionOnInterconnect'
     , _acoiOwnerAccount   :: !Text
     , _acoiInterconnectId :: !Text
     , _acoiVlan           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocateConnectionOnInterconnect' smart constructor.
 allocateConnectionOnInterconnect :: Text -> Text -> Text -> Text -> Int -> AllocateConnectionOnInterconnect

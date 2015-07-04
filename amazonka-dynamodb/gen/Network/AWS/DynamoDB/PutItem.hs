@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.PutItem
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -114,7 +116,7 @@ data PutItem = PutItem'
     , _piExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
     , _piTableName                   :: !Text
     , _piItem                        :: !(Map Text AttributeValue)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutItem' smart constructor.
 putItem :: Text -> PutItem
@@ -577,7 +579,7 @@ data PutItemResponse = PutItemResponse'
     , _pirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _pirAttributes            :: !(Maybe (Map Text AttributeValue))
     , _pirStatus                :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutItemResponse' smart constructor.
 putItemResponse :: Int -> PutItemResponse

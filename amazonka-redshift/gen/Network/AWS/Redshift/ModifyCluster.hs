@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.ModifyCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -118,7 +120,7 @@ data ModifyCluster = ModifyCluster'
     , _mcAllowVersionUpgrade              :: !(Maybe Bool)
     , _mcClusterParameterGroupName        :: !(Maybe Text)
     , _mcClusterIdentifier                :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyCluster' smart constructor.
 modifyCluster :: Text -> ModifyCluster
@@ -383,7 +385,7 @@ instance ToQuery ModifyCluster where
 data ModifyClusterResponse = ModifyClusterResponse'
     { _mcrCluster :: !(Maybe Cluster)
     , _mcrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyClusterResponse' smart constructor.
 modifyClusterResponse :: Int -> ModifyClusterResponse

@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -748,7 +750,7 @@ data GeoRestrictionType
     = None
     | Whitelist
     | Blacklist
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText GeoRestrictionType where
     parser = takeLowerText >>= \case
@@ -764,9 +766,7 @@ instance ToText GeoRestrictionType where
         None -> "none"
         Whitelist -> "whitelist"
 
-instance Hashable GeoRestrictionType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable GeoRestrictionType
 instance ToQuery GeoRestrictionType
 instance ToHeader GeoRestrictionType
 
@@ -780,7 +780,7 @@ data ItemSelection
     = ISWhitelist
     | ISNone
     | ISAll
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ItemSelection where
     parser = takeLowerText >>= \case
@@ -796,9 +796,7 @@ instance ToText ItemSelection where
         ISNone -> "none"
         ISWhitelist -> "whitelist"
 
-instance Hashable ItemSelection where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ItemSelection
 instance ToQuery ItemSelection
 instance ToHeader ItemSelection
 
@@ -816,7 +814,7 @@ data Method
     | Options
     | Put
     | Delete
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Method where
     parser = takeLowerText >>= \case
@@ -840,9 +838,7 @@ instance ToText Method where
         Post -> "post"
         Put -> "put"
 
-instance Hashable Method where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Method
 instance ToQuery Method
 instance ToHeader Method
 
@@ -855,7 +851,7 @@ instance ToXML Method where
 data MinimumProtocolVersion
     = TLSV1
     | SSLV3
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MinimumProtocolVersion where
     parser = takeLowerText >>= \case
@@ -869,9 +865,7 @@ instance ToText MinimumProtocolVersion where
         SSLV3 -> "sslv3"
         TLSV1 -> "tlsv1"
 
-instance Hashable MinimumProtocolVersion where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable MinimumProtocolVersion
 instance ToQuery MinimumProtocolVersion
 instance ToHeader MinimumProtocolVersion
 
@@ -884,7 +878,7 @@ instance ToXML MinimumProtocolVersion where
 data OriginProtocolPolicy
     = HTTPOnly
     | MatchViewer
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OriginProtocolPolicy where
     parser = takeLowerText >>= \case
@@ -898,9 +892,7 @@ instance ToText OriginProtocolPolicy where
         HTTPOnly -> "http-only"
         MatchViewer -> "match-viewer"
 
-instance Hashable OriginProtocolPolicy where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable OriginProtocolPolicy
 instance ToQuery OriginProtocolPolicy
 instance ToHeader OriginProtocolPolicy
 
@@ -914,7 +906,7 @@ data PriceClass
     = PriceClass200
     | PriceClass100
     | PriceClassAll
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PriceClass where
     parser = takeLowerText >>= \case
@@ -930,9 +922,7 @@ instance ToText PriceClass where
         PriceClass200 -> "priceclass_200"
         PriceClassAll -> "priceclass_all"
 
-instance Hashable PriceClass where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable PriceClass
 instance ToQuery PriceClass
 instance ToHeader PriceClass
 
@@ -945,7 +935,7 @@ instance ToXML PriceClass where
 data SSLSupportMethod
     = VIP
     | SNIOnly
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SSLSupportMethod where
     parser = takeLowerText >>= \case
@@ -959,9 +949,7 @@ instance ToText SSLSupportMethod where
         SNIOnly -> "sni-only"
         VIP -> "vip"
 
-instance Hashable SSLSupportMethod where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SSLSupportMethod
 instance ToQuery SSLSupportMethod
 instance ToHeader SSLSupportMethod
 
@@ -975,7 +963,7 @@ data ViewerProtocolPolicy
     = HTTPSOnly
     | RedirectTOHTTPS
     | AllowAll
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ViewerProtocolPolicy where
     parser = takeLowerText >>= \case
@@ -991,9 +979,7 @@ instance ToText ViewerProtocolPolicy where
         HTTPSOnly -> "https-only"
         RedirectTOHTTPS -> "redirect-to-https"
 
-instance Hashable ViewerProtocolPolicy where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ViewerProtocolPolicy
 instance ToQuery ViewerProtocolPolicy
 instance ToHeader ViewerProtocolPolicy
 
@@ -1022,7 +1008,7 @@ data ActiveTrustedSigners = ActiveTrustedSigners'
     { _atsItems    :: !(Maybe [Signer])
     , _atsEnabled  :: !Bool
     , _atsQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActiveTrustedSigners' smart constructor.
 activeTrustedSigners :: Bool -> Int -> ActiveTrustedSigners
@@ -1071,7 +1057,7 @@ instance FromXML ActiveTrustedSigners where
 data Aliases = Aliases'
     { _aliItems    :: !(Maybe [Text])
     , _aliQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Aliases' smart constructor.
 aliases :: Int -> Aliases
@@ -1126,7 +1112,7 @@ data AllowedMethods = AllowedMethods'
     { _amCachedMethods :: !(Maybe CachedMethods)
     , _amQuantity      :: !Int
     , _amItems         :: ![Method]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllowedMethods' smart constructor.
 allowedMethods :: Int -> AllowedMethods
@@ -1217,7 +1203,7 @@ data CacheBehavior = CacheBehavior'
     , _cbTrustedSigners       :: !TrustedSigners
     , _cbViewerProtocolPolicy :: !ViewerProtocolPolicy
     , _cbMinTTL               :: !Integer
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheBehavior' smart constructor.
 cacheBehavior :: Text -> Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> CacheBehavior
@@ -1359,7 +1345,7 @@ instance ToXML CacheBehavior where
 data CacheBehaviors = CacheBehaviors'
     { _cbItems    :: !(Maybe [CacheBehavior])
     , _cbQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheBehaviors' smart constructor.
 cacheBehaviors :: Int -> CacheBehaviors
@@ -1410,7 +1396,7 @@ instance ToXML CacheBehaviors where
 data CachedMethods = CachedMethods'
     { _cmQuantity :: !Int
     , _cmItems    :: ![Method]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CachedMethods' smart constructor.
 cachedMethods :: Int -> CachedMethods
@@ -1459,7 +1445,7 @@ data CloudFrontOriginAccessIdentity = CloudFrontOriginAccessIdentity'
     { _cfoaiCloudFrontOriginAccessIdentityConfig :: !(Maybe CloudFrontOriginAccessIdentityConfig)
     , _cfoaiId                                   :: !Text
     , _cfoaiS3CanonicalUserId                    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloudFrontOriginAccessIdentity' smart constructor.
 cloudFrontOriginAccessIdentity :: Text -> Text -> CloudFrontOriginAccessIdentity
@@ -1503,7 +1489,7 @@ instance FromXML CloudFrontOriginAccessIdentity where
 data CloudFrontOriginAccessIdentityConfig = CloudFrontOriginAccessIdentityConfig'
     { _cfoaicCallerReference :: !Text
     , _cfoaicComment         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloudFrontOriginAccessIdentityConfig' smart constructor.
 cloudFrontOriginAccessIdentityConfig :: Text -> Text -> CloudFrontOriginAccessIdentityConfig
@@ -1569,7 +1555,7 @@ data CloudFrontOriginAccessIdentityList = CloudFrontOriginAccessIdentityList'
     , _cfoailMaxItems    :: !Int
     , _cfoailIsTruncated :: !Bool
     , _cfoailQuantity    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloudFrontOriginAccessIdentityList' smart constructor.
 cloudFrontOriginAccessIdentityList :: Text -> Int -> Bool -> Int -> CloudFrontOriginAccessIdentityList
@@ -1644,7 +1630,7 @@ data CloudFrontOriginAccessIdentitySummary = CloudFrontOriginAccessIdentitySumma
     { _cfoaisId                :: !Text
     , _cfoaisS3CanonicalUserId :: !Text
     , _cfoaisComment           :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloudFrontOriginAccessIdentitySummary' smart constructor.
 cloudFrontOriginAccessIdentitySummary :: Text -> Text -> Text -> CloudFrontOriginAccessIdentitySummary
@@ -1691,7 +1677,7 @@ instance FromXML
 data CookieNames = CookieNames'
     { _cnItems    :: !(Maybe [Text])
     , _cnQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CookieNames' smart constructor.
 cookieNames :: Int -> CookieNames
@@ -1736,7 +1722,7 @@ instance ToXML CookieNames where
 data CookiePreference = CookiePreference'
     { _cpWhitelistedNames :: !(Maybe CookieNames)
     , _cpForward          :: !ItemSelection
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CookiePreference' smart constructor.
 cookiePreference :: ItemSelection -> CookiePreference
@@ -1799,7 +1785,7 @@ data CustomErrorResponse = CustomErrorResponse'
     , _cerResponseCode       :: !(Maybe Text)
     , _cerErrorCachingMinTTL :: !(Maybe Integer)
     , _cerErrorCode          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CustomErrorResponse' smart constructor.
 customErrorResponse :: Int -> CustomErrorResponse
@@ -1866,7 +1852,7 @@ instance ToXML CustomErrorResponse where
 data CustomErrorResponses = CustomErrorResponses'
     { _cerItems    :: !(Maybe [CustomErrorResponse])
     , _cerQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CustomErrorResponses' smart constructor.
 customErrorResponses :: Int -> CustomErrorResponses
@@ -1915,7 +1901,7 @@ data CustomOriginConfig = CustomOriginConfig'
     { _cocHTTPPort             :: !Int
     , _cocHTTPSPort            :: !Int
     , _cocOriginProtocolPolicy :: !OriginProtocolPolicy
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CustomOriginConfig' smart constructor.
 customOriginConfig :: Int -> Int -> OriginProtocolPolicy -> CustomOriginConfig
@@ -1987,7 +1973,7 @@ data DefaultCacheBehavior = DefaultCacheBehavior'
     , _dcbTrustedSigners       :: !TrustedSigners
     , _dcbViewerProtocolPolicy :: !ViewerProtocolPolicy
     , _dcbMinTTL               :: !Integer
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefaultCacheBehavior' smart constructor.
 defaultCacheBehavior :: Text -> ForwardedValues -> TrustedSigners -> ViewerProtocolPolicy -> Integer -> DefaultCacheBehavior
@@ -2130,7 +2116,7 @@ data Distribution = Distribution'
     , _disDomainName                    :: !Text
     , _disActiveTrustedSigners          :: !ActiveTrustedSigners
     , _disDistributionConfig            :: !DistributionConfig
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Distribution' smart constructor.
 distribution :: Text -> Text -> UTCTime -> Int -> Text -> ActiveTrustedSigners -> DistributionConfig -> Distribution
@@ -2239,7 +2225,7 @@ data DistributionConfig = DistributionConfig'
     , _dcDefaultCacheBehavior :: !DefaultCacheBehavior
     , _dcComment              :: !Text
     , _dcEnabled              :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DistributionConfig' smart constructor.
 distributionConfig :: Text -> Origins -> DefaultCacheBehavior -> Text -> Bool -> DistributionConfig
@@ -2395,7 +2381,7 @@ data DistributionList = DistributionList'
     , _dlMaxItems    :: !Int
     , _dlIsTruncated :: !Bool
     , _dlQuantity    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DistributionList' smart constructor.
 distributionList :: Text -> Int -> Bool -> Int -> DistributionList
@@ -2499,7 +2485,7 @@ data DistributionSummary = DistributionSummary'
     , _dsEnabled              :: !Bool
     , _dsViewerCertificate    :: !ViewerCertificate
     , _dsRestrictions         :: !Restrictions
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DistributionSummary' smart constructor.
 distributionSummary :: Text -> Text -> UTCTime -> Text -> Aliases -> Origins -> DefaultCacheBehavior -> CacheBehaviors -> CustomErrorResponses -> Text -> PriceClass -> Bool -> ViewerCertificate -> Restrictions -> DistributionSummary
@@ -2619,7 +2605,7 @@ data ForwardedValues = ForwardedValues'
     { _fvHeaders     :: !(Maybe Headers)
     , _fvQueryString :: !Bool
     , _fvCookies     :: !CookiePreference
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ForwardedValues' smart constructor.
 forwardedValues :: Bool -> CookiePreference -> ForwardedValues
@@ -2678,7 +2664,7 @@ data GeoRestriction = GeoRestriction'
     { _grItems           :: !(Maybe [Text])
     , _grRestrictionType :: !GeoRestrictionType
     , _grQuantity        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GeoRestriction' smart constructor.
 geoRestriction :: GeoRestrictionType -> Int -> GeoRestriction
@@ -2754,7 +2740,7 @@ instance ToXML GeoRestriction where
 data Headers = Headers'
     { _heaItems    :: !(Maybe [Text])
     , _heaQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Headers' smart constructor.
 headers :: Int -> Headers
@@ -2811,7 +2797,7 @@ data Invalidation = Invalidation'
     , _invStatus            :: !Text
     , _invCreateTime        :: !ISO8601
     , _invInvalidationBatch :: !InvalidationBatch
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Invalidation' smart constructor.
 invalidation :: Text -> Text -> UTCTime -> InvalidationBatch -> Invalidation
@@ -2860,7 +2846,7 @@ instance FromXML Invalidation where
 data InvalidationBatch = InvalidationBatch'
     { _ibPaths           :: !Paths
     , _ibCallerReference :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InvalidationBatch' smart constructor.
 invalidationBatch :: Paths -> Text -> InvalidationBatch
@@ -2928,7 +2914,7 @@ data InvalidationList = InvalidationList'
     , _ilMaxItems    :: !Int
     , _ilIsTruncated :: !Bool
     , _ilQuantity    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InvalidationList' smart constructor.
 invalidationList :: Text -> Int -> Bool -> Int -> InvalidationList
@@ -2999,7 +2985,7 @@ data InvalidationSummary = InvalidationSummary'
     { _isId         :: !Text
     , _isCreateTime :: !ISO8601
     , _isStatus     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InvalidationSummary' smart constructor.
 invalidationSummary :: Text -> UTCTime -> Text -> InvalidationSummary
@@ -3041,7 +3027,7 @@ instance FromXML InvalidationSummary where
 data KeyPairIds = KeyPairIds'
     { _kpiItems    :: !(Maybe [Text])
     , _kpiQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'KeyPairIds' smart constructor.
 keyPairIds :: Int -> KeyPairIds
@@ -3086,7 +3072,7 @@ data LoggingConfig = LoggingConfig'
     , _lcIncludeCookies :: !Bool
     , _lcBucket         :: !Text
     , _lcPrefix         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoggingConfig' smart constructor.
 loggingConfig :: Bool -> Bool -> Text -> Text -> LoggingConfig
@@ -3166,7 +3152,7 @@ data Origin = Origin'
     , _oriOriginPath         :: !(Maybe Text)
     , _oriId                 :: !Text
     , _oriDomainName         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Origin' smart constructor.
 origin :: Text -> Text -> Origin
@@ -3243,7 +3229,7 @@ instance ToXML Origin where
 data Origins = Origins'
     { _oriItems    :: !(Maybe (List1 Origin))
     , _oriQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Origins' smart constructor.
 origins :: Int -> Origins
@@ -3287,7 +3273,7 @@ instance ToXML Origins where
 data Paths = Paths'
     { _patItems    :: !(Maybe [Text])
     , _patQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Paths' smart constructor.
 paths :: Int -> Paths
@@ -3329,7 +3315,7 @@ instance ToXML Paths where
 -- * 'resGeoRestriction'
 newtype Restrictions = Restrictions'
     { _resGeoRestriction :: GeoRestriction
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Restrictions' smart constructor.
 restrictions :: GeoRestriction -> Restrictions
@@ -3363,7 +3349,7 @@ instance ToXML Restrictions where
 data S3Origin = S3Origin'
     { _soDomainName           :: !Text
     , _soOriginAccessIdentity :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3Origin' smart constructor.
 s3Origin :: Text -> Text -> S3Origin
@@ -3403,7 +3389,7 @@ instance ToXML S3Origin where
 -- * 'socOriginAccessIdentity'
 newtype S3OriginConfig = S3OriginConfig'
     { _socOriginAccessIdentity :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'S3OriginConfig' smart constructor.
 s3OriginConfig :: Text -> S3OriginConfig
@@ -3450,7 +3436,7 @@ instance ToXML S3OriginConfig where
 data Signer = Signer'
     { _sigAWSAccountNumber :: !(Maybe Text)
     , _sigKeyPairIds       :: !(Maybe KeyPairIds)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Signer' smart constructor.
 signer :: Signer
@@ -3501,7 +3487,7 @@ data StreamingDistribution = StreamingDistribution'
     , _sdDomainName                  :: !Text
     , _sdActiveTrustedSigners        :: !ActiveTrustedSigners
     , _sdStreamingDistributionConfig :: !StreamingDistributionConfig
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingDistribution' smart constructor.
 streamingDistribution :: Text -> Text -> Text -> ActiveTrustedSigners -> StreamingDistributionConfig -> StreamingDistribution
@@ -3590,7 +3576,7 @@ data StreamingDistributionConfig = StreamingDistributionConfig'
     , _sdcComment         :: !Text
     , _sdcTrustedSigners  :: !TrustedSigners
     , _sdcEnabled         :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingDistributionConfig' smart constructor.
 streamingDistributionConfig :: Text -> S3Origin -> Text -> TrustedSigners -> Bool -> StreamingDistributionConfig
@@ -3710,7 +3696,7 @@ data StreamingDistributionList = StreamingDistributionList'
     , _sdlMaxItems    :: !Int
     , _sdlIsTruncated :: !Bool
     , _sdlQuantity    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingDistributionList' smart constructor.
 streamingDistributionList :: Text -> Int -> Bool -> Int -> StreamingDistributionList
@@ -3803,7 +3789,7 @@ data StreamingDistributionSummary = StreamingDistributionSummary'
     , _sdsComment          :: !Text
     , _sdsPriceClass       :: !PriceClass
     , _sdsEnabled          :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingDistributionSummary' smart constructor.
 streamingDistributionSummary :: Text -> Text -> UTCTime -> Text -> S3Origin -> Aliases -> TrustedSigners -> Text -> PriceClass -> Bool -> StreamingDistributionSummary
@@ -3907,7 +3893,7 @@ data StreamingLoggingConfig = StreamingLoggingConfig'
     { _slcEnabled :: !Bool
     , _slcBucket  :: !Text
     , _slcPrefix  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamingLoggingConfig' smart constructor.
 streamingLoggingConfig :: Bool -> Text -> Text -> StreamingLoggingConfig
@@ -3978,7 +3964,7 @@ data TrustedSigners = TrustedSigners'
     { _tsItems    :: !(Maybe [Text])
     , _tsEnabled  :: !Bool
     , _tsQuantity :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TrustedSigners' smart constructor.
 trustedSigners :: Bool -> Int -> TrustedSigners
@@ -4037,7 +4023,7 @@ data ViewerCertificate = ViewerCertificate'
     , _vcMinimumProtocolVersion       :: !(Maybe MinimumProtocolVersion)
     , _vcIAMCertificateId             :: !(Maybe Text)
     , _vcCloudFrontDefaultCertificate :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ViewerCertificate' smart constructor.
 viewerCertificate :: ViewerCertificate

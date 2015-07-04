@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.Scan
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -127,7 +129,7 @@ data Scan = Scan'
     , _scaExclusiveStartKey         :: !(Maybe (Map Text AttributeValue))
     , _scaIndexName                 :: !(Maybe Text)
     , _scaTableName                 :: !Text
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Scan' smart constructor.
 scan :: Text -> Scan
@@ -515,7 +517,7 @@ data ScanResponse = ScanResponse'
     , _srItems            :: !(Maybe [Map Text AttributeValue])
     , _srConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _srStatus           :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ScanResponse' smart constructor.
 scanResponse :: Int -> ScanResponse

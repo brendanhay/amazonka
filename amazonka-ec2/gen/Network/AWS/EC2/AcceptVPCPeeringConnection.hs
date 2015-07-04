@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AcceptVPCPeeringConnection
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
     { _avpcVPCPeeringConnectionId :: !(Maybe Text)
     , _avpcDryRun                 :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcceptVPCPeeringConnection' smart constructor.
 acceptVPCPeeringConnection :: AcceptVPCPeeringConnection
@@ -114,7 +116,7 @@ instance ToQuery AcceptVPCPeeringConnection where
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
     { _avpcrVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
     , _avpcrStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcceptVPCPeeringConnectionResponse' smart constructor.
 acceptVPCPeeringConnectionResponse :: Int -> AcceptVPCPeeringConnectionResponse

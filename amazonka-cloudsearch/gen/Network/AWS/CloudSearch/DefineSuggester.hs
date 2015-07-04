@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineSuggester
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.Response
 data DefineSuggester = DefineSuggester'
     { _dDomainName :: !Text
     , _dSuggester  :: !Suggester
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineSuggester' smart constructor.
 defineSuggester :: Text -> Suggester -> DefineSuggester
@@ -116,7 +118,7 @@ instance ToQuery DefineSuggester where
 data DefineSuggesterResponse = DefineSuggesterResponse'
     { _dsrStatus    :: !Int
     , _dsrSuggester :: !SuggesterStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineSuggesterResponse' smart constructor.
 defineSuggesterResponse :: Int -> SuggesterStatus -> DefineSuggesterResponse

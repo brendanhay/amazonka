@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.EnableKey
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -45,7 +47,7 @@ import           Network.AWS.Response
 -- * 'ekKeyId'
 newtype EnableKey = EnableKey'
     { _ekKeyId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableKey' smart constructor.
 enableKey :: Text -> EnableKey
@@ -91,7 +93,7 @@ instance ToQuery EnableKey where
 -- | /See:/ 'enableKeyResponse' smart constructor.
 data EnableKeyResponse =
     EnableKeyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableKeyResponse' smart constructor.
 enableKeyResponse :: EnableKeyResponse

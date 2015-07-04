@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SSM.CreateAssociation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.SSM.Types
 data CreateAssociation = CreateAssociation'
     { _caName       :: !Text
     , _caInstanceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociation' smart constructor.
 createAssociation :: Text -> Text -> CreateAssociation
@@ -119,7 +121,7 @@ instance ToQuery CreateAssociation where
 data CreateAssociationResponse = CreateAssociationResponse'
     { _carAssociationDescription :: !(Maybe AssociationDescription)
     , _carStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociationResponse' smart constructor.
 createAssociationResponse :: Int -> CreateAssociationResponse

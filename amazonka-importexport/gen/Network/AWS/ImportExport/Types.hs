@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ImportExport.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -202,7 +204,7 @@ _CreateJobQuotaExceededException =
 data JobType
     = Export
     | Import
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText JobType where
     parser = takeLowerText >>= \case
@@ -216,9 +218,7 @@ instance ToText JobType where
         Export -> "export"
         Import -> "import"
 
-instance Hashable JobType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable JobType
 instance ToQuery JobType
 instance ToHeader JobType
 
@@ -238,7 +238,7 @@ instance FromXML JobType where
 data Artifact = Artifact'
     { _artURL         :: !(Maybe Text)
     , _artDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Artifact' smart constructor.
 artifact :: Artifact
@@ -279,7 +279,7 @@ data Job = Job'
     , _jobJobId        :: !Text
     , _jobIsCanceled   :: !Bool
     , _jobCreationDate :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Job' smart constructor.
 job :: JobType -> Text -> Bool -> UTCTime -> Job

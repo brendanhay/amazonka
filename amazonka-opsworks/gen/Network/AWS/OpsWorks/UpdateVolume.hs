@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data UpdateVolume = UpdateVolume'
     { _updName       :: !(Maybe Text)
     , _updMountPoint :: !(Maybe Text)
     , _updVolumeId   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVolume' smart constructor.
 updateVolume :: Text -> UpdateVolume
@@ -113,7 +115,7 @@ instance ToQuery UpdateVolume where
 -- | /See:/ 'updateVolumeResponse' smart constructor.
 data UpdateVolumeResponse =
     UpdateVolumeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVolumeResponse' smart constructor.
 updateVolumeResponse :: UpdateVolumeResponse

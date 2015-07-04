@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.ResolveCase
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Support.Types
 -- * 'rcCaseId'
 newtype ResolveCase = ResolveCase'
     { _rcCaseId :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResolveCase' smart constructor.
 resolveCase :: ResolveCase
@@ -110,7 +112,7 @@ data ResolveCaseResponse = ResolveCaseResponse'
     { _rcrInitialCaseStatus :: !(Maybe Text)
     , _rcrFinalCaseStatus   :: !(Maybe Text)
     , _rcrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResolveCaseResponse' smart constructor.
 resolveCaseResponse :: Int -> ResolveCaseResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.CreateLoadBalancerPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data CreateLoadBalancerPolicy = CreateLoadBalancerPolicy'
     , _clbpLoadBalancerName :: !Text
     , _clbpPolicyName       :: !Text
     , _clbpPolicyTypeName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerPolicy' smart constructor.
 createLoadBalancerPolicy :: Text -> Text -> Text -> CreateLoadBalancerPolicy
@@ -130,7 +132,7 @@ instance ToQuery CreateLoadBalancerPolicy where
 -- * 'clbprStatus'
 newtype CreateLoadBalancerPolicyResponse = CreateLoadBalancerPolicyResponse'
     { _clbprStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerPolicyResponse' smart constructor.
 createLoadBalancerPolicyResponse :: Int -> CreateLoadBalancerPolicyResponse

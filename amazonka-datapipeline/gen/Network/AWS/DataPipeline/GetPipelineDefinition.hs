@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.GetPipelineDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data GetPipelineDefinition = GetPipelineDefinition'
     { _gpdVersion    :: !(Maybe Text)
     , _gpdPipelineId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineDefinition' smart constructor.
 getPipelineDefinition :: Text -> GetPipelineDefinition
@@ -130,7 +132,7 @@ data GetPipelineDefinitionResponse = GetPipelineDefinitionResponse'
     , _gpdrParameterObjects :: !(Maybe [ParameterObject])
     , _gpdrParameterValues  :: !(Maybe [ParameterValue])
     , _gpdrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineDefinitionResponse' smart constructor.
 getPipelineDefinitionResponse :: Int -> GetPipelineDefinitionResponse

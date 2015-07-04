@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.AuthorizeSecurityGroupEgress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -97,7 +99,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
     , _asgeSourceSecurityGroupName    :: !(Maybe Text)
     , _asgeDryRun                     :: !(Maybe Bool)
     , _asgeGroupId                    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSecurityGroupEgress' smart constructor.
 authorizeSecurityGroupEgress :: Text -> AuthorizeSecurityGroupEgress
@@ -197,7 +199,7 @@ instance ToQuery AuthorizeSecurityGroupEgress where
 -- | /See:/ 'authorizeSecurityGroupEgressResponse' smart constructor.
 data AuthorizeSecurityGroupEgressResponse =
     AuthorizeSecurityGroupEgressResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeSecurityGroupEgressResponse' smart constructor.
 authorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse

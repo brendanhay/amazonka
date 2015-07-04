@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data ValidateConfigurationSettings = ValidateConfigurationSettings'
     , _vcsEnvironmentName :: !(Maybe Text)
     , _vcsApplicationName :: !Text
     , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateConfigurationSettings' smart constructor.
 validateConfigurationSettings :: Text -> ValidateConfigurationSettings
@@ -146,7 +148,7 @@ instance ToQuery ValidateConfigurationSettings where
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
     { _vcsrMessages :: !(Maybe [ValidationMessage])
     , _vcsrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateConfigurationSettingsResponse' smart constructor.
 validateConfigurationSettingsResponse :: Int -> ValidateConfigurationSettingsResponse

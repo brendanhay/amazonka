@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -87,7 +89,7 @@ data CreateSecurityGroup = CreateSecurityGroup'
     , _csgDryRun      :: !(Maybe Bool)
     , _csgGroupName   :: !Text
     , _csgDescription :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSecurityGroup' smart constructor.
 createSecurityGroup :: Text -> Text -> CreateSecurityGroup
@@ -168,7 +170,7 @@ instance ToQuery CreateSecurityGroup where
 data CreateSecurityGroupResponse = CreateSecurityGroupResponse'
     { _csgrStatus  :: !Int
     , _csgrGroupId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSecurityGroupResponse' smart constructor.
 createSecurityGroupResponse :: Int -> Text -> CreateSecurityGroupResponse

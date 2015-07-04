@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.RemovePermission
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.SQS.Types
 data RemovePermission = RemovePermission'
     { _rpQueueURL :: !Text
     , _rpLabel    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
@@ -90,7 +92,7 @@ instance ToQuery RemovePermission where
 -- | /See:/ 'removePermissionResponse' smart constructor.
 data RemovePermissionResponse =
     RemovePermissionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemovePermissionResponse' smart constructor.
 removePermissionResponse :: RemovePermissionResponse

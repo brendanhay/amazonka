@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.PurchaseReservedDBInstancesOffering
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
     , _prdioReservedDBInstanceId          :: !(Maybe Text)
     , _prdioTags                          :: !(Maybe [Tag])
     , _prdioReservedDBInstancesOfferingId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedDBInstancesOffering' smart constructor.
 purchaseReservedDBInstancesOffering :: Text -> PurchaseReservedDBInstancesOffering
@@ -140,7 +142,7 @@ instance ToQuery PurchaseReservedDBInstancesOffering
 data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
     { _prdiorReservedDBInstance :: !(Maybe ReservedDBInstance)
     , _prdiorStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedDBInstancesOfferingResponse' smart constructor.
 purchaseReservedDBInstancesOfferingResponse :: Int -> PurchaseReservedDBInstancesOfferingResponse

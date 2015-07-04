@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.WorkSpaces.Types
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
     { _dwdNextToken    :: !(Maybe Text)
     , _dwdDirectoryIds :: !(Maybe (List1 Text))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkspaceDirectories' smart constructor.
 describeWorkspaceDirectories :: DescribeWorkspaceDirectories
@@ -132,7 +134,7 @@ data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse
     { _dwdrDirectories :: !(Maybe [WorkspaceDirectory])
     , _dwdrNextToken   :: !(Maybe Text)
     , _dwdrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkspaceDirectoriesResponse' smart constructor.
 describeWorkspaceDirectoriesResponse :: Int -> DescribeWorkspaceDirectoriesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.CreateDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -165,7 +167,7 @@ data CreateDBInstance = CreateDBInstance'
     , _cdiEngine                     :: !Text
     , _cdiMasterUsername             :: !Text
     , _cdiMasterUserPassword         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBInstance' smart constructor.
 createDBInstance :: Text -> Int -> Text -> Text -> Text -> Text -> CreateDBInstance
@@ -837,7 +839,7 @@ instance ToQuery CreateDBInstance where
 data CreateDBInstanceResponse = CreateDBInstanceResponse'
     { _cdirDBInstance :: !(Maybe DBInstance)
     , _cdirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBInstanceResponse' smart constructor.
 createDBInstanceResponse :: Int -> CreateDBInstanceResponse

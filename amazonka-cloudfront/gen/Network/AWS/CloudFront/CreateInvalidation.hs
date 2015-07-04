@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.CreateInvalidation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data CreateInvalidation = CreateInvalidation'
     { _ciDistributionId    :: !Text
     , _ciInvalidationBatch :: !InvalidationBatch
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInvalidation' smart constructor.
 createInvalidation :: Text -> InvalidationBatch -> CreateInvalidation
@@ -118,7 +120,7 @@ data CreateInvalidationResponse = CreateInvalidationResponse'
     { _cirInvalidation :: !(Maybe Invalidation)
     , _cirLocation     :: !(Maybe Text)
     , _cirStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInvalidationResponse' smart constructor.
 createInvalidationResponse :: Int -> CreateInvalidationResponse

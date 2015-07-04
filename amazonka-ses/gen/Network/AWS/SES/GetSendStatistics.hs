@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SES.GetSendStatistics
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.SES.Types
 -- | /See:/ 'getSendStatistics' smart constructor.
 data GetSendStatistics =
     GetSendStatistics'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSendStatistics' smart constructor.
 getSendStatistics :: GetSendStatistics
@@ -92,7 +94,7 @@ instance ToQuery GetSendStatistics where
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
     { _gssrSendDataPoints :: !(Maybe [SendDataPoint])
     , _gssrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSendStatisticsResponse' smart constructor.
 getSendStatisticsResponse :: Int -> GetSendStatisticsResponse

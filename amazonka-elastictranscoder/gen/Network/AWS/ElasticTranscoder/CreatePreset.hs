@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.CreatePreset
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -87,7 +89,7 @@ data CreatePreset = CreatePreset'
     , _cpDescription :: !(Maybe Text)
     , _cpName        :: !Text
     , _cpContainer   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePreset' smart constructor.
 createPreset :: Text -> Text -> CreatePreset
@@ -171,7 +173,7 @@ data CreatePresetResponse = CreatePresetResponse'
     { _cprWarning :: !(Maybe Text)
     , _cprPreset  :: !(Maybe Preset)
     , _cprStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePresetResponse' smart constructor.
 createPresetResponse :: Int -> CreatePresetResponse

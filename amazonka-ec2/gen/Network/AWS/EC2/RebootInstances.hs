@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.RebootInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 data RebootInstances = RebootInstances'
     { _rebDryRun      :: !(Maybe Bool)
     , _rebInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootInstances' smart constructor.
 rebootInstances :: RebootInstances
@@ -102,7 +104,7 @@ instance ToQuery RebootInstances where
 -- | /See:/ 'rebootInstancesResponse' smart constructor.
 data RebootInstancesResponse =
     RebootInstancesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootInstancesResponse' smart constructor.
 rebootInstancesResponse :: RebootInstancesResponse

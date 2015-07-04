@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -648,7 +650,7 @@ _InvalidCacheSecurityGroupStateFault =
 data AZMode
     = SingleAZ
     | CrossAZ
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AZMode where
     parser = takeLowerText >>= \case
@@ -662,9 +664,7 @@ instance ToText AZMode where
         CrossAZ -> "cross-az"
         SingleAZ -> "single-az"
 
-instance Hashable AZMode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AZMode
 instance ToQuery AZMode
 instance ToHeader AZMode
 
@@ -673,7 +673,7 @@ data AutomaticFailoverStatus
     | AFSDisabled
     | AFSDisabling
     | AFSEnabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AutomaticFailoverStatus where
     parser = takeLowerText >>= \case
@@ -691,9 +691,7 @@ instance ToText AutomaticFailoverStatus where
         AFSEnabled -> "enabled"
         AFSEnabling -> "enabling"
 
-instance Hashable AutomaticFailoverStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AutomaticFailoverStatus
 instance ToQuery AutomaticFailoverStatus
 instance ToHeader AutomaticFailoverStatus
 
@@ -703,7 +701,7 @@ instance FromXML AutomaticFailoverStatus where
 data PendingAutomaticFailoverStatus
     = Enabled
     | Disabled
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PendingAutomaticFailoverStatus where
     parser = takeLowerText >>= \case
@@ -717,9 +715,7 @@ instance ToText PendingAutomaticFailoverStatus where
         Disabled -> "disabled"
         Enabled -> "enabled"
 
-instance Hashable PendingAutomaticFailoverStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable PendingAutomaticFailoverStatus
 instance ToQuery PendingAutomaticFailoverStatus
 instance ToHeader PendingAutomaticFailoverStatus
 
@@ -731,7 +727,7 @@ data SourceType
     | CacheCluster
     | CacheParameterGroup
     | CacheSecurityGroup
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -749,9 +745,7 @@ instance ToText SourceType where
         CacheSecurityGroup -> "cache-security-group"
         CacheSubnetGroup -> "cache-subnet-group"
 
-instance Hashable SourceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SourceType
 instance ToQuery SourceType
 instance ToHeader SourceType
 
@@ -767,7 +761,7 @@ instance FromXML SourceType where
 -- * 'azName'
 newtype AvailabilityZone = AvailabilityZone'
     { _azName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AvailabilityZone' smart constructor.
 availabilityZone :: AvailabilityZone
@@ -855,7 +849,7 @@ data CacheCluster = CacheCluster'
     , _ccReplicationGroupId         :: !(Maybe Text)
     , _ccPendingModifiedValues      :: !(Maybe PendingModifiedValues)
     , _ccNumCacheNodes              :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheCluster' smart constructor.
 cacheCluster :: CacheCluster
@@ -1094,7 +1088,7 @@ data CacheEngineVersion = CacheEngineVersion'
     , _cevEngineVersion                 :: !(Maybe Text)
     , _cevCacheEngineVersionDescription :: !(Maybe Text)
     , _cevEngine                        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheEngineVersion' smart constructor.
 cacheEngineVersion :: CacheEngineVersion
@@ -1196,7 +1190,7 @@ data CacheNode = CacheNode'
     , _cnCacheNodeId              :: !(Maybe Text)
     , _cnCacheNodeStatus          :: !(Maybe Text)
     , _cnEndpoint                 :: !(Maybe Endpoint)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheNode' smart constructor.
 cacheNode :: CacheNode
@@ -1287,7 +1281,7 @@ data CacheNodeTypeSpecificParameter = CacheNodeTypeSpecificParameter'
     , _cntspDataType                    :: !(Maybe Text)
     , _cntspParameterName               :: !(Maybe Text)
     , _cntspDescription                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheNodeTypeSpecificParameter' smart constructor.
 cacheNodeTypeSpecificParameter :: CacheNodeTypeSpecificParameter
@@ -1363,7 +1357,7 @@ instance FromXML CacheNodeTypeSpecificParameter where
 data CacheNodeTypeSpecificValue = CacheNodeTypeSpecificValue'
     { _cntsvCacheNodeType :: !(Maybe Text)
     , _cntsvValue         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheNodeTypeSpecificValue' smart constructor.
 cacheNodeTypeSpecificValue :: CacheNodeTypeSpecificValue
@@ -1401,7 +1395,7 @@ data CacheParameterGroup = CacheParameterGroup'
     { _cpgCacheParameterGroupFamily :: !(Maybe Text)
     , _cpgCacheParameterGroupName   :: !(Maybe Text)
     , _cpgDescription               :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheParameterGroup' smart constructor.
 cacheParameterGroup :: CacheParameterGroup
@@ -1444,7 +1438,7 @@ instance FromXML CacheParameterGroup where
 -- * 'cpgnmCacheParameterGroupName'
 newtype CacheParameterGroupNameMessage = CacheParameterGroupNameMessage'
     { _cpgnmCacheParameterGroupName :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheParameterGroupNameMessage' smart constructor.
 cacheParameterGroupNameMessage :: CacheParameterGroupNameMessage
@@ -1477,7 +1471,7 @@ data CacheParameterGroupStatus = CacheParameterGroupStatus'
     { _cpgsCacheParameterGroupName :: !(Maybe Text)
     , _cpgsCacheNodeIdsToReboot    :: !(Maybe [Text])
     , _cpgsParameterApplyStatus    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheParameterGroupStatus' smart constructor.
 cacheParameterGroupStatus :: CacheParameterGroupStatus
@@ -1532,7 +1526,7 @@ data CacheSecurityGroup = CacheSecurityGroup'
     , _csgOwnerId                :: !(Maybe Text)
     , _csgEC2SecurityGroups      :: !(Maybe [EC2SecurityGroup])
     , _csgDescription            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheSecurityGroup' smart constructor.
 cacheSecurityGroup :: CacheSecurityGroup
@@ -1584,7 +1578,7 @@ instance FromXML CacheSecurityGroup where
 data CacheSecurityGroupMembership = CacheSecurityGroupMembership'
     { _csgmStatus                 :: !(Maybe Text)
     , _csgmCacheSecurityGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheSecurityGroupMembership' smart constructor.
 cacheSecurityGroupMembership :: CacheSecurityGroupMembership
@@ -1630,7 +1624,7 @@ data CacheSubnetGroup = CacheSubnetGroup'
     , _csgSubnets                     :: !(Maybe [Subnet])
     , _csgCacheSubnetGroupName        :: !(Maybe Text)
     , _csgCacheSubnetGroupDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CacheSubnetGroup' smart constructor.
 cacheSubnetGroup :: CacheSubnetGroup
@@ -1684,7 +1678,7 @@ data EC2SecurityGroup = EC2SecurityGroup'
     { _esgStatus                  :: !(Maybe Text)
     , _esgEC2SecurityGroupOwnerId :: !(Maybe Text)
     , _esgEC2SecurityGroupName    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EC2SecurityGroup' smart constructor.
 ec2SecurityGroup :: EC2SecurityGroup
@@ -1727,7 +1721,7 @@ instance FromXML EC2SecurityGroup where
 data Endpoint = Endpoint'
     { _endAddress :: !(Maybe Text)
     , _endPort    :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
@@ -1767,7 +1761,7 @@ data EngineDefaults = EngineDefaults'
     , _edCacheNodeTypeSpecificParameters :: !(Maybe [CacheNodeTypeSpecificParameter])
     , _edParameters                      :: !(Maybe [Parameter])
     , _edMarker                          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EngineDefaults' smart constructor.
 engineDefaults :: EngineDefaults
@@ -1829,7 +1823,7 @@ data Event = Event'
     , _eveSourceIdentifier :: !(Maybe Text)
     , _eveDate             :: !(Maybe ISO8601)
     , _eveMessage          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Event' smart constructor.
 event :: Event
@@ -1885,7 +1879,7 @@ data NodeGroup = NodeGroup'
     , _ngPrimaryEndpoint  :: !(Maybe Endpoint)
     , _ngNodeGroupMembers :: !(Maybe [NodeGroupMember])
     , _ngNodeGroupId      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NodeGroup' smart constructor.
 nodeGroup :: NodeGroup
@@ -1945,7 +1939,7 @@ data NodeGroupMember = NodeGroupMember'
     , _ngmPreferredAvailabilityZone :: !(Maybe Text)
     , _ngmCurrentRole               :: !(Maybe Text)
     , _ngmReadEndpoint              :: !(Maybe Endpoint)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NodeGroupMember' smart constructor.
 nodeGroupMember :: NodeGroupMember
@@ -2006,7 +2000,7 @@ data NodeSnapshot = NodeSnapshot'
     , _nsCacheNodeId         :: !(Maybe Text)
     , _nsSnapshotCreateTime  :: !(Maybe ISO8601)
     , _nsCacheSize           :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NodeSnapshot' smart constructor.
 nodeSnapshot :: NodeSnapshot
@@ -2058,7 +2052,7 @@ instance FromXML NodeSnapshot where
 data NotificationConfiguration = NotificationConfiguration'
     { _ncTopicStatus :: !(Maybe Text)
     , _ncTopicARN    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NotificationConfiguration' smart constructor.
 notificationConfiguration :: NotificationConfiguration
@@ -2112,7 +2106,7 @@ data Parameter = Parameter'
     , _parDataType             :: !(Maybe Text)
     , _parParameterName        :: !(Maybe Text)
     , _parDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
@@ -2187,7 +2181,7 @@ instance FromXML Parameter where
 data ParameterNameValue = ParameterNameValue'
     { _pnvParameterValue :: !(Maybe Text)
     , _pnvParameterName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterNameValue' smart constructor.
 parameterNameValue :: ParameterNameValue
@@ -2227,7 +2221,7 @@ data PendingModifiedValues = PendingModifiedValues'
     { _pmvEngineVersion        :: !(Maybe Text)
     , _pmvCacheNodeIdsToRemove :: !(Maybe [Text])
     , _pmvNumCacheNodes        :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PendingModifiedValues' smart constructor.
 pendingModifiedValues :: PendingModifiedValues
@@ -2276,7 +2270,7 @@ instance FromXML PendingModifiedValues where
 data RecurringCharge = RecurringCharge'
     { _rcRecurringChargeFrequency :: !(Maybe Text)
     , _rcRecurringChargeAmount    :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecurringCharge' smart constructor.
 recurringCharge :: RecurringCharge
@@ -2330,7 +2324,7 @@ data ReplicationGroup = ReplicationGroup'
     , _rgPendingModifiedValues :: !(Maybe ReplicationGroupPendingModifiedValues)
     , _rgDescription           :: !(Maybe Text)
     , _rgAutomaticFailover     :: !(Maybe AutomaticFailoverStatus)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplicationGroup' smart constructor.
 replicationGroup :: ReplicationGroup
@@ -2416,7 +2410,7 @@ instance FromXML ReplicationGroup where
 data ReplicationGroupPendingModifiedValues = ReplicationGroupPendingModifiedValues'
     { _rgpmvPrimaryClusterId        :: !(Maybe Text)
     , _rgpmvAutomaticFailoverStatus :: !(Maybe PendingAutomaticFailoverStatus)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplicationGroupPendingModifiedValues' smart constructor.
 replicationGroupPendingModifiedValues :: ReplicationGroupPendingModifiedValues
@@ -2490,7 +2484,7 @@ data ReservedCacheNode = ReservedCacheNode'
     , _rcnFixedPrice                   :: !(Maybe Double)
     , _rcnDuration                     :: !(Maybe Int)
     , _rcnReservedCacheNodesOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedCacheNode' smart constructor.
 reservedCacheNode :: ReservedCacheNode
@@ -2635,7 +2629,7 @@ data ReservedCacheNodesOffering = ReservedCacheNodesOffering'
     , _rcnoFixedPrice                   :: !(Maybe Double)
     , _rcnoDuration                     :: !(Maybe Int)
     , _rcnoReservedCacheNodesOfferingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReservedCacheNodesOffering' smart constructor.
 reservedCacheNodesOffering :: ReservedCacheNodesOffering
@@ -2739,7 +2733,7 @@ instance FromXML ReservedCacheNodesOffering where
 data SecurityGroupMembership = SecurityGroupMembership'
     { _sgmStatus          :: !(Maybe Text)
     , _sgmSecurityGroupId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SecurityGroupMembership' smart constructor.
 securityGroupMembership :: SecurityGroupMembership
@@ -2831,7 +2825,7 @@ data Snapshot = Snapshot'
     , _snaSnapshotSource             :: !(Maybe Text)
     , _snaNumCacheNodes              :: !(Maybe Int)
     , _snaPort                       :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
@@ -3046,7 +3040,7 @@ instance FromXML Snapshot where
 data Subnet = Subnet'
     { _subSubnetIdentifier       :: !(Maybe Text)
     , _subSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
@@ -3084,7 +3078,7 @@ instance FromXML Subnet where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
@@ -3120,7 +3114,7 @@ instance ToQuery Tag where
 -- * 'tlmTagList'
 newtype TagListMessage = TagListMessage'
     { _tlmTagList :: Maybe [Tag]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TagListMessage' smart constructor.
 tagListMessage :: TagListMessage

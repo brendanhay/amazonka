@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.AssignInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.Response
 data AssignInstance = AssignInstance'
     { _aiInstanceId :: !Text
     , _aiLayerIds   :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignInstance' smart constructor.
 assignInstance :: Text -> AssignInstance
@@ -109,7 +111,7 @@ instance ToQuery AssignInstance where
 -- | /See:/ 'assignInstanceResponse' smart constructor.
 data AssignInstanceResponse =
     AssignInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignInstanceResponse' smart constructor.
 assignInstanceResponse :: AssignInstanceResponse

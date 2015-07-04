@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBEngineVersions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data DescribeDBEngineVersions = DescribeDBEngineVersions'
     , _ddevListSupportedCharacterSets :: !(Maybe Bool)
     , _ddevMaxRecords                 :: !(Maybe Int)
     , _ddevMarker                     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBEngineVersions' smart constructor.
 describeDBEngineVersions :: DescribeDBEngineVersions
@@ -206,7 +208,7 @@ data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
     { _ddevrMarker           :: !(Maybe Text)
     , _ddevrDBEngineVersions :: !(Maybe [DBEngineVersion])
     , _ddevrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBEngineVersionsResponse' smart constructor.
 describeDBEngineVersionsResponse :: Int -> DescribeDBEngineVersionsResponse

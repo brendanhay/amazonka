@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.RemoveTagsFromVault
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data RemoveTagsFromVault = RemoveTagsFromVault'
     { _rtfvTagKeys   :: !(Maybe [Text])
     , _rtfvAccountId :: !Text
     , _rtfvVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromVault' smart constructor.
 removeTagsFromVault :: Text -> Text -> RemoveTagsFromVault
@@ -111,7 +113,7 @@ instance ToQuery RemoveTagsFromVault where
 -- | /See:/ 'removeTagsFromVaultResponse' smart constructor.
 data RemoveTagsFromVaultResponse =
     RemoveTagsFromVaultResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromVaultResponse' smart constructor.
 removeTagsFromVaultResponse :: RemoveTagsFromVaultResponse

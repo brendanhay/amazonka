@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.EnableSnapshotCopy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ data EnableSnapshotCopy = EnableSnapshotCopy'
     , _escSnapshotCopyGrantName :: !(Maybe Text)
     , _escClusterIdentifier     :: !Text
     , _escDestinationRegion     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableSnapshotCopy' smart constructor.
 enableSnapshotCopy :: Text -> Text -> EnableSnapshotCopy
@@ -141,7 +143,7 @@ instance ToQuery EnableSnapshotCopy where
 data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
     { _escrCluster :: !(Maybe Cluster)
     , _escrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableSnapshotCopyResponse' smart constructor.
 enableSnapshotCopyResponse :: Int -> EnableSnapshotCopyResponse

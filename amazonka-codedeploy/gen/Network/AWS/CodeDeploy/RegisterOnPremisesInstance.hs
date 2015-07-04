@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.RegisterOnPremisesInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 data RegisterOnPremisesInstance = RegisterOnPremisesInstance'
     { _ropiInstanceName :: !Text
     , _ropiIamUserARN   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterOnPremisesInstance' smart constructor.
 registerOnPremisesInstance :: Text -> Text -> RegisterOnPremisesInstance
@@ -101,7 +103,7 @@ instance ToQuery RegisterOnPremisesInstance where
 -- | /See:/ 'registerOnPremisesInstanceResponse' smart constructor.
 data RegisterOnPremisesInstanceResponse =
     RegisterOnPremisesInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterOnPremisesInstanceResponse' smart constructor.
 registerOnPremisesInstanceResponse :: RegisterOnPremisesInstanceResponse

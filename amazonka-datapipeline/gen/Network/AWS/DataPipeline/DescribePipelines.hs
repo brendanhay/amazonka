@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.DescribePipelines
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 -- * 'dpPipelineIds'
 newtype DescribePipelines = DescribePipelines'
     { _dpPipelineIds :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePipelines' smart constructor.
 describePipelines :: DescribePipelines
@@ -115,7 +117,7 @@ instance ToQuery DescribePipelines where
 data DescribePipelinesResponse = DescribePipelinesResponse'
     { _dprStatus                  :: !Int
     , _dprPipelineDescriptionList :: ![PipelineDescription]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePipelinesResponse' smart constructor.
 describePipelinesResponse :: Int -> DescribePipelinesResponse

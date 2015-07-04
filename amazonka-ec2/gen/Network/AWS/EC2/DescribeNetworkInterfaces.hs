@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeNetworkInterfaces
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ data DescribeNetworkInterfaces = DescribeNetworkInterfaces'
     { _dNetworkInterfaceIds :: !(Maybe [Text])
     , _dFilters             :: !(Maybe [Filter])
     , _dDryRun              :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfaces' smart constructor.
 describeNetworkInterfaces :: DescribeNetworkInterfaces
@@ -230,7 +232,7 @@ instance ToQuery DescribeNetworkInterfaces where
 data DescribeNetworkInterfacesResponse = DescribeNetworkInterfacesResponse'
     { _dnirNetworkInterfaces :: !(Maybe [NetworkInterface])
     , _dnirStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkInterfacesResponse' smart constructor.
 describeNetworkInterfacesResponse :: Int -> DescribeNetworkInterfacesResponse

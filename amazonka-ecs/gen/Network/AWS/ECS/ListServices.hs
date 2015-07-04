@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.ListServices
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data ListServices = ListServices'
     { _lsCluster    :: !(Maybe Text)
     , _lsNextToken  :: !(Maybe Text)
     , _lsMaxResults :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServices' smart constructor.
 listServices :: ListServices
@@ -148,7 +150,7 @@ data ListServicesResponse = ListServicesResponse'
     { _lsrServiceARNs :: !(Maybe [Text])
     , _lsrNextToken   :: !(Maybe Text)
     , _lsrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServicesResponse' smart constructor.
 listServicesResponse :: Int -> ListServicesResponse

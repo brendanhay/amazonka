@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ImportImage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -93,7 +95,7 @@ data ImportImage = ImportImage'
     , _impDescription    :: !(Maybe Text)
     , _impClientData     :: !(Maybe ClientData)
     , _impDiskContainers :: !(Maybe [ImageDiskContainer])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportImage' smart constructor.
 importImage :: ImportImage
@@ -250,7 +252,7 @@ data ImportImageResponse = ImportImageResponse'
     , _iArchitecture    :: !(Maybe Text)
     , _iDescription     :: !(Maybe Text)
     , _iStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportImageResponse' smart constructor.
 importImageResponse :: Int -> ImportImageResponse

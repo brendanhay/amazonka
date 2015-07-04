@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteAnalysisScheme
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
     { _dasDomainName         :: !Text
     , _dasAnalysisSchemeName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAnalysisScheme' smart constructor.
 deleteAnalysisScheme :: Text -> Text -> DeleteAnalysisScheme
@@ -113,7 +115,7 @@ instance ToQuery DeleteAnalysisScheme where
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
     { _dStatus         :: !Int
     , _dAnalysisScheme :: !AnalysisSchemeStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
 deleteAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DeleteAnalysisSchemeResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
     , _rcsgiEC2SecurityGroupName     :: !(Maybe Text)
     , _rcsgiCIDRIP                   :: !(Maybe Text)
     , _rcsgiClusterSecurityGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeClusterSecurityGroupIngress' smart constructor.
 revokeClusterSecurityGroupIngress :: Text -> RevokeClusterSecurityGroupIngress
@@ -151,7 +153,7 @@ instance ToQuery RevokeClusterSecurityGroupIngress
 data RevokeClusterSecurityGroupIngressResponse = RevokeClusterSecurityGroupIngressResponse'
     { _rcsgirClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
     , _rcsgirStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeClusterSecurityGroupIngressResponse' smart constructor.
 revokeClusterSecurityGroupIngressResponse :: Int -> RevokeClusterSecurityGroupIngressResponse

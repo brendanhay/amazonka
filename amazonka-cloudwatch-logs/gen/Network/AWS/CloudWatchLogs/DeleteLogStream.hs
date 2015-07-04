@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.DeleteLogStream
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data DeleteLogStream = DeleteLogStream'
     { _dlsLogGroupName  :: !Text
     , _dlsLogStreamName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLogStream' smart constructor.
 deleteLogStream :: Text -> Text -> DeleteLogStream
@@ -97,7 +99,7 @@ instance ToQuery DeleteLogStream where
 -- | /See:/ 'deleteLogStreamResponse' smart constructor.
 data DeleteLogStreamResponse =
     DeleteLogStreamResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLogStreamResponse' smart constructor.
 deleteLogStreamResponse :: DeleteLogStreamResponse

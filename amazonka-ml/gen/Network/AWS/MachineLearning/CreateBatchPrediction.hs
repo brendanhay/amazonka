@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.CreateBatchPrediction
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ data CreateBatchPrediction = CreateBatchPrediction'
     , _cbpMLModelId                   :: !Text
     , _cbpBatchPredictionDataSourceId :: !Text
     , _cbpOutputURI                   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBatchPrediction' smart constructor.
 createBatchPrediction :: Text -> Text -> Text -> Text -> CreateBatchPrediction
@@ -174,7 +176,7 @@ instance ToQuery CreateBatchPrediction where
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
     { _cbprBatchPredictionId :: !(Maybe Text)
     , _cbprStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBatchPredictionResponse' smart constructor.
 createBatchPredictionResponse :: Int -> CreateBatchPredictionResponse

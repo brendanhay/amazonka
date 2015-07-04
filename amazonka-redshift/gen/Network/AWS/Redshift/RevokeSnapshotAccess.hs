@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.RevokeSnapshotAccess
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data RevokeSnapshotAccess = RevokeSnapshotAccess'
     { _rsaSnapshotClusterIdentifier :: !(Maybe Text)
     , _rsaSnapshotIdentifier        :: !Text
     , _rsaAccountWithRestoreAccess  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSnapshotAccess' smart constructor.
 revokeSnapshotAccess :: Text -> Text -> RevokeSnapshotAccess
@@ -128,7 +130,7 @@ instance ToQuery RevokeSnapshotAccess where
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
     { _rsarSnapshot :: !(Maybe Snapshot)
     , _rsarStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSnapshotAccessResponse' smart constructor.
 revokeSnapshotAccessResponse :: Int -> RevokeSnapshotAccessResponse

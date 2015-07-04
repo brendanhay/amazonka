@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.DescribeObjects
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ data DescribeObjects = DescribeObjects'
     , _doMarker              :: !(Maybe Text)
     , _doPipelineId          :: !Text
     , _doObjectIds           :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeObjects' smart constructor.
 describeObjects :: Text -> DescribeObjects
@@ -158,7 +160,7 @@ data DescribeObjectsResponse = DescribeObjectsResponse'
     , _dorMarker          :: !(Maybe Text)
     , _dorStatus          :: !Int
     , _dorPipelineObjects :: ![PipelineObject]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeObjectsResponse' smart constructor.
 describeObjectsResponse :: Int -> DescribeObjectsResponse

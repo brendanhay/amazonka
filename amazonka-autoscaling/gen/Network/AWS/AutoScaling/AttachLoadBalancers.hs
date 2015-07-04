@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.AttachLoadBalancers
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 data AttachLoadBalancers = AttachLoadBalancers'
     { _albAutoScalingGroupName :: !(Maybe Text)
     , _albLoadBalancerNames    :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancers' smart constructor.
 attachLoadBalancers :: AttachLoadBalancers
@@ -109,7 +111,7 @@ instance ToQuery AttachLoadBalancers where
 -- * 'albrStatus'
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
     { _albrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancersResponse' smart constructor.
 attachLoadBalancersResponse :: Int -> AttachLoadBalancersResponse

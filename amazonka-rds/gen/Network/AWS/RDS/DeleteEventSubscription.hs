@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DeleteEventSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'desSubscriptionName'
 newtype DeleteEventSubscription = DeleteEventSubscription'
     { _desSubscriptionName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEventSubscription' smart constructor.
 deleteEventSubscription :: Text -> DeleteEventSubscription
@@ -97,7 +99,7 @@ instance ToQuery DeleteEventSubscription where
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
     { _delEventSubscription :: !(Maybe EventSubscription)
     , _delStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEventSubscriptionResponse' smart constructor.
 deleteEventSubscriptionResponse :: Int -> DeleteEventSubscriptionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElasticTranscoder.ListJobsByPipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data ListJobsByPipeline = ListJobsByPipeline'
     { _ljbpAscending  :: !(Maybe Text)
     , _ljbpPageToken  :: !(Maybe Text)
     , _ljbpPipelineId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByPipeline' smart constructor.
 listJobsByPipeline :: Text -> ListJobsByPipeline
@@ -140,7 +142,7 @@ data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
     { _ljbprNextPageToken :: !(Maybe Text)
     , _ljbprJobs          :: !(Maybe [Job'])
     , _ljbprStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByPipelineResponse' smart constructor.
 listJobsByPipelineResponse :: Int -> ListJobsByPipelineResponse

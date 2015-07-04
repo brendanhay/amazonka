@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.RevokeSecurityGroupEgress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -86,7 +88,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
     , _rsgeSourceSecurityGroupName    :: !(Maybe Text)
     , _rsgeDryRun                     :: !(Maybe Bool)
     , _rsgeGroupId                    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSecurityGroupEgress' smart constructor.
 revokeSecurityGroupEgress :: Text -> RevokeSecurityGroupEgress
@@ -185,7 +187,7 @@ instance ToQuery RevokeSecurityGroupEgress where
 -- | /See:/ 'revokeSecurityGroupEgressResponse' smart constructor.
 data RevokeSecurityGroupEgressResponse =
     RevokeSecurityGroupEgressResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSecurityGroupEgressResponse' smart constructor.
 revokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse

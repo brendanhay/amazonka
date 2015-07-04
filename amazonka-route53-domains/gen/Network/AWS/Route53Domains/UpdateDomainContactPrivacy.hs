@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.UpdateDomainContactPrivacy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -72,7 +74,7 @@ data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
     , _udcpRegistrantPrivacy :: !(Maybe Bool)
     , _udcpAdminPrivacy      :: !(Maybe Bool)
     , _udcpDomainName        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContactPrivacy' smart constructor.
 updateDomainContactPrivacy :: Text -> UpdateDomainContactPrivacy
@@ -190,7 +192,7 @@ instance ToQuery UpdateDomainContactPrivacy where
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
     { _udcprStatus      :: !Int
     , _udcprOperationId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContactPrivacyResponse' smart constructor.
 updateDomainContactPrivacyResponse :: Int -> Text -> UpdateDomainContactPrivacyResponse

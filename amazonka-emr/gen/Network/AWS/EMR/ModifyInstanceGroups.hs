@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.ModifyInstanceGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'migInstanceGroups'
 newtype ModifyInstanceGroups = ModifyInstanceGroups'
     { _migInstanceGroups :: Maybe [InstanceGroupModifyConfig]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyInstanceGroups' smart constructor.
 modifyInstanceGroups :: ModifyInstanceGroups
@@ -92,7 +94,7 @@ instance ToQuery ModifyInstanceGroups where
 -- | /See:/ 'modifyInstanceGroupsResponse' smart constructor.
 data ModifyInstanceGroupsResponse =
     ModifyInstanceGroupsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyInstanceGroupsResponse' smart constructor.
 modifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse

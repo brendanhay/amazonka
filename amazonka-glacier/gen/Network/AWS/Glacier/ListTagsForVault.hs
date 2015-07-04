@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.ListTagsForVault
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data ListTagsForVault = ListTagsForVault'
     { _ltfvAccountId :: !Text
     , _ltfvVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForVault' smart constructor.
 listTagsForVault :: Text -> Text -> ListTagsForVault
@@ -112,7 +114,7 @@ instance ToQuery ListTagsForVault where
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
     { _ltfvrTags   :: !(Maybe (Map Text Text))
     , _ltfvrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForVaultResponse' smart constructor.
 listTagsForVaultResponse :: Int -> ListTagsForVaultResponse

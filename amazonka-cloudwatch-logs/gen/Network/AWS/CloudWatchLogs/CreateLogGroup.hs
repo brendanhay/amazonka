@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'clgLogGroupName'
 newtype CreateLogGroup = CreateLogGroup'
     { _clgLogGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLogGroup' smart constructor.
 createLogGroup :: Text -> CreateLogGroup
@@ -93,7 +95,7 @@ instance ToQuery CreateLogGroup where
 -- | /See:/ 'createLogGroupResponse' smart constructor.
 data CreateLogGroupResponse =
     CreateLogGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLogGroupResponse' smart constructor.
 createLogGroupResponse :: CreateLogGroupResponse

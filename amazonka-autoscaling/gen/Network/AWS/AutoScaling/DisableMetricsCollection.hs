@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DisableMetricsCollection
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 data DisableMetricsCollection = DisableMetricsCollection'
     { _dmcMetrics              :: !(Maybe [Text])
     , _dmcAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableMetricsCollection' smart constructor.
 disableMetricsCollection :: Text -> DisableMetricsCollection
@@ -112,7 +114,7 @@ instance ToQuery DisableMetricsCollection where
 -- | /See:/ 'disableMetricsCollectionResponse' smart constructor.
 data DisableMetricsCollectionResponse =
     DisableMetricsCollectionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableMetricsCollectionResponse' smart constructor.
 disableMetricsCollectionResponse :: DisableMetricsCollectionResponse

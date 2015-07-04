@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribePendingMaintenanceActions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
     , _dpmaMaxRecords         :: !(Maybe Int)
     , _dpmaMarker             :: !(Maybe Text)
     , _dpmaResourceIdentifier :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePendingMaintenanceActions' smart constructor.
 describePendingMaintenanceActions :: DescribePendingMaintenanceActions
@@ -162,7 +164,7 @@ data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActio
     { _dpmarPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
     , _dpmarMarker                    :: !(Maybe Text)
     , _dpmarStatus                    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePendingMaintenanceActionsResponse' smart constructor.
 describePendingMaintenanceActionsResponse :: Int -> DescribePendingMaintenanceActionsResponse

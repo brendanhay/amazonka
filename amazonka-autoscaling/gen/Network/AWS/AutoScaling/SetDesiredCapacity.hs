@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.SetDesiredCapacity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data SetDesiredCapacity = SetDesiredCapacity'
     { _sdcHonorCooldown        :: !(Maybe Bool)
     , _sdcAutoScalingGroupName :: !Text
     , _sdcDesiredCapacity      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDesiredCapacity' smart constructor.
 setDesiredCapacity :: Text -> Int -> SetDesiredCapacity
@@ -109,7 +111,7 @@ instance ToQuery SetDesiredCapacity where
 -- | /See:/ 'setDesiredCapacityResponse' smart constructor.
 data SetDesiredCapacityResponse =
     SetDesiredCapacityResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDesiredCapacityResponse' smart constructor.
 setDesiredCapacityResponse :: SetDesiredCapacityResponse

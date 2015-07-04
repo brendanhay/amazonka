@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetServerCertificate
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- * 'gscServerCertificateName'
 newtype GetServerCertificate = GetServerCertificate'
     { _gscServerCertificateName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetServerCertificate' smart constructor.
 getServerCertificate :: Text -> GetServerCertificate
@@ -97,7 +99,7 @@ instance ToQuery GetServerCertificate where
 data GetServerCertificateResponse = GetServerCertificateResponse'
     { _gscrStatus            :: !Int
     , _gscrServerCertificate :: !ServerCertificate
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetServerCertificateResponse' smart constructor.
 getServerCertificateResponse :: Int -> ServerCertificate -> GetServerCertificateResponse

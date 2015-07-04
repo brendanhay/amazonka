@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateRDSDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data UpdateRDSDBInstance = UpdateRDSDBInstance'
     { _urdiDBUser           :: !(Maybe Text)
     , _urdiDBPassword       :: !(Maybe Text)
     , _urdiRDSDBInstanceARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRDSDBInstance' smart constructor.
 updateRDSDBInstance :: Text -> UpdateRDSDBInstance
@@ -114,7 +116,7 @@ instance ToQuery UpdateRDSDBInstance where
 -- | /See:/ 'updateRDSDBInstanceResponse' smart constructor.
 data UpdateRDSDBInstanceResponse =
     UpdateRDSDBInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRDSDBInstanceResponse' smart constructor.
 updateRDSDBInstanceResponse :: UpdateRDSDBInstanceResponse

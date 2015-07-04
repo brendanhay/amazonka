@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.ListDomains
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -86,7 +88,7 @@ data ListDomains = ListDomains'
     , _ldReverseOrder       :: !(Maybe Bool)
     , _ldMaximumPageSize    :: !(Maybe Nat)
     , _ldRegistrationStatus :: !RegistrationStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: RegistrationStatus -> ListDomains
@@ -184,7 +186,7 @@ data ListDomainsResponse = ListDomainsResponse'
     { _ldrNextPageToken :: !(Maybe Text)
     , _ldrStatus        :: !Int
     , _ldrDomainInfos   :: ![DomainInfo]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse

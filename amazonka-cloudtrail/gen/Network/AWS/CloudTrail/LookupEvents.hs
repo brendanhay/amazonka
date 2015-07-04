@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudTrail.LookupEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -80,7 +82,7 @@ data LookupEvents = LookupEvents'
     , _leNextToken        :: !(Maybe Text)
     , _leEndTime          :: !(Maybe POSIX)
     , _leMaxResults       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupEvents' smart constructor.
 lookupEvents :: LookupEvents
@@ -173,7 +175,7 @@ data LookupEventsResponse = LookupEventsResponse'
     { _lerNextToken :: !(Maybe Text)
     , _lerEvents    :: !(Maybe [Event])
     , _lerStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupEventsResponse' smart constructor.
 lookupEventsResponse :: Int -> LookupEventsResponse

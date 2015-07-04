@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.RegisterImage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -108,7 +110,7 @@ data RegisterImage = RegisterImage'
     , _riDryRun              :: !(Maybe Bool)
     , _riDescription         :: !(Maybe Text)
     , _riName                :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterImage' smart constructor.
 registerImage :: Text -> RegisterImage
@@ -234,7 +236,7 @@ instance ToQuery RegisterImage where
 data RegisterImageResponse = RegisterImageResponse'
     { _rirImageId :: !(Maybe Text)
     , _rirStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterImageResponse' smart constructor.
 registerImageResponse :: Int -> RegisterImageResponse

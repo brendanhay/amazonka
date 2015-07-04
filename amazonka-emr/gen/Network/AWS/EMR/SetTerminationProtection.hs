@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.SetTerminationProtection
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ import           Network.AWS.Response
 data SetTerminationProtection = SetTerminationProtection'
     { _stpJobFlowIds           :: ![Text]
     , _stpTerminationProtected :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTerminationProtection' smart constructor.
 setTerminationProtection :: Bool -> SetTerminationProtection
@@ -124,7 +126,7 @@ instance ToQuery SetTerminationProtection where
 -- | /See:/ 'setTerminationProtectionResponse' smart constructor.
 data SetTerminationProtectionResponse =
     SetTerminationProtectionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTerminationProtectionResponse' smart constructor.
 setTerminationProtectionResponse :: SetTerminationProtectionResponse

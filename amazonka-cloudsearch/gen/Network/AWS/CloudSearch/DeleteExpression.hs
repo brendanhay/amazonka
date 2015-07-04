@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DeleteExpression
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 data DeleteExpression = DeleteExpression'
     { _delDomainName     :: !Text
     , _delExpressionName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteExpression' smart constructor.
 deleteExpression :: Text -> Text -> DeleteExpression
@@ -113,7 +115,7 @@ instance ToQuery DeleteExpression where
 data DeleteExpressionResponse = DeleteExpressionResponse'
     { _delStatus     :: !Int
     , _delExpression :: !ExpressionStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteExpressionResponse' smart constructor.
 deleteExpressionResponse :: Int -> ExpressionStatus -> DeleteExpressionResponse

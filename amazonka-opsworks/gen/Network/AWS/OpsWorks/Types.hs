@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -547,7 +549,7 @@ data AppAttributesKeys
     = DocumentRoot
     | RailsEnv
     | AutoBundleOnDeploy
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AppAttributesKeys where
     parser = takeLowerText >>= \case
@@ -563,9 +565,7 @@ instance ToText AppAttributesKeys where
         DocumentRoot -> "documentroot"
         RailsEnv -> "railsenv"
 
-instance Hashable AppAttributesKeys where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AppAttributesKeys
 instance ToQuery AppAttributesKeys
 instance ToHeader AppAttributesKeys
 
@@ -582,7 +582,7 @@ data AppType
     | Static
     | PHP
     | Nodejs
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AppType where
     parser = takeLowerText >>= \case
@@ -604,9 +604,7 @@ instance ToText AppType where
         Rails -> "rails"
         Static -> "static"
 
-instance Hashable AppType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AppType
 instance ToQuery AppType
 instance ToHeader AppType
 
@@ -619,7 +617,7 @@ instance FromJSON AppType where
 data Architecture
     = I386
     | X8664
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Architecture where
     parser = takeLowerText >>= \case
@@ -633,9 +631,7 @@ instance ToText Architecture where
         I386 -> "i386"
         X8664 -> "x86_64"
 
-instance Hashable Architecture where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Architecture
 instance ToQuery Architecture
 instance ToHeader Architecture
 
@@ -648,7 +644,7 @@ instance FromJSON Architecture where
 data AutoScalingType
     = Timer
     | Load
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AutoScalingType where
     parser = takeLowerText >>= \case
@@ -662,9 +658,7 @@ instance ToText AutoScalingType where
         Load -> "load"
         Timer -> "timer"
 
-instance Hashable AutoScalingType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable AutoScalingType
 instance ToQuery AutoScalingType
 instance ToHeader AutoScalingType
 
@@ -687,7 +681,7 @@ data DeploymentCommandName
     | UpdateDependencies
     | Configure
     | Deploy
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DeploymentCommandName where
     parser = takeLowerText >>= \case
@@ -721,9 +715,7 @@ instance ToText DeploymentCommandName where
         UpdateCustomCookbooks -> "update_custom_cookbooks"
         UpdateDependencies -> "update_dependencies"
 
-instance Hashable DeploymentCommandName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DeploymentCommandName
 instance ToQuery DeploymentCommandName
 instance ToHeader DeploymentCommandName
 
@@ -758,7 +750,7 @@ data LayerAttributesKeys
     | JavaAppServer
     | NodejsVersion
     | RailsStack
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LayerAttributesKeys where
     parser = takeLowerText >>= \case
@@ -816,9 +808,7 @@ instance ToText LayerAttributesKeys where
         RubyVersion -> "rubyversion"
         RubygemsVersion -> "rubygemsversion"
 
-instance Hashable LayerAttributesKeys where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable LayerAttributesKeys
 instance ToQuery LayerAttributesKeys
 instance ToHeader LayerAttributesKeys
 
@@ -839,7 +829,7 @@ data LayerType
     | DBMaster
     | Web
     | PHPApp
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText LayerType where
     parser = takeLowerText >>= \case
@@ -869,9 +859,7 @@ instance ToText LayerType where
         RailsApp -> "rails-app"
         Web -> "web"
 
-instance Hashable LayerType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable LayerType
 instance ToQuery LayerType
 instance ToHeader LayerType
 
@@ -884,7 +872,7 @@ instance FromJSON LayerType where
 data RootDeviceType
     = InstanceStore
     | EBS
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RootDeviceType where
     parser = takeLowerText >>= \case
@@ -898,9 +886,7 @@ instance ToText RootDeviceType where
         EBS -> "ebs"
         InstanceStore -> "instance-store"
 
-instance Hashable RootDeviceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable RootDeviceType
 instance ToQuery RootDeviceType
 instance ToHeader RootDeviceType
 
@@ -915,7 +901,7 @@ data SourceType
     | Git
     | Archive
     | S3
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SourceType where
     parser = takeLowerText >>= \case
@@ -933,9 +919,7 @@ instance ToText SourceType where
         S3 -> "s3"
         SVN -> "svn"
 
-instance Hashable SourceType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable SourceType
 instance ToQuery SourceType
 instance ToHeader SourceType
 
@@ -947,7 +931,7 @@ instance FromJSON SourceType where
 
 data StackAttributesKeys =
     Color
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StackAttributesKeys where
     parser = takeLowerText >>= \case
@@ -959,9 +943,7 @@ instance ToText StackAttributesKeys where
     toText = \case
         Color -> "color"
 
-instance Hashable StackAttributesKeys where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StackAttributesKeys
 instance ToQuery StackAttributesKeys
 instance ToHeader StackAttributesKeys
 
@@ -974,7 +956,7 @@ instance FromJSON StackAttributesKeys where
 data VirtualizationType
     = Paravirtual
     | HVM
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VirtualizationType where
     parser = takeLowerText >>= \case
@@ -988,9 +970,7 @@ instance ToText VirtualizationType where
         HVM -> "hvm"
         Paravirtual -> "paravirtual"
 
-instance Hashable VirtualizationType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VirtualizationType
 instance ToQuery VirtualizationType
 instance ToHeader VirtualizationType
 
@@ -1001,7 +981,7 @@ data VolumeType
     = Standard
     | IO1
     | GP2
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeType where
     parser = takeLowerText >>= \case
@@ -1017,9 +997,7 @@ instance ToText VolumeType where
         IO1 -> "io1"
         Standard -> "standard"
 
-instance Hashable VolumeType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable VolumeType
 instance ToQuery VolumeType
 instance ToHeader VolumeType
 
@@ -1041,7 +1019,7 @@ instance FromJSON VolumeType where
 data AgentVersion = AgentVersion'
     { _avVersion              :: !(Maybe Text)
     , _avConfigurationManager :: !(Maybe StackConfigurationManager)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AgentVersion' smart constructor.
 agentVersion :: AgentVersion
@@ -1114,7 +1092,7 @@ data App = App'
     , _appDomains          :: !(Maybe [Text])
     , _appStackId          :: !(Maybe Text)
     , _appDescription      :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'App' smart constructor.
 app :: App
@@ -1252,7 +1230,7 @@ data AutoScalingThresholds = AutoScalingThresholds'
     , _astAlarms             :: !(Maybe [Text])
     , _astMemoryThreshold    :: !(Maybe Double)
     , _astCPUThreshold       :: !(Maybe Double)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AutoScalingThresholds' smart constructor.
 autoScalingThresholds :: AutoScalingThresholds
@@ -1358,7 +1336,7 @@ data BlockDeviceMapping = BlockDeviceMapping'
     , _bdmNoDevice    :: !(Maybe Text)
     , _bdmEBS         :: !(Maybe EBSBlockDevice)
     , _bdmDeviceName  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BlockDeviceMapping' smart constructor.
 blockDeviceMapping :: BlockDeviceMapping
@@ -1420,7 +1398,7 @@ instance ToJSON BlockDeviceMapping where
 data ChefConfiguration = ChefConfiguration'
     { _ccBerkshelfVersion :: !(Maybe Text)
     , _ccManageBerkshelf  :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChefConfiguration' smart constructor.
 chefConfiguration :: ChefConfiguration
@@ -1488,7 +1466,7 @@ data Command = Command'
     , _comType           :: !(Maybe Text)
     , _comCompletedAt    :: !(Maybe Text)
     , _comAcknowledgedAt :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Command' smart constructor.
 command :: Command
@@ -1592,7 +1570,7 @@ data DataSource = DataSource'
     { _dsARN          :: !(Maybe Text)
     , _dsDatabaseName :: !(Maybe Text)
     , _dsType         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DataSource' smart constructor.
 dataSource :: DataSource
@@ -1672,7 +1650,7 @@ data Deployment = Deployment'
     , _depStackId      :: !(Maybe Text)
     , _depComment      :: !(Maybe Text)
     , _depDuration     :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Deployment' smart constructor.
 deployment :: Deployment
@@ -1781,7 +1759,7 @@ instance FromJSON Deployment where
 data DeploymentCommand = DeploymentCommand'
     { _dcArgs :: !(Maybe (Map Text [Text]))
     , _dcName :: !DeploymentCommandName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeploymentCommand' smart constructor.
 deploymentCommand :: DeploymentCommandName -> DeploymentCommand
@@ -1882,7 +1860,7 @@ data EBSBlockDevice = EBSBlockDevice'
     , _ebdIOPS                :: !(Maybe Int)
     , _ebdVolumeType          :: !(Maybe VolumeType)
     , _ebdSnapshotId          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EBSBlockDevice' smart constructor.
 ebsBlockDevice :: EBSBlockDevice
@@ -1959,7 +1937,7 @@ data ElasticIP = ElasticIP'
     , _eiIP         :: !(Maybe Text)
     , _eiName       :: !(Maybe Text)
     , _eiRegion     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ElasticIP' smart constructor.
 elasticIP :: ElasticIP
@@ -2036,7 +2014,7 @@ data ElasticLoadBalancer = ElasticLoadBalancer'
     , _elbStackId                 :: !(Maybe Text)
     , _elbLayerId                 :: !(Maybe Text)
     , _elbDNSName                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ElasticLoadBalancer' smart constructor.
 elasticLoadBalancer :: ElasticLoadBalancer
@@ -2119,7 +2097,7 @@ data EnvironmentVariable = EnvironmentVariable'
     { _evSecure :: !(Maybe Bool)
     , _evKey    :: !Text
     , _evValue  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentVariable' smart constructor.
 environmentVariable :: Text -> Text -> EnvironmentVariable
@@ -2280,7 +2258,7 @@ data Instance = Instance'
     , _insRegisteredBy             :: !(Maybe Text)
     , _insBlockDeviceMappings      :: !(Maybe [BlockDeviceMapping])
     , _insRootDeviceType           :: !(Maybe RootDeviceType)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
@@ -2565,7 +2543,7 @@ instance FromJSON Instance where
 data InstanceIdentity = InstanceIdentity'
     { _iiSignature :: !(Maybe Text)
     , _iiDocument  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceIdentity' smart constructor.
 instanceIdentity :: InstanceIdentity
@@ -2653,7 +2631,7 @@ data InstancesCount = InstancesCount'
     , _icRegistered     :: !(Maybe Int)
     , _icStartFailed    :: !(Maybe Int)
     , _icRegistering    :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstancesCount' smart constructor.
 instancesCount :: InstancesCount
@@ -2846,7 +2824,7 @@ data Layer = Layer'
     , _layLayerId                     :: !(Maybe Text)
     , _layDefaultSecurityGroupNames   :: !(Maybe [Text])
     , _layAutoAssignElasticIPs        :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Layer' smart constructor.
 layer :: Layer
@@ -3011,7 +2989,7 @@ instance FromJSON Layer where
 -- * 'lecShutdown'
 newtype LifecycleEventConfiguration = LifecycleEventConfiguration'
     { _lecShutdown :: Maybe ShutdownEventConfiguration
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LifecycleEventConfiguration' smart constructor.
 lifecycleEventConfiguration :: LifecycleEventConfiguration
@@ -3053,7 +3031,7 @@ data LoadBasedAutoScalingConfiguration = LoadBasedAutoScalingConfiguration'
     , _lbascEnable      :: !(Maybe Bool)
     , _lbascDownScaling :: !(Maybe AutoScalingThresholds)
     , _lbascLayerId     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LoadBasedAutoScalingConfiguration' smart constructor.
 loadBasedAutoScalingConfiguration :: LoadBasedAutoScalingConfiguration
@@ -3116,7 +3094,7 @@ data Permission = Permission'
     , _perStackId    :: !(Maybe Text)
     , _perLevel      :: !(Maybe Text)
     , _perAllowSSH   :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Permission' smart constructor.
 permission :: Permission
@@ -3216,7 +3194,7 @@ data RAIDArray = RAIDArray'
     , _raVolumeType       :: !(Maybe Text)
     , _raStackId          :: !(Maybe Text)
     , _raMountPoint       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RAIDArray' smart constructor.
 raidArray :: RAIDArray
@@ -3341,7 +3319,7 @@ data RDSDBInstance = RDSDBInstance'
     , _rdiRegion               :: !(Maybe Text)
     , _rdiStackId              :: !(Maybe Text)
     , _rdiDBPassword           :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RDSDBInstance' smart constructor.
 rdsDBInstance :: RDSDBInstance
@@ -3444,7 +3422,7 @@ data Recipes = Recipes'
     , _recShutdown  :: !(Maybe [Text])
     , _recConfigure :: !(Maybe [Text])
     , _recDeploy    :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Recipes' smart constructor.
 recipes :: Recipes
@@ -3510,7 +3488,7 @@ data ReportedOS = ReportedOS'
     { _roFamily  :: !(Maybe Text)
     , _roName    :: !(Maybe Text)
     , _roVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportedOS' smart constructor.
 reportedOS :: ReportedOS
@@ -3556,7 +3534,7 @@ data SSLConfiguration = SSLConfiguration'
     { _scChain       :: !(Maybe Text)
     , _scCertificate :: !Text
     , _scPrivateKey  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SSLConfiguration' smart constructor.
 sslConfiguration :: Text -> Text -> SSLConfiguration
@@ -3613,7 +3591,7 @@ data SelfUserProfile = SelfUserProfile'
     , _supSSHPublicKey :: !(Maybe Text)
     , _supIAMUserARN   :: !(Maybe Text)
     , _supName         :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SelfUserProfile' smart constructor.
 selfUserProfile :: SelfUserProfile
@@ -3674,7 +3652,7 @@ data ServiceError' = ServiceError''
     , _seType           :: !(Maybe Text)
     , _seMessage        :: !(Maybe Text)
     , _seStackId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ServiceError'' smart constructor.
 serviceError' :: ServiceError'
@@ -3735,7 +3713,7 @@ instance FromJSON ServiceError' where
 data ShutdownEventConfiguration = ShutdownEventConfiguration'
     { _secExecutionTimeout                :: !(Maybe Int)
     , _secDelayUntilElbConnectionsDrained :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ShutdownEventConfiguration' smart constructor.
 shutdownEventConfiguration :: ShutdownEventConfiguration
@@ -3799,7 +3777,7 @@ data Source = Source'
     , _souPassword :: !(Maybe Text)
     , _souType     :: !(Maybe SourceType)
     , _souRevision :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Source' smart constructor.
 source :: Source
@@ -3950,7 +3928,7 @@ data Stack = Stack'
     , _staConfigurationManager      :: !(Maybe StackConfigurationManager)
     , _staStackId                   :: !(Maybe Text)
     , _staHostnameTheme             :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Stack' smart constructor.
 stack :: Stack
@@ -4130,7 +4108,7 @@ instance FromJSON Stack where
 data StackConfigurationManager = StackConfigurationManager'
     { _scmName    :: !(Maybe Text)
     , _scmVersion :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackConfigurationManager' smart constructor.
 stackConfigurationManager :: StackConfigurationManager
@@ -4185,7 +4163,7 @@ data StackSummary = StackSummary'
     , _ssStackId        :: !(Maybe Text)
     , _ssLayersCount    :: !(Maybe Int)
     , _ssInstancesCount :: !(Maybe InstancesCount)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackSummary' smart constructor.
 stackSummary :: StackSummary
@@ -4253,7 +4231,7 @@ data TemporaryCredential = TemporaryCredential'
     , _tcUsername          :: !(Maybe Text)
     , _tcPassword          :: !(Maybe Text)
     , _tcValidForInMinutes :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TemporaryCredential' smart constructor.
 temporaryCredential :: TemporaryCredential
@@ -4305,7 +4283,7 @@ instance FromJSON TemporaryCredential where
 data TimeBasedAutoScalingConfiguration = TimeBasedAutoScalingConfiguration'
     { _tbascInstanceId          :: !(Maybe Text)
     , _tbascAutoScalingSchedule :: !(Maybe WeeklyAutoScalingSchedule)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TimeBasedAutoScalingConfiguration' smart constructor.
 timeBasedAutoScalingConfiguration :: TimeBasedAutoScalingConfiguration
@@ -4353,7 +4331,7 @@ data UserProfile = UserProfile'
     , _upAllowSelfManagement :: !(Maybe Bool)
     , _upIAMUserARN          :: !(Maybe Text)
     , _upName                :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UserProfile' smart constructor.
 userProfile :: UserProfile
@@ -4443,7 +4421,7 @@ data Volume = Volume'
     , _volVolumeType       :: !(Maybe Text)
     , _volEC2VolumeId      :: !(Maybe Text)
     , _volMountPoint       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Volume' smart constructor.
 volume :: Volume
@@ -4561,7 +4539,7 @@ data VolumeConfiguration = VolumeConfiguration'
     , _vcMountPoint    :: !Text
     , _vcNumberOfDisks :: !Int
     , _vcSize          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VolumeConfiguration' smart constructor.
 volumeConfiguration :: Text -> Int -> Int -> VolumeConfiguration
@@ -4668,7 +4646,7 @@ data WeeklyAutoScalingSchedule = WeeklyAutoScalingSchedule'
     , _wassFriday    :: !(Maybe (Map Text Text))
     , _wassSunday    :: !(Maybe (Map Text Text))
     , _wassTuesday   :: !(Maybe (Map Text Text))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'WeeklyAutoScalingSchedule' smart constructor.
 weeklyAutoScalingSchedule :: WeeklyAutoScalingSchedule

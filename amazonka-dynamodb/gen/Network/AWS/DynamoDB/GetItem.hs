@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.GetItem
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -81,7 +83,7 @@ data GetItem = GetItem'
     , _giReturnConsumedCapacity   :: !(Maybe ReturnConsumedCapacity)
     , _giTableName                :: !Text
     , _giKey                      :: !(Map Text AttributeValue)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetItem' smart constructor.
 getItem :: Text -> GetItem
@@ -247,7 +249,7 @@ data GetItemResponse = GetItemResponse'
     { _girConsumedCapacity :: !(Maybe ConsumedCapacity)
     , _girItem             :: !(Maybe (Map Text AttributeValue))
     , _girStatus           :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetItemResponse' smart constructor.
 getItemResponse :: Int -> GetItemResponse

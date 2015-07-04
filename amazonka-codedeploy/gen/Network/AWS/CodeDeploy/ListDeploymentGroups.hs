@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeploymentGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data ListDeploymentGroups = ListDeploymentGroups'
     { _ldgNextToken       :: !(Maybe Text)
     , _ldgApplicationName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentGroups' smart constructor.
 listDeploymentGroups :: Text -> ListDeploymentGroups
@@ -130,7 +132,7 @@ data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
     , _ldgrApplicationName  :: !(Maybe Text)
     , _ldgrDeploymentGroups :: !(Maybe [Text])
     , _ldgrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentGroupsResponse' smart constructor.
 listDeploymentGroupsResponse :: Int -> ListDeploymentGroupsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.BatchWriteItem
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -135,7 +137,7 @@ data BatchWriteItem = BatchWriteItem'
     { _bwiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
     , _bwiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
     , _bwiRequestItems                :: !(Map Text (List1 WriteRequest))
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'BatchWriteItem' smart constructor.
 batchWriteItem :: BatchWriteItem
@@ -244,7 +246,7 @@ data BatchWriteItemResponse = BatchWriteItemResponse'
     , _bwirItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
     , _bwirUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
     , _bwirStatus                :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'BatchWriteItemResponse' smart constructor.
 batchWriteItemResponse :: Int -> BatchWriteItemResponse

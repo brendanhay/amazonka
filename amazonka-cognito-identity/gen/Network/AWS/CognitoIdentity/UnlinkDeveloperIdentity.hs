@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
     , _udiIdentityPoolId          :: !Text
     , _udiDeveloperProviderName   :: !Text
     , _udiDeveloperUserIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkDeveloperIdentity' smart constructor.
 unlinkDeveloperIdentity :: Text -> Text -> Text -> Text -> UnlinkDeveloperIdentity
@@ -129,7 +131,7 @@ instance ToQuery UnlinkDeveloperIdentity where
 -- | /See:/ 'unlinkDeveloperIdentityResponse' smart constructor.
 data UnlinkDeveloperIdentityResponse =
     UnlinkDeveloperIdentityResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkDeveloperIdentityResponse' smart constructor.
 unlinkDeveloperIdentityResponse :: UnlinkDeveloperIdentityResponse

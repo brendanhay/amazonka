@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DescribeIndexFields
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data DescribeIndexFields = DescribeIndexFields'
     { _difDeployed   :: !(Maybe Bool)
     , _difFieldNames :: !(Maybe [Text])
     , _difDomainName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIndexFields' smart constructor.
 describeIndexFields :: Text -> DescribeIndexFields
@@ -134,7 +136,7 @@ instance ToQuery DescribeIndexFields where
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
     { _difr1Status      :: !Int
     , _difr1IndexFields :: ![IndexFieldStatus]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
 describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse

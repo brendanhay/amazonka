@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeElasticIPs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data DescribeElasticIPs = DescribeElasticIPs'
     { _deiInstanceId :: !(Maybe Text)
     , _deiIPs        :: !(Maybe [Text])
     , _deiStackId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticIPs' smart constructor.
 describeElasticIPs :: DescribeElasticIPs
@@ -140,7 +142,7 @@ instance ToQuery DescribeElasticIPs where
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
     { _deirElasticIPs :: !(Maybe [ElasticIP])
     , _deirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticIPsResponse' smart constructor.
 describeElasticIPsResponse :: Int -> DescribeElasticIPsResponse

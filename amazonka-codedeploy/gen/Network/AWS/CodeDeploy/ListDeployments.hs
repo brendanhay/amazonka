@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.ListDeployments
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data ListDeployments = ListDeployments'
     , _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
     , _ldApplicationName     :: !(Maybe Text)
     , _ldDeploymentGroupName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeployments' smart constructor.
 listDeployments :: ListDeployments
@@ -162,7 +164,7 @@ data ListDeploymentsResponse = ListDeploymentsResponse'
     { _ldrNextToken   :: !(Maybe Text)
     , _ldrDeployments :: !(Maybe [Text])
     , _ldrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentsResponse' smart constructor.
 listDeploymentsResponse :: Int -> ListDeploymentsResponse

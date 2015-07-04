@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.DeleteDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -46,7 +48,7 @@ import           Network.AWS.SDB.Types
 -- * 'ddDomainName'
 newtype DeleteDomain = DeleteDomain'
     { _ddDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDomain' smart constructor.
 deleteDomain :: Text -> DeleteDomain
@@ -81,7 +83,7 @@ instance ToQuery DeleteDomain where
 -- | /See:/ 'deleteDomainResponse' smart constructor.
 data DeleteDomainResponse =
     DeleteDomainResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDomainResponse' smart constructor.
 deleteDomainResponse :: DeleteDomainResponse

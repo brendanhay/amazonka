@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeAvailabilityZones
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data DescribeAvailabilityZones = DescribeAvailabilityZones'
     { _dazZoneNames :: !(Maybe [Text])
     , _dazFilters   :: !(Maybe [Filter])
     , _dazDryRun    :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityZones' smart constructor.
 describeAvailabilityZones :: DescribeAvailabilityZones
@@ -140,7 +142,7 @@ instance ToQuery DescribeAvailabilityZones where
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
     { _dazrAvailabilityZones :: !(Maybe [AvailabilityZone])
     , _dazrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityZonesResponse' smart constructor.
 describeAvailabilityZonesResponse :: Int -> DescribeAvailabilityZonesResponse

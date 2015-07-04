@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancers
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data DescribeLoadBalancers = DescribeLoadBalancers'
     { _dlbMarker            :: !(Maybe Text)
     , _dlbPageSize          :: !(Maybe Nat)
     , _dlbLoadBalancerNames :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: DescribeLoadBalancers
@@ -133,7 +135,7 @@ data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
     { _dlbrLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
     , _dlbrNextMarker               :: !(Maybe Text)
     , _dlbrStatus                   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse

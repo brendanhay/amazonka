@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.DeregisterTaskDefinition
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 -- * 'derTaskDefinition'
 newtype DeregisterTaskDefinition = DeregisterTaskDefinition'
     { _derTaskDefinition :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterTaskDefinition' smart constructor.
 deregisterTaskDefinition :: Text -> DeregisterTaskDefinition
@@ -114,7 +116,7 @@ instance ToQuery DeregisterTaskDefinition where
 data DeregisterTaskDefinitionResponse = DeregisterTaskDefinitionResponse'
     { _dtdrTaskDefinition :: !(Maybe TaskDefinition)
     , _dtdrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterTaskDefinitionResponse' smart constructor.
 deregisterTaskDefinitionResponse :: Int -> DeregisterTaskDefinitionResponse

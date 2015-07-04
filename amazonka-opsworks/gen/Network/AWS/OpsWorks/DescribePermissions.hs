@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribePermissions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data DescribePermissions = DescribePermissions'
     { _dpIAMUserARN :: !(Maybe Text)
     , _dpStackId    :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePermissions' smart constructor.
 describePermissions :: DescribePermissions
@@ -122,7 +124,7 @@ instance ToQuery DescribePermissions where
 data DescribePermissionsResponse = DescribePermissionsResponse'
     { _dprPermissions :: !(Maybe [Permission])
     , _dprStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePermissionsResponse' smart constructor.
 describePermissionsResponse :: Int -> DescribePermissionsResponse

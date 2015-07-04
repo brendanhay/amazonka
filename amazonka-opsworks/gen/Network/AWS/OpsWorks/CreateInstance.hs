@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.CreateInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -118,7 +120,7 @@ data CreateInstance = CreateInstance'
     , _ciStackId              :: !Text
     , _ciLayerIds             :: ![Text]
     , _ciInstanceType         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstance' smart constructor.
 createInstance :: Text -> Text -> CreateInstance
@@ -324,7 +326,7 @@ instance ToQuery CreateInstance where
 data CreateInstanceResponse = CreateInstanceResponse'
     { _cirInstanceId :: !(Maybe Text)
     , _cirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceResponse' smart constructor.
 createInstanceResponse :: Int -> CreateInstanceResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterElasticIP
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'derElasticIP'
 newtype DeregisterElasticIP = DeregisterElasticIP'
     { _derElasticIP :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterElasticIP' smart constructor.
 deregisterElasticIP :: Text -> DeregisterElasticIP
@@ -95,7 +97,7 @@ instance ToQuery DeregisterElasticIP where
 -- | /See:/ 'deregisterElasticIPResponse' smart constructor.
 data DeregisterElasticIPResponse =
     DeregisterElasticIPResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterElasticIPResponse' smart constructor.
 deregisterElasticIPResponse :: DeregisterElasticIPResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.GetKeyPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 data GetKeyPolicy = GetKeyPolicy'
     { _gkpKeyId      :: !Text
     , _gkpPolicyName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyPolicy' smart constructor.
 getKeyPolicy :: Text -> Text -> GetKeyPolicy
@@ -117,7 +119,7 @@ instance ToQuery GetKeyPolicy where
 data GetKeyPolicyResponse = GetKeyPolicyResponse'
     { _gkprPolicy :: !(Maybe Text)
     , _gkprStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyPolicyResponse' smart constructor.
 getKeyPolicyResponse :: Int -> GetKeyPolicyResponse

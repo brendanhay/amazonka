@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.ChangeResourceRecordSets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -83,7 +85,7 @@ import           Network.AWS.Route53.Types
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
     { _crrsHostedZoneId :: !Text
     , _crrsChangeBatch  :: !ChangeBatch
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ChangeResourceRecordSets' smart constructor.
 changeResourceRecordSets :: Text -> ChangeBatch -> ChangeResourceRecordSets
@@ -147,7 +149,7 @@ instance ToXML ChangeResourceRecordSets where
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
     { _crrsrStatus     :: !Int
     , _crrsrChangeInfo :: !ChangeInfo
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeResourceRecordSetsResponse' smart constructor.
 changeResourceRecordSetsResponse :: Int -> ChangeInfo -> ChangeResourceRecordSetsResponse

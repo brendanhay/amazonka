@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.DescribeLoadBalancerAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- * 'dlbaLoadBalancerName'
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
     { _dlbaLoadBalancerName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerAttributes' smart constructor.
 describeLoadBalancerAttributes :: Text -> DescribeLoadBalancerAttributes
@@ -99,7 +101,7 @@ instance ToQuery DescribeLoadBalancerAttributes where
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
     { _dlbarLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
     , _dlbarStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerAttributesResponse' smart constructor.
 describeLoadBalancerAttributesResponse :: Int -> DescribeLoadBalancerAttributesResponse

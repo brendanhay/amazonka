@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.GetIdentityPoolConfiguration
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 -- * 'gipcIdentityPoolId'
 newtype GetIdentityPoolConfiguration = GetIdentityPoolConfiguration'
     { _gipcIdentityPoolId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolConfiguration' smart constructor.
 getIdentityPoolConfiguration :: Text -> GetIdentityPoolConfiguration
@@ -118,7 +120,7 @@ data GetIdentityPoolConfigurationResponse = GetIdentityPoolConfigurationResponse
     , _gipcrCognitoStreams :: !(Maybe CognitoStreams)
     , _gipcrPushSync       :: !(Maybe PushSync)
     , _gipcrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolConfigurationResponse' smart constructor.
 getIdentityPoolConfigurationResponse :: Int -> GetIdentityPoolConfigurationResponse

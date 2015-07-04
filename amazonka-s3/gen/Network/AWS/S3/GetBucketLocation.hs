@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketLocation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.S3.Types
 -- * 'gblBucket'
 newtype GetBucketLocation = GetBucketLocation'
     { _gblBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLocation' smart constructor.
 getBucketLocation :: BucketName -> GetBucketLocation
@@ -90,7 +92,7 @@ instance ToQuery GetBucketLocation where
 data GetBucketLocationResponse = GetBucketLocationResponse'
     { _gLocationConstraint :: !(Maybe Region)
     , _gStatus             :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLocationResponse' smart constructor.
 getBucketLocationResponse :: Int -> GetBucketLocationResponse

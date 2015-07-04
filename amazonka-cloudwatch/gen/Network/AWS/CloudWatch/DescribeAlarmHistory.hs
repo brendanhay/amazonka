@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.DescribeAlarmHistory
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data DescribeAlarmHistory = DescribeAlarmHistory'
     , _dahStartDate       :: !(Maybe ISO8601)
     , _dahNextToken       :: !(Maybe Text)
     , _dahMaxRecords      :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmHistory' smart constructor.
 describeAlarmHistory :: DescribeAlarmHistory
@@ -164,7 +166,7 @@ data DescribeAlarmHistoryResponse = DescribeAlarmHistoryResponse'
     { _dahrAlarmHistoryItems :: !(Maybe [AlarmHistoryItem])
     , _dahrNextToken         :: !(Maybe Text)
     , _dahrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmHistoryResponse' smart constructor.
 describeAlarmHistoryResponse :: Int -> DescribeAlarmHistoryResponse

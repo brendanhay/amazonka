@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.CreateDBInstanceReadReplica
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -99,7 +101,7 @@ data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
     , _cdirrStorageType                :: !(Maybe Text)
     , _cdirrDBInstanceIdentifier       :: !Text
     , _cdirrSourceDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBInstanceReadReplica' smart constructor.
 createDBInstanceReadReplica :: Text -> Text -> CreateDBInstanceReadReplica
@@ -296,7 +298,7 @@ instance ToQuery CreateDBInstanceReadReplica where
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
     { _cdirrrDBInstance :: !(Maybe DBInstance)
     , _cdirrrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBInstanceReadReplicaResponse' smart constructor.
 createDBInstanceReadReplicaResponse :: Int -> CreateDBInstanceReadReplicaResponse

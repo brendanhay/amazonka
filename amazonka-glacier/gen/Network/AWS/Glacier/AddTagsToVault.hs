@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.AddTagsToVault
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data AddTagsToVault = AddTagsToVault'
     { _attvTags      :: !(Maybe (Map Text Text))
     , _attvAccountId :: !Text
     , _attvVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToVault' smart constructor.
 addTagsToVault :: Text -> Text -> AddTagsToVault
@@ -113,7 +115,7 @@ instance ToQuery AddTagsToVault where
 -- | /See:/ 'addTagsToVaultResponse' smart constructor.
 data AddTagsToVaultResponse =
     AddTagsToVaultResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToVaultResponse' smart constructor.
 addTagsToVaultResponse :: AddTagsToVaultResponse

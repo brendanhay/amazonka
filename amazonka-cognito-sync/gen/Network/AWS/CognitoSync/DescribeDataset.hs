@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.DescribeDataset
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data DescribeDataset = DescribeDataset'
     { _ddIdentityPoolId :: !Text
     , _ddIdentityId     :: !Text
     , _ddDatasetName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataset' smart constructor.
 describeDataset :: Text -> Text -> Text -> DescribeDataset
@@ -132,7 +134,7 @@ instance ToQuery DescribeDataset where
 data DescribeDatasetResponse = DescribeDatasetResponse'
     { _ddrDataset :: !(Maybe Dataset)
     , _ddrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDatasetResponse' smart constructor.
 describeDatasetResponse :: Int -> DescribeDatasetResponse

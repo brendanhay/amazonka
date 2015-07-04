@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.UpdateHostedZoneComment
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Route53.Types
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
     { _uhzcComment :: !(Maybe Text)
     , _uhzcId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateHostedZoneComment' smart constructor.
 updateHostedZoneComment :: Text -> UpdateHostedZoneComment
@@ -120,7 +122,7 @@ instance ToXML UpdateHostedZoneComment where
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
     { _uhzcrStatus     :: !Int
     , _uhzcrHostedZone :: !HostedZone
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateHostedZoneCommentResponse' smart constructor.
 updateHostedZoneCommentResponse :: Int -> HostedZone -> UpdateHostedZoneCommentResponse

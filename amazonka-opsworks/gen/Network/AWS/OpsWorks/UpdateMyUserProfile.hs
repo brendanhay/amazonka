@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.UpdateMyUserProfile
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'umupSSHPublicKey'
 newtype UpdateMyUserProfile = UpdateMyUserProfile'
     { _umupSSHPublicKey :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMyUserProfile' smart constructor.
 updateMyUserProfile :: UpdateMyUserProfile
@@ -92,7 +94,7 @@ instance ToQuery UpdateMyUserProfile where
 -- | /See:/ 'updateMyUserProfileResponse' smart constructor.
 data UpdateMyUserProfileResponse =
     UpdateMyUserProfileResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMyUserProfileResponse' smart constructor.
 updateMyUserProfileResponse :: UpdateMyUserProfileResponse

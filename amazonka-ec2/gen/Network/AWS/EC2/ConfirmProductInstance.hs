@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ConfirmProductInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data ConfirmProductInstance = ConfirmProductInstance'
     { _cpiDryRun      :: !(Maybe Bool)
     , _cpiProductCode :: !Text
     , _cpiInstanceId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmProductInstance' smart constructor.
 confirmProductInstance :: Text -> Text -> ConfirmProductInstance
@@ -121,7 +123,7 @@ instance ToQuery ConfirmProductInstance where
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
     { _cpirOwnerId :: !(Maybe Text)
     , _cpirStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmProductInstanceResponse' smart constructor.
 confirmProductInstanceResponse :: Int -> ConfirmProductInstanceResponse

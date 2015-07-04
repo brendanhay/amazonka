@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.SetPermission
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data SetPermission = SetPermission'
     , _spAllowSSH   :: !(Maybe Bool)
     , _spStackId    :: !Text
     , _spIAMUserARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetPermission' smart constructor.
 setPermission :: Text -> Text -> SetPermission
@@ -142,7 +144,7 @@ instance ToQuery SetPermission where
 -- | /See:/ 'setPermissionResponse' smart constructor.
 data SetPermissionResponse =
     SetPermissionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetPermissionResponse' smart constructor.
 setPermissionResponse :: SetPermissionResponse

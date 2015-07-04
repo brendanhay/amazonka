@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeClusters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ data DescribeClusters = DescribeClusters'
     , _dcClusterIdentifier :: !(Maybe Text)
     , _dcMaxRecords        :: !(Maybe Int)
     , _dcMarker            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
@@ -196,7 +198,7 @@ data DescribeClustersResponse = DescribeClustersResponse'
     { _dcrMarker   :: !(Maybe Text)
     , _dcrClusters :: !(Maybe [Cluster])
     , _dcrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: Int -> DescribeClustersResponse

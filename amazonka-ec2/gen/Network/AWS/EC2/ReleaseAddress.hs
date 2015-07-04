@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ReleaseAddress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data ReleaseAddress = ReleaseAddress'
     { _raAllocationId :: !(Maybe Text)
     , _raPublicIP     :: !(Maybe Text)
     , _raDryRun       :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReleaseAddress' smart constructor.
 releaseAddress :: ReleaseAddress
@@ -117,7 +119,7 @@ instance ToQuery ReleaseAddress where
 -- | /See:/ 'releaseAddressResponse' smart constructor.
 data ReleaseAddressResponse =
     ReleaseAddressResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReleaseAddressResponse' smart constructor.
 releaseAddressResponse :: ReleaseAddressResponse

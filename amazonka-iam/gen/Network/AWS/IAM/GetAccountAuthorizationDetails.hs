@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetAccountAuthorizationDetails
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ data GetAccountAuthorizationDetails = GetAccountAuthorizationDetails'
     { _gaadMaxItems :: !(Maybe Nat)
     , _gaadMarker   :: !(Maybe Text)
     , _gaadFilter   :: !(Maybe [EntityType])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountAuthorizationDetails' smart constructor.
 getAccountAuthorizationDetails :: GetAccountAuthorizationDetails
@@ -167,7 +169,7 @@ data GetAccountAuthorizationDetailsResponse = GetAccountAuthorizationDetailsResp
     , _gaadrIsTruncated     :: !(Maybe Bool)
     , _gaadrPolicies        :: !(Maybe [ManagedPolicyDetail])
     , _gaadrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountAuthorizationDetailsResponse' smart constructor.
 getAccountAuthorizationDetailsResponse :: Int -> GetAccountAuthorizationDetailsResponse

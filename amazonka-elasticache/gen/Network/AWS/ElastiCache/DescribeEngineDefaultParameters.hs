@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeEngineDefaultParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
     { _dedpMaxRecords                :: !(Maybe Int)
     , _dedpMarker                    :: !(Maybe Text)
     , _dedpCacheParameterGroupFamily :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
@@ -146,7 +148,7 @@ instance ToQuery DescribeEngineDefaultParameters
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
     { _dedprStatus         :: !Int
     , _dedprEngineDefaults :: !EngineDefaults
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
 describeEngineDefaultParametersResponse :: Int -> EngineDefaults -> DescribeEngineDefaultParametersResponse

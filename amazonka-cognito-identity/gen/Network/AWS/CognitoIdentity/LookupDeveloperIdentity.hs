@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.LookupDeveloperIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ data LookupDeveloperIdentity = LookupDeveloperIdentity'
     , _ldiIdentityId              :: !(Maybe Text)
     , _ldiMaxResults              :: !(Maybe Nat)
     , _ldiIdentityPoolId          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupDeveloperIdentity' smart constructor.
 lookupDeveloperIdentity :: Text -> LookupDeveloperIdentity
@@ -175,7 +177,7 @@ data LookupDeveloperIdentityResponse = LookupDeveloperIdentityResponse'
     , _ldirIdentityId                  :: !(Maybe Text)
     , _ldirDeveloperUserIdentifierList :: !(Maybe [Text])
     , _ldirStatus                      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'LookupDeveloperIdentityResponse' smart constructor.
 lookupDeveloperIdentityResponse :: Int -> LookupDeveloperIdentityResponse

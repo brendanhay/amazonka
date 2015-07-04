@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.RegisterWorkflowType
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -107,7 +109,7 @@ data RegisterWorkflowType = RegisterWorkflowType'
     , _rwtDomain                              :: !Text
     , _rwtName                                :: !Text
     , _rwtVersion                             :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterWorkflowType' smart constructor.
 registerWorkflowType :: Text -> Text -> Text -> RegisterWorkflowType
@@ -255,7 +257,7 @@ instance ToQuery RegisterWorkflowType where
 -- | /See:/ 'registerWorkflowTypeResponse' smart constructor.
 data RegisterWorkflowTypeResponse =
     RegisterWorkflowTypeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterWorkflowTypeResponse' smart constructor.
 registerWorkflowTypeResponse :: RegisterWorkflowTypeResponse

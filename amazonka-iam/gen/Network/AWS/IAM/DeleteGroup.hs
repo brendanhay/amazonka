@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -45,7 +47,7 @@ import           Network.AWS.Response
 -- * 'dgGroupName'
 newtype DeleteGroup = DeleteGroup'
     { _dgGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGroup' smart constructor.
 deleteGroup :: Text -> DeleteGroup
@@ -80,7 +82,7 @@ instance ToQuery DeleteGroup where
 -- | /See:/ 'deleteGroupResponse' smart constructor.
 data DeleteGroupResponse =
     DeleteGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGroupResponse' smart constructor.
 deleteGroupResponse :: DeleteGroupResponse

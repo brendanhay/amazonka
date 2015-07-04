@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -220,7 +222,7 @@ _AlreadyExistsException =
 
 data Capability =
     CapabilityIAM
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Capability where
     parser = takeLowerText >>= \case
@@ -232,9 +234,7 @@ instance ToText Capability where
     toText = \case
         CapabilityIAM -> "capability_iam"
 
-instance Hashable Capability where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable Capability
 instance ToQuery Capability
 instance ToHeader Capability
 
@@ -245,7 +245,7 @@ data OnFailure
     = Rollback
     | DONothing
     | Delete
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OnFailure where
     parser = takeLowerText >>= \case
@@ -261,16 +261,14 @@ instance ToText OnFailure where
         Delete -> "delete"
         Rollback -> "rollback"
 
-instance Hashable OnFailure where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable OnFailure
 instance ToQuery OnFailure
 instance ToHeader OnFailure
 
 data ResourceSignalStatus
     = Success
     | Failure
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceSignalStatus where
     parser = takeLowerText >>= \case
@@ -284,9 +282,7 @@ instance ToText ResourceSignalStatus where
         Failure -> "failure"
         Success -> "success"
 
-instance Hashable ResourceSignalStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ResourceSignalStatus
 instance ToQuery ResourceSignalStatus
 instance ToHeader ResourceSignalStatus
 
@@ -301,7 +297,7 @@ data ResourceStatus
     | DeleteINProgress
     | DeleteSkipped
     | CreateINProgress
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceStatus where
     parser = takeLowerText >>= \case
@@ -331,9 +327,7 @@ instance ToText ResourceStatus where
         UpdateFailed -> "update_failed"
         UpdateINProgress -> "update_in_progress"
 
-instance Hashable ResourceStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ResourceStatus
 instance ToQuery ResourceStatus
 instance ToHeader ResourceStatus
 
@@ -357,7 +351,7 @@ data StackStatus
     | SSDeleteINProgress
     | SSUpdateINProgress
     | SSUpdateRollbackComplete
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StackStatus where
     parser = takeLowerText >>= \case
@@ -399,9 +393,7 @@ instance ToText StackStatus where
         SSUpdateRollbackFailed -> "update_rollback_failed"
         SSUpdateRollbackINProgress -> "update_rollback_in_progress"
 
-instance Hashable StackStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StackStatus
 instance ToQuery StackStatus
 instance ToHeader StackStatus
 
@@ -423,7 +415,7 @@ data Output = Output'
     { _outOutputValue :: !(Maybe Text)
     , _outOutputKey   :: !(Maybe Text)
     , _outDescription :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Output' smart constructor.
 output :: Output
@@ -467,7 +459,7 @@ data Parameter = Parameter'
     { _parParameterValue   :: !(Maybe Text)
     , _parParameterKey     :: !(Maybe Text)
     , _parUsePreviousValue :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
@@ -518,7 +510,7 @@ instance ToQuery Parameter where
 -- * 'pcAllowedValues'
 newtype ParameterConstraints = ParameterConstraints'
     { _pcAllowedValues :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterConstraints' smart constructor.
 parameterConstraints :: ParameterConstraints
@@ -561,7 +553,7 @@ data ParameterDeclaration = ParameterDeclaration'
     , _pdDefaultValue         :: !(Maybe Text)
     , _pdNoEcho               :: !(Maybe Bool)
     , _pdDescription          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterDeclaration' smart constructor.
 parameterDeclaration :: ParameterDeclaration
@@ -657,7 +649,7 @@ data Stack = Stack'
     , _staStackName         :: !Text
     , _staCreationTime      :: !ISO8601
     , _staStackStatus       :: !StackStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Stack' smart constructor.
 stack :: Text -> UTCTime -> StackStatus -> Stack
@@ -803,7 +795,7 @@ data StackEvent = StackEvent'
     , _seEventId              :: !Text
     , _seStackName            :: !Text
     , _seTimestamp            :: !ISO8601
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackEvent' smart constructor.
 stackEvent :: Text -> Text -> Text -> UTCTime -> StackEvent
@@ -911,7 +903,7 @@ data StackResource = StackResource'
     , _srResourceType         :: !Text
     , _srTimestamp            :: !ISO8601
     , _srResourceStatus       :: !ResourceStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackResource' smart constructor.
 stackResource :: Text -> Text -> UTCTime -> ResourceStatus -> StackResource
@@ -1016,7 +1008,7 @@ data StackResourceDetail = StackResourceDetail'
     , _srdResourceType         :: !Text
     , _srdLastUpdatedTimestamp :: !ISO8601
     , _srdResourceStatus       :: !ResourceStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackResourceDetail' smart constructor.
 stackResourceDetail :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceDetail
@@ -1118,7 +1110,7 @@ data StackResourceSummary = StackResourceSummary'
     , _srsResourceType         :: !Text
     , _srsLastUpdatedTimestamp :: !ISO8601
     , _srsResourceStatus       :: !ResourceStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackResourceSummary' smart constructor.
 stackResourceSummary :: Text -> Text -> UTCTime -> ResourceStatus -> StackResourceSummary
@@ -1199,7 +1191,7 @@ data StackSummary = StackSummary'
     , _ssStackName           :: !Text
     , _ssCreationTime        :: !ISO8601
     , _ssStackStatus         :: !StackStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StackSummary' smart constructor.
 stackSummary :: Text -> UTCTime -> StackStatus -> StackSummary
@@ -1274,7 +1266,7 @@ instance FromXML StackSummary where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag
@@ -1321,7 +1313,7 @@ data TemplateParameter = TemplateParameter'
     , _tpDefaultValue :: !(Maybe Text)
     , _tpNoEcho       :: !(Maybe Bool)
     , _tpDescription  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TemplateParameter' smart constructor.
 templateParameter :: TemplateParameter

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.ListTopics
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.SNS.Types
 -- * 'ltNextToken'
 newtype ListTopics = ListTopics'
     { _ltNextToken :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTopics' smart constructor.
 listTopics :: ListTopics
@@ -113,7 +115,7 @@ data ListTopicsResponse = ListTopicsResponse'
     { _ltrTopics    :: !(Maybe [Topic])
     , _ltrNextToken :: !(Maybe Text)
     , _ltrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTopicsResponse' smart constructor.
 listTopicsResponse :: Int -> ListTopicsResponse

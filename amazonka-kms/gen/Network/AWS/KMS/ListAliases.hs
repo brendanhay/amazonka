@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.ListAliases
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data ListAliases = ListAliases'
     { _laMarker :: !(Maybe Text)
     , _laLimit  :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAliases' smart constructor.
 listAliases :: ListAliases
@@ -124,7 +126,7 @@ data ListAliasesResponse = ListAliasesResponse'
     , _larAliases    :: !(Maybe [AliasListEntry])
     , _larNextMarker :: !(Maybe Text)
     , _larStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAliasesResponse' smart constructor.
 listAliasesResponse :: Int -> ListAliasesResponse

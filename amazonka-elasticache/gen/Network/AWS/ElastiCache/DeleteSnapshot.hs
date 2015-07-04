@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DeleteSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'delSnapshotName'
 newtype DeleteSnapshot = DeleteSnapshot'
     { _delSnapshotName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
@@ -97,7 +99,7 @@ instance ToQuery DeleteSnapshot where
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
     { _dsrSnapshot :: !(Maybe Snapshot)
     , _dsrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.SendMessageBatch
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -82,7 +84,7 @@ import           Network.AWS.SQS.Types
 data SendMessageBatch = SendMessageBatch'
     { _smbQueueURL :: !Text
     , _smbEntries  :: ![SendMessageBatchRequestEntry]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessageBatch' smart constructor.
 sendMessageBatch :: Text -> SendMessageBatch
@@ -144,7 +146,7 @@ data SendMessageBatchResponse = SendMessageBatchResponse'
     { _smbrStatus     :: !Int
     , _smbrSuccessful :: ![SendMessageBatchResultEntry]
     , _smbrFailed     :: ![BatchResultErrorEntry]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessageBatchResponse' smart constructor.
 sendMessageBatchResponse :: Int -> SendMessageBatchResponse

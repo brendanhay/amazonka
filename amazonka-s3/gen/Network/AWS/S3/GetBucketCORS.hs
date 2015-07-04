@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketCORS
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.S3.Types
 -- * 'gbcBucket'
 newtype GetBucketCORS = GetBucketCORS'
     { _gbcBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketCORS' smart constructor.
 getBucketCORS :: BucketName -> GetBucketCORS
@@ -91,7 +93,7 @@ instance ToQuery GetBucketCORS where
 data GetBucketCORSResponse = GetBucketCORSResponse'
     { _gbcrCORSRules :: !(Maybe [CORSRule])
     , _gbcrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketCORSResponse' smart constructor.
 getBucketCORSResponse :: Int -> GetBucketCORSResponse

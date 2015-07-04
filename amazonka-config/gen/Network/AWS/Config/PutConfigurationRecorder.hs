@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Config.PutConfigurationRecorder
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 -- * 'pcrConfigurationRecorder'
 newtype PutConfigurationRecorder = PutConfigurationRecorder'
     { _pcrConfigurationRecorder :: ConfigurationRecorder
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutConfigurationRecorder' smart constructor.
 putConfigurationRecorder :: ConfigurationRecorder -> PutConfigurationRecorder
@@ -104,7 +106,7 @@ instance ToQuery PutConfigurationRecorder where
 -- | /See:/ 'putConfigurationRecorderResponse' smart constructor.
 data PutConfigurationRecorderResponse =
     PutConfigurationRecorderResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutConfigurationRecorderResponse' smart constructor.
 putConfigurationRecorderResponse :: PutConfigurationRecorderResponse

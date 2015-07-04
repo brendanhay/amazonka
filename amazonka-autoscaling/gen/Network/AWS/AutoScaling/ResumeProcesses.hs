@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.ResumeProcesses
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data ResumeProcesses = ResumeProcesses'
     { _rpScalingProcesses     :: !(Maybe [Text])
     , _rpAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResumeProcesses' smart constructor.
 resumeProcesses :: Text -> ResumeProcesses
@@ -113,7 +115,7 @@ instance ToQuery ResumeProcesses where
 -- | /See:/ 'resumeProcessesResponse' smart constructor.
 data ResumeProcessesResponse =
     ResumeProcessesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResumeProcessesResponse' smart constructor.
 resumeProcessesResponse :: ResumeProcessesResponse

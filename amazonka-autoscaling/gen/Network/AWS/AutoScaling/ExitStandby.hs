@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.ExitStandby
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data ExitStandby = ExitStandby'
     { _exiInstanceIds          :: !(Maybe [Text])
     , _exiAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExitStandby' smart constructor.
 exitStandby :: Text -> ExitStandby
@@ -110,7 +112,7 @@ instance ToQuery ExitStandby where
 data ExitStandbyResponse = ExitStandbyResponse'
     { _exiActivities :: !(Maybe [Activity])
     , _exiStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExitStandbyResponse' smart constructor.
 exitStandbyResponse :: Int -> ExitStandbyResponse

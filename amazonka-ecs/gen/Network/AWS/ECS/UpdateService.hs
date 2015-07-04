@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.UpdateService
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ data UpdateService = UpdateService'
     , _usDesiredCount   :: !(Maybe Int)
     , _usTaskDefinition :: !(Maybe Text)
     , _usService        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateService' smart constructor.
 updateService :: Text -> UpdateService
@@ -154,7 +156,7 @@ instance ToQuery UpdateService where
 data UpdateServiceResponse = UpdateServiceResponse'
     { _usrService :: !(Maybe ContainerService)
     , _usrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateServiceResponse' smart constructor.
 updateServiceResponse :: Int -> UpdateServiceResponse

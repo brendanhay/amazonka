@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.SuspendProcesses
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.Response
 data SuspendProcesses = SuspendProcesses'
     { _spScalingProcesses     :: !(Maybe [Text])
     , _spAutoScalingGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuspendProcesses' smart constructor.
 suspendProcesses :: Text -> SuspendProcesses
@@ -120,7 +122,7 @@ instance ToQuery SuspendProcesses where
 -- | /See:/ 'suspendProcessesResponse' smart constructor.
 data SuspendProcessesResponse =
     SuspendProcessesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuspendProcessesResponse' smart constructor.
 suspendProcessesResponse :: SuspendProcessesResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoIdentity.UnlinkIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ data UnlinkIdentity = UnlinkIdentity'
     { _uiIdentityId     :: !Text
     , _uiLogins         :: !(Map Text Text)
     , _uiLoginsToRemove :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkIdentity' smart constructor.
 unlinkIdentity :: Text -> UnlinkIdentity
@@ -114,7 +116,7 @@ instance ToQuery UnlinkIdentity where
 -- | /See:/ 'unlinkIdentityResponse' smart constructor.
 data UnlinkIdentityResponse =
     UnlinkIdentityResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkIdentityResponse' smart constructor.
 unlinkIdentityResponse :: UnlinkIdentityResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -148,7 +150,7 @@ data CreateCluster = CreateCluster'
     , _ccNodeType                         :: !Text
     , _ccMasterUsername                   :: !Text
     , _ccMasterUserPassword               :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: Text -> Text -> Text -> Text -> CreateCluster
@@ -503,7 +505,7 @@ instance ToQuery CreateCluster where
 data CreateClusterResponse = CreateClusterResponse'
     { _ccrCluster :: !(Maybe Cluster)
     , _ccrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Int -> CreateClusterResponse

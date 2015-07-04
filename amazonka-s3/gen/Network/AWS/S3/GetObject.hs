@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetObject
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -138,7 +140,7 @@ data GetObject = GetObject'
     , _goIfNoneMatch                :: !(Maybe Text)
     , _goBucket                     :: !BucketName
     , _goKey                        :: !ObjectKey
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetObject' smart constructor.
 getObject :: BucketName -> ObjectKey -> GetObject
@@ -400,7 +402,7 @@ data GetObjectResponse = GetObjectResponse'
     , _gorContentType             :: !(Maybe Text)
     , _gorStatus                  :: !Int
     , _gorBody                    :: !RsBody
-    } deriving (Show)
+    } deriving (Show,Data,Typeable,Generic)
 
 -- | 'GetObjectResponse' smart constructor.
 getObjectResponse :: Int -> RsBody -> GetObjectResponse

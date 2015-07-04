@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetOnPremisesInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'gopiInstanceName'
 newtype GetOnPremisesInstance = GetOnPremisesInstance'
     { _gopiInstanceName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOnPremisesInstance' smart constructor.
 getOnPremisesInstance :: Text -> GetOnPremisesInstance
@@ -105,7 +107,7 @@ instance ToQuery GetOnPremisesInstance where
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
     { _gopirInstanceInfo :: !(Maybe InstanceInfo)
     , _gopirStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOnPremisesInstanceResponse' smart constructor.
 getOnPremisesInstanceResponse :: Int -> GetOnPremisesInstanceResponse

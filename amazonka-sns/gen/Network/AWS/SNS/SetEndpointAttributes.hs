@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.SetEndpointAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.SNS.Types
 data SetEndpointAttributes = SetEndpointAttributes'
     { _seaEndpointARN :: !Text
     , _seaAttributes  :: !(Map Text Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetEndpointAttributes' smart constructor.
 setEndpointAttributes :: Text -> SetEndpointAttributes
@@ -109,7 +111,7 @@ instance ToQuery SetEndpointAttributes where
 -- | /See:/ 'setEndpointAttributesResponse' smart constructor.
 data SetEndpointAttributesResponse =
     SetEndpointAttributesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetEndpointAttributesResponse' smart constructor.
 setEndpointAttributesResponse :: SetEndpointAttributesResponse

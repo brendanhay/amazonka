@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.ListSubscriptionsByTopic
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.SNS.Types
 data ListSubscriptionsByTopic = ListSubscriptionsByTopic'
     { _lsbtNextToken :: !(Maybe Text)
     , _lsbtTopicARN  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSubscriptionsByTopic' smart constructor.
 listSubscriptionsByTopic :: Text -> ListSubscriptionsByTopic
@@ -128,7 +130,7 @@ data ListSubscriptionsByTopicResponse = ListSubscriptionsByTopicResponse'
     { _lsbtrNextToken     :: !(Maybe Text)
     , _lsbtrSubscriptions :: !(Maybe [Subscription])
     , _lsbtrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSubscriptionsByTopicResponse' smart constructor.
 listSubscriptionsByTopicResponse :: Int -> ListSubscriptionsByTopicResponse

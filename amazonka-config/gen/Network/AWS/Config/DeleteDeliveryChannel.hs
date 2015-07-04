@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Config.DeleteDeliveryChannel
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'ddcDeliveryChannelName'
 newtype DeleteDeliveryChannel = DeleteDeliveryChannel'
     { _ddcDeliveryChannelName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeliveryChannel' smart constructor.
 deleteDeliveryChannel :: Text -> DeleteDeliveryChannel
@@ -96,7 +98,7 @@ instance ToQuery DeleteDeliveryChannel where
 -- | /See:/ 'deleteDeliveryChannelResponse' smart constructor.
 data DeleteDeliveryChannelResponse =
     DeleteDeliveryChannelResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeliveryChannelResponse' smart constructor.
 deleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse

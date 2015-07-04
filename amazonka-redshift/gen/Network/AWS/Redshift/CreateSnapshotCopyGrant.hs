@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.CreateSnapshotCopyGrant
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
     { _cscgKMSKeyId              :: !(Maybe Text)
     , _cscgTags                  :: !(Maybe [Tag])
     , _cscgSnapshotCopyGrantName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotCopyGrant' smart constructor.
 createSnapshotCopyGrant :: Text -> CreateSnapshotCopyGrant
@@ -135,7 +137,7 @@ instance ToQuery CreateSnapshotCopyGrant where
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
     { _cscgrSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
     , _cscgrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotCopyGrantResponse' smart constructor.
 createSnapshotCopyGrantResponse :: Int -> CreateSnapshotCopyGrantResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeSubnets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeSubnets = DescribeSubnets'
     { _dsSubnetIds :: !(Maybe [Text])
     , _dsFilters   :: !(Maybe [Filter])
     , _dsDryRun    :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubnets' smart constructor.
 describeSubnets :: DescribeSubnets
@@ -160,7 +162,7 @@ instance ToQuery DescribeSubnets where
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
     { _dsrSubnets :: !(Maybe [Subnet])
     , _dsrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubnetsResponse' smart constructor.
 describeSubnetsResponse :: Int -> DescribeSubnetsResponse

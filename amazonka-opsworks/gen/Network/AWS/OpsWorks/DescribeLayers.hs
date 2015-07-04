@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeLayers
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data DescribeLayers = DescribeLayers'
     { _dlLayerIds :: !(Maybe [Text])
     , _dlStackId  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLayers' smart constructor.
 describeLayers :: DescribeLayers
@@ -121,7 +123,7 @@ instance ToQuery DescribeLayers where
 data DescribeLayersResponse = DescribeLayersResponse'
     { _dlrLayers :: !(Maybe [Layer])
     , _dlrStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLayersResponse' smart constructor.
 describeLayersResponse :: Int -> DescribeLayersResponse

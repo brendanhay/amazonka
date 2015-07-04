@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFront.CreateStreamingDistribution
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'csdStreamingDistributionConfig'
 newtype CreateStreamingDistribution = CreateStreamingDistribution'
     { _csdStreamingDistributionConfig :: StreamingDistributionConfig
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStreamingDistribution' smart constructor.
 createStreamingDistribution :: StreamingDistributionConfig -> CreateStreamingDistribution
@@ -111,7 +113,7 @@ data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
     , _csdrLocation              :: !(Maybe Text)
     , _csdrStreamingDistribution :: !(Maybe StreamingDistribution)
     , _csdrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStreamingDistributionResponse' smart constructor.
 createStreamingDistributionResponse :: Int -> CreateStreamingDistributionResponse

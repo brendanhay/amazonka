@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.PutScalingPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data PutScalingPolicy = PutScalingPolicy'
     , _pspAutoScalingGroupName :: !Text
     , _pspPolicyName           :: !Text
     , _pspAdjustmentType       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutScalingPolicy' smart constructor.
 putScalingPolicy :: Text -> Text -> Text -> PutScalingPolicy
@@ -165,7 +167,7 @@ instance ToQuery PutScalingPolicy where
 data PutScalingPolicyResponse = PutScalingPolicyResponse'
     { _psprPolicyARN :: !(Maybe Text)
     , _psprStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutScalingPolicyResponse' smart constructor.
 putScalingPolicyResponse :: Int -> PutScalingPolicyResponse

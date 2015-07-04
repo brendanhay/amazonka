@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.ResetClusterParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data ResetClusterParameterGroup = ResetClusterParameterGroup'
     { _rcpgResetAllParameters :: !(Maybe Bool)
     , _rcpgParameters         :: !(Maybe [Parameter])
     , _rcpgParameterGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetClusterParameterGroup' smart constructor.
 resetClusterParameterGroup :: Text -> ResetClusterParameterGroup

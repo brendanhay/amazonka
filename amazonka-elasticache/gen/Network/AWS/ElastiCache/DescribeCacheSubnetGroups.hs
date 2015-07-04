@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.DescribeCacheSubnetGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data DescribeCacheSubnetGroups = DescribeCacheSubnetGroups'
     { _dcsgCacheSubnetGroupName :: !(Maybe Text)
     , _dcsgMaxRecords           :: !(Maybe Int)
     , _dcsgMarker               :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSubnetGroups' smart constructor.
 describeCacheSubnetGroups :: DescribeCacheSubnetGroups
@@ -145,7 +147,7 @@ data DescribeCacheSubnetGroupsResponse = DescribeCacheSubnetGroupsResponse'
     { _dcsgrMarker            :: !(Maybe Text)
     , _dcsgrCacheSubnetGroups :: !(Maybe [CacheSubnetGroup])
     , _dcsgrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSubnetGroupsResponse' smart constructor.
 describeCacheSubnetGroupsResponse :: Int -> DescribeCacheSubnetGroupsResponse

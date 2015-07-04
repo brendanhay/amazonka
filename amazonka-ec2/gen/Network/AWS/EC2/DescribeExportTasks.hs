@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeExportTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -47,7 +49,7 @@ import           Network.AWS.Response
 -- * 'detExportTaskIds'
 newtype DescribeExportTasks = DescribeExportTasks'
     { _detExportTaskIds :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExportTasks' smart constructor.
 describeExportTasks :: DescribeExportTasks
@@ -97,7 +99,7 @@ instance ToQuery DescribeExportTasks where
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
     { _detrExportTasks :: !(Maybe [ExportTask])
     , _detrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExportTasksResponse' smart constructor.
 describeExportTasksResponse :: Int -> DescribeExportTasksResponse

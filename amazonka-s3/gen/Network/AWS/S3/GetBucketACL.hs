@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.S3.GetBucketACL
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.S3.Types
 -- * 'gbaBucket'
 newtype GetBucketACL = GetBucketACL'
     { _gbaBucket :: BucketName
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketACL' smart constructor.
 getBucketACL :: BucketName -> GetBucketACL
@@ -97,7 +99,7 @@ data GetBucketACLResponse = GetBucketACLResponse'
     { _gbarGrants :: !(Maybe [Grant])
     , _gbarOwner  :: !(Maybe Owner)
     , _gbarStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketACLResponse' smart constructor.
 getBucketACLResponse :: Int -> GetBucketACLResponse

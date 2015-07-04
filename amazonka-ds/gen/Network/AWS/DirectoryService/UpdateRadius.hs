@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.UpdateRadius
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data UpdateRadius = UpdateRadius'
     { _urDirectoryId    :: !Text
     , _urRadiusSettings :: !RadiusSettings
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRadius' smart constructor.
 updateRadius :: Text -> RadiusSettings -> UpdateRadius
@@ -113,7 +115,7 @@ instance ToQuery UpdateRadius where
 -- * 'urrStatus'
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
     { _urrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRadiusResponse' smart constructor.
 updateRadiusResponse :: Int -> UpdateRadiusResponse

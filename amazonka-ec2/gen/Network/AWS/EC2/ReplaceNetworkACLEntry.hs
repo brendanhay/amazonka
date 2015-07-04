@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ReplaceNetworkACLEntry
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
     , _rnaeRuleAction   :: !RuleAction
     , _rnaeEgress       :: !Bool
     , _rnaeCIDRBlock    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLEntry' smart constructor.
 replaceNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> ReplaceNetworkACLEntry
@@ -172,7 +174,7 @@ instance ToQuery ReplaceNetworkACLEntry where
 -- | /See:/ 'replaceNetworkACLEntryResponse' smart constructor.
 data ReplaceNetworkACLEntryResponse =
     ReplaceNetworkACLEntryResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLEntryResponse' smart constructor.
 replaceNetworkACLEntryResponse :: ReplaceNetworkACLEntryResponse

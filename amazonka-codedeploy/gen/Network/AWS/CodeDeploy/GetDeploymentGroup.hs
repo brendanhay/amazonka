@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 data GetDeploymentGroup = GetDeploymentGroup'
     { _gdgApplicationName     :: !Text
     , _gdgDeploymentGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentGroup' smart constructor.
 getDeploymentGroup :: Text -> Text -> GetDeploymentGroup
@@ -118,7 +120,7 @@ instance ToQuery GetDeploymentGroup where
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
     { _gdgrDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
     , _gdgrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentGroupResponse' smart constructor.
 getDeploymentGroupResponse :: Int -> GetDeploymentGroupResponse

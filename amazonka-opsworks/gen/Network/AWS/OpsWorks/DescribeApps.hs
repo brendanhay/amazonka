@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeApps
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ import           Network.AWS.Response
 data DescribeApps = DescribeApps'
     { _daAppIds  :: !(Maybe [Text])
     , _daStackId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApps' smart constructor.
 describeApps :: DescribeApps
@@ -122,7 +124,7 @@ instance ToQuery DescribeApps where
 data DescribeAppsResponse = DescribeAppsResponse'
     { _darApps   :: !(Maybe [App])
     , _darStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAppsResponse' smart constructor.
 describeAppsResponse :: Int -> DescribeAppsResponse

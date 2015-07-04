@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateReplicationGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -144,7 +146,7 @@ data CreateReplicationGroup = CreateReplicationGroup'
     , _crgPort                        :: !(Maybe Int)
     , _crgReplicationGroupId          :: !Text
     , _crgReplicationGroupDescription :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReplicationGroup' smart constructor.
 createReplicationGroup :: Text -> Text -> CreateReplicationGroup
@@ -472,7 +474,7 @@ instance ToQuery CreateReplicationGroup where
 data CreateReplicationGroupResponse = CreateReplicationGroupResponse'
     { _crgrReplicationGroup :: !(Maybe ReplicationGroup)
     , _crgrStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReplicationGroupResponse' smart constructor.
 createReplicationGroupResponse :: Int -> CreateReplicationGroupResponse

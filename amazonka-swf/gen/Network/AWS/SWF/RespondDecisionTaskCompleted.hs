@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SWF.RespondDecisionTaskCompleted
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'
     { _rdtcDecisions        :: !(Maybe [Decision])
     , _rdtcExecutionContext :: !(Maybe Text)
     , _rdtcTaskToken        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondDecisionTaskCompleted' smart constructor.
 respondDecisionTaskCompleted :: Text -> RespondDecisionTaskCompleted
@@ -134,7 +136,7 @@ instance ToQuery RespondDecisionTaskCompleted where
 -- | /See:/ 'respondDecisionTaskCompletedResponse' smart constructor.
 data RespondDecisionTaskCompletedResponse =
     RespondDecisionTaskCompletedResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondDecisionTaskCompletedResponse' smart constructor.
 respondDecisionTaskCompletedResponse :: RespondDecisionTaskCompletedResponse

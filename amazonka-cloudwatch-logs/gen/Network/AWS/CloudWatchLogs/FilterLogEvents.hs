@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.FilterLogEvents
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -91,7 +93,7 @@ data FilterLogEvents = FilterLogEvents'
     , _fleFilterPattern  :: !(Maybe Text)
     , _fleInterleaved    :: !(Maybe Bool)
     , _fleLogGroupName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FilterLogEvents' smart constructor.
 filterLogEvents :: Text -> FilterLogEvents
@@ -206,7 +208,7 @@ data FilterLogEventsResponse = FilterLogEventsResponse'
     , _flerNextToken          :: !(Maybe Text)
     , _flerEvents             :: !(Maybe [FilteredLogEvent])
     , _flerStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'FilterLogEventsResponse' smart constructor.
 filterLogEventsResponse :: Int -> FilterLogEventsResponse

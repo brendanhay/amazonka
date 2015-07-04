@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.ResetCacheParameterGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data ResetCacheParameterGroup = ResetCacheParameterGroup'
     { _rcpgResetAllParameters      :: !(Maybe Bool)
     , _rcpgCacheParameterGroupName :: !Text
     , _rcpgParameterNameValues     :: ![ParameterNameValue]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetCacheParameterGroup' smart constructor.
 resetCacheParameterGroup :: Text -> ResetCacheParameterGroup

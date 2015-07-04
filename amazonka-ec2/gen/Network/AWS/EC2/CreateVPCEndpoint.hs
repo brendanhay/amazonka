@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateVPCEndpoint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ data CreateVPCEndpoint = CreateVPCEndpoint'
     , _cveRouteTableIds  :: !(Maybe [Text])
     , _cveVPCId          :: !Text
     , _cveServiceName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCEndpoint' smart constructor.
 createVPCEndpoint :: Text -> Text -> CreateVPCEndpoint
@@ -164,7 +166,7 @@ data CreateVPCEndpointResponse = CreateVPCEndpointResponse'
     { _cverClientToken :: !(Maybe Text)
     , _cverVPCEndpoint :: !(Maybe VPCEndpoint)
     , _cverStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCEndpointResponse' smart constructor.
 createVPCEndpointResponse :: Int -> CreateVPCEndpointResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeUploadBuffer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.StorageGateway.Types
 -- * 'dubGatewayARN'
 newtype DescribeUploadBuffer = DescribeUploadBuffer'
     { _dubGatewayARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUploadBuffer' smart constructor.
 describeUploadBuffer :: Text -> DescribeUploadBuffer
@@ -123,7 +125,7 @@ data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
     , _dubrDiskIds                      :: !(Maybe [Text])
     , _dubrUploadBufferUsedInBytes      :: !(Maybe Integer)
     , _dubrStatus                       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUploadBufferResponse' smart constructor.
 describeUploadBufferResponse :: Int -> DescribeUploadBufferResponse

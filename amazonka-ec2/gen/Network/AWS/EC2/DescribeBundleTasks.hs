@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeBundleTasks
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ data DescribeBundleTasks = DescribeBundleTasks'
     { _dbtBundleIds :: !(Maybe [Text])
     , _dbtFilters   :: !(Maybe [Filter])
     , _dbtDryRun    :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBundleTasks' smart constructor.
 describeBundleTasks :: DescribeBundleTasks
@@ -150,7 +152,7 @@ instance ToQuery DescribeBundleTasks where
 data DescribeBundleTasksResponse = DescribeBundleTasksResponse'
     { _dbtrBundleTasks :: !(Maybe [BundleTask])
     , _dbtrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeBundleTasksResponse' smart constructor.
 describeBundleTasksResponse :: Int -> DescribeBundleTasksResponse

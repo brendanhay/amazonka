@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.RetrieveDomainAuthCode
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Route53Domains.Types
 -- * 'rdacDomainName'
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
     { _rdacDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveDomainAuthCode' smart constructor.
 retrieveDomainAuthCode :: Text -> RetrieveDomainAuthCode
@@ -116,7 +118,7 @@ instance ToQuery RetrieveDomainAuthCode where
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
     { _rdacrStatus   :: !Int
     , _rdacrAuthCode :: !(Sensitive Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveDomainAuthCodeResponse' smart constructor.
 retrieveDomainAuthCodeResponse :: Int -> Text -> RetrieveDomainAuthCodeResponse

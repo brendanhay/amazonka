@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.AddUserToGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 data AddUserToGroup = AddUserToGroup'
     { _autgGroupName :: !Text
     , _autgUserName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUserToGroup' smart constructor.
 addUserToGroup :: Text -> Text -> AddUserToGroup
@@ -89,7 +91,7 @@ instance ToQuery AddUserToGroup where
 -- | /See:/ 'addUserToGroupResponse' smart constructor.
 data AddUserToGroupResponse =
     AddUserToGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUserToGroupResponse' smart constructor.
 addUserToGroupResponse :: AddUserToGroupResponse

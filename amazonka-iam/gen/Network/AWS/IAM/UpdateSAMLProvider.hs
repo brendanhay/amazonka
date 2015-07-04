@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.UpdateSAMLProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data UpdateSAMLProvider = UpdateSAMLProvider'
     { _usamlpSAMLMetadataDocument :: !Text
     , _usamlpSAMLProviderARN      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSAMLProvider' smart constructor.
 updateSAMLProvider :: Text -> Text -> UpdateSAMLProvider
@@ -115,7 +117,7 @@ instance ToQuery UpdateSAMLProvider where
 data UpdateSAMLProviderResponse = UpdateSAMLProviderResponse'
     { _usamlprSAMLProviderARN :: !(Maybe Text)
     , _usamlprStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSAMLProviderResponse' smart constructor.
 updateSAMLProviderResponse :: Int -> UpdateSAMLProviderResponse

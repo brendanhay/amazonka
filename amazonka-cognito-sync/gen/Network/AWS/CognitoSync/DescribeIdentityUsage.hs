@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.DescribeIdentityUsage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data DescribeIdentityUsage = DescribeIdentityUsage'
     { _diuIdentityPoolId :: !Text
     , _diuIdentityId     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityUsage' smart constructor.
 describeIdentityUsage :: Text -> Text -> DescribeIdentityUsage
@@ -118,7 +120,7 @@ instance ToQuery DescribeIdentityUsage where
 data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
     { _diurIdentityUsage :: !(Maybe IdentityUsage)
     , _diurStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityUsageResponse' smart constructor.
 describeIdentityUsageResponse :: Int -> DescribeIdentityUsageResponse

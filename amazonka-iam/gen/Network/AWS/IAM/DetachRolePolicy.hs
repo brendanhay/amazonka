@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DetachRolePolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DetachRolePolicy = DetachRolePolicy'
     { _drpRoleName  :: !Text
     , _drpPolicyARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachRolePolicy' smart constructor.
 detachRolePolicy :: Text -> Text -> DetachRolePolicy
@@ -95,7 +97,7 @@ instance ToQuery DetachRolePolicy where
 -- | /See:/ 'detachRolePolicyResponse' smart constructor.
 data DetachRolePolicyResponse =
     DetachRolePolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachRolePolicyResponse' smart constructor.
 detachRolePolicyResponse :: DetachRolePolicyResponse

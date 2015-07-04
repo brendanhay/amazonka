@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeKeyPairs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data DescribeKeyPairs = DescribeKeyPairs'
     { _dkp1Filters  :: !(Maybe [Filter])
     , _dkp1KeyNames :: !(Maybe [Text])
     , _dkp1DryRun   :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyPairs' smart constructor.
 describeKeyPairs :: DescribeKeyPairs
@@ -129,7 +131,7 @@ instance ToQuery DescribeKeyPairs where
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
     { _dkprKeyPairs :: !(Maybe [KeyPairInfo])
     , _dkprStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyPairsResponse' smart constructor.
 describeKeyPairsResponse :: Int -> DescribeKeyPairsResponse

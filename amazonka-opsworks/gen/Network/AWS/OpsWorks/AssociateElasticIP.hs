@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.AssociateElasticIP
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 data AssociateElasticIP = AssociateElasticIP'
     { _aeiInstanceId :: !(Maybe Text)
     , _aeiElasticIP  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateElasticIP' smart constructor.
 associateElasticIP :: Text -> AssociateElasticIP
@@ -107,7 +109,7 @@ instance ToQuery AssociateElasticIP where
 -- | /See:/ 'associateElasticIPResponse' smart constructor.
 data AssociateElasticIPResponse =
     AssociateElasticIPResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateElasticIPResponse' smart constructor.
 associateElasticIPResponse :: AssociateElasticIPResponse

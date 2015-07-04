@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.GetVaultNotifications
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ import           Network.AWS.Response
 data GetVaultNotifications = GetVaultNotifications'
     { _gvnAccountId :: !Text
     , _gvnVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultNotifications' smart constructor.
 getVaultNotifications :: Text -> Text -> GetVaultNotifications
@@ -131,7 +133,7 @@ instance ToQuery GetVaultNotifications where
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
     { _gvnrVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
     , _gvnrStatus                  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultNotificationsResponse' smart constructor.
 getVaultNotificationsResponse :: Int -> GetVaultNotificationsResponse

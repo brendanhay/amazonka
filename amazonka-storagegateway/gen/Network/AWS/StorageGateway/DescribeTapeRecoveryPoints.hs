@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
     { _dtrpMarker     :: !(Maybe Text)
     , _dtrpLimit      :: !(Maybe Nat)
     , _dtrpGatewayARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapeRecoveryPoints' smart constructor.
 describeTapeRecoveryPoints :: Text -> DescribeTapeRecoveryPoints
@@ -152,7 +154,7 @@ data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
     , _dtrprGatewayARN             :: !(Maybe Text)
     , _dtrprMarker                 :: !(Maybe Text)
     , _dtrprStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapeRecoveryPointsResponse' smart constructor.
 describeTapeRecoveryPointsResponse :: Int -> DescribeTapeRecoveryPointsResponse

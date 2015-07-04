@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.GetHostnameSuggestion
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 -- * 'ghsLayerId'
 newtype GetHostnameSuggestion = GetHostnameSuggestion'
     { _ghsLayerId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostnameSuggestion' smart constructor.
 getHostnameSuggestion :: Text -> GetHostnameSuggestion
@@ -115,7 +117,7 @@ data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
     { _ghsrHostname :: !(Maybe Text)
     , _ghsrLayerId  :: !(Maybe Text)
     , _ghsrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostnameSuggestionResponse' smart constructor.
 getHostnameSuggestionResponse :: Int -> GetHostnameSuggestionResponse

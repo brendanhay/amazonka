@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.CreateStream
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -91,7 +93,7 @@ import           Network.AWS.Response
 data CreateStream = CreateStream'
     { _csStreamName :: !Text
     , _csShardCount :: !Nat
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStream' smart constructor.
 createStream :: Text -> Natural -> CreateStream
@@ -147,7 +149,7 @@ instance ToQuery CreateStream where
 -- | /See:/ 'createStreamResponse' smart constructor.
 data CreateStreamResponse =
     CreateStreamResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStreamResponse' smart constructor.
 createStreamResponse :: CreateStreamResponse

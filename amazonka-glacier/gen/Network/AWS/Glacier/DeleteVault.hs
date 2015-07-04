@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Glacier.DeleteVault
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ import           Network.AWS.Response
 data DeleteVault = DeleteVault'
     { _delAccountId :: !Text
     , _delVaultName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVault' smart constructor.
 deleteVault :: Text -> Text -> DeleteVault
@@ -117,7 +119,7 @@ instance ToQuery DeleteVault where
 -- | /See:/ 'deleteVaultResponse' smart constructor.
 data DeleteVaultResponse =
     DeleteVaultResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVaultResponse' smart constructor.
 deleteVaultResponse :: DeleteVaultResponse

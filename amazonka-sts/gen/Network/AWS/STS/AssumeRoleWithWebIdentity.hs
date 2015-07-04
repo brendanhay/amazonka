@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.STS.AssumeRoleWithWebIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -148,7 +150,7 @@ data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
     , _arwwiRoleARN          :: !Text
     , _arwwiRoleSessionName  :: !Text
     , _arwwiWebIdentityToken :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleWithWebIdentity' smart constructor.
 assumeRoleWithWebIdentity :: Text -> Text -> Text -> AssumeRoleWithWebIdentity
@@ -280,7 +282,7 @@ data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
     , _arwwirAssumedRoleUser             :: !(Maybe AssumedRoleUser)
     , _arwwirProvider                    :: !(Maybe Text)
     , _arwwirStatus                      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleWithWebIdentityResponse' smart constructor.
 assumeRoleWithWebIdentityResponse :: Int -> AssumeRoleWithWebIdentityResponse

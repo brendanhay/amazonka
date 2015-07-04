@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.GetPolicyVersion
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ import           Network.AWS.Response
 data GetPolicyVersion = GetPolicyVersion'
     { _gpvPolicyARN :: !Text
     , _gpvVersionId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicyVersion' smart constructor.
 getPolicyVersion :: Text -> Text -> GetPolicyVersion
@@ -116,7 +118,7 @@ instance ToQuery GetPolicyVersion where
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
     { _gpvrPolicyVersion :: !(Maybe PolicyVersion)
     , _gpvrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicyVersionResponse' smart constructor.
 getPolicyVersionResponse :: Int -> GetPolicyVersionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeHSMConfigurations
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data DescribeHSMConfigurations = DescribeHSMConfigurations'
     , _dhsmcTagKeys                    :: !(Maybe [Text])
     , _dhsmcMaxRecords                 :: !(Maybe Int)
     , _dhsmcMarker                     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMConfigurations' smart constructor.
 describeHSMConfigurations :: DescribeHSMConfigurations
@@ -196,7 +198,7 @@ data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
     { _dhcrMarker            :: !(Maybe Text)
     , _dhcrHSMConfigurations :: !(Maybe [HSMConfiguration])
     , _dhcrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMConfigurationsResponse' smart constructor.
 describeHSMConfigurationsResponse :: Int -> DescribeHSMConfigurationsResponse

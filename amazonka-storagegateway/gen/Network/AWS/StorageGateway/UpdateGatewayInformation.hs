@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.UpdateGatewayInformation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data UpdateGatewayInformation = UpdateGatewayInformation'
     { _ugiGatewayName     :: !(Maybe Text)
     , _ugiGatewayTimezone :: !(Maybe Text)
     , _ugiGatewayARN      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGatewayInformation' smart constructor.
 updateGatewayInformation :: Text -> UpdateGatewayInformation
@@ -126,7 +128,7 @@ instance ToQuery UpdateGatewayInformation where
 data UpdateGatewayInformationResponse = UpdateGatewayInformationResponse'
     { _ugirGatewayARN :: !(Maybe Text)
     , _ugirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGatewayInformationResponse' smart constructor.
 updateGatewayInformationResponse :: Int -> UpdateGatewayInformationResponse

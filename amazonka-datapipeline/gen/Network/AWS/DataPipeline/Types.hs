@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -198,7 +200,7 @@ data OperatorType
     | OperatorBetween
     | OperatorRefEQ
     | OperatorLE
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OperatorType where
     parser = takeLowerText >>= \case
@@ -218,9 +220,7 @@ instance ToText OperatorType where
         OperatorLE -> "le"
         OperatorRefEQ -> "ref_eq"
 
-instance Hashable OperatorType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable OperatorType
 instance ToQuery OperatorType
 instance ToHeader OperatorType
 
@@ -231,7 +231,7 @@ data TaskStatus
     = Finished
     | False'
     | Failed
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText TaskStatus where
     parser = takeLowerText >>= \case
@@ -247,9 +247,7 @@ instance ToText TaskStatus where
         False' -> "false"
         Finished -> "finished"
 
-instance Hashable TaskStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable TaskStatus
 instance ToQuery TaskStatus
 instance ToHeader TaskStatus
 
@@ -273,7 +271,7 @@ data Field = Field'
     { _fieRefValue    :: !(Maybe Text)
     , _fieStringValue :: !(Maybe Text)
     , _fieKey         :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Field' smart constructor.
 field :: Text -> Field
@@ -329,7 +327,7 @@ instance ToJSON Field where
 data InstanceIdentity = InstanceIdentity'
     { _iiSignature :: !(Maybe Text)
     , _iiDocument  :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InstanceIdentity' smart constructor.
 instanceIdentity :: InstanceIdentity
@@ -369,7 +367,7 @@ instance ToJSON InstanceIdentity where
 data Operator = Operator'
     { _opeValues :: !(Maybe [Text])
     , _opeType   :: !(Maybe OperatorType)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Operator' smart constructor.
 operator :: Operator
@@ -435,7 +433,7 @@ instance ToJSON Operator where
 data ParameterAttribute = ParameterAttribute'
     { _paKey         :: !Text
     , _paStringValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterAttribute' smart constructor.
 parameterAttribute :: Text -> Text -> ParameterAttribute
@@ -477,7 +475,7 @@ instance ToJSON ParameterAttribute where
 data ParameterObject = ParameterObject'
     { _poId         :: !Text
     , _poAttributes :: ![ParameterAttribute]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterObject' smart constructor.
 parameterObject :: Text -> ParameterObject
@@ -519,7 +517,7 @@ instance ToJSON ParameterObject where
 data ParameterValue = ParameterValue'
     { _pvId          :: !Text
     , _pvStringValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ParameterValue' smart constructor.
 parameterValue :: Text -> Text -> ParameterValue
@@ -570,7 +568,7 @@ data PipelineDescription = PipelineDescription'
     , _pdPipelineId  :: !Text
     , _pdName        :: !Text
     , _pdFields      :: ![Field]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineDescription' smart constructor.
 pipelineDescription :: Text -> Text -> PipelineDescription
@@ -630,7 +628,7 @@ instance FromJSON PipelineDescription where
 data PipelineIdName = PipelineIdName'
     { _pinName :: !(Maybe Text)
     , _pinId   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineIdName' smart constructor.
 pipelineIdName :: PipelineIdName
@@ -672,7 +670,7 @@ data PipelineObject = PipelineObject'
     { _pipId     :: !Text
     , _pipName   :: !Text
     , _pipFields :: ![Field]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineObject' smart constructor.
 pipelineObject :: Text -> Text -> PipelineObject
@@ -718,7 +716,7 @@ instance ToJSON PipelineObject where
 -- * 'queSelectors'
 newtype Query = Query'
     { _queSelectors :: Maybe [Selector]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Query' smart constructor.
 query :: Query
@@ -749,7 +747,7 @@ instance ToJSON Query where
 data Selector = Selector'
     { _selOperator  :: !(Maybe Operator)
     , _selFieldName :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Selector' smart constructor.
 selector :: Selector
@@ -792,7 +790,7 @@ instance ToJSON Selector where
 data Tag = Tag'
     { _tagKey   :: !Text
     , _tagValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Text -> Tag
@@ -843,7 +841,7 @@ data TaskObject = TaskObject'
     , _toTaskId     :: !(Maybe Text)
     , _toAttemptId  :: !(Maybe Text)
     , _toObjects    :: !(Maybe (Map Text PipelineObject))
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TaskObject' smart constructor.
 taskObject :: TaskObject
@@ -897,7 +895,7 @@ instance FromJSON TaskObject where
 data ValidationError = ValidationError'
     { _veId     :: !(Maybe Text)
     , _veErrors :: !(Maybe [Text])
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidationError' smart constructor.
 validationError :: ValidationError
@@ -936,7 +934,7 @@ instance FromJSON ValidationError where
 data ValidationWarning = ValidationWarning'
     { _vwWarnings :: !(Maybe [Text])
     , _vwId       :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidationWarning' smart constructor.
 validationWarning :: ValidationWarning

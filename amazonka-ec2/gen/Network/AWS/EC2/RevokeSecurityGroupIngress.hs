@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.RevokeSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -90,7 +92,7 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
     , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
     , _rsgiSourceSecurityGroupName    :: !(Maybe Text)
     , _rsgiDryRun                     :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSecurityGroupIngress' smart constructor.
 revokeSecurityGroupIngress :: RevokeSecurityGroupIngress
@@ -198,7 +200,7 @@ instance ToQuery RevokeSecurityGroupIngress where
 -- | /See:/ 'revokeSecurityGroupIngressResponse' smart constructor.
 data RevokeSecurityGroupIngressResponse =
     RevokeSecurityGroupIngressResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSecurityGroupIngressResponse' smart constructor.
 revokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse

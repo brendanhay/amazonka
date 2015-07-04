@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53.GetHostedZoneCount
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -45,7 +47,7 @@ import           Network.AWS.Route53.Types
 -- /See:/ 'getHostedZoneCount' smart constructor.
 data GetHostedZoneCount =
     GetHostedZoneCount'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostedZoneCount' smart constructor.
 getHostedZoneCount :: GetHostedZoneCount
@@ -84,7 +86,7 @@ instance ToQuery GetHostedZoneCount where
 data GetHostedZoneCountResponse = GetHostedZoneCountResponse'
     { _ghzcrStatus          :: !Int
     , _ghzcrHostedZoneCount :: !Integer
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostedZoneCountResponse' smart constructor.
 getHostedZoneCountResponse :: Int -> Integer -> GetHostedZoneCountResponse

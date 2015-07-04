@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.RebootDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ import           Network.AWS.Response
 data RebootDBInstance = RebootDBInstance'
     { _rdiForceFailover        :: !(Maybe Bool)
     , _rdiDBInstanceIdentifier :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootDBInstance' smart constructor.
 rebootDBInstance :: Text -> RebootDBInstance
@@ -132,7 +134,7 @@ instance ToQuery RebootDBInstance where
 data RebootDBInstanceResponse = RebootDBInstanceResponse'
     { _rdirDBInstance :: !(Maybe DBInstance)
     , _rdirStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootDBInstanceResponse' smart constructor.
 rebootDBInstanceResponse :: Int -> RebootDBInstanceResponse

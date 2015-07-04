@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateInternetGateway
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'cigDryRun'
 newtype CreateInternetGateway = CreateInternetGateway'
     { _cigDryRun :: Maybe Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInternetGateway' smart constructor.
 createInternetGateway :: CreateInternetGateway
@@ -101,7 +103,7 @@ instance ToQuery CreateInternetGateway where
 data CreateInternetGatewayResponse = CreateInternetGatewayResponse'
     { _cigrInternetGateway :: !(Maybe InternetGateway)
     , _cigrStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInternetGatewayResponse' smart constructor.
 createInternetGatewayResponse :: Int -> CreateInternetGatewayResponse

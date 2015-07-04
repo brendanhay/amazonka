@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.GetOperationDetail
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Route53Domains.Types
 -- * 'godOperationId'
 newtype GetOperationDetail = GetOperationDetail'
     { _godOperationId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOperationDetail' smart constructor.
 getOperationDetail :: Text -> GetOperationDetail
@@ -134,7 +136,7 @@ data GetOperationDetailResponse = GetOperationDetailResponse'
     , _godrType          :: !(Maybe OperationType)
     , _godrMessage       :: !(Maybe Text)
     , _godrStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOperationDetailResponse' smart constructor.
 getOperationDetailResponse :: Int -> GetOperationDetailResponse

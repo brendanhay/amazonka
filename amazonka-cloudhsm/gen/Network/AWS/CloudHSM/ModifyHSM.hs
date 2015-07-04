@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.ModifyHSM
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data ModifyHSM = ModifyHSM'
     , _mhExternalId :: !(Maybe Text)
     , _mhEniIP      :: !(Maybe Text)
     , _mhHSMARN     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHSM' smart constructor.
 modifyHSM :: Text -> ModifyHSM
@@ -153,7 +155,7 @@ instance ToQuery ModifyHSM where
 data ModifyHSMResponse = ModifyHSMResponse'
     { _modHSMARN :: !(Maybe Text)
     , _modStatus :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHSMResponse' smart constructor.
 modifyHSMResponse :: Int -> ModifyHSMResponse

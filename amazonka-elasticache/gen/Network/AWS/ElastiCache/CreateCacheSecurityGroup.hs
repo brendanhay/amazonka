@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.CreateCacheSecurityGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.Response
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
     { _ccsgCacheSecurityGroupName :: !Text
     , _ccsgDescription            :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSecurityGroup' smart constructor.
 createCacheSecurityGroup :: Text -> Text -> CreateCacheSecurityGroup
@@ -122,7 +124,7 @@ instance ToQuery CreateCacheSecurityGroup where
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
     { _ccsgrCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _ccsgrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSecurityGroupResponse' smart constructor.
 createCacheSecurityGroupResponse :: Int -> CreateCacheSecurityGroupResponse

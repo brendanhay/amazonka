@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -79,7 +81,7 @@ data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
     , _adsgiCIDRIP                  :: !(Maybe Text)
     , _adsgiEC2SecurityGroupId      :: !(Maybe Text)
     , _adsgiDBSecurityGroupName     :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeDBSecurityGroupIngress' smart constructor.
 authorizeDBSecurityGroupIngress :: Text -> AuthorizeDBSecurityGroupIngress
@@ -166,7 +168,7 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
 data AuthorizeDBSecurityGroupIngressResponse = AuthorizeDBSecurityGroupIngressResponse'
     { _adsgirDBSecurityGroup :: !(Maybe DBSecurityGroup)
     , _adsgirStatus          :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeDBSecurityGroupIngressResponse' smart constructor.
 authorizeDBSecurityGroupIngressResponse :: Int -> AuthorizeDBSecurityGroupIngressResponse

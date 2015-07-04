@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -44,7 +46,7 @@ import           Network.AWS.Response
 -- * 'dcsgClusterSubnetGroupName'
 newtype DeleteClusterSubnetGroup = DeleteClusterSubnetGroup'
     { _dcsgClusterSubnetGroupName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSubnetGroup' smart constructor.
 deleteClusterSubnetGroup :: Text -> DeleteClusterSubnetGroup
@@ -83,7 +85,7 @@ instance ToQuery DeleteClusterSubnetGroup where
 -- | /See:/ 'deleteClusterSubnetGroupResponse' smart constructor.
 data DeleteClusterSubnetGroupResponse =
     DeleteClusterSubnetGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSubnetGroupResponse' smart constructor.
 deleteClusterSubnetGroupResponse :: DeleteClusterSubnetGroupResponse

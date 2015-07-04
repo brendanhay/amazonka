@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DynamoDB.UpdateItem
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -104,7 +106,7 @@ data UpdateItem = UpdateItem'
     , _uiExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
     , _uiTableName                   :: !Text
     , _uiKey                         :: !(Map Text AttributeValue)
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'UpdateItem' smart constructor.
 updateItem :: Text -> UpdateItem
@@ -757,7 +759,7 @@ data UpdateItemResponse = UpdateItemResponse'
     , _uirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
     , _uirAttributes            :: !(Maybe (Map Text AttributeValue))
     , _uirStatus                :: !Int
-    } deriving (Eq,Show)
+    } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'UpdateItemResponse' smart constructor.
 updateItemResponse :: Int -> UpdateItemResponse

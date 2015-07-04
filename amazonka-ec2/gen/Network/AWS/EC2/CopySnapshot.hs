@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CopySnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -81,7 +83,7 @@ data CopySnapshot = CopySnapshot'
     , _csDescription       :: !(Maybe Text)
     , _csSourceRegion      :: !Text
     , _csSourceSnapshotId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
@@ -179,7 +181,7 @@ instance ToQuery CopySnapshot where
 data CopySnapshotResponse = CopySnapshotResponse'
     { _csrSnapshotId :: !(Maybe Text)
     , _csrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Int -> CopySnapshotResponse

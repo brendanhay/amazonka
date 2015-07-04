@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeAccountAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ import           Network.AWS.Response
 data DescribeAccountAttributes = DescribeAccountAttributes'
     { _daaAttributeNames :: !(Maybe [AccountAttributeName])
     , _daaDryRun         :: !(Maybe Bool)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountAttributes' smart constructor.
 describeAccountAttributes :: DescribeAccountAttributes
@@ -131,7 +133,7 @@ instance ToQuery DescribeAccountAttributes where
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
     { _daarAccountAttributes :: !(Maybe [AccountAttribute])
     , _daarStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse

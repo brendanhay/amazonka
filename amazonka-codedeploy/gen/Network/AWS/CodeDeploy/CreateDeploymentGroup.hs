@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.CreateDeploymentGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ data CreateDeploymentGroup = CreateDeploymentGroup'
     , _cdgApplicationName              :: !Text
     , _cdgDeploymentGroupName          :: !Text
     , _cdgServiceRoleARN               :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentGroup' smart constructor.
 createDeploymentGroup :: Text -> Text -> Text -> CreateDeploymentGroup
@@ -204,7 +206,7 @@ instance ToQuery CreateDeploymentGroup where
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
     { _cdgrDeploymentGroupId :: !(Maybe Text)
     , _cdgrStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentGroupResponse' smart constructor.
 createDeploymentGroupResponse :: Int -> CreateDeploymentGroupResponse

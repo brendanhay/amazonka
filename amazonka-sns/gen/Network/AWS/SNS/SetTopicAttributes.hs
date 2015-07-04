@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.SetTopicAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ data SetTopicAttributes = SetTopicAttributes'
     { _staAttributeValue :: !(Maybe Text)
     , _staTopicARN       :: !Text
     , _staAttributeName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTopicAttributes' smart constructor.
 setTopicAttributes :: Text -> Text -> SetTopicAttributes
@@ -105,7 +107,7 @@ instance ToQuery SetTopicAttributes where
 -- | /See:/ 'setTopicAttributesResponse' smart constructor.
 data SetTopicAttributesResponse =
     SetTopicAttributesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTopicAttributesResponse' smart constructor.
 setTopicAttributesResponse :: SetTopicAttributesResponse

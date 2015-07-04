@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ReplaceRoute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ data ReplaceRoute = ReplaceRoute'
     , _rrDryRun                 :: !(Maybe Bool)
     , _rrRouteTableId           :: !Text
     , _rrDestinationCIDRBlock   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRoute' smart constructor.
 replaceRoute :: Text -> Text -> ReplaceRoute
@@ -149,7 +151,7 @@ instance ToQuery ReplaceRoute where
 -- | /See:/ 'replaceRouteResponse' smart constructor.
 data ReplaceRouteResponse =
     ReplaceRouteResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRouteResponse' smart constructor.
 replaceRouteResponse :: ReplaceRouteResponse

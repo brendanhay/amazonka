@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.StartTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data StartTask = StartTask'
     , _staStartedBy          :: !(Maybe Text)
     , _staTaskDefinition     :: !Text
     , _staContainerInstances :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartTask' smart constructor.
 startTask :: Text -> StartTask
@@ -174,7 +176,7 @@ data StartTaskResponse = StartTaskResponse'
     { _strFailures :: !(Maybe [Failure])
     , _strTasks    :: !(Maybe [Task])
     , _strStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartTaskResponse' smart constructor.
 startTaskResponse :: Int -> StartTaskResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SDB.DeleteAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data DeleteAttributes = DeleteAttributes'
     , _daExpected   :: !(Maybe UpdateCondition)
     , _daDomainName :: !Text
     , _daItemName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAttributes' smart constructor.
 deleteAttributes :: Text -> Text -> DeleteAttributes
@@ -123,7 +125,7 @@ instance ToQuery DeleteAttributes where
 -- | /See:/ 'deleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse =
     DeleteAttributesResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAttributesResponse' smart constructor.
 deleteAttributesResponse :: DeleteAttributesResponse

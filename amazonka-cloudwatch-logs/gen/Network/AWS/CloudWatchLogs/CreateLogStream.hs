@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.CreateLogStream
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data CreateLogStream = CreateLogStream'
     { _clsLogGroupName  :: !Text
     , _clsLogStreamName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLogStream' smart constructor.
 createLogStream :: Text -> Text -> CreateLogStream
@@ -103,7 +105,7 @@ instance ToQuery CreateLogStream where
 -- | /See:/ 'createLogStreamResponse' smart constructor.
 data CreateLogStreamResponse =
     CreateLogStreamResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLogStreamResponse' smart constructor.
 createLogStreamResponse :: CreateLogStreamResponse

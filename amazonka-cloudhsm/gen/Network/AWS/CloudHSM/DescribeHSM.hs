@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.DescribeHSM
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ import           Network.AWS.Response
 data DescribeHSM = DescribeHSM'
     { _desHSMSerialNumber :: !(Maybe Text)
     , _desHSMARN          :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSM' smart constructor.
 describeHSM :: DescribeHSM
@@ -213,7 +215,7 @@ data DescribeHSMResponse = DescribeHSMResponse'
     , _dhsmrEniIP                 :: !(Maybe Text)
     , _dhsmrHSMType               :: !(Maybe Text)
     , _dhsmrStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMResponse' smart constructor.
 describeHSMResponse :: Int -> DescribeHSMResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.DescribeSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data DescribeSnapshots = DescribeSnapshots'
     , _dsNextToken   :: !(Maybe Text)
     , _dsSnapshotIds :: !(Maybe [Text])
     , _dsLimit       :: !(Maybe Nat)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
@@ -152,7 +154,7 @@ data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
     { _desNextToken :: !(Maybe Text)
     , _desSnapshots :: !(Maybe [Snapshot])
     , _desStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse

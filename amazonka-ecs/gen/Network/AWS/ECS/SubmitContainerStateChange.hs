@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ECS.SubmitContainerStateChange
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ data SubmitContainerStateChange = SubmitContainerStateChange'
     , _scscReason          :: !(Maybe Text)
     , _scscExitCode        :: !(Maybe Int)
     , _scscTask            :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitContainerStateChange' smart constructor.
 submitContainerStateChange :: SubmitContainerStateChange
@@ -165,7 +167,7 @@ instance ToQuery SubmitContainerStateChange where
 data SubmitContainerStateChangeResponse = SubmitContainerStateChangeResponse'
     { _scscrAcknowledgment :: !(Maybe Text)
     , _scscrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubmitContainerStateChangeResponse' smart constructor.
 submitContainerStateChangeResponse :: Int -> SubmitContainerStateChangeResponse

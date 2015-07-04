@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Config.DescribeConfigurationRecorderStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'dcrsConfigurationRecorderNames'
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'
     { _dcrsConfigurationRecorderNames :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecorderStatus' smart constructor.
 describeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus
@@ -120,7 +122,7 @@ instance ToQuery DescribeConfigurationRecorderStatus
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
     { _dcrsrConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
     , _dcrsrStatus                       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecorderStatusResponse' smart constructor.
 describeConfigurationRecorderStatusResponse :: Int -> DescribeConfigurationRecorderStatusResponse

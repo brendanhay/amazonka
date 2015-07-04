@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CopyImage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ data CopyImage = CopyImage'
     , _ciSourceRegion  :: !Text
     , _ciSourceImageId :: !Text
     , _ciName          :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyImage' smart constructor.
 copyImage :: Text -> Text -> Text -> CopyImage
@@ -156,7 +158,7 @@ instance ToQuery CopyImage where
 data CopyImageResponse = CopyImageResponse'
     { _copImageId :: !(Maybe Text)
     , _copStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyImageResponse' smart constructor.
 copyImageResponse :: Int -> CopyImageResponse

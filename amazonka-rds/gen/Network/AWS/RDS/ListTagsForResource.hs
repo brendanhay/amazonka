@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.ListTagsForResource
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data ListTagsForResource = ListTagsForResource'
     { _ltfrFilters      :: !(Maybe [Filter])
     , _ltfrResourceName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource
@@ -116,7 +118,7 @@ instance ToQuery ListTagsForResource where
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
     { _ltfrrTagList :: !(Maybe [Tag])
     , _ltfrrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: Int -> ListTagsForResourceResponse

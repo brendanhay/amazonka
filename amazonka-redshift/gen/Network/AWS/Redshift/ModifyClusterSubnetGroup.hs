@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.ModifyClusterSubnetGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -59,7 +61,7 @@ data ModifyClusterSubnetGroup = ModifyClusterSubnetGroup'
     { _mcsgDescription            :: !(Maybe Text)
     , _mcsgClusterSubnetGroupName :: !Text
     , _mcsgSubnetIds              :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyClusterSubnetGroup' smart constructor.
 modifyClusterSubnetGroup :: Text -> ModifyClusterSubnetGroup
@@ -122,7 +124,7 @@ instance ToQuery ModifyClusterSubnetGroup where
 data ModifyClusterSubnetGroupResponse = ModifyClusterSubnetGroupResponse'
     { _mcsgrClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
     , _mcsgrStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyClusterSubnetGroupResponse' smart constructor.
 modifyClusterSubnetGroupResponse :: Int -> ModifyClusterSubnetGroupResponse

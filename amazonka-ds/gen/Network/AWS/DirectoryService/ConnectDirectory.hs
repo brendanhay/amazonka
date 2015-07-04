@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.ConnectDirectory
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data ConnectDirectory = ConnectDirectory'
     , _cdPassword        :: !(Sensitive Text)
     , _cdSize            :: !DirectorySize
     , _cdConnectSettings :: !DirectoryConnectSettings
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConnectDirectory' smart constructor.
 connectDirectory :: Text -> Text -> DirectorySize -> DirectoryConnectSettings -> ConnectDirectory
@@ -155,7 +157,7 @@ instance ToQuery ConnectDirectory where
 data ConnectDirectoryResponse = ConnectDirectoryResponse'
     { _cdrDirectoryId :: !(Maybe Text)
     , _cdrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConnectDirectoryResponse' smart constructor.
 connectDirectoryResponse :: Int -> ConnectDirectoryResponse

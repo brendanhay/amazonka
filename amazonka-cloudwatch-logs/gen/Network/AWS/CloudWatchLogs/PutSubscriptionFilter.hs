@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatchLogs.PutSubscriptionFilter
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data PutSubscriptionFilter = PutSubscriptionFilter'
     , _psfFilterPattern  :: !Text
     , _psfDestinationARN :: !Text
     , _psfRoleARN        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutSubscriptionFilter' smart constructor.
 putSubscriptionFilter :: Text -> Text -> Text -> Text -> Text -> PutSubscriptionFilter
@@ -138,7 +140,7 @@ instance ToQuery PutSubscriptionFilter where
 -- | /See:/ 'putSubscriptionFilterResponse' smart constructor.
 data PutSubscriptionFilterResponse =
     PutSubscriptionFilterResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutSubscriptionFilterResponse' smart constructor.
 putSubscriptionFilterResponse :: PutSubscriptionFilterResponse

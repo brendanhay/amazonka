@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.BatchGetApplications
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'bgaApplicationNames'
 newtype BatchGetApplications = BatchGetApplications'
     { _bgaApplicationNames :: Maybe [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetApplications' smart constructor.
 batchGetApplications :: BatchGetApplications
@@ -107,7 +109,7 @@ instance ToQuery BatchGetApplications where
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
     { _bgarApplicationsInfo :: !(Maybe [ApplicationInfo])
     , _bgarStatus           :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetApplicationsResponse' smart constructor.
 batchGetApplicationsResponse :: Int -> BatchGetApplicationsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -103,7 +105,7 @@ data CreateVolume = CreateVolume'
     , _cDryRun           :: !(Maybe Bool)
     , _cSnapshotId       :: !(Maybe Text)
     , _cAvailabilityZone :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVolume' smart constructor.
 createVolume :: Text -> CreateVolume

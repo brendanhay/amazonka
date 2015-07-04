@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.ModifyLunaClient
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data ModifyLunaClient = ModifyLunaClient'
     { _mlcClientARN   :: !Text
     , _mlcCertificate :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLunaClient' smart constructor.
 modifyLunaClient :: Text -> Text -> ModifyLunaClient
@@ -114,7 +116,7 @@ instance ToQuery ModifyLunaClient where
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
     { _mlcrClientARN :: !(Maybe Text)
     , _mlcrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLunaClientResponse' smart constructor.
 modifyLunaClientResponse :: Int -> ModifyLunaClientResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.ActivatePipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data ActivatePipeline = ActivatePipeline'
     { _apStartTimestamp  :: !(Maybe POSIX)
     , _apParameterValues :: !(Maybe [ParameterValue])
     , _apPipelineId      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivatePipeline' smart constructor.
 activatePipeline :: Text -> ActivatePipeline
@@ -127,7 +129,7 @@ instance ToQuery ActivatePipeline where
 -- * 'aprStatus'
 newtype ActivatePipelineResponse = ActivatePipelineResponse'
     { _aprStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivatePipelineResponse' smart constructor.
 activatePipelineResponse :: Int -> ActivatePipelineResponse

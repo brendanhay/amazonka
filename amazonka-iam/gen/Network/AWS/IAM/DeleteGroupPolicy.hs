@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.DeleteGroupPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 data DeleteGroupPolicy = DeleteGroupPolicy'
     { _delGroupName  :: !Text
     , _delPolicyName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGroupPolicy' smart constructor.
 deleteGroupPolicy :: Text -> Text -> DeleteGroupPolicy
@@ -97,7 +99,7 @@ instance ToQuery DeleteGroupPolicy where
 -- | /See:/ 'deleteGroupPolicyResponse' smart constructor.
 data DeleteGroupPolicyResponse =
     DeleteGroupPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGroupPolicyResponse' smart constructor.
 deleteGroupPolicyResponse :: DeleteGroupPolicyResponse

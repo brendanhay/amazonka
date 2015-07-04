@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.EnableAlarmActions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -44,7 +46,7 @@ import           Network.AWS.Response
 -- * 'eaaAlarmNames'
 newtype EnableAlarmActions = EnableAlarmActions'
     { _eaaAlarmNames :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableAlarmActions' smart constructor.
 enableAlarmActions :: EnableAlarmActions
@@ -80,7 +82,7 @@ instance ToQuery EnableAlarmActions where
 -- | /See:/ 'enableAlarmActionsResponse' smart constructor.
 data EnableAlarmActionsResponse =
     EnableAlarmActionsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableAlarmActionsResponse' smart constructor.
 enableAlarmActionsResponse :: EnableAlarmActionsResponse

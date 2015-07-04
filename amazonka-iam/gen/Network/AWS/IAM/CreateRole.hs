@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.CreateRole
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data CreateRole = CreateRole'
     { _crPath                     :: !(Maybe Text)
     , _crRoleName                 :: !Text
     , _crAssumeRolePolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRole' smart constructor.
 createRole :: Text -> Text -> CreateRole
@@ -129,7 +131,7 @@ instance ToQuery CreateRole where
 data CreateRoleResponse = CreateRoleResponse'
     { _crrStatus :: !Int
     , _crrRole   :: !Role
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRoleResponse' smart constructor.
 createRoleResponse :: Int -> Role -> CreateRoleResponse

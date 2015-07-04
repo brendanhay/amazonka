@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.CancelUpdateStack
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'cusStackName'
 newtype CancelUpdateStack = CancelUpdateStack'
     { _cusStackName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelUpdateStack' smart constructor.
 cancelUpdateStack :: Text -> CancelUpdateStack
@@ -85,7 +87,7 @@ instance ToQuery CancelUpdateStack where
 -- | /See:/ 'cancelUpdateStackResponse' smart constructor.
 data CancelUpdateStackResponse =
     CancelUpdateStackResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelUpdateStackResponse' smart constructor.
 cancelUpdateStackResponse :: CancelUpdateStackResponse

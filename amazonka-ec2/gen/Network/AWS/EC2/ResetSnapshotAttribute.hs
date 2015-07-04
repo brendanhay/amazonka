@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ResetSnapshotAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ data ResetSnapshotAttribute = ResetSnapshotAttribute'
     { _rsaDryRun     :: !(Maybe Bool)
     , _rsaSnapshotId :: !Text
     , _rsaAttribute  :: !SnapshotAttributeName
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetSnapshotAttribute' smart constructor.
 resetSnapshotAttribute :: Text -> SnapshotAttributeName -> ResetSnapshotAttribute
@@ -110,7 +112,7 @@ instance ToQuery ResetSnapshotAttribute where
 -- | /See:/ 'resetSnapshotAttributeResponse' smart constructor.
 data ResetSnapshotAttributeResponse =
     ResetSnapshotAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetSnapshotAttributeResponse' smart constructor.
 resetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse

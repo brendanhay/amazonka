@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Route53Domains.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -174,7 +176,7 @@ data ContactType
     | Reseller
     | Association
     | PublicBody
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ContactType where
     parser = takeLowerText >>= \case
@@ -194,9 +196,7 @@ instance ToText ContactType where
         PublicBody -> "public_body"
         Reseller -> "reseller"
 
-instance Hashable ContactType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ContactType
 instance ToQuery ContactType
 instance ToHeader ContactType
 
@@ -436,7 +436,7 @@ data CountryCode
     | ET
     | SB
     | KZ
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CountryCode where
     parser = takeLowerText >>= \case
@@ -904,9 +904,7 @@ instance ToText CountryCode where
         ZM -> "zm"
         ZW -> "zw"
 
-instance Hashable CountryCode where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable CountryCode
 instance ToQuery CountryCode
 instance ToHeader CountryCode
 
@@ -925,7 +923,7 @@ data DomainAvailability
     | Unavailable
     | UnavailablePremium
     | Available
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DomainAvailability where
     parser = takeLowerText >>= \case
@@ -951,9 +949,7 @@ instance ToText DomainAvailability where
         UnavailablePremium -> "unavailable_premium"
         UnavailableRestricted -> "unavailable_restricted"
 
-instance Hashable DomainAvailability where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable DomainAvailability
 instance ToQuery DomainAvailability
 instance ToHeader DomainAvailability
 
@@ -981,7 +977,7 @@ data ExtraParamName
     | BrandNumber
     | SEIDNumber
     | FIIDNumber
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExtraParamName where
     parser = takeLowerText >>= \case
@@ -1031,9 +1027,7 @@ instance ToText ExtraParamName where
         SGIDNumber -> "sg_id_number"
         VatNumber -> "vat_number"
 
-instance Hashable ExtraParamName where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ExtraParamName
 instance ToQuery ExtraParamName
 instance ToHeader ExtraParamName
 
@@ -1049,7 +1043,7 @@ data OperationStatus
     | INProgress
     | Failed
     | Submitted
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OperationStatus where
     parser = takeLowerText >>= \case
@@ -1069,9 +1063,7 @@ instance ToText OperationStatus where
         Submitted -> "submitted"
         Successful -> "successful"
 
-instance Hashable OperationStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable OperationStatus
 instance ToQuery OperationStatus
 instance ToHeader OperationStatus
 
@@ -1086,7 +1078,7 @@ data OperationType
     | UpdateNameserver
     | DomainLock
     | DeleteDomain
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OperationType where
     parser = takeLowerText >>= \case
@@ -1110,9 +1102,7 @@ instance ToText OperationType where
         UpdateDomainContact -> "update_domain_contact"
         UpdateNameserver -> "update_nameserver"
 
-instance Hashable OperationType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable OperationType
 instance ToQuery OperationType
 instance ToHeader OperationType
 
@@ -1167,7 +1157,7 @@ data ContactDetail = ContactDetail'
     , _cdFirstName        :: !(Maybe Text)
     , _cdCountryCode      :: !(Maybe CountryCode)
     , _cdContactType      :: !(Maybe ContactType)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ContactDetail' smart constructor.
 contactDetail :: ContactDetail
@@ -1445,7 +1435,7 @@ data DomainSummary = DomainSummary'
     , _dsTransferLock :: !(Maybe Bool)
     , _dsAutoRenew    :: !(Maybe Bool)
     , _dsDomainName   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DomainSummary' smart constructor.
 domainSummary :: Text -> DomainSummary
@@ -1507,7 +1497,7 @@ instance FromJSON DomainSummary where
 data ExtraParam = ExtraParam'
     { _epName  :: !ExtraParamName
     , _epValue :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExtraParam' smart constructor.
 extraParam :: ExtraParamName -> Text -> ExtraParam
@@ -1573,7 +1563,7 @@ instance ToJSON ExtraParam where
 data Nameserver = Nameserver'
     { _namGlueIPs :: !(Maybe [Text])
     , _namName    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Nameserver' smart constructor.
 nameserver :: Text -> Nameserver
@@ -1637,7 +1627,7 @@ data OperationSummary = OperationSummary'
     , _osStatus        :: !OperationStatus
     , _osType          :: !OperationType
     , _osSubmittedDate :: !POSIX
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'OperationSummary' smart constructor.
 operationSummary :: Text -> OperationStatus -> OperationType -> UTCTime -> OperationSummary
@@ -1696,7 +1686,7 @@ instance FromJSON OperationSummary where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Tag

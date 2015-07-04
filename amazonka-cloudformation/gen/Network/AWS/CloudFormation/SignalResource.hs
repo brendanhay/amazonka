@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.SignalResource
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data SignalResource = SignalResource'
     , _sigLogicalResourceId :: !Text
     , _sigUniqueId          :: !Text
     , _sigStatus            :: !ResourceSignalStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SignalResource' smart constructor.
 signalResource :: Text -> Text -> Text -> ResourceSignalStatus -> SignalResource
@@ -123,7 +125,7 @@ instance ToQuery SignalResource where
 -- | /See:/ 'signalResourceResponse' smart constructor.
 data SignalResourceResponse =
     SignalResourceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SignalResourceResponse' smart constructor.
 signalResourceResponse :: SignalResourceResponse

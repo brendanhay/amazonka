@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.DeleteLoadBalancerListeners
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
     { _dlblLoadBalancerName  :: !Text
     , _dlblLoadBalancerPorts :: ![Int]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerListeners' smart constructor.
 deleteLoadBalancerListeners :: Text -> DeleteLoadBalancerListeners
@@ -103,7 +105,7 @@ instance ToQuery DeleteLoadBalancerListeners where
 -- * 'dlblrStatus'
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
     { _dlblrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerListenersResponse' smart constructor.
 deleteLoadBalancerListenersResponse :: Int -> DeleteLoadBalancerListenersResponse

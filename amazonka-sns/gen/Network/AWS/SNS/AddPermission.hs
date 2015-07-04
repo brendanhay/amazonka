@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.AddPermission
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data AddPermission = AddPermission'
     , _apLabel        :: !Text
     , _apAWSAccountId :: ![Text]
     , _apActionName   :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> AddPermission
@@ -114,7 +116,7 @@ instance ToQuery AddPermission where
 -- | /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse =
     AddPermissionResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddPermissionResponse' smart constructor.
 addPermissionResponse :: AddPermissionResponse

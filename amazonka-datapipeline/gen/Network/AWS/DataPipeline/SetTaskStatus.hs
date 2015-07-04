@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.SetTaskStatus
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -68,7 +70,7 @@ data SetTaskStatus = SetTaskStatus'
     , _stsErrorMessage    :: !(Maybe Text)
     , _stsTaskId          :: !Text
     , _stsTaskStatus      :: !TaskStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTaskStatus' smart constructor.
 setTaskStatus :: Text -> TaskStatus -> SetTaskStatus
@@ -154,7 +156,7 @@ instance ToQuery SetTaskStatus where
 -- * 'stsrStatus'
 newtype SetTaskStatusResponse = SetTaskStatusResponse'
     { _stsrStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTaskStatusResponse' smart constructor.
 setTaskStatusResponse :: Int -> SetTaskStatusResponse

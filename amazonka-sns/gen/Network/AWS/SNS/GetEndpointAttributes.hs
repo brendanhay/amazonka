@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SNS.GetEndpointAttributes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.SNS.Types
 -- * 'geaEndpointARN'
 newtype GetEndpointAttributes = GetEndpointAttributes'
     { _geaEndpointARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEndpointAttributes' smart constructor.
 getEndpointAttributes :: Text -> GetEndpointAttributes
@@ -103,7 +105,7 @@ instance ToQuery GetEndpointAttributes where
 data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
     { _gearAttributes :: !(Maybe (Map Text Text))
     , _gearStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEndpointAttributesResponse' smart constructor.
 getEndpointAttributesResponse :: Int -> GetEndpointAttributesResponse

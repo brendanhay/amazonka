@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.TerminateJobFlows
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -55,7 +57,7 @@ import           Network.AWS.Response
 -- * 'tjfJobFlowIds'
 newtype TerminateJobFlows = TerminateJobFlows'
     { _tjfJobFlowIds :: [Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateJobFlows' smart constructor.
 terminateJobFlows :: TerminateJobFlows
@@ -96,7 +98,7 @@ instance ToQuery TerminateJobFlows where
 -- | /See:/ 'terminateJobFlowsResponse' smart constructor.
 data TerminateJobFlowsResponse =
     TerminateJobFlowsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateJobFlowsResponse' smart constructor.
 terminateJobFlowsResponse :: TerminateJobFlowsResponse

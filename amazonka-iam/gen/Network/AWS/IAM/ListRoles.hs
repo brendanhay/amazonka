@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.ListRoles
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data ListRoles = ListRoles'
     { _lrPathPrefix :: !(Maybe Text)
     , _lrMaxItems   :: !(Maybe Nat)
     , _lrMarker     :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRoles' smart constructor.
 listRoles :: ListRoles
@@ -150,7 +152,7 @@ data ListRolesResponse = ListRolesResponse'
     , _lrrIsTruncated :: !(Maybe Bool)
     , _lrrStatus      :: !Int
     , _lrrRoles       :: ![Role]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolesResponse' smart constructor.
 listRolesResponse :: Int -> ListRolesResponse

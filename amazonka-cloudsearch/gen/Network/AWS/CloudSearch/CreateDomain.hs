@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.CreateDomain
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'cdDomainName'
 newtype CreateDomain = CreateDomain'
     { _cdDomainName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
@@ -104,7 +106,7 @@ instance ToQuery CreateDomain where
 data CreateDomainResponse = CreateDomainResponse'
     { _cdrDomainStatus :: !(Maybe DomainStatus)
     , _cdrStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDomainResponse' smart constructor.
 createDomainResponse :: Int -> CreateDomainResponse

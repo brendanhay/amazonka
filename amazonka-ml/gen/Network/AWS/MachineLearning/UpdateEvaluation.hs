@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.UpdateEvaluation
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data UpdateEvaluation = UpdateEvaluation'
     { _ueEvaluationId   :: !Text
     , _ueEvaluationName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEvaluation' smart constructor.
 updateEvaluation :: Text -> Text -> UpdateEvaluation
@@ -118,7 +120,7 @@ instance ToQuery UpdateEvaluation where
 data UpdateEvaluationResponse = UpdateEvaluationResponse'
     { _uerEvaluationId :: !(Maybe Text)
     , _uerStatus       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEvaluationResponse' smart constructor.
 updateEvaluationResponse :: Int -> UpdateEvaluationResponse

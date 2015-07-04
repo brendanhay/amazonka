@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.ListKeyPolicies
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data ListKeyPolicies = ListKeyPolicies'
     { _lkpMarker :: !(Maybe Text)
     , _lkpLimit  :: !(Maybe Nat)
     , _lkpKeyId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeyPolicies' smart constructor.
 listKeyPolicies :: Text -> ListKeyPolicies
@@ -146,7 +148,7 @@ data ListKeyPoliciesResponse = ListKeyPoliciesResponse'
     , _lkprTruncated   :: !(Maybe Bool)
     , _lkprNextMarker  :: !(Maybe Text)
     , _lkprStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeyPoliciesResponse' smart constructor.
 listKeyPoliciesResponse :: Int -> ListKeyPoliciesResponse

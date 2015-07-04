@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.DescribeMountTargetSecurityGroups
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ import           Network.AWS.Response
 -- * 'dmtsgMountTargetId'
 newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
     { _dmtsgMountTargetId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargetSecurityGroups' smart constructor.
 describeMountTargetSecurityGroups :: Text -> DescribeMountTargetSecurityGroups
@@ -108,7 +110,7 @@ instance ToQuery DescribeMountTargetSecurityGroups
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
     { _dmtsgrStatus         :: !Int
     , _dmtsgrSecurityGroups :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
 describeMountTargetSecurityGroupsResponse :: Int -> DescribeMountTargetSecurityGroupsResponse

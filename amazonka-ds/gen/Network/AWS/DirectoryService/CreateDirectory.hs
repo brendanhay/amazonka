@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectoryService.CreateDirectory
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data CreateDirectory = CreateDirectory'
     , _creName        :: !Text
     , _crePassword    :: !(Sensitive Text)
     , _creSize        :: !DirectorySize
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDirectory' smart constructor.
 createDirectory :: Text -> Text -> DirectorySize -> CreateDirectory
@@ -156,7 +158,7 @@ instance ToQuery CreateDirectory where
 data CreateDirectoryResponse = CreateDirectoryResponse'
     { _creDirectoryId :: !(Maybe Text)
     , _creStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDirectoryResponse' smart constructor.
 createDirectoryResponse :: Int -> CreateDirectoryResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.StopInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -88,7 +90,7 @@ data StopInstances = StopInstances'
     { _siForce       :: !(Maybe Bool)
     , _siDryRun      :: !(Maybe Bool)
     , _siInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstances' smart constructor.
 stopInstances :: StopInstances
@@ -155,7 +157,7 @@ instance ToQuery StopInstances where
 data StopInstancesResponse = StopInstancesResponse'
     { _stoStoppingInstances :: !(Maybe [InstanceStateChange])
     , _stoStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstancesResponse' smart constructor.
 stopInstancesResponse :: Int -> StopInstancesResponse

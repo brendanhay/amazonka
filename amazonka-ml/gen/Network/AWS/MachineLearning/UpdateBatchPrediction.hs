@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.UpdateBatchPrediction
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data UpdateBatchPrediction = UpdateBatchPrediction'
     { _ubpBatchPredictionId   :: !Text
     , _ubpBatchPredictionName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBatchPrediction' smart constructor.
 updateBatchPrediction :: Text -> Text -> UpdateBatchPrediction
@@ -120,7 +122,7 @@ instance ToQuery UpdateBatchPrediction where
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
     { _ubprBatchPredictionId :: !(Maybe Text)
     , _ubprStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBatchPredictionResponse' smart constructor.
 updateBatchPredictionResponse :: Int -> UpdateBatchPredictionResponse

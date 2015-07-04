@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.ListGrants
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -57,7 +59,7 @@ data ListGrants = ListGrants'
     { _lgMarker :: !(Maybe Text)
     , _lgLimit  :: !(Maybe Nat)
     , _lgKeyId  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGrants' smart constructor.
 listGrants :: Text -> ListGrants
@@ -141,7 +143,7 @@ data ListGrantsResponse = ListGrantsResponse'
     , _lgrGrants     :: !(Maybe [GrantListEntry])
     , _lgrNextMarker :: !(Maybe Text)
     , _lgrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGrantsResponse' smart constructor.
 listGrantsResponse :: Int -> ListGrantsResponse

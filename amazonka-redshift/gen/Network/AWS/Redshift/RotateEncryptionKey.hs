@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.RotateEncryptionKey
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'rekClusterIdentifier'
 newtype RotateEncryptionKey = RotateEncryptionKey'
     { _rekClusterIdentifier :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RotateEncryptionKey' smart constructor.
 rotateEncryptionKey :: Text -> RotateEncryptionKey
@@ -100,7 +102,7 @@ instance ToQuery RotateEncryptionKey where
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
     { _rekrCluster :: !(Maybe Cluster)
     , _rekrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RotateEncryptionKeyResponse' smart constructor.
 rotateEncryptionKeyResponse :: Int -> RotateEncryptionKeyResponse

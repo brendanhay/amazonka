@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeleteDHCPOptions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 data DeleteDHCPOptions = DeleteDHCPOptions'
     { _ddhcpoDryRun        :: !(Maybe Bool)
     , _ddhcpoDHCPOptionsId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDHCPOptions' smart constructor.
 deleteDHCPOptions :: Text -> DeleteDHCPOptions
@@ -95,7 +97,7 @@ instance ToQuery DeleteDHCPOptions where
 -- | /See:/ 'deleteDHCPOptionsResponse' smart constructor.
 data DeleteDHCPOptionsResponse =
     DeleteDHCPOptionsResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDHCPOptionsResponse' smart constructor.
 deleteDHCPOptionsResponse :: DeleteDHCPOptionsResponse

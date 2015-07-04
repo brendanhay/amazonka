@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.ListLunaClients
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -53,7 +55,7 @@ import           Network.AWS.Response
 -- * 'llcNextToken'
 newtype ListLunaClients = ListLunaClients'
     { _llcNextToken :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLunaClients' smart constructor.
 listLunaClients :: ListLunaClients
@@ -111,7 +113,7 @@ data ListLunaClientsResponse = ListLunaClientsResponse'
     { _llcrNextToken  :: !(Maybe Text)
     , _llcrStatus     :: !Int
     , _llcrClientList :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLunaClientsResponse' smart constructor.
 listLunaClientsResponse :: Int -> ListLunaClientsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudHSM.ListHSMs
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 -- * 'lNextToken'
 newtype ListHSMs = ListHSMs'
     { _lNextToken :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHSMs' smart constructor.
 listHSMs :: ListHSMs
@@ -113,7 +115,7 @@ data ListHSMsResponse = ListHSMsResponse'
     { _lisNextToken :: !(Maybe Text)
     , _lisHSMList   :: !(Maybe [Text])
     , _lisStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHSMsResponse' smart constructor.
 listHSMsResponse :: Int -> ListHSMsResponse

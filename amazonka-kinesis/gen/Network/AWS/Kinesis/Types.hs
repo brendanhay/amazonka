@@ -1,7 +1,9 @@
-{-# LANGUAGE LambdaCase        #-}
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE LambdaCase         #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.Types
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -169,7 +171,7 @@ data ShardIteratorType
     | ATSequenceNumber
     | TrimHorizon
     | Latest
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ShardIteratorType where
     parser = takeLowerText >>= \case
@@ -187,9 +189,7 @@ instance ToText ShardIteratorType where
         Latest -> "latest"
         TrimHorizon -> "trim_horizon"
 
-instance Hashable ShardIteratorType where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable ShardIteratorType
 instance ToQuery ShardIteratorType
 instance ToHeader ShardIteratorType
 
@@ -201,7 +201,7 @@ data StreamStatus
     | Updating
     | Creating
     | Active
-    deriving (Eq,Ord,Read,Show,Enum,Generic)
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText StreamStatus where
     parser = takeLowerText >>= \case
@@ -219,9 +219,7 @@ instance ToText StreamStatus where
         Deleting -> "deleting"
         Updating -> "updating"
 
-instance Hashable StreamStatus where
-    hashWithSalt = hashUsing fromEnum
-
+instance Hashable StreamStatus
 instance ToQuery StreamStatus
 instance ToHeader StreamStatus
 
@@ -241,7 +239,7 @@ instance FromJSON StreamStatus where
 data HashKeyRange = HashKeyRange'
     { _hkrStartingHashKey :: !Text
     , _hkrEndingHashKey   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'HashKeyRange' smart constructor.
 hashKeyRange :: Text -> Text -> HashKeyRange
@@ -281,7 +279,7 @@ data PutRecordsRequestEntry = PutRecordsRequestEntry'
     { _prreExplicitHashKey :: !(Maybe Text)
     , _prreData            :: !Base64
     , _prrePartitionKey    :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordsRequestEntry' smart constructor.
 putRecordsRequestEntry :: Base64 -> Text -> PutRecordsRequestEntry
@@ -344,7 +342,7 @@ data PutRecordsResultEntry = PutRecordsResultEntry'
     , _prreErrorCode      :: !(Maybe Text)
     , _prreErrorMessage   :: !(Maybe Text)
     , _prreShardId        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordsResultEntry' smart constructor.
 putRecordsResultEntry :: PutRecordsResultEntry
@@ -402,7 +400,7 @@ data Record = Record'
     { _recSequenceNumber :: !Text
     , _recData           :: !Base64
     , _recPartitionKey   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
 record :: Text -> Base64 -> Text -> Record
@@ -448,7 +446,7 @@ instance FromJSON Record where
 data SequenceNumberRange = SequenceNumberRange'
     { _snrEndingSequenceNumber   :: !(Maybe Text)
     , _snrStartingSequenceNumber :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SequenceNumberRange' smart constructor.
 sequenceNumberRange :: Text -> SequenceNumberRange
@@ -496,7 +494,7 @@ data Shard = Shard'
     , _shaShardId               :: !Text
     , _shaHashKeyRange          :: !HashKeyRange
     , _shaSequenceNumberRange   :: !SequenceNumberRange
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Shard' smart constructor.
 shard :: Text -> HashKeyRange -> SequenceNumberRange -> Shard
@@ -562,7 +560,7 @@ data StreamDescription = StreamDescription'
     , _sdStreamStatus  :: !StreamStatus
     , _sdShards        :: ![Shard]
     , _sdHasMoreShards :: !Bool
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StreamDescription' smart constructor.
 streamDescription :: Text -> Text -> StreamStatus -> Bool -> StreamDescription
@@ -630,7 +628,7 @@ instance FromJSON StreamDescription where
 data Tag = Tag'
     { _tagValue :: !(Maybe Text)
     , _tagKey   :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tag' smart constructor.
 tag :: Text -> Tag

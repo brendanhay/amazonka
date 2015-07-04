@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.AddWorkingStorage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -66,7 +68,7 @@ import           Network.AWS.StorageGateway.Types
 data AddWorkingStorage = AddWorkingStorage'
     { _awsGatewayARN :: !Text
     , _awsDiskIds    :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddWorkingStorage' smart constructor.
 addWorkingStorage :: Text -> AddWorkingStorage
@@ -131,7 +133,7 @@ instance ToQuery AddWorkingStorage where
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
     { _awsrGatewayARN :: !(Maybe Text)
     , _awsrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddWorkingStorageResponse' smart constructor.
 addWorkingStorageResponse :: Int -> AddWorkingStorageResponse

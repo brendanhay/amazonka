@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.SQS.SendMessage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -73,7 +75,7 @@ data SendMessage = SendMessage'
     , _smDelaySeconds      :: !(Maybe Int)
     , _smQueueURL          :: !Text
     , _smMessageBody       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessage' smart constructor.
 sendMessage :: Text -> Text -> SendMessage
@@ -155,7 +157,7 @@ data SendMessageResponse = SendMessageResponse'
     , _smrMD5OfMessageBody       :: !(Maybe Text)
     , _smrMD5OfMessageAttributes :: !(Maybe Text)
     , _smrStatus                 :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessageResponse' smart constructor.
 sendMessageResponse :: Int -> SendMessageResponse

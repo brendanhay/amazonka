@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DataPipeline.PollForTask
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data PollForTask = PollForTask'
     { _pftHostname         :: !(Maybe Text)
     , _pftInstanceIdentity :: !(Maybe InstanceIdentity)
     , _pftWorkerGroup      :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForTask' smart constructor.
 pollForTask :: Text -> PollForTask
@@ -150,7 +152,7 @@ instance ToQuery PollForTask where
 data PollForTaskResponse = PollForTaskResponse'
     { _pftrTaskObject :: !(Maybe TaskObject)
     , _pftrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForTaskResponse' smart constructor.
 pollForTaskResponse :: Int -> PollForTaskResponse

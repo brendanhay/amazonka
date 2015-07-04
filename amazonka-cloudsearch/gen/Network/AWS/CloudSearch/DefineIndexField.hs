@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudSearch.DefineIndexField
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ import           Network.AWS.Response
 data DefineIndexField = DefineIndexField'
     { _def1DomainName :: !Text
     , _def1IndexField :: !IndexField
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineIndexField' smart constructor.
 defineIndexField :: Text -> IndexField -> DefineIndexField
@@ -118,7 +120,7 @@ instance ToQuery DefineIndexField where
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
     { _defStatus     :: !Int
     , _defIndexField :: !IndexFieldStatus
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineIndexFieldResponse' smart constructor.
 defineIndexFieldResponse :: Int -> IndexFieldStatus -> DefineIndexFieldResponse

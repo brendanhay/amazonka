@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.ListDatasets
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data ListDatasets = ListDatasets'
     , _ldMaxResults     :: !(Maybe Int)
     , _ldIdentityId     :: !Text
     , _ldIdentityPoolId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDatasets' smart constructor.
 listDatasets :: Text -> Text -> ListDatasets
@@ -150,7 +152,7 @@ data ListDatasetsResponse = ListDatasetsResponse'
     , _ldrNextToken :: !(Maybe Text)
     , _ldrDatasets  :: !(Maybe [Dataset])
     , _ldrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDatasetsResponse' smart constructor.
 listDatasetsResponse :: Int -> ListDatasetsResponse

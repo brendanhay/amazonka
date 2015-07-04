@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DeregisterRDSDBInstance
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -50,7 +52,7 @@ import           Network.AWS.Response
 -- * 'drdiRDSDBInstanceARN'
 newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'
     { _drdiRDSDBInstanceARN :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterRDSDBInstance' smart constructor.
 deregisterRDSDBInstance :: Text -> DeregisterRDSDBInstance
@@ -95,7 +97,7 @@ instance ToQuery DeregisterRDSDBInstance where
 -- | /See:/ 'deregisterRDSDBInstanceResponse' smart constructor.
 data DeregisterRDSDBInstanceResponse =
     DeregisterRDSDBInstanceResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterRDSDBInstanceResponse' smart constructor.
 deregisterRDSDBInstanceResponse :: DeregisterRDSDBInstanceResponse

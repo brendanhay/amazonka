@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeClassicLinkInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -67,7 +69,7 @@ data DescribeClassicLinkInstances = DescribeClassicLinkInstances'
     , _dcliInstanceIds :: !(Maybe [Text])
     , _dcliDryRun      :: !(Maybe Bool)
     , _dcliMaxResults  :: !(Maybe Int)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClassicLinkInstances' smart constructor.
 describeClassicLinkInstances :: DescribeClassicLinkInstances
@@ -181,7 +183,7 @@ data DescribeClassicLinkInstancesResponse = DescribeClassicLinkInstancesResponse
     { _dclirNextToken :: !(Maybe Text)
     , _dclirInstances :: !(Maybe [ClassicLinkInstance])
     , _dclirStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClassicLinkInstancesResponse' smart constructor.
 describeClassicLinkInstancesResponse :: Int -> DescribeClassicLinkInstancesResponse

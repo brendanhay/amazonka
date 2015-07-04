@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CognitoSync.UpdateRecords
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -91,7 +93,7 @@ data UpdateRecords = UpdateRecords'
     , _urIdentityId       :: !Text
     , _urDatasetName      :: !Text
     , _urSyncSessionToken :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRecords' smart constructor.
 updateRecords :: Text -> Text -> Text -> Text -> UpdateRecords
@@ -188,7 +190,7 @@ instance ToQuery UpdateRecords where
 data UpdateRecordsResponse = UpdateRecordsResponse'
     { _urrRecords :: !(Maybe [Record])
     , _urrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRecordsResponse' smart constructor.
 updateRecordsResponse :: Int -> UpdateRecordsResponse

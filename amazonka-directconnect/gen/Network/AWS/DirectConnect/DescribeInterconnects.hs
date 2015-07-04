@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.DirectConnect.DescribeInterconnects
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 -- * 'diInterconnectId'
 newtype DescribeInterconnects = DescribeInterconnects'
     { _diInterconnectId :: Maybe Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInterconnects' smart constructor.
 describeInterconnects :: DescribeInterconnects
@@ -109,7 +111,7 @@ instance ToQuery DescribeInterconnects where
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
     { _dirInterconnects :: !(Maybe [Interconnect])
     , _dirStatus        :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
 describeInterconnectsResponse :: Int -> DescribeInterconnectsResponse

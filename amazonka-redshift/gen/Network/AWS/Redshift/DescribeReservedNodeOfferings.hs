@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DescribeReservedNodeOfferings
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -69,7 +71,7 @@ data DescribeReservedNodeOfferings = DescribeReservedNodeOfferings'
     { _drnoReservedNodeOfferingId :: !(Maybe Text)
     , _drnoMaxRecords             :: !(Maybe Int)
     , _drnoMarker                 :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedNodeOfferings' smart constructor.
 describeReservedNodeOfferings :: DescribeReservedNodeOfferings
@@ -161,7 +163,7 @@ data DescribeReservedNodeOfferingsResponse = DescribeReservedNodeOfferingsRespon
     { _drnorReservedNodeOfferings :: !(Maybe [ReservedNodeOffering])
     , _drnorMarker                :: !(Maybe Text)
     , _drnorStatus                :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedNodeOfferingsResponse' smart constructor.
 describeReservedNodeOfferingsResponse :: Int -> DescribeReservedNodeOfferingsResponse

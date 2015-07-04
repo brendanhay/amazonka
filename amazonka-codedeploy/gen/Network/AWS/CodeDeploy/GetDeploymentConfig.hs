@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CodeDeploy.GetDeploymentConfig
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -49,7 +51,7 @@ import           Network.AWS.Response
 -- * 'gdcDeploymentConfigName'
 newtype GetDeploymentConfig = GetDeploymentConfig'
     { _gdcDeploymentConfigName :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentConfig' smart constructor.
 getDeploymentConfig :: Text -> GetDeploymentConfig
@@ -108,7 +110,7 @@ instance ToQuery GetDeploymentConfig where
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
     { _gdcrDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
     , _gdcrStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentConfigResponse' smart constructor.
 getDeploymentConfigResponse :: Int -> GetDeploymentConfigResponse

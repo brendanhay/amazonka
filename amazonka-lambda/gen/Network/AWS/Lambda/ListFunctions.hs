@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Lambda.ListFunctions
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -58,7 +60,7 @@ import           Network.AWS.Response
 data ListFunctions = ListFunctions'
     { _lfMaxItems :: !(Maybe Nat)
     , _lfMarker   :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListFunctions' smart constructor.
 listFunctions :: ListFunctions
@@ -125,7 +127,7 @@ data ListFunctionsResponse = ListFunctionsResponse'
     { _lfrNextMarker :: !(Maybe Text)
     , _lfrFunctions  :: !(Maybe [FunctionConfiguration])
     , _lfrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListFunctionsResponse' smart constructor.
 listFunctionsResponse :: Int -> ListFunctionsResponse

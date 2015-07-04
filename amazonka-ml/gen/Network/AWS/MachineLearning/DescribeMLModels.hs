@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.MachineLearning.DescribeMLModels
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -90,7 +92,7 @@ data DescribeMLModels = DescribeMLModels'
     , _dmlmLT             :: !(Maybe Text)
     , _dmlmFilterVariable :: !(Maybe MLModelFilterVariable)
     , _dmlmLE             :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMLModels' smart constructor.
 describeMLModels :: DescribeMLModels
@@ -260,7 +262,7 @@ data DescribeMLModelsResponse = DescribeMLModelsResponse'
     { _descResults   :: !(Maybe [MLModel])
     , _descNextToken :: !(Maybe Text)
     , _descStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMLModelsResponse' smart constructor.
 describeMLModelsResponse :: Int -> DescribeMLModelsResponse

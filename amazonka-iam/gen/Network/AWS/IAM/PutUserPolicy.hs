@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.PutUserPolicy
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -70,7 +72,7 @@ data PutUserPolicy = PutUserPolicy'
     { _pupUserName       :: !Text
     , _pupPolicyName     :: !Text
     , _pupPolicyDocument :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutUserPolicy' smart constructor.
 putUserPolicy :: Text -> Text -> Text -> PutUserPolicy
@@ -117,7 +119,7 @@ instance ToQuery PutUserPolicy where
 -- | /See:/ 'putUserPolicyResponse' smart constructor.
 data PutUserPolicyResponse =
     PutUserPolicyResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutUserPolicyResponse' smart constructor.
 putUserPolicyResponse :: PutUserPolicyResponse

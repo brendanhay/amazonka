@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.RDS.DescribeDBSnapshots
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -71,7 +73,7 @@ data DescribeDBSnapshots = DescribeDBSnapshots'
     , _ddsDBInstanceIdentifier :: !(Maybe Text)
     , _ddsMaxRecords           :: !(Maybe Int)
     , _ddsMarker               :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBSnapshots' smart constructor.
 describeDBSnapshots :: DescribeDBSnapshots
@@ -195,7 +197,7 @@ data DescribeDBSnapshotsResponse = DescribeDBSnapshotsResponse'
     { _ddsrMarker      :: !(Maybe Text)
     , _ddsrDBSnapshots :: !(Maybe [DBSnapshot])
     , _ddsrStatus      :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBSnapshotsResponse' smart constructor.
 describeDBSnapshotsResponse :: Int -> DescribeDBSnapshotsResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Support.DescribeServices
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ import           Network.AWS.Support.Types
 data DescribeServices = DescribeServices'
     { _dsServiceCodeList :: !(Maybe [Text])
     , _dsLanguage        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
@@ -130,7 +132,7 @@ instance ToQuery DescribeServices where
 data DescribeServicesResponse = DescribeServicesResponse'
     { _dsrServices :: !(Maybe [SupportService])
     , _dsrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse

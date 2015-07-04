@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.CreateLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -84,7 +86,7 @@ data CreateLoadBalancer = CreateLoadBalancer'
     , _clbTags              :: !(Maybe (List1 Tag))
     , _clbLoadBalancerName  :: !Text
     , _clbListeners         :: ![Listener]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancer' smart constructor.
 createLoadBalancer :: Text -> CreateLoadBalancer
@@ -204,7 +206,7 @@ instance ToQuery CreateLoadBalancer where
 data CreateLoadBalancerResponse = CreateLoadBalancerResponse'
     { _clbrDNSName :: !(Maybe Text)
     , _clbrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerResponse' smart constructor.
 createLoadBalancerResponse :: Int -> CreateLoadBalancerResponse

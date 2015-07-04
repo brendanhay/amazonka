@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data RemoveClientIDFromOpenIDConnectProvider = RemoveClientIDFromOpenIDConnectProvider'
     { _rcidfoidcpOpenIDConnectProviderARN :: !Text
     , _rcidfoidcpClientID                 :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveClientIDFromOpenIDConnectProvider' smart constructor.
 removeClientIDFromOpenIDConnectProvider :: Text -> Text -> RemoveClientIDFromOpenIDConnectProvider
@@ -107,7 +109,7 @@ instance ToQuery
 -- | /See:/ 'removeClientIDFromOpenIDConnectProviderResponse' smart constructor.
 data RemoveClientIDFromOpenIDConnectProviderResponse =
     RemoveClientIDFromOpenIDConnectProviderResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveClientIDFromOpenIDConnectProviderResponse' smart constructor.
 removeClientIDFromOpenIDConnectProviderResponse :: RemoveClientIDFromOpenIDConnectProviderResponse

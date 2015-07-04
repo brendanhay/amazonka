@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesModifications
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -64,7 +66,7 @@ data DescribeReservedInstancesModifications = DescribeReservedInstancesModificat
     { _drimFilters                          :: !(Maybe [Filter])
     , _drimReservedInstancesModificationIds :: !(Maybe [Text])
     , _drimNextToken                        :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesModifications' smart constructor.
 describeReservedInstancesModifications :: DescribeReservedInstancesModifications
@@ -183,7 +185,7 @@ data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesM
     { _drimrNextToken                      :: !(Maybe Text)
     , _drimrReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
     , _drimrStatus                         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
 describeReservedInstancesModificationsResponse :: Int -> DescribeReservedInstancesModificationsResponse

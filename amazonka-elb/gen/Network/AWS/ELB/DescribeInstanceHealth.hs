@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.DescribeInstanceHealth
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data DescribeInstanceHealth = DescribeInstanceHealth'
     { _dihInstances        :: !(Maybe [Instance])
     , _dihLoadBalancerName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceHealth' smart constructor.
 describeInstanceHealth :: Text -> DescribeInstanceHealth
@@ -111,7 +113,7 @@ instance ToQuery DescribeInstanceHealth where
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
     { _dihrInstanceStates :: !(Maybe [InstanceState])
     , _dihrStatus         :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceHealthResponse' smart constructor.
 describeInstanceHealthResponse :: Int -> DescribeInstanceHealthResponse

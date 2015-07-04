@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateCachediSCSIVolume
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -81,7 +83,7 @@ data CreateCachediSCSIVolume = CreateCachediSCSIVolume'
     , _ccscsivTargetName         :: !Text
     , _ccscsivNetworkInterfaceId :: !Text
     , _ccscsivClientToken        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCachediSCSIVolume' smart constructor.
 createCachediSCSIVolume :: Text -> Integer -> Text -> Text -> Text -> CreateCachediSCSIVolume
@@ -170,7 +172,7 @@ data CreateCachediSCSIVolumeResponse = CreateCachediSCSIVolumeResponse'
     { _ccscsivrTargetARN :: !(Maybe Text)
     , _ccscsivrVolumeARN :: !(Maybe Text)
     , _ccscsivrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCachediSCSIVolumeResponse' smart constructor.
 createCachediSCSIVolumeResponse :: Int -> CreateCachediSCSIVolumeResponse

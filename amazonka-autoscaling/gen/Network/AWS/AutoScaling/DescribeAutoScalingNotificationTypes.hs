@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -41,7 +43,7 @@ import           Network.AWS.Response
 -- | /See:/ 'describeAutoScalingNotificationTypes' smart constructor.
 data DescribeAutoScalingNotificationTypes =
     DescribeAutoScalingNotificationTypes'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingNotificationTypes' smart constructor.
 describeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes
@@ -91,7 +93,7 @@ instance ToQuery DescribeAutoScalingNotificationTypes
 data DescribeAutoScalingNotificationTypesResponse = DescribeAutoScalingNotificationTypesResponse'
     { _dasntrAutoScalingNotificationTypes :: !(Maybe [Text])
     , _dasntrStatus                       :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingNotificationTypesResponse' smart constructor.
 describeAutoScalingNotificationTypesResponse :: Int -> DescribeAutoScalingNotificationTypesResponse

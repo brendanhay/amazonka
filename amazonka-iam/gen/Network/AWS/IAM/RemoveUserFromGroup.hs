@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.IAM.RemoveUserFromGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -48,7 +50,7 @@ import           Network.AWS.Response
 data RemoveUserFromGroup = RemoveUserFromGroup'
     { _rufgGroupName :: !Text
     , _rufgUserName  :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveUserFromGroup' smart constructor.
 removeUserFromGroup :: Text -> Text -> RemoveUserFromGroup
@@ -90,7 +92,7 @@ instance ToQuery RemoveUserFromGroup where
 -- | /See:/ 'removeUserFromGroupResponse' smart constructor.
 data RemoveUserFromGroupResponse =
     RemoveUserFromGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveUserFromGroupResponse' smart constructor.
 removeUserFromGroupResponse :: RemoveUserFromGroupResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.DescribeCluster
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -51,7 +53,7 @@ import           Network.AWS.Response
 -- * 'dcClusterId'
 newtype DescribeCluster = DescribeCluster'
     { _dcClusterId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCluster' smart constructor.
 describeCluster :: Text -> DescribeCluster
@@ -105,7 +107,7 @@ instance ToQuery DescribeCluster where
 data DescribeClusterResponse = DescribeClusterResponse'
     { _dcrStatus  :: !Int
     , _dcrCluster :: !Cluster
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterResponse' smart constructor.
 describeClusterResponse :: Int -> Cluster -> DescribeClusterResponse

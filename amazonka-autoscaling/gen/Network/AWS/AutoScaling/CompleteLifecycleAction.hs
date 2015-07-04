@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.AutoScaling.CompleteLifecycleAction
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ data CompleteLifecycleAction = CompleteLifecycleAction'
     , _claAutoScalingGroupName  :: !Text
     , _claLifecycleActionToken  :: !Text
     , _claLifecycleActionResult :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteLifecycleAction' smart constructor.
 completeLifecycleAction :: Text -> Text -> Text -> Text -> CompleteLifecycleAction
@@ -145,7 +147,7 @@ instance ToQuery CompleteLifecycleAction where
 -- * 'clarStatus'
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
     { _clarStatus :: Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteLifecycleActionResponse' smart constructor.
 completeLifecycleActionResponse :: Int -> CompleteLifecycleActionResponse

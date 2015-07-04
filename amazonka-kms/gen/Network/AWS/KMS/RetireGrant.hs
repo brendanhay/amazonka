@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.KMS.RetireGrant
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -65,7 +67,7 @@ data RetireGrant = RetireGrant'
     { _rgKeyId      :: !(Maybe Text)
     , _rgGrantId    :: !(Maybe Text)
     , _rgGrantToken :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetireGrant' smart constructor.
 retireGrant :: RetireGrant
@@ -129,7 +131,7 @@ instance ToQuery RetireGrant where
 -- | /See:/ 'retireGrantResponse' smart constructor.
 data RetireGrantResponse =
     RetireGrantResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetireGrantResponse' smart constructor.
 retireGrantResponse :: RetireGrantResponse

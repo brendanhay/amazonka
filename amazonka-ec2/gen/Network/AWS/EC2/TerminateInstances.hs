@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.TerminateInstances
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -74,7 +76,7 @@ import           Network.AWS.Response
 data TerminateInstances = TerminateInstances'
     { _tiDryRun      :: !(Maybe Bool)
     , _tiInstanceIds :: ![Text]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstances' smart constructor.
 terminateInstances :: TerminateInstances
@@ -132,7 +134,7 @@ instance ToQuery TerminateInstances where
 data TerminateInstancesResponse = TerminateInstancesResponse'
     { _tirTerminatingInstances :: !(Maybe [InstanceStateChange])
     , _tirStatus               :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstancesResponse' smart constructor.
 terminateInstancesResponse :: Int -> TerminateInstancesResponse

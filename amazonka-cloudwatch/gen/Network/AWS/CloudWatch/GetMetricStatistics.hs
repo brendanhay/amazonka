@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudWatch.GetMetricStatistics
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -104,7 +106,7 @@ data GetMetricStatistics = GetMetricStatistics'
     , _gmsEndTime    :: !ISO8601
     , _gmsPeriod     :: !Nat
     , _gmsStatistics :: !(List1 Statistic)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMetricStatistics' smart constructor.
 getMetricStatistics :: Text -> Text -> UTCTime -> UTCTime -> Natural -> NonEmpty Statistic -> GetMetricStatistics
@@ -211,7 +213,7 @@ data GetMetricStatisticsResponse = GetMetricStatisticsResponse'
     { _gmsrDatapoints :: !(Maybe [Datapoint])
     , _gmsrLabel      :: !(Maybe Text)
     , _gmsrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetMetricStatisticsResponse' smart constructor.
 getMetricStatisticsResponse :: Int -> GetMetricStatisticsResponse

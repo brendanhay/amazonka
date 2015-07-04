@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.OpsWorks.DescribeStackProvisioningParameters
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 -- * 'dsppStackId'
 newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameters'
     { _dsppStackId :: Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackProvisioningParameters' smart constructor.
 describeStackProvisioningParameters :: Text -> DescribeStackProvisioningParameters
@@ -122,7 +124,7 @@ data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningPara
     { _dspprAgentInstallerURL :: !(Maybe Text)
     , _dspprParameters        :: !(Maybe (Map Text Text))
     , _dspprStatus            :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
 describeStackProvisioningParametersResponse :: Int -> DescribeStackProvisioningParametersResponse

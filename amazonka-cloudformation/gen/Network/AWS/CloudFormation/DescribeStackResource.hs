@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.CloudFormation.DescribeStackResource
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -56,7 +58,7 @@ import           Network.AWS.Response
 data DescribeStackResource = DescribeStackResource'
     { _dStackName         :: !Text
     , _dLogicalResourceId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResource' smart constructor.
 describeStackResource :: Text -> Text -> DescribeStackResource
@@ -121,7 +123,7 @@ instance ToQuery DescribeStackResource where
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
     { _dsrrStackResourceDetail :: !(Maybe StackResourceDetail)
     , _dsrrStatus              :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResourceResponse' smart constructor.
 describeStackResourceResponse :: Int -> DescribeStackResourceResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ModifyVPCAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ data ModifyVPCAttribute = ModifyVPCAttribute'
     { _mvaEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
     , _mvaEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
     , _mvaVPCId              :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCAttribute' smart constructor.
 modifyVPCAttribute :: Text -> ModifyVPCAttribute
@@ -109,7 +111,7 @@ instance ToQuery ModifyVPCAttribute where
 -- | /See:/ 'modifyVPCAttributeResponse' smart constructor.
 data ModifyVPCAttributeResponse =
     ModifyVPCAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCAttributeResponse' smart constructor.
 modifyVPCAttributeResponse :: ModifyVPCAttributeResponse

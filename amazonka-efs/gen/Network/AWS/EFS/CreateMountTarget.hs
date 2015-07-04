@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EFS.CreateMountTarget
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -163,7 +165,7 @@ data CreateMountTarget = CreateMountTarget'
     , _cmtSecurityGroups :: !(Maybe [Text])
     , _cmtFileSystemId   :: !Text
     , _cmtSubnetId       :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateMountTarget' smart constructor.
 createMountTarget :: Text -> Text -> CreateMountTarget

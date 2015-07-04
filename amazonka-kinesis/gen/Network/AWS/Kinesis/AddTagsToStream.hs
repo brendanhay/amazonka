@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Kinesis.AddTagsToStream
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -54,7 +56,7 @@ import           Network.AWS.Response
 data AddTagsToStream = AddTagsToStream'
     { _attsStreamName :: !Text
     , _attsTags       :: !(Map Text Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToStream' smart constructor.
 addTagsToStream :: Text -> AddTagsToStream
@@ -102,7 +104,7 @@ instance ToQuery AddTagsToStream where
 -- | /See:/ 'addTagsToStreamResponse' smart constructor.
 data AddTagsToStreamResponse =
     AddTagsToStreamResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToStreamResponse' smart constructor.
 addTagsToStreamResponse :: AddTagsToStreamResponse

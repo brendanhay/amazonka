@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.ModifyInstanceAttribute
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -106,7 +108,7 @@ data ModifyInstanceAttribute = ModifyInstanceAttribute'
     , _modBlockDeviceMappings               :: !(Maybe [InstanceBlockDeviceMappingSpecification])
     , _modDryRun                            :: !(Maybe Bool)
     , _modInstanceId                        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyInstanceAttribute' smart constructor.
 modifyInstanceAttribute :: Text -> ModifyInstanceAttribute
@@ -269,7 +271,7 @@ instance ToQuery ModifyInstanceAttribute where
 -- | /See:/ 'modifyInstanceAttributeResponse' smart constructor.
 data ModifyInstanceAttributeResponse =
     ModifyInstanceAttributeResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyInstanceAttributeResponse' smart constructor.
 modifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse

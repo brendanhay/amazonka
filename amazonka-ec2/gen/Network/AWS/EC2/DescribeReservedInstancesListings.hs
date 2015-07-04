@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DescribeReservedInstancesListings
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
     { _drilFilters                    :: !(Maybe [Filter])
     , _drilReservedInstancesId        :: !(Maybe Text)
     , _drilReservedInstancesListingId :: !(Maybe Text)
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesListings' smart constructor.
 describeReservedInstancesListings :: DescribeReservedInstancesListings
@@ -156,7 +158,7 @@ instance ToQuery DescribeReservedInstancesListings
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
     { _drilrReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
     , _drilrStatus                    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesListingsResponse' smart constructor.
 describeReservedInstancesListingsResponse :: Int -> DescribeReservedInstancesListingsResponse

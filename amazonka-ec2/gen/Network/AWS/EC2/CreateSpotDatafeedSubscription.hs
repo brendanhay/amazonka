@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateSpotDatafeedSubscription
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
     { _csdsPrefix :: !(Maybe Text)
     , _csdsDryRun :: !(Maybe Bool)
     , _csdsBucket :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSpotDatafeedSubscription' smart constructor.
 createSpotDatafeedSubscription :: Text -> CreateSpotDatafeedSubscription
@@ -128,7 +130,7 @@ instance ToQuery CreateSpotDatafeedSubscription where
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
     { _csdsrSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
     , _csdsrStatus                   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSpotDatafeedSubscriptionResponse' smart constructor.
 createSpotDatafeedSubscriptionResponse :: Int -> CreateSpotDatafeedSubscriptionResponse

@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -63,7 +65,7 @@ data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
     { _acsgiCacheSecurityGroupName  :: !Text
     , _acsgiEC2SecurityGroupName    :: !Text
     , _acsgiEC2SecurityGroupOwnerId :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngress' smart constructor.
 authorizeCacheSecurityGroupIngress :: Text -> Text -> Text -> AuthorizeCacheSecurityGroupIngress
@@ -134,7 +136,7 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
     { _acsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
     , _acsgirStatus             :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' smart constructor.
 authorizeCacheSecurityGroupIngressResponse :: Int -> AuthorizeCacheSecurityGroupIngressResponse

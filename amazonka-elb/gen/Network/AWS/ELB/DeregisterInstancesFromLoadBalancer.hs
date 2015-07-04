@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -60,7 +62,7 @@ import           Network.AWS.Response
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
     { _diflbLoadBalancerName :: !Text
     , _diflbInstances        :: ![Instance]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstancesFromLoadBalancer' smart constructor.
 deregisterInstancesFromLoadBalancer :: Text -> DeregisterInstancesFromLoadBalancer
@@ -122,7 +124,7 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
     { _diflbrInstances :: !(Maybe [Instance])
     , _diflbrStatus    :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
 deregisterInstancesFromLoadBalancerResponse :: Int -> DeregisterInstancesFromLoadBalancerResponse

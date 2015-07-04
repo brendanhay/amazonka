@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.CreateSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ import           Network.AWS.StorageGateway.Types
 data CreateSnapshot = CreateSnapshot'
     { _csVolumeARN           :: !Text
     , _csSnapshotDescription :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
@@ -147,7 +149,7 @@ data CreateSnapshotResponse = CreateSnapshotResponse'
     { _csrVolumeARN  :: !(Maybe Text)
     , _csrSnapshotId :: !(Maybe Text)
     , _csrStatus     :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse

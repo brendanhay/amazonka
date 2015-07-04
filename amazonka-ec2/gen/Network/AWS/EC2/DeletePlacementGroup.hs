@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.DeletePlacementGroup
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -52,7 +54,7 @@ import           Network.AWS.Response
 data DeletePlacementGroup = DeletePlacementGroup'
     { _dpgDryRun    :: !(Maybe Bool)
     , _dpgGroupName :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePlacementGroup' smart constructor.
 deletePlacementGroup :: Text -> DeletePlacementGroup
@@ -96,7 +98,7 @@ instance ToQuery DeletePlacementGroup where
 -- | /See:/ 'deletePlacementGroupResponse' smart constructor.
 data DeletePlacementGroupResponse =
     DeletePlacementGroupResponse'
-    deriving (Eq,Read,Show)
+    deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePlacementGroupResponse' smart constructor.
 deletePlacementGroupResponse :: DeletePlacementGroupResponse

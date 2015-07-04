@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -61,7 +63,7 @@ import           Network.AWS.StorageGateway.Types
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
     { _rtrpTapeARN    :: !Text
     , _rtrpGatewayARN :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveTapeRecoveryPoint' smart constructor.
 retrieveTapeRecoveryPoint :: Text -> Text -> RetrieveTapeRecoveryPoint
@@ -125,7 +127,7 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
     { _rtrprTapeARN :: !(Maybe Text)
     , _rtrprStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveTapeRecoveryPointResponse' smart constructor.
 retrieveTapeRecoveryPointResponse :: Int -> RetrieveTapeRecoveryPointResponse

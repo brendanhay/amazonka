@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.Redshift.DeleteClusterSnapshot
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -62,7 +64,7 @@ import           Network.AWS.Response
 data DeleteClusterSnapshot = DeleteClusterSnapshot'
     { _dcsSnapshotClusterIdentifier :: !(Maybe Text)
     , _dcsSnapshotIdentifier        :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSnapshot' smart constructor.
 deleteClusterSnapshot :: Text -> DeleteClusterSnapshot
@@ -124,7 +126,7 @@ instance ToQuery DeleteClusterSnapshot where
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
     { _dcsrSnapshot :: !(Maybe Snapshot)
     , _dcsrStatus   :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSnapshotResponse' smart constructor.
 deleteClusterSnapshotResponse :: Int -> DeleteClusterSnapshotResponse

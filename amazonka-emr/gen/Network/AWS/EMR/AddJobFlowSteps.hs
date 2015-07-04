@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EMR.AddJobFlowSteps
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -77,7 +79,7 @@ import           Network.AWS.Response
 data AddJobFlowSteps = AddJobFlowSteps'
     { _ajfsJobFlowId :: !Text
     , _ajfsSteps     :: ![StepConfig]
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddJobFlowSteps' smart constructor.
 addJobFlowSteps :: Text -> AddJobFlowSteps
@@ -139,7 +141,7 @@ instance ToQuery AddJobFlowSteps where
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
     { _ajfsrStepIds :: !(Maybe [Text])
     , _ajfsrStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddJobFlowStepsResponse' smart constructor.
 addJobFlowStepsResponse :: Int -> AddJobFlowStepsResponse

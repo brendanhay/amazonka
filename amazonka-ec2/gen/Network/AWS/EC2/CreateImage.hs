@@ -1,6 +1,8 @@
-{-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
-{-# LANGUAGE TypeFamilies      #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
 
 -- Module      : Network.AWS.EC2.CreateImage
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -78,7 +80,7 @@ data CreateImage = CreateImage'
     , _ci1Description         :: !(Maybe Text)
     , _ci1InstanceId          :: !Text
     , _ci1Name                :: !Text
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateImage' smart constructor.
 createImage :: Text -> Text -> CreateImage
@@ -167,7 +169,7 @@ instance ToQuery CreateImage where
 data CreateImageResponse = CreateImageResponse'
     { _cirImageId :: !(Maybe Text)
     , _cirStatus  :: !Int
-    } deriving (Eq,Read,Show)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateImageResponse' smart constructor.
 createImageResponse :: Int -> CreateImageResponse

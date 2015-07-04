@@ -4,6 +4,7 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE ViewPatterns      #-}
 
+-- |
 -- Module      : Network.AWS.Auth
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -13,8 +14,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
--- | Explicitly specify your Amazon AWS security credentials, or retrieve them
+--
+-- Explicitly specify your Amazon AWS security credentials, or retrieve them
 -- from the underlying OS.
 module Network.AWS.Auth
     (

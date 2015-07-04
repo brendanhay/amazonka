@@ -2,6 +2,7 @@
 {-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE OverloadedStrings #-}
 
+-- |
 -- Module      : Network.AWS.EC2.Metadata
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -11,8 +12,8 @@
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
--- | Retrieve an EC2 instance's local metadata.
+--
+-- Retrieve an EC2 instance's local metadata.
 module Network.AWS.EC2.Metadata
     (
     -- * Requests

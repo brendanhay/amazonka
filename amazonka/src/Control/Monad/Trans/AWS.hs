@@ -82,15 +82,16 @@ module Control.Monad.Trans.AWS
 
     -- * Types
     , module Network.AWS.Types
-
-    -- * Seconds
+    -- ** Seconds
     , Seconds      (..)
     , _Seconds
     , microseconds
 
     -- * Serialisation
+    -- ** Text
     , ToText       (..)
     , FromText     (..)
+    -- ** Log messages
     , ToBuilder    (..)
     ) where
 
@@ -111,7 +112,7 @@ import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
-import           Network.AWS.Types
+import           Network.AWS.Types            hiding ()
 import           Network.AWS.Waiter
 
 -- FIXME: Add explanation about the use of constraints and
@@ -141,9 +142,9 @@ The key functions dealing with the request/response life cycle are:
 To utilise these, you will need to specify what 'Region' you wish to operate in
 and your Amazon credentials for AuthN/AuthZ purposes.
 
-'Credential's can be supplied in a number of ways. Either via explicit keys,
+'Credentials' can be supplied in a number of ways. Either via explicit keys,
 via session profiles, or have Amazonka determine the credentials from an
-underlying IAM role/profile.
+underlying IAM Role/Profile.
 
 As a basic example, you might wish to store an object in an S3 bucket using
 <http://hackage.haskell.org/package/amazonka-s3 amazonka-s3>:
@@ -158,10 +159,10 @@ example :: IO (Either Error PutObjectResponse)
 example = do
     -- To specify configuration preferences, 'newEnv' is used to create a new 'Env'. The 'Region' denotes the AWS region requests will be performed against,
     -- and 'Credentials' is used to specify the desired mechanism for supplying or retrieving AuthN/AuthZ information.
-    -- In this case, 'Discover' will cause the library to try a number of options such as default environment variables, or an instance's IAM profile:
+    -- In this case, 'Discover' will cause the library to try a number of options such as default environment variables, or an instance's IAM Profile:
     e <- newEnv Frankfurt Discover
 
-    -- A new logger to replace the default noop logger is created, with the logger set to print debug information and errors to stdout:
+    -- A new 'Logger' to replace the default noop logger is created, with the logger set to print debug information and errors to stdout:
     l <- newLogger Debug stdout
 
     -- The payload (and hash) for the S3 object is retrieved from a FilePath:

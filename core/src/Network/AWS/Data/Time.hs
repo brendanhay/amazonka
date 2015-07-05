@@ -1,4 +1,6 @@
 {-# LANGUAGE DataKinds                  #-}
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE FlexibleInstances          #-}
 {-# LANGUAGE GADTs                      #-}
@@ -44,6 +46,7 @@ import           Data.Aeson
 import           Data.Attoparsec.Text        (Parser)
 import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteString.Char8       as BS
+import           Data.Data                   (Data, Typeable)
 import           Data.Monoid
 import           Data.Scientific
 import           Data.Tagged
@@ -51,6 +54,7 @@ import qualified Data.Text                   as Text
 import           Data.Time                   (UTCTime)
 import           Data.Time.Clock.POSIX
 import           Data.Time.Format            (formatTime)
+import           GHC.Generics                (Generic)
 import           Network.AWS.Compat.Locale
 import           Network.AWS.Compat.Time
 import           Network.AWS.Data.ByteString
@@ -61,7 +65,19 @@ import           Network.AWS.Data.XML
 
 -- | An integral value representing seconds.
 newtype Seconds = Seconds Int
-    deriving (Eq, Ord, Read, Show, Enum, Bounded, Num, Integral, Real)
+    deriving ( Eq
+             , Ord
+             , Read
+             , Show
+             , Enum
+             , Bounded
+             , Num
+             , Integral
+             , Real
+             , Data
+             , Typeable
+             , Generic
+             )
 
 _Seconds :: Iso' Seconds Int
 _Seconds = iso (\(Seconds n) -> n) Seconds
@@ -78,10 +94,11 @@ data Format
     | BasicFormat
     | AWSFormat
     | POSIXFormat
-      deriving (Eq, Read, Show)
+      deriving (Eq, Read, Show, Data, Typeable, Generic)
 
 data Time :: Format -> * where
     Time :: UTCTime -> Time a
+      deriving (Data, Typeable, Generic)
 
 deriving instance Eq   (Time a)
 deriving instance Ord  (Time a)

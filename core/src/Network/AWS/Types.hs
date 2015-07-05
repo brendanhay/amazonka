@@ -1,5 +1,6 @@
-{-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveGeneric              #-}
+{-# LANGUAGE FlexibleContexts           #-}
 {-# LANGUAGE GADTs                      #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
@@ -93,6 +94,7 @@ import           Data.Aeson                   hiding (Error)
 import           Data.ByteString.Builder      (Builder)
 import           Data.Coerce
 import           Data.Conduit
+import           Data.Data                    (Data, Typeable)
 import           Data.Hashable
 import           Data.IORef
 import           Data.Monoid
@@ -137,7 +139,7 @@ clientRequest = def
 data Endpoint = Endpoint
     { _endpointHost  :: ByteString
     , _endpointScope :: ByteString
-    } deriving (Eq, Show)
+    } deriving (Eq, Show, Data, Typeable)
 
 -- | Constants and predicates used to create a 'RetryPolicy'.
 data Retry = Exponential
@@ -337,7 +339,7 @@ data Region
     | GovCloud        -- ^ AWS GovCloud / us-gov-west-1
     | GovCloudFIPS    -- ^ AWS GovCloud (FIPS 140-2) S3 Only / fips-us-gov-west-1
     | SaoPaulo        -- ^ South America / sa-east-1
-      deriving (Eq, Ord, Read, Show, Generic)
+      deriving (Eq, Ord, Read, Show, Data, Typeable, Generic)
 
 instance Hashable Region
 

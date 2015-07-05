@@ -106,6 +106,7 @@ import           Control.Monad.Trans.Resource
 import           Data.Conduit                 hiding (await)
 import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
+import           Network.AWS.Data.Time
 import           Network.AWS.Env
 import           Network.AWS.Error
 import           Network.AWS.Internal.Body

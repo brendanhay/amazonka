@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE ScopedTypeVariables        #-}
 
@@ -16,8 +18,10 @@ module Network.AWS.Data.Numeric where
 import           Control.Lens
 import           Control.Monad
 import           Data.Aeson.Types
+import           Data.Data                   (Data, Typeable)
 import           Data.Monoid
 import           Data.Scientific
+import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
@@ -34,6 +38,9 @@ newtype Nat = Nat { unNat :: Natural }
         , Num
         , Real
         , Integral
+        , Data
+        , Typeable
+        , Generic
         , ToByteString
         , FromText
         , ToText

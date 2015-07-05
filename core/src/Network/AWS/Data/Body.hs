@@ -1,4 +1,6 @@
-{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
 
 -- Module      : Network.AWS.Data.Body
 -- Copyright   : (c) 2013-2015 Brendan Hay
@@ -21,8 +23,10 @@ import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Conduit
+import           Data.Data                    (Data, Typeable)
 import           Data.Monoid
 import           Data.String
+import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.XML         (encodeXML)
 import           Network.HTTP.Client

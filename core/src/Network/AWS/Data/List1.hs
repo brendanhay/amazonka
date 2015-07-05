@@ -1,4 +1,6 @@
+{-# LANGUAGE DeriveDataTypeable         #-}
 {-# LANGUAGE DeriveFoldable             #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE TypeFamilies               #-}
@@ -23,11 +25,13 @@ import           Control.Lens         (Iso', iso)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Coerce
+import           Data.Data            (Data, Typeable)
 import           Data.List.NonEmpty   (NonEmpty (..))
 import qualified Data.List.NonEmpty   as NonEmpty
 import           Data.Semigroup
 import           Data.Text            (Text)
 import           GHC.Exts
+import           GHC.Generics         (Generic)
 import           Network.AWS.Data.XML
 import           Text.XML             (Node)
 
@@ -43,6 +47,9 @@ newtype List1 a = List1 { toNonEmpty :: NonEmpty a }
         , Ord
         , Read
         , Show
+        , Data
+        , Typeable
+        , Generic
         )
 
 _List1 :: (Coercible a b, Coercible b a) => Iso' (List1 a) (NonEmpty b)

@@ -82,7 +82,7 @@ derivingOf = uniq . typ . typeOf
         TType      _ ds -> ds
         TLit       l    -> lit l
         TNatural        -> base <> num
-        TStream         -> [DShow, DData, DTypeable, DGeneric]
+        TStream         -> [DShow]
         TMaybe     t    -> typ t
         TSensitive t    -> DShow : typ t
         TList      e    -> monoid <> intersect base (typ e)

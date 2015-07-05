@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE DeriveFoldable             #-}
 {-# LANGUAGE DeriveTraversable          #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
@@ -23,6 +25,8 @@ module Network.AWS.Data.Map
     , toQueryMap
     ) where
 
+import Data.Data (Data,Typeable)
+import GHC.Generics (Generic)
 import           Control.Lens                (Iso', iso)
 import           Control.Monad
 import           Data.Aeson
@@ -59,6 +63,9 @@ newtype Map k v = Map { toMap :: HashMap k v }
         , Eq
         , Read
         , Show
+        , Data
+        , Typeable
+        , Generic
         )
 
 type role Map nominal representational

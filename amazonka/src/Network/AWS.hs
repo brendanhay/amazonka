@@ -92,6 +92,7 @@ import           Data.Bifunctor
 import           Data.Conduit                 hiding (await)
 import           Data.Time                    (getCurrentTime)
 import           Network.AWS.Auth
+import           Network.AWS.Data.Time
 import           Network.AWS.Env
 import           Network.AWS.Error
 import           Network.AWS.Internal.Body

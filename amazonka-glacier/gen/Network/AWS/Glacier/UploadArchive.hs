@@ -108,7 +108,7 @@ data UploadArchive = UploadArchive'
     , _uaVaultName          :: !Text
     , _uaAccountId          :: !Text
     , _uaBody               :: !RqBody
-    } deriving (Show,Data,Typeable,Generic)
+    } deriving (Show)
 
 -- | 'UploadArchive' smart constructor.
 uploadArchive :: Text -> Text -> RqBody -> UploadArchive

@@ -82,7 +82,7 @@ import           Network.AWS.Response
 data UploadDocuments = UploadDocuments'
     { _udContentType :: !ContentType
     , _udDocuments   :: !RqBody
-    } deriving (Show,Data,Typeable,Generic)
+    } deriving (Show)
 
 -- | 'UploadDocuments' smart constructor.
 uploadDocuments :: ContentType -> RqBody -> UploadDocuments

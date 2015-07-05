@@ -152,7 +152,7 @@ data PutObject = PutObject'
     , _poBucket                  :: !BucketName
     , _poKey                     :: !ObjectKey
     , _poBody                    :: !RqBody
-    } deriving (Show,Data,Typeable,Generic)
+    } deriving (Show)
 
 -- | 'PutObject' smart constructor.
 putObject :: BucketName -> ObjectKey -> RqBody -> PutObject

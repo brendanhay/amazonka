@@ -119,7 +119,7 @@ data UploadMultipartPart = UploadMultipartPart'
     , _umpVaultName :: !Text
     , _umpUploadId  :: !Text
     , _umpBody      :: !RqBody
-    } deriving (Show,Data,Typeable,Generic)
+    } deriving (Show)
 
 -- | 'UploadMultipartPart' smart constructor.
 uploadMultipartPart :: Text -> Text -> Text -> RqBody -> UploadMultipartPart

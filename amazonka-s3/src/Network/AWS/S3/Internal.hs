@@ -1,3 +1,5 @@
+{-# LANGUAGE DeriveDataTypeable         #-}
+{-# LANGUAGE DeriveGeneric              #-}
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 
 -- Module      : Network.AWS.S3.Internal
@@ -15,7 +17,9 @@ module Network.AWS.S3.Internal
     , Region
     ) where
 
+import           Data.Data            (Data, Typeable)
 import           Data.String
+import           GHC.Generics         (Generic)
 import           Network.AWS.Data.XML
 import           Network.AWS.Prelude
 
@@ -25,6 +29,9 @@ newtype BucketName = BucketName Text
         , Ord
         , Read
         , Show
+        , Data
+        , Typeable
+        , Generic
         , IsString
         , FromText
         , ToText
@@ -40,6 +47,9 @@ newtype ObjectKey = ObjectKey Text
         , Ord
         , Read
         , Show
+        , Data
+        , Typeable
+        , Generic
         , IsString
         , FromText
         , ToText
@@ -55,6 +65,9 @@ newtype ObjectVersionId = ObjectVersionId Text
         , Ord
         , Read
         , Show
+        , Data
+        , Typeable
+        , Generic
         , IsString
         , FromText
         , ToText
@@ -72,6 +85,9 @@ newtype ETag = ETag ByteString
         , Ord
         , Read
         , Show
+        , Data
+        , Typeable
+        , Generic
         , IsString
         , FromText
         , ToText

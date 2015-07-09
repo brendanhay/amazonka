@@ -9,6 +9,5 @@ before_install:
 install:
   - stack setup
 
-# Currently only core due to memory/timeout issues (exit:137)
 script:
-  - stack test amazonka-core
+  - stack +RTS -M2G -RTS test

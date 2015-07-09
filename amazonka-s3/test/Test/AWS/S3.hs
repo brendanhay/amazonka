@@ -36,6 +36,10 @@ fixtures =
                                & rrId ?~ "rule1"
                            ])
 
+        , testGetBucketPolicyResponse $
+            getBucketPolicyResponse 200
+                & gbprPolicy ?~ "foo"
+
         , testCopyObjectResponse $
             copyObjectResponse 200
                 & corCopyObjectResult ?~
@@ -44,31 +48,3 @@ fixtures =
                         & corLastModified ?~ $(mkTime "2009-10-28T22:32:00Z"))
         ]
     ]
-
--- do GetBucketPolicy
---    GetBucketReplication
-
---
---         , testCopyObjectResponse $
---             copyObjectResponse
---
---         , testGetBucketPolicyResponse $
---             getBucketPolicyResponse
---
---         , testGetBucketLoggingResponse $
---             getBucketLoggingResponse
---
---         , testListPartsResponse $
---             listPartsResponse
---
---         , testGetBucketACLResponse $
---             getBucketACLResponse
---
---         , testPutBucketACLResponse $
---             putBucketACLResponse
---
---         , testUploadPartCopyResponse $
---             uploadPartCopyResponse
---
---           ]
---     ]

@@ -16,6 +16,10 @@ import           Test.Tasty.HUnit
 import           Text.PrettyPrint
 import           Text.PrettyPrint.GenericPretty
 
+assertEqual' :: (Eq a, Show a) => String -> a -> Either String a -> Assertion
+assertEqual' _ _ (Left  m) = assertFailure m
+assertEqual' n e (Right a) = e @=? a
+
 assertEqualPP :: (Eq a, Out a) => String -> a -> Either String a -> Assertion
 assertEqualPP _ _ (Left  m) = assertFailure m
 assertEqualPP n e (Right a) = unless (e == a) (assertFailure m)

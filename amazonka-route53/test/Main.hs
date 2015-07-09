@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.Route53
+import Test.AWS.Route53.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "Route53"

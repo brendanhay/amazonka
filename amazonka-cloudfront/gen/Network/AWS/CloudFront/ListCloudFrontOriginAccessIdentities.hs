@@ -87,8 +87,7 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  ListCloudFrontOriginAccessIdentitiesResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .@ "CloudFrontOriginAccessIdentityList"))
+                   (pure (fromEnum s)) <*> (parseXML x))
 
 instance ToHeaders
          ListCloudFrontOriginAccessIdentities where

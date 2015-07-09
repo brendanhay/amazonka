@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.KMS
+import Test.AWS.KMS.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "KMS"

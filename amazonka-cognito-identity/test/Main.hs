@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.CognitoIdentity
+import Test.AWS.CognitoIdentity.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "CognitoIdentity"

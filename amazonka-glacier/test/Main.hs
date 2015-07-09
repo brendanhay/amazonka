@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.Glacier
+import Test.AWS.Glacier.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "Glacier"

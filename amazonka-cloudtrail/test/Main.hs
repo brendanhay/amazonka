@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.CloudTrail
+import Test.AWS.CloudTrail.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "CloudTrail"

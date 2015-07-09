@@ -73,9 +73,8 @@ instance AWSRequest GetStreamingDistributionConfig
           = receiveXML
               (\ s h x ->
                  GetStreamingDistributionConfigResponse' <$>
-                   (x .@? "StreamingDistributionConfig") <*>
-                     (h .#? "ETag")
-                     <*> (pure (fromEnum s)))
+                   (parseXML x) <*> (h .#? "ETag") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetStreamingDistributionConfig
          where

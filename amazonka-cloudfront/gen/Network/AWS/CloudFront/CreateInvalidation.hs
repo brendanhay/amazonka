@@ -81,7 +81,7 @@ instance AWSRequest CreateInvalidation where
           = receiveXML
               (\ s h x ->
                  CreateInvalidationResponse' <$>
-                   (x .@? "Invalidation") <*> (h .#? "Location") <*>
+                   (parseXML x) <*> (h .#? "Location") <*>
                      (pure (fromEnum s)))
 
 instance ToElement CreateInvalidation where

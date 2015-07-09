@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.CloudSearchDomains
+import Test.AWS.CloudSearchDomains.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "CloudSearchDomains"

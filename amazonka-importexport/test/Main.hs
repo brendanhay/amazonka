@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.ImportExport
+import Test.AWS.ImportExport.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "ImportExport"

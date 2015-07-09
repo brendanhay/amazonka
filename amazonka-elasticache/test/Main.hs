@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.ElastiCache
+import Test.AWS.ElastiCache.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "ElastiCache"

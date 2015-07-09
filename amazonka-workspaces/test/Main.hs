@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.WorkSpaces
+import Test.AWS.WorkSpaces.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "WorkSpaces"

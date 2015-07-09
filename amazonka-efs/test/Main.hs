@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.EFS
+import Test.AWS.EFS.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "EFS"

@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.CloudFront
+import Test.AWS.CloudFront.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "CloudFront"

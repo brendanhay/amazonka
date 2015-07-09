@@ -74,7 +74,7 @@ instance AWSRequest CreateStreamingDistribution where
               (\ s h x ->
                  CreateStreamingDistributionResponse' <$>
                    (h .#? "ETag") <*> (h .#? "Location") <*>
-                     (x .@? "StreamingDistribution")
+                     (parseXML x)
                      <*> (pure (fromEnum s)))
 
 instance ToElement CreateStreamingDistribution where

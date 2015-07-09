@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.StorageGateway
+import Test.AWS.StorageGateway.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "StorageGateway"

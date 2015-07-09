@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.ElasticBeanstalk
+import Test.AWS.ElasticBeanstalk.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "ElasticBeanstalk"

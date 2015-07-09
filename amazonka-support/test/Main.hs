@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.Support
+import Test.AWS.Support.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "Support"

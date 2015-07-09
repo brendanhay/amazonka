@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.SQS
+import Test.AWS.SQS.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "SQS"

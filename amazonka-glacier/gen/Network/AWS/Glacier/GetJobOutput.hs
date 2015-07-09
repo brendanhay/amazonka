@@ -204,7 +204,7 @@ data GetJobOutputResponse = GetJobOutputResponse'
     , _gjorContentType        :: !(Maybe Text)
     , _gjorStatus             :: !Int
     , _gjorBody               :: !RsBody
-    } deriving (Show)
+    } deriving (Show,Generic)
 
 -- | 'GetJobOutputResponse' smart constructor.
 getJobOutputResponse :: Int -> RsBody -> GetJobOutputResponse

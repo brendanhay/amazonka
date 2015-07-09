@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.Redshift
+import Test.AWS.Redshift.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "Redshift"

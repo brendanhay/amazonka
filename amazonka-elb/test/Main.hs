@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.ELB
+import Test.AWS.ELB.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "ELB"

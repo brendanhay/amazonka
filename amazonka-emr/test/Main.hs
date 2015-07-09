@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.EMR
+import Test.AWS.EMR.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "EMR"

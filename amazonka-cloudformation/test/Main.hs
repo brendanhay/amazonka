@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.CloudFormation
+import Test.AWS.CloudFormation.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "CloudFormation"

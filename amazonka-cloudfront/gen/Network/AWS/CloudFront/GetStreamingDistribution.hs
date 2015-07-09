@@ -72,8 +72,8 @@ instance AWSRequest GetStreamingDistribution where
           = receiveXML
               (\ s h x ->
                  GetStreamingDistributionResponse' <$>
-                   (h .#? "ETag") <*> (x .@? "StreamingDistribution")
-                     <*> (pure (fromEnum s)))
+                   (h .#? "ETag") <*> (parseXML x) <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders GetStreamingDistribution where
         toHeaders = const mempty

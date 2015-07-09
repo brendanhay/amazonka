@@ -91,7 +91,7 @@ instance AWSRequest UpdateDistribution where
           = receiveXML
               (\ s h x ->
                  UpdateDistributionResponse' <$>
-                   (h .#? "ETag") <*> (x .@? "Distribution") <*>
+                   (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
 instance ToElement UpdateDistribution where

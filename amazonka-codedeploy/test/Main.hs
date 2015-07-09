@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.CodeDeploy
+import Test.AWS.CodeDeploy.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "CodeDeploy"

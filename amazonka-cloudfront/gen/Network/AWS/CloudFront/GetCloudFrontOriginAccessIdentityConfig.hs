@@ -74,9 +74,8 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  GetCloudFrontOriginAccessIdentityConfigResponse' <$>
-                   (x .@? "CloudFrontOriginAccessIdentityConfig") <*>
-                     (h .#? "ETag")
-                     <*> (pure (fromEnum s)))
+                   (parseXML x) <*> (h .#? "ETag") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders
          GetCloudFrontOriginAccessIdentityConfig where

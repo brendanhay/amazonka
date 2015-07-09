@@ -79,7 +79,7 @@ instance AWSRequest GetInvalidation where
           = receiveXML
               (\ s h x ->
                  GetInvalidationResponse' <$>
-                   (x .@? "Invalidation") <*> (pure (fromEnum s)))
+                   (parseXML x) <*> (pure (fromEnum s)))
 
 instance ToHeaders GetInvalidation where
         toHeaders = const mempty

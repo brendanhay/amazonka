@@ -76,7 +76,7 @@ instance AWSRequest
               (\ s h x ->
                  CreateCloudFrontOriginAccessIdentityResponse' <$>
                    (h .#? "ETag") <*> (h .#? "Location") <*>
-                     (x .@? "CloudFrontOriginAccessIdentity")
+                     (parseXML x)
                      <*> (pure (fromEnum s)))
 
 instance ToElement

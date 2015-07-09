@@ -95,7 +95,7 @@ instance AWSRequest ListInvalidations where
           = receiveXML
               (\ s h x ->
                  ListInvalidationsResponse' <$>
-                   (pure (fromEnum s)) <*> (x .@ "InvalidationList"))
+                   (pure (fromEnum s)) <*> (parseXML x))
 
 instance ToHeaders ListInvalidations where
         toHeaders = const mempty

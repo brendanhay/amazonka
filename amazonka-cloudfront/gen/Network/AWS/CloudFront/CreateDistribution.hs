@@ -73,7 +73,7 @@ instance AWSRequest CreateDistribution where
           = receiveXML
               (\ s h x ->
                  CreateDistributionResponse' <$>
-                   (h .#? "ETag") <*> (x .@? "Distribution") <*>
+                   (h .#? "ETag") <*> (parseXML x) <*>
                      (h .#? "Location")
                      <*> (pure (fromEnum s)))
 

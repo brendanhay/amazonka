@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.DirectoryService
+import Test.AWS.DirectoryService.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "DirectoryService"

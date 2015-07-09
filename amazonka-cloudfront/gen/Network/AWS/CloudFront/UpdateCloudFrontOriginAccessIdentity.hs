@@ -93,9 +93,8 @@ instance AWSRequest
           = receiveXML
               (\ s h x ->
                  UpdateCloudFrontOriginAccessIdentityResponse' <$>
-                   (h .#? "ETag") <*>
-                     (x .@? "CloudFrontOriginAccessIdentity")
-                     <*> (pure (fromEnum s)))
+                   (h .#? "ETag") <*> (parseXML x) <*>
+                     (pure (fromEnum s)))
 
 instance ToElement
          UpdateCloudFrontOriginAccessIdentity where

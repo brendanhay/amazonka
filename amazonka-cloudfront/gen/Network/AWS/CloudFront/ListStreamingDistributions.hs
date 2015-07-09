@@ -85,8 +85,7 @@ instance AWSRequest ListStreamingDistributions where
           = receiveXML
               (\ s h x ->
                  ListStreamingDistributionsResponse' <$>
-                   (pure (fromEnum s)) <*>
-                     (x .@ "StreamingDistributionList"))
+                   (pure (fromEnum s)) <*> (parseXML x))
 
 instance ToHeaders ListStreamingDistributions where
         toHeaders = const mempty

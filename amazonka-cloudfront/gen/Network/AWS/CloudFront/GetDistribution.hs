@@ -71,7 +71,7 @@ instance AWSRequest GetDistribution where
           = receiveXML
               (\ s h x ->
                  GetDistributionResponse' <$>
-                   (h .#? "ETag") <*> (x .@? "Distribution") <*>
+                   (h .#? "ETag") <*> (parseXML x) <*>
                      (pure (fromEnum s)))
 
 instance ToHeaders GetDistribution where

@@ -99,4 +99,5 @@ test-suite amazonka-datapipeline-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

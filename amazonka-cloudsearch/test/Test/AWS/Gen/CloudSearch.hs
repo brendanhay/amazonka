@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.CloudSearch
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -394,3 +396,87 @@ testDeleteDomainResponse = resp
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse"
     (Proxy :: Proxy DeleteDomain)
+
+instance Out AccessPoliciesStatus
+instance Out AlgorithmicStemming
+instance Out AnalysisOptions
+instance Out AnalysisScheme
+instance Out AnalysisSchemeLanguage
+instance Out AnalysisSchemeStatus
+instance Out AvailabilityOptionsStatus
+instance Out BuildSuggesters
+instance Out BuildSuggestersResponse
+instance Out CreateDomain
+instance Out CreateDomainResponse
+instance Out DateArrayOptions
+instance Out DateOptions
+instance Out DefineAnalysisScheme
+instance Out DefineAnalysisSchemeResponse
+instance Out DefineExpression
+instance Out DefineExpressionResponse
+instance Out DefineIndexField
+instance Out DefineIndexFieldResponse
+instance Out DefineSuggester
+instance Out DefineSuggesterResponse
+instance Out DeleteAnalysisScheme
+instance Out DeleteAnalysisSchemeResponse
+instance Out DeleteDomain
+instance Out DeleteDomainResponse
+instance Out DeleteExpression
+instance Out DeleteExpressionResponse
+instance Out DeleteIndexField
+instance Out DeleteIndexFieldResponse
+instance Out DeleteSuggester
+instance Out DeleteSuggesterResponse
+instance Out DescribeAnalysisSchemes
+instance Out DescribeAnalysisSchemesResponse
+instance Out DescribeAvailabilityOptions
+instance Out DescribeAvailabilityOptionsResponse
+instance Out DescribeDomains
+instance Out DescribeDomainsResponse
+instance Out DescribeExpressions
+instance Out DescribeExpressionsResponse
+instance Out DescribeIndexFields
+instance Out DescribeIndexFieldsResponse
+instance Out DescribeScalingParameters
+instance Out DescribeScalingParametersResponse
+instance Out DescribeServiceAccessPolicies
+instance Out DescribeServiceAccessPoliciesResponse
+instance Out DescribeSuggesters
+instance Out DescribeSuggestersResponse
+instance Out DocumentSuggesterOptions
+instance Out DomainStatus
+instance Out DoubleArrayOptions
+instance Out DoubleOptions
+instance Out Expression
+instance Out ExpressionStatus
+instance Out IndexDocuments
+instance Out IndexDocumentsResponse
+instance Out IndexField
+instance Out IndexFieldStatus
+instance Out IndexFieldType
+instance Out IntArrayOptions
+instance Out IntOptions
+instance Out LatLonOptions
+instance Out Limits
+instance Out ListDomainNames
+instance Out ListDomainNamesResponse
+instance Out LiteralArrayOptions
+instance Out LiteralOptions
+instance Out OptionState
+instance Out OptionStatus
+instance Out PartitionInstanceType
+instance Out ScalingParameters
+instance Out ScalingParametersStatus
+instance Out ServiceEndpoint
+instance Out Suggester
+instance Out SuggesterFuzzyMatching
+instance Out SuggesterStatus
+instance Out TextArrayOptions
+instance Out TextOptions
+instance Out UpdateAvailabilityOptions
+instance Out UpdateAvailabilityOptionsResponse
+instance Out UpdateScalingParameters
+instance Out UpdateScalingParametersResponse
+instance Out UpdateServiceAccessPolicies
+instance Out UpdateServiceAccessPoliciesResponse

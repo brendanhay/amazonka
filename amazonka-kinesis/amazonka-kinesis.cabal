@@ -74,4 +74,5 @@ test-suite amazonka-kinesis-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

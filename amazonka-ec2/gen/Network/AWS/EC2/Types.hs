@@ -120,6 +120,9 @@ module Network.AWS.EC2.Types
     -- * ListingStatus
     , ListingStatus (..)
 
+    -- * ModifySnapshotAttributeName
+    , ModifySnapshotAttributeName (..)
+
     -- * MonitoringState
     , MonitoringState (..)
 
@@ -221,6 +224,9 @@ module Network.AWS.EC2.Types
 
     -- * VPCAttributeName
     , VPCAttributeName (..)
+
+    -- * VPCPeeringConnectionStateReasonCode
+    , VPCPeeringConnectionStateReasonCode (..)
 
     -- * VPCState
     , VPCState (..)
@@ -2520,6 +2526,7 @@ data InstanceType
     | C42XLarge
     | CC14XLarge
     | D28XLarge
+    | T2Large
     | M3Large
     | M3Medium
     | T2Medium
@@ -2611,11 +2618,12 @@ instance FromText InstanceType where
         "r3.large" -> pure R3Large
         "r3.xlarge" -> pure R3XLarge
         "t1.micro" -> pure T1Micro
+        "t2.large" -> pure T2Large
         "t2.medium" -> pure T2Medium
         "t2.micro" -> pure T2Micro
         "t2.small" -> pure T2Small
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
-           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.medium, t2.micro, t2.small"
+           <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.small"
 
 instance ToText InstanceType where
     toText = \case
@@ -2668,6 +2676,7 @@ instance ToText InstanceType where
         R3Large -> "r3.large"
         R3XLarge -> "r3.xlarge"
         T1Micro -> "t1.micro"
+        T2Large -> "t2.large"
         T2Medium -> "t2.medium"
         T2Micro -> "t2.micro"
         T2Small -> "t2.small"
@@ -2738,6 +2747,24 @@ instance ToHeader ListingStatus
 
 instance FromXML ListingStatus where
     parseXML = parseXMLText "ListingStatus"
+
+data ModifySnapshotAttributeName =
+    CreateVolumePermission
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText ModifySnapshotAttributeName where
+    parser = takeLowerText >>= \case
+        "createvolumepermission" -> pure CreateVolumePermission
+        e -> fromTextError $ "Failure parsing ModifySnapshotAttributeName from value: '" <> e
+           <> "'. Accepted values: createvolumepermission"
+
+instance ToText ModifySnapshotAttributeName where
+    toText = \case
+        CreateVolumePermission -> "createvolumepermission"
+
+instance Hashable ModifySnapshotAttributeName
+instance ToQuery ModifySnapshotAttributeName
+instance ToHeader ModifySnapshotAttributeName
 
 data MonitoringState
     = MSDisabling
@@ -3668,6 +3695,51 @@ instance ToText VPCAttributeName where
 instance Hashable VPCAttributeName
 instance ToQuery VPCAttributeName
 instance ToHeader VPCAttributeName
+
+data VPCPeeringConnectionStateReasonCode
+    = VPCSRCFailed
+    | VPCSRCExpired
+    | VPCSRCInitiatingRequest
+    | VPCSRCActive
+    | VPCSRCProvisioning
+    | VPCSRCRejected
+    | VPCSRCDeleted
+    | VPCSRCDeleting
+    | VPCSRCPendingAcceptance
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText VPCPeeringConnectionStateReasonCode where
+    parser = takeLowerText >>= \case
+        "active" -> pure VPCSRCActive
+        "deleted" -> pure VPCSRCDeleted
+        "deleting" -> pure VPCSRCDeleting
+        "expired" -> pure VPCSRCExpired
+        "failed" -> pure VPCSRCFailed
+        "initiating-request" -> pure VPCSRCInitiatingRequest
+        "pending-acceptance" -> pure VPCSRCPendingAcceptance
+        "provisioning" -> pure VPCSRCProvisioning
+        "rejected" -> pure VPCSRCRejected
+        e -> fromTextError $ "Failure parsing VPCPeeringConnectionStateReasonCode from value: '" <> e
+           <> "'. Accepted values: active, deleted, deleting, expired, failed, initiating-request, pending-acceptance, provisioning, rejected"
+
+instance ToText VPCPeeringConnectionStateReasonCode where
+    toText = \case
+        VPCSRCActive -> "active"
+        VPCSRCDeleted -> "deleted"
+        VPCSRCDeleting -> "deleting"
+        VPCSRCExpired -> "expired"
+        VPCSRCFailed -> "failed"
+        VPCSRCInitiatingRequest -> "initiating-request"
+        VPCSRCPendingAcceptance -> "pending-acceptance"
+        VPCSRCProvisioning -> "provisioning"
+        VPCSRCRejected -> "rejected"
+
+instance Hashable VPCPeeringConnectionStateReasonCode
+instance ToQuery VPCPeeringConnectionStateReasonCode
+instance ToHeader VPCPeeringConnectionStateReasonCode
+
+instance FromXML VPCPeeringConnectionStateReasonCode where
+    parseXML = parseXMLText "VPCPeeringConnectionStateReasonCode"
 
 data VPCState
     = VpcPending
@@ -11163,7 +11235,8 @@ rtaRouteTableAssociationId = lens _rtaRouteTableAssociationId (\ s a -> s{_rtaRo
 rtaMain :: Lens' RouteTableAssociation (Maybe Bool)
 rtaMain = lens _rtaMain (\ s a -> s{_rtaMain = a});
 
--- | The ID of the subnet.
+-- | The ID of the subnet. A subnet ID is not returned for an implicit
+-- association.
 rtaSubnetId :: Lens' RouteTableAssociation (Maybe Text)
 rtaSubnetId = lens _rtaSubnetId (\ s a -> s{_rtaSubnetId = a});
 
@@ -11445,8 +11518,9 @@ snapshot pSnapshotId pOwnerId pVolumeId pVolumeSize pDescription pStartTime pPro
 snaOwnerAlias :: Lens' Snapshot (Maybe Text)
 snaOwnerAlias = lens _snaOwnerAlias (\ s a -> s{_snaOwnerAlias = a});
 
--- | The full ARN of the AWS Key Management Service (KMS) master key that was
--- used to protect the volume encryption key for the parent volume.
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) that was used to protect the volume encryption key for the parent
+-- volume.
 snaKMSKeyId :: Lens' Snapshot (Maybe Text)
 snaKMSKeyId = lens _snaKMSKeyId (\ s a -> s{_snaKMSKeyId = a});
 
@@ -13253,7 +13327,7 @@ instance FromXML VPCPeeringConnection where
 --
 -- * 'vpcsrMessage'
 data VPCPeeringConnectionStateReason = VPCPeeringConnectionStateReason'
-    { _vpcsrCode    :: !(Maybe Text)
+    { _vpcsrCode    :: !(Maybe VPCPeeringConnectionStateReasonCode)
     , _vpcsrMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -13266,7 +13340,7 @@ vpcPeeringConnectionStateReason =
     }
 
 -- | The status of the VPC peering connection.
-vpcsrCode :: Lens' VPCPeeringConnectionStateReason (Maybe Text)
+vpcsrCode :: Lens' VPCPeeringConnectionStateReason (Maybe VPCPeeringConnectionStateReasonCode)
 vpcsrCode = lens _vpcsrCode (\ s a -> s{_vpcsrCode = a});
 
 -- | A message that provides more information about the status, if
@@ -13704,8 +13778,8 @@ volAttachments = lens _volAttachments (\ s a -> s{_volAttachments = a}) . _Defau
 volIOPS :: Lens' Volume (Maybe Int)
 volIOPS = lens _volIOPS (\ s a -> s{_volIOPS = a});
 
--- | The full ARN of the AWS Key Management Service (KMS) master key that was
--- used to protect the volume encryption key for the volume.
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) that was used to protect the volume encryption key for the volume.
 volKMSKeyId :: Lens' Volume (Maybe Text)
 volKMSKeyId = lens _volKMSKeyId (\ s a -> s{_volKMSKeyId = a});
 

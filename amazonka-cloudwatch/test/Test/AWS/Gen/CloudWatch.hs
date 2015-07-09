@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.CloudWatch
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -199,3 +201,39 @@ testPutMetricAlarmResponse = resp
     "PutMetricAlarmResponse"
     "fixture/PutMetricAlarmResponse"
     (Proxy :: Proxy PutMetricAlarm)
+
+instance Out AlarmHistoryItem
+instance Out ComparisonOperator
+instance Out Datapoint
+instance Out DeleteAlarms
+instance Out DeleteAlarmsResponse
+instance Out DescribeAlarmHistory
+instance Out DescribeAlarmHistoryResponse
+instance Out DescribeAlarms
+instance Out DescribeAlarmsForMetric
+instance Out DescribeAlarmsForMetricResponse
+instance Out DescribeAlarmsResponse
+instance Out Dimension
+instance Out DimensionFilter
+instance Out DisableAlarmActions
+instance Out DisableAlarmActionsResponse
+instance Out EnableAlarmActions
+instance Out EnableAlarmActionsResponse
+instance Out GetMetricStatistics
+instance Out GetMetricStatisticsResponse
+instance Out HistoryItemType
+instance Out ListMetrics
+instance Out ListMetricsResponse
+instance Out Metric
+instance Out MetricAlarm
+instance Out MetricDatum
+instance Out PutMetricAlarm
+instance Out PutMetricAlarmResponse
+instance Out PutMetricData
+instance Out PutMetricDataResponse
+instance Out SetAlarmState
+instance Out SetAlarmStateResponse
+instance Out StandardUnit
+instance Out StateValue
+instance Out Statistic
+instance Out StatisticSet

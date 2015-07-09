@@ -100,4 +100,5 @@ test-suite amazonka-sns-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

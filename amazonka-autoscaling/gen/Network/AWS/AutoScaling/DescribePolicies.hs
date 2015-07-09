@@ -30,6 +30,7 @@ module Network.AWS.AutoScaling.DescribePolicies
     , descNextToken
     , descMaxRecords
     , descAutoScalingGroupName
+    , descPolicyTypes
 
     -- * Response
     , DescribePoliciesResponse
@@ -58,11 +59,14 @@ import           Network.AWS.Response
 -- * 'descMaxRecords'
 --
 -- * 'descAutoScalingGroupName'
+--
+-- * 'descPolicyTypes'
 data DescribePolicies = DescribePolicies'
     { _descPolicyNames          :: !(Maybe [Text])
     , _descNextToken            :: !(Maybe Text)
     , _descMaxRecords           :: !(Maybe Int)
     , _descAutoScalingGroupName :: !(Maybe Text)
+    , _descPolicyTypes          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePolicies' smart constructor.
@@ -73,6 +77,7 @@ describePolicies =
     , _descNextToken = Nothing
     , _descMaxRecords = Nothing
     , _descAutoScalingGroupName = Nothing
+    , _descPolicyTypes = Nothing
     }
 
 -- | One or more policy names or policy ARNs to be described. If you omit
@@ -94,6 +99,11 @@ descMaxRecords = lens _descMaxRecords (\ s a -> s{_descMaxRecords = a});
 -- | The name of the group.
 descAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
 descAutoScalingGroupName = lens _descAutoScalingGroupName (\ s a -> s{_descAutoScalingGroupName = a});
+
+-- | One or more policy types. Valid values are @SimpleScaling@ and
+-- @StepScaling@.
+descPolicyTypes :: Lens' DescribePolicies [Text]
+descPolicyTypes = lens _descPolicyTypes (\ s a -> s{_descPolicyTypes = a}) . _Default;
 
 instance AWSPager DescribePolicies where
         page rq rs
@@ -130,7 +140,9 @@ instance ToQuery DescribePolicies where
                  toQuery (toQueryList "member" <$> _descPolicyNames),
                "NextToken" =: _descNextToken,
                "MaxRecords" =: _descMaxRecords,
-               "AutoScalingGroupName" =: _descAutoScalingGroupName]
+               "AutoScalingGroupName" =: _descAutoScalingGroupName,
+               "PolicyTypes" =:
+                 toQuery (toQueryList "member" <$> _descPolicyTypes)]
 
 -- | /See:/ 'describePoliciesResponse' smart constructor.
 --

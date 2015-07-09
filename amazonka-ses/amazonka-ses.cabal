@@ -84,4 +84,5 @@ test-suite amazonka-ses-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

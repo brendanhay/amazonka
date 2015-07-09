@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.SES
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -304,3 +306,52 @@ testSetIdentityNotificationTopicResponse = resp
     "SetIdentityNotificationTopicResponse"
     "fixture/SetIdentityNotificationTopicResponse"
     (Proxy :: Proxy SetIdentityNotificationTopic)
+
+instance Out Body
+instance Out Content
+instance Out DeleteIdentity
+instance Out DeleteIdentityResponse
+instance Out DeleteVerifiedEmailAddress
+instance Out DeleteVerifiedEmailAddressResponse
+instance Out Destination
+instance Out GetIdentityDkimAttributes
+instance Out GetIdentityDkimAttributesResponse
+instance Out GetIdentityNotificationAttributes
+instance Out GetIdentityNotificationAttributesResponse
+instance Out GetIdentityVerificationAttributes
+instance Out GetIdentityVerificationAttributesResponse
+instance Out GetSendQuota
+instance Out GetSendQuotaResponse
+instance Out GetSendStatistics
+instance Out GetSendStatisticsResponse
+instance Out IdentityDkimAttributes
+instance Out IdentityNotificationAttributes
+instance Out IdentityType
+instance Out IdentityVerificationAttributes
+instance Out ListIdentities
+instance Out ListIdentitiesResponse
+instance Out ListVerifiedEmailAddresses
+instance Out ListVerifiedEmailAddressesResponse
+instance Out Message
+instance Out NotificationType
+instance Out RawMessage
+instance Out SendDataPoint
+instance Out SendEmail
+instance Out SendEmailResponse
+instance Out SendRawEmail
+instance Out SendRawEmailResponse
+instance Out SetIdentityDkimEnabled
+instance Out SetIdentityDkimEnabledResponse
+instance Out SetIdentityFeedbackForwardingEnabled
+instance Out SetIdentityFeedbackForwardingEnabledResponse
+instance Out SetIdentityNotificationTopic
+instance Out SetIdentityNotificationTopicResponse
+instance Out VerificationStatus
+instance Out VerifyDomainDkim
+instance Out VerifyDomainDkimResponse
+instance Out VerifyDomainIdentity
+instance Out VerifyDomainIdentityResponse
+instance Out VerifyEmailAddress
+instance Out VerifyEmailAddressResponse
+instance Out VerifyEmailIdentity
+instance Out VerifyEmailIdentityResponse

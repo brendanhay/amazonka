@@ -112,4 +112,5 @@ test-suite amazonka-elasticbeanstalk-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

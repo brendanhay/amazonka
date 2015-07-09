@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.Route53Domains
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -304,3 +306,52 @@ testListDomainsResponse = resp
     "ListDomainsResponse"
     "fixture/ListDomainsResponse"
     (Proxy :: Proxy ListDomains)
+
+instance Out CheckDomainAvailability
+instance Out CheckDomainAvailabilityResponse
+instance Out ContactDetail
+instance Out ContactType
+instance Out CountryCode
+instance Out DeleteTagsForDomain
+instance Out DeleteTagsForDomainResponse
+instance Out DisableDomainAutoRenew
+instance Out DisableDomainAutoRenewResponse
+instance Out DisableDomainTransferLock
+instance Out DisableDomainTransferLockResponse
+instance Out DomainAvailability
+instance Out DomainSummary
+instance Out EnableDomainAutoRenew
+instance Out EnableDomainAutoRenewResponse
+instance Out EnableDomainTransferLock
+instance Out EnableDomainTransferLockResponse
+instance Out ExtraParam
+instance Out ExtraParamName
+instance Out GetDomainDetail
+instance Out GetDomainDetailResponse
+instance Out GetOperationDetail
+instance Out GetOperationDetailResponse
+instance Out ListDomains
+instance Out ListDomainsResponse
+instance Out ListOperations
+instance Out ListOperationsResponse
+instance Out ListTagsForDomain
+instance Out ListTagsForDomainResponse
+instance Out Nameserver
+instance Out OperationStatus
+instance Out OperationSummary
+instance Out OperationType
+instance Out RegisterDomain
+instance Out RegisterDomainResponse
+instance Out RetrieveDomainAuthCode
+instance Out RetrieveDomainAuthCodeResponse
+instance Out Tag
+instance Out TransferDomain
+instance Out TransferDomainResponse
+instance Out UpdateDomainContact
+instance Out UpdateDomainContactPrivacy
+instance Out UpdateDomainContactPrivacyResponse
+instance Out UpdateDomainContactResponse
+instance Out UpdateDomainNameservers
+instance Out UpdateDomainNameserversResponse
+instance Out UpdateTagsForDomain
+instance Out UpdateTagsForDomainResponse

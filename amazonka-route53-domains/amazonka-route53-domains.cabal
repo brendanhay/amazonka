@@ -76,4 +76,5 @@ test-suite amazonka-route53-domains-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

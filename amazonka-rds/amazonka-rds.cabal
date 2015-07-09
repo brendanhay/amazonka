@@ -143,4 +143,5 @@ test-suite amazonka-rds-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

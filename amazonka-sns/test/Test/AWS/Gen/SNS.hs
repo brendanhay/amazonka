@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.SNS
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -409,3 +411,59 @@ testPublishResponse = resp
     "PublishResponse"
     "fixture/PublishResponse"
     (Proxy :: Proxy Publish)
+
+instance Out AddPermission
+instance Out AddPermissionResponse
+instance Out ConfirmSubscription
+instance Out ConfirmSubscriptionResponse
+instance Out CreatePlatformApplication
+instance Out CreatePlatformApplicationResponse
+instance Out CreatePlatformEndpoint
+instance Out CreatePlatformEndpointResponse
+instance Out CreateTopic
+instance Out CreateTopicResponse
+instance Out DeleteEndpoint
+instance Out DeleteEndpointResponse
+instance Out DeletePlatformApplication
+instance Out DeletePlatformApplicationResponse
+instance Out DeleteTopic
+instance Out DeleteTopicResponse
+instance Out Endpoint
+instance Out GetEndpointAttributes
+instance Out GetEndpointAttributesResponse
+instance Out GetPlatformApplicationAttributes
+instance Out GetPlatformApplicationAttributesResponse
+instance Out GetSubscriptionAttributes
+instance Out GetSubscriptionAttributesResponse
+instance Out GetTopicAttributes
+instance Out GetTopicAttributesResponse
+instance Out ListEndpointsByPlatformApplication
+instance Out ListEndpointsByPlatformApplicationResponse
+instance Out ListPlatformApplications
+instance Out ListPlatformApplicationsResponse
+instance Out ListSubscriptions
+instance Out ListSubscriptionsByTopic
+instance Out ListSubscriptionsByTopicResponse
+instance Out ListSubscriptionsResponse
+instance Out ListTopics
+instance Out ListTopicsResponse
+instance Out MessageAttributeValue
+instance Out PlatformApplication
+instance Out Publish
+instance Out PublishResponse
+instance Out RemovePermission
+instance Out RemovePermissionResponse
+instance Out SetEndpointAttributes
+instance Out SetEndpointAttributesResponse
+instance Out SetPlatformApplicationAttributes
+instance Out SetPlatformApplicationAttributesResponse
+instance Out SetSubscriptionAttributes
+instance Out SetSubscriptionAttributesResponse
+instance Out SetTopicAttributes
+instance Out SetTopicAttributesResponse
+instance Out Subscribe
+instance Out SubscribeResponse
+instance Out Subscription
+instance Out Topic
+instance Out Unsubscribe
+instance Out UnsubscribeResponse

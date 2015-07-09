@@ -112,4 +112,5 @@ test-suite amazonka-cognito-identity-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

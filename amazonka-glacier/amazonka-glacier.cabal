@@ -118,4 +118,5 @@ test-suite amazonka-glacier-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

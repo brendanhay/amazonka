@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.CloudWatchLogs
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -304,3 +306,52 @@ testDescribeLogStreamsResponse = resp
     "DescribeLogStreamsResponse"
     "fixture/DescribeLogStreamsResponse"
     (Proxy :: Proxy DescribeLogStreams)
+
+instance Out CreateLogGroup
+instance Out CreateLogGroupResponse
+instance Out CreateLogStream
+instance Out CreateLogStreamResponse
+instance Out DeleteLogGroup
+instance Out DeleteLogGroupResponse
+instance Out DeleteLogStream
+instance Out DeleteLogStreamResponse
+instance Out DeleteMetricFilter
+instance Out DeleteMetricFilterResponse
+instance Out DeleteRetentionPolicy
+instance Out DeleteRetentionPolicyResponse
+instance Out DeleteSubscriptionFilter
+instance Out DeleteSubscriptionFilterResponse
+instance Out DescribeLogGroups
+instance Out DescribeLogGroupsResponse
+instance Out DescribeLogStreams
+instance Out DescribeLogStreamsResponse
+instance Out DescribeMetricFilters
+instance Out DescribeMetricFiltersResponse
+instance Out DescribeSubscriptionFilters
+instance Out DescribeSubscriptionFiltersResponse
+instance Out FilterLogEvents
+instance Out FilterLogEventsResponse
+instance Out FilteredLogEvent
+instance Out GetLogEvents
+instance Out GetLogEventsResponse
+instance Out InputLogEvent
+instance Out LogGroup
+instance Out LogStream
+instance Out MetricFilter
+instance Out MetricFilterMatchRecord
+instance Out MetricTransformation
+instance Out OrderBy
+instance Out OutputLogEvent
+instance Out PutLogEvents
+instance Out PutLogEventsResponse
+instance Out PutMetricFilter
+instance Out PutMetricFilterResponse
+instance Out PutRetentionPolicy
+instance Out PutRetentionPolicyResponse
+instance Out PutSubscriptionFilter
+instance Out PutSubscriptionFilterResponse
+instance Out RejectedLogEventsInfo
+instance Out SearchedLogStream
+instance Out SubscriptionFilter
+instance Out TestMetricFilter
+instance Out TestMetricFilterResponse

@@ -108,4 +108,5 @@ test-suite amazonka-elasticache-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

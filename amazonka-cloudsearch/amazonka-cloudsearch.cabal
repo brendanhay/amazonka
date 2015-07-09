@@ -94,4 +94,5 @@ test-suite amazonka-cloudsearch-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

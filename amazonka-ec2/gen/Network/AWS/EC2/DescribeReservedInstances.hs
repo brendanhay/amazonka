@@ -104,7 +104,9 @@ describeReservedInstances =
 --     @Windows (Amazon VPC)@ | @Windows with SQL Server Standard@ |
 --     @Windows with SQL Server Standard (Amazon VPC)@ |
 --     @Windows with SQL Server Web@ |
---     @Windows with SQL Server Web (Amazon VPC)@).
+--     @Windows with SQL Server Web (Amazon VPC)@ |
+--     @Windows with SQL Server Enterprise@ |
+--     @Windows with SQL Server Enterprise (Amazon VPC)@).
 --
 -- -   @reserved-instances-id@ - The ID of the Reserved Instance.
 --

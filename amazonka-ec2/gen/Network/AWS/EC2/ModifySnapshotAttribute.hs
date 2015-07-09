@@ -73,7 +73,7 @@ import           Network.AWS.Response
 --
 -- * 'msaSnapshotId'
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-    { _msaAttribute              :: !(Maybe SnapshotAttributeName)
+    { _msaAttribute              :: !(Maybe ModifySnapshotAttributeName)
     , _msaUserIds                :: !(Maybe [Text])
     , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
     , _msaGroupNames             :: !(Maybe [Text])
@@ -96,7 +96,7 @@ modifySnapshotAttribute pSnapshotId =
     }
 
 -- | The snapshot attribute to modify.
-msaAttribute :: Lens' ModifySnapshotAttribute (Maybe SnapshotAttributeName)
+msaAttribute :: Lens' ModifySnapshotAttribute (Maybe ModifySnapshotAttributeName)
 msaAttribute = lens _msaAttribute (\ s a -> s{_msaAttribute = a});
 
 -- | The account ID to modify for the snapshot.

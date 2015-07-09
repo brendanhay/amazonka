@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.CognitoSync
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -289,3 +291,49 @@ testBulkPublishResponse = resp
     "BulkPublishResponse"
     "fixture/BulkPublishResponse"
     (Proxy :: Proxy BulkPublish)
+
+instance Out BulkPublish
+instance Out BulkPublishResponse
+instance Out BulkPublishStatus
+instance Out CognitoStreams
+instance Out Dataset
+instance Out DeleteDataset
+instance Out DeleteDatasetResponse
+instance Out DescribeDataset
+instance Out DescribeDatasetResponse
+instance Out DescribeIdentityPoolUsage
+instance Out DescribeIdentityPoolUsageResponse
+instance Out DescribeIdentityUsage
+instance Out DescribeIdentityUsageResponse
+instance Out GetBulkPublishDetails
+instance Out GetBulkPublishDetailsResponse
+instance Out GetCognitoEvents
+instance Out GetCognitoEventsResponse
+instance Out GetIdentityPoolConfiguration
+instance Out GetIdentityPoolConfigurationResponse
+instance Out IdentityPoolUsage
+instance Out IdentityUsage
+instance Out ListDatasets
+instance Out ListDatasetsResponse
+instance Out ListIdentityPoolUsage
+instance Out ListIdentityPoolUsageResponse
+instance Out ListRecords
+instance Out ListRecordsResponse
+instance Out Operation
+instance Out Platform
+instance Out PushSync
+instance Out Record
+instance Out RecordPatch
+instance Out RegisterDevice
+instance Out RegisterDeviceResponse
+instance Out SetCognitoEvents
+instance Out SetCognitoEventsResponse
+instance Out SetIdentityPoolConfiguration
+instance Out SetIdentityPoolConfigurationResponse
+instance Out StreamingStatus
+instance Out SubscribeToDataset
+instance Out SubscribeToDatasetResponse
+instance Out UnsubscribeFromDataset
+instance Out UnsubscribeFromDatasetResponse
+instance Out UpdateRecords
+instance Out UpdateRecordsResponse

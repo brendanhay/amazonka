@@ -38,6 +38,7 @@ module Network.AWS.EC2.ConfirmProductInstance
     -- ** Response constructor
     , confirmProductInstanceResponse
     -- ** Response lenses
+    , cpirReturn
     , cpirOwnerId
     , cpirStatus
     ) where
@@ -95,7 +96,8 @@ instance AWSRequest ConfirmProductInstance where
           = receiveXML
               (\ s h x ->
                  ConfirmProductInstanceResponse' <$>
-                   (x .@? "ownerId") <*> (pure (fromEnum s)))
+                   (x .@? "return") <*> (x .@? "ownerId") <*>
+                     (pure (fromEnum s)))
 
 instance ToHeaders ConfirmProductInstance where
         toHeaders = const mempty
@@ -117,11 +119,14 @@ instance ToQuery ConfirmProductInstance where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'cpirReturn'
+--
 -- * 'cpirOwnerId'
 --
 -- * 'cpirStatus'
 data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
-    { _cpirOwnerId :: !(Maybe Text)
+    { _cpirReturn  :: !(Maybe Bool)
+    , _cpirOwnerId :: !(Maybe Text)
     , _cpirStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -129,9 +134,16 @@ data ConfirmProductInstanceResponse = ConfirmProductInstanceResponse'
 confirmProductInstanceResponse :: Int -> ConfirmProductInstanceResponse
 confirmProductInstanceResponse pStatus =
     ConfirmProductInstanceResponse'
-    { _cpirOwnerId = Nothing
+    { _cpirReturn = Nothing
+    , _cpirOwnerId = Nothing
     , _cpirStatus = pStatus
     }
+
+-- | The return value of the request. Returns @true@ if the specified product
+-- code is owned by the requester and associated with the specified
+-- instance.
+cpirReturn :: Lens' ConfirmProductInstanceResponse (Maybe Bool)
+cpirReturn = lens _cpirReturn (\ s a -> s{_cpirReturn = a});
 
 -- | The AWS account ID of the instance owner. This is only present if the
 -- product code is attached to the instance.

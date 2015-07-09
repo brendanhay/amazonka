@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.ElasticTranscoder
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -289,3 +291,68 @@ testCancelJobResponse = resp
     "CancelJobResponse"
     "fixture/CancelJobResponse"
     (Proxy :: Proxy CancelJob)
+
+instance Out Artwork
+instance Out AudioCodecOptions
+instance Out AudioParameters
+instance Out CancelJob
+instance Out CancelJobResponse
+instance Out CaptionFormat
+instance Out CaptionSource
+instance Out Captions
+instance Out Clip
+instance Out CreateJob
+instance Out CreateJobOutput
+instance Out CreateJobPlaylist
+instance Out CreateJobResponse
+instance Out CreatePipeline
+instance Out CreatePipelineResponse
+instance Out CreatePreset
+instance Out CreatePresetResponse
+instance Out DeletePipeline
+instance Out DeletePipelineResponse
+instance Out DeletePreset
+instance Out DeletePresetResponse
+instance Out DetectedProperties
+instance Out Encryption
+instance Out HlsContentProtection
+instance Out Job'
+instance Out JobAlbumArt
+instance Out JobInput
+instance Out JobOutput
+instance Out JobWatermark
+instance Out ListJobsByPipeline
+instance Out ListJobsByPipelineResponse
+instance Out ListJobsByStatus
+instance Out ListJobsByStatusResponse
+instance Out ListPipelines
+instance Out ListPipelinesResponse
+instance Out ListPresets
+instance Out ListPresetsResponse
+instance Out Notifications
+instance Out Permission
+instance Out Pipeline
+instance Out PipelineOutputConfig
+instance Out PlayReadyDrm
+instance Out Playlist
+instance Out Preset
+instance Out PresetWatermark
+instance Out ReadJob
+instance Out ReadJobResponse
+instance Out ReadPipeline
+instance Out ReadPipelineResponse
+instance Out ReadPreset
+instance Out ReadPresetResponse
+instance Out TestRole
+instance Out TestRoleResponse
+instance Out Thumbnails
+instance Out TimeSpan
+instance Out Timing
+instance Out UpdatePipeline
+instance Out UpdatePipelineNotifications
+instance Out UpdatePipelineNotificationsResponse
+instance Out UpdatePipelineResponse
+instance Out UpdatePipelineStatus
+instance Out UpdatePipelineStatusResponse
+instance Out VideoParameters
+instance Out Warning

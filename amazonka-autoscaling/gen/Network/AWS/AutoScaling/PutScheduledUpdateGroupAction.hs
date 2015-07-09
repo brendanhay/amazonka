@@ -102,7 +102,7 @@ putScheduledUpdateGroupAction pAutoScalingGroupName pScheduledActionName =
     , _psugaScheduledActionName = pScheduledActionName
     }
 
--- | @Time@ is deprecated; use @StartTime@ instead.
+-- | This parameter is deprecated; use @StartTime@ instead.
 --
 -- The time for this action to start. If both @Time@ and @StartTime@ are
 -- specified, their values must be identical.

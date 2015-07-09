@@ -149,4 +149,5 @@ test-suite amazonka-codedeploy-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

@@ -72,4 +72,5 @@ test-suite amazonka-cloudsearch-domains-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

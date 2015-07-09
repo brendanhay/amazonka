@@ -75,4 +75,5 @@ test-suite amazonka-cloudhsm-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

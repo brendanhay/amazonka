@@ -98,4 +98,5 @@ test-suite amazonka-cognito-sync-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

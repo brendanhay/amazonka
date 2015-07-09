@@ -152,14 +152,15 @@ cIOPS = lens _cIOPS (\ s a -> s{_cIOPS = a});
 cEncrypted :: Lens' CreateVolume (Maybe Bool)
 cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a});
 
--- | The full ARN of the AWS Key Management Service (KMS) master key to use
--- when creating the encrypted volume. This parameter is only required if
--- you want to use a non-default master key; if this parameter is not
--- specified, the default master key is used. The ARN contains the
--- @arn:aws:kms@ namespace, followed by the region of the master key, the
--- AWS account ID of the master key owner, the @key@ namespace, and then
--- the master key ID. For example,
+-- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
+-- (CMK) to use when creating the encrypted volume. This parameter is only
+-- required if you want to use a non-default CMK; if this parameter is not
+-- specified, the default CMK for EBS is used. The ARN contains the
+-- @arn:aws:kms@ namespace, followed by the region of the CMK, the AWS
+-- account ID of the CMK owner, the @key@ namespace, and then the CMK ID.
+-- For example,
 -- arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
+-- If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
 cKMSKeyId :: Lens' CreateVolume (Maybe Text)
 cKMSKeyId = lens _cKMSKeyId (\ s a -> s{_cKMSKeyId = a});
 

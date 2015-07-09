@@ -111,4 +111,5 @@ test-suite amazonka-autoscaling-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

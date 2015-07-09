@@ -118,4 +118,5 @@ test-suite amazonka-cloudwatch-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

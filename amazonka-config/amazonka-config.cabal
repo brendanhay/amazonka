@@ -97,4 +97,5 @@ test-suite amazonka-config-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.STS
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -124,3 +126,19 @@ testAssumeRoleWithSAMLResponse = resp
     "AssumeRoleWithSAMLResponse"
     "fixture/AssumeRoleWithSAMLResponse"
     (Proxy :: Proxy AssumeRoleWithSAML)
+
+instance Out AssumeRole
+instance Out AssumeRoleResponse
+instance Out AssumeRoleWithSAML
+instance Out AssumeRoleWithSAMLResponse
+instance Out AssumeRoleWithWebIdentity
+instance Out AssumeRoleWithWebIdentityResponse
+instance Out AssumedRoleUser
+instance Out Credentials
+instance Out DecodeAuthorizationMessage
+instance Out DecodeAuthorizationMessageResponse
+instance Out FederatedUser
+instance Out GetFederationToken
+instance Out GetFederationTokenResponse
+instance Out GetSessionToken
+instance Out GetSessionTokenResponse

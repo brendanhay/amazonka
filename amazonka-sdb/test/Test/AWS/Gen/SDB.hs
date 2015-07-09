@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.SDB
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -184,3 +186,30 @@ testDeleteDomainResponse = resp
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse"
     (Proxy :: Proxy DeleteDomain)
+
+instance Out Attribute
+instance Out BatchDeleteAttributes
+instance Out BatchDeleteAttributesResponse
+instance Out BatchPutAttributes
+instance Out BatchPutAttributesResponse
+instance Out CreateDomain
+instance Out CreateDomainResponse
+instance Out DeletableItem
+instance Out DeleteAttributes
+instance Out DeleteAttributesResponse
+instance Out DeleteDomain
+instance Out DeleteDomainResponse
+instance Out DomainMetadata
+instance Out DomainMetadataResponse
+instance Out GetAttributes
+instance Out GetAttributesResponse
+instance Out Item
+instance Out ListDomains
+instance Out ListDomainsResponse
+instance Out PutAttributes
+instance Out PutAttributesResponse
+instance Out ReplaceableAttribute
+instance Out ReplaceableItem
+instance Out Select
+instance Out SelectResponse
+instance Out UpdateCondition

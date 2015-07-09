@@ -105,4 +105,5 @@ test-suite amazonka-swf-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

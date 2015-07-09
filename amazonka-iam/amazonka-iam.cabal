@@ -222,4 +222,5 @@ test-suite amazonka-iam-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

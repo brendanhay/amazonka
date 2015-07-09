@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.DynamoDB
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -229,3 +231,67 @@ testCreateTableResponse = resp
     "CreateTableResponse"
     "fixture/CreateTableResponse"
     (Proxy :: Proxy CreateTable)
+
+instance Out AttributeAction
+instance Out AttributeDefinition
+instance Out AttributeValue
+instance Out AttributeValueUpdate
+instance Out BatchGetItem
+instance Out BatchGetItemResponse
+instance Out BatchWriteItem
+instance Out BatchWriteItemResponse
+instance Out Capacity
+instance Out ComparisonOperator
+instance Out Condition
+instance Out ConditionalOperator
+instance Out ConsumedCapacity
+instance Out CreateGlobalSecondaryIndexAction
+instance Out CreateTable
+instance Out CreateTableResponse
+instance Out DeleteGlobalSecondaryIndexAction
+instance Out DeleteItem
+instance Out DeleteItemResponse
+instance Out DeleteRequest
+instance Out DeleteTable
+instance Out DeleteTableResponse
+instance Out DescribeTable
+instance Out DescribeTableResponse
+instance Out ExpectedAttributeValue
+instance Out GetItem
+instance Out GetItemResponse
+instance Out GlobalSecondaryIndex
+instance Out GlobalSecondaryIndexDescription
+instance Out GlobalSecondaryIndexUpdate
+instance Out IndexStatus
+instance Out ItemCollectionMetrics
+instance Out KeySchemaElement
+instance Out KeyType
+instance Out KeysAndAttributes
+instance Out ListTables
+instance Out ListTablesResponse
+instance Out LocalSecondaryIndex
+instance Out LocalSecondaryIndexDescription
+instance Out Projection
+instance Out ProjectionType
+instance Out ProvisionedThroughput
+instance Out ProvisionedThroughputDescription
+instance Out PutItem
+instance Out PutItemResponse
+instance Out PutRequest
+instance Out Query
+instance Out QueryResponse
+instance Out ReturnConsumedCapacity
+instance Out ReturnItemCollectionMetrics
+instance Out ReturnValue
+instance Out ScalarAttributeType
+instance Out Scan
+instance Out ScanResponse
+instance Out Select
+instance Out TableDescription
+instance Out TableStatus
+instance Out UpdateGlobalSecondaryIndexAction
+instance Out UpdateItem
+instance Out UpdateItemResponse
+instance Out UpdateTable
+instance Out UpdateTableResponse
+instance Out WriteRequest

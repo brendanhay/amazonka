@@ -20,7 +20,7 @@
 --
 -- If you exceed your maximum limit of Auto Scaling groups, which by
 -- default is 20 per region, the call fails. For information about viewing
--- and updating these limits, see DescribeAccountLimits.
+-- and updating this limit, see DescribeAccountLimits.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroup.html Auto Scaling Groups>
@@ -190,16 +190,16 @@ casgVPCZoneIdentifier = lens _casgVPCZoneIdentifier (\ s a -> s{_casgVPCZoneIden
 -- | The amount of time, in seconds, after a scaling activity completes
 -- before another scaling activity can start.
 --
--- If @DefaultCooldown@ is not specified, the default value is 300. For
--- more information, see
+-- If this parameter is not specified, the default value is 300. For more
+-- information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
 -- in the /Auto Scaling Developer Guide/.
 casgDefaultCooldown :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgDefaultCooldown = lens _casgDefaultCooldown (\ s a -> s{_casgDefaultCooldown = a});
 
 -- | The number of EC2 instances that should be running in the group. This
--- value must be greater than or equal to the minimum size of the group and
--- less than or equal to the maximum size of the group.
+-- number must be greater than or equal to the minimum size of the group
+-- and less than or equal to the maximum size of the group.
 casgDesiredCapacity :: Lens' CreateAutoScalingGroup (Maybe Int)
 casgDesiredCapacity = lens _casgDesiredCapacity (\ s a -> s{_casgDesiredCapacity = a});
 

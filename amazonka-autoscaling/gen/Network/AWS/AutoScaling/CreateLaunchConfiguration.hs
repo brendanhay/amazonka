@@ -20,7 +20,7 @@
 --
 -- If you exceed your maximum limit of launch configurations, which by
 -- default is 100 per region, the call fails. For information about viewing
--- and updating these limits, see DescribeAccountLimits.
+-- and updating this limit, see DescribeAccountLimits.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/LaunchConfiguration.html Launch Configurations>
@@ -223,7 +223,7 @@ clcKeyName = lens _clcKeyName (\ s a -> s{_clcKeyName = a});
 
 -- | The IDs of one or more security groups for the VPC specified in
 -- @ClassicLinkVPCId@. This parameter is required if @ClassicLinkVPCId@ is
--- specified, and cannot be used otherwise. For more information, see
+-- specified, and is not supported otherwise. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 clcClassicLinkVPCSecurityGroups :: Lens' CreateLaunchConfiguration [Text]
@@ -266,7 +266,7 @@ clcUserData :: Lens' CreateLaunchConfiguration (Maybe Text)
 clcUserData = lens _clcUserData (\ s a -> s{_clcUserData = a});
 
 -- | The ID of a ClassicLink-enabled VPC to link your EC2-Classic instances
--- to. This parameter can only be used if you are launching EC2-Classic
+-- to. This parameter is supported only if you are launching EC2-Classic
 -- instances. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html ClassicLink>
 -- in the /Amazon Elastic Compute Cloud User Guide/.

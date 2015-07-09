@@ -97,4 +97,5 @@ test-suite amazonka-directconnect-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

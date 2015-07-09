@@ -42,6 +42,12 @@
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingTerminatingState.html Auto Scaling Terminating State>
 -- in the /Auto Scaling Developer Guide/.
 --
+-- If you exceed your maximum limit of lifecycle hooks, which by default is
+-- 50 per region, the call fails. For information about updating this
+-- limit, see
+-- <http://docs.aws.amazon.com/general/latest/gr/aws_service_limits.html AWS Service Limits>
+-- in the /Amazon Web Services General Reference/.
+--
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_PutLifecycleHook.html>
 module Network.AWS.AutoScaling.PutLifecycleHook
     (

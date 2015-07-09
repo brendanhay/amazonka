@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.SQS
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -289,3 +291,48 @@ testSendMessageBatchResponse = resp
     "SendMessageBatchResponse"
     "fixture/SendMessageBatchResponse"
     (Proxy :: Proxy SendMessageBatch)
+
+instance Out AddPermission
+instance Out AddPermissionResponse
+instance Out BatchResultErrorEntry
+instance Out ChangeMessageVisibility
+instance Out ChangeMessageVisibilityBatch
+instance Out ChangeMessageVisibilityBatchRequestEntry
+instance Out ChangeMessageVisibilityBatchResponse
+instance Out ChangeMessageVisibilityBatchResultEntry
+instance Out ChangeMessageVisibilityResponse
+instance Out CreateQueue
+instance Out CreateQueueResponse
+instance Out DeleteMessage
+instance Out DeleteMessageBatch
+instance Out DeleteMessageBatchRequestEntry
+instance Out DeleteMessageBatchResponse
+instance Out DeleteMessageBatchResultEntry
+instance Out DeleteMessageResponse
+instance Out DeleteQueue
+instance Out DeleteQueueResponse
+instance Out GetQueueAttributes
+instance Out GetQueueAttributesResponse
+instance Out GetQueueURL
+instance Out GetQueueURLResponse
+instance Out ListDeadLetterSourceQueues
+instance Out ListDeadLetterSourceQueuesResponse
+instance Out ListQueues
+instance Out ListQueuesResponse
+instance Out Message
+instance Out MessageAttributeValue
+instance Out PurgeQueue
+instance Out PurgeQueueResponse
+instance Out QueueAttributeName
+instance Out ReceiveMessage
+instance Out ReceiveMessageResponse
+instance Out RemovePermission
+instance Out RemovePermissionResponse
+instance Out SendMessage
+instance Out SendMessageBatch
+instance Out SendMessageBatchRequestEntry
+instance Out SendMessageBatchResponse
+instance Out SendMessageBatchResultEntry
+instance Out SendMessageResponse
+instance Out SetQueueAttributes
+instance Out SetQueueAttributesResponse

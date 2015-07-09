@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.DataPipeline
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -319,3 +321,59 @@ testValidatePipelineDefinitionResponse = resp
     "ValidatePipelineDefinitionResponse"
     "fixture/ValidatePipelineDefinitionResponse"
     (Proxy :: Proxy ValidatePipelineDefinition)
+
+instance Out ActivatePipeline
+instance Out ActivatePipelineResponse
+instance Out AddTags
+instance Out AddTagsResponse
+instance Out CreatePipeline
+instance Out CreatePipelineResponse
+instance Out DeactivatePipeline
+instance Out DeactivatePipelineResponse
+instance Out DeletePipeline
+instance Out DeletePipelineResponse
+instance Out DescribeObjects
+instance Out DescribeObjectsResponse
+instance Out DescribePipelines
+instance Out DescribePipelinesResponse
+instance Out EvaluateExpression
+instance Out EvaluateExpressionResponse
+instance Out Field
+instance Out GetPipelineDefinition
+instance Out GetPipelineDefinitionResponse
+instance Out InstanceIdentity
+instance Out ListPipelines
+instance Out ListPipelinesResponse
+instance Out Operator
+instance Out OperatorType
+instance Out ParameterAttribute
+instance Out ParameterObject
+instance Out ParameterValue
+instance Out PipelineDescription
+instance Out PipelineIdName
+instance Out PipelineObject
+instance Out PollForTask
+instance Out PollForTaskResponse
+instance Out PutPipelineDefinition
+instance Out PutPipelineDefinitionResponse
+instance Out Query
+instance Out QueryObjects
+instance Out QueryObjectsResponse
+instance Out RemoveTags
+instance Out RemoveTagsResponse
+instance Out ReportTaskProgress
+instance Out ReportTaskProgressResponse
+instance Out ReportTaskRunnerHeartbeat
+instance Out ReportTaskRunnerHeartbeatResponse
+instance Out Selector
+instance Out SetStatus
+instance Out SetStatusResponse
+instance Out SetTaskStatus
+instance Out SetTaskStatusResponse
+instance Out Tag
+instance Out TaskObject
+instance Out TaskStatus
+instance Out ValidatePipelineDefinition
+instance Out ValidatePipelineDefinitionResponse
+instance Out ValidationError
+instance Out ValidationWarning

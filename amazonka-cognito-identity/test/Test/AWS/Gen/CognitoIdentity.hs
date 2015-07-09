@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.CognitoIdentity
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -304,3 +306,42 @@ testMergeDeveloperIdentitiesResponse = resp
     "MergeDeveloperIdentitiesResponse"
     "fixture/MergeDeveloperIdentitiesResponse"
     (Proxy :: Proxy MergeDeveloperIdentities)
+
+instance Out CognitoErrorCode
+instance Out CreateIdentityPool
+instance Out Credentials
+instance Out DeleteIdentities
+instance Out DeleteIdentitiesResponse
+instance Out DeleteIdentityPool
+instance Out DeleteIdentityPoolResponse
+instance Out DescribeIdentity
+instance Out DescribeIdentityPool
+instance Out GetCredentialsForIdentity
+instance Out GetCredentialsForIdentityResponse
+instance Out GetId
+instance Out GetIdResponse
+instance Out GetIdentityPoolRoles
+instance Out GetIdentityPoolRolesResponse
+instance Out GetOpenIdToken
+instance Out GetOpenIdTokenForDeveloperIdentity
+instance Out GetOpenIdTokenForDeveloperIdentityResponse
+instance Out GetOpenIdTokenResponse
+instance Out IdentityDescription
+instance Out IdentityPool
+instance Out IdentityPoolShortDescription
+instance Out ListIdentities
+instance Out ListIdentitiesResponse
+instance Out ListIdentityPools
+instance Out ListIdentityPoolsResponse
+instance Out LookupDeveloperIdentity
+instance Out LookupDeveloperIdentityResponse
+instance Out MergeDeveloperIdentities
+instance Out MergeDeveloperIdentitiesResponse
+instance Out SetIdentityPoolRoles
+instance Out SetIdentityPoolRolesResponse
+instance Out UnlinkDeveloperIdentity
+instance Out UnlinkDeveloperIdentityResponse
+instance Out UnlinkIdentity
+instance Out UnlinkIdentityResponse
+instance Out UnprocessedIdentityId
+instance Out UpdateIdentityPool

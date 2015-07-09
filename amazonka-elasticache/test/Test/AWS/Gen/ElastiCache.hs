@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.ElastiCache
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -589,3 +591,110 @@ testDeleteCacheSubnetGroupResponse = resp
     "DeleteCacheSubnetGroupResponse"
     "fixture/DeleteCacheSubnetGroupResponse"
     (Proxy :: Proxy DeleteCacheSubnetGroup)
+
+instance Out AZMode
+instance Out AddTagsToResource
+instance Out AuthorizeCacheSecurityGroupIngress
+instance Out AuthorizeCacheSecurityGroupIngressResponse
+instance Out AutomaticFailoverStatus
+instance Out AvailabilityZone
+instance Out CacheCluster
+instance Out CacheEngineVersion
+instance Out CacheNode
+instance Out CacheNodeTypeSpecificParameter
+instance Out CacheNodeTypeSpecificValue
+instance Out CacheParameterGroup
+instance Out CacheParameterGroupNameMessage
+instance Out CacheParameterGroupStatus
+instance Out CacheSecurityGroup
+instance Out CacheSecurityGroupMembership
+instance Out CacheSubnetGroup
+instance Out CopySnapshot
+instance Out CopySnapshotResponse
+instance Out CreateCacheCluster
+instance Out CreateCacheClusterResponse
+instance Out CreateCacheParameterGroup
+instance Out CreateCacheParameterGroupResponse
+instance Out CreateCacheSecurityGroup
+instance Out CreateCacheSecurityGroupResponse
+instance Out CreateCacheSubnetGroup
+instance Out CreateCacheSubnetGroupResponse
+instance Out CreateReplicationGroup
+instance Out CreateReplicationGroupResponse
+instance Out CreateSnapshot
+instance Out CreateSnapshotResponse
+instance Out DeleteCacheCluster
+instance Out DeleteCacheClusterResponse
+instance Out DeleteCacheParameterGroup
+instance Out DeleteCacheParameterGroupResponse
+instance Out DeleteCacheSecurityGroup
+instance Out DeleteCacheSecurityGroupResponse
+instance Out DeleteCacheSubnetGroup
+instance Out DeleteCacheSubnetGroupResponse
+instance Out DeleteReplicationGroup
+instance Out DeleteReplicationGroupResponse
+instance Out DeleteSnapshot
+instance Out DeleteSnapshotResponse
+instance Out DescribeCacheClusters
+instance Out DescribeCacheClustersResponse
+instance Out DescribeCacheEngineVersions
+instance Out DescribeCacheEngineVersionsResponse
+instance Out DescribeCacheParameterGroups
+instance Out DescribeCacheParameterGroupsResponse
+instance Out DescribeCacheParameters
+instance Out DescribeCacheParametersResponse
+instance Out DescribeCacheSecurityGroups
+instance Out DescribeCacheSecurityGroupsResponse
+instance Out DescribeCacheSubnetGroups
+instance Out DescribeCacheSubnetGroupsResponse
+instance Out DescribeEngineDefaultParameters
+instance Out DescribeEngineDefaultParametersResponse
+instance Out DescribeEvents
+instance Out DescribeEventsResponse
+instance Out DescribeReplicationGroups
+instance Out DescribeReplicationGroupsResponse
+instance Out DescribeReservedCacheNodes
+instance Out DescribeReservedCacheNodesOfferings
+instance Out DescribeReservedCacheNodesOfferingsResponse
+instance Out DescribeReservedCacheNodesResponse
+instance Out DescribeSnapshots
+instance Out DescribeSnapshotsResponse
+instance Out EC2SecurityGroup
+instance Out Endpoint
+instance Out EngineDefaults
+instance Out Event
+instance Out ListTagsForResource
+instance Out ModifyCacheCluster
+instance Out ModifyCacheClusterResponse
+instance Out ModifyCacheParameterGroup
+instance Out ModifyCacheSubnetGroup
+instance Out ModifyCacheSubnetGroupResponse
+instance Out ModifyReplicationGroup
+instance Out ModifyReplicationGroupResponse
+instance Out NodeGroup
+instance Out NodeGroupMember
+instance Out NodeSnapshot
+instance Out NotificationConfiguration
+instance Out Parameter
+instance Out ParameterNameValue
+instance Out PendingAutomaticFailoverStatus
+instance Out PendingModifiedValues
+instance Out PurchaseReservedCacheNodesOffering
+instance Out PurchaseReservedCacheNodesOfferingResponse
+instance Out RebootCacheCluster
+instance Out RebootCacheClusterResponse
+instance Out RecurringCharge
+instance Out RemoveTagsFromResource
+instance Out ReplicationGroup
+instance Out ReplicationGroupPendingModifiedValues
+instance Out ReservedCacheNode
+instance Out ReservedCacheNodesOffering
+instance Out ResetCacheParameterGroup
+instance Out RevokeCacheSecurityGroupIngress
+instance Out RevokeCacheSecurityGroupIngressResponse
+instance Out SecurityGroupMembership
+instance Out Snapshot
+instance Out SourceType
+instance Out Subnet
+instance Out Tag
+instance Out TagListMessage

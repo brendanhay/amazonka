@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.WorkSpaces
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -139,3 +141,34 @@ testDescribeWorkspacesResponse = resp
     "DescribeWorkspacesResponse"
     "fixture/DescribeWorkspacesResponse"
     (Proxy :: Proxy DescribeWorkspaces)
+
+instance Out Compute
+instance Out ComputeType
+instance Out CreateWorkspaces
+instance Out CreateWorkspacesResponse
+instance Out DefaultWorkspaceCreationProperties
+instance Out DescribeWorkspaceBundles
+instance Out DescribeWorkspaceBundlesResponse
+instance Out DescribeWorkspaceDirectories
+instance Out DescribeWorkspaceDirectoriesResponse
+instance Out DescribeWorkspaces
+instance Out DescribeWorkspacesResponse
+instance Out FailedCreateWorkspaceRequest
+instance Out FailedWorkspaceChangeRequest
+instance Out RebootRequest
+instance Out RebootWorkspaces
+instance Out RebootWorkspacesResponse
+instance Out RebuildRequest
+instance Out RebuildWorkspaces
+instance Out RebuildWorkspacesResponse
+instance Out TerminateRequest
+instance Out TerminateWorkspaces
+instance Out TerminateWorkspacesResponse
+instance Out UserStorage
+instance Out Workspace
+instance Out WorkspaceBundle
+instance Out WorkspaceDirectory
+instance Out WorkspaceDirectoryState
+instance Out WorkspaceDirectoryType
+instance Out WorkspaceRequest
+instance Out WorkspaceState

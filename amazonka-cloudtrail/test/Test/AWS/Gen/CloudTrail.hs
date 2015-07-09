@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.CloudTrail
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -154,3 +156,25 @@ testStartLoggingResponse = resp
     "StartLoggingResponse"
     "fixture/StartLoggingResponse"
     (Proxy :: Proxy StartLogging)
+
+instance Out CreateTrail
+instance Out CreateTrailResponse
+instance Out DeleteTrail
+instance Out DeleteTrailResponse
+instance Out DescribeTrails
+instance Out DescribeTrailsResponse
+instance Out Event
+instance Out GetTrailStatus
+instance Out GetTrailStatusResponse
+instance Out LookupAttribute
+instance Out LookupAttributeKey
+instance Out LookupEvents
+instance Out LookupEventsResponse
+instance Out Resource
+instance Out StartLogging
+instance Out StartLoggingResponse
+instance Out StopLogging
+instance Out StopLoggingResponse
+instance Out Trail
+instance Out UpdateTrail
+instance Out UpdateTrailResponse

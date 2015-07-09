@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.DirectoryService
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -289,3 +291,56 @@ testUpdateRadiusResponse = resp
     "UpdateRadiusResponse"
     "fixture/UpdateRadiusResponse"
     (Proxy :: Proxy UpdateRadius)
+
+instance Out Attribute
+instance Out Computer
+instance Out ConnectDirectory
+instance Out ConnectDirectoryResponse
+instance Out CreateAlias
+instance Out CreateAliasResponse
+instance Out CreateComputer
+instance Out CreateComputerResponse
+instance Out CreateDirectory
+instance Out CreateDirectoryResponse
+instance Out CreateSnapshot
+instance Out CreateSnapshotResponse
+instance Out DeleteDirectory
+instance Out DeleteDirectoryResponse
+instance Out DeleteSnapshot
+instance Out DeleteSnapshotResponse
+instance Out DescribeDirectories
+instance Out DescribeDirectoriesResponse
+instance Out DescribeSnapshots
+instance Out DescribeSnapshotsResponse
+instance Out DirectoryConnectSettings
+instance Out DirectoryConnectSettingsDescription
+instance Out DirectoryDescription
+instance Out DirectoryLimits
+instance Out DirectorySize
+instance Out DirectoryStage
+instance Out DirectoryType
+instance Out DirectoryVPCSettings
+instance Out DirectoryVPCSettingsDescription
+instance Out DisableRadius
+instance Out DisableRadiusResponse
+instance Out DisableSso
+instance Out DisableSsoResponse
+instance Out EnableRadius
+instance Out EnableRadiusResponse
+instance Out EnableSso
+instance Out EnableSsoResponse
+instance Out GetDirectoryLimits
+instance Out GetDirectoryLimitsResponse
+instance Out GetSnapshotLimits
+instance Out GetSnapshotLimitsResponse
+instance Out RadiusAuthenticationProtocol
+instance Out RadiusSettings
+instance Out RadiusStatus
+instance Out RestoreFromSnapshot
+instance Out RestoreFromSnapshotResponse
+instance Out Snapshot
+instance Out SnapshotLimits
+instance Out SnapshotStatus
+instance Out SnapshotType
+instance Out UpdateRadius
+instance Out UpdateRadiusResponse

@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.EMR
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -274,3 +276,81 @@ testListClustersResponse = resp
     "ListClustersResponse"
     "fixture/ListClustersResponse"
     (Proxy :: Proxy ListClusters)
+
+instance Out ActionOnFailure
+instance Out AddInstanceGroups
+instance Out AddInstanceGroupsResponse
+instance Out AddJobFlowSteps
+instance Out AddJobFlowStepsResponse
+instance Out AddTags
+instance Out AddTagsResponse
+instance Out Application
+instance Out BootstrapActionConfig
+instance Out Cluster
+instance Out ClusterState
+instance Out ClusterStateChangeReason
+instance Out ClusterStateChangeReasonCode
+instance Out ClusterStatus
+instance Out ClusterSummary
+instance Out ClusterTimeline
+instance Out Command
+instance Out DescribeCluster
+instance Out DescribeClusterResponse
+instance Out DescribeStep
+instance Out DescribeStepResponse
+instance Out EC2InstanceAttributes
+instance Out HadoopJARStepConfig
+instance Out HadoopStepConfig
+instance Out Instance
+instance Out InstanceGroup
+instance Out InstanceGroupConfig
+instance Out InstanceGroupModifyConfig
+instance Out InstanceGroupState
+instance Out InstanceGroupStateChangeReason
+instance Out InstanceGroupStateChangeReasonCode
+instance Out InstanceGroupStatus
+instance Out InstanceGroupTimeline
+instance Out InstanceGroupType
+instance Out InstanceRoleType
+instance Out InstanceState
+instance Out InstanceStateChangeReason
+instance Out InstanceStateChangeReasonCode
+instance Out InstanceStatus
+instance Out InstanceTimeline
+instance Out JobFlowInstancesConfig
+instance Out KeyValue
+instance Out ListBootstrapActions
+instance Out ListBootstrapActionsResponse
+instance Out ListClusters
+instance Out ListClustersResponse
+instance Out ListInstanceGroups
+instance Out ListInstanceGroupsResponse
+instance Out ListInstances
+instance Out ListInstancesResponse
+instance Out ListSteps
+instance Out ListStepsResponse
+instance Out MarketType
+instance Out ModifyInstanceGroups
+instance Out ModifyInstanceGroupsResponse
+instance Out PlacementType
+instance Out RemoveTags
+instance Out RemoveTagsResponse
+instance Out RunJobFlow
+instance Out RunJobFlowResponse
+instance Out ScriptBootstrapActionConfig
+instance Out SetTerminationProtection
+instance Out SetTerminationProtectionResponse
+instance Out SetVisibleToAllUsers
+instance Out SetVisibleToAllUsersResponse
+instance Out Step
+instance Out StepConfig
+instance Out StepState
+instance Out StepStateChangeReason
+instance Out StepStateChangeReasonCode
+instance Out StepStatus
+instance Out StepSummary
+instance Out StepTimeline
+instance Out SupportedProductConfig
+instance Out Tag
+instance Out TerminateJobFlows
+instance Out TerminateJobFlowsResponse

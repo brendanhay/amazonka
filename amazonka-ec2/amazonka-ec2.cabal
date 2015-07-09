@@ -245,4 +245,5 @@ test-suite amazonka-ec2-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

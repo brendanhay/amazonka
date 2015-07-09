@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.MachineLearning
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -409,3 +411,80 @@ testDescribeDataSourcesResponse = resp
     "DescribeDataSourcesResponse"
     "fixture/DescribeDataSourcesResponse"
     (Proxy :: Proxy DescribeDataSources)
+
+instance Out Algorithm
+instance Out BatchPrediction
+instance Out BatchPredictionFilterVariable
+instance Out CreateBatchPrediction
+instance Out CreateBatchPredictionResponse
+instance Out CreateDataSourceFromRDS
+instance Out CreateDataSourceFromRDSResponse
+instance Out CreateDataSourceFromRedshift
+instance Out CreateDataSourceFromRedshiftResponse
+instance Out CreateDataSourceFromS
+instance Out CreateDataSourceFromSResponse
+instance Out CreateEvaluation
+instance Out CreateEvaluationResponse
+instance Out CreateMLModel
+instance Out CreateMLModelResponse
+instance Out CreateRealtimeEndpoint
+instance Out CreateRealtimeEndpointResponse
+instance Out DataSource
+instance Out DataSourceFilterVariable
+instance Out DeleteBatchPrediction
+instance Out DeleteBatchPredictionResponse
+instance Out DeleteDataSource
+instance Out DeleteDataSourceResponse
+instance Out DeleteEvaluation
+instance Out DeleteEvaluationResponse
+instance Out DeleteMLModel
+instance Out DeleteMLModelResponse
+instance Out DeleteRealtimeEndpoint
+instance Out DeleteRealtimeEndpointResponse
+instance Out DescribeBatchPredictions
+instance Out DescribeBatchPredictionsResponse
+instance Out DescribeDataSources
+instance Out DescribeDataSourcesResponse
+instance Out DescribeEvaluations
+instance Out DescribeEvaluationsResponse
+instance Out DescribeMLModels
+instance Out DescribeMLModelsResponse
+instance Out DetailsAttributes
+instance Out EntityStatus
+instance Out Evaluation
+instance Out EvaluationFilterVariable
+instance Out GetBatchPrediction
+instance Out GetBatchPredictionResponse
+instance Out GetDataSource
+instance Out GetDataSourceResponse
+instance Out GetEvaluation
+instance Out GetEvaluationResponse
+instance Out GetMLModel
+instance Out GetMLModelResponse
+instance Out MLModel
+instance Out MLModelFilterVariable
+instance Out MLModelType
+instance Out PerformanceMetrics
+instance Out Predict
+instance Out PredictResponse
+instance Out Prediction
+instance Out RDSDataSpec
+instance Out RDSDatabase
+instance Out RDSDatabaseCredentials
+instance Out RDSMetadata
+instance Out RealtimeEndpointInfo
+instance Out RealtimeEndpointStatus
+instance Out RedshiftDataSpec
+instance Out RedshiftDatabase
+instance Out RedshiftDatabaseCredentials
+instance Out RedshiftMetadata
+instance Out S3DataSpec
+instance Out SortOrder
+instance Out UpdateBatchPrediction
+instance Out UpdateBatchPredictionResponse
+instance Out UpdateDataSource
+instance Out UpdateDataSourceResponse
+instance Out UpdateEvaluation
+instance Out UpdateEvaluationResponse
+instance Out UpdateMLModel
+instance Out UpdateMLModelResponse

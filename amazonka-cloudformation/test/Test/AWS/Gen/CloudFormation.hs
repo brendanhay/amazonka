@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.CloudFormation
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -289,3 +291,55 @@ testDescribeStackResourceResponse = resp
     "DescribeStackResourceResponse"
     "fixture/DescribeStackResourceResponse"
     (Proxy :: Proxy DescribeStackResource)
+
+instance Out CancelUpdateStack
+instance Out CancelUpdateStackResponse
+instance Out Capability
+instance Out CreateStack
+instance Out CreateStackResponse
+instance Out DeleteStack
+instance Out DeleteStackResponse
+instance Out DescribeStackEvents
+instance Out DescribeStackEventsResponse
+instance Out DescribeStackResource
+instance Out DescribeStackResourceResponse
+instance Out DescribeStackResources
+instance Out DescribeStackResourcesResponse
+instance Out DescribeStacks
+instance Out DescribeStacksResponse
+instance Out EstimateTemplateCost
+instance Out EstimateTemplateCostResponse
+instance Out GetStackPolicy
+instance Out GetStackPolicyResponse
+instance Out GetTemplate
+instance Out GetTemplateResponse
+instance Out GetTemplateSummary
+instance Out GetTemplateSummaryResponse
+instance Out ListStackResources
+instance Out ListStackResourcesResponse
+instance Out ListStacks
+instance Out ListStacksResponse
+instance Out OnFailure
+instance Out Output
+instance Out Parameter
+instance Out ParameterConstraints
+instance Out ParameterDeclaration
+instance Out ResourceSignalStatus
+instance Out ResourceStatus
+instance Out SetStackPolicy
+instance Out SetStackPolicyResponse
+instance Out SignalResource
+instance Out SignalResourceResponse
+instance Out Stack
+instance Out StackEvent
+instance Out StackResource
+instance Out StackResourceDetail
+instance Out StackResourceSummary
+instance Out StackStatus
+instance Out StackSummary
+instance Out Tag
+instance Out TemplateParameter
+instance Out UpdateStack
+instance Out UpdateStackResponse
+instance Out ValidateTemplate
+instance Out ValidateTemplateResponse

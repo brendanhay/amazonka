@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.Glacier
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -427,3 +429,68 @@ testUploadArchiveResponse = resp
     "UploadArchiveResponse"
     "fixture/UploadArchiveResponse"
     (Proxy :: Proxy UploadArchive)
+
+instance Out AbortMultipartUpload
+instance Out AbortMultipartUploadResponse
+instance Out ActionCode
+instance Out AddTagsToVault
+instance Out AddTagsToVaultResponse
+instance Out ArchiveCreationOutput
+instance Out CompleteMultipartUpload
+instance Out CreateVault
+instance Out CreateVaultResponse
+instance Out DataRetrievalPolicy
+instance Out DataRetrievalRule
+instance Out DeleteArchive
+instance Out DeleteArchiveResponse
+instance Out DeleteVault
+instance Out DeleteVaultAccessPolicy
+instance Out DeleteVaultAccessPolicyResponse
+instance Out DeleteVaultNotifications
+instance Out DeleteVaultNotificationsResponse
+instance Out DeleteVaultResponse
+instance Out DescribeJob
+instance Out DescribeVault
+instance Out DescribeVaultOutput
+instance Out GetDataRetrievalPolicy
+instance Out GetDataRetrievalPolicyResponse
+instance Out GetJobOutput
+instance Out GetJobOutputResponse
+instance Out GetVaultAccessPolicy
+instance Out GetVaultAccessPolicyResponse
+instance Out GetVaultNotifications
+instance Out GetVaultNotificationsResponse
+instance Out GlacierJobDescription
+instance Out InitiateJob
+instance Out InitiateJobResponse
+instance Out InitiateMultipartUpload
+instance Out InitiateMultipartUploadResponse
+instance Out InventoryRetrievalJobDescription
+instance Out InventoryRetrievalJobInput
+instance Out JobParameters
+instance Out ListJobs
+instance Out ListJobsResponse
+instance Out ListMultipartUploads
+instance Out ListMultipartUploadsResponse
+instance Out ListParts
+instance Out ListPartsResponse
+instance Out ListTagsForVault
+instance Out ListTagsForVaultResponse
+instance Out ListVaults
+instance Out ListVaultsResponse
+instance Out PartListElement
+instance Out RemoveTagsFromVault
+instance Out RemoveTagsFromVaultResponse
+instance Out SetDataRetrievalPolicy
+instance Out SetDataRetrievalPolicyResponse
+instance Out SetVaultAccessPolicy
+instance Out SetVaultAccessPolicyResponse
+instance Out SetVaultNotifications
+instance Out SetVaultNotificationsResponse
+instance Out StatusCode
+instance Out UploadArchive
+instance Out UploadListElement
+instance Out UploadMultipartPart
+instance Out UploadMultipartPartResponse
+instance Out VaultAccessPolicy
+instance Out VaultNotificationConfig

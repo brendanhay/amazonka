@@ -143,4 +143,5 @@ test-suite amazonka-redshift-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

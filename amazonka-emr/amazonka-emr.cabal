@@ -78,4 +78,5 @@ test-suite amazonka-emr-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

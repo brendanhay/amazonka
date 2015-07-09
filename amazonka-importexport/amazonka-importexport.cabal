@@ -70,4 +70,5 @@ test-suite amazonka-importexport-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

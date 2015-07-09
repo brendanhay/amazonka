@@ -205,14 +205,19 @@ module Network.AWS.AutoScaling.Types
     -- * ScalingPolicy
     , ScalingPolicy
     , scalingPolicy
+    , scaEstimatedInstanceWarmup
     , scaMinAdjustmentStep
     , scaPolicyName
+    , scaPolicyType
+    , scaStepAdjustments
     , scaAdjustmentType
     , scaScalingAdjustment
     , scaAutoScalingGroupName
     , scaCooldown
     , scaPolicyARN
     , scaAlarms
+    , scaMetricAggregationType
+    , scaMinAdjustmentMagnitude
 
     -- * ScalingProcessQuery
     , ScalingProcessQuery
@@ -233,6 +238,13 @@ module Network.AWS.AutoScaling.Types
     , sugaMinSize
     , sugaEndTime
     , sugaAutoScalingGroupName
+
+    -- * StepAdjustment
+    , StepAdjustment
+    , stepAdjustment
+    , saMetricIntervalLowerBound
+    , saMetricIntervalUpperBound
+    , saScalingAdjustment
 
     -- * SuspendedProcess
     , SuspendedProcess
@@ -387,6 +399,7 @@ instance FromXML LifecycleState where
 
 data ScalingActivityStatusCode
     = WaitingForSpotInstanceId
+    | WaitingForInstanceWarmup
     | WaitingForSpotInstanceRequestId
     | WaitingForInstanceId
     | Successful
@@ -408,10 +421,11 @@ instance FromText ScalingActivityStatusCode where
         "successful" -> pure Successful
         "waitingforelbconnectiondraining" -> pure WaitingForELBConnectionDraining
         "waitingforinstanceid" -> pure WaitingForInstanceId
+        "waitingforinstancewarmup" -> pure WaitingForInstanceWarmup
         "waitingforspotinstanceid" -> pure WaitingForSpotInstanceId
         "waitingforspotinstancerequestid" -> pure WaitingForSpotInstanceRequestId
         e -> fromTextError $ "Failure parsing ScalingActivityStatusCode from value: '" <> e
-           <> "'. Accepted values: cancelled, failed, inprogress, midlifecycleaction, preinservice, successful, waitingforelbconnectiondraining, waitingforinstanceid, waitingforspotinstanceid, waitingforspotinstancerequestid"
+           <> "'. Accepted values: cancelled, failed, inprogress, midlifecycleaction, preinservice, successful, waitingforelbconnectiondraining, waitingforinstanceid, waitingforinstancewarmup, waitingforspotinstanceid, waitingforspotinstancerequestid"
 
 instance ToText ScalingActivityStatusCode where
     toText = \case
@@ -423,6 +437,7 @@ instance ToText ScalingActivityStatusCode where
         Successful -> "successful"
         WaitingForELBConnectionDraining -> "waitingforelbconnectiondraining"
         WaitingForInstanceId -> "waitingforinstanceid"
+        WaitingForInstanceWarmup -> "waitingforinstancewarmup"
         WaitingForSpotInstanceId -> "waitingforspotinstanceid"
         WaitingForSpotInstanceRequestId -> "waitingforspotinstancerequestid"
 
@@ -941,9 +956,9 @@ bdmVirtualName = lens _bdmVirtualName (\ s a -> s{_bdmVirtualName = a});
 
 -- | Suppresses a device mapping.
 --
--- If @NoDevice@ is set to @true@ for the root device, the instance might
--- fail the EC2 health check. Auto Scaling launches a replacement instance
--- if the instance fails the health check.
+-- If this parameter is true for the root device, the instance might fail
+-- the EC2 health check. Auto Scaling launches a replacement instance if
+-- the instance fails the health check.
 bdmNoDevice :: Lens' BlockDeviceMapping (Maybe Bool)
 bdmNoDevice = lens _bdmNoDevice (\ s a -> s{_bdmNoDevice = a});
 
@@ -1543,7 +1558,7 @@ lhNotificationMetadata :: Lens' LifecycleHook (Maybe Text)
 lhNotificationMetadata = lens _lhNotificationMetadata (\ s a -> s{_lhNotificationMetadata = a});
 
 -- | The maximum length of time an instance can remain in a @Pending:Wait@ or
--- @Terminating:Wait@ state. Currently, this value is set at 48 hours.
+-- @Terminating:Wait@ state. Currently, the maximum is set to 48 hours.
 lhGlobalTimeout :: Lens' LifecycleHook (Maybe Int)
 lhGlobalTimeout = lens _lhGlobalTimeout (\ s a -> s{_lhGlobalTimeout = a});
 
@@ -1813,9 +1828,15 @@ instance FromXML ProcessType where
 --
 -- The fields accessible through corresponding lenses are:
 --
+-- * 'scaEstimatedInstanceWarmup'
+--
 -- * 'scaMinAdjustmentStep'
 --
 -- * 'scaPolicyName'
+--
+-- * 'scaPolicyType'
+--
+-- * 'scaStepAdjustments'
 --
 -- * 'scaAdjustmentType'
 --
@@ -1828,33 +1849,52 @@ instance FromXML ProcessType where
 -- * 'scaPolicyARN'
 --
 -- * 'scaAlarms'
+--
+-- * 'scaMetricAggregationType'
+--
+-- * 'scaMinAdjustmentMagnitude'
 data ScalingPolicy = ScalingPolicy'
-    { _scaMinAdjustmentStep    :: !(Maybe Int)
-    , _scaPolicyName           :: !(Maybe Text)
-    , _scaAdjustmentType       :: !(Maybe Text)
-    , _scaScalingAdjustment    :: !(Maybe Int)
-    , _scaAutoScalingGroupName :: !(Maybe Text)
-    , _scaCooldown             :: !(Maybe Int)
-    , _scaPolicyARN            :: !(Maybe Text)
-    , _scaAlarms               :: !(Maybe [Alarm])
+    { _scaEstimatedInstanceWarmup :: !(Maybe Int)
+    , _scaMinAdjustmentStep       :: !(Maybe Int)
+    , _scaPolicyName              :: !(Maybe Text)
+    , _scaPolicyType              :: !(Maybe Text)
+    , _scaStepAdjustments         :: !(Maybe [StepAdjustment])
+    , _scaAdjustmentType          :: !(Maybe Text)
+    , _scaScalingAdjustment       :: !(Maybe Int)
+    , _scaAutoScalingGroupName    :: !(Maybe Text)
+    , _scaCooldown                :: !(Maybe Int)
+    , _scaPolicyARN               :: !(Maybe Text)
+    , _scaAlarms                  :: !(Maybe [Alarm])
+    , _scaMetricAggregationType   :: !(Maybe Text)
+    , _scaMinAdjustmentMagnitude  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScalingPolicy' smart constructor.
 scalingPolicy :: ScalingPolicy
 scalingPolicy =
     ScalingPolicy'
-    { _scaMinAdjustmentStep = Nothing
+    { _scaEstimatedInstanceWarmup = Nothing
+    , _scaMinAdjustmentStep = Nothing
     , _scaPolicyName = Nothing
+    , _scaPolicyType = Nothing
+    , _scaStepAdjustments = Nothing
     , _scaAdjustmentType = Nothing
     , _scaScalingAdjustment = Nothing
     , _scaAutoScalingGroupName = Nothing
     , _scaCooldown = Nothing
     , _scaPolicyARN = Nothing
     , _scaAlarms = Nothing
+    , _scaMetricAggregationType = Nothing
+    , _scaMinAdjustmentMagnitude = Nothing
     }
 
--- | Changes the @DesiredCapacity@ of the Auto Scaling group by at least the
--- specified number of instances.
+-- | The estimated time, in seconds, until a newly launched instance can
+-- contribute to the CloudWatch metrics.
+scaEstimatedInstanceWarmup :: Lens' ScalingPolicy (Maybe Int)
+scaEstimatedInstanceWarmup = lens _scaEstimatedInstanceWarmup (\ s a -> s{_scaEstimatedInstanceWarmup = a});
+
+-- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
+-- instead.
 scaMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
 scaMinAdjustmentStep = lens _scaMinAdjustmentStep (\ s a -> s{_scaMinAdjustmentStep = a});
 
@@ -1862,15 +1902,24 @@ scaMinAdjustmentStep = lens _scaMinAdjustmentStep (\ s a -> s{_scaMinAdjustmentS
 scaPolicyName :: Lens' ScalingPolicy (Maybe Text)
 scaPolicyName = lens _scaPolicyName (\ s a -> s{_scaPolicyName = a});
 
--- | Specifies whether the @ScalingAdjustment@ is an absolute number or a
--- percentage of the current capacity. Valid values are @ChangeInCapacity@,
--- @ExactCapacity@, and @PercentChangeInCapacity@.
+-- | The policy type. Valid values are @SimpleScaling@ and @StepScaling@.
+scaPolicyType :: Lens' ScalingPolicy (Maybe Text)
+scaPolicyType = lens _scaPolicyType (\ s a -> s{_scaPolicyType = a});
+
+-- | A set of adjustments that enable you to scale based on the size of the
+-- alarm breach.
+scaStepAdjustments :: Lens' ScalingPolicy [StepAdjustment]
+scaStepAdjustments = lens _scaStepAdjustments (\ s a -> s{_scaStepAdjustments = a}) . _Default;
+
+-- | The adjustment type, which specifies how @ScalingAdjustment@ is
+-- interpreted. Valid values are @ChangeInCapacity@, @ExactCapacity@, and
+-- @PercentChangeInCapacity@.
 scaAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
 scaAdjustmentType = lens _scaAdjustmentType (\ s a -> s{_scaAdjustmentType = a});
 
--- | The number associated with the specified adjustment type. A positive
--- value adds to the current capacity and a negative value removes from the
--- current capacity.
+-- | The amount by which to scale, based on the specified adjustment type. A
+-- positive value adds to the current capacity while a negative number
+-- removes from the current capacity.
 scaScalingAdjustment :: Lens' ScalingPolicy (Maybe Int)
 scaScalingAdjustment = lens _scaScalingAdjustment (\ s a -> s{_scaScalingAdjustment = a});
 
@@ -1891,10 +1940,28 @@ scaPolicyARN = lens _scaPolicyARN (\ s a -> s{_scaPolicyARN = a});
 scaAlarms :: Lens' ScalingPolicy [Alarm]
 scaAlarms = lens _scaAlarms (\ s a -> s{_scaAlarms = a}) . _Default;
 
+-- | The aggregation type for the CloudWatch metrics. Valid values are
+-- @Minimum@, @Maximum@, and @Average@.
+scaMetricAggregationType :: Lens' ScalingPolicy (Maybe Text)
+scaMetricAggregationType = lens _scaMetricAggregationType (\ s a -> s{_scaMetricAggregationType = a});
+
+-- | The minimum number of instances to scale. If the value of
+-- @AdjustmentType@ is @PercentChangeInCapacity@, the scaling policy
+-- changes the @DesiredCapacity@ of the Auto Scaling group by at least this
+-- many instances. Otherwise, the error is @ValidationError@.
+scaMinAdjustmentMagnitude :: Lens' ScalingPolicy (Maybe Int)
+scaMinAdjustmentMagnitude = lens _scaMinAdjustmentMagnitude (\ s a -> s{_scaMinAdjustmentMagnitude = a});
+
 instance FromXML ScalingPolicy where
         parseXML x
           = ScalingPolicy' <$>
-              (x .@? "MinAdjustmentStep") <*> (x .@? "PolicyName")
+              (x .@? "EstimatedInstanceWarmup") <*>
+                (x .@? "MinAdjustmentStep")
+                <*> (x .@? "PolicyName")
+                <*> (x .@? "PolicyType")
+                <*>
+                (x .@? "StepAdjustments" .!@ mempty >>=
+                   may (parseXMLList "member"))
                 <*> (x .@? "AdjustmentType")
                 <*> (x .@? "ScalingAdjustment")
                 <*> (x .@? "AutoScalingGroupName")
@@ -1903,6 +1970,8 @@ instance FromXML ScalingPolicy where
                 <*>
                 (x .@? "Alarms" .!@ mempty >>=
                    may (parseXMLList "member"))
+                <*> (x .@? "MetricAggregationType")
+                <*> (x .@? "MinAdjustmentMagnitude")
 
 -- | /See:/ 'scalingProcessQuery' smart constructor.
 --
@@ -2015,12 +2084,12 @@ scheduledUpdateGroupAction =
 sugaScheduledActionARN :: Lens' ScheduledUpdateGroupAction (Maybe Text)
 sugaScheduledActionARN = lens _sugaScheduledActionARN (\ s a -> s{_sugaScheduledActionARN = a});
 
--- | @Time@ is deprecated; use @StartTime@ instead.
+-- | This parameter is deprecated; use @StartTime@ instead.
 sugaTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaTime = lens _sugaTime (\ s a -> s{_sugaTime = a}) . mapping _Time;
 
--- | The time that the action is scheduled to begin. This value can be up to
--- one month in the future.
+-- | The date and time that the action is scheduled to begin. This date and
+-- time can be up to one month in the future.
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action will start and stop.
@@ -2047,8 +2116,8 @@ sugaRecurrence = lens _sugaRecurrence (\ s a -> s{_sugaRecurrence = a});
 sugaMinSize :: Lens' ScheduledUpdateGroupAction (Maybe Int)
 sugaMinSize = lens _sugaMinSize (\ s a -> s{_sugaMinSize = a});
 
--- | The time that the action is scheduled to end. This value can be up to
--- one month in the future.
+-- | The date and time that the action is scheduled to end. This date and
+-- time can be up to one month in the future.
 sugaEndTime :: Lens' ScheduledUpdateGroupAction (Maybe UTCTime)
 sugaEndTime = lens _sugaEndTime (\ s a -> s{_sugaEndTime = a}) . mapping _Time;
 
@@ -2068,6 +2137,103 @@ instance FromXML ScheduledUpdateGroupAction where
                 <*> (x .@? "MinSize")
                 <*> (x .@? "EndTime")
                 <*> (x .@? "AutoScalingGroupName")
+
+-- | Describes an adjustment based on the difference between the value of the
+-- aggregated CloudWatch metric and the breach threshold that you\'ve
+-- defined for the alarm.
+--
+-- For the following examples, suppose that you have an alarm with a breach
+-- threshold of 50:
+--
+-- -   If you want the adjustment to be triggered when the metric is
+--     greater than or equal to 50 and less than 60, specify a lower bound
+--     of 0 and an upper bound of 10.
+--
+-- -   If you want the adjustment to be triggered when the metric is
+--     greater than 40 and less than or equal to 50, specify a lower bound
+--     of -10 and an upper bound of 0.
+--
+-- There are a few rules for the step adjustments for your step policy:
+--
+-- -   The ranges of your step adjustments can\'t overlap or have a gap.
+--
+-- -   At most one step adjustment can have a null lower bound. If one step
+--     adjustment has a negative lower bound, then there must be a step
+--     adjustment with a null lower bound.
+--
+-- -   At most one step adjustment can have a null upper bound. If one step
+--     adjustment has a positive upper bound, then there must be a step
+--     adjustment with a null upper bound.
+--
+-- -   The upper and lower bound can\'t be null in the same step
+--     adjustment.
+--
+--
+-- /See:/ 'stepAdjustment' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'saMetricIntervalLowerBound'
+--
+-- * 'saMetricIntervalUpperBound'
+--
+-- * 'saScalingAdjustment'
+data StepAdjustment = StepAdjustment'
+    { _saMetricIntervalLowerBound :: !(Maybe Double)
+    , _saMetricIntervalUpperBound :: !(Maybe Double)
+    , _saScalingAdjustment        :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'StepAdjustment' smart constructor.
+stepAdjustment :: Int -> StepAdjustment
+stepAdjustment pScalingAdjustment =
+    StepAdjustment'
+    { _saMetricIntervalLowerBound = Nothing
+    , _saMetricIntervalUpperBound = Nothing
+    , _saScalingAdjustment = pScalingAdjustment
+    }
+
+-- | The lower bound for the difference between the alarm threshold and the
+-- CloudWatch metric. If the metric value is above the breach threshold,
+-- the lower bound is inclusive (the metric must be greater than or equal
+-- to the threshold plus the lower bound). Otherwise, it is exclusive (the
+-- metric must be greater than the threshold plus the lower bound). A null
+-- value indicates negative infinity.
+saMetricIntervalLowerBound :: Lens' StepAdjustment (Maybe Double)
+saMetricIntervalLowerBound = lens _saMetricIntervalLowerBound (\ s a -> s{_saMetricIntervalLowerBound = a});
+
+-- | The upper bound for the difference between the alarm threshold and the
+-- CloudWatch metric. If the metric value is above the breach threshold,
+-- the upper bound is exclusive (the metric must be less than the threshold
+-- plus the upper bound). Otherwise, it is inclusive (the metric must be
+-- less than or equal to the threshold plus the upper bound). A null value
+-- indicates positive infinity.
+--
+-- The upper bound must be greater than the lower bound.
+saMetricIntervalUpperBound :: Lens' StepAdjustment (Maybe Double)
+saMetricIntervalUpperBound = lens _saMetricIntervalUpperBound (\ s a -> s{_saMetricIntervalUpperBound = a});
+
+-- | The amount by which to scale, based on the specified adjustment type. A
+-- positive value adds to the current capacity while a negative number
+-- removes from the current capacity.
+saScalingAdjustment :: Lens' StepAdjustment Int
+saScalingAdjustment = lens _saScalingAdjustment (\ s a -> s{_saScalingAdjustment = a});
+
+instance FromXML StepAdjustment where
+        parseXML x
+          = StepAdjustment' <$>
+              (x .@? "MetricIntervalLowerBound") <*>
+                (x .@? "MetricIntervalUpperBound")
+                <*> (x .@ "ScalingAdjustment")
+
+instance ToQuery StepAdjustment where
+        toQuery StepAdjustment'{..}
+          = mconcat
+              ["MetricIntervalLowerBound" =:
+                 _saMetricIntervalLowerBound,
+               "MetricIntervalUpperBound" =:
+                 _saMetricIntervalUpperBound,
+               "ScalingAdjustment" =: _saScalingAdjustment]
 
 -- | Describes an Auto Scaling process that has been suspended. For more
 -- information, see ProcessType.

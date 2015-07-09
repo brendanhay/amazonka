@@ -102,4 +102,5 @@ test-suite amazonka-elb-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

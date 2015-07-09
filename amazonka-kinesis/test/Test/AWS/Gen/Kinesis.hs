@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.Kinesis
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -229,3 +231,40 @@ testDescribeStreamResponse = resp
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse"
     (Proxy :: Proxy DescribeStream)
+
+instance Out AddTagsToStream
+instance Out AddTagsToStreamResponse
+instance Out CreateStream
+instance Out CreateStreamResponse
+instance Out DeleteStream
+instance Out DeleteStreamResponse
+instance Out DescribeStream
+instance Out DescribeStreamResponse
+instance Out GetRecords
+instance Out GetRecordsResponse
+instance Out GetShardIterator
+instance Out GetShardIteratorResponse
+instance Out HashKeyRange
+instance Out ListStreams
+instance Out ListStreamsResponse
+instance Out ListTagsForStream
+instance Out ListTagsForStreamResponse
+instance Out MergeShards
+instance Out MergeShardsResponse
+instance Out PutRecord
+instance Out PutRecordResponse
+instance Out PutRecords
+instance Out PutRecordsRequestEntry
+instance Out PutRecordsResponse
+instance Out PutRecordsResultEntry
+instance Out Record
+instance Out RemoveTagsFromStream
+instance Out RemoveTagsFromStreamResponse
+instance Out SequenceNumberRange
+instance Out Shard
+instance Out ShardIteratorType
+instance Out SplitShard
+instance Out SplitShardResponse
+instance Out StreamDescription
+instance Out StreamStatus
+instance Out Tag

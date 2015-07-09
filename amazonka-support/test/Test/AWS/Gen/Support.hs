@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.Support
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -244,3 +246,48 @@ testAddCommunicationToCaseResponse = resp
     "AddCommunicationToCaseResponse"
     "fixture/AddCommunicationToCaseResponse"
     (Proxy :: Proxy AddCommunicationToCase)
+
+instance Out AddAttachmentsToSet
+instance Out AddAttachmentsToSetResponse
+instance Out AddCommunicationToCase
+instance Out AddCommunicationToCaseResponse
+instance Out Attachment
+instance Out AttachmentDetails
+instance Out CaseDetails
+instance Out Category
+instance Out Communication
+instance Out CreateCase
+instance Out CreateCaseResponse
+instance Out DescribeAttachment
+instance Out DescribeAttachmentResponse
+instance Out DescribeCases
+instance Out DescribeCasesResponse
+instance Out DescribeCommunications
+instance Out DescribeCommunicationsResponse
+instance Out DescribeServices
+instance Out DescribeServicesResponse
+instance Out DescribeSeverityLevels
+instance Out DescribeSeverityLevelsResponse
+instance Out DescribeTrustedAdvisorCheckRefreshStatuses
+instance Out DescribeTrustedAdvisorCheckRefreshStatusesResponse
+instance Out DescribeTrustedAdvisorCheckResult
+instance Out DescribeTrustedAdvisorCheckResultResponse
+instance Out DescribeTrustedAdvisorCheckSummaries
+instance Out DescribeTrustedAdvisorCheckSummariesResponse
+instance Out DescribeTrustedAdvisorChecks
+instance Out DescribeTrustedAdvisorChecksResponse
+instance Out RecentCaseCommunications
+instance Out RefreshTrustedAdvisorCheck
+instance Out RefreshTrustedAdvisorCheckResponse
+instance Out ResolveCase
+instance Out ResolveCaseResponse
+instance Out SeverityLevel
+instance Out SupportService
+instance Out TrustedAdvisorCategorySpecificSummary
+instance Out TrustedAdvisorCheckDescription
+instance Out TrustedAdvisorCheckRefreshStatus
+instance Out TrustedAdvisorCheckResult
+instance Out TrustedAdvisorCheckSummary
+instance Out TrustedAdvisorCostOptimizingSummary
+instance Out TrustedAdvisorResourceDetail
+instance Out TrustedAdvisorResourcesSummary

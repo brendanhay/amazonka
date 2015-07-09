@@ -185,4 +185,5 @@ test-suite amazonka-dynamodb-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

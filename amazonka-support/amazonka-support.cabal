@@ -124,4 +124,5 @@ test-suite amazonka-support-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

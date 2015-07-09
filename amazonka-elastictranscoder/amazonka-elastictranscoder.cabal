@@ -77,4 +77,5 @@ test-suite amazonka-elastictranscoder-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.CloudFront
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -349,3 +351,97 @@ testListDistributionsResponse = resp
     "ListDistributionsResponse"
     "fixture/ListDistributionsResponse"
     (Proxy :: Proxy ListDistributions)
+
+instance Out ActiveTrustedSigners
+instance Out Aliases
+instance Out AllowedMethods
+instance Out CacheBehavior
+instance Out CacheBehaviors
+instance Out CachedMethods
+instance Out CloudFrontOriginAccessIdentity
+instance Out CloudFrontOriginAccessIdentityConfig
+instance Out CloudFrontOriginAccessIdentityList
+instance Out CloudFrontOriginAccessIdentitySummary
+instance Out CookieNames
+instance Out CookiePreference
+instance Out CreateCloudFrontOriginAccessIdentity
+instance Out CreateCloudFrontOriginAccessIdentityResponse
+instance Out CreateDistribution
+instance Out CreateDistributionResponse
+instance Out CreateInvalidation
+instance Out CreateInvalidationResponse
+instance Out CreateStreamingDistribution
+instance Out CreateStreamingDistributionResponse
+instance Out CustomErrorResponse
+instance Out CustomErrorResponses
+instance Out CustomOriginConfig
+instance Out DefaultCacheBehavior
+instance Out DeleteCloudFrontOriginAccessIdentity
+instance Out DeleteCloudFrontOriginAccessIdentityResponse
+instance Out DeleteDistribution
+instance Out DeleteDistributionResponse
+instance Out DeleteStreamingDistribution
+instance Out DeleteStreamingDistributionResponse
+instance Out Distribution
+instance Out DistributionConfig
+instance Out DistributionList
+instance Out DistributionSummary
+instance Out ForwardedValues
+instance Out GeoRestriction
+instance Out GeoRestrictionType
+instance Out GetCloudFrontOriginAccessIdentity
+instance Out GetCloudFrontOriginAccessIdentityConfig
+instance Out GetCloudFrontOriginAccessIdentityConfigResponse
+instance Out GetCloudFrontOriginAccessIdentityResponse
+instance Out GetDistribution
+instance Out GetDistributionConfig
+instance Out GetDistributionConfigResponse
+instance Out GetDistributionResponse
+instance Out GetInvalidation
+instance Out GetInvalidationResponse
+instance Out GetStreamingDistribution
+instance Out GetStreamingDistributionConfig
+instance Out GetStreamingDistributionConfigResponse
+instance Out GetStreamingDistributionResponse
+instance Out Headers
+instance Out Invalidation
+instance Out InvalidationBatch
+instance Out InvalidationList
+instance Out InvalidationSummary
+instance Out ItemSelection
+instance Out KeyPairIds
+instance Out ListCloudFrontOriginAccessIdentities
+instance Out ListCloudFrontOriginAccessIdentitiesResponse
+instance Out ListDistributions
+instance Out ListDistributionsResponse
+instance Out ListInvalidations
+instance Out ListInvalidationsResponse
+instance Out ListStreamingDistributions
+instance Out ListStreamingDistributionsResponse
+instance Out LoggingConfig
+instance Out Method
+instance Out MinimumProtocolVersion
+instance Out Origin
+instance Out OriginProtocolPolicy
+instance Out Origins
+instance Out Paths
+instance Out PriceClass
+instance Out Restrictions
+instance Out S3Origin
+instance Out S3OriginConfig
+instance Out SSLSupportMethod
+instance Out Signer
+instance Out StreamingDistribution
+instance Out StreamingDistributionConfig
+instance Out StreamingDistributionList
+instance Out StreamingDistributionSummary
+instance Out StreamingLoggingConfig
+instance Out TrustedSigners
+instance Out UpdateCloudFrontOriginAccessIdentity
+instance Out UpdateCloudFrontOriginAccessIdentityResponse
+instance Out UpdateDistribution
+instance Out UpdateDistributionResponse
+instance Out UpdateStreamingDistribution
+instance Out UpdateStreamingDistributionResponse
+instance Out ViewerCertificate
+instance Out ViewerProtocolPolicy

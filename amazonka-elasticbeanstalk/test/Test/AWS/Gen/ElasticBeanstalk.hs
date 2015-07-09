@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.ElasticBeanstalk
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -484,3 +486,90 @@ testCreateEnvironmentResponse = resp
     "CreateEnvironmentResponse"
     "fixture/CreateEnvironmentResponse"
     (Proxy :: Proxy CreateEnvironment)
+
+instance Out AbortEnvironmentUpdate
+instance Out AbortEnvironmentUpdateResponse
+instance Out ApplicationDescription
+instance Out ApplicationDescriptionMessage
+instance Out ApplicationVersionDescription
+instance Out ApplicationVersionDescriptionMessage
+instance Out AutoScalingGroup
+instance Out CheckDNSAvailability
+instance Out CheckDNSAvailabilityResponse
+instance Out ConfigurationDeploymentStatus
+instance Out ConfigurationOptionDescription
+instance Out ConfigurationOptionSetting
+instance Out ConfigurationOptionValueType
+instance Out ConfigurationSettingsDescription
+instance Out CreateApplication
+instance Out CreateApplicationVersion
+instance Out CreateConfigurationTemplate
+instance Out CreateEnvironment
+instance Out CreateStorageLocation
+instance Out CreateStorageLocationResponse
+instance Out DeleteApplication
+instance Out DeleteApplicationResponse
+instance Out DeleteApplicationVersion
+instance Out DeleteApplicationVersionResponse
+instance Out DeleteConfigurationTemplate
+instance Out DeleteConfigurationTemplateResponse
+instance Out DeleteEnvironmentConfiguration
+instance Out DeleteEnvironmentConfigurationResponse
+instance Out DescribeApplicationVersions
+instance Out DescribeApplicationVersionsResponse
+instance Out DescribeApplications
+instance Out DescribeApplicationsResponse
+instance Out DescribeConfigurationOptions
+instance Out DescribeConfigurationOptionsResponse
+instance Out DescribeConfigurationSettings
+instance Out DescribeConfigurationSettingsResponse
+instance Out DescribeEnvironmentResources
+instance Out DescribeEnvironmentResourcesResponse
+instance Out DescribeEnvironments
+instance Out DescribeEnvironmentsResponse
+instance Out DescribeEvents
+instance Out DescribeEventsResponse
+instance Out EnvironmentDescription
+instance Out EnvironmentHealth
+instance Out EnvironmentInfoDescription
+instance Out EnvironmentInfoType
+instance Out EnvironmentResourceDescription
+instance Out EnvironmentResourcesDescription
+instance Out EnvironmentStatus
+instance Out EnvironmentTier
+instance Out EventDescription
+instance Out EventSeverity
+instance Out Instance
+instance Out LaunchConfiguration
+instance Out ListAvailableSolutionStacks
+instance Out ListAvailableSolutionStacksResponse
+instance Out Listener
+instance Out LoadBalancer
+instance Out LoadBalancerDescription
+instance Out OptionRestrictionRegex
+instance Out OptionSpecification
+instance Out Queue
+instance Out RebuildEnvironment
+instance Out RebuildEnvironmentResponse
+instance Out RequestEnvironmentInfo
+instance Out RequestEnvironmentInfoResponse
+instance Out RestartAppServer
+instance Out RestartAppServerResponse
+instance Out RetrieveEnvironmentInfo
+instance Out RetrieveEnvironmentInfoResponse
+instance Out S3Location
+instance Out SolutionStackDescription
+instance Out SourceConfiguration
+instance Out SwapEnvironmentCNAMEs
+instance Out SwapEnvironmentCNAMEsResponse
+instance Out Tag
+instance Out TerminateEnvironment
+instance Out Trigger
+instance Out UpdateApplication
+instance Out UpdateApplicationVersion
+instance Out UpdateConfigurationTemplate
+instance Out UpdateEnvironment
+instance Out ValidateConfigurationSettings
+instance Out ValidateConfigurationSettingsResponse
+instance Out ValidationMessage
+instance Out ValidationSeverity

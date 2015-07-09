@@ -27,7 +27,9 @@ module Network.AWS.AutoScaling.ExecutePolicy
     , executePolicy
     -- ** Request lenses
     , epHonorCooldown
+    , epMetricValue
     , epAutoScalingGroupName
+    , epBreachThreshold
     , epPolicyName
 
     -- * Response
@@ -47,12 +49,18 @@ import           Network.AWS.Response
 --
 -- * 'epHonorCooldown'
 --
+-- * 'epMetricValue'
+--
 -- * 'epAutoScalingGroupName'
+--
+-- * 'epBreachThreshold'
 --
 -- * 'epPolicyName'
 data ExecutePolicy = ExecutePolicy'
     { _epHonorCooldown        :: !(Maybe Bool)
+    , _epMetricValue          :: !(Maybe Double)
     , _epAutoScalingGroupName :: !(Maybe Text)
+    , _epBreachThreshold      :: !(Maybe Double)
     , _epPolicyName           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -61,17 +69,17 @@ executePolicy :: Text -> ExecutePolicy
 executePolicy pPolicyName =
     ExecutePolicy'
     { _epHonorCooldown = Nothing
+    , _epMetricValue = Nothing
     , _epAutoScalingGroupName = Nothing
+    , _epBreachThreshold = Nothing
     , _epPolicyName = pPolicyName
     }
 
--- | Set to @True@ if you want Auto Scaling to wait for the cooldown period
--- associated with the Auto Scaling group to complete before executing the
--- policy.
+-- | If this parameter is true, Auto Scaling waits for the cooldown period to
+-- complete before executing the policy. Otherwise, Auto Scaling executes
+-- the policy without waiting for the cooldown period to complete.
 --
--- Set to @False@ if you want Auto Scaling to circumvent the cooldown
--- period associated with the Auto Scaling group and execute the policy
--- before the cooldown period ends.
+-- This parameter is not supported if the policy type is @StepScaling@.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>
@@ -79,9 +87,30 @@ executePolicy pPolicyName =
 epHonorCooldown :: Lens' ExecutePolicy (Maybe Bool)
 epHonorCooldown = lens _epHonorCooldown (\ s a -> s{_epHonorCooldown = a});
 
+-- | The metric value to compare to @BreachThreshold@. This enables you to
+-- execute a policy of type @StepScaling@ and determine which step
+-- adjustment to use. For example, if the breach threshold is 50 and you
+-- want to use a step adjustment with a lower bound of 0 and an upper bound
+-- of 10, you can set the metric value to 59.
+--
+-- If you specify a metric value that doesn\'t correspond to a step
+-- adjustment for the policy, the call returns an error.
+--
+-- This parameter is required if the policy type is @StepScaling@ and not
+-- supported otherwise.
+epMetricValue :: Lens' ExecutePolicy (Maybe Double)
+epMetricValue = lens _epMetricValue (\ s a -> s{_epMetricValue = a});
+
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
 epAutoScalingGroupName :: Lens' ExecutePolicy (Maybe Text)
 epAutoScalingGroupName = lens _epAutoScalingGroupName (\ s a -> s{_epAutoScalingGroupName = a});
+
+-- | The breach threshold for the alarm.
+--
+-- This parameter is required if the policy type is @StepScaling@ and not
+-- supported otherwise.
+epBreachThreshold :: Lens' ExecutePolicy (Maybe Double)
+epBreachThreshold = lens _epBreachThreshold (\ s a -> s{_epBreachThreshold = a});
 
 -- | The name or ARN of the policy.
 epPolicyName :: Lens' ExecutePolicy Text
@@ -105,7 +134,9 @@ instance ToQuery ExecutePolicy where
               ["Action" =: ("ExecutePolicy" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "HonorCooldown" =: _epHonorCooldown,
+               "MetricValue" =: _epMetricValue,
                "AutoScalingGroupName" =: _epAutoScalingGroupName,
+               "BreachThreshold" =: _epBreachThreshold,
                "PolicyName" =: _epPolicyName]
 
 -- | /See:/ 'executePolicyResponse' smart constructor.

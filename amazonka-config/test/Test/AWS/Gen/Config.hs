@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-orphans #-}
+
 -- Module      : Test.AWS.Gen.Config
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
@@ -199,3 +201,40 @@ testDescribeDeliveryChannelsResponse = resp
     "DescribeDeliveryChannelsResponse"
     "fixture/DescribeDeliveryChannelsResponse"
     (Proxy :: Proxy DescribeDeliveryChannels)
+
+instance Out ChronologicalOrder
+instance Out ConfigExportDeliveryInfo
+instance Out ConfigStreamDeliveryInfo
+instance Out ConfigurationItem
+instance Out ConfigurationItemStatus
+instance Out ConfigurationRecorder
+instance Out ConfigurationRecorderStatus
+instance Out DeleteDeliveryChannel
+instance Out DeleteDeliveryChannelResponse
+instance Out DeliverConfigSnapshot
+instance Out DeliverConfigSnapshotResponse
+instance Out DeliveryChannel
+instance Out DeliveryChannelStatus
+instance Out DeliveryStatus
+instance Out DescribeConfigurationRecorderStatus
+instance Out DescribeConfigurationRecorderStatusResponse
+instance Out DescribeConfigurationRecorders
+instance Out DescribeConfigurationRecordersResponse
+instance Out DescribeDeliveryChannelStatus
+instance Out DescribeDeliveryChannelStatusResponse
+instance Out DescribeDeliveryChannels
+instance Out DescribeDeliveryChannelsResponse
+instance Out GetResourceConfigHistory
+instance Out GetResourceConfigHistoryResponse
+instance Out PutConfigurationRecorder
+instance Out PutConfigurationRecorderResponse
+instance Out PutDeliveryChannel
+instance Out PutDeliveryChannelResponse
+instance Out RecorderStatus
+instance Out RecordingGroup
+instance Out Relationship
+instance Out ResourceType
+instance Out StartConfigurationRecorder
+instance Out StartConfigurationRecorderResponse
+instance Out StopConfigurationRecorder
+instance Out StopConfigurationRecorderResponse

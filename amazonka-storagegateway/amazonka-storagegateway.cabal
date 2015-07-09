@@ -134,4 +134,5 @@ test-suite amazonka-storagegateway-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

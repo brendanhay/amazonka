@@ -11,4 +11,5 @@ module Test.AWS.Prelude
     ) where
 
 import           Test.AWS.Orphans               as Export
+import           Test.AWS.TH                    as Export
 import           Text.PrettyPrint.GenericPretty as Export

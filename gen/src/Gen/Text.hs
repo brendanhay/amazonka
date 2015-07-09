@@ -194,6 +194,7 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("Xlarge",        "XLarge")
          , ("xlarge",        "XLarge")
          , ("Hapg",          "HAPG")
+         , ("ID",            "Id")
          ]
 
 camelAcronym :: Text -> Text
@@ -277,4 +278,5 @@ acronyms =
     , ("XML",      "Xml")
     , ("XLarge",   "Xlarge")
     , ("HAPG",     "Hapg")
+    , ("ID",       "Id")
     ]

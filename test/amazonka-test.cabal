@@ -34,8 +34,10 @@ library
         , conduit-extra
         , directory
         , filepath
+        , GenericPretty
         , http-client
         , http-types
+        , pretty
         , pretty-show
         , resourcet
         , tasty
@@ -44,5 +46,3 @@ library
         , template-haskell
         , text
         , time
-        , pretty
-        , GenericPretty

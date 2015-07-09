@@ -55,7 +55,7 @@ instance (Out k, Out v) => Out (HashMap k v) where
 
 instance Out Text where
     docPrec _ = doc
-    doc       = doc . toText
+    doc       = doc . Text.unpack
 
 instance Out Base64 where
     docPrec _ = doc
@@ -63,7 +63,7 @@ instance Out Base64 where
 
 instance Out ByteString where
     docPrec _ = doc
-    doc       = doc . toText
+    doc       = doc . BS8.unpack
 
 instance Out Region where
     docPrec _ = doc

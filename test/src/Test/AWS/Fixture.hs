@@ -46,14 +46,14 @@ import           Test.Tasty.Golden
 import           Test.Tasty.HUnit
 import           Text.PrettyPrint.GenericPretty
 
-resp :: (AWSRequest a, Eq (Rs a), Out (Rs a), Show (Rs a))
+resp :: (AWSRequest a, Eq (Rs a), Out (Rs a))
      => TestName
      -> FilePath
      -> Proxy a
      -> Rs a
      -> TestTree
 resp n f p e = testCase n $
-    LBS.readFile f >>= mockResponse p >>= assertEqual' f e
+    LBS.readFile f >>= mockResponse p >>= assertEqualPP f e
 
 mockResponse :: forall a. (AWSService (Sv a), AWSRequest a)
              => Proxy a

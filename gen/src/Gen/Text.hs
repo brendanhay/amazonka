@@ -72,12 +72,11 @@ renameService =
 -- horrendous inlining that use Data.CaseInsensitive provokes and
 -- the subsequent compilation time explosion on a project of this size.
 renameBranch :: Text -> (Text, Text)
-renameBranch = bimap go Text.toLower . join (,)
+renameBranch = bimap (renameReserved . go) Text.toLower . join (,)
   where
     go x | Text.length x <= 2 = Text.toUpper x
          | otherwise          =
-             renameReserved
-                 . upperAcronym
+             upperAcronym
                  . Fold.foldMap (Text.intercalate "_" . map h . Text.split g)
                  $ Text.split f x
 

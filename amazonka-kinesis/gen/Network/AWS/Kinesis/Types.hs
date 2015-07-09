@@ -166,24 +166,24 @@ _LimitExceededException = _ServiceError . hasCode "LimitExceededException"
 
 data ShardIteratorType
     = AfterSequenceNumber
-    | ATSequenceNumber
+    | AtSequenceNumber
     | TrimHorizon
     | Latest
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ShardIteratorType where
     parser = takeLowerText >>= \case
-        "at_sequence_number" -> pure ATSequenceNumber
         "after_sequence_number" -> pure AfterSequenceNumber
+        "at_sequence_number" -> pure AtSequenceNumber
         "latest" -> pure Latest
         "trim_horizon" -> pure TrimHorizon
         e -> fromTextError $ "Failure parsing ShardIteratorType from value: '" <> e
-           <> "'. Accepted values: at_sequence_number, after_sequence_number, latest, trim_horizon"
+           <> "'. Accepted values: after_sequence_number, at_sequence_number, latest, trim_horizon"
 
 instance ToText ShardIteratorType where
     toText = \case
-        ATSequenceNumber -> "at_sequence_number"
         AfterSequenceNumber -> "after_sequence_number"
+        AtSequenceNumber -> "at_sequence_number"
         Latest -> "latest"
         TrimHorizon -> "trim_horizon"
 

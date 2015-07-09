@@ -217,7 +217,7 @@ _LimitExceededException =
 
 data BulkPublishStatus
     = NotStarted
-    | INProgress
+    | InProgress
     | Succeeded
     | Failed
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
@@ -225,7 +225,7 @@ data BulkPublishStatus
 instance FromText BulkPublishStatus where
     parser = takeLowerText >>= \case
         "failed" -> pure Failed
-        "in_progress" -> pure INProgress
+        "in_progress" -> pure InProgress
         "not_started" -> pure NotStarted
         "succeeded" -> pure Succeeded
         e -> fromTextError $ "Failure parsing BulkPublishStatus from value: '" <> e
@@ -234,7 +234,7 @@ instance FromText BulkPublishStatus where
 instance ToText BulkPublishStatus where
     toText = \case
         Failed -> "failed"
-        INProgress -> "in_progress"
+        InProgress -> "in_progress"
         NotStarted -> "not_started"
         Succeeded -> "succeeded"
 

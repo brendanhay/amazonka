@@ -646,21 +646,21 @@ _InvalidCacheSecurityGroupStateFault =
     _ServiceError . hasStatus 400 . hasCode "InvalidCacheSecurityGroupState"
 
 data AZMode
-    = SingleAZ
-    | CrossAZ
+    = SingleAz
+    | CrossAz
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AZMode where
     parser = takeLowerText >>= \case
-        "cross-az" -> pure CrossAZ
-        "single-az" -> pure SingleAZ
+        "cross-az" -> pure CrossAz
+        "single-az" -> pure SingleAz
         e -> fromTextError $ "Failure parsing AZMode from value: '" <> e
            <> "'. Accepted values: cross-az, single-az"
 
 instance ToText AZMode where
     toText = \case
-        CrossAZ -> "cross-az"
-        SingleAZ -> "single-az"
+        CrossAz -> "cross-az"
+        SingleAz -> "single-az"
 
 instance Hashable AZMode
 instance ToQuery AZMode

@@ -700,19 +700,19 @@ instance FromJSON InstanceStateChangeReasonCode where
 
 data MarketType
     = Spot
-    | ONDemand
+    | OnDemand
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText MarketType where
     parser = takeLowerText >>= \case
-        "on_demand" -> pure ONDemand
+        "on_demand" -> pure OnDemand
         "spot" -> pure Spot
         e -> fromTextError $ "Failure parsing MarketType from value: '" <> e
            <> "'. Accepted values: on_demand, spot"
 
 instance ToText MarketType where
     toText = \case
-        ONDemand -> "on_demand"
+        OnDemand -> "on_demand"
         Spot -> "spot"
 
 instance Hashable MarketType

@@ -241,22 +241,22 @@ instance FromXML Capability where
 
 data OnFailure
     = Rollback
-    | DONothing
+    | DoNothing
     | Delete
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText OnFailure where
     parser = takeLowerText >>= \case
-        "do_nothing" -> pure DONothing
         "delete" -> pure Delete
+        "do_nothing" -> pure DoNothing
         "rollback" -> pure Rollback
         e -> fromTextError $ "Failure parsing OnFailure from value: '" <> e
-           <> "'. Accepted values: do_nothing, delete, rollback"
+           <> "'. Accepted values: delete, do_nothing, rollback"
 
 instance ToText OnFailure where
     toText = \case
-        DONothing -> "do_nothing"
         Delete -> "delete"
+        DoNothing -> "do_nothing"
         Rollback -> "rollback"
 
 instance Hashable OnFailure
@@ -291,24 +291,24 @@ data ResourceStatus
     | CreateComplete
     | UpdateComplete
     | DeleteComplete
-    | UpdateINProgress
-    | DeleteINProgress
+    | DeleteInProgress
+    | UpdateInProgress
     | DeleteSkipped
-    | CreateINProgress
+    | CreateInProgress
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ResourceStatus where
     parser = takeLowerText >>= \case
         "create_complete" -> pure CreateComplete
         "create_failed" -> pure CreateFailed
-        "create_in_progress" -> pure CreateINProgress
+        "create_in_progress" -> pure CreateInProgress
         "delete_complete" -> pure DeleteComplete
         "delete_failed" -> pure DeleteFailed
-        "delete_in_progress" -> pure DeleteINProgress
+        "delete_in_progress" -> pure DeleteInProgress
         "delete_skipped" -> pure DeleteSkipped
         "update_complete" -> pure UpdateComplete
         "update_failed" -> pure UpdateFailed
-        "update_in_progress" -> pure UpdateINProgress
+        "update_in_progress" -> pure UpdateInProgress
         e -> fromTextError $ "Failure parsing ResourceStatus from value: '" <> e
            <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, delete_skipped, update_complete, update_failed, update_in_progress"
 
@@ -316,14 +316,14 @@ instance ToText ResourceStatus where
     toText = \case
         CreateComplete -> "create_complete"
         CreateFailed -> "create_failed"
-        CreateINProgress -> "create_in_progress"
+        CreateInProgress -> "create_in_progress"
         DeleteComplete -> "delete_complete"
         DeleteFailed -> "delete_failed"
-        DeleteINProgress -> "delete_in_progress"
+        DeleteInProgress -> "delete_in_progress"
         DeleteSkipped -> "delete_skipped"
         UpdateComplete -> "update_complete"
         UpdateFailed -> "update_failed"
-        UpdateINProgress -> "update_in_progress"
+        UpdateInProgress -> "update_in_progress"
 
 instance Hashable ResourceStatus
 instance ToQuery ResourceStatus
@@ -334,11 +334,11 @@ instance FromXML ResourceStatus where
 
 data StackStatus
     = SSUpdateRollbackFailed
-    | SSUpdateCompleteCleanupINProgress
-    | SSUpdateRollbackINProgress
-    | SSCreateINProgress
-    | SSRollbackINProgress
-    | SSUpdateRollbackCompleteCleanupINProgress
+    | SSUpdateCompleteCleanupInProgress
+    | SSUpdateRollbackInProgress
+    | SSCreateInProgress
+    | SSUpdateRollbackCompleteCleanupInProgress
+    | SSRollbackInProgress
     | SSCreateFailed
     | SSRollbackComplete
     | SSDeleteFailed
@@ -346,8 +346,8 @@ data StackStatus
     | SSCreateComplete
     | SSDeleteComplete
     | SSUpdateComplete
-    | SSDeleteINProgress
-    | SSUpdateINProgress
+    | SSUpdateInProgress
+    | SSDeleteInProgress
     | SSUpdateRollbackComplete
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -355,20 +355,20 @@ instance FromText StackStatus where
     parser = takeLowerText >>= \case
         "create_complete" -> pure SSCreateComplete
         "create_failed" -> pure SSCreateFailed
-        "create_in_progress" -> pure SSCreateINProgress
+        "create_in_progress" -> pure SSCreateInProgress
         "delete_complete" -> pure SSDeleteComplete
         "delete_failed" -> pure SSDeleteFailed
-        "delete_in_progress" -> pure SSDeleteINProgress
+        "delete_in_progress" -> pure SSDeleteInProgress
         "rollback_complete" -> pure SSRollbackComplete
         "rollback_failed" -> pure SSRollbackFailed
-        "rollback_in_progress" -> pure SSRollbackINProgress
+        "rollback_in_progress" -> pure SSRollbackInProgress
         "update_complete" -> pure SSUpdateComplete
-        "update_complete_cleanup_in_progress" -> pure SSUpdateCompleteCleanupINProgress
-        "update_in_progress" -> pure SSUpdateINProgress
+        "update_complete_cleanup_in_progress" -> pure SSUpdateCompleteCleanupInProgress
+        "update_in_progress" -> pure SSUpdateInProgress
         "update_rollback_complete" -> pure SSUpdateRollbackComplete
-        "update_rollback_complete_cleanup_in_progress" -> pure SSUpdateRollbackCompleteCleanupINProgress
+        "update_rollback_complete_cleanup_in_progress" -> pure SSUpdateRollbackCompleteCleanupInProgress
         "update_rollback_failed" -> pure SSUpdateRollbackFailed
-        "update_rollback_in_progress" -> pure SSUpdateRollbackINProgress
+        "update_rollback_in_progress" -> pure SSUpdateRollbackInProgress
         e -> fromTextError $ "Failure parsing StackStatus from value: '" <> e
            <> "'. Accepted values: create_complete, create_failed, create_in_progress, delete_complete, delete_failed, delete_in_progress, rollback_complete, rollback_failed, rollback_in_progress, update_complete, update_complete_cleanup_in_progress, update_in_progress, update_rollback_complete, update_rollback_complete_cleanup_in_progress, update_rollback_failed, update_rollback_in_progress"
 
@@ -376,20 +376,20 @@ instance ToText StackStatus where
     toText = \case
         SSCreateComplete -> "create_complete"
         SSCreateFailed -> "create_failed"
-        SSCreateINProgress -> "create_in_progress"
+        SSCreateInProgress -> "create_in_progress"
         SSDeleteComplete -> "delete_complete"
         SSDeleteFailed -> "delete_failed"
-        SSDeleteINProgress -> "delete_in_progress"
+        SSDeleteInProgress -> "delete_in_progress"
         SSRollbackComplete -> "rollback_complete"
         SSRollbackFailed -> "rollback_failed"
-        SSRollbackINProgress -> "rollback_in_progress"
+        SSRollbackInProgress -> "rollback_in_progress"
         SSUpdateComplete -> "update_complete"
-        SSUpdateCompleteCleanupINProgress -> "update_complete_cleanup_in_progress"
-        SSUpdateINProgress -> "update_in_progress"
+        SSUpdateCompleteCleanupInProgress -> "update_complete_cleanup_in_progress"
+        SSUpdateInProgress -> "update_in_progress"
         SSUpdateRollbackComplete -> "update_rollback_complete"
-        SSUpdateRollbackCompleteCleanupINProgress -> "update_rollback_complete_cleanup_in_progress"
+        SSUpdateRollbackCompleteCleanupInProgress -> "update_rollback_complete_cleanup_in_progress"
         SSUpdateRollbackFailed -> "update_rollback_failed"
-        SSUpdateRollbackINProgress -> "update_rollback_in_progress"
+        SSUpdateRollbackInProgress -> "update_rollback_in_progress"
 
 instance Hashable StackStatus
 instance ToQuery StackStatus

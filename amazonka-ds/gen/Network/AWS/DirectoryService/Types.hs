@@ -366,16 +366,16 @@ instance FromJSON DirectoryType where
 
 data RadiusAuthenticationProtocol
     = Chap
-    | MSCHAPV1
-    | MSCHAPV2
+    | MsCHAPV1
+    | MsCHAPV2
     | Pap
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RadiusAuthenticationProtocol where
     parser = takeLowerText >>= \case
         "chap" -> pure Chap
-        "ms-chapv1" -> pure MSCHAPV1
-        "ms-chapv2" -> pure MSCHAPV2
+        "ms-chapv1" -> pure MsCHAPV1
+        "ms-chapv2" -> pure MsCHAPV2
         "pap" -> pure Pap
         e -> fromTextError $ "Failure parsing RadiusAuthenticationProtocol from value: '" <> e
            <> "'. Accepted values: chap, ms-chapv1, ms-chapv2, pap"
@@ -383,8 +383,8 @@ instance FromText RadiusAuthenticationProtocol where
 instance ToText RadiusAuthenticationProtocol where
     toText = \case
         Chap -> "chap"
-        MSCHAPV1 -> "ms-chapv1"
-        MSCHAPV2 -> "ms-chapv2"
+        MsCHAPV1 -> "ms-chapv1"
+        MsCHAPV2 -> "ms-chapv2"
         Pap -> "pap"
 
 instance Hashable RadiusAuthenticationProtocol

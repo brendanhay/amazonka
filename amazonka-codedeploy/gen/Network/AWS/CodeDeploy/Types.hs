@@ -688,14 +688,14 @@ data DeployErrorCode
     | HealthConstraints
     | OverMaxInstances
     | HealthConstraintsInvalid
-    | NOInstances
+    | NoInstances
     | ApplicationMissing
     | RevisionMissing
     | InternalError
     | DeploymentGroupMissing
     | IAMRoleMissing
     | Timeout
-    | NOEC2Subscription
+    | NoEC2Subscription
     | IAMRolePermissions
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -708,8 +708,8 @@ instance FromText DeployErrorCode where
         "iam_role_missing" -> pure IAMRoleMissing
         "iam_role_permissions" -> pure IAMRolePermissions
         "internal_error" -> pure InternalError
-        "no_ec2_subscription" -> pure NOEC2Subscription
-        "no_instances" -> pure NOInstances
+        "no_ec2_subscription" -> pure NoEC2Subscription
+        "no_instances" -> pure NoInstances
         "over_max_instances" -> pure OverMaxInstances
         "revision_missing" -> pure RevisionMissing
         "throttled" -> pure Throttled
@@ -726,8 +726,8 @@ instance ToText DeployErrorCode where
         IAMRoleMissing -> "iam_role_missing"
         IAMRolePermissions -> "iam_role_permissions"
         InternalError -> "internal_error"
-        NOEC2Subscription -> "no_ec2_subscription"
-        NOInstances -> "no_instances"
+        NoEC2Subscription -> "no_ec2_subscription"
+        NoInstances -> "no_instances"
         OverMaxInstances -> "over_max_instances"
         RevisionMissing -> "revision_missing"
         Throttled -> "throttled"

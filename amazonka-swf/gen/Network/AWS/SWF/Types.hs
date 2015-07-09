@@ -878,27 +878,27 @@ _DomainDeprecatedFault :: AWSError a => Getting (First ServiceError) a ServiceEr
 _DomainDeprecatedFault = _ServiceError . hasCode "DomainDeprecatedFault"
 
 data ActivityTaskTimeoutType
-    = ATTTScheduleTOClose
+    = ATTTScheduleToClose
     | ATTTHeartbeat
-    | ATTTStartTOClose
-    | ATTTScheduleTOStart
+    | ATTTStartToClose
+    | ATTTScheduleToStart
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ActivityTaskTimeoutType where
     parser = takeLowerText >>= \case
         "heartbeat" -> pure ATTTHeartbeat
-        "schedule_to_close" -> pure ATTTScheduleTOClose
-        "schedule_to_start" -> pure ATTTScheduleTOStart
-        "start_to_close" -> pure ATTTStartTOClose
+        "schedule_to_close" -> pure ATTTScheduleToClose
+        "schedule_to_start" -> pure ATTTScheduleToStart
+        "start_to_close" -> pure ATTTStartToClose
         e -> fromTextError $ "Failure parsing ActivityTaskTimeoutType from value: '" <> e
            <> "'. Accepted values: heartbeat, schedule_to_close, schedule_to_start, start_to_close"
 
 instance ToText ActivityTaskTimeoutType where
     toText = \case
         ATTTHeartbeat -> "heartbeat"
-        ATTTScheduleTOClose -> "schedule_to_close"
-        ATTTScheduleTOStart -> "schedule_to_start"
-        ATTTStartTOClose -> "start_to_close"
+        ATTTScheduleToClose -> "schedule_to_close"
+        ATTTScheduleToStart -> "schedule_to_start"
+        ATTTStartToClose -> "start_to_close"
 
 instance Hashable ActivityTaskTimeoutType
 instance ToQuery ActivityTaskTimeoutType
@@ -990,15 +990,15 @@ data CloseStatus
     | TimedOut
     | Terminated
     | Completed
+    | ContinuedAsNew
     | Failed
-    | ContinuedASNew
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CloseStatus where
     parser = takeLowerText >>= \case
         "canceled" -> pure Canceled
         "completed" -> pure Completed
-        "continued_as_new" -> pure ContinuedASNew
+        "continued_as_new" -> pure ContinuedAsNew
         "failed" -> pure Failed
         "terminated" -> pure Terminated
         "timed_out" -> pure TimedOut
@@ -1009,7 +1009,7 @@ instance ToText CloseStatus where
     toText = \case
         Canceled -> "canceled"
         Completed -> "completed"
-        ContinuedASNew -> "continued_as_new"
+        ContinuedAsNew -> "continued_as_new"
         Failed -> "failed"
         Terminated -> "terminated"
         TimedOut -> "timed_out"
@@ -1049,24 +1049,24 @@ instance FromJSON CompleteWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "CompleteWorkflowExecutionFailedCause"
 
 data ContinueAsNewWorkflowExecutionFailedCause
-    = CANWEFCContinueASNewWorkflowExecutionRateExceeded
+    = CANWEFCContinueAsNewWorkflowExecutionRateExceeded
     | CANWEFCDefaultTaskListUndefined
     | CANWEFCWorkflowTypeDoesNotExist
-    | CANWEFCDefaultExecutionStartTOCloseTimeoutUndefined
     | CANWEFCUnhandledDecision
+    | CANWEFCDefaultExecutionStartToCloseTimeoutUndefined
     | CANWEFCOperationNotPermitted
     | CANWEFCDefaultChildPolicyUndefined
-    | CANWEFCDefaultTaskStartTOCloseTimeoutUndefined
     | CANWEFCWorkflowTypeDeprecated
+    | CANWEFCDefaultTaskStartToCloseTimeoutUndefined
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ContinueAsNewWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
-        "continue_as_new_workflow_execution_rate_exceeded" -> pure CANWEFCContinueASNewWorkflowExecutionRateExceeded
+        "continue_as_new_workflow_execution_rate_exceeded" -> pure CANWEFCContinueAsNewWorkflowExecutionRateExceeded
         "default_child_policy_undefined" -> pure CANWEFCDefaultChildPolicyUndefined
-        "default_execution_start_to_close_timeout_undefined" -> pure CANWEFCDefaultExecutionStartTOCloseTimeoutUndefined
+        "default_execution_start_to_close_timeout_undefined" -> pure CANWEFCDefaultExecutionStartToCloseTimeoutUndefined
         "default_task_list_undefined" -> pure CANWEFCDefaultTaskListUndefined
-        "default_task_start_to_close_timeout_undefined" -> pure CANWEFCDefaultTaskStartTOCloseTimeoutUndefined
+        "default_task_start_to_close_timeout_undefined" -> pure CANWEFCDefaultTaskStartToCloseTimeoutUndefined
         "operation_not_permitted" -> pure CANWEFCOperationNotPermitted
         "unhandled_decision" -> pure CANWEFCUnhandledDecision
         "workflow_type_deprecated" -> pure CANWEFCWorkflowTypeDeprecated
@@ -1076,11 +1076,11 @@ instance FromText ContinueAsNewWorkflowExecutionFailedCause where
 
 instance ToText ContinueAsNewWorkflowExecutionFailedCause where
     toText = \case
-        CANWEFCContinueASNewWorkflowExecutionRateExceeded -> "continue_as_new_workflow_execution_rate_exceeded"
+        CANWEFCContinueAsNewWorkflowExecutionRateExceeded -> "continue_as_new_workflow_execution_rate_exceeded"
         CANWEFCDefaultChildPolicyUndefined -> "default_child_policy_undefined"
-        CANWEFCDefaultExecutionStartTOCloseTimeoutUndefined -> "default_execution_start_to_close_timeout_undefined"
+        CANWEFCDefaultExecutionStartToCloseTimeoutUndefined -> "default_execution_start_to_close_timeout_undefined"
         CANWEFCDefaultTaskListUndefined -> "default_task_list_undefined"
-        CANWEFCDefaultTaskStartTOCloseTimeoutUndefined -> "default_task_start_to_close_timeout_undefined"
+        CANWEFCDefaultTaskStartToCloseTimeoutUndefined -> "default_task_start_to_close_timeout_undefined"
         CANWEFCOperationNotPermitted -> "operation_not_permitted"
         CANWEFCUnhandledDecision -> "unhandled_decision"
         CANWEFCWorkflowTypeDeprecated -> "workflow_type_deprecated"
@@ -1094,18 +1094,18 @@ instance FromJSON ContinueAsNewWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "ContinueAsNewWorkflowExecutionFailedCause"
 
 data DecisionTaskTimeoutType =
-    StartTOClose
+    StartToClose
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DecisionTaskTimeoutType where
     parser = takeLowerText >>= \case
-        "start_to_close" -> pure StartTOClose
+        "start_to_close" -> pure StartToClose
         e -> fromTextError $ "Failure parsing DecisionTaskTimeoutType from value: '" <> e
            <> "'. Accepted values: start_to_close"
 
 instance ToText DecisionTaskTimeoutType where
     toText = \case
-        StartTOClose -> "start_to_close"
+        StartToClose -> "start_to_close"
 
 instance Hashable DecisionTaskTimeoutType
 instance ToQuery DecisionTaskTimeoutType
@@ -1475,29 +1475,29 @@ instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "RequestCancelExternalWorkflowExecutionFailedCause"
 
 data ScheduleActivityTaskFailedCause
-    = SATFCDefaultStartTOCloseTimeoutUndefined
-    | SATFCDefaultScheduleTOStartTimeoutUndefined
+    = SATFCDefaultStartToCloseTimeoutUndefined
+    | SATFCDefaultScheduleToStartTimeoutUndefined
     | SATFCOpenActivitiesLimitExceeded
     | SATFCActivityTypeDoesNotExist
     | SATFCDefaultTaskListUndefined
     | SATFCOperationNotPermitted
     | SATFCActivityTypeDeprecated
     | SATFCActivityCreationRateExceeded
-    | SATFCDefaultScheduleTOCloseTimeoutUndefined
+    | SATFCActivityIdAlreadyInUse
+    | SATFCDefaultScheduleToCloseTimeoutUndefined
     | SATFCDefaultHeartbeatTimeoutUndefined
-    | SATFCActivityIdAlreadyINUse
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ScheduleActivityTaskFailedCause where
     parser = takeLowerText >>= \case
         "activity_creation_rate_exceeded" -> pure SATFCActivityCreationRateExceeded
-        "activity_id_already_in_use" -> pure SATFCActivityIdAlreadyINUse
+        "activity_id_already_in_use" -> pure SATFCActivityIdAlreadyInUse
         "activity_type_deprecated" -> pure SATFCActivityTypeDeprecated
         "activity_type_does_not_exist" -> pure SATFCActivityTypeDoesNotExist
         "default_heartbeat_timeout_undefined" -> pure SATFCDefaultHeartbeatTimeoutUndefined
-        "default_schedule_to_close_timeout_undefined" -> pure SATFCDefaultScheduleTOCloseTimeoutUndefined
-        "default_schedule_to_start_timeout_undefined" -> pure SATFCDefaultScheduleTOStartTimeoutUndefined
-        "default_start_to_close_timeout_undefined" -> pure SATFCDefaultStartTOCloseTimeoutUndefined
+        "default_schedule_to_close_timeout_undefined" -> pure SATFCDefaultScheduleToCloseTimeoutUndefined
+        "default_schedule_to_start_timeout_undefined" -> pure SATFCDefaultScheduleToStartTimeoutUndefined
+        "default_start_to_close_timeout_undefined" -> pure SATFCDefaultStartToCloseTimeoutUndefined
         "default_task_list_undefined" -> pure SATFCDefaultTaskListUndefined
         "open_activities_limit_exceeded" -> pure SATFCOpenActivitiesLimitExceeded
         "operation_not_permitted" -> pure SATFCOperationNotPermitted
@@ -1507,13 +1507,13 @@ instance FromText ScheduleActivityTaskFailedCause where
 instance ToText ScheduleActivityTaskFailedCause where
     toText = \case
         SATFCActivityCreationRateExceeded -> "activity_creation_rate_exceeded"
-        SATFCActivityIdAlreadyINUse -> "activity_id_already_in_use"
+        SATFCActivityIdAlreadyInUse -> "activity_id_already_in_use"
         SATFCActivityTypeDeprecated -> "activity_type_deprecated"
         SATFCActivityTypeDoesNotExist -> "activity_type_does_not_exist"
         SATFCDefaultHeartbeatTimeoutUndefined -> "default_heartbeat_timeout_undefined"
-        SATFCDefaultScheduleTOCloseTimeoutUndefined -> "default_schedule_to_close_timeout_undefined"
-        SATFCDefaultScheduleTOStartTimeoutUndefined -> "default_schedule_to_start_timeout_undefined"
-        SATFCDefaultStartTOCloseTimeoutUndefined -> "default_start_to_close_timeout_undefined"
+        SATFCDefaultScheduleToCloseTimeoutUndefined -> "default_schedule_to_close_timeout_undefined"
+        SATFCDefaultScheduleToStartTimeoutUndefined -> "default_schedule_to_start_timeout_undefined"
+        SATFCDefaultStartToCloseTimeoutUndefined -> "default_start_to_close_timeout_undefined"
         SATFCDefaultTaskListUndefined -> "default_task_list_undefined"
         SATFCOpenActivitiesLimitExceeded -> "open_activities_limit_exceeded"
         SATFCOperationNotPermitted -> "operation_not_permitted"
@@ -1558,10 +1558,10 @@ data StartChildWorkflowExecutionFailedCause
     | SCWEFCOperationNotPermitted
     | SCWEFCDefaultTaskListUndefined
     | SCWEFCDefaultChildPolicyUndefined
-    | SCWEFCDefaultExecutionStartTOCloseTimeoutUndefined
+    | SCWEFCDefaultExecutionStartToCloseTimeoutUndefined
     | SCWEFCWorkflowTypeDeprecated
+    | SCWEFCDefaultTaskStartToCloseTimeoutUndefined
     | SCWEFCWorkflowAlreadyRunning
-    | SCWEFCDefaultTaskStartTOCloseTimeoutUndefined
     | SCWEFCOpenWorkflowsLimitExceeded
     | SCWEFCOpenChildrenLimitExceeded
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
@@ -1570,9 +1570,9 @@ instance FromText StartChildWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
         "child_creation_rate_exceeded" -> pure SCWEFCChildCreationRateExceeded
         "default_child_policy_undefined" -> pure SCWEFCDefaultChildPolicyUndefined
-        "default_execution_start_to_close_timeout_undefined" -> pure SCWEFCDefaultExecutionStartTOCloseTimeoutUndefined
+        "default_execution_start_to_close_timeout_undefined" -> pure SCWEFCDefaultExecutionStartToCloseTimeoutUndefined
         "default_task_list_undefined" -> pure SCWEFCDefaultTaskListUndefined
-        "default_task_start_to_close_timeout_undefined" -> pure SCWEFCDefaultTaskStartTOCloseTimeoutUndefined
+        "default_task_start_to_close_timeout_undefined" -> pure SCWEFCDefaultTaskStartToCloseTimeoutUndefined
         "open_children_limit_exceeded" -> pure SCWEFCOpenChildrenLimitExceeded
         "open_workflows_limit_exceeded" -> pure SCWEFCOpenWorkflowsLimitExceeded
         "operation_not_permitted" -> pure SCWEFCOperationNotPermitted
@@ -1586,9 +1586,9 @@ instance ToText StartChildWorkflowExecutionFailedCause where
     toText = \case
         SCWEFCChildCreationRateExceeded -> "child_creation_rate_exceeded"
         SCWEFCDefaultChildPolicyUndefined -> "default_child_policy_undefined"
-        SCWEFCDefaultExecutionStartTOCloseTimeoutUndefined -> "default_execution_start_to_close_timeout_undefined"
+        SCWEFCDefaultExecutionStartToCloseTimeoutUndefined -> "default_execution_start_to_close_timeout_undefined"
         SCWEFCDefaultTaskListUndefined -> "default_task_list_undefined"
-        SCWEFCDefaultTaskStartTOCloseTimeoutUndefined -> "default_task_start_to_close_timeout_undefined"
+        SCWEFCDefaultTaskStartToCloseTimeoutUndefined -> "default_task_start_to_close_timeout_undefined"
         SCWEFCOpenChildrenLimitExceeded -> "open_children_limit_exceeded"
         SCWEFCOpenWorkflowsLimitExceeded -> "open_workflows_limit_exceeded"
         SCWEFCOperationNotPermitted -> "operation_not_permitted"
@@ -1604,7 +1604,7 @@ instance FromJSON StartChildWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "StartChildWorkflowExecutionFailedCause"
 
 data StartTimerFailedCause
-    = TimerIdAlreadyINUse
+    = TimerIdAlreadyInUse
     | TimerCreationRateExceeded
     | OperationNotPermitted
     | OpenTimersLimitExceeded
@@ -1615,7 +1615,7 @@ instance FromText StartTimerFailedCause where
         "open_timers_limit_exceeded" -> pure OpenTimersLimitExceeded
         "operation_not_permitted" -> pure OperationNotPermitted
         "timer_creation_rate_exceeded" -> pure TimerCreationRateExceeded
-        "timer_id_already_in_use" -> pure TimerIdAlreadyINUse
+        "timer_id_already_in_use" -> pure TimerIdAlreadyInUse
         e -> fromTextError $ "Failure parsing StartTimerFailedCause from value: '" <> e
            <> "'. Accepted values: open_timers_limit_exceeded, operation_not_permitted, timer_creation_rate_exceeded, timer_id_already_in_use"
 
@@ -1624,7 +1624,7 @@ instance ToText StartTimerFailedCause where
         OpenTimersLimitExceeded -> "open_timers_limit_exceeded"
         OperationNotPermitted -> "operation_not_permitted"
         TimerCreationRateExceeded -> "timer_creation_rate_exceeded"
-        TimerIdAlreadyINUse -> "timer_id_already_in_use"
+        TimerIdAlreadyInUse -> "timer_id_already_in_use"
 
 instance Hashable StartTimerFailedCause
 instance ToQuery StartTimerFailedCause
@@ -1682,18 +1682,18 @@ instance FromJSON WorkflowExecutionTerminatedCause where
     parseJSON = parseJSONText "WorkflowExecutionTerminatedCause"
 
 data WorkflowExecutionTimeoutType =
-    WETTStartTOClose
+    WETTStartToClose
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText WorkflowExecutionTimeoutType where
     parser = takeLowerText >>= \case
-        "start_to_close" -> pure WETTStartTOClose
+        "start_to_close" -> pure WETTStartToClose
         e -> fromTextError $ "Failure parsing WorkflowExecutionTimeoutType from value: '" <> e
            <> "'. Accepted values: start_to_close"
 
 instance ToText WorkflowExecutionTimeoutType where
     toText = \case
-        WETTStartTOClose -> "start_to_close"
+        WETTStartToClose -> "start_to_close"
 
 instance Hashable WorkflowExecutionTimeoutType
 instance ToQuery WorkflowExecutionTimeoutType

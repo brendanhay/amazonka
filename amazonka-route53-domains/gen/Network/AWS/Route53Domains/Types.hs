@@ -280,6 +280,7 @@ data CountryCode
     | AI
     | BB
     | SK
+    | GT
     | NU
     | KH
     | TO
@@ -338,10 +339,8 @@ data CountryCode
     | KG
     | FR
     | IE
-    | GT'
     | TK
     | NA
-    | LT'
     | LC
     | IN
     | FI
@@ -391,6 +390,7 @@ data CountryCode
     | CC
     | TL
     | MM
+    | LT
     | AQ
     | PH
     | CX
@@ -520,7 +520,7 @@ instance FromText CountryCode where
         "gn" -> pure GN
         "gq" -> pure GQ
         "gr" -> pure GR
-        "gt" -> pure GT'
+        "gt" -> pure GT
         "gu" -> pure GU
         "gw" -> pure GW
         "gy" -> pure GY
@@ -559,7 +559,7 @@ instance FromText CountryCode where
         "lk" -> pure LK
         "lr" -> pure LR
         "ls" -> pure LS
-        "lt" -> pure LT'
+        "lt" -> pure LT
         "lu" -> pure LU
         "lv" -> pure LV
         "ly" -> pure LY
@@ -754,7 +754,7 @@ instance ToText CountryCode where
         GN -> "gn"
         GQ -> "gq"
         GR -> "gr"
-        GT' -> "gt"
+        GT -> "gt"
         GU -> "gu"
         GW -> "gw"
         GY -> "gy"
@@ -793,7 +793,7 @@ instance ToText CountryCode where
         LK -> "lk"
         LR -> "lr"
         LS -> "ls"
-        LT' -> "lt"
+        LT -> "lt"
         LU -> "lu"
         LV -> "lv"
         LY -> "ly"
@@ -955,74 +955,74 @@ instance FromJSON DomainAvailability where
     parseJSON = parseJSONText "DomainAvailability"
 
 data ExtraParamName
-    = DocumentNumber
-    | ESIdentificationType
-    | RUPassportData
-    | AUIdNumber
-    | FIBusinessNumber
-    | SGIdNumber
-    | ESLegalForm
-    | BirthDateINYyyyMMDD
-    | CALegalType
+    = EsIdentificationType
+    | DocumentNumber
+    | RuPassportData
+    | SgIdNumber
+    | AuIdNumber
+    | FiBusinessNumber
+    | EsLegalForm
+    | BirthDateInYyyyMmDd
+    | CaLegalType
     | BirthDepartment
-    | AUIdType
-    | ESIdentification
+    | AuIdType
+    | EsIdentification
     | DunsNumber
     | BirthCity
-    | ITPin
+    | ItPin
     | BirthCountry
     | VatNumber
-    | SEIdNumber
     | BrandNumber
-    | FIIdNumber
+    | SeIdNumber
+    | FiIdNumber
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExtraParamName where
     parser = takeLowerText >>= \case
-        "au_id_number" -> pure AUIdNumber
-        "au_id_type" -> pure AUIdType
+        "au_id_number" -> pure AuIdNumber
+        "au_id_type" -> pure AuIdType
         "birth_city" -> pure BirthCity
         "birth_country" -> pure BirthCountry
-        "birth_date_in_yyyy_mm_dd" -> pure BirthDateINYyyyMMDD
+        "birth_date_in_yyyy_mm_dd" -> pure BirthDateInYyyyMmDd
         "birth_department" -> pure BirthDepartment
         "brand_number" -> pure BrandNumber
-        "ca_legal_type" -> pure CALegalType
+        "ca_legal_type" -> pure CaLegalType
         "document_number" -> pure DocumentNumber
         "duns_number" -> pure DunsNumber
-        "es_identification" -> pure ESIdentification
-        "es_identification_type" -> pure ESIdentificationType
-        "es_legal_form" -> pure ESLegalForm
-        "fi_business_number" -> pure FIBusinessNumber
-        "fi_id_number" -> pure FIIdNumber
-        "it_pin" -> pure ITPin
-        "ru_passport_data" -> pure RUPassportData
-        "se_id_number" -> pure SEIdNumber
-        "sg_id_number" -> pure SGIdNumber
+        "es_identification" -> pure EsIdentification
+        "es_identification_type" -> pure EsIdentificationType
+        "es_legal_form" -> pure EsLegalForm
+        "fi_business_number" -> pure FiBusinessNumber
+        "fi_id_number" -> pure FiIdNumber
+        "it_pin" -> pure ItPin
+        "ru_passport_data" -> pure RuPassportData
+        "se_id_number" -> pure SeIdNumber
+        "sg_id_number" -> pure SgIdNumber
         "vat_number" -> pure VatNumber
         e -> fromTextError $ "Failure parsing ExtraParamName from value: '" <> e
            <> "'. Accepted values: au_id_number, au_id_type, birth_city, birth_country, birth_date_in_yyyy_mm_dd, birth_department, brand_number, ca_legal_type, document_number, duns_number, es_identification, es_identification_type, es_legal_form, fi_business_number, fi_id_number, it_pin, ru_passport_data, se_id_number, sg_id_number, vat_number"
 
 instance ToText ExtraParamName where
     toText = \case
-        AUIdNumber -> "au_id_number"
-        AUIdType -> "au_id_type"
+        AuIdNumber -> "au_id_number"
+        AuIdType -> "au_id_type"
         BirthCity -> "birth_city"
         BirthCountry -> "birth_country"
-        BirthDateINYyyyMMDD -> "birth_date_in_yyyy_mm_dd"
+        BirthDateInYyyyMmDd -> "birth_date_in_yyyy_mm_dd"
         BirthDepartment -> "birth_department"
         BrandNumber -> "brand_number"
-        CALegalType -> "ca_legal_type"
+        CaLegalType -> "ca_legal_type"
         DocumentNumber -> "document_number"
         DunsNumber -> "duns_number"
-        ESIdentification -> "es_identification"
-        ESIdentificationType -> "es_identification_type"
-        ESLegalForm -> "es_legal_form"
-        FIBusinessNumber -> "fi_business_number"
-        FIIdNumber -> "fi_id_number"
-        ITPin -> "it_pin"
-        RUPassportData -> "ru_passport_data"
-        SEIdNumber -> "se_id_number"
-        SGIdNumber -> "sg_id_number"
+        EsIdentification -> "es_identification"
+        EsIdentificationType -> "es_identification_type"
+        EsLegalForm -> "es_legal_form"
+        FiBusinessNumber -> "fi_business_number"
+        FiIdNumber -> "fi_id_number"
+        ItPin -> "it_pin"
+        RuPassportData -> "ru_passport_data"
+        SeIdNumber -> "se_id_number"
+        SgIdNumber -> "sg_id_number"
         VatNumber -> "vat_number"
 
 instance Hashable ExtraParamName
@@ -1038,7 +1038,7 @@ instance FromJSON ExtraParamName where
 data OperationStatus
     = Error'
     | Successful
-    | INProgress
+    | InProgress
     | Failed
     | Submitted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
@@ -1047,7 +1047,7 @@ instance FromText OperationStatus where
     parser = takeLowerText >>= \case
         "error" -> pure Error'
         "failed" -> pure Failed
-        "in_progress" -> pure INProgress
+        "in_progress" -> pure InProgress
         "submitted" -> pure Submitted
         "successful" -> pure Successful
         e -> fromTextError $ "Failure parsing OperationStatus from value: '" <> e
@@ -1057,7 +1057,7 @@ instance ToText OperationStatus where
     toText = \case
         Error' -> "error"
         Failed -> "failed"
-        INProgress -> "in_progress"
+        InProgress -> "in_progress"
         Submitted -> "submitted"
         Successful -> "successful"
 
@@ -1069,7 +1069,7 @@ instance FromJSON OperationStatus where
     parseJSON = parseJSONText "OperationStatus"
 
 data OperationType
-    = TransferINDomain
+    = TransferInDomain
     | ChangePrivacyProtection
     | UpdateDomainContact
     | RegisterDomain
@@ -1084,7 +1084,7 @@ instance FromText OperationType where
         "delete_domain" -> pure DeleteDomain
         "domain_lock" -> pure DomainLock
         "register_domain" -> pure RegisterDomain
-        "transfer_in_domain" -> pure TransferINDomain
+        "transfer_in_domain" -> pure TransferInDomain
         "update_domain_contact" -> pure UpdateDomainContact
         "update_nameserver" -> pure UpdateNameserver
         e -> fromTextError $ "Failure parsing OperationType from value: '" <> e
@@ -1096,7 +1096,7 @@ instance ToText OperationType where
         DeleteDomain -> "delete_domain"
         DomainLock -> "domain_lock"
         RegisterDomain -> "register_domain"
-        TransferINDomain -> "transfer_in_domain"
+        TransferInDomain -> "transfer_in_domain"
         UpdateDomainContact -> "update_domain_contact"
         UpdateNameserver -> "update_nameserver"
 

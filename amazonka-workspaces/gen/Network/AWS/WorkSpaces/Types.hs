@@ -245,21 +245,21 @@ instance FromJSON WorkspaceDirectoryState where
     parseJSON = parseJSONText "WorkspaceDirectoryState"
 
 data WorkspaceDirectoryType
-    = ADConnector
-    | SimpleAD
+    = AdConnector
+    | SimpleAd
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText WorkspaceDirectoryType where
     parser = takeLowerText >>= \case
-        "ad_connector" -> pure ADConnector
-        "simple_ad" -> pure SimpleAD
+        "ad_connector" -> pure AdConnector
+        "simple_ad" -> pure SimpleAd
         e -> fromTextError $ "Failure parsing WorkspaceDirectoryType from value: '" <> e
            <> "'. Accepted values: ad_connector, simple_ad"
 
 instance ToText WorkspaceDirectoryType where
     toText = \case
-        ADConnector -> "ad_connector"
-        SimpleAD -> "simple_ad"
+        AdConnector -> "ad_connector"
+        SimpleAd -> "simple_ad"
 
 instance Hashable WorkspaceDirectoryType
 instance ToQuery WorkspaceDirectoryType

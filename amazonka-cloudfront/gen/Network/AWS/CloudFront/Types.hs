@@ -959,7 +959,7 @@ instance ToXML SSLSupportMethod where
 
 data ViewerProtocolPolicy
     = HTTPSOnly
-    | RedirectTOHTTPS
+    | RedirectToHTTPS
     | AllowAll
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
@@ -967,7 +967,7 @@ instance FromText ViewerProtocolPolicy where
     parser = takeLowerText >>= \case
         "allow-all" -> pure AllowAll
         "https-only" -> pure HTTPSOnly
-        "redirect-to-https" -> pure RedirectTOHTTPS
+        "redirect-to-https" -> pure RedirectToHTTPS
         e -> fromTextError $ "Failure parsing ViewerProtocolPolicy from value: '" <> e
            <> "'. Accepted values: allow-all, https-only, redirect-to-https"
 
@@ -975,7 +975,7 @@ instance ToText ViewerProtocolPolicy where
     toText = \case
         AllowAll -> "allow-all"
         HTTPSOnly -> "https-only"
-        RedirectTOHTTPS -> "redirect-to-https"
+        RedirectToHTTPS -> "redirect-to-https"
 
 instance Hashable ViewerProtocolPolicy
 instance ToQuery ViewerProtocolPolicy

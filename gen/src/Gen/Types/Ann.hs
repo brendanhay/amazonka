@@ -17,7 +17,6 @@
 
 module Gen.Types.Ann where
 
-import           Control.Applicative
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
@@ -25,8 +24,6 @@ import           Data.Aeson
 import           Data.Function          (on)
 import           Data.Hashable
 import qualified Data.HashSet           as Set
-import           Data.List              (nub)
-import           Data.Maybe
 import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text

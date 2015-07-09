@@ -193,8 +193,8 @@ _TaskNotFoundException :: AWSError a => Getting (First ServiceError) a ServiceEr
 _TaskNotFoundException = _ServiceError . hasCode "TaskNotFoundException"
 
 data OperatorType
-    = OperatorGE
-    | OperatorEQ'
+    = OperatorEQ
+    | OperatorGE
     | OperatorBetween
     | OperatorRefEQ
     | OperatorLE
@@ -203,7 +203,7 @@ data OperatorType
 instance FromText OperatorType where
     parser = takeLowerText >>= \case
         "between" -> pure OperatorBetween
-        "eq" -> pure OperatorEQ'
+        "eq" -> pure OperatorEQ
         "ge" -> pure OperatorGE
         "le" -> pure OperatorLE
         "ref_eq" -> pure OperatorRefEQ
@@ -213,7 +213,7 @@ instance FromText OperatorType where
 instance ToText OperatorType where
     toText = \case
         OperatorBetween -> "between"
-        OperatorEQ' -> "eq"
+        OperatorEQ -> "eq"
         OperatorGE -> "ge"
         OperatorLE -> "le"
         OperatorRefEQ -> "ref_eq"

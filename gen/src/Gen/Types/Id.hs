@@ -42,11 +42,9 @@ import           Data.Aeson
 import           Data.CaseInsensitive   (CI)
 import qualified Data.CaseInsensitive   as CI
 import           Data.Hashable
-import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import           Data.Text.Manipulate
-import           Debug.Trace
 import           Gen.Text
 
 -- | A class to extract identifiers from arbitrary products.

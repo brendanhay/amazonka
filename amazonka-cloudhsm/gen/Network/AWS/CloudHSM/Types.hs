@@ -89,21 +89,21 @@ _CloudHSMInternalException =
     _ServiceError . hasCode "CloudHsmInternalException"
 
 data ClientVersion
-    = V51
-    | V53
+    = V5_3
+    | V5_1
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ClientVersion where
     parser = takeLowerText >>= \case
-        "5.1" -> pure V51
-        "5.3" -> pure V53
+        "5.1" -> pure V5_1
+        "5.3" -> pure V5_3
         e -> fromTextError $ "Failure parsing ClientVersion from value: '" <> e
            <> "'. Accepted values: 5.1, 5.3"
 
 instance ToText ClientVersion where
     toText = \case
-        V51 -> "5.1"
-        V53 -> "5.3"
+        V5_1 -> "5.1"
+        V5_3 -> "5.3"
 
 instance Hashable ClientVersion
 instance ToQuery ClientVersion

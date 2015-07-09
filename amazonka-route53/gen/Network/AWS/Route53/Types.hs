@@ -616,45 +616,45 @@ instance ToXML TagResourceType where
     toXML = toXMLText
 
 data VPCRegion
-    = APNortheast1
-    | SAEast1
-    | CNNorth1
-    | USWest2
-    | EUWest1
-    | USEast1
-    | USWest1
-    | EUCentral1
-    | APSoutheast2
-    | APSoutheast1
+    = ApNortheast1
+    | SaEast1
+    | CnNorth1
+    | UsWest2
+    | UsEast1
+    | EuWest1
+    | EuCentral1
+    | UsWest1
+    | ApSoutheast2
+    | ApSoutheast1
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VPCRegion where
     parser = takeLowerText >>= \case
-        "ap-northeast-1" -> pure APNortheast1
-        "ap-southeast-1" -> pure APSoutheast1
-        "ap-southeast-2" -> pure APSoutheast2
-        "cn-north-1" -> pure CNNorth1
-        "eu-central-1" -> pure EUCentral1
-        "eu-west-1" -> pure EUWest1
-        "sa-east-1" -> pure SAEast1
-        "us-east-1" -> pure USEast1
-        "us-west-1" -> pure USWest1
-        "us-west-2" -> pure USWest2
+        "ap-northeast-1" -> pure ApNortheast1
+        "ap-southeast-1" -> pure ApSoutheast1
+        "ap-southeast-2" -> pure ApSoutheast2
+        "cn-north-1" -> pure CnNorth1
+        "eu-central-1" -> pure EuCentral1
+        "eu-west-1" -> pure EuWest1
+        "sa-east-1" -> pure SaEast1
+        "us-east-1" -> pure UsEast1
+        "us-west-1" -> pure UsWest1
+        "us-west-2" -> pure UsWest2
         e -> fromTextError $ "Failure parsing VPCRegion from value: '" <> e
            <> "'. Accepted values: ap-northeast-1, ap-southeast-1, ap-southeast-2, cn-north-1, eu-central-1, eu-west-1, sa-east-1, us-east-1, us-west-1, us-west-2"
 
 instance ToText VPCRegion where
     toText = \case
-        APNortheast1 -> "ap-northeast-1"
-        APSoutheast1 -> "ap-southeast-1"
-        APSoutheast2 -> "ap-southeast-2"
-        CNNorth1 -> "cn-north-1"
-        EUCentral1 -> "eu-central-1"
-        EUWest1 -> "eu-west-1"
-        SAEast1 -> "sa-east-1"
-        USEast1 -> "us-east-1"
-        USWest1 -> "us-west-1"
-        USWest2 -> "us-west-2"
+        ApNortheast1 -> "ap-northeast-1"
+        ApSoutheast1 -> "ap-southeast-1"
+        ApSoutheast2 -> "ap-southeast-2"
+        CnNorth1 -> "cn-north-1"
+        EuCentral1 -> "eu-central-1"
+        EuWest1 -> "eu-west-1"
+        SaEast1 -> "sa-east-1"
+        UsEast1 -> "us-east-1"
+        UsWest1 -> "us-west-1"
+        UsWest2 -> "us-west-2"
 
 instance Hashable VPCRegion
 instance ToQuery VPCRegion

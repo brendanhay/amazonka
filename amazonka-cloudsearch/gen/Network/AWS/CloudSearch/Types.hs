@@ -414,7 +414,7 @@ data AnalysisSchemeLanguage
     | HI
     | EL
     | HY
-    | ZHHant
+    | ZhHant
     | NO
     | PT
     | FR
@@ -428,8 +428,8 @@ data AnalysisSchemeLanguage
     | CS
     | GL
     | EN
+    | ZhHans
     | TR
-    | ZHHans
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText AnalysisSchemeLanguage where
@@ -467,8 +467,8 @@ instance FromText AnalysisSchemeLanguage where
         "sv" -> pure SV
         "th" -> pure TH
         "tr" -> pure TR
-        "zh-hans" -> pure ZHHans
-        "zh-hant" -> pure ZHHant
+        "zh-hans" -> pure ZhHans
+        "zh-hant" -> pure ZhHant
         e -> fromTextError $ "Failure parsing AnalysisSchemeLanguage from value: '" <> e
            <> "'. Accepted values: ar, bg, ca, cs, da, de, el, en, es, eu, fa, fi, fr, ga, gl, he, hi, hu, hy, it, id, ja, ko, lv, mul, nl, no, pt, ro, ru, sv, th, tr, zh-hans, zh-hant"
 
@@ -507,8 +507,8 @@ instance ToText AnalysisSchemeLanguage where
         SV -> "sv"
         TH -> "th"
         TR -> "tr"
-        ZHHans -> "zh-hans"
-        ZHHant -> "zh-hant"
+        ZhHans -> "zh-hans"
+        ZhHant -> "zh-hant"
 
 instance Hashable AnalysisSchemeLanguage
 instance ToQuery AnalysisSchemeLanguage
@@ -617,39 +617,39 @@ instance FromXML OptionState where
 -- | The instance type (such as @search.m1.small@) on which an index
 -- partition is hosted.
 data PartitionInstanceType
-    = SearchM32XLarge
-    | SearchM3Large
-    | SearchM3Medium
-    | SearchM22XLarge
-    | SearchM2XLarge
-    | SearchM1Large
-    | SearchM1Small
-    | SearchM3XLarge
+    = Search_M1_Large
+    | Search_M3_XLarge
+    | Search_M1_Small
+    | Search_M2_2XLarge
+    | Search_M2_XLarge
+    | Search_M3_2XLarge
+    | Search_M3_Large
+    | Search_M3_Medium
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText PartitionInstanceType where
     parser = takeLowerText >>= \case
-        "search.m1.large" -> pure SearchM1Large
-        "search.m1.small" -> pure SearchM1Small
-        "search.m2.2xlarge" -> pure SearchM22XLarge
-        "search.m2.xlarge" -> pure SearchM2XLarge
-        "search.m3.2xlarge" -> pure SearchM32XLarge
-        "search.m3.large" -> pure SearchM3Large
-        "search.m3.medium" -> pure SearchM3Medium
-        "search.m3.xlarge" -> pure SearchM3XLarge
+        "search.m1.large" -> pure Search_M1_Large
+        "search.m1.small" -> pure Search_M1_Small
+        "search.m2.2xlarge" -> pure Search_M2_2XLarge
+        "search.m2.xlarge" -> pure Search_M2_XLarge
+        "search.m3.2xlarge" -> pure Search_M3_2XLarge
+        "search.m3.large" -> pure Search_M3_Large
+        "search.m3.medium" -> pure Search_M3_Medium
+        "search.m3.xlarge" -> pure Search_M3_XLarge
         e -> fromTextError $ "Failure parsing PartitionInstanceType from value: '" <> e
            <> "'. Accepted values: search.m1.large, search.m1.small, search.m2.2xlarge, search.m2.xlarge, search.m3.2xlarge, search.m3.large, search.m3.medium, search.m3.xlarge"
 
 instance ToText PartitionInstanceType where
     toText = \case
-        SearchM1Large -> "search.m1.large"
-        SearchM1Small -> "search.m1.small"
-        SearchM22XLarge -> "search.m2.2xlarge"
-        SearchM2XLarge -> "search.m2.xlarge"
-        SearchM32XLarge -> "search.m3.2xlarge"
-        SearchM3Large -> "search.m3.large"
-        SearchM3Medium -> "search.m3.medium"
-        SearchM3XLarge -> "search.m3.xlarge"
+        Search_M1_Large -> "search.m1.large"
+        Search_M1_Small -> "search.m1.small"
+        Search_M2_2XLarge -> "search.m2.2xlarge"
+        Search_M2_XLarge -> "search.m2.xlarge"
+        Search_M3_2XLarge -> "search.m3.2xlarge"
+        Search_M3_Large -> "search.m3.large"
+        Search_M3_Medium -> "search.m3.medium"
+        Search_M3_XLarge -> "search.m3.xlarge"
 
 instance Hashable PartitionInstanceType
 instance ToQuery PartitionInstanceType

@@ -2252,18 +2252,18 @@ instance ToQuery FlowLogsResourceType
 instance ToHeader FlowLogsResourceType
 
 data GatewayType =
-    IPsec1
+    IPsec_1
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText GatewayType where
     parser = takeLowerText >>= \case
-        "ipsec.1" -> pure IPsec1
+        "ipsec.1" -> pure IPsec_1
         e -> fromTextError $ "Failure parsing GatewayType from value: '" <> e
            <> "'. Accepted values: ipsec.1"
 
 instance ToText GatewayType where
     toText = \case
-        IPsec1 -> "ipsec.1"
+        IPsec_1 -> "ipsec.1"
 
 instance Hashable GatewayType
 instance ToQuery GatewayType
@@ -2510,174 +2510,174 @@ instance FromXML InstanceStateName where
     parseXML = parseXMLText "InstanceStateName"
 
 data InstanceType
-    = I22XLarge
-    | D24XLarge
-    | CC28XLarge
-    | C1Medium
-    | C48XLarge
-    | C4XLarge
-    | I24XLarge
-    | C4Large
-    | C3XLarge
-    | CR18XLarge
-    | M410XLarge
-    | C42XLarge
-    | CC14XLarge
-    | D28XLarge
-    | T2Large
-    | M3Large
-    | M3Medium
-    | T2Medium
-    | M24XLarge
-    | R32XLarge
-    | M42XLarge
-    | M1XLarge
-    | M32XLarge
-    | D22XLarge
-    | T2Small
-    | CG14XLarge
-    | R3Large
-    | M4XLarge
-    | M4Large
-    | T2Micro
-    | R3XLarge
-    | R38XLarge
-    | HS18XLarge
-    | C1XLarge
-    | T1Micro
-    | C32XLarge
-    | G22XLarge
-    | M2XLarge
-    | C3Large
-    | C38XLarge
-    | R34XLarge
-    | M44XLarge
-    | M22XLarge
-    | D2XLarge
-    | M1Small
-    | M3XLarge
-    | I2XLarge
-    | C44XLarge
-    | I28XLarge
-    | HI14XLarge
-    | C34XLarge
-    | M1Large
-    | M1Medium
+    = D2_XLarge
+    | M3_XLarge
+    | D2_8XLarge
+    | T2_Large
+    | M3_Large
+    | R3_4XLarge
+    | M2_2XLarge
+    | M4_4XLarge
+    | CR1_8XLarge
+    | M4_10XLarge
+    | C4_XLarge
+    | G2_2XLarge
+    | D2_4XLarge
+    | CC2_8XLarge
+    | T1_Micro
+    | C1_XLarge
+    | R3_Large
+    | R3_8XLarge
+    | M4_Large
+    | CG1_4XLarge
+    | HI1_4XLarge
+    | C3_4XLarge
+    | M1_XLarge
+    | M1_Large
+    | R3_2XLarge
+    | I2_XLarge
+    | M2_4XLarge
+    | M4_2XLarge
+    | M3_Medium
+    | T2_Medium
+    | M1_Small
+    | C4_2XLarge
+    | CC1_4XLarge
+    | C3_XLarge
+    | C3_Large
+    | C3_8XLarge
+    | M2_XLarge
+    | I2_4XLarge
+    | C4_Large
+    | C4_8XLarge
+    | C1_Medium
+    | HS1_8XLarge
+    | C3_2XLarge
+    | I2_2XLarge
+    | M4_XLarge
+    | T2_Micro
+    | R3_XLarge
+    | T2_Small
+    | M3_2XLarge
+    | M1_Medium
+    | D2_2XLarge
+    | I2_8XLarge
+    | C4_4XLarge
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText InstanceType where
     parser = takeLowerText >>= \case
-        "c1.medium" -> pure C1Medium
-        "c1.xlarge" -> pure C1XLarge
-        "c3.2xlarge" -> pure C32XLarge
-        "c3.4xlarge" -> pure C34XLarge
-        "c3.8xlarge" -> pure C38XLarge
-        "c3.large" -> pure C3Large
-        "c3.xlarge" -> pure C3XLarge
-        "c4.2xlarge" -> pure C42XLarge
-        "c4.4xlarge" -> pure C44XLarge
-        "c4.8xlarge" -> pure C48XLarge
-        "c4.large" -> pure C4Large
-        "c4.xlarge" -> pure C4XLarge
-        "cc1.4xlarge" -> pure CC14XLarge
-        "cc2.8xlarge" -> pure CC28XLarge
-        "cg1.4xlarge" -> pure CG14XLarge
-        "cr1.8xlarge" -> pure CR18XLarge
-        "d2.2xlarge" -> pure D22XLarge
-        "d2.4xlarge" -> pure D24XLarge
-        "d2.8xlarge" -> pure D28XLarge
-        "d2.xlarge" -> pure D2XLarge
-        "g2.2xlarge" -> pure G22XLarge
-        "hi1.4xlarge" -> pure HI14XLarge
-        "hs1.8xlarge" -> pure HS18XLarge
-        "i2.2xlarge" -> pure I22XLarge
-        "i2.4xlarge" -> pure I24XLarge
-        "i2.8xlarge" -> pure I28XLarge
-        "i2.xlarge" -> pure I2XLarge
-        "m1.large" -> pure M1Large
-        "m1.medium" -> pure M1Medium
-        "m1.small" -> pure M1Small
-        "m1.xlarge" -> pure M1XLarge
-        "m2.2xlarge" -> pure M22XLarge
-        "m2.4xlarge" -> pure M24XLarge
-        "m2.xlarge" -> pure M2XLarge
-        "m3.2xlarge" -> pure M32XLarge
-        "m3.large" -> pure M3Large
-        "m3.medium" -> pure M3Medium
-        "m3.xlarge" -> pure M3XLarge
-        "m4.10xlarge" -> pure M410XLarge
-        "m4.2xlarge" -> pure M42XLarge
-        "m4.4xlarge" -> pure M44XLarge
-        "m4.large" -> pure M4Large
-        "m4.xlarge" -> pure M4XLarge
-        "r3.2xlarge" -> pure R32XLarge
-        "r3.4xlarge" -> pure R34XLarge
-        "r3.8xlarge" -> pure R38XLarge
-        "r3.large" -> pure R3Large
-        "r3.xlarge" -> pure R3XLarge
-        "t1.micro" -> pure T1Micro
-        "t2.large" -> pure T2Large
-        "t2.medium" -> pure T2Medium
-        "t2.micro" -> pure T2Micro
-        "t2.small" -> pure T2Small
+        "c1.medium" -> pure C1_Medium
+        "c1.xlarge" -> pure C1_XLarge
+        "c3.2xlarge" -> pure C3_2XLarge
+        "c3.4xlarge" -> pure C3_4XLarge
+        "c3.8xlarge" -> pure C3_8XLarge
+        "c3.large" -> pure C3_Large
+        "c3.xlarge" -> pure C3_XLarge
+        "c4.2xlarge" -> pure C4_2XLarge
+        "c4.4xlarge" -> pure C4_4XLarge
+        "c4.8xlarge" -> pure C4_8XLarge
+        "c4.large" -> pure C4_Large
+        "c4.xlarge" -> pure C4_XLarge
+        "cc1.4xlarge" -> pure CC1_4XLarge
+        "cc2.8xlarge" -> pure CC2_8XLarge
+        "cg1.4xlarge" -> pure CG1_4XLarge
+        "cr1.8xlarge" -> pure CR1_8XLarge
+        "d2.2xlarge" -> pure D2_2XLarge
+        "d2.4xlarge" -> pure D2_4XLarge
+        "d2.8xlarge" -> pure D2_8XLarge
+        "d2.xlarge" -> pure D2_XLarge
+        "g2.2xlarge" -> pure G2_2XLarge
+        "hi1.4xlarge" -> pure HI1_4XLarge
+        "hs1.8xlarge" -> pure HS1_8XLarge
+        "i2.2xlarge" -> pure I2_2XLarge
+        "i2.4xlarge" -> pure I2_4XLarge
+        "i2.8xlarge" -> pure I2_8XLarge
+        "i2.xlarge" -> pure I2_XLarge
+        "m1.large" -> pure M1_Large
+        "m1.medium" -> pure M1_Medium
+        "m1.small" -> pure M1_Small
+        "m1.xlarge" -> pure M1_XLarge
+        "m2.2xlarge" -> pure M2_2XLarge
+        "m2.4xlarge" -> pure M2_4XLarge
+        "m2.xlarge" -> pure M2_XLarge
+        "m3.2xlarge" -> pure M3_2XLarge
+        "m3.large" -> pure M3_Large
+        "m3.medium" -> pure M3_Medium
+        "m3.xlarge" -> pure M3_XLarge
+        "m4.10xlarge" -> pure M4_10XLarge
+        "m4.2xlarge" -> pure M4_2XLarge
+        "m4.4xlarge" -> pure M4_4XLarge
+        "m4.large" -> pure M4_Large
+        "m4.xlarge" -> pure M4_XLarge
+        "r3.2xlarge" -> pure R3_2XLarge
+        "r3.4xlarge" -> pure R3_4XLarge
+        "r3.8xlarge" -> pure R3_8XLarge
+        "r3.large" -> pure R3_Large
+        "r3.xlarge" -> pure R3_XLarge
+        "t1.micro" -> pure T1_Micro
+        "t2.large" -> pure T2_Large
+        "t2.medium" -> pure T2_Medium
+        "t2.micro" -> pure T2_Micro
+        "t2.small" -> pure T2_Small
         e -> fromTextError $ "Failure parsing InstanceType from value: '" <> e
            <> "'. Accepted values: c1.medium, c1.xlarge, c3.2xlarge, c3.4xlarge, c3.8xlarge, c3.large, c3.xlarge, c4.2xlarge, c4.4xlarge, c4.8xlarge, c4.large, c4.xlarge, cc1.4xlarge, cc2.8xlarge, cg1.4xlarge, cr1.8xlarge, d2.2xlarge, d2.4xlarge, d2.8xlarge, d2.xlarge, g2.2xlarge, hi1.4xlarge, hs1.8xlarge, i2.2xlarge, i2.4xlarge, i2.8xlarge, i2.xlarge, m1.large, m1.medium, m1.small, m1.xlarge, m2.2xlarge, m2.4xlarge, m2.xlarge, m3.2xlarge, m3.large, m3.medium, m3.xlarge, m4.10xlarge, m4.2xlarge, m4.4xlarge, m4.large, m4.xlarge, r3.2xlarge, r3.4xlarge, r3.8xlarge, r3.large, r3.xlarge, t1.micro, t2.large, t2.medium, t2.micro, t2.small"
 
 instance ToText InstanceType where
     toText = \case
-        C1Medium -> "c1.medium"
-        C1XLarge -> "c1.xlarge"
-        C32XLarge -> "c3.2xlarge"
-        C34XLarge -> "c3.4xlarge"
-        C38XLarge -> "c3.8xlarge"
-        C3Large -> "c3.large"
-        C3XLarge -> "c3.xlarge"
-        C42XLarge -> "c4.2xlarge"
-        C44XLarge -> "c4.4xlarge"
-        C48XLarge -> "c4.8xlarge"
-        C4Large -> "c4.large"
-        C4XLarge -> "c4.xlarge"
-        CC14XLarge -> "cc1.4xlarge"
-        CC28XLarge -> "cc2.8xlarge"
-        CG14XLarge -> "cg1.4xlarge"
-        CR18XLarge -> "cr1.8xlarge"
-        D22XLarge -> "d2.2xlarge"
-        D24XLarge -> "d2.4xlarge"
-        D28XLarge -> "d2.8xlarge"
-        D2XLarge -> "d2.xlarge"
-        G22XLarge -> "g2.2xlarge"
-        HI14XLarge -> "hi1.4xlarge"
-        HS18XLarge -> "hs1.8xlarge"
-        I22XLarge -> "i2.2xlarge"
-        I24XLarge -> "i2.4xlarge"
-        I28XLarge -> "i2.8xlarge"
-        I2XLarge -> "i2.xlarge"
-        M1Large -> "m1.large"
-        M1Medium -> "m1.medium"
-        M1Small -> "m1.small"
-        M1XLarge -> "m1.xlarge"
-        M22XLarge -> "m2.2xlarge"
-        M24XLarge -> "m2.4xlarge"
-        M2XLarge -> "m2.xlarge"
-        M32XLarge -> "m3.2xlarge"
-        M3Large -> "m3.large"
-        M3Medium -> "m3.medium"
-        M3XLarge -> "m3.xlarge"
-        M410XLarge -> "m4.10xlarge"
-        M42XLarge -> "m4.2xlarge"
-        M44XLarge -> "m4.4xlarge"
-        M4Large -> "m4.large"
-        M4XLarge -> "m4.xlarge"
-        R32XLarge -> "r3.2xlarge"
-        R34XLarge -> "r3.4xlarge"
-        R38XLarge -> "r3.8xlarge"
-        R3Large -> "r3.large"
-        R3XLarge -> "r3.xlarge"
-        T1Micro -> "t1.micro"
-        T2Large -> "t2.large"
-        T2Medium -> "t2.medium"
-        T2Micro -> "t2.micro"
-        T2Small -> "t2.small"
+        C1_Medium -> "c1.medium"
+        C1_XLarge -> "c1.xlarge"
+        C3_2XLarge -> "c3.2xlarge"
+        C3_4XLarge -> "c3.4xlarge"
+        C3_8XLarge -> "c3.8xlarge"
+        C3_Large -> "c3.large"
+        C3_XLarge -> "c3.xlarge"
+        C4_2XLarge -> "c4.2xlarge"
+        C4_4XLarge -> "c4.4xlarge"
+        C4_8XLarge -> "c4.8xlarge"
+        C4_Large -> "c4.large"
+        C4_XLarge -> "c4.xlarge"
+        CC1_4XLarge -> "cc1.4xlarge"
+        CC2_8XLarge -> "cc2.8xlarge"
+        CG1_4XLarge -> "cg1.4xlarge"
+        CR1_8XLarge -> "cr1.8xlarge"
+        D2_2XLarge -> "d2.2xlarge"
+        D2_4XLarge -> "d2.4xlarge"
+        D2_8XLarge -> "d2.8xlarge"
+        D2_XLarge -> "d2.xlarge"
+        G2_2XLarge -> "g2.2xlarge"
+        HI1_4XLarge -> "hi1.4xlarge"
+        HS1_8XLarge -> "hs1.8xlarge"
+        I2_2XLarge -> "i2.2xlarge"
+        I2_4XLarge -> "i2.4xlarge"
+        I2_8XLarge -> "i2.8xlarge"
+        I2_XLarge -> "i2.xlarge"
+        M1_Large -> "m1.large"
+        M1_Medium -> "m1.medium"
+        M1_Small -> "m1.small"
+        M1_XLarge -> "m1.xlarge"
+        M2_2XLarge -> "m2.2xlarge"
+        M2_4XLarge -> "m2.4xlarge"
+        M2_XLarge -> "m2.xlarge"
+        M3_2XLarge -> "m3.2xlarge"
+        M3_Large -> "m3.large"
+        M3_Medium -> "m3.medium"
+        M3_XLarge -> "m3.xlarge"
+        M4_10XLarge -> "m4.10xlarge"
+        M4_2XLarge -> "m4.2xlarge"
+        M4_4XLarge -> "m4.4xlarge"
+        M4_Large -> "m4.large"
+        M4_XLarge -> "m4.xlarge"
+        R3_2XLarge -> "r3.2xlarge"
+        R3_4XLarge -> "r3.4xlarge"
+        R3_8XLarge -> "r3.8xlarge"
+        R3_Large -> "r3.large"
+        R3_XLarge -> "r3.xlarge"
+        T1_Micro -> "t1.micro"
+        T2_Large -> "t2.large"
+        T2_Medium -> "t2.medium"
+        T2_Micro -> "t2.micro"
+        T2_Small -> "t2.small"
 
 instance Hashable InstanceType
 instance ToQuery InstanceType
@@ -2846,7 +2846,7 @@ instance ToQuery NetworkInterfaceAttribute
 instance ToHeader NetworkInterfaceAttribute
 
 data NetworkInterfaceStatus
-    = NISINUse
+    = NISInUse
     | NISAttaching
     | NISAvailable
     | NISDetaching
@@ -2857,7 +2857,7 @@ instance FromText NetworkInterfaceStatus where
         "attaching" -> pure NISAttaching
         "available" -> pure NISAvailable
         "detaching" -> pure NISDetaching
-        "in-use" -> pure NISINUse
+        "in-use" -> pure NISInUse
         e -> fromTextError $ "Failure parsing NetworkInterfaceStatus from value: '" <> e
            <> "'. Accepted values: attaching, available, detaching, in-use"
 
@@ -2866,7 +2866,7 @@ instance ToText NetworkInterfaceStatus where
         NISAttaching -> "attaching"
         NISAvailable -> "available"
         NISDetaching -> "detaching"
-        NISINUse -> "in-use"
+        NISInUse -> "in-use"
 
 instance Hashable NetworkInterfaceStatus
 instance ToQuery NetworkInterfaceStatus
@@ -2877,7 +2877,7 @@ instance FromXML NetworkInterfaceStatus where
 
 data OfferingTypeValues
     = MediumUtilization
-    | NOUpfront
+    | NoUpfront
     | AllUpfront
     | HeavyUtilization
     | LightUtilization
@@ -2890,7 +2890,7 @@ instance FromText OfferingTypeValues where
         "heavy utilization" -> pure HeavyUtilization
         "light utilization" -> pure LightUtilization
         "medium utilization" -> pure MediumUtilization
-        "no upfront" -> pure NOUpfront
+        "no upfront" -> pure NoUpfront
         "partial upfront" -> pure PartialUpfront
         e -> fromTextError $ "Failure parsing OfferingTypeValues from value: '" <> e
            <> "'. Accepted values: all upfront, heavy utilization, light utilization, medium utilization, no upfront, partial upfront"
@@ -2901,7 +2901,7 @@ instance ToText OfferingTypeValues where
         HeavyUtilization -> "heavy utilization"
         LightUtilization -> "light utilization"
         MediumUtilization -> "medium utilization"
-        NOUpfront -> "no upfront"
+        NoUpfront -> "no upfront"
         PartialUpfront -> "partial upfront"
 
 instance Hashable OfferingTypeValues
@@ -3084,7 +3084,7 @@ data ReportInstanceReasonCodes
     | Other
     | Unresponsive
     | NotAcceptingCredentials
-    | InstanceStuckINState
+    | InstanceStuckInState
     | PerformanceNetwork
     | PerformanceInstanceStore
     | PerformanceEBSVolume
@@ -3093,7 +3093,7 @@ data ReportInstanceReasonCodes
 
 instance FromText ReportInstanceReasonCodes where
     parser = takeLowerText >>= \case
-        "instance-stuck-in-state" -> pure InstanceStuckINState
+        "instance-stuck-in-state" -> pure InstanceStuckInState
         "not-accepting-credentials" -> pure NotAcceptingCredentials
         "other" -> pure Other
         "password-not-available" -> pure PasswordNotAvailable
@@ -3107,7 +3107,7 @@ instance FromText ReportInstanceReasonCodes where
 
 instance ToText ReportInstanceReasonCodes where
     toText = \case
-        InstanceStuckINState -> "instance-stuck-in-state"
+        InstanceStuckInState -> "instance-stuck-in-state"
         NotAcceptingCredentials -> "not-accepting-credentials"
         Other -> "other"
         PasswordNotAvailable -> "password-not-available"
@@ -3895,7 +3895,7 @@ data VolumeState
     | VolError'
     | VolDeleted
     | VolDeleting
-    | VolINUse
+    | VolInUse
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeState where
@@ -3905,7 +3905,7 @@ instance FromText VolumeState where
         "deleted" -> pure VolDeleted
         "deleting" -> pure VolDeleting
         "error" -> pure VolError'
-        "in-use" -> pure VolINUse
+        "in-use" -> pure VolInUse
         e -> fromTextError $ "Failure parsing VolumeState from value: '" <> e
            <> "'. Accepted values: available, creating, deleted, deleting, error, in-use"
 
@@ -3916,7 +3916,7 @@ instance ToText VolumeState where
         VolDeleted -> "deleted"
         VolDeleting -> "deleting"
         VolError' -> "error"
-        VolINUse -> "in-use"
+        VolInUse -> "in-use"
 
 instance Hashable VolumeState
 instance ToQuery VolumeState

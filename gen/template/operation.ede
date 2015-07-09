@@ -8,7 +8,7 @@
 
 {% include "_include/license.ede" %}
 --
-{{ documentation }}
+-- {{ documentation | stripPrefix("-- | ") }}
 --
 -- <{{ operationUrl }}{{ name }}.html>
 module {{ moduleName }}

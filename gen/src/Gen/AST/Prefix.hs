@@ -20,10 +20,6 @@ module Gen.AST.Prefix
     ( prefixes
     ) where
 
-import           Gen.AST.Cofree
-import           Gen.Formatting
-import           Gen.Text
-import           Gen.Types
 import           Control.Comonad.Cofree
 import           Control.Lens
 import           Control.Monad.Except
@@ -39,6 +35,10 @@ import           Data.Monoid
 import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import           Data.Text.Manipulate
+import           Gen.AST.Cofree
+import           Gen.Formatting
+import           Gen.Text
+import           Gen.Types
 
 type Seen = Map (CI Text) (Set (CI Text))
 
@@ -118,7 +118,7 @@ overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
 overlap xs ys = not . Set.null $ Set.intersection xs ys
 
 keys :: Map Id a -> Set (CI Text)
-keys = Set.fromList . map (^. ciId) . Map.keys
+keys = Set.fromList . map (^. typeId . to CI.mk) . Map.keys
 
 -- | Acronym preference list.
 heuristics :: Text -> [CI Text]

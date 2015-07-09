@@ -21,7 +21,6 @@ module Gen.Types.Id
     , mkId
 
     -- * Lenses
-    , ciId
     , memberId
     , typeId
     , ctorId
@@ -36,7 +35,6 @@ module Gen.Types.Id
     , replaceId
     ) where
 
-import           Gen.Text
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Lens
@@ -49,6 +47,7 @@ import           Data.Text              (Text)
 import qualified Data.Text              as Text
 import           Data.Text.Manipulate
 import           Debug.Trace
+import           Gen.Text
 
 -- | A class to extract identifiers from arbitrary products.
 class HasId a where
@@ -88,11 +87,8 @@ representation =
     lens (\(Id _ t)   -> t)
          (\(Id x _) t -> Id x (format t))
 
-ciId :: Getter Id (CI Text)
-ciId = to (\(Id x _) -> x)
-
 memberId :: Getter Id Text
-memberId = ciId . to CI.original
+memberId = to $ \(Id x _) -> CI.original x
 
 typeId :: Getter Id Text
 typeId = representation

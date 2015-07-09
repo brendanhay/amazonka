@@ -83,7 +83,10 @@
             ]
         },
         "BucketCannedACL": {
-            "enumPrefix": "Canned"
+            "enumPrefix": "B"
+        },
+        "ObjectCannedACL": {
+            "enumPrefix": "O"
         }
     }
 }

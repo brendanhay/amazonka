@@ -1,10 +1,10 @@
 {-# LANGUAGE OverloadedStrings #-}
 {-# LANGUAGE TypeFamilies      #-}
 
-{% include "_include/license.ede" %}
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
+{% include "_include/license.ede" %}
+--
 module {{ moduleName }} where
 
 {% for import in moduleImports %}

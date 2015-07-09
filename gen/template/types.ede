@@ -6,10 +6,10 @@
 {-# LANGUAGE TypeFamilies       #-}
 {-# LANGUAGE ViewPatterns       #-}
 
-{% include "_include/license.ede" %}
---
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
+{% include "_include/license.ede" %}
+--
 module {{ moduleName }}
     (
     -- * Service

@@ -74,24 +74,26 @@ renameService =
 renameBranch :: Text -> (Text, Text)
 renameBranch = bimap go Text.toLower . join (,)
   where
-    go = renameReserved
-       . upperAcronym
-       . Fold.foldMap g
-       . Text.split f
+    go x | Text.length x <= 2 = Text.toUpper x
+         | otherwise          =
+             renameReserved
+                 . upperAcronym
+                 . Fold.foldMap (Text.intercalate "_" . map h . Text.split g)
+                 $ Text.split f x
 
-    f x = x == '-'
-       || x == '.'
-       || x == ':'
-       || x == '\\'
+    f x = x == '\\'
        || x == '/'
        || x == '+'
        || x == ' '
-       || x == '_'
        || x == '('
        || x == ')'
+       || x == ':'
+       || x == '-'
+       || x == '_'
 
-    g x | Text.length x <= 1    = x
-        | Text.length x <= 2    = Text.toUpper x
+    g x = x == '.'
+
+    h x | Text.length x <= 1    = x
         | isDigit (Text.last x) = Text.toUpper x
         | Text.all isUpper x    = toPascal (Text.toLower x)
         | otherwise             = toPascal x
@@ -195,6 +197,9 @@ upperAcronym x = Fold.foldl' (flip (uncurry RE.replaceAll)) x xs
          , ("xlarge",        "XLarge")
          , ("Hapg",          "HAPG")
          , ("ID",            "Id")
+         , ("Eq([^u]|$)",    "EQ$1")
+         , ("Lt$",           "LT")
+         , ("Gt$",           "GT")
          ]
 
 camelAcronym :: Text -> Text

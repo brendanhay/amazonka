@@ -22,8 +22,10 @@ import qualified Data.Text                      as Text
 import           GHC.Exts                       (toList)
 import           Network.AWS.Data.List1
 import           Network.AWS.Data.Map
+import           Network.AWS.Data.Numeric
 import           Network.AWS.Data.Sensitive
 import           Network.AWS.Prelude
+import           Numeric.Natural
 import           Text.PrettyPrint
 import           Text.PrettyPrint.GenericPretty
 
@@ -80,3 +82,7 @@ instance Out RqBody where
 instance Out RsBody where
     docPrec _ = doc
     doc       = doc . show
+
+instance Out Nat where
+    docPrec _ = doc
+    doc       = doc . toInteger

@@ -375,15 +375,15 @@ instance ToJSON AttributeAction where
     toJSON = toJSONText
 
 data ComparisonOperator
-    = EQ
-    | GE
-    | GT
+    = GE
+    | EQ'
     | NE
     | Null
     | NotContains
+    | GT'
+    | LT'
     | IN
     | Between
-    | LT
     | Contains
     | BeginsWith
     | NotNull
@@ -395,12 +395,12 @@ instance FromText ComparisonOperator where
         "begins_with" -> pure BeginsWith
         "between" -> pure Between
         "contains" -> pure Contains
-        "eq" -> pure EQ
+        "eq" -> pure EQ'
         "ge" -> pure GE
-        "gt" -> pure GT
+        "gt" -> pure GT'
         "in" -> pure IN
         "le" -> pure LE
-        "lt" -> pure LT
+        "lt" -> pure LT'
         "ne" -> pure NE
         "not_contains" -> pure NotContains
         "not_null" -> pure NotNull
@@ -413,12 +413,12 @@ instance ToText ComparisonOperator where
         BeginsWith -> "begins_with"
         Between -> "between"
         Contains -> "contains"
-        EQ -> "eq"
+        EQ' -> "eq"
         GE -> "ge"
-        GT -> "gt"
+        GT' -> "gt"
         IN -> "in"
         LE -> "le"
-        LT -> "lt"
+        LT' -> "lt"
         NE -> "ne"
         NotContains -> "not_contains"
         NotNull -> "not_null"

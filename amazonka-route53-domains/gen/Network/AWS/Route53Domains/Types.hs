@@ -280,7 +280,6 @@ data CountryCode
     | AI
     | BB
     | SK
-    | GT
     | NU
     | KH
     | TO
@@ -339,8 +338,10 @@ data CountryCode
     | KG
     | FR
     | IE
+    | GT'
     | TK
     | NA
+    | LT'
     | LC
     | IN
     | FI
@@ -390,7 +391,6 @@ data CountryCode
     | CC
     | TL
     | MM
-    | LT
     | AQ
     | PH
     | CX
@@ -520,7 +520,7 @@ instance FromText CountryCode where
         "gn" -> pure GN
         "gq" -> pure GQ
         "gr" -> pure GR
-        "gt" -> pure GT
+        "gt" -> pure GT'
         "gu" -> pure GU
         "gw" -> pure GW
         "gy" -> pure GY
@@ -559,7 +559,7 @@ instance FromText CountryCode where
         "lk" -> pure LK
         "lr" -> pure LR
         "ls" -> pure LS
-        "lt" -> pure LT
+        "lt" -> pure LT'
         "lu" -> pure LU
         "lv" -> pure LV
         "ly" -> pure LY
@@ -754,7 +754,7 @@ instance ToText CountryCode where
         GN -> "gn"
         GQ -> "gq"
         GR -> "gr"
-        GT -> "gt"
+        GT' -> "gt"
         GU -> "gu"
         GW -> "gw"
         GY -> "gy"
@@ -793,7 +793,7 @@ instance ToText CountryCode where
         LK -> "lk"
         LR -> "lr"
         LS -> "ls"
-        LT -> "lt"
+        LT' -> "lt"
         LU -> "lu"
         LV -> "lv"
         LY -> "ly"

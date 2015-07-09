@@ -1,6 +1,6 @@
 {-# LANGUAGE OverloadedStrings #-}
 
--- Module      : Test.AWS..Internal
+-- Module      : Test.AWS.KMS.Internal
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : This Source Code Form is subject to the terms of
 --               the Mozilla Public License, v. 2.0.
@@ -10,6 +10,6 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Test.AWS..Internal
+module Test.AWS.KMS.Internal where
 
 import Test.AWS.Prelude

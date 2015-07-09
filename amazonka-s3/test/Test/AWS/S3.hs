@@ -27,7 +27,16 @@ tests = []
 fixtures :: [TestTree]
 fixtures =
     [ testGroup "response"
-        [ testCopyObjectResponse $
+        [ testGetBucketReplicationResponse $
+            getBucketReplicationResponse 200
+                & gbrrReplicationConfiguration ?~
+                   (replicationConfiguration "arn:aws:iam::35667example:role/CrossRegionReplicationRoleForS3"
+                       & rcRules .~
+                           [ replicationRule "" Enabled (destination "arn:aws:s3:::exampletargetbucket")
+                               & rrId ?~ "rule1"
+                           ])
+
+        , testCopyObjectResponse $
             copyObjectResponse 200
                 & corCopyObjectResult ?~
                     (copyObjectResult
@@ -35,6 +44,9 @@ fixtures =
                         & corLastModified ?~ $(mkTime "2009-10-28T22:32:00Z"))
         ]
     ]
+
+-- do GetBucketPolicy
+--    GetBucketReplication
 
 --
 --         , testCopyObjectResponse $

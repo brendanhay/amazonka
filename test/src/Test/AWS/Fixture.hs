@@ -17,43 +17,70 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 
-module Test.AWS.Fixture where
+module Test.AWS.Fixture
+    ( module Test.AWS.Fixture
+    , module Text.PrettyPrint.GenericPretty
+    ) where
 
 import           Control.Monad
 import           Control.Monad.Trans.Resource
-import qualified Data.Attoparsec.Text         as A
+import qualified Data.Attoparsec.Text           as A
 import           Data.Bifunctor
-import qualified Data.ByteString              as BS
-import qualified Data.ByteString.Char8        as BS8
-import qualified Data.ByteString.Lazy         as LBS
+import qualified Data.ByteString                as BS
+import qualified Data.ByteString.Char8          as BS8
+import qualified Data.ByteString.Lazy           as LBS
 import           Data.Conduit
-import qualified Data.Conduit.Binary          as Conduit
+import qualified Data.Conduit.Binary            as Conduit
 import           Data.Proxy
-import qualified Data.Text                    as Text
+import qualified Data.Text                      as Text
 import           Data.Typeable
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Quote
 import           Network.AWS.Data.XML
-import           Network.AWS.Prelude          hiding ((<.>))
+import           Network.AWS.Prelude            hiding ((<.>))
 import           Network.AWS.Types
-import           Network.HTTP.Client.Internal hiding (Proxy, Request, Response)
-import qualified Network.HTTP.Client.Internal as Client
+import           Network.HTTP.Client.Internal   hiding (Proxy, Request,
+                                                 Response)
+import qualified Network.HTTP.Client.Internal   as Client
 import           Network.HTTP.Types
 import           System.Directory
 import           System.FilePath
 import           Test.Tasty
 import           Test.Tasty.Golden
 import           Test.Tasty.HUnit
+-- import           Text.Show.Pretty
+import           Text.PrettyPrint
+import           Text.PrettyPrint.GenericPretty
 
-resp :: (AWSRequest a, Eq (Rs a), Show (Rs a))
+resp :: (AWSRequest a, Eq (Rs a), Out (Rs a))
      => TestName
      -> FilePath
      -> Proxy a
      -> Rs a
      -> TestTree
-resp n f p e = testCase n $ do
-    a <- LBS.readFile f >>= mockResponse p
-    Right e @=? a
+resp n f p e = testCase n (LBS.readFile f >>= mockResponse p >>= assertEq)
+  where
+    assertEq (Left  m) = assertFailure m
+    assertEq (Right a) = unless (e == a) (assertFailure m)
+      where
+        m = "[Expected]:\n  " ++ prettyStyle s e ++ "\n["
+             ++ f ++ "]:\n  " ++ prettyStyle s a
+
+        s = Style
+            { mode           = PageMode
+            , lineLength     = 80
+            , ribbonsPerLine = 1.5
+            }
+
+instance Out Text where
+    docPrec _ = doc
+    doc = doc . Text.unpack
+
+instance Out (Time a)
+
+instance Out UTCTime where
+    docPrec _ = doc
+    doc = doc . show
 
 mockResponse :: forall a. (AWSService (Sv a), AWSRequest a)
              => Proxy a

@@ -36,6 +36,7 @@ library
         , filepath
         , http-client
         , http-types
+        , pretty-show
         , resourcet
         , tasty
         , tasty-golden
@@ -43,3 +44,5 @@ library
         , template-haskell
         , text
         , time
+        , pretty
+        , GenericPretty

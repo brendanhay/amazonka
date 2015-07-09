@@ -211,7 +211,7 @@ module Network.AWS.S3.Types
     , grantee
     , graURI
     , graEmailAddress
-    , graID
+    , graId
     , graDisplayName
     , graType
 
@@ -223,7 +223,7 @@ module Network.AWS.S3.Types
     -- * Initiator
     , Initiator
     , initiator
-    , iniID
+    , iniId
     , iniDisplayName
 
     -- * LambdaFunctionConfiguration
@@ -310,7 +310,7 @@ module Network.AWS.S3.Types
     -- * Owner
     , Owner
     , owner
-    , ownID
+    , ownId
     , ownDisplayName
 
     -- * Part
@@ -352,7 +352,7 @@ module Network.AWS.S3.Types
     -- * ReplicationRule
     , ReplicationRule
     , replicationRule
-    , rrID
+    , rrId
     , rrPrefix
     , rrStatus
     , rrDestination
@@ -380,7 +380,7 @@ module Network.AWS.S3.Types
     , rulTransition
     , rulExpiration
     , rulNoncurrentVersionTransition
-    , rulID
+    , rulId
     , rulPrefix
     , rulStatus
 
@@ -1814,7 +1814,7 @@ instance ToXML Grant where
 --
 -- * 'graEmailAddress'
 --
--- * 'graID'
+-- * 'graId'
 --
 -- * 'graDisplayName'
 --
@@ -1822,7 +1822,7 @@ instance ToXML Grant where
 data Grantee = Grantee'
     { _graURI          :: !(Maybe Text)
     , _graEmailAddress :: !(Maybe Text)
-    , _graID           :: !(Maybe Text)
+    , _graId           :: !(Maybe Text)
     , _graDisplayName  :: !(Maybe Text)
     , _graType         :: !Type
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -1833,7 +1833,7 @@ grantee pType =
     Grantee'
     { _graURI = Nothing
     , _graEmailAddress = Nothing
-    , _graID = Nothing
+    , _graId = Nothing
     , _graDisplayName = Nothing
     , _graType = pType
     }
@@ -1847,8 +1847,8 @@ graEmailAddress :: Lens' Grantee (Maybe Text)
 graEmailAddress = lens _graEmailAddress (\ s a -> s{_graEmailAddress = a});
 
 -- | The canonical user ID of the grantee.
-graID :: Lens' Grantee (Maybe Text)
-graID = lens _graID (\ s a -> s{_graID = a});
+graId :: Lens' Grantee (Maybe Text)
+graId = lens _graId (\ s a -> s{_graId = a});
 
 -- | Screen name of the grantee.
 graDisplayName :: Lens' Grantee (Maybe Text)
@@ -1870,7 +1870,7 @@ instance ToXML Grantee where
         toXML Grantee'{..}
           = mconcat
               ["URI" @= _graURI,
-               "EmailAddress" @= _graEmailAddress, "ID" @= _graID,
+               "EmailAddress" @= _graEmailAddress, "ID" @= _graId,
                "DisplayName" @= _graDisplayName,
                "xsi:type" @= _graType]
 
@@ -1909,11 +1909,11 @@ instance ToXML IndexDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iniID'
+-- * 'iniId'
 --
 -- * 'iniDisplayName'
 data Initiator = Initiator'
-    { _iniID          :: !(Maybe Text)
+    { _iniId          :: !(Maybe Text)
     , _iniDisplayName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -1921,14 +1921,14 @@ data Initiator = Initiator'
 initiator :: Initiator
 initiator =
     Initiator'
-    { _iniID = Nothing
+    { _iniId = Nothing
     , _iniDisplayName = Nothing
     }
 
 -- | If the principal is an AWS account, it provides the Canonical User ID.
 -- If the principal is an IAM User, it provides a user ARN value.
-iniID :: Lens' Initiator (Maybe Text)
-iniID = lens _iniID (\ s a -> s{_iniID = a});
+iniId :: Lens' Initiator (Maybe Text)
+iniId = lens _iniId (\ s a -> s{_iniId = a});
 
 -- | Name of the Principal.
 iniDisplayName :: Lens' Initiator (Maybe Text)
@@ -2522,11 +2522,11 @@ instance FromXML ObjectVersion where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ownID'
+-- * 'ownId'
 --
 -- * 'ownDisplayName'
 data Owner = Owner'
-    { _ownID          :: !(Maybe Text)
+    { _ownId          :: !(Maybe Text)
     , _ownDisplayName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -2534,13 +2534,13 @@ data Owner = Owner'
 owner :: Owner
 owner =
     Owner'
-    { _ownID = Nothing
+    { _ownId = Nothing
     , _ownDisplayName = Nothing
     }
 
 -- | FIXME: Undocumented member.
-ownID :: Lens' Owner (Maybe Text)
-ownID = lens _ownID (\ s a -> s{_ownID = a});
+ownId :: Lens' Owner (Maybe Text)
+ownId = lens _ownId (\ s a -> s{_ownId = a});
 
 -- | FIXME: Undocumented member.
 ownDisplayName :: Lens' Owner (Maybe Text)
@@ -2553,7 +2553,7 @@ instance FromXML Owner where
 instance ToXML Owner where
         toXML Owner'{..}
           = mconcat
-              ["ID" @= _ownID, "DisplayName" @= _ownDisplayName]
+              ["ID" @= _ownId, "DisplayName" @= _ownDisplayName]
 
 -- | /See:/ 'part' smart constructor.
 --
@@ -2824,7 +2824,7 @@ instance ToXML ReplicationConfiguration where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrID'
+-- * 'rrId'
 --
 -- * 'rrPrefix'
 --
@@ -2832,7 +2832,7 @@ instance ToXML ReplicationConfiguration where
 --
 -- * 'rrDestination'
 data ReplicationRule = ReplicationRule'
-    { _rrID          :: !(Maybe Text)
+    { _rrId          :: !(Maybe Text)
     , _rrPrefix      :: !Text
     , _rrStatus      :: !ReplicationRuleStatus
     , _rrDestination :: !Destination
@@ -2842,7 +2842,7 @@ data ReplicationRule = ReplicationRule'
 replicationRule :: Text -> ReplicationRuleStatus -> Destination -> ReplicationRule
 replicationRule pPrefix pStatus pDestination =
     ReplicationRule'
-    { _rrID = Nothing
+    { _rrId = Nothing
     , _rrPrefix = pPrefix
     , _rrStatus = pStatus
     , _rrDestination = pDestination
@@ -2850,8 +2850,8 @@ replicationRule pPrefix pStatus pDestination =
 
 -- | Unique identifier for the rule. The value cannot be longer than 255
 -- characters.
-rrID :: Lens' ReplicationRule (Maybe Text)
-rrID = lens _rrID (\ s a -> s{_rrID = a});
+rrId :: Lens' ReplicationRule (Maybe Text)
+rrId = lens _rrId (\ s a -> s{_rrId = a});
 
 -- | Object keyname prefix identifying one or more objects to which the rule
 -- applies. Maximum prefix length can be up to 1,024 characters.
@@ -2876,7 +2876,7 @@ instance FromXML ReplicationRule where
 instance ToXML ReplicationRule where
         toXML ReplicationRule'{..}
           = mconcat
-              ["ID" @= _rrID, "Prefix" @= _rrPrefix,
+              ["ID" @= _rrId, "Prefix" @= _rrPrefix,
                "Status" @= _rrStatus,
                "Destination" @= _rrDestination]
 
@@ -2985,7 +2985,7 @@ instance ToXML RoutingRule where
 --
 -- * 'rulNoncurrentVersionTransition'
 --
--- * 'rulID'
+-- * 'rulId'
 --
 -- * 'rulPrefix'
 --
@@ -2995,7 +2995,7 @@ data Rule = Rule'
     , _rulTransition                  :: !(Maybe Transition)
     , _rulExpiration                  :: !(Maybe LifecycleExpiration)
     , _rulNoncurrentVersionTransition :: !(Maybe NoncurrentVersionTransition)
-    , _rulID                          :: !(Maybe Text)
+    , _rulId                          :: !(Maybe Text)
     , _rulPrefix                      :: !Text
     , _rulStatus                      :: !ExpirationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -3008,7 +3008,7 @@ rule pPrefix pStatus =
     , _rulTransition = Nothing
     , _rulExpiration = Nothing
     , _rulNoncurrentVersionTransition = Nothing
-    , _rulID = Nothing
+    , _rulId = Nothing
     , _rulPrefix = pPrefix
     , _rulStatus = pStatus
     }
@@ -3031,8 +3031,8 @@ rulNoncurrentVersionTransition = lens _rulNoncurrentVersionTransition (\ s a -> 
 
 -- | Unique identifier for the rule. The value cannot be longer than 255
 -- characters.
-rulID :: Lens' Rule (Maybe Text)
-rulID = lens _rulID (\ s a -> s{_rulID = a});
+rulId :: Lens' Rule (Maybe Text)
+rulId = lens _rulId (\ s a -> s{_rulId = a});
 
 -- | Prefix identifying one or more objects to which the rule applies.
 rulPrefix :: Lens' Rule Text
@@ -3063,7 +3063,7 @@ instance ToXML Rule where
                "Expiration" @= _rulExpiration,
                "NoncurrentVersionTransition" @=
                  _rulNoncurrentVersionTransition,
-               "ID" @= _rulID, "Prefix" @= _rulPrefix,
+               "ID" @= _rulId, "Prefix" @= _rulPrefix,
                "Status" @= _rulStatus]
 
 -- | /See:/ 's3ServiceError' smart constructor.

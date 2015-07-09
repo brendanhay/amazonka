@@ -57,7 +57,7 @@ module Network.AWS.Lambda.CreateEventSourceMapping
     , esmcEventSourceARN
     , esmcFunctionARN
     , esmcState
-    , esmcUUID
+    , esmcUUId
     , esmcLastProcessingResult
     , esmcBatchSize
     , esmcStateTransitionReason

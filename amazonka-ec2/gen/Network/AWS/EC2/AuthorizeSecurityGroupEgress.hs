@@ -49,7 +49,7 @@ module Network.AWS.EC2.AuthorizeSecurityGroupEgress
     , asgeIPPermissions
     , asgeIPProtocol
     , asgeToPort
-    , asgeCIDRIP
+    , asgeCIdRIP
     , asgeSourceSecurityGroupOwnerId
     , asgeSourceSecurityGroupName
     , asgeDryRun
@@ -78,7 +78,7 @@ import           Network.AWS.Response
 --
 -- * 'asgeToPort'
 --
--- * 'asgeCIDRIP'
+-- * 'asgeCIdRIP'
 --
 -- * 'asgeSourceSecurityGroupOwnerId'
 --
@@ -92,7 +92,7 @@ data AuthorizeSecurityGroupEgress = AuthorizeSecurityGroupEgress'
     , _asgeIPPermissions              :: !(Maybe [IPPermission])
     , _asgeIPProtocol                 :: !(Maybe Text)
     , _asgeToPort                     :: !(Maybe Int)
-    , _asgeCIDRIP                     :: !(Maybe Text)
+    , _asgeCIdRIP                     :: !(Maybe Text)
     , _asgeSourceSecurityGroupOwnerId :: !(Maybe Text)
     , _asgeSourceSecurityGroupName    :: !(Maybe Text)
     , _asgeDryRun                     :: !(Maybe Bool)
@@ -107,7 +107,7 @@ authorizeSecurityGroupEgress pGroupId =
     , _asgeIPPermissions = Nothing
     , _asgeIPProtocol = Nothing
     , _asgeToPort = Nothing
-    , _asgeCIDRIP = Nothing
+    , _asgeCIdRIP = Nothing
     , _asgeSourceSecurityGroupOwnerId = Nothing
     , _asgeSourceSecurityGroupName = Nothing
     , _asgeDryRun = Nothing
@@ -138,8 +138,8 @@ asgeToPort = lens _asgeToPort (\ s a -> s{_asgeToPort = a});
 
 -- | The CIDR IP address range. You can\'t specify this parameter when
 -- specifying a source security group.
-asgeCIDRIP :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
-asgeCIDRIP = lens _asgeCIDRIP (\ s a -> s{_asgeCIDRIP = a});
+asgeCIdRIP :: Lens' AuthorizeSecurityGroupEgress (Maybe Text)
+asgeCIdRIP = lens _asgeCIdRIP (\ s a -> s{_asgeCIdRIP = a});
 
 -- | The ID of the destination security group. You can\'t specify a
 -- destination security group and a CIDR IP address range.
@@ -187,7 +187,7 @@ instance ToQuery AuthorizeSecurityGroupEgress where
                "FromPort" =: _asgeFromPort,
                toQuery (toQueryList "item" <$> _asgeIPPermissions),
                "IpProtocol" =: _asgeIPProtocol,
-               "ToPort" =: _asgeToPort, "CidrIp" =: _asgeCIDRIP,
+               "ToPort" =: _asgeToPort, "CidrIp" =: _asgeCIdRIP,
                "SourceSecurityGroupOwnerId" =:
                  _asgeSourceSecurityGroupOwnerId,
                "SourceSecurityGroupName" =:

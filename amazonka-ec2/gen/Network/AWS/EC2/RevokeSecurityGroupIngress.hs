@@ -39,7 +39,7 @@ module Network.AWS.EC2.RevokeSecurityGroupIngress
     , rsgiIPProtocol
     , rsgiGroupId
     , rsgiToPort
-    , rsgiCIDRIP
+    , rsgiCIdRIP
     , rsgiGroupName
     , rsgiSourceSecurityGroupOwnerId
     , rsgiSourceSecurityGroupName
@@ -70,7 +70,7 @@ import           Network.AWS.Response
 --
 -- * 'rsgiToPort'
 --
--- * 'rsgiCIDRIP'
+-- * 'rsgiCIdRIP'
 --
 -- * 'rsgiGroupName'
 --
@@ -85,7 +85,7 @@ data RevokeSecurityGroupIngress = RevokeSecurityGroupIngress'
     , _rsgiIPProtocol                 :: !(Maybe Text)
     , _rsgiGroupId                    :: !(Maybe Text)
     , _rsgiToPort                     :: !(Maybe Int)
-    , _rsgiCIDRIP                     :: !(Maybe Text)
+    , _rsgiCIdRIP                     :: !(Maybe Text)
     , _rsgiGroupName                  :: !(Maybe Text)
     , _rsgiSourceSecurityGroupOwnerId :: !(Maybe Text)
     , _rsgiSourceSecurityGroupName    :: !(Maybe Text)
@@ -101,7 +101,7 @@ revokeSecurityGroupIngress =
     , _rsgiIPProtocol = Nothing
     , _rsgiGroupId = Nothing
     , _rsgiToPort = Nothing
-    , _rsgiCIDRIP = Nothing
+    , _rsgiCIdRIP = Nothing
     , _rsgiGroupName = Nothing
     , _rsgiSourceSecurityGroupOwnerId = Nothing
     , _rsgiSourceSecurityGroupName = Nothing
@@ -136,8 +136,8 @@ rsgiToPort = lens _rsgiToPort (\ s a -> s{_rsgiToPort = a});
 
 -- | The CIDR IP address range. You can\'t specify this parameter when
 -- specifying a source security group.
-rsgiCIDRIP :: Lens' RevokeSecurityGroupIngress (Maybe Text)
-rsgiCIDRIP = lens _rsgiCIDRIP (\ s a -> s{_rsgiCIDRIP = a});
+rsgiCIdRIP :: Lens' RevokeSecurityGroupIngress (Maybe Text)
+rsgiCIdRIP = lens _rsgiCIdRIP (\ s a -> s{_rsgiCIdRIP = a});
 
 -- | [EC2-Classic, default VPC] The name of the security group.
 rsgiGroupName :: Lens' RevokeSecurityGroupIngress (Maybe Text)
@@ -187,7 +187,7 @@ instance ToQuery RevokeSecurityGroupIngress where
                toQuery (toQueryList "item" <$> _rsgiIPPermissions),
                "IpProtocol" =: _rsgiIPProtocol,
                "GroupId" =: _rsgiGroupId, "ToPort" =: _rsgiToPort,
-               "CidrIp" =: _rsgiCIDRIP,
+               "CidrIp" =: _rsgiCIdRIP,
                "GroupName" =: _rsgiGroupName,
                "SourceSecurityGroupOwnerId" =:
                  _rsgiSourceSecurityGroupOwnerId,

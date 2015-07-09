@@ -50,7 +50,7 @@ module Network.AWS.Route53Domains.RegisterDomain
     , rdPrivacyProtectRegistrantContact
     , rdAutoRenew
     , rdPrivacyProtectAdminContact
-    , rdIDNLangCode
+    , rdIdNLangCode
     , rdDomainName
     , rdDurationInYears
     , rdAdminContact
@@ -85,7 +85,7 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'rdPrivacyProtectAdminContact'
 --
--- * 'rdIDNLangCode'
+-- * 'rdIdNLangCode'
 --
 -- * 'rdDomainName'
 --
@@ -101,7 +101,7 @@ data RegisterDomain = RegisterDomain'
     , _rdPrivacyProtectRegistrantContact :: !(Maybe Bool)
     , _rdAutoRenew                       :: !(Maybe Bool)
     , _rdPrivacyProtectAdminContact      :: !(Maybe Bool)
-    , _rdIDNLangCode                     :: !(Maybe Text)
+    , _rdIdNLangCode                     :: !(Maybe Text)
     , _rdDomainName                      :: !Text
     , _rdDurationInYears                 :: !Nat
     , _rdAdminContact                    :: !(Sensitive ContactDetail)
@@ -117,7 +117,7 @@ registerDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTe
     , _rdPrivacyProtectRegistrantContact = Nothing
     , _rdAutoRenew = Nothing
     , _rdPrivacyProtectAdminContact = Nothing
-    , _rdIDNLangCode = Nothing
+    , _rdIdNLangCode = Nothing
     , _rdDomainName = pDomainName
     , _rdDurationInYears = _Nat # pDurationInYears
     , _rdAdminContact = _Sensitive # pAdminContact
@@ -185,8 +185,8 @@ rdPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
 rdPrivacyProtectAdminContact = lens _rdPrivacyProtectAdminContact (\ s a -> s{_rdPrivacyProtectAdminContact = a});
 
 -- | Reserved for future use.
-rdIDNLangCode :: Lens' RegisterDomain (Maybe Text)
-rdIDNLangCode = lens _rdIDNLangCode (\ s a -> s{_rdIDNLangCode = a});
+rdIdNLangCode :: Lens' RegisterDomain (Maybe Text)
+rdIdNLangCode = lens _rdIdNLangCode (\ s a -> s{_rdIdNLangCode = a});
 
 -- | The name of a domain.
 --
@@ -282,7 +282,7 @@ instance ToJSON RegisterDomain where
                "AutoRenew" .= _rdAutoRenew,
                "PrivacyProtectAdminContact" .=
                  _rdPrivacyProtectAdminContact,
-               "IdnLangCode" .= _rdIDNLangCode,
+               "IdnLangCode" .= _rdIdNLangCode,
                "DomainName" .= _rdDomainName,
                "DurationInYears" .= _rdDurationInYears,
                "AdminContact" .= _rdAdminContact,

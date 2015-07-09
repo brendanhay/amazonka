@@ -34,7 +34,7 @@ module Network.AWS.OpsWorks.DescribeVolumes
     -- ** Request lenses
     , dvInstanceId
     , dvVolumeIds
-    , dvRAIDArrayId
+    , dvRAIdArrayId
     , dvStackId
 
     -- * Response
@@ -59,13 +59,13 @@ import           Network.AWS.Response
 --
 -- * 'dvVolumeIds'
 --
--- * 'dvRAIDArrayId'
+-- * 'dvRAIdArrayId'
 --
 -- * 'dvStackId'
 data DescribeVolumes = DescribeVolumes'
     { _dvInstanceId  :: !(Maybe Text)
     , _dvVolumeIds   :: !(Maybe [Text])
-    , _dvRAIDArrayId :: !(Maybe Text)
+    , _dvRAIdArrayId :: !(Maybe Text)
     , _dvStackId     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -75,7 +75,7 @@ describeVolumes =
     DescribeVolumes'
     { _dvInstanceId = Nothing
     , _dvVolumeIds = Nothing
-    , _dvRAIDArrayId = Nothing
+    , _dvRAIdArrayId = Nothing
     , _dvStackId = Nothing
     }
 
@@ -92,8 +92,8 @@ dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default;
 
 -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified RAID array.
-dvRAIDArrayId :: Lens' DescribeVolumes (Maybe Text)
-dvRAIDArrayId = lens _dvRAIDArrayId (\ s a -> s{_dvRAIDArrayId = a});
+dvRAIdArrayId :: Lens' DescribeVolumes (Maybe Text)
+dvRAIdArrayId = lens _dvRAIdArrayId (\ s a -> s{_dvRAIdArrayId = a});
 
 -- | A stack ID. The action describes the stack\'s registered Amazon EBS
 -- volumes.
@@ -124,7 +124,7 @@ instance ToJSON DescribeVolumes where
           = object
               ["InstanceId" .= _dvInstanceId,
                "VolumeIds" .= _dvVolumeIds,
-               "RaidArrayId" .= _dvRAIDArrayId,
+               "RaidArrayId" .= _dvRAIdArrayId,
                "StackId" .= _dvStackId]
 
 instance ToPath DescribeVolumes where

@@ -38,7 +38,7 @@ module Network.AWS.EC2.RevokeSecurityGroupEgress
     , rsgeIPPermissions
     , rsgeIPProtocol
     , rsgeToPort
-    , rsgeCIDRIP
+    , rsgeCIdRIP
     , rsgeSourceSecurityGroupOwnerId
     , rsgeSourceSecurityGroupName
     , rsgeDryRun
@@ -67,7 +67,7 @@ import           Network.AWS.Response
 --
 -- * 'rsgeToPort'
 --
--- * 'rsgeCIDRIP'
+-- * 'rsgeCIdRIP'
 --
 -- * 'rsgeSourceSecurityGroupOwnerId'
 --
@@ -81,7 +81,7 @@ data RevokeSecurityGroupEgress = RevokeSecurityGroupEgress'
     , _rsgeIPPermissions              :: !(Maybe [IPPermission])
     , _rsgeIPProtocol                 :: !(Maybe Text)
     , _rsgeToPort                     :: !(Maybe Int)
-    , _rsgeCIDRIP                     :: !(Maybe Text)
+    , _rsgeCIdRIP                     :: !(Maybe Text)
     , _rsgeSourceSecurityGroupOwnerId :: !(Maybe Text)
     , _rsgeSourceSecurityGroupName    :: !(Maybe Text)
     , _rsgeDryRun                     :: !(Maybe Bool)
@@ -96,7 +96,7 @@ revokeSecurityGroupEgress pGroupId =
     , _rsgeIPPermissions = Nothing
     , _rsgeIPProtocol = Nothing
     , _rsgeToPort = Nothing
-    , _rsgeCIDRIP = Nothing
+    , _rsgeCIdRIP = Nothing
     , _rsgeSourceSecurityGroupOwnerId = Nothing
     , _rsgeSourceSecurityGroupName = Nothing
     , _rsgeDryRun = Nothing
@@ -127,8 +127,8 @@ rsgeToPort = lens _rsgeToPort (\ s a -> s{_rsgeToPort = a});
 
 -- | The CIDR IP address range. You can\'t specify this parameter when
 -- specifying a source security group.
-rsgeCIDRIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
-rsgeCIDRIP = lens _rsgeCIDRIP (\ s a -> s{_rsgeCIDRIP = a});
+rsgeCIdRIP :: Lens' RevokeSecurityGroupEgress (Maybe Text)
+rsgeCIdRIP = lens _rsgeCIdRIP (\ s a -> s{_rsgeCIdRIP = a});
 
 -- | The ID of the destination security group. You can\'t specify a
 -- destination security group and a CIDR IP address range.
@@ -175,7 +175,7 @@ instance ToQuery RevokeSecurityGroupEgress where
                "FromPort" =: _rsgeFromPort,
                toQuery (toQueryList "item" <$> _rsgeIPPermissions),
                "IpProtocol" =: _rsgeIPProtocol,
-               "ToPort" =: _rsgeToPort, "CidrIp" =: _rsgeCIDRIP,
+               "ToPort" =: _rsgeToPort, "CidrIp" =: _rsgeCIdRIP,
                "SourceSecurityGroupOwnerId" =:
                  _rsgeSourceSecurityGroupOwnerId,
                "SourceSecurityGroupName" =:

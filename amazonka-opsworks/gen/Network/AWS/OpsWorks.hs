@@ -89,7 +89,7 @@ import           Network.AWS.OpsWorks.DescribeLayers                      as Exp
 import           Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling        as Export
 import           Network.AWS.OpsWorks.DescribeMyUserProfile               as Export
 import           Network.AWS.OpsWorks.DescribePermissions                 as Export
-import           Network.AWS.OpsWorks.DescribeRAIDArrays                  as Export
+import           Network.AWS.OpsWorks.DescribeRAIdArrays                  as Export
 import           Network.AWS.OpsWorks.DescribeRDSDBInstances              as Export
 import           Network.AWS.OpsWorks.DescribeServiceErrors               as Export
 import           Network.AWS.OpsWorks.DescribeStackProvisioningParameters as Export

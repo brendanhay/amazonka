@@ -34,7 +34,7 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , uesmEnabled
     , uesmBatchSize
     , uesmFunctionName
-    , uesmUUID
+    , uesmUUId
 
     -- * Response
     , EventSourceMappingConfiguration
@@ -44,7 +44,7 @@ module Network.AWS.Lambda.UpdateEventSourceMapping
     , esmcEventSourceARN
     , esmcFunctionARN
     , esmcState
-    , esmcUUID
+    , esmcUUId
     , esmcLastProcessingResult
     , esmcBatchSize
     , esmcStateTransitionReason
@@ -66,22 +66,22 @@ import           Network.AWS.Response
 --
 -- * 'uesmFunctionName'
 --
--- * 'uesmUUID'
+-- * 'uesmUUId'
 data UpdateEventSourceMapping = UpdateEventSourceMapping'
     { _uesmEnabled      :: !(Maybe Bool)
     , _uesmBatchSize    :: !(Maybe Nat)
     , _uesmFunctionName :: !(Maybe Text)
-    , _uesmUUID         :: !Text
+    , _uesmUUId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateEventSourceMapping' smart constructor.
 updateEventSourceMapping :: Text -> UpdateEventSourceMapping
-updateEventSourceMapping pUUID =
+updateEventSourceMapping pUUId =
     UpdateEventSourceMapping'
     { _uesmEnabled = Nothing
     , _uesmBatchSize = Nothing
     , _uesmFunctionName = Nothing
-    , _uesmUUID = pUUID
+    , _uesmUUId = pUUId
     }
 
 -- | Specifies whether AWS Lambda should actively poll the stream or not. If
@@ -108,8 +108,8 @@ uesmFunctionName :: Lens' UpdateEventSourceMapping (Maybe Text)
 uesmFunctionName = lens _uesmFunctionName (\ s a -> s{_uesmFunctionName = a});
 
 -- | The event source mapping identifier.
-uesmUUID :: Lens' UpdateEventSourceMapping Text
-uesmUUID = lens _uesmUUID (\ s a -> s{_uesmUUID = a});
+uesmUUId :: Lens' UpdateEventSourceMapping Text
+uesmUUId = lens _uesmUUId (\ s a -> s{_uesmUUId = a});
 
 instance AWSRequest UpdateEventSourceMapping where
         type Sv UpdateEventSourceMapping = Lambda
@@ -132,7 +132,7 @@ instance ToPath UpdateEventSourceMapping where
         toPath UpdateEventSourceMapping'{..}
           = mconcat
               ["/2015-03-31/event-source-mappings/",
-               toText _uesmUUID]
+               toText _uesmUUId]
 
 instance ToQuery UpdateEventSourceMapping where
         toQuery = const mempty

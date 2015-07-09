@@ -73,7 +73,7 @@ module Network.AWS.IAM
     ( module Export
     ) where
 
-import           Network.AWS.IAM.AddClientIDToOpenIDConnectProvider      as Export
+import           Network.AWS.IAM.AddClientIdToOpenIdConnectProvider      as Export
 import           Network.AWS.IAM.AddRoleToInstanceProfile                as Export
 import           Network.AWS.IAM.AddUserToGroup                          as Export
 import           Network.AWS.IAM.AttachGroupPolicy                       as Export
@@ -85,7 +85,7 @@ import           Network.AWS.IAM.CreateAccountAlias                      as Expo
 import           Network.AWS.IAM.CreateGroup                             as Export
 import           Network.AWS.IAM.CreateInstanceProfile                   as Export
 import           Network.AWS.IAM.CreateLoginProfile                      as Export
-import           Network.AWS.IAM.CreateOpenIDConnectProvider             as Export
+import           Network.AWS.IAM.CreateOpenIdConnectProvider             as Export
 import           Network.AWS.IAM.CreatePolicy                            as Export
 import           Network.AWS.IAM.CreatePolicyVersion                     as Export
 import           Network.AWS.IAM.CreateRole                              as Export
@@ -100,7 +100,7 @@ import           Network.AWS.IAM.DeleteGroup                             as Expo
 import           Network.AWS.IAM.DeleteGroupPolicy                       as Export
 import           Network.AWS.IAM.DeleteInstanceProfile                   as Export
 import           Network.AWS.IAM.DeleteLoginProfile                      as Export
-import           Network.AWS.IAM.DeleteOpenIDConnectProvider             as Export
+import           Network.AWS.IAM.DeleteOpenIdConnectProvider             as Export
 import           Network.AWS.IAM.DeletePolicy                            as Export
 import           Network.AWS.IAM.DeletePolicyVersion                     as Export
 import           Network.AWS.IAM.DeleteRole                              as Export
@@ -125,7 +125,7 @@ import           Network.AWS.IAM.GetGroup                                as Expo
 import           Network.AWS.IAM.GetGroupPolicy                          as Export
 import           Network.AWS.IAM.GetInstanceProfile                      as Export
 import           Network.AWS.IAM.GetLoginProfile                         as Export
-import           Network.AWS.IAM.GetOpenIDConnectProvider                as Export
+import           Network.AWS.IAM.GetOpenIdConnectProvider                as Export
 import           Network.AWS.IAM.GetPolicy                               as Export
 import           Network.AWS.IAM.GetPolicyVersion                        as Export
 import           Network.AWS.IAM.GetRole                                 as Export
@@ -146,7 +146,7 @@ import           Network.AWS.IAM.ListGroupsForUser                       as Expo
 import           Network.AWS.IAM.ListInstanceProfiles                    as Export
 import           Network.AWS.IAM.ListInstanceProfilesForRole             as Export
 import           Network.AWS.IAM.ListMFADevices                          as Export
-import           Network.AWS.IAM.ListOpenIDConnectProviders              as Export
+import           Network.AWS.IAM.ListOpenIdConnectProviders              as Export
 import           Network.AWS.IAM.ListPolicies                            as Export
 import           Network.AWS.IAM.ListPolicyVersions                      as Export
 import           Network.AWS.IAM.ListRolePolicies                        as Export
@@ -160,7 +160,7 @@ import           Network.AWS.IAM.ListVirtualMFADevices                   as Expo
 import           Network.AWS.IAM.PutGroupPolicy                          as Export
 import           Network.AWS.IAM.PutRolePolicy                           as Export
 import           Network.AWS.IAM.PutUserPolicy                           as Export
-import           Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider as Export
+import           Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider as Export
 import           Network.AWS.IAM.RemoveRoleFromInstanceProfile           as Export
 import           Network.AWS.IAM.RemoveUserFromGroup                     as Export
 import           Network.AWS.IAM.ResyncMFADevice                         as Export
@@ -171,7 +171,7 @@ import           Network.AWS.IAM.UpdateAccountPasswordPolicy             as Expo
 import           Network.AWS.IAM.UpdateAssumeRolePolicy                  as Export
 import           Network.AWS.IAM.UpdateGroup                             as Export
 import           Network.AWS.IAM.UpdateLoginProfile                      as Export
-import           Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint   as Export
+import           Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint   as Export
 import           Network.AWS.IAM.UpdateSAMLProvider                      as Export
 import           Network.AWS.IAM.UpdateServerCertificate                 as Export
 import           Network.AWS.IAM.UpdateSigningCertificate                as Export

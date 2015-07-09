@@ -31,7 +31,7 @@ module Network.AWS.Redshift.RevokeClusterSecurityGroupIngress
     -- ** Request lenses
     , rcsgiEC2SecurityGroupOwnerId
     , rcsgiEC2SecurityGroupName
-    , rcsgiCIDRIP
+    , rcsgiCIdRIP
     , rcsgiClusterSecurityGroupName
 
     -- * Response
@@ -58,13 +58,13 @@ import           Network.AWS.Response
 --
 -- * 'rcsgiEC2SecurityGroupName'
 --
--- * 'rcsgiCIDRIP'
+-- * 'rcsgiCIdRIP'
 --
 -- * 'rcsgiClusterSecurityGroupName'
 data RevokeClusterSecurityGroupIngress = RevokeClusterSecurityGroupIngress'
     { _rcsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
     , _rcsgiEC2SecurityGroupName     :: !(Maybe Text)
-    , _rcsgiCIDRIP                   :: !(Maybe Text)
+    , _rcsgiCIdRIP                   :: !(Maybe Text)
     , _rcsgiClusterSecurityGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -74,7 +74,7 @@ revokeClusterSecurityGroupIngress pClusterSecurityGroupName =
     RevokeClusterSecurityGroupIngress'
     { _rcsgiEC2SecurityGroupOwnerId = Nothing
     , _rcsgiEC2SecurityGroupName = Nothing
-    , _rcsgiCIDRIP = Nothing
+    , _rcsgiCIdRIP = Nothing
     , _rcsgiClusterSecurityGroupName = pClusterSecurityGroupName
     }
 
@@ -98,8 +98,8 @@ rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\ s a -> s{_rcsgiEC
 -- Classless Inter-Domain Routing (CIDR) block of IP addresses. If @CIDRIP@
 -- is specified, @EC2SecurityGroupName@ and @EC2SecurityGroupOwnerId@
 -- cannot be provided.
-rcsgiCIDRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
-rcsgiCIDRIP = lens _rcsgiCIDRIP (\ s a -> s{_rcsgiCIDRIP = a});
+rcsgiCIdRIP :: Lens' RevokeClusterSecurityGroupIngress (Maybe Text)
+rcsgiCIdRIP = lens _rcsgiCIdRIP (\ s a -> s{_rcsgiCIdRIP = a});
 
 -- | The name of the security Group from which to revoke the ingress rule.
 rcsgiClusterSecurityGroupName :: Lens' RevokeClusterSecurityGroupIngress Text
@@ -137,7 +137,7 @@ instance ToQuery RevokeClusterSecurityGroupIngress
                "EC2SecurityGroupOwnerId" =:
                  _rcsgiEC2SecurityGroupOwnerId,
                "EC2SecurityGroupName" =: _rcsgiEC2SecurityGroupName,
-               "CIDRIP" =: _rcsgiCIDRIP,
+               "CIDRIP" =: _rcsgiCIdRIP,
                "ClusterSecurityGroupName" =:
                  _rcsgiClusterSecurityGroupName]
 

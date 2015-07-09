@@ -40,7 +40,7 @@ module Network.AWS.RDS.AuthorizeDBSecurityGroupIngress
     -- ** Request lenses
     , adsgiEC2SecurityGroupOwnerId
     , adsgiEC2SecurityGroupName
-    , adsgiCIDRIP
+    , adsgiCIdRIP
     , adsgiEC2SecurityGroupId
     , adsgiDBSecurityGroupName
 
@@ -68,7 +68,7 @@ import           Network.AWS.Response
 --
 -- * 'adsgiEC2SecurityGroupName'
 --
--- * 'adsgiCIDRIP'
+-- * 'adsgiCIdRIP'
 --
 -- * 'adsgiEC2SecurityGroupId'
 --
@@ -76,7 +76,7 @@ import           Network.AWS.Response
 data AuthorizeDBSecurityGroupIngress = AuthorizeDBSecurityGroupIngress'
     { _adsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
     , _adsgiEC2SecurityGroupName    :: !(Maybe Text)
-    , _adsgiCIDRIP                  :: !(Maybe Text)
+    , _adsgiCIdRIP                  :: !(Maybe Text)
     , _adsgiEC2SecurityGroupId      :: !(Maybe Text)
     , _adsgiDBSecurityGroupName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -87,7 +87,7 @@ authorizeDBSecurityGroupIngress pDBSecurityGroupName =
     AuthorizeDBSecurityGroupIngress'
     { _adsgiEC2SecurityGroupOwnerId = Nothing
     , _adsgiEC2SecurityGroupName = Nothing
-    , _adsgiCIDRIP = Nothing
+    , _adsgiCIdRIP = Nothing
     , _adsgiEC2SecurityGroupId = Nothing
     , _adsgiDBSecurityGroupName = pDBSecurityGroupName
     }
@@ -108,8 +108,8 @@ adsgiEC2SecurityGroupName :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
 adsgiEC2SecurityGroupName = lens _adsgiEC2SecurityGroupName (\ s a -> s{_adsgiEC2SecurityGroupName = a});
 
 -- | The IP range to authorize.
-adsgiCIDRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
-adsgiCIDRIP = lens _adsgiCIDRIP (\ s a -> s{_adsgiCIDRIP = a});
+adsgiCIdRIP :: Lens' AuthorizeDBSecurityGroupIngress (Maybe Text)
+adsgiCIdRIP = lens _adsgiCIdRIP (\ s a -> s{_adsgiCIdRIP = a});
 
 -- | Id of the EC2 security group to authorize. For VPC DB security groups,
 -- @EC2SecurityGroupId@ must be provided. Otherwise,
@@ -152,7 +152,7 @@ instance ToQuery AuthorizeDBSecurityGroupIngress
                "EC2SecurityGroupOwnerId" =:
                  _adsgiEC2SecurityGroupOwnerId,
                "EC2SecurityGroupName" =: _adsgiEC2SecurityGroupName,
-               "CIDRIP" =: _adsgiCIDRIP,
+               "CIDRIP" =: _adsgiCIdRIP,
                "EC2SecurityGroupId" =: _adsgiEC2SecurityGroupId,
                "DBSecurityGroupName" =: _adsgiDBSecurityGroupName]
 

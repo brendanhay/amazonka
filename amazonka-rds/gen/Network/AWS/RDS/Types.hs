@@ -309,7 +309,7 @@ module Network.AWS.RDS.Types
     , IPRange
     , ipRange
     , irStatus
-    , irCIDRIP
+    , irCIdRIP
 
     -- * Option
     , Option
@@ -2655,10 +2655,10 @@ instance ToQuery Filter where
 --
 -- * 'irStatus'
 --
--- * 'irCIDRIP'
+-- * 'irCIdRIP'
 data IPRange = IPRange'
     { _irStatus :: !(Maybe Text)
-    , _irCIDRIP :: !(Maybe Text)
+    , _irCIdRIP :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IPRange' smart constructor.
@@ -2666,7 +2666,7 @@ ipRange :: IPRange
 ipRange =
     IPRange'
     { _irStatus = Nothing
-    , _irCIDRIP = Nothing
+    , _irCIdRIP = Nothing
     }
 
 -- | Specifies the status of the IP range. Status can be \"authorizing\",
@@ -2675,8 +2675,8 @@ irStatus :: Lens' IPRange (Maybe Text)
 irStatus = lens _irStatus (\ s a -> s{_irStatus = a});
 
 -- | Specifies the IP range.
-irCIDRIP :: Lens' IPRange (Maybe Text)
-irCIDRIP = lens _irCIDRIP (\ s a -> s{_irCIDRIP = a});
+irCIdRIP :: Lens' IPRange (Maybe Text)
+irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
 
 instance FromXML IPRange where
         parseXML x

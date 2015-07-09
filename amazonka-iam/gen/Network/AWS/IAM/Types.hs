@@ -150,10 +150,10 @@ module Network.AWS.IAM.Types
     , mpdAttachmentCount
     , mpdDescription
 
-    -- * OpenIDConnectProviderListEntry
-    , OpenIDConnectProviderListEntry
-    , openIDConnectProviderListEntry
-    , oidcpleARN
+    -- * OpenIdConnectProviderListEntry
+    , OpenIdConnectProviderListEntry
+    , openIdConnectProviderListEntry
+    , oicpleARN
 
     -- * PasswordPolicy
     , PasswordPolicy
@@ -1459,29 +1459,29 @@ instance FromXML ManagedPolicyDetail where
 -- | Contains the Amazon Resource Name (ARN) for an IAM OpenID Connect
 -- provider.
 --
--- /See:/ 'openIDConnectProviderListEntry' smart constructor.
+-- /See:/ 'openIdConnectProviderListEntry' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'oidcpleARN'
-newtype OpenIDConnectProviderListEntry = OpenIDConnectProviderListEntry'
-    { _oidcpleARN :: Maybe Text
+-- * 'oicpleARN'
+newtype OpenIdConnectProviderListEntry = OpenIdConnectProviderListEntry'
+    { _oicpleARN :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'OpenIDConnectProviderListEntry' smart constructor.
-openIDConnectProviderListEntry :: OpenIDConnectProviderListEntry
-openIDConnectProviderListEntry =
-    OpenIDConnectProviderListEntry'
-    { _oidcpleARN = Nothing
+-- | 'OpenIdConnectProviderListEntry' smart constructor.
+openIdConnectProviderListEntry :: OpenIdConnectProviderListEntry
+openIdConnectProviderListEntry =
+    OpenIdConnectProviderListEntry'
+    { _oicpleARN = Nothing
     }
 
 -- | FIXME: Undocumented member.
-oidcpleARN :: Lens' OpenIDConnectProviderListEntry (Maybe Text)
-oidcpleARN = lens _oidcpleARN (\ s a -> s{_oidcpleARN = a});
+oicpleARN :: Lens' OpenIdConnectProviderListEntry (Maybe Text)
+oicpleARN = lens _oicpleARN (\ s a -> s{_oicpleARN = a});
 
-instance FromXML OpenIDConnectProviderListEntry where
+instance FromXML OpenIdConnectProviderListEntry where
         parseXML x
-          = OpenIDConnectProviderListEntry' <$> (x .@? "Arn")
+          = OpenIdConnectProviderListEntry' <$> (x .@? "Arn")
 
 -- | Contains information about the account password policy.
 --

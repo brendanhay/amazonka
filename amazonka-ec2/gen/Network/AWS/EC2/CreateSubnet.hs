@@ -53,7 +53,7 @@ module Network.AWS.EC2.CreateSubnet
     , creaAvailabilityZone
     , creaDryRun
     , creaVPCId
-    , creaCIDRBlock
+    , creaCIdRBlock
 
     -- * Response
     , CreateSubnetResponse
@@ -79,22 +79,22 @@ import           Network.AWS.Response
 --
 -- * 'creaVPCId'
 --
--- * 'creaCIDRBlock'
+-- * 'creaCIdRBlock'
 data CreateSubnet = CreateSubnet'
     { _creaAvailabilityZone :: !(Maybe Text)
     , _creaDryRun           :: !(Maybe Bool)
     , _creaVPCId            :: !Text
-    , _creaCIDRBlock        :: !Text
+    , _creaCIdRBlock        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSubnet' smart constructor.
 createSubnet :: Text -> Text -> CreateSubnet
-createSubnet pVPCId pCIDRBlock =
+createSubnet pVPCId pCIdRBlock =
     CreateSubnet'
     { _creaAvailabilityZone = Nothing
     , _creaDryRun = Nothing
     , _creaVPCId = pVPCId
-    , _creaCIDRBlock = pCIDRBlock
+    , _creaCIdRBlock = pCIdRBlock
     }
 
 -- | The Availability Zone for the subnet.
@@ -116,8 +116,8 @@ creaVPCId = lens _creaVPCId (\ s a -> s{_creaVPCId = a});
 
 -- | The network range for the subnet, in CIDR notation. For example,
 -- @10.0.0.0\/24@.
-creaCIDRBlock :: Lens' CreateSubnet Text
-creaCIDRBlock = lens _creaCIDRBlock (\ s a -> s{_creaCIDRBlock = a});
+creaCIdRBlock :: Lens' CreateSubnet Text
+creaCIdRBlock = lens _creaCIdRBlock (\ s a -> s{_creaCIdRBlock = a});
 
 instance AWSRequest CreateSubnet where
         type Sv CreateSubnet = EC2
@@ -142,7 +142,7 @@ instance ToQuery CreateSubnet where
                "Version" =: ("2015-04-15" :: ByteString),
                "AvailabilityZone" =: _creaAvailabilityZone,
                "DryRun" =: _creaDryRun, "VpcId" =: _creaVPCId,
-               "CidrBlock" =: _creaCIDRBlock]
+               "CidrBlock" =: _creaCIdRBlock]
 
 -- | /See:/ 'createSubnetResponse' smart constructor.
 --

@@ -36,7 +36,7 @@ module Network.AWS.EC2.ReplaceRoute
     , rrGatewayId
     , rrDryRun
     , rrRouteTableId
-    , rrDestinationCIDRBlock
+    , rrDestinationCIdRBlock
 
     -- * Response
     , ReplaceRouteResponse
@@ -65,7 +65,7 @@ import           Network.AWS.Response
 --
 -- * 'rrRouteTableId'
 --
--- * 'rrDestinationCIDRBlock'
+-- * 'rrDestinationCIdRBlock'
 data ReplaceRoute = ReplaceRoute'
     { _rrInstanceId             :: !(Maybe Text)
     , _rrVPCPeeringConnectionId :: !(Maybe Text)
@@ -73,12 +73,12 @@ data ReplaceRoute = ReplaceRoute'
     , _rrGatewayId              :: !(Maybe Text)
     , _rrDryRun                 :: !(Maybe Bool)
     , _rrRouteTableId           :: !Text
-    , _rrDestinationCIDRBlock   :: !Text
+    , _rrDestinationCIdRBlock   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRoute' smart constructor.
 replaceRoute :: Text -> Text -> ReplaceRoute
-replaceRoute pRouteTableId pDestinationCIDRBlock =
+replaceRoute pRouteTableId pDestinationCIdRBlock =
     ReplaceRoute'
     { _rrInstanceId = Nothing
     , _rrVPCPeeringConnectionId = Nothing
@@ -86,7 +86,7 @@ replaceRoute pRouteTableId pDestinationCIDRBlock =
     , _rrGatewayId = Nothing
     , _rrDryRun = Nothing
     , _rrRouteTableId = pRouteTableId
-    , _rrDestinationCIDRBlock = pDestinationCIDRBlock
+    , _rrDestinationCIdRBlock = pDestinationCIdRBlock
     }
 
 -- | The ID of a NAT instance in your VPC.
@@ -118,8 +118,8 @@ rrRouteTableId = lens _rrRouteTableId (\ s a -> s{_rrRouteTableId = a});
 
 -- | The CIDR address block used for the destination match. The value you
 -- provide must match the CIDR of an existing route in the table.
-rrDestinationCIDRBlock :: Lens' ReplaceRoute Text
-rrDestinationCIDRBlock = lens _rrDestinationCIDRBlock (\ s a -> s{_rrDestinationCIDRBlock = a});
+rrDestinationCIdRBlock :: Lens' ReplaceRoute Text
+rrDestinationCIdRBlock = lens _rrDestinationCIdRBlock (\ s a -> s{_rrDestinationCIdRBlock = a});
 
 instance AWSRequest ReplaceRoute where
         type Sv ReplaceRoute = EC2
@@ -144,7 +144,7 @@ instance ToQuery ReplaceRoute where
                "NetworkInterfaceId" =: _rrNetworkInterfaceId,
                "GatewayId" =: _rrGatewayId, "DryRun" =: _rrDryRun,
                "RouteTableId" =: _rrRouteTableId,
-               "DestinationCidrBlock" =: _rrDestinationCIDRBlock]
+               "DestinationCidrBlock" =: _rrDestinationCIdRBlock]
 
 -- | /See:/ 'replaceRouteResponse' smart constructor.
 data ReplaceRouteResponse =

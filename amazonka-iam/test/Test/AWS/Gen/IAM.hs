@@ -42,8 +42,8 @@ import Test.AWS.IAM.Internal
 --         , testAttachRolePolicy $
 --             attachRolePolicy
 --
---         , testListOpenIDConnectProviders $
---             listOpenIDConnectProviders
+--         , testListOpenIdConnectProviders $
+--             listOpenIdConnectProviders
 --
 --         , testDeleteAccountPasswordPolicy $
 --             deleteAccountPasswordPolicy
@@ -60,8 +60,8 @@ import Test.AWS.IAM.Internal
 --         , testCreateVirtualMFADevice $
 --             createVirtualMFADevice
 --
---         , testCreateOpenIDConnectProvider $
---             createOpenIDConnectProvider
+--         , testCreateOpenIdConnectProvider $
+--             createOpenIdConnectProvider
 --
 --         , testListAttachedRolePolicies $
 --             listAttachedRolePolicies
@@ -87,8 +87,8 @@ import Test.AWS.IAM.Internal
 --         , testListUsers $
 --             listUsers
 --
---         , testUpdateOpenIDConnectProviderThumbprint $
---             updateOpenIDConnectProviderThumbprint
+--         , testUpdateOpenIdConnectProviderThumbprint $
+--             updateOpenIdConnectProviderThumbprint
 --
 --         , testPutUserPolicy $
 --             putUserPolicy
@@ -99,8 +99,8 @@ import Test.AWS.IAM.Internal
 --         , testDeleteUserPolicy $
 --             deleteUserPolicy
 --
---         , testGetOpenIDConnectProvider $
---             getOpenIDConnectProvider
+--         , testGetOpenIdConnectProvider $
+--             getOpenIdConnectProvider
 --
 --         , testDetachGroupPolicy $
 --             detachGroupPolicy
@@ -195,8 +195,8 @@ import Test.AWS.IAM.Internal
 --         , testAddUserToGroup $
 --             addUserToGroup
 --
---         , testDeleteOpenIDConnectProvider $
---             deleteOpenIDConnectProvider
+--         , testDeleteOpenIdConnectProvider $
+--             deleteOpenIdConnectProvider
 --
 --         , testGetUser $
 --             getUser
@@ -213,8 +213,8 @@ import Test.AWS.IAM.Internal
 --         , testListSigningCertificates $
 --             listSigningCertificates
 --
---         , testRemoveClientIDFromOpenIDConnectProvider $
---             removeClientIDFromOpenIDConnectProvider
+--         , testRemoveClientIdFromOpenIdConnectProvider $
+--             removeClientIdFromOpenIdConnectProvider
 --
 --         , testListAccessKeys $
 --             listAccessKeys
@@ -258,8 +258,8 @@ import Test.AWS.IAM.Internal
 --         , testListRolePolicies $
 --             listRolePolicies
 --
---         , testAddClientIDToOpenIDConnectProvider $
---             addClientIDToOpenIDConnectProvider
+--         , testAddClientIdToOpenIdConnectProvider $
+--             addClientIdToOpenIdConnectProvider
 --
 --         , testGetAccessKeyLastUsed $
 --             getAccessKeyLastUsed
@@ -357,8 +357,8 @@ import Test.AWS.IAM.Internal
 --         , testAttachRolePolicyResponse $
 --             attachRolePolicyResponse
 --
---         , testListOpenIDConnectProvidersResponse $
---             listOpenIDConnectProvidersResponse
+--         , testListOpenIdConnectProvidersResponse $
+--             listOpenIdConnectProvidersResponse
 --
 --         , testDeleteAccountPasswordPolicyResponse $
 --             deleteAccountPasswordPolicyResponse
@@ -375,8 +375,8 @@ import Test.AWS.IAM.Internal
 --         , testCreateVirtualMFADeviceResponse $
 --             createVirtualMFADeviceResponse
 --
---         , testCreateOpenIDConnectProviderResponse $
---             createOpenIDConnectProviderResponse
+--         , testCreateOpenIdConnectProviderResponse $
+--             createOpenIdConnectProviderResponse
 --
 --         , testListAttachedRolePoliciesResponse $
 --             listAttachedRolePoliciesResponse
@@ -402,8 +402,8 @@ import Test.AWS.IAM.Internal
 --         , testListUsersResponse $
 --             listUsersResponse
 --
---         , testUpdateOpenIDConnectProviderThumbprintResponse $
---             updateOpenIDConnectProviderThumbprintResponse
+--         , testUpdateOpenIdConnectProviderThumbprintResponse $
+--             updateOpenIdConnectProviderThumbprintResponse
 --
 --         , testPutUserPolicyResponse $
 --             putUserPolicyResponse
@@ -414,8 +414,8 @@ import Test.AWS.IAM.Internal
 --         , testDeleteUserPolicyResponse $
 --             deleteUserPolicyResponse
 --
---         , testGetOpenIDConnectProviderResponse $
---             getOpenIDConnectProviderResponse
+--         , testGetOpenIdConnectProviderResponse $
+--             getOpenIdConnectProviderResponse
 --
 --         , testDetachGroupPolicyResponse $
 --             detachGroupPolicyResponse
@@ -510,8 +510,8 @@ import Test.AWS.IAM.Internal
 --         , testAddUserToGroupResponse $
 --             addUserToGroupResponse
 --
---         , testDeleteOpenIDConnectProviderResponse $
---             deleteOpenIDConnectProviderResponse
+--         , testDeleteOpenIdConnectProviderResponse $
+--             deleteOpenIdConnectProviderResponse
 --
 --         , testGetUserResponse $
 --             getUserResponse
@@ -528,8 +528,8 @@ import Test.AWS.IAM.Internal
 --         , testListSigningCertificatesResponse $
 --             listSigningCertificatesResponse
 --
---         , testRemoveClientIDFromOpenIDConnectProviderResponse $
---             removeClientIDFromOpenIDConnectProviderResponse
+--         , testRemoveClientIdFromOpenIdConnectProviderResponse $
+--             removeClientIdFromOpenIdConnectProviderResponse
 --
 --         , testListAccessKeysResponse $
 --             listAccessKeysResponse
@@ -573,8 +573,8 @@ import Test.AWS.IAM.Internal
 --         , testListRolePoliciesResponse $
 --             listRolePoliciesResponse
 --
---         , testAddClientIDToOpenIDConnectProviderResponse $
---             addClientIDToOpenIDConnectProviderResponse
+--         , testAddClientIdToOpenIdConnectProviderResponse $
+--             addClientIdToOpenIdConnectProviderResponse
 --
 --         , testGetAccessKeyLastUsedResponse $
 --             getAccessKeyLastUsedResponse
@@ -674,8 +674,8 @@ testListPolicies = undefined
 testAttachRolePolicy :: AttachRolePolicy -> TestTree
 testAttachRolePolicy = undefined
 
-testListOpenIDConnectProviders :: ListOpenIDConnectProviders -> TestTree
-testListOpenIDConnectProviders = undefined
+testListOpenIdConnectProviders :: ListOpenIdConnectProviders -> TestTree
+testListOpenIdConnectProviders = undefined
 
 testDeleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy -> TestTree
 testDeleteAccountPasswordPolicy = undefined
@@ -692,8 +692,8 @@ testGetUserPolicy = undefined
 testCreateVirtualMFADevice :: CreateVirtualMFADevice -> TestTree
 testCreateVirtualMFADevice = undefined
 
-testCreateOpenIDConnectProvider :: CreateOpenIDConnectProvider -> TestTree
-testCreateOpenIDConnectProvider = undefined
+testCreateOpenIdConnectProvider :: CreateOpenIdConnectProvider -> TestTree
+testCreateOpenIdConnectProvider = undefined
 
 testListAttachedRolePolicies :: ListAttachedRolePolicies -> TestTree
 testListAttachedRolePolicies = undefined
@@ -719,8 +719,8 @@ testListUserPolicies = undefined
 testListUsers :: ListUsers -> TestTree
 testListUsers = undefined
 
-testUpdateOpenIDConnectProviderThumbprint :: UpdateOpenIDConnectProviderThumbprint -> TestTree
-testUpdateOpenIDConnectProviderThumbprint = undefined
+testUpdateOpenIdConnectProviderThumbprint :: UpdateOpenIdConnectProviderThumbprint -> TestTree
+testUpdateOpenIdConnectProviderThumbprint = undefined
 
 testPutUserPolicy :: PutUserPolicy -> TestTree
 testPutUserPolicy = undefined
@@ -731,8 +731,8 @@ testCreateRole = undefined
 testDeleteUserPolicy :: DeleteUserPolicy -> TestTree
 testDeleteUserPolicy = undefined
 
-testGetOpenIDConnectProvider :: GetOpenIDConnectProvider -> TestTree
-testGetOpenIDConnectProvider = undefined
+testGetOpenIdConnectProvider :: GetOpenIdConnectProvider -> TestTree
+testGetOpenIdConnectProvider = undefined
 
 testDetachGroupPolicy :: DetachGroupPolicy -> TestTree
 testDetachGroupPolicy = undefined
@@ -827,8 +827,8 @@ testAddRoleToInstanceProfile = undefined
 testAddUserToGroup :: AddUserToGroup -> TestTree
 testAddUserToGroup = undefined
 
-testDeleteOpenIDConnectProvider :: DeleteOpenIDConnectProvider -> TestTree
-testDeleteOpenIDConnectProvider = undefined
+testDeleteOpenIdConnectProvider :: DeleteOpenIdConnectProvider -> TestTree
+testDeleteOpenIdConnectProvider = undefined
 
 testGetUser :: GetUser -> TestTree
 testGetUser = undefined
@@ -845,8 +845,8 @@ testUpdateSigningCertificate = undefined
 testListSigningCertificates :: ListSigningCertificates -> TestTree
 testListSigningCertificates = undefined
 
-testRemoveClientIDFromOpenIDConnectProvider :: RemoveClientIDFromOpenIDConnectProvider -> TestTree
-testRemoveClientIDFromOpenIDConnectProvider = undefined
+testRemoveClientIdFromOpenIdConnectProvider :: RemoveClientIdFromOpenIdConnectProvider -> TestTree
+testRemoveClientIdFromOpenIdConnectProvider = undefined
 
 testListAccessKeys :: ListAccessKeys -> TestTree
 testListAccessKeys = undefined
@@ -890,8 +890,8 @@ testDeleteUser = undefined
 testListRolePolicies :: ListRolePolicies -> TestTree
 testListRolePolicies = undefined
 
-testAddClientIDToOpenIDConnectProvider :: AddClientIDToOpenIDConnectProvider -> TestTree
-testAddClientIDToOpenIDConnectProvider = undefined
+testAddClientIdToOpenIdConnectProvider :: AddClientIdToOpenIdConnectProvider -> TestTree
+testAddClientIdToOpenIdConnectProvider = undefined
 
 testGetAccessKeyLastUsed :: GetAccessKeyLastUsed -> TestTree
 testGetAccessKeyLastUsed = undefined
@@ -1003,11 +1003,11 @@ testAttachRolePolicyResponse = resp
     "fixture/AttachRolePolicyResponse"
     (Proxy :: Proxy AttachRolePolicy)
 
-testListOpenIDConnectProvidersResponse :: ListOpenIDConnectProvidersResponse -> TestTree
-testListOpenIDConnectProvidersResponse = resp
-    "ListOpenIDConnectProvidersResponse"
-    "fixture/ListOpenIDConnectProvidersResponse"
-    (Proxy :: Proxy ListOpenIDConnectProviders)
+testListOpenIdConnectProvidersResponse :: ListOpenIdConnectProvidersResponse -> TestTree
+testListOpenIdConnectProvidersResponse = resp
+    "ListOpenIdConnectProvidersResponse"
+    "fixture/ListOpenIdConnectProvidersResponse"
+    (Proxy :: Proxy ListOpenIdConnectProviders)
 
 testDeleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse -> TestTree
 testDeleteAccountPasswordPolicyResponse = resp
@@ -1039,11 +1039,11 @@ testCreateVirtualMFADeviceResponse = resp
     "fixture/CreateVirtualMFADeviceResponse"
     (Proxy :: Proxy CreateVirtualMFADevice)
 
-testCreateOpenIDConnectProviderResponse :: CreateOpenIDConnectProviderResponse -> TestTree
-testCreateOpenIDConnectProviderResponse = resp
-    "CreateOpenIDConnectProviderResponse"
-    "fixture/CreateOpenIDConnectProviderResponse"
-    (Proxy :: Proxy CreateOpenIDConnectProvider)
+testCreateOpenIdConnectProviderResponse :: CreateOpenIdConnectProviderResponse -> TestTree
+testCreateOpenIdConnectProviderResponse = resp
+    "CreateOpenIdConnectProviderResponse"
+    "fixture/CreateOpenIdConnectProviderResponse"
+    (Proxy :: Proxy CreateOpenIdConnectProvider)
 
 testListAttachedRolePoliciesResponse :: ListAttachedRolePoliciesResponse -> TestTree
 testListAttachedRolePoliciesResponse = resp
@@ -1093,11 +1093,11 @@ testListUsersResponse = resp
     "fixture/ListUsersResponse"
     (Proxy :: Proxy ListUsers)
 
-testUpdateOpenIDConnectProviderThumbprintResponse :: UpdateOpenIDConnectProviderThumbprintResponse -> TestTree
-testUpdateOpenIDConnectProviderThumbprintResponse = resp
-    "UpdateOpenIDConnectProviderThumbprintResponse"
-    "fixture/UpdateOpenIDConnectProviderThumbprintResponse"
-    (Proxy :: Proxy UpdateOpenIDConnectProviderThumbprint)
+testUpdateOpenIdConnectProviderThumbprintResponse :: UpdateOpenIdConnectProviderThumbprintResponse -> TestTree
+testUpdateOpenIdConnectProviderThumbprintResponse = resp
+    "UpdateOpenIdConnectProviderThumbprintResponse"
+    "fixture/UpdateOpenIdConnectProviderThumbprintResponse"
+    (Proxy :: Proxy UpdateOpenIdConnectProviderThumbprint)
 
 testPutUserPolicyResponse :: PutUserPolicyResponse -> TestTree
 testPutUserPolicyResponse = resp
@@ -1117,11 +1117,11 @@ testDeleteUserPolicyResponse = resp
     "fixture/DeleteUserPolicyResponse"
     (Proxy :: Proxy DeleteUserPolicy)
 
-testGetOpenIDConnectProviderResponse :: GetOpenIDConnectProviderResponse -> TestTree
-testGetOpenIDConnectProviderResponse = resp
-    "GetOpenIDConnectProviderResponse"
-    "fixture/GetOpenIDConnectProviderResponse"
-    (Proxy :: Proxy GetOpenIDConnectProvider)
+testGetOpenIdConnectProviderResponse :: GetOpenIdConnectProviderResponse -> TestTree
+testGetOpenIdConnectProviderResponse = resp
+    "GetOpenIdConnectProviderResponse"
+    "fixture/GetOpenIdConnectProviderResponse"
+    (Proxy :: Proxy GetOpenIdConnectProvider)
 
 testDetachGroupPolicyResponse :: DetachGroupPolicyResponse -> TestTree
 testDetachGroupPolicyResponse = resp
@@ -1309,11 +1309,11 @@ testAddUserToGroupResponse = resp
     "fixture/AddUserToGroupResponse"
     (Proxy :: Proxy AddUserToGroup)
 
-testDeleteOpenIDConnectProviderResponse :: DeleteOpenIDConnectProviderResponse -> TestTree
-testDeleteOpenIDConnectProviderResponse = resp
-    "DeleteOpenIDConnectProviderResponse"
-    "fixture/DeleteOpenIDConnectProviderResponse"
-    (Proxy :: Proxy DeleteOpenIDConnectProvider)
+testDeleteOpenIdConnectProviderResponse :: DeleteOpenIdConnectProviderResponse -> TestTree
+testDeleteOpenIdConnectProviderResponse = resp
+    "DeleteOpenIdConnectProviderResponse"
+    "fixture/DeleteOpenIdConnectProviderResponse"
+    (Proxy :: Proxy DeleteOpenIdConnectProvider)
 
 testGetUserResponse :: GetUserResponse -> TestTree
 testGetUserResponse = resp
@@ -1345,11 +1345,11 @@ testListSigningCertificatesResponse = resp
     "fixture/ListSigningCertificatesResponse"
     (Proxy :: Proxy ListSigningCertificates)
 
-testRemoveClientIDFromOpenIDConnectProviderResponse :: RemoveClientIDFromOpenIDConnectProviderResponse -> TestTree
-testRemoveClientIDFromOpenIDConnectProviderResponse = resp
-    "RemoveClientIDFromOpenIDConnectProviderResponse"
-    "fixture/RemoveClientIDFromOpenIDConnectProviderResponse"
-    (Proxy :: Proxy RemoveClientIDFromOpenIDConnectProvider)
+testRemoveClientIdFromOpenIdConnectProviderResponse :: RemoveClientIdFromOpenIdConnectProviderResponse -> TestTree
+testRemoveClientIdFromOpenIdConnectProviderResponse = resp
+    "RemoveClientIdFromOpenIdConnectProviderResponse"
+    "fixture/RemoveClientIdFromOpenIdConnectProviderResponse"
+    (Proxy :: Proxy RemoveClientIdFromOpenIdConnectProvider)
 
 testListAccessKeysResponse :: ListAccessKeysResponse -> TestTree
 testListAccessKeysResponse = resp
@@ -1435,11 +1435,11 @@ testListRolePoliciesResponse = resp
     "fixture/ListRolePoliciesResponse"
     (Proxy :: Proxy ListRolePolicies)
 
-testAddClientIDToOpenIDConnectProviderResponse :: AddClientIDToOpenIDConnectProviderResponse -> TestTree
-testAddClientIDToOpenIDConnectProviderResponse = resp
-    "AddClientIDToOpenIDConnectProviderResponse"
-    "fixture/AddClientIDToOpenIDConnectProviderResponse"
-    (Proxy :: Proxy AddClientIDToOpenIDConnectProvider)
+testAddClientIdToOpenIdConnectProviderResponse :: AddClientIdToOpenIdConnectProviderResponse -> TestTree
+testAddClientIdToOpenIdConnectProviderResponse = resp
+    "AddClientIdToOpenIdConnectProviderResponse"
+    "fixture/AddClientIdToOpenIdConnectProviderResponse"
+    (Proxy :: Proxy AddClientIdToOpenIdConnectProvider)
 
 testGetAccessKeyLastUsedResponse :: GetAccessKeyLastUsedResponse -> TestTree
 testGetAccessKeyLastUsedResponse = resp
@@ -1600,8 +1600,8 @@ testListAttachedGroupPoliciesResponse = resp
 instance Out AccessKey
 instance Out AccessKeyLastUsed
 instance Out AccessKeyMetadata
-instance Out AddClientIDToOpenIDConnectProvider
-instance Out AddClientIDToOpenIDConnectProviderResponse
+instance Out AddClientIdToOpenIdConnectProvider
+instance Out AddClientIdToOpenIdConnectProviderResponse
 instance Out AddRoleToInstanceProfile
 instance Out AddRoleToInstanceProfileResponse
 instance Out AddUserToGroup
@@ -1626,8 +1626,8 @@ instance Out CreateInstanceProfile
 instance Out CreateInstanceProfileResponse
 instance Out CreateLoginProfile
 instance Out CreateLoginProfileResponse
-instance Out CreateOpenIDConnectProvider
-instance Out CreateOpenIDConnectProviderResponse
+instance Out CreateOpenIdConnectProvider
+instance Out CreateOpenIdConnectProviderResponse
 instance Out CreatePolicy
 instance Out CreatePolicyResponse
 instance Out CreatePolicyVersion
@@ -1656,8 +1656,8 @@ instance Out DeleteInstanceProfile
 instance Out DeleteInstanceProfileResponse
 instance Out DeleteLoginProfile
 instance Out DeleteLoginProfileResponse
-instance Out DeleteOpenIDConnectProvider
-instance Out DeleteOpenIDConnectProviderResponse
+instance Out DeleteOpenIdConnectProvider
+instance Out DeleteOpenIdConnectProviderResponse
 instance Out DeletePolicy
 instance Out DeletePolicyResponse
 instance Out DeletePolicyVersion
@@ -1707,8 +1707,8 @@ instance Out GetInstanceProfile
 instance Out GetInstanceProfileResponse
 instance Out GetLoginProfile
 instance Out GetLoginProfileResponse
-instance Out GetOpenIDConnectProvider
-instance Out GetOpenIDConnectProviderResponse
+instance Out GetOpenIdConnectProvider
+instance Out GetOpenIdConnectProviderResponse
 instance Out GetPolicy
 instance Out GetPolicyResponse
 instance Out GetPolicyVersion
@@ -1752,8 +1752,8 @@ instance Out ListInstanceProfilesForRoleResponse
 instance Out ListInstanceProfilesResponse
 instance Out ListMFADevices
 instance Out ListMFADevicesResponse
-instance Out ListOpenIDConnectProviders
-instance Out ListOpenIDConnectProvidersResponse
+instance Out ListOpenIdConnectProviders
+instance Out ListOpenIdConnectProvidersResponse
 instance Out ListPolicies
 instance Out ListPoliciesResponse
 instance Out ListPolicyVersions
@@ -1777,7 +1777,7 @@ instance Out ListVirtualMFADevicesResponse
 instance Out LoginProfile
 instance Out MFADevice
 instance Out ManagedPolicyDetail
-instance Out OpenIDConnectProviderListEntry
+instance Out OpenIdConnectProviderListEntry
 instance Out PasswordPolicy
 instance Out Policy
 instance Out PolicyDetail
@@ -1792,8 +1792,8 @@ instance Out PutRolePolicy
 instance Out PutRolePolicyResponse
 instance Out PutUserPolicy
 instance Out PutUserPolicyResponse
-instance Out RemoveClientIDFromOpenIDConnectProvider
-instance Out RemoveClientIDFromOpenIDConnectProviderResponse
+instance Out RemoveClientIdFromOpenIdConnectProvider
+instance Out RemoveClientIdFromOpenIdConnectProviderResponse
 instance Out RemoveRoleFromInstanceProfile
 instance Out RemoveRoleFromInstanceProfileResponse
 instance Out RemoveUserFromGroup
@@ -1822,8 +1822,8 @@ instance Out UpdateGroup
 instance Out UpdateGroupResponse
 instance Out UpdateLoginProfile
 instance Out UpdateLoginProfileResponse
-instance Out UpdateOpenIDConnectProviderThumbprint
-instance Out UpdateOpenIDConnectProviderThumbprintResponse
+instance Out UpdateOpenIdConnectProviderThumbprint
+instance Out UpdateOpenIdConnectProviderThumbprintResponse
 instance Out UpdateSAMLProvider
 instance Out UpdateSAMLProviderResponse
 instance Out UpdateServerCertificate

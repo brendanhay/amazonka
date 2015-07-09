@@ -213,8 +213,8 @@ import Test.AWS.OpsWorks.Internal
 --         , testDeregisterInstance $
 --             deregisterInstance
 --
---         , testDescribeRAIDArrays $
---             describeRAIDArrays
+--         , testDescribeRAIdArrays $
+--             describeRAIdArrays
 --
 --         , testSetPermission $
 --             setPermission
@@ -417,8 +417,8 @@ import Test.AWS.OpsWorks.Internal
 --         , testDeregisterInstanceResponse $
 --             deregisterInstanceResponse
 --
---         , testDescribeRAIDArraysResponse $
---             describeRAIDArraysResponse
+--         , testDescribeRAIdArraysResponse $
+--             describeRAIdArraysResponse
 --
 --         , testSetPermissionResponse $
 --             setPermissionResponse
@@ -623,8 +623,8 @@ testDescribeElasticLoadBalancers = undefined
 testDeregisterInstance :: DeregisterInstance -> TestTree
 testDeregisterInstance = undefined
 
-testDescribeRAIDArrays :: DescribeRAIDArrays -> TestTree
-testDescribeRAIDArrays = undefined
+testDescribeRAIdArrays :: DescribeRAIdArrays -> TestTree
+testDescribeRAIdArrays = undefined
 
 testSetPermission :: SetPermission -> TestTree
 testSetPermission = undefined
@@ -1012,11 +1012,11 @@ testDeregisterInstanceResponse = resp
     "fixture/DeregisterInstanceResponse"
     (Proxy :: Proxy DeregisterInstance)
 
-testDescribeRAIDArraysResponse :: DescribeRAIDArraysResponse -> TestTree
-testDescribeRAIDArraysResponse = resp
-    "DescribeRAIDArraysResponse"
-    "fixture/DescribeRAIDArraysResponse"
-    (Proxy :: Proxy DescribeRAIDArrays)
+testDescribeRAIdArraysResponse :: DescribeRAIdArraysResponse -> TestTree
+testDescribeRAIdArraysResponse = resp
+    "DescribeRAIdArraysResponse"
+    "fixture/DescribeRAIdArraysResponse"
+    (Proxy :: Proxy DescribeRAIdArrays)
 
 testSetPermissionResponse :: SetPermissionResponse -> TestTree
 testSetPermissionResponse = resp
@@ -1118,8 +1118,8 @@ instance Out DescribeMyUserProfile
 instance Out DescribeMyUserProfileResponse
 instance Out DescribePermissions
 instance Out DescribePermissionsResponse
-instance Out DescribeRAIDArrays
-instance Out DescribeRAIDArraysResponse
+instance Out DescribeRAIdArrays
+instance Out DescribeRAIdArraysResponse
 instance Out DescribeRDSDBInstances
 instance Out DescribeRDSDBInstancesResponse
 instance Out DescribeServiceErrors
@@ -1157,7 +1157,7 @@ instance Out LayerType
 instance Out LifecycleEventConfiguration
 instance Out LoadBasedAutoScalingConfiguration
 instance Out Permission
-instance Out RAIDArray
+instance Out RAIdArray
 instance Out RDSDBInstance
 instance Out RebootInstance
 instance Out RebootInstanceResponse

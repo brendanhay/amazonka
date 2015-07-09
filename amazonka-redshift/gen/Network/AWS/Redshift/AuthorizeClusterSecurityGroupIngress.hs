@@ -44,7 +44,7 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     -- ** Request lenses
     , acsgiEC2SecurityGroupOwnerId
     , acsgiEC2SecurityGroupName
-    , acsgiCIDRIP
+    , acsgiCIdRIP
     , acsgiClusterSecurityGroupName
 
     -- * Response
@@ -71,13 +71,13 @@ import           Network.AWS.Response
 --
 -- * 'acsgiEC2SecurityGroupName'
 --
--- * 'acsgiCIDRIP'
+-- * 'acsgiCIdRIP'
 --
 -- * 'acsgiClusterSecurityGroupName'
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
     { _acsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
     , _acsgiEC2SecurityGroupName     :: !(Maybe Text)
-    , _acsgiCIDRIP                   :: !(Maybe Text)
+    , _acsgiCIdRIP                   :: !(Maybe Text)
     , _acsgiClusterSecurityGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -87,7 +87,7 @@ authorizeClusterSecurityGroupIngress pClusterSecurityGroupName =
     AuthorizeClusterSecurityGroupIngress'
     { _acsgiEC2SecurityGroupOwnerId = Nothing
     , _acsgiEC2SecurityGroupName = Nothing
-    , _acsgiCIDRIP = Nothing
+    , _acsgiCIdRIP = Nothing
     , _acsgiClusterSecurityGroupName = pClusterSecurityGroupName
     }
 
@@ -104,8 +104,8 @@ acsgiEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe T
 acsgiEC2SecurityGroupName = lens _acsgiEC2SecurityGroupName (\ s a -> s{_acsgiEC2SecurityGroupName = a});
 
 -- | The IP range to be added the Amazon Redshift security group.
-acsgiCIDRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgiCIDRIP = lens _acsgiCIDRIP (\ s a -> s{_acsgiCIDRIP = a});
+acsgiCIdRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgiCIdRIP = lens _acsgiCIdRIP (\ s a -> s{_acsgiCIdRIP = a});
 
 -- | The name of the security group to which the ingress rule is added.
 acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
@@ -145,7 +145,7 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
                "EC2SecurityGroupOwnerId" =:
                  _acsgiEC2SecurityGroupOwnerId,
                "EC2SecurityGroupName" =: _acsgiEC2SecurityGroupName,
-               "CIDRIP" =: _acsgiCIDRIP,
+               "CIDRIP" =: _acsgiCIdRIP,
                "ClusterSecurityGroupName" =:
                  _acsgiClusterSecurityGroupName]
 

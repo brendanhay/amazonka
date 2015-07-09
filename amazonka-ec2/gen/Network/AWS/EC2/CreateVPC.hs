@@ -38,7 +38,7 @@ module Network.AWS.EC2.CreateVPC
     -- ** Request lenses
     , cvInstanceTenancy
     , cvDryRun
-    , cvCIDRBlock
+    , cvCIdRBlock
 
     -- * Response
     , CreateVPCResponse
@@ -62,20 +62,20 @@ import           Network.AWS.Response
 --
 -- * 'cvDryRun'
 --
--- * 'cvCIDRBlock'
+-- * 'cvCIdRBlock'
 data CreateVPC = CreateVPC'
     { _cvInstanceTenancy :: !(Maybe Tenancy)
     , _cvDryRun          :: !(Maybe Bool)
-    , _cvCIDRBlock       :: !Text
+    , _cvCIdRBlock       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPC' smart constructor.
 createVPC :: Text -> CreateVPC
-createVPC pCIDRBlock =
+createVPC pCIdRBlock =
     CreateVPC'
     { _cvInstanceTenancy = Nothing
     , _cvDryRun = Nothing
-    , _cvCIDRBlock = pCIDRBlock
+    , _cvCIdRBlock = pCIdRBlock
     }
 
 -- | The supported tenancy options for instances launched into the VPC. A
@@ -98,8 +98,8 @@ cvDryRun = lens _cvDryRun (\ s a -> s{_cvDryRun = a});
 
 -- | The network range for the VPC, in CIDR notation. For example,
 -- @10.0.0.0\/16@.
-cvCIDRBlock :: Lens' CreateVPC Text
-cvCIDRBlock = lens _cvCIDRBlock (\ s a -> s{_cvCIDRBlock = a});
+cvCIdRBlock :: Lens' CreateVPC Text
+cvCIdRBlock = lens _cvCIdRBlock (\ s a -> s{_cvCIdRBlock = a});
 
 instance AWSRequest CreateVPC where
         type Sv CreateVPC = EC2
@@ -123,7 +123,7 @@ instance ToQuery CreateVPC where
               ["Action" =: ("CreateVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "InstanceTenancy" =: _cvInstanceTenancy,
-               "DryRun" =: _cvDryRun, "CidrBlock" =: _cvCIDRBlock]
+               "DryRun" =: _cvDryRun, "CidrBlock" =: _cvCIdRBlock]
 
 -- | /See:/ 'createVPCResponse' smart constructor.
 --

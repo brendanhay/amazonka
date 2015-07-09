@@ -52,7 +52,7 @@ module Network.AWS.EC2.CreateRoute
     , crGatewayId
     , crDryRun
     , crRouteTableId
-    , crDestinationCIDRBlock
+    , crDestinationCIdRBlock
 
     -- * Response
     , CreateRouteResponse
@@ -87,7 +87,7 @@ import           Network.AWS.Response
 --
 -- * 'crRouteTableId'
 --
--- * 'crDestinationCIDRBlock'
+-- * 'crDestinationCIdRBlock'
 data CreateRoute = CreateRoute'
     { _crInstanceId             :: !(Maybe Text)
     , _crVPCPeeringConnectionId :: !(Maybe Text)
@@ -96,12 +96,12 @@ data CreateRoute = CreateRoute'
     , _crGatewayId              :: !(Maybe Text)
     , _crDryRun                 :: !(Maybe Bool)
     , _crRouteTableId           :: !Text
-    , _crDestinationCIDRBlock   :: !Text
+    , _crDestinationCIdRBlock   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRoute' smart constructor.
 createRoute :: Text -> Text -> CreateRoute
-createRoute pRouteTableId pDestinationCIDRBlock =
+createRoute pRouteTableId pDestinationCIdRBlock =
     CreateRoute'
     { _crInstanceId = Nothing
     , _crVPCPeeringConnectionId = Nothing
@@ -110,7 +110,7 @@ createRoute pRouteTableId pDestinationCIDRBlock =
     , _crGatewayId = Nothing
     , _crDryRun = Nothing
     , _crRouteTableId = pRouteTableId
-    , _crDestinationCIDRBlock = pDestinationCIDRBlock
+    , _crDestinationCIdRBlock = pDestinationCIdRBlock
     }
 
 -- | The ID of a NAT instance in your VPC. The operation fails if you specify
@@ -150,8 +150,8 @@ crRouteTableId = lens _crRouteTableId (\ s a -> s{_crRouteTableId = a});
 
 -- | The CIDR address block used for the destination match. Routing decisions
 -- are based on the most specific match.
-crDestinationCIDRBlock :: Lens' CreateRoute Text
-crDestinationCIDRBlock = lens _crDestinationCIDRBlock (\ s a -> s{_crDestinationCIDRBlock = a});
+crDestinationCIdRBlock :: Lens' CreateRoute Text
+crDestinationCIdRBlock = lens _crDestinationCIdRBlock (\ s a -> s{_crDestinationCIdRBlock = a});
 
 instance AWSRequest CreateRoute where
         type Sv CreateRoute = EC2
@@ -182,7 +182,7 @@ instance ToQuery CreateRoute where
                "NetworkInterfaceId" =: _crNetworkInterfaceId,
                "GatewayId" =: _crGatewayId, "DryRun" =: _crDryRun,
                "RouteTableId" =: _crRouteTableId,
-               "DestinationCidrBlock" =: _crDestinationCIDRBlock]
+               "DestinationCidrBlock" =: _crDestinationCIdRBlock]
 
 -- | /See:/ 'createRouteResponse' smart constructor.
 --

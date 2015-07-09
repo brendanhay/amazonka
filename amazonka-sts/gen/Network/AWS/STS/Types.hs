@@ -24,10 +24,10 @@ module Network.AWS.STS.Types
     , _MalformedPolicyDocumentException
     , _PackedPolicyTooLargeException
     , _InvalidAuthorizationMessageException
-    , _IDPCommunicationErrorException
+    , _IdPCommunicationErrorException
     , _ExpiredTokenException
     , _InvalidIdentityTokenException
-    , _IDPRejectedClaimException
+    , _IdPRejectedClaimException
 
     -- * AssumedRoleUser
     , AssumedRoleUser
@@ -114,8 +114,8 @@ _InvalidAuthorizationMessageException =
 -- Retry the request a limited number of times so that you don\'t exceed
 -- the request rate. If the error persists, the non-AWS identity provider
 -- might be down or not responding.
-_IDPCommunicationErrorException :: AWSError a => Getting (First ServiceError) a ServiceError
-_IDPCommunicationErrorException =
+_IdPCommunicationErrorException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IdPCommunicationErrorException =
     _ServiceError . hasStatus 400 . hasCode "IDPCommunicationError"
 
 -- | The web identity token that was passed is expired or is not valid. Get a
@@ -138,8 +138,8 @@ _InvalidIdentityTokenException =
 -- If this error is returned for the @AssumeRoleWithWebIdentity@ operation,
 -- it can also mean that the claim has expired or has been explicitly
 -- revoked.
-_IDPRejectedClaimException :: AWSError a => Getting (First ServiceError) a ServiceError
-_IDPRejectedClaimException =
+_IdPRejectedClaimException :: AWSError a => Getting (First ServiceError) a ServiceError
+_IdPRejectedClaimException =
     _ServiceError . hasStatus 403 . hasCode "IDPRejectedClaim"
 
 -- | The identifiers for the temporary security credentials that the

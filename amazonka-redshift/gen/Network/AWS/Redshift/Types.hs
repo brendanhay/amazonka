@@ -320,7 +320,7 @@ module Network.AWS.Redshift.Types
     , IPRange
     , ipRange
     , irStatus
-    , irCIDRIP
+    , irCIdRIP
     , irTags
 
     -- * LoggingStatus
@@ -2633,12 +2633,12 @@ instance FromXML HSMStatus where
 --
 -- * 'irStatus'
 --
--- * 'irCIDRIP'
+-- * 'irCIdRIP'
 --
 -- * 'irTags'
 data IPRange = IPRange'
     { _irStatus :: !(Maybe Text)
-    , _irCIDRIP :: !(Maybe Text)
+    , _irCIdRIP :: !(Maybe Text)
     , _irTags   :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -2647,7 +2647,7 @@ ipRange :: IPRange
 ipRange =
     IPRange'
     { _irStatus = Nothing
-    , _irCIDRIP = Nothing
+    , _irCIdRIP = Nothing
     , _irTags = Nothing
     }
 
@@ -2656,8 +2656,8 @@ irStatus :: Lens' IPRange (Maybe Text)
 irStatus = lens _irStatus (\ s a -> s{_irStatus = a});
 
 -- | The IP range in Classless Inter-Domain Routing (CIDR) notation.
-irCIDRIP :: Lens' IPRange (Maybe Text)
-irCIDRIP = lens _irCIDRIP (\ s a -> s{_irCIDRIP = a});
+irCIdRIP :: Lens' IPRange (Maybe Text)
+irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
 
 -- | The list of tags for the IP range.
 irTags :: Lens' IPRange [Tag]

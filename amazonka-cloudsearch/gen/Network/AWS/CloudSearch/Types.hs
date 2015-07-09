@@ -421,7 +421,7 @@ data AnalysisSchemeLanguage
     | FI
     | NL
     | BG
-    | ID
+    | Id
     | IT
     | DA
     | EU
@@ -453,8 +453,8 @@ instance FromText AnalysisSchemeLanguage where
         "hi" -> pure HI
         "hu" -> pure HU
         "hy" -> pure HY
-        "id" -> pure ID
         "it" -> pure IT
+        "id" -> pure Id
         "ja" -> pure JA
         "ko" -> pure KO
         "lv" -> pure LV
@@ -470,7 +470,7 @@ instance FromText AnalysisSchemeLanguage where
         "zh-hans" -> pure ZHHans
         "zh-hant" -> pure ZHHant
         e -> fromTextError $ "Failure parsing AnalysisSchemeLanguage from value: '" <> e
-           <> "'. Accepted values: ar, bg, ca, cs, da, de, el, en, es, eu, fa, fi, fr, ga, gl, he, hi, hu, hy, id, it, ja, ko, lv, mul, nl, no, pt, ro, ru, sv, th, tr, zh-hans, zh-hant"
+           <> "'. Accepted values: ar, bg, ca, cs, da, de, el, en, es, eu, fa, fi, fr, ga, gl, he, hi, hu, hy, it, id, ja, ko, lv, mul, nl, no, pt, ro, ru, sv, th, tr, zh-hans, zh-hant"
 
 instance ToText AnalysisSchemeLanguage where
     toText = \case
@@ -493,8 +493,8 @@ instance ToText AnalysisSchemeLanguage where
         HI -> "hi"
         HU -> "hu"
         HY -> "hy"
-        ID -> "id"
         IT -> "it"
+        Id -> "id"
         JA -> "ja"
         KO -> "ko"
         LV -> "lv"

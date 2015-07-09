@@ -27,7 +27,7 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     -- ** Request constructor
     , checkDomainAvailability
     -- ** Request lenses
-    , cdaIDNLangCode
+    , cdaIdNLangCode
     , cdaDomainName
 
     -- * Response
@@ -50,11 +50,11 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdaIDNLangCode'
+-- * 'cdaIdNLangCode'
 --
 -- * 'cdaDomainName'
 data CheckDomainAvailability = CheckDomainAvailability'
-    { _cdaIDNLangCode :: !(Maybe Text)
+    { _cdaIdNLangCode :: !(Maybe Text)
     , _cdaDomainName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -62,13 +62,13 @@ data CheckDomainAvailability = CheckDomainAvailability'
 checkDomainAvailability :: Text -> CheckDomainAvailability
 checkDomainAvailability pDomainName =
     CheckDomainAvailability'
-    { _cdaIDNLangCode = Nothing
+    { _cdaIdNLangCode = Nothing
     , _cdaDomainName = pDomainName
     }
 
 -- | Reserved for future use.
-cdaIDNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
-cdaIDNLangCode = lens _cdaIDNLangCode (\ s a -> s{_cdaIDNLangCode = a});
+cdaIdNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
+cdaIdNLangCode = lens _cdaIdNLangCode (\ s a -> s{_cdaIdNLangCode = a});
 
 -- | The name of a domain.
 --
@@ -108,7 +108,7 @@ instance ToHeaders CheckDomainAvailability where
 instance ToJSON CheckDomainAvailability where
         toJSON CheckDomainAvailability'{..}
           = object
-              ["IdnLangCode" .= _cdaIDNLangCode,
+              ["IdnLangCode" .= _cdaIdNLangCode,
                "DomainName" .= _cdaDomainName]
 
 instance ToPath CheckDomainAvailability where

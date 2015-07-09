@@ -35,7 +35,7 @@ module Network.AWS.EC2.ReplaceNetworkACLEntry
     , rnaeProtocol
     , rnaeRuleAction
     , rnaeEgress
-    , rnaeCIDRBlock
+    , rnaeCIdRBlock
 
     -- * Response
     , ReplaceNetworkACLEntryResponse
@@ -68,7 +68,7 @@ import           Network.AWS.Response
 --
 -- * 'rnaeEgress'
 --
--- * 'rnaeCIDRBlock'
+-- * 'rnaeCIdRBlock'
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
     { _rnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
     , _rnaePortRange    :: !(Maybe PortRange)
@@ -78,12 +78,12 @@ data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
     , _rnaeProtocol     :: !Text
     , _rnaeRuleAction   :: !RuleAction
     , _rnaeEgress       :: !Bool
-    , _rnaeCIDRBlock    :: !Text
+    , _rnaeCIdRBlock    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLEntry' smart constructor.
 replaceNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> ReplaceNetworkACLEntry
-replaceNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIDRBlock =
+replaceNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIdRBlock =
     ReplaceNetworkACLEntry'
     { _rnaeICMPTypeCode = Nothing
     , _rnaePortRange = Nothing
@@ -93,7 +93,7 @@ replaceNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress p
     , _rnaeProtocol = pProtocol
     , _rnaeRuleAction = pRuleAction
     , _rnaeEgress = pEgress
-    , _rnaeCIDRBlock = pCIDRBlock
+    , _rnaeCIdRBlock = pCIdRBlock
     }
 
 -- | ICMP protocol: The ICMP type and code. Required if specifying 1 (ICMP)
@@ -136,8 +136,8 @@ rnaeEgress :: Lens' ReplaceNetworkACLEntry Bool
 rnaeEgress = lens _rnaeEgress (\ s a -> s{_rnaeEgress = a});
 
 -- | The network range to allow or deny, in CIDR notation.
-rnaeCIDRBlock :: Lens' ReplaceNetworkACLEntry Text
-rnaeCIDRBlock = lens _rnaeCIDRBlock (\ s a -> s{_rnaeCIDRBlock = a});
+rnaeCIdRBlock :: Lens' ReplaceNetworkACLEntry Text
+rnaeCIdRBlock = lens _rnaeCIdRBlock (\ s a -> s{_rnaeCIdRBlock = a});
 
 instance AWSRequest ReplaceNetworkACLEntry where
         type Sv ReplaceNetworkACLEntry = EC2
@@ -167,7 +167,7 @@ instance ToQuery ReplaceNetworkACLEntry where
                "Protocol" =: _rnaeProtocol,
                "RuleAction" =: _rnaeRuleAction,
                "Egress" =: _rnaeEgress,
-               "CidrBlock" =: _rnaeCIDRBlock]
+               "CidrBlock" =: _rnaeCIdRBlock]
 
 -- | /See:/ 'replaceNetworkACLEntryResponse' smart constructor.
 data ReplaceNetworkACLEntryResponse =

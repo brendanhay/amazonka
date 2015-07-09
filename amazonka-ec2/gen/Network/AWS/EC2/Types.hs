@@ -575,7 +575,7 @@ module Network.AWS.EC2.Types
     -- * IPRange
     , IPRange
     , ipRange
-    , irCIDRIP
+    , irCIdRIP
 
     -- * Image
     , Image
@@ -938,7 +938,7 @@ module Network.AWS.EC2.Types
     , naeRuleAction
     , naeProtocol
     , naePortRange
-    , naeCIDRBlock
+    , naeCIdRBlock
     , naeEgress
 
     -- * NetworkInterface
@@ -1026,7 +1026,7 @@ module Network.AWS.EC2.Types
     -- * PrefixList
     , PrefixList
     , prefixList
-    , plCIDRs
+    , plCIdRs
     , plPrefixListId
     , plPrefixListName
 
@@ -1214,7 +1214,7 @@ module Network.AWS.EC2.Types
     , rouGatewayId
     , rouInstanceOwnerId
     , rouDestinationPrefixListId
-    , rouDestinationCIDRBlock
+    , rouDestinationCIdRBlock
 
     -- * RouteTable
     , RouteTable
@@ -1404,7 +1404,7 @@ module Network.AWS.EC2.Types
     , subTags
     , subAvailabilityZone
     , subAvailableIPAddressCount
-    , subCIDRBlock
+    , subCIdRBlock
     , subDefaultForAz
     , subMapPublicIPOnLaunch
     , subState
@@ -1474,7 +1474,7 @@ module Network.AWS.EC2.Types
     , VPC
     , vpc
     , vpcTags
-    , vpcCIDRBlock
+    , vpcCIdRBlock
     , vpcDHCPOptionsId
     , vpcInstanceTenancy
     , vpcIsDefault
@@ -1526,7 +1526,7 @@ module Network.AWS.EC2.Types
     , vpcPeeringConnectionVPCInfo
     , vpcviVPCId
     , vpcviOwnerId
-    , vpcviCIDRBlock
+    , vpcviCIdRBlock
 
     -- * VPNConnection
     , VPNConnection
@@ -1567,7 +1567,7 @@ module Network.AWS.EC2.Types
     , vpnStaticRoute
     , vsrState
     , vsrSource
-    , vsrDestinationCIDRBlock
+    , vsrDestinationCIdRBlock
 
     -- * Volume
     , Volume
@@ -6264,29 +6264,29 @@ instance ToQuery IPPermission where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'irCIDRIP'
+-- * 'irCIdRIP'
 newtype IPRange = IPRange'
-    { _irCIDRIP :: Text
+    { _irCIdRIP :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IPRange' smart constructor.
 ipRange :: Text -> IPRange
-ipRange pCIDRIP =
+ipRange pCIdRIP =
     IPRange'
-    { _irCIDRIP = pCIDRIP
+    { _irCIdRIP = pCIdRIP
     }
 
 -- | The CIDR range. You can either specify a CIDR range or a source security
 -- group, not both.
-irCIDRIP :: Lens' IPRange Text
-irCIDRIP = lens _irCIDRIP (\ s a -> s{_irCIDRIP = a});
+irCIdRIP :: Lens' IPRange Text
+irCIdRIP = lens _irCIdRIP (\ s a -> s{_irCIdRIP = a});
 
 instance FromXML IPRange where
         parseXML x = IPRange' <$> (x .@ "cidrIp")
 
 instance ToQuery IPRange where
         toQuery IPRange'{..}
-          = mconcat ["CidrIp" =: _irCIDRIP]
+          = mconcat ["CidrIp" =: _irCIdRIP]
 
 -- | Describes an image.
 --
@@ -9018,7 +9018,7 @@ instance FromXML NetworkACLAssociation where
 --
 -- * 'naePortRange'
 --
--- * 'naeCIDRBlock'
+-- * 'naeCIdRBlock'
 --
 -- * 'naeEgress'
 data NetworkACLEntry = NetworkACLEntry'
@@ -9027,7 +9027,7 @@ data NetworkACLEntry = NetworkACLEntry'
     , _naeRuleAction   :: !(Maybe RuleAction)
     , _naeProtocol     :: !(Maybe Text)
     , _naePortRange    :: !(Maybe PortRange)
-    , _naeCIDRBlock    :: !(Maybe Text)
+    , _naeCIdRBlock    :: !(Maybe Text)
     , _naeEgress       :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -9040,7 +9040,7 @@ networkACLEntry =
     , _naeRuleAction = Nothing
     , _naeProtocol = Nothing
     , _naePortRange = Nothing
-    , _naeCIDRBlock = Nothing
+    , _naeCIdRBlock = Nothing
     , _naeEgress = Nothing
     }
 
@@ -9066,8 +9066,8 @@ naePortRange :: Lens' NetworkACLEntry (Maybe PortRange)
 naePortRange = lens _naePortRange (\ s a -> s{_naePortRange = a});
 
 -- | The network range to allow or deny, in CIDR notation.
-naeCIDRBlock :: Lens' NetworkACLEntry (Maybe Text)
-naeCIDRBlock = lens _naeCIDRBlock (\ s a -> s{_naeCIDRBlock = a});
+naeCIdRBlock :: Lens' NetworkACLEntry (Maybe Text)
+naeCIdRBlock = lens _naeCIdRBlock (\ s a -> s{_naeCIdRBlock = a});
 
 -- | Indicates whether the rule is an egress rule (applied to traffic leaving
 -- the subnet).
@@ -9684,13 +9684,13 @@ instance ToQuery PortRange where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'plCIDRs'
+-- * 'plCIdRs'
 --
 -- * 'plPrefixListId'
 --
 -- * 'plPrefixListName'
 data PrefixList = PrefixList'
-    { _plCIDRs          :: !(Maybe [Text])
+    { _plCIdRs          :: !(Maybe [Text])
     , _plPrefixListId   :: !(Maybe Text)
     , _plPrefixListName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -9699,14 +9699,14 @@ data PrefixList = PrefixList'
 prefixList :: PrefixList
 prefixList =
     PrefixList'
-    { _plCIDRs = Nothing
+    { _plCIdRs = Nothing
     , _plPrefixListId = Nothing
     , _plPrefixListName = Nothing
     }
 
 -- | The IP address range of the AWS service.
-plCIDRs :: Lens' PrefixList [Text]
-plCIDRs = lens _plCIDRs (\ s a -> s{_plCIDRs = a}) . _Default;
+plCIdRs :: Lens' PrefixList [Text]
+plCIdRs = lens _plCIdRs (\ s a -> s{_plCIdRs = a}) . _Default;
 
 -- | The ID of the prefix.
 plPrefixListId :: Lens' PrefixList (Maybe Text)
@@ -11026,7 +11026,7 @@ instance FromXML ReservedInstancesOffering where
 --
 -- * 'rouDestinationPrefixListId'
 --
--- * 'rouDestinationCIDRBlock'
+-- * 'rouDestinationCIdRBlock'
 data Route = Route'
     { _rouInstanceId              :: !(Maybe Text)
     , _rouOrigin                  :: !(Maybe RouteOrigin)
@@ -11036,7 +11036,7 @@ data Route = Route'
     , _rouGatewayId               :: !(Maybe Text)
     , _rouInstanceOwnerId         :: !(Maybe Text)
     , _rouDestinationPrefixListId :: !(Maybe Text)
-    , _rouDestinationCIDRBlock    :: !(Maybe Text)
+    , _rouDestinationCIdRBlock    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Route' smart constructor.
@@ -11051,7 +11051,7 @@ route =
     , _rouGatewayId = Nothing
     , _rouInstanceOwnerId = Nothing
     , _rouDestinationPrefixListId = Nothing
-    , _rouDestinationCIDRBlock = Nothing
+    , _rouDestinationCIdRBlock = Nothing
     }
 
 -- | The ID of a NAT instance in your VPC.
@@ -11097,8 +11097,8 @@ rouDestinationPrefixListId :: Lens' Route (Maybe Text)
 rouDestinationPrefixListId = lens _rouDestinationPrefixListId (\ s a -> s{_rouDestinationPrefixListId = a});
 
 -- | The CIDR block used for the destination match.
-rouDestinationCIDRBlock :: Lens' Route (Maybe Text)
-rouDestinationCIDRBlock = lens _rouDestinationCIDRBlock (\ s a -> s{_rouDestinationCIDRBlock = a});
+rouDestinationCIdRBlock :: Lens' Route (Maybe Text)
+rouDestinationCIdRBlock = lens _rouDestinationCIdRBlock (\ s a -> s{_rouDestinationCIdRBlock = a});
 
 instance FromXML Route where
         parseXML x
@@ -12527,7 +12527,7 @@ instance ToQuery Storage where
 --
 -- * 'subAvailableIPAddressCount'
 --
--- * 'subCIDRBlock'
+-- * 'subCIdRBlock'
 --
 -- * 'subDefaultForAz'
 --
@@ -12542,7 +12542,7 @@ data Subnet = Subnet'
     { _subTags                    :: !(Maybe [Tag])
     , _subAvailabilityZone        :: !Text
     , _subAvailableIPAddressCount :: !Int
-    , _subCIDRBlock               :: !Text
+    , _subCIdRBlock               :: !Text
     , _subDefaultForAz            :: !Bool
     , _subMapPublicIPOnLaunch     :: !Bool
     , _subState                   :: !SubnetState
@@ -12552,12 +12552,12 @@ data Subnet = Subnet'
 
 -- | 'Subnet' smart constructor.
 subnet :: Text -> Int -> Text -> Bool -> Bool -> SubnetState -> Text -> Text -> Subnet
-subnet pAvailabilityZone pAvailableIPAddressCount pCIDRBlock pDefaultForAz pMapPublicIPOnLaunch pState pSubnetId pVPCId =
+subnet pAvailabilityZone pAvailableIPAddressCount pCIdRBlock pDefaultForAz pMapPublicIPOnLaunch pState pSubnetId pVPCId =
     Subnet'
     { _subTags = Nothing
     , _subAvailabilityZone = pAvailabilityZone
     , _subAvailableIPAddressCount = pAvailableIPAddressCount
-    , _subCIDRBlock = pCIDRBlock
+    , _subCIdRBlock = pCIdRBlock
     , _subDefaultForAz = pDefaultForAz
     , _subMapPublicIPOnLaunch = pMapPublicIPOnLaunch
     , _subState = pState
@@ -12579,8 +12579,8 @@ subAvailableIPAddressCount :: Lens' Subnet Int
 subAvailableIPAddressCount = lens _subAvailableIPAddressCount (\ s a -> s{_subAvailableIPAddressCount = a});
 
 -- | The CIDR block assigned to the subnet.
-subCIDRBlock :: Lens' Subnet Text
-subCIDRBlock = lens _subCIDRBlock (\ s a -> s{_subCIDRBlock = a});
+subCIdRBlock :: Lens' Subnet Text
+subCIdRBlock = lens _subCIdRBlock (\ s a -> s{_subCIdRBlock = a});
 
 -- | Indicates whether this is the default subnet for the Availability Zone.
 subDefaultForAz :: Lens' Subnet Bool
@@ -13004,7 +13004,7 @@ instance FromXML VGWTelemetry where
 --
 -- * 'vpcTags'
 --
--- * 'vpcCIDRBlock'
+-- * 'vpcCIdRBlock'
 --
 -- * 'vpcDHCPOptionsId'
 --
@@ -13017,7 +13017,7 @@ instance FromXML VGWTelemetry where
 -- * 'vpcVPCId'
 data VPC = VPC'
     { _vpcTags            :: !(Maybe [Tag])
-    , _vpcCIDRBlock       :: !Text
+    , _vpcCIdRBlock       :: !Text
     , _vpcDHCPOptionsId   :: !Text
     , _vpcInstanceTenancy :: !Tenancy
     , _vpcIsDefault       :: !Bool
@@ -13027,10 +13027,10 @@ data VPC = VPC'
 
 -- | 'VPC' smart constructor.
 vpc :: Text -> Text -> Tenancy -> Bool -> VPCState -> Text -> VPC
-vpc pCIDRBlock pDHCPOptionsId pInstanceTenancy pIsDefault pState pVPCId =
+vpc pCIdRBlock pDHCPOptionsId pInstanceTenancy pIsDefault pState pVPCId =
     VPC'
     { _vpcTags = Nothing
-    , _vpcCIDRBlock = pCIDRBlock
+    , _vpcCIdRBlock = pCIdRBlock
     , _vpcDHCPOptionsId = pDHCPOptionsId
     , _vpcInstanceTenancy = pInstanceTenancy
     , _vpcIsDefault = pIsDefault
@@ -13043,8 +13043,8 @@ vpcTags :: Lens' VPC [Tag]
 vpcTags = lens _vpcTags (\ s a -> s{_vpcTags = a}) . _Default;
 
 -- | The CIDR block for the VPC.
-vpcCIDRBlock :: Lens' VPC Text
-vpcCIDRBlock = lens _vpcCIDRBlock (\ s a -> s{_vpcCIDRBlock = a});
+vpcCIdRBlock :: Lens' VPC Text
+vpcCIdRBlock = lens _vpcCIdRBlock (\ s a -> s{_vpcCIdRBlock = a});
 
 -- | The ID of the set of DHCP options you\'ve associated with the VPC (or
 -- @default@ if the default options are associated with the VPC).
@@ -13362,11 +13362,11 @@ instance FromXML VPCPeeringConnectionStateReason
 --
 -- * 'vpcviOwnerId'
 --
--- * 'vpcviCIDRBlock'
+-- * 'vpcviCIdRBlock'
 data VPCPeeringConnectionVPCInfo = VPCPeeringConnectionVPCInfo'
     { _vpcviVPCId     :: !(Maybe Text)
     , _vpcviOwnerId   :: !(Maybe Text)
-    , _vpcviCIDRBlock :: !(Maybe Text)
+    , _vpcviCIdRBlock :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPCPeeringConnectionVPCInfo' smart constructor.
@@ -13375,7 +13375,7 @@ vpcPeeringConnectionVPCInfo =
     VPCPeeringConnectionVPCInfo'
     { _vpcviVPCId = Nothing
     , _vpcviOwnerId = Nothing
-    , _vpcviCIDRBlock = Nothing
+    , _vpcviCIdRBlock = Nothing
     }
 
 -- | The ID of the VPC.
@@ -13387,8 +13387,8 @@ vpcviOwnerId :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
 vpcviOwnerId = lens _vpcviOwnerId (\ s a -> s{_vpcviOwnerId = a});
 
 -- | The CIDR block for the VPC.
-vpcviCIDRBlock :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
-vpcviCIDRBlock = lens _vpcviCIDRBlock (\ s a -> s{_vpcviCIDRBlock = a});
+vpcviCIdRBlock :: Lens' VPCPeeringConnectionVPCInfo (Maybe Text)
+vpcviCIdRBlock = lens _vpcviCIdRBlock (\ s a -> s{_vpcviCIdRBlock = a});
 
 instance FromXML VPCPeeringConnectionVPCInfo where
         parseXML x
@@ -13656,11 +13656,11 @@ instance FromXML VPNGateway where
 --
 -- * 'vsrSource'
 --
--- * 'vsrDestinationCIDRBlock'
+-- * 'vsrDestinationCIdRBlock'
 data VPNStaticRoute = VPNStaticRoute'
     { _vsrState                :: !(Maybe VPNState)
     , _vsrSource               :: !(Maybe VPNStaticRouteSource)
-    , _vsrDestinationCIDRBlock :: !(Maybe Text)
+    , _vsrDestinationCIdRBlock :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VPNStaticRoute' smart constructor.
@@ -13669,7 +13669,7 @@ vpnStaticRoute =
     VPNStaticRoute'
     { _vsrState = Nothing
     , _vsrSource = Nothing
-    , _vsrDestinationCIDRBlock = Nothing
+    , _vsrDestinationCIdRBlock = Nothing
     }
 
 -- | The current state of the static route.
@@ -13682,8 +13682,8 @@ vsrSource = lens _vsrSource (\ s a -> s{_vsrSource = a});
 
 -- | The CIDR block associated with the local subnet of the customer data
 -- center.
-vsrDestinationCIDRBlock :: Lens' VPNStaticRoute (Maybe Text)
-vsrDestinationCIDRBlock = lens _vsrDestinationCIDRBlock (\ s a -> s{_vsrDestinationCIDRBlock = a});
+vsrDestinationCIdRBlock :: Lens' VPNStaticRoute (Maybe Text)
+vsrDestinationCIdRBlock = lens _vsrDestinationCIdRBlock (\ s a -> s{_vsrDestinationCIdRBlock = a});
 
 instance FromXML VPNStaticRoute where
         parseXML x

@@ -306,22 +306,22 @@ module Network.AWS.OpsWorks.Types
     , perLevel
     , perAllowSSH
 
-    -- * RAIDArray
-    , RAIDArray
-    , raidArray
-    , raInstanceId
-    , raSize
-    , raCreatedAt
-    , raIOPS
-    , raRAIDLevel
-    , raDevice
-    , raNumberOfDisks
-    , raName
-    , raAvailabilityZone
-    , raRAIDArrayId
-    , raVolumeType
-    , raStackId
-    , raMountPoint
+    -- * RAIdArray
+    , RAIdArray
+    , rAIdArray
+    , raiaInstanceId
+    , raiaSize
+    , raiaCreatedAt
+    , raiaIOPS
+    , raiaRAIdLevel
+    , raiaDevice
+    , raiaNumberOfDisks
+    , raiaName
+    , raiaAvailabilityZone
+    , raiaRAIdArrayId
+    , raiaVolumeType
+    , raiaStackId
+    , raiaMountPoint
 
     -- * RDSDBInstance
     , RDSDBInstance
@@ -468,7 +468,7 @@ module Network.AWS.OpsWorks.Types
     , volDevice
     , volName
     , volAvailabilityZone
-    , volRAIDArrayId
+    , volRAIdArrayId
     , volVolumeId
     , volRegion
     , volVolumeType
@@ -479,7 +479,7 @@ module Network.AWS.OpsWorks.Types
     , VolumeConfiguration
     , volumeConfiguration
     , vcIOPS
-    , vcRAIDLevel
+    , vcRAIdLevel
     , vcVolumeType
     , vcMountPoint
     , vcNumberOfDisks
@@ -3149,128 +3149,128 @@ instance FromJSON Permission where
 
 -- | Describes an instance\'s RAID array.
 --
--- /See:/ 'raidArray' smart constructor.
+-- /See:/ 'rAIdArray' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'raInstanceId'
+-- * 'raiaInstanceId'
 --
--- * 'raSize'
+-- * 'raiaSize'
 --
--- * 'raCreatedAt'
+-- * 'raiaCreatedAt'
 --
--- * 'raIOPS'
+-- * 'raiaIOPS'
 --
--- * 'raRAIDLevel'
+-- * 'raiaRAIdLevel'
 --
--- * 'raDevice'
+-- * 'raiaDevice'
 --
--- * 'raNumberOfDisks'
+-- * 'raiaNumberOfDisks'
 --
--- * 'raName'
+-- * 'raiaName'
 --
--- * 'raAvailabilityZone'
+-- * 'raiaAvailabilityZone'
 --
--- * 'raRAIDArrayId'
+-- * 'raiaRAIdArrayId'
 --
--- * 'raVolumeType'
+-- * 'raiaVolumeType'
 --
--- * 'raStackId'
+-- * 'raiaStackId'
 --
--- * 'raMountPoint'
-data RAIDArray = RAIDArray'
-    { _raInstanceId       :: !(Maybe Text)
-    , _raSize             :: !(Maybe Int)
-    , _raCreatedAt        :: !(Maybe Text)
-    , _raIOPS             :: !(Maybe Int)
-    , _raRAIDLevel        :: !(Maybe Int)
-    , _raDevice           :: !(Maybe Text)
-    , _raNumberOfDisks    :: !(Maybe Int)
-    , _raName             :: !(Maybe Text)
-    , _raAvailabilityZone :: !(Maybe Text)
-    , _raRAIDArrayId      :: !(Maybe Text)
-    , _raVolumeType       :: !(Maybe Text)
-    , _raStackId          :: !(Maybe Text)
-    , _raMountPoint       :: !(Maybe Text)
+-- * 'raiaMountPoint'
+data RAIdArray = RAIdArray'
+    { _raiaInstanceId       :: !(Maybe Text)
+    , _raiaSize             :: !(Maybe Int)
+    , _raiaCreatedAt        :: !(Maybe Text)
+    , _raiaIOPS             :: !(Maybe Int)
+    , _raiaRAIdLevel        :: !(Maybe Int)
+    , _raiaDevice           :: !(Maybe Text)
+    , _raiaNumberOfDisks    :: !(Maybe Int)
+    , _raiaName             :: !(Maybe Text)
+    , _raiaAvailabilityZone :: !(Maybe Text)
+    , _raiaRAIdArrayId      :: !(Maybe Text)
+    , _raiaVolumeType       :: !(Maybe Text)
+    , _raiaStackId          :: !(Maybe Text)
+    , _raiaMountPoint       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'RAIDArray' smart constructor.
-raidArray :: RAIDArray
-raidArray =
-    RAIDArray'
-    { _raInstanceId = Nothing
-    , _raSize = Nothing
-    , _raCreatedAt = Nothing
-    , _raIOPS = Nothing
-    , _raRAIDLevel = Nothing
-    , _raDevice = Nothing
-    , _raNumberOfDisks = Nothing
-    , _raName = Nothing
-    , _raAvailabilityZone = Nothing
-    , _raRAIDArrayId = Nothing
-    , _raVolumeType = Nothing
-    , _raStackId = Nothing
-    , _raMountPoint = Nothing
+-- | 'RAIdArray' smart constructor.
+rAIdArray :: RAIdArray
+rAIdArray =
+    RAIdArray'
+    { _raiaInstanceId = Nothing
+    , _raiaSize = Nothing
+    , _raiaCreatedAt = Nothing
+    , _raiaIOPS = Nothing
+    , _raiaRAIdLevel = Nothing
+    , _raiaDevice = Nothing
+    , _raiaNumberOfDisks = Nothing
+    , _raiaName = Nothing
+    , _raiaAvailabilityZone = Nothing
+    , _raiaRAIdArrayId = Nothing
+    , _raiaVolumeType = Nothing
+    , _raiaStackId = Nothing
+    , _raiaMountPoint = Nothing
     }
 
 -- | The instance ID.
-raInstanceId :: Lens' RAIDArray (Maybe Text)
-raInstanceId = lens _raInstanceId (\ s a -> s{_raInstanceId = a});
+raiaInstanceId :: Lens' RAIdArray (Maybe Text)
+raiaInstanceId = lens _raiaInstanceId (\ s a -> s{_raiaInstanceId = a});
 
 -- | The array\'s size.
-raSize :: Lens' RAIDArray (Maybe Int)
-raSize = lens _raSize (\ s a -> s{_raSize = a});
+raiaSize :: Lens' RAIdArray (Maybe Int)
+raiaSize = lens _raiaSize (\ s a -> s{_raiaSize = a});
 
 -- | When the RAID array was created.
-raCreatedAt :: Lens' RAIDArray (Maybe Text)
-raCreatedAt = lens _raCreatedAt (\ s a -> s{_raCreatedAt = a});
+raiaCreatedAt :: Lens' RAIdArray (Maybe Text)
+raiaCreatedAt = lens _raiaCreatedAt (\ s a -> s{_raiaCreatedAt = a});
 
 -- | For PIOPS volumes, the IOPS per disk.
-raIOPS :: Lens' RAIDArray (Maybe Int)
-raIOPS = lens _raIOPS (\ s a -> s{_raIOPS = a});
+raiaIOPS :: Lens' RAIdArray (Maybe Int)
+raiaIOPS = lens _raiaIOPS (\ s a -> s{_raiaIOPS = a});
 
 -- | The <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-raRAIDLevel :: Lens' RAIDArray (Maybe Int)
-raRAIDLevel = lens _raRAIDLevel (\ s a -> s{_raRAIDLevel = a});
+raiaRAIdLevel :: Lens' RAIdArray (Maybe Int)
+raiaRAIdLevel = lens _raiaRAIdLevel (\ s a -> s{_raiaRAIdLevel = a});
 
 -- | The array\'s Linux device. For example \/dev\/mdadm0.
-raDevice :: Lens' RAIDArray (Maybe Text)
-raDevice = lens _raDevice (\ s a -> s{_raDevice = a});
+raiaDevice :: Lens' RAIdArray (Maybe Text)
+raiaDevice = lens _raiaDevice (\ s a -> s{_raiaDevice = a});
 
 -- | The number of disks in the array.
-raNumberOfDisks :: Lens' RAIDArray (Maybe Int)
-raNumberOfDisks = lens _raNumberOfDisks (\ s a -> s{_raNumberOfDisks = a});
+raiaNumberOfDisks :: Lens' RAIdArray (Maybe Int)
+raiaNumberOfDisks = lens _raiaNumberOfDisks (\ s a -> s{_raiaNumberOfDisks = a});
 
 -- | The array name.
-raName :: Lens' RAIDArray (Maybe Text)
-raName = lens _raName (\ s a -> s{_raName = a});
+raiaName :: Lens' RAIdArray (Maybe Text)
+raiaName = lens _raiaName (\ s a -> s{_raiaName = a});
 
 -- | The array\'s Availability Zone. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-raAvailabilityZone :: Lens' RAIDArray (Maybe Text)
-raAvailabilityZone = lens _raAvailabilityZone (\ s a -> s{_raAvailabilityZone = a});
+raiaAvailabilityZone :: Lens' RAIdArray (Maybe Text)
+raiaAvailabilityZone = lens _raiaAvailabilityZone (\ s a -> s{_raiaAvailabilityZone = a});
 
 -- | The array ID.
-raRAIDArrayId :: Lens' RAIDArray (Maybe Text)
-raRAIDArrayId = lens _raRAIDArrayId (\ s a -> s{_raRAIDArrayId = a});
+raiaRAIdArrayId :: Lens' RAIdArray (Maybe Text)
+raiaRAIdArrayId = lens _raiaRAIdArrayId (\ s a -> s{_raiaRAIdArrayId = a});
 
 -- | The volume type, standard or PIOPS.
-raVolumeType :: Lens' RAIDArray (Maybe Text)
-raVolumeType = lens _raVolumeType (\ s a -> s{_raVolumeType = a});
+raiaVolumeType :: Lens' RAIdArray (Maybe Text)
+raiaVolumeType = lens _raiaVolumeType (\ s a -> s{_raiaVolumeType = a});
 
 -- | The stack ID.
-raStackId :: Lens' RAIDArray (Maybe Text)
-raStackId = lens _raStackId (\ s a -> s{_raStackId = a});
+raiaStackId :: Lens' RAIdArray (Maybe Text)
+raiaStackId = lens _raiaStackId (\ s a -> s{_raiaStackId = a});
 
 -- | The array\'s mount point.
-raMountPoint :: Lens' RAIDArray (Maybe Text)
-raMountPoint = lens _raMountPoint (\ s a -> s{_raMountPoint = a});
+raiaMountPoint :: Lens' RAIdArray (Maybe Text)
+raiaMountPoint = lens _raiaMountPoint (\ s a -> s{_raiaMountPoint = a});
 
-instance FromJSON RAIDArray where
+instance FromJSON RAIdArray where
         parseJSON
-          = withObject "RAIDArray"
+          = withObject "RAIdArray"
               (\ x ->
-                 RAIDArray' <$>
+                 RAIdArray' <$>
                    (x .:? "InstanceId") <*> (x .:? "Size") <*>
                      (x .:? "CreatedAt")
                      <*> (x .:? "Iops")
@@ -4394,7 +4394,7 @@ instance FromJSON UserProfile where
 --
 -- * 'volAvailabilityZone'
 --
--- * 'volRAIDArrayId'
+-- * 'volRAIdArrayId'
 --
 -- * 'volVolumeId'
 --
@@ -4413,7 +4413,7 @@ data Volume = Volume'
     , _volDevice           :: !(Maybe Text)
     , _volName             :: !(Maybe Text)
     , _volAvailabilityZone :: !(Maybe Text)
-    , _volRAIDArrayId      :: !(Maybe Text)
+    , _volRAIdArrayId      :: !(Maybe Text)
     , _volVolumeId         :: !(Maybe Text)
     , _volRegion           :: !(Maybe Text)
     , _volVolumeType       :: !(Maybe Text)
@@ -4432,7 +4432,7 @@ volume =
     , _volDevice = Nothing
     , _volName = Nothing
     , _volAvailabilityZone = Nothing
-    , _volRAIDArrayId = Nothing
+    , _volRAIdArrayId = Nothing
     , _volVolumeId = Nothing
     , _volRegion = Nothing
     , _volVolumeType = Nothing
@@ -4471,8 +4471,8 @@ volAvailabilityZone :: Lens' Volume (Maybe Text)
 volAvailabilityZone = lens _volAvailabilityZone (\ s a -> s{_volAvailabilityZone = a});
 
 -- | The RAID array ID.
-volRAIDArrayId :: Lens' Volume (Maybe Text)
-volRAIDArrayId = lens _volRAIDArrayId (\ s a -> s{_volRAIDArrayId = a});
+volRAIdArrayId :: Lens' Volume (Maybe Text)
+volRAIdArrayId = lens _volRAIdArrayId (\ s a -> s{_volRAIdArrayId = a});
 
 -- | The volume ID.
 volVolumeId :: Lens' Volume (Maybe Text)
@@ -4521,7 +4521,7 @@ instance FromJSON Volume where
 --
 -- * 'vcIOPS'
 --
--- * 'vcRAIDLevel'
+-- * 'vcRAIdLevel'
 --
 -- * 'vcVolumeType'
 --
@@ -4532,7 +4532,7 @@ instance FromJSON Volume where
 -- * 'vcSize'
 data VolumeConfiguration = VolumeConfiguration'
     { _vcIOPS          :: !(Maybe Int)
-    , _vcRAIDLevel     :: !(Maybe Int)
+    , _vcRAIdLevel     :: !(Maybe Int)
     , _vcVolumeType    :: !(Maybe Text)
     , _vcMountPoint    :: !Text
     , _vcNumberOfDisks :: !Int
@@ -4544,7 +4544,7 @@ volumeConfiguration :: Text -> Int -> Int -> VolumeConfiguration
 volumeConfiguration pMountPoint pNumberOfDisks pSize =
     VolumeConfiguration'
     { _vcIOPS = Nothing
-    , _vcRAIDLevel = Nothing
+    , _vcRAIdLevel = Nothing
     , _vcVolumeType = Nothing
     , _vcMountPoint = pMountPoint
     , _vcNumberOfDisks = pNumberOfDisks
@@ -4557,8 +4557,8 @@ vcIOPS = lens _vcIOPS (\ s a -> s{_vcIOPS = a});
 
 -- | The volume
 -- <http://en.wikipedia.org/wiki/Standard_RAID_levels RAID level>.
-vcRAIDLevel :: Lens' VolumeConfiguration (Maybe Int)
-vcRAIDLevel = lens _vcRAIDLevel (\ s a -> s{_vcRAIDLevel = a});
+vcRAIdLevel :: Lens' VolumeConfiguration (Maybe Int)
+vcRAIdLevel = lens _vcRAIdLevel (\ s a -> s{_vcRAIdLevel = a});
 
 -- | The volume type:
 --
@@ -4594,7 +4594,7 @@ instance FromJSON VolumeConfiguration where
 instance ToJSON VolumeConfiguration where
         toJSON VolumeConfiguration'{..}
           = object
-              ["Iops" .= _vcIOPS, "RaidLevel" .= _vcRAIDLevel,
+              ["Iops" .= _vcIOPS, "RaidLevel" .= _vcRAIdLevel,
                "VolumeType" .= _vcVolumeType,
                "MountPoint" .= _vcMountPoint,
                "NumberOfDisks" .= _vcNumberOfDisks,

@@ -369,8 +369,8 @@ data CountryCode
     | YT
     | SN
     | BG
+    | Id
     | CN
-    | ID
     | LI
     | IT
     | LY
@@ -529,7 +529,6 @@ instance FromText CountryCode where
         "hr" -> pure HR
         "ht" -> pure HT
         "hu" -> pure HU
-        "id" -> pure ID
         "ie" -> pure IE
         "il" -> pure IL
         "im" -> pure IM
@@ -538,6 +537,7 @@ instance FromText CountryCode where
         "ir" -> pure IR
         "is" -> pure IS
         "it" -> pure IT
+        "id" -> pure Id
         "jm" -> pure JM
         "jo" -> pure JO
         "jp" -> pure JP
@@ -668,7 +668,7 @@ instance FromText CountryCode where
         "zm" -> pure ZM
         "zw" -> pure ZW
         e -> fromTextError $ "Failure parsing CountryCode from value: '" <> e
-           <> "'. Accepted values: ad, ae, af, ag, ai, al, am, an, ao, aq, ar, as, at, au, aw, az, ba, bb, bd, be, bf, bg, bh, bi, bj, bl, bm, bn, bo, br, bs, bt, bw, by, bz, ca, cc, cd, cf, cg, ch, ci, ck, cl, cm, cn, co, cr, cu, cv, cx, cy, cz, de, dj, dk, dm, do, dz, ec, ee, eg, er, es, et, fi, fj, fk, fm, fo, fr, ga, gb, gd, ge, gh, gi, gl, gm, gn, gq, gr, gt, gu, gw, gy, hk, hn, hr, ht, hu, id, ie, il, im, in, iq, ir, is, it, jm, jo, jp, ke, kg, kh, ki, km, kn, kp, kr, kw, ky, kz, la, lb, lc, li, lk, lr, ls, lt, lu, lv, ly, ma, mc, md, me, mf, mg, mh, mk, ml, mm, mn, mo, mp, mr, ms, mt, mu, mv, mw, mx, my, mz, na, nc, ne, ng, ni, nl, no, np, nr, nu, nz, om, pa, pe, pf, pg, ph, pk, pl, pm, pn, pr, pt, pw, py, qa, ro, rs, ru, rw, sa, sb, sc, sd, se, sg, sh, si, sk, sl, sm, sn, so, sr, st, sv, sy, sz, tc, td, tg, th, tj, tk, tl, tm, tn, to, tr, tt, tv, tw, tz, ua, ug, us, uy, uz, va, vc, ve, vg, vi, vn, vu, wf, ws, ye, yt, za, zm, zw"
+           <> "'. Accepted values: ad, ae, af, ag, ai, al, am, an, ao, aq, ar, as, at, au, aw, az, ba, bb, bd, be, bf, bg, bh, bi, bj, bl, bm, bn, bo, br, bs, bt, bw, by, bz, ca, cc, cd, cf, cg, ch, ci, ck, cl, cm, cn, co, cr, cu, cv, cx, cy, cz, de, dj, dk, dm, do, dz, ec, ee, eg, er, es, et, fi, fj, fk, fm, fo, fr, ga, gb, gd, ge, gh, gi, gl, gm, gn, gq, gr, gt, gu, gw, gy, hk, hn, hr, ht, hu, ie, il, im, in, iq, ir, is, it, id, jm, jo, jp, ke, kg, kh, ki, km, kn, kp, kr, kw, ky, kz, la, lb, lc, li, lk, lr, ls, lt, lu, lv, ly, ma, mc, md, me, mf, mg, mh, mk, ml, mm, mn, mo, mp, mr, ms, mt, mu, mv, mw, mx, my, mz, na, nc, ne, ng, ni, nl, no, np, nr, nu, nz, om, pa, pe, pf, pg, ph, pk, pl, pm, pn, pr, pt, pw, py, qa, ro, rs, ru, rw, sa, sb, sc, sd, se, sg, sh, si, sk, sl, sm, sn, so, sr, st, sv, sy, sz, tc, td, tg, th, tj, tk, tl, tm, tn, to, tr, tt, tv, tw, tz, ua, ug, us, uy, uz, va, vc, ve, vg, vi, vn, vu, wf, ws, ye, yt, za, zm, zw"
 
 instance ToText CountryCode where
     toText = \case
@@ -763,7 +763,6 @@ instance ToText CountryCode where
         HR -> "hr"
         HT -> "ht"
         HU -> "hu"
-        ID -> "id"
         IE -> "ie"
         IL -> "il"
         IM -> "im"
@@ -772,6 +771,7 @@ instance ToText CountryCode where
         IR -> "ir"
         IS -> "is"
         IT -> "it"
+        Id -> "id"
         JM -> "jm"
         JO -> "jo"
         JP -> "jp"
@@ -958,29 +958,29 @@ data ExtraParamName
     = DocumentNumber
     | ESIdentificationType
     | RUPassportData
-    | SGIDNumber
+    | AUIdNumber
     | FIBusinessNumber
-    | AUIDNumber
+    | SGIdNumber
     | ESLegalForm
     | BirthDateINYyyyMMDD
     | CALegalType
-    | AUIDType
     | BirthDepartment
+    | AUIdType
     | ESIdentification
     | DunsNumber
     | BirthCity
     | ITPin
     | BirthCountry
     | VatNumber
+    | SEIdNumber
     | BrandNumber
-    | SEIDNumber
-    | FIIDNumber
+    | FIIdNumber
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ExtraParamName where
     parser = takeLowerText >>= \case
-        "au_id_number" -> pure AUIDNumber
-        "au_id_type" -> pure AUIDType
+        "au_id_number" -> pure AUIdNumber
+        "au_id_type" -> pure AUIdType
         "birth_city" -> pure BirthCity
         "birth_country" -> pure BirthCountry
         "birth_date_in_yyyy_mm_dd" -> pure BirthDateINYyyyMMDD
@@ -993,19 +993,19 @@ instance FromText ExtraParamName where
         "es_identification_type" -> pure ESIdentificationType
         "es_legal_form" -> pure ESLegalForm
         "fi_business_number" -> pure FIBusinessNumber
-        "fi_id_number" -> pure FIIDNumber
+        "fi_id_number" -> pure FIIdNumber
         "it_pin" -> pure ITPin
         "ru_passport_data" -> pure RUPassportData
-        "se_id_number" -> pure SEIDNumber
-        "sg_id_number" -> pure SGIDNumber
+        "se_id_number" -> pure SEIdNumber
+        "sg_id_number" -> pure SGIdNumber
         "vat_number" -> pure VatNumber
         e -> fromTextError $ "Failure parsing ExtraParamName from value: '" <> e
            <> "'. Accepted values: au_id_number, au_id_type, birth_city, birth_country, birth_date_in_yyyy_mm_dd, birth_department, brand_number, ca_legal_type, document_number, duns_number, es_identification, es_identification_type, es_legal_form, fi_business_number, fi_id_number, it_pin, ru_passport_data, se_id_number, sg_id_number, vat_number"
 
 instance ToText ExtraParamName where
     toText = \case
-        AUIDNumber -> "au_id_number"
-        AUIDType -> "au_id_type"
+        AUIdNumber -> "au_id_number"
+        AUIdType -> "au_id_type"
         BirthCity -> "birth_city"
         BirthCountry -> "birth_country"
         BirthDateINYyyyMMDD -> "birth_date_in_yyyy_mm_dd"
@@ -1018,11 +1018,11 @@ instance ToText ExtraParamName where
         ESIdentificationType -> "es_identification_type"
         ESLegalForm -> "es_legal_form"
         FIBusinessNumber -> "fi_business_number"
-        FIIDNumber -> "fi_id_number"
+        FIIdNumber -> "fi_id_number"
         ITPin -> "it_pin"
         RUPassportData -> "ru_passport_data"
-        SEIDNumber -> "se_id_number"
-        SGIDNumber -> "sg_id_number"
+        SEIdNumber -> "se_id_number"
+        SGIdNumber -> "sg_id_number"
         VatNumber -> "vat_number"
 
 instance Hashable ExtraParamName

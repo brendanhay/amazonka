@@ -30,7 +30,7 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     -- ** Request lenses
     , rdsgiEC2SecurityGroupOwnerId
     , rdsgiEC2SecurityGroupName
-    , rdsgiCIDRIP
+    , rdsgiCIdRIP
     , rdsgiEC2SecurityGroupId
     , rdsgiDBSecurityGroupName
 
@@ -58,7 +58,7 @@ import           Network.AWS.Response
 --
 -- * 'rdsgiEC2SecurityGroupName'
 --
--- * 'rdsgiCIDRIP'
+-- * 'rdsgiCIdRIP'
 --
 -- * 'rdsgiEC2SecurityGroupId'
 --
@@ -66,7 +66,7 @@ import           Network.AWS.Response
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
     { _rdsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
     , _rdsgiEC2SecurityGroupName    :: !(Maybe Text)
-    , _rdsgiCIDRIP                  :: !(Maybe Text)
+    , _rdsgiCIdRIP                  :: !(Maybe Text)
     , _rdsgiEC2SecurityGroupId      :: !(Maybe Text)
     , _rdsgiDBSecurityGroupName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -77,7 +77,7 @@ revokeDBSecurityGroupIngress pDBSecurityGroupName =
     RevokeDBSecurityGroupIngress'
     { _rdsgiEC2SecurityGroupOwnerId = Nothing
     , _rdsgiEC2SecurityGroupName = Nothing
-    , _rdsgiCIDRIP = Nothing
+    , _rdsgiCIdRIP = Nothing
     , _rdsgiEC2SecurityGroupId = Nothing
     , _rdsgiDBSecurityGroupName = pDBSecurityGroupName
     }
@@ -100,8 +100,8 @@ rdsgiEC2SecurityGroupName = lens _rdsgiEC2SecurityGroupName (\ s a -> s{_rdsgiEC
 -- | The IP range to revoke access from. Must be a valid CIDR range. If
 -- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
 -- @EC2SecurityGroupOwnerId@ cannot be provided.
-rdsgiCIDRIP :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
-rdsgiCIDRIP = lens _rdsgiCIDRIP (\ s a -> s{_rdsgiCIDRIP = a});
+rdsgiCIdRIP :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
+rdsgiCIdRIP = lens _rdsgiCIdRIP (\ s a -> s{_rdsgiCIdRIP = a});
 
 -- | The id of the EC2 security group to revoke access from. For VPC DB
 -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
@@ -142,7 +142,7 @@ instance ToQuery RevokeDBSecurityGroupIngress where
                "EC2SecurityGroupOwnerId" =:
                  _rdsgiEC2SecurityGroupOwnerId,
                "EC2SecurityGroupName" =: _rdsgiEC2SecurityGroupName,
-               "CIDRIP" =: _rdsgiCIDRIP,
+               "CIDRIP" =: _rdsgiCIdRIP,
                "EC2SecurityGroupId" =: _rdsgiEC2SecurityGroupId,
                "DBSecurityGroupName" =: _rdsgiDBSecurityGroupName]
 

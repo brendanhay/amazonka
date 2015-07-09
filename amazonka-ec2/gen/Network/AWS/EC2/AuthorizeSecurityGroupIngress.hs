@@ -49,7 +49,7 @@ module Network.AWS.EC2.AuthorizeSecurityGroupIngress
     , asgiIPProtocol
     , asgiGroupId
     , asgiToPort
-    , asgiCIDRIP
+    , asgiCIdRIP
     , asgiGroupName
     , asgiSourceSecurityGroupOwnerId
     , asgiSourceSecurityGroupName
@@ -80,7 +80,7 @@ import           Network.AWS.Response
 --
 -- * 'asgiToPort'
 --
--- * 'asgiCIDRIP'
+-- * 'asgiCIdRIP'
 --
 -- * 'asgiGroupName'
 --
@@ -95,7 +95,7 @@ data AuthorizeSecurityGroupIngress = AuthorizeSecurityGroupIngress'
     , _asgiIPProtocol                 :: !(Maybe Text)
     , _asgiGroupId                    :: !(Maybe Text)
     , _asgiToPort                     :: !(Maybe Int)
-    , _asgiCIDRIP                     :: !(Maybe Text)
+    , _asgiCIdRIP                     :: !(Maybe Text)
     , _asgiGroupName                  :: !(Maybe Text)
     , _asgiSourceSecurityGroupOwnerId :: !(Maybe Text)
     , _asgiSourceSecurityGroupName    :: !(Maybe Text)
@@ -111,7 +111,7 @@ authorizeSecurityGroupIngress =
     , _asgiIPProtocol = Nothing
     , _asgiGroupId = Nothing
     , _asgiToPort = Nothing
-    , _asgiCIDRIP = Nothing
+    , _asgiCIdRIP = Nothing
     , _asgiGroupName = Nothing
     , _asgiSourceSecurityGroupOwnerId = Nothing
     , _asgiSourceSecurityGroupName = Nothing
@@ -146,8 +146,8 @@ asgiToPort = lens _asgiToPort (\ s a -> s{_asgiToPort = a});
 
 -- | The CIDR IP address range. You can\'t specify this parameter when
 -- specifying a source security group.
-asgiCIDRIP :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
-asgiCIDRIP = lens _asgiCIDRIP (\ s a -> s{_asgiCIDRIP = a});
+asgiCIdRIP :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
+asgiCIdRIP = lens _asgiCIdRIP (\ s a -> s{_asgiCIdRIP = a});
 
 -- | [EC2-Classic, default VPC] The name of the security group.
 asgiGroupName :: Lens' AuthorizeSecurityGroupIngress (Maybe Text)
@@ -199,7 +199,7 @@ instance ToQuery AuthorizeSecurityGroupIngress where
                toQuery (toQueryList "item" <$> _asgiIPPermissions),
                "IpProtocol" =: _asgiIPProtocol,
                "GroupId" =: _asgiGroupId, "ToPort" =: _asgiToPort,
-               "CidrIp" =: _asgiCIDRIP,
+               "CidrIp" =: _asgiCIdRIP,
                "GroupName" =: _asgiGroupName,
                "SourceSecurityGroupOwnerId" =:
                  _asgiSourceSecurityGroupOwnerId,

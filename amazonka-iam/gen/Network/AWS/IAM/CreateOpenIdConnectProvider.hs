@@ -7,7 +7,7 @@
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |
--- Module      : Network.AWS.IAM.CreateOpenIDConnectProvider
+-- Module      : Network.AWS.IAM.CreateOpenIdConnectProvider
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
@@ -33,25 +33,25 @@
 -- provider that this action creates, it is a best practice to limit access
 -- to the CreateOpenIDConnectProvider action to highly-privileged users.
 --
--- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIDConnectProvider.html>
-module Network.AWS.IAM.CreateOpenIDConnectProvider
+-- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_CreateOpenIdConnectProvider.html>
+module Network.AWS.IAM.CreateOpenIdConnectProvider
     (
     -- * Request
-      CreateOpenIDConnectProvider
+      CreateOpenIdConnectProvider
     -- ** Request constructor
-    , createOpenIDConnectProvider
+    , createOpenIdConnectProvider
     -- ** Request lenses
-    , coidcpClientIDList
-    , coidcpURL
-    , coidcpThumbprintList
+    , coicpClientIdList
+    , coicpURL
+    , coicpThumbprintList
 
     -- * Response
-    , CreateOpenIDConnectProviderResponse
+    , CreateOpenIdConnectProviderResponse
     -- ** Response constructor
-    , createOpenIDConnectProviderResponse
+    , createOpenIdConnectProviderResponse
     -- ** Response lenses
-    , coidcprOpenIDConnectProviderARN
-    , coidcprStatus
+    , coicprOpenIdConnectProviderARN
+    , coicprStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -59,28 +59,28 @@ import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
 
--- | /See:/ 'createOpenIDConnectProvider' smart constructor.
+-- | /See:/ 'createOpenIdConnectProvider' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'coidcpClientIDList'
+-- * 'coicpClientIdList'
 --
--- * 'coidcpURL'
+-- * 'coicpURL'
 --
--- * 'coidcpThumbprintList'
-data CreateOpenIDConnectProvider = CreateOpenIDConnectProvider'
-    { _coidcpClientIDList   :: !(Maybe [Text])
-    , _coidcpURL            :: !Text
-    , _coidcpThumbprintList :: ![Text]
+-- * 'coicpThumbprintList'
+data CreateOpenIdConnectProvider = CreateOpenIdConnectProvider'
+    { _coicpClientIdList   :: !(Maybe [Text])
+    , _coicpURL            :: !Text
+    , _coicpThumbprintList :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateOpenIDConnectProvider' smart constructor.
-createOpenIDConnectProvider :: Text -> CreateOpenIDConnectProvider
-createOpenIDConnectProvider pURL =
-    CreateOpenIDConnectProvider'
-    { _coidcpClientIDList = Nothing
-    , _coidcpURL = pURL
-    , _coidcpThumbprintList = mempty
+-- | 'CreateOpenIdConnectProvider' smart constructor.
+createOpenIdConnectProvider :: Text -> CreateOpenIdConnectProvider
+createOpenIdConnectProvider pURL =
+    CreateOpenIdConnectProvider'
+    { _coicpClientIdList = Nothing
+    , _coicpURL = pURL
+    , _coicpThumbprintList = mempty
     }
 
 -- | A list of client IDs (also known as audiences). When a mobile or web app
@@ -96,8 +96,8 @@ createOpenIDConnectProvider pURL =
 -- There is no defined format for a client ID. The
 -- @CreateOpenIDConnectProviderRequest@ action accepts client IDs up to 255
 -- characters long.
-coidcpClientIDList :: Lens' CreateOpenIDConnectProvider [Text]
-coidcpClientIDList = lens _coidcpClientIDList (\ s a -> s{_coidcpClientIDList = a}) . _Default;
+coicpClientIdList :: Lens' CreateOpenIdConnectProvider [Text]
+coicpClientIdList = lens _coicpClientIdList (\ s a -> s{_coicpClientIdList = a}) . _Default;
 
 -- | The URL of the identity provider. The URL must begin with \"https:\/\/\"
 -- and should correspond to the @iss@ claim in the provider\'s OpenID
@@ -109,8 +109,8 @@ coidcpClientIDList = lens _coidcpClientIDList (\ s a -> s{_coidcpClientIDList = 
 -- You cannot register the same provider multiple times in a single AWS
 -- account. If you try to submit a URL that has already been used for an
 -- OpenID Connect provider in the AWS account, you will get an error.
-coidcpURL :: Lens' CreateOpenIDConnectProvider Text
-coidcpURL = lens _coidcpURL (\ s a -> s{_coidcpURL = a});
+coicpURL :: Lens' CreateOpenIdConnectProvider Text
+coicpURL = lens _coicpURL (\ s a -> s{_coicpURL = a});
 
 -- | A list of server certificate thumbprints for the OpenID Connect (OIDC)
 -- identity provider\'s server certificate(s). Typically this list includes
@@ -133,69 +133,69 @@ coidcpURL = lens _coidcpURL (\ s a -> s{_coidcpURL = a});
 -- see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/identity-providers-oidc-obtain-thumbprint.html Obtaining the Thumbprint for an OpenID Connect Provider>
 -- in the /Using IAM/ guide.
-coidcpThumbprintList :: Lens' CreateOpenIDConnectProvider [Text]
-coidcpThumbprintList = lens _coidcpThumbprintList (\ s a -> s{_coidcpThumbprintList = a});
+coicpThumbprintList :: Lens' CreateOpenIdConnectProvider [Text]
+coicpThumbprintList = lens _coicpThumbprintList (\ s a -> s{_coicpThumbprintList = a});
 
-instance AWSRequest CreateOpenIDConnectProvider where
-        type Sv CreateOpenIDConnectProvider = IAM
-        type Rs CreateOpenIDConnectProvider =
-             CreateOpenIDConnectProviderResponse
+instance AWSRequest CreateOpenIdConnectProvider where
+        type Sv CreateOpenIdConnectProvider = IAM
+        type Rs CreateOpenIdConnectProvider =
+             CreateOpenIdConnectProviderResponse
         request = post
         response
           = receiveXMLWrapper
               "CreateOpenIDConnectProviderResult"
               (\ s h x ->
-                 CreateOpenIDConnectProviderResponse' <$>
+                 CreateOpenIdConnectProviderResponse' <$>
                    (x .@? "OpenIDConnectProviderArn") <*>
                      (pure (fromEnum s)))
 
-instance ToHeaders CreateOpenIDConnectProvider where
+instance ToHeaders CreateOpenIdConnectProvider where
         toHeaders = const mempty
 
-instance ToPath CreateOpenIDConnectProvider where
+instance ToPath CreateOpenIdConnectProvider where
         toPath = const "/"
 
-instance ToQuery CreateOpenIDConnectProvider where
-        toQuery CreateOpenIDConnectProvider'{..}
+instance ToQuery CreateOpenIdConnectProvider where
+        toQuery CreateOpenIdConnectProvider'{..}
           = mconcat
               ["Action" =:
-                 ("CreateOpenIDConnectProvider" :: ByteString),
+                 ("CreateOpenIdConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "ClientIDList" =:
                  toQuery
-                   (toQueryList "member" <$> _coidcpClientIDList),
-               "Url" =: _coidcpURL,
+                   (toQueryList "member" <$> _coicpClientIdList),
+               "Url" =: _coicpURL,
                "ThumbprintList" =:
-                 toQueryList "member" _coidcpThumbprintList]
+                 toQueryList "member" _coicpThumbprintList]
 
 -- | Contains the response to a successful CreateOpenIDConnectProvider
 -- request.
 --
--- /See:/ 'createOpenIDConnectProviderResponse' smart constructor.
+-- /See:/ 'createOpenIdConnectProviderResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'coidcprOpenIDConnectProviderARN'
+-- * 'coicprOpenIdConnectProviderARN'
 --
--- * 'coidcprStatus'
-data CreateOpenIDConnectProviderResponse = CreateOpenIDConnectProviderResponse'
-    { _coidcprOpenIDConnectProviderARN :: !(Maybe Text)
-    , _coidcprStatus                   :: !Int
+-- * 'coicprStatus'
+data CreateOpenIdConnectProviderResponse = CreateOpenIdConnectProviderResponse'
+    { _coicprOpenIdConnectProviderARN :: !(Maybe Text)
+    , _coicprStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
--- | 'CreateOpenIDConnectProviderResponse' smart constructor.
-createOpenIDConnectProviderResponse :: Int -> CreateOpenIDConnectProviderResponse
-createOpenIDConnectProviderResponse pStatus =
-    CreateOpenIDConnectProviderResponse'
-    { _coidcprOpenIDConnectProviderARN = Nothing
-    , _coidcprStatus = pStatus
+-- | 'CreateOpenIdConnectProviderResponse' smart constructor.
+createOpenIdConnectProviderResponse :: Int -> CreateOpenIdConnectProviderResponse
+createOpenIdConnectProviderResponse pStatus =
+    CreateOpenIdConnectProviderResponse'
+    { _coicprOpenIdConnectProviderARN = Nothing
+    , _coicprStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect provider that
 -- was created. For more information, see OpenIDConnectProviderListEntry.
-coidcprOpenIDConnectProviderARN :: Lens' CreateOpenIDConnectProviderResponse (Maybe Text)
-coidcprOpenIDConnectProviderARN = lens _coidcprOpenIDConnectProviderARN (\ s a -> s{_coidcprOpenIDConnectProviderARN = a});
+coicprOpenIdConnectProviderARN :: Lens' CreateOpenIdConnectProviderResponse (Maybe Text)
+coicprOpenIdConnectProviderARN = lens _coicprOpenIdConnectProviderARN (\ s a -> s{_coicprOpenIdConnectProviderARN = a});
 
 -- | FIXME: Undocumented member.
-coidcprStatus :: Lens' CreateOpenIDConnectProviderResponse Int
-coidcprStatus = lens _coidcprStatus (\ s a -> s{_coidcprStatus = a});
+coicprStatus :: Lens' CreateOpenIdConnectProviderResponse Int
+coicprStatus = lens _coicprStatus (\ s a -> s{_coicprStatus = a});

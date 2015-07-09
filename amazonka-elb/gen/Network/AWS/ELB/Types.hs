@@ -148,7 +148,7 @@ module Network.AWS.ELB.Types
     , lbdSubnets
     , lbdAvailabilityZones
     , lbdBackendServerDescriptions
-    , lbdCanonicalHostedZoneNameID
+    , lbdCanonicalHostedZoneNameId
     , lbdInstances
     , lbdScheme
     , lbdListenerDescriptions
@@ -1142,7 +1142,7 @@ instance ToQuery LoadBalancerAttributes where
 --
 -- * 'lbdBackendServerDescriptions'
 --
--- * 'lbdCanonicalHostedZoneNameID'
+-- * 'lbdCanonicalHostedZoneNameId'
 --
 -- * 'lbdInstances'
 --
@@ -1164,7 +1164,7 @@ data LoadBalancerDescription = LoadBalancerDescription'
     , _lbdSubnets                   :: !(Maybe [Text])
     , _lbdAvailabilityZones         :: !(Maybe [Text])
     , _lbdBackendServerDescriptions :: !(Maybe [BackendServerDescription])
-    , _lbdCanonicalHostedZoneNameID :: !(Maybe Text)
+    , _lbdCanonicalHostedZoneNameId :: !(Maybe Text)
     , _lbdInstances                 :: !(Maybe [Instance])
     , _lbdScheme                    :: !(Maybe Text)
     , _lbdListenerDescriptions      :: !(Maybe [ListenerDescription])
@@ -1186,7 +1186,7 @@ loadBalancerDescription =
     , _lbdSubnets = Nothing
     , _lbdAvailabilityZones = Nothing
     , _lbdBackendServerDescriptions = Nothing
-    , _lbdCanonicalHostedZoneNameID = Nothing
+    , _lbdCanonicalHostedZoneNameId = Nothing
     , _lbdInstances = Nothing
     , _lbdScheme = Nothing
     , _lbdListenerDescriptions = Nothing
@@ -1245,8 +1245,8 @@ lbdBackendServerDescriptions = lens _lbdBackendServerDescriptions (\ s a -> s{_l
 
 -- | The ID of the Amazon Route 53 hosted zone name associated with the load
 -- balancer.
-lbdCanonicalHostedZoneNameID :: Lens' LoadBalancerDescription (Maybe Text)
-lbdCanonicalHostedZoneNameID = lens _lbdCanonicalHostedZoneNameID (\ s a -> s{_lbdCanonicalHostedZoneNameID = a});
+lbdCanonicalHostedZoneNameId :: Lens' LoadBalancerDescription (Maybe Text)
+lbdCanonicalHostedZoneNameId = lens _lbdCanonicalHostedZoneNameId (\ s a -> s{_lbdCanonicalHostedZoneNameId = a});
 
 -- | The IDs of the instances for the load balancer.
 lbdInstances :: Lens' LoadBalancerDescription [Instance]

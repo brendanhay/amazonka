@@ -108,7 +108,7 @@ library
         , Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
         , Network.AWS.OpsWorks.DescribeMyUserProfile
         , Network.AWS.OpsWorks.DescribePermissions
-        , Network.AWS.OpsWorks.DescribeRAIDArrays
+        , Network.AWS.OpsWorks.DescribeRAIdArrays
         , Network.AWS.OpsWorks.DescribeRDSDBInstances
         , Network.AWS.OpsWorks.DescribeServiceErrors
         , Network.AWS.OpsWorks.DescribeStackProvisioningParameters

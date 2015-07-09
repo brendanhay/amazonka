@@ -92,7 +92,7 @@ library
 
     exposed-modules:
           Network.AWS.IAM
-        , Network.AWS.IAM.AddClientIDToOpenIDConnectProvider
+        , Network.AWS.IAM.AddClientIdToOpenIdConnectProvider
         , Network.AWS.IAM.AddRoleToInstanceProfile
         , Network.AWS.IAM.AddUserToGroup
         , Network.AWS.IAM.AttachGroupPolicy
@@ -104,7 +104,7 @@ library
         , Network.AWS.IAM.CreateGroup
         , Network.AWS.IAM.CreateInstanceProfile
         , Network.AWS.IAM.CreateLoginProfile
-        , Network.AWS.IAM.CreateOpenIDConnectProvider
+        , Network.AWS.IAM.CreateOpenIdConnectProvider
         , Network.AWS.IAM.CreatePolicy
         , Network.AWS.IAM.CreatePolicyVersion
         , Network.AWS.IAM.CreateRole
@@ -119,7 +119,7 @@ library
         , Network.AWS.IAM.DeleteGroupPolicy
         , Network.AWS.IAM.DeleteInstanceProfile
         , Network.AWS.IAM.DeleteLoginProfile
-        , Network.AWS.IAM.DeleteOpenIDConnectProvider
+        , Network.AWS.IAM.DeleteOpenIdConnectProvider
         , Network.AWS.IAM.DeletePolicy
         , Network.AWS.IAM.DeletePolicyVersion
         , Network.AWS.IAM.DeleteRole
@@ -144,7 +144,7 @@ library
         , Network.AWS.IAM.GetGroupPolicy
         , Network.AWS.IAM.GetInstanceProfile
         , Network.AWS.IAM.GetLoginProfile
-        , Network.AWS.IAM.GetOpenIDConnectProvider
+        , Network.AWS.IAM.GetOpenIdConnectProvider
         , Network.AWS.IAM.GetPolicy
         , Network.AWS.IAM.GetPolicyVersion
         , Network.AWS.IAM.GetRole
@@ -165,7 +165,7 @@ library
         , Network.AWS.IAM.ListInstanceProfiles
         , Network.AWS.IAM.ListInstanceProfilesForRole
         , Network.AWS.IAM.ListMFADevices
-        , Network.AWS.IAM.ListOpenIDConnectProviders
+        , Network.AWS.IAM.ListOpenIdConnectProviders
         , Network.AWS.IAM.ListPolicies
         , Network.AWS.IAM.ListPolicyVersions
         , Network.AWS.IAM.ListRolePolicies
@@ -179,7 +179,7 @@ library
         , Network.AWS.IAM.PutGroupPolicy
         , Network.AWS.IAM.PutRolePolicy
         , Network.AWS.IAM.PutUserPolicy
-        , Network.AWS.IAM.RemoveClientIDFromOpenIDConnectProvider
+        , Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
         , Network.AWS.IAM.RemoveRoleFromInstanceProfile
         , Network.AWS.IAM.RemoveUserFromGroup
         , Network.AWS.IAM.ResyncMFADevice
@@ -190,7 +190,7 @@ library
         , Network.AWS.IAM.UpdateAssumeRolePolicy
         , Network.AWS.IAM.UpdateGroup
         , Network.AWS.IAM.UpdateLoginProfile
-        , Network.AWS.IAM.UpdateOpenIDConnectProviderThumbprint
+        , Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
         , Network.AWS.IAM.UpdateSAMLProvider
         , Network.AWS.IAM.UpdateServerCertificate
         , Network.AWS.IAM.UpdateSigningCertificate

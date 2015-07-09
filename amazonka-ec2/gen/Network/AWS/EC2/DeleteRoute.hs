@@ -26,7 +26,7 @@ module Network.AWS.EC2.DeleteRoute
     -- ** Request lenses
     , drDryRun
     , drRouteTableId
-    , drDestinationCIDRBlock
+    , drDestinationCIdRBlock
 
     -- * Response
     , DeleteRouteResponse
@@ -47,20 +47,20 @@ import           Network.AWS.Response
 --
 -- * 'drRouteTableId'
 --
--- * 'drDestinationCIDRBlock'
+-- * 'drDestinationCIdRBlock'
 data DeleteRoute = DeleteRoute'
     { _drDryRun               :: !(Maybe Bool)
     , _drRouteTableId         :: !Text
-    , _drDestinationCIDRBlock :: !Text
+    , _drDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRoute' smart constructor.
 deleteRoute :: Text -> Text -> DeleteRoute
-deleteRoute pRouteTableId pDestinationCIDRBlock =
+deleteRoute pRouteTableId pDestinationCIdRBlock =
     DeleteRoute'
     { _drDryRun = Nothing
     , _drRouteTableId = pRouteTableId
-    , _drDestinationCIDRBlock = pDestinationCIDRBlock
+    , _drDestinationCIdRBlock = pDestinationCIdRBlock
     }
 
 -- | Checks whether you have the required permissions for the action, without
@@ -76,8 +76,8 @@ drRouteTableId = lens _drRouteTableId (\ s a -> s{_drRouteTableId = a});
 
 -- | The CIDR range for the route. The value you specify must match the CIDR
 -- for the route exactly.
-drDestinationCIDRBlock :: Lens' DeleteRoute Text
-drDestinationCIDRBlock = lens _drDestinationCIDRBlock (\ s a -> s{_drDestinationCIDRBlock = a});
+drDestinationCIdRBlock :: Lens' DeleteRoute Text
+drDestinationCIdRBlock = lens _drDestinationCIdRBlock (\ s a -> s{_drDestinationCIdRBlock = a});
 
 instance AWSRequest DeleteRoute where
         type Sv DeleteRoute = EC2
@@ -98,7 +98,7 @@ instance ToQuery DeleteRoute where
                "Version" =: ("2015-04-15" :: ByteString),
                "DryRun" =: _drDryRun,
                "RouteTableId" =: _drRouteTableId,
-               "DestinationCidrBlock" =: _drDestinationCIDRBlock]
+               "DestinationCidrBlock" =: _drDestinationCIdRBlock]
 
 -- | /See:/ 'deleteRouteResponse' smart constructor.
 data DeleteRouteResponse =

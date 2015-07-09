@@ -50,7 +50,7 @@ module Network.AWS.Lambda.Types
     , esmcEventSourceARN
     , esmcFunctionARN
     , esmcState
-    , esmcUUID
+    , esmcUUId
     , esmcLastProcessingResult
     , esmcBatchSize
     , esmcStateTransitionReason
@@ -290,7 +290,7 @@ instance FromJSON Runtime where
 --
 -- * 'esmcState'
 --
--- * 'esmcUUID'
+-- * 'esmcUUId'
 --
 -- * 'esmcLastProcessingResult'
 --
@@ -303,7 +303,7 @@ data EventSourceMappingConfiguration = EventSourceMappingConfiguration'
     { _esmcEventSourceARN        :: !(Maybe Text)
     , _esmcFunctionARN           :: !(Maybe Text)
     , _esmcState                 :: !(Maybe Text)
-    , _esmcUUID                  :: !(Maybe Text)
+    , _esmcUUId                  :: !(Maybe Text)
     , _esmcLastProcessingResult  :: !(Maybe Text)
     , _esmcBatchSize             :: !(Maybe Nat)
     , _esmcStateTransitionReason :: !(Maybe Text)
@@ -317,7 +317,7 @@ eventSourceMappingConfiguration =
     { _esmcEventSourceARN = Nothing
     , _esmcFunctionARN = Nothing
     , _esmcState = Nothing
-    , _esmcUUID = Nothing
+    , _esmcUUId = Nothing
     , _esmcLastProcessingResult = Nothing
     , _esmcBatchSize = Nothing
     , _esmcStateTransitionReason = Nothing
@@ -341,8 +341,8 @@ esmcState :: Lens' EventSourceMappingConfiguration (Maybe Text)
 esmcState = lens _esmcState (\ s a -> s{_esmcState = a});
 
 -- | The AWS Lambda assigned opaque identifier for the mapping.
-esmcUUID :: Lens' EventSourceMappingConfiguration (Maybe Text)
-esmcUUID = lens _esmcUUID (\ s a -> s{_esmcUUID = a});
+esmcUUId :: Lens' EventSourceMappingConfiguration (Maybe Text)
+esmcUUId = lens _esmcUUId (\ s a -> s{_esmcUUId = a});
 
 -- | The result of the last AWS Lambda invocation of your Lambda function.
 esmcLastProcessingResult :: Lens' EventSourceMappingConfiguration (Maybe Text)

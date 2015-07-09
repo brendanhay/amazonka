@@ -908,21 +908,21 @@ instance FromJSON ActivityTaskTimeoutType where
     parseJSON = parseJSONText "ActivityTaskTimeoutType"
 
 data CancelTimerFailedCause
-    = CTFCTimerIDUnknown
+    = CTFCTimerIdUnknown
     | CTFCOperationNotPermitted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CancelTimerFailedCause where
     parser = takeLowerText >>= \case
         "operation_not_permitted" -> pure CTFCOperationNotPermitted
-        "timer_id_unknown" -> pure CTFCTimerIDUnknown
+        "timer_id_unknown" -> pure CTFCTimerIdUnknown
         e -> fromTextError $ "Failure parsing CancelTimerFailedCause from value: '" <> e
            <> "'. Accepted values: operation_not_permitted, timer_id_unknown"
 
 instance ToText CancelTimerFailedCause where
     toText = \case
         CTFCOperationNotPermitted -> "operation_not_permitted"
-        CTFCTimerIDUnknown -> "timer_id_unknown"
+        CTFCTimerIdUnknown -> "timer_id_unknown"
 
 instance Hashable CancelTimerFailedCause
 instance ToQuery CancelTimerFailedCause
@@ -1424,20 +1424,20 @@ instance FromJSON RegistrationStatus where
     parseJSON = parseJSONText "RegistrationStatus"
 
 data RequestCancelActivityTaskFailedCause
-    = RCATFCActivityIDUnknown
+    = RCATFCActivityIdUnknown
     | RCATFCOperationNotPermitted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText RequestCancelActivityTaskFailedCause where
     parser = takeLowerText >>= \case
-        "activity_id_unknown" -> pure RCATFCActivityIDUnknown
+        "activity_id_unknown" -> pure RCATFCActivityIdUnknown
         "operation_not_permitted" -> pure RCATFCOperationNotPermitted
         e -> fromTextError $ "Failure parsing RequestCancelActivityTaskFailedCause from value: '" <> e
            <> "'. Accepted values: activity_id_unknown, operation_not_permitted"
 
 instance ToText RequestCancelActivityTaskFailedCause where
     toText = \case
-        RCATFCActivityIDUnknown -> "activity_id_unknown"
+        RCATFCActivityIdUnknown -> "activity_id_unknown"
         RCATFCOperationNotPermitted -> "operation_not_permitted"
 
 instance Hashable RequestCancelActivityTaskFailedCause
@@ -1484,14 +1484,14 @@ data ScheduleActivityTaskFailedCause
     | SATFCActivityTypeDeprecated
     | SATFCActivityCreationRateExceeded
     | SATFCDefaultScheduleTOCloseTimeoutUndefined
-    | SATFCActivityIDAlreadyINUse
     | SATFCDefaultHeartbeatTimeoutUndefined
+    | SATFCActivityIdAlreadyINUse
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ScheduleActivityTaskFailedCause where
     parser = takeLowerText >>= \case
         "activity_creation_rate_exceeded" -> pure SATFCActivityCreationRateExceeded
-        "activity_id_already_in_use" -> pure SATFCActivityIDAlreadyINUse
+        "activity_id_already_in_use" -> pure SATFCActivityIdAlreadyINUse
         "activity_type_deprecated" -> pure SATFCActivityTypeDeprecated
         "activity_type_does_not_exist" -> pure SATFCActivityTypeDoesNotExist
         "default_heartbeat_timeout_undefined" -> pure SATFCDefaultHeartbeatTimeoutUndefined
@@ -1507,7 +1507,7 @@ instance FromText ScheduleActivityTaskFailedCause where
 instance ToText ScheduleActivityTaskFailedCause where
     toText = \case
         SATFCActivityCreationRateExceeded -> "activity_creation_rate_exceeded"
-        SATFCActivityIDAlreadyINUse -> "activity_id_already_in_use"
+        SATFCActivityIdAlreadyINUse -> "activity_id_already_in_use"
         SATFCActivityTypeDeprecated -> "activity_type_deprecated"
         SATFCActivityTypeDoesNotExist -> "activity_type_does_not_exist"
         SATFCDefaultHeartbeatTimeoutUndefined -> "default_heartbeat_timeout_undefined"
@@ -1604,7 +1604,7 @@ instance FromJSON StartChildWorkflowExecutionFailedCause where
     parseJSON = parseJSONText "StartChildWorkflowExecutionFailedCause"
 
 data StartTimerFailedCause
-    = TimerIDAlreadyINUse
+    = TimerIdAlreadyINUse
     | TimerCreationRateExceeded
     | OperationNotPermitted
     | OpenTimersLimitExceeded
@@ -1615,7 +1615,7 @@ instance FromText StartTimerFailedCause where
         "open_timers_limit_exceeded" -> pure OpenTimersLimitExceeded
         "operation_not_permitted" -> pure OperationNotPermitted
         "timer_creation_rate_exceeded" -> pure TimerCreationRateExceeded
-        "timer_id_already_in_use" -> pure TimerIDAlreadyINUse
+        "timer_id_already_in_use" -> pure TimerIdAlreadyINUse
         e -> fromTextError $ "Failure parsing StartTimerFailedCause from value: '" <> e
            <> "'. Accepted values: open_timers_limit_exceeded, operation_not_permitted, timer_creation_rate_exceeded, timer_id_already_in_use"
 
@@ -1624,7 +1624,7 @@ instance ToText StartTimerFailedCause where
         OpenTimersLimitExceeded -> "open_timers_limit_exceeded"
         OperationNotPermitted -> "operation_not_permitted"
         TimerCreationRateExceeded -> "timer_creation_rate_exceeded"
-        TimerIDAlreadyINUse -> "timer_id_already_in_use"
+        TimerIdAlreadyINUse -> "timer_id_already_in_use"
 
 instance Hashable StartTimerFailedCause
 instance ToQuery StartTimerFailedCause

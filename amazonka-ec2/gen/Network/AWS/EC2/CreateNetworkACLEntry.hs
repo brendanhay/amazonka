@@ -50,7 +50,7 @@ module Network.AWS.EC2.CreateNetworkACLEntry
     , cnaeProtocol
     , cnaeRuleAction
     , cnaeEgress
-    , cnaeCIDRBlock
+    , cnaeCIdRBlock
 
     -- * Response
     , CreateNetworkACLEntryResponse
@@ -83,7 +83,7 @@ import           Network.AWS.Response
 --
 -- * 'cnaeEgress'
 --
--- * 'cnaeCIDRBlock'
+-- * 'cnaeCIdRBlock'
 data CreateNetworkACLEntry = CreateNetworkACLEntry'
     { _cnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
     , _cnaePortRange    :: !(Maybe PortRange)
@@ -93,12 +93,12 @@ data CreateNetworkACLEntry = CreateNetworkACLEntry'
     , _cnaeProtocol     :: !Text
     , _cnaeRuleAction   :: !RuleAction
     , _cnaeEgress       :: !Bool
-    , _cnaeCIDRBlock    :: !Text
+    , _cnaeCIdRBlock    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACLEntry' smart constructor.
 createNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> CreateNetworkACLEntry
-createNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIDRBlock =
+createNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIdRBlock =
     CreateNetworkACLEntry'
     { _cnaeICMPTypeCode = Nothing
     , _cnaePortRange = Nothing
@@ -108,7 +108,7 @@ createNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pC
     , _cnaeProtocol = pProtocol
     , _cnaeRuleAction = pRuleAction
     , _cnaeEgress = pEgress
-    , _cnaeCIDRBlock = pCIDRBlock
+    , _cnaeCIdRBlock = pCIdRBlock
     }
 
 -- | ICMP protocol: The ICMP type and code. Required if specifying ICMP for
@@ -153,8 +153,8 @@ cnaeEgress = lens _cnaeEgress (\ s a -> s{_cnaeEgress = a});
 
 -- | The network range to allow or deny, in CIDR notation (for example
 -- @172.16.0.0\/24@).
-cnaeCIDRBlock :: Lens' CreateNetworkACLEntry Text
-cnaeCIDRBlock = lens _cnaeCIDRBlock (\ s a -> s{_cnaeCIDRBlock = a});
+cnaeCIdRBlock :: Lens' CreateNetworkACLEntry Text
+cnaeCIdRBlock = lens _cnaeCIdRBlock (\ s a -> s{_cnaeCIdRBlock = a});
 
 instance AWSRequest CreateNetworkACLEntry where
         type Sv CreateNetworkACLEntry = EC2
@@ -182,7 +182,7 @@ instance ToQuery CreateNetworkACLEntry where
                "Protocol" =: _cnaeProtocol,
                "RuleAction" =: _cnaeRuleAction,
                "Egress" =: _cnaeEgress,
-               "CidrBlock" =: _cnaeCIDRBlock]
+               "CidrBlock" =: _cnaeCIdRBlock]
 
 -- | /See:/ 'createNetworkACLEntryResponse' smart constructor.
 data CreateNetworkACLEntryResponse =

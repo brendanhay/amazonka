@@ -53,7 +53,7 @@ module Network.AWS.Route53Domains.TransferDomain
     , tdPrivacyProtectRegistrantContact
     , tdAutoRenew
     , tdPrivacyProtectAdminContact
-    , tdIDNLangCode
+    , tdIdNLangCode
     , tdAuthCode
     , tdNameservers
     , tdDomainName
@@ -90,7 +90,7 @@ import           Network.AWS.Route53Domains.Types
 --
 -- * 'tdPrivacyProtectAdminContact'
 --
--- * 'tdIDNLangCode'
+-- * 'tdIdNLangCode'
 --
 -- * 'tdAuthCode'
 --
@@ -110,7 +110,7 @@ data TransferDomain = TransferDomain'
     , _tdPrivacyProtectRegistrantContact :: !(Maybe Bool)
     , _tdAutoRenew                       :: !(Maybe Bool)
     , _tdPrivacyProtectAdminContact      :: !(Maybe Bool)
-    , _tdIDNLangCode                     :: !(Maybe Text)
+    , _tdIdNLangCode                     :: !(Maybe Text)
     , _tdAuthCode                        :: !(Maybe (Sensitive Text))
     , _tdNameservers                     :: !(Maybe [Nameserver])
     , _tdDomainName                      :: !Text
@@ -128,7 +128,7 @@ transferDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTe
     , _tdPrivacyProtectRegistrantContact = Nothing
     , _tdAutoRenew = Nothing
     , _tdPrivacyProtectAdminContact = Nothing
-    , _tdIDNLangCode = Nothing
+    , _tdIdNLangCode = Nothing
     , _tdAuthCode = Nothing
     , _tdNameservers = Nothing
     , _tdDomainName = pDomainName
@@ -197,8 +197,8 @@ tdPrivacyProtectAdminContact :: Lens' TransferDomain (Maybe Bool)
 tdPrivacyProtectAdminContact = lens _tdPrivacyProtectAdminContact (\ s a -> s{_tdPrivacyProtectAdminContact = a});
 
 -- | Reserved for future use.
-tdIDNLangCode :: Lens' TransferDomain (Maybe Text)
-tdIDNLangCode = lens _tdIDNLangCode (\ s a -> s{_tdIDNLangCode = a});
+tdIdNLangCode :: Lens' TransferDomain (Maybe Text)
+tdIdNLangCode = lens _tdIdNLangCode (\ s a -> s{_tdIdNLangCode = a});
 
 -- | The authorization code for the domain. You get this value from the
 -- current registrar.
@@ -313,7 +313,7 @@ instance ToJSON TransferDomain where
                "AutoRenew" .= _tdAutoRenew,
                "PrivacyProtectAdminContact" .=
                  _tdPrivacyProtectAdminContact,
-               "IdnLangCode" .= _tdIDNLangCode,
+               "IdnLangCode" .= _tdIdNLangCode,
                "AuthCode" .= _tdAuthCode,
                "Nameservers" .= _tdNameservers,
                "DomainName" .= _tdDomainName,

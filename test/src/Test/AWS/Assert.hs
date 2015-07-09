@@ -20,8 +20,8 @@ assertEqualPP :: (Eq a, Out a) => String -> a -> Either String a -> Assertion
 assertEqualPP _ _ (Left  m) = assertFailure m
 assertEqualPP n e (Right a) = unless (e == a) (assertFailure m)
   where
-    m = "[Expected]:\n  " ++ prettyStyle s e ++ "\n["
-         ++ n ++ "]:\n  " ++ prettyStyle s a
+    m = "[Expected]:\n" ++ prettyStyle s e ++ "\n["
+         ++ n ++ "]:\n" ++ prettyStyle s a
 
     s = Style
         { mode           = PageMode

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an import volume task using metadata from the specified disk
+-- Creates an import volume task using metadata from the specified disk
 -- image. After importing the image, you then upload it using the
 -- @ec2-import-volume@ command in the Amazon EC2 command-line interface
 -- (CLI) tools. For more information, see

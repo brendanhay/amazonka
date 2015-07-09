@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about workflow types in the specified domain. The
+-- Returns information about workflow types in the specified domain. The
 -- results may be split into multiple pages that can be retrieved by making
 -- the call repeatedly.
 --

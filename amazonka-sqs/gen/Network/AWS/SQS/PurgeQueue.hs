@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the messages in a queue specified by the __queue URL__.
+-- Deletes the messages in a queue specified by the __queue URL__.
 --
 -- When you use the @PurgeQueue@ API, the deleted messages in the queue
 -- cannot be retrieved.

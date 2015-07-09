@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the policy that grants an entity permission to assume a role.
+-- Updates the policy that grants an entity permission to assume a role.
 -- For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/roles-toplevel.html Using Roles to Delegate Permissions and Federate Identities>.
 --

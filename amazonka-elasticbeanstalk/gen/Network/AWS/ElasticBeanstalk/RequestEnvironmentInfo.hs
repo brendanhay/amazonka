@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Initiates a request to compile the specified type of information of the
+-- Initiates a request to compile the specified type of information of the
 -- deployed environment.
 --
 -- Setting the @InfoType@ to @tail@ compiles the last lines from the

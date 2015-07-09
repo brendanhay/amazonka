@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about the specified activity type. This includes
+-- Returns information about the specified activity type. This includes
 -- configuration settings provided when the type was registered and other
 -- general information about the type.
 --

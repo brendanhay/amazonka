@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a manual snapshot of the specified cluster. The cluster must be
+-- Creates a manual snapshot of the specified cluster. The cluster must be
 -- in the @available@ state.
 --
 -- For more information about working with snapshots, go to

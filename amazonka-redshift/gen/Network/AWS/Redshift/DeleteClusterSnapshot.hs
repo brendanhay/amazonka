@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified manual snapshot. The snapshot must be in the
+-- Deletes the specified manual snapshot. The snapshot must be in the
 -- @available@ state, with no other users authorized to access the
 -- snapshot.
 --

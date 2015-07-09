@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a set of temporary security credentials (consisting of an access
+-- Returns a set of temporary security credentials (consisting of an access
 -- key ID, a secret access key, and a security token) that you can use to
 -- access AWS resources that you might not normally have access to.
 -- Typically, you use @AssumeRole@ for cross-account access or federation.

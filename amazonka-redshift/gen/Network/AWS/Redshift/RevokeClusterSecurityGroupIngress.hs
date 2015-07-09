@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Revokes an ingress rule in an Amazon Redshift security group for a
+-- Revokes an ingress rule in an Amazon Redshift security group for a
 -- previously authorized IP range or Amazon EC2 security group. To add an
 -- ingress rule, see AuthorizeClusterSecurityGroupIngress. For information
 -- about managing security groups, go to

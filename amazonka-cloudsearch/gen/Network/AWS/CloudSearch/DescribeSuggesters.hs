@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the suggesters configured for a domain. A suggester enables you to
+-- Gets the suggesters configured for a domain. A suggester enables you to
 -- display possible matches before users finish typing their queries. Can
 -- be limited to specific suggesters by name. By default, shows all
 -- suggesters and includes any pending changes to the configuration. Set

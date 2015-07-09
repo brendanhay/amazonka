@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns the current data retrieval policy for the account
+-- This operation returns the current data retrieval policy for the account
 -- and region specified in the GET request. For more information about data
 -- retrieval policies, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/data-retrieval-policy.html Amazon Glacier Data Retrieval Policies>.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all the managed policies that are available to your account,
+-- Lists all the managed policies that are available to your account,
 -- including your own customer managed policies and all AWS managed
 -- policies.
 --

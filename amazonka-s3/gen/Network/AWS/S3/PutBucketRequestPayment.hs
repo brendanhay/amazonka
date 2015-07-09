@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets the request payment configuration for a bucket. By default, the
+-- Sets the request payment configuration for a bucket. By default, the
 -- bucket owner pays for downloads from the bucket. This configuration
 -- parameter enables the bucket owner (only) to specify that the person
 -- requesting the download will be charged for the download. Documentation

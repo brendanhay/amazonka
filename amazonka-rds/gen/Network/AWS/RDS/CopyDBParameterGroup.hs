@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Copies the specified DB parameter group.
+-- Copies the specified DB parameter group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBParameterGroup.html>
 module Network.AWS.RDS.CopyDBParameterGroup

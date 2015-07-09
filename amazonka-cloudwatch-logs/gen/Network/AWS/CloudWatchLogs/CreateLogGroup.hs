@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new log group with the specified name. The name of the log
+-- Creates a new log group with the specified name. The name of the log
 -- group must be unique within a region for an AWS account. You can create
 -- up to 500 log groups per account.
 --

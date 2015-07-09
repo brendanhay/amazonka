@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists datasets for an identity. With Amazon Cognito Sync, each identity
+-- Lists datasets for an identity. With Amazon Cognito Sync, each identity
 -- has access only to its own data. Thus, the credentials used to make this
 -- API call need to have access to the identity data.
 --

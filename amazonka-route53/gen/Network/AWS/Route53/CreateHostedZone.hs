@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action creates a new hosted zone.
+-- This action creates a new hosted zone.
 --
 -- To create a new hosted zone, send a @POST@ request to the
 -- @2013-04-01\/hostedzone@ resource. The request body must include an XML

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves the identifiers of all of the HSMs provisioned for the current
+-- Retrieves the identifiers of all of the HSMs provisioned for the current
 -- customer.
 --
 -- This operation supports pagination with the use of the /NextToken/

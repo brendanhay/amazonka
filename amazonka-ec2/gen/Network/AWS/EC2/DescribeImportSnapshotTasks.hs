@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes your import snapshot tasks.
+-- Describes your import snapshot tasks.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeImportSnapshotTasks.html>
 module Network.AWS.EC2.DescribeImportSnapshotTasks

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of virtual tape recovery points that are available for
+-- Returns a list of virtual tape recovery points that are available for
 -- the specified gateway-VTL.
 --
 -- A recovery point is a point in time view of a virtual tape at which all

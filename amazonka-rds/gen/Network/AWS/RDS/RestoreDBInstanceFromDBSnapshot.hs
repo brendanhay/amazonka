@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new DB instance from a DB snapshot. The target database is
+-- Creates a new DB instance from a DB snapshot. The target database is
 -- created from the source database restore point with the same
 -- configuration as the original source database, except that the new RDS
 -- instance is created with the default security group.

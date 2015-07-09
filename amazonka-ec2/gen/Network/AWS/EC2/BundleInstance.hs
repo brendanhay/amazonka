@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Bundles an Amazon instance store-backed Windows instance.
+-- Bundles an Amazon instance store-backed Windows instance.
 --
 -- During bundling, only the root device volume (C:\\) is bundled. Data on
 -- other instance store volumes is not preserved.

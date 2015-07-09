@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /ModifyCacheCluster/ action modifies the settings for a cache
+-- The /ModifyCacheCluster/ action modifies the settings for a cache
 -- cluster. You can use this action to change one or more cluster
 -- configuration parameters by specifying the parameters and the new
 -- values.

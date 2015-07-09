@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Marks a key as disabled, thereby preventing its use.
+-- Marks a key as disabled, thereby preventing its use.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKey.html>
 module Network.AWS.KMS.DisableKey

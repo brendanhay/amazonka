@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action disassociates a VPC from an hosted zone.
+-- This action disassociates a VPC from an hosted zone.
 --
 -- To disassociate a VPC to a hosted zone, send a @POST@ request to the
 -- @2013-04-01\/hostedzone\/hosted zone ID\/disassociatevpc@ resource. The

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates a user pool.
+-- Updates a user pool.
 --
 -- You must use AWS Developer credentials to call this API.
 --

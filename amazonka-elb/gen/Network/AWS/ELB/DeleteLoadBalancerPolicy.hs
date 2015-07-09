@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified policy from the specified load balancer. This
+-- Deletes the specified policy from the specified load balancer. This
 -- policy must not be enabled for any listeners.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerPolicy.html>

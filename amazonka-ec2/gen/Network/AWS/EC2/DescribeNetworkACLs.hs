@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of your network ACLs.
+-- Describes one or more of your network ACLs.
 --
 -- For more information about network ACLs, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves one or more messages, with a maximum limit of 10 messages,
+-- Retrieves one or more messages, with a maximum limit of 10 messages,
 -- from the specified queue. Long poll support is enabled by using the
 -- @WaitTimeSeconds@ parameter. For more information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-long-polling.html Amazon SQS Long Poll>

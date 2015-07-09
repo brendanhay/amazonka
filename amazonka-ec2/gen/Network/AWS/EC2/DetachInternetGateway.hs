@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Detaches an Internet gateway from a VPC, disabling connectivity between
+-- Detaches an Internet gateway from a VPC, disabling connectivity between
 -- the Internet and the VPC. The VPC must not contain any running instances
 -- with Elastic IP addresses.
 --

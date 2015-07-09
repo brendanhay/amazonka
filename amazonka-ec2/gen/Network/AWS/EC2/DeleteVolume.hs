@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified EBS volume. The volume must be in the @available@
+-- Deletes the specified EBS volume. The volume must be in the @available@
 -- state (not attached to an instance).
 --
 -- The volume may remain in the @deleting@ state for several minutes.

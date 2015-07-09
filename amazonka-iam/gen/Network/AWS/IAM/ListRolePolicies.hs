@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the names of the inline policies that are embedded in the
+-- Lists the names of the inline policies that are embedded in the
 -- specified role.
 --
 -- A role can also have managed policies attached to it. To list the

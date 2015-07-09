@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the certificate used by the client.
+-- Modifies the certificate used by the client.
 --
 -- This action can potentially start a workflow to install the new
 -- certificate on the client\'s HSMs.

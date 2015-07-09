@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deprecates the specified /workflow type/. After a workflow type has been
+-- Deprecates the specified /workflow type/. After a workflow type has been
 -- deprecated, you cannot create new executions of that type. Executions
 -- that were started before the type was deprecated will continue to run. A
 -- deprecated workflow type may still be used when calling visibility

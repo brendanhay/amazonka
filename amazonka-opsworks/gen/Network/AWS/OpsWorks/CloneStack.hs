@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a clone of a specified stack. For more information, see
+-- Creates a clone of a specified stack. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-cloning.html Clone a Stack>.
 -- By default, all parameters are set to the values used by the parent
 -- stack.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of your instances.
+-- Describes one or more of your instances.
 --
 -- If you specify one or more instance IDs, Amazon EC2 returns information
 -- for those instances. If you do not specify instance IDs, Amazon EC2

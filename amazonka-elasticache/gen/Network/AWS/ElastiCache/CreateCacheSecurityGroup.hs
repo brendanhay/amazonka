@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /CreateCacheSecurityGroup/ action creates a new cache security
+-- The /CreateCacheSecurityGroup/ action creates a new cache security
 -- group. Use a cache security group to control access to one or more cache
 -- clusters.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a launch configuration.
+-- Creates a launch configuration.
 --
 -- If you exceed your maximum limit of launch configurations, which by
 -- default is 100 per region, the call fails. For information about viewing

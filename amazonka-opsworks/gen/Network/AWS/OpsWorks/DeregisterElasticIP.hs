@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deregisters a specified Elastic IP address. The address can then be
+-- Deregisters a specified Elastic IP address. The address can then be
 -- registered by another stack. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --

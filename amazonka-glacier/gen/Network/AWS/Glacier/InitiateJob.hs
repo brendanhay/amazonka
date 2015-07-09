@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation initiates a job of the specified type. In this release,
+-- This operation initiates a job of the specified type. In this release,
 -- you can initiate a job to retrieve either an archive or a vault
 -- inventory (a list of archives in a vault).
 --

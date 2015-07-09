@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates or updates tags for the specified Auto Scaling group.
+-- Creates or updates tags for the specified Auto Scaling group.
 --
 -- A tag is defined by its resource ID, resource type, key, value, and
 -- propagate flag. The value and the propagate flag are optional

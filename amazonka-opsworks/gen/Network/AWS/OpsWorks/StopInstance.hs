@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Stops a specified instance. When you stop a standard instance, the data
+-- Stops a specified instance. When you stop a standard instance, the data
 -- disappears and must be reinstalled when you restart the instance. You
 -- can stop an Amazon EBS-backed instance without losing data. For more
 -- information, see

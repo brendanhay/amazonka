@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modify settings for a DB instance. You can change one or more database
+-- Modify settings for a DB instance. You can change one or more database
 -- configuration parameters by specifying these parameters and the new
 -- values in the request.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the tags associated with the specified load balancers.
+-- Describes the tags associated with the specified load balancers.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeTags.html>
 module Network.AWS.ELB.DescribeTags

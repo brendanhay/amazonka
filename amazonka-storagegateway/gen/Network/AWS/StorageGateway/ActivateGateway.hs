@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation activates the gateway you previously deployed on your
+-- This operation activates the gateway you previously deployed on your
 -- host. For more information, see
 -- <http://docs.aws.amazon.com/storagegateway/latest/userguide/GettingStartedActivateGateway-common.html Activate the AWS Storage Gateway>.
 -- In the activation process, you specify information such as the region

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | A /Query/ operation uses the primary key of a table or a secondary index
+-- A /Query/ operation uses the primary key of a table or a secondary index
 -- to directly access items from that table or index.
 --
 -- Use the /KeyConditionExpression/ parameter to provide a specific hash

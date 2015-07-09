@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the descriptions of the current mount targets for a file system.
+-- Returns the descriptions of the current mount targets for a file system.
 -- The order of mount targets returned in the response is unspecified.
 --
 -- This operation requires permission for the

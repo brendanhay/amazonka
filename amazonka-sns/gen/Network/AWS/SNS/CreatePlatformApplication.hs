@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a platform application object for one of the supported push
+-- Creates a platform application object for one of the supported push
 -- notification services, such as APNS and GCM, to which devices and mobile
 -- apps may register. You must specify PlatformPrincipal and
 -- PlatformCredential attributes when using the @CreatePlatformApplication@

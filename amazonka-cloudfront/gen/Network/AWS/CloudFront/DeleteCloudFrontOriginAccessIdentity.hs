@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Delete an origin access identity.
+-- Delete an origin access identity.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.DeleteCloudFrontOriginAccessIdentity

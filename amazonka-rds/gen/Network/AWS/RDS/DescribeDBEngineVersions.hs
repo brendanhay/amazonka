@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of the available DB engines.
+-- Returns a list of the available DB engines.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBEngineVersions.html>
 module Network.AWS.RDS.DescribeDBEngineVersions

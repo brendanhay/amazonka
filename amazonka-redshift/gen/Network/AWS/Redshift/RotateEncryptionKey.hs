@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Rotates the encryption keys for a cluster.
+-- Rotates the encryption keys for a cluster.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_RotateEncryptionKey.html>
 module Network.AWS.Redshift.RotateEncryptionKey

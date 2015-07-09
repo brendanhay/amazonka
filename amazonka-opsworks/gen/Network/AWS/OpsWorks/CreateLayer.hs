@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a layer. For more information, see
+-- Creates a layer. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-create.html How to Create a Layer>.
 --
 -- You should use __CreateLayer__ for noncustom layer types such as PHP App

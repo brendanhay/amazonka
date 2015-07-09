@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the events and the corresponding Lambda functions associated with
+-- Gets the events and the corresponding Lambda functions associated with
 -- an identity pool.
 --
 -- This API can only be called with developer credentials. You cannot call

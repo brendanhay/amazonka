@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the summary information for stacks whose status matches the
+-- Returns the summary information for stacks whose status matches the
 -- specified StackStatusFilter. Summary information for stacks that have
 -- been deleted is kept for 90 days after the stack is deleted. If no
 -- StackStatusFilter is specified, summary information for all stacks is

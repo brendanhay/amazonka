@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation lists all the tags attached to a vault. The operation
+-- This operation lists all the tags attached to a vault. The operation
 -- returns an empty map if there are no tags. For more information about
 -- tags, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.

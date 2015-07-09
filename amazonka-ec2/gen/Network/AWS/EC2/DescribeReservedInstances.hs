@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of the Reserved Instances that you purchased.
+-- Describes one or more of the Reserved Instances that you purchased.
 --
 -- For more information about Reserved Instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts-on-demand-reserved-instances.html Reserved Instances>

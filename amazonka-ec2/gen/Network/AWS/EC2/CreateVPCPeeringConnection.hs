@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Requests a VPC peering connection between two VPCs: a requester VPC that
+-- Requests a VPC peering connection between two VPCs: a requester VPC that
 -- you own and a peer VPC with which to create the connection. The peer VPC
 -- can belong to another AWS account. The requester VPC and peer VPC cannot
 -- have overlapping CIDR blocks.

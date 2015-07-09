@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified ingress or egress entry (rule) from the specified
+-- Deletes the specified ingress or egress entry (rule) from the specified
 -- network ACL.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkACLEntry.html>

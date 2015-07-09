@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes one or more egress rules from a security group for EC2-VPC. The
+-- Removes one or more egress rules from a security group for EC2-VPC. The
 -- values that you specify in the revoke request (for example, ports) must
 -- match the existing rule\'s values for the rule to be revoked.
 --

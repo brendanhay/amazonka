@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Disables a gateway when the gateway is no longer functioning. For
+-- Disables a gateway when the gateway is no longer functioning. For
 -- example, if your gateway VM is damaged, you can disable the gateway so
 -- you can recover virtual tapes.
 --

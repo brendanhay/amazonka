@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the parameters of a DB parameter group to the engine\/system
+-- Modifies the parameters of a DB parameter group to the engine\/system
 -- default value. To reset specific parameters submit a list of the
 -- following: @ParameterName@ and @ApplyMethod@. To reset the entire DB
 -- parameter group, specify the @DBParameterGroup@ name and

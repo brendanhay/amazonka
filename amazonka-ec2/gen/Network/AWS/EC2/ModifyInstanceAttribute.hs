@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the specified attribute of the specified instance. You can
+-- Modifies the specified attribute of the specified instance. You can
 -- specify only one attribute at a time.
 --
 -- To modify some attributes, the instance must be stopped. For more

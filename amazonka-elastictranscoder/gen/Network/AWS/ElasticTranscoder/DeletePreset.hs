@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The DeletePreset operation removes a preset that you\'ve added in an AWS
+-- The DeletePreset operation removes a preset that you\'ve added in an AWS
 -- region.
 --
 -- You can\'t delete the default presets that are included with Elastic

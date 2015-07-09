@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes all specified alarms. In the event of an error, no alarms are
+-- Deletes all specified alarms. In the event of an error, no alarms are
 -- deleted.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DeleteAlarms.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation configures one or more gateway local disks as upload
+-- This operation configures one or more gateway local disks as upload
 -- buffer for a specified gateway. This operation is supported for both the
 -- gateway-stored and gateway-cached volume architectures.
 --

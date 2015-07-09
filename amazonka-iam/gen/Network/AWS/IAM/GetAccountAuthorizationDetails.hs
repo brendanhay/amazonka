@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about all IAM users, groups, roles, and policies
+-- Retrieves information about all IAM users, groups, roles, and policies
 -- in your account, including their relationships to one another. Use this
 -- API to obtain a snapshot of the configuration of IAM permissions (users,
 -- groups, roles, and policies) in your account.

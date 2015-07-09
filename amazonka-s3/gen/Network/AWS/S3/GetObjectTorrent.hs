@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Return torrent files from a bucket.
+-- Return torrent files from a bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectTorrent.html>
 module Network.AWS.S3.GetObjectTorrent

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes a user\'s SSH information.
+-- Describes a user\'s SSH information.
 --
 -- __Required Permissions__: To use this action, an IAM user must have
 -- self-management enabled or an attached policy that explicitly grants

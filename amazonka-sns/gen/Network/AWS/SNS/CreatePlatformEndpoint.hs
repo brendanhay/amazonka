@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an endpoint for a device and mobile app on one of the supported
+-- Creates an endpoint for a device and mobile app on one of the supported
 -- push notification services, such as GCM and APNS.
 -- @CreatePlatformEndpoint@ requires the PlatformApplicationArn that is
 -- returned from @CreatePlatformApplication@. The EndpointArn that is

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Cancels one or more Spot Instance requests. Spot Instances are instances
+-- Cancels one or more Spot Instance requests. Spot Instances are instances
 -- that Amazon EC2 starts on your behalf when the bid price that you
 -- specify exceeds the current Spot Price. Amazon EC2 periodically sets the
 -- Spot Price based on available Spot Instance capacity and current Spot

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the @EvaluationName@ of an @Evaluation@.
+-- Updates the @EvaluationName@ of an @Evaluation@.
 --
 -- You can use the GetEvaluation operation to view the contents of the
 -- updated data element.

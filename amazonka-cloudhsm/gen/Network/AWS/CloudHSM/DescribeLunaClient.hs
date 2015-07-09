@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about an HSM client.
+-- Retrieves information about an HSM client.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeLunaClient.html>
 module Network.AWS.CloudHSM.DescribeLunaClient

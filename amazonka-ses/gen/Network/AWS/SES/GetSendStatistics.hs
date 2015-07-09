@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the user\'s sending statistics. The result is a list of data
+-- Returns the user\'s sending statistics. The result is a list of data
 -- points, representing the last two weeks of sending activity.
 --
 -- Each data point in the list contains statistics for a 15-minute

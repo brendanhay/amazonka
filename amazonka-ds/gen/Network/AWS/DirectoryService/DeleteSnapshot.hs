@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a directory snapshot.
+-- Deletes a directory snapshot.
 --
 -- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_DeleteSnapshot.html>
 module Network.AWS.DirectoryService.DeleteSnapshot

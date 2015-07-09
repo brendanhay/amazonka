@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Get the information about a streaming distribution.
+-- Get the information about a streaming distribution.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetStreamingDistribution.html>
 module Network.AWS.CloudFront.GetStreamingDistribution

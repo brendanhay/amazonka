@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that
+-- Creates an Amazon EBS-backed AMI from an Amazon EBS-backed instance that
 -- is either running or stopped.
 --
 -- If you customized your instance with instance store volumes or EBS

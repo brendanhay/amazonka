@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the parts that have been uploaded for a specific multipart upload.
+-- Lists the parts that have been uploaded for a specific multipart upload.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListParts.html>
 module Network.AWS.S3.ListParts

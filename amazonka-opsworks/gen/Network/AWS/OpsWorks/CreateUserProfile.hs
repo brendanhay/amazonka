@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new user profile.
+-- Creates a new user profile.
 --
 -- __Required Permissions__: To use this action, an IAM user must have an
 -- attached policy that explicitly grants permissions. For more information

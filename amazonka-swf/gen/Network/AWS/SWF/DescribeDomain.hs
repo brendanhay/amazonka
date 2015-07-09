@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about the specified domain, including description
+-- Returns information about the specified domain, including description
 -- and status.
 --
 -- __Access Control__

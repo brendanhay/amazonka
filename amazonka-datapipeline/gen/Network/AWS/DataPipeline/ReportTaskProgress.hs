@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Task runners call @ReportTaskProgress@ when assigned a task to
+-- Task runners call @ReportTaskProgress@ when assigned a task to
 -- acknowledge that it has the task. If the web service does not receive
 -- this acknowledgement within 2 minutes, it assigns the task in a
 -- subsequent PollForTask call. After this initial acknowledgement, the

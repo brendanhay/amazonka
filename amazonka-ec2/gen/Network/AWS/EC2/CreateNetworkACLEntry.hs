@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an entry (a rule) in a network ACL with the specified rule
+-- Creates an entry (a rule) in a network ACL with the specified rule
 -- number. Each network ACL has a set of numbered ingress rules and a
 -- separate set of numbered egress rules. When determining whether a packet
 -- should be allowed in or out of a subnet associated with the ACL, we

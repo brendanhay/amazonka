@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Task runners call @EvaluateExpression@ to evaluate a string in the
+-- Task runners call @EvaluateExpression@ to evaluate a string in the
 -- context of the specified object. For example, a task runner can evaluate
 -- SQL queries stored in Amazon S3.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Purchases a reserved DB instance offering.
+-- Purchases a reserved DB instance offering.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_PurchaseReservedDBInstancesOffering.html>
 module Network.AWS.RDS.PurchaseReservedDBInstancesOffering

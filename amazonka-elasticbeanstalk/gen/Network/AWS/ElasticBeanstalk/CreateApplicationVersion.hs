@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an application version for the specified application.
+-- Creates an application version for the specified application.
 --
 -- Once you create an application version with a specified Amazon S3 bucket
 -- and key location, you cannot change that Amazon S3 location. If you

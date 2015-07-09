@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | FIXME: Undocumented operation.
+-- FIXME: Undocumented operation.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_ChangeTagsForResource.html>
 module Network.AWS.Route53.ChangeTagsForResource

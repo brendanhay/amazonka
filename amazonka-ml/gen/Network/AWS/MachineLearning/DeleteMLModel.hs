@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Assigns the DELETED status to an @MLModel@, rendering it unusable.
+-- Assigns the DELETED status to an @MLModel@, rendering it unusable.
 --
 -- After using the @DeleteMLModel@ operation, you can use the GetMLModel
 -- operation to verify that the status of the @MLModel@ changed to DELETED.

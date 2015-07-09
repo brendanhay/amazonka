@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the description of a key.
+-- Updates the description of a key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_UpdateKeyDescription.html>
 module Network.AWS.KMS.UpdateKeyDescription

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the provisioned throughput for the given table, or manages the
+-- Updates the provisioned throughput for the given table, or manages the
 -- global secondary indexes on the table.
 --
 -- You can increase or decrease the table\'s provisioned throughput values

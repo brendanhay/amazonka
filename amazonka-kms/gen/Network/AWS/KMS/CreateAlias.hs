@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a display name for a customer master key. An alias can be used
+-- Creates a display name for a customer master key. An alias can be used
 -- to identify a key and should be unique. The console enforces a
 -- one-to-one mapping between the alias and a key. An alias name can
 -- contain only alphanumeric characters, forward slashes (\/), underscores

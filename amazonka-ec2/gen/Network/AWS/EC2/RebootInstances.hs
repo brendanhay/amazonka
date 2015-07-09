@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Requests a reboot of one or more instances. This operation is
+-- Requests a reboot of one or more instances. This operation is
 -- asynchronous; it only queues a request to reboot the specified
 -- instances. The operation succeeds if the instances are valid and belong
 -- to you. Requests to reboot terminated instances are ignored.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a policy with the specified attributes for the specified load
+-- Creates a policy with the specified attributes for the specified load
 -- balancer.
 --
 -- Policies are settings that are saved for your load balancer and that can

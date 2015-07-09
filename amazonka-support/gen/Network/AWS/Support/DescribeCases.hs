@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of cases that you specify by passing one or more case
+-- Returns a list of cases that you specify by passing one or more case
 -- IDs. In addition, you can filter the cases by date by setting values for
 -- the @AfterTime@ and @BeforeTime@ request parameters. You can set values
 -- for the @IncludeResolvedCases@ and @IncludeCommunications@ request

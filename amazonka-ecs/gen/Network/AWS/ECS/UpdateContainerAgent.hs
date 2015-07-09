@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the Amazon ECS container agent on a specified container
+-- Updates the Amazon ECS container agent on a specified container
 -- instance.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_UpdateContainerAgent.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of @DBParameterGroup@ descriptions. If a
+-- Returns a list of @DBParameterGroup@ descriptions. If a
 -- @DBParameterGroupName@ is specified, the list will contain only the
 -- description of the specified DB parameter group.
 --

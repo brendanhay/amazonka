@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an application that has one configuration template named
+-- Creates an application that has one configuration template named
 -- @default@ and no application versions.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateApplication.html>

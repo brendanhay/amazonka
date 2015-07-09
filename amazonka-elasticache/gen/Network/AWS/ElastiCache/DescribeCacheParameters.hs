@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeCacheParameters/ action returns the detailed parameter list
+-- The /DescribeCacheParameters/ action returns the detailed parameter list
 -- for a particular cache parameter group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheParameters.html>

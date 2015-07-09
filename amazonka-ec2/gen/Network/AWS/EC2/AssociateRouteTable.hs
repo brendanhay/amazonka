@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Associates a subnet with a route table. The subnet and route table must
+-- Associates a subnet with a route table. The subnet and route table must
 -- be in the same VPC. This association causes traffic originating from the
 -- subnet to be routed according to the routes in the route table. The
 -- action returns an association ID, which you need in order to

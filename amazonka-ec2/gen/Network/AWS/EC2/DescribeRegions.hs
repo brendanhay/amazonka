@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more regions that are currently available to you.
+-- Describes one or more regions that are currently available to you.
 --
 -- For a list of the regions supported by Amazon EC2, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#ec2_region Regions and Endpoints>.

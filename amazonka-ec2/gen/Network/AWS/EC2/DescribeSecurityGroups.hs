@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of your security groups.
+-- Describes one or more of your security groups.
 --
 -- A security group is for use with instances either in the EC2-Classic
 -- platform or in a specific VPC. For more information, see

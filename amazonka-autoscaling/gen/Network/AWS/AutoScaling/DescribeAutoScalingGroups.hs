@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more Auto Scaling groups. If a list of names is not
+-- Describes one or more Auto Scaling groups. If a list of names is not
 -- provided, the call describes all Auto Scaling groups.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingGroups.html>

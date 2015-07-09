@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the list of AWS Direct Connect locations in the current AWS
+-- Returns the list of AWS Direct Connect locations in the current AWS
 -- region. These are the locations that may be selected when calling
 -- CreateConnection or CreateInterconnect.
 --

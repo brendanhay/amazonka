@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Exports a running or stopped instance to an S3 bucket.
+-- Exports a running or stopped instance to an S3 bucket.
 --
 -- For information about the supported operating systems, image formats,
 -- and known limitations for the types of instances you can export, see

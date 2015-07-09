@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets information about an application revision.
+-- Gets information about an application revision.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplicationRevision.html>
 module Network.AWS.CodeDeploy.GetApplicationRevision

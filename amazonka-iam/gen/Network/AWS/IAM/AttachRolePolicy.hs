@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Attaches the specified managed policy to the specified role.
+-- Attaches the specified managed policy to the specified role.
 --
 -- When you attach a managed policy to a role, the managed policy is used
 -- as the role\'s access (permissions) policy. You cannot use a managed

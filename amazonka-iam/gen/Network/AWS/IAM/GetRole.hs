@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about the specified role, including the role\'s
+-- Retrieves information about the specified role, including the role\'s
 -- path, GUID, ARN, and the policy granting permission to assume the role.
 -- For more information about ARNs, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html#Identifiers_ARNs ARNs>.

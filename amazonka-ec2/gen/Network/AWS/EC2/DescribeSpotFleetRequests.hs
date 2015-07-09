@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes your Spot fleet requests.
+-- Describes your Spot fleet requests.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetRequests.html>
 module Network.AWS.EC2.DescribeSpotFleetRequests

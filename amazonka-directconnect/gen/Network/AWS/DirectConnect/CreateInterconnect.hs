@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new interconnect between a AWS Direct Connect partner\'s
+-- Creates a new interconnect between a AWS Direct Connect partner\'s
 -- network and a specific AWS Direct Connect location.
 --
 -- An interconnect is a connection which is capable of hosting other

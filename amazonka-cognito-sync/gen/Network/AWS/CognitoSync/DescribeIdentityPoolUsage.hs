@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets usage details (for example, data storage) about a particular
+-- Gets usage details (for example, data storage) about a particular
 -- identity pool.
 --
 -- This API can only be called with developer credentials. You cannot call

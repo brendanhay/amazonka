@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified delivery channel.
+-- Deletes the specified delivery channel.
 --
 -- The delivery channel cannot be deleted if it is the only delivery
 -- channel and the configuration recorder is still running. To delete the

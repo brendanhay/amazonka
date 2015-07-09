@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /CreateCacheSubnetGroup/ action creates a new cache subnet group.
+-- The /CreateCacheSubnetGroup/ action creates a new cache subnet group.
 --
 -- Use this parameter only when you are creating a cluster in an Amazon
 -- Virtual Private Cloud (VPC).

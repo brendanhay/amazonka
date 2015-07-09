@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of snapshot copy grants owned by the AWS account in the
+-- Returns a list of snapshot copy grants owned by the AWS account in the
 -- destination region.
 --
 -- For more information about managing snapshot copy grants, go to

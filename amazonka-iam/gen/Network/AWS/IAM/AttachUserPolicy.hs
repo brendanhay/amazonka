@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Attaches the specified managed policy to the specified user.
+-- Attaches the specified managed policy to the specified user.
 --
 -- You use this API to attach a managed policy to a user. To embed an
 -- inline policy in a user, use PutUserPolicy.

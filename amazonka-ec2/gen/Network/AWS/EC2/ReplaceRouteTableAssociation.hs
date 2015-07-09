@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Changes the route table associated with a given subnet in a VPC. After
+-- Changes the route table associated with a given subnet in a VPC. After
 -- the operation completes, the subnet uses the routes in the new route
 -- table it\'s associated with. For more information about route tables,
 -- see

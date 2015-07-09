@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Accept ownership of a private virtual interface created by another
+-- Accept ownership of a private virtual interface created by another
 -- customer.
 --
 -- After the virtual interface owner calls this function, the virtual

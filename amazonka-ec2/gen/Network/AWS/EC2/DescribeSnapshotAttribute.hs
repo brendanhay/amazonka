@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the specified attribute of the specified snapshot. You can
+-- Describes the specified attribute of the specified snapshot. You can
 -- specify only one attribute at a time.
 --
 -- For more information about EBS snapshots, see

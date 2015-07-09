@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes all supported AWS services that can be specified when creating
+-- Describes all supported AWS services that can be specified when creating
 -- a VPC endpoint.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCEndpointServices.html>

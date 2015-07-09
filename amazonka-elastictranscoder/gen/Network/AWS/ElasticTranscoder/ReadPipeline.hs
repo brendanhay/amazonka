@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The ReadPipeline operation gets detailed information about a pipeline.
+-- The ReadPipeline operation gets detailed information about a pipeline.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPipeline.html>
 module Network.AWS.ElasticTranscoder.ReadPipeline

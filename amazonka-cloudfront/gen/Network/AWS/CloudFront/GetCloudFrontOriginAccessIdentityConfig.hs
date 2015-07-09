@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Get the configuration information about an origin access identity.
+-- Get the configuration information about an origin access identity.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/GetCloudFrontOriginAccessIdentityConfig.html>
 module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentityConfig

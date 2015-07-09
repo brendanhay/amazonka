@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Given an identity (email address or domain), enables or disables whether
+-- Given an identity (email address or domain), enables or disables whether
 -- Amazon SES forwards bounce and complaint notifications as email.
 -- Feedback forwarding can only be disabled when Amazon Simple Notification
 -- Service (Amazon SNS) topics are specified for both bounces and

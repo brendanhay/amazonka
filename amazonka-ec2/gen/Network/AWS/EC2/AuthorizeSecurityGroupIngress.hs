@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds one or more ingress rules to a security group.
+-- Adds one or more ingress rules to a security group.
 --
 -- EC2-Classic: You can have up to 100 rules per group.
 --

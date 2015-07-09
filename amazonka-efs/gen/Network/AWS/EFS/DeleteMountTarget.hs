@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified mount target.
+-- Deletes the specified mount target.
 --
 -- This operation forcibly breaks any mounts of the file system via the
 -- mount target being deleted, which might disrupt instances or

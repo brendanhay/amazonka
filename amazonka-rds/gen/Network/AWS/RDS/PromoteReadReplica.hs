@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Promotes a Read Replica DB instance to a standalone DB instance.
+-- Promotes a Read Replica DB instance to a standalone DB instance.
 --
 -- We recommend that you enable automated backups on your Read Replica
 -- before promoting the Read Replica. This ensures that no backup is taken

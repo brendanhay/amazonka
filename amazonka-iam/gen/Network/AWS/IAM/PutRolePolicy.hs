@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds (or updates) an inline policy document that is embedded in the
+-- Adds (or updates) an inline policy document that is embedded in the
 -- specified role.
 --
 -- When you embed an inline policy in a role, the inline policy is used as

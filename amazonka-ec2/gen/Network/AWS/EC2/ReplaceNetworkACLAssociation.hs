@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Changes which network ACL a subnet is associated with. By default when
+-- Changes which network ACL a subnet is associated with. By default when
 -- you create a subnet, it\'s automatically associated with the default
 -- network ACL. For more information about network ACLs, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_ACLs.html Network ACLs>

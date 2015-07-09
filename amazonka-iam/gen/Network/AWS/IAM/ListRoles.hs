@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the roles that have the specified path prefix. If there are none,
+-- Lists the roles that have the specified path prefix. If there are none,
 -- the action returns an empty list. For more information about roles, go
 -- to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.

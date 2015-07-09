@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the configuration information of the Lambda function. This the
+-- Returns the configuration information of the Lambda function. This the
 -- same information you provided as parameters when uploading the function
 -- by using CreateFunction.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the results of specified commands.
+-- Describes the results of specified commands.
 --
 -- You must specify at least one of the parameters.
 --

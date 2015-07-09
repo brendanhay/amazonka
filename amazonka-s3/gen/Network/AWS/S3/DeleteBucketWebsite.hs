@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation removes the website configuration from the bucket.
+-- This operation removes the website configuration from the bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketWebsite.html>
 module Network.AWS.S3.DeleteBucketWebsite

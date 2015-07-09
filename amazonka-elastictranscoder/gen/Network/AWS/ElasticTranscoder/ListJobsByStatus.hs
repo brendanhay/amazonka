@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The ListJobsByStatus operation gets a list of jobs that have a specified
+-- The ListJobsByStatus operation gets a list of jobs that have a specified
 -- status. The response body contains one element for each job that
 -- satisfies the search criteria.
 --

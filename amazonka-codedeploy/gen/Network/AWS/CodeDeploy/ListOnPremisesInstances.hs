@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets a list of one or more on-premises instance names.
+-- Gets a list of one or more on-premises instance names.
 --
 -- Unless otherwise specified, both registered and deregistered on-premises
 -- instance names will be listed. To list only registered or deregistered

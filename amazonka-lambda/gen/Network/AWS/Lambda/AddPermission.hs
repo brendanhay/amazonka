@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds a permission to the access policy associated with the specified AWS
+-- Adds a permission to the access policy associated with the specified AWS
 -- Lambda function. In a \"push event\" model, the access policy attached
 -- to the Lambda function grants Amazon S3 or a user application permission
 -- for the Lambda @lambda:Invoke@ action. For information about the push

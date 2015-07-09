@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Splits a shard into two new shards in the stream, to increase the
+-- Splits a shard into two new shards in the stream, to increase the
 -- stream\'s capacity to ingest and transport data. @SplitShard@ is called
 -- when there is a need to increase the overall capacity of stream because
 -- of an expected increase in the volume of data records being ingested.

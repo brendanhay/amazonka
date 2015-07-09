@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AddInstanceGroups adds an instance group to a running cluster.
+-- AddInstanceGroups adds an instance group to a running cluster.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_AddInstanceGroups.html>
 module Network.AWS.EMR.AddInstanceGroups

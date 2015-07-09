@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a network ACL in a VPC. Network ACLs provide an optional layer
+-- Creates a network ACL in a VPC. Network ACLs provide an optional layer
 -- of security (in addition to security groups) for the instances in your
 -- VPC.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Requests a description of one or more layers in a specified stack.
+-- Requests a description of one or more layers in a specified stack.
 --
 -- You must specify at least one of the parameters.
 --

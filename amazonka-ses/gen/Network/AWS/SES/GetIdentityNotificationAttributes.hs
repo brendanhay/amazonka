@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Given a list of verified identities (email addresses and\/or domains),
+-- Given a list of verified identities (email addresses and\/or domains),
 -- returns a structure describing identity notification attributes.
 --
 -- This action is throttled at one request per second and can only get

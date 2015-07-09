@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of the available reserved node offerings by Amazon
+-- Returns a list of the available reserved node offerings by Amazon
 -- Redshift with their descriptions including the node type, the fixed and
 -- recurring costs of reserving the node and duration the node will be
 -- reserved for you. These descriptions help you determine which reserve

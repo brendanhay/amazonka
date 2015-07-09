@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the services that are running in a specified cluster.
+-- Lists the services that are running in a specified cluster.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListServices.html>
 module Network.AWS.ECS.ListServices

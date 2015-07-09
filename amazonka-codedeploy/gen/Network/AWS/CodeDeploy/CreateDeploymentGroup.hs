@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new deployment group for application revisions to be deployed
+-- Creates a new deployment group for application revisions to be deployed
 -- to.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateDeploymentGroup.html>

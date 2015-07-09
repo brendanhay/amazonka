@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Composes an email message based on input data, and then immediately
+-- Composes an email message based on input data, and then immediately
 -- queues the message for sending.
 --
 -- You can only send email from verified email addresses and domains. If

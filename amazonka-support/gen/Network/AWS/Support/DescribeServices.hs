@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the current list of AWS services and a list of service
+-- Returns the current list of AWS services and a list of service
 -- categories that applies to each one. You then use service names and
 -- categories in your CreateCase requests. Each AWS service has its own set
 -- of categories.

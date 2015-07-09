@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Unassigns one or more secondary private IP addresses from a network
+-- Unassigns one or more secondary private IP addresses from a network
 -- interface.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-UnassignPrivateIPAddresses.html>

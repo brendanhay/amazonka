@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the @DataSourceName@ of a @DataSource@.
+-- Updates the @DataSourceName@ of a @DataSource@.
 --
 -- You can use the GetDataSource operation to view the contents of the
 -- updated data element.

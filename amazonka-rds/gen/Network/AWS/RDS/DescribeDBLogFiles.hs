@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of DB log files for the DB instance.
+-- Returns a list of DB log files for the DB instance.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBLogFiles.html>
 module Network.AWS.RDS.DescribeDBLogFiles

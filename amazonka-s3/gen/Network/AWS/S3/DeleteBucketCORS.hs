@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the cors configuration information set for the bucket.
+-- Deletes the cors configuration information set for the bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/DeleteBucketCORS.html>
 module Network.AWS.S3.DeleteBucketCORS

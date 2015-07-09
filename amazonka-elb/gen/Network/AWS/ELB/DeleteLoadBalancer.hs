@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified load balancer.
+-- Deletes the specified load balancer.
 --
 -- If you are attempting to recreate a load balancer, you must reconfigure
 -- all settings. The DNS name associated with a deleted load balancer are

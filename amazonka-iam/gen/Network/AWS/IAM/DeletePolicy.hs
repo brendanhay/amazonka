@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified managed policy.
+-- Deletes the specified managed policy.
 --
 -- Before you can delete a managed policy, you must detach the policy from
 -- all users, groups, and roles that it is attached to, and you must delete

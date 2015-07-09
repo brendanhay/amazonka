@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes the specified Availability Zones from the set of Availability
+-- Removes the specified Availability Zones from the set of Availability
 -- Zones for the specified load balancer.
 --
 -- There must be at least one Availability Zone registered with a load

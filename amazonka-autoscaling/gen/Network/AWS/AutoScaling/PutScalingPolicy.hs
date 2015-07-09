@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates or updates a policy for an Auto Scaling group. To update an
+-- Creates or updates a policy for an Auto Scaling group. To update an
 -- existing policy, use the existing policy name and set the parameters you
 -- want to change. Any existing parameter not changed in an update to an
 -- existing policy is not changed in this update request.

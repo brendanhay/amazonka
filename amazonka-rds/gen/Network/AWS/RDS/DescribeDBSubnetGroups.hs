@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is
+-- Returns a list of DBSubnetGroup descriptions. If a DBSubnetGroupName is
 -- specified, the list will contain only the descriptions of the specified
 -- DBSubnetGroup.
 --

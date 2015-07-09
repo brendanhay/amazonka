@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables I\/O operations for a volume that had I\/O operations disabled
+-- Enables I\/O operations for a volume that had I\/O operations disabled
 -- because the data on the volume was potentially inconsistent.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVolumeIO.html>

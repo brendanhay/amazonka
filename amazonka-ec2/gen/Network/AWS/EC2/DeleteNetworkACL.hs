@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified network ACL. You can\'t delete the ACL if it\'s
+-- Deletes the specified network ACL. You can\'t delete the ACL if it\'s
 -- associated with any subnets. You can\'t delete the default network ACL.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteNetworkACL.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /BatchGetItem/ operation returns the attributes of one or more items
+-- The /BatchGetItem/ operation returns the attributes of one or more items
 -- from one or more tables. You identify requested items by primary key.
 --
 -- A single operation can retrieve up to 16 MB of data, which can contain

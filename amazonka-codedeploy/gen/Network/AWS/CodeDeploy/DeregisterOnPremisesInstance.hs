@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deregisters an on-premises instance.
+-- Deregisters an on-premises instance.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeregisterOnPremisesInstance.html>
 module Network.AWS.CodeDeploy.DeregisterOnPremisesInstance

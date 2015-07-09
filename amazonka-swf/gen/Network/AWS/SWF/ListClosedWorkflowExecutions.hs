@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of closed workflow executions in the specified domain
+-- Returns a list of closed workflow executions in the specified domain
 -- that meet the filtering criteria. The results may be split into multiple
 -- pages. To retrieve subsequent pages, make the call again using the
 -- nextPageToken returned by the initial call.

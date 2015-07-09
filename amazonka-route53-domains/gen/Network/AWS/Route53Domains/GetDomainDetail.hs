@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns detailed information about the domain. The
+-- This operation returns detailed information about the domain. The
 -- domain\'s contact information is also returned as part of the output.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetDomainDetail.html>

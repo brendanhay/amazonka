@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the ClassicLink status of one or more VPCs.
+-- Describes the ClassicLink status of one or more VPCs.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCClassicLink.html>
 module Network.AWS.EC2.DescribeVPCClassicLink

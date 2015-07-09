@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns all the log groups that are associated with the AWS account
+-- Returns all the log groups that are associated with the AWS account
 -- making the request. The list returned in the response is ASCII-sorted by
 -- log group name.
 --

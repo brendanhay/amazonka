@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation updates the bandwidth rate limits of a gateway. You can
+-- This operation updates the bandwidth rate limits of a gateway. You can
 -- update both the upload and download bandwidth rate limit or specify only
 -- one of the two. If you don\'t set a bandwidth rate limit, the existing
 -- rate limit remains.

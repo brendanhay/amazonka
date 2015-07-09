@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes an IAM OpenID Connect identity provider.
+-- Deletes an IAM OpenID Connect identity provider.
 --
 -- Deleting an OIDC provider does not update any roles that reference the
 -- provider as a principal in their trust policies. Any attempt to assume a

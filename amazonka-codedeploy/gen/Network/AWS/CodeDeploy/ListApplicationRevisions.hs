@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists information about revisions for an application.
+-- Lists information about revisions for an application.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplicationRevisions.html>
 module Network.AWS.CodeDeploy.ListApplicationRevisions

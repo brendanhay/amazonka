@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about when the specified access key was last used.
+-- Retrieves information about when the specified access key was last used.
 -- The information includes the date and time of last use, along with the
 -- AWS service and region that were specified in the last request made with
 -- that key.

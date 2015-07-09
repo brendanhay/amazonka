@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables actions for the specified alarms.
+-- Enables actions for the specified alarms.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_EnableAlarmActions.html>
 module Network.AWS.CloudWatch.EnableAlarmActions

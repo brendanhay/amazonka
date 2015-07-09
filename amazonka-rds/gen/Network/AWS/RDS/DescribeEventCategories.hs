@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Displays a list of categories for all event source types, or, if
+-- Displays a list of categories for all event source types, or, if
 -- specified, for a specified source type. You can see a list of the event
 -- categories and source types in the
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Events.html Events>

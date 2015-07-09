@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns an @MLModel@ that includes detailed metadata, and data source
+-- Returns an @MLModel@ that includes detailed metadata, and data source
 -- information as well as the current status of the @MLModel@.
 --
 -- @GetMLModel@ provides results in normal or verbose format.

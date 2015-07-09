@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The DeletePipeline operation removes a pipeline.
+-- The DeletePipeline operation removes a pipeline.
 --
 -- You can only delete a pipeline that has never been used or that is not
 -- currently in use (doesn\'t contain any active jobs). If the pipeline is

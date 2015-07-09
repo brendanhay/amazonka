@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Displays all connections in this region.
+-- Displays all connections in this region.
 --
 -- If a connection ID is provided, the call returns only that particular
 -- connection.

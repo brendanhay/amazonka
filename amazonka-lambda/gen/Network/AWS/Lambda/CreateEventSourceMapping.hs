@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Identifies a stream as an event source for a Lambda function. It can be
+-- Identifies a stream as an event source for a Lambda function. It can be
 -- either an Amazon Kinesis stream or an Amazon DynamoDB stream. AWS Lambda
 -- invokes the specified function when records are posted to the stream.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the actions scheduled for your Auto Scaling group that
+-- Describes the actions scheduled for your Auto Scaling group that
 -- haven\'t run. To describe the actions that have already run, use
 -- DescribeScalingActivities.
 --

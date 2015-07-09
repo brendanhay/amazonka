@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Delete a distribution.
+-- Delete a distribution.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/DeleteDistribution.html>
 module Network.AWS.CloudFront.DeleteDistribution

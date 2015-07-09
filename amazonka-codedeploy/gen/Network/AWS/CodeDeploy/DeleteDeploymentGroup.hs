@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a deployment group.
+-- Deletes a deployment group.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteDeploymentGroup.html>
 module Network.AWS.CodeDeploy.DeleteDeploymentGroup

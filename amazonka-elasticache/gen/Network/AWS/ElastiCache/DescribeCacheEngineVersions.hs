@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeCacheEngineVersions/ action returns a list of the available
+-- The /DescribeCacheEngineVersions/ action returns a list of the available
 -- cache engines and their versions.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeCacheEngineVersions.html>

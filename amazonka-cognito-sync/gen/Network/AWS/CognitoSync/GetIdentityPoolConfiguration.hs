@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the configuration settings of an identity pool.
+-- Gets the configuration settings of an identity pool.
 --
 -- This API can only be called with developer credentials. You cannot call
 -- this API with the temporary user credentials provided by Cognito

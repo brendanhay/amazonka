@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets information about an instance as part of a deployment.
+-- Gets information about an instance as part of a deployment.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentInstance.html>
 module Network.AWS.CodeDeploy.GetDeploymentInstance

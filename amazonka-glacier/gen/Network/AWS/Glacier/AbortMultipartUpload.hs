@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation aborts a multipart upload identified by the upload ID.
+-- This operation aborts a multipart upload identified by the upload ID.
 --
 -- After the Abort Multipart Upload request succeeds, you cannot upload any
 -- more parts to the multipart upload or complete the multipart upload.

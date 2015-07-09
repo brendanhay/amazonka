@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Cancels an update on the specified stack. If the call completes
+-- Cancels an update on the specified stack. If the call completes
 -- successfully, the stack will roll back the update and revert to the
 -- previous stack configuration.
 --

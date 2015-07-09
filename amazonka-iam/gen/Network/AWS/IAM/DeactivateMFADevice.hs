@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deactivates the specified MFA device and removes it from association
+-- Deactivates the specified MFA device and removes it from association
 -- with the user name for which it was originally enabled.
 --
 -- For more information about creating and working with virtual MFA

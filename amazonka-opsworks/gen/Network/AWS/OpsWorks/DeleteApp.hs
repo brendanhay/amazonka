@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a specified app.
+-- Deletes a specified app.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
 -- Manage permissions level for the stack, or an attached policy that

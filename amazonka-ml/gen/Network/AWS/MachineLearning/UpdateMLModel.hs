@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the @MLModelName@ and the @ScoreThreshold@ of an @MLModel@.
+-- Updates the @MLModelName@ and the @ScoreThreshold@ of an @MLModel@.
 --
 -- You can use the GetMLModel operation to view the contents of the updated
 -- data element.

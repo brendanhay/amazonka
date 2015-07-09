@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves a list of documents that match the specified search criteria.
+-- Retrieves a list of documents that match the specified search criteria.
 -- How you specify the search criteria depends on which query parser you
 -- use. Amazon CloudSearch supports four query parsers:
 --

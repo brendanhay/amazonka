@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about the table, including the current status of the
+-- Returns information about the table, including the current status of the
 -- table, when it was created, the primary key schema, and any indexes on
 -- the table.
 --

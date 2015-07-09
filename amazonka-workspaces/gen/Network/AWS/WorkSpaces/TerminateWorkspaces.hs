@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Terminates the specified WorkSpaces.
+-- Terminates the specified WorkSpaces.
 --
 -- Terminating a WorkSpace is a permanent action and cannot be undone. The
 -- user\'s data is not maintained and will be destroyed. If you need to

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes the specified subnets from the set of configured subnets for the
+-- Removes the specified subnets from the set of configured subnets for the
 -- load balancer.
 --
 -- After a subnet is removed, all EC2 instances registered with the load

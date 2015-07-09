@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates one or more flow logs to capture IP traffic for a specific
+-- Creates one or more flow logs to capture IP traffic for a specific
 -- network interface, subnet, or VPC. Flow logs are delivered to a
 -- specified log group in Amazon CloudWatch Logs. If you specify a VPC or
 -- subnet in the request, a log stream is created in CloudWatch Logs for

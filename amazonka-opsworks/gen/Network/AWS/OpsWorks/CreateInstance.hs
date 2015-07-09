@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an instance in a specified stack. For more information, see
+-- Creates an instance in a specified stack. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html Adding an Instance to a Layer>.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a

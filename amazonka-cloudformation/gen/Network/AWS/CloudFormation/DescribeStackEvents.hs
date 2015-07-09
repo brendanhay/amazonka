@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns all stack related events for a specified stack. For more
+-- Returns all stack related events for a specified stack. For more
 -- information about a stack\'s event history, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/concept-stack.html Stacks>
 -- in the AWS CloudFormation User Guide.

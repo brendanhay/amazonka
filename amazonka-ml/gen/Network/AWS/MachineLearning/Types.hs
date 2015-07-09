@@ -399,33 +399,33 @@ instance ToJSON BatchPredictionFilterVariable where
 --
 -- The variable names should match the variable names in the @DataSource@.
 data DataSourceFilterVariable
-    = DSFVDataStatus
-    | DSFVDataDATALOCATIONS3
-    | DSFVDataCreatedAt
-    | DSFVDataLastUpdatedAt
-    | DSFVDataName
-    | DSFVDataIAMUser
+    = DataStatus
+    | DataIAMUser
+    | DataLastUpdatedAt
+    | DataCreatedAt
+    | DataName
+    | DataDATALOCATIONS3
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText DataSourceFilterVariable where
     parser = takeLowerText >>= \case
-        "createdat" -> pure DSFVDataCreatedAt
-        "datalocations3" -> pure DSFVDataDATALOCATIONS3
-        "iamuser" -> pure DSFVDataIAMUser
-        "lastupdatedat" -> pure DSFVDataLastUpdatedAt
-        "name" -> pure DSFVDataName
-        "status" -> pure DSFVDataStatus
+        "createdat" -> pure DataCreatedAt
+        "datalocations3" -> pure DataDATALOCATIONS3
+        "iamuser" -> pure DataIAMUser
+        "lastupdatedat" -> pure DataLastUpdatedAt
+        "name" -> pure DataName
+        "status" -> pure DataStatus
         e -> fromTextError $ "Failure parsing DataSourceFilterVariable from value: '" <> e
            <> "'. Accepted values: createdat, datalocations3, iamuser, lastupdatedat, name, status"
 
 instance ToText DataSourceFilterVariable where
     toText = \case
-        DSFVDataCreatedAt -> "createdat"
-        DSFVDataDATALOCATIONS3 -> "datalocations3"
-        DSFVDataIAMUser -> "iamuser"
-        DSFVDataLastUpdatedAt -> "lastupdatedat"
-        DSFVDataName -> "name"
-        DSFVDataStatus -> "status"
+        DataCreatedAt -> "createdat"
+        DataDATALOCATIONS3 -> "datalocations3"
+        DataIAMUser -> "iamuser"
+        DataLastUpdatedAt -> "lastupdatedat"
+        DataName -> "name"
+        DataStatus -> "status"
 
 instance Hashable DataSourceFilterVariable
 instance ToQuery DataSourceFilterVariable
@@ -518,39 +518,39 @@ instance FromJSON EntityStatus where
 --     evaluation. The URL can identify either a file or an Amazon Simple
 --     Storage Service (Amazon S3) bucket or directory.
 data EvaluationFilterVariable
-    = EFVEvalStatus
-    | EFVEvalDataURI
-    | EFVEvalDataSourceId
-    | EFVEvalCreatedAt
-    | EFVEvalName
-    | EFVEvalIAMUser
-    | EFVEvalMLModelId
-    | EFVEvalLastUpdatedAt
+    = EvalDataURI
+    | EvalDataSourceId
+    | EvalName
+    | EvalLastUpdatedAt
+    | EvalIAMUser
+    | EvalStatus
+    | EvalMLModelId
+    | EvalCreatedAt
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText EvaluationFilterVariable where
     parser = takeLowerText >>= \case
-        "createdat" -> pure EFVEvalCreatedAt
-        "datasourceid" -> pure EFVEvalDataSourceId
-        "datauri" -> pure EFVEvalDataURI
-        "iamuser" -> pure EFVEvalIAMUser
-        "lastupdatedat" -> pure EFVEvalLastUpdatedAt
-        "mlmodelid" -> pure EFVEvalMLModelId
-        "name" -> pure EFVEvalName
-        "status" -> pure EFVEvalStatus
+        "createdat" -> pure EvalCreatedAt
+        "datasourceid" -> pure EvalDataSourceId
+        "datauri" -> pure EvalDataURI
+        "iamuser" -> pure EvalIAMUser
+        "lastupdatedat" -> pure EvalLastUpdatedAt
+        "mlmodelid" -> pure EvalMLModelId
+        "name" -> pure EvalName
+        "status" -> pure EvalStatus
         e -> fromTextError $ "Failure parsing EvaluationFilterVariable from value: '" <> e
            <> "'. Accepted values: createdat, datasourceid, datauri, iamuser, lastupdatedat, mlmodelid, name, status"
 
 instance ToText EvaluationFilterVariable where
     toText = \case
-        EFVEvalCreatedAt -> "createdat"
-        EFVEvalDataSourceId -> "datasourceid"
-        EFVEvalDataURI -> "datauri"
-        EFVEvalIAMUser -> "iamuser"
-        EFVEvalLastUpdatedAt -> "lastupdatedat"
-        EFVEvalMLModelId -> "mlmodelid"
-        EFVEvalName -> "name"
-        EFVEvalStatus -> "status"
+        EvalCreatedAt -> "createdat"
+        EvalDataSourceId -> "datasourceid"
+        EvalDataURI -> "datauri"
+        EvalIAMUser -> "iamuser"
+        EvalLastUpdatedAt -> "lastupdatedat"
+        EvalMLModelId -> "mlmodelid"
+        EvalName -> "name"
+        EvalStatus -> "status"
 
 instance Hashable EvaluationFilterVariable
 instance ToQuery EvaluationFilterVariable

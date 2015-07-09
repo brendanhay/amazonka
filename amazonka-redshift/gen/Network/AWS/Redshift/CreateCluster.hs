@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new cluster. To create the cluster in virtual private cloud
+-- Creates a new cluster. To create the cluster in virtual private cloud
 -- (VPC), you must provide cluster subnet group name. If you don\'t provide
 -- a cluster subnet group name or the cluster security group parameter,
 -- Amazon Redshift creates a non-VPC cluster, it associates the default

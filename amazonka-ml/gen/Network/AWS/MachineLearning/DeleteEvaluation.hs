@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Assigns the @DELETED@ status to an @Evaluation@, rendering it unusable.
+-- Assigns the @DELETED@ status to an @Evaluation@, rendering it unusable.
 --
 -- After invoking the @DeleteEvaluation@ operation, you can use the
 -- GetEvaluation operation to verify that the status of the @Evaluation@

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Marks a key as enabled, thereby permitting its use. You can have up to
+-- Marks a key as enabled, thereby permitting its use. You can have up to
 -- 25 enabled keys at one time.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKey.html>

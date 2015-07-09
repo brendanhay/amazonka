@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Unassigns an assigned Amazon EBS volume. The volume remains registered
+-- Unassigns an assigned Amazon EBS volume. The volume remains registered
 -- with the stack. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --

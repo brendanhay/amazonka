@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the URL of an existing queue. This action provides a simple way
+-- Returns the URL of an existing queue. This action provides a simple way
 -- to retrieve the URL of an Amazon SQS queue.
 --
 -- To access a queue that belongs to another AWS account, use the

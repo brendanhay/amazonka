@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Cancels an active export task. The request removes all artifacts of the
+-- Cancels an active export task. The request removes all artifacts of the
 -- export, including any partially-created Amazon S3 objects. If the export
 -- task is complete or is in the process of transferring the final disk
 -- image, the command fails and returns an error.

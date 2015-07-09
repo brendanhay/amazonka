@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the number of layers and apps in a specified stack, and the
+-- Describes the number of layers and apps in a specified stack, and the
 -- number of instances in each state, such as @running_setup@ or @online@.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a

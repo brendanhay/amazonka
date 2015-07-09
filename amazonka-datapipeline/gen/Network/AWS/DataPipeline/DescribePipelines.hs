@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves metadata about one or more pipelines. The information
+-- Retrieves metadata about one or more pipelines. The information
 -- retrieved includes the name of the pipeline, the pipeline identifier,
 -- its current state, and the user account that owns the pipeline. Using
 -- account credentials, you can retrieve metadata about pipelines that you

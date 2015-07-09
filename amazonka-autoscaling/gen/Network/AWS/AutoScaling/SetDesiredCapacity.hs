@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets the size of the specified Auto Scaling group.
+-- Sets the size of the specified Auto Scaling group.
 --
 -- For more information about desired capacity, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/WhatIsAutoScaling.html What Is Auto Scaling?>

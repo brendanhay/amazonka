@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Imports a disk into an EBS snapshot.
+-- Imports a disk into an EBS snapshot.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportSnapshot.html>
 module Network.AWS.EC2.ImportSnapshot

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Configures scaling parameters for a domain. A domain\'s scaling
+-- Configures scaling parameters for a domain. A domain\'s scaling
 -- parameters specify the desired search instance type and replication
 -- count. Amazon CloudSearch will still automatically scale your domain
 -- based on the volume of data and traffic, but not below the desired

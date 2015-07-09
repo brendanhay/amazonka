@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies a subnet attribute.
+-- Modifies a subnet attribute.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifySubnetAttribute.html>
 module Network.AWS.EC2.ModifySubnetAttribute

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Assigns one or more secondary private IP addresses to the specified
+-- Assigns one or more secondary private IP addresses to the specified
 -- network interface. You can specify one or more specific secondary IP
 -- addresses, or you can specify the number of secondary IP addresses to be
 -- automatically assigned within the subnet\'s CIDR block range. The number

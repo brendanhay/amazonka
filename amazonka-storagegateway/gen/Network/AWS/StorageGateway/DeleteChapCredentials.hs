@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation deletes Challenge-Handshake Authentication Protocol
+-- This operation deletes Challenge-Handshake Authentication Protocol
 -- (CHAP) credentials for a specified iSCSI target and initiator pair.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteChapCredentials.html>

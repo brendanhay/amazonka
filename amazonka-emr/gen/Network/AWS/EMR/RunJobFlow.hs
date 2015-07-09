@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | RunJobFlow creates and starts running a new job flow. The job flow will
+-- RunJobFlow creates and starts running a new job flow. The job flow will
 -- run the steps specified. Once the job flow completes, the cluster is
 -- stopped and the HDFS partition is lost. To prevent loss of data,
 -- configure the last step of the job flow to store results in Amazon S3.

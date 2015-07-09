@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified Lambda function code and configuration.
+-- Deletes the specified Lambda function code and configuration.
 --
 -- When you delete a function the associated access policy is also deleted.
 -- You will need to delete the event source mappings explicitly.

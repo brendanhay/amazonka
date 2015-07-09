@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about the specified OpenID Connect provider.
+-- Returns information about the specified OpenID Connect provider.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetOpenIdConnectProvider.html>
 module Network.AWS.IAM.GetOpenIdConnectProvider

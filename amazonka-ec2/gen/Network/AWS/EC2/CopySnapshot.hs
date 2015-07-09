@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Copies a point-in-time snapshot of an EBS volume and stores it in Amazon
+-- Copies a point-in-time snapshot of an EBS volume and stores it in Amazon
 -- S3. You can copy the snapshot within the same region or from one region
 -- to another. You can use the snapshot to create EBS volumes or Amazon
 -- Machine Images (AMIs). The snapshot is copied to the regional endpoint

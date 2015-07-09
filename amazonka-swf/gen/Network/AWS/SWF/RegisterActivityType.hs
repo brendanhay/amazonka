@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers a new /activity type/ along with its configuration settings in
+-- Registers a new /activity type/ along with its configuration settings in
 -- the specified domain.
 --
 -- A @TypeAlreadyExists@ fault is returned if the type already exists in

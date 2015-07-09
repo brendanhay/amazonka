@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves the user name and password-creation date for the specified
+-- Retrieves the user name and password-creation date for the specified
 -- user. If the user has not been assigned a password, the action returns a
 -- 404 (@NoSuchEntity@) error.
 --

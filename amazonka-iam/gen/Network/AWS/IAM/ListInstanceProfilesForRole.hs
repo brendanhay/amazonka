@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the instance profiles that have the specified associated role. If
+-- Lists the instance profiles that have the specified associated role. If
 -- there are none, the action returns an empty list. For more information
 -- about instance profiles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.

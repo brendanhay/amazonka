@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The CancelJob operation cancels an unfinished job.
+-- The CancelJob operation cancels an unfinished job.
 --
 -- You can only cancel a job that has a status of @Submitted@. To prevent a
 -- pipeline from starting to process a job while you\'re getting the job

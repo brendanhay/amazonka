@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds a statement to a topic\'s access control policy, granting access
+-- Adds a statement to a topic\'s access control policy, granting access
 -- for the specified AWS accounts to the specified actions.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_AddPermission.html>

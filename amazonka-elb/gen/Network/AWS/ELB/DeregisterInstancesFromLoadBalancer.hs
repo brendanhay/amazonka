@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deregisters the specified instances from the specified load balancer.
+-- Deregisters the specified instances from the specified load balancer.
 -- After the instance is deregistered, it no longer receives traffic from
 -- the load balancer.
 --

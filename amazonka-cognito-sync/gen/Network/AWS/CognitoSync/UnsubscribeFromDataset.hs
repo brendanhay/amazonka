@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Unsubscribes from receiving notifications when a dataset is modified by
+-- Unsubscribes from receiving notifications when a dataset is modified by
 -- another device.
 --
 -- This API can only be called with temporary credentials provided by

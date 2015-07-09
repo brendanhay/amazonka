@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes your Elastic IP addresses that are being moved to the EC2-VPC
+-- Describes your Elastic IP addresses that are being moved to the EC2-VPC
 -- platform, or that are being restored to the EC2-Classic platform. This
 -- request does not return information about any other Elastic IP addresses
 -- in your account.

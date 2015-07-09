@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an EBS volume that can be attached to an instance in the same
+-- Creates an EBS volume that can be attached to an instance in the same
 -- Availability Zone. The volume is created in the regional endpoint that
 -- you send the HTTP request to. For more information see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.

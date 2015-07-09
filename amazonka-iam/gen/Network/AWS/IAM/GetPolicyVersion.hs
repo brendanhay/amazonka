@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about the specified version of the specified
+-- Retrieves information about the specified version of the specified
 -- managed policy, including the policy document.
 --
 -- To list the available versions for a policy, use ListPolicyVersions.

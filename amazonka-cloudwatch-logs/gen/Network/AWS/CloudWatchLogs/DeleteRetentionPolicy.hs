@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the retention policy of the specified log group. Log events
+-- Deletes the retention policy of the specified log group. Log events
 -- would not expire if they belong to log groups without a retention
 -- policy.
 --

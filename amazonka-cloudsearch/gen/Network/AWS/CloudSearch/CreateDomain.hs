@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new search domain. For more information, see
+-- Creates a new search domain. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/creating-domains.html Creating a Search Domain>
 -- in the /Amazon CloudSearch Developer Guide/.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new queue, or returns the URL of an existing one. When you
+-- Creates a new queue, or returns the URL of an existing one. When you
 -- request @CreateQueue@, you provide a name for the queue. To successfully
 -- create a new queue, you must provide a name that is unique within the
 -- scope of your own queues.

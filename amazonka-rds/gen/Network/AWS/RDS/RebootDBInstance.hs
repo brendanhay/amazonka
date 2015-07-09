@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Rebooting a DB instance restarts the database engine service. A reboot
+-- Rebooting a DB instance restarts the database engine service. A reboot
 -- also applies to the DB instance any modifications to the associated DB
 -- parameter group that were pending. Rebooting a DB instance results in a
 -- momentary outage of the instance, during which the DB instance status is

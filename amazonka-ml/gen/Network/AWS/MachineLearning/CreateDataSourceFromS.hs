@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a @DataSource@ object. A @DataSource@ references data that can
+-- Creates a @DataSource@ object. A @DataSource@ references data that can
 -- be used to perform CreateMLModel, CreateEvaluation, or
 -- CreateBatchPrediction operations.
 --

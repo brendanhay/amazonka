@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the expressions configured for the search domain. Can be limited to
+-- Gets the expressions configured for the search domain. Can be limited to
 -- specific expressions by name. By default, shows all expressions and
 -- includes any pending changes to the configuration. Set the @Deployed@
 -- option to @true@ to show the active configuration and exclude pending

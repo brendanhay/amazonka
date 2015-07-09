@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a topic and all its subscriptions. Deleting a topic might
+-- Deletes a topic and all its subscriptions. Deleting a topic might
 -- prevent some messages previously sent to the topic from being delivered
 -- to subscribers. This action is idempotent, so deleting a topic that does
 -- not exist does not result in an error.

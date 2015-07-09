@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Detaches a specified Elastic Load Balancing instance from its layer.
+-- Detaches a specified Elastic Load Balancing instance from its layer.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
 -- Manage permissions level for the stack, or an attached policy that

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes a task definition. You can specify a @family@ and @revision@
+-- Describes a task definition. You can specify a @family@ and @revision@
 -- to find information on a specific task definition, or you can simply
 -- specify the family to find the latest @ACTIVE@ revision in that family.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the Availability Zone, instance count, instance type, or
+-- Modifies the Availability Zone, instance count, instance type, or
 -- network platform (EC2-Classic or EC2-VPC) of your Reserved Instances.
 -- The Reserved Instances to be modified must be identical, except for
 -- Availability Zone, network platform, and instance type.

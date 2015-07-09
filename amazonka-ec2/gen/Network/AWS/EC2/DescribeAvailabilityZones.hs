@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of the Availability Zones that are available to
+-- Describes one or more of the Availability Zones that are available to
 -- you. The results include zones only for the region you\'re currently
 -- using. If there is an event impacting an Availability Zone, you can use
 -- this request to view the state and any provided message for that

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds the specified instances to the specified load balancer.
+-- Adds the specified instances to the specified load balancer.
 --
 -- The instance must be a running instance in the same network as the load
 -- balancer (EC2-Classic or the same VPC). If you have EC2-Classic

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets data records from a shard.
+-- Gets data records from a shard.
 --
 -- Specify a shard iterator using the @ShardIterator@ parameter. The shard
 -- iterator specifies the position in the shard from which you want to

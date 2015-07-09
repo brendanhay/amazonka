@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Attaches an EBS volume to a running or stopped instance and exposes it
+-- Attaches an EBS volume to a running or stopped instance and exposes it
 -- to the instance with the specified device name.
 --
 -- Encrypted EBS volumes may only be attached to instances that support

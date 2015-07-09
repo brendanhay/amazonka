@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a virtual interface.
+-- Deletes a virtual interface.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteVirtualInterface.html>
 module Network.AWS.DirectConnect.DeleteVirtualInterface

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation updates the Challenge-Handshake Authentication Protocol
+-- This operation updates the Challenge-Handshake Authentication Protocol
 -- (CHAP) credentials for a specified iSCSI target. By default, a gateway
 -- does not have CHAP enabled; however, for added security, you might use
 -- it.

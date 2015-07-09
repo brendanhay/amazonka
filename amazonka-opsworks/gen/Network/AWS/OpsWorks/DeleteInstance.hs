@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a specified instance, which terminates the associated Amazon EC2
+-- Deletes a specified instance, which terminates the associated Amazon EC2
 -- instance. You must stop an instance before you can delete it.
 --
 -- For more information, see

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Copies the specified automated cluster snapshot to a new manual cluster
+-- Copies the specified automated cluster snapshot to a new manual cluster
 -- snapshot. The source must be an automated snapshot and it must be in the
 -- available state.
 --

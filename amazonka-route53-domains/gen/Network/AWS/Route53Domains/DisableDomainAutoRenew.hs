@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation disables automatic renewal of domain registration for the
+-- This operation disables automatic renewal of domain registration for the
 -- specified domain.
 --
 -- Caution! Amazon Route 53 doesn\'t have a manual renewal process, so if

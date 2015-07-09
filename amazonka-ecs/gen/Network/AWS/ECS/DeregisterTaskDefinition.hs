@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deregisters the specified task definition by family and revision. Upon
+-- Deregisters the specified task definition by family and revision. Upon
 -- deregistration, the task definition is marked as @INACTIVE@. Existing
 -- tasks and services that reference an @INACTIVE@ task definition continue
 -- to run without disruption. Existing services that reference an

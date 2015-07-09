@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | When you create a job, Elastic Transcoder returns JSON data that
+-- When you create a job, Elastic Transcoder returns JSON data that
 -- includes the values that you specified plus information about the job
 -- that is created.
 --

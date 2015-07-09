@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Configures an Auto Scaling group to send notifications when specified
+-- Configures an Auto Scaling group to send notifications when specified
 -- events take place. Subscribers to this topic can have messages for
 -- events delivered to an endpoint such as a web server or email address.
 --

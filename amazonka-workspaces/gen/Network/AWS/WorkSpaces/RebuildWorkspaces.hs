@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Rebuilds the specified WorkSpaces.
+-- Rebuilds the specified WorkSpaces.
 --
 -- Rebuilding a WorkSpace is a potentially destructive action that can
 -- result in the loss of data. Rebuilding a WorkSpace causes the following

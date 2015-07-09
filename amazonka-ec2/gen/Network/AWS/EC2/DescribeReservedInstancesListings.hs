@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes your account\'s Reserved Instance listings in the Reserved
+-- Describes your account\'s Reserved Instance listings in the Reserved
 -- Instance Marketplace.
 --
 -- The Reserved Instance Marketplace matches sellers who want to resell

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes an instance\'s Amazon EBS volumes.
+-- Describes an instance\'s Amazon EBS volumes.
 --
 -- You must specify at least one of the parameters.
 --

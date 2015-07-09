@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers instances with a specified stack that were created outside of
+-- Registers instances with a specified stack that were created outside of
 -- AWS OpsWorks.
 --
 -- We do not recommend using this action to register instances. The

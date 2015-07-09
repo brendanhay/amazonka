@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified application along with all associated versions and
+-- Deletes the specified application along with all associated versions and
 -- configurations. The application versions will not be deleted from your
 -- Amazon S3 bucket.
 --

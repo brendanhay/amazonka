@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Posts a batch of documents to a search domain for indexing. A document
+-- Posts a batch of documents to a search domain for indexing. A document
 -- batch is a collection of add and delete operations that represent the
 -- documents you want to add, update, or delete from your domain. Batches
 -- can be described in either JSON or XML. Each item that you want Amazon

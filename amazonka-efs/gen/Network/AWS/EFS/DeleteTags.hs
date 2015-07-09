@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified tags from a file system. If the @DeleteTags@
+-- Deletes the specified tags from a file system. If the @DeleteTags@
 -- request includes a tag key that does not exist, Amazon EFS ignores it;
 -- it is not an error. For more information about tags and related
 -- restrictions, go to

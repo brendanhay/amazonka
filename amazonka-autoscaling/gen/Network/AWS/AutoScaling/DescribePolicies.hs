@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the policies for the specified Auto Scaling group.
+-- Describes the policies for the specified Auto Scaling group.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribePolicies.html>
 module Network.AWS.AutoScaling.DescribePolicies

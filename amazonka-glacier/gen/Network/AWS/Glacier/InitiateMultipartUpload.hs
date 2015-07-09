@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation initiates a multipart upload. Amazon Glacier creates a
+-- This operation initiates a multipart upload. Amazon Glacier creates a
 -- multipart upload resource and returns its ID in the response. The
 -- multipart upload ID is used in subsequent requests to upload parts of an
 -- archive (see UploadMultipartPart).

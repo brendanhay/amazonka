@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables notifications of specified events for a bucket.
+-- Enables notifications of specified events for a bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketNotificationConfiguration.html>
 module Network.AWS.S3.PutBucketNotificationConfiguration

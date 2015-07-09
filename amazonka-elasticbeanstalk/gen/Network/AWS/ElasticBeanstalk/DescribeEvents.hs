@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns list of event descriptions matching criteria up to the last 6
+-- Returns list of event descriptions matching criteria up to the last 6
 -- weeks.
 --
 -- This action returns the most recent 1,000 events from the specified

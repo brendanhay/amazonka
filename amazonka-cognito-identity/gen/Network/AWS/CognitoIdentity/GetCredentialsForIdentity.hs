@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns credentials for the the provided identity ID. Any provided
+-- Returns credentials for the the provided identity ID. Any provided
 -- logins will be validated against supported login providers. If the token
 -- is for cognito-identity.amazonaws.com, it will be passed through to AWS
 -- Security Token Service with the appropriate role for the token.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Replaces the existing list of server certificate thumbprints with a new
+-- Replaces the existing list of server certificate thumbprints with a new
 -- list.
 --
 -- The list that you pass with this action completely replaces the existing

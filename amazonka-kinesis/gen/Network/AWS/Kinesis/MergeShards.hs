@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Merges two adjacent shards in a stream and combines them into a single
+-- Merges two adjacent shards in a stream and combines them into a single
 -- shard to reduce the stream\'s capacity to ingest and transport data. Two
 -- shards are considered adjacent if the union of the hash key ranges for
 -- the two shards form a contiguous set with no gaps. For example, if you

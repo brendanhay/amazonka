@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of the images (AMIs, AKIs, and ARIs) available to
+-- Describes one or more of the images (AMIs, AKIs, and ARIs) available to
 -- you. Images available to you include public images, private images that
 -- you own, and private images owned by other AWS accounts but for which
 -- you have explicit launch permissions.

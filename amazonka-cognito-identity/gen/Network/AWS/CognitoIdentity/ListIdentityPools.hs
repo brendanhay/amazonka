@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all of the Cognito identity pools registered for your account.
+-- Lists all of the Cognito identity pools registered for your account.
 --
 -- This is a public API. You do not need any credentials to call this API.
 --

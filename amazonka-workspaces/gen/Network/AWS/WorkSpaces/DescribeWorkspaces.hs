@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Obtains information about the specified WorkSpaces.
+-- Obtains information about the specified WorkSpaces.
 --
 -- Only one of the filter parameters, such as @BundleId@, @DirectoryId@, or
 -- @WorkspaceIds@, can be specified at a time.

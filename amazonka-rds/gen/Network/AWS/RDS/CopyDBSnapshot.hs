@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Copies the specified DBSnapshot. The source DBSnapshot must be in the
+-- Copies the specified DBSnapshot. The source DBSnapshot must be in the
 -- \"available\" state.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyDBSnapshot.html>

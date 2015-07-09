@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | With the UpdatePipelineNotifications operation, you can update Amazon
+-- With the UpdatePipelineNotifications operation, you can update Amazon
 -- Simple Notification Service (Amazon SNS) notifications for a pipeline.
 --
 -- When you update notifications for a pipeline, Elastic Transcoder returns

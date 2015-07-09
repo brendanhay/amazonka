@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new, empty pipeline. Use PutPipelineDefinition to populate the
+-- Creates a new, empty pipeline. Use PutPipelineDefinition to populate the
 -- pipeline.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_CreatePipeline.html>

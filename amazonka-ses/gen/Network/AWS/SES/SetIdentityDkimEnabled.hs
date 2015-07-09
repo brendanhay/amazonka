@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables or disables Easy DKIM signing of email sent from an identity:
+-- Enables or disables Easy DKIM signing of email sent from an identity:
 --
 -- -   If Easy DKIM signing is enabled for a domain name identity (e.g.,
 --     @example.com@), then Amazon SES will DKIM-sign all email sent by

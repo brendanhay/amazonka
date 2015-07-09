@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables rotation of the specified customer master key.
+-- Enables rotation of the specified customer master key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_EnableKeyRotation.html>
 module Network.AWS.KMS.EnableKeyRotation

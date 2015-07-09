@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a security group.
+-- Deletes a security group.
 --
 -- If you attempt to delete a security group that is associated with an
 -- instance, or is referenced by another security group, the operation

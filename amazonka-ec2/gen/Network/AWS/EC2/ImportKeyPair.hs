@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Imports the public key from an RSA key pair that you created with a
+-- Imports the public key from an RSA key pair that you created with a
 -- third-party tool. Compare this with CreateKeyPair, in which AWS creates
 -- the key pair and gives the keys to you (AWS keeps a copy of the public
 -- key). With ImportKeyPair, you create the key pair and give AWS just the

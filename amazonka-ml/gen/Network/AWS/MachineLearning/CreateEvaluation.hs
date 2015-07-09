@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new @Evaluation@ of an @MLModel@. An @MLModel@ is evaluated on
+-- Creates a new @Evaluation@ of an @MLModel@. An @MLModel@ is evaluated on
 -- a set of observations associated to a @DataSource@. Like a @DataSource@
 -- for an @MLModel@, the @DataSource@ for an @Evaluation@ contains values
 -- for the Target Variable. The @Evaluation@ compares the predicted result

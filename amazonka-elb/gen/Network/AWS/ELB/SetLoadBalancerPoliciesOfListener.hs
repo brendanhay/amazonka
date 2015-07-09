@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Associates, updates, or disables a policy with a listener for the
+-- Associates, updates, or disables a policy with a listener for the
 -- specified load balancer. You can associate multiple policies with a
 -- listener.
 --

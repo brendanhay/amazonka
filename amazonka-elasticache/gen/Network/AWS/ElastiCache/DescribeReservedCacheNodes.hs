@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeReservedCacheNodes/ action returns information about
+-- The /DescribeReservedCacheNodes/ action returns information about
 -- reserved cache nodes for this account, or about a specified reserved
 -- cache node.
 --

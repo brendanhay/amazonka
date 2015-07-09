@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /GetItem/ operation returns a set of attributes for the item with
+-- The /GetItem/ operation returns a set of attributes for the item with
 -- the given primary key. If there is no matching item, /GetItem/ does not
 -- return any data.
 --

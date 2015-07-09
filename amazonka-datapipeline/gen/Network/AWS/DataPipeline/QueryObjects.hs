@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Queries the specified pipeline for the names of objects that match the
+-- Queries the specified pipeline for the names of objects that match the
 -- specified set of conditions.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_QueryObjects.html>

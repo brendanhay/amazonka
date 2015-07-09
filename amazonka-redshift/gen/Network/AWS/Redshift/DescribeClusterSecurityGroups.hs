@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about Amazon Redshift security groups. If the name
+-- Returns information about Amazon Redshift security groups. If the name
 -- of a security group is specified, the response will contain only
 -- information about only that security group.
 --

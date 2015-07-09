@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Verifies an email address. This action causes a confirmation email
+-- Verifies an email address. This action causes a confirmation email
 -- message to be sent to the specified address.
 --
 -- The VerifyEmailAddress action is deprecated as of the May 15, 2012

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the parameters of a parameter group.
+-- Modifies the parameters of a parameter group.
 --
 -- For more information about parameters and parameter groups, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-parameter-groups.html Amazon Redshift Parameter Groups>

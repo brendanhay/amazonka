@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The CreatePreset operation creates a preset with settings that you
+-- The CreatePreset operation creates a preset with settings that you
 -- specify.
 --
 -- Elastic Transcoder checks the CreatePreset settings to ensure that they

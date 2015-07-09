@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a data key encrypted by a customer master key without the
+-- Returns a data key encrypted by a customer master key without the
 -- plaintext copy of that key. Otherwise, this API functions exactly like
 -- GenerateDataKey. You can use this API to, for example, satisfy an audit
 -- requirement that an encrypted key be made available without exposing the

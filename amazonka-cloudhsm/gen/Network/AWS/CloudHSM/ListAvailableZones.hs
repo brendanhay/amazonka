@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the Availability Zones that have available AWS CloudHSM capacity.
+-- Lists the Availability Zones that have available AWS CloudHSM capacity.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ListAvailableZones.html>
 module Network.AWS.CloudHSM.ListAvailableZones

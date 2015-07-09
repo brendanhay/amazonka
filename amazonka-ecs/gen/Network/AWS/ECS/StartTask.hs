@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Starts a new task from the specified task definition on the specified
+-- Starts a new task from the specified task definition on the specified
 -- container instance or instances. If you want to use the default Amazon
 -- ECS scheduler to place your task, use @RunTask@ instead.
 --

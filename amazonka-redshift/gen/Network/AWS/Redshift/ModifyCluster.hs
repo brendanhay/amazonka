@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the settings for a cluster. For example, you can add another
+-- Modifies the settings for a cluster. For example, you can add another
 -- security or parameter group, update the preferred maintenance window, or
 -- change the master user password. Resetting a cluster password or
 -- modifying the security groups associated with a cluster do not need a

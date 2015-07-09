@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Stops a running task.
+-- Stops a running task.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_StopTask.html>
 module Network.AWS.ECS.StopTask

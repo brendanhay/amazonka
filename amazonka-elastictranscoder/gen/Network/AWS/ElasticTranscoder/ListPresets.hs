@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The ListPresets operation gets a list of the default presets included
+-- The ListPresets operation gets a list of the default presets included
 -- with Elastic Transcoder and the presets that you\'ve added in an AWS
 -- region.
 --

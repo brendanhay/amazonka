@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Use this action to create or change your authoritative DNS information.
+-- Use this action to create or change your authoritative DNS information.
 -- To use this action, send a @POST@ request to the
 -- @2013-04-01\/hostedzone\/hosted Zone ID\/rrset@ resource. The request
 -- body must include an XML document with a

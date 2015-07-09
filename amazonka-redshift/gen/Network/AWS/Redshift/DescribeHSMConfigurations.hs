@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about the specified Amazon Redshift HSM
+-- Returns information about the specified Amazon Redshift HSM
 -- configuration. If no configuration ID is specified, returns information
 -- about all the HSM configurations owned by your AWS customer account.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Launches the specified number of instances using an AMI for which you
+-- Launches the specified number of instances using an AMI for which you
 -- have permissions.
 --
 -- When you launch an instance, it enters the @pending@ state. After the

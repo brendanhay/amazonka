@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the refresh status of the Trusted Advisor checks that have the
+-- Returns the refresh status of the Trusted Advisor checks that have the
 -- specified check IDs. Check IDs can be obtained by calling
 -- DescribeTrustedAdvisorChecks.
 --

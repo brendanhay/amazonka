@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes one or more specified VPC endpoints. Deleting the endpoint also
+-- Deletes one or more specified VPC endpoints. Deleting the endpoint also
 -- deletes the endpoint routes in the route tables that were associated
 -- with the endpoint.
 --

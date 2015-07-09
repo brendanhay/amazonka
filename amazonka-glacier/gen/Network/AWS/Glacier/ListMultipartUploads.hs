@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation lists in-progress multipart uploads for the specified
+-- This operation lists in-progress multipart uploads for the specified
 -- vault. An in-progress multipart upload is a multipart upload that has
 -- been initiated by an InitiateMultipartUpload request, but has not yet
 -- been completed or aborted. The list returned in the List Multipart

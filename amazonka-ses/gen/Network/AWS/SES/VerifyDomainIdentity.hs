@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Verifies a domain.
+-- Verifies a domain.
 --
 -- This action is throttled at one request per second.
 --

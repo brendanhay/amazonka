@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Requests a description of a specified set of apps.
+-- Requests a description of a specified set of apps.
 --
 -- You must specify at least one of the parameters.
 --

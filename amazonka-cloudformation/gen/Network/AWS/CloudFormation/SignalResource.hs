@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sends a signal to the specified resource with a success or failure
+-- Sends a signal to the specified resource with a success or failure
 -- status. You can use the SignalResource API in conjunction with a
 -- creation policy or update policy. AWS CloudFormation doesn\'t proceed
 -- with a stack creation or update until resources receive the required

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the specified policies.
+-- Describes the specified policies.
 --
 -- If you specify a load balancer name, the action returns the descriptions
 -- of all policies created for the load balancer. If you specify a policy

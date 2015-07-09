@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new replication configuration (or replaces an existing one, if
+-- Creates a new replication configuration (or replaces an existing one, if
 -- present).
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketReplication.html>

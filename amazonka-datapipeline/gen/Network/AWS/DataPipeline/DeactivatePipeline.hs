@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deactivates the specified running pipeline. The pipeline is set to the
+-- Deactivates the specified running pipeline. The pipeline is set to the
 -- @DEACTIVATING@ state until the deactivation process completes.
 --
 -- To resume a deactivated pipeline, use ActivatePipeline. By default, the

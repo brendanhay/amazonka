@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves a list of policies attached to a key.
+-- Retrieves a list of policies attached to a key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeyPolicies.html>
 module Network.AWS.KMS.ListKeyPolicies

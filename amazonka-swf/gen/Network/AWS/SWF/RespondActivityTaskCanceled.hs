@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Used by workers to tell the service that the ActivityTask identified by
+-- Used by workers to tell the service that the ActivityTask identified by
 -- the @taskToken@ was successfully canceled. Additional @details@ can be
 -- optionally provided using the @details@ argument.
 --

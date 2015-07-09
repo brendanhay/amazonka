@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns information about a vault, including the vault\'s
+-- This operation returns information about a vault, including the vault\'s
 -- Amazon Resource Name (ARN), the date the vault was created, the number
 -- of archives it contains, and the total size of all the archives in the
 -- vault. The number of archives and their total size are as of the last

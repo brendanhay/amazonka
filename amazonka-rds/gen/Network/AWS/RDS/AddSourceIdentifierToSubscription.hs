@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds a source identifier to an existing RDS event notification
+-- Adds a source identifier to an existing RDS event notification
 -- subscription.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_AddSourceIdentifierToSubscription.html>

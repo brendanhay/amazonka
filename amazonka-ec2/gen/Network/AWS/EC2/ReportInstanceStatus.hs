@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Submits feedback about the status of an instance. The instance must be
+-- Submits feedback about the status of an instance. The instance must be
 -- in the @running@ state. If your experience with the instance differs
 -- from the instance status returned by DescribeInstanceStatus, use
 -- ReportInstanceStatus to report your experience with the instance. Amazon

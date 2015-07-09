@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a suggester. For more information, see
+-- Deletes a suggester. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/getting-suggestions.html Getting Search Suggestions>
 -- in the /Amazon CloudSearch Developer Guide/.
 --

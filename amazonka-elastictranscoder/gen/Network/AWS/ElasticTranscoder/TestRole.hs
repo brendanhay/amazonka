@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The TestRole operation tests the IAM role used to create the pipeline.
+-- The TestRole operation tests the IAM role used to create the pipeline.
 --
 -- The @TestRole@ action lets you determine whether the IAM role you are
 -- using has sufficient permissions to let Elastic Transcoder perform tasks

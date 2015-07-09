@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified email address from the list of verified addresses.
+-- Deletes the specified email address from the list of verified addresses.
 --
 -- The DeleteVerifiedEmailAddress action is deprecated as of the May 15,
 -- 2012 release of Domain Verification. The DeleteIdentity action is now

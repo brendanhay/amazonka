@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /ModifyReplicationGroup/ action modifies the settings for a
+-- The /ModifyReplicationGroup/ action modifies the settings for a
 -- replication group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyReplicationGroup.html>

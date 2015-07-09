@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the endpoints and endpoint attributes for devices in a supported
+-- Lists the endpoints and endpoint attributes for devices in a supported
 -- push notification service, such as GCM and APNS. The results for
 -- @ListEndpointsByPlatformApplication@ are paginated and return a limited
 -- list of endpoints, up to 100. If additional records are available after

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /ModifyCacheParameterGroup/ action modifies the parameters of a
+-- The /ModifyCacheParameterGroup/ action modifies the parameters of a
 -- cache parameter group. You can modify up to 20 parameters in a single
 -- request by submitting a list parameter name and value pairs.
 --

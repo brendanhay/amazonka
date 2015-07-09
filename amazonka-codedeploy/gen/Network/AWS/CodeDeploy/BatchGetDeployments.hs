@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets information about one or more deployments.
+-- Gets information about one or more deployments.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_BatchGetDeployments.html>
 module Network.AWS.CodeDeploy.BatchGetDeployments

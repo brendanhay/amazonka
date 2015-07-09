@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Authorizes the specified AWS customer account to restore the specified
+-- Authorizes the specified AWS customer account to restore the specified
 -- snapshot.
 --
 -- For more information about working with snapshots, go to

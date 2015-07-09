@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Given an identity (email address or domain), sets the Amazon Simple
+-- Given an identity (email address or domain), sets the Amazon Simple
 -- Notification Service (Amazon SNS) topic to which Amazon SES will publish
 -- bounce, complaint, and\/or delivery notifications for emails sent with
 -- that identity as the @Source@.

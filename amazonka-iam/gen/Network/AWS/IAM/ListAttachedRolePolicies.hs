@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all managed policies that are attached to the specified role.
+-- Lists all managed policies that are attached to the specified role.
 --
 -- A role can also have inline policies embedded with it. To list the
 -- inline policies for a role, use the ListRolePolicies API. For

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a SAML provider.
+-- Deletes a SAML provider.
 --
 -- Deleting the provider does not update any roles that reference the SAML
 -- provider as a principal in their trust policies. Any attempt to assume a

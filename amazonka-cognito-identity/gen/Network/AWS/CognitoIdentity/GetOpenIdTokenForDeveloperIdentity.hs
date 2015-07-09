@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers (or retrieves) a Cognito @IdentityId@ and an OpenID Connect
+-- Registers (or retrieves) a Cognito @IdentityId@ and an OpenID Connect
 -- token for a user authenticated by your backend authentication process.
 -- Supplying multiple logins will create an implicit linked account. You
 -- can only specify one developer provider as part of the @Logins@ map,

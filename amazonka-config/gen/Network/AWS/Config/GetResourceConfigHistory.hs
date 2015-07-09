@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of configuration items for the specified resource. The
+-- Returns a list of configuration items for the specified resource. The
 -- list contains details about each state of the resource during the
 -- specified time interval. You can specify a @limit@ on the number of
 -- results returned on the page. If a limit is specified, a @nextToken@ is

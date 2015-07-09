@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Cancels archiving of a virtual tape to the virtual tape shelf (VTS)
+-- Cancels archiving of a virtual tape to the virtual tape shelf (VTS)
 -- after the archiving process is initiated.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_CancelArchival.html>

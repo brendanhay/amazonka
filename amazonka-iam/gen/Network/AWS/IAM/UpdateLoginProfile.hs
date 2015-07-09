@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Changes the password for the specified user.
+-- Changes the password for the specified user.
 --
 -- Users can change their own passwords by calling ChangePassword. For more
 -- information about modifying passwords, see

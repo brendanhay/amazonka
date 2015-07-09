@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new user for your AWS account.
+-- Creates a new user for your AWS account.
 --
 -- For information about limitations on the number of users you can create,
 -- see

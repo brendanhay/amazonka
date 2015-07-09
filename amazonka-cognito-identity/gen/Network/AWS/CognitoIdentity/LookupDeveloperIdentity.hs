@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves the @IdentityID@ associated with a @DeveloperUserIdentifier@
+-- Retrieves the @IdentityID@ associated with a @DeveloperUserIdentifier@
 -- or the list of @DeveloperUserIdentifier@s associated with an
 -- @IdentityId@ for an existing identity. Either @IdentityID@ or
 -- @DeveloperUserIdentifier@ must not be null. If you supply only one of

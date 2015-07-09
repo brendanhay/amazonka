@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds the specified Availability Zones to the set of Availability Zones
+-- Adds the specified Availability Zones to the set of Availability Zones
 -- for the specified load balancer.
 --
 -- The load balancer evenly distributes requests across all its registered

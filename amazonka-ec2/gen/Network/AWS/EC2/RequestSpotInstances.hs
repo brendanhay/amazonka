@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a Spot Instance request. Spot Instances are instances that
+-- Creates a Spot Instance request. Spot Instances are instances that
 -- Amazon EC2 launches when the bid price that you specify exceeds the
 -- current Spot Price. Amazon EC2 periodically sets the Spot Price based on
 -- available Spot Instance capacity and current Spot Instance requests. For

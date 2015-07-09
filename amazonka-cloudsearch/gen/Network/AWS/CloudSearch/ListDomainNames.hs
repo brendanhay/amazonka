@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all search domains owned by an account.
+-- Lists all search domains owned by an account.
 --
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/API_ListDomainNames.html>
 module Network.AWS.CloudSearch.ListDomainNames

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables a VPC for ClassicLink. You can then link EC2-Classic instances
+-- Enables a VPC for ClassicLink. You can then link EC2-Classic instances
 -- to your ClassicLink-enabled VPC to allow communication over private IP
 -- addresses. You cannot enable your VPC for ClassicLink if any of your
 -- VPC\'s route tables have existing routes for address ranges within the

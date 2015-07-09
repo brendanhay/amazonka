@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeReplicationGroups/ action returns information about a
+-- The /DescribeReplicationGroups/ action returns information about a
 -- particular replication group. If no identifier is specified,
 -- /DescribeReplicationGroups/ returns information about all replication
 -- groups.

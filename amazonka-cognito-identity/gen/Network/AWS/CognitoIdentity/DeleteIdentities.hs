@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes identities from an identity pool. You can specify a list of 1-60
+-- Deletes identities from an identity pool. You can specify a list of 1-60
 -- identities that you want to delete.
 --
 -- You must use AWS Developer credentials to call this API.

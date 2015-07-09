@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a set of temporary security credentials (consisting of an access
+-- Returns a set of temporary security credentials (consisting of an access
 -- key ID, a secret access key, and a security token) for a federated user.
 -- A typical use is in a proxy application that gets temporary security
 -- credentials on behalf of distributed applications inside a corporate

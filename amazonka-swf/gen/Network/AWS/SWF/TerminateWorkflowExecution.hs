@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Records a @WorkflowExecutionTerminated@ event and forces closure of the
+-- Records a @WorkflowExecutionTerminated@ event and forces closure of the
 -- workflow execution identified by the given domain, runId, and
 -- workflowId. The child policy, registered with the workflow type or
 -- specified when starting this execution, is applied to any open child

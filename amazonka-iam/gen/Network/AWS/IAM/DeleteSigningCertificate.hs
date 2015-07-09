@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified signing certificate associated with the specified
+-- Deletes the specified signing certificate associated with the specified
 -- user.
 --
 -- If you do not specify a user name, IAM determines the user name

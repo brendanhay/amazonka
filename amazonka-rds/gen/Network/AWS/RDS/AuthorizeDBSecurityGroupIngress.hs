@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables ingress to a DBSecurityGroup using one of two forms of
+-- Enables ingress to a DBSecurityGroup using one of two forms of
 -- authorization. First, EC2 or VPC security groups can be added to the
 -- DBSecurityGroup if the application using the database is running on EC2
 -- or VPC instances. Second, IP ranges are available if the application

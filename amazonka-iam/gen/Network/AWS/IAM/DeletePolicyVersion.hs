@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified version of the specified managed policy.
+-- Deletes the specified version of the specified managed policy.
 --
 -- You cannot delete the default version of a policy using this API. To
 -- delete the default version of a policy, use DeletePolicy. To find out

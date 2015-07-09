@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified server certificate.
+-- Deletes the specified server certificate.
 --
 -- If you are using a server certificate with Elastic Load Balancing,
 -- deleting the certificate could have implications for your application.

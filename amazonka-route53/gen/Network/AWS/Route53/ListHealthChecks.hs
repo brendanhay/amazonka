@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | To retrieve a list of your health checks, send a @GET@ request to the
+-- To retrieve a list of your health checks, send a @GET@ request to the
 -- @2013-04-01\/healthcheck@ resource. The response to this request
 -- includes a @HealthChecks@ element with zero, one, or multiple
 -- @HealthCheck@ child elements. By default, the list of health checks is

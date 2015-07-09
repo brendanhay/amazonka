@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a specified service within a cluster.
+-- Deletes a specified service within a cluster.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeleteService.html>
 module Network.AWS.ECS.DeleteService

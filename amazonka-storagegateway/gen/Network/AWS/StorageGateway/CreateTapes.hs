@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates one or more virtual tapes. You write data to the virtual tapes
+-- Creates one or more virtual tapes. You write data to the virtual tapes
 -- and then archive the tapes.
 --
 -- Cache storage must be allocated to the gateway before you can create

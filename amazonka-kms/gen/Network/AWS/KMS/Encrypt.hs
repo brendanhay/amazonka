@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Encrypts plaintext into ciphertext by using a customer master key. The
+-- Encrypts plaintext into ciphertext by using a customer master key. The
 -- @Encrypt@ function has two primary use cases:
 --
 -- -   You can encrypt up to 4 KB of arbitrary data such as an RSA key, a

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sends an email message, with header and content specified by the client.
+-- Sends an email message, with header and content specified by the client.
 -- The @SendRawEmail@ action is useful for sending multipart MIME emails.
 -- The raw text of the message must comply with Internet email standards;
 -- otherwise, the message cannot be sent.

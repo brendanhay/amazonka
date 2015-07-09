@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets information about the index fields configured for the search
+-- Gets information about the index fields configured for the search
 -- domain. Can be limited to specific fields by name. By default, shows all
 -- fields and includes any pending changes to the configuration. Set the
 -- @Deployed@ option to @true@ to show the active configuration and exclude

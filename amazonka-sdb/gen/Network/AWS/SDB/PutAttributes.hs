@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The PutAttributes operation creates or replaces attributes in an item.
+-- The PutAttributes operation creates or replaces attributes in an item.
 -- The client may specify new attributes using a combination of the
 -- @Attribute.X.Name@ and @Attribute.X.Value@ parameters. The client
 -- specifies the first attribute by the parameters @Attribute.0.Name@ and

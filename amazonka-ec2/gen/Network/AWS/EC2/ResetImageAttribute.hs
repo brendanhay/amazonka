@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Resets an attribute of an AMI to its default value.
+-- Resets an attribute of an AMI to its default value.
 --
 -- The productCodes attribute can\'t be reset.
 --

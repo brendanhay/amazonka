@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Accept a VPC peering connection request. To accept a request, the VPC
+-- Accept a VPC peering connection request. To accept a request, the VPC
 -- peering connection must be in the @pending-acceptance@ state, and you
 -- must be the owner of the peer VPC. Use the
 -- @DescribeVpcPeeringConnections@ request to view your outstanding VPC

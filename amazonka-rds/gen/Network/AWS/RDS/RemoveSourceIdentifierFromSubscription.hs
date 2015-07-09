@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes a source identifier from an existing RDS event notification
+-- Removes a source identifier from an existing RDS event notification
 -- subscription.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_RemoveSourceIdentifierFromSubscription.html>

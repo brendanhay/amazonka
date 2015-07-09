@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified role. The role must not have any policies
+-- Deletes the specified role. The role must not have any policies
 -- attached. For more information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 --

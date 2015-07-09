@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all tags on an Amazon RDS resource.
+-- Lists all tags on an Amazon RDS resource.
 --
 -- For an overview on tagging an Amazon RDS resource, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.

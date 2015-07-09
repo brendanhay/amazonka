@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Import single or multi-volume disk images or EBS snapshots into an
+-- Import single or multi-volume disk images or EBS snapshots into an
 -- Amazon Machine Image (AMI).
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ImportImage.html>

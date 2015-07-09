@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a previously provisioned cluster. A successful response from the
+-- Deletes a previously provisioned cluster. A successful response from the
 -- web service indicates that the request was received correctly. Use
 -- DescribeClusters to monitor the status of the deletion. The delete
 -- operation cannot be canceled or reverted once submitted. For more

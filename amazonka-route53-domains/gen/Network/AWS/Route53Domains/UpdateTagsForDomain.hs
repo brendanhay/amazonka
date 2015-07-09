@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation adds or updates tags for a specified domain.
+-- This operation adds or updates tags for a specified domain.
 --
 -- All tag operations are eventually consistent; subsequent operations may
 -- not immediately represent all issued operations.

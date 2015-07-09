@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Starts logging information, such as queries and connection attempts, for
+-- Starts logging information, such as queries and connection attempts, for
 -- the specified Amazon Redshift cluster.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableLogging.html>

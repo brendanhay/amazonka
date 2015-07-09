@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a high-availability partition group.
+-- Deletes a high-availability partition group.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHAPG.html>
 module Network.AWS.CloudHSM.DeleteHAPG

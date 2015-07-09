@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates or updates an alarm and associates it with the specified Amazon
+-- Creates or updates an alarm and associates it with the specified Amazon
 -- CloudWatch metric. Optionally, this operation can associate one or more
 -- Amazon Simple Notification Service resources with the alarm.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets usage information for an identity, including number of datasets and
+-- Gets usage information for an identity, including number of datasets and
 -- data usage.
 --
 -- This API can be called with temporary user credentials provided by

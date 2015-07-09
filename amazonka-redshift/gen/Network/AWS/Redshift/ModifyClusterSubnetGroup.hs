@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies a cluster subnet group to include the specified list of VPC
+-- Modifies a cluster subnet group to include the specified list of VPC
 -- subnets. The operation replaces the existing list of subnets with the
 -- new list of subnets.
 --

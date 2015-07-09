@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more flow logs. To view the information in your flow
+-- Describes one or more flow logs. To view the information in your flow
 -- logs (the log streams for the network interfaces), you must use the
 -- CloudWatch Logs console or the CloudWatch Logs API.
 --

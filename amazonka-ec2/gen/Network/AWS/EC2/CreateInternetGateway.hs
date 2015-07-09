@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an Internet gateway for use with a VPC. After creating the
+-- Creates an Internet gateway for use with a VPC. After creating the
 -- Internet gateway, you attach it to a VPC using AttachInternetGateway.
 --
 -- For more information about your VPC and Internet gateway, see the

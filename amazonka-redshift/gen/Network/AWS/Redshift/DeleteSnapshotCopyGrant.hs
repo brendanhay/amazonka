@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified snapshot copy grant.
+-- Deletes the specified snapshot copy grant.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteSnapshotCopyGrant.html>
 module Network.AWS.Redshift.DeleteSnapshotCopyGrant

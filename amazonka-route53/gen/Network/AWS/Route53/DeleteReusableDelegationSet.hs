@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action deletes a reusable delegation set. To delete a reusable
+-- This action deletes a reusable delegation set. To delete a reusable
 -- delegation set, send a @DELETE@ request to the
 -- @2013-04-01\/delegationset\/delegation set ID@ resource.
 --

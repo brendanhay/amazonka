@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | To retrieve a list of supported geo locations, send a @GET@ request to
+-- To retrieve a list of supported geo locations, send a @GET@ request to
 -- the @2013-04-01\/geolocations@ resource. The response to this request
 -- includes a @GeoLocationDetailsList@ element with zero, one, or multiple
 -- @GeoLocationDetails@ child elements. The list is sorted by country code,

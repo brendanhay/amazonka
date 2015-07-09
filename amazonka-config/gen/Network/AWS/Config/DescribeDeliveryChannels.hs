@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns details about the specified delivery channel. If a delivery
+-- Returns details about the specified delivery channel. If a delivery
 -- channel is not specified, this action returns the details of all
 -- delivery channels associated with the account.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of task definitions that are registered to your account.
+-- Returns a list of task definitions that are registered to your account.
 -- You can filter the results by family name with the @familyPrefix@
 -- parameter or by status with the @status@ parameter.
 --

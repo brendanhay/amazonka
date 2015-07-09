@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns information about the cache of a gateway. This
+-- This operation returns information about the cache of a gateway. This
 -- operation is supported only for the gateway-cached volume architecture.
 --
 -- The response includes disk IDs that are configured as cache, and it

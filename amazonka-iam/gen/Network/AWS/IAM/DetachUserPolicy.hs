@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes the specified managed policy from the specified user.
+-- Removes the specified managed policy from the specified user.
 --
 -- A user can also have inline policies embedded with it. To delete an
 -- inline policy, use the DeleteUserPolicy API. For information about

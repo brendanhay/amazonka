@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new Amazon ECS cluster. By default, your account will receive
+-- Creates a new Amazon ECS cluster. By default, your account will receive
 -- a @default@ cluster when you launch your first container instance.
 -- However, you can create your own cluster with a unique name with the
 -- @CreateCluster@ action.

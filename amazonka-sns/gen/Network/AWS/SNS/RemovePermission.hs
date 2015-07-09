@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes a statement from a topic\'s access control policy.
+-- Removes a statement from a topic\'s access control policy.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_RemovePermission.html>
 module Network.AWS.SNS.RemovePermission

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a @BatchPrediction@ that includes detailed metadata, status, and
+-- Returns a @BatchPrediction@ that includes detailed metadata, status, and
 -- data file information for a @Batch Prediction@ request.
 --
 -- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_GetBatchPrediction.html>

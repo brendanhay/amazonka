@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Records a @WorkflowExecutionCancelRequested@ event in the currently
+-- Records a @WorkflowExecutionCancelRequested@ event in the currently
 -- running workflow execution identified by the given domain, workflowId,
 -- and runId. This logically requests the cancellation of the workflow
 -- execution as a whole. It is up to the decider to take appropriate

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves the specified inline policy document that is embedded in the
+-- Retrieves the specified inline policy document that is embedded in the
 -- specified user.
 --
 -- A user can also have managed policies attached to it. To retrieve a

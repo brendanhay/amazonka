@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation lists the parts of an archive that have been uploaded in
+-- This operation lists the parts of an archive that have been uploaded in
 -- a specific multipart upload. You can make this request at any time
 -- during an in-progress multipart upload before you complete the upload
 -- (see CompleteMultipartUpload. List Parts returns an error for completed

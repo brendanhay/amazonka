@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /RevokeCacheSecurityGroupIngress/ action revokes ingress from a
+-- The /RevokeCacheSecurityGroupIngress/ action revokes ingress from a
 -- cache security group. Use this action to disallow access from an Amazon
 -- EC2 security group that had been previously authorized.
 --

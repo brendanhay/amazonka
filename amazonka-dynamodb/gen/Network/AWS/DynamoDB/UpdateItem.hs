@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Edits an existing item\'s attributes, or adds a new item to the table if
+-- Edits an existing item\'s attributes, or adds a new item to the table if
 -- it does not already exist. You can put, delete, or add attribute values.
 -- You can also perform a conditional update on an existing item (insert a
 -- new attribute name-value pair if it doesn\'t exist, or replace an

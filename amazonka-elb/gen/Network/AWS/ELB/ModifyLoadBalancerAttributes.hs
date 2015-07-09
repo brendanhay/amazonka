@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the attributes of the specified load balancer.
+-- Modifies the attributes of the specified load balancer.
 --
 -- You can modify the load balancer attributes, such as @AccessLogs@,
 -- @ConnectionDraining@, and @CrossZoneLoadBalancing@ by either enabling or

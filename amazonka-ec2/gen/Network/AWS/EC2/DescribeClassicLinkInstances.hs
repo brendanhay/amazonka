@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of your linked EC2-Classic instances. This request
+-- Describes one or more of your linked EC2-Classic instances. This request
 -- only returns information about EC2-Classic instances linked to a VPC
 -- through ClassicLink; you cannot use this request to return information
 -- about other instances.

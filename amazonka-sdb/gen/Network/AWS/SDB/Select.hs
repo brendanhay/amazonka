@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The @Select@ operation returns a set of attributes for @ItemNames@ that
+-- The @Select@ operation returns a set of attributes for @ItemNames@ that
 -- match the select expression. @Select@ is similar to the standard SQL
 -- SELECT statement.
 --

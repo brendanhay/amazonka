@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the estimated monthly cost of a template. The return value is an
+-- Returns the estimated monthly cost of a template. The return value is an
 -- AWS Simple Monthly Calculator URL with a query string that describes the
 -- resources required to run the template.
 --

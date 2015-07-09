@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the logging status of a bucket and the permissions users have to
+-- Returns the logging status of a bucket and the permissions users have to
 -- view and modify that status. To use GET, you must be the bucket owner.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLogging.html>

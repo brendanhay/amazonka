@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /BatchWriteItem/ operation puts or deletes multiple items in one or
+-- The /BatchWriteItem/ operation puts or deletes multiple items in one or
 -- more tables. A single call to /BatchWriteItem/ can write up to 16 MB of
 -- data, which can comprise as many as 25 put or delete requests.
 -- Individual items to be written can be as large as 400 KB.

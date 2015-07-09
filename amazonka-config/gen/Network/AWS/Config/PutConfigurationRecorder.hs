@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new configuration recorder to record the selected resource
+-- Creates a new configuration recorder to record the selected resource
 -- configurations.
 --
 -- You can use this action to change the role @roleARN@ and\/or the

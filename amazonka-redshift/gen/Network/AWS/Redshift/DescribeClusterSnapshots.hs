@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns one or more snapshot objects, which contain metadata about your
+-- Returns one or more snapshot objects, which contain metadata about your
 -- cluster snapshots. By default, this operation returns information about
 -- all snapshots of all clusters that are owned by you AWS customer
 -- account. No information is returned for snapshots owned by inactive AWS

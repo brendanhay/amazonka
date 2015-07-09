@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the specified application version to have the specified
+-- Updates the specified application version to have the specified
 -- properties.
 --
 -- If a property (for example, @description@) is not provided, the value

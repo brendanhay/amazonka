@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Changes information about an existing deployment group.
+-- Changes information about an existing deployment group.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateDeploymentGroup.html>
 module Network.AWS.CodeDeploy.UpdateDeploymentGroup

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the associations for the specified configuration document or
+-- Lists the associations for the specified configuration document or
 -- instance.
 --
 -- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListAssociations.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Disables the automatic copying of snapshots from one region to another
+-- Disables the automatic copying of snapshots from one region to another
 -- region for a specified cluster.
 --
 -- If your cluster and its snapshots are encrypted using a customer master

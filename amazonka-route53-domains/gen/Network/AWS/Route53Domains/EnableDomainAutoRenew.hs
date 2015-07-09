@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation configures Amazon Route 53 to automatically renew the
+-- This operation configures Amazon Route 53 to automatically renew the
 -- specified domain before the domain registration expires. The cost of
 -- renewing your domain registration is billed to your AWS account.
 --

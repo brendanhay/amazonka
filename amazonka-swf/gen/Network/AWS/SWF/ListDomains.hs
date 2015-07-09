@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the list of domains registered in the account. The results may
+-- Returns the list of domains registered in the account. The results may
 -- be split into multiple pages. To retrieve subsequent pages, make the
 -- call again using the nextPageToken returned by the initial call.
 --

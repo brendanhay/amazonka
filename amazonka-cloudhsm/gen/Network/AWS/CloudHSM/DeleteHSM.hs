@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes an HSM. Once complete, this operation cannot be undone and your
+-- Deletes an HSM. Once complete, this operation cannot be undone and your
 -- key material cannot be recovered.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteHSM.html>

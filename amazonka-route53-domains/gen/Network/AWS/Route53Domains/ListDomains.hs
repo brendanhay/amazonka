@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns all the domain names registered with Amazon Route
+-- This operation returns all the domain names registered with Amazon Route
 -- 53 for the current AWS account.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-ListDomains.html>

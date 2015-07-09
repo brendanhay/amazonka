@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the groups that have the specified path prefix.
+-- Lists the groups that have the specified path prefix.
 --
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the load balancers for the specified Auto Scaling group.
+-- Describes the load balancers for the specified Auto Scaling group.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLoadBalancers.html>
 module Network.AWS.AutoScaling.DescribeLoadBalancers

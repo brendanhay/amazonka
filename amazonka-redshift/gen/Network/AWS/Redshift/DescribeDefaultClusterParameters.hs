@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of parameter settings for the specified parameter group
+-- Returns a list of parameter settings for the specified parameter group
 -- family.
 --
 -- For more information about parameters and parameter groups, go to

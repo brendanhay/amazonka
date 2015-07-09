@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a set of temporary security credentials for users who have been
+-- Returns a set of temporary security credentials for users who have been
 -- authenticated via a SAML authentication response. This operation
 -- provides a mechanism for tying an enterprise identity store or directory
 -- to role-based AWS access without user-specific credentials or

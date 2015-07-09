@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns descriptions for existing environments.
+-- Returns descriptions for existing environments.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironments.html>
 module Network.AWS.ElasticBeanstalk.DescribeEnvironments

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Initiates a multipart upload and returns an upload ID.
+-- Initiates a multipart upload and returns an upload ID.
 --
 -- __Note:__ After you initiate multipart upload and upload one or more
 -- parts, you must either complete or abort multipart upload in order to

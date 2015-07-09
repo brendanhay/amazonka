@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds a grant to a key to specify who can access the key and under what
+-- Adds a grant to a key to specify who can access the key and under what
 -- conditions. Grants are alternate permission mechanisms to key policies.
 -- For more information about grants, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/grants.html Grants>

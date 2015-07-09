@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Looks up API activity events captured by CloudTrail that create, update,
+-- Looks up API activity events captured by CloudTrail that create, update,
 -- or delete resources in your account. Events for a region can be looked
 -- up for the times in which you had CloudTrail turned on in that region
 -- during the last seven days. Lookup supports five different attributes:

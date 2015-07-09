@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Obtains information about the directories that belong to this account.
+-- Obtains information about the directories that belong to this account.
 --
 -- You can retrieve information about specific directories by passing the
 -- directory identifiers in the /DirectoryIds/ parameter. Otherwise, all

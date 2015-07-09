@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an Amazon Redshift parameter group.
+-- Creates an Amazon Redshift parameter group.
 --
 -- Creating parameter groups is independent of creating clusters. You can
 -- associate a cluster with a parameter group when you create the cluster.

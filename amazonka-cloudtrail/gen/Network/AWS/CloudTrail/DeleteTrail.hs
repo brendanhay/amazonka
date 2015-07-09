@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a trail.
+-- Deletes a trail.
 --
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DeleteTrail.html>
 module Network.AWS.CloudTrail.DeleteTrail

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds one or more attachments to an attachment set. If an
+-- Adds one or more attachments to an attachment set. If an
 -- @AttachmentSetId@ is not specified, a new attachment set is created, and
 -- the ID of the set is returned in the response. If an @AttachmentSetId@
 -- is specified, the attachments are added to the specified set, if it

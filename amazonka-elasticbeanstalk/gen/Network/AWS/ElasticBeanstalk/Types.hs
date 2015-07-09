@@ -546,21 +546,21 @@ instance FromXML EventSeverity where
     parseXML = parseXMLText "EventSeverity"
 
 data ValidationSeverity
-    = VSWarning
-    | VSError'
+    = Error'
+    | Warning
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ValidationSeverity where
     parser = takeLowerText >>= \case
-        "error" -> pure VSError'
-        "warning" -> pure VSWarning
+        "error" -> pure Error'
+        "warning" -> pure Warning
         e -> fromTextError $ "Failure parsing ValidationSeverity from value: '" <> e
            <> "'. Accepted values: error, warning"
 
 instance ToText ValidationSeverity where
     toText = \case
-        VSError' -> "error"
-        VSWarning -> "warning"
+        Error' -> "error"
+        Warning -> "warning"
 
 instance Hashable ValidationSeverity
 instance ToQuery ValidationSeverity

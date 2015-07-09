@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AddJobFlowSteps adds new steps to a running job flow. A maximum of 256
+-- AddJobFlowSteps adds new steps to a running job flow. A maximum of 256
 -- steps are allowed in each job flow.
 --
 -- If your job flow is long-running (such as a Hive data warehouse) or

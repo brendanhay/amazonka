@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a snapshot copy grant that permits Amazon Redshift to use a
+-- Creates a snapshot copy grant that permits Amazon Redshift to use a
 -- customer master key (CMK) from AWS Key Management Service (AWS KMS) to
 -- encrypt copied snapshots in a destination region.
 --

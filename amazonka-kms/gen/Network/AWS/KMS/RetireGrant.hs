@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retires a grant. You can retire a grant when you\'re done using it to
+-- Retires a grant. You can retire a grant when you\'re done using it to
 -- clean up. You should revoke a grant when you intend to actively deny
 -- operations that depend on it. The following are permitted to call this
 -- API:

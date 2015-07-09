@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the notification types that are supported by Auto Scaling.
+-- Describes the notification types that are supported by Auto Scaling.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingNotificationTypes.html>
 module Network.AWS.AutoScaling.DescribeAutoScalingNotificationTypes

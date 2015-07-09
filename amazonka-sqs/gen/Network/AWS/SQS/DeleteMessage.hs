@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified message from the specified queue. You specify the
+-- Deletes the specified message from the specified queue. You specify the
 -- message by using the message\'s @receipt handle@ and not the
 -- @message ID@ you received when you sent the message. Even if the message
 -- is locked by another reader due to the visibility timeout setting, it is

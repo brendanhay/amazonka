@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the set of security groups in effect for a mount target.
+-- Modifies the set of security groups in effect for a mount target.
 --
 -- When you create a mount target, Amazon EFS also creates a new network
 -- interface (see CreateMountTarget). This operation replaces the security

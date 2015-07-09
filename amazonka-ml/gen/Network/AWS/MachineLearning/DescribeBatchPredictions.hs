@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of @BatchPrediction@ operations that match the search
+-- Returns a list of @BatchPrediction@ operations that match the search
 -- criteria in the request.
 --
 -- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeBatchPredictions.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Assign a registered instance to a layer.
+-- Assign a registered instance to a layer.
 --
 -- -   You can assign registered on-premises instances to any layer type.
 -- -   You can assign registered Amazon EC2 instances only to custom

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds the specified role to the specified instance profile. For more
+-- Adds the specified role to the specified instance profile. For more
 -- information about roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 -- For more information about instance profiles, go to

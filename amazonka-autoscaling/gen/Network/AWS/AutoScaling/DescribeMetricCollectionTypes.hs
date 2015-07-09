@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the available CloudWatch metrics for Auto Scaling.
+-- Describes the available CloudWatch metrics for Auto Scaling.
 --
 -- Note that the @GroupStandbyInstances@ metric is not returned by default.
 -- You must explicitly request this metric when calling

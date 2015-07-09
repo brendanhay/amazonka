@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates or updates a lifecycle hook for the specified Auto Scaling
+-- Creates or updates a lifecycle hook for the specified Auto Scaling
 -- Group.
 --
 -- A lifecycle hook tells Auto Scaling that you want to perform an action

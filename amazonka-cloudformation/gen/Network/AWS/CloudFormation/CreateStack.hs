@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a stack as specified in the template. After the call completes
+-- Creates a stack as specified in the template. After the call completes
 -- successfully, the stack creation starts. You can check the status of the
 -- stack via the DescribeStacks API.
 --

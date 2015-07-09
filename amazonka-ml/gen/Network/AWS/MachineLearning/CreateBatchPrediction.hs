@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Generates predictions for a group of observations. The observations to
+-- Generates predictions for a group of observations. The observations to
 -- process exist in one or more data files referenced by a @DataSource@.
 -- This operation creates a new @BatchPrediction@, and uses an @MLModel@
 -- and the data files referenced by the @DataSource@ as information

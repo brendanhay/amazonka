@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | List origin access identities.
+-- List origin access identities.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListCloudFrontOriginAccessIdentities.html>
 module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities

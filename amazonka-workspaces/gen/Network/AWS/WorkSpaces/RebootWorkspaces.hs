@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Reboots the specified WorkSpaces.
+-- Reboots the specified WorkSpaces.
 --
 -- To be able to reboot a WorkSpace, the WorkSpace must have a __State__ of
 -- @AVAILABLE@, @IMPAIRED@, or @INOPERABLE@.

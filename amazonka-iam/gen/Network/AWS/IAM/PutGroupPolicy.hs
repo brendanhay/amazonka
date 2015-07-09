@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds (or updates) an inline policy document that is embedded in the
+-- Adds (or updates) an inline policy document that is embedded in the
 -- specified group.
 --
 -- A user can also have managed policies attached to it. To attach a

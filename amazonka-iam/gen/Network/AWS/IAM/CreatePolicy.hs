@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new managed policy for your AWS account.
+-- Creates a new managed policy for your AWS account.
 --
 -- This operation creates a policy version with a version identifier of
 -- @v1@ and sets v1 as the policy\'s default version. For more information

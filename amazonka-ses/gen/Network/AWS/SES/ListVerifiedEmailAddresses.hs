@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list containing all of the email addresses that have been
+-- Returns a list containing all of the email addresses that have been
 -- verified.
 --
 -- The ListVerifiedEmailAddresses action is deprecated as of the May 15,

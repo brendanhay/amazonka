@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the instances for a deployment associated with the applicable IAM
+-- Lists the instances for a deployment associated with the applicable IAM
 -- user or AWS account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeploymentInstances.html>

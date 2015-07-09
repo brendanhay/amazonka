@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves history for the specified alarm. Filter alarms by date range
+-- Retrieves history for the specified alarm. Filter alarms by date range
 -- or item type. If an alarm name is not specified, Amazon CloudWatch
 -- returns histories for all of the owner\'s alarms.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables single-sign on for a directory.
+-- Enables single-sign on for a directory.
 --
 -- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableSso.html>
 module Network.AWS.DirectoryService.EnableSso

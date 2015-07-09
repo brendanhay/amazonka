@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the detailed parameter list for a particular DB parameter group.
+-- Returns the detailed parameter list for a particular DB parameter group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBParameters.html>
 module Network.AWS.RDS.DescribeDBParameters

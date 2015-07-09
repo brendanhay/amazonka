@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Used by deciders to tell the service that the DecisionTask identified by
+-- Used by deciders to tell the service that the DecisionTask identified by
 -- the @taskToken@ has successfully completed. The @decisions@ argument
 -- specifies the list of decisions made while processing the task.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a route table for the specified VPC. After you create a route
+-- Creates a route table for the specified VPC. After you create a route
 -- table, you can add routes and associate the table with a subnet.
 --
 -- For more information about route tables, see

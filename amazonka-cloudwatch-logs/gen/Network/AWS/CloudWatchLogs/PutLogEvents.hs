@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Uploads a batch of log events to the specified log stream.
+-- Uploads a batch of log events to the specified log stream.
 --
 -- Every PutLogEvents request must include the @sequenceToken@ obtained
 -- from the response of the previous request. An upload in a newly created

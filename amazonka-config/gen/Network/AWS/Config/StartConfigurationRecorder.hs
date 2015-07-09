@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Starts recording configurations of the AWS resources you have selected
+-- Starts recording configurations of the AWS resources you have selected
 -- to record in your AWS account.
 --
 -- You must have created at least one delivery channel to successfully

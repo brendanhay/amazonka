@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a hosted connection on an interconnect.
+-- Creates a hosted connection on an interconnect.
 --
 -- Allocates a VLAN number and a specified amount of bandwidth for use by a
 -- hosted connection on the given interconnect.

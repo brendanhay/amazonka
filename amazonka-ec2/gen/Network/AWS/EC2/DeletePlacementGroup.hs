@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified placement group. You must terminate all instances
+-- Deletes the specified placement group. You must terminate all instances
 -- in the placement group before you can delete the placement group. For
 -- more information about placement groups and cluster instances, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using_cluster_computing.html Cluster Instances>

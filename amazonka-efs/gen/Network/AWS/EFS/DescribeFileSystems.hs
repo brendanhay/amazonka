@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the description of a specific Amazon EFS file system if either
+-- Returns the description of a specific Amazon EFS file system if either
 -- the file system @CreationToken@ or the @FileSystemId@ is provided;
 -- otherwise, returns descriptions of all file systems owned by the
 -- caller\'s AWS account in the AWS region of the endpoint that you\'re

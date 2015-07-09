@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation cancels a specified job. Only the job owner can cancel
+-- This operation cancels a specified job. Only the job owner can cancel
 -- it. The operation fails if the job has already started or is complete.
 --
 -- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebCancelJob.html>

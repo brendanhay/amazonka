@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Launches an environment for the specified application using the
+-- Launches an environment for the specified application using the
 -- specified configuration.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_CreateEnvironment.html>

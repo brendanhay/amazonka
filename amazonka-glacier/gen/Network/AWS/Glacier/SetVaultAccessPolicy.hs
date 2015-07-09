@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation configures an access policy for a vault and will
+-- This operation configures an access policy for a vault and will
 -- overwrite an existing policy. To configure a vault access policy, send a
 -- PUT request to the @access-policy@ subresource of the vault. An access
 -- policy is specific to a vault and is also called a vault subresource.

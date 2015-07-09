@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves the compiled information from a RequestEnvironmentInfo
+-- Retrieves the compiled information from a RequestEnvironmentInfo
 -- request.
 --
 -- Related Topics

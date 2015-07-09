@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds tags to an Amazon EMR resource. Tags make it easier to associate
+-- Adds tags to an Amazon EMR resource. Tags make it easier to associate
 -- clusters in various ways, such as grouping clusters to track your Amazon
 -- EMR resource allocation costs. For more information, see
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/DeveloperGuide/emr-plan-tags.html Tagging Amazon EMR Resources>.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a VPN connection between an existing virtual private gateway and
+-- Creates a VPN connection between an existing virtual private gateway and
 -- a VPN customer gateway. The only supported connection type is @ipsec.1@.
 --
 -- The response includes information that you need to give to your network

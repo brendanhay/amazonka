@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Obtains directory limit information for the current region.
+-- Obtains directory limit information for the current region.
 --
 -- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_GetDirectoryLimits.html>
 module Network.AWS.DirectoryService.GetDirectoryLimits

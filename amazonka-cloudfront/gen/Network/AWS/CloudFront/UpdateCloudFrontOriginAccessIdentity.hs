@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Update an origin access identity.
+-- Update an origin access identity.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/UpdateCloudFrontOriginAccessIdentity.html>
 module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity

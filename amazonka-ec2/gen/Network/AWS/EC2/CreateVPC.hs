@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a VPC with the specified CIDR block.
+-- Creates a VPC with the specified CIDR block.
 --
 -- The smallest VPC you can create uses a \/28 netmask (16 IP addresses),
 -- and the largest uses a \/16 netmask (65,536 IP addresses). To help you

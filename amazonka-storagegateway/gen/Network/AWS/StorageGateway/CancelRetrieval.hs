@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to
+-- Cancels retrieval of a virtual tape from the virtual tape shelf (VTS) to
 -- a gateway after the retrieval process is initiated. The virtual tape is
 -- returned to the VTS.
 --

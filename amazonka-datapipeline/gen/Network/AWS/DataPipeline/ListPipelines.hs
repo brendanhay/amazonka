@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the pipeline identifiers for all active pipelines that you have
+-- Lists the pipeline identifiers for all active pipelines that you have
 -- permission to access.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ListPipelines.html>

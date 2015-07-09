@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the attributes for the specified load balancer.
+-- Describes the attributes for the specified load balancer.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancerAttributes.html>
 module Network.AWS.ELB.DescribeLoadBalancerAttributes

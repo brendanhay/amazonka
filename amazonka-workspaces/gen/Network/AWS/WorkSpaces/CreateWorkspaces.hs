@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates one or more WorkSpaces.
+-- Creates one or more WorkSpaces.
 --
 -- This operation is asynchronous and returns before the WorkSpaces are
 -- created.

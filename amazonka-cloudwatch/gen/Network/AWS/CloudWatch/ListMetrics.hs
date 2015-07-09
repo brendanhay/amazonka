@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of valid metrics stored for the AWS account owner.
+-- Returns a list of valid metrics stored for the AWS account owner.
 -- Returned metrics can be used with GetMetricStatistics to obtain
 -- statistical data for a given metric.
 --

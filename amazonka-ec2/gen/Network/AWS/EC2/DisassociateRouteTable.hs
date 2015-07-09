@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Disassociates a subnet from a route table.
+-- Disassociates a subnet from a route table.
 --
 -- After you perform this action, the subnet no longer uses the routes in
 -- the route table. Instead, it uses the routes in the VPC\'s main route

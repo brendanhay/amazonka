@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds the specified user to the specified group.
+-- Adds the specified user to the specified group.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_AddUserToGroup.html>
 module Network.AWS.IAM.AddUserToGroup

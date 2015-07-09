@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deregisters an Amazon ECS container instance from the specified cluster.
+-- Deregisters an Amazon ECS container instance from the specified cluster.
 -- This instance will no longer be available to run tasks.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DeregisterContainerInstance.html>

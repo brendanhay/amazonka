@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns metadata related to the given identity, including when the
+-- Returns metadata related to the given identity, including when the
 -- identity was created and any associated linked logins.
 --
 -- You must use AWS Developer credentials to call this API.

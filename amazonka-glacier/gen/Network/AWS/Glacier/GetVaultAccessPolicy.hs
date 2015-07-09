@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation retrieves the @access-policy@ subresource set on the
+-- This operation retrieves the @access-policy@ subresource set on the
 -- vault; for more information on setting this subresource, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/api-SetVaultAccessPolicy.html Set Vault Access Policy (PUT access-policy)>.
 -- If there is no access policy set on the vault, the operation returns a

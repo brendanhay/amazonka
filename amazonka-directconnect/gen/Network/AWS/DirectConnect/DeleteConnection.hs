@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the connection.
+-- Deletes the connection.
 --
 -- Deleting a connection only stops the AWS Direct Connect port hour and
 -- data transfer charges. You need to cancel separately with the providers

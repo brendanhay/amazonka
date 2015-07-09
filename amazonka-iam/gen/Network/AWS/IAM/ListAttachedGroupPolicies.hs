@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all managed policies that are attached to the specified group.
+-- Lists all managed policies that are attached to the specified group.
 --
 -- A group can also have inline policies embedded with it. To list the
 -- inline policies for a group, use the ListGroupPolicies API. For

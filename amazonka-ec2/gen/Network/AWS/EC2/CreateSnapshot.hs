@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a snapshot of an EBS volume and stores it in Amazon S3. You can
+-- Creates a snapshot of an EBS volume and stores it in Amazon S3. You can
 -- use snapshots for backups, to make copies of EBS volumes, and to save
 -- data before shutting down an instance.
 --

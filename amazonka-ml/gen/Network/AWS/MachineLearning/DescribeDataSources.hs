@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of @DataSource@ that match the search criteria in the
+-- Returns a list of @DataSource@ that match the search criteria in the
 -- request.
 --
 -- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DescribeDataSources.html>

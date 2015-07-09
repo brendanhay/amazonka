@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Attaches an Elastic Load Balancing load balancer to a specified layer.
+-- Attaches an Elastic Load Balancing load balancer to a specified layer.
 -- For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/load-balancer-elb.html Elastic Load Balancing>.
 --

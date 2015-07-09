@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Releases the specified Elastic IP address.
+-- Releases the specified Elastic IP address.
 --
 -- After releasing an Elastic IP address, it is released to the IP address
 -- pool and might be unavailable to you. Be sure to update your DNS records

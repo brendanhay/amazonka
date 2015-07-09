@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates a specified app.
+-- Updates a specified app.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
 -- Deploy or Manage permissions level for the stack, or an attached policy

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Prepares to subscribe an endpoint by sending the endpoint a confirmation
+-- Prepares to subscribe an endpoint by sending the endpoint a confirmation
 -- message. To actually create a subscription, the endpoint owner must call
 -- the @ConfirmSubscription@ action with the token from the confirmation
 -- message. Confirmation tokens are valid for three days.

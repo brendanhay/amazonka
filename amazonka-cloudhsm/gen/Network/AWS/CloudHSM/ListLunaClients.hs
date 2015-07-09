@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all of the clients.
+-- Lists all of the clients.
 --
 -- This operation supports pagination with the use of the /NextToken/
 -- member. If more results are available, the /NextToken/ member of the

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deprecates the specified /activity type/. After an activity type has
+-- Deprecates the specified /activity type/. After an activity type has
 -- been deprecated, you cannot create new tasks of that activity type.
 -- Tasks of this type that were scheduled before the type was deprecated
 -- will continue to run.

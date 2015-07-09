@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds tasks, schedules, and preconditions to the specified pipeline. You
+-- Adds tasks, schedules, and preconditions to the specified pipeline. You
 -- can use @PutPipelineDefinition@ to populate a new pipeline.
 --
 -- @PutPipelineDefinition@ also validates the configuration as it adds it

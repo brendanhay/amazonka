@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Restores a DB instance to an arbitrary point-in-time. Users can restore
+-- Restores a DB instance to an arbitrary point-in-time. Users can restore
 -- to any point in time before the LatestRestorableTime for up to
 -- BackupRetentionPeriod days. The target database is created from the
 -- source database with the same configuration as the original database

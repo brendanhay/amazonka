@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of your clusters.
+-- Describes one or more of your clusters.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeClusters.html>
 module Network.AWS.ECS.DescribeClusters

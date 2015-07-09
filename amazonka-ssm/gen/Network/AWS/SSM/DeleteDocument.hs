@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified configuration document.
+-- Deletes the specified configuration document.
 --
 -- You must use DeleteAssociation to disassociate all instances that are
 -- associated with the configuration document before you can delete it.

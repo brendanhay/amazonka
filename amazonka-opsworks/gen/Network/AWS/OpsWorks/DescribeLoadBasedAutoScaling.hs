@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes load-based auto scaling configurations for specified layers.
+-- Describes load-based auto scaling configurations for specified layers.
 --
 -- You must specify at least one of the parameters.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the platform application objects for the supported push
+-- Lists the platform application objects for the supported push
 -- notification services, such as APNS and GCM. The results for
 -- @ListPlatformApplications@ are paginated and return a limited list of
 -- applications, up to 100. If additional records are available after the

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets a generated host name for the specified layer, based on the current
+-- Gets a generated host name for the specified layer, based on the current
 -- host name theme.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a

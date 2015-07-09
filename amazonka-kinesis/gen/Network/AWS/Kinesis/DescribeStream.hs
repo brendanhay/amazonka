@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the specified stream.
+-- Describes the specified stream.
 --
 -- The information about the stream includes its current status, its Amazon
 -- Resource Name (ARN), and an array of shard objects. For each shard

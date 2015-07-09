@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a subscription. If the subscription requires authentication for
+-- Deletes a subscription. If the subscription requires authentication for
 -- deletion, only the owner of the subscription or the topic\'s owner can
 -- unsubscribe, and an AWS signature is required. If the @Unsubscribe@ call
 -- does not require authentication and the requester is not the

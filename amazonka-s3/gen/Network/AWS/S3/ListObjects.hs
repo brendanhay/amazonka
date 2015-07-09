@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns some or all (up to 1000) of the objects in a bucket. You can use
+-- Returns some or all (up to 1000) of the objects in a bucket. You can use
 -- the request parameters as selection criteria to return a subset of the
 -- objects in a bucket.
 --

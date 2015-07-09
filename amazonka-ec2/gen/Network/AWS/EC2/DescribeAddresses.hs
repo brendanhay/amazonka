@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of your Elastic IP addresses.
+-- Describes one or more of your Elastic IP addresses.
 --
 -- An Elastic IP address is for use in either the EC2-Classic platform or
 -- in a VPC. For more information, see

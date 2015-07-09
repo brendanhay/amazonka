@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a set of temporary security credentials for users who have been
+-- Returns a set of temporary security credentials for users who have been
 -- authenticated in a mobile or web application with a web identity
 -- provider, such as Amazon Cognito, Login with Amazon, Facebook, Google,
 -- or any OpenID Connect-compatible identity provider.

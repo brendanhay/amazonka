@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Puts (writes) multiple data records from a producer into an Amazon
+-- Puts (writes) multiple data records from a producer into an Amazon
 -- Kinesis stream in a single call (also referred to as a @PutRecords@
 -- request). Use this operation to send data from a data producer into the
 -- Amazon Kinesis stream for real-time ingestion and processing. Each shard
@@ -82,8 +82,8 @@ module Network.AWS.Kinesis.PutRecords
     -- ** Request constructor
     , putRecords
     -- ** Request lenses
-    , pr1RecordEntries
-    , pr1StreamName
+    , putRecordEntries
+    , putStreamName
 
     -- * Response
     , PutRecordsResponse
@@ -106,29 +106,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pr1RecordEntries'
+-- * 'putRecordEntries'
 --
--- * 'pr1StreamName'
+-- * 'putStreamName'
 data PutRecords = PutRecords'
-    { _pr1RecordEntries :: !(List1 PutRecordsRequestEntry)
-    , _pr1StreamName    :: !Text
+    { _putRecordEntries :: !(List1 PutRecordsRequestEntry)
+    , _putStreamName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecords' smart constructor.
 putRecords :: NonEmpty PutRecordsRequestEntry -> Text -> PutRecords
 putRecords pRecordEntries pStreamName =
     PutRecords'
-    { _pr1RecordEntries = _List1 # pRecordEntries
-    , _pr1StreamName = pStreamName
+    { _putRecordEntries = _List1 # pRecordEntries
+    , _putStreamName = pStreamName
     }
 
 -- | The records associated with the request.
-pr1RecordEntries :: Lens' PutRecords (NonEmpty PutRecordsRequestEntry)
-pr1RecordEntries = lens _pr1RecordEntries (\ s a -> s{_pr1RecordEntries = a}) . _List1;
+putRecordEntries :: Lens' PutRecords (NonEmpty PutRecordsRequestEntry)
+putRecordEntries = lens _putRecordEntries (\ s a -> s{_putRecordEntries = a}) . _List1;
 
 -- | The stream name associated with the request.
-pr1StreamName :: Lens' PutRecords Text
-pr1StreamName = lens _pr1StreamName (\ s a -> s{_pr1StreamName = a});
+putStreamName :: Lens' PutRecords Text
+putStreamName = lens _putStreamName (\ s a -> s{_putStreamName = a});
 
 instance AWSRequest PutRecords where
         type Sv PutRecords = Kinesis
@@ -153,8 +153,8 @@ instance ToHeaders PutRecords where
 instance ToJSON PutRecords where
         toJSON PutRecords'{..}
           = object
-              ["Records" .= _pr1RecordEntries,
-               "StreamName" .= _pr1StreamName]
+              ["Records" .= _putRecordEntries,
+               "StreamName" .= _putStreamName]
 
 instance ToPath PutRecords where
         toPath = const "/"

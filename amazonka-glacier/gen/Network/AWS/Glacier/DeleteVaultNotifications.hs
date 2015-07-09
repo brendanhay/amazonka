@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation deletes the notification configuration set for a vault.
+-- This operation deletes the notification configuration set for a vault.
 -- The operation is eventually consistent; that is, it might take some time
 -- for Amazon Glacier to completely disable the notifications and you might
 -- still receive some notifications for a short time after you send the

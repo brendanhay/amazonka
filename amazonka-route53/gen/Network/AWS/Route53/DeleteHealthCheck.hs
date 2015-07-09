@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action deletes a health check. To delete a health check, send a
+-- This action deletes a health check. To delete a health check, send a
 -- @DELETE@ request to the @2013-04-01\/healthcheck\/health check ID@
 -- resource.
 --

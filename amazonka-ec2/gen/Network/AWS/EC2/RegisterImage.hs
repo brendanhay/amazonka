@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers an AMI. When you\'re creating an AMI, this is the final step
+-- Registers an AMI. When you\'re creating an AMI, this is the final step
 -- you must complete before you can launch an instance from the AMI. For
 -- more information about creating AMIs, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html Creating Your Own AMIs>

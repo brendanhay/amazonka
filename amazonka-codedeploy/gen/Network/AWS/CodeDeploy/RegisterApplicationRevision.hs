@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers with AWS CodeDeploy a revision for the specified application.
+-- Registers with AWS CodeDeploy a revision for the specified application.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterApplicationRevision.html>
 module Network.AWS.CodeDeploy.RegisterApplicationRevision

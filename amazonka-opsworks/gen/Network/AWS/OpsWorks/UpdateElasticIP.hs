@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates a registered Elastic IP address\'s name. For more information,
+-- Updates a registered Elastic IP address\'s name. For more information,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --

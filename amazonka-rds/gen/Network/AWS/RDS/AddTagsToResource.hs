@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds metadata tags to an Amazon RDS resource. These tags can also be
+-- Adds metadata tags to an Amazon RDS resource. These tags can also be
 -- used with cost allocation reporting to track cost associated with Amazon
 -- RDS resources, or used in Condition statement in IAM policy for Amazon
 -- RDS.

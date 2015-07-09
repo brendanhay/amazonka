@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the specified the load balancers. If no load balancers are
+-- Describes the specified the load balancers. If no load balancers are
 -- specified, the call describes all of your load balancers.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DescribeLoadBalancers.html>

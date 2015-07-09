@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified inline policy that is embedded in the specified
+-- Deletes the specified inline policy that is embedded in the specified
 -- group.
 --
 -- A group can also have managed policies attached to it. To detach a

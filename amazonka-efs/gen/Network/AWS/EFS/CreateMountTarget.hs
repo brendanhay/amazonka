@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a mount target for a file system. You can then mount the file
+-- Creates a mount target for a file system. You can then mount the file
 -- system on EC2 instances via the mount target.
 --
 -- You can create one mount target in each Availability Zone in your VPC.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers a new task definition from the supplied @family@ and
+-- Registers a new task definition from the supplied @family@ and
 -- @containerDefinitions@. Optionally, you can add data volumes to your
 -- containers with the @volumes@ parameter. For more information on task
 -- definition parameters and defaults, see

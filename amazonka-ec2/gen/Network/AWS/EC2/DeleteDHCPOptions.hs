@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified set of DHCP options. You must disassociate the set
+-- Deletes the specified set of DHCP options. You must disassociate the set
 -- of DHCP options before you can delete it. You can disassociate the set
 -- of DHCP options by associating either a new set of options or the
 -- default set of options with the VPC.

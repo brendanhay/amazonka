@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a DB instance that acts as a Read Replica of a source DB
+-- Creates a DB instance that acts as a Read Replica of a source DB
 -- instance.
 --
 -- All Read Replica DB instances are created as Single-AZ deployments with

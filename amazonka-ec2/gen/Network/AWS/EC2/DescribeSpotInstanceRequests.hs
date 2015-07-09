@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the Spot Instance requests that belong to your account. Spot
+-- Describes the Spot Instance requests that belong to your account. Spot
 -- Instances are instances that Amazon EC2 launches when the bid price that
 -- you specify exceeds the current Spot Price. Amazon EC2 periodically sets
 -- the Spot Price based on available Spot Instance capacity and current

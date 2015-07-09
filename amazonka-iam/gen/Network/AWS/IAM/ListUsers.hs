@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the IAM users that have the specified path prefix. If no path
+-- Lists the IAM users that have the specified path prefix. If no path
 -- prefix is specified, the action returns all users in the AWS account. If
 -- there are none, the action returns an empty list.
 --

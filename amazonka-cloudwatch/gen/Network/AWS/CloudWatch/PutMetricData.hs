@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch
+-- Publishes metric data points to Amazon CloudWatch. Amazon Cloudwatch
 -- associates the data points with the specified metric. If the specified
 -- metric does not exist, Amazon CloudWatch creates the metric. It can take
 -- up to fifteen minutes for a new metric to appear in calls to the

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | List the grants for a specified key.
+-- List the grants for a specified key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListGrants.html>
 module Network.AWS.KMS.ListGrants

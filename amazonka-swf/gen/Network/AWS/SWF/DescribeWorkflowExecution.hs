@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about the specified workflow execution including its
+-- Returns information about the specified workflow execution including its
 -- type and some statistics.
 --
 -- This operation is eventually consistent. The results are best effort and

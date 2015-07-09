@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | To retrieve a single geo location, send a @GET@ request to the
+-- To retrieve a single geo location, send a @GET@ request to the
 -- @2013-04-01\/geolocation@ resource with one of these options:
 -- continentcode | countrycode | countrycode and subdivisioncode.
 --

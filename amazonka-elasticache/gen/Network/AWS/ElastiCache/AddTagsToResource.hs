@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /AddTagsToResource/ action adds up to 10 cost allocation tags to the
+-- The /AddTagsToResource/ action adds up to 10 cost allocation tags to the
 -- named resource. A /cost allocation tag/ is a key-value pair where the
 -- key and value are case-sensitive. Cost allocation tags can be used to
 -- categorize and track your AWS costs.

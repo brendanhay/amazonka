@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about the specified server certificate.
+-- Retrieves information about the specified server certificate.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetServerCertificate.html>
 module Network.AWS.IAM.GetServerCertificate

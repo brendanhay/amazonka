@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action updates an existing health check.
+-- This action updates an existing health check.
 --
 -- To update a health check, send a @POST@ request to the
 -- @2013-04-01\/healthcheck\/health check ID@ resource. The request body

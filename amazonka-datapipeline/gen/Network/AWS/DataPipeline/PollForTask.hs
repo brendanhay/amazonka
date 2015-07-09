@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Task runners call @PollForTask@ to receive a task to perform from AWS
+-- Task runners call @PollForTask@ to receive a task to perform from AWS
 -- Data Pipeline. The task runner specifies which tasks it can perform by
 -- setting a value for the @workerGroup@ parameter. The task returned can
 -- come from any of the pipelines that match the @workerGroup@ value passed

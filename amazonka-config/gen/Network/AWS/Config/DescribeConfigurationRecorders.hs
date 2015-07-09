@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the name of one or more specified configuration recorders. If
+-- Returns the name of one or more specified configuration recorders. If
 -- the recorder name is not specified, this action returns the names of all
 -- the configuration recorders associated with the account.
 --

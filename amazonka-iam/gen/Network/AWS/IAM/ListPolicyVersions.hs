@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists information about the versions of the specified managed policy,
+-- Lists information about the versions of the specified managed policy,
 -- including the version that is set as the policy\'s default version.
 --
 -- For more information about managed policies, refer to

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Replaces the set of policies associated with the specified port on which
+-- Replaces the set of policies associated with the specified port on which
 -- the back-end server is listening with a new set of policies. At this
 -- time, only the back-end server authentication policy type can be applied
 -- to the back-end ports; this policy type is composed of multiple public

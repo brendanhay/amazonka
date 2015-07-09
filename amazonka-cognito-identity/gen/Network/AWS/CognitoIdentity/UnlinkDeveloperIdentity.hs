@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Unlinks a @DeveloperUserIdentifier@ from an existing identity. Unlinked
+-- Unlinks a @DeveloperUserIdentifier@ from an existing identity. Unlinked
 -- developer users will be considered new identities next time they are
 -- seen. If, for a given Cognito identity, you remove all federated
 -- identities as well as the developer user identifier, the Cognito

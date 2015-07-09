@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified configuration template.
+-- Deletes the specified configuration template.
 --
 -- When you launch an environment using a configuration template, the
 -- environment gets a copy of the template. You can delete or modify the

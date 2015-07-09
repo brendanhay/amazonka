@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies an HSM.
+-- Modifies an HSM.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyHSM.html>
 module Network.AWS.CloudHSM.ModifyHSM

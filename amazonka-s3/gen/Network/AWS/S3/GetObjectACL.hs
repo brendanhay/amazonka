@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the access control list (ACL) of an object.
+-- Returns the access control list (ACL) of an object.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObjectACL.html>
 module Network.AWS.S3.GetObjectACL

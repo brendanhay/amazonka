@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Return a list of connections that have been provisioned on the given
+-- Return a list of connections that have been provisioned on the given
 -- interconnect.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DescribeConnectionsOnInterconnect.html>

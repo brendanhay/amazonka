@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Changes an existing application\'s name.
+-- Changes an existing application\'s name.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_UpdateApplication.html>
 module Network.AWS.CodeDeploy.UpdateApplication

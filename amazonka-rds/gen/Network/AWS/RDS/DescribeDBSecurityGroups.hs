@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of @DBSecurityGroup@ descriptions. If a
+-- Returns a list of @DBSecurityGroup@ descriptions. If a
 -- @DBSecurityGroupName@ is specified, the list will contain only the
 -- descriptions of the specified DB security group.
 --

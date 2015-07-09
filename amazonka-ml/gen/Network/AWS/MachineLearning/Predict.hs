@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Generates a prediction for the observation using the specified
+-- Generates a prediction for the observation using the specified
 -- @MLModel@.
 --
 -- Note

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeEngineDefaultParameters/ action returns the default engine
+-- The /DescribeEngineDefaultParameters/ action returns the default engine
 -- and system parameter information for the specified cache engine.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeEngineDefaultParameters.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a specified layer. You must first stop and then delete all
+-- Deletes a specified layer. You must first stop and then delete all
 -- associated instances or unassign registered instances. For more
 -- information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinglayers-basics-delete.html How to Delete a Layer>.

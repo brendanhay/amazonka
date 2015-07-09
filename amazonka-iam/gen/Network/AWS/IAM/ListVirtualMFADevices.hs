@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the virtual MFA devices under the AWS account by assignment
+-- Lists the virtual MFA devices under the AWS account by assignment
 -- status. If you do not specify an assignment status, the action returns a
 -- list of all virtual MFA devices. Assignment status can be @Assigned@,
 -- @Unassigned@, or @Any@.

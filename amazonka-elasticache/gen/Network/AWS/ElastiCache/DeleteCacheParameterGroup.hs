@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DeleteCacheParameterGroup/ action deletes the specified cache
+-- The /DeleteCacheParameterGroup/ action deletes the specified cache
 -- parameter group. You cannot delete a cache parameter group if it is
 -- associated with any cache clusters.
 --

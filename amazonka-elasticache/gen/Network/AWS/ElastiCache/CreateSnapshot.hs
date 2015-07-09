@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /CreateSnapshot/ action creates a copy of an entire cache cluster at
+-- The /CreateSnapshot/ action creates a copy of an entire cache cluster at
 -- a specific moment in time.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_CreateSnapshot.html>

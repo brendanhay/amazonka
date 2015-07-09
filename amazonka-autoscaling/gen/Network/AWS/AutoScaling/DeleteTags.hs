@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified tags.
+-- Deletes the specified tags.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeleteTags.html>
 module Network.AWS.AutoScaling.DeleteTags

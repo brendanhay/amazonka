@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified instance profile. The instance profile must not
+-- Deletes the specified instance profile. The instance profile must not
 -- have an associated role.
 --
 -- Make sure you do not have any Amazon EC2 instances running with the

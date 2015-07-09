@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers a new /workflow type/ and its configuration settings in the
+-- Registers a new /workflow type/ and its configuration settings in the
 -- specified domain.
 --
 -- The retention period for the workflow history is set by the

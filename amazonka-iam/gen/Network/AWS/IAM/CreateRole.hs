@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new role for your AWS account. For more information about
+-- Creates a new role for your AWS account. For more information about
 -- roles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/WorkingWithRoles.html Working with Roles>.
 -- For information about limitations on role names and the number of roles

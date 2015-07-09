@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the estimated number of decision tasks in the specified task
+-- Returns the estimated number of decision tasks in the specified task
 -- list. The count returned is an approximation and is not guaranteed to be
 -- exact. If you specify a task list that no decision task was ever
 -- scheduled in then 0 will be returned.

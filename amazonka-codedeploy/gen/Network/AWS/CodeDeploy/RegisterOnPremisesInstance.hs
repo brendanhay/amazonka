@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers an on-premises instance.
+-- Registers an on-premises instance.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RegisterOnPremisesInstance.html>
 module Network.AWS.CodeDeploy.RegisterOnPremisesInstance

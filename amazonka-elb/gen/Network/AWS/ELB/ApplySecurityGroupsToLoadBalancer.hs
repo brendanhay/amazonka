@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Associates one or more security groups with your load balancer in a
+-- Associates one or more security groups with your load balancer in a
 -- virtual private cloud (VPC). The specified security groups override the
 -- previously associated security groups.
 --

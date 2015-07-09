@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets information about an application.
+-- Gets information about an application.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetApplication.html>
 module Network.AWS.CodeDeploy.GetApplication

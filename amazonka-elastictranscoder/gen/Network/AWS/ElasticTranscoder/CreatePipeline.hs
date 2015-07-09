@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The CreatePipeline operation creates a pipeline with settings that you
+-- The CreatePipeline operation creates a pipeline with settings that you
 -- specify.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/CreatePipeline.html>

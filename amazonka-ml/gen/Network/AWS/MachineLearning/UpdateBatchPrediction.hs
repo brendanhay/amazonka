@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the @BatchPredictionName@ of a @BatchPrediction@.
+-- Updates the @BatchPredictionName@ of a @BatchPrediction@.
 --
 -- You can use the GetBatchPrediction operation to view the contents of the
 -- updated data element.

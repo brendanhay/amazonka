@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves autocomplete suggestions for a partial query string. You can
+-- Retrieves autocomplete suggestions for a partial query string. You can
 -- use suggestions enable you to display likely matches before users finish
 -- typing. In Amazon CloudSearch, suggestions are based on the contents of
 -- a particular text field. When you request suggestions, Amazon

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation initiates a snapshot of a gateway from a volume recovery
+-- This operation initiates a snapshot of a gateway from a volume recovery
 -- point. This operation is supported only for the gateway-cached volume
 -- architecture (see ).
 --

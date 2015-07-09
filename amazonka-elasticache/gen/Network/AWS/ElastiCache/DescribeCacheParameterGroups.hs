@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeCacheParameterGroups/ action returns a list of cache
+-- The /DescribeCacheParameterGroups/ action returns a list of cache
 -- parameter group descriptions. If a cache parameter group name is
 -- specified, the list will contain only the descriptions for that group.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns AWS resources for this environment.
+-- Returns AWS resources for this environment.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeEnvironmentResources.html>
 module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources

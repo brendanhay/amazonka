@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the parameters of a DB parameter group. To modify more than one
+-- Modifies the parameters of a DB parameter group. To modify more than one
 -- parameter, submit a list of the following: @ParameterName@,
 -- @ParameterValue@, and @ApplyMethod@. A maximum of 20 parameters can be
 -- modified in a single request.

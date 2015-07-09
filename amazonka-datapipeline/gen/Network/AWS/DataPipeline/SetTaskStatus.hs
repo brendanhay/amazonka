@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Task runners call @SetTaskStatus@ to notify AWS Data Pipeline that a
+-- Task runners call @SetTaskStatus@ to notify AWS Data Pipeline that a
 -- task is completed and provide information about the final status. A task
 -- runner makes this call regardless of whether the task was sucessful. A
 -- task runner does not need to call @SetTaskStatus@ for tasks that are

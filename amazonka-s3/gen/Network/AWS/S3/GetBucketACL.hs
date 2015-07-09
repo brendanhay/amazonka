@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the access control policy for the bucket.
+-- Gets the access control policy for the bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketACL.html>
 module Network.AWS.S3.GetBucketACL

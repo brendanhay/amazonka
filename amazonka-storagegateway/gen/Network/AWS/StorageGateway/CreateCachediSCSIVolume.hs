@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation creates a cached volume on a specified cached gateway.
+-- This operation creates a cached volume on a specified cached gateway.
 -- This operation is supported only for the gateway-cached volume
 -- architecture.
 --

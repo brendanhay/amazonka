@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified customer gateway. You must delete the VPN
+-- Deletes the specified customer gateway. You must delete the VPN
 -- connection before you can delete the customer gateway.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteCustomerGateway.html>

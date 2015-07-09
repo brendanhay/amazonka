@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Configures an analysis scheme that can be applied to a @text@ or
+-- Configures an analysis scheme that can be applied to a @text@ or
 -- @text-array@ field to define language-specific text processing options.
 -- For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-analysis-schemes.html Configuring Analysis Schemes>

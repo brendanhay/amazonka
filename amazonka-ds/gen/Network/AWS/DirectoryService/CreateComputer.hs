@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a computer account in the specified directory, and joins the
+-- Creates a computer account in the specified directory, and joins the
 -- computer to the directory.
 --
 -- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateComputer.html>

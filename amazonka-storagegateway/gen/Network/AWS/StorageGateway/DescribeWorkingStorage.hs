@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns information about the working storage of a
+-- This operation returns information about the working storage of a
 -- gateway. This operation is supported only for the gateway-stored volume
 -- architecture. This operation is deprecated in cached-volumes API version
 -- (20120630). Use DescribeUploadBuffer instead.

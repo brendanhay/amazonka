@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Synchronizes the specified MFA device with AWS servers.
+-- Synchronizes the specified MFA device with AWS servers.
 --
 -- For more information about creating and working with virtual MFA
 -- devices, go to

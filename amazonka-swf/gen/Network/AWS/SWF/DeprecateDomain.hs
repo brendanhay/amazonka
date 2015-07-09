@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deprecates the specified domain. After a domain has been deprecated it
+-- Deprecates the specified domain. After a domain has been deprecated it
 -- cannot be used to create new workflow executions or register new types.
 -- However, you can still use visibility actions on this domain.
 -- Deprecating a domain also deprecates all activity and workflow types

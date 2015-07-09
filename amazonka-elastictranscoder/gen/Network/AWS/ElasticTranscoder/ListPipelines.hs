@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The ListPipelines operation gets a list of the pipelines associated with
+-- The ListPipelines operation gets a list of the pipelines associated with
 -- the current AWS account.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ListPipelines.html>

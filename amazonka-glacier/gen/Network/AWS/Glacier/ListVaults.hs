@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation lists all vaults owned by the calling user\'s account.
+-- This operation lists all vaults owned by the calling user\'s account.
 -- The list returned in the response is ASCII-sorted by vault name.
 --
 -- By default, this operation returns up to 1,000 items. If there are more

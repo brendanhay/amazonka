@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Resets an attribute of an instance to its default value. To reset the
+-- Resets an attribute of an instance to its default value. To reset the
 -- @kernel@ or @ramdisk@, the instance must be in a stopped state. To reset
 -- the @SourceDestCheck@, the instance can be either running or stopped.
 --

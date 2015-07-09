@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds or updates tags for the specified Amazon Kinesis stream. Each
+-- Adds or updates tags for the specified Amazon Kinesis stream. Each
 -- stream can have up to 10 tags.
 --
 -- If tags have already been assigned to the stream, @AddTagsToStream@

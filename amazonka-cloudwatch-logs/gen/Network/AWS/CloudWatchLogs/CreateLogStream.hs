@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new log stream in the specified log group. The name of the log
+-- Creates a new log stream in the specified log group. The name of the log
 -- stream must be unique within the log group. There is no limit on the
 -- number of log streams that can exist in a log group.
 --

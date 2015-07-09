@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the specified EBS volumes.
+-- Describes the specified EBS volumes.
 --
 -- If you are describing a long list of volumes, you can paginate the
 -- output to make the list more manageable. The @MaxResults@ parameter sets

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes time-based auto scaling configurations for specified
+-- Describes time-based auto scaling configurations for specified
 -- instances.
 --
 -- You must specify at least one of the parameters.

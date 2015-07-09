@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the MFA devices. If the request includes the user name, then this
+-- Lists the MFA devices. If the request includes the user name, then this
 -- action lists all the MFA devices associated with the specified user
 -- name. If you do not specify a user name, IAM determines the user name
 -- implicitly based on the AWS access key ID signing the request.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Stops recording configurations of the AWS resources you have selected to
+-- Stops recording configurations of the AWS resources you have selected to
 -- record in your AWS account.
 --
 -- <http://docs.aws.amazon.com/config/latest/APIReference/API_StopConfigurationRecorder.html>

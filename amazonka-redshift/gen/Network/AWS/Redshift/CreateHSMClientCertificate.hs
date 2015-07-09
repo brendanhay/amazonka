@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an HSM client certificate that an Amazon Redshift cluster will
+-- Creates an HSM client certificate that an Amazon Redshift cluster will
 -- use to connect to the client\'s HSM in order to store and retrieve the
 -- keys used to encrypt the cluster databases.
 --

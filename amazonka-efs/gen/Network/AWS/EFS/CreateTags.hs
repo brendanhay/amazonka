@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates or overwrites tags associated with a file system. Each tag is a
+-- Creates or overwrites tags associated with a file system. Each tag is a
 -- key-value pair. If a tag key specified in the request already exists on
 -- the file system, this operation overwrites its value with the value
 -- provided in the request. If you add the \"Name\" tag to your file

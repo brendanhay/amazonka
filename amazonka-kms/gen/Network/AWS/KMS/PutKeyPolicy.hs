@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Attaches a policy to the specified key.
+-- Attaches a policy to the specified key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_PutKeyPolicy.html>
 module Network.AWS.KMS.PutKeyPolicy

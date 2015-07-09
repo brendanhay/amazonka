@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Starts the recording of AWS API calls and log file delivery for a trail.
+-- Starts the recording of AWS API calls and log file delivery for a trail.
 --
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_StartLogging.html>
 module Network.AWS.CloudTrail.StartLogging

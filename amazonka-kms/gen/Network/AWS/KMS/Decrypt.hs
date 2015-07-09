@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Decrypts ciphertext. Ciphertext is plaintext that has been previously
+-- Decrypts ciphertext. Ciphertext is plaintext that has been previously
 -- encrypted by using any of the following functions:
 --
 -- -   GenerateDataKey

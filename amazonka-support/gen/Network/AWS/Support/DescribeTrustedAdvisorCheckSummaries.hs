@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the summaries of the results of the Trusted Advisor checks that
+-- Returns the summaries of the results of the Trusted Advisor checks that
 -- have the specified check IDs. Check IDs can be obtained by calling
 -- DescribeTrustedAdvisorChecks.
 --

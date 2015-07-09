@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the applications registered with the applicable IAM user or AWS
+-- Lists the applications registered with the applicable IAM user or AWS
 -- account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListApplications.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Use the @UpdatePipeline@ operation to update settings for a pipeline.
+-- Use the @UpdatePipeline@ operation to update settings for a pipeline.
 -- When you change pipeline settings, your changes take effect immediately.
 -- Jobs that you have already submitted and that Elastic Transcoder has not
 -- started to process are affected in addition to jobs that you submit

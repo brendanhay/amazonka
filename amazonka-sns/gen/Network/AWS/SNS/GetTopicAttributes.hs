@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns all of the properties of a topic. Topic properties returned
+-- Returns all of the properties of a topic. Topic properties returned
 -- might differ based on the authorization of the user.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_GetTopicAttributes.html>

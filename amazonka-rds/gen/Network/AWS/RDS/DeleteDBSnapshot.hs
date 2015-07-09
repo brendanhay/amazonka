@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a DBSnapshot. If the snapshot is being copied, the copy
+-- Deletes a DBSnapshot. If the snapshot is being copied, the copy
 -- operation is terminated.
 --
 -- The DBSnapshot must be in the @available@ state to be deleted.

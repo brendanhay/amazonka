@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets attributes for the specified queue. The following attributes are
+-- Gets attributes for the specified queue. The following attributes are
 -- supported:
 --
 -- -   @All@ - returns all values.

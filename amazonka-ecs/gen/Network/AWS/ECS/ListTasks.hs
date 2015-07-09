@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of tasks for a specified cluster. You can filter the
+-- Returns a list of tasks for a specified cluster. You can filter the
 -- results by family name, by a particular container instance, or by the
 -- desired status of the task with the @family@, @containerInstance@, and
 -- @desiredStatus@ parameters.

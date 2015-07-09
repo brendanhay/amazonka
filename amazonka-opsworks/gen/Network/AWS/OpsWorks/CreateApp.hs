@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an app for a specified stack. For more information, see
+-- Creates an app for a specified stack. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingapps-creating.html Creating Apps>.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a

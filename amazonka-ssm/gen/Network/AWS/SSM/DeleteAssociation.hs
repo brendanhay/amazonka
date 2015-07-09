@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Disassociates the specified configuration document from the specified
+-- Disassociates the specified configuration document from the specified
 -- instance.
 --
 -- When you disassociate a configuration document from an instance, it does

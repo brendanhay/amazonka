@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the stack policy for a specified stack. If a stack doesn\'t have
+-- Returns the stack policy for a specified stack. If a stack doesn\'t have
 -- a policy, a null value is returned.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_GetStackPolicy.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Start a task using random placement and the default Amazon ECS
+-- Start a task using random placement and the default Amazon ECS
 -- scheduler. If you want to use your own scheduler or place a task on a
 -- specific container instance, use @StartTask@ instead.
 --

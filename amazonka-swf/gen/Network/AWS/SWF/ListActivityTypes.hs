@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about all activities registered in the specified
+-- Returns information about all activities registered in the specified
 -- domain that match the specified name and registration status. The result
 -- includes information like creation date, current status of the activity,
 -- etc. The results may be split into multiple pages. To retrieve

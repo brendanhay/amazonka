@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the roles for an identity pool.
+-- Gets the roles for an identity pool.
 --
 -- You must use AWS Developer credentials to call this API.
 --

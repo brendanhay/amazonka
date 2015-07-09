@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action creates a reusable delegationSet.
+-- This action creates a reusable delegationSet.
 --
 -- To create a new reusable delegationSet, send a @POST@ request to the
 -- @2013-04-01\/delegationset@ resource. The request body must include an

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the scaling parameters configured for a domain. A domain\'s scaling
+-- Gets the scaling parameters configured for a domain. A domain\'s scaling
 -- parameters specify the desired search instance type and replication
 -- count. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-scaling-options.html Configuring Scaling Options>

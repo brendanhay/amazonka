@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the lifecycle hooks for the specified Auto Scaling group.
+-- Describes the lifecycle hooks for the specified Auto Scaling group.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLifecycleHooks.html>
 module Network.AWS.AutoScaling.DescribeLifecycleHooks

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the server certificates that have the specified path prefix. If
+-- Lists the server certificates that have the specified path prefix. If
 -- none exist, the action returns an empty list.
 --
 -- You can paginate the results using the @MaxItems@ and @Marker@

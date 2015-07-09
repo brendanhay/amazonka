@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeCacheSecurityGroups/ action returns a list of cache
+-- The /DescribeCacheSecurityGroups/ action returns a list of cache
 -- security group descriptions. If a cache security group name is
 -- specified, the list will contain only the description of that group.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes one or more instances from the specified Auto Scaling group.
+-- Removes one or more instances from the specified Auto Scaling group.
 -- After the instances are detached, you can manage them independently from
 -- the rest of the Auto Scaling group.
 --

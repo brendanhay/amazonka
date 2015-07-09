@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the termination policies supported by Auto Scaling.
+-- Describes the termination policies supported by Auto Scaling.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeTerminationPolicyTypes.html>
 module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes

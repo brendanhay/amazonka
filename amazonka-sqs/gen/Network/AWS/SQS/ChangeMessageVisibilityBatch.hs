@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Changes the visibility timeout of multiple messages. This is a batch
+-- Changes the visibility timeout of multiple messages. This is a batch
 -- version of ChangeMessageVisibility. The result of the action on each
 -- message is reported individually in the response. You can send up to 10
 -- ChangeMessageVisibility requests with each

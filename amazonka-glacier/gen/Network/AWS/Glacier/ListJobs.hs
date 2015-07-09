@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation lists jobs for a vault, including jobs that are
+-- This operation lists jobs for a vault, including jobs that are
 -- in-progress and jobs that have recently finished.
 --
 -- Amazon Glacier retains recently completed jobs for a period before

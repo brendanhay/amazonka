@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the specified attribute of the specified AMI. You can specify
+-- Modifies the specified attribute of the specified AMI. You can specify
 -- only one attribute at a time.
 --
 -- AWS Marketplace product codes cannot be modified. Images with an AWS

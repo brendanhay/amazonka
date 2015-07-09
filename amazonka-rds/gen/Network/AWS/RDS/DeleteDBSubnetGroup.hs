@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a DB subnet group.
+-- Deletes a DB subnet group.
 --
 -- The specified database subnet group must not be associated with any DB
 -- instances.

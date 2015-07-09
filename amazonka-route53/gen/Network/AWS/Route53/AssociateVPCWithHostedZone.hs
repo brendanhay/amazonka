@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action associates a VPC with an hosted zone.
+-- This action associates a VPC with an hosted zone.
 --
 -- To associate a VPC with an hosted zone, send a @POST@ request to the
 -- @2013-04-01\/hostedzone\/hosted zone ID\/associatevpc@ resource. The

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes one or more load balancers from the specified Auto Scaling
+-- Removes one or more load balancers from the specified Auto Scaling
 -- group.
 --
 -- When you detach a load balancer, it enters the @Removing@ state while

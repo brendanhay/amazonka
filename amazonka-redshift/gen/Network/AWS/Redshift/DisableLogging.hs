@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Stops logging information, such as queries and connection attempts, for
+-- Stops logging information, such as queries and connection attempts, for
 -- the specified Amazon Redshift cluster.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DisableLogging.html>

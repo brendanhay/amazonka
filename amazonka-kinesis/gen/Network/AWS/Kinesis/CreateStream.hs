@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a Amazon Kinesis stream. A stream captures and transports data
+-- Creates a Amazon Kinesis stream. A stream captures and transports data
 -- records that are continuously emitted from different data sources or
 -- /producers/. Scale-out within an Amazon Kinesis stream is explicitly
 -- supported by means of shards, which are uniquely identified groups of

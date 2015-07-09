@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies an existing high-availability partition group.
+-- Modifies an existing high-availability partition group.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_ModifyHAPG.html>
 module Network.AWS.CloudHSM.ModifyHAPG

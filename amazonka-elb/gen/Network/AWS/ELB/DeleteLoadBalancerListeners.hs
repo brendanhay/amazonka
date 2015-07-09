@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified listeners from the specified load balancer.
+-- Deletes the specified listeners from the specified load balancer.
 --
 -- <http://docs.aws.amazon.com/ElasticLoadBalancing/latest/APIReference/API_DeleteLoadBalancerListeners.html>
 module Network.AWS.ELB.DeleteLoadBalancerListeners

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | TerminateJobFlows shuts a list of job flows down. When a job flow is
+-- TerminateJobFlows shuts a list of job flows down. When a job flow is
 -- shut down, any step not yet completed is canceled and the EC2 instances
 -- on which the job flow is running are stopped. Any log files not already
 -- saved are uploaded to Amazon S3 if a LogUri was specified when the job

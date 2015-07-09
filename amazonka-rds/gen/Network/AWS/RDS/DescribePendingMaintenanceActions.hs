@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of resources (for example, DB instances) that have at
+-- Returns a list of resources (for example, DB instances) that have at
 -- least one pending maintenance action.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribePendingMaintenanceActions.html>

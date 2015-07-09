@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the specified load balancer policy types.
+-- Describes the specified load balancer policy types.
 --
 -- You can use these policy types with CreateLoadBalancerPolicy to create
 -- policy configurations for a load balancer.

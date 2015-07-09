@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified virtual tape.
+-- Deletes the specified virtual tape.
 --
 -- <http://docs.aws.amazon.com/storagegateway/latest/APIReference/API_DeleteTape.html>
 module Network.AWS.StorageGateway.DeleteTape

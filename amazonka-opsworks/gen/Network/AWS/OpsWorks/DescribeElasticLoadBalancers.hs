@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes a stack\'s Elastic Load Balancing instances.
+-- Describes a stack\'s Elastic Load Balancing instances.
 --
 -- You must specify at least one of the parameters.
 --

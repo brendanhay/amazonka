@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation updates a snapshot schedule configured for a gateway
+-- This operation updates a snapshot schedule configured for a gateway
 -- volume.
 --
 -- The default snapshot schedule for volume is once every 24 hours,

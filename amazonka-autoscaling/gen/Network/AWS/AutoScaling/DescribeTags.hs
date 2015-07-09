@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the specified tags.
+-- Describes the specified tags.
 --
 -- You can use filters to limit the results. For example, you can query for
 -- the tags for a specific Auto Scaling group. You can specify multiple

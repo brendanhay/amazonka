@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes the ability of the specified AWS customer account to restore the
+-- Removes the ability of the specified AWS customer account to restore the
 -- specified snapshot. If the account is currently restoring the snapshot,
 -- the restore will run to completion.
 --

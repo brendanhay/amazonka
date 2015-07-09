@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Generates (or retrieves) a Cognito ID. Supplying multiple logins will
+-- Generates (or retrieves) a Cognito ID. Supplying multiple logins will
 -- create an implicit linked account.
 --
 -- token+\";\"+tokenSecret.

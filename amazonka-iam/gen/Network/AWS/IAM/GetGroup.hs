@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of users that are in the specified group. You can
+-- Returns a list of users that are in the specified group. You can
 -- paginate the results using the @MaxItems@ and @Marker@ parameters.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_GetGroup.html>

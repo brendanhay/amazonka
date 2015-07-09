@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Records a heartbeat for the lifecycle action associated with a specific
+-- Records a heartbeat for the lifecycle action associated with a specific
 -- token. This extends the timeout by the length of time defined by the
 -- @HeartbeatTimeout@ parameter of PutLifecycleHook.
 --

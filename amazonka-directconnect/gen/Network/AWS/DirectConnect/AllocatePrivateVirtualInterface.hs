@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Provisions a private virtual interface to be owned by a different
+-- Provisions a private virtual interface to be owned by a different
 -- customer.
 --
 -- The owner of a connection calls this function to provision a private

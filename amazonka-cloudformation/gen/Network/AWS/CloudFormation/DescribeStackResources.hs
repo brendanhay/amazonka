@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns AWS resource descriptions for running and deleted stacks. If
+-- Returns AWS resource descriptions for running and deleted stacks. If
 -- @StackName@ is specified, all the associated resources that are part of
 -- the stack are returned. If @PhysicalResourceId@ is specified, the
 -- associated resources of the stack that the resource belongs to are

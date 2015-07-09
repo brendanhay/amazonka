@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Stops an Amazon EBS-backed instance. Each time you transition an
+-- Stops an Amazon EBS-backed instance. Each time you transition an
 -- instance from stopped to started, Amazon EC2 charges a full instance
 -- hour, even if transitions happen multiple times within a single hour.
 --

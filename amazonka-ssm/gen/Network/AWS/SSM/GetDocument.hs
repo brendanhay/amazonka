@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the contents of the specified configuration document.
+-- Gets the contents of the specified configuration document.
 --
 -- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_GetDocument.html>
 module Network.AWS.SSM.GetDocument

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns information about a job you previously initiated,
+-- This operation returns information about a job you previously initiated,
 -- including the job initiation date, the user who initiated the job, the
 -- job status code\/message and the Amazon SNS topic to notify after Amazon
 -- Glacier completes the job. For more information about initiating a job,

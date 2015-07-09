@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the name and\/or the path of the specified group.
+-- Updates the name and\/or the path of the specified group.
 --
 -- You should understand the implications of changing a group\'s path or
 -- name. For more information, see

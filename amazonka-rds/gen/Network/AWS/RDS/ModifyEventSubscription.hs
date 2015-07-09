@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies an existing RDS event notification subscription. Note that you
+-- Modifies an existing RDS event notification subscription. Note that you
 -- cannot modify the source identifiers using this call; to change source
 -- identifiers for a subscription, use the
 -- AddSourceIdentifierToSubscription and

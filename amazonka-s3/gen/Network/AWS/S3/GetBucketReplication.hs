@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | FIXME: Undocumented operation.
+-- FIXME: Undocumented operation.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketReplication.html>
 module Network.AWS.S3.GetBucketReplication

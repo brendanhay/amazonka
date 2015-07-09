@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Links an EC2-Classic instance to a ClassicLink-enabled VPC through one
+-- Links an EC2-Classic instance to a ClassicLink-enabled VPC through one
 -- or more of the VPC\'s security groups. You cannot link an EC2-Classic
 -- instance to more than one VPC at a time. You can only link an instance
 -- that\'s in the @running@ state. An instance is automatically unlinked

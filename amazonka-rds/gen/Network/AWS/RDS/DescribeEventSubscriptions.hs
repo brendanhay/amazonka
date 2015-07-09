@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all the subscription descriptions for a customer account. The
+-- Lists all the subscription descriptions for a customer account. The
 -- description for a subscription includes SubscriptionName, SNSTopicARN,
 -- CustomerID, SourceType, SourceID, CreationTime, and Status.
 --

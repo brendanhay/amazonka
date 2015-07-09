@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a description of specified virtual tapes in the virtual tape
+-- Returns a description of specified virtual tapes in the virtual tape
 -- shelf (VTS).
 --
 -- If a specific @TapeARN@ is not specified, AWS Storage Gateway returns a

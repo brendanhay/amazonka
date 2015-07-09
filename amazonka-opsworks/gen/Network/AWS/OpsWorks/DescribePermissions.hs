@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the permissions for a specified stack.
+-- Describes the permissions for a specified stack.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
 -- Manage permissions level for the stack, or an attached policy that

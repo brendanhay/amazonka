@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new connection between the customer network and a specific AWS
+-- Creates a new connection between the customer network and a specific AWS
 -- Direct Connect location.
 --
 -- A connection links your internal network to an AWS Direct Connect

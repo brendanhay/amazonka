@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a Simple AD directory.
+-- Creates a Simple AD directory.
 --
 -- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_CreateDirectory.html>
 module Network.AWS.DirectoryService.CreateDirectory

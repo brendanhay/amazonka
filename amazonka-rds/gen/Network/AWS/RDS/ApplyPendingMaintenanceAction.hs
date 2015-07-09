@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Applies a pending maintenance action to a resource (for example, a DB
+-- Applies a pending maintenance action to a resource (for example, a DB
 -- instance).
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ApplyPendingMaintenanceAction.html>

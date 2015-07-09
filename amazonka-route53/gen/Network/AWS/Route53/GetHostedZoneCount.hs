@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | To retrieve a count of all your hosted zones, send a @GET@ request to
+-- To retrieve a count of all your hosted zones, send a @GET@ request to
 -- the @2013-04-01\/hostedzonecount@ resource.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHostedZoneCount.html>

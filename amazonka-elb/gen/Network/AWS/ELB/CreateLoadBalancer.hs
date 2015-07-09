@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a load balancer.
+-- Creates a load balancer.
 --
 -- If the call completes successfully, a new load balancer is created with
 -- a unique Domain Name Service (DNS) name. The load balancer receives

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes up to ten messages from the specified queue. This is a batch
+-- Deletes up to ten messages from the specified queue. This is a batch
 -- version of DeleteMessage. The result of the delete action on each
 -- message is reported individually in the response.
 --

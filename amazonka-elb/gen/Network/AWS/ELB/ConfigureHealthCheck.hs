@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Specifies the health check settings to use when evaluating the health
+-- Specifies the health check settings to use when evaluating the health
 -- state of your back-end instances.
 --
 -- For more information, see

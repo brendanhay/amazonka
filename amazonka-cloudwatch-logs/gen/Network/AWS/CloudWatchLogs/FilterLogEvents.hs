@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves log events, optionally filtered by a filter pattern from the
+-- Retrieves log events, optionally filtered by a filter pattern from the
 -- specified log group. You can provide an optional time range to filter
 -- the results on the event @timestamp@. You can limit the streams searched
 -- to an explicit list of @logStreamNames@.

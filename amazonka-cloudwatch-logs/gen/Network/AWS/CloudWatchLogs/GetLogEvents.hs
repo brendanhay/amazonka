@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves log events from the specified log stream. You can provide an
+-- Retrieves log events from the specified log stream. You can provide an
 -- optional time range to filter the results on the event @timestamp@.
 --
 -- By default, this operation returns as much log events as can fit in a

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Provides detailed information about the specified customer master key.
+-- Provides detailed information about the specified customer master key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html>
 module Network.AWS.KMS.DescribeKey

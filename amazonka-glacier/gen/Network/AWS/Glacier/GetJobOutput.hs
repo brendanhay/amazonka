@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation downloads the output of the job you initiated using
+-- This operation downloads the output of the job you initiated using
 -- InitiateJob. Depending on the job type you specified when you initiated
 -- the job, the output will be either the content of an archive or a vault
 -- inventory.

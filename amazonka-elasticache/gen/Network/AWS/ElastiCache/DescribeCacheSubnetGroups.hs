@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeCacheSubnetGroups/ action returns a list of cache subnet
+-- The /DescribeCacheSubnetGroups/ action returns a list of cache subnet
 -- group descriptions. If a subnet group name is specified, the list will
 -- contain only the description of that group.
 --

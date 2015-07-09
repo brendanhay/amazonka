@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets the AWS Lambda function for a given event type for an identity
+-- Sets the AWS Lambda function for a given event type for an identity
 -- pool. This request only updates the key\/value pair specified. Other
 -- key\/values pairs are not updated. To remove a key value pair, pass a
 -- empty value for the particular key.

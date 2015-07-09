@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | To retrieve a list of your hosted zones in lexicographic order, send a
+-- To retrieve a list of your hosted zones in lexicographic order, send a
 -- @GET@ request to the @2013-04-01\/hostedzonesbyname@ resource. The
 -- response to this request includes a @HostedZones@ element with zero or
 -- more @HostedZone@ child elements lexicographically ordered by DNS name.

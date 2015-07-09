@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeCacheClusters/ action returns information about all
+-- The /DescribeCacheClusters/ action returns information about all
 -- provisioned cache clusters if no cache cluster identifier is specified,
 -- or about a specific cache cluster if a cache cluster identifier is
 -- supplied.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character
+-- Returns a set of DKIM tokens for a domain. DKIM /tokens/ are character
 -- strings that represent your domain\'s identity. Using these tokens, you
 -- will need to create DNS CNAME records that point to DKIM public keys
 -- hosted by Amazon SES. Amazon Web Services will eventually detect that

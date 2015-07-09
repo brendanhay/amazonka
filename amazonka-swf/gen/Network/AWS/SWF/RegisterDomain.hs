@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers a new domain.
+-- Registers a new domain.
 --
 -- __Access Control__
 --

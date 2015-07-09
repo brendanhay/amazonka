@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the
+-- Unlinks (detaches) a linked EC2-Classic instance from a VPC. After the
 -- instance has been unlinked, the VPC security groups are no longer
 -- associated with it. An instance is automatically unlinked from a VPC
 -- when it\'s stopped.

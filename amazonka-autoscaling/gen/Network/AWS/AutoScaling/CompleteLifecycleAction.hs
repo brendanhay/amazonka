@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Completes the lifecycle action for the associated token initiated under
+-- Completes the lifecycle action for the associated token initiated under
 -- the given lifecycle hook with the specified result.
 --
 -- This operation is a part of the basic sequence for adding a lifecycle

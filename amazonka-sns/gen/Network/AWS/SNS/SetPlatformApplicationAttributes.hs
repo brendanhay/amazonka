@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets the attributes of the platform application object for the supported
+-- Sets the attributes of the platform application object for the supported
 -- push notification services, such as APNS and GCM. For more information,
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.

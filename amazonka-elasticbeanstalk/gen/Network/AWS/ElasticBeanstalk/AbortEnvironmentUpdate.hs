@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Cancels in-progress environment configuration update or application
+-- Cancels in-progress environment configuration update or application
 -- version deployment.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_AbortEnvironmentUpdate.html>

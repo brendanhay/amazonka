@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets the certificate that terminates the specified listener\'s SSL
+-- Sets the certificate that terminates the specified listener\'s SSL
 -- connections. The specified certificate replaces any prior certificate
 -- that was used on the same load balancer and port.
 --

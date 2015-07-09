@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets the tags for a bucket.
+-- Sets the tags for a bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketTagging.html>
 module Network.AWS.S3.PutBucketTagging

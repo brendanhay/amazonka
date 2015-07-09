@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a password for the specified user, giving the user the ability
+-- Creates a password for the specified user, giving the user the ability
 -- to access AWS services through the AWS Management Console. For more
 -- information about managing passwords, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_ManagingLogins.html Managing Passwords>

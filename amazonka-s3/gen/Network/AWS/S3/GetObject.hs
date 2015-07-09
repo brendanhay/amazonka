@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves objects from Amazon S3.
+-- Retrieves objects from Amazon S3.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetObject.html>
 module Network.AWS.S3.GetObject

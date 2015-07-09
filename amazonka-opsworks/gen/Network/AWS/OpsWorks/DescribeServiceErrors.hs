@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes AWS OpsWorks service errors.
+-- Describes AWS OpsWorks service errors.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
 -- Show, Deploy, or Manage permissions level for the stack, or an attached

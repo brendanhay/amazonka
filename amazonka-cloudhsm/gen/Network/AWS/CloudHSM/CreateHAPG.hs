@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a high-availability partition group. A high-availability
+-- Creates a high-availability partition group. A high-availability
 -- partition group is a group of partitions that spans multiple physical
 -- HSMs.
 --

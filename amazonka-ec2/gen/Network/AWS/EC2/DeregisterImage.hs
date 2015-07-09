@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deregisters the specified AMI. After you deregister an AMI, it can\'t be
+-- Deregisters the specified AMI. After you deregister an AMI, it can\'t be
 -- used to launch new instances.
 --
 -- This command does not delete the AMI.

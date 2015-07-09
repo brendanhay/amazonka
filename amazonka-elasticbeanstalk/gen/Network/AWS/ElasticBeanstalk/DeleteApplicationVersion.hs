@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified version from the specified application.
+-- Deletes the specified version from the specified application.
 --
 -- You cannot delete an application version that is associated with a
 -- running environment.

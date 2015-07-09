@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds the specified tags to the specified load balancer. Each load
+-- Adds the specified tags to the specified load balancer. Each load
 -- balancer can have a maximum of 10 tags.
 --
 -- Each tag consists of a key and an optional value. If a tag with the same

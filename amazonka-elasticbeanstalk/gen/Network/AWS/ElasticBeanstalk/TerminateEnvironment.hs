@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Terminates the specified environment.
+-- Terminates the specified environment.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_TerminateEnvironment.html>
 module Network.AWS.ElasticBeanstalk.TerminateEnvironment

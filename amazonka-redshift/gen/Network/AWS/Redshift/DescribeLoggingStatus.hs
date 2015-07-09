@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes whether information, such as queries and connection attempts,
+-- Describes whether information, such as queries and connection attempts,
 -- is being logged for the specified Amazon Redshift cluster.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeLoggingStatus.html>

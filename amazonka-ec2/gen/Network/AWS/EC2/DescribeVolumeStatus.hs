@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the status of the specified volumes. Volume status provides
+-- Describes the status of the specified volumes. Volume status provides
 -- the result of the checks performed on your volumes to determine events
 -- that can impair the performance of your volumes. The performance of a
 -- volume can be affected if an issue occurs on the volume\'s underlying

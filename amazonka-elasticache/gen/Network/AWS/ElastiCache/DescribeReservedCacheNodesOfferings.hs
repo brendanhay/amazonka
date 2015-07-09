@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeReservedCacheNodesOfferings/ action lists available
+-- The /DescribeReservedCacheNodesOfferings/ action lists available
 -- reserved cache node offerings.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_DescribeReservedCacheNodesOfferings.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Cancels the specified Spot fleet requests.
+-- Cancels the specified Spot fleet requests.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-CancelSpotFleetRequests.html>
 module Network.AWS.EC2.CancelSpotFleetRequests

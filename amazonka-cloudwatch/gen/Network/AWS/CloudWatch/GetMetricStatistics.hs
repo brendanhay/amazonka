@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets statistics for the specified metric.
+-- Gets statistics for the specified metric.
 --
 -- The maximum number of data points returned from a single
 -- @GetMetricStatistics@ request is 1,440, wereas the maximum number of

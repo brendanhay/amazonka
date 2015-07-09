@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the status of the configuration document associated with the
+-- Updates the status of the configuration document associated with the
 -- specified instance.
 --
 -- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_UpdateAssociationStatus.html>

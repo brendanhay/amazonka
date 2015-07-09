@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a route in a route table within a VPC.
+-- Creates a route in a route table within a VPC.
 --
 -- You must specify one of the following targets: Internet gateway or
 -- virtual private gateway, NAT instance, VPC peering connection, or

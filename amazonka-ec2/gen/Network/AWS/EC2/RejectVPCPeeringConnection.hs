@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Rejects a VPC peering connection request. The VPC peering connection
+-- Rejects a VPC peering connection request. The VPC peering connection
 -- must be in the @pending-acceptance@ state. Use the
 -- DescribeVpcPeeringConnections request to view your outstanding VPC
 -- peering connection requests. To delete an active VPC peering connection,

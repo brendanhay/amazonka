@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables monitoring of the specified metrics for the specified Auto
+-- Enables monitoring of the specified metrics for the specified Auto
 -- Scaling group.
 --
 -- You can only enable metrics collection if @InstanceMonitoring@ in the

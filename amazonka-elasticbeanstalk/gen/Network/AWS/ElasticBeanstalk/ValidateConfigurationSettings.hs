@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Takes a set of configuration settings and either a configuration
+-- Takes a set of configuration settings and either a configuration
 -- template or environment, and determines whether those values are valid.
 --
 -- This action returns a list of messages indicating any errors or warnings

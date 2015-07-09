@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DescribeEvents/ action returns events related to cache clusters,
+-- The /DescribeEvents/ action returns events related to cache clusters,
 -- cache security groups, and cache parameter groups. You can obtain events
 -- specific to a particular cache cluster, cache security group, or cache
 -- parameter group by providing the name as a parameter.

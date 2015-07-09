@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new cluster from a snapshot. By default, Amazon Redshift
+-- Creates a new cluster from a snapshot. By default, Amazon Redshift
 -- creates the resulting cluster with the same configuration as the
 -- original cluster from which the snapshot was created, except that the
 -- new cluster is created with the default cluster security and parameter

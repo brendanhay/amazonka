@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a configuration template. Templates are associated with a
+-- Creates a configuration template. Templates are associated with a
 -- specific application and are used to deploy different versions of the
 -- application with the same configuration settings.
 --

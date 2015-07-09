@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Used by workers to tell the service that the ActivityTask identified by
+-- Used by workers to tell the service that the ActivityTask identified by
 -- the @taskToken@ has failed with @reason@ (if specified). The @reason@
 -- and @details@ appear in the @ActivityTaskFailed@ event added to the
 -- workflow history.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /CreateCacheParameterGroup/ action creates a new cache parameter
+-- The /CreateCacheParameterGroup/ action creates a new cache parameter
 -- group. A cache parameter group is a collection of parameters that you
 -- apply to all of the nodes in a cache cluster.
 --

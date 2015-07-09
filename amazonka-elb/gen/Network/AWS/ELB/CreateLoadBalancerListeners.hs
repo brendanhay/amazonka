@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates one or more listeners for the specified load balancer. If a
+-- Creates one or more listeners for the specified load balancer. If a
 -- listener with the specified port does not already exist, it is created;
 -- otherwise, the properties of the new listener must match the properties
 -- of the existing listener.

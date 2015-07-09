@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC
+-- Moves an Elastic IP address from the EC2-Classic platform to the EC2-VPC
 -- platform. The Elastic IP address must be allocated to your account, and
 -- it must not be associated with an instance. After the Elastic IP address
 -- is moved, it is no longer available for use in the EC2-Classic platform,

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about the specified managed policy, including the
+-- Retrieves information about the specified managed policy, including the
 -- policy\'s default version and the total number of users, groups, and
 -- roles that the policy is attached to. For a list of the specific users,
 -- groups, and roles that the policy is attached to, use the

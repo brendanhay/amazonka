@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describe an instance\'s RAID arrays.
+-- Describe an instance\'s RAID arrays.
 --
 -- You must specify at least one of the parameters.
 --

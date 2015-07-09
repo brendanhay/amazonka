@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the configuration files necessary to connect to all high
+-- Gets the configuration files necessary to connect to all high
 -- availability partition groups the client is associated with.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_GetConfig.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | To retrieve a list of your reusable delegation sets, send a @GET@
+-- To retrieve a list of your reusable delegation sets, send a @GET@
 -- request to the @2013-04-01\/delegationset@ resource. The response to
 -- this request includes a @DelegationSets@ element with zero, one, or
 -- multiple @DelegationSet@ child elements. By default, the list of

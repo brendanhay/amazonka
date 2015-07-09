@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an RDS event notification subscription. This action requires a
+-- Creates an RDS event notification subscription. This action requires a
 -- topic ARN (Amazon Resource Name) created by either the RDS console, the
 -- SNS console, or the SNS API. To obtain an ARN with SNS, you must create
 -- a topic in Amazon SNS and subscribe to the topic. The ARN is displayed

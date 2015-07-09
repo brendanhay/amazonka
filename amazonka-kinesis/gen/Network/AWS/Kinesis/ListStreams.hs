@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists your streams.
+-- Lists your streams.
 --
 -- The number of streams may be too large to return from a single call to
 -- @ListStreams@. You can limit the number of returned streams using the

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Copies the specified option group.
+-- Copies the specified option group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CopyOptionGroup.html>
 module Network.AWS.RDS.CopyOptionGroup

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a configuration document.
+-- Creates a configuration document.
 --
 -- After you create a configuration document, you can use CreateAssociation
 -- to associate it with one or more running instances.

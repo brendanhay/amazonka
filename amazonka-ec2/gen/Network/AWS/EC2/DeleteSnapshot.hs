@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified snapshot.
+-- Deletes the specified snapshot.
 --
 -- When you make periodic snapshots of a volume, the snapshots are
 -- incremental, and only the blocks on the device that have changed since

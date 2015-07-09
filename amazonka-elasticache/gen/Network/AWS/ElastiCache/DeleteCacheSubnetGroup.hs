@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DeleteCacheSubnetGroup/ action deletes a cache subnet group.
+-- The /DeleteCacheSubnetGroup/ action deletes a cache subnet group.
 --
 -- You cannot delete a cache subnet group if it is associated with any
 -- cache clusters.

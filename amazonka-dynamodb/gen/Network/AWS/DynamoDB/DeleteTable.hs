@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DeleteTable/ operation deletes a table and all of its items. After
+-- The /DeleteTable/ operation deletes a table and all of its items. After
 -- a /DeleteTable/ request, the specified table is in the @DELETING@ state
 -- until DynamoDB completes the deletion. If the table is in the @ACTIVE@
 -- state, you can delete it. If a table is in @CREATING@ or @UPDATING@

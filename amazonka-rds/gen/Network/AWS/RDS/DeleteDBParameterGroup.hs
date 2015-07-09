@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted
+-- Deletes a specified DBParameterGroup. The DBParameterGroup to be deleted
 -- cannot be associated with any DB instances.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteDBParameterGroup.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /AuthorizeCacheSecurityGroupIngress/ action allows network ingress
+-- The /AuthorizeCacheSecurityGroupIngress/ action allows network ingress
 -- to a cache security group. Applications using ElastiCache must be
 -- running on Amazon EC2, and Amazon EC2 security groups are used as the
 -- authorization mechanism.

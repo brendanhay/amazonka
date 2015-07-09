@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Uploads a part in a multipart upload.
+-- Uploads a part in a multipart upload.
 --
 -- __Note:__ After you initiate multipart upload and upload one or more
 -- parts, you must either complete or abort multipart upload in order to

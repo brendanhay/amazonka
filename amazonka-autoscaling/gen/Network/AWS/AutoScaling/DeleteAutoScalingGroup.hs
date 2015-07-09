@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified Auto Scaling group.
+-- Deletes the specified Auto Scaling group.
 --
 -- The group must have no instances and no scaling activities in progress.
 --

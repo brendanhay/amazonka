@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes the specified managed policy from the specified role.
+-- Removes the specified managed policy from the specified role.
 --
 -- A role can also have inline policies embedded with it. To delete an
 -- inline policy, use the DeleteRolePolicy API. For information about

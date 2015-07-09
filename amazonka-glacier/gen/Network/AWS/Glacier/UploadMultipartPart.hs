@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation uploads a part of an archive. You can upload archive
+-- This operation uploads a part of an archive. You can upload archive
 -- parts in any order. You can also upload them in parallel. You can upload
 -- up to 10,000 parts for a multipart upload.
 --

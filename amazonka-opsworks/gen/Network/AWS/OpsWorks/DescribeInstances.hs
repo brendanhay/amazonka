@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Requests a description of a set of instances.
+-- Requests a description of a set of instances.
 --
 -- You must specify at least one of the parameters.
 --

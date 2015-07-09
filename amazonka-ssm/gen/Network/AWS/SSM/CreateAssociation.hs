@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Associates the specified configuration document with the specified
+-- Associates the specified configuration document with the specified
 -- instance.
 --
 -- When you associate a configuration document with an instance, the

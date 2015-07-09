@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Given a list of identities (email addresses and\/or domains), returns
+-- Given a list of identities (email addresses and\/or domains), returns
 -- the verification status and (for domain identities) the verification
 -- token for each identity.
 --

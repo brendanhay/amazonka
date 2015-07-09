@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The UpdatePipelineStatus operation pauses or reactivates a pipeline, so
+-- The UpdatePipelineStatus operation pauses or reactivates a pipeline, so
 -- that the pipeline stops or restarts the processing of jobs.
 --
 -- Changing the pipeline status is useful if you want to cancel one or more

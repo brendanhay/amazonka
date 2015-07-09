@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a user pool. Once a pool is deleted, users will not be able to
+-- Deletes a user pool. Once a pool is deleted, users will not be able to
 -- authenticate with the pool.
 --
 -- You must use AWS Developer credentials to call this API.

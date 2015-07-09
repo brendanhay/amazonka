@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies attributes of a specified VPC endpoint. You can modify the
+-- Modifies attributes of a specified VPC endpoint. You can modify the
 -- policy associated with the endpoint, and you can add and remove route
 -- tables associated with the endpoint.
 --

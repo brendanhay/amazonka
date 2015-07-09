@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The @CreateDomain@ operation creates a new domain. The domain name
+-- The @CreateDomain@ operation creates a new domain. The domain name
 -- should be unique among the domains associated with the Access Key ID
 -- provided in the request. The @CreateDomain@ operation may take 10 or
 -- more seconds to complete.

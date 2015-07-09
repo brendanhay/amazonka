@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns a description of the gateway volumes specified in
+-- This operation returns a description of the gateway volumes specified in
 -- the request. This operation is supported only for the gateway-cached
 -- volume architecture.
 --

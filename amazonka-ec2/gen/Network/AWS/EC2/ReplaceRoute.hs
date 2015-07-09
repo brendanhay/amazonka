@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Replaces an existing route within a route table in a VPC. You must
+-- Replaces an existing route within a route table in a VPC. You must
 -- provide only one of the following: Internet gateway or virtual private
 -- gateway, NAT instance, VPC peering connection, or network interface.
 --

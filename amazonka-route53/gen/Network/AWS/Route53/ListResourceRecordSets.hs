@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Imagine all the resource record sets in a zone listed out in front of
+-- Imagine all the resource record sets in a zone listed out in front of
 -- you. Imagine them sorted lexicographically first by DNS name (with the
 -- labels reversed, like \"com.amazon.www\" for example), and secondarily,
 -- lexicographically by record type. This operation retrieves at most

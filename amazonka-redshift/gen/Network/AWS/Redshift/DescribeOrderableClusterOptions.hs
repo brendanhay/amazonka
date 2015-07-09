@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of orderable cluster options. Before you create a new
+-- Returns a list of orderable cluster options. Before you create a new
 -- cluster you can use this operation to find what options are available,
 -- such as the EC2 Availability Zones (AZ) in the specific AWS region that
 -- you can specify, and the node types you can request. The node types

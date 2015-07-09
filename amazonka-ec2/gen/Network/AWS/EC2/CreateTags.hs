@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds or overwrites one or more tags for the specified Amazon EC2
+-- Adds or overwrites one or more tags for the specified Amazon EC2
 -- resource or resources. Each resource can have a maximum of 10 tags. Each
 -- tag consists of a key and optional value. Tag keys must be unique per
 -- resource.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the account aliases associated with the account. For information
+-- Lists the account aliases associated with the account. For information
 -- about using an AWS account alias, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AccountAlias.html Using an Alias for Your AWS Account ID>
 -- in the /Using IAM/ guide.

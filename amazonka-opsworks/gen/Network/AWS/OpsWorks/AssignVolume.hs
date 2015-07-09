@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Assigns one of the stack\'s registered Amazon EBS volumes to a specified
+-- Assigns one of the stack\'s registered Amazon EBS volumes to a specified
 -- instance. The volume must first be registered with the stack by calling
 -- RegisterVolume. After you register the volume, you must call
 -- UpdateVolume to specify a mount point before calling @AssignVolume@. For

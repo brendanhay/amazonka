@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the set of CA certificates provided by Amazon RDS for this AWS
+-- Lists the set of CA certificates provided by Amazon RDS for this AWS
 -- account.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeCertificates.html>

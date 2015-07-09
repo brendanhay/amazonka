@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The ReadJob operation returns detailed information about a job.
+-- The ReadJob operation returns detailed information about a job.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadJob.html>
 module Network.AWS.ElasticTranscoder.ReadJob

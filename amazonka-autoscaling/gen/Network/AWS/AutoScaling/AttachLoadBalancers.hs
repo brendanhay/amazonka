@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Attaches one or more load balancers to the specified Auto Scaling group.
+-- Attaches one or more load balancers to the specified Auto Scaling group.
 --
 -- To describe the load balancers for an Auto Scaling group, use
 -- DescribeLoadBalancers. To detach the load balancer from the Auto Scaling

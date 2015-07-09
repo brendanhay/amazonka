@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies a volume attribute.
+-- Modifies a volume attribute.
 --
 -- By default, all I\/O operations for the volume are suspended when the
 -- data on the volume is determined to be potentially inconsistent, to

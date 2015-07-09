@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns information about the upload buffer of a gateway.
+-- This operation returns information about the upload buffer of a gateway.
 -- This operation is supported for both the gateway-stored and
 -- gateway-cached volume architectures.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action is only used by the Amazon EC2 Container Service agent, and
+-- This action is only used by the Amazon EC2 Container Service agent, and
 -- it is not intended for use outside of the agent.
 --
 -- Returns an endpoint for the Amazon EC2 Container Service agent to poll

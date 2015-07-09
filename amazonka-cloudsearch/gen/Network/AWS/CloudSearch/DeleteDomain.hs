@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Permanently deletes a search domain and all of its data. Once a domain
+-- Permanently deletes a search domain and all of its data. Once a domain
 -- has been deleted, it cannot be recovered. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/deleting-domains.html Deleting a Search Domain>
 -- in the /Amazon CloudSearch Developer Guide/.

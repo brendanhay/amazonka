@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | uses the acl subresource to set the access control list (ACL)
+-- uses the acl subresource to set the access control list (ACL)
 -- permissions for an object that already exists in a bucket
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutObjectACL.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies an existing Amazon Redshift event notification subscription.
+-- Modifies an existing Amazon Redshift event notification subscription.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_ModifyEventSubscription.html>
 module Network.AWS.Redshift.ModifyEventSubscription

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about a high-availability partition group.
+-- Retrieves information about a high-availability partition group.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHAPG.html>
 module Network.AWS.CloudHSM.DescribeHAPG

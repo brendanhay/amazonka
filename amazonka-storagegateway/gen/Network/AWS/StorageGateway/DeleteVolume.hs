@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation delete the specified gateway volume that you previously
+-- This operation delete the specified gateway volume that you previously
 -- created using the CreateStorediSCSIVolume API. For gateway-stored
 -- volumes, the local disk that was configured as the storage volume is not
 -- deleted. You can reuse the local disk to create another storage volume.

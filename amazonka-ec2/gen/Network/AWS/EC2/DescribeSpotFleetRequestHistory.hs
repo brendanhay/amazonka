@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the events for the specified Spot fleet request during the
+-- Describes the events for the specified Spot fleet request during the
 -- specified time.
 --
 -- Spot fleet events are delayed by up to 30 seconds before they can be

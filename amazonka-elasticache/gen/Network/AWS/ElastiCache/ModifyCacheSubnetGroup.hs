@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet
+-- The /ModifyCacheSubnetGroup/ action modifies an existing cache subnet
 -- group.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_ModifyCacheSubnetGroup.html>

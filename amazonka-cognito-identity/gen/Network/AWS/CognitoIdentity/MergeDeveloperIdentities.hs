@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Merges two users having different @IdentityId@s, existing in the same
+-- Merges two users having different @IdentityId@s, existing in the same
 -- identity pool, and identified by the same developer provider. You can
 -- use this action to request that discrete users be merged and identified
 -- as a single user in the Cognito environment. Cognito associates the

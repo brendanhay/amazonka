@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The DeleteDBInstance action deletes a previously provisioned DB
+-- The DeleteDBInstance action deletes a previously provisioned DB
 -- instance. A successful response from the web service indicates the
 -- request was received correctly. When you delete a DB instance, all
 -- automated backups for that instance are deleted and cannot be recovered.

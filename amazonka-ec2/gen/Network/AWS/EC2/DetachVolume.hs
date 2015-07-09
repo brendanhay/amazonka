@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Detaches an EBS volume from an instance. Make sure to unmount any file
+-- Detaches an EBS volume from an instance. Make sure to unmount any file
 -- systems on the device within your operating system before detaching the
 -- volume. Failure to do so results in the volume being stuck in a busy
 -- state while detaching.

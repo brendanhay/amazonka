@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the tags associated with a file system. The order of tags
+-- Returns the tags associated with a file system. The order of tags
 -- returned in the response of one @DescribeTags@ call, and the order of
 -- tags returned across the responses of a multi-call iteration (when using
 -- pagination), is unspecified.

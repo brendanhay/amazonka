@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more scaling activities for the specified Auto Scaling
+-- Describes one or more scaling activities for the specified Auto Scaling
 -- group. If you omit the @ActivityIds@, the call returns all activities
 -- from the past six weeks. Activities are sorted by the start time.
 -- Activities still in progress appear first on the list.

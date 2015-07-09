@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation resets all cache disks that have encountered a error and
+-- This operation resets all cache disks that have encountered a error and
 -- makes the disks available for reconfiguration as cache storage. If your
 -- cache disk encounters a error, the gateway prevents read and write
 -- operations on virtual tapes in the gateway. For example, an error can

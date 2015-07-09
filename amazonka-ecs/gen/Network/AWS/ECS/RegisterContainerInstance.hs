@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action is only used by the Amazon EC2 Container Service agent, and
+-- This action is only used by the Amazon EC2 Container Service agent, and
 -- it is not intended for use outside of the agent.
 --
 -- Registers an Amazon EC2 instance into the specified cluster. This

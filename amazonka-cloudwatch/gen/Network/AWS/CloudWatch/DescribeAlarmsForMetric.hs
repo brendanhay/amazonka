@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves all alarms for a single metric. Specify a statistic, period,
+-- Retrieves all alarms for a single metric. Specify a statistic, period,
 -- or unit to filter the set of alarms further.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/APIReference/API_DescribeAlarmsForMetric.html>

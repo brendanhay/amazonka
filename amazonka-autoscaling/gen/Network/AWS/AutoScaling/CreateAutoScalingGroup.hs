@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an Auto Scaling group with the specified name and attributes.
+-- Creates an Auto Scaling group with the specified name and attributes.
 --
 -- If you exceed your maximum limit of Auto Scaling groups, which by
 -- default is 20 per region, the call fails. For information about viewing

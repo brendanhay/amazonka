@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Disassociates an Elastic IP address from the instance or network
+-- Disassociates an Elastic IP address from the instance or network
 -- interface it\'s associated with.
 --
 -- An Elastic IP address is for use in either the EC2-Classic platform or

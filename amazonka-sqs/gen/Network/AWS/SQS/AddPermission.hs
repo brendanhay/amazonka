@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds a permission to a queue for a specific
+-- Adds a permission to a queue for a specific
 -- <http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal>.
 -- This allows for sharing access to the queue.
 --

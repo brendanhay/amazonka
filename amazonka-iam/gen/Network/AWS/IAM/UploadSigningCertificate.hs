@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Uploads an X.509 signing certificate and associates it with the
+-- Uploads an X.509 signing certificate and associates it with the
 -- specified user. Some AWS services use X.509 signing certificates to
 -- validate requests that are signed with a corresponding private key. When
 -- you upload the certificate, its default status is @Active@.

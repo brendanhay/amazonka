@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Acquires an Elastic IP address.
+-- Acquires an Elastic IP address.
 --
 -- An Elastic IP address is for use either in the EC2-Classic platform or
 -- in a VPC. For more information, see

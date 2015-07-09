@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the number of closed workflow executions within the given domain
+-- Returns the number of closed workflow executions within the given domain
 -- that meet the specified filtering criteria.
 --
 -- This operation is eventually consistent. The results are best effort and

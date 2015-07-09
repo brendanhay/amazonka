@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the state of the specified instances registered with the
+-- Describes the state of the specified instances registered with the
 -- specified load balancer. If no instances are specified, the call
 -- describes the state of all instances registered with the load balancer,
 -- not including any terminated instances.

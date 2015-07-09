@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes an application.
+-- Deletes an application.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_DeleteApplication.html>
 module Network.AWS.CodeDeploy.DeleteApplication

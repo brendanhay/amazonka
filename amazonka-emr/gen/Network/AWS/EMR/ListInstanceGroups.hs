@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Provides all available details about the instance groups in a cluster.
+-- Provides all available details about the instance groups in a cluster.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListInstanceGroups.html>
 module Network.AWS.EMR.ListInstanceGroups

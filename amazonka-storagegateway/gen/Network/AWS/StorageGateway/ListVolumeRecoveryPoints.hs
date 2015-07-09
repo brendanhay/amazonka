@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation lists the recovery points for a specified gateway. This
+-- This operation lists the recovery points for a specified gateway. This
 -- operation is supported only for the gateway-cached volume architecture.
 --
 -- Each gateway-cached volume has one recovery point. A volume recovery

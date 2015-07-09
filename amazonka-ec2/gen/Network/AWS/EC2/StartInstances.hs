@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Starts an Amazon EBS-backed AMI that you\'ve previously stopped.
+-- Starts an Amazon EBS-backed AMI that you\'ve previously stopped.
 --
 -- Instances that use Amazon EBS volumes as their root devices can be
 -- quickly stopped and started. When an instance is stopped, the compute

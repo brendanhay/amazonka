@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specific dataset. The dataset will be deleted permanently,
+-- Deletes the specific dataset. The dataset will be deleted permanently,
 -- and the action can\'t be undone. Datasets that this dataset was merged
 -- with will no longer report the merge. Any subsequent operation on this
 -- dataset will result in a ResourceNotFoundException.

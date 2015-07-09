@@ -510,27 +510,27 @@ _NoSuchKey :: AWSError a => Getting (First ServiceError) a ServiceError
 _NoSuchKey = _ServiceError . hasCode "NoSuchKey"
 
 data BucketCannedACL
-    = BCACannedAuthenticatedRead
-    | BCACannedPrivate
-    | BCACannedPublicReadWrite
-    | BCACannedPublicRead
+    = BAuthenticatedRead
+    | BPublicRead
+    | BPublicReadWrite
+    | BPrivate
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText BucketCannedACL where
     parser = takeLowerText >>= \case
-        "authenticated-read" -> pure BCACannedAuthenticatedRead
-        "private" -> pure BCACannedPrivate
-        "public-read" -> pure BCACannedPublicRead
-        "public-read-write" -> pure BCACannedPublicReadWrite
+        "authenticated-read" -> pure BAuthenticatedRead
+        "private" -> pure BPrivate
+        "public-read" -> pure BPublicRead
+        "public-read-write" -> pure BPublicReadWrite
         e -> fromTextError $ "Failure parsing BucketCannedACL from value: '" <> e
            <> "'. Accepted values: authenticated-read, private, public-read, public-read-write"
 
 instance ToText BucketCannedACL where
     toText = \case
-        BCACannedAuthenticatedRead -> "authenticated-read"
-        BCACannedPrivate -> "private"
-        BCACannedPublicRead -> "public-read"
-        BCACannedPublicReadWrite -> "public-read-write"
+        BAuthenticatedRead -> "authenticated-read"
+        BPrivate -> "private"
+        BPublicRead -> "public-read"
+        BPublicReadWrite -> "public-read-write"
 
 instance Hashable BucketCannedACL
 instance ToQuery BucketCannedACL
@@ -763,33 +763,33 @@ instance ToXML MetadataDirective where
     toXML = toXMLText
 
 data ObjectCannedACL
-    = Private
-    | BucketOwnerFullControl
-    | BucketOwnerRead
-    | PublicRead
-    | AuthenticatedRead
-    | PublicReadWrite
+    = OPublicRead
+    | OPrivate
+    | OPublicReadWrite
+    | OAuthenticatedRead
+    | OBucketOwnerFullControl
+    | OBucketOwnerRead
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ObjectCannedACL where
     parser = takeLowerText >>= \case
-        "authenticated-read" -> pure AuthenticatedRead
-        "bucket-owner-full-control" -> pure BucketOwnerFullControl
-        "bucket-owner-read" -> pure BucketOwnerRead
-        "private" -> pure Private
-        "public-read" -> pure PublicRead
-        "public-read-write" -> pure PublicReadWrite
+        "authenticated-read" -> pure OAuthenticatedRead
+        "bucket-owner-full-control" -> pure OBucketOwnerFullControl
+        "bucket-owner-read" -> pure OBucketOwnerRead
+        "private" -> pure OPrivate
+        "public-read" -> pure OPublicRead
+        "public-read-write" -> pure OPublicReadWrite
         e -> fromTextError $ "Failure parsing ObjectCannedACL from value: '" <> e
            <> "'. Accepted values: authenticated-read, bucket-owner-full-control, bucket-owner-read, private, public-read, public-read-write"
 
 instance ToText ObjectCannedACL where
     toText = \case
-        AuthenticatedRead -> "authenticated-read"
-        BucketOwnerFullControl -> "bucket-owner-full-control"
-        BucketOwnerRead -> "bucket-owner-read"
-        Private -> "private"
-        PublicRead -> "public-read"
-        PublicReadWrite -> "public-read-write"
+        OAuthenticatedRead -> "authenticated-read"
+        OBucketOwnerFullControl -> "bucket-owner-full-control"
+        OBucketOwnerRead -> "bucket-owner-read"
+        OPrivate -> "private"
+        OPublicRead -> "public-read"
+        OPublicReadWrite -> "public-read-write"
 
 instance Hashable ObjectCannedACL
 instance ToQuery ObjectCannedACL

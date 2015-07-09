@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more Auto Scaling instances. If a list is not provided,
+-- Describes one or more Auto Scaling instances. If a list is not provided,
 -- the call describes all instances.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeAutoScalingInstances.html>

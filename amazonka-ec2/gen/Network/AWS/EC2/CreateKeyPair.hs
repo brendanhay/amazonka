@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a 2048-bit RSA key pair with the specified name. Amazon EC2
+-- Creates a 2048-bit RSA key pair with the specified name. Amazon EC2
 -- stores the public key and displays the private key for you to save to a
 -- file. The private key is returned as an unencrypted PEM encoded PKCS#8
 -- private key. If a key with the specified name already exists, Amazon EC2

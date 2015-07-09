@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Revokes a grant. You can revoke a grant to actively deny operations that
+-- Revokes a grant. You can revoke a grant to actively deny operations that
 -- depend on it.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_RevokeGrant.html>

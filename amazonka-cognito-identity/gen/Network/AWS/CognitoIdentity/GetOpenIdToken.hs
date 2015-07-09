@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
+-- Gets an OpenID token, using a known Cognito ID. This known Cognito ID is
 -- returned by GetId. You can optionally add additional logins for the
 -- identity. Supplying multiple logins creates an implicit link.
 --

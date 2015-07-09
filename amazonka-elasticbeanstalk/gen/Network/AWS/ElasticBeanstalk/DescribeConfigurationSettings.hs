@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a description of the settings for the specified configuration
+-- Returns a description of the settings for the specified configuration
 -- set, that is, either a configuration template or the configuration set
 -- associated with a running environment.
 --

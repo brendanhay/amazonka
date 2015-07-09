@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Downloads all or a portion of the specified log file.
+-- Downloads all or a portion of the specified log file.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DownloadDBLogFilePortion.html>
 module Network.AWS.RDS.DownloadDBLogFilePortion

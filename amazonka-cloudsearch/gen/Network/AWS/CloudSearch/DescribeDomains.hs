@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets information about the search domains owned by this account. Can be
+-- Gets information about the search domains owned by this account. Can be
 -- limited to specific domains. Shows all domains by default. To get the
 -- number of searchable documents in a domain, use the console or submit a
 -- @matchall@ request to your domain\'s search endpoint:

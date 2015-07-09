@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves a Boolean value that indicates whether key rotation is enabled
+-- Retrieves a Boolean value that indicates whether key rotation is enabled
 -- for the specified key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyRotationStatus.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation deletes an archive from a vault. Subsequent requests to
+-- This operation deletes an archive from a vault. Subsequent requests to
 -- initiate a retrieval of this archive will fail. Archive retrievals that
 -- are in progress for this archive ID may or may not succeed according to
 -- the following scenarios:

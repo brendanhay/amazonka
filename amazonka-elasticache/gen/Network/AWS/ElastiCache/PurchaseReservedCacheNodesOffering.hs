@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /PurchaseReservedCacheNodesOffering/ action allows you to purchase a
+-- The /PurchaseReservedCacheNodesOffering/ action allows you to purchase a
 -- reserved cache node offering.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_PurchaseReservedCacheNodesOffering.html>

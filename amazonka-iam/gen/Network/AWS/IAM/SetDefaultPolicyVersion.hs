@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets the specified version of the specified policy as the policy\'s
+-- Sets the specified version of the specified policy as the policy\'s
 -- default (operative) version.
 --
 -- This action affects all users, groups, and roles that the policy is

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a static route associated with a VPN connection between an
+-- Creates a static route associated with a VPN connection between an
 -- existing virtual private gateway and a VPN customer gateway. The static
 -- route allows traffic to be routed from the virtual private gateway to
 -- the VPN customer gateway.

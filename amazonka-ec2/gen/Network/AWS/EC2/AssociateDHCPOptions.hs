@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Associates a set of DHCP options (that you\'ve previously created) with
+-- Associates a set of DHCP options (that you\'ve previously created) with
 -- the specified VPC, or associates no DHCP options with the VPC.
 --
 -- After you associate the options with the VPC, any existing instances and

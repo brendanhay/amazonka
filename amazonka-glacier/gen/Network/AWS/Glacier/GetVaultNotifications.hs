@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation retrieves the @notification-configuration@ subresource of
+-- This operation retrieves the @notification-configuration@ subresource of
 -- the specified vault.
 --
 -- For information about setting a notification configuration on a vault,

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of your configuration documents.
+-- Describes one or more of your configuration documents.
 --
 -- <http://docs.aws.amazon.com/ssm/latest/APIReference/API_ListDocuments.html>
 module Network.AWS.SSM.ListDocuments

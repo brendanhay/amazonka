@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Configures an @Expression@ for the search domain. Used to create new
+-- Configures an @Expression@ for the search domain. Used to create new
 -- expressions and modify existing ones. If the expression exists, the new
 -- configuration replaces the old one. For more information, see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-expressions.html Configuring Expressions>

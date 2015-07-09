@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the analysis schemes configured for a domain. An analysis scheme
+-- Gets the analysis schemes configured for a domain. An analysis scheme
 -- defines language-specific text processing options for a @text@ field.
 -- Can be limited to specific analysis schemes by name. By default, shows
 -- all analysis schemes and includes any pending changes to the

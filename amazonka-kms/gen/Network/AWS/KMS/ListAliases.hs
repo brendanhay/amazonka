@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all of the key aliases in the account.
+-- Lists all of the key aliases in the account.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListAliases.html>
 module Network.AWS.KMS.ListAliases

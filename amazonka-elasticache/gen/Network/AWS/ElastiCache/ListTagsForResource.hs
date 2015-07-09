@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /ListTagsForResource/ action lists all cost allocation tags
+-- The /ListTagsForResource/ action lists all cost allocation tags
 -- currently on the named resource. A /cost allocation tag/ is a key-value
 -- pair where the key is case-sensitive and the value is optional. Cost
 -- allocation tags can be used to categorize and track your AWS costs.

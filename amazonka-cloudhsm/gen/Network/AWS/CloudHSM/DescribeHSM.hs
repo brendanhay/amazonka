@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about an HSM. You can identify the HSM by its ARN
+-- Retrieves information about an HSM. You can identify the HSM by its ARN
 -- or its serial number.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DescribeHSM.html>

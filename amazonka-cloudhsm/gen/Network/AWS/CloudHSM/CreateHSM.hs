@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an uninitialized HSM instance. Running this command provisions
+-- Creates an uninitialized HSM instance. Running this command provisions
 -- an HSM appliance and will result in charges to your AWS account for the
 -- HSM.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers an Amazon EBS volume with a specified stack. A volume can be
+-- Registers an Amazon EBS volume with a specified stack. A volume can be
 -- registered with only one stack at a time. If the volume is already
 -- registered, you must first deregister it by calling DeregisterVolume.
 -- For more information, see

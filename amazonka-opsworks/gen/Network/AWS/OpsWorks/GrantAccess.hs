@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action can be used only with Windows stacks.
+-- This action can be used only with Windows stacks.
 --
 -- Grants RDP access to a Windows instance for a specified time period.
 --

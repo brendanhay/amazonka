@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns an array of Challenge-Handshake Authentication
+-- This operation returns an array of Challenge-Handshake Authentication
 -- Protocol (CHAP) credentials information for a specified iSCSI target,
 -- one for each target-initiator pair.
 --

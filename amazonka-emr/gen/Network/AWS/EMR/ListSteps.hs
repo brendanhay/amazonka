@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Provides a list of steps for the cluster.
+-- Provides a list of steps for the cluster.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListSteps.html>
 module Network.AWS.EMR.ListSteps

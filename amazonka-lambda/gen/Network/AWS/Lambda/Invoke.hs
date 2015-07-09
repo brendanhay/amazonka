@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Invokes a specified Lambda function.
+-- Invokes a specified Lambda function.
 --
 -- This operation requires permission for the @lambda:InvokeFunction@
 -- action.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | List invalidation batches.
+-- List invalidation batches.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListInvalidations.html>
 module Network.AWS.CloudFront.ListInvalidations

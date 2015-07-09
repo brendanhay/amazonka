@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new Amazon Redshift security group. You use security groups to
+-- Creates a new Amazon Redshift security group. You use security groups to
 -- control access to non-VPC clusters.
 --
 -- For information about managing security groups, go to

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new DB subnet group. DB subnet groups must contain at least
+-- Creates a new DB subnet group. DB subnet groups must contain at least
 -- one subnet in at least two AZs in the region.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSubnetGroup.html>

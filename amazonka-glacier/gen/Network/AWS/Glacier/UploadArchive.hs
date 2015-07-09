@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation adds an archive to a vault. This is a synchronous
+-- This operation adds an archive to a vault. This is a synchronous
 -- operation, and for a successful upload, your data is durably persisted.
 -- Amazon Glacier returns the archive ID in the @x-amz-archive-id@ header
 -- of the response.

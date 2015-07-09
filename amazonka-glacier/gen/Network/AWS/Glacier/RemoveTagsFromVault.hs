@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation removes one or more tags from the set of tags attached to
+-- This operation removes one or more tags from the set of tags attached to
 -- a vault. For more information about tags, see
 -- <http://docs.aws.amazon.com/amazonglacier/latest/dev/tagging.html Tagging Amazon Glacier Resources>.
 -- This operation is idempotent. The operation will be successful, even if

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the descriptions of existing applications.
+-- Returns the descriptions of existing applications.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_DescribeApplications.html>
 module Network.AWS.ElasticBeanstalk.DescribeApplications

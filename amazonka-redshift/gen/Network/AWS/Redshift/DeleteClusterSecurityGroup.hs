@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes an Amazon Redshift security group.
+-- Deletes an Amazon Redshift security group.
 --
 -- You cannot delete a security group that is associated with any clusters.
 -- You cannot delete the default security group.

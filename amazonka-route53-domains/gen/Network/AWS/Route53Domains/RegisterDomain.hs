@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation registers a domain. Domains are registered by the AWS
+-- This operation registers a domain. Domains are registered by the AWS
 -- registrar partner, Gandi. For some top-level domains (TLDs), this
 -- operation requires extra parameters.
 --

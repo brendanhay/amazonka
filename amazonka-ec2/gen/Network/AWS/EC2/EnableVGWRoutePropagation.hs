@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables a virtual private gateway (VGW) to propagate routes to the
+-- Enables a virtual private gateway (VGW) to propagate routes to the
 -- specified route table of a VPC.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-EnableVGWRoutePropagation.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns all the metrics filters associated with the specified log group.
+-- Returns all the metrics filters associated with the specified log group.
 -- The list returned in the response is ASCII-sorted by filter name.
 --
 -- By default, this operation returns up to 50 metric filters. If there are

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves settings for the trail associated with the current region for
+-- Retrieves settings for the trail associated with the current region for
 -- your account.
 --
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DescribeTrails.html>

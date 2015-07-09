@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Changes the status of the specified access key from Active to Inactive,
+-- Changes the status of the specified access key from Active to Inactive,
 -- or vice versa. This action can be used to disable a user\'s key as part
 -- of a key rotation work flow.
 --

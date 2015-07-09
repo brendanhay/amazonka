@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the customer master keys.
+-- Lists the customer master keys.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_ListKeys.html>
 module Network.AWS.KMS.ListKeys

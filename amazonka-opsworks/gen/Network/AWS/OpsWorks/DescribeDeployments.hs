@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Requests a description of a specified set of deployments.
+-- Requests a description of a specified set of deployments.
 --
 -- You must specify at least one of the parameters.
 --

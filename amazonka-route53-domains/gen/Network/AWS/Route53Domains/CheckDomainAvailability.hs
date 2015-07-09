@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation checks the availability of one domain name. You can
+-- This operation checks the availability of one domain name. You can
 -- access this API without authenticating. Note that if the availability
 -- status of a domain is pending, you must submit another request to
 -- determine the availability of the domain name.

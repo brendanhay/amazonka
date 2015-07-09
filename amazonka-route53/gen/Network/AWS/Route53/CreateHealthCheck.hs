@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action creates a new health check.
+-- This action creates a new health check.
 --
 -- To create a new health check, send a @POST@ request to the
 -- @2013-04-01\/healthcheck@ resource. The request body must include an XML

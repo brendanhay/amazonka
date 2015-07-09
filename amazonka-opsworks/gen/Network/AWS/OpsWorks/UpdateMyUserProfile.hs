@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates a user\'s SSH public key.
+-- Updates a user\'s SSH public key.
 --
 -- __Required Permissions__: To use this action, an IAM user must have
 -- self-management enabled or an attached policy that explicitly grants

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Terminates the specified instance and optionally adjusts the desired
+-- Terminates the specified instance and optionally adjusts the desired
 -- group size.
 --
 -- This call simply makes a termination request. The instances is not

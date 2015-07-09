@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns all of the tags that are associated with the
+-- This operation returns all of the tags that are associated with the
 -- specified domain.
 --
 -- All tag operations are eventually consistent; subsequent operations may

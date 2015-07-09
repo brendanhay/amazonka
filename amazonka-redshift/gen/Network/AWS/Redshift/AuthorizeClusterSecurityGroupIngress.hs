@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds an inbound (ingress) rule to an Amazon Redshift security group.
+-- Adds an inbound (ingress) rule to an Amazon Redshift security group.
 -- Depending on whether the application accessing your cluster is running
 -- on the Internet or an EC2 instance, you can authorize inbound access to
 -- either a Classless Interdomain Routing (CIDR) IP address range or an EC2

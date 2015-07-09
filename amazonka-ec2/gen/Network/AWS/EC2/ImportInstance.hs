@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an import instance task using metadata from the specified disk
+-- Creates an import instance task using metadata from the specified disk
 -- image. @ImportInstance@ only supports single-volume VMs. To import
 -- multi-volume VMs, use ImportImage. After importing the image, you then
 -- upload it using the @ec2-import-volume@ command in the EC2 command line

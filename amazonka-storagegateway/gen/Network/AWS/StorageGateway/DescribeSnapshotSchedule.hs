@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation describes the snapshot schedule for the specified gateway
+-- This operation describes the snapshot schedule for the specified gateway
 -- volume. The snapshot schedule information includes intervals at which
 -- snapshots are automatically initiated on the volume.
 --

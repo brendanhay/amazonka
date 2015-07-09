@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about the AWS Directory Service directories in the
+-- Retrieves information about the AWS Directory Service directories in the
 -- region that are registered with Amazon WorkSpaces and are available to
 -- your account.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified cluster. You must deregister all container
+-- Deletes the specified cluster. You must deregister all container
 -- instances from this cluster before you may delete it. You can list the
 -- container instances in a cluster with ListContainerInstances and
 -- deregister them with DeregisterContainerInstance.

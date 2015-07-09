@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new @MLModel@ using the data files and the recipe as
+-- Creates a new @MLModel@ using the data files and the recipe as
 -- information sources.
 --
 -- An @MLModel@ is nearly immutable. Users can only update the

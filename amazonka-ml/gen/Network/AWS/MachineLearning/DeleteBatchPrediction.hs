@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Assigns the DELETED status to a @BatchPrediction@, rendering it
+-- Assigns the DELETED status to a @BatchPrediction@, rendering it
 -- unusable.
 --
 -- After using the @DeleteBatchPrediction@ operation, you can use the

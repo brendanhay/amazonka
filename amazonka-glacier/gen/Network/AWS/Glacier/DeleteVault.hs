@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation deletes a vault. Amazon Glacier will delete a vault only
+-- This operation deletes a vault. Amazon Glacier will delete a vault only
 -- if there are no archives in the vault as of the last inventory and there
 -- have been no writes to the vault since the last inventory. If either of
 -- these conditions is not satisfied, the vault deletion fails (that is,

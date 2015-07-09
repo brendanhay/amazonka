@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets one or more parameters of the specified parameter group to their
+-- Sets one or more parameters of the specified parameter group to their
 -- default values and sets the source values of the parameters to
 -- \"engine-default\". To reset the entire parameter group specify the
 -- /ResetAllParameters/ parameter. For parameter changes to take effect you

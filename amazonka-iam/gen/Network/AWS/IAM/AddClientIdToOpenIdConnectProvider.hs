@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds a new client ID (also known as audience) to the list of client IDs
+-- Adds a new client ID (also known as audience) to the list of client IDs
 -- already registered for the specified IAM OpenID Connect provider.
 --
 -- This action is idempotent; it does not fail or return an error if you

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all users, groups, and roles that the specified managed policy is
+-- Lists all users, groups, and roles that the specified managed policy is
 -- attached to.
 --
 -- You can use the optional @EntityFilter@ parameter to limit the results

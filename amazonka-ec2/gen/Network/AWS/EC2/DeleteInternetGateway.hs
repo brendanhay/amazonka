@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified Internet gateway. You must detach the Internet
+-- Deletes the specified Internet gateway. You must detach the Internet
 -- gateway from the VPC before you can delete it.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteInternetGateway.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the password for the specified user, which terminates the
+-- Deletes the password for the specified user, which terminates the
 -- user\'s ability to access AWS services through the AWS Management
 -- Console.
 --

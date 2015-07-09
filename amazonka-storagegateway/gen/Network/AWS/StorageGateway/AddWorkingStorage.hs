@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation configures one or more gateway local disks as working
+-- This operation configures one or more gateway local disks as working
 -- storage for a gateway. This operation is supported only for the
 -- gateway-stored volume architecture. This operation is deprecated method
 -- in cached-volumes API version (20120630). Use AddUploadBuffer instead.

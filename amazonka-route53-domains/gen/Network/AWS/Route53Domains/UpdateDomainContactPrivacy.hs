@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation updates the specified domain contact\'s privacy setting.
+-- This operation updates the specified domain contact\'s privacy setting.
 -- When the privacy option is enabled, personal information such as postal
 -- or email address is hidden from the results of a public WHOIS query. The
 -- privacy services are provided by the AWS registrar, Gandi. For more

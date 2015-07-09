@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified alias. To associate an alias with a different key,
+-- Deletes the specified alias. To associate an alias with a different key,
 -- call UpdateAlias.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DeleteAlias.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Disassociates an Elastic IP address from its instance. The address
+-- Disassociates an Elastic IP address from its instance. The address
 -- remains registered with the stack. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/resources.html Resource Management>.
 --

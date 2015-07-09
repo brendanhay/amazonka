@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation transfers a domain from another registrar to Amazon Route
+-- This operation transfers a domain from another registrar to Amazon Route
 -- 53. When the transfer is complete, the domain is registered with the AWS
 -- registrar partner, Gandi.
 --

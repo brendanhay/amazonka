@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists available reserved DB instance offerings.
+-- Lists available reserved DB instance offerings.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeReservedDBInstancesOfferings.html>
 module Network.AWS.RDS.DescribeReservedDBInstancesOfferings

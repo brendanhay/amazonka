@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a client.
+-- Deletes a client.
 --
 -- <http://docs.aws.amazon.com/cloudhsm/latest/dg/API_DeleteLunaClient.html>
 module Network.AWS.CloudHSM.DeleteLunaClient

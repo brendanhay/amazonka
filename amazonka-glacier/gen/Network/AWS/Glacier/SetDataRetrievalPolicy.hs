@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation sets and then enacts a data retrieval policy in the
+-- This operation sets and then enacts a data retrieval policy in the
 -- region specified in the PUT request. You can set one policy per region
 -- for an AWS account. The policy is enacted within a few minutes of a
 -- successful PUT operation.

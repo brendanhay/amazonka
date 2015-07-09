@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes an @IndexField@ from the search domain. For more information,
+-- Removes an @IndexField@ from the search domain. For more information,
 -- see
 -- <http://docs.aws.amazon.com/cloudsearch/latest/developerguide/configuring-index-fields.html Configuring Index Fields>
 -- in the /Amazon CloudSearch Developer Guide/.

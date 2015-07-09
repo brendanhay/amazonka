@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes attributes of your AWS account. The following are the
+-- Describes attributes of your AWS account. The following are the
 -- supported account attributes:
 --
 -- -   @supported-platforms@: Indicates whether your account can launch

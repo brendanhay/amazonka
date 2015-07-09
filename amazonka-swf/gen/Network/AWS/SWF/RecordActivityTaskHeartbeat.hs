@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Used by activity workers to report to the service that the ActivityTask
+-- Used by activity workers to report to the service that the ActivityTask
 -- represented by the specified @taskToken@ is still making progress. The
 -- worker can also (optionally) specify details of the progress, for
 -- example percent complete, using the @details@ parameter. This action can

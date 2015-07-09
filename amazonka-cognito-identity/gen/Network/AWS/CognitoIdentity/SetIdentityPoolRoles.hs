@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets the roles for an identity pool. These roles are used when making
+-- Sets the roles for an identity pool. These roles are used when making
 -- calls to @GetCredentialsForIdentity@ action.
 --
 -- You must use AWS Developer credentials to call this API.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Delivers up to ten messages to the specified queue. This is a batch
+-- Delivers up to ten messages to the specified queue. This is a batch
 -- version of SendMessage. The result of the send action on each message is
 -- reported individually in the response. The maximum allowed individual
 -- message size is 256 KB (262,144 bytes).

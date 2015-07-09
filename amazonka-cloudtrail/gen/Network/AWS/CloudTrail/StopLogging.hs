@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Suspends the recording of AWS API calls and log file delivery for the
+-- Suspends the recording of AWS API calls and log file delivery for the
 -- specified trail. Under most circumstances, there is no need to use this
 -- action. You can update a trail without stopping it first. This action is
 -- the only way to stop recording.

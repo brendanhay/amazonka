@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes one or more attributes associated with an item. If all
+-- Deletes one or more attributes associated with an item. If all
 -- attributes of the item are deleted, the item is deleted.
 --
 -- @DeleteAttributes@ is an idempotent operation; running it multiple times

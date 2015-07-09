@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Provides the status of all clusters visible to this AWS account. Allows
+-- Provides the status of all clusters visible to this AWS account. Allows
 -- you to filter the list of clusters based on certain criteria; for
 -- example, filtering by cluster creation date and time or by status. This
 -- call returns a maximum of 50 clusters per call, but returns a marker to

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /CreateTable/ operation adds a new table to your account. In an AWS
+-- The /CreateTable/ operation adds a new table to your account. In an AWS
 -- account, table names must be unique within each region. That is, you can
 -- have two tables with same name if you create the tables in different
 -- regions.

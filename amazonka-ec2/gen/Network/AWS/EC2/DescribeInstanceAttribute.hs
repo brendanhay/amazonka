@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the specified attribute of the specified instance. You can
+-- Describes the specified attribute of the specified instance. You can
 -- specify only one attribute at a time. Valid attribute values are:
 -- @instanceType@ | @kernel@ | @ramdisk@ | @userData@ |
 -- @disableApiTermination@ | @instanceInitiatedShutdownBehavior@ |

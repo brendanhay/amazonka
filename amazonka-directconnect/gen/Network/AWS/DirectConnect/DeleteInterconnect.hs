@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified interconnect.
+-- Deletes the specified interconnect.
 --
 -- <http://docs.aws.amazon.com/directconnect/latest/APIReference/API_DeleteInterconnect.html>
 module Network.AWS.DirectConnect.DeleteInterconnect

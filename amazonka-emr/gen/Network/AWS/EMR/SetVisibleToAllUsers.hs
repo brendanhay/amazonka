@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets whether all AWS Identity and Access Management (IAM) users under
+-- Sets whether all AWS Identity and Access Management (IAM) users under
 -- your account can access the specified job flows. This action works on
 -- running job flows. You can also set the visibility of a job flow when
 -- you launch it using the @VisibleToAllUsers@ parameter of RunJobFlow. The

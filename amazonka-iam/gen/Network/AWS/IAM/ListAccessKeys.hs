@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about the access key IDs associated with the
+-- Returns information about the access key IDs associated with the
 -- specified user. If there are none, the action returns an empty list.
 --
 -- Although each user is limited to a small number of keys, you can still

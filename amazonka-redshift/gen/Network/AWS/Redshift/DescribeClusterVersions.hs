@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns descriptions of the available Amazon Redshift cluster versions.
+-- Returns descriptions of the available Amazon Redshift cluster versions.
 -- You can call this operation even before creating any clusters to learn
 -- more about the Amazon Redshift versions. For more information about
 -- managing clusters, go to

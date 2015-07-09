@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Cancels an active conversion task. The task can be the import of an
+-- Cancels an active conversion task. The task can be the import of an
 -- instance or volume. The action removes all artifacts of the conversion,
 -- including a partially uploaded volume or instance. If the conversion is
 -- complete or is in the process of transferring the final disk image, the

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets information about an on-premises instance.
+-- Gets information about an on-premises instance.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetOnPremisesInstance.html>
 module Network.AWS.CodeDeploy.GetOnPremisesInstance

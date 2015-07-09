@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation generates a pre-paid UPS shipping label that you will use
+-- This operation generates a pre-paid UPS shipping label that you will use
 -- to ship your device to AWS for processing.
 --
 -- <http://docs.aws.amazon.com/AWSImportExport/latest/DG/WebGetShippingLabel.html>

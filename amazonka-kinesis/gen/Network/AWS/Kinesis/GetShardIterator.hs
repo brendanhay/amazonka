@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets a shard iterator. A shard iterator expires five minutes after it is
+-- Gets a shard iterator. A shard iterator expires five minutes after it is
 -- returned to the requester.
 --
 -- A shard iterator specifies the position in the shard from which to start

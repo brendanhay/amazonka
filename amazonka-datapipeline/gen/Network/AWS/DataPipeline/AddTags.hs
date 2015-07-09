@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds or modifies tags for the specified pipeline.
+-- Adds or modifies tags for the specified pipeline.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_AddTags.html>
 module Network.AWS.DataPipeline.AddTags

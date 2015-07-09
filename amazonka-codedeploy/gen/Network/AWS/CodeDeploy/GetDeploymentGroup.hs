@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets information about a deployment group.
+-- Gets information about a deployment group.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_GetDeploymentGroup.html>
 module Network.AWS.CodeDeploy.GetDeploymentGroup

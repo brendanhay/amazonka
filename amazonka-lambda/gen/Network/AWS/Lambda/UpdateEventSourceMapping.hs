@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | You can update an event source mapping. This is useful if you want to
+-- You can update an event source mapping. This is useful if you want to
 -- change the parameters of the existing mapping without losing your
 -- position in the stream. You can change which function will receive the
 -- stream records, but to change the stream itself, you must create a new

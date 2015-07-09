@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified Auto Scaling policy.
+-- Deletes the specified Auto Scaling policy.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DeletePolicy.html>
 module Network.AWS.AutoScaling.DeletePolicy

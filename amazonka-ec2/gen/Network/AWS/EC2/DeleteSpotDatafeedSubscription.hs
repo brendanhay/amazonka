@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the data feed for Spot Instances. For more information, see
+-- Deletes the data feed for Spot Instances. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-data-feeds.html Spot Instance Data Feed>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
 --

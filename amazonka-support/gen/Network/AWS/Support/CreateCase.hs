@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new case in the AWS Support Center. This operation is modeled
+-- Creates a new case in the AWS Support Center. This operation is modeled
 -- on the behavior of the AWS Support Center
 -- <https://console.aws.amazon.com/support/home#/case/create Create Case>
 -- page. Its parameters require you to specify the following information:

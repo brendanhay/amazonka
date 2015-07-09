@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation deletes a snapshot of a volume.
+-- This operation deletes a snapshot of a volume.
 --
 -- You can take snapshots of your gateway volumes on a scheduled or ad-hoc
 -- basis. This API enables you to delete a snapshot schedule for a volume.

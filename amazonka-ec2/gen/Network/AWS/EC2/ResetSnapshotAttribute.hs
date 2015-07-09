@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Resets permission settings for the specified snapshot.
+-- Resets permission settings for the specified snapshot.
 --
 -- For more information on modifying snapshot permissions, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-modifying-snapshot-permissions.html Sharing Snapshots>

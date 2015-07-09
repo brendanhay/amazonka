@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new delivery channel object to deliver the configuration
+-- Creates a new delivery channel object to deliver the configuration
 -- information to an Amazon S3 bucket, and to an Amazon SNS topic.
 --
 -- You can use this action to change the Amazon S3 bucket or an Amazon SNS

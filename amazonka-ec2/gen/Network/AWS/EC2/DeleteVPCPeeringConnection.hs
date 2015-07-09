@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a VPC peering connection. Either the owner of the requester VPC
+-- Deletes a VPC peering connection. Either the owner of the requester VPC
 -- or the owner of the peer VPC can delete the VPC peering connection if
 -- it\'s in the @active@ state. The owner of the requester VPC can delete a
 -- VPC peering connection in the @pending-acceptance@ state.

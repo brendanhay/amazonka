@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables multi-factor authentication (MFA) with Remote Authentication
+-- Enables multi-factor authentication (MFA) with Remote Authentication
 -- Dial In User Service (RADIUS) for an AD Connector directory.
 --
 -- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_EnableRadius.html>

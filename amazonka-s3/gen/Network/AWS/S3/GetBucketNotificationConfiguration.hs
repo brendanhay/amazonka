@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the notification configuration of a bucket.
+-- Returns the notification configuration of a bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketNotificationConfiguration.html>
 module Network.AWS.S3.GetBucketNotificationConfiguration

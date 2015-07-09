@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation updates the type of medium changer in a gateway-VTL. When
+-- This operation updates the type of medium changer in a gateway-VTL. When
 -- you activate a gateway-VTL, you select a medium changer type for the
 -- gateway-VTL. This operation enables you to select a different type of
 -- medium changer after a gateway-VTL is activated.

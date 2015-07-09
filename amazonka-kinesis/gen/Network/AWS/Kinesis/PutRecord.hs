@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Puts (writes) a single data record from a producer into an Amazon
+-- Puts (writes) a single data record from a producer into an Amazon
 -- Kinesis stream. Call @PutRecord@ to send data from the producer into the
 -- Amazon Kinesis stream for real-time ingestion and subsequent processing,
 -- one record at a time. Each shard can support up to 1000 records written

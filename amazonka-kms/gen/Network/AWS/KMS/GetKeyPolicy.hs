@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves a policy attached to the specified key.
+-- Retrieves a policy attached to the specified key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_GetKeyPolicy.html>
 module Network.AWS.KMS.GetKeyPolicy

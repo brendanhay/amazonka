@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes Amazon EC2 Container Service container instances. Returns
+-- Describes Amazon EC2 Container Service container instances. Returns
 -- metadata about registered and remaining resources on each container
 -- instance requested.
 --

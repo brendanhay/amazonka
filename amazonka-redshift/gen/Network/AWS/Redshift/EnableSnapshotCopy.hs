@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables the automatic copy of snapshots from one region to another
+-- Enables the automatic copy of snapshots from one region to another
 -- region for a specified cluster.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_EnableSnapshotCopy.html>

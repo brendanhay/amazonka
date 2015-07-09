@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the descriptions of the reserved nodes.
+-- Returns the descriptions of the reserved nodes.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DescribeReservedNodes.html>
 module Network.AWS.Redshift.DescribeReservedNodes

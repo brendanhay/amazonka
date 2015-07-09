@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of virtual private gateways owned by the AWS account.
+-- Returns a list of virtual private gateways owned by the AWS account.
 --
 -- You can create one or more AWS Direct Connect private virtual interfaces
 -- linking to a virtual private gateway. A virtual private gateway can be

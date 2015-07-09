@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the user\'s current sending limits.
+-- Returns the user\'s current sending limits.
 --
 -- This action is throttled at one request per second.
 --

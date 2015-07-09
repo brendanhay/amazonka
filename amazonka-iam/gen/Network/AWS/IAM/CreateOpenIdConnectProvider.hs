@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an IAM entity to describe an identity provider (IdP) that
+-- Creates an IAM entity to describe an identity provider (IdP) that
 -- supports <http://openid.net/connect/ OpenID Connect (OIDC)>.
 --
 -- The OIDC provider that you create with this operation can be used as a

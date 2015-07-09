@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes existing tags from the specified pipeline.
+-- Removes existing tags from the specified pipeline.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_RemoveTags.html>
 module Network.AWS.DataPipeline.RemoveTags

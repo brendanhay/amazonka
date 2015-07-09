@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Obtains information about the WorkSpace bundles that are available to
+-- Obtains information about the WorkSpace bundles that are available to
 -- your account in the specified region.
 --
 -- You can filter the results with either the @BundleIds@ parameter, or the

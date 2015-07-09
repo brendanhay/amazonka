@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of the tags for your EC2 resources.
+-- Describes one or more of the tags for your EC2 resources.
 --
 -- For more information about tags, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html Tagging Your Resources>

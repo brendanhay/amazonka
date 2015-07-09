@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new application.
+-- Creates a new application.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_CreateApplication.html>
 module Network.AWS.CodeDeploy.CreateApplication

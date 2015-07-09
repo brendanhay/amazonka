@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Generates a data key that you can use in your application to locally
+-- Generates a data key that you can use in your application to locally
 -- encrypt data. This call returns a plaintext version of the key in the
 -- @Plaintext@ field of the response object and an encrypted copy of the
 -- key in the @CiphertextBlob@ field. The key is encrypted by using the

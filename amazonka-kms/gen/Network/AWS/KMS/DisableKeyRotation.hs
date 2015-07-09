@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Disables rotation of the specified key.
+-- Disables rotation of the specified key.
 --
 -- <http://docs.aws.amazon.com/kms/latest/APIReference/API_DisableKeyRotation.html>
 module Network.AWS.KMS.DisableKeyRotation

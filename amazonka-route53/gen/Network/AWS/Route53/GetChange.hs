@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action returns the current status of a change batch request. The
+-- This action returns the current status of a change batch request. The
 -- status is one of the following values:
 --
 -- - @PENDING@ indicates that the changes in this request have not

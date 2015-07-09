@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of existing clusters.
+-- Returns a list of existing clusters.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListClusters.html>
 module Network.AWS.ECS.ListClusters

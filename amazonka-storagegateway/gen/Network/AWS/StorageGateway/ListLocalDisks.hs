@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns a list of the gateway\'s local disks. To specify
+-- This operation returns a list of the gateway\'s local disks. To specify
 -- which gateway to describe, you use the Amazon Resource Name (ARN) of the
 -- gateway in the body of the request.
 --

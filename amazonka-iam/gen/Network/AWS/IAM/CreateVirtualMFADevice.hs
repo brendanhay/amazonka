@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new virtual MFA device for the AWS account. After creating the
+-- Creates a new virtual MFA device for the AWS account. After creating the
 -- virtual MFA, use EnableMFADevice to attach the MFA device to an IAM
 -- user. For more information about creating and working with virtual MFA
 -- devices, go to

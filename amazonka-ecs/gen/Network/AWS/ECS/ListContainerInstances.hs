@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of container instances in a specified cluster.
+-- Returns a list of container instances in a specified cluster.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_ListContainerInstances.html>
 module Network.AWS.ECS.ListContainerInstances

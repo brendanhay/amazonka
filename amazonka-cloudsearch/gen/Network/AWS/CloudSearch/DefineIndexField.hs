@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Configures an @IndexField@ for the search domain. Used to create new
+-- Configures an @IndexField@ for the search domain. Used to create new
 -- fields and modify existing ones. You must specify the name of the domain
 -- you are configuring and an index field configuration. The index field
 -- configuration specifies a unique name, the index field type, and the

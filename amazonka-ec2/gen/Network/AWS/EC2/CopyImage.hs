@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Initiates the copy of an AMI from the specified source region to the
+-- Initiates the copy of an AMI from the specified source region to the
 -- current region. You specify the destination region by using its endpoint
 -- when making the request. AMIs that use encrypted EBS snapshots cannot be
 -- copied with this method.

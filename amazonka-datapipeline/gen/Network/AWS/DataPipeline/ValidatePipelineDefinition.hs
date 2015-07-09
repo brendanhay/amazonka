@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Validates the specified pipeline definition to ensure that it is well
+-- Validates the specified pipeline definition to ensure that it is well
 -- formed and can be run without error.
 --
 -- <http://docs.aws.amazon.com/datapipeline/latest/APIReference/API_ValidatePipelineDefinition.html>

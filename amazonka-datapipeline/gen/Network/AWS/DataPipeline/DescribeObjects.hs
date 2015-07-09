@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the object definitions for a set of objects associated with the
+-- Gets the object definitions for a set of objects associated with the
 -- pipeline. Object definitions are composed of a set of fields that define
 -- the properties of the object.
 --

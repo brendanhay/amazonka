@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of interconnects owned by the AWS account.
+-- Returns a list of interconnects owned by the AWS account.
 --
 -- If an interconnect ID is provided, it will only return this particular
 -- interconnect.

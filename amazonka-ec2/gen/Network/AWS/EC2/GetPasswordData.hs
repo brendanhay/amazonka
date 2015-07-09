@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves the encrypted administrator password for an instance running
+-- Retrieves the encrypted administrator password for an instance running
 -- Windows.
 --
 -- The Windows password is generated at boot if the @EC2Config@ service

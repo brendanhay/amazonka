@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Changes the visibility timeout of a specified message in a queue to a
+-- Changes the visibility timeout of a specified message in a queue to a
 -- new value. The maximum allowed timeout value you can set the value to is
 -- 12 hours. This means you can\'t extend the timeout of a message in an
 -- existing queue to more than a total visibility timeout of 12 hours. (For

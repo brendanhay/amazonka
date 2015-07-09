@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | SetTerminationProtection locks a job flow so the Amazon EC2 instances in
+-- SetTerminationProtection locks a job flow so the Amazon EC2 instances in
 -- the cluster cannot be terminated by user intervention, an API call, or
 -- in the event of a job-flow error. The cluster still terminates upon
 -- successful completion of the job flow. Calling SetTerminationProtection

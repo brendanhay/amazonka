@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets the attributes for an endpoint for a device on one of the supported
+-- Sets the attributes for an endpoint for a device on one of the supported
 -- push notification services, such as GCM and APNS. For more information,
 -- see
 -- <http://docs.aws.amazon.com/sns/latest/dg/SNSMobilePush.html Using Amazon SNS Mobile Push Notifications>.

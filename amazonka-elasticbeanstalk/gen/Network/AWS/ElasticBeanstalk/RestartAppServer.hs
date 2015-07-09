@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Causes the environment to restart the application container server
+-- Causes the environment to restart the application container server
 -- running on each Amazon EC2 instance.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_RestartAppServer.html>

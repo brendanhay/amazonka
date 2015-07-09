@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation returns the current status of an operation that is not
+-- This operation returns the current status of an operation that is not
 -- completed.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/api-GetOperationDetail.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Confirm the creation of a hosted connection on an interconnect.
+-- Confirm the creation of a hosted connection on an interconnect.
 --
 -- Upon creation, the hosted connection is initially in the \'Ordering\'
 -- state, and will remain in this state until the owner calls

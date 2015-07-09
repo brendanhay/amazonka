@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC
+-- Disables ClassicLink for a VPC. You cannot disable ClassicLink for a VPC
 -- that has EC2-Classic instances linked to it.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DisableVPCClassicLink.html>

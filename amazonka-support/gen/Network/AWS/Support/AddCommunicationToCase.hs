@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds additional customer communication to an AWS Support case. You use
+-- Adds additional customer communication to an AWS Support case. You use
 -- the @CaseId@ value to identify the case to add communication to. You can
 -- list a set of email addresses to copy on the communication using the
 -- @CcEmailAddresses@ value. The @CommunicationBody@ value contains the

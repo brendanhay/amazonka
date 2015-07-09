@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Enables the specified MFA device and associates it with the specified
+-- Enables the specified MFA device and associates it with the specified
 -- user name. When enabled, the MFA device is required for every subsequent
 -- login by the user name associated with the device.
 --

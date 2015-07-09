@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the scaling process types for use with ResumeProcesses and
+-- Describes the scaling process types for use with ResumeProcesses and
 -- SuspendProcesses.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeScalingProcessTypes.html>

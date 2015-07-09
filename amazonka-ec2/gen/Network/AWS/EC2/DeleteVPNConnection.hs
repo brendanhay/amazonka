@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified VPN connection.
+-- Deletes the specified VPN connection.
 --
 -- If you\'re deleting the VPC and its associated components, we recommend
 -- that you detach the virtual private gateway from the VPC and delete the

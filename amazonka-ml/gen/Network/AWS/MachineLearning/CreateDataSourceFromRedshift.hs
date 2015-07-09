@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a @DataSource@ from
+-- Creates a @DataSource@ from
 -- <http://aws.amazon.com/redshift/ Amazon Redshift>. A @DataSource@
 -- references data that can be used to perform either CreateMLModel,
 -- CreateEvaluation or CreateBatchPrediction operations.

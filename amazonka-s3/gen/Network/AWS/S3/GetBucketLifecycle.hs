@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the lifecycle configuration information set on the bucket.
+-- Returns the lifecycle configuration information set on the bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketLifecycle.html>
 module Network.AWS.S3.GetBucketLifecycle

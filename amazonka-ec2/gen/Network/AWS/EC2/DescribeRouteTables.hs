@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of your route tables.
+-- Describes one or more of your route tables.
 --
 -- Each subnet in your VPC must be associated with a route table. If a
 -- subnet is not explicitly associated with any route table, it is

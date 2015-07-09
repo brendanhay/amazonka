@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Aborts a multipart upload.
+-- Aborts a multipart upload.
 --
 -- To verify that all parts have been removed, so you don\'t get charged
 -- for the part storage, you should call the List Parts operation and

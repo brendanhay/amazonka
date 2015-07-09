@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a snapshot of an existing directory.
+-- Creates a snapshot of an existing directory.
 --
 -- You cannot take snapshots of extended or connected directories.
 --

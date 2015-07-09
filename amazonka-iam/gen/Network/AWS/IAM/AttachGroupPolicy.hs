@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Attaches the specified managed policy to the specified group.
+-- Attaches the specified managed policy to the specified group.
 --
 -- You use this API to attach a managed policy to a group. To embed an
 -- inline policy in a group, use PutGroupPolicy.

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about the specified user, including the user\'s
+-- Retrieves information about the specified user, including the user\'s
 -- creation date, path, unique ID, and ARN.
 --
 -- If you do not specify a user name, IAM determines the user name

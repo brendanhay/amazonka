@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new DB parameter group.
+-- Creates a new DB parameter group.
 --
 -- A DB parameter group is initially created with the default parameters
 -- for the database engine used by the DB instance. To provide custom

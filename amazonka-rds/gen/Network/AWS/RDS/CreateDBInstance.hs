@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new DB instance.
+-- Creates a new DB instance.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBInstance.html>
 module Network.AWS.RDS.CreateDBInstance

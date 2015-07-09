@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Configures the availability options for a domain. Enabling the Multi-AZ
+-- Configures the availability options for a domain. Enabling the Multi-AZ
 -- option expands an Amazon CloudSearch domain to an additional
 -- Availability Zone in the same Region to increase fault tolerance in the
 -- event of a service disruption. Changes to the Multi-AZ option can take

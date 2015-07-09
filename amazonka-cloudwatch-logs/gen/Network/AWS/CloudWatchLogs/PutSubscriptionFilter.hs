@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates or updates a subscription filter and associates it with the
+-- Creates or updates a subscription filter and associates it with the
 -- specified log group. Subscription filters allow you to subscribe to a
 -- real-time stream of log events ingested through @PutLogEvents@ requests
 -- and have them delivered to a specific destination. Currently the only

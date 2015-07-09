@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new item, or replaces an old item with a new item. If an item
+-- Creates a new item, or replaces an old item with a new item. If an item
 -- that has the same primary key as the new item already exists in the
 -- specified table, the new item completely replaces the existing item. You
 -- can perform a conditional put operation (add a new item if one with the

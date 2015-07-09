@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sets a stack policy for a specified stack.
+-- Sets a stack policy for a specified stack.
 --
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/APIReference/API_SetStackPolicy.html>
 module Network.AWS.CloudFormation.SetStackPolicy

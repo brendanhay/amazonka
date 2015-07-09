@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a set of temporary credentials for an AWS account or IAM user.
+-- Returns a set of temporary credentials for an AWS account or IAM user.
 -- The credentials consist of an access key ID, a secret access key, and a
 -- security token. Typically, you use @GetSessionToken@ if you want to use
 -- MFA to protect programmatic calls to specific AWS APIs like Amazon EC2

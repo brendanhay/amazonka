@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DeleteSnapshot/ action deletes an existing snapshot. When you
+-- The /DeleteSnapshot/ action deletes an existing snapshot. When you
 -- receive a successful response from this action, ElastiCache immediately
 -- begins deleting the snapshot; you cannot cancel or revert this action.
 --

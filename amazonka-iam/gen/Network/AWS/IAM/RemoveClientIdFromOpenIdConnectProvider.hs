@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes the specified client ID (also known as audience) from the list
+-- Removes the specified client ID (also known as audience) from the list
 -- of client IDs registered for the specified IAM OpenID Connect provider.
 --
 -- This action is idempotent; it does not fail or return an error if you

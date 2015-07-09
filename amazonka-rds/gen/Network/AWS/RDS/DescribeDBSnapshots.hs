@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns information about DB snapshots. This API supports pagination.
+-- Returns information about DB snapshots. This API supports pagination.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DescribeDBSnapshots.html>
 module Network.AWS.RDS.DescribeDBSnapshots

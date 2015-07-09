@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation lists in-progress multipart uploads.
+-- This operation lists in-progress multipart uploads.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/ListMultipartUploads.html>
 module Network.AWS.S3.ListMultipartUploads

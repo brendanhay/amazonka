@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a placement group that you launch cluster instances into. You
+-- Creates a placement group that you launch cluster instances into. You
 -- must give the group a name that\'s unique within the scope of your
 -- account.
 --

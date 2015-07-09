@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Revokes ingress from a DBSecurityGroup for previously authorized IP
+-- Revokes ingress from a DBSecurityGroup for previously authorized IP
 -- ranges or EC2 or VPC Security Groups. Required parameters for this API
 -- are one of CIDRIP, EC2SecurityGroupId for VPC, or
 -- (EC2SecurityGroupOwnerId and either EC2SecurityGroupName or

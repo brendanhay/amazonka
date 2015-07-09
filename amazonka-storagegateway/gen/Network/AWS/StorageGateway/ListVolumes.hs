@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation lists the iSCSI stored volumes of a gateway. Results are
+-- This operation lists the iSCSI stored volumes of a gateway. Results are
 -- sorted by volume ARN. The response includes only the volume ARNs. If you
 -- want additional volume information, use the DescribeStorediSCSIVolumes
 -- API.

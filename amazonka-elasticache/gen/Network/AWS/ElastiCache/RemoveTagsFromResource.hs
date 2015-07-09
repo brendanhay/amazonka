@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /RemoveTagsFromResource/ action removes the tags identified by the
+-- The /RemoveTagsFromResource/ action removes the tags identified by the
 -- @TagKeys@ list from the named resource.
 --
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/APIReference/API_RemoveTagsFromResource.html>

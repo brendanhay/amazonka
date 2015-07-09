@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes one or more tags from one or more on-premises instances.
+-- Removes one or more tags from one or more on-premises instances.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_RemoveTagsFromOnPremisesInstances.html>
 module Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances

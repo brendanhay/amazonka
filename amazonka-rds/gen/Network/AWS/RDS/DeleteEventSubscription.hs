@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes an RDS event notification subscription.
+-- Deletes an RDS event notification subscription.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_DeleteEventSubscription.html>
 module Network.AWS.RDS.DeleteEventSubscription

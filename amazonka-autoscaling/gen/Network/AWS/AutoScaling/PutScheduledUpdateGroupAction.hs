@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates or updates a scheduled scaling action for an Auto Scaling group.
+-- Creates or updates a scheduled scaling action for an Auto Scaling group.
 -- When updating a scheduled scaling action, if you leave a parameter
 -- unspecified, the corresponding value remains unchanged in the affected
 -- Auto Scaling group.

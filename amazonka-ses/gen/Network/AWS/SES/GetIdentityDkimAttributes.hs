@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the current status of Easy DKIM signing for an entity. For
+-- Returns the current status of Easy DKIM signing for an entity. For
 -- domain name identities, this action also returns the DKIM tokens that
 -- are required for Easy DKIM signing, and whether Amazon SES has
 -- successfully verified that these tokens have been published.

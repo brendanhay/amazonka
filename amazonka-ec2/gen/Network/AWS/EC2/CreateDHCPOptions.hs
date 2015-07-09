@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a set of DHCP options for your VPC. After creating the set, you
+-- Creates a set of DHCP options for your VPC. After creating the set, you
 -- must associate it with the VPC, causing all existing and new instances
 -- that you launch in the VPC to use this set of DHCP options. The
 -- following are the individual DHCP options you can specify. For more

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists all managed policies that are attached to the specified user.
+-- Lists all managed policies that are attached to the specified user.
 --
 -- A user can also have inline policies embedded with it. To list the
 -- inline policies for a user, use the ListUserPolicies API. For

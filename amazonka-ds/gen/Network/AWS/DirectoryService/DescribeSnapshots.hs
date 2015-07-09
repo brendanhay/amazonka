@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Obtains information about the directory snapshots that belong to this
+-- Obtains information about the directory snapshots that belong to this
 -- account.
 --
 -- This operation supports pagination with the use of the /NextToken/

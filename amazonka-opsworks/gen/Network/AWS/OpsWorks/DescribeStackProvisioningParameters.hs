@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Requests a description of a stack\'s provisioning parameters.
+-- Requests a description of a stack\'s provisioning parameters.
 --
 -- __Required Permissions__: To use this action, an IAM user must have a
 -- Show, Deploy, or Manage permissions level for the stack or an attached

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Tells the search domain to start indexing its documents using the latest
+-- Tells the search domain to start indexing its documents using the latest
 -- indexing options. This operation must be invoked to activate options
 -- whose OptionStatus is @RequiresIndexDocuments@.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Generates a stickiness policy with sticky session lifetimes controlled
+-- Generates a stickiness policy with sticky session lifetimes controlled
 -- by the lifetime of the browser (user-agent) or a specified expiration
 -- period. This policy can be associated only with HTTP\/HTTPS listeners.
 --

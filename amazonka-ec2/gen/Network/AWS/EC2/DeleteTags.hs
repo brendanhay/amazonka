@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified set of tags from the specified set of resources.
+-- Deletes the specified set of tags from the specified set of resources.
 -- This call is designed to follow a @DescribeTags@ request.
 --
 -- For more information about tags, see

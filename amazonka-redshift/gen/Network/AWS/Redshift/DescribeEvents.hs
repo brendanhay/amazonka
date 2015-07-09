@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns events related to clusters, security groups, snapshots, and
+-- Returns events related to clusters, security groups, snapshots, and
 -- parameter groups for the past 14 days. Events specific to a particular
 -- cluster, security group, snapshot or parameter group can be obtained by
 -- providing the name as a parameter. By default, the past hour of events

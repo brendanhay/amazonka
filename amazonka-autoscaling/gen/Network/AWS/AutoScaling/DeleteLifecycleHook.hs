@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified lifecycle hook.
+-- Deletes the specified lifecycle hook.
 --
 -- If there are any outstanding lifecycle actions, they are completed first
 -- (@ABANDON@ for launching instances, @CONTINUE@ for terminating

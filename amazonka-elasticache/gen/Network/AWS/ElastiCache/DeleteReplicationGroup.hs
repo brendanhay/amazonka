@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DeleteReplicationGroup/ action deletes an existing replication
+-- The /DeleteReplicationGroup/ action deletes an existing replication
 -- group. By default, this action deletes the entire replication group,
 -- including the primary cluster and all of the read replicas. You can
 -- optionally delete only the read replicas, while retaining the primary

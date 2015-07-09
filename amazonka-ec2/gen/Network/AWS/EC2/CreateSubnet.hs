@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a subnet in an existing VPC.
+-- Creates a subnet in an existing VPC.
 --
 -- When you create each subnet, you provide the VPC ID and the CIDR block
 -- you want for the subnet. After you create a subnet, you can\'t change

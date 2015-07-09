@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the code for the specified Lambda function. This operation must
+-- Updates the code for the specified Lambda function. This operation must
 -- only be used on an existing Lambda function and cannot be used to update
 -- the function configuration.
 --

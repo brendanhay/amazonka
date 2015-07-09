@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the configuration for the specified Auto Scaling group.
+-- Updates the configuration for the specified Auto Scaling group.
 --
 -- To update an Auto Scaling group with a launch configuration with
 -- @InstanceMonitoring@ set to @False@, you must first disable the

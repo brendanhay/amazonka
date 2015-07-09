@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the status of one or more instances.
+-- Describes the status of one or more instances.
 --
 -- Instance status includes the following components:
 --

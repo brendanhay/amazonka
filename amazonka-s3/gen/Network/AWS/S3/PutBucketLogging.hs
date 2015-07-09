@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Set the logging parameters for a bucket and to specify permissions for
+-- Set the logging parameters for a bucket and to specify permissions for
 -- who can view and modify the logging parameters. To set the logging
 -- status of a bucket, you must be the bucket owner.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of event source mappings you created using the
+-- Returns a list of event source mappings you created using the
 -- @CreateEventSourceMapping@ (see CreateEventSourceMapping), where you
 -- identify a stream as an event source. This list does not include Amazon
 -- S3 event sources.

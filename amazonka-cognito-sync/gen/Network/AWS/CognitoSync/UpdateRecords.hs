@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Posts updates to records and adds and deletes records for a dataset and
+-- Posts updates to records and adds and deletes records for a dataset and
 -- user.
 --
 -- The sync count in the record patch is your last known sync count for

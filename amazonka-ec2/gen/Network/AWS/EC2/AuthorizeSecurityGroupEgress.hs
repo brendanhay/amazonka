@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds one or more egress rules to a security group for use with a VPC.
+-- Adds one or more egress rules to a security group for use with a VPC.
 -- Specifically, this action permits instances to send traffic to one or
 -- more destination CIDR IP address ranges, or to one or more destination
 -- security groups for the same VPC.

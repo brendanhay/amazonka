@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Starts an execution of the workflow type in the specified domain using
+-- Starts an execution of the workflow type in the specified domain using
 -- the provided @workflowId@ and input data.
 --
 -- This action returns the newly started workflow execution.

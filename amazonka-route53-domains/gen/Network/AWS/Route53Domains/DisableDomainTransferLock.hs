@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation removes the transfer lock on the domain (specifically the
+-- This operation removes the transfer lock on the domain (specifically the
 -- @clientTransferProhibited@ status) to allow domain transfers. We
 -- recommend you refrain from performing this action unless you intend to
 -- transfer the domain to a different registrar. Successful submission

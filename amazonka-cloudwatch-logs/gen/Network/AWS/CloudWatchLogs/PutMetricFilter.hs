@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates or updates a metric filter and associates it with the specified
+-- Creates or updates a metric filter and associates it with the specified
 -- log group. Metric filters allow you to configure rules to extract metric
 -- data from log events ingested through @PutLogEvents@ requests.
 --

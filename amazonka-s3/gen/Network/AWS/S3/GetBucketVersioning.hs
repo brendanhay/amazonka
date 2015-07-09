@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the versioning state of a bucket.
+-- Returns the versioning state of a bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/GetBucketVersioning.html>
 module Network.AWS.S3.GetBucketVersioning

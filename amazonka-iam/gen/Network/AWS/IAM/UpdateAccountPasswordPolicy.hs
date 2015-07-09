@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the password policy settings for the AWS account.
+-- Updates the password policy settings for the AWS account.
 --
 -- This action does not support partial updates. No parameters are
 -- required, but if you do not specify a parameter, that parameter\'s value

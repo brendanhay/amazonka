@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Cancels the specified Reserved Instance listing in the Reserved Instance
+-- Cancels the specified Reserved Instance listing in the Reserved Instance
 -- Marketplace.
 --
 -- For more information, see

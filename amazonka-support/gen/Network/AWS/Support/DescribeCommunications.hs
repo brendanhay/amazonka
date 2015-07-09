@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns communications (and attachments) for one or more support cases.
+-- Returns communications (and attachments) for one or more support cases.
 -- You can use the @AfterTime@ and @BeforeTime@ parameters to filter by
 -- date. You can use the @CaseId@ parameter to restrict the results to a
 -- particular case.

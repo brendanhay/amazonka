@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Provides information to AWS about your VPN customer gateway device. The
+-- Provides information to AWS about your VPN customer gateway device. The
 -- customer gateway is the appliance at your end of the VPN connection.
 -- (The device on the AWS side of the VPN connection is the virtual private
 -- gateway.) You must provide the Internet-routable IP address of the

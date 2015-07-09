@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the running instances for the specified Spot fleet.
+-- Describes the running instances for the specified Spot fleet.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSpotFleetInstances.html>
 module Network.AWS.EC2.DescribeSpotFleetInstances

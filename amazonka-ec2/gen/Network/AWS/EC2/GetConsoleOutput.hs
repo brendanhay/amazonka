@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the console output for the specified instance.
+-- Gets the console output for the specified instance.
 --
 -- Instances do not have a physical monitor through which you can view
 -- their console output. They also lack physical controls that allow you to

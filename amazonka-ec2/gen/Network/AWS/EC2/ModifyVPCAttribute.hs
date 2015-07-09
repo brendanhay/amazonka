@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies the specified attribute of the specified VPC.
+-- Modifies the specified attribute of the specified VPC.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-ModifyVPCAttribute.html>
 module Network.AWS.EC2.ModifyVPCAttribute

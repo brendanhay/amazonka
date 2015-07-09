@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | You can remove individual permissions from an access policy associated
+-- You can remove individual permissions from an access policy associated
 -- with a Lambda function by providing a Statement ID.
 --
 -- Note that removal of a permission will cause an active event source to

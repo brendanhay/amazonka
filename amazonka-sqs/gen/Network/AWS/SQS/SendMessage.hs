@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Delivers a message to the specified queue. With Amazon SQS, you now have
+-- Delivers a message to the specified queue. With Amazon SQS, you now have
 -- the ability to send large payload messages that are up to 256KB (262,144
 -- bytes) in size. To send large payloads, you must use an AWS SDK that
 -- supports SigV4 signing. To verify whether SigV4 is supported for an AWS

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Set the website configuration for a bucket.
+-- Set the website configuration for a bucket.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/PutBucketWebsite.html>
 module Network.AWS.S3.PutBucketWebsite

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes and recreates all of the AWS resources (for example: the Auto
+-- Deletes and recreates all of the AWS resources (for example: the Auto
 -- Scaling group, load balancer, etc.) for a specified environment and
 -- forces a restart.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation adds the specified tags to a vault. Each tag is composed
+-- This operation adds the specified tags to a vault. Each tag is composed
 -- of a key and a value. Each vault can have up to 10 tags. If your request
 -- would cause the tag limit for the vault to be exceeded, the operation
 -- throws the @LimitExceededException@ error. If a tag already exists on

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the access policy, containing a list of permissions granted via
+-- Returns the access policy, containing a list of permissions granted via
 -- the @AddPermission@ API, associated with the specified bucket.
 --
 -- You need permission for the @lambda:GetPolicy action.@

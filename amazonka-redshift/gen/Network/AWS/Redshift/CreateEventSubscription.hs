@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates an Amazon Redshift event notification subscription. This action
+-- Creates an Amazon Redshift event notification subscription. This action
 -- requires an ARN (Amazon Resource Name) of an Amazon SNS topic created by
 -- either the Amazon Redshift console, the Amazon SNS console, or the
 -- Amazon SNS API. To obtain an ARN with Amazon SNS, you must create a

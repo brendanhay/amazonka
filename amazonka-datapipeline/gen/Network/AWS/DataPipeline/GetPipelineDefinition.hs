@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets the definition of the specified pipeline. You can call
+-- Gets the definition of the specified pipeline. You can call
 -- @GetPipelineDefinition@ to retrieve the pipeline definition that you
 -- provided using PutPipelineDefinition.
 --

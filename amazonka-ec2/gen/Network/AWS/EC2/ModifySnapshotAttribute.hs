@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds or removes permission settings for the specified snapshot. You may
+-- Adds or removes permission settings for the specified snapshot. You may
 -- add or remove specified AWS account IDs from a snapshot\'s list of
 -- create volume permissions, but you cannot do both in a single API call.
 -- If you need to both add and remove account IDs for a snapshot, you must

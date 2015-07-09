@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the deployments within a deployment group for an application
+-- Lists the deployments within a deployment group for an application
 -- registered with the applicable IAM user or AWS account.
 --
 -- <http://docs.aws.amazon.com/codedeploy/latest/APIReference/API_ListDeployments.html>

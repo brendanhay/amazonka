@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new DB security group. DB security groups control access to a
+-- Creates a new DB security group. DB security groups control access to a
 -- DB instance.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSecurityGroup.html>

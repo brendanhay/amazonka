@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Displays all virtual interfaces for an AWS account. Virtual interfaces
+-- Displays all virtual interfaces for an AWS account. Virtual interfaces
 -- deleted fewer than 15 minutes before DescribeVirtualInterfaces is called
 -- are also returned. If a connection ID is included then only virtual
 -- interfaces associated with this connection will be returned. If a

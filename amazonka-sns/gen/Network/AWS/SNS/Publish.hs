@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Sends a message to all of a topic\'s subscribed endpoints. When a
+-- Sends a message to all of a topic\'s subscribed endpoints. When a
 -- @messageId@ is returned, the message has been saved and Amazon SNS will
 -- attempt to deliver it to the topic\'s subscribers shortly. The format of
 -- the outgoing message to each subscribed endpoint depends on the

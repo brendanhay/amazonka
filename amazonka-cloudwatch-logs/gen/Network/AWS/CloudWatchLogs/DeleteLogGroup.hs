@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the log group with the specified name and permanently deletes
+-- Deletes the log group with the specified name and permanently deletes
 -- all the archived log events associated with it.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteLogGroup.html>

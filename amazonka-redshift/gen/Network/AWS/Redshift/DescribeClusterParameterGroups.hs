@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a list of Amazon Redshift parameter groups, including parameter
+-- Returns a list of Amazon Redshift parameter groups, including parameter
 -- groups you created and the default parameter group. For each parameter
 -- group, the response includes the parameter group name, description, and
 -- parameter group family name. You can optionally specify a name to

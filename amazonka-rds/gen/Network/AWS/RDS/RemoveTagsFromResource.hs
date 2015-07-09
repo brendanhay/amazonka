@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes metadata tags from an Amazon RDS resource.
+-- Removes metadata tags from an Amazon RDS resource.
 --
 -- For an overview on tagging an Amazon RDS resource, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Overview.Tagging.html Tagging Amazon RDS Resources>.

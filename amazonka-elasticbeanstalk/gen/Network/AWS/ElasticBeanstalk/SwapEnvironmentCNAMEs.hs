@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Swaps the CNAMEs of two environments.
+-- Swaps the CNAMEs of two environments.
 --
 -- <http://docs.aws.amazon.com/elasticbeanstalk/latest/api/API_SwapEnvironmentCNAMEs.html>
 module Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs

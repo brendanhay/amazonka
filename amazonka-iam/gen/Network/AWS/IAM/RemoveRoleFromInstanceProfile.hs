@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes the specified role from the specified instance profile.
+-- Removes the specified role from the specified instance profile.
 --
 -- Make sure you do not have any Amazon EC2 instances running with the role
 -- you are about to remove from the instance profile. Removing a role from

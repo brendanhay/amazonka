@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of the EBS snapshots available to you. Available
+-- Describes one or more of the EBS snapshots available to you. Available
 -- snapshots include public snapshots available for any AWS account to
 -- launch, private snapshots that you own, and private snapshots owned by
 -- another AWS account but for which you\'ve been given explicit create

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Used by workers to tell the service that the ActivityTask identified by
+-- Used by workers to tell the service that the ActivityTask identified by
 -- the @taskToken@ completed successfully with a @result@ (if provided).
 -- The @result@ appears in the @ActivityTaskCompleted@ event in the
 -- workflow history.

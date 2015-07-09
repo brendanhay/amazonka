@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about the specified instance profile, including
+-- Retrieves information about the specified instance profile, including
 -- the instance profile\'s path, GUID, ARN, and role. For more information
 -- about instance profiles, go to
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/AboutInstanceProfiles.html About Instance Profiles>.

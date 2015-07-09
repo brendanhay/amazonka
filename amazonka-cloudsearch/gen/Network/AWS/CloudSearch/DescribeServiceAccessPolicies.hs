@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Gets information about the access policies that control access to the
+-- Gets information about the access policies that control access to the
 -- domain\'s document and search endpoints. By default, shows the
 -- configuration with any pending changes. Set the @Deployed@ option to
 -- @true@ to show the active configuration and exclude pending changes. For

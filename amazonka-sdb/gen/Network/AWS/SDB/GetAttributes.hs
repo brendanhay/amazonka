@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns all of the attributes associated with the specified item.
+-- Returns all of the attributes associated with the specified item.
 -- Optionally, the attributes returned can be limited to one or more
 -- attributes by specifying an attribute name parameter.
 --

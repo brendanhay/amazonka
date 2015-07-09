@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DeleteCacheCluster/ action deletes a previously provisioned cache
+-- The /DeleteCacheCluster/ action deletes a previously provisioned cache
 -- cluster. /DeleteCacheCluster/ deletes all associated cache nodes, node
 -- endpoints and the cache cluster itself. When you receive a successful
 -- response from this action, Amazon ElastiCache immediately begins

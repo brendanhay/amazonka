@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a listing for Amazon EC2 Reserved Instances to be sold in the
+-- Creates a listing for Amazon EC2 Reserved Instances to be sold in the
 -- Reserved Instance Marketplace. You can submit one Reserved Instance
 -- listing at a time. To get a list of your Reserved Instances, you can use
 -- the DescribeReservedInstances operation.

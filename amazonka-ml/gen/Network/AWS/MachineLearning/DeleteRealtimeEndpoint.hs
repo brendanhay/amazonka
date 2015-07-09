@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a real time endpoint of an @MLModel@.
+-- Deletes a real time endpoint of an @MLModel@.
 --
 -- <http://http://docs.aws.amazon.com/machine-learning/latest/APIReference/API_DeleteRealtimeEndpoint.html>
 module Network.AWS.MachineLearning.DeleteRealtimeEndpoint

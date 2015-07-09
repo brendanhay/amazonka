@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation creates a volume on a specified gateway. This operation
+-- This operation creates a volume on a specified gateway. This operation
 -- is supported only for the gateway-stored volume architecture.
 --
 -- The size of the volume to create is inferred from the disk size. You can

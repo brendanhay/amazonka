@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates the Amazon S3 storage location for the account.
+-- Creates the Amazon S3 storage location for the account.
 --
 -- This location is used to store user log files.
 --

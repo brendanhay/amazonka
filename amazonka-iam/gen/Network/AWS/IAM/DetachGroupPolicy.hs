@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes the specified managed policy from the specified group.
+-- Removes the specified managed policy from the specified group.
 --
 -- A group can also have inline policies embedded with it. To delete an
 -- inline policy, use the DeleteGroupPolicy API. For information about

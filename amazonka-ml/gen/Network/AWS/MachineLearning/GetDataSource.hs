@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns a @DataSource@ that includes metadata and data file information,
+-- Returns a @DataSource@ that includes metadata and data file information,
 -- as well as the current status of the @DataSource@.
 --
 -- @GetDataSource@ provides results in normal or verbose format. The

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | You call this operation to inform Amazon Glacier that all the archive
+-- You call this operation to inform Amazon Glacier that all the archive
 -- parts have been uploaded and that Amazon Glacier can now assemble the
 -- archive from the uploaded parts. After assembling and saving the archive
 -- to the vault, Amazon Glacier returns the URI path of the newly created

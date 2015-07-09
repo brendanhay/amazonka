@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modifies an existing option group.
+-- Modifies an existing option group.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_ModifyOptionGroup.html>
 module Network.AWS.RDS.ModifyOptionGroup

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation configures notifications that will be sent when specific
+-- This operation configures notifications that will be sent when specific
 -- events happen to a vault. By default, you don\'t get any notifications.
 --
 -- To configure vault notifications, send a PUT request to the

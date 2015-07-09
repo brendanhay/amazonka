@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes the Spot Price history. The prices returned are listed in
+-- Describes the Spot Price history. The prices returned are listed in
 -- chronological order, from the oldest to the most recent, for up to the
 -- past 90 days. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances-history.html Spot Instance Pricing History>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a DBSnapshot. The source DBInstance must be in \"available\"
+-- Creates a DBSnapshot. The source DBInstance must be in \"available\"
 -- state.
 --
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/APIReference/API_CreateDBSnapshot.html>

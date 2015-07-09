@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the specified configuration template to have the specified
+-- Updates the specified configuration template to have the specified
 -- properties or configuration option values.
 --
 -- If a property (for example, @ApplicationName@) is not provided, its

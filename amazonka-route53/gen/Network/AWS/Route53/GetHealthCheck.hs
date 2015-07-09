@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | To retrieve the health check, send a @GET@ request to the
+-- To retrieve the health check, send a @GET@ request to the
 -- @2013-04-01\/healthcheck\/health check ID@ resource.
 --
 -- <http://docs.aws.amazon.com/Route53/latest/APIReference/API_GetHealthCheck.html>

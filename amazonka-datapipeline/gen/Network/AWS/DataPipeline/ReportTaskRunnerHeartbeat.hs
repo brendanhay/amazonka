@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Task runners call @ReportTaskRunnerHeartbeat@ every 15 minutes to
+-- Task runners call @ReportTaskRunnerHeartbeat@ every 15 minutes to
 -- indicate that they are operational. If the AWS Data Pipeline Task Runner
 -- is launched on a resource managed by AWS Data Pipeline, the web service
 -- can use this call to detect when the task runner application has failed

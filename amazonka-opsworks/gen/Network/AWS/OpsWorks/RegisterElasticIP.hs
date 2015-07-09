@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Registers an Elastic IP address with a specified stack. An address can
+-- Registers an Elastic IP address with a specified stack. An address can
 -- be registered with only one stack at a time. If the address is already
 -- registered, you must first deregister it by calling DeregisterElasticIp.
 -- For more information, see

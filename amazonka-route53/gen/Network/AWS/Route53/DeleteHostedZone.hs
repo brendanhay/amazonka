@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This action deletes a hosted zone. To delete a hosted zone, send a
+-- This action deletes a hosted zone. To delete a hosted zone, send a
 -- @DELETE@ request to the @2013-04-01\/hostedzone\/hosted zone ID@
 -- resource.
 --

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a new public virtual interface. A virtual interface is the VLAN
+-- Creates a new public virtual interface. A virtual interface is the VLAN
 -- that transports AWS Direct Connect traffic. A public virtual interface
 -- supports sending traffic to public services of AWS such as Amazon Simple
 -- Storage Service (Amazon S3).

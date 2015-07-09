@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation shuts down a gateway. To specify which gateway to shut
+-- This operation shuts down a gateway. To specify which gateway to shut
 -- down, use the Amazon Resource Name (ARN) of the gateway in the body of
 -- your request.
 --

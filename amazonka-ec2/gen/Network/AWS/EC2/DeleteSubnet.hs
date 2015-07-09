@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified subnet. You must terminate all running instances
+-- Deletes the specified subnet. You must terminate all running instances
 -- in the subnet before you can delete the subnet.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DeleteSubnet.html>

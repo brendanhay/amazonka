@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a subscription filter associated with the specified log group.
+-- Deletes a subscription filter associated with the specified log group.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DeleteSubscriptionFilter.html>
 module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter

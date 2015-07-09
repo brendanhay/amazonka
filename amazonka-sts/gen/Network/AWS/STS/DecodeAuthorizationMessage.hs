@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Decodes additional information about the authorization status of a
+-- Decodes additional information about the authorization status of a
 -- request from an encoded message returned in response to an AWS request.
 --
 -- For example, if a user is not authorized to perform an action that he or

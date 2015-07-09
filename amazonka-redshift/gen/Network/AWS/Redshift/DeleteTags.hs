@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a tag or tags from a resource. You must provide the ARN of the
+-- Deletes a tag or tags from a resource. You must provide the ARN of the
 -- resource from which you want to delete the tag or tags.
 --
 -- <http://docs.aws.amazon.com/redshift/latest/APIReference/API_DeleteTags.html>

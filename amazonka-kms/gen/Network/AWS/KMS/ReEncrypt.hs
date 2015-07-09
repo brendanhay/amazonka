@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Encrypts data on the server side with a new customer master key without
+-- Encrypts data on the server side with a new customer master key without
 -- exposing the plaintext of the data on the client side. The data is first
 -- decrypted and then encrypted. This operation can also be used to change
 -- the encryption context of a ciphertext.

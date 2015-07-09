@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Uploads a server certificate entity for the AWS account. The server
+-- Uploads a server certificate entity for the AWS account. The server
 -- certificate entity includes a public key certificate, a private key, and
 -- an optional certificate chain, which should all be PEM-encoded.
 --

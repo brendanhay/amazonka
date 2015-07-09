@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Attaches an Internet gateway to a VPC, enabling connectivity between the
+-- Attaches an Internet gateway to a VPC, enabling connectivity between the
 -- Internet and the VPC. For more information about your VPC and Internet
 -- gateway, see the
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/ Amazon Virtual Private Cloud User Guide>.

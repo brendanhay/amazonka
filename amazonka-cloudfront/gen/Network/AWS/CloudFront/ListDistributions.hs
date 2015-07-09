@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | List distributions.
+-- List distributions.
 --
 -- <http://docs.aws.amazon.com/AmazonCloudFront/latest/APIReference/ListDistributions.html>
 module Network.AWS.CloudFront.ListDistributions

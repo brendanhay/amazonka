@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes a specified task or tasks.
+-- Describes a specified task or tasks.
 --
 -- <http://docs.aws.amazon.com/AmazonECS/latest/APIReference/API_DescribeTasks.html>
 module Network.AWS.ECS.DescribeTasks

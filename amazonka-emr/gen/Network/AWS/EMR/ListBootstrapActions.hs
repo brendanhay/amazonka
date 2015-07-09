@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Provides information about the bootstrap actions associated with a
+-- Provides information about the bootstrap actions associated with a
 -- cluster.
 --
 -- <http://docs.aws.amazon.com/ElasticMapReduce/latest/API/API_ListBootstrapActions.html>

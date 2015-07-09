@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists information about the OpenID Connect providers in the AWS account.
+-- Lists information about the OpenID Connect providers in the AWS account.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_ListOpenIdConnectProviders.html>
 module Network.AWS.IAM.ListOpenIdConnectProviders

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a virtual private gateway. A virtual private gateway is the
+-- Creates a virtual private gateway. A virtual private gateway is the
 -- endpoint on the VPC side of your VPN connection. You can create a
 -- virtual private gateway before creating the VPC itself.
 --

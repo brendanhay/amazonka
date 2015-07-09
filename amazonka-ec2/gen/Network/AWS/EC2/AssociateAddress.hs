@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Associates an Elastic IP address with an instance or a network
+-- Associates an Elastic IP address with an instance or a network
 -- interface.
 --
 -- An Elastic IP address is for use in either the EC2-Classic platform or

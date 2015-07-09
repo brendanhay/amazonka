@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation creates a new vault with the specified name. The name of
+-- This operation creates a new vault with the specified name. The name of
 -- the vault must be unique within a region for an AWS account. You can
 -- create up to 1,000 vaults per account. If you need to create more
 -- vaults, contact Amazon Glacier.

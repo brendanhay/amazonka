@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a file system, permanently severing access to its contents. Upon
+-- Deletes a file system, permanently severing access to its contents. Upon
 -- return, the file system no longer exists and you will not be able to
 -- access any contents of the deleted file system.
 --

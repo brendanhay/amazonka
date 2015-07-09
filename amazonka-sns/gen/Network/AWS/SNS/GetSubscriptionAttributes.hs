@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns all of the properties of a subscription.
+-- Returns all of the properties of a subscription.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_GetSubscriptionAttributes.html>
 module Network.AWS.SNS.GetSubscriptionAttributes

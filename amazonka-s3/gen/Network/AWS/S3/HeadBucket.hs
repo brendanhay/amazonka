@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation is useful to determine if a bucket exists and you have
+-- This operation is useful to determine if a bucket exists and you have
 -- permission to access it.
 --
 -- <http://docs.aws.amazon.com/AmazonS3/latest/API/HeadBucket.html>

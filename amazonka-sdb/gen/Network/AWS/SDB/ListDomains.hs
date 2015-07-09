@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The @ListDomains@ operation lists all domains associated with the Access
+-- The @ListDomains@ operation lists all domains associated with the Access
 -- Key ID. It returns domain names up to the limit set by
 -- <#MaxNumberOfDomains MaxNumberOfDomains>. A <#NextToken NextToken> is
 -- returned if there are more than @MaxNumberOfDomains@ domains. Calling

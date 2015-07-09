@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /DeleteCacheSecurityGroup/ action deletes a cache security group.
+-- The /DeleteCacheSecurityGroup/ action deletes a cache security group.
 --
 -- You cannot delete a cache security group if it is associated with any
 -- cache clusters.

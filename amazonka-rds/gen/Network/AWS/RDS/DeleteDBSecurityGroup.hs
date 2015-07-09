@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes a DB security group.
+-- Deletes a DB security group.
 --
 -- The specified DB security group must not be associated with any DB
 -- instances.

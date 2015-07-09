@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /CreateReplicationGroup/ action creates a replication group. A
+-- The /CreateReplicationGroup/ action creates a replication group. A
 -- replication group is a collection of cache clusters, where one of the
 -- cache clusters is a read\/write primary and the others are read-only
 -- replicas. Writes to the primary are automatically propagated to the

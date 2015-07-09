@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Modify the desired count or task definition used in a service.
+-- Modify the desired count or task definition used in a service.
 --
 -- You can add to or subtract from the number of instantiations of a task
 -- definition in a service by specifying the cluster that the service is

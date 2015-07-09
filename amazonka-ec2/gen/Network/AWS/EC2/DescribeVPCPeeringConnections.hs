@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more of your VPC peering connections.
+-- Describes one or more of your VPC peering connections.
 --
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeVPCPeeringConnections.html>
 module Network.AWS.EC2.DescribeVPCPeeringConnections

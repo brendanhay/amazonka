@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a @DataSource@ object from an
+-- Creates a @DataSource@ object from an
 -- <http://aws.amazon.com/rds/ Amazon Relational Database Service> (Amazon
 -- RDS). A @DataSource@ references data that can be used to perform
 -- CreateMLModel, CreateEvaluation, or CreateBatchPrediction operations.

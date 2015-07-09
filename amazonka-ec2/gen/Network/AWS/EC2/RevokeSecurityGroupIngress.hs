@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Removes one or more ingress rules from a security group. The values that
+-- Removes one or more ingress rules from a security group. The values that
 -- you specify in the revoke request (for example, ports) must match the
 -- existing rule\'s values for the rule to be removed.
 --

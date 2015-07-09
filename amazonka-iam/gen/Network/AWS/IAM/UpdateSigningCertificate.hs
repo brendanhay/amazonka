@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Changes the status of the specified signing certificate from active to
+-- Changes the status of the specified signing certificate from active to
 -- disabled, or vice versa. This action can be used to disable a user\'s
 -- signing certificate as part of a certificate rotation work flow.
 --

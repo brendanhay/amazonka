@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates an alias to associate it with a different key.
+-- Updates an alias to associate it with a different key.
 --
 -- An alias name can contain only alphanumeric characters, forward slashes
 -- (\/), underscores (_), and dashes (-). An alias must start with the word

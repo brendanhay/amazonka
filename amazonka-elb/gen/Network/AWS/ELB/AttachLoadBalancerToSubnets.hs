@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Adds one or more subnets to the set of configured subnets for the
+-- Adds one or more subnets to the set of configured subnets for the
 -- specified load balancer.
 --
 -- The load balancer evenly distributes requests across all registered

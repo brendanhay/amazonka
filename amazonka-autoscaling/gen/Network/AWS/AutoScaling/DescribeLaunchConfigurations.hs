@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes one or more launch configurations. If you omit the list of
+-- Describes one or more launch configurations. If you omit the list of
 -- names, then the call describes all launch configurations.
 --
 -- <http://docs.aws.amazon.com/AutoScaling/latest/APIReference/API_DescribeLaunchConfigurations.html>

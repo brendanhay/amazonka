@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Deletes the specified user. The user must not belong to any groups, have
+-- Deletes the specified user. The user must not belong to any groups, have
 -- any keys or signing certificates, or have any attached policies.
 --
 -- <http://docs.aws.amazon.com/IAM/latest/APIReference/API_DeleteUser.html>

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The /CreateCacheCluster/ action creates a cache cluster. All nodes in
+-- The /CreateCacheCluster/ action creates a cache cluster. All nodes in
 -- the cache cluster run the same protocol-compliant cache engine software,
 -- either Memcached or Redis.
 --

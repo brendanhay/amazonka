@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Lists the groups the specified user belongs to.
+-- Lists the groups the specified user belongs to.
 --
 -- You can paginate the results using the @MaxItems@ and @Marker@
 -- parameters.

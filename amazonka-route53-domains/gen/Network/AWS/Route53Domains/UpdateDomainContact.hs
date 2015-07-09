@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This operation updates the contact information for a particular domain.
+-- This operation updates the contact information for a particular domain.
 -- Information for at least one contact (registrant, administrator, or
 -- technical) must be supplied for update.
 --

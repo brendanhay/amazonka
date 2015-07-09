@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The ListJobsByPipeline operation gets a list of the jobs currently in a
+-- The ListJobsByPipeline operation gets a list of the jobs currently in a
 -- pipeline.
 --
 -- Elastic Transcoder returns all of the jobs currently in the specified

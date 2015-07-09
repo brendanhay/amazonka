@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | The ReadPreset operation gets detailed information about a preset.
+-- The ReadPreset operation gets detailed information about a preset.
 --
 -- <http://docs.aws.amazon.com/elastictranscoder/latest/developerguide/ReadPreset.html>
 module Network.AWS.ElasticTranscoder.ReadPreset

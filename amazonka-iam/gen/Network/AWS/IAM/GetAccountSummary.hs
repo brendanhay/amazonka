@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Retrieves information about IAM entity usage and IAM quotas in the AWS
+-- Retrieves information about IAM entity usage and IAM quotas in the AWS
 -- account.
 --
 -- For information about limitations on IAM entities, see

@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Describes Reserved Instance offerings that are available for purchase.
+-- Describes Reserved Instance offerings that are available for purchase.
 -- With Reserved Instances, you purchase the right to launch instances for
 -- a period of time. During that time period, you do not receive
 -- insufficient capacity errors, and you pay a lower usage rate than the

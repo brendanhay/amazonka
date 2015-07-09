@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Creates a network interface in the specified subnet.
+-- Creates a network interface in the specified subnet.
 --
 -- For more information about network interfaces, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html Elastic Network Interfaces>

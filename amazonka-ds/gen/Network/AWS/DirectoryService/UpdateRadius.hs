@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Updates the Remote Authentication Dial In User Service (RADIUS) server
+-- Updates the Remote Authentication Dial In User Service (RADIUS) server
 -- information for an AD Connector directory.
 --
 -- <http://docs.aws.amazon.com/directoryservice/latest/devguide/API_UpdateRadius.html>

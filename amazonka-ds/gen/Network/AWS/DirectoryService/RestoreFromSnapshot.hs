@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Restores a directory using an existing directory snapshot.
+-- Restores a directory using an existing directory snapshot.
 --
 -- When you restore a directory from a snapshot, any changes made to the
 -- directory after the snapshot date are overwritten.

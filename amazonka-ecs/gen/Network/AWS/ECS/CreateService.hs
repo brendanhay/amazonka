@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Runs and maintains a desired number of tasks from a specified task
+-- Runs and maintains a desired number of tasks from a specified task
 -- definition. If the number of tasks running in a service drops below
 -- @desiredCount@, Amazon ECS will spawn another instantiation of the task
 -- in the specified cluster.

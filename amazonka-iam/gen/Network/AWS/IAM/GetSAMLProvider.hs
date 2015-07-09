@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Returns the SAML provider metadocument that was uploaded when the
+-- Returns the SAML provider metadocument that was uploaded when the
 -- provider was created or updated.
 --
 -- This operation requires

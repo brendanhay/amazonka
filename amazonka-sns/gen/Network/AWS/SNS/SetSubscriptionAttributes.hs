@@ -14,7 +14,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Allows a subscription owner to set an attribute of the topic to a new
+-- Allows a subscription owner to set an attribute of the topic to a new
 -- value.
 --
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetSubscriptionAttributes.html>

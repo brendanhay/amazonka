@@ -295,10 +295,11 @@ responseE p h r fs = app (responseF p h r fs) bdy
         _                   -> parseProto x
 
     parseProto :: Field -> Exp
-    parseProto = case p of
-        JSON     -> parseJSONE p pJE pJEMay pJEDef
-        RestJSON -> parseJSONE p pJE pJEMay pJEDef
-        _        -> parseXMLE  p
+    parseProto f = case p of
+        JSON                  -> parseJSONE p pJE pJEMay pJEDef f
+        RestJSON              -> parseJSONE p pJE pJEMay pJEDef f
+        _ | f ^. fieldPayload -> parseAll
+        _                     -> parseXMLE  p f
 
     parseAll :: Exp
     parseAll = flip app (var "x") $

@@ -10,4 +10,4 @@ install:
   - stack setup
 
 script:
-  - stack +RTS -M2G -RTS test
+  - stack -j2 +RTS -M2G -RTS test

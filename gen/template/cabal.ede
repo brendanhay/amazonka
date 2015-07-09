@@ -62,4 +62,5 @@ test-suite {{ libraryName }}-test
         , lens
         , tasty
         , tasty-hunit
+        , text
         , time

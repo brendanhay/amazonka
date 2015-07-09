@@ -35,7 +35,7 @@ module Gen.Types
 import           Control.Error
 import           Control.Lens              hiding ((.=))
 import           Data.Aeson
-import           Data.Bifunctor
+import qualified Data.HashMap.Strict       as Map
 import           Data.List                 (nub, sort, sortOn)
 import           Data.Monoid               hiding (Product, Sum)
 import           Data.Ord
@@ -190,15 +190,26 @@ instance ToJSON Library where
             , "libraryVersion"   .= (l ^. libraryVersion)
             , "clientVersion"    .= (l ^. clientVersion)
             , "coreVersion"      .= (l ^. coreVersion)
+            , "serviceInstance"  .= (l ^.  instance')
             , "typeModules"      .= sort (l ^.  typeModules)
             , "operationModules" .= sort (l ^.  operationModules)
             , "exposedModules"   .= sort (l ^.  exposedModules)
             , "otherModules"     .= sort (l ^.  otherModules)
-            , "operations"       .= (l ^.. operations . each)
-            , "shapes"           .= sort (l ^.. shapes  . each)
+            , "operations"       .= os
+            , "shapes"           .= ss
+            , "types"            .= ts
             , "waiters"          .= (l ^.. waiters . each)
-            , "serviceInstance"  .= (l ^.  instance')
             ]
+
+        os = l ^.. operations . each
+        ss = sort (l ^.. shapes . each)
+
+        ts = Map.fromList
+            [(identifier d ^. typeId, d) | d <- concatMap f os ++ ss]
+
+        f o = [ o ^. opInput  . _Identity
+              , o ^. opOutput . _Identity
+              ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.
 libraryNS, typesNS, waitersNS, fixturesNS :: Getter Library NS

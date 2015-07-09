@@ -19,7 +19,9 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Test.AWS.Fixture
+          Test.AWS.Assert
+        , Test.AWS.Fixture
+        , Test.AWS.Orphans
         , Test.AWS.Prelude
         , Test.AWS.TH
 

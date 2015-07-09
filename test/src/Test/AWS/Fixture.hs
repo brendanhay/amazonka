@@ -7,22 +7,16 @@
 {-# LANGUAGE TupleSections       #-}
 {-# LANGUAGE TypeFamilies        #-}
 
+-- |
 -- Module      : Test.AWS.Fixture
 -- Copyright   : (c) 2013-2015 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
+--
+module Test.AWS.Fixture where
 
-module Test.AWS.Fixture
-    ( module Test.AWS.Fixture
-    , module Text.PrettyPrint.GenericPretty
-    ) where
-
-import           Control.Monad
 import           Control.Monad.Trans.Resource
 import qualified Data.Attoparsec.Text           as A
 import           Data.Bifunctor
@@ -45,11 +39,11 @@ import qualified Network.HTTP.Client.Internal   as Client
 import           Network.HTTP.Types
 import           System.Directory
 import           System.FilePath
+import           Test.AWS.Assert
+import           Test.AWS.Orphans
 import           Test.Tasty
 import           Test.Tasty.Golden
 import           Test.Tasty.HUnit
--- import           Text.Show.Pretty
-import           Text.PrettyPrint
 import           Text.PrettyPrint.GenericPretty
 
 resp :: (AWSRequest a, Eq (Rs a), Out (Rs a))
@@ -58,29 +52,8 @@ resp :: (AWSRequest a, Eq (Rs a), Out (Rs a))
      -> Proxy a
      -> Rs a
      -> TestTree
-resp n f p e = testCase n (LBS.readFile f >>= mockResponse p >>= assertEq)
-  where
-    assertEq (Left  m) = assertFailure m
-    assertEq (Right a) = unless (e == a) (assertFailure m)
-      where
-        m = "[Expected]:\n  " ++ prettyStyle s e ++ "\n["
-             ++ f ++ "]:\n  " ++ prettyStyle s a
-
-        s = Style
-            { mode           = PageMode
-            , lineLength     = 80
-            , ribbonsPerLine = 1.5
-            }
-
-instance Out Text where
-    docPrec _ = doc
-    doc = doc . Text.unpack
-
-instance Out (Time a)
-
-instance Out UTCTime where
-    docPrec _ = doc
-    doc = doc . show
+resp n f p e = testCase n $
+    LBS.readFile f >>= mockResponse p >>= assertEqualPP f e
 
 mockResponse :: forall a. (AWSService (Sv a), AWSRequest a)
              => Proxy a

@@ -104,6 +104,9 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
             , dir "Test"
                 [ dir "AWS"
                     [ touch (l ^. serviceAbbrev <> ".hs")
+                    , dir svc
+                        [ touch "Internal.hs"
+                        ]
                     , dir "Gen"
                         [ mod (l ^. fixturesNS) (fixtureImports l) fixturesTemplate
                         ]

@@ -50,9 +50,15 @@ signatureImport = \case
     _  -> "Network.AWS.Sign.V4"
 
 testImports :: Library -> [NS]
-testImports l = [mkNS $ "Test.AWS." <> l ^. serviceAbbrev]
+testImports l =
+    [ mkNS $ "Test.AWS." <> l ^. serviceAbbrev
+    , mkNS $ "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
+    ]
 
 fixtureImports :: Library -> [NS]
-fixtureImports l = [l ^. libraryNS]
+fixtureImports l =
+    [ l ^. libraryNS
+    , mkNS $ "Test.AWS." <> l ^. serviceAbbrev <> ".Internal"
+    ]
 
 

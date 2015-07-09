@@ -4,18 +4,16 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Glacier.UploadArchive
 -- Copyright   : (c) 2013-2015 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 -- | This operation adds an archive to a vault. This is a synchronous
 -- operation, and for a successful upload, your data is durably persisted.
 -- Amazon Glacier returns the archive ID in the @x-amz-archive-id@ header

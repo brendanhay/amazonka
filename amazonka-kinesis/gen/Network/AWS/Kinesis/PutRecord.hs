@@ -4,18 +4,16 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.Kinesis.PutRecord
 -- Copyright   : (c) 2013-2015 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 -- | Puts (writes) a single data record from a producer into an Amazon
 -- Kinesis stream. Call @PutRecord@ to send data from the producer into the
 -- Amazon Kinesis stream for real-time ingestion and subsequent processing,

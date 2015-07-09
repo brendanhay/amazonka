@@ -4,18 +4,16 @@
 {-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
 
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
 -- Module      : Network.AWS.EC2.CreateKeyPair
 -- Copyright   : (c) 2013-2015 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Derived from AWS service descriptions, licensed under Apache 2.0.
-
 -- | Creates a 2048-bit RSA key pair with the specified name. Amazon EC2
 -- stores the public key and displays the private key for you to save to a
 -- file. The private key is returned as an unencrypted PEM encoded PKCS#8

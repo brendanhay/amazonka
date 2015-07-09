@@ -62,7 +62,7 @@ instance HasId a => TypeOf (Shape a) where
         ptr = uniq . mappend (DRead `delete` base) . Set.toList
 
         struct st
-            | isStreaming st = [DShow]
+            | isStreaming st = stream
             | otherwise      = uniq $
                 foldr' (intersect . derivingOf) base (st ^.. references)
 
@@ -82,7 +82,7 @@ derivingOf = uniq . typ . typeOf
         TType      _ ds -> ds
         TLit       l    -> lit l
         TNatural        -> base <> num
-        TStream         -> [DShow]
+        TStream         -> stream
         TMaybe     t    -> typ t
         TSensitive t    -> DShow : typ t
         TList      e    -> monoid <> intersect base (typ e)
@@ -98,7 +98,8 @@ derivingOf = uniq . typ . typeOf
         Time   -> DOrd : base
         Bool   -> enum <> base
 
-string, num, frac, monoid, enum, base :: [Derive]
+stream, string, num, frac, monoid, enum, base :: [Derive]
+stream = [DShow, DGeneric]
 string = [DOrd, DIsString]
 num    = DNum : DIntegral : DReal : enum
 frac   = [DOrd, DRealFrac, DRealFloat]

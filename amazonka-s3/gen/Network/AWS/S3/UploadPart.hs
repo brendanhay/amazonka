@@ -98,7 +98,7 @@ data UploadPart = UploadPart'
     , _upPartNumber           :: !Int
     , _upUploadId             :: !Text
     , _upBody                 :: !RqBody
-    } deriving (Show)
+    } deriving (Show,Generic)
 
 -- | 'UploadPart' smart constructor.
 uploadPart :: BucketName -> ObjectKey -> Int -> Text -> RqBody -> UploadPart

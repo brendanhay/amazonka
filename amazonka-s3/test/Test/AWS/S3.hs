@@ -1,26 +1,62 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE TemplateHaskell   #-}
 
+-- |
 -- Module      : Test.AWS.S3
 -- Copyright   : (c) 2013-2015 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
-
+--
 module Test.AWS.S3
     ( tests
     , fixtures
     ) where
 
+import           Data.Time
+import           Network.AWS.Prelude
 import           Network.AWS.S3
 import           Test.AWS.Gen.S3
+import           Test.AWS.Prelude
 import           Test.Tasty
 
 tests :: [TestTree]
 tests = []
 
 fixtures :: [TestTree]
-fixtures = []
+fixtures =
+    [ testGroup "response"
+        [ testCopyObjectResponse $
+            copyObjectResponse 200
+                & corCopyObjectResult ?~
+                    (copyObjectResult
+                        & corETag         ?~ ETag "\"9b2cf535f27731c974343645a3985328\""
+                        & corLastModified ?~ $(mkTime "2009-10-28T22:32:00Z"))
+        ]
+    ]
+
+--
+--         , testCopyObjectResponse $
+--             copyObjectResponse
+--
+--         , testGetBucketPolicyResponse $
+--             getBucketPolicyResponse
+--
+--         , testGetBucketLoggingResponse $
+--             getBucketLoggingResponse
+--
+--         , testListPartsResponse $
+--             listPartsResponse
+--
+--         , testGetBucketACLResponse $
+--             getBucketACLResponse
+--
+--         , testPutBucketACLResponse $
+--             putBucketACLResponse
+--
+--         , testUploadPartCopyResponse $
+--             uploadPartCopyResponse
+--
+--           ]
+--     ]

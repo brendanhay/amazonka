@@ -68,7 +68,7 @@ instance AWSRequest GetBucketPolicy where
           = receiveXML
               (\ s h x ->
                  GetBucketPolicyResponse' <$>
-                   (x .@? "Policy") <*> (pure (fromEnum s)))
+                   (parseXML x) <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketPolicy where
         toHeaders = const mempty

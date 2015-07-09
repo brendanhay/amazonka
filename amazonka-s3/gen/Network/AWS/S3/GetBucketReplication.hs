@@ -69,8 +69,7 @@ instance AWSRequest GetBucketReplication where
           = receiveXML
               (\ s h x ->
                  GetBucketReplicationResponse' <$>
-                   (x .@? "ReplicationConfiguration") <*>
-                     (pure (fromEnum s)))
+                   (parseXML x) <*> (pure (fromEnum s)))
 
 instance ToHeaders GetBucketReplication where
         toHeaders = const mempty

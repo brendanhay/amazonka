@@ -116,7 +116,7 @@ data GetObjectTorrentResponse = GetObjectTorrentResponse'
     { _gotrRequestCharged :: !(Maybe RequestCharged)
     , _gotrStatus         :: !Int
     , _gotrBody           :: !RsBody
-    } deriving (Show)
+    } deriving (Show,Generic)
 
 -- | 'GetObjectTorrentResponse' smart constructor.
 getObjectTorrentResponse :: Int -> RsBody -> GetObjectTorrentResponse

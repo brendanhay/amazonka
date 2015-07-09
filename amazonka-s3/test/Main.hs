@@ -10,6 +10,7 @@ module Main (main) where
 
 import Test.Tasty
 import Test.AWS.S3
+import Test.AWS.S3.Internal
 
 main :: IO ()
 main = defaultMain $ testGroup "S3"

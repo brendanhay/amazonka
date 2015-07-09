@@ -382,7 +382,7 @@ instance AWSRequest CopyObject where
                      (h .#?
                         "x-amz-server-side-encryption-customer-key-MD5")
                      <*> (h .#? "x-amz-server-side-encryption")
-                     <*> (x .@? "CopyObjectResult")
+                     <*> (parseXML x)
                      <*> (pure (fromEnum s)))
 
 instance ToHeaders CopyObject where

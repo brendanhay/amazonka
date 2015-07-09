@@ -238,9 +238,7 @@ instance AWSRequest UploadPartCopy where
           = receiveXML
               (\ s h x ->
                  UploadPartCopyResponse' <$>
-                   (h .#? "x-amz-request-charged") <*>
-                     (x .@? "CopyPartResult")
-                     <*>
+                   (h .#? "x-amz-request-charged") <*> (parseXML x) <*>
                      (h .#?
                         "x-amz-server-side-encryption-customer-algorithm")
                      <*> (h .#? "x-amz-copy-source-version-id")

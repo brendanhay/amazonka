@@ -400,7 +400,7 @@ data GetObjectResponse = GetObjectResponse'
     , _gorContentType             :: !(Maybe Text)
     , _gorStatus                  :: !Int
     , _gorBody                    :: !RsBody
-    } deriving (Show)
+    } deriving (Show,Generic)
 
 -- | 'GetObjectResponse' smart constructor.
 getObjectResponse :: Int -> RsBody -> GetObjectResponse

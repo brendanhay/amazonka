@@ -17,6 +17,7 @@ import Test.AWS.Fixture
 import Test.AWS.Prelude
 import Test.Tasty
 import Network.AWS.S3
+import Test.AWS.S3.Internal
 
 -- Auto-generated: the actual test selection needs to be manually placed into
 -- the top-level so that real test data can be incrementally added.

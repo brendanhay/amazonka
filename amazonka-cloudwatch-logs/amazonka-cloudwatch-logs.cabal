@@ -118,3 +118,4 @@ test-suite amazonka-cloudwatch-logs-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

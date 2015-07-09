@@ -86,3 +86,4 @@ test-suite amazonka-ssm-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

@@ -72,3 +72,4 @@ test-suite amazonka-importexport-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

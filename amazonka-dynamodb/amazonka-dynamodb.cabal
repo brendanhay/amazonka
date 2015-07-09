@@ -187,3 +187,4 @@ test-suite amazonka-dynamodb-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

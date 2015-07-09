@@ -101,3 +101,4 @@ test-suite amazonka-datapipeline-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

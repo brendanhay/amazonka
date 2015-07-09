@@ -76,3 +76,4 @@ test-suite amazonka-kinesis-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

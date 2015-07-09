@@ -120,3 +120,4 @@ test-suite amazonka-cloudwatch-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

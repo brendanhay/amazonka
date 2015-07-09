@@ -107,3 +107,4 @@ test-suite amazonka-swf-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

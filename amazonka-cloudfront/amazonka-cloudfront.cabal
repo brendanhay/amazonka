@@ -91,3 +91,4 @@ test-suite amazonka-cloudfront-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

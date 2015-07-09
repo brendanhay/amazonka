@@ -119,3 +119,4 @@ test-suite amazonka-s3-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

@@ -158,3 +158,4 @@ test-suite amazonka-kms-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

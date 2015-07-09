@@ -90,3 +90,4 @@ test-suite amazonka-cloudtrail-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

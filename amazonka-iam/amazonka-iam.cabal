@@ -224,3 +224,4 @@ test-suite amazonka-iam-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

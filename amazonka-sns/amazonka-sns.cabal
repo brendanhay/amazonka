@@ -102,3 +102,4 @@ test-suite amazonka-sns-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

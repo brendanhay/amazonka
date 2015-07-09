@@ -105,3 +105,4 @@ test-suite amazonka-sqs-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

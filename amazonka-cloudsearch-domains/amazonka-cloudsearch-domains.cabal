@@ -74,3 +74,4 @@ test-suite amazonka-cloudsearch-domains-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

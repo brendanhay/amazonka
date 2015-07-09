@@ -64,3 +64,4 @@ test-suite {{ libraryName }}-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

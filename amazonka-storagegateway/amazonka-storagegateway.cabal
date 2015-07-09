@@ -136,3 +136,4 @@ test-suite amazonka-storagegateway-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

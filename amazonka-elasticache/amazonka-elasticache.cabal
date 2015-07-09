@@ -110,3 +110,4 @@ test-suite amazonka-elasticache-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

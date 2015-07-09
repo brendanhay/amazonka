@@ -81,3 +81,4 @@ test-suite amazonka-ds-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

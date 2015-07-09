@@ -114,3 +114,4 @@ test-suite amazonka-elasticbeanstalk-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

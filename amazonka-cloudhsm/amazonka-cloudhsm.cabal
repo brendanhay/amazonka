@@ -77,3 +77,4 @@ test-suite amazonka-cloudhsm-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

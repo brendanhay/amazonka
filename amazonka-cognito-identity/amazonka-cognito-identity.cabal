@@ -114,3 +114,4 @@ test-suite amazonka-cognito-identity-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

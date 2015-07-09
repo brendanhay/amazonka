@@ -96,3 +96,4 @@ test-suite amazonka-route53-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

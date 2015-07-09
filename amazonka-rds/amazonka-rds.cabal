@@ -145,3 +145,4 @@ test-suite amazonka-rds-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

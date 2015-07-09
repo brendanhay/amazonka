@@ -98,3 +98,4 @@ test-suite amazonka-cloudformation-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

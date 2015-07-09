@@ -172,3 +172,4 @@ test-suite amazonka-opsworks-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

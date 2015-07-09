@@ -48,3 +48,4 @@ library
         , template-haskell
         , text
         , time
+        , unordered-containers

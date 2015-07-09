@@ -151,3 +151,4 @@ test-suite amazonka-codedeploy-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

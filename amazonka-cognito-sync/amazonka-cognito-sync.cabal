@@ -100,3 +100,4 @@ test-suite amazonka-cognito-sync-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

@@ -120,3 +120,4 @@ test-suite amazonka-glacier-test
         , tasty-hunit
         , text
         , time
+        , unordered-containers

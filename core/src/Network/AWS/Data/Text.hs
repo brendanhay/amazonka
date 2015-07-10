@@ -31,6 +31,7 @@ import           "cryptohash" Crypto.Hash
 import           Data.Attoparsec.Text              (Parser)
 import qualified Data.Attoparsec.Text              as A
 import           Data.ByteString                   (ByteString)
+import qualified Data.ByteString.Char8             as BS8
 import           Data.CaseInsensitive              (CI)
 import qualified Data.CaseInsensitive              as CI
 import           Data.Double.Conversion.Text       (toShortest)
@@ -94,6 +95,13 @@ instance FromText Double where
 
 instance FromText Bool where
     parser = matchCI "false" False <|> matchCI "true" True
+
+instance FromText StdMethod where
+    parser = do
+        bs <- Text.encodeUtf8 <$> A.takeText
+        either (fail . BS8.unpack)
+               pure
+               (parseMethod bs)
 
 showText :: ToText a => a -> String
 showText = Text.unpack . toText

@@ -1,4 +1,6 @@
+{-# LANGUAGE DeriveGeneric       #-}
 {-# LANGUAGE FlexibleContexts    #-}
+{-# LANGUAGE LambdaCase          #-}
 {-# LANGUAGE OverloadedStrings   #-}
 {-# LANGUAGE QuasiQuotes         #-}
 {-# LANGUAGE RecordWildCards     #-}
@@ -18,6 +20,8 @@
 module Test.AWS.Fixture where
 
 import           Control.Monad.Trans.Resource
+import           Data.Aeson
+import qualified Data.Attoparsec.ByteString     as B
 import qualified Data.Attoparsec.Text           as A
 import           Data.Bifunctor
 import qualified Data.ByteString                as BS
@@ -25,11 +29,16 @@ import qualified Data.ByteString.Char8          as BS8
 import qualified Data.ByteString.Lazy           as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary            as Conduit
+import qualified Data.HashMap.Strict            as Map
 import           Data.Proxy
 import qualified Data.Text                      as Text
+import qualified Data.Text.Encoding             as Text
 import           Data.Typeable
+import           Data.Yaml
+import           GHC.Generics                   (Generic)
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Quote
+import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.XML
 import           Network.AWS.Prelude            hiding ((<.>))
 import           Network.AWS.Types
@@ -46,26 +55,72 @@ import           Test.Tasty.Golden
 import           Test.Tasty.HUnit
 import           Text.PrettyPrint.GenericPretty
 
-resp :: (AWSRequest a, Eq (Rs a), Out (Rs a))
-     => TestName
-     -> FilePath
-     -> Proxy a
-     -> Rs a
-     -> TestTree
-resp n f p e = testCase n $
-    LBS.readFile f >>= mockResponse p >>= assertEqualPP f e
+res :: (AWSRequest a, Eq (Rs a), Out (Rs a))
+    => TestName
+    -> FilePath
+    -> Proxy a
+    -> Rs a
+    -> TestTree
+res n f p e = testCase n $
+        LBS.readFile f
+    >>= testResponse p
+    >>= assertEqualPP f e
 
-mockResponse :: forall a. (AWSService (Sv a), AWSRequest a)
+req :: (AWSRequest a, Eq a, Out a)
+    => TestName
+    -> FilePath
+    -> a
+    -> TestTree
+req n f e = testCase n $ do
+    e' <- expected
+    a  <- decodeFileEither f
+    assertEqualPP f e' (first show a)
+  where
+    expected = do
+        let x = request e
+        b <- sink (_bdyBody (_rqBody x))
+        return $!
+            Req (_rqMethod x)
+                (_rqPath   x)
+                (parseSimpleQuery (toBS (_rqQuery x)))
+                (_rqHeaders x)
+                b
+
+    sink = \case
+        RequestBodyLBS     lbs -> pure (toBS lbs)
+        RequestBodyBS      bs  -> pure bs
+        RequestBodyBuilder _ b -> pure (toBS b)
+        _                      -> fail "Streaming body not supported."
+
+data Req = Req
+    { testMethod  :: !StdMethod
+    , testPath    :: ByteString
+    , testQuery   :: SimpleQuery
+    , testHeaders :: [Header]
+    , testBody    :: ByteString
+    } deriving (Eq, Show, Generic)
+
+instance Out Req
+
+instance FromJSON Req where
+    parseJSON = withObject "req" $ \o -> Req
+        <$> o .:  "method"
+        <*> o .:  "path"
+        <*> (o .: "query"   <&> parseSimpleQuery)
+        <*> (o .: "headers" <&> Map.toList)
+        <*> o .:? "body"    .!= mempty
+
+testResponse :: forall a. (AWSService (Sv a), AWSRequest a)
              => Proxy a
              -> LazyByteString
              -> IO (Either String (Rs a))
-mockResponse x lbs = do
+testResponse x lbs = do
     y <- runResourceT $ response l (service x) rq (Right rs)
     return $! first show (snd <$> y)
   where
-    rq = undefined :: Request a
-
     l _ _ = return ()
+
+    rq = undefined :: Request a
 
     rs = Client.Response
         { responseStatus    = status200
@@ -75,35 +130,3 @@ mockResponse x lbs = do
         , responseCookieJar = mempty
         , responseClose'    = ResponseClose (pure ())
         }
-
--- FIXME: .Types can be handled according to protocol isomorphisms.
-
--- query :: Name -> Q Exp
--- query n = do
---     let svc  = serviceName (show n)
---         name = svc <.> nameBase n <.> "query"
---         path = fixtures </> name
-
---     [| testCase name (check $(return sig) path decodeXML undefined) |]
---   where
---     sig    = SigE (ConE proxy') (AppT (ConT proxy') (ConT n))
---     proxy' = mkName "Proxy"
-
--- check :: (Eq a, Show a)
---       => Proxy a
---       -> FilePath
---       -> (LazyByteString -> Either String a)
---       -> (a -> LazyByteString)
---       -> Assertion
--- check _ p f g = do
---     x <- LBS.readFile p
---     (g <$> f x) @=? Right x
-
--- serviceName :: String -> String
--- serviceName s = either (const s) unSN . fromText $ Text.pack s
-
--- newtype ServiceName = SN { unSN :: String }
-
--- instance FromText ServiceName where
---     parser = SN . Text.unpack
---          <$> (A.string "Network.AWS." *> A.takeWhile1 (/= '.'))

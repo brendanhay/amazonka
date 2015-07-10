@@ -32,6 +32,7 @@ library
         , base
         , bifunctors
         , bytestring
+        , case-insensitive
         , conduit
         , conduit-extra
         , directory
@@ -49,3 +50,4 @@ library
         , text
         , time
         , unordered-containers
+        , yaml

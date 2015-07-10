@@ -39,7 +39,9 @@ import {{ import.value }}
   {% if op.value.input.eq %}
 
 test{{ op.value.name }} :: {{ op.value.input.name }} -> TestTree
-test{{ op.value.name }} = undefined
+test{{ op.value.name }} = req
+    "{{ op.value.name }}"
+    "fixture/{{ op.value.name }}"
   {% endif %}
 {% endfor %}
 
@@ -48,7 +50,7 @@ test{{ op.value.name }} = undefined
   {% if op.value.output.eq %}
 
 test{{ op.value.name }}Response :: {{ op.value.output.name }} -> TestTree
-test{{ op.value.name }}Response = resp
+test{{ op.value.name }}Response = res
     "{{ op.value.name }}Response"
     "fixture/{{ op.value.name }}Response"
     (Proxy :: Proxy {{ op.value.input.name }})

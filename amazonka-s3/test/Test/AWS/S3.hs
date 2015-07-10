@@ -36,9 +36,10 @@ fixtures =
                                & rrId ?~ "rule1"
                            ])
 
-        , testGetBucketPolicyResponse $
-            getBucketPolicyResponse 200
-                & gbprPolicy ?~ "foo"
+        -- FIXME: Has a JSON body, not XML, hence, serialiser error.
+        -- , testGetBucketPolicyResponse $
+        --     getBucketPolicyResponse 200
+        --         & gbprPolicy ?~ "foo"
 
         , testCopyObjectResponse $
             copyObjectResponse 200

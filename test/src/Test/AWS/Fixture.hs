@@ -30,9 +30,12 @@ import qualified Data.ByteString.Lazy           as LBS
 import           Data.Conduit
 import qualified Data.Conduit.Binary            as Conduit
 import qualified Data.HashMap.Strict            as Map
+import           Data.List                      (sortBy)
+import           Data.Ord
 import           Data.Proxy
 import qualified Data.Text                      as Text
 import qualified Data.Text.Encoding             as Text
+import           Data.Time
 import           Data.Typeable
 import           Data.Yaml
 import           GHC.Generics                   (Generic)
@@ -50,6 +53,7 @@ import           System.Directory
 import           System.FilePath
 import           Test.AWS.Assert
 import           Test.AWS.Orphans
+import           Test.AWS.TH
 import           Test.Tasty
 import           Test.Tasty.Golden
 import           Test.Tasty.HUnit
@@ -72,43 +76,28 @@ req :: (AWSRequest a, Eq a, Out a)
     -> a
     -> TestTree
 req n f e = testCase n $ do
-    e' <- expected
     a  <- decodeFileEither f
+    e' <- expected
     assertEqualPP f e' (first show a)
+
   where
     expected = do
-        let x = request e
-        b <- sink (_bdyBody (_rqBody x))
-        return $!
-            Req (_rqMethod x)
-                (_rqPath   x)
-                (parseSimpleQuery (toBS (_rqQuery x)))
-                (_rqHeaders x)
-                b
+        let rq = request e
+            sg = signed auth NorthVirginia time (serviceOf e) rq
+            x  = sg ^. sgRequest
+        b <- sink (requestBody x)
+        return $! mkReq
+            (method x)
+            (path   x)
+            (parseSimpleQuery (queryString x))
+            (requestHeaders x)
+            b
 
     sink = \case
         RequestBodyLBS     lbs -> pure (toBS lbs)
         RequestBodyBS      bs  -> pure bs
         RequestBodyBuilder _ b -> pure (toBS b)
         _                      -> fail "Streaming body not supported."
-
-data Req = Req
-    { testMethod  :: !StdMethod
-    , testPath    :: ByteString
-    , testQuery   :: SimpleQuery
-    , testHeaders :: [Header]
-    , testBody    :: ByteString
-    } deriving (Eq, Show, Generic)
-
-instance Out Req
-
-instance FromJSON Req where
-    parseJSON = withObject "req" $ \o -> Req
-        <$> o .:  "method"
-        <*> o .:  "path"
-        <*> (o .: "query"   <&> parseSimpleQuery)
-        <*> (o .: "headers" <&> Map.toList)
-        <*> o .:? "body"    .!= mempty
 
 testResponse :: forall a. (AWSService (Sv a), AWSRequest a)
              => Proxy a
@@ -130,3 +119,33 @@ testResponse x lbs = do
         , responseCookieJar = mempty
         , responseClose'    = ResponseClose (pure ())
         }
+
+auth :: AuthEnv
+auth = AuthEnv "access" "secret" Nothing Nothing
+
+time :: UTCTime
+time = $(mkTime "2009-10-28T22:32:00Z")
+
+data Req = Req
+    { _method  :: Method
+    , _path    :: ByteString
+    , _query   :: SimpleQuery
+    , _headers :: [Header]
+    , _body    :: ByteString
+    } deriving (Eq, Generic)
+
+mkReq :: Method -> ByteString -> SimpleQuery -> [Header] -> ByteString -> Req
+mkReq m p q h b = Req m p (sortKeys q) (sortKeys h) b
+
+instance Out Req
+
+instance FromJSON Req where
+    parseJSON = withObject "req" $ \o -> mkReq
+        <$> o .:  "method"
+        <*> o .:  "path"
+        <*> (o .: "query"   <&> Map.toList)
+        <*> (o .: "headers" <&> Map.toList)
+        <*> o .:? "body"    .!= mempty
+
+sortKeys :: Ord a => [(a, b)] -> [(a, b)]
+sortKeys = sortBy (comparing fst)

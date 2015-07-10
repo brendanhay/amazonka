@@ -18,10 +18,10 @@ import           Text.PrettyPrint.GenericPretty
 
 assertEqualPP :: (Eq a, Out a) => String -> a -> Either String a -> Assertion
 assertEqualPP _ _ (Left  m) = assertFailure m
-assertEqualPP n e (Right a) = unless (e == a) (assertFailure m)
+assertEqualPP n e (Right a) = unless (e == a) (assertFailure msg)
   where
-    m = "[Expected]:\n" ++ prettyStyle s e ++ "\n["
-         ++ n ++ "]:\n" ++ prettyStyle s a
+    msg = "[Constructed]:\n" ++ prettyStyle s e
+     ++ "\n[" ++ n ++ "]:\n" ++ prettyStyle s a
 
     s = Style
         { mode           = PageMode

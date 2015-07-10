@@ -105,11 +105,18 @@ instance Out a => Out (CI a) where
 instance FromJSON ByteString where
     parseJSON = withText "bytestring" (either fail pure . fromText)
 
+instance FromJSON (HashMap ByteString ByteString) where
+    parseJSON = withObject "hashmap" $
+          fmap Map.fromList
+        . traverse go
+        . Map.toList
+      where
+        go (k, v) = (Text.encodeUtf8 k,) <$> parseJSON v
+
 instance FromJSON (HashMap HeaderName ByteString) where
     parseJSON = withObject "headers" $
-        fmap Map.fromList . traverse go . Map.toList
+          fmap Map.fromList
+        . traverse go
+        . Map.toList
       where
         go (k, v) = (CI.mk (Text.encodeUtf8 k),) <$> parseJSON v
-
-instance FromJSON StdMethod where
-    parseJSON = withText "method" (either fail pure . fromText)

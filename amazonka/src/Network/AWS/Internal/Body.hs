@@ -30,8 +30,6 @@ module Network.AWS.Internal.Body
 import           Control.Applicative
 import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
-import           "cryptohash" Crypto.Hash
-import qualified Crypto.Hash.Conduit          as Conduit
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Int
@@ -66,5 +64,16 @@ sourceFile h n = sourceBody h n . Conduit.sourceFile
 -- lastly to stream the contents to the socket during sending.
 sourceFileIO :: MonadIO m => FilePath -> m RqBody
 sourceFileIO f = liftIO $
-    RqBody <$> runResourceT (Conduit.sourceFile f $$ Conduit.sinkHash)
+    RqBody <$> runResourceT (Conduit.sourceFile f $$ sinkHash)
            <*> Client.streamFile f
+
+-- | A 'Sink' that hashes a stream of 'B.ByteString'@s@ and
+-- creates a digest @d@.
+sinkHash :: Monad m => Consumer ByteString m (Digest SHA256)
+sinkHash = sink hashInit
+  where
+    sink ctx = do
+        b <- await
+        case b of
+            Nothing -> return $! hashFinalize ctx
+            Just bs -> sink $! hashUpdate ctx bs

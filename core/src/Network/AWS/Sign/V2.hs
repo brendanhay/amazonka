@@ -16,13 +16,13 @@ module Network.AWS.Sign.V2 where
 
 import           Control.Applicative
 import           Control.Lens
-import qualified Data.ByteString.Base64      as Base64
 import qualified Data.ByteString.Char8       as BS8
 import           Data.List                   (intersperse)
 import           Data.Monoid
 import           Data.Time
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Time
@@ -67,7 +67,7 @@ instance AWSSigner V2 where
 
         authorised = pair "Signature" (urlEncode True signature) query
 
-        signature = Base64.encode
+        signature = digestToBase Base64
             . hmacSHA256 (toBS _authSecret)
             $ BS8.intercalate "\n"
                 [ meth

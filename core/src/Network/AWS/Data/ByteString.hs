@@ -31,7 +31,8 @@ module Network.AWS.Data.ByteString
 import           Control.Monad
 import           Control.Monad.IO.Class
 import           Control.Retry
-import           "cryptohash" Crypto.Hash
+import           "cryptonite" Crypto.Hash
+import qualified Data.ByteArray                    as BA
 import           Data.ByteString                   (ByteString)
 import qualified Data.ByteString                   as BS
 import           Data.ByteString.Builder           (Builder)
@@ -82,7 +83,7 @@ instance ToByteString Integer        where toBS = toBS . Build.integerDec
 instance ToByteString Natural        where toBS = toBS . toInteger
 instance ToByteString Double         where toBS = toShortest
 instance ToByteString StdMethod      where toBS = renderStdMethod
-instance ToByteString (Digest a)     where toBS = digestToHexByteString
+instance ToByteString (Digest a)     where toBS = BA.convert
 instance ToByteString UTCTime        where toBS = BS8.pack . show
 
 instance ToByteString a => ToByteString (CI a) where

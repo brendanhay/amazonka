@@ -5,6 +5,7 @@
 {-# LANGUAGE GeneralizedNewtypeDeriving #-}
 {-# LANGUAGE LambdaCase                 #-}
 {-# LANGUAGE OverloadedStrings          #-}
+{-# LANGUAGE PackageImports             #-}
 {-# LANGUAGE RankNTypes                 #-}
 {-# LANGUAGE RecordWildCards            #-}
 {-# LANGUAGE ScopedTypeVariables        #-}
@@ -48,7 +49,6 @@ module Network.AWS.Types
     , Signed        (..)
     , sgMeta
     , sgRequest
-    , hmacSHA256
 
     -- * Requests
     , AWSRequest    (..)
@@ -86,9 +86,8 @@ import           Control.Concurrent           (ThreadId)
 import           Control.Lens                 hiding (coerce)
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
-import qualified Crypto.Hash.SHA256           as SHA256
-import qualified Crypto.MAC.HMAC              as HMAC
 import           Data.Aeson                   hiding (Error)
+import qualified Data.ByteArray               as BA
 import           Data.ByteString.Builder      (Builder)
 import           Data.Coerce
 import           Data.Conduit
@@ -265,9 +264,6 @@ class AWSService (Sv a) => AWSRequest a where
              -> Request a
              -> Either HttpException ClientResponse
              -> m (Response a)
-
-hmacSHA256 :: ByteString -> ByteString -> ByteString
-hmacSHA256 = HMAC.hmac SHA256.hash 64
 
 -- | Access key credential.
 newtype AccessKey = AccessKey ByteString

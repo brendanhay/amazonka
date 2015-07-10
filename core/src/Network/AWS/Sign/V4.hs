@@ -1,5 +1,6 @@
 {-# LANGUAGE FlexibleInstances #-}
 {-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE PackageImports    #-}
 {-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE TypeFamilies      #-}
@@ -16,8 +17,6 @@ module Network.AWS.Sign.V4 where
 
 import           Control.Applicative
 import           Control.Lens
-import qualified Crypto.Hash.SHA256          as SHA256
-import qualified Data.ByteString.Base16      as Base16
 import qualified Data.ByteString.Char8       as BS
 import qualified Data.CaseInsensitive        as CI
 import qualified Data.Foldable               as Fold
@@ -29,6 +28,7 @@ import           Data.Monoid
 import           Data.Ord
 import           Network.AWS.Data.Body
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Path
 import           Network.AWS.Data.Query
@@ -187,13 +187,14 @@ finalise AuthEnv{..} r t Service{..} Request{..} qry hash =
 
     accessScope = toBS _authAccess <> "/" <> credentialScope
 
-    signingKey = Fold.foldl1 hmacSHA256 $ ("AWS4" <> toBS _authSecret) : scope
+    signingKey = Fold.foldl1 (\k -> digestToBS . hmacSHA256 k) $
+        ("AWS4" <> toBS _authSecret) : scope
 
     stringToSign = BS.intercalate "\n"
         [ algorithm
         , toBS (Time t :: AWSTime)
         , credentialScope
-        , Base16.encode (SHA256.hash canonicalRequest)
+        , digestToBase Base16 (hashSHA256 canonicalRequest)
         ]
 
-    signature = Base16.encode (hmacSHA256 signingKey stringToSign)
+    signature = digestToBase Base16 (hmacSHA256 signingKey stringToSign)

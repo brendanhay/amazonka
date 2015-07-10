@@ -27,9 +27,10 @@ module Network.AWS.Data.Text
     ) where
 
 import           Control.Applicative
-import           "cryptohash" Crypto.Hash
+import           "cryptonite" Crypto.Hash
 import           Data.Attoparsec.Text              (Parser)
 import qualified Data.Attoparsec.Text              as A
+import qualified Data.ByteArray                    as BA
 import           Data.ByteString                   (ByteString)
 import qualified Data.ByteString.Char8             as BS8
 import           Data.CaseInsensitive              (CI)
@@ -131,7 +132,9 @@ instance ToText Natural    where toText = shortText . Build.decimal
 instance ToText Scientific where toText = shortText . Build.scientificBuilder
 instance ToText Double     where toText = toShortest
 instance ToText StdMethod  where toText = toText . renderStdMethod
-instance ToText (Digest a) where toText = toText . digestToHexByteString
+
+instance ToText (Digest a) where
+    toText = (toText :: ByteString -> Text) . BA.convert
 
 instance ToText Bool where
     toText True  = "true"

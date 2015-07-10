@@ -1,6 +1,7 @@
 {-# LANGUAGE DeriveDataTypeable #-}
 {-# LANGUAGE DeriveGeneric      #-}
 {-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE PackageImports     #-}
 
 -- |
 -- Module      : Network.AWS.Data.Body
@@ -15,8 +16,9 @@ module Network.AWS.Data.Body where
 import           Control.Lens
 import           Control.Monad.Morph
 import           Control.Monad.Trans.Resource
-import           Crypto.Hash
+import           "cryptonite" Crypto.Hash
 import           Data.Aeson
+import qualified Data.ByteArray               as BA
 import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Char8   as LBS8
@@ -47,7 +49,7 @@ data RqBody = RqBody
     }
 
 bodyHash :: Getter RqBody ByteString
-bodyHash = to (digestToHexByteString . _bdyHash)
+bodyHash = to (BA.convert . _bdyHash)
 
 instance Show RqBody where
     show b = "RqBody { RequestBody " ++ BS8.unpack (b ^. bodyHash) ++ " }"

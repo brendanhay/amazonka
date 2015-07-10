@@ -36,8 +36,9 @@ import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
 import           Data.Int
 import           Network.AWS.Prelude
+import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Conduit
-import           System.IO
+import           System.IO                    (Handle)
 
 -- | Construct a 'RqBody' from a source, manually specifying the
 -- SHA256 hash and file size.
@@ -57,8 +58,6 @@ sourceHandle h n = sourceBody h n . Conduit.sourceHandle
 sourceFile :: Digest SHA256 -> Int64 -> FilePath -> RqBody
 sourceFile h n = sourceBody h n . Conduit.sourceFile
 
-FIXME: use http-client's streamFile
-
 -- | Construct a 'RqBody' from a 'FilePath', calculating the SHA256 hash
 -- and file size.
 --
@@ -66,7 +65,6 @@ FIXME: use http-client's streamFile
 -- entirety of the file contents _twice_. Firstly to calculate the SHA256 and
 -- lastly to stream the contents to the socket during sending.
 sourceFileIO :: MonadIO m => FilePath -> m RqBody
-sourceFileIO f = liftIO $ sourceFile
-    <$> runResourceT (Conduit.sourceFile f $$ Conduit.sinkHash)
-    <*> fmap fromIntegral (withBinaryFile f ReadMode hFileSize)
-    <*> pure f
+sourceFileIO f = liftIO $
+    RqBody <$> runResourceT (Conduit.sourceFile f $$ Conduit.sinkHash)
+           <*> Client.streamFile f

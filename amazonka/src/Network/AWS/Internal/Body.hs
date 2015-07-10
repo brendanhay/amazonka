@@ -67,8 +67,7 @@ sourceFileIO f = liftIO $
     RqBody <$> runResourceT (Conduit.sourceFile f $$ sinkHash)
            <*> Client.streamFile f
 
--- | A 'Sink' that hashes a stream of 'B.ByteString'@s@ and
--- creates a digest @d@.
+-- | A cryptonite compatible incremental hash sink.
 sinkHash :: Monad m => Consumer ByteString m (Digest SHA256)
 sinkHash = sink hashInit
   where

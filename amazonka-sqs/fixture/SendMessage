@@ -1,0 +1,19 @@
+---
+method: POST
+path:   /
+query:
+  Action:                                SendMessage
+  MessageBody:                           This+is+a+test+message
+  MessageAttribute.1.Name:               test_attribute_name_1
+  MessageAttribute.1.Value.StringValue:  test_attribute_value_1
+  MessageAttribute.1.Value.DataType:     String
+  MessageAttribute.2.Name:               test_attribute_name_2
+  MessageAttribute.2.Value.StringValue:  test_attribute_value_2
+  MessageAttribute.2.Value.DataType:     String
+  QueueUrl:                              http://sqs.us-east-1.amazonaws.com/123456789012/testQueue/
+  Version:                               2012-11-05
+headers:
+  Authorization:         AWS4-HMAC-SHA256 Credential=access/20091028/us-east-1/sqs/aws4_request, SignedHeaders=host;x-amz-content-sha256;x-amz-date, Signature=00a5ef4811db3937a3a40b9145a96e94be62e52f9ca6dc31e5d3c270f28ed281
+  Host:                  queue.amazonaws.com
+  X-Amz-Content-SHA256:  e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+  X-Amz-Date:            20091028T223200UTC

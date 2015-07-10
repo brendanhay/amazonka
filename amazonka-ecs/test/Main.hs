@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- |
 -- Module      : Main
 -- Copyright   : (c) 2013-2015 Brendan Hay

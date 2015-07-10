@@ -1,3 +1,5 @@
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
+
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
 -- |

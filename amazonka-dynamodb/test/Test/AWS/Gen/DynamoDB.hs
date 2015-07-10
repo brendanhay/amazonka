@@ -114,120 +114,146 @@ import Test.AWS.DynamoDB.Internal
 -- Requests
 
 testUpdateItem :: UpdateItem -> TestTree
-testUpdateItem = undefined
+testUpdateItem = req
+    "UpdateItem"
+    "fixture/UpdateItem"
 
 testDeleteItem :: DeleteItem -> TestTree
-testDeleteItem = undefined
+testDeleteItem = req
+    "DeleteItem"
+    "fixture/DeleteItem"
 
 testPutItem :: PutItem -> TestTree
-testPutItem = undefined
+testPutItem = req
+    "PutItem"
+    "fixture/PutItem"
 
 testDeleteTable :: DeleteTable -> TestTree
-testDeleteTable = undefined
+testDeleteTable = req
+    "DeleteTable"
+    "fixture/DeleteTable"
 
 testUpdateTable :: UpdateTable -> TestTree
-testUpdateTable = undefined
+testUpdateTable = req
+    "UpdateTable"
+    "fixture/UpdateTable"
 
 testBatchGetItem :: BatchGetItem -> TestTree
-testBatchGetItem = undefined
+testBatchGetItem = req
+    "BatchGetItem"
+    "fixture/BatchGetItem"
 
 testDescribeTable :: DescribeTable -> TestTree
-testDescribeTable = undefined
+testDescribeTable = req
+    "DescribeTable"
+    "fixture/DescribeTable"
 
 testGetItem :: GetItem -> TestTree
-testGetItem = undefined
+testGetItem = req
+    "GetItem"
+    "fixture/GetItem"
 
 testBatchWriteItem :: BatchWriteItem -> TestTree
-testBatchWriteItem = undefined
+testBatchWriteItem = req
+    "BatchWriteItem"
+    "fixture/BatchWriteItem"
 
 testScan :: Scan -> TestTree
-testScan = undefined
+testScan = req
+    "Scan"
+    "fixture/Scan"
 
 testListTables :: ListTables -> TestTree
-testListTables = undefined
+testListTables = req
+    "ListTables"
+    "fixture/ListTables"
 
 testQuery :: Query -> TestTree
-testQuery = undefined
+testQuery = req
+    "Query"
+    "fixture/Query"
 
 testCreateTable :: CreateTable -> TestTree
-testCreateTable = undefined
+testCreateTable = req
+    "CreateTable"
+    "fixture/CreateTable"
 
 -- Responses
 
 testUpdateItemResponse :: UpdateItemResponse -> TestTree
-testUpdateItemResponse = resp
+testUpdateItemResponse = res
     "UpdateItemResponse"
     "fixture/UpdateItemResponse"
     (Proxy :: Proxy UpdateItem)
 
 testDeleteItemResponse :: DeleteItemResponse -> TestTree
-testDeleteItemResponse = resp
+testDeleteItemResponse = res
     "DeleteItemResponse"
     "fixture/DeleteItemResponse"
     (Proxy :: Proxy DeleteItem)
 
 testPutItemResponse :: PutItemResponse -> TestTree
-testPutItemResponse = resp
+testPutItemResponse = res
     "PutItemResponse"
     "fixture/PutItemResponse"
     (Proxy :: Proxy PutItem)
 
 testDeleteTableResponse :: DeleteTableResponse -> TestTree
-testDeleteTableResponse = resp
+testDeleteTableResponse = res
     "DeleteTableResponse"
     "fixture/DeleteTableResponse"
     (Proxy :: Proxy DeleteTable)
 
 testUpdateTableResponse :: UpdateTableResponse -> TestTree
-testUpdateTableResponse = resp
+testUpdateTableResponse = res
     "UpdateTableResponse"
     "fixture/UpdateTableResponse"
     (Proxy :: Proxy UpdateTable)
 
 testBatchGetItemResponse :: BatchGetItemResponse -> TestTree
-testBatchGetItemResponse = resp
+testBatchGetItemResponse = res
     "BatchGetItemResponse"
     "fixture/BatchGetItemResponse"
     (Proxy :: Proxy BatchGetItem)
 
 testDescribeTableResponse :: DescribeTableResponse -> TestTree
-testDescribeTableResponse = resp
+testDescribeTableResponse = res
     "DescribeTableResponse"
     "fixture/DescribeTableResponse"
     (Proxy :: Proxy DescribeTable)
 
 testGetItemResponse :: GetItemResponse -> TestTree
-testGetItemResponse = resp
+testGetItemResponse = res
     "GetItemResponse"
     "fixture/GetItemResponse"
     (Proxy :: Proxy GetItem)
 
 testBatchWriteItemResponse :: BatchWriteItemResponse -> TestTree
-testBatchWriteItemResponse = resp
+testBatchWriteItemResponse = res
     "BatchWriteItemResponse"
     "fixture/BatchWriteItemResponse"
     (Proxy :: Proxy BatchWriteItem)
 
 testScanResponse :: ScanResponse -> TestTree
-testScanResponse = resp
+testScanResponse = res
     "ScanResponse"
     "fixture/ScanResponse"
     (Proxy :: Proxy Scan)
 
 testListTablesResponse :: ListTablesResponse -> TestTree
-testListTablesResponse = resp
+testListTablesResponse = res
     "ListTablesResponse"
     "fixture/ListTablesResponse"
     (Proxy :: Proxy ListTables)
 
 testQueryResponse :: QueryResponse -> TestTree
-testQueryResponse = resp
+testQueryResponse = res
     "QueryResponse"
     "fixture/QueryResponse"
     (Proxy :: Proxy Query)
 
 testCreateTableResponse :: CreateTableResponse -> TestTree
-testCreateTableResponse = resp
+testCreateTableResponse = res
     "CreateTableResponse"
     "fixture/CreateTableResponse"
     (Proxy :: Proxy CreateTable)

@@ -132,147 +132,179 @@ import Test.AWS.Lambda.Internal
 -- Requests
 
 testGetFunctionConfiguration :: GetFunctionConfiguration -> TestTree
-testGetFunctionConfiguration = undefined
+testGetFunctionConfiguration = req
+    "GetFunctionConfiguration"
+    "fixture/GetFunctionConfiguration"
 
 testUpdateEventSourceMapping :: UpdateEventSourceMapping -> TestTree
-testUpdateEventSourceMapping = undefined
+testUpdateEventSourceMapping = req
+    "UpdateEventSourceMapping"
+    "fixture/UpdateEventSourceMapping"
 
 testDeleteEventSourceMapping :: DeleteEventSourceMapping -> TestTree
-testDeleteEventSourceMapping = undefined
+testDeleteEventSourceMapping = req
+    "DeleteEventSourceMapping"
+    "fixture/DeleteEventSourceMapping"
 
 testRemovePermission :: RemovePermission -> TestTree
-testRemovePermission = undefined
+testRemovePermission = req
+    "RemovePermission"
+    "fixture/RemovePermission"
 
 testInvoke :: Invoke -> TestTree
-testInvoke = undefined
+testInvoke = req
+    "Invoke"
+    "fixture/Invoke"
 
 testGetEventSourceMapping :: GetEventSourceMapping -> TestTree
-testGetEventSourceMapping = undefined
+testGetEventSourceMapping = req
+    "GetEventSourceMapping"
+    "fixture/GetEventSourceMapping"
 
 testCreateFunction :: CreateFunction -> TestTree
-testCreateFunction = undefined
+testCreateFunction = req
+    "CreateFunction"
+    "fixture/CreateFunction"
 
 testCreateEventSourceMapping :: CreateEventSourceMapping -> TestTree
-testCreateEventSourceMapping = undefined
+testCreateEventSourceMapping = req
+    "CreateEventSourceMapping"
+    "fixture/CreateEventSourceMapping"
 
 testGetFunction :: GetFunction -> TestTree
-testGetFunction = undefined
+testGetFunction = req
+    "GetFunction"
+    "fixture/GetFunction"
 
 testListEventSourceMappings :: ListEventSourceMappings -> TestTree
-testListEventSourceMappings = undefined
+testListEventSourceMappings = req
+    "ListEventSourceMappings"
+    "fixture/ListEventSourceMappings"
 
 testAddPermission :: AddPermission -> TestTree
-testAddPermission = undefined
+testAddPermission = req
+    "AddPermission"
+    "fixture/AddPermission"
 
 testDeleteFunction :: DeleteFunction -> TestTree
-testDeleteFunction = undefined
+testDeleteFunction = req
+    "DeleteFunction"
+    "fixture/DeleteFunction"
 
 testUpdateFunctionConfiguration :: UpdateFunctionConfiguration -> TestTree
-testUpdateFunctionConfiguration = undefined
+testUpdateFunctionConfiguration = req
+    "UpdateFunctionConfiguration"
+    "fixture/UpdateFunctionConfiguration"
 
 testListFunctions :: ListFunctions -> TestTree
-testListFunctions = undefined
+testListFunctions = req
+    "ListFunctions"
+    "fixture/ListFunctions"
 
 testUpdateFunctionCode :: UpdateFunctionCode -> TestTree
-testUpdateFunctionCode = undefined
+testUpdateFunctionCode = req
+    "UpdateFunctionCode"
+    "fixture/UpdateFunctionCode"
 
 testGetPolicy :: GetPolicy -> TestTree
-testGetPolicy = undefined
+testGetPolicy = req
+    "GetPolicy"
+    "fixture/GetPolicy"
 
 -- Responses
 
 testGetFunctionConfigurationResponse :: FunctionConfiguration -> TestTree
-testGetFunctionConfigurationResponse = resp
+testGetFunctionConfigurationResponse = res
     "GetFunctionConfigurationResponse"
     "fixture/GetFunctionConfigurationResponse"
     (Proxy :: Proxy GetFunctionConfiguration)
 
 testUpdateEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
-testUpdateEventSourceMappingResponse = resp
+testUpdateEventSourceMappingResponse = res
     "UpdateEventSourceMappingResponse"
     "fixture/UpdateEventSourceMappingResponse"
     (Proxy :: Proxy UpdateEventSourceMapping)
 
 testDeleteEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
-testDeleteEventSourceMappingResponse = resp
+testDeleteEventSourceMappingResponse = res
     "DeleteEventSourceMappingResponse"
     "fixture/DeleteEventSourceMappingResponse"
     (Proxy :: Proxy DeleteEventSourceMapping)
 
 testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
-testRemovePermissionResponse = resp
+testRemovePermissionResponse = res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse"
     (Proxy :: Proxy RemovePermission)
 
 testInvokeResponse :: InvokeResponse -> TestTree
-testInvokeResponse = resp
+testInvokeResponse = res
     "InvokeResponse"
     "fixture/InvokeResponse"
     (Proxy :: Proxy Invoke)
 
 testGetEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
-testGetEventSourceMappingResponse = resp
+testGetEventSourceMappingResponse = res
     "GetEventSourceMappingResponse"
     "fixture/GetEventSourceMappingResponse"
     (Proxy :: Proxy GetEventSourceMapping)
 
 testCreateFunctionResponse :: FunctionConfiguration -> TestTree
-testCreateFunctionResponse = resp
+testCreateFunctionResponse = res
     "CreateFunctionResponse"
     "fixture/CreateFunctionResponse"
     (Proxy :: Proxy CreateFunction)
 
 testCreateEventSourceMappingResponse :: EventSourceMappingConfiguration -> TestTree
-testCreateEventSourceMappingResponse = resp
+testCreateEventSourceMappingResponse = res
     "CreateEventSourceMappingResponse"
     "fixture/CreateEventSourceMappingResponse"
     (Proxy :: Proxy CreateEventSourceMapping)
 
 testGetFunctionResponse :: GetFunctionResponse -> TestTree
-testGetFunctionResponse = resp
+testGetFunctionResponse = res
     "GetFunctionResponse"
     "fixture/GetFunctionResponse"
     (Proxy :: Proxy GetFunction)
 
 testListEventSourceMappingsResponse :: ListEventSourceMappingsResponse -> TestTree
-testListEventSourceMappingsResponse = resp
+testListEventSourceMappingsResponse = res
     "ListEventSourceMappingsResponse"
     "fixture/ListEventSourceMappingsResponse"
     (Proxy :: Proxy ListEventSourceMappings)
 
 testAddPermissionResponse :: AddPermissionResponse -> TestTree
-testAddPermissionResponse = resp
+testAddPermissionResponse = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse"
     (Proxy :: Proxy AddPermission)
 
 testDeleteFunctionResponse :: DeleteFunctionResponse -> TestTree
-testDeleteFunctionResponse = resp
+testDeleteFunctionResponse = res
     "DeleteFunctionResponse"
     "fixture/DeleteFunctionResponse"
     (Proxy :: Proxy DeleteFunction)
 
 testUpdateFunctionConfigurationResponse :: FunctionConfiguration -> TestTree
-testUpdateFunctionConfigurationResponse = resp
+testUpdateFunctionConfigurationResponse = res
     "UpdateFunctionConfigurationResponse"
     "fixture/UpdateFunctionConfigurationResponse"
     (Proxy :: Proxy UpdateFunctionConfiguration)
 
 testListFunctionsResponse :: ListFunctionsResponse -> TestTree
-testListFunctionsResponse = resp
+testListFunctionsResponse = res
     "ListFunctionsResponse"
     "fixture/ListFunctionsResponse"
     (Proxy :: Proxy ListFunctions)
 
 testUpdateFunctionCodeResponse :: FunctionConfiguration -> TestTree
-testUpdateFunctionCodeResponse = resp
+testUpdateFunctionCodeResponse = res
     "UpdateFunctionCodeResponse"
     "fixture/UpdateFunctionCodeResponse"
     (Proxy :: Proxy UpdateFunctionCode)
 
 testGetPolicyResponse :: GetPolicyResponse -> TestTree
-testGetPolicyResponse = resp
+testGetPolicyResponse = res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse"
     (Proxy :: Proxy GetPolicy)

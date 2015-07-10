@@ -324,435 +324,531 @@ import Test.AWS.AutoScaling.Internal
 -- Requests
 
 testDescribeMetricCollectionTypes :: DescribeMetricCollectionTypes -> TestTree
-testDescribeMetricCollectionTypes = undefined
+testDescribeMetricCollectionTypes = req
+    "DescribeMetricCollectionTypes"
+    "fixture/DescribeMetricCollectionTypes"
 
 testPutScalingPolicy :: PutScalingPolicy -> TestTree
-testPutScalingPolicy = undefined
+testPutScalingPolicy = req
+    "PutScalingPolicy"
+    "fixture/PutScalingPolicy"
 
 testDeleteNotificationConfiguration :: DeleteNotificationConfiguration -> TestTree
-testDeleteNotificationConfiguration = undefined
+testDeleteNotificationConfiguration = req
+    "DeleteNotificationConfiguration"
+    "fixture/DeleteNotificationConfiguration"
 
 testDescribeTags :: DescribeTags -> TestTree
-testDescribeTags = undefined
+testDescribeTags = req
+    "DescribeTags"
+    "fixture/DescribeTags"
 
 testDeleteLaunchConfiguration :: DeleteLaunchConfiguration -> TestTree
-testDeleteLaunchConfiguration = undefined
+testDeleteLaunchConfiguration = req
+    "DeleteLaunchConfiguration"
+    "fixture/DeleteLaunchConfiguration"
 
 testDescribeLoadBalancers :: DescribeLoadBalancers -> TestTree
-testDescribeLoadBalancers = undefined
+testDescribeLoadBalancers = req
+    "DescribeLoadBalancers"
+    "fixture/DescribeLoadBalancers"
 
 testPutNotificationConfiguration :: PutNotificationConfiguration -> TestTree
-testPutNotificationConfiguration = undefined
+testPutNotificationConfiguration = req
+    "PutNotificationConfiguration"
+    "fixture/PutNotificationConfiguration"
 
 testSetInstanceHealth :: SetInstanceHealth -> TestTree
-testSetInstanceHealth = undefined
+testSetInstanceHealth = req
+    "SetInstanceHealth"
+    "fixture/SetInstanceHealth"
 
 testEnterStandby :: EnterStandby -> TestTree
-testEnterStandby = undefined
+testEnterStandby = req
+    "EnterStandby"
+    "fixture/EnterStandby"
 
 testSuspendProcesses :: SuspendProcesses -> TestTree
-testSuspendProcesses = undefined
+testSuspendProcesses = req
+    "SuspendProcesses"
+    "fixture/SuspendProcesses"
 
 testExitStandby :: ExitStandby -> TestTree
-testExitStandby = undefined
+testExitStandby = req
+    "ExitStandby"
+    "fixture/ExitStandby"
 
 testDescribeTerminationPolicyTypes :: DescribeTerminationPolicyTypes -> TestTree
-testDescribeTerminationPolicyTypes = undefined
+testDescribeTerminationPolicyTypes = req
+    "DescribeTerminationPolicyTypes"
+    "fixture/DescribeTerminationPolicyTypes"
 
 testDescribeAutoScalingInstances :: DescribeAutoScalingInstances -> TestTree
-testDescribeAutoScalingInstances = undefined
+testDescribeAutoScalingInstances = req
+    "DescribeAutoScalingInstances"
+    "fixture/DescribeAutoScalingInstances"
 
 testDetachInstances :: DetachInstances -> TestTree
-testDetachInstances = undefined
+testDetachInstances = req
+    "DetachInstances"
+    "fixture/DetachInstances"
 
 testDisableMetricsCollection :: DisableMetricsCollection -> TestTree
-testDisableMetricsCollection = undefined
+testDisableMetricsCollection = req
+    "DisableMetricsCollection"
+    "fixture/DisableMetricsCollection"
 
 testRecordLifecycleActionHeartbeat :: RecordLifecycleActionHeartbeat -> TestTree
-testRecordLifecycleActionHeartbeat = undefined
+testRecordLifecycleActionHeartbeat = req
+    "RecordLifecycleActionHeartbeat"
+    "fixture/RecordLifecycleActionHeartbeat"
 
 testDeleteTags :: DeleteTags -> TestTree
-testDeleteTags = undefined
+testDeleteTags = req
+    "DeleteTags"
+    "fixture/DeleteTags"
 
 testDescribeScalingProcessTypes :: DescribeScalingProcessTypes -> TestTree
-testDescribeScalingProcessTypes = undefined
+testDescribeScalingProcessTypes = req
+    "DescribeScalingProcessTypes"
+    "fixture/DescribeScalingProcessTypes"
 
 testEnableMetricsCollection :: EnableMetricsCollection -> TestTree
-testEnableMetricsCollection = undefined
+testEnableMetricsCollection = req
+    "EnableMetricsCollection"
+    "fixture/EnableMetricsCollection"
 
 testDescribeLifecycleHooks :: DescribeLifecycleHooks -> TestTree
-testDescribeLifecycleHooks = undefined
+testDescribeLifecycleHooks = req
+    "DescribeLifecycleHooks"
+    "fixture/DescribeLifecycleHooks"
 
 testDescribeAutoScalingGroups :: DescribeAutoScalingGroups -> TestTree
-testDescribeAutoScalingGroups = undefined
+testDescribeAutoScalingGroups = req
+    "DescribeAutoScalingGroups"
+    "fixture/DescribeAutoScalingGroups"
 
 testSetDesiredCapacity :: SetDesiredCapacity -> TestTree
-testSetDesiredCapacity = undefined
+testSetDesiredCapacity = req
+    "SetDesiredCapacity"
+    "fixture/SetDesiredCapacity"
 
 testDetachLoadBalancers :: DetachLoadBalancers -> TestTree
-testDetachLoadBalancers = undefined
+testDetachLoadBalancers = req
+    "DetachLoadBalancers"
+    "fixture/DetachLoadBalancers"
 
 testDeleteScheduledAction :: DeleteScheduledAction -> TestTree
-testDeleteScheduledAction = undefined
+testDeleteScheduledAction = req
+    "DeleteScheduledAction"
+    "fixture/DeleteScheduledAction"
 
 testCreateOrUpdateTags :: CreateOrUpdateTags -> TestTree
-testCreateOrUpdateTags = undefined
+testCreateOrUpdateTags = req
+    "CreateOrUpdateTags"
+    "fixture/CreateOrUpdateTags"
 
 testDeletePolicy :: DeletePolicy -> TestTree
-testDeletePolicy = undefined
+testDeletePolicy = req
+    "DeletePolicy"
+    "fixture/DeletePolicy"
 
 testDescribeAutoScalingNotificationTypes :: DescribeAutoScalingNotificationTypes -> TestTree
-testDescribeAutoScalingNotificationTypes = undefined
+testDescribeAutoScalingNotificationTypes = req
+    "DescribeAutoScalingNotificationTypes"
+    "fixture/DescribeAutoScalingNotificationTypes"
 
 testCompleteLifecycleAction :: CompleteLifecycleAction -> TestTree
-testCompleteLifecycleAction = undefined
+testCompleteLifecycleAction = req
+    "CompleteLifecycleAction"
+    "fixture/CompleteLifecycleAction"
 
 testAttachInstances :: AttachInstances -> TestTree
-testAttachInstances = undefined
+testAttachInstances = req
+    "AttachInstances"
+    "fixture/AttachInstances"
 
 testDescribeScheduledActions :: DescribeScheduledActions -> TestTree
-testDescribeScheduledActions = undefined
+testDescribeScheduledActions = req
+    "DescribeScheduledActions"
+    "fixture/DescribeScheduledActions"
 
 testDeleteAutoScalingGroup :: DeleteAutoScalingGroup -> TestTree
-testDeleteAutoScalingGroup = undefined
+testDeleteAutoScalingGroup = req
+    "DeleteAutoScalingGroup"
+    "fixture/DeleteAutoScalingGroup"
 
 testPutLifecycleHook :: PutLifecycleHook -> TestTree
-testPutLifecycleHook = undefined
+testPutLifecycleHook = req
+    "PutLifecycleHook"
+    "fixture/PutLifecycleHook"
 
 testUpdateAutoScalingGroup :: UpdateAutoScalingGroup -> TestTree
-testUpdateAutoScalingGroup = undefined
+testUpdateAutoScalingGroup = req
+    "UpdateAutoScalingGroup"
+    "fixture/UpdateAutoScalingGroup"
 
 testDeleteLifecycleHook :: DeleteLifecycleHook -> TestTree
-testDeleteLifecycleHook = undefined
+testDeleteLifecycleHook = req
+    "DeleteLifecycleHook"
+    "fixture/DeleteLifecycleHook"
 
 testResumeProcesses :: ResumeProcesses -> TestTree
-testResumeProcesses = undefined
+testResumeProcesses = req
+    "ResumeProcesses"
+    "fixture/ResumeProcesses"
 
 testExecutePolicy :: ExecutePolicy -> TestTree
-testExecutePolicy = undefined
+testExecutePolicy = req
+    "ExecutePolicy"
+    "fixture/ExecutePolicy"
 
 testTerminateInstanceInAutoScalingGroup :: TerminateInstanceInAutoScalingGroup -> TestTree
-testTerminateInstanceInAutoScalingGroup = undefined
+testTerminateInstanceInAutoScalingGroup = req
+    "TerminateInstanceInAutoScalingGroup"
+    "fixture/TerminateInstanceInAutoScalingGroup"
 
 testDescribeAccountLimits :: DescribeAccountLimits -> TestTree
-testDescribeAccountLimits = undefined
+testDescribeAccountLimits = req
+    "DescribeAccountLimits"
+    "fixture/DescribeAccountLimits"
 
 testAttachLoadBalancers :: AttachLoadBalancers -> TestTree
-testAttachLoadBalancers = undefined
+testAttachLoadBalancers = req
+    "AttachLoadBalancers"
+    "fixture/AttachLoadBalancers"
 
 testPutScheduledUpdateGroupAction :: PutScheduledUpdateGroupAction -> TestTree
-testPutScheduledUpdateGroupAction = undefined
+testPutScheduledUpdateGroupAction = req
+    "PutScheduledUpdateGroupAction"
+    "fixture/PutScheduledUpdateGroupAction"
 
 testDescribePolicies :: DescribePolicies -> TestTree
-testDescribePolicies = undefined
+testDescribePolicies = req
+    "DescribePolicies"
+    "fixture/DescribePolicies"
 
 testDescribeNotificationConfigurations :: DescribeNotificationConfigurations -> TestTree
-testDescribeNotificationConfigurations = undefined
+testDescribeNotificationConfigurations = req
+    "DescribeNotificationConfigurations"
+    "fixture/DescribeNotificationConfigurations"
 
 testDescribeLaunchConfigurations :: DescribeLaunchConfigurations -> TestTree
-testDescribeLaunchConfigurations = undefined
+testDescribeLaunchConfigurations = req
+    "DescribeLaunchConfigurations"
+    "fixture/DescribeLaunchConfigurations"
 
 testDescribeLifecycleHookTypes :: DescribeLifecycleHookTypes -> TestTree
-testDescribeLifecycleHookTypes = undefined
+testDescribeLifecycleHookTypes = req
+    "DescribeLifecycleHookTypes"
+    "fixture/DescribeLifecycleHookTypes"
 
 testDescribeScalingActivities :: DescribeScalingActivities -> TestTree
-testDescribeScalingActivities = undefined
+testDescribeScalingActivities = req
+    "DescribeScalingActivities"
+    "fixture/DescribeScalingActivities"
 
 testCreateAutoScalingGroup :: CreateAutoScalingGroup -> TestTree
-testCreateAutoScalingGroup = undefined
+testCreateAutoScalingGroup = req
+    "CreateAutoScalingGroup"
+    "fixture/CreateAutoScalingGroup"
 
 testCreateLaunchConfiguration :: CreateLaunchConfiguration -> TestTree
-testCreateLaunchConfiguration = undefined
+testCreateLaunchConfiguration = req
+    "CreateLaunchConfiguration"
+    "fixture/CreateLaunchConfiguration"
 
 testDescribeAdjustmentTypes :: DescribeAdjustmentTypes -> TestTree
-testDescribeAdjustmentTypes = undefined
+testDescribeAdjustmentTypes = req
+    "DescribeAdjustmentTypes"
+    "fixture/DescribeAdjustmentTypes"
 
 -- Responses
 
 testDescribeMetricCollectionTypesResponse :: DescribeMetricCollectionTypesResponse -> TestTree
-testDescribeMetricCollectionTypesResponse = resp
+testDescribeMetricCollectionTypesResponse = res
     "DescribeMetricCollectionTypesResponse"
     "fixture/DescribeMetricCollectionTypesResponse"
     (Proxy :: Proxy DescribeMetricCollectionTypes)
 
 testPutScalingPolicyResponse :: PutScalingPolicyResponse -> TestTree
-testPutScalingPolicyResponse = resp
+testPutScalingPolicyResponse = res
     "PutScalingPolicyResponse"
     "fixture/PutScalingPolicyResponse"
     (Proxy :: Proxy PutScalingPolicy)
 
 testDeleteNotificationConfigurationResponse :: DeleteNotificationConfigurationResponse -> TestTree
-testDeleteNotificationConfigurationResponse = resp
+testDeleteNotificationConfigurationResponse = res
     "DeleteNotificationConfigurationResponse"
     "fixture/DeleteNotificationConfigurationResponse"
     (Proxy :: Proxy DeleteNotificationConfiguration)
 
 testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
-testDescribeTagsResponse = resp
+testDescribeTagsResponse = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse"
     (Proxy :: Proxy DescribeTags)
 
 testDeleteLaunchConfigurationResponse :: DeleteLaunchConfigurationResponse -> TestTree
-testDeleteLaunchConfigurationResponse = resp
+testDeleteLaunchConfigurationResponse = res
     "DeleteLaunchConfigurationResponse"
     "fixture/DeleteLaunchConfigurationResponse"
     (Proxy :: Proxy DeleteLaunchConfiguration)
 
 testDescribeLoadBalancersResponse :: DescribeLoadBalancersResponse -> TestTree
-testDescribeLoadBalancersResponse = resp
+testDescribeLoadBalancersResponse = res
     "DescribeLoadBalancersResponse"
     "fixture/DescribeLoadBalancersResponse"
     (Proxy :: Proxy DescribeLoadBalancers)
 
 testPutNotificationConfigurationResponse :: PutNotificationConfigurationResponse -> TestTree
-testPutNotificationConfigurationResponse = resp
+testPutNotificationConfigurationResponse = res
     "PutNotificationConfigurationResponse"
     "fixture/PutNotificationConfigurationResponse"
     (Proxy :: Proxy PutNotificationConfiguration)
 
 testSetInstanceHealthResponse :: SetInstanceHealthResponse -> TestTree
-testSetInstanceHealthResponse = resp
+testSetInstanceHealthResponse = res
     "SetInstanceHealthResponse"
     "fixture/SetInstanceHealthResponse"
     (Proxy :: Proxy SetInstanceHealth)
 
 testEnterStandbyResponse :: EnterStandbyResponse -> TestTree
-testEnterStandbyResponse = resp
+testEnterStandbyResponse = res
     "EnterStandbyResponse"
     "fixture/EnterStandbyResponse"
     (Proxy :: Proxy EnterStandby)
 
 testSuspendProcessesResponse :: SuspendProcessesResponse -> TestTree
-testSuspendProcessesResponse = resp
+testSuspendProcessesResponse = res
     "SuspendProcessesResponse"
     "fixture/SuspendProcessesResponse"
     (Proxy :: Proxy SuspendProcesses)
 
 testExitStandbyResponse :: ExitStandbyResponse -> TestTree
-testExitStandbyResponse = resp
+testExitStandbyResponse = res
     "ExitStandbyResponse"
     "fixture/ExitStandbyResponse"
     (Proxy :: Proxy ExitStandby)
 
 testDescribeTerminationPolicyTypesResponse :: DescribeTerminationPolicyTypesResponse -> TestTree
-testDescribeTerminationPolicyTypesResponse = resp
+testDescribeTerminationPolicyTypesResponse = res
     "DescribeTerminationPolicyTypesResponse"
     "fixture/DescribeTerminationPolicyTypesResponse"
     (Proxy :: Proxy DescribeTerminationPolicyTypes)
 
 testDescribeAutoScalingInstancesResponse :: DescribeAutoScalingInstancesResponse -> TestTree
-testDescribeAutoScalingInstancesResponse = resp
+testDescribeAutoScalingInstancesResponse = res
     "DescribeAutoScalingInstancesResponse"
     "fixture/DescribeAutoScalingInstancesResponse"
     (Proxy :: Proxy DescribeAutoScalingInstances)
 
 testDetachInstancesResponse :: DetachInstancesResponse -> TestTree
-testDetachInstancesResponse = resp
+testDetachInstancesResponse = res
     "DetachInstancesResponse"
     "fixture/DetachInstancesResponse"
     (Proxy :: Proxy DetachInstances)
 
 testDisableMetricsCollectionResponse :: DisableMetricsCollectionResponse -> TestTree
-testDisableMetricsCollectionResponse = resp
+testDisableMetricsCollectionResponse = res
     "DisableMetricsCollectionResponse"
     "fixture/DisableMetricsCollectionResponse"
     (Proxy :: Proxy DisableMetricsCollection)
 
 testRecordLifecycleActionHeartbeatResponse :: RecordLifecycleActionHeartbeatResponse -> TestTree
-testRecordLifecycleActionHeartbeatResponse = resp
+testRecordLifecycleActionHeartbeatResponse = res
     "RecordLifecycleActionHeartbeatResponse"
     "fixture/RecordLifecycleActionHeartbeatResponse"
     (Proxy :: Proxy RecordLifecycleActionHeartbeat)
 
 testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
-testDeleteTagsResponse = resp
+testDeleteTagsResponse = res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse"
     (Proxy :: Proxy DeleteTags)
 
 testDescribeScalingProcessTypesResponse :: DescribeScalingProcessTypesResponse -> TestTree
-testDescribeScalingProcessTypesResponse = resp
+testDescribeScalingProcessTypesResponse = res
     "DescribeScalingProcessTypesResponse"
     "fixture/DescribeScalingProcessTypesResponse"
     (Proxy :: Proxy DescribeScalingProcessTypes)
 
 testEnableMetricsCollectionResponse :: EnableMetricsCollectionResponse -> TestTree
-testEnableMetricsCollectionResponse = resp
+testEnableMetricsCollectionResponse = res
     "EnableMetricsCollectionResponse"
     "fixture/EnableMetricsCollectionResponse"
     (Proxy :: Proxy EnableMetricsCollection)
 
 testDescribeLifecycleHooksResponse :: DescribeLifecycleHooksResponse -> TestTree
-testDescribeLifecycleHooksResponse = resp
+testDescribeLifecycleHooksResponse = res
     "DescribeLifecycleHooksResponse"
     "fixture/DescribeLifecycleHooksResponse"
     (Proxy :: Proxy DescribeLifecycleHooks)
 
 testDescribeAutoScalingGroupsResponse :: DescribeAutoScalingGroupsResponse -> TestTree
-testDescribeAutoScalingGroupsResponse = resp
+testDescribeAutoScalingGroupsResponse = res
     "DescribeAutoScalingGroupsResponse"
     "fixture/DescribeAutoScalingGroupsResponse"
     (Proxy :: Proxy DescribeAutoScalingGroups)
 
 testSetDesiredCapacityResponse :: SetDesiredCapacityResponse -> TestTree
-testSetDesiredCapacityResponse = resp
+testSetDesiredCapacityResponse = res
     "SetDesiredCapacityResponse"
     "fixture/SetDesiredCapacityResponse"
     (Proxy :: Proxy SetDesiredCapacity)
 
 testDetachLoadBalancersResponse :: DetachLoadBalancersResponse -> TestTree
-testDetachLoadBalancersResponse = resp
+testDetachLoadBalancersResponse = res
     "DetachLoadBalancersResponse"
     "fixture/DetachLoadBalancersResponse"
     (Proxy :: Proxy DetachLoadBalancers)
 
 testDeleteScheduledActionResponse :: DeleteScheduledActionResponse -> TestTree
-testDeleteScheduledActionResponse = resp
+testDeleteScheduledActionResponse = res
     "DeleteScheduledActionResponse"
     "fixture/DeleteScheduledActionResponse"
     (Proxy :: Proxy DeleteScheduledAction)
 
 testCreateOrUpdateTagsResponse :: CreateOrUpdateTagsResponse -> TestTree
-testCreateOrUpdateTagsResponse = resp
+testCreateOrUpdateTagsResponse = res
     "CreateOrUpdateTagsResponse"
     "fixture/CreateOrUpdateTagsResponse"
     (Proxy :: Proxy CreateOrUpdateTags)
 
 testDeletePolicyResponse :: DeletePolicyResponse -> TestTree
-testDeletePolicyResponse = resp
+testDeletePolicyResponse = res
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse"
     (Proxy :: Proxy DeletePolicy)
 
 testDescribeAutoScalingNotificationTypesResponse :: DescribeAutoScalingNotificationTypesResponse -> TestTree
-testDescribeAutoScalingNotificationTypesResponse = resp
+testDescribeAutoScalingNotificationTypesResponse = res
     "DescribeAutoScalingNotificationTypesResponse"
     "fixture/DescribeAutoScalingNotificationTypesResponse"
     (Proxy :: Proxy DescribeAutoScalingNotificationTypes)
 
 testCompleteLifecycleActionResponse :: CompleteLifecycleActionResponse -> TestTree
-testCompleteLifecycleActionResponse = resp
+testCompleteLifecycleActionResponse = res
     "CompleteLifecycleActionResponse"
     "fixture/CompleteLifecycleActionResponse"
     (Proxy :: Proxy CompleteLifecycleAction)
 
 testAttachInstancesResponse :: AttachInstancesResponse -> TestTree
-testAttachInstancesResponse = resp
+testAttachInstancesResponse = res
     "AttachInstancesResponse"
     "fixture/AttachInstancesResponse"
     (Proxy :: Proxy AttachInstances)
 
 testDescribeScheduledActionsResponse :: DescribeScheduledActionsResponse -> TestTree
-testDescribeScheduledActionsResponse = resp
+testDescribeScheduledActionsResponse = res
     "DescribeScheduledActionsResponse"
     "fixture/DescribeScheduledActionsResponse"
     (Proxy :: Proxy DescribeScheduledActions)
 
 testDeleteAutoScalingGroupResponse :: DeleteAutoScalingGroupResponse -> TestTree
-testDeleteAutoScalingGroupResponse = resp
+testDeleteAutoScalingGroupResponse = res
     "DeleteAutoScalingGroupResponse"
     "fixture/DeleteAutoScalingGroupResponse"
     (Proxy :: Proxy DeleteAutoScalingGroup)
 
 testPutLifecycleHookResponse :: PutLifecycleHookResponse -> TestTree
-testPutLifecycleHookResponse = resp
+testPutLifecycleHookResponse = res
     "PutLifecycleHookResponse"
     "fixture/PutLifecycleHookResponse"
     (Proxy :: Proxy PutLifecycleHook)
 
 testUpdateAutoScalingGroupResponse :: UpdateAutoScalingGroupResponse -> TestTree
-testUpdateAutoScalingGroupResponse = resp
+testUpdateAutoScalingGroupResponse = res
     "UpdateAutoScalingGroupResponse"
     "fixture/UpdateAutoScalingGroupResponse"
     (Proxy :: Proxy UpdateAutoScalingGroup)
 
 testDeleteLifecycleHookResponse :: DeleteLifecycleHookResponse -> TestTree
-testDeleteLifecycleHookResponse = resp
+testDeleteLifecycleHookResponse = res
     "DeleteLifecycleHookResponse"
     "fixture/DeleteLifecycleHookResponse"
     (Proxy :: Proxy DeleteLifecycleHook)
 
 testResumeProcessesResponse :: ResumeProcessesResponse -> TestTree
-testResumeProcessesResponse = resp
+testResumeProcessesResponse = res
     "ResumeProcessesResponse"
     "fixture/ResumeProcessesResponse"
     (Proxy :: Proxy ResumeProcesses)
 
 testExecutePolicyResponse :: ExecutePolicyResponse -> TestTree
-testExecutePolicyResponse = resp
+testExecutePolicyResponse = res
     "ExecutePolicyResponse"
     "fixture/ExecutePolicyResponse"
     (Proxy :: Proxy ExecutePolicy)
 
 testTerminateInstanceInAutoScalingGroupResponse :: TerminateInstanceInAutoScalingGroupResponse -> TestTree
-testTerminateInstanceInAutoScalingGroupResponse = resp
+testTerminateInstanceInAutoScalingGroupResponse = res
     "TerminateInstanceInAutoScalingGroupResponse"
     "fixture/TerminateInstanceInAutoScalingGroupResponse"
     (Proxy :: Proxy TerminateInstanceInAutoScalingGroup)
 
 testDescribeAccountLimitsResponse :: DescribeAccountLimitsResponse -> TestTree
-testDescribeAccountLimitsResponse = resp
+testDescribeAccountLimitsResponse = res
     "DescribeAccountLimitsResponse"
     "fixture/DescribeAccountLimitsResponse"
     (Proxy :: Proxy DescribeAccountLimits)
 
 testAttachLoadBalancersResponse :: AttachLoadBalancersResponse -> TestTree
-testAttachLoadBalancersResponse = resp
+testAttachLoadBalancersResponse = res
     "AttachLoadBalancersResponse"
     "fixture/AttachLoadBalancersResponse"
     (Proxy :: Proxy AttachLoadBalancers)
 
 testPutScheduledUpdateGroupActionResponse :: PutScheduledUpdateGroupActionResponse -> TestTree
-testPutScheduledUpdateGroupActionResponse = resp
+testPutScheduledUpdateGroupActionResponse = res
     "PutScheduledUpdateGroupActionResponse"
     "fixture/PutScheduledUpdateGroupActionResponse"
     (Proxy :: Proxy PutScheduledUpdateGroupAction)
 
 testDescribePoliciesResponse :: DescribePoliciesResponse -> TestTree
-testDescribePoliciesResponse = resp
+testDescribePoliciesResponse = res
     "DescribePoliciesResponse"
     "fixture/DescribePoliciesResponse"
     (Proxy :: Proxy DescribePolicies)
 
 testDescribeNotificationConfigurationsResponse :: DescribeNotificationConfigurationsResponse -> TestTree
-testDescribeNotificationConfigurationsResponse = resp
+testDescribeNotificationConfigurationsResponse = res
     "DescribeNotificationConfigurationsResponse"
     "fixture/DescribeNotificationConfigurationsResponse"
     (Proxy :: Proxy DescribeNotificationConfigurations)
 
 testDescribeLaunchConfigurationsResponse :: DescribeLaunchConfigurationsResponse -> TestTree
-testDescribeLaunchConfigurationsResponse = resp
+testDescribeLaunchConfigurationsResponse = res
     "DescribeLaunchConfigurationsResponse"
     "fixture/DescribeLaunchConfigurationsResponse"
     (Proxy :: Proxy DescribeLaunchConfigurations)
 
 testDescribeLifecycleHookTypesResponse :: DescribeLifecycleHookTypesResponse -> TestTree
-testDescribeLifecycleHookTypesResponse = resp
+testDescribeLifecycleHookTypesResponse = res
     "DescribeLifecycleHookTypesResponse"
     "fixture/DescribeLifecycleHookTypesResponse"
     (Proxy :: Proxy DescribeLifecycleHookTypes)
 
 testDescribeScalingActivitiesResponse :: DescribeScalingActivitiesResponse -> TestTree
-testDescribeScalingActivitiesResponse = resp
+testDescribeScalingActivitiesResponse = res
     "DescribeScalingActivitiesResponse"
     "fixture/DescribeScalingActivitiesResponse"
     (Proxy :: Proxy DescribeScalingActivities)
 
 testCreateAutoScalingGroupResponse :: CreateAutoScalingGroupResponse -> TestTree
-testCreateAutoScalingGroupResponse = resp
+testCreateAutoScalingGroupResponse = res
     "CreateAutoScalingGroupResponse"
     "fixture/CreateAutoScalingGroupResponse"
     (Proxy :: Proxy CreateAutoScalingGroup)
 
 testCreateLaunchConfigurationResponse :: CreateLaunchConfigurationResponse -> TestTree
-testCreateLaunchConfigurationResponse = resp
+testCreateLaunchConfigurationResponse = res
     "CreateLaunchConfigurationResponse"
     "fixture/CreateLaunchConfigurationResponse"
     (Proxy :: Proxy CreateLaunchConfiguration)
 
 testDescribeAdjustmentTypesResponse :: DescribeAdjustmentTypesResponse -> TestTree
-testDescribeAdjustmentTypesResponse = resp
+testDescribeAdjustmentTypesResponse = res
     "DescribeAdjustmentTypesResponse"
     "fixture/DescribeAdjustmentTypesResponse"
     (Proxy :: Proxy DescribeAdjustmentTypes)

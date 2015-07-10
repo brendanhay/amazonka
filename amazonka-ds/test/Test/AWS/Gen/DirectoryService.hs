@@ -138,156 +138,190 @@ import Test.AWS.DirectoryService.Internal
 -- Requests
 
 testGetSnapshotLimits :: GetSnapshotLimits -> TestTree
-testGetSnapshotLimits = undefined
+testGetSnapshotLimits = req
+    "GetSnapshotLimits"
+    "fixture/GetSnapshotLimits"
 
 testConnectDirectory :: ConnectDirectory -> TestTree
-testConnectDirectory = undefined
+testConnectDirectory = req
+    "ConnectDirectory"
+    "fixture/ConnectDirectory"
 
 testDescribeDirectories :: DescribeDirectories -> TestTree
-testDescribeDirectories = undefined
+testDescribeDirectories = req
+    "DescribeDirectories"
+    "fixture/DescribeDirectories"
 
 testCreateAlias :: CreateAlias -> TestTree
-testCreateAlias = undefined
+testCreateAlias = req
+    "CreateAlias"
+    "fixture/CreateAlias"
 
 testCreateDirectory :: CreateDirectory -> TestTree
-testCreateDirectory = undefined
+testCreateDirectory = req
+    "CreateDirectory"
+    "fixture/CreateDirectory"
 
 testEnableSso :: EnableSso -> TestTree
-testEnableSso = undefined
+testEnableSso = req
+    "EnableSso"
+    "fixture/EnableSso"
 
 testEnableRadius :: EnableRadius -> TestTree
-testEnableRadius = undefined
+testEnableRadius = req
+    "EnableRadius"
+    "fixture/EnableRadius"
 
 testDisableRadius :: DisableRadius -> TestTree
-testDisableRadius = undefined
+testDisableRadius = req
+    "DisableRadius"
+    "fixture/DisableRadius"
 
 testDescribeSnapshots :: DescribeSnapshots -> TestTree
-testDescribeSnapshots = undefined
+testDescribeSnapshots = req
+    "DescribeSnapshots"
+    "fixture/DescribeSnapshots"
 
 testRestoreFromSnapshot :: RestoreFromSnapshot -> TestTree
-testRestoreFromSnapshot = undefined
+testRestoreFromSnapshot = req
+    "RestoreFromSnapshot"
+    "fixture/RestoreFromSnapshot"
 
 testDeleteSnapshot :: DeleteSnapshot -> TestTree
-testDeleteSnapshot = undefined
+testDeleteSnapshot = req
+    "DeleteSnapshot"
+    "fixture/DeleteSnapshot"
 
 testCreateSnapshot :: CreateSnapshot -> TestTree
-testCreateSnapshot = undefined
+testCreateSnapshot = req
+    "CreateSnapshot"
+    "fixture/CreateSnapshot"
 
 testDeleteDirectory :: DeleteDirectory -> TestTree
-testDeleteDirectory = undefined
+testDeleteDirectory = req
+    "DeleteDirectory"
+    "fixture/DeleteDirectory"
 
 testDisableSso :: DisableSso -> TestTree
-testDisableSso = undefined
+testDisableSso = req
+    "DisableSso"
+    "fixture/DisableSso"
 
 testCreateComputer :: CreateComputer -> TestTree
-testCreateComputer = undefined
+testCreateComputer = req
+    "CreateComputer"
+    "fixture/CreateComputer"
 
 testGetDirectoryLimits :: GetDirectoryLimits -> TestTree
-testGetDirectoryLimits = undefined
+testGetDirectoryLimits = req
+    "GetDirectoryLimits"
+    "fixture/GetDirectoryLimits"
 
 testUpdateRadius :: UpdateRadius -> TestTree
-testUpdateRadius = undefined
+testUpdateRadius = req
+    "UpdateRadius"
+    "fixture/UpdateRadius"
 
 -- Responses
 
 testGetSnapshotLimitsResponse :: GetSnapshotLimitsResponse -> TestTree
-testGetSnapshotLimitsResponse = resp
+testGetSnapshotLimitsResponse = res
     "GetSnapshotLimitsResponse"
     "fixture/GetSnapshotLimitsResponse"
     (Proxy :: Proxy GetSnapshotLimits)
 
 testConnectDirectoryResponse :: ConnectDirectoryResponse -> TestTree
-testConnectDirectoryResponse = resp
+testConnectDirectoryResponse = res
     "ConnectDirectoryResponse"
     "fixture/ConnectDirectoryResponse"
     (Proxy :: Proxy ConnectDirectory)
 
 testDescribeDirectoriesResponse :: DescribeDirectoriesResponse -> TestTree
-testDescribeDirectoriesResponse = resp
+testDescribeDirectoriesResponse = res
     "DescribeDirectoriesResponse"
     "fixture/DescribeDirectoriesResponse"
     (Proxy :: Proxy DescribeDirectories)
 
 testCreateAliasResponse :: CreateAliasResponse -> TestTree
-testCreateAliasResponse = resp
+testCreateAliasResponse = res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse"
     (Proxy :: Proxy CreateAlias)
 
 testCreateDirectoryResponse :: CreateDirectoryResponse -> TestTree
-testCreateDirectoryResponse = resp
+testCreateDirectoryResponse = res
     "CreateDirectoryResponse"
     "fixture/CreateDirectoryResponse"
     (Proxy :: Proxy CreateDirectory)
 
 testEnableSsoResponse :: EnableSsoResponse -> TestTree
-testEnableSsoResponse = resp
+testEnableSsoResponse = res
     "EnableSsoResponse"
     "fixture/EnableSsoResponse"
     (Proxy :: Proxy EnableSso)
 
 testEnableRadiusResponse :: EnableRadiusResponse -> TestTree
-testEnableRadiusResponse = resp
+testEnableRadiusResponse = res
     "EnableRadiusResponse"
     "fixture/EnableRadiusResponse"
     (Proxy :: Proxy EnableRadius)
 
 testDisableRadiusResponse :: DisableRadiusResponse -> TestTree
-testDisableRadiusResponse = resp
+testDisableRadiusResponse = res
     "DisableRadiusResponse"
     "fixture/DisableRadiusResponse"
     (Proxy :: Proxy DisableRadius)
 
 testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
-testDescribeSnapshotsResponse = resp
+testDescribeSnapshotsResponse = res
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse"
     (Proxy :: Proxy DescribeSnapshots)
 
 testRestoreFromSnapshotResponse :: RestoreFromSnapshotResponse -> TestTree
-testRestoreFromSnapshotResponse = resp
+testRestoreFromSnapshotResponse = res
     "RestoreFromSnapshotResponse"
     "fixture/RestoreFromSnapshotResponse"
     (Proxy :: Proxy RestoreFromSnapshot)
 
 testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
-testDeleteSnapshotResponse = resp
+testDeleteSnapshotResponse = res
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse"
     (Proxy :: Proxy DeleteSnapshot)
 
 testCreateSnapshotResponse :: CreateSnapshotResponse -> TestTree
-testCreateSnapshotResponse = resp
+testCreateSnapshotResponse = res
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse"
     (Proxy :: Proxy CreateSnapshot)
 
 testDeleteDirectoryResponse :: DeleteDirectoryResponse -> TestTree
-testDeleteDirectoryResponse = resp
+testDeleteDirectoryResponse = res
     "DeleteDirectoryResponse"
     "fixture/DeleteDirectoryResponse"
     (Proxy :: Proxy DeleteDirectory)
 
 testDisableSsoResponse :: DisableSsoResponse -> TestTree
-testDisableSsoResponse = resp
+testDisableSsoResponse = res
     "DisableSsoResponse"
     "fixture/DisableSsoResponse"
     (Proxy :: Proxy DisableSso)
 
 testCreateComputerResponse :: CreateComputerResponse -> TestTree
-testCreateComputerResponse = resp
+testCreateComputerResponse = res
     "CreateComputerResponse"
     "fixture/CreateComputerResponse"
     (Proxy :: Proxy CreateComputer)
 
 testGetDirectoryLimitsResponse :: GetDirectoryLimitsResponse -> TestTree
-testGetDirectoryLimitsResponse = resp
+testGetDirectoryLimitsResponse = res
     "GetDirectoryLimitsResponse"
     "fixture/GetDirectoryLimitsResponse"
     (Proxy :: Proxy GetDirectoryLimits)
 
 testUpdateRadiusResponse :: UpdateRadiusResponse -> TestTree
-testUpdateRadiusResponse = resp
+testUpdateRadiusResponse = res
     "UpdateRadiusResponse"
     "fixture/UpdateRadiusResponse"
     (Proxy :: Proxy UpdateRadius)

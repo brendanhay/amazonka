@@ -114,120 +114,146 @@ import Test.AWS.Kinesis.Internal
 -- Requests
 
 testPutRecord :: PutRecord -> TestTree
-testPutRecord = undefined
+testPutRecord = req
+    "PutRecord"
+    "fixture/PutRecord"
 
 testMergeShards :: MergeShards -> TestTree
-testMergeShards = undefined
+testMergeShards = req
+    "MergeShards"
+    "fixture/MergeShards"
 
 testGetRecords :: GetRecords -> TestTree
-testGetRecords = undefined
+testGetRecords = req
+    "GetRecords"
+    "fixture/GetRecords"
 
 testGetShardIterator :: GetShardIterator -> TestTree
-testGetShardIterator = undefined
+testGetShardIterator = req
+    "GetShardIterator"
+    "fixture/GetShardIterator"
 
 testListTagsForStream :: ListTagsForStream -> TestTree
-testListTagsForStream = undefined
+testListTagsForStream = req
+    "ListTagsForStream"
+    "fixture/ListTagsForStream"
 
 testAddTagsToStream :: AddTagsToStream -> TestTree
-testAddTagsToStream = undefined
+testAddTagsToStream = req
+    "AddTagsToStream"
+    "fixture/AddTagsToStream"
 
 testPutRecords :: PutRecords -> TestTree
-testPutRecords = undefined
+testPutRecords = req
+    "PutRecords"
+    "fixture/PutRecords"
 
 testDeleteStream :: DeleteStream -> TestTree
-testDeleteStream = undefined
+testDeleteStream = req
+    "DeleteStream"
+    "fixture/DeleteStream"
 
 testRemoveTagsFromStream :: RemoveTagsFromStream -> TestTree
-testRemoveTagsFromStream = undefined
+testRemoveTagsFromStream = req
+    "RemoveTagsFromStream"
+    "fixture/RemoveTagsFromStream"
 
 testListStreams :: ListStreams -> TestTree
-testListStreams = undefined
+testListStreams = req
+    "ListStreams"
+    "fixture/ListStreams"
 
 testCreateStream :: CreateStream -> TestTree
-testCreateStream = undefined
+testCreateStream = req
+    "CreateStream"
+    "fixture/CreateStream"
 
 testSplitShard :: SplitShard -> TestTree
-testSplitShard = undefined
+testSplitShard = req
+    "SplitShard"
+    "fixture/SplitShard"
 
 testDescribeStream :: DescribeStream -> TestTree
-testDescribeStream = undefined
+testDescribeStream = req
+    "DescribeStream"
+    "fixture/DescribeStream"
 
 -- Responses
 
 testPutRecordResponse :: PutRecordResponse -> TestTree
-testPutRecordResponse = resp
+testPutRecordResponse = res
     "PutRecordResponse"
     "fixture/PutRecordResponse"
     (Proxy :: Proxy PutRecord)
 
 testMergeShardsResponse :: MergeShardsResponse -> TestTree
-testMergeShardsResponse = resp
+testMergeShardsResponse = res
     "MergeShardsResponse"
     "fixture/MergeShardsResponse"
     (Proxy :: Proxy MergeShards)
 
 testGetRecordsResponse :: GetRecordsResponse -> TestTree
-testGetRecordsResponse = resp
+testGetRecordsResponse = res
     "GetRecordsResponse"
     "fixture/GetRecordsResponse"
     (Proxy :: Proxy GetRecords)
 
 testGetShardIteratorResponse :: GetShardIteratorResponse -> TestTree
-testGetShardIteratorResponse = resp
+testGetShardIteratorResponse = res
     "GetShardIteratorResponse"
     "fixture/GetShardIteratorResponse"
     (Proxy :: Proxy GetShardIterator)
 
 testListTagsForStreamResponse :: ListTagsForStreamResponse -> TestTree
-testListTagsForStreamResponse = resp
+testListTagsForStreamResponse = res
     "ListTagsForStreamResponse"
     "fixture/ListTagsForStreamResponse"
     (Proxy :: Proxy ListTagsForStream)
 
 testAddTagsToStreamResponse :: AddTagsToStreamResponse -> TestTree
-testAddTagsToStreamResponse = resp
+testAddTagsToStreamResponse = res
     "AddTagsToStreamResponse"
     "fixture/AddTagsToStreamResponse"
     (Proxy :: Proxy AddTagsToStream)
 
 testPutRecordsResponse :: PutRecordsResponse -> TestTree
-testPutRecordsResponse = resp
+testPutRecordsResponse = res
     "PutRecordsResponse"
     "fixture/PutRecordsResponse"
     (Proxy :: Proxy PutRecords)
 
 testDeleteStreamResponse :: DeleteStreamResponse -> TestTree
-testDeleteStreamResponse = resp
+testDeleteStreamResponse = res
     "DeleteStreamResponse"
     "fixture/DeleteStreamResponse"
     (Proxy :: Proxy DeleteStream)
 
 testRemoveTagsFromStreamResponse :: RemoveTagsFromStreamResponse -> TestTree
-testRemoveTagsFromStreamResponse = resp
+testRemoveTagsFromStreamResponse = res
     "RemoveTagsFromStreamResponse"
     "fixture/RemoveTagsFromStreamResponse"
     (Proxy :: Proxy RemoveTagsFromStream)
 
 testListStreamsResponse :: ListStreamsResponse -> TestTree
-testListStreamsResponse = resp
+testListStreamsResponse = res
     "ListStreamsResponse"
     "fixture/ListStreamsResponse"
     (Proxy :: Proxy ListStreams)
 
 testCreateStreamResponse :: CreateStreamResponse -> TestTree
-testCreateStreamResponse = resp
+testCreateStreamResponse = res
     "CreateStreamResponse"
     "fixture/CreateStreamResponse"
     (Proxy :: Proxy CreateStream)
 
 testSplitShardResponse :: SplitShardResponse -> TestTree
-testSplitShardResponse = resp
+testSplitShardResponse = res
     "SplitShardResponse"
     "fixture/SplitShardResponse"
     (Proxy :: Proxy SplitShard)
 
 testDescribeStreamResponse :: DescribeStreamResponse -> TestTree
-testDescribeStreamResponse = resp
+testDescribeStreamResponse = res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse"
     (Proxy :: Proxy DescribeStream)

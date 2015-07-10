@@ -57,6 +57,8 @@ sourceHandle h n = sourceBody h n . Conduit.sourceHandle
 sourceFile :: Digest SHA256 -> Int64 -> FilePath -> RqBody
 sourceFile h n = sourceBody h n . Conduit.sourceFile
 
+FIXME: use http-client's streamFile
+
 -- | Construct a 'RqBody' from a 'FilePath', calculating the SHA256 hash
 -- and file size.
 --

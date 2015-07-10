@@ -186,228 +186,278 @@ import Test.AWS.SNS.Internal
 -- Requests
 
 testDeleteEndpoint :: DeleteEndpoint -> TestTree
-testDeleteEndpoint = undefined
+testDeleteEndpoint = req
+    "DeleteEndpoint"
+    "fixture/DeleteEndpoint"
 
 testRemovePermission :: RemovePermission -> TestTree
-testRemovePermission = undefined
+testRemovePermission = req
+    "RemovePermission"
+    "fixture/RemovePermission"
 
 testSetPlatformApplicationAttributes :: SetPlatformApplicationAttributes -> TestTree
-testSetPlatformApplicationAttributes = undefined
+testSetPlatformApplicationAttributes = req
+    "SetPlatformApplicationAttributes"
+    "fixture/SetPlatformApplicationAttributes"
 
 testCreatePlatformEndpoint :: CreatePlatformEndpoint -> TestTree
-testCreatePlatformEndpoint = undefined
+testCreatePlatformEndpoint = req
+    "CreatePlatformEndpoint"
+    "fixture/CreatePlatformEndpoint"
 
 testListSubscriptionsByTopic :: ListSubscriptionsByTopic -> TestTree
-testListSubscriptionsByTopic = undefined
+testListSubscriptionsByTopic = req
+    "ListSubscriptionsByTopic"
+    "fixture/ListSubscriptionsByTopic"
 
 testGetTopicAttributes :: GetTopicAttributes -> TestTree
-testGetTopicAttributes = undefined
+testGetTopicAttributes = req
+    "GetTopicAttributes"
+    "fixture/GetTopicAttributes"
 
 testDeleteTopic :: DeleteTopic -> TestTree
-testDeleteTopic = undefined
+testDeleteTopic = req
+    "DeleteTopic"
+    "fixture/DeleteTopic"
 
 testListTopics :: ListTopics -> TestTree
-testListTopics = undefined
+testListTopics = req
+    "ListTopics"
+    "fixture/ListTopics"
 
 testCreatePlatformApplication :: CreatePlatformApplication -> TestTree
-testCreatePlatformApplication = undefined
+testCreatePlatformApplication = req
+    "CreatePlatformApplication"
+    "fixture/CreatePlatformApplication"
 
 testListEndpointsByPlatformApplication :: ListEndpointsByPlatformApplication -> TestTree
-testListEndpointsByPlatformApplication = undefined
+testListEndpointsByPlatformApplication = req
+    "ListEndpointsByPlatformApplication"
+    "fixture/ListEndpointsByPlatformApplication"
 
 testGetPlatformApplicationAttributes :: GetPlatformApplicationAttributes -> TestTree
-testGetPlatformApplicationAttributes = undefined
+testGetPlatformApplicationAttributes = req
+    "GetPlatformApplicationAttributes"
+    "fixture/GetPlatformApplicationAttributes"
 
 testDeletePlatformApplication :: DeletePlatformApplication -> TestTree
-testDeletePlatformApplication = undefined
+testDeletePlatformApplication = req
+    "DeletePlatformApplication"
+    "fixture/DeletePlatformApplication"
 
 testListPlatformApplications :: ListPlatformApplications -> TestTree
-testListPlatformApplications = undefined
+testListPlatformApplications = req
+    "ListPlatformApplications"
+    "fixture/ListPlatformApplications"
 
 testSetTopicAttributes :: SetTopicAttributes -> TestTree
-testSetTopicAttributes = undefined
+testSetTopicAttributes = req
+    "SetTopicAttributes"
+    "fixture/SetTopicAttributes"
 
 testGetEndpointAttributes :: GetEndpointAttributes -> TestTree
-testGetEndpointAttributes = undefined
+testGetEndpointAttributes = req
+    "GetEndpointAttributes"
+    "fixture/GetEndpointAttributes"
 
 testAddPermission :: AddPermission -> TestTree
-testAddPermission = undefined
+testAddPermission = req
+    "AddPermission"
+    "fixture/AddPermission"
 
 testGetSubscriptionAttributes :: GetSubscriptionAttributes -> TestTree
-testGetSubscriptionAttributes = undefined
+testGetSubscriptionAttributes = req
+    "GetSubscriptionAttributes"
+    "fixture/GetSubscriptionAttributes"
 
 testListSubscriptions :: ListSubscriptions -> TestTree
-testListSubscriptions = undefined
+testListSubscriptions = req
+    "ListSubscriptions"
+    "fixture/ListSubscriptions"
 
 testCreateTopic :: CreateTopic -> TestTree
-testCreateTopic = undefined
+testCreateTopic = req
+    "CreateTopic"
+    "fixture/CreateTopic"
 
 testSubscribe :: Subscribe -> TestTree
-testSubscribe = undefined
+testSubscribe = req
+    "Subscribe"
+    "fixture/Subscribe"
 
 testUnsubscribe :: Unsubscribe -> TestTree
-testUnsubscribe = undefined
+testUnsubscribe = req
+    "Unsubscribe"
+    "fixture/Unsubscribe"
 
 testSetEndpointAttributes :: SetEndpointAttributes -> TestTree
-testSetEndpointAttributes = undefined
+testSetEndpointAttributes = req
+    "SetEndpointAttributes"
+    "fixture/SetEndpointAttributes"
 
 testSetSubscriptionAttributes :: SetSubscriptionAttributes -> TestTree
-testSetSubscriptionAttributes = undefined
+testSetSubscriptionAttributes = req
+    "SetSubscriptionAttributes"
+    "fixture/SetSubscriptionAttributes"
 
 testConfirmSubscription :: ConfirmSubscription -> TestTree
-testConfirmSubscription = undefined
+testConfirmSubscription = req
+    "ConfirmSubscription"
+    "fixture/ConfirmSubscription"
 
 testPublish :: Publish -> TestTree
-testPublish = undefined
+testPublish = req
+    "Publish"
+    "fixture/Publish"
 
 -- Responses
 
 testDeleteEndpointResponse :: DeleteEndpointResponse -> TestTree
-testDeleteEndpointResponse = resp
+testDeleteEndpointResponse = res
     "DeleteEndpointResponse"
     "fixture/DeleteEndpointResponse"
     (Proxy :: Proxy DeleteEndpoint)
 
 testRemovePermissionResponse :: RemovePermissionResponse -> TestTree
-testRemovePermissionResponse = resp
+testRemovePermissionResponse = res
     "RemovePermissionResponse"
     "fixture/RemovePermissionResponse"
     (Proxy :: Proxy RemovePermission)
 
 testSetPlatformApplicationAttributesResponse :: SetPlatformApplicationAttributesResponse -> TestTree
-testSetPlatformApplicationAttributesResponse = resp
+testSetPlatformApplicationAttributesResponse = res
     "SetPlatformApplicationAttributesResponse"
     "fixture/SetPlatformApplicationAttributesResponse"
     (Proxy :: Proxy SetPlatformApplicationAttributes)
 
 testCreatePlatformEndpointResponse :: CreatePlatformEndpointResponse -> TestTree
-testCreatePlatformEndpointResponse = resp
+testCreatePlatformEndpointResponse = res
     "CreatePlatformEndpointResponse"
     "fixture/CreatePlatformEndpointResponse"
     (Proxy :: Proxy CreatePlatformEndpoint)
 
 testListSubscriptionsByTopicResponse :: ListSubscriptionsByTopicResponse -> TestTree
-testListSubscriptionsByTopicResponse = resp
+testListSubscriptionsByTopicResponse = res
     "ListSubscriptionsByTopicResponse"
     "fixture/ListSubscriptionsByTopicResponse"
     (Proxy :: Proxy ListSubscriptionsByTopic)
 
 testGetTopicAttributesResponse :: GetTopicAttributesResponse -> TestTree
-testGetTopicAttributesResponse = resp
+testGetTopicAttributesResponse = res
     "GetTopicAttributesResponse"
     "fixture/GetTopicAttributesResponse"
     (Proxy :: Proxy GetTopicAttributes)
 
 testDeleteTopicResponse :: DeleteTopicResponse -> TestTree
-testDeleteTopicResponse = resp
+testDeleteTopicResponse = res
     "DeleteTopicResponse"
     "fixture/DeleteTopicResponse"
     (Proxy :: Proxy DeleteTopic)
 
 testListTopicsResponse :: ListTopicsResponse -> TestTree
-testListTopicsResponse = resp
+testListTopicsResponse = res
     "ListTopicsResponse"
     "fixture/ListTopicsResponse"
     (Proxy :: Proxy ListTopics)
 
 testCreatePlatformApplicationResponse :: CreatePlatformApplicationResponse -> TestTree
-testCreatePlatformApplicationResponse = resp
+testCreatePlatformApplicationResponse = res
     "CreatePlatformApplicationResponse"
     "fixture/CreatePlatformApplicationResponse"
     (Proxy :: Proxy CreatePlatformApplication)
 
 testListEndpointsByPlatformApplicationResponse :: ListEndpointsByPlatformApplicationResponse -> TestTree
-testListEndpointsByPlatformApplicationResponse = resp
+testListEndpointsByPlatformApplicationResponse = res
     "ListEndpointsByPlatformApplicationResponse"
     "fixture/ListEndpointsByPlatformApplicationResponse"
     (Proxy :: Proxy ListEndpointsByPlatformApplication)
 
 testGetPlatformApplicationAttributesResponse :: GetPlatformApplicationAttributesResponse -> TestTree
-testGetPlatformApplicationAttributesResponse = resp
+testGetPlatformApplicationAttributesResponse = res
     "GetPlatformApplicationAttributesResponse"
     "fixture/GetPlatformApplicationAttributesResponse"
     (Proxy :: Proxy GetPlatformApplicationAttributes)
 
 testDeletePlatformApplicationResponse :: DeletePlatformApplicationResponse -> TestTree
-testDeletePlatformApplicationResponse = resp
+testDeletePlatformApplicationResponse = res
     "DeletePlatformApplicationResponse"
     "fixture/DeletePlatformApplicationResponse"
     (Proxy :: Proxy DeletePlatformApplication)
 
 testListPlatformApplicationsResponse :: ListPlatformApplicationsResponse -> TestTree
-testListPlatformApplicationsResponse = resp
+testListPlatformApplicationsResponse = res
     "ListPlatformApplicationsResponse"
     "fixture/ListPlatformApplicationsResponse"
     (Proxy :: Proxy ListPlatformApplications)
 
 testSetTopicAttributesResponse :: SetTopicAttributesResponse -> TestTree
-testSetTopicAttributesResponse = resp
+testSetTopicAttributesResponse = res
     "SetTopicAttributesResponse"
     "fixture/SetTopicAttributesResponse"
     (Proxy :: Proxy SetTopicAttributes)
 
 testGetEndpointAttributesResponse :: GetEndpointAttributesResponse -> TestTree
-testGetEndpointAttributesResponse = resp
+testGetEndpointAttributesResponse = res
     "GetEndpointAttributesResponse"
     "fixture/GetEndpointAttributesResponse"
     (Proxy :: Proxy GetEndpointAttributes)
 
 testAddPermissionResponse :: AddPermissionResponse -> TestTree
-testAddPermissionResponse = resp
+testAddPermissionResponse = res
     "AddPermissionResponse"
     "fixture/AddPermissionResponse"
     (Proxy :: Proxy AddPermission)
 
 testGetSubscriptionAttributesResponse :: GetSubscriptionAttributesResponse -> TestTree
-testGetSubscriptionAttributesResponse = resp
+testGetSubscriptionAttributesResponse = res
     "GetSubscriptionAttributesResponse"
     "fixture/GetSubscriptionAttributesResponse"
     (Proxy :: Proxy GetSubscriptionAttributes)
 
 testListSubscriptionsResponse :: ListSubscriptionsResponse -> TestTree
-testListSubscriptionsResponse = resp
+testListSubscriptionsResponse = res
     "ListSubscriptionsResponse"
     "fixture/ListSubscriptionsResponse"
     (Proxy :: Proxy ListSubscriptions)
 
 testCreateTopicResponse :: CreateTopicResponse -> TestTree
-testCreateTopicResponse = resp
+testCreateTopicResponse = res
     "CreateTopicResponse"
     "fixture/CreateTopicResponse"
     (Proxy :: Proxy CreateTopic)
 
 testSubscribeResponse :: SubscribeResponse -> TestTree
-testSubscribeResponse = resp
+testSubscribeResponse = res
     "SubscribeResponse"
     "fixture/SubscribeResponse"
     (Proxy :: Proxy Subscribe)
 
 testUnsubscribeResponse :: UnsubscribeResponse -> TestTree
-testUnsubscribeResponse = resp
+testUnsubscribeResponse = res
     "UnsubscribeResponse"
     "fixture/UnsubscribeResponse"
     (Proxy :: Proxy Unsubscribe)
 
 testSetEndpointAttributesResponse :: SetEndpointAttributesResponse -> TestTree
-testSetEndpointAttributesResponse = resp
+testSetEndpointAttributesResponse = res
     "SetEndpointAttributesResponse"
     "fixture/SetEndpointAttributesResponse"
     (Proxy :: Proxy SetEndpointAttributes)
 
 testSetSubscriptionAttributesResponse :: SetSubscriptionAttributesResponse -> TestTree
-testSetSubscriptionAttributesResponse = resp
+testSetSubscriptionAttributesResponse = res
     "SetSubscriptionAttributesResponse"
     "fixture/SetSubscriptionAttributesResponse"
     (Proxy :: Proxy SetSubscriptionAttributes)
 
 testConfirmSubscriptionResponse :: ConfirmSubscriptionResponse -> TestTree
-testConfirmSubscriptionResponse = resp
+testConfirmSubscriptionResponse = res
     "ConfirmSubscriptionResponse"
     "fixture/ConfirmSubscriptionResponse"
     (Proxy :: Proxy ConfirmSubscription)
 
 testPublishResponse :: PublishResponse -> TestTree
-testPublishResponse = resp
+testPublishResponse = res
     "PublishResponse"
     "fixture/PublishResponse"
     (Proxy :: Proxy Publish)

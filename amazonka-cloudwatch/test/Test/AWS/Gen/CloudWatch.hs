@@ -102,102 +102,124 @@ import Test.AWS.CloudWatch.Internal
 -- Requests
 
 testEnableAlarmActions :: EnableAlarmActions -> TestTree
-testEnableAlarmActions = undefined
+testEnableAlarmActions = req
+    "EnableAlarmActions"
+    "fixture/EnableAlarmActions"
 
 testPutMetricData :: PutMetricData -> TestTree
-testPutMetricData = undefined
+testPutMetricData = req
+    "PutMetricData"
+    "fixture/PutMetricData"
 
 testDescribeAlarms :: DescribeAlarms -> TestTree
-testDescribeAlarms = undefined
+testDescribeAlarms = req
+    "DescribeAlarms"
+    "fixture/DescribeAlarms"
 
 testListMetrics :: ListMetrics -> TestTree
-testListMetrics = undefined
+testListMetrics = req
+    "ListMetrics"
+    "fixture/ListMetrics"
 
 testDeleteAlarms :: DeleteAlarms -> TestTree
-testDeleteAlarms = undefined
+testDeleteAlarms = req
+    "DeleteAlarms"
+    "fixture/DeleteAlarms"
 
 testDescribeAlarmHistory :: DescribeAlarmHistory -> TestTree
-testDescribeAlarmHistory = undefined
+testDescribeAlarmHistory = req
+    "DescribeAlarmHistory"
+    "fixture/DescribeAlarmHistory"
 
 testGetMetricStatistics :: GetMetricStatistics -> TestTree
-testGetMetricStatistics = undefined
+testGetMetricStatistics = req
+    "GetMetricStatistics"
+    "fixture/GetMetricStatistics"
 
 testDisableAlarmActions :: DisableAlarmActions -> TestTree
-testDisableAlarmActions = undefined
+testDisableAlarmActions = req
+    "DisableAlarmActions"
+    "fixture/DisableAlarmActions"
 
 testDescribeAlarmsForMetric :: DescribeAlarmsForMetric -> TestTree
-testDescribeAlarmsForMetric = undefined
+testDescribeAlarmsForMetric = req
+    "DescribeAlarmsForMetric"
+    "fixture/DescribeAlarmsForMetric"
 
 testSetAlarmState :: SetAlarmState -> TestTree
-testSetAlarmState = undefined
+testSetAlarmState = req
+    "SetAlarmState"
+    "fixture/SetAlarmState"
 
 testPutMetricAlarm :: PutMetricAlarm -> TestTree
-testPutMetricAlarm = undefined
+testPutMetricAlarm = req
+    "PutMetricAlarm"
+    "fixture/PutMetricAlarm"
 
 -- Responses
 
 testEnableAlarmActionsResponse :: EnableAlarmActionsResponse -> TestTree
-testEnableAlarmActionsResponse = resp
+testEnableAlarmActionsResponse = res
     "EnableAlarmActionsResponse"
     "fixture/EnableAlarmActionsResponse"
     (Proxy :: Proxy EnableAlarmActions)
 
 testPutMetricDataResponse :: PutMetricDataResponse -> TestTree
-testPutMetricDataResponse = resp
+testPutMetricDataResponse = res
     "PutMetricDataResponse"
     "fixture/PutMetricDataResponse"
     (Proxy :: Proxy PutMetricData)
 
 testDescribeAlarmsResponse :: DescribeAlarmsResponse -> TestTree
-testDescribeAlarmsResponse = resp
+testDescribeAlarmsResponse = res
     "DescribeAlarmsResponse"
     "fixture/DescribeAlarmsResponse"
     (Proxy :: Proxy DescribeAlarms)
 
 testListMetricsResponse :: ListMetricsResponse -> TestTree
-testListMetricsResponse = resp
+testListMetricsResponse = res
     "ListMetricsResponse"
     "fixture/ListMetricsResponse"
     (Proxy :: Proxy ListMetrics)
 
 testDeleteAlarmsResponse :: DeleteAlarmsResponse -> TestTree
-testDeleteAlarmsResponse = resp
+testDeleteAlarmsResponse = res
     "DeleteAlarmsResponse"
     "fixture/DeleteAlarmsResponse"
     (Proxy :: Proxy DeleteAlarms)
 
 testDescribeAlarmHistoryResponse :: DescribeAlarmHistoryResponse -> TestTree
-testDescribeAlarmHistoryResponse = resp
+testDescribeAlarmHistoryResponse = res
     "DescribeAlarmHistoryResponse"
     "fixture/DescribeAlarmHistoryResponse"
     (Proxy :: Proxy DescribeAlarmHistory)
 
 testGetMetricStatisticsResponse :: GetMetricStatisticsResponse -> TestTree
-testGetMetricStatisticsResponse = resp
+testGetMetricStatisticsResponse = res
     "GetMetricStatisticsResponse"
     "fixture/GetMetricStatisticsResponse"
     (Proxy :: Proxy GetMetricStatistics)
 
 testDisableAlarmActionsResponse :: DisableAlarmActionsResponse -> TestTree
-testDisableAlarmActionsResponse = resp
+testDisableAlarmActionsResponse = res
     "DisableAlarmActionsResponse"
     "fixture/DisableAlarmActionsResponse"
     (Proxy :: Proxy DisableAlarmActions)
 
 testDescribeAlarmsForMetricResponse :: DescribeAlarmsForMetricResponse -> TestTree
-testDescribeAlarmsForMetricResponse = resp
+testDescribeAlarmsForMetricResponse = res
     "DescribeAlarmsForMetricResponse"
     "fixture/DescribeAlarmsForMetricResponse"
     (Proxy :: Proxy DescribeAlarmsForMetric)
 
 testSetAlarmStateResponse :: SetAlarmStateResponse -> TestTree
-testSetAlarmStateResponse = resp
+testSetAlarmStateResponse = res
     "SetAlarmStateResponse"
     "fixture/SetAlarmStateResponse"
     (Proxy :: Proxy SetAlarmState)
 
 testPutMetricAlarmResponse :: PutMetricAlarmResponse -> TestTree
-testPutMetricAlarmResponse = resp
+testPutMetricAlarmResponse = res
     "PutMetricAlarmResponse"
     "fixture/PutMetricAlarmResponse"
     (Proxy :: Proxy PutMetricAlarm)

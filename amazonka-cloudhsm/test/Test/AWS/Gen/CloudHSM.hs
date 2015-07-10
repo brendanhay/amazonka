@@ -138,156 +138,190 @@ import Test.AWS.CloudHSM.Internal
 -- Requests
 
 testListHAPGs :: ListHAPGs -> TestTree
-testListHAPGs = undefined
+testListHAPGs = req
+    "ListHAPGs"
+    "fixture/ListHAPGs"
 
 testListHSMs :: ListHSMs -> TestTree
-testListHSMs = undefined
+testListHSMs = req
+    "ListHSMs"
+    "fixture/ListHSMs"
 
 testDeleteHAPG :: DeleteHAPG -> TestTree
-testDeleteHAPG = undefined
+testDeleteHAPG = req
+    "DeleteHAPG"
+    "fixture/DeleteHAPG"
 
 testModifyLunaClient :: ModifyLunaClient -> TestTree
-testModifyLunaClient = undefined
+testModifyLunaClient = req
+    "ModifyLunaClient"
+    "fixture/ModifyLunaClient"
 
 testDescribeLunaClient :: DescribeLunaClient -> TestTree
-testDescribeLunaClient = undefined
+testDescribeLunaClient = req
+    "DescribeLunaClient"
+    "fixture/DescribeLunaClient"
 
 testCreateHSM :: CreateHSM -> TestTree
-testCreateHSM = undefined
+testCreateHSM = req
+    "CreateHSM"
+    "fixture/CreateHSM"
 
 testCreateHAPG :: CreateHAPG -> TestTree
-testCreateHAPG = undefined
+testCreateHAPG = req
+    "CreateHAPG"
+    "fixture/CreateHAPG"
 
 testCreateLunaClient :: CreateLunaClient -> TestTree
-testCreateLunaClient = undefined
+testCreateLunaClient = req
+    "CreateLunaClient"
+    "fixture/CreateLunaClient"
 
 testDescribeHAPG :: DescribeHAPG -> TestTree
-testDescribeHAPG = undefined
+testDescribeHAPG = req
+    "DescribeHAPG"
+    "fixture/DescribeHAPG"
 
 testListLunaClients :: ListLunaClients -> TestTree
-testListLunaClients = undefined
+testListLunaClients = req
+    "ListLunaClients"
+    "fixture/ListLunaClients"
 
 testGetConfig :: GetConfig -> TestTree
-testGetConfig = undefined
+testGetConfig = req
+    "GetConfig"
+    "fixture/GetConfig"
 
 testDeleteHSM :: DeleteHSM -> TestTree
-testDeleteHSM = undefined
+testDeleteHSM = req
+    "DeleteHSM"
+    "fixture/DeleteHSM"
 
 testDescribeHSM :: DescribeHSM -> TestTree
-testDescribeHSM = undefined
+testDescribeHSM = req
+    "DescribeHSM"
+    "fixture/DescribeHSM"
 
 testModifyHAPG :: ModifyHAPG -> TestTree
-testModifyHAPG = undefined
+testModifyHAPG = req
+    "ModifyHAPG"
+    "fixture/ModifyHAPG"
 
 testListAvailableZones :: ListAvailableZones -> TestTree
-testListAvailableZones = undefined
+testListAvailableZones = req
+    "ListAvailableZones"
+    "fixture/ListAvailableZones"
 
 testModifyHSM :: ModifyHSM -> TestTree
-testModifyHSM = undefined
+testModifyHSM = req
+    "ModifyHSM"
+    "fixture/ModifyHSM"
 
 testDeleteLunaClient :: DeleteLunaClient -> TestTree
-testDeleteLunaClient = undefined
+testDeleteLunaClient = req
+    "DeleteLunaClient"
+    "fixture/DeleteLunaClient"
 
 -- Responses
 
 testListHAPGsResponse :: ListHAPGsResponse -> TestTree
-testListHAPGsResponse = resp
+testListHAPGsResponse = res
     "ListHAPGsResponse"
     "fixture/ListHAPGsResponse"
     (Proxy :: Proxy ListHAPGs)
 
 testListHSMsResponse :: ListHSMsResponse -> TestTree
-testListHSMsResponse = resp
+testListHSMsResponse = res
     "ListHSMsResponse"
     "fixture/ListHSMsResponse"
     (Proxy :: Proxy ListHSMs)
 
 testDeleteHAPGResponse :: DeleteHAPGResponse -> TestTree
-testDeleteHAPGResponse = resp
+testDeleteHAPGResponse = res
     "DeleteHAPGResponse"
     "fixture/DeleteHAPGResponse"
     (Proxy :: Proxy DeleteHAPG)
 
 testModifyLunaClientResponse :: ModifyLunaClientResponse -> TestTree
-testModifyLunaClientResponse = resp
+testModifyLunaClientResponse = res
     "ModifyLunaClientResponse"
     "fixture/ModifyLunaClientResponse"
     (Proxy :: Proxy ModifyLunaClient)
 
 testDescribeLunaClientResponse :: DescribeLunaClientResponse -> TestTree
-testDescribeLunaClientResponse = resp
+testDescribeLunaClientResponse = res
     "DescribeLunaClientResponse"
     "fixture/DescribeLunaClientResponse"
     (Proxy :: Proxy DescribeLunaClient)
 
 testCreateHSMResponse :: CreateHSMResponse -> TestTree
-testCreateHSMResponse = resp
+testCreateHSMResponse = res
     "CreateHSMResponse"
     "fixture/CreateHSMResponse"
     (Proxy :: Proxy CreateHSM)
 
 testCreateHAPGResponse :: CreateHAPGResponse -> TestTree
-testCreateHAPGResponse = resp
+testCreateHAPGResponse = res
     "CreateHAPGResponse"
     "fixture/CreateHAPGResponse"
     (Proxy :: Proxy CreateHAPG)
 
 testCreateLunaClientResponse :: CreateLunaClientResponse -> TestTree
-testCreateLunaClientResponse = resp
+testCreateLunaClientResponse = res
     "CreateLunaClientResponse"
     "fixture/CreateLunaClientResponse"
     (Proxy :: Proxy CreateLunaClient)
 
 testDescribeHAPGResponse :: DescribeHAPGResponse -> TestTree
-testDescribeHAPGResponse = resp
+testDescribeHAPGResponse = res
     "DescribeHAPGResponse"
     "fixture/DescribeHAPGResponse"
     (Proxy :: Proxy DescribeHAPG)
 
 testListLunaClientsResponse :: ListLunaClientsResponse -> TestTree
-testListLunaClientsResponse = resp
+testListLunaClientsResponse = res
     "ListLunaClientsResponse"
     "fixture/ListLunaClientsResponse"
     (Proxy :: Proxy ListLunaClients)
 
 testGetConfigResponse :: GetConfigResponse -> TestTree
-testGetConfigResponse = resp
+testGetConfigResponse = res
     "GetConfigResponse"
     "fixture/GetConfigResponse"
     (Proxy :: Proxy GetConfig)
 
 testDeleteHSMResponse :: DeleteHSMResponse -> TestTree
-testDeleteHSMResponse = resp
+testDeleteHSMResponse = res
     "DeleteHSMResponse"
     "fixture/DeleteHSMResponse"
     (Proxy :: Proxy DeleteHSM)
 
 testDescribeHSMResponse :: DescribeHSMResponse -> TestTree
-testDescribeHSMResponse = resp
+testDescribeHSMResponse = res
     "DescribeHSMResponse"
     "fixture/DescribeHSMResponse"
     (Proxy :: Proxy DescribeHSM)
 
 testModifyHAPGResponse :: ModifyHAPGResponse -> TestTree
-testModifyHAPGResponse = resp
+testModifyHAPGResponse = res
     "ModifyHAPGResponse"
     "fixture/ModifyHAPGResponse"
     (Proxy :: Proxy ModifyHAPG)
 
 testListAvailableZonesResponse :: ListAvailableZonesResponse -> TestTree
-testListAvailableZonesResponse = resp
+testListAvailableZonesResponse = res
     "ListAvailableZonesResponse"
     "fixture/ListAvailableZonesResponse"
     (Proxy :: Proxy ListAvailableZones)
 
 testModifyHSMResponse :: ModifyHSMResponse -> TestTree
-testModifyHSMResponse = resp
+testModifyHSMResponse = res
     "ModifyHSMResponse"
     "fixture/ModifyHSMResponse"
     (Proxy :: Proxy ModifyHSM)
 
 testDeleteLunaClientResponse :: DeleteLunaClientResponse -> TestTree
-testDeleteLunaClientResponse = resp
+testDeleteLunaClientResponse = res
     "DeleteLunaClientResponse"
     "fixture/DeleteLunaClientResponse"
     (Proxy :: Proxy DeleteLunaClient)

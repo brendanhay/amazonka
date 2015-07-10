@@ -138,156 +138,190 @@ import Test.AWS.ElasticTranscoder.Internal
 -- Requests
 
 testDeletePreset :: DeletePreset -> TestTree
-testDeletePreset = undefined
+testDeletePreset = req
+    "DeletePreset"
+    "fixture/DeletePreset"
 
 testListJobsByPipeline :: ListJobsByPipeline -> TestTree
-testListJobsByPipeline = undefined
+testListJobsByPipeline = req
+    "ListJobsByPipeline"
+    "fixture/ListJobsByPipeline"
 
 testUpdatePipelineStatus :: UpdatePipelineStatus -> TestTree
-testUpdatePipelineStatus = undefined
+testUpdatePipelineStatus = req
+    "UpdatePipelineStatus"
+    "fixture/UpdatePipelineStatus"
 
 testTestRole :: TestRole -> TestTree
-testTestRole = undefined
+testTestRole = req
+    "TestRole"
+    "fixture/TestRole"
 
 testUpdatePipeline :: UpdatePipeline -> TestTree
-testUpdatePipeline = undefined
+testUpdatePipeline = req
+    "UpdatePipeline"
+    "fixture/UpdatePipeline"
 
 testDeletePipeline :: DeletePipeline -> TestTree
-testDeletePipeline = undefined
+testDeletePipeline = req
+    "DeletePipeline"
+    "fixture/DeletePipeline"
 
 testCreateJob :: CreateJob -> TestTree
-testCreateJob = undefined
+testCreateJob = req
+    "CreateJob"
+    "fixture/CreateJob"
 
 testListPipelines :: ListPipelines -> TestTree
-testListPipelines = undefined
+testListPipelines = req
+    "ListPipelines"
+    "fixture/ListPipelines"
 
 testCreatePreset :: CreatePreset -> TestTree
-testCreatePreset = undefined
+testCreatePreset = req
+    "CreatePreset"
+    "fixture/CreatePreset"
 
 testListPresets :: ListPresets -> TestTree
-testListPresets = undefined
+testListPresets = req
+    "ListPresets"
+    "fixture/ListPresets"
 
 testReadPreset :: ReadPreset -> TestTree
-testReadPreset = undefined
+testReadPreset = req
+    "ReadPreset"
+    "fixture/ReadPreset"
 
 testUpdatePipelineNotifications :: UpdatePipelineNotifications -> TestTree
-testUpdatePipelineNotifications = undefined
+testUpdatePipelineNotifications = req
+    "UpdatePipelineNotifications"
+    "fixture/UpdatePipelineNotifications"
 
 testReadJob :: ReadJob -> TestTree
-testReadJob = undefined
+testReadJob = req
+    "ReadJob"
+    "fixture/ReadJob"
 
 testReadPipeline :: ReadPipeline -> TestTree
-testReadPipeline = undefined
+testReadPipeline = req
+    "ReadPipeline"
+    "fixture/ReadPipeline"
 
 testCreatePipeline :: CreatePipeline -> TestTree
-testCreatePipeline = undefined
+testCreatePipeline = req
+    "CreatePipeline"
+    "fixture/CreatePipeline"
 
 testListJobsByStatus :: ListJobsByStatus -> TestTree
-testListJobsByStatus = undefined
+testListJobsByStatus = req
+    "ListJobsByStatus"
+    "fixture/ListJobsByStatus"
 
 testCancelJob :: CancelJob -> TestTree
-testCancelJob = undefined
+testCancelJob = req
+    "CancelJob"
+    "fixture/CancelJob"
 
 -- Responses
 
 testDeletePresetResponse :: DeletePresetResponse -> TestTree
-testDeletePresetResponse = resp
+testDeletePresetResponse = res
     "DeletePresetResponse"
     "fixture/DeletePresetResponse"
     (Proxy :: Proxy DeletePreset)
 
 testListJobsByPipelineResponse :: ListJobsByPipelineResponse -> TestTree
-testListJobsByPipelineResponse = resp
+testListJobsByPipelineResponse = res
     "ListJobsByPipelineResponse"
     "fixture/ListJobsByPipelineResponse"
     (Proxy :: Proxy ListJobsByPipeline)
 
 testUpdatePipelineStatusResponse :: UpdatePipelineStatusResponse -> TestTree
-testUpdatePipelineStatusResponse = resp
+testUpdatePipelineStatusResponse = res
     "UpdatePipelineStatusResponse"
     "fixture/UpdatePipelineStatusResponse"
     (Proxy :: Proxy UpdatePipelineStatus)
 
 testTestRoleResponse :: TestRoleResponse -> TestTree
-testTestRoleResponse = resp
+testTestRoleResponse = res
     "TestRoleResponse"
     "fixture/TestRoleResponse"
     (Proxy :: Proxy TestRole)
 
 testUpdatePipelineResponse :: UpdatePipelineResponse -> TestTree
-testUpdatePipelineResponse = resp
+testUpdatePipelineResponse = res
     "UpdatePipelineResponse"
     "fixture/UpdatePipelineResponse"
     (Proxy :: Proxy UpdatePipeline)
 
 testDeletePipelineResponse :: DeletePipelineResponse -> TestTree
-testDeletePipelineResponse = resp
+testDeletePipelineResponse = res
     "DeletePipelineResponse"
     "fixture/DeletePipelineResponse"
     (Proxy :: Proxy DeletePipeline)
 
 testCreateJobResponse :: CreateJobResponse -> TestTree
-testCreateJobResponse = resp
+testCreateJobResponse = res
     "CreateJobResponse"
     "fixture/CreateJobResponse"
     (Proxy :: Proxy CreateJob)
 
 testListPipelinesResponse :: ListPipelinesResponse -> TestTree
-testListPipelinesResponse = resp
+testListPipelinesResponse = res
     "ListPipelinesResponse"
     "fixture/ListPipelinesResponse"
     (Proxy :: Proxy ListPipelines)
 
 testCreatePresetResponse :: CreatePresetResponse -> TestTree
-testCreatePresetResponse = resp
+testCreatePresetResponse = res
     "CreatePresetResponse"
     "fixture/CreatePresetResponse"
     (Proxy :: Proxy CreatePreset)
 
 testListPresetsResponse :: ListPresetsResponse -> TestTree
-testListPresetsResponse = resp
+testListPresetsResponse = res
     "ListPresetsResponse"
     "fixture/ListPresetsResponse"
     (Proxy :: Proxy ListPresets)
 
 testReadPresetResponse :: ReadPresetResponse -> TestTree
-testReadPresetResponse = resp
+testReadPresetResponse = res
     "ReadPresetResponse"
     "fixture/ReadPresetResponse"
     (Proxy :: Proxy ReadPreset)
 
 testUpdatePipelineNotificationsResponse :: UpdatePipelineNotificationsResponse -> TestTree
-testUpdatePipelineNotificationsResponse = resp
+testUpdatePipelineNotificationsResponse = res
     "UpdatePipelineNotificationsResponse"
     "fixture/UpdatePipelineNotificationsResponse"
     (Proxy :: Proxy UpdatePipelineNotifications)
 
 testReadJobResponse :: ReadJobResponse -> TestTree
-testReadJobResponse = resp
+testReadJobResponse = res
     "ReadJobResponse"
     "fixture/ReadJobResponse"
     (Proxy :: Proxy ReadJob)
 
 testReadPipelineResponse :: ReadPipelineResponse -> TestTree
-testReadPipelineResponse = resp
+testReadPipelineResponse = res
     "ReadPipelineResponse"
     "fixture/ReadPipelineResponse"
     (Proxy :: Proxy ReadPipeline)
 
 testCreatePipelineResponse :: CreatePipelineResponse -> TestTree
-testCreatePipelineResponse = resp
+testCreatePipelineResponse = res
     "CreatePipelineResponse"
     "fixture/CreatePipelineResponse"
     (Proxy :: Proxy CreatePipeline)
 
 testListJobsByStatusResponse :: ListJobsByStatusResponse -> TestTree
-testListJobsByStatusResponse = resp
+testListJobsByStatusResponse = res
     "ListJobsByStatusResponse"
     "fixture/ListJobsByStatusResponse"
     (Proxy :: Proxy ListJobsByStatus)
 
 testCancelJobResponse :: CancelJobResponse -> TestTree
-testCancelJobResponse = resp
+testCancelJobResponse = res
     "CancelJobResponse"
     "fixture/CancelJobResponse"
     (Proxy :: Proxy CancelJob)

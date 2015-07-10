@@ -144,165 +144,201 @@ import Test.AWS.Route53Domains.Internal
 -- Requests
 
 testListOperations :: ListOperations -> TestTree
-testListOperations = undefined
+testListOperations = req
+    "ListOperations"
+    "fixture/ListOperations"
 
 testGetDomainDetail :: GetDomainDetail -> TestTree
-testGetDomainDetail = undefined
+testGetDomainDetail = req
+    "GetDomainDetail"
+    "fixture/GetDomainDetail"
 
 testUpdateDomainContactPrivacy :: UpdateDomainContactPrivacy -> TestTree
-testUpdateDomainContactPrivacy = undefined
+testUpdateDomainContactPrivacy = req
+    "UpdateDomainContactPrivacy"
+    "fixture/UpdateDomainContactPrivacy"
 
 testGetOperationDetail :: GetOperationDetail -> TestTree
-testGetOperationDetail = undefined
+testGetOperationDetail = req
+    "GetOperationDetail"
+    "fixture/GetOperationDetail"
 
 testEnableDomainAutoRenew :: EnableDomainAutoRenew -> TestTree
-testEnableDomainAutoRenew = undefined
+testEnableDomainAutoRenew = req
+    "EnableDomainAutoRenew"
+    "fixture/EnableDomainAutoRenew"
 
 testDisableDomainAutoRenew :: DisableDomainAutoRenew -> TestTree
-testDisableDomainAutoRenew = undefined
+testDisableDomainAutoRenew = req
+    "DisableDomainAutoRenew"
+    "fixture/DisableDomainAutoRenew"
 
 testUpdateDomainContact :: UpdateDomainContact -> TestTree
-testUpdateDomainContact = undefined
+testUpdateDomainContact = req
+    "UpdateDomainContact"
+    "fixture/UpdateDomainContact"
 
 testEnableDomainTransferLock :: EnableDomainTransferLock -> TestTree
-testEnableDomainTransferLock = undefined
+testEnableDomainTransferLock = req
+    "EnableDomainTransferLock"
+    "fixture/EnableDomainTransferLock"
 
 testRegisterDomain :: RegisterDomain -> TestTree
-testRegisterDomain = undefined
+testRegisterDomain = req
+    "RegisterDomain"
+    "fixture/RegisterDomain"
 
 testDisableDomainTransferLock :: DisableDomainTransferLock -> TestTree
-testDisableDomainTransferLock = undefined
+testDisableDomainTransferLock = req
+    "DisableDomainTransferLock"
+    "fixture/DisableDomainTransferLock"
 
 testCheckDomainAvailability :: CheckDomainAvailability -> TestTree
-testCheckDomainAvailability = undefined
+testCheckDomainAvailability = req
+    "CheckDomainAvailability"
+    "fixture/CheckDomainAvailability"
 
 testListTagsForDomain :: ListTagsForDomain -> TestTree
-testListTagsForDomain = undefined
+testListTagsForDomain = req
+    "ListTagsForDomain"
+    "fixture/ListTagsForDomain"
 
 testUpdateDomainNameservers :: UpdateDomainNameservers -> TestTree
-testUpdateDomainNameservers = undefined
+testUpdateDomainNameservers = req
+    "UpdateDomainNameservers"
+    "fixture/UpdateDomainNameservers"
 
 testRetrieveDomainAuthCode :: RetrieveDomainAuthCode -> TestTree
-testRetrieveDomainAuthCode = undefined
+testRetrieveDomainAuthCode = req
+    "RetrieveDomainAuthCode"
+    "fixture/RetrieveDomainAuthCode"
 
 testTransferDomain :: TransferDomain -> TestTree
-testTransferDomain = undefined
+testTransferDomain = req
+    "TransferDomain"
+    "fixture/TransferDomain"
 
 testDeleteTagsForDomain :: DeleteTagsForDomain -> TestTree
-testDeleteTagsForDomain = undefined
+testDeleteTagsForDomain = req
+    "DeleteTagsForDomain"
+    "fixture/DeleteTagsForDomain"
 
 testUpdateTagsForDomain :: UpdateTagsForDomain -> TestTree
-testUpdateTagsForDomain = undefined
+testUpdateTagsForDomain = req
+    "UpdateTagsForDomain"
+    "fixture/UpdateTagsForDomain"
 
 testListDomains :: ListDomains -> TestTree
-testListDomains = undefined
+testListDomains = req
+    "ListDomains"
+    "fixture/ListDomains"
 
 -- Responses
 
 testListOperationsResponse :: ListOperationsResponse -> TestTree
-testListOperationsResponse = resp
+testListOperationsResponse = res
     "ListOperationsResponse"
     "fixture/ListOperationsResponse"
     (Proxy :: Proxy ListOperations)
 
 testGetDomainDetailResponse :: GetDomainDetailResponse -> TestTree
-testGetDomainDetailResponse = resp
+testGetDomainDetailResponse = res
     "GetDomainDetailResponse"
     "fixture/GetDomainDetailResponse"
     (Proxy :: Proxy GetDomainDetail)
 
 testUpdateDomainContactPrivacyResponse :: UpdateDomainContactPrivacyResponse -> TestTree
-testUpdateDomainContactPrivacyResponse = resp
+testUpdateDomainContactPrivacyResponse = res
     "UpdateDomainContactPrivacyResponse"
     "fixture/UpdateDomainContactPrivacyResponse"
     (Proxy :: Proxy UpdateDomainContactPrivacy)
 
 testGetOperationDetailResponse :: GetOperationDetailResponse -> TestTree
-testGetOperationDetailResponse = resp
+testGetOperationDetailResponse = res
     "GetOperationDetailResponse"
     "fixture/GetOperationDetailResponse"
     (Proxy :: Proxy GetOperationDetail)
 
 testEnableDomainAutoRenewResponse :: EnableDomainAutoRenewResponse -> TestTree
-testEnableDomainAutoRenewResponse = resp
+testEnableDomainAutoRenewResponse = res
     "EnableDomainAutoRenewResponse"
     "fixture/EnableDomainAutoRenewResponse"
     (Proxy :: Proxy EnableDomainAutoRenew)
 
 testDisableDomainAutoRenewResponse :: DisableDomainAutoRenewResponse -> TestTree
-testDisableDomainAutoRenewResponse = resp
+testDisableDomainAutoRenewResponse = res
     "DisableDomainAutoRenewResponse"
     "fixture/DisableDomainAutoRenewResponse"
     (Proxy :: Proxy DisableDomainAutoRenew)
 
 testUpdateDomainContactResponse :: UpdateDomainContactResponse -> TestTree
-testUpdateDomainContactResponse = resp
+testUpdateDomainContactResponse = res
     "UpdateDomainContactResponse"
     "fixture/UpdateDomainContactResponse"
     (Proxy :: Proxy UpdateDomainContact)
 
 testEnableDomainTransferLockResponse :: EnableDomainTransferLockResponse -> TestTree
-testEnableDomainTransferLockResponse = resp
+testEnableDomainTransferLockResponse = res
     "EnableDomainTransferLockResponse"
     "fixture/EnableDomainTransferLockResponse"
     (Proxy :: Proxy EnableDomainTransferLock)
 
 testRegisterDomainResponse :: RegisterDomainResponse -> TestTree
-testRegisterDomainResponse = resp
+testRegisterDomainResponse = res
     "RegisterDomainResponse"
     "fixture/RegisterDomainResponse"
     (Proxy :: Proxy RegisterDomain)
 
 testDisableDomainTransferLockResponse :: DisableDomainTransferLockResponse -> TestTree
-testDisableDomainTransferLockResponse = resp
+testDisableDomainTransferLockResponse = res
     "DisableDomainTransferLockResponse"
     "fixture/DisableDomainTransferLockResponse"
     (Proxy :: Proxy DisableDomainTransferLock)
 
 testCheckDomainAvailabilityResponse :: CheckDomainAvailabilityResponse -> TestTree
-testCheckDomainAvailabilityResponse = resp
+testCheckDomainAvailabilityResponse = res
     "CheckDomainAvailabilityResponse"
     "fixture/CheckDomainAvailabilityResponse"
     (Proxy :: Proxy CheckDomainAvailability)
 
 testListTagsForDomainResponse :: ListTagsForDomainResponse -> TestTree
-testListTagsForDomainResponse = resp
+testListTagsForDomainResponse = res
     "ListTagsForDomainResponse"
     "fixture/ListTagsForDomainResponse"
     (Proxy :: Proxy ListTagsForDomain)
 
 testUpdateDomainNameserversResponse :: UpdateDomainNameserversResponse -> TestTree
-testUpdateDomainNameserversResponse = resp
+testUpdateDomainNameserversResponse = res
     "UpdateDomainNameserversResponse"
     "fixture/UpdateDomainNameserversResponse"
     (Proxy :: Proxy UpdateDomainNameservers)
 
 testRetrieveDomainAuthCodeResponse :: RetrieveDomainAuthCodeResponse -> TestTree
-testRetrieveDomainAuthCodeResponse = resp
+testRetrieveDomainAuthCodeResponse = res
     "RetrieveDomainAuthCodeResponse"
     "fixture/RetrieveDomainAuthCodeResponse"
     (Proxy :: Proxy RetrieveDomainAuthCode)
 
 testTransferDomainResponse :: TransferDomainResponse -> TestTree
-testTransferDomainResponse = resp
+testTransferDomainResponse = res
     "TransferDomainResponse"
     "fixture/TransferDomainResponse"
     (Proxy :: Proxy TransferDomain)
 
 testDeleteTagsForDomainResponse :: DeleteTagsForDomainResponse -> TestTree
-testDeleteTagsForDomainResponse = resp
+testDeleteTagsForDomainResponse = res
     "DeleteTagsForDomainResponse"
     "fixture/DeleteTagsForDomainResponse"
     (Proxy :: Proxy DeleteTagsForDomain)
 
 testUpdateTagsForDomainResponse :: UpdateTagsForDomainResponse -> TestTree
-testUpdateTagsForDomainResponse = resp
+testUpdateTagsForDomainResponse = res
     "UpdateTagsForDomainResponse"
     "fixture/UpdateTagsForDomainResponse"
     (Proxy :: Proxy UpdateTagsForDomain)
 
 testListDomainsResponse :: ListDomainsResponse -> TestTree
-testListDomainsResponse = resp
+testListDomainsResponse = res
     "ListDomainsResponse"
     "fixture/ListDomainsResponse"
     (Proxy :: Proxy ListDomains)

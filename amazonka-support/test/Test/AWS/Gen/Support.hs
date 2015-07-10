@@ -120,129 +120,157 @@ import Test.AWS.Support.Internal
 -- Requests
 
 testRefreshTrustedAdvisorCheck :: RefreshTrustedAdvisorCheck -> TestTree
-testRefreshTrustedAdvisorCheck = undefined
+testRefreshTrustedAdvisorCheck = req
+    "RefreshTrustedAdvisorCheck"
+    "fixture/RefreshTrustedAdvisorCheck"
 
 testDescribeCases :: DescribeCases -> TestTree
-testDescribeCases = undefined
+testDescribeCases = req
+    "DescribeCases"
+    "fixture/DescribeCases"
 
 testDescribeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses -> TestTree
-testDescribeTrustedAdvisorCheckRefreshStatuses = undefined
+testDescribeTrustedAdvisorCheckRefreshStatuses = req
+    "DescribeTrustedAdvisorCheckRefreshStatuses"
+    "fixture/DescribeTrustedAdvisorCheckRefreshStatuses"
 
 testCreateCase :: CreateCase -> TestTree
-testCreateCase = undefined
+testCreateCase = req
+    "CreateCase"
+    "fixture/CreateCase"
 
 testDescribeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummaries -> TestTree
-testDescribeTrustedAdvisorCheckSummaries = undefined
+testDescribeTrustedAdvisorCheckSummaries = req
+    "DescribeTrustedAdvisorCheckSummaries"
+    "fixture/DescribeTrustedAdvisorCheckSummaries"
 
 testResolveCase :: ResolveCase -> TestTree
-testResolveCase = undefined
+testResolveCase = req
+    "ResolveCase"
+    "fixture/ResolveCase"
 
 testDescribeSeverityLevels :: DescribeSeverityLevels -> TestTree
-testDescribeSeverityLevels = undefined
+testDescribeSeverityLevels = req
+    "DescribeSeverityLevels"
+    "fixture/DescribeSeverityLevels"
 
 testDescribeTrustedAdvisorChecks :: DescribeTrustedAdvisorChecks -> TestTree
-testDescribeTrustedAdvisorChecks = undefined
+testDescribeTrustedAdvisorChecks = req
+    "DescribeTrustedAdvisorChecks"
+    "fixture/DescribeTrustedAdvisorChecks"
 
 testDescribeAttachment :: DescribeAttachment -> TestTree
-testDescribeAttachment = undefined
+testDescribeAttachment = req
+    "DescribeAttachment"
+    "fixture/DescribeAttachment"
 
 testAddAttachmentsToSet :: AddAttachmentsToSet -> TestTree
-testAddAttachmentsToSet = undefined
+testAddAttachmentsToSet = req
+    "AddAttachmentsToSet"
+    "fixture/AddAttachmentsToSet"
 
 testDescribeTrustedAdvisorCheckResult :: DescribeTrustedAdvisorCheckResult -> TestTree
-testDescribeTrustedAdvisorCheckResult = undefined
+testDescribeTrustedAdvisorCheckResult = req
+    "DescribeTrustedAdvisorCheckResult"
+    "fixture/DescribeTrustedAdvisorCheckResult"
 
 testDescribeServices :: DescribeServices -> TestTree
-testDescribeServices = undefined
+testDescribeServices = req
+    "DescribeServices"
+    "fixture/DescribeServices"
 
 testDescribeCommunications :: DescribeCommunications -> TestTree
-testDescribeCommunications = undefined
+testDescribeCommunications = req
+    "DescribeCommunications"
+    "fixture/DescribeCommunications"
 
 testAddCommunicationToCase :: AddCommunicationToCase -> TestTree
-testAddCommunicationToCase = undefined
+testAddCommunicationToCase = req
+    "AddCommunicationToCase"
+    "fixture/AddCommunicationToCase"
 
 -- Responses
 
 testRefreshTrustedAdvisorCheckResponse :: RefreshTrustedAdvisorCheckResponse -> TestTree
-testRefreshTrustedAdvisorCheckResponse = resp
+testRefreshTrustedAdvisorCheckResponse = res
     "RefreshTrustedAdvisorCheckResponse"
     "fixture/RefreshTrustedAdvisorCheckResponse"
     (Proxy :: Proxy RefreshTrustedAdvisorCheck)
 
 testDescribeCasesResponse :: DescribeCasesResponse -> TestTree
-testDescribeCasesResponse = resp
+testDescribeCasesResponse = res
     "DescribeCasesResponse"
     "fixture/DescribeCasesResponse"
     (Proxy :: Proxy DescribeCases)
 
 testDescribeTrustedAdvisorCheckRefreshStatusesResponse :: DescribeTrustedAdvisorCheckRefreshStatusesResponse -> TestTree
-testDescribeTrustedAdvisorCheckRefreshStatusesResponse = resp
+testDescribeTrustedAdvisorCheckRefreshStatusesResponse = res
     "DescribeTrustedAdvisorCheckRefreshStatusesResponse"
     "fixture/DescribeTrustedAdvisorCheckRefreshStatusesResponse"
     (Proxy :: Proxy DescribeTrustedAdvisorCheckRefreshStatuses)
 
 testCreateCaseResponse :: CreateCaseResponse -> TestTree
-testCreateCaseResponse = resp
+testCreateCaseResponse = res
     "CreateCaseResponse"
     "fixture/CreateCaseResponse"
     (Proxy :: Proxy CreateCase)
 
 testDescribeTrustedAdvisorCheckSummariesResponse :: DescribeTrustedAdvisorCheckSummariesResponse -> TestTree
-testDescribeTrustedAdvisorCheckSummariesResponse = resp
+testDescribeTrustedAdvisorCheckSummariesResponse = res
     "DescribeTrustedAdvisorCheckSummariesResponse"
     "fixture/DescribeTrustedAdvisorCheckSummariesResponse"
     (Proxy :: Proxy DescribeTrustedAdvisorCheckSummaries)
 
 testResolveCaseResponse :: ResolveCaseResponse -> TestTree
-testResolveCaseResponse = resp
+testResolveCaseResponse = res
     "ResolveCaseResponse"
     "fixture/ResolveCaseResponse"
     (Proxy :: Proxy ResolveCase)
 
 testDescribeSeverityLevelsResponse :: DescribeSeverityLevelsResponse -> TestTree
-testDescribeSeverityLevelsResponse = resp
+testDescribeSeverityLevelsResponse = res
     "DescribeSeverityLevelsResponse"
     "fixture/DescribeSeverityLevelsResponse"
     (Proxy :: Proxy DescribeSeverityLevels)
 
 testDescribeTrustedAdvisorChecksResponse :: DescribeTrustedAdvisorChecksResponse -> TestTree
-testDescribeTrustedAdvisorChecksResponse = resp
+testDescribeTrustedAdvisorChecksResponse = res
     "DescribeTrustedAdvisorChecksResponse"
     "fixture/DescribeTrustedAdvisorChecksResponse"
     (Proxy :: Proxy DescribeTrustedAdvisorChecks)
 
 testDescribeAttachmentResponse :: DescribeAttachmentResponse -> TestTree
-testDescribeAttachmentResponse = resp
+testDescribeAttachmentResponse = res
     "DescribeAttachmentResponse"
     "fixture/DescribeAttachmentResponse"
     (Proxy :: Proxy DescribeAttachment)
 
 testAddAttachmentsToSetResponse :: AddAttachmentsToSetResponse -> TestTree
-testAddAttachmentsToSetResponse = resp
+testAddAttachmentsToSetResponse = res
     "AddAttachmentsToSetResponse"
     "fixture/AddAttachmentsToSetResponse"
     (Proxy :: Proxy AddAttachmentsToSet)
 
 testDescribeTrustedAdvisorCheckResultResponse :: DescribeTrustedAdvisorCheckResultResponse -> TestTree
-testDescribeTrustedAdvisorCheckResultResponse = resp
+testDescribeTrustedAdvisorCheckResultResponse = res
     "DescribeTrustedAdvisorCheckResultResponse"
     "fixture/DescribeTrustedAdvisorCheckResultResponse"
     (Proxy :: Proxy DescribeTrustedAdvisorCheckResult)
 
 testDescribeServicesResponse :: DescribeServicesResponse -> TestTree
-testDescribeServicesResponse = resp
+testDescribeServicesResponse = res
     "DescribeServicesResponse"
     "fixture/DescribeServicesResponse"
     (Proxy :: Proxy DescribeServices)
 
 testDescribeCommunicationsResponse :: DescribeCommunicationsResponse -> TestTree
-testDescribeCommunicationsResponse = resp
+testDescribeCommunicationsResponse = res
     "DescribeCommunicationsResponse"
     "fixture/DescribeCommunicationsResponse"
     (Proxy :: Proxy DescribeCommunications)
 
 testAddCommunicationToCaseResponse :: AddCommunicationToCaseResponse -> TestTree
-testAddCommunicationToCaseResponse = resp
+testAddCommunicationToCaseResponse = res
     "AddCommunicationToCaseResponse"
     "fixture/AddCommunicationToCaseResponse"
     (Proxy :: Proxy AddCommunicationToCase)

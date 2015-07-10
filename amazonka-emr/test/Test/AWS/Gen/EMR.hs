@@ -132,147 +132,179 @@ import Test.AWS.EMR.Internal
 -- Requests
 
 testRunJobFlow :: RunJobFlow -> TestTree
-testRunJobFlow = undefined
+testRunJobFlow = req
+    "RunJobFlow"
+    "fixture/RunJobFlow"
 
 testSetVisibleToAllUsers :: SetVisibleToAllUsers -> TestTree
-testSetVisibleToAllUsers = undefined
+testSetVisibleToAllUsers = req
+    "SetVisibleToAllUsers"
+    "fixture/SetVisibleToAllUsers"
 
 testTerminateJobFlows :: TerminateJobFlows -> TestTree
-testTerminateJobFlows = undefined
+testTerminateJobFlows = req
+    "TerminateJobFlows"
+    "fixture/TerminateJobFlows"
 
 testRemoveTags :: RemoveTags -> TestTree
-testRemoveTags = undefined
+testRemoveTags = req
+    "RemoveTags"
+    "fixture/RemoveTags"
 
 testDescribeStep :: DescribeStep -> TestTree
-testDescribeStep = undefined
+testDescribeStep = req
+    "DescribeStep"
+    "fixture/DescribeStep"
 
 testDescribeCluster :: DescribeCluster -> TestTree
-testDescribeCluster = undefined
+testDescribeCluster = req
+    "DescribeCluster"
+    "fixture/DescribeCluster"
 
 testModifyInstanceGroups :: ModifyInstanceGroups -> TestTree
-testModifyInstanceGroups = undefined
+testModifyInstanceGroups = req
+    "ModifyInstanceGroups"
+    "fixture/ModifyInstanceGroups"
 
 testAddJobFlowSteps :: AddJobFlowSteps -> TestTree
-testAddJobFlowSteps = undefined
+testAddJobFlowSteps = req
+    "AddJobFlowSteps"
+    "fixture/AddJobFlowSteps"
 
 testSetTerminationProtection :: SetTerminationProtection -> TestTree
-testSetTerminationProtection = undefined
+testSetTerminationProtection = req
+    "SetTerminationProtection"
+    "fixture/SetTerminationProtection"
 
 testListSteps :: ListSteps -> TestTree
-testListSteps = undefined
+testListSteps = req
+    "ListSteps"
+    "fixture/ListSteps"
 
 testAddInstanceGroups :: AddInstanceGroups -> TestTree
-testAddInstanceGroups = undefined
+testAddInstanceGroups = req
+    "AddInstanceGroups"
+    "fixture/AddInstanceGroups"
 
 testListInstanceGroups :: ListInstanceGroups -> TestTree
-testListInstanceGroups = undefined
+testListInstanceGroups = req
+    "ListInstanceGroups"
+    "fixture/ListInstanceGroups"
 
 testListBootstrapActions :: ListBootstrapActions -> TestTree
-testListBootstrapActions = undefined
+testListBootstrapActions = req
+    "ListBootstrapActions"
+    "fixture/ListBootstrapActions"
 
 testAddTags :: AddTags -> TestTree
-testAddTags = undefined
+testAddTags = req
+    "AddTags"
+    "fixture/AddTags"
 
 testListInstances :: ListInstances -> TestTree
-testListInstances = undefined
+testListInstances = req
+    "ListInstances"
+    "fixture/ListInstances"
 
 testListClusters :: ListClusters -> TestTree
-testListClusters = undefined
+testListClusters = req
+    "ListClusters"
+    "fixture/ListClusters"
 
 -- Responses
 
 testRunJobFlowResponse :: RunJobFlowResponse -> TestTree
-testRunJobFlowResponse = resp
+testRunJobFlowResponse = res
     "RunJobFlowResponse"
     "fixture/RunJobFlowResponse"
     (Proxy :: Proxy RunJobFlow)
 
 testSetVisibleToAllUsersResponse :: SetVisibleToAllUsersResponse -> TestTree
-testSetVisibleToAllUsersResponse = resp
+testSetVisibleToAllUsersResponse = res
     "SetVisibleToAllUsersResponse"
     "fixture/SetVisibleToAllUsersResponse"
     (Proxy :: Proxy SetVisibleToAllUsers)
 
 testTerminateJobFlowsResponse :: TerminateJobFlowsResponse -> TestTree
-testTerminateJobFlowsResponse = resp
+testTerminateJobFlowsResponse = res
     "TerminateJobFlowsResponse"
     "fixture/TerminateJobFlowsResponse"
     (Proxy :: Proxy TerminateJobFlows)
 
 testRemoveTagsResponse :: RemoveTagsResponse -> TestTree
-testRemoveTagsResponse = resp
+testRemoveTagsResponse = res
     "RemoveTagsResponse"
     "fixture/RemoveTagsResponse"
     (Proxy :: Proxy RemoveTags)
 
 testDescribeStepResponse :: DescribeStepResponse -> TestTree
-testDescribeStepResponse = resp
+testDescribeStepResponse = res
     "DescribeStepResponse"
     "fixture/DescribeStepResponse"
     (Proxy :: Proxy DescribeStep)
 
 testDescribeClusterResponse :: DescribeClusterResponse -> TestTree
-testDescribeClusterResponse = resp
+testDescribeClusterResponse = res
     "DescribeClusterResponse"
     "fixture/DescribeClusterResponse"
     (Proxy :: Proxy DescribeCluster)
 
 testModifyInstanceGroupsResponse :: ModifyInstanceGroupsResponse -> TestTree
-testModifyInstanceGroupsResponse = resp
+testModifyInstanceGroupsResponse = res
     "ModifyInstanceGroupsResponse"
     "fixture/ModifyInstanceGroupsResponse"
     (Proxy :: Proxy ModifyInstanceGroups)
 
 testAddJobFlowStepsResponse :: AddJobFlowStepsResponse -> TestTree
-testAddJobFlowStepsResponse = resp
+testAddJobFlowStepsResponse = res
     "AddJobFlowStepsResponse"
     "fixture/AddJobFlowStepsResponse"
     (Proxy :: Proxy AddJobFlowSteps)
 
 testSetTerminationProtectionResponse :: SetTerminationProtectionResponse -> TestTree
-testSetTerminationProtectionResponse = resp
+testSetTerminationProtectionResponse = res
     "SetTerminationProtectionResponse"
     "fixture/SetTerminationProtectionResponse"
     (Proxy :: Proxy SetTerminationProtection)
 
 testListStepsResponse :: ListStepsResponse -> TestTree
-testListStepsResponse = resp
+testListStepsResponse = res
     "ListStepsResponse"
     "fixture/ListStepsResponse"
     (Proxy :: Proxy ListSteps)
 
 testAddInstanceGroupsResponse :: AddInstanceGroupsResponse -> TestTree
-testAddInstanceGroupsResponse = resp
+testAddInstanceGroupsResponse = res
     "AddInstanceGroupsResponse"
     "fixture/AddInstanceGroupsResponse"
     (Proxy :: Proxy AddInstanceGroups)
 
 testListInstanceGroupsResponse :: ListInstanceGroupsResponse -> TestTree
-testListInstanceGroupsResponse = resp
+testListInstanceGroupsResponse = res
     "ListInstanceGroupsResponse"
     "fixture/ListInstanceGroupsResponse"
     (Proxy :: Proxy ListInstanceGroups)
 
 testListBootstrapActionsResponse :: ListBootstrapActionsResponse -> TestTree
-testListBootstrapActionsResponse = resp
+testListBootstrapActionsResponse = res
     "ListBootstrapActionsResponse"
     "fixture/ListBootstrapActionsResponse"
     (Proxy :: Proxy ListBootstrapActions)
 
 testAddTagsResponse :: AddTagsResponse -> TestTree
-testAddTagsResponse = resp
+testAddTagsResponse = res
     "AddTagsResponse"
     "fixture/AddTagsResponse"
     (Proxy :: Proxy AddTags)
 
 testListInstancesResponse :: ListInstancesResponse -> TestTree
-testListInstancesResponse = resp
+testListInstancesResponse = res
     "ListInstancesResponse"
     "fixture/ListInstancesResponse"
     (Proxy :: Proxy ListInstances)
 
 testListClustersResponse :: ListClustersResponse -> TestTree
-testListClustersResponse = resp
+testListClustersResponse = res
     "ListClustersResponse"
     "fixture/ListClustersResponse"
     (Proxy :: Proxy ListClusters)

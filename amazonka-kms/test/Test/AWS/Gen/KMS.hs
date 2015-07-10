@@ -192,237 +192,289 @@ import Test.AWS.KMS.Internal
 -- Requests
 
 testDisableKeyRotation :: DisableKeyRotation -> TestTree
-testDisableKeyRotation = undefined
+testDisableKeyRotation = req
+    "DisableKeyRotation"
+    "fixture/DisableKeyRotation"
 
 testGenerateDataKeyWithoutPlaintext :: GenerateDataKeyWithoutPlaintext -> TestTree
-testGenerateDataKeyWithoutPlaintext = undefined
+testGenerateDataKeyWithoutPlaintext = req
+    "GenerateDataKeyWithoutPlaintext"
+    "fixture/GenerateDataKeyWithoutPlaintext"
 
 testListGrants :: ListGrants -> TestTree
-testListGrants = undefined
+testListGrants = req
+    "ListGrants"
+    "fixture/ListGrants"
 
 testEncrypt :: Encrypt -> TestTree
-testEncrypt = undefined
+testEncrypt = req
+    "Encrypt"
+    "fixture/Encrypt"
 
 testEnableKeyRotation :: EnableKeyRotation -> TestTree
-testEnableKeyRotation = undefined
+testEnableKeyRotation = req
+    "EnableKeyRotation"
+    "fixture/EnableKeyRotation"
 
 testCreateGrant :: CreateGrant -> TestTree
-testCreateGrant = undefined
+testCreateGrant = req
+    "CreateGrant"
+    "fixture/CreateGrant"
 
 testCreateAlias :: CreateAlias -> TestTree
-testCreateAlias = undefined
+testCreateAlias = req
+    "CreateAlias"
+    "fixture/CreateAlias"
 
 testListAliases :: ListAliases -> TestTree
-testListAliases = undefined
+testListAliases = req
+    "ListAliases"
+    "fixture/ListAliases"
 
 testGenerateRandom :: GenerateRandom -> TestTree
-testGenerateRandom = undefined
+testGenerateRandom = req
+    "GenerateRandom"
+    "fixture/GenerateRandom"
 
 testDisableKey :: DisableKey -> TestTree
-testDisableKey = undefined
+testDisableKey = req
+    "DisableKey"
+    "fixture/DisableKey"
 
 testCreateKey :: CreateKey -> TestTree
-testCreateKey = undefined
+testCreateKey = req
+    "CreateKey"
+    "fixture/CreateKey"
 
 testRetireGrant :: RetireGrant -> TestTree
-testRetireGrant = undefined
+testRetireGrant = req
+    "RetireGrant"
+    "fixture/RetireGrant"
 
 testListKeys :: ListKeys -> TestTree
-testListKeys = undefined
+testListKeys = req
+    "ListKeys"
+    "fixture/ListKeys"
 
 testGetKeyRotationStatus :: GetKeyRotationStatus -> TestTree
-testGetKeyRotationStatus = undefined
+testGetKeyRotationStatus = req
+    "GetKeyRotationStatus"
+    "fixture/GetKeyRotationStatus"
 
 testGenerateDataKey :: GenerateDataKey -> TestTree
-testGenerateDataKey = undefined
+testGenerateDataKey = req
+    "GenerateDataKey"
+    "fixture/GenerateDataKey"
 
 testDeleteAlias :: DeleteAlias -> TestTree
-testDeleteAlias = undefined
+testDeleteAlias = req
+    "DeleteAlias"
+    "fixture/DeleteAlias"
 
 testUpdateAlias :: UpdateAlias -> TestTree
-testUpdateAlias = undefined
+testUpdateAlias = req
+    "UpdateAlias"
+    "fixture/UpdateAlias"
 
 testDescribeKey :: DescribeKey -> TestTree
-testDescribeKey = undefined
+testDescribeKey = req
+    "DescribeKey"
+    "fixture/DescribeKey"
 
 testDecrypt :: Decrypt -> TestTree
-testDecrypt = undefined
+testDecrypt = req
+    "Decrypt"
+    "fixture/Decrypt"
 
 testUpdateKeyDescription :: UpdateKeyDescription -> TestTree
-testUpdateKeyDescription = undefined
+testUpdateKeyDescription = req
+    "UpdateKeyDescription"
+    "fixture/UpdateKeyDescription"
 
 testReEncrypt :: ReEncrypt -> TestTree
-testReEncrypt = undefined
+testReEncrypt = req
+    "ReEncrypt"
+    "fixture/ReEncrypt"
 
 testListKeyPolicies :: ListKeyPolicies -> TestTree
-testListKeyPolicies = undefined
+testListKeyPolicies = req
+    "ListKeyPolicies"
+    "fixture/ListKeyPolicies"
 
 testEnableKey :: EnableKey -> TestTree
-testEnableKey = undefined
+testEnableKey = req
+    "EnableKey"
+    "fixture/EnableKey"
 
 testPutKeyPolicy :: PutKeyPolicy -> TestTree
-testPutKeyPolicy = undefined
+testPutKeyPolicy = req
+    "PutKeyPolicy"
+    "fixture/PutKeyPolicy"
 
 testRevokeGrant :: RevokeGrant -> TestTree
-testRevokeGrant = undefined
+testRevokeGrant = req
+    "RevokeGrant"
+    "fixture/RevokeGrant"
 
 testGetKeyPolicy :: GetKeyPolicy -> TestTree
-testGetKeyPolicy = undefined
+testGetKeyPolicy = req
+    "GetKeyPolicy"
+    "fixture/GetKeyPolicy"
 
 -- Responses
 
 testDisableKeyRotationResponse :: DisableKeyRotationResponse -> TestTree
-testDisableKeyRotationResponse = resp
+testDisableKeyRotationResponse = res
     "DisableKeyRotationResponse"
     "fixture/DisableKeyRotationResponse"
     (Proxy :: Proxy DisableKeyRotation)
 
 testGenerateDataKeyWithoutPlaintextResponse :: GenerateDataKeyWithoutPlaintextResponse -> TestTree
-testGenerateDataKeyWithoutPlaintextResponse = resp
+testGenerateDataKeyWithoutPlaintextResponse = res
     "GenerateDataKeyWithoutPlaintextResponse"
     "fixture/GenerateDataKeyWithoutPlaintextResponse"
     (Proxy :: Proxy GenerateDataKeyWithoutPlaintext)
 
 testListGrantsResponse :: ListGrantsResponse -> TestTree
-testListGrantsResponse = resp
+testListGrantsResponse = res
     "ListGrantsResponse"
     "fixture/ListGrantsResponse"
     (Proxy :: Proxy ListGrants)
 
 testEncryptResponse :: EncryptResponse -> TestTree
-testEncryptResponse = resp
+testEncryptResponse = res
     "EncryptResponse"
     "fixture/EncryptResponse"
     (Proxy :: Proxy Encrypt)
 
 testEnableKeyRotationResponse :: EnableKeyRotationResponse -> TestTree
-testEnableKeyRotationResponse = resp
+testEnableKeyRotationResponse = res
     "EnableKeyRotationResponse"
     "fixture/EnableKeyRotationResponse"
     (Proxy :: Proxy EnableKeyRotation)
 
 testCreateGrantResponse :: CreateGrantResponse -> TestTree
-testCreateGrantResponse = resp
+testCreateGrantResponse = res
     "CreateGrantResponse"
     "fixture/CreateGrantResponse"
     (Proxy :: Proxy CreateGrant)
 
 testCreateAliasResponse :: CreateAliasResponse -> TestTree
-testCreateAliasResponse = resp
+testCreateAliasResponse = res
     "CreateAliasResponse"
     "fixture/CreateAliasResponse"
     (Proxy :: Proxy CreateAlias)
 
 testListAliasesResponse :: ListAliasesResponse -> TestTree
-testListAliasesResponse = resp
+testListAliasesResponse = res
     "ListAliasesResponse"
     "fixture/ListAliasesResponse"
     (Proxy :: Proxy ListAliases)
 
 testGenerateRandomResponse :: GenerateRandomResponse -> TestTree
-testGenerateRandomResponse = resp
+testGenerateRandomResponse = res
     "GenerateRandomResponse"
     "fixture/GenerateRandomResponse"
     (Proxy :: Proxy GenerateRandom)
 
 testDisableKeyResponse :: DisableKeyResponse -> TestTree
-testDisableKeyResponse = resp
+testDisableKeyResponse = res
     "DisableKeyResponse"
     "fixture/DisableKeyResponse"
     (Proxy :: Proxy DisableKey)
 
 testCreateKeyResponse :: CreateKeyResponse -> TestTree
-testCreateKeyResponse = resp
+testCreateKeyResponse = res
     "CreateKeyResponse"
     "fixture/CreateKeyResponse"
     (Proxy :: Proxy CreateKey)
 
 testRetireGrantResponse :: RetireGrantResponse -> TestTree
-testRetireGrantResponse = resp
+testRetireGrantResponse = res
     "RetireGrantResponse"
     "fixture/RetireGrantResponse"
     (Proxy :: Proxy RetireGrant)
 
 testListKeysResponse :: ListKeysResponse -> TestTree
-testListKeysResponse = resp
+testListKeysResponse = res
     "ListKeysResponse"
     "fixture/ListKeysResponse"
     (Proxy :: Proxy ListKeys)
 
 testGetKeyRotationStatusResponse :: GetKeyRotationStatusResponse -> TestTree
-testGetKeyRotationStatusResponse = resp
+testGetKeyRotationStatusResponse = res
     "GetKeyRotationStatusResponse"
     "fixture/GetKeyRotationStatusResponse"
     (Proxy :: Proxy GetKeyRotationStatus)
 
 testGenerateDataKeyResponse :: GenerateDataKeyResponse -> TestTree
-testGenerateDataKeyResponse = resp
+testGenerateDataKeyResponse = res
     "GenerateDataKeyResponse"
     "fixture/GenerateDataKeyResponse"
     (Proxy :: Proxy GenerateDataKey)
 
 testDeleteAliasResponse :: DeleteAliasResponse -> TestTree
-testDeleteAliasResponse = resp
+testDeleteAliasResponse = res
     "DeleteAliasResponse"
     "fixture/DeleteAliasResponse"
     (Proxy :: Proxy DeleteAlias)
 
 testUpdateAliasResponse :: UpdateAliasResponse -> TestTree
-testUpdateAliasResponse = resp
+testUpdateAliasResponse = res
     "UpdateAliasResponse"
     "fixture/UpdateAliasResponse"
     (Proxy :: Proxy UpdateAlias)
 
 testDescribeKeyResponse :: DescribeKeyResponse -> TestTree
-testDescribeKeyResponse = resp
+testDescribeKeyResponse = res
     "DescribeKeyResponse"
     "fixture/DescribeKeyResponse"
     (Proxy :: Proxy DescribeKey)
 
 testDecryptResponse :: DecryptResponse -> TestTree
-testDecryptResponse = resp
+testDecryptResponse = res
     "DecryptResponse"
     "fixture/DecryptResponse"
     (Proxy :: Proxy Decrypt)
 
 testUpdateKeyDescriptionResponse :: UpdateKeyDescriptionResponse -> TestTree
-testUpdateKeyDescriptionResponse = resp
+testUpdateKeyDescriptionResponse = res
     "UpdateKeyDescriptionResponse"
     "fixture/UpdateKeyDescriptionResponse"
     (Proxy :: Proxy UpdateKeyDescription)
 
 testReEncryptResponse :: ReEncryptResponse -> TestTree
-testReEncryptResponse = resp
+testReEncryptResponse = res
     "ReEncryptResponse"
     "fixture/ReEncryptResponse"
     (Proxy :: Proxy ReEncrypt)
 
 testListKeyPoliciesResponse :: ListKeyPoliciesResponse -> TestTree
-testListKeyPoliciesResponse = resp
+testListKeyPoliciesResponse = res
     "ListKeyPoliciesResponse"
     "fixture/ListKeyPoliciesResponse"
     (Proxy :: Proxy ListKeyPolicies)
 
 testEnableKeyResponse :: EnableKeyResponse -> TestTree
-testEnableKeyResponse = resp
+testEnableKeyResponse = res
     "EnableKeyResponse"
     "fixture/EnableKeyResponse"
     (Proxy :: Proxy EnableKey)
 
 testPutKeyPolicyResponse :: PutKeyPolicyResponse -> TestTree
-testPutKeyPolicyResponse = resp
+testPutKeyPolicyResponse = res
     "PutKeyPolicyResponse"
     "fixture/PutKeyPolicyResponse"
     (Proxy :: Proxy PutKeyPolicy)
 
 testRevokeGrantResponse :: RevokeGrantResponse -> TestTree
-testRevokeGrantResponse = resp
+testRevokeGrantResponse = res
     "RevokeGrantResponse"
     "fixture/RevokeGrantResponse"
     (Proxy :: Proxy RevokeGrant)
 
 testGetKeyPolicyResponse :: GetKeyPolicyResponse -> TestTree
-testGetKeyPolicyResponse = resp
+testGetKeyPolicyResponse = res
     "GetKeyPolicyResponse"
     "fixture/GetKeyPolicyResponse"
     (Proxy :: Proxy GetKeyPolicy)

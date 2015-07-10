@@ -138,156 +138,190 @@ import Test.AWS.CloudFormation.Internal
 -- Requests
 
 testDeleteStack :: DeleteStack -> TestTree
-testDeleteStack = undefined
+testDeleteStack = req
+    "DeleteStack"
+    "fixture/DeleteStack"
 
 testUpdateStack :: UpdateStack -> TestTree
-testUpdateStack = undefined
+testUpdateStack = req
+    "UpdateStack"
+    "fixture/UpdateStack"
 
 testGetTemplateSummary :: GetTemplateSummary -> TestTree
-testGetTemplateSummary = undefined
+testGetTemplateSummary = req
+    "GetTemplateSummary"
+    "fixture/GetTemplateSummary"
 
 testListStackResources :: ListStackResources -> TestTree
-testListStackResources = undefined
+testListStackResources = req
+    "ListStackResources"
+    "fixture/ListStackResources"
 
 testDescribeStacks :: DescribeStacks -> TestTree
-testDescribeStacks = undefined
+testDescribeStacks = req
+    "DescribeStacks"
+    "fixture/DescribeStacks"
 
 testGetStackPolicy :: GetStackPolicy -> TestTree
-testGetStackPolicy = undefined
+testGetStackPolicy = req
+    "GetStackPolicy"
+    "fixture/GetStackPolicy"
 
 testValidateTemplate :: ValidateTemplate -> TestTree
-testValidateTemplate = undefined
+testValidateTemplate = req
+    "ValidateTemplate"
+    "fixture/ValidateTemplate"
 
 testCancelUpdateStack :: CancelUpdateStack -> TestTree
-testCancelUpdateStack = undefined
+testCancelUpdateStack = req
+    "CancelUpdateStack"
+    "fixture/CancelUpdateStack"
 
 testSetStackPolicy :: SetStackPolicy -> TestTree
-testSetStackPolicy = undefined
+testSetStackPolicy = req
+    "SetStackPolicy"
+    "fixture/SetStackPolicy"
 
 testDescribeStackEvents :: DescribeStackEvents -> TestTree
-testDescribeStackEvents = undefined
+testDescribeStackEvents = req
+    "DescribeStackEvents"
+    "fixture/DescribeStackEvents"
 
 testSignalResource :: SignalResource -> TestTree
-testSignalResource = undefined
+testSignalResource = req
+    "SignalResource"
+    "fixture/SignalResource"
 
 testListStacks :: ListStacks -> TestTree
-testListStacks = undefined
+testListStacks = req
+    "ListStacks"
+    "fixture/ListStacks"
 
 testCreateStack :: CreateStack -> TestTree
-testCreateStack = undefined
+testCreateStack = req
+    "CreateStack"
+    "fixture/CreateStack"
 
 testDescribeStackResources :: DescribeStackResources -> TestTree
-testDescribeStackResources = undefined
+testDescribeStackResources = req
+    "DescribeStackResources"
+    "fixture/DescribeStackResources"
 
 testEstimateTemplateCost :: EstimateTemplateCost -> TestTree
-testEstimateTemplateCost = undefined
+testEstimateTemplateCost = req
+    "EstimateTemplateCost"
+    "fixture/EstimateTemplateCost"
 
 testGetTemplate :: GetTemplate -> TestTree
-testGetTemplate = undefined
+testGetTemplate = req
+    "GetTemplate"
+    "fixture/GetTemplate"
 
 testDescribeStackResource :: DescribeStackResource -> TestTree
-testDescribeStackResource = undefined
+testDescribeStackResource = req
+    "DescribeStackResource"
+    "fixture/DescribeStackResource"
 
 -- Responses
 
 testDeleteStackResponse :: DeleteStackResponse -> TestTree
-testDeleteStackResponse = resp
+testDeleteStackResponse = res
     "DeleteStackResponse"
     "fixture/DeleteStackResponse"
     (Proxy :: Proxy DeleteStack)
 
 testUpdateStackResponse :: UpdateStackResponse -> TestTree
-testUpdateStackResponse = resp
+testUpdateStackResponse = res
     "UpdateStackResponse"
     "fixture/UpdateStackResponse"
     (Proxy :: Proxy UpdateStack)
 
 testGetTemplateSummaryResponse :: GetTemplateSummaryResponse -> TestTree
-testGetTemplateSummaryResponse = resp
+testGetTemplateSummaryResponse = res
     "GetTemplateSummaryResponse"
     "fixture/GetTemplateSummaryResponse"
     (Proxy :: Proxy GetTemplateSummary)
 
 testListStackResourcesResponse :: ListStackResourcesResponse -> TestTree
-testListStackResourcesResponse = resp
+testListStackResourcesResponse = res
     "ListStackResourcesResponse"
     "fixture/ListStackResourcesResponse"
     (Proxy :: Proxy ListStackResources)
 
 testDescribeStacksResponse :: DescribeStacksResponse -> TestTree
-testDescribeStacksResponse = resp
+testDescribeStacksResponse = res
     "DescribeStacksResponse"
     "fixture/DescribeStacksResponse"
     (Proxy :: Proxy DescribeStacks)
 
 testGetStackPolicyResponse :: GetStackPolicyResponse -> TestTree
-testGetStackPolicyResponse = resp
+testGetStackPolicyResponse = res
     "GetStackPolicyResponse"
     "fixture/GetStackPolicyResponse"
     (Proxy :: Proxy GetStackPolicy)
 
 testValidateTemplateResponse :: ValidateTemplateResponse -> TestTree
-testValidateTemplateResponse = resp
+testValidateTemplateResponse = res
     "ValidateTemplateResponse"
     "fixture/ValidateTemplateResponse"
     (Proxy :: Proxy ValidateTemplate)
 
 testCancelUpdateStackResponse :: CancelUpdateStackResponse -> TestTree
-testCancelUpdateStackResponse = resp
+testCancelUpdateStackResponse = res
     "CancelUpdateStackResponse"
     "fixture/CancelUpdateStackResponse"
     (Proxy :: Proxy CancelUpdateStack)
 
 testSetStackPolicyResponse :: SetStackPolicyResponse -> TestTree
-testSetStackPolicyResponse = resp
+testSetStackPolicyResponse = res
     "SetStackPolicyResponse"
     "fixture/SetStackPolicyResponse"
     (Proxy :: Proxy SetStackPolicy)
 
 testDescribeStackEventsResponse :: DescribeStackEventsResponse -> TestTree
-testDescribeStackEventsResponse = resp
+testDescribeStackEventsResponse = res
     "DescribeStackEventsResponse"
     "fixture/DescribeStackEventsResponse"
     (Proxy :: Proxy DescribeStackEvents)
 
 testSignalResourceResponse :: SignalResourceResponse -> TestTree
-testSignalResourceResponse = resp
+testSignalResourceResponse = res
     "SignalResourceResponse"
     "fixture/SignalResourceResponse"
     (Proxy :: Proxy SignalResource)
 
 testListStacksResponse :: ListStacksResponse -> TestTree
-testListStacksResponse = resp
+testListStacksResponse = res
     "ListStacksResponse"
     "fixture/ListStacksResponse"
     (Proxy :: Proxy ListStacks)
 
 testCreateStackResponse :: CreateStackResponse -> TestTree
-testCreateStackResponse = resp
+testCreateStackResponse = res
     "CreateStackResponse"
     "fixture/CreateStackResponse"
     (Proxy :: Proxy CreateStack)
 
 testDescribeStackResourcesResponse :: DescribeStackResourcesResponse -> TestTree
-testDescribeStackResourcesResponse = resp
+testDescribeStackResourcesResponse = res
     "DescribeStackResourcesResponse"
     "fixture/DescribeStackResourcesResponse"
     (Proxy :: Proxy DescribeStackResources)
 
 testEstimateTemplateCostResponse :: EstimateTemplateCostResponse -> TestTree
-testEstimateTemplateCostResponse = resp
+testEstimateTemplateCostResponse = res
     "EstimateTemplateCostResponse"
     "fixture/EstimateTemplateCostResponse"
     (Proxy :: Proxy EstimateTemplateCost)
 
 testGetTemplateResponse :: GetTemplateResponse -> TestTree
-testGetTemplateResponse = resp
+testGetTemplateResponse = res
     "GetTemplateResponse"
     "fixture/GetTemplateResponse"
     (Proxy :: Proxy GetTemplate)
 
 testDescribeStackResourceResponse :: DescribeStackResourceResponse -> TestTree
-testDescribeStackResourceResponse = resp
+testDescribeStackResourceResponse = res
     "DescribeStackResourceResponse"
     "fixture/DescribeStackResourceResponse"
     (Proxy :: Proxy DescribeStackResource)

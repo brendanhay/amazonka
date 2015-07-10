@@ -216,273 +216,333 @@ import Test.AWS.Route53.Internal
 -- Requests
 
 testAssociateVPCWithHostedZone :: AssociateVPCWithHostedZone -> TestTree
-testAssociateVPCWithHostedZone = undefined
+testAssociateVPCWithHostedZone = req
+    "AssociateVPCWithHostedZone"
+    "fixture/AssociateVPCWithHostedZone"
 
 testGetHealthCheckLastFailureReason :: GetHealthCheckLastFailureReason -> TestTree
-testGetHealthCheckLastFailureReason = undefined
+testGetHealthCheckLastFailureReason = req
+    "GetHealthCheckLastFailureReason"
+    "fixture/GetHealthCheckLastFailureReason"
 
 testListHostedZonesByName :: ListHostedZonesByName -> TestTree
-testListHostedZonesByName = undefined
+testListHostedZonesByName = req
+    "ListHostedZonesByName"
+    "fixture/ListHostedZonesByName"
 
 testDeleteReusableDelegationSet :: DeleteReusableDelegationSet -> TestTree
-testDeleteReusableDelegationSet = undefined
+testDeleteReusableDelegationSet = req
+    "DeleteReusableDelegationSet"
+    "fixture/DeleteReusableDelegationSet"
 
 testListReusableDelegationSets :: ListReusableDelegationSets -> TestTree
-testListReusableDelegationSets = undefined
+testListReusableDelegationSets = req
+    "ListReusableDelegationSets"
+    "fixture/ListReusableDelegationSets"
 
 testGetCheckerIPRanges :: GetCheckerIPRanges -> TestTree
-testGetCheckerIPRanges = undefined
+testGetCheckerIPRanges = req
+    "GetCheckerIPRanges"
+    "fixture/GetCheckerIPRanges"
 
 testListTagsForResource :: ListTagsForResource -> TestTree
-testListTagsForResource = undefined
+testListTagsForResource = req
+    "ListTagsForResource"
+    "fixture/ListTagsForResource"
 
 testChangeResourceRecordSets :: ChangeResourceRecordSets -> TestTree
-testChangeResourceRecordSets = undefined
+testChangeResourceRecordSets = req
+    "ChangeResourceRecordSets"
+    "fixture/ChangeResourceRecordSets"
 
 testGetChange :: GetChange -> TestTree
-testGetChange = undefined
+testGetChange = req
+    "GetChange"
+    "fixture/GetChange"
 
 testCreateHostedZone :: CreateHostedZone -> TestTree
-testCreateHostedZone = undefined
+testCreateHostedZone = req
+    "CreateHostedZone"
+    "fixture/CreateHostedZone"
 
 testDeleteHealthCheck :: DeleteHealthCheck -> TestTree
-testDeleteHealthCheck = undefined
+testDeleteHealthCheck = req
+    "DeleteHealthCheck"
+    "fixture/DeleteHealthCheck"
 
 testUpdateHealthCheck :: UpdateHealthCheck -> TestTree
-testUpdateHealthCheck = undefined
+testUpdateHealthCheck = req
+    "UpdateHealthCheck"
+    "fixture/UpdateHealthCheck"
 
 testChangeTagsForResource :: ChangeTagsForResource -> TestTree
-testChangeTagsForResource = undefined
+testChangeTagsForResource = req
+    "ChangeTagsForResource"
+    "fixture/ChangeTagsForResource"
 
 testCreateHealthCheck :: CreateHealthCheck -> TestTree
-testCreateHealthCheck = undefined
+testCreateHealthCheck = req
+    "CreateHealthCheck"
+    "fixture/CreateHealthCheck"
 
 testListHostedZones :: ListHostedZones -> TestTree
-testListHostedZones = undefined
+testListHostedZones = req
+    "ListHostedZones"
+    "fixture/ListHostedZones"
 
 testDisassociateVPCFromHostedZone :: DisassociateVPCFromHostedZone -> TestTree
-testDisassociateVPCFromHostedZone = undefined
+testDisassociateVPCFromHostedZone = req
+    "DisassociateVPCFromHostedZone"
+    "fixture/DisassociateVPCFromHostedZone"
 
 testGetHostedZone :: GetHostedZone -> TestTree
-testGetHostedZone = undefined
+testGetHostedZone = req
+    "GetHostedZone"
+    "fixture/GetHostedZone"
 
 testListGeoLocations :: ListGeoLocations -> TestTree
-testListGeoLocations = undefined
+testListGeoLocations = req
+    "ListGeoLocations"
+    "fixture/ListGeoLocations"
 
 testGetHealthCheck :: GetHealthCheck -> TestTree
-testGetHealthCheck = undefined
+testGetHealthCheck = req
+    "GetHealthCheck"
+    "fixture/GetHealthCheck"
 
 testListResourceRecordSets :: ListResourceRecordSets -> TestTree
-testListResourceRecordSets = undefined
+testListResourceRecordSets = req
+    "ListResourceRecordSets"
+    "fixture/ListResourceRecordSets"
 
 testGetHealthCheckCount :: GetHealthCheckCount -> TestTree
-testGetHealthCheckCount = undefined
+testGetHealthCheckCount = req
+    "GetHealthCheckCount"
+    "fixture/GetHealthCheckCount"
 
 testCreateReusableDelegationSet :: CreateReusableDelegationSet -> TestTree
-testCreateReusableDelegationSet = undefined
+testCreateReusableDelegationSet = req
+    "CreateReusableDelegationSet"
+    "fixture/CreateReusableDelegationSet"
 
 testGetHostedZoneCount :: GetHostedZoneCount -> TestTree
-testGetHostedZoneCount = undefined
+testGetHostedZoneCount = req
+    "GetHostedZoneCount"
+    "fixture/GetHostedZoneCount"
 
 testGetReusableDelegationSet :: GetReusableDelegationSet -> TestTree
-testGetReusableDelegationSet = undefined
+testGetReusableDelegationSet = req
+    "GetReusableDelegationSet"
+    "fixture/GetReusableDelegationSet"
 
 testUpdateHostedZoneComment :: UpdateHostedZoneComment -> TestTree
-testUpdateHostedZoneComment = undefined
+testUpdateHostedZoneComment = req
+    "UpdateHostedZoneComment"
+    "fixture/UpdateHostedZoneComment"
 
 testGetHealthCheckStatus :: GetHealthCheckStatus -> TestTree
-testGetHealthCheckStatus = undefined
+testGetHealthCheckStatus = req
+    "GetHealthCheckStatus"
+    "fixture/GetHealthCheckStatus"
 
 testListHealthChecks :: ListHealthChecks -> TestTree
-testListHealthChecks = undefined
+testListHealthChecks = req
+    "ListHealthChecks"
+    "fixture/ListHealthChecks"
 
 testDeleteHostedZone :: DeleteHostedZone -> TestTree
-testDeleteHostedZone = undefined
+testDeleteHostedZone = req
+    "DeleteHostedZone"
+    "fixture/DeleteHostedZone"
 
 testGetGeoLocation :: GetGeoLocation -> TestTree
-testGetGeoLocation = undefined
+testGetGeoLocation = req
+    "GetGeoLocation"
+    "fixture/GetGeoLocation"
 
 testListTagsForResources :: ListTagsForResources -> TestTree
-testListTagsForResources = undefined
+testListTagsForResources = req
+    "ListTagsForResources"
+    "fixture/ListTagsForResources"
 
 -- Responses
 
 testAssociateVPCWithHostedZoneResponse :: AssociateVPCWithHostedZoneResponse -> TestTree
-testAssociateVPCWithHostedZoneResponse = resp
+testAssociateVPCWithHostedZoneResponse = res
     "AssociateVPCWithHostedZoneResponse"
     "fixture/AssociateVPCWithHostedZoneResponse"
     (Proxy :: Proxy AssociateVPCWithHostedZone)
 
 testGetHealthCheckLastFailureReasonResponse :: GetHealthCheckLastFailureReasonResponse -> TestTree
-testGetHealthCheckLastFailureReasonResponse = resp
+testGetHealthCheckLastFailureReasonResponse = res
     "GetHealthCheckLastFailureReasonResponse"
     "fixture/GetHealthCheckLastFailureReasonResponse"
     (Proxy :: Proxy GetHealthCheckLastFailureReason)
 
 testListHostedZonesByNameResponse :: ListHostedZonesByNameResponse -> TestTree
-testListHostedZonesByNameResponse = resp
+testListHostedZonesByNameResponse = res
     "ListHostedZonesByNameResponse"
     "fixture/ListHostedZonesByNameResponse"
     (Proxy :: Proxy ListHostedZonesByName)
 
 testDeleteReusableDelegationSetResponse :: DeleteReusableDelegationSetResponse -> TestTree
-testDeleteReusableDelegationSetResponse = resp
+testDeleteReusableDelegationSetResponse = res
     "DeleteReusableDelegationSetResponse"
     "fixture/DeleteReusableDelegationSetResponse"
     (Proxy :: Proxy DeleteReusableDelegationSet)
 
 testListReusableDelegationSetsResponse :: ListReusableDelegationSetsResponse -> TestTree
-testListReusableDelegationSetsResponse = resp
+testListReusableDelegationSetsResponse = res
     "ListReusableDelegationSetsResponse"
     "fixture/ListReusableDelegationSetsResponse"
     (Proxy :: Proxy ListReusableDelegationSets)
 
 testGetCheckerIPRangesResponse :: GetCheckerIPRangesResponse -> TestTree
-testGetCheckerIPRangesResponse = resp
+testGetCheckerIPRangesResponse = res
     "GetCheckerIPRangesResponse"
     "fixture/GetCheckerIPRangesResponse"
     (Proxy :: Proxy GetCheckerIPRanges)
 
 testListTagsForResourceResponse :: ListTagsForResourceResponse -> TestTree
-testListTagsForResourceResponse = resp
+testListTagsForResourceResponse = res
     "ListTagsForResourceResponse"
     "fixture/ListTagsForResourceResponse"
     (Proxy :: Proxy ListTagsForResource)
 
 testChangeResourceRecordSetsResponse :: ChangeResourceRecordSetsResponse -> TestTree
-testChangeResourceRecordSetsResponse = resp
+testChangeResourceRecordSetsResponse = res
     "ChangeResourceRecordSetsResponse"
     "fixture/ChangeResourceRecordSetsResponse"
     (Proxy :: Proxy ChangeResourceRecordSets)
 
 testGetChangeResponse :: GetChangeResponse -> TestTree
-testGetChangeResponse = resp
+testGetChangeResponse = res
     "GetChangeResponse"
     "fixture/GetChangeResponse"
     (Proxy :: Proxy GetChange)
 
 testCreateHostedZoneResponse :: CreateHostedZoneResponse -> TestTree
-testCreateHostedZoneResponse = resp
+testCreateHostedZoneResponse = res
     "CreateHostedZoneResponse"
     "fixture/CreateHostedZoneResponse"
     (Proxy :: Proxy CreateHostedZone)
 
 testDeleteHealthCheckResponse :: DeleteHealthCheckResponse -> TestTree
-testDeleteHealthCheckResponse = resp
+testDeleteHealthCheckResponse = res
     "DeleteHealthCheckResponse"
     "fixture/DeleteHealthCheckResponse"
     (Proxy :: Proxy DeleteHealthCheck)
 
 testUpdateHealthCheckResponse :: UpdateHealthCheckResponse -> TestTree
-testUpdateHealthCheckResponse = resp
+testUpdateHealthCheckResponse = res
     "UpdateHealthCheckResponse"
     "fixture/UpdateHealthCheckResponse"
     (Proxy :: Proxy UpdateHealthCheck)
 
 testChangeTagsForResourceResponse :: ChangeTagsForResourceResponse -> TestTree
-testChangeTagsForResourceResponse = resp
+testChangeTagsForResourceResponse = res
     "ChangeTagsForResourceResponse"
     "fixture/ChangeTagsForResourceResponse"
     (Proxy :: Proxy ChangeTagsForResource)
 
 testCreateHealthCheckResponse :: CreateHealthCheckResponse -> TestTree
-testCreateHealthCheckResponse = resp
+testCreateHealthCheckResponse = res
     "CreateHealthCheckResponse"
     "fixture/CreateHealthCheckResponse"
     (Proxy :: Proxy CreateHealthCheck)
 
 testListHostedZonesResponse :: ListHostedZonesResponse -> TestTree
-testListHostedZonesResponse = resp
+testListHostedZonesResponse = res
     "ListHostedZonesResponse"
     "fixture/ListHostedZonesResponse"
     (Proxy :: Proxy ListHostedZones)
 
 testDisassociateVPCFromHostedZoneResponse :: DisassociateVPCFromHostedZoneResponse -> TestTree
-testDisassociateVPCFromHostedZoneResponse = resp
+testDisassociateVPCFromHostedZoneResponse = res
     "DisassociateVPCFromHostedZoneResponse"
     "fixture/DisassociateVPCFromHostedZoneResponse"
     (Proxy :: Proxy DisassociateVPCFromHostedZone)
 
 testGetHostedZoneResponse :: GetHostedZoneResponse -> TestTree
-testGetHostedZoneResponse = resp
+testGetHostedZoneResponse = res
     "GetHostedZoneResponse"
     "fixture/GetHostedZoneResponse"
     (Proxy :: Proxy GetHostedZone)
 
 testListGeoLocationsResponse :: ListGeoLocationsResponse -> TestTree
-testListGeoLocationsResponse = resp
+testListGeoLocationsResponse = res
     "ListGeoLocationsResponse"
     "fixture/ListGeoLocationsResponse"
     (Proxy :: Proxy ListGeoLocations)
 
 testGetHealthCheckResponse :: GetHealthCheckResponse -> TestTree
-testGetHealthCheckResponse = resp
+testGetHealthCheckResponse = res
     "GetHealthCheckResponse"
     "fixture/GetHealthCheckResponse"
     (Proxy :: Proxy GetHealthCheck)
 
 testListResourceRecordSetsResponse :: ListResourceRecordSetsResponse -> TestTree
-testListResourceRecordSetsResponse = resp
+testListResourceRecordSetsResponse = res
     "ListResourceRecordSetsResponse"
     "fixture/ListResourceRecordSetsResponse"
     (Proxy :: Proxy ListResourceRecordSets)
 
 testGetHealthCheckCountResponse :: GetHealthCheckCountResponse -> TestTree
-testGetHealthCheckCountResponse = resp
+testGetHealthCheckCountResponse = res
     "GetHealthCheckCountResponse"
     "fixture/GetHealthCheckCountResponse"
     (Proxy :: Proxy GetHealthCheckCount)
 
 testCreateReusableDelegationSetResponse :: CreateReusableDelegationSetResponse -> TestTree
-testCreateReusableDelegationSetResponse = resp
+testCreateReusableDelegationSetResponse = res
     "CreateReusableDelegationSetResponse"
     "fixture/CreateReusableDelegationSetResponse"
     (Proxy :: Proxy CreateReusableDelegationSet)
 
 testGetHostedZoneCountResponse :: GetHostedZoneCountResponse -> TestTree
-testGetHostedZoneCountResponse = resp
+testGetHostedZoneCountResponse = res
     "GetHostedZoneCountResponse"
     "fixture/GetHostedZoneCountResponse"
     (Proxy :: Proxy GetHostedZoneCount)
 
 testGetReusableDelegationSetResponse :: GetReusableDelegationSetResponse -> TestTree
-testGetReusableDelegationSetResponse = resp
+testGetReusableDelegationSetResponse = res
     "GetReusableDelegationSetResponse"
     "fixture/GetReusableDelegationSetResponse"
     (Proxy :: Proxy GetReusableDelegationSet)
 
 testUpdateHostedZoneCommentResponse :: UpdateHostedZoneCommentResponse -> TestTree
-testUpdateHostedZoneCommentResponse = resp
+testUpdateHostedZoneCommentResponse = res
     "UpdateHostedZoneCommentResponse"
     "fixture/UpdateHostedZoneCommentResponse"
     (Proxy :: Proxy UpdateHostedZoneComment)
 
 testGetHealthCheckStatusResponse :: GetHealthCheckStatusResponse -> TestTree
-testGetHealthCheckStatusResponse = resp
+testGetHealthCheckStatusResponse = res
     "GetHealthCheckStatusResponse"
     "fixture/GetHealthCheckStatusResponse"
     (Proxy :: Proxy GetHealthCheckStatus)
 
 testListHealthChecksResponse :: ListHealthChecksResponse -> TestTree
-testListHealthChecksResponse = resp
+testListHealthChecksResponse = res
     "ListHealthChecksResponse"
     "fixture/ListHealthChecksResponse"
     (Proxy :: Proxy ListHealthChecks)
 
 testDeleteHostedZoneResponse :: DeleteHostedZoneResponse -> TestTree
-testDeleteHostedZoneResponse = resp
+testDeleteHostedZoneResponse = res
     "DeleteHostedZoneResponse"
     "fixture/DeleteHostedZoneResponse"
     (Proxy :: Proxy DeleteHostedZone)
 
 testGetGeoLocationResponse :: GetGeoLocationResponse -> TestTree
-testGetGeoLocationResponse = resp
+testGetGeoLocationResponse = res
     "GetGeoLocationResponse"
     "fixture/GetGeoLocationResponse"
     (Proxy :: Proxy GetGeoLocation)
 
 testListTagsForResourcesResponse :: ListTagsForResourcesResponse -> TestTree
-testListTagsForResourcesResponse = resp
+testListTagsForResourcesResponse = res
     "ListTagsForResourcesResponse"
     "fixture/ListTagsForResourcesResponse"
     (Proxy :: Proxy ListTagsForResources)

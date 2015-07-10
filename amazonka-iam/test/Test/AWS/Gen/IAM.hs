@@ -660,939 +660,1147 @@ import Test.AWS.IAM.Internal
 -- Requests
 
 testAttachGroupPolicy :: AttachGroupPolicy -> TestTree
-testAttachGroupPolicy = undefined
+testAttachGroupPolicy = req
+    "AttachGroupPolicy"
+    "fixture/AttachGroupPolicy"
 
 testListInstanceProfilesForRole :: ListInstanceProfilesForRole -> TestTree
-testListInstanceProfilesForRole = undefined
+testListInstanceProfilesForRole = req
+    "ListInstanceProfilesForRole"
+    "fixture/ListInstanceProfilesForRole"
 
 testCreatePolicy :: CreatePolicy -> TestTree
-testCreatePolicy = undefined
+testCreatePolicy = req
+    "CreatePolicy"
+    "fixture/CreatePolicy"
 
 testListPolicies :: ListPolicies -> TestTree
-testListPolicies = undefined
+testListPolicies = req
+    "ListPolicies"
+    "fixture/ListPolicies"
 
 testAttachRolePolicy :: AttachRolePolicy -> TestTree
-testAttachRolePolicy = undefined
+testAttachRolePolicy = req
+    "AttachRolePolicy"
+    "fixture/AttachRolePolicy"
 
 testListOpenIdConnectProviders :: ListOpenIdConnectProviders -> TestTree
-testListOpenIdConnectProviders = undefined
+testListOpenIdConnectProviders = req
+    "ListOpenIdConnectProviders"
+    "fixture/ListOpenIdConnectProviders"
 
 testDeleteAccountPasswordPolicy :: DeleteAccountPasswordPolicy -> TestTree
-testDeleteAccountPasswordPolicy = undefined
+testDeleteAccountPasswordPolicy = req
+    "DeleteAccountPasswordPolicy"
+    "fixture/DeleteAccountPasswordPolicy"
 
 testUpdateAccountPasswordPolicy :: UpdateAccountPasswordPolicy -> TestTree
-testUpdateAccountPasswordPolicy = undefined
+testUpdateAccountPasswordPolicy = req
+    "UpdateAccountPasswordPolicy"
+    "fixture/UpdateAccountPasswordPolicy"
 
 testCreateAccessKey :: CreateAccessKey -> TestTree
-testCreateAccessKey = undefined
+testCreateAccessKey = req
+    "CreateAccessKey"
+    "fixture/CreateAccessKey"
 
 testGetUserPolicy :: GetUserPolicy -> TestTree
-testGetUserPolicy = undefined
+testGetUserPolicy = req
+    "GetUserPolicy"
+    "fixture/GetUserPolicy"
 
 testCreateVirtualMFADevice :: CreateVirtualMFADevice -> TestTree
-testCreateVirtualMFADevice = undefined
+testCreateVirtualMFADevice = req
+    "CreateVirtualMFADevice"
+    "fixture/CreateVirtualMFADevice"
 
 testCreateOpenIdConnectProvider :: CreateOpenIdConnectProvider -> TestTree
-testCreateOpenIdConnectProvider = undefined
+testCreateOpenIdConnectProvider = req
+    "CreateOpenIdConnectProvider"
+    "fixture/CreateOpenIdConnectProvider"
 
 testListAttachedRolePolicies :: ListAttachedRolePolicies -> TestTree
-testListAttachedRolePolicies = undefined
+testListAttachedRolePolicies = req
+    "ListAttachedRolePolicies"
+    "fixture/ListAttachedRolePolicies"
 
 testDeleteVirtualMFADevice :: DeleteVirtualMFADevice -> TestTree
-testDeleteVirtualMFADevice = undefined
+testDeleteVirtualMFADevice = req
+    "DeleteVirtualMFADevice"
+    "fixture/DeleteVirtualMFADevice"
 
 testGetRole :: GetRole -> TestTree
-testGetRole = undefined
+testGetRole = req
+    "GetRole"
+    "fixture/GetRole"
 
 testDeactivateMFADevice :: DeactivateMFADevice -> TestTree
-testDeactivateMFADevice = undefined
+testDeactivateMFADevice = req
+    "DeactivateMFADevice"
+    "fixture/DeactivateMFADevice"
 
 testListRoles :: ListRoles -> TestTree
-testListRoles = undefined
+testListRoles = req
+    "ListRoles"
+    "fixture/ListRoles"
 
 testDeleteRole :: DeleteRole -> TestTree
-testDeleteRole = undefined
+testDeleteRole = req
+    "DeleteRole"
+    "fixture/DeleteRole"
 
 testListUserPolicies :: ListUserPolicies -> TestTree
-testListUserPolicies = undefined
+testListUserPolicies = req
+    "ListUserPolicies"
+    "fixture/ListUserPolicies"
 
 testListUsers :: ListUsers -> TestTree
-testListUsers = undefined
+testListUsers = req
+    "ListUsers"
+    "fixture/ListUsers"
 
 testUpdateOpenIdConnectProviderThumbprint :: UpdateOpenIdConnectProviderThumbprint -> TestTree
-testUpdateOpenIdConnectProviderThumbprint = undefined
+testUpdateOpenIdConnectProviderThumbprint = req
+    "UpdateOpenIdConnectProviderThumbprint"
+    "fixture/UpdateOpenIdConnectProviderThumbprint"
 
 testPutUserPolicy :: PutUserPolicy -> TestTree
-testPutUserPolicy = undefined
+testPutUserPolicy = req
+    "PutUserPolicy"
+    "fixture/PutUserPolicy"
 
 testCreateRole :: CreateRole -> TestTree
-testCreateRole = undefined
+testCreateRole = req
+    "CreateRole"
+    "fixture/CreateRole"
 
 testDeleteUserPolicy :: DeleteUserPolicy -> TestTree
-testDeleteUserPolicy = undefined
+testDeleteUserPolicy = req
+    "DeleteUserPolicy"
+    "fixture/DeleteUserPolicy"
 
 testGetOpenIdConnectProvider :: GetOpenIdConnectProvider -> TestTree
-testGetOpenIdConnectProvider = undefined
+testGetOpenIdConnectProvider = req
+    "GetOpenIdConnectProvider"
+    "fixture/GetOpenIdConnectProvider"
 
 testDetachGroupPolicy :: DetachGroupPolicy -> TestTree
-testDetachGroupPolicy = undefined
+testDetachGroupPolicy = req
+    "DetachGroupPolicy"
+    "fixture/DetachGroupPolicy"
 
 testGetCredentialReport :: GetCredentialReport -> TestTree
-testGetCredentialReport = undefined
+testGetCredentialReport = req
+    "GetCredentialReport"
+    "fixture/GetCredentialReport"
 
 testDeletePolicyVersion :: DeletePolicyVersion -> TestTree
-testDeletePolicyVersion = undefined
+testDeletePolicyVersion = req
+    "DeletePolicyVersion"
+    "fixture/DeletePolicyVersion"
 
 testDetachRolePolicy :: DetachRolePolicy -> TestTree
-testDetachRolePolicy = undefined
+testDetachRolePolicy = req
+    "DetachRolePolicy"
+    "fixture/DetachRolePolicy"
 
 testDeleteInstanceProfile :: DeleteInstanceProfile -> TestTree
-testDeleteInstanceProfile = undefined
+testDeleteInstanceProfile = req
+    "DeleteInstanceProfile"
+    "fixture/DeleteInstanceProfile"
 
 testListGroupPolicies :: ListGroupPolicies -> TestTree
-testListGroupPolicies = undefined
+testListGroupPolicies = req
+    "ListGroupPolicies"
+    "fixture/ListGroupPolicies"
 
 testGetAccountSummary :: GetAccountSummary -> TestTree
-testGetAccountSummary = undefined
+testGetAccountSummary = req
+    "GetAccountSummary"
+    "fixture/GetAccountSummary"
 
 testCreateInstanceProfile :: CreateInstanceProfile -> TestTree
-testCreateInstanceProfile = undefined
+testCreateInstanceProfile = req
+    "CreateInstanceProfile"
+    "fixture/CreateInstanceProfile"
 
 testPutGroupPolicy :: PutGroupPolicy -> TestTree
-testPutGroupPolicy = undefined
+testPutGroupPolicy = req
+    "PutGroupPolicy"
+    "fixture/PutGroupPolicy"
 
 testDeleteGroupPolicy :: DeleteGroupPolicy -> TestTree
-testDeleteGroupPolicy = undefined
+testDeleteGroupPolicy = req
+    "DeleteGroupPolicy"
+    "fixture/DeleteGroupPolicy"
 
 testGetAccountAuthorizationDetails :: GetAccountAuthorizationDetails -> TestTree
-testGetAccountAuthorizationDetails = undefined
+testGetAccountAuthorizationDetails = req
+    "GetAccountAuthorizationDetails"
+    "fixture/GetAccountAuthorizationDetails"
 
 testDeleteAccountAlias :: DeleteAccountAlias -> TestTree
-testDeleteAccountAlias = undefined
+testDeleteAccountAlias = req
+    "DeleteAccountAlias"
+    "fixture/DeleteAccountAlias"
 
 testRemoveRoleFromInstanceProfile :: RemoveRoleFromInstanceProfile -> TestTree
-testRemoveRoleFromInstanceProfile = undefined
+testRemoveRoleFromInstanceProfile = req
+    "RemoveRoleFromInstanceProfile"
+    "fixture/RemoveRoleFromInstanceProfile"
 
 testGetLoginProfile :: GetLoginProfile -> TestTree
-testGetLoginProfile = undefined
+testGetLoginProfile = req
+    "GetLoginProfile"
+    "fixture/GetLoginProfile"
 
 testRemoveUserFromGroup :: RemoveUserFromGroup -> TestTree
-testRemoveUserFromGroup = undefined
+testRemoveUserFromGroup = req
+    "RemoveUserFromGroup"
+    "fixture/RemoveUserFromGroup"
 
 testDetachUserPolicy :: DetachUserPolicy -> TestTree
-testDetachUserPolicy = undefined
+testDetachUserPolicy = req
+    "DetachUserPolicy"
+    "fixture/DetachUserPolicy"
 
 testCreateSAMLProvider :: CreateSAMLProvider -> TestTree
-testCreateSAMLProvider = undefined
+testCreateSAMLProvider = req
+    "CreateSAMLProvider"
+    "fixture/CreateSAMLProvider"
 
 testCreatePolicyVersion :: CreatePolicyVersion -> TestTree
-testCreatePolicyVersion = undefined
+testCreatePolicyVersion = req
+    "CreatePolicyVersion"
+    "fixture/CreatePolicyVersion"
 
 testGetGroupPolicy :: GetGroupPolicy -> TestTree
-testGetGroupPolicy = undefined
+testGetGroupPolicy = req
+    "GetGroupPolicy"
+    "fixture/GetGroupPolicy"
 
 testDeletePolicy :: DeletePolicy -> TestTree
-testDeletePolicy = undefined
+testDeletePolicy = req
+    "DeletePolicy"
+    "fixture/DeletePolicy"
 
 testListServerCertificates :: ListServerCertificates -> TestTree
-testListServerCertificates = undefined
+testListServerCertificates = req
+    "ListServerCertificates"
+    "fixture/ListServerCertificates"
 
 testUpdateAssumeRolePolicy :: UpdateAssumeRolePolicy -> TestTree
-testUpdateAssumeRolePolicy = undefined
+testUpdateAssumeRolePolicy = req
+    "UpdateAssumeRolePolicy"
+    "fixture/UpdateAssumeRolePolicy"
 
 testChangePassword :: ChangePassword -> TestTree
-testChangePassword = undefined
+testChangePassword = req
+    "ChangePassword"
+    "fixture/ChangePassword"
 
 testListGroupsForUser :: ListGroupsForUser -> TestTree
-testListGroupsForUser = undefined
+testListGroupsForUser = req
+    "ListGroupsForUser"
+    "fixture/ListGroupsForUser"
 
 testGetPolicyVersion :: GetPolicyVersion -> TestTree
-testGetPolicyVersion = undefined
+testGetPolicyVersion = req
+    "GetPolicyVersion"
+    "fixture/GetPolicyVersion"
 
 testCreateLoginProfile :: CreateLoginProfile -> TestTree
-testCreateLoginProfile = undefined
+testCreateLoginProfile = req
+    "CreateLoginProfile"
+    "fixture/CreateLoginProfile"
 
 testGetInstanceProfile :: GetInstanceProfile -> TestTree
-testGetInstanceProfile = undefined
+testGetInstanceProfile = req
+    "GetInstanceProfile"
+    "fixture/GetInstanceProfile"
 
 testListEntitiesForPolicy :: ListEntitiesForPolicy -> TestTree
-testListEntitiesForPolicy = undefined
+testListEntitiesForPolicy = req
+    "ListEntitiesForPolicy"
+    "fixture/ListEntitiesForPolicy"
 
 testGetSAMLProvider :: GetSAMLProvider -> TestTree
-testGetSAMLProvider = undefined
+testGetSAMLProvider = req
+    "GetSAMLProvider"
+    "fixture/GetSAMLProvider"
 
 testAddRoleToInstanceProfile :: AddRoleToInstanceProfile -> TestTree
-testAddRoleToInstanceProfile = undefined
+testAddRoleToInstanceProfile = req
+    "AddRoleToInstanceProfile"
+    "fixture/AddRoleToInstanceProfile"
 
 testAddUserToGroup :: AddUserToGroup -> TestTree
-testAddUserToGroup = undefined
+testAddUserToGroup = req
+    "AddUserToGroup"
+    "fixture/AddUserToGroup"
 
 testDeleteOpenIdConnectProvider :: DeleteOpenIdConnectProvider -> TestTree
-testDeleteOpenIdConnectProvider = undefined
+testDeleteOpenIdConnectProvider = req
+    "DeleteOpenIdConnectProvider"
+    "fixture/DeleteOpenIdConnectProvider"
 
 testGetUser :: GetUser -> TestTree
-testGetUser = undefined
+testGetUser = req
+    "GetUser"
+    "fixture/GetUser"
 
 testListAttachedUserPolicies :: ListAttachedUserPolicies -> TestTree
-testListAttachedUserPolicies = undefined
+testListAttachedUserPolicies = req
+    "ListAttachedUserPolicies"
+    "fixture/ListAttachedUserPolicies"
 
 testDeleteSigningCertificate :: DeleteSigningCertificate -> TestTree
-testDeleteSigningCertificate = undefined
+testDeleteSigningCertificate = req
+    "DeleteSigningCertificate"
+    "fixture/DeleteSigningCertificate"
 
 testUpdateSigningCertificate :: UpdateSigningCertificate -> TestTree
-testUpdateSigningCertificate = undefined
+testUpdateSigningCertificate = req
+    "UpdateSigningCertificate"
+    "fixture/UpdateSigningCertificate"
 
 testListSigningCertificates :: ListSigningCertificates -> TestTree
-testListSigningCertificates = undefined
+testListSigningCertificates = req
+    "ListSigningCertificates"
+    "fixture/ListSigningCertificates"
 
 testRemoveClientIdFromOpenIdConnectProvider :: RemoveClientIdFromOpenIdConnectProvider -> TestTree
-testRemoveClientIdFromOpenIdConnectProvider = undefined
+testRemoveClientIdFromOpenIdConnectProvider = req
+    "RemoveClientIdFromOpenIdConnectProvider"
+    "fixture/RemoveClientIdFromOpenIdConnectProvider"
 
 testListAccessKeys :: ListAccessKeys -> TestTree
-testListAccessKeys = undefined
+testListAccessKeys = req
+    "ListAccessKeys"
+    "fixture/ListAccessKeys"
 
 testListVirtualMFADevices :: ListVirtualMFADevices -> TestTree
-testListVirtualMFADevices = undefined
+testListVirtualMFADevices = req
+    "ListVirtualMFADevices"
+    "fixture/ListVirtualMFADevices"
 
 testDeleteAccessKey :: DeleteAccessKey -> TestTree
-testDeleteAccessKey = undefined
+testDeleteAccessKey = req
+    "DeleteAccessKey"
+    "fixture/DeleteAccessKey"
 
 testUpdateAccessKey :: UpdateAccessKey -> TestTree
-testUpdateAccessKey = undefined
+testUpdateAccessKey = req
+    "UpdateAccessKey"
+    "fixture/UpdateAccessKey"
 
 testGetRolePolicy :: GetRolePolicy -> TestTree
-testGetRolePolicy = undefined
+testGetRolePolicy = req
+    "GetRolePolicy"
+    "fixture/GetRolePolicy"
 
 testAttachUserPolicy :: AttachUserPolicy -> TestTree
-testAttachUserPolicy = undefined
+testAttachUserPolicy = req
+    "AttachUserPolicy"
+    "fixture/AttachUserPolicy"
 
 testResyncMFADevice :: ResyncMFADevice -> TestTree
-testResyncMFADevice = undefined
+testResyncMFADevice = req
+    "ResyncMFADevice"
+    "fixture/ResyncMFADevice"
 
 testCreateUser :: CreateUser -> TestTree
-testCreateUser = undefined
+testCreateUser = req
+    "CreateUser"
+    "fixture/CreateUser"
 
 testUploadSigningCertificate :: UploadSigningCertificate -> TestTree
-testUploadSigningCertificate = undefined
+testUploadSigningCertificate = req
+    "UploadSigningCertificate"
+    "fixture/UploadSigningCertificate"
 
 testPutRolePolicy :: PutRolePolicy -> TestTree
-testPutRolePolicy = undefined
+testPutRolePolicy = req
+    "PutRolePolicy"
+    "fixture/PutRolePolicy"
 
 testDeleteRolePolicy :: DeleteRolePolicy -> TestTree
-testDeleteRolePolicy = undefined
+testDeleteRolePolicy = req
+    "DeleteRolePolicy"
+    "fixture/DeleteRolePolicy"
 
 testUpdateUser :: UpdateUser -> TestTree
-testUpdateUser = undefined
+testUpdateUser = req
+    "UpdateUser"
+    "fixture/UpdateUser"
 
 testDeleteUser :: DeleteUser -> TestTree
-testDeleteUser = undefined
+testDeleteUser = req
+    "DeleteUser"
+    "fixture/DeleteUser"
 
 testListRolePolicies :: ListRolePolicies -> TestTree
-testListRolePolicies = undefined
+testListRolePolicies = req
+    "ListRolePolicies"
+    "fixture/ListRolePolicies"
 
 testAddClientIdToOpenIdConnectProvider :: AddClientIdToOpenIdConnectProvider -> TestTree
-testAddClientIdToOpenIdConnectProvider = undefined
+testAddClientIdToOpenIdConnectProvider = req
+    "AddClientIdToOpenIdConnectProvider"
+    "fixture/AddClientIdToOpenIdConnectProvider"
 
 testGetAccessKeyLastUsed :: GetAccessKeyLastUsed -> TestTree
-testGetAccessKeyLastUsed = undefined
+testGetAccessKeyLastUsed = req
+    "GetAccessKeyLastUsed"
+    "fixture/GetAccessKeyLastUsed"
 
 testGetAccountPasswordPolicy :: GetAccountPasswordPolicy -> TestTree
-testGetAccountPasswordPolicy = undefined
+testGetAccountPasswordPolicy = req
+    "GetAccountPasswordPolicy"
+    "fixture/GetAccountPasswordPolicy"
 
 testListAccountAliases :: ListAccountAliases -> TestTree
-testListAccountAliases = undefined
+testListAccountAliases = req
+    "ListAccountAliases"
+    "fixture/ListAccountAliases"
 
 testCreateAccountAlias :: CreateAccountAlias -> TestTree
-testCreateAccountAlias = undefined
+testCreateAccountAlias = req
+    "CreateAccountAlias"
+    "fixture/CreateAccountAlias"
 
 testUploadServerCertificate :: UploadServerCertificate -> TestTree
-testUploadServerCertificate = undefined
+testUploadServerCertificate = req
+    "UploadServerCertificate"
+    "fixture/UploadServerCertificate"
 
 testListMFADevices :: ListMFADevices -> TestTree
-testListMFADevices = undefined
+testListMFADevices = req
+    "ListMFADevices"
+    "fixture/ListMFADevices"
 
 testEnableMFADevice :: EnableMFADevice -> TestTree
-testEnableMFADevice = undefined
+testEnableMFADevice = req
+    "EnableMFADevice"
+    "fixture/EnableMFADevice"
 
 testListPolicyVersions :: ListPolicyVersions -> TestTree
-testListPolicyVersions = undefined
+testListPolicyVersions = req
+    "ListPolicyVersions"
+    "fixture/ListPolicyVersions"
 
 testListSAMLProviders :: ListSAMLProviders -> TestTree
-testListSAMLProviders = undefined
+testListSAMLProviders = req
+    "ListSAMLProviders"
+    "fixture/ListSAMLProviders"
 
 testUpdateSAMLProvider :: UpdateSAMLProvider -> TestTree
-testUpdateSAMLProvider = undefined
+testUpdateSAMLProvider = req
+    "UpdateSAMLProvider"
+    "fixture/UpdateSAMLProvider"
 
 testDeleteSAMLProvider :: DeleteSAMLProvider -> TestTree
-testDeleteSAMLProvider = undefined
+testDeleteSAMLProvider = req
+    "DeleteSAMLProvider"
+    "fixture/DeleteSAMLProvider"
 
 testCreateGroup :: CreateGroup -> TestTree
-testCreateGroup = undefined
+testCreateGroup = req
+    "CreateGroup"
+    "fixture/CreateGroup"
 
 testSetDefaultPolicyVersion :: SetDefaultPolicyVersion -> TestTree
-testSetDefaultPolicyVersion = undefined
+testSetDefaultPolicyVersion = req
+    "SetDefaultPolicyVersion"
+    "fixture/SetDefaultPolicyVersion"
 
 testListInstanceProfiles :: ListInstanceProfiles -> TestTree
-testListInstanceProfiles = undefined
+testListInstanceProfiles = req
+    "ListInstanceProfiles"
+    "fixture/ListInstanceProfiles"
 
 testListGroups :: ListGroups -> TestTree
-testListGroups = undefined
+testListGroups = req
+    "ListGroups"
+    "fixture/ListGroups"
 
 testDeleteGroup :: DeleteGroup -> TestTree
-testDeleteGroup = undefined
+testDeleteGroup = req
+    "DeleteGroup"
+    "fixture/DeleteGroup"
 
 testUpdateGroup :: UpdateGroup -> TestTree
-testUpdateGroup = undefined
+testUpdateGroup = req
+    "UpdateGroup"
+    "fixture/UpdateGroup"
 
 testGetServerCertificate :: GetServerCertificate -> TestTree
-testGetServerCertificate = undefined
+testGetServerCertificate = req
+    "GetServerCertificate"
+    "fixture/GetServerCertificate"
 
 testGetPolicy :: GetPolicy -> TestTree
-testGetPolicy = undefined
+testGetPolicy = req
+    "GetPolicy"
+    "fixture/GetPolicy"
 
 testGenerateCredentialReport :: GenerateCredentialReport -> TestTree
-testGenerateCredentialReport = undefined
+testGenerateCredentialReport = req
+    "GenerateCredentialReport"
+    "fixture/GenerateCredentialReport"
 
 testGetGroup :: GetGroup -> TestTree
-testGetGroup = undefined
+testGetGroup = req
+    "GetGroup"
+    "fixture/GetGroup"
 
 testDeleteServerCertificate :: DeleteServerCertificate -> TestTree
-testDeleteServerCertificate = undefined
+testDeleteServerCertificate = req
+    "DeleteServerCertificate"
+    "fixture/DeleteServerCertificate"
 
 testUpdateServerCertificate :: UpdateServerCertificate -> TestTree
-testUpdateServerCertificate = undefined
+testUpdateServerCertificate = req
+    "UpdateServerCertificate"
+    "fixture/UpdateServerCertificate"
 
 testDeleteLoginProfile :: DeleteLoginProfile -> TestTree
-testDeleteLoginProfile = undefined
+testDeleteLoginProfile = req
+    "DeleteLoginProfile"
+    "fixture/DeleteLoginProfile"
 
 testUpdateLoginProfile :: UpdateLoginProfile -> TestTree
-testUpdateLoginProfile = undefined
+testUpdateLoginProfile = req
+    "UpdateLoginProfile"
+    "fixture/UpdateLoginProfile"
 
 testListAttachedGroupPolicies :: ListAttachedGroupPolicies -> TestTree
-testListAttachedGroupPolicies = undefined
+testListAttachedGroupPolicies = req
+    "ListAttachedGroupPolicies"
+    "fixture/ListAttachedGroupPolicies"
 
 -- Responses
 
 testAttachGroupPolicyResponse :: AttachGroupPolicyResponse -> TestTree
-testAttachGroupPolicyResponse = resp
+testAttachGroupPolicyResponse = res
     "AttachGroupPolicyResponse"
     "fixture/AttachGroupPolicyResponse"
     (Proxy :: Proxy AttachGroupPolicy)
 
 testListInstanceProfilesForRoleResponse :: ListInstanceProfilesForRoleResponse -> TestTree
-testListInstanceProfilesForRoleResponse = resp
+testListInstanceProfilesForRoleResponse = res
     "ListInstanceProfilesForRoleResponse"
     "fixture/ListInstanceProfilesForRoleResponse"
     (Proxy :: Proxy ListInstanceProfilesForRole)
 
 testCreatePolicyResponse :: CreatePolicyResponse -> TestTree
-testCreatePolicyResponse = resp
+testCreatePolicyResponse = res
     "CreatePolicyResponse"
     "fixture/CreatePolicyResponse"
     (Proxy :: Proxy CreatePolicy)
 
 testListPoliciesResponse :: ListPoliciesResponse -> TestTree
-testListPoliciesResponse = resp
+testListPoliciesResponse = res
     "ListPoliciesResponse"
     "fixture/ListPoliciesResponse"
     (Proxy :: Proxy ListPolicies)
 
 testAttachRolePolicyResponse :: AttachRolePolicyResponse -> TestTree
-testAttachRolePolicyResponse = resp
+testAttachRolePolicyResponse = res
     "AttachRolePolicyResponse"
     "fixture/AttachRolePolicyResponse"
     (Proxy :: Proxy AttachRolePolicy)
 
 testListOpenIdConnectProvidersResponse :: ListOpenIdConnectProvidersResponse -> TestTree
-testListOpenIdConnectProvidersResponse = resp
+testListOpenIdConnectProvidersResponse = res
     "ListOpenIdConnectProvidersResponse"
     "fixture/ListOpenIdConnectProvidersResponse"
     (Proxy :: Proxy ListOpenIdConnectProviders)
 
 testDeleteAccountPasswordPolicyResponse :: DeleteAccountPasswordPolicyResponse -> TestTree
-testDeleteAccountPasswordPolicyResponse = resp
+testDeleteAccountPasswordPolicyResponse = res
     "DeleteAccountPasswordPolicyResponse"
     "fixture/DeleteAccountPasswordPolicyResponse"
     (Proxy :: Proxy DeleteAccountPasswordPolicy)
 
 testUpdateAccountPasswordPolicyResponse :: UpdateAccountPasswordPolicyResponse -> TestTree
-testUpdateAccountPasswordPolicyResponse = resp
+testUpdateAccountPasswordPolicyResponse = res
     "UpdateAccountPasswordPolicyResponse"
     "fixture/UpdateAccountPasswordPolicyResponse"
     (Proxy :: Proxy UpdateAccountPasswordPolicy)
 
 testCreateAccessKeyResponse :: CreateAccessKeyResponse -> TestTree
-testCreateAccessKeyResponse = resp
+testCreateAccessKeyResponse = res
     "CreateAccessKeyResponse"
     "fixture/CreateAccessKeyResponse"
     (Proxy :: Proxy CreateAccessKey)
 
 testGetUserPolicyResponse :: GetUserPolicyResponse -> TestTree
-testGetUserPolicyResponse = resp
+testGetUserPolicyResponse = res
     "GetUserPolicyResponse"
     "fixture/GetUserPolicyResponse"
     (Proxy :: Proxy GetUserPolicy)
 
 testCreateVirtualMFADeviceResponse :: CreateVirtualMFADeviceResponse -> TestTree
-testCreateVirtualMFADeviceResponse = resp
+testCreateVirtualMFADeviceResponse = res
     "CreateVirtualMFADeviceResponse"
     "fixture/CreateVirtualMFADeviceResponse"
     (Proxy :: Proxy CreateVirtualMFADevice)
 
 testCreateOpenIdConnectProviderResponse :: CreateOpenIdConnectProviderResponse -> TestTree
-testCreateOpenIdConnectProviderResponse = resp
+testCreateOpenIdConnectProviderResponse = res
     "CreateOpenIdConnectProviderResponse"
     "fixture/CreateOpenIdConnectProviderResponse"
     (Proxy :: Proxy CreateOpenIdConnectProvider)
 
 testListAttachedRolePoliciesResponse :: ListAttachedRolePoliciesResponse -> TestTree
-testListAttachedRolePoliciesResponse = resp
+testListAttachedRolePoliciesResponse = res
     "ListAttachedRolePoliciesResponse"
     "fixture/ListAttachedRolePoliciesResponse"
     (Proxy :: Proxy ListAttachedRolePolicies)
 
 testDeleteVirtualMFADeviceResponse :: DeleteVirtualMFADeviceResponse -> TestTree
-testDeleteVirtualMFADeviceResponse = resp
+testDeleteVirtualMFADeviceResponse = res
     "DeleteVirtualMFADeviceResponse"
     "fixture/DeleteVirtualMFADeviceResponse"
     (Proxy :: Proxy DeleteVirtualMFADevice)
 
 testGetRoleResponse :: GetRoleResponse -> TestTree
-testGetRoleResponse = resp
+testGetRoleResponse = res
     "GetRoleResponse"
     "fixture/GetRoleResponse"
     (Proxy :: Proxy GetRole)
 
 testDeactivateMFADeviceResponse :: DeactivateMFADeviceResponse -> TestTree
-testDeactivateMFADeviceResponse = resp
+testDeactivateMFADeviceResponse = res
     "DeactivateMFADeviceResponse"
     "fixture/DeactivateMFADeviceResponse"
     (Proxy :: Proxy DeactivateMFADevice)
 
 testListRolesResponse :: ListRolesResponse -> TestTree
-testListRolesResponse = resp
+testListRolesResponse = res
     "ListRolesResponse"
     "fixture/ListRolesResponse"
     (Proxy :: Proxy ListRoles)
 
 testDeleteRoleResponse :: DeleteRoleResponse -> TestTree
-testDeleteRoleResponse = resp
+testDeleteRoleResponse = res
     "DeleteRoleResponse"
     "fixture/DeleteRoleResponse"
     (Proxy :: Proxy DeleteRole)
 
 testListUserPoliciesResponse :: ListUserPoliciesResponse -> TestTree
-testListUserPoliciesResponse = resp
+testListUserPoliciesResponse = res
     "ListUserPoliciesResponse"
     "fixture/ListUserPoliciesResponse"
     (Proxy :: Proxy ListUserPolicies)
 
 testListUsersResponse :: ListUsersResponse -> TestTree
-testListUsersResponse = resp
+testListUsersResponse = res
     "ListUsersResponse"
     "fixture/ListUsersResponse"
     (Proxy :: Proxy ListUsers)
 
 testUpdateOpenIdConnectProviderThumbprintResponse :: UpdateOpenIdConnectProviderThumbprintResponse -> TestTree
-testUpdateOpenIdConnectProviderThumbprintResponse = resp
+testUpdateOpenIdConnectProviderThumbprintResponse = res
     "UpdateOpenIdConnectProviderThumbprintResponse"
     "fixture/UpdateOpenIdConnectProviderThumbprintResponse"
     (Proxy :: Proxy UpdateOpenIdConnectProviderThumbprint)
 
 testPutUserPolicyResponse :: PutUserPolicyResponse -> TestTree
-testPutUserPolicyResponse = resp
+testPutUserPolicyResponse = res
     "PutUserPolicyResponse"
     "fixture/PutUserPolicyResponse"
     (Proxy :: Proxy PutUserPolicy)
 
 testCreateRoleResponse :: CreateRoleResponse -> TestTree
-testCreateRoleResponse = resp
+testCreateRoleResponse = res
     "CreateRoleResponse"
     "fixture/CreateRoleResponse"
     (Proxy :: Proxy CreateRole)
 
 testDeleteUserPolicyResponse :: DeleteUserPolicyResponse -> TestTree
-testDeleteUserPolicyResponse = resp
+testDeleteUserPolicyResponse = res
     "DeleteUserPolicyResponse"
     "fixture/DeleteUserPolicyResponse"
     (Proxy :: Proxy DeleteUserPolicy)
 
 testGetOpenIdConnectProviderResponse :: GetOpenIdConnectProviderResponse -> TestTree
-testGetOpenIdConnectProviderResponse = resp
+testGetOpenIdConnectProviderResponse = res
     "GetOpenIdConnectProviderResponse"
     "fixture/GetOpenIdConnectProviderResponse"
     (Proxy :: Proxy GetOpenIdConnectProvider)
 
 testDetachGroupPolicyResponse :: DetachGroupPolicyResponse -> TestTree
-testDetachGroupPolicyResponse = resp
+testDetachGroupPolicyResponse = res
     "DetachGroupPolicyResponse"
     "fixture/DetachGroupPolicyResponse"
     (Proxy :: Proxy DetachGroupPolicy)
 
 testGetCredentialReportResponse :: GetCredentialReportResponse -> TestTree
-testGetCredentialReportResponse = resp
+testGetCredentialReportResponse = res
     "GetCredentialReportResponse"
     "fixture/GetCredentialReportResponse"
     (Proxy :: Proxy GetCredentialReport)
 
 testDeletePolicyVersionResponse :: DeletePolicyVersionResponse -> TestTree
-testDeletePolicyVersionResponse = resp
+testDeletePolicyVersionResponse = res
     "DeletePolicyVersionResponse"
     "fixture/DeletePolicyVersionResponse"
     (Proxy :: Proxy DeletePolicyVersion)
 
 testDetachRolePolicyResponse :: DetachRolePolicyResponse -> TestTree
-testDetachRolePolicyResponse = resp
+testDetachRolePolicyResponse = res
     "DetachRolePolicyResponse"
     "fixture/DetachRolePolicyResponse"
     (Proxy :: Proxy DetachRolePolicy)
 
 testDeleteInstanceProfileResponse :: DeleteInstanceProfileResponse -> TestTree
-testDeleteInstanceProfileResponse = resp
+testDeleteInstanceProfileResponse = res
     "DeleteInstanceProfileResponse"
     "fixture/DeleteInstanceProfileResponse"
     (Proxy :: Proxy DeleteInstanceProfile)
 
 testListGroupPoliciesResponse :: ListGroupPoliciesResponse -> TestTree
-testListGroupPoliciesResponse = resp
+testListGroupPoliciesResponse = res
     "ListGroupPoliciesResponse"
     "fixture/ListGroupPoliciesResponse"
     (Proxy :: Proxy ListGroupPolicies)
 
 testGetAccountSummaryResponse :: GetAccountSummaryResponse -> TestTree
-testGetAccountSummaryResponse = resp
+testGetAccountSummaryResponse = res
     "GetAccountSummaryResponse"
     "fixture/GetAccountSummaryResponse"
     (Proxy :: Proxy GetAccountSummary)
 
 testCreateInstanceProfileResponse :: CreateInstanceProfileResponse -> TestTree
-testCreateInstanceProfileResponse = resp
+testCreateInstanceProfileResponse = res
     "CreateInstanceProfileResponse"
     "fixture/CreateInstanceProfileResponse"
     (Proxy :: Proxy CreateInstanceProfile)
 
 testPutGroupPolicyResponse :: PutGroupPolicyResponse -> TestTree
-testPutGroupPolicyResponse = resp
+testPutGroupPolicyResponse = res
     "PutGroupPolicyResponse"
     "fixture/PutGroupPolicyResponse"
     (Proxy :: Proxy PutGroupPolicy)
 
 testDeleteGroupPolicyResponse :: DeleteGroupPolicyResponse -> TestTree
-testDeleteGroupPolicyResponse = resp
+testDeleteGroupPolicyResponse = res
     "DeleteGroupPolicyResponse"
     "fixture/DeleteGroupPolicyResponse"
     (Proxy :: Proxy DeleteGroupPolicy)
 
 testGetAccountAuthorizationDetailsResponse :: GetAccountAuthorizationDetailsResponse -> TestTree
-testGetAccountAuthorizationDetailsResponse = resp
+testGetAccountAuthorizationDetailsResponse = res
     "GetAccountAuthorizationDetailsResponse"
     "fixture/GetAccountAuthorizationDetailsResponse"
     (Proxy :: Proxy GetAccountAuthorizationDetails)
 
 testDeleteAccountAliasResponse :: DeleteAccountAliasResponse -> TestTree
-testDeleteAccountAliasResponse = resp
+testDeleteAccountAliasResponse = res
     "DeleteAccountAliasResponse"
     "fixture/DeleteAccountAliasResponse"
     (Proxy :: Proxy DeleteAccountAlias)
 
 testRemoveRoleFromInstanceProfileResponse :: RemoveRoleFromInstanceProfileResponse -> TestTree
-testRemoveRoleFromInstanceProfileResponse = resp
+testRemoveRoleFromInstanceProfileResponse = res
     "RemoveRoleFromInstanceProfileResponse"
     "fixture/RemoveRoleFromInstanceProfileResponse"
     (Proxy :: Proxy RemoveRoleFromInstanceProfile)
 
 testGetLoginProfileResponse :: GetLoginProfileResponse -> TestTree
-testGetLoginProfileResponse = resp
+testGetLoginProfileResponse = res
     "GetLoginProfileResponse"
     "fixture/GetLoginProfileResponse"
     (Proxy :: Proxy GetLoginProfile)
 
 testRemoveUserFromGroupResponse :: RemoveUserFromGroupResponse -> TestTree
-testRemoveUserFromGroupResponse = resp
+testRemoveUserFromGroupResponse = res
     "RemoveUserFromGroupResponse"
     "fixture/RemoveUserFromGroupResponse"
     (Proxy :: Proxy RemoveUserFromGroup)
 
 testDetachUserPolicyResponse :: DetachUserPolicyResponse -> TestTree
-testDetachUserPolicyResponse = resp
+testDetachUserPolicyResponse = res
     "DetachUserPolicyResponse"
     "fixture/DetachUserPolicyResponse"
     (Proxy :: Proxy DetachUserPolicy)
 
 testCreateSAMLProviderResponse :: CreateSAMLProviderResponse -> TestTree
-testCreateSAMLProviderResponse = resp
+testCreateSAMLProviderResponse = res
     "CreateSAMLProviderResponse"
     "fixture/CreateSAMLProviderResponse"
     (Proxy :: Proxy CreateSAMLProvider)
 
 testCreatePolicyVersionResponse :: CreatePolicyVersionResponse -> TestTree
-testCreatePolicyVersionResponse = resp
+testCreatePolicyVersionResponse = res
     "CreatePolicyVersionResponse"
     "fixture/CreatePolicyVersionResponse"
     (Proxy :: Proxy CreatePolicyVersion)
 
 testGetGroupPolicyResponse :: GetGroupPolicyResponse -> TestTree
-testGetGroupPolicyResponse = resp
+testGetGroupPolicyResponse = res
     "GetGroupPolicyResponse"
     "fixture/GetGroupPolicyResponse"
     (Proxy :: Proxy GetGroupPolicy)
 
 testDeletePolicyResponse :: DeletePolicyResponse -> TestTree
-testDeletePolicyResponse = resp
+testDeletePolicyResponse = res
     "DeletePolicyResponse"
     "fixture/DeletePolicyResponse"
     (Proxy :: Proxy DeletePolicy)
 
 testListServerCertificatesResponse :: ListServerCertificatesResponse -> TestTree
-testListServerCertificatesResponse = resp
+testListServerCertificatesResponse = res
     "ListServerCertificatesResponse"
     "fixture/ListServerCertificatesResponse"
     (Proxy :: Proxy ListServerCertificates)
 
 testUpdateAssumeRolePolicyResponse :: UpdateAssumeRolePolicyResponse -> TestTree
-testUpdateAssumeRolePolicyResponse = resp
+testUpdateAssumeRolePolicyResponse = res
     "UpdateAssumeRolePolicyResponse"
     "fixture/UpdateAssumeRolePolicyResponse"
     (Proxy :: Proxy UpdateAssumeRolePolicy)
 
 testChangePasswordResponse :: ChangePasswordResponse -> TestTree
-testChangePasswordResponse = resp
+testChangePasswordResponse = res
     "ChangePasswordResponse"
     "fixture/ChangePasswordResponse"
     (Proxy :: Proxy ChangePassword)
 
 testListGroupsForUserResponse :: ListGroupsForUserResponse -> TestTree
-testListGroupsForUserResponse = resp
+testListGroupsForUserResponse = res
     "ListGroupsForUserResponse"
     "fixture/ListGroupsForUserResponse"
     (Proxy :: Proxy ListGroupsForUser)
 
 testGetPolicyVersionResponse :: GetPolicyVersionResponse -> TestTree
-testGetPolicyVersionResponse = resp
+testGetPolicyVersionResponse = res
     "GetPolicyVersionResponse"
     "fixture/GetPolicyVersionResponse"
     (Proxy :: Proxy GetPolicyVersion)
 
 testCreateLoginProfileResponse :: CreateLoginProfileResponse -> TestTree
-testCreateLoginProfileResponse = resp
+testCreateLoginProfileResponse = res
     "CreateLoginProfileResponse"
     "fixture/CreateLoginProfileResponse"
     (Proxy :: Proxy CreateLoginProfile)
 
 testGetInstanceProfileResponse :: GetInstanceProfileResponse -> TestTree
-testGetInstanceProfileResponse = resp
+testGetInstanceProfileResponse = res
     "GetInstanceProfileResponse"
     "fixture/GetInstanceProfileResponse"
     (Proxy :: Proxy GetInstanceProfile)
 
 testListEntitiesForPolicyResponse :: ListEntitiesForPolicyResponse -> TestTree
-testListEntitiesForPolicyResponse = resp
+testListEntitiesForPolicyResponse = res
     "ListEntitiesForPolicyResponse"
     "fixture/ListEntitiesForPolicyResponse"
     (Proxy :: Proxy ListEntitiesForPolicy)
 
 testGetSAMLProviderResponse :: GetSAMLProviderResponse -> TestTree
-testGetSAMLProviderResponse = resp
+testGetSAMLProviderResponse = res
     "GetSAMLProviderResponse"
     "fixture/GetSAMLProviderResponse"
     (Proxy :: Proxy GetSAMLProvider)
 
 testAddRoleToInstanceProfileResponse :: AddRoleToInstanceProfileResponse -> TestTree
-testAddRoleToInstanceProfileResponse = resp
+testAddRoleToInstanceProfileResponse = res
     "AddRoleToInstanceProfileResponse"
     "fixture/AddRoleToInstanceProfileResponse"
     (Proxy :: Proxy AddRoleToInstanceProfile)
 
 testAddUserToGroupResponse :: AddUserToGroupResponse -> TestTree
-testAddUserToGroupResponse = resp
+testAddUserToGroupResponse = res
     "AddUserToGroupResponse"
     "fixture/AddUserToGroupResponse"
     (Proxy :: Proxy AddUserToGroup)
 
 testDeleteOpenIdConnectProviderResponse :: DeleteOpenIdConnectProviderResponse -> TestTree
-testDeleteOpenIdConnectProviderResponse = resp
+testDeleteOpenIdConnectProviderResponse = res
     "DeleteOpenIdConnectProviderResponse"
     "fixture/DeleteOpenIdConnectProviderResponse"
     (Proxy :: Proxy DeleteOpenIdConnectProvider)
 
 testGetUserResponse :: GetUserResponse -> TestTree
-testGetUserResponse = resp
+testGetUserResponse = res
     "GetUserResponse"
     "fixture/GetUserResponse"
     (Proxy :: Proxy GetUser)
 
 testListAttachedUserPoliciesResponse :: ListAttachedUserPoliciesResponse -> TestTree
-testListAttachedUserPoliciesResponse = resp
+testListAttachedUserPoliciesResponse = res
     "ListAttachedUserPoliciesResponse"
     "fixture/ListAttachedUserPoliciesResponse"
     (Proxy :: Proxy ListAttachedUserPolicies)
 
 testDeleteSigningCertificateResponse :: DeleteSigningCertificateResponse -> TestTree
-testDeleteSigningCertificateResponse = resp
+testDeleteSigningCertificateResponse = res
     "DeleteSigningCertificateResponse"
     "fixture/DeleteSigningCertificateResponse"
     (Proxy :: Proxy DeleteSigningCertificate)
 
 testUpdateSigningCertificateResponse :: UpdateSigningCertificateResponse -> TestTree
-testUpdateSigningCertificateResponse = resp
+testUpdateSigningCertificateResponse = res
     "UpdateSigningCertificateResponse"
     "fixture/UpdateSigningCertificateResponse"
     (Proxy :: Proxy UpdateSigningCertificate)
 
 testListSigningCertificatesResponse :: ListSigningCertificatesResponse -> TestTree
-testListSigningCertificatesResponse = resp
+testListSigningCertificatesResponse = res
     "ListSigningCertificatesResponse"
     "fixture/ListSigningCertificatesResponse"
     (Proxy :: Proxy ListSigningCertificates)
 
 testRemoveClientIdFromOpenIdConnectProviderResponse :: RemoveClientIdFromOpenIdConnectProviderResponse -> TestTree
-testRemoveClientIdFromOpenIdConnectProviderResponse = resp
+testRemoveClientIdFromOpenIdConnectProviderResponse = res
     "RemoveClientIdFromOpenIdConnectProviderResponse"
     "fixture/RemoveClientIdFromOpenIdConnectProviderResponse"
     (Proxy :: Proxy RemoveClientIdFromOpenIdConnectProvider)
 
 testListAccessKeysResponse :: ListAccessKeysResponse -> TestTree
-testListAccessKeysResponse = resp
+testListAccessKeysResponse = res
     "ListAccessKeysResponse"
     "fixture/ListAccessKeysResponse"
     (Proxy :: Proxy ListAccessKeys)
 
 testListVirtualMFADevicesResponse :: ListVirtualMFADevicesResponse -> TestTree
-testListVirtualMFADevicesResponse = resp
+testListVirtualMFADevicesResponse = res
     "ListVirtualMFADevicesResponse"
     "fixture/ListVirtualMFADevicesResponse"
     (Proxy :: Proxy ListVirtualMFADevices)
 
 testDeleteAccessKeyResponse :: DeleteAccessKeyResponse -> TestTree
-testDeleteAccessKeyResponse = resp
+testDeleteAccessKeyResponse = res
     "DeleteAccessKeyResponse"
     "fixture/DeleteAccessKeyResponse"
     (Proxy :: Proxy DeleteAccessKey)
 
 testUpdateAccessKeyResponse :: UpdateAccessKeyResponse -> TestTree
-testUpdateAccessKeyResponse = resp
+testUpdateAccessKeyResponse = res
     "UpdateAccessKeyResponse"
     "fixture/UpdateAccessKeyResponse"
     (Proxy :: Proxy UpdateAccessKey)
 
 testGetRolePolicyResponse :: GetRolePolicyResponse -> TestTree
-testGetRolePolicyResponse = resp
+testGetRolePolicyResponse = res
     "GetRolePolicyResponse"
     "fixture/GetRolePolicyResponse"
     (Proxy :: Proxy GetRolePolicy)
 
 testAttachUserPolicyResponse :: AttachUserPolicyResponse -> TestTree
-testAttachUserPolicyResponse = resp
+testAttachUserPolicyResponse = res
     "AttachUserPolicyResponse"
     "fixture/AttachUserPolicyResponse"
     (Proxy :: Proxy AttachUserPolicy)
 
 testResyncMFADeviceResponse :: ResyncMFADeviceResponse -> TestTree
-testResyncMFADeviceResponse = resp
+testResyncMFADeviceResponse = res
     "ResyncMFADeviceResponse"
     "fixture/ResyncMFADeviceResponse"
     (Proxy :: Proxy ResyncMFADevice)
 
 testCreateUserResponse :: CreateUserResponse -> TestTree
-testCreateUserResponse = resp
+testCreateUserResponse = res
     "CreateUserResponse"
     "fixture/CreateUserResponse"
     (Proxy :: Proxy CreateUser)
 
 testUploadSigningCertificateResponse :: UploadSigningCertificateResponse -> TestTree
-testUploadSigningCertificateResponse = resp
+testUploadSigningCertificateResponse = res
     "UploadSigningCertificateResponse"
     "fixture/UploadSigningCertificateResponse"
     (Proxy :: Proxy UploadSigningCertificate)
 
 testPutRolePolicyResponse :: PutRolePolicyResponse -> TestTree
-testPutRolePolicyResponse = resp
+testPutRolePolicyResponse = res
     "PutRolePolicyResponse"
     "fixture/PutRolePolicyResponse"
     (Proxy :: Proxy PutRolePolicy)
 
 testDeleteRolePolicyResponse :: DeleteRolePolicyResponse -> TestTree
-testDeleteRolePolicyResponse = resp
+testDeleteRolePolicyResponse = res
     "DeleteRolePolicyResponse"
     "fixture/DeleteRolePolicyResponse"
     (Proxy :: Proxy DeleteRolePolicy)
 
 testUpdateUserResponse :: UpdateUserResponse -> TestTree
-testUpdateUserResponse = resp
+testUpdateUserResponse = res
     "UpdateUserResponse"
     "fixture/UpdateUserResponse"
     (Proxy :: Proxy UpdateUser)
 
 testDeleteUserResponse :: DeleteUserResponse -> TestTree
-testDeleteUserResponse = resp
+testDeleteUserResponse = res
     "DeleteUserResponse"
     "fixture/DeleteUserResponse"
     (Proxy :: Proxy DeleteUser)
 
 testListRolePoliciesResponse :: ListRolePoliciesResponse -> TestTree
-testListRolePoliciesResponse = resp
+testListRolePoliciesResponse = res
     "ListRolePoliciesResponse"
     "fixture/ListRolePoliciesResponse"
     (Proxy :: Proxy ListRolePolicies)
 
 testAddClientIdToOpenIdConnectProviderResponse :: AddClientIdToOpenIdConnectProviderResponse -> TestTree
-testAddClientIdToOpenIdConnectProviderResponse = resp
+testAddClientIdToOpenIdConnectProviderResponse = res
     "AddClientIdToOpenIdConnectProviderResponse"
     "fixture/AddClientIdToOpenIdConnectProviderResponse"
     (Proxy :: Proxy AddClientIdToOpenIdConnectProvider)
 
 testGetAccessKeyLastUsedResponse :: GetAccessKeyLastUsedResponse -> TestTree
-testGetAccessKeyLastUsedResponse = resp
+testGetAccessKeyLastUsedResponse = res
     "GetAccessKeyLastUsedResponse"
     "fixture/GetAccessKeyLastUsedResponse"
     (Proxy :: Proxy GetAccessKeyLastUsed)
 
 testGetAccountPasswordPolicyResponse :: GetAccountPasswordPolicyResponse -> TestTree
-testGetAccountPasswordPolicyResponse = resp
+testGetAccountPasswordPolicyResponse = res
     "GetAccountPasswordPolicyResponse"
     "fixture/GetAccountPasswordPolicyResponse"
     (Proxy :: Proxy GetAccountPasswordPolicy)
 
 testListAccountAliasesResponse :: ListAccountAliasesResponse -> TestTree
-testListAccountAliasesResponse = resp
+testListAccountAliasesResponse = res
     "ListAccountAliasesResponse"
     "fixture/ListAccountAliasesResponse"
     (Proxy :: Proxy ListAccountAliases)
 
 testCreateAccountAliasResponse :: CreateAccountAliasResponse -> TestTree
-testCreateAccountAliasResponse = resp
+testCreateAccountAliasResponse = res
     "CreateAccountAliasResponse"
     "fixture/CreateAccountAliasResponse"
     (Proxy :: Proxy CreateAccountAlias)
 
 testUploadServerCertificateResponse :: UploadServerCertificateResponse -> TestTree
-testUploadServerCertificateResponse = resp
+testUploadServerCertificateResponse = res
     "UploadServerCertificateResponse"
     "fixture/UploadServerCertificateResponse"
     (Proxy :: Proxy UploadServerCertificate)
 
 testListMFADevicesResponse :: ListMFADevicesResponse -> TestTree
-testListMFADevicesResponse = resp
+testListMFADevicesResponse = res
     "ListMFADevicesResponse"
     "fixture/ListMFADevicesResponse"
     (Proxy :: Proxy ListMFADevices)
 
 testEnableMFADeviceResponse :: EnableMFADeviceResponse -> TestTree
-testEnableMFADeviceResponse = resp
+testEnableMFADeviceResponse = res
     "EnableMFADeviceResponse"
     "fixture/EnableMFADeviceResponse"
     (Proxy :: Proxy EnableMFADevice)
 
 testListPolicyVersionsResponse :: ListPolicyVersionsResponse -> TestTree
-testListPolicyVersionsResponse = resp
+testListPolicyVersionsResponse = res
     "ListPolicyVersionsResponse"
     "fixture/ListPolicyVersionsResponse"
     (Proxy :: Proxy ListPolicyVersions)
 
 testListSAMLProvidersResponse :: ListSAMLProvidersResponse -> TestTree
-testListSAMLProvidersResponse = resp
+testListSAMLProvidersResponse = res
     "ListSAMLProvidersResponse"
     "fixture/ListSAMLProvidersResponse"
     (Proxy :: Proxy ListSAMLProviders)
 
 testUpdateSAMLProviderResponse :: UpdateSAMLProviderResponse -> TestTree
-testUpdateSAMLProviderResponse = resp
+testUpdateSAMLProviderResponse = res
     "UpdateSAMLProviderResponse"
     "fixture/UpdateSAMLProviderResponse"
     (Proxy :: Proxy UpdateSAMLProvider)
 
 testDeleteSAMLProviderResponse :: DeleteSAMLProviderResponse -> TestTree
-testDeleteSAMLProviderResponse = resp
+testDeleteSAMLProviderResponse = res
     "DeleteSAMLProviderResponse"
     "fixture/DeleteSAMLProviderResponse"
     (Proxy :: Proxy DeleteSAMLProvider)
 
 testCreateGroupResponse :: CreateGroupResponse -> TestTree
-testCreateGroupResponse = resp
+testCreateGroupResponse = res
     "CreateGroupResponse"
     "fixture/CreateGroupResponse"
     (Proxy :: Proxy CreateGroup)
 
 testSetDefaultPolicyVersionResponse :: SetDefaultPolicyVersionResponse -> TestTree
-testSetDefaultPolicyVersionResponse = resp
+testSetDefaultPolicyVersionResponse = res
     "SetDefaultPolicyVersionResponse"
     "fixture/SetDefaultPolicyVersionResponse"
     (Proxy :: Proxy SetDefaultPolicyVersion)
 
 testListInstanceProfilesResponse :: ListInstanceProfilesResponse -> TestTree
-testListInstanceProfilesResponse = resp
+testListInstanceProfilesResponse = res
     "ListInstanceProfilesResponse"
     "fixture/ListInstanceProfilesResponse"
     (Proxy :: Proxy ListInstanceProfiles)
 
 testListGroupsResponse :: ListGroupsResponse -> TestTree
-testListGroupsResponse = resp
+testListGroupsResponse = res
     "ListGroupsResponse"
     "fixture/ListGroupsResponse"
     (Proxy :: Proxy ListGroups)
 
 testDeleteGroupResponse :: DeleteGroupResponse -> TestTree
-testDeleteGroupResponse = resp
+testDeleteGroupResponse = res
     "DeleteGroupResponse"
     "fixture/DeleteGroupResponse"
     (Proxy :: Proxy DeleteGroup)
 
 testUpdateGroupResponse :: UpdateGroupResponse -> TestTree
-testUpdateGroupResponse = resp
+testUpdateGroupResponse = res
     "UpdateGroupResponse"
     "fixture/UpdateGroupResponse"
     (Proxy :: Proxy UpdateGroup)
 
 testGetServerCertificateResponse :: GetServerCertificateResponse -> TestTree
-testGetServerCertificateResponse = resp
+testGetServerCertificateResponse = res
     "GetServerCertificateResponse"
     "fixture/GetServerCertificateResponse"
     (Proxy :: Proxy GetServerCertificate)
 
 testGetPolicyResponse :: GetPolicyResponse -> TestTree
-testGetPolicyResponse = resp
+testGetPolicyResponse = res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse"
     (Proxy :: Proxy GetPolicy)
 
 testGenerateCredentialReportResponse :: GenerateCredentialReportResponse -> TestTree
-testGenerateCredentialReportResponse = resp
+testGenerateCredentialReportResponse = res
     "GenerateCredentialReportResponse"
     "fixture/GenerateCredentialReportResponse"
     (Proxy :: Proxy GenerateCredentialReport)
 
 testGetGroupResponse :: GetGroupResponse -> TestTree
-testGetGroupResponse = resp
+testGetGroupResponse = res
     "GetGroupResponse"
     "fixture/GetGroupResponse"
     (Proxy :: Proxy GetGroup)
 
 testDeleteServerCertificateResponse :: DeleteServerCertificateResponse -> TestTree
-testDeleteServerCertificateResponse = resp
+testDeleteServerCertificateResponse = res
     "DeleteServerCertificateResponse"
     "fixture/DeleteServerCertificateResponse"
     (Proxy :: Proxy DeleteServerCertificate)
 
 testUpdateServerCertificateResponse :: UpdateServerCertificateResponse -> TestTree
-testUpdateServerCertificateResponse = resp
+testUpdateServerCertificateResponse = res
     "UpdateServerCertificateResponse"
     "fixture/UpdateServerCertificateResponse"
     (Proxy :: Proxy UpdateServerCertificate)
 
 testDeleteLoginProfileResponse :: DeleteLoginProfileResponse -> TestTree
-testDeleteLoginProfileResponse = resp
+testDeleteLoginProfileResponse = res
     "DeleteLoginProfileResponse"
     "fixture/DeleteLoginProfileResponse"
     (Proxy :: Proxy DeleteLoginProfile)
 
 testUpdateLoginProfileResponse :: UpdateLoginProfileResponse -> TestTree
-testUpdateLoginProfileResponse = resp
+testUpdateLoginProfileResponse = res
     "UpdateLoginProfileResponse"
     "fixture/UpdateLoginProfileResponse"
     (Proxy :: Proxy UpdateLoginProfile)
 
 testListAttachedGroupPoliciesResponse :: ListAttachedGroupPoliciesResponse -> TestTree
-testListAttachedGroupPoliciesResponse = resp
+testListAttachedGroupPoliciesResponse = res
     "ListAttachedGroupPoliciesResponse"
     "fixture/ListAttachedGroupPoliciesResponse"
     (Proxy :: Proxy ListAttachedGroupPolicies)

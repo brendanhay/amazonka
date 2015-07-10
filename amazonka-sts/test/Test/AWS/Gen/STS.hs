@@ -72,57 +72,69 @@ import Test.AWS.STS.Internal
 -- Requests
 
 testAssumeRole :: AssumeRole -> TestTree
-testAssumeRole = undefined
+testAssumeRole = req
+    "AssumeRole"
+    "fixture/AssumeRole"
 
 testDecodeAuthorizationMessage :: DecodeAuthorizationMessage -> TestTree
-testDecodeAuthorizationMessage = undefined
+testDecodeAuthorizationMessage = req
+    "DecodeAuthorizationMessage"
+    "fixture/DecodeAuthorizationMessage"
 
 testAssumeRoleWithWebIdentity :: AssumeRoleWithWebIdentity -> TestTree
-testAssumeRoleWithWebIdentity = undefined
+testAssumeRoleWithWebIdentity = req
+    "AssumeRoleWithWebIdentity"
+    "fixture/AssumeRoleWithWebIdentity"
 
 testGetFederationToken :: GetFederationToken -> TestTree
-testGetFederationToken = undefined
+testGetFederationToken = req
+    "GetFederationToken"
+    "fixture/GetFederationToken"
 
 testGetSessionToken :: GetSessionToken -> TestTree
-testGetSessionToken = undefined
+testGetSessionToken = req
+    "GetSessionToken"
+    "fixture/GetSessionToken"
 
 testAssumeRoleWithSAML :: AssumeRoleWithSAML -> TestTree
-testAssumeRoleWithSAML = undefined
+testAssumeRoleWithSAML = req
+    "AssumeRoleWithSAML"
+    "fixture/AssumeRoleWithSAML"
 
 -- Responses
 
 testAssumeRoleResponse :: AssumeRoleResponse -> TestTree
-testAssumeRoleResponse = resp
+testAssumeRoleResponse = res
     "AssumeRoleResponse"
     "fixture/AssumeRoleResponse"
     (Proxy :: Proxy AssumeRole)
 
 testDecodeAuthorizationMessageResponse :: DecodeAuthorizationMessageResponse -> TestTree
-testDecodeAuthorizationMessageResponse = resp
+testDecodeAuthorizationMessageResponse = res
     "DecodeAuthorizationMessageResponse"
     "fixture/DecodeAuthorizationMessageResponse"
     (Proxy :: Proxy DecodeAuthorizationMessage)
 
 testAssumeRoleWithWebIdentityResponse :: AssumeRoleWithWebIdentityResponse -> TestTree
-testAssumeRoleWithWebIdentityResponse = resp
+testAssumeRoleWithWebIdentityResponse = res
     "AssumeRoleWithWebIdentityResponse"
     "fixture/AssumeRoleWithWebIdentityResponse"
     (Proxy :: Proxy AssumeRoleWithWebIdentity)
 
 testGetFederationTokenResponse :: GetFederationTokenResponse -> TestTree
-testGetFederationTokenResponse = resp
+testGetFederationTokenResponse = res
     "GetFederationTokenResponse"
     "fixture/GetFederationTokenResponse"
     (Proxy :: Proxy GetFederationToken)
 
 testGetSessionTokenResponse :: GetSessionTokenResponse -> TestTree
-testGetSessionTokenResponse = resp
+testGetSessionTokenResponse = res
     "GetSessionTokenResponse"
     "fixture/GetSessionTokenResponse"
     (Proxy :: Proxy GetSessionToken)
 
 testAssumeRoleWithSAMLResponse :: AssumeRoleWithSAMLResponse -> TestTree
-testAssumeRoleWithSAMLResponse = resp
+testAssumeRoleWithSAMLResponse = res
     "AssumeRoleWithSAMLResponse"
     "fixture/AssumeRoleWithSAMLResponse"
     (Proxy :: Proxy AssumeRoleWithSAML)

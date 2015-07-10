@@ -84,75 +84,91 @@ import Test.AWS.CloudTrail.Internal
 -- Requests
 
 testDescribeTrails :: DescribeTrails -> TestTree
-testDescribeTrails = undefined
+testDescribeTrails = req
+    "DescribeTrails"
+    "fixture/DescribeTrails"
 
 testLookupEvents :: LookupEvents -> TestTree
-testLookupEvents = undefined
+testLookupEvents = req
+    "LookupEvents"
+    "fixture/LookupEvents"
 
 testStopLogging :: StopLogging -> TestTree
-testStopLogging = undefined
+testStopLogging = req
+    "StopLogging"
+    "fixture/StopLogging"
 
 testDeleteTrail :: DeleteTrail -> TestTree
-testDeleteTrail = undefined
+testDeleteTrail = req
+    "DeleteTrail"
+    "fixture/DeleteTrail"
 
 testUpdateTrail :: UpdateTrail -> TestTree
-testUpdateTrail = undefined
+testUpdateTrail = req
+    "UpdateTrail"
+    "fixture/UpdateTrail"
 
 testCreateTrail :: CreateTrail -> TestTree
-testCreateTrail = undefined
+testCreateTrail = req
+    "CreateTrail"
+    "fixture/CreateTrail"
 
 testGetTrailStatus :: GetTrailStatus -> TestTree
-testGetTrailStatus = undefined
+testGetTrailStatus = req
+    "GetTrailStatus"
+    "fixture/GetTrailStatus"
 
 testStartLogging :: StartLogging -> TestTree
-testStartLogging = undefined
+testStartLogging = req
+    "StartLogging"
+    "fixture/StartLogging"
 
 -- Responses
 
 testDescribeTrailsResponse :: DescribeTrailsResponse -> TestTree
-testDescribeTrailsResponse = resp
+testDescribeTrailsResponse = res
     "DescribeTrailsResponse"
     "fixture/DescribeTrailsResponse"
     (Proxy :: Proxy DescribeTrails)
 
 testLookupEventsResponse :: LookupEventsResponse -> TestTree
-testLookupEventsResponse = resp
+testLookupEventsResponse = res
     "LookupEventsResponse"
     "fixture/LookupEventsResponse"
     (Proxy :: Proxy LookupEvents)
 
 testStopLoggingResponse :: StopLoggingResponse -> TestTree
-testStopLoggingResponse = resp
+testStopLoggingResponse = res
     "StopLoggingResponse"
     "fixture/StopLoggingResponse"
     (Proxy :: Proxy StopLogging)
 
 testDeleteTrailResponse :: DeleteTrailResponse -> TestTree
-testDeleteTrailResponse = resp
+testDeleteTrailResponse = res
     "DeleteTrailResponse"
     "fixture/DeleteTrailResponse"
     (Proxy :: Proxy DeleteTrail)
 
 testUpdateTrailResponse :: UpdateTrailResponse -> TestTree
-testUpdateTrailResponse = resp
+testUpdateTrailResponse = res
     "UpdateTrailResponse"
     "fixture/UpdateTrailResponse"
     (Proxy :: Proxy UpdateTrail)
 
 testCreateTrailResponse :: CreateTrailResponse -> TestTree
-testCreateTrailResponse = resp
+testCreateTrailResponse = res
     "CreateTrailResponse"
     "fixture/CreateTrailResponse"
     (Proxy :: Proxy CreateTrail)
 
 testGetTrailStatusResponse :: GetTrailStatusResponse -> TestTree
-testGetTrailStatusResponse = resp
+testGetTrailStatusResponse = res
     "GetTrailStatusResponse"
     "fixture/GetTrailStatusResponse"
     (Proxy :: Proxy GetTrailStatus)
 
 testStartLoggingResponse :: StartLoggingResponse -> TestTree
-testStartLoggingResponse = resp
+testStartLoggingResponse = res
     "StartLoggingResponse"
     "fixture/StartLoggingResponse"
     (Proxy :: Proxy StartLogging)

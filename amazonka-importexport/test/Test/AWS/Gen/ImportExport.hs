@@ -72,57 +72,69 @@ import Test.AWS.ImportExport.Internal
 -- Requests
 
 testGetShippingLabel :: GetShippingLabel -> TestTree
-testGetShippingLabel = undefined
+testGetShippingLabel = req
+    "GetShippingLabel"
+    "fixture/GetShippingLabel"
 
 testCreateJob :: CreateJob -> TestTree
-testCreateJob = undefined
+testCreateJob = req
+    "CreateJob"
+    "fixture/CreateJob"
 
 testListJobs :: ListJobs -> TestTree
-testListJobs = undefined
+testListJobs = req
+    "ListJobs"
+    "fixture/ListJobs"
 
 testUpdateJob :: UpdateJob -> TestTree
-testUpdateJob = undefined
+testUpdateJob = req
+    "UpdateJob"
+    "fixture/UpdateJob"
 
 testGetStatus :: GetStatus -> TestTree
-testGetStatus = undefined
+testGetStatus = req
+    "GetStatus"
+    "fixture/GetStatus"
 
 testCancelJob :: CancelJob -> TestTree
-testCancelJob = undefined
+testCancelJob = req
+    "CancelJob"
+    "fixture/CancelJob"
 
 -- Responses
 
 testGetShippingLabelResponse :: GetShippingLabelResponse -> TestTree
-testGetShippingLabelResponse = resp
+testGetShippingLabelResponse = res
     "GetShippingLabelResponse"
     "fixture/GetShippingLabelResponse"
     (Proxy :: Proxy GetShippingLabel)
 
 testCreateJobResponse :: CreateJobResponse -> TestTree
-testCreateJobResponse = resp
+testCreateJobResponse = res
     "CreateJobResponse"
     "fixture/CreateJobResponse"
     (Proxy :: Proxy CreateJob)
 
 testListJobsResponse :: ListJobsResponse -> TestTree
-testListJobsResponse = resp
+testListJobsResponse = res
     "ListJobsResponse"
     "fixture/ListJobsResponse"
     (Proxy :: Proxy ListJobs)
 
 testUpdateJobResponse :: UpdateJobResponse -> TestTree
-testUpdateJobResponse = resp
+testUpdateJobResponse = res
     "UpdateJobResponse"
     "fixture/UpdateJobResponse"
     (Proxy :: Proxy UpdateJob)
 
 testGetStatusResponse :: GetStatusResponse -> TestTree
-testGetStatusResponse = resp
+testGetStatusResponse = res
     "GetStatusResponse"
     "fixture/GetStatusResponse"
     (Proxy :: Proxy GetStatus)
 
 testCancelJobResponse :: CancelJobResponse -> TestTree
-testCancelJobResponse = resp
+testCancelJobResponse = res
     "CancelJobResponse"
     "fixture/CancelJobResponse"
     (Proxy :: Proxy CancelJob)

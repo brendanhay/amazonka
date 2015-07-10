@@ -102,102 +102,124 @@ import Test.AWS.Config.Internal
 -- Requests
 
 testGetResourceConfigHistory :: GetResourceConfigHistory -> TestTree
-testGetResourceConfigHistory = undefined
+testGetResourceConfigHistory = req
+    "GetResourceConfigHistory"
+    "fixture/GetResourceConfigHistory"
 
 testStopConfigurationRecorder :: StopConfigurationRecorder -> TestTree
-testStopConfigurationRecorder = undefined
+testStopConfigurationRecorder = req
+    "StopConfigurationRecorder"
+    "fixture/StopConfigurationRecorder"
 
 testDeliverConfigSnapshot :: DeliverConfigSnapshot -> TestTree
-testDeliverConfigSnapshot = undefined
+testDeliverConfigSnapshot = req
+    "DeliverConfigSnapshot"
+    "fixture/DeliverConfigSnapshot"
 
 testDescribeConfigurationRecorders :: DescribeConfigurationRecorders -> TestTree
-testDescribeConfigurationRecorders = undefined
+testDescribeConfigurationRecorders = req
+    "DescribeConfigurationRecorders"
+    "fixture/DescribeConfigurationRecorders"
 
 testStartConfigurationRecorder :: StartConfigurationRecorder -> TestTree
-testStartConfigurationRecorder = undefined
+testStartConfigurationRecorder = req
+    "StartConfigurationRecorder"
+    "fixture/StartConfigurationRecorder"
 
 testDescribeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus -> TestTree
-testDescribeConfigurationRecorderStatus = undefined
+testDescribeConfigurationRecorderStatus = req
+    "DescribeConfigurationRecorderStatus"
+    "fixture/DescribeConfigurationRecorderStatus"
 
 testPutConfigurationRecorder :: PutConfigurationRecorder -> TestTree
-testPutConfigurationRecorder = undefined
+testPutConfigurationRecorder = req
+    "PutConfigurationRecorder"
+    "fixture/PutConfigurationRecorder"
 
 testDeleteDeliveryChannel :: DeleteDeliveryChannel -> TestTree
-testDeleteDeliveryChannel = undefined
+testDeleteDeliveryChannel = req
+    "DeleteDeliveryChannel"
+    "fixture/DeleteDeliveryChannel"
 
 testPutDeliveryChannel :: PutDeliveryChannel -> TestTree
-testPutDeliveryChannel = undefined
+testPutDeliveryChannel = req
+    "PutDeliveryChannel"
+    "fixture/PutDeliveryChannel"
 
 testDescribeDeliveryChannelStatus :: DescribeDeliveryChannelStatus -> TestTree
-testDescribeDeliveryChannelStatus = undefined
+testDescribeDeliveryChannelStatus = req
+    "DescribeDeliveryChannelStatus"
+    "fixture/DescribeDeliveryChannelStatus"
 
 testDescribeDeliveryChannels :: DescribeDeliveryChannels -> TestTree
-testDescribeDeliveryChannels = undefined
+testDescribeDeliveryChannels = req
+    "DescribeDeliveryChannels"
+    "fixture/DescribeDeliveryChannels"
 
 -- Responses
 
 testGetResourceConfigHistoryResponse :: GetResourceConfigHistoryResponse -> TestTree
-testGetResourceConfigHistoryResponse = resp
+testGetResourceConfigHistoryResponse = res
     "GetResourceConfigHistoryResponse"
     "fixture/GetResourceConfigHistoryResponse"
     (Proxy :: Proxy GetResourceConfigHistory)
 
 testStopConfigurationRecorderResponse :: StopConfigurationRecorderResponse -> TestTree
-testStopConfigurationRecorderResponse = resp
+testStopConfigurationRecorderResponse = res
     "StopConfigurationRecorderResponse"
     "fixture/StopConfigurationRecorderResponse"
     (Proxy :: Proxy StopConfigurationRecorder)
 
 testDeliverConfigSnapshotResponse :: DeliverConfigSnapshotResponse -> TestTree
-testDeliverConfigSnapshotResponse = resp
+testDeliverConfigSnapshotResponse = res
     "DeliverConfigSnapshotResponse"
     "fixture/DeliverConfigSnapshotResponse"
     (Proxy :: Proxy DeliverConfigSnapshot)
 
 testDescribeConfigurationRecordersResponse :: DescribeConfigurationRecordersResponse -> TestTree
-testDescribeConfigurationRecordersResponse = resp
+testDescribeConfigurationRecordersResponse = res
     "DescribeConfigurationRecordersResponse"
     "fixture/DescribeConfigurationRecordersResponse"
     (Proxy :: Proxy DescribeConfigurationRecorders)
 
 testStartConfigurationRecorderResponse :: StartConfigurationRecorderResponse -> TestTree
-testStartConfigurationRecorderResponse = resp
+testStartConfigurationRecorderResponse = res
     "StartConfigurationRecorderResponse"
     "fixture/StartConfigurationRecorderResponse"
     (Proxy :: Proxy StartConfigurationRecorder)
 
 testDescribeConfigurationRecorderStatusResponse :: DescribeConfigurationRecorderStatusResponse -> TestTree
-testDescribeConfigurationRecorderStatusResponse = resp
+testDescribeConfigurationRecorderStatusResponse = res
     "DescribeConfigurationRecorderStatusResponse"
     "fixture/DescribeConfigurationRecorderStatusResponse"
     (Proxy :: Proxy DescribeConfigurationRecorderStatus)
 
 testPutConfigurationRecorderResponse :: PutConfigurationRecorderResponse -> TestTree
-testPutConfigurationRecorderResponse = resp
+testPutConfigurationRecorderResponse = res
     "PutConfigurationRecorderResponse"
     "fixture/PutConfigurationRecorderResponse"
     (Proxy :: Proxy PutConfigurationRecorder)
 
 testDeleteDeliveryChannelResponse :: DeleteDeliveryChannelResponse -> TestTree
-testDeleteDeliveryChannelResponse = resp
+testDeleteDeliveryChannelResponse = res
     "DeleteDeliveryChannelResponse"
     "fixture/DeleteDeliveryChannelResponse"
     (Proxy :: Proxy DeleteDeliveryChannel)
 
 testPutDeliveryChannelResponse :: PutDeliveryChannelResponse -> TestTree
-testPutDeliveryChannelResponse = resp
+testPutDeliveryChannelResponse = res
     "PutDeliveryChannelResponse"
     "fixture/PutDeliveryChannelResponse"
     (Proxy :: Proxy PutDeliveryChannel)
 
 testDescribeDeliveryChannelStatusResponse :: DescribeDeliveryChannelStatusResponse -> TestTree
-testDescribeDeliveryChannelStatusResponse = resp
+testDescribeDeliveryChannelStatusResponse = res
     "DescribeDeliveryChannelStatusResponse"
     "fixture/DescribeDeliveryChannelStatusResponse"
     (Proxy :: Proxy DescribeDeliveryChannelStatus)
 
 testDescribeDeliveryChannelsResponse :: DescribeDeliveryChannelsResponse -> TestTree
-testDescribeDeliveryChannelsResponse = resp
+testDescribeDeliveryChannelsResponse = res
     "DescribeDeliveryChannelsResponse"
     "fixture/DescribeDeliveryChannelsResponse"
     (Proxy :: Proxy DescribeDeliveryChannels)

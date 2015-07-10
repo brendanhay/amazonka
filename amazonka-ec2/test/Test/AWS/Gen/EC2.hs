@@ -1128,1641 +1128,2005 @@ import Test.AWS.EC2.Internal
 -- Requests
 
 testDetachNetworkInterface :: DetachNetworkInterface -> TestTree
-testDetachNetworkInterface = undefined
+testDetachNetworkInterface = req
+    "DetachNetworkInterface"
+    "fixture/DetachNetworkInterface"
 
 testDeleteVPCEndpoints :: DeleteVPCEndpoints -> TestTree
-testDeleteVPCEndpoints = undefined
+testDeleteVPCEndpoints = req
+    "DeleteVPCEndpoints"
+    "fixture/DeleteVPCEndpoints"
 
 testDeleteKeyPair :: DeleteKeyPair -> TestTree
-testDeleteKeyPair = undefined
+testDeleteKeyPair = req
+    "DeleteKeyPair"
+    "fixture/DeleteKeyPair"
 
 testDeleteFlowLogs :: DeleteFlowLogs -> TestTree
-testDeleteFlowLogs = undefined
+testDeleteFlowLogs = req
+    "DeleteFlowLogs"
+    "fixture/DeleteFlowLogs"
 
 testDescribeTags :: DescribeTags -> TestTree
-testDescribeTags = undefined
+testDescribeTags = req
+    "DescribeTags"
+    "fixture/DescribeTags"
 
 testRevokeSecurityGroupEgress :: RevokeSecurityGroupEgress -> TestTree
-testRevokeSecurityGroupEgress = undefined
+testRevokeSecurityGroupEgress = req
+    "RevokeSecurityGroupEgress"
+    "fixture/RevokeSecurityGroupEgress"
 
 testCreateVPNGateway :: CreateVPNGateway -> TestTree
-testCreateVPNGateway = undefined
+testCreateVPNGateway = req
+    "CreateVPNGateway"
+    "fixture/CreateVPNGateway"
 
 testDetachInternetGateway :: DetachInternetGateway -> TestTree
-testDetachInternetGateway = undefined
+testDetachInternetGateway = req
+    "DetachInternetGateway"
+    "fixture/DetachInternetGateway"
 
 testCreateNetworkACL :: CreateNetworkACL -> TestTree
-testCreateNetworkACL = undefined
+testCreateNetworkACL = req
+    "CreateNetworkACL"
+    "fixture/CreateNetworkACL"
 
 testImportInstance :: ImportInstance -> TestTree
-testImportInstance = undefined
+testImportInstance = req
+    "ImportInstance"
+    "fixture/ImportInstance"
 
 testDescribeVPCClassicLink :: DescribeVPCClassicLink -> TestTree
-testDescribeVPCClassicLink = undefined
+testDescribeVPCClassicLink = req
+    "DescribeVPCClassicLink"
+    "fixture/DescribeVPCClassicLink"
 
 testDeleteVPNConnection :: DeleteVPNConnection -> TestTree
-testDeleteVPNConnection = undefined
+testDeleteVPNConnection = req
+    "DeleteVPNConnection"
+    "fixture/DeleteVPNConnection"
 
 testAuthorizeSecurityGroupEgress :: AuthorizeSecurityGroupEgress -> TestTree
-testAuthorizeSecurityGroupEgress = undefined
+testAuthorizeSecurityGroupEgress = req
+    "AuthorizeSecurityGroupEgress"
+    "fixture/AuthorizeSecurityGroupEgress"
 
 testDescribeBundleTasks :: DescribeBundleTasks -> TestTree
-testDescribeBundleTasks = undefined
+testDescribeBundleTasks = req
+    "DescribeBundleTasks"
+    "fixture/DescribeBundleTasks"
 
 testCreateInternetGateway :: CreateInternetGateway -> TestTree
-testCreateInternetGateway = undefined
+testCreateInternetGateway = req
+    "CreateInternetGateway"
+    "fixture/CreateInternetGateway"
 
 testReleaseAddress :: ReleaseAddress -> TestTree
-testReleaseAddress = undefined
+testReleaseAddress = req
+    "ReleaseAddress"
+    "fixture/ReleaseAddress"
 
 testCancelBundleTask :: CancelBundleTask -> TestTree
-testCancelBundleTask = undefined
+testCancelBundleTask = req
+    "CancelBundleTask"
+    "fixture/CancelBundleTask"
 
 testModifyNetworkInterfaceAttribute :: ModifyNetworkInterfaceAttribute -> TestTree
-testModifyNetworkInterfaceAttribute = undefined
+testModifyNetworkInterfaceAttribute = req
+    "ModifyNetworkInterfaceAttribute"
+    "fixture/ModifyNetworkInterfaceAttribute"
 
 testModifySubnetAttribute :: ModifySubnetAttribute -> TestTree
-testModifySubnetAttribute = undefined
+testModifySubnetAttribute = req
+    "ModifySubnetAttribute"
+    "fixture/ModifySubnetAttribute"
 
 testDeregisterImage :: DeregisterImage -> TestTree
-testDeregisterImage = undefined
+testDeregisterImage = req
+    "DeregisterImage"
+    "fixture/DeregisterImage"
 
 testDetachVolume :: DetachVolume -> TestTree
-testDetachVolume = undefined
+testDetachVolume = req
+    "DetachVolume"
+    "fixture/DetachVolume"
 
 testCancelReservedInstancesListing :: CancelReservedInstancesListing -> TestTree
-testCancelReservedInstancesListing = undefined
+testCancelReservedInstancesListing = req
+    "CancelReservedInstancesListing"
+    "fixture/CancelReservedInstancesListing"
 
 testAttachClassicLinkVPC :: AttachClassicLinkVPC -> TestTree
-testAttachClassicLinkVPC = undefined
+testAttachClassicLinkVPC = req
+    "AttachClassicLinkVPC"
+    "fixture/AttachClassicLinkVPC"
 
 testCancelSpotFleetRequests :: CancelSpotFleetRequests -> TestTree
-testCancelSpotFleetRequests = undefined
+testCancelSpotFleetRequests = req
+    "CancelSpotFleetRequests"
+    "fixture/CancelSpotFleetRequests"
 
 testDescribeDHCPOptions :: DescribeDHCPOptions -> TestTree
-testDescribeDHCPOptions = undefined
+testDescribeDHCPOptions = req
+    "DescribeDHCPOptions"
+    "fixture/DescribeDHCPOptions"
 
 testDescribeSpotPriceHistory :: DescribeSpotPriceHistory -> TestTree
-testDescribeSpotPriceHistory = undefined
+testDescribeSpotPriceHistory = req
+    "DescribeSpotPriceHistory"
+    "fixture/DescribeSpotPriceHistory"
 
 testStopInstances :: StopInstances -> TestTree
-testStopInstances = undefined
+testStopInstances = req
+    "StopInstances"
+    "fixture/StopInstances"
 
 testImportImage :: ImportImage -> TestTree
-testImportImage = undefined
+testImportImage = req
+    "ImportImage"
+    "fixture/ImportImage"
 
 testDeleteNetworkACLEntry :: DeleteNetworkACLEntry -> TestTree
-testDeleteNetworkACLEntry = undefined
+testDeleteNetworkACLEntry = req
+    "DeleteNetworkACLEntry"
+    "fixture/DeleteNetworkACLEntry"
 
 testDisableVPCClassicLink :: DisableVPCClassicLink -> TestTree
-testDisableVPCClassicLink = undefined
+testDisableVPCClassicLink = req
+    "DisableVPCClassicLink"
+    "fixture/DisableVPCClassicLink"
 
 testAuthorizeSecurityGroupIngress :: AuthorizeSecurityGroupIngress -> TestTree
-testAuthorizeSecurityGroupIngress = undefined
+testAuthorizeSecurityGroupIngress = req
+    "AuthorizeSecurityGroupIngress"
+    "fixture/AuthorizeSecurityGroupIngress"
 
 testBundleInstance :: BundleInstance -> TestTree
-testBundleInstance = undefined
+testBundleInstance = req
+    "BundleInstance"
+    "fixture/BundleInstance"
 
 testDescribeVPCEndpointServices :: DescribeVPCEndpointServices -> TestTree
-testDescribeVPCEndpointServices = undefined
+testDescribeVPCEndpointServices = req
+    "DescribeVPCEndpointServices"
+    "fixture/DescribeVPCEndpointServices"
 
 testReplaceNetworkACLAssociation :: ReplaceNetworkACLAssociation -> TestTree
-testReplaceNetworkACLAssociation = undefined
+testReplaceNetworkACLAssociation = req
+    "ReplaceNetworkACLAssociation"
+    "fixture/ReplaceNetworkACLAssociation"
 
 testCreateVPCPeeringConnection :: CreateVPCPeeringConnection -> TestTree
-testCreateVPCPeeringConnection = undefined
+testCreateVPCPeeringConnection = req
+    "CreateVPCPeeringConnection"
+    "fixture/CreateVPCPeeringConnection"
 
 testResetSnapshotAttribute :: ResetSnapshotAttribute -> TestTree
-testResetSnapshotAttribute = undefined
+testResetSnapshotAttribute = req
+    "ResetSnapshotAttribute"
+    "fixture/ResetSnapshotAttribute"
 
 testDescribeAddresses :: DescribeAddresses -> TestTree
-testDescribeAddresses = undefined
+testDescribeAddresses = req
+    "DescribeAddresses"
+    "fixture/DescribeAddresses"
 
 testDescribeInternetGateways :: DescribeInternetGateways -> TestTree
-testDescribeInternetGateways = undefined
+testDescribeInternetGateways = req
+    "DescribeInternetGateways"
+    "fixture/DescribeInternetGateways"
 
 testReplaceRoute :: ReplaceRoute -> TestTree
-testReplaceRoute = undefined
+testReplaceRoute = req
+    "ReplaceRoute"
+    "fixture/ReplaceRoute"
 
 testCreateTags :: CreateTags -> TestTree
-testCreateTags = undefined
+testCreateTags = req
+    "CreateTags"
+    "fixture/CreateTags"
 
 testDescribeSubnets :: DescribeSubnets -> TestTree
-testDescribeSubnets = undefined
+testDescribeSubnets = req
+    "DescribeSubnets"
+    "fixture/DescribeSubnets"
 
 testDescribeNetworkInterfaces :: DescribeNetworkInterfaces -> TestTree
-testDescribeNetworkInterfaces = undefined
+testDescribeNetworkInterfaces = req
+    "DescribeNetworkInterfaces"
+    "fixture/DescribeNetworkInterfaces"
 
 testPurchaseReservedInstancesOffering :: PurchaseReservedInstancesOffering -> TestTree
-testPurchaseReservedInstancesOffering = undefined
+testPurchaseReservedInstancesOffering = req
+    "PurchaseReservedInstancesOffering"
+    "fixture/PurchaseReservedInstancesOffering"
 
 testDescribeSnapshotAttribute :: DescribeSnapshotAttribute -> TestTree
-testDescribeSnapshotAttribute = undefined
+testDescribeSnapshotAttribute = req
+    "DescribeSnapshotAttribute"
+    "fixture/DescribeSnapshotAttribute"
 
 testCreateCustomerGateway :: CreateCustomerGateway -> TestTree
-testCreateCustomerGateway = undefined
+testCreateCustomerGateway = req
+    "CreateCustomerGateway"
+    "fixture/CreateCustomerGateway"
 
 testAttachInternetGateway :: AttachInternetGateway -> TestTree
-testAttachInternetGateway = undefined
+testAttachInternetGateway = req
+    "AttachInternetGateway"
+    "fixture/AttachInternetGateway"
 
 testDeleteTags :: DeleteTags -> TestTree
-testDeleteTags = undefined
+testDeleteTags = req
+    "DeleteTags"
+    "fixture/DeleteTags"
 
 testReplaceNetworkACLEntry :: ReplaceNetworkACLEntry -> TestTree
-testReplaceNetworkACLEntry = undefined
+testReplaceNetworkACLEntry = req
+    "ReplaceNetworkACLEntry"
+    "fixture/ReplaceNetworkACLEntry"
 
 testResetInstanceAttribute :: ResetInstanceAttribute -> TestTree
-testResetInstanceAttribute = undefined
+testResetInstanceAttribute = req
+    "ResetInstanceAttribute"
+    "fixture/ResetInstanceAttribute"
 
 testDeleteRoute :: DeleteRoute -> TestTree
-testDeleteRoute = undefined
+testDeleteRoute = req
+    "DeleteRoute"
+    "fixture/DeleteRoute"
 
 testDescribeVPNConnections :: DescribeVPNConnections -> TestTree
-testDescribeVPNConnections = undefined
+testDescribeVPNConnections = req
+    "DescribeVPNConnections"
+    "fixture/DescribeVPNConnections"
 
 testDescribeFlowLogs :: DescribeFlowLogs -> TestTree
-testDescribeFlowLogs = undefined
+testDescribeFlowLogs = req
+    "DescribeFlowLogs"
+    "fixture/DescribeFlowLogs"
 
 testDeleteSecurityGroup :: DeleteSecurityGroup -> TestTree
-testDeleteSecurityGroup = undefined
+testDeleteSecurityGroup = req
+    "DeleteSecurityGroup"
+    "fixture/DeleteSecurityGroup"
 
 testDescribeReservedInstancesOfferings :: DescribeReservedInstancesOfferings -> TestTree
-testDescribeReservedInstancesOfferings = undefined
+testDescribeReservedInstancesOfferings = req
+    "DescribeReservedInstancesOfferings"
+    "fixture/DescribeReservedInstancesOfferings"
 
 testDeleteVPCPeeringConnection :: DeleteVPCPeeringConnection -> TestTree
-testDeleteVPCPeeringConnection = undefined
+testDeleteVPCPeeringConnection = req
+    "DeleteVPCPeeringConnection"
+    "fixture/DeleteVPCPeeringConnection"
 
 testDescribeVPCEndpoints :: DescribeVPCEndpoints -> TestTree
-testDescribeVPCEndpoints = undefined
+testDescribeVPCEndpoints = req
+    "DescribeVPCEndpoints"
+    "fixture/DescribeVPCEndpoints"
 
 testDescribeInstanceAttribute :: DescribeInstanceAttribute -> TestTree
-testDescribeInstanceAttribute = undefined
+testDescribeInstanceAttribute = req
+    "DescribeInstanceAttribute"
+    "fixture/DescribeInstanceAttribute"
 
 testConfirmProductInstance :: ConfirmProductInstance -> TestTree
-testConfirmProductInstance = undefined
+testConfirmProductInstance = req
+    "ConfirmProductInstance"
+    "fixture/ConfirmProductInstance"
 
 testImportKeyPair :: ImportKeyPair -> TestTree
-testImportKeyPair = undefined
+testImportKeyPair = req
+    "ImportKeyPair"
+    "fixture/ImportKeyPair"
 
 testAttachNetworkInterface :: AttachNetworkInterface -> TestTree
-testAttachNetworkInterface = undefined
+testAttachNetworkInterface = req
+    "AttachNetworkInterface"
+    "fixture/AttachNetworkInterface"
 
 testDescribeInstanceStatus :: DescribeInstanceStatus -> TestTree
-testDescribeInstanceStatus = undefined
+testDescribeInstanceStatus = req
+    "DescribeInstanceStatus"
+    "fixture/DescribeInstanceStatus"
 
 testCancelConversionTask :: CancelConversionTask -> TestTree
-testCancelConversionTask = undefined
+testCancelConversionTask = req
+    "CancelConversionTask"
+    "fixture/CancelConversionTask"
 
 testReportInstanceStatus :: ReportInstanceStatus -> TestTree
-testReportInstanceStatus = undefined
+testReportInstanceStatus = req
+    "ReportInstanceStatus"
+    "fixture/ReportInstanceStatus"
 
 testAssociateDHCPOptions :: AssociateDHCPOptions -> TestTree
-testAssociateDHCPOptions = undefined
+testAssociateDHCPOptions = req
+    "AssociateDHCPOptions"
+    "fixture/AssociateDHCPOptions"
 
 testDescribeVPCs :: DescribeVPCs -> TestTree
-testDescribeVPCs = undefined
+testDescribeVPCs = req
+    "DescribeVPCs"
+    "fixture/DescribeVPCs"
 
 testRequestSpotInstances :: RequestSpotInstances -> TestTree
-testRequestSpotInstances = undefined
+testRequestSpotInstances = req
+    "RequestSpotInstances"
+    "fixture/RequestSpotInstances"
 
 testModifyImageAttribute :: ModifyImageAttribute -> TestTree
-testModifyImageAttribute = undefined
+testModifyImageAttribute = req
+    "ModifyImageAttribute"
+    "fixture/ModifyImageAttribute"
 
 testDescribeReservedInstances :: DescribeReservedInstances -> TestTree
-testDescribeReservedInstances = undefined
+testDescribeReservedInstances = req
+    "DescribeReservedInstances"
+    "fixture/DescribeReservedInstances"
 
 testAllocateAddress :: AllocateAddress -> TestTree
-testAllocateAddress = undefined
+testAllocateAddress = req
+    "AllocateAddress"
+    "fixture/AllocateAddress"
 
 testRunInstances :: RunInstances -> TestTree
-testRunInstances = undefined
+testRunInstances = req
+    "RunInstances"
+    "fixture/RunInstances"
 
 testCreateRouteTable :: CreateRouteTable -> TestTree
-testCreateRouteTable = undefined
+testCreateRouteTable = req
+    "CreateRouteTable"
+    "fixture/CreateRouteTable"
 
 testAttachVolume :: AttachVolume -> TestTree
-testAttachVolume = undefined
+testAttachVolume = req
+    "AttachVolume"
+    "fixture/AttachVolume"
 
 testDescribeConversionTasks :: DescribeConversionTasks -> TestTree
-testDescribeConversionTasks = undefined
+testDescribeConversionTasks = req
+    "DescribeConversionTasks"
+    "fixture/DescribeConversionTasks"
 
 testRejectVPCPeeringConnection :: RejectVPCPeeringConnection -> TestTree
-testRejectVPCPeeringConnection = undefined
+testRejectVPCPeeringConnection = req
+    "RejectVPCPeeringConnection"
+    "fixture/RejectVPCPeeringConnection"
 
 testRevokeSecurityGroupIngress :: RevokeSecurityGroupIngress -> TestTree
-testRevokeSecurityGroupIngress = undefined
+testRevokeSecurityGroupIngress = req
+    "RevokeSecurityGroupIngress"
+    "fixture/RevokeSecurityGroupIngress"
 
 testDescribeVolumes :: DescribeVolumes -> TestTree
-testDescribeVolumes = undefined
+testDescribeVolumes = req
+    "DescribeVolumes"
+    "fixture/DescribeVolumes"
 
 testDeleteVPNConnectionRoute :: DeleteVPNConnectionRoute -> TestTree
-testDeleteVPNConnectionRoute = undefined
+testDeleteVPNConnectionRoute = req
+    "DeleteVPNConnectionRoute"
+    "fixture/DeleteVPNConnectionRoute"
 
 testModifyReservedInstances :: ModifyReservedInstances -> TestTree
-testModifyReservedInstances = undefined
+testModifyReservedInstances = req
+    "ModifyReservedInstances"
+    "fixture/ModifyReservedInstances"
 
 testRegisterImage :: RegisterImage -> TestTree
-testRegisterImage = undefined
+testRegisterImage = req
+    "RegisterImage"
+    "fixture/RegisterImage"
 
 testModifyVPCEndpoint :: ModifyVPCEndpoint -> TestTree
-testModifyVPCEndpoint = undefined
+testModifyVPCEndpoint = req
+    "ModifyVPCEndpoint"
+    "fixture/ModifyVPCEndpoint"
 
 testDeleteVPNGateway :: DeleteVPNGateway -> TestTree
-testDeleteVPNGateway = undefined
+testDeleteVPNGateway = req
+    "DeleteVPNGateway"
+    "fixture/DeleteVPNGateway"
 
 testCreateVPC :: CreateVPC -> TestTree
-testCreateVPC = undefined
+testCreateVPC = req
+    "CreateVPC"
+    "fixture/CreateVPC"
 
 testDescribeMovingAddresses :: DescribeMovingAddresses -> TestTree
-testDescribeMovingAddresses = undefined
+testDescribeMovingAddresses = req
+    "DescribeMovingAddresses"
+    "fixture/DescribeMovingAddresses"
 
 testDescribeVolumeAttribute :: DescribeVolumeAttribute -> TestTree
-testDescribeVolumeAttribute = undefined
+testDescribeVolumeAttribute = req
+    "DescribeVolumeAttribute"
+    "fixture/DescribeVolumeAttribute"
 
 testMoveAddressToVPC :: MoveAddressToVPC -> TestTree
-testMoveAddressToVPC = undefined
+testMoveAddressToVPC = req
+    "MoveAddressToVPC"
+    "fixture/MoveAddressToVPC"
 
 testGetPasswordData :: GetPasswordData -> TestTree
-testGetPasswordData = undefined
+testGetPasswordData = req
+    "GetPasswordData"
+    "fixture/GetPasswordData"
 
 testCreateFlowLogs :: CreateFlowLogs -> TestTree
-testCreateFlowLogs = undefined
+testCreateFlowLogs = req
+    "CreateFlowLogs"
+    "fixture/CreateFlowLogs"
 
 testDescribeImportImageTasks :: DescribeImportImageTasks -> TestTree
-testDescribeImportImageTasks = undefined
+testDescribeImportImageTasks = req
+    "DescribeImportImageTasks"
+    "fixture/DescribeImportImageTasks"
 
 testDeleteNetworkACL :: DeleteNetworkACL -> TestTree
-testDeleteNetworkACL = undefined
+testDeleteNetworkACL = req
+    "DeleteNetworkACL"
+    "fixture/DeleteNetworkACL"
 
 testDescribeSpotFleetRequests :: DescribeSpotFleetRequests -> TestTree
-testDescribeSpotFleetRequests = undefined
+testDescribeSpotFleetRequests = req
+    "DescribeSpotFleetRequests"
+    "fixture/DescribeSpotFleetRequests"
 
 testCopySnapshot :: CopySnapshot -> TestTree
-testCopySnapshot = undefined
+testCopySnapshot = req
+    "CopySnapshot"
+    "fixture/CopySnapshot"
 
 testModifyVolumeAttribute :: ModifyVolumeAttribute -> TestTree
-testModifyVolumeAttribute = undefined
+testModifyVolumeAttribute = req
+    "ModifyVolumeAttribute"
+    "fixture/ModifyVolumeAttribute"
 
 testDescribeVPCAttribute :: DescribeVPCAttribute -> TestTree
-testDescribeVPCAttribute = undefined
+testDescribeVPCAttribute = req
+    "DescribeVPCAttribute"
+    "fixture/DescribeVPCAttribute"
 
 testCreateVolume :: CreateVolume -> TestTree
-testCreateVolume = undefined
+testCreateVolume = req
+    "CreateVolume"
+    "fixture/CreateVolume"
 
 testDisassociateAddress :: DisassociateAddress -> TestTree
-testDisassociateAddress = undefined
+testDisassociateAddress = req
+    "DisassociateAddress"
+    "fixture/DisassociateAddress"
 
 testDeleteVPC :: DeleteVPC -> TestTree
-testDeleteVPC = undefined
+testDeleteVPC = req
+    "DeleteVPC"
+    "fixture/DeleteVPC"
 
 testDescribePrefixLists :: DescribePrefixLists -> TestTree
-testDescribePrefixLists = undefined
+testDescribePrefixLists = req
+    "DescribePrefixLists"
+    "fixture/DescribePrefixLists"
 
 testCreateInstanceExportTask :: CreateInstanceExportTask -> TestTree
-testCreateInstanceExportTask = undefined
+testCreateInstanceExportTask = req
+    "CreateInstanceExportTask"
+    "fixture/CreateInstanceExportTask"
 
 testDescribeSpotDatafeedSubscription :: DescribeSpotDatafeedSubscription -> TestTree
-testDescribeSpotDatafeedSubscription = undefined
+testDescribeSpotDatafeedSubscription = req
+    "DescribeSpotDatafeedSubscription"
+    "fixture/DescribeSpotDatafeedSubscription"
 
 testDetachVPNGateway :: DetachVPNGateway -> TestTree
-testDetachVPNGateway = undefined
+testDetachVPNGateway = req
+    "DetachVPNGateway"
+    "fixture/DetachVPNGateway"
 
 testDescribeExportTasks :: DescribeExportTasks -> TestTree
-testDescribeExportTasks = undefined
+testDescribeExportTasks = req
+    "DescribeExportTasks"
+    "fixture/DescribeExportTasks"
 
 testDeletePlacementGroup :: DeletePlacementGroup -> TestTree
-testDeletePlacementGroup = undefined
+testDeletePlacementGroup = req
+    "DeletePlacementGroup"
+    "fixture/DeletePlacementGroup"
 
 testCreateSubnet :: CreateSubnet -> TestTree
-testCreateSubnet = undefined
+testCreateSubnet = req
+    "CreateSubnet"
+    "fixture/CreateSubnet"
 
 testEnableVolumeIO :: EnableVolumeIO -> TestTree
-testEnableVolumeIO = undefined
+testEnableVolumeIO = req
+    "EnableVolumeIO"
+    "fixture/EnableVolumeIO"
 
 testCancelExportTask :: CancelExportTask -> TestTree
-testCancelExportTask = undefined
+testCancelExportTask = req
+    "CancelExportTask"
+    "fixture/CancelExportTask"
 
 testRequestSpotFleet :: RequestSpotFleet -> TestTree
-testRequestSpotFleet = undefined
+testRequestSpotFleet = req
+    "RequestSpotFleet"
+    "fixture/RequestSpotFleet"
 
 testDescribeInstances :: DescribeInstances -> TestTree
-testDescribeInstances = undefined
+testDescribeInstances = req
+    "DescribeInstances"
+    "fixture/DescribeInstances"
 
 testDescribeSecurityGroups :: DescribeSecurityGroups -> TestTree
-testDescribeSecurityGroups = undefined
+testDescribeSecurityGroups = req
+    "DescribeSecurityGroups"
+    "fixture/DescribeSecurityGroups"
 
 testDescribeVPCPeeringConnections :: DescribeVPCPeeringConnections -> TestTree
-testDescribeVPCPeeringConnections = undefined
+testDescribeVPCPeeringConnections = req
+    "DescribeVPCPeeringConnections"
+    "fixture/DescribeVPCPeeringConnections"
 
 testCreateNetworkInterface :: CreateNetworkInterface -> TestTree
-testCreateNetworkInterface = undefined
+testCreateNetworkInterface = req
+    "CreateNetworkInterface"
+    "fixture/CreateNetworkInterface"
 
 testAssociateAddress :: AssociateAddress -> TestTree
-testAssociateAddress = undefined
+testAssociateAddress = req
+    "AssociateAddress"
+    "fixture/AssociateAddress"
 
 testStartInstances :: StartInstances -> TestTree
-testStartInstances = undefined
+testStartInstances = req
+    "StartInstances"
+    "fixture/StartInstances"
 
 testDescribeCustomerGateways :: DescribeCustomerGateways -> TestTree
-testDescribeCustomerGateways = undefined
+testDescribeCustomerGateways = req
+    "DescribeCustomerGateways"
+    "fixture/DescribeCustomerGateways"
 
 testResetNetworkInterfaceAttribute :: ResetNetworkInterfaceAttribute -> TestTree
-testResetNetworkInterfaceAttribute = undefined
+testResetNetworkInterfaceAttribute = req
+    "ResetNetworkInterfaceAttribute"
+    "fixture/ResetNetworkInterfaceAttribute"
 
 testCreateVPNConnection :: CreateVPNConnection -> TestTree
-testCreateVPNConnection = undefined
+testCreateVPNConnection = req
+    "CreateVPNConnection"
+    "fixture/CreateVPNConnection"
 
 testDescribeSnapshots :: DescribeSnapshots -> TestTree
-testDescribeSnapshots = undefined
+testDescribeSnapshots = req
+    "DescribeSnapshots"
+    "fixture/DescribeSnapshots"
 
 testCreatePlacementGroup :: CreatePlacementGroup -> TestTree
-testCreatePlacementGroup = undefined
+testCreatePlacementGroup = req
+    "CreatePlacementGroup"
+    "fixture/CreatePlacementGroup"
 
 testReplaceRouteTableAssociation :: ReplaceRouteTableAssociation -> TestTree
-testReplaceRouteTableAssociation = undefined
+testReplaceRouteTableAssociation = req
+    "ReplaceRouteTableAssociation"
+    "fixture/ReplaceRouteTableAssociation"
 
 testDescribeNetworkInterfaceAttribute :: DescribeNetworkInterfaceAttribute -> TestTree
-testDescribeNetworkInterfaceAttribute = undefined
+testDescribeNetworkInterfaceAttribute = req
+    "DescribeNetworkInterfaceAttribute"
+    "fixture/DescribeNetworkInterfaceAttribute"
 
 testDescribeReservedInstancesListings :: DescribeReservedInstancesListings -> TestTree
-testDescribeReservedInstancesListings = undefined
+testDescribeReservedInstancesListings = req
+    "DescribeReservedInstancesListings"
+    "fixture/DescribeReservedInstancesListings"
 
 testDeleteNetworkInterface :: DeleteNetworkInterface -> TestTree
-testDeleteNetworkInterface = undefined
+testDeleteNetworkInterface = req
+    "DeleteNetworkInterface"
+    "fixture/DeleteNetworkInterface"
 
 testDeleteInternetGateway :: DeleteInternetGateway -> TestTree
-testDeleteInternetGateway = undefined
+testDeleteInternetGateway = req
+    "DeleteInternetGateway"
+    "fixture/DeleteInternetGateway"
 
 testDeleteSubnet :: DeleteSubnet -> TestTree
-testDeleteSubnet = undefined
+testDeleteSubnet = req
+    "DeleteSubnet"
+    "fixture/DeleteSubnet"
 
 testCreateVPCEndpoint :: CreateVPCEndpoint -> TestTree
-testCreateVPCEndpoint = undefined
+testCreateVPCEndpoint = req
+    "CreateVPCEndpoint"
+    "fixture/CreateVPCEndpoint"
 
 testDescribeImportSnapshotTasks :: DescribeImportSnapshotTasks -> TestTree
-testDescribeImportSnapshotTasks = undefined
+testDescribeImportSnapshotTasks = req
+    "DescribeImportSnapshotTasks"
+    "fixture/DescribeImportSnapshotTasks"
 
 testCopyImage :: CopyImage -> TestTree
-testCopyImage = undefined
+testCopyImage = req
+    "CopyImage"
+    "fixture/CopyImage"
 
 testDisassociateRouteTable :: DisassociateRouteTable -> TestTree
-testDisassociateRouteTable = undefined
+testDisassociateRouteTable = req
+    "DisassociateRouteTable"
+    "fixture/DisassociateRouteTable"
 
 testUnmonitorInstances :: UnmonitorInstances -> TestTree
-testUnmonitorInstances = undefined
+testUnmonitorInstances = req
+    "UnmonitorInstances"
+    "fixture/UnmonitorInstances"
 
 testImportVolume :: ImportVolume -> TestTree
-testImportVolume = undefined
+testImportVolume = req
+    "ImportVolume"
+    "fixture/ImportVolume"
 
 testDisableVGWRoutePropagation :: DisableVGWRoutePropagation -> TestTree
-testDisableVGWRoutePropagation = undefined
+testDisableVGWRoutePropagation = req
+    "DisableVGWRoutePropagation"
+    "fixture/DisableVGWRoutePropagation"
 
 testCreateSpotDatafeedSubscription :: CreateSpotDatafeedSubscription -> TestTree
-testCreateSpotDatafeedSubscription = undefined
+testCreateSpotDatafeedSubscription = req
+    "CreateSpotDatafeedSubscription"
+    "fixture/CreateSpotDatafeedSubscription"
 
 testAssignPrivateIPAddresses :: AssignPrivateIPAddresses -> TestTree
-testAssignPrivateIPAddresses = undefined
+testAssignPrivateIPAddresses = req
+    "AssignPrivateIPAddresses"
+    "fixture/AssignPrivateIPAddresses"
 
 testDeleteSnapshot :: DeleteSnapshot -> TestTree
-testDeleteSnapshot = undefined
+testDeleteSnapshot = req
+    "DeleteSnapshot"
+    "fixture/DeleteSnapshot"
 
 testDeleteCustomerGateway :: DeleteCustomerGateway -> TestTree
-testDeleteCustomerGateway = undefined
+testDeleteCustomerGateway = req
+    "DeleteCustomerGateway"
+    "fixture/DeleteCustomerGateway"
 
 testModifyInstanceAttribute :: ModifyInstanceAttribute -> TestTree
-testModifyInstanceAttribute = undefined
+testModifyInstanceAttribute = req
+    "ModifyInstanceAttribute"
+    "fixture/ModifyInstanceAttribute"
 
 testCreateSecurityGroup :: CreateSecurityGroup -> TestTree
-testCreateSecurityGroup = undefined
+testCreateSecurityGroup = req
+    "CreateSecurityGroup"
+    "fixture/CreateSecurityGroup"
 
 testCancelSpotInstanceRequests :: CancelSpotInstanceRequests -> TestTree
-testCancelSpotInstanceRequests = undefined
+testCancelSpotInstanceRequests = req
+    "CancelSpotInstanceRequests"
+    "fixture/CancelSpotInstanceRequests"
 
 testCreateRoute :: CreateRoute -> TestTree
-testCreateRoute = undefined
+testCreateRoute = req
+    "CreateRoute"
+    "fixture/CreateRoute"
 
 testCreateNetworkACLEntry :: CreateNetworkACLEntry -> TestTree
-testCreateNetworkACLEntry = undefined
+testCreateNetworkACLEntry = req
+    "CreateNetworkACLEntry"
+    "fixture/CreateNetworkACLEntry"
 
 testModifySnapshotAttribute :: ModifySnapshotAttribute -> TestTree
-testModifySnapshotAttribute = undefined
+testModifySnapshotAttribute = req
+    "ModifySnapshotAttribute"
+    "fixture/ModifySnapshotAttribute"
 
 testEnableVGWRoutePropagation :: EnableVGWRoutePropagation -> TestTree
-testEnableVGWRoutePropagation = undefined
+testEnableVGWRoutePropagation = req
+    "EnableVGWRoutePropagation"
+    "fixture/EnableVGWRoutePropagation"
 
 testCreateSnapshot :: CreateSnapshot -> TestTree
-testCreateSnapshot = undefined
+testCreateSnapshot = req
+    "CreateSnapshot"
+    "fixture/CreateSnapshot"
 
 testDescribeSpotFleetRequestHistory :: DescribeSpotFleetRequestHistory -> TestTree
-testDescribeSpotFleetRequestHistory = undefined
+testDescribeSpotFleetRequestHistory = req
+    "DescribeSpotFleetRequestHistory"
+    "fixture/DescribeSpotFleetRequestHistory"
 
 testDeleteSpotDatafeedSubscription :: DeleteSpotDatafeedSubscription -> TestTree
-testDeleteSpotDatafeedSubscription = undefined
+testDeleteSpotDatafeedSubscription = req
+    "DeleteSpotDatafeedSubscription"
+    "fixture/DeleteSpotDatafeedSubscription"
 
 testDescribePlacementGroups :: DescribePlacementGroups -> TestTree
-testDescribePlacementGroups = undefined
+testDescribePlacementGroups = req
+    "DescribePlacementGroups"
+    "fixture/DescribePlacementGroups"
 
 testCreateReservedInstancesListing :: CreateReservedInstancesListing -> TestTree
-testCreateReservedInstancesListing = undefined
+testCreateReservedInstancesListing = req
+    "CreateReservedInstancesListing"
+    "fixture/CreateReservedInstancesListing"
 
 testEnableVPCClassicLink :: EnableVPCClassicLink -> TestTree
-testEnableVPCClassicLink = undefined
+testEnableVPCClassicLink = req
+    "EnableVPCClassicLink"
+    "fixture/EnableVPCClassicLink"
 
 testDescribeKeyPairs :: DescribeKeyPairs -> TestTree
-testDescribeKeyPairs = undefined
+testDescribeKeyPairs = req
+    "DescribeKeyPairs"
+    "fixture/DescribeKeyPairs"
 
 testRebootInstances :: RebootInstances -> TestTree
-testRebootInstances = undefined
+testRebootInstances = req
+    "RebootInstances"
+    "fixture/RebootInstances"
 
 testAttachVPNGateway :: AttachVPNGateway -> TestTree
-testAttachVPNGateway = undefined
+testAttachVPNGateway = req
+    "AttachVPNGateway"
+    "fixture/AttachVPNGateway"
 
 testCreateVPNConnectionRoute :: CreateVPNConnectionRoute -> TestTree
-testCreateVPNConnectionRoute = undefined
+testCreateVPNConnectionRoute = req
+    "CreateVPNConnectionRoute"
+    "fixture/CreateVPNConnectionRoute"
 
 testDescribeClassicLinkInstances :: DescribeClassicLinkInstances -> TestTree
-testDescribeClassicLinkInstances = undefined
+testDescribeClassicLinkInstances = req
+    "DescribeClassicLinkInstances"
+    "fixture/DescribeClassicLinkInstances"
 
 testTerminateInstances :: TerminateInstances -> TestTree
-testTerminateInstances = undefined
+testTerminateInstances = req
+    "TerminateInstances"
+    "fixture/TerminateInstances"
 
 testCreateDHCPOptions :: CreateDHCPOptions -> TestTree
-testCreateDHCPOptions = undefined
+testCreateDHCPOptions = req
+    "CreateDHCPOptions"
+    "fixture/CreateDHCPOptions"
 
 testAssociateRouteTable :: AssociateRouteTable -> TestTree
-testAssociateRouteTable = undefined
+testAssociateRouteTable = req
+    "AssociateRouteTable"
+    "fixture/AssociateRouteTable"
 
 testCreateImage :: CreateImage -> TestTree
-testCreateImage = undefined
+testCreateImage = req
+    "CreateImage"
+    "fixture/CreateImage"
 
 testDescribeAccountAttributes :: DescribeAccountAttributes -> TestTree
-testDescribeAccountAttributes = undefined
+testDescribeAccountAttributes = req
+    "DescribeAccountAttributes"
+    "fixture/DescribeAccountAttributes"
 
 testResetImageAttribute :: ResetImageAttribute -> TestTree
-testResetImageAttribute = undefined
+testResetImageAttribute = req
+    "ResetImageAttribute"
+    "fixture/ResetImageAttribute"
 
 testDescribeNetworkACLs :: DescribeNetworkACLs -> TestTree
-testDescribeNetworkACLs = undefined
+testDescribeNetworkACLs = req
+    "DescribeNetworkACLs"
+    "fixture/DescribeNetworkACLs"
 
 testCancelImportTask :: CancelImportTask -> TestTree
-testCancelImportTask = undefined
+testCancelImportTask = req
+    "CancelImportTask"
+    "fixture/CancelImportTask"
 
 testGetConsoleOutput :: GetConsoleOutput -> TestTree
-testGetConsoleOutput = undefined
+testGetConsoleOutput = req
+    "GetConsoleOutput"
+    "fixture/GetConsoleOutput"
 
 testUnassignPrivateIPAddresses :: UnassignPrivateIPAddresses -> TestTree
-testUnassignPrivateIPAddresses = undefined
+testUnassignPrivateIPAddresses = req
+    "UnassignPrivateIPAddresses"
+    "fixture/UnassignPrivateIPAddresses"
 
 testDeleteRouteTable :: DeleteRouteTable -> TestTree
-testDeleteRouteTable = undefined
+testDeleteRouteTable = req
+    "DeleteRouteTable"
+    "fixture/DeleteRouteTable"
 
 testDescribeImageAttribute :: DescribeImageAttribute -> TestTree
-testDescribeImageAttribute = undefined
+testDescribeImageAttribute = req
+    "DescribeImageAttribute"
+    "fixture/DescribeImageAttribute"
 
 testDeleteDHCPOptions :: DeleteDHCPOptions -> TestTree
-testDeleteDHCPOptions = undefined
+testDeleteDHCPOptions = req
+    "DeleteDHCPOptions"
+    "fixture/DeleteDHCPOptions"
 
 testDescribeVPNGateways :: DescribeVPNGateways -> TestTree
-testDescribeVPNGateways = undefined
+testDescribeVPNGateways = req
+    "DescribeVPNGateways"
+    "fixture/DescribeVPNGateways"
 
 testDetachClassicLinkVPC :: DetachClassicLinkVPC -> TestTree
-testDetachClassicLinkVPC = undefined
+testDetachClassicLinkVPC = req
+    "DetachClassicLinkVPC"
+    "fixture/DetachClassicLinkVPC"
 
 testDescribeReservedInstancesModifications :: DescribeReservedInstancesModifications -> TestTree
-testDescribeReservedInstancesModifications = undefined
+testDescribeReservedInstancesModifications = req
+    "DescribeReservedInstancesModifications"
+    "fixture/DescribeReservedInstancesModifications"
 
 testDescribeSpotInstanceRequests :: DescribeSpotInstanceRequests -> TestTree
-testDescribeSpotInstanceRequests = undefined
+testDescribeSpotInstanceRequests = req
+    "DescribeSpotInstanceRequests"
+    "fixture/DescribeSpotInstanceRequests"
 
 testMonitorInstances :: MonitorInstances -> TestTree
-testMonitorInstances = undefined
+testMonitorInstances = req
+    "MonitorInstances"
+    "fixture/MonitorInstances"
 
 testDescribeRegions :: DescribeRegions -> TestTree
-testDescribeRegions = undefined
+testDescribeRegions = req
+    "DescribeRegions"
+    "fixture/DescribeRegions"
 
 testModifyVPCAttribute :: ModifyVPCAttribute -> TestTree
-testModifyVPCAttribute = undefined
+testModifyVPCAttribute = req
+    "ModifyVPCAttribute"
+    "fixture/ModifyVPCAttribute"
 
 testDescribeSpotFleetInstances :: DescribeSpotFleetInstances -> TestTree
-testDescribeSpotFleetInstances = undefined
+testDescribeSpotFleetInstances = req
+    "DescribeSpotFleetInstances"
+    "fixture/DescribeSpotFleetInstances"
 
 testDescribeVolumeStatus :: DescribeVolumeStatus -> TestTree
-testDescribeVolumeStatus = undefined
+testDescribeVolumeStatus = req
+    "DescribeVolumeStatus"
+    "fixture/DescribeVolumeStatus"
 
 testDeleteVolume :: DeleteVolume -> TestTree
-testDeleteVolume = undefined
+testDeleteVolume = req
+    "DeleteVolume"
+    "fixture/DeleteVolume"
 
 testDescribeImages :: DescribeImages -> TestTree
-testDescribeImages = undefined
+testDescribeImages = req
+    "DescribeImages"
+    "fixture/DescribeImages"
 
 testCreateKeyPair :: CreateKeyPair -> TestTree
-testCreateKeyPair = undefined
+testCreateKeyPair = req
+    "CreateKeyPair"
+    "fixture/CreateKeyPair"
 
 testRestoreAddressToClassic :: RestoreAddressToClassic -> TestTree
-testRestoreAddressToClassic = undefined
+testRestoreAddressToClassic = req
+    "RestoreAddressToClassic"
+    "fixture/RestoreAddressToClassic"
 
 testDescribeAvailabilityZones :: DescribeAvailabilityZones -> TestTree
-testDescribeAvailabilityZones = undefined
+testDescribeAvailabilityZones = req
+    "DescribeAvailabilityZones"
+    "fixture/DescribeAvailabilityZones"
 
 testImportSnapshot :: ImportSnapshot -> TestTree
-testImportSnapshot = undefined
+testImportSnapshot = req
+    "ImportSnapshot"
+    "fixture/ImportSnapshot"
 
 testAcceptVPCPeeringConnection :: AcceptVPCPeeringConnection -> TestTree
-testAcceptVPCPeeringConnection = undefined
+testAcceptVPCPeeringConnection = req
+    "AcceptVPCPeeringConnection"
+    "fixture/AcceptVPCPeeringConnection"
 
 testDescribeRouteTables :: DescribeRouteTables -> TestTree
-testDescribeRouteTables = undefined
+testDescribeRouteTables = req
+    "DescribeRouteTables"
+    "fixture/DescribeRouteTables"
 
 -- Responses
 
 testDetachNetworkInterfaceResponse :: DetachNetworkInterfaceResponse -> TestTree
-testDetachNetworkInterfaceResponse = resp
+testDetachNetworkInterfaceResponse = res
     "DetachNetworkInterfaceResponse"
     "fixture/DetachNetworkInterfaceResponse"
     (Proxy :: Proxy DetachNetworkInterface)
 
 testDeleteVPCEndpointsResponse :: DeleteVPCEndpointsResponse -> TestTree
-testDeleteVPCEndpointsResponse = resp
+testDeleteVPCEndpointsResponse = res
     "DeleteVPCEndpointsResponse"
     "fixture/DeleteVPCEndpointsResponse"
     (Proxy :: Proxy DeleteVPCEndpoints)
 
 testDeleteKeyPairResponse :: DeleteKeyPairResponse -> TestTree
-testDeleteKeyPairResponse = resp
+testDeleteKeyPairResponse = res
     "DeleteKeyPairResponse"
     "fixture/DeleteKeyPairResponse"
     (Proxy :: Proxy DeleteKeyPair)
 
 testDeleteFlowLogsResponse :: DeleteFlowLogsResponse -> TestTree
-testDeleteFlowLogsResponse = resp
+testDeleteFlowLogsResponse = res
     "DeleteFlowLogsResponse"
     "fixture/DeleteFlowLogsResponse"
     (Proxy :: Proxy DeleteFlowLogs)
 
 testDescribeTagsResponse :: DescribeTagsResponse -> TestTree
-testDescribeTagsResponse = resp
+testDescribeTagsResponse = res
     "DescribeTagsResponse"
     "fixture/DescribeTagsResponse"
     (Proxy :: Proxy DescribeTags)
 
 testRevokeSecurityGroupEgressResponse :: RevokeSecurityGroupEgressResponse -> TestTree
-testRevokeSecurityGroupEgressResponse = resp
+testRevokeSecurityGroupEgressResponse = res
     "RevokeSecurityGroupEgressResponse"
     "fixture/RevokeSecurityGroupEgressResponse"
     (Proxy :: Proxy RevokeSecurityGroupEgress)
 
 testCreateVPNGatewayResponse :: CreateVPNGatewayResponse -> TestTree
-testCreateVPNGatewayResponse = resp
+testCreateVPNGatewayResponse = res
     "CreateVPNGatewayResponse"
     "fixture/CreateVPNGatewayResponse"
     (Proxy :: Proxy CreateVPNGateway)
 
 testDetachInternetGatewayResponse :: DetachInternetGatewayResponse -> TestTree
-testDetachInternetGatewayResponse = resp
+testDetachInternetGatewayResponse = res
     "DetachInternetGatewayResponse"
     "fixture/DetachInternetGatewayResponse"
     (Proxy :: Proxy DetachInternetGateway)
 
 testCreateNetworkACLResponse :: CreateNetworkACLResponse -> TestTree
-testCreateNetworkACLResponse = resp
+testCreateNetworkACLResponse = res
     "CreateNetworkACLResponse"
     "fixture/CreateNetworkACLResponse"
     (Proxy :: Proxy CreateNetworkACL)
 
 testImportInstanceResponse :: ImportInstanceResponse -> TestTree
-testImportInstanceResponse = resp
+testImportInstanceResponse = res
     "ImportInstanceResponse"
     "fixture/ImportInstanceResponse"
     (Proxy :: Proxy ImportInstance)
 
 testDescribeVPCClassicLinkResponse :: DescribeVPCClassicLinkResponse -> TestTree
-testDescribeVPCClassicLinkResponse = resp
+testDescribeVPCClassicLinkResponse = res
     "DescribeVPCClassicLinkResponse"
     "fixture/DescribeVPCClassicLinkResponse"
     (Proxy :: Proxy DescribeVPCClassicLink)
 
 testDeleteVPNConnectionResponse :: DeleteVPNConnectionResponse -> TestTree
-testDeleteVPNConnectionResponse = resp
+testDeleteVPNConnectionResponse = res
     "DeleteVPNConnectionResponse"
     "fixture/DeleteVPNConnectionResponse"
     (Proxy :: Proxy DeleteVPNConnection)
 
 testAuthorizeSecurityGroupEgressResponse :: AuthorizeSecurityGroupEgressResponse -> TestTree
-testAuthorizeSecurityGroupEgressResponse = resp
+testAuthorizeSecurityGroupEgressResponse = res
     "AuthorizeSecurityGroupEgressResponse"
     "fixture/AuthorizeSecurityGroupEgressResponse"
     (Proxy :: Proxy AuthorizeSecurityGroupEgress)
 
 testDescribeBundleTasksResponse :: DescribeBundleTasksResponse -> TestTree
-testDescribeBundleTasksResponse = resp
+testDescribeBundleTasksResponse = res
     "DescribeBundleTasksResponse"
     "fixture/DescribeBundleTasksResponse"
     (Proxy :: Proxy DescribeBundleTasks)
 
 testCreateInternetGatewayResponse :: CreateInternetGatewayResponse -> TestTree
-testCreateInternetGatewayResponse = resp
+testCreateInternetGatewayResponse = res
     "CreateInternetGatewayResponse"
     "fixture/CreateInternetGatewayResponse"
     (Proxy :: Proxy CreateInternetGateway)
 
 testReleaseAddressResponse :: ReleaseAddressResponse -> TestTree
-testReleaseAddressResponse = resp
+testReleaseAddressResponse = res
     "ReleaseAddressResponse"
     "fixture/ReleaseAddressResponse"
     (Proxy :: Proxy ReleaseAddress)
 
 testCancelBundleTaskResponse :: CancelBundleTaskResponse -> TestTree
-testCancelBundleTaskResponse = resp
+testCancelBundleTaskResponse = res
     "CancelBundleTaskResponse"
     "fixture/CancelBundleTaskResponse"
     (Proxy :: Proxy CancelBundleTask)
 
 testModifyNetworkInterfaceAttributeResponse :: ModifyNetworkInterfaceAttributeResponse -> TestTree
-testModifyNetworkInterfaceAttributeResponse = resp
+testModifyNetworkInterfaceAttributeResponse = res
     "ModifyNetworkInterfaceAttributeResponse"
     "fixture/ModifyNetworkInterfaceAttributeResponse"
     (Proxy :: Proxy ModifyNetworkInterfaceAttribute)
 
 testModifySubnetAttributeResponse :: ModifySubnetAttributeResponse -> TestTree
-testModifySubnetAttributeResponse = resp
+testModifySubnetAttributeResponse = res
     "ModifySubnetAttributeResponse"
     "fixture/ModifySubnetAttributeResponse"
     (Proxy :: Proxy ModifySubnetAttribute)
 
 testDeregisterImageResponse :: DeregisterImageResponse -> TestTree
-testDeregisterImageResponse = resp
+testDeregisterImageResponse = res
     "DeregisterImageResponse"
     "fixture/DeregisterImageResponse"
     (Proxy :: Proxy DeregisterImage)
 
 testDetachVolumeResponse :: VolumeAttachment -> TestTree
-testDetachVolumeResponse = resp
+testDetachVolumeResponse = res
     "DetachVolumeResponse"
     "fixture/DetachVolumeResponse"
     (Proxy :: Proxy DetachVolume)
 
 testCancelReservedInstancesListingResponse :: CancelReservedInstancesListingResponse -> TestTree
-testCancelReservedInstancesListingResponse = resp
+testCancelReservedInstancesListingResponse = res
     "CancelReservedInstancesListingResponse"
     "fixture/CancelReservedInstancesListingResponse"
     (Proxy :: Proxy CancelReservedInstancesListing)
 
 testAttachClassicLinkVPCResponse :: AttachClassicLinkVPCResponse -> TestTree
-testAttachClassicLinkVPCResponse = resp
+testAttachClassicLinkVPCResponse = res
     "AttachClassicLinkVPCResponse"
     "fixture/AttachClassicLinkVPCResponse"
     (Proxy :: Proxy AttachClassicLinkVPC)
 
 testCancelSpotFleetRequestsResponse :: CancelSpotFleetRequestsResponse -> TestTree
-testCancelSpotFleetRequestsResponse = resp
+testCancelSpotFleetRequestsResponse = res
     "CancelSpotFleetRequestsResponse"
     "fixture/CancelSpotFleetRequestsResponse"
     (Proxy :: Proxy CancelSpotFleetRequests)
 
 testDescribeDHCPOptionsResponse :: DescribeDHCPOptionsResponse -> TestTree
-testDescribeDHCPOptionsResponse = resp
+testDescribeDHCPOptionsResponse = res
     "DescribeDHCPOptionsResponse"
     "fixture/DescribeDHCPOptionsResponse"
     (Proxy :: Proxy DescribeDHCPOptions)
 
 testDescribeSpotPriceHistoryResponse :: DescribeSpotPriceHistoryResponse -> TestTree
-testDescribeSpotPriceHistoryResponse = resp
+testDescribeSpotPriceHistoryResponse = res
     "DescribeSpotPriceHistoryResponse"
     "fixture/DescribeSpotPriceHistoryResponse"
     (Proxy :: Proxy DescribeSpotPriceHistory)
 
 testStopInstancesResponse :: StopInstancesResponse -> TestTree
-testStopInstancesResponse = resp
+testStopInstancesResponse = res
     "StopInstancesResponse"
     "fixture/StopInstancesResponse"
     (Proxy :: Proxy StopInstances)
 
 testImportImageResponse :: ImportImageResponse -> TestTree
-testImportImageResponse = resp
+testImportImageResponse = res
     "ImportImageResponse"
     "fixture/ImportImageResponse"
     (Proxy :: Proxy ImportImage)
 
 testDeleteNetworkACLEntryResponse :: DeleteNetworkACLEntryResponse -> TestTree
-testDeleteNetworkACLEntryResponse = resp
+testDeleteNetworkACLEntryResponse = res
     "DeleteNetworkACLEntryResponse"
     "fixture/DeleteNetworkACLEntryResponse"
     (Proxy :: Proxy DeleteNetworkACLEntry)
 
 testDisableVPCClassicLinkResponse :: DisableVPCClassicLinkResponse -> TestTree
-testDisableVPCClassicLinkResponse = resp
+testDisableVPCClassicLinkResponse = res
     "DisableVPCClassicLinkResponse"
     "fixture/DisableVPCClassicLinkResponse"
     (Proxy :: Proxy DisableVPCClassicLink)
 
 testAuthorizeSecurityGroupIngressResponse :: AuthorizeSecurityGroupIngressResponse -> TestTree
-testAuthorizeSecurityGroupIngressResponse = resp
+testAuthorizeSecurityGroupIngressResponse = res
     "AuthorizeSecurityGroupIngressResponse"
     "fixture/AuthorizeSecurityGroupIngressResponse"
     (Proxy :: Proxy AuthorizeSecurityGroupIngress)
 
 testBundleInstanceResponse :: BundleInstanceResponse -> TestTree
-testBundleInstanceResponse = resp
+testBundleInstanceResponse = res
     "BundleInstanceResponse"
     "fixture/BundleInstanceResponse"
     (Proxy :: Proxy BundleInstance)
 
 testDescribeVPCEndpointServicesResponse :: DescribeVPCEndpointServicesResponse -> TestTree
-testDescribeVPCEndpointServicesResponse = resp
+testDescribeVPCEndpointServicesResponse = res
     "DescribeVPCEndpointServicesResponse"
     "fixture/DescribeVPCEndpointServicesResponse"
     (Proxy :: Proxy DescribeVPCEndpointServices)
 
 testReplaceNetworkACLAssociationResponse :: ReplaceNetworkACLAssociationResponse -> TestTree
-testReplaceNetworkACLAssociationResponse = resp
+testReplaceNetworkACLAssociationResponse = res
     "ReplaceNetworkACLAssociationResponse"
     "fixture/ReplaceNetworkACLAssociationResponse"
     (Proxy :: Proxy ReplaceNetworkACLAssociation)
 
 testCreateVPCPeeringConnectionResponse :: CreateVPCPeeringConnectionResponse -> TestTree
-testCreateVPCPeeringConnectionResponse = resp
+testCreateVPCPeeringConnectionResponse = res
     "CreateVPCPeeringConnectionResponse"
     "fixture/CreateVPCPeeringConnectionResponse"
     (Proxy :: Proxy CreateVPCPeeringConnection)
 
 testResetSnapshotAttributeResponse :: ResetSnapshotAttributeResponse -> TestTree
-testResetSnapshotAttributeResponse = resp
+testResetSnapshotAttributeResponse = res
     "ResetSnapshotAttributeResponse"
     "fixture/ResetSnapshotAttributeResponse"
     (Proxy :: Proxy ResetSnapshotAttribute)
 
 testDescribeAddressesResponse :: DescribeAddressesResponse -> TestTree
-testDescribeAddressesResponse = resp
+testDescribeAddressesResponse = res
     "DescribeAddressesResponse"
     "fixture/DescribeAddressesResponse"
     (Proxy :: Proxy DescribeAddresses)
 
 testDescribeInternetGatewaysResponse :: DescribeInternetGatewaysResponse -> TestTree
-testDescribeInternetGatewaysResponse = resp
+testDescribeInternetGatewaysResponse = res
     "DescribeInternetGatewaysResponse"
     "fixture/DescribeInternetGatewaysResponse"
     (Proxy :: Proxy DescribeInternetGateways)
 
 testReplaceRouteResponse :: ReplaceRouteResponse -> TestTree
-testReplaceRouteResponse = resp
+testReplaceRouteResponse = res
     "ReplaceRouteResponse"
     "fixture/ReplaceRouteResponse"
     (Proxy :: Proxy ReplaceRoute)
 
 testCreateTagsResponse :: CreateTagsResponse -> TestTree
-testCreateTagsResponse = resp
+testCreateTagsResponse = res
     "CreateTagsResponse"
     "fixture/CreateTagsResponse"
     (Proxy :: Proxy CreateTags)
 
 testDescribeSubnetsResponse :: DescribeSubnetsResponse -> TestTree
-testDescribeSubnetsResponse = resp
+testDescribeSubnetsResponse = res
     "DescribeSubnetsResponse"
     "fixture/DescribeSubnetsResponse"
     (Proxy :: Proxy DescribeSubnets)
 
 testDescribeNetworkInterfacesResponse :: DescribeNetworkInterfacesResponse -> TestTree
-testDescribeNetworkInterfacesResponse = resp
+testDescribeNetworkInterfacesResponse = res
     "DescribeNetworkInterfacesResponse"
     "fixture/DescribeNetworkInterfacesResponse"
     (Proxy :: Proxy DescribeNetworkInterfaces)
 
 testPurchaseReservedInstancesOfferingResponse :: PurchaseReservedInstancesOfferingResponse -> TestTree
-testPurchaseReservedInstancesOfferingResponse = resp
+testPurchaseReservedInstancesOfferingResponse = res
     "PurchaseReservedInstancesOfferingResponse"
     "fixture/PurchaseReservedInstancesOfferingResponse"
     (Proxy :: Proxy PurchaseReservedInstancesOffering)
 
 testDescribeSnapshotAttributeResponse :: DescribeSnapshotAttributeResponse -> TestTree
-testDescribeSnapshotAttributeResponse = resp
+testDescribeSnapshotAttributeResponse = res
     "DescribeSnapshotAttributeResponse"
     "fixture/DescribeSnapshotAttributeResponse"
     (Proxy :: Proxy DescribeSnapshotAttribute)
 
 testCreateCustomerGatewayResponse :: CreateCustomerGatewayResponse -> TestTree
-testCreateCustomerGatewayResponse = resp
+testCreateCustomerGatewayResponse = res
     "CreateCustomerGatewayResponse"
     "fixture/CreateCustomerGatewayResponse"
     (Proxy :: Proxy CreateCustomerGateway)
 
 testAttachInternetGatewayResponse :: AttachInternetGatewayResponse -> TestTree
-testAttachInternetGatewayResponse = resp
+testAttachInternetGatewayResponse = res
     "AttachInternetGatewayResponse"
     "fixture/AttachInternetGatewayResponse"
     (Proxy :: Proxy AttachInternetGateway)
 
 testDeleteTagsResponse :: DeleteTagsResponse -> TestTree
-testDeleteTagsResponse = resp
+testDeleteTagsResponse = res
     "DeleteTagsResponse"
     "fixture/DeleteTagsResponse"
     (Proxy :: Proxy DeleteTags)
 
 testReplaceNetworkACLEntryResponse :: ReplaceNetworkACLEntryResponse -> TestTree
-testReplaceNetworkACLEntryResponse = resp
+testReplaceNetworkACLEntryResponse = res
     "ReplaceNetworkACLEntryResponse"
     "fixture/ReplaceNetworkACLEntryResponse"
     (Proxy :: Proxy ReplaceNetworkACLEntry)
 
 testResetInstanceAttributeResponse :: ResetInstanceAttributeResponse -> TestTree
-testResetInstanceAttributeResponse = resp
+testResetInstanceAttributeResponse = res
     "ResetInstanceAttributeResponse"
     "fixture/ResetInstanceAttributeResponse"
     (Proxy :: Proxy ResetInstanceAttribute)
 
 testDeleteRouteResponse :: DeleteRouteResponse -> TestTree
-testDeleteRouteResponse = resp
+testDeleteRouteResponse = res
     "DeleteRouteResponse"
     "fixture/DeleteRouteResponse"
     (Proxy :: Proxy DeleteRoute)
 
 testDescribeVPNConnectionsResponse :: DescribeVPNConnectionsResponse -> TestTree
-testDescribeVPNConnectionsResponse = resp
+testDescribeVPNConnectionsResponse = res
     "DescribeVPNConnectionsResponse"
     "fixture/DescribeVPNConnectionsResponse"
     (Proxy :: Proxy DescribeVPNConnections)
 
 testDescribeFlowLogsResponse :: DescribeFlowLogsResponse -> TestTree
-testDescribeFlowLogsResponse = resp
+testDescribeFlowLogsResponse = res
     "DescribeFlowLogsResponse"
     "fixture/DescribeFlowLogsResponse"
     (Proxy :: Proxy DescribeFlowLogs)
 
 testDeleteSecurityGroupResponse :: DeleteSecurityGroupResponse -> TestTree
-testDeleteSecurityGroupResponse = resp
+testDeleteSecurityGroupResponse = res
     "DeleteSecurityGroupResponse"
     "fixture/DeleteSecurityGroupResponse"
     (Proxy :: Proxy DeleteSecurityGroup)
 
 testDescribeReservedInstancesOfferingsResponse :: DescribeReservedInstancesOfferingsResponse -> TestTree
-testDescribeReservedInstancesOfferingsResponse = resp
+testDescribeReservedInstancesOfferingsResponse = res
     "DescribeReservedInstancesOfferingsResponse"
     "fixture/DescribeReservedInstancesOfferingsResponse"
     (Proxy :: Proxy DescribeReservedInstancesOfferings)
 
 testDeleteVPCPeeringConnectionResponse :: DeleteVPCPeeringConnectionResponse -> TestTree
-testDeleteVPCPeeringConnectionResponse = resp
+testDeleteVPCPeeringConnectionResponse = res
     "DeleteVPCPeeringConnectionResponse"
     "fixture/DeleteVPCPeeringConnectionResponse"
     (Proxy :: Proxy DeleteVPCPeeringConnection)
 
 testDescribeVPCEndpointsResponse :: DescribeVPCEndpointsResponse -> TestTree
-testDescribeVPCEndpointsResponse = resp
+testDescribeVPCEndpointsResponse = res
     "DescribeVPCEndpointsResponse"
     "fixture/DescribeVPCEndpointsResponse"
     (Proxy :: Proxy DescribeVPCEndpoints)
 
 testDescribeInstanceAttributeResponse :: DescribeInstanceAttributeResponse -> TestTree
-testDescribeInstanceAttributeResponse = resp
+testDescribeInstanceAttributeResponse = res
     "DescribeInstanceAttributeResponse"
     "fixture/DescribeInstanceAttributeResponse"
     (Proxy :: Proxy DescribeInstanceAttribute)
 
 testConfirmProductInstanceResponse :: ConfirmProductInstanceResponse -> TestTree
-testConfirmProductInstanceResponse = resp
+testConfirmProductInstanceResponse = res
     "ConfirmProductInstanceResponse"
     "fixture/ConfirmProductInstanceResponse"
     (Proxy :: Proxy ConfirmProductInstance)
 
 testImportKeyPairResponse :: ImportKeyPairResponse -> TestTree
-testImportKeyPairResponse = resp
+testImportKeyPairResponse = res
     "ImportKeyPairResponse"
     "fixture/ImportKeyPairResponse"
     (Proxy :: Proxy ImportKeyPair)
 
 testAttachNetworkInterfaceResponse :: AttachNetworkInterfaceResponse -> TestTree
-testAttachNetworkInterfaceResponse = resp
+testAttachNetworkInterfaceResponse = res
     "AttachNetworkInterfaceResponse"
     "fixture/AttachNetworkInterfaceResponse"
     (Proxy :: Proxy AttachNetworkInterface)
 
 testDescribeInstanceStatusResponse :: DescribeInstanceStatusResponse -> TestTree
-testDescribeInstanceStatusResponse = resp
+testDescribeInstanceStatusResponse = res
     "DescribeInstanceStatusResponse"
     "fixture/DescribeInstanceStatusResponse"
     (Proxy :: Proxy DescribeInstanceStatus)
 
 testCancelConversionTaskResponse :: CancelConversionTaskResponse -> TestTree
-testCancelConversionTaskResponse = resp
+testCancelConversionTaskResponse = res
     "CancelConversionTaskResponse"
     "fixture/CancelConversionTaskResponse"
     (Proxy :: Proxy CancelConversionTask)
 
 testReportInstanceStatusResponse :: ReportInstanceStatusResponse -> TestTree
-testReportInstanceStatusResponse = resp
+testReportInstanceStatusResponse = res
     "ReportInstanceStatusResponse"
     "fixture/ReportInstanceStatusResponse"
     (Proxy :: Proxy ReportInstanceStatus)
 
 testAssociateDHCPOptionsResponse :: AssociateDHCPOptionsResponse -> TestTree
-testAssociateDHCPOptionsResponse = resp
+testAssociateDHCPOptionsResponse = res
     "AssociateDHCPOptionsResponse"
     "fixture/AssociateDHCPOptionsResponse"
     (Proxy :: Proxy AssociateDHCPOptions)
 
 testDescribeVPCsResponse :: DescribeVPCsResponse -> TestTree
-testDescribeVPCsResponse = resp
+testDescribeVPCsResponse = res
     "DescribeVPCsResponse"
     "fixture/DescribeVPCsResponse"
     (Proxy :: Proxy DescribeVPCs)
 
 testRequestSpotInstancesResponse :: RequestSpotInstancesResponse -> TestTree
-testRequestSpotInstancesResponse = resp
+testRequestSpotInstancesResponse = res
     "RequestSpotInstancesResponse"
     "fixture/RequestSpotInstancesResponse"
     (Proxy :: Proxy RequestSpotInstances)
 
 testModifyImageAttributeResponse :: ModifyImageAttributeResponse -> TestTree
-testModifyImageAttributeResponse = resp
+testModifyImageAttributeResponse = res
     "ModifyImageAttributeResponse"
     "fixture/ModifyImageAttributeResponse"
     (Proxy :: Proxy ModifyImageAttribute)
 
 testDescribeReservedInstancesResponse :: DescribeReservedInstancesResponse -> TestTree
-testDescribeReservedInstancesResponse = resp
+testDescribeReservedInstancesResponse = res
     "DescribeReservedInstancesResponse"
     "fixture/DescribeReservedInstancesResponse"
     (Proxy :: Proxy DescribeReservedInstances)
 
 testAllocateAddressResponse :: AllocateAddressResponse -> TestTree
-testAllocateAddressResponse = resp
+testAllocateAddressResponse = res
     "AllocateAddressResponse"
     "fixture/AllocateAddressResponse"
     (Proxy :: Proxy AllocateAddress)
 
 testRunInstancesResponse :: Reservation -> TestTree
-testRunInstancesResponse = resp
+testRunInstancesResponse = res
     "RunInstancesResponse"
     "fixture/RunInstancesResponse"
     (Proxy :: Proxy RunInstances)
 
 testCreateRouteTableResponse :: CreateRouteTableResponse -> TestTree
-testCreateRouteTableResponse = resp
+testCreateRouteTableResponse = res
     "CreateRouteTableResponse"
     "fixture/CreateRouteTableResponse"
     (Proxy :: Proxy CreateRouteTable)
 
 testAttachVolumeResponse :: VolumeAttachment -> TestTree
-testAttachVolumeResponse = resp
+testAttachVolumeResponse = res
     "AttachVolumeResponse"
     "fixture/AttachVolumeResponse"
     (Proxy :: Proxy AttachVolume)
 
 testDescribeConversionTasksResponse :: DescribeConversionTasksResponse -> TestTree
-testDescribeConversionTasksResponse = resp
+testDescribeConversionTasksResponse = res
     "DescribeConversionTasksResponse"
     "fixture/DescribeConversionTasksResponse"
     (Proxy :: Proxy DescribeConversionTasks)
 
 testRejectVPCPeeringConnectionResponse :: RejectVPCPeeringConnectionResponse -> TestTree
-testRejectVPCPeeringConnectionResponse = resp
+testRejectVPCPeeringConnectionResponse = res
     "RejectVPCPeeringConnectionResponse"
     "fixture/RejectVPCPeeringConnectionResponse"
     (Proxy :: Proxy RejectVPCPeeringConnection)
 
 testRevokeSecurityGroupIngressResponse :: RevokeSecurityGroupIngressResponse -> TestTree
-testRevokeSecurityGroupIngressResponse = resp
+testRevokeSecurityGroupIngressResponse = res
     "RevokeSecurityGroupIngressResponse"
     "fixture/RevokeSecurityGroupIngressResponse"
     (Proxy :: Proxy RevokeSecurityGroupIngress)
 
 testDescribeVolumesResponse :: DescribeVolumesResponse -> TestTree
-testDescribeVolumesResponse = resp
+testDescribeVolumesResponse = res
     "DescribeVolumesResponse"
     "fixture/DescribeVolumesResponse"
     (Proxy :: Proxy DescribeVolumes)
 
 testDeleteVPNConnectionRouteResponse :: DeleteVPNConnectionRouteResponse -> TestTree
-testDeleteVPNConnectionRouteResponse = resp
+testDeleteVPNConnectionRouteResponse = res
     "DeleteVPNConnectionRouteResponse"
     "fixture/DeleteVPNConnectionRouteResponse"
     (Proxy :: Proxy DeleteVPNConnectionRoute)
 
 testModifyReservedInstancesResponse :: ModifyReservedInstancesResponse -> TestTree
-testModifyReservedInstancesResponse = resp
+testModifyReservedInstancesResponse = res
     "ModifyReservedInstancesResponse"
     "fixture/ModifyReservedInstancesResponse"
     (Proxy :: Proxy ModifyReservedInstances)
 
 testRegisterImageResponse :: RegisterImageResponse -> TestTree
-testRegisterImageResponse = resp
+testRegisterImageResponse = res
     "RegisterImageResponse"
     "fixture/RegisterImageResponse"
     (Proxy :: Proxy RegisterImage)
 
 testModifyVPCEndpointResponse :: ModifyVPCEndpointResponse -> TestTree
-testModifyVPCEndpointResponse = resp
+testModifyVPCEndpointResponse = res
     "ModifyVPCEndpointResponse"
     "fixture/ModifyVPCEndpointResponse"
     (Proxy :: Proxy ModifyVPCEndpoint)
 
 testDeleteVPNGatewayResponse :: DeleteVPNGatewayResponse -> TestTree
-testDeleteVPNGatewayResponse = resp
+testDeleteVPNGatewayResponse = res
     "DeleteVPNGatewayResponse"
     "fixture/DeleteVPNGatewayResponse"
     (Proxy :: Proxy DeleteVPNGateway)
 
 testCreateVPCResponse :: CreateVPCResponse -> TestTree
-testCreateVPCResponse = resp
+testCreateVPCResponse = res
     "CreateVPCResponse"
     "fixture/CreateVPCResponse"
     (Proxy :: Proxy CreateVPC)
 
 testDescribeMovingAddressesResponse :: DescribeMovingAddressesResponse -> TestTree
-testDescribeMovingAddressesResponse = resp
+testDescribeMovingAddressesResponse = res
     "DescribeMovingAddressesResponse"
     "fixture/DescribeMovingAddressesResponse"
     (Proxy :: Proxy DescribeMovingAddresses)
 
 testDescribeVolumeAttributeResponse :: DescribeVolumeAttributeResponse -> TestTree
-testDescribeVolumeAttributeResponse = resp
+testDescribeVolumeAttributeResponse = res
     "DescribeVolumeAttributeResponse"
     "fixture/DescribeVolumeAttributeResponse"
     (Proxy :: Proxy DescribeVolumeAttribute)
 
 testMoveAddressToVPCResponse :: MoveAddressToVPCResponse -> TestTree
-testMoveAddressToVPCResponse = resp
+testMoveAddressToVPCResponse = res
     "MoveAddressToVPCResponse"
     "fixture/MoveAddressToVPCResponse"
     (Proxy :: Proxy MoveAddressToVPC)
 
 testGetPasswordDataResponse :: GetPasswordDataResponse -> TestTree
-testGetPasswordDataResponse = resp
+testGetPasswordDataResponse = res
     "GetPasswordDataResponse"
     "fixture/GetPasswordDataResponse"
     (Proxy :: Proxy GetPasswordData)
 
 testCreateFlowLogsResponse :: CreateFlowLogsResponse -> TestTree
-testCreateFlowLogsResponse = resp
+testCreateFlowLogsResponse = res
     "CreateFlowLogsResponse"
     "fixture/CreateFlowLogsResponse"
     (Proxy :: Proxy CreateFlowLogs)
 
 testDescribeImportImageTasksResponse :: DescribeImportImageTasksResponse -> TestTree
-testDescribeImportImageTasksResponse = resp
+testDescribeImportImageTasksResponse = res
     "DescribeImportImageTasksResponse"
     "fixture/DescribeImportImageTasksResponse"
     (Proxy :: Proxy DescribeImportImageTasks)
 
 testDeleteNetworkACLResponse :: DeleteNetworkACLResponse -> TestTree
-testDeleteNetworkACLResponse = resp
+testDeleteNetworkACLResponse = res
     "DeleteNetworkACLResponse"
     "fixture/DeleteNetworkACLResponse"
     (Proxy :: Proxy DeleteNetworkACL)
 
 testDescribeSpotFleetRequestsResponse :: DescribeSpotFleetRequestsResponse -> TestTree
-testDescribeSpotFleetRequestsResponse = resp
+testDescribeSpotFleetRequestsResponse = res
     "DescribeSpotFleetRequestsResponse"
     "fixture/DescribeSpotFleetRequestsResponse"
     (Proxy :: Proxy DescribeSpotFleetRequests)
 
 testCopySnapshotResponse :: CopySnapshotResponse -> TestTree
-testCopySnapshotResponse = resp
+testCopySnapshotResponse = res
     "CopySnapshotResponse"
     "fixture/CopySnapshotResponse"
     (Proxy :: Proxy CopySnapshot)
 
 testModifyVolumeAttributeResponse :: ModifyVolumeAttributeResponse -> TestTree
-testModifyVolumeAttributeResponse = resp
+testModifyVolumeAttributeResponse = res
     "ModifyVolumeAttributeResponse"
     "fixture/ModifyVolumeAttributeResponse"
     (Proxy :: Proxy ModifyVolumeAttribute)
 
 testDescribeVPCAttributeResponse :: DescribeVPCAttributeResponse -> TestTree
-testDescribeVPCAttributeResponse = resp
+testDescribeVPCAttributeResponse = res
     "DescribeVPCAttributeResponse"
     "fixture/DescribeVPCAttributeResponse"
     (Proxy :: Proxy DescribeVPCAttribute)
 
 testCreateVolumeResponse :: Volume -> TestTree
-testCreateVolumeResponse = resp
+testCreateVolumeResponse = res
     "CreateVolumeResponse"
     "fixture/CreateVolumeResponse"
     (Proxy :: Proxy CreateVolume)
 
 testDisassociateAddressResponse :: DisassociateAddressResponse -> TestTree
-testDisassociateAddressResponse = resp
+testDisassociateAddressResponse = res
     "DisassociateAddressResponse"
     "fixture/DisassociateAddressResponse"
     (Proxy :: Proxy DisassociateAddress)
 
 testDeleteVPCResponse :: DeleteVPCResponse -> TestTree
-testDeleteVPCResponse = resp
+testDeleteVPCResponse = res
     "DeleteVPCResponse"
     "fixture/DeleteVPCResponse"
     (Proxy :: Proxy DeleteVPC)
 
 testDescribePrefixListsResponse :: DescribePrefixListsResponse -> TestTree
-testDescribePrefixListsResponse = resp
+testDescribePrefixListsResponse = res
     "DescribePrefixListsResponse"
     "fixture/DescribePrefixListsResponse"
     (Proxy :: Proxy DescribePrefixLists)
 
 testCreateInstanceExportTaskResponse :: CreateInstanceExportTaskResponse -> TestTree
-testCreateInstanceExportTaskResponse = resp
+testCreateInstanceExportTaskResponse = res
     "CreateInstanceExportTaskResponse"
     "fixture/CreateInstanceExportTaskResponse"
     (Proxy :: Proxy CreateInstanceExportTask)
 
 testDescribeSpotDatafeedSubscriptionResponse :: DescribeSpotDatafeedSubscriptionResponse -> TestTree
-testDescribeSpotDatafeedSubscriptionResponse = resp
+testDescribeSpotDatafeedSubscriptionResponse = res
     "DescribeSpotDatafeedSubscriptionResponse"
     "fixture/DescribeSpotDatafeedSubscriptionResponse"
     (Proxy :: Proxy DescribeSpotDatafeedSubscription)
 
 testDetachVPNGatewayResponse :: DetachVPNGatewayResponse -> TestTree
-testDetachVPNGatewayResponse = resp
+testDetachVPNGatewayResponse = res
     "DetachVPNGatewayResponse"
     "fixture/DetachVPNGatewayResponse"
     (Proxy :: Proxy DetachVPNGateway)
 
 testDescribeExportTasksResponse :: DescribeExportTasksResponse -> TestTree
-testDescribeExportTasksResponse = resp
+testDescribeExportTasksResponse = res
     "DescribeExportTasksResponse"
     "fixture/DescribeExportTasksResponse"
     (Proxy :: Proxy DescribeExportTasks)
 
 testDeletePlacementGroupResponse :: DeletePlacementGroupResponse -> TestTree
-testDeletePlacementGroupResponse = resp
+testDeletePlacementGroupResponse = res
     "DeletePlacementGroupResponse"
     "fixture/DeletePlacementGroupResponse"
     (Proxy :: Proxy DeletePlacementGroup)
 
 testCreateSubnetResponse :: CreateSubnetResponse -> TestTree
-testCreateSubnetResponse = resp
+testCreateSubnetResponse = res
     "CreateSubnetResponse"
     "fixture/CreateSubnetResponse"
     (Proxy :: Proxy CreateSubnet)
 
 testEnableVolumeIOResponse :: EnableVolumeIOResponse -> TestTree
-testEnableVolumeIOResponse = resp
+testEnableVolumeIOResponse = res
     "EnableVolumeIOResponse"
     "fixture/EnableVolumeIOResponse"
     (Proxy :: Proxy EnableVolumeIO)
 
 testCancelExportTaskResponse :: CancelExportTaskResponse -> TestTree
-testCancelExportTaskResponse = resp
+testCancelExportTaskResponse = res
     "CancelExportTaskResponse"
     "fixture/CancelExportTaskResponse"
     (Proxy :: Proxy CancelExportTask)
 
 testRequestSpotFleetResponse :: RequestSpotFleetResponse -> TestTree
-testRequestSpotFleetResponse = resp
+testRequestSpotFleetResponse = res
     "RequestSpotFleetResponse"
     "fixture/RequestSpotFleetResponse"
     (Proxy :: Proxy RequestSpotFleet)
 
 testDescribeInstancesResponse :: DescribeInstancesResponse -> TestTree
-testDescribeInstancesResponse = resp
+testDescribeInstancesResponse = res
     "DescribeInstancesResponse"
     "fixture/DescribeInstancesResponse"
     (Proxy :: Proxy DescribeInstances)
 
 testDescribeSecurityGroupsResponse :: DescribeSecurityGroupsResponse -> TestTree
-testDescribeSecurityGroupsResponse = resp
+testDescribeSecurityGroupsResponse = res
     "DescribeSecurityGroupsResponse"
     "fixture/DescribeSecurityGroupsResponse"
     (Proxy :: Proxy DescribeSecurityGroups)
 
 testDescribeVPCPeeringConnectionsResponse :: DescribeVPCPeeringConnectionsResponse -> TestTree
-testDescribeVPCPeeringConnectionsResponse = resp
+testDescribeVPCPeeringConnectionsResponse = res
     "DescribeVPCPeeringConnectionsResponse"
     "fixture/DescribeVPCPeeringConnectionsResponse"
     (Proxy :: Proxy DescribeVPCPeeringConnections)
 
 testCreateNetworkInterfaceResponse :: CreateNetworkInterfaceResponse -> TestTree
-testCreateNetworkInterfaceResponse = resp
+testCreateNetworkInterfaceResponse = res
     "CreateNetworkInterfaceResponse"
     "fixture/CreateNetworkInterfaceResponse"
     (Proxy :: Proxy CreateNetworkInterface)
 
 testAssociateAddressResponse :: AssociateAddressResponse -> TestTree
-testAssociateAddressResponse = resp
+testAssociateAddressResponse = res
     "AssociateAddressResponse"
     "fixture/AssociateAddressResponse"
     (Proxy :: Proxy AssociateAddress)
 
 testStartInstancesResponse :: StartInstancesResponse -> TestTree
-testStartInstancesResponse = resp
+testStartInstancesResponse = res
     "StartInstancesResponse"
     "fixture/StartInstancesResponse"
     (Proxy :: Proxy StartInstances)
 
 testDescribeCustomerGatewaysResponse :: DescribeCustomerGatewaysResponse -> TestTree
-testDescribeCustomerGatewaysResponse = resp
+testDescribeCustomerGatewaysResponse = res
     "DescribeCustomerGatewaysResponse"
     "fixture/DescribeCustomerGatewaysResponse"
     (Proxy :: Proxy DescribeCustomerGateways)
 
 testResetNetworkInterfaceAttributeResponse :: ResetNetworkInterfaceAttributeResponse -> TestTree
-testResetNetworkInterfaceAttributeResponse = resp
+testResetNetworkInterfaceAttributeResponse = res
     "ResetNetworkInterfaceAttributeResponse"
     "fixture/ResetNetworkInterfaceAttributeResponse"
     (Proxy :: Proxy ResetNetworkInterfaceAttribute)
 
 testCreateVPNConnectionResponse :: CreateVPNConnectionResponse -> TestTree
-testCreateVPNConnectionResponse = resp
+testCreateVPNConnectionResponse = res
     "CreateVPNConnectionResponse"
     "fixture/CreateVPNConnectionResponse"
     (Proxy :: Proxy CreateVPNConnection)
 
 testDescribeSnapshotsResponse :: DescribeSnapshotsResponse -> TestTree
-testDescribeSnapshotsResponse = resp
+testDescribeSnapshotsResponse = res
     "DescribeSnapshotsResponse"
     "fixture/DescribeSnapshotsResponse"
     (Proxy :: Proxy DescribeSnapshots)
 
 testCreatePlacementGroupResponse :: CreatePlacementGroupResponse -> TestTree
-testCreatePlacementGroupResponse = resp
+testCreatePlacementGroupResponse = res
     "CreatePlacementGroupResponse"
     "fixture/CreatePlacementGroupResponse"
     (Proxy :: Proxy CreatePlacementGroup)
 
 testReplaceRouteTableAssociationResponse :: ReplaceRouteTableAssociationResponse -> TestTree
-testReplaceRouteTableAssociationResponse = resp
+testReplaceRouteTableAssociationResponse = res
     "ReplaceRouteTableAssociationResponse"
     "fixture/ReplaceRouteTableAssociationResponse"
     (Proxy :: Proxy ReplaceRouteTableAssociation)
 
 testDescribeNetworkInterfaceAttributeResponse :: DescribeNetworkInterfaceAttributeResponse -> TestTree
-testDescribeNetworkInterfaceAttributeResponse = resp
+testDescribeNetworkInterfaceAttributeResponse = res
     "DescribeNetworkInterfaceAttributeResponse"
     "fixture/DescribeNetworkInterfaceAttributeResponse"
     (Proxy :: Proxy DescribeNetworkInterfaceAttribute)
 
 testDescribeReservedInstancesListingsResponse :: DescribeReservedInstancesListingsResponse -> TestTree
-testDescribeReservedInstancesListingsResponse = resp
+testDescribeReservedInstancesListingsResponse = res
     "DescribeReservedInstancesListingsResponse"
     "fixture/DescribeReservedInstancesListingsResponse"
     (Proxy :: Proxy DescribeReservedInstancesListings)
 
 testDeleteNetworkInterfaceResponse :: DeleteNetworkInterfaceResponse -> TestTree
-testDeleteNetworkInterfaceResponse = resp
+testDeleteNetworkInterfaceResponse = res
     "DeleteNetworkInterfaceResponse"
     "fixture/DeleteNetworkInterfaceResponse"
     (Proxy :: Proxy DeleteNetworkInterface)
 
 testDeleteInternetGatewayResponse :: DeleteInternetGatewayResponse -> TestTree
-testDeleteInternetGatewayResponse = resp
+testDeleteInternetGatewayResponse = res
     "DeleteInternetGatewayResponse"
     "fixture/DeleteInternetGatewayResponse"
     (Proxy :: Proxy DeleteInternetGateway)
 
 testDeleteSubnetResponse :: DeleteSubnetResponse -> TestTree
-testDeleteSubnetResponse = resp
+testDeleteSubnetResponse = res
     "DeleteSubnetResponse"
     "fixture/DeleteSubnetResponse"
     (Proxy :: Proxy DeleteSubnet)
 
 testCreateVPCEndpointResponse :: CreateVPCEndpointResponse -> TestTree
-testCreateVPCEndpointResponse = resp
+testCreateVPCEndpointResponse = res
     "CreateVPCEndpointResponse"
     "fixture/CreateVPCEndpointResponse"
     (Proxy :: Proxy CreateVPCEndpoint)
 
 testDescribeImportSnapshotTasksResponse :: DescribeImportSnapshotTasksResponse -> TestTree
-testDescribeImportSnapshotTasksResponse = resp
+testDescribeImportSnapshotTasksResponse = res
     "DescribeImportSnapshotTasksResponse"
     "fixture/DescribeImportSnapshotTasksResponse"
     (Proxy :: Proxy DescribeImportSnapshotTasks)
 
 testCopyImageResponse :: CopyImageResponse -> TestTree
-testCopyImageResponse = resp
+testCopyImageResponse = res
     "CopyImageResponse"
     "fixture/CopyImageResponse"
     (Proxy :: Proxy CopyImage)
 
 testDisassociateRouteTableResponse :: DisassociateRouteTableResponse -> TestTree
-testDisassociateRouteTableResponse = resp
+testDisassociateRouteTableResponse = res
     "DisassociateRouteTableResponse"
     "fixture/DisassociateRouteTableResponse"
     (Proxy :: Proxy DisassociateRouteTable)
 
 testUnmonitorInstancesResponse :: UnmonitorInstancesResponse -> TestTree
-testUnmonitorInstancesResponse = resp
+testUnmonitorInstancesResponse = res
     "UnmonitorInstancesResponse"
     "fixture/UnmonitorInstancesResponse"
     (Proxy :: Proxy UnmonitorInstances)
 
 testImportVolumeResponse :: ImportVolumeResponse -> TestTree
-testImportVolumeResponse = resp
+testImportVolumeResponse = res
     "ImportVolumeResponse"
     "fixture/ImportVolumeResponse"
     (Proxy :: Proxy ImportVolume)
 
 testDisableVGWRoutePropagationResponse :: DisableVGWRoutePropagationResponse -> TestTree
-testDisableVGWRoutePropagationResponse = resp
+testDisableVGWRoutePropagationResponse = res
     "DisableVGWRoutePropagationResponse"
     "fixture/DisableVGWRoutePropagationResponse"
     (Proxy :: Proxy DisableVGWRoutePropagation)
 
 testCreateSpotDatafeedSubscriptionResponse :: CreateSpotDatafeedSubscriptionResponse -> TestTree
-testCreateSpotDatafeedSubscriptionResponse = resp
+testCreateSpotDatafeedSubscriptionResponse = res
     "CreateSpotDatafeedSubscriptionResponse"
     "fixture/CreateSpotDatafeedSubscriptionResponse"
     (Proxy :: Proxy CreateSpotDatafeedSubscription)
 
 testAssignPrivateIPAddressesResponse :: AssignPrivateIPAddressesResponse -> TestTree
-testAssignPrivateIPAddressesResponse = resp
+testAssignPrivateIPAddressesResponse = res
     "AssignPrivateIPAddressesResponse"
     "fixture/AssignPrivateIPAddressesResponse"
     (Proxy :: Proxy AssignPrivateIPAddresses)
 
 testDeleteSnapshotResponse :: DeleteSnapshotResponse -> TestTree
-testDeleteSnapshotResponse = resp
+testDeleteSnapshotResponse = res
     "DeleteSnapshotResponse"
     "fixture/DeleteSnapshotResponse"
     (Proxy :: Proxy DeleteSnapshot)
 
 testDeleteCustomerGatewayResponse :: DeleteCustomerGatewayResponse -> TestTree
-testDeleteCustomerGatewayResponse = resp
+testDeleteCustomerGatewayResponse = res
     "DeleteCustomerGatewayResponse"
     "fixture/DeleteCustomerGatewayResponse"
     (Proxy :: Proxy DeleteCustomerGateway)
 
 testModifyInstanceAttributeResponse :: ModifyInstanceAttributeResponse -> TestTree
-testModifyInstanceAttributeResponse = resp
+testModifyInstanceAttributeResponse = res
     "ModifyInstanceAttributeResponse"
     "fixture/ModifyInstanceAttributeResponse"
     (Proxy :: Proxy ModifyInstanceAttribute)
 
 testCreateSecurityGroupResponse :: CreateSecurityGroupResponse -> TestTree
-testCreateSecurityGroupResponse = resp
+testCreateSecurityGroupResponse = res
     "CreateSecurityGroupResponse"
     "fixture/CreateSecurityGroupResponse"
     (Proxy :: Proxy CreateSecurityGroup)
 
 testCancelSpotInstanceRequestsResponse :: CancelSpotInstanceRequestsResponse -> TestTree
-testCancelSpotInstanceRequestsResponse = resp
+testCancelSpotInstanceRequestsResponse = res
     "CancelSpotInstanceRequestsResponse"
     "fixture/CancelSpotInstanceRequestsResponse"
     (Proxy :: Proxy CancelSpotInstanceRequests)
 
 testCreateRouteResponse :: CreateRouteResponse -> TestTree
-testCreateRouteResponse = resp
+testCreateRouteResponse = res
     "CreateRouteResponse"
     "fixture/CreateRouteResponse"
     (Proxy :: Proxy CreateRoute)
 
 testCreateNetworkACLEntryResponse :: CreateNetworkACLEntryResponse -> TestTree
-testCreateNetworkACLEntryResponse = resp
+testCreateNetworkACLEntryResponse = res
     "CreateNetworkACLEntryResponse"
     "fixture/CreateNetworkACLEntryResponse"
     (Proxy :: Proxy CreateNetworkACLEntry)
 
 testModifySnapshotAttributeResponse :: ModifySnapshotAttributeResponse -> TestTree
-testModifySnapshotAttributeResponse = resp
+testModifySnapshotAttributeResponse = res
     "ModifySnapshotAttributeResponse"
     "fixture/ModifySnapshotAttributeResponse"
     (Proxy :: Proxy ModifySnapshotAttribute)
 
 testEnableVGWRoutePropagationResponse :: EnableVGWRoutePropagationResponse -> TestTree
-testEnableVGWRoutePropagationResponse = resp
+testEnableVGWRoutePropagationResponse = res
     "EnableVGWRoutePropagationResponse"
     "fixture/EnableVGWRoutePropagationResponse"
     (Proxy :: Proxy EnableVGWRoutePropagation)
 
 testCreateSnapshotResponse :: Snapshot -> TestTree
-testCreateSnapshotResponse = resp
+testCreateSnapshotResponse = res
     "CreateSnapshotResponse"
     "fixture/CreateSnapshotResponse"
     (Proxy :: Proxy CreateSnapshot)
 
 testDescribeSpotFleetRequestHistoryResponse :: DescribeSpotFleetRequestHistoryResponse -> TestTree
-testDescribeSpotFleetRequestHistoryResponse = resp
+testDescribeSpotFleetRequestHistoryResponse = res
     "DescribeSpotFleetRequestHistoryResponse"
     "fixture/DescribeSpotFleetRequestHistoryResponse"
     (Proxy :: Proxy DescribeSpotFleetRequestHistory)
 
 testDeleteSpotDatafeedSubscriptionResponse :: DeleteSpotDatafeedSubscriptionResponse -> TestTree
-testDeleteSpotDatafeedSubscriptionResponse = resp
+testDeleteSpotDatafeedSubscriptionResponse = res
     "DeleteSpotDatafeedSubscriptionResponse"
     "fixture/DeleteSpotDatafeedSubscriptionResponse"
     (Proxy :: Proxy DeleteSpotDatafeedSubscription)
 
 testDescribePlacementGroupsResponse :: DescribePlacementGroupsResponse -> TestTree
-testDescribePlacementGroupsResponse = resp
+testDescribePlacementGroupsResponse = res
     "DescribePlacementGroupsResponse"
     "fixture/DescribePlacementGroupsResponse"
     (Proxy :: Proxy DescribePlacementGroups)
 
 testCreateReservedInstancesListingResponse :: CreateReservedInstancesListingResponse -> TestTree
-testCreateReservedInstancesListingResponse = resp
+testCreateReservedInstancesListingResponse = res
     "CreateReservedInstancesListingResponse"
     "fixture/CreateReservedInstancesListingResponse"
     (Proxy :: Proxy CreateReservedInstancesListing)
 
 testEnableVPCClassicLinkResponse :: EnableVPCClassicLinkResponse -> TestTree
-testEnableVPCClassicLinkResponse = resp
+testEnableVPCClassicLinkResponse = res
     "EnableVPCClassicLinkResponse"
     "fixture/EnableVPCClassicLinkResponse"
     (Proxy :: Proxy EnableVPCClassicLink)
 
 testDescribeKeyPairsResponse :: DescribeKeyPairsResponse -> TestTree
-testDescribeKeyPairsResponse = resp
+testDescribeKeyPairsResponse = res
     "DescribeKeyPairsResponse"
     "fixture/DescribeKeyPairsResponse"
     (Proxy :: Proxy DescribeKeyPairs)
 
 testRebootInstancesResponse :: RebootInstancesResponse -> TestTree
-testRebootInstancesResponse = resp
+testRebootInstancesResponse = res
     "RebootInstancesResponse"
     "fixture/RebootInstancesResponse"
     (Proxy :: Proxy RebootInstances)
 
 testAttachVPNGatewayResponse :: AttachVPNGatewayResponse -> TestTree
-testAttachVPNGatewayResponse = resp
+testAttachVPNGatewayResponse = res
     "AttachVPNGatewayResponse"
     "fixture/AttachVPNGatewayResponse"
     (Proxy :: Proxy AttachVPNGateway)
 
 testCreateVPNConnectionRouteResponse :: CreateVPNConnectionRouteResponse -> TestTree
-testCreateVPNConnectionRouteResponse = resp
+testCreateVPNConnectionRouteResponse = res
     "CreateVPNConnectionRouteResponse"
     "fixture/CreateVPNConnectionRouteResponse"
     (Proxy :: Proxy CreateVPNConnectionRoute)
 
 testDescribeClassicLinkInstancesResponse :: DescribeClassicLinkInstancesResponse -> TestTree
-testDescribeClassicLinkInstancesResponse = resp
+testDescribeClassicLinkInstancesResponse = res
     "DescribeClassicLinkInstancesResponse"
     "fixture/DescribeClassicLinkInstancesResponse"
     (Proxy :: Proxy DescribeClassicLinkInstances)
 
 testTerminateInstancesResponse :: TerminateInstancesResponse -> TestTree
-testTerminateInstancesResponse = resp
+testTerminateInstancesResponse = res
     "TerminateInstancesResponse"
     "fixture/TerminateInstancesResponse"
     (Proxy :: Proxy TerminateInstances)
 
 testCreateDHCPOptionsResponse :: CreateDHCPOptionsResponse -> TestTree
-testCreateDHCPOptionsResponse = resp
+testCreateDHCPOptionsResponse = res
     "CreateDHCPOptionsResponse"
     "fixture/CreateDHCPOptionsResponse"
     (Proxy :: Proxy CreateDHCPOptions)
 
 testAssociateRouteTableResponse :: AssociateRouteTableResponse -> TestTree
-testAssociateRouteTableResponse = resp
+testAssociateRouteTableResponse = res
     "AssociateRouteTableResponse"
     "fixture/AssociateRouteTableResponse"
     (Proxy :: Proxy AssociateRouteTable)
 
 testCreateImageResponse :: CreateImageResponse -> TestTree
-testCreateImageResponse = resp
+testCreateImageResponse = res
     "CreateImageResponse"
     "fixture/CreateImageResponse"
     (Proxy :: Proxy CreateImage)
 
 testDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse -> TestTree
-testDescribeAccountAttributesResponse = resp
+testDescribeAccountAttributesResponse = res
     "DescribeAccountAttributesResponse"
     "fixture/DescribeAccountAttributesResponse"
     (Proxy :: Proxy DescribeAccountAttributes)
 
 testResetImageAttributeResponse :: ResetImageAttributeResponse -> TestTree
-testResetImageAttributeResponse = resp
+testResetImageAttributeResponse = res
     "ResetImageAttributeResponse"
     "fixture/ResetImageAttributeResponse"
     (Proxy :: Proxy ResetImageAttribute)
 
 testDescribeNetworkACLsResponse :: DescribeNetworkACLsResponse -> TestTree
-testDescribeNetworkACLsResponse = resp
+testDescribeNetworkACLsResponse = res
     "DescribeNetworkACLsResponse"
     "fixture/DescribeNetworkACLsResponse"
     (Proxy :: Proxy DescribeNetworkACLs)
 
 testCancelImportTaskResponse :: CancelImportTaskResponse -> TestTree
-testCancelImportTaskResponse = resp
+testCancelImportTaskResponse = res
     "CancelImportTaskResponse"
     "fixture/CancelImportTaskResponse"
     (Proxy :: Proxy CancelImportTask)
 
 testGetConsoleOutputResponse :: GetConsoleOutputResponse -> TestTree
-testGetConsoleOutputResponse = resp
+testGetConsoleOutputResponse = res
     "GetConsoleOutputResponse"
     "fixture/GetConsoleOutputResponse"
     (Proxy :: Proxy GetConsoleOutput)
 
 testUnassignPrivateIPAddressesResponse :: UnassignPrivateIPAddressesResponse -> TestTree
-testUnassignPrivateIPAddressesResponse = resp
+testUnassignPrivateIPAddressesResponse = res
     "UnassignPrivateIPAddressesResponse"
     "fixture/UnassignPrivateIPAddressesResponse"
     (Proxy :: Proxy UnassignPrivateIPAddresses)
 
 testDeleteRouteTableResponse :: DeleteRouteTableResponse -> TestTree
-testDeleteRouteTableResponse = resp
+testDeleteRouteTableResponse = res
     "DeleteRouteTableResponse"
     "fixture/DeleteRouteTableResponse"
     (Proxy :: Proxy DeleteRouteTable)
 
 testDescribeImageAttributeResponse :: DescribeImageAttributeResponse -> TestTree
-testDescribeImageAttributeResponse = resp
+testDescribeImageAttributeResponse = res
     "DescribeImageAttributeResponse"
     "fixture/DescribeImageAttributeResponse"
     (Proxy :: Proxy DescribeImageAttribute)
 
 testDeleteDHCPOptionsResponse :: DeleteDHCPOptionsResponse -> TestTree
-testDeleteDHCPOptionsResponse = resp
+testDeleteDHCPOptionsResponse = res
     "DeleteDHCPOptionsResponse"
     "fixture/DeleteDHCPOptionsResponse"
     (Proxy :: Proxy DeleteDHCPOptions)
 
 testDescribeVPNGatewaysResponse :: DescribeVPNGatewaysResponse -> TestTree
-testDescribeVPNGatewaysResponse = resp
+testDescribeVPNGatewaysResponse = res
     "DescribeVPNGatewaysResponse"
     "fixture/DescribeVPNGatewaysResponse"
     (Proxy :: Proxy DescribeVPNGateways)
 
 testDetachClassicLinkVPCResponse :: DetachClassicLinkVPCResponse -> TestTree
-testDetachClassicLinkVPCResponse = resp
+testDetachClassicLinkVPCResponse = res
     "DetachClassicLinkVPCResponse"
     "fixture/DetachClassicLinkVPCResponse"
     (Proxy :: Proxy DetachClassicLinkVPC)
 
 testDescribeReservedInstancesModificationsResponse :: DescribeReservedInstancesModificationsResponse -> TestTree
-testDescribeReservedInstancesModificationsResponse = resp
+testDescribeReservedInstancesModificationsResponse = res
     "DescribeReservedInstancesModificationsResponse"
     "fixture/DescribeReservedInstancesModificationsResponse"
     (Proxy :: Proxy DescribeReservedInstancesModifications)
 
 testDescribeSpotInstanceRequestsResponse :: DescribeSpotInstanceRequestsResponse -> TestTree
-testDescribeSpotInstanceRequestsResponse = resp
+testDescribeSpotInstanceRequestsResponse = res
     "DescribeSpotInstanceRequestsResponse"
     "fixture/DescribeSpotInstanceRequestsResponse"
     (Proxy :: Proxy DescribeSpotInstanceRequests)
 
 testMonitorInstancesResponse :: MonitorInstancesResponse -> TestTree
-testMonitorInstancesResponse = resp
+testMonitorInstancesResponse = res
     "MonitorInstancesResponse"
     "fixture/MonitorInstancesResponse"
     (Proxy :: Proxy MonitorInstances)
 
 testDescribeRegionsResponse :: DescribeRegionsResponse -> TestTree
-testDescribeRegionsResponse = resp
+testDescribeRegionsResponse = res
     "DescribeRegionsResponse"
     "fixture/DescribeRegionsResponse"
     (Proxy :: Proxy DescribeRegions)
 
 testModifyVPCAttributeResponse :: ModifyVPCAttributeResponse -> TestTree
-testModifyVPCAttributeResponse = resp
+testModifyVPCAttributeResponse = res
     "ModifyVPCAttributeResponse"
     "fixture/ModifyVPCAttributeResponse"
     (Proxy :: Proxy ModifyVPCAttribute)
 
 testDescribeSpotFleetInstancesResponse :: DescribeSpotFleetInstancesResponse -> TestTree
-testDescribeSpotFleetInstancesResponse = resp
+testDescribeSpotFleetInstancesResponse = res
     "DescribeSpotFleetInstancesResponse"
     "fixture/DescribeSpotFleetInstancesResponse"
     (Proxy :: Proxy DescribeSpotFleetInstances)
 
 testDescribeVolumeStatusResponse :: DescribeVolumeStatusResponse -> TestTree
-testDescribeVolumeStatusResponse = resp
+testDescribeVolumeStatusResponse = res
     "DescribeVolumeStatusResponse"
     "fixture/DescribeVolumeStatusResponse"
     (Proxy :: Proxy DescribeVolumeStatus)
 
 testDeleteVolumeResponse :: DeleteVolumeResponse -> TestTree
-testDeleteVolumeResponse = resp
+testDeleteVolumeResponse = res
     "DeleteVolumeResponse"
     "fixture/DeleteVolumeResponse"
     (Proxy :: Proxy DeleteVolume)
 
 testDescribeImagesResponse :: DescribeImagesResponse -> TestTree
-testDescribeImagesResponse = resp
+testDescribeImagesResponse = res
     "DescribeImagesResponse"
     "fixture/DescribeImagesResponse"
     (Proxy :: Proxy DescribeImages)
 
 testCreateKeyPairResponse :: CreateKeyPairResponse -> TestTree
-testCreateKeyPairResponse = resp
+testCreateKeyPairResponse = res
     "CreateKeyPairResponse"
     "fixture/CreateKeyPairResponse"
     (Proxy :: Proxy CreateKeyPair)
 
 testRestoreAddressToClassicResponse :: RestoreAddressToClassicResponse -> TestTree
-testRestoreAddressToClassicResponse = resp
+testRestoreAddressToClassicResponse = res
     "RestoreAddressToClassicResponse"
     "fixture/RestoreAddressToClassicResponse"
     (Proxy :: Proxy RestoreAddressToClassic)
 
 testDescribeAvailabilityZonesResponse :: DescribeAvailabilityZonesResponse -> TestTree
-testDescribeAvailabilityZonesResponse = resp
+testDescribeAvailabilityZonesResponse = res
     "DescribeAvailabilityZonesResponse"
     "fixture/DescribeAvailabilityZonesResponse"
     (Proxy :: Proxy DescribeAvailabilityZones)
 
 testImportSnapshotResponse :: ImportSnapshotResponse -> TestTree
-testImportSnapshotResponse = resp
+testImportSnapshotResponse = res
     "ImportSnapshotResponse"
     "fixture/ImportSnapshotResponse"
     (Proxy :: Proxy ImportSnapshot)
 
 testAcceptVPCPeeringConnectionResponse :: AcceptVPCPeeringConnectionResponse -> TestTree
-testAcceptVPCPeeringConnectionResponse = resp
+testAcceptVPCPeeringConnectionResponse = res
     "AcceptVPCPeeringConnectionResponse"
     "fixture/AcceptVPCPeeringConnectionResponse"
     (Proxy :: Proxy AcceptVPCPeeringConnection)
 
 testDescribeRouteTablesResponse :: DescribeRouteTablesResponse -> TestTree
-testDescribeRouteTablesResponse = resp
+testDescribeRouteTablesResponse = res
     "DescribeRouteTablesResponse"
     "fixture/DescribeRouteTablesResponse"
     (Proxy :: Proxy DescribeRouteTables)

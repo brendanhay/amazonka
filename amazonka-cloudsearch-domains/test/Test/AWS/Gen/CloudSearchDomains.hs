@@ -54,27 +54,31 @@ import Test.AWS.CloudSearchDomains.Internal
 -- Requests
 
 testSuggest :: Suggest -> TestTree
-testSuggest = undefined
+testSuggest = req
+    "Suggest"
+    "fixture/Suggest"
 
 testSearch :: Search -> TestTree
-testSearch = undefined
+testSearch = req
+    "Search"
+    "fixture/Search"
 
 -- Responses
 
 testSuggestResponse :: SuggestResponse -> TestTree
-testSuggestResponse = resp
+testSuggestResponse = res
     "SuggestResponse"
     "fixture/SuggestResponse"
     (Proxy :: Proxy Suggest)
 
 testUploadDocumentsResponse :: UploadDocumentsResponse -> TestTree
-testUploadDocumentsResponse = resp
+testUploadDocumentsResponse = res
     "UploadDocumentsResponse"
     "fixture/UploadDocumentsResponse"
     (Proxy :: Proxy UploadDocuments)
 
 testSearchResponse :: SearchResponse -> TestTree
-testSearchResponse = resp
+testSearchResponse = res
     "SearchResponse"
     "fixture/SearchResponse"
     (Proxy :: Proxy Search)

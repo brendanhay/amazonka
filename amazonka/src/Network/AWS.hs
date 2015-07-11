@@ -13,10 +13,7 @@
 -- |
 -- Module      : Network.AWS
 -- Copyright   : (c) 2013-2015 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
@@ -243,28 +240,6 @@ presignWith e svc t ex x =
     withAuth (e ^. envAuth) $ \a ->
         return . view sgRequest $
             presigned a (e ^. envRegion) t ex svc (request x)
-
--- FIXME: info: Scope actions such that any HTTP response timeouts use
--- the supplied number of seconds.
---
--- By default timeouts are taken from the request's 'Service' definition.
--- This value is typically around 70s depending on the service.
---
--- If there is a timeout associated with the 'Env' 'Manager', this will take
--- precedence over the 'Service' default for _all_ requests.
---
---
--- The timeout selection is illustrated as:
---
--- * Use of 'timeout' to scope a specific timeout value.
---
--- * The 'Env' 'Manager' timeout if set.
---
--- * The 'Service' timeout if set.
---
--- * The default 'ClientRequest' timeout (approximately 30s).
--- timeout :: (MonadReader r m, AWSEnv r) => Seconds -> m a -> m a
--- timeout n = local (envManager . responseTimeout ?~ microseconds n)
 
 raw :: ( MonadCatch    m
        , MonadResource m

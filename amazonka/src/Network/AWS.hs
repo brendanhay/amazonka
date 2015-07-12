@@ -1,16 +1,4 @@
-{-# LANGUAGE FlexibleContexts           #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GADTs                      #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase                 #-}
-{-# LANGUAGE MultiParamTypeClasses      #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RankNTypes                 #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE ScopedTypeVariables        #-}
-{-# LANGUAGE TupleSections              #-}
-{-# LANGUAGE TypeFamilies               #-}
-{-# LANGUAGE UndecidableInstances       #-}
+{-# LANGUAGE FlexibleInstances #-}
 
 {-# OPTIONS_HADDOCK show-extensions #-}
 
@@ -22,7 +10,9 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- The core module for making requests to the various AWS services.
+-- Contains a specalised version of the "Control.Monad.Trans.AWS" transformer
+-- with lifted 'send', 'paginate' and 'await' functions suitable for embedding
+-- as a layer directly into your own application monad.
 module Network.AWS where
 
 import           Control.Monad.Catch          (MonadCatch)
@@ -40,8 +30,7 @@ import qualified Network.AWS.Env              as Env
 import           Network.AWS.Pager
 import           Network.AWS.Waiter
 
--- | 'IO' specialisation of the 'AWST' transformer. This allows the use of the
--- 'MonadAWS' class to
+-- | 'IO' specialisation of the 'AWST' transformer.
 type AWS = AWST IO
 
 -- | Monads in which 'AWS' actions may be embedded.
@@ -80,31 +69,33 @@ once = liftAWS . Env.once
 timeout :: MonadAWS m => Seconds -> AWS a -> m a
 timeout s = liftAWS . Env.timeout s
 
--- | Send a data type which is an instance of 'AWSRequest', returning either the
--- associated 'Rs' response type if successful, or an 'Error'.
+-- | Send a request, returning the associated response if successful,
+-- or an 'Error'.
 --
--- This includes 'HTTPExceptions', serialisation errors, and any service
--- errors returned as part of the 'Response'.
+-- 'Error' will include 'HTTPExceptions', serialisation errors, or any service
+-- specific errors.
 --
 -- /Note:/ Requests will be retried depending upon each service's respective
 -- strategy. This can be overriden using 'envRetry'. Requests which contain
--- streaming request bodies (such as S3's 'PutObject') are never considered for retries.
+-- streaming request bodies (such as S3's 'PutObject') are never considered
+-- for retries.
+--
+-- /See:/ 'sendWith'
 send :: (MonadAWS m, AWSRequest a) => a -> m (Either Error (Rs a))
 send = liftAWS . AWST.send
 
--- | Repeatedly send an instance of 'AWSPager' and paginate over the associated
--- 'Rs' response type in the success case, while results are available.
--- Otherwise return the related 'ServiceError' upon encountering an error.
+-- | Transparently paginate over multiple responses for supported requests
+-- while results are available.
 --
 -- /See:/ 'paginateWith'
 paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Either Error (Rs a))
 paginate = hoist liftAWS . AWST.paginate
 
--- | Poll the API until a predefined condition is fulfilled using the
--- supplied 'Wait' specification from the respective service.
+-- | Poll the API with the specified request until a 'Wait' condition is fulfilled.
 --
 -- The response will be either the first error returned that is not handled
--- by the specification, or the successful response from the await request.
+-- by the specification, or any subsequent successful response from the await
+-- request(s).
 --
 -- /Note:/ You can find any available 'Wait' specifications under then
 -- @Network.AWS.<ServiceName>.Waiters@ namespace for supported services.

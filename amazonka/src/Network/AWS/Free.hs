@@ -135,11 +135,6 @@ sendWith s x = liftF $ Send s x id
 -- 'Rs' response type in the success case, while results are available.
 -- Otherwise return the related 'ServiceError' upon encountering an error.
 --
--- /Note:/ The response's 'ResumableSource' will close when there are no more
--- results or the 'ResourceT' computation is unwrapped.
---
--- /See:/ 'runResourceT' for more information.
---
 -- /See:/ 'paginateWith'
 paginate :: (MonadFree Command m, AWSPager a)
          => a

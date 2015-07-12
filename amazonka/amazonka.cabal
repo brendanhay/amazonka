@@ -62,5 +62,5 @@ library
 
         , mmorph
         , free
-        , monad-control
+        , monad-control       >= 1
         , transformers-base

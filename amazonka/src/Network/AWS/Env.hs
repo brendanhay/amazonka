@@ -137,7 +137,7 @@ newEnvWith r c m = runExceptT $ env' `liftM` ExceptT (getAuth m c)
     env' = Env r logger check Nothing Nothing m
 
     logger _ _ = return ()
--- FIXME: check the usage of .. check.
+    -- FIXME: verify the usage of check.
     check  _ _ = return True
 
 -- | Scope an action within the specific 'Region'.

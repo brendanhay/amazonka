@@ -19,77 +19,76 @@
 -- This module offers a starting point for constructing more elaborate transformer
 -- stacks. For an example, see "Network.AWS".
 module Control.Monad.Trans.AWS
-    (
-    -- * Usage
-    -- $usage
-    -- $embedding
-
-    -- * Monad constraints
-    -- $constraints
-
-    -- ** AWST
-      AWST
-    , runAWST
-    , pureAWST
-
-    -- * Requests
-    -- ** Synchronous
-    , send
-    , sendWith
-    -- ** Asynchronous
-    -- $async
-    -- ** Paginated
-    , paginate
-    , paginateWith
-    -- ** Eventual consistency
-    , await
-    , awaitWith
-
-    , module Network.AWS.Env
-    , module Network.AWS.Auth
-    , module Network.AWS.Logger
-    , module Network.AWS.Internal.Body
-
-    -- * Errors
-    -- ** General
-    , AWSError     (..)
-    , Error
-
-    -- ** Service specific errors
-    , ServiceError
-    , errorService
-    , errorStatus
-    , errorHeaders
-    , errorCode
-    , errorMessage
-    , errorRequestId
-
-    -- ** Catching errors
-    , catching
-
-    -- ** Hoisting errors
-    , throwing
-    , hoistError
-
-    -- ** Error types
-    , ErrorCode    (..)
-    , ErrorMessage (..)
-    , RequestId    (..)
-
-    -- * Types
-    , module Network.AWS.Types
-    -- ** Seconds
-    , Seconds      (..)
-    , _Seconds
-    , microseconds
-
-    -- * Serialisation
-    -- ** Text
-    , ToText       (..)
-    , FromText     (..)
-    -- ** Log messages
-    , ToBuilder    (..)
+    ( module Control.Monad.Trans.AWS
+    , module Network.AWS.Free
     ) where
+    -- (
+    -- -- * Monad constraints
+    -- -- $constraints
+
+    -- -- ** AWST
+    --   AWST
+    -- , runAWST
+    -- , pureAWST
+
+    -- -- * Requests
+    -- -- ** Synchronous
+    -- , send
+    -- , sendWith
+    -- -- ** Asynchronous
+    -- -- $async
+    -- -- ** Paginated
+    -- , paginate
+    -- , paginateWith
+    -- -- ** Eventual consistency
+    -- , await
+    -- , awaitWith
+
+    -- , module Network.AWS.Env
+    -- , module Network.AWS.Auth
+    -- , module Network.AWS.Logger
+    -- , module Network.AWS.Internal.Body
+
+    -- -- * Errors
+    -- -- ** General
+    -- , AWSError     (..)
+    -- , Error
+
+    -- -- ** Service specific errors
+    -- , ServiceError
+    -- , errorService
+    -- , errorStatus
+    -- , errorHeaders
+    -- , errorCode
+    -- , errorMessage
+    -- , errorRequestId
+
+    -- -- ** Catching errors
+    -- , catching
+
+    -- -- ** Hoisting errors
+    -- , throwing
+    -- , hoistError
+
+    -- -- ** Error types
+    -- , ErrorCode    (..)
+    -- , ErrorMessage (..)
+    -- , RequestId    (..)
+
+    -- -- * Types
+    -- , module Network.AWS.Types
+    -- -- ** Seconds
+    -- , Seconds      (..)
+    -- , _Seconds
+    -- , microseconds
+
+    -- -- * Serialisation
+    -- -- ** Text
+    -- , ToText       (..)
+    -- , FromText     (..)
+    -- -- ** Log messages
+    -- , ToBuilder    (..)
+    -- ) where
 
 import           Control.Applicative
 import           Control.Monad.Base
@@ -121,55 +120,55 @@ import           Network.AWS.Waiter
 -- FIXME: Philosophical notes on the use of lenses, and notes about template-haskell usage.
 -- FIXME: Notes about associated response types, signers, service configuration.
 -- FIXME: {-# OPTIONS_HADDOCK show-extensions #-} everywhere?
--- FIXME: Correct haddock module headings
--- FIXME: Remove personal email address
+-- FIXME: Correct haddock module headings.
+-- FIXME: Remove personal email address.
+-- FIXME: Note/example about mocking.
 
-{- $usage
-This modules provides a set of common operations against the remote
-Amazon Web Services APIs for the various @amazonka-*@ libraries.
+newtype AWST m a = AWST { unAWST :: ProgramT (ReaderT Env m) a }
+    deriving
+        ( Functor
+        , Applicative
+        , Monad
+        , MonadThrow
+        , MonadIO
+        , MonadFree   Command
+        , MonadReader Env
+        )
 
-The key functions dealing with the request/response life cycle are:
+instance MonadTrans AWST where
+    lift = AWST . lift . lift
 
-* 'send'
+instance MonadBase b m => MonadBase b (AWST m) where
+    liftBase = liftBaseDefault
 
-* 'paginate'
+instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
+    type StM (AWST m) a = StM (ProgramT (ReaderT Env m)) a
 
-* 'await'
+    liftBaseWith f = AWST . liftBaseWith $ \runInBase -> f (runInBase . unAWST)
+    restoreM       = AWST . restoreM
 
-To utilise these, you will need to specify what 'Region' you wish to operate in
-and your Amazon credentials for AuthN/AuthZ purposes.
+instance MonadResource m => MonadResource (AWST m) where
+    liftResourceT = lift . liftResourceT
 
-'Credentials' can be supplied in a number of ways. Either via explicit keys,
-via session profiles, or have Amazonka determine the credentials from an
-underlying IAM Role/Profile.
+instance MFunctor AWST where
+    hoist nat (AWST m) = AWST (hoistFreeT (hoist nat) m)
 
-As a basic example, you might wish to store an object in an S3 bucket using
-<http://hackage.haskell.org/package/amazonka-s3 amazonka-s3>:
+runAWST :: (MonadCatch m, MonadResource m)
+        => Env
+        -> AWST m a
+        -> m a
+runAWST e (AWST m) = runReaderT (runProgramT m) e
 
-@
-import Control.Lens
-import Network.AWS
-import Network.AWS.S3
-import System.IO
+pureAWST :: Monad m
+         => (forall s a. Service s ->           a -> Either Error (Rs a))
+         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
+         -> Env
+         -> AWST m b
+         -> m b
+pureAWST f g e (AWST m) = runReaderT (pureProgramT f g m) e
 
-example :: IO (Either Error PutObjectResponse)
-example = do
-    -- To specify configuration preferences, 'newEnv' is used to create a new 'Env'. The 'Region' denotes the AWS region requests will be performed against,
-    -- and 'Credentials' is used to specify the desired mechanism for supplying or retrieving AuthN/AuthZ information.
-    -- In this case, 'Discover' will cause the library to try a number of options such as default environment variables, or an instance's IAM Profile:
-    e <- newEnv Frankfurt Discover
-
-    -- A new 'Logger' to replace the default noop logger is created, with the logger set to print debug information and errors to stdout:
-    l <- newLogger Debug stdout
-
-    -- The payload (and hash) for the S3 object is retrieved from a FilePath:
-    b <- sourceFileIO "local\/path\/to\/object-payload"
-
-    -- We now run the AWS computation with the overriden logger, performing the PutObject request:
-    runAWS (e & envLogger .~ l) $
-        send (putObject "bucket-name" "object-key" b)
-@
--}
+hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
+hoistError = either (throwing _Error) pure
 
 {- $embedding
 The following is a more advanced example, of how you might embed Amazonka actions
@@ -232,92 +231,3 @@ handle AWS specific errors:
 
 > catching _ServiceError $ MyApp (send Bar) :: (ServiceError -> MyApp Bar) -> MyApp Bar
 -}
-
-{- $async
-Requests can be sent asynchronously, but due to guarantees about resource closure
-require the use of <http://hackage.haskell.org/package/lifted-async lifted-async>.
-
-The following example demonstrates retrieving two objects from S3 concurrently:
-
-> import Control.Concurrent.Async.Lifted
-> import Control.Lens
-> import Network.AWS
-> import Network.AWS.S3
->
-> do x   <- async . send $ getObject "bucket" "prefix/object-foo"
->    y   <- async . send $ getObject "bucket" "prefix/object-bar"
->    foo <- wait x
->    bar <- wait y
->    ...
-
-/See:/ <http://hackage.haskell.org/package/async Control.Concurrent.Async> and <http://hackage.haskell.org/package/lifted-async Control.Concurrent.Async.Lifted>
--}
-
-{- $constraints
-The function signatures in this module specify constraints using <http://hackage.haskell.org/package/mtl mtl>
-classes in order to keep assumptions as general as possible.  In fact, 'AWST' and 'AWS' are simply
-type aliases representing potential specialisations of 'MonadAWS'. All functions
-in this module will specialise to your application stack if it also fulfils these
-constraints, making it easy to embed any AWS related computation in your application.
-An extended example is provided in #usage.
-
-The two core constraints that you will frequently see are:
-
-For some environment 'r', a 'Lens' is provided by 'AWSEnv' 'r' to obtain the AWS specific 'Env' contained in 'r':
-
-@
-(MonadReader r m, AWSEnv r)
-@
-
-and for some error 'e', a 'Prism' is provided to de/construct the AWS specific 'Error' within 'e':
-
-@
-(MonadError e m, AWSEnv e)
-@
--}
-
-newtype AWST m a = AWST { unAWST :: ProgramT (ReaderT Env m) a }
-    deriving
-        ( Functor
-        , Applicative
-        , Monad
-        , MonadThrow
-        , MonadIO
-        , MonadFree   Command
-        , MonadReader Env
-        )
-
-instance MonadTrans AWST where
-    lift = AWST . lift . lift
-
-instance MonadBase b m => MonadBase b (AWST m) where
-    liftBase = liftBaseDefault
-
-instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
-    type StM (AWST m) a = StM (ProgramT (ReaderT Env m)) a
-
-    liftBaseWith f = AWST . liftBaseWith $ \runInBase -> f (runInBase . unAWST)
-    restoreM       = AWST . restoreM
-
-instance MonadResource m => MonadResource (AWST m) where
-    liftResourceT = lift . liftResourceT
-
-instance MFunctor AWST where
-    hoist nat (AWST m) = AWST (hoistFreeT (hoist nat) m)
-
-runAWST :: (MonadCatch m, MonadResource m)
-        => Env
-        -> AWST m a
-        -> m a
-runAWST e (AWST m) = runReaderT (runProgramT m) e
-
-pureAWST :: Monad m
-         => (forall s a. Service s ->           a -> Either Error (Rs a))
-         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
-         -> Env
-         -> AWST m b
-         -> m b
-pureAWST f g e (AWST m) = runReaderT (pureProgramT f g m) e
-
-hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
-hoistError = either (throwing _Error) pure

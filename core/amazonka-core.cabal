@@ -17,11 +17,8 @@ description:
     Amazonka related Amazon Web Services SDKs.
     .
     The external interface of this library is stable with respect to the
-    downstream Amazonka libraries, only, and as such is probably not suitable
+    downstream Amazonka libraries, only, and as such is not suitable
     for use in non-Amazonka projects.
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:              git

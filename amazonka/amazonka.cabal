@@ -15,9 +15,6 @@ cabal-version:         >= 1.10
 description:
     Client library containing request and response primitives to be used
     alongside the types from all amazonka related service libraries.
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

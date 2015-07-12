@@ -63,6 +63,5 @@ library
 
         , mmorph
         , free
-        , lifted-async
         , monad-control
         , transformers-base

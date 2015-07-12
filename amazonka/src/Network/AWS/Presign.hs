@@ -16,35 +16,11 @@ module Network.AWS.Presign where
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
-import           Control.Monad.Catch             (MonadCatch (..), catch)
-import           Control.Monad.Error.Lens        (catching)
 import           Control.Monad.Except
-import           Control.Monad.Reader
-import           Control.Monad.Trans.Resource
-import           Data.Bifunctor
-import           Data.Conduit                    hiding (await)
-import           Data.Time                       (getCurrentTime)
-import           Network.AWS.Auth
 import           Network.AWS.Data.Time
 import           Network.AWS.Env
-import           Network.AWS.Error
-import           Network.AWS.Internal.Body
-import           Network.AWS.Internal.Retry
-import           Network.AWS.Logger
-import           Network.AWS.Pager
 import           Network.AWS.Prelude
-import           Network.AWS.Request             (requestURL)
-import           Network.AWS.Sign.V4
-import           Network.AWS.Types
-import           Network.AWS.Waiter
-import           Network.HTTP.Conduit            hiding (Proxy, Request,
-                                                  Response)
-
-import           Control.Concurrent.Async.Lifted
-import           Control.Monad.Base
-import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Free        (FreeF (..), FreeT (..))
-import           Control.Monad.Trans.Free.Church
+import           Network.AWS.Request   (requestURL)
 
 -- /See:/ 'presign', 'presignWith'
 presignURL :: (MonadIO m, AWSPresigner (Sg (Sv a)), AWSRequest a)

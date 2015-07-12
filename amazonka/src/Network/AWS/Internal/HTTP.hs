@@ -20,14 +20,18 @@ module Network.AWS.Internal.HTTP
     ) where
 
 import           Control.Monad
+import           Control.Monad.Catch
 import           Control.Monad.IO.Class
+import           Control.Monad.Trans.Resource
 import           Control.Retry
-import           Data.List              (intersperse)
+import           Data.List                    (intersperse)
 import           Data.Monoid
+import           Data.Time
 import           Network.AWS.Env
 import           Network.AWS.Logger
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
+import           Network.HTTP.Conduit         hiding (Request, Response)
 
 perform :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
         => Env

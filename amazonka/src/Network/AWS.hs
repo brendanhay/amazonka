@@ -25,35 +25,19 @@
 -- The core module for making requests to the various AWS services.
 module Network.AWS where
 
-import           Control.Lens
-import           Control.Monad
-import           Control.Monad.Base
-import           Control.Monad.Catch             (MonadCatch)
+import           Control.Monad.Catch          (MonadCatch)
 import           Control.Monad.Except
 import           Control.Monad.Morph
 import           Control.Monad.Reader
-import qualified Control.Monad.State.Lazy        as LS
-import qualified Control.Monad.State.Strict      as S
-import           Control.Monad.Trans.AWS         as AWST
-import           Control.Monad.Trans.AWS         (AWST, runAWST)
-import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Free.Church
+import qualified Control.Monad.State.Lazy     as LS
+import qualified Control.Monad.State.Strict   as S
+import           Control.Monad.Trans.AWS      as AWST
 import           Control.Monad.Trans.Identity
 import           Control.Monad.Trans.Maybe
 import           Control.Monad.Trans.Resource
-import           Data.Conduit                    hiding (await)
-import           Data.Time                       (getCurrentTime)
-import           Network.AWS.Data.Time
-import           Network.AWS.Env                 hiding (once, timeout, within)
-import qualified Network.AWS.Env                 as Env
-import           Network.AWS.Error
-import           Network.AWS.Free.IO
-import           Network.AWS.Free.Program
-import           Network.AWS.Free.Pure
+import           Data.Conduit                 hiding (await)
+import qualified Network.AWS.Env              as Env
 import           Network.AWS.Pager
-import           Network.AWS.Prelude
-import qualified Network.AWS.Presign             as Sign
-import           Network.AWS.Request             (requestURL)
 import           Network.AWS.Waiter
 
 type AWS = AWST IO

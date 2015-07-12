@@ -20,89 +20,80 @@
 --
 -- This module offers a starting point for constructing more elborate transformer
 -- stacks. For an example, see 'Network.AWS'.
-module Control.Monad.Trans.AWS where
-    -- (
-    -- -- * Usage
-    -- -- $usage
-    -- -- $embedding
+module Control.Monad.Trans.AWS
+    (
+    -- * Usage
+    -- $usage
+    -- $embedding
 
-    -- -- * Monad constraints
-    -- -- $constraints
-    --   MonadAWS
-    -- -- ** AWST
-    -- , AWST
-    -- , runAWST
-    -- -- ** AWS
-    -- , AWS
-    -- , runAWS
+    -- * Monad constraints
+    -- $constraints
 
-    -- -- * Requests
-    -- -- ** Synchronous
-    -- , send_
-    -- , send
-    -- , sendWith
-    -- -- ** Asynchronous
-    -- -- $async
-    -- -- ** Paginated
-    -- , paginate
-    -- , paginateWith
-    -- -- ** Eventual consistency
-    -- , await
-    -- , awaitWith
-    -- -- ** Pre-signing
-    -- , presign
-    -- , presignURL
-    -- , presignWith
-    -- -- ** Configuring
-    -- , within
-    -- , once
-    -- , timeout
+    -- ** AWST
+      AWST
+    , runAWST
+    , pureAWST
 
-    -- , module Network.AWS.Env
-    -- , module Network.AWS.Auth
-    -- , module Network.AWS.Logger
-    -- , module Network.AWS.Internal.Body
+    -- * Requests
+    -- ** Synchronous
+    , send
+    , sendWith
+    -- ** Asynchronous
+    -- $async
+    -- ** Paginated
+    , paginate
+    , paginateWith
+    -- ** Eventual consistency
+    , await
+    , awaitWith
 
-    -- -- * Errors
-    -- -- ** General
-    -- , AWSError     (..)
-    -- , Error
+    , module Network.AWS.Env
+    , module Network.AWS.Auth
+    , module Network.AWS.Logger
+    , module Network.AWS.Internal.Body
 
-    -- -- ** Service specific errors
-    -- , ServiceError
-    -- , errorService
-    -- , errorStatus
-    -- , errorHeaders
-    -- , errorCode
-    -- , errorMessage
-    -- , errorRequestId
+    -- * Errors
+    -- ** General
+    , AWSError     (..)
+    , Error
 
-    -- -- ** Catching errors
-    -- , catching
+    -- ** Service specific errors
+    , ServiceError
+    , errorService
+    , errorStatus
+    , errorHeaders
+    , errorCode
+    , errorMessage
+    , errorRequestId
 
-    -- -- ** Error types
-    -- , ErrorCode    (..)
-    -- , ErrorMessage (..)
-    -- , RequestId    (..)
+    -- ** Catching errors
+    , catching
 
-    -- -- * Types
-    -- , module Network.AWS.Types
-    -- -- ** Seconds
-    -- , Seconds      (..)
-    -- , _Seconds
-    -- , microseconds
+    -- ** Hoisting errors
+    , throwing
+    , hoistError
 
-    -- -- * Serialisation
-    -- -- ** Text
-    -- , ToText       (..)
-    -- , FromText     (..)
-    -- -- ** Log messages
-    -- , ToBuilder    (..)
-    -- ) where
+    -- ** Error types
+    , ErrorCode    (..)
+    , ErrorMessage (..)
+    , RequestId    (..)
+
+    -- * Types
+    , module Network.AWS.Types
+    -- ** Seconds
+    , Seconds      (..)
+    , _Seconds
+    , microseconds
+
+    -- * Serialisation
+    -- ** Text
+    , ToText       (..)
+    , FromText     (..)
+    -- ** Log messages
+    , ToBuilder    (..)
+    ) where
 
 import           Control.Applicative
-import           Control.Lens
-import           Control.Monad
 import           Control.Monad.Base
 import           Control.Monad.Catch          (MonadCatch)
 import           Control.Monad.Error.Lens     (catching, throwing)
@@ -112,21 +103,15 @@ import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
-import           Data.Conduit                 hiding (await)
-import qualified Network.AWS                  as AWS
 import           Network.AWS.Auth
 import           Network.AWS.Data.Time
 import           Network.AWS.Env
 import           Network.AWS.Error
-import           Network.AWS.Free.IO
-import           Network.AWS.Free.Program
-import           Network.AWS.Free.Pure
+import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
-import           Network.AWS.Pager
 import           Network.AWS.Prelude
-import           Network.AWS.Types            hiding ()
-import           Network.AWS.Waiter
+import           Network.AWS.Types
 
 -- FIXME: Add explanation about the use of constraints and
 --   how to build a monad transformer stack, embed it, etc.

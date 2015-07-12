@@ -12,6 +12,7 @@
 {-# LANGUAGE TupleSections              #-}
 {-# LANGUAGE TypeFamilies               #-}
 {-# LANGUAGE UndecidableInstances       #-}
+{-# LANGUAGE ViewPatterns               #-}
 
 {-# OPTIONS_HADDOCK show-extensions #-}
 
@@ -29,35 +30,21 @@ module Network.AWS.Free where
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
-import           Control.Monad.Catch             (MonadCatch (..), catch)
-import           Control.Monad.Error.Lens        (catching)
+import           Control.Monad.Base
+import           Control.Monad.Catch          (MonadCatch (..))
 import           Control.Monad.Except
 import           Control.Monad.Reader
+import           Control.Monad.Trans.Control
+import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
 import           Data.Bifunctor
-import           Data.Conduit                    hiding (await)
-import           Data.Time                       (getCurrentTime)
-import           Network.AWS.Auth
-import           Network.AWS.Data.Time
+import           Data.Conduit                 hiding (await)
 import           Network.AWS.Env
 import           Network.AWS.Error
-import           Network.AWS.Internal.Body
-import           Network.AWS.Internal.Retry
-import           Network.AWS.Logger
+import           Network.AWS.Internal.HTTP
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
-import           Network.AWS.Request             (requestURL)
-import           Network.AWS.Sign.V4
-import           Network.AWS.Types
 import           Network.AWS.Waiter
-import           Network.HTTP.Conduit            hiding (Proxy, Request,
-                                                  Response)
-
-import           Control.Concurrent.Async.Lifted
-import           Control.Monad.Base
-import           Control.Monad.Trans.Control
-import           Control.Monad.Trans.Free        (FreeF (..), FreeT (..))
-import           Control.Monad.Trans.Free.Church
 
 data Command r where
     Send  :: (AWSSigner (Sg s), AWSRequest a)
@@ -98,6 +85,28 @@ instance MonadThrow m => MonadThrow (ProgramT m) where
 instance MonadResource m => MonadResource (ProgramT m) where
     liftResourceT = lift . liftResourceT
 
+runProgramT :: (MonadCatch m, MonadResource m, MonadReader r m, AWSEnv r)
+            => ProgramT m a
+            -> m a
+runProgramT = iterT go
+  where
+    go (Send s (request -> x) k) = do
+        e <- view env
+        retrier e s x (perform e s x) >>= k . second snd
+
+    go (Await s w (request -> x) k) = do
+        e <- view env
+        waiter e w x (perform e s x) >>= k . second snd
+
+pureProgramT :: Monad m
+             => (forall a. a -> Either Error (Rs a))
+             -> ProgramT m b
+             -> m b
+pureProgramT f = iterT go
+  where
+    go (Send  _   x k) = k (f x)
+    go (Await _ _ x k) = k (f x)
+
 -- | Send a data type which is an instance of 'AWSRequest', returning either the
 -- associated 'Rs' response type if successful, or an 'Error'.
 --
@@ -112,7 +121,7 @@ instance MonadResource m => MonadResource (ProgramT m) where
 send :: (MonadFree Command m, AWSRequest a)
      => a
      -> m (Either Error (Rs a))
-send x = sendWithF (serviceOf x) x
+send x = sendWith (serviceOf x) x
 
 sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
          => Service s
@@ -133,21 +142,21 @@ sendWith s x = liftF $ Send s x id
 paginate :: (MonadFree Command m, AWSPager a)
          => a
          -> Source m (Either Error (Rs a))
-paginate x = paginateWithF (serviceOf x) x
+paginate x = paginateWith (serviceOf x) x
 
 paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
              => Service s
              -> a
              -> Source m (Either Error (Rs a))
 paginateWith s x = do
-    !y <- lift (sendWithF s x)
+    !y <- lift (sendWith s x)
     yield y
     case y of
         Left  _ -> pure ()
         Right z ->
             case page x z of
                 Nothing -> pure ()
-                Just !r -> paginateWithF s r
+                Just !r -> paginateWith s r
 
 -- | Poll the API until a predefined condition is fulfilled using the
 -- supplied 'Wait' specification from the respective service.
@@ -163,7 +172,7 @@ await :: (MonadFree Command m, AWSRequest a)
       => Wait a
       -> a
       -> m (Either Error (Rs a))
-await w x = awaitWithF (serviceOf x) w x
+await w x = awaitWith (serviceOf x) w x
 
 awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
           => Service s

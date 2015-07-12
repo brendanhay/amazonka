@@ -34,10 +34,12 @@ library
         , Network.AWS
         , Network.AWS.Auth
         , Network.AWS.Env
+        , Network.AWS.Free
         , Network.AWS.EC2.Metadata
+        , Network.AWS.Presign
 
     other-modules:
-          Network.AWS.Internal.Retry
+          Network.AWS.Internal.HTTP
         , Network.AWS.Internal.Body
 
     build-depends:
@@ -58,3 +60,9 @@ library
         , time                >= 1.2
         , transformers        >= 0.2
         , transformers-compat >= 0.3
+
+        , mmorph
+        , free
+        , lifted-async
+        , monad-control
+        , transformers-base

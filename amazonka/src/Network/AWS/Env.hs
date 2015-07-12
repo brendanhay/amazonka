@@ -18,15 +18,19 @@ module Network.AWS.Env
     -- ** Creating the environment
     , newEnv
     , newEnvWith
+    -- ** Manipulating the environment
+    , within
+    , once
+    , timeout
     -- ** Response configuration
     , timeoutFor
-    , noRetries
     ) where
 
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
 import           Control.Monad.IO.Class
+import           Control.Monad.Reader
 import           Control.Monad.Trans.Except
 import           Control.Retry
 import           Data.Monoid
@@ -136,13 +140,22 @@ newEnvWith r c m = runExceptT $ env' `liftM` ExceptT (getAuth m c)
 -- FIXME: check the usage of .. check.
     check  _ _ = return True
 
+-- | Scope an action within the specific 'Region'.
+within :: (MonadReader r m, AWSEnv r) => Region -> m a -> m a
+within r = local (envRegion .~ r)
+
+-- | Scope an action such that any retry logic for the 'Service' is
+-- ignored and any requests will at most be sent once.
+once :: (MonadReader r m, AWSEnv r) => m a -> m a
+once = local $ \e -> e
+    & envRetryPolicy ?~ limitRetries 0
+    & envRetryCheck  .~ (\_ _ -> return False)
+
+-- | Scope an action such that any HTTP response use this timeout value.
+timeout :: (MonadReader r m, AWSEnv r) => Seconds -> m a -> m a
+timeout s = local (envTimeout ?~ s)
+
 -- | Returns the possible HTTP response timeout value in microseconds
 -- given the timeout configuration sources.
 timeoutFor :: AWSEnv a => a -> Service s -> Maybe Int
 timeoutFor e s = microseconds <$> (e ^. envTimeout <|> _svcTimeout s)
-
--- | Updates the settings used by the retry logic to ensure no retries occur.
-noRetries :: AWSEnv a => a -> a
-noRetries  e = e
-    & envRetryPolicy ?~ limitRetries 0
-    & envRetryCheck  .~ (\_ _ -> return False)

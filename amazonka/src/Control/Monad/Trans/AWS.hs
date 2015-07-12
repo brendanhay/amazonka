@@ -1,7 +1,12 @@
-{-# LANGUAGE ConstraintKinds  #-}
-{-# LANGUAGE FlexibleContexts #-}
-{-# LANGUAGE LambdaCase       #-}
-{-# LANGUAGE RankNTypes       #-}
+{-# LANGUAGE ConstraintKinds            #-}
+{-# LANGUAGE FlexibleContexts           #-}
+{-# LANGUAGE FlexibleInstances          #-}
+{-# LANGUAGE GeneralizedNewtypeDeriving #-}
+{-# LANGUAGE LambdaCase                 #-}
+{-# LANGUAGE MultiParamTypeClasses      #-}
+{-# LANGUAGE RankNTypes                 #-}
+{-# LANGUAGE TypeFamilies               #-}
+{-# LANGUAGE UndecidableInstances       #-}
 
 {-# OPTIONS_HADDOCK show-extensions #-}
 
@@ -13,95 +18,99 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- The core module for making requests to the various AWS services and
--- building your own Monad transformer stack.
-module Control.Monad.Trans.AWS
-    (
-    -- * Usage
-    -- $usage
-    -- $embedding
+-- This module offers a starting point for constructing more elborate transformer
+-- stacks. For an example, see 'Network.AWS'.
+module Control.Monad.Trans.AWS where
+    -- (
+    -- -- * Usage
+    -- -- $usage
+    -- -- $embedding
 
-    -- * Monad constraints
-    -- $constraints
-      MonadAWS
-    -- ** AWST
-    , AWST
-    , runAWST
-    -- ** AWS
-    , AWS
-    , runAWS
+    -- -- * Monad constraints
+    -- -- $constraints
+    --   MonadAWS
+    -- -- ** AWST
+    -- , AWST
+    -- , runAWST
+    -- -- ** AWS
+    -- , AWS
+    -- , runAWS
 
-    -- * Requests
-    -- ** Synchronous
-    , send_
-    , send
-    , sendWith
-    -- ** Asynchronous
-    -- $async
-    -- ** Paginated
-    , paginate
-    , paginateWith
-    -- ** Eventual consistency
-    , await
-    , awaitWith
-    -- ** Pre-signing
-    , presign
-    , presignURL
-    , presignWith
-    -- ** Configuring
-    , within
-    , once
-    , timeout
+    -- -- * Requests
+    -- -- ** Synchronous
+    -- , send_
+    -- , send
+    -- , sendWith
+    -- -- ** Asynchronous
+    -- -- $async
+    -- -- ** Paginated
+    -- , paginate
+    -- , paginateWith
+    -- -- ** Eventual consistency
+    -- , await
+    -- , awaitWith
+    -- -- ** Pre-signing
+    -- , presign
+    -- , presignURL
+    -- , presignWith
+    -- -- ** Configuring
+    -- , within
+    -- , once
+    -- , timeout
 
-    , module Network.AWS.Env
-    , module Network.AWS.Auth
-    , module Network.AWS.Logger
-    , module Network.AWS.Internal.Body
+    -- , module Network.AWS.Env
+    -- , module Network.AWS.Auth
+    -- , module Network.AWS.Logger
+    -- , module Network.AWS.Internal.Body
 
-    -- * Errors
-    -- ** General
-    , AWSError     (..)
-    , Error
+    -- -- * Errors
+    -- -- ** General
+    -- , AWSError     (..)
+    -- , Error
 
-    -- ** Service specific errors
-    , ServiceError
-    , errorService
-    , errorStatus
-    , errorHeaders
-    , errorCode
-    , errorMessage
-    , errorRequestId
+    -- -- ** Service specific errors
+    -- , ServiceError
+    -- , errorService
+    -- , errorStatus
+    -- , errorHeaders
+    -- , errorCode
+    -- , errorMessage
+    -- , errorRequestId
 
-    -- ** Catching errors
-    , catching
+    -- -- ** Catching errors
+    -- , catching
 
-    -- ** Error types
-    , ErrorCode    (..)
-    , ErrorMessage (..)
-    , RequestId    (..)
+    -- -- ** Error types
+    -- , ErrorCode    (..)
+    -- , ErrorMessage (..)
+    -- , RequestId    (..)
 
-    -- * Types
-    , module Network.AWS.Types
-    -- ** Seconds
-    , Seconds      (..)
-    , _Seconds
-    , microseconds
+    -- -- * Types
+    -- , module Network.AWS.Types
+    -- -- ** Seconds
+    -- , Seconds      (..)
+    -- , _Seconds
+    -- , microseconds
 
-    -- * Serialisation
-    -- ** Text
-    , ToText       (..)
-    , FromText     (..)
-    -- ** Log messages
-    , ToBuilder    (..)
-    ) where
+    -- -- * Serialisation
+    -- -- ** Text
+    -- , ToText       (..)
+    -- , FromText     (..)
+    -- -- ** Log messages
+    -- , ToBuilder    (..)
+    -- ) where
 
 import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
+import           Control.Monad.Base
 import           Control.Monad.Catch          (MonadCatch)
 import           Control.Monad.Error.Lens     (catching, throwing)
 import           Control.Monad.Except
+import           Control.Monad.Morph
 import           Control.Monad.Reader
+import           Control.Monad.Trans.Control
+import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
 import           Data.Conduit                 hiding (await)
 import qualified Network.AWS                  as AWS
@@ -109,6 +118,9 @@ import           Network.AWS.Auth
 import           Network.AWS.Data.Time
 import           Network.AWS.Env
 import           Network.AWS.Error
+import           Network.AWS.Free.IO
+import           Network.AWS.Free.Program
+import           Network.AWS.Free.Pure
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Pager
@@ -280,134 +292,47 @@ and for some error 'e', a 'Prism' is provided to de/construct the AWS specific '
 @
 -}
 
--- | A convenient alias that specialises the common <http://hackage.haskell.org/package/mtl mtl>
--- constraints in this moduleto the related <http://hackage.haskell.org/package/transformers transformers>
--- types.
-type AWST m = ExceptT Error (ReaderT Env m)
+newtype AWST m a = AWST { unAWST :: ProgramT (ReaderT Env m) a }
+    deriving
+        ( Functor
+        , Applicative
+        , Monad
+        , MonadThrow
+        , MonadIO
+        , MonadFree   Command
+        , MonadReader Env
+        )
 
-runAWST :: MonadResource m => Env -> AWST m a -> m (Either Error a)
-runAWST e m = runReaderT (runExceptT m) e
+instance MonadTrans AWST where
+    lift = AWST . lift . lift
 
-type AWS = AWST (ResourceT IO)
+instance MonadBase b m => MonadBase b (AWST m) where
+    liftBase = liftBaseDefault
 
--- | Run an 'AWS' monadic action, calling all of the registered 'ResourceT'
--- release actions.
-runAWS :: Env -> AWS a -> IO (Either Error a)
-runAWS e = runResourceT . runAWST e
+instance MonadBaseControl b m => MonadBaseControl b (AWST m) where
+    type StM (AWST m) a = StM (ProgramT (ReaderT Env m)) a
 
--- | A type alias used to abbreviate the most commonly used constraints.
-type MonadAWS r e m =
-    ( MonadCatch      m
-    , MonadResource   m
-    , MonadReader   r m
-    , MonadError    e m
-    , AWSEnv        r
-    , AWSError      e
-    )
+    liftBaseWith f = AWST . liftBaseWith $ \runInBase -> f (runInBase . unAWST)
+    restoreM       = AWST . restoreM
 
--- | Scope an action within the specific 'Region'.
-within :: (MonadReader r m, AWSEnv r) => Region -> m a -> m a
-within r = local (envRegion .~ r)
+instance MonadResource m => MonadResource (AWST m) where
+    liftResourceT = lift . liftResourceT
 
--- | Scope an action such that any retry logic for the 'Service' is
--- ignored and any requests will at most be sent once.
-once :: (MonadReader r m, AWSEnv r) => m a -> m a
-once = local noRetries
+instance MFunctor AWST where
+    hoist nat (AWST m) = AWST (hoistFreeT (hoist nat) m)
 
--- | Scope an action such that any HTTP response use this timeout value.
-timeout :: (MonadReader r m, AWSEnv r) => Seconds -> m a -> m a
-timeout s = local (envTimeout ?~ s)
+runAWST :: (MonadCatch m, MonadResource m)
+        => Env
+        -> AWST m a
+        -> m a
+runAWST e (AWST m) = runReaderT (runProgramT m) e
 
-send_ :: (MonadAWS r e m, AWSRequest a) => a -> m ()
-send_ = void . send
+pureAWST :: Monad m
+         => (forall a. a -> Either Error (Rs a))
+         -> Env
+         -> AWST m b
+         -> m b
+pureAWST f e (AWST m) = runReaderT (pureProgramT f m) e
 
-send :: (MonadAWS r e m, AWSRequest a) => a -> m (Rs a)
-send x = sendWith (serviceOf x) x
-
-sendWith :: (MonadAWS r e m, AWSSigner (Sg s), AWSRequest a)
-         => Service s
-         -> a
-         -> m (Rs a)
-sendWith svc x =
-    scoped $ \e ->
-        AWS.sendWith e svc x
-            >>= hoistError e
-
-paginate :: (MonadAWS r e m, AWSPager a) => a -> Source m (Rs a)
-paginate x = paginateWith (serviceOf x) x
-
-paginateWith :: (MonadAWS r e m, AWSSigner (Sg s), AWSPager a)
-             => Service s
-             -> a
-             -> Source m (Rs a)
-paginateWith svc = go
-  where
-    go x = do
-        y <- lift (sendWith svc x)
-        yield y
-        maybe (return ())
-              go
-              (page x y)
-
-await :: (MonadAWS r e m, AWSRequest a) => Wait a -> a -> m (Rs a)
-await w x = awaitWith (serviceOf x) w x
-
-awaitWith :: (MonadAWS r e m, AWSSigner (Sg s), AWSRequest a)
-          => Service s
-          -> Wait a
-          -> a
-          -> m (Rs a)
-awaitWith svc w x =
-    scoped $ \e ->
-        AWS.awaitWith e svc w x
-            >>= hoistError e
-
-presign :: ( MonadIO        m
-           , MonadReader  r m
-           , AWSEnv       r
-           , AWSPresigner (Sg (Sv a))
-           , AWSRequest   a
-           )
-        => UTCTime     -- ^ Signing time.
-        -> Integer     -- ^ Expiry time in seconds.
-        -> a           -- ^ Request to presign.
-        -> m ClientRequest
-presign t ex x = scoped $ \e -> AWS.presign e t ex x
-
-presignURL :: ( MonadIO        m
-              , MonadReader  r m
-              , AWSEnv       r
-              , AWSPresigner (Sg (Sv a))
-              , AWSRequest   a
-              )
-           => UTCTime     -- ^ Signing time.
-           -> Integer     -- ^ Expiry time in seconds.
-           -> a           -- ^ Request to presign.
-           -> m ByteString
-presignURL t ex x = scoped $ \e -> AWS.presignURL e t ex x
-
-presignWith :: ( MonadIO        m
-               , MonadReader  r m
-               , AWSEnv       r
-               , AWSPresigner (Sg s)
-               , AWSRequest   a
-               )
-            => Service s -- ^ Service configuration.
-            -> UTCTime   -- ^ Signing time.
-            -> Integer   -- ^ Expiry time in seconds.
-            -> a         -- ^ Request to presign.
-            -> m ClientRequest
-presignWith svc t ex x = scoped $ \e -> AWS.presignWith e svc t ex x
-
-hoistError :: (MonadIO m, MonadError e m, AWSEnv r, AWSError e)
-           => r
-           -> Either Error a
-           -> m a
-hoistError e = \case
-    Right r -> return r
-    Left  l -> do
-        logError (e ^. envLogger) l -- error:ServiceError
-        throwing _Error           l
-
-scoped :: (MonadReader r m, AWSEnv r) => (Env -> m a) -> m a
-scoped f = view env >>= f
+hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
+hoistError = either (throwing _Error) pure

@@ -6,15 +6,16 @@
 {-# LANGUAGE TypeFamilies      #-}
 
 -- |
--- Module      : Network.AWS.Internal.Retry
+-- Module      : Network.AWS.Internal.HTTP
 -- Copyright   : (c) 2013-2015 Brendan Hay
 -- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Internal.Retry
-    ( retrier
+module Network.AWS.Internal.HTTP
+    ( perform
+    , retrier
     , waiter
     ) where
 
@@ -27,6 +28,34 @@ import           Network.AWS.Env
 import           Network.AWS.Logger
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
+
+perform :: (MonadCatch m, MonadResource m, AWSSigner (Sg s), AWSRequest a)
+        => Env
+        -> Service s
+        -> Request a
+        -> m (Response a)
+perform e@Env{..} svc x =
+    catch go err >>= response _envLogger svc x
+  where
+    go = do
+        t          <- liftIO getCurrentTime
+        Signed m s <- withAuth _envAuth $ \a ->
+            return (signed a _envRegion t svc x)
+
+        let rq = s { responseTimeout = timeoutFor e svc }
+
+        logTrace _envLogger m  -- trace:Signing:Meta
+        logDebug _envLogger rq -- debug:ClientRequest
+
+        rs         <- liftResourceT (http rq _envManager)
+
+        logDebug _envLogger rs -- debug:ClientResponse
+
+        return $! Right rs
+
+    err er = do
+        logError _envLogger er  -- error:HttpException
+        return $! Left er
 
 retrier :: MonadIO m
         => Env

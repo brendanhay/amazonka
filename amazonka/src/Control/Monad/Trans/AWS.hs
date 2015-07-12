@@ -18,8 +18,8 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- This module offers a starting point for constructing more elborate transformer
--- stacks. For an example, see 'Network.AWS'.
+-- This module offers a starting point for constructing more elaborate transformer
+-- stacks. For an example, see "Network.AWS".
 module Control.Monad.Trans.AWS
     (
     -- * Usage
@@ -112,6 +112,7 @@ import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Prelude
 import           Network.AWS.Types
+import           Network.AWS.Waiter
 
 -- FIXME: Add explanation about the use of constraints and
 --   how to build a monad transformer stack, embed it, etc.
@@ -313,11 +314,12 @@ runAWST :: (MonadCatch m, MonadResource m)
 runAWST e (AWST m) = runReaderT (runProgramT m) e
 
 pureAWST :: Monad m
-         => (forall a. a -> Either Error (Rs a))
+         => (forall s a. Service s ->           a -> Either Error (Rs a))
+         -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
          -> Env
          -> AWST m b
          -> m b
-pureAWST f e (AWST m) = runReaderT (pureProgramT f m) e
+pureAWST f g e (AWST m) = runReaderT (pureProgramT f g m) e
 
 hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
 hoistError = either (throwing _Error) pure

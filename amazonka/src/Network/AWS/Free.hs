@@ -37,7 +37,6 @@ import           Control.Monad.Reader
 import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
-import           Data.Bifunctor
 import           Data.Conduit                 hiding (await)
 import           Network.AWS.Env
 import           Network.AWS.Error
@@ -92,20 +91,21 @@ runProgramT = iterT go
   where
     go (Send s (request -> x) k) = do
         e <- view env
-        retrier e s x (perform e s x) >>= k . second snd
+        retrier e s x (perform e s x) >>= k . fmap snd
 
     go (Await s w (request -> x) k) = do
         e <- view env
-        waiter e w x (perform e s x) >>= k . second snd
+        waiter e w x (perform e s x) >>= k . fmap snd
 
 pureProgramT :: Monad m
-             => (forall a. a -> Either Error (Rs a))
+             => (forall s a. Service s ->           a -> Either Error (Rs a))
+             -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
              -> ProgramT m b
              -> m b
-pureProgramT f = iterT go
+pureProgramT f g = iterT go
   where
-    go (Send  _   x k) = k (f x)
-    go (Await _ _ x k) = k (f x)
+    go (Send  s   x k) = k (f s   x)
+    go (Await s w x k) = k (g s w x)
 
 -- | Send a data type which is an instance of 'AWSRequest', returning either the
 -- associated 'Rs' response type if successful, or an 'Error'.
@@ -123,6 +123,8 @@ send :: (MonadFree Command m, AWSRequest a)
      -> m (Either Error (Rs a))
 send x = sendWith (serviceOf x) x
 
+-- | A variant of 'send' that allows specifying the 'Service' definition to use
+-- to configure the request properties.
 sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
          => Service s
          -> a
@@ -144,6 +146,8 @@ paginate :: (MonadFree Command m, AWSPager a)
          -> Source m (Either Error (Rs a))
 paginate x = paginateWith (serviceOf x) x
 
+-- | A variant of 'paginate' that allows specifying the 'Service' definition to use
+-- to configure the request properties.
 paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
              => Service s
              -> a
@@ -174,6 +178,8 @@ await :: (MonadFree Command m, AWSRequest a)
       -> m (Either Error (Rs a))
 await w x = awaitWith (serviceOf x) w x
 
+-- | A variant of 'aait' that allows specifying the 'Service' definition to use
+-- to configure the request properties.
 awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
           => Service s
           -> Wait a

@@ -23,15 +23,15 @@ module Network.AWS
 
     -- * Running AWS Actions
       AWS
-    , MonadAWS         (..)
+    , MonadAWS    (..)
     -- $embed
     , runAWS
 
     -- * Environment Setup
-    , Auth.Credentials (..)
-    , Env.AWSEnv       (..)
+    , Credentials (..)
+    , AWSEnv      (..)
     , Env
-    , Env.newEnv
+    , newEnv
 
     -- * Runtime Configuration
     , within
@@ -56,14 +56,14 @@ module Network.AWS
     , Logger
     , newLogger
     -- ** Levels
-    , LogLevel  (..)
+    , LogLevel    (..)
     , logError
     , logInfo
     , logDebug
     , logTrace
 
     -- * Handling Errors
-    , AWSError         (..)
+    , AWSError    (..)
     , Error
 
     -- ** Service Errors
@@ -92,9 +92,8 @@ import           Control.Monad.Trans.Resource
 import qualified Control.Monad.Writer.Lazy    as LW
 import qualified Control.Monad.Writer.Strict  as W
 import           Data.Conduit                 hiding (await)
-import qualified Network.AWS.Auth             as Auth
-import           Network.AWS.Env              (Env)
-import qualified Network.AWS.Env              as Env
+import           Network.AWS.Auth
+import           Network.AWS.Env
 import           Network.AWS.Error
 import           Network.AWS.Free
 import           Network.AWS.Internal.Body

@@ -37,10 +37,10 @@ module Control.Monad.Trans.AWS
     , pureAWST
 
     -- * Environment Setup
-    , Auth.Credentials (..)
-    , Env.AWSEnv       (..)
+    , Credentials (..)
+    , AWSEnv      (..)
     , Env
-    , Env.newEnv
+    , newEnv
 
     -- * Runtime Configuration
     , within
@@ -65,7 +65,7 @@ module Control.Monad.Trans.AWS
     , Logger
     , newLogger
     -- ** Levels
-    , LogLevel  (..)
+    , LogLevel    (..)
     , logError
     , logInfo
     , logDebug
@@ -74,7 +74,7 @@ module Control.Monad.Trans.AWS
     -- * Handling Errors
     , hoistError
 
-    , AWSError         (..)
+    , AWSError    (..)
     , Error
 
     -- ** Service Errors
@@ -88,76 +88,7 @@ module Control.Monad.Trans.AWS
 
     -- * Types
     , module Network.AWS.Types
-    )
-
-    -- -- ** AWST
-    --   AWST
-    -- , runAWST
-    -- , pureAWST
-
-    -- -- ** Manipulating the environment
-    -- , within
-    -- , once
-    -- , timeout
-
-    -- -- * Requests
-    -- -- ** Synchronous
-    -- , send
-    -- , sendWith
-    -- -- ** Asynchronous
-    -- -- $async
-    -- -- ** Paginated
-    -- , paginate
-    -- , paginateWith
-    -- -- ** Eventual consistency
-    -- , await
-    -- , awaitWith
-
-    -- , module Network.AWS.Env
-    -- , module Network.AWS.Auth
-    -- , module Network.AWS.Logger
-    -- , module Network.AWS.Internal.Body
-
-    -- -- * Errors
-    -- -- ** General
-    -- , AWSError     (..)
-    -- , Error
-
-    -- -- ** Service specific errors
-    -- , ServiceError
-    -- , errorService
-    -- , errorStatus
-    -- , errorHeaders
-    -- , errorCode
-    -- , errorMessage
-    -- , errorRequestId
-
-    -- -- ** Catching errors
-    -- , catching
-
-    -- -- ** Hoisting errors
-    -- , throwing
-    -- , hoistError
-
-    -- -- ** Error types
-    -- , ErrorCode    (..)
-    -- , ErrorMessage (..)
-    -- , RequestId    (..)
-
-    -- -- * Types
-    -- , module Network.AWS.Types
-    -- -- ** Seconds
-    -- , Seconds      (..)
-    -- , _Seconds
-    -- , microseconds
-
-    -- -- * Serialisation
-    -- -- ** Text
-    -- , ToText       (..)
-    -- , FromText     (..)
-    -- -- ** Log messages
-    -- , ToBuilder    (..)
-    -- ) where
+    ) where
 
 import           Control.Applicative
 import           Control.Monad.Base
@@ -170,7 +101,7 @@ import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
 import           Control.Retry
-import           Data.Conduit
+import           Data.Conduit                 hiding (await)
 import qualified Data.Conduit.List            as Conduit
 import           Network.AWS.Auth
 import           Network.AWS.Data.Time

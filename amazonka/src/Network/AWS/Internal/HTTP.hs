@@ -74,7 +74,7 @@ retrier Env{..} Service{..} rq =
        <> RetryPolicy (const $ listToMaybe [0 | not stream])
        <> RetryPolicy delay
       where
-        !stream = isStreaming (_rqBody rq)
+        !stream = bodyStream (_rqBody rq)
 
         delay n
             | n > 0     = Just $ truncate (grow * 1000000)

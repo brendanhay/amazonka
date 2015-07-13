@@ -26,7 +26,9 @@ module Network.AWS.Internal.Body
     ) where
 
 import           Control.Applicative
+import           Control.Monad
 import           Control.Monad.IO.Class
+import           Control.Monad.Morph
 import           Control.Monad.Trans.Resource
 import           Data.Conduit
 import qualified Data.Conduit.Binary          as Conduit
@@ -67,7 +69,7 @@ sourceFileIO f = liftIO $
 
 -- | Convenience function for obtaining the size of a file.
 getFileSize :: MonadIO m => FilePath -> m Int64
-getFileSize f = fmap fromIntegral (withBinaryFile f ReadMode hFileSize)
+getFileSize f = liftIO $ fromIntegral `liftM` withBinaryFile f ReadMode hFileSize
 
 -- | Connect a 'Sink' to a reponse body.
 sinkBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a

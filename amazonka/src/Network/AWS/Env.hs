@@ -36,7 +36,6 @@ import           Control.Retry
 import           Data.Monoid
 import           Network.AWS.Auth
 import           Network.AWS.Data.ByteString
-import           Network.AWS.Data.Time
 import           Network.AWS.Logger
 import           Network.AWS.Types
 import           Network.HTTP.Conduit
@@ -106,7 +105,7 @@ instance ToBuilder Env where
         b = buildLines
             [ "[Amazonka Env] {"
             , "  region      = " <> build _envRegion
-            , "  retry (n=0) = " <> build _envRetryPolicy
+            , "  retry (n=0) = " <> build (join $ ($ 0) . getRetryPolicy <$> _envRetryPolicy)
             , "  timeout     = " <> build _envTimeout
             , "}"
             ]

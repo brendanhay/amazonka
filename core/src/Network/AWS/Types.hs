@@ -37,7 +37,7 @@ module Network.AWS.Types
     , AWSService    (..)
     , Abbrev
     , Service       (..)
-    , serviceOf
+    , serviceFor
 
     -- * Retries
     , Retry         (..)
@@ -249,8 +249,12 @@ class AWSSigner (Sg a) => AWSService a where
 
     service :: Sv p ~ a => Proxy p -> Service a
 
-serviceOf :: forall a. AWSService (Sv a) => a -> Service (Sv a)
-serviceOf = const $ service (Proxy :: Proxy a)
+serviceFor :: AWSService (Sv a) => (Service (Sv a) -> a -> b) -> a -> b
+serviceFor f x = f (serviceOf x) x
+  where
+    serviceOf :: forall a. AWSService (Sv a) => a -> Service (Sv a)
+    serviceOf = const $ service (Proxy :: Proxy a)
+{-# INLINABLE serviceFor #-}
 
 -- | Specify how a request can be de/serialised.
 class AWSService (Sv a) => AWSRequest a where

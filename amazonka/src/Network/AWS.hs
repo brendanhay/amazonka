@@ -1,3 +1,4 @@
+{-# LANGUAGE FlexibleContexts  #-}
 {-# LANGUAGE FlexibleInstances #-}
 
 {-# OPTIONS_HADDOCK show-extensions #-}
@@ -10,9 +11,11 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Contains a specalised version of the "Control.Monad.Trans.AWS" transformer
--- with lifted 'send', 'paginate' and 'await' functions suitable for embedding
--- as a layer directly into your own application monad.
+-- This module contains a specalised version of the 'ProgramT' transformer
+-- with lifted 'send', 'paginate' and 'await' functions to make it suitable for
+-- embedding as a layer into your own application monad.
+--
+-- For a more flexible interface see "Control.Monad.Trans.AWS".
 module Network.AWS
     (
     -- * Usage
@@ -30,16 +33,6 @@ module Network.AWS
     , Env
     , Env.newEnv
 
-    -- * Logging
-    , Logger
-    , newLogger
-    -- ** Levels
-    , LogLevel  (..)
-    , logError
-    , logInfo
-    , logDebug
-    , logTrace
-
     -- * Runtime Configuration
     , within
     , once
@@ -50,10 +43,24 @@ module Network.AWS
     , send
     , await
     , paginate
+    -- ** Overriding Defaults
+    , sendWith
+    , awaitWith
+    , paginateWith
     -- ** Asynchronous
     -- $async
 
     , module Network.AWS.Internal.Body
+
+    -- * Logging
+    , Logger
+    , newLogger
+    -- ** Levels
+    , LogLevel  (..)
+    , logError
+    , logInfo
+    , logDebug
+    , logTrace
 
     -- * Handling Errors
     , AWSError         (..)
@@ -78,25 +85,26 @@ import           Control.Monad.Morph
 import           Control.Monad.Reader
 import qualified Control.Monad.State.Lazy     as LS
 import qualified Control.Monad.State.Strict   as S
-import           Control.Monad.Trans.AWS      (AWST, runAWST)
 import qualified Control.Monad.Trans.AWS      as AWST
 import           Control.Monad.Trans.Identity
 import           Control.Monad.Trans.Maybe
 import           Control.Monad.Trans.Resource
+import qualified Control.Monad.Writer.Lazy    as LW
+import qualified Control.Monad.Writer.Strict  as W
 import           Data.Conduit                 hiding (await)
 import qualified Network.AWS.Auth             as Auth
-import           Network.AWS.Data.Time
 import           Network.AWS.Env              (Env)
 import qualified Network.AWS.Env              as Env
 import           Network.AWS.Error
+import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Pager
-import           Network.AWS.Types
+import           Network.AWS.Types            hiding (Logger)
 import           Network.AWS.Waiter
 
--- | 'IO' specialisation of the 'AWST' transformer.
-type AWS = AWST IO
+-- | A specialisation of the 'ProgramT' transformer.
+type AWS = ProgramT (ReaderT Env IO)
 
 -- | Monads in which 'AWS' actions may be embedded.
 class (Functor m, Applicative m, Monad m) => MonadAWS m where
@@ -113,6 +121,12 @@ instance MonadAWS m => MonadAWS (ReaderT   r m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (S.StateT  s m) where liftAWS = lift . liftAWS
 instance MonadAWS m => MonadAWS (LS.StateT s m) where liftAWS = lift . liftAWS
 
+instance (Monoid w, MonadAWS m) => MonadAWS (W.WriterT w m) where
+    liftAWS = lift . liftAWS
+
+instance (Monoid w, MonadAWS m) => MonadAWS (LW.WriterT w m) where
+    liftAWS = lift . liftAWS
+
 -- | Run the 'AWS' monad.
 --
 -- /Note:/ Any outstanding HTTP responses' 'ResumableSource' will be closed when
@@ -120,19 +134,21 @@ instance MonadAWS m => MonadAWS (LS.StateT s m) where liftAWS = lift . liftAWS
 --
 -- /See:/ 'runResourceT' for more information.
 runAWS :: (MonadCatch m, MonadResource m) => Env -> AWS a -> m a
-runAWS e = liftResourceT . runAWST e . hoist (withInternalState . const)
+runAWS e m = liftResourceT $ runReaderT (evalProgramT (res m)) e
+  where
+    res = hoist (hoist (withInternalState . const))
 
 -- | Run any remote requests against the specified 'Region'.
 within :: MonadAWS m => Region -> AWS a -> m a
-within r = liftAWS . Env.within r
+within r = liftAWS . AWST.within r
 
 -- | Ignore any retry logic and ensure that any requests will be sent (at most) once.
 once :: MonadAWS m => AWS a -> m a
-once = liftAWS . Env.once
+once = liftAWS . AWST.once
 
 -- | Configure any HTTP connections to use this response timeout value.
 timeout :: MonadAWS m => Seconds -> AWS a -> m a
-timeout s = liftAWS . Env.timeout s
+timeout s = liftAWS . AWST.timeout s
 
 -- | Send a request, returning the associated response if successful,
 -- or an 'Error'.
@@ -147,14 +163,30 @@ timeout s = liftAWS . Env.timeout s
 --
 -- /See:/ 'sendWith'
 send :: (MonadAWS m, AWSRequest a) => a -> m (Either Error (Rs a))
-send = liftAWS . AWST.send
+send = serviceFor sendWith
+
+-- | A variant of 'send' that allows specifying the 'Service' definition to use
+-- to configure the request properties.
+sendWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
+         => Service s
+         -> a
+         -> m (Either Error (Rs a))
+sendWith s = liftAWS . sendWithF s
 
 -- | Transparently paginate over multiple responses for supported requests
 -- while results are available.
 --
 -- /See:/ 'paginateWith'
 paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Either Error (Rs a))
-paginate = hoist liftAWS . AWST.paginate
+paginate = serviceFor paginateWith
+
+-- | A variant of 'paginate' that allows specifying the 'Service' definition to use
+-- to configure the request properties.
+paginateWith :: (MonadAWS m, AWSSigner (Sg s), AWSPager a)
+             => Service s
+             -> a
+             -> Source m (Either Error (Rs a))
+paginateWith s = hoist liftAWS . paginateWithF s
 
 -- | Poll the API with the specified request until a 'Wait' condition is fulfilled.
 --
@@ -167,7 +199,16 @@ paginate = hoist liftAWS . AWST.paginate
 --
 -- /See:/ 'awaitWith'
 await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Either Error (Rs a))
-await w = liftAWS . AWST.await w
+await w = serviceFor (flip awaitWith w)
+
+-- | A variant of 'await' that allows specifying the 'Service' definition to use
+-- to configure the request properties.
+awaitWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
+          => Service s
+          -> Wait a
+          -> a
+          -> m (Either Error (Rs a))
+awaitWith s w = liftAWS . awaitWithF s w
 
 {- $usage
 This module provides a simple 'AWS' monad and a set of common operations which

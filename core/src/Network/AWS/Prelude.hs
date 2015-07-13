@@ -33,11 +33,12 @@ import           Network.AWS.Data.Path       as Export
 import           Network.AWS.Data.Query      as Export
 import           Network.AWS.Data.Sensitive  as Export
 import           Network.AWS.Data.Text       as Export
-import           Network.AWS.Data.Time       as Export hiding (Seconds)
+import           Network.AWS.Data.Time       as Export
 import           Network.AWS.Data.XML        as Export
 import           Network.AWS.Endpoint        as Export
 import           Network.AWS.Error           as Export
 import           Network.AWS.Types           as Export hiding (AccessKey,
-                                                        Endpoint, SecretKey)
+                                                        Endpoint, Seconds,
+                                                        SecretKey)
 import           Network.HTTP.Types.Status   as Export (Status (..))
 import           Numeric.Natural             as Export (Natural)

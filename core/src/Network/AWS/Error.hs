@@ -95,8 +95,7 @@ newtype RequestId = RequestId Text
         , ToBuilder
         )
 
--- | An error type representing the subset of errors that can be directly
--- attributed to this library.
+-- | An error type representing errors that can be attributed to this library.
 data Error
     = HTTPError       HttpException
     | SerializerError Abbrev Status String

@@ -59,7 +59,7 @@ instance AWSSigner V2 where
             & path           .~ _rqPath
             & queryString    .~ toBS authorised
             & requestHeaders .~ headers
-            & requestBody    .~ _bdyBody _rqBody
+            & requestBody    .~ bodyRequest _rqBody
 
         meth = toBS _rqMethod
 

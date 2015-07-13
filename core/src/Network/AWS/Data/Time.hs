@@ -32,10 +32,6 @@ module Network.AWS.Data.Time
     , BasicTime
     , AWSTime
     , POSIX
-    -- ** Seconds
-    , Seconds       (..)
-    , _Seconds
-    , microseconds
     ) where
 
 import           Control.Applicative
@@ -60,31 +56,6 @@ import           Network.AWS.Data.JSON
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-
--- | An integral value representing seconds.
-newtype Seconds = Seconds Int
-    deriving ( Eq
-             , Ord
-             , Read
-             , Show
-             , Enum
-             , Bounded
-             , Num
-             , Integral
-             , Real
-             , Data
-             , Typeable
-             , Generic
-             )
-
-_Seconds :: Iso' Seconds Int
-_Seconds = iso (\(Seconds n) -> n) Seconds
-
-instance ToBuilder Seconds where
-    build (Seconds n) = build n <> "s"
-
-microseconds :: Seconds -> Int
-microseconds (Seconds n) = truncate (toRational n / 1000000)
 
 data Format
     = RFC822Format

@@ -36,9 +36,7 @@ module Network.AWS.Data.JSON
 
 import           Data.Aeson            (eitherDecode')
 import           Data.Aeson.Types
-import           Data.ByteString.Lazy  (ByteString)
 import qualified Data.HashMap.Strict   as Map
-import           Data.Text             (Text)
 import           Network.AWS.Data.Text
 
 parseJSONText :: FromText a => String -> Value -> Parser a

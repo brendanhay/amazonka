@@ -23,8 +23,6 @@ module Network.AWS.Data.Map
     , toQueryMap
     ) where
 
-import Data.Data (Data,Typeable)
-import GHC.Generics (Generic)
 import           Control.Lens                (Iso', iso)
 import           Control.Monad
 import           Data.Aeson
@@ -33,6 +31,7 @@ import           Data.ByteString             (ByteString)
 import qualified Data.ByteString             as BS
 import qualified Data.CaseInsensitive        as CI
 import           Data.Coerce
+import           Data.Data                   (Data,Typeable)
 import           Data.Hashable
 import           Data.HashMap.Strict         (HashMap)
 import qualified Data.HashMap.Strict         as Map
@@ -40,9 +39,9 @@ import           Data.List.NonEmpty          (NonEmpty (..))
 import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Maybe
 import           Data.Semigroup
-import           Data.Text                   (Text)
 import qualified Data.Text.Encoding          as Text
 import           GHC.Exts
+import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
 import           Network.AWS.Data.Query

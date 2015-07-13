@@ -118,7 +118,7 @@ defaultRequest x = Request
 
 contentSHA256 :: Request a -> Request a
 contentSHA256 rq = rq
-    & rqHeaders %~ hdr hAMZContentSHA256 (rq ^. rqBody . bodyHash)
+    & rqHeaders %~ hdr hAMZContentSHA256 (rq ^. rqBody . to bodyHash)
 
 method :: Lens' HTTP.Request HTTP.Method
 method f x = f (HTTP.method x) <&> \y -> x { HTTP.method = y }

@@ -28,15 +28,9 @@ module Network.AWS.Data.ByteString
     , buildLines
     ) where
 
-import           Control.Monad
-import           Control.Monad.IO.Class
-import           Control.Retry
-import           "cryptonite" Crypto.Hash
-import qualified Data.ByteArray                    as BA
 import           Data.ByteString                   (ByteString)
 import qualified Data.ByteString                   as BS
 import           Data.ByteString.Builder           (Builder)
-import qualified Data.ByteString.Builder           as Build
 import qualified Data.ByteString.Char8             as BS8
 import qualified Data.ByteString.Lazy              as LBS
 import qualified Data.ByteString.Lazy.Builder      as Build
@@ -47,7 +41,6 @@ import           Data.Double.Conversion.ByteString (toShortest)
 import           Data.Int
 import           Data.List                         (intersperse)
 import           Data.Monoid
-import           Data.Text                         (Text)
 import qualified Data.Text                         as Text
 import qualified Data.Text.Encoding                as Text
 import qualified Data.Text.Lazy                    as LText
@@ -55,6 +48,7 @@ import qualified Data.Text.Lazy.Encoding           as LText
 import           Data.Time                         (UTCTime)
 import           Data.Word
 import           GHC.Float
+import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.Text
 import           Network.HTTP.Client
 import           Network.HTTP.Types
@@ -83,7 +77,7 @@ instance ToByteString Integer        where toBS = toBS . Build.integerDec
 instance ToByteString Natural        where toBS = toBS . toInteger
 instance ToByteString Double         where toBS = toShortest
 instance ToByteString StdMethod      where toBS = renderStdMethod
-instance ToByteString (Digest a)     where toBS = BA.convert
+instance ToByteString (Digest a)     where toBS = digestToBase Base16
 instance ToByteString UTCTime        where toBS = BS8.pack . show
 
 instance ToByteString a => ToByteString (CI a) where
@@ -125,9 +119,6 @@ instance ToBuilder a => ToBuilder (Maybe a) where
 instance ToBuilder Bool where
     build True  = "True"
     build False = "False"
-
-instance ToBuilder RetryPolicy where
-    build (RetryPolicy f) = build (f 0)
 
 instance ToBuilder Status where
     build x = build (statusCode x) <> " " <> build (statusMessage x)

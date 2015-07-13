@@ -27,10 +27,8 @@ module Network.AWS.Data.Text
     ) where
 
 import           Control.Applicative
-import           "cryptonite" Crypto.Hash
 import           Data.Attoparsec.Text              (Parser)
 import qualified Data.Attoparsec.Text              as A
-import qualified Data.ByteArray                    as BA
 import           Data.ByteString                   (ByteString)
 import qualified Data.ByteString.Char8             as BS8
 import           Data.CaseInsensitive              (CI)
@@ -47,6 +45,7 @@ import           Data.Text.Lazy.Builder            (Builder)
 import qualified Data.Text.Lazy.Builder            as Build
 import qualified Data.Text.Lazy.Builder.Int        as Build
 import qualified Data.Text.Lazy.Builder.Scientific as Build
+import           Network.AWS.Data.Crypto
 import           Network.HTTP.Client
 import           Network.HTTP.Types
 import           Numeric.Natural
@@ -100,9 +99,7 @@ instance FromText Bool where
 instance FromText StdMethod where
     parser = do
         bs <- Text.encodeUtf8 <$> A.takeText
-        either (fail . BS8.unpack)
-               pure
-               (parseMethod bs)
+        either (fail . BS8.unpack) pure (parseMethod bs)
 
 showText :: ToText a => a -> String
 showText = Text.unpack . toText
@@ -132,9 +129,7 @@ instance ToText Natural    where toText = shortText . Build.decimal
 instance ToText Scientific where toText = shortText . Build.scientificBuilder
 instance ToText Double     where toText = toShortest
 instance ToText StdMethod  where toText = toText . renderStdMethod
-
-instance ToText (Digest a) where
-    toText = (toText :: ByteString -> Text) . BA.convert
+instance ToText (Digest a) where toText = toText . digestToBase Base16
 
 instance ToText Bool where
     toText True  = "true"

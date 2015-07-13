@@ -50,11 +50,13 @@ import           Network.HTTP.Client
 import qualified Network.HTTP.Client          as Client
 import           System.IO
 
+-- FIXME: Switch to MonadLogger? :(
+
 data LogLevel
     = Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.
     | Debug -- ^ Useful debug information + info + error levels.
     | Info  -- ^ Info messages supplied by the user - this level is not emitted by the library.
-    | Error -- ^ Error messages.
+    | Error -- ^ Error messages only.
       deriving (Eq, Ord, Enum, Show)
 
 type Logger = LogLevel -> Builder -> IO ()
@@ -71,8 +73,7 @@ newLogger x hd = liftIO $ do
         when (x >= y) $
             Build.hPutBuilder hd (b <> "\n")
 
-logError, logInfo, logDebug, logTrace
- :: (MonadIO m, ToBuilder a) => Logger -> a -> m ()
+logError, logInfo, logDebug, logTrace :: (MonadIO m, ToBuilder a) => Logger -> a -> m ()
 logError f = liftIO . f Error . build
 logInfo  f = liftIO . f Info  . build
 logDebug f = liftIO . f Debug . build

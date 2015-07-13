@@ -13,70 +13,66 @@
 --
 module Network.AWS.Data.Body where
 
-import           Control.Lens
-import           Control.Monad.Morph
 import           Control.Monad.Trans.Resource
-import           "cryptonite" Crypto.Hash
 import           Data.Aeson
-import qualified Data.ByteArray               as BA
 import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Conduit
-import           Data.Data                    (Data, Typeable)
 import           Data.Monoid
 import           Data.String
 import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.ByteString
+import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.XML         (encodeXML)
 import           Network.HTTP.Client
 import           Text.XML                     (Element)
 
-newtype RsBody = RsBody (ResumableSource (ResourceT IO) ByteString)
-
-_RsBody :: Iso' RsBody (ResumableSource (ResourceT IO) ByteString)
-_RsBody = iso (\(RsBody x) -> x) RsBody
+-- | A streaming, exception safe response body.
+newtype RsBody = RsBody
+    { bodyResponse :: ResumableSource (ResourceT IO) ByteString
+    }
 
 instance Show RsBody where
     show = const "RsBody { ResumableSource (ResourceT IO) ByteString }"
 
-sinkBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
-sinkBody (RsBody src) sink = hoist liftResourceT src $$+- sink
-
+-- | An opaque request body containing a 'SHA256' hash.
 data RqBody = RqBody
-    { _bdyHash :: Digest SHA256
-    , _bdyBody :: RequestBody
+    { bodyDigest  :: Digest SHA256
+    , bodyRequest :: RequestBody
     }
 
-bodyHash :: Getter RqBody ByteString
-bodyHash = to (BA.convert . _bdyHash)
-
 instance Show RqBody where
-    show b = "RqBody { RequestBody " ++ BS8.unpack (b ^. bodyHash) ++ " }"
+    show b = "RqBody { RequestBody " ++ BS8.unpack (bodyHash b) ++ " }"
 
 instance IsString RqBody where
     fromString = toBody . LBS8.pack
 
-isStreaming :: RqBody -> Bool
-isStreaming b =
-    case _bdyBody b of
+bodyHash :: RqBody -> ByteString
+bodyHash = digestToBase Base16 . bodyDigest
+
+bodyStream :: RqBody -> Bool
+bodyStream b =
+    case bodyRequest b of
         RequestBodyLBS           {} -> False
         RequestBodyBS            {} -> False
         RequestBodyBuilder       {} -> False
         RequestBodyStream        {} -> True
         RequestBodyStreamChunked {} -> True
 
+-- | Anything that can be safely converted to a 'RqBody'.
 class ToBody a where
+    -- | Convert a value to a request body.
     toBody :: a -> RqBody
 
 instance ToBody RqBody where
     toBody = id
 
 instance ToBody LBS.ByteString where
-    toBody lbs = RqBody (hashlazy lbs) (RequestBodyLBS lbs)
+    toBody x = RqBody (hashlazy x) (RequestBodyLBS x)
 
 instance ToBody ByteString where
-    toBody = toBody . LBS.fromStrict
+    toBody x = RqBody (hash x) (RequestBodyBS x)
 
 instance ToBody Value where
     toBody = toBody . encode

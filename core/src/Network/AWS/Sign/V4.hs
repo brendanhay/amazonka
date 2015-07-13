@@ -68,7 +68,7 @@ instance AWSPresigner V4 where
     presigned a r t ex svc rq =
         out & sgRequest . queryString <>~ auth (out ^. sgMeta)
       where
-        out = finalise a r t svc inp qry hash
+        out = finalise a r t svc inp qry hashed
 
         inp = rq & rqHeaders .~ []
 
@@ -80,21 +80,21 @@ instance AWSPresigner V4 where
             . pair (CI.original hAMZSignedHeaders) sh
             . pair (CI.original hAMZToken)         (toBS <$> _authToken a)
 
-        auth = mappend "&X-Amz-Signature=" . _mSignature
-        hash = "UNSIGNED-PAYLOAD"
+        auth   = mappend "&X-Amz-Signature=" . _mSignature
+        hashed = "UNSIGNED-PAYLOAD"
 
 instance AWSSigner V4 where
     signed a r t svc rq = out & sgRequest
         %~ requestHeaders
         %~ hdr hAuthorization (authorisation $ out ^. sgMeta)
       where
-        out = finalise a r t svc inp (\_ _ -> id) hash
+        out = finalise a r t svc inp (\_ _ -> id) hashed
 
         inp = rq & rqHeaders %~ hdr hAMZDate date . hdrs (maybeToList tok)
 
-        date = toBS (Time t :: AWSTime)
-        tok  = (hAMZToken,) . toBS <$> _authToken a
-        hash = rq ^. rqBody . bodyHash
+        date   = toBS (Time t :: AWSTime)
+        tok    = (hAMZToken,) . toBS <$> _authToken a
+        hashed = rq ^. rqBody . to bodyHash
 
 authorisation :: Meta V4 -> ByteString
 authorisation Meta{..} = BS.concat
@@ -118,7 +118,7 @@ finalise :: AuthEnv
          -> (ByteString -> ByteString -> QueryString -> QueryString)
          -> ByteString
          -> Signed V4 a
-finalise AuthEnv{..} r t Service{..} Request{..} qry hash =
+finalise AuthEnv{..} r t Service{..} Request{..} qry hashed =
     Signed meta rq
   where
     meta = Meta
@@ -137,7 +137,7 @@ finalise AuthEnv{..} r t Service{..} Request{..} qry hash =
         & path           .~ _rqPath
         & queryString    .~ BS.cons '?' (toBS query)
         & requestHeaders .~ headers
-        & requestBody    .~ _bdyBody _rqBody
+        & requestBody    .~ bodyRequest _rqBody
 
     meth  = toBS _rqMethod
     query = qry accessScope signedHeaders _rqQuery
@@ -173,7 +173,7 @@ finalise AuthEnv{..} r t Service{..} Request{..} qry hash =
        , canonicalQuery
        , canonicalHeaders
        , signedHeaders
-       , hash
+       , hashed
        ]
 
     scope =

@@ -76,6 +76,11 @@ module Network.AWS.Types
     , ResponseBody
     , clientRequest
 
+    -- ** Seconds
+    , Seconds       (..)
+    , _Seconds
+    , microseconds
+
     -- * Isomorphisms
     , _Coerce
     , _Default
@@ -87,7 +92,6 @@ import           Control.Lens                 hiding (coerce)
 import           Control.Monad.Except
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
-import qualified Data.ByteArray               as BA
 import           Data.ByteString.Builder      (Builder)
 import           Data.Coerce
 import           Data.Conduit
@@ -105,7 +109,6 @@ import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Query
 import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
-import           Network.AWS.Data.Time
 import           Network.AWS.Error
 import           Network.AWS.Logger
 import           Network.HTTP.Client          hiding (Request, Response, Proxy)
@@ -179,8 +182,8 @@ instance ToBuilder (Request a) where
         , "  query   = "  <> build _rqQuery
         , "  headers = "  <> build _rqHeaders
         , "  body    = {"
-        , "    hash    = "  <> build (_rqBody ^. bodyHash)
-        , "    payload =\n" <> build (_bdyBody _rqBody)
+        , "    hash    = "  <> build (bodyHash    _rqBody)
+        , "    payload =\n" <> build (bodyRequest _rqBody)
         , "  }"
         , "}"
         ]
@@ -376,6 +379,31 @@ instance ToBuilder Region where
 
 instance FromXML Region where parseXML = parseXMLText "Region"
 instance ToXML   Region where toXML    = toXMLText
+
+-- | An integral value representing seconds.
+newtype Seconds = Seconds Int
+    deriving ( Eq
+             , Ord
+             , Read
+             , Show
+             , Enum
+             , Bounded
+             , Num
+             , Integral
+             , Real
+             , Data
+             , Typeable
+             , Generic
+             )
+
+_Seconds :: Iso' Seconds Int
+_Seconds = iso (\(Seconds n) -> n) Seconds
+
+instance ToBuilder Seconds where
+    build (Seconds n) = build n <> "s"
+
+microseconds :: Seconds -> Int
+microseconds (Seconds n) = truncate (toRational n / 1000000)
 
 _Coerce :: (Coercible a b, Coercible b a) => Iso' a b
 _Coerce = iso coerce coerce

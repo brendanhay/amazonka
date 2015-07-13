@@ -23,6 +23,8 @@ module Network.AWS.Data.Crypto
     , hashMD5
 
     -- * Contexts
+    , hash
+    , hashlazy
     , hashInit
     , hashUpdate
     , hashFinalize

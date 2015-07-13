@@ -288,3 +288,23 @@ handle AWS specific errors:
 
 > catching _ServiceError $ MyApp (send Bar) :: (ServiceError -> MyApp Bar) -> MyApp Bar
 -}
+
+{- $async
+Requests can be sent asynchronously, but due to guarantees about resource closure
+require the use of <http://hackage.haskell.org/package/lifted-async lifted-async>.
+
+The following example demonstrates retrieving two objects from S3 concurrently:
+
+> import Control.Concurrent.Async.Lifted
+> import Control.Lens
+> import Control.Monad.Trans.AWS
+> import Network.AWS.S3
+>
+> do x   <- async . send $ getObject "bucket" "prefix/object-foo"
+>    y   <- async . send $ getObject "bucket" "prefix/object-bar"
+>    foo <- wait x
+>    bar <- wait y
+>    ...
+
+/See:/ <http://hackage.haskell.org/package/lifted-async Control.Concurrent.Async.Lifted>
+-}

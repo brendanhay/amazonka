@@ -20,32 +20,43 @@ module Network.AWS
 
     -- * Running AWS Actions
       AWS
-    , MonadAWS    (..)
+    , MonadAWS         (..)
     -- $embed
     , runAWS
 
     -- * Environment Setup
     , Auth.Credentials (..)
+    , Env.AWSEnv       (..)
     , Env
     , Env.newEnv
+
+    -- * Logging
+    , Logger
+    , newLogger
+    -- ** Levels
+    , LogLevel  (..)
+    , logError
+    , logInfo
+    , logDebug
+    , logTrace
 
     -- * Runtime Configuration
     , within
     , once
     , timeout
 
-    -- * Requests
+    -- * Sending Requests
     -- ** Synchronous
     , send
     , await
     , paginate
     -- ** Asynchronous
     -- $async
-    -- ** Streaming
+
     , module Network.AWS.Internal.Body
 
-    -- * Errors
-    , AWSError    (..)
+    -- * Handling Errors
+    , AWSError         (..)
     , Error
 
     -- ** Service Errors
@@ -57,11 +68,7 @@ module Network.AWS
     , errorMessage
     , errorRequestId
 
-    -- * Units
-    , Seconds     (..)
-
-    -- * Re-exported Modules
-    , module Network.AWS.Logger
+    -- * Types
     , module Network.AWS.Types
     ) where
 
@@ -82,7 +89,6 @@ import           Network.AWS.Data.Time
 import           Network.AWS.Env              (Env)
 import qualified Network.AWS.Env              as Env
 import           Network.AWS.Error
-import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Pager
@@ -217,15 +223,15 @@ example = do
 For a trivial base monad:
 
 > newtype MyApp a = MyApp (ReaderT MyEnv AWS a)
->     deriving (Monad, MonadTrans, ...)
+>     deriving (Functor, Applicative, Monad)
 
 You can define a 'MonadAWS' instance as follows:
 
 > instance MonadAWS MyApp where
 >     liftAWS = MyApp . lift
 
-This instance allows all of the functions in this module to operate over your
-own monad without having to lift/run any AWS specific operations.
+This instance allows all of the functions in this module to operate within your
+own monad without having to manually write successive lift calls for AWS operations.
 
 -}
 

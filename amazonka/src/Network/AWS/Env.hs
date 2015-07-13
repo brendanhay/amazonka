@@ -71,18 +71,16 @@ class AWSEnv a where
     -- | A HTTP response timeout override to apply. This defaults to 'Nothing',
     -- and the timeout selection is outlined below.
     --
-    -- /Note:/ This exists because the chosen 'Manager' timeout is not updateable
-    -- after instantiation of the environment.
-    --
     -- Timeouts are chosen by considering:
     --
-    -- * This 'envTimeout' if set.
+    -- * This 'envTimeout', if set.
     --
-    -- * The related 'Service' timeout for the sent request if set.
+    -- * The related 'Service' timeout for the sent request if set. (Usually 70s)
     --
-    -- * The 'Env's HTTP 'Manager' timeout if set.
+    -- * The 'envManager' timeout if set.
     --
-    -- * The default 'ClientRequest' timeout (approximately 30s).
+    -- * The default 'ClientRequest' timeout. (Approximately 30s)
+    --
     envTimeout     :: Lens' a (Maybe Seconds)
 
     -- | The 'Manager' used to create and manage open HTTP connections.
@@ -113,9 +111,8 @@ instance ToBuilder Env where
             , "}"
             ]
 
--- | This creates a new environment with a new 'Manager',
--- _without_ debug logging and uses 'getAuth'
--- to expand/discover the supplied 'Credentials'.
+-- | This creates a new environment with a new 'Manager' without debug logging
+-- and uses 'getAuth' to expand/discover the supplied 'Credentials'.
 --
 -- Lenses such as 'envLogger' can be used to configure the resulting 'Env'.
 --

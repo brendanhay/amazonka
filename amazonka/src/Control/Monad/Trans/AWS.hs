@@ -194,7 +194,7 @@ well as a field for the AWS 'Env':
 
 > data MyEnv = MyEnv
 >     { _config :: Config
->     , _env    :: Env ^ Here the AWS environment is embedded.
+>     , _env    :: Env -- ^ Here the AWS environment is embedded.
 >     }
 
 Adding a class instance for 'AWSEnv' to the above environment requires defining
@@ -210,7 +210,7 @@ might return, as well a single constructor that wraps any AWS errors:
 >     = GeneralError
 >     | SpecificError  Text
 >     | ElaborateError Text String
->     | AmazonError    Error ^ Here the AWS error is embedded.
+>     | AmazonError    Error -- ^ Here the AWS error is embedded.
 
 Adding a class instances requires defining a prism to wrap/unwrap AWS 'Error'
 in the application's custom @MyErr@ type:

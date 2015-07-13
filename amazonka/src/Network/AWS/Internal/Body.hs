@@ -10,18 +10,19 @@
 --
 module Network.AWS.Internal.Body
     (
-    -- * Streaming
-    -- ** Requests
+    -- * Streaming Files
+    -- ** Request Bodies
       ToBody (..)
     , RqBody
     , sourceBody
     , sourceHandle
     , sourceFile
     , sourceFileIO
-    -- ** Responses
+    , getFileSize
+    -- ** Response Bodies
     , RsBody
-    , _RsBody
     , sinkBody
+    , sinkHash
     ) where
 
 import           Control.Applicative
@@ -33,7 +34,7 @@ import           Data.Int
 import           Network.AWS.Prelude
 import qualified Network.HTTP.Client          as Client
 import           Network.HTTP.Conduit
-import           System.IO                    (Handle)
+import           System.IO
 
 -- | Construct a 'RqBody' from a source, manually specifying the
 -- SHA256 hash and file size.
@@ -63,6 +64,14 @@ sourceFileIO :: MonadIO m => FilePath -> m RqBody
 sourceFileIO f = liftIO $
     RqBody <$> runResourceT (Conduit.sourceFile f $$ sinkHash)
            <*> Client.streamFile f
+
+-- | Convenience function for obtaining the size of a file.
+getFileSize :: MonadIO m => FilePath -> m Int64
+getFileSize f = fmap fromIntegral (withBinaryFile f ReadMode hFileSize)
+
+-- | Connect a 'Sink' to a reponse body.
+sinkBody :: MonadResource m => RsBody -> Sink ByteString m a -> m a
+sinkBody (RsBody src) sink = hoist liftResourceT src $$+- sink
 
 -- | A cryptonite compatible incremental hash sink.
 sinkHash :: Monad m => Consumer ByteString m (Digest SHA256)

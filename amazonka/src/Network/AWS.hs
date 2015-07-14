@@ -135,7 +135,7 @@ instance (Monoid w, MonadAWS m) => MonadAWS (LW.WriterT w m) where
 runAWS :: (MonadCatch m, MonadResource m) => Env -> AWS a -> m a
 runAWS e m = liftResourceT $ runReaderT (evalProgramT (res m)) e
   where
-    res = hoist (hoist (withInternalState . const))
+    res = hoist (hoist (withInternalState . const)) -- FIXME: verify
 
 -- | Run any remote requests against the specified 'Region'.
 within :: MonadAWS m => Region -> AWS a -> m a

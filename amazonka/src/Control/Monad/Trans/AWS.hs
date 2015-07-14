@@ -162,6 +162,13 @@ timeout s = local (envTimeout ?~ s)
 hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
 hoistError = either (throwing _Error) pure
 
+Maybe the hoisted functions could be put into
+Control.Monad.Error.AWS?
+ProgramT can be disolved
+AWST can become concrete without ExceptT layer
+send,paginate,await can move back into Free, this module just rexports
+interpretation moves into AWST as well
+
 send :: ( MonadFree Command   m
         , MonadError        e m
         , AWSError          e

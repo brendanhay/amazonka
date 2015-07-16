@@ -13,7 +13,7 @@
 -- This module provides functions with a 'MonadError' constraint where the error
 -- type is required to be an instance of 'AWSError'. This allows the
 -- implicit lifting of errors into the base monad without having to explicitly
--- handle the 'Either' result "Control.Monad.Trans.AWS" functions return.
+-- handle the 'Either' result that functions in "Control.Monad.Trans.AWS" return.
 --
 -- You can use 'catching' to catch specific or general errors using the
 -- 'AWSError' 'Prism's. This strategy can also be used to obtain the pre

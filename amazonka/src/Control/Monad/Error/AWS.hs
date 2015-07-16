@@ -16,8 +16,8 @@
 -- handle the 'Either' result that functions in "Control.Monad.Trans.AWS" return.
 --
 -- You can use 'catching' to catch specific or general errors using the
--- 'AWSError' 'Prism's. This strategy can also be used to obtain the pre
--- @1.0.0@ @*Catch@ function behaviour.
+-- 'AWSError' 'Prism's. This strategy can also be used to obtain the pre-@1.0@
+-- @*Catch@ function behaviour.
 module Control.Monad.Error.AWS
     (
     -- * Backwards Compatibility
@@ -50,17 +50,19 @@ import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Waiter
 
+-- | Type alias to ease transition for consumers of pre-@1.0@ amazonka.
 type AWST m = AWST.AWST (ExceptT Error m)
 {-# DEPRECATED AWST
-    "Exists for backwards compatibility pre @1.0.0@ AWST usage." #-}
+    "Exists to provide backwards compatibility with pre-@1.0@ AWST usage." #-}
 
+-- | Convenience function to ease transition for consumers of pre-@1.0@ amazonka.
 runAWST :: (MonadCatch m, MonadResource m, AWSEnv r)
         => r
         -> AWST m a
         -> m (Either Error a)
 runAWST e = runExceptT . AWST.runAWST e
 {-# DEPRECATED runAWST
-    "Exists for backwards compatibility with the pre @1.0.0@ AWST usage." #-}
+    "Exists to provide backwards compatibility with pre-@1.0@ AWST usage." #-}
 
 hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
 hoistError = either (throwing _Error) pure

@@ -21,7 +21,7 @@
 -- The function signatures use the minimum satisfiable constraints in order to
 -- stay as general as possible, at the possible cost of readability.
 --
--- For a simpler interface see "Network.AWS", or, for the pre @1.0.0@
+-- For a simpler interface see "Network.AWS", or, for the pre-@1.0@
 -- behaviour of implicitly lifting errors, see "Control.Monad.Error.AWS".
 module Control.Monad.Trans.AWS
     (

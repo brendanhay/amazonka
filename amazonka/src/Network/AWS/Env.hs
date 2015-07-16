@@ -18,6 +18,10 @@ module Network.AWS.Env
     -- ** Creating the environment
     , newEnv
     , newEnvWith
+    -- * Runtime Configuration
+    , within
+    , once
+    , timeout
     -- ** Response configuration
     , timeoutFor
     ) where
@@ -26,6 +30,7 @@ import           Control.Applicative
 import           Control.Lens
 import           Control.Monad
 import           Control.Monad.IO.Class
+import           Control.Monad.Reader
 import           Control.Monad.Trans.Except
 import           Control.Retry
 import           Data.Monoid
@@ -104,6 +109,21 @@ instance ToBuilder Env where
             , "  timeout     = " <> build _envTimeout
             , "}"
             ]
+
+-- | Scope an action within the specific 'Region'.
+within :: (MonadReader r m, AWSEnv r) => Region -> m a -> m a
+within r = local (envRegion .~ r)
+
+-- | Scope an action such that any retry logic for the 'Service' is
+-- ignored and any requests will at most be sent once.
+once :: (MonadReader r m, AWSEnv r) => m a -> m a
+once = local $ \e -> e
+    & envRetryPolicy ?~ limitRetries 0
+    & envRetryCheck  .~ (\_ _ -> return False)
+
+-- | Scope an action such that any HTTP response use this timeout value.
+timeout :: (MonadReader r m, AWSEnv r) => Seconds -> m a -> m a
+timeout s = local (envTimeout ?~ s)
 
 -- | This creates a new environment with a new 'Manager' without debug logging
 -- and uses 'getAuth' to expand/discover the supplied 'Credentials'.

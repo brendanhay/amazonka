@@ -27,7 +27,8 @@ library
     ghc-options:       -Wall
 
     exposed-modules:
-          Control.Monad.Trans.AWS
+          Control.Monad.Error.AWS
+        , Control.Monad.Trans.AWS
         , Network.AWS
         , Network.AWS.Auth
         , Network.AWS.Env
@@ -46,18 +47,17 @@ library
         , conduit             >= 1.1
         , conduit-extra       >= 1.1
         , exceptions          >= 0.6
-        , http-conduit        >= 2.1.4
+        , free
         , http-client         >= 0.4.9
+        , http-conduit        >= 2.1.4
         , lens                >= 4.4
+        , mmorph
+        , monad-control       >= 1
         , mtl                 >= 2.1.3.1
         , resourcet           >= 1.1
         , retry               >= 0.5
         , text                >= 1.1
         , time                >= 1.2
         , transformers        >= 0.2
-        , transformers-compat >= 0.3
-
-        , mmorph
-        , free
-        , monad-control       >= 1
         , transformers-base
+        , transformers-compat >= 0.3

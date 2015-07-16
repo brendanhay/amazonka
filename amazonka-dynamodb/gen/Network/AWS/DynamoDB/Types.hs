@@ -62,6 +62,9 @@ module Network.AWS.DynamoDB.Types
     -- * Select
     , Select (..)
 
+    -- * StreamViewType
+    , StreamViewType (..)
+
     -- * TableStatus
     , TableStatus (..)
 
@@ -152,6 +155,7 @@ module Network.AWS.DynamoDB.Types
     , gsidProvisionedThroughput
     , gsidIndexStatus
     , gsidIndexSizeBytes
+    , gsidIndexARN
     , gsidKeySchema
     , gsidProjection
     , gsidItemCount
@@ -196,6 +200,7 @@ module Network.AWS.DynamoDB.Types
     , LocalSecondaryIndexDescription
     , localSecondaryIndexDescription
     , lsidIndexSizeBytes
+    , lsidIndexARN
     , lsidKeySchema
     , lsidProjection
     , lsidItemCount
@@ -227,19 +232,29 @@ module Network.AWS.DynamoDB.Types
     , putRequest
     , prItem
 
+    -- * StreamSpecification
+    , StreamSpecification
+    , streamSpecification
+    , ssStreamEnabled
+    , ssStreamViewType
+
     -- * TableDescription
     , TableDescription
     , tableDescription
     , tdProvisionedThroughput
     , tdAttributeDefinitions
+    , tdLatestStreamARN
     , tdTableSizeBytes
     , tdTableStatus
+    , tdTableARN
     , tdKeySchema
+    , tdLatestStreamLabel
     , tdGlobalSecondaryIndexes
     , tdLocalSecondaryIndexes
     , tdCreationDateTime
     , tdItemCount
     , tdTableName
+    , tdStreamSpecification
 
     -- * UpdateGlobalSecondaryIndexAction
     , UpdateGlobalSecondaryIndexAction
@@ -296,12 +311,11 @@ instance AWSService DynamoDB where
           | has (hasStatus 509) e = Just "limit_exceeded"
           | otherwise = Nothing
 
--- | The request rate is too high, or the request is too large, for the
--- available throughput to accommodate. The AWS SDKs automatically retry
--- requests that receive this exception; therefore, your request will
--- eventually succeed, unless the request is too large or your retry queue
--- is too large to finish. Reduce the frequency of requests by using the
--- strategies listed in
+-- | Your request rate is too high. The AWS SDKs for DynamoDB automatically
+-- retry requests that receive this exception. Your request is eventually
+-- successful, unless your retry queue is too large to finish. Reduce the
+-- frequency of requests and use exponential backoff. For more information,
+-- go to
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#APIRetries Error Retries and Exponential Backoff>
 -- in the /Amazon DynamoDB Developer Guide/.
 _ProvisionedThroughputExceededException :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -542,10 +556,22 @@ instance ToJSON ProjectionType where
 instance FromJSON ProjectionType where
     parseJSON = parseJSONText "ProjectionType"
 
--- | A value that if set to @TOTAL@, the response includes /ConsumedCapacity/
--- data for tables and indexes. If set to @INDEXES@, the response includes
--- /ConsumedCapacity/ for indexes. If set to @NONE@ (the default),
--- /ConsumedCapacity/ is not included in the response.
+-- | Determines the level of detail about provisioned throughput consumption
+-- that is returned in the response:
+--
+-- -   /INDEXES/ - The response includes the aggregate /ConsumedCapacity/
+--     for the operation, together with /ConsumedCapacity/ for each table
+--     and secondary index that was accessed.
+--
+--     Note that some operations, such as /GetItem/ and /BatchGetItem/, do
+--     not access any indexes at all. In these cases, specifying /INDEXES/
+--     will only return /ConsumedCapacity/ information for table(s).
+--
+-- -   /TOTAL/ - The response includes only the aggregate
+--     /ConsumedCapacity/ for the operation.
+--
+-- -   /NONE/ - No /ConsumedCapacity/ details are included in the response.
+--
 data ReturnConsumedCapacity
     = RCCNone
     | RCCIndexes
@@ -689,6 +715,39 @@ instance ToHeader Select
 
 instance ToJSON Select where
     toJSON = toJSONText
+
+data StreamViewType
+    = SVTNewImage
+    | SVTNewAndOldImages
+    | SVTOldImage
+    | SVTKeysOnly
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText StreamViewType where
+    parser = takeLowerText >>= \case
+        "keys_only" -> pure SVTKeysOnly
+        "new_and_old_images" -> pure SVTNewAndOldImages
+        "new_image" -> pure SVTNewImage
+        "old_image" -> pure SVTOldImage
+        e -> fromTextError $ "Failure parsing StreamViewType from value: '" <> e
+           <> "'. Accepted values: keys_only, new_and_old_images, new_image, old_image"
+
+instance ToText StreamViewType where
+    toText = \case
+        SVTKeysOnly -> "keys_only"
+        SVTNewAndOldImages -> "new_and_old_images"
+        SVTNewImage -> "new_image"
+        SVTOldImage -> "old_image"
+
+instance Hashable StreamViewType
+instance ToQuery StreamViewType
+instance ToHeader StreamViewType
+
+instance ToJSON StreamViewType where
+    toJSON = toJSONText
+
+instance FromJSON StreamViewType where
+    parseJSON = parseJSONText "StreamViewType"
 
 data TableStatus
     = Deleting
@@ -1768,6 +1827,8 @@ instance ToJSON GlobalSecondaryIndex where
 --
 -- * 'gsidIndexSizeBytes'
 --
+-- * 'gsidIndexARN'
+--
 -- * 'gsidKeySchema'
 --
 -- * 'gsidProjection'
@@ -1780,6 +1841,7 @@ data GlobalSecondaryIndexDescription = GlobalSecondaryIndexDescription'
     , _gsidProvisionedThroughput :: !(Maybe ProvisionedThroughputDescription)
     , _gsidIndexStatus           :: !(Maybe IndexStatus)
     , _gsidIndexSizeBytes        :: !(Maybe Integer)
+    , _gsidIndexARN              :: !(Maybe Text)
     , _gsidKeySchema             :: !(Maybe (List1 KeySchemaElement))
     , _gsidProjection            :: !(Maybe Projection)
     , _gsidItemCount             :: !(Maybe Integer)
@@ -1794,6 +1856,7 @@ globalSecondaryIndexDescription =
     , _gsidProvisionedThroughput = Nothing
     , _gsidIndexStatus = Nothing
     , _gsidIndexSizeBytes = Nothing
+    , _gsidIndexARN = Nothing
     , _gsidKeySchema = Nothing
     , _gsidProjection = Nothing
     , _gsidItemCount = Nothing
@@ -1835,6 +1898,10 @@ gsidIndexStatus = lens _gsidIndexStatus (\ s a -> s{_gsidIndexStatus = a});
 gsidIndexSizeBytes :: Lens' GlobalSecondaryIndexDescription (Maybe Integer)
 gsidIndexSizeBytes = lens _gsidIndexSizeBytes (\ s a -> s{_gsidIndexSizeBytes = a});
 
+-- | The Amazon Resource Name (ARN) that uniquely identifies the index.
+gsidIndexARN :: Lens' GlobalSecondaryIndexDescription (Maybe Text)
+gsidIndexARN = lens _gsidIndexARN (\ s a -> s{_gsidIndexARN = a});
+
 -- | The complete key schema for the global secondary index, consisting of
 -- one or more pairs of attribute names and key types (@HASH@ or @RANGE@).
 gsidKeySchema :: Lens' GlobalSecondaryIndexDescription (Maybe (NonEmpty KeySchemaElement))
@@ -1864,6 +1931,7 @@ instance FromJSON GlobalSecondaryIndexDescription
                      (x .:? "ProvisionedThroughput")
                      <*> (x .:? "IndexStatus")
                      <*> (x .:? "IndexSizeBytes")
+                     <*> (x .:? "IndexArn")
                      <*> (x .:? "KeySchema")
                      <*> (x .:? "Projection")
                      <*> (x .:? "ItemCount")
@@ -2135,7 +2203,7 @@ kaaConsistentRead = lens _kaaConsistentRead (\ s a -> s{_kaaConsistentRead = a})
 -- values/, which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 kaaExpressionAttributeNames :: Lens' KeysAndAttributes (HashMap Text Text)
 kaaExpressionAttributeNames = lens _kaaExpressionAttributeNames (\ s a -> s{_kaaExpressionAttributeNames = a}) . _Default . _Map;
@@ -2228,6 +2296,8 @@ instance ToJSON LocalSecondaryIndex where
 --
 -- * 'lsidIndexSizeBytes'
 --
+-- * 'lsidIndexARN'
+--
 -- * 'lsidKeySchema'
 --
 -- * 'lsidProjection'
@@ -2237,6 +2307,7 @@ instance ToJSON LocalSecondaryIndex where
 -- * 'lsidIndexName'
 data LocalSecondaryIndexDescription = LocalSecondaryIndexDescription'
     { _lsidIndexSizeBytes :: !(Maybe Integer)
+    , _lsidIndexARN       :: !(Maybe Text)
     , _lsidKeySchema      :: !(Maybe (List1 KeySchemaElement))
     , _lsidProjection     :: !(Maybe Projection)
     , _lsidItemCount      :: !(Maybe Integer)
@@ -2248,6 +2319,7 @@ localSecondaryIndexDescription :: LocalSecondaryIndexDescription
 localSecondaryIndexDescription =
     LocalSecondaryIndexDescription'
     { _lsidIndexSizeBytes = Nothing
+    , _lsidIndexARN = Nothing
     , _lsidKeySchema = Nothing
     , _lsidProjection = Nothing
     , _lsidItemCount = Nothing
@@ -2259,6 +2331,10 @@ localSecondaryIndexDescription =
 -- reflected in this value.
 lsidIndexSizeBytes :: Lens' LocalSecondaryIndexDescription (Maybe Integer)
 lsidIndexSizeBytes = lens _lsidIndexSizeBytes (\ s a -> s{_lsidIndexSizeBytes = a});
+
+-- | The Amazon Resource Name (ARN) that uniquely identifies the index.
+lsidIndexARN :: Lens' LocalSecondaryIndexDescription (Maybe Text)
+lsidIndexARN = lens _lsidIndexARN (\ s a -> s{_lsidIndexARN = a});
 
 -- | The complete index key schema, which consists of one or more pairs of
 -- attribute names and key types (@HASH@ or @RANGE@).
@@ -2285,8 +2361,9 @@ instance FromJSON LocalSecondaryIndexDescription
           = withObject "LocalSecondaryIndexDescription"
               (\ x ->
                  LocalSecondaryIndexDescription' <$>
-                   (x .:? "IndexSizeBytes") <*> (x .:? "KeySchema") <*>
-                     (x .:? "Projection")
+                   (x .:? "IndexSizeBytes") <*> (x .:? "IndexArn") <*>
+                     (x .:? "KeySchema")
+                     <*> (x .:? "Projection")
                      <*> (x .:? "ItemCount")
                      <*> (x .:? "IndexName"))
 
@@ -2514,6 +2591,70 @@ instance FromJSON PutRequest where
 instance ToJSON PutRequest where
         toJSON PutRequest'{..} = object ["Item" .= _prItem]
 
+-- | Represents the DynamoDB Streams configuration for a table in DynamoDB.
+--
+-- /See:/ 'streamSpecification' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'ssStreamEnabled'
+--
+-- * 'ssStreamViewType'
+data StreamSpecification = StreamSpecification'
+    { _ssStreamEnabled  :: !(Maybe Bool)
+    , _ssStreamViewType :: !(Maybe StreamViewType)
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'StreamSpecification' smart constructor.
+streamSpecification :: StreamSpecification
+streamSpecification =
+    StreamSpecification'
+    { _ssStreamEnabled = Nothing
+    , _ssStreamViewType = Nothing
+    }
+
+-- | Indicates whether DynamoDB Streams is enabled (true) or disabled (false)
+-- on the table.
+ssStreamEnabled :: Lens' StreamSpecification (Maybe Bool)
+ssStreamEnabled = lens _ssStreamEnabled (\ s a -> s{_ssStreamEnabled = a});
+
+-- | The DynamoDB Streams settings for the table. These settings consist of:
+--
+-- -   /StreamEnabled/ - Indicates whether DynamoDB Streams is enabled
+--     (true) or disabled (false) on the table.
+--
+-- -   /StreamViewType/ - When an item in the table is modified,
+--     /StreamViewType/ determines what information is written to the
+--     stream for this table. Valid values for /StreamViewType/ are:
+--
+--     -   /KEYS_ONLY/ - Only the key attributes of the modified item are
+--         written to the stream.
+--
+--     -   /NEW_IMAGE/ - The entire item, as it appears after it was
+--         modified, is written to the stream.
+--
+--     -   /OLD_IMAGE/ - The entire item, as it appeared before it was
+--         modified, is written to the stream.
+--
+--     -   /NEW_AND_OLD_IMAGES/ - Both the new and the old item images of
+--         the item are written to the stream.
+--
+ssStreamViewType :: Lens' StreamSpecification (Maybe StreamViewType)
+ssStreamViewType = lens _ssStreamViewType (\ s a -> s{_ssStreamViewType = a});
+
+instance FromJSON StreamSpecification where
+        parseJSON
+          = withObject "StreamSpecification"
+              (\ x ->
+                 StreamSpecification' <$>
+                   (x .:? "StreamEnabled") <*> (x .:? "StreamViewType"))
+
+instance ToJSON StreamSpecification where
+        toJSON StreamSpecification'{..}
+          = object
+              ["StreamEnabled" .= _ssStreamEnabled,
+               "StreamViewType" .= _ssStreamViewType]
+
 -- | Represents the properties of a table.
 --
 -- /See:/ 'tableDescription' smart constructor.
@@ -2524,11 +2665,17 @@ instance ToJSON PutRequest where
 --
 -- * 'tdAttributeDefinitions'
 --
+-- * 'tdLatestStreamARN'
+--
 -- * 'tdTableSizeBytes'
 --
 -- * 'tdTableStatus'
 --
+-- * 'tdTableARN'
+--
 -- * 'tdKeySchema'
+--
+-- * 'tdLatestStreamLabel'
 --
 -- * 'tdGlobalSecondaryIndexes'
 --
@@ -2539,17 +2686,23 @@ instance ToJSON PutRequest where
 -- * 'tdItemCount'
 --
 -- * 'tdTableName'
+--
+-- * 'tdStreamSpecification'
 data TableDescription = TableDescription'
     { _tdProvisionedThroughput  :: !(Maybe ProvisionedThroughputDescription)
     , _tdAttributeDefinitions   :: !(Maybe [AttributeDefinition])
+    , _tdLatestStreamARN        :: !(Maybe Text)
     , _tdTableSizeBytes         :: !(Maybe Integer)
     , _tdTableStatus            :: !(Maybe TableStatus)
+    , _tdTableARN               :: !(Maybe Text)
     , _tdKeySchema              :: !(Maybe (List1 KeySchemaElement))
+    , _tdLatestStreamLabel      :: !(Maybe Text)
     , _tdGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndexDescription])
     , _tdLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndexDescription])
     , _tdCreationDateTime       :: !(Maybe POSIX)
     , _tdItemCount              :: !(Maybe Integer)
     , _tdTableName              :: !(Maybe Text)
+    , _tdStreamSpecification    :: !(Maybe StreamSpecification)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TableDescription' smart constructor.
@@ -2558,14 +2711,18 @@ tableDescription =
     TableDescription'
     { _tdProvisionedThroughput = Nothing
     , _tdAttributeDefinitions = Nothing
+    , _tdLatestStreamARN = Nothing
     , _tdTableSizeBytes = Nothing
     , _tdTableStatus = Nothing
+    , _tdTableARN = Nothing
     , _tdKeySchema = Nothing
+    , _tdLatestStreamLabel = Nothing
     , _tdGlobalSecondaryIndexes = Nothing
     , _tdLocalSecondaryIndexes = Nothing
     , _tdCreationDateTime = Nothing
     , _tdItemCount = Nothing
     , _tdTableName = Nothing
+    , _tdStreamSpecification = Nothing
     }
 
 -- | The provisioned throughput settings for the table, consisting of read
@@ -2584,6 +2741,11 @@ tdProvisionedThroughput = lens _tdProvisionedThroughput (\ s a -> s{_tdProvision
 --
 tdAttributeDefinitions :: Lens' TableDescription [AttributeDefinition]
 tdAttributeDefinitions = lens _tdAttributeDefinitions (\ s a -> s{_tdAttributeDefinitions = a}) . _Default;
+
+-- | The Amazon Resource Name (ARN) that uniquely identifies the latest
+-- stream for this table.
+tdLatestStreamARN :: Lens' TableDescription (Maybe Text)
+tdLatestStreamARN = lens _tdLatestStreamARN (\ s a -> s{_tdLatestStreamARN = a});
 
 -- | The total size of the specified table, in bytes. DynamoDB updates this
 -- value approximately every six hours. Recent changes might not be
@@ -2604,6 +2766,10 @@ tdTableSizeBytes = lens _tdTableSizeBytes (\ s a -> s{_tdTableSizeBytes = a});
 tdTableStatus :: Lens' TableDescription (Maybe TableStatus)
 tdTableStatus = lens _tdTableStatus (\ s a -> s{_tdTableStatus = a});
 
+-- | The Amazon Resource Name (ARN) that uniquely identifies the table.
+tdTableARN :: Lens' TableDescription (Maybe Text)
+tdTableARN = lens _tdTableARN (\ s a -> s{_tdTableARN = a});
+
 -- | The primary key structure for the table. Each /KeySchemaElement/
 -- consists of:
 --
@@ -2617,6 +2783,22 @@ tdTableStatus = lens _tdTableStatus (\ s a -> s{_tdTableStatus = a});
 -- in the /Amazon DynamoDB Developer Guide/.
 tdKeySchema :: Lens' TableDescription (Maybe (NonEmpty KeySchemaElement))
 tdKeySchema = lens _tdKeySchema (\ s a -> s{_tdKeySchema = a}) . mapping _List1;
+
+-- | A timestamp, in ISO 8601 format, for this stream.
+--
+-- Note that /LatestStreamLabel/ is not a unique identifier for the stream,
+-- because it is possible that a stream from another table might have the
+-- same timestamp. However, the combination of the following three elements
+-- is guaranteed to be unique:
+--
+-- -   the AWS customer ID.
+--
+-- -   the table name.
+--
+-- -   the /StreamLabel/.
+--
+tdLatestStreamLabel :: Lens' TableDescription (Maybe Text)
+tdLatestStreamLabel = lens _tdLatestStreamLabel (\ s a -> s{_tdLatestStreamLabel = a});
 
 -- | The global secondary indexes, if any, on the table. Each index is scoped
 -- to a given hash key value. Each element is composed of:
@@ -2751,6 +2933,10 @@ tdItemCount = lens _tdItemCount (\ s a -> s{_tdItemCount = a});
 tdTableName :: Lens' TableDescription (Maybe Text)
 tdTableName = lens _tdTableName (\ s a -> s{_tdTableName = a});
 
+-- | The current DynamoDB Streams configuration for the table.
+tdStreamSpecification :: Lens' TableDescription (Maybe StreamSpecification)
+tdStreamSpecification = lens _tdStreamSpecification (\ s a -> s{_tdStreamSpecification = a});
+
 instance FromJSON TableDescription where
         parseJSON
           = withObject "TableDescription"
@@ -2758,14 +2944,18 @@ instance FromJSON TableDescription where
                  TableDescription' <$>
                    (x .:? "ProvisionedThroughput") <*>
                      (x .:? "AttributeDefinitions" .!= mempty)
+                     <*> (x .:? "LatestStreamArn")
                      <*> (x .:? "TableSizeBytes")
                      <*> (x .:? "TableStatus")
+                     <*> (x .:? "TableArn")
                      <*> (x .:? "KeySchema")
+                     <*> (x .:? "LatestStreamLabel")
                      <*> (x .:? "GlobalSecondaryIndexes" .!= mempty)
                      <*> (x .:? "LocalSecondaryIndexes" .!= mempty)
                      <*> (x .:? "CreationDateTime")
                      <*> (x .:? "ItemCount")
-                     <*> (x .:? "TableName"))
+                     <*> (x .:? "TableName")
+                     <*> (x .:? "StreamSpecification"))
 
 -- | Represents the new provisioned throughput settings to be applied to a
 -- global secondary index.

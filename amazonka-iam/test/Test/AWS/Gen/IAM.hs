@@ -43,6 +43,15 @@ import Test.AWS.IAM.Internal
 --         , testAttachRolePolicy $
 --             attachRolePolicy
 --
+--         , testListSSHPublicKeys $
+--             listSSHPublicKeys
+--
+--         , testDeleteSSHPublicKey $
+--             deleteSSHPublicKey
+--
+--         , testUpdateSSHPublicKey $
+--             updateSSHPublicKey
+--
 --         , testListOpenIdConnectProviders $
 --             listOpenIdConnectProviders
 --
@@ -85,11 +94,17 @@ import Test.AWS.IAM.Internal
 --         , testListUserPolicies $
 --             listUserPolicies
 --
+--         , testUploadSSHPublicKey $
+--             uploadSSHPublicKey
+--
 --         , testListUsers $
 --             listUsers
 --
 --         , testUpdateOpenIdConnectProviderThumbprint $
 --             updateOpenIdConnectProviderThumbprint
+--
+--         , testGetSSHPublicKey $
+--             getSSHPublicKey
 --
 --         , testPutUserPolicy $
 --             putUserPolicy
@@ -358,6 +373,15 @@ import Test.AWS.IAM.Internal
 --         , testAttachRolePolicyResponse $
 --             attachRolePolicyResponse
 --
+--         , testListSSHPublicKeysResponse $
+--             listSSHPublicKeysResponse
+--
+--         , testDeleteSSHPublicKeyResponse $
+--             deleteSSHPublicKeyResponse
+--
+--         , testUpdateSSHPublicKeyResponse $
+--             updateSSHPublicKeyResponse
+--
 --         , testListOpenIdConnectProvidersResponse $
 --             listOpenIdConnectProvidersResponse
 --
@@ -400,11 +424,17 @@ import Test.AWS.IAM.Internal
 --         , testListUserPoliciesResponse $
 --             listUserPoliciesResponse
 --
+--         , testUploadSSHPublicKeyResponse $
+--             uploadSSHPublicKeyResponse
+--
 --         , testListUsersResponse $
 --             listUsersResponse
 --
 --         , testUpdateOpenIdConnectProviderThumbprintResponse $
 --             updateOpenIdConnectProviderThumbprintResponse
+--
+--         , testGetSSHPublicKeyResponse $
+--             getSSHPublicKeyResponse
 --
 --         , testPutUserPolicyResponse $
 --             putUserPolicyResponse
@@ -685,6 +715,21 @@ testAttachRolePolicy = req
     "AttachRolePolicy"
     "fixture/AttachRolePolicy"
 
+testListSSHPublicKeys :: ListSSHPublicKeys -> TestTree
+testListSSHPublicKeys = req
+    "ListSSHPublicKeys"
+    "fixture/ListSSHPublicKeys"
+
+testDeleteSSHPublicKey :: DeleteSSHPublicKey -> TestTree
+testDeleteSSHPublicKey = req
+    "DeleteSSHPublicKey"
+    "fixture/DeleteSSHPublicKey"
+
+testUpdateSSHPublicKey :: UpdateSSHPublicKey -> TestTree
+testUpdateSSHPublicKey = req
+    "UpdateSSHPublicKey"
+    "fixture/UpdateSSHPublicKey"
+
 testListOpenIdConnectProviders :: ListOpenIdConnectProviders -> TestTree
 testListOpenIdConnectProviders = req
     "ListOpenIdConnectProviders"
@@ -755,6 +800,11 @@ testListUserPolicies = req
     "ListUserPolicies"
     "fixture/ListUserPolicies"
 
+testUploadSSHPublicKey :: UploadSSHPublicKey -> TestTree
+testUploadSSHPublicKey = req
+    "UploadSSHPublicKey"
+    "fixture/UploadSSHPublicKey"
+
 testListUsers :: ListUsers -> TestTree
 testListUsers = req
     "ListUsers"
@@ -764,6 +814,11 @@ testUpdateOpenIdConnectProviderThumbprint :: UpdateOpenIdConnectProviderThumbpri
 testUpdateOpenIdConnectProviderThumbprint = req
     "UpdateOpenIdConnectProviderThumbprint"
     "fixture/UpdateOpenIdConnectProviderThumbprint"
+
+testGetSSHPublicKey :: GetSSHPublicKey -> TestTree
+testGetSSHPublicKey = req
+    "GetSSHPublicKey"
+    "fixture/GetSSHPublicKey"
 
 testPutUserPolicy :: PutUserPolicy -> TestTree
 testPutUserPolicy = req
@@ -1212,6 +1267,24 @@ testAttachRolePolicyResponse = res
     "fixture/AttachRolePolicyResponse"
     (Proxy :: Proxy AttachRolePolicy)
 
+testListSSHPublicKeysResponse :: ListSSHPublicKeysResponse -> TestTree
+testListSSHPublicKeysResponse = res
+    "ListSSHPublicKeysResponse"
+    "fixture/ListSSHPublicKeysResponse"
+    (Proxy :: Proxy ListSSHPublicKeys)
+
+testDeleteSSHPublicKeyResponse :: DeleteSSHPublicKeyResponse -> TestTree
+testDeleteSSHPublicKeyResponse = res
+    "DeleteSSHPublicKeyResponse"
+    "fixture/DeleteSSHPublicKeyResponse"
+    (Proxy :: Proxy DeleteSSHPublicKey)
+
+testUpdateSSHPublicKeyResponse :: UpdateSSHPublicKeyResponse -> TestTree
+testUpdateSSHPublicKeyResponse = res
+    "UpdateSSHPublicKeyResponse"
+    "fixture/UpdateSSHPublicKeyResponse"
+    (Proxy :: Proxy UpdateSSHPublicKey)
+
 testListOpenIdConnectProvidersResponse :: ListOpenIdConnectProvidersResponse -> TestTree
 testListOpenIdConnectProvidersResponse = res
     "ListOpenIdConnectProvidersResponse"
@@ -1296,6 +1369,12 @@ testListUserPoliciesResponse = res
     "fixture/ListUserPoliciesResponse"
     (Proxy :: Proxy ListUserPolicies)
 
+testUploadSSHPublicKeyResponse :: UploadSSHPublicKeyResponse -> TestTree
+testUploadSSHPublicKeyResponse = res
+    "UploadSSHPublicKeyResponse"
+    "fixture/UploadSSHPublicKeyResponse"
+    (Proxy :: Proxy UploadSSHPublicKey)
+
 testListUsersResponse :: ListUsersResponse -> TestTree
 testListUsersResponse = res
     "ListUsersResponse"
@@ -1307,6 +1386,12 @@ testUpdateOpenIdConnectProviderThumbprintResponse = res
     "UpdateOpenIdConnectProviderThumbprintResponse"
     "fixture/UpdateOpenIdConnectProviderThumbprintResponse"
     (Proxy :: Proxy UpdateOpenIdConnectProviderThumbprint)
+
+testGetSSHPublicKeyResponse :: GetSSHPublicKeyResponse -> TestTree
+testGetSSHPublicKeyResponse = res
+    "GetSSHPublicKeyResponse"
+    "fixture/GetSSHPublicKeyResponse"
+    (Proxy :: Proxy GetSSHPublicKey)
 
 testPutUserPolicyResponse :: PutUserPolicyResponse -> TestTree
 testPutUserPolicyResponse = res
@@ -1877,6 +1962,8 @@ instance Out DeleteRolePolicyResponse
 instance Out DeleteRoleResponse
 instance Out DeleteSAMLProvider
 instance Out DeleteSAMLProviderResponse
+instance Out DeleteSSHPublicKey
+instance Out DeleteSSHPublicKeyResponse
 instance Out DeleteServerCertificate
 instance Out DeleteServerCertificateResponse
 instance Out DeleteSigningCertificate
@@ -1895,6 +1982,7 @@ instance Out DetachUserPolicy
 instance Out DetachUserPolicyResponse
 instance Out EnableMFADevice
 instance Out EnableMFADeviceResponse
+instance Out EncodingType
 instance Out EntityType
 instance Out GenerateCredentialReport
 instance Out GenerateCredentialReportResponse
@@ -1928,6 +2016,8 @@ instance Out GetRolePolicyResponse
 instance Out GetRoleResponse
 instance Out GetSAMLProvider
 instance Out GetSAMLProviderResponse
+instance Out GetSSHPublicKey
+instance Out GetSSHPublicKeyResponse
 instance Out GetServerCertificate
 instance Out GetServerCertificateResponse
 instance Out GetUser
@@ -1973,6 +2063,8 @@ instance Out ListRoles
 instance Out ListRolesResponse
 instance Out ListSAMLProviders
 instance Out ListSAMLProvidersResponse
+instance Out ListSSHPublicKeys
+instance Out ListSSHPublicKeysResponse
 instance Out ListServerCertificates
 instance Out ListServerCertificatesResponse
 instance Out ListSigningCertificates
@@ -2014,6 +2106,8 @@ instance Out ResyncMFADeviceResponse
 instance Out Role
 instance Out RoleDetail
 instance Out SAMLProviderListEntry
+instance Out SSHPublicKey
+instance Out SSHPublicKeyMetadata
 instance Out ServerCertificate
 instance Out ServerCertificateMetadata
 instance Out SetDefaultPolicyVersion
@@ -2035,12 +2129,16 @@ instance Out UpdateOpenIdConnectProviderThumbprint
 instance Out UpdateOpenIdConnectProviderThumbprintResponse
 instance Out UpdateSAMLProvider
 instance Out UpdateSAMLProviderResponse
+instance Out UpdateSSHPublicKey
+instance Out UpdateSSHPublicKeyResponse
 instance Out UpdateServerCertificate
 instance Out UpdateServerCertificateResponse
 instance Out UpdateSigningCertificate
 instance Out UpdateSigningCertificateResponse
 instance Out UpdateUser
 instance Out UpdateUserResponse
+instance Out UploadSSHPublicKey
+instance Out UploadSSHPublicKeyResponse
 instance Out UploadServerCertificate
 instance Out UploadServerCertificateResponse
 instance Out UploadSigningCertificate

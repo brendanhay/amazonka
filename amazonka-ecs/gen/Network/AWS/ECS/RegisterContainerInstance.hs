@@ -34,6 +34,7 @@ module Network.AWS.ECS.RegisterContainerInstance
     , rciInstanceIdentityDocumentSignature
     , rciCluster
     , rciInstanceIdentityDocument
+    , rciContainerInstanceARN
     , rciVersionInfo
     , rciTotalResources
 
@@ -61,6 +62,8 @@ import           Network.AWS.Response
 --
 -- * 'rciInstanceIdentityDocument'
 --
+-- * 'rciContainerInstanceARN'
+--
 -- * 'rciVersionInfo'
 --
 -- * 'rciTotalResources'
@@ -68,6 +71,7 @@ data RegisterContainerInstance = RegisterContainerInstance'
     { _rciInstanceIdentityDocumentSignature :: !(Maybe Text)
     , _rciCluster                           :: !(Maybe Text)
     , _rciInstanceIdentityDocument          :: !(Maybe Text)
+    , _rciContainerInstanceARN              :: !(Maybe Text)
     , _rciVersionInfo                       :: !(Maybe VersionInfo)
     , _rciTotalResources                    :: !(Maybe [Resource])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
@@ -79,6 +83,7 @@ registerContainerInstance =
     { _rciInstanceIdentityDocumentSignature = Nothing
     , _rciCluster = Nothing
     , _rciInstanceIdentityDocument = Nothing
+    , _rciContainerInstanceARN = Nothing
     , _rciVersionInfo = Nothing
     , _rciTotalResources = Nothing
     }
@@ -102,6 +107,11 @@ rciCluster = lens _rciCluster (\ s a -> s{_rciCluster = a});
 -- @curl http:\/\/169.254.169.254\/latest\/dynamic\/instance-identity\/document\/@
 rciInstanceIdentityDocument :: Lens' RegisterContainerInstance (Maybe Text)
 rciInstanceIdentityDocument = lens _rciInstanceIdentityDocument (\ s a -> s{_rciInstanceIdentityDocument = a});
+
+-- | The Amazon Resource Name (ARN) of the container instance (if it was
+-- previously registered).
+rciContainerInstanceARN :: Lens' RegisterContainerInstance (Maybe Text)
+rciContainerInstanceARN = lens _rciContainerInstanceARN (\ s a -> s{_rciContainerInstanceARN = a});
 
 -- | The version information for the Amazon ECS container agent and Docker
 -- daemon running on the container instance.
@@ -141,6 +151,7 @@ instance ToJSON RegisterContainerInstance where
                "cluster" .= _rciCluster,
                "instanceIdentityDocument" .=
                  _rciInstanceIdentityDocument,
+               "containerInstanceArn" .= _rciContainerInstanceARN,
                "versionInfo" .= _rciVersionInfo,
                "totalResources" .= _rciTotalResources]
 

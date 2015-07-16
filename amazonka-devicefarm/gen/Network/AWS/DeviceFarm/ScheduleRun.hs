@@ -1,0 +1,175 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.DeviceFarm.ScheduleRun
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Schedules a run.
+--
+-- <http://docs.aws.amazon.com/devicefarm/latest/APIReference/API_ScheduleRun.html>
+module Network.AWS.DeviceFarm.ScheduleRun
+    (
+    -- * Request
+      ScheduleRun
+    -- ** Request constructor
+    , scheduleRun
+    -- ** Request lenses
+    , srName
+    , srConfiguration
+    , srProjectARN
+    , srAppARN
+    , srDevicePoolARN
+    , srTest
+
+    -- * Response
+    , ScheduleRunResponse
+    -- ** Response constructor
+    , scheduleRunResponse
+    -- ** Response lenses
+    , srrRun
+    , srrStatus
+    ) where
+
+import           Network.AWS.DeviceFarm.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Represents a request to the schedule run operation.
+--
+-- /See:/ 'scheduleRun' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'srName'
+--
+-- * 'srConfiguration'
+--
+-- * 'srProjectARN'
+--
+-- * 'srAppARN'
+--
+-- * 'srDevicePoolARN'
+--
+-- * 'srTest'
+data ScheduleRun = ScheduleRun'
+    { _srName          :: !(Maybe Text)
+    , _srConfiguration :: !(Maybe ScheduleRunConfiguration)
+    , _srProjectARN    :: !Text
+    , _srAppARN        :: !Text
+    , _srDevicePoolARN :: !Text
+    , _srTest          :: !ScheduleRunTest
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ScheduleRun' smart constructor.
+scheduleRun :: Text -> Text -> Text -> ScheduleRunTest -> ScheduleRun
+scheduleRun pProjectARN pAppARN pDevicePoolARN pTest =
+    ScheduleRun'
+    { _srName = Nothing
+    , _srConfiguration = Nothing
+    , _srProjectARN = pProjectARN
+    , _srAppARN = pAppARN
+    , _srDevicePoolARN = pDevicePoolARN
+    , _srTest = pTest
+    }
+
+-- | The name for the run to be scheduled.
+srName :: Lens' ScheduleRun (Maybe Text)
+srName = lens _srName (\ s a -> s{_srName = a});
+
+-- | Information about the settings for the run to be scheduled.
+srConfiguration :: Lens' ScheduleRun (Maybe ScheduleRunConfiguration)
+srConfiguration = lens _srConfiguration (\ s a -> s{_srConfiguration = a});
+
+-- | The ARN of the project for the run to be scheduled.
+srProjectARN :: Lens' ScheduleRun Text
+srProjectARN = lens _srProjectARN (\ s a -> s{_srProjectARN = a});
+
+-- | The ARN of the app to schedule a run.
+srAppARN :: Lens' ScheduleRun Text
+srAppARN = lens _srAppARN (\ s a -> s{_srAppARN = a});
+
+-- | The ARN of the device pool for the run to be scheduled.
+srDevicePoolARN :: Lens' ScheduleRun Text
+srDevicePoolARN = lens _srDevicePoolARN (\ s a -> s{_srDevicePoolARN = a});
+
+-- | Information about the test for the run to be scheduled.
+srTest :: Lens' ScheduleRun ScheduleRunTest
+srTest = lens _srTest (\ s a -> s{_srTest = a});
+
+instance AWSRequest ScheduleRun where
+        type Sv ScheduleRun = DeviceFarm
+        type Rs ScheduleRun = ScheduleRunResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 ScheduleRunResponse' <$>
+                   (x .?> "run") <*> (pure (fromEnum s)))
+
+instance ToHeaders ScheduleRun where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("DeviceFarm_20150623.ScheduleRun" :: ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON ScheduleRun where
+        toJSON ScheduleRun'{..}
+          = object
+              ["name" .= _srName,
+               "configuration" .= _srConfiguration,
+               "projectArn" .= _srProjectARN, "appArn" .= _srAppARN,
+               "devicePoolArn" .= _srDevicePoolARN,
+               "test" .= _srTest]
+
+instance ToPath ScheduleRun where
+        toPath = const "/"
+
+instance ToQuery ScheduleRun where
+        toQuery = const mempty
+
+-- | Represents the result of a schedule run request.
+--
+-- /See:/ 'scheduleRunResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'srrRun'
+--
+-- * 'srrStatus'
+data ScheduleRunResponse = ScheduleRunResponse'
+    { _srrRun    :: !(Maybe Run)
+    , _srrStatus :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'ScheduleRunResponse' smart constructor.
+scheduleRunResponse :: Int -> ScheduleRunResponse
+scheduleRunResponse pStatus =
+    ScheduleRunResponse'
+    { _srrRun = Nothing
+    , _srrStatus = pStatus
+    }
+
+-- | Information about the scheduled run.
+srrRun :: Lens' ScheduleRunResponse (Maybe Run)
+srrRun = lens _srrRun (\ s a -> s{_srrRun = a});
+
+-- | FIXME: Undocumented member.
+srrStatus :: Lens' ScheduleRunResponse Int
+srrStatus = lens _srrStatus (\ s a -> s{_srrStatus = a});

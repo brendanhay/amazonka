@@ -1,0 +1,129 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.CodePipeline.UpdatePipeline
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Updates a specified pipeline with edits or changes to its structure. Use
+-- a JSON file with the pipeline structure in conjunction with
+-- UpdatePipeline to provide the full structure of the pipeline. Updating
+-- the pipeline increases the version number of the pipeline by 1.
+--
+-- <http://docs.aws.amazon.com/codepipeline/latest/APIReference/API_UpdatePipeline.html>
+module Network.AWS.CodePipeline.UpdatePipeline
+    (
+    -- * Request
+      UpdatePipeline
+    -- ** Request constructor
+    , updatePipeline
+    -- ** Request lenses
+    , upPipeline
+
+    -- * Response
+    , UpdatePipelineResponse
+    -- ** Response constructor
+    , updatePipelineResponse
+    -- ** Response lenses
+    , uprPipeline
+    , uprStatus
+    ) where
+
+import           Network.AWS.CodePipeline.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Represents the input of an update pipeline action.
+--
+-- /See:/ 'updatePipeline' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'upPipeline'
+newtype UpdatePipeline = UpdatePipeline'
+    { _upPipeline :: PipelineDeclaration
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdatePipeline' smart constructor.
+updatePipeline :: PipelineDeclaration -> UpdatePipeline
+updatePipeline pPipeline =
+    UpdatePipeline'
+    { _upPipeline = pPipeline
+    }
+
+-- | The name of the pipeline to be updated.
+upPipeline :: Lens' UpdatePipeline PipelineDeclaration
+upPipeline = lens _upPipeline (\ s a -> s{_upPipeline = a});
+
+instance AWSRequest UpdatePipeline where
+        type Sv UpdatePipeline = CodePipeline
+        type Rs UpdatePipeline = UpdatePipelineResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 UpdatePipelineResponse' <$>
+                   (x .?> "pipeline") <*> (pure (fromEnum s)))
+
+instance ToHeaders UpdatePipeline where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodePipeline_20150709.UpdatePipeline" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON UpdatePipeline where
+        toJSON UpdatePipeline'{..}
+          = object ["pipeline" .= _upPipeline]
+
+instance ToPath UpdatePipeline where
+        toPath = const "/"
+
+instance ToQuery UpdatePipeline where
+        toQuery = const mempty
+
+-- | Represents the output of an update pipeline action.
+--
+-- /See:/ 'updatePipelineResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'uprPipeline'
+--
+-- * 'uprStatus'
+data UpdatePipelineResponse = UpdatePipelineResponse'
+    { _uprPipeline :: !(Maybe PipelineDeclaration)
+    , _uprStatus   :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'UpdatePipelineResponse' smart constructor.
+updatePipelineResponse :: Int -> UpdatePipelineResponse
+updatePipelineResponse pStatus =
+    UpdatePipelineResponse'
+    { _uprPipeline = Nothing
+    , _uprStatus = pStatus
+    }
+
+-- | The structure of the updated pipeline.
+uprPipeline :: Lens' UpdatePipelineResponse (Maybe PipelineDeclaration)
+uprPipeline = lens _uprPipeline (\ s a -> s{_uprPipeline = a});
+
+-- | FIXME: Undocumented member.
+uprStatus :: Lens' UpdatePipelineResponse Int
+uprStatus = lens _uprStatus (\ s a -> s{_uprStatus = a});

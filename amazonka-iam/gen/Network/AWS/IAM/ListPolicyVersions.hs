@@ -76,18 +76,18 @@ listPolicyVersions pPolicyARN =
     , _lpvPolicyARN = pPolicyARN
     }
 
--- | Use this parameter only when paginating results to indicate the maximum
--- number of policy versions you want in the response. If there are
--- additional policy versions beyond the maximum you specify, the
--- @IsTruncated@ response element is @true@. This parameter is optional. If
--- you do not include it, it defaults to 100.
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 lpvMaxItems :: Lens' ListPolicyVersions (Maybe Natural)
 lpvMaxItems = lens _lpvMaxItems (\ s a -> s{_lpvMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results, and only in a
--- subsequent request after you\'ve received a response where the results
--- are truncated. Set it to the value of the @Marker@ element in the
--- response you just received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 lpvMarker :: Lens' ListPolicyVersions (Maybe Text)
 lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a});
 
@@ -162,16 +162,15 @@ listPolicyVersionsResponse pStatus =
 lpvrVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
 lpvrVersions = lens _lpvrVersions (\ s a -> s{_lpvrVersions = a}) . _Default;
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 lpvrMarker :: Lens' ListPolicyVersionsResponse (Maybe Text)
 lpvrMarker = lens _lpvrMarker (\ s a -> s{_lpvrMarker = a});
 
--- | A flag that indicates whether there are more policy versions to list. If
--- your results were truncated, you can make a subsequent pagination
--- request using the @Marker@ request parameter to retrieve more policy
--- versions in the list.
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items.
 lpvrIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
 lpvrIsTruncated = lens _lpvrIsTruncated (\ s a -> s{_lpvrIsTruncated = a});
 

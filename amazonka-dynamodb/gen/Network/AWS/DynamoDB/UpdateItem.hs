@@ -185,7 +185,7 @@ uiReturnValues = lens _uiReturnValues (\ s a -> s{_uiReturnValues = a});
 -- values/, which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 uiExpressionAttributeNames :: Lens' UpdateItem (HashMap Text Text)
 uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExpressionAttributeNames = a}) . _Default . _Map;
@@ -198,7 +198,7 @@ uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExp
 -- -   @SET@ - Adds one or more attributes and values to an item. If any of
 --     these attribute already exist, they are replaced by the new values.
 --     You can also use @SET@ to add or subtract from an attribute that is
---     of type Number.
+--     of type Number. For example: @SET myNum = myNum + :val@
 --
 --     @SET@ supports the following functions:
 --
@@ -263,9 +263,9 @@ uiExpressionAttributeNames = lens _uiExpressionAttributeNames (\ s a -> s{_uiExp
 --     @[a,b,c]@ and the @DELETE@ action specifies @[a,c]@, then the final
 --     attribute value is @[b]@. Specifying an empty set is an error.
 --
---     The @DELETE@ action only supports Number and set data types. In
---     addition, @DELETE@ can only be used on top-level attributes, not
---     nested attributes.
+--     The @DELETE@ action only supports set data types. In addition,
+--     @DELETE@ can only be used on top-level attributes, not nested
+--     attributes.
 --
 -- You can have many actions in a single expression, such as the following:
 -- @SET a=:value1, b=:value2 DELETE :value3, :value4, :value5@
@@ -399,15 +399,15 @@ uiReturnConsumedCapacity = lens _uiReturnConsumedCapacity (\ s a -> s{_uiReturnC
 -- @ProductStatus IN (:avail, :back, :disc)@
 --
 -- For more information on expression attribute values, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
 uiExpressionAttributeValues :: Lens' UpdateItem (HashMap Text AttributeValue)
 uiExpressionAttributeValues = lens _uiExpressionAttributeValues (\ s a -> s{_uiExpressionAttributeValues = a}) . _Default . _Map;
 
--- | A value that if set to @SIZE@, the response includes statistics about
--- item collections, if any, that were modified during the operation are
--- returned in the response. If set to @NONE@ (the default), no statistics
--- are returned.
+-- | Determines whether item collection metrics are returned. If set to
+-- @SIZE@, the response includes statistics about item collections, if any,
+-- that were modified during the operation are returned in the response. If
+-- set to @NONE@ (the default), no statistics are returned.
 uiReturnItemCollectionMetrics :: Lens' UpdateItem (Maybe ReturnItemCollectionMetrics)
 uiReturnItemCollectionMetrics = lens _uiReturnItemCollectionMetrics (\ s a -> s{_uiReturnItemCollectionMetrics = a});
 
@@ -416,8 +416,8 @@ uiReturnItemCollectionMetrics = lens _uiReturnItemCollectionMetrics (\ s a -> s{
 --
 -- An expression can contain any of the following:
 --
--- -   Boolean functions:
---     @attribute_exists | attribute_not_exists | contains | begins_with@
+-- -   Functions:
+--     @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
 --
 --     These function names are case-sensitive.
 --

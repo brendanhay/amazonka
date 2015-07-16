@@ -74,17 +74,17 @@ listAccountAliases =
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
--- account aliases you want in the response. If there are additional
--- account aliases beyond the maximum you specify, the @IsTruncated@
--- response element is @true@. This parameter is optional. If you do not
--- include it, it defaults to 100.
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
 laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 laaMarker :: Lens' ListAccountAliases (Maybe Text)
 laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
 
@@ -153,17 +153,15 @@ listAccountAliasesResponse pStatus =
     , _laarAccountAliases = mempty
     }
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
+-- | When @IsTruncated@ is @true@, this element is present and contains the
+-- value to use for the @Marker@ parameter in a subsequent pagination
+-- request.
 laarMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
 laarMarker = lens _laarMarker (\ s a -> s{_laarMarker = a});
 
--- | A flag that indicates whether there are more account aliases to list. If
--- your results were truncated, you can make a subsequent pagination
--- request using the @Marker@ request parameter to retrieve more account
--- aliases in the list.
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items.
 laarIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
 laarIsTruncated = lens _laarIsTruncated (\ s a -> s{_laarIsTruncated = a});
 

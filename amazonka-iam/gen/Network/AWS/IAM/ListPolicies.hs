@@ -59,6 +59,7 @@ module Network.AWS.IAM.ListPolicies
     ) where
 
 import           Network.AWS.IAM.Types
+import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Request
 import           Network.AWS.Response
@@ -121,20 +122,26 @@ lpOnlyAttached = lens _lpOnlyAttached (\ s a -> s{_lpOnlyAttached = a});
 lpScope :: Lens' ListPolicies (Maybe PolicyScopeType)
 lpScope = lens _lpScope (\ s a -> s{_lpScope = a});
 
--- | Use this parameter only when paginating results to indicate the maximum
--- number of policies you want in the response. If there are additional
--- policies beyond the maximum you specify, the @IsTruncated@ response
--- element is @true@. This parameter is optional. If you do not include it,
--- it defaults to 100.
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 lpMaxItems :: Lens' ListPolicies (Maybe Natural)
 lpMaxItems = lens _lpMaxItems (\ s a -> s{_lpMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results, and only in a
--- subsequent request after you\'ve received a response where the results
--- are truncated. Set it to the value of the @Marker@ element in the
--- response you just received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 lpMarker :: Lens' ListPolicies (Maybe Text)
 lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
+
+instance AWSPager ListPolicies where
+        page rq rs
+          | stop (rs ^. lprIsTruncated) = Nothing
+          | isNothing (rs ^. lprMarker) = Nothing
+          | otherwise = Just $ rq & lpMarker .~ rs ^. lprMarker
 
 instance AWSRequest ListPolicies where
         type Sv ListPolicies = IAM
@@ -195,16 +202,15 @@ listPoliciesResponse pStatus =
     , _lprStatus = pStatus
     }
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 lprMarker :: Lens' ListPoliciesResponse (Maybe Text)
 lprMarker = lens _lprMarker (\ s a -> s{_lprMarker = a});
 
--- | A flag that indicates whether there are more policies to list. If your
+-- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more policies in the
--- list.
+-- using the @Marker@ request parameter to retrieve more items.
 lprIsTruncated :: Lens' ListPoliciesResponse (Maybe Bool)
 lprIsTruncated = lens _lprIsTruncated (\ s a -> s{_lprIsTruncated = a});
 

@@ -590,7 +590,9 @@ instance FromJSON Cluster where
                      <*> (x .:? "clusterName")
                      <*> (x .:? "activeServicesCount"))
 
--- | /See:/ 'container' smart constructor.
+-- | A docker container that is part of a task.
+--
+-- /See:/ 'container' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -630,7 +632,7 @@ container =
     , _conExitCode = Nothing
     }
 
--- | FIXME: Undocumented member.
+-- | The network bindings associated with the container.
 conNetworkBindings :: Lens' Container [NetworkBinding]
 conNetworkBindings = lens _conNetworkBindings (\ s a -> s{_conNetworkBindings = a}) . _Default;
 
@@ -1000,8 +1002,7 @@ instance FromJSON ContainerInstance where
                      <*> (x .:? "pendingTasksCount")
                      <*> (x .:? "registeredResources" .!= mempty))
 
--- | The name of a container in a task definition and the command it should
--- run instead of its default.
+-- | The overrides that should be sent to a container.
 --
 -- /See:/ 'containerOverride' smart constructor.
 --
@@ -1058,7 +1059,9 @@ instance ToJSON ContainerOverride where
               ["command" .= _coCommand,
                "environment" .= _coEnvironment, "name" .= _coName]
 
--- | /See:/ 'containerService' smart constructor.
+-- | Details on a service within a cluster
+--
+-- /See:/ 'containerService' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1198,7 +1201,9 @@ instance FromJSON ContainerService where
                      <*> (x .:? "serviceArn")
                      <*> (x .:? "roleArn"))
 
--- | /See:/ 'deployment' smart constructor.
+-- | The details of an Amazon ECS service deployment.
+--
+-- /See:/ 'deployment' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1293,7 +1298,9 @@ instance FromJSON Deployment where
                      <*> (x .:? "taskDefinition")
                      <*> (x .:? "updatedAt"))
 
--- | /See:/ 'failure' smart constructor.
+-- | A failed resource.
+--
+-- /See:/ 'failure' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1327,7 +1334,9 @@ instance FromJSON Failure where
               (\ x ->
                  Failure' <$> (x .:? "arn") <*> (x .:? "reason"))
 
--- | /See:/ 'hostVolumeProperties' smart constructor.
+-- | Details on a container instance host volume.
+--
+-- /See:/ 'hostVolumeProperties' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1401,7 +1410,9 @@ instance ToJSON KeyValuePair where
         toJSON KeyValuePair'{..}
           = object ["value" .= _kvpValue, "name" .= _kvpName]
 
--- | /See:/ 'loadBalancer' smart constructor.
+-- | Details on a load balancer that is used with a service.
+--
+-- /See:/ 'loadBalancer' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1456,7 +1467,9 @@ instance ToJSON LoadBalancer where
                "containerName" .= _lbContainerName,
                "containerPort" .= _lbContainerPort]
 
--- | /See:/ 'mountPoint' smart constructor.
+-- | Details on a volume mount point that is used in a container definition.
+--
+-- /See:/ 'mountPoint' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1509,7 +1522,10 @@ instance ToJSON MountPoint where
                "sourceVolume" .= _mpSourceVolume,
                "readOnly" .= _mpReadOnly]
 
--- | /See:/ 'networkBinding' smart constructor.
+-- | Details on the network bindings between a container and its host
+-- container instance.
+--
+-- /See:/ 'networkBinding' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1741,7 +1757,9 @@ instance ToJSON Resource where
                "longValue" .= _resLongValue, "name" .= _resName,
                "type" .= _resType]
 
--- | /See:/ 'serviceEvent' smart constructor.
+-- | Details on an event associated with a service.
+--
+-- /See:/ 'serviceEvent' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1785,7 +1803,9 @@ instance FromJSON ServiceEvent where
                    (x .:? "createdAt") <*> (x .:? "id") <*>
                      (x .:? "message"))
 
--- | /See:/ 'task' smart constructor.
+-- | Details on a task in a cluster.
+--
+-- /See:/ 'task' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1888,7 +1908,9 @@ instance FromJSON Task where
                      <*> (x .:? "startedBy")
                      <*> (x .:? "taskDefinitionArn"))
 
--- | /See:/ 'taskDefinition' smart constructor.
+-- | Details of a task definition.
+--
+-- /See:/ 'taskDefinition' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -1972,9 +1994,7 @@ instance FromJSON TaskDefinition where
                      <*> (x .:? "revision")
                      <*> (x .:? "volumes" .!= mempty))
 
--- | A list of container overrides in JSON format that specify the name of a
--- container in a task definition and the command it should run instead of
--- its default.
+-- | The overrides associated with a task.
 --
 -- /See:/ 'taskOverride' smart constructor.
 --
@@ -2008,7 +2028,10 @@ instance ToJSON TaskOverride where
           = object
               ["containerOverrides" .= _toContainerOverrides]
 
--- | /See:/ 'versionInfo' smart constructor.
+-- | The Docker and Amazon ECS container agent version information on a
+-- container instance.
+--
+-- /See:/ 'versionInfo' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2061,7 +2084,9 @@ instance ToJSON VersionInfo where
                "agentHash" .= _viAgentHash,
                "dockerVersion" .= _viDockerVersion]
 
--- | /See:/ 'volume' smart constructor.
+-- | A data volume used in a task definition.
+--
+-- /See:/ 'volume' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
@@ -2102,7 +2127,9 @@ instance ToJSON Volume where
         toJSON Volume'{..}
           = object ["name" .= _volName, "host" .= _volHost]
 
--- | /See:/ 'volumeFrom' smart constructor.
+-- | Details on a data volume from another container.
+--
+-- /See:/ 'volumeFrom' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --

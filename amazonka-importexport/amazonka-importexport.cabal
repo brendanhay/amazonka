@@ -22,9 +22,6 @@ description:
     upgrading your connectivity.
     .
     /See:/ <http://docs.aws.amazon.com/AWSImportExport/latest/DG/api-reference.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

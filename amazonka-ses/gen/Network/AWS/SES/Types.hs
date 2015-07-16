@@ -22,6 +22,7 @@ module Network.AWS.SES.Types
 
     -- * Errors
     , _MessageRejected
+    , _InvalidPolicyException
 
     -- * IdentityType
     , IdentityType (..)
@@ -134,6 +135,12 @@ instance AWSService SES where
 -- Check the error stack for more information about what caused the error.
 _MessageRejected :: AWSError a => Getting (First ServiceError) a ServiceError
 _MessageRejected = _ServiceError . hasStatus 400 . hasCode "MessageRejected"
+
+-- | Indicates that the provided policy is invalid. Check the error stack for
+-- more information about what caused the error.
+_InvalidPolicyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidPolicyException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidPolicy"
 
 data IdentityType
     = Domain
@@ -568,6 +575,14 @@ rawMessage pData =
 --
 -- The To:, CC:, and BCC: headers in the raw message can contain a group
 -- list.
+--
+-- If you are using @SendRawEmail@ with sending authorization, you can
+-- include X-headers in the raw message to specify the \"Source,\"
+-- \"From,\" and \"Return-Path\" addresses. For more information, see the
+-- documentation for @SendRawEmail@.
+--
+-- Do not include these X-headers in the DKIM signature, because they are
+-- removed by Amazon SES before sending the email.
 --
 -- For more information, go to the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html Amazon SES Developer Guide>.

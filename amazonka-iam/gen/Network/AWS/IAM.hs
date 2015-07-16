@@ -110,6 +110,7 @@ import           Network.AWS.IAM.DeleteRolePolicy                        as Expo
 import           Network.AWS.IAM.DeleteSAMLProvider                      as Export
 import           Network.AWS.IAM.DeleteServerCertificate                 as Export
 import           Network.AWS.IAM.DeleteSigningCertificate                as Export
+import           Network.AWS.IAM.DeleteSSHPublicKey                      as Export
 import           Network.AWS.IAM.DeleteUser                              as Export
 import           Network.AWS.IAM.DeleteUserPolicy                        as Export
 import           Network.AWS.IAM.DeleteVirtualMFADevice                  as Export
@@ -134,6 +135,7 @@ import           Network.AWS.IAM.GetRole                                 as Expo
 import           Network.AWS.IAM.GetRolePolicy                           as Export
 import           Network.AWS.IAM.GetSAMLProvider                         as Export
 import           Network.AWS.IAM.GetServerCertificate                    as Export
+import           Network.AWS.IAM.GetSSHPublicKey                         as Export
 import           Network.AWS.IAM.GetUser                                 as Export
 import           Network.AWS.IAM.GetUserPolicy                           as Export
 import           Network.AWS.IAM.ListAccessKeys                          as Export
@@ -156,6 +158,7 @@ import           Network.AWS.IAM.ListRoles                               as Expo
 import           Network.AWS.IAM.ListSAMLProviders                       as Export
 import           Network.AWS.IAM.ListServerCertificates                  as Export
 import           Network.AWS.IAM.ListSigningCertificates                 as Export
+import           Network.AWS.IAM.ListSSHPublicKeys                       as Export
 import           Network.AWS.IAM.ListUserPolicies                        as Export
 import           Network.AWS.IAM.ListUsers                               as Export
 import           Network.AWS.IAM.ListVirtualMFADevices                   as Export
@@ -177,7 +180,9 @@ import           Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint   as Expo
 import           Network.AWS.IAM.UpdateSAMLProvider                      as Export
 import           Network.AWS.IAM.UpdateServerCertificate                 as Export
 import           Network.AWS.IAM.UpdateSigningCertificate                as Export
+import           Network.AWS.IAM.UpdateSSHPublicKey                      as Export
 import           Network.AWS.IAM.UpdateUser                              as Export
 import           Network.AWS.IAM.UploadServerCertificate                 as Export
 import           Network.AWS.IAM.UploadSigningCertificate                as Export
+import           Network.AWS.IAM.UploadSSHPublicKey                      as Export
 import           Network.AWS.IAM.Waiters                                 as Export

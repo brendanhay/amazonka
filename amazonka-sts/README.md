@@ -1,7 +1,5 @@
 # Amazon Security Token Service SDK
 
-> _Warning:_ This is an experimental preview release which is still under heavy development and not intended for public consumption, _caveat emptor_!
-
 * [Version](#version)
 * [Description](#description)
 * [Contribute](#contribute)

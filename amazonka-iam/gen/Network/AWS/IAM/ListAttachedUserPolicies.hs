@@ -95,17 +95,17 @@ laupPathPrefix :: Lens' ListAttachedUserPolicies (Maybe Text)
 laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- policies you want in the response. If there are additional policies
--- beyond the maximum you specify, the @IsTruncated@ response element is
--- @true@. This parameter is optional. If you do not include it, it
--- defaults to 100.
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 laupMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
 laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat;
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 laupMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
 laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
 
@@ -179,16 +179,15 @@ listAttachedUserPoliciesResponse pStatus =
 lauprAttachedPolicies :: Lens' ListAttachedUserPoliciesResponse [AttachedPolicy]
 lauprAttachedPolicies = lens _lauprAttachedPolicies (\ s a -> s{_lauprAttachedPolicies = a}) . _Default;
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 lauprMarker :: Lens' ListAttachedUserPoliciesResponse (Maybe Text)
 lauprMarker = lens _lauprMarker (\ s a -> s{_lauprMarker = a});
 
--- | A flag that indicates whether there are more policies to list. If your
+-- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more policies in the
--- list.
+-- using the @Marker@ request parameter to retrieve more items.
 lauprIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
 lauprIsTruncated = lens _lauprIsTruncated (\ s a -> s{_lauprIsTruncated = a});
 

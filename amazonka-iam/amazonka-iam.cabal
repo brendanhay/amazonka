@@ -76,9 +76,6 @@ description:
         using an access key ID and secret access key.
     .
     /See:/ <http://docs.aws.amazon.com/IAM/latest/APIReference/Welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -125,6 +122,7 @@ library
         , Network.AWS.IAM.DeleteRole
         , Network.AWS.IAM.DeleteRolePolicy
         , Network.AWS.IAM.DeleteSAMLProvider
+        , Network.AWS.IAM.DeleteSSHPublicKey
         , Network.AWS.IAM.DeleteServerCertificate
         , Network.AWS.IAM.DeleteSigningCertificate
         , Network.AWS.IAM.DeleteUser
@@ -150,6 +148,7 @@ library
         , Network.AWS.IAM.GetRole
         , Network.AWS.IAM.GetRolePolicy
         , Network.AWS.IAM.GetSAMLProvider
+        , Network.AWS.IAM.GetSSHPublicKey
         , Network.AWS.IAM.GetServerCertificate
         , Network.AWS.IAM.GetUser
         , Network.AWS.IAM.GetUserPolicy
@@ -171,6 +170,7 @@ library
         , Network.AWS.IAM.ListRolePolicies
         , Network.AWS.IAM.ListRoles
         , Network.AWS.IAM.ListSAMLProviders
+        , Network.AWS.IAM.ListSSHPublicKeys
         , Network.AWS.IAM.ListServerCertificates
         , Network.AWS.IAM.ListSigningCertificates
         , Network.AWS.IAM.ListUserPolicies
@@ -192,9 +192,11 @@ library
         , Network.AWS.IAM.UpdateLoginProfile
         , Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
         , Network.AWS.IAM.UpdateSAMLProvider
+        , Network.AWS.IAM.UpdateSSHPublicKey
         , Network.AWS.IAM.UpdateServerCertificate
         , Network.AWS.IAM.UpdateSigningCertificate
         , Network.AWS.IAM.UpdateUser
+        , Network.AWS.IAM.UploadSSHPublicKey
         , Network.AWS.IAM.UploadServerCertificate
         , Network.AWS.IAM.UploadSigningCertificate
         , Network.AWS.IAM.Waiters

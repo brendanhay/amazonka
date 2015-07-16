@@ -170,7 +170,7 @@ diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 -- values/, which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
 diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExpressionAttributeNames = a}) . _Default . _Map;
@@ -196,15 +196,15 @@ diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnC
 -- @ProductStatus IN (:avail, :back, :disc)@
 --
 -- For more information on expression attribute values, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
 diExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
 diExpressionAttributeValues = lens _diExpressionAttributeValues (\ s a -> s{_diExpressionAttributeValues = a}) . _Default . _Map;
 
--- | A value that if set to @SIZE@, the response includes statistics about
--- item collections, if any, that were modified during the operation are
--- returned in the response. If set to @NONE@ (the default), no statistics
--- are returned.
+-- | Determines whether item collection metrics are returned. If set to
+-- @SIZE@, the response includes statistics about item collections, if any,
+-- that were modified during the operation are returned in the response. If
+-- set to @NONE@ (the default), no statistics are returned.
 diReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
 diReturnItemCollectionMetrics = lens _diReturnItemCollectionMetrics (\ s a -> s{_diReturnItemCollectionMetrics = a});
 
@@ -213,8 +213,8 @@ diReturnItemCollectionMetrics = lens _diReturnItemCollectionMetrics (\ s a -> s{
 --
 -- An expression can contain any of the following:
 --
--- -   Boolean functions:
---     @attribute_exists | attribute_not_exists | contains | begins_with@
+-- -   Functions:
+--     @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
 --
 --     These function names are case-sensitive.
 --

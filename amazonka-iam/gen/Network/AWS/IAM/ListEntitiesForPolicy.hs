@@ -108,17 +108,17 @@ lefpEntityFilter :: Lens' ListEntitiesForPolicy (Maybe EntityType)
 lefpEntityFilter = lens _lefpEntityFilter (\ s a -> s{_lefpEntityFilter = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- entities you want in the response. If there are additional entities
--- beyond the maximum you specify, the @IsTruncated@ response element is
--- @true@. This parameter is optional. If you do not include it, it
--- defaults to 100.
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 lefpMaxItems :: Lens' ListEntitiesForPolicy (Maybe Natural)
 lefpMaxItems = lens _lefpMaxItems (\ s a -> s{_lefpMaxItems = a}) . mapping _Nat;
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 lefpMarker :: Lens' ListEntitiesForPolicy (Maybe Text)
 lefpMarker = lens _lefpMarker (\ s a -> s{_lefpMarker = a});
 
@@ -213,16 +213,15 @@ lefprPolicyRoles = lens _lefprPolicyRoles (\ s a -> s{_lefprPolicyRoles = a}) . 
 lefprPolicyUsers :: Lens' ListEntitiesForPolicyResponse [PolicyUser]
 lefprPolicyUsers = lens _lefprPolicyUsers (\ s a -> s{_lefprPolicyUsers = a}) . _Default;
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 lefprMarker :: Lens' ListEntitiesForPolicyResponse (Maybe Text)
 lefprMarker = lens _lefprMarker (\ s a -> s{_lefprMarker = a});
 
--- | A flag that indicates whether there are more entities to list. If your
+-- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more entities in the
--- list.
+-- using the @Marker@ request parameter to retrieve more items.
 lefprIsTruncated :: Lens' ListEntitiesForPolicyResponse (Maybe Bool)
 lefprIsTruncated = lens _lefprIsTruncated (\ s a -> s{_lefprIsTruncated = a});
 

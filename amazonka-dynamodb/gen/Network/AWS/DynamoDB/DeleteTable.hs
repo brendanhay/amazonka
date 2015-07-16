@@ -32,6 +32,10 @@
 --
 -- When you delete a table, any indexes on that table are also deleted.
 --
+-- If you have DynamoDB Streams enabled on the table, then the
+-- corresponding stream on that table goes into the @DISABLED@ state, and
+-- the stream is automatically deleted after 24 hours.
+--
 -- Use the /DescribeTable/ API to check the status of the table.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DeleteTable.html>

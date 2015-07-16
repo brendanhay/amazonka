@@ -146,6 +146,7 @@ putItem pTableName =
 -- -   @ALL_OLD@ - If /PutItem/ overwrote an attribute name-value pair,
 --     then the content of the old item is returned.
 --
+-- Other \"Valid Values\" are not relevant to PutItem.
 piReturnValues :: Lens' PutItem (Maybe ReturnValue)
 piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 
@@ -184,7 +185,7 @@ piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 -- values/, which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
 piExpressionAttributeNames = lens _piExpressionAttributeNames (\ s a -> s{_piExpressionAttributeNames = a}) . _Default . _Map;
@@ -210,15 +211,15 @@ piReturnConsumedCapacity = lens _piReturnConsumedCapacity (\ s a -> s{_piReturnC
 -- @ProductStatus IN (:avail, :back, :disc)@
 --
 -- For more information on expression attribute values, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
 piExpressionAttributeValues :: Lens' PutItem (HashMap Text AttributeValue)
 piExpressionAttributeValues = lens _piExpressionAttributeValues (\ s a -> s{_piExpressionAttributeValues = a}) . _Default . _Map;
 
--- | A value that if set to @SIZE@, the response includes statistics about
--- item collections, if any, that were modified during the operation are
--- returned in the response. If set to @NONE@ (the default), no statistics
--- are returned.
+-- | Determines whether item collection metrics are returned. If set to
+-- @SIZE@, the response includes statistics about item collections, if any,
+-- that were modified during the operation are returned in the response. If
+-- set to @NONE@ (the default), no statistics are returned.
 piReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
 piReturnItemCollectionMetrics = lens _piReturnItemCollectionMetrics (\ s a -> s{_piReturnItemCollectionMetrics = a});
 
@@ -227,8 +228,8 @@ piReturnItemCollectionMetrics = lens _piReturnItemCollectionMetrics (\ s a -> s{
 --
 -- An expression can contain any of the following:
 --
--- -   Boolean functions:
---     @attribute_exists | attribute_not_exists | contains | begins_with@
+-- -   Functions:
+--     @attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size@
 --
 --     These function names are case-sensitive.
 --

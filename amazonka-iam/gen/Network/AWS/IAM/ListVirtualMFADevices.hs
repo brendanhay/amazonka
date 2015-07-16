@@ -84,18 +84,18 @@ listVirtualMFADevices =
 lvmdAssignmentStatus :: Lens' ListVirtualMFADevices (Maybe AssignmentStatusType)
 lvmdAssignmentStatus = lens _lvmdAssignmentStatus (\ s a -> s{_lvmdAssignmentStatus = a});
 
--- | Use this parameter only when paginating results to indicate the maximum
--- number of MFA devices you want in the response. If there are additional
--- MFA devices beyond the maximum you specify, the @IsTruncated@ response
--- element is @true@. This parameter is optional. If you do not include it,
--- it defaults to 100.
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 lvmdMaxItems :: Lens' ListVirtualMFADevices (Maybe Natural)
 lvmdMaxItems = lens _lvmdMaxItems (\ s a -> s{_lvmdMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results, and only in a
--- subsequent request after you\'ve received a response where the results
--- are truncated. Set it to the value of the @Marker@ element in the
--- response you just received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 lvmdMarker :: Lens' ListVirtualMFADevices (Maybe Text)
 lvmdMarker = lens _lvmdMarker (\ s a -> s{_lvmdMarker = a});
 
@@ -165,15 +165,15 @@ listVirtualMFADevicesResponse pStatus =
     , _lvmdrVirtualMFADevices = mempty
     }
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 lvmdrMarker :: Lens' ListVirtualMFADevicesResponse (Maybe Text)
 lvmdrMarker = lens _lvmdrMarker (\ s a -> s{_lvmdrMarker = a});
 
--- | A flag that indicates whether there are more items to list. If your
+-- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more items the list.
+-- using the @Marker@ request parameter to retrieve more items.
 lvmdrIsTruncated :: Lens' ListVirtualMFADevicesResponse (Maybe Bool)
 lvmdrIsTruncated = lens _lvmdrIsTruncated (\ s a -> s{_lvmdrIsTruncated = a});
 

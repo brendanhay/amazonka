@@ -117,7 +117,9 @@ creRole :: Lens' CreateService (Maybe Text)
 creRole = lens _creRole (\ s a -> s{_creRole = a});
 
 -- | The name of your service. Up to 255 letters (uppercase and lowercase),
--- numbers, hyphens, and underscores are allowed.
+-- numbers, hyphens, and underscores are allowed. Service names must be
+-- unique within a cluster, but you can have similarly named services in
+-- multiple clusters within a region or across multiple regions.
 creServiceName :: Lens' CreateService Text
 creServiceName = lens _creServiceName (\ s a -> s{_creServiceName = a});
 

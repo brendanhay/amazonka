@@ -31,17 +31,29 @@ import Test.AWS.SES.Internal
 --         [ testGetSendQuota $
 --             getSendQuota
 --
+--         , testDeleteIdentityPolicy $
+--             deleteIdentityPolicy
+--
+--         , testPutIdentityPolicy $
+--             putIdentityPolicy
+--
 --         , testSetIdentityDkimEnabled $
 --             setIdentityDkimEnabled
 --
 --         , testGetIdentityNotificationAttributes $
 --             getIdentityNotificationAttributes
 --
+--         , testListIdentityPolicies $
+--             listIdentityPolicies
+--
 --         , testSetIdentityFeedbackForwardingEnabled $
 --             setIdentityFeedbackForwardingEnabled
 --
 --         , testGetIdentityVerificationAttributes $
 --             getIdentityVerificationAttributes
+--
+--         , testGetIdentityPolicies $
+--             getIdentityPolicies
 --
 --         , testVerifyDomainIdentity $
 --             verifyDomainIdentity
@@ -88,17 +100,29 @@ import Test.AWS.SES.Internal
 --         [ testGetSendQuotaResponse $
 --             getSendQuotaResponse
 --
+--         , testDeleteIdentityPolicyResponse $
+--             deleteIdentityPolicyResponse
+--
+--         , testPutIdentityPolicyResponse $
+--             putIdentityPolicyResponse
+--
 --         , testSetIdentityDkimEnabledResponse $
 --             setIdentityDkimEnabledResponse
 --
 --         , testGetIdentityNotificationAttributesResponse $
 --             getIdentityNotificationAttributesResponse
 --
+--         , testListIdentityPoliciesResponse $
+--             listIdentityPoliciesResponse
+--
 --         , testSetIdentityFeedbackForwardingEnabledResponse $
 --             setIdentityFeedbackForwardingEnabledResponse
 --
 --         , testGetIdentityVerificationAttributesResponse $
 --             getIdentityVerificationAttributesResponse
+--
+--         , testGetIdentityPoliciesResponse $
+--             getIdentityPoliciesResponse
 --
 --         , testVerifyDomainIdentityResponse $
 --             verifyDomainIdentityResponse
@@ -149,6 +173,16 @@ testGetSendQuota = req
     "GetSendQuota"
     "fixture/GetSendQuota"
 
+testDeleteIdentityPolicy :: DeleteIdentityPolicy -> TestTree
+testDeleteIdentityPolicy = req
+    "DeleteIdentityPolicy"
+    "fixture/DeleteIdentityPolicy"
+
+testPutIdentityPolicy :: PutIdentityPolicy -> TestTree
+testPutIdentityPolicy = req
+    "PutIdentityPolicy"
+    "fixture/PutIdentityPolicy"
+
 testSetIdentityDkimEnabled :: SetIdentityDkimEnabled -> TestTree
 testSetIdentityDkimEnabled = req
     "SetIdentityDkimEnabled"
@@ -159,6 +193,11 @@ testGetIdentityNotificationAttributes = req
     "GetIdentityNotificationAttributes"
     "fixture/GetIdentityNotificationAttributes"
 
+testListIdentityPolicies :: ListIdentityPolicies -> TestTree
+testListIdentityPolicies = req
+    "ListIdentityPolicies"
+    "fixture/ListIdentityPolicies"
+
 testSetIdentityFeedbackForwardingEnabled :: SetIdentityFeedbackForwardingEnabled -> TestTree
 testSetIdentityFeedbackForwardingEnabled = req
     "SetIdentityFeedbackForwardingEnabled"
@@ -168,6 +207,11 @@ testGetIdentityVerificationAttributes :: GetIdentityVerificationAttributes -> Te
 testGetIdentityVerificationAttributes = req
     "GetIdentityVerificationAttributes"
     "fixture/GetIdentityVerificationAttributes"
+
+testGetIdentityPolicies :: GetIdentityPolicies -> TestTree
+testGetIdentityPolicies = req
+    "GetIdentityPolicies"
+    "fixture/GetIdentityPolicies"
 
 testVerifyDomainIdentity :: VerifyDomainIdentity -> TestTree
 testVerifyDomainIdentity = req
@@ -242,6 +286,18 @@ testGetSendQuotaResponse = res
     "fixture/GetSendQuotaResponse"
     (Proxy :: Proxy GetSendQuota)
 
+testDeleteIdentityPolicyResponse :: DeleteIdentityPolicyResponse -> TestTree
+testDeleteIdentityPolicyResponse = res
+    "DeleteIdentityPolicyResponse"
+    "fixture/DeleteIdentityPolicyResponse"
+    (Proxy :: Proxy DeleteIdentityPolicy)
+
+testPutIdentityPolicyResponse :: PutIdentityPolicyResponse -> TestTree
+testPutIdentityPolicyResponse = res
+    "PutIdentityPolicyResponse"
+    "fixture/PutIdentityPolicyResponse"
+    (Proxy :: Proxy PutIdentityPolicy)
+
 testSetIdentityDkimEnabledResponse :: SetIdentityDkimEnabledResponse -> TestTree
 testSetIdentityDkimEnabledResponse = res
     "SetIdentityDkimEnabledResponse"
@@ -254,6 +310,12 @@ testGetIdentityNotificationAttributesResponse = res
     "fixture/GetIdentityNotificationAttributesResponse"
     (Proxy :: Proxy GetIdentityNotificationAttributes)
 
+testListIdentityPoliciesResponse :: ListIdentityPoliciesResponse -> TestTree
+testListIdentityPoliciesResponse = res
+    "ListIdentityPoliciesResponse"
+    "fixture/ListIdentityPoliciesResponse"
+    (Proxy :: Proxy ListIdentityPolicies)
+
 testSetIdentityFeedbackForwardingEnabledResponse :: SetIdentityFeedbackForwardingEnabledResponse -> TestTree
 testSetIdentityFeedbackForwardingEnabledResponse = res
     "SetIdentityFeedbackForwardingEnabledResponse"
@@ -265,6 +327,12 @@ testGetIdentityVerificationAttributesResponse = res
     "GetIdentityVerificationAttributesResponse"
     "fixture/GetIdentityVerificationAttributesResponse"
     (Proxy :: Proxy GetIdentityVerificationAttributes)
+
+testGetIdentityPoliciesResponse :: GetIdentityPoliciesResponse -> TestTree
+testGetIdentityPoliciesResponse = res
+    "GetIdentityPoliciesResponse"
+    "fixture/GetIdentityPoliciesResponse"
+    (Proxy :: Proxy GetIdentityPolicies)
 
 testVerifyDomainIdentityResponse :: VerifyDomainIdentityResponse -> TestTree
 testVerifyDomainIdentityResponse = res
@@ -347,6 +415,8 @@ testSetIdentityNotificationTopicResponse = res
 instance Out Body
 instance Out Content
 instance Out DeleteIdentity
+instance Out DeleteIdentityPolicy
+instance Out DeleteIdentityPolicyResponse
 instance Out DeleteIdentityResponse
 instance Out DeleteVerifiedEmailAddress
 instance Out DeleteVerifiedEmailAddressResponse
@@ -355,6 +425,8 @@ instance Out GetIdentityDkimAttributes
 instance Out GetIdentityDkimAttributesResponse
 instance Out GetIdentityNotificationAttributes
 instance Out GetIdentityNotificationAttributesResponse
+instance Out GetIdentityPolicies
+instance Out GetIdentityPoliciesResponse
 instance Out GetIdentityVerificationAttributes
 instance Out GetIdentityVerificationAttributesResponse
 instance Out GetSendQuota
@@ -367,10 +439,14 @@ instance Out IdentityType
 instance Out IdentityVerificationAttributes
 instance Out ListIdentities
 instance Out ListIdentitiesResponse
+instance Out ListIdentityPolicies
+instance Out ListIdentityPoliciesResponse
 instance Out ListVerifiedEmailAddresses
 instance Out ListVerifiedEmailAddressesResponse
 instance Out Message
 instance Out NotificationType
+instance Out PutIdentityPolicy
+instance Out PutIdentityPolicyResponse
 instance Out RawMessage
 instance Out SendDataPoint
 instance Out SendEmail

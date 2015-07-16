@@ -28,6 +28,10 @@
 -- can use this value to retry the operation starting with the next item to
 -- get.
 --
+-- If you request more than 100 items /BatchGetItem/ will return a
+-- /ValidationException/ with the message \"Too many items requested for
+-- the BatchGetItem call\".
+--
 -- For example, if you ask to retrieve 100 items, but each individual item
 -- is 300 KB in size, the system returns 52 items (so as not to exceed the
 -- 16 MB limit). It also returns an appropriate /UnprocessedKeys/ value so

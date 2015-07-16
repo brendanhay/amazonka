@@ -24,9 +24,6 @@ description:
     in the Amazon SES Developer Guide.
     .
     /See:/ <http://docs.aws.amazon.com/ses/latest/APIReference/Welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git
@@ -41,14 +38,18 @@ library
     exposed-modules:
           Network.AWS.SES
         , Network.AWS.SES.DeleteIdentity
+        , Network.AWS.SES.DeleteIdentityPolicy
         , Network.AWS.SES.DeleteVerifiedEmailAddress
         , Network.AWS.SES.GetIdentityDkimAttributes
         , Network.AWS.SES.GetIdentityNotificationAttributes
+        , Network.AWS.SES.GetIdentityPolicies
         , Network.AWS.SES.GetIdentityVerificationAttributes
         , Network.AWS.SES.GetSendQuota
         , Network.AWS.SES.GetSendStatistics
         , Network.AWS.SES.ListIdentities
+        , Network.AWS.SES.ListIdentityPolicies
         , Network.AWS.SES.ListVerifiedEmailAddresses
+        , Network.AWS.SES.PutIdentityPolicy
         , Network.AWS.SES.SendEmail
         , Network.AWS.SES.SendRawEmail
         , Network.AWS.SES.SetIdentityDkimEnabled

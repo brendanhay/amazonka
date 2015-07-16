@@ -174,7 +174,7 @@ aruAssumedRoleId = lens _aruAssumedRoleId (\ s a -> s{_aruAssumedRoleId = a});
 -- | The ARN of the temporary security credentials that are returned from the
 -- AssumeRole action. For more information about ARNs and how to use them
 -- in policies, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Identifiers for IAM Entities>
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
 -- in /Using IAM/.
 aruARN :: Lens' AssumedRoleUser Text
 aruARN = lens _aruARN (\ s a -> s{_aruARN = a});
@@ -269,7 +269,7 @@ fuFederatedUserId = lens _fuFederatedUserId (\ s a -> s{_fuFederatedUserId = a})
 -- | The ARN that specifies the federated user that is associated with the
 -- credentials. For more information about ARNs and how to use them in
 -- policies, see
--- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Identifiers for IAM Entities>
+-- <http://docs.aws.amazon.com/IAM/latest/UserGuide/reference_identifiers.html IAM Identifiers>
 -- in /Using IAM/.
 fuARN :: Lens' FederatedUser Text
 fuARN = lens _fuARN (\ s a -> s{_fuARN = a});

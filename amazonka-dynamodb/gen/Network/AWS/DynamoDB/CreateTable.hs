@@ -46,6 +46,7 @@ module Network.AWS.DynamoDB.CreateTable
     -- ** Request lenses
     , ctGlobalSecondaryIndexes
     , ctLocalSecondaryIndexes
+    , ctStreamSpecification
     , ctAttributeDefinitions
     , ctTableName
     , ctKeySchema
@@ -75,6 +76,8 @@ import           Network.AWS.Response
 --
 -- * 'ctLocalSecondaryIndexes'
 --
+-- * 'ctStreamSpecification'
+--
 -- * 'ctAttributeDefinitions'
 --
 -- * 'ctTableName'
@@ -85,6 +88,7 @@ import           Network.AWS.Response
 data CreateTable = CreateTable'
     { _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
     , _ctLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
+    , _ctStreamSpecification    :: !(Maybe StreamSpecification)
     , _ctAttributeDefinitions   :: ![AttributeDefinition]
     , _ctTableName              :: !Text
     , _ctKeySchema              :: !(List1 KeySchemaElement)
@@ -97,6 +101,7 @@ createTable pTableName pKeySchema pProvisionedThroughput =
     CreateTable'
     { _ctGlobalSecondaryIndexes = Nothing
     , _ctLocalSecondaryIndexes = Nothing
+    , _ctStreamSpecification = Nothing
     , _ctAttributeDefinitions = mempty
     , _ctTableName = pTableName
     , _ctKeySchema = _List1 # pKeySchema
@@ -185,6 +190,31 @@ ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalS
 ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
 ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSecondaryIndexes = a}) . _Default;
 
+-- | The settings for DynamoDB Streams on the table. These settings consist
+-- of:
+--
+-- -   /StreamEnabled/ - Indicates whether Streams is to be enabled (true)
+--     or disabled (false).
+--
+-- -   /StreamViewType/ - When an item in the table is modified,
+--     /StreamViewType/ determines what information is written to the
+--     table\'s stream. Valid values for /StreamViewType/ are:
+--
+--     -   /KEYS_ONLY/ - Only the key attributes of the modified item are
+--         written to the stream.
+--
+--     -   /NEW_IMAGE/ - The entire item, as it appears after it was
+--         modified, is written to the stream.
+--
+--     -   /OLD_IMAGE/ - The entire item, as it appeared before it was
+--         modified, is written to the stream.
+--
+--     -   /NEW_AND_OLD_IMAGES/ - Both the new and the old item images of
+--         the item are written to the stream.
+--
+ctStreamSpecification :: Lens' CreateTable (Maybe StreamSpecification)
+ctStreamSpecification = lens _ctStreamSpecification (\ s a -> s{_ctStreamSpecification = a});
+
 -- | An array of attributes that describe the key schema for the table and
 -- indexes.
 ctAttributeDefinitions :: Lens' CreateTable [AttributeDefinition]
@@ -250,6 +280,7 @@ instance ToJSON CreateTable where
               ["GlobalSecondaryIndexes" .=
                  _ctGlobalSecondaryIndexes,
                "LocalSecondaryIndexes" .= _ctLocalSecondaryIndexes,
+               "StreamSpecification" .= _ctStreamSpecification,
                "AttributeDefinitions" .= _ctAttributeDefinitions,
                "TableName" .= _ctTableName,
                "KeySchema" .= _ctKeySchema,

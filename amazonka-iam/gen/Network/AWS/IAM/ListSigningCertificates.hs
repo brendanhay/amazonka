@@ -88,17 +88,17 @@ lUserName :: Lens' ListSigningCertificates (Maybe Text)
 lUserName = lens _lUserName (\ s a -> s{_lUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- certificate IDs you want in the response. If there are additional
--- certificate IDs beyond the maximum you specify, the @IsTruncated@
--- response element is @true@. This parameter is optional. If you do not
--- include it, it defaults to 100.
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 lMaxItems :: Lens' ListSigningCertificates (Maybe Natural)
 lMaxItems = lens _lMaxItems (\ s a -> s{_lMaxItems = a}) . mapping _Nat;
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 lMarker :: Lens' ListSigningCertificates (Maybe Text)
 lMarker = lens _lMarker (\ s a -> s{_lMarker = a});
 
@@ -168,16 +168,15 @@ listSigningCertificatesResponse pStatus =
     , _lisCertificates = mempty
     }
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 lisMarker :: Lens' ListSigningCertificatesResponse (Maybe Text)
 lisMarker = lens _lisMarker (\ s a -> s{_lisMarker = a});
 
--- | A flag that indicates whether there are more certificate IDs to list. If
--- your results were truncated, you can make a subsequent pagination
--- request using the @Marker@ request parameter to retrieve more
--- certificates in the list.
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items.
 lisIsTruncated :: Lens' ListSigningCertificatesResponse (Maybe Bool)
 lisIsTruncated = lens _lisIsTruncated (\ s a -> s{_lisIsTruncated = a});
 

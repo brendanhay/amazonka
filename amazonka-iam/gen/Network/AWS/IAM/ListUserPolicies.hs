@@ -83,17 +83,17 @@ listUserPolicies pUserName =
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
--- policy names you want in the response. If there are additional policy
--- names beyond the maximum you specify, the @IsTruncated@ response element
--- is @true@. This parameter is optional. If you do not include it, it
--- defaults to 100.
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 lupMaxItems :: Lens' ListUserPolicies (Maybe Natural)
 lupMaxItems = lens _lupMaxItems (\ s a -> s{_lupMaxItems = a}) . mapping _Nat;
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 lupMarker :: Lens' ListUserPolicies (Maybe Text)
 lupMarker = lens _lupMarker (\ s a -> s{_lupMarker = a});
 
@@ -166,16 +166,15 @@ listUserPoliciesResponse pStatus =
     , _luprPolicyNames = mempty
     }
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 luprMarker :: Lens' ListUserPoliciesResponse (Maybe Text)
 luprMarker = lens _luprMarker (\ s a -> s{_luprMarker = a});
 
--- | A flag that indicates whether there are more policy names to list. If
--- your results were truncated, you can make a subsequent pagination
--- request using the @Marker@ request parameter to retrieve more policy
--- names in the list.
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items.
 luprIsTruncated :: Lens' ListUserPoliciesResponse (Maybe Bool)
 luprIsTruncated = lens _luprIsTruncated (\ s a -> s{_luprIsTruncated = a});
 

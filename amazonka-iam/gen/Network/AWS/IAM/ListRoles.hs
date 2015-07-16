@@ -87,18 +87,18 @@ listRoles =
 lrPathPrefix :: Lens' ListRoles (Maybe Text)
 lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 
--- | Use this parameter only when paginating results to indicate the maximum
--- number of roles you want in the response. If there are additional roles
--- beyond the maximum you specify, the @IsTruncated@ response element is
--- @true@. This parameter is optional. If you do not include it, it
--- defaults to 100.
+-- | Use this only when paginating results to indicate the maximum number of
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 lrMaxItems :: Lens' ListRoles (Maybe Natural)
 lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . mapping _Nat;
 
--- | Use this parameter only when paginating results, and only in a
--- subsequent request after you\'ve received a response where the results
--- are truncated. Set it to the value of the @Marker@ element in the
--- response you just received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 lrMarker :: Lens' ListRoles (Maybe Text)
 lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
 
@@ -165,15 +165,15 @@ listRolesResponse pStatus =
     , _lrrRoles = mempty
     }
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 lrrMarker :: Lens' ListRolesResponse (Maybe Text)
 lrrMarker = lens _lrrMarker (\ s a -> s{_lrrMarker = a});
 
--- | A flag that indicates whether there are more roles to list. If your
+-- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more roles in the list.
+-- using the @Marker@ request parameter to retrieve more items.
 lrrIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
 lrrIsTruncated = lens _lrrIsTruncated (\ s a -> s{_lrrIsTruncated = a});
 

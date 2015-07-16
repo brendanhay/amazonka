@@ -83,17 +83,17 @@ lmdUserName :: Lens' ListMFADevices (Maybe Text)
 lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- MFA devices you want in the response. If there are additional MFA
--- devices beyond the maximum you specify, the @IsTruncated@ response
--- element is @true@. This parameter is optional. If you do not include it,
--- it defaults to 100.
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 lmdMaxItems :: Lens' ListMFADevices (Maybe Natural)
 lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 lmdMarker :: Lens' ListMFADevices (Maybe Text)
 lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
 
@@ -162,16 +162,15 @@ listMFADevicesResponse pStatus =
     , _lmdrMFADevices = mempty
     }
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 lmdrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
 lmdrMarker = lens _lmdrMarker (\ s a -> s{_lmdrMarker = a});
 
--- | A flag that indicates whether there are more MFA devices to list. If
--- your results were truncated, you can make a subsequent pagination
--- request using the @Marker@ request parameter to retrieve more MFA
--- devices in the list.
+-- | A flag that indicates whether there are more items to return. If your
+-- results were truncated, you can make a subsequent pagination request
+-- using the @Marker@ request parameter to retrieve more items.
 lmdrIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
 lmdrIsTruncated = lens _lmdrIsTruncated (\ s a -> s{_lmdrIsTruncated = a});
 

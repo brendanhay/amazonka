@@ -61,14 +61,14 @@
 -- requests, and /BatchWriteItem/ does not return deleted items in the
 -- response.
 --
--- If you use a programming language that supports concurrency, such as
--- Java, you can use threads to write items in parallel. Your application
--- must include the necessary logic to manage the threads. With languages
--- that don\'t support threading, such as PHP, you must update or delete
--- the specified items one at a time. In both situations, /BatchWriteItem/
--- provides an alternative where the API performs the specified put and
--- delete operations in parallel, giving you the power of the thread pool
--- approach without having to introduce complexity into your application.
+-- If you use a programming language that supports concurrency, you can use
+-- threads to write items in parallel. Your application must include the
+-- necessary logic to manage the threads. With languages that don\'t
+-- support threading, you must update or delete the specified items one at
+-- a time. In both situations, /BatchWriteItem/ provides an alternative
+-- where the API performs the specified put and delete operations in
+-- parallel, giving you the power of the thread pool approach without
+-- having to introduce complexity into your application.
 --
 -- Parallel processing reduces latency, but each specified put and delete
 -- request consumes the same number of write capacity units whether it is
@@ -153,10 +153,10 @@ batchWriteItem =
 bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
 bwiReturnConsumedCapacity = lens _bwiReturnConsumedCapacity (\ s a -> s{_bwiReturnConsumedCapacity = a});
 
--- | A value that if set to @SIZE@, the response includes statistics about
--- item collections, if any, that were modified during the operation are
--- returned in the response. If set to @NONE@ (the default), no statistics
--- are returned.
+-- | Determines whether item collection metrics are returned. If set to
+-- @SIZE@, the response includes statistics about item collections, if any,
+-- that were modified during the operation are returned in the response. If
+-- set to @NONE@ (the default), no statistics are returned.
 bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
 bwiReturnItemCollectionMetrics = lens _bwiReturnItemCollectionMetrics (\ s a -> s{_bwiReturnItemCollectionMetrics = a});
 

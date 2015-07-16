@@ -85,17 +85,17 @@ lgPathPrefix :: Lens' ListGroups (Maybe Text)
 lgPathPrefix = lens _lgPathPrefix (\ s a -> s{_lgPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
--- groups you want in the response. If there are additional groups beyond
--- the maximum you specify, the @IsTruncated@ response element is @true@.
+-- items you want in the response. If there are additional items beyond the
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
 lgMaxItems :: Lens' ListGroups (Maybe Natural)
 lgMaxItems = lens _lgMaxItems (\ s a -> s{_lgMaxItems = a}) . mapping _Nat;
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 lgMarker :: Lens' ListGroups (Maybe Text)
 lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
 
@@ -163,16 +163,15 @@ listGroupsResponse pStatus =
     , _lgrGroups = mempty
     }
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 lgrMarker :: Lens' ListGroupsResponse (Maybe Text)
 lgrMarker = lens _lgrMarker (\ s a -> s{_lgrMarker = a});
 
--- | A flag that indicates whether there are more groups to list. If your
+-- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
--- using the @Marker@ request parameter to retrieve more groups in the
--- list.
+-- using the @Marker@ request parameter to retrieve more items.
 lgrIsTruncated :: Lens' ListGroupsResponse (Maybe Bool)
 lgrIsTruncated = lens _lgrIsTruncated (\ s a -> s{_lgrIsTruncated = a});
 

@@ -82,15 +82,16 @@ getAccountAuthorizationDetails =
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
--- maximum you specify, the @IsTruncated@ response element is @true@. This
--- parameter is optional. If you do not include it, it defaults to 100.
+-- maximum you specify, the @IsTruncated@ response element is @true@.
+--
+-- This parameter is optional. If you do not include it, it defaults to
+-- 100.
 gaadMaxItems :: Lens' GetAccountAuthorizationDetails (Maybe Natural)
 gaadMaxItems = lens _gaadMaxItems (\ s a -> s{_gaadMaxItems = a}) . mapping _Nat;
 
--- | Use this only when paginating results, and only in a subsequent request
--- after you\'ve received a response where the results are truncated. Set
--- it to the value of the @Marker@ element in the response you just
--- received.
+-- | Use this parameter only when paginating results and only after you have
+-- received a response where the results are truncated. Set it to the value
+-- of the @Marker@ element in the response you just received.
 gaadMarker :: Lens' GetAccountAuthorizationDetails (Maybe Text)
 gaadMarker = lens _gaadMarker (\ s a -> s{_gaadMarker = a});
 
@@ -197,7 +198,7 @@ gaadrGroupDetailList = lens _gaadrGroupDetailList (\ s a -> s{_gaadrGroupDetailL
 gaadrUserDetailList :: Lens' GetAccountAuthorizationDetailsResponse [UserDetail]
 gaadrUserDetailList = lens _gaadrUserDetailList (\ s a -> s{_gaadrUserDetailList = a}) . _Default;
 
--- | If @IsTruncated@ is @true@, this element is present and contains the
+-- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
 gaadrMarker :: Lens' GetAccountAuthorizationDetailsResponse (Maybe Text)

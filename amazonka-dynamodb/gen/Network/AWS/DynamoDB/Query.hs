@@ -23,8 +23,8 @@
 -- Use the /KeyConditionExpression/ parameter to provide a specific hash
 -- key value. The /Query/ operation will return all of the items from the
 -- table or index with that hash key value. You can optionally narrow the
--- scope of the /Query/ by specifying a range key value and a comparison
--- operator in the /KeyConditionExpression/. You can use the
+-- scope of the /Query/ operation by specifying a range key value and a
+-- comparison operator in /KeyConditionExpression/. You can use the
 -- /ScanIndexForward/ parameter to get results in forward or reverse order,
 -- by range key or by index key.
 --
@@ -33,17 +33,18 @@
 --
 -- If the total number of items meeting the query criteria exceeds the
 -- result set size limit of 1 MB, the query stops and results are returned
--- to the user with /LastEvaluatedKey/ to continue the query in a
--- subsequent operation. Unlike a /Scan/ operation, a /Query/ operation
--- never returns both an empty result set and a /LastEvaluatedKey/. The
+-- to the user with the /LastEvaluatedKey/ element to continue the query in
+-- a subsequent operation. Unlike a /Scan/ operation, a /Query/ operation
+-- never returns both an empty result set and a /LastEvaluatedKey/ value.
 -- /LastEvaluatedKey/ is only provided if the results exceed 1 MB, or if
--- you have used /Limit/.
+-- you have used the /Limit/ parameter.
 --
 -- You can query a table, a local secondary index, or a global secondary
 -- index. For a query on a table or on a local secondary index, you can set
--- /ConsistentRead/ to true and obtain a strongly consistent result. Global
--- secondary indexes support eventually consistent reads only, so do not
--- specify /ConsistentRead/ when querying a global secondary index.
+-- the /ConsistentRead/ parameter to @true@ and obtain a strongly
+-- consistent result. Global secondary indexes support eventually
+-- consistent reads only, so do not specify /ConsistentRead/ when querying
+-- a global secondary index.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Query.html>
 module Network.AWS.DynamoDB.Query
@@ -385,12 +386,13 @@ queFilterExpression = lens _queFilterExpression (\ s a -> s{_queFilterExpression
 queQueryFilter :: Lens' Query (HashMap Text Condition)
 queQueryFilter = lens _queQueryFilter (\ s a -> s{_queQueryFilter = a}) . _Default . _Map;
 
--- | A value that if set to @true@, then the operation uses strongly
--- consistent reads; otherwise, eventually consistent reads are used.
+-- | Determines the read consistency model: If set to @true@, then the
+-- operation uses strongly consistent reads; otherwise, the operation uses
+-- eventually consistent reads.
 --
 -- Strongly consistent reads are not supported on global secondary indexes.
 -- If you query a global secondary index with /ConsistentRead/ set to
--- @true@, you will receive an error message.
+-- @true@, you will receive a /ValidationException/.
 queConsistentRead :: Lens' Query (Maybe Bool)
 queConsistentRead = lens _queConsistentRead (\ s a -> s{_queConsistentRead = a});
 
@@ -429,7 +431,7 @@ queConsistentRead = lens _queConsistentRead (\ s a -> s{_queConsistentRead = a})
 -- values/, which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 queExpressionAttributeNames :: Lens' Query (HashMap Text Text)
 queExpressionAttributeNames = lens _queExpressionAttributeNames (\ s a -> s{_queExpressionAttributeNames = a}) . _Default . _Map;
@@ -489,20 +491,26 @@ queReturnConsumedCapacity = lens _queReturnConsumedCapacity (\ s a -> s{_queRetu
 -- @ProductStatus IN (:avail, :back, :disc)@
 --
 -- For more information on expression attribute values, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
 queExpressionAttributeValues :: Lens' Query (HashMap Text AttributeValue)
 queExpressionAttributeValues = lens _queExpressionAttributeValues (\ s a -> s{_queExpressionAttributeValues = a}) . _Default . _Map;
 
--- | A value that specifies ascending (true) or descending (false) traversal
--- of the index. DynamoDB returns results reflecting the requested order
--- determined by the range key. If the data type is Number, the results are
--- returned in numeric order. For type String, the results are returned in
--- order of ASCII character code values. For type Binary, DynamoDB treats
--- each byte of the binary data as unsigned when it compares binary values.
+-- | Specifies the order in which to return the query results - either
+-- ascending (@true@) or descending (@false@).
 --
--- If /ScanIndexForward/ is not specified, the results are returned in
--- ascending order.
+-- Items with the same hash key are stored in sorted order by range key .If
+-- the range key data type is Number, the results are stored in numeric
+-- order. For type String, the results are returned in order of ASCII
+-- character code values. For type Binary, DynamoDB treats each byte of the
+-- binary data as unsigned.
+--
+-- If /ScanIndexForward/ is @true@, DynamoDB returns the results in order,
+-- by range key. This is the default behavior.
+--
+-- If /ScanIndexForward/ is @false@, DynamoDB sorts the results in
+-- descending order by range key, and then returns the results to the
+-- client.
 queScanIndexForward :: Lens' Query (Maybe Bool)
 queScanIndexForward = lens _queScanIndexForward (\ s a -> s{_queScanIndexForward = a});
 
@@ -594,10 +602,10 @@ queConditionalOperator = lens _queConditionalOperator (\ s a -> s{_queConditiona
 -- by the /Query/ action.
 --
 -- The condition must perform an equality test on a single hash key value.
--- The condition can also test for one or more range key values. A /Query/
--- can use /KeyConditionExpression/ to retrieve a single item with a given
--- hash and range key value, or several items that have the same hash key
--- value but different range key values.
+-- The condition can also perform one of several comparison tests on a
+-- single range key value. /Query/ can use /KeyConditionExpression/ to
+-- retrieve one item with a given hash and range key value, or several
+-- items that have the same hash key value but different range key values.
 --
 -- The hash key equality test is required, and must be specified in the
 -- following format:
@@ -629,27 +637,28 @@ queConditionalOperator = lens _queConditionalOperator (\ s a -> s{_queConditiona
 --     greater than or equal to @:rangeval@.
 --
 -- -   @rangeAttributeName@ /BETWEEN/ @:rangeval1@ /AND/ @:rangeval2@ -
---     true if the range key is less than or greater than @:rangeval1@, and
+--     true if the range key is greater than or equal to @:rangeval1@, and
 --     less than or equal to @:rangeval2@.
 --
 -- -   /begins_with (/@rangeAttributeName@, @:rangeval@/)/ - true if the
---     range key begins with a particular operand. Note that the function
---     name @begins_with@ is case-sensitive.
+--     range key begins with a particular operand. (You cannot use this
+--     function with a range key that is of type Number.) Note that the
+--     function name @begins_with@ is case-sensitive.
 --
 -- Use the /ExpressionAttributeValues/ parameter to replace tokens such as
 -- @:hashval@ and @:rangeval@ with actual values at runtime.
 --
 -- You can optionally use the /ExpressionAttributeNames/ parameter to
 -- replace the names of the hash and range attributes with placeholder
--- tokens. This might be necessary if an attribute name conflicts with a
--- DynamoDB reserved word. For example, the following
--- /KeyConditionExpression/ causes an error because /Size/ is a reserved
--- word:
+-- tokens. This option might be necessary if an attribute name conflicts
+-- with a DynamoDB reserved word. For example, the following
+-- /KeyConditionExpression/ parameter causes an error because /Size/ is a
+-- reserved word:
 --
 -- -   @Size = :myval@
 --
--- To work around this, define a placeholder (such a @#myval@) to represent
--- the attribute name /Size/. /KeyConditionExpression/ then is as follows:
+-- To work around this, define a placeholder (such a @#S@) to represent the
+-- attribute name /Size/. /KeyConditionExpression/ then is as follows:
 --
 -- -   @#S = :myval@
 --

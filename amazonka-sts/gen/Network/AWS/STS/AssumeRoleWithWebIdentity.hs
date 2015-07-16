@@ -63,8 +63,7 @@
 -- policy to grant permissions that are in excess of those allowed by the
 -- access policy of the role that is being assumed. For more information,
 -- see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithWebIdentity>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithWebIdentity>.
 --
 -- Before your application can call @AssumeRoleWithWebIdentity@, you must
 -- have an identity token from a supported identity provider and create a
@@ -78,8 +77,7 @@
 --
 -- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/STSUseCases.html#MobileApplication-KnownProvider Creating a Mobile Application with Third-Party Sign-In>
 --     and
---     <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html Creating Temporary Security Credentials for Mobile Apps Using Third-Party Identity Providers>
---     in /Using Temporary Security Credentials/.
+--     <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html Creating Temporary Security Credentials for Mobile Apps Using Third-Party Identity Providers>.
 -- -   <https://web-identity-federation-playground.s3.amazonaws.com/index.html Web Identity Federation Playground>.
 --     This interactive website lets you walk through the process of
 --     authenticating via Login with Amazon, Facebook, or Google, getting
@@ -193,8 +191,13 @@ arwwiDurationSeconds = lens _arwwiDurationSeconds (\ s a -> s{_arwwiDurationSeco
 -- security credentials. You cannot use the passed policy to grant
 -- permissions that are in excess of those allowed by the access policy of
 -- the role that is being assumed. For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithWebIdentity>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithWebIdentity>.
+--
+-- The policy plain text must be 2048 bytes or shorter. However, an
+-- internal conversion compresses it into a packed binary format with a
+-- separate limit. The PackedPolicySize response element indicates by
+-- percentage how close to the upper size limit the policy is, with 100%
+-- equaling the maximum allowed size.
 arwwiPolicy :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
 arwwiPolicy = lens _arwwiPolicy (\ s a -> s{_arwwiPolicy = a});
 

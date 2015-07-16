@@ -31,8 +31,7 @@
 -- Facebook, Google, or an OpenID Connect-compatible identity provider, we
 -- recommend that you use <http://aws.amazon.com/cognito/ Amazon Cognito>
 -- or @AssumeRoleWithWebIdentity@. For more information, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html Creating Temporary Security Credentials for Mobile Apps Using Identity Providers>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingWIF.html Creating Temporary Security Credentials for Mobile Apps Using Identity Providers>.
 --
 -- The @GetFederationToken@ action must be called by using the long-term
 -- AWS security credentials of an IAM user. You can also call
@@ -85,11 +84,10 @@
 -- to access the resource.
 --
 -- For more information about how permissions work, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions for GetFederationToken>
--- in /Using Temporary Security Credentials/. For information about using
--- @GetFederationToken@ to create temporary security credentials, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingFedTokens.html Creating Temporary Credentials to Enable Access for Federated Users>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions for GetFederationToken>.
+-- For information about using @GetFederationToken@ to create temporary
+-- security credentials, see
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingFedTokens.html Creating Temporary Credentials to Enable Access for Federated Users>.
 --
 -- <http://docs.aws.amazon.com/STS/latest/APIReference/API_GetFederationToken.html>
 module Network.AWS.STS.GetFederationToken
@@ -170,9 +168,14 @@ gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = 
 -- has a resource-based policy that specifically allows the federated user
 -- to access the resource.
 --
+-- The policy plain text must be 2048 bytes or shorter. However, an
+-- internal conversion compresses it into a packed binary format with a
+-- separate limit. The PackedPolicySize response element indicates by
+-- percentage how close to the upper size limit the policy is, with 100%
+-- equaling the maximum allowed size.
+--
 -- For more information about how permissions work, see
--- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions for GetFederationToken>
--- in /Using Temporary Security Credentials/.
+-- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions for GetFederationToken>.
 gftPolicy :: Lens' GetFederationToken (Maybe Text)
 gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
 

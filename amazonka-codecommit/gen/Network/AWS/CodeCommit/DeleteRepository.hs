@@ -1,0 +1,131 @@
+{-# LANGUAGE DeriveDataTypeable #-}
+{-# LANGUAGE DeriveGeneric      #-}
+{-# LANGUAGE OverloadedStrings  #-}
+{-# LANGUAGE RecordWildCards    #-}
+{-# LANGUAGE TypeFamilies       #-}
+
+{-# OPTIONS_GHC -fno-warn-unused-binds   #-}
+{-# OPTIONS_GHC -fno-warn-unused-matches #-}
+
+-- Derived from AWS service descriptions, licensed under Apache 2.0.
+
+-- |
+-- Module      : Network.AWS.CodeCommit.DeleteRepository
+-- Copyright   : (c) 2013-2015 Brendan Hay
+-- License     : Mozilla Public License, v. 2.0.
+-- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
+-- Stability   : experimental
+-- Portability : non-portable (GHC extensions)
+--
+-- Deletes a repository. If a specified repository was already deleted, a
+-- null repository ID will be returned.
+--
+-- Deleting a repository also deletes all associated objects and metadata.
+-- After a repository is deleted, all future push calls to the deleted
+-- repository will fail.
+--
+-- <http://docs.aws.amazon.com/codecommit/latest/APIReference/API_DeleteRepository.html>
+module Network.AWS.CodeCommit.DeleteRepository
+    (
+    -- * Request
+      DeleteRepository
+    -- ** Request constructor
+    , deleteRepository
+    -- ** Request lenses
+    , drRepositoryName
+
+    -- * Response
+    , DeleteRepositoryResponse
+    -- ** Response constructor
+    , deleteRepositoryResponse
+    -- ** Response lenses
+    , drrRepositoryId
+    , drrStatus
+    ) where
+
+import           Network.AWS.CodeCommit.Types
+import           Network.AWS.Prelude
+import           Network.AWS.Request
+import           Network.AWS.Response
+
+-- | Represents the input of a delete repository operation.
+--
+-- /See:/ 'deleteRepository' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'drRepositoryName'
+newtype DeleteRepository = DeleteRepository'
+    { _drRepositoryName :: Text
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteRepository' smart constructor.
+deleteRepository :: Text -> DeleteRepository
+deleteRepository pRepositoryName =
+    DeleteRepository'
+    { _drRepositoryName = pRepositoryName
+    }
+
+-- | The name of the repository to delete.
+drRepositoryName :: Lens' DeleteRepository Text
+drRepositoryName = lens _drRepositoryName (\ s a -> s{_drRepositoryName = a});
+
+instance AWSRequest DeleteRepository where
+        type Sv DeleteRepository = CodeCommit
+        type Rs DeleteRepository = DeleteRepositoryResponse
+        request = postJSON
+        response
+          = receiveJSON
+              (\ s h x ->
+                 DeleteRepositoryResponse' <$>
+                   (x .?> "repositoryId") <*> (pure (fromEnum s)))
+
+instance ToHeaders DeleteRepository where
+        toHeaders
+          = const
+              (mconcat
+                 ["X-Amz-Target" =#
+                    ("CodeCommit_20150413.DeleteRepository" ::
+                       ByteString),
+                  "Content-Type" =#
+                    ("application/x-amz-json-1.1" :: ByteString)])
+
+instance ToJSON DeleteRepository where
+        toJSON DeleteRepository'{..}
+          = object ["repositoryName" .= _drRepositoryName]
+
+instance ToPath DeleteRepository where
+        toPath = const "/"
+
+instance ToQuery DeleteRepository where
+        toQuery = const mempty
+
+-- | Represents the output of a delete repository operation.
+--
+-- /See:/ 'deleteRepositoryResponse' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'drrRepositoryId'
+--
+-- * 'drrStatus'
+data DeleteRepositoryResponse = DeleteRepositoryResponse'
+    { _drrRepositoryId :: !(Maybe Text)
+    , _drrStatus       :: !Int
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'DeleteRepositoryResponse' smart constructor.
+deleteRepositoryResponse :: Int -> DeleteRepositoryResponse
+deleteRepositoryResponse pStatus =
+    DeleteRepositoryResponse'
+    { _drrRepositoryId = Nothing
+    , _drrStatus = pStatus
+    }
+
+-- | The ID of the repository that was deleted.
+drrRepositoryId :: Lens' DeleteRepositoryResponse (Maybe Text)
+drrRepositoryId = lens _drrRepositoryId (\ s a -> s{_drrRepositoryId = a});
+
+-- | FIXME: Undocumented member.
+drrStatus :: Lens' DeleteRepositoryResponse Int
+drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});

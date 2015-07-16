@@ -31,17 +31,23 @@ module Network.AWS.IAM.Types
     , _NoSuchEntityException
     , _DeleteConflictException
     , _InvalidCertificateException
+    , _UnrecognizedPublicKeyEncodingException
     , _InvalidUserTypeException
     , _ServiceFailureException
     , _InvalidInputException
+    , _InvalidPublicKeyException
     , _InvalidAuthenticationCodeException
     , _EntityTemporarilyUnmodifiableException
+    , _DuplicateSSHPublicKeyException
     , _KeyPairMismatchException
     , _LimitExceededException
     , _PasswordPolicyViolationException
 
     -- * AssignmentStatusType
     , AssignmentStatusType (..)
+
+    -- * EncodingType
+    , EncodingType (..)
 
     -- * EntityType
     , EntityType (..)
@@ -242,6 +248,24 @@ module Network.AWS.IAM.Types
     , samlpleCreateDate
     , samlpleValidUntil
 
+    -- * SSHPublicKey
+    , SSHPublicKey
+    , sshPublicKey
+    , spkUploadDate
+    , spkUserName
+    , spkSSHPublicKeyId
+    , spkFingerprint
+    , spkSSHPublicKeyBody
+    , spkStatus
+
+    -- * SSHPublicKeyMetadata
+    , SSHPublicKeyMetadata
+    , sshPublicKeyMetadata
+    , spkmUserName
+    , spkmSSHPublicKeyId
+    , spkmStatus
+    , spkmUploadDate
+
     -- * ServerCertificate
     , ServerCertificate
     , serverCertificate
@@ -367,8 +391,8 @@ _MalformedCertificateException :: AWSError a => Getting (First ServiceError) a S
 _MalformedCertificateException =
     _ServiceError . hasStatus 400 . hasCode "MalformedCertificate"
 
--- | The request was rejected because the same certificate is associated to
--- another user under the account.
+-- | The request was rejected because the same certificate is associated with
+-- an IAM user in the account.
 _DuplicateCertificateException :: AWSError a => Getting (First ServiceError) a ServiceError
 _DuplicateCertificateException =
     _ServiceError . hasStatus 409 . hasCode "DuplicateCertificate"
@@ -400,6 +424,12 @@ _InvalidCertificateException :: AWSError a => Getting (First ServiceError) a Ser
 _InvalidCertificateException =
     _ServiceError . hasStatus 400 . hasCode "InvalidCertificate"
 
+-- | The request was rejected because the public key encoding format is
+-- unsupported or unrecognized.
+_UnrecognizedPublicKeyEncodingException :: AWSError a => Getting (First ServiceError) a ServiceError
+_UnrecognizedPublicKeyEncodingException =
+    _ServiceError . hasStatus 400 . hasCode "UnrecognizedPublicKeyEncoding"
+
 -- | The request was rejected because the type of user for the transaction
 -- was incorrect.
 _InvalidUserTypeException :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -417,6 +447,12 @@ _ServiceFailureException =
 _InvalidInputException :: AWSError a => Getting (First ServiceError) a ServiceError
 _InvalidInputException = _ServiceError . hasStatus 400 . hasCode "InvalidInput"
 
+-- | The request was rejected because the public key is malformed or
+-- otherwise invalid.
+_InvalidPublicKeyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_InvalidPublicKeyException =
+    _ServiceError . hasStatus 400 . hasCode "InvalidPublicKey"
+
 -- | The request was rejected because the authentication code was not
 -- recognized. The error message describes the specific error.
 _InvalidAuthenticationCodeException :: AWSError a => Getting (First ServiceError) a ServiceError
@@ -431,6 +467,12 @@ _InvalidAuthenticationCodeException =
 _EntityTemporarilyUnmodifiableException :: AWSError a => Getting (First ServiceError) a ServiceError
 _EntityTemporarilyUnmodifiableException =
     _ServiceError . hasStatus 409 . hasCode "EntityTemporarilyUnmodifiable"
+
+-- | The request was rejected because the SSH public key is already
+-- associated with the specified IAM user.
+_DuplicateSSHPublicKeyException :: AWSError a => Getting (First ServiceError) a ServiceError
+_DuplicateSSHPublicKeyException =
+    _ServiceError . hasStatus 400 . hasCode "DuplicateSSHPublicKey"
 
 -- | The request was rejected because the public key certificate and the
 -- private key do not match.
@@ -474,6 +516,27 @@ instance ToText AssignmentStatusType where
 instance Hashable AssignmentStatusType
 instance ToQuery AssignmentStatusType
 instance ToHeader AssignmentStatusType
+
+data EncodingType
+    = Pem
+    | SSH
+    deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
+
+instance FromText EncodingType where
+    parser = takeLowerText >>= \case
+        "pem" -> pure Pem
+        "ssh" -> pure SSH
+        e -> fromTextError $ "Failure parsing EncodingType from value: '" <> e
+           <> "'. Accepted values: pem, ssh"
+
+instance ToText EncodingType where
+    toText = \case
+        Pem -> "pem"
+        SSH -> "ssh"
+
+instance Hashable EncodingType
+instance ToQuery EncodingType
+instance ToHeader EncodingType
 
 data EntityType
     = Group
@@ -2191,6 +2254,145 @@ instance FromXML SAMLProviderListEntry where
           = SAMLProviderListEntry' <$>
               (x .@? "Arn") <*> (x .@? "CreateDate") <*>
                 (x .@? "ValidUntil")
+
+-- | Contains information about an SSH public key.
+--
+-- This data type is used as a response element in the GetSSHPublicKey and
+-- UploadSSHPublicKey actions.
+--
+-- /See:/ 'sshPublicKey' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'spkUploadDate'
+--
+-- * 'spkUserName'
+--
+-- * 'spkSSHPublicKeyId'
+--
+-- * 'spkFingerprint'
+--
+-- * 'spkSSHPublicKeyBody'
+--
+-- * 'spkStatus'
+data SSHPublicKey = SSHPublicKey'
+    { _spkUploadDate       :: !(Maybe ISO8601)
+    , _spkUserName         :: !Text
+    , _spkSSHPublicKeyId   :: !Text
+    , _spkFingerprint      :: !Text
+    , _spkSSHPublicKeyBody :: !Text
+    , _spkStatus           :: !StatusType
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SSHPublicKey' smart constructor.
+sshPublicKey :: Text -> Text -> Text -> Text -> StatusType -> SSHPublicKey
+sshPublicKey pUserName pSSHPublicKeyId pFingerprint pSSHPublicKeyBody pStatus =
+    SSHPublicKey'
+    { _spkUploadDate = Nothing
+    , _spkUserName = pUserName
+    , _spkSSHPublicKeyId = pSSHPublicKeyId
+    , _spkFingerprint = pFingerprint
+    , _spkSSHPublicKeyBody = pSSHPublicKeyBody
+    , _spkStatus = pStatus
+    }
+
+-- | The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
+-- public key was uploaded.
+spkUploadDate :: Lens' SSHPublicKey (Maybe UTCTime)
+spkUploadDate = lens _spkUploadDate (\ s a -> s{_spkUploadDate = a}) . mapping _Time;
+
+-- | The name of the IAM user associated with the SSH public key.
+spkUserName :: Lens' SSHPublicKey Text
+spkUserName = lens _spkUserName (\ s a -> s{_spkUserName = a});
+
+-- | The unique identifier for the SSH public key.
+spkSSHPublicKeyId :: Lens' SSHPublicKey Text
+spkSSHPublicKeyId = lens _spkSSHPublicKeyId (\ s a -> s{_spkSSHPublicKeyId = a});
+
+-- | The MD5 message digest of the SSH public key.
+spkFingerprint :: Lens' SSHPublicKey Text
+spkFingerprint = lens _spkFingerprint (\ s a -> s{_spkFingerprint = a});
+
+-- | The SSH public key.
+spkSSHPublicKeyBody :: Lens' SSHPublicKey Text
+spkSSHPublicKeyBody = lens _spkSSHPublicKeyBody (\ s a -> s{_spkSSHPublicKeyBody = a});
+
+-- | The status of the SSH public key. @Active@ means the key can be used for
+-- authentication with an AWS CodeCommit repository. @Inactive@ means the
+-- key cannot be used.
+spkStatus :: Lens' SSHPublicKey StatusType
+spkStatus = lens _spkStatus (\ s a -> s{_spkStatus = a});
+
+instance FromXML SSHPublicKey where
+        parseXML x
+          = SSHPublicKey' <$>
+              (x .@? "UploadDate") <*> (x .@ "UserName") <*>
+                (x .@ "SSHPublicKeyId")
+                <*> (x .@ "Fingerprint")
+                <*> (x .@ "SSHPublicKeyBody")
+                <*> (x .@ "Status")
+
+-- | Contains information about an SSH public key, without the key\'s body or
+-- fingerprint.
+--
+-- This data type is used as a response element in the ListSSHPublicKeys
+-- action.
+--
+-- /See:/ 'sshPublicKeyMetadata' smart constructor.
+--
+-- The fields accessible through corresponding lenses are:
+--
+-- * 'spkmUserName'
+--
+-- * 'spkmSSHPublicKeyId'
+--
+-- * 'spkmStatus'
+--
+-- * 'spkmUploadDate'
+data SSHPublicKeyMetadata = SSHPublicKeyMetadata'
+    { _spkmUserName       :: !Text
+    , _spkmSSHPublicKeyId :: !Text
+    , _spkmStatus         :: !StatusType
+    , _spkmUploadDate     :: !ISO8601
+    } deriving (Eq,Read,Show,Data,Typeable,Generic)
+
+-- | 'SSHPublicKeyMetadata' smart constructor.
+sshPublicKeyMetadata :: Text -> Text -> StatusType -> UTCTime -> SSHPublicKeyMetadata
+sshPublicKeyMetadata pUserName pSSHPublicKeyId pStatus pUploadDate =
+    SSHPublicKeyMetadata'
+    { _spkmUserName = pUserName
+    , _spkmSSHPublicKeyId = pSSHPublicKeyId
+    , _spkmStatus = pStatus
+    , _spkmUploadDate = _Time # pUploadDate
+    }
+
+-- | The name of the IAM user associated with the SSH public key.
+spkmUserName :: Lens' SSHPublicKeyMetadata Text
+spkmUserName = lens _spkmUserName (\ s a -> s{_spkmUserName = a});
+
+-- | The unique identifier for the SSH public key.
+spkmSSHPublicKeyId :: Lens' SSHPublicKeyMetadata Text
+spkmSSHPublicKeyId = lens _spkmSSHPublicKeyId (\ s a -> s{_spkmSSHPublicKeyId = a});
+
+-- | The status of the SSH public key. @Active@ means the key can be used for
+-- authentication with an AWS CodeCommit repository. @Inactive@ means the
+-- key cannot be used.
+spkmStatus :: Lens' SSHPublicKeyMetadata StatusType
+spkmStatus = lens _spkmStatus (\ s a -> s{_spkmStatus = a});
+
+-- | The date and time, in
+-- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the SSH
+-- public key was uploaded.
+spkmUploadDate :: Lens' SSHPublicKeyMetadata UTCTime
+spkmUploadDate = lens _spkmUploadDate (\ s a -> s{_spkmUploadDate = a}) . _Time;
+
+instance FromXML SSHPublicKeyMetadata where
+        parseXML x
+          = SSHPublicKeyMetadata' <$>
+              (x .@ "UserName") <*> (x .@ "SSHPublicKeyId") <*>
+                (x .@ "Status")
+                <*> (x .@ "UploadDate")
 
 -- | Contains information about a server certificate.
 --

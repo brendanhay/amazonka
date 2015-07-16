@@ -24,14 +24,18 @@ module Network.AWS.SES
     ) where
 
 import           Network.AWS.SES.DeleteIdentity                       as Export
+import           Network.AWS.SES.DeleteIdentityPolicy                 as Export
 import           Network.AWS.SES.DeleteVerifiedEmailAddress           as Export
 import           Network.AWS.SES.GetIdentityDkimAttributes            as Export
 import           Network.AWS.SES.GetIdentityNotificationAttributes    as Export
+import           Network.AWS.SES.GetIdentityPolicies                  as Export
 import           Network.AWS.SES.GetIdentityVerificationAttributes    as Export
 import           Network.AWS.SES.GetSendQuota                         as Export
 import           Network.AWS.SES.GetSendStatistics                    as Export
 import           Network.AWS.SES.ListIdentities                       as Export
+import           Network.AWS.SES.ListIdentityPolicies                 as Export
 import           Network.AWS.SES.ListVerifiedEmailAddresses           as Export
+import           Network.AWS.SES.PutIdentityPolicy                    as Export
 import           Network.AWS.SES.SendEmail                            as Export
 import           Network.AWS.SES.SendRawEmail                         as Export
 import           Network.AWS.SES.SetIdentityDkimEnabled               as Export

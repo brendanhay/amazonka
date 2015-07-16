@@ -19,9 +19,6 @@ description:
     time processing of streaming big data.
     .
     /See:/ <http://docs.aws.amazon.com/kinesis/latest/APIReference/Welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

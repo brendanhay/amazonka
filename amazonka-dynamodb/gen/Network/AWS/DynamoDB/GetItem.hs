@@ -115,8 +115,9 @@ getItem pTableName =
 giProjectionExpression :: Lens' GetItem (Maybe Text)
 giProjectionExpression = lens _giProjectionExpression (\ s a -> s{_giProjectionExpression = a});
 
--- | A value that if set to @true@, then the operation uses strongly
--- consistent reads; otherwise, eventually consistent reads are used.
+-- | Determines the read consistency model: If set to @true@, then the
+-- operation uses strongly consistent reads; otherwise, the operation uses
+-- eventually consistent reads.
 giConsistentRead :: Lens' GetItem (Maybe Bool)
 giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 
@@ -155,7 +156,7 @@ giConsistentRead = lens _giConsistentRead (\ s a -> s{_giConsistentRead = a});
 -- values/, which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 giExpressionAttributeNames :: Lens' GetItem (HashMap Text Text)
 giExpressionAttributeNames = lens _giExpressionAttributeNames (\ s a -> s{_giExpressionAttributeNames = a}) . _Default . _Map;

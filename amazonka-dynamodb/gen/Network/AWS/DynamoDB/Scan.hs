@@ -27,14 +27,17 @@
 -- The results also include the number of items exceeding the limit. A scan
 -- can result in no table data meeting the filter criteria.
 --
--- The result set is eventually consistent.
---
 -- By default, /Scan/ operations proceed sequentially; however, for faster
 -- performance on a large table or secondary index, applications can
 -- request a parallel /Scan/ operation by providing the /Segment/ and
 -- /TotalSegments/ parameters. For more information, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html#QueryAndScanParallelScan Parallel Scan>
 -- in the /Amazon DynamoDB Developer Guide/.
+--
+-- By default, /Scan/ uses eventually consistent reads when acessing the
+-- data in the table or local secondary index. However, you can use
+-- strongly consistent reads instead by setting the /ConsistentRead/
+-- parameter to /true/.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_Scan.html>
 module Network.AWS.DynamoDB.Scan
@@ -48,6 +51,7 @@ module Network.AWS.DynamoDB.Scan
     , scaScanFilter
     , scaTotalSegments
     , scaFilterExpression
+    , scaConsistentRead
     , scaExpressionAttributeNames
     , scaAttributesToGet
     , scaReturnConsumedCapacity
@@ -93,6 +97,8 @@ import           Network.AWS.Response
 --
 -- * 'scaFilterExpression'
 --
+-- * 'scaConsistentRead'
+--
 -- * 'scaExpressionAttributeNames'
 --
 -- * 'scaAttributesToGet'
@@ -119,6 +125,7 @@ data Scan = Scan'
     , _scaScanFilter                :: !(Maybe (Map Text Condition))
     , _scaTotalSegments             :: !(Maybe Nat)
     , _scaFilterExpression          :: !(Maybe Text)
+    , _scaConsistentRead            :: !(Maybe Bool)
     , _scaExpressionAttributeNames  :: !(Maybe (Map Text Text))
     , _scaAttributesToGet           :: !(Maybe (List1 Text))
     , _scaReturnConsumedCapacity    :: !(Maybe ReturnConsumedCapacity)
@@ -140,6 +147,7 @@ scan pTableName =
     , _scaScanFilter = Nothing
     , _scaTotalSegments = Nothing
     , _scaFilterExpression = Nothing
+    , _scaConsistentRead = Nothing
     , _scaExpressionAttributeNames = Nothing
     , _scaAttributesToGet = Nothing
     , _scaReturnConsumedCapacity = Nothing
@@ -252,6 +260,29 @@ scaTotalSegments = lens _scaTotalSegments (\ s a -> s{_scaTotalSegments = a}) . 
 scaFilterExpression :: Lens' Scan (Maybe Text)
 scaFilterExpression = lens _scaFilterExpression (\ s a -> s{_scaFilterExpression = a});
 
+-- | A Boolean value that determines the read consistency model during the
+-- scan:
+--
+-- -   If /ConsistentRead/ is @false@, then /Scan/ will use eventually
+--     consistent reads. The data returned from /Scan/ might not contain
+--     the results of other recently completed write operations (PutItem,
+--     UpdateItem or DeleteItem). The /Scan/ response might include some
+--     stale data.
+--
+-- -   If /ConsistentRead/ is @true@, then /Scan/ will use strongly
+--     consistent reads. All of the write operations that completed before
+--     the /Scan/ began are guaranteed to be contained in the /Scan/
+--     response.
+--
+-- The default setting for /ConsistentRead/ is @false@, meaning that
+-- eventually consistent reads will be used.
+--
+-- Strongly consistent reads are not supported on global secondary indexes.
+-- If you scan a global secondary index with /ConsistentRead/ set to true,
+-- you will receive a /ValidationException/.
+scaConsistentRead :: Lens' Scan (Maybe Bool)
+scaConsistentRead = lens _scaConsistentRead (\ s a -> s{_scaConsistentRead = a});
+
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
 --
@@ -287,7 +318,7 @@ scaFilterExpression = lens _scaFilterExpression (\ s a -> s{_scaFilterExpression
 -- values/, which are placeholders for the actual value at runtime.
 --
 -- For more information on expression attribute names, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
 scaExpressionAttributeNames :: Lens' Scan (HashMap Text Text)
 scaExpressionAttributeNames = lens _scaExpressionAttributeNames (\ s a -> s{_scaExpressionAttributeNames = a}) . _Default . _Map;
@@ -331,7 +362,7 @@ scaReturnConsumedCapacity = lens _scaReturnConsumedCapacity (\ s a -> s{_scaRetu
 -- @ProductStatus IN (:avail, :back, :disc)@
 --
 -- For more information on expression attribute values, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.ExpressionPlaceholders.html Using Placeholders for Attribute Names and Values>
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
 scaExpressionAttributeValues :: Lens' Scan (HashMap Text AttributeValue)
 scaExpressionAttributeValues = lens _scaExpressionAttributeValues (\ s a -> s{_scaExpressionAttributeValues = a}) . _Default . _Map;
@@ -474,6 +505,7 @@ instance ToJSON Scan where
                "ScanFilter" .= _scaScanFilter,
                "TotalSegments" .= _scaTotalSegments,
                "FilterExpression" .= _scaFilterExpression,
+               "ConsistentRead" .= _scaConsistentRead,
                "ExpressionAttributeNames" .=
                  _scaExpressionAttributeNames,
                "AttributesToGet" .= _scaAttributesToGet,

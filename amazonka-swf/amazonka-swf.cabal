@@ -32,9 +32,6 @@ description:
     <http://docs.aws.amazon.com/amazonswf/latest/developerguide/ Amazon SWF Developer Guide>.
     .
     /See:/ <http://docs.aws.amazon.com/amazonswf/latest/apireference/Welcome.html AWS API Reference>
-    .
-    /Warning:/ This is an experimental preview release which is still under
-    heavy development and not intended for public consumption, caveat emptor!
 
 source-repository head
     type:     git

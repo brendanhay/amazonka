@@ -314,6 +314,8 @@ instance Out ScalarAttributeType
 instance Out Scan
 instance Out ScanResponse
 instance Out Select
+instance Out StreamSpecification
+instance Out StreamViewType
 instance Out TableDescription
 instance Out TableStatus
 instance Out UpdateGlobalSecondaryIndexAction

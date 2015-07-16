@@ -1,0 +1,86 @@
+name:                  amazonka-devicefarm
+version:               1.0.0
+synopsis:              Amazon Device Farm SDK.
+homepage:              https://github.com/brendanhay/amazonka
+license:               OtherLicense
+license-file:          LICENSE
+author:                Brendan Hay
+maintainer:            Brendan Hay <brendan.g.hay@gmail.com>
+copyright:             Copyright (c) 2013-2015 Brendan Hay
+category:              Network, AWS, Cloud, Distributed Computing
+build-type:            Simple
+extra-source-files:    README.md
+cabal-version:         >= 1.10
+
+description:
+    AWS Device Farm is a service that enables mobile app developers to test
+    Android and Fire OS apps on physical phones, tablets, and other devices
+    in the cloud.
+    .
+    /See:/ <http://docs.aws.amazon.com/devicefarm/latest/APIReference/Welcome.html AWS API Reference>
+
+source-repository head
+    type:     git
+    location: git://github.com/brendanhay/amazonka.git
+
+library
+    default-language:  Haskell2010
+    hs-source-dirs:    src gen
+
+    ghc-options:       -Wall
+
+    exposed-modules:
+          Network.AWS.DeviceFarm
+        , Network.AWS.DeviceFarm.CreateDevicePool
+        , Network.AWS.DeviceFarm.CreateProject
+        , Network.AWS.DeviceFarm.CreateUpload
+        , Network.AWS.DeviceFarm.GetDevice
+        , Network.AWS.DeviceFarm.GetDevicePool
+        , Network.AWS.DeviceFarm.GetDevicePoolCompatibility
+        , Network.AWS.DeviceFarm.GetJob
+        , Network.AWS.DeviceFarm.GetProject
+        , Network.AWS.DeviceFarm.GetRun
+        , Network.AWS.DeviceFarm.GetSuite
+        , Network.AWS.DeviceFarm.GetTest
+        , Network.AWS.DeviceFarm.GetUpload
+        , Network.AWS.DeviceFarm.ListArtifacts
+        , Network.AWS.DeviceFarm.ListDevicePools
+        , Network.AWS.DeviceFarm.ListDevices
+        , Network.AWS.DeviceFarm.ListJobs
+        , Network.AWS.DeviceFarm.ListProjects
+        , Network.AWS.DeviceFarm.ListRuns
+        , Network.AWS.DeviceFarm.ListSamples
+        , Network.AWS.DeviceFarm.ListSuites
+        , Network.AWS.DeviceFarm.ListTests
+        , Network.AWS.DeviceFarm.ListUniqueProblems
+        , Network.AWS.DeviceFarm.ListUploads
+        , Network.AWS.DeviceFarm.ScheduleRun
+        , Network.AWS.DeviceFarm.Types
+        , Network.AWS.DeviceFarm.Waiters
+
+    other-modules:
+
+    build-depends:
+          amazonka-core == 1.0.0.*
+        , base          >= 4.7     && < 5
+
+test-suite amazonka-devicefarm-test
+    type:              exitcode-stdio-1.0
+    default-language:  Haskell2010
+    hs-source-dirs:    test
+    main-is:           Main.hs
+
+    ghc-options:       -Wall -threaded
+
+    build-depends:
+          amazonka-core == 1.0.0
+        , amazonka-test
+        , amazonka-devicefarm == 1.0.0
+        , base
+        , bytestring
+        , lens
+        , tasty
+        , tasty-hunit
+        , text
+        , time
+        , unordered-containers

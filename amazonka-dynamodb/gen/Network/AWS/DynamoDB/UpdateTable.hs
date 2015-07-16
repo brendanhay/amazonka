@@ -17,26 +17,26 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- Updates the provisioned throughput for the given table, or manages the
--- global secondary indexes on the table.
+-- Modifies the provisioned throughput settings, global secondary indexes,
+-- or DynamoDB Streams settings for a given table.
 --
--- You can increase or decrease the table\'s provisioned throughput values
--- within the maximums and minimums listed in the
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html Limits>
--- section in the /Amazon DynamoDB Developer Guide/.
+-- You can only perform one of the following operations at once:
 --
--- In addition, you can use /UpdateTable/ to add, modify or delete global
--- secondary indexes on the table. For more information, see
--- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
--- in the /Amazon DynamoDB Developer Guide/.
+-- -   Modify the provisioned throughput settings of the table.
 --
--- The table must be in the @ACTIVE@ state for /UpdateTable/ to succeed.
--- /UpdateTable/ is an asynchronous operation; while executing the
--- operation, the table is in the @UPDATING@ state. While the table is in
--- the @UPDATING@ state, the table still has the provisioned throughput
--- from before the call. The table\'s new provisioned throughput settings
--- go into effect when the table returns to the @ACTIVE@ state; at that
--- point, the /UpdateTable/ operation is complete.
+-- -   Enable or disable Streams on the table.
+--
+-- -   Remove a global secondary index from the table.
+--
+-- -   Create a new global secondary index on the table. Once the index
+--     begins backfilling, you can use /UpdateTable/ to perform other
+--     operations.
+--
+-- /UpdateTable/ is an asynchronous operation; while it is executing, the
+-- table status changes from @ACTIVE@ to @UPDATING@. While it is
+-- @UPDATING@, you cannot issue another /UpdateTable/ request. When the
+-- table returns to the @ACTIVE@ state, the /UpdateTable/ operation is
+-- complete.
 --
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_UpdateTable.html>
 module Network.AWS.DynamoDB.UpdateTable
@@ -49,6 +49,7 @@ module Network.AWS.DynamoDB.UpdateTable
     , utProvisionedThroughput
     , utAttributeDefinitions
     , utGlobalSecondaryIndexUpdates
+    , utStreamSpecification
     , utTableName
 
     -- * Response
@@ -77,11 +78,14 @@ import           Network.AWS.Response
 --
 -- * 'utGlobalSecondaryIndexUpdates'
 --
+-- * 'utStreamSpecification'
+--
 -- * 'utTableName'
 data UpdateTable = UpdateTable'
     { _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
     , _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
     , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
+    , _utStreamSpecification         :: !(Maybe StreamSpecification)
     , _utTableName                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
@@ -92,6 +96,7 @@ updateTable pTableName =
     { _utProvisionedThroughput = Nothing
     , _utAttributeDefinitions = Nothing
     , _utGlobalSecondaryIndexUpdates = Nothing
+    , _utStreamSpecification = Nothing
     , _utTableName = pTableName
     }
 
@@ -115,8 +120,19 @@ utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDe
 --
 -- -   /Delete/ - remove a global secondary index from the table.
 --
+-- For more information, see
+-- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
+-- in the /Amazon DynamoDB Developer Guide/.
 utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
 utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default;
+
+-- | Represents the DynamoDB Streams configuration for the table.
+--
+-- You will receive a /ResourceInUseException/ if you attempt to enable a
+-- stream on a table that already has a stream, or if you attempt to
+-- disable a stream on a table which does not have a stream.
+utStreamSpecification :: Lens' UpdateTable (Maybe StreamSpecification)
+utStreamSpecification = lens _utStreamSpecification (\ s a -> s{_utStreamSpecification = a});
 
 -- | The name of the table to be updated.
 utTableName :: Lens' UpdateTable Text
@@ -148,6 +164,7 @@ instance ToJSON UpdateTable where
                "AttributeDefinitions" .= _utAttributeDefinitions,
                "GlobalSecondaryIndexUpdates" .=
                  _utGlobalSecondaryIndexUpdates,
+               "StreamSpecification" .= _utStreamSpecification,
                "TableName" .= _utTableName]
 
 instance ToPath UpdateTable where

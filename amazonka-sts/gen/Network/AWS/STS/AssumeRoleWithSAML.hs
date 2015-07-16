@@ -63,8 +63,7 @@
 --
 -- For more information, see the following resources:
 --
--- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation>
---     in /Using Temporary Security Credentials/.
+-- -   <http://docs.aws.amazon.com/STS/latest/UsingSTS/CreatingSAML.html Creating Temporary Security Credentials for SAML Federation>.
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/idp-managing-identityproviders.html SAML Providers>
 --     in /Using IAM/.
 -- -   <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Claims>
@@ -163,8 +162,11 @@ arwsamlDurationSeconds = lens _arwsamlDurationSeconds (\ s a -> s{_arwsamlDurati
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-assume-role.html Permissions for AssumeRoleWithSAML>
 -- in /Using Temporary Security Credentials/.
 --
--- The policy must be 2048 bytes or shorter, and its packed size must be
--- less than 450 bytes.
+-- The policy plain text must be 2048 bytes or shorter. However, an
+-- internal conversion compresses it into a packed binary format with a
+-- separate limit. The PackedPolicySize response element indicates by
+-- percentage how close to the upper size limit the policy is, with 100%
+-- equaling the maximum allowed size.
 arwsamlPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
 arwsamlPolicy = lens _arwsamlPolicy (\ s a -> s{_arwsamlPolicy = a});
 

@@ -8,4 +8,6 @@ sdist:
 	cabal sdist
 
 upload:
-	cabal upload dist/$(NAME)-$(VERSION).tar.gz
+# currently a noop until a blacklist (such as ignoring dynamodb-streams)
+# can be put in place.
+# cabal upload dist/$(NAME)-$(VERSION).tar.gz

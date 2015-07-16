@@ -8,6 +8,6 @@ local=$dir/stack
 
 mkdir -p $dir
 
-travis_retry curl -L $remote | gunzip > $local
+curl -L $remote | gunzip > $local
 
 chmod a+x $local

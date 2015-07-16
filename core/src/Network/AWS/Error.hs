@@ -1,13 +1,6 @@
-{-# LANGUAGE FlexibleContexts           #-}
-{-# LANGUAGE FlexibleInstances          #-}
-{-# LANGUAGE GeneralizedNewtypeDeriving #-}
-{-# LANGUAGE LambdaCase                 #-}
-{-# LANGUAGE OverloadedStrings          #-}
-{-# LANGUAGE RankNTypes                 #-}
-{-# LANGUAGE RecordWildCards            #-}
-{-# LANGUAGE TupleSections              #-}
-{-# LANGUAGE TypeFamilies               #-}
-{-# LANGUAGE ViewPatterns               #-}
+{-# LANGUAGE LambdaCase        #-}
+{-# LANGUAGE OverloadedStrings #-}
+{-# LANGUAGE ViewPatterns      #-}
 
 -- |
 -- Module      : Network.AWS.Error
@@ -20,7 +13,6 @@
 module Network.AWS.Error where
 
 import           Control.Applicative
-import           Control.Exception
 import           Control.Lens
 import           Control.Monad
 import           Data.Aeson
@@ -28,112 +20,17 @@ import           Data.Aeson.Types            (parseEither)
 import qualified Data.ByteString.Lazy        as LBS
 import           Data.Maybe
 import           Data.Monoid
-import           Data.String
 import qualified Data.Text                   as Text
 import qualified Data.Text.Encoding          as Text
-import           Data.Typeable
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Headers
-import           Network.AWS.Data.Text
 import           Network.AWS.Data.XML
+import           Network.AWS.Types
 import           Network.HTTP.Client
 import           Network.HTTP.Types.Status   (Status (..))
 
 statusSuccess :: Status -> Bool
 statusSuccess (statusCode -> n) = n >= 200 && n < 300
-
--- | Abbreviated service name.
-newtype Abbrev = Abbrev Text
-    deriving
-        ( Eq
-        , Ord
-        , Show
-        , IsString
-        , FromXML
-        , FromJSON
-        , FromText
-        , ToText
-        , ToBuilder
-        )
-
-newtype ErrorCode = ErrorCode Text
-    deriving
-        ( Eq
-        , Ord
-        , Show
-        , IsString
-        , FromXML
-        , FromJSON
-        , FromText
-        , ToText
-        , ToBuilder
-        )
-
-newtype ErrorMessage = ErrorMessage Text
-    deriving
-        ( Eq
-        , Ord
-        , Show
-        , IsString
-        , FromXML
-        , FromJSON
-        , FromText
-        , ToText
-        , ToBuilder
-        )
-
-newtype RequestId = RequestId Text
-    deriving
-        ( Eq
-        , Ord
-        , Show
-        , IsString
-        , FromXML
-        , FromJSON
-        , FromText
-        , ToText
-        , ToBuilder
-        )
-
--- | An error type representing errors that can be attributed to this library.
-data Error
-    = HTTPError       HttpException
-    | SerializerError Abbrev Status String
-    | ServiceError    ServiceError
-      deriving (Show, Typeable)
-
-instance Exception Error
-
-class AWSError a where
-    _Error           :: Prism' a Error
-    _HTTPError       :: Prism' a HttpException
-    _SerializerError :: Prism' a (Abbrev, Status, String)
-    _ServiceError    :: Prism' a ServiceError
-
-    _HTTPError       = _Error . _HTTPError
-    _SerializerError = _Error . _SerializerError
-    _ServiceError    = _Error . _ServiceError
-
-instance AWSError Error where
-    _Error = id
-
-    _HTTPError = prism
-        HTTPError
-        (\case
-            HTTPError e -> Right e
-            x           -> Left x)
-
-    _SerializerError = prism
-        (\(a, s, e) -> SerializerError a s e)
-        (\case
-            SerializerError a s e -> Right (a, s, e)
-            x -> Left x)
-
-    _ServiceError = prism
-        ServiceError
-        (\case
-            ServiceError e -> Right e
-            x              -> Left x)
 
 httpStatus :: AWSError a => Getting (First Status) a Status
 httpStatus = _Error . f
@@ -157,56 +54,6 @@ hasCode :: (Applicative f, Choice p)
         => ErrorCode
         -> Optic' p f ServiceError ServiceError
 hasCode c = filtered ((c ==) . _errorCode)
-
-instance ToBuilder Error where
-    build = \case
-        HTTPError           e -> build e
-        SerializerError a s x -> buildLines
-            [ "[SerializerError] {"
-            , "  service = " <> build a
-            , "  status  = " <> build s
-            , "  message = " <> build x
-            ]
-        ServiceError        e -> build e
-
-data ServiceError = ServiceError'
-    { _errorService   :: Abbrev
-    , _errorStatus    :: Status
-    , _errorHeaders   :: [Header]
-    , _errorCode      :: ErrorCode
-    , _errorMessage   :: Maybe ErrorMessage
-    , _errorRequestId :: Maybe RequestId
-    } deriving (Eq, Show, Typeable)
-
-instance Exception ServiceError
-
-instance ToBuilder ServiceError where
-    build ServiceError'{..} = buildLines
-        [ "[ServiceError] {"
-        , "  service    = " <> build _errorService
-        , "  status     = " <> build _errorStatus
-        , "  code       = " <> build _errorCode
-        , "  message    = " <> build _errorMessage
-        , "  request-id = " <> build _errorRequestId
-        ]
-
-errorService :: Lens' ServiceError Abbrev
-errorService = lens _errorService (\s a -> s { _errorService = a })
-
-errorStatus :: Lens' ServiceError Status
-errorStatus = lens _errorStatus (\s a -> s { _errorStatus = a })
-
-errorHeaders :: Lens' ServiceError [Header]
-errorHeaders = lens _errorHeaders (\s a -> s { _errorHeaders = a })
-
-errorCode :: Lens' ServiceError ErrorCode
-errorCode = lens _errorCode (\s a -> s { _errorCode = a })
-
-errorMessage :: Lens' ServiceError (Maybe ErrorMessage)
-errorMessage = lens _errorMessage (\s a -> s { _errorMessage = a })
-
-errorRequestId :: Lens' ServiceError (Maybe RequestId)
-errorRequestId = lens _errorRequestId (\s a -> s { _errorRequestId = a })
 
 serviceError :: Abbrev
              -> Status

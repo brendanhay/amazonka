@@ -68,19 +68,6 @@ module Control.Monad.Trans.AWS
     , logDebug
     , logTrace
 
-    -- * Handling Errors
-    , AWSError    (..)
-    , Error
-
-    -- ** Service Errors
-    , ServiceError
-    , errorService
-    , errorStatus
-    , errorHeaders
-    , errorCode
-    , errorMessage
-    , errorRequestId
-
     -- * Types
     , module Network.AWS.Types
     ) where
@@ -88,7 +75,6 @@ module Control.Monad.Trans.AWS
 import           Control.Applicative
 import           Control.Monad.Base
 import           Control.Monad.Catch          (MonadCatch)
-import           Control.Monad.Error.Lens     (catching, throwing)
 import           Control.Monad.Except
 import           Control.Monad.Morph
 import           Control.Monad.Reader
@@ -97,17 +83,11 @@ import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
 import           Control.Monad.Writer.Class
-import           Control.Retry
-import           Data.Conduit                 hiding (await)
-import qualified Data.Conduit.List            as Conduit
 import           Network.AWS.Auth
-import           Network.AWS.Data.Time
 import           Network.AWS.Env
-import           Network.AWS.Error
 import           Network.AWS.Free
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
-import           Network.AWS.Pager
 import           Network.AWS.Prelude
 import           Network.AWS.Types
 import           Network.AWS.Waiter
@@ -134,6 +114,7 @@ newtype AWST m a = AWST { unAWST :: FreeT Command (ReaderT Env m) a }
         , MonadPlus
         , MonadIO
         , MonadFree Command
+        , MonadReader Env
         )
 
 instance MonadThrow m => MonadThrow (AWST m) where
@@ -176,16 +157,16 @@ instance MonadWriter w m => MonadWriter w (AWST m) where
     listen = AWST . listen . unAWST
     pass   = AWST . pass   . unAWST
 
-runAWST :: (MonadCatch m, MonadResource m) => Env -> AWST m a -> m a
-runAWST e (AWST m) = runReaderT (evalProgramT m) e
+runAWST :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWST m a -> m a
+runAWST e (AWST m) = runReaderT (evalProgramT m) (e ^. env)
 
-pureAWST :: Monad m
+pureAWST :: (Monad m, AWSEnv r)
          => (forall s a. Service s ->           a -> Either Error (Rs a))
          -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
-         -> Env
+         -> r
          -> AWST m b
          -> m b
-pureAWST f g e (AWST m) = runReaderT (pureProgramT f g m) e
+pureAWST f g e (AWST m) = runReaderT (pureProgramT f g m) (e ^. env)
 
 {- $embedding
 The following is a more advanced example, of how you might embed Amazonka actions

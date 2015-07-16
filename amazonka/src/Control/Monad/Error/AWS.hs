@@ -36,39 +36,26 @@ module Control.Monad.Error.AWS
     ) where
 
 import           Control.Applicative
-import           Control.Monad.Base
 import           Control.Monad.Catch          (MonadCatch)
 import           Control.Monad.Error.Lens     (catching, throwing)
 import           Control.Monad.Except
-import           Control.Monad.Morph
-import           Control.Monad.Reader
-import           Control.Monad.State.Class
 import qualified Control.Monad.Trans.AWS      as AWST
-import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Free
 import           Control.Monad.Trans.Resource
-import           Control.Monad.Writer.Class
-import           Control.Retry
-import           Data.Conduit                 hiding (await)
+import           Data.Conduit                 (Source, (=$=))
 import qualified Data.Conduit.List            as Conduit
-import           Network.AWS.Auth
-import           Network.AWS.Data.Time
 import           Network.AWS.Env
-import           Network.AWS.Error
 import           Network.AWS.Free             (Command)
-import           Network.AWS.Internal.Body
-import           Network.AWS.Logger
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
-import           Network.AWS.Types
 import           Network.AWS.Waiter
 
 type AWST m = AWST.AWST (ExceptT Error m)
 {-# DEPRECATED AWST
     "Exists for backwards compatibility pre @1.0.0@ AWST usage." #-}
 
-runAWST :: (MonadCatch m, MonadResource m)
-        => Env
+runAWST :: (MonadCatch m, MonadResource m, AWSEnv r)
+        => r
         -> AWST m a
         -> m (Either Error a)
 runAWST e = runExceptT . AWST.runAWST e

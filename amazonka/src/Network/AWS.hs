@@ -27,6 +27,11 @@ module Network.AWS
     -- $embed
     , runAWS
 
+    -- * Runtime Configuration
+    , within
+    , once
+    , timeout
+
     -- * Environment Setup
     , Credentials (..)
     , AWSEnv      (..)
@@ -57,19 +62,6 @@ module Network.AWS
     , logDebug
     , logTrace
 
-    -- * Handling Errors
-    , AWSError    (..)
-    , Error
-
-    -- ** Service Errors
-    , ServiceError
-    , errorService
-    , errorStatus
-    , errorHeaders
-    , errorCode
-    , errorMessage
-    , errorRequestId
-
     -- * Types
     , module Network.AWS.Types
     ) where
@@ -87,17 +79,16 @@ import           Control.Monad.Trans.Maybe
 import           Control.Monad.Trans.Resource
 import qualified Control.Monad.Writer.Lazy    as LW
 import qualified Control.Monad.Writer.Strict  as W
-import           Data.Conduit                 hiding (await)
+import           Data.Conduit                 (Source)
 import           Network.AWS.Auth
-import           Network.AWS.Env
-import           Network.AWS.Error
+import           Network.AWS.Env              (AWSEnv (..), Env, newEnv)
 import           Network.AWS.Internal.Body
 import           Network.AWS.Logger
 import           Network.AWS.Pager
-import           Network.AWS.Types            hiding (Logger)
+import           Network.AWS.Types
 import           Network.AWS.Waiter
 
--- | A specialisation of the 'ProgramT' transformer.
+-- | A specialisation of the 'AWST' transformer.
 type AWS = AWST IO
 
 -- | Monads in which 'AWS' actions may be embedded.
@@ -129,26 +120,33 @@ instance (Monoid w, MonadAWS m) => MonadAWS (LW.WriterT w m) where
 -- the 'ResourceT' computation is unwrapped.
 --
 -- /See:/ 'runResourceT' for more information.
-runAWS :: (MonadCatch m, MonadResource m) => Env -> AWS a -> m a
+runAWS :: (MonadCatch m, MonadResource m, AWSEnv r) => r -> AWS a -> m a
 runAWS e = liftResourceT . AWST.runAWST e . hoist (withInternalState . const)
 
+-- | Run any remote requests against the specified 'Region'.
+within :: MonadAWS m => Region -> AWS a -> m a
+within r = liftAWS . AWST.within r
+
+-- | Ignore any retry logic and ensure that any requests will be sent (at most) once.
+once :: MonadAWS m => AWS a -> m a
+once = liftAWS . AWST.once
+
+-- | Configure any HTTP connections to use this response timeout value.
+timeout :: MonadAWS m => Seconds -> AWS a -> m a
+timeout s = liftAWS . AWST.timeout s
+
 -- | Send a request, returning the associated response if successful,
--- or an 'Error'.
+-- otherwise an 'Error'.
 --
--- 'Error' will include 'HTTPExceptions', serialisation errors, or any service
--- specific errors.
---
--- /Note:/ Requests will be retried depending upon each service's respective
--- strategy. This can be overriden using 'envRetry'. Requests which contain
--- streaming request bodies (such as S3's 'PutObject') are never considered
--- for retries.
+-- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
+-- errors returned by the AWS service.
 --
 -- /See:/ 'sendWith'
 send :: (MonadAWS m, AWSRequest a) => a -> m (Either Error (Rs a))
 send = liftAWS . AWST.send
 
--- | A variant of 'send' that allows specifying the 'Service' definition to use
--- to configure the request properties.
+-- | A variant of 'send' that allows specifying the 'Service' definition
+-- used to configure the request.
 sendWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
          => Service s
          -> a
@@ -162,15 +160,16 @@ sendWith s = liftAWS . AWST.sendWith s
 paginate :: (MonadAWS m, AWSPager a) => a -> Source m (Either Error (Rs a))
 paginate = hoist liftAWS . AWST.paginate
 
--- | A variant of 'paginate' that allows specifying the 'Service' definition to use
--- to configure the request properties.
+-- | A variant of 'paginate' that allows specifying the 'Service' definition
+-- used to configure the request.
 paginateWith :: (MonadAWS m, AWSSigner (Sg s), AWSPager a)
              => Service s
              -> a
              -> Source m (Either Error (Rs a))
 paginateWith s = hoist liftAWS . AWST.paginateWith s
 
--- | Poll the API with the specified request until a 'Wait' condition is fulfilled.
+-- | Poll the API with the supplied request until a specific 'Wait' condition
+-- is fulfilled.
 --
 -- The response will be either the first error returned that is not handled
 -- by the specification, or any subsequent successful response from the await
@@ -183,8 +182,8 @@ paginateWith s = hoist liftAWS . AWST.paginateWith s
 await :: (MonadAWS m, AWSRequest a) => Wait a -> a -> m (Either Error (Rs a))
 await w = liftAWS . AWST.await w
 
--- | A variant of 'await' that allows specifying the 'Service' definition to use
--- to configure the request properties.
+-- | A variant of 'await' that allows specifying the 'Service' definition
+-- used to configure the request.
 awaitWith :: (MonadAWS m, AWSSigner (Sg s), AWSRequest a)
           => Service s
           -> Wait a

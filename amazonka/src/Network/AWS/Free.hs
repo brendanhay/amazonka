@@ -26,22 +26,13 @@ module Network.AWS.Free where
 
 import           Control.Applicative
 import           Control.Lens
-import           Control.Monad
-import           Control.Monad.Base
 import           Control.Monad.Catch             (MonadCatch (..))
-import           Control.Monad.Cont
-import           Control.Monad.Except
-import           Control.Monad.Morph
 import           Control.Monad.Reader
-import           Control.Monad.State.Class
-import           Control.Monad.Trans.Control
 import           Control.Monad.Trans.Free        (FreeT)
 import           Control.Monad.Trans.Free.Church
 import           Control.Monad.Trans.Resource
-import           Control.Monad.Writer.Class
-import           Data.Conduit                    hiding (await)
+import           Data.Conduit                    (Source, yield)
 import           Network.AWS.Env
-import           Network.AWS.Error
 import           Network.AWS.Internal.HTTP
 import           Network.AWS.Pager
 import           Network.AWS.Prelude
@@ -67,6 +58,12 @@ instance Functor Command where
 
 type ProgramT = FreeT Command
 
+-- | Interpret the 'Command' instruct set by performing HTTP calls to
+-- retrieve the associated response type for a request.
+--
+-- Requests will be retried depending upon each service's respective retry
+-- strategy. This can be overriden using 'envRetry'. Requests which contain
+-- streaming request bodies (such as S3's 'PutObject') are never retried.
 evalProgramT :: ( MonadCatch m
                 , MonadResource m
                 , MonadReader r m
@@ -84,9 +81,12 @@ evalProgramT = iterT go . toFT
         e <- view env
         waiter e w x (perform e s x) >>= k . fmap snd
 
+-- | Interpret the 'Command' instruction set purely.
 pureProgramT :: Monad m
              => (forall s a. Service s ->           a -> Either Error (Rs a))
+                -- ^ Define how responses for 'send' and 'paginate' can be obtained.
              -> (forall s a. Service s -> Wait a -> a -> Either Error (Rs a))
+                -- ^ Define how responses for 'await' can be obtained.
              -> ProgramT m b
              -> m b
 pureProgramT f g = iterT go . toFT
@@ -94,19 +94,11 @@ pureProgramT f g = iterT go . toFT
     go (Send  s   x k) = k (f s   x)
     go (Await s w x k) = k (g s w x)
 
--- FIXME: the documentation about retries etc should be split and
--- moved into the actual interpretation.
-
 -- | Send a request, returning the associated response if successful,
--- or an 'Error'.
+-- otherwise an 'Error'.
 --
--- 'Error' will include 'HTTPExceptions', serialisation errors, or any service
--- specific errors.
---
--- /Note:/ Requests will be retried depending upon each service's respective
--- strategy. This can be overriden using 'envRetry'. Requests which contain
--- streaming request bodies (such as S3's 'PutObject') are never considered
--- for retries.
+-- 'Error' will include 'HTTPExceptions', serialisation errors, or any particular
+-- errors returned by the AWS service.
 --
 -- /See:/ 'sendWith'
 send :: (MonadFree Command m, AWSRequest a)
@@ -114,8 +106,8 @@ send :: (MonadFree Command m, AWSRequest a)
      -> m (Either Error (Rs a))
 send = serviceFor sendWith
 
--- | A variant of 'send' that allows specifying the 'Service' definition to use
--- to configure the request properties.
+-- | A variant of 'send' that allows specifying the 'Service' definition
+-- used to configure the request.
 sendWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
          => Service s
          -> a
@@ -131,8 +123,8 @@ paginate :: (MonadFree Command m, AWSPager a)
          -> Source m (Either Error (Rs a))
 paginate = serviceFor paginateWith
 
--- | A variant of 'paginate' that allows specifying the 'Service' definition to use
--- to configure the request properties.
+-- | A variant of 'paginate' that allows specifying the 'Service' definition
+-- used to configure the request.
 paginateWith :: (MonadFree Command m, AWSSigner (Sg s), AWSPager a)
              => Service s
              -> a
@@ -147,7 +139,8 @@ paginateWith s x = do
                 Nothing -> pure ()
                 Just !r -> paginateWith s r
 
--- | Poll the API with the specified request until a 'Wait' condition is fulfilled.
+-- | Poll the API with the supplied request until a specific 'Wait' condition
+-- is fulfilled.
 --
 -- The response will be either the first error returned that is not handled
 -- by the specification, or any subsequent successful response from the await
@@ -163,8 +156,8 @@ await :: (MonadFree Command m, AWSRequest a)
       -> m (Either Error (Rs a))
 await w = serviceFor (flip awaitWith w)
 
--- | A variant of 'await' that allows specifying the 'Service' definition to use
--- to configure the request properties.
+-- | A variant of 'await' that allows specifying the 'Service' definition
+-- used to configure the request.
 awaitWith :: (MonadFree Command m, AWSSigner (Sg s), AWSRequest a)
           => Service s
           -> Wait a

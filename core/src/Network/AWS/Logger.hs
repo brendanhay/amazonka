@@ -15,10 +15,10 @@
 module Network.AWS.Logger
     (
     -- * Logging
-      LogLevel  (..)
-    , Logger
+      Logger
     , newLogger
-    -- ** Functions
+    -- ** Levels
+    , LogLevel  (..)
     , logError
     , logInfo
     , logDebug
@@ -49,8 +49,6 @@ import           Network.AWS.Data.ByteString
 import           Network.HTTP.Client
 import qualified Network.HTTP.Client          as Client
 import           System.IO
-
--- FIXME: Switch to MonadLogger? :(
 
 data LogLevel
     = Trace -- ^ Includes potentially sensitive signing metadata, and non-streaming response bodies.

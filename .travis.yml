@@ -1,5 +1,61 @@
 language: haskell
 
+env:
+  - LIBRARY=amazonka-core
+  - LIBRARY=amazonka
+  - LIBRARY=amazonka-autoscaling
+  - LIBRARY=amazonka-cloudformation
+  - LIBRARY=amazonka-cloudfront
+  - LIBRARY=amazonka-cloudhsm
+  - LIBRARY=amazonka-cloudsearch
+  - LIBRARY=amazonka-cloudsearch-domains
+  - LIBRARY=amazonka-cloudtrail
+  - LIBRARY=amazonka-cloudwatch
+  - LIBRARY=amazonka-cloudwatch-logs
+  - LIBRARY=amazonka-codecommit
+  - LIBRARY=amazonka-codedeploy
+  - LIBRARY=amazonka-codepipeline
+  - LIBRARY=amazonka-cognito-identity
+  - LIBRARY=amazonka-cognito-sync
+  - LIBRARY=amazonka-config
+  - LIBRARY=amazonka-datapipeline
+  - LIBRARY=amazonka-devicefarm
+  - LIBRARY=amazonka-directconnect
+  - LIBRARY=amazonka-ds
+  - LIBRARY=amazonka-dynamodb
+  - LIBRARY=amazonka-dynamodb-streams
+  - LIBRARY=amazonka-ec2
+  - LIBRARY=amazonka-ecs
+  - LIBRARY=amazonka-efs
+  - LIBRARY=amazonka-elasticache
+  - LIBRARY=amazonka-elasticbeanstalk
+  - LIBRARY=amazonka-elastictranscoder
+  - LIBRARY=amazonka-elb
+  - LIBRARY=amazonka-emr
+  - LIBRARY=amazonka-glacier
+  - LIBRARY=amazonka-iam
+  - LIBRARY=amazonka-importexport
+  - LIBRARY=amazonka-kinesis
+  - LIBRARY=amazonka-kms
+  - LIBRARY=amazonka-lambda
+  - LIBRARY=amazonka-ml
+  - LIBRARY=amazonka-opsworks
+  - LIBRARY=amazonka-rds
+  - LIBRARY=amazonka-redshift
+  - LIBRARY=amazonka-route53
+  - LIBRARY=amazonka-route53-domains
+  - LIBRARY=amazonka-s3
+  - LIBRARY=amazonka-sdb
+  - LIBRARY=amazonka-ses
+  - LIBRARY=amazonka-sns
+  - LIBRARY=amazonka-sqs
+  - LIBRARY=amazonka-ssm
+  - LIBRARY=amazonka-storagegateway
+  - LIBRARY=amazonka-sts
+  - LIBRARY=amazonka-support
+  - LIBRARY=amazonka-swf
+  - LIBRARY=amazonka-workspaces
+
 before_install:
   - wget -q -O- http://download.fpcomplete.com/ubuntu/fpco.key | sudo apt-key add -
   - echo 'deb http://download.fpcomplete.com/ubuntu/precise stable main' | sudo tee /etc/apt/sources.list.d/fpco.list
@@ -10,4 +66,4 @@ install:
   - stack setup
 
 script:
-  - 'stack -j3 +RTS -M2G -RTS test'
+  - stack -j4 +RTS -M3G -RTS test $LIBRARY

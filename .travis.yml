@@ -1,5 +1,3 @@
-language: haskell
-
 env:
   - LIBRARY=amazonka-core
   - LIBRARY=amazonka
@@ -56,14 +54,31 @@ env:
   - LIBRARY=amazonka-swf
   - LIBRARY=amazonka-workspaces
 
+sudo: false
+
+addons:
+  apt:
+    sources:
+      - hvr-ghc
+    packages:
+      - ghc-7.10.1
+
+cache:
+  directories:
+  - ~/.stack
+
 before_install:
-  - wget -q -O- http://download.fpcomplete.com/ubuntu/fpco.key | sudo apt-key add -
-  - echo 'deb http://download.fpcomplete.com/ubuntu/precise stable main' | sudo tee /etc/apt/sources.list.d/fpco.list
-  - sudo apt-get update
-  - sudo apt-get install stack -y
+  # GHC
+  - export PATH=/opt/ghc/7.10.1/bin:$PATH
+  - ghc --version
+  # Stack
+  - ./script/travis-stack
+  - export PATH=~/.local/bin:$PATH
+  - stack --version
 
 install:
-  - stack setup
+  - ./script/travis-timeout stack --no-terminal --skip-ghc-check setup
 
 script:
-  - stack +RTS -M3G -RTS -j4 test $LIBRARY
+<<<<<<< HEAD
+  - ./script/travis-timeout stack --no-terminal --skip-ghc-check test $LIBRARY --only-snapshot

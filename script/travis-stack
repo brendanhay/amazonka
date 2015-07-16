@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+set -e
+
+dir=~/.local/bin
+stack=https://github.com/commercialhaskell/stack/releases/download/v0.1.2.0/stack-0.1.2.0-x86_64-linux.gz
+
+mkdir -p $dir
+
+travis_retry curl -L $stack | gunzip > $dir
+
+chmod a+x $dir/stack

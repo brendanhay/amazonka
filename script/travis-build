@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+LIBRARY=${LIBRARY?"Need to set/specify LIBRARY to build."}
+STACK_OPTS=+RTS -M3G -RTS -j4
+
+if [ -z "$RESOLVER" ]; then
+    # Just use stack.yml settings.
+    stack $STACK_OPTS test $LIBRARY
+else
+    # Otherwise use an explicit resolver.
+    stack $STACK_OPTS --resolver $RESOLVER test $LIBRARY
+fi

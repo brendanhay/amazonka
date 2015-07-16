@@ -18,12 +18,11 @@
 --
 -- This module offers the 'AWST' transformer which is used as the core for
 -- other modules such as "Network.AWS" and "Control.Monad.Error.AWS".
---
 -- The function signatures use the minimum satisfiable constraints in order to
--- stay as general as possible, at the cost of readability.
+-- stay as general as possible, at the possible cost of readability.
 --
 -- For a simpler interface see "Network.AWS", or, for the pre @1.0.0@
--- behaviour of lifting errors, see "Control.Monad.Error.AWS".
+-- behaviour of implicitly lifting errors, see "Control.Monad.Error.AWS".
 module Control.Monad.Trans.AWS
     (
     -- * Monad constraints

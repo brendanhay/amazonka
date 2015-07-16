@@ -13,11 +13,11 @@
 -- This module provides functions with a 'MonadError' constraint where the error
 -- type is required to be an instance of 'AWSError'. This allows the
 -- implicit lifting of errors into the base monad without having to explicitly
--- handle the 'Either' result functions in "Control.Monad.Trans.AWS" return.
+-- handle the 'Either' result "Control.Monad.Trans.AWS" functions return.
 --
 -- You can use 'catching' to catch specific or general errors using the
--- 'AWSError' 'Prism's, and obtain the same pre @1.0.0@ behaviour as
--- the @*Catch@ variant of functions.
+-- 'AWSError' 'Prism's. This strategy can also be used to obtain the pre
+-- @1.0.0@ @*Catch@ function behaviour.
 module Control.Monad.Error.AWS
     (
     -- * Backwards Compatibility
@@ -64,14 +64,16 @@ import           Network.AWS.Types
 import           Network.AWS.Waiter
 
 type AWST m = AWST.AWST (ExceptT Error m)
-{-# DEPRECATED AWST "Exists for backwards compatibility with the pre @1.0.0@ AWST." #-}
+{-# DEPRECATED AWST
+    "Exists for backwards compatibility pre @1.0.0@ AWST usage." #-}
 
 runAWST :: (MonadCatch m, MonadResource m)
         => Env
         -> AWST m a
         -> m (Either Error a)
 runAWST e = runExceptT . AWST.runAWST e
-{-# DEPRECATED runAWST "Exists for backwards compatibility with the pre @1.0.0@ runAWST." #-}
+{-# DEPRECATED runAWST
+    "Exists for backwards compatibility with the pre @1.0.0@ AWST usage." #-}
 
 hoistError :: (MonadError e m, AWSError e) => Either Error a -> m a
 hoistError = either (throwing _Error) pure

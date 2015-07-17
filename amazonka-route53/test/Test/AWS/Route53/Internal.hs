@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Test.AWS.Route53.Internal
 -- Copyright   : (c) 2013-2015 Brendan Hay

@@ -1,4 +1,5 @@
 {-# LANGUAGE OverloadedStrings #-}
+{-# OPTIONS_GHC -fno-warn-unused-imports #-}
 
 -- Module      : Test.AWS.CloudFormation.Internal
 -- Copyright   : (c) 2013-2015 Brendan Hay

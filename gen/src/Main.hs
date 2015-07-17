@@ -157,9 +157,6 @@ main = do
             <*> load "toc.ede"
             <*> load "waiters.ede"
             <*> load "readme.ede"
-            <*> load "example/cabal.ede"
-            <*> load "example/makefile.ede"
-            <*> load "example/stack.ede"
             <*> load "operation.ede"
             <*> load "types.ede"
             <*> load "types/sum.ede"
@@ -168,7 +165,7 @@ main = do
             <*> load "test/fixtures.ede"
             <*  lift done
 
-        r <- JS.required _optRetry
+        r  <- JS.required _optRetry
 
         forM_ (zip [1..] _optModels) $ \(j, f) -> do
             title ("[" % int % "/" % int % "] model:" % path)

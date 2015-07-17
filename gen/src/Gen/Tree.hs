@@ -78,15 +78,6 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
             [ touch ".gitkeep"
             ]
 
-        , dir "example"
-            [ dir "src"
-                [ touch (l ^. serviceAbbrev <> ".hs")
-                ]
-            , file (lib <-> "example.cabal") exampleCabalTemplate
-            , file "Makefile" exampleMakefileTemplate
-            , file "stack.yaml" exampleStackTemplate
-            ]
-
         , dir "gen"
             [ dir "Network"
                 [ dir "AWS"
@@ -192,6 +183,3 @@ write = fmap (second Just)
 
 touch :: Text -> DirTree (Either e (Maybe a))
 touch f = File (Text.unpack f) (Right Nothing)
-
-(<->) :: Path -> Text -> Path
-a <-> b = fromText (toTextIgnore a <> "-" <> b)

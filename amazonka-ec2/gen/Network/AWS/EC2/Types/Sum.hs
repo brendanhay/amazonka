@@ -67,20 +67,20 @@ instance FromXML AddressStatus where
 
 data ArchitectureValues
     = I386
-    | X8664
+    | X86_64
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ArchitectureValues where
     parser = takeLowerText >>= \case
         "i386" -> pure I386
-        "x86_64" -> pure X8664
+        "x86_64" -> pure X86_64
         e -> fromTextError $ "Failure parsing ArchitectureValues from value: '" <> e
            <> "'. Accepted values: i386, x86_64"
 
 instance ToText ArchitectureValues where
     toText = \case
         I386 -> "i386"
-        X8664 -> "x86_64"
+        X86_64 -> "x86_64"
 
 instance Hashable ArchitectureValues
 instance ToQuery ArchitectureValues

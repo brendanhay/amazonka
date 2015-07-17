@@ -41,12 +41,12 @@ fixtures =
                             "i-1a2b3c4d"
                             "ami-1a2b3c4d"
                             0
-                            C1Medium
+                            C1_Medium
                             $(mkTime "2014-03-18T21:47:02+0000")
                             (placement & plaAvailabilityZone ?~ "us-east-1a"
                                        & plaTenancy          ?~ Default)
                             (monitoring & monState ?~ MSDisabled)
-                            X8664
+                            X86_64
                             EBS
                             HVM
                             Xen

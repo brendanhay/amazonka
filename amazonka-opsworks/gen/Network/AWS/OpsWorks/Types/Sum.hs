@@ -88,20 +88,20 @@ instance FromJSON AppType where
 
 data Architecture
     = I386
-    | X8664
+    | X86_64
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Architecture where
     parser = takeLowerText >>= \case
         "i386" -> pure I386
-        "x86_64" -> pure X8664
+        "x86_64" -> pure X86_64
         e -> fromTextError $ "Failure parsing Architecture from value: '" <> e
            <> "'. Accepted values: i386, x86_64"
 
 instance ToText Architecture where
     toText = \case
         I386 -> "i386"
-        X8664 -> "x86_64"
+        X86_64 -> "x86_64"
 
 instance Hashable Architecture
 instance ToQuery Architecture

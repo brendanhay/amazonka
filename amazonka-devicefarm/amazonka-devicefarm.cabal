@@ -59,6 +59,8 @@ library
         , Network.AWS.DeviceFarm.Waiters
 
     other-modules:
+          Network.AWS.DeviceFarm.Types.Product
+        , Network.AWS.DeviceFarm.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

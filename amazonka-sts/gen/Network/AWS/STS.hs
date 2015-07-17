@@ -77,4 +77,6 @@ import           Network.AWS.STS.DecodeAuthorizationMessage as Export
 import           Network.AWS.STS.GetFederationToken         as Export
 import           Network.AWS.STS.GetSessionToken            as Export
 import           Network.AWS.STS.Types                      as Export
+import           Network.AWS.STS.Types.Product              as Export
+import           Network.AWS.STS.Types.Sum                  as Export
 import           Network.AWS.STS.Waiters                    as Export

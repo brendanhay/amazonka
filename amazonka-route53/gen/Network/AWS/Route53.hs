@@ -50,6 +50,8 @@ import           Network.AWS.Route53.ListReusableDelegationSets      as Export
 import           Network.AWS.Route53.ListTagsForResource             as Export
 import           Network.AWS.Route53.ListTagsForResources            as Export
 import           Network.AWS.Route53.Types                           as Export
+import           Network.AWS.Route53.Types.Product                   as Export
+import           Network.AWS.Route53.Types.Sum                       as Export
 import           Network.AWS.Route53.UpdateHealthCheck               as Export
 import           Network.AWS.Route53.UpdateHostedZoneComment         as Export
 import           Network.AWS.Route53.Waiters                         as Export

@@ -109,6 +109,8 @@ library
         , Network.AWS.StorageGateway.Waiters
 
     other-modules:
+          Network.AWS.StorageGateway.Types.Product
+        , Network.AWS.StorageGateway.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

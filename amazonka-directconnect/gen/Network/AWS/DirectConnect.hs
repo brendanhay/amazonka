@@ -55,4 +55,6 @@ import           Network.AWS.DirectConnect.DescribeLocations                 as 
 import           Network.AWS.DirectConnect.DescribeVirtualGateways           as Export
 import           Network.AWS.DirectConnect.DescribeVirtualInterfaces         as Export
 import           Network.AWS.DirectConnect.Types                             as Export
+import           Network.AWS.DirectConnect.Types.Product                     as Export
+import           Network.AWS.DirectConnect.Types.Sum                         as Export
 import           Network.AWS.DirectConnect.Waiters                           as Export

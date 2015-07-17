@@ -73,6 +73,8 @@ import           Network.AWS.S3.PutObject                          as Export
 import           Network.AWS.S3.PutObjectACL                       as Export
 import           Network.AWS.S3.RestoreObject                      as Export
 import           Network.AWS.S3.Types                              as Export
+import           Network.AWS.S3.Types.Product                      as Export
+import           Network.AWS.S3.Types.Sum                          as Export
 import           Network.AWS.S3.UploadPart                         as Export
 import           Network.AWS.S3.UploadPartCopy                     as Export
 import           Network.AWS.S3.Waiters                            as Export

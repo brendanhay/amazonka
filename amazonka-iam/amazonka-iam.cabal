@@ -202,6 +202,8 @@ library
         , Network.AWS.IAM.Waiters
 
     other-modules:
+          Network.AWS.IAM.Types.Product
+        , Network.AWS.IAM.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

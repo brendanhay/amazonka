@@ -145,6 +145,8 @@ library
         , Network.AWS.OpsWorks.Waiters
 
     other-modules:
+          Network.AWS.OpsWorks.Types.Product
+        , Network.AWS.OpsWorks.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

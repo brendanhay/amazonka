@@ -131,6 +131,8 @@ library
         , Network.AWS.KMS.Waiters
 
     other-modules:
+          Network.AWS.KMS.Types.Product
+        , Network.AWS.KMS.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

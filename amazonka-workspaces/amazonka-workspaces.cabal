@@ -44,6 +44,8 @@ library
         , Network.AWS.WorkSpaces.Waiters
 
     other-modules:
+          Network.AWS.WorkSpaces.Types.Product
+        , Network.AWS.WorkSpaces.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

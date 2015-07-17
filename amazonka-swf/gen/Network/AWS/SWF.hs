@@ -63,4 +63,6 @@ import           Network.AWS.SWF.SignalWorkflowExecution        as Export
 import           Network.AWS.SWF.StartWorkflowExecution         as Export
 import           Network.AWS.SWF.TerminateWorkflowExecution     as Export
 import           Network.AWS.SWF.Types                          as Export
+import           Network.AWS.SWF.Types.Product                  as Export
+import           Network.AWS.SWF.Types.Sum                      as Export
 import           Network.AWS.SWF.Waiters                        as Export

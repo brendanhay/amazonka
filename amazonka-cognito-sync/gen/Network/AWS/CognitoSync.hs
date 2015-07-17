@@ -54,6 +54,8 @@ import           Network.AWS.CognitoSync.SetCognitoEvents             as Export
 import           Network.AWS.CognitoSync.SetIdentityPoolConfiguration as Export
 import           Network.AWS.CognitoSync.SubscribeToDataset           as Export
 import           Network.AWS.CognitoSync.Types                        as Export
+import           Network.AWS.CognitoSync.Types.Product                as Export
+import           Network.AWS.CognitoSync.Types.Sum                    as Export
 import           Network.AWS.CognitoSync.UnsubscribeFromDataset       as Export
 import           Network.AWS.CognitoSync.UpdateRecords                as Export
 import           Network.AWS.CognitoSync.Waiters                      as Export

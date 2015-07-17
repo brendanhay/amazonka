@@ -74,4 +74,6 @@ import           Network.AWS.CloudWatchLogs.PutRetentionPolicy          as Expor
 import           Network.AWS.CloudWatchLogs.PutSubscriptionFilter       as Export
 import           Network.AWS.CloudWatchLogs.TestMetricFilter            as Export
 import           Network.AWS.CloudWatchLogs.Types                       as Export
+import           Network.AWS.CloudWatchLogs.Types.Product               as Export
+import           Network.AWS.CloudWatchLogs.Types.Sum                   as Export
 import           Network.AWS.CloudWatchLogs.Waiters                     as Export

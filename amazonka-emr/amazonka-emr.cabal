@@ -53,6 +53,8 @@ library
         , Network.AWS.EMR.Waiters
 
     other-modules:
+          Network.AWS.EMR.Types.Product
+        , Network.AWS.EMR.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

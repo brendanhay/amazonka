@@ -128,5 +128,7 @@ import           Network.AWS.CodePipeline.PutThirdPartyJobFailureResult as Expor
 import           Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult as Export
 import           Network.AWS.CodePipeline.StartPipelineExecution        as Export
 import           Network.AWS.CodePipeline.Types                         as Export
+import           Network.AWS.CodePipeline.Types.Product                 as Export
+import           Network.AWS.CodePipeline.Types.Sum                     as Export
 import           Network.AWS.CodePipeline.UpdatePipeline                as Export
 import           Network.AWS.CodePipeline.Waiters                       as Export

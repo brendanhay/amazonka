@@ -42,6 +42,8 @@ import           Network.AWS.SES.SetIdentityDkimEnabled               as Export
 import           Network.AWS.SES.SetIdentityFeedbackForwardingEnabled as Export
 import           Network.AWS.SES.SetIdentityNotificationTopic         as Export
 import           Network.AWS.SES.Types                                as Export
+import           Network.AWS.SES.Types.Product                        as Export
+import           Network.AWS.SES.Types.Sum                            as Export
 import           Network.AWS.SES.VerifyDomainDkim                     as Export
 import           Network.AWS.SES.VerifyDomainIdentity                 as Export
 import           Network.AWS.SES.VerifyEmailAddress                   as Export

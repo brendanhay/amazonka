@@ -32,4 +32,6 @@ import           Network.AWS.Kinesis.PutRecords           as Export
 import           Network.AWS.Kinesis.RemoveTagsFromStream as Export
 import           Network.AWS.Kinesis.SplitShard           as Export
 import           Network.AWS.Kinesis.Types                as Export
+import           Network.AWS.Kinesis.Types.Product        as Export
+import           Network.AWS.Kinesis.Types.Sum            as Export
 import           Network.AWS.Kinesis.Waiters              as Export

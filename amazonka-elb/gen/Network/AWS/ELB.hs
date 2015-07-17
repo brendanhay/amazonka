@@ -60,4 +60,6 @@ import           Network.AWS.ELB.SetLoadBalancerListenerSSLCertificate   as Expo
 import           Network.AWS.ELB.SetLoadBalancerPoliciesForBackendServer as Export
 import           Network.AWS.ELB.SetLoadBalancerPoliciesOfListener       as Export
 import           Network.AWS.ELB.Types                                   as Export
+import           Network.AWS.ELB.Types.Product                           as Export
+import           Network.AWS.ELB.Types.Sum                               as Export
 import           Network.AWS.ELB.Waiters                                 as Export

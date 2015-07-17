@@ -27,5 +27,7 @@ import           Network.AWS.ImportExport.GetShippingLabel as Export
 import           Network.AWS.ImportExport.GetStatus        as Export
 import           Network.AWS.ImportExport.ListJobs         as Export
 import           Network.AWS.ImportExport.Types            as Export
+import           Network.AWS.ImportExport.Types.Product    as Export
+import           Network.AWS.ImportExport.Types.Sum        as Export
 import           Network.AWS.ImportExport.UpdateJob        as Export
 import           Network.AWS.ImportExport.Waiters          as Export

@@ -74,6 +74,8 @@ library
         , Network.AWS.DataPipeline.Waiters
 
     other-modules:
+          Network.AWS.DataPipeline.Types.Product
+        , Network.AWS.DataPipeline.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

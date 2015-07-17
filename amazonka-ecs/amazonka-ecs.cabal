@@ -73,6 +73,8 @@ library
         , Network.AWS.ECS.Waiters
 
     other-modules:
+          Network.AWS.ECS.Types.Product
+        , Network.AWS.ECS.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

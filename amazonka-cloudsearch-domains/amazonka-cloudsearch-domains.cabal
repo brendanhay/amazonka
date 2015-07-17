@@ -47,6 +47,8 @@ library
         , Network.AWS.CloudSearchDomains.Waiters
 
     other-modules:
+          Network.AWS.CloudSearchDomains.Types.Product
+        , Network.AWS.CloudSearchDomains.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

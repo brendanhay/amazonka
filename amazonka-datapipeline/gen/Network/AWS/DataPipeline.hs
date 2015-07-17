@@ -56,5 +56,7 @@ import           Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat  as Export
 import           Network.AWS.DataPipeline.SetStatus                  as Export
 import           Network.AWS.DataPipeline.SetTaskStatus              as Export
 import           Network.AWS.DataPipeline.Types                      as Export
+import           Network.AWS.DataPipeline.Types.Product              as Export
+import           Network.AWS.DataPipeline.Types.Sum                  as Export
 import           Network.AWS.DataPipeline.ValidatePipelineDefinition as Export
 import           Network.AWS.DataPipeline.Waiters                    as Export

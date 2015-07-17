@@ -52,6 +52,8 @@ import           Network.AWS.CloudFormation.ListStacks             as Export
 import           Network.AWS.CloudFormation.SetStackPolicy         as Export
 import           Network.AWS.CloudFormation.SignalResource         as Export
 import           Network.AWS.CloudFormation.Types                  as Export
+import           Network.AWS.CloudFormation.Types.Product          as Export
+import           Network.AWS.CloudFormation.Types.Sum              as Export
 import           Network.AWS.CloudFormation.UpdateStack            as Export
 import           Network.AWS.CloudFormation.ValidateTemplate       as Export
 import           Network.AWS.CloudFormation.Waiters                as Export

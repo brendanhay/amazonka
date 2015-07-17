@@ -93,6 +93,8 @@ library
         , Network.AWS.Glacier.Waiters
 
     other-modules:
+          Network.AWS.Glacier.Types.Product
+        , Network.AWS.Glacier.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

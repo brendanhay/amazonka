@@ -32,6 +32,8 @@ import           Network.AWS.ElasticTranscoder.ReadPipeline                as Ex
 import           Network.AWS.ElasticTranscoder.ReadPreset                  as Export
 import           Network.AWS.ElasticTranscoder.TestRole                    as Export
 import           Network.AWS.ElasticTranscoder.Types                       as Export
+import           Network.AWS.ElasticTranscoder.Types.Product               as Export
+import           Network.AWS.ElasticTranscoder.Types.Sum                   as Export
 import           Network.AWS.ElasticTranscoder.UpdatePipeline              as Export
 import           Network.AWS.ElasticTranscoder.UpdatePipelineNotifications as Export
 import           Network.AWS.ElasticTranscoder.UpdatePipelineStatus        as Export

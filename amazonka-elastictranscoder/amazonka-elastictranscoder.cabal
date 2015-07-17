@@ -52,6 +52,8 @@ library
         , Network.AWS.ElasticTranscoder.Waiters
 
     other-modules:
+          Network.AWS.ElasticTranscoder.Types.Product
+        , Network.AWS.ElasticTranscoder.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

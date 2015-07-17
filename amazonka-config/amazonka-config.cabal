@@ -72,6 +72,8 @@ library
         , Network.AWS.Config.Waiters
 
     other-modules:
+          Network.AWS.Config.Types.Product
+        , Network.AWS.Config.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

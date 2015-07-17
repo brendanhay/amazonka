@@ -77,6 +77,8 @@ library
         , Network.AWS.ELB.Waiters
 
     other-modules:
+          Network.AWS.ELB.Types.Product
+        , Network.AWS.ELB.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

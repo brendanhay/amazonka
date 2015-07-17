@@ -118,6 +118,8 @@ library
         , Network.AWS.Redshift.Waiters
 
     other-modules:
+          Network.AWS.Redshift.Types.Product
+        , Network.AWS.Redshift.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

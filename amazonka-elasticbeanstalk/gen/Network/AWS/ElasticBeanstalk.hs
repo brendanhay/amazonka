@@ -65,6 +65,8 @@ import           Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo        as 
 import           Network.AWS.ElasticBeanstalk.SwapEnvironmentCNAMEs          as Export
 import           Network.AWS.ElasticBeanstalk.TerminateEnvironment           as Export
 import           Network.AWS.ElasticBeanstalk.Types                          as Export
+import           Network.AWS.ElasticBeanstalk.Types.Product                  as Export
+import           Network.AWS.ElasticBeanstalk.Types.Sum                      as Export
 import           Network.AWS.ElasticBeanstalk.UpdateApplication              as Export
 import           Network.AWS.ElasticBeanstalk.UpdateApplicationVersion       as Export
 import           Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate    as Export

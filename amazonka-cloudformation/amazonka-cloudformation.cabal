@@ -71,6 +71,8 @@ library
         , Network.AWS.CloudFormation.Waiters
 
     other-modules:
+          Network.AWS.CloudFormation.Types.Product
+        , Network.AWS.CloudFormation.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

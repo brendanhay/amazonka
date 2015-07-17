@@ -87,6 +87,8 @@ library
         , Network.AWS.ElasticBeanstalk.Waiters
 
     other-modules:
+          Network.AWS.ElasticBeanstalk.Types.Product
+        , Network.AWS.ElasticBeanstalk.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

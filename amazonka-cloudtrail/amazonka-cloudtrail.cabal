@@ -63,6 +63,8 @@ library
         , Network.AWS.CloudTrail.Waiters
 
     other-modules:
+          Network.AWS.CloudTrail.Types.Product
+        , Network.AWS.CloudTrail.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

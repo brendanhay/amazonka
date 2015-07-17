@@ -51,6 +51,8 @@ library
         , Network.AWS.Route53Domains.Waiters
 
     other-modules:
+          Network.AWS.Route53Domains.Types.Product
+        , Network.AWS.Route53Domains.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

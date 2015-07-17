@@ -57,5 +57,7 @@ import           Network.AWS.SNS.SetSubscriptionAttributes          as Export
 import           Network.AWS.SNS.SetTopicAttributes                 as Export
 import           Network.AWS.SNS.Subscribe                          as Export
 import           Network.AWS.SNS.Types                              as Export
+import           Network.AWS.SNS.Types.Product                      as Export
+import           Network.AWS.SNS.Types.Sum                          as Export
 import           Network.AWS.SNS.Unsubscribe                        as Export
 import           Network.AWS.SNS.Waiters                            as Export

@@ -49,6 +49,8 @@ import           Network.AWS.CloudSearch.DescribeSuggesters            as Export
 import           Network.AWS.CloudSearch.IndexDocuments                as Export
 import           Network.AWS.CloudSearch.ListDomainNames               as Export
 import           Network.AWS.CloudSearch.Types                         as Export
+import           Network.AWS.CloudSearch.Types.Product                 as Export
+import           Network.AWS.CloudSearch.Types.Sum                     as Export
 import           Network.AWS.CloudSearch.UpdateAvailabilityOptions     as Export
 import           Network.AWS.CloudSearch.UpdateScalingParameters       as Export
 import           Network.AWS.CloudSearch.UpdateServiceAccessPolicies   as Export

@@ -45,6 +45,8 @@ library
         , Network.AWS.ImportExport.Waiters
 
     other-modules:
+          Network.AWS.ImportExport.Types.Product
+        , Network.AWS.ImportExport.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

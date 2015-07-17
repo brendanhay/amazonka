@@ -141,6 +141,8 @@ import           Network.AWS.DynamoDB.PutItem        as Export
 import           Network.AWS.DynamoDB.Query          as Export
 import           Network.AWS.DynamoDB.Scan           as Export
 import           Network.AWS.DynamoDB.Types          as Export
+import           Network.AWS.DynamoDB.Types.Product  as Export
+import           Network.AWS.DynamoDB.Types.Sum      as Export
 import           Network.AWS.DynamoDB.UpdateItem     as Export
 import           Network.AWS.DynamoDB.UpdateTable    as Export
 import           Network.AWS.DynamoDB.Waiters        as Export

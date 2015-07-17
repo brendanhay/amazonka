@@ -54,6 +54,8 @@ import           Network.AWS.ECS.StopTask                    as Export
 import           Network.AWS.ECS.SubmitContainerStateChange  as Export
 import           Network.AWS.ECS.SubmitTaskStateChange       as Export
 import           Network.AWS.ECS.Types                       as Export
+import           Network.AWS.ECS.Types.Product               as Export
+import           Network.AWS.ECS.Types.Sum                   as Export
 import           Network.AWS.ECS.UpdateContainerAgent        as Export
 import           Network.AWS.ECS.UpdateService               as Export
 import           Network.AWS.ECS.Waiters                     as Export

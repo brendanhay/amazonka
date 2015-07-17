@@ -58,6 +58,8 @@ library
         , Network.AWS.Lambda.Waiters
 
     other-modules:
+          Network.AWS.Lambda.Types.Product
+        , Network.AWS.Lambda.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

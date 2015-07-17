@@ -48,4 +48,6 @@ import           Network.AWS.DynamoDBStreams.GetRecords       as Export
 import           Network.AWS.DynamoDBStreams.GetShardIterator as Export
 import           Network.AWS.DynamoDBStreams.ListStreams      as Export
 import           Network.AWS.DynamoDBStreams.Types            as Export
+import           Network.AWS.DynamoDBStreams.Types.Product    as Export
+import           Network.AWS.DynamoDBStreams.Types.Sum        as Export
 import           Network.AWS.DynamoDBStreams.Waiters          as Export

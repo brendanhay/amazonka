@@ -42,4 +42,6 @@ import           Network.AWS.SDB.ListDomains           as Export
 import           Network.AWS.SDB.PutAttributes         as Export
 import           Network.AWS.SDB.Select                as Export
 import           Network.AWS.SDB.Types                 as Export
+import           Network.AWS.SDB.Types.Product         as Export
+import           Network.AWS.SDB.Types.Sum             as Export
 import           Network.AWS.SDB.Waiters               as Export

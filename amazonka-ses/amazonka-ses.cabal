@@ -63,6 +63,8 @@ library
         , Network.AWS.SES.Waiters
 
     other-modules:
+          Network.AWS.SES.Types.Product
+        , Network.AWS.SES.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

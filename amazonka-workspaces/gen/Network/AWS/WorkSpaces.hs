@@ -27,4 +27,6 @@ import           Network.AWS.WorkSpaces.RebootWorkspaces             as Export
 import           Network.AWS.WorkSpaces.RebuildWorkspaces            as Export
 import           Network.AWS.WorkSpaces.TerminateWorkspaces          as Export
 import           Network.AWS.WorkSpaces.Types                        as Export
+import           Network.AWS.WorkSpaces.Types.Product                as Export
+import           Network.AWS.WorkSpaces.Types.Sum                    as Export
 import           Network.AWS.WorkSpaces.Waiters                      as Export

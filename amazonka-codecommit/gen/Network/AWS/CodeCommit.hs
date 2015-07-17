@@ -36,6 +36,8 @@ import           Network.AWS.CodeCommit.GetRepository               as Export
 import           Network.AWS.CodeCommit.ListBranches                as Export
 import           Network.AWS.CodeCommit.ListRepositories            as Export
 import           Network.AWS.CodeCommit.Types                       as Export
+import           Network.AWS.CodeCommit.Types.Product               as Export
+import           Network.AWS.CodeCommit.Types.Sum                   as Export
 import           Network.AWS.CodeCommit.UpdateDefaultBranch         as Export
 import           Network.AWS.CodeCommit.UpdateRepositoryDescription as Export
 import           Network.AWS.CodeCommit.UpdateRepositoryName        as Export

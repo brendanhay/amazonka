@@ -58,6 +58,8 @@ library
         , Network.AWS.MachineLearning.Waiters
 
     other-modules:
+          Network.AWS.MachineLearning.Types.Product
+        , Network.AWS.MachineLearning.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

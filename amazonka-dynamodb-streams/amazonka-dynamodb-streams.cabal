@@ -64,6 +64,8 @@ library
         , Network.AWS.DynamoDBStreams.Waiters
 
     other-modules:
+          Network.AWS.DynamoDBStreams.Types.Product
+        , Network.AWS.DynamoDBStreams.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

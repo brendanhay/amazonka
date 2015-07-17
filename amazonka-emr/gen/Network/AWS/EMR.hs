@@ -36,4 +36,6 @@ import           Network.AWS.EMR.SetTerminationProtection as Export
 import           Network.AWS.EMR.SetVisibleToAllUsers     as Export
 import           Network.AWS.EMR.TerminateJobFlows        as Export
 import           Network.AWS.EMR.Types                    as Export
+import           Network.AWS.EMR.Types.Product            as Export
+import           Network.AWS.EMR.Types.Sum                as Export
 import           Network.AWS.EMR.Waiters                  as Export

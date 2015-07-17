@@ -56,6 +56,8 @@ library
         , Network.AWS.CodeCommit.Waiters
 
     other-modules:
+          Network.AWS.CodeCommit.Types.Product
+        , Network.AWS.CodeCommit.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

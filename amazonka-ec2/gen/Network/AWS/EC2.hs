@@ -201,6 +201,8 @@ import           Network.AWS.EC2.StartInstances                         as Expor
 import           Network.AWS.EC2.StopInstances                          as Export
 import           Network.AWS.EC2.TerminateInstances                     as Export
 import           Network.AWS.EC2.Types                                  as Export
+import           Network.AWS.EC2.Types.Product                          as Export
+import           Network.AWS.EC2.Types.Sum                              as Export
 import           Network.AWS.EC2.UnassignPrivateIPAddresses             as Export
 import           Network.AWS.EC2.UnmonitorInstances                     as Export
 import           Network.AWS.EC2.Waiters                                as Export

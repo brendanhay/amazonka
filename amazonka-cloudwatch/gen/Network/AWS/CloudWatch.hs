@@ -76,4 +76,6 @@ import           Network.AWS.CloudWatch.PutMetricAlarm          as Export
 import           Network.AWS.CloudWatch.PutMetricData           as Export
 import           Network.AWS.CloudWatch.SetAlarmState           as Export
 import           Network.AWS.CloudWatch.Types                   as Export
+import           Network.AWS.CloudWatch.Types.Product           as Export
+import           Network.AWS.CloudWatch.Types.Sum               as Export
 import           Network.AWS.CloudWatch.Waiters                 as Export

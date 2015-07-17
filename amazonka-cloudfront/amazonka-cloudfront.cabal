@@ -64,6 +64,8 @@ library
         , Network.AWS.CloudFront.Waiters
 
     other-modules:
+          Network.AWS.CloudFront.Types.Product
+        , Network.AWS.CloudFront.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

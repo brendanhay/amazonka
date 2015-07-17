@@ -42,4 +42,6 @@ import           Network.AWS.DeviceFarm.ListUniqueProblems         as Export
 import           Network.AWS.DeviceFarm.ListUploads                as Export
 import           Network.AWS.DeviceFarm.ScheduleRun                as Export
 import           Network.AWS.DeviceFarm.Types                      as Export
+import           Network.AWS.DeviceFarm.Types.Product              as Export
+import           Network.AWS.DeviceFarm.Types.Sum                  as Export
 import           Network.AWS.DeviceFarm.Waiters                    as Export

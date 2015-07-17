@@ -101,4 +101,6 @@ import           Network.AWS.Redshift.RevokeClusterSecurityGroupIngress    as Ex
 import           Network.AWS.Redshift.RevokeSnapshotAccess                 as Export
 import           Network.AWS.Redshift.RotateEncryptionKey                  as Export
 import           Network.AWS.Redshift.Types                                as Export
+import           Network.AWS.Redshift.Types.Product                        as Export
+import           Network.AWS.Redshift.Types.Sum                            as Export
 import           Network.AWS.Redshift.Waiters                              as Export

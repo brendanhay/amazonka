@@ -87,6 +87,8 @@ library
         , Network.AWS.CognitoIdentity.Waiters
 
     other-modules:
+          Network.AWS.CognitoIdentity.Types.Product
+        , Network.AWS.CognitoIdentity.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

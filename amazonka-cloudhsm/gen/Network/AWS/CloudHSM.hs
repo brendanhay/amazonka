@@ -33,4 +33,6 @@ import           Network.AWS.CloudHSM.ModifyHAPG         as Export
 import           Network.AWS.CloudHSM.ModifyHSM          as Export
 import           Network.AWS.CloudHSM.ModifyLunaClient   as Export
 import           Network.AWS.CloudHSM.Types              as Export
+import           Network.AWS.CloudHSM.Types.Product      as Export
+import           Network.AWS.CloudHSM.Types.Sum          as Export
 import           Network.AWS.CloudHSM.Waiters            as Export

@@ -220,6 +220,8 @@ library
         , Network.AWS.EC2.Waiters
 
     other-modules:
+          Network.AWS.EC2.Types.Product
+        , Network.AWS.EC2.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

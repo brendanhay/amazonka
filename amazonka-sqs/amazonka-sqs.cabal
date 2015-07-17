@@ -78,6 +78,8 @@ library
         , Network.AWS.SQS.Waiters
 
     other-modules:
+          Network.AWS.SQS.Types.Product
+        , Network.AWS.SQS.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

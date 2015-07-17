@@ -50,6 +50,8 @@ library
         , Network.AWS.CloudHSM.Waiters
 
     other-modules:
+          Network.AWS.CloudHSM.Types.Product
+        , Network.AWS.CloudHSM.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

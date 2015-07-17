@@ -59,6 +59,8 @@ library
         , Network.AWS.SDB.Waiters
 
     other-modules:
+          Network.AWS.SDB.Types.Product
+        , Network.AWS.SDB.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

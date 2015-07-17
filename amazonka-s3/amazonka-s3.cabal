@@ -92,6 +92,8 @@ library
 
     other-modules:
           Network.AWS.S3.Internal
+        , Network.AWS.S3.Types.Product
+        , Network.AWS.S3.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

@@ -75,6 +75,8 @@ library
         , Network.AWS.SNS.Waiters
 
     other-modules:
+          Network.AWS.SNS.Types.Product
+        , Network.AWS.SNS.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

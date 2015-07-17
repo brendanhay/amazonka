@@ -49,6 +49,8 @@ library
         , Network.AWS.Kinesis.Waiters
 
     other-modules:
+          Network.AWS.Kinesis.Types.Product
+        , Network.AWS.Kinesis.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

@@ -91,6 +91,8 @@ library
         , Network.AWS.CloudWatchLogs.Waiters
 
     other-modules:
+          Network.AWS.CloudWatchLogs.Types.Product
+        , Network.AWS.CloudWatchLogs.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

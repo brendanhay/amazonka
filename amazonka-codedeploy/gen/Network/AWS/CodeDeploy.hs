@@ -106,6 +106,8 @@ import           Network.AWS.CodeDeploy.RegisterOnPremisesInstance        as Exp
 import           Network.AWS.CodeDeploy.RemoveTagsFromOnPremisesInstances as Export
 import           Network.AWS.CodeDeploy.StopDeployment                    as Export
 import           Network.AWS.CodeDeploy.Types                             as Export
+import           Network.AWS.CodeDeploy.Types.Product                     as Export
+import           Network.AWS.CodeDeploy.Types.Sum                         as Export
 import           Network.AWS.CodeDeploy.UpdateApplication                 as Export
 import           Network.AWS.CodeDeploy.UpdateDeploymentGroup             as Export
 import           Network.AWS.CodeDeploy.Waiters                           as Export

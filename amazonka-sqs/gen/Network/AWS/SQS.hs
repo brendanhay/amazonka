@@ -61,4 +61,6 @@ import           Network.AWS.SQS.SendMessage                  as Export
 import           Network.AWS.SQS.SendMessageBatch             as Export
 import           Network.AWS.SQS.SetQueueAttributes           as Export
 import           Network.AWS.SQS.Types                        as Export
+import           Network.AWS.SQS.Types.Product                as Export
+import           Network.AWS.SQS.Types.Sum                    as Export
 import           Network.AWS.SQS.Waiters                      as Export

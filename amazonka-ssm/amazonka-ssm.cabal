@@ -59,6 +59,8 @@ library
         , Network.AWS.SSM.Waiters
 
     other-modules:
+          Network.AWS.SSM.Types.Product
+        , Network.AWS.SSM.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

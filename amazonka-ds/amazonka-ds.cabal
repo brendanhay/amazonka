@@ -54,6 +54,8 @@ library
         , Network.AWS.DirectoryService.Waiters
 
     other-modules:
+          Network.AWS.DirectoryService.Types.Product
+        , Network.AWS.DirectoryService.Types.Sum
 
     build-depends:
           amazonka-core == 1.0.0.*

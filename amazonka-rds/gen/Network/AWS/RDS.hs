@@ -101,4 +101,6 @@ import           Network.AWS.RDS.RestoreDBInstanceFromDBSnapshot        as Expor
 import           Network.AWS.RDS.RestoreDBInstanceToPointInTime         as Export
 import           Network.AWS.RDS.RevokeDBSecurityGroupIngress           as Export
 import           Network.AWS.RDS.Types                                  as Export
+import           Network.AWS.RDS.Types.Product                          as Export
+import           Network.AWS.RDS.Types.Sum                              as Export
 import           Network.AWS.RDS.Waiters                                as Export

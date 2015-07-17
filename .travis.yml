@@ -78,6 +78,7 @@ before_install:
 
 install:
   - ./script/travis-timeout stack --no-terminal --skip-ghc-check setup
+  - ./script/travis-timeout stack --skip-ghc-check test $LIBRARY --only-snapshot
 
 script:
-  - ./script/travis-timeout stack --no-terminal --skip-ghc-check test $LIBRARY --only-snapshot
+  - stack +RTS -H2G -RTS --no-terminal --skip-ghc-check test $LIBRARY

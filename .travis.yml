@@ -56,63 +56,6 @@ env:
   - GHCVER=7.10.1 LIBRARY=amazonka-swf
   - GHCVER=7.10.1 LIBRARY=amazonka-workspaces
 
-  # Priority
-  - GHCVER=7.8.4 LIBRARY=amazonka-core
-  - GHCVER=7.8.4 LIBRARY=amazonka
-  - GHCVER=7.8.4 LIBRARY=amazonka-ec2
-  - GHCVER=7.8.4 LIBRARY=amazonka-s3
-  - GHCVER=7.8.4 LIBRARY=amazonka-iam
-  - GHCVER=7.8.4 LIBRARY=amazonka-autoscaling
-  - GHCVER=7.8.4 LIBRARY=amazonka-dynamodb
-  - GHCVER=7.8.4 LIBRARY=amazonka-elb
-  - GHCVER=7.8.4 LIBRARY=amazonka-sqs
-  - GHCVER=7.8.4 LIBRARY=amazonka-sns
-  - GHCVER=7.8.4 LIBRARY=amazonka-sdb
-  - GHCVER=7.8.4 LIBRARY=amazonka-ses
-  - GHCVER=7.8.4 LIBRARY=amazonka-route53
-  # Alphabetical
-  - GHCVER=7.8.4 LIBRARY=amazonka-cloudformation
-  - GHCVER=7.8.4 LIBRARY=amazonka-cloudfront
-  - GHCVER=7.8.4 LIBRARY=amazonka-cloudhsm
-  - GHCVER=7.8.4 LIBRARY=amazonka-cloudsearch
-  - GHCVER=7.8.4 LIBRARY=amazonka-cloudsearch-domains
-  - GHCVER=7.8.4 LIBRARY=amazonka-cloudtrail
-  - GHCVER=7.8.4 LIBRARY=amazonka-cloudwatch
-  - GHCVER=7.8.4 LIBRARY=amazonka-cloudwatch-logs
-  - GHCVER=7.8.4 LIBRARY=amazonka-codecommit
-  - GHCVER=7.8.4 LIBRARY=amazonka-codedeploy
-  - GHCVER=7.8.4 LIBRARY=amazonka-codepipeline
-  - GHCVER=7.8.4 LIBRARY=amazonka-cognito-identity
-  - GHCVER=7.8.4 LIBRARY=amazonka-cognito-sync
-  - GHCVER=7.8.4 LIBRARY=amazonka-config
-  - GHCVER=7.8.4 LIBRARY=amazonka-datapipeline
-  - GHCVER=7.8.4 LIBRARY=amazonka-devicefarm
-  - GHCVER=7.8.4 LIBRARY=amazonka-directconnect
-  - GHCVER=7.8.4 LIBRARY=amazonka-ds
-  - GHCVER=7.8.4 LIBRARY=amazonka-dynamodb-streams
-  - GHCVER=7.8.4 LIBRARY=amazonka-ecs
-  - GHCVER=7.8.4 LIBRARY=amazonka-efs
-  - GHCVER=7.8.4 LIBRARY=amazonka-elasticache
-  - GHCVER=7.8.4 LIBRARY=amazonka-elasticbeanstalk
-  - GHCVER=7.8.4 LIBRARY=amazonka-elastictranscoder
-  - GHCVER=7.8.4 LIBRARY=amazonka-emr
-  - GHCVER=7.8.4 LIBRARY=amazonka-glacier
-  - GHCVER=7.8.4 LIBRARY=amazonka-importexport
-  - GHCVER=7.8.4 LIBRARY=amazonka-kinesis
-  - GHCVER=7.8.4 LIBRARY=amazonka-kms
-  - GHCVER=7.8.4 LIBRARY=amazonka-lambda
-  - GHCVER=7.8.4 LIBRARY=amazonka-ml
-  - GHCVER=7.8.4 LIBRARY=amazonka-opsworks
-  - GHCVER=7.8.4 LIBRARY=amazonka-rds
-  - GHCVER=7.8.4 LIBRARY=amazonka-redshift
-  - GHCVER=7.8.4 LIBRARY=amazonka-route53-domains
-  - GHCVER=7.8.4 LIBRARY=amazonka-ssm
-  - GHCVER=7.8.4 LIBRARY=amazonka-storagegateway
-  - GHCVER=7.8.4 LIBRARY=amazonka-sts
-  - GHCVER=7.8.4 LIBRARY=amazonka-support
-  - GHCVER=7.8.4 LIBRARY=amazonka-swf
-  - GHCVER=7.8.4 LIBRARY=amazonka-workspaces
-
 sudo: false
 
 addons:
@@ -120,7 +63,6 @@ addons:
     sources:
       - hvr-ghc
     packages:
-      - ghc-7.8.4
       - ghc-7.10.1
 
 cache:

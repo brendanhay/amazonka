@@ -50,6 +50,13 @@ test-suite {{ libraryName }}-test
 
     ghc-options:       -Wall -threaded
 
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.{{ serviceAbbrev }}
+        , Test.AWS.Gen.{{ serviceAbbrev }}
+        , Test.AWS.{{ serviceAbbrev }}.Internal
+
     build-depends:
           amazonka-core == {{ coreVersion }}
         , amazonka-test

@@ -1,4 +1,5 @@
 env:
+  # Priority
   - LIBRARY=amazonka-core
   - LIBRARY=amazonka
   - LIBRARY=amazonka-ec2
@@ -6,7 +7,13 @@ env:
   - LIBRARY=amazonka-iam
   - LIBRARY=amazonka-autoscaling
   - LIBRARY=amazonka-dynamodb
-  - LIBRARY=amazonka-dynamodb-streams
+  - LIBRARY=amazonka-elb
+  - LIBRARY=amazonka-sqs
+  - LIBRARY=amazonka-sns
+  - LIBRARY=amazonka-sdb
+  - LIBRARY=amazonka-ses
+  - LIBRARY=amazonka-route53
+  # Alphabetical
   - LIBRARY=amazonka-cloudformation
   - LIBRARY=amazonka-cloudfront
   - LIBRARY=amazonka-cloudhsm
@@ -25,12 +32,12 @@ env:
   - LIBRARY=amazonka-devicefarm
   - LIBRARY=amazonka-directconnect
   - LIBRARY=amazonka-ds
+  - LIBRARY=amazonka-dynamodb-streams
   - LIBRARY=amazonka-ecs
   - LIBRARY=amazonka-efs
   - LIBRARY=amazonka-elasticache
   - LIBRARY=amazonka-elasticbeanstalk
   - LIBRARY=amazonka-elastictranscoder
-  - LIBRARY=amazonka-elb
   - LIBRARY=amazonka-emr
   - LIBRARY=amazonka-glacier
   - LIBRARY=amazonka-importexport
@@ -41,12 +48,7 @@ env:
   - LIBRARY=amazonka-opsworks
   - LIBRARY=amazonka-rds
   - LIBRARY=amazonka-redshift
-  - LIBRARY=amazonka-route53
   - LIBRARY=amazonka-route53-domains
-  - LIBRARY=amazonka-sdb
-  - LIBRARY=amazonka-ses
-  - LIBRARY=amazonka-sns
-  - LIBRARY=amazonka-sqs
   - LIBRARY=amazonka-ssm
   - LIBRARY=amazonka-storagegateway
   - LIBRARY=amazonka-sts

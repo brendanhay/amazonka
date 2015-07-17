@@ -21,6 +21,10 @@ import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Conduit
 import           Data.Monoid
 import           Data.String
+import           Data.Text                    (Text)
+import qualified Data.Text.Encoding           as Text
+import qualified Data.Text.Lazy               as LText
+import qualified Data.Text.Lazy.Encoding      as LText
 import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
@@ -73,6 +77,12 @@ instance ToBody LBS.ByteString where
 
 instance ToBody ByteString where
     toBody x = RqBody (hash x) (RequestBodyBS x)
+
+instance ToBody Text where
+    toBody = toBody . Text.encodeUtf8
+
+instance ToBody LText.Text where
+    toBody = toBody . LText.encodeUtf8
 
 instance ToBody Value where
     toBody = toBody . encode

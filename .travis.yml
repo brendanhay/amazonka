@@ -1,60 +1,117 @@
 env:
   # Priority
-  - LIBRARY=amazonka-core
-  - LIBRARY=amazonka
-  - LIBRARY=amazonka-ec2
-  - LIBRARY=amazonka-s3
-  - LIBRARY=amazonka-iam
-  - LIBRARY=amazonka-autoscaling
-  - LIBRARY=amazonka-dynamodb
-  - LIBRARY=amazonka-elb
-  - LIBRARY=amazonka-sqs
-  - LIBRARY=amazonka-sns
-  - LIBRARY=amazonka-sdb
-  - LIBRARY=amazonka-ses
-  - LIBRARY=amazonka-route53
+  - GHCVER=7.10.1 LIBRARY=amazonka-core
+  - GHCVER=7.10.1 LIBRARY=amazonka
+  - GHCVER=7.10.1 LIBRARY=amazonka-ec2
+  - GHCVER=7.10.1 LIBRARY=amazonka-s3
+  - GHCVER=7.10.1 LIBRARY=amazonka-iam
+  - GHCVER=7.10.1 LIBRARY=amazonka-autoscaling
+  - GHCVER=7.10.1 LIBRARY=amazonka-dynamodb
+  - GHCVER=7.10.1 LIBRARY=amazonka-elb
+  - GHCVER=7.10.1 LIBRARY=amazonka-sqs
+  - GHCVER=7.10.1 LIBRARY=amazonka-sns
+  - GHCVER=7.10.1 LIBRARY=amazonka-sdb
+  - GHCVER=7.10.1 LIBRARY=amazonka-ses
+  - GHCVER=7.10.1 LIBRARY=amazonka-route53
   # Alphabetical
-  - LIBRARY=amazonka-cloudformation
-  - LIBRARY=amazonka-cloudfront
-  - LIBRARY=amazonka-cloudhsm
-  - LIBRARY=amazonka-cloudsearch
-  - LIBRARY=amazonka-cloudsearch-domains
-  - LIBRARY=amazonka-cloudtrail
-  - LIBRARY=amazonka-cloudwatch
-  - LIBRARY=amazonka-cloudwatch-logs
-  - LIBRARY=amazonka-codecommit
-  - LIBRARY=amazonka-codedeploy
-  - LIBRARY=amazonka-codepipeline
-  - LIBRARY=amazonka-cognito-identity
-  - LIBRARY=amazonka-cognito-sync
-  - LIBRARY=amazonka-config
-  - LIBRARY=amazonka-datapipeline
-  - LIBRARY=amazonka-devicefarm
-  - LIBRARY=amazonka-directconnect
-  - LIBRARY=amazonka-ds
-  - LIBRARY=amazonka-dynamodb-streams
-  - LIBRARY=amazonka-ecs
-  - LIBRARY=amazonka-efs
-  - LIBRARY=amazonka-elasticache
-  - LIBRARY=amazonka-elasticbeanstalk
-  - LIBRARY=amazonka-elastictranscoder
-  - LIBRARY=amazonka-emr
-  - LIBRARY=amazonka-glacier
-  - LIBRARY=amazonka-importexport
-  - LIBRARY=amazonka-kinesis
-  - LIBRARY=amazonka-kms
-  - LIBRARY=amazonka-lambda
-  - LIBRARY=amazonka-ml
-  - LIBRARY=amazonka-opsworks
-  - LIBRARY=amazonka-rds
-  - LIBRARY=amazonka-redshift
-  - LIBRARY=amazonka-route53-domains
-  - LIBRARY=amazonka-ssm
-  - LIBRARY=amazonka-storagegateway
-  - LIBRARY=amazonka-sts
-  - LIBRARY=amazonka-support
-  - LIBRARY=amazonka-swf
-  - LIBRARY=amazonka-workspaces
+  - GHCVER=7.10.1 LIBRARY=amazonka-cloudformation
+  - GHCVER=7.10.1 LIBRARY=amazonka-cloudfront
+  - GHCVER=7.10.1 LIBRARY=amazonka-cloudhsm
+  - GHCVER=7.10.1 LIBRARY=amazonka-cloudsearch
+  - GHCVER=7.10.1 LIBRARY=amazonka-cloudsearch-domains
+  - GHCVER=7.10.1 LIBRARY=amazonka-cloudtrail
+  - GHCVER=7.10.1 LIBRARY=amazonka-cloudwatch
+  - GHCVER=7.10.1 LIBRARY=amazonka-cloudwatch-logs
+  - GHCVER=7.10.1 LIBRARY=amazonka-codecommit
+  - GHCVER=7.10.1 LIBRARY=amazonka-codedeploy
+  - GHCVER=7.10.1 LIBRARY=amazonka-codepipeline
+  - GHCVER=7.10.1 LIBRARY=amazonka-cognito-identity
+  - GHCVER=7.10.1 LIBRARY=amazonka-cognito-sync
+  - GHCVER=7.10.1 LIBRARY=amazonka-config
+  - GHCVER=7.10.1 LIBRARY=amazonka-datapipeline
+  - GHCVER=7.10.1 LIBRARY=amazonka-devicefarm
+  - GHCVER=7.10.1 LIBRARY=amazonka-directconnect
+  - GHCVER=7.10.1 LIBRARY=amazonka-ds
+  - GHCVER=7.10.1 LIBRARY=amazonka-dynamodb-streams
+  - GHCVER=7.10.1 LIBRARY=amazonka-ecs
+  - GHCVER=7.10.1 LIBRARY=amazonka-efs
+  - GHCVER=7.10.1 LIBRARY=amazonka-elasticache
+  - GHCVER=7.10.1 LIBRARY=amazonka-elasticbeanstalk
+  - GHCVER=7.10.1 LIBRARY=amazonka-elastictranscoder
+  - GHCVER=7.10.1 LIBRARY=amazonka-emr
+  - GHCVER=7.10.1 LIBRARY=amazonka-glacier
+  - GHCVER=7.10.1 LIBRARY=amazonka-importexport
+  - GHCVER=7.10.1 LIBRARY=amazonka-kinesis
+  - GHCVER=7.10.1 LIBRARY=amazonka-kms
+  - GHCVER=7.10.1 LIBRARY=amazonka-lambda
+  - GHCVER=7.10.1 LIBRARY=amazonka-ml
+  - GHCVER=7.10.1 LIBRARY=amazonka-opsworks
+  - GHCVER=7.10.1 LIBRARY=amazonka-rds
+  - GHCVER=7.10.1 LIBRARY=amazonka-redshift
+  - GHCVER=7.10.1 LIBRARY=amazonka-route53-domains
+  - GHCVER=7.10.1 LIBRARY=amazonka-ssm
+  - GHCVER=7.10.1 LIBRARY=amazonka-storagegateway
+  - GHCVER=7.10.1 LIBRARY=amazonka-sts
+  - GHCVER=7.10.1 LIBRARY=amazonka-support
+  - GHCVER=7.10.1 LIBRARY=amazonka-swf
+  - GHCVER=7.10.1 LIBRARY=amazonka-workspaces
+
+  # Priority
+  - GHCVER=7.8.4 LIBRARY=amazonka-core
+  - GHCVER=7.8.4 LIBRARY=amazonka
+  - GHCVER=7.8.4 LIBRARY=amazonka-ec2
+  - GHCVER=7.8.4 LIBRARY=amazonka-s3
+  - GHCVER=7.8.4 LIBRARY=amazonka-iam
+  - GHCVER=7.8.4 LIBRARY=amazonka-autoscaling
+  - GHCVER=7.8.4 LIBRARY=amazonka-dynamodb
+  - GHCVER=7.8.4 LIBRARY=amazonka-elb
+  - GHCVER=7.8.4 LIBRARY=amazonka-sqs
+  - GHCVER=7.8.4 LIBRARY=amazonka-sns
+  - GHCVER=7.8.4 LIBRARY=amazonka-sdb
+  - GHCVER=7.8.4 LIBRARY=amazonka-ses
+  - GHCVER=7.8.4 LIBRARY=amazonka-route53
+  # Alphabetical
+  - GHCVER=7.8.4 LIBRARY=amazonka-cloudformation
+  - GHCVER=7.8.4 LIBRARY=amazonka-cloudfront
+  - GHCVER=7.8.4 LIBRARY=amazonka-cloudhsm
+  - GHCVER=7.8.4 LIBRARY=amazonka-cloudsearch
+  - GHCVER=7.8.4 LIBRARY=amazonka-cloudsearch-domains
+  - GHCVER=7.8.4 LIBRARY=amazonka-cloudtrail
+  - GHCVER=7.8.4 LIBRARY=amazonka-cloudwatch
+  - GHCVER=7.8.4 LIBRARY=amazonka-cloudwatch-logs
+  - GHCVER=7.8.4 LIBRARY=amazonka-codecommit
+  - GHCVER=7.8.4 LIBRARY=amazonka-codedeploy
+  - GHCVER=7.8.4 LIBRARY=amazonka-codepipeline
+  - GHCVER=7.8.4 LIBRARY=amazonka-cognito-identity
+  - GHCVER=7.8.4 LIBRARY=amazonka-cognito-sync
+  - GHCVER=7.8.4 LIBRARY=amazonka-config
+  - GHCVER=7.8.4 LIBRARY=amazonka-datapipeline
+  - GHCVER=7.8.4 LIBRARY=amazonka-devicefarm
+  - GHCVER=7.8.4 LIBRARY=amazonka-directconnect
+  - GHCVER=7.8.4 LIBRARY=amazonka-ds
+  - GHCVER=7.8.4 LIBRARY=amazonka-dynamodb-streams
+  - GHCVER=7.8.4 LIBRARY=amazonka-ecs
+  - GHCVER=7.8.4 LIBRARY=amazonka-efs
+  - GHCVER=7.8.4 LIBRARY=amazonka-elasticache
+  - GHCVER=7.8.4 LIBRARY=amazonka-elasticbeanstalk
+  - GHCVER=7.8.4 LIBRARY=amazonka-elastictranscoder
+  - GHCVER=7.8.4 LIBRARY=amazonka-emr
+  - GHCVER=7.8.4 LIBRARY=amazonka-glacier
+  - GHCVER=7.8.4 LIBRARY=amazonka-importexport
+  - GHCVER=7.8.4 LIBRARY=amazonka-kinesis
+  - GHCVER=7.8.4 LIBRARY=amazonka-kms
+  - GHCVER=7.8.4 LIBRARY=amazonka-lambda
+  - GHCVER=7.8.4 LIBRARY=amazonka-ml
+  - GHCVER=7.8.4 LIBRARY=amazonka-opsworks
+  - GHCVER=7.8.4 LIBRARY=amazonka-rds
+  - GHCVER=7.8.4 LIBRARY=amazonka-redshift
+  - GHCVER=7.8.4 LIBRARY=amazonka-route53-domains
+  - GHCVER=7.8.4 LIBRARY=amazonka-ssm
+  - GHCVER=7.8.4 LIBRARY=amazonka-storagegateway
+  - GHCVER=7.8.4 LIBRARY=amazonka-sts
+  - GHCVER=7.8.4 LIBRARY=amazonka-support
+  - GHCVER=7.8.4 LIBRARY=amazonka-swf
+  - GHCVER=7.8.4 LIBRARY=amazonka-workspaces
 
 sudo: false
 
@@ -63,6 +120,7 @@ addons:
     sources:
       - hvr-ghc
     packages:
+      - ghc-7.8.4
       - ghc-7.10.1
 
 cache:
@@ -71,7 +129,7 @@ cache:
 
 before_install:
   # GHC
-  - export PATH=/opt/ghc/7.10.1/bin:$PATH
+  - export PATH=/opt/ghc/$GHCVER/bin:$PATH
   - ghc --version
   # Stack
   - ./script/travis-stack
@@ -79,8 +137,8 @@ before_install:
   - stack --version
 
 install:
-  - ./script/travis-timeout stack --no-terminal --skip-ghc-check setup
-  - ./script/travis-timeout stack --skip-ghc-check test $LIBRARY --only-snapshot
+  - ./script/travis-timeout stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml setup
+  - ./script/travis-timeout stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY --only-snapshot
 
 script:
-  - stack --no-terminal --skip-ghc-check test $LIBRARY
+  - stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY

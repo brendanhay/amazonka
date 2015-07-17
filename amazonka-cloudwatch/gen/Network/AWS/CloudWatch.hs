@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | This is the /Amazon CloudWatch API Reference/. This guide provides
+-- This is the /Amazon CloudWatch API Reference/. This guide provides
 -- detailed information about Amazon CloudWatch actions, data types,
 -- parameters, and errors. For detailed information about Amazon CloudWatch
 -- features and their associated API calls, go to the

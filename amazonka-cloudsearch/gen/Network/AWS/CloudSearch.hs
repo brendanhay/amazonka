@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon CloudSearch Configuration Service
+-- Amazon CloudSearch Configuration Service
 --
 -- You use the Amazon CloudSearch configuration service to create,
 -- configure, and manage search domains. Configuration service requests are

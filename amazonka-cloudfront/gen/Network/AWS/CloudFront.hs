@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon CloudFront is a web service that speeds up distribution of your
+-- Amazon CloudFront is a web service that speeds up distribution of your
 -- static and dynamic web content, for example, .html, .css, .php, image,
 -- and media files, to end users. CloudFront delivers your content through
 -- a worldwide network of edge locations. When an end user requests content

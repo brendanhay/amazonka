@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Relational Database Service
+-- Amazon Relational Database Service
 --
 -- Amazon Relational Database Service (Amazon RDS) is a web service that
 -- makes it easier to set up, operate, and scale a relational database in

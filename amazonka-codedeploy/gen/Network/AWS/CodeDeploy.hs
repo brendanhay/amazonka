@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS CodeDeploy __Overview__
+-- AWS CodeDeploy __Overview__
 --
 -- This is the AWS CodeDeploy API Reference. This guide provides
 -- descriptions of the AWS CodeDeploy APIs. For additional information, see

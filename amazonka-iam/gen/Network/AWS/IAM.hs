@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Identity and Access Management
+-- AWS Identity and Access Management
 --
 -- AWS Identity and Access Management (IAM) is a web service that you can
 -- use to manage users and user permissions under your AWS account. This

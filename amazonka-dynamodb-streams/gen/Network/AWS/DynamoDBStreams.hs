@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon DynamoDB Streams
+-- Amazon DynamoDB Streams
 --
 -- This is the Amazon DynamoDB Streams API Reference. This guide describes
 -- the low-level API actions for accessing streams and processing stream

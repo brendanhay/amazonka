@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Lambda
+-- AWS Lambda
 --
 -- __Overview__
 --

@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon SimpleDB is a web service providing the core database functions
+-- Amazon SimpleDB is a web service providing the core database functions
 -- of data indexing and querying in the cloud. By offloading the time and
 -- effort associated with building and operating a web-scale database,
 -- SimpleDB provides developers the freedom to focus on application

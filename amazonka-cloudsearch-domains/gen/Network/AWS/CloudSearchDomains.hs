@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | You use the AmazonCloudSearch2013 API to upload documents to a search
+-- You use the AmazonCloudSearch2013 API to upload documents to a search
 -- domain and search those documents.
 --
 -- The endpoints for submitting @UploadDocuments@, @Search@, and @Suggest@

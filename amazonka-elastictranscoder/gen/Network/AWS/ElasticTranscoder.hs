@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Elastic Transcoder Service
+-- AWS Elastic Transcoder Service
 --
 -- The AWS Elastic Transcoder Service.
 module Network.AWS.ElasticTranscoder

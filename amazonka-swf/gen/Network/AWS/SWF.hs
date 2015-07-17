@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Simple Workflow Service
+-- Amazon Simple Workflow Service
 --
 -- The Amazon Simple Workflow Service (Amazon SWF) makes it easy to build
 -- applications that use Amazon\'s cloud to coordinate work across

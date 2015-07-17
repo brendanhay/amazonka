@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Welcome to the /Amazon Simple Queue Service API Reference/. This section
+-- Welcome to the /Amazon Simple Queue Service API Reference/. This section
 -- describes who should read this guide, how the guide is organized, and
 -- other resources related to the Amazon Simple Queue Service (Amazon SQS).
 --

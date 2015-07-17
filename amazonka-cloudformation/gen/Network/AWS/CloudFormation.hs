@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS CloudFormation
+-- AWS CloudFormation
 --
 -- AWS CloudFormation enables you to create and manage AWS infrastructure
 -- deployments predictably and repeatedly. AWS CloudFormation helps you

@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Simple Email Service
+-- Amazon Simple Email Service
 --
 -- This is the API Reference for Amazon Simple Email Service (Amazon SES).
 -- This documentation is intended to be used in conjunction with the

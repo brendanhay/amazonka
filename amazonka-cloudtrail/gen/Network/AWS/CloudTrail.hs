@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS CloudTrail
+-- AWS CloudTrail
 --
 -- This is the CloudTrail API Reference. It provides descriptions of
 -- actions, data types, common parameters, and common errors for

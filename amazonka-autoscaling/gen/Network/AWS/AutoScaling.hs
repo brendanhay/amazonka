@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Auto Scaling
+-- Auto Scaling
 --
 -- Auto Scaling is designed to automatically launch or terminate EC2
 -- instances based on user-defined policies, schedules, and health checks.

@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon WorkSpaces Service
+-- Amazon WorkSpaces Service
 --
 -- This is the /Amazon WorkSpaces API Reference/. This guide provides
 -- detailed information about Amazon WorkSpaces operations, data types,

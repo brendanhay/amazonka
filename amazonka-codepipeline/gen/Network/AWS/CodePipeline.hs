@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS CodePipeline __Overview__
+-- AWS CodePipeline __Overview__
 --
 -- This is the AWS CodePipeline API Reference. This guide provides
 -- descriptions of the actions and data types for AWS CodePipeline. Some

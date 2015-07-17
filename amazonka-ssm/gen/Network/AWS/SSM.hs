@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon EC2 Simple Systems Manager (SSM) enables you to configure and
+-- Amazon EC2 Simple Systems Manager (SSM) enables you to configure and
 -- manage your EC2 instances. You can create a configuration document and
 -- then associate it with one or more running instances.
 --

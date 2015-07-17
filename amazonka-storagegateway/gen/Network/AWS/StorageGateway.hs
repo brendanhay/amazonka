@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Storage Gateway Service
+-- AWS Storage Gateway Service
 --
 -- AWS Storage Gateway is the service that connects an on-premises software
 -- appliance with cloud-based storage to provide seamless and secure

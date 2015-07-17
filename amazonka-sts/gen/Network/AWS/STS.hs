@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Security Token Service
+-- AWS Security Token Service
 --
 -- The AWS Security Token Service (STS) is a web service that enables you
 -- to request temporary, limited-privilege credentials for AWS Identity and

@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Device Farm is a service that enables mobile app developers to test
+-- AWS Device Farm is a service that enables mobile app developers to test
 -- Android and Fire OS apps on physical phones, tablets, and other devices
 -- in the cloud.
 module Network.AWS.DeviceFarm

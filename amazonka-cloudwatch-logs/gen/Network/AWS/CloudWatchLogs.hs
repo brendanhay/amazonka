@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon CloudWatch Logs API Reference
+-- Amazon CloudWatch Logs API Reference
 --
 -- This is the /Amazon CloudWatch Logs API Reference/. Amazon CloudWatch
 -- Logs enables you to monitor, store, and access your system, application,

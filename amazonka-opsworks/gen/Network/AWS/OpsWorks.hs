@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS OpsWorks
+-- AWS OpsWorks
 --
 -- Welcome to the /AWS OpsWorks API Reference/. This guide provides
 -- descriptions, syntax, and usage examples about AWS OpsWorks actions and

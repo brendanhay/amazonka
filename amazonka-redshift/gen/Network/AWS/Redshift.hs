@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Redshift __Overview__
+-- Amazon Redshift __Overview__
 --
 -- This is an interface reference for Amazon Redshift. It contains
 -- documentation for one of the programming or command line interfaces you

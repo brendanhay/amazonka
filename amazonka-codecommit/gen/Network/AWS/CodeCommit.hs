@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS CodeCommit
+-- AWS CodeCommit
 --
 -- This is the /AWS CodeCommit API Reference/. This reference provides
 -- descriptions of the AWS CodeCommit API.

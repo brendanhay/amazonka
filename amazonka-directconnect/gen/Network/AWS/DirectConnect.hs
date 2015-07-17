@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Direct Connect makes it easy to establish a dedicated network
+-- AWS Direct Connect makes it easy to establish a dedicated network
 -- connection from your premises to Amazon Web Services (AWS). Using AWS
 -- Direct Connect, you can establish private connectivity between AWS and
 -- your data center, office, or colocation environment, which in many cases

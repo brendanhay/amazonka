@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Cognito
+-- Amazon Cognito
 --
 -- Amazon Cognito is a web service that delivers scoped temporary
 -- credentials to mobile devices and other untrusted environments. Amazon

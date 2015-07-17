@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Elastic Beanstalk
+-- AWS Elastic Beanstalk
 --
 -- This is the AWS Elastic Beanstalk API Reference. This guide provides
 -- detailed information about AWS Elastic Beanstalk actions, data types,

@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon ElastiCache
+-- Amazon ElastiCache
 --
 -- Amazon ElastiCache is a web service that makes it easier to set up,
 -- operate, and scale a distributed cache in the cloud.

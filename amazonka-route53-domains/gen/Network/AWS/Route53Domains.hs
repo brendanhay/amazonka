@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Pending
+-- Pending
 module Network.AWS.Route53Domains
     ( module Export
     ) where

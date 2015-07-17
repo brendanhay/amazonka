@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Glacier is a storage solution for \"cold data.\"
+-- Amazon Glacier is a storage solution for \"cold data.\"
 --
 -- Amazon Glacier is an extremely low-cost storage service that provides
 -- secure, durable, and easy-to-use storage for data backup and archival.

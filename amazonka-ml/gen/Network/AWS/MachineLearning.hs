@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Definition of the public APIs exposed by Amazon Machine Learning
+-- Definition of the public APIs exposed by Amazon Machine Learning
 module Network.AWS.MachineLearning
     ( module Export
     ) where

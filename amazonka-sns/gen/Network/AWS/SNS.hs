@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Simple Notification Service
+-- Amazon Simple Notification Service
 --
 -- Amazon Simple Notification Service (Amazon SNS) is a web service that
 -- enables you to build distributed web-enabled applications. Applications

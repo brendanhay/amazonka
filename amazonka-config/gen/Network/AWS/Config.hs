@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Config
+-- AWS Config
 --
 -- AWS Config provides a way to keep track of the configurations of all the
 -- AWS resources associated with your AWS account. You can use AWS Config

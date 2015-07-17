@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Elastic Load Balancing
+-- Elastic Load Balancing
 --
 -- Elastic Load Balancing distributes incoming traffic across your EC2
 -- instances.

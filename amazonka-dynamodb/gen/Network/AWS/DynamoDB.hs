@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon DynamoDB
+-- Amazon DynamoDB
 --
 -- __Overview__
 --

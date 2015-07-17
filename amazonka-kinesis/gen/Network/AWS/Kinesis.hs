@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Kinesis Service API Reference
+-- Amazon Kinesis Service API Reference
 --
 -- Amazon Kinesis is a managed service that scales elastically for real
 -- time processing of streaming big data.

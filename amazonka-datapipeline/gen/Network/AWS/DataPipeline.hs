@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Data Pipeline configures and manages a data-driven workflow called a
+-- AWS Data Pipeline configures and manages a data-driven workflow called a
 -- pipeline. AWS Data Pipeline handles the details of scheduling and
 -- ensuring that data dependencies are met so that your application can
 -- focus on processing the data.

@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS CloudHSM Service
+-- AWS CloudHSM Service
 module Network.AWS.CloudHSM
     ( module Export
     ) where

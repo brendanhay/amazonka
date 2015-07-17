@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Cognito Sync
+-- Amazon Cognito Sync
 --
 -- Amazon Cognito Sync provides an AWS service and client library that
 -- enable cross-device syncing of application-related user data. High-level

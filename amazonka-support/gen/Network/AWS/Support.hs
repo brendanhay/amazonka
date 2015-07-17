@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | AWS Support
+-- AWS Support
 --
 -- The AWS Support API reference is intended for programmers who need
 -- detailed information about the AWS Support operations and data types.

@@ -10,7 +10,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
--- | Amazon Elastic File System
+-- Amazon Elastic File System
 module Network.AWS.EFS
     ( module Export
     ) where

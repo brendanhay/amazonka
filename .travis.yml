@@ -127,6 +127,12 @@ cache:
   directories:
   - ~/.stack
 
+branches:
+  only:
+    - master
+    - develop
+    - /^feature\/.*$/
+
 before_install:
   # GHC
   - export PATH=/opt/ghc/$GHCVER/bin:$PATH

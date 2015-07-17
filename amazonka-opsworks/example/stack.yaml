@@ -1,8 +1,0 @@
-resolver:   nightly-2015-07-15
-flags:      {}
-extra-deps: []
-packages:
-  - '../../core'
-  - '../../amazonka'
-  - '../../amazonka-opsworks'
-  - '.'

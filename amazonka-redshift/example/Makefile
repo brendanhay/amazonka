@@ -1,1 +1,0 @@
-include ../../share/example.mk

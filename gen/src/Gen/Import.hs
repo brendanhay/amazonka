@@ -33,6 +33,19 @@ typeImports :: Library -> [NS]
 typeImports l = sort $
       "Network.AWS.Prelude"
     : signatureImport (l ^. signatureVersion)
+    : l ^. sumNS
+    : l ^. productNS
+    : l ^. typeModules
+
+sumImports :: Library -> [NS]
+sumImports l = sort $
+      "Network.AWS.Prelude"
+    : l ^. typeModules
+
+productImports :: Library -> [NS]
+productImports l = sort $
+      "Network.AWS.Prelude"
+    : l ^. sumNS
     : l ^. typeModules
 
 waiterImports :: Library -> [NS]

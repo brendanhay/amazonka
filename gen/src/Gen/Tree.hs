@@ -91,7 +91,11 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
             [ dir "Network"
                 [ dir "AWS"
                     [ dir svc $
-                        [ mod (l ^. typesNS) (typeImports l) typesTemplate
+                        [ dir "Types"
+                            [ mod (l ^. sumNS) (sumImports l) sumTemplate
+                            , mod (l ^. productNS) (productImports l) productTemplate
+                            ]
+                        , mod (l ^. typesNS) (typeImports l) typesTemplate
                         , mod (l ^. waitersNS) (waiterImports l) waitersTemplate
                         ] ++ map op (l ^.. operations . each)
                     , mod (l ^. libraryNS) mempty tocTemplate

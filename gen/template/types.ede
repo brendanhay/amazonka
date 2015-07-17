@@ -1,10 +1,5 @@
-{-# LANGUAGE DeriveDataTypeable #-}
-{-# LANGUAGE DeriveGeneric      #-}
-{-# LANGUAGE LambdaCase         #-}
 {-# LANGUAGE OverloadedStrings  #-}
-{-# LANGUAGE RecordWildCards    #-}
 {-# LANGUAGE TypeFamilies       #-}
-{-# LANGUAGE ViewPatterns       #-}
 
 -- Derived from AWS service descriptions, licensed under Apache 2.0.
 
@@ -57,6 +52,9 @@ data {{ serviceAbbrev }}
 
 {{ serviceInstance }}
 {% for shape in shapes %}
+  {% case shape.value.type %}
+  {% when "function" %}
 
-  {% include "_include/shape.ede" with shape = shape.value %}
+{% include "_include/function.ede" with function = shape.value %}
+  {% endcase %}
 {% endfor %}

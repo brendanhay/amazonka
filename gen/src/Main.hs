@@ -162,6 +162,8 @@ main = do
             <*> load "example/stack.ede"
             <*> load "operation.ede"
             <*> load "types.ede"
+            <*> load "types/sum.ede"
+            <*> load "types/product.ede"
             <*> load "test/main.ede"
             <*> load "test/fixtures.ede"
             <*  lift done

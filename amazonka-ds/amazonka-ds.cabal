@@ -69,6 +69,13 @@ test-suite amazonka-ds-test
 
     ghc-options:       -Wall -threaded
 
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.DirectoryService
+        , Test.AWS.Gen.DirectoryService
+        , Test.AWS.DirectoryService.Internal
+
     build-depends:
           amazonka-core == 1.0.0
         , amazonka-test

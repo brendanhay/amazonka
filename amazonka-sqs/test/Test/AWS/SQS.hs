@@ -43,6 +43,12 @@ fixtures =
         , testPurgeQueueResponse $
             purgeQueueResponse
 
+        , testSendMessageResponse $
+            sendMessageResponse 200
+                & smrMessageId              ?~ "5fea7756-0ea4-451a-a703-a558b933e274"
+                & smrMD5OfMessageBody       ?~ "fafb00f5732ab283681e124bf8747ed1"
+                & smrMD5OfMessageAttributes ?~ "3ae8f24a165a8cedc005670c81a27295"
+
         -- FIXME: waiting on response to https://github.com/boto/botocore/issues/602
         -- , testReceiveMessageResponse $
         --     receiveMessageResponse 200 & rmrMessages .~ message
@@ -56,8 +62,5 @@ fixtures =
         --             , (ApproximateReceiveCount,          5)
         --             , (ApproximateFirstReceiveTimestamp, 1250700979248)
         --             ]
-
-        , testSendMessageResponse $
-            sendMessageResponse 200
         ]
     ]

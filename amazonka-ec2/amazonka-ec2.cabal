@@ -235,6 +235,13 @@ test-suite amazonka-ec2-test
 
     ghc-options:       -Wall -threaded
 
+    -- This is not comprehensive if modules have manually been added.
+    -- It exists to ensure cabal 'somewhat' detects test module changes.
+    other-modules:
+          Test.AWS.EC2
+        , Test.AWS.Gen.EC2
+        , Test.AWS.EC2.Internal
+
     build-depends:
           amazonka-core == 1.0.0
         , amazonka-test

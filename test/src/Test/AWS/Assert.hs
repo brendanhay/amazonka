@@ -20,7 +20,7 @@ assertEqualPP :: (Eq a, Out a) => String -> a -> Either String a -> Assertion
 assertEqualPP _ _ (Left  m) = assertFailure m
 assertEqualPP n e (Right a) = unless (e == a) (assertFailure msg)
   where
-    msg = "[Constructed]:\n" ++ prettyStyle s e
+    msg = "[Expected]:\n"    ++ prettyStyle s e
      ++ "\n[" ++ n ++ "]:\n" ++ prettyStyle s a
 
     s = Style

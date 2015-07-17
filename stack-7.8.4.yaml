@@ -1,4 +1,4 @@
-resolver:   nightly-2015-07-15
+resolver:   lts-2.18
 flags:      {}
 extra-deps: []
 packages:

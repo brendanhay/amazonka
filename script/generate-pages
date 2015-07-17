@@ -1,22 +1,41 @@
 #!/usr/bin/env bash
 
 set -e
+
+project=proj/amazonka
+target=../amazonka-doc
+platform=x86_64-linux
+ghcver=$(ghc --version | awk '{print $NF}')
+resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack.yaml)
+
+standalone-haddock --hyperlink-source -o $target \
+ --package-db $HOME/.stack/snapshots/$platform/$resolver/$ghcver/pkgdb \
+ --package-db $HOME/$project/.stack-work/install/$platform/$resolver/$ghcver/pkgdb \
+ core amazonka*
+
+{
+    cat <<-HTML
+    <!DOCTYPE html>
+    <h1>Amazonka Library Documentation</h1>
+    <ul>
+HTML
+
+    for dir in $(ls -d $target/*/); do
+        file=$(basename $dir)
+        cat <<-HTML
+        <li><a href="${file}/index.html">${file}</a></li>
+HTML
+    done
+
+    cat <<-HTML
+    </ul>
+HTML
+} > $target/index.html
+
 set -x
 
-ver=7.10.1
-proj=$HOME/proj
-doc=$proj/aws-doc
-libs=$proj/amazonka/amazonka-*
+cd $target
 
-standalone-haddock \
- -o $doc \
- --package-db $HOME/.ghc/x86_64-linux-$ver/package.conf.d \
- --package-db $proj/amazonka/.cabal-sandbox/x86_64-linux-ghc-$ver-packages.conf.d \
- amazonka core $libs
-
-cd $doc
-
-git checkout gh-pages || true
 git add .
-git commit -am "Updating"
+git commit -am "Regenerating documentation"
 git push origin gh-pages

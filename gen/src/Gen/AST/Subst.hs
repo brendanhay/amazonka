@@ -20,23 +20,16 @@ module Gen.AST.Subst
     ( substitute
     ) where
 
-import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens
 import           Control.Monad.Except
 import           Control.Monad.State
 import qualified Data.HashMap.Strict    as Map
-import qualified Data.HashSet           as Set
-import           Data.List              (find, sort)
-import           Data.Monoid
+import           Data.List              (find)
 import qualified Data.Text.Lazy         as LText
-import           Gen.AST.Cofree
-import           Gen.AST.Data
 import           Gen.AST.Override
-import           Gen.AST.Prefix
 import           Gen.Formatting
-import           Gen.Protocol
 import           Gen.Types
 
 data Env a = Env
@@ -75,15 +68,12 @@ substitute svc@Service{..} = do
     operation :: Operation Maybe (RefF ()) a
               -> MemoS Related (Operation Identity (RefF ()) a)
     operation o@Operation{..} = do
-        let h = http _opHTTP
-
-        inp <- subst Input  (name Input  _opName) h _opInput
-        out <- subst Output (name Output _opName) h _opOutput
-
+        inp <- subst Input  (name Input  _opName) _opInput
+        out <- subst Output (name Output _opName) _opOutput
         return $! o
             { _opDocumentation =
                 _opDocumentation .! "FIXME: Undocumented operation."
-            , _opHTTP          = h
+            , _opHTTP          = http _opHTTP
             , _opInput         = Identity inp
             , _opOutput        = Identity out
             }
@@ -99,20 +89,19 @@ substitute svc@Service{..} = do
     -- For shared Shapes, perform a copy of the destination Shape to a new Shape.
     subst :: Direction
           -> Id
-          -> HTTP Identity
           -> Maybe (RefF ())
           -> MemoS Related (RefF ())
 
     -- FIXME: this could be a shared empty shape for void types which succeeds
     -- on de/serialisation for any protocol, and takes into account a successful
     -- status code on responses.
-    subst d n h Nothing  = do
+    subst d n Nothing  = do
         verify n "Failure attempting to substitute fresh shape"
         -- No Ref exists, safely insert an empty shape and return a related Ref.
         save n (Related n (mkRelation Nothing d) :< emptyStruct)
         return (emptyRef n)
 
-    subst d n h (Just r) = do
+    subst d n (Just r) = do
         let k = r ^. refShape
         x :< s <- lift (safe k _shapes)
         if | isShared x, d == Input -> do

@@ -18,33 +18,63 @@
 module Gen.AST.Data.Syntax where
 
 import           Control.Comonad
-import           Control.Comonad.Cofree
 import           Control.Error
 import           Control.Lens                 hiding (iso, mapping, op, strict)
-import           Control.Monad
-import           Data.Bifunctor
 import qualified Data.Foldable                as Fold
-import           Data.Function                ((&))
-import qualified Data.HashMap.Strict          as Map
-import           Data.List                    (nub)
 import           Data.List.NonEmpty           (NonEmpty (..))
 import           Data.Monoid                  ((<>))
 import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
-import           Debug.Trace
 import           Gen.AST.Data.Field
 import           Gen.AST.Data.Instance
 import           Gen.AST.TypeOf
-import           Gen.Formatting
 import           Gen.Protocol                 (Names (..))
 import qualified Gen.Protocol                 as Proto
-import           Gen.Text
 import           Gen.Types
 import qualified Language.Haskell.Exts        as Exts
 import           Language.Haskell.Exts.Build  hiding (pvar, var)
 import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
+
+pX, pXMay, pXDef :: QOp
+pX      = ".@"
+pXMay   = ".@?"
+pXDef   = ".!@"
+
+pJ, pJMay, pJDef :: QOp
+pJ      = ".:"
+pJMay   = ".:?"
+pJDef   = ".!="
+
+pJE, pJEMay, pJEDef :: QOp
+pJE     = ".:>"
+pJEMay  = ".?>"
+pJEDef  = pXDef
+
+pH, pHMay :: QOp
+pH      = ".#"
+pHMay   = ".#?"
+
+pXMap, pXList, pXList1, pHMap :: Exp
+pXMap   = var "parseXMLMap"
+pXList  = var "parseXMLList"
+pXList1 = var "parseXMLList1"
+pHMap   = var "parseHeadersMap"
+
+toX, toJ, toQ, toH :: QOp
+toX = "@="
+toJ = ".="
+toQ = "=:"
+toH = "=#"
+
+toQList, toXList ::  Exp
+toQList = var "toQueryList"
+toXList = var "toXMLList"
+
+toXMap, toQMap :: Exp
+toXMap  = var "toXMLMap"
+toQMap  = var "toQueryMap"
 
 ctorS :: Timestamp -> Id -> [Field] -> Decl
 ctorS ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
@@ -53,11 +83,9 @@ ctorS ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
     . filter fieldIsParam
 
 ctorD :: Id -> [Field] -> Decl
-ctorD n fs = sfun noLoc name ps (UnGuardedRhs rhs) noBinds
+ctorD n fs =
+    sfun noLoc (n ^. smartCtorId . to ident) ps (UnGuardedRhs rhs) noBinds
   where
-    name :: Name
-    name = n ^. smartCtorId . to ident
-
     ps :: [Name]
     ps = map fieldParamName (filter fieldIsParam fs)
 
@@ -66,13 +94,13 @@ ctorD n fs = sfun noLoc name ps (UnGuardedRhs rhs) noBinds
         | otherwise = RecConstr (n ^. ctorId . to unqual) (map fieldUpdate fs)
 
 fieldUpdate :: Field -> FieldUpdate
-fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) set'
+fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) rhs
   where
-    set' :: Exp
-    set' | f ^. fieldMaybe          = nothingE
-         | f ^. fieldMonoid         = memptyE
-         | Just v <- iso (typeOf f) = infixApp v "#" p
-         | otherwise                = p
+    rhs :: Exp
+    rhs | f ^. fieldMaybe          = nothingE
+        | f ^. fieldMonoid         = memptyE
+        | Just v <- iso (typeOf f) = infixApp v "#" p
+        | otherwise                = p
 
     p :: Exp
     p = Exts.Var (UnQual (fieldParamName f))
@@ -134,11 +162,11 @@ conD = QualConDecl noLoc [] []
 serviceD :: HasMetadata a f => a -> Retry -> Decl
 serviceD m r = instD "AWSService" n
     [ assocD n "Sg" sig
-    , InsDecl $ patBindWhere noLoc (pvar "service") rhs binds
+    , InsDecl $ patBindWhere noLoc (pvar "service") rhs bs
     ]
   where
-    rhs   = app (var "const") (var "svc")
-    binds = [svc noBinds, try noBinds, chk noBinds]
+    rhs = app (var "const") (var "svc")
+    bs  = [svc noBinds, try noBinds, chk noBinds]
 
     svc = sfun noLoc (ident "svc") [] . UnGuardedRhs $
         RecConstr (unqual "Service")
@@ -267,11 +295,11 @@ requestD m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
     [ assocD (identifier a) "Sv" (m ^. serviceAbbrev)
     , assocD (identifier a) "Rs" (b ^. to identifier . typeId)
     , funD "request"  (requestF h as)
-    , funD "response" (responseE (m ^. protocol) h b bs)
+    , funD "response" (responseE (m ^. protocol) b bs)
     ]
 
-responseE :: Protocol -> HTTP Identity -> Ref -> [Field] -> Exp
-responseE p h r fs = app (responseF p h r fs) bdy
+responseE :: Protocol -> Ref -> [Field] -> Exp
+responseE p r fs = app (responseF p r fs) bdy
   where
     n = r ^. to identifier
     s = r ^. refAnn . to extract
@@ -346,23 +374,22 @@ toXMLD p n = instD1 "ToXML" n
 
 toJSOND :: Protocol -> Id -> [Field] -> Decl
 toJSOND p n = instD1 "ToJSON" n
-    . wildcardD n "toJSON" enc null
+    . wildcardD n "toJSON" enc (paren $ app (var "Object") memptyE)
     . map (Right . toJSONE p)
   where
-    null = paren $ app (var "Object") memptyE
-    enc  = app (var "object")
-         . listE
-         . map (either id id)
+    enc = app (var "object")
+        . listE
+        . map (either id id)
 
 toHeadersD :: Protocol -> Id -> [Either (Text, Text) Field] -> Decl
 toHeadersD p n = instD1 "ToHeaders" n . wildcardD n "toHeaders" enc memptyE
   where
-    enc  = mconcatE . map (toHeadersE p)
+    enc = mconcatE . map (toHeadersE p)
 
 toQueryD :: Protocol -> Id -> [Either (Text, Maybe Text) Field] -> Decl
 toQueryD p n = instD1 "ToQuery" n . wildcardD n "toQuery" enc memptyE
   where
-    enc  = mconcatE . map (toQueryE p)
+    enc = mconcatE . map (toQueryE p)
 
 toPathD :: Id -> [Either Text Field] -> Decl
 toPathD n = instD1 "ToPath" n . \case
@@ -380,16 +407,15 @@ wildcardD :: Id
           -> Exp
           -> [Either a b]
           -> InstDecl
-wildcardD n f enc null = \case
-    []                        -> constD f null
+wildcardD n f enc xs = \case
+    []                        -> constD f xs
     es | not (any isRight es) -> funD f $ app (var "const") (enc es)
-       | otherwise            -> InsDecl (FunBind [match rec' es])
+       | otherwise            -> InsDecl (FunBind [match prec es])
   where
     match p es =
         Match noLoc (ident f) [p] Nothing (UnGuardedRhs (enc es)) noBinds
 
-    ctor = PApp (n ^. ctorId . to unqual) []
-    rec' = PRec (n ^. ctorId . to unqual) [PFieldWildcard]
+    prec = PRec (n ^. ctorId . to unqual) [PFieldWildcard]
 
 instD1 :: Text -> Id -> InstDecl -> Decl
 instD1 c n = instD c n . (:[])
@@ -414,39 +440,6 @@ decodeD c n f dec = instD1 c n . \case
 
 constD :: Text -> Exp -> InstDecl
 constD f = funArgsD f [] . app (var "const")
-
-pX, pXMay, pXDef, pJ, pJMay, pJDef, pH, pHMay :: QOp
-pX      = ".@"
-pXMay   = ".@?"
-pXDef   = ".!@"
-pJ      = ".:"
-pJMay   = ".:?"
-pJDef   = ".!="
-pJE     = ".:>"
-pJEMay  = ".?>"
-pJEDef  = pXDef
-pH      = ".#"
-pHMay   = ".#?"
-
-pXMap, pXList, pXList1, pHMap :: Exp
-pXMap   = var "parseXMLMap"
-pXList  = var "parseXMLList"
-pXList1 = var "parseXMLList1"
-pHMap   = var "parseHeadersMap"
-
-toX, toJ, toQ, toH :: QOp
-toX = "@="
-toJ = ".="
-toQ = "=:"
-toH = "=#"
-
-toQList, toXList ::  Exp
-toQList = var "toQueryList"
-toXList = var "toXMLList"
-
-toXMap, toQMap :: Exp
-toXMap  = var "toXMLMap"
-toQMap  = var "toQueryMap"
 
 parseXMLE :: Protocol -> Field -> Exp
 parseXMLE p f = parse
@@ -504,11 +497,11 @@ toXMLE :: Protocol -> Field -> Exp
 toXMLE p = toGenericE p toX "toXML" toXMap toXList
 
 toElementE :: Protocol -> Maybe Text -> Either Text Field -> Exp
-toElementE p ns = either (`root` []) element
+toElementE p ns = either (`root` []) node
   where
     root n = appFun (var "mkElement") . (str (qual n) :)
 
-    element f = root n [var ".", f ^. fieldAccessor . to var]
+    node f = root n [var ".", f ^. fieldAccessor . to var]
       where
         n = memberName p Input f
 
@@ -539,6 +532,7 @@ toPathE = either str (app (var "toText") . var . view fieldAccessor)
 toBodyE :: Field -> Exp
 toBodyE f = var (f ^. fieldAccessor)
 
+toGenericE :: Protocol -> QOp -> Text -> Exp -> Exp -> Field -> Exp
 toGenericE p toO toF toM toL f = case inputNames p f of
     NMap  mn e k v
         | f ^. fieldMaybe -> flatE mn toO . app (var toF) $ appFun toM [str e, str k, str v, var "<$>", a]
@@ -587,6 +581,7 @@ infixE l o (r:rs) = infixE (infixApp l o r) o rs
 impliesE :: Text -> Exp -> Exp
 impliesE x y = paren (infixApp (str x) "::" y)
 
+flatE :: Maybe Text -> QOp -> Exp -> Exp
 flatE (Just n) o = encodeE n o
 flatE Nothing  _ = id
 
@@ -623,10 +618,10 @@ requestF h is = var v
 
 -- FIXME: take method into account for responses, such as HEAD etc, particuarly
 -- when the body might be totally empty.
-responseF :: Protocol -> HTTP Identity -> RefF a -> [Field] -> Exp
-responseF p h r fs
-    | null fs                   = var "receiveNull"
-    | any (view fieldStream) fs = var "receiveBody"
+responseF :: Protocol -> RefF a -> [Field] -> Exp
+responseF p r fs
+    | null fs                         = var "receiveNull"
+    | any (view fieldStream) fs       = var "receiveBody"
     | Just x <- r ^. refResultWrapper = app (var (suf <> "Wrapper")) (str x)
     | otherwise                       = var suf
   where
@@ -651,7 +646,7 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
             . listE $ map match (w ^. waitAcceptors)
         ]
 
-    match x = ($ [expect x, criteria x] ++ argument x) $
+    match x = ($ [expect x, criteria x] ++ argument' x) $
         case _acceptMatch x of
             Path    -> appFun (var "matchAll")
             PathAll -> appFun (var "matchAll")
@@ -671,27 +666,12 @@ waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
             Success -> var "AcceptSuccess"
             Failure -> var "AcceptFailure"
 
-    argument x = go <$>
+    argument' x = go <$>
         maybe [] ((:[]) . notationE) (_acceptArgument x)
       where
         go = case _acceptExpect x of
-            Textual {} -> \c -> infixApp c "." (app (var "to") (var "toText"))
+            Textual {} -> \y -> infixApp y "." (app (var "to") (var "toText"))
             _          -> id
-
-      --   Label    k   -> label k
-      --   NonEmpty f   -> app (var "nonEmpty") (key f)
-      --   Apply    k x -> infixApp (label k) "."  (notation x)
-      --   Choice   x y -> infixApp (notation x) "||" (notation y)
-      -- where
-      --   key f = f ^. fieldLens . to var
-
-      --   label = \case
-      --       Key  f -> jkey f
-      --       Each f -> app (var "folding") . paren $ app (var "concatOf") (key f)
-      --       Last f -> jkey f
-
-      --   jkey f | f ^. fieldMaybe = infixApp (key f) "." (var "_Just")
-      --          | otherwise       = key f
 
 signature :: Timestamp -> TType -> Type
 signature ts = directed False ts Nothing

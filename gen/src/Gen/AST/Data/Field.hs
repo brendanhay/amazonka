@@ -23,7 +23,7 @@ import           Control.Comonad.Cofree
 import           Control.Lens
 import           Data.Function                (on)
 import qualified Data.HashMap.Strict          as Map
-import           Data.List                    (findIndex, sortBy)
+import           Data.List                    (elemIndex, sortBy)
 import           Data.Maybe
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text

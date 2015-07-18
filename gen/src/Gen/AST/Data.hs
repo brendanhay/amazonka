@@ -31,29 +31,21 @@ import           Control.Monad.Trans.State
 import           Data.Bifunctor
 import           Data.Char                    (isSpace)
 import qualified Data.HashMap.Strict          as Map
-import qualified Data.HashSet                 as Set
 import           Data.List                    (find)
-import           Data.List.NonEmpty           (NonEmpty (..))
 import           Data.Monoid                  ((<>))
 import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text                    as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Builder       as Build
-import           Data.Traversable             (mapAccumL)
 import           Gen.AST.Data.Field
 import           Gen.AST.Data.Instance
 import           Gen.AST.Data.Syntax
 import           Gen.AST.TypeOf
 import           Gen.Formatting
-import           Gen.Protocol
 import           Gen.Types
 import           HIndent
 import           Language.Haskell.Exts.Pretty
-
-import qualified Language.Haskell.Exts        as Exts
-import           Language.Haskell.Exts.Build  hiding (pvar, var)
-import           Language.Haskell.Exts.SrcLoc (noLoc)
 import           Language.Haskell.Exts.Syntax hiding (Int, List, Lit, Var)
 
 operationData :: HasMetadata a Identity
@@ -138,9 +130,9 @@ sumData p s i vs = Sum (isShared s) <$> mk <*> (Map.keys <$> insts)
         <$> pp Indent decl
         <*> pure bs
 
-    decl  = dataD n (map con (Map.keys bs)) (derivingOf s)
-    con x = conD (ConDecl (ident x) [])
-    insts = renderInsts p n $ shapeInsts p (s ^. relMode) []
+    decl   = dataD n (map cond (Map.keys bs)) (derivingOf s)
+    cond x = conD (ConDecl (ident x) [])
+    insts  = renderInsts p n $ shapeInsts p (s ^. relMode) []
 
     n  = s ^. annId
     bs = vs & kvTraversal %~ first (^. branchId (s ^. annPrefix))

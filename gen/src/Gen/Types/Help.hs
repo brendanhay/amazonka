@@ -16,7 +16,6 @@ module Gen.Types.Help
     , Desc (..)
     ) where
 
-import           Control.Lens
 import           Data.Aeson
 import           Data.Char          (isSpace)
 import           Data.String

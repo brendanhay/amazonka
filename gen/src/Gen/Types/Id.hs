@@ -85,34 +85,34 @@ representation =
     lens (\(Id _ t)   -> t)
          (\(Id x _) t -> Id x (format t))
 
-memberId :: Id ->Text
-memberId (Id x _) = CI.original x
+memberId :: Getter Id Text
+memberId = to $ \(Id x _) -> CI.original x
 
-typeId :: Id -> Text
-typeId = view representation
+typeId :: Getter Id Text
+typeId = representation
 
-ctorId :: Id -> Text
+ctorId :: Getter Id Text
 ctorId = typeId . to (`Text.snoc` '\'')
 
-branchId :: Maybe Text -> Id -> Text
-branchId p = typeId . f
+branchId :: Maybe Text -> Getter Id Text
+branchId p = typeId . to f
   where
     f :: Text -> Text
     f | Just x <- p = mappend (upperHead x)
       | otherwise   = id
 
-smartCtorId :: Id -> Text
-smartCtorId = typeId . renameReserved . lowerHead . lowerFirstAcronym
+smartCtorId :: Getter Id Text
+smartCtorId = typeId . to (renameReserved . lowerHead . lowerFirstAcronym)
 
-accessorId :: Maybe Text -> Id -> Text
-accessorId p = accessor p . Text.cons '_'
+accessorId :: Maybe Text -> Getter Id Text
+accessorId p = accessor p . to (Text.cons '_')
 
-lensId :: Maybe Text -> Id -> Text
-lensId p = view (accessor p) . renameReserved
+lensId :: Maybe Text -> Getter Id Text
+lensId p = accessor p . to renameReserved
 
-accessor :: Maybe Text -> Id -> Text
-accessor Nothing  = representation . lowerHead
-accessor (Just p) = representation . f
+accessor :: Maybe Text -> Getter Id Text
+accessor Nothing  = representation . to lowerHead
+accessor (Just p) = representation . to f
   where
     f | Text.null p = lowerHead
       | otherwise   = mappend (Text.toLower p) . upperHead

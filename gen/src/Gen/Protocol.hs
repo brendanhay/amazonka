@@ -24,7 +24,6 @@ import           Control.Lens
 import           Data.Maybe
 import           Data.Text              (Text)
 import           Data.Text.Manipulate
-import           Debug.Trace
 import           Gen.Types
 
 suffix :: Protocol -> Text

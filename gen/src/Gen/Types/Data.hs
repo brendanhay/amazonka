@@ -16,34 +16,16 @@
 
 module Gen.Types.Data where
 
-import           Control.Error
-import           Control.Lens              hiding ((.=))
+import           Control.Lens     hiding ((.=))
 import           Data.Aeson
 import           Data.Aeson.Types
-import           Data.Bifunctor
-import           Data.Function             (on)
-import           Data.List                 (sortOn)
-import           Data.Monoid               hiding (Product, Sum)
-import           Data.Ord
-import qualified Data.SemVer               as SemVer
-import           Data.Text                 (Text)
-import qualified Data.Text                 as Text
-import qualified Data.Text.Lazy            as LText
-import qualified Data.Text.Lazy.Builder    as Build
-import           Data.Time
-import qualified Filesystem.Path.CurrentOS as Path
-import           Formatting
-import           Gen.Text
-import           Gen.TH
-import           Gen.Types.Ann
+import           Data.Function    (on)
+import           Data.Text        (Text)
+import qualified Data.Text        as Text
+import qualified Data.Text.Lazy   as LText
 import           Gen.Types.Help
 import           Gen.Types.Id
 import           Gen.Types.Map
-import           Gen.Types.NS
-import           Gen.Types.URI
-import           GHC.Generics              (Generic)
-import           GHC.TypeLits
-import           Text.EDE                  (Template)
 
 type Rendered = LText.Text
 

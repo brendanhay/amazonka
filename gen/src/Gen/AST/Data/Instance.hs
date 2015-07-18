@@ -19,20 +19,13 @@ module Gen.AST.Data.Instance where
 import           Control.Applicative
 import           Control.Error
 import           Control.Lens
-import           Control.Monad
 import           Control.Monad.Except
 import           Data.Aeson
-import qualified Data.Foldable        as Fold
-import           Data.List            (deleteBy, find, partition)
-import           Data.Maybe
+import           Data.List            (find, partition)
 import           Data.Monoid
 import           Data.Text            (Text)
-import qualified Data.Text            as Text
-import           Data.Text.Manipulate
-import           Debug.Trace
 import           Gen.AST.Data.Field
 import           Gen.Formatting
-import           Gen.Protocol
 import           Gen.Types
 
 data Inst
@@ -149,7 +142,7 @@ requestInsts m h r fs = do
                  <|> f ^? fieldRef . refXMLNamespace . _Just . xmlUri
 
             -- 3. Unknown.
-            (ns, e, f) -> throwError $
+            (ns, e, _) -> throwError $
                 format ("Error determining root ToElement instance: " % iprimary %
                         ", namespace: " % shown %
                         ", locationName: " % shown)
@@ -224,8 +217,9 @@ uriFields h l f fs = traverse go (h ^. l)
     go (Tok t) = return $ Left (f t)
     go (Var v) = Right <$> note missing (find match fs)
       where
-        match f = v ^. memberId ==
-            fromMaybe (f ^. fieldId . memberId) (f ^. fieldRef . refLocationName)
+        match x = v ^. memberId ==
+            fromMaybe (x ^. fieldId . memberId)
+                      (x ^. fieldRef . refLocationName)
 
         missing = format ("Missing field corresponding to URI variable "
                          % iprimary % " in field names " % shown)

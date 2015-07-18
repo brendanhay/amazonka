@@ -16,24 +16,24 @@
 
 module Gen.AST.Data.Instance where
 
-import           Gen.AST.Data.Field
-import           Gen.Formatting
-import           Gen.Protocol
-import           Gen.Types
 import           Control.Applicative
 import           Control.Error
 import           Control.Lens
 import           Control.Monad
 import           Control.Monad.Except
 import           Data.Aeson
-import qualified Data.Foldable           as Fold
-import           Data.List               (deleteBy, find, partition)
+import qualified Data.Foldable        as Fold
+import           Data.List            (deleteBy, find, partition)
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text               (Text)
-import qualified Data.Text               as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Data.Text.Manipulate
 import           Debug.Trace
+import           Gen.AST.Data.Field
+import           Gen.Formatting
+import           Gen.Protocol
+import           Gen.Types
 
 data Inst
     = FromXML   [Field]
@@ -177,7 +177,7 @@ requestInsts m h r fs = do
             ToJSON    {} | idem || body -> Nothing
             i                           -> Just i
 
-        idem = elem (h ^. method) [HEAD, GET, DELETE]
+        idem = (h ^. method) `elem` [HEAD, GET, DELETE]
         body = isJust toBody
 
     (listToMaybe -> stream, fields) =

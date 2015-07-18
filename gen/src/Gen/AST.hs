@@ -2,7 +2,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 
 -- Module      : Gen.AST
@@ -17,6 +16,14 @@
 
 module Gen.AST where
 
+import           Control.Arrow
+import           Control.Error
+import           Control.Lens
+import           Control.Monad.Except (throwError)
+import           Control.Monad.State
+import qualified Data.HashMap.Strict  as Map
+import qualified Data.HashSet         as Set
+import           Data.Monoid
 import           Gen.AST.Cofree
 import           Gen.AST.Data
 import           Gen.AST.Override
@@ -25,14 +32,6 @@ import           Gen.AST.Subst
 import           Gen.AST.TypeOf
 import           Gen.Formatting
 import           Gen.Types
-import           Control.Arrow
-import           Control.Error
-import           Control.Lens
-import           Control.Monad.Except  (throwError)
-import           Control.Monad.State
-import qualified Data.HashMap.Strict   as Map
-import qualified Data.HashSet          as Set
-import           Data.Monoid
 
 -- FIXME: Relations need to be updated by the solving step.
 
@@ -178,7 +177,7 @@ separate :: (Show a, HasRelation a) => Map Id (Operation Identity (RefF b) c)
                 ( Map Id (Operation Identity (RefF a) c) -- ^ Operations
                 , Map Id a                               -- ^ Data Types
                 )
-separate os ss = runStateT (traverse go os) ss
+separate os = runStateT (traverse go os)
   where
     go :: HasRelation b
        => Operation Identity (RefF a) c

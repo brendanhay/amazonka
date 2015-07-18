@@ -18,24 +18,24 @@
 
 module Gen.Types.Retry where
 
-import           Gen.TH
-import           Gen.Types.Id
-import           Gen.Types.Map
-import           Gen.Types.Notation
 import           Control.Applicative
-import           Control.Error           (note)
+import           Control.Error        (note)
 import           Control.Lens
 import           Control.Monad
 import           Data.Aeson
 import           Data.Aeson.Types
-import qualified Data.HashMap.Strict     as Map
+import qualified Data.HashMap.Strict  as Map
 import           Data.Maybe
 import           Data.Monoid
 import           Data.Ord
 import           Data.Scientific
-import           Data.Text               (Text)
-import qualified Data.Text               as Text
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
 import           Data.Text.Manipulate
+import           Gen.TH
+import           Gen.Types.Id
+import           Gen.Types.Map
+import           Gen.Types.Notation
 import           GHC.Generics
 
 defKey :: Text
@@ -106,7 +106,7 @@ instance FromJSON (Retry -> Retry) where
     parseJSON = withObject "retry" $ \o -> do
         m <- o .:? "max_attempts"
         d <- o .:? "delay"
-        p <- (o .: defKey >>= (.: "policies"))
+        p <- o .: defKey >>= (.: "policies")
         return $ \r ->
             Retry' (fromMaybe (r ^. retryAttempts) m)
                    (fromMaybe (r ^. retryDelay)    d)

@@ -13,9 +13,6 @@
 
 module Gen.JSON where
 
-import           Gen.Formatting
-import           Gen.IO
-import           Gen.Types
 import           Control.Error
 import           Control.Monad.Except
 import           Data.Aeson           hiding (decode)
@@ -26,6 +23,9 @@ import qualified Data.ByteString.Lazy as LBS
 import qualified Data.HashMap.Strict  as Map
 import           Data.List
 import qualified Data.Text.Lazy       as LText
+import           Gen.Formatting
+import           Gen.IO
+import           Gen.Types
 import qualified Text.EDE             as EDE
 
 required :: MonadIO m => Path -> ExceptT Error m Object
@@ -51,7 +51,7 @@ merge :: [Object] -> Object
 merge = foldl' go mempty
   where
     go :: Object -> Object -> Object
-    go a b = Map.unionWith value a b
+    go = Map.unionWith value
 
     value :: Value -> Value -> Value
     value l r =

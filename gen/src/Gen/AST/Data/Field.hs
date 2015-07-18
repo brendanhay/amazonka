@@ -115,7 +115,7 @@ sortFields xs = zipWith (set fieldOrdinal) [1..]
     . sortBy (on compare isStreaming)
     . sortBy (on compare idx)
   where
-    idx x = fromMaybe (-1) $ findIndex (== _fieldId x) xs
+    idx x = fromMaybe (-1) $ elemIndex (_fieldId x) xs
 
 fieldLens, fieldAccessor :: Getter Field Text
 fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))

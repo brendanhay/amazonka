@@ -125,7 +125,7 @@ heuristics :: Text -> [CI Text]
 heuristics (camelAcronym -> n) = map CI.mk (rules ++ ordinals)
   where
     -- Append an ordinal to the generated acronyms.
-    ordinals = concatMap (\i -> map (<> i) rs) (map num [1..3])
+    ordinals = concatMap ((\i -> map (<> i) rs) . num) [1..3]
       where
         rs = catMaybes [r1, r2, r3]
 

@@ -2,7 +2,6 @@
 {-# LANGUAGE LambdaCase        #-}
 {-# LANGUAGE MultiWayIf        #-}
 {-# LANGUAGE OverloadedStrings #-}
-{-# LANGUAGE RecordWildCards   #-}
 {-# LANGUAGE TupleSections     #-}
 {-# LANGUAGE ViewPatterns      #-}
 
@@ -384,13 +383,13 @@ wildcardD :: Id
 wildcardD n f enc null = \case
     []                        -> constD f null
     es | not (any isRight es) -> funD f $ app (var "const") (enc es)
-       | otherwise            -> InsDecl (FunBind [match rec es])
+       | otherwise            -> InsDecl (FunBind [match rec' es])
   where
     match p es =
         Match noLoc (ident f) [p] Nothing (UnGuardedRhs (enc es)) noBinds
 
     ctor = PApp (n ^. ctorId . to unqual) []
-    rec  = PRec (n ^. ctorId . to unqual) [PFieldWildcard]
+    rec' = PRec (n ^. ctorId . to unqual) [PFieldWildcard]
 
 instD1 :: Text -> Id -> InstDecl -> Decl
 instD1 c n = instD c n . (:[])
@@ -596,7 +595,7 @@ defaultMonoidE v n dm dd =
     infixApp (infixApp v dm (str n)) dd memptyE
 
 encodeE :: Text -> QOp -> Exp -> Exp
-encodeE n o = infixApp (str n) o
+encodeE n = infixApp (str n)
 
 decodeE :: Exp -> QOp -> Text -> Exp
 decodeE v o = infixApp v o . str

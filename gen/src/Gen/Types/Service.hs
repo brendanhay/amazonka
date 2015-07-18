@@ -264,7 +264,7 @@ instance FromJSON (Info -> MapF ()) where
     parseJSON = withObject "map" $ \o -> do
         k <- o .: "key"
         v <- o .: "value"
-        return $! \i -> MapF i k v
+        return $ \i -> MapF i k v
 
 data StructF a = StructF
     { _structInfo :: Info
@@ -286,7 +286,7 @@ instance FromJSON (Info -> StructF ()) where
         ms <- o .:  "members"
         r  <- o .:? "required" .!= mempty
         p  <- o .:? "payload"
-        return $! \i -> StructF i (body p ms) r p
+        return $ \i -> StructF i (body p ms) r p
       where
         -- This ensure that the field referenced by a possible
         -- "payload":<id> has a location set.

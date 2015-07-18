@@ -19,7 +19,6 @@ module Gen.AST.Override
     ( override
     ) where
 
-import           Gen.Types
 import           Control.Comonad
 import           Control.Comonad.Cofree
 import           Control.Error
@@ -28,6 +27,7 @@ import           Control.Monad.State
 import           Data.Bifunctor
 import qualified Data.HashMap.Strict    as Map
 import           Data.Monoid
+import           Gen.Types
 
 data Env = Env
     { _renamed  :: Map Id Id
@@ -42,7 +42,7 @@ override :: Functor f
          => Map Id Override
          -> Service f (RefF a) (Shape Related) b
          -> Service f (RefF a) (Shape Related) b
-override ovs svc = do
+override ovs svc =
    svc & operations . each %~ operation
        & shapes            .~ evalState ss (Env rename replace mempty)
   where

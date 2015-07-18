@@ -365,11 +365,11 @@ data Operation f a b = Operation
 makeLenses ''Operation
 
 operationNS :: NS -> Id -> NS
-operationNS ns n = n ^. typeId . to (mappend ns . mkNS)
+operationNS ns = mappend ns . mkNS . typeId
 
-inputName, outputName :: HasId a => Getter (Operation Identity a b) Id
-inputName  = opInput  . _Identity . to identifier
-outputName = opOutput . _Identity . to identifier
+inputName, outputName :: HasId a => Operation Identity a b -> Id
+inputName  = identifier . view (opInput  . _Identity)
+outputName = identifier . view (opOutput . _Identity)
 
 instance HasHTTP (Operation f a b) f where
     hTTP = opHTTP

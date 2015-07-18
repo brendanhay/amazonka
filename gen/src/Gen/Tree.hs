@@ -125,8 +125,8 @@ populate d Templates{..} l = (encodeString d :/) . dir lib <$> layout
 
     fixture :: Operation Identity SData a -> [DirTree (Either Error Touch)]
     fixture o =
-        [ touch (o ^. inputName  . typeId)
-        , touch (o ^. outputName . typeId)
+        [ touch (typeId (inputName  o))
+        , touch (typeId (outputName o))
         ]
 
     mod :: NS -> [NS] -> Template -> DirTree (Either Error Touch)

@@ -173,8 +173,7 @@ requestInsts m h r fs = do
         idem = (h ^. method) `elem` [HEAD, GET, DELETE]
         body = isJust toBody
 
-    (listToMaybe -> stream, fields) =
-        partition (view fieldStream) notLocated
+    (listToMaybe -> stream, fields) = partition fieldStream notLocated
 
     notLocated :: [Field]
     notLocated = satisfy (\l -> isNothing l || Just Body == l) fs
@@ -200,7 +199,7 @@ requestInsts m h r fs = do
     content = ("application/x-amz-json-" <>) <$> m ^. jsonVersion
     target  = (<> ("." <> action))           <$> m ^. targetPrefix
 
-    action  = n ^. memberId
+    action  = memberId n
     version = m ^. apiVersion
 
     p = m ^. protocol
@@ -217,8 +216,8 @@ uriFields h l f fs = traverse go (h ^. l)
     go (Tok t) = return $ Left (f t)
     go (Var v) = Right <$> note missing (find match fs)
       where
-        match x = v ^. memberId ==
-            fromMaybe (x ^. fieldId . memberId)
+        match x = memberId v ==
+            fromMaybe (x ^. fieldId  . to memberId)
                       (x ^. fieldRef . refLocationName)
 
         missing = format ("Missing field corresponding to URI variable "
@@ -226,10 +225,10 @@ uriFields h l f fs = traverse go (h ^. l)
                          v ids
 
     ids :: [Text]
-    ids = foldMap ((:[]) . view (fieldId . memberId)) fs
+    ids = foldMap ((:[]) . memberId . _fieldId) fs
 
 satisfies :: [Location] -> [Field] -> [Field]
 satisfies xs = satisfy (`elem` map Just xs)
 
 satisfy :: (Maybe Location -> Bool) -> [Field] -> [Field]
-satisfy f = filter (f . view fieldLocation)
+satisfy f = filter (f . fieldLocation)

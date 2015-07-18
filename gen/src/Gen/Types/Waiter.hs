@@ -16,18 +16,12 @@
 
 module Gen.Types.Waiter where
 
+import           Control.Lens
+import           Data.Aeson
+import           Data.Text          (Text)
 import           Gen.TH
 import           Gen.Types.Id
 import           Gen.Types.Notation
-import           Control.Applicative
-import           Control.Lens
-import           Control.Monad
-import           Data.Aeson
-import           Data.Attoparsec.Text    (Parser, parseOnly)
-import qualified Data.Attoparsec.Text    as A
-import           Data.Ord
-import           Data.Text               (Text)
-import qualified Data.Text               as Text
 import           GHC.Generics
 
 data Match

@@ -156,7 +156,7 @@ solve cfg = (`evalState` replaced def cfg)
     . traverse (annotate Solved id (pure . typeOf))
  where
     def x = TType
-        (x ^. replaceName . typeId)
+        (x ^. replaceName     . to typeId)
         (x ^. replaceDeriving . to Set.toList)
 
     replaced :: (Replace -> a) -> Config -> Map Id a
@@ -183,8 +183,8 @@ separate os = runStateT (traverse go os)
        => Operation Identity (RefF a) c
        -> MemoS b (Operation Identity (RefF b) c)
     go o = do
-        x <- remove Input  (o ^. inputName)
-        y <- remove Output (o ^. outputName)
+        x <- remove Input  (inputName  o)
+        y <- remove Output (outputName o)
         return $! o
             { _opInput  = Identity (o ^. opInput  . _Identity & refAnn .~ x)
             , _opOutput = Identity (o ^. opOutput . _Identity & refAnn .~ y)

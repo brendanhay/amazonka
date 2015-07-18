@@ -95,7 +95,7 @@ elaborate m = evalStateT (Map.traverseWithKey (shape []) m) mempty
                 n (n, m))
         (Map.lookup n m)
 
-    depth = format ("Too many cycles " % shown) . reverse . map (view memberId)
+    depth = format ("Too many cycles " % shown) . reverse . map memberId
 
     conseq (x:ys@(y:z:_))
         | x == y    = True

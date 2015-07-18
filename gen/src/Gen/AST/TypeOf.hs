@@ -44,9 +44,9 @@ instance HasId a => TypeOf (Shape a) where
         n = identifier x
 
         shape = \case
-            Ptr    _ ds          -> TType  (n ^. typeId) (ptr ds)
-            Struct st            -> TType  (n ^. typeId) (struct st)
-            Enum   {}            -> TType  (n ^. typeId) (enum <> base)
+            Ptr    _ ds          -> TType  (typeId n) (ptr ds)
+            Struct st            -> TType  (typeId n) (struct st)
+            Enum   {}            -> TType  (typeId n) (enum <> base)
             List (ListF i e)
                 | nonEmpty i     -> TList1 (typeOf e)
                 | otherwise      -> TList  (typeOf e)

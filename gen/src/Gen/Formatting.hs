@@ -19,7 +19,6 @@ module Gen.Formatting
     ) where
 
 import           Gen.Types
-import           Control.Lens
 import           Control.Monad.Except
 import qualified Data.CaseInsensitive   as CI
 import           Data.CaseInsensitive   (CI)
@@ -39,10 +38,10 @@ soriginal :: Format a (CI Text -> a)
 soriginal = later (Build.fromText . CI.original)
 
 iprimary :: Format a (Id -> a)
-iprimary = later (Build.fromText . view memberId)
+iprimary = later (Build.fromText . memberId)
 
 itype :: Format a (Id -> a)
-itype = later (Build.fromText . view typeId)
+itype = later (Build.fromText . typeId)
 
 path :: Format a (Path -> a)
 path = later (Build.fromText . toTextIgnore)
@@ -50,8 +49,8 @@ path = later (Build.fromText . toTextIgnore)
 partial :: Show b => Format a ((Id, Map.HashMap Id b) -> a)
 partial = later (Build.fromString . show . Map.toList . prefix)
   where
-    prefix (view memberId -> Text.take 3 -> p, m) =
-        Map.filterWithKey (const . Text.isPrefixOf p . view memberId) m
+    prefix (memberId -> Text.take 3 -> p, m) =
+        Map.filterWithKey (const . Text.isPrefixOf p . memberId) m
 
 failure :: MonadError e m => Format LText.Text (a -> e) -> a -> m b
 failure m = throwError . format m

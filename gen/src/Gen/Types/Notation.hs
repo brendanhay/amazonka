@@ -15,30 +15,15 @@
 
 module Gen.Types.Notation where
 
-import           Gen.Types.Id
-import           Gen.Types.Orphans ()
 import           Control.Applicative
-import           Control.Lens
-import           Control.Monad
 import           Data.Aeson
-import           Data.Attoparsec.Text   (Parser, parseOnly)
-import qualified Data.Attoparsec.Text   as A
+import qualified Data.Attoparsec.Text as A
 import           Data.Bifunctor
-import           Data.Foldable          (foldl', foldr')
-import           Data.List.NonEmpty     (NonEmpty (..))
-import           Data.Maybe
-import           Data.Ord
-import           Data.Text              (Text)
-import qualified Data.Text              as Text
-
--- NextMarker || Contents[-1].Key
--- Jobs[-1].JobId
--- StreamDescription.Shards[-1].ShardId
--- StreamNames[-1]
--- "Reservations[].Instances[].State.Name"
--- length(PasswordData) > `0`
--- services | [@[?length(deployments)!=`1`], @[?desiredCount!=runningCount]][] | length(@) == `0`
--- InstanceStatuses[].SystemStatus.Status
+import           Data.List.NonEmpty   (NonEmpty (..))
+import           Data.Text            (Text)
+import qualified Data.Text            as Text
+import           Gen.Types.Id
+import           Gen.Types.Orphans    ()
 
 data Key a
     = Key  { fromKey :: a }
@@ -88,14 +73,3 @@ parseNotation t = mappend msg `first` A.parseOnly expr1 t
     delim = A.notInClass "0-9[].`()|><= "
 
     strip p = A.skipSpace *> p <* A.skipSpace
-
--- instance A.ToJSON Key where
---     toJSON = A.toJSON . go
---       where
---         go = \case
---             Blank                -> "(to id)"
---             Key    n             -> n
---             Index  n k           -> "index "   <> n <> " " <> go k
---             Apply  n (Index a b) -> "index ("  <> go (Apply n (Key a)) <> ") " <> go b
---             Apply  n k           -> n <> " . " <> go k
---             Choice n k           -> "choice (" <> go n <> ") (" <> go k <> ")"

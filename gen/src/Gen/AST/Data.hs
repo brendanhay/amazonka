@@ -114,9 +114,9 @@ errorData s i = Fun <$> mk
         $ format ("Prism for " % iprimary % "' errors.") n
 
     status = i ^? infoError . _Just . errStatus
-    code   = fromMaybe (n ^. memberId) (i ^. infoError . _Just . errCode)
+    code   = fromMaybe (memberId n) (i ^. infoError . _Just . errCode)
 
-    p = n ^. typeId . to (Text.cons '_')
+    p = Text.cons '_' (typeId n)
     n = s ^. annId
 
 sumData :: Protocol
@@ -126,7 +126,7 @@ sumData :: Protocol
         -> Either Error SData
 sumData p s i vs = Sum (isShared s) <$> mk <*> (Map.keys <$> insts)
   where
-    mk = Sum' (n ^. typeId) (i ^. infoDocumentation)
+    mk = Sum' (typeId n) (i ^. infoDocumentation)
         <$> pp Indent decl
         <*> pure bs
 
@@ -135,7 +135,7 @@ sumData p s i vs = Sum (isShared s) <$> mk <*> (Map.keys <$> insts)
     insts  = renderInsts p n $ shapeInsts p (s ^. relMode) []
 
     n  = s ^. annId
-    bs = vs & kvTraversal %~ first (^. branchId (s ^. annPrefix))
+    bs = vs & kvTraversal %~ first (branchId (s ^. annPrefix))
 
 prodData :: HasMetadata a Identity
          => a
@@ -144,7 +144,7 @@ prodData :: HasMetadata a Identity
          -> Either Error (Prod, [Field])
 prodData m s st = (,fields) <$> mk
   where
-    mk = Prod' (n ^. typeId) (st ^. infoDocumentation)
+    mk = Prod' (typeId n) (st ^. infoDocumentation)
         <$> pp Indent decl
         <*> mkCtor
         <*> traverse mkLens fields
@@ -155,12 +155,12 @@ prodData m s st = (,fields) <$> mk
     fields = mkFields m s st
 
     mkLens :: Field -> Either Error Fun
-    mkLens f = Fun' (f ^. fieldLens) (f ^. fieldHelp)
+    mkLens f = Fun' (fieldLens f) (fieldHelp f)
         <$> pp None (lensS ts (s ^. annType) f)
         <*> pp None (lensD f)
 
     mkCtor :: Either Error Fun
-    mkCtor = Fun' (n ^. smartCtorId) mkHelp
+    mkCtor = Fun' (smartCtorId n) mkHelp
         <$> pp None   (ctorS ts n fields)
         <*> pp Indent (ctorD n fields)
 

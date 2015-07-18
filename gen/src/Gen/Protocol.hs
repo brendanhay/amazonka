@@ -112,7 +112,7 @@ name p d n r = go p d
 
     -- Use the locationName on the struct member if present,
     -- otherwise the struct member id.
-    key = fromMaybe (n ^. memberId) (r ^. refLocationName)
+    key = fromMaybe (memberId n) (r ^. refLocationName)
 
 flatten :: HasInfo a => Protocol -> Direction -> a -> Bool
 flatten EC2 Input _ = True

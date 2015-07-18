@@ -64,7 +64,7 @@ smartCtors = Map.fromListWith (<>) . mapMaybe go . Map.toList
     go :: (Id, Shape a) -> Maybe (CI Text, Set (CI Text))
     go (s, _ :< Struct {}) = Just (k, Set.singleton v)
       where
-        n = s ^. smartCtorId
+        n = smartCtorId s
         k = CI.mk (Text.takeWhile isLower n)
         v = CI.mk (dropLower n)
     go _                   = Nothing
@@ -74,7 +74,7 @@ assignPrefix = annotate Prefixed memo go
   where
     go :: HasId a => Shape a -> MemoP (Maybe Text)
     go (x :< s) =
-        let n = identifier x ^. typeId
+        let n = typeId (identifier x)
          in case s of
             Enum _ vs -> Just <$> do
                 let hs = mempty : heuristics n
@@ -118,7 +118,7 @@ overlap :: (Eq a, Hashable a) => Set a -> Set a -> Bool
 overlap xs ys = not . Set.null $ Set.intersection xs ys
 
 keys :: Map Id a -> Set (CI Text)
-keys = Set.fromList . map (^. typeId . to CI.mk) . Map.keys
+keys = Set.fromList . map (CI.mk . typeId) . Map.keys
 
 -- | Acronym preference list.
 heuristics :: Text -> [CI Text]

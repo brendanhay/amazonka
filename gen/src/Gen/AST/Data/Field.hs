@@ -66,16 +66,10 @@ instance TypeOf Field where
             TList {} -> True
             _        -> False
 
-        loc = (f ^. fieldLocation) `elem` map Just
+        loc = (fieldLocation f) `elem` map Just
             [ Headers
             , Header
             ]
-
--- FIXME: special Lens construction for Maybe Monoid types?
-
--- FIXME: ensure serialisation of empty lists and maps for xml/query
--- serialise an actual empty element .. since everything should now
--- correctly be a maybe or not.
 
 instance HasInfo Field where
     info = fieldAnn . info
@@ -117,48 +111,46 @@ sortFields xs = zipWith (set fieldOrdinal) [1..]
   where
     idx x = fromMaybe (-1) $ elemIndex (_fieldId x) xs
 
-fieldLens, fieldAccessor :: Getter Field Text
-fieldLens     = to (\f -> f ^. fieldId . lensId     (f ^. fieldPrefix))
-fieldAccessor = to (\f -> f ^. fieldId . accessorId (f ^. fieldPrefix))
+fieldAnn :: Lens' Field (Shape Solved)
+fieldAnn = fieldRef . refAnn
+
+fieldLens, fieldAccessor :: Field -> Text
+fieldLens     f = lensId     (_fieldPrefix f) (_fieldId f)
+fieldAccessor f = accessorId (_fieldPrefix f) (_fieldId f)
 
 fieldIsParam :: Field -> Bool
-fieldIsParam f = not (f ^. fieldMaybe) && not (f ^. fieldMonoid)
+fieldIsParam f = not (fieldMaybe f) && not (fieldMonoid f)
 
 fieldParamName :: Field -> Name
 fieldParamName = Ident
     . Text.unpack
     . Text.cons 'p'
     . upperHead
-    . view (fieldId . typeId)
+    . typeId
+    . _fieldId
 
-fieldHelp :: Getter Field Help
-fieldHelp = fieldRef
-    . refDocumentation
-    . to (fromMaybe "FIXME: Undocumented member.")
+fieldHelp :: Field -> Help
+fieldHelp = fromMaybe "FIXME: Undocumented member."
+    . view (fieldRef . refDocumentation)
 
-fieldLocation :: Getter Field (Maybe Location)
-fieldLocation = fieldRef . refLocation
+fieldLocation :: Field -> Maybe Location
+fieldLocation = view (fieldRef . refLocation)
 
-fieldMaybe :: Getter Field Bool
-fieldMaybe = to f
-  where
-    f x = case typeOf x of
+fieldMaybe :: Field -> Bool
+fieldMaybe f =
+    case typeOf f of
         TMaybe {} -> True
         _         -> False
 
-fieldMonoid :: Getter Field Bool
-fieldMonoid = fieldAnn . to (elem DMonoid . derivingOf)
+fieldMonoid :: Field -> Bool
+fieldMonoid = elem DMonoid . derivingOf . view fieldAnn
 
-fieldStream :: Getter Field Bool
-fieldStream = to f
-  where
-    f x = x ^. fieldRef . refStreaming
-       || x ^. fieldAnn . infoStreaming
+fieldStream :: Field -> Bool
+fieldStream x =
+       x ^. fieldRef . refStreaming
+    || x ^. fieldAnn . infoStreaming
 
 fieldList1, fieldList, fieldMap :: Field -> Bool
 fieldList1 f = fieldList f && nonEmpty f
 fieldList    = not . isn't _List . unwrap . view fieldAnn
 fieldMap     = not . isn't _Map  . unwrap . view fieldAnn
-
-fieldAnn :: Lens' Field (Shape Solved)
-fieldAnn = fieldRef . refAnn

@@ -173,8 +173,8 @@ verify n msg = do
         format (msg % " for " % iprimary) n
 
 name :: Direction -> Id -> Id
-name Input  n = mkId (n ^. typeId)
-name Output n = mkId (appendId n "Response" ^. typeId)
+name Input  n = mkId (typeId n)
+name Output n = mkId (typeId (appendId n "Response"))
 
 infixl 7 .!
 

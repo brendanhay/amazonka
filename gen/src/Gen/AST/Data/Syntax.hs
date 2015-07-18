@@ -77,28 +77,28 @@ toXMap  = var "toXMLMap"
 toQMap  = var "toQueryMap"
 
 ctorS :: Timestamp -> Id -> [Field] -> Decl
-ctorS ts n = TypeSig noLoc [n ^. smartCtorId . to ident]
-    . Fold.foldr' TyFun (n ^. typeId . to tycon)
+ctorS ts n = TypeSig noLoc [ident (smartCtorId n)]
+    . Fold.foldr' TyFun (tycon (typeId n))
     . map (external ts)
     . filter fieldIsParam
 
 ctorD :: Id -> [Field] -> Decl
 ctorD n fs =
-    sfun noLoc (n ^. smartCtorId . to ident) ps (UnGuardedRhs rhs) noBinds
+    sfun noLoc (ident (smartCtorId n)) ps (UnGuardedRhs rhs) noBinds
   where
     ps :: [Name]
     ps = map fieldParamName (filter fieldIsParam fs)
 
     rhs :: Exp
-    rhs | null fs   = var (n ^. ctorId)
-        | otherwise = RecConstr (n ^. ctorId . to unqual) (map fieldUpdate fs)
+    rhs | null fs   = var (ctorId n)
+        | otherwise = RecConstr (unqual (ctorId n)) (map fieldUpdate fs)
 
 fieldUpdate :: Field -> FieldUpdate
-fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) rhs
+fieldUpdate f = FieldUpdate (unqual (fieldAccessor f)) rhs
   where
     rhs :: Exp
-    rhs | f ^. fieldMaybe          = nothingE
-        | f ^. fieldMonoid         = memptyE
+    rhs | fieldMaybe f             = nothingE
+        | fieldMonoid f            = memptyE
         | Just v <- iso (typeOf f) = infixApp v "#" p
         | otherwise                = p
 
@@ -106,7 +106,7 @@ fieldUpdate f = FieldUpdate (f ^. fieldAccessor . to unqual) rhs
     p = Exts.Var (UnQual (fieldParamName f))
 
 lensS :: Timestamp -> TType -> Field -> Decl
-lensS ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
+lensS ts t f = TypeSig noLoc [ident (fieldLens f)] $
     TyApp (TyApp (tycon "Lens'")
                  (signature ts t))
           (external ts f)
@@ -114,8 +114,8 @@ lensS ts t f = TypeSig noLoc [ident (f ^. fieldLens)] $
 lensD :: Field -> Decl
 lensD f = sfun noLoc (ident l) [] (UnGuardedRhs rhs) noBinds
   where
-    l = f ^. fieldLens
-    a = f ^. fieldAccessor
+    l = fieldLens f
+    a = fieldAccessor f
 
     rhs = mapping (typeOf f) $
         app (app (var "lens") (var a))
@@ -140,7 +140,7 @@ errorD n s c = sfun noLoc (ident n) [] (UnGuardedRhs rhs) noBinds
     code     = app (var "hasCode")   (str c)
 
 dataD :: Id -> [QualConDecl] -> [Derive] -> Decl
-dataD n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
+dataD n fs cs = DataDecl noLoc arity [] (ident (typeId n)) [] fs ds
   where
     arity = case fs of
         [QualConDecl _ _ _ (RecDecl _ [_])] -> NewType
@@ -150,11 +150,13 @@ dataD n fs cs = DataDecl noLoc arity [] (ident (n ^. typeId)) [] fs ds
 
 recordD :: Timestamp -> Id -> [Field] -> QualConDecl
 recordD ts n = conD . \case
-    []  -> ConDecl (n ^. ctorId . to ident) []
-    [x] -> RecDecl (ident (n ^. ctorId)) [g (internal ts) x]
-    xs  -> RecDecl (ident (n ^. ctorId)) (map (g (strict . internal ts)) xs)
+    []  -> ConDecl c []
+    [x] -> RecDecl c [g (internal ts) x]
+    xs  -> RecDecl c (map (g (strict . internal ts)) xs)
   where
-    g h f = ([f ^. fieldAccessor . to ident], h f)
+    g h f = ([ident (fieldAccessor f)], h f)
+
+    c = ident (ctorId n)
 
 conD :: ConDecl -> QualConDecl
 conD = QualConDecl noLoc [] []
@@ -279,11 +281,11 @@ notationE = \case
         Each f -> app (var "folding") . paren $ app (var "concatOf") (key False f)
         Last f -> infixApp (key False f) "." (var "_last")
 
-    key False f = f ^. fieldLens . to var
+    key False f = var (fieldLens f)
     key True  f
-        | f ^. fieldMonoid = key False f
-        | f ^. fieldMaybe  = infixApp (key False f) "." (var "_Just")
-        | otherwise        = key False f
+        | fieldMonoid f = key False f
+        | fieldMaybe f  = infixApp (key False f) "." (var "_Just")
+        | otherwise     = key False f
 
 requestD :: HasMetadata a f
          => a
@@ -293,7 +295,7 @@ requestD :: HasMetadata a f
          -> Decl
 requestD m h (a, as) (b, bs) = instD "AWSRequest" (identifier a)
     [ assocD (identifier a) "Sv" (m ^. serviceAbbrev)
-    , assocD (identifier a) "Rs" (b ^. to identifier . typeId)
+    , assocD (identifier a) "Rs" (typeId (identifier b))
     , funD "request"  (requestF h as)
     , funD "response" (responseE (m ^. protocol) b bs)
     ]
@@ -305,7 +307,7 @@ responseE p r fs = app (responseF p r fs) bdy
     s = r ^. refAnn . to extract
 
     bdy :: Exp
-    bdy | null fs    = n ^. ctorId . to var
+    bdy | null fs    = var (ctorId n)
         | isShared s = lam parseAll
         | otherwise  = lam . ctorE n $ map parseField fs
 
@@ -313,20 +315,22 @@ responseE p r fs = app (responseF p r fs) bdy
     lam = lamE noLoc [pvar "s", pvar "h", pvar "x"]
 
     parseField :: Field -> Exp
-    parseField x = case x ^. fieldLocation of
-        Just Headers        -> parseHeadersE p x
-        Just Header         -> parseHeadersE p x
-        Just StatusCode     -> parseStatusE    x
-        Just Body    | body -> app pureE (var "x")
-        Nothing      | body -> app pureE (var "x")
-        _                   -> parseProto x
+    parseField x =
+        case fieldLocation x of
+            Just Headers        -> parseHeadersE p x
+            Just Header         -> parseHeadersE p x
+            Just StatusCode     -> parseStatusE    x
+            Just Body    | body -> app pureE (var "x")
+            Nothing      | body -> app pureE (var "x")
+            _                   -> parseProto x
 
     parseProto :: Field -> Exp
-    parseProto f = case p of
-        JSON                  -> parseJSONE p pJE pJEMay pJEDef f
-        RestJSON              -> parseJSONE p pJE pJEMay pJEDef f
-        _ | f ^. fieldPayload -> parseAll
-        _                     -> parseXMLE  p f
+    parseProto f =
+        case p of
+            JSON                  -> parseJSONE p pJE pJEMay pJEDef f
+            RestJSON              -> parseJSONE p pJE pJEMay pJEDef f
+            _ | f ^. fieldPayload -> parseAll
+            _                     -> parseXMLE  p f
 
     parseAll :: Exp
     parseAll = flip app (var "x") $
@@ -335,7 +339,7 @@ responseE p r fs = app (responseF p r fs) bdy
             RestJSON -> var "eitherParseJSON"
             _        -> var "parseXML"
 
-    body = any (view fieldStream) fs
+    body = any fieldStream fs
 
 instanceD :: Protocol -> Id -> Inst -> Decl
 instanceD p n = \case
@@ -357,7 +361,7 @@ fromJSOND :: Protocol -> Id -> [Field] -> Decl
 fromJSOND p n fs = instD1 "FromJSON" n with
   where
     with = funD "parseJSON" $
-        app (app (var "withObject") (n ^. typeId . to str))
+        app (app (var "withObject") (str (typeId n)))
             (lamE noLoc [pvar "x"] es)
 
     es = ctorE n $ map (parseJSONE p pJ pJMay pJDef) fs
@@ -415,13 +419,13 @@ wildcardD n f enc xs = \case
     match p es =
         Match noLoc (ident f) [p] Nothing (UnGuardedRhs (enc es)) noBinds
 
-    prec = PRec (n ^. ctorId . to unqual) [PFieldWildcard]
+    prec = PRec (unqual (ctorId n)) [PFieldWildcard]
 
 instD1 :: Text -> Id -> InstDecl -> Decl
 instD1 c n = instD c n . (:[])
 
 instD :: Text -> Id -> [InstDecl] -> Decl
-instD c n = InstDecl noLoc Nothing [] [] (unqual c) [n ^. typeId . to tycon]
+instD c n = InstDecl noLoc Nothing [] [] (unqual c) [tycon (typeId n)]
 
 funD :: Text -> Exp -> InstDecl
 funD f = InsDecl . patBind noLoc (pvar f)
@@ -431,7 +435,7 @@ funArgsD f as e = InsDecl $
     sfun noLoc (ident f) (map ident as) (UnGuardedRhs e) noBinds
 
 assocD :: Id -> Text -> Text -> InstDecl
-assocD n x y = InsType noLoc (TyApp (tycon x) (n ^. typeId . to tycon)) (tycon y)
+assocD n x y = InsType noLoc (TyApp (tycon x) (tycon (typeId n))) (tycon y)
 
 decodeD :: Text -> Id -> Text -> ([a] -> Exp) -> [a] -> Decl
 decodeD c n f dec = instD1 c n . \case
@@ -445,13 +449,13 @@ parseXMLE :: Protocol -> Field -> Exp
 parseXMLE p f = parse
   where
     parse = case outputNames p f of
-        NMap  mn e k v             -> unflatE mn pXMap   [str e, str k, str v]
+        NMap  mn e k v      -> unflatE mn pXMap   [str e, str k, str v]
         NList mn i
-            | f ^. fieldMonoid     -> unflatE mn pXList  [str i]
-            | otherwise            -> unflatE mn pXList1 [str i]
+            | fieldMonoid f -> unflatE mn pXList  [str i]
+            | otherwise     -> unflatE mn pXList1 [str i]
         NName n
-            | req                  -> decodeE x pX    n
-            | otherwise            -> decodeE x pXMay n
+            | req           -> decodeE x pX    n
+            | otherwise     -> decodeE x pXMay n
 
     unflatE Nothing  g xs
         | req       = appFun g (xs ++ [x])
@@ -466,13 +470,13 @@ parseXMLE p f = parse
     may = app (var "may")
     x   = var "x"
 
-    req = not (f ^. fieldMaybe)
+    req = not (fieldMaybe f)
 
 parseJSONE :: Protocol -> QOp -> QOp -> QOp -> Field -> Exp
 parseJSONE p d dm dd f
-    | f ^. fieldMonoid = defaultMonoidE x n dm dd
-    | f ^. fieldMaybe  = decodeE x dm n
-    | otherwise        = decodeE x d  n
+    | fieldMonoid f = defaultMonoidE x n dm dd
+    | fieldMaybe f  = decodeE x dm n
+    | otherwise     = decodeE x d  n
   where
     n = memberName p Output f
     x = var "x"
@@ -480,7 +484,7 @@ parseJSONE p d dm dd f
 parseHeadersE :: Protocol -> Field -> Exp
 parseHeadersE p f
     | TMap {} <- typeOf f = appFun pHMap [str n, h]
-    | f ^. fieldMaybe     = decodeE h pHMay n
+    | fieldMaybe f        = decodeE h pHMay n
     | otherwise           = decodeE h pH    n
   where
     n = memberName p Output f
@@ -488,8 +492,8 @@ parseHeadersE p f
 
 parseStatusE :: Field -> Exp
 parseStatusE f
-    | f ^. fieldMaybe = app pureE (app justE v)
-    | otherwise       = app pureE v
+    | fieldMaybe f = app pureE (app justE v)
+    | otherwise    = app pureE v
   where
     v = paren $ app (var "fromEnum") (var "s")
 
@@ -501,7 +505,7 @@ toElementE p ns = either (`root` []) node
   where
     root n = appFun (var "mkElement") . (str (qual n) :)
 
-    node f = root n [var ".", f ^. fieldAccessor . to var]
+    node f = root n [var ".", var (fieldAccessor f)]
       where
         n = memberName p Input f
 
@@ -509,14 +513,14 @@ toElementE p ns = either (`root` []) node
            | otherwise    = n
 
 toJSONE :: Protocol -> Field -> Exp
-toJSONE p f = encodeE (memberName p Input f) toJ $ var (f ^. fieldAccessor)
+toJSONE p f = encodeE (memberName p Input f) toJ $ var (fieldAccessor f)
 
 toHeadersE :: Protocol -> Either (Text, Text) Field -> Exp
 toHeadersE p = either pair field
   where
     pair (k, v) = encodeE k toH $ impliesE v (var "ByteString")
 
-    field f = encodeE (memberName p Input f) toH $ var (f ^. fieldAccessor)
+    field f = encodeE (memberName p Input f) toH $ var (fieldAccessor f)
 
 toQueryE :: Protocol -> Either (Text, Maybe Text) Field -> Exp
 toQueryE p = either pair field
@@ -527,24 +531,24 @@ toQueryE p = either pair field
     field = toGenericE p toQ "toQuery" toQMap toQList
 
 toPathE :: Either Text Field -> Exp
-toPathE = either str (app (var "toText") . var . view fieldAccessor)
+toPathE = either str (app (var "toText") . var . fieldAccessor)
 
 toBodyE :: Field -> Exp
-toBodyE f = var (f ^. fieldAccessor)
+toBodyE = var . fieldAccessor
 
 toGenericE :: Protocol -> QOp -> Text -> Exp -> Exp -> Field -> Exp
 toGenericE p toO toF toM toL f = case inputNames p f of
     NMap  mn e k v
-        | f ^. fieldMaybe -> flatE mn toO . app (var toF) $ appFun toM [str e, str k, str v, var "<$>", a]
-        | otherwise       -> flatE mn toO $ appFun toM [str e, str k, str v, a]
+        | fieldMaybe f -> flatE mn toO . app (var toF) $ appFun toM [str e, str k, str v, var "<$>", a]
+        | otherwise    -> flatE mn toO $ appFun toM [str e, str k, str v, a]
 
     NList mn i
-        | f ^. fieldMaybe -> flatE mn toO . app (var toF) $ appFun toL [str i, var "<$>", a]
-        | otherwise       -> flatE mn toO $ appFun toL [str i, a]
+        | fieldMaybe f -> flatE mn toO . app (var toF) $ appFun toL [str i, var "<$>", a]
+        | otherwise    -> flatE mn toO $ appFun toL [str i, a]
 
-    NName n               -> encodeE n toO a
+    NName n            -> encodeE n toO a
   where
-    a = var (f ^. fieldAccessor)
+    a = var (fieldAccessor f)
 
 pureE :: Exp
 pureE = var "pure"
@@ -562,7 +566,7 @@ guardE :: Exp -> Exp -> GuardedRhs
 guardE x = GuardedRhs noLoc [Qualifier x]
 
 ctorE :: Id -> [Exp] -> Exp
-ctorE n = seqE (n ^. ctorId . to var) . map paren
+ctorE n = seqE (var (ctorId n)) . map paren
 
 memptyE :: Exp
 memptyE = var "mempty"
@@ -621,7 +625,7 @@ requestF h is = var v
 responseF :: Protocol -> RefF a -> [Field] -> Exp
 responseF p r fs
     | null fs                         = var "receiveNull"
-    | any (view fieldStream) fs       = var "receiveBody"
+    | any fieldStream fs              = var "receiveBody"
     | Just x <- r ^. refResultWrapper = app (var (suf <> "Wrapper")) (str x)
     | otherwise                       = var suf
   where
@@ -630,16 +634,16 @@ responseF p r fs
 waiterS :: Id -> Waiter a -> Decl
 waiterS n w = TypeSig noLoc [ident c] $ TyApp (tycon "Wait") (tycon k)
   where
-    k = w ^. waitOperation . typeId
-    c = n ^. smartCtorId
+    k = w ^. waitOperation . to typeId
+    c = smartCtorId n
 
 waiterD :: Id -> Waiter Field -> Decl
 waiterD n w = sfun noLoc (ident c) [] (UnGuardedRhs rhs) noBinds
   where
-    c = n ^. smartCtorId
+    c = smartCtorId n
 
     rhs = RecConstr (unqual "Wait")
-        [ FieldUpdate (unqual "_waitName")      (n ^. memberId     . to str)
+        [ FieldUpdate (unqual "_waitName")      (str (memberId n))
         , FieldUpdate (unqual "_waitAttempts")  (w ^. waitAttempts . to intE)
         , FieldUpdate (unqual "_waitDelay")     (w ^. waitDelay    . to intE)
         , FieldUpdate (unqual "_waitAcceptors")

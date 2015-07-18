@@ -205,7 +205,7 @@ instance ToJSON Library where
         ss = sort (l ^.. shapes . each)
 
         ts = Map.fromList
-            [(identifier d ^. typeId, d) | d <- concatMap f os ++ ss]
+            [(typeId (identifier d), d) | d <- concatMap f os ++ ss]
 
         f o = [ o ^. opInput  . _Identity
               , o ^. opOutput . _Identity

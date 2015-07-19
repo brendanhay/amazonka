@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -e
+
+${GHCVER?"GHCVER needs to be set."}
+${LIBRARY?"LIBRARY needs to be set."}
+
+path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+
+$path/script/travis-timeout \
+    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml setup
+
+$path/script/travis-timeout \
+    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY --only-snapshot

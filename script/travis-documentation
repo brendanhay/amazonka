@@ -2,15 +2,14 @@
 
 set -e
 
-project=proj/amazonka
-target=../amazonka-doc
+target=doc
 platform=x86_64-linux
 ghcver=$(ghc --version | awk '{print $NF}')
 resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack.yaml)
 
 standalone-haddock --hyperlink-source -o $target \
  --package-db $HOME/.stack/snapshots/$platform/$resolver/$ghcver/pkgdb \
- --package-db $HOME/$project/.stack-work/install/$platform/$resolver/$ghcver/pkgdb \
+ --package-db .stack-work/install/$platform/$resolver/$ghcver/pkgdb \
  core amazonka*
 
 {
@@ -36,6 +35,12 @@ set -x
 
 cd $target
 
+git init
+
+git config user.name "Brendan Hay"
+git config user.email "brendan.g.hay@gmail.com"
+
 git add .
-git commit -am "Regenerating documentation"
-git push origin gh-pages
+git commit -m "Travis CI documentation deploy"
+
+git push --force --quiet "https://${DOC_TOKEN}@${DOC_REF}" master:gh-pages > /dev/null 2>&1

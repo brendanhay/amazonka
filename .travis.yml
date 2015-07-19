@@ -1,92 +1,96 @@
 env:
-  # Priority
-  - GHCVER=7.10.1 LIBRARY=amazonka-core
-  - GHCVER=7.10.1 LIBRARY=amazonka
-  - GHCVER=7.10.1 LIBRARY=amazonka-ec2
-  - GHCVER=7.10.1 LIBRARY=amazonka-s3
-  - GHCVER=7.10.1 LIBRARY=amazonka-iam
-  - GHCVER=7.10.1 LIBRARY=amazonka-autoscaling
-  - GHCVER=7.10.1 LIBRARY=amazonka-dynamodb
-  - GHCVER=7.10.1 LIBRARY=amazonka-elb
-  - GHCVER=7.10.1 LIBRARY=amazonka-sqs
-  - GHCVER=7.10.1 LIBRARY=amazonka-sns
-  - GHCVER=7.10.1 LIBRARY=amazonka-sdb
-  - GHCVER=7.10.1 LIBRARY=amazonka-ses
-  - GHCVER=7.10.1 LIBRARY=amazonka-route53
-  # Alphabetical
-  - GHCVER=7.10.1 LIBRARY=amazonka-cloudformation
-  - GHCVER=7.10.1 LIBRARY=amazonka-cloudfront
-  - GHCVER=7.10.1 LIBRARY=amazonka-cloudhsm
-  - GHCVER=7.10.1 LIBRARY=amazonka-cloudsearch
-  - GHCVER=7.10.1 LIBRARY=amazonka-cloudsearch-domains
-  - GHCVER=7.10.1 LIBRARY=amazonka-cloudtrail
-  - GHCVER=7.10.1 LIBRARY=amazonka-cloudwatch
-  - GHCVER=7.10.1 LIBRARY=amazonka-cloudwatch-logs
-  - GHCVER=7.10.1 LIBRARY=amazonka-codecommit
-  - GHCVER=7.10.1 LIBRARY=amazonka-codedeploy
-  - GHCVER=7.10.1 LIBRARY=amazonka-codepipeline
-  - GHCVER=7.10.1 LIBRARY=amazonka-cognito-identity
-  - GHCVER=7.10.1 LIBRARY=amazonka-cognito-sync
-  - GHCVER=7.10.1 LIBRARY=amazonka-config
-  - GHCVER=7.10.1 LIBRARY=amazonka-datapipeline
-  - GHCVER=7.10.1 LIBRARY=amazonka-devicefarm
-  - GHCVER=7.10.1 LIBRARY=amazonka-directconnect
-  - GHCVER=7.10.1 LIBRARY=amazonka-ds
-  - GHCVER=7.10.1 LIBRARY=amazonka-dynamodb-streams
-  - GHCVER=7.10.1 LIBRARY=amazonka-ecs
-  - GHCVER=7.10.1 LIBRARY=amazonka-efs
-  - GHCVER=7.10.1 LIBRARY=amazonka-elasticache
-  - GHCVER=7.10.1 LIBRARY=amazonka-elasticbeanstalk
-  - GHCVER=7.10.1 LIBRARY=amazonka-elastictranscoder
-  - GHCVER=7.10.1 LIBRARY=amazonka-emr
-  - GHCVER=7.10.1 LIBRARY=amazonka-glacier
-  - GHCVER=7.10.1 LIBRARY=amazonka-importexport
-  - GHCVER=7.10.1 LIBRARY=amazonka-kinesis
-  - GHCVER=7.10.1 LIBRARY=amazonka-kms
-  - GHCVER=7.10.1 LIBRARY=amazonka-lambda
-  - GHCVER=7.10.1 LIBRARY=amazonka-ml
-  - GHCVER=7.10.1 LIBRARY=amazonka-opsworks
-  - GHCVER=7.10.1 LIBRARY=amazonka-rds
-  - GHCVER=7.10.1 LIBRARY=amazonka-redshift
-  - GHCVER=7.10.1 LIBRARY=amazonka-route53-domains
-  - GHCVER=7.10.1 LIBRARY=amazonka-ssm
-  - GHCVER=7.10.1 LIBRARY=amazonka-storagegateway
-  - GHCVER=7.10.1 LIBRARY=amazonka-sts
-  - GHCVER=7.10.1 LIBRARY=amazonka-support
-  - GHCVER=7.10.1 LIBRARY=amazonka-swf
-  - GHCVER=7.10.1 LIBRARY=amazonka-workspaces
+  global:
+    - DOC_TOKEN: github.com/brendanhay/amazonka-doc.git
+    - secure: fxJPfu/icH+3w9nRcedFtqNumnpmo1vWAA7HBaeeCF0vnzTHBbD2ej3olyaDmFoJ9PaW84q5UKX3iU6BBXLmlestOZCcfQ9nDvVuIVpimIovO7QuZhnRYea0SaSRcXEgNE+nWEcsiiKWuVUnDEXAUQRCs04YQpAvgsUjMcZgXQw=
+
+  matrix:
+    # High Priority
+    - GHCVER=7.10.1 LIBRARY=amazonka-core
+    - GHCVER=7.10.1 LIBRARY=amazonka
+    - GHCVER=7.10.1 LIBRARY=amazonka-ec2
+    - GHCVER=7.10.1 LIBRARY=amazonka-s3
+    - GHCVER=7.10.1 LIBRARY=amazonka-iam
+    - GHCVER=7.10.1 LIBRARY=amazonka-autoscaling
+    - GHCVER=7.10.1 LIBRARY=amazonka-dynamodb
+    - GHCVER=7.10.1 LIBRARY=amazonka-elb
+    - GHCVER=7.10.1 LIBRARY=amazonka-sqs
+    - GHCVER=7.10.1 LIBRARY=amazonka-sns
+    - GHCVER=7.10.1 LIBRARY=amazonka-sdb
+    - GHCVER=7.10.1 LIBRARY=amazonka-ses
+    # Standard Priority
+    - GHCVER=7.10.1 LIBRARY=amazonka-route53
+    - GHCVER=7.10.1 LIBRARY=amazonka-cloudformation
+    - GHCVER=7.10.1 LIBRARY=amazonka-cloudfront
+    - GHCVER=7.10.1 LIBRARY=amazonka-cloudhsm
+    - GHCVER=7.10.1 LIBRARY=amazonka-cloudsearch
+    - GHCVER=7.10.1 LIBRARY=amazonka-cloudsearch-domains
+    - GHCVER=7.10.1 LIBRARY=amazonka-cloudtrail
+    - GHCVER=7.10.1 LIBRARY=amazonka-cloudwatch
+    - GHCVER=7.10.1 LIBRARY=amazonka-cloudwatch-logs
+    - GHCVER=7.10.1 LIBRARY=amazonka-codecommit
+    - GHCVER=7.10.1 LIBRARY=amazonka-codedeploy
+    - GHCVER=7.10.1 LIBRARY=amazonka-codepipeline
+    - GHCVER=7.10.1 LIBRARY=amazonka-cognito-identity
+    - GHCVER=7.10.1 LIBRARY=amazonka-cognito-sync
+    - GHCVER=7.10.1 LIBRARY=amazonka-config
+    - GHCVER=7.10.1 LIBRARY=amazonka-datapipeline
+    - GHCVER=7.10.1 LIBRARY=amazonka-devicefarm
+    - GHCVER=7.10.1 LIBRARY=amazonka-directconnect
+    - GHCVER=7.10.1 LIBRARY=amazonka-ds
+    - GHCVER=7.10.1 LIBRARY=amazonka-dynamodb-streams
+    - GHCVER=7.10.1 LIBRARY=amazonka-ecs
+    - GHCVER=7.10.1 LIBRARY=amazonka-efs
+    - GHCVER=7.10.1 LIBRARY=amazonka-elasticache
+    - GHCVER=7.10.1 LIBRARY=amazonka-elasticbeanstalk
+    - GHCVER=7.10.1 LIBRARY=amazonka-elastictranscoder
+    - GHCVER=7.10.1 LIBRARY=amazonka-emr
+    - GHCVER=7.10.1 LIBRARY=amazonka-glacier
+    - GHCVER=7.10.1 LIBRARY=amazonka-importexport
+    - GHCVER=7.10.1 LIBRARY=amazonka-kinesis
+    - GHCVER=7.10.1 LIBRARY=amazonka-kms
+    - GHCVER=7.10.1 LIBRARY=amazonka-lambda
+    - GHCVER=7.10.1 LIBRARY=amazonka-ml
+    - GHCVER=7.10.1 LIBRARY=amazonka-opsworks
+    - GHCVER=7.10.1 LIBRARY=amazonka-rds
+    - GHCVER=7.10.1 LIBRARY=amazonka-redshift
+    - GHCVER=7.10.1 LIBRARY=amazonka-route53-domains
+    - GHCVER=7.10.1 LIBRARY=amazonka-ssm
+    - GHCVER=7.10.1 LIBRARY=amazonka-storagegateway
+    - GHCVER=7.10.1 LIBRARY=amazonka-sts
+    - GHCVER=7.10.1 LIBRARY=amazonka-support
+    - GHCVER=7.10.1 LIBRARY=amazonka-swf
+    - GHCVER=7.10.1 LIBRARY=amazonka-workspaces
+    # Documentation
+    - GHCVER=7.10.1 LIBRARY=documentation
 
 sudo: false
 
 addons:
   apt:
     sources:
-      - 'hvr-ghc'
+      - hvr-ghc
     packages:
-      - 'ghc-7.10.1'
+      - ghc-7.10.1
 
 cache:
   directories:
-  - ~/.stack
+    - ~/.stack
 
 branches:
   only:
     - master
     - develop
-    - '/^feature\/.*$/'
+    - /^feature\\/.*$/
 
 before_install:
-  # GHC
-  - 'export PATH=/opt/ghc/$GHCVER/bin:$PATH'
-  - 'ghc --version'
-  # Stack
-  - './script/travis-stack'
-  - 'export PATH=~/.local/bin:$PATH'
-  - 'stack --version'
+  - export PATH=/opt/ghc/$GHCVER/bin:$PATH
+  - ghc --version
+  - ./script/travis-stack
+  - export PATH=~/.local/bin:$PATH
+  - stack --version
 
 install:
-  - './script/travis-timeout stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml setup'
-  - './script/travis-timeout stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY --only-snapshot'
+  - ./script/travis-install
 
 script:
-  - 'stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY'
+  - ./script/travis-script

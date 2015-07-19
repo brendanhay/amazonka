@@ -61,9 +61,9 @@ sudo: false
 addons:
   apt:
     sources:
-      - hvr-ghc
+      - 'hvr-ghc'
     packages:
-      - ghc-7.10.1
+      - 'ghc-7.10.1'
 
 cache:
   directories:
@@ -73,20 +73,20 @@ branches:
   only:
     - master
     - develop
-    - /^feature\/.*$/
+    - '/^feature\/.*$/'
 
 before_install:
   # GHC
-  - export PATH=/opt/ghc/$GHCVER/bin:$PATH
-  - ghc --version
+  - 'export PATH=/opt/ghc/$GHCVER/bin:$PATH'
+  - 'ghc --version'
   # Stack
-  - ./script/travis-stack
-  - export PATH=~/.local/bin:$PATH
-  - stack --version
+  - './script/travis-stack'
+  - 'export PATH=~/.local/bin:$PATH'
+  - 'stack --version'
 
 install:
-  - ./script/travis-timeout stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml setup
-  - ./script/travis-timeout stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY --only-snapshot
+  - './script/travis-timeout stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml setup'
+  - './script/travis-timeout stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY --only-snapshot'
 
 script:
-  - stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY
+  - 'stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY'

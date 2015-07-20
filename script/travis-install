@@ -2,8 +2,8 @@
 
 set -e
 
-${GHCVER?"GHCVER needs to be set."}
-${LIBRARY?"LIBRARY needs to be set."}
+GHCVER=${GHCVER?"GHCVER needs to be set."}
+LIBRARY=${LIBRARY?"LIBRARY needs to be set."}
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 

@@ -7,8 +7,8 @@ LIBRARY=${LIBRARY?"LIBRARY needs to be set."}
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
-$path/script/travis-timeout \
+$path/travis-timeout \
     stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml setup
 
-$path/script/travis-timeout \
+$path/travis-timeout \
     stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml test $LIBRARY --only-snapshot

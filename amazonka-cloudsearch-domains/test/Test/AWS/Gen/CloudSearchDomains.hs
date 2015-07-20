@@ -83,21 +83,3 @@ testSearchResponse = res
     "SearchResponse"
     "fixture/SearchResponse"
     (Proxy :: Proxy Search)
-
-instance Out Bucket
-instance Out BucketInfo
-instance Out ContentType
-instance Out DocumentServiceWarning
-instance Out Hit
-instance Out Hits
-instance Out QueryParser
-instance Out Search
-instance Out SearchResponse
-instance Out SearchStatus
-instance Out Suggest
-instance Out SuggestModel
-instance Out SuggestResponse
-instance Out SuggestStatus
-instance Out SuggestionMatch
-instance Out UploadDocuments
-instance Out UploadDocumentsResponse

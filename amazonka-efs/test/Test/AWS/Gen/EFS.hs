@@ -224,29 +224,3 @@ testCreateMountTargetResponse = res
     "CreateMountTargetResponse"
     "fixture/CreateMountTargetResponse"
     (Proxy :: Proxy CreateMountTarget)
-
-instance Out CreateFileSystem
-instance Out CreateMountTarget
-instance Out CreateTags
-instance Out CreateTagsResponse
-instance Out DeleteFileSystem
-instance Out DeleteFileSystemResponse
-instance Out DeleteMountTarget
-instance Out DeleteMountTargetResponse
-instance Out DeleteTags
-instance Out DeleteTagsResponse
-instance Out DescribeFileSystems
-instance Out DescribeFileSystemsResponse
-instance Out DescribeMountTargetSecurityGroups
-instance Out DescribeMountTargetSecurityGroupsResponse
-instance Out DescribeMountTargets
-instance Out DescribeMountTargetsResponse
-instance Out DescribeTags
-instance Out DescribeTagsResponse
-instance Out FileSystemDescription
-instance Out FileSystemSize
-instance Out LifeCycleState
-instance Out ModifyMountTargetSecurityGroups
-instance Out ModifyMountTargetSecurityGroupsResponse
-instance Out MountTargetDescription
-instance Out Tag

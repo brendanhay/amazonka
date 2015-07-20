@@ -224,31 +224,3 @@ testBatchGetRepositoriesResponse = res
     "BatchGetRepositoriesResponse"
     "fixture/BatchGetRepositoriesResponse"
     (Proxy :: Proxy BatchGetRepositories)
-
-instance Out BatchGetRepositories
-instance Out BatchGetRepositoriesResponse
-instance Out BranchInfo
-instance Out CreateBranch
-instance Out CreateBranchResponse
-instance Out CreateRepository
-instance Out CreateRepositoryResponse
-instance Out DeleteRepository
-instance Out DeleteRepositoryResponse
-instance Out GetBranch
-instance Out GetBranchResponse
-instance Out GetRepository
-instance Out GetRepositoryResponse
-instance Out ListBranches
-instance Out ListBranchesResponse
-instance Out ListRepositories
-instance Out ListRepositoriesResponse
-instance Out OrderEnum
-instance Out RepositoryMetadata
-instance Out RepositoryNameIdPair
-instance Out SortByEnum
-instance Out UpdateDefaultBranch
-instance Out UpdateDefaultBranchResponse
-instance Out UpdateRepositoryDescription
-instance Out UpdateRepositoryDescriptionResponse
-instance Out UpdateRepositoryName
-instance Out UpdateRepositoryNameResponse

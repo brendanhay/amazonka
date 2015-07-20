@@ -207,30 +207,3 @@ testDeleteDomainResponse = res
     "DeleteDomainResponse"
     "fixture/DeleteDomainResponse"
     (Proxy :: Proxy DeleteDomain)
-
-instance Out Attribute
-instance Out BatchDeleteAttributes
-instance Out BatchDeleteAttributesResponse
-instance Out BatchPutAttributes
-instance Out BatchPutAttributesResponse
-instance Out CreateDomain
-instance Out CreateDomainResponse
-instance Out DeletableItem
-instance Out DeleteAttributes
-instance Out DeleteAttributesResponse
-instance Out DeleteDomain
-instance Out DeleteDomainResponse
-instance Out DomainMetadata
-instance Out DomainMetadataResponse
-instance Out GetAttributes
-instance Out GetAttributesResponse
-instance Out Item
-instance Out ListDomains
-instance Out ListDomainsResponse
-instance Out PutAttributes
-instance Out PutAttributesResponse
-instance Out ReplaceableAttribute
-instance Out ReplaceableItem
-instance Out Select
-instance Out SelectResponse
-instance Out UpdateCondition

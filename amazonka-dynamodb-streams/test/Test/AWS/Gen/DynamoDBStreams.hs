@@ -105,25 +105,3 @@ testDescribeStreamResponse = res
     "DescribeStreamResponse"
     "fixture/DescribeStreamResponse"
     (Proxy :: Proxy DescribeStream)
-
-instance Out AttributeValue
-instance Out DescribeStream
-instance Out DescribeStreamResponse
-instance Out GetRecords
-instance Out GetRecordsResponse
-instance Out GetShardIterator
-instance Out GetShardIteratorResponse
-instance Out KeySchemaElement
-instance Out KeyType
-instance Out ListStreams
-instance Out ListStreamsResponse
-instance Out OperationType
-instance Out Record
-instance Out SequenceNumberRange
-instance Out Shard
-instance Out ShardIteratorType
-instance Out Stream
-instance Out StreamDescription
-instance Out StreamRecord
-instance Out StreamStatus
-instance Out StreamViewType

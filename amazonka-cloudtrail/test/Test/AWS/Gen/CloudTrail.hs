@@ -173,25 +173,3 @@ testStartLoggingResponse = res
     "StartLoggingResponse"
     "fixture/StartLoggingResponse"
     (Proxy :: Proxy StartLogging)
-
-instance Out CreateTrail
-instance Out CreateTrailResponse
-instance Out DeleteTrail
-instance Out DeleteTrailResponse
-instance Out DescribeTrails
-instance Out DescribeTrailsResponse
-instance Out Event
-instance Out GetTrailStatus
-instance Out GetTrailStatusResponse
-instance Out LookupAttribute
-instance Out LookupAttributeKey
-instance Out LookupEvents
-instance Out LookupEventsResponse
-instance Out Resource
-instance Out StartLogging
-instance Out StartLoggingResponse
-instance Out StopLogging
-instance Out StopLoggingResponse
-instance Out Trail
-instance Out UpdateTrail
-instance Out UpdateTrailResponse

@@ -309,36 +309,3 @@ testGetPolicyResponse = res
     "GetPolicyResponse"
     "fixture/GetPolicyResponse"
     (Proxy :: Proxy GetPolicy)
-
-instance Out AddPermission
-instance Out AddPermissionResponse
-instance Out CreateEventSourceMapping
-instance Out CreateFunction
-instance Out DeleteEventSourceMapping
-instance Out DeleteFunction
-instance Out DeleteFunctionResponse
-instance Out EventSourceMappingConfiguration
-instance Out EventSourcePosition
-instance Out FunctionCode
-instance Out FunctionCodeLocation
-instance Out FunctionConfiguration
-instance Out GetEventSourceMapping
-instance Out GetFunction
-instance Out GetFunctionConfiguration
-instance Out GetFunctionResponse
-instance Out GetPolicy
-instance Out GetPolicyResponse
-instance Out InvocationType
-instance Out Invoke
-instance Out InvokeResponse
-instance Out ListEventSourceMappings
-instance Out ListEventSourceMappingsResponse
-instance Out ListFunctions
-instance Out ListFunctionsResponse
-instance Out LogType
-instance Out RemovePermission
-instance Out RemovePermissionResponse
-instance Out Runtime
-instance Out UpdateEventSourceMapping
-instance Out UpdateFunctionCode
-instance Out UpdateFunctionConfiguration

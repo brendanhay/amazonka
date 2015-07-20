@@ -139,19 +139,3 @@ testCancelJobResponse = res
     "CancelJobResponse"
     "fixture/CancelJobResponse"
     (Proxy :: Proxy CancelJob)
-
-instance Out Artifact
-instance Out CancelJob
-instance Out CancelJobResponse
-instance Out CreateJob
-instance Out CreateJobResponse
-instance Out GetShippingLabel
-instance Out GetShippingLabelResponse
-instance Out GetStatus
-instance Out GetStatusResponse
-instance Out Job
-instance Out JobType
-instance Out ListJobs
-instance Out ListJobsResponse
-instance Out UpdateJob
-instance Out UpdateJobResponse

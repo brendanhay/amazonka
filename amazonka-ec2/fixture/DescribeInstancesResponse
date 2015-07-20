@@ -55,7 +55,7 @@
               <ebs>
                 <volumeId>vol-1a2b3c4d</volumeId>
                 <status>attached</status>
-                <attachTime>2014-05-19T10:48:12.345Z</attachTime>
+                <attachTime>2014-03-18T21:47:02+0000</attachTime>
                 <deleteOnTermination>true</deleteOnTermination>
               </ebs>
             </item>
@@ -97,24 +97,6 @@
                 <publicIp>198.51.100.63</publicIp>
                 <ipOwnerId>123456789012</ipOwnerId>
               </association>
-              <privateIpAddressesSet>
-                <item>
-                  <privateIpAddress>10.0.0.12</privateIpAddress>
-                  <primary>true</primary>
-                  <association>
-                    <publicIp>198.51.100.63</publicIp>
-                    <ipOwnerId>123456789012</ipOwnerId>
-                  </association>
-                </item>
-                <item>
-                  <privateIpAddress>10.0.0.14</privateIpAddress>
-                  <primary>false</primary>
-                  <association>
-                    <publicIp>198.51.100.177</publicIp>
-                    <ipOwnerId>123456789012</ipOwnerId>
-                  </association>
-                </item>
-              </privateIpAddressesSet>
             </item>
           </networkInterfaceSet>
         </item>

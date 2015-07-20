@@ -37,19 +37,12 @@ fixtures =
                         ]
 
                     & resInstances .~
-                        [ instance'
-                            "i-1a2b3c4d"
-                            "ami-1a2b3c4d"
-                            0
-                            C1_Medium
+                        [ instance' "i-1a2b3c4d" "ami-1a2b3c4d" 0 C1_Medium
                             $(mkTime "2014-03-18T21:47:02+0000")
-                            (placement & plaAvailabilityZone ?~ "us-east-1a"
+                            (placement & plaAvailabilityZone ?~ "us-west-2a"
                                        & plaTenancy          ?~ Default)
                             (monitoring & monState ?~ MSDisabled)
-                            X86_64
-                            EBS
-                            HVM
-                            Xen
+                            X86_64 EBS HVM Xen
                             (instanceState ISNRunning 16)
                                 & insPlatform            ?~ PVWindows
                                 & insClientToken         ?~ "ABCDE1234567890123"
@@ -61,48 +54,57 @@ fixtures =
                                 & insPrivateIPAddress    ?~ "10.0.0.12"
                                 & insPublicIPAddress     ?~ "46.51.219.63"
                                 & insTags                .~ [tag "Name" "Windows Instance"]
-                                & insNetworkInterfaces   .~ []
-                                & insBlockDeviceMappings .~ []
---                                    [InstanceBlockDeviceMapping' {ibdmEBS ?~ (EBSInstanceBlockDevice' {eibdDeleteOnTermination ?~ True
+                                & insState               .~ instanceState ISNRunning 16
+                                & insSecurityGroups      .~
+                                    [ groupIdentifier
+                                        & giGroupId   ?~ "sg-1a2b3c4d"
+                                        & giGroupName ?~ "my-security-group"
+                                    ]
+
+                                & insBlockDeviceMappings .~
+                                    [ instanceBlockDeviceMapping
+                                        & ibdmDeviceName ?~ "/dev/sda1"
+                                        & ibdmEBS        ?~
+                                            (ebsInstanceBlockDevice
+                                                & eibdDeleteOnTermination ?~ True
+                                                & eibdStatus              ?~ Attached
+                                                & eibdVolumeId            ?~ "vol-1a2b3c4d"
+                                                & eibdAttachTime          ?~ $(mkTime "2014-03-18T21:47:02+0000"))
+                                    ]
+
+                                & insNetworkInterfaces   .~
+                                    [ instanceNetworkInterface
+                                        & iniStatus              ?~ NISInUse
+                                        & iniSourceDestCheck     ?~ True
+                                        & iniVPCId               ?~ "vpc-1a2b3c4d"
+                                        & iniNetworkInterfaceId  ?~ "eni-1a2b3c4d"
+                                        & iniSubnetId            ?~ "subnet-1a2b3c4d"
+                                        & iniMACAddress          ?~ "1b:2b:3c:4d:5e:6f"
+                                        & iniOwnerId             ?~ "123456789012"
+                                        & iniPrivateIPAddress    ?~ "10.0.0.12"
+                                        & iniDescription         ?~ "Primary network interface"
+                                        & iniAttachment          ?~
+                                            (instanceNetworkInterfaceAttachment
+                                                & iniaDeleteOnTermination ?~ True
+                                                & iniaStatus              ?~ Attached
+                                                & iniaAttachmentId        ?~ "eni-attach-1a2b3c4d"
+                                                & iniaAttachTime          ?~ $(mkTime "2014-03-18T21:47:02+0000")
+                                                & iniaDeviceIndex         ?~ 0)
+
+                                        & iniAssociation         ?~
+                                            (instanceNetworkInterfaceAssociation
+                                                & iniaIPOwnerId  ?~ "123456789012"
+                                                & iniaPublicIP   ?~ "198.51.100.63")
+
+                                        & iniGroups              .~
+                                            [ groupIdentifier
+                                                & giGroupId   ?~ "sg-1a2b3c4d"
+                                                & giGroupName ?~ "my-security-group"
+                                            ]
+                                    ]
 
                         ]
                 ]
         ]
     ]
--- insState                                        .~ instanceState' {isName .~ ISNRunning & isCode .~ 16}}]
-
- -- iniStatus              ?~ NISINUse
- -- iniSourceDestCheck     ?~ True
- -- iniVPCId               ?~ "vpc-1a2b3c4d"
- -- iniNetworkInterfaceId  ?~ "eni-1a2b3c4d"
- -- iniSubnetId            ?~ "subnet-1a2b3c4d"
- -- iniAttachment          ?~ (InstanceNetworkInterfaceAttachment' {iniaDeleteOnTermination ?~ True
- -- iniGroups              .~
- --     [ groupIdentifier & giGroupId ?~ "sg-1a2b3c4d" & giGroupName ?~ "my-security-group"
- --     ]
-
- -- ipiaPrivateIPAddress   ?~ "10.0.0.12"
- -- ipiaAssociation        ?~ (InstanceNetworkInterfaceAssociation' {iniaPublicDNSName = Nothing
- -- iniaIPOwnerId          ?~ "123456789012"
- -- iniaPublicIP           ?~ "198.51.100.63"})},InstancePrivateIPAddress' {ipiaPrimary ?~ False
- -- ipiaPrivateIPAddress   ?~ "10.0.0.14"
- -- ipiaAssociation        ?~ (InstanceNetworkInterfaceAssociation' {iniaPublicDNSName = Nothing
- -- iniaIPOwnerId          ?~ "123456789012"
- -- iniaPublicIP           ?~ "198.51.100.177"})}]
- -- iniaStatus             ?~ Attached
- -- iniaAttachmentId       ?~ "eni-attach-1a2b3c4d"
- -- iniaAttachTime         ?~ (Time 2014-03-18 21:47:02 UTC)
- -- iniaDeviceIndex        ?~ 0})
- -- iniMACAddress          ?~ "1b:2b:3c:4d:5e:6f"
- -- iniOwnerId             ?~ "123456789012"
- -- iniPrivateIPAddress    ?~ "10.0.0.12"
- -- iniDescription         ?~ "Primary network interface"
- -- iniAssociation         ?~ (InstanceNetworkInterfaceAssociation' {iniaPublicDNSName = Nothing
- -- iniaIPOwnerId          ?~ "123456789012"
- -- iniaPublicIP           ?~ "198.51.100.63"})}]
- -- eibdStatus             ?~ Attached
- -- eibdVolumeId           ?~ "vol-1a2b3c4d"
- -- eibdAttachTime         ?~ (Time 2014-05-19 10:48:12.345 UTC)})
- -- ibdmDeviceName         ?~ "/dev/sda1"}]
- -- plaTenancy             ?~ Default}
 

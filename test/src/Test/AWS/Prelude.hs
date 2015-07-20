@@ -10,6 +10,6 @@ module Test.AWS.Prelude
     ( module Export
     ) where
 
-import           Test.AWS.Orphans               as Export
-import           Test.AWS.TH                    as Export
-import           Text.PrettyPrint.GenericPretty as Export
+import           Test.AWS.Assert  as Export
+import           Test.AWS.Orphans as Export
+import           Test.AWS.TH      as Export

@@ -7,7 +7,8 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Prelude
-    ( module Export
+    ( module Network.AWS.Prelude
+    , module Export
     ) where
 
 import           Control.Applicative         as Export ((<$>), (<*>), (<|>))
@@ -42,3 +43,12 @@ import           Network.AWS.Types           as Export hiding (AccessKey,
                                                         SecretKey)
 import           Network.HTTP.Types.Status   as Export (Status (..))
 import           Numeric.Natural             as Export (Natural)
+
+infixl 7 .!@
+
+(.!@) :: Functor f => f (Maybe a) -> a -> f a
+f .!@ x = fromMaybe x <$> f
+
+may :: Applicative f => ([a] -> f b) -> [a] -> f (Maybe b)
+may f [] = pure Nothing
+may f xs = Just <$> f xs

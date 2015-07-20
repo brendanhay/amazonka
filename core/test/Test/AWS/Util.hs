@@ -2,10 +2,7 @@
 
 -- Module      : Test.AWS.Util
 -- Copyright   : (c) 2013-2015 Brendan Hay
--- License     : This Source Code Form is subject to the terms of
---               the Mozilla Public License, v. 2.0.
---               A copy of the MPL can be found in the LICENSE file or
---               you can obtain it at http://mozilla.org/MPL/2.0/.
+-- License     : Mozilla Public License, v. 2.0.
 -- Maintainer  : Brendan Hay <brendan.g.hay@gmail.com>
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
@@ -18,6 +15,13 @@ import           Language.Haskell.TH
 import           Language.Haskell.TH.Quote
 import           Network.AWS.Prelude
 import           Test.Tasty.HUnit
+
+-- | Dummy root XML element for testing nested structures.
+newtype Root a = Root a
+    deriving (Eq, Show)
+
+instance FromXML a => FromXML (Root a) where
+    parseXML x = Root <$> parseXML x
 
 assertXML :: (FromXML a, Show a, Eq a) => LazyByteString -> a -> Assertion
 assertXML s x = (decodeXML s >>= parseXML) @?= Right x

@@ -195,21 +195,10 @@ instance ToJSON Library where
             , "operationModules" .= sort (l ^.  operationModules)
             , "exposedModules"   .= sort (l ^.  exposedModules)
             , "otherModules"     .= sort (l ^.  otherModules)
-            , "operations"       .= os
-            , "shapes"           .= ss
-            , "types"            .= ts
+            , "operations"       .= (l ^.. operations . each)
+            , "shapes"           .= sort (l ^.. shapes . each)
             , "waiters"          .= (l ^.. waiters . each)
             ]
-
-        os = l ^.. operations . each
-        ss = sort (l ^.. shapes . each)
-
-        ts = Map.fromList
-            [(typeId (identifier d), d) | d <- concatMap f os ++ ss]
-
-        f o = [ o ^. opInput  . _Identity
-              , o ^. opOutput . _Identity
-              ]
 
 -- FIXME: Remove explicit construction of getters, just use functions.
 libraryNS, typesNS, sumNS, productNS, waitersNS, fixturesNS :: Getter Library NS

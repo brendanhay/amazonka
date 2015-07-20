@@ -20,6 +20,7 @@ library
 
     exposed-modules:
           Test.AWS.Assert
+        , Test.AWS.Diff
         , Test.AWS.Fixture
         , Test.AWS.Orphans
         , Test.AWS.Prelude
@@ -28,25 +29,21 @@ library
     build-depends:
           aeson
         , amazonka-core
-        , attoparsec
         , base
         , bifunctors
         , bytestring
         , case-insensitive
         , conduit
         , conduit-extra
-        , directory
-        , filepath
-        , GenericPretty
+        , groom
         , http-client
         , http-types
-        , pretty
-        , pretty-show
+        , process
         , resourcet
         , tasty
-        , tasty-golden
         , tasty-hunit
         , template-haskell
+        , temporary
         , text
         , time
         , unordered-containers

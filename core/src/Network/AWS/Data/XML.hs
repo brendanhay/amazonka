@@ -44,22 +44,15 @@ module Network.AWS.Data.XML where
 
 import           Control.Applicative
 import           Control.Monad
-import           Data.Hashable
-import           Data.HashMap.Strict         (HashMap)
-import qualified Data.HashMap.Strict         as Map
-import           Data.List.NonEmpty          (NonEmpty (..))
-import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Maybe
 import           Data.Monoid
-import           Data.Text                   (Text)
-import qualified Data.Text                   as Text
 import           GHC.Exts
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text
 import           Numeric.Natural
 import           Text.XML
 
-infixl 7 .@, .@?, .!@
+infixl 7 .@, .@?
 
 (.@) :: FromXML a => [Node] -> Text -> Either String a
 ns .@ n = findElement n ns >>= parseXML
@@ -69,15 +62,6 @@ ns .@? n =
     case findElement n ns of
         Left _   -> Right Nothing
         Right xs -> parseXML xs
-
--- FIXME: .!@ and may can be moved somewhere else.
-
-(.!@) :: Functor f => f (Maybe a) -> a -> f a
-f .!@ x = fromMaybe x <$> f
-
-may :: Applicative f => ([a] -> f b) -> [a] -> f (Maybe b)
-may f [] = pure Nothing
-may f xs = Just <$> f xs
 
 infixr 7 @=
 

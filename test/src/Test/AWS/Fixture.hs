@@ -21,45 +21,38 @@ module Test.AWS.Fixture where
 
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
-import qualified Data.Attoparsec.ByteString     as B
-import qualified Data.Attoparsec.Text           as A
 import           Data.Bifunctor
-import qualified Data.ByteString                as BS
-import qualified Data.ByteString.Char8          as BS8
-import qualified Data.ByteString.Lazy           as LBS
+import qualified Data.ByteString              as BS
+import qualified Data.ByteString.Char8        as BS8
+import qualified Data.ByteString.Lazy         as LBS
 import           Data.Conduit
-import qualified Data.Conduit.Binary            as Conduit
-import qualified Data.HashMap.Strict            as Map
-import           Data.List                      (sortBy)
+import qualified Data.Conduit.Binary          as Conduit
+import qualified Data.HashMap.Strict          as Map
+import           Data.List                    (sortBy)
 import           Data.Ord
 import           Data.Proxy
-import qualified Data.Text                      as Text
-import qualified Data.Text.Encoding             as Text
+import qualified Data.Text                    as Text
+import qualified Data.Text.Encoding           as Text
 import           Data.Time
 import           Data.Typeable
-import           Data.Yaml
-import           GHC.Generics                   (Generic)
+import qualified Data.Yaml                    as YAML
+import           GHC.Generics                 (Generic)
 import           Language.Haskell.TH
 import           Language.Haskell.TH.Quote
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.XML
-import           Network.AWS.Prelude            hiding ((<.>))
+import           Network.AWS.Prelude          hiding ((<.>))
 import           Network.AWS.Types
-import           Network.HTTP.Client.Internal   hiding (Proxy, Request,
-                                                 Response)
-import qualified Network.HTTP.Client.Internal   as Client
+import           Network.HTTP.Client.Internal hiding (Proxy, Request, Response)
+import qualified Network.HTTP.Client.Internal as Client
 import           Network.HTTP.Types
-import           System.Directory
-import           System.FilePath
 import           Test.AWS.Assert
 import           Test.AWS.Orphans
 import           Test.AWS.TH
 import           Test.Tasty
-import           Test.Tasty.Golden
 import           Test.Tasty.HUnit
-import           Text.PrettyPrint.GenericPretty
 
-res :: (AWSRequest a, Eq (Rs a), Out (Rs a))
+res :: (AWSRequest a, Eq (Rs a), Show (Rs a))
     => TestName
     -> FilePath
     -> Proxy a
@@ -68,18 +61,17 @@ res :: (AWSRequest a, Eq (Rs a), Out (Rs a))
 res n f p e = testCase n $
         LBS.readFile f
     >>= testResponse p
-    >>= assertEqualPP f e
+    >>= assertDiff f e
 
-req :: (AWSRequest a, Eq a, Out a)
+req :: (AWSRequest a, Eq a, Show a)
     => TestName
     -> FilePath
     -> a
     -> TestTree
 req n f e = testCase n $ do
-    a  <- decodeFileEither f
+    a  <- YAML.decodeFileEither f
     e' <- expected
-    assertEqualPP f e' (first show a)
-
+    assertDiff f e' (first show a)
   where
     expected = do
         let rq = request e
@@ -132,12 +124,10 @@ data Req = Req
     , _query   :: SimpleQuery
     , _headers :: [Header]
     , _body    :: ByteString
-    } deriving (Eq, Generic)
+    } deriving (Eq, Show, Generic)
 
 mkReq :: Method -> ByteString -> SimpleQuery -> [Header] -> ByteString -> Req
 mkReq m p q h b = Req m p (sortKeys q) (sortKeys h) b
-
-instance Out Req
 
 instance FromJSON Req where
     parseJSON = withObject "req" $ \o -> mkReq

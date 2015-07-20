@@ -57,12 +57,3 @@ test{{ op.value.name }}Response = res
     (Proxy :: Proxy {{ op.value.input.name }})
   {% endif %}
 {% endfor %}
-
-{% for ty in types %}
-  {% case ty.value.type %}
-  {% when "product" %}
-instance Out {{ ty.value.name }}
-  {% when "sum" %}
-instance Out {{ ty.value.name }}
-  {% endcase %}
-{% endfor %}

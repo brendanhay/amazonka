@@ -1,6 +1,7 @@
 resolver:   nightly-2015-07-15
 flags:      {}
-extra-deps: []
+extra-deps:
+  - groom-0.1.2
 packages:
   - core
   - test

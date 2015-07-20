@@ -9,22 +9,18 @@
 module Test.AWS.Assert where
 
 import           Control.Monad
+import           Test.AWS.Diff
 import           Test.AWS.Orphans
 import           Test.Tasty
-import           Test.Tasty.Golden
 import           Test.Tasty.HUnit
-import           Text.PrettyPrint
-import           Text.PrettyPrint.GenericPretty
 
-assertEqualPP :: (Eq a, Out a) => String -> a -> Either String a -> Assertion
-assertEqualPP _ _ (Left  m) = assertFailure m
-assertEqualPP n e (Right a) = unless (e == a) (assertFailure msg)
+assertDiff :: (Eq a, Show a) => String -> a -> Either String a -> Assertion
+assertDiff _ _ (Left  m) = assertFailure m
+assertDiff n e (Right a) = unless (e == a) (msg >>= assertFailure)
   where
-    msg = "[Expected]:\n"    ++ prettyStyle s e
-     ++ "\n[" ++ n ++ "]:\n" ++ prettyStyle s a
-
-    s = Style
-        { mode           = PageMode
-        , lineLength     = 80
-        , ribbonsPerLine = 1.5
-        }
+    msg = do
+        d <- diff e a
+        return $! "[Expected]:\n"      ++ show e
+               ++ "\n[" ++ n ++ "]:\n" ++ show a
+               ++ "\n"
+               ++ d

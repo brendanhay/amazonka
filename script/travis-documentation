@@ -10,13 +10,13 @@ target=doc
 platform=x86_64-linux
 resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack-$GHCVER.yaml)
 
+targets=( $(stack path | sed -n 's/^.*-pkg-db: *\(.*\)$/\1/p') )
+packages=( "${targets[@]/#/--package-db }" )
+
 $path/travis-timeout \
     stack --no-terminal --skip-ghc-check install standalone-haddock
 
-standalone-haddock --hyperlink-source -o $target \
- --package-db $HOME/.stack/snapshots/$platform/$resolver/$GHCVER/pkgdb \
- --package-db .stack-work/install/$platform/$resolver/$GHCVER/pkgdb \
- core amazonka*
+standalone-haddock --hyperlink-source -o $target ${packages[*]} core amazonka*
 
 {
     cat <<-HTML

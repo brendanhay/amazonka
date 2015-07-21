@@ -1,0 +1,19 @@
+resolver:   lts-2.19
+flags:      {}
+extra-deps:
+  - groom-0.1.2
+  - cryptonite-0.5
+packages:
+  - core
+  - test
+  - amazonka
+  - amazonka-ec2
+  - amazonka-s3
+  - amazonka-iam
+  - amazonka-autoscaling
+  - amazonka-dynamodb
+  - amazonka-elb
+  - amazonka-sqs
+  - amazonka-sns
+  - amazonka-sdb
+  - amazonka-ses

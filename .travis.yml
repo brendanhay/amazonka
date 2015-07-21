@@ -7,8 +7,9 @@ env:
     # Documentation
     - GHCVER=7.10.1 LIBRARY=documentation
     # High Priority
-    - GHCVER=7.10.1 LIBRARY=amazonka-core
+    ## 7.10.1
     - GHCVER=7.10.1 LIBRARY=amazonka
+    - GHCVER=7.10.1 LIBRARY=amazonka-core
     - GHCVER=7.10.1 LIBRARY=amazonka-ec2
     - GHCVER=7.10.1 LIBRARY=amazonka-s3
     - GHCVER=7.10.1 LIBRARY=amazonka-iam
@@ -19,7 +20,21 @@ env:
     - GHCVER=7.10.1 LIBRARY=amazonka-sns
     - GHCVER=7.10.1 LIBRARY=amazonka-sdb
     - GHCVER=7.10.1 LIBRARY=amazonka-ses
+    ## 7.8.4
+    - GHCVER=7.8.4 LIBRARY=amazonka
+    - GHCVER=7.8.4 LIBRARY=amazonka-core
+    - GHCVER=7.8.4 LIBRARY=amazonka-ec2
+    - GHCVER=7.8.4 LIBRARY=amazonka-s3
+    - GHCVER=7.8.4 LIBRARY=amazonka-iam
+    - GHCVER=7.8.4 LIBRARY=amazonka-autoscaling
+    - GHCVER=7.8.4 LIBRARY=amazonka-dynamodb
+    - GHCVER=7.8.4 LIBRARY=amazonka-elb
+    - GHCVER=7.8.4 LIBRARY=amazonka-sqs
+    - GHCVER=7.8.4 LIBRARY=amazonka-sns
+    - GHCVER=7.8.4 LIBRARY=amazonka-sdb
+    - GHCVER=7.8.4 LIBRARY=amazonka-ses
     # Standard Priority
+    ## 7.10.1 only
     - GHCVER=7.10.1 LIBRARY=amazonka-route53
     - GHCVER=7.10.1 LIBRARY=amazonka-cloudformation
     - GHCVER=7.10.1 LIBRARY=amazonka-cloudfront
@@ -71,6 +86,7 @@ addons:
       - hvr-ghc
     packages:
       - ghc-7.10.1
+      - ghc-7.8.4
 
 cache:
   directories:

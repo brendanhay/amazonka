@@ -11,15 +11,18 @@ module Network.AWS.Prelude
     , module Export
     ) where
 
-import           Control.Applicative         as Export ((<$>), (<*>), (<|>))
+import           Control.Applicative         as Export (Applicative, (<$>),
+                                                        (<*>), (<|>))
 import           Control.Lens                as Export hiding ((.=))
 import           Data.Data                   as Export (Data, Typeable)
+import           Data.Foldable               as Export (Foldable)
 import           Data.Hashable               as Export (Hashable)
 import           Data.HashMap.Strict         as Export (HashMap)
 import           Data.List.NonEmpty          as Export (NonEmpty (..))
 import           Data.Maybe                  as Export
 import           Data.Monoid                 as Export (First, mconcat, mempty,
                                                         (<>))
+import           Data.Traversable            as Export (Traversable, traverse)
 import           GHC.Generics                as Export (Generic)
 import           Network.AWS.Data.Base64     as Export
 import           Network.AWS.Data.Body       as Export

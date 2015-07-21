@@ -19,16 +19,18 @@ module Network.AWS.Data.List1
     , parseXMLList1
     ) where
 
+import           Control.Applicative  (Applicative)
 import           Control.Lens         (Iso', iso)
 import           Control.Monad
 import           Data.Aeson
 import           Data.Coerce
 import           Data.Data            (Data, Typeable)
+import           Data.Foldable        (Foldable)
 import           Data.List.NonEmpty   (NonEmpty (..))
 import qualified Data.List.NonEmpty   as NonEmpty
 import           Data.Semigroup
 import           Data.Text            (Text)
-import           Data.Traversable     (traverse)
+import           Data.Traversable     (Traversable, traverse)
 import           GHC.Exts
 import           GHC.Generics         (Generic)
 import           Network.AWS.Data.XML

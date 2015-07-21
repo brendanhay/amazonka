@@ -11,3 +11,6 @@ mkdir -p $dir
 curl -L $remote | gunzip > $local
 
 chmod a+x $local
+
+ghc --version
+stack --version

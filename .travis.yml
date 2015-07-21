@@ -100,13 +100,11 @@ branches:
 
 before_install:
   - export PATH=/opt/ghc/$GHCVER/bin:$PATH
-  - ghc --version
-  - ./script/travis-stack
   - export PATH=~/.local/bin:$PATH
-  - stack --version
+  - ./script/travis-lifecycle-before_install
 
 install:
-  - ./script/travis-install
+  - ./script/travis-lifecycle-install
 
 script:
-  - ./script/travis-script
+  - ./script/travis-lifecycle-script

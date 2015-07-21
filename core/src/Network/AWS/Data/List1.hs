@@ -15,7 +15,7 @@
 --
 module Network.AWS.Data.List1 where
 
-import           Control.Applicative  (Applicative)
+import           Control.Applicative
 import           Control.Lens         (Iso', iso)
 import           Control.Monad
 import           Data.Aeson

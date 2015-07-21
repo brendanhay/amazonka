@@ -11,8 +11,8 @@ module Network.AWS.Prelude
     , module Export
     ) where
 
-import           Control.Applicative         as Export (Applicative, (<$>),
-                                                        (<*>), (<|>))
+import           Control.Applicative         as Export (Applicative, pure,
+                                                        (<$>), (<*>), (<|>))
 import           Control.Lens                as Export hiding ((.=))
 import           Data.Data                   as Export (Data, Typeable)
 import           Data.Foldable               as Export (Foldable)

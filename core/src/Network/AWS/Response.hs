@@ -14,6 +14,7 @@
 --
 module Network.AWS.Response where
 
+import           Control.Applicative
 import           Control.Monad.Trans.Resource
 import           Data.Aeson
 import           Data.Conduit

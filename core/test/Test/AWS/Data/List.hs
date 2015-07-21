@@ -13,7 +13,6 @@
 module Test.AWS.Data.List (tests) where
 
 import           Network.AWS.Prelude
-import           Network.AWS.Prelude
 import           Test.AWS.Util
 import           Test.Tasty
 import           Test.Tasty.HUnit

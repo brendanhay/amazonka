@@ -31,6 +31,7 @@ module Network.AWS.Waiter
     , nonEmpty
     ) where
 
+import           Control.Applicative
 import           Control.Lens
 import           Data.Maybe
 import           Data.Text                   (Text)

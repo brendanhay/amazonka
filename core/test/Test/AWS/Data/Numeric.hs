@@ -10,6 +10,7 @@
 
 module Test.AWS.Data.Numeric (tests) where
 
+import           Control.Applicative
 import           Data.Aeson
 import           Network.AWS.Prelude
 import           Test.Tasty

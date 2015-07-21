@@ -23,6 +23,7 @@ module Network.AWS.Data.Map
     , toQueryMap
     ) where
 
+import           Control.Applicative
 import           Control.Lens                (Iso', iso)
 import           Data.Aeson
 import           Data.Bifunctor

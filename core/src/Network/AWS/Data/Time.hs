@@ -41,6 +41,7 @@ import           Data.Attoparsec.Text        (Parser)
 import qualified Data.Attoparsec.Text        as AText
 import qualified Data.ByteString.Char8       as BS
 import           Data.Data                   (Data, Typeable)
+import           Data.Monoid
 import           Data.Scientific
 import           Data.Tagged
 import qualified Data.Text                   as Text

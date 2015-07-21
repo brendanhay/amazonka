@@ -103,7 +103,7 @@ import           Control.Exception
 import           Control.Applicative
 import           Control.Concurrent           (ThreadId)
 import           Control.Lens                 hiding (coerce)
-import           Control.Monad.Except
+import           Control.Monad.IO.Class
 import           Control.Monad.Trans.Resource
 import           Data.Aeson                   hiding (Error)
 import           Data.ByteString.Builder      (Builder)

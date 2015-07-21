@@ -4,6 +4,8 @@ env:
     - secure: fxJPfu/icH+3w9nRcedFtqNumnpmo1vWAA7HBaeeCF0vnzTHBbD2ej3olyaDmFoJ9PaW84q5UKX3iU6BBXLmlestOZCcfQ9nDvVuIVpimIovO7QuZhnRYea0SaSRcXEgNE+nWEcsiiKWuVUnDEXAUQRCs04YQpAvgsUjMcZgXQw=
 
   matrix:
+    # Documentation
+    - GHCVER=7.10.1 LIBRARY=documentation
     # High Priority
     - GHCVER=7.10.1 LIBRARY=amazonka-core
     - GHCVER=7.10.1 LIBRARY=amazonka
@@ -60,8 +62,6 @@ env:
     - GHCVER=7.10.1 LIBRARY=amazonka-support
     - GHCVER=7.10.1 LIBRARY=amazonka-swf
     - GHCVER=7.10.1 LIBRARY=amazonka-workspaces
-    # Documentation
-    - GHCVER=7.10.1 LIBRARY=documentation
 
 sudo: false
 

@@ -13,11 +13,7 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Data.List1
-    ( List1 (..)
-    , _List1
-    , parseXMLList1
-    ) where
+module Network.AWS.Data.List1 where
 
 import           Control.Applicative  (Applicative)
 import           Control.Lens         (Iso', iso)
@@ -65,7 +61,8 @@ instance IsList (List1 a) where
 instance FromJSON a => FromJSON (List1 a) where
     parseJSON = withArray "List1" (go >=> traverse parseJSON)
       where
-        go = maybe (fail empty) (pure . List1)
+        go = maybe (fail "Error parsing empty List1 when expecting at least one element.")
+                   (pure . List1)
            . NonEmpty.nonEmpty
            . toList
 
@@ -79,9 +76,6 @@ parseXMLList1 :: FromXML a
 parseXMLList1 n = parseXMLList n >=> parse
   where
     parse xs =
-       maybe (Left $ empty ++ ": " ++ show n)
+       maybe (Left $ "Error parsing empty List1 when expecting at least one element: " ++ show n)
              (Right . List1)
              (NonEmpty.nonEmpty xs)
-
-empty :: String
-empty = "Error parsing empty List1 when expecting at least one element"

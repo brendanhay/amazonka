@@ -38,6 +38,7 @@ library
         , groom
         , http-client
         , http-types
+        , nats
         , process
         , resourcet
         , tasty

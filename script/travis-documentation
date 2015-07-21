@@ -5,6 +5,7 @@ set -e
 GHCVER=${GHCVER?"GHCVER needs to be set."}
 DOC_TOKEN=${DOC_TOKEN?"DOC_TOKEN needs to be set."}
 DOC_REF=${DOC_REF?"DOC_REF needs to be set."}
+BUILD_ID=${TRAVIS_BUILD_ID?"TRAVIS_BUILD_ID needs to be set."}
 BUILD_NUMBER=${TRAVIS_BUILD_NUMBER?"TRAVIS_BUILD_NUMBER needs to be set."}
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
@@ -34,7 +35,7 @@ $path/travis-timeout \
     cat <<-HTML
     <!DOCTYPE html>
     <h1>Amazonka Library Documentation</h1>
-    <h4>Build $BUILD_NUMBER</h4>
+    <h4><a href="https://travis-ci.org/brendanhay/amazonka/builds/${BUILD_ID}">Build #${BUILD_NUMBER}</a></h4>
     <ul>
 HTML
 

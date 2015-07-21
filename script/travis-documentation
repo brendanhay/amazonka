@@ -9,12 +9,13 @@ BUILD_NUMBER=${TRAVIS_BUILD_NUMBER?"TRAVIS_BUILD_NUMBER needs to be set."}
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 
-target=doc
+output=doc
 platform=x86_64-linux
 resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack-$GHCVER.yaml)
+targets=( core amazonka )
 
-targets=( $(stack path | sed -n 's/^.*-pkg-db: *\(.*\)$/\1/p') )
-packages=( "${targets[@]/#/--package-db }" )
+databases=( $(stack path | sed -n 's/^.*-pkg-db: *\(.*\)$/\1/p') )
+databases=( "${databases[@]/#/--package-db }" )
 
 $path/travis-timeout \
     stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml install \
@@ -22,12 +23,12 @@ $path/travis-timeout \
     hscolour
 
 $path/travis-timeout \
-    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build
+    stack --no-terminal --skip-ghc-check --stack-yaml stack-$GHCVER.yaml build \
+    ${targets[*]}
 
 $path/travis-timeout \
-    standalone-haddock --hyperlink-source -o $target ${packages[*]} \
-    core \
-    amazonka*
+    standalone-haddock --hyperlink-source -o $output ${databases[*]} \
+    ${targets[*]}
 
 {
     cat <<-HTML
@@ -37,7 +38,7 @@ $path/travis-timeout \
     <ul>
 HTML
 
-    for dir in $(ls -d $target/*/); do
+    for dir in $(ls -d $output/*/); do
         file=$(basename $dir)
         cat <<-HTML
         <li><a href="${file}/index.html">${file}</a></li>
@@ -47,11 +48,11 @@ HTML
     cat <<-HTML
     </ul>
 HTML
-} > $target/index.html
+} > $output/index.html
 
 set -x
 
-cd $target
+cd $output
 
 git init
 

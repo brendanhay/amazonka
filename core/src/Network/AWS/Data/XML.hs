@@ -19,6 +19,7 @@ import           Control.Applicative
 import           Control.Monad
 import           Data.Maybe
 import           Data.Monoid
+import           Data.Traversable            (traverse)
 import           GHC.Exts
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Text

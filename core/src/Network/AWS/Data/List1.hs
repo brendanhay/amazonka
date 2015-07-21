@@ -28,6 +28,7 @@ import           Data.List.NonEmpty   (NonEmpty (..))
 import qualified Data.List.NonEmpty   as NonEmpty
 import           Data.Semigroup
 import           Data.Text            (Text)
+import           Data.Traversable     (traverse)
 import           GHC.Exts
 import           GHC.Generics         (Generic)
 import           Network.AWS.Data.XML

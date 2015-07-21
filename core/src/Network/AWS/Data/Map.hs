@@ -36,6 +36,7 @@ import qualified Data.HashMap.Strict         as Map
 import           Data.Maybe
 import           Data.Semigroup
 import qualified Data.Text.Encoding          as Text
+import           Data.Traversable            (traverse)
 import           GHC.Exts
 import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString

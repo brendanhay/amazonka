@@ -30,7 +30,7 @@ import           Network.AWS.Data.XML
 
 -- | Base64 encoded binary data.
 --
--- Encoding/decoding is deferred to serialisation/deserialisation respectively.
+-- Encoding\/decoding is deferred to serialisation\/deserialisation respectively.
 newtype Base64 = Base64 { unBase64 :: ByteString }
     deriving (Eq, Read, Ord, Data, Typeable, Generic)
 

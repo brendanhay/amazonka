@@ -2,14 +2,20 @@
 
 set -e
 
+GHCVER=${GHCVER?"GHCVER needs to be set."}
+
+path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
+
 target=doc
 platform=x86_64-linux
-ghcver=$(ghc --version | awk '{print $NF}')
-resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack.yaml)
+resolver=$(sed -n 's/^resolver: *\(.*\)$/\1/p' stack-$GHCVER.yaml)
+
+$path/travis-timeout \
+    stack --no-terminal --skip-ghc-check install standalone-haddock
 
 standalone-haddock --hyperlink-source -o $target \
- --package-db $HOME/.stack/snapshots/$platform/$resolver/$ghcver/pkgdb \
- --package-db .stack-work/install/$platform/$resolver/$ghcver/pkgdb \
+ --package-db $HOME/.stack/snapshots/$platform/$resolver/$GHCVER/pkgdb \
+ --package-db .stack-work/install/$platform/$resolver/$GHCVER/pkgdb \
  core amazonka*
 
 {

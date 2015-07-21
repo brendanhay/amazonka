@@ -15,8 +15,3 @@ module Test.AWS.S3.Internal where
 
 import           Network.AWS.S3
 import           Test.AWS.Prelude
-
-instance Out BucketName
-instance Out ObjectKey
-instance Out ObjectVersionId
-instance Out ETag

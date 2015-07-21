@@ -27,27 +27,10 @@ module Network.AWS.Logger
 
 import           Control.Monad
 import           Control.Monad.IO.Class
-import qualified Data.ByteString              as BS
 import           Data.ByteString.Builder      (Builder)
-import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Builder as Build
-import           Data.CaseInsensitive         (CI)
-import qualified Data.CaseInsensitive         as CI
-import           Data.Double.Conversion.Text
-import           Data.Int
-import           Data.List                    (intersperse)
 import           Data.Monoid
-import           Data.Text                    (Text)
-import qualified Data.Text                    as Text
-import           Data.Text.Encoding           (encodeUtf8)
-import qualified Data.Text.Lazy               as LText
-import qualified Data.Text.Lazy.Encoding      as LText
-import           Data.Time                    (UTCTime)
-import           Data.Word
-import           GHC.Float
 import           Network.AWS.Data.ByteString
-import           Network.HTTP.Client
-import qualified Network.HTTP.Client          as Client
 import           System.IO
 
 data LogLevel

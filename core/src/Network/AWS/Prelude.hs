@@ -50,5 +50,5 @@ infixl 7 .!@
 f .!@ x = fromMaybe x <$> f
 
 may :: Applicative f => ([a] -> f b) -> [a] -> f (Maybe b)
-may f [] = pure Nothing
+may _ [] = pure Nothing
 may f xs = Just <$> f xs

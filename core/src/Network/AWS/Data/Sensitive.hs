@@ -14,7 +14,6 @@ module Network.AWS.Data.Sensitive where
 
 import           Control.Lens
 import           Data.Data                   (Data, Typeable)
-import           Data.Monoid
 import           Data.String
 import           GHC.Generics                (Generic)
 import           Network.AWS.Data.ByteString

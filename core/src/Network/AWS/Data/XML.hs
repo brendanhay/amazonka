@@ -14,33 +14,6 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Data.XML where
-    -- (
-    -- -- * FromXML
-    --   FromXML      (..)
-    -- , decodeXML
-    -- , parseXMLText
-    -- -- ** Combinators
-    -- , withContent
-    -- , withElement
-    -- , findElement
-    -- -- ** Operators
-    -- , (.@)
-    -- , (.@?)
-    -- , (.!@)
-    -- , (.@@)
-
-    -- -- * ToXML
-    -- , ToElement (..)
-    -- , ToXML        (..)
-    -- , encodeXML
-    -- , toXMLText
-    -- -- ** Constructors
-    -- , namespaced
-    -- , element
-    -- , nodes
-    -- -- ** Operators
-    -- , (@=)
-    -- ) where
 
 import           Control.Applicative
 import           Control.Monad

@@ -19,13 +19,11 @@ import qualified Data.ByteString.Char8        as BS8
 import qualified Data.ByteString.Lazy         as LBS
 import qualified Data.ByteString.Lazy.Char8   as LBS8
 import           Data.Conduit
-import           Data.Monoid
 import           Data.String
 import           Data.Text                    (Text)
 import qualified Data.Text.Encoding           as Text
 import qualified Data.Text.Lazy               as LText
 import qualified Data.Text.Lazy.Encoding      as LText
-import           GHC.Generics                 (Generic)
 import           Network.AWS.Data.ByteString
 import           Network.AWS.Data.Crypto
 import           Network.AWS.Data.XML         (encodeXML)

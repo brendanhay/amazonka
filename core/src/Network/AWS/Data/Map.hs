@@ -24,10 +24,8 @@ module Network.AWS.Data.Map
     ) where
 
 import           Control.Lens                (Iso', iso)
-import           Control.Monad
 import           Data.Aeson
 import           Data.Bifunctor
-import           Data.ByteString             (ByteString)
 import qualified Data.ByteString             as BS
 import qualified Data.CaseInsensitive        as CI
 import           Data.Coerce
@@ -35,8 +33,6 @@ import           Data.Data                   (Data,Typeable)
 import           Data.Hashable
 import           Data.HashMap.Strict         (HashMap)
 import qualified Data.HashMap.Strict         as Map
-import           Data.List.NonEmpty          (NonEmpty (..))
-import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Maybe
 import           Data.Semigroup
 import qualified Data.Text.Encoding          as Text

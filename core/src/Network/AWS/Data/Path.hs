@@ -8,20 +8,16 @@
 -- Stability   : experimental
 -- Portability : non-portable (GHC extensions)
 --
-module Network.AWS.Data.Path
-    ( ToPath (..)
-    , collapsePath
-    ) where
+module Network.AWS.Data.Path where
 
 import           Data.ByteString.Char8 (ByteString)
 import qualified Data.ByteString.Char8 as BS
 import qualified Data.Foldable         as Fold
-import           Data.Monoid
+import           Data.Monoid           (mempty)
 import           Data.Text             (Text)
 
 class ToPath a where
     toPath :: a -> Text
---    toPath = const mempty
 
 instance ToPath Text where
     toPath = id

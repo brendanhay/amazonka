@@ -18,13 +18,9 @@ module Network.AWS.Data.Headers
     , Header
     ) where
 
-import           Data.Bifunctor
-import qualified Data.ByteString             as BS
 import qualified Data.ByteString.Char8       as BS8
 import qualified Data.CaseInsensitive        as CI
 import           Data.Foldable               as Fold
-import           Data.HashMap.Strict         (HashMap)
-import qualified Data.HashMap.Strict         as Map
 import           Data.Monoid
 import qualified Data.Text.Encoding          as Text
 import           Network.AWS.Data.ByteString

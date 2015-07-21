@@ -18,26 +18,13 @@
 -- Portability : non-portable (GHC extensions)
 --
 module Network.AWS.Data.Query where
-    -- ( ToQuery (..)
-    -- , renderQuery
-
-    -- , Query
-    -- -- , valuesOf
-
-    -- , (=?)
-    -- , pair
-    -- ) where
 
 import           Control.Lens
 import qualified Data.ByteString.Builder     as Build
 import qualified Data.ByteString.Char8       as BS
 import           Data.Data
 import           Data.Data.Lens
-import           Data.HashMap.Strict         (HashMap)
-import qualified Data.HashMap.Strict         as Map
 import           Data.List                   (sort)
-import           Data.List.NonEmpty          (NonEmpty (..))
-import qualified Data.List.NonEmpty          as NonEmpty
 import           Data.Monoid
 import           Data.String
 import qualified Data.Text.Encoding          as Text

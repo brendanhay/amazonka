@@ -22,7 +22,6 @@ import           Data.List.NonEmpty          as Export (NonEmpty (..))
 import           Data.Maybe                  as Export
 import           Data.Monoid                 as Export (First, mconcat, mempty,
                                                         (<>))
-import           Data.Traversable            as Export (Traversable, traverse)
 import           GHC.Generics                as Export (Generic)
 import           Network.AWS.Data.Base64     as Export
 import           Network.AWS.Data.Body       as Export

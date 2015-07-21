@@ -16,7 +16,7 @@ targets=( $(stack path | sed -n 's/^.*-pkg-db: *\(.*\)$/\1/p') )
 packages=( "${targets[@]/#/--package-db }" )
 
 $path/travis-timeout \
-    stack --no-terminal --skip-ghc-check install standalone-haddock
+    stack --no-terminal --skip-ghc-check install standalone-haddock hscolor
 
 standalone-haddock --hyperlink-source -o $target ${packages[*]} core amazonka*
 

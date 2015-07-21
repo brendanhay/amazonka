@@ -3,6 +3,8 @@
 set -e
 
 GHCVER=${GHCVER?"GHCVER needs to be set."}
+DOC_TOKEN=${DOC_TOKEN?"DOC_TOKEN needs to be set."}
+DOC_REF=${DOC_REF?"DOC_REF needs to be set."}
 
 path=$(cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd)
 

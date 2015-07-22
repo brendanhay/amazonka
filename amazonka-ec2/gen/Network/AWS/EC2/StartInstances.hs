@@ -47,17 +47,17 @@ module Network.AWS.EC2.StartInstances
     -- ** Request constructor
     , startInstances
     -- ** Request lenses
-    , staAdditionalInfo
-    , staDryRun
-    , staInstanceIds
+    , srqAdditionalInfo
+    , srqDryRun
+    , srqInstanceIds
 
     -- * Response
     , StartInstancesResponse
     -- ** Response constructor
     , startInstancesResponse
     -- ** Response lenses
-    , staStartingInstances
-    , staStatus
+    , srsStartingInstances
+    , srsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -69,40 +69,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staAdditionalInfo'
+-- * 'srqAdditionalInfo'
 --
--- * 'staDryRun'
+-- * 'srqDryRun'
 --
--- * 'staInstanceIds'
+-- * 'srqInstanceIds'
 data StartInstances = StartInstances'
-    { _staAdditionalInfo :: !(Maybe Text)
-    , _staDryRun         :: !(Maybe Bool)
-    , _staInstanceIds    :: ![Text]
+    { _srqAdditionalInfo :: !(Maybe Text)
+    , _srqDryRun         :: !(Maybe Bool)
+    , _srqInstanceIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartInstances' smart constructor.
 startInstances :: StartInstances
 startInstances =
     StartInstances'
-    { _staAdditionalInfo = Nothing
-    , _staDryRun = Nothing
-    , _staInstanceIds = mempty
+    { _srqAdditionalInfo = Nothing
+    , _srqDryRun = Nothing
+    , _srqInstanceIds = mempty
     }
 
 -- | Reserved.
-staAdditionalInfo :: Lens' StartInstances (Maybe Text)
-staAdditionalInfo = lens _staAdditionalInfo (\ s a -> s{_staAdditionalInfo = a});
+srqAdditionalInfo :: Lens' StartInstances (Maybe Text)
+srqAdditionalInfo = lens _srqAdditionalInfo (\ s a -> s{_srqAdditionalInfo = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-staDryRun :: Lens' StartInstances (Maybe Bool)
-staDryRun = lens _staDryRun (\ s a -> s{_staDryRun = a});
+srqDryRun :: Lens' StartInstances (Maybe Bool)
+srqDryRun = lens _srqDryRun (\ s a -> s{_srqDryRun = a});
 
 -- | One or more instance IDs.
-staInstanceIds :: Lens' StartInstances [Text]
-staInstanceIds = lens _staInstanceIds (\ s a -> s{_staInstanceIds = a});
+srqInstanceIds :: Lens' StartInstances [Text]
+srqInstanceIds = lens _srqInstanceIds (\ s a -> s{_srqInstanceIds = a});
 
 instance AWSRequest StartInstances where
         type Sv StartInstances = EC2
@@ -127,34 +127,34 @@ instance ToQuery StartInstances where
           = mconcat
               ["Action" =: ("StartInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "AdditionalInfo" =: _staAdditionalInfo,
-               "DryRun" =: _staDryRun,
-               toQueryList "InstanceId" _staInstanceIds]
+               "AdditionalInfo" =: _srqAdditionalInfo,
+               "DryRun" =: _srqDryRun,
+               toQueryList "InstanceId" _srqInstanceIds]
 
 -- | /See:/ 'startInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staStartingInstances'
+-- * 'srsStartingInstances'
 --
--- * 'staStatus'
+-- * 'srsStatus'
 data StartInstancesResponse = StartInstancesResponse'
-    { _staStartingInstances :: !(Maybe [InstanceStateChange])
-    , _staStatus            :: !Int
+    { _srsStartingInstances :: !(Maybe [InstanceStateChange])
+    , _srsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartInstancesResponse' smart constructor.
 startInstancesResponse :: Int -> StartInstancesResponse
 startInstancesResponse pStatus =
     StartInstancesResponse'
-    { _staStartingInstances = Nothing
-    , _staStatus = pStatus
+    { _srsStartingInstances = Nothing
+    , _srsStatus = pStatus
     }
 
 -- | Information about one or more started instances.
-staStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
-staStartingInstances = lens _staStartingInstances (\ s a -> s{_staStartingInstances = a}) . _Default;
+srsStartingInstances :: Lens' StartInstancesResponse [InstanceStateChange]
+srsStartingInstances = lens _srsStartingInstances (\ s a -> s{_srsStartingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-staStatus :: Lens' StartInstancesResponse Int
-staStatus = lens _staStatus (\ s a -> s{_staStatus = a});
+srsStatus :: Lens' StartInstancesResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

@@ -28,8 +28,8 @@ module Network.AWS.SQS.RemovePermission
     -- ** Request constructor
     , removePermission
     -- ** Request lenses
-    , rpQueueURL
-    , rpLabel
+    , rprqQueueURL
+    , rprqLabel
 
     -- * Response
     , RemovePermissionResponse
@@ -46,30 +46,30 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rpQueueURL'
+-- * 'rprqQueueURL'
 --
--- * 'rpLabel'
+-- * 'rprqLabel'
 data RemovePermission = RemovePermission'
-    { _rpQueueURL :: !Text
-    , _rpLabel    :: !Text
+    { _rprqQueueURL :: !Text
+    , _rprqLabel    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
 removePermission pQueueURL pLabel =
     RemovePermission'
-    { _rpQueueURL = pQueueURL
-    , _rpLabel = pLabel
+    { _rprqQueueURL = pQueueURL
+    , _rprqLabel = pLabel
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-rpQueueURL :: Lens' RemovePermission Text
-rpQueueURL = lens _rpQueueURL (\ s a -> s{_rpQueueURL = a});
+rprqQueueURL :: Lens' RemovePermission Text
+rprqQueueURL = lens _rprqQueueURL (\ s a -> s{_rprqQueueURL = a});
 
 -- | The identification of the permission to remove. This is the label added
 -- with the AddPermission action.
-rpLabel :: Lens' RemovePermission Text
-rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
+rprqLabel :: Lens' RemovePermission Text
+rprqLabel = lens _rprqLabel (\ s a -> s{_rprqLabel = a});
 
 instance AWSRequest RemovePermission where
         type Sv RemovePermission = SQS
@@ -88,7 +88,7 @@ instance ToQuery RemovePermission where
           = mconcat
               ["Action" =: ("RemovePermission" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _rpQueueURL, "Label" =: _rpLabel]
+               "QueueUrl" =: _rprqQueueURL, "Label" =: _rprqLabel]
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
 data RemovePermissionResponse =

@@ -27,18 +27,18 @@ module Network.AWS.IAM.GetOpenIdConnectProvider
     -- ** Request constructor
     , getOpenIdConnectProvider
     -- ** Request lenses
-    , goicpOpenIdConnectProviderARN
+    , goicprqOpenIdConnectProviderARN
 
     -- * Response
     , GetOpenIdConnectProviderResponse
     -- ** Response constructor
     , getOpenIdConnectProviderResponse
     -- ** Response lenses
-    , goicprCreateDate
-    , goicprURL
-    , goicprThumbprintList
-    , goicprClientIdList
-    , goicprStatus
+    , goicprsCreateDate
+    , goicprsURL
+    , goicprsThumbprintList
+    , goicprsClientIdList
+    , goicprsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -50,23 +50,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goicpOpenIdConnectProviderARN'
+-- * 'goicprqOpenIdConnectProviderARN'
 newtype GetOpenIdConnectProvider = GetOpenIdConnectProvider'
-    { _goicpOpenIdConnectProviderARN :: Text
+    { _goicprqOpenIdConnectProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdConnectProvider' smart constructor.
 getOpenIdConnectProvider :: Text -> GetOpenIdConnectProvider
 getOpenIdConnectProvider pOpenIdConnectProviderARN =
     GetOpenIdConnectProvider'
-    { _goicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN
+    { _goicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to get information for. You can get a list of OIDC provider ARNs by
 -- using the ListOpenIDConnectProviders action.
-goicpOpenIdConnectProviderARN :: Lens' GetOpenIdConnectProvider Text
-goicpOpenIdConnectProviderARN = lens _goicpOpenIdConnectProviderARN (\ s a -> s{_goicpOpenIdConnectProviderARN = a});
+goicprqOpenIdConnectProviderARN :: Lens' GetOpenIdConnectProvider Text
+goicprqOpenIdConnectProviderARN = lens _goicprqOpenIdConnectProviderARN (\ s a -> s{_goicprqOpenIdConnectProviderARN = a});
 
 instance AWSRequest GetOpenIdConnectProvider where
         type Sv GetOpenIdConnectProvider = IAM
@@ -98,7 +98,7 @@ instance ToQuery GetOpenIdConnectProvider where
                  ("GetOpenIdConnectProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:
-                 _goicpOpenIdConnectProviderARN]
+                 _goicprqOpenIdConnectProviderARN]
 
 -- | Contains the response to a successful GetOpenIDConnectProvider request.
 --
@@ -106,56 +106,56 @@ instance ToQuery GetOpenIdConnectProvider where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goicprCreateDate'
+-- * 'goicprsCreateDate'
 --
--- * 'goicprURL'
+-- * 'goicprsURL'
 --
--- * 'goicprThumbprintList'
+-- * 'goicprsThumbprintList'
 --
--- * 'goicprClientIdList'
+-- * 'goicprsClientIdList'
 --
--- * 'goicprStatus'
+-- * 'goicprsStatus'
 data GetOpenIdConnectProviderResponse = GetOpenIdConnectProviderResponse'
-    { _goicprCreateDate     :: !(Maybe ISO8601)
-    , _goicprURL            :: !(Maybe Text)
-    , _goicprThumbprintList :: !(Maybe [Text])
-    , _goicprClientIdList   :: !(Maybe [Text])
-    , _goicprStatus         :: !Int
+    { _goicprsCreateDate     :: !(Maybe ISO8601)
+    , _goicprsURL            :: !(Maybe Text)
+    , _goicprsThumbprintList :: !(Maybe [Text])
+    , _goicprsClientIdList   :: !(Maybe [Text])
+    , _goicprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdConnectProviderResponse' smart constructor.
 getOpenIdConnectProviderResponse :: Int -> GetOpenIdConnectProviderResponse
 getOpenIdConnectProviderResponse pStatus =
     GetOpenIdConnectProviderResponse'
-    { _goicprCreateDate = Nothing
-    , _goicprURL = Nothing
-    , _goicprThumbprintList = Nothing
-    , _goicprClientIdList = Nothing
-    , _goicprStatus = pStatus
+    { _goicprsCreateDate = Nothing
+    , _goicprsURL = Nothing
+    , _goicprsThumbprintList = Nothing
+    , _goicprsClientIdList = Nothing
+    , _goicprsStatus = pStatus
     }
 
 -- | The date and time when the IAM OpenID Connect provider entity was
 -- created in the AWS account.
-goicprCreateDate :: Lens' GetOpenIdConnectProviderResponse (Maybe UTCTime)
-goicprCreateDate = lens _goicprCreateDate (\ s a -> s{_goicprCreateDate = a}) . mapping _Time;
+goicprsCreateDate :: Lens' GetOpenIdConnectProviderResponse (Maybe UTCTime)
+goicprsCreateDate = lens _goicprsCreateDate (\ s a -> s{_goicprsCreateDate = a}) . mapping _Time;
 
 -- | The URL that the IAM OpenID Connect provider is associated with. For
 -- more information, see CreateOpenIDConnectProvider.
-goicprURL :: Lens' GetOpenIdConnectProviderResponse (Maybe Text)
-goicprURL = lens _goicprURL (\ s a -> s{_goicprURL = a});
+goicprsURL :: Lens' GetOpenIdConnectProviderResponse (Maybe Text)
+goicprsURL = lens _goicprsURL (\ s a -> s{_goicprsURL = a});
 
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
-goicprThumbprintList :: Lens' GetOpenIdConnectProviderResponse [Text]
-goicprThumbprintList = lens _goicprThumbprintList (\ s a -> s{_goicprThumbprintList = a}) . _Default;
+goicprsThumbprintList :: Lens' GetOpenIdConnectProviderResponse [Text]
+goicprsThumbprintList = lens _goicprsThumbprintList (\ s a -> s{_goicprsThumbprintList = a}) . _Default;
 
 -- | A list of client IDs (also known as audiences) that are associated with
 -- the specified IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
-goicprClientIdList :: Lens' GetOpenIdConnectProviderResponse [Text]
-goicprClientIdList = lens _goicprClientIdList (\ s a -> s{_goicprClientIdList = a}) . _Default;
+goicprsClientIdList :: Lens' GetOpenIdConnectProviderResponse [Text]
+goicprsClientIdList = lens _goicprsClientIdList (\ s a -> s{_goicprsClientIdList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-goicprStatus :: Lens' GetOpenIdConnectProviderResponse Int
-goicprStatus = lens _goicprStatus (\ s a -> s{_goicprStatus = a});
+goicprsStatus :: Lens' GetOpenIdConnectProviderResponse Int
+goicprsStatus = lens _goicprsStatus (\ s a -> s{_goicprsStatus = a});

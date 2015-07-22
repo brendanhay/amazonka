@@ -28,20 +28,20 @@ module Network.AWS.CodeDeploy.ListDeployments
     -- ** Request constructor
     , listDeployments
     -- ** Request lenses
-    , ldCreateTimeRange
-    , ldNextToken
-    , ldIncludeOnlyStatuses
-    , ldApplicationName
-    , ldDeploymentGroupName
+    , ldrqCreateTimeRange
+    , ldrqNextToken
+    , ldrqIncludeOnlyStatuses
+    , ldrqApplicationName
+    , ldrqDeploymentGroupName
 
     -- * Response
     , ListDeploymentsResponse
     -- ** Response constructor
     , listDeploymentsResponse
     -- ** Response lenses
-    , ldrNextToken
-    , ldrDeployments
-    , ldrStatus
+    , ldrsNextToken
+    , ldrsDeployments
+    , ldrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -55,43 +55,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldCreateTimeRange'
+-- * 'ldrqCreateTimeRange'
 --
--- * 'ldNextToken'
+-- * 'ldrqNextToken'
 --
--- * 'ldIncludeOnlyStatuses'
+-- * 'ldrqIncludeOnlyStatuses'
 --
--- * 'ldApplicationName'
+-- * 'ldrqApplicationName'
 --
--- * 'ldDeploymentGroupName'
+-- * 'ldrqDeploymentGroupName'
 data ListDeployments = ListDeployments'
-    { _ldCreateTimeRange     :: !(Maybe TimeRange)
-    , _ldNextToken           :: !(Maybe Text)
-    , _ldIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
-    , _ldApplicationName     :: !(Maybe Text)
-    , _ldDeploymentGroupName :: !(Maybe Text)
+    { _ldrqCreateTimeRange     :: !(Maybe TimeRange)
+    , _ldrqNextToken           :: !(Maybe Text)
+    , _ldrqIncludeOnlyStatuses :: !(Maybe [DeploymentStatus])
+    , _ldrqApplicationName     :: !(Maybe Text)
+    , _ldrqDeploymentGroupName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeployments' smart constructor.
 listDeployments :: ListDeployments
 listDeployments =
     ListDeployments'
-    { _ldCreateTimeRange = Nothing
-    , _ldNextToken = Nothing
-    , _ldIncludeOnlyStatuses = Nothing
-    , _ldApplicationName = Nothing
-    , _ldDeploymentGroupName = Nothing
+    { _ldrqCreateTimeRange = Nothing
+    , _ldrqNextToken = Nothing
+    , _ldrqIncludeOnlyStatuses = Nothing
+    , _ldrqApplicationName = Nothing
+    , _ldrqDeploymentGroupName = Nothing
     }
 
 -- | A deployment creation start- and end-time range for returning a subset
 -- of the list of deployments.
-ldCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
-ldCreateTimeRange = lens _ldCreateTimeRange (\ s a -> s{_ldCreateTimeRange = a});
+ldrqCreateTimeRange :: Lens' ListDeployments (Maybe TimeRange)
+ldrqCreateTimeRange = lens _ldrqCreateTimeRange (\ s a -> s{_ldrqCreateTimeRange = a});
 
 -- | An identifier that was returned from the previous list deployments call,
 -- which can be used to return the next set of deployments in the list.
-ldNextToken :: Lens' ListDeployments (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldrqNextToken :: Lens' ListDeployments (Maybe Text)
+ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
 
 -- | A subset of deployments to list, by status:
 --
@@ -101,17 +101,17 @@ ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
 -- -   Succeeded: Include in the resulting list succeeded deployments.
 -- -   Failed: Include in the resulting list failed deployments.
 -- -   Aborted: Include in the resulting list aborted deployments.
-ldIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
-ldIncludeOnlyStatuses = lens _ldIncludeOnlyStatuses (\ s a -> s{_ldIncludeOnlyStatuses = a}) . _Default;
+ldrqIncludeOnlyStatuses :: Lens' ListDeployments [DeploymentStatus]
+ldrqIncludeOnlyStatuses = lens _ldrqIncludeOnlyStatuses (\ s a -> s{_ldrqIncludeOnlyStatuses = a}) . _Default;
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-ldApplicationName :: Lens' ListDeployments (Maybe Text)
-ldApplicationName = lens _ldApplicationName (\ s a -> s{_ldApplicationName = a});
+ldrqApplicationName :: Lens' ListDeployments (Maybe Text)
+ldrqApplicationName = lens _ldrqApplicationName (\ s a -> s{_ldrqApplicationName = a});
 
 -- | The name of an existing deployment group for the specified application.
-ldDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
-ldDeploymentGroupName = lens _ldDeploymentGroupName (\ s a -> s{_ldDeploymentGroupName = a});
+ldrqDeploymentGroupName :: Lens' ListDeployments (Maybe Text)
+ldrqDeploymentGroupName = lens _ldrqDeploymentGroupName (\ s a -> s{_ldrqDeploymentGroupName = a});
 
 instance AWSRequest ListDeployments where
         type Sv ListDeployments = CodeDeploy
@@ -138,11 +138,11 @@ instance ToHeaders ListDeployments where
 instance ToJSON ListDeployments where
         toJSON ListDeployments'{..}
           = object
-              ["createTimeRange" .= _ldCreateTimeRange,
-               "nextToken" .= _ldNextToken,
-               "includeOnlyStatuses" .= _ldIncludeOnlyStatuses,
-               "applicationName" .= _ldApplicationName,
-               "deploymentGroupName" .= _ldDeploymentGroupName]
+              ["createTimeRange" .= _ldrqCreateTimeRange,
+               "nextToken" .= _ldrqNextToken,
+               "includeOnlyStatuses" .= _ldrqIncludeOnlyStatuses,
+               "applicationName" .= _ldrqApplicationName,
+               "deploymentGroupName" .= _ldrqDeploymentGroupName]
 
 instance ToPath ListDeployments where
         toPath = const "/"
@@ -156,36 +156,36 @@ instance ToQuery ListDeployments where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrNextToken'
+-- * 'ldrsNextToken'
 --
--- * 'ldrDeployments'
+-- * 'ldrsDeployments'
 --
--- * 'ldrStatus'
+-- * 'ldrsStatus'
 data ListDeploymentsResponse = ListDeploymentsResponse'
-    { _ldrNextToken   :: !(Maybe Text)
-    , _ldrDeployments :: !(Maybe [Text])
-    , _ldrStatus      :: !Int
+    { _ldrsNextToken   :: !(Maybe Text)
+    , _ldrsDeployments :: !(Maybe [Text])
+    , _ldrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentsResponse' smart constructor.
 listDeploymentsResponse :: Int -> ListDeploymentsResponse
 listDeploymentsResponse pStatus =
     ListDeploymentsResponse'
-    { _ldrNextToken = Nothing
-    , _ldrDeployments = Nothing
-    , _ldrStatus = pStatus
+    { _ldrsNextToken = Nothing
+    , _ldrsDeployments = Nothing
+    , _ldrsStatus = pStatus
     }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployments call to return the next set of deployments in the list.
-ldrNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
-ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
+ldrsNextToken :: Lens' ListDeploymentsResponse (Maybe Text)
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | A list of deployment IDs.
-ldrDeployments :: Lens' ListDeploymentsResponse [Text]
-ldrDeployments = lens _ldrDeployments (\ s a -> s{_ldrDeployments = a}) . _Default;
+ldrsDeployments :: Lens' ListDeploymentsResponse [Text]
+ldrsDeployments = lens _ldrsDeployments (\ s a -> s{_ldrsDeployments = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDeploymentsResponse Int
-ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+ldrsStatus :: Lens' ListDeploymentsResponse Int
+ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

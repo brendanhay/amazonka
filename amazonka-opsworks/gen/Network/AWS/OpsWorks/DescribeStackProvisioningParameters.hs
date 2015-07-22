@@ -33,16 +33,16 @@ module Network.AWS.OpsWorks.DescribeStackProvisioningParameters
     -- ** Request constructor
     , describeStackProvisioningParameters
     -- ** Request lenses
-    , dsppStackId
+    , dspprqStackId
 
     -- * Response
     , DescribeStackProvisioningParametersResponse
     -- ** Response constructor
     , describeStackProvisioningParametersResponse
     -- ** Response lenses
-    , dspprAgentInstallerURL
-    , dspprParameters
-    , dspprStatus
+    , dspprsAgentInstallerURL
+    , dspprsParameters
+    , dspprsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsppStackId'
+-- * 'dspprqStackId'
 newtype DescribeStackProvisioningParameters = DescribeStackProvisioningParameters'
-    { _dsppStackId :: Text
+    { _dspprqStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackProvisioningParameters' smart constructor.
 describeStackProvisioningParameters :: Text -> DescribeStackProvisioningParameters
 describeStackProvisioningParameters pStackId =
     DescribeStackProvisioningParameters'
-    { _dsppStackId = pStackId
+    { _dspprqStackId = pStackId
     }
 
 -- | The stack ID
-dsppStackId :: Lens' DescribeStackProvisioningParameters Text
-dsppStackId = lens _dsppStackId (\ s a -> s{_dsppStackId = a});
+dspprqStackId :: Lens' DescribeStackProvisioningParameters Text
+dspprqStackId = lens _dspprqStackId (\ s a -> s{_dspprqStackId = a});
 
 instance AWSRequest
          DescribeStackProvisioningParameters where
@@ -99,7 +99,7 @@ instance ToHeaders
 instance ToJSON DescribeStackProvisioningParameters
          where
         toJSON DescribeStackProvisioningParameters'{..}
-          = object ["StackId" .= _dsppStackId]
+          = object ["StackId" .= _dspprqStackId]
 
 instance ToPath DescribeStackProvisioningParameters
          where
@@ -116,34 +116,34 @@ instance ToQuery DescribeStackProvisioningParameters
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dspprAgentInstallerURL'
+-- * 'dspprsAgentInstallerURL'
 --
--- * 'dspprParameters'
+-- * 'dspprsParameters'
 --
--- * 'dspprStatus'
+-- * 'dspprsStatus'
 data DescribeStackProvisioningParametersResponse = DescribeStackProvisioningParametersResponse'
-    { _dspprAgentInstallerURL :: !(Maybe Text)
-    , _dspprParameters        :: !(Maybe (Map Text Text))
-    , _dspprStatus            :: !Int
+    { _dspprsAgentInstallerURL :: !(Maybe Text)
+    , _dspprsParameters        :: !(Maybe (Map Text Text))
+    , _dspprsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackProvisioningParametersResponse' smart constructor.
 describeStackProvisioningParametersResponse :: Int -> DescribeStackProvisioningParametersResponse
 describeStackProvisioningParametersResponse pStatus =
     DescribeStackProvisioningParametersResponse'
-    { _dspprAgentInstallerURL = Nothing
-    , _dspprParameters = Nothing
-    , _dspprStatus = pStatus
+    { _dspprsAgentInstallerURL = Nothing
+    , _dspprsParameters = Nothing
+    , _dspprsStatus = pStatus
     }
 
 -- | The AWS OpsWorks agent installer\'s URL.
-dspprAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
-dspprAgentInstallerURL = lens _dspprAgentInstallerURL (\ s a -> s{_dspprAgentInstallerURL = a});
+dspprsAgentInstallerURL :: Lens' DescribeStackProvisioningParametersResponse (Maybe Text)
+dspprsAgentInstallerURL = lens _dspprsAgentInstallerURL (\ s a -> s{_dspprsAgentInstallerURL = a});
 
 -- | An embedded object that contains the provisioning parameters.
-dspprParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text Text)
-dspprParameters = lens _dspprParameters (\ s a -> s{_dspprParameters = a}) . _Default . _Map;
+dspprsParameters :: Lens' DescribeStackProvisioningParametersResponse (HashMap Text Text)
+dspprsParameters = lens _dspprsParameters (\ s a -> s{_dspprsParameters = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-dspprStatus :: Lens' DescribeStackProvisioningParametersResponse Int
-dspprStatus = lens _dspprStatus (\ s a -> s{_dspprStatus = a});
+dspprsStatus :: Lens' DescribeStackProvisioningParametersResponse Int
+dspprsStatus = lens _dspprsStatus (\ s a -> s{_dspprsStatus = a});

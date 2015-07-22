@@ -34,16 +34,16 @@ module Network.AWS.OpsWorks.GetHostnameSuggestion
     -- ** Request constructor
     , getHostnameSuggestion
     -- ** Request lenses
-    , ghsLayerId
+    , ghsrqLayerId
 
     -- * Response
     , GetHostnameSuggestionResponse
     -- ** Response constructor
     , getHostnameSuggestionResponse
     -- ** Response lenses
-    , ghsrHostname
-    , ghsrLayerId
-    , ghsrStatus
+    , ghsrsHostname
+    , ghsrsLayerId
+    , ghsrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghsLayerId'
+-- * 'ghsrqLayerId'
 newtype GetHostnameSuggestion = GetHostnameSuggestion'
-    { _ghsLayerId :: Text
+    { _ghsrqLayerId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostnameSuggestion' smart constructor.
 getHostnameSuggestion :: Text -> GetHostnameSuggestion
 getHostnameSuggestion pLayerId =
     GetHostnameSuggestion'
-    { _ghsLayerId = pLayerId
+    { _ghsrqLayerId = pLayerId
     }
 
 -- | The layer ID.
-ghsLayerId :: Lens' GetHostnameSuggestion Text
-ghsLayerId = lens _ghsLayerId (\ s a -> s{_ghsLayerId = a});
+ghsrqLayerId :: Lens' GetHostnameSuggestion Text
+ghsrqLayerId = lens _ghsrqLayerId (\ s a -> s{_ghsrqLayerId = a});
 
 instance AWSRequest GetHostnameSuggestion where
         type Sv GetHostnameSuggestion = OpsWorks
@@ -95,7 +95,7 @@ instance ToHeaders GetHostnameSuggestion where
 
 instance ToJSON GetHostnameSuggestion where
         toJSON GetHostnameSuggestion'{..}
-          = object ["LayerId" .= _ghsLayerId]
+          = object ["LayerId" .= _ghsrqLayerId]
 
 instance ToPath GetHostnameSuggestion where
         toPath = const "/"
@@ -109,34 +109,34 @@ instance ToQuery GetHostnameSuggestion where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghsrHostname'
+-- * 'ghsrsHostname'
 --
--- * 'ghsrLayerId'
+-- * 'ghsrsLayerId'
 --
--- * 'ghsrStatus'
+-- * 'ghsrsStatus'
 data GetHostnameSuggestionResponse = GetHostnameSuggestionResponse'
-    { _ghsrHostname :: !(Maybe Text)
-    , _ghsrLayerId  :: !(Maybe Text)
-    , _ghsrStatus   :: !Int
+    { _ghsrsHostname :: !(Maybe Text)
+    , _ghsrsLayerId  :: !(Maybe Text)
+    , _ghsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostnameSuggestionResponse' smart constructor.
 getHostnameSuggestionResponse :: Int -> GetHostnameSuggestionResponse
 getHostnameSuggestionResponse pStatus =
     GetHostnameSuggestionResponse'
-    { _ghsrHostname = Nothing
-    , _ghsrLayerId = Nothing
-    , _ghsrStatus = pStatus
+    { _ghsrsHostname = Nothing
+    , _ghsrsLayerId = Nothing
+    , _ghsrsStatus = pStatus
     }
 
 -- | The generated host name.
-ghsrHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghsrHostname = lens _ghsrHostname (\ s a -> s{_ghsrHostname = a});
+ghsrsHostname :: Lens' GetHostnameSuggestionResponse (Maybe Text)
+ghsrsHostname = lens _ghsrsHostname (\ s a -> s{_ghsrsHostname = a});
 
 -- | The layer ID.
-ghsrLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
-ghsrLayerId = lens _ghsrLayerId (\ s a -> s{_ghsrLayerId = a});
+ghsrsLayerId :: Lens' GetHostnameSuggestionResponse (Maybe Text)
+ghsrsLayerId = lens _ghsrsLayerId (\ s a -> s{_ghsrsLayerId = a});
 
 -- | FIXME: Undocumented member.
-ghsrStatus :: Lens' GetHostnameSuggestionResponse Int
-ghsrStatus = lens _ghsrStatus (\ s a -> s{_ghsrStatus = a});
+ghsrsStatus :: Lens' GetHostnameSuggestionResponse Int
+ghsrsStatus = lens _ghsrsStatus (\ s a -> s{_ghsrsStatus = a});

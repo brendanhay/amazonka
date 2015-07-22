@@ -28,16 +28,16 @@ module Network.AWS.RDS.AddSourceIdentifierToSubscription
     -- ** Request constructor
     , addSourceIdentifierToSubscription
     -- ** Request lenses
-    , asitsSubscriptionName
-    , asitsSourceIdentifier
+    , asitsrqSubscriptionName
+    , asitsrqSourceIdentifier
 
     -- * Response
     , AddSourceIdentifierToSubscriptionResponse
     -- ** Response constructor
     , addSourceIdentifierToSubscriptionResponse
     -- ** Response lenses
-    , asitsrEventSubscription
-    , asitsrStatus
+    , asitsrsEventSubscription
+    , asitsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -51,26 +51,26 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asitsSubscriptionName'
+-- * 'asitsrqSubscriptionName'
 --
--- * 'asitsSourceIdentifier'
+-- * 'asitsrqSourceIdentifier'
 data AddSourceIdentifierToSubscription = AddSourceIdentifierToSubscription'
-    { _asitsSubscriptionName :: !Text
-    , _asitsSourceIdentifier :: !Text
+    { _asitsrqSubscriptionName :: !Text
+    , _asitsrqSourceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddSourceIdentifierToSubscription' smart constructor.
 addSourceIdentifierToSubscription :: Text -> Text -> AddSourceIdentifierToSubscription
 addSourceIdentifierToSubscription pSubscriptionName pSourceIdentifier =
     AddSourceIdentifierToSubscription'
-    { _asitsSubscriptionName = pSubscriptionName
-    , _asitsSourceIdentifier = pSourceIdentifier
+    { _asitsrqSubscriptionName = pSubscriptionName
+    , _asitsrqSourceIdentifier = pSourceIdentifier
     }
 
 -- | The name of the RDS event notification subscription you want to add a
 -- source identifier to.
-asitsSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
-asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscriptionName = a});
+asitsrqSubscriptionName :: Lens' AddSourceIdentifierToSubscription Text
+asitsrqSubscriptionName = lens _asitsrqSubscriptionName (\ s a -> s{_asitsrqSubscriptionName = a});
 
 -- | The identifier of the event source to be added. An identifier must begin
 -- with a letter and must contain only ASCII letters, digits, and hyphens;
@@ -86,8 +86,8 @@ asitsSubscriptionName = lens _asitsSubscriptionName (\ s a -> s{_asitsSubscripti
 --     must be supplied.
 -- -   If the source type is a DB snapshot, a @DBSnapshotIdentifier@ must
 --     be supplied.
-asitsSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
-asitsSourceIdentifier = lens _asitsSourceIdentifier (\ s a -> s{_asitsSourceIdentifier = a});
+asitsrqSourceIdentifier :: Lens' AddSourceIdentifierToSubscription Text
+asitsrqSourceIdentifier = lens _asitsrqSourceIdentifier (\ s a -> s{_asitsrqSourceIdentifier = a});
 
 instance AWSRequest AddSourceIdentifierToSubscription
          where
@@ -117,33 +117,33 @@ instance ToQuery AddSourceIdentifierToSubscription
               ["Action" =:
                  ("AddSourceIdentifierToSubscription" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "SubscriptionName" =: _asitsSubscriptionName,
-               "SourceIdentifier" =: _asitsSourceIdentifier]
+               "SubscriptionName" =: _asitsrqSubscriptionName,
+               "SourceIdentifier" =: _asitsrqSourceIdentifier]
 
 -- | /See:/ 'addSourceIdentifierToSubscriptionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asitsrEventSubscription'
+-- * 'asitsrsEventSubscription'
 --
--- * 'asitsrStatus'
+-- * 'asitsrsStatus'
 data AddSourceIdentifierToSubscriptionResponse = AddSourceIdentifierToSubscriptionResponse'
-    { _asitsrEventSubscription :: !(Maybe EventSubscription)
-    , _asitsrStatus            :: !Int
+    { _asitsrsEventSubscription :: !(Maybe EventSubscription)
+    , _asitsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddSourceIdentifierToSubscriptionResponse' smart constructor.
 addSourceIdentifierToSubscriptionResponse :: Int -> AddSourceIdentifierToSubscriptionResponse
 addSourceIdentifierToSubscriptionResponse pStatus =
     AddSourceIdentifierToSubscriptionResponse'
-    { _asitsrEventSubscription = Nothing
-    , _asitsrStatus = pStatus
+    { _asitsrsEventSubscription = Nothing
+    , _asitsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-asitsrEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
-asitsrEventSubscription = lens _asitsrEventSubscription (\ s a -> s{_asitsrEventSubscription = a});
+asitsrsEventSubscription :: Lens' AddSourceIdentifierToSubscriptionResponse (Maybe EventSubscription)
+asitsrsEventSubscription = lens _asitsrsEventSubscription (\ s a -> s{_asitsrsEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-asitsrStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
-asitsrStatus = lens _asitsrStatus (\ s a -> s{_asitsrStatus = a});
+asitsrsStatus :: Lens' AddSourceIdentifierToSubscriptionResponse Int
+asitsrsStatus = lens _asitsrsStatus (\ s a -> s{_asitsrsStatus = a});

@@ -46,16 +46,16 @@ module Network.AWS.ELB.CreateLBCookieStickinessPolicy
     -- ** Request constructor
     , createLBCookieStickinessPolicy
     -- ** Request lenses
-    , clbcspCookieExpirationPeriod
-    , clbcspLoadBalancerName
-    , clbcspPolicyName
+    , clbcsprqCookieExpirationPeriod
+    , clbcsprqLoadBalancerName
+    , clbcsprqPolicyName
 
     -- * Response
     , CreateLBCookieStickinessPolicyResponse
     -- ** Response constructor
     , createLBCookieStickinessPolicyResponse
     -- ** Response lenses
-    , clbcsprStatus
+    , clbcsprsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -67,40 +67,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbcspCookieExpirationPeriod'
+-- * 'clbcsprqCookieExpirationPeriod'
 --
--- * 'clbcspLoadBalancerName'
+-- * 'clbcsprqLoadBalancerName'
 --
--- * 'clbcspPolicyName'
+-- * 'clbcsprqPolicyName'
 data CreateLBCookieStickinessPolicy = CreateLBCookieStickinessPolicy'
-    { _clbcspCookieExpirationPeriod :: !(Maybe Integer)
-    , _clbcspLoadBalancerName       :: !Text
-    , _clbcspPolicyName             :: !Text
+    { _clbcsprqCookieExpirationPeriod :: !(Maybe Integer)
+    , _clbcsprqLoadBalancerName       :: !Text
+    , _clbcsprqPolicyName             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLBCookieStickinessPolicy' smart constructor.
 createLBCookieStickinessPolicy :: Text -> Text -> CreateLBCookieStickinessPolicy
 createLBCookieStickinessPolicy pLoadBalancerName pPolicyName =
     CreateLBCookieStickinessPolicy'
-    { _clbcspCookieExpirationPeriod = Nothing
-    , _clbcspLoadBalancerName = pLoadBalancerName
-    , _clbcspPolicyName = pPolicyName
+    { _clbcsprqCookieExpirationPeriod = Nothing
+    , _clbcsprqLoadBalancerName = pLoadBalancerName
+    , _clbcsprqPolicyName = pPolicyName
     }
 
 -- | The time period, in seconds, after which the cookie should be considered
 -- stale. If you do not specify this parameter, the sticky session lasts
 -- for the duration of the browser session.
-clbcspCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
-clbcspCookieExpirationPeriod = lens _clbcspCookieExpirationPeriod (\ s a -> s{_clbcspCookieExpirationPeriod = a});
+clbcsprqCookieExpirationPeriod :: Lens' CreateLBCookieStickinessPolicy (Maybe Integer)
+clbcsprqCookieExpirationPeriod = lens _clbcsprqCookieExpirationPeriod (\ s a -> s{_clbcsprqCookieExpirationPeriod = a});
 
 -- | The name of the load balancer.
-clbcspLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy Text
-clbcspLoadBalancerName = lens _clbcspLoadBalancerName (\ s a -> s{_clbcspLoadBalancerName = a});
+clbcsprqLoadBalancerName :: Lens' CreateLBCookieStickinessPolicy Text
+clbcsprqLoadBalancerName = lens _clbcsprqLoadBalancerName (\ s a -> s{_clbcsprqLoadBalancerName = a});
 
 -- | The name of the policy being created. This name must be unique within
 -- the set of policies for this load balancer.
-clbcspPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
-clbcspPolicyName = lens _clbcspPolicyName (\ s a -> s{_clbcspPolicyName = a});
+clbcsprqPolicyName :: Lens' CreateLBCookieStickinessPolicy Text
+clbcsprqPolicyName = lens _clbcsprqPolicyName (\ s a -> s{_clbcsprqPolicyName = a});
 
 instance AWSRequest CreateLBCookieStickinessPolicy
          where
@@ -129,26 +129,26 @@ instance ToQuery CreateLBCookieStickinessPolicy where
                  ("CreateLBCookieStickinessPolicy" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "CookieExpirationPeriod" =:
-                 _clbcspCookieExpirationPeriod,
-               "LoadBalancerName" =: _clbcspLoadBalancerName,
-               "PolicyName" =: _clbcspPolicyName]
+                 _clbcsprqCookieExpirationPeriod,
+               "LoadBalancerName" =: _clbcsprqLoadBalancerName,
+               "PolicyName" =: _clbcsprqPolicyName]
 
 -- | /See:/ 'createLBCookieStickinessPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clbcsprStatus'
+-- * 'clbcsprsStatus'
 newtype CreateLBCookieStickinessPolicyResponse = CreateLBCookieStickinessPolicyResponse'
-    { _clbcsprStatus :: Int
+    { _clbcsprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLBCookieStickinessPolicyResponse' smart constructor.
 createLBCookieStickinessPolicyResponse :: Int -> CreateLBCookieStickinessPolicyResponse
 createLBCookieStickinessPolicyResponse pStatus =
     CreateLBCookieStickinessPolicyResponse'
-    { _clbcsprStatus = pStatus
+    { _clbcsprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-clbcsprStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
-clbcsprStatus = lens _clbcsprStatus (\ s a -> s{_clbcsprStatus = a});
+clbcsprsStatus :: Lens' CreateLBCookieStickinessPolicyResponse Int
+clbcsprsStatus = lens _clbcsprsStatus (\ s a -> s{_clbcsprsStatus = a});

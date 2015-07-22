@@ -31,16 +31,16 @@ module Network.AWS.AutoScaling.TerminateInstanceInAutoScalingGroup
     -- ** Request constructor
     , terminateInstanceInAutoScalingGroup
     -- ** Request lenses
-    , tiiasgInstanceId
-    , tiiasgShouldDecrementDesiredCapacity
+    , tiiasgrqInstanceId
+    , tiiasgrqShouldDecrementDesiredCapacity
 
     -- * Response
     , TerminateInstanceInAutoScalingGroupResponse
     -- ** Response constructor
     , terminateInstanceInAutoScalingGroupResponse
     -- ** Response lenses
-    , tiiasgrActivity
-    , tiiasgrStatus
+    , tiiasgrsActivity
+    , tiiasgrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -52,30 +52,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tiiasgInstanceId'
+-- * 'tiiasgrqInstanceId'
 --
--- * 'tiiasgShouldDecrementDesiredCapacity'
+-- * 'tiiasgrqShouldDecrementDesiredCapacity'
 data TerminateInstanceInAutoScalingGroup = TerminateInstanceInAutoScalingGroup'
-    { _tiiasgInstanceId                     :: !Text
-    , _tiiasgShouldDecrementDesiredCapacity :: !Bool
+    { _tiiasgrqInstanceId                     :: !Text
+    , _tiiasgrqShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstanceInAutoScalingGroup' smart constructor.
 terminateInstanceInAutoScalingGroup :: Text -> Bool -> TerminateInstanceInAutoScalingGroup
 terminateInstanceInAutoScalingGroup pInstanceId pShouldDecrementDesiredCapacity =
     TerminateInstanceInAutoScalingGroup'
-    { _tiiasgInstanceId = pInstanceId
-    , _tiiasgShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
+    { _tiiasgrqInstanceId = pInstanceId
+    , _tiiasgrqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
     }
 
 -- | The ID of the EC2 instance.
-tiiasgInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
-tiiasgInstanceId = lens _tiiasgInstanceId (\ s a -> s{_tiiasgInstanceId = a});
+tiiasgrqInstanceId :: Lens' TerminateInstanceInAutoScalingGroup Text
+tiiasgrqInstanceId = lens _tiiasgrqInstanceId (\ s a -> s{_tiiasgrqInstanceId = a});
 
 -- | If @true@, terminating this instance also decrements the size of the
 -- Auto Scaling group.
-tiiasgShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
-tiiasgShouldDecrementDesiredCapacity = lens _tiiasgShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgShouldDecrementDesiredCapacity = a});
+tiiasgrqShouldDecrementDesiredCapacity :: Lens' TerminateInstanceInAutoScalingGroup Bool
+tiiasgrqShouldDecrementDesiredCapacity = lens _tiiasgrqShouldDecrementDesiredCapacity (\ s a -> s{_tiiasgrqShouldDecrementDesiredCapacity = a});
 
 instance AWSRequest
          TerminateInstanceInAutoScalingGroup where
@@ -107,34 +107,34 @@ instance ToQuery TerminateInstanceInAutoScalingGroup
                  ("TerminateInstanceInAutoScalingGroup" ::
                     ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "InstanceId" =: _tiiasgInstanceId,
+               "InstanceId" =: _tiiasgrqInstanceId,
                "ShouldDecrementDesiredCapacity" =:
-                 _tiiasgShouldDecrementDesiredCapacity]
+                 _tiiasgrqShouldDecrementDesiredCapacity]
 
 -- | /See:/ 'terminateInstanceInAutoScalingGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tiiasgrActivity'
+-- * 'tiiasgrsActivity'
 --
--- * 'tiiasgrStatus'
+-- * 'tiiasgrsStatus'
 data TerminateInstanceInAutoScalingGroupResponse = TerminateInstanceInAutoScalingGroupResponse'
-    { _tiiasgrActivity :: !(Maybe Activity)
-    , _tiiasgrStatus   :: !Int
+    { _tiiasgrsActivity :: !(Maybe Activity)
+    , _tiiasgrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstanceInAutoScalingGroupResponse' smart constructor.
 terminateInstanceInAutoScalingGroupResponse :: Int -> TerminateInstanceInAutoScalingGroupResponse
 terminateInstanceInAutoScalingGroupResponse pStatus =
     TerminateInstanceInAutoScalingGroupResponse'
-    { _tiiasgrActivity = Nothing
-    , _tiiasgrStatus = pStatus
+    { _tiiasgrsActivity = Nothing
+    , _tiiasgrsStatus = pStatus
     }
 
 -- | A scaling activity.
-tiiasgrActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
-tiiasgrActivity = lens _tiiasgrActivity (\ s a -> s{_tiiasgrActivity = a});
+tiiasgrsActivity :: Lens' TerminateInstanceInAutoScalingGroupResponse (Maybe Activity)
+tiiasgrsActivity = lens _tiiasgrsActivity (\ s a -> s{_tiiasgrsActivity = a});
 
 -- | FIXME: Undocumented member.
-tiiasgrStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
-tiiasgrStatus = lens _tiiasgrStatus (\ s a -> s{_tiiasgrStatus = a});
+tiiasgrsStatus :: Lens' TerminateInstanceInAutoScalingGroupResponse Int
+tiiasgrsStatus = lens _tiiasgrsStatus (\ s a -> s{_tiiasgrsStatus = a});

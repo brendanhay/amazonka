@@ -31,8 +31,8 @@ module Network.AWS.Kinesis.AddTagsToStream
     -- ** Request constructor
     , addTagsToStream
     -- ** Request lenses
-    , attsStreamName
-    , attsTags
+    , attsrqStreamName
+    , attsrqTags
 
     -- * Response
     , AddTagsToStreamResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attsStreamName'
+-- * 'attsrqStreamName'
 --
--- * 'attsTags'
+-- * 'attsrqTags'
 data AddTagsToStream = AddTagsToStream'
-    { _attsStreamName :: !Text
-    , _attsTags       :: !(Map Text Text)
+    { _attsrqStreamName :: !Text
+    , _attsrqTags       :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToStream' smart constructor.
 addTagsToStream :: Text -> AddTagsToStream
 addTagsToStream pStreamName =
     AddTagsToStream'
-    { _attsStreamName = pStreamName
-    , _attsTags = mempty
+    { _attsrqStreamName = pStreamName
+    , _attsrqTags = mempty
     }
 
 -- | The name of the stream.
-attsStreamName :: Lens' AddTagsToStream Text
-attsStreamName = lens _attsStreamName (\ s a -> s{_attsStreamName = a});
+attsrqStreamName :: Lens' AddTagsToStream Text
+attsrqStreamName = lens _attsrqStreamName (\ s a -> s{_attsrqStreamName = a});
 
 -- | The set of key-value pairs to use to create the tags.
-attsTags :: Lens' AddTagsToStream (HashMap Text Text)
-attsTags = lens _attsTags (\ s a -> s{_attsTags = a}) . _Map;
+attsrqTags :: Lens' AddTagsToStream (HashMap Text Text)
+attsrqTags = lens _attsrqTags (\ s a -> s{_attsrqTags = a}) . _Map;
 
 instance AWSRequest AddTagsToStream where
         type Sv AddTagsToStream = Kinesis
@@ -93,8 +93,8 @@ instance ToHeaders AddTagsToStream where
 instance ToJSON AddTagsToStream where
         toJSON AddTagsToStream'{..}
           = object
-              ["StreamName" .= _attsStreamName,
-               "Tags" .= _attsTags]
+              ["StreamName" .= _attsrqStreamName,
+               "Tags" .= _attsrqTags]
 
 instance ToPath AddTagsToStream where
         toPath = const "/"

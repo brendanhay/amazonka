@@ -32,17 +32,17 @@ module Network.AWS.Redshift.CreateClusterSecurityGroup
     -- ** Request constructor
     , createClusterSecurityGroup
     -- ** Request lenses
-    , creTags
-    , creClusterSecurityGroupName
-    , creDescription
+    , crqTags
+    , crqClusterSecurityGroupName
+    , crqDescription
 
     -- * Response
     , CreateClusterSecurityGroupResponse
     -- ** Response constructor
     , createClusterSecurityGroupResponse
     -- ** Response lenses
-    , creClusterSecurityGroup
-    , creStatus
+    , crsClusterSecurityGroup
+    , crsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creTags'
+-- * 'crqTags'
 --
--- * 'creClusterSecurityGroupName'
+-- * 'crqClusterSecurityGroupName'
 --
--- * 'creDescription'
+-- * 'crqDescription'
 data CreateClusterSecurityGroup = CreateClusterSecurityGroup'
-    { _creTags                     :: !(Maybe [Tag])
-    , _creClusterSecurityGroupName :: !Text
-    , _creDescription              :: !Text
+    { _crqTags                     :: !(Maybe [Tag])
+    , _crqClusterSecurityGroupName :: !Text
+    , _crqDescription              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSecurityGroup' smart constructor.
 createClusterSecurityGroup :: Text -> Text -> CreateClusterSecurityGroup
 createClusterSecurityGroup pClusterSecurityGroupName pDescription =
     CreateClusterSecurityGroup'
-    { _creTags = Nothing
-    , _creClusterSecurityGroupName = pClusterSecurityGroupName
-    , _creDescription = pDescription
+    { _crqTags = Nothing
+    , _crqClusterSecurityGroupName = pClusterSecurityGroupName
+    , _crqDescription = pDescription
     }
 
 -- | A list of tag instances.
-creTags :: Lens' CreateClusterSecurityGroup [Tag]
-creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default;
+crqTags :: Lens' CreateClusterSecurityGroup [Tag]
+crqTags = lens _crqTags (\ s a -> s{_crqTags = a}) . _Default;
 
 -- | The name for the security group. Amazon Redshift stores the value as a
 -- lowercase string.
@@ -91,12 +91,12 @@ creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default;
 --     account.
 --
 -- Example: @examplesecuritygroup@
-creClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
-creClusterSecurityGroupName = lens _creClusterSecurityGroupName (\ s a -> s{_creClusterSecurityGroupName = a});
+crqClusterSecurityGroupName :: Lens' CreateClusterSecurityGroup Text
+crqClusterSecurityGroupName = lens _crqClusterSecurityGroupName (\ s a -> s{_crqClusterSecurityGroupName = a});
 
 -- | A description for the security group.
-creDescription :: Lens' CreateClusterSecurityGroup Text
-creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
+crqDescription :: Lens' CreateClusterSecurityGroup Text
+crqDescription = lens _crqDescription (\ s a -> s{_crqDescription = a});
 
 instance AWSRequest CreateClusterSecurityGroup where
         type Sv CreateClusterSecurityGroup = Redshift
@@ -123,35 +123,35 @@ instance ToQuery CreateClusterSecurityGroup where
               ["Action" =:
                  ("CreateClusterSecurityGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _creTags),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _crqTags),
                "ClusterSecurityGroupName" =:
-                 _creClusterSecurityGroupName,
-               "Description" =: _creDescription]
+                 _crqClusterSecurityGroupName,
+               "Description" =: _crqDescription]
 
 -- | /See:/ 'createClusterSecurityGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creClusterSecurityGroup'
+-- * 'crsClusterSecurityGroup'
 --
--- * 'creStatus'
+-- * 'crsStatus'
 data CreateClusterSecurityGroupResponse = CreateClusterSecurityGroupResponse'
-    { _creClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _creStatus               :: !Int
+    { _crsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
+    , _crsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSecurityGroupResponse' smart constructor.
 createClusterSecurityGroupResponse :: Int -> CreateClusterSecurityGroupResponse
 createClusterSecurityGroupResponse pStatus =
     CreateClusterSecurityGroupResponse'
-    { _creClusterSecurityGroup = Nothing
-    , _creStatus = pStatus
+    { _crsClusterSecurityGroup = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-creClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
-creClusterSecurityGroup = lens _creClusterSecurityGroup (\ s a -> s{_creClusterSecurityGroup = a});
+crsClusterSecurityGroup :: Lens' CreateClusterSecurityGroupResponse (Maybe ClusterSecurityGroup)
+crsClusterSecurityGroup = lens _crsClusterSecurityGroup (\ s a -> s{_crsClusterSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateClusterSecurityGroupResponse Int
-creStatus = lens _creStatus (\ s a -> s{_creStatus = a});
+crsStatus :: Lens' CreateClusterSecurityGroupResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

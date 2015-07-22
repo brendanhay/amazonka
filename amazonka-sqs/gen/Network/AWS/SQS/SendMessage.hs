@@ -39,20 +39,20 @@ module Network.AWS.SQS.SendMessage
     -- ** Request constructor
     , sendMessage
     -- ** Request lenses
-    , smMessageAttributes
-    , smDelaySeconds
-    , smQueueURL
-    , smMessageBody
+    , smrqMessageAttributes
+    , smrqDelaySeconds
+    , smrqQueueURL
+    , smrqMessageBody
 
     -- * Response
     , SendMessageResponse
     -- ** Response constructor
     , sendMessageResponse
     -- ** Response lenses
-    , smrMessageId
-    , smrMD5OfMessageBody
-    , smrMD5OfMessageAttributes
-    , smrStatus
+    , smrsMessageId
+    , smrsMD5OfMessageBody
+    , smrsMD5OfMessageAttributes
+    , smrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -64,51 +64,51 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'smMessageAttributes'
+-- * 'smrqMessageAttributes'
 --
--- * 'smDelaySeconds'
+-- * 'smrqDelaySeconds'
 --
--- * 'smQueueURL'
+-- * 'smrqQueueURL'
 --
--- * 'smMessageBody'
+-- * 'smrqMessageBody'
 data SendMessage = SendMessage'
-    { _smMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
-    , _smDelaySeconds      :: !(Maybe Int)
-    , _smQueueURL          :: !Text
-    , _smMessageBody       :: !Text
+    { _smrqMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _smrqDelaySeconds      :: !(Maybe Int)
+    , _smrqQueueURL          :: !Text
+    , _smrqMessageBody       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessage' smart constructor.
 sendMessage :: Text -> Text -> SendMessage
 sendMessage pQueueURL pMessageBody =
     SendMessage'
-    { _smMessageAttributes = Nothing
-    , _smDelaySeconds = Nothing
-    , _smQueueURL = pQueueURL
-    , _smMessageBody = pMessageBody
+    { _smrqMessageAttributes = Nothing
+    , _smrqDelaySeconds = Nothing
+    , _smrqQueueURL = pQueueURL
+    , _smrqMessageBody = pMessageBody
     }
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-smMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
-smMessageAttributes = lens _smMessageAttributes (\ s a -> s{_smMessageAttributes = a}) . _Default . _Map;
+smrqMessageAttributes :: Lens' SendMessage (HashMap Text MessageAttributeValue)
+smrqMessageAttributes = lens _smrqMessageAttributes (\ s a -> s{_smrqMessageAttributes = a}) . _Default . _Map;
 
 -- | The number of seconds (0 to 900 - 15 minutes) to delay a specific
 -- message. Messages with a positive @DelaySeconds@ value become available
 -- for processing after the delay time is finished. If you don\'t specify a
 -- value, the default value for the queue applies.
-smDelaySeconds :: Lens' SendMessage (Maybe Int)
-smDelaySeconds = lens _smDelaySeconds (\ s a -> s{_smDelaySeconds = a});
+smrqDelaySeconds :: Lens' SendMessage (Maybe Int)
+smrqDelaySeconds = lens _smrqDelaySeconds (\ s a -> s{_smrqDelaySeconds = a});
 
 -- | The URL of the Amazon SQS queue to take action on.
-smQueueURL :: Lens' SendMessage Text
-smQueueURL = lens _smQueueURL (\ s a -> s{_smQueueURL = a});
+smrqQueueURL :: Lens' SendMessage Text
+smrqQueueURL = lens _smrqQueueURL (\ s a -> s{_smrqQueueURL = a});
 
 -- | The message to send. String maximum 256 KB in size. For a list of
 -- allowed characters, see the preceding important note.
-smMessageBody :: Lens' SendMessage Text
-smMessageBody = lens _smMessageBody (\ s a -> s{_smMessageBody = a});
+smrqMessageBody :: Lens' SendMessage Text
+smrqMessageBody = lens _smrqMessageBody (\ s a -> s{_smrqMessageBody = a});
 
 instance AWSRequest SendMessage where
         type Sv SendMessage = SQS
@@ -135,10 +135,10 @@ instance ToQuery SendMessage where
                "Version" =: ("2012-11-05" :: ByteString),
                toQuery
                  (toQueryMap "MessageAttribute" "Name" "Value" <$>
-                    _smMessageAttributes),
-               "DelaySeconds" =: _smDelaySeconds,
-               "QueueUrl" =: _smQueueURL,
-               "MessageBody" =: _smMessageBody]
+                    _smrqMessageAttributes),
+               "DelaySeconds" =: _smrqDelaySeconds,
+               "QueueUrl" =: _smrqQueueURL,
+               "MessageBody" =: _smrqMessageBody]
 
 -- | The MD5OfMessageBody and MessageId elements.
 --
@@ -146,51 +146,51 @@ instance ToQuery SendMessage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'smrMessageId'
+-- * 'smrsMessageId'
 --
--- * 'smrMD5OfMessageBody'
+-- * 'smrsMD5OfMessageBody'
 --
--- * 'smrMD5OfMessageAttributes'
+-- * 'smrsMD5OfMessageAttributes'
 --
--- * 'smrStatus'
+-- * 'smrsStatus'
 data SendMessageResponse = SendMessageResponse'
-    { _smrMessageId              :: !(Maybe Text)
-    , _smrMD5OfMessageBody       :: !(Maybe Text)
-    , _smrMD5OfMessageAttributes :: !(Maybe Text)
-    , _smrStatus                 :: !Int
+    { _smrsMessageId              :: !(Maybe Text)
+    , _smrsMD5OfMessageBody       :: !(Maybe Text)
+    , _smrsMD5OfMessageAttributes :: !(Maybe Text)
+    , _smrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessageResponse' smart constructor.
 sendMessageResponse :: Int -> SendMessageResponse
 sendMessageResponse pStatus =
     SendMessageResponse'
-    { _smrMessageId = Nothing
-    , _smrMD5OfMessageBody = Nothing
-    , _smrMD5OfMessageAttributes = Nothing
-    , _smrStatus = pStatus
+    { _smrsMessageId = Nothing
+    , _smrsMD5OfMessageBody = Nothing
+    , _smrsMD5OfMessageAttributes = Nothing
+    , _smrsStatus = pStatus
     }
 
 -- | An element containing the message ID of the message sent to the queue.
 -- For more information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/ImportantIdentifiers.html Queue and Message Identifiers>
 -- in the /Amazon SQS Developer Guide/.
-smrMessageId :: Lens' SendMessageResponse (Maybe Text)
-smrMessageId = lens _smrMessageId (\ s a -> s{_smrMessageId = a});
+smrsMessageId :: Lens' SendMessageResponse (Maybe Text)
+smrsMessageId = lens _smrsMessageId (\ s a -> s{_smrsMessageId = a});
 
 -- | An MD5 digest of the non-URL-encoded message body string. This can be
 -- used to verify that Amazon SQS received the message correctly. Amazon
 -- SQS first URL decodes the message before creating the MD5 digest. For
 -- information about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html>.
-smrMD5OfMessageBody :: Lens' SendMessageResponse (Maybe Text)
-smrMD5OfMessageBody = lens _smrMD5OfMessageBody (\ s a -> s{_smrMD5OfMessageBody = a});
+smrsMD5OfMessageBody :: Lens' SendMessageResponse (Maybe Text)
+smrsMD5OfMessageBody = lens _smrsMD5OfMessageBody (\ s a -> s{_smrsMD5OfMessageBody = a});
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can
 -- be used to verify that Amazon SQS received the message correctly. Amazon
 -- SQS first URL decodes the message before creating the MD5 digest. For
 -- information about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html>.
-smrMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
-smrMD5OfMessageAttributes = lens _smrMD5OfMessageAttributes (\ s a -> s{_smrMD5OfMessageAttributes = a});
+smrsMD5OfMessageAttributes :: Lens' SendMessageResponse (Maybe Text)
+smrsMD5OfMessageAttributes = lens _smrsMD5OfMessageAttributes (\ s a -> s{_smrsMD5OfMessageAttributes = a});
 
 -- | FIXME: Undocumented member.
-smrStatus :: Lens' SendMessageResponse Int
-smrStatus = lens _smrStatus (\ s a -> s{_smrStatus = a});
+smrsStatus :: Lens' SendMessageResponse Int
+smrsStatus = lens _smrsStatus (\ s a -> s{_smrsStatus = a});

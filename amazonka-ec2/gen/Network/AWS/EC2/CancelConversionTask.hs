@@ -35,9 +35,9 @@ module Network.AWS.EC2.CancelConversionTask
     -- ** Request constructor
     , cancelConversionTask
     -- ** Request lenses
-    , cctReasonMessage
-    , cctDryRun
-    , cctConversionTaskId
+    , cctrqReasonMessage
+    , cctrqDryRun
+    , cctrqConversionTaskId
 
     -- * Response
     , CancelConversionTaskResponse
@@ -54,40 +54,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cctReasonMessage'
+-- * 'cctrqReasonMessage'
 --
--- * 'cctDryRun'
+-- * 'cctrqDryRun'
 --
--- * 'cctConversionTaskId'
+-- * 'cctrqConversionTaskId'
 data CancelConversionTask = CancelConversionTask'
-    { _cctReasonMessage    :: !(Maybe Text)
-    , _cctDryRun           :: !(Maybe Bool)
-    , _cctConversionTaskId :: !Text
+    { _cctrqReasonMessage    :: !(Maybe Text)
+    , _cctrqDryRun           :: !(Maybe Bool)
+    , _cctrqConversionTaskId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelConversionTask' smart constructor.
 cancelConversionTask :: Text -> CancelConversionTask
 cancelConversionTask pConversionTaskId =
     CancelConversionTask'
-    { _cctReasonMessage = Nothing
-    , _cctDryRun = Nothing
-    , _cctConversionTaskId = pConversionTaskId
+    { _cctrqReasonMessage = Nothing
+    , _cctrqDryRun = Nothing
+    , _cctrqConversionTaskId = pConversionTaskId
     }
 
 -- | The reason for canceling the conversion task.
-cctReasonMessage :: Lens' CancelConversionTask (Maybe Text)
-cctReasonMessage = lens _cctReasonMessage (\ s a -> s{_cctReasonMessage = a});
+cctrqReasonMessage :: Lens' CancelConversionTask (Maybe Text)
+cctrqReasonMessage = lens _cctrqReasonMessage (\ s a -> s{_cctrqReasonMessage = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cctDryRun :: Lens' CancelConversionTask (Maybe Bool)
-cctDryRun = lens _cctDryRun (\ s a -> s{_cctDryRun = a});
+cctrqDryRun :: Lens' CancelConversionTask (Maybe Bool)
+cctrqDryRun = lens _cctrqDryRun (\ s a -> s{_cctrqDryRun = a});
 
 -- | The ID of the conversion task.
-cctConversionTaskId :: Lens' CancelConversionTask Text
-cctConversionTaskId = lens _cctConversionTaskId (\ s a -> s{_cctConversionTaskId = a});
+cctrqConversionTaskId :: Lens' CancelConversionTask Text
+cctrqConversionTaskId = lens _cctrqConversionTaskId (\ s a -> s{_cctrqConversionTaskId = a});
 
 instance AWSRequest CancelConversionTask where
         type Sv CancelConversionTask = EC2
@@ -107,9 +107,9 @@ instance ToQuery CancelConversionTask where
           = mconcat
               ["Action" =: ("CancelConversionTask" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ReasonMessage" =: _cctReasonMessage,
-               "DryRun" =: _cctDryRun,
-               "ConversionTaskId" =: _cctConversionTaskId]
+               "ReasonMessage" =: _cctrqReasonMessage,
+               "DryRun" =: _cctrqDryRun,
+               "ConversionTaskId" =: _cctrqConversionTaskId]
 
 -- | /See:/ 'cancelConversionTaskResponse' smart constructor.
 data CancelConversionTaskResponse =

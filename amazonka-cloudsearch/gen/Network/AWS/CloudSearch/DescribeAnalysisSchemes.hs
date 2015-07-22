@@ -34,17 +34,17 @@ module Network.AWS.CloudSearch.DescribeAnalysisSchemes
     -- ** Request constructor
     , describeAnalysisSchemes
     -- ** Request lenses
-    , dassDeployed
-    , dassAnalysisSchemeNames
-    , dassDomainName
+    , dassrqDeployed
+    , dassrqAnalysisSchemeNames
+    , dassrqDomainName
 
     -- * Response
     , DescribeAnalysisSchemesResponse
     -- ** Response constructor
     , describeAnalysisSchemesResponse
     -- ** Response lenses
-    , dasrStatus
-    , dasrAnalysisSchemes
+    , dassrsStatus
+    , dassrsAnalysisSchemes
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -62,38 +62,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dassDeployed'
+-- * 'dassrqDeployed'
 --
--- * 'dassAnalysisSchemeNames'
+-- * 'dassrqAnalysisSchemeNames'
 --
--- * 'dassDomainName'
+-- * 'dassrqDomainName'
 data DescribeAnalysisSchemes = DescribeAnalysisSchemes'
-    { _dassDeployed            :: !(Maybe Bool)
-    , _dassAnalysisSchemeNames :: !(Maybe [Text])
-    , _dassDomainName          :: !Text
+    { _dassrqDeployed            :: !(Maybe Bool)
+    , _dassrqAnalysisSchemeNames :: !(Maybe [Text])
+    , _dassrqDomainName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAnalysisSchemes' smart constructor.
 describeAnalysisSchemes :: Text -> DescribeAnalysisSchemes
 describeAnalysisSchemes pDomainName =
     DescribeAnalysisSchemes'
-    { _dassDeployed = Nothing
-    , _dassAnalysisSchemeNames = Nothing
-    , _dassDomainName = pDomainName
+    { _dassrqDeployed = Nothing
+    , _dassrqAnalysisSchemeNames = Nothing
+    , _dassrqDomainName = pDomainName
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-dassDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
-dassDeployed = lens _dassDeployed (\ s a -> s{_dassDeployed = a});
+dassrqDeployed :: Lens' DescribeAnalysisSchemes (Maybe Bool)
+dassrqDeployed = lens _dassrqDeployed (\ s a -> s{_dassrqDeployed = a});
 
 -- | The analysis schemes you want to describe.
-dassAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
-dassAnalysisSchemeNames = lens _dassAnalysisSchemeNames (\ s a -> s{_dassAnalysisSchemeNames = a}) . _Default;
+dassrqAnalysisSchemeNames :: Lens' DescribeAnalysisSchemes [Text]
+dassrqAnalysisSchemeNames = lens _dassrqAnalysisSchemeNames (\ s a -> s{_dassrqAnalysisSchemeNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
-dassDomainName :: Lens' DescribeAnalysisSchemes Text
-dassDomainName = lens _dassDomainName (\ s a -> s{_dassDomainName = a});
+dassrqDomainName :: Lens' DescribeAnalysisSchemes Text
+dassrqDomainName = lens _dassrqDomainName (\ s a -> s{_dassrqDomainName = a});
 
 instance AWSRequest DescribeAnalysisSchemes where
         type Sv DescribeAnalysisSchemes = CloudSearch
@@ -120,11 +120,12 @@ instance ToQuery DescribeAnalysisSchemes where
               ["Action" =:
                  ("DescribeAnalysisSchemes" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _dassDeployed,
+               "Deployed" =: _dassrqDeployed,
                "AnalysisSchemeNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dassAnalysisSchemeNames),
-               "DomainName" =: _dassDomainName]
+                   (toQueryList "member" <$>
+                      _dassrqAnalysisSchemeNames),
+               "DomainName" =: _dassrqDomainName]
 
 -- | The result of a @DescribeAnalysisSchemes@ request. Contains the analysis
 -- schemes configured for the domain specified in the request.
@@ -133,26 +134,26 @@ instance ToQuery DescribeAnalysisSchemes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasrStatus'
+-- * 'dassrsStatus'
 --
--- * 'dasrAnalysisSchemes'
+-- * 'dassrsAnalysisSchemes'
 data DescribeAnalysisSchemesResponse = DescribeAnalysisSchemesResponse'
-    { _dasrStatus          :: !Int
-    , _dasrAnalysisSchemes :: ![AnalysisSchemeStatus]
+    { _dassrsStatus          :: !Int
+    , _dassrsAnalysisSchemes :: ![AnalysisSchemeStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAnalysisSchemesResponse' smart constructor.
 describeAnalysisSchemesResponse :: Int -> DescribeAnalysisSchemesResponse
 describeAnalysisSchemesResponse pStatus =
     DescribeAnalysisSchemesResponse'
-    { _dasrStatus = pStatus
-    , _dasrAnalysisSchemes = mempty
+    { _dassrsStatus = pStatus
+    , _dassrsAnalysisSchemes = mempty
     }
 
 -- | FIXME: Undocumented member.
-dasrStatus :: Lens' DescribeAnalysisSchemesResponse Int
-dasrStatus = lens _dasrStatus (\ s a -> s{_dasrStatus = a});
+dassrsStatus :: Lens' DescribeAnalysisSchemesResponse Int
+dassrsStatus = lens _dassrsStatus (\ s a -> s{_dassrsStatus = a});
 
 -- | The analysis scheme descriptions.
-dasrAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
-dasrAnalysisSchemes = lens _dasrAnalysisSchemes (\ s a -> s{_dasrAnalysisSchemes = a});
+dassrsAnalysisSchemes :: Lens' DescribeAnalysisSchemesResponse [AnalysisSchemeStatus]
+dassrsAnalysisSchemes = lens _dassrsAnalysisSchemes (\ s a -> s{_dassrsAnalysisSchemes = a});

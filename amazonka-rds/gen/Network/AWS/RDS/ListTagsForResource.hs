@@ -30,16 +30,16 @@ module Network.AWS.RDS.ListTagsForResource
     -- ** Request constructor
     , listTagsForResource
     -- ** Request lenses
-    , ltfrFilters
-    , ltfrResourceName
+    , ltfrrqFilters
+    , ltfrrqResourceName
 
     -- * Response
     , ListTagsForResourceResponse
     -- ** Response constructor
     , listTagsForResourceResponse
     -- ** Response lenses
-    , ltfrrTagList
-    , ltfrrStatus
+    , ltfrrsTagList
+    , ltfrrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -53,31 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrFilters'
+-- * 'ltfrrqFilters'
 --
--- * 'ltfrResourceName'
+-- * 'ltfrrqResourceName'
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrFilters      :: !(Maybe [Filter])
-    , _ltfrResourceName :: !Text
+    { _ltfrrqFilters      :: !(Maybe [Filter])
+    , _ltfrrqResourceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource
 listTagsForResource pResourceName =
     ListTagsForResource'
-    { _ltfrFilters = Nothing
-    , _ltfrResourceName = pResourceName
+    { _ltfrrqFilters = Nothing
+    , _ltfrrqResourceName = pResourceName
     }
 
 -- | This parameter is not currently supported.
-ltfrFilters :: Lens' ListTagsForResource [Filter]
-ltfrFilters = lens _ltfrFilters (\ s a -> s{_ltfrFilters = a}) . _Default;
+ltfrrqFilters :: Lens' ListTagsForResource [Filter]
+ltfrrqFilters = lens _ltfrrqFilters (\ s a -> s{_ltfrrqFilters = a}) . _Default;
 
 -- | The Amazon RDS resource with tags to be listed. This value is an Amazon
 -- Resource Name (ARN). For information about creating an ARN, see
 -- <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing an RDS Amazon Resource Name (ARN)>.
-ltfrResourceName :: Lens' ListTagsForResource Text
-ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
+ltfrrqResourceName :: Lens' ListTagsForResource Text
+ltfrrqResourceName = lens _ltfrrqResourceName (\ s a -> s{_ltfrrqResourceName = a});
 
 instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = RDS
@@ -104,8 +104,8 @@ instance ToQuery ListTagsForResource where
               ["Action" =: ("ListTagsForResource" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ltfrFilters),
-               "ResourceName" =: _ltfrResourceName]
+                 toQuery (toQueryList "Filter" <$> _ltfrrqFilters),
+               "ResourceName" =: _ltfrrqResourceName]
 
 -- |
 --
@@ -113,26 +113,26 @@ instance ToQuery ListTagsForResource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrrTagList'
+-- * 'ltfrrsTagList'
 --
--- * 'ltfrrStatus'
+-- * 'ltfrrsStatus'
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrTagList :: !(Maybe [Tag])
-    , _ltfrrStatus  :: !Int
+    { _ltfrrsTagList :: !(Maybe [Tag])
+    , _ltfrrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: Int -> ListTagsForResourceResponse
 listTagsForResourceResponse pStatus =
     ListTagsForResourceResponse'
-    { _ltfrrTagList = Nothing
-    , _ltfrrStatus = pStatus
+    { _ltfrrsTagList = Nothing
+    , _ltfrrsStatus = pStatus
     }
 
 -- | List of tags returned by the ListTagsForResource operation.
-ltfrrTagList :: Lens' ListTagsForResourceResponse [Tag]
-ltfrrTagList = lens _ltfrrTagList (\ s a -> s{_ltfrrTagList = a}) . _Default;
+ltfrrsTagList :: Lens' ListTagsForResourceResponse [Tag]
+ltfrrsTagList = lens _ltfrrsTagList (\ s a -> s{_ltfrrsTagList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ltfrrStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrStatus = lens _ltfrrStatus (\ s a -> s{_ltfrrStatus = a});
+ltfrrsStatus :: Lens' ListTagsForResourceResponse Int
+ltfrrsStatus = lens _ltfrrsStatus (\ s a -> s{_ltfrrsStatus = a});

@@ -34,15 +34,15 @@ module Network.AWS.Redshift.RebootCluster
     -- ** Request constructor
     , rebootCluster
     -- ** Request lenses
-    , rcClusterIdentifier
+    , rcrqClusterIdentifier
 
     -- * Response
     , RebootClusterResponse
     -- ** Response constructor
     , rebootClusterResponse
     -- ** Response lenses
-    , rcrCluster
-    , rcrStatus
+    , rcrsCluster
+    , rcrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcClusterIdentifier'
+-- * 'rcrqClusterIdentifier'
 newtype RebootCluster = RebootCluster'
-    { _rcClusterIdentifier :: Text
+    { _rcrqClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCluster' smart constructor.
 rebootCluster :: Text -> RebootCluster
 rebootCluster pClusterIdentifier =
     RebootCluster'
-    { _rcClusterIdentifier = pClusterIdentifier
+    { _rcrqClusterIdentifier = pClusterIdentifier
     }
 
 -- | The cluster identifier.
-rcClusterIdentifier :: Lens' RebootCluster Text
-rcClusterIdentifier = lens _rcClusterIdentifier (\ s a -> s{_rcClusterIdentifier = a});
+rcrqClusterIdentifier :: Lens' RebootCluster Text
+rcrqClusterIdentifier = lens _rcrqClusterIdentifier (\ s a -> s{_rcrqClusterIdentifier = a});
 
 instance AWSRequest RebootCluster where
         type Sv RebootCluster = Redshift
@@ -93,32 +93,32 @@ instance ToQuery RebootCluster where
           = mconcat
               ["Action" =: ("RebootCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _rcClusterIdentifier]
+               "ClusterIdentifier" =: _rcrqClusterIdentifier]
 
 -- | /See:/ 'rebootClusterResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcrCluster'
+-- * 'rcrsCluster'
 --
--- * 'rcrStatus'
+-- * 'rcrsStatus'
 data RebootClusterResponse = RebootClusterResponse'
-    { _rcrCluster :: !(Maybe Cluster)
-    , _rcrStatus  :: !Int
+    { _rcrsCluster :: !(Maybe Cluster)
+    , _rcrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootClusterResponse' smart constructor.
 rebootClusterResponse :: Int -> RebootClusterResponse
 rebootClusterResponse pStatus =
     RebootClusterResponse'
-    { _rcrCluster = Nothing
-    , _rcrStatus = pStatus
+    { _rcrsCluster = Nothing
+    , _rcrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rcrCluster :: Lens' RebootClusterResponse (Maybe Cluster)
-rcrCluster = lens _rcrCluster (\ s a -> s{_rcrCluster = a});
+rcrsCluster :: Lens' RebootClusterResponse (Maybe Cluster)
+rcrsCluster = lens _rcrsCluster (\ s a -> s{_rcrsCluster = a});
 
 -- | FIXME: Undocumented member.
-rcrStatus :: Lens' RebootClusterResponse Int
-rcrStatus = lens _rcrStatus (\ s a -> s{_rcrStatus = a});
+rcrsStatus :: Lens' RebootClusterResponse Int
+rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});

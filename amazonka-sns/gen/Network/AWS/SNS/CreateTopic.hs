@@ -32,15 +32,15 @@ module Network.AWS.SNS.CreateTopic
     -- ** Request constructor
     , createTopic
     -- ** Request lenses
-    , ctName
+    , ctrqName
 
     -- * Response
     , CreateTopicResponse
     -- ** Response constructor
     , createTopicResponse
     -- ** Response lenses
-    , ctrTopicARN
-    , ctrStatus
+    , ctrsTopicARN
+    , ctrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -54,16 +54,16 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctName'
+-- * 'ctrqName'
 newtype CreateTopic = CreateTopic'
-    { _ctName :: Text
+    { _ctrqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTopic' smart constructor.
 createTopic :: Text -> CreateTopic
 createTopic pName =
     CreateTopic'
-    { _ctName = pName
+    { _ctrqName = pName
     }
 
 -- | The name of the topic you want to create.
@@ -71,8 +71,8 @@ createTopic pName =
 -- Constraints: Topic names must be made up of only uppercase and lowercase
 -- ASCII letters, numbers, underscores, and hyphens, and must be between 1
 -- and 256 characters long.
-ctName :: Lens' CreateTopic Text
-ctName = lens _ctName (\ s a -> s{_ctName = a});
+ctrqName :: Lens' CreateTopic Text
+ctrqName = lens _ctrqName (\ s a -> s{_ctrqName = a});
 
 instance AWSRequest CreateTopic where
         type Sv CreateTopic = SNS
@@ -95,7 +95,7 @@ instance ToQuery CreateTopic where
           = mconcat
               ["Action" =: ("CreateTopic" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "Name" =: _ctName]
+               "Name" =: _ctrqName]
 
 -- | Response from CreateTopic action.
 --
@@ -103,26 +103,26 @@ instance ToQuery CreateTopic where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctrTopicARN'
+-- * 'ctrsTopicARN'
 --
--- * 'ctrStatus'
+-- * 'ctrsStatus'
 data CreateTopicResponse = CreateTopicResponse'
-    { _ctrTopicARN :: !(Maybe Text)
-    , _ctrStatus   :: !Int
+    { _ctrsTopicARN :: !(Maybe Text)
+    , _ctrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTopicResponse' smart constructor.
 createTopicResponse :: Int -> CreateTopicResponse
 createTopicResponse pStatus =
     CreateTopicResponse'
-    { _ctrTopicARN = Nothing
-    , _ctrStatus = pStatus
+    { _ctrsTopicARN = Nothing
+    , _ctrsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) assigned to the created topic.
-ctrTopicARN :: Lens' CreateTopicResponse (Maybe Text)
-ctrTopicARN = lens _ctrTopicARN (\ s a -> s{_ctrTopicARN = a});
+ctrsTopicARN :: Lens' CreateTopicResponse (Maybe Text)
+ctrsTopicARN = lens _ctrsTopicARN (\ s a -> s{_ctrsTopicARN = a});
 
 -- | FIXME: Undocumented member.
-ctrStatus :: Lens' CreateTopicResponse Int
-ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});
+ctrsStatus :: Lens' CreateTopicResponse Int
+ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

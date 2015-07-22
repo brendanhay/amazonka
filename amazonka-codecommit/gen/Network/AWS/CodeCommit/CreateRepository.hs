@@ -27,16 +27,16 @@ module Network.AWS.CodeCommit.CreateRepository
     -- ** Request constructor
     , createRepository
     -- ** Request lenses
-    , crRepositoryDescription
-    , crRepositoryName
+    , crrqRepositoryDescription
+    , crrqRepositoryName
 
     -- * Response
     , CreateRepositoryResponse
     -- ** Response constructor
     , createRepositoryResponse
     -- ** Response lenses
-    , crrRepositoryMetadata
-    , crrStatus
+    , crrsRepositoryMetadata
+    , crrsStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -50,33 +50,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crRepositoryDescription'
+-- * 'crrqRepositoryDescription'
 --
--- * 'crRepositoryName'
+-- * 'crrqRepositoryName'
 data CreateRepository = CreateRepository'
-    { _crRepositoryDescription :: !(Maybe Text)
-    , _crRepositoryName        :: !Text
+    { _crrqRepositoryDescription :: !(Maybe Text)
+    , _crrqRepositoryName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRepository' smart constructor.
 createRepository :: Text -> CreateRepository
 createRepository pRepositoryName =
     CreateRepository'
-    { _crRepositoryDescription = Nothing
-    , _crRepositoryName = pRepositoryName
+    { _crrqRepositoryDescription = Nothing
+    , _crrqRepositoryName = pRepositoryName
     }
 
 -- | A comment or description about the new repository.
-crRepositoryDescription :: Lens' CreateRepository (Maybe Text)
-crRepositoryDescription = lens _crRepositoryDescription (\ s a -> s{_crRepositoryDescription = a});
+crrqRepositoryDescription :: Lens' CreateRepository (Maybe Text)
+crrqRepositoryDescription = lens _crrqRepositoryDescription (\ s a -> s{_crrqRepositoryDescription = a});
 
 -- | The name of the new repository to be created.
 --
 -- The repository name must be unique across the calling AWS account. In
 -- addition, repository names are restricted to alphanumeric characters.
 -- The suffix \".git\" is prohibited.
-crRepositoryName :: Lens' CreateRepository Text
-crRepositoryName = lens _crRepositoryName (\ s a -> s{_crRepositoryName = a});
+crrqRepositoryName :: Lens' CreateRepository Text
+crrqRepositoryName = lens _crrqRepositoryName (\ s a -> s{_crrqRepositoryName = a});
 
 instance AWSRequest CreateRepository where
         type Sv CreateRepository = CodeCommit
@@ -101,8 +101,9 @@ instance ToHeaders CreateRepository where
 instance ToJSON CreateRepository where
         toJSON CreateRepository'{..}
           = object
-              ["repositoryDescription" .= _crRepositoryDescription,
-               "repositoryName" .= _crRepositoryName]
+              ["repositoryDescription" .=
+                 _crrqRepositoryDescription,
+               "repositoryName" .= _crrqRepositoryName]
 
 instance ToPath CreateRepository where
         toPath = const "/"
@@ -116,26 +117,26 @@ instance ToQuery CreateRepository where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrRepositoryMetadata'
+-- * 'crrsRepositoryMetadata'
 --
--- * 'crrStatus'
+-- * 'crrsStatus'
 data CreateRepositoryResponse = CreateRepositoryResponse'
-    { _crrRepositoryMetadata :: !(Maybe RepositoryMetadata)
-    , _crrStatus             :: !Int
+    { _crrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
+    , _crrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRepositoryResponse' smart constructor.
 createRepositoryResponse :: Int -> CreateRepositoryResponse
 createRepositoryResponse pStatus =
     CreateRepositoryResponse'
-    { _crrRepositoryMetadata = Nothing
-    , _crrStatus = pStatus
+    { _crrsRepositoryMetadata = Nothing
+    , _crrsStatus = pStatus
     }
 
 -- | Information about the newly created repository.
-crrRepositoryMetadata :: Lens' CreateRepositoryResponse (Maybe RepositoryMetadata)
-crrRepositoryMetadata = lens _crrRepositoryMetadata (\ s a -> s{_crrRepositoryMetadata = a});
+crrsRepositoryMetadata :: Lens' CreateRepositoryResponse (Maybe RepositoryMetadata)
+crrsRepositoryMetadata = lens _crrsRepositoryMetadata (\ s a -> s{_crrsRepositoryMetadata = a});
 
 -- | FIXME: Undocumented member.
-crrStatus :: Lens' CreateRepositoryResponse Int
-crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});
+crrsStatus :: Lens' CreateRepositoryResponse Int
+crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});

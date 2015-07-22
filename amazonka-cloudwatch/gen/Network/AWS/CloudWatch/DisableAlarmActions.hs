@@ -29,7 +29,7 @@ module Network.AWS.CloudWatch.DisableAlarmActions
     -- ** Request constructor
     , disableAlarmActions
     -- ** Request lenses
-    , daaAlarmNames
+    , daarqAlarmNames
 
     -- * Response
     , DisableAlarmActionsResponse
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daaAlarmNames'
+-- * 'daarqAlarmNames'
 newtype DisableAlarmActions = DisableAlarmActions'
-    { _daaAlarmNames :: [Text]
+    { _daarqAlarmNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableAlarmActions' smart constructor.
 disableAlarmActions :: DisableAlarmActions
 disableAlarmActions =
     DisableAlarmActions'
-    { _daaAlarmNames = mempty
+    { _daarqAlarmNames = mempty
     }
 
 -- | The names of the alarms to disable actions for.
-daaAlarmNames :: Lens' DisableAlarmActions [Text]
-daaAlarmNames = lens _daaAlarmNames (\ s a -> s{_daaAlarmNames = a});
+daarqAlarmNames :: Lens' DisableAlarmActions [Text]
+daarqAlarmNames = lens _daarqAlarmNames (\ s a -> s{_daarqAlarmNames = a});
 
 instance AWSRequest DisableAlarmActions where
         type Sv DisableAlarmActions = CloudWatch
@@ -82,7 +82,8 @@ instance ToQuery DisableAlarmActions where
           = mconcat
               ["Action" =: ("DisableAlarmActions" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNames" =: toQueryList "member" _daaAlarmNames]
+               "AlarmNames" =:
+                 toQueryList "member" _daarqAlarmNames]
 
 -- | /See:/ 'disableAlarmActionsResponse' smart constructor.
 data DisableAlarmActionsResponse =

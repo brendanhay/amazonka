@@ -35,10 +35,10 @@ module Network.AWS.CognitoIdentity.Types
     -- * Credentials
     , Credentials
     , credentials
-    , creSessionToken
-    , creExpiration
-    , creSecretKey
-    , creAccessKeyId
+    , cSessionToken
+    , cExpiration
+    , cSecretKey
+    , cAccessKeyId
 
     -- * IdentityDescription
     , IdentityDescription

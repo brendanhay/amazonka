@@ -30,15 +30,15 @@ module Network.AWS.SNS.GetPlatformApplicationAttributes
     -- ** Request constructor
     , getPlatformApplicationAttributes
     -- ** Request lenses
-    , gpaaPlatformApplicationARN
+    , gpaarqPlatformApplicationARN
 
     -- * Response
     , GetPlatformApplicationAttributesResponse
     -- ** Response constructor
     , getPlatformApplicationAttributesResponse
     -- ** Response lenses
-    , gpaarAttributes
-    , gpaarStatus
+    , gpaarsAttributes
+    , gpaarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,21 +52,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpaaPlatformApplicationARN'
+-- * 'gpaarqPlatformApplicationARN'
 newtype GetPlatformApplicationAttributes = GetPlatformApplicationAttributes'
-    { _gpaaPlatformApplicationARN :: Text
+    { _gpaarqPlatformApplicationARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPlatformApplicationAttributes' smart constructor.
 getPlatformApplicationAttributes :: Text -> GetPlatformApplicationAttributes
 getPlatformApplicationAttributes pPlatformApplicationARN =
     GetPlatformApplicationAttributes'
-    { _gpaaPlatformApplicationARN = pPlatformApplicationARN
+    { _gpaarqPlatformApplicationARN = pPlatformApplicationARN
     }
 
 -- | PlatformApplicationArn for GetPlatformApplicationAttributesInput.
-gpaaPlatformApplicationARN :: Lens' GetPlatformApplicationAttributes Text
-gpaaPlatformApplicationARN = lens _gpaaPlatformApplicationARN (\ s a -> s{_gpaaPlatformApplicationARN = a});
+gpaarqPlatformApplicationARN :: Lens' GetPlatformApplicationAttributes Text
+gpaarqPlatformApplicationARN = lens _gpaarqPlatformApplicationARN (\ s a -> s{_gpaarqPlatformApplicationARN = a});
 
 instance AWSRequest GetPlatformApplicationAttributes
          where
@@ -99,7 +99,7 @@ instance ToQuery GetPlatformApplicationAttributes
                  ("GetPlatformApplicationAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
                "PlatformApplicationArn" =:
-                 _gpaaPlatformApplicationARN]
+                 _gpaarqPlatformApplicationARN]
 
 -- | Response for GetPlatformApplicationAttributes action.
 --
@@ -107,20 +107,20 @@ instance ToQuery GetPlatformApplicationAttributes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpaarAttributes'
+-- * 'gpaarsAttributes'
 --
--- * 'gpaarStatus'
+-- * 'gpaarsStatus'
 data GetPlatformApplicationAttributesResponse = GetPlatformApplicationAttributesResponse'
-    { _gpaarAttributes :: !(Maybe (Map Text Text))
-    , _gpaarStatus     :: !Int
+    { _gpaarsAttributes :: !(Maybe (Map Text Text))
+    , _gpaarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPlatformApplicationAttributesResponse' smart constructor.
 getPlatformApplicationAttributesResponse :: Int -> GetPlatformApplicationAttributesResponse
 getPlatformApplicationAttributesResponse pStatus =
     GetPlatformApplicationAttributesResponse'
-    { _gpaarAttributes = Nothing
-    , _gpaarStatus = pStatus
+    { _gpaarsAttributes = Nothing
+    , _gpaarsStatus = pStatus
     }
 
 -- | Attributes include the following:
@@ -134,9 +134,9 @@ getPlatformApplicationAttributesResponse pStatus =
 -- -   @EventDeliveryFailure@ -- Topic ARN to which DeliveryFailure event
 --     notifications should be sent upon Direct Publish delivery failure
 --     (permanent) to one of the application\'s endpoints.
-gpaarAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
-gpaarAttributes = lens _gpaarAttributes (\ s a -> s{_gpaarAttributes = a}) . _Default . _Map;
+gpaarsAttributes :: Lens' GetPlatformApplicationAttributesResponse (HashMap Text Text)
+gpaarsAttributes = lens _gpaarsAttributes (\ s a -> s{_gpaarsAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gpaarStatus :: Lens' GetPlatformApplicationAttributesResponse Int
-gpaarStatus = lens _gpaarStatus (\ s a -> s{_gpaarStatus = a});
+gpaarsStatus :: Lens' GetPlatformApplicationAttributesResponse Int
+gpaarsStatus = lens _gpaarsStatus (\ s a -> s{_gpaarsStatus = a});

@@ -36,20 +36,20 @@ module Network.AWS.Route53.ListHealthChecks
     -- ** Request constructor
     , listHealthChecks
     -- ** Request lenses
-    , lhcMaxItems
-    , lhcMarker
+    , lhcrqMaxItems
+    , lhcrqMarker
 
     -- * Response
     , ListHealthChecksResponse
     -- ** Response constructor
     , listHealthChecksResponse
     -- ** Response lenses
-    , lhcrNextMarker
-    , lhcrStatus
-    , lhcrHealthChecks
-    , lhcrMarker
-    , lhcrIsTruncated
-    , lhcrMaxItems
+    , lhcrsNextMarker
+    , lhcrsStatus
+    , lhcrsHealthChecks
+    , lhcrsMarker
+    , lhcrsIsTruncated
+    , lhcrsMaxItems
     ) where
 
 import           Network.AWS.Pager
@@ -73,39 +73,39 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhcMaxItems'
+-- * 'lhcrqMaxItems'
 --
--- * 'lhcMarker'
+-- * 'lhcrqMarker'
 data ListHealthChecks = ListHealthChecks'
-    { _lhcMaxItems :: !(Maybe Text)
-    , _lhcMarker   :: !(Maybe Text)
+    { _lhcrqMaxItems :: !(Maybe Text)
+    , _lhcrqMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHealthChecks' smart constructor.
 listHealthChecks :: ListHealthChecks
 listHealthChecks =
     ListHealthChecks'
-    { _lhcMaxItems = Nothing
-    , _lhcMarker = Nothing
+    { _lhcrqMaxItems = Nothing
+    , _lhcrqMarker = Nothing
     }
 
 -- | Specify the maximum number of health checks to return per page of
 -- results.
-lhcMaxItems :: Lens' ListHealthChecks (Maybe Text)
-lhcMaxItems = lens _lhcMaxItems (\ s a -> s{_lhcMaxItems = a});
+lhcrqMaxItems :: Lens' ListHealthChecks (Maybe Text)
+lhcrqMaxItems = lens _lhcrqMaxItems (\ s a -> s{_lhcrqMaxItems = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in
 -- the @marker@ parameter to get the next page of results.
-lhcMarker :: Lens' ListHealthChecks (Maybe Text)
-lhcMarker = lens _lhcMarker (\ s a -> s{_lhcMarker = a});
+lhcrqMarker :: Lens' ListHealthChecks (Maybe Text)
+lhcrqMarker = lens _lhcrqMarker (\ s a -> s{_lhcrqMarker = a});
 
 instance AWSPager ListHealthChecks where
         page rq rs
-          | stop (rs ^. lhcrIsTruncated) = Nothing
-          | isNothing (rs ^. lhcrNextMarker) = Nothing
+          | stop (rs ^. lhcrsIsTruncated) = Nothing
+          | isNothing (rs ^. lhcrsNextMarker) = Nothing
           | otherwise =
-            Just $ rq & lhcMarker .~ rs ^. lhcrNextMarker
+            Just $ rq & lhcrqMarker .~ rs ^. lhcrsNextMarker
 
 instance AWSRequest ListHealthChecks where
         type Sv ListHealthChecks = Route53
@@ -131,7 +131,8 @@ instance ToPath ListHealthChecks where
 instance ToQuery ListHealthChecks where
         toQuery ListHealthChecks'{..}
           = mconcat
-              ["maxitems" =: _lhcMaxItems, "marker" =: _lhcMarker]
+              ["maxitems" =: _lhcrqMaxItems,
+               "marker" =: _lhcrqMarker]
 
 -- | A complex type that contains the response for the request.
 --
@@ -139,67 +140,67 @@ instance ToQuery ListHealthChecks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhcrNextMarker'
+-- * 'lhcrsNextMarker'
 --
--- * 'lhcrStatus'
+-- * 'lhcrsStatus'
 --
--- * 'lhcrHealthChecks'
+-- * 'lhcrsHealthChecks'
 --
--- * 'lhcrMarker'
+-- * 'lhcrsMarker'
 --
--- * 'lhcrIsTruncated'
+-- * 'lhcrsIsTruncated'
 --
--- * 'lhcrMaxItems'
+-- * 'lhcrsMaxItems'
 data ListHealthChecksResponse = ListHealthChecksResponse'
-    { _lhcrNextMarker   :: !(Maybe Text)
-    , _lhcrStatus       :: !Int
-    , _lhcrHealthChecks :: ![HealthCheck]
-    , _lhcrMarker       :: !Text
-    , _lhcrIsTruncated  :: !Bool
-    , _lhcrMaxItems     :: !Text
+    { _lhcrsNextMarker   :: !(Maybe Text)
+    , _lhcrsStatus       :: !Int
+    , _lhcrsHealthChecks :: ![HealthCheck]
+    , _lhcrsMarker       :: !Text
+    , _lhcrsIsTruncated  :: !Bool
+    , _lhcrsMaxItems     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHealthChecksResponse' smart constructor.
 listHealthChecksResponse :: Int -> Text -> Bool -> Text -> ListHealthChecksResponse
 listHealthChecksResponse pStatus pMarker pIsTruncated pMaxItems =
     ListHealthChecksResponse'
-    { _lhcrNextMarker = Nothing
-    , _lhcrStatus = pStatus
-    , _lhcrHealthChecks = mempty
-    , _lhcrMarker = pMarker
-    , _lhcrIsTruncated = pIsTruncated
-    , _lhcrMaxItems = pMaxItems
+    { _lhcrsNextMarker = Nothing
+    , _lhcrsStatus = pStatus
+    , _lhcrsHealthChecks = mempty
+    , _lhcrsMarker = pMarker
+    , _lhcrsIsTruncated = pIsTruncated
+    , _lhcrsMaxItems = pMaxItems
     }
 
 -- | Indicates where to continue listing health checks. If
 -- ListHealthChecksResponse$IsTruncated is @true@, make another request to
 -- @ListHealthChecks@ and include the value of the @NextMarker@ element in
 -- the @Marker@ element to get the next page of results.
-lhcrNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
-lhcrNextMarker = lens _lhcrNextMarker (\ s a -> s{_lhcrNextMarker = a});
+lhcrsNextMarker :: Lens' ListHealthChecksResponse (Maybe Text)
+lhcrsNextMarker = lens _lhcrsNextMarker (\ s a -> s{_lhcrsNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lhcrStatus :: Lens' ListHealthChecksResponse Int
-lhcrStatus = lens _lhcrStatus (\ s a -> s{_lhcrStatus = a});
+lhcrsStatus :: Lens' ListHealthChecksResponse Int
+lhcrsStatus = lens _lhcrsStatus (\ s a -> s{_lhcrsStatus = a});
 
 -- | A complex type that contains information about the health checks
 -- associated with the current AWS account.
-lhcrHealthChecks :: Lens' ListHealthChecksResponse [HealthCheck]
-lhcrHealthChecks = lens _lhcrHealthChecks (\ s a -> s{_lhcrHealthChecks = a});
+lhcrsHealthChecks :: Lens' ListHealthChecksResponse [HealthCheck]
+lhcrsHealthChecks = lens _lhcrsHealthChecks (\ s a -> s{_lhcrsHealthChecks = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in
 -- the @marker@ parameter to get the next page of results.
-lhcrMarker :: Lens' ListHealthChecksResponse Text
-lhcrMarker = lens _lhcrMarker (\ s a -> s{_lhcrMarker = a});
+lhcrsMarker :: Lens' ListHealthChecksResponse Text
+lhcrsMarker = lens _lhcrsMarker (\ s a -> s{_lhcrsMarker = a});
 
 -- | A flag indicating whether there are more health checks to be listed. If
 -- your results were truncated, you can make a follow-up request for the
 -- next page of results by using the @Marker@ element.
 --
 -- Valid Values: @true@ | @false@
-lhcrIsTruncated :: Lens' ListHealthChecksResponse Bool
-lhcrIsTruncated = lens _lhcrIsTruncated (\ s a -> s{_lhcrIsTruncated = a});
+lhcrsIsTruncated :: Lens' ListHealthChecksResponse Bool
+lhcrsIsTruncated = lens _lhcrsIsTruncated (\ s a -> s{_lhcrsIsTruncated = a});
 
 -- | The maximum number of health checks to be included in the response body.
 -- If the number of health checks associated with this AWS account exceeds
@@ -207,5 +208,5 @@ lhcrIsTruncated = lens _lhcrIsTruncated (\ s a -> s{_lhcrIsTruncated = a});
 -- response is @true@. Call @ListHealthChecks@ again and specify the value
 -- of ListHealthChecksResponse$NextMarker in the
 -- ListHostedZonesRequest$Marker element to get the next page of results.
-lhcrMaxItems :: Lens' ListHealthChecksResponse Text
-lhcrMaxItems = lens _lhcrMaxItems (\ s a -> s{_lhcrMaxItems = a});
+lhcrsMaxItems :: Lens' ListHealthChecksResponse Text
+lhcrsMaxItems = lens _lhcrsMaxItems (\ s a -> s{_lhcrsMaxItems = a});

@@ -28,15 +28,15 @@ module Network.AWS.Route53.GetReusableDelegationSet
     -- ** Request constructor
     , getReusableDelegationSet
     -- ** Request lenses
-    , grdsId
+    , grdsrqId
 
     -- * Response
     , GetReusableDelegationSetResponse
     -- ** Response constructor
     , getReusableDelegationSetResponse
     -- ** Response lenses
-    , grdsrStatus
-    , grdsrDelegationSet
+    , grdsrsStatus
+    , grdsrsDelegationSet
     ) where
 
 import           Network.AWS.Prelude
@@ -50,22 +50,22 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grdsId'
+-- * 'grdsrqId'
 newtype GetReusableDelegationSet = GetReusableDelegationSet'
-    { _grdsId :: Text
+    { _grdsrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetReusableDelegationSet' smart constructor.
 getReusableDelegationSet :: Text -> GetReusableDelegationSet
 getReusableDelegationSet pId =
     GetReusableDelegationSet'
-    { _grdsId = pId
+    { _grdsrqId = pId
     }
 
 -- | The ID of the reusable delegation set for which you want to get a list
 -- of the name server.
-grdsId :: Lens' GetReusableDelegationSet Text
-grdsId = lens _grdsId (\ s a -> s{_grdsId = a});
+grdsrqId :: Lens' GetReusableDelegationSet Text
+grdsrqId = lens _grdsrqId (\ s a -> s{_grdsrqId = a});
 
 instance AWSRequest GetReusableDelegationSet where
         type Sv GetReusableDelegationSet = Route53
@@ -84,7 +84,7 @@ instance ToHeaders GetReusableDelegationSet where
 instance ToPath GetReusableDelegationSet where
         toPath GetReusableDelegationSet'{..}
           = mconcat
-              ["/2013-04-01/delegationset/", toText _grdsId]
+              ["/2013-04-01/delegationset/", toText _grdsrqId]
 
 instance ToQuery GetReusableDelegationSet where
         toQuery = const mempty
@@ -96,27 +96,27 @@ instance ToQuery GetReusableDelegationSet where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grdsrStatus'
+-- * 'grdsrsStatus'
 --
--- * 'grdsrDelegationSet'
+-- * 'grdsrsDelegationSet'
 data GetReusableDelegationSetResponse = GetReusableDelegationSetResponse'
-    { _grdsrStatus        :: !Int
-    , _grdsrDelegationSet :: !DelegationSet
+    { _grdsrsStatus        :: !Int
+    , _grdsrsDelegationSet :: !DelegationSet
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetReusableDelegationSetResponse' smart constructor.
 getReusableDelegationSetResponse :: Int -> DelegationSet -> GetReusableDelegationSetResponse
 getReusableDelegationSetResponse pStatus pDelegationSet =
     GetReusableDelegationSetResponse'
-    { _grdsrStatus = pStatus
-    , _grdsrDelegationSet = pDelegationSet
+    { _grdsrsStatus = pStatus
+    , _grdsrsDelegationSet = pDelegationSet
     }
 
 -- | FIXME: Undocumented member.
-grdsrStatus :: Lens' GetReusableDelegationSetResponse Int
-grdsrStatus = lens _grdsrStatus (\ s a -> s{_grdsrStatus = a});
+grdsrsStatus :: Lens' GetReusableDelegationSetResponse Int
+grdsrsStatus = lens _grdsrsStatus (\ s a -> s{_grdsrsStatus = a});
 
 -- | A complex type that contains the information about the nameservers for
 -- the specified delegation set ID.
-grdsrDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
-grdsrDelegationSet = lens _grdsrDelegationSet (\ s a -> s{_grdsrDelegationSet = a});
+grdsrsDelegationSet :: Lens' GetReusableDelegationSetResponse DelegationSet
+grdsrsDelegationSet = lens _grdsrsDelegationSet (\ s a -> s{_grdsrsDelegationSet = a});

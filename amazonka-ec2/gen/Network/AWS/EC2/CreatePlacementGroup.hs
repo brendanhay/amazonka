@@ -33,9 +33,9 @@ module Network.AWS.EC2.CreatePlacementGroup
     -- ** Request constructor
     , createPlacementGroup
     -- ** Request lenses
-    , cpgDryRun
-    , cpgGroupName
-    , cpgStrategy
+    , cpgrqDryRun
+    , cpgrqGroupName
+    , cpgrqStrategy
 
     -- * Response
     , CreatePlacementGroupResponse
@@ -52,42 +52,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpgDryRun'
+-- * 'cpgrqDryRun'
 --
--- * 'cpgGroupName'
+-- * 'cpgrqGroupName'
 --
--- * 'cpgStrategy'
+-- * 'cpgrqStrategy'
 data CreatePlacementGroup = CreatePlacementGroup'
-    { _cpgDryRun    :: !(Maybe Bool)
-    , _cpgGroupName :: !Text
-    , _cpgStrategy  :: !PlacementStrategy
+    { _cpgrqDryRun    :: !(Maybe Bool)
+    , _cpgrqGroupName :: !Text
+    , _cpgrqStrategy  :: !PlacementStrategy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlacementGroup' smart constructor.
 createPlacementGroup :: Text -> PlacementStrategy -> CreatePlacementGroup
 createPlacementGroup pGroupName pStrategy =
     CreatePlacementGroup'
-    { _cpgDryRun = Nothing
-    , _cpgGroupName = pGroupName
-    , _cpgStrategy = pStrategy
+    { _cpgrqDryRun = Nothing
+    , _cpgrqGroupName = pGroupName
+    , _cpgrqStrategy = pStrategy
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cpgDryRun :: Lens' CreatePlacementGroup (Maybe Bool)
-cpgDryRun = lens _cpgDryRun (\ s a -> s{_cpgDryRun = a});
+cpgrqDryRun :: Lens' CreatePlacementGroup (Maybe Bool)
+cpgrqDryRun = lens _cpgrqDryRun (\ s a -> s{_cpgrqDryRun = a});
 
 -- | A name for the placement group.
 --
 -- Constraints: Up to 255 ASCII characters
-cpgGroupName :: Lens' CreatePlacementGroup Text
-cpgGroupName = lens _cpgGroupName (\ s a -> s{_cpgGroupName = a});
+cpgrqGroupName :: Lens' CreatePlacementGroup Text
+cpgrqGroupName = lens _cpgrqGroupName (\ s a -> s{_cpgrqGroupName = a});
 
 -- | The placement strategy.
-cpgStrategy :: Lens' CreatePlacementGroup PlacementStrategy
-cpgStrategy = lens _cpgStrategy (\ s a -> s{_cpgStrategy = a});
+cpgrqStrategy :: Lens' CreatePlacementGroup PlacementStrategy
+cpgrqStrategy = lens _cpgrqStrategy (\ s a -> s{_cpgrqStrategy = a});
 
 instance AWSRequest CreatePlacementGroup where
         type Sv CreatePlacementGroup = EC2
@@ -107,8 +107,9 @@ instance ToQuery CreatePlacementGroup where
           = mconcat
               ["Action" =: ("CreatePlacementGroup" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _cpgDryRun, "GroupName" =: _cpgGroupName,
-               "Strategy" =: _cpgStrategy]
+               "DryRun" =: _cpgrqDryRun,
+               "GroupName" =: _cpgrqGroupName,
+               "Strategy" =: _cpgrqStrategy]
 
 -- | /See:/ 'createPlacementGroupResponse' smart constructor.
 data CreatePlacementGroupResponse =

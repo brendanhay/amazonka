@@ -37,15 +37,15 @@ module Network.AWS.EFS.DescribeMountTargetSecurityGroups
     -- ** Request constructor
     , describeMountTargetSecurityGroups
     -- ** Request lenses
-    , dmtsgMountTargetId
+    , dmtsgrqMountTargetId
 
     -- * Response
     , DescribeMountTargetSecurityGroupsResponse
     -- ** Response constructor
     , describeMountTargetSecurityGroupsResponse
     -- ** Response lenses
-    , dmtsgrStatus
-    , dmtsgrSecurityGroups
+    , dmtsgrsStatus
+    , dmtsgrsSecurityGroups
     ) where
 
 import           Network.AWS.EFS.Types
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmtsgMountTargetId'
+-- * 'dmtsgrqMountTargetId'
 newtype DescribeMountTargetSecurityGroups = DescribeMountTargetSecurityGroups'
-    { _dmtsgMountTargetId :: Text
+    { _dmtsgrqMountTargetId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargetSecurityGroups' smart constructor.
 describeMountTargetSecurityGroups :: Text -> DescribeMountTargetSecurityGroups
 describeMountTargetSecurityGroups pMountTargetId =
     DescribeMountTargetSecurityGroups'
-    { _dmtsgMountTargetId = pMountTargetId
+    { _dmtsgrqMountTargetId = pMountTargetId
     }
 
 -- | The ID of the mount target whose security groups you want to retrieve.
-dmtsgMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
-dmtsgMountTargetId = lens _dmtsgMountTargetId (\ s a -> s{_dmtsgMountTargetId = a});
+dmtsgrqMountTargetId :: Lens' DescribeMountTargetSecurityGroups Text
+dmtsgrqMountTargetId = lens _dmtsgrqMountTargetId (\ s a -> s{_dmtsgrqMountTargetId = a});
 
 instance AWSRequest DescribeMountTargetSecurityGroups
          where
@@ -95,7 +95,7 @@ instance ToPath DescribeMountTargetSecurityGroups
         toPath DescribeMountTargetSecurityGroups'{..}
           = mconcat
               ["/2015-02-01/mount-targets/",
-               toText _dmtsgMountTargetId, "/security-groups"]
+               toText _dmtsgrqMountTargetId, "/security-groups"]
 
 instance ToQuery DescribeMountTargetSecurityGroups
          where
@@ -105,26 +105,26 @@ instance ToQuery DescribeMountTargetSecurityGroups
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmtsgrStatus'
+-- * 'dmtsgrsStatus'
 --
--- * 'dmtsgrSecurityGroups'
+-- * 'dmtsgrsSecurityGroups'
 data DescribeMountTargetSecurityGroupsResponse = DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrStatus         :: !Int
-    , _dmtsgrSecurityGroups :: ![Text]
+    { _dmtsgrsStatus         :: !Int
+    , _dmtsgrsSecurityGroups :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMountTargetSecurityGroupsResponse' smart constructor.
 describeMountTargetSecurityGroupsResponse :: Int -> DescribeMountTargetSecurityGroupsResponse
 describeMountTargetSecurityGroupsResponse pStatus =
     DescribeMountTargetSecurityGroupsResponse'
-    { _dmtsgrStatus = pStatus
-    , _dmtsgrSecurityGroups = mempty
+    { _dmtsgrsStatus = pStatus
+    , _dmtsgrsSecurityGroups = mempty
     }
 
 -- | FIXME: Undocumented member.
-dmtsgrStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
-dmtsgrStatus = lens _dmtsgrStatus (\ s a -> s{_dmtsgrStatus = a});
+dmtsgrsStatus :: Lens' DescribeMountTargetSecurityGroupsResponse Int
+dmtsgrsStatus = lens _dmtsgrsStatus (\ s a -> s{_dmtsgrsStatus = a});
 
 -- | An array of security groups.
-dmtsgrSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
-dmtsgrSecurityGroups = lens _dmtsgrSecurityGroups (\ s a -> s{_dmtsgrSecurityGroups = a});
+dmtsgrsSecurityGroups :: Lens' DescribeMountTargetSecurityGroupsResponse [Text]
+dmtsgrsSecurityGroups = lens _dmtsgrsSecurityGroups (\ s a -> s{_dmtsgrsSecurityGroups = a});

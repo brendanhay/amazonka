@@ -31,18 +31,18 @@ module Network.AWS.EC2.DescribeReservedInstances
     -- ** Request constructor
     , describeReservedInstances
     -- ** Request lenses
-    , driFilters
-    , driOfferingType
-    , driReservedInstancesIds
-    , driDryRun
+    , drirqFilters
+    , drirqOfferingType
+    , drirqReservedInstancesIds
+    , drirqDryRun
 
     -- * Response
     , DescribeReservedInstancesResponse
     -- ** Response constructor
     , describeReservedInstancesResponse
     -- ** Response lenses
-    , drirReservedInstances
-    , drirStatus
+    , drirsReservedInstances
+    , drirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,28 +54,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'driFilters'
+-- * 'drirqFilters'
 --
--- * 'driOfferingType'
+-- * 'drirqOfferingType'
 --
--- * 'driReservedInstancesIds'
+-- * 'drirqReservedInstancesIds'
 --
--- * 'driDryRun'
+-- * 'drirqDryRun'
 data DescribeReservedInstances = DescribeReservedInstances'
-    { _driFilters              :: !(Maybe [Filter])
-    , _driOfferingType         :: !(Maybe OfferingTypeValues)
-    , _driReservedInstancesIds :: !(Maybe [Text])
-    , _driDryRun               :: !(Maybe Bool)
+    { _drirqFilters              :: !(Maybe [Filter])
+    , _drirqOfferingType         :: !(Maybe OfferingTypeValues)
+    , _drirqReservedInstancesIds :: !(Maybe [Text])
+    , _drirqDryRun               :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstances' smart constructor.
 describeReservedInstances :: DescribeReservedInstances
 describeReservedInstances =
     DescribeReservedInstances'
-    { _driFilters = Nothing
-    , _driOfferingType = Nothing
-    , _driReservedInstancesIds = Nothing
-    , _driDryRun = Nothing
+    { _drirqFilters = Nothing
+    , _drirqOfferingType = Nothing
+    , _drirqReservedInstancesIds = Nothing
+    , _drirqDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -134,28 +134,28 @@ describeReservedInstances =
 -- -   @usage-price@ - The usage price of the Reserved Instance, per hour
 --     (for example, 0.84).
 --
-driFilters :: Lens' DescribeReservedInstances [Filter]
-driFilters = lens _driFilters (\ s a -> s{_driFilters = a}) . _Default;
+drirqFilters :: Lens' DescribeReservedInstances [Filter]
+drirqFilters = lens _drirqFilters (\ s a -> s{_drirqFilters = a}) . _Default;
 
 -- | The Reserved Instance offering type. If you are using tools that predate
 -- the 2011-11-01 API version, you only have access to the
 -- @Medium Utilization@ Reserved Instance offering type.
-driOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
-driOfferingType = lens _driOfferingType (\ s a -> s{_driOfferingType = a});
+drirqOfferingType :: Lens' DescribeReservedInstances (Maybe OfferingTypeValues)
+drirqOfferingType = lens _drirqOfferingType (\ s a -> s{_drirqOfferingType = a});
 
 -- | One or more Reserved Instance IDs.
 --
 -- Default: Describes all your Reserved Instances, or only those otherwise
 -- specified.
-driReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
-driReservedInstancesIds = lens _driReservedInstancesIds (\ s a -> s{_driReservedInstancesIds = a}) . _Default;
+drirqReservedInstancesIds :: Lens' DescribeReservedInstances [Text]
+drirqReservedInstancesIds = lens _drirqReservedInstancesIds (\ s a -> s{_drirqReservedInstancesIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-driDryRun :: Lens' DescribeReservedInstances (Maybe Bool)
-driDryRun = lens _driDryRun (\ s a -> s{_driDryRun = a});
+drirqDryRun :: Lens' DescribeReservedInstances (Maybe Bool)
+drirqDryRun = lens _drirqDryRun (\ s a -> s{_drirqDryRun = a});
 
 instance AWSRequest DescribeReservedInstances where
         type Sv DescribeReservedInstances = EC2
@@ -182,37 +182,37 @@ instance ToQuery DescribeReservedInstances where
               ["Action" =:
                  ("DescribeReservedInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _driFilters),
-               "OfferingType" =: _driOfferingType,
+               toQuery (toQueryList "Filter" <$> _drirqFilters),
+               "OfferingType" =: _drirqOfferingType,
                toQuery
                  (toQueryList "ReservedInstancesId" <$>
-                    _driReservedInstancesIds),
-               "DryRun" =: _driDryRun]
+                    _drirqReservedInstancesIds),
+               "DryRun" =: _drirqDryRun]
 
 -- | /See:/ 'describeReservedInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drirReservedInstances'
+-- * 'drirsReservedInstances'
 --
--- * 'drirStatus'
+-- * 'drirsStatus'
 data DescribeReservedInstancesResponse = DescribeReservedInstancesResponse'
-    { _drirReservedInstances :: !(Maybe [ReservedInstances])
-    , _drirStatus            :: !Int
+    { _drirsReservedInstances :: !(Maybe [ReservedInstances])
+    , _drirsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesResponse' smart constructor.
 describeReservedInstancesResponse :: Int -> DescribeReservedInstancesResponse
 describeReservedInstancesResponse pStatus =
     DescribeReservedInstancesResponse'
-    { _drirReservedInstances = Nothing
-    , _drirStatus = pStatus
+    { _drirsReservedInstances = Nothing
+    , _drirsStatus = pStatus
     }
 
 -- | A list of Reserved Instances.
-drirReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
-drirReservedInstances = lens _drirReservedInstances (\ s a -> s{_drirReservedInstances = a}) . _Default;
+drirsReservedInstances :: Lens' DescribeReservedInstancesResponse [ReservedInstances]
+drirsReservedInstances = lens _drirsReservedInstances (\ s a -> s{_drirsReservedInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drirStatus :: Lens' DescribeReservedInstancesResponse Int
-drirStatus = lens _drirStatus (\ s a -> s{_drirStatus = a});
+drirsStatus :: Lens' DescribeReservedInstancesResponse Int
+drirsStatus = lens _drirsStatus (\ s a -> s{_drirsStatus = a});

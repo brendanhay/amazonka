@@ -60,10 +60,10 @@ module Network.AWS.EMR.Types
     -- * Application
     , Application
     , application
-    , appAdditionalInfo
-    , appArgs
-    , appName
-    , appVersion
+    , aAdditionalInfo
+    , aArgs
+    , aName
+    , aVersion
 
     -- * BootstrapActionConfig
     , BootstrapActionConfig
@@ -74,21 +74,21 @@ module Network.AWS.EMR.Types
     -- * Cluster
     , Cluster
     , cluster
-    , cluRequestedAMIVersion
-    , cluEC2InstanceAttributes
-    , cluNormalizedInstanceHours
-    , cluLogURI
-    , cluRunningAMIVersion
-    , cluMasterPublicDNSName
-    , cluAutoTerminate
-    , cluTerminationProtected
-    , cluVisibleToAllUsers
-    , cluApplications
-    , cluTags
-    , cluServiceRole
-    , cluId
-    , cluName
-    , cluStatus
+    , cRequestedAMIVersion
+    , cEC2InstanceAttributes
+    , cNormalizedInstanceHours
+    , cLogURI
+    , cRunningAMIVersion
+    , cMasterPublicDNSName
+    , cAutoTerminate
+    , cTerminationProtected
+    , cVisibleToAllUsers
+    , cApplications
+    , cTags
+    , cServiceRole
+    , cId
+    , cName
+    , cStatus
 
     -- * ClusterStateChangeReason
     , ClusterStateChangeReason
@@ -156,13 +156,13 @@ module Network.AWS.EMR.Types
     -- * Instance
     , Instance
     , instance'
-    , insStatus
-    , insPublicDNSName
-    , insEC2InstanceId
-    , insPrivateIPAddress
-    , insId
-    , insPrivateDNSName
-    , insPublicIPAddress
+    , iStatus
+    , iPublicDNSName
+    , iEC2InstanceId
+    , iPrivateIPAddress
+    , iId
+    , iPrivateDNSName
+    , iPublicIPAddress
 
     -- * InstanceGroup
     , InstanceGroup
@@ -272,11 +272,11 @@ module Network.AWS.EMR.Types
     -- * Step
     , Step
     , step
-    , steStatus
-    , steActionOnFailure
-    , steConfig
-    , steName
-    , steId
+    , sStatus
+    , sActionOnFailure
+    , sConfig
+    , sName
+    , sId
 
     -- * StepConfig
     , StepConfig

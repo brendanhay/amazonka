@@ -27,17 +27,17 @@ module Network.AWS.DeviceFarm.ListSuites
     -- ** Request constructor
     , listSuites
     -- ** Request lenses
-    , lNextToken
-    , lArn
+    , lrqNextToken
+    , lrqArn
 
     -- * Response
     , ListSuitesResponse
     -- ** Response constructor
     , listSuitesResponse
     -- ** Response lenses
-    , lisNextToken
-    , lisSuites
-    , lisStatus
+    , lrsNextToken
+    , lrsSuites
+    , lrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lNextToken'
+-- * 'lrqNextToken'
 --
--- * 'lArn'
+-- * 'lrqArn'
 data ListSuites = ListSuites'
-    { _lNextToken :: !(Maybe Text)
-    , _lArn       :: !Text
+    { _lrqNextToken :: !(Maybe Text)
+    , _lrqArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSuites' smart constructor.
 listSuites :: Text -> ListSuites
 listSuites pArn =
     ListSuites'
-    { _lNextToken = Nothing
-    , _lArn = pArn
+    { _lrqNextToken = Nothing
+    , _lrqArn = pArn
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-lNextToken :: Lens' ListSuites (Maybe Text)
-lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
+lrqNextToken :: Lens' ListSuites (Maybe Text)
+lrqNextToken = lens _lrqNextToken (\ s a -> s{_lrqNextToken = a});
 
 -- | The suites\' ARNs.
-lArn :: Lens' ListSuites Text
-lArn = lens _lArn (\ s a -> s{_lArn = a});
+lrqArn :: Lens' ListSuites Text
+lrqArn = lens _lrqArn (\ s a -> s{_lrqArn = a});
 
 instance AWSRequest ListSuites where
         type Sv ListSuites = DeviceFarm
@@ -99,7 +99,8 @@ instance ToHeaders ListSuites where
 
 instance ToJSON ListSuites where
         toJSON ListSuites'{..}
-          = object ["nextToken" .= _lNextToken, "arn" .= _lArn]
+          = object
+              ["nextToken" .= _lrqNextToken, "arn" .= _lrqArn]
 
 instance ToPath ListSuites where
         toPath = const "/"
@@ -113,36 +114,36 @@ instance ToQuery ListSuites where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisNextToken'
+-- * 'lrsNextToken'
 --
--- * 'lisSuites'
+-- * 'lrsSuites'
 --
--- * 'lisStatus'
+-- * 'lrsStatus'
 data ListSuitesResponse = ListSuitesResponse'
-    { _lisNextToken :: !(Maybe Text)
-    , _lisSuites    :: !(Maybe [Suite])
-    , _lisStatus    :: !Int
+    { _lrsNextToken :: !(Maybe Text)
+    , _lrsSuites    :: !(Maybe [Suite])
+    , _lrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSuitesResponse' smart constructor.
 listSuitesResponse :: Int -> ListSuitesResponse
 listSuitesResponse pStatus =
     ListSuitesResponse'
-    { _lisNextToken = Nothing
-    , _lisSuites = Nothing
-    , _lisStatus = pStatus
+    { _lrsNextToken = Nothing
+    , _lrsSuites = Nothing
+    , _lrsStatus = pStatus
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-lisNextToken :: Lens' ListSuitesResponse (Maybe Text)
-lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
+lrsNextToken :: Lens' ListSuitesResponse (Maybe Text)
+lrsNextToken = lens _lrsNextToken (\ s a -> s{_lrsNextToken = a});
 
 -- | Information about the suites.
-lisSuites :: Lens' ListSuitesResponse [Suite]
-lisSuites = lens _lisSuites (\ s a -> s{_lisSuites = a}) . _Default;
+lrsSuites :: Lens' ListSuitesResponse [Suite]
+lrsSuites = lens _lrsSuites (\ s a -> s{_lrsSuites = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListSuitesResponse Int
-lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});
+lrsStatus :: Lens' ListSuitesResponse Int
+lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});

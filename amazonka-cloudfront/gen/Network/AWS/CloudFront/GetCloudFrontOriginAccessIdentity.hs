@@ -27,16 +27,16 @@ module Network.AWS.CloudFront.GetCloudFrontOriginAccessIdentity
     -- ** Request constructor
     , getCloudFrontOriginAccessIdentity
     -- ** Request lenses
-    , gcfoaiId
+    , gcfoairqId
 
     -- * Response
     , GetCloudFrontOriginAccessIdentityResponse
     -- ** Response constructor
     , getCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
-    , gcfoairETag
-    , gcfoairCloudFrontOriginAccessIdentity
-    , gcfoairStatus
+    , gcfoairsETag
+    , gcfoairsCloudFrontOriginAccessIdentity
+    , gcfoairsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcfoaiId'
+-- * 'gcfoairqId'
 newtype GetCloudFrontOriginAccessIdentity = GetCloudFrontOriginAccessIdentity'
-    { _gcfoaiId :: Text
+    { _gcfoairqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCloudFrontOriginAccessIdentity' smart constructor.
 getCloudFrontOriginAccessIdentity :: Text -> GetCloudFrontOriginAccessIdentity
 getCloudFrontOriginAccessIdentity pId =
     GetCloudFrontOriginAccessIdentity'
-    { _gcfoaiId = pId
+    { _gcfoairqId = pId
     }
 
 -- | The identity\'s id.
-gcfoaiId :: Lens' GetCloudFrontOriginAccessIdentity Text
-gcfoaiId = lens _gcfoaiId (\ s a -> s{_gcfoaiId = a});
+gcfoairqId :: Lens' GetCloudFrontOriginAccessIdentity Text
+gcfoairqId = lens _gcfoairqId (\ s a -> s{_gcfoairqId = a});
 
 instance AWSRequest GetCloudFrontOriginAccessIdentity
          where
@@ -89,7 +89,7 @@ instance ToPath GetCloudFrontOriginAccessIdentity
         toPath GetCloudFrontOriginAccessIdentity'{..}
           = mconcat
               ["/2015-04-17/origin-access-identity/cloudfront/",
-               toText _gcfoaiId]
+               toText _gcfoairqId]
 
 instance ToQuery GetCloudFrontOriginAccessIdentity
          where
@@ -101,35 +101,35 @@ instance ToQuery GetCloudFrontOriginAccessIdentity
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcfoairETag'
+-- * 'gcfoairsETag'
 --
--- * 'gcfoairCloudFrontOriginAccessIdentity'
+-- * 'gcfoairsCloudFrontOriginAccessIdentity'
 --
--- * 'gcfoairStatus'
+-- * 'gcfoairsStatus'
 data GetCloudFrontOriginAccessIdentityResponse = GetCloudFrontOriginAccessIdentityResponse'
-    { _gcfoairETag                           :: !(Maybe Text)
-    , _gcfoairCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _gcfoairStatus                         :: !Int
+    { _gcfoairsETag                           :: !(Maybe Text)
+    , _gcfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
+    , _gcfoairsStatus                         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCloudFrontOriginAccessIdentityResponse' smart constructor.
 getCloudFrontOriginAccessIdentityResponse :: Int -> GetCloudFrontOriginAccessIdentityResponse
 getCloudFrontOriginAccessIdentityResponse pStatus =
     GetCloudFrontOriginAccessIdentityResponse'
-    { _gcfoairETag = Nothing
-    , _gcfoairCloudFrontOriginAccessIdentity = Nothing
-    , _gcfoairStatus = pStatus
+    { _gcfoairsETag = Nothing
+    , _gcfoairsCloudFrontOriginAccessIdentity = Nothing
+    , _gcfoairsStatus = pStatus
     }
 
 -- | The current version of the origin access identity\'s information. For
 -- example: E2QWRUHAPOMQZL.
-gcfoairETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
-gcfoairETag = lens _gcfoairETag (\ s a -> s{_gcfoairETag = a});
+gcfoairsETag :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe Text)
+gcfoairsETag = lens _gcfoairsETag (\ s a -> s{_gcfoairsETag = a});
 
 -- | The origin access identity\'s information.
-gcfoairCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-gcfoairCloudFrontOriginAccessIdentity = lens _gcfoairCloudFrontOriginAccessIdentity (\ s a -> s{_gcfoairCloudFrontOriginAccessIdentity = a});
+gcfoairsCloudFrontOriginAccessIdentity :: Lens' GetCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
+gcfoairsCloudFrontOriginAccessIdentity = lens _gcfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_gcfoairsCloudFrontOriginAccessIdentity = a});
 
 -- | FIXME: Undocumented member.
-gcfoairStatus :: Lens' GetCloudFrontOriginAccessIdentityResponse Int
-gcfoairStatus = lens _gcfoairStatus (\ s a -> s{_gcfoairStatus = a});
+gcfoairsStatus :: Lens' GetCloudFrontOriginAccessIdentityResponse Int
+gcfoairsStatus = lens _gcfoairsStatus (\ s a -> s{_gcfoairsStatus = a});

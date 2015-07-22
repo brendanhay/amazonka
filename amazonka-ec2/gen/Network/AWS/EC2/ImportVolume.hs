@@ -32,19 +32,19 @@ module Network.AWS.EC2.ImportVolume
     -- ** Request constructor
     , importVolume
     -- ** Request lenses
-    , ivDryRun
-    , ivDescription
-    , ivAvailabilityZone
-    , ivImage
-    , ivVolume
+    , ivrqDryRun
+    , ivrqDescription
+    , ivrqAvailabilityZone
+    , ivrqImage
+    , ivrqVolume
 
     -- * Response
     , ImportVolumeResponse
     -- ** Response constructor
     , importVolumeResponse
     -- ** Response lenses
-    , ivrConversionTask
-    , ivrStatus
+    , ivrsConversionTask
+    , ivrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -56,56 +56,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ivDryRun'
+-- * 'ivrqDryRun'
 --
--- * 'ivDescription'
+-- * 'ivrqDescription'
 --
--- * 'ivAvailabilityZone'
+-- * 'ivrqAvailabilityZone'
 --
--- * 'ivImage'
+-- * 'ivrqImage'
 --
--- * 'ivVolume'
+-- * 'ivrqVolume'
 data ImportVolume = ImportVolume'
-    { _ivDryRun           :: !(Maybe Bool)
-    , _ivDescription      :: !(Maybe Text)
-    , _ivAvailabilityZone :: !Text
-    , _ivImage            :: !DiskImageDetail
-    , _ivVolume           :: !VolumeDetail
+    { _ivrqDryRun           :: !(Maybe Bool)
+    , _ivrqDescription      :: !(Maybe Text)
+    , _ivrqAvailabilityZone :: !Text
+    , _ivrqImage            :: !DiskImageDetail
+    , _ivrqVolume           :: !VolumeDetail
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportVolume' smart constructor.
 importVolume :: Text -> DiskImageDetail -> VolumeDetail -> ImportVolume
 importVolume pAvailabilityZone pImage pVolume =
     ImportVolume'
-    { _ivDryRun = Nothing
-    , _ivDescription = Nothing
-    , _ivAvailabilityZone = pAvailabilityZone
-    , _ivImage = pImage
-    , _ivVolume = pVolume
+    { _ivrqDryRun = Nothing
+    , _ivrqDescription = Nothing
+    , _ivrqAvailabilityZone = pAvailabilityZone
+    , _ivrqImage = pImage
+    , _ivrqVolume = pVolume
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ivDryRun :: Lens' ImportVolume (Maybe Bool)
-ivDryRun = lens _ivDryRun (\ s a -> s{_ivDryRun = a});
+ivrqDryRun :: Lens' ImportVolume (Maybe Bool)
+ivrqDryRun = lens _ivrqDryRun (\ s a -> s{_ivrqDryRun = a});
 
 -- | A description of the volume.
-ivDescription :: Lens' ImportVolume (Maybe Text)
-ivDescription = lens _ivDescription (\ s a -> s{_ivDescription = a});
+ivrqDescription :: Lens' ImportVolume (Maybe Text)
+ivrqDescription = lens _ivrqDescription (\ s a -> s{_ivrqDescription = a});
 
 -- | The Availability Zone for the resulting EBS volume.
-ivAvailabilityZone :: Lens' ImportVolume Text
-ivAvailabilityZone = lens _ivAvailabilityZone (\ s a -> s{_ivAvailabilityZone = a});
+ivrqAvailabilityZone :: Lens' ImportVolume Text
+ivrqAvailabilityZone = lens _ivrqAvailabilityZone (\ s a -> s{_ivrqAvailabilityZone = a});
 
 -- | The disk image.
-ivImage :: Lens' ImportVolume DiskImageDetail
-ivImage = lens _ivImage (\ s a -> s{_ivImage = a});
+ivrqImage :: Lens' ImportVolume DiskImageDetail
+ivrqImage = lens _ivrqImage (\ s a -> s{_ivrqImage = a});
 
 -- | The volume size.
-ivVolume :: Lens' ImportVolume VolumeDetail
-ivVolume = lens _ivVolume (\ s a -> s{_ivVolume = a});
+ivrqVolume :: Lens' ImportVolume VolumeDetail
+ivrqVolume = lens _ivrqVolume (\ s a -> s{_ivrqVolume = a});
 
 instance AWSRequest ImportVolume where
         type Sv ImportVolume = EC2
@@ -128,35 +128,35 @@ instance ToQuery ImportVolume where
           = mconcat
               ["Action" =: ("ImportVolume" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ivDryRun,
-               "Description" =: _ivDescription,
-               "AvailabilityZone" =: _ivAvailabilityZone,
-               "Image" =: _ivImage, "Volume" =: _ivVolume]
+               "DryRun" =: _ivrqDryRun,
+               "Description" =: _ivrqDescription,
+               "AvailabilityZone" =: _ivrqAvailabilityZone,
+               "Image" =: _ivrqImage, "Volume" =: _ivrqVolume]
 
 -- | /See:/ 'importVolumeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ivrConversionTask'
+-- * 'ivrsConversionTask'
 --
--- * 'ivrStatus'
+-- * 'ivrsStatus'
 data ImportVolumeResponse = ImportVolumeResponse'
-    { _ivrConversionTask :: !(Maybe ConversionTask)
-    , _ivrStatus         :: !Int
+    { _ivrsConversionTask :: !(Maybe ConversionTask)
+    , _ivrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportVolumeResponse' smart constructor.
 importVolumeResponse :: Int -> ImportVolumeResponse
 importVolumeResponse pStatus =
     ImportVolumeResponse'
-    { _ivrConversionTask = Nothing
-    , _ivrStatus = pStatus
+    { _ivrsConversionTask = Nothing
+    , _ivrsStatus = pStatus
     }
 
 -- | Information about the conversion task.
-ivrConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
-ivrConversionTask = lens _ivrConversionTask (\ s a -> s{_ivrConversionTask = a});
+ivrsConversionTask :: Lens' ImportVolumeResponse (Maybe ConversionTask)
+ivrsConversionTask = lens _ivrsConversionTask (\ s a -> s{_ivrsConversionTask = a});
 
 -- | FIXME: Undocumented member.
-ivrStatus :: Lens' ImportVolumeResponse Int
-ivrStatus = lens _ivrStatus (\ s a -> s{_ivrStatus = a});
+ivrsStatus :: Lens' ImportVolumeResponse Int
+ivrsStatus = lens _ivrsStatus (\ s a -> s{_ivrsStatus = a});

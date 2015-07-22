@@ -29,7 +29,7 @@ module Network.AWS.CloudWatchLogs.DeleteRetentionPolicy
     -- ** Request constructor
     , deleteRetentionPolicy
     -- ** Request lenses
-    , drpLogGroupName
+    , drprqLogGroupName
 
     -- * Response
     , DeleteRetentionPolicyResponse
@@ -46,22 +46,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drpLogGroupName'
+-- * 'drprqLogGroupName'
 newtype DeleteRetentionPolicy = DeleteRetentionPolicy'
-    { _drpLogGroupName :: Text
+    { _drprqLogGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRetentionPolicy' smart constructor.
 deleteRetentionPolicy :: Text -> DeleteRetentionPolicy
 deleteRetentionPolicy pLogGroupName =
     DeleteRetentionPolicy'
-    { _drpLogGroupName = pLogGroupName
+    { _drprqLogGroupName = pLogGroupName
     }
 
 -- | The name of the log group that is associated with the retention policy
 -- to delete.
-drpLogGroupName :: Lens' DeleteRetentionPolicy Text
-drpLogGroupName = lens _drpLogGroupName (\ s a -> s{_drpLogGroupName = a});
+drprqLogGroupName :: Lens' DeleteRetentionPolicy Text
+drprqLogGroupName = lens _drprqLogGroupName (\ s a -> s{_drprqLogGroupName = a});
 
 instance AWSRequest DeleteRetentionPolicy where
         type Sv DeleteRetentionPolicy = CloudWatchLogs
@@ -82,7 +82,7 @@ instance ToHeaders DeleteRetentionPolicy where
 
 instance ToJSON DeleteRetentionPolicy where
         toJSON DeleteRetentionPolicy'{..}
-          = object ["logGroupName" .= _drpLogGroupName]
+          = object ["logGroupName" .= _drprqLogGroupName]
 
 instance ToPath DeleteRetentionPolicy where
         toPath = const "/"

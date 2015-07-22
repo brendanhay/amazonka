@@ -27,23 +27,23 @@ module Network.AWS.CloudHSM.DescribeHAPG
     -- ** Request constructor
     , describeHAPG
     -- ** Request lenses
-    , dHAPGARN
+    , dhapgrqHAPGARN
 
     -- * Response
     , DescribeHAPGResponse
     -- ** Response constructor
     , describeHAPGResponse
     -- ** Response lenses
-    , desState
-    , desLastModifiedTimestamp
-    , desHSMsPendingRegistration
-    , desHAPGSerial
-    , desHSMsPendingDeletion
-    , desHSMsLastActionFailed
-    , desPartitionSerialList
-    , desHAPGARN
-    , desLabel
-    , desStatus
+    , dhapgrsState
+    , dhapgrsLastModifiedTimestamp
+    , dhapgrsHSMsPendingRegistration
+    , dhapgrsHAPGSerial
+    , dhapgrsHSMsPendingDeletion
+    , dhapgrsHSMsLastActionFailed
+    , dhapgrsPartitionSerialList
+    , dhapgrsHAPGARN
+    , dhapgrsLabel
+    , dhapgrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dHAPGARN'
+-- * 'dhapgrqHAPGARN'
 newtype DescribeHAPG = DescribeHAPG'
-    { _dHAPGARN :: Text
+    { _dhapgrqHAPGARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHAPG' smart constructor.
 describeHAPG :: Text -> DescribeHAPG
 describeHAPG pHAPGARN =
     DescribeHAPG'
-    { _dHAPGARN = pHAPGARN
+    { _dhapgrqHAPGARN = pHAPGARN
     }
 
 -- | The ARN of the high-availability partition group to describe.
-dHAPGARN :: Lens' DescribeHAPG Text
-dHAPGARN = lens _dHAPGARN (\ s a -> s{_dHAPGARN = a});
+dhapgrqHAPGARN :: Lens' DescribeHAPG Text
+dhapgrqHAPGARN = lens _dhapgrqHAPGARN (\ s a -> s{_dhapgrqHAPGARN = a});
 
 instance AWSRequest DescribeHAPG where
         type Sv DescribeHAPG = CloudHSM
@@ -103,7 +103,7 @@ instance ToHeaders DescribeHAPG where
 
 instance ToJSON DescribeHAPG where
         toJSON DescribeHAPG'{..}
-          = object ["HapgArn" .= _dHAPGARN]
+          = object ["HapgArn" .= _dhapgrqHAPGARN]
 
 instance ToPath DescribeHAPG where
         toPath = const "/"
@@ -117,92 +117,92 @@ instance ToQuery DescribeHAPG where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desState'
+-- * 'dhapgrsState'
 --
--- * 'desLastModifiedTimestamp'
+-- * 'dhapgrsLastModifiedTimestamp'
 --
--- * 'desHSMsPendingRegistration'
+-- * 'dhapgrsHSMsPendingRegistration'
 --
--- * 'desHAPGSerial'
+-- * 'dhapgrsHAPGSerial'
 --
--- * 'desHSMsPendingDeletion'
+-- * 'dhapgrsHSMsPendingDeletion'
 --
--- * 'desHSMsLastActionFailed'
+-- * 'dhapgrsHSMsLastActionFailed'
 --
--- * 'desPartitionSerialList'
+-- * 'dhapgrsPartitionSerialList'
 --
--- * 'desHAPGARN'
+-- * 'dhapgrsHAPGARN'
 --
--- * 'desLabel'
+-- * 'dhapgrsLabel'
 --
--- * 'desStatus'
+-- * 'dhapgrsStatus'
 data DescribeHAPGResponse = DescribeHAPGResponse'
-    { _desState                   :: !(Maybe CloudHSMObjectState)
-    , _desLastModifiedTimestamp   :: !(Maybe Text)
-    , _desHSMsPendingRegistration :: !(Maybe [Text])
-    , _desHAPGSerial              :: !(Maybe Text)
-    , _desHSMsPendingDeletion     :: !(Maybe [Text])
-    , _desHSMsLastActionFailed    :: !(Maybe [Text])
-    , _desPartitionSerialList     :: !(Maybe [Text])
-    , _desHAPGARN                 :: !(Maybe Text)
-    , _desLabel                   :: !(Maybe Text)
-    , _desStatus                  :: !Int
+    { _dhapgrsState                   :: !(Maybe CloudHSMObjectState)
+    , _dhapgrsLastModifiedTimestamp   :: !(Maybe Text)
+    , _dhapgrsHSMsPendingRegistration :: !(Maybe [Text])
+    , _dhapgrsHAPGSerial              :: !(Maybe Text)
+    , _dhapgrsHSMsPendingDeletion     :: !(Maybe [Text])
+    , _dhapgrsHSMsLastActionFailed    :: !(Maybe [Text])
+    , _dhapgrsPartitionSerialList     :: !(Maybe [Text])
+    , _dhapgrsHAPGARN                 :: !(Maybe Text)
+    , _dhapgrsLabel                   :: !(Maybe Text)
+    , _dhapgrsStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHAPGResponse' smart constructor.
 describeHAPGResponse :: Int -> DescribeHAPGResponse
 describeHAPGResponse pStatus =
     DescribeHAPGResponse'
-    { _desState = Nothing
-    , _desLastModifiedTimestamp = Nothing
-    , _desHSMsPendingRegistration = Nothing
-    , _desHAPGSerial = Nothing
-    , _desHSMsPendingDeletion = Nothing
-    , _desHSMsLastActionFailed = Nothing
-    , _desPartitionSerialList = Nothing
-    , _desHAPGARN = Nothing
-    , _desLabel = Nothing
-    , _desStatus = pStatus
+    { _dhapgrsState = Nothing
+    , _dhapgrsLastModifiedTimestamp = Nothing
+    , _dhapgrsHSMsPendingRegistration = Nothing
+    , _dhapgrsHAPGSerial = Nothing
+    , _dhapgrsHSMsPendingDeletion = Nothing
+    , _dhapgrsHSMsLastActionFailed = Nothing
+    , _dhapgrsPartitionSerialList = Nothing
+    , _dhapgrsHAPGARN = Nothing
+    , _dhapgrsLabel = Nothing
+    , _dhapgrsStatus = pStatus
     }
 
 -- | The state of the high-availability partition group.
-desState :: Lens' DescribeHAPGResponse (Maybe CloudHSMObjectState)
-desState = lens _desState (\ s a -> s{_desState = a});
+dhapgrsState :: Lens' DescribeHAPGResponse (Maybe CloudHSMObjectState)
+dhapgrsState = lens _dhapgrsState (\ s a -> s{_dhapgrsState = a});
 
 -- | The date and time the high-availability partition group was last
 -- modified.
-desLastModifiedTimestamp :: Lens' DescribeHAPGResponse (Maybe Text)
-desLastModifiedTimestamp = lens _desLastModifiedTimestamp (\ s a -> s{_desLastModifiedTimestamp = a});
+dhapgrsLastModifiedTimestamp :: Lens' DescribeHAPGResponse (Maybe Text)
+dhapgrsLastModifiedTimestamp = lens _dhapgrsLastModifiedTimestamp (\ s a -> s{_dhapgrsLastModifiedTimestamp = a});
 
 -- | FIXME: Undocumented member.
-desHSMsPendingRegistration :: Lens' DescribeHAPGResponse [Text]
-desHSMsPendingRegistration = lens _desHSMsPendingRegistration (\ s a -> s{_desHSMsPendingRegistration = a}) . _Default;
+dhapgrsHSMsPendingRegistration :: Lens' DescribeHAPGResponse [Text]
+dhapgrsHSMsPendingRegistration = lens _dhapgrsHSMsPendingRegistration (\ s a -> s{_dhapgrsHSMsPendingRegistration = a}) . _Default;
 
 -- | The serial number of the high-availability partition group.
-desHAPGSerial :: Lens' DescribeHAPGResponse (Maybe Text)
-desHAPGSerial = lens _desHAPGSerial (\ s a -> s{_desHAPGSerial = a});
+dhapgrsHAPGSerial :: Lens' DescribeHAPGResponse (Maybe Text)
+dhapgrsHAPGSerial = lens _dhapgrsHAPGSerial (\ s a -> s{_dhapgrsHAPGSerial = a});
 
 -- | FIXME: Undocumented member.
-desHSMsPendingDeletion :: Lens' DescribeHAPGResponse [Text]
-desHSMsPendingDeletion = lens _desHSMsPendingDeletion (\ s a -> s{_desHSMsPendingDeletion = a}) . _Default;
+dhapgrsHSMsPendingDeletion :: Lens' DescribeHAPGResponse [Text]
+dhapgrsHSMsPendingDeletion = lens _dhapgrsHSMsPendingDeletion (\ s a -> s{_dhapgrsHSMsPendingDeletion = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desHSMsLastActionFailed :: Lens' DescribeHAPGResponse [Text]
-desHSMsLastActionFailed = lens _desHSMsLastActionFailed (\ s a -> s{_desHSMsLastActionFailed = a}) . _Default;
+dhapgrsHSMsLastActionFailed :: Lens' DescribeHAPGResponse [Text]
+dhapgrsHSMsLastActionFailed = lens _dhapgrsHSMsLastActionFailed (\ s a -> s{_dhapgrsHSMsLastActionFailed = a}) . _Default;
 
 -- | The list of partition serial numbers that belong to the
 -- high-availability partition group.
-desPartitionSerialList :: Lens' DescribeHAPGResponse [Text]
-desPartitionSerialList = lens _desPartitionSerialList (\ s a -> s{_desPartitionSerialList = a}) . _Default;
+dhapgrsPartitionSerialList :: Lens' DescribeHAPGResponse [Text]
+dhapgrsPartitionSerialList = lens _dhapgrsPartitionSerialList (\ s a -> s{_dhapgrsPartitionSerialList = a}) . _Default;
 
 -- | The ARN of the high-availability partition group.
-desHAPGARN :: Lens' DescribeHAPGResponse (Maybe Text)
-desHAPGARN = lens _desHAPGARN (\ s a -> s{_desHAPGARN = a});
+dhapgrsHAPGARN :: Lens' DescribeHAPGResponse (Maybe Text)
+dhapgrsHAPGARN = lens _dhapgrsHAPGARN (\ s a -> s{_dhapgrsHAPGARN = a});
 
 -- | The label for the high-availability partition group.
-desLabel :: Lens' DescribeHAPGResponse (Maybe Text)
-desLabel = lens _desLabel (\ s a -> s{_desLabel = a});
+dhapgrsLabel :: Lens' DescribeHAPGResponse (Maybe Text)
+dhapgrsLabel = lens _dhapgrsLabel (\ s a -> s{_dhapgrsLabel = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeHAPGResponse Int
-desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+dhapgrsStatus :: Lens' DescribeHAPGResponse Int
+dhapgrsStatus = lens _dhapgrsStatus (\ s a -> s{_dhapgrsStatus = a});

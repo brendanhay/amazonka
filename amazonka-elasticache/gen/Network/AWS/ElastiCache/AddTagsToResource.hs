@@ -38,15 +38,15 @@ module Network.AWS.ElastiCache.AddTagsToResource
     -- ** Request constructor
     , addTagsToResource
     -- ** Request lenses
-    , attrResourceName
-    , attrTags
+    , attrrqResourceName
+    , attrrqTags
 
     -- * Response
     , TagListMessage
     -- ** Response constructor
     , tagListMessage
     -- ** Response lenses
-    , tlmTagList
+    , attrrsTagList
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -60,31 +60,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attrResourceName'
+-- * 'attrrqResourceName'
 --
--- * 'attrTags'
+-- * 'attrrqTags'
 data AddTagsToResource = AddTagsToResource'
-    { _attrResourceName :: !Text
-    , _attrTags         :: ![Tag]
+    { _attrrqResourceName :: !Text
+    , _attrrqTags         :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsToResource' smart constructor.
 addTagsToResource :: Text -> AddTagsToResource
 addTagsToResource pResourceName =
     AddTagsToResource'
-    { _attrResourceName = pResourceName
-    , _attrTags = mempty
+    { _attrrqResourceName = pResourceName
+    , _attrrqTags = mempty
     }
 
 -- | The name of the resource to which the tags are to be added, for example
 -- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.
-attrResourceName :: Lens' AddTagsToResource Text
-attrResourceName = lens _attrResourceName (\ s a -> s{_attrResourceName = a});
+attrrqResourceName :: Lens' AddTagsToResource Text
+attrrqResourceName = lens _attrrqResourceName (\ s a -> s{_attrrqResourceName = a});
 
 -- | A list of cost allocation tags to be added to this resource. A tag is a
 -- key-value pair. A tag key must be accompanied by a tag value.
-attrTags :: Lens' AddTagsToResource [Tag]
-attrTags = lens _attrTags (\ s a -> s{_attrTags = a});
+attrrqTags :: Lens' AddTagsToResource [Tag]
+attrrqTags = lens _attrrqTags (\ s a -> s{_attrrqTags = a});
 
 instance AWSRequest AddTagsToResource where
         type Sv AddTagsToResource = ElastiCache
@@ -105,5 +105,5 @@ instance ToQuery AddTagsToResource where
           = mconcat
               ["Action" =: ("AddTagsToResource" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "ResourceName" =: _attrResourceName,
-               "Tags" =: toQueryList "Tag" _attrTags]
+               "ResourceName" =: _attrrqResourceName,
+               "Tags" =: toQueryList "Tag" _attrrqTags]

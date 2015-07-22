@@ -30,15 +30,15 @@ module Network.AWS.Redshift.DescribeEventCategories
     -- ** Request constructor
     , describeEventCategories
     -- ** Request lenses
-    , decSourceType
+    , decrqSourceType
 
     -- * Response
     , DescribeEventCategoriesResponse
     -- ** Response constructor
     , describeEventCategoriesResponse
     -- ** Response lenses
-    , decrEventCategoriesMapList
-    , decrStatus
+    , decrsEventCategoriesMapList
+    , decrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decSourceType'
+-- * 'decrqSourceType'
 newtype DescribeEventCategories = DescribeEventCategories'
-    { _decSourceType :: Maybe Text
+    { _decrqSourceType :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventCategories' smart constructor.
 describeEventCategories :: DescribeEventCategories
 describeEventCategories =
     DescribeEventCategories'
-    { _decSourceType = Nothing
+    { _decrqSourceType = Nothing
     }
 
 -- | The source type, such as cluster or parameter group, to which the
 -- described event categories apply.
 --
 -- Valid values: cluster, snapshot, parameter group, and security group.
-decSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
+decrqSourceType :: Lens' DescribeEventCategories (Maybe Text)
+decrqSourceType = lens _decrqSourceType (\ s a -> s{_decrqSourceType = a});
 
 instance AWSRequest DescribeEventCategories where
         type Sv DescribeEventCategories = Redshift
@@ -96,7 +96,7 @@ instance ToQuery DescribeEventCategories where
               ["Action" =:
                  ("DescribeEventCategories" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "SourceType" =: _decSourceType]
+               "SourceType" =: _decrqSourceType]
 
 -- |
 --
@@ -104,26 +104,26 @@ instance ToQuery DescribeEventCategories where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decrEventCategoriesMapList'
+-- * 'decrsEventCategoriesMapList'
 --
--- * 'decrStatus'
+-- * 'decrsStatus'
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-    { _decrEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
-    , _decrStatus                 :: !Int
+    { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
+    , _decrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
 describeEventCategoriesResponse :: Int -> DescribeEventCategoriesResponse
 describeEventCategoriesResponse pStatus =
     DescribeEventCategoriesResponse'
-    { _decrEventCategoriesMapList = Nothing
-    , _decrStatus = pStatus
+    { _decrsEventCategoriesMapList = Nothing
+    , _decrsStatus = pStatus
     }
 
 -- | A list of event categories descriptions.
-decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
-decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a}) . _Default;
+decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-decrStatus :: Lens' DescribeEventCategoriesResponse Int
-decrStatus = lens _decrStatus (\ s a -> s{_decrStatus = a});
+decrsStatus :: Lens' DescribeEventCategoriesResponse Int
+decrsStatus = lens _decrsStatus (\ s a -> s{_decrsStatus = a});

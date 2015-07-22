@@ -32,16 +32,16 @@ module Network.AWS.EC2.CreateRouteTable
     -- ** Request constructor
     , createRouteTable
     -- ** Request lenses
-    , crtDryRun
-    , crtVPCId
+    , crtrqDryRun
+    , crtrqVPCId
 
     -- * Response
     , CreateRouteTableResponse
     -- ** Response constructor
     , createRouteTableResponse
     -- ** Response lenses
-    , crtrRouteTable
-    , crtrStatus
+    , crtrsRouteTable
+    , crtrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,32 +53,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crtDryRun'
+-- * 'crtrqDryRun'
 --
--- * 'crtVPCId'
+-- * 'crtrqVPCId'
 data CreateRouteTable = CreateRouteTable'
-    { _crtDryRun :: !(Maybe Bool)
-    , _crtVPCId  :: !Text
+    { _crtrqDryRun :: !(Maybe Bool)
+    , _crtrqVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRouteTable' smart constructor.
 createRouteTable :: Text -> CreateRouteTable
 createRouteTable pVPCId =
     CreateRouteTable'
-    { _crtDryRun = Nothing
-    , _crtVPCId = pVPCId
+    { _crtrqDryRun = Nothing
+    , _crtrqVPCId = pVPCId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-crtDryRun :: Lens' CreateRouteTable (Maybe Bool)
-crtDryRun = lens _crtDryRun (\ s a -> s{_crtDryRun = a});
+crtrqDryRun :: Lens' CreateRouteTable (Maybe Bool)
+crtrqDryRun = lens _crtrqDryRun (\ s a -> s{_crtrqDryRun = a});
 
 -- | The ID of the VPC.
-crtVPCId :: Lens' CreateRouteTable Text
-crtVPCId = lens _crtVPCId (\ s a -> s{_crtVPCId = a});
+crtrqVPCId :: Lens' CreateRouteTable Text
+crtrqVPCId = lens _crtrqVPCId (\ s a -> s{_crtrqVPCId = a});
 
 instance AWSRequest CreateRouteTable where
         type Sv CreateRouteTable = EC2
@@ -101,32 +101,32 @@ instance ToQuery CreateRouteTable where
           = mconcat
               ["Action" =: ("CreateRouteTable" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _crtDryRun, "VpcId" =: _crtVPCId]
+               "DryRun" =: _crtrqDryRun, "VpcId" =: _crtrqVPCId]
 
 -- | /See:/ 'createRouteTableResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crtrRouteTable'
+-- * 'crtrsRouteTable'
 --
--- * 'crtrStatus'
+-- * 'crtrsStatus'
 data CreateRouteTableResponse = CreateRouteTableResponse'
-    { _crtrRouteTable :: !(Maybe RouteTable)
-    , _crtrStatus     :: !Int
+    { _crtrsRouteTable :: !(Maybe RouteTable)
+    , _crtrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRouteTableResponse' smart constructor.
 createRouteTableResponse :: Int -> CreateRouteTableResponse
 createRouteTableResponse pStatus =
     CreateRouteTableResponse'
-    { _crtrRouteTable = Nothing
-    , _crtrStatus = pStatus
+    { _crtrsRouteTable = Nothing
+    , _crtrsStatus = pStatus
     }
 
 -- | Information about the route table.
-crtrRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
-crtrRouteTable = lens _crtrRouteTable (\ s a -> s{_crtrRouteTable = a});
+crtrsRouteTable :: Lens' CreateRouteTableResponse (Maybe RouteTable)
+crtrsRouteTable = lens _crtrsRouteTable (\ s a -> s{_crtrsRouteTable = a});
 
 -- | FIXME: Undocumented member.
-crtrStatus :: Lens' CreateRouteTableResponse Int
-crtrStatus = lens _crtrStatus (\ s a -> s{_crtrStatus = a});
+crtrsStatus :: Lens' CreateRouteTableResponse Int
+crtrsStatus = lens _crtrsStatus (\ s a -> s{_crtrsStatus = a});

@@ -31,8 +31,8 @@ module Network.AWS.EC2.DeletePlacementGroup
     -- ** Request constructor
     , deletePlacementGroup
     -- ** Request lenses
-    , dpgDryRun
-    , dpgGroupName
+    , dpgrqDryRun
+    , dpgrqGroupName
 
     -- * Response
     , DeletePlacementGroupResponse
@@ -49,32 +49,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpgDryRun'
+-- * 'dpgrqDryRun'
 --
--- * 'dpgGroupName'
+-- * 'dpgrqGroupName'
 data DeletePlacementGroup = DeletePlacementGroup'
-    { _dpgDryRun    :: !(Maybe Bool)
-    , _dpgGroupName :: !Text
+    { _dpgrqDryRun    :: !(Maybe Bool)
+    , _dpgrqGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePlacementGroup' smart constructor.
 deletePlacementGroup :: Text -> DeletePlacementGroup
 deletePlacementGroup pGroupName =
     DeletePlacementGroup'
-    { _dpgDryRun = Nothing
-    , _dpgGroupName = pGroupName
+    { _dpgrqDryRun = Nothing
+    , _dpgrqGroupName = pGroupName
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dpgDryRun :: Lens' DeletePlacementGroup (Maybe Bool)
-dpgDryRun = lens _dpgDryRun (\ s a -> s{_dpgDryRun = a});
+dpgrqDryRun :: Lens' DeletePlacementGroup (Maybe Bool)
+dpgrqDryRun = lens _dpgrqDryRun (\ s a -> s{_dpgrqDryRun = a});
 
 -- | The name of the placement group.
-dpgGroupName :: Lens' DeletePlacementGroup Text
-dpgGroupName = lens _dpgGroupName (\ s a -> s{_dpgGroupName = a});
+dpgrqGroupName :: Lens' DeletePlacementGroup Text
+dpgrqGroupName = lens _dpgrqGroupName (\ s a -> s{_dpgrqGroupName = a});
 
 instance AWSRequest DeletePlacementGroup where
         type Sv DeletePlacementGroup = EC2
@@ -94,7 +94,8 @@ instance ToQuery DeletePlacementGroup where
           = mconcat
               ["Action" =: ("DeletePlacementGroup" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dpgDryRun, "GroupName" =: _dpgGroupName]
+               "DryRun" =: _dpgrqDryRun,
+               "GroupName" =: _dpgrqGroupName]
 
 -- | /See:/ 'deletePlacementGroupResponse' smart constructor.
 data DeletePlacementGroupResponse =

@@ -33,17 +33,17 @@ module Network.AWS.MachineLearning.Predict
     -- ** Request constructor
     , predict
     -- ** Request lenses
-    , preMLModelId
-    , preRecord
-    , prePredictEndpoint
+    , prqMLModelId
+    , prqRecord
+    , prqPredictEndpoint
 
     -- * Response
     , PredictResponse
     -- ** Response constructor
     , predictResponse
     -- ** Response lenses
-    , prPrediction
-    , prStatus
+    , prsPrediction
+    , prsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -55,37 +55,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'preMLModelId'
+-- * 'prqMLModelId'
 --
--- * 'preRecord'
+-- * 'prqRecord'
 --
--- * 'prePredictEndpoint'
+-- * 'prqPredictEndpoint'
 data Predict = Predict'
-    { _preMLModelId       :: !Text
-    , _preRecord          :: !(Map Text Text)
-    , _prePredictEndpoint :: !Text
+    { _prqMLModelId       :: !Text
+    , _prqRecord          :: !(Map Text Text)
+    , _prqPredictEndpoint :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Predict' smart constructor.
 predict :: Text -> Text -> Predict
 predict pMLModelId pPredictEndpoint =
     Predict'
-    { _preMLModelId = pMLModelId
-    , _preRecord = mempty
-    , _prePredictEndpoint = pPredictEndpoint
+    { _prqMLModelId = pMLModelId
+    , _prqRecord = mempty
+    , _prqPredictEndpoint = pPredictEndpoint
     }
 
 -- | A unique identifier of the @MLModel@.
-preMLModelId :: Lens' Predict Text
-preMLModelId = lens _preMLModelId (\ s a -> s{_preMLModelId = a});
+prqMLModelId :: Lens' Predict Text
+prqMLModelId = lens _prqMLModelId (\ s a -> s{_prqMLModelId = a});
 
 -- | FIXME: Undocumented member.
-preRecord :: Lens' Predict (HashMap Text Text)
-preRecord = lens _preRecord (\ s a -> s{_preRecord = a}) . _Map;
+prqRecord :: Lens' Predict (HashMap Text Text)
+prqRecord = lens _prqRecord (\ s a -> s{_prqRecord = a}) . _Map;
 
 -- | FIXME: Undocumented member.
-prePredictEndpoint :: Lens' Predict Text
-prePredictEndpoint = lens _prePredictEndpoint (\ s a -> s{_prePredictEndpoint = a});
+prqPredictEndpoint :: Lens' Predict Text
+prqPredictEndpoint = lens _prqPredictEndpoint (\ s a -> s{_prqPredictEndpoint = a});
 
 instance AWSRequest Predict where
         type Sv Predict = MachineLearning
@@ -109,9 +109,9 @@ instance ToHeaders Predict where
 instance ToJSON Predict where
         toJSON Predict'{..}
           = object
-              ["MLModelId" .= _preMLModelId,
-               "Record" .= _preRecord,
-               "PredictEndpoint" .= _prePredictEndpoint]
+              ["MLModelId" .= _prqMLModelId,
+               "Record" .= _prqRecord,
+               "PredictEndpoint" .= _prqPredictEndpoint]
 
 instance ToPath Predict where
         toPath = const "/"
@@ -123,26 +123,26 @@ instance ToQuery Predict where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prPrediction'
+-- * 'prsPrediction'
 --
--- * 'prStatus'
+-- * 'prsStatus'
 data PredictResponse = PredictResponse'
-    { _prPrediction :: !(Maybe Prediction)
-    , _prStatus     :: !Int
+    { _prsPrediction :: !(Maybe Prediction)
+    , _prsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PredictResponse' smart constructor.
 predictResponse :: Int -> PredictResponse
 predictResponse pStatus =
     PredictResponse'
-    { _prPrediction = Nothing
-    , _prStatus = pStatus
+    { _prsPrediction = Nothing
+    , _prsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-prPrediction :: Lens' PredictResponse (Maybe Prediction)
-prPrediction = lens _prPrediction (\ s a -> s{_prPrediction = a});
+prsPrediction :: Lens' PredictResponse (Maybe Prediction)
+prsPrediction = lens _prsPrediction (\ s a -> s{_prsPrediction = a});
 
 -- | FIXME: Undocumented member.
-prStatus :: Lens' PredictResponse Int
-prStatus = lens _prStatus (\ s a -> s{_prStatus = a});
+prsStatus :: Lens' PredictResponse Int
+prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});

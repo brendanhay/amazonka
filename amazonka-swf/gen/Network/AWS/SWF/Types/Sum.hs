@@ -74,21 +74,21 @@ instance FromJSON CancelTimerFailedCause where
     parseJSON = parseJSONText "CancelTimerFailedCause"
 
 data CancelWorkflowExecutionFailedCause
-    = CanOperationNotPermitted
-    | CanUnhandledDecision
+    = CUnhandledDecision
+    | COperationNotPermitted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText CancelWorkflowExecutionFailedCause where
     parser = takeLowerText >>= \case
-        "operation_not_permitted" -> pure CanOperationNotPermitted
-        "unhandled_decision" -> pure CanUnhandledDecision
+        "operation_not_permitted" -> pure COperationNotPermitted
+        "unhandled_decision" -> pure CUnhandledDecision
         e -> fromTextError $ "Failure parsing CancelWorkflowExecutionFailedCause from value: '" <> e
            <> "'. Accepted values: operation_not_permitted, unhandled_decision"
 
 instance ToText CancelWorkflowExecutionFailedCause where
     toText = \case
-        CanOperationNotPermitted -> "operation_not_permitted"
-        CanUnhandledDecision -> "unhandled_decision"
+        COperationNotPermitted -> "operation_not_permitted"
+        CUnhandledDecision -> "unhandled_decision"
 
 instance Hashable CancelWorkflowExecutionFailedCause
 instance ToQuery  CancelWorkflowExecutionFailedCause

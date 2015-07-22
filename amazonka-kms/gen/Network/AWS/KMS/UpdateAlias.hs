@@ -40,8 +40,8 @@ module Network.AWS.KMS.UpdateAlias
     -- ** Request constructor
     , updateAlias
     -- ** Request lenses
-    , uaAliasName
-    , uaTargetKeyId
+    , uarqAliasName
+    , uarqTargetKeyId
 
     -- * Response
     , UpdateAliasResponse
@@ -58,27 +58,27 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uaAliasName'
+-- * 'uarqAliasName'
 --
--- * 'uaTargetKeyId'
+-- * 'uarqTargetKeyId'
 data UpdateAlias = UpdateAlias'
-    { _uaAliasName   :: !Text
-    , _uaTargetKeyId :: !Text
+    { _uarqAliasName   :: !Text
+    , _uarqTargetKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAlias' smart constructor.
 updateAlias :: Text -> Text -> UpdateAlias
 updateAlias pAliasName pTargetKeyId =
     UpdateAlias'
-    { _uaAliasName = pAliasName
-    , _uaTargetKeyId = pTargetKeyId
+    { _uarqAliasName = pAliasName
+    , _uarqTargetKeyId = pTargetKeyId
     }
 
 -- | String that contains the name of the alias to be modifed. The name must
 -- start with the word \"alias\" followed by a forward slash (alias\/).
 -- Aliases that begin with \"alias\/AWS\" are reserved.
-uaAliasName :: Lens' UpdateAlias Text
-uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a});
+uarqAliasName :: Lens' UpdateAlias Text
+uarqAliasName = lens _uarqAliasName (\ s a -> s{_uarqAliasName = a});
 
 -- | Unique identifier of the customer master key to be associated with the
 -- alias. This value can be a globally unique identifier or the fully
@@ -88,8 +88,8 @@ uaAliasName = lens _uaAliasName (\ s a -> s{_uaAliasName = a});
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-uaTargetKeyId :: Lens' UpdateAlias Text
-uaTargetKeyId = lens _uaTargetKeyId (\ s a -> s{_uaTargetKeyId = a});
+uarqTargetKeyId :: Lens' UpdateAlias Text
+uarqTargetKeyId = lens _uarqTargetKeyId (\ s a -> s{_uarqTargetKeyId = a});
 
 instance AWSRequest UpdateAlias where
         type Sv UpdateAlias = KMS
@@ -109,8 +109,8 @@ instance ToHeaders UpdateAlias where
 instance ToJSON UpdateAlias where
         toJSON UpdateAlias'{..}
           = object
-              ["AliasName" .= _uaAliasName,
-               "TargetKeyId" .= _uaTargetKeyId]
+              ["AliasName" .= _uarqAliasName,
+               "TargetKeyId" .= _uarqTargetKeyId]
 
 instance ToPath UpdateAlias where
         toPath = const "/"

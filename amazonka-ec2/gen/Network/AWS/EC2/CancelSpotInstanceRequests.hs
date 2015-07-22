@@ -36,16 +36,16 @@ module Network.AWS.EC2.CancelSpotInstanceRequests
     -- ** Request constructor
     , cancelSpotInstanceRequests
     -- ** Request lenses
-    , csirDryRun
-    , csirSpotInstanceRequestIds
+    , csirrqDryRun
+    , csirrqSpotInstanceRequestIds
 
     -- * Response
     , CancelSpotInstanceRequestsResponse
     -- ** Response constructor
     , cancelSpotInstanceRequestsResponse
     -- ** Response lenses
-    , csirrCancelledSpotInstanceRequests
-    , csirrStatus
+    , csirrsCancelledSpotInstanceRequests
+    , csirrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -59,32 +59,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csirDryRun'
+-- * 'csirrqDryRun'
 --
--- * 'csirSpotInstanceRequestIds'
+-- * 'csirrqSpotInstanceRequestIds'
 data CancelSpotInstanceRequests = CancelSpotInstanceRequests'
-    { _csirDryRun                 :: !(Maybe Bool)
-    , _csirSpotInstanceRequestIds :: ![Text]
+    { _csirrqDryRun                 :: !(Maybe Bool)
+    , _csirrqSpotInstanceRequestIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotInstanceRequests' smart constructor.
 cancelSpotInstanceRequests :: CancelSpotInstanceRequests
 cancelSpotInstanceRequests =
     CancelSpotInstanceRequests'
-    { _csirDryRun = Nothing
-    , _csirSpotInstanceRequestIds = mempty
+    { _csirrqDryRun = Nothing
+    , _csirrqSpotInstanceRequestIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-csirDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
-csirDryRun = lens _csirDryRun (\ s a -> s{_csirDryRun = a});
+csirrqDryRun :: Lens' CancelSpotInstanceRequests (Maybe Bool)
+csirrqDryRun = lens _csirrqDryRun (\ s a -> s{_csirrqDryRun = a});
 
 -- | One or more Spot Instance request IDs.
-csirSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
-csirSpotInstanceRequestIds = lens _csirSpotInstanceRequestIds (\ s a -> s{_csirSpotInstanceRequestIds = a});
+csirrqSpotInstanceRequestIds :: Lens' CancelSpotInstanceRequests [Text]
+csirrqSpotInstanceRequestIds = lens _csirrqSpotInstanceRequestIds (\ s a -> s{_csirrqSpotInstanceRequestIds = a});
 
 instance AWSRequest CancelSpotInstanceRequests where
         type Sv CancelSpotInstanceRequests = EC2
@@ -111,9 +111,9 @@ instance ToQuery CancelSpotInstanceRequests where
               ["Action" =:
                  ("CancelSpotInstanceRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _csirDryRun,
+               "DryRun" =: _csirrqDryRun,
                toQueryList "SpotInstanceRequestId"
-                 _csirSpotInstanceRequestIds]
+                 _csirrqSpotInstanceRequestIds]
 
 -- | Contains the output of CancelSpotInstanceRequests.
 --
@@ -121,26 +121,26 @@ instance ToQuery CancelSpotInstanceRequests where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csirrCancelledSpotInstanceRequests'
+-- * 'csirrsCancelledSpotInstanceRequests'
 --
--- * 'csirrStatus'
+-- * 'csirrsStatus'
 data CancelSpotInstanceRequestsResponse = CancelSpotInstanceRequestsResponse'
-    { _csirrCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
-    , _csirrStatus                        :: !Int
+    { _csirrsCancelledSpotInstanceRequests :: !(Maybe [CancelledSpotInstanceRequest])
+    , _csirrsStatus                        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelSpotInstanceRequestsResponse' smart constructor.
 cancelSpotInstanceRequestsResponse :: Int -> CancelSpotInstanceRequestsResponse
 cancelSpotInstanceRequestsResponse pStatus =
     CancelSpotInstanceRequestsResponse'
-    { _csirrCancelledSpotInstanceRequests = Nothing
-    , _csirrStatus = pStatus
+    { _csirrsCancelledSpotInstanceRequests = Nothing
+    , _csirrsStatus = pStatus
     }
 
 -- | One or more Spot Instance requests.
-csirrCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
-csirrCancelledSpotInstanceRequests = lens _csirrCancelledSpotInstanceRequests (\ s a -> s{_csirrCancelledSpotInstanceRequests = a}) . _Default;
+csirrsCancelledSpotInstanceRequests :: Lens' CancelSpotInstanceRequestsResponse [CancelledSpotInstanceRequest]
+csirrsCancelledSpotInstanceRequests = lens _csirrsCancelledSpotInstanceRequests (\ s a -> s{_csirrsCancelledSpotInstanceRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-csirrStatus :: Lens' CancelSpotInstanceRequestsResponse Int
-csirrStatus = lens _csirrStatus (\ s a -> s{_csirrStatus = a});
+csirrsStatus :: Lens' CancelSpotInstanceRequestsResponse Int
+csirrsStatus = lens _csirrsStatus (\ s a -> s{_csirrsStatus = a});

@@ -33,16 +33,16 @@ module Network.AWS.CloudSearch.DefineSuggester
     -- ** Request constructor
     , defineSuggester
     -- ** Request lenses
-    , dDomainName
-    , dSuggester
+    , defrqDomainName
+    , defrqSuggester
 
     -- * Response
     , DefineSuggesterResponse
     -- ** Response constructor
     , defineSuggesterResponse
     -- ** Response lenses
-    , dsrStatus
-    , dsrSuggester
+    , defrsStatus
+    , defrsSuggester
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -58,29 +58,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dDomainName'
+-- * 'defrqDomainName'
 --
--- * 'dSuggester'
+-- * 'defrqSuggester'
 data DefineSuggester = DefineSuggester'
-    { _dDomainName :: !Text
-    , _dSuggester  :: !Suggester
+    { _defrqDomainName :: !Text
+    , _defrqSuggester  :: !Suggester
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineSuggester' smart constructor.
 defineSuggester :: Text -> Suggester -> DefineSuggester
 defineSuggester pDomainName pSuggester =
     DefineSuggester'
-    { _dDomainName = pDomainName
-    , _dSuggester = pSuggester
+    { _defrqDomainName = pDomainName
+    , _defrqSuggester = pSuggester
     }
 
 -- | FIXME: Undocumented member.
-dDomainName :: Lens' DefineSuggester Text
-dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
+defrqDomainName :: Lens' DefineSuggester Text
+defrqDomainName = lens _defrqDomainName (\ s a -> s{_defrqDomainName = a});
 
 -- | FIXME: Undocumented member.
-dSuggester :: Lens' DefineSuggester Suggester
-dSuggester = lens _dSuggester (\ s a -> s{_dSuggester = a});
+defrqSuggester :: Lens' DefineSuggester Suggester
+defrqSuggester = lens _defrqSuggester (\ s a -> s{_defrqSuggester = a});
 
 instance AWSRequest DefineSuggester where
         type Sv DefineSuggester = CloudSearch
@@ -103,8 +103,8 @@ instance ToQuery DefineSuggester where
           = mconcat
               ["Action" =: ("DefineSuggester" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _dDomainName,
-               "Suggester" =: _dSuggester]
+               "DomainName" =: _defrqDomainName,
+               "Suggester" =: _defrqSuggester]
 
 -- | The result of a @DefineSuggester@ request. Contains the status of the
 -- newly-configured suggester.
@@ -113,26 +113,26 @@ instance ToQuery DefineSuggester where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrStatus'
+-- * 'defrsStatus'
 --
--- * 'dsrSuggester'
+-- * 'defrsSuggester'
 data DefineSuggesterResponse = DefineSuggesterResponse'
-    { _dsrStatus    :: !Int
-    , _dsrSuggester :: !SuggesterStatus
+    { _defrsStatus    :: !Int
+    , _defrsSuggester :: !SuggesterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineSuggesterResponse' smart constructor.
 defineSuggesterResponse :: Int -> SuggesterStatus -> DefineSuggesterResponse
 defineSuggesterResponse pStatus pSuggester =
     DefineSuggesterResponse'
-    { _dsrStatus = pStatus
-    , _dsrSuggester = pSuggester
+    { _defrsStatus = pStatus
+    , _defrsSuggester = pSuggester
     }
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DefineSuggesterResponse Int
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+defrsStatus :: Lens' DefineSuggesterResponse Int
+defrsStatus = lens _defrsStatus (\ s a -> s{_defrsStatus = a});
 
 -- | FIXME: Undocumented member.
-dsrSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
-dsrSuggester = lens _dsrSuggester (\ s a -> s{_dsrSuggester = a});
+defrsSuggester :: Lens' DefineSuggesterResponse SuggesterStatus
+defrsSuggester = lens _defrsSuggester (\ s a -> s{_defrsSuggester = a});

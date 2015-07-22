@@ -40,9 +40,9 @@ module Network.AWS.KMS.RetireGrant
     -- ** Request constructor
     , retireGrant
     -- ** Request lenses
-    , rgKeyId
-    , rgGrantId
-    , rgGrantToken
+    , rgrqKeyId
+    , rgrqGrantId
+    , rgrqGrantToken
 
     -- * Response
     , RetireGrantResponse
@@ -59,24 +59,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rgKeyId'
+-- * 'rgrqKeyId'
 --
--- * 'rgGrantId'
+-- * 'rgrqGrantId'
 --
--- * 'rgGrantToken'
+-- * 'rgrqGrantToken'
 data RetireGrant = RetireGrant'
-    { _rgKeyId      :: !(Maybe Text)
-    , _rgGrantId    :: !(Maybe Text)
-    , _rgGrantToken :: !(Maybe Text)
+    { _rgrqKeyId      :: !(Maybe Text)
+    , _rgrqGrantId    :: !(Maybe Text)
+    , _rgrqGrantToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetireGrant' smart constructor.
 retireGrant :: RetireGrant
 retireGrant =
     RetireGrant'
-    { _rgKeyId = Nothing
-    , _rgGrantId = Nothing
-    , _rgGrantToken = Nothing
+    { _rgrqKeyId = Nothing
+    , _rgrqGrantId = Nothing
+    , _rgrqGrantToken = Nothing
     }
 
 -- | A unique identifier for the customer master key associated with the
@@ -87,20 +87,20 @@ retireGrant =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-rgKeyId :: Lens' RetireGrant (Maybe Text)
-rgKeyId = lens _rgKeyId (\ s a -> s{_rgKeyId = a});
+rgrqKeyId :: Lens' RetireGrant (Maybe Text)
+rgrqKeyId = lens _rgrqKeyId (\ s a -> s{_rgrqKeyId = a});
 
 -- | Unique identifier of the grant to be retired. The grant ID is returned
 -- by the @CreateGrant@ function.
 --
 -- -   Grant ID Example -
 --     0123456789012345678901234567890123456789012345678901234567890123
-rgGrantId :: Lens' RetireGrant (Maybe Text)
-rgGrantId = lens _rgGrantId (\ s a -> s{_rgGrantId = a});
+rgrqGrantId :: Lens' RetireGrant (Maybe Text)
+rgrqGrantId = lens _rgrqGrantId (\ s a -> s{_rgrqGrantId = a});
 
 -- | Token that identifies the grant to be retired.
-rgGrantToken :: Lens' RetireGrant (Maybe Text)
-rgGrantToken = lens _rgGrantToken (\ s a -> s{_rgGrantToken = a});
+rgrqGrantToken :: Lens' RetireGrant (Maybe Text)
+rgrqGrantToken = lens _rgrqGrantToken (\ s a -> s{_rgrqGrantToken = a});
 
 instance AWSRequest RetireGrant where
         type Sv RetireGrant = KMS
@@ -120,8 +120,8 @@ instance ToHeaders RetireGrant where
 instance ToJSON RetireGrant where
         toJSON RetireGrant'{..}
           = object
-              ["KeyId" .= _rgKeyId, "GrantId" .= _rgGrantId,
-               "GrantToken" .= _rgGrantToken]
+              ["KeyId" .= _rgrqKeyId, "GrantId" .= _rgrqGrantId,
+               "GrantToken" .= _rgrqGrantToken]
 
 instance ToPath RetireGrant where
         toPath = const "/"

@@ -27,15 +27,15 @@ module Network.AWS.EC2.DescribeExportTasks
     -- ** Request constructor
     , describeExportTasks
     -- ** Request lenses
-    , detExportTaskIds
+    , detrqExportTaskIds
 
     -- * Response
     , DescribeExportTasksResponse
     -- ** Response constructor
     , describeExportTasksResponse
     -- ** Response lenses
-    , detrExportTasks
-    , detrStatus
+    , detrsExportTasks
+    , detrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detExportTaskIds'
+-- * 'detrqExportTaskIds'
 newtype DescribeExportTasks = DescribeExportTasks'
-    { _detExportTaskIds :: Maybe [Text]
+    { _detrqExportTaskIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExportTasks' smart constructor.
 describeExportTasks :: DescribeExportTasks
 describeExportTasks =
     DescribeExportTasks'
-    { _detExportTaskIds = Nothing
+    { _detrqExportTaskIds = Nothing
     }
 
 -- | One or more export task IDs.
-detExportTaskIds :: Lens' DescribeExportTasks [Text]
-detExportTaskIds = lens _detExportTaskIds (\ s a -> s{_detExportTaskIds = a}) . _Default;
+detrqExportTaskIds :: Lens' DescribeExportTasks [Text]
+detrqExportTaskIds = lens _detrqExportTaskIds (\ s a -> s{_detrqExportTaskIds = a}) . _Default;
 
 instance AWSRequest DescribeExportTasks where
         type Sv DescribeExportTasks = EC2
@@ -88,32 +88,32 @@ instance ToQuery DescribeExportTasks where
               ["Action" =: ("DescribeExportTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "ExportTaskId" <$> _detExportTaskIds)]
+                 (toQueryList "ExportTaskId" <$> _detrqExportTaskIds)]
 
 -- | /See:/ 'describeExportTasksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detrExportTasks'
+-- * 'detrsExportTasks'
 --
--- * 'detrStatus'
+-- * 'detrsStatus'
 data DescribeExportTasksResponse = DescribeExportTasksResponse'
-    { _detrExportTasks :: !(Maybe [ExportTask])
-    , _detrStatus      :: !Int
+    { _detrsExportTasks :: !(Maybe [ExportTask])
+    , _detrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExportTasksResponse' smart constructor.
 describeExportTasksResponse :: Int -> DescribeExportTasksResponse
 describeExportTasksResponse pStatus =
     DescribeExportTasksResponse'
-    { _detrExportTasks = Nothing
-    , _detrStatus = pStatus
+    { _detrsExportTasks = Nothing
+    , _detrsStatus = pStatus
     }
 
 -- | Information about the export tasks.
-detrExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
-detrExportTasks = lens _detrExportTasks (\ s a -> s{_detrExportTasks = a}) . _Default;
+detrsExportTasks :: Lens' DescribeExportTasksResponse [ExportTask]
+detrsExportTasks = lens _detrsExportTasks (\ s a -> s{_detrsExportTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-detrStatus :: Lens' DescribeExportTasksResponse Int
-detrStatus = lens _detrStatus (\ s a -> s{_detrStatus = a});
+detrsStatus :: Lens' DescribeExportTasksResponse Int
+detrsStatus = lens _detrsStatus (\ s a -> s{_detrsStatus = a});

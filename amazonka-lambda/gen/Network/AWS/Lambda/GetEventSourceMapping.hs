@@ -31,21 +31,21 @@ module Network.AWS.Lambda.GetEventSourceMapping
     -- ** Request constructor
     , getEventSourceMapping
     -- ** Request lenses
-    , gesmUUId
+    , gesmrqUUId
 
     -- * Response
     , EventSourceMappingConfiguration
     -- ** Response constructor
     , eventSourceMappingConfiguration
     -- ** Response lenses
-    , esmcEventSourceARN
-    , esmcFunctionARN
-    , esmcState
-    , esmcUUId
-    , esmcLastProcessingResult
-    , esmcBatchSize
-    , esmcStateTransitionReason
-    , esmcLastModified
+    , gesmrsEventSourceARN
+    , gesmrsFunctionARN
+    , gesmrsState
+    , gesmrsUUId
+    , gesmrsLastProcessingResult
+    , gesmrsBatchSize
+    , gesmrsStateTransitionReason
+    , gesmrsLastModified
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gesmUUId'
+-- * 'gesmrqUUId'
 newtype GetEventSourceMapping = GetEventSourceMapping'
-    { _gesmUUId :: Text
+    { _gesmrqUUId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEventSourceMapping' smart constructor.
 getEventSourceMapping :: Text -> GetEventSourceMapping
 getEventSourceMapping pUUId =
     GetEventSourceMapping'
-    { _gesmUUId = pUUId
+    { _gesmrqUUId = pUUId
     }
 
 -- | The AWS Lambda assigned ID of the event source mapping.
-gesmUUId :: Lens' GetEventSourceMapping Text
-gesmUUId = lens _gesmUUId (\ s a -> s{_gesmUUId = a});
+gesmrqUUId :: Lens' GetEventSourceMapping Text
+gesmrqUUId = lens _gesmrqUUId (\ s a -> s{_gesmrqUUId = a});
 
 instance AWSRequest GetEventSourceMapping where
         type Sv GetEventSourceMapping = Lambda
@@ -87,7 +87,7 @@ instance ToPath GetEventSourceMapping where
         toPath GetEventSourceMapping'{..}
           = mconcat
               ["/2015-03-31/event-source-mappings/",
-               toText _gesmUUId]
+               toText _gesmrqUUId]
 
 instance ToQuery GetEventSourceMapping where
         toQuery = const mempty

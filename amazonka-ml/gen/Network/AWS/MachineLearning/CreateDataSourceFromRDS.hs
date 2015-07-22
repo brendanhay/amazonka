@@ -42,19 +42,19 @@ module Network.AWS.MachineLearning.CreateDataSourceFromRDS
     -- ** Request constructor
     , createDataSourceFromRDS
     -- ** Request lenses
-    , creDataSourceName
-    , creComputeStatistics
-    , creDataSourceId
-    , creRDSData
-    , creRoleARN
+    , cdsfrdsrqDataSourceName
+    , cdsfrdsrqComputeStatistics
+    , cdsfrdsrqDataSourceId
+    , cdsfrdsrqRDSData
+    , cdsfrdsrqRoleARN
 
     -- * Response
     , CreateDataSourceFromRDSResponse
     -- ** Response constructor
     , createDataSourceFromRDSResponse
     -- ** Response lenses
-    , cDataSourceId
-    , cStatus
+    , cdsfrdsrsDataSourceId
+    , cdsfrdsrsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -66,50 +66,50 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creDataSourceName'
+-- * 'cdsfrdsrqDataSourceName'
 --
--- * 'creComputeStatistics'
+-- * 'cdsfrdsrqComputeStatistics'
 --
--- * 'creDataSourceId'
+-- * 'cdsfrdsrqDataSourceId'
 --
--- * 'creRDSData'
+-- * 'cdsfrdsrqRDSData'
 --
--- * 'creRoleARN'
+-- * 'cdsfrdsrqRoleARN'
 data CreateDataSourceFromRDS = CreateDataSourceFromRDS'
-    { _creDataSourceName    :: !(Maybe Text)
-    , _creComputeStatistics :: !(Maybe Bool)
-    , _creDataSourceId      :: !Text
-    , _creRDSData           :: !RDSDataSpec
-    , _creRoleARN           :: !Text
+    { _cdsfrdsrqDataSourceName    :: !(Maybe Text)
+    , _cdsfrdsrqComputeStatistics :: !(Maybe Bool)
+    , _cdsfrdsrqDataSourceId      :: !Text
+    , _cdsfrdsrqRDSData           :: !RDSDataSpec
+    , _cdsfrdsrqRoleARN           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRDS' smart constructor.
 createDataSourceFromRDS :: Text -> RDSDataSpec -> Text -> CreateDataSourceFromRDS
 createDataSourceFromRDS pDataSourceId pRDSData pRoleARN =
     CreateDataSourceFromRDS'
-    { _creDataSourceName = Nothing
-    , _creComputeStatistics = Nothing
-    , _creDataSourceId = pDataSourceId
-    , _creRDSData = pRDSData
-    , _creRoleARN = pRoleARN
+    { _cdsfrdsrqDataSourceName = Nothing
+    , _cdsfrdsrqComputeStatistics = Nothing
+    , _cdsfrdsrqDataSourceId = pDataSourceId
+    , _cdsfrdsrqRDSData = pRDSData
+    , _cdsfrdsrqRoleARN = pRoleARN
     }
 
 -- | A user-supplied name or description of the @DataSource@.
-creDataSourceName :: Lens' CreateDataSourceFromRDS (Maybe Text)
-creDataSourceName = lens _creDataSourceName (\ s a -> s{_creDataSourceName = a});
+cdsfrdsrqDataSourceName :: Lens' CreateDataSourceFromRDS (Maybe Text)
+cdsfrdsrqDataSourceName = lens _cdsfrdsrqDataSourceName (\ s a -> s{_cdsfrdsrqDataSourceName = a});
 
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during an @MLModel@ training. This parameter
 -- must be set to @true@ if the @@DataSource@@ needs to be used for
 -- @MLModel@ training.
-creComputeStatistics :: Lens' CreateDataSourceFromRDS (Maybe Bool)
-creComputeStatistics = lens _creComputeStatistics (\ s a -> s{_creComputeStatistics = a});
+cdsfrdsrqComputeStatistics :: Lens' CreateDataSourceFromRDS (Maybe Bool)
+cdsfrdsrqComputeStatistics = lens _cdsfrdsrqComputeStatistics (\ s a -> s{_cdsfrdsrqComputeStatistics = a});
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. Typically,
 -- an Amazon Resource Number (ARN) becomes the ID for a @DataSource@.
-creDataSourceId :: Lens' CreateDataSourceFromRDS Text
-creDataSourceId = lens _creDataSourceId (\ s a -> s{_creDataSourceId = a});
+cdsfrdsrqDataSourceId :: Lens' CreateDataSourceFromRDS Text
+cdsfrdsrqDataSourceId = lens _cdsfrdsrqDataSourceId (\ s a -> s{_cdsfrdsrqDataSourceId = a});
 
 -- | The data specification of an Amazon RDS @DataSource@:
 --
@@ -158,15 +158,15 @@ creDataSourceId = lens _creDataSourceId (\ s a -> s{_creDataSourceId = a});
 --     Sample -
 --     @ \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"@
 --
-creRDSData :: Lens' CreateDataSourceFromRDS RDSDataSpec
-creRDSData = lens _creRDSData (\ s a -> s{_creRDSData = a});
+cdsfrdsrqRDSData :: Lens' CreateDataSourceFromRDS RDSDataSpec
+cdsfrdsrqRDSData = lens _cdsfrdsrqRDSData (\ s a -> s{_cdsfrdsrqRDSData = a});
 
 -- | The role that Amazon ML assumes on behalf of the user to create and
 -- activate a data pipeline in the user’s account and copy data (using the
 -- @SelectSqlQuery@) query from Amazon RDS to Amazon S3.
 --
-creRoleARN :: Lens' CreateDataSourceFromRDS Text
-creRoleARN = lens _creRoleARN (\ s a -> s{_creRoleARN = a});
+cdsfrdsrqRoleARN :: Lens' CreateDataSourceFromRDS Text
+cdsfrdsrqRoleARN = lens _cdsfrdsrqRoleARN (\ s a -> s{_cdsfrdsrqRoleARN = a});
 
 instance AWSRequest CreateDataSourceFromRDS where
         type Sv CreateDataSourceFromRDS = MachineLearning
@@ -192,10 +192,11 @@ instance ToHeaders CreateDataSourceFromRDS where
 instance ToJSON CreateDataSourceFromRDS where
         toJSON CreateDataSourceFromRDS'{..}
           = object
-              ["DataSourceName" .= _creDataSourceName,
-               "ComputeStatistics" .= _creComputeStatistics,
-               "DataSourceId" .= _creDataSourceId,
-               "RDSData" .= _creRDSData, "RoleARN" .= _creRoleARN]
+              ["DataSourceName" .= _cdsfrdsrqDataSourceName,
+               "ComputeStatistics" .= _cdsfrdsrqComputeStatistics,
+               "DataSourceId" .= _cdsfrdsrqDataSourceId,
+               "RDSData" .= _cdsfrdsrqRDSData,
+               "RoleARN" .= _cdsfrdsrqRoleARN]
 
 instance ToPath CreateDataSourceFromRDS where
         toPath = const "/"
@@ -217,27 +218,27 @@ instance ToQuery CreateDataSourceFromRDS where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cDataSourceId'
+-- * 'cdsfrdsrsDataSourceId'
 --
--- * 'cStatus'
+-- * 'cdsfrdsrsStatus'
 data CreateDataSourceFromRDSResponse = CreateDataSourceFromRDSResponse'
-    { _cDataSourceId :: !(Maybe Text)
-    , _cStatus       :: !Int
+    { _cdsfrdsrsDataSourceId :: !(Maybe Text)
+    , _cdsfrdsrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromRDSResponse' smart constructor.
 createDataSourceFromRDSResponse :: Int -> CreateDataSourceFromRDSResponse
 createDataSourceFromRDSResponse pStatus =
     CreateDataSourceFromRDSResponse'
-    { _cDataSourceId = Nothing
-    , _cStatus = pStatus
+    { _cdsfrdsrsDataSourceId = Nothing
+    , _cdsfrdsrsStatus = pStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-cDataSourceId :: Lens' CreateDataSourceFromRDSResponse (Maybe Text)
-cDataSourceId = lens _cDataSourceId (\ s a -> s{_cDataSourceId = a});
+cdsfrdsrsDataSourceId :: Lens' CreateDataSourceFromRDSResponse (Maybe Text)
+cdsfrdsrsDataSourceId = lens _cdsfrdsrsDataSourceId (\ s a -> s{_cdsfrdsrsDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CreateDataSourceFromRDSResponse Int
-cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
+cdsfrdsrsStatus :: Lens' CreateDataSourceFromRDSResponse Int
+cdsfrdsrsStatus = lens _cdsfrdsrsStatus (\ s a -> s{_cdsfrdsrsStatus = a});

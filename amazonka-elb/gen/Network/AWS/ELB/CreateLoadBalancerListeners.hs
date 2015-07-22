@@ -34,15 +34,15 @@ module Network.AWS.ELB.CreateLoadBalancerListeners
     -- ** Request constructor
     , createLoadBalancerListeners
     -- ** Request lenses
-    , clblLoadBalancerName
-    , clblListeners
+    , clblrqLoadBalancerName
+    , clblrqListeners
 
     -- * Response
     , CreateLoadBalancerListenersResponse
     -- ** Response constructor
     , createLoadBalancerListenersResponse
     -- ** Response lenses
-    , clblrStatus
+    , clblrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -54,29 +54,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clblLoadBalancerName'
+-- * 'clblrqLoadBalancerName'
 --
--- * 'clblListeners'
+-- * 'clblrqListeners'
 data CreateLoadBalancerListeners = CreateLoadBalancerListeners'
-    { _clblLoadBalancerName :: !Text
-    , _clblListeners        :: ![Listener]
+    { _clblrqLoadBalancerName :: !Text
+    , _clblrqListeners        :: ![Listener]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerListeners' smart constructor.
 createLoadBalancerListeners :: Text -> CreateLoadBalancerListeners
 createLoadBalancerListeners pLoadBalancerName =
     CreateLoadBalancerListeners'
-    { _clblLoadBalancerName = pLoadBalancerName
-    , _clblListeners = mempty
+    { _clblrqLoadBalancerName = pLoadBalancerName
+    , _clblrqListeners = mempty
     }
 
 -- | The name of the load balancer.
-clblLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
-clblLoadBalancerName = lens _clblLoadBalancerName (\ s a -> s{_clblLoadBalancerName = a});
+clblrqLoadBalancerName :: Lens' CreateLoadBalancerListeners Text
+clblrqLoadBalancerName = lens _clblrqLoadBalancerName (\ s a -> s{_clblrqLoadBalancerName = a});
 
 -- | The listeners.
-clblListeners :: Lens' CreateLoadBalancerListeners [Listener]
-clblListeners = lens _clblListeners (\ s a -> s{_clblListeners = a});
+clblrqListeners :: Lens' CreateLoadBalancerListeners [Listener]
+clblrqListeners = lens _clblrqListeners (\ s a -> s{_clblrqListeners = a});
 
 instance AWSRequest CreateLoadBalancerListeners where
         type Sv CreateLoadBalancerListeners = ELB
@@ -102,25 +102,25 @@ instance ToQuery CreateLoadBalancerListeners where
               ["Action" =:
                  ("CreateLoadBalancerListeners" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _clblLoadBalancerName,
-               "Listeners" =: toQueryList "member" _clblListeners]
+               "LoadBalancerName" =: _clblrqLoadBalancerName,
+               "Listeners" =: toQueryList "member" _clblrqListeners]
 
 -- | /See:/ 'createLoadBalancerListenersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clblrStatus'
+-- * 'clblrsStatus'
 newtype CreateLoadBalancerListenersResponse = CreateLoadBalancerListenersResponse'
-    { _clblrStatus :: Int
+    { _clblrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLoadBalancerListenersResponse' smart constructor.
 createLoadBalancerListenersResponse :: Int -> CreateLoadBalancerListenersResponse
 createLoadBalancerListenersResponse pStatus =
     CreateLoadBalancerListenersResponse'
-    { _clblrStatus = pStatus
+    { _clblrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-clblrStatus :: Lens' CreateLoadBalancerListenersResponse Int
-clblrStatus = lens _clblrStatus (\ s a -> s{_clblrStatus = a});
+clblrsStatus :: Lens' CreateLoadBalancerListenersResponse Int
+clblrsStatus = lens _clblrsStatus (\ s a -> s{_clblrsStatus = a});

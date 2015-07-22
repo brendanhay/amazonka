@@ -34,17 +34,17 @@ module Network.AWS.WorkSpaces.DescribeWorkspaceDirectories
     -- ** Request constructor
     , describeWorkspaceDirectories
     -- ** Request lenses
-    , dwdNextToken
-    , dwdDirectoryIds
+    , dwdrqNextToken
+    , dwdrqDirectoryIds
 
     -- * Response
     , DescribeWorkspaceDirectoriesResponse
     -- ** Response constructor
     , describeWorkspaceDirectoriesResponse
     -- ** Response lenses
-    , dwdrDirectories
-    , dwdrNextToken
-    , dwdrStatus
+    , dwdrsDirectories
+    , dwdrsNextToken
+    , dwdrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -58,31 +58,31 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwdNextToken'
+-- * 'dwdrqNextToken'
 --
--- * 'dwdDirectoryIds'
+-- * 'dwdrqDirectoryIds'
 data DescribeWorkspaceDirectories = DescribeWorkspaceDirectories'
-    { _dwdNextToken    :: !(Maybe Text)
-    , _dwdDirectoryIds :: !(Maybe (List1 Text))
+    { _dwdrqNextToken    :: !(Maybe Text)
+    , _dwdrqDirectoryIds :: !(Maybe (List1 Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkspaceDirectories' smart constructor.
 describeWorkspaceDirectories :: DescribeWorkspaceDirectories
 describeWorkspaceDirectories =
     DescribeWorkspaceDirectories'
-    { _dwdNextToken = Nothing
-    , _dwdDirectoryIds = Nothing
+    { _dwdrqNextToken = Nothing
+    , _dwdrqDirectoryIds = Nothing
     }
 
 -- | The @NextToken@ value from a previous call to this operation. Pass null
 -- if this is the first call.
-dwdNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
-dwdNextToken = lens _dwdNextToken (\ s a -> s{_dwdNextToken = a});
+dwdrqNextToken :: Lens' DescribeWorkspaceDirectories (Maybe Text)
+dwdrqNextToken = lens _dwdrqNextToken (\ s a -> s{_dwdrqNextToken = a});
 
 -- | An array of strings that contains the directory identifiers to retrieve
 -- information for. If this member is null, all directories are retrieved.
-dwdDirectoryIds :: Lens' DescribeWorkspaceDirectories (Maybe (NonEmpty Text))
-dwdDirectoryIds = lens _dwdDirectoryIds (\ s a -> s{_dwdDirectoryIds = a}) . mapping _List1;
+dwdrqDirectoryIds :: Lens' DescribeWorkspaceDirectories (Maybe (NonEmpty Text))
+dwdrqDirectoryIds = lens _dwdrqDirectoryIds (\ s a -> s{_dwdrqDirectoryIds = a}) . mapping _List1;
 
 instance AWSRequest DescribeWorkspaceDirectories
          where
@@ -111,8 +111,8 @@ instance ToHeaders DescribeWorkspaceDirectories where
 instance ToJSON DescribeWorkspaceDirectories where
         toJSON DescribeWorkspaceDirectories'{..}
           = object
-              ["NextToken" .= _dwdNextToken,
-               "DirectoryIds" .= _dwdDirectoryIds]
+              ["NextToken" .= _dwdrqNextToken,
+               "DirectoryIds" .= _dwdrqDirectoryIds]
 
 instance ToPath DescribeWorkspaceDirectories where
         toPath = const "/"
@@ -126,37 +126,37 @@ instance ToQuery DescribeWorkspaceDirectories where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwdrDirectories'
+-- * 'dwdrsDirectories'
 --
--- * 'dwdrNextToken'
+-- * 'dwdrsNextToken'
 --
--- * 'dwdrStatus'
+-- * 'dwdrsStatus'
 data DescribeWorkspaceDirectoriesResponse = DescribeWorkspaceDirectoriesResponse'
-    { _dwdrDirectories :: !(Maybe [WorkspaceDirectory])
-    , _dwdrNextToken   :: !(Maybe Text)
-    , _dwdrStatus      :: !Int
+    { _dwdrsDirectories :: !(Maybe [WorkspaceDirectory])
+    , _dwdrsNextToken   :: !(Maybe Text)
+    , _dwdrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkspaceDirectoriesResponse' smart constructor.
 describeWorkspaceDirectoriesResponse :: Int -> DescribeWorkspaceDirectoriesResponse
 describeWorkspaceDirectoriesResponse pStatus =
     DescribeWorkspaceDirectoriesResponse'
-    { _dwdrDirectories = Nothing
-    , _dwdrNextToken = Nothing
-    , _dwdrStatus = pStatus
+    { _dwdrsDirectories = Nothing
+    , _dwdrsNextToken = Nothing
+    , _dwdrsStatus = pStatus
     }
 
 -- | An array of structures that contain information about the directories.
-dwdrDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
-dwdrDirectories = lens _dwdrDirectories (\ s a -> s{_dwdrDirectories = a}) . _Default;
+dwdrsDirectories :: Lens' DescribeWorkspaceDirectoriesResponse [WorkspaceDirectory]
+dwdrsDirectories = lens _dwdrsDirectories (\ s a -> s{_dwdrsDirectories = a}) . _Default;
 
 -- | If not null, more results are available. Pass this value for the
 -- @NextToken@ parameter in a subsequent call to this operation to retrieve
 -- the next set of items. This token is valid for one day and must be used
 -- within that timeframe.
-dwdrNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
-dwdrNextToken = lens _dwdrNextToken (\ s a -> s{_dwdrNextToken = a});
+dwdrsNextToken :: Lens' DescribeWorkspaceDirectoriesResponse (Maybe Text)
+dwdrsNextToken = lens _dwdrsNextToken (\ s a -> s{_dwdrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dwdrStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
-dwdrStatus = lens _dwdrStatus (\ s a -> s{_dwdrStatus = a});
+dwdrsStatus :: Lens' DescribeWorkspaceDirectoriesResponse Int
+dwdrsStatus = lens _dwdrsStatus (\ s a -> s{_dwdrsStatus = a});

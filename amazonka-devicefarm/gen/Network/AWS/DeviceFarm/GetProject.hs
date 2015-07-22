@@ -27,15 +27,15 @@ module Network.AWS.DeviceFarm.GetProject
     -- ** Request constructor
     , getProject
     -- ** Request lenses
-    , gpArn
+    , gprqArn
 
     -- * Response
     , GetProjectResponse
     -- ** Response constructor
     , getProjectResponse
     -- ** Response lenses
-    , gprProject
-    , gprStatus
+    , gprsProject
+    , gprsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpArn'
+-- * 'gprqArn'
 newtype GetProject = GetProject'
-    { _gpArn :: Text
+    { _gprqArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetProject' smart constructor.
 getProject :: Text -> GetProject
 getProject pArn =
     GetProject'
-    { _gpArn = pArn
+    { _gprqArn = pArn
     }
 
 -- | The project\'s ARN.
-gpArn :: Lens' GetProject Text
-gpArn = lens _gpArn (\ s a -> s{_gpArn = a});
+gprqArn :: Lens' GetProject Text
+gprqArn = lens _gprqArn (\ s a -> s{_gprqArn = a});
 
 instance AWSRequest GetProject where
         type Sv GetProject = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetProject where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetProject where
-        toJSON GetProject'{..} = object ["arn" .= _gpArn]
+        toJSON GetProject'{..} = object ["arn" .= _gprqArn]
 
 instance ToPath GetProject where
         toPath = const "/"
@@ -99,26 +99,26 @@ instance ToQuery GetProject where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gprProject'
+-- * 'gprsProject'
 --
--- * 'gprStatus'
+-- * 'gprsStatus'
 data GetProjectResponse = GetProjectResponse'
-    { _gprProject :: !(Maybe Project)
-    , _gprStatus  :: !Int
+    { _gprsProject :: !(Maybe Project)
+    , _gprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetProjectResponse' smart constructor.
 getProjectResponse :: Int -> GetProjectResponse
 getProjectResponse pStatus =
     GetProjectResponse'
-    { _gprProject = Nothing
-    , _gprStatus = pStatus
+    { _gprsProject = Nothing
+    , _gprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gprProject :: Lens' GetProjectResponse (Maybe Project)
-gprProject = lens _gprProject (\ s a -> s{_gprProject = a});
+gprsProject :: Lens' GetProjectResponse (Maybe Project)
+gprsProject = lens _gprsProject (\ s a -> s{_gprsProject = a});
 
 -- | FIXME: Undocumented member.
-gprStatus :: Lens' GetProjectResponse Int
-gprStatus = lens _gprStatus (\ s a -> s{_gprStatus = a});
+gprsStatus :: Lens' GetProjectResponse Int
+gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

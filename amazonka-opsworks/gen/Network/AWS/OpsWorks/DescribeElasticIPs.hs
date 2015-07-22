@@ -36,17 +36,17 @@ module Network.AWS.OpsWorks.DescribeElasticIPs
     -- ** Request constructor
     , describeElasticIPs
     -- ** Request lenses
-    , deiInstanceId
-    , deiIPs
-    , deiStackId
+    , deirqInstanceId
+    , deirqIPs
+    , deirqStackId
 
     -- * Response
     , DescribeElasticIPsResponse
     -- ** Response constructor
     , describeElasticIPsResponse
     -- ** Response lenses
-    , deirElasticIPs
-    , deirStatus
+    , deirsElasticIPs
+    , deirsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -58,44 +58,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deiInstanceId'
+-- * 'deirqInstanceId'
 --
--- * 'deiIPs'
+-- * 'deirqIPs'
 --
--- * 'deiStackId'
+-- * 'deirqStackId'
 data DescribeElasticIPs = DescribeElasticIPs'
-    { _deiInstanceId :: !(Maybe Text)
-    , _deiIPs        :: !(Maybe [Text])
-    , _deiStackId    :: !(Maybe Text)
+    { _deirqInstanceId :: !(Maybe Text)
+    , _deirqIPs        :: !(Maybe [Text])
+    , _deirqStackId    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticIPs' smart constructor.
 describeElasticIPs :: DescribeElasticIPs
 describeElasticIPs =
     DescribeElasticIPs'
-    { _deiInstanceId = Nothing
-    , _deiIPs = Nothing
-    , _deiStackId = Nothing
+    { _deirqInstanceId = Nothing
+    , _deirqIPs = Nothing
+    , _deirqStackId = Nothing
     }
 
 -- | The instance ID. If you include this parameter, @DescribeElasticIps@
 -- returns a description of the Elastic IP addresses associated with the
 -- specified instance.
-deiInstanceId :: Lens' DescribeElasticIPs (Maybe Text)
-deiInstanceId = lens _deiInstanceId (\ s a -> s{_deiInstanceId = a});
+deirqInstanceId :: Lens' DescribeElasticIPs (Maybe Text)
+deirqInstanceId = lens _deirqInstanceId (\ s a -> s{_deirqInstanceId = a});
 
 -- | An array of Elastic IP addresses to be described. If you include this
 -- parameter, @DescribeElasticIps@ returns a description of the specified
 -- Elastic IP addresses. Otherwise, it returns a description of every
 -- Elastic IP address.
-deiIPs :: Lens' DescribeElasticIPs [Text]
-deiIPs = lens _deiIPs (\ s a -> s{_deiIPs = a}) . _Default;
+deirqIPs :: Lens' DescribeElasticIPs [Text]
+deirqIPs = lens _deirqIPs (\ s a -> s{_deirqIPs = a}) . _Default;
 
 -- | A stack ID. If you include this parameter, @DescribeElasticIps@ returns
 -- a description of the Elastic IP addresses that are registered with the
 -- specified stack.
-deiStackId :: Lens' DescribeElasticIPs (Maybe Text)
-deiStackId = lens _deiStackId (\ s a -> s{_deiStackId = a});
+deirqStackId :: Lens' DescribeElasticIPs (Maybe Text)
+deirqStackId = lens _deirqStackId (\ s a -> s{_deirqStackId = a});
 
 instance AWSRequest DescribeElasticIPs where
         type Sv DescribeElasticIPs = OpsWorks
@@ -122,8 +122,8 @@ instance ToHeaders DescribeElasticIPs where
 instance ToJSON DescribeElasticIPs where
         toJSON DescribeElasticIPs'{..}
           = object
-              ["InstanceId" .= _deiInstanceId, "Ips" .= _deiIPs,
-               "StackId" .= _deiStackId]
+              ["InstanceId" .= _deirqInstanceId,
+               "Ips" .= _deirqIPs, "StackId" .= _deirqStackId]
 
 instance ToPath DescribeElasticIPs where
         toPath = const "/"
@@ -137,27 +137,27 @@ instance ToQuery DescribeElasticIPs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deirElasticIPs'
+-- * 'deirsElasticIPs'
 --
--- * 'deirStatus'
+-- * 'deirsStatus'
 data DescribeElasticIPsResponse = DescribeElasticIPsResponse'
-    { _deirElasticIPs :: !(Maybe [ElasticIP])
-    , _deirStatus     :: !Int
+    { _deirsElasticIPs :: !(Maybe [ElasticIP])
+    , _deirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticIPsResponse' smart constructor.
 describeElasticIPsResponse :: Int -> DescribeElasticIPsResponse
 describeElasticIPsResponse pStatus =
     DescribeElasticIPsResponse'
-    { _deirElasticIPs = Nothing
-    , _deirStatus = pStatus
+    { _deirsElasticIPs = Nothing
+    , _deirsStatus = pStatus
     }
 
 -- | An @ElasticIps@ object that describes the specified Elastic IP
 -- addresses.
-deirElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
-deirElasticIPs = lens _deirElasticIPs (\ s a -> s{_deirElasticIPs = a}) . _Default;
+deirsElasticIPs :: Lens' DescribeElasticIPsResponse [ElasticIP]
+deirsElasticIPs = lens _deirsElasticIPs (\ s a -> s{_deirsElasticIPs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-deirStatus :: Lens' DescribeElasticIPsResponse Int
-deirStatus = lens _deirStatus (\ s a -> s{_deirStatus = a});
+deirsStatus :: Lens' DescribeElasticIPsResponse Int
+deirsStatus = lens _deirsStatus (\ s a -> s{_deirsStatus = a});

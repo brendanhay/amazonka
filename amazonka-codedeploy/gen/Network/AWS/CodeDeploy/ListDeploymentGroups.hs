@@ -28,18 +28,18 @@ module Network.AWS.CodeDeploy.ListDeploymentGroups
     -- ** Request constructor
     , listDeploymentGroups
     -- ** Request lenses
-    , ldgNextToken
-    , ldgApplicationName
+    , ldgrqNextToken
+    , ldgrqApplicationName
 
     -- * Response
     , ListDeploymentGroupsResponse
     -- ** Response constructor
     , listDeploymentGroupsResponse
     -- ** Response lenses
-    , ldgrNextToken
-    , ldgrApplicationName
-    , ldgrDeploymentGroups
-    , ldgrStatus
+    , ldgrsNextToken
+    , ldgrsApplicationName
+    , ldgrsDeploymentGroups
+    , ldgrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -53,32 +53,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldgNextToken'
+-- * 'ldgrqNextToken'
 --
--- * 'ldgApplicationName'
+-- * 'ldgrqApplicationName'
 data ListDeploymentGroups = ListDeploymentGroups'
-    { _ldgNextToken       :: !(Maybe Text)
-    , _ldgApplicationName :: !Text
+    { _ldgrqNextToken       :: !(Maybe Text)
+    , _ldgrqApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentGroups' smart constructor.
 listDeploymentGroups :: Text -> ListDeploymentGroups
 listDeploymentGroups pApplicationName =
     ListDeploymentGroups'
-    { _ldgNextToken = Nothing
-    , _ldgApplicationName = pApplicationName
+    { _ldgrqNextToken = Nothing
+    , _ldgrqApplicationName = pApplicationName
     }
 
 -- | An identifier that was returned from the previous list deployment groups
 -- call, which can be used to return the next set of deployment groups in
 -- the list.
-ldgNextToken :: Lens' ListDeploymentGroups (Maybe Text)
-ldgNextToken = lens _ldgNextToken (\ s a -> s{_ldgNextToken = a});
+ldgrqNextToken :: Lens' ListDeploymentGroups (Maybe Text)
+ldgrqNextToken = lens _ldgrqNextToken (\ s a -> s{_ldgrqNextToken = a});
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-ldgApplicationName :: Lens' ListDeploymentGroups Text
-ldgApplicationName = lens _ldgApplicationName (\ s a -> s{_ldgApplicationName = a});
+ldgrqApplicationName :: Lens' ListDeploymentGroups Text
+ldgrqApplicationName = lens _ldgrqApplicationName (\ s a -> s{_ldgrqApplicationName = a});
 
 instance AWSRequest ListDeploymentGroups where
         type Sv ListDeploymentGroups = CodeDeploy
@@ -106,8 +106,8 @@ instance ToHeaders ListDeploymentGroups where
 instance ToJSON ListDeploymentGroups where
         toJSON ListDeploymentGroups'{..}
           = object
-              ["nextToken" .= _ldgNextToken,
-               "applicationName" .= _ldgApplicationName]
+              ["nextToken" .= _ldgrqNextToken,
+               "applicationName" .= _ldgrqApplicationName]
 
 instance ToPath ListDeploymentGroups where
         toPath = const "/"
@@ -121,45 +121,45 @@ instance ToQuery ListDeploymentGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldgrNextToken'
+-- * 'ldgrsNextToken'
 --
--- * 'ldgrApplicationName'
+-- * 'ldgrsApplicationName'
 --
--- * 'ldgrDeploymentGroups'
+-- * 'ldgrsDeploymentGroups'
 --
--- * 'ldgrStatus'
+-- * 'ldgrsStatus'
 data ListDeploymentGroupsResponse = ListDeploymentGroupsResponse'
-    { _ldgrNextToken        :: !(Maybe Text)
-    , _ldgrApplicationName  :: !(Maybe Text)
-    , _ldgrDeploymentGroups :: !(Maybe [Text])
-    , _ldgrStatus           :: !Int
+    { _ldgrsNextToken        :: !(Maybe Text)
+    , _ldgrsApplicationName  :: !(Maybe Text)
+    , _ldgrsDeploymentGroups :: !(Maybe [Text])
+    , _ldgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentGroupsResponse' smart constructor.
 listDeploymentGroupsResponse :: Int -> ListDeploymentGroupsResponse
 listDeploymentGroupsResponse pStatus =
     ListDeploymentGroupsResponse'
-    { _ldgrNextToken = Nothing
-    , _ldgrApplicationName = Nothing
-    , _ldgrDeploymentGroups = Nothing
-    , _ldgrStatus = pStatus
+    { _ldgrsNextToken = Nothing
+    , _ldgrsApplicationName = Nothing
+    , _ldgrsDeploymentGroups = Nothing
+    , _ldgrsStatus = pStatus
     }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployment groups call to return the next set of deployment groups in
 -- the list.
-ldgrNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
-ldgrNextToken = lens _ldgrNextToken (\ s a -> s{_ldgrNextToken = a});
+ldgrsNextToken :: Lens' ListDeploymentGroupsResponse (Maybe Text)
+ldgrsNextToken = lens _ldgrsNextToken (\ s a -> s{_ldgrsNextToken = a});
 
 -- | The application name.
-ldgrApplicationName :: Lens' ListDeploymentGroupsResponse (Maybe Text)
-ldgrApplicationName = lens _ldgrApplicationName (\ s a -> s{_ldgrApplicationName = a});
+ldgrsApplicationName :: Lens' ListDeploymentGroupsResponse (Maybe Text)
+ldgrsApplicationName = lens _ldgrsApplicationName (\ s a -> s{_ldgrsApplicationName = a});
 
 -- | A list of corresponding deployment group names.
-ldgrDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
-ldgrDeploymentGroups = lens _ldgrDeploymentGroups (\ s a -> s{_ldgrDeploymentGroups = a}) . _Default;
+ldgrsDeploymentGroups :: Lens' ListDeploymentGroupsResponse [Text]
+ldgrsDeploymentGroups = lens _ldgrsDeploymentGroups (\ s a -> s{_ldgrsDeploymentGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldgrStatus :: Lens' ListDeploymentGroupsResponse Int
-ldgrStatus = lens _ldgrStatus (\ s a -> s{_ldgrStatus = a});
+ldgrsStatus :: Lens' ListDeploymentGroupsResponse Int
+ldgrsStatus = lens _ldgrsStatus (\ s a -> s{_ldgrsStatus = a});

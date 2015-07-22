@@ -33,10 +33,10 @@ module Network.AWS.CognitoIdentity.UnlinkDeveloperIdentity
     -- ** Request constructor
     , unlinkDeveloperIdentity
     -- ** Request lenses
-    , udiIdentityId
-    , udiIdentityPoolId
-    , udiDeveloperProviderName
-    , udiDeveloperUserIdentifier
+    , udirqIdentityId
+    , udirqIdentityPoolId
+    , udirqDeveloperProviderName
+    , udirqDeveloperUserIdentifier
 
     -- * Response
     , UnlinkDeveloperIdentityResponse
@@ -55,46 +55,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udiIdentityId'
+-- * 'udirqIdentityId'
 --
--- * 'udiIdentityPoolId'
+-- * 'udirqIdentityPoolId'
 --
--- * 'udiDeveloperProviderName'
+-- * 'udirqDeveloperProviderName'
 --
--- * 'udiDeveloperUserIdentifier'
+-- * 'udirqDeveloperUserIdentifier'
 data UnlinkDeveloperIdentity = UnlinkDeveloperIdentity'
-    { _udiIdentityId              :: !Text
-    , _udiIdentityPoolId          :: !Text
-    , _udiDeveloperProviderName   :: !Text
-    , _udiDeveloperUserIdentifier :: !Text
+    { _udirqIdentityId              :: !Text
+    , _udirqIdentityPoolId          :: !Text
+    , _udirqDeveloperProviderName   :: !Text
+    , _udirqDeveloperUserIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnlinkDeveloperIdentity' smart constructor.
 unlinkDeveloperIdentity :: Text -> Text -> Text -> Text -> UnlinkDeveloperIdentity
 unlinkDeveloperIdentity pIdentityId pIdentityPoolId pDeveloperProviderName pDeveloperUserIdentifier =
     UnlinkDeveloperIdentity'
-    { _udiIdentityId = pIdentityId
-    , _udiIdentityPoolId = pIdentityPoolId
-    , _udiDeveloperProviderName = pDeveloperProviderName
-    , _udiDeveloperUserIdentifier = pDeveloperUserIdentifier
+    { _udirqIdentityId = pIdentityId
+    , _udirqIdentityPoolId = pIdentityPoolId
+    , _udirqDeveloperProviderName = pDeveloperProviderName
+    , _udirqDeveloperUserIdentifier = pDeveloperUserIdentifier
     }
 
 -- | A unique identifier in the format REGION:GUID.
-udiIdentityId :: Lens' UnlinkDeveloperIdentity Text
-udiIdentityId = lens _udiIdentityId (\ s a -> s{_udiIdentityId = a});
+udirqIdentityId :: Lens' UnlinkDeveloperIdentity Text
+udirqIdentityId = lens _udirqIdentityId (\ s a -> s{_udirqIdentityId = a});
 
 -- | An identity pool ID in the format REGION:GUID.
-udiIdentityPoolId :: Lens' UnlinkDeveloperIdentity Text
-udiIdentityPoolId = lens _udiIdentityPoolId (\ s a -> s{_udiIdentityPoolId = a});
+udirqIdentityPoolId :: Lens' UnlinkDeveloperIdentity Text
+udirqIdentityPoolId = lens _udirqIdentityPoolId (\ s a -> s{_udirqIdentityPoolId = a});
 
 -- | The \"domain\" by which Cognito will refer to your users.
-udiDeveloperProviderName :: Lens' UnlinkDeveloperIdentity Text
-udiDeveloperProviderName = lens _udiDeveloperProviderName (\ s a -> s{_udiDeveloperProviderName = a});
+udirqDeveloperProviderName :: Lens' UnlinkDeveloperIdentity Text
+udirqDeveloperProviderName = lens _udirqDeveloperProviderName (\ s a -> s{_udirqDeveloperProviderName = a});
 
 -- | A unique ID used by your backend authentication process to identify a
 -- user.
-udiDeveloperUserIdentifier :: Lens' UnlinkDeveloperIdentity Text
-udiDeveloperUserIdentifier = lens _udiDeveloperUserIdentifier (\ s a -> s{_udiDeveloperUserIdentifier = a});
+udirqDeveloperUserIdentifier :: Lens' UnlinkDeveloperIdentity Text
+udirqDeveloperUserIdentifier = lens _udirqDeveloperUserIdentifier (\ s a -> s{_udirqDeveloperUserIdentifier = a});
 
 instance AWSRequest UnlinkDeveloperIdentity where
         type Sv UnlinkDeveloperIdentity = CognitoIdentity
@@ -117,11 +117,12 @@ instance ToHeaders UnlinkDeveloperIdentity where
 instance ToJSON UnlinkDeveloperIdentity where
         toJSON UnlinkDeveloperIdentity'{..}
           = object
-              ["IdentityId" .= _udiIdentityId,
-               "IdentityPoolId" .= _udiIdentityPoolId,
-               "DeveloperProviderName" .= _udiDeveloperProviderName,
+              ["IdentityId" .= _udirqIdentityId,
+               "IdentityPoolId" .= _udirqIdentityPoolId,
+               "DeveloperProviderName" .=
+                 _udirqDeveloperProviderName,
                "DeveloperUserIdentifier" .=
-                 _udiDeveloperUserIdentifier]
+                 _udirqDeveloperUserIdentifier]
 
 instance ToPath UnlinkDeveloperIdentity where
         toPath = const "/"

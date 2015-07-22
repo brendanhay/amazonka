@@ -27,16 +27,16 @@ module Network.AWS.StorageGateway.DeleteTape
     -- ** Request constructor
     , deleteTape
     -- ** Request lenses
-    , dttGatewayARN
-    , dttTapeARN
+    , dttrqGatewayARN
+    , dttrqTapeARN
 
     -- * Response
     , DeleteTapeResponse
     -- ** Response constructor
     , deleteTapeResponse
     -- ** Response lenses
-    , dtrTapeARN
-    , dtrStatus
+    , dttrsTapeARN
+    , dttrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -50,31 +50,31 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dttGatewayARN'
+-- * 'dttrqGatewayARN'
 --
--- * 'dttTapeARN'
+-- * 'dttrqTapeARN'
 data DeleteTape = DeleteTape'
-    { _dttGatewayARN :: !Text
-    , _dttTapeARN    :: !Text
+    { _dttrqGatewayARN :: !Text
+    , _dttrqTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTape' smart constructor.
 deleteTape :: Text -> Text -> DeleteTape
 deleteTape pGatewayARN pTapeARN =
     DeleteTape'
-    { _dttGatewayARN = pGatewayARN
-    , _dttTapeARN = pTapeARN
+    { _dttrqGatewayARN = pGatewayARN
+    , _dttrqTapeARN = pTapeARN
     }
 
 -- | The unique Amazon Resource Name (ARN) of the gateway that the virtual
 -- tape to delete is associated with. Use the ListGateways operation to
 -- return a list of gateways for your account and region.
-dttGatewayARN :: Lens' DeleteTape Text
-dttGatewayARN = lens _dttGatewayARN (\ s a -> s{_dttGatewayARN = a});
+dttrqGatewayARN :: Lens' DeleteTape Text
+dttrqGatewayARN = lens _dttrqGatewayARN (\ s a -> s{_dttrqGatewayARN = a});
 
 -- | The Amazon Resource Name (ARN) of the virtual tape to delete.
-dttTapeARN :: Lens' DeleteTape Text
-dttTapeARN = lens _dttTapeARN (\ s a -> s{_dttTapeARN = a});
+dttrqTapeARN :: Lens' DeleteTape Text
+dttrqTapeARN = lens _dttrqTapeARN (\ s a -> s{_dttrqTapeARN = a});
 
 instance AWSRequest DeleteTape where
         type Sv DeleteTape = StorageGateway
@@ -98,8 +98,8 @@ instance ToHeaders DeleteTape where
 instance ToJSON DeleteTape where
         toJSON DeleteTape'{..}
           = object
-              ["GatewayARN" .= _dttGatewayARN,
-               "TapeARN" .= _dttTapeARN]
+              ["GatewayARN" .= _dttrqGatewayARN,
+               "TapeARN" .= _dttrqTapeARN]
 
 instance ToPath DeleteTape where
         toPath = const "/"
@@ -113,26 +113,26 @@ instance ToQuery DeleteTape where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrTapeARN'
+-- * 'dttrsTapeARN'
 --
--- * 'dtrStatus'
+-- * 'dttrsStatus'
 data DeleteTapeResponse = DeleteTapeResponse'
-    { _dtrTapeARN :: !(Maybe Text)
-    , _dtrStatus  :: !Int
+    { _dttrsTapeARN :: !(Maybe Text)
+    , _dttrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTapeResponse' smart constructor.
 deleteTapeResponse :: Int -> DeleteTapeResponse
 deleteTapeResponse pStatus =
     DeleteTapeResponse'
-    { _dtrTapeARN = Nothing
-    , _dtrStatus = pStatus
+    { _dttrsTapeARN = Nothing
+    , _dttrsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the deleted virtual tape.
-dtrTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
-dtrTapeARN = lens _dtrTapeARN (\ s a -> s{_dtrTapeARN = a});
+dttrsTapeARN :: Lens' DeleteTapeResponse (Maybe Text)
+dttrsTapeARN = lens _dttrsTapeARN (\ s a -> s{_dttrsTapeARN = a});
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DeleteTapeResponse Int
-dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
+dttrsStatus :: Lens' DeleteTapeResponse Int
+dttrsStatus = lens _dttrsStatus (\ s a -> s{_dttrsStatus = a});

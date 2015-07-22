@@ -73,20 +73,20 @@ module Network.AWS.Glacier.CompleteMultipartUpload
     -- ** Request constructor
     , completeMultipartUpload
     -- ** Request lenses
-    , cmuChecksum
-    , cmuArchiveSize
-    , cmuAccountId
-    , cmuVaultName
-    , cmuUploadId
+    , cmurqChecksum
+    , cmurqArchiveSize
+    , cmurqAccountId
+    , cmurqVaultName
+    , cmurqUploadId
 
     -- * Response
     , ArchiveCreationOutput
     -- ** Response constructor
     , archiveCreationOutput
     -- ** Response lenses
-    , acoArchiveId
-    , acoChecksum
-    , acoLocation
+    , cmursArchiveId
+    , cmursChecksum
+    , cmursLocation
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -104,32 +104,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmuChecksum'
+-- * 'cmurqChecksum'
 --
--- * 'cmuArchiveSize'
+-- * 'cmurqArchiveSize'
 --
--- * 'cmuAccountId'
+-- * 'cmurqAccountId'
 --
--- * 'cmuVaultName'
+-- * 'cmurqVaultName'
 --
--- * 'cmuUploadId'
+-- * 'cmurqUploadId'
 data CompleteMultipartUpload = CompleteMultipartUpload'
-    { _cmuChecksum    :: !(Maybe Text)
-    , _cmuArchiveSize :: !(Maybe Text)
-    , _cmuAccountId   :: !Text
-    , _cmuVaultName   :: !Text
-    , _cmuUploadId    :: !Text
+    { _cmurqChecksum    :: !(Maybe Text)
+    , _cmurqArchiveSize :: !(Maybe Text)
+    , _cmurqAccountId   :: !Text
+    , _cmurqVaultName   :: !Text
+    , _cmurqUploadId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: Text -> Text -> Text -> CompleteMultipartUpload
 completeMultipartUpload pAccountId pVaultName pUploadId =
     CompleteMultipartUpload'
-    { _cmuChecksum = Nothing
-    , _cmuArchiveSize = Nothing
-    , _cmuAccountId = pAccountId
-    , _cmuVaultName = pVaultName
-    , _cmuUploadId = pUploadId
+    { _cmurqChecksum = Nothing
+    , _cmurqArchiveSize = Nothing
+    , _cmurqAccountId = pAccountId
+    , _cmurqVaultName = pVaultName
+    , _cmurqUploadId = pUploadId
     }
 
 -- | The SHA256 tree hash of the entire archive. It is the tree hash of
@@ -137,29 +137,29 @@ completeMultipartUpload pAccountId pVaultName pUploadId =
 -- the request does not match the SHA256 tree hash of the final assembled
 -- archive as computed by Amazon Glacier, Amazon Glacier returns an error
 -- and the request fails.
-cmuChecksum :: Lens' CompleteMultipartUpload (Maybe Text)
-cmuChecksum = lens _cmuChecksum (\ s a -> s{_cmuChecksum = a});
+cmurqChecksum :: Lens' CompleteMultipartUpload (Maybe Text)
+cmurqChecksum = lens _cmurqChecksum (\ s a -> s{_cmurqChecksum = a});
 
 -- | The total size, in bytes, of the entire archive. This value should be
 -- the sum of all the sizes of the individual parts that you uploaded.
-cmuArchiveSize :: Lens' CompleteMultipartUpload (Maybe Text)
-cmuArchiveSize = lens _cmuArchiveSize (\ s a -> s{_cmuArchiveSize = a});
+cmurqArchiveSize :: Lens' CompleteMultipartUpload (Maybe Text)
+cmurqArchiveSize = lens _cmurqArchiveSize (\ s a -> s{_cmurqArchiveSize = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-cmuAccountId :: Lens' CompleteMultipartUpload Text
-cmuAccountId = lens _cmuAccountId (\ s a -> s{_cmuAccountId = a});
+cmurqAccountId :: Lens' CompleteMultipartUpload Text
+cmurqAccountId = lens _cmurqAccountId (\ s a -> s{_cmurqAccountId = a});
 
 -- | The name of the vault.
-cmuVaultName :: Lens' CompleteMultipartUpload Text
-cmuVaultName = lens _cmuVaultName (\ s a -> s{_cmuVaultName = a});
+cmurqVaultName :: Lens' CompleteMultipartUpload Text
+cmurqVaultName = lens _cmurqVaultName (\ s a -> s{_cmurqVaultName = a});
 
 -- | The upload ID of the multipart upload.
-cmuUploadId :: Lens' CompleteMultipartUpload Text
-cmuUploadId = lens _cmuUploadId (\ s a -> s{_cmuUploadId = a});
+cmurqUploadId :: Lens' CompleteMultipartUpload Text
+cmurqUploadId = lens _cmurqUploadId (\ s a -> s{_cmurqUploadId = a});
 
 instance AWSRequest CompleteMultipartUpload where
         type Sv CompleteMultipartUpload = Glacier
@@ -171,8 +171,8 @@ instance AWSRequest CompleteMultipartUpload where
 instance ToHeaders CompleteMultipartUpload where
         toHeaders CompleteMultipartUpload'{..}
           = mconcat
-              ["x-amz-sha256-tree-hash" =# _cmuChecksum,
-               "x-amz-archive-size" =# _cmuArchiveSize]
+              ["x-amz-sha256-tree-hash" =# _cmurqChecksum,
+               "x-amz-archive-size" =# _cmurqArchiveSize]
 
 instance ToJSON CompleteMultipartUpload where
         toJSON = const (Object mempty)
@@ -180,9 +180,9 @@ instance ToJSON CompleteMultipartUpload where
 instance ToPath CompleteMultipartUpload where
         toPath CompleteMultipartUpload'{..}
           = mconcat
-              ["/", toText _cmuAccountId, "/vaults/",
-               toText _cmuVaultName, "/multipart-uploads/",
-               toText _cmuUploadId]
+              ["/", toText _cmurqAccountId, "/vaults/",
+               toText _cmurqVaultName, "/multipart-uploads/",
+               toText _cmurqUploadId]
 
 instance ToQuery CompleteMultipartUpload where
         toQuery = const mempty

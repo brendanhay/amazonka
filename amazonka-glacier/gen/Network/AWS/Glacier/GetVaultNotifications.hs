@@ -46,16 +46,16 @@ module Network.AWS.Glacier.GetVaultNotifications
     -- ** Request constructor
     , getVaultNotifications
     -- ** Request lenses
-    , gvnAccountId
-    , gvnVaultName
+    , gvnrqAccountId
+    , gvnrqVaultName
 
     -- * Response
     , GetVaultNotificationsResponse
     -- ** Response constructor
     , getVaultNotificationsResponse
     -- ** Response lenses
-    , gvnrVaultNotificationConfig
-    , gvnrStatus
+    , gvnrsVaultNotificationConfig
+    , gvnrsStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -70,20 +70,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gvnAccountId'
+-- * 'gvnrqAccountId'
 --
--- * 'gvnVaultName'
+-- * 'gvnrqVaultName'
 data GetVaultNotifications = GetVaultNotifications'
-    { _gvnAccountId :: !Text
-    , _gvnVaultName :: !Text
+    { _gvnrqAccountId :: !Text
+    , _gvnrqVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultNotifications' smart constructor.
 getVaultNotifications :: Text -> Text -> GetVaultNotifications
 getVaultNotifications pAccountId pVaultName =
     GetVaultNotifications'
-    { _gvnAccountId = pAccountId
-    , _gvnVaultName = pVaultName
+    { _gvnrqAccountId = pAccountId
+    , _gvnrqVaultName = pVaultName
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -91,12 +91,12 @@ getVaultNotifications pAccountId pVaultName =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-gvnAccountId :: Lens' GetVaultNotifications Text
-gvnAccountId = lens _gvnAccountId (\ s a -> s{_gvnAccountId = a});
+gvnrqAccountId :: Lens' GetVaultNotifications Text
+gvnrqAccountId = lens _gvnrqAccountId (\ s a -> s{_gvnrqAccountId = a});
 
 -- | The name of the vault.
-gvnVaultName :: Lens' GetVaultNotifications Text
-gvnVaultName = lens _gvnVaultName (\ s a -> s{_gvnVaultName = a});
+gvnrqVaultName :: Lens' GetVaultNotifications Text
+gvnrqVaultName = lens _gvnrqVaultName (\ s a -> s{_gvnrqVaultName = a});
 
 instance AWSRequest GetVaultNotifications where
         type Sv GetVaultNotifications = Glacier
@@ -116,8 +116,9 @@ instance ToHeaders GetVaultNotifications where
 instance ToPath GetVaultNotifications where
         toPath GetVaultNotifications'{..}
           = mconcat
-              ["/", toText _gvnAccountId, "/vaults/",
-               toText _gvnVaultName, "/notification-configuration"]
+              ["/", toText _gvnrqAccountId, "/vaults/",
+               toText _gvnrqVaultName,
+               "/notification-configuration"]
 
 instance ToQuery GetVaultNotifications where
         toQuery = const mempty
@@ -128,26 +129,26 @@ instance ToQuery GetVaultNotifications where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gvnrVaultNotificationConfig'
+-- * 'gvnrsVaultNotificationConfig'
 --
--- * 'gvnrStatus'
+-- * 'gvnrsStatus'
 data GetVaultNotificationsResponse = GetVaultNotificationsResponse'
-    { _gvnrVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
-    , _gvnrStatus                  :: !Int
+    { _gvnrsVaultNotificationConfig :: !(Maybe VaultNotificationConfig)
+    , _gvnrsStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultNotificationsResponse' smart constructor.
 getVaultNotificationsResponse :: Int -> GetVaultNotificationsResponse
 getVaultNotificationsResponse pStatus =
     GetVaultNotificationsResponse'
-    { _gvnrVaultNotificationConfig = Nothing
-    , _gvnrStatus = pStatus
+    { _gvnrsVaultNotificationConfig = Nothing
+    , _gvnrsStatus = pStatus
     }
 
 -- | Returns the notification configuration set on the vault.
-gvnrVaultNotificationConfig :: Lens' GetVaultNotificationsResponse (Maybe VaultNotificationConfig)
-gvnrVaultNotificationConfig = lens _gvnrVaultNotificationConfig (\ s a -> s{_gvnrVaultNotificationConfig = a});
+gvnrsVaultNotificationConfig :: Lens' GetVaultNotificationsResponse (Maybe VaultNotificationConfig)
+gvnrsVaultNotificationConfig = lens _gvnrsVaultNotificationConfig (\ s a -> s{_gvnrsVaultNotificationConfig = a});
 
 -- | FIXME: Undocumented member.
-gvnrStatus :: Lens' GetVaultNotificationsResponse Int
-gvnrStatus = lens _gvnrStatus (\ s a -> s{_gvnrStatus = a});
+gvnrsStatus :: Lens' GetVaultNotificationsResponse Int
+gvnrsStatus = lens _gvnrsStatus (\ s a -> s{_gvnrsStatus = a});

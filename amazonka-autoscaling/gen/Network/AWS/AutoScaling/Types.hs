@@ -33,16 +33,16 @@ module Network.AWS.AutoScaling.Types
     -- * Activity
     , Activity
     , activity
-    , actProgress
-    , actStatusMessage
-    , actDetails
-    , actEndTime
-    , actDescription
-    , actActivityId
-    , actAutoScalingGroupName
-    , actCause
-    , actStartTime
-    , actStatusCode
+    , aProgress
+    , aStatusMessage
+    , aDetails
+    , aEndTime
+    , aDescription
+    , aActivityId
+    , aAutoScalingGroupName
+    , aCause
+    , aStartTime
+    , aStatusCode
 
     -- * AdjustmentType
     , AdjustmentType
@@ -52,8 +52,8 @@ module Network.AWS.AutoScaling.Types
     -- * Alarm
     , Alarm
     , alarm
-    , alaAlarmName
-    , alaAlarmARN
+    , aAlarmName
+    , aAlarmARN
 
     -- * AutoScalingGroup
     , AutoScalingGroup
@@ -115,17 +115,17 @@ module Network.AWS.AutoScaling.Types
     -- * Filter
     , Filter
     , filter'
-    , filValues
-    , filName
+    , fValues
+    , fName
 
     -- * Instance
     , Instance
     , instance'
-    , insInstanceId
-    , insAvailabilityZone
-    , insLifecycleState
-    , insHealthStatus
-    , insLaunchConfigurationName
+    , iInstanceId
+    , iAvailabilityZone
+    , iLifecycleState
+    , iHealthStatus
+    , iLaunchConfigurationName
 
     -- * InstanceMonitoring
     , InstanceMonitoring
@@ -199,19 +199,19 @@ module Network.AWS.AutoScaling.Types
     -- * ScalingPolicy
     , ScalingPolicy
     , scalingPolicy
-    , scaEstimatedInstanceWarmup
-    , scaMinAdjustmentStep
-    , scaPolicyName
-    , scaPolicyType
-    , scaStepAdjustments
-    , scaAdjustmentType
-    , scaScalingAdjustment
-    , scaAutoScalingGroupName
-    , scaCooldown
-    , scaPolicyARN
-    , scaAlarms
-    , scaMetricAggregationType
-    , scaMinAdjustmentMagnitude
+    , sEstimatedInstanceWarmup
+    , sMinAdjustmentStep
+    , sPolicyName
+    , sPolicyType
+    , sStepAdjustments
+    , sAdjustmentType
+    , sScalingAdjustment
+    , sAutoScalingGroupName
+    , sCooldown
+    , sPolicyARN
+    , sAlarms
+    , sMetricAggregationType
+    , sMinAdjustmentMagnitude
 
     -- * ScalingProcessQuery
     , ScalingProcessQuery

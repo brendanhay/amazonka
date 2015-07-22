@@ -43,20 +43,20 @@ module Network.AWS.Redshift.DescribeClusterSecurityGroups
     -- ** Request constructor
     , describeClusterSecurityGroups
     -- ** Request lenses
-    , dcsgTagValues
-    , dcsgTagKeys
-    , dcsgClusterSecurityGroupName
-    , dcsgMaxRecords
-    , dcsgMarker
+    , dcsgrqTagValues
+    , dcsgrqTagKeys
+    , dcsgrqClusterSecurityGroupName
+    , dcsgrqMaxRecords
+    , dcsgrqMarker
 
     -- * Response
     , DescribeClusterSecurityGroupsResponse
     -- ** Response constructor
     , describeClusterSecurityGroupsResponse
     -- ** Response lenses
-    , dcsgrrClusterSecurityGroups
-    , dcsgrrMarker
-    , dcsgrrStatus
+    , dcsgrsClusterSecurityGroups
+    , dcsgrsMarker
+    , dcsgrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -71,32 +71,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgTagValues'
+-- * 'dcsgrqTagValues'
 --
--- * 'dcsgTagKeys'
+-- * 'dcsgrqTagKeys'
 --
--- * 'dcsgClusterSecurityGroupName'
+-- * 'dcsgrqClusterSecurityGroupName'
 --
--- * 'dcsgMaxRecords'
+-- * 'dcsgrqMaxRecords'
 --
--- * 'dcsgMarker'
+-- * 'dcsgrqMarker'
 data DescribeClusterSecurityGroups = DescribeClusterSecurityGroups'
-    { _dcsgTagValues                :: !(Maybe [Text])
-    , _dcsgTagKeys                  :: !(Maybe [Text])
-    , _dcsgClusterSecurityGroupName :: !(Maybe Text)
-    , _dcsgMaxRecords               :: !(Maybe Int)
-    , _dcsgMarker                   :: !(Maybe Text)
+    { _dcsgrqTagValues                :: !(Maybe [Text])
+    , _dcsgrqTagKeys                  :: !(Maybe [Text])
+    , _dcsgrqClusterSecurityGroupName :: !(Maybe Text)
+    , _dcsgrqMaxRecords               :: !(Maybe Int)
+    , _dcsgrqMarker                   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSecurityGroups' smart constructor.
 describeClusterSecurityGroups :: DescribeClusterSecurityGroups
 describeClusterSecurityGroups =
     DescribeClusterSecurityGroups'
-    { _dcsgTagValues = Nothing
-    , _dcsgTagKeys = Nothing
-    , _dcsgClusterSecurityGroupName = Nothing
-    , _dcsgMaxRecords = Nothing
-    , _dcsgMarker = Nothing
+    { _dcsgrqTagValues = Nothing
+    , _dcsgrqTagKeys = Nothing
+    , _dcsgrqClusterSecurityGroupName = Nothing
+    , _dcsgrqMaxRecords = Nothing
+    , _dcsgrqMarker = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching cluster
@@ -106,8 +106,8 @@ describeClusterSecurityGroups =
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the security groups that have either or both of these tag values
 -- associated with them.
-dcsgTagValues :: Lens' DescribeClusterSecurityGroups [Text]
-dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a}) . _Default;
+dcsgrqTagValues :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgrqTagValues = lens _dcsgrqTagValues (\ s a -> s{_dcsgrqTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- security groups that are associated with the specified key or keys. For
@@ -115,16 +115,16 @@ dcsgTagValues = lens _dcsgTagValues (\ s a -> s{_dcsgTagValues = a}) . _Default;
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the security
 -- groups that have either or both of these tag keys associated with them.
-dcsgTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
-dcsgTagKeys = lens _dcsgTagKeys (\ s a -> s{_dcsgTagKeys = a}) . _Default;
+dcsgrqTagKeys :: Lens' DescribeClusterSecurityGroups [Text]
+dcsgrqTagKeys = lens _dcsgrqTagKeys (\ s a -> s{_dcsgrqTagKeys = a}) . _Default;
 
 -- | The name of a cluster security group for which you are requesting
 -- details. You can specify either the __Marker__ parameter or a
 -- __ClusterSecurityGroupName__ parameter, but not both.
 --
 -- Example: @securitygroup1@
-dcsgClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text)
-dcsgClusterSecurityGroupName = lens _dcsgClusterSecurityGroupName (\ s a -> s{_dcsgClusterSecurityGroupName = a});
+dcsgrqClusterSecurityGroupName :: Lens' DescribeClusterSecurityGroups (Maybe Text)
+dcsgrqClusterSecurityGroupName = lens _dcsgrqClusterSecurityGroupName (\ s a -> s{_dcsgrqClusterSecurityGroupName = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -135,8 +135,8 @@ dcsgClusterSecurityGroupName = lens _dcsgClusterSecurityGroupName (\ s a -> s{_d
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dcsgMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
-dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
+dcsgrqMaxRecords :: Lens' DescribeClusterSecurityGroups (Maybe Int)
+dcsgrqMaxRecords = lens _dcsgrqMaxRecords (\ s a -> s{_dcsgrqMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterSecurityGroups
@@ -147,15 +147,15 @@ dcsgMaxRecords = lens _dcsgMaxRecords (\ s a -> s{_dcsgMaxRecords = a});
 --
 -- Constraints: You can specify either the __ClusterSecurityGroupName__
 -- parameter or the __Marker__ parameter, but not both.
-dcsgMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
-dcsgMarker = lens _dcsgMarker (\ s a -> s{_dcsgMarker = a});
+dcsgrqMarker :: Lens' DescribeClusterSecurityGroups (Maybe Text)
+dcsgrqMarker = lens _dcsgrqMarker (\ s a -> s{_dcsgrqMarker = a});
 
 instance AWSPager DescribeClusterSecurityGroups where
         page rq rs
-          | stop (rs ^. dcsgrrMarker) = Nothing
-          | stop (rs ^. dcsgrrClusterSecurityGroups) = Nothing
+          | stop (rs ^. dcsgrsMarker) = Nothing
+          | stop (rs ^. dcsgrsClusterSecurityGroups) = Nothing
           | otherwise =
-            Just $ rq & dcsgMarker .~ rs ^. dcsgrrMarker
+            Just $ rq & dcsgrqMarker .~ rs ^. dcsgrsMarker
 
 instance AWSRequest DescribeClusterSecurityGroups
          where
@@ -187,13 +187,14 @@ instance ToQuery DescribeClusterSecurityGroups where
                  ("DescribeClusterSecurityGroups" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dcsgTagValues),
+                 toQuery
+                   (toQueryList "TagValue" <$> _dcsgrqTagValues),
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dcsgTagKeys),
+                 toQuery (toQueryList "TagKey" <$> _dcsgrqTagKeys),
                "ClusterSecurityGroupName" =:
-                 _dcsgClusterSecurityGroupName,
-               "MaxRecords" =: _dcsgMaxRecords,
-               "Marker" =: _dcsgMarker]
+                 _dcsgrqClusterSecurityGroupName,
+               "MaxRecords" =: _dcsgrqMaxRecords,
+               "Marker" =: _dcsgrqMarker]
 
 -- | Contains the output from the DescribeClusterSecurityGroups action.
 --
@@ -201,29 +202,29 @@ instance ToQuery DescribeClusterSecurityGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgrrClusterSecurityGroups'
+-- * 'dcsgrsClusterSecurityGroups'
 --
--- * 'dcsgrrMarker'
+-- * 'dcsgrsMarker'
 --
--- * 'dcsgrrStatus'
+-- * 'dcsgrsStatus'
 data DescribeClusterSecurityGroupsResponse = DescribeClusterSecurityGroupsResponse'
-    { _dcsgrrClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
-    , _dcsgrrMarker                :: !(Maybe Text)
-    , _dcsgrrStatus                :: !Int
+    { _dcsgrsClusterSecurityGroups :: !(Maybe [ClusterSecurityGroup])
+    , _dcsgrsMarker                :: !(Maybe Text)
+    , _dcsgrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSecurityGroupsResponse' smart constructor.
 describeClusterSecurityGroupsResponse :: Int -> DescribeClusterSecurityGroupsResponse
 describeClusterSecurityGroupsResponse pStatus =
     DescribeClusterSecurityGroupsResponse'
-    { _dcsgrrClusterSecurityGroups = Nothing
-    , _dcsgrrMarker = Nothing
-    , _dcsgrrStatus = pStatus
+    { _dcsgrsClusterSecurityGroups = Nothing
+    , _dcsgrsMarker = Nothing
+    , _dcsgrsStatus = pStatus
     }
 
 -- | A list of ClusterSecurityGroup instances.
-dcsgrrClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
-dcsgrrClusterSecurityGroups = lens _dcsgrrClusterSecurityGroups (\ s a -> s{_dcsgrrClusterSecurityGroups = a}) . _Default;
+dcsgrsClusterSecurityGroups :: Lens' DescribeClusterSecurityGroupsResponse [ClusterSecurityGroup]
+dcsgrsClusterSecurityGroups = lens _dcsgrsClusterSecurityGroups (\ s a -> s{_dcsgrsClusterSecurityGroups = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -231,9 +232,9 @@ dcsgrrClusterSecurityGroups = lens _dcsgrrClusterSecurityGroups (\ s a -> s{_dcs
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-dcsgrrMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
-dcsgrrMarker = lens _dcsgrrMarker (\ s a -> s{_dcsgrrMarker = a});
+dcsgrsMarker :: Lens' DescribeClusterSecurityGroupsResponse (Maybe Text)
+dcsgrsMarker = lens _dcsgrsMarker (\ s a -> s{_dcsgrsMarker = a});
 
 -- | FIXME: Undocumented member.
-dcsgrrStatus :: Lens' DescribeClusterSecurityGroupsResponse Int
-dcsgrrStatus = lens _dcsgrrStatus (\ s a -> s{_dcsgrrStatus = a});
+dcsgrsStatus :: Lens' DescribeClusterSecurityGroupsResponse Int
+dcsgrsStatus = lens _dcsgrsStatus (\ s a -> s{_dcsgrsStatus = a});

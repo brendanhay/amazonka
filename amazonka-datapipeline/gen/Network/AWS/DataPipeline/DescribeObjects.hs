@@ -29,20 +29,20 @@ module Network.AWS.DataPipeline.DescribeObjects
     -- ** Request constructor
     , describeObjects
     -- ** Request lenses
-    , doEvaluateExpressions
-    , doMarker
-    , doPipelineId
-    , doObjectIds
+    , dorqEvaluateExpressions
+    , dorqMarker
+    , dorqPipelineId
+    , dorqObjectIds
 
     -- * Response
     , DescribeObjectsResponse
     -- ** Response constructor
     , describeObjectsResponse
     -- ** Response lenses
-    , dorHasMoreResults
-    , dorMarker
-    , dorStatus
-    , dorPipelineObjects
+    , dorsHasMoreResults
+    , dorsMarker
+    , dorsStatus
+    , dorsPipelineObjects
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -57,57 +57,58 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'doEvaluateExpressions'
+-- * 'dorqEvaluateExpressions'
 --
--- * 'doMarker'
+-- * 'dorqMarker'
 --
--- * 'doPipelineId'
+-- * 'dorqPipelineId'
 --
--- * 'doObjectIds'
+-- * 'dorqObjectIds'
 data DescribeObjects = DescribeObjects'
-    { _doEvaluateExpressions :: !(Maybe Bool)
-    , _doMarker              :: !(Maybe Text)
-    , _doPipelineId          :: !Text
-    , _doObjectIds           :: ![Text]
+    { _dorqEvaluateExpressions :: !(Maybe Bool)
+    , _dorqMarker              :: !(Maybe Text)
+    , _dorqPipelineId          :: !Text
+    , _dorqObjectIds           :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeObjects' smart constructor.
 describeObjects :: Text -> DescribeObjects
 describeObjects pPipelineId =
     DescribeObjects'
-    { _doEvaluateExpressions = Nothing
-    , _doMarker = Nothing
-    , _doPipelineId = pPipelineId
-    , _doObjectIds = mempty
+    { _dorqEvaluateExpressions = Nothing
+    , _dorqMarker = Nothing
+    , _dorqPipelineId = pPipelineId
+    , _dorqObjectIds = mempty
     }
 
 -- | Indicates whether any expressions in the object should be evaluated when
 -- the object descriptions are returned.
-doEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
-doEvaluateExpressions = lens _doEvaluateExpressions (\ s a -> s{_doEvaluateExpressions = a});
+dorqEvaluateExpressions :: Lens' DescribeObjects (Maybe Bool)
+dorqEvaluateExpressions = lens _dorqEvaluateExpressions (\ s a -> s{_dorqEvaluateExpressions = a});
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @DescribeObjects@ with the marker value from the previous call
 -- to retrieve the next set of results.
-doMarker :: Lens' DescribeObjects (Maybe Text)
-doMarker = lens _doMarker (\ s a -> s{_doMarker = a});
+dorqMarker :: Lens' DescribeObjects (Maybe Text)
+dorqMarker = lens _dorqMarker (\ s a -> s{_dorqMarker = a});
 
 -- | The ID of the pipeline that contains the object definitions.
-doPipelineId :: Lens' DescribeObjects Text
-doPipelineId = lens _doPipelineId (\ s a -> s{_doPipelineId = a});
+dorqPipelineId :: Lens' DescribeObjects Text
+dorqPipelineId = lens _dorqPipelineId (\ s a -> s{_dorqPipelineId = a});
 
 -- | The IDs of the pipeline objects that contain the definitions to be
 -- described. You can pass as many as 25 identifiers in a single call to
 -- @DescribeObjects@.
-doObjectIds :: Lens' DescribeObjects [Text]
-doObjectIds = lens _doObjectIds (\ s a -> s{_doObjectIds = a});
+dorqObjectIds :: Lens' DescribeObjects [Text]
+dorqObjectIds = lens _dorqObjectIds (\ s a -> s{_dorqObjectIds = a});
 
 instance AWSPager DescribeObjects where
         page rq rs
-          | stop (rs ^. dorHasMoreResults) = Nothing
-          | isNothing (rs ^. dorMarker) = Nothing
-          | otherwise = Just $ rq & doMarker .~ rs ^. dorMarker
+          | stop (rs ^. dorsHasMoreResults) = Nothing
+          | isNothing (rs ^. dorsMarker) = Nothing
+          | otherwise =
+            Just $ rq & dorqMarker .~ rs ^. dorsMarker
 
 instance AWSRequest DescribeObjects where
         type Sv DescribeObjects = DataPipeline
@@ -133,9 +134,10 @@ instance ToHeaders DescribeObjects where
 instance ToJSON DescribeObjects where
         toJSON DescribeObjects'{..}
           = object
-              ["evaluateExpressions" .= _doEvaluateExpressions,
-               "marker" .= _doMarker, "pipelineId" .= _doPipelineId,
-               "objectIds" .= _doObjectIds]
+              ["evaluateExpressions" .= _dorqEvaluateExpressions,
+               "marker" .= _dorqMarker,
+               "pipelineId" .= _dorqPipelineId,
+               "objectIds" .= _dorqObjectIds]
 
 instance ToPath DescribeObjects where
         toPath = const "/"
@@ -149,44 +151,44 @@ instance ToQuery DescribeObjects where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dorHasMoreResults'
+-- * 'dorsHasMoreResults'
 --
--- * 'dorMarker'
+-- * 'dorsMarker'
 --
--- * 'dorStatus'
+-- * 'dorsStatus'
 --
--- * 'dorPipelineObjects'
+-- * 'dorsPipelineObjects'
 data DescribeObjectsResponse = DescribeObjectsResponse'
-    { _dorHasMoreResults  :: !(Maybe Bool)
-    , _dorMarker          :: !(Maybe Text)
-    , _dorStatus          :: !Int
-    , _dorPipelineObjects :: ![PipelineObject]
+    { _dorsHasMoreResults  :: !(Maybe Bool)
+    , _dorsMarker          :: !(Maybe Text)
+    , _dorsStatus          :: !Int
+    , _dorsPipelineObjects :: ![PipelineObject]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeObjectsResponse' smart constructor.
 describeObjectsResponse :: Int -> DescribeObjectsResponse
 describeObjectsResponse pStatus =
     DescribeObjectsResponse'
-    { _dorHasMoreResults = Nothing
-    , _dorMarker = Nothing
-    , _dorStatus = pStatus
-    , _dorPipelineObjects = mempty
+    { _dorsHasMoreResults = Nothing
+    , _dorsMarker = Nothing
+    , _dorsStatus = pStatus
+    , _dorsPipelineObjects = mempty
     }
 
 -- | Indicates whether there are more results to return.
-dorHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
-dorHasMoreResults = lens _dorHasMoreResults (\ s a -> s{_dorHasMoreResults = a});
+dorsHasMoreResults :: Lens' DescribeObjectsResponse (Maybe Bool)
+dorsHasMoreResults = lens _dorsHasMoreResults (\ s a -> s{_dorsHasMoreResults = a});
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @DescribeObjects@ again with this marker value. If the
 -- value is null, there are no more results.
-dorMarker :: Lens' DescribeObjectsResponse (Maybe Text)
-dorMarker = lens _dorMarker (\ s a -> s{_dorMarker = a});
+dorsMarker :: Lens' DescribeObjectsResponse (Maybe Text)
+dorsMarker = lens _dorsMarker (\ s a -> s{_dorsMarker = a});
 
 -- | FIXME: Undocumented member.
-dorStatus :: Lens' DescribeObjectsResponse Int
-dorStatus = lens _dorStatus (\ s a -> s{_dorStatus = a});
+dorsStatus :: Lens' DescribeObjectsResponse Int
+dorsStatus = lens _dorsStatus (\ s a -> s{_dorsStatus = a});
 
 -- | An array of object definitions.
-dorPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
-dorPipelineObjects = lens _dorPipelineObjects (\ s a -> s{_dorPipelineObjects = a});
+dorsPipelineObjects :: Lens' DescribeObjectsResponse [PipelineObject]
+dorsPipelineObjects = lens _dorsPipelineObjects (\ s a -> s{_dorsPipelineObjects = a});

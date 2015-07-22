@@ -29,15 +29,15 @@ module Network.AWS.CloudHSM.CreateHAPG
     -- ** Request constructor
     , createHAPG
     -- ** Request lenses
-    , chLabel
+    , chrqLabel
 
     -- * Response
     , CreateHAPGResponse
     -- ** Response constructor
     , createHAPGResponse
     -- ** Response lenses
-    , chrHAPGARN
-    , chrStatus
+    , chrsHAPGARN
+    , chrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chLabel'
+-- * 'chrqLabel'
 newtype CreateHAPG = CreateHAPG'
-    { _chLabel :: Text
+    { _chrqLabel :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHAPG' smart constructor.
 createHAPG :: Text -> CreateHAPG
 createHAPG pLabel =
     CreateHAPG'
-    { _chLabel = pLabel
+    { _chrqLabel = pLabel
     }
 
 -- | The label of the new high-availability partition group.
-chLabel :: Lens' CreateHAPG Text
-chLabel = lens _chLabel (\ s a -> s{_chLabel = a});
+chrqLabel :: Lens' CreateHAPG Text
+chrqLabel = lens _chrqLabel (\ s a -> s{_chrqLabel = a});
 
 instance AWSRequest CreateHAPG where
         type Sv CreateHAPG = CloudHSM
@@ -87,7 +87,8 @@ instance ToHeaders CreateHAPG where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON CreateHAPG where
-        toJSON CreateHAPG'{..} = object ["Label" .= _chLabel]
+        toJSON CreateHAPG'{..}
+          = object ["Label" .= _chrqLabel]
 
 instance ToPath CreateHAPG where
         toPath = const "/"
@@ -101,26 +102,26 @@ instance ToQuery CreateHAPG where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chrHAPGARN'
+-- * 'chrsHAPGARN'
 --
--- * 'chrStatus'
+-- * 'chrsStatus'
 data CreateHAPGResponse = CreateHAPGResponse'
-    { _chrHAPGARN :: !(Maybe Text)
-    , _chrStatus  :: !Int
+    { _chrsHAPGARN :: !(Maybe Text)
+    , _chrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHAPGResponse' smart constructor.
 createHAPGResponse :: Int -> CreateHAPGResponse
 createHAPGResponse pStatus =
     CreateHAPGResponse'
-    { _chrHAPGARN = Nothing
-    , _chrStatus = pStatus
+    { _chrsHAPGARN = Nothing
+    , _chrsStatus = pStatus
     }
 
 -- | The ARN of the high-availability partition group.
-chrHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
-chrHAPGARN = lens _chrHAPGARN (\ s a -> s{_chrHAPGARN = a});
+chrsHAPGARN :: Lens' CreateHAPGResponse (Maybe Text)
+chrsHAPGARN = lens _chrsHAPGARN (\ s a -> s{_chrsHAPGARN = a});
 
 -- | FIXME: Undocumented member.
-chrStatus :: Lens' CreateHAPGResponse Int
-chrStatus = lens _chrStatus (\ s a -> s{_chrStatus = a});
+chrsStatus :: Lens' CreateHAPGResponse Int
+chrsStatus = lens _chrsStatus (\ s a -> s{_chrsStatus = a});

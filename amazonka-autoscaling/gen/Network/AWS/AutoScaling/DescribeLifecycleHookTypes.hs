@@ -32,8 +32,8 @@ module Network.AWS.AutoScaling.DescribeLifecycleHookTypes
     -- ** Response constructor
     , describeLifecycleHookTypesResponse
     -- ** Response lenses
-    , dlhtrLifecycleHookTypes
-    , dlhtrStatus
+    , dlhtrsLifecycleHookTypes
+    , dlhtrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -82,20 +82,20 @@ instance ToQuery DescribeLifecycleHookTypes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlhtrLifecycleHookTypes'
+-- * 'dlhtrsLifecycleHookTypes'
 --
--- * 'dlhtrStatus'
+-- * 'dlhtrsStatus'
 data DescribeLifecycleHookTypesResponse = DescribeLifecycleHookTypesResponse'
-    { _dlhtrLifecycleHookTypes :: !(Maybe [Text])
-    , _dlhtrStatus             :: !Int
+    { _dlhtrsLifecycleHookTypes :: !(Maybe [Text])
+    , _dlhtrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHookTypesResponse' smart constructor.
 describeLifecycleHookTypesResponse :: Int -> DescribeLifecycleHookTypesResponse
 describeLifecycleHookTypesResponse pStatus =
     DescribeLifecycleHookTypesResponse'
-    { _dlhtrLifecycleHookTypes = Nothing
-    , _dlhtrStatus = pStatus
+    { _dlhtrsLifecycleHookTypes = Nothing
+    , _dlhtrsStatus = pStatus
     }
 
 -- | One or more of the following notification types:
@@ -104,9 +104,9 @@ describeLifecycleHookTypesResponse pStatus =
 --
 -- -   @autoscaling:EC2_INSTANCE_TERMINATING@
 --
-dlhtrLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
-dlhtrLifecycleHookTypes = lens _dlhtrLifecycleHookTypes (\ s a -> s{_dlhtrLifecycleHookTypes = a}) . _Default;
+dlhtrsLifecycleHookTypes :: Lens' DescribeLifecycleHookTypesResponse [Text]
+dlhtrsLifecycleHookTypes = lens _dlhtrsLifecycleHookTypes (\ s a -> s{_dlhtrsLifecycleHookTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlhtrStatus :: Lens' DescribeLifecycleHookTypesResponse Int
-dlhtrStatus = lens _dlhtrStatus (\ s a -> s{_dlhtrStatus = a});
+dlhtrsStatus :: Lens' DescribeLifecycleHookTypesResponse Int
+dlhtrsStatus = lens _dlhtrsStatus (\ s a -> s{_dlhtrsStatus = a});

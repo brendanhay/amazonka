@@ -31,9 +31,9 @@ module Network.AWS.AutoScaling.SetDesiredCapacity
     -- ** Request constructor
     , setDesiredCapacity
     -- ** Request lenses
-    , sdcHonorCooldown
-    , sdcAutoScalingGroupName
-    , sdcDesiredCapacity
+    , sdcrqHonorCooldown
+    , sdcrqAutoScalingGroupName
+    , sdcrqDesiredCapacity
 
     -- * Response
     , SetDesiredCapacityResponse
@@ -50,24 +50,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdcHonorCooldown'
+-- * 'sdcrqHonorCooldown'
 --
--- * 'sdcAutoScalingGroupName'
+-- * 'sdcrqAutoScalingGroupName'
 --
--- * 'sdcDesiredCapacity'
+-- * 'sdcrqDesiredCapacity'
 data SetDesiredCapacity = SetDesiredCapacity'
-    { _sdcHonorCooldown        :: !(Maybe Bool)
-    , _sdcAutoScalingGroupName :: !Text
-    , _sdcDesiredCapacity      :: !Int
+    { _sdcrqHonorCooldown        :: !(Maybe Bool)
+    , _sdcrqAutoScalingGroupName :: !Text
+    , _sdcrqDesiredCapacity      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDesiredCapacity' smart constructor.
 setDesiredCapacity :: Text -> Int -> SetDesiredCapacity
 setDesiredCapacity pAutoScalingGroupName pDesiredCapacity =
     SetDesiredCapacity'
-    { _sdcHonorCooldown = Nothing
-    , _sdcAutoScalingGroupName = pAutoScalingGroupName
-    , _sdcDesiredCapacity = pDesiredCapacity
+    { _sdcrqHonorCooldown = Nothing
+    , _sdcrqAutoScalingGroupName = pAutoScalingGroupName
+    , _sdcrqDesiredCapacity = pDesiredCapacity
     }
 
 -- | By default, @SetDesiredCapacity@ overrides any cooldown period
@@ -75,17 +75,17 @@ setDesiredCapacity pAutoScalingGroupName pDesiredCapacity =
 -- Scaling to wait for the cool-down period associated with the Auto
 -- Scaling group to complete before initiating a scaling activity to set
 -- your Auto Scaling group to its new capacity.
-sdcHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
-sdcHonorCooldown = lens _sdcHonorCooldown (\ s a -> s{_sdcHonorCooldown = a});
+sdcrqHonorCooldown :: Lens' SetDesiredCapacity (Maybe Bool)
+sdcrqHonorCooldown = lens _sdcrqHonorCooldown (\ s a -> s{_sdcrqHonorCooldown = a});
 
 -- | The name of the Auto Scaling group.
-sdcAutoScalingGroupName :: Lens' SetDesiredCapacity Text
-sdcAutoScalingGroupName = lens _sdcAutoScalingGroupName (\ s a -> s{_sdcAutoScalingGroupName = a});
+sdcrqAutoScalingGroupName :: Lens' SetDesiredCapacity Text
+sdcrqAutoScalingGroupName = lens _sdcrqAutoScalingGroupName (\ s a -> s{_sdcrqAutoScalingGroupName = a});
 
 -- | The number of EC2 instances that should be running in the Auto Scaling
 -- group.
-sdcDesiredCapacity :: Lens' SetDesiredCapacity Int
-sdcDesiredCapacity = lens _sdcDesiredCapacity (\ s a -> s{_sdcDesiredCapacity = a});
+sdcrqDesiredCapacity :: Lens' SetDesiredCapacity Int
+sdcrqDesiredCapacity = lens _sdcrqDesiredCapacity (\ s a -> s{_sdcrqDesiredCapacity = a});
 
 instance AWSRequest SetDesiredCapacity where
         type Sv SetDesiredCapacity = AutoScaling
@@ -105,9 +105,9 @@ instance ToQuery SetDesiredCapacity where
           = mconcat
               ["Action" =: ("SetDesiredCapacity" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "HonorCooldown" =: _sdcHonorCooldown,
-               "AutoScalingGroupName" =: _sdcAutoScalingGroupName,
-               "DesiredCapacity" =: _sdcDesiredCapacity]
+               "HonorCooldown" =: _sdcrqHonorCooldown,
+               "AutoScalingGroupName" =: _sdcrqAutoScalingGroupName,
+               "DesiredCapacity" =: _sdcrqDesiredCapacity]
 
 -- | /See:/ 'setDesiredCapacityResponse' smart constructor.
 data SetDesiredCapacityResponse =

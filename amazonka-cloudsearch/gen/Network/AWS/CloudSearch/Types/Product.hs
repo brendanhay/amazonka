@@ -291,54 +291,54 @@ instance FromXML AvailabilityOptionsStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'datSourceFields'
+-- * 'daosSourceFields'
 --
--- * 'datReturnEnabled'
+-- * 'daosReturnEnabled'
 --
--- * 'datFacetEnabled'
+-- * 'daosFacetEnabled'
 --
--- * 'datSearchEnabled'
+-- * 'daosSearchEnabled'
 --
--- * 'datDefaultValue'
+-- * 'daosDefaultValue'
 data DateArrayOptions = DateArrayOptions'
-    { _datSourceFields  :: !(Maybe Text)
-    , _datReturnEnabled :: !(Maybe Bool)
-    , _datFacetEnabled  :: !(Maybe Bool)
-    , _datSearchEnabled :: !(Maybe Bool)
-    , _datDefaultValue  :: !(Maybe Text)
+    { _daosSourceFields  :: !(Maybe Text)
+    , _daosReturnEnabled :: !(Maybe Bool)
+    , _daosFacetEnabled  :: !(Maybe Bool)
+    , _daosSearchEnabled :: !(Maybe Bool)
+    , _daosDefaultValue  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DateArrayOptions' smart constructor.
 dateArrayOptions :: DateArrayOptions
 dateArrayOptions =
     DateArrayOptions'
-    { _datSourceFields = Nothing
-    , _datReturnEnabled = Nothing
-    , _datFacetEnabled = Nothing
-    , _datSearchEnabled = Nothing
-    , _datDefaultValue = Nothing
+    { _daosSourceFields = Nothing
+    , _daosReturnEnabled = Nothing
+    , _daosFacetEnabled = Nothing
+    , _daosSearchEnabled = Nothing
+    , _daosDefaultValue = Nothing
     }
 
 -- | A list of source fields to map to the field.
-datSourceFields :: Lens' DateArrayOptions (Maybe Text)
-datSourceFields = lens _datSourceFields (\ s a -> s{_datSourceFields = a});
+daosSourceFields :: Lens' DateArrayOptions (Maybe Text)
+daosSourceFields = lens _daosSourceFields (\ s a -> s{_daosSourceFields = a});
 
 -- | Whether the contents of the field can be returned in the search results.
-datReturnEnabled :: Lens' DateArrayOptions (Maybe Bool)
-datReturnEnabled = lens _datReturnEnabled (\ s a -> s{_datReturnEnabled = a});
+daosReturnEnabled :: Lens' DateArrayOptions (Maybe Bool)
+daosReturnEnabled = lens _daosReturnEnabled (\ s a -> s{_daosReturnEnabled = a});
 
 -- | Whether facet information can be returned for the field.
-datFacetEnabled :: Lens' DateArrayOptions (Maybe Bool)
-datFacetEnabled = lens _datFacetEnabled (\ s a -> s{_datFacetEnabled = a});
+daosFacetEnabled :: Lens' DateArrayOptions (Maybe Bool)
+daosFacetEnabled = lens _daosFacetEnabled (\ s a -> s{_daosFacetEnabled = a});
 
 -- | Whether the contents of the field are searchable.
-datSearchEnabled :: Lens' DateArrayOptions (Maybe Bool)
-datSearchEnabled = lens _datSearchEnabled (\ s a -> s{_datSearchEnabled = a});
+daosSearchEnabled :: Lens' DateArrayOptions (Maybe Bool)
+daosSearchEnabled = lens _daosSearchEnabled (\ s a -> s{_daosSearchEnabled = a});
 
 -- | A value to use for the field if the field isn\'t specified for a
 -- document.
-datDefaultValue :: Lens' DateArrayOptions (Maybe Text)
-datDefaultValue = lens _datDefaultValue (\ s a -> s{_datDefaultValue = a});
+daosDefaultValue :: Lens' DateArrayOptions (Maybe Text)
+daosDefaultValue = lens _daosDefaultValue (\ s a -> s{_daosDefaultValue = a});
 
 instance FromXML DateArrayOptions where
         parseXML x
@@ -351,11 +351,11 @@ instance FromXML DateArrayOptions where
 instance ToQuery DateArrayOptions where
         toQuery DateArrayOptions'{..}
           = mconcat
-              ["SourceFields" =: _datSourceFields,
-               "ReturnEnabled" =: _datReturnEnabled,
-               "FacetEnabled" =: _datFacetEnabled,
-               "SearchEnabled" =: _datSearchEnabled,
-               "DefaultValue" =: _datDefaultValue]
+              ["SourceFields" =: _daosSourceFields,
+               "ReturnEnabled" =: _daosReturnEnabled,
+               "FacetEnabled" =: _daosFacetEnabled,
+               "SearchEnabled" =: _daosSearchEnabled,
+               "DefaultValue" =: _daosDefaultValue]
 
 -- | Options for a date field. Dates and times are specified in UTC
 -- (Coordinated Universal Time) according to IETF RFC3339:
@@ -731,63 +731,63 @@ instance ToQuery DoubleArrayOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'douSourceField'
+-- * 'dSourceField'
 --
--- * 'douReturnEnabled'
+-- * 'dReturnEnabled'
 --
--- * 'douFacetEnabled'
+-- * 'dFacetEnabled'
 --
--- * 'douSearchEnabled'
+-- * 'dSearchEnabled'
 --
--- * 'douSortEnabled'
+-- * 'dSortEnabled'
 --
--- * 'douDefaultValue'
+-- * 'dDefaultValue'
 data DoubleOptions = DoubleOptions'
-    { _douSourceField   :: !(Maybe Text)
-    , _douReturnEnabled :: !(Maybe Bool)
-    , _douFacetEnabled  :: !(Maybe Bool)
-    , _douSearchEnabled :: !(Maybe Bool)
-    , _douSortEnabled   :: !(Maybe Bool)
-    , _douDefaultValue  :: !(Maybe Double)
+    { _dSourceField   :: !(Maybe Text)
+    , _dReturnEnabled :: !(Maybe Bool)
+    , _dFacetEnabled  :: !(Maybe Bool)
+    , _dSearchEnabled :: !(Maybe Bool)
+    , _dSortEnabled   :: !(Maybe Bool)
+    , _dDefaultValue  :: !(Maybe Double)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DoubleOptions' smart constructor.
 doubleOptions :: DoubleOptions
 doubleOptions =
     DoubleOptions'
-    { _douSourceField = Nothing
-    , _douReturnEnabled = Nothing
-    , _douFacetEnabled = Nothing
-    , _douSearchEnabled = Nothing
-    , _douSortEnabled = Nothing
-    , _douDefaultValue = Nothing
+    { _dSourceField = Nothing
+    , _dReturnEnabled = Nothing
+    , _dFacetEnabled = Nothing
+    , _dSearchEnabled = Nothing
+    , _dSortEnabled = Nothing
+    , _dDefaultValue = Nothing
     }
 
 -- | The name of the source field to map to the field.
-douSourceField :: Lens' DoubleOptions (Maybe Text)
-douSourceField = lens _douSourceField (\ s a -> s{_douSourceField = a});
+dSourceField :: Lens' DoubleOptions (Maybe Text)
+dSourceField = lens _dSourceField (\ s a -> s{_dSourceField = a});
 
 -- | Whether the contents of the field can be returned in the search results.
-douReturnEnabled :: Lens' DoubleOptions (Maybe Bool)
-douReturnEnabled = lens _douReturnEnabled (\ s a -> s{_douReturnEnabled = a});
+dReturnEnabled :: Lens' DoubleOptions (Maybe Bool)
+dReturnEnabled = lens _dReturnEnabled (\ s a -> s{_dReturnEnabled = a});
 
 -- | Whether facet information can be returned for the field.
-douFacetEnabled :: Lens' DoubleOptions (Maybe Bool)
-douFacetEnabled = lens _douFacetEnabled (\ s a -> s{_douFacetEnabled = a});
+dFacetEnabled :: Lens' DoubleOptions (Maybe Bool)
+dFacetEnabled = lens _dFacetEnabled (\ s a -> s{_dFacetEnabled = a});
 
 -- | Whether the contents of the field are searchable.
-douSearchEnabled :: Lens' DoubleOptions (Maybe Bool)
-douSearchEnabled = lens _douSearchEnabled (\ s a -> s{_douSearchEnabled = a});
+dSearchEnabled :: Lens' DoubleOptions (Maybe Bool)
+dSearchEnabled = lens _dSearchEnabled (\ s a -> s{_dSearchEnabled = a});
 
 -- | Whether the field can be used to sort the search results.
-douSortEnabled :: Lens' DoubleOptions (Maybe Bool)
-douSortEnabled = lens _douSortEnabled (\ s a -> s{_douSortEnabled = a});
+dSortEnabled :: Lens' DoubleOptions (Maybe Bool)
+dSortEnabled = lens _dSortEnabled (\ s a -> s{_dSortEnabled = a});
 
 -- | A value to use for the field if the field isn\'t specified for a
 -- document. This can be important if you are using the field in an
 -- expression and that field is not present in every document.
-douDefaultValue :: Lens' DoubleOptions (Maybe Double)
-douDefaultValue = lens _douDefaultValue (\ s a -> s{_douDefaultValue = a});
+dDefaultValue :: Lens' DoubleOptions (Maybe Double)
+dDefaultValue = lens _dDefaultValue (\ s a -> s{_dDefaultValue = a});
 
 instance FromXML DoubleOptions where
         parseXML x
@@ -801,12 +801,12 @@ instance FromXML DoubleOptions where
 instance ToQuery DoubleOptions where
         toQuery DoubleOptions'{..}
           = mconcat
-              ["SourceField" =: _douSourceField,
-               "ReturnEnabled" =: _douReturnEnabled,
-               "FacetEnabled" =: _douFacetEnabled,
-               "SearchEnabled" =: _douSearchEnabled,
-               "SortEnabled" =: _douSortEnabled,
-               "DefaultValue" =: _douDefaultValue]
+              ["SourceField" =: _dSourceField,
+               "ReturnEnabled" =: _dReturnEnabled,
+               "FacetEnabled" =: _dFacetEnabled,
+               "SearchEnabled" =: _dSearchEnabled,
+               "SortEnabled" =: _dSortEnabled,
+               "DefaultValue" =: _dDefaultValue]
 
 -- | A named expression that can be evaluated at search time. Can be used to
 -- sort the search results, define other expressions, or return computed
@@ -816,29 +816,29 @@ instance ToQuery DoubleOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'expExpressionName'
+-- * 'eExpressionName'
 --
--- * 'expExpressionValue'
+-- * 'eExpressionValue'
 data Expression = Expression'
-    { _expExpressionName  :: !Text
-    , _expExpressionValue :: !Text
+    { _eExpressionName  :: !Text
+    , _eExpressionValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Expression' smart constructor.
 expression :: Text -> Text -> Expression
 expression pExpressionName pExpressionValue =
     Expression'
-    { _expExpressionName = pExpressionName
-    , _expExpressionValue = pExpressionValue
+    { _eExpressionName = pExpressionName
+    , _eExpressionValue = pExpressionValue
     }
 
 -- | FIXME: Undocumented member.
-expExpressionName :: Lens' Expression Text
-expExpressionName = lens _expExpressionName (\ s a -> s{_expExpressionName = a});
+eExpressionName :: Lens' Expression Text
+eExpressionName = lens _eExpressionName (\ s a -> s{_eExpressionName = a});
 
 -- | FIXME: Undocumented member.
-expExpressionValue :: Lens' Expression Text
-expExpressionValue = lens _expExpressionValue (\ s a -> s{_expExpressionValue = a});
+eExpressionValue :: Lens' Expression Text
+eExpressionValue = lens _eExpressionValue (\ s a -> s{_eExpressionValue = a});
 
 instance FromXML Expression where
         parseXML x
@@ -848,8 +848,8 @@ instance FromXML Expression where
 instance ToQuery Expression where
         toQuery Expression'{..}
           = mconcat
-              ["ExpressionName" =: _expExpressionName,
-               "ExpressionValue" =: _expExpressionValue]
+              ["ExpressionName" =: _eExpressionName,
+               "ExpressionValue" =: _eExpressionValue]
 
 -- | The value of an @Expression@ and its current status.
 --
@@ -1336,29 +1336,29 @@ instance ToQuery LatLonOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'limMaximumReplicationCount'
+-- * 'lMaximumReplicationCount'
 --
--- * 'limMaximumPartitionCount'
+-- * 'lMaximumPartitionCount'
 data Limits = Limits'
-    { _limMaximumReplicationCount :: !Nat
-    , _limMaximumPartitionCount   :: !Nat
+    { _lMaximumReplicationCount :: !Nat
+    , _lMaximumPartitionCount   :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Limits' smart constructor.
 limits :: Natural -> Natural -> Limits
 limits pMaximumReplicationCount pMaximumPartitionCount =
     Limits'
-    { _limMaximumReplicationCount = _Nat # pMaximumReplicationCount
-    , _limMaximumPartitionCount = _Nat # pMaximumPartitionCount
+    { _lMaximumReplicationCount = _Nat # pMaximumReplicationCount
+    , _lMaximumPartitionCount = _Nat # pMaximumPartitionCount
     }
 
 -- | FIXME: Undocumented member.
-limMaximumReplicationCount :: Lens' Limits Natural
-limMaximumReplicationCount = lens _limMaximumReplicationCount (\ s a -> s{_limMaximumReplicationCount = a}) . _Nat;
+lMaximumReplicationCount :: Lens' Limits Natural
+lMaximumReplicationCount = lens _lMaximumReplicationCount (\ s a -> s{_lMaximumReplicationCount = a}) . _Nat;
 
 -- | FIXME: Undocumented member.
-limMaximumPartitionCount :: Lens' Limits Natural
-limMaximumPartitionCount = lens _limMaximumPartitionCount (\ s a -> s{_limMaximumPartitionCount = a}) . _Nat;
+lMaximumPartitionCount :: Lens' Limits Natural
+lMaximumPartitionCount = lens _lMaximumPartitionCount (\ s a -> s{_lMaximumPartitionCount = a}) . _Nat;
 
 instance FromXML Limits where
         parseXML x
@@ -1722,29 +1722,29 @@ instance FromXML ServiceEndpoint where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sugSuggesterName'
+-- * 'sSuggesterName'
 --
--- * 'sugDocumentSuggesterOptions'
+-- * 'sDocumentSuggesterOptions'
 data Suggester = Suggester'
-    { _sugSuggesterName            :: !Text
-    , _sugDocumentSuggesterOptions :: !DocumentSuggesterOptions
+    { _sSuggesterName            :: !Text
+    , _sDocumentSuggesterOptions :: !DocumentSuggesterOptions
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Suggester' smart constructor.
 suggester :: Text -> DocumentSuggesterOptions -> Suggester
 suggester pSuggesterName pDocumentSuggesterOptions =
     Suggester'
-    { _sugSuggesterName = pSuggesterName
-    , _sugDocumentSuggesterOptions = pDocumentSuggesterOptions
+    { _sSuggesterName = pSuggesterName
+    , _sDocumentSuggesterOptions = pDocumentSuggesterOptions
     }
 
 -- | FIXME: Undocumented member.
-sugSuggesterName :: Lens' Suggester Text
-sugSuggesterName = lens _sugSuggesterName (\ s a -> s{_sugSuggesterName = a});
+sSuggesterName :: Lens' Suggester Text
+sSuggesterName = lens _sSuggesterName (\ s a -> s{_sSuggesterName = a});
 
 -- | FIXME: Undocumented member.
-sugDocumentSuggesterOptions :: Lens' Suggester DocumentSuggesterOptions
-sugDocumentSuggesterOptions = lens _sugDocumentSuggesterOptions (\ s a -> s{_sugDocumentSuggesterOptions = a});
+sDocumentSuggesterOptions :: Lens' Suggester DocumentSuggesterOptions
+sDocumentSuggesterOptions = lens _sDocumentSuggesterOptions (\ s a -> s{_sDocumentSuggesterOptions = a});
 
 instance FromXML Suggester where
         parseXML x
@@ -1755,9 +1755,9 @@ instance FromXML Suggester where
 instance ToQuery Suggester where
         toQuery Suggester'{..}
           = mconcat
-              ["SuggesterName" =: _sugSuggesterName,
+              ["SuggesterName" =: _sSuggesterName,
                "DocumentSuggesterOptions" =:
-                 _sugDocumentSuggesterOptions]
+                 _sDocumentSuggesterOptions]
 
 -- | The value of a @Suggester@ and its current status.
 --

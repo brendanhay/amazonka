@@ -56,11 +56,11 @@ module Network.AWS.SWF.SignalWorkflowExecution
     -- ** Request constructor
     , signalWorkflowExecution
     -- ** Request lenses
-    , sweInput
-    , sweRunId
-    , sweDomain
-    , sweWorkflowId
-    , sweSignalName
+    , swerqInput
+    , swerqRunId
+    , swerqDomain
+    , swerqWorkflowId
+    , swerqSignalName
 
     -- * Response
     , SignalWorkflowExecutionResponse
@@ -77,55 +77,55 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sweInput'
+-- * 'swerqInput'
 --
--- * 'sweRunId'
+-- * 'swerqRunId'
 --
--- * 'sweDomain'
+-- * 'swerqDomain'
 --
--- * 'sweWorkflowId'
+-- * 'swerqWorkflowId'
 --
--- * 'sweSignalName'
+-- * 'swerqSignalName'
 data SignalWorkflowExecution = SignalWorkflowExecution'
-    { _sweInput      :: !(Maybe Text)
-    , _sweRunId      :: !(Maybe Text)
-    , _sweDomain     :: !Text
-    , _sweWorkflowId :: !Text
-    , _sweSignalName :: !Text
+    { _swerqInput      :: !(Maybe Text)
+    , _swerqRunId      :: !(Maybe Text)
+    , _swerqDomain     :: !Text
+    , _swerqWorkflowId :: !Text
+    , _swerqSignalName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SignalWorkflowExecution' smart constructor.
 signalWorkflowExecution :: Text -> Text -> Text -> SignalWorkflowExecution
 signalWorkflowExecution pDomain pWorkflowId pSignalName =
     SignalWorkflowExecution'
-    { _sweInput = Nothing
-    , _sweRunId = Nothing
-    , _sweDomain = pDomain
-    , _sweWorkflowId = pWorkflowId
-    , _sweSignalName = pSignalName
+    { _swerqInput = Nothing
+    , _swerqRunId = Nothing
+    , _swerqDomain = pDomain
+    , _swerqWorkflowId = pWorkflowId
+    , _swerqSignalName = pSignalName
     }
 
 -- | Data to attach to the @WorkflowExecutionSignaled@ event in the target
 -- workflow execution\'s history.
-sweInput :: Lens' SignalWorkflowExecution (Maybe Text)
-sweInput = lens _sweInput (\ s a -> s{_sweInput = a});
+swerqInput :: Lens' SignalWorkflowExecution (Maybe Text)
+swerqInput = lens _swerqInput (\ s a -> s{_swerqInput = a});
 
 -- | The runId of the workflow execution to signal.
-sweRunId :: Lens' SignalWorkflowExecution (Maybe Text)
-sweRunId = lens _sweRunId (\ s a -> s{_sweRunId = a});
+swerqRunId :: Lens' SignalWorkflowExecution (Maybe Text)
+swerqRunId = lens _swerqRunId (\ s a -> s{_swerqRunId = a});
 
 -- | The name of the domain containing the workflow execution to signal.
-sweDomain :: Lens' SignalWorkflowExecution Text
-sweDomain = lens _sweDomain (\ s a -> s{_sweDomain = a});
+swerqDomain :: Lens' SignalWorkflowExecution Text
+swerqDomain = lens _swerqDomain (\ s a -> s{_swerqDomain = a});
 
 -- | The workflowId of the workflow execution to signal.
-sweWorkflowId :: Lens' SignalWorkflowExecution Text
-sweWorkflowId = lens _sweWorkflowId (\ s a -> s{_sweWorkflowId = a});
+swerqWorkflowId :: Lens' SignalWorkflowExecution Text
+swerqWorkflowId = lens _swerqWorkflowId (\ s a -> s{_swerqWorkflowId = a});
 
 -- | The name of the signal. This name must be meaningful to the target
 -- workflow.
-sweSignalName :: Lens' SignalWorkflowExecution Text
-sweSignalName = lens _sweSignalName (\ s a -> s{_sweSignalName = a});
+swerqSignalName :: Lens' SignalWorkflowExecution Text
+swerqSignalName = lens _swerqSignalName (\ s a -> s{_swerqSignalName = a});
 
 instance AWSRequest SignalWorkflowExecution where
         type Sv SignalWorkflowExecution = SWF
@@ -148,10 +148,10 @@ instance ToHeaders SignalWorkflowExecution where
 instance ToJSON SignalWorkflowExecution where
         toJSON SignalWorkflowExecution'{..}
           = object
-              ["input" .= _sweInput, "runId" .= _sweRunId,
-               "domain" .= _sweDomain,
-               "workflowId" .= _sweWorkflowId,
-               "signalName" .= _sweSignalName]
+              ["input" .= _swerqInput, "runId" .= _swerqRunId,
+               "domain" .= _swerqDomain,
+               "workflowId" .= _swerqWorkflowId,
+               "signalName" .= _swerqSignalName]
 
 instance ToPath SignalWorkflowExecution where
         toPath = const "/"

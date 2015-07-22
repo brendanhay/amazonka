@@ -29,20 +29,20 @@ module Network.AWS.CognitoIdentity.ListIdentities
     -- ** Request constructor
     , listIdentities
     -- ** Request lenses
-    , liHideDisabled
-    , liNextToken
-    , liIdentityPoolId
-    , liMaxResults
+    , lirqHideDisabled
+    , lirqNextToken
+    , lirqIdentityPoolId
+    , lirqMaxResults
 
     -- * Response
     , ListIdentitiesResponse
     -- ** Response constructor
     , listIdentitiesResponse
     -- ** Response lenses
-    , lirIdentityPoolId
-    , lirNextToken
-    , lirIdentities
-    , lirStatus
+    , lirsIdentityPoolId
+    , lirsNextToken
+    , lirsIdentities
+    , lirsStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -56,47 +56,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liHideDisabled'
+-- * 'lirqHideDisabled'
 --
--- * 'liNextToken'
+-- * 'lirqNextToken'
 --
--- * 'liIdentityPoolId'
+-- * 'lirqIdentityPoolId'
 --
--- * 'liMaxResults'
+-- * 'lirqMaxResults'
 data ListIdentities = ListIdentities'
-    { _liHideDisabled   :: !(Maybe Bool)
-    , _liNextToken      :: !(Maybe Text)
-    , _liIdentityPoolId :: !Text
-    , _liMaxResults     :: !Nat
+    { _lirqHideDisabled   :: !(Maybe Bool)
+    , _lirqNextToken      :: !(Maybe Text)
+    , _lirqIdentityPoolId :: !Text
+    , _lirqMaxResults     :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentities' smart constructor.
 listIdentities :: Text -> Natural -> ListIdentities
 listIdentities pIdentityPoolId pMaxResults =
     ListIdentities'
-    { _liHideDisabled = Nothing
-    , _liNextToken = Nothing
-    , _liIdentityPoolId = pIdentityPoolId
-    , _liMaxResults = _Nat # pMaxResults
+    { _lirqHideDisabled = Nothing
+    , _lirqNextToken = Nothing
+    , _lirqIdentityPoolId = pIdentityPoolId
+    , _lirqMaxResults = _Nat # pMaxResults
     }
 
 -- | An optional boolean parameter that allows you to hide disabled
 -- identities. If omitted, the ListIdentities API will include disabled
 -- identities in the response.
-liHideDisabled :: Lens' ListIdentities (Maybe Bool)
-liHideDisabled = lens _liHideDisabled (\ s a -> s{_liHideDisabled = a});
+lirqHideDisabled :: Lens' ListIdentities (Maybe Bool)
+lirqHideDisabled = lens _lirqHideDisabled (\ s a -> s{_lirqHideDisabled = a});
 
 -- | A pagination token.
-liNextToken :: Lens' ListIdentities (Maybe Text)
-liNextToken = lens _liNextToken (\ s a -> s{_liNextToken = a});
+lirqNextToken :: Lens' ListIdentities (Maybe Text)
+lirqNextToken = lens _lirqNextToken (\ s a -> s{_lirqNextToken = a});
 
 -- | An identity pool ID in the format REGION:GUID.
-liIdentityPoolId :: Lens' ListIdentities Text
-liIdentityPoolId = lens _liIdentityPoolId (\ s a -> s{_liIdentityPoolId = a});
+lirqIdentityPoolId :: Lens' ListIdentities Text
+lirqIdentityPoolId = lens _lirqIdentityPoolId (\ s a -> s{_lirqIdentityPoolId = a});
 
 -- | The maximum number of identities to return.
-liMaxResults :: Lens' ListIdentities Natural
-liMaxResults = lens _liMaxResults (\ s a -> s{_liMaxResults = a}) . _Nat;
+lirqMaxResults :: Lens' ListIdentities Natural
+lirqMaxResults = lens _lirqMaxResults (\ s a -> s{_lirqMaxResults = a}) . _Nat;
 
 instance AWSRequest ListIdentities where
         type Sv ListIdentities = CognitoIdentity
@@ -123,10 +123,10 @@ instance ToHeaders ListIdentities where
 instance ToJSON ListIdentities where
         toJSON ListIdentities'{..}
           = object
-              ["HideDisabled" .= _liHideDisabled,
-               "NextToken" .= _liNextToken,
-               "IdentityPoolId" .= _liIdentityPoolId,
-               "MaxResults" .= _liMaxResults]
+              ["HideDisabled" .= _lirqHideDisabled,
+               "NextToken" .= _lirqNextToken,
+               "IdentityPoolId" .= _lirqIdentityPoolId,
+               "MaxResults" .= _lirqMaxResults]
 
 instance ToPath ListIdentities where
         toPath = const "/"
@@ -140,42 +140,42 @@ instance ToQuery ListIdentities where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirIdentityPoolId'
+-- * 'lirsIdentityPoolId'
 --
--- * 'lirNextToken'
+-- * 'lirsNextToken'
 --
--- * 'lirIdentities'
+-- * 'lirsIdentities'
 --
--- * 'lirStatus'
+-- * 'lirsStatus'
 data ListIdentitiesResponse = ListIdentitiesResponse'
-    { _lirIdentityPoolId :: !(Maybe Text)
-    , _lirNextToken      :: !(Maybe Text)
-    , _lirIdentities     :: !(Maybe [IdentityDescription])
-    , _lirStatus         :: !Int
+    { _lirsIdentityPoolId :: !(Maybe Text)
+    , _lirsNextToken      :: !(Maybe Text)
+    , _lirsIdentities     :: !(Maybe [IdentityDescription])
+    , _lirsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentitiesResponse' smart constructor.
 listIdentitiesResponse :: Int -> ListIdentitiesResponse
 listIdentitiesResponse pStatus =
     ListIdentitiesResponse'
-    { _lirIdentityPoolId = Nothing
-    , _lirNextToken = Nothing
-    , _lirIdentities = Nothing
-    , _lirStatus = pStatus
+    { _lirsIdentityPoolId = Nothing
+    , _lirsNextToken = Nothing
+    , _lirsIdentities = Nothing
+    , _lirsStatus = pStatus
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-lirIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
-lirIdentityPoolId = lens _lirIdentityPoolId (\ s a -> s{_lirIdentityPoolId = a});
+lirsIdentityPoolId :: Lens' ListIdentitiesResponse (Maybe Text)
+lirsIdentityPoolId = lens _lirsIdentityPoolId (\ s a -> s{_lirsIdentityPoolId = a});
 
 -- | A pagination token.
-lirNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
-lirNextToken = lens _lirNextToken (\ s a -> s{_lirNextToken = a});
+lirsNextToken :: Lens' ListIdentitiesResponse (Maybe Text)
+lirsNextToken = lens _lirsNextToken (\ s a -> s{_lirsNextToken = a});
 
 -- | An object containing a set of identities and associated mappings.
-lirIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
-lirIdentities = lens _lirIdentities (\ s a -> s{_lirIdentities = a}) . _Default;
+lirsIdentities :: Lens' ListIdentitiesResponse [IdentityDescription]
+lirsIdentities = lens _lirsIdentities (\ s a -> s{_lirsIdentities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lirStatus :: Lens' ListIdentitiesResponse Int
-lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});
+lirsStatus :: Lens' ListIdentitiesResponse Int
+lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});

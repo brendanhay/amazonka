@@ -32,15 +32,15 @@ module Network.AWS.IAM.GetRole
     -- ** Request constructor
     , getRole
     -- ** Request lenses
-    , grRoleName
+    , grrqRoleName
 
     -- * Response
     , GetRoleResponse
     -- ** Response constructor
     , getRoleResponse
     -- ** Response lenses
-    , grrStatus
-    , grrRole
+    , grrsStatus
+    , grrsRole
     ) where
 
 import           Network.AWS.IAM.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grRoleName'
+-- * 'grrqRoleName'
 newtype GetRole = GetRole'
-    { _grRoleName :: Text
+    { _grrqRoleName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRole' smart constructor.
 getRole :: Text -> GetRole
 getRole pRoleName =
     GetRole'
-    { _grRoleName = pRoleName
+    { _grrqRoleName = pRoleName
     }
 
 -- | The name of the role to get information about.
-grRoleName :: Lens' GetRole Text
-grRoleName = lens _grRoleName (\ s a -> s{_grRoleName = a});
+grrqRoleName :: Lens' GetRole Text
+grrqRoleName = lens _grrqRoleName (\ s a -> s{_grrqRoleName = a});
 
 instance AWSRequest GetRole where
         type Sv GetRole = IAM
@@ -89,7 +89,7 @@ instance ToQuery GetRole where
           = mconcat
               ["Action" =: ("GetRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _grRoleName]
+               "RoleName" =: _grrqRoleName]
 
 -- | Contains the response to a successful GetRole request.
 --
@@ -97,26 +97,26 @@ instance ToQuery GetRole where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrStatus'
+-- * 'grrsStatus'
 --
--- * 'grrRole'
+-- * 'grrsRole'
 data GetRoleResponse = GetRoleResponse'
-    { _grrStatus :: !Int
-    , _grrRole   :: !Role
+    { _grrsStatus :: !Int
+    , _grrsRole   :: !Role
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRoleResponse' smart constructor.
 getRoleResponse :: Int -> Role -> GetRoleResponse
 getRoleResponse pStatus pRole =
     GetRoleResponse'
-    { _grrStatus = pStatus
-    , _grrRole = pRole
+    { _grrsStatus = pStatus
+    , _grrsRole = pRole
     }
 
 -- | FIXME: Undocumented member.
-grrStatus :: Lens' GetRoleResponse Int
-grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
+grrsStatus :: Lens' GetRoleResponse Int
+grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
 
 -- | Information about the role.
-grrRole :: Lens' GetRoleResponse Role
-grrRole = lens _grrRole (\ s a -> s{_grrRole = a});
+grrsRole :: Lens' GetRoleResponse Role
+grrsRole = lens _grrsRole (\ s a -> s{_grrsRole = a});

@@ -31,18 +31,18 @@ module Network.AWS.DataPipeline.SetTaskStatus
     -- ** Request constructor
     , setTaskStatus
     -- ** Request lenses
-    , stsErrorStackTrace
-    , stsErrorId
-    , stsErrorMessage
-    , stsTaskId
-    , stsTaskStatus
+    , stsrqErrorStackTrace
+    , stsrqErrorId
+    , stsrqErrorMessage
+    , stsrqTaskId
+    , stsrqTaskStatus
 
     -- * Response
     , SetTaskStatusResponse
     -- ** Response constructor
     , setTaskStatusResponse
     -- ** Response lenses
-    , stsrStatus
+    , stsrsStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -56,64 +56,64 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stsErrorStackTrace'
+-- * 'stsrqErrorStackTrace'
 --
--- * 'stsErrorId'
+-- * 'stsrqErrorId'
 --
--- * 'stsErrorMessage'
+-- * 'stsrqErrorMessage'
 --
--- * 'stsTaskId'
+-- * 'stsrqTaskId'
 --
--- * 'stsTaskStatus'
+-- * 'stsrqTaskStatus'
 data SetTaskStatus = SetTaskStatus'
-    { _stsErrorStackTrace :: !(Maybe Text)
-    , _stsErrorId         :: !(Maybe Text)
-    , _stsErrorMessage    :: !(Maybe Text)
-    , _stsTaskId          :: !Text
-    , _stsTaskStatus      :: !TaskStatus
+    { _stsrqErrorStackTrace :: !(Maybe Text)
+    , _stsrqErrorId         :: !(Maybe Text)
+    , _stsrqErrorMessage    :: !(Maybe Text)
+    , _stsrqTaskId          :: !Text
+    , _stsrqTaskStatus      :: !TaskStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTaskStatus' smart constructor.
 setTaskStatus :: Text -> TaskStatus -> SetTaskStatus
 setTaskStatus pTaskId pTaskStatus =
     SetTaskStatus'
-    { _stsErrorStackTrace = Nothing
-    , _stsErrorId = Nothing
-    , _stsErrorMessage = Nothing
-    , _stsTaskId = pTaskId
-    , _stsTaskStatus = pTaskStatus
+    { _stsrqErrorStackTrace = Nothing
+    , _stsrqErrorId = Nothing
+    , _stsrqErrorMessage = Nothing
+    , _stsrqTaskId = pTaskId
+    , _stsrqTaskStatus = pTaskStatus
     }
 
 -- | If an error occurred during the task, this value specifies the stack
 -- trace associated with the error. This value is set on the physical
 -- attempt object. It is used to display error information to the user. The
 -- web service does not parse this value.
-stsErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
-stsErrorStackTrace = lens _stsErrorStackTrace (\ s a -> s{_stsErrorStackTrace = a});
+stsrqErrorStackTrace :: Lens' SetTaskStatus (Maybe Text)
+stsrqErrorStackTrace = lens _stsrqErrorStackTrace (\ s a -> s{_stsrqErrorStackTrace = a});
 
 -- | If an error occurred during the task, this value specifies the error
 -- code. This value is set on the physical attempt object. It is used to
 -- display error information to the user. It should not start with string
 -- \"Service_\" which is reserved by the system.
-stsErrorId :: Lens' SetTaskStatus (Maybe Text)
-stsErrorId = lens _stsErrorId (\ s a -> s{_stsErrorId = a});
+stsrqErrorId :: Lens' SetTaskStatus (Maybe Text)
+stsrqErrorId = lens _stsrqErrorId (\ s a -> s{_stsrqErrorId = a});
 
 -- | If an error occurred during the task, this value specifies a text
 -- description of the error. This value is set on the physical attempt
 -- object. It is used to display error information to the user. The web
 -- service does not parse this value.
-stsErrorMessage :: Lens' SetTaskStatus (Maybe Text)
-stsErrorMessage = lens _stsErrorMessage (\ s a -> s{_stsErrorMessage = a});
+stsrqErrorMessage :: Lens' SetTaskStatus (Maybe Text)
+stsrqErrorMessage = lens _stsrqErrorMessage (\ s a -> s{_stsrqErrorMessage = a});
 
 -- | The ID of the task assigned to the task runner. This value is provided
 -- in the response for PollForTask.
-stsTaskId :: Lens' SetTaskStatus Text
-stsTaskId = lens _stsTaskId (\ s a -> s{_stsTaskId = a});
+stsrqTaskId :: Lens' SetTaskStatus Text
+stsrqTaskId = lens _stsrqTaskId (\ s a -> s{_stsrqTaskId = a});
 
 -- | If @FINISHED@, the task successfully completed. If @FAILED@, the task
 -- ended unsuccessfully. Preconditions use false.
-stsTaskStatus :: Lens' SetTaskStatus TaskStatus
-stsTaskStatus = lens _stsTaskStatus (\ s a -> s{_stsTaskStatus = a});
+stsrqTaskStatus :: Lens' SetTaskStatus TaskStatus
+stsrqTaskStatus = lens _stsrqTaskStatus (\ s a -> s{_stsrqTaskStatus = a});
 
 instance AWSRequest SetTaskStatus where
         type Sv SetTaskStatus = DataPipeline
@@ -136,11 +136,11 @@ instance ToHeaders SetTaskStatus where
 instance ToJSON SetTaskStatus where
         toJSON SetTaskStatus'{..}
           = object
-              ["errorStackTrace" .= _stsErrorStackTrace,
-               "errorId" .= _stsErrorId,
-               "errorMessage" .= _stsErrorMessage,
-               "taskId" .= _stsTaskId,
-               "taskStatus" .= _stsTaskStatus]
+              ["errorStackTrace" .= _stsrqErrorStackTrace,
+               "errorId" .= _stsrqErrorId,
+               "errorMessage" .= _stsrqErrorMessage,
+               "taskId" .= _stsrqTaskId,
+               "taskStatus" .= _stsrqTaskStatus]
 
 instance ToPath SetTaskStatus where
         toPath = const "/"
@@ -154,18 +154,18 @@ instance ToQuery SetTaskStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stsrStatus'
+-- * 'stsrsStatus'
 newtype SetTaskStatusResponse = SetTaskStatusResponse'
-    { _stsrStatus :: Int
+    { _stsrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTaskStatusResponse' smart constructor.
 setTaskStatusResponse :: Int -> SetTaskStatusResponse
 setTaskStatusResponse pStatus =
     SetTaskStatusResponse'
-    { _stsrStatus = pStatus
+    { _stsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-stsrStatus :: Lens' SetTaskStatusResponse Int
-stsrStatus = lens _stsrStatus (\ s a -> s{_stsrStatus = a});
+stsrsStatus :: Lens' SetTaskStatusResponse Int
+stsrsStatus = lens _stsrsStatus (\ s a -> s{_stsrsStatus = a});

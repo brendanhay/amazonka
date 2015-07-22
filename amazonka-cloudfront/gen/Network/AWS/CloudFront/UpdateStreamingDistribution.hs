@@ -27,18 +27,18 @@ module Network.AWS.CloudFront.UpdateStreamingDistribution
     -- ** Request constructor
     , updateStreamingDistribution
     -- ** Request lenses
-    , usdIfMatch
-    , usdStreamingDistributionConfig
-    , usdId
+    , usdrqIfMatch
+    , usdrqStreamingDistributionConfig
+    , usdrqId
 
     -- * Response
     , UpdateStreamingDistributionResponse
     -- ** Response constructor
     , updateStreamingDistributionResponse
     -- ** Response lenses
-    , usdrETag
-    , usdrStreamingDistribution
-    , usdrStatus
+    , usdrsETag
+    , usdrsStreamingDistribution
+    , usdrsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usdIfMatch'
+-- * 'usdrqIfMatch'
 --
--- * 'usdStreamingDistributionConfig'
+-- * 'usdrqStreamingDistributionConfig'
 --
--- * 'usdId'
+-- * 'usdrqId'
 data UpdateStreamingDistribution = UpdateStreamingDistribution'
-    { _usdIfMatch                     :: !(Maybe Text)
-    , _usdStreamingDistributionConfig :: !StreamingDistributionConfig
-    , _usdId                          :: !Text
+    { _usdrqIfMatch                     :: !(Maybe Text)
+    , _usdrqStreamingDistributionConfig :: !StreamingDistributionConfig
+    , _usdrqId                          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStreamingDistribution' smart constructor.
 updateStreamingDistribution :: StreamingDistributionConfig -> Text -> UpdateStreamingDistribution
 updateStreamingDistribution pStreamingDistributionConfig pId =
     UpdateStreamingDistribution'
-    { _usdIfMatch = Nothing
-    , _usdStreamingDistributionConfig = pStreamingDistributionConfig
-    , _usdId = pId
+    { _usdrqIfMatch = Nothing
+    , _usdrqStreamingDistributionConfig = pStreamingDistributionConfig
+    , _usdrqId = pId
     }
 
 -- | The value of the ETag header you received when retrieving the streaming
 -- distribution\'s configuration. For example: E2QWRUHAPOMQZL.
-usdIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
-usdIfMatch = lens _usdIfMatch (\ s a -> s{_usdIfMatch = a});
+usdrqIfMatch :: Lens' UpdateStreamingDistribution (Maybe Text)
+usdrqIfMatch = lens _usdrqIfMatch (\ s a -> s{_usdrqIfMatch = a});
 
 -- | The streaming distribution\'s configuration information.
-usdStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
-usdStreamingDistributionConfig = lens _usdStreamingDistributionConfig (\ s a -> s{_usdStreamingDistributionConfig = a});
+usdrqStreamingDistributionConfig :: Lens' UpdateStreamingDistribution StreamingDistributionConfig
+usdrqStreamingDistributionConfig = lens _usdrqStreamingDistributionConfig (\ s a -> s{_usdrqStreamingDistributionConfig = a});
 
 -- | The streaming distribution\'s id.
-usdId :: Lens' UpdateStreamingDistribution Text
-usdId = lens _usdId (\ s a -> s{_usdId = a});
+usdrqId :: Lens' UpdateStreamingDistribution Text
+usdrqId = lens _usdrqId (\ s a -> s{_usdrqId = a});
 
 instance AWSRequest UpdateStreamingDistribution where
         type Sv UpdateStreamingDistribution = CloudFront
@@ -102,17 +102,17 @@ instance ToElement UpdateStreamingDistribution where
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}StreamingDistributionConfig"
               .
-              _usdStreamingDistributionConfig
+              _usdrqStreamingDistributionConfig
 
 instance ToHeaders UpdateStreamingDistribution where
         toHeaders UpdateStreamingDistribution'{..}
-          = mconcat ["If-Match" =# _usdIfMatch]
+          = mconcat ["If-Match" =# _usdrqIfMatch]
 
 instance ToPath UpdateStreamingDistribution where
         toPath UpdateStreamingDistribution'{..}
           = mconcat
               ["/2015-04-17/streaming-distribution/",
-               toText _usdId, "/config"]
+               toText _usdrqId, "/config"]
 
 instance ToQuery UpdateStreamingDistribution where
         toQuery = const mempty
@@ -123,34 +123,34 @@ instance ToQuery UpdateStreamingDistribution where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usdrETag'
+-- * 'usdrsETag'
 --
--- * 'usdrStreamingDistribution'
+-- * 'usdrsStreamingDistribution'
 --
--- * 'usdrStatus'
+-- * 'usdrsStatus'
 data UpdateStreamingDistributionResponse = UpdateStreamingDistributionResponse'
-    { _usdrETag                  :: !(Maybe Text)
-    , _usdrStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _usdrStatus                :: !Int
+    { _usdrsETag                  :: !(Maybe Text)
+    , _usdrsStreamingDistribution :: !(Maybe StreamingDistribution)
+    , _usdrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStreamingDistributionResponse' smart constructor.
 updateStreamingDistributionResponse :: Int -> UpdateStreamingDistributionResponse
 updateStreamingDistributionResponse pStatus =
     UpdateStreamingDistributionResponse'
-    { _usdrETag = Nothing
-    , _usdrStreamingDistribution = Nothing
-    , _usdrStatus = pStatus
+    { _usdrsETag = Nothing
+    , _usdrsStreamingDistribution = Nothing
+    , _usdrsStatus = pStatus
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-usdrETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
-usdrETag = lens _usdrETag (\ s a -> s{_usdrETag = a});
+usdrsETag :: Lens' UpdateStreamingDistributionResponse (Maybe Text)
+usdrsETag = lens _usdrsETag (\ s a -> s{_usdrsETag = a});
 
 -- | The streaming distribution\'s information.
-usdrStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
-usdrStreamingDistribution = lens _usdrStreamingDistribution (\ s a -> s{_usdrStreamingDistribution = a});
+usdrsStreamingDistribution :: Lens' UpdateStreamingDistributionResponse (Maybe StreamingDistribution)
+usdrsStreamingDistribution = lens _usdrsStreamingDistribution (\ s a -> s{_usdrsStreamingDistribution = a});
 
 -- | FIXME: Undocumented member.
-usdrStatus :: Lens' UpdateStreamingDistributionResponse Int
-usdrStatus = lens _usdrStatus (\ s a -> s{_usdrStatus = a});
+usdrsStatus :: Lens' UpdateStreamingDistributionResponse Int
+usdrsStatus = lens _usdrsStatus (\ s a -> s{_usdrsStatus = a});

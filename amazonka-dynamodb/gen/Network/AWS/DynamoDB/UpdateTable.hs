@@ -46,19 +46,19 @@ module Network.AWS.DynamoDB.UpdateTable
     -- ** Request constructor
     , updateTable
     -- ** Request lenses
-    , utProvisionedThroughput
-    , utAttributeDefinitions
-    , utGlobalSecondaryIndexUpdates
-    , utStreamSpecification
-    , utTableName
+    , utrqProvisionedThroughput
+    , utrqAttributeDefinitions
+    , utrqGlobalSecondaryIndexUpdates
+    , utrqStreamSpecification
+    , utrqTableName
 
     -- * Response
     , UpdateTableResponse
     -- ** Response constructor
     , updateTableResponse
     -- ** Response lenses
-    , utrTableDescription
-    , utrStatus
+    , utrsTableDescription
+    , utrsStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -72,43 +72,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'utProvisionedThroughput'
+-- * 'utrqProvisionedThroughput'
 --
--- * 'utAttributeDefinitions'
+-- * 'utrqAttributeDefinitions'
 --
--- * 'utGlobalSecondaryIndexUpdates'
+-- * 'utrqGlobalSecondaryIndexUpdates'
 --
--- * 'utStreamSpecification'
+-- * 'utrqStreamSpecification'
 --
--- * 'utTableName'
+-- * 'utrqTableName'
 data UpdateTable = UpdateTable'
-    { _utProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
-    , _utAttributeDefinitions        :: !(Maybe [AttributeDefinition])
-    , _utGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
-    , _utStreamSpecification         :: !(Maybe StreamSpecification)
-    , _utTableName                   :: !Text
+    { _utrqProvisionedThroughput       :: !(Maybe ProvisionedThroughput)
+    , _utrqAttributeDefinitions        :: !(Maybe [AttributeDefinition])
+    , _utrqGlobalSecondaryIndexUpdates :: !(Maybe [GlobalSecondaryIndexUpdate])
+    , _utrqStreamSpecification         :: !(Maybe StreamSpecification)
+    , _utrqTableName                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTable' smart constructor.
 updateTable :: Text -> UpdateTable
 updateTable pTableName =
     UpdateTable'
-    { _utProvisionedThroughput = Nothing
-    , _utAttributeDefinitions = Nothing
-    , _utGlobalSecondaryIndexUpdates = Nothing
-    , _utStreamSpecification = Nothing
-    , _utTableName = pTableName
+    { _utrqProvisionedThroughput = Nothing
+    , _utrqAttributeDefinitions = Nothing
+    , _utrqGlobalSecondaryIndexUpdates = Nothing
+    , _utrqStreamSpecification = Nothing
+    , _utrqTableName = pTableName
     }
 
 -- | FIXME: Undocumented member.
-utProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
-utProvisionedThroughput = lens _utProvisionedThroughput (\ s a -> s{_utProvisionedThroughput = a});
+utrqProvisionedThroughput :: Lens' UpdateTable (Maybe ProvisionedThroughput)
+utrqProvisionedThroughput = lens _utrqProvisionedThroughput (\ s a -> s{_utrqProvisionedThroughput = a});
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes. If you are adding a new global secondary index to the table,
 -- /AttributeDefinitions/ must include the key element(s) of the new index.
-utAttributeDefinitions :: Lens' UpdateTable [AttributeDefinition]
-utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDefinitions = a}) . _Default;
+utrqAttributeDefinitions :: Lens' UpdateTable [AttributeDefinition]
+utrqAttributeDefinitions = lens _utrqAttributeDefinitions (\ s a -> s{_utrqAttributeDefinitions = a}) . _Default;
 
 -- | An array of one or more global secondary indexes for the table. For each
 -- index in the array, you can request one action:
@@ -123,20 +123,20 @@ utAttributeDefinitions = lens _utAttributeDefinitions (\ s a -> s{_utAttributeDe
 -- For more information, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html Managing Global Secondary Indexes>
 -- in the /Amazon DynamoDB Developer Guide/.
-utGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
-utGlobalSecondaryIndexUpdates = lens _utGlobalSecondaryIndexUpdates (\ s a -> s{_utGlobalSecondaryIndexUpdates = a}) . _Default;
+utrqGlobalSecondaryIndexUpdates :: Lens' UpdateTable [GlobalSecondaryIndexUpdate]
+utrqGlobalSecondaryIndexUpdates = lens _utrqGlobalSecondaryIndexUpdates (\ s a -> s{_utrqGlobalSecondaryIndexUpdates = a}) . _Default;
 
 -- | Represents the DynamoDB Streams configuration for the table.
 --
 -- You will receive a /ResourceInUseException/ if you attempt to enable a
 -- stream on a table that already has a stream, or if you attempt to
 -- disable a stream on a table which does not have a stream.
-utStreamSpecification :: Lens' UpdateTable (Maybe StreamSpecification)
-utStreamSpecification = lens _utStreamSpecification (\ s a -> s{_utStreamSpecification = a});
+utrqStreamSpecification :: Lens' UpdateTable (Maybe StreamSpecification)
+utrqStreamSpecification = lens _utrqStreamSpecification (\ s a -> s{_utrqStreamSpecification = a});
 
 -- | The name of the table to be updated.
-utTableName :: Lens' UpdateTable Text
-utTableName = lens _utTableName (\ s a -> s{_utTableName = a});
+utrqTableName :: Lens' UpdateTable Text
+utrqTableName = lens _utrqTableName (\ s a -> s{_utrqTableName = a});
 
 instance AWSRequest UpdateTable where
         type Sv UpdateTable = DynamoDB
@@ -160,12 +160,13 @@ instance ToHeaders UpdateTable where
 instance ToJSON UpdateTable where
         toJSON UpdateTable'{..}
           = object
-              ["ProvisionedThroughput" .= _utProvisionedThroughput,
-               "AttributeDefinitions" .= _utAttributeDefinitions,
+              ["ProvisionedThroughput" .=
+                 _utrqProvisionedThroughput,
+               "AttributeDefinitions" .= _utrqAttributeDefinitions,
                "GlobalSecondaryIndexUpdates" .=
-                 _utGlobalSecondaryIndexUpdates,
-               "StreamSpecification" .= _utStreamSpecification,
-               "TableName" .= _utTableName]
+                 _utrqGlobalSecondaryIndexUpdates,
+               "StreamSpecification" .= _utrqStreamSpecification,
+               "TableName" .= _utrqTableName]
 
 instance ToPath UpdateTable where
         toPath = const "/"
@@ -179,26 +180,26 @@ instance ToQuery UpdateTable where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'utrTableDescription'
+-- * 'utrsTableDescription'
 --
--- * 'utrStatus'
+-- * 'utrsStatus'
 data UpdateTableResponse = UpdateTableResponse'
-    { _utrTableDescription :: !(Maybe TableDescription)
-    , _utrStatus           :: !Int
+    { _utrsTableDescription :: !(Maybe TableDescription)
+    , _utrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTableResponse' smart constructor.
 updateTableResponse :: Int -> UpdateTableResponse
 updateTableResponse pStatus =
     UpdateTableResponse'
-    { _utrTableDescription = Nothing
-    , _utrStatus = pStatus
+    { _utrsTableDescription = Nothing
+    , _utrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-utrTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
-utrTableDescription = lens _utrTableDescription (\ s a -> s{_utrTableDescription = a});
+utrsTableDescription :: Lens' UpdateTableResponse (Maybe TableDescription)
+utrsTableDescription = lens _utrsTableDescription (\ s a -> s{_utrsTableDescription = a});
 
 -- | FIXME: Undocumented member.
-utrStatus :: Lens' UpdateTableResponse Int
-utrStatus = lens _utrStatus (\ s a -> s{_utrStatus = a});
+utrsStatus :: Lens' UpdateTableResponse Int
+utrsStatus = lens _utrsStatus (\ s a -> s{_utrsStatus = a});

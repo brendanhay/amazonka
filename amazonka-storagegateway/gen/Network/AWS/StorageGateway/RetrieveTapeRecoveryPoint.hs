@@ -35,16 +35,16 @@ module Network.AWS.StorageGateway.RetrieveTapeRecoveryPoint
     -- ** Request constructor
     , retrieveTapeRecoveryPoint
     -- ** Request lenses
-    , rtrpTapeARN
-    , rtrpGatewayARN
+    , rtrprqTapeARN
+    , rtrprqGatewayARN
 
     -- * Response
     , RetrieveTapeRecoveryPointResponse
     -- ** Response constructor
     , retrieveTapeRecoveryPointResponse
     -- ** Response lenses
-    , rtrprTapeARN
-    , rtrprStatus
+    , rtrprsTapeARN
+    , rtrprsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -58,30 +58,30 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrpTapeARN'
+-- * 'rtrprqTapeARN'
 --
--- * 'rtrpGatewayARN'
+-- * 'rtrprqGatewayARN'
 data RetrieveTapeRecoveryPoint = RetrieveTapeRecoveryPoint'
-    { _rtrpTapeARN    :: !Text
-    , _rtrpGatewayARN :: !Text
+    { _rtrprqTapeARN    :: !Text
+    , _rtrprqGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveTapeRecoveryPoint' smart constructor.
 retrieveTapeRecoveryPoint :: Text -> Text -> RetrieveTapeRecoveryPoint
 retrieveTapeRecoveryPoint pTapeARN pGatewayARN =
     RetrieveTapeRecoveryPoint'
-    { _rtrpTapeARN = pTapeARN
-    , _rtrpGatewayARN = pGatewayARN
+    { _rtrprqTapeARN = pTapeARN
+    , _rtrprqGatewayARN = pGatewayARN
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which you want to
 -- retrieve the recovery point.
-rtrpTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
-rtrpTapeARN = lens _rtrpTapeARN (\ s a -> s{_rtrpTapeARN = a});
+rtrprqTapeARN :: Lens' RetrieveTapeRecoveryPoint Text
+rtrprqTapeARN = lens _rtrprqTapeARN (\ s a -> s{_rtrprqTapeARN = a});
 
 -- | FIXME: Undocumented member.
-rtrpGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
-rtrpGatewayARN = lens _rtrpGatewayARN (\ s a -> s{_rtrpGatewayARN = a});
+rtrprqGatewayARN :: Lens' RetrieveTapeRecoveryPoint Text
+rtrprqGatewayARN = lens _rtrprqGatewayARN (\ s a -> s{_rtrprqGatewayARN = a});
 
 instance AWSRequest RetrieveTapeRecoveryPoint where
         type Sv RetrieveTapeRecoveryPoint = StorageGateway
@@ -107,8 +107,8 @@ instance ToHeaders RetrieveTapeRecoveryPoint where
 instance ToJSON RetrieveTapeRecoveryPoint where
         toJSON RetrieveTapeRecoveryPoint'{..}
           = object
-              ["TapeARN" .= _rtrpTapeARN,
-               "GatewayARN" .= _rtrpGatewayARN]
+              ["TapeARN" .= _rtrprqTapeARN,
+               "GatewayARN" .= _rtrprqGatewayARN]
 
 instance ToPath RetrieveTapeRecoveryPoint where
         toPath = const "/"
@@ -122,27 +122,27 @@ instance ToQuery RetrieveTapeRecoveryPoint where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrprTapeARN'
+-- * 'rtrprsTapeARN'
 --
--- * 'rtrprStatus'
+-- * 'rtrprsStatus'
 data RetrieveTapeRecoveryPointResponse = RetrieveTapeRecoveryPointResponse'
-    { _rtrprTapeARN :: !(Maybe Text)
-    , _rtrprStatus  :: !Int
+    { _rtrprsTapeARN :: !(Maybe Text)
+    , _rtrprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveTapeRecoveryPointResponse' smart constructor.
 retrieveTapeRecoveryPointResponse :: Int -> RetrieveTapeRecoveryPointResponse
 retrieveTapeRecoveryPointResponse pStatus =
     RetrieveTapeRecoveryPointResponse'
-    { _rtrprTapeARN = Nothing
-    , _rtrprStatus = pStatus
+    { _rtrprsTapeARN = Nothing
+    , _rtrprsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which the
 -- recovery point was retrieved.
-rtrprTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
-rtrprTapeARN = lens _rtrprTapeARN (\ s a -> s{_rtrprTapeARN = a});
+rtrprsTapeARN :: Lens' RetrieveTapeRecoveryPointResponse (Maybe Text)
+rtrprsTapeARN = lens _rtrprsTapeARN (\ s a -> s{_rtrprsTapeARN = a});
 
 -- | FIXME: Undocumented member.
-rtrprStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
-rtrprStatus = lens _rtrprStatus (\ s a -> s{_rtrprStatus = a});
+rtrprsStatus :: Lens' RetrieveTapeRecoveryPointResponse Int
+rtrprsStatus = lens _rtrprsStatus (\ s a -> s{_rtrprsStatus = a});

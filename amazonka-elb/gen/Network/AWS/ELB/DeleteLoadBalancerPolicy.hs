@@ -28,15 +28,15 @@ module Network.AWS.ELB.DeleteLoadBalancerPolicy
     -- ** Request constructor
     , deleteLoadBalancerPolicy
     -- ** Request lenses
-    , delLoadBalancerName
-    , delPolicyName
+    , drqLoadBalancerName
+    , drqPolicyName
 
     -- * Response
     , DeleteLoadBalancerPolicyResponse
     -- ** Response constructor
     , deleteLoadBalancerPolicyResponse
     -- ** Response lenses
-    , dStatus
+    , drsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delLoadBalancerName'
+-- * 'drqLoadBalancerName'
 --
--- * 'delPolicyName'
+-- * 'drqPolicyName'
 data DeleteLoadBalancerPolicy = DeleteLoadBalancerPolicy'
-    { _delLoadBalancerName :: !Text
-    , _delPolicyName       :: !Text
+    { _drqLoadBalancerName :: !Text
+    , _drqPolicyName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerPolicy' smart constructor.
 deleteLoadBalancerPolicy :: Text -> Text -> DeleteLoadBalancerPolicy
 deleteLoadBalancerPolicy pLoadBalancerName pPolicyName =
     DeleteLoadBalancerPolicy'
-    { _delLoadBalancerName = pLoadBalancerName
-    , _delPolicyName = pPolicyName
+    { _drqLoadBalancerName = pLoadBalancerName
+    , _drqPolicyName = pPolicyName
     }
 
 -- | The name of the load balancer.
-delLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
-delLoadBalancerName = lens _delLoadBalancerName (\ s a -> s{_delLoadBalancerName = a});
+drqLoadBalancerName :: Lens' DeleteLoadBalancerPolicy Text
+drqLoadBalancerName = lens _drqLoadBalancerName (\ s a -> s{_drqLoadBalancerName = a});
 
 -- | The name of the policy.
-delPolicyName :: Lens' DeleteLoadBalancerPolicy Text
-delPolicyName = lens _delPolicyName (\ s a -> s{_delPolicyName = a});
+drqPolicyName :: Lens' DeleteLoadBalancerPolicy Text
+drqPolicyName = lens _drqPolicyName (\ s a -> s{_drqPolicyName = a});
 
 instance AWSRequest DeleteLoadBalancerPolicy where
         type Sv DeleteLoadBalancerPolicy = ELB
@@ -97,25 +97,25 @@ instance ToQuery DeleteLoadBalancerPolicy where
               ["Action" =:
                  ("DeleteLoadBalancerPolicy" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _delLoadBalancerName,
-               "PolicyName" =: _delPolicyName]
+               "LoadBalancerName" =: _drqLoadBalancerName,
+               "PolicyName" =: _drqPolicyName]
 
 -- | /See:/ 'deleteLoadBalancerPolicyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dStatus'
+-- * 'drsStatus'
 newtype DeleteLoadBalancerPolicyResponse = DeleteLoadBalancerPolicyResponse'
-    { _dStatus :: Int
+    { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerPolicyResponse' smart constructor.
 deleteLoadBalancerPolicyResponse :: Int -> DeleteLoadBalancerPolicyResponse
 deleteLoadBalancerPolicyResponse pStatus =
     DeleteLoadBalancerPolicyResponse'
-    { _dStatus = pStatus
+    { _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
-dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+drsStatus :: Lens' DeleteLoadBalancerPolicyResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

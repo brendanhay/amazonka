@@ -36,21 +36,21 @@ module Network.AWS.Route53.ListHostedZones
     -- ** Request constructor
     , listHostedZones
     -- ** Request lenses
-    , lhzDelegationSetId
-    , lhzMaxItems
-    , lhzMarker
+    , lhzrqDelegationSetId
+    , lhzrqMaxItems
+    , lhzrqMarker
 
     -- * Response
     , ListHostedZonesResponse
     -- ** Response constructor
     , listHostedZonesResponse
     -- ** Response lenses
-    , lhzrNextMarker
-    , lhzrStatus
-    , lhzrHostedZones
-    , lhzrMarker
-    , lhzrIsTruncated
-    , lhzrMaxItems
+    , lhzrsNextMarker
+    , lhzrsStatus
+    , lhzrsHostedZones
+    , lhzrsMarker
+    , lhzrsIsTruncated
+    , lhzrsMaxItems
     ) where
 
 import           Network.AWS.Pager
@@ -77,47 +77,47 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhzDelegationSetId'
+-- * 'lhzrqDelegationSetId'
 --
--- * 'lhzMaxItems'
+-- * 'lhzrqMaxItems'
 --
--- * 'lhzMarker'
+-- * 'lhzrqMarker'
 data ListHostedZones = ListHostedZones'
-    { _lhzDelegationSetId :: !(Maybe Text)
-    , _lhzMaxItems        :: !(Maybe Text)
-    , _lhzMarker          :: !(Maybe Text)
+    { _lhzrqDelegationSetId :: !(Maybe Text)
+    , _lhzrqMaxItems        :: !(Maybe Text)
+    , _lhzrqMarker          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZones' smart constructor.
 listHostedZones :: ListHostedZones
 listHostedZones =
     ListHostedZones'
-    { _lhzDelegationSetId = Nothing
-    , _lhzMaxItems = Nothing
-    , _lhzMarker = Nothing
+    { _lhzrqDelegationSetId = Nothing
+    , _lhzrqMaxItems = Nothing
+    , _lhzrqMarker = Nothing
     }
 
 -- | FIXME: Undocumented member.
-lhzDelegationSetId :: Lens' ListHostedZones (Maybe Text)
-lhzDelegationSetId = lens _lhzDelegationSetId (\ s a -> s{_lhzDelegationSetId = a});
+lhzrqDelegationSetId :: Lens' ListHostedZones (Maybe Text)
+lhzrqDelegationSetId = lens _lhzrqDelegationSetId (\ s a -> s{_lhzrqDelegationSetId = a});
 
 -- | Specify the maximum number of hosted zones to return per page of
 -- results.
-lhzMaxItems :: Lens' ListHostedZones (Maybe Text)
-lhzMaxItems = lens _lhzMaxItems (\ s a -> s{_lhzMaxItems = a});
+lhzrqMaxItems :: Lens' ListHostedZones (Maybe Text)
+lhzrqMaxItems = lens _lhzrqMaxItems (\ s a -> s{_lhzrqMaxItems = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in
 -- the @marker@ parameter to get the next page of results.
-lhzMarker :: Lens' ListHostedZones (Maybe Text)
-lhzMarker = lens _lhzMarker (\ s a -> s{_lhzMarker = a});
+lhzrqMarker :: Lens' ListHostedZones (Maybe Text)
+lhzrqMarker = lens _lhzrqMarker (\ s a -> s{_lhzrqMarker = a});
 
 instance AWSPager ListHostedZones where
         page rq rs
-          | stop (rs ^. lhzrIsTruncated) = Nothing
-          | isNothing (rs ^. lhzrNextMarker) = Nothing
+          | stop (rs ^. lhzrsIsTruncated) = Nothing
+          | isNothing (rs ^. lhzrsNextMarker) = Nothing
           | otherwise =
-            Just $ rq & lhzMarker .~ rs ^. lhzrNextMarker
+            Just $ rq & lhzrqMarker .~ rs ^. lhzrsNextMarker
 
 instance AWSRequest ListHostedZones where
         type Sv ListHostedZones = Route53
@@ -143,8 +143,9 @@ instance ToPath ListHostedZones where
 instance ToQuery ListHostedZones where
         toQuery ListHostedZones'{..}
           = mconcat
-              ["delegationsetid" =: _lhzDelegationSetId,
-               "maxitems" =: _lhzMaxItems, "marker" =: _lhzMarker]
+              ["delegationsetid" =: _lhzrqDelegationSetId,
+               "maxitems" =: _lhzrqMaxItems,
+               "marker" =: _lhzrqMarker]
 
 -- | A complex type that contains the response for the request.
 --
@@ -152,67 +153,67 @@ instance ToQuery ListHostedZones where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhzrNextMarker'
+-- * 'lhzrsNextMarker'
 --
--- * 'lhzrStatus'
+-- * 'lhzrsStatus'
 --
--- * 'lhzrHostedZones'
+-- * 'lhzrsHostedZones'
 --
--- * 'lhzrMarker'
+-- * 'lhzrsMarker'
 --
--- * 'lhzrIsTruncated'
+-- * 'lhzrsIsTruncated'
 --
--- * 'lhzrMaxItems'
+-- * 'lhzrsMaxItems'
 data ListHostedZonesResponse = ListHostedZonesResponse'
-    { _lhzrNextMarker  :: !(Maybe Text)
-    , _lhzrStatus      :: !Int
-    , _lhzrHostedZones :: ![HostedZone]
-    , _lhzrMarker      :: !Text
-    , _lhzrIsTruncated :: !Bool
-    , _lhzrMaxItems    :: !Text
+    { _lhzrsNextMarker  :: !(Maybe Text)
+    , _lhzrsStatus      :: !Int
+    , _lhzrsHostedZones :: ![HostedZone]
+    , _lhzrsMarker      :: !Text
+    , _lhzrsIsTruncated :: !Bool
+    , _lhzrsMaxItems    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZonesResponse' smart constructor.
 listHostedZonesResponse :: Int -> Text -> Bool -> Text -> ListHostedZonesResponse
 listHostedZonesResponse pStatus pMarker pIsTruncated pMaxItems =
     ListHostedZonesResponse'
-    { _lhzrNextMarker = Nothing
-    , _lhzrStatus = pStatus
-    , _lhzrHostedZones = mempty
-    , _lhzrMarker = pMarker
-    , _lhzrIsTruncated = pIsTruncated
-    , _lhzrMaxItems = pMaxItems
+    { _lhzrsNextMarker = Nothing
+    , _lhzrsStatus = pStatus
+    , _lhzrsHostedZones = mempty
+    , _lhzrsMarker = pMarker
+    , _lhzrsIsTruncated = pIsTruncated
+    , _lhzrsMaxItems = pMaxItems
     }
 
 -- | Indicates where to continue listing hosted zones. If
 -- ListHostedZonesResponse$IsTruncated is @true@, make another request to
 -- @ListHostedZones@ and include the value of the @NextMarker@ element in
 -- the @Marker@ element to get the next page of results.
-lhzrNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
-lhzrNextMarker = lens _lhzrNextMarker (\ s a -> s{_lhzrNextMarker = a});
+lhzrsNextMarker :: Lens' ListHostedZonesResponse (Maybe Text)
+lhzrsNextMarker = lens _lhzrsNextMarker (\ s a -> s{_lhzrsNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lhzrStatus :: Lens' ListHostedZonesResponse Int
-lhzrStatus = lens _lhzrStatus (\ s a -> s{_lhzrStatus = a});
+lhzrsStatus :: Lens' ListHostedZonesResponse Int
+lhzrsStatus = lens _lhzrsStatus (\ s a -> s{_lhzrsStatus = a});
 
 -- | A complex type that contains information about the hosted zones
 -- associated with the current AWS account.
-lhzrHostedZones :: Lens' ListHostedZonesResponse [HostedZone]
-lhzrHostedZones = lens _lhzrHostedZones (\ s a -> s{_lhzrHostedZones = a});
+lhzrsHostedZones :: Lens' ListHostedZonesResponse [HostedZone]
+lhzrsHostedZones = lens _lhzrsHostedZones (\ s a -> s{_lhzrsHostedZones = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in
 -- the @marker@ parameter to get the next page of results.
-lhzrMarker :: Lens' ListHostedZonesResponse Text
-lhzrMarker = lens _lhzrMarker (\ s a -> s{_lhzrMarker = a});
+lhzrsMarker :: Lens' ListHostedZonesResponse Text
+lhzrsMarker = lens _lhzrsMarker (\ s a -> s{_lhzrsMarker = a});
 
 -- | A flag indicating whether there are more hosted zones to be listed. If
 -- your results were truncated, you can make a follow-up request for the
 -- next page of results by using the @Marker@ element.
 --
 -- Valid Values: @true@ | @false@
-lhzrIsTruncated :: Lens' ListHostedZonesResponse Bool
-lhzrIsTruncated = lens _lhzrIsTruncated (\ s a -> s{_lhzrIsTruncated = a});
+lhzrsIsTruncated :: Lens' ListHostedZonesResponse Bool
+lhzrsIsTruncated = lens _lhzrsIsTruncated (\ s a -> s{_lhzrsIsTruncated = a});
 
 -- | The maximum number of hosted zones to be included in the response body.
 -- If the number of hosted zones associated with this AWS account exceeds
@@ -220,5 +221,5 @@ lhzrIsTruncated = lens _lhzrIsTruncated (\ s a -> s{_lhzrIsTruncated = a});
 -- response is @true@. Call @ListHostedZones@ again and specify the value
 -- of ListHostedZonesResponse$NextMarker in the
 -- ListHostedZonesRequest$Marker element to get the next page of results.
-lhzrMaxItems :: Lens' ListHostedZonesResponse Text
-lhzrMaxItems = lens _lhzrMaxItems (\ s a -> s{_lhzrMaxItems = a});
+lhzrsMaxItems :: Lens' ListHostedZonesResponse Text
+lhzrsMaxItems = lens _lhzrsMaxItems (\ s a -> s{_lhzrsMaxItems = a});

@@ -32,15 +32,15 @@ module Network.AWS.DirectConnect.ConfirmPublicVirtualInterface
     -- ** Request constructor
     , confirmPublicVirtualInterface
     -- ** Request lenses
-    , conVirtualInterfaceId
+    , crqVirtualInterfaceId
 
     -- * Response
     , ConfirmPublicVirtualInterfaceResponse
     -- ** Response constructor
     , confirmPublicVirtualInterfaceResponse
     -- ** Response lenses
-    , conVirtualInterfaceState
-    , conStatus
+    , crsVirtualInterfaceState
+    , crsStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'conVirtualInterfaceId'
+-- * 'crqVirtualInterfaceId'
 newtype ConfirmPublicVirtualInterface = ConfirmPublicVirtualInterface'
-    { _conVirtualInterfaceId :: Text
+    { _crqVirtualInterfaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPublicVirtualInterface' smart constructor.
 confirmPublicVirtualInterface :: Text -> ConfirmPublicVirtualInterface
 confirmPublicVirtualInterface pVirtualInterfaceId =
     ConfirmPublicVirtualInterface'
-    { _conVirtualInterfaceId = pVirtualInterfaceId
+    { _crqVirtualInterfaceId = pVirtualInterfaceId
     }
 
 -- | FIXME: Undocumented member.
-conVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
-conVirtualInterfaceId = lens _conVirtualInterfaceId (\ s a -> s{_conVirtualInterfaceId = a});
+crqVirtualInterfaceId :: Lens' ConfirmPublicVirtualInterface Text
+crqVirtualInterfaceId = lens _crqVirtualInterfaceId (\ s a -> s{_crqVirtualInterfaceId = a});
 
 instance AWSRequest ConfirmPublicVirtualInterface
          where
@@ -98,7 +98,7 @@ instance ToHeaders ConfirmPublicVirtualInterface
 instance ToJSON ConfirmPublicVirtualInterface where
         toJSON ConfirmPublicVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _conVirtualInterfaceId]
+              ["virtualInterfaceId" .= _crqVirtualInterfaceId]
 
 instance ToPath ConfirmPublicVirtualInterface where
         toPath = const "/"
@@ -112,26 +112,26 @@ instance ToQuery ConfirmPublicVirtualInterface where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'conVirtualInterfaceState'
+-- * 'crsVirtualInterfaceState'
 --
--- * 'conStatus'
+-- * 'crsStatus'
 data ConfirmPublicVirtualInterfaceResponse = ConfirmPublicVirtualInterfaceResponse'
-    { _conVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _conStatus                :: !Int
+    { _crsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
+    , _crsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPublicVirtualInterfaceResponse' smart constructor.
 confirmPublicVirtualInterfaceResponse :: Int -> ConfirmPublicVirtualInterfaceResponse
 confirmPublicVirtualInterfaceResponse pStatus =
     ConfirmPublicVirtualInterfaceResponse'
-    { _conVirtualInterfaceState = Nothing
-    , _conStatus = pStatus
+    { _crsVirtualInterfaceState = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-conVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-conVirtualInterfaceState = lens _conVirtualInterfaceState (\ s a -> s{_conVirtualInterfaceState = a});
+crsVirtualInterfaceState :: Lens' ConfirmPublicVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+crsVirtualInterfaceState = lens _crsVirtualInterfaceState (\ s a -> s{_crsVirtualInterfaceState = a});
 
 -- | FIXME: Undocumented member.
-conStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
-conStatus = lens _conStatus (\ s a -> s{_conStatus = a});
+crsStatus :: Lens' ConfirmPublicVirtualInterfaceResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

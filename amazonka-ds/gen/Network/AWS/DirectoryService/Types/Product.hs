@@ -27,29 +27,29 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attValue'
+-- * 'aValue'
 --
--- * 'attName'
+-- * 'aName'
 data Attribute = Attribute'
-    { _attValue :: !(Maybe Text)
-    , _attName  :: !(Maybe Text)
+    { _aValue :: !(Maybe Text)
+    , _aName  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Attribute' smart constructor.
 attribute :: Attribute
 attribute =
     Attribute'
-    { _attValue = Nothing
-    , _attName = Nothing
+    { _aValue = Nothing
+    , _aName = Nothing
     }
 
 -- | The value of the attribute.
-attValue :: Lens' Attribute (Maybe Text)
-attValue = lens _attValue (\ s a -> s{_attValue = a});
+aValue :: Lens' Attribute (Maybe Text)
+aValue = lens _aValue (\ s a -> s{_aValue = a});
 
 -- | The name of the attribute.
-attName :: Lens' Attribute (Maybe Text)
-attName = lens _attName (\ s a -> s{_attName = a});
+aName :: Lens' Attribute (Maybe Text)
+aName = lens _aName (\ s a -> s{_aName = a});
 
 instance FromJSON Attribute where
         parseJSON
@@ -59,7 +59,7 @@ instance FromJSON Attribute where
 
 instance ToJSON Attribute where
         toJSON Attribute'{..}
-          = object ["Value" .= _attValue, "Name" .= _attName]
+          = object ["Value" .= _aValue, "Name" .= _aName]
 
 -- | Contains information about a computer account in a directory.
 --
@@ -67,38 +67,38 @@ instance ToJSON Attribute where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'comComputerId'
+-- * 'cComputerId'
 --
--- * 'comComputerAttributes'
+-- * 'cComputerAttributes'
 --
--- * 'comComputerName'
+-- * 'cComputerName'
 data Computer = Computer'
-    { _comComputerId         :: !(Maybe Text)
-    , _comComputerAttributes :: !(Maybe [Attribute])
-    , _comComputerName       :: !(Maybe Text)
+    { _cComputerId         :: !(Maybe Text)
+    , _cComputerAttributes :: !(Maybe [Attribute])
+    , _cComputerName       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Computer' smart constructor.
 computer :: Computer
 computer =
     Computer'
-    { _comComputerId = Nothing
-    , _comComputerAttributes = Nothing
-    , _comComputerName = Nothing
+    { _cComputerId = Nothing
+    , _cComputerAttributes = Nothing
+    , _cComputerName = Nothing
     }
 
 -- | The identifier of the computer.
-comComputerId :: Lens' Computer (Maybe Text)
-comComputerId = lens _comComputerId (\ s a -> s{_comComputerId = a});
+cComputerId :: Lens' Computer (Maybe Text)
+cComputerId = lens _cComputerId (\ s a -> s{_cComputerId = a});
 
 -- | An array of Attribute objects that contain the LDAP attributes that
 -- belong to the computer account.
-comComputerAttributes :: Lens' Computer [Attribute]
-comComputerAttributes = lens _comComputerAttributes (\ s a -> s{_comComputerAttributes = a}) . _Default;
+cComputerAttributes :: Lens' Computer [Attribute]
+cComputerAttributes = lens _cComputerAttributes (\ s a -> s{_cComputerAttributes = a}) . _Default;
 
 -- | The computer name.
-comComputerName :: Lens' Computer (Maybe Text)
-comComputerName = lens _comComputerName (\ s a -> s{_comComputerName = a});
+cComputerName :: Lens' Computer (Maybe Text)
+cComputerName = lens _cComputerName (\ s a -> s{_cComputerName = a});
 
 instance FromJSON Computer where
         parseJSON
@@ -724,61 +724,61 @@ instance ToJSON RadiusSettings where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'snaDirectoryId'
+-- * 'sDirectoryId'
 --
--- * 'snaStatus'
+-- * 'sStatus'
 --
--- * 'snaStartTime'
+-- * 'sStartTime'
 --
--- * 'snaName'
+-- * 'sName'
 --
--- * 'snaType'
+-- * 'sType'
 --
--- * 'snaSnapshotId'
+-- * 'sSnapshotId'
 data Snapshot = Snapshot'
-    { _snaDirectoryId :: !(Maybe Text)
-    , _snaStatus      :: !(Maybe SnapshotStatus)
-    , _snaStartTime   :: !(Maybe POSIX)
-    , _snaName        :: !(Maybe Text)
-    , _snaType        :: !(Maybe SnapshotType)
-    , _snaSnapshotId  :: !(Maybe Text)
+    { _sDirectoryId :: !(Maybe Text)
+    , _sStatus      :: !(Maybe SnapshotStatus)
+    , _sStartTime   :: !(Maybe POSIX)
+    , _sName        :: !(Maybe Text)
+    , _sType        :: !(Maybe SnapshotType)
+    , _sSnapshotId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
 snapshot =
     Snapshot'
-    { _snaDirectoryId = Nothing
-    , _snaStatus = Nothing
-    , _snaStartTime = Nothing
-    , _snaName = Nothing
-    , _snaType = Nothing
-    , _snaSnapshotId = Nothing
+    { _sDirectoryId = Nothing
+    , _sStatus = Nothing
+    , _sStartTime = Nothing
+    , _sName = Nothing
+    , _sType = Nothing
+    , _sSnapshotId = Nothing
     }
 
 -- | The directory identifier.
-snaDirectoryId :: Lens' Snapshot (Maybe Text)
-snaDirectoryId = lens _snaDirectoryId (\ s a -> s{_snaDirectoryId = a});
+sDirectoryId :: Lens' Snapshot (Maybe Text)
+sDirectoryId = lens _sDirectoryId (\ s a -> s{_sDirectoryId = a});
 
 -- | The snapshot status.
-snaStatus :: Lens' Snapshot (Maybe SnapshotStatus)
-snaStatus = lens _snaStatus (\ s a -> s{_snaStatus = a});
+sStatus :: Lens' Snapshot (Maybe SnapshotStatus)
+sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
 -- | The date and time that the snapshot was taken.
-snaStartTime :: Lens' Snapshot (Maybe UTCTime)
-snaStartTime = lens _snaStartTime (\ s a -> s{_snaStartTime = a}) . mapping _Time;
+sStartTime :: Lens' Snapshot (Maybe UTCTime)
+sStartTime = lens _sStartTime (\ s a -> s{_sStartTime = a}) . mapping _Time;
 
 -- | The descriptive name of the snapshot.
-snaName :: Lens' Snapshot (Maybe Text)
-snaName = lens _snaName (\ s a -> s{_snaName = a});
+sName :: Lens' Snapshot (Maybe Text)
+sName = lens _sName (\ s a -> s{_sName = a});
 
 -- | The snapshot type.
-snaType :: Lens' Snapshot (Maybe SnapshotType)
-snaType = lens _snaType (\ s a -> s{_snaType = a});
+sType :: Lens' Snapshot (Maybe SnapshotType)
+sType = lens _sType (\ s a -> s{_sType = a});
 
 -- | The snapshot identifier.
-snaSnapshotId :: Lens' Snapshot (Maybe Text)
-snaSnapshotId = lens _snaSnapshotId (\ s a -> s{_snaSnapshotId = a});
+sSnapshotId :: Lens' Snapshot (Maybe Text)
+sSnapshotId = lens _sSnapshotId (\ s a -> s{_sSnapshotId = a});
 
 instance FromJSON Snapshot where
         parseJSON

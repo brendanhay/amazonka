@@ -41,18 +41,18 @@ module Network.AWS.KMS.Decrypt
     -- ** Request constructor
     , decrypt
     -- ** Request lenses
-    , decEncryptionContext
-    , decGrantTokens
-    , decCiphertextBlob
+    , drqEncryptionContext
+    , drqGrantTokens
+    , drqCiphertextBlob
 
     -- * Response
     , DecryptResponse
     -- ** Response constructor
     , decryptResponse
     -- ** Response lenses
-    , drKeyId
-    , drPlaintext
-    , drStatus
+    , drsKeyId
+    , drsPlaintext
+    , drsStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -64,41 +64,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decEncryptionContext'
+-- * 'drqEncryptionContext'
 --
--- * 'decGrantTokens'
+-- * 'drqGrantTokens'
 --
--- * 'decCiphertextBlob'
+-- * 'drqCiphertextBlob'
 data Decrypt = Decrypt'
-    { _decEncryptionContext :: !(Maybe (Map Text Text))
-    , _decGrantTokens       :: !(Maybe [Text])
-    , _decCiphertextBlob    :: !Base64
+    { _drqEncryptionContext :: !(Maybe (Map Text Text))
+    , _drqGrantTokens       :: !(Maybe [Text])
+    , _drqCiphertextBlob    :: !Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Decrypt' smart constructor.
 decrypt :: Base64 -> Decrypt
 decrypt pCiphertextBlob =
     Decrypt'
-    { _decEncryptionContext = Nothing
-    , _decGrantTokens = Nothing
-    , _decCiphertextBlob = pCiphertextBlob
+    { _drqEncryptionContext = Nothing
+    , _drqGrantTokens = Nothing
+    , _drqCiphertextBlob = pCiphertextBlob
     }
 
 -- | The encryption context. If this was specified in the Encrypt function,
 -- it must be specified here or the decryption operation will fail. For
 -- more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-decEncryptionContext :: Lens' Decrypt (HashMap Text Text)
-decEncryptionContext = lens _decEncryptionContext (\ s a -> s{_decEncryptionContext = a}) . _Default . _Map;
+drqEncryptionContext :: Lens' Decrypt (HashMap Text Text)
+drqEncryptionContext = lens _drqEncryptionContext (\ s a -> s{_drqEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-decGrantTokens :: Lens' Decrypt [Text]
-decGrantTokens = lens _decGrantTokens (\ s a -> s{_decGrantTokens = a}) . _Default;
+drqGrantTokens :: Lens' Decrypt [Text]
+drqGrantTokens = lens _drqGrantTokens (\ s a -> s{_drqGrantTokens = a}) . _Default;
 
 -- | Ciphertext to be decrypted. The blob includes metadata.
-decCiphertextBlob :: Lens' Decrypt Base64
-decCiphertextBlob = lens _decCiphertextBlob (\ s a -> s{_decCiphertextBlob = a});
+drqCiphertextBlob :: Lens' Decrypt Base64
+drqCiphertextBlob = lens _drqCiphertextBlob (\ s a -> s{_drqCiphertextBlob = a});
 
 instance AWSRequest Decrypt where
         type Sv Decrypt = KMS
@@ -123,9 +123,9 @@ instance ToHeaders Decrypt where
 instance ToJSON Decrypt where
         toJSON Decrypt'{..}
           = object
-              ["EncryptionContext" .= _decEncryptionContext,
-               "GrantTokens" .= _decGrantTokens,
-               "CiphertextBlob" .= _decCiphertextBlob]
+              ["EncryptionContext" .= _drqEncryptionContext,
+               "GrantTokens" .= _drqGrantTokens,
+               "CiphertextBlob" .= _drqCiphertextBlob]
 
 instance ToPath Decrypt where
         toPath = const "/"
@@ -137,36 +137,36 @@ instance ToQuery Decrypt where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drKeyId'
+-- * 'drsKeyId'
 --
--- * 'drPlaintext'
+-- * 'drsPlaintext'
 --
--- * 'drStatus'
+-- * 'drsStatus'
 data DecryptResponse = DecryptResponse'
-    { _drKeyId     :: !(Maybe Text)
-    , _drPlaintext :: !(Maybe (Sensitive Base64))
-    , _drStatus    :: !Int
+    { _drsKeyId     :: !(Maybe Text)
+    , _drsPlaintext :: !(Maybe (Sensitive Base64))
+    , _drsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DecryptResponse' smart constructor.
 decryptResponse :: Int -> DecryptResponse
 decryptResponse pStatus =
     DecryptResponse'
-    { _drKeyId = Nothing
-    , _drPlaintext = Nothing
-    , _drStatus = pStatus
+    { _drsKeyId = Nothing
+    , _drsPlaintext = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | ARN of the key used to perform the decryption. This value is returned if
 -- no errors are encountered during the operation.
-drKeyId :: Lens' DecryptResponse (Maybe Text)
-drKeyId = lens _drKeyId (\ s a -> s{_drKeyId = a});
+drsKeyId :: Lens' DecryptResponse (Maybe Text)
+drsKeyId = lens _drsKeyId (\ s a -> s{_drsKeyId = a});
 
 -- | Decrypted plaintext data. This value may not be returned if the customer
 -- master key is not available or if you didn\'t have permission to use it.
-drPlaintext :: Lens' DecryptResponse (Maybe Base64)
-drPlaintext = lens _drPlaintext (\ s a -> s{_drPlaintext = a}) . mapping _Sensitive;
+drsPlaintext :: Lens' DecryptResponse (Maybe Base64)
+drsPlaintext = lens _drsPlaintext (\ s a -> s{_drsPlaintext = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-drStatus :: Lens' DecryptResponse Int
-drStatus = lens _drStatus (\ s a -> s{_drStatus = a});
+drsStatus :: Lens' DecryptResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

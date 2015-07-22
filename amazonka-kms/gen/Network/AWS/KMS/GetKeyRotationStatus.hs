@@ -28,15 +28,15 @@ module Network.AWS.KMS.GetKeyRotationStatus
     -- ** Request constructor
     , getKeyRotationStatus
     -- ** Request lenses
-    , gkrsKeyId
+    , gkrsrqKeyId
 
     -- * Response
     , GetKeyRotationStatusResponse
     -- ** Response constructor
     , getKeyRotationStatusResponse
     -- ** Response lenses
-    , gkrsrKeyRotationEnabled
-    , gkrsrStatus
+    , gkrsrsKeyRotationEnabled
+    , gkrsrsStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -48,16 +48,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gkrsKeyId'
+-- * 'gkrsrqKeyId'
 newtype GetKeyRotationStatus = GetKeyRotationStatus'
-    { _gkrsKeyId :: Text
+    { _gkrsrqKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyRotationStatus' smart constructor.
 getKeyRotationStatus :: Text -> GetKeyRotationStatus
 getKeyRotationStatus pKeyId =
     GetKeyRotationStatus'
-    { _gkrsKeyId = pKeyId
+    { _gkrsrqKeyId = pKeyId
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -67,8 +67,8 @@ getKeyRotationStatus pKeyId =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-gkrsKeyId :: Lens' GetKeyRotationStatus Text
-gkrsKeyId = lens _gkrsKeyId (\ s a -> s{_gkrsKeyId = a});
+gkrsrqKeyId :: Lens' GetKeyRotationStatus Text
+gkrsrqKeyId = lens _gkrsrqKeyId (\ s a -> s{_gkrsrqKeyId = a});
 
 instance AWSRequest GetKeyRotationStatus where
         type Sv GetKeyRotationStatus = KMS
@@ -92,7 +92,7 @@ instance ToHeaders GetKeyRotationStatus where
 
 instance ToJSON GetKeyRotationStatus where
         toJSON GetKeyRotationStatus'{..}
-          = object ["KeyId" .= _gkrsKeyId]
+          = object ["KeyId" .= _gkrsrqKeyId]
 
 instance ToPath GetKeyRotationStatus where
         toPath = const "/"
@@ -104,26 +104,26 @@ instance ToQuery GetKeyRotationStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gkrsrKeyRotationEnabled'
+-- * 'gkrsrsKeyRotationEnabled'
 --
--- * 'gkrsrStatus'
+-- * 'gkrsrsStatus'
 data GetKeyRotationStatusResponse = GetKeyRotationStatusResponse'
-    { _gkrsrKeyRotationEnabled :: !(Maybe Bool)
-    , _gkrsrStatus             :: !Int
+    { _gkrsrsKeyRotationEnabled :: !(Maybe Bool)
+    , _gkrsrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetKeyRotationStatusResponse' smart constructor.
 getKeyRotationStatusResponse :: Int -> GetKeyRotationStatusResponse
 getKeyRotationStatusResponse pStatus =
     GetKeyRotationStatusResponse'
-    { _gkrsrKeyRotationEnabled = Nothing
-    , _gkrsrStatus = pStatus
+    { _gkrsrsKeyRotationEnabled = Nothing
+    , _gkrsrsStatus = pStatus
     }
 
 -- | A Boolean value that specifies whether key rotation is enabled.
-gkrsrKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
-gkrsrKeyRotationEnabled = lens _gkrsrKeyRotationEnabled (\ s a -> s{_gkrsrKeyRotationEnabled = a});
+gkrsrsKeyRotationEnabled :: Lens' GetKeyRotationStatusResponse (Maybe Bool)
+gkrsrsKeyRotationEnabled = lens _gkrsrsKeyRotationEnabled (\ s a -> s{_gkrsrsKeyRotationEnabled = a});
 
 -- | FIXME: Undocumented member.
-gkrsrStatus :: Lens' GetKeyRotationStatusResponse Int
-gkrsrStatus = lens _gkrsrStatus (\ s a -> s{_gkrsrStatus = a});
+gkrsrsStatus :: Lens' GetKeyRotationStatusResponse Int
+gkrsrsStatus = lens _gkrsrsStatus (\ s a -> s{_gkrsrsStatus = a});

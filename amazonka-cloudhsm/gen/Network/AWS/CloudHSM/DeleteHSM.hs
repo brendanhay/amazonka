@@ -28,14 +28,14 @@ module Network.AWS.CloudHSM.DeleteHSM
     -- ** Request constructor
     , deleteHSM
     -- ** Request lenses
-    , dhHSMARN
+    , dhrqHSMARN
 
     -- * Response
     , DeleteHSMResponse
     -- ** Response constructor
     , deleteHSMResponse
     -- ** Response lenses
-    , delStatus
+    , dhrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhHSMARN'
+-- * 'dhrqHSMARN'
 newtype DeleteHSM = DeleteHSM'
-    { _dhHSMARN :: Text
+    { _dhrqHSMARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSM' smart constructor.
 deleteHSM :: Text -> DeleteHSM
 deleteHSM pHSMARN =
     DeleteHSM'
-    { _dhHSMARN = pHSMARN
+    { _dhrqHSMARN = pHSMARN
     }
 
 -- | The ARN of the HSM to delete.
-dhHSMARN :: Lens' DeleteHSM Text
-dhHSMARN = lens _dhHSMARN (\ s a -> s{_dhHSMARN = a});
+dhrqHSMARN :: Lens' DeleteHSM Text
+dhrqHSMARN = lens _dhrqHSMARN (\ s a -> s{_dhrqHSMARN = a});
 
 instance AWSRequest DeleteHSM where
         type Sv DeleteHSM = CloudHSM
@@ -85,7 +85,7 @@ instance ToHeaders DeleteHSM where
 
 instance ToJSON DeleteHSM where
         toJSON DeleteHSM'{..}
-          = object ["HsmArn" .= _dhHSMARN]
+          = object ["HsmArn" .= _dhrqHSMARN]
 
 instance ToPath DeleteHSM where
         toPath = const "/"
@@ -99,18 +99,18 @@ instance ToQuery DeleteHSM where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatus'
+-- * 'dhrsStatus'
 newtype DeleteHSMResponse = DeleteHSMResponse'
-    { _delStatus :: Int
+    { _dhrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSMResponse' smart constructor.
 deleteHSMResponse :: Int -> DeleteHSMResponse
 deleteHSMResponse pStatus =
     DeleteHSMResponse'
-    { _delStatus = pStatus
+    { _dhrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteHSMResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+dhrsStatus :: Lens' DeleteHSMResponse Int
+dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});

@@ -28,62 +28,62 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eveUsername'
+-- * 'eUsername'
 --
--- * 'eveEventTime'
+-- * 'eEventTime'
 --
--- * 'eveResources'
+-- * 'eResources'
 --
--- * 'eveCloudTrailEvent'
+-- * 'eCloudTrailEvent'
 --
--- * 'eveEventName'
+-- * 'eEventName'
 --
--- * 'eveEventId'
+-- * 'eEventId'
 data Event = Event'
-    { _eveUsername        :: !(Maybe Text)
-    , _eveEventTime       :: !(Maybe POSIX)
-    , _eveResources       :: !(Maybe [Resource])
-    , _eveCloudTrailEvent :: !(Maybe Text)
-    , _eveEventName       :: !(Maybe Text)
-    , _eveEventId         :: !(Maybe Text)
+    { _eUsername        :: !(Maybe Text)
+    , _eEventTime       :: !(Maybe POSIX)
+    , _eResources       :: !(Maybe [Resource])
+    , _eCloudTrailEvent :: !(Maybe Text)
+    , _eEventName       :: !(Maybe Text)
+    , _eEventId         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Event' smart constructor.
 event :: Event
 event =
     Event'
-    { _eveUsername = Nothing
-    , _eveEventTime = Nothing
-    , _eveResources = Nothing
-    , _eveCloudTrailEvent = Nothing
-    , _eveEventName = Nothing
-    , _eveEventId = Nothing
+    { _eUsername = Nothing
+    , _eEventTime = Nothing
+    , _eResources = Nothing
+    , _eCloudTrailEvent = Nothing
+    , _eEventName = Nothing
+    , _eEventId = Nothing
     }
 
 -- | A user name or role name of the requester that called the API in the
 -- event returned.
-eveUsername :: Lens' Event (Maybe Text)
-eveUsername = lens _eveUsername (\ s a -> s{_eveUsername = a});
+eUsername :: Lens' Event (Maybe Text)
+eUsername = lens _eUsername (\ s a -> s{_eUsername = a});
 
 -- | The date and time of the event returned.
-eveEventTime :: Lens' Event (Maybe UTCTime)
-eveEventTime = lens _eveEventTime (\ s a -> s{_eveEventTime = a}) . mapping _Time;
+eEventTime :: Lens' Event (Maybe UTCTime)
+eEventTime = lens _eEventTime (\ s a -> s{_eEventTime = a}) . mapping _Time;
 
 -- | A list of resources referenced by the event returned.
-eveResources :: Lens' Event [Resource]
-eveResources = lens _eveResources (\ s a -> s{_eveResources = a}) . _Default;
+eResources :: Lens' Event [Resource]
+eResources = lens _eResources (\ s a -> s{_eResources = a}) . _Default;
 
 -- | A JSON string that contains a representation of the event returned.
-eveCloudTrailEvent :: Lens' Event (Maybe Text)
-eveCloudTrailEvent = lens _eveCloudTrailEvent (\ s a -> s{_eveCloudTrailEvent = a});
+eCloudTrailEvent :: Lens' Event (Maybe Text)
+eCloudTrailEvent = lens _eCloudTrailEvent (\ s a -> s{_eCloudTrailEvent = a});
 
 -- | The name of the event returned.
-eveEventName :: Lens' Event (Maybe Text)
-eveEventName = lens _eveEventName (\ s a -> s{_eveEventName = a});
+eEventName :: Lens' Event (Maybe Text)
+eEventName = lens _eEventName (\ s a -> s{_eEventName = a});
 
 -- | The CloudTrail ID of the event returned.
-eveEventId :: Lens' Event (Maybe Text)
-eveEventId = lens _eveEventId (\ s a -> s{_eveEventId = a});
+eEventId :: Lens' Event (Maybe Text)
+eEventId = lens _eEventId (\ s a -> s{_eEventId = a});
 
 instance FromJSON Event where
         parseJSON
@@ -138,20 +138,20 @@ instance ToJSON LookupAttribute where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'resResourceType'
+-- * 'rResourceType'
 --
--- * 'resResourceName'
+-- * 'rResourceName'
 data Resource = Resource'
-    { _resResourceType :: !(Maybe Text)
-    , _resResourceName :: !(Maybe Text)
+    { _rResourceType :: !(Maybe Text)
+    , _rResourceName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Resource' smart constructor.
 resource :: Resource
 resource =
     Resource'
-    { _resResourceType = Nothing
-    , _resResourceName = Nothing
+    { _rResourceType = Nothing
+    , _rResourceName = Nothing
     }
 
 -- | The type of a resource referenced by the event returned. When the
@@ -160,15 +160,15 @@ resource =
 -- __DBInstance__ for RDS, and __AccessKey__ for IAM. For a list of
 -- resource types supported for event lookup, see
 -- <http://docs.aws.amazon.com/awscloudtrail/latest/userguide/lookup_supported_resourcetypes.html Resource Types Supported for Event Lookup>.
-resResourceType :: Lens' Resource (Maybe Text)
-resResourceType = lens _resResourceType (\ s a -> s{_resResourceType = a});
+rResourceType :: Lens' Resource (Maybe Text)
+rResourceType = lens _rResourceType (\ s a -> s{_rResourceType = a});
 
 -- | The name of the resource referenced by the event returned. These are
 -- user-created names whose values will depend on the environment. For
 -- example, the resource name might be \"auto-scaling-test-group\" for an
 -- Auto Scaling Group or \"i-1234567\" for an EC2 Instance.
-resResourceName :: Lens' Resource (Maybe Text)
-resResourceName = lens _resResourceName (\ s a -> s{_resResourceName = a});
+rResourceName :: Lens' Resource (Maybe Text)
+rResourceName = lens _rResourceName (\ s a -> s{_rResourceName = a});
 
 instance FromJSON Resource where
         parseJSON
@@ -183,74 +183,74 @@ instance FromJSON Resource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'traS3KeyPrefix'
+-- * 'tS3KeyPrefix'
 --
--- * 'traSNSTopicName'
+-- * 'tSNSTopicName'
 --
--- * 'traCloudWatchLogsLogGroupARN'
+-- * 'tCloudWatchLogsLogGroupARN'
 --
--- * 'traName'
+-- * 'tName'
 --
--- * 'traIncludeGlobalServiceEvents'
+-- * 'tIncludeGlobalServiceEvents'
 --
--- * 'traCloudWatchLogsRoleARN'
+-- * 'tCloudWatchLogsRoleARN'
 --
--- * 'traS3BucketName'
+-- * 'tS3BucketName'
 data Trail = Trail'
-    { _traS3KeyPrefix                :: !(Maybe Text)
-    , _traSNSTopicName               :: !(Maybe Text)
-    , _traCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _traName                       :: !(Maybe Text)
-    , _traIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _traCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _traS3BucketName               :: !(Maybe Text)
+    { _tS3KeyPrefix                :: !(Maybe Text)
+    , _tSNSTopicName               :: !(Maybe Text)
+    , _tCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _tName                       :: !(Maybe Text)
+    , _tIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _tCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _tS3BucketName               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Trail' smart constructor.
 trail :: Trail
 trail =
     Trail'
-    { _traS3KeyPrefix = Nothing
-    , _traSNSTopicName = Nothing
-    , _traCloudWatchLogsLogGroupARN = Nothing
-    , _traName = Nothing
-    , _traIncludeGlobalServiceEvents = Nothing
-    , _traCloudWatchLogsRoleARN = Nothing
-    , _traS3BucketName = Nothing
+    { _tS3KeyPrefix = Nothing
+    , _tSNSTopicName = Nothing
+    , _tCloudWatchLogsLogGroupARN = Nothing
+    , _tName = Nothing
+    , _tIncludeGlobalServiceEvents = Nothing
+    , _tCloudWatchLogsRoleARN = Nothing
+    , _tS3BucketName = Nothing
     }
 
 -- | Value of the Amazon S3 prefix.
-traS3KeyPrefix :: Lens' Trail (Maybe Text)
-traS3KeyPrefix = lens _traS3KeyPrefix (\ s a -> s{_traS3KeyPrefix = a});
+tS3KeyPrefix :: Lens' Trail (Maybe Text)
+tS3KeyPrefix = lens _tS3KeyPrefix (\ s a -> s{_tS3KeyPrefix = a});
 
 -- | Name of the existing Amazon SNS topic that CloudTrail uses to notify the
 -- account owner when new CloudTrail log files have been delivered.
-traSNSTopicName :: Lens' Trail (Maybe Text)
-traSNSTopicName = lens _traSNSTopicName (\ s a -> s{_traSNSTopicName = a});
+tSNSTopicName :: Lens' Trail (Maybe Text)
+tSNSTopicName = lens _tSNSTopicName (\ s a -> s{_tSNSTopicName = a});
 
 -- | Specifies an Amazon Resource Name (ARN), a unique identifier that
 -- represents the log group to which CloudTrail logs will be delivered.
-traCloudWatchLogsLogGroupARN :: Lens' Trail (Maybe Text)
-traCloudWatchLogsLogGroupARN = lens _traCloudWatchLogsLogGroupARN (\ s a -> s{_traCloudWatchLogsLogGroupARN = a});
+tCloudWatchLogsLogGroupARN :: Lens' Trail (Maybe Text)
+tCloudWatchLogsLogGroupARN = lens _tCloudWatchLogsLogGroupARN (\ s a -> s{_tCloudWatchLogsLogGroupARN = a});
 
 -- | Name of the trail set by calling CreateTrail.
-traName :: Lens' Trail (Maybe Text)
-traName = lens _traName (\ s a -> s{_traName = a});
+tName :: Lens' Trail (Maybe Text)
+tName = lens _tName (\ s a -> s{_tName = a});
 
 -- | Set to __True__ to include AWS API calls from AWS global services such
 -- as IAM. Otherwise, __False__.
-traIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
-traIncludeGlobalServiceEvents = lens _traIncludeGlobalServiceEvents (\ s a -> s{_traIncludeGlobalServiceEvents = a});
+tIncludeGlobalServiceEvents :: Lens' Trail (Maybe Bool)
+tIncludeGlobalServiceEvents = lens _tIncludeGlobalServiceEvents (\ s a -> s{_tIncludeGlobalServiceEvents = a});
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
 -- to a user’s log group.
-traCloudWatchLogsRoleARN :: Lens' Trail (Maybe Text)
-traCloudWatchLogsRoleARN = lens _traCloudWatchLogsRoleARN (\ s a -> s{_traCloudWatchLogsRoleARN = a});
+tCloudWatchLogsRoleARN :: Lens' Trail (Maybe Text)
+tCloudWatchLogsRoleARN = lens _tCloudWatchLogsRoleARN (\ s a -> s{_tCloudWatchLogsRoleARN = a});
 
 -- | Name of the Amazon S3 bucket into which CloudTrail delivers your trail
 -- files.
-traS3BucketName :: Lens' Trail (Maybe Text)
-traS3BucketName = lens _traS3BucketName (\ s a -> s{_traS3BucketName = a});
+tS3BucketName :: Lens' Trail (Maybe Text)
+tS3BucketName = lens _tS3BucketName (\ s a -> s{_tS3BucketName = a});
 
 instance FromJSON Trail where
         parseJSON

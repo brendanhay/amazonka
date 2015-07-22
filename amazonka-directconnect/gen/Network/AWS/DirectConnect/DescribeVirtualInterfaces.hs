@@ -39,16 +39,16 @@ module Network.AWS.DirectConnect.DescribeVirtualInterfaces
     -- ** Request constructor
     , describeVirtualInterfaces
     -- ** Request lenses
-    , dviConnectionId
-    , dviVirtualInterfaceId
+    , dvirqConnectionId
+    , dvirqVirtualInterfaceId
 
     -- * Response
     , DescribeVirtualInterfacesResponse
     -- ** Response constructor
     , describeVirtualInterfacesResponse
     -- ** Response lenses
-    , desVirtualInterfaces
-    , desStatus
+    , dvirsVirtualInterfaces
+    , dvirsStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -62,29 +62,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dviConnectionId'
+-- * 'dvirqConnectionId'
 --
--- * 'dviVirtualInterfaceId'
+-- * 'dvirqVirtualInterfaceId'
 data DescribeVirtualInterfaces = DescribeVirtualInterfaces'
-    { _dviConnectionId       :: !(Maybe Text)
-    , _dviVirtualInterfaceId :: !(Maybe Text)
+    { _dvirqConnectionId       :: !(Maybe Text)
+    , _dvirqVirtualInterfaceId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualInterfaces' smart constructor.
 describeVirtualInterfaces :: DescribeVirtualInterfaces
 describeVirtualInterfaces =
     DescribeVirtualInterfaces'
-    { _dviConnectionId = Nothing
-    , _dviVirtualInterfaceId = Nothing
+    { _dvirqConnectionId = Nothing
+    , _dvirqVirtualInterfaceId = Nothing
     }
 
 -- | FIXME: Undocumented member.
-dviConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dviConnectionId = lens _dviConnectionId (\ s a -> s{_dviConnectionId = a});
+dvirqConnectionId :: Lens' DescribeVirtualInterfaces (Maybe Text)
+dvirqConnectionId = lens _dvirqConnectionId (\ s a -> s{_dvirqConnectionId = a});
 
 -- | FIXME: Undocumented member.
-dviVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
-dviVirtualInterfaceId = lens _dviVirtualInterfaceId (\ s a -> s{_dviVirtualInterfaceId = a});
+dvirqVirtualInterfaceId :: Lens' DescribeVirtualInterfaces (Maybe Text)
+dvirqVirtualInterfaceId = lens _dvirqVirtualInterfaceId (\ s a -> s{_dvirqVirtualInterfaceId = a});
 
 instance AWSRequest DescribeVirtualInterfaces where
         type Sv DescribeVirtualInterfaces = DirectConnect
@@ -111,8 +111,8 @@ instance ToHeaders DescribeVirtualInterfaces where
 instance ToJSON DescribeVirtualInterfaces where
         toJSON DescribeVirtualInterfaces'{..}
           = object
-              ["connectionId" .= _dviConnectionId,
-               "virtualInterfaceId" .= _dviVirtualInterfaceId]
+              ["connectionId" .= _dvirqConnectionId,
+               "virtualInterfaceId" .= _dvirqVirtualInterfaceId]
 
 instance ToPath DescribeVirtualInterfaces where
         toPath = const "/"
@@ -126,26 +126,26 @@ instance ToQuery DescribeVirtualInterfaces where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desVirtualInterfaces'
+-- * 'dvirsVirtualInterfaces'
 --
--- * 'desStatus'
+-- * 'dvirsStatus'
 data DescribeVirtualInterfacesResponse = DescribeVirtualInterfacesResponse'
-    { _desVirtualInterfaces :: !(Maybe [VirtualInterface])
-    , _desStatus            :: !Int
+    { _dvirsVirtualInterfaces :: !(Maybe [VirtualInterface])
+    , _dvirsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualInterfacesResponse' smart constructor.
 describeVirtualInterfacesResponse :: Int -> DescribeVirtualInterfacesResponse
 describeVirtualInterfacesResponse pStatus =
     DescribeVirtualInterfacesResponse'
-    { _desVirtualInterfaces = Nothing
-    , _desStatus = pStatus
+    { _dvirsVirtualInterfaces = Nothing
+    , _dvirsStatus = pStatus
     }
 
 -- | A list of virtual interfaces.
-desVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
-desVirtualInterfaces = lens _desVirtualInterfaces (\ s a -> s{_desVirtualInterfaces = a}) . _Default;
+dvirsVirtualInterfaces :: Lens' DescribeVirtualInterfacesResponse [VirtualInterface]
+dvirsVirtualInterfaces = lens _dvirsVirtualInterfaces (\ s a -> s{_dvirsVirtualInterfaces = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeVirtualInterfacesResponse Int
-desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+dvirsStatus :: Lens' DescribeVirtualInterfacesResponse Int
+dvirsStatus = lens _dvirsStatus (\ s a -> s{_dvirsStatus = a});

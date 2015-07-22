@@ -283,63 +283,63 @@ instance FromXML AttachedPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'groPath'
+-- * 'gPath'
 --
--- * 'groGroupName'
+-- * 'gGroupName'
 --
--- * 'groGroupId'
+-- * 'gGroupId'
 --
--- * 'groARN'
+-- * 'gARN'
 --
--- * 'groCreateDate'
+-- * 'gCreateDate'
 data Group = Group'
-    { _groPath       :: !Text
-    , _groGroupName  :: !Text
-    , _groGroupId    :: !Text
-    , _groARN        :: !Text
-    , _groCreateDate :: !ISO8601
+    { _gPath       :: !Text
+    , _gGroupName  :: !Text
+    , _gGroupId    :: !Text
+    , _gARN        :: !Text
+    , _gCreateDate :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Group' smart constructor.
 group' :: Text -> Text -> Text -> Text -> UTCTime -> Group
 group' pPath pGroupName pGroupId pARN pCreateDate =
     Group'
-    { _groPath = pPath
-    , _groGroupName = pGroupName
-    , _groGroupId = pGroupId
-    , _groARN = pARN
-    , _groCreateDate = _Time # pCreateDate
+    { _gPath = pPath
+    , _gGroupName = pGroupName
+    , _gGroupId = pGroupId
+    , _gARN = pARN
+    , _gCreateDate = _Time # pCreateDate
     }
 
 -- | The path to the group. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-groPath :: Lens' Group Text
-groPath = lens _groPath (\ s a -> s{_groPath = a});
+gPath :: Lens' Group Text
+gPath = lens _gPath (\ s a -> s{_gPath = a});
 
 -- | The friendly name that identifies the group.
-groGroupName :: Lens' Group Text
-groGroupName = lens _groGroupName (\ s a -> s{_groGroupName = a});
+gGroupName :: Lens' Group Text
+gGroupName = lens _gGroupName (\ s a -> s{_gGroupName = a});
 
 -- | The stable and unique string identifying the group. For more information
 -- about IDs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-groGroupId :: Lens' Group Text
-groGroupId = lens _groGroupId (\ s a -> s{_groGroupId = a});
+gGroupId :: Lens' Group Text
+gGroupId = lens _gGroupId (\ s a -> s{_gGroupId = a});
 
 -- | The Amazon Resource Name (ARN) specifying the group. For more
 -- information about ARNs and how to use them in policies, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-groARN :: Lens' Group Text
-groARN = lens _groARN (\ s a -> s{_groARN = a});
+gARN :: Lens' Group Text
+gARN = lens _gARN (\ s a -> s{_gARN = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- group was created.
-groCreateDate :: Lens' Group UTCTime
-groCreateDate = lens _groCreateDate (\ s a -> s{_groCreateDate = a}) . _Time;
+gCreateDate :: Lens' Group UTCTime
+gCreateDate = lens _gCreateDate (\ s a -> s{_gCreateDate = a}) . _Time;
 
 instance FromXML Group where
         parseXML x
@@ -939,69 +939,69 @@ instance FromXML PasswordPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'polPolicyName'
+-- * 'pPolicyName'
 --
--- * 'polARN'
+-- * 'pARN'
 --
--- * 'polPath'
+-- * 'pPath'
 --
--- * 'polUpdateDate'
+-- * 'pUpdateDate'
 --
--- * 'polPolicyId'
+-- * 'pPolicyId'
 --
--- * 'polCreateDate'
+-- * 'pCreateDate'
 --
--- * 'polIsAttachable'
+-- * 'pIsAttachable'
 --
--- * 'polDefaultVersionId'
+-- * 'pDefaultVersionId'
 --
--- * 'polAttachmentCount'
+-- * 'pAttachmentCount'
 --
--- * 'polDescription'
+-- * 'pDescription'
 data Policy = Policy'
-    { _polPolicyName       :: !(Maybe Text)
-    , _polARN              :: !(Maybe Text)
-    , _polPath             :: !(Maybe Text)
-    , _polUpdateDate       :: !(Maybe ISO8601)
-    , _polPolicyId         :: !(Maybe Text)
-    , _polCreateDate       :: !(Maybe ISO8601)
-    , _polIsAttachable     :: !(Maybe Bool)
-    , _polDefaultVersionId :: !(Maybe Text)
-    , _polAttachmentCount  :: !(Maybe Int)
-    , _polDescription      :: !(Maybe Text)
+    { _pPolicyName       :: !(Maybe Text)
+    , _pARN              :: !(Maybe Text)
+    , _pPath             :: !(Maybe Text)
+    , _pUpdateDate       :: !(Maybe ISO8601)
+    , _pPolicyId         :: !(Maybe Text)
+    , _pCreateDate       :: !(Maybe ISO8601)
+    , _pIsAttachable     :: !(Maybe Bool)
+    , _pDefaultVersionId :: !(Maybe Text)
+    , _pAttachmentCount  :: !(Maybe Int)
+    , _pDescription      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Policy' smart constructor.
 policy :: Policy
 policy =
     Policy'
-    { _polPolicyName = Nothing
-    , _polARN = Nothing
-    , _polPath = Nothing
-    , _polUpdateDate = Nothing
-    , _polPolicyId = Nothing
-    , _polCreateDate = Nothing
-    , _polIsAttachable = Nothing
-    , _polDefaultVersionId = Nothing
-    , _polAttachmentCount = Nothing
-    , _polDescription = Nothing
+    { _pPolicyName = Nothing
+    , _pARN = Nothing
+    , _pPath = Nothing
+    , _pUpdateDate = Nothing
+    , _pPolicyId = Nothing
+    , _pCreateDate = Nothing
+    , _pIsAttachable = Nothing
+    , _pDefaultVersionId = Nothing
+    , _pAttachmentCount = Nothing
+    , _pDescription = Nothing
     }
 
 -- | The friendly name (not ARN) identifying the policy.
-polPolicyName :: Lens' Policy (Maybe Text)
-polPolicyName = lens _polPolicyName (\ s a -> s{_polPolicyName = a});
+pPolicyName :: Lens' Policy (Maybe Text)
+pPolicyName = lens _pPolicyName (\ s a -> s{_pPolicyName = a});
 
 -- | FIXME: Undocumented member.
-polARN :: Lens' Policy (Maybe Text)
-polARN = lens _polARN (\ s a -> s{_polARN = a});
+pARN :: Lens' Policy (Maybe Text)
+pARN = lens _pARN (\ s a -> s{_pARN = a});
 
 -- | The path to the policy.
 --
 -- For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-polPath :: Lens' Policy (Maybe Text)
-polPath = lens _polPath (\ s a -> s{_polPath = a});
+pPath :: Lens' Policy (Maybe Text)
+pPath = lens _pPath (\ s a -> s{_pPath = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
@@ -1011,44 +1011,44 @@ polPath = lens _polPath (\ s a -> s{_polPath = a});
 -- time when the policy was created. When a policy has more than one
 -- version, this field contains the date and time when the most recent
 -- policy version was created.
-polUpdateDate :: Lens' Policy (Maybe UTCTime)
-polUpdateDate = lens _polUpdateDate (\ s a -> s{_polUpdateDate = a}) . mapping _Time;
+pUpdateDate :: Lens' Policy (Maybe UTCTime)
+pUpdateDate = lens _pUpdateDate (\ s a -> s{_pUpdateDate = a}) . mapping _Time;
 
 -- | The stable and unique string identifying the policy.
 --
 -- For more information about IDs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-polPolicyId :: Lens' Policy (Maybe Text)
-polPolicyId = lens _polPolicyId (\ s a -> s{_polPolicyId = a});
+pPolicyId :: Lens' Policy (Maybe Text)
+pPolicyId = lens _pPolicyId (\ s a -> s{_pPolicyId = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- policy was created.
-polCreateDate :: Lens' Policy (Maybe UTCTime)
-polCreateDate = lens _polCreateDate (\ s a -> s{_polCreateDate = a}) . mapping _Time;
+pCreateDate :: Lens' Policy (Maybe UTCTime)
+pCreateDate = lens _pCreateDate (\ s a -> s{_pCreateDate = a}) . mapping _Time;
 
 -- | Specifies whether the policy can be attached to an IAM user, group, or
 -- role.
-polIsAttachable :: Lens' Policy (Maybe Bool)
-polIsAttachable = lens _polIsAttachable (\ s a -> s{_polIsAttachable = a});
+pIsAttachable :: Lens' Policy (Maybe Bool)
+pIsAttachable = lens _pIsAttachable (\ s a -> s{_pIsAttachable = a});
 
 -- | The identifier for the version of the policy that is set as the default
 -- version.
-polDefaultVersionId :: Lens' Policy (Maybe Text)
-polDefaultVersionId = lens _polDefaultVersionId (\ s a -> s{_polDefaultVersionId = a});
+pDefaultVersionId :: Lens' Policy (Maybe Text)
+pDefaultVersionId = lens _pDefaultVersionId (\ s a -> s{_pDefaultVersionId = a});
 
 -- | The number of entities (users, groups, and roles) that the policy is
 -- attached to.
-polAttachmentCount :: Lens' Policy (Maybe Int)
-polAttachmentCount = lens _polAttachmentCount (\ s a -> s{_polAttachmentCount = a});
+pAttachmentCount :: Lens' Policy (Maybe Int)
+pAttachmentCount = lens _pAttachmentCount (\ s a -> s{_pAttachmentCount = a});
 
 -- | A friendly description of the policy.
 --
 -- This element is included in the response to the GetPolicy operation. It
 -- is not included in the response to the ListPolicies operation.
-polDescription :: Lens' Policy (Maybe Text)
-polDescription = lens _polDescription (\ s a -> s{_polDescription = a});
+pDescription :: Lens' Policy (Maybe Text)
+pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
 
 instance FromXML Policy where
         parseXML x
@@ -1283,71 +1283,71 @@ instance FromXML PolicyVersion where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rolAssumeRolePolicyDocument'
+-- * 'rAssumeRolePolicyDocument'
 --
--- * 'rolPath'
+-- * 'rPath'
 --
--- * 'rolRoleName'
+-- * 'rRoleName'
 --
--- * 'rolRoleId'
+-- * 'rRoleId'
 --
--- * 'rolARN'
+-- * 'rARN'
 --
--- * 'rolCreateDate'
+-- * 'rCreateDate'
 data Role = Role'
-    { _rolAssumeRolePolicyDocument :: !(Maybe Text)
-    , _rolPath                     :: !Text
-    , _rolRoleName                 :: !Text
-    , _rolRoleId                   :: !Text
-    , _rolARN                      :: !Text
-    , _rolCreateDate               :: !ISO8601
+    { _rAssumeRolePolicyDocument :: !(Maybe Text)
+    , _rPath                     :: !Text
+    , _rRoleName                 :: !Text
+    , _rRoleId                   :: !Text
+    , _rARN                      :: !Text
+    , _rCreateDate               :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Role' smart constructor.
 role :: Text -> Text -> Text -> Text -> UTCTime -> Role
 role pPath pRoleName pRoleId pARN pCreateDate =
     Role'
-    { _rolAssumeRolePolicyDocument = Nothing
-    , _rolPath = pPath
-    , _rolRoleName = pRoleName
-    , _rolRoleId = pRoleId
-    , _rolARN = pARN
-    , _rolCreateDate = _Time # pCreateDate
+    { _rAssumeRolePolicyDocument = Nothing
+    , _rPath = pPath
+    , _rRoleName = pRoleName
+    , _rRoleId = pRoleId
+    , _rARN = pARN
+    , _rCreateDate = _Time # pCreateDate
     }
 
 -- | The policy that grants an entity permission to assume the role.
-rolAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
-rolAssumeRolePolicyDocument = lens _rolAssumeRolePolicyDocument (\ s a -> s{_rolAssumeRolePolicyDocument = a});
+rAssumeRolePolicyDocument :: Lens' Role (Maybe Text)
+rAssumeRolePolicyDocument = lens _rAssumeRolePolicyDocument (\ s a -> s{_rAssumeRolePolicyDocument = a});
 
 -- | The path to the role. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-rolPath :: Lens' Role Text
-rolPath = lens _rolPath (\ s a -> s{_rolPath = a});
+rPath :: Lens' Role Text
+rPath = lens _rPath (\ s a -> s{_rPath = a});
 
 -- | The friendly name that identifies the role.
-rolRoleName :: Lens' Role Text
-rolRoleName = lens _rolRoleName (\ s a -> s{_rolRoleName = a});
+rRoleName :: Lens' Role Text
+rRoleName = lens _rRoleName (\ s a -> s{_rRoleName = a});
 
 -- | The stable and unique string identifying the role. For more information
 -- about IDs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-rolRoleId :: Lens' Role Text
-rolRoleId = lens _rolRoleId (\ s a -> s{_rolRoleId = a});
+rRoleId :: Lens' Role Text
+rRoleId = lens _rRoleId (\ s a -> s{_rRoleId = a});
 
 -- | The Amazon Resource Name (ARN) specifying the role. For more information
 -- about ARNs and how to use them in policies, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-rolARN :: Lens' Role Text
-rolARN = lens _rolARN (\ s a -> s{_rolARN = a});
+rARN :: Lens' Role Text
+rARN = lens _rARN (\ s a -> s{_rARN = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- role was created.
-rolCreateDate :: Lens' Role UTCTime
-rolCreateDate = lens _rolCreateDate (\ s a -> s{_rolCreateDate = a}) . _Time;
+rCreateDate :: Lens' Role UTCTime
+rCreateDate = lens _rCreateDate (\ s a -> s{_rCreateDate = a}) . _Time;
 
 instance FromXML Role where
         parseXML x
@@ -1667,38 +1667,38 @@ instance FromXML SSHPublicKeyMetadata where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'serCertificateChain'
+-- * 'sCertificateChain'
 --
--- * 'serServerCertificateMetadata'
+-- * 'sServerCertificateMetadata'
 --
--- * 'serCertificateBody'
+-- * 'sCertificateBody'
 data ServerCertificate = ServerCertificate'
-    { _serCertificateChain          :: !(Maybe Text)
-    , _serServerCertificateMetadata :: !ServerCertificateMetadata
-    , _serCertificateBody           :: !Text
+    { _sCertificateChain          :: !(Maybe Text)
+    , _sServerCertificateMetadata :: !ServerCertificateMetadata
+    , _sCertificateBody           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ServerCertificate' smart constructor.
 serverCertificate :: ServerCertificateMetadata -> Text -> ServerCertificate
 serverCertificate pServerCertificateMetadata pCertificateBody =
     ServerCertificate'
-    { _serCertificateChain = Nothing
-    , _serServerCertificateMetadata = pServerCertificateMetadata
-    , _serCertificateBody = pCertificateBody
+    { _sCertificateChain = Nothing
+    , _sServerCertificateMetadata = pServerCertificateMetadata
+    , _sCertificateBody = pCertificateBody
     }
 
 -- | The contents of the public key certificate chain.
-serCertificateChain :: Lens' ServerCertificate (Maybe Text)
-serCertificateChain = lens _serCertificateChain (\ s a -> s{_serCertificateChain = a});
+sCertificateChain :: Lens' ServerCertificate (Maybe Text)
+sCertificateChain = lens _sCertificateChain (\ s a -> s{_sCertificateChain = a});
 
 -- | The meta information of the server certificate, such as its name, path,
 -- ID, and ARN.
-serServerCertificateMetadata :: Lens' ServerCertificate ServerCertificateMetadata
-serServerCertificateMetadata = lens _serServerCertificateMetadata (\ s a -> s{_serServerCertificateMetadata = a});
+sServerCertificateMetadata :: Lens' ServerCertificate ServerCertificateMetadata
+sServerCertificateMetadata = lens _sServerCertificateMetadata (\ s a -> s{_sServerCertificateMetadata = a});
 
 -- | The contents of the public key certificate.
-serCertificateBody :: Lens' ServerCertificate Text
-serCertificateBody = lens _serCertificateBody (\ s a -> s{_serCertificateBody = a});
+sCertificateBody :: Lens' ServerCertificate Text
+sCertificateBody = lens _sCertificateBody (\ s a -> s{_sCertificateBody = a});
 
 instance FromXML ServerCertificate where
         parseXML x
@@ -1872,36 +1872,36 @@ instance FromXML SigningCertificate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usePasswordLastUsed'
+-- * 'uPasswordLastUsed'
 --
--- * 'usePath'
+-- * 'uPath'
 --
--- * 'useUserName'
+-- * 'uUserName'
 --
--- * 'useUserId'
+-- * 'uUserId'
 --
--- * 'useARN'
+-- * 'uARN'
 --
--- * 'useCreateDate'
+-- * 'uCreateDate'
 data User = User'
-    { _usePasswordLastUsed :: !(Maybe ISO8601)
-    , _usePath             :: !Text
-    , _useUserName         :: !Text
-    , _useUserId           :: !Text
-    , _useARN              :: !Text
-    , _useCreateDate       :: !ISO8601
+    { _uPasswordLastUsed :: !(Maybe ISO8601)
+    , _uPath             :: !Text
+    , _uUserName         :: !Text
+    , _uUserId           :: !Text
+    , _uARN              :: !Text
+    , _uCreateDate       :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'User' smart constructor.
 user :: Text -> Text -> Text -> Text -> UTCTime -> User
 user pPath pUserName pUserId pARN pCreateDate =
     User'
-    { _usePasswordLastUsed = Nothing
-    , _usePath = pPath
-    , _useUserName = pUserName
-    , _useUserId = pUserId
-    , _useARN = pARN
-    , _useCreateDate = _Time # pCreateDate
+    { _uPasswordLastUsed = Nothing
+    , _uPath = pPath
+    , _uUserName = pUserName
+    , _uUserId = pUserId
+    , _uARN = pARN
+    , _uCreateDate = _Time # pCreateDate
     }
 
 -- | The date and time, in
@@ -1921,38 +1921,38 @@ user pPath pUserName pUserId pARN pCreateDate =
 -- -   there is no sign-in data associated with the user
 --
 -- This value is returned only in the GetUser and ListUsers actions.
-usePasswordLastUsed :: Lens' User (Maybe UTCTime)
-usePasswordLastUsed = lens _usePasswordLastUsed (\ s a -> s{_usePasswordLastUsed = a}) . mapping _Time;
+uPasswordLastUsed :: Lens' User (Maybe UTCTime)
+uPasswordLastUsed = lens _uPasswordLastUsed (\ s a -> s{_uPasswordLastUsed = a}) . mapping _Time;
 
 -- | The path to the user. For more information about paths, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-usePath :: Lens' User Text
-usePath = lens _usePath (\ s a -> s{_usePath = a});
+uPath :: Lens' User Text
+uPath = lens _uPath (\ s a -> s{_uPath = a});
 
 -- | The friendly name identifying the user.
-useUserName :: Lens' User Text
-useUserName = lens _useUserName (\ s a -> s{_useUserName = a});
+uUserName :: Lens' User Text
+uUserName = lens _uUserName (\ s a -> s{_uUserName = a});
 
 -- | The stable and unique string identifying the user. For more information
 -- about IDs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-useUserId :: Lens' User Text
-useUserId = lens _useUserId (\ s a -> s{_useUserId = a});
+uUserId :: Lens' User Text
+uUserId = lens _uUserId (\ s a -> s{_uUserId = a});
 
 -- | The Amazon Resource Name (ARN) that identifies the user. For more
 -- information about ARNs and how to use ARNs in policies, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html IAM Identifiers>
 -- in the /Using IAM/ guide.
-useARN :: Lens' User Text
-useARN = lens _useARN (\ s a -> s{_useARN = a});
+uARN :: Lens' User Text
+uARN = lens _uARN (\ s a -> s{_uARN = a});
 
 -- | The date and time, in
 -- <http://www.iso.org/iso/iso8601 ISO 8601 date-time format>, when the
 -- user was created.
-useCreateDate :: Lens' User UTCTime
-useCreateDate = lens _useCreateDate (\ s a -> s{_useCreateDate = a}) . _Time;
+uCreateDate :: Lens' User UTCTime
+uCreateDate = lens _uCreateDate (\ s a -> s{_uCreateDate = a}) . _Time;
 
 instance FromXML User where
         parseXML x

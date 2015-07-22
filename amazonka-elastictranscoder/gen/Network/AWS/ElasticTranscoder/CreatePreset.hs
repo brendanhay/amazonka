@@ -44,21 +44,21 @@ module Network.AWS.ElasticTranscoder.CreatePreset
     -- ** Request constructor
     , createPreset
     -- ** Request lenses
-    , cpVideo
-    , cpThumbnails
-    , cpAudio
-    , cpDescription
-    , cpName
-    , cpContainer
+    , cprqVideo
+    , cprqThumbnails
+    , cprqAudio
+    , cprqDescription
+    , cprqName
+    , cprqContainer
 
     -- * Response
     , CreatePresetResponse
     -- ** Response constructor
     , createPresetResponse
     -- ** Response lenses
-    , cprWarning
-    , cprPreset
-    , cprStatus
+    , cprsWarning
+    , cprsPreset
+    , cprsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -72,65 +72,65 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpVideo'
+-- * 'cprqVideo'
 --
--- * 'cpThumbnails'
+-- * 'cprqThumbnails'
 --
--- * 'cpAudio'
+-- * 'cprqAudio'
 --
--- * 'cpDescription'
+-- * 'cprqDescription'
 --
--- * 'cpName'
+-- * 'cprqName'
 --
--- * 'cpContainer'
+-- * 'cprqContainer'
 data CreatePreset = CreatePreset'
-    { _cpVideo       :: !(Maybe VideoParameters)
-    , _cpThumbnails  :: !(Maybe Thumbnails)
-    , _cpAudio       :: !(Maybe AudioParameters)
-    , _cpDescription :: !(Maybe Text)
-    , _cpName        :: !Text
-    , _cpContainer   :: !Text
+    { _cprqVideo       :: !(Maybe VideoParameters)
+    , _cprqThumbnails  :: !(Maybe Thumbnails)
+    , _cprqAudio       :: !(Maybe AudioParameters)
+    , _cprqDescription :: !(Maybe Text)
+    , _cprqName        :: !Text
+    , _cprqContainer   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePreset' smart constructor.
 createPreset :: Text -> Text -> CreatePreset
 createPreset pName pContainer =
     CreatePreset'
-    { _cpVideo = Nothing
-    , _cpThumbnails = Nothing
-    , _cpAudio = Nothing
-    , _cpDescription = Nothing
-    , _cpName = pName
-    , _cpContainer = pContainer
+    { _cprqVideo = Nothing
+    , _cprqThumbnails = Nothing
+    , _cprqAudio = Nothing
+    , _cprqDescription = Nothing
+    , _cprqName = pName
+    , _cprqContainer = pContainer
     }
 
 -- | A section of the request body that specifies the video parameters.
-cpVideo :: Lens' CreatePreset (Maybe VideoParameters)
-cpVideo = lens _cpVideo (\ s a -> s{_cpVideo = a});
+cprqVideo :: Lens' CreatePreset (Maybe VideoParameters)
+cprqVideo = lens _cprqVideo (\ s a -> s{_cprqVideo = a});
 
 -- | A section of the request body that specifies the thumbnail parameters,
 -- if any.
-cpThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
-cpThumbnails = lens _cpThumbnails (\ s a -> s{_cpThumbnails = a});
+cprqThumbnails :: Lens' CreatePreset (Maybe Thumbnails)
+cprqThumbnails = lens _cprqThumbnails (\ s a -> s{_cprqThumbnails = a});
 
 -- | A section of the request body that specifies the audio parameters.
-cpAudio :: Lens' CreatePreset (Maybe AudioParameters)
-cpAudio = lens _cpAudio (\ s a -> s{_cpAudio = a});
+cprqAudio :: Lens' CreatePreset (Maybe AudioParameters)
+cprqAudio = lens _cprqAudio (\ s a -> s{_cprqAudio = a});
 
 -- | A description of the preset.
-cpDescription :: Lens' CreatePreset (Maybe Text)
-cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
+cprqDescription :: Lens' CreatePreset (Maybe Text)
+cprqDescription = lens _cprqDescription (\ s a -> s{_cprqDescription = a});
 
 -- | The name of the preset. We recommend that the name be unique within the
 -- AWS account, but uniqueness is not enforced.
-cpName :: Lens' CreatePreset Text
-cpName = lens _cpName (\ s a -> s{_cpName = a});
+cprqName :: Lens' CreatePreset Text
+cprqName = lens _cprqName (\ s a -> s{_cprqName = a});
 
 -- | The container type for the output file. Valid values include @flac@,
 -- @flv@, @fmp4@, @gif@, @mp3@, @mp4@, @mpg@, @mxf@, @oga@, @ogg@, @ts@,
 -- and @webm@.
-cpContainer :: Lens' CreatePreset Text
-cpContainer = lens _cpContainer (\ s a -> s{_cpContainer = a});
+cprqContainer :: Lens' CreatePreset Text
+cprqContainer = lens _cprqContainer (\ s a -> s{_cprqContainer = a});
 
 instance AWSRequest CreatePreset where
         type Sv CreatePreset = ElasticTranscoder
@@ -149,9 +149,11 @@ instance ToHeaders CreatePreset where
 instance ToJSON CreatePreset where
         toJSON CreatePreset'{..}
           = object
-              ["Video" .= _cpVideo, "Thumbnails" .= _cpThumbnails,
-               "Audio" .= _cpAudio, "Description" .= _cpDescription,
-               "Name" .= _cpName, "Container" .= _cpContainer]
+              ["Video" .= _cprqVideo,
+               "Thumbnails" .= _cprqThumbnails,
+               "Audio" .= _cprqAudio,
+               "Description" .= _cprqDescription,
+               "Name" .= _cprqName, "Container" .= _cprqContainer]
 
 instance ToPath CreatePreset where
         toPath = const "/2012-09-25/presets"
@@ -165,24 +167,24 @@ instance ToQuery CreatePreset where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprWarning'
+-- * 'cprsWarning'
 --
--- * 'cprPreset'
+-- * 'cprsPreset'
 --
--- * 'cprStatus'
+-- * 'cprsStatus'
 data CreatePresetResponse = CreatePresetResponse'
-    { _cprWarning :: !(Maybe Text)
-    , _cprPreset  :: !(Maybe Preset)
-    , _cprStatus  :: !Int
+    { _cprsWarning :: !(Maybe Text)
+    , _cprsPreset  :: !(Maybe Preset)
+    , _cprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePresetResponse' smart constructor.
 createPresetResponse :: Int -> CreatePresetResponse
 createPresetResponse pStatus =
     CreatePresetResponse'
-    { _cprWarning = Nothing
-    , _cprPreset = Nothing
-    , _cprStatus = pStatus
+    { _cprsWarning = Nothing
+    , _cprsPreset = Nothing
+    , _cprsStatus = pStatus
     }
 
 -- | If the preset settings don\'t comply with the standards for the video
@@ -190,14 +192,14 @@ createPresetResponse pStatus =
 -- the reason the preset settings don\'t meet the standard. Elastic
 -- Transcoder created the preset because the settings might produce
 -- acceptable output.
-cprWarning :: Lens' CreatePresetResponse (Maybe Text)
-cprWarning = lens _cprWarning (\ s a -> s{_cprWarning = a});
+cprsWarning :: Lens' CreatePresetResponse (Maybe Text)
+cprsWarning = lens _cprsWarning (\ s a -> s{_cprsWarning = a});
 
 -- | A section of the response body that provides information about the
 -- preset that is created.
-cprPreset :: Lens' CreatePresetResponse (Maybe Preset)
-cprPreset = lens _cprPreset (\ s a -> s{_cprPreset = a});
+cprsPreset :: Lens' CreatePresetResponse (Maybe Preset)
+cprsPreset = lens _cprsPreset (\ s a -> s{_cprsPreset = a});
 
 -- | FIXME: Undocumented member.
-cprStatus :: Lens' CreatePresetResponse Int
-cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});
+cprsStatus :: Lens' CreatePresetResponse Int
+cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

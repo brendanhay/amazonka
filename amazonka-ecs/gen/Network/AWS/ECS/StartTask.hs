@@ -31,20 +31,20 @@ module Network.AWS.ECS.StartTask
     -- ** Request constructor
     , startTask
     -- ** Request lenses
-    , staOverrides
-    , staCluster
-    , staStartedBy
-    , staTaskDefinition
-    , staContainerInstances
+    , srqOverrides
+    , srqCluster
+    , srqStartedBy
+    , srqTaskDefinition
+    , srqContainerInstances
 
     -- * Response
     , StartTaskResponse
     -- ** Response constructor
     , startTaskResponse
     -- ** Response lenses
-    , strFailures
-    , strTasks
-    , strStatus
+    , srsFailures
+    , srsTasks
+    , srsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staOverrides'
+-- * 'srqOverrides'
 --
--- * 'staCluster'
+-- * 'srqCluster'
 --
--- * 'staStartedBy'
+-- * 'srqStartedBy'
 --
--- * 'staTaskDefinition'
+-- * 'srqTaskDefinition'
 --
--- * 'staContainerInstances'
+-- * 'srqContainerInstances'
 data StartTask = StartTask'
-    { _staOverrides          :: !(Maybe TaskOverride)
-    , _staCluster            :: !(Maybe Text)
-    , _staStartedBy          :: !(Maybe Text)
-    , _staTaskDefinition     :: !Text
-    , _staContainerInstances :: ![Text]
+    { _srqOverrides          :: !(Maybe TaskOverride)
+    , _srqCluster            :: !(Maybe Text)
+    , _srqStartedBy          :: !(Maybe Text)
+    , _srqTaskDefinition     :: !Text
+    , _srqContainerInstances :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartTask' smart constructor.
 startTask :: Text -> StartTask
 startTask pTaskDefinition =
     StartTask'
-    { _staOverrides = Nothing
-    , _staCluster = Nothing
-    , _staStartedBy = Nothing
-    , _staTaskDefinition = pTaskDefinition
-    , _staContainerInstances = mempty
+    { _srqOverrides = Nothing
+    , _srqCluster = Nothing
+    , _srqStartedBy = Nothing
+    , _srqTaskDefinition = pTaskDefinition
+    , _srqContainerInstances = mempty
     }
 
 -- | A list of container overrides in JSON format that specify the name of a
@@ -94,14 +94,14 @@ startTask pTaskDefinition =
 --
 -- A total of 8192 characters are allowed for overrides. This limit
 -- includes the JSON formatting characters of the override structure.
-staOverrides :: Lens' StartTask (Maybe TaskOverride)
-staOverrides = lens _staOverrides (\ s a -> s{_staOverrides = a});
+srqOverrides :: Lens' StartTask (Maybe TaskOverride)
+srqOverrides = lens _srqOverrides (\ s a -> s{_srqOverrides = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to start your task on. If you do not specify a cluster, the
 -- default cluster is assumed..
-staCluster :: Lens' StartTask (Maybe Text)
-staCluster = lens _staCluster (\ s a -> s{_staCluster = a});
+srqCluster :: Lens' StartTask (Maybe Text)
+srqCluster = lens _srqCluster (\ s a -> s{_srqCluster = a});
 
 -- | An optional tag specified when a task is started. For example if you
 -- automatically trigger a task to run a batch process job, you could apply
@@ -111,21 +111,21 @@ staCluster = lens _staCluster (\ s a -> s{_staCluster = a});
 --
 -- If a task is started by an Amazon ECS service, then the @startedBy@
 -- parameter contains the deployment ID of the service that starts it.
-staStartedBy :: Lens' StartTask (Maybe Text)
-staStartedBy = lens _staStartedBy (\ s a -> s{_staStartedBy = a});
+srqStartedBy :: Lens' StartTask (Maybe Text)
+srqStartedBy = lens _srqStartedBy (\ s a -> s{_srqStartedBy = a});
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
 -- Name (ARN) of the task definition that you want to start. If a
 -- @revision@ is not specified, the latest @ACTIVE@ revision is used.
-staTaskDefinition :: Lens' StartTask Text
-staTaskDefinition = lens _staTaskDefinition (\ s a -> s{_staTaskDefinition = a});
+srqTaskDefinition :: Lens' StartTask Text
+srqTaskDefinition = lens _srqTaskDefinition (\ s a -> s{_srqTaskDefinition = a});
 
 -- | The container instance UUIDs or full Amazon Resource Name (ARN) entries
 -- for the container instances on which you would like to place your task.
 --
 -- The list of container instances to start tasks on is limited to 10.
-staContainerInstances :: Lens' StartTask [Text]
-staContainerInstances = lens _staContainerInstances (\ s a -> s{_staContainerInstances = a});
+srqContainerInstances :: Lens' StartTask [Text]
+srqContainerInstances = lens _srqContainerInstances (\ s a -> s{_srqContainerInstances = a});
 
 instance AWSRequest StartTask where
         type Sv StartTask = ECS
@@ -152,11 +152,11 @@ instance ToHeaders StartTask where
 instance ToJSON StartTask where
         toJSON StartTask'{..}
           = object
-              ["overrides" .= _staOverrides,
-               "cluster" .= _staCluster,
-               "startedBy" .= _staStartedBy,
-               "taskDefinition" .= _staTaskDefinition,
-               "containerInstances" .= _staContainerInstances]
+              ["overrides" .= _srqOverrides,
+               "cluster" .= _srqCluster,
+               "startedBy" .= _srqStartedBy,
+               "taskDefinition" .= _srqTaskDefinition,
+               "containerInstances" .= _srqContainerInstances]
 
 instance ToPath StartTask where
         toPath = const "/"
@@ -168,35 +168,35 @@ instance ToQuery StartTask where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'strFailures'
+-- * 'srsFailures'
 --
--- * 'strTasks'
+-- * 'srsTasks'
 --
--- * 'strStatus'
+-- * 'srsStatus'
 data StartTaskResponse = StartTaskResponse'
-    { _strFailures :: !(Maybe [Failure])
-    , _strTasks    :: !(Maybe [Task])
-    , _strStatus   :: !Int
+    { _srsFailures :: !(Maybe [Failure])
+    , _srsTasks    :: !(Maybe [Task])
+    , _srsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartTaskResponse' smart constructor.
 startTaskResponse :: Int -> StartTaskResponse
 startTaskResponse pStatus =
     StartTaskResponse'
-    { _strFailures = Nothing
-    , _strTasks = Nothing
-    , _strStatus = pStatus
+    { _srsFailures = Nothing
+    , _srsTasks = Nothing
+    , _srsStatus = pStatus
     }
 
 -- | Any failed tasks from your @StartTask@ action are listed here.
-strFailures :: Lens' StartTaskResponse [Failure]
-strFailures = lens _strFailures (\ s a -> s{_strFailures = a}) . _Default;
+srsFailures :: Lens' StartTaskResponse [Failure]
+srsFailures = lens _srsFailures (\ s a -> s{_srsFailures = a}) . _Default;
 
 -- | A full description of the tasks that were started. Each task that was
 -- successfully placed on your container instances will be described here.
-strTasks :: Lens' StartTaskResponse [Task]
-strTasks = lens _strTasks (\ s a -> s{_strTasks = a}) . _Default;
+srsTasks :: Lens' StartTaskResponse [Task]
+srsTasks = lens _srsTasks (\ s a -> s{_srsTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-strStatus :: Lens' StartTaskResponse Int
-strStatus = lens _strStatus (\ s a -> s{_strStatus = a});
+srsStatus :: Lens' StartTaskResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

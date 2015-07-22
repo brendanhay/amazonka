@@ -31,16 +31,16 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineNotifications
     -- ** Request constructor
     , updatePipelineNotifications
     -- ** Request lenses
-    , upnId
-    , upnNotifications
+    , upnrqId
+    , upnrqNotifications
 
     -- * Response
     , UpdatePipelineNotificationsResponse
     -- ** Response constructor
     , updatePipelineNotificationsResponse
     -- ** Response lenses
-    , upnrPipeline
-    , upnrStatus
+    , upnrsPipeline
+    , upnrsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -54,26 +54,26 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upnId'
+-- * 'upnrqId'
 --
--- * 'upnNotifications'
+-- * 'upnrqNotifications'
 data UpdatePipelineNotifications = UpdatePipelineNotifications'
-    { _upnId            :: !Text
-    , _upnNotifications :: !Notifications
+    { _upnrqId            :: !Text
+    , _upnrqNotifications :: !Notifications
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineNotifications' smart constructor.
 updatePipelineNotifications :: Text -> Notifications -> UpdatePipelineNotifications
 updatePipelineNotifications pId pNotifications =
     UpdatePipelineNotifications'
-    { _upnId = pId
-    , _upnNotifications = pNotifications
+    { _upnrqId = pId
+    , _upnrqNotifications = pNotifications
     }
 
 -- | The identifier of the pipeline for which you want to change notification
 -- settings.
-upnId :: Lens' UpdatePipelineNotifications Text
-upnId = lens _upnId (\ s a -> s{_upnId = a});
+upnrqId :: Lens' UpdatePipelineNotifications Text
+upnrqId = lens _upnrqId (\ s a -> s{_upnrqId = a});
 
 -- | The topic ARN for the Amazon Simple Notification Service (Amazon SNS)
 -- topic that you want to notify to report job status.
@@ -95,8 +95,8 @@ upnId = lens _upnId (\ s a -> s{_upnId = a});
 -- -   __Error__: The topic ARN for the Amazon SNS topic that you want to
 --     notify when Elastic Transcoder encounters an error condition. This
 --     is the ARN that Amazon SNS returned when you created the topic.
-upnNotifications :: Lens' UpdatePipelineNotifications Notifications
-upnNotifications = lens _upnNotifications (\ s a -> s{_upnNotifications = a});
+upnrqNotifications :: Lens' UpdatePipelineNotifications Notifications
+upnrqNotifications = lens _upnrqNotifications (\ s a -> s{_upnrqNotifications = a});
 
 instance AWSRequest UpdatePipelineNotifications where
         type Sv UpdatePipelineNotifications =
@@ -115,12 +115,12 @@ instance ToHeaders UpdatePipelineNotifications where
 
 instance ToJSON UpdatePipelineNotifications where
         toJSON UpdatePipelineNotifications'{..}
-          = object ["Notifications" .= _upnNotifications]
+          = object ["Notifications" .= _upnrqNotifications]
 
 instance ToPath UpdatePipelineNotifications where
         toPath UpdatePipelineNotifications'{..}
           = mconcat
-              ["/2012-09-25/pipelines/", toText _upnId,
+              ["/2012-09-25/pipelines/", toText _upnrqId,
                "/notifications"]
 
 instance ToQuery UpdatePipelineNotifications where
@@ -132,27 +132,27 @@ instance ToQuery UpdatePipelineNotifications where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upnrPipeline'
+-- * 'upnrsPipeline'
 --
--- * 'upnrStatus'
+-- * 'upnrsStatus'
 data UpdatePipelineNotificationsResponse = UpdatePipelineNotificationsResponse'
-    { _upnrPipeline :: !(Maybe Pipeline)
-    , _upnrStatus   :: !Int
+    { _upnrsPipeline :: !(Maybe Pipeline)
+    , _upnrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineNotificationsResponse' smart constructor.
 updatePipelineNotificationsResponse :: Int -> UpdatePipelineNotificationsResponse
 updatePipelineNotificationsResponse pStatus =
     UpdatePipelineNotificationsResponse'
-    { _upnrPipeline = Nothing
-    , _upnrStatus = pStatus
+    { _upnrsPipeline = Nothing
+    , _upnrsStatus = pStatus
     }
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-upnrPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
-upnrPipeline = lens _upnrPipeline (\ s a -> s{_upnrPipeline = a});
+upnrsPipeline :: Lens' UpdatePipelineNotificationsResponse (Maybe Pipeline)
+upnrsPipeline = lens _upnrsPipeline (\ s a -> s{_upnrsPipeline = a});
 
 -- | FIXME: Undocumented member.
-upnrStatus :: Lens' UpdatePipelineNotificationsResponse Int
-upnrStatus = lens _upnrStatus (\ s a -> s{_upnrStatus = a});
+upnrsStatus :: Lens' UpdatePipelineNotificationsResponse Int
+upnrsStatus = lens _upnrsStatus (\ s a -> s{_upnrsStatus = a});

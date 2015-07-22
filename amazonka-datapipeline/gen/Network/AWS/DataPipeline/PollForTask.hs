@@ -41,17 +41,17 @@ module Network.AWS.DataPipeline.PollForTask
     -- ** Request constructor
     , pollForTask
     -- ** Request lenses
-    , pftHostname
-    , pftInstanceIdentity
-    , pftWorkerGroup
+    , pftrqHostname
+    , pftrqInstanceIdentity
+    , pftrqWorkerGroup
 
     -- * Response
     , PollForTaskResponse
     -- ** Response constructor
     , pollForTaskResponse
     -- ** Response lenses
-    , pftrTaskObject
-    , pftrStatus
+    , pftrsTaskObject
+    , pftrsStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -65,29 +65,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pftHostname'
+-- * 'pftrqHostname'
 --
--- * 'pftInstanceIdentity'
+-- * 'pftrqInstanceIdentity'
 --
--- * 'pftWorkerGroup'
+-- * 'pftrqWorkerGroup'
 data PollForTask = PollForTask'
-    { _pftHostname         :: !(Maybe Text)
-    , _pftInstanceIdentity :: !(Maybe InstanceIdentity)
-    , _pftWorkerGroup      :: !Text
+    { _pftrqHostname         :: !(Maybe Text)
+    , _pftrqInstanceIdentity :: !(Maybe InstanceIdentity)
+    , _pftrqWorkerGroup      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForTask' smart constructor.
 pollForTask :: Text -> PollForTask
 pollForTask pWorkerGroup =
     PollForTask'
-    { _pftHostname = Nothing
-    , _pftInstanceIdentity = Nothing
-    , _pftWorkerGroup = pWorkerGroup
+    { _pftrqHostname = Nothing
+    , _pftrqInstanceIdentity = Nothing
+    , _pftrqWorkerGroup = pWorkerGroup
     }
 
 -- | The public DNS name of the calling task runner.
-pftHostname :: Lens' PollForTask (Maybe Text)
-pftHostname = lens _pftHostname (\ s a -> s{_pftHostname = a});
+pftrqHostname :: Lens' PollForTask (Maybe Text)
+pftrqHostname = lens _pftrqHostname (\ s a -> s{_pftrqHostname = a});
 
 -- | Identity information for the EC2 instance that is hosting the task
 -- runner. You can get this value from the instance using
@@ -98,16 +98,16 @@ pftHostname = lens _pftHostname (\ s a -> s{_pftHostname = a});
 -- proves that your task runner is running on an EC2 instance, and ensures
 -- the proper AWS Data Pipeline service charges are applied to your
 -- pipeline.
-pftInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
-pftInstanceIdentity = lens _pftInstanceIdentity (\ s a -> s{_pftInstanceIdentity = a});
+pftrqInstanceIdentity :: Lens' PollForTask (Maybe InstanceIdentity)
+pftrqInstanceIdentity = lens _pftrqInstanceIdentity (\ s a -> s{_pftrqInstanceIdentity = a});
 
 -- | The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
 -- are created. You can only specify a single value for @workerGroup@ in
 -- the call to @PollForTask@. There are no wildcard values permitted in
 -- @workerGroup@; the string must be an exact, case-sensitive, match.
-pftWorkerGroup :: Lens' PollForTask Text
-pftWorkerGroup = lens _pftWorkerGroup (\ s a -> s{_pftWorkerGroup = a});
+pftrqWorkerGroup :: Lens' PollForTask Text
+pftrqWorkerGroup = lens _pftrqWorkerGroup (\ s a -> s{_pftrqWorkerGroup = a});
 
 instance AWSRequest PollForTask where
         type Sv PollForTask = DataPipeline
@@ -131,9 +131,9 @@ instance ToHeaders PollForTask where
 instance ToJSON PollForTask where
         toJSON PollForTask'{..}
           = object
-              ["hostname" .= _pftHostname,
-               "instanceIdentity" .= _pftInstanceIdentity,
-               "workerGroup" .= _pftWorkerGroup]
+              ["hostname" .= _pftrqHostname,
+               "instanceIdentity" .= _pftrqInstanceIdentity,
+               "workerGroup" .= _pftrqWorkerGroup]
 
 instance ToPath PollForTask where
         toPath = const "/"
@@ -147,20 +147,20 @@ instance ToQuery PollForTask where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pftrTaskObject'
+-- * 'pftrsTaskObject'
 --
--- * 'pftrStatus'
+-- * 'pftrsStatus'
 data PollForTaskResponse = PollForTaskResponse'
-    { _pftrTaskObject :: !(Maybe TaskObject)
-    , _pftrStatus     :: !Int
+    { _pftrsTaskObject :: !(Maybe TaskObject)
+    , _pftrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForTaskResponse' smart constructor.
 pollForTaskResponse :: Int -> PollForTaskResponse
 pollForTaskResponse pStatus =
     PollForTaskResponse'
-    { _pftrTaskObject = Nothing
-    , _pftrStatus = pStatus
+    { _pftrsTaskObject = Nothing
+    , _pftrsStatus = pStatus
     }
 
 -- | The information needed to complete the task that is being assigned to
@@ -168,9 +168,9 @@ pollForTaskResponse pStatus =
 -- which contains an identifier for the task being assigned. The calling
 -- task runner uses @taskId@ in subsequent calls to ReportTaskProgress and
 -- SetTaskStatus.
-pftrTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
-pftrTaskObject = lens _pftrTaskObject (\ s a -> s{_pftrTaskObject = a});
+pftrsTaskObject :: Lens' PollForTaskResponse (Maybe TaskObject)
+pftrsTaskObject = lens _pftrsTaskObject (\ s a -> s{_pftrsTaskObject = a});
 
 -- | FIXME: Undocumented member.
-pftrStatus :: Lens' PollForTaskResponse Int
-pftrStatus = lens _pftrStatus (\ s a -> s{_pftrStatus = a});
+pftrsStatus :: Lens' PollForTaskResponse Int
+pftrsStatus = lens _pftrsStatus (\ s a -> s{_pftrsStatus = a});

@@ -32,10 +32,10 @@ module Network.AWS.OpsWorks.UpdateUserProfile
     -- ** Request constructor
     , updateUserProfile
     -- ** Request lenses
-    , uupSSHUsername
-    , uupSSHPublicKey
-    , uupAllowSelfManagement
-    , uupIAMUserARN
+    , uuprqSSHUsername
+    , uuprqSSHPublicKey
+    , uuprqAllowSelfManagement
+    , uuprqIAMUserARN
 
     -- * Response
     , UpdateUserProfileResponse
@@ -52,28 +52,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uupSSHUsername'
+-- * 'uuprqSSHUsername'
 --
--- * 'uupSSHPublicKey'
+-- * 'uuprqSSHPublicKey'
 --
--- * 'uupAllowSelfManagement'
+-- * 'uuprqAllowSelfManagement'
 --
--- * 'uupIAMUserARN'
+-- * 'uuprqIAMUserARN'
 data UpdateUserProfile = UpdateUserProfile'
-    { _uupSSHUsername         :: !(Maybe Text)
-    , _uupSSHPublicKey        :: !(Maybe Text)
-    , _uupAllowSelfManagement :: !(Maybe Bool)
-    , _uupIAMUserARN          :: !Text
+    { _uuprqSSHUsername         :: !(Maybe Text)
+    , _uuprqSSHPublicKey        :: !(Maybe Text)
+    , _uuprqAllowSelfManagement :: !(Maybe Bool)
+    , _uuprqIAMUserARN          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateUserProfile' smart constructor.
 updateUserProfile :: Text -> UpdateUserProfile
 updateUserProfile pIAMUserARN =
     UpdateUserProfile'
-    { _uupSSHUsername = Nothing
-    , _uupSSHPublicKey = Nothing
-    , _uupAllowSelfManagement = Nothing
-    , _uupIAMUserARN = pIAMUserARN
+    { _uuprqSSHUsername = Nothing
+    , _uuprqSSHPublicKey = Nothing
+    , _uuprqAllowSelfManagement = Nothing
+    , _uuprqIAMUserARN = pIAMUserARN
     }
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
@@ -81,22 +81,22 @@ updateUserProfile pIAMUserARN =
 -- punctuation marks, AWS OpsWorks removes them. For example, @my.name@
 -- will be changed to @myname@. If you do not specify an SSH user name, AWS
 -- OpsWorks generates one from the IAM user name.
-uupSSHUsername :: Lens' UpdateUserProfile (Maybe Text)
-uupSSHUsername = lens _uupSSHUsername (\ s a -> s{_uupSSHUsername = a});
+uuprqSSHUsername :: Lens' UpdateUserProfile (Maybe Text)
+uuprqSSHUsername = lens _uuprqSSHUsername (\ s a -> s{_uuprqSSHUsername = a});
 
 -- | The user\'s new SSH public key.
-uupSSHPublicKey :: Lens' UpdateUserProfile (Maybe Text)
-uupSSHPublicKey = lens _uupSSHPublicKey (\ s a -> s{_uupSSHPublicKey = a});
+uuprqSSHPublicKey :: Lens' UpdateUserProfile (Maybe Text)
+uuprqSSHPublicKey = lens _uuprqSSHPublicKey (\ s a -> s{_uuprqSSHPublicKey = a});
 
 -- | Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Managing User Permissions>.
-uupAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
-uupAllowSelfManagement = lens _uupAllowSelfManagement (\ s a -> s{_uupAllowSelfManagement = a});
+uuprqAllowSelfManagement :: Lens' UpdateUserProfile (Maybe Bool)
+uuprqAllowSelfManagement = lens _uuprqAllowSelfManagement (\ s a -> s{_uuprqAllowSelfManagement = a});
 
 -- | The user IAM ARN.
-uupIAMUserARN :: Lens' UpdateUserProfile Text
-uupIAMUserARN = lens _uupIAMUserARN (\ s a -> s{_uupIAMUserARN = a});
+uuprqIAMUserARN :: Lens' UpdateUserProfile Text
+uuprqIAMUserARN = lens _uuprqIAMUserARN (\ s a -> s{_uuprqIAMUserARN = a});
 
 instance AWSRequest UpdateUserProfile where
         type Sv UpdateUserProfile = OpsWorks
@@ -117,10 +117,10 @@ instance ToHeaders UpdateUserProfile where
 instance ToJSON UpdateUserProfile where
         toJSON UpdateUserProfile'{..}
           = object
-              ["SshUsername" .= _uupSSHUsername,
-               "SshPublicKey" .= _uupSSHPublicKey,
-               "AllowSelfManagement" .= _uupAllowSelfManagement,
-               "IamUserArn" .= _uupIAMUserARN]
+              ["SshUsername" .= _uuprqSSHUsername,
+               "SshPublicKey" .= _uuprqSSHPublicKey,
+               "AllowSelfManagement" .= _uuprqAllowSelfManagement,
+               "IamUserArn" .= _uuprqIAMUserARN]
 
 instance ToPath UpdateUserProfile where
         toPath = const "/"

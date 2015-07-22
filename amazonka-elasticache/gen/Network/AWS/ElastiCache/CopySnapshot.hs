@@ -27,16 +27,16 @@ module Network.AWS.ElastiCache.CopySnapshot
     -- ** Request constructor
     , copySnapshot
     -- ** Request lenses
-    , csSourceSnapshotName
-    , csTargetSnapshotName
+    , csrqSourceSnapshotName
+    , csrqTargetSnapshotName
 
     -- * Response
     , CopySnapshotResponse
     -- ** Response constructor
     , copySnapshotResponse
     -- ** Response lenses
-    , csrSnapshot
-    , csrStatus
+    , csrsSnapshot
+    , csrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csSourceSnapshotName'
+-- * 'csrqSourceSnapshotName'
 --
--- * 'csTargetSnapshotName'
+-- * 'csrqTargetSnapshotName'
 data CopySnapshot = CopySnapshot'
-    { _csSourceSnapshotName :: !Text
-    , _csTargetSnapshotName :: !Text
+    { _csrqSourceSnapshotName :: !Text
+    , _csrqTargetSnapshotName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshot' smart constructor.
 copySnapshot :: Text -> Text -> CopySnapshot
 copySnapshot pSourceSnapshotName pTargetSnapshotName =
     CopySnapshot'
-    { _csSourceSnapshotName = pSourceSnapshotName
-    , _csTargetSnapshotName = pTargetSnapshotName
+    { _csrqSourceSnapshotName = pSourceSnapshotName
+    , _csrqTargetSnapshotName = pTargetSnapshotName
     }
 
 -- | The name of an existing snapshot from which to copy.
-csSourceSnapshotName :: Lens' CopySnapshot Text
-csSourceSnapshotName = lens _csSourceSnapshotName (\ s a -> s{_csSourceSnapshotName = a});
+csrqSourceSnapshotName :: Lens' CopySnapshot Text
+csrqSourceSnapshotName = lens _csrqSourceSnapshotName (\ s a -> s{_csrqSourceSnapshotName = a});
 
 -- | A name for the copied snapshot.
-csTargetSnapshotName :: Lens' CopySnapshot Text
-csTargetSnapshotName = lens _csTargetSnapshotName (\ s a -> s{_csTargetSnapshotName = a});
+csrqTargetSnapshotName :: Lens' CopySnapshot Text
+csrqTargetSnapshotName = lens _csrqTargetSnapshotName (\ s a -> s{_csrqTargetSnapshotName = a});
 
 instance AWSRequest CopySnapshot where
         type Sv CopySnapshot = ElastiCache
@@ -95,33 +95,33 @@ instance ToQuery CopySnapshot where
           = mconcat
               ["Action" =: ("CopySnapshot" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "SourceSnapshotName" =: _csSourceSnapshotName,
-               "TargetSnapshotName" =: _csTargetSnapshotName]
+               "SourceSnapshotName" =: _csrqSourceSnapshotName,
+               "TargetSnapshotName" =: _csrqTargetSnapshotName]
 
 -- | /See:/ 'copySnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrSnapshot'
+-- * 'csrsSnapshot'
 --
--- * 'csrStatus'
+-- * 'csrsStatus'
 data CopySnapshotResponse = CopySnapshotResponse'
-    { _csrSnapshot :: !(Maybe Snapshot)
-    , _csrStatus   :: !Int
+    { _csrsSnapshot :: !(Maybe Snapshot)
+    , _csrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopySnapshotResponse' smart constructor.
 copySnapshotResponse :: Int -> CopySnapshotResponse
 copySnapshotResponse pStatus =
     CopySnapshotResponse'
-    { _csrSnapshot = Nothing
-    , _csrStatus = pStatus
+    { _csrsSnapshot = Nothing
+    , _csrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-csrSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
-csrSnapshot = lens _csrSnapshot (\ s a -> s{_csrSnapshot = a});
+csrsSnapshot :: Lens' CopySnapshotResponse (Maybe Snapshot)
+csrsSnapshot = lens _csrsSnapshot (\ s a -> s{_csrsSnapshot = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CopySnapshotResponse Int
-csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});
+csrsStatus :: Lens' CopySnapshotResponse Int
+csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

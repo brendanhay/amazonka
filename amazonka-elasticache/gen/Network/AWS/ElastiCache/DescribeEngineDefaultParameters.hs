@@ -28,17 +28,17 @@ module Network.AWS.ElastiCache.DescribeEngineDefaultParameters
     -- ** Request constructor
     , describeEngineDefaultParameters
     -- ** Request lenses
-    , dedpMaxRecords
-    , dedpMarker
-    , dedpCacheParameterGroupFamily
+    , dedprqMaxRecords
+    , dedprqMarker
+    , dedprqCacheParameterGroupFamily
 
     -- * Response
     , DescribeEngineDefaultParametersResponse
     -- ** Response constructor
     , describeEngineDefaultParametersResponse
     -- ** Response lenses
-    , dedprStatus
-    , dedprEngineDefaults
+    , dedprsStatus
+    , dedprsEngineDefaults
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedpMaxRecords'
+-- * 'dedprqMaxRecords'
 --
--- * 'dedpMarker'
+-- * 'dedprqMarker'
 --
--- * 'dedpCacheParameterGroupFamily'
+-- * 'dedprqCacheParameterGroupFamily'
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-    { _dedpMaxRecords                :: !(Maybe Int)
-    , _dedpMarker                    :: !(Maybe Text)
-    , _dedpCacheParameterGroupFamily :: !Text
+    { _dedprqMaxRecords                :: !(Maybe Int)
+    , _dedprqMarker                    :: !(Maybe Text)
+    , _dedprqCacheParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters pCacheParameterGroupFamily =
     DescribeEngineDefaultParameters'
-    { _dedpMaxRecords = Nothing
-    , _dedpMarker = Nothing
-    , _dedpCacheParameterGroupFamily = pCacheParameterGroupFamily
+    { _dedprqMaxRecords = Nothing
+    , _dedprqMarker = Nothing
+    , _dedprqCacheParameterGroupFamily = pCacheParameterGroupFamily
     }
 
 -- | The maximum number of records to include in the response. If more
@@ -80,32 +80,33 @@ describeEngineDefaultParameters pCacheParameterGroupFamily =
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
-dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
+dedprqMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
+dedprqMaxRecords = lens _dedprqMaxRecords (\ s a -> s{_dedprqMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
+dedprqMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedprqMarker = lens _dedprqMarker (\ s a -> s{_dedprqMarker = a});
 
 -- | The name of the cache parameter group family. Valid values are:
 -- @memcached1.4@ | @redis2.6@ | @redis2.8@
-dedpCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
-dedpCacheParameterGroupFamily = lens _dedpCacheParameterGroupFamily (\ s a -> s{_dedpCacheParameterGroupFamily = a});
+dedprqCacheParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
+dedprqCacheParameterGroupFamily = lens _dedprqCacheParameterGroupFamily (\ s a -> s{_dedprqCacheParameterGroupFamily = a});
 
 instance AWSPager DescribeEngineDefaultParameters
          where
         page rq rs
-          | stop (rs ^? dedprEngineDefaults . edMarker . _Just)
+          | stop
+              (rs ^? dedprsEngineDefaults . edMarker . _Just)
             = Nothing
-          | stop (rs ^. dedprEngineDefaults . edParameters) =
+          | stop (rs ^. dedprsEngineDefaults . edParameters) =
             Nothing
           | otherwise =
             Just $ rq &
-              dedpMarker .~
-                rs ^? dedprEngineDefaults . edMarker . _Just
+              dedprqMarker .~
+                rs ^? dedprsEngineDefaults . edMarker . _Just
 
 instance AWSRequest DescribeEngineDefaultParameters
          where
@@ -134,35 +135,35 @@ instance ToQuery DescribeEngineDefaultParameters
               ["Action" =:
                  ("DescribeEngineDefaultParameters" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "MaxRecords" =: _dedpMaxRecords,
-               "Marker" =: _dedpMarker,
+               "MaxRecords" =: _dedprqMaxRecords,
+               "Marker" =: _dedprqMarker,
                "CacheParameterGroupFamily" =:
-                 _dedpCacheParameterGroupFamily]
+                 _dedprqCacheParameterGroupFamily]
 
 -- | /See:/ 'describeEngineDefaultParametersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedprStatus'
+-- * 'dedprsStatus'
 --
--- * 'dedprEngineDefaults'
+-- * 'dedprsEngineDefaults'
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-    { _dedprStatus         :: !Int
-    , _dedprEngineDefaults :: !EngineDefaults
+    { _dedprsStatus         :: !Int
+    , _dedprsEngineDefaults :: !EngineDefaults
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
 describeEngineDefaultParametersResponse :: Int -> EngineDefaults -> DescribeEngineDefaultParametersResponse
 describeEngineDefaultParametersResponse pStatus pEngineDefaults =
     DescribeEngineDefaultParametersResponse'
-    { _dedprStatus = pStatus
-    , _dedprEngineDefaults = pEngineDefaults
+    { _dedprsStatus = pStatus
+    , _dedprsEngineDefaults = pEngineDefaults
     }
 
 -- | FIXME: Undocumented member.
-dedprStatus :: Lens' DescribeEngineDefaultParametersResponse Int
-dedprStatus = lens _dedprStatus (\ s a -> s{_dedprStatus = a});
+dedprsStatus :: Lens' DescribeEngineDefaultParametersResponse Int
+dedprsStatus = lens _dedprsStatus (\ s a -> s{_dedprsStatus = a});
 
 -- | FIXME: Undocumented member.
-dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
-dedprEngineDefaults = lens _dedprEngineDefaults (\ s a -> s{_dedprEngineDefaults = a});
+dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+dedprsEngineDefaults = lens _dedprsEngineDefaults (\ s a -> s{_dedprsEngineDefaults = a});

@@ -27,15 +27,15 @@ module Network.AWS.RDS.DeleteEventSubscription
     -- ** Request constructor
     , deleteEventSubscription
     -- ** Request lenses
-    , desSubscriptionName
+    , desrqSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
     -- ** Response constructor
     , deleteEventSubscriptionResponse
     -- ** Response lenses
-    , delEventSubscription
-    , delStatus
+    , desrsEventSubscription
+    , desrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desSubscriptionName'
+-- * 'desrqSubscriptionName'
 newtype DeleteEventSubscription = DeleteEventSubscription'
-    { _desSubscriptionName :: Text
+    { _desrqSubscriptionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEventSubscription' smart constructor.
 deleteEventSubscription :: Text -> DeleteEventSubscription
 deleteEventSubscription pSubscriptionName =
     DeleteEventSubscription'
-    { _desSubscriptionName = pSubscriptionName
+    { _desrqSubscriptionName = pSubscriptionName
     }
 
 -- | The name of the RDS event notification subscription you want to delete.
-desSubscriptionName :: Lens' DeleteEventSubscription Text
-desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a});
+desrqSubscriptionName :: Lens' DeleteEventSubscription Text
+desrqSubscriptionName = lens _desrqSubscriptionName (\ s a -> s{_desrqSubscriptionName = a});
 
 instance AWSRequest DeleteEventSubscription where
         type Sv DeleteEventSubscription = RDS
@@ -88,32 +88,32 @@ instance ToQuery DeleteEventSubscription where
               ["Action" =:
                  ("DeleteEventSubscription" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "SubscriptionName" =: _desSubscriptionName]
+               "SubscriptionName" =: _desrqSubscriptionName]
 
 -- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delEventSubscription'
+-- * 'desrsEventSubscription'
 --
--- * 'delStatus'
+-- * 'desrsStatus'
 data DeleteEventSubscriptionResponse = DeleteEventSubscriptionResponse'
-    { _delEventSubscription :: !(Maybe EventSubscription)
-    , _delStatus            :: !Int
+    { _desrsEventSubscription :: !(Maybe EventSubscription)
+    , _desrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEventSubscriptionResponse' smart constructor.
 deleteEventSubscriptionResponse :: Int -> DeleteEventSubscriptionResponse
 deleteEventSubscriptionResponse pStatus =
     DeleteEventSubscriptionResponse'
-    { _delEventSubscription = Nothing
-    , _delStatus = pStatus
+    { _desrsEventSubscription = Nothing
+    , _desrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
-delEventSubscription = lens _delEventSubscription (\ s a -> s{_delEventSubscription = a});
+desrsEventSubscription :: Lens' DeleteEventSubscriptionResponse (Maybe EventSubscription)
+desrsEventSubscription = lens _desrsEventSubscription (\ s a -> s{_desrsEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteEventSubscriptionResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+desrsStatus :: Lens' DeleteEventSubscriptionResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

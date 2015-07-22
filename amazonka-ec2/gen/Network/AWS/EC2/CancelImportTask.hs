@@ -27,19 +27,19 @@ module Network.AWS.EC2.CancelImportTask
     -- ** Request constructor
     , cancelImportTask
     -- ** Request lenses
-    , citCancelReason
-    , citImportTaskId
-    , citDryRun
+    , citrqCancelReason
+    , citrqImportTaskId
+    , citrqDryRun
 
     -- * Response
     , CancelImportTaskResponse
     -- ** Response constructor
     , cancelImportTaskResponse
     -- ** Response lenses
-    , citrState
-    , citrImportTaskId
-    , citrPreviousState
-    , citrStatus
+    , citrsState
+    , citrsImportTaskId
+    , citrsPreviousState
+    , citrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -51,40 +51,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'citCancelReason'
+-- * 'citrqCancelReason'
 --
--- * 'citImportTaskId'
+-- * 'citrqImportTaskId'
 --
--- * 'citDryRun'
+-- * 'citrqDryRun'
 data CancelImportTask = CancelImportTask'
-    { _citCancelReason :: !(Maybe Text)
-    , _citImportTaskId :: !(Maybe Text)
-    , _citDryRun       :: !(Maybe Bool)
+    { _citrqCancelReason :: !(Maybe Text)
+    , _citrqImportTaskId :: !(Maybe Text)
+    , _citrqDryRun       :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelImportTask' smart constructor.
 cancelImportTask :: CancelImportTask
 cancelImportTask =
     CancelImportTask'
-    { _citCancelReason = Nothing
-    , _citImportTaskId = Nothing
-    , _citDryRun = Nothing
+    { _citrqCancelReason = Nothing
+    , _citrqImportTaskId = Nothing
+    , _citrqDryRun = Nothing
     }
 
 -- | The reason for canceling the task.
-citCancelReason :: Lens' CancelImportTask (Maybe Text)
-citCancelReason = lens _citCancelReason (\ s a -> s{_citCancelReason = a});
+citrqCancelReason :: Lens' CancelImportTask (Maybe Text)
+citrqCancelReason = lens _citrqCancelReason (\ s a -> s{_citrqCancelReason = a});
 
 -- | The ID of the import image or import snapshot task to be canceled.
-citImportTaskId :: Lens' CancelImportTask (Maybe Text)
-citImportTaskId = lens _citImportTaskId (\ s a -> s{_citImportTaskId = a});
+citrqImportTaskId :: Lens' CancelImportTask (Maybe Text)
+citrqImportTaskId = lens _citrqImportTaskId (\ s a -> s{_citrqImportTaskId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-citDryRun :: Lens' CancelImportTask (Maybe Bool)
-citDryRun = lens _citDryRun (\ s a -> s{_citDryRun = a});
+citrqDryRun :: Lens' CancelImportTask (Maybe Bool)
+citrqDryRun = lens _citrqDryRun (\ s a -> s{_citrqDryRun = a});
 
 instance AWSRequest CancelImportTask where
         type Sv CancelImportTask = EC2
@@ -109,50 +109,50 @@ instance ToQuery CancelImportTask where
           = mconcat
               ["Action" =: ("CancelImportTask" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "CancelReason" =: _citCancelReason,
-               "ImportTaskId" =: _citImportTaskId,
-               "DryRun" =: _citDryRun]
+               "CancelReason" =: _citrqCancelReason,
+               "ImportTaskId" =: _citrqImportTaskId,
+               "DryRun" =: _citrqDryRun]
 
 -- | /See:/ 'cancelImportTaskResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'citrState'
+-- * 'citrsState'
 --
--- * 'citrImportTaskId'
+-- * 'citrsImportTaskId'
 --
--- * 'citrPreviousState'
+-- * 'citrsPreviousState'
 --
--- * 'citrStatus'
+-- * 'citrsStatus'
 data CancelImportTaskResponse = CancelImportTaskResponse'
-    { _citrState         :: !(Maybe Text)
-    , _citrImportTaskId  :: !(Maybe Text)
-    , _citrPreviousState :: !(Maybe Text)
-    , _citrStatus        :: !Int
+    { _citrsState         :: !(Maybe Text)
+    , _citrsImportTaskId  :: !(Maybe Text)
+    , _citrsPreviousState :: !(Maybe Text)
+    , _citrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelImportTaskResponse' smart constructor.
 cancelImportTaskResponse :: Int -> CancelImportTaskResponse
 cancelImportTaskResponse pStatus =
     CancelImportTaskResponse'
-    { _citrState = Nothing
-    , _citrImportTaskId = Nothing
-    , _citrPreviousState = Nothing
-    , _citrStatus = pStatus
+    { _citrsState = Nothing
+    , _citrsImportTaskId = Nothing
+    , _citrsPreviousState = Nothing
+    , _citrsStatus = pStatus
     }
 
 -- | The current state of the task being canceled.
-citrState :: Lens' CancelImportTaskResponse (Maybe Text)
-citrState = lens _citrState (\ s a -> s{_citrState = a});
+citrsState :: Lens' CancelImportTaskResponse (Maybe Text)
+citrsState = lens _citrsState (\ s a -> s{_citrsState = a});
 
 -- | The ID of the task being canceled.
-citrImportTaskId :: Lens' CancelImportTaskResponse (Maybe Text)
-citrImportTaskId = lens _citrImportTaskId (\ s a -> s{_citrImportTaskId = a});
+citrsImportTaskId :: Lens' CancelImportTaskResponse (Maybe Text)
+citrsImportTaskId = lens _citrsImportTaskId (\ s a -> s{_citrsImportTaskId = a});
 
 -- | The current state of the task being canceled.
-citrPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
-citrPreviousState = lens _citrPreviousState (\ s a -> s{_citrPreviousState = a});
+citrsPreviousState :: Lens' CancelImportTaskResponse (Maybe Text)
+citrsPreviousState = lens _citrsPreviousState (\ s a -> s{_citrsPreviousState = a});
 
 -- | FIXME: Undocumented member.
-citrStatus :: Lens' CancelImportTaskResponse Int
-citrStatus = lens _citrStatus (\ s a -> s{_citrStatus = a});
+citrsStatus :: Lens' CancelImportTaskResponse Int
+citrsStatus = lens _citrsStatus (\ s a -> s{_citrsStatus = a});

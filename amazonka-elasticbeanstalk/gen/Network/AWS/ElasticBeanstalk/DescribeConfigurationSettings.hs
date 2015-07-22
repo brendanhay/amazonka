@@ -39,17 +39,17 @@ module Network.AWS.ElasticBeanstalk.DescribeConfigurationSettings
     -- ** Request constructor
     , describeConfigurationSettings
     -- ** Request lenses
-    , dcsTemplateName
-    , dcsEnvironmentName
-    , dcsApplicationName
+    , dcsrqTemplateName
+    , dcsrqEnvironmentName
+    , dcsrqApplicationName
 
     -- * Response
     , DescribeConfigurationSettingsResponse
     -- ** Response constructor
     , describeConfigurationSettingsResponse
     -- ** Response lenses
-    , dcsrConfigurationSettings
-    , dcsrStatus
+    , dcsrsConfigurationSettings
+    , dcsrsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -64,24 +64,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsTemplateName'
+-- * 'dcsrqTemplateName'
 --
--- * 'dcsEnvironmentName'
+-- * 'dcsrqEnvironmentName'
 --
--- * 'dcsApplicationName'
+-- * 'dcsrqApplicationName'
 data DescribeConfigurationSettings = DescribeConfigurationSettings'
-    { _dcsTemplateName    :: !(Maybe Text)
-    , _dcsEnvironmentName :: !(Maybe Text)
-    , _dcsApplicationName :: !Text
+    { _dcsrqTemplateName    :: !(Maybe Text)
+    , _dcsrqEnvironmentName :: !(Maybe Text)
+    , _dcsrqApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationSettings' smart constructor.
 describeConfigurationSettings :: Text -> DescribeConfigurationSettings
 describeConfigurationSettings pApplicationName =
     DescribeConfigurationSettings'
-    { _dcsTemplateName = Nothing
-    , _dcsEnvironmentName = Nothing
-    , _dcsApplicationName = pApplicationName
+    { _dcsrqTemplateName = Nothing
+    , _dcsrqEnvironmentName = Nothing
+    , _dcsrqApplicationName = pApplicationName
     }
 
 -- | The name of the configuration template to describe.
@@ -91,8 +91,8 @@ describeConfigurationSettings pApplicationName =
 -- Beanstalk returns an @InvalidParameterCombination@ error. If you do not
 -- specify either, AWS Elastic Beanstalk returns a
 -- @MissingRequiredParameter@ error.
-dcsTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
+dcsrqTemplateName :: Lens' DescribeConfigurationSettings (Maybe Text)
+dcsrqTemplateName = lens _dcsrqTemplateName (\ s a -> s{_dcsrqTemplateName = a});
 
 -- | The name of the environment to describe.
 --
@@ -100,12 +100,12 @@ dcsTemplateName = lens _dcsTemplateName (\ s a -> s{_dcsTemplateName = a});
 -- If you specify both, AWS Elastic Beanstalk returns an
 -- @InvalidParameterCombination@ error. If you do not specify either, AWS
 -- Elastic Beanstalk returns @MissingRequiredParameter@ error.
-dcsEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
-dcsEnvironmentName = lens _dcsEnvironmentName (\ s a -> s{_dcsEnvironmentName = a});
+dcsrqEnvironmentName :: Lens' DescribeConfigurationSettings (Maybe Text)
+dcsrqEnvironmentName = lens _dcsrqEnvironmentName (\ s a -> s{_dcsrqEnvironmentName = a});
 
 -- | The application for the environment or configuration template.
-dcsApplicationName :: Lens' DescribeConfigurationSettings Text
-dcsApplicationName = lens _dcsApplicationName (\ s a -> s{_dcsApplicationName = a});
+dcsrqApplicationName :: Lens' DescribeConfigurationSettings Text
+dcsrqApplicationName = lens _dcsrqApplicationName (\ s a -> s{_dcsrqApplicationName = a});
 
 instance AWSRequest DescribeConfigurationSettings
          where
@@ -136,9 +136,9 @@ instance ToQuery DescribeConfigurationSettings where
               ["Action" =:
                  ("DescribeConfigurationSettings" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "TemplateName" =: _dcsTemplateName,
-               "EnvironmentName" =: _dcsEnvironmentName,
-               "ApplicationName" =: _dcsApplicationName]
+               "TemplateName" =: _dcsrqTemplateName,
+               "EnvironmentName" =: _dcsrqEnvironmentName,
+               "ApplicationName" =: _dcsrqApplicationName]
 
 -- | The results from a request to change the configuration settings of an
 -- environment.
@@ -147,26 +147,26 @@ instance ToQuery DescribeConfigurationSettings where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsrConfigurationSettings'
+-- * 'dcsrsConfigurationSettings'
 --
--- * 'dcsrStatus'
+-- * 'dcsrsStatus'
 data DescribeConfigurationSettingsResponse = DescribeConfigurationSettingsResponse'
-    { _dcsrConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
-    , _dcsrStatus                :: !Int
+    { _dcsrsConfigurationSettings :: !(Maybe [ConfigurationSettingsDescription])
+    , _dcsrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationSettingsResponse' smart constructor.
 describeConfigurationSettingsResponse :: Int -> DescribeConfigurationSettingsResponse
 describeConfigurationSettingsResponse pStatus =
     DescribeConfigurationSettingsResponse'
-    { _dcsrConfigurationSettings = Nothing
-    , _dcsrStatus = pStatus
+    { _dcsrsConfigurationSettings = Nothing
+    , _dcsrsStatus = pStatus
     }
 
 -- | A list of ConfigurationSettingsDescription.
-dcsrConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
-dcsrConfigurationSettings = lens _dcsrConfigurationSettings (\ s a -> s{_dcsrConfigurationSettings = a}) . _Default;
+dcsrsConfigurationSettings :: Lens' DescribeConfigurationSettingsResponse [ConfigurationSettingsDescription]
+dcsrsConfigurationSettings = lens _dcsrsConfigurationSettings (\ s a -> s{_dcsrsConfigurationSettings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcsrStatus :: Lens' DescribeConfigurationSettingsResponse Int
-dcsrStatus = lens _dcsrStatus (\ s a -> s{_dcsrStatus = a});
+dcsrsStatus :: Lens' DescribeConfigurationSettingsResponse Int
+dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

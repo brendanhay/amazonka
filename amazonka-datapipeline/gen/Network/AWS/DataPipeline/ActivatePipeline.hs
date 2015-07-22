@@ -34,16 +34,16 @@ module Network.AWS.DataPipeline.ActivatePipeline
     -- ** Request constructor
     , activatePipeline
     -- ** Request lenses
-    , apStartTimestamp
-    , apParameterValues
-    , apPipelineId
+    , aprqStartTimestamp
+    , aprqParameterValues
+    , aprqPipelineId
 
     -- * Response
     , ActivatePipelineResponse
     -- ** Response constructor
     , activatePipelineResponse
     -- ** Response lenses
-    , aprStatus
+    , aprsStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -57,38 +57,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apStartTimestamp'
+-- * 'aprqStartTimestamp'
 --
--- * 'apParameterValues'
+-- * 'aprqParameterValues'
 --
--- * 'apPipelineId'
+-- * 'aprqPipelineId'
 data ActivatePipeline = ActivatePipeline'
-    { _apStartTimestamp  :: !(Maybe POSIX)
-    , _apParameterValues :: !(Maybe [ParameterValue])
-    , _apPipelineId      :: !Text
+    { _aprqStartTimestamp  :: !(Maybe POSIX)
+    , _aprqParameterValues :: !(Maybe [ParameterValue])
+    , _aprqPipelineId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivatePipeline' smart constructor.
 activatePipeline :: Text -> ActivatePipeline
 activatePipeline pPipelineId =
     ActivatePipeline'
-    { _apStartTimestamp = Nothing
-    , _apParameterValues = Nothing
-    , _apPipelineId = pPipelineId
+    { _aprqStartTimestamp = Nothing
+    , _aprqParameterValues = Nothing
+    , _aprqPipelineId = pPipelineId
     }
 
 -- | The date and time to resume the pipeline. By default, the pipeline
 -- resumes from the last completed execution.
-apStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
-apStartTimestamp = lens _apStartTimestamp (\ s a -> s{_apStartTimestamp = a}) . mapping _Time;
+aprqStartTimestamp :: Lens' ActivatePipeline (Maybe UTCTime)
+aprqStartTimestamp = lens _aprqStartTimestamp (\ s a -> s{_aprqStartTimestamp = a}) . mapping _Time;
 
 -- | A list of parameter values to pass to the pipeline at activation.
-apParameterValues :: Lens' ActivatePipeline [ParameterValue]
-apParameterValues = lens _apParameterValues (\ s a -> s{_apParameterValues = a}) . _Default;
+aprqParameterValues :: Lens' ActivatePipeline [ParameterValue]
+aprqParameterValues = lens _aprqParameterValues (\ s a -> s{_aprqParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
-apPipelineId :: Lens' ActivatePipeline Text
-apPipelineId = lens _apPipelineId (\ s a -> s{_apPipelineId = a});
+aprqPipelineId :: Lens' ActivatePipeline Text
+aprqPipelineId = lens _aprqPipelineId (\ s a -> s{_aprqPipelineId = a});
 
 instance AWSRequest ActivatePipeline where
         type Sv ActivatePipeline = DataPipeline
@@ -111,9 +111,9 @@ instance ToHeaders ActivatePipeline where
 instance ToJSON ActivatePipeline where
         toJSON ActivatePipeline'{..}
           = object
-              ["startTimestamp" .= _apStartTimestamp,
-               "parameterValues" .= _apParameterValues,
-               "pipelineId" .= _apPipelineId]
+              ["startTimestamp" .= _aprqStartTimestamp,
+               "parameterValues" .= _aprqParameterValues,
+               "pipelineId" .= _aprqPipelineId]
 
 instance ToPath ActivatePipeline where
         toPath = const "/"
@@ -127,18 +127,18 @@ instance ToQuery ActivatePipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aprStatus'
+-- * 'aprsStatus'
 newtype ActivatePipelineResponse = ActivatePipelineResponse'
-    { _aprStatus :: Int
+    { _aprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivatePipelineResponse' smart constructor.
 activatePipelineResponse :: Int -> ActivatePipelineResponse
 activatePipelineResponse pStatus =
     ActivatePipelineResponse'
-    { _aprStatus = pStatus
+    { _aprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-aprStatus :: Lens' ActivatePipelineResponse Int
-aprStatus = lens _aprStatus (\ s a -> s{_aprStatus = a});
+aprsStatus :: Lens' ActivatePipelineResponse Int
+aprsStatus = lens _aprsStatus (\ s a -> s{_aprsStatus = a});

@@ -27,15 +27,15 @@ module Network.AWS.DeviceFarm.GetRun
     -- ** Request constructor
     , getRun
     -- ** Request lenses
-    , grArn
+    , grrqArn
 
     -- * Response
     , GetRunResponse
     -- ** Response constructor
     , getRunResponse
     -- ** Response lenses
-    , grrRun
-    , grrStatus
+    , grrsRun
+    , grrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grArn'
+-- * 'grrqArn'
 newtype GetRun = GetRun'
-    { _grArn :: Text
+    { _grrqArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRun' smart constructor.
 getRun :: Text -> GetRun
 getRun pArn =
     GetRun'
-    { _grArn = pArn
+    { _grrqArn = pArn
     }
 
 -- | The run\'s ARN.
-grArn :: Lens' GetRun Text
-grArn = lens _grArn (\ s a -> s{_grArn = a});
+grrqArn :: Lens' GetRun Text
+grrqArn = lens _grrqArn (\ s a -> s{_grrqArn = a});
 
 instance AWSRequest GetRun where
         type Sv GetRun = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetRun where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetRun where
-        toJSON GetRun'{..} = object ["arn" .= _grArn]
+        toJSON GetRun'{..} = object ["arn" .= _grrqArn]
 
 instance ToPath GetRun where
         toPath = const "/"
@@ -99,26 +99,26 @@ instance ToQuery GetRun where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrRun'
+-- * 'grrsRun'
 --
--- * 'grrStatus'
+-- * 'grrsStatus'
 data GetRunResponse = GetRunResponse'
-    { _grrRun    :: !(Maybe Run)
-    , _grrStatus :: !Int
+    { _grrsRun    :: !(Maybe Run)
+    , _grrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRunResponse' smart constructor.
 getRunResponse :: Int -> GetRunResponse
 getRunResponse pStatus =
     GetRunResponse'
-    { _grrRun = Nothing
-    , _grrStatus = pStatus
+    { _grrsRun = Nothing
+    , _grrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-grrRun :: Lens' GetRunResponse (Maybe Run)
-grrRun = lens _grrRun (\ s a -> s{_grrRun = a});
+grrsRun :: Lens' GetRunResponse (Maybe Run)
+grrsRun = lens _grrsRun (\ s a -> s{_grrsRun = a});
 
 -- | FIXME: Undocumented member.
-grrStatus :: Lens' GetRunResponse Int
-grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
+grrsStatus :: Lens' GetRunResponse Int
+grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

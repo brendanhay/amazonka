@@ -27,16 +27,16 @@ module Network.AWS.CodeDeploy.GetDeploymentGroup
     -- ** Request constructor
     , getDeploymentGroup
     -- ** Request lenses
-    , gdgApplicationName
-    , gdgDeploymentGroupName
+    , gdgrqApplicationName
+    , gdgrqDeploymentGroupName
 
     -- * Response
     , GetDeploymentGroupResponse
     -- ** Response constructor
     , getDeploymentGroupResponse
     -- ** Response lenses
-    , gdgrDeploymentGroupInfo
-    , gdgrStatus
+    , gdgrsDeploymentGroupInfo
+    , gdgrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -50,30 +50,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdgApplicationName'
+-- * 'gdgrqApplicationName'
 --
--- * 'gdgDeploymentGroupName'
+-- * 'gdgrqDeploymentGroupName'
 data GetDeploymentGroup = GetDeploymentGroup'
-    { _gdgApplicationName     :: !Text
-    , _gdgDeploymentGroupName :: !Text
+    { _gdgrqApplicationName     :: !Text
+    , _gdgrqDeploymentGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentGroup' smart constructor.
 getDeploymentGroup :: Text -> Text -> GetDeploymentGroup
 getDeploymentGroup pApplicationName pDeploymentGroupName =
     GetDeploymentGroup'
-    { _gdgApplicationName = pApplicationName
-    , _gdgDeploymentGroupName = pDeploymentGroupName
+    { _gdgrqApplicationName = pApplicationName
+    , _gdgrqDeploymentGroupName = pDeploymentGroupName
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-gdgApplicationName :: Lens' GetDeploymentGroup Text
-gdgApplicationName = lens _gdgApplicationName (\ s a -> s{_gdgApplicationName = a});
+gdgrqApplicationName :: Lens' GetDeploymentGroup Text
+gdgrqApplicationName = lens _gdgrqApplicationName (\ s a -> s{_gdgrqApplicationName = a});
 
 -- | The name of an existing deployment group for the specified application.
-gdgDeploymentGroupName :: Lens' GetDeploymentGroup Text
-gdgDeploymentGroupName = lens _gdgDeploymentGroupName (\ s a -> s{_gdgDeploymentGroupName = a});
+gdgrqDeploymentGroupName :: Lens' GetDeploymentGroup Text
+gdgrqDeploymentGroupName = lens _gdgrqDeploymentGroupName (\ s a -> s{_gdgrqDeploymentGroupName = a});
 
 instance AWSRequest GetDeploymentGroup where
         type Sv GetDeploymentGroup = CodeDeploy
@@ -100,8 +100,8 @@ instance ToHeaders GetDeploymentGroup where
 instance ToJSON GetDeploymentGroup where
         toJSON GetDeploymentGroup'{..}
           = object
-              ["applicationName" .= _gdgApplicationName,
-               "deploymentGroupName" .= _gdgDeploymentGroupName]
+              ["applicationName" .= _gdgrqApplicationName,
+               "deploymentGroupName" .= _gdgrqDeploymentGroupName]
 
 instance ToPath GetDeploymentGroup where
         toPath = const "/"
@@ -115,26 +115,26 @@ instance ToQuery GetDeploymentGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdgrDeploymentGroupInfo'
+-- * 'gdgrsDeploymentGroupInfo'
 --
--- * 'gdgrStatus'
+-- * 'gdgrsStatus'
 data GetDeploymentGroupResponse = GetDeploymentGroupResponse'
-    { _gdgrDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
-    , _gdgrStatus              :: !Int
+    { _gdgrsDeploymentGroupInfo :: !(Maybe DeploymentGroupInfo)
+    , _gdgrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentGroupResponse' smart constructor.
 getDeploymentGroupResponse :: Int -> GetDeploymentGroupResponse
 getDeploymentGroupResponse pStatus =
     GetDeploymentGroupResponse'
-    { _gdgrDeploymentGroupInfo = Nothing
-    , _gdgrStatus = pStatus
+    { _gdgrsDeploymentGroupInfo = Nothing
+    , _gdgrsStatus = pStatus
     }
 
 -- | Information about the deployment group.
-gdgrDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
-gdgrDeploymentGroupInfo = lens _gdgrDeploymentGroupInfo (\ s a -> s{_gdgrDeploymentGroupInfo = a});
+gdgrsDeploymentGroupInfo :: Lens' GetDeploymentGroupResponse (Maybe DeploymentGroupInfo)
+gdgrsDeploymentGroupInfo = lens _gdgrsDeploymentGroupInfo (\ s a -> s{_gdgrsDeploymentGroupInfo = a});
 
 -- | FIXME: Undocumented member.
-gdgrStatus :: Lens' GetDeploymentGroupResponse Int
-gdgrStatus = lens _gdgrStatus (\ s a -> s{_gdgrStatus = a});
+gdgrsStatus :: Lens' GetDeploymentGroupResponse Int
+gdgrsStatus = lens _gdgrsStatus (\ s a -> s{_gdgrsStatus = a});

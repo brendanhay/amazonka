@@ -32,15 +32,15 @@ module Network.AWS.EC2.CancelReservedInstancesListing
     -- ** Request constructor
     , cancelReservedInstancesListing
     -- ** Request lenses
-    , crilReservedInstancesListingId
+    , crilrqReservedInstancesListingId
 
     -- * Response
     , CancelReservedInstancesListingResponse
     -- ** Response constructor
     , cancelReservedInstancesListingResponse
     -- ** Response lenses
-    , crilrReservedInstancesListings
-    , crilrStatus
+    , crilrsReservedInstancesListings
+    , crilrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crilReservedInstancesListingId'
+-- * 'crilrqReservedInstancesListingId'
 newtype CancelReservedInstancesListing = CancelReservedInstancesListing'
-    { _crilReservedInstancesListingId :: Text
+    { _crilrqReservedInstancesListingId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelReservedInstancesListing' smart constructor.
 cancelReservedInstancesListing :: Text -> CancelReservedInstancesListing
 cancelReservedInstancesListing pReservedInstancesListingId =
     CancelReservedInstancesListing'
-    { _crilReservedInstancesListingId = pReservedInstancesListingId
+    { _crilrqReservedInstancesListingId = pReservedInstancesListingId
     }
 
 -- | The ID of the Reserved Instance listing.
-crilReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
-crilReservedInstancesListingId = lens _crilReservedInstancesListingId (\ s a -> s{_crilReservedInstancesListingId = a});
+crilrqReservedInstancesListingId :: Lens' CancelReservedInstancesListing Text
+crilrqReservedInstancesListingId = lens _crilrqReservedInstancesListingId (\ s a -> s{_crilrqReservedInstancesListingId = a});
 
 instance AWSRequest CancelReservedInstancesListing
          where
@@ -96,32 +96,32 @@ instance ToQuery CancelReservedInstancesListing where
                  ("CancelReservedInstancesListing" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "ReservedInstancesListingId" =:
-                 _crilReservedInstancesListingId]
+                 _crilrqReservedInstancesListingId]
 
 -- | /See:/ 'cancelReservedInstancesListingResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crilrReservedInstancesListings'
+-- * 'crilrsReservedInstancesListings'
 --
--- * 'crilrStatus'
+-- * 'crilrsStatus'
 data CancelReservedInstancesListingResponse = CancelReservedInstancesListingResponse'
-    { _crilrReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _crilrStatus                    :: !Int
+    { _crilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
+    , _crilrsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelReservedInstancesListingResponse' smart constructor.
 cancelReservedInstancesListingResponse :: Int -> CancelReservedInstancesListingResponse
 cancelReservedInstancesListingResponse pStatus =
     CancelReservedInstancesListingResponse'
-    { _crilrReservedInstancesListings = Nothing
-    , _crilrStatus = pStatus
+    { _crilrsReservedInstancesListings = Nothing
+    , _crilrsStatus = pStatus
     }
 
 -- | The Reserved Instance listing.
-crilrReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
-crilrReservedInstancesListings = lens _crilrReservedInstancesListings (\ s a -> s{_crilrReservedInstancesListings = a}) . _Default;
+crilrsReservedInstancesListings :: Lens' CancelReservedInstancesListingResponse [ReservedInstancesListing]
+crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-crilrStatus :: Lens' CancelReservedInstancesListingResponse Int
-crilrStatus = lens _crilrStatus (\ s a -> s{_crilrStatus = a});
+crilrsStatus :: Lens' CancelReservedInstancesListingResponse Int
+crilrsStatus = lens _crilrsStatus (\ s a -> s{_crilrsStatus = a});

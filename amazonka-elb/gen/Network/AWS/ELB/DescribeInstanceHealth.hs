@@ -30,16 +30,16 @@ module Network.AWS.ELB.DescribeInstanceHealth
     -- ** Request constructor
     , describeInstanceHealth
     -- ** Request lenses
-    , dihInstances
-    , dihLoadBalancerName
+    , dihrqInstances
+    , dihrqLoadBalancerName
 
     -- * Response
     , DescribeInstanceHealthResponse
     -- ** Response constructor
     , describeInstanceHealthResponse
     -- ** Response lenses
-    , dihrInstanceStates
-    , dihrStatus
+    , dihrsInstanceStates
+    , dihrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dihInstances'
+-- * 'dihrqInstances'
 --
--- * 'dihLoadBalancerName'
+-- * 'dihrqLoadBalancerName'
 data DescribeInstanceHealth = DescribeInstanceHealth'
-    { _dihInstances        :: !(Maybe [Instance])
-    , _dihLoadBalancerName :: !Text
+    { _dihrqInstances        :: !(Maybe [Instance])
+    , _dihrqLoadBalancerName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceHealth' smart constructor.
 describeInstanceHealth :: Text -> DescribeInstanceHealth
 describeInstanceHealth pLoadBalancerName =
     DescribeInstanceHealth'
-    { _dihInstances = Nothing
-    , _dihLoadBalancerName = pLoadBalancerName
+    { _dihrqInstances = Nothing
+    , _dihrqLoadBalancerName = pLoadBalancerName
     }
 
 -- | The IDs of the instances.
-dihInstances :: Lens' DescribeInstanceHealth [Instance]
-dihInstances = lens _dihInstances (\ s a -> s{_dihInstances = a}) . _Default;
+dihrqInstances :: Lens' DescribeInstanceHealth [Instance]
+dihrqInstances = lens _dihrqInstances (\ s a -> s{_dihrqInstances = a}) . _Default;
 
 -- | The name of the load balancer.
-dihLoadBalancerName :: Lens' DescribeInstanceHealth Text
-dihLoadBalancerName = lens _dihLoadBalancerName (\ s a -> s{_dihLoadBalancerName = a});
+dihrqLoadBalancerName :: Lens' DescribeInstanceHealth Text
+dihrqLoadBalancerName = lens _dihrqLoadBalancerName (\ s a -> s{_dihrqLoadBalancerName = a});
 
 instance AWSRequest DescribeInstanceHealth where
         type Sv DescribeInstanceHealth = ELB
@@ -101,33 +101,33 @@ instance ToQuery DescribeInstanceHealth where
                  ("DescribeInstanceHealth" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "Instances" =:
-                 toQuery (toQueryList "member" <$> _dihInstances),
-               "LoadBalancerName" =: _dihLoadBalancerName]
+                 toQuery (toQueryList "member" <$> _dihrqInstances),
+               "LoadBalancerName" =: _dihrqLoadBalancerName]
 
 -- | /See:/ 'describeInstanceHealthResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dihrInstanceStates'
+-- * 'dihrsInstanceStates'
 --
--- * 'dihrStatus'
+-- * 'dihrsStatus'
 data DescribeInstanceHealthResponse = DescribeInstanceHealthResponse'
-    { _dihrInstanceStates :: !(Maybe [InstanceState])
-    , _dihrStatus         :: !Int
+    { _dihrsInstanceStates :: !(Maybe [InstanceState])
+    , _dihrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceHealthResponse' smart constructor.
 describeInstanceHealthResponse :: Int -> DescribeInstanceHealthResponse
 describeInstanceHealthResponse pStatus =
     DescribeInstanceHealthResponse'
-    { _dihrInstanceStates = Nothing
-    , _dihrStatus = pStatus
+    { _dihrsInstanceStates = Nothing
+    , _dihrsStatus = pStatus
     }
 
 -- | Information about the health of the instances.
-dihrInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
-dihrInstanceStates = lens _dihrInstanceStates (\ s a -> s{_dihrInstanceStates = a}) . _Default;
+dihrsInstanceStates :: Lens' DescribeInstanceHealthResponse [InstanceState]
+dihrsInstanceStates = lens _dihrsInstanceStates (\ s a -> s{_dihrsInstanceStates = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dihrStatus :: Lens' DescribeInstanceHealthResponse Int
-dihrStatus = lens _dihrStatus (\ s a -> s{_dihrStatus = a});
+dihrsStatus :: Lens' DescribeInstanceHealthResponse Int
+dihrsStatus = lens _dihrsStatus (\ s a -> s{_dihrsStatus = a});

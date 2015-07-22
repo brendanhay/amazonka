@@ -36,10 +36,10 @@ module Network.AWS.SDB.DeleteAttributes
     -- ** Request constructor
     , deleteAttributes
     -- ** Request lenses
-    , daAttributes
-    , daExpected
-    , daDomainName
-    , daItemName
+    , darqAttributes
+    , darqExpected
+    , darqDomainName
+    , darqItemName
 
     -- * Response
     , DeleteAttributesResponse
@@ -56,50 +56,50 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daAttributes'
+-- * 'darqAttributes'
 --
--- * 'daExpected'
+-- * 'darqExpected'
 --
--- * 'daDomainName'
+-- * 'darqDomainName'
 --
--- * 'daItemName'
+-- * 'darqItemName'
 data DeleteAttributes = DeleteAttributes'
-    { _daAttributes :: !(Maybe [Attribute])
-    , _daExpected   :: !(Maybe UpdateCondition)
-    , _daDomainName :: !Text
-    , _daItemName   :: !Text
+    { _darqAttributes :: !(Maybe [Attribute])
+    , _darqExpected   :: !(Maybe UpdateCondition)
+    , _darqDomainName :: !Text
+    , _darqItemName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAttributes' smart constructor.
 deleteAttributes :: Text -> Text -> DeleteAttributes
 deleteAttributes pDomainName pItemName =
     DeleteAttributes'
-    { _daAttributes = Nothing
-    , _daExpected = Nothing
-    , _daDomainName = pDomainName
-    , _daItemName = pItemName
+    { _darqAttributes = Nothing
+    , _darqExpected = Nothing
+    , _darqDomainName = pDomainName
+    , _darqItemName = pItemName
     }
 
 -- | A list of Attributes. Similar to columns on a spreadsheet, attributes
 -- represent categories of data that can be assigned to items.
-daAttributes :: Lens' DeleteAttributes [Attribute]
-daAttributes = lens _daAttributes (\ s a -> s{_daAttributes = a}) . _Default;
+darqAttributes :: Lens' DeleteAttributes [Attribute]
+darqAttributes = lens _darqAttributes (\ s a -> s{_darqAttributes = a}) . _Default;
 
 -- | The update condition which, if specified, determines whether the
 -- specified attributes will be deleted or not. The update condition must
 -- be satisfied in order for this request to be processed and the
 -- attributes to be deleted.
-daExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
-daExpected = lens _daExpected (\ s a -> s{_daExpected = a});
+darqExpected :: Lens' DeleteAttributes (Maybe UpdateCondition)
+darqExpected = lens _darqExpected (\ s a -> s{_darqExpected = a});
 
 -- | The name of the domain in which to perform the operation.
-daDomainName :: Lens' DeleteAttributes Text
-daDomainName = lens _daDomainName (\ s a -> s{_daDomainName = a});
+darqDomainName :: Lens' DeleteAttributes Text
+darqDomainName = lens _darqDomainName (\ s a -> s{_darqDomainName = a});
 
 -- | The name of the item. Similar to rows on a spreadsheet, items represent
 -- individual objects that contain one or more value-attribute pairs.
-daItemName :: Lens' DeleteAttributes Text
-daItemName = lens _daItemName (\ s a -> s{_daItemName = a});
+darqItemName :: Lens' DeleteAttributes Text
+darqItemName = lens _darqItemName (\ s a -> s{_darqItemName = a});
 
 instance AWSRequest DeleteAttributes where
         type Sv DeleteAttributes = SDB
@@ -118,10 +118,11 @@ instance ToQuery DeleteAttributes where
           = mconcat
               ["Action" =: ("DeleteAttributes" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               toQuery (toQueryList "Attribute" <$> _daAttributes),
-               "Expected" =: _daExpected,
-               "DomainName" =: _daDomainName,
-               "ItemName" =: _daItemName]
+               toQuery
+                 (toQueryList "Attribute" <$> _darqAttributes),
+               "Expected" =: _darqExpected,
+               "DomainName" =: _darqDomainName,
+               "ItemName" =: _darqItemName]
 
 -- | /See:/ 'deleteAttributesResponse' smart constructor.
 data DeleteAttributesResponse =

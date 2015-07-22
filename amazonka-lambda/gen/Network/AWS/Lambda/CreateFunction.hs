@@ -33,30 +33,30 @@ module Network.AWS.Lambda.CreateFunction
     -- ** Request constructor
     , createFunction
     -- ** Request lenses
-    , cfMemorySize
-    , cfTimeout
-    , cfDescription
-    , cfFunctionName
-    , cfRuntime
-    , cfRole
-    , cfHandler
-    , cfCode
+    , cfrqMemorySize
+    , cfrqTimeout
+    , cfrqDescription
+    , cfrqFunctionName
+    , cfrqRuntime
+    , cfrqRole
+    , cfrqHandler
+    , cfrqCode
 
     -- * Response
     , FunctionConfiguration
     -- ** Response constructor
     , functionConfiguration
     -- ** Response lenses
-    , fcRuntime
-    , fcMemorySize
-    , fcFunctionARN
-    , fcRole
-    , fcFunctionName
-    , fcCodeSize
-    , fcHandler
-    , fcTimeout
-    , fcLastModified
-    , fcDescription
+    , cfrsRuntime
+    , cfrsMemorySize
+    , cfrsFunctionARN
+    , cfrsRole
+    , cfrsFunctionName
+    , cfrsCodeSize
+    , cfrsHandler
+    , cfrsTimeout
+    , cfrsLastModified
+    , cfrsDescription
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -68,44 +68,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cfMemorySize'
+-- * 'cfrqMemorySize'
 --
--- * 'cfTimeout'
+-- * 'cfrqTimeout'
 --
--- * 'cfDescription'
+-- * 'cfrqDescription'
 --
--- * 'cfFunctionName'
+-- * 'cfrqFunctionName'
 --
--- * 'cfRuntime'
+-- * 'cfrqRuntime'
 --
--- * 'cfRole'
+-- * 'cfrqRole'
 --
--- * 'cfHandler'
+-- * 'cfrqHandler'
 --
--- * 'cfCode'
+-- * 'cfrqCode'
 data CreateFunction = CreateFunction'
-    { _cfMemorySize   :: !(Maybe Nat)
-    , _cfTimeout      :: !(Maybe Nat)
-    , _cfDescription  :: !(Maybe Text)
-    , _cfFunctionName :: !Text
-    , _cfRuntime      :: !Runtime
-    , _cfRole         :: !Text
-    , _cfHandler      :: !Text
-    , _cfCode         :: !FunctionCode
+    { _cfrqMemorySize   :: !(Maybe Nat)
+    , _cfrqTimeout      :: !(Maybe Nat)
+    , _cfrqDescription  :: !(Maybe Text)
+    , _cfrqFunctionName :: !Text
+    , _cfrqRuntime      :: !Runtime
+    , _cfrqRole         :: !Text
+    , _cfrqHandler      :: !Text
+    , _cfrqCode         :: !FunctionCode
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateFunction' smart constructor.
 createFunction :: Text -> Runtime -> Text -> Text -> FunctionCode -> CreateFunction
 createFunction pFunctionName pRuntime pRole pHandler pCode =
     CreateFunction'
-    { _cfMemorySize = Nothing
-    , _cfTimeout = Nothing
-    , _cfDescription = Nothing
-    , _cfFunctionName = pFunctionName
-    , _cfRuntime = pRuntime
-    , _cfRole = pRole
-    , _cfHandler = pHandler
-    , _cfCode = pCode
+    { _cfrqMemorySize = Nothing
+    , _cfrqTimeout = Nothing
+    , _cfrqDescription = Nothing
+    , _cfrqFunctionName = pFunctionName
+    , _cfrqRuntime = pRuntime
+    , _cfrqRole = pRole
+    , _cfrqHandler = pHandler
+    , _cfrqCode = pCode
     }
 
 -- | The amount of memory, in MB, your Lambda function is given. Lambda uses
@@ -114,20 +114,20 @@ createFunction pFunctionName pRuntime pRole pHandler pCode =
 -- requirements. For example, a database operation might need less memory
 -- compared to an image processing function. The default value is 128 MB.
 -- The value must be a multiple of 64 MB.
-cfMemorySize :: Lens' CreateFunction (Maybe Natural)
-cfMemorySize = lens _cfMemorySize (\ s a -> s{_cfMemorySize = a}) . mapping _Nat;
+cfrqMemorySize :: Lens' CreateFunction (Maybe Natural)
+cfrqMemorySize = lens _cfrqMemorySize (\ s a -> s{_cfrqMemorySize = a}) . mapping _Nat;
 
 -- | The function execution time at which Lambda should terminate the
 -- function. Because the execution time has cost implications, we recommend
 -- you set this value based on your expected execution time. The default is
 -- 3 seconds.
-cfTimeout :: Lens' CreateFunction (Maybe Natural)
-cfTimeout = lens _cfTimeout (\ s a -> s{_cfTimeout = a}) . mapping _Nat;
+cfrqTimeout :: Lens' CreateFunction (Maybe Natural)
+cfrqTimeout = lens _cfrqTimeout (\ s a -> s{_cfrqTimeout = a}) . mapping _Nat;
 
 -- | A short, user-defined function description. Lambda does not use this
 -- value. Assign a meaningful description as you see fit.
-cfDescription :: Lens' CreateFunction (Maybe Text)
-cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
+cfrqDescription :: Lens' CreateFunction (Maybe Text)
+cfrqDescription = lens _cfrqDescription (\ s a -> s{_cfrqDescription = a});
 
 -- | The name you want to assign to the function you are uploading. You can
 -- specify an unqualified function name (for example, \"Thumbnail\") or you
@@ -139,32 +139,32 @@ cfDescription = lens _cfDescription (\ s a -> s{_cfDescription = a});
 -- character in length. The function names appear in the console and are
 -- returned in the ListFunctions API. Function names are used to specify
 -- functions to other AWS Lambda APIs, such as Invoke.
-cfFunctionName :: Lens' CreateFunction Text
-cfFunctionName = lens _cfFunctionName (\ s a -> s{_cfFunctionName = a});
+cfrqFunctionName :: Lens' CreateFunction Text
+cfrqFunctionName = lens _cfrqFunctionName (\ s a -> s{_cfrqFunctionName = a});
 
 -- | The runtime environment for the Lambda function you are uploading.
 -- Currently, Lambda supports \"java\" and \"nodejs\" as the runtime.
-cfRuntime :: Lens' CreateFunction Runtime
-cfRuntime = lens _cfRuntime (\ s a -> s{_cfRuntime = a});
+cfrqRuntime :: Lens' CreateFunction Runtime
+cfrqRuntime = lens _cfrqRuntime (\ s a -> s{_cfrqRuntime = a});
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda assumes when
 -- it executes your function to access any other Amazon Web Services (AWS)
 -- resources. For more information, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html AWS Lambda: How it Works>
-cfRole :: Lens' CreateFunction Text
-cfRole = lens _cfRole (\ s a -> s{_cfRole = a});
+cfrqRole :: Lens' CreateFunction Text
+cfrqRole = lens _cfrqRole (\ s a -> s{_cfrqRole = a});
 
 -- | The function within your code that Lambda calls to begin execution. For
 -- Node.js, it is the /module-name/./export/ value in your function. For
 -- Java, it can be @package.class-name::handler@ or @package.class-name@.
 -- For more information, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/java-programming-model-handler-types.html Lambda Function Handler (Java)>.
-cfHandler :: Lens' CreateFunction Text
-cfHandler = lens _cfHandler (\ s a -> s{_cfHandler = a});
+cfrqHandler :: Lens' CreateFunction Text
+cfrqHandler = lens _cfrqHandler (\ s a -> s{_cfrqHandler = a});
 
 -- | The code for the Lambda function.
-cfCode :: Lens' CreateFunction FunctionCode
-cfCode = lens _cfCode (\ s a -> s{_cfCode = a});
+cfrqCode :: Lens' CreateFunction FunctionCode
+cfrqCode = lens _cfrqCode (\ s a -> s{_cfrqCode = a});
 
 instance AWSRequest CreateFunction where
         type Sv CreateFunction = Lambda
@@ -178,12 +178,12 @@ instance ToHeaders CreateFunction where
 instance ToJSON CreateFunction where
         toJSON CreateFunction'{..}
           = object
-              ["MemorySize" .= _cfMemorySize,
-               "Timeout" .= _cfTimeout,
-               "Description" .= _cfDescription,
-               "FunctionName" .= _cfFunctionName,
-               "Runtime" .= _cfRuntime, "Role" .= _cfRole,
-               "Handler" .= _cfHandler, "Code" .= _cfCode]
+              ["MemorySize" .= _cfrqMemorySize,
+               "Timeout" .= _cfrqTimeout,
+               "Description" .= _cfrqDescription,
+               "FunctionName" .= _cfrqFunctionName,
+               "Runtime" .= _cfrqRuntime, "Role" .= _cfrqRole,
+               "Handler" .= _cfrqHandler, "Code" .= _cfrqCode]
 
 instance ToPath CreateFunction where
         toPath = const "/2015-03-31/functions"

@@ -35,7 +35,7 @@ module Network.AWS.IAM.DeleteLoginProfile
     -- ** Request constructor
     , deleteLoginProfile
     -- ** Request lenses
-    , dlpUserName
+    , dlprqUserName
 
     -- * Response
     , DeleteLoginProfileResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlpUserName'
+-- * 'dlprqUserName'
 newtype DeleteLoginProfile = DeleteLoginProfile'
-    { _dlpUserName :: Text
+    { _dlprqUserName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoginProfile' smart constructor.
 deleteLoginProfile :: Text -> DeleteLoginProfile
 deleteLoginProfile pUserName =
     DeleteLoginProfile'
-    { _dlpUserName = pUserName
+    { _dlprqUserName = pUserName
     }
 
 -- | The name of the user whose password you want to delete.
-dlpUserName :: Lens' DeleteLoginProfile Text
-dlpUserName = lens _dlpUserName (\ s a -> s{_dlpUserName = a});
+dlprqUserName :: Lens' DeleteLoginProfile Text
+dlprqUserName = lens _dlprqUserName (\ s a -> s{_dlprqUserName = a});
 
 instance AWSRequest DeleteLoginProfile where
         type Sv DeleteLoginProfile = IAM
@@ -86,7 +86,7 @@ instance ToQuery DeleteLoginProfile where
           = mconcat
               ["Action" =: ("DeleteLoginProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _dlpUserName]
+               "UserName" =: _dlprqUserName]
 
 -- | /See:/ 'deleteLoginProfileResponse' smart constructor.
 data DeleteLoginProfileResponse =

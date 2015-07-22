@@ -27,21 +27,21 @@ module Network.AWS.RDS.DescribeOptionGroups
     -- ** Request constructor
     , describeOptionGroups
     -- ** Request lenses
-    , dogFilters
-    , dogEngineName
-    , dogMajorEngineVersion
-    , dogMaxRecords
-    , dogMarker
-    , dogOptionGroupName
+    , dogrqFilters
+    , dogrqEngineName
+    , dogrqMajorEngineVersion
+    , dogrqMaxRecords
+    , dogrqMarker
+    , dogrqOptionGroupName
 
     -- * Response
     , DescribeOptionGroupsResponse
     -- ** Response constructor
     , describeOptionGroupsResponse
     -- ** Response lenses
-    , dogrMarker
-    , dogrOptionGroupsList
-    , dogrStatus
+    , dogrsMarker
+    , dogrsOptionGroupsList
+    , dogrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -56,52 +56,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dogFilters'
+-- * 'dogrqFilters'
 --
--- * 'dogEngineName'
+-- * 'dogrqEngineName'
 --
--- * 'dogMajorEngineVersion'
+-- * 'dogrqMajorEngineVersion'
 --
--- * 'dogMaxRecords'
+-- * 'dogrqMaxRecords'
 --
--- * 'dogMarker'
+-- * 'dogrqMarker'
 --
--- * 'dogOptionGroupName'
+-- * 'dogrqOptionGroupName'
 data DescribeOptionGroups = DescribeOptionGroups'
-    { _dogFilters            :: !(Maybe [Filter])
-    , _dogEngineName         :: !(Maybe Text)
-    , _dogMajorEngineVersion :: !(Maybe Text)
-    , _dogMaxRecords         :: !(Maybe Int)
-    , _dogMarker             :: !(Maybe Text)
-    , _dogOptionGroupName    :: !(Maybe Text)
+    { _dogrqFilters            :: !(Maybe [Filter])
+    , _dogrqEngineName         :: !(Maybe Text)
+    , _dogrqMajorEngineVersion :: !(Maybe Text)
+    , _dogrqMaxRecords         :: !(Maybe Int)
+    , _dogrqMarker             :: !(Maybe Text)
+    , _dogrqOptionGroupName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOptionGroups' smart constructor.
 describeOptionGroups :: DescribeOptionGroups
 describeOptionGroups =
     DescribeOptionGroups'
-    { _dogFilters = Nothing
-    , _dogEngineName = Nothing
-    , _dogMajorEngineVersion = Nothing
-    , _dogMaxRecords = Nothing
-    , _dogMarker = Nothing
-    , _dogOptionGroupName = Nothing
+    { _dogrqFilters = Nothing
+    , _dogrqEngineName = Nothing
+    , _dogrqMajorEngineVersion = Nothing
+    , _dogrqMaxRecords = Nothing
+    , _dogrqMarker = Nothing
+    , _dogrqOptionGroupName = Nothing
     }
 
 -- | This parameter is not currently supported.
-dogFilters :: Lens' DescribeOptionGroups [Filter]
-dogFilters = lens _dogFilters (\ s a -> s{_dogFilters = a}) . _Default;
+dogrqFilters :: Lens' DescribeOptionGroups [Filter]
+dogrqFilters = lens _dogrqFilters (\ s a -> s{_dogrqFilters = a}) . _Default;
 
 -- | Filters the list of option groups to only include groups associated with
 -- a specific database engine.
-dogEngineName :: Lens' DescribeOptionGroups (Maybe Text)
-dogEngineName = lens _dogEngineName (\ s a -> s{_dogEngineName = a});
+dogrqEngineName :: Lens' DescribeOptionGroups (Maybe Text)
+dogrqEngineName = lens _dogrqEngineName (\ s a -> s{_dogrqEngineName = a});
 
 -- | Filters the list of option groups to only include groups associated with
 -- a specific database engine version. If specified, then EngineName must
 -- also be specified.
-dogMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
-dogMajorEngineVersion = lens _dogMajorEngineVersion (\ s a -> s{_dogMajorEngineVersion = a});
+dogrqMajorEngineVersion :: Lens' DescribeOptionGroups (Maybe Text)
+dogrqMajorEngineVersion = lens _dogrqMajorEngineVersion (\ s a -> s{_dogrqMajorEngineVersion = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -111,26 +111,26 @@ dogMajorEngineVersion = lens _dogMajorEngineVersion (\ s a -> s{_dogMajorEngineV
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dogMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
-dogMaxRecords = lens _dogMaxRecords (\ s a -> s{_dogMaxRecords = a});
+dogrqMaxRecords :: Lens' DescribeOptionGroups (Maybe Int)
+dogrqMaxRecords = lens _dogrqMaxRecords (\ s a -> s{_dogrqMaxRecords = a});
 
 -- | An optional pagination token provided by a previous DescribeOptionGroups
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by @MaxRecords@.
-dogMarker :: Lens' DescribeOptionGroups (Maybe Text)
-dogMarker = lens _dogMarker (\ s a -> s{_dogMarker = a});
+dogrqMarker :: Lens' DescribeOptionGroups (Maybe Text)
+dogrqMarker = lens _dogrqMarker (\ s a -> s{_dogrqMarker = a});
 
 -- | The name of the option group to describe. Cannot be supplied together
 -- with EngineName or MajorEngineVersion.
-dogOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
-dogOptionGroupName = lens _dogOptionGroupName (\ s a -> s{_dogOptionGroupName = a});
+dogrqOptionGroupName :: Lens' DescribeOptionGroups (Maybe Text)
+dogrqOptionGroupName = lens _dogrqOptionGroupName (\ s a -> s{_dogrqOptionGroupName = a});
 
 instance AWSPager DescribeOptionGroups where
         page rq rs
-          | stop (rs ^. dogrMarker) = Nothing
-          | stop (rs ^. dogrOptionGroupsList) = Nothing
+          | stop (rs ^. dogrsMarker) = Nothing
+          | stop (rs ^. dogrsOptionGroupsList) = Nothing
           | otherwise =
-            Just $ rq & dogMarker .~ rs ^. dogrMarker
+            Just $ rq & dogrqMarker .~ rs ^. dogrsMarker
 
 instance AWSRequest DescribeOptionGroups where
         type Sv DescribeOptionGroups = RDS
@@ -158,12 +158,12 @@ instance ToQuery DescribeOptionGroups where
               ["Action" =: ("DescribeOptionGroups" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dogFilters),
-               "EngineName" =: _dogEngineName,
-               "MajorEngineVersion" =: _dogMajorEngineVersion,
-               "MaxRecords" =: _dogMaxRecords,
-               "Marker" =: _dogMarker,
-               "OptionGroupName" =: _dogOptionGroupName]
+                 toQuery (toQueryList "Filter" <$> _dogrqFilters),
+               "EngineName" =: _dogrqEngineName,
+               "MajorEngineVersion" =: _dogrqMajorEngineVersion,
+               "MaxRecords" =: _dogrqMaxRecords,
+               "Marker" =: _dogrqMarker,
+               "OptionGroupName" =: _dogrqOptionGroupName]
 
 -- | List of option groups.
 --
@@ -171,36 +171,36 @@ instance ToQuery DescribeOptionGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dogrMarker'
+-- * 'dogrsMarker'
 --
--- * 'dogrOptionGroupsList'
+-- * 'dogrsOptionGroupsList'
 --
--- * 'dogrStatus'
+-- * 'dogrsStatus'
 data DescribeOptionGroupsResponse = DescribeOptionGroupsResponse'
-    { _dogrMarker           :: !(Maybe Text)
-    , _dogrOptionGroupsList :: !(Maybe [OptionGroup])
-    , _dogrStatus           :: !Int
+    { _dogrsMarker           :: !(Maybe Text)
+    , _dogrsOptionGroupsList :: !(Maybe [OptionGroup])
+    , _dogrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOptionGroupsResponse' smart constructor.
 describeOptionGroupsResponse :: Int -> DescribeOptionGroupsResponse
 describeOptionGroupsResponse pStatus =
     DescribeOptionGroupsResponse'
-    { _dogrMarker = Nothing
-    , _dogrOptionGroupsList = Nothing
-    , _dogrStatus = pStatus
+    { _dogrsMarker = Nothing
+    , _dogrsOptionGroupsList = Nothing
+    , _dogrsStatus = pStatus
     }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-dogrMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
-dogrMarker = lens _dogrMarker (\ s a -> s{_dogrMarker = a});
+dogrsMarker :: Lens' DescribeOptionGroupsResponse (Maybe Text)
+dogrsMarker = lens _dogrsMarker (\ s a -> s{_dogrsMarker = a});
 
 -- | List of option groups.
-dogrOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
-dogrOptionGroupsList = lens _dogrOptionGroupsList (\ s a -> s{_dogrOptionGroupsList = a}) . _Default;
+dogrsOptionGroupsList :: Lens' DescribeOptionGroupsResponse [OptionGroup]
+dogrsOptionGroupsList = lens _dogrsOptionGroupsList (\ s a -> s{_dogrsOptionGroupsList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dogrStatus :: Lens' DescribeOptionGroupsResponse Int
-dogrStatus = lens _dogrStatus (\ s a -> s{_dogrStatus = a});
+dogrsStatus :: Lens' DescribeOptionGroupsResponse Int
+dogrsStatus = lens _dogrsStatus (\ s a -> s{_dogrsStatus = a});

@@ -31,17 +31,17 @@ module Network.AWS.EC2.DescribeDHCPOptions
     -- ** Request constructor
     , describeDHCPOptions
     -- ** Request lenses
-    , ddoFilters
-    , ddoDHCPOptionsIds
-    , ddoDryRun
+    , ddorqFilters
+    , ddorqDHCPOptionsIds
+    , ddorqDryRun
 
     -- * Response
     , DescribeDHCPOptionsResponse
     -- ** Response constructor
     , describeDHCPOptionsResponse
     -- ** Response lenses
-    , ddorDHCPOptions
-    , ddorStatus
+    , ddorsDHCPOptions
+    , ddorsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddoFilters'
+-- * 'ddorqFilters'
 --
--- * 'ddoDHCPOptionsIds'
+-- * 'ddorqDHCPOptionsIds'
 --
--- * 'ddoDryRun'
+-- * 'ddorqDryRun'
 data DescribeDHCPOptions = DescribeDHCPOptions'
-    { _ddoFilters        :: !(Maybe [Filter])
-    , _ddoDHCPOptionsIds :: !(Maybe [Text])
-    , _ddoDryRun         :: !(Maybe Bool)
+    { _ddorqFilters        :: !(Maybe [Filter])
+    , _ddorqDHCPOptionsIds :: !(Maybe [Text])
+    , _ddorqDryRun         :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDHCPOptions' smart constructor.
 describeDHCPOptions :: DescribeDHCPOptions
 describeDHCPOptions =
     DescribeDHCPOptions'
-    { _ddoFilters = Nothing
-    , _ddoDHCPOptionsIds = Nothing
-    , _ddoDryRun = Nothing
+    { _ddorqFilters = Nothing
+    , _ddorqDHCPOptionsIds = Nothing
+    , _ddorqDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -95,21 +95,21 @@ describeDHCPOptions =
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-ddoFilters :: Lens' DescribeDHCPOptions [Filter]
-ddoFilters = lens _ddoFilters (\ s a -> s{_ddoFilters = a}) . _Default;
+ddorqFilters :: Lens' DescribeDHCPOptions [Filter]
+ddorqFilters = lens _ddorqFilters (\ s a -> s{_ddorqFilters = a}) . _Default;
 
 -- | The IDs of one or more DHCP options sets.
 --
 -- Default: Describes all your DHCP options sets.
-ddoDHCPOptionsIds :: Lens' DescribeDHCPOptions [Text]
-ddoDHCPOptionsIds = lens _ddoDHCPOptionsIds (\ s a -> s{_ddoDHCPOptionsIds = a}) . _Default;
+ddorqDHCPOptionsIds :: Lens' DescribeDHCPOptions [Text]
+ddorqDHCPOptionsIds = lens _ddorqDHCPOptionsIds (\ s a -> s{_ddorqDHCPOptionsIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ddoDryRun :: Lens' DescribeDHCPOptions (Maybe Bool)
-ddoDryRun = lens _ddoDryRun (\ s a -> s{_ddoDryRun = a});
+ddorqDryRun :: Lens' DescribeDHCPOptions (Maybe Bool)
+ddorqDryRun = lens _ddorqDryRun (\ s a -> s{_ddorqDryRun = a});
 
 instance AWSRequest DescribeDHCPOptions where
         type Sv DescribeDHCPOptions = EC2
@@ -135,35 +135,36 @@ instance ToQuery DescribeDHCPOptions where
           = mconcat
               ["Action" =: ("DescribeDHCPOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _ddoFilters),
+               toQuery (toQueryList "Filter" <$> _ddorqFilters),
                toQuery
-                 (toQueryList "DhcpOptionsId" <$> _ddoDHCPOptionsIds),
-               "DryRun" =: _ddoDryRun]
+                 (toQueryList "DhcpOptionsId" <$>
+                    _ddorqDHCPOptionsIds),
+               "DryRun" =: _ddorqDryRun]
 
 -- | /See:/ 'describeDHCPOptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddorDHCPOptions'
+-- * 'ddorsDHCPOptions'
 --
--- * 'ddorStatus'
+-- * 'ddorsStatus'
 data DescribeDHCPOptionsResponse = DescribeDHCPOptionsResponse'
-    { _ddorDHCPOptions :: !(Maybe [DHCPOptions])
-    , _ddorStatus      :: !Int
+    { _ddorsDHCPOptions :: !(Maybe [DHCPOptions])
+    , _ddorsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDHCPOptionsResponse' smart constructor.
 describeDHCPOptionsResponse :: Int -> DescribeDHCPOptionsResponse
 describeDHCPOptionsResponse pStatus =
     DescribeDHCPOptionsResponse'
-    { _ddorDHCPOptions = Nothing
-    , _ddorStatus = pStatus
+    { _ddorsDHCPOptions = Nothing
+    , _ddorsStatus = pStatus
     }
 
 -- | Information about one or more DHCP options sets.
-ddorDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
-ddorDHCPOptions = lens _ddorDHCPOptions (\ s a -> s{_ddorDHCPOptions = a}) . _Default;
+ddorsDHCPOptions :: Lens' DescribeDHCPOptionsResponse [DHCPOptions]
+ddorsDHCPOptions = lens _ddorsDHCPOptions (\ s a -> s{_ddorsDHCPOptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddorStatus :: Lens' DescribeDHCPOptionsResponse Int
-ddorStatus = lens _ddorStatus (\ s a -> s{_ddorStatus = a});
+ddorsStatus :: Lens' DescribeDHCPOptionsResponse Int
+ddorsStatus = lens _ddorsStatus (\ s a -> s{_ddorsStatus = a});

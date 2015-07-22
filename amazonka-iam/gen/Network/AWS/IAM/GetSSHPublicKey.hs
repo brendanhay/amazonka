@@ -35,17 +35,17 @@ module Network.AWS.IAM.GetSSHPublicKey
     -- ** Request constructor
     , getSSHPublicKey
     -- ** Request lenses
-    , gspkUserName
-    , gspkSSHPublicKeyId
-    , gspkEncoding
+    , gspkrqUserName
+    , gspkrqSSHPublicKeyId
+    , gspkrqEncoding
 
     -- * Response
     , GetSSHPublicKeyResponse
     -- ** Response constructor
     , getSSHPublicKeyResponse
     -- ** Response lenses
-    , gspkrSSHPublicKey
-    , gspkrStatus
+    , gspkrsSSHPublicKey
+    , gspkrsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -57,39 +57,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gspkUserName'
+-- * 'gspkrqUserName'
 --
--- * 'gspkSSHPublicKeyId'
+-- * 'gspkrqSSHPublicKeyId'
 --
--- * 'gspkEncoding'
+-- * 'gspkrqEncoding'
 data GetSSHPublicKey = GetSSHPublicKey'
-    { _gspkUserName       :: !Text
-    , _gspkSSHPublicKeyId :: !Text
-    , _gspkEncoding       :: !EncodingType
+    { _gspkrqUserName       :: !Text
+    , _gspkrqSSHPublicKeyId :: !Text
+    , _gspkrqEncoding       :: !EncodingType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSSHPublicKey' smart constructor.
 getSSHPublicKey :: Text -> Text -> EncodingType -> GetSSHPublicKey
 getSSHPublicKey pUserName pSSHPublicKeyId pEncoding =
     GetSSHPublicKey'
-    { _gspkUserName = pUserName
-    , _gspkSSHPublicKeyId = pSSHPublicKeyId
-    , _gspkEncoding = pEncoding
+    { _gspkrqUserName = pUserName
+    , _gspkrqSSHPublicKeyId = pSSHPublicKeyId
+    , _gspkrqEncoding = pEncoding
     }
 
 -- | The name of the IAM user associated with the SSH public key.
-gspkUserName :: Lens' GetSSHPublicKey Text
-gspkUserName = lens _gspkUserName (\ s a -> s{_gspkUserName = a});
+gspkrqUserName :: Lens' GetSSHPublicKey Text
+gspkrqUserName = lens _gspkrqUserName (\ s a -> s{_gspkrqUserName = a});
 
 -- | The unique identifier for the SSH public key.
-gspkSSHPublicKeyId :: Lens' GetSSHPublicKey Text
-gspkSSHPublicKeyId = lens _gspkSSHPublicKeyId (\ s a -> s{_gspkSSHPublicKeyId = a});
+gspkrqSSHPublicKeyId :: Lens' GetSSHPublicKey Text
+gspkrqSSHPublicKeyId = lens _gspkrqSSHPublicKeyId (\ s a -> s{_gspkrqSSHPublicKeyId = a});
 
 -- | Specifies the public key encoding format to use in the response. To
 -- retrieve the public key in ssh-rsa format, use @SSH@. To retrieve the
 -- public key in PEM format, use @PEM@.
-gspkEncoding :: Lens' GetSSHPublicKey EncodingType
-gspkEncoding = lens _gspkEncoding (\ s a -> s{_gspkEncoding = a});
+gspkrqEncoding :: Lens' GetSSHPublicKey EncodingType
+gspkrqEncoding = lens _gspkrqEncoding (\ s a -> s{_gspkrqEncoding = a});
 
 instance AWSRequest GetSSHPublicKey where
         type Sv GetSSHPublicKey = IAM
@@ -112,9 +112,9 @@ instance ToQuery GetSSHPublicKey where
           = mconcat
               ["Action" =: ("GetSSHPublicKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _gspkUserName,
-               "SSHPublicKeyId" =: _gspkSSHPublicKeyId,
-               "Encoding" =: _gspkEncoding]
+               "UserName" =: _gspkrqUserName,
+               "SSHPublicKeyId" =: _gspkrqSSHPublicKeyId,
+               "Encoding" =: _gspkrqEncoding]
 
 -- | Contains the response to a successful GetSSHPublicKey request.
 --
@@ -122,26 +122,26 @@ instance ToQuery GetSSHPublicKey where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gspkrSSHPublicKey'
+-- * 'gspkrsSSHPublicKey'
 --
--- * 'gspkrStatus'
+-- * 'gspkrsStatus'
 data GetSSHPublicKeyResponse = GetSSHPublicKeyResponse'
-    { _gspkrSSHPublicKey :: !(Maybe SSHPublicKey)
-    , _gspkrStatus       :: !Int
+    { _gspkrsSSHPublicKey :: !(Maybe SSHPublicKey)
+    , _gspkrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSSHPublicKeyResponse' smart constructor.
 getSSHPublicKeyResponse :: Int -> GetSSHPublicKeyResponse
 getSSHPublicKeyResponse pStatus =
     GetSSHPublicKeyResponse'
-    { _gspkrSSHPublicKey = Nothing
-    , _gspkrStatus = pStatus
+    { _gspkrsSSHPublicKey = Nothing
+    , _gspkrsStatus = pStatus
     }
 
 -- | Information about the SSH public key.
-gspkrSSHPublicKey :: Lens' GetSSHPublicKeyResponse (Maybe SSHPublicKey)
-gspkrSSHPublicKey = lens _gspkrSSHPublicKey (\ s a -> s{_gspkrSSHPublicKey = a});
+gspkrsSSHPublicKey :: Lens' GetSSHPublicKeyResponse (Maybe SSHPublicKey)
+gspkrsSSHPublicKey = lens _gspkrsSSHPublicKey (\ s a -> s{_gspkrsSSHPublicKey = a});
 
 -- | FIXME: Undocumented member.
-gspkrStatus :: Lens' GetSSHPublicKeyResponse Int
-gspkrStatus = lens _gspkrStatus (\ s a -> s{_gspkrStatus = a});
+gspkrsStatus :: Lens' GetSSHPublicKeyResponse Int
+gspkrsStatus = lens _gspkrsStatus (\ s a -> s{_gspkrsStatus = a});

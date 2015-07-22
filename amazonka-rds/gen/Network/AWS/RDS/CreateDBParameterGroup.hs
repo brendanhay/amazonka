@@ -49,18 +49,18 @@ module Network.AWS.RDS.CreateDBParameterGroup
     -- ** Request constructor
     , createDBParameterGroup
     -- ** Request lenses
-    , cTags
-    , cDBParameterGroupName
-    , cDBParameterGroupFamily
-    , cDescription
+    , cdbpgrqTags
+    , cdbpgrqDBParameterGroupName
+    , cdbpgrqDBParameterGroupFamily
+    , cdbpgrqDescription
 
     -- * Response
     , CreateDBParameterGroupResponse
     -- ** Response constructor
     , createDBParameterGroupResponse
     -- ** Response lenses
-    , cdpgrDBParameterGroup
-    , cdpgrStatus
+    , cdbpgrsDBParameterGroup
+    , cdbpgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -74,33 +74,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cTags'
+-- * 'cdbpgrqTags'
 --
--- * 'cDBParameterGroupName'
+-- * 'cdbpgrqDBParameterGroupName'
 --
--- * 'cDBParameterGroupFamily'
+-- * 'cdbpgrqDBParameterGroupFamily'
 --
--- * 'cDescription'
+-- * 'cdbpgrqDescription'
 data CreateDBParameterGroup = CreateDBParameterGroup'
-    { _cTags                   :: !(Maybe [Tag])
-    , _cDBParameterGroupName   :: !Text
-    , _cDBParameterGroupFamily :: !Text
-    , _cDescription            :: !Text
+    { _cdbpgrqTags                   :: !(Maybe [Tag])
+    , _cdbpgrqDBParameterGroupName   :: !Text
+    , _cdbpgrqDBParameterGroupFamily :: !Text
+    , _cdbpgrqDescription            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBParameterGroup' smart constructor.
 createDBParameterGroup :: Text -> Text -> Text -> CreateDBParameterGroup
 createDBParameterGroup pDBParameterGroupName pDBParameterGroupFamily pDescription =
     CreateDBParameterGroup'
-    { _cTags = Nothing
-    , _cDBParameterGroupName = pDBParameterGroupName
-    , _cDBParameterGroupFamily = pDBParameterGroupFamily
-    , _cDescription = pDescription
+    { _cdbpgrqTags = Nothing
+    , _cdbpgrqDBParameterGroupName = pDBParameterGroupName
+    , _cdbpgrqDBParameterGroupFamily = pDBParameterGroupFamily
+    , _cdbpgrqDescription = pDescription
     }
 
 -- | FIXME: Undocumented member.
-cTags :: Lens' CreateDBParameterGroup [Tag]
-cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
+cdbpgrqTags :: Lens' CreateDBParameterGroup [Tag]
+cdbpgrqTags = lens _cdbpgrqTags (\ s a -> s{_cdbpgrqTags = a}) . _Default;
 
 -- | The name of the DB parameter group.
 --
@@ -111,19 +111,19 @@ cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- This value is stored as a lower-case string.
-cDBParameterGroupName :: Lens' CreateDBParameterGroup Text
-cDBParameterGroupName = lens _cDBParameterGroupName (\ s a -> s{_cDBParameterGroupName = a});
+cdbpgrqDBParameterGroupName :: Lens' CreateDBParameterGroup Text
+cdbpgrqDBParameterGroupName = lens _cdbpgrqDBParameterGroupName (\ s a -> s{_cdbpgrqDBParameterGroupName = a});
 
 -- | The DB parameter group family name. A DB parameter group can be
 -- associated with one and only one DB parameter group family, and can be
 -- applied only to a DB instance running a database engine and engine
 -- version compatible with that DB parameter group family.
-cDBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
-cDBParameterGroupFamily = lens _cDBParameterGroupFamily (\ s a -> s{_cDBParameterGroupFamily = a});
+cdbpgrqDBParameterGroupFamily :: Lens' CreateDBParameterGroup Text
+cdbpgrqDBParameterGroupFamily = lens _cdbpgrqDBParameterGroupFamily (\ s a -> s{_cdbpgrqDBParameterGroupFamily = a});
 
 -- | The description for the DB parameter group.
-cDescription :: Lens' CreateDBParameterGroup Text
-cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
+cdbpgrqDescription :: Lens' CreateDBParameterGroup Text
+cdbpgrqDescription = lens _cdbpgrqDescription (\ s a -> s{_cdbpgrqDescription = a});
 
 instance AWSRequest CreateDBParameterGroup where
         type Sv CreateDBParameterGroup = RDS
@@ -148,35 +148,38 @@ instance ToQuery CreateDBParameterGroup where
               ["Action" =:
                  ("CreateDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cTags),
-               "DBParameterGroupName" =: _cDBParameterGroupName,
-               "DBParameterGroupFamily" =: _cDBParameterGroupFamily,
-               "Description" =: _cDescription]
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _cdbpgrqTags),
+               "DBParameterGroupName" =:
+                 _cdbpgrqDBParameterGroupName,
+               "DBParameterGroupFamily" =:
+                 _cdbpgrqDBParameterGroupFamily,
+               "Description" =: _cdbpgrqDescription]
 
 -- | /See:/ 'createDBParameterGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdpgrDBParameterGroup'
+-- * 'cdbpgrsDBParameterGroup'
 --
--- * 'cdpgrStatus'
+-- * 'cdbpgrsStatus'
 data CreateDBParameterGroupResponse = CreateDBParameterGroupResponse'
-    { _cdpgrDBParameterGroup :: !(Maybe DBParameterGroup)
-    , _cdpgrStatus           :: !Int
+    { _cdbpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
+    , _cdbpgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBParameterGroupResponse' smart constructor.
 createDBParameterGroupResponse :: Int -> CreateDBParameterGroupResponse
 createDBParameterGroupResponse pStatus =
     CreateDBParameterGroupResponse'
-    { _cdpgrDBParameterGroup = Nothing
-    , _cdpgrStatus = pStatus
+    { _cdbpgrsDBParameterGroup = Nothing
+    , _cdbpgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cdpgrDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
-cdpgrDBParameterGroup = lens _cdpgrDBParameterGroup (\ s a -> s{_cdpgrDBParameterGroup = a});
+cdbpgrsDBParameterGroup :: Lens' CreateDBParameterGroupResponse (Maybe DBParameterGroup)
+cdbpgrsDBParameterGroup = lens _cdbpgrsDBParameterGroup (\ s a -> s{_cdbpgrsDBParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-cdpgrStatus :: Lens' CreateDBParameterGroupResponse Int
-cdpgrStatus = lens _cdpgrStatus (\ s a -> s{_cdpgrStatus = a});
+cdbpgrsStatus :: Lens' CreateDBParameterGroupResponse Int
+cdbpgrsStatus = lens _cdbpgrsStatus (\ s a -> s{_cdbpgrsStatus = a});

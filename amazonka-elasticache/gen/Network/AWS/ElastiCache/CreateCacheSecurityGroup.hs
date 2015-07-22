@@ -35,16 +35,16 @@ module Network.AWS.ElastiCache.CreateCacheSecurityGroup
     -- ** Request constructor
     , createCacheSecurityGroup
     -- ** Request lenses
-    , ccsgCacheSecurityGroupName
-    , ccsgDescription
+    , ccsgrqCacheSecurityGroupName
+    , ccsgrqDescription
 
     -- * Response
     , CreateCacheSecurityGroupResponse
     -- ** Response constructor
     , createCacheSecurityGroupResponse
     -- ** Response lenses
-    , ccsgrCacheSecurityGroup
-    , ccsgrStatus
+    , ccsgrsCacheSecurityGroup
+    , ccsgrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -58,20 +58,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgCacheSecurityGroupName'
+-- * 'ccsgrqCacheSecurityGroupName'
 --
--- * 'ccsgDescription'
+-- * 'ccsgrqDescription'
 data CreateCacheSecurityGroup = CreateCacheSecurityGroup'
-    { _ccsgCacheSecurityGroupName :: !Text
-    , _ccsgDescription            :: !Text
+    { _ccsgrqCacheSecurityGroupName :: !Text
+    , _ccsgrqDescription            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSecurityGroup' smart constructor.
 createCacheSecurityGroup :: Text -> Text -> CreateCacheSecurityGroup
 createCacheSecurityGroup pCacheSecurityGroupName pDescription =
     CreateCacheSecurityGroup'
-    { _ccsgCacheSecurityGroupName = pCacheSecurityGroupName
-    , _ccsgDescription = pDescription
+    { _ccsgrqCacheSecurityGroupName = pCacheSecurityGroupName
+    , _ccsgrqDescription = pDescription
     }
 
 -- | A name for the cache security group. This value is stored as a lowercase
@@ -81,12 +81,12 @@ createCacheSecurityGroup pCacheSecurityGroupName pDescription =
 -- Cannot be the word \"Default\".
 --
 -- Example: @mysecuritygroup@
-ccsgCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
-ccsgCacheSecurityGroupName = lens _ccsgCacheSecurityGroupName (\ s a -> s{_ccsgCacheSecurityGroupName = a});
+ccsgrqCacheSecurityGroupName :: Lens' CreateCacheSecurityGroup Text
+ccsgrqCacheSecurityGroupName = lens _ccsgrqCacheSecurityGroupName (\ s a -> s{_ccsgrqCacheSecurityGroupName = a});
 
 -- | A description for the cache security group.
-ccsgDescription :: Lens' CreateCacheSecurityGroup Text
-ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
+ccsgrqDescription :: Lens' CreateCacheSecurityGroup Text
+ccsgrqDescription = lens _ccsgrqDescription (\ s a -> s{_ccsgrqDescription = a});
 
 instance AWSRequest CreateCacheSecurityGroup where
         type Sv CreateCacheSecurityGroup = ElastiCache
@@ -112,33 +112,33 @@ instance ToQuery CreateCacheSecurityGroup where
                  ("CreateCacheSecurityGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSecurityGroupName" =:
-                 _ccsgCacheSecurityGroupName,
-               "Description" =: _ccsgDescription]
+                 _ccsgrqCacheSecurityGroupName,
+               "Description" =: _ccsgrqDescription]
 
 -- | /See:/ 'createCacheSecurityGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgrCacheSecurityGroup'
+-- * 'ccsgrsCacheSecurityGroup'
 --
--- * 'ccsgrStatus'
+-- * 'ccsgrsStatus'
 data CreateCacheSecurityGroupResponse = CreateCacheSecurityGroupResponse'
-    { _ccsgrCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _ccsgrStatus             :: !Int
+    { _ccsgrsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
+    , _ccsgrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheSecurityGroupResponse' smart constructor.
 createCacheSecurityGroupResponse :: Int -> CreateCacheSecurityGroupResponse
 createCacheSecurityGroupResponse pStatus =
     CreateCacheSecurityGroupResponse'
-    { _ccsgrCacheSecurityGroup = Nothing
-    , _ccsgrStatus = pStatus
+    { _ccsgrsCacheSecurityGroup = Nothing
+    , _ccsgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ccsgrCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
-ccsgrCacheSecurityGroup = lens _ccsgrCacheSecurityGroup (\ s a -> s{_ccsgrCacheSecurityGroup = a});
+ccsgrsCacheSecurityGroup :: Lens' CreateCacheSecurityGroupResponse (Maybe CacheSecurityGroup)
+ccsgrsCacheSecurityGroup = lens _ccsgrsCacheSecurityGroup (\ s a -> s{_ccsgrsCacheSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-ccsgrStatus :: Lens' CreateCacheSecurityGroupResponse Int
-ccsgrStatus = lens _ccsgrStatus (\ s a -> s{_ccsgrStatus = a});
+ccsgrsStatus :: Lens' CreateCacheSecurityGroupResponse Int
+ccsgrsStatus = lens _ccsgrsStatus (\ s a -> s{_ccsgrsStatus = a});

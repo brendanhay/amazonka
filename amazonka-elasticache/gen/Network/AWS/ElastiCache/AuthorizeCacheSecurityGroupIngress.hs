@@ -33,17 +33,17 @@ module Network.AWS.ElastiCache.AuthorizeCacheSecurityGroupIngress
     -- ** Request constructor
     , authorizeCacheSecurityGroupIngress
     -- ** Request lenses
-    , acsgiCacheSecurityGroupName
-    , acsgiEC2SecurityGroupName
-    , acsgiEC2SecurityGroupOwnerId
+    , acsgirqCacheSecurityGroupName
+    , acsgirqEC2SecurityGroupName
+    , acsgirqEC2SecurityGroupOwnerId
 
     -- * Response
     , AuthorizeCacheSecurityGroupIngressResponse
     -- ** Response constructor
     , authorizeCacheSecurityGroupIngressResponse
     -- ** Response lenses
-    , acsgirCacheSecurityGroup
-    , acsgirStatus
+    , acsgirsCacheSecurityGroup
+    , acsgirsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -57,40 +57,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acsgiCacheSecurityGroupName'
+-- * 'acsgirqCacheSecurityGroupName'
 --
--- * 'acsgiEC2SecurityGroupName'
+-- * 'acsgirqEC2SecurityGroupName'
 --
--- * 'acsgiEC2SecurityGroupOwnerId'
+-- * 'acsgirqEC2SecurityGroupOwnerId'
 data AuthorizeCacheSecurityGroupIngress = AuthorizeCacheSecurityGroupIngress'
-    { _acsgiCacheSecurityGroupName  :: !Text
-    , _acsgiEC2SecurityGroupName    :: !Text
-    , _acsgiEC2SecurityGroupOwnerId :: !Text
+    { _acsgirqCacheSecurityGroupName  :: !Text
+    , _acsgirqEC2SecurityGroupName    :: !Text
+    , _acsgirqEC2SecurityGroupOwnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngress' smart constructor.
 authorizeCacheSecurityGroupIngress :: Text -> Text -> Text -> AuthorizeCacheSecurityGroupIngress
 authorizeCacheSecurityGroupIngress pCacheSecurityGroupName pEC2SecurityGroupName pEC2SecurityGroupOwnerId =
     AuthorizeCacheSecurityGroupIngress'
-    { _acsgiCacheSecurityGroupName = pCacheSecurityGroupName
-    , _acsgiEC2SecurityGroupName = pEC2SecurityGroupName
-    , _acsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId
+    { _acsgirqCacheSecurityGroupName = pCacheSecurityGroupName
+    , _acsgirqEC2SecurityGroupName = pEC2SecurityGroupName
+    , _acsgirqEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId
     }
 
 -- | The cache security group which will allow network ingress.
-acsgiCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
-acsgiCacheSecurityGroupName = lens _acsgiCacheSecurityGroupName (\ s a -> s{_acsgiCacheSecurityGroupName = a});
+acsgirqCacheSecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgirqCacheSecurityGroupName = lens _acsgirqCacheSecurityGroupName (\ s a -> s{_acsgirqCacheSecurityGroupName = a});
 
 -- | The Amazon EC2 security group to be authorized for ingress to the cache
 -- security group.
-acsgiEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
-acsgiEC2SecurityGroupName = lens _acsgiEC2SecurityGroupName (\ s a -> s{_acsgiEC2SecurityGroupName = a});
+acsgirqEC2SecurityGroupName :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgirqEC2SecurityGroupName = lens _acsgirqEC2SecurityGroupName (\ s a -> s{_acsgirqEC2SecurityGroupName = a});
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
-acsgiEC2SecurityGroupOwnerId = lens _acsgiEC2SecurityGroupOwnerId (\ s a -> s{_acsgiEC2SecurityGroupOwnerId = a});
+acsgirqEC2SecurityGroupOwnerId :: Lens' AuthorizeCacheSecurityGroupIngress Text
+acsgirqEC2SecurityGroupOwnerId = lens _acsgirqEC2SecurityGroupOwnerId (\ s a -> s{_acsgirqEC2SecurityGroupOwnerId = a});
 
 instance AWSRequest
          AuthorizeCacheSecurityGroupIngress where
@@ -122,35 +122,36 @@ instance ToQuery AuthorizeCacheSecurityGroupIngress
                  ("AuthorizeCacheSecurityGroupIngress" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSecurityGroupName" =:
-                 _acsgiCacheSecurityGroupName,
-               "EC2SecurityGroupName" =: _acsgiEC2SecurityGroupName,
+                 _acsgirqCacheSecurityGroupName,
+               "EC2SecurityGroupName" =:
+                 _acsgirqEC2SecurityGroupName,
                "EC2SecurityGroupOwnerId" =:
-                 _acsgiEC2SecurityGroupOwnerId]
+                 _acsgirqEC2SecurityGroupOwnerId]
 
 -- | /See:/ 'authorizeCacheSecurityGroupIngressResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acsgirCacheSecurityGroup'
+-- * 'acsgirsCacheSecurityGroup'
 --
--- * 'acsgirStatus'
+-- * 'acsgirsStatus'
 data AuthorizeCacheSecurityGroupIngressResponse = AuthorizeCacheSecurityGroupIngressResponse'
-    { _acsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _acsgirStatus             :: !Int
+    { _acsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
+    , _acsgirsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeCacheSecurityGroupIngressResponse' smart constructor.
 authorizeCacheSecurityGroupIngressResponse :: Int -> AuthorizeCacheSecurityGroupIngressResponse
 authorizeCacheSecurityGroupIngressResponse pStatus =
     AuthorizeCacheSecurityGroupIngressResponse'
-    { _acsgirCacheSecurityGroup = Nothing
-    , _acsgirStatus = pStatus
+    { _acsgirsCacheSecurityGroup = Nothing
+    , _acsgirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-acsgirCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
-acsgirCacheSecurityGroup = lens _acsgirCacheSecurityGroup (\ s a -> s{_acsgirCacheSecurityGroup = a});
+acsgirsCacheSecurityGroup :: Lens' AuthorizeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
+acsgirsCacheSecurityGroup = lens _acsgirsCacheSecurityGroup (\ s a -> s{_acsgirsCacheSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-acsgirStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
-acsgirStatus = lens _acsgirStatus (\ s a -> s{_acsgirStatus = a});
+acsgirsStatus :: Lens' AuthorizeCacheSecurityGroupIngressResponse Int
+acsgirsStatus = lens _acsgirsStatus (\ s a -> s{_acsgirsStatus = a});

@@ -29,8 +29,8 @@ module Network.AWS.ElasticBeanstalk.RebuildEnvironment
     -- ** Request constructor
     , rebuildEnvironment
     -- ** Request lenses
-    , reEnvironmentName
-    , reEnvironmentId
+    , rerqEnvironmentName
+    , rerqEnvironmentId
 
     -- * Response
     , RebuildEnvironmentResponse
@@ -49,20 +49,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reEnvironmentName'
+-- * 'rerqEnvironmentName'
 --
--- * 'reEnvironmentId'
+-- * 'rerqEnvironmentId'
 data RebuildEnvironment = RebuildEnvironment'
-    { _reEnvironmentName :: !(Maybe Text)
-    , _reEnvironmentId   :: !(Maybe Text)
+    { _rerqEnvironmentName :: !(Maybe Text)
+    , _rerqEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebuildEnvironment' smart constructor.
 rebuildEnvironment :: RebuildEnvironment
 rebuildEnvironment =
     RebuildEnvironment'
-    { _reEnvironmentName = Nothing
-    , _reEnvironmentId = Nothing
+    { _rerqEnvironmentName = Nothing
+    , _rerqEnvironmentId = Nothing
     }
 
 -- | The name of the environment to rebuild.
@@ -70,16 +70,16 @@ rebuildEnvironment =
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-reEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
-reEnvironmentName = lens _reEnvironmentName (\ s a -> s{_reEnvironmentName = a});
+rerqEnvironmentName :: Lens' RebuildEnvironment (Maybe Text)
+rerqEnvironmentName = lens _rerqEnvironmentName (\ s a -> s{_rerqEnvironmentName = a});
 
 -- | The ID of the environment to rebuild.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-reEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
-reEnvironmentId = lens _reEnvironmentId (\ s a -> s{_reEnvironmentId = a});
+rerqEnvironmentId :: Lens' RebuildEnvironment (Maybe Text)
+rerqEnvironmentId = lens _rerqEnvironmentId (\ s a -> s{_rerqEnvironmentId = a});
 
 instance AWSRequest RebuildEnvironment where
         type Sv RebuildEnvironment = ElasticBeanstalk
@@ -99,8 +99,8 @@ instance ToQuery RebuildEnvironment where
           = mconcat
               ["Action" =: ("RebuildEnvironment" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentName" =: _reEnvironmentName,
-               "EnvironmentId" =: _reEnvironmentId]
+               "EnvironmentName" =: _rerqEnvironmentName,
+               "EnvironmentId" =: _rerqEnvironmentId]
 
 -- | /See:/ 'rebuildEnvironmentResponse' smart constructor.
 data RebuildEnvironmentResponse =

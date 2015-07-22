@@ -31,16 +31,16 @@ module Network.AWS.StorageGateway.DeleteBandwidthRateLimit
     -- ** Request constructor
     , deleteBandwidthRateLimit
     -- ** Request lenses
-    , delGatewayARN
-    , delBandwidthType
+    , delrqGatewayARN
+    , delrqBandwidthType
 
     -- * Response
     , DeleteBandwidthRateLimitResponse
     -- ** Response constructor
     , deleteBandwidthRateLimitResponse
     -- ** Response lenses
-    , deleGatewayARN
-    , deleStatus
+    , delrsGatewayARN
+    , delrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,29 +52,29 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delGatewayARN'
+-- * 'delrqGatewayARN'
 --
--- * 'delBandwidthType'
+-- * 'delrqBandwidthType'
 data DeleteBandwidthRateLimit = DeleteBandwidthRateLimit'
-    { _delGatewayARN    :: !Text
-    , _delBandwidthType :: !Text
+    { _delrqGatewayARN    :: !Text
+    , _delrqBandwidthType :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBandwidthRateLimit' smart constructor.
 deleteBandwidthRateLimit :: Text -> Text -> DeleteBandwidthRateLimit
 deleteBandwidthRateLimit pGatewayARN pBandwidthType =
     DeleteBandwidthRateLimit'
-    { _delGatewayARN = pGatewayARN
-    , _delBandwidthType = pBandwidthType
+    { _delrqGatewayARN = pGatewayARN
+    , _delrqBandwidthType = pBandwidthType
     }
 
 -- | FIXME: Undocumented member.
-delGatewayARN :: Lens' DeleteBandwidthRateLimit Text
-delGatewayARN = lens _delGatewayARN (\ s a -> s{_delGatewayARN = a});
+delrqGatewayARN :: Lens' DeleteBandwidthRateLimit Text
+delrqGatewayARN = lens _delrqGatewayARN (\ s a -> s{_delrqGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-delBandwidthType :: Lens' DeleteBandwidthRateLimit Text
-delBandwidthType = lens _delBandwidthType (\ s a -> s{_delBandwidthType = a});
+delrqBandwidthType :: Lens' DeleteBandwidthRateLimit Text
+delrqBandwidthType = lens _delrqBandwidthType (\ s a -> s{_delrqBandwidthType = a});
 
 instance AWSRequest DeleteBandwidthRateLimit where
         type Sv DeleteBandwidthRateLimit = StorageGateway
@@ -100,8 +100,8 @@ instance ToHeaders DeleteBandwidthRateLimit where
 instance ToJSON DeleteBandwidthRateLimit where
         toJSON DeleteBandwidthRateLimit'{..}
           = object
-              ["GatewayARN" .= _delGatewayARN,
-               "BandwidthType" .= _delBandwidthType]
+              ["GatewayARN" .= _delrqGatewayARN,
+               "BandwidthType" .= _delrqBandwidthType]
 
 instance ToPath DeleteBandwidthRateLimit where
         toPath = const "/"
@@ -116,26 +116,26 @@ instance ToQuery DeleteBandwidthRateLimit where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deleGatewayARN'
+-- * 'delrsGatewayARN'
 --
--- * 'deleStatus'
+-- * 'delrsStatus'
 data DeleteBandwidthRateLimitResponse = DeleteBandwidthRateLimitResponse'
-    { _deleGatewayARN :: !(Maybe Text)
-    , _deleStatus     :: !Int
+    { _delrsGatewayARN :: !(Maybe Text)
+    , _delrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBandwidthRateLimitResponse' smart constructor.
 deleteBandwidthRateLimitResponse :: Int -> DeleteBandwidthRateLimitResponse
 deleteBandwidthRateLimitResponse pStatus =
     DeleteBandwidthRateLimitResponse'
-    { _deleGatewayARN = Nothing
-    , _deleStatus = pStatus
+    { _delrsGatewayARN = Nothing
+    , _delrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-deleGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
-deleGatewayARN = lens _deleGatewayARN (\ s a -> s{_deleGatewayARN = a});
+delrsGatewayARN :: Lens' DeleteBandwidthRateLimitResponse (Maybe Text)
+delrsGatewayARN = lens _delrsGatewayARN (\ s a -> s{_delrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-deleStatus :: Lens' DeleteBandwidthRateLimitResponse Int
-deleStatus = lens _deleStatus (\ s a -> s{_deleStatus = a});
+delrsStatus :: Lens' DeleteBandwidthRateLimitResponse Int
+delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});

@@ -32,16 +32,16 @@ module Network.AWS.CloudSearch.DescribeAvailabilityOptions
     -- ** Request constructor
     , describeAvailabilityOptions
     -- ** Request lenses
-    , daoDeployed
-    , daoDomainName
+    , daorqDeployed
+    , daorqDomainName
 
     -- * Response
     , DescribeAvailabilityOptionsResponse
     -- ** Response constructor
     , describeAvailabilityOptionsResponse
     -- ** Response lenses
-    , daorAvailabilityOptions
-    , daorStatus
+    , daorsAvailabilityOptions
+    , daorsStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -58,30 +58,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daoDeployed'
+-- * 'daorqDeployed'
 --
--- * 'daoDomainName'
+-- * 'daorqDomainName'
 data DescribeAvailabilityOptions = DescribeAvailabilityOptions'
-    { _daoDeployed   :: !(Maybe Bool)
-    , _daoDomainName :: !Text
+    { _daorqDeployed   :: !(Maybe Bool)
+    , _daorqDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityOptions' smart constructor.
 describeAvailabilityOptions :: Text -> DescribeAvailabilityOptions
 describeAvailabilityOptions pDomainName =
     DescribeAvailabilityOptions'
-    { _daoDeployed = Nothing
-    , _daoDomainName = pDomainName
+    { _daorqDeployed = Nothing
+    , _daorqDomainName = pDomainName
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-daoDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
-daoDeployed = lens _daoDeployed (\ s a -> s{_daoDeployed = a});
+daorqDeployed :: Lens' DescribeAvailabilityOptions (Maybe Bool)
+daorqDeployed = lens _daorqDeployed (\ s a -> s{_daorqDeployed = a});
 
 -- | The name of the domain you want to describe.
-daoDomainName :: Lens' DescribeAvailabilityOptions Text
-daoDomainName = lens _daoDomainName (\ s a -> s{_daoDomainName = a});
+daorqDomainName :: Lens' DescribeAvailabilityOptions Text
+daorqDomainName = lens _daorqDomainName (\ s a -> s{_daorqDomainName = a});
 
 instance AWSRequest DescribeAvailabilityOptions where
         type Sv DescribeAvailabilityOptions = CloudSearch
@@ -108,8 +108,8 @@ instance ToQuery DescribeAvailabilityOptions where
               ["Action" =:
                  ("DescribeAvailabilityOptions" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _daoDeployed,
-               "DomainName" =: _daoDomainName]
+               "Deployed" =: _daorqDeployed,
+               "DomainName" =: _daorqDomainName]
 
 -- | The result of a @DescribeAvailabilityOptions@ request. Indicates whether
 -- or not the Multi-AZ option is enabled for the domain specified in the
@@ -119,27 +119,27 @@ instance ToQuery DescribeAvailabilityOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daorAvailabilityOptions'
+-- * 'daorsAvailabilityOptions'
 --
--- * 'daorStatus'
+-- * 'daorsStatus'
 data DescribeAvailabilityOptionsResponse = DescribeAvailabilityOptionsResponse'
-    { _daorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _daorStatus              :: !Int
+    { _daorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
+    , _daorsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityOptionsResponse' smart constructor.
 describeAvailabilityOptionsResponse :: Int -> DescribeAvailabilityOptionsResponse
 describeAvailabilityOptionsResponse pStatus =
     DescribeAvailabilityOptionsResponse'
-    { _daorAvailabilityOptions = Nothing
-    , _daorStatus = pStatus
+    { _daorsAvailabilityOptions = Nothing
+    , _daorsStatus = pStatus
     }
 
 -- | The availability options configured for the domain. Indicates whether
 -- Multi-AZ is enabled for the domain.
-daorAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-daorAvailabilityOptions = lens _daorAvailabilityOptions (\ s a -> s{_daorAvailabilityOptions = a});
+daorsAvailabilityOptions :: Lens' DescribeAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
+daorsAvailabilityOptions = lens _daorsAvailabilityOptions (\ s a -> s{_daorsAvailabilityOptions = a});
 
 -- | FIXME: Undocumented member.
-daorStatus :: Lens' DescribeAvailabilityOptionsResponse Int
-daorStatus = lens _daorStatus (\ s a -> s{_daorStatus = a});
+daorsStatus :: Lens' DescribeAvailabilityOptionsResponse Int
+daorsStatus = lens _daorsStatus (\ s a -> s{_daorsStatus = a});

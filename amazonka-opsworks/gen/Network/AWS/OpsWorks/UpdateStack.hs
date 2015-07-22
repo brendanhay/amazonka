@@ -33,24 +33,24 @@ module Network.AWS.OpsWorks.UpdateStack
     -- ** Request constructor
     , updateStack
     -- ** Request lenses
-    , usDefaultInstanceProfileARN
-    , usServiceRoleARN
-    , usDefaultRootDeviceType
-    , usChefConfiguration
-    , usAgentVersion
-    , usDefaultSSHKeyName
-    , usCustomJSON
-    , usCustomCookbooksSource
-    , usDefaultAvailabilityZone
-    , usName
-    , usUseOpsworksSecurityGroups
-    , usDefaultOS
-    , usAttributes
-    , usUseCustomCookbooks
-    , usDefaultSubnetId
-    , usConfigurationManager
-    , usHostnameTheme
-    , usStackId
+    , usrqDefaultInstanceProfileARN
+    , usrqServiceRoleARN
+    , usrqDefaultRootDeviceType
+    , usrqChefConfiguration
+    , usrqAgentVersion
+    , usrqDefaultSSHKeyName
+    , usrqCustomJSON
+    , usrqCustomCookbooksSource
+    , usrqDefaultAvailabilityZone
+    , usrqName
+    , usrqUseOpsworksSecurityGroups
+    , usrqDefaultOS
+    , usrqAttributes
+    , usrqUseCustomCookbooks
+    , usrqDefaultSubnetId
+    , usrqConfigurationManager
+    , usrqHostnameTheme
+    , usrqStackId
 
     -- * Response
     , UpdateStackResponse
@@ -67,91 +67,91 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'usDefaultInstanceProfileARN'
+-- * 'usrqDefaultInstanceProfileARN'
 --
--- * 'usServiceRoleARN'
+-- * 'usrqServiceRoleARN'
 --
--- * 'usDefaultRootDeviceType'
+-- * 'usrqDefaultRootDeviceType'
 --
--- * 'usChefConfiguration'
+-- * 'usrqChefConfiguration'
 --
--- * 'usAgentVersion'
+-- * 'usrqAgentVersion'
 --
--- * 'usDefaultSSHKeyName'
+-- * 'usrqDefaultSSHKeyName'
 --
--- * 'usCustomJSON'
+-- * 'usrqCustomJSON'
 --
--- * 'usCustomCookbooksSource'
+-- * 'usrqCustomCookbooksSource'
 --
--- * 'usDefaultAvailabilityZone'
+-- * 'usrqDefaultAvailabilityZone'
 --
--- * 'usName'
+-- * 'usrqName'
 --
--- * 'usUseOpsworksSecurityGroups'
+-- * 'usrqUseOpsworksSecurityGroups'
 --
--- * 'usDefaultOS'
+-- * 'usrqDefaultOS'
 --
--- * 'usAttributes'
+-- * 'usrqAttributes'
 --
--- * 'usUseCustomCookbooks'
+-- * 'usrqUseCustomCookbooks'
 --
--- * 'usDefaultSubnetId'
+-- * 'usrqDefaultSubnetId'
 --
--- * 'usConfigurationManager'
+-- * 'usrqConfigurationManager'
 --
--- * 'usHostnameTheme'
+-- * 'usrqHostnameTheme'
 --
--- * 'usStackId'
+-- * 'usrqStackId'
 data UpdateStack = UpdateStack'
-    { _usDefaultInstanceProfileARN :: !(Maybe Text)
-    , _usServiceRoleARN            :: !(Maybe Text)
-    , _usDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _usChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _usAgentVersion              :: !(Maybe Text)
-    , _usDefaultSSHKeyName         :: !(Maybe Text)
-    , _usCustomJSON                :: !(Maybe Text)
-    , _usCustomCookbooksSource     :: !(Maybe Source)
-    , _usDefaultAvailabilityZone   :: !(Maybe Text)
-    , _usName                      :: !(Maybe Text)
-    , _usUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _usDefaultOS                 :: !(Maybe Text)
-    , _usAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _usUseCustomCookbooks        :: !(Maybe Bool)
-    , _usDefaultSubnetId           :: !(Maybe Text)
-    , _usConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _usHostnameTheme             :: !(Maybe Text)
-    , _usStackId                   :: !Text
+    { _usrqDefaultInstanceProfileARN :: !(Maybe Text)
+    , _usrqServiceRoleARN            :: !(Maybe Text)
+    , _usrqDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _usrqChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _usrqAgentVersion              :: !(Maybe Text)
+    , _usrqDefaultSSHKeyName         :: !(Maybe Text)
+    , _usrqCustomJSON                :: !(Maybe Text)
+    , _usrqCustomCookbooksSource     :: !(Maybe Source)
+    , _usrqDefaultAvailabilityZone   :: !(Maybe Text)
+    , _usrqName                      :: !(Maybe Text)
+    , _usrqUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _usrqDefaultOS                 :: !(Maybe Text)
+    , _usrqAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _usrqUseCustomCookbooks        :: !(Maybe Bool)
+    , _usrqDefaultSubnetId           :: !(Maybe Text)
+    , _usrqConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _usrqHostnameTheme             :: !(Maybe Text)
+    , _usrqStackId                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateStack' smart constructor.
 updateStack :: Text -> UpdateStack
 updateStack pStackId =
     UpdateStack'
-    { _usDefaultInstanceProfileARN = Nothing
-    , _usServiceRoleARN = Nothing
-    , _usDefaultRootDeviceType = Nothing
-    , _usChefConfiguration = Nothing
-    , _usAgentVersion = Nothing
-    , _usDefaultSSHKeyName = Nothing
-    , _usCustomJSON = Nothing
-    , _usCustomCookbooksSource = Nothing
-    , _usDefaultAvailabilityZone = Nothing
-    , _usName = Nothing
-    , _usUseOpsworksSecurityGroups = Nothing
-    , _usDefaultOS = Nothing
-    , _usAttributes = Nothing
-    , _usUseCustomCookbooks = Nothing
-    , _usDefaultSubnetId = Nothing
-    , _usConfigurationManager = Nothing
-    , _usHostnameTheme = Nothing
-    , _usStackId = pStackId
+    { _usrqDefaultInstanceProfileARN = Nothing
+    , _usrqServiceRoleARN = Nothing
+    , _usrqDefaultRootDeviceType = Nothing
+    , _usrqChefConfiguration = Nothing
+    , _usrqAgentVersion = Nothing
+    , _usrqDefaultSSHKeyName = Nothing
+    , _usrqCustomJSON = Nothing
+    , _usrqCustomCookbooksSource = Nothing
+    , _usrqDefaultAvailabilityZone = Nothing
+    , _usrqName = Nothing
+    , _usrqUseOpsworksSecurityGroups = Nothing
+    , _usrqDefaultOS = Nothing
+    , _usrqAttributes = Nothing
+    , _usrqUseCustomCookbooks = Nothing
+    , _usrqDefaultSubnetId = Nothing
+    , _usrqConfigurationManager = Nothing
+    , _usrqHostnameTheme = Nothing
+    , _usrqStackId = pStackId
     }
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack\'s EC2 instances. For more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-usDefaultInstanceProfileARN :: Lens' UpdateStack (Maybe Text)
-usDefaultInstanceProfileARN = lens _usDefaultInstanceProfileARN (\ s a -> s{_usDefaultInstanceProfileARN = a});
+usrqDefaultInstanceProfileARN :: Lens' UpdateStack (Maybe Text)
+usrqDefaultInstanceProfileARN = lens _usrqDefaultInstanceProfileARN (\ s a -> s{_usrqDefaultInstanceProfileARN = a});
 
 -- | The stack IAM role, which allows AWS OpsWorks to work with AWS resources
 -- on your behalf. You must set this parameter to the ARN for an existing
@@ -161,22 +161,22 @@ usDefaultInstanceProfileARN = lens _usDefaultInstanceProfileARN (\ s a -> s{_usD
 -- There is no default value. You must set this parameter to a valid
 -- service role ARN or the action will fail. You can specify the stack\'s
 -- current service role ARN, if you prefer, but you must do so explicitly.
-usServiceRoleARN :: Lens' UpdateStack (Maybe Text)
-usServiceRoleARN = lens _usServiceRoleARN (\ s a -> s{_usServiceRoleARN = a});
+usrqServiceRoleARN :: Lens' UpdateStack (Maybe Text)
+usrqServiceRoleARN = lens _usrqServiceRoleARN (\ s a -> s{_usrqServiceRoleARN = a});
 
 -- | The default root device type. This value is used by default for all
 -- instances in the stack, but you can override it when you create an
 -- instance. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-usDefaultRootDeviceType :: Lens' UpdateStack (Maybe RootDeviceType)
-usDefaultRootDeviceType = lens _usDefaultRootDeviceType (\ s a -> s{_usDefaultRootDeviceType = a});
+usrqDefaultRootDeviceType :: Lens' UpdateStack (Maybe RootDeviceType)
+usrqDefaultRootDeviceType = lens _usrqDefaultRootDeviceType (\ s a -> s{_usrqDefaultRootDeviceType = a});
 
 -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-usChefConfiguration :: Lens' UpdateStack (Maybe ChefConfiguration)
-usChefConfiguration = lens _usChefConfiguration (\ s a -> s{_usChefConfiguration = a});
+usrqChefConfiguration :: Lens' UpdateStack (Maybe ChefConfiguration)
+usrqChefConfiguration = lens _usrqChefConfiguration (\ s a -> s{_usrqChefConfiguration = a});
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
@@ -195,8 +195,8 @@ usChefConfiguration = lens _usChefConfiguration (\ s a -> s{_usChefConfiguration
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
-usAgentVersion :: Lens' UpdateStack (Maybe Text)
-usAgentVersion = lens _usAgentVersion (\ s a -> s{_usAgentVersion = a});
+usrqAgentVersion :: Lens' UpdateStack (Maybe Text)
+usrqAgentVersion = lens _usrqAgentVersion (\ s a -> s{_usrqAgentVersion = a});
 
 -- | A default Amazon EC2 key-pair name. The default value is @none@. If you
 -- specify a key-pair name, AWS OpsWorks installs the public key on the
@@ -208,8 +208,8 @@ usAgentVersion = lens _usAgentVersion (\ s a -> s{_usAgentVersion = a});
 -- You can override this setting by specifying a different key pair, or no
 -- key pair, when you
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
-usDefaultSSHKeyName :: Lens' UpdateStack (Maybe Text)
-usDefaultSSHKeyName = lens _usDefaultSSHKeyName (\ s a -> s{_usDefaultSSHKeyName = a});
+usrqDefaultSSHKeyName :: Lens' UpdateStack (Maybe Text)
+usrqDefaultSSHKeyName = lens _usrqDefaultSSHKeyName (\ s a -> s{_usrqDefaultSSHKeyName = a});
 
 -- | A string that contains user-defined, custom JSON. It can be used to
 -- override the corresponding default stack configuration JSON values or to
@@ -220,24 +220,24 @@ usDefaultSSHKeyName = lens _usDefaultSSHKeyName (\ s a -> s{_usDefaultSSHKeyName
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>.
-usCustomJSON :: Lens' UpdateStack (Maybe Text)
-usCustomJSON = lens _usCustomJSON (\ s a -> s{_usCustomJSON = a});
+usrqCustomJSON :: Lens' UpdateStack (Maybe Text)
+usrqCustomJSON = lens _usrqCustomJSON (\ s a -> s{_usrqCustomJSON = a});
 
 -- | FIXME: Undocumented member.
-usCustomCookbooksSource :: Lens' UpdateStack (Maybe Source)
-usCustomCookbooksSource = lens _usCustomCookbooksSource (\ s a -> s{_usCustomCookbooksSource = a});
+usrqCustomCookbooksSource :: Lens' UpdateStack (Maybe Source)
+usrqCustomCookbooksSource = lens _usrqCustomCookbooksSource (\ s a -> s{_usrqCustomCookbooksSource = a});
 
 -- | The stack\'s default Availability Zone, which must be in the stack\'s
 -- region. For more information, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
 -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
 -- the same zone. For more information, see CreateStack.
-usDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
-usDefaultAvailabilityZone = lens _usDefaultAvailabilityZone (\ s a -> s{_usDefaultAvailabilityZone = a});
+usrqDefaultAvailabilityZone :: Lens' UpdateStack (Maybe Text)
+usrqDefaultAvailabilityZone = lens _usrqDefaultAvailabilityZone (\ s a -> s{_usrqDefaultAvailabilityZone = a});
 
 -- | The stack\'s new name.
-usName :: Lens' UpdateStack (Maybe Text)
-usName = lens _usName (\ s a -> s{_usName = a});
+usrqName :: Lens' UpdateStack (Maybe Text)
+usrqName = lens _usrqName (\ s a -> s{_usrqName = a});
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack\'s layers.
@@ -261,8 +261,8 @@ usName = lens _usName (\ s a -> s{_usName = a});
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-usUseOpsworksSecurityGroups :: Lens' UpdateStack (Maybe Bool)
-usUseOpsworksSecurityGroups = lens _usUseOpsworksSecurityGroups (\ s a -> s{_usUseOpsworksSecurityGroups = a});
+usrqUseOpsworksSecurityGroups :: Lens' UpdateStack (Maybe Bool)
+usrqUseOpsworksSecurityGroups = lens _usrqUseOpsworksSecurityGroups (\ s a -> s{_usrqUseOpsworksSecurityGroups = a});
 
 -- | The stack\'s operating system, which must be set to one of the
 -- following:
@@ -278,17 +278,17 @@ usUseOpsworksSecurityGroups = lens _usUseOpsworksSecurityGroups (\ s a -> s{_usU
 -- The default option is the stack\'s current operating system. For more
 -- information on the supported operating systems, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-os.html AWS OpsWorks Operating Systems>.
-usDefaultOS :: Lens' UpdateStack (Maybe Text)
-usDefaultOS = lens _usDefaultOS (\ s a -> s{_usDefaultOS = a});
+usrqDefaultOS :: Lens' UpdateStack (Maybe Text)
+usrqDefaultOS = lens _usrqDefaultOS (\ s a -> s{_usrqDefaultOS = a});
 
 -- | One or more user-defined key-value pairs to be added to the stack
 -- attributes.
-usAttributes :: Lens' UpdateStack (HashMap StackAttributesKeys Text)
-usAttributes = lens _usAttributes (\ s a -> s{_usAttributes = a}) . _Default . _Map;
+usrqAttributes :: Lens' UpdateStack (HashMap StackAttributesKeys Text)
+usrqAttributes = lens _usrqAttributes (\ s a -> s{_usrqAttributes = a}) . _Default . _Map;
 
 -- | Whether the stack uses custom cookbooks.
-usUseCustomCookbooks :: Lens' UpdateStack (Maybe Bool)
-usUseCustomCookbooks = lens _usUseCustomCookbooks (\ s a -> s{_usUseCustomCookbooks = a});
+usrqUseCustomCookbooks :: Lens' UpdateStack (Maybe Bool)
+usrqUseCustomCookbooks = lens _usrqUseCustomCookbooks (\ s a -> s{_usrqUseCustomCookbooks = a});
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
 -- specify a value for the @VpcId@ parameter. All instances are launched
@@ -296,14 +296,14 @@ usUseCustomCookbooks = lens _usUseCustomCookbooks (\ s a -> s{_usUseCustomCookbo
 -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
 -- subnet must be in that zone. For information on default values and when
 -- this parameter is required, see the @VpcId@ parameter description.
-usDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
-usDefaultSubnetId = lens _usDefaultSubnetId (\ s a -> s{_usDefaultSubnetId = a});
+usrqDefaultSubnetId :: Lens' UpdateStack (Maybe Text)
+usrqDefaultSubnetId = lens _usrqDefaultSubnetId (\ s a -> s{_usrqDefaultSubnetId = a});
 
 -- | The configuration manager. When you clone a stack, we recommend that you
 -- use the configuration manager to specify the Chef version: 0.9, 11.4, or
 -- 11.10. The default value is currently 11.4.
-usConfigurationManager :: Lens' UpdateStack (Maybe StackConfigurationManager)
-usConfigurationManager = lens _usConfigurationManager (\ s a -> s{_usConfigurationManager = a});
+usrqConfigurationManager :: Lens' UpdateStack (Maybe StackConfigurationManager)
+usrqConfigurationManager = lens _usrqConfigurationManager (\ s a -> s{_usrqConfigurationManager = a});
 
 -- | The stack\'s new host name theme, with spaces replaced by underscores.
 -- The theme is used to generate host names for the stack\'s instances. By
@@ -325,12 +325,12 @@ usConfigurationManager = lens _usConfigurationManager (\ s a -> s{_usConfigurati
 --
 -- To obtain a generated host name, call @GetHostNameSuggestion@, which
 -- returns a host name based on the current theme.
-usHostnameTheme :: Lens' UpdateStack (Maybe Text)
-usHostnameTheme = lens _usHostnameTheme (\ s a -> s{_usHostnameTheme = a});
+usrqHostnameTheme :: Lens' UpdateStack (Maybe Text)
+usrqHostnameTheme = lens _usrqHostnameTheme (\ s a -> s{_usrqHostnameTheme = a});
 
 -- | The stack ID.
-usStackId :: Lens' UpdateStack Text
-usStackId = lens _usStackId (\ s a -> s{_usStackId = a});
+usrqStackId :: Lens' UpdateStack Text
+usrqStackId = lens _usrqStackId (\ s a -> s{_usrqStackId = a});
 
 instance AWSRequest UpdateStack where
         type Sv UpdateStack = OpsWorks
@@ -351,26 +351,28 @@ instance ToJSON UpdateStack where
         toJSON UpdateStack'{..}
           = object
               ["DefaultInstanceProfileArn" .=
-                 _usDefaultInstanceProfileARN,
-               "ServiceRoleArn" .= _usServiceRoleARN,
-               "DefaultRootDeviceType" .= _usDefaultRootDeviceType,
-               "ChefConfiguration" .= _usChefConfiguration,
-               "AgentVersion" .= _usAgentVersion,
-               "DefaultSshKeyName" .= _usDefaultSSHKeyName,
-               "CustomJson" .= _usCustomJSON,
-               "CustomCookbooksSource" .= _usCustomCookbooksSource,
+                 _usrqDefaultInstanceProfileARN,
+               "ServiceRoleArn" .= _usrqServiceRoleARN,
+               "DefaultRootDeviceType" .=
+                 _usrqDefaultRootDeviceType,
+               "ChefConfiguration" .= _usrqChefConfiguration,
+               "AgentVersion" .= _usrqAgentVersion,
+               "DefaultSshKeyName" .= _usrqDefaultSSHKeyName,
+               "CustomJson" .= _usrqCustomJSON,
+               "CustomCookbooksSource" .=
+                 _usrqCustomCookbooksSource,
                "DefaultAvailabilityZone" .=
-                 _usDefaultAvailabilityZone,
-               "Name" .= _usName,
+                 _usrqDefaultAvailabilityZone,
+               "Name" .= _usrqName,
                "UseOpsworksSecurityGroups" .=
-                 _usUseOpsworksSecurityGroups,
-               "DefaultOs" .= _usDefaultOS,
-               "Attributes" .= _usAttributes,
-               "UseCustomCookbooks" .= _usUseCustomCookbooks,
-               "DefaultSubnetId" .= _usDefaultSubnetId,
-               "ConfigurationManager" .= _usConfigurationManager,
-               "HostnameTheme" .= _usHostnameTheme,
-               "StackId" .= _usStackId]
+                 _usrqUseOpsworksSecurityGroups,
+               "DefaultOs" .= _usrqDefaultOS,
+               "Attributes" .= _usrqAttributes,
+               "UseCustomCookbooks" .= _usrqUseCustomCookbooks,
+               "DefaultSubnetId" .= _usrqDefaultSubnetId,
+               "ConfigurationManager" .= _usrqConfigurationManager,
+               "HostnameTheme" .= _usrqHostnameTheme,
+               "StackId" .= _usrqStackId]
 
 instance ToPath UpdateStack where
         toPath = const "/"

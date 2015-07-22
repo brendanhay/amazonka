@@ -37,16 +37,16 @@ module Network.AWS.Redshift.CreateHSMClientCertificate
     -- ** Request constructor
     , createHSMClientCertificate
     -- ** Request lenses
-    , chccTags
-    , chccHSMClientCertificateIdentifier
+    , chccrqTags
+    , chccrqHSMClientCertificateIdentifier
 
     -- * Response
     , CreateHSMClientCertificateResponse
     -- ** Response constructor
     , createHSMClientCertificateResponse
     -- ** Response lenses
-    , chccrHSMClientCertificate
-    , chccrStatus
+    , chccrsHSMClientCertificate
+    , chccrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -60,31 +60,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chccTags'
+-- * 'chccrqTags'
 --
--- * 'chccHSMClientCertificateIdentifier'
+-- * 'chccrqHSMClientCertificateIdentifier'
 data CreateHSMClientCertificate = CreateHSMClientCertificate'
-    { _chccTags                           :: !(Maybe [Tag])
-    , _chccHSMClientCertificateIdentifier :: !Text
+    { _chccrqTags                           :: !(Maybe [Tag])
+    , _chccrqHSMClientCertificateIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMClientCertificate' smart constructor.
 createHSMClientCertificate :: Text -> CreateHSMClientCertificate
 createHSMClientCertificate pHSMClientCertificateIdentifier =
     CreateHSMClientCertificate'
-    { _chccTags = Nothing
-    , _chccHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier
+    { _chccrqTags = Nothing
+    , _chccrqHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier
     }
 
 -- | A list of tag instances.
-chccTags :: Lens' CreateHSMClientCertificate [Tag]
-chccTags = lens _chccTags (\ s a -> s{_chccTags = a}) . _Default;
+chccrqTags :: Lens' CreateHSMClientCertificate [Tag]
+chccrqTags = lens _chccrqTags (\ s a -> s{_chccrqTags = a}) . _Default;
 
 -- | The identifier to be assigned to the new HSM client certificate that the
 -- cluster will use to connect to the HSM to use the database encryption
 -- keys.
-chccHSMClientCertificateIdentifier :: Lens' CreateHSMClientCertificate Text
-chccHSMClientCertificateIdentifier = lens _chccHSMClientCertificateIdentifier (\ s a -> s{_chccHSMClientCertificateIdentifier = a});
+chccrqHSMClientCertificateIdentifier :: Lens' CreateHSMClientCertificate Text
+chccrqHSMClientCertificateIdentifier = lens _chccrqHSMClientCertificateIdentifier (\ s a -> s{_chccrqHSMClientCertificateIdentifier = a});
 
 instance AWSRequest CreateHSMClientCertificate where
         type Sv CreateHSMClientCertificate = Redshift
@@ -111,34 +111,35 @@ instance ToQuery CreateHSMClientCertificate where
               ["Action" =:
                  ("CreateHSMClientCertificate" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _chccTags),
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _chccrqTags),
                "HsmClientCertificateIdentifier" =:
-                 _chccHSMClientCertificateIdentifier]
+                 _chccrqHSMClientCertificateIdentifier]
 
 -- | /See:/ 'createHSMClientCertificateResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chccrHSMClientCertificate'
+-- * 'chccrsHSMClientCertificate'
 --
--- * 'chccrStatus'
+-- * 'chccrsStatus'
 data CreateHSMClientCertificateResponse = CreateHSMClientCertificateResponse'
-    { _chccrHSMClientCertificate :: !(Maybe HSMClientCertificate)
-    , _chccrStatus               :: !Int
+    { _chccrsHSMClientCertificate :: !(Maybe HSMClientCertificate)
+    , _chccrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHSMClientCertificateResponse' smart constructor.
 createHSMClientCertificateResponse :: Int -> CreateHSMClientCertificateResponse
 createHSMClientCertificateResponse pStatus =
     CreateHSMClientCertificateResponse'
-    { _chccrHSMClientCertificate = Nothing
-    , _chccrStatus = pStatus
+    { _chccrsHSMClientCertificate = Nothing
+    , _chccrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-chccrHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
-chccrHSMClientCertificate = lens _chccrHSMClientCertificate (\ s a -> s{_chccrHSMClientCertificate = a});
+chccrsHSMClientCertificate :: Lens' CreateHSMClientCertificateResponse (Maybe HSMClientCertificate)
+chccrsHSMClientCertificate = lens _chccrsHSMClientCertificate (\ s a -> s{_chccrsHSMClientCertificate = a});
 
 -- | FIXME: Undocumented member.
-chccrStatus :: Lens' CreateHSMClientCertificateResponse Int
-chccrStatus = lens _chccrStatus (\ s a -> s{_chccrStatus = a});
+chccrsStatus :: Lens' CreateHSMClientCertificateResponse Int
+chccrsStatus = lens _chccrsStatus (\ s a -> s{_chccrsStatus = a});

@@ -31,9 +31,9 @@ module Network.AWS.EC2.ResetSnapshotAttribute
     -- ** Request constructor
     , resetSnapshotAttribute
     -- ** Request lenses
-    , rsaDryRun
-    , rsaSnapshotId
-    , rsaAttribute
+    , rsarqDryRun
+    , rsarqSnapshotId
+    , rsarqAttribute
 
     -- * Response
     , ResetSnapshotAttributeResponse
@@ -50,41 +50,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsaDryRun'
+-- * 'rsarqDryRun'
 --
--- * 'rsaSnapshotId'
+-- * 'rsarqSnapshotId'
 --
--- * 'rsaAttribute'
+-- * 'rsarqAttribute'
 data ResetSnapshotAttribute = ResetSnapshotAttribute'
-    { _rsaDryRun     :: !(Maybe Bool)
-    , _rsaSnapshotId :: !Text
-    , _rsaAttribute  :: !ModifySnapshotAttributeName
+    { _rsarqDryRun     :: !(Maybe Bool)
+    , _rsarqSnapshotId :: !Text
+    , _rsarqAttribute  :: !ModifySnapshotAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetSnapshotAttribute' smart constructor.
 resetSnapshotAttribute :: Text -> ModifySnapshotAttributeName -> ResetSnapshotAttribute
 resetSnapshotAttribute pSnapshotId pAttribute =
     ResetSnapshotAttribute'
-    { _rsaDryRun = Nothing
-    , _rsaSnapshotId = pSnapshotId
-    , _rsaAttribute = pAttribute
+    { _rsarqDryRun = Nothing
+    , _rsarqSnapshotId = pSnapshotId
+    , _rsarqAttribute = pAttribute
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rsaDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
-rsaDryRun = lens _rsaDryRun (\ s a -> s{_rsaDryRun = a});
+rsarqDryRun :: Lens' ResetSnapshotAttribute (Maybe Bool)
+rsarqDryRun = lens _rsarqDryRun (\ s a -> s{_rsarqDryRun = a});
 
 -- | The ID of the snapshot.
-rsaSnapshotId :: Lens' ResetSnapshotAttribute Text
-rsaSnapshotId = lens _rsaSnapshotId (\ s a -> s{_rsaSnapshotId = a});
+rsarqSnapshotId :: Lens' ResetSnapshotAttribute Text
+rsarqSnapshotId = lens _rsarqSnapshotId (\ s a -> s{_rsarqSnapshotId = a});
 
 -- | The attribute to reset. Currently, only the attribute for permission to
 -- create volumes can be reset.
-rsaAttribute :: Lens' ResetSnapshotAttribute ModifySnapshotAttributeName
-rsaAttribute = lens _rsaAttribute (\ s a -> s{_rsaAttribute = a});
+rsarqAttribute :: Lens' ResetSnapshotAttribute ModifySnapshotAttributeName
+rsarqAttribute = lens _rsarqAttribute (\ s a -> s{_rsarqAttribute = a});
 
 instance AWSRequest ResetSnapshotAttribute where
         type Sv ResetSnapshotAttribute = EC2
@@ -106,9 +106,9 @@ instance ToQuery ResetSnapshotAttribute where
               ["Action" =:
                  ("ResetSnapshotAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rsaDryRun,
-               "SnapshotId" =: _rsaSnapshotId,
-               "Attribute" =: _rsaAttribute]
+               "DryRun" =: _rsarqDryRun,
+               "SnapshotId" =: _rsarqSnapshotId,
+               "Attribute" =: _rsarqAttribute]
 
 -- | /See:/ 'resetSnapshotAttributeResponse' smart constructor.
 data ResetSnapshotAttributeResponse =

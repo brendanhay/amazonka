@@ -28,15 +28,15 @@ module Network.AWS.DirectoryService.EnableRadius
     -- ** Request constructor
     , enableRadius
     -- ** Request lenses
-    , erDirectoryId
-    , erRadiusSettings
+    , errqDirectoryId
+    , errqRadiusSettings
 
     -- * Response
     , EnableRadiusResponse
     -- ** Response constructor
     , enableRadiusResponse
     -- ** Response lenses
-    , errStatus
+    , errsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -50,30 +50,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'erDirectoryId'
+-- * 'errqDirectoryId'
 --
--- * 'erRadiusSettings'
+-- * 'errqRadiusSettings'
 data EnableRadius = EnableRadius'
-    { _erDirectoryId    :: !Text
-    , _erRadiusSettings :: !RadiusSettings
+    { _errqDirectoryId    :: !Text
+    , _errqRadiusSettings :: !RadiusSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableRadius' smart constructor.
 enableRadius :: Text -> RadiusSettings -> EnableRadius
 enableRadius pDirectoryId pRadiusSettings =
     EnableRadius'
-    { _erDirectoryId = pDirectoryId
-    , _erRadiusSettings = pRadiusSettings
+    { _errqDirectoryId = pDirectoryId
+    , _errqRadiusSettings = pRadiusSettings
     }
 
 -- | The identifier of the directory to enable MFA for.
-erDirectoryId :: Lens' EnableRadius Text
-erDirectoryId = lens _erDirectoryId (\ s a -> s{_erDirectoryId = a});
+errqDirectoryId :: Lens' EnableRadius Text
+errqDirectoryId = lens _errqDirectoryId (\ s a -> s{_errqDirectoryId = a});
 
 -- | A RadiusSettings object that contains information about the RADIUS
 -- server.
-erRadiusSettings :: Lens' EnableRadius RadiusSettings
-erRadiusSettings = lens _erRadiusSettings (\ s a -> s{_erRadiusSettings = a});
+errqRadiusSettings :: Lens' EnableRadius RadiusSettings
+errqRadiusSettings = lens _errqRadiusSettings (\ s a -> s{_errqRadiusSettings = a});
 
 instance AWSRequest EnableRadius where
         type Sv EnableRadius = DirectoryService
@@ -97,8 +97,8 @@ instance ToHeaders EnableRadius where
 instance ToJSON EnableRadius where
         toJSON EnableRadius'{..}
           = object
-              ["DirectoryId" .= _erDirectoryId,
-               "RadiusSettings" .= _erRadiusSettings]
+              ["DirectoryId" .= _errqDirectoryId,
+               "RadiusSettings" .= _errqRadiusSettings]
 
 instance ToPath EnableRadius where
         toPath = const "/"
@@ -112,18 +112,18 @@ instance ToQuery EnableRadius where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'errStatus'
+-- * 'errsStatus'
 newtype EnableRadiusResponse = EnableRadiusResponse'
-    { _errStatus :: Int
+    { _errsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableRadiusResponse' smart constructor.
 enableRadiusResponse :: Int -> EnableRadiusResponse
 enableRadiusResponse pStatus =
     EnableRadiusResponse'
-    { _errStatus = pStatus
+    { _errsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-errStatus :: Lens' EnableRadiusResponse Int
-errStatus = lens _errStatus (\ s a -> s{_errStatus = a});
+errsStatus :: Lens' EnableRadiusResponse Int
+errsStatus = lens _errsStatus (\ s a -> s{_errsStatus = a});

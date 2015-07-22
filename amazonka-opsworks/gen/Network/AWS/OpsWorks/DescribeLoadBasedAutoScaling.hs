@@ -35,15 +35,15 @@ module Network.AWS.OpsWorks.DescribeLoadBasedAutoScaling
     -- ** Request constructor
     , describeLoadBasedAutoScaling
     -- ** Request lenses
-    , dlbasLayerIds
+    , dlbasrqLayerIds
 
     -- * Response
     , DescribeLoadBasedAutoScalingResponse
     -- ** Response constructor
     , describeLoadBasedAutoScalingResponse
     -- ** Response lenses
-    , dlbasrLoadBasedAutoScalingConfigurations
-    , dlbasrStatus
+    , dlbasrsLoadBasedAutoScalingConfigurations
+    , dlbasrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbasLayerIds'
+-- * 'dlbasrqLayerIds'
 newtype DescribeLoadBasedAutoScaling = DescribeLoadBasedAutoScaling'
-    { _dlbasLayerIds :: [Text]
+    { _dlbasrqLayerIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBasedAutoScaling' smart constructor.
 describeLoadBasedAutoScaling :: DescribeLoadBasedAutoScaling
 describeLoadBasedAutoScaling =
     DescribeLoadBasedAutoScaling'
-    { _dlbasLayerIds = mempty
+    { _dlbasrqLayerIds = mempty
     }
 
 -- | An array of layer IDs.
-dlbasLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
-dlbasLayerIds = lens _dlbasLayerIds (\ s a -> s{_dlbasLayerIds = a});
+dlbasrqLayerIds :: Lens' DescribeLoadBasedAutoScaling [Text]
+dlbasrqLayerIds = lens _dlbasrqLayerIds (\ s a -> s{_dlbasrqLayerIds = a});
 
 instance AWSRequest DescribeLoadBasedAutoScaling
          where
@@ -97,7 +97,7 @@ instance ToHeaders DescribeLoadBasedAutoScaling where
 
 instance ToJSON DescribeLoadBasedAutoScaling where
         toJSON DescribeLoadBasedAutoScaling'{..}
-          = object ["LayerIds" .= _dlbasLayerIds]
+          = object ["LayerIds" .= _dlbasrqLayerIds]
 
 instance ToPath DescribeLoadBasedAutoScaling where
         toPath = const "/"
@@ -111,27 +111,27 @@ instance ToQuery DescribeLoadBasedAutoScaling where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbasrLoadBasedAutoScalingConfigurations'
+-- * 'dlbasrsLoadBasedAutoScalingConfigurations'
 --
--- * 'dlbasrStatus'
+-- * 'dlbasrsStatus'
 data DescribeLoadBasedAutoScalingResponse = DescribeLoadBasedAutoScalingResponse'
-    { _dlbasrLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
-    , _dlbasrStatus                             :: !Int
+    { _dlbasrsLoadBasedAutoScalingConfigurations :: !(Maybe [LoadBasedAutoScalingConfiguration])
+    , _dlbasrsStatus                             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBasedAutoScalingResponse' smart constructor.
 describeLoadBasedAutoScalingResponse :: Int -> DescribeLoadBasedAutoScalingResponse
 describeLoadBasedAutoScalingResponse pStatus =
     DescribeLoadBasedAutoScalingResponse'
-    { _dlbasrLoadBasedAutoScalingConfigurations = Nothing
-    , _dlbasrStatus = pStatus
+    { _dlbasrsLoadBasedAutoScalingConfigurations = Nothing
+    , _dlbasrsStatus = pStatus
     }
 
 -- | An array of @LoadBasedAutoScalingConfiguration@ objects that describe
 -- each layer\'s configuration.
-dlbasrLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
-dlbasrLoadBasedAutoScalingConfigurations = lens _dlbasrLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrLoadBasedAutoScalingConfigurations = a}) . _Default;
+dlbasrsLoadBasedAutoScalingConfigurations :: Lens' DescribeLoadBasedAutoScalingResponse [LoadBasedAutoScalingConfiguration]
+dlbasrsLoadBasedAutoScalingConfigurations = lens _dlbasrsLoadBasedAutoScalingConfigurations (\ s a -> s{_dlbasrsLoadBasedAutoScalingConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbasrStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
-dlbasrStatus = lens _dlbasrStatus (\ s a -> s{_dlbasrStatus = a});
+dlbasrsStatus :: Lens' DescribeLoadBasedAutoScalingResponse Int
+dlbasrsStatus = lens _dlbasrsStatus (\ s a -> s{_dlbasrsStatus = a});

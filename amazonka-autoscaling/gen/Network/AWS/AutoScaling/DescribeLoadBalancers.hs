@@ -27,18 +27,18 @@ module Network.AWS.AutoScaling.DescribeLoadBalancers
     -- ** Request constructor
     , describeLoadBalancers
     -- ** Request lenses
-    , dlbNextToken
-    , dlbMaxRecords
-    , dlbAutoScalingGroupName
+    , dlbrqNextToken
+    , dlbrqMaxRecords
+    , dlbrqAutoScalingGroupName
 
     -- * Response
     , DescribeLoadBalancersResponse
     -- ** Response constructor
     , describeLoadBalancersResponse
     -- ** Response lenses
-    , dlbrLoadBalancers
-    , dlbrNextToken
-    , dlbrStatus
+    , dlbrsLoadBalancers
+    , dlbrsNextToken
+    , dlbrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -50,38 +50,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbNextToken'
+-- * 'dlbrqNextToken'
 --
--- * 'dlbMaxRecords'
+-- * 'dlbrqMaxRecords'
 --
--- * 'dlbAutoScalingGroupName'
+-- * 'dlbrqAutoScalingGroupName'
 data DescribeLoadBalancers = DescribeLoadBalancers'
-    { _dlbNextToken            :: !(Maybe Text)
-    , _dlbMaxRecords           :: !(Maybe Int)
-    , _dlbAutoScalingGroupName :: !Text
+    { _dlbrqNextToken            :: !(Maybe Text)
+    , _dlbrqMaxRecords           :: !(Maybe Int)
+    , _dlbrqAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: Text -> DescribeLoadBalancers
 describeLoadBalancers pAutoScalingGroupName =
     DescribeLoadBalancers'
-    { _dlbNextToken = Nothing
-    , _dlbMaxRecords = Nothing
-    , _dlbAutoScalingGroupName = pAutoScalingGroupName
+    { _dlbrqNextToken = Nothing
+    , _dlbrqMaxRecords = Nothing
+    , _dlbrqAutoScalingGroupName = pAutoScalingGroupName
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dlbNextToken :: Lens' DescribeLoadBalancers (Maybe Text)
-dlbNextToken = lens _dlbNextToken (\ s a -> s{_dlbNextToken = a});
+dlbrqNextToken :: Lens' DescribeLoadBalancers (Maybe Text)
+dlbrqNextToken = lens _dlbrqNextToken (\ s a -> s{_dlbrqNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dlbMaxRecords :: Lens' DescribeLoadBalancers (Maybe Int)
-dlbMaxRecords = lens _dlbMaxRecords (\ s a -> s{_dlbMaxRecords = a});
+dlbrqMaxRecords :: Lens' DescribeLoadBalancers (Maybe Int)
+dlbrqMaxRecords = lens _dlbrqMaxRecords (\ s a -> s{_dlbrqMaxRecords = a});
 
 -- | The name of the group.
-dlbAutoScalingGroupName :: Lens' DescribeLoadBalancers Text
-dlbAutoScalingGroupName = lens _dlbAutoScalingGroupName (\ s a -> s{_dlbAutoScalingGroupName = a});
+dlbrqAutoScalingGroupName :: Lens' DescribeLoadBalancers Text
+dlbrqAutoScalingGroupName = lens _dlbrqAutoScalingGroupName (\ s a -> s{_dlbrqAutoScalingGroupName = a});
 
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = AutoScaling
@@ -108,43 +108,43 @@ instance ToQuery DescribeLoadBalancers where
           = mconcat
               ["Action" =: ("DescribeLoadBalancers" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "NextToken" =: _dlbNextToken,
-               "MaxRecords" =: _dlbMaxRecords,
-               "AutoScalingGroupName" =: _dlbAutoScalingGroupName]
+               "NextToken" =: _dlbrqNextToken,
+               "MaxRecords" =: _dlbrqMaxRecords,
+               "AutoScalingGroupName" =: _dlbrqAutoScalingGroupName]
 
 -- | /See:/ 'describeLoadBalancersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbrLoadBalancers'
+-- * 'dlbrsLoadBalancers'
 --
--- * 'dlbrNextToken'
+-- * 'dlbrsNextToken'
 --
--- * 'dlbrStatus'
+-- * 'dlbrsStatus'
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-    { _dlbrLoadBalancers :: !(Maybe [LoadBalancerState])
-    , _dlbrNextToken     :: !(Maybe Text)
-    , _dlbrStatus        :: !Int
+    { _dlbrsLoadBalancers :: !(Maybe [LoadBalancerState])
+    , _dlbrsNextToken     :: !(Maybe Text)
+    , _dlbrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
 describeLoadBalancersResponse pStatus =
     DescribeLoadBalancersResponse'
-    { _dlbrLoadBalancers = Nothing
-    , _dlbrNextToken = Nothing
-    , _dlbrStatus = pStatus
+    { _dlbrsLoadBalancers = Nothing
+    , _dlbrsNextToken = Nothing
+    , _dlbrsStatus = pStatus
     }
 
 -- | The load balancers.
-dlbrLoadBalancers :: Lens' DescribeLoadBalancersResponse [LoadBalancerState]
-dlbrLoadBalancers = lens _dlbrLoadBalancers (\ s a -> s{_dlbrLoadBalancers = a}) . _Default;
+dlbrsLoadBalancers :: Lens' DescribeLoadBalancersResponse [LoadBalancerState]
+dlbrsLoadBalancers = lens _dlbrsLoadBalancers (\ s a -> s{_dlbrsLoadBalancers = a}) . _Default;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dlbrNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
-dlbrNextToken = lens _dlbrNextToken (\ s a -> s{_dlbrNextToken = a});
+dlbrsNextToken :: Lens' DescribeLoadBalancersResponse (Maybe Text)
+dlbrsNextToken = lens _dlbrsNextToken (\ s a -> s{_dlbrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dlbrStatus :: Lens' DescribeLoadBalancersResponse Int
-dlbrStatus = lens _dlbrStatus (\ s a -> s{_dlbrStatus = a});
+dlbrsStatus :: Lens' DescribeLoadBalancersResponse Int
+dlbrsStatus = lens _dlbrsStatus (\ s a -> s{_dlbrsStatus = a});

@@ -29,17 +29,17 @@ module Network.AWS.DataPipeline.EvaluateExpression
     -- ** Request constructor
     , evaluateExpression
     -- ** Request lenses
-    , eePipelineId
-    , eeObjectId
-    , eeExpression
+    , eerqPipelineId
+    , eerqObjectId
+    , eerqExpression
 
     -- * Response
     , EvaluateExpressionResponse
     -- ** Response constructor
     , evaluateExpressionResponse
     -- ** Response lenses
-    , eerStatus
-    , eerEvaluatedExpression
+    , eersStatus
+    , eersEvaluatedExpression
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -53,37 +53,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eePipelineId'
+-- * 'eerqPipelineId'
 --
--- * 'eeObjectId'
+-- * 'eerqObjectId'
 --
--- * 'eeExpression'
+-- * 'eerqExpression'
 data EvaluateExpression = EvaluateExpression'
-    { _eePipelineId :: !Text
-    , _eeObjectId   :: !Text
-    , _eeExpression :: !Text
+    { _eerqPipelineId :: !Text
+    , _eerqObjectId   :: !Text
+    , _eerqExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EvaluateExpression' smart constructor.
 evaluateExpression :: Text -> Text -> Text -> EvaluateExpression
 evaluateExpression pPipelineId pObjectId pExpression =
     EvaluateExpression'
-    { _eePipelineId = pPipelineId
-    , _eeObjectId = pObjectId
-    , _eeExpression = pExpression
+    { _eerqPipelineId = pPipelineId
+    , _eerqObjectId = pObjectId
+    , _eerqExpression = pExpression
     }
 
 -- | The ID of the pipeline.
-eePipelineId :: Lens' EvaluateExpression Text
-eePipelineId = lens _eePipelineId (\ s a -> s{_eePipelineId = a});
+eerqPipelineId :: Lens' EvaluateExpression Text
+eerqPipelineId = lens _eerqPipelineId (\ s a -> s{_eerqPipelineId = a});
 
 -- | The ID of the object.
-eeObjectId :: Lens' EvaluateExpression Text
-eeObjectId = lens _eeObjectId (\ s a -> s{_eeObjectId = a});
+eerqObjectId :: Lens' EvaluateExpression Text
+eerqObjectId = lens _eerqObjectId (\ s a -> s{_eerqObjectId = a});
 
 -- | The expression to evaluate.
-eeExpression :: Lens' EvaluateExpression Text
-eeExpression = lens _eeExpression (\ s a -> s{_eeExpression = a});
+eerqExpression :: Lens' EvaluateExpression Text
+eerqExpression = lens _eerqExpression (\ s a -> s{_eerqExpression = a});
 
 instance AWSRequest EvaluateExpression where
         type Sv EvaluateExpression = DataPipeline
@@ -109,9 +109,9 @@ instance ToHeaders EvaluateExpression where
 instance ToJSON EvaluateExpression where
         toJSON EvaluateExpression'{..}
           = object
-              ["pipelineId" .= _eePipelineId,
-               "objectId" .= _eeObjectId,
-               "expression" .= _eeExpression]
+              ["pipelineId" .= _eerqPipelineId,
+               "objectId" .= _eerqObjectId,
+               "expression" .= _eerqExpression]
 
 instance ToPath EvaluateExpression where
         toPath = const "/"
@@ -125,26 +125,26 @@ instance ToQuery EvaluateExpression where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eerStatus'
+-- * 'eersStatus'
 --
--- * 'eerEvaluatedExpression'
+-- * 'eersEvaluatedExpression'
 data EvaluateExpressionResponse = EvaluateExpressionResponse'
-    { _eerStatus              :: !Int
-    , _eerEvaluatedExpression :: !Text
+    { _eersStatus              :: !Int
+    , _eersEvaluatedExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EvaluateExpressionResponse' smart constructor.
 evaluateExpressionResponse :: Int -> Text -> EvaluateExpressionResponse
 evaluateExpressionResponse pStatus pEvaluatedExpression =
     EvaluateExpressionResponse'
-    { _eerStatus = pStatus
-    , _eerEvaluatedExpression = pEvaluatedExpression
+    { _eersStatus = pStatus
+    , _eersEvaluatedExpression = pEvaluatedExpression
     }
 
 -- | FIXME: Undocumented member.
-eerStatus :: Lens' EvaluateExpressionResponse Int
-eerStatus = lens _eerStatus (\ s a -> s{_eerStatus = a});
+eersStatus :: Lens' EvaluateExpressionResponse Int
+eersStatus = lens _eersStatus (\ s a -> s{_eersStatus = a});
 
 -- | The evaluated expression.
-eerEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
-eerEvaluatedExpression = lens _eerEvaluatedExpression (\ s a -> s{_eerEvaluatedExpression = a});
+eersEvaluatedExpression :: Lens' EvaluateExpressionResponse Text
+eersEvaluatedExpression = lens _eersEvaluatedExpression (\ s a -> s{_eersEvaluatedExpression = a});

@@ -41,17 +41,17 @@ module Network.AWS.SQS.DeleteMessageBatch
     -- ** Request constructor
     , deleteMessageBatch
     -- ** Request lenses
-    , dmbQueueURL
-    , dmbEntries
+    , dmbrqQueueURL
+    , dmbrqEntries
 
     -- * Response
     , DeleteMessageBatchResponse
     -- ** Response constructor
     , deleteMessageBatchResponse
     -- ** Response lenses
-    , dmbrStatus
-    , dmbrSuccessful
-    , dmbrFailed
+    , dmbrsStatus
+    , dmbrsSuccessful
+    , dmbrsFailed
     ) where
 
 import           Network.AWS.Prelude
@@ -63,29 +63,29 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmbQueueURL'
+-- * 'dmbrqQueueURL'
 --
--- * 'dmbEntries'
+-- * 'dmbrqEntries'
 data DeleteMessageBatch = DeleteMessageBatch'
-    { _dmbQueueURL :: !Text
-    , _dmbEntries  :: ![DeleteMessageBatchRequestEntry]
+    { _dmbrqQueueURL :: !Text
+    , _dmbrqEntries  :: ![DeleteMessageBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessageBatch' smart constructor.
 deleteMessageBatch :: Text -> DeleteMessageBatch
 deleteMessageBatch pQueueURL =
     DeleteMessageBatch'
-    { _dmbQueueURL = pQueueURL
-    , _dmbEntries = mempty
+    { _dmbrqQueueURL = pQueueURL
+    , _dmbrqEntries = mempty
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-dmbQueueURL :: Lens' DeleteMessageBatch Text
-dmbQueueURL = lens _dmbQueueURL (\ s a -> s{_dmbQueueURL = a});
+dmbrqQueueURL :: Lens' DeleteMessageBatch Text
+dmbrqQueueURL = lens _dmbrqQueueURL (\ s a -> s{_dmbrqQueueURL = a});
 
 -- | A list of receipt handles for the messages to be deleted.
-dmbEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
-dmbEntries = lens _dmbEntries (\ s a -> s{_dmbEntries = a});
+dmbrqEntries :: Lens' DeleteMessageBatch [DeleteMessageBatchRequestEntry]
+dmbrqEntries = lens _dmbrqEntries (\ s a -> s{_dmbrqEntries = a});
 
 instance AWSRequest DeleteMessageBatch where
         type Sv DeleteMessageBatch = SQS
@@ -111,9 +111,9 @@ instance ToQuery DeleteMessageBatch where
           = mconcat
               ["Action" =: ("DeleteMessageBatch" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _dmbQueueURL,
+               "QueueUrl" =: _dmbrqQueueURL,
                toQueryList "DeleteMessageBatchRequestEntry"
-                 _dmbEntries]
+                 _dmbrqEntries]
 
 -- | For each message in the batch, the response contains a
 -- DeleteMessageBatchResultEntry tag if the message is deleted or a
@@ -123,34 +123,34 @@ instance ToQuery DeleteMessageBatch where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmbrStatus'
+-- * 'dmbrsStatus'
 --
--- * 'dmbrSuccessful'
+-- * 'dmbrsSuccessful'
 --
--- * 'dmbrFailed'
+-- * 'dmbrsFailed'
 data DeleteMessageBatchResponse = DeleteMessageBatchResponse'
-    { _dmbrStatus     :: !Int
-    , _dmbrSuccessful :: ![DeleteMessageBatchResultEntry]
-    , _dmbrFailed     :: ![BatchResultErrorEntry]
+    { _dmbrsStatus     :: !Int
+    , _dmbrsSuccessful :: ![DeleteMessageBatchResultEntry]
+    , _dmbrsFailed     :: ![BatchResultErrorEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessageBatchResponse' smart constructor.
 deleteMessageBatchResponse :: Int -> DeleteMessageBatchResponse
 deleteMessageBatchResponse pStatus =
     DeleteMessageBatchResponse'
-    { _dmbrStatus = pStatus
-    , _dmbrSuccessful = mempty
-    , _dmbrFailed = mempty
+    { _dmbrsStatus = pStatus
+    , _dmbrsSuccessful = mempty
+    , _dmbrsFailed = mempty
     }
 
 -- | FIXME: Undocumented member.
-dmbrStatus :: Lens' DeleteMessageBatchResponse Int
-dmbrStatus = lens _dmbrStatus (\ s a -> s{_dmbrStatus = a});
+dmbrsStatus :: Lens' DeleteMessageBatchResponse Int
+dmbrsStatus = lens _dmbrsStatus (\ s a -> s{_dmbrsStatus = a});
 
 -- | A list of DeleteMessageBatchResultEntry items.
-dmbrSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
-dmbrSuccessful = lens _dmbrSuccessful (\ s a -> s{_dmbrSuccessful = a});
+dmbrsSuccessful :: Lens' DeleteMessageBatchResponse [DeleteMessageBatchResultEntry]
+dmbrsSuccessful = lens _dmbrsSuccessful (\ s a -> s{_dmbrsSuccessful = a});
 
 -- | A list of BatchResultErrorEntry items.
-dmbrFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
-dmbrFailed = lens _dmbrFailed (\ s a -> s{_dmbrFailed = a});
+dmbrsFailed :: Lens' DeleteMessageBatchResponse [BatchResultErrorEntry]
+dmbrsFailed = lens _dmbrsFailed (\ s a -> s{_dmbrsFailed = a});

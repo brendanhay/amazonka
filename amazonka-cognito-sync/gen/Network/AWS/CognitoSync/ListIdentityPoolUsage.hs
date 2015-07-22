@@ -31,19 +31,19 @@ module Network.AWS.CognitoSync.ListIdentityPoolUsage
     -- ** Request constructor
     , listIdentityPoolUsage
     -- ** Request lenses
-    , lipuNextToken
-    , lipuMaxResults
+    , lipurqNextToken
+    , lipurqMaxResults
 
     -- * Response
     , ListIdentityPoolUsageResponse
     -- ** Response constructor
     , listIdentityPoolUsageResponse
     -- ** Response lenses
-    , lipurIdentityPoolUsages
-    , lipurCount
-    , lipurNextToken
-    , lipurMaxResults
-    , lipurStatus
+    , lipursIdentityPoolUsages
+    , lipursCount
+    , lipursNextToken
+    , lipursMaxResults
+    , lipursStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -57,29 +57,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lipuNextToken'
+-- * 'lipurqNextToken'
 --
--- * 'lipuMaxResults'
+-- * 'lipurqMaxResults'
 data ListIdentityPoolUsage = ListIdentityPoolUsage'
-    { _lipuNextToken  :: !(Maybe Text)
-    , _lipuMaxResults :: !(Maybe Int)
+    { _lipurqNextToken  :: !(Maybe Text)
+    , _lipurqMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolUsage' smart constructor.
 listIdentityPoolUsage :: ListIdentityPoolUsage
 listIdentityPoolUsage =
     ListIdentityPoolUsage'
-    { _lipuNextToken = Nothing
-    , _lipuMaxResults = Nothing
+    { _lipurqNextToken = Nothing
+    , _lipurqMaxResults = Nothing
     }
 
 -- | A pagination token for obtaining the next page of results.
-lipuNextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
-lipuNextToken = lens _lipuNextToken (\ s a -> s{_lipuNextToken = a});
+lipurqNextToken :: Lens' ListIdentityPoolUsage (Maybe Text)
+lipurqNextToken = lens _lipurqNextToken (\ s a -> s{_lipurqNextToken = a});
 
 -- | The maximum number of results to be returned.
-lipuMaxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
-lipuMaxResults = lens _lipuMaxResults (\ s a -> s{_lipuMaxResults = a});
+lipurqMaxResults :: Lens' ListIdentityPoolUsage (Maybe Int)
+lipurqMaxResults = lens _lipurqMaxResults (\ s a -> s{_lipurqMaxResults = a});
 
 instance AWSRequest ListIdentityPoolUsage where
         type Sv ListIdentityPoolUsage = CognitoSync
@@ -109,8 +109,8 @@ instance ToPath ListIdentityPoolUsage where
 instance ToQuery ListIdentityPoolUsage where
         toQuery ListIdentityPoolUsage'{..}
           = mconcat
-              ["nextToken" =: _lipuNextToken,
-               "maxResults" =: _lipuMaxResults]
+              ["nextToken" =: _lipurqNextToken,
+               "maxResults" =: _lipurqMaxResults]
 
 -- | Returned for a successful ListIdentityPoolUsage request.
 --
@@ -118,50 +118,50 @@ instance ToQuery ListIdentityPoolUsage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lipurIdentityPoolUsages'
+-- * 'lipursIdentityPoolUsages'
 --
--- * 'lipurCount'
+-- * 'lipursCount'
 --
--- * 'lipurNextToken'
+-- * 'lipursNextToken'
 --
--- * 'lipurMaxResults'
+-- * 'lipursMaxResults'
 --
--- * 'lipurStatus'
+-- * 'lipursStatus'
 data ListIdentityPoolUsageResponse = ListIdentityPoolUsageResponse'
-    { _lipurIdentityPoolUsages :: !(Maybe [IdentityPoolUsage])
-    , _lipurCount              :: !(Maybe Int)
-    , _lipurNextToken          :: !(Maybe Text)
-    , _lipurMaxResults         :: !(Maybe Int)
-    , _lipurStatus             :: !Int
+    { _lipursIdentityPoolUsages :: !(Maybe [IdentityPoolUsage])
+    , _lipursCount              :: !(Maybe Int)
+    , _lipursNextToken          :: !(Maybe Text)
+    , _lipursMaxResults         :: !(Maybe Int)
+    , _lipursStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolUsageResponse' smart constructor.
 listIdentityPoolUsageResponse :: Int -> ListIdentityPoolUsageResponse
 listIdentityPoolUsageResponse pStatus =
     ListIdentityPoolUsageResponse'
-    { _lipurIdentityPoolUsages = Nothing
-    , _lipurCount = Nothing
-    , _lipurNextToken = Nothing
-    , _lipurMaxResults = Nothing
-    , _lipurStatus = pStatus
+    { _lipursIdentityPoolUsages = Nothing
+    , _lipursCount = Nothing
+    , _lipursNextToken = Nothing
+    , _lipursMaxResults = Nothing
+    , _lipursStatus = pStatus
     }
 
 -- | Usage information for the identity pools.
-lipurIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
-lipurIdentityPoolUsages = lens _lipurIdentityPoolUsages (\ s a -> s{_lipurIdentityPoolUsages = a}) . _Default;
+lipursIdentityPoolUsages :: Lens' ListIdentityPoolUsageResponse [IdentityPoolUsage]
+lipursIdentityPoolUsages = lens _lipursIdentityPoolUsages (\ s a -> s{_lipursIdentityPoolUsages = a}) . _Default;
 
 -- | Total number of identities for the identity pool.
-lipurCount :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
-lipurCount = lens _lipurCount (\ s a -> s{_lipurCount = a});
+lipursCount :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
+lipursCount = lens _lipursCount (\ s a -> s{_lipursCount = a});
 
 -- | A pagination token for obtaining the next page of results.
-lipurNextToken :: Lens' ListIdentityPoolUsageResponse (Maybe Text)
-lipurNextToken = lens _lipurNextToken (\ s a -> s{_lipurNextToken = a});
+lipursNextToken :: Lens' ListIdentityPoolUsageResponse (Maybe Text)
+lipursNextToken = lens _lipursNextToken (\ s a -> s{_lipursNextToken = a});
 
 -- | The maximum number of results to be returned.
-lipurMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
-lipurMaxResults = lens _lipurMaxResults (\ s a -> s{_lipurMaxResults = a});
+lipursMaxResults :: Lens' ListIdentityPoolUsageResponse (Maybe Int)
+lipursMaxResults = lens _lipursMaxResults (\ s a -> s{_lipursMaxResults = a});
 
 -- | FIXME: Undocumented member.
-lipurStatus :: Lens' ListIdentityPoolUsageResponse Int
-lipurStatus = lens _lipurStatus (\ s a -> s{_lipurStatus = a});
+lipursStatus :: Lens' ListIdentityPoolUsageResponse Int
+lipursStatus = lens _lipursStatus (\ s a -> s{_lipursStatus = a});

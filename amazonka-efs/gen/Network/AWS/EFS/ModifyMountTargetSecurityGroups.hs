@@ -42,8 +42,8 @@ module Network.AWS.EFS.ModifyMountTargetSecurityGroups
     -- ** Request constructor
     , modifyMountTargetSecurityGroups
     -- ** Request lenses
-    , mmtsgSecurityGroups
-    , mmtsgMountTargetId
+    , mmtsgrqSecurityGroups
+    , mmtsgrqMountTargetId
 
     -- * Response
     , ModifyMountTargetSecurityGroupsResponse
@@ -60,29 +60,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mmtsgSecurityGroups'
+-- * 'mmtsgrqSecurityGroups'
 --
--- * 'mmtsgMountTargetId'
+-- * 'mmtsgrqMountTargetId'
 data ModifyMountTargetSecurityGroups = ModifyMountTargetSecurityGroups'
-    { _mmtsgSecurityGroups :: !(Maybe [Text])
-    , _mmtsgMountTargetId  :: !Text
+    { _mmtsgrqSecurityGroups :: !(Maybe [Text])
+    , _mmtsgrqMountTargetId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyMountTargetSecurityGroups' smart constructor.
 modifyMountTargetSecurityGroups :: Text -> ModifyMountTargetSecurityGroups
 modifyMountTargetSecurityGroups pMountTargetId =
     ModifyMountTargetSecurityGroups'
-    { _mmtsgSecurityGroups = Nothing
-    , _mmtsgMountTargetId = pMountTargetId
+    { _mmtsgrqSecurityGroups = Nothing
+    , _mmtsgrqMountTargetId = pMountTargetId
     }
 
 -- | An array of up to five VPC security group IDs.
-mmtsgSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
-mmtsgSecurityGroups = lens _mmtsgSecurityGroups (\ s a -> s{_mmtsgSecurityGroups = a}) . _Default;
+mmtsgrqSecurityGroups :: Lens' ModifyMountTargetSecurityGroups [Text]
+mmtsgrqSecurityGroups = lens _mmtsgrqSecurityGroups (\ s a -> s{_mmtsgrqSecurityGroups = a}) . _Default;
 
 -- | The ID of the mount target whose security groups you want to modify.
-mmtsgMountTargetId :: Lens' ModifyMountTargetSecurityGroups Text
-mmtsgMountTargetId = lens _mmtsgMountTargetId (\ s a -> s{_mmtsgMountTargetId = a});
+mmtsgrqMountTargetId :: Lens' ModifyMountTargetSecurityGroups Text
+mmtsgrqMountTargetId = lens _mmtsgrqMountTargetId (\ s a -> s{_mmtsgrqMountTargetId = a});
 
 instance AWSRequest ModifyMountTargetSecurityGroups
          where
@@ -100,13 +100,13 @@ instance ToHeaders ModifyMountTargetSecurityGroups
 
 instance ToJSON ModifyMountTargetSecurityGroups where
         toJSON ModifyMountTargetSecurityGroups'{..}
-          = object ["SecurityGroups" .= _mmtsgSecurityGroups]
+          = object ["SecurityGroups" .= _mmtsgrqSecurityGroups]
 
 instance ToPath ModifyMountTargetSecurityGroups where
         toPath ModifyMountTargetSecurityGroups'{..}
           = mconcat
               ["/2015-02-01/mount-targets/",
-               toText _mmtsgMountTargetId, "/security-groups"]
+               toText _mmtsgrqMountTargetId, "/security-groups"]
 
 instance ToQuery ModifyMountTargetSecurityGroups
          where

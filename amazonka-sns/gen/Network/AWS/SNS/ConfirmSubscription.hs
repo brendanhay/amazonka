@@ -31,17 +31,17 @@ module Network.AWS.SNS.ConfirmSubscription
     -- ** Request constructor
     , confirmSubscription
     -- ** Request lenses
-    , csAuthenticateOnUnsubscribe
-    , csTopicARN
-    , csToken
+    , csrqAuthenticateOnUnsubscribe
+    , csrqTopicARN
+    , csrqToken
 
     -- * Response
     , ConfirmSubscriptionResponse
     -- ** Response constructor
     , confirmSubscriptionResponse
     -- ** Response lenses
-    , csrSubscriptionARN
-    , csrStatus
+    , csrsSubscriptionARN
+    , csrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -55,40 +55,40 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csAuthenticateOnUnsubscribe'
+-- * 'csrqAuthenticateOnUnsubscribe'
 --
--- * 'csTopicARN'
+-- * 'csrqTopicARN'
 --
--- * 'csToken'
+-- * 'csrqToken'
 data ConfirmSubscription = ConfirmSubscription'
-    { _csAuthenticateOnUnsubscribe :: !(Maybe Text)
-    , _csTopicARN                  :: !Text
-    , _csToken                     :: !Text
+    { _csrqAuthenticateOnUnsubscribe :: !(Maybe Text)
+    , _csrqTopicARN                  :: !Text
+    , _csrqToken                     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmSubscription' smart constructor.
 confirmSubscription :: Text -> Text -> ConfirmSubscription
 confirmSubscription pTopicARN pToken =
     ConfirmSubscription'
-    { _csAuthenticateOnUnsubscribe = Nothing
-    , _csTopicARN = pTopicARN
-    , _csToken = pToken
+    { _csrqAuthenticateOnUnsubscribe = Nothing
+    , _csrqTopicARN = pTopicARN
+    , _csrqToken = pToken
     }
 
 -- | Disallows unauthenticated unsubscribes of the subscription. If the value
 -- of this parameter is @true@ and the request has an AWS signature, then
 -- only the topic owner and the subscription owner can unsubscribe the
 -- endpoint. The unsubscribe action requires AWS authentication.
-csAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
-csAuthenticateOnUnsubscribe = lens _csAuthenticateOnUnsubscribe (\ s a -> s{_csAuthenticateOnUnsubscribe = a});
+csrqAuthenticateOnUnsubscribe :: Lens' ConfirmSubscription (Maybe Text)
+csrqAuthenticateOnUnsubscribe = lens _csrqAuthenticateOnUnsubscribe (\ s a -> s{_csrqAuthenticateOnUnsubscribe = a});
 
 -- | The ARN of the topic for which you wish to confirm a subscription.
-csTopicARN :: Lens' ConfirmSubscription Text
-csTopicARN = lens _csTopicARN (\ s a -> s{_csTopicARN = a});
+csrqTopicARN :: Lens' ConfirmSubscription Text
+csrqTopicARN = lens _csrqTopicARN (\ s a -> s{_csrqTopicARN = a});
 
 -- | Short-lived token sent to an endpoint during the @Subscribe@ action.
-csToken :: Lens' ConfirmSubscription Text
-csToken = lens _csToken (\ s a -> s{_csToken = a});
+csrqToken :: Lens' ConfirmSubscription Text
+csrqToken = lens _csrqToken (\ s a -> s{_csrqToken = a});
 
 instance AWSRequest ConfirmSubscription where
         type Sv ConfirmSubscription = SNS
@@ -113,8 +113,8 @@ instance ToQuery ConfirmSubscription where
               ["Action" =: ("ConfirmSubscription" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
                "AuthenticateOnUnsubscribe" =:
-                 _csAuthenticateOnUnsubscribe,
-               "TopicArn" =: _csTopicARN, "Token" =: _csToken]
+                 _csrqAuthenticateOnUnsubscribe,
+               "TopicArn" =: _csrqTopicARN, "Token" =: _csrqToken]
 
 -- | Response for ConfirmSubscriptions action.
 --
@@ -122,26 +122,26 @@ instance ToQuery ConfirmSubscription where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrSubscriptionARN'
+-- * 'csrsSubscriptionARN'
 --
--- * 'csrStatus'
+-- * 'csrsStatus'
 data ConfirmSubscriptionResponse = ConfirmSubscriptionResponse'
-    { _csrSubscriptionARN :: !(Maybe Text)
-    , _csrStatus          :: !Int
+    { _csrsSubscriptionARN :: !(Maybe Text)
+    , _csrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmSubscriptionResponse' smart constructor.
 confirmSubscriptionResponse :: Int -> ConfirmSubscriptionResponse
 confirmSubscriptionResponse pStatus =
     ConfirmSubscriptionResponse'
-    { _csrSubscriptionARN = Nothing
-    , _csrStatus = pStatus
+    { _csrsSubscriptionARN = Nothing
+    , _csrsStatus = pStatus
     }
 
 -- | The ARN of the created subscription.
-csrSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
-csrSubscriptionARN = lens _csrSubscriptionARN (\ s a -> s{_csrSubscriptionARN = a});
+csrsSubscriptionARN :: Lens' ConfirmSubscriptionResponse (Maybe Text)
+csrsSubscriptionARN = lens _csrsSubscriptionARN (\ s a -> s{_csrsSubscriptionARN = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' ConfirmSubscriptionResponse Int
-csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});
+csrsStatus :: Lens' ConfirmSubscriptionResponse Int
+csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

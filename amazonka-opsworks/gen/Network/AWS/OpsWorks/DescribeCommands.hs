@@ -35,17 +35,17 @@ module Network.AWS.OpsWorks.DescribeCommands
     -- ** Request constructor
     , describeCommands
     -- ** Request lenses
-    , dcInstanceId
-    , dcDeploymentId
-    , dcCommandIds
+    , dcrqInstanceId
+    , dcrqDeploymentId
+    , dcrqCommandIds
 
     -- * Response
     , DescribeCommandsResponse
     -- ** Response constructor
     , describeCommandsResponse
     -- ** Response lenses
-    , dcrCommands
-    , dcrStatus
+    , dcrsCommands
+    , dcrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -57,43 +57,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcInstanceId'
+-- * 'dcrqInstanceId'
 --
--- * 'dcDeploymentId'
+-- * 'dcrqDeploymentId'
 --
--- * 'dcCommandIds'
+-- * 'dcrqCommandIds'
 data DescribeCommands = DescribeCommands'
-    { _dcInstanceId   :: !(Maybe Text)
-    , _dcDeploymentId :: !(Maybe Text)
-    , _dcCommandIds   :: !(Maybe [Text])
+    { _dcrqInstanceId   :: !(Maybe Text)
+    , _dcrqDeploymentId :: !(Maybe Text)
+    , _dcrqCommandIds   :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommands' smart constructor.
 describeCommands :: DescribeCommands
 describeCommands =
     DescribeCommands'
-    { _dcInstanceId = Nothing
-    , _dcDeploymentId = Nothing
-    , _dcCommandIds = Nothing
+    { _dcrqInstanceId = Nothing
+    , _dcrqDeploymentId = Nothing
+    , _dcrqCommandIds = Nothing
     }
 
 -- | The instance ID. If you include this parameter, @DescribeCommands@
 -- returns a description of the commands associated with the specified
 -- instance.
-dcInstanceId :: Lens' DescribeCommands (Maybe Text)
-dcInstanceId = lens _dcInstanceId (\ s a -> s{_dcInstanceId = a});
+dcrqInstanceId :: Lens' DescribeCommands (Maybe Text)
+dcrqInstanceId = lens _dcrqInstanceId (\ s a -> s{_dcrqInstanceId = a});
 
 -- | The deployment ID. If you include this parameter, @DescribeCommands@
 -- returns a description of the commands associated with the specified
 -- deployment.
-dcDeploymentId :: Lens' DescribeCommands (Maybe Text)
-dcDeploymentId = lens _dcDeploymentId (\ s a -> s{_dcDeploymentId = a});
+dcrqDeploymentId :: Lens' DescribeCommands (Maybe Text)
+dcrqDeploymentId = lens _dcrqDeploymentId (\ s a -> s{_dcrqDeploymentId = a});
 
 -- | An array of command IDs. If you include this parameter,
 -- @DescribeCommands@ returns a description of the specified commands.
 -- Otherwise, it returns a description of every command.
-dcCommandIds :: Lens' DescribeCommands [Text]
-dcCommandIds = lens _dcCommandIds (\ s a -> s{_dcCommandIds = a}) . _Default;
+dcrqCommandIds :: Lens' DescribeCommands [Text]
+dcrqCommandIds = lens _dcrqCommandIds (\ s a -> s{_dcrqCommandIds = a}) . _Default;
 
 instance AWSRequest DescribeCommands where
         type Sv DescribeCommands = OpsWorks
@@ -118,9 +118,9 @@ instance ToHeaders DescribeCommands where
 instance ToJSON DescribeCommands where
         toJSON DescribeCommands'{..}
           = object
-              ["InstanceId" .= _dcInstanceId,
-               "DeploymentId" .= _dcDeploymentId,
-               "CommandIds" .= _dcCommandIds]
+              ["InstanceId" .= _dcrqInstanceId,
+               "DeploymentId" .= _dcrqDeploymentId,
+               "CommandIds" .= _dcrqCommandIds]
 
 instance ToPath DescribeCommands where
         toPath = const "/"
@@ -134,27 +134,27 @@ instance ToQuery DescribeCommands where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrCommands'
+-- * 'dcrsCommands'
 --
--- * 'dcrStatus'
+-- * 'dcrsStatus'
 data DescribeCommandsResponse = DescribeCommandsResponse'
-    { _dcrCommands :: !(Maybe [Command])
-    , _dcrStatus   :: !Int
+    { _dcrsCommands :: !(Maybe [Command])
+    , _dcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommandsResponse' smart constructor.
 describeCommandsResponse :: Int -> DescribeCommandsResponse
 describeCommandsResponse pStatus =
     DescribeCommandsResponse'
-    { _dcrCommands = Nothing
-    , _dcrStatus = pStatus
+    { _dcrsCommands = Nothing
+    , _dcrsStatus = pStatus
     }
 
 -- | An array of @Command@ objects that describe each of the specified
 -- commands.
-dcrCommands :: Lens' DescribeCommandsResponse [Command]
-dcrCommands = lens _dcrCommands (\ s a -> s{_dcrCommands = a}) . _Default;
+dcrsCommands :: Lens' DescribeCommandsResponse [Command]
+dcrsCommands = lens _dcrsCommands (\ s a -> s{_dcrsCommands = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeCommandsResponse Int
-dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});
+dcrsStatus :: Lens' DescribeCommandsResponse Int
+dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

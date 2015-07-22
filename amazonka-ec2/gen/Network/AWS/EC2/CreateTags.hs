@@ -34,9 +34,9 @@ module Network.AWS.EC2.CreateTags
     -- ** Request constructor
     , createTags
     -- ** Request lenses
-    , creDryRun
-    , creResources
-    , creTags
+    , ctrqDryRun
+    , ctrqResources
+    , ctrqTags
 
     -- * Response
     , CreateTagsResponse
@@ -53,42 +53,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creDryRun'
+-- * 'ctrqDryRun'
 --
--- * 'creResources'
+-- * 'ctrqResources'
 --
--- * 'creTags'
+-- * 'ctrqTags'
 data CreateTags = CreateTags'
-    { _creDryRun    :: !(Maybe Bool)
-    , _creResources :: ![Text]
-    , _creTags      :: ![Tag]
+    { _ctrqDryRun    :: !(Maybe Bool)
+    , _ctrqResources :: ![Text]
+    , _ctrqTags      :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTags' smart constructor.
 createTags :: CreateTags
 createTags =
     CreateTags'
-    { _creDryRun = Nothing
-    , _creResources = mempty
-    , _creTags = mempty
+    { _ctrqDryRun = Nothing
+    , _ctrqResources = mempty
+    , _ctrqTags = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-creDryRun :: Lens' CreateTags (Maybe Bool)
-creDryRun = lens _creDryRun (\ s a -> s{_creDryRun = a});
+ctrqDryRun :: Lens' CreateTags (Maybe Bool)
+ctrqDryRun = lens _ctrqDryRun (\ s a -> s{_ctrqDryRun = a});
 
 -- | The IDs of one or more resources to tag. For example, ami-1a2b3c4d.
-creResources :: Lens' CreateTags [Text]
-creResources = lens _creResources (\ s a -> s{_creResources = a});
+ctrqResources :: Lens' CreateTags [Text]
+ctrqResources = lens _ctrqResources (\ s a -> s{_ctrqResources = a});
 
 -- | One or more tags. The @value@ parameter is required, but if you don\'t
 -- want the tag to have a value, specify the parameter with no value, and
 -- we set the value to an empty string.
-creTags :: Lens' CreateTags [Tag]
-creTags = lens _creTags (\ s a -> s{_creTags = a});
+ctrqTags :: Lens' CreateTags [Tag]
+ctrqTags = lens _ctrqTags (\ s a -> s{_ctrqTags = a});
 
 instance AWSRequest CreateTags where
         type Sv CreateTags = EC2
@@ -107,9 +107,9 @@ instance ToQuery CreateTags where
           = mconcat
               ["Action" =: ("CreateTags" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _creDryRun,
-               toQueryList "ResourceId" _creResources,
-               toQueryList "item" _creTags]
+               "DryRun" =: _ctrqDryRun,
+               toQueryList "ResourceId" _ctrqResources,
+               toQueryList "item" _ctrqTags]
 
 -- | /See:/ 'createTagsResponse' smart constructor.
 data CreateTagsResponse =

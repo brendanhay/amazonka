@@ -37,19 +37,19 @@ module Network.AWS.IAM.ListUserPolicies
     -- ** Request constructor
     , listUserPolicies
     -- ** Request lenses
-    , lupMaxItems
-    , lupMarker
-    , lupUserName
+    , luprqMaxItems
+    , luprqMarker
+    , luprqUserName
 
     -- * Response
     , ListUserPoliciesResponse
     -- ** Response constructor
     , listUserPoliciesResponse
     -- ** Response lenses
-    , luprMarker
-    , luprIsTruncated
-    , luprStatus
-    , luprPolicyNames
+    , luprsMarker
+    , luprsIsTruncated
+    , luprsStatus
+    , luprsPolicyNames
     ) where
 
 import           Network.AWS.IAM.Types
@@ -62,24 +62,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lupMaxItems'
+-- * 'luprqMaxItems'
 --
--- * 'lupMarker'
+-- * 'luprqMarker'
 --
--- * 'lupUserName'
+-- * 'luprqUserName'
 data ListUserPolicies = ListUserPolicies'
-    { _lupMaxItems :: !(Maybe Nat)
-    , _lupMarker   :: !(Maybe Text)
-    , _lupUserName :: !Text
+    { _luprqMaxItems :: !(Maybe Nat)
+    , _luprqMarker   :: !(Maybe Text)
+    , _luprqUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUserPolicies' smart constructor.
 listUserPolicies :: Text -> ListUserPolicies
 listUserPolicies pUserName =
     ListUserPolicies'
-    { _lupMaxItems = Nothing
-    , _lupMarker = Nothing
-    , _lupUserName = pUserName
+    { _luprqMaxItems = Nothing
+    , _luprqMarker = Nothing
+    , _luprqUserName = pUserName
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -88,25 +88,25 @@ listUserPolicies pUserName =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lupMaxItems :: Lens' ListUserPolicies (Maybe Natural)
-lupMaxItems = lens _lupMaxItems (\ s a -> s{_lupMaxItems = a}) . mapping _Nat;
+luprqMaxItems :: Lens' ListUserPolicies (Maybe Natural)
+luprqMaxItems = lens _luprqMaxItems (\ s a -> s{_luprqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lupMarker :: Lens' ListUserPolicies (Maybe Text)
-lupMarker = lens _lupMarker (\ s a -> s{_lupMarker = a});
+luprqMarker :: Lens' ListUserPolicies (Maybe Text)
+luprqMarker = lens _luprqMarker (\ s a -> s{_luprqMarker = a});
 
 -- | The name of the user to list policies for.
-lupUserName :: Lens' ListUserPolicies Text
-lupUserName = lens _lupUserName (\ s a -> s{_lupUserName = a});
+luprqUserName :: Lens' ListUserPolicies Text
+luprqUserName = lens _luprqUserName (\ s a -> s{_luprqUserName = a});
 
 instance AWSPager ListUserPolicies where
         page rq rs
-          | stop (rs ^. luprIsTruncated) = Nothing
-          | isNothing (rs ^. luprMarker) = Nothing
+          | stop (rs ^. luprsIsTruncated) = Nothing
+          | isNothing (rs ^. luprsMarker) = Nothing
           | otherwise =
-            Just $ rq & lupMarker .~ rs ^. luprMarker
+            Just $ rq & luprqMarker .~ rs ^. luprsMarker
 
 instance AWSRequest ListUserPolicies where
         type Sv ListUserPolicies = IAM
@@ -133,8 +133,9 @@ instance ToQuery ListUserPolicies where
           = mconcat
               ["Action" =: ("ListUserPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lupMaxItems, "Marker" =: _lupMarker,
-               "UserName" =: _lupUserName]
+               "MaxItems" =: _luprqMaxItems,
+               "Marker" =: _luprqMarker,
+               "UserName" =: _luprqUserName]
 
 -- | Contains the response to a successful ListUserPolicies request.
 --
@@ -142,46 +143,46 @@ instance ToQuery ListUserPolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'luprMarker'
+-- * 'luprsMarker'
 --
--- * 'luprIsTruncated'
+-- * 'luprsIsTruncated'
 --
--- * 'luprStatus'
+-- * 'luprsStatus'
 --
--- * 'luprPolicyNames'
+-- * 'luprsPolicyNames'
 data ListUserPoliciesResponse = ListUserPoliciesResponse'
-    { _luprMarker      :: !(Maybe Text)
-    , _luprIsTruncated :: !(Maybe Bool)
-    , _luprStatus      :: !Int
-    , _luprPolicyNames :: ![Text]
+    { _luprsMarker      :: !(Maybe Text)
+    , _luprsIsTruncated :: !(Maybe Bool)
+    , _luprsStatus      :: !Int
+    , _luprsPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUserPoliciesResponse' smart constructor.
 listUserPoliciesResponse :: Int -> ListUserPoliciesResponse
 listUserPoliciesResponse pStatus =
     ListUserPoliciesResponse'
-    { _luprMarker = Nothing
-    , _luprIsTruncated = Nothing
-    , _luprStatus = pStatus
-    , _luprPolicyNames = mempty
+    { _luprsMarker = Nothing
+    , _luprsIsTruncated = Nothing
+    , _luprsStatus = pStatus
+    , _luprsPolicyNames = mempty
     }
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-luprMarker :: Lens' ListUserPoliciesResponse (Maybe Text)
-luprMarker = lens _luprMarker (\ s a -> s{_luprMarker = a});
+luprsMarker :: Lens' ListUserPoliciesResponse (Maybe Text)
+luprsMarker = lens _luprsMarker (\ s a -> s{_luprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-luprIsTruncated :: Lens' ListUserPoliciesResponse (Maybe Bool)
-luprIsTruncated = lens _luprIsTruncated (\ s a -> s{_luprIsTruncated = a});
+luprsIsTruncated :: Lens' ListUserPoliciesResponse (Maybe Bool)
+luprsIsTruncated = lens _luprsIsTruncated (\ s a -> s{_luprsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-luprStatus :: Lens' ListUserPoliciesResponse Int
-luprStatus = lens _luprStatus (\ s a -> s{_luprStatus = a});
+luprsStatus :: Lens' ListUserPoliciesResponse Int
+luprsStatus = lens _luprsStatus (\ s a -> s{_luprsStatus = a});
 
 -- | A list of policy names.
-luprPolicyNames :: Lens' ListUserPoliciesResponse [Text]
-luprPolicyNames = lens _luprPolicyNames (\ s a -> s{_luprPolicyNames = a});
+luprsPolicyNames :: Lens' ListUserPoliciesResponse [Text]
+luprsPolicyNames = lens _luprsPolicyNames (\ s a -> s{_luprsPolicyNames = a});

@@ -29,17 +29,17 @@ module Network.AWS.ECS.DescribeContainerInstances
     -- ** Request constructor
     , describeContainerInstances
     -- ** Request lenses
-    , dciCluster
-    , dciContainerInstances
+    , dcirqCluster
+    , dcirqContainerInstances
 
     -- * Response
     , DescribeContainerInstancesResponse
     -- ** Response constructor
     , describeContainerInstancesResponse
     -- ** Response lenses
-    , desFailures
-    , desContainerInstances
-    , desStatus
+    , dcirsFailures
+    , dcirsContainerInstances
+    , dcirsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dciCluster'
+-- * 'dcirqCluster'
 --
--- * 'dciContainerInstances'
+-- * 'dcirqContainerInstances'
 data DescribeContainerInstances = DescribeContainerInstances'
-    { _dciCluster            :: !(Maybe Text)
-    , _dciContainerInstances :: ![Text]
+    { _dcirqCluster            :: !(Maybe Text)
+    , _dcirqContainerInstances :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeContainerInstances' smart constructor.
 describeContainerInstances :: DescribeContainerInstances
 describeContainerInstances =
     DescribeContainerInstances'
-    { _dciCluster = Nothing
-    , _dciContainerInstances = mempty
+    { _dcirqCluster = Nothing
+    , _dcirqContainerInstances = mempty
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instances you want to describe. If you do not
 -- specify a cluster, the default cluster is assumed.
-dciCluster :: Lens' DescribeContainerInstances (Maybe Text)
-dciCluster = lens _dciCluster (\ s a -> s{_dciCluster = a});
+dcirqCluster :: Lens' DescribeContainerInstances (Maybe Text)
+dcirqCluster = lens _dcirqCluster (\ s a -> s{_dcirqCluster = a});
 
 -- | A space-separated list of container instance UUIDs or full Amazon
 -- Resource Name (ARN) entries.
-dciContainerInstances :: Lens' DescribeContainerInstances [Text]
-dciContainerInstances = lens _dciContainerInstances (\ s a -> s{_dciContainerInstances = a});
+dcirqContainerInstances :: Lens' DescribeContainerInstances [Text]
+dcirqContainerInstances = lens _dcirqContainerInstances (\ s a -> s{_dcirqContainerInstances = a});
 
 instance AWSRequest DescribeContainerInstances where
         type Sv DescribeContainerInstances = ECS
@@ -104,8 +104,8 @@ instance ToHeaders DescribeContainerInstances where
 instance ToJSON DescribeContainerInstances where
         toJSON DescribeContainerInstances'{..}
           = object
-              ["cluster" .= _dciCluster,
-               "containerInstances" .= _dciContainerInstances]
+              ["cluster" .= _dcirqCluster,
+               "containerInstances" .= _dcirqContainerInstances]
 
 instance ToPath DescribeContainerInstances where
         toPath = const "/"
@@ -117,34 +117,34 @@ instance ToQuery DescribeContainerInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desFailures'
+-- * 'dcirsFailures'
 --
--- * 'desContainerInstances'
+-- * 'dcirsContainerInstances'
 --
--- * 'desStatus'
+-- * 'dcirsStatus'
 data DescribeContainerInstancesResponse = DescribeContainerInstancesResponse'
-    { _desFailures           :: !(Maybe [Failure])
-    , _desContainerInstances :: !(Maybe [ContainerInstance])
-    , _desStatus             :: !Int
+    { _dcirsFailures           :: !(Maybe [Failure])
+    , _dcirsContainerInstances :: !(Maybe [ContainerInstance])
+    , _dcirsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeContainerInstancesResponse' smart constructor.
 describeContainerInstancesResponse :: Int -> DescribeContainerInstancesResponse
 describeContainerInstancesResponse pStatus =
     DescribeContainerInstancesResponse'
-    { _desFailures = Nothing
-    , _desContainerInstances = Nothing
-    , _desStatus = pStatus
+    { _dcirsFailures = Nothing
+    , _dcirsContainerInstances = Nothing
+    , _dcirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-desFailures :: Lens' DescribeContainerInstancesResponse [Failure]
-desFailures = lens _desFailures (\ s a -> s{_desFailures = a}) . _Default;
+dcirsFailures :: Lens' DescribeContainerInstancesResponse [Failure]
+dcirsFailures = lens _dcirsFailures (\ s a -> s{_dcirsFailures = a}) . _Default;
 
 -- | The list of container instances.
-desContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
-desContainerInstances = lens _desContainerInstances (\ s a -> s{_desContainerInstances = a}) . _Default;
+dcirsContainerInstances :: Lens' DescribeContainerInstancesResponse [ContainerInstance]
+dcirsContainerInstances = lens _dcirsContainerInstances (\ s a -> s{_dcirsContainerInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeContainerInstancesResponse Int
-desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+dcirsStatus :: Lens' DescribeContainerInstancesResponse Int
+dcirsStatus = lens _dcirsStatus (\ s a -> s{_dcirsStatus = a});

@@ -101,53 +101,53 @@ instance FromXML AvailabilityZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cerCertificateType'
+-- * 'cCertificateType'
 --
--- * 'cerValidTill'
+-- * 'cValidTill'
 --
--- * 'cerCertificateIdentifier'
+-- * 'cCertificateIdentifier'
 --
--- * 'cerThumbprint'
+-- * 'cThumbprint'
 --
--- * 'cerValidFrom'
+-- * 'cValidFrom'
 data Certificate = Certificate'
-    { _cerCertificateType       :: !(Maybe Text)
-    , _cerValidTill             :: !(Maybe ISO8601)
-    , _cerCertificateIdentifier :: !(Maybe Text)
-    , _cerThumbprint            :: !(Maybe Text)
-    , _cerValidFrom             :: !(Maybe ISO8601)
+    { _cCertificateType       :: !(Maybe Text)
+    , _cValidTill             :: !(Maybe ISO8601)
+    , _cCertificateIdentifier :: !(Maybe Text)
+    , _cThumbprint            :: !(Maybe Text)
+    , _cValidFrom             :: !(Maybe ISO8601)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Certificate' smart constructor.
 certificate :: Certificate
 certificate =
     Certificate'
-    { _cerCertificateType = Nothing
-    , _cerValidTill = Nothing
-    , _cerCertificateIdentifier = Nothing
-    , _cerThumbprint = Nothing
-    , _cerValidFrom = Nothing
+    { _cCertificateType = Nothing
+    , _cValidTill = Nothing
+    , _cCertificateIdentifier = Nothing
+    , _cThumbprint = Nothing
+    , _cValidFrom = Nothing
     }
 
 -- | The type of the certificate.
-cerCertificateType :: Lens' Certificate (Maybe Text)
-cerCertificateType = lens _cerCertificateType (\ s a -> s{_cerCertificateType = a});
+cCertificateType :: Lens' Certificate (Maybe Text)
+cCertificateType = lens _cCertificateType (\ s a -> s{_cCertificateType = a});
 
 -- | The final date that the certificate continues to be valid.
-cerValidTill :: Lens' Certificate (Maybe UTCTime)
-cerValidTill = lens _cerValidTill (\ s a -> s{_cerValidTill = a}) . mapping _Time;
+cValidTill :: Lens' Certificate (Maybe UTCTime)
+cValidTill = lens _cValidTill (\ s a -> s{_cValidTill = a}) . mapping _Time;
 
 -- | The unique key that identifies a certificate.
-cerCertificateIdentifier :: Lens' Certificate (Maybe Text)
-cerCertificateIdentifier = lens _cerCertificateIdentifier (\ s a -> s{_cerCertificateIdentifier = a});
+cCertificateIdentifier :: Lens' Certificate (Maybe Text)
+cCertificateIdentifier = lens _cCertificateIdentifier (\ s a -> s{_cCertificateIdentifier = a});
 
 -- | The thumbprint of the certificate.
-cerThumbprint :: Lens' Certificate (Maybe Text)
-cerThumbprint = lens _cerThumbprint (\ s a -> s{_cerThumbprint = a});
+cThumbprint :: Lens' Certificate (Maybe Text)
+cThumbprint = lens _cThumbprint (\ s a -> s{_cThumbprint = a});
 
 -- | The starting date from which the certificate is valid.
-cerValidFrom :: Lens' Certificate (Maybe UTCTime)
-cerValidFrom = lens _cerValidFrom (\ s a -> s{_cerValidFrom = a}) . mapping _Time;
+cValidFrom :: Lens' Certificate (Maybe UTCTime)
+cValidFrom = lens _cValidFrom (\ s a -> s{_cValidFrom = a}) . mapping _Time;
 
 instance FromXML Certificate where
         parseXML x
@@ -1253,53 +1253,53 @@ instance FromXML DBSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbsDBSubnetGroupName'
+-- * 'dbsgDBSubnetGroupName'
 --
--- * 'dbsVPCId'
+-- * 'dbsgVPCId'
 --
--- * 'dbsSubnets'
+-- * 'dbsgSubnets'
 --
--- * 'dbsDBSubnetGroupDescription'
+-- * 'dbsgDBSubnetGroupDescription'
 --
--- * 'dbsSubnetGroupStatus'
+-- * 'dbsgSubnetGroupStatus'
 data DBSubnetGroup = DBSubnetGroup'
-    { _dbsDBSubnetGroupName        :: !(Maybe Text)
-    , _dbsVPCId                    :: !(Maybe Text)
-    , _dbsSubnets                  :: !(Maybe [Subnet])
-    , _dbsDBSubnetGroupDescription :: !(Maybe Text)
-    , _dbsSubnetGroupStatus        :: !(Maybe Text)
+    { _dbsgDBSubnetGroupName        :: !(Maybe Text)
+    , _dbsgVPCId                    :: !(Maybe Text)
+    , _dbsgSubnets                  :: !(Maybe [Subnet])
+    , _dbsgDBSubnetGroupDescription :: !(Maybe Text)
+    , _dbsgSubnetGroupStatus        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DBSubnetGroup' smart constructor.
 dbSubnetGroup :: DBSubnetGroup
 dbSubnetGroup =
     DBSubnetGroup'
-    { _dbsDBSubnetGroupName = Nothing
-    , _dbsVPCId = Nothing
-    , _dbsSubnets = Nothing
-    , _dbsDBSubnetGroupDescription = Nothing
-    , _dbsSubnetGroupStatus = Nothing
+    { _dbsgDBSubnetGroupName = Nothing
+    , _dbsgVPCId = Nothing
+    , _dbsgSubnets = Nothing
+    , _dbsgDBSubnetGroupDescription = Nothing
+    , _dbsgSubnetGroupStatus = Nothing
     }
 
 -- | Specifies the name of the DB subnet group.
-dbsDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
-dbsDBSubnetGroupName = lens _dbsDBSubnetGroupName (\ s a -> s{_dbsDBSubnetGroupName = a});
+dbsgDBSubnetGroupName :: Lens' DBSubnetGroup (Maybe Text)
+dbsgDBSubnetGroupName = lens _dbsgDBSubnetGroupName (\ s a -> s{_dbsgDBSubnetGroupName = a});
 
 -- | Provides the VpcId of the DB subnet group.
-dbsVPCId :: Lens' DBSubnetGroup (Maybe Text)
-dbsVPCId = lens _dbsVPCId (\ s a -> s{_dbsVPCId = a});
+dbsgVPCId :: Lens' DBSubnetGroup (Maybe Text)
+dbsgVPCId = lens _dbsgVPCId (\ s a -> s{_dbsgVPCId = a});
 
 -- | Contains a list of Subnet elements.
-dbsSubnets :: Lens' DBSubnetGroup [Subnet]
-dbsSubnets = lens _dbsSubnets (\ s a -> s{_dbsSubnets = a}) . _Default;
+dbsgSubnets :: Lens' DBSubnetGroup [Subnet]
+dbsgSubnets = lens _dbsgSubnets (\ s a -> s{_dbsgSubnets = a}) . _Default;
 
 -- | Provides the description of the DB subnet group.
-dbsDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
-dbsDBSubnetGroupDescription = lens _dbsDBSubnetGroupDescription (\ s a -> s{_dbsDBSubnetGroupDescription = a});
+dbsgDBSubnetGroupDescription :: Lens' DBSubnetGroup (Maybe Text)
+dbsgDBSubnetGroupDescription = lens _dbsgDBSubnetGroupDescription (\ s a -> s{_dbsgDBSubnetGroupDescription = a});
 
 -- | Provides the status of the DB subnet group.
-dbsSubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
-dbsSubnetGroupStatus = lens _dbsSubnetGroupStatus (\ s a -> s{_dbsSubnetGroupStatus = a});
+dbsgSubnetGroupStatus :: Lens' DBSubnetGroup (Maybe Text)
+dbsgSubnetGroupStatus = lens _dbsgSubnetGroupStatus (\ s a -> s{_dbsgSubnetGroupStatus = a});
 
 instance FromXML DBSubnetGroup where
         parseXML x
@@ -1424,29 +1424,29 @@ instance FromXML EC2SecurityGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'endAddress'
+-- * 'eAddress'
 --
--- * 'endPort'
+-- * 'ePort'
 data Endpoint = Endpoint'
-    { _endAddress :: !(Maybe Text)
-    , _endPort    :: !(Maybe Int)
+    { _eAddress :: !(Maybe Text)
+    , _ePort    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
 endpoint =
     Endpoint'
-    { _endAddress = Nothing
-    , _endPort = Nothing
+    { _eAddress = Nothing
+    , _ePort = Nothing
     }
 
 -- | Specifies the DNS address of the DB instance.
-endAddress :: Lens' Endpoint (Maybe Text)
-endAddress = lens _endAddress (\ s a -> s{_endAddress = a});
+eAddress :: Lens' Endpoint (Maybe Text)
+eAddress = lens _eAddress (\ s a -> s{_eAddress = a});
 
 -- | Specifies the port that the database engine is listening on.
-endPort :: Lens' Endpoint (Maybe Int)
-endPort = lens _endPort (\ s a -> s{_endPort = a});
+ePort :: Lens' Endpoint (Maybe Int)
+ePort = lens _ePort (\ s a -> s{_ePort = a});
 
 instance FromXML Endpoint where
         parseXML x
@@ -1509,53 +1509,53 @@ instance FromXML EngineDefaults where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eveSourceType'
+-- * 'eSourceType'
 --
--- * 'eveSourceIdentifier'
+-- * 'eSourceIdentifier'
 --
--- * 'eveDate'
+-- * 'eDate'
 --
--- * 'eveEventCategories'
+-- * 'eEventCategories'
 --
--- * 'eveMessage'
+-- * 'eMessage'
 data Event = Event'
-    { _eveSourceType       :: !(Maybe SourceType)
-    , _eveSourceIdentifier :: !(Maybe Text)
-    , _eveDate             :: !(Maybe ISO8601)
-    , _eveEventCategories  :: !(Maybe [Text])
-    , _eveMessage          :: !(Maybe Text)
+    { _eSourceType       :: !(Maybe SourceType)
+    , _eSourceIdentifier :: !(Maybe Text)
+    , _eDate             :: !(Maybe ISO8601)
+    , _eEventCategories  :: !(Maybe [Text])
+    , _eMessage          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Event' smart constructor.
 event :: Event
 event =
     Event'
-    { _eveSourceType = Nothing
-    , _eveSourceIdentifier = Nothing
-    , _eveDate = Nothing
-    , _eveEventCategories = Nothing
-    , _eveMessage = Nothing
+    { _eSourceType = Nothing
+    , _eSourceIdentifier = Nothing
+    , _eDate = Nothing
+    , _eEventCategories = Nothing
+    , _eMessage = Nothing
     }
 
 -- | Specifies the source type for this event.
-eveSourceType :: Lens' Event (Maybe SourceType)
-eveSourceType = lens _eveSourceType (\ s a -> s{_eveSourceType = a});
+eSourceType :: Lens' Event (Maybe SourceType)
+eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a});
 
 -- | Provides the identifier for the source of the event.
-eveSourceIdentifier :: Lens' Event (Maybe Text)
-eveSourceIdentifier = lens _eveSourceIdentifier (\ s a -> s{_eveSourceIdentifier = a});
+eSourceIdentifier :: Lens' Event (Maybe Text)
+eSourceIdentifier = lens _eSourceIdentifier (\ s a -> s{_eSourceIdentifier = a});
 
 -- | Specifies the date and time of the event.
-eveDate :: Lens' Event (Maybe UTCTime)
-eveDate = lens _eveDate (\ s a -> s{_eveDate = a}) . mapping _Time;
+eDate :: Lens' Event (Maybe UTCTime)
+eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time;
 
 -- | Specifies the category for the event.
-eveEventCategories :: Lens' Event [Text]
-eveEventCategories = lens _eveEventCategories (\ s a -> s{_eveEventCategories = a}) . _Default;
+eEventCategories :: Lens' Event [Text]
+eEventCategories = lens _eEventCategories (\ s a -> s{_eEventCategories = a}) . _Default;
 
 -- | Provides the text of this event.
-eveMessage :: Lens' Event (Maybe Text)
-eveMessage = lens _eveMessage (\ s a -> s{_eveMessage = a});
+eMessage :: Lens' Event (Maybe Text)
+eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 
 instance FromXML Event where
         parseXML x
@@ -1723,35 +1723,35 @@ instance FromXML EventSubscription where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'filName'
+-- * 'fName'
 --
--- * 'filValues'
+-- * 'fValues'
 data Filter = Filter'
-    { _filName   :: !Text
-    , _filValues :: ![Text]
+    { _fName   :: !Text
+    , _fValues :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
 filter' pName =
     Filter'
-    { _filName = pName
-    , _filValues = mempty
+    { _fName = pName
+    , _fValues = mempty
     }
 
 -- | This parameter is not currently supported.
-filName :: Lens' Filter Text
-filName = lens _filName (\ s a -> s{_filName = a});
+fName :: Lens' Filter Text
+fName = lens _fName (\ s a -> s{_fName = a});
 
 -- | This parameter is not currently supported.
-filValues :: Lens' Filter [Text]
-filValues = lens _filValues (\ s a -> s{_filValues = a});
+fValues :: Lens' Filter [Text]
+fValues = lens _fValues (\ s a -> s{_fValues = a});
 
 instance ToQuery Filter where
         toQuery Filter'{..}
           = mconcat
-              ["Name" =: _filName,
-               "Values" =: toQueryList "Value" _filValues]
+              ["Name" =: _fName,
+               "Values" =: toQueryList "Value" _fValues]
 
 -- | This data type is used as a response element in the
 -- DescribeDBSecurityGroups action.
@@ -1795,79 +1795,79 @@ instance FromXML IPRange where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'optOptionName'
+-- * 'oOptionName'
 --
--- * 'optPermanent'
+-- * 'oPermanent'
 --
--- * 'optPersistent'
+-- * 'oPersistent'
 --
--- * 'optOptionDescription'
+-- * 'oOptionDescription'
 --
--- * 'optOptionSettings'
+-- * 'oOptionSettings'
 --
--- * 'optVPCSecurityGroupMemberships'
+-- * 'oVPCSecurityGroupMemberships'
 --
--- * 'optDBSecurityGroupMemberships'
+-- * 'oDBSecurityGroupMemberships'
 --
--- * 'optPort'
+-- * 'oPort'
 data Option = Option'
-    { _optOptionName                  :: !(Maybe Text)
-    , _optPermanent                   :: !(Maybe Bool)
-    , _optPersistent                  :: !(Maybe Bool)
-    , _optOptionDescription           :: !(Maybe Text)
-    , _optOptionSettings              :: !(Maybe [OptionSetting])
-    , _optVPCSecurityGroupMemberships :: !(Maybe [VPCSecurityGroupMembership])
-    , _optDBSecurityGroupMemberships  :: !(Maybe [DBSecurityGroupMembership])
-    , _optPort                        :: !(Maybe Int)
+    { _oOptionName                  :: !(Maybe Text)
+    , _oPermanent                   :: !(Maybe Bool)
+    , _oPersistent                  :: !(Maybe Bool)
+    , _oOptionDescription           :: !(Maybe Text)
+    , _oOptionSettings              :: !(Maybe [OptionSetting])
+    , _oVPCSecurityGroupMemberships :: !(Maybe [VPCSecurityGroupMembership])
+    , _oDBSecurityGroupMemberships  :: !(Maybe [DBSecurityGroupMembership])
+    , _oPort                        :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Option' smart constructor.
 option :: Option
 option =
     Option'
-    { _optOptionName = Nothing
-    , _optPermanent = Nothing
-    , _optPersistent = Nothing
-    , _optOptionDescription = Nothing
-    , _optOptionSettings = Nothing
-    , _optVPCSecurityGroupMemberships = Nothing
-    , _optDBSecurityGroupMemberships = Nothing
-    , _optPort = Nothing
+    { _oOptionName = Nothing
+    , _oPermanent = Nothing
+    , _oPersistent = Nothing
+    , _oOptionDescription = Nothing
+    , _oOptionSettings = Nothing
+    , _oVPCSecurityGroupMemberships = Nothing
+    , _oDBSecurityGroupMemberships = Nothing
+    , _oPort = Nothing
     }
 
 -- | The name of the option.
-optOptionName :: Lens' Option (Maybe Text)
-optOptionName = lens _optOptionName (\ s a -> s{_optOptionName = a});
+oOptionName :: Lens' Option (Maybe Text)
+oOptionName = lens _oOptionName (\ s a -> s{_oOptionName = a});
 
 -- | Indicate if this option is permanent.
-optPermanent :: Lens' Option (Maybe Bool)
-optPermanent = lens _optPermanent (\ s a -> s{_optPermanent = a});
+oPermanent :: Lens' Option (Maybe Bool)
+oPermanent = lens _oPermanent (\ s a -> s{_oPermanent = a});
 
 -- | Indicate if this option is persistent.
-optPersistent :: Lens' Option (Maybe Bool)
-optPersistent = lens _optPersistent (\ s a -> s{_optPersistent = a});
+oPersistent :: Lens' Option (Maybe Bool)
+oPersistent = lens _oPersistent (\ s a -> s{_oPersistent = a});
 
 -- | The description of the option.
-optOptionDescription :: Lens' Option (Maybe Text)
-optOptionDescription = lens _optOptionDescription (\ s a -> s{_optOptionDescription = a});
+oOptionDescription :: Lens' Option (Maybe Text)
+oOptionDescription = lens _oOptionDescription (\ s a -> s{_oOptionDescription = a});
 
 -- | The option settings for this option.
-optOptionSettings :: Lens' Option [OptionSetting]
-optOptionSettings = lens _optOptionSettings (\ s a -> s{_optOptionSettings = a}) . _Default;
+oOptionSettings :: Lens' Option [OptionSetting]
+oOptionSettings = lens _oOptionSettings (\ s a -> s{_oOptionSettings = a}) . _Default;
 
 -- | If the option requires access to a port, then this VPC security group
 -- allows access to the port.
-optVPCSecurityGroupMemberships :: Lens' Option [VPCSecurityGroupMembership]
-optVPCSecurityGroupMemberships = lens _optVPCSecurityGroupMemberships (\ s a -> s{_optVPCSecurityGroupMemberships = a}) . _Default;
+oVPCSecurityGroupMemberships :: Lens' Option [VPCSecurityGroupMembership]
+oVPCSecurityGroupMemberships = lens _oVPCSecurityGroupMemberships (\ s a -> s{_oVPCSecurityGroupMemberships = a}) . _Default;
 
 -- | If the option requires access to a port, then this DB security group
 -- allows access to the port.
-optDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
-optDBSecurityGroupMemberships = lens _optDBSecurityGroupMemberships (\ s a -> s{_optDBSecurityGroupMemberships = a}) . _Default;
+oDBSecurityGroupMemberships :: Lens' Option [DBSecurityGroupMembership]
+oDBSecurityGroupMemberships = lens _oDBSecurityGroupMemberships (\ s a -> s{_oDBSecurityGroupMemberships = a}) . _Default;
 
 -- | If required, the port configured for this option to use.
-optPort :: Lens' Option (Maybe Int)
-optPort = lens _optPort (\ s a -> s{_optPort = a});
+oPort :: Lens' Option (Maybe Int)
+oPort = lens _oPort (\ s a -> s{_oPort = a});
 
 instance FromXML Option where
         parseXML x
@@ -2529,95 +2529,95 @@ instance FromXML OrderableDBInstanceOption where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'parApplyType'
+-- * 'pApplyType'
 --
--- * 'parParameterValue'
+-- * 'pParameterValue'
 --
--- * 'parApplyMethod'
+-- * 'pApplyMethod'
 --
--- * 'parMinimumEngineVersion'
+-- * 'pMinimumEngineVersion'
 --
--- * 'parSource'
+-- * 'pSource'
 --
--- * 'parIsModifiable'
+-- * 'pIsModifiable'
 --
--- * 'parAllowedValues'
+-- * 'pAllowedValues'
 --
--- * 'parDataType'
+-- * 'pDataType'
 --
--- * 'parParameterName'
+-- * 'pParameterName'
 --
--- * 'parDescription'
+-- * 'pDescription'
 data Parameter = Parameter'
-    { _parApplyType            :: !(Maybe Text)
-    , _parParameterValue       :: !(Maybe Text)
-    , _parApplyMethod          :: !(Maybe ApplyMethod)
-    , _parMinimumEngineVersion :: !(Maybe Text)
-    , _parSource               :: !(Maybe Text)
-    , _parIsModifiable         :: !(Maybe Bool)
-    , _parAllowedValues        :: !(Maybe Text)
-    , _parDataType             :: !(Maybe Text)
-    , _parParameterName        :: !(Maybe Text)
-    , _parDescription          :: !(Maybe Text)
+    { _pApplyType            :: !(Maybe Text)
+    , _pParameterValue       :: !(Maybe Text)
+    , _pApplyMethod          :: !(Maybe ApplyMethod)
+    , _pMinimumEngineVersion :: !(Maybe Text)
+    , _pSource               :: !(Maybe Text)
+    , _pIsModifiable         :: !(Maybe Bool)
+    , _pAllowedValues        :: !(Maybe Text)
+    , _pDataType             :: !(Maybe Text)
+    , _pParameterName        :: !(Maybe Text)
+    , _pDescription          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
 parameter =
     Parameter'
-    { _parApplyType = Nothing
-    , _parParameterValue = Nothing
-    , _parApplyMethod = Nothing
-    , _parMinimumEngineVersion = Nothing
-    , _parSource = Nothing
-    , _parIsModifiable = Nothing
-    , _parAllowedValues = Nothing
-    , _parDataType = Nothing
-    , _parParameterName = Nothing
-    , _parDescription = Nothing
+    { _pApplyType = Nothing
+    , _pParameterValue = Nothing
+    , _pApplyMethod = Nothing
+    , _pMinimumEngineVersion = Nothing
+    , _pSource = Nothing
+    , _pIsModifiable = Nothing
+    , _pAllowedValues = Nothing
+    , _pDataType = Nothing
+    , _pParameterName = Nothing
+    , _pDescription = Nothing
     }
 
 -- | Specifies the engine specific parameters type.
-parApplyType :: Lens' Parameter (Maybe Text)
-parApplyType = lens _parApplyType (\ s a -> s{_parApplyType = a});
+pApplyType :: Lens' Parameter (Maybe Text)
+pApplyType = lens _pApplyType (\ s a -> s{_pApplyType = a});
 
 -- | Specifies the value of the parameter.
-parParameterValue :: Lens' Parameter (Maybe Text)
-parParameterValue = lens _parParameterValue (\ s a -> s{_parParameterValue = a});
+pParameterValue :: Lens' Parameter (Maybe Text)
+pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a});
 
 -- | Indicates when to apply parameter updates.
-parApplyMethod :: Lens' Parameter (Maybe ApplyMethod)
-parApplyMethod = lens _parApplyMethod (\ s a -> s{_parApplyMethod = a});
+pApplyMethod :: Lens' Parameter (Maybe ApplyMethod)
+pApplyMethod = lens _pApplyMethod (\ s a -> s{_pApplyMethod = a});
 
 -- | The earliest engine version to which the parameter can apply.
-parMinimumEngineVersion :: Lens' Parameter (Maybe Text)
-parMinimumEngineVersion = lens _parMinimumEngineVersion (\ s a -> s{_parMinimumEngineVersion = a});
+pMinimumEngineVersion :: Lens' Parameter (Maybe Text)
+pMinimumEngineVersion = lens _pMinimumEngineVersion (\ s a -> s{_pMinimumEngineVersion = a});
 
 -- | Indicates the source of the parameter value.
-parSource :: Lens' Parameter (Maybe Text)
-parSource = lens _parSource (\ s a -> s{_parSource = a});
+pSource :: Lens' Parameter (Maybe Text)
+pSource = lens _pSource (\ s a -> s{_pSource = a});
 
 -- | Indicates whether (@true@) or not (@false@) the parameter can be
 -- modified. Some parameters have security or operational implications that
 -- prevent them from being changed.
-parIsModifiable :: Lens' Parameter (Maybe Bool)
-parIsModifiable = lens _parIsModifiable (\ s a -> s{_parIsModifiable = a});
+pIsModifiable :: Lens' Parameter (Maybe Bool)
+pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a});
 
 -- | Specifies the valid range of values for the parameter.
-parAllowedValues :: Lens' Parameter (Maybe Text)
-parAllowedValues = lens _parAllowedValues (\ s a -> s{_parAllowedValues = a});
+pAllowedValues :: Lens' Parameter (Maybe Text)
+pAllowedValues = lens _pAllowedValues (\ s a -> s{_pAllowedValues = a});
 
 -- | Specifies the valid data type for the parameter.
-parDataType :: Lens' Parameter (Maybe Text)
-parDataType = lens _parDataType (\ s a -> s{_parDataType = a});
+pDataType :: Lens' Parameter (Maybe Text)
+pDataType = lens _pDataType (\ s a -> s{_pDataType = a});
 
 -- | Specifies the name of the parameter.
-parParameterName :: Lens' Parameter (Maybe Text)
-parParameterName = lens _parParameterName (\ s a -> s{_parParameterName = a});
+pParameterName :: Lens' Parameter (Maybe Text)
+pParameterName = lens _pParameterName (\ s a -> s{_pParameterName = a});
 
 -- | Provides a description of the parameter.
-parDescription :: Lens' Parameter (Maybe Text)
-parDescription = lens _parDescription (\ s a -> s{_parDescription = a});
+pDescription :: Lens' Parameter (Maybe Text)
+pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
 
 instance FromXML Parameter where
         parseXML x
@@ -2635,16 +2635,16 @@ instance FromXML Parameter where
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
-              ["ApplyType" =: _parApplyType,
-               "ParameterValue" =: _parParameterValue,
-               "ApplyMethod" =: _parApplyMethod,
-               "MinimumEngineVersion" =: _parMinimumEngineVersion,
-               "Source" =: _parSource,
-               "IsModifiable" =: _parIsModifiable,
-               "AllowedValues" =: _parAllowedValues,
-               "DataType" =: _parDataType,
-               "ParameterName" =: _parParameterName,
-               "Description" =: _parDescription]
+              ["ApplyType" =: _pApplyType,
+               "ParameterValue" =: _pParameterValue,
+               "ApplyMethod" =: _pApplyMethod,
+               "MinimumEngineVersion" =: _pMinimumEngineVersion,
+               "Source" =: _pSource,
+               "IsModifiable" =: _pIsModifiable,
+               "AllowedValues" =: _pAllowedValues,
+               "DataType" =: _pDataType,
+               "ParameterName" =: _pParameterName,
+               "Description" =: _pDescription]
 
 -- | Provides information about a pending maintenance action for a resource.
 --
@@ -3197,37 +3197,37 @@ instance FromXML ResourcePendingMaintenanceActions
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'subSubnetStatus'
+-- * 'sSubnetStatus'
 --
--- * 'subSubnetIdentifier'
+-- * 'sSubnetIdentifier'
 --
--- * 'subSubnetAvailabilityZone'
+-- * 'sSubnetAvailabilityZone'
 data Subnet = Subnet'
-    { _subSubnetStatus           :: !(Maybe Text)
-    , _subSubnetIdentifier       :: !(Maybe Text)
-    , _subSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
+    { _sSubnetStatus           :: !(Maybe Text)
+    , _sSubnetIdentifier       :: !(Maybe Text)
+    , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
 subnet =
     Subnet'
-    { _subSubnetStatus = Nothing
-    , _subSubnetIdentifier = Nothing
-    , _subSubnetAvailabilityZone = Nothing
+    { _sSubnetStatus = Nothing
+    , _sSubnetIdentifier = Nothing
+    , _sSubnetAvailabilityZone = Nothing
     }
 
 -- | Specifies the status of the subnet.
-subSubnetStatus :: Lens' Subnet (Maybe Text)
-subSubnetStatus = lens _subSubnetStatus (\ s a -> s{_subSubnetStatus = a});
+sSubnetStatus :: Lens' Subnet (Maybe Text)
+sSubnetStatus = lens _sSubnetStatus (\ s a -> s{_sSubnetStatus = a});
 
 -- | Specifies the identifier of the subnet.
-subSubnetIdentifier :: Lens' Subnet (Maybe Text)
-subSubnetIdentifier = lens _subSubnetIdentifier (\ s a -> s{_subSubnetIdentifier = a});
+sSubnetIdentifier :: Lens' Subnet (Maybe Text)
+sSubnetIdentifier = lens _sSubnetIdentifier (\ s a -> s{_sSubnetIdentifier = a});
 
 -- | FIXME: Undocumented member.
-subSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-subSubnetAvailabilityZone = lens _subSubnetAvailabilityZone (\ s a -> s{_subSubnetAvailabilityZone = a});
+sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
+sSubnetAvailabilityZone = lens _sSubnetAvailabilityZone (\ s a -> s{_sSubnetAvailabilityZone = a});
 
 instance FromXML Subnet where
         parseXML x

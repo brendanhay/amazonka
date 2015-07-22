@@ -28,9 +28,9 @@ module Network.AWS.S3.PutBucketReplication
     -- ** Request constructor
     , putBucketReplication
     -- ** Request lenses
-    , pbrContentMD5
-    , pbrBucket
-    , pbrReplicationConfiguration
+    , pbrrqContentMD5
+    , pbrrqBucket
+    , pbrrqReplicationConfiguration
 
     -- * Response
     , PutBucketReplicationResponse
@@ -47,37 +47,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbrContentMD5'
+-- * 'pbrrqContentMD5'
 --
--- * 'pbrBucket'
+-- * 'pbrrqBucket'
 --
--- * 'pbrReplicationConfiguration'
+-- * 'pbrrqReplicationConfiguration'
 data PutBucketReplication = PutBucketReplication'
-    { _pbrContentMD5               :: !(Maybe Text)
-    , _pbrBucket                   :: !BucketName
-    , _pbrReplicationConfiguration :: !ReplicationConfiguration
+    { _pbrrqContentMD5               :: !(Maybe Text)
+    , _pbrrqBucket                   :: !BucketName
+    , _pbrrqReplicationConfiguration :: !ReplicationConfiguration
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketReplication' smart constructor.
 putBucketReplication :: BucketName -> ReplicationConfiguration -> PutBucketReplication
 putBucketReplication pBucket pReplicationConfiguration =
     PutBucketReplication'
-    { _pbrContentMD5 = Nothing
-    , _pbrBucket = pBucket
-    , _pbrReplicationConfiguration = pReplicationConfiguration
+    { _pbrrqContentMD5 = Nothing
+    , _pbrrqBucket = pBucket
+    , _pbrrqReplicationConfiguration = pReplicationConfiguration
     }
 
 -- | FIXME: Undocumented member.
-pbrContentMD5 :: Lens' PutBucketReplication (Maybe Text)
-pbrContentMD5 = lens _pbrContentMD5 (\ s a -> s{_pbrContentMD5 = a});
+pbrrqContentMD5 :: Lens' PutBucketReplication (Maybe Text)
+pbrrqContentMD5 = lens _pbrrqContentMD5 (\ s a -> s{_pbrrqContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-pbrBucket :: Lens' PutBucketReplication BucketName
-pbrBucket = lens _pbrBucket (\ s a -> s{_pbrBucket = a});
+pbrrqBucket :: Lens' PutBucketReplication BucketName
+pbrrqBucket = lens _pbrrqBucket (\ s a -> s{_pbrrqBucket = a});
 
 -- | FIXME: Undocumented member.
-pbrReplicationConfiguration :: Lens' PutBucketReplication ReplicationConfiguration
-pbrReplicationConfiguration = lens _pbrReplicationConfiguration (\ s a -> s{_pbrReplicationConfiguration = a});
+pbrrqReplicationConfiguration :: Lens' PutBucketReplication ReplicationConfiguration
+pbrrqReplicationConfiguration = lens _pbrrqReplicationConfiguration (\ s a -> s{_pbrrqReplicationConfiguration = a});
 
 instance AWSRequest PutBucketReplication where
         type Sv PutBucketReplication = S3
@@ -91,15 +91,15 @@ instance ToElement PutBucketReplication where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}ReplicationConfiguration"
               .
-              _pbrReplicationConfiguration
+              _pbrrqReplicationConfiguration
 
 instance ToHeaders PutBucketReplication where
         toHeaders PutBucketReplication'{..}
-          = mconcat ["Content-MD5" =# _pbrContentMD5]
+          = mconcat ["Content-MD5" =# _pbrrqContentMD5]
 
 instance ToPath PutBucketReplication where
         toPath PutBucketReplication'{..}
-          = mconcat ["/", toText _pbrBucket]
+          = mconcat ["/", toText _pbrrqBucket]
 
 instance ToQuery PutBucketReplication where
         toQuery = const (mconcat ["replication"])

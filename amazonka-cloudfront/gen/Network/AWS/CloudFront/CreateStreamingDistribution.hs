@@ -27,17 +27,17 @@ module Network.AWS.CloudFront.CreateStreamingDistribution
     -- ** Request constructor
     , createStreamingDistribution
     -- ** Request lenses
-    , csdStreamingDistributionConfig
+    , csdrqStreamingDistributionConfig
 
     -- * Response
     , CreateStreamingDistributionResponse
     -- ** Response constructor
     , createStreamingDistributionResponse
     -- ** Response lenses
-    , csdrETag
-    , csdrLocation
-    , csdrStreamingDistribution
-    , csdrStatus
+    , csdrsETag
+    , csdrsLocation
+    , csdrsStreamingDistribution
+    , csdrsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csdStreamingDistributionConfig'
+-- * 'csdrqStreamingDistributionConfig'
 newtype CreateStreamingDistribution = CreateStreamingDistribution'
-    { _csdStreamingDistributionConfig :: StreamingDistributionConfig
+    { _csdrqStreamingDistributionConfig :: StreamingDistributionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStreamingDistribution' smart constructor.
 createStreamingDistribution :: StreamingDistributionConfig -> CreateStreamingDistribution
 createStreamingDistribution pStreamingDistributionConfig =
     CreateStreamingDistribution'
-    { _csdStreamingDistributionConfig = pStreamingDistributionConfig
+    { _csdrqStreamingDistributionConfig = pStreamingDistributionConfig
     }
 
 -- | The streaming distribution\'s configuration information.
-csdStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
-csdStreamingDistributionConfig = lens _csdStreamingDistributionConfig (\ s a -> s{_csdStreamingDistributionConfig = a});
+csdrqStreamingDistributionConfig :: Lens' CreateStreamingDistribution StreamingDistributionConfig
+csdrqStreamingDistributionConfig = lens _csdrqStreamingDistributionConfig (\ s a -> s{_csdrqStreamingDistributionConfig = a});
 
 instance AWSRequest CreateStreamingDistribution where
         type Sv CreateStreamingDistribution = CloudFront
@@ -85,7 +85,7 @@ instance ToElement CreateStreamingDistribution where
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}StreamingDistributionConfig"
               .
-              _csdStreamingDistributionConfig
+              _csdrqStreamingDistributionConfig
 
 instance ToHeaders CreateStreamingDistribution where
         toHeaders = const mempty
@@ -102,44 +102,44 @@ instance ToQuery CreateStreamingDistribution where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csdrETag'
+-- * 'csdrsETag'
 --
--- * 'csdrLocation'
+-- * 'csdrsLocation'
 --
--- * 'csdrStreamingDistribution'
+-- * 'csdrsStreamingDistribution'
 --
--- * 'csdrStatus'
+-- * 'csdrsStatus'
 data CreateStreamingDistributionResponse = CreateStreamingDistributionResponse'
-    { _csdrETag                  :: !(Maybe Text)
-    , _csdrLocation              :: !(Maybe Text)
-    , _csdrStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _csdrStatus                :: !Int
+    { _csdrsETag                  :: !(Maybe Text)
+    , _csdrsLocation              :: !(Maybe Text)
+    , _csdrsStreamingDistribution :: !(Maybe StreamingDistribution)
+    , _csdrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStreamingDistributionResponse' smart constructor.
 createStreamingDistributionResponse :: Int -> CreateStreamingDistributionResponse
 createStreamingDistributionResponse pStatus =
     CreateStreamingDistributionResponse'
-    { _csdrETag = Nothing
-    , _csdrLocation = Nothing
-    , _csdrStreamingDistribution = Nothing
-    , _csdrStatus = pStatus
+    { _csdrsETag = Nothing
+    , _csdrsLocation = Nothing
+    , _csdrsStreamingDistribution = Nothing
+    , _csdrsStatus = pStatus
     }
 
 -- | The current version of the streaming distribution created.
-csdrETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrETag = lens _csdrETag (\ s a -> s{_csdrETag = a});
+csdrsETag :: Lens' CreateStreamingDistributionResponse (Maybe Text)
+csdrsETag = lens _csdrsETag (\ s a -> s{_csdrsETag = a});
 
 -- | The fully qualified URI of the new streaming distribution resource just
 -- created. For example:
 -- https:\/\/cloudfront.amazonaws.com\/2010-11-01\/streaming-distribution\/EGTXBD79H29TRA8.
-csdrLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
-csdrLocation = lens _csdrLocation (\ s a -> s{_csdrLocation = a});
+csdrsLocation :: Lens' CreateStreamingDistributionResponse (Maybe Text)
+csdrsLocation = lens _csdrsLocation (\ s a -> s{_csdrsLocation = a});
 
 -- | The streaming distribution\'s information.
-csdrStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
-csdrStreamingDistribution = lens _csdrStreamingDistribution (\ s a -> s{_csdrStreamingDistribution = a});
+csdrsStreamingDistribution :: Lens' CreateStreamingDistributionResponse (Maybe StreamingDistribution)
+csdrsStreamingDistribution = lens _csdrsStreamingDistribution (\ s a -> s{_csdrsStreamingDistribution = a});
 
 -- | FIXME: Undocumented member.
-csdrStatus :: Lens' CreateStreamingDistributionResponse Int
-csdrStatus = lens _csdrStatus (\ s a -> s{_csdrStatus = a});
+csdrsStatus :: Lens' CreateStreamingDistributionResponse Int
+csdrsStatus = lens _csdrsStatus (\ s a -> s{_csdrsStatus = a});

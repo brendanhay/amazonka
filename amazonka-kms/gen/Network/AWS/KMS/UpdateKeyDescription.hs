@@ -27,8 +27,8 @@ module Network.AWS.KMS.UpdateKeyDescription
     -- ** Request constructor
     , updateKeyDescription
     -- ** Request lenses
-    , ukdKeyId
-    , ukdDescription
+    , ukdrqKeyId
+    , ukdrqDescription
 
     -- * Response
     , UpdateKeyDescriptionResponse
@@ -45,20 +45,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ukdKeyId'
+-- * 'ukdrqKeyId'
 --
--- * 'ukdDescription'
+-- * 'ukdrqDescription'
 data UpdateKeyDescription = UpdateKeyDescription'
-    { _ukdKeyId       :: !Text
-    , _ukdDescription :: !Text
+    { _ukdrqKeyId       :: !Text
+    , _ukdrqDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateKeyDescription' smart constructor.
 updateKeyDescription :: Text -> Text -> UpdateKeyDescription
 updateKeyDescription pKeyId pDescription =
     UpdateKeyDescription'
-    { _ukdKeyId = pKeyId
-    , _ukdDescription = pDescription
+    { _ukdrqKeyId = pKeyId
+    , _ukdrqDescription = pDescription
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -68,12 +68,12 @@ updateKeyDescription pKeyId pDescription =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-ukdKeyId :: Lens' UpdateKeyDescription Text
-ukdKeyId = lens _ukdKeyId (\ s a -> s{_ukdKeyId = a});
+ukdrqKeyId :: Lens' UpdateKeyDescription Text
+ukdrqKeyId = lens _ukdrqKeyId (\ s a -> s{_ukdrqKeyId = a});
 
 -- | New description for the key.
-ukdDescription :: Lens' UpdateKeyDescription Text
-ukdDescription = lens _ukdDescription (\ s a -> s{_ukdDescription = a});
+ukdrqDescription :: Lens' UpdateKeyDescription Text
+ukdrqDescription = lens _ukdrqDescription (\ s a -> s{_ukdrqDescription = a});
 
 instance AWSRequest UpdateKeyDescription where
         type Sv UpdateKeyDescription = KMS
@@ -94,8 +94,8 @@ instance ToHeaders UpdateKeyDescription where
 instance ToJSON UpdateKeyDescription where
         toJSON UpdateKeyDescription'{..}
           = object
-              ["KeyId" .= _ukdKeyId,
-               "Description" .= _ukdDescription]
+              ["KeyId" .= _ukdrqKeyId,
+               "Description" .= _ukdrqDescription]
 
 instance ToPath UpdateKeyDescription where
         toPath = const "/"

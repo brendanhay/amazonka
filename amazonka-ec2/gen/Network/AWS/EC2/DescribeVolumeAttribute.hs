@@ -32,19 +32,19 @@ module Network.AWS.EC2.DescribeVolumeAttribute
     -- ** Request constructor
     , describeVolumeAttribute
     -- ** Request lenses
-    , dvaAttribute
-    , dvaDryRun
-    , dvaVolumeId
+    , dvarqAttribute
+    , dvarqDryRun
+    , dvarqVolumeId
 
     -- * Response
     , DescribeVolumeAttributeResponse
     -- ** Response constructor
     , describeVolumeAttributeResponse
     -- ** Response lenses
-    , dvarProductCodes
-    , dvarVolumeId
-    , dvarAutoEnableIO
-    , dvarStatus
+    , dvarsProductCodes
+    , dvarsVolumeId
+    , dvarsAutoEnableIO
+    , dvarsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -56,40 +56,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvaAttribute'
+-- * 'dvarqAttribute'
 --
--- * 'dvaDryRun'
+-- * 'dvarqDryRun'
 --
--- * 'dvaVolumeId'
+-- * 'dvarqVolumeId'
 data DescribeVolumeAttribute = DescribeVolumeAttribute'
-    { _dvaAttribute :: !(Maybe VolumeAttributeName)
-    , _dvaDryRun    :: !(Maybe Bool)
-    , _dvaVolumeId  :: !Text
+    { _dvarqAttribute :: !(Maybe VolumeAttributeName)
+    , _dvarqDryRun    :: !(Maybe Bool)
+    , _dvarqVolumeId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeAttribute' smart constructor.
 describeVolumeAttribute :: Text -> DescribeVolumeAttribute
 describeVolumeAttribute pVolumeId =
     DescribeVolumeAttribute'
-    { _dvaAttribute = Nothing
-    , _dvaDryRun = Nothing
-    , _dvaVolumeId = pVolumeId
+    { _dvarqAttribute = Nothing
+    , _dvarqDryRun = Nothing
+    , _dvarqVolumeId = pVolumeId
     }
 
 -- | The instance attribute.
-dvaAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
-dvaAttribute = lens _dvaAttribute (\ s a -> s{_dvaAttribute = a});
+dvarqAttribute :: Lens' DescribeVolumeAttribute (Maybe VolumeAttributeName)
+dvarqAttribute = lens _dvarqAttribute (\ s a -> s{_dvarqAttribute = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvaDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
-dvaDryRun = lens _dvaDryRun (\ s a -> s{_dvaDryRun = a});
+dvarqDryRun :: Lens' DescribeVolumeAttribute (Maybe Bool)
+dvarqDryRun = lens _dvarqDryRun (\ s a -> s{_dvarqDryRun = a});
 
 -- | The ID of the volume.
-dvaVolumeId :: Lens' DescribeVolumeAttribute Text
-dvaVolumeId = lens _dvaVolumeId (\ s a -> s{_dvaVolumeId = a});
+dvarqVolumeId :: Lens' DescribeVolumeAttribute Text
+dvarqVolumeId = lens _dvarqVolumeId (\ s a -> s{_dvarqVolumeId = a});
 
 instance AWSRequest DescribeVolumeAttribute where
         type Sv DescribeVolumeAttribute = EC2
@@ -118,49 +118,50 @@ instance ToQuery DescribeVolumeAttribute where
               ["Action" =:
                  ("DescribeVolumeAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Attribute" =: _dvaAttribute, "DryRun" =: _dvaDryRun,
-               "VolumeId" =: _dvaVolumeId]
+               "Attribute" =: _dvarqAttribute,
+               "DryRun" =: _dvarqDryRun,
+               "VolumeId" =: _dvarqVolumeId]
 
 -- | /See:/ 'describeVolumeAttributeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvarProductCodes'
+-- * 'dvarsProductCodes'
 --
--- * 'dvarVolumeId'
+-- * 'dvarsVolumeId'
 --
--- * 'dvarAutoEnableIO'
+-- * 'dvarsAutoEnableIO'
 --
--- * 'dvarStatus'
+-- * 'dvarsStatus'
 data DescribeVolumeAttributeResponse = DescribeVolumeAttributeResponse'
-    { _dvarProductCodes :: !(Maybe [ProductCode])
-    , _dvarVolumeId     :: !(Maybe Text)
-    , _dvarAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _dvarStatus       :: !Int
+    { _dvarsProductCodes :: !(Maybe [ProductCode])
+    , _dvarsVolumeId     :: !(Maybe Text)
+    , _dvarsAutoEnableIO :: !(Maybe AttributeBooleanValue)
+    , _dvarsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumeAttributeResponse' smart constructor.
 describeVolumeAttributeResponse :: Int -> DescribeVolumeAttributeResponse
 describeVolumeAttributeResponse pStatus =
     DescribeVolumeAttributeResponse'
-    { _dvarProductCodes = Nothing
-    , _dvarVolumeId = Nothing
-    , _dvarAutoEnableIO = Nothing
-    , _dvarStatus = pStatus
+    { _dvarsProductCodes = Nothing
+    , _dvarsVolumeId = Nothing
+    , _dvarsAutoEnableIO = Nothing
+    , _dvarsStatus = pStatus
     }
 
 -- | A list of product codes.
-dvarProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
-dvarProductCodes = lens _dvarProductCodes (\ s a -> s{_dvarProductCodes = a}) . _Default;
+dvarsProductCodes :: Lens' DescribeVolumeAttributeResponse [ProductCode]
+dvarsProductCodes = lens _dvarsProductCodes (\ s a -> s{_dvarsProductCodes = a}) . _Default;
 
 -- | The ID of the volume.
-dvarVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
-dvarVolumeId = lens _dvarVolumeId (\ s a -> s{_dvarVolumeId = a});
+dvarsVolumeId :: Lens' DescribeVolumeAttributeResponse (Maybe Text)
+dvarsVolumeId = lens _dvarsVolumeId (\ s a -> s{_dvarsVolumeId = a});
 
 -- | The state of @autoEnableIO@ attribute.
-dvarAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
-dvarAutoEnableIO = lens _dvarAutoEnableIO (\ s a -> s{_dvarAutoEnableIO = a});
+dvarsAutoEnableIO :: Lens' DescribeVolumeAttributeResponse (Maybe AttributeBooleanValue)
+dvarsAutoEnableIO = lens _dvarsAutoEnableIO (\ s a -> s{_dvarsAutoEnableIO = a});
 
 -- | FIXME: Undocumented member.
-dvarStatus :: Lens' DescribeVolumeAttributeResponse Int
-dvarStatus = lens _dvarStatus (\ s a -> s{_dvarStatus = a});
+dvarsStatus :: Lens' DescribeVolumeAttributeResponse Int
+dvarsStatus = lens _dvarsStatus (\ s a -> s{_dvarsStatus = a});

@@ -45,18 +45,18 @@ module Network.AWS.Redshift.AuthorizeClusterSecurityGroupIngress
     -- ** Request constructor
     , authorizeClusterSecurityGroupIngress
     -- ** Request lenses
-    , acsgiEC2SecurityGroupOwnerId
-    , acsgiEC2SecurityGroupName
-    , acsgiCIdRIP
-    , acsgiClusterSecurityGroupName
+    , acsgirqEC2SecurityGroupOwnerId
+    , acsgirqEC2SecurityGroupName
+    , acsgirqCIdRIP
+    , acsgirqClusterSecurityGroupName
 
     -- * Response
     , AuthorizeClusterSecurityGroupIngressResponse
     -- ** Response constructor
     , authorizeClusterSecurityGroupIngressResponse
     -- ** Response lenses
-    , acsgirClusterSecurityGroup
-    , acsgirStatus
+    , acsgirsClusterSecurityGroup
+    , acsgirsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -70,28 +70,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acsgiEC2SecurityGroupOwnerId'
+-- * 'acsgirqEC2SecurityGroupOwnerId'
 --
--- * 'acsgiEC2SecurityGroupName'
+-- * 'acsgirqEC2SecurityGroupName'
 --
--- * 'acsgiCIdRIP'
+-- * 'acsgirqCIdRIP'
 --
--- * 'acsgiClusterSecurityGroupName'
+-- * 'acsgirqClusterSecurityGroupName'
 data AuthorizeClusterSecurityGroupIngress = AuthorizeClusterSecurityGroupIngress'
-    { _acsgiEC2SecurityGroupOwnerId  :: !(Maybe Text)
-    , _acsgiEC2SecurityGroupName     :: !(Maybe Text)
-    , _acsgiCIdRIP                   :: !(Maybe Text)
-    , _acsgiClusterSecurityGroupName :: !Text
+    { _acsgirqEC2SecurityGroupOwnerId  :: !(Maybe Text)
+    , _acsgirqEC2SecurityGroupName     :: !(Maybe Text)
+    , _acsgirqCIdRIP                   :: !(Maybe Text)
+    , _acsgirqClusterSecurityGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeClusterSecurityGroupIngress' smart constructor.
 authorizeClusterSecurityGroupIngress :: Text -> AuthorizeClusterSecurityGroupIngress
 authorizeClusterSecurityGroupIngress pClusterSecurityGroupName =
     AuthorizeClusterSecurityGroupIngress'
-    { _acsgiEC2SecurityGroupOwnerId = Nothing
-    , _acsgiEC2SecurityGroupName = Nothing
-    , _acsgiCIdRIP = Nothing
-    , _acsgiClusterSecurityGroupName = pClusterSecurityGroupName
+    { _acsgirqEC2SecurityGroupOwnerId = Nothing
+    , _acsgirqEC2SecurityGroupName = Nothing
+    , _acsgirqCIdRIP = Nothing
+    , _acsgirqClusterSecurityGroupName = pClusterSecurityGroupName
     }
 
 -- | The AWS account number of the owner of the security group specified by
@@ -99,20 +99,20 @@ authorizeClusterSecurityGroupIngress pClusterSecurityGroupName =
 -- acceptable value.
 --
 -- Example: @111122223333@
-acsgiEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgiEC2SecurityGroupOwnerId = lens _acsgiEC2SecurityGroupOwnerId (\ s a -> s{_acsgiEC2SecurityGroupOwnerId = a});
+acsgirqEC2SecurityGroupOwnerId :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgirqEC2SecurityGroupOwnerId = lens _acsgirqEC2SecurityGroupOwnerId (\ s a -> s{_acsgirqEC2SecurityGroupOwnerId = a});
 
 -- | The EC2 security group to be added the Amazon Redshift security group.
-acsgiEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgiEC2SecurityGroupName = lens _acsgiEC2SecurityGroupName (\ s a -> s{_acsgiEC2SecurityGroupName = a});
+acsgirqEC2SecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgirqEC2SecurityGroupName = lens _acsgirqEC2SecurityGroupName (\ s a -> s{_acsgirqEC2SecurityGroupName = a});
 
 -- | The IP range to be added the Amazon Redshift security group.
-acsgiCIdRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
-acsgiCIdRIP = lens _acsgiCIdRIP (\ s a -> s{_acsgiCIdRIP = a});
+acsgirqCIdRIP :: Lens' AuthorizeClusterSecurityGroupIngress (Maybe Text)
+acsgirqCIdRIP = lens _acsgirqCIdRIP (\ s a -> s{_acsgirqCIdRIP = a});
 
 -- | The name of the security group to which the ingress rule is added.
-acsgiClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
-acsgiClusterSecurityGroupName = lens _acsgiClusterSecurityGroupName (\ s a -> s{_acsgiClusterSecurityGroupName = a});
+acsgirqClusterSecurityGroupName :: Lens' AuthorizeClusterSecurityGroupIngress Text
+acsgirqClusterSecurityGroupName = lens _acsgirqClusterSecurityGroupName (\ s a -> s{_acsgirqClusterSecurityGroupName = a});
 
 instance AWSRequest
          AuthorizeClusterSecurityGroupIngress where
@@ -146,36 +146,37 @@ instance ToQuery AuthorizeClusterSecurityGroupIngress
                     ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "EC2SecurityGroupOwnerId" =:
-                 _acsgiEC2SecurityGroupOwnerId,
-               "EC2SecurityGroupName" =: _acsgiEC2SecurityGroupName,
-               "CIDRIP" =: _acsgiCIdRIP,
+                 _acsgirqEC2SecurityGroupOwnerId,
+               "EC2SecurityGroupName" =:
+                 _acsgirqEC2SecurityGroupName,
+               "CIDRIP" =: _acsgirqCIdRIP,
                "ClusterSecurityGroupName" =:
-                 _acsgiClusterSecurityGroupName]
+                 _acsgirqClusterSecurityGroupName]
 
 -- | /See:/ 'authorizeClusterSecurityGroupIngressResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'acsgirClusterSecurityGroup'
+-- * 'acsgirsClusterSecurityGroup'
 --
--- * 'acsgirStatus'
+-- * 'acsgirsStatus'
 data AuthorizeClusterSecurityGroupIngressResponse = AuthorizeClusterSecurityGroupIngressResponse'
-    { _acsgirClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
-    , _acsgirStatus               :: !Int
+    { _acsgirsClusterSecurityGroup :: !(Maybe ClusterSecurityGroup)
+    , _acsgirsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AuthorizeClusterSecurityGroupIngressResponse' smart constructor.
 authorizeClusterSecurityGroupIngressResponse :: Int -> AuthorizeClusterSecurityGroupIngressResponse
 authorizeClusterSecurityGroupIngressResponse pStatus =
     AuthorizeClusterSecurityGroupIngressResponse'
-    { _acsgirClusterSecurityGroup = Nothing
-    , _acsgirStatus = pStatus
+    { _acsgirsClusterSecurityGroup = Nothing
+    , _acsgirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-acsgirClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
-acsgirClusterSecurityGroup = lens _acsgirClusterSecurityGroup (\ s a -> s{_acsgirClusterSecurityGroup = a});
+acsgirsClusterSecurityGroup :: Lens' AuthorizeClusterSecurityGroupIngressResponse (Maybe ClusterSecurityGroup)
+acsgirsClusterSecurityGroup = lens _acsgirsClusterSecurityGroup (\ s a -> s{_acsgirsClusterSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-acsgirStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
-acsgirStatus = lens _acsgirStatus (\ s a -> s{_acsgirStatus = a});
+acsgirsStatus :: Lens' AuthorizeClusterSecurityGroupIngressResponse Int
+acsgirsStatus = lens _acsgirsStatus (\ s a -> s{_acsgirsStatus = a});

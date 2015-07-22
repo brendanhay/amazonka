@@ -53,18 +53,18 @@ module Network.AWS.EC2.CreateCustomerGateway
     -- ** Request constructor
     , createCustomerGateway
     -- ** Request lenses
-    , ccgDryRun
-    , ccgType
-    , ccgPublicIP
-    , ccgBGPASN
+    , ccgrqDryRun
+    , ccgrqType
+    , ccgrqPublicIP
+    , ccgrqBGPASN
 
     -- * Response
     , CreateCustomerGatewayResponse
     -- ** Response constructor
     , createCustomerGatewayResponse
     -- ** Response lenses
-    , ccgrCustomerGateway
-    , ccgrStatus
+    , ccgrsCustomerGateway
+    , ccgrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -76,52 +76,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccgDryRun'
+-- * 'ccgrqDryRun'
 --
--- * 'ccgType'
+-- * 'ccgrqType'
 --
--- * 'ccgPublicIP'
+-- * 'ccgrqPublicIP'
 --
--- * 'ccgBGPASN'
+-- * 'ccgrqBGPASN'
 data CreateCustomerGateway = CreateCustomerGateway'
-    { _ccgDryRun   :: !(Maybe Bool)
-    , _ccgType     :: !GatewayType
-    , _ccgPublicIP :: !Text
-    , _ccgBGPASN   :: !Int
+    { _ccgrqDryRun   :: !(Maybe Bool)
+    , _ccgrqType     :: !GatewayType
+    , _ccgrqPublicIP :: !Text
+    , _ccgrqBGPASN   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomerGateway' smart constructor.
 createCustomerGateway :: GatewayType -> Text -> Int -> CreateCustomerGateway
 createCustomerGateway pType pPublicIP pBGPASN =
     CreateCustomerGateway'
-    { _ccgDryRun = Nothing
-    , _ccgType = pType
-    , _ccgPublicIP = pPublicIP
-    , _ccgBGPASN = pBGPASN
+    { _ccgrqDryRun = Nothing
+    , _ccgrqType = pType
+    , _ccgrqPublicIP = pPublicIP
+    , _ccgrqBGPASN = pBGPASN
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ccgDryRun :: Lens' CreateCustomerGateway (Maybe Bool)
-ccgDryRun = lens _ccgDryRun (\ s a -> s{_ccgDryRun = a});
+ccgrqDryRun :: Lens' CreateCustomerGateway (Maybe Bool)
+ccgrqDryRun = lens _ccgrqDryRun (\ s a -> s{_ccgrqDryRun = a});
 
 -- | The type of VPN connection that this customer gateway supports
 -- (@ipsec.1@).
-ccgType :: Lens' CreateCustomerGateway GatewayType
-ccgType = lens _ccgType (\ s a -> s{_ccgType = a});
+ccgrqType :: Lens' CreateCustomerGateway GatewayType
+ccgrqType = lens _ccgrqType (\ s a -> s{_ccgrqType = a});
 
 -- | The Internet-routable IP address for the customer gateway\'s outside
 -- interface. The address must be static.
-ccgPublicIP :: Lens' CreateCustomerGateway Text
-ccgPublicIP = lens _ccgPublicIP (\ s a -> s{_ccgPublicIP = a});
+ccgrqPublicIP :: Lens' CreateCustomerGateway Text
+ccgrqPublicIP = lens _ccgrqPublicIP (\ s a -> s{_ccgrqPublicIP = a});
 
 -- | For devices that support BGP, the customer gateway\'s BGP ASN.
 --
 -- Default: 65000
-ccgBGPASN :: Lens' CreateCustomerGateway Int
-ccgBGPASN = lens _ccgBGPASN (\ s a -> s{_ccgBGPASN = a});
+ccgrqBGPASN :: Lens' CreateCustomerGateway Int
+ccgrqBGPASN = lens _ccgrqBGPASN (\ s a -> s{_ccgrqBGPASN = a});
 
 instance AWSRequest CreateCustomerGateway where
         type Sv CreateCustomerGateway = EC2
@@ -145,33 +145,34 @@ instance ToQuery CreateCustomerGateway where
           = mconcat
               ["Action" =: ("CreateCustomerGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ccgDryRun, "Type" =: _ccgType,
-               "IpAddress" =: _ccgPublicIP, "BgpAsn" =: _ccgBGPASN]
+               "DryRun" =: _ccgrqDryRun, "Type" =: _ccgrqType,
+               "IpAddress" =: _ccgrqPublicIP,
+               "BgpAsn" =: _ccgrqBGPASN]
 
 -- | /See:/ 'createCustomerGatewayResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccgrCustomerGateway'
+-- * 'ccgrsCustomerGateway'
 --
--- * 'ccgrStatus'
+-- * 'ccgrsStatus'
 data CreateCustomerGatewayResponse = CreateCustomerGatewayResponse'
-    { _ccgrCustomerGateway :: !(Maybe CustomerGateway)
-    , _ccgrStatus          :: !Int
+    { _ccgrsCustomerGateway :: !(Maybe CustomerGateway)
+    , _ccgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomerGatewayResponse' smart constructor.
 createCustomerGatewayResponse :: Int -> CreateCustomerGatewayResponse
 createCustomerGatewayResponse pStatus =
     CreateCustomerGatewayResponse'
-    { _ccgrCustomerGateway = Nothing
-    , _ccgrStatus = pStatus
+    { _ccgrsCustomerGateway = Nothing
+    , _ccgrsStatus = pStatus
     }
 
 -- | Information about the customer gateway.
-ccgrCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
-ccgrCustomerGateway = lens _ccgrCustomerGateway (\ s a -> s{_ccgrCustomerGateway = a});
+ccgrsCustomerGateway :: Lens' CreateCustomerGatewayResponse (Maybe CustomerGateway)
+ccgrsCustomerGateway = lens _ccgrsCustomerGateway (\ s a -> s{_ccgrsCustomerGateway = a});
 
 -- | FIXME: Undocumented member.
-ccgrStatus :: Lens' CreateCustomerGatewayResponse Int
-ccgrStatus = lens _ccgrStatus (\ s a -> s{_ccgrStatus = a});
+ccgrsStatus :: Lens' CreateCustomerGatewayResponse Int
+ccgrsStatus = lens _ccgrsStatus (\ s a -> s{_ccgrsStatus = a});

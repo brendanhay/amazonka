@@ -35,8 +35,8 @@ module Network.AWS.EFS.DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , delFileSystemId
-    , delTagKeys
+    , drqFileSystemId
+    , drqTagKeys
 
     -- * Response
     , DeleteTagsResponse
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delFileSystemId'
+-- * 'drqFileSystemId'
 --
--- * 'delTagKeys'
+-- * 'drqTagKeys'
 data DeleteTags = DeleteTags'
-    { _delFileSystemId :: !Text
-    , _delTagKeys      :: ![Text]
+    { _drqFileSystemId :: !Text
+    , _drqTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
 deleteTags pFileSystemId =
     DeleteTags'
-    { _delFileSystemId = pFileSystemId
-    , _delTagKeys = mempty
+    { _drqFileSystemId = pFileSystemId
+    , _drqTagKeys = mempty
     }
 
 -- | String. The ID of the file system whose tags you want to delete.
-delFileSystemId :: Lens' DeleteTags Text
-delFileSystemId = lens _delFileSystemId (\ s a -> s{_delFileSystemId = a});
+drqFileSystemId :: Lens' DeleteTags Text
+drqFileSystemId = lens _drqFileSystemId (\ s a -> s{_drqFileSystemId = a});
 
 -- | A list of tag keys to delete.
-delTagKeys :: Lens' DeleteTags [Text]
-delTagKeys = lens _delTagKeys (\ s a -> s{_delTagKeys = a});
+drqTagKeys :: Lens' DeleteTags [Text]
+drqTagKeys = lens _drqTagKeys (\ s a -> s{_drqTagKeys = a});
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = EFS
@@ -88,12 +88,12 @@ instance ToHeaders DeleteTags where
 
 instance ToJSON DeleteTags where
         toJSON DeleteTags'{..}
-          = object ["TagKeys" .= _delTagKeys]
+          = object ["TagKeys" .= _drqTagKeys]
 
 instance ToPath DeleteTags where
         toPath DeleteTags'{..}
           = mconcat
-              ["/2015-02-01/delete-tags/", toText _delFileSystemId]
+              ["/2015-02-01/delete-tags/", toText _drqFileSystemId]
 
 instance ToQuery DeleteTags where
         toQuery = const mempty

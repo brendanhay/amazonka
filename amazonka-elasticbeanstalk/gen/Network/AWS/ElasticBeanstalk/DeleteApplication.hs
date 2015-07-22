@@ -31,8 +31,8 @@ module Network.AWS.ElasticBeanstalk.DeleteApplication
     -- ** Request constructor
     , deleteApplication
     -- ** Request lenses
-    , daTerminateEnvByForce
-    , daApplicationName
+    , darqTerminateEnvByForce
+    , darqApplicationName
 
     -- * Response
     , DeleteApplicationResponse
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daTerminateEnvByForce'
+-- * 'darqTerminateEnvByForce'
 --
--- * 'daApplicationName'
+-- * 'darqApplicationName'
 data DeleteApplication = DeleteApplication'
-    { _daTerminateEnvByForce :: !(Maybe Bool)
-    , _daApplicationName     :: !Text
+    { _darqTerminateEnvByForce :: !(Maybe Bool)
+    , _darqApplicationName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplication' smart constructor.
 deleteApplication :: Text -> DeleteApplication
 deleteApplication pApplicationName =
     DeleteApplication'
-    { _daTerminateEnvByForce = Nothing
-    , _daApplicationName = pApplicationName
+    { _darqTerminateEnvByForce = Nothing
+    , _darqApplicationName = pApplicationName
     }
 
 -- | When set to true, running environments will be terminated before
 -- deleting the application.
-daTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
-daTerminateEnvByForce = lens _daTerminateEnvByForce (\ s a -> s{_daTerminateEnvByForce = a});
+darqTerminateEnvByForce :: Lens' DeleteApplication (Maybe Bool)
+darqTerminateEnvByForce = lens _darqTerminateEnvByForce (\ s a -> s{_darqTerminateEnvByForce = a});
 
 -- | The name of the application to delete.
-daApplicationName :: Lens' DeleteApplication Text
-daApplicationName = lens _daApplicationName (\ s a -> s{_daApplicationName = a});
+darqApplicationName :: Lens' DeleteApplication Text
+darqApplicationName = lens _darqApplicationName (\ s a -> s{_darqApplicationName = a});
 
 instance AWSRequest DeleteApplication where
         type Sv DeleteApplication = ElasticBeanstalk
@@ -93,8 +93,8 @@ instance ToQuery DeleteApplication where
           = mconcat
               ["Action" =: ("DeleteApplication" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "TerminateEnvByForce" =: _daTerminateEnvByForce,
-               "ApplicationName" =: _daApplicationName]
+               "TerminateEnvByForce" =: _darqTerminateEnvByForce,
+               "ApplicationName" =: _darqApplicationName]
 
 -- | /See:/ 'deleteApplicationResponse' smart constructor.
 data DeleteApplicationResponse =

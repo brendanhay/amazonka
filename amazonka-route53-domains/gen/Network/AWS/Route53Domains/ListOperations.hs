@@ -28,17 +28,17 @@ module Network.AWS.Route53Domains.ListOperations
     -- ** Request constructor
     , listOperations
     -- ** Request lenses
-    , loMaxItems
-    , loMarker
+    , lorqMaxItems
+    , lorqMarker
 
     -- * Response
     , ListOperationsResponse
     -- ** Response constructor
     , listOperationsResponse
     -- ** Response lenses
-    , lorNextPageMarker
-    , lorStatus
-    , lorOperations
+    , lorsNextPageMarker
+    , lorsStatus
+    , lorsOperations
     ) where
 
 import           Network.AWS.Pager
@@ -53,20 +53,20 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'loMaxItems'
+-- * 'lorqMaxItems'
 --
--- * 'loMarker'
+-- * 'lorqMarker'
 data ListOperations = ListOperations'
-    { _loMaxItems :: !(Maybe Int)
-    , _loMarker   :: !(Maybe Text)
+    { _lorqMaxItems :: !(Maybe Int)
+    , _lorqMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOperations' smart constructor.
 listOperations :: ListOperations
 listOperations =
     ListOperations'
-    { _loMaxItems = Nothing
-    , _loMarker = Nothing
+    { _lorqMaxItems = Nothing
+    , _lorqMarker = Nothing
     }
 
 -- | Number of domains to be returned.
@@ -78,8 +78,8 @@ listOperations =
 -- Constraints: A value between 1 and 100.
 --
 -- Required: No
-loMaxItems :: Lens' ListOperations (Maybe Int)
-loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
+lorqMaxItems :: Lens' ListOperations (Maybe Int)
+lorqMaxItems = lens _lorqMaxItems (\ s a -> s{_lorqMaxItems = a});
 
 -- | For an initial request for a list of operations, omit this element. If
 -- the number of operations that are not yet complete is greater than the
@@ -93,15 +93,15 @@ loMaxItems = lens _loMaxItems (\ s a -> s{_loMaxItems = a});
 -- Default: None
 --
 -- Required: No
-loMarker :: Lens' ListOperations (Maybe Text)
-loMarker = lens _loMarker (\ s a -> s{_loMarker = a});
+lorqMarker :: Lens' ListOperations (Maybe Text)
+lorqMarker = lens _lorqMarker (\ s a -> s{_lorqMarker = a});
 
 instance AWSPager ListOperations where
         page rq rs
-          | stop (rs ^. lorNextPageMarker) = Nothing
-          | stop (rs ^. lorOperations) = Nothing
+          | stop (rs ^. lorsNextPageMarker) = Nothing
+          | stop (rs ^. lorsOperations) = Nothing
           | otherwise =
-            Just $ rq & loMarker .~ rs ^. lorNextPageMarker
+            Just $ rq & lorqMarker .~ rs ^. lorsNextPageMarker
 
 instance AWSRequest ListOperations where
         type Sv ListOperations = Route53Domains
@@ -127,7 +127,8 @@ instance ToHeaders ListOperations where
 instance ToJSON ListOperations where
         toJSON ListOperations'{..}
           = object
-              ["MaxItems" .= _loMaxItems, "Marker" .= _loMarker]
+              ["MaxItems" .= _lorqMaxItems,
+               "Marker" .= _lorqMarker]
 
 instance ToPath ListOperations where
         toPath = const "/"
@@ -141,24 +142,24 @@ instance ToQuery ListOperations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lorNextPageMarker'
+-- * 'lorsNextPageMarker'
 --
--- * 'lorStatus'
+-- * 'lorsStatus'
 --
--- * 'lorOperations'
+-- * 'lorsOperations'
 data ListOperationsResponse = ListOperationsResponse'
-    { _lorNextPageMarker :: !(Maybe Text)
-    , _lorStatus         :: !Int
-    , _lorOperations     :: ![OperationSummary]
+    { _lorsNextPageMarker :: !(Maybe Text)
+    , _lorsStatus         :: !Int
+    , _lorsOperations     :: ![OperationSummary]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOperationsResponse' smart constructor.
 listOperationsResponse :: Int -> ListOperationsResponse
 listOperationsResponse pStatus =
     ListOperationsResponse'
-    { _lorNextPageMarker = Nothing
-    , _lorStatus = pStatus
-    , _lorOperations = mempty
+    { _lorsNextPageMarker = Nothing
+    , _lorsStatus = pStatus
+    , _lorsOperations = mempty
     }
 
 -- | If there are more operations than you specified for @MaxItems@ in the
@@ -168,17 +169,17 @@ listOperationsResponse pStatus =
 -- Type: String
 --
 -- Parent: @Operations@
-lorNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
-lorNextPageMarker = lens _lorNextPageMarker (\ s a -> s{_lorNextPageMarker = a});
+lorsNextPageMarker :: Lens' ListOperationsResponse (Maybe Text)
+lorsNextPageMarker = lens _lorsNextPageMarker (\ s a -> s{_lorsNextPageMarker = a});
 
 -- | FIXME: Undocumented member.
-lorStatus :: Lens' ListOperationsResponse Int
-lorStatus = lens _lorStatus (\ s a -> s{_lorStatus = a});
+lorsStatus :: Lens' ListOperationsResponse Int
+lorsStatus = lens _lorsStatus (\ s a -> s{_lorsStatus = a});
 
 -- | Lists summaries of the operations.
 --
 -- Type: Complex type containing a list of operation summaries
 --
 -- Children: @OperationId@, @Status@, @SubmittedDate@, @Type@
-lorOperations :: Lens' ListOperationsResponse [OperationSummary]
-lorOperations = lens _lorOperations (\ s a -> s{_lorOperations = a});
+lorsOperations :: Lens' ListOperationsResponse [OperationSummary]
+lorsOperations = lens _lorsOperations (\ s a -> s{_lorsOperations = a});

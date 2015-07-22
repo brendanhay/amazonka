@@ -28,16 +28,16 @@ module Network.AWS.CodePipeline.AcknowledgeThirdPartyJob
     -- ** Request constructor
     , acknowledgeThirdPartyJob
     -- ** Request lenses
-    , atpjJobId
-    , atpjNonce
-    , atpjClientToken
+    , atpjrqJobId
+    , atpjrqNonce
+    , atpjrqClientToken
 
     -- * Response
     , AcknowledgeThirdPartyJobResponse
     -- ** Response constructor
     , acknowledgeThirdPartyJobResponse
     -- ** Response lenses
-    , atpjrStatus
+    , atpjrsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -51,41 +51,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atpjJobId'
+-- * 'atpjrqJobId'
 --
--- * 'atpjNonce'
+-- * 'atpjrqNonce'
 --
--- * 'atpjClientToken'
+-- * 'atpjrqClientToken'
 data AcknowledgeThirdPartyJob = AcknowledgeThirdPartyJob'
-    { _atpjJobId       :: !Text
-    , _atpjNonce       :: !Text
-    , _atpjClientToken :: !Text
+    { _atpjrqJobId       :: !Text
+    , _atpjrqNonce       :: !Text
+    , _atpjrqClientToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcknowledgeThirdPartyJob' smart constructor.
 acknowledgeThirdPartyJob :: Text -> Text -> Text -> AcknowledgeThirdPartyJob
 acknowledgeThirdPartyJob pJobId pNonce pClientToken =
     AcknowledgeThirdPartyJob'
-    { _atpjJobId = pJobId
-    , _atpjNonce = pNonce
-    , _atpjClientToken = pClientToken
+    { _atpjrqJobId = pJobId
+    , _atpjrqNonce = pNonce
+    , _atpjrqClientToken = pClientToken
     }
 
 -- | The unique system-generated ID of the job.
-atpjJobId :: Lens' AcknowledgeThirdPartyJob Text
-atpjJobId = lens _atpjJobId (\ s a -> s{_atpjJobId = a});
+atpjrqJobId :: Lens' AcknowledgeThirdPartyJob Text
+atpjrqJobId = lens _atpjrqJobId (\ s a -> s{_atpjrqJobId = a});
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. This number must
 -- be returned in the response.
-atpjNonce :: Lens' AcknowledgeThirdPartyJob Text
-atpjNonce = lens _atpjNonce (\ s a -> s{_atpjNonce = a});
+atpjrqNonce :: Lens' AcknowledgeThirdPartyJob Text
+atpjrqNonce = lens _atpjrqNonce (\ s a -> s{_atpjrqNonce = a});
 
 -- | The clientToken portion of the clientId and clientToken pair used to
 -- verify that the calling entity is allowed access to the job and its
 -- details.
-atpjClientToken :: Lens' AcknowledgeThirdPartyJob Text
-atpjClientToken = lens _atpjClientToken (\ s a -> s{_atpjClientToken = a});
+atpjrqClientToken :: Lens' AcknowledgeThirdPartyJob Text
+atpjrqClientToken = lens _atpjrqClientToken (\ s a -> s{_atpjrqClientToken = a});
 
 instance AWSRequest AcknowledgeThirdPartyJob where
         type Sv AcknowledgeThirdPartyJob = CodePipeline
@@ -111,8 +111,8 @@ instance ToHeaders AcknowledgeThirdPartyJob where
 instance ToJSON AcknowledgeThirdPartyJob where
         toJSON AcknowledgeThirdPartyJob'{..}
           = object
-              ["jobId" .= _atpjJobId, "nonce" .= _atpjNonce,
-               "clientToken" .= _atpjClientToken]
+              ["jobId" .= _atpjrqJobId, "nonce" .= _atpjrqNonce,
+               "clientToken" .= _atpjrqClientToken]
 
 instance ToPath AcknowledgeThirdPartyJob where
         toPath = const "/"
@@ -126,18 +126,18 @@ instance ToQuery AcknowledgeThirdPartyJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atpjrStatus'
+-- * 'atpjrsStatus'
 newtype AcknowledgeThirdPartyJobResponse = AcknowledgeThirdPartyJobResponse'
-    { _atpjrStatus :: Int
+    { _atpjrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcknowledgeThirdPartyJobResponse' smart constructor.
 acknowledgeThirdPartyJobResponse :: Int -> AcknowledgeThirdPartyJobResponse
 acknowledgeThirdPartyJobResponse pStatus =
     AcknowledgeThirdPartyJobResponse'
-    { _atpjrStatus = pStatus
+    { _atpjrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-atpjrStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
-atpjrStatus = lens _atpjrStatus (\ s a -> s{_atpjrStatus = a});
+atpjrsStatus :: Lens' AcknowledgeThirdPartyJobResponse Int
+atpjrsStatus = lens _atpjrsStatus (\ s a -> s{_atpjrsStatus = a});

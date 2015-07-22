@@ -31,17 +31,17 @@ module Network.AWS.CloudFormation.ListStacks
     -- ** Request constructor
     , listStacks
     -- ** Request lenses
-    , lsNextToken
-    , lsStackStatusFilter
+    , lsrqNextToken
+    , lsrqStackStatusFilter
 
     -- * Response
     , ListStacksResponse
     -- ** Response constructor
     , listStacksResponse
     -- ** Response lenses
-    , lisStackSummaries
-    , lisNextToken
-    , lisStatus
+    , lsrsStackSummaries
+    , lsrsNextToken
+    , lsrsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -56,42 +56,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsNextToken'
+-- * 'lsrqNextToken'
 --
--- * 'lsStackStatusFilter'
+-- * 'lsrqStackStatusFilter'
 data ListStacks = ListStacks'
-    { _lsNextToken         :: !(Maybe Text)
-    , _lsStackStatusFilter :: !(Maybe [StackStatus])
+    { _lsrqNextToken         :: !(Maybe Text)
+    , _lsrqStackStatusFilter :: !(Maybe [StackStatus])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStacks' smart constructor.
 listStacks :: ListStacks
 listStacks =
     ListStacks'
-    { _lsNextToken = Nothing
-    , _lsStackStatusFilter = Nothing
+    { _lsrqNextToken = Nothing
+    , _lsrqStackStatusFilter = Nothing
     }
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
 --
 -- Default: There is no default value.
-lsNextToken :: Lens' ListStacks (Maybe Text)
-lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
+lsrqNextToken :: Lens' ListStacks (Maybe Text)
+lsrqNextToken = lens _lsrqNextToken (\ s a -> s{_lsrqNextToken = a});
 
 -- | Stack status to use as a filter. Specify one or more stack status codes
 -- to list only stacks with the specified status codes. For a complete list
 -- of stack status codes, see the @StackStatus@ parameter of the Stack data
 -- type.
-lsStackStatusFilter :: Lens' ListStacks [StackStatus]
-lsStackStatusFilter = lens _lsStackStatusFilter (\ s a -> s{_lsStackStatusFilter = a}) . _Default;
+lsrqStackStatusFilter :: Lens' ListStacks [StackStatus]
+lsrqStackStatusFilter = lens _lsrqStackStatusFilter (\ s a -> s{_lsrqStackStatusFilter = a}) . _Default;
 
 instance AWSPager ListStacks where
         page rq rs
-          | stop (rs ^. lisNextToken) = Nothing
-          | stop (rs ^. lisStackSummaries) = Nothing
+          | stop (rs ^. lsrsNextToken) = Nothing
+          | stop (rs ^. lsrsStackSummaries) = Nothing
           | otherwise =
-            Just $ rq & lsNextToken .~ rs ^. lisNextToken
+            Just $ rq & lsrqNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListStacks where
         type Sv ListStacks = CloudFormation
@@ -117,10 +117,10 @@ instance ToQuery ListStacks where
           = mconcat
               ["Action" =: ("ListStacks" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "NextToken" =: _lsNextToken,
+               "NextToken" =: _lsrqNextToken,
                "StackStatusFilter" =:
                  toQuery
-                   (toQueryList "member" <$> _lsStackStatusFilter)]
+                   (toQueryList "member" <$> _lsrqStackStatusFilter)]
 
 -- | The output for ListStacks action.
 --
@@ -128,36 +128,36 @@ instance ToQuery ListStacks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisStackSummaries'
+-- * 'lsrsStackSummaries'
 --
--- * 'lisNextToken'
+-- * 'lsrsNextToken'
 --
--- * 'lisStatus'
+-- * 'lsrsStatus'
 data ListStacksResponse = ListStacksResponse'
-    { _lisStackSummaries :: !(Maybe [StackSummary])
-    , _lisNextToken      :: !(Maybe Text)
-    , _lisStatus         :: !Int
+    { _lsrsStackSummaries :: !(Maybe [StackSummary])
+    , _lsrsNextToken      :: !(Maybe Text)
+    , _lsrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStacksResponse' smart constructor.
 listStacksResponse :: Int -> ListStacksResponse
 listStacksResponse pStatus =
     ListStacksResponse'
-    { _lisStackSummaries = Nothing
-    , _lisNextToken = Nothing
-    , _lisStatus = pStatus
+    { _lsrsStackSummaries = Nothing
+    , _lsrsNextToken = Nothing
+    , _lsrsStatus = pStatus
     }
 
 -- | A list of @StackSummary@ structures containing information about the
 -- specified stacks.
-lisStackSummaries :: Lens' ListStacksResponse [StackSummary]
-lisStackSummaries = lens _lisStackSummaries (\ s a -> s{_lisStackSummaries = a}) . _Default;
+lsrsStackSummaries :: Lens' ListStacksResponse [StackSummary]
+lsrsStackSummaries = lens _lsrsStackSummaries (\ s a -> s{_lsrsStackSummaries = a}) . _Default;
 
 -- | String that identifies the start of the next list of stacks, if there is
 -- one.
-lisNextToken :: Lens' ListStacksResponse (Maybe Text)
-lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
+lsrsNextToken :: Lens' ListStacksResponse (Maybe Text)
+lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListStacksResponse Int
-lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});
+lsrsStatus :: Lens' ListStacksResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

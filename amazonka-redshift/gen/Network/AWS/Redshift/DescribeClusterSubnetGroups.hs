@@ -40,20 +40,20 @@ module Network.AWS.Redshift.DescribeClusterSubnetGroups
     -- ** Request constructor
     , describeClusterSubnetGroups
     -- ** Request lenses
-    , dTagValues
-    , dTagKeys
-    , dClusterSubnetGroupName
-    , dMaxRecords
-    , dMarker
+    , dcsgsrqTagValues
+    , dcsgsrqTagKeys
+    , dcsgsrqClusterSubnetGroupName
+    , dcsgsrqMaxRecords
+    , dcsgsrqMarker
 
     -- * Response
     , DescribeClusterSubnetGroupsResponse
     -- ** Response constructor
     , describeClusterSubnetGroupsResponse
     -- ** Response lenses
-    , dcsgrClusterSubnetGroups
-    , dcsgrMarker
-    , dcsgrStatus
+    , dcsgsrsClusterSubnetGroups
+    , dcsgsrsMarker
+    , dcsgsrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -68,32 +68,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dTagValues'
+-- * 'dcsgsrqTagValues'
 --
--- * 'dTagKeys'
+-- * 'dcsgsrqTagKeys'
 --
--- * 'dClusterSubnetGroupName'
+-- * 'dcsgsrqClusterSubnetGroupName'
 --
--- * 'dMaxRecords'
+-- * 'dcsgsrqMaxRecords'
 --
--- * 'dMarker'
+-- * 'dcsgsrqMarker'
 data DescribeClusterSubnetGroups = DescribeClusterSubnetGroups'
-    { _dTagValues              :: !(Maybe [Text])
-    , _dTagKeys                :: !(Maybe [Text])
-    , _dClusterSubnetGroupName :: !(Maybe Text)
-    , _dMaxRecords             :: !(Maybe Int)
-    , _dMarker                 :: !(Maybe Text)
+    { _dcsgsrqTagValues              :: !(Maybe [Text])
+    , _dcsgsrqTagKeys                :: !(Maybe [Text])
+    , _dcsgsrqClusterSubnetGroupName :: !(Maybe Text)
+    , _dcsgsrqMaxRecords             :: !(Maybe Int)
+    , _dcsgsrqMarker                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSubnetGroups' smart constructor.
 describeClusterSubnetGroups :: DescribeClusterSubnetGroups
 describeClusterSubnetGroups =
     DescribeClusterSubnetGroups'
-    { _dTagValues = Nothing
-    , _dTagKeys = Nothing
-    , _dClusterSubnetGroupName = Nothing
-    , _dMaxRecords = Nothing
-    , _dMarker = Nothing
+    { _dcsgsrqTagValues = Nothing
+    , _dcsgsrqTagKeys = Nothing
+    , _dcsgsrqClusterSubnetGroupName = Nothing
+    , _dcsgsrqMaxRecords = Nothing
+    , _dcsgsrqMarker = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching cluster
@@ -103,8 +103,8 @@ describeClusterSubnetGroups =
 -- values in the request, Amazon Redshift returns a response with the
 -- subnet groups that have either or both of these tag values associated
 -- with them.
-dTagValues :: Lens' DescribeClusterSubnetGroups [Text]
-dTagValues = lens _dTagValues (\ s a -> s{_dTagValues = a}) . _Default;
+dcsgsrqTagValues :: Lens' DescribeClusterSubnetGroups [Text]
+dcsgsrqTagValues = lens _dcsgsrqTagValues (\ s a -> s{_dcsgsrqTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching cluster
 -- subnet groups that are associated with the specified key or keys. For
@@ -112,12 +112,12 @@ dTagValues = lens _dTagValues (\ s a -> s{_dTagValues = a}) . _Default;
 -- called @owner@ and @environment@. If you specify both of these tag keys
 -- in the request, Amazon Redshift returns a response with the subnet
 -- groups that have either or both of these tag keys associated with them.
-dTagKeys :: Lens' DescribeClusterSubnetGroups [Text]
-dTagKeys = lens _dTagKeys (\ s a -> s{_dTagKeys = a}) . _Default;
+dcsgsrqTagKeys :: Lens' DescribeClusterSubnetGroups [Text]
+dcsgsrqTagKeys = lens _dcsgsrqTagKeys (\ s a -> s{_dcsgsrqTagKeys = a}) . _Default;
 
 -- | The name of the cluster subnet group for which information is requested.
-dClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
-dClusterSubnetGroupName = lens _dClusterSubnetGroupName (\ s a -> s{_dClusterSubnetGroupName = a});
+dcsgsrqClusterSubnetGroupName :: Lens' DescribeClusterSubnetGroups (Maybe Text)
+dcsgsrqClusterSubnetGroupName = lens _dcsgsrqClusterSubnetGroupName (\ s a -> s{_dcsgsrqClusterSubnetGroupName = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -128,8 +128,8 @@ dClusterSubnetGroupName = lens _dClusterSubnetGroupName (\ s a -> s{_dClusterSub
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dMaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
-dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
+dcsgsrqMaxRecords :: Lens' DescribeClusterSubnetGroups (Maybe Int)
+dcsgsrqMaxRecords = lens _dcsgsrqMaxRecords (\ s a -> s{_dcsgsrqMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusterSubnetGroups
@@ -137,15 +137,15 @@ dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-dMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
+dcsgsrqMarker :: Lens' DescribeClusterSubnetGroups (Maybe Text)
+dcsgsrqMarker = lens _dcsgsrqMarker (\ s a -> s{_dcsgsrqMarker = a});
 
 instance AWSPager DescribeClusterSubnetGroups where
         page rq rs
-          | stop (rs ^. dcsgrMarker) = Nothing
-          | stop (rs ^. dcsgrClusterSubnetGroups) = Nothing
+          | stop (rs ^. dcsgsrsMarker) = Nothing
+          | stop (rs ^. dcsgsrsClusterSubnetGroups) = Nothing
           | otherwise =
-            Just $ rq & dMarker .~ rs ^. dcsgrMarker
+            Just $ rq & dcsgsrqMarker .~ rs ^. dcsgsrsMarker
 
 instance AWSRequest DescribeClusterSubnetGroups where
         type Sv DescribeClusterSubnetGroups = Redshift
@@ -175,11 +175,14 @@ instance ToQuery DescribeClusterSubnetGroups where
                  ("DescribeClusterSubnetGroups" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dTagValues),
+                 toQuery
+                   (toQueryList "TagValue" <$> _dcsgsrqTagValues),
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dTagKeys),
-               "ClusterSubnetGroupName" =: _dClusterSubnetGroupName,
-               "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker]
+                 toQuery (toQueryList "TagKey" <$> _dcsgsrqTagKeys),
+               "ClusterSubnetGroupName" =:
+                 _dcsgsrqClusterSubnetGroupName,
+               "MaxRecords" =: _dcsgsrqMaxRecords,
+               "Marker" =: _dcsgsrqMarker]
 
 -- | Contains the output from the DescribeClusterSubnetGroups action.
 --
@@ -187,29 +190,29 @@ instance ToQuery DescribeClusterSubnetGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgrClusterSubnetGroups'
+-- * 'dcsgsrsClusterSubnetGroups'
 --
--- * 'dcsgrMarker'
+-- * 'dcsgsrsMarker'
 --
--- * 'dcsgrStatus'
+-- * 'dcsgsrsStatus'
 data DescribeClusterSubnetGroupsResponse = DescribeClusterSubnetGroupsResponse'
-    { _dcsgrClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
-    , _dcsgrMarker              :: !(Maybe Text)
-    , _dcsgrStatus              :: !Int
+    { _dcsgsrsClusterSubnetGroups :: !(Maybe [ClusterSubnetGroup])
+    , _dcsgsrsMarker              :: !(Maybe Text)
+    , _dcsgsrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterSubnetGroupsResponse' smart constructor.
 describeClusterSubnetGroupsResponse :: Int -> DescribeClusterSubnetGroupsResponse
 describeClusterSubnetGroupsResponse pStatus =
     DescribeClusterSubnetGroupsResponse'
-    { _dcsgrClusterSubnetGroups = Nothing
-    , _dcsgrMarker = Nothing
-    , _dcsgrStatus = pStatus
+    { _dcsgsrsClusterSubnetGroups = Nothing
+    , _dcsgsrsMarker = Nothing
+    , _dcsgsrsStatus = pStatus
     }
 
 -- | A list of ClusterSubnetGroup instances.
-dcsgrClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
-dcsgrClusterSubnetGroups = lens _dcsgrClusterSubnetGroups (\ s a -> s{_dcsgrClusterSubnetGroups = a}) . _Default;
+dcsgsrsClusterSubnetGroups :: Lens' DescribeClusterSubnetGroupsResponse [ClusterSubnetGroup]
+dcsgsrsClusterSubnetGroups = lens _dcsgsrsClusterSubnetGroups (\ s a -> s{_dcsgsrsClusterSubnetGroups = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -217,9 +220,9 @@ dcsgrClusterSubnetGroups = lens _dcsgrClusterSubnetGroups (\ s a -> s{_dcsgrClus
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-dcsgrMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
-dcsgrMarker = lens _dcsgrMarker (\ s a -> s{_dcsgrMarker = a});
+dcsgsrsMarker :: Lens' DescribeClusterSubnetGroupsResponse (Maybe Text)
+dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
 
 -- | FIXME: Undocumented member.
-dcsgrStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
-dcsgrStatus = lens _dcsgrStatus (\ s a -> s{_dcsgrStatus = a});
+dcsgsrsStatus :: Lens' DescribeClusterSubnetGroupsResponse Int
+dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});

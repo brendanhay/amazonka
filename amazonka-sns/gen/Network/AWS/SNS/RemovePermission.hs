@@ -27,8 +27,8 @@ module Network.AWS.SNS.RemovePermission
     -- ** Request constructor
     , removePermission
     -- ** Request lenses
-    , rpTopicARN
-    , rpLabel
+    , rprqTopicARN
+    , rprqLabel
 
     -- * Response
     , RemovePermissionResponse
@@ -47,29 +47,29 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rpTopicARN'
+-- * 'rprqTopicARN'
 --
--- * 'rpLabel'
+-- * 'rprqLabel'
 data RemovePermission = RemovePermission'
-    { _rpTopicARN :: !Text
-    , _rpLabel    :: !Text
+    { _rprqTopicARN :: !Text
+    , _rprqLabel    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
 removePermission pTopicARN pLabel =
     RemovePermission'
-    { _rpTopicARN = pTopicARN
-    , _rpLabel = pLabel
+    { _rprqTopicARN = pTopicARN
+    , _rprqLabel = pLabel
     }
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-rpTopicARN :: Lens' RemovePermission Text
-rpTopicARN = lens _rpTopicARN (\ s a -> s{_rpTopicARN = a});
+rprqTopicARN :: Lens' RemovePermission Text
+rprqTopicARN = lens _rprqTopicARN (\ s a -> s{_rprqTopicARN = a});
 
 -- | The unique label of the statement you want to remove.
-rpLabel :: Lens' RemovePermission Text
-rpLabel = lens _rpLabel (\ s a -> s{_rpLabel = a});
+rprqLabel :: Lens' RemovePermission Text
+rprqLabel = lens _rprqLabel (\ s a -> s{_rprqLabel = a});
 
 instance AWSRequest RemovePermission where
         type Sv RemovePermission = SNS
@@ -88,7 +88,7 @@ instance ToQuery RemovePermission where
           = mconcat
               ["Action" =: ("RemovePermission" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "TopicArn" =: _rpTopicARN, "Label" =: _rpLabel]
+               "TopicArn" =: _rprqTopicARN, "Label" =: _rprqLabel]
 
 -- | /See:/ 'removePermissionResponse' smart constructor.
 data RemovePermissionResponse =

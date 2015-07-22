@@ -27,33 +27,33 @@ module Network.AWS.S3.ListObjectVersions
     -- ** Request constructor
     , listObjectVersions
     -- ** Request lenses
-    , lovKeyMarker
-    , lovPrefix
-    , lovEncodingType
-    , lovVersionIdMarker
-    , lovMaxKeys
-    , lovDelimiter
-    , lovBucket
+    , lovrqKeyMarker
+    , lovrqPrefix
+    , lovrqEncodingType
+    , lovrqVersionIdMarker
+    , lovrqMaxKeys
+    , lovrqDelimiter
+    , lovrqBucket
 
     -- * Response
     , ListObjectVersionsResponse
     -- ** Response constructor
     , listObjectVersionsResponse
     -- ** Response lenses
-    , lovrNextVersionIdMarker
-    , lovrKeyMarker
-    , lovrPrefix
-    , lovrDeleteMarkers
-    , lovrEncodingType
-    , lovrCommonPrefixes
-    , lovrVersions
-    , lovrName
-    , lovrNextKeyMarker
-    , lovrVersionIdMarker
-    , lovrMaxKeys
-    , lovrIsTruncated
-    , lovrDelimiter
-    , lovrStatus
+    , lovrsNextVersionIdMarker
+    , lovrsKeyMarker
+    , lovrsPrefix
+    , lovrsDeleteMarkers
+    , lovrsEncodingType
+    , lovrsCommonPrefixes
+    , lovrsVersions
+    , lovrsName
+    , lovrsNextKeyMarker
+    , lovrsVersionIdMarker
+    , lovrsMaxKeys
+    , lovrsIsTruncated
+    , lovrsDelimiter
+    , lovrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -66,80 +66,83 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lovKeyMarker'
+-- * 'lovrqKeyMarker'
 --
--- * 'lovPrefix'
+-- * 'lovrqPrefix'
 --
--- * 'lovEncodingType'
+-- * 'lovrqEncodingType'
 --
--- * 'lovVersionIdMarker'
+-- * 'lovrqVersionIdMarker'
 --
--- * 'lovMaxKeys'
+-- * 'lovrqMaxKeys'
 --
--- * 'lovDelimiter'
+-- * 'lovrqDelimiter'
 --
--- * 'lovBucket'
+-- * 'lovrqBucket'
 data ListObjectVersions = ListObjectVersions'
-    { _lovKeyMarker       :: !(Maybe Text)
-    , _lovPrefix          :: !(Maybe Text)
-    , _lovEncodingType    :: !(Maybe EncodingType)
-    , _lovVersionIdMarker :: !(Maybe Text)
-    , _lovMaxKeys         :: !(Maybe Int)
-    , _lovDelimiter       :: !(Maybe Char)
-    , _lovBucket          :: !BucketName
+    { _lovrqKeyMarker       :: !(Maybe Text)
+    , _lovrqPrefix          :: !(Maybe Text)
+    , _lovrqEncodingType    :: !(Maybe EncodingType)
+    , _lovrqVersionIdMarker :: !(Maybe Text)
+    , _lovrqMaxKeys         :: !(Maybe Int)
+    , _lovrqDelimiter       :: !(Maybe Char)
+    , _lovrqBucket          :: !BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListObjectVersions' smart constructor.
 listObjectVersions :: BucketName -> ListObjectVersions
 listObjectVersions pBucket =
     ListObjectVersions'
-    { _lovKeyMarker = Nothing
-    , _lovPrefix = Nothing
-    , _lovEncodingType = Nothing
-    , _lovVersionIdMarker = Nothing
-    , _lovMaxKeys = Nothing
-    , _lovDelimiter = Nothing
-    , _lovBucket = pBucket
+    { _lovrqKeyMarker = Nothing
+    , _lovrqPrefix = Nothing
+    , _lovrqEncodingType = Nothing
+    , _lovrqVersionIdMarker = Nothing
+    , _lovrqMaxKeys = Nothing
+    , _lovrqDelimiter = Nothing
+    , _lovrqBucket = pBucket
     }
 
 -- | Specifies the key to start with when listing objects in a bucket.
-lovKeyMarker :: Lens' ListObjectVersions (Maybe Text)
-lovKeyMarker = lens _lovKeyMarker (\ s a -> s{_lovKeyMarker = a});
+lovrqKeyMarker :: Lens' ListObjectVersions (Maybe Text)
+lovrqKeyMarker = lens _lovrqKeyMarker (\ s a -> s{_lovrqKeyMarker = a});
 
 -- | Limits the response to keys that begin with the specified prefix.
-lovPrefix :: Lens' ListObjectVersions (Maybe Text)
-lovPrefix = lens _lovPrefix (\ s a -> s{_lovPrefix = a});
+lovrqPrefix :: Lens' ListObjectVersions (Maybe Text)
+lovrqPrefix = lens _lovrqPrefix (\ s a -> s{_lovrqPrefix = a});
 
 -- | FIXME: Undocumented member.
-lovEncodingType :: Lens' ListObjectVersions (Maybe EncodingType)
-lovEncodingType = lens _lovEncodingType (\ s a -> s{_lovEncodingType = a});
+lovrqEncodingType :: Lens' ListObjectVersions (Maybe EncodingType)
+lovrqEncodingType = lens _lovrqEncodingType (\ s a -> s{_lovrqEncodingType = a});
 
 -- | Specifies the object version you want to start listing from.
-lovVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
-lovVersionIdMarker = lens _lovVersionIdMarker (\ s a -> s{_lovVersionIdMarker = a});
+lovrqVersionIdMarker :: Lens' ListObjectVersions (Maybe Text)
+lovrqVersionIdMarker = lens _lovrqVersionIdMarker (\ s a -> s{_lovrqVersionIdMarker = a});
 
 -- | Sets the maximum number of keys returned in the response. The response
 -- might contain fewer keys but will never contain more.
-lovMaxKeys :: Lens' ListObjectVersions (Maybe Int)
-lovMaxKeys = lens _lovMaxKeys (\ s a -> s{_lovMaxKeys = a});
+lovrqMaxKeys :: Lens' ListObjectVersions (Maybe Int)
+lovrqMaxKeys = lens _lovrqMaxKeys (\ s a -> s{_lovrqMaxKeys = a});
 
 -- | A delimiter is a character you use to group keys.
-lovDelimiter :: Lens' ListObjectVersions (Maybe Char)
-lovDelimiter = lens _lovDelimiter (\ s a -> s{_lovDelimiter = a});
+lovrqDelimiter :: Lens' ListObjectVersions (Maybe Char)
+lovrqDelimiter = lens _lovrqDelimiter (\ s a -> s{_lovrqDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lovBucket :: Lens' ListObjectVersions BucketName
-lovBucket = lens _lovBucket (\ s a -> s{_lovBucket = a});
+lovrqBucket :: Lens' ListObjectVersions BucketName
+lovrqBucket = lens _lovrqBucket (\ s a -> s{_lovrqBucket = a});
 
 instance AWSPager ListObjectVersions where
         page rq rs
-          | stop (rs ^. lovrIsTruncated) = Nothing
-          | isNothing (rs ^. lovrNextKeyMarker) &&
-              isNothing (rs ^. lovrNextVersionIdMarker)
+          | stop (rs ^. lovrsIsTruncated) = Nothing
+          | isNothing (rs ^. lovrsNextKeyMarker) &&
+              isNothing (rs ^. lovrsNextVersionIdMarker)
             = Nothing
           | otherwise =
-            Just $ rq & lovKeyMarker .~ rs ^. lovrNextKeyMarker &
-              lovVersionIdMarker .~ rs ^. lovrNextVersionIdMarker
+            Just $ rq &
+              lovrqKeyMarker .~ rs ^. lovrsNextKeyMarker
+              &
+              lovrqVersionIdMarker .~
+                rs ^. lovrsNextVersionIdMarker
 
 instance AWSRequest ListObjectVersions where
         type Sv ListObjectVersions = S3
@@ -169,144 +172,144 @@ instance ToHeaders ListObjectVersions where
 
 instance ToPath ListObjectVersions where
         toPath ListObjectVersions'{..}
-          = mconcat ["/", toText _lovBucket]
+          = mconcat ["/", toText _lovrqBucket]
 
 instance ToQuery ListObjectVersions where
         toQuery ListObjectVersions'{..}
           = mconcat
-              ["key-marker" =: _lovKeyMarker,
-               "prefix" =: _lovPrefix,
-               "encoding-type" =: _lovEncodingType,
-               "version-id-marker" =: _lovVersionIdMarker,
-               "max-keys" =: _lovMaxKeys,
-               "delimiter" =: _lovDelimiter, "versions"]
+              ["key-marker" =: _lovrqKeyMarker,
+               "prefix" =: _lovrqPrefix,
+               "encoding-type" =: _lovrqEncodingType,
+               "version-id-marker" =: _lovrqVersionIdMarker,
+               "max-keys" =: _lovrqMaxKeys,
+               "delimiter" =: _lovrqDelimiter, "versions"]
 
 -- | /See:/ 'listObjectVersionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lovrNextVersionIdMarker'
+-- * 'lovrsNextVersionIdMarker'
 --
--- * 'lovrKeyMarker'
+-- * 'lovrsKeyMarker'
 --
--- * 'lovrPrefix'
+-- * 'lovrsPrefix'
 --
--- * 'lovrDeleteMarkers'
+-- * 'lovrsDeleteMarkers'
 --
--- * 'lovrEncodingType'
+-- * 'lovrsEncodingType'
 --
--- * 'lovrCommonPrefixes'
+-- * 'lovrsCommonPrefixes'
 --
--- * 'lovrVersions'
+-- * 'lovrsVersions'
 --
--- * 'lovrName'
+-- * 'lovrsName'
 --
--- * 'lovrNextKeyMarker'
+-- * 'lovrsNextKeyMarker'
 --
--- * 'lovrVersionIdMarker'
+-- * 'lovrsVersionIdMarker'
 --
--- * 'lovrMaxKeys'
+-- * 'lovrsMaxKeys'
 --
--- * 'lovrIsTruncated'
+-- * 'lovrsIsTruncated'
 --
--- * 'lovrDelimiter'
+-- * 'lovrsDelimiter'
 --
--- * 'lovrStatus'
+-- * 'lovrsStatus'
 data ListObjectVersionsResponse = ListObjectVersionsResponse'
-    { _lovrNextVersionIdMarker :: !(Maybe Text)
-    , _lovrKeyMarker           :: !(Maybe Text)
-    , _lovrPrefix              :: !(Maybe Text)
-    , _lovrDeleteMarkers       :: !(Maybe [DeleteMarkerEntry])
-    , _lovrEncodingType        :: !(Maybe EncodingType)
-    , _lovrCommonPrefixes      :: !(Maybe [CommonPrefix])
-    , _lovrVersions            :: !(Maybe [ObjectVersion])
-    , _lovrName                :: !(Maybe BucketName)
-    , _lovrNextKeyMarker       :: !(Maybe Text)
-    , _lovrVersionIdMarker     :: !(Maybe Text)
-    , _lovrMaxKeys             :: !(Maybe Int)
-    , _lovrIsTruncated         :: !(Maybe Bool)
-    , _lovrDelimiter           :: !(Maybe Char)
-    , _lovrStatus              :: !Int
+    { _lovrsNextVersionIdMarker :: !(Maybe Text)
+    , _lovrsKeyMarker           :: !(Maybe Text)
+    , _lovrsPrefix              :: !(Maybe Text)
+    , _lovrsDeleteMarkers       :: !(Maybe [DeleteMarkerEntry])
+    , _lovrsEncodingType        :: !(Maybe EncodingType)
+    , _lovrsCommonPrefixes      :: !(Maybe [CommonPrefix])
+    , _lovrsVersions            :: !(Maybe [ObjectVersion])
+    , _lovrsName                :: !(Maybe BucketName)
+    , _lovrsNextKeyMarker       :: !(Maybe Text)
+    , _lovrsVersionIdMarker     :: !(Maybe Text)
+    , _lovrsMaxKeys             :: !(Maybe Int)
+    , _lovrsIsTruncated         :: !(Maybe Bool)
+    , _lovrsDelimiter           :: !(Maybe Char)
+    , _lovrsStatus              :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ListObjectVersionsResponse' smart constructor.
 listObjectVersionsResponse :: Int -> ListObjectVersionsResponse
 listObjectVersionsResponse pStatus =
     ListObjectVersionsResponse'
-    { _lovrNextVersionIdMarker = Nothing
-    , _lovrKeyMarker = Nothing
-    , _lovrPrefix = Nothing
-    , _lovrDeleteMarkers = Nothing
-    , _lovrEncodingType = Nothing
-    , _lovrCommonPrefixes = Nothing
-    , _lovrVersions = Nothing
-    , _lovrName = Nothing
-    , _lovrNextKeyMarker = Nothing
-    , _lovrVersionIdMarker = Nothing
-    , _lovrMaxKeys = Nothing
-    , _lovrIsTruncated = Nothing
-    , _lovrDelimiter = Nothing
-    , _lovrStatus = pStatus
+    { _lovrsNextVersionIdMarker = Nothing
+    , _lovrsKeyMarker = Nothing
+    , _lovrsPrefix = Nothing
+    , _lovrsDeleteMarkers = Nothing
+    , _lovrsEncodingType = Nothing
+    , _lovrsCommonPrefixes = Nothing
+    , _lovrsVersions = Nothing
+    , _lovrsName = Nothing
+    , _lovrsNextKeyMarker = Nothing
+    , _lovrsVersionIdMarker = Nothing
+    , _lovrsMaxKeys = Nothing
+    , _lovrsIsTruncated = Nothing
+    , _lovrsDelimiter = Nothing
+    , _lovrsStatus = pStatus
     }
 
 -- | Use this value for the next version id marker parameter in a subsequent
 -- request.
-lovrNextVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
-lovrNextVersionIdMarker = lens _lovrNextVersionIdMarker (\ s a -> s{_lovrNextVersionIdMarker = a});
+lovrsNextVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrsNextVersionIdMarker = lens _lovrsNextVersionIdMarker (\ s a -> s{_lovrsNextVersionIdMarker = a});
 
 -- | Marks the last Key returned in a truncated response.
-lovrKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
-lovrKeyMarker = lens _lovrKeyMarker (\ s a -> s{_lovrKeyMarker = a});
+lovrsKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrsKeyMarker = lens _lovrsKeyMarker (\ s a -> s{_lovrsKeyMarker = a});
 
 -- | FIXME: Undocumented member.
-lovrPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
-lovrPrefix = lens _lovrPrefix (\ s a -> s{_lovrPrefix = a});
+lovrsPrefix :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrsPrefix = lens _lovrsPrefix (\ s a -> s{_lovrsPrefix = a});
 
 -- | FIXME: Undocumented member.
-lovrDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
-lovrDeleteMarkers = lens _lovrDeleteMarkers (\ s a -> s{_lovrDeleteMarkers = a}) . _Default;
+lovrsDeleteMarkers :: Lens' ListObjectVersionsResponse [DeleteMarkerEntry]
+lovrsDeleteMarkers = lens _lovrsDeleteMarkers (\ s a -> s{_lovrsDeleteMarkers = a}) . _Default;
 
 -- | Encoding type used by Amazon S3 to encode object keys in the response.
-lovrEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
-lovrEncodingType = lens _lovrEncodingType (\ s a -> s{_lovrEncodingType = a});
+lovrsEncodingType :: Lens' ListObjectVersionsResponse (Maybe EncodingType)
+lovrsEncodingType = lens _lovrsEncodingType (\ s a -> s{_lovrsEncodingType = a});
 
 -- | FIXME: Undocumented member.
-lovrCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
-lovrCommonPrefixes = lens _lovrCommonPrefixes (\ s a -> s{_lovrCommonPrefixes = a}) . _Default;
+lovrsCommonPrefixes :: Lens' ListObjectVersionsResponse [CommonPrefix]
+lovrsCommonPrefixes = lens _lovrsCommonPrefixes (\ s a -> s{_lovrsCommonPrefixes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lovrVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
-lovrVersions = lens _lovrVersions (\ s a -> s{_lovrVersions = a}) . _Default;
+lovrsVersions :: Lens' ListObjectVersionsResponse [ObjectVersion]
+lovrsVersions = lens _lovrsVersions (\ s a -> s{_lovrsVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lovrName :: Lens' ListObjectVersionsResponse (Maybe BucketName)
-lovrName = lens _lovrName (\ s a -> s{_lovrName = a});
+lovrsName :: Lens' ListObjectVersionsResponse (Maybe BucketName)
+lovrsName = lens _lovrsName (\ s a -> s{_lovrsName = a});
 
 -- | Use this value for the key marker request parameter in a subsequent
 -- request.
-lovrNextKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
-lovrNextKeyMarker = lens _lovrNextKeyMarker (\ s a -> s{_lovrNextKeyMarker = a});
+lovrsNextKeyMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrsNextKeyMarker = lens _lovrsNextKeyMarker (\ s a -> s{_lovrsNextKeyMarker = a});
 
 -- | FIXME: Undocumented member.
-lovrVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
-lovrVersionIdMarker = lens _lovrVersionIdMarker (\ s a -> s{_lovrVersionIdMarker = a});
+lovrsVersionIdMarker :: Lens' ListObjectVersionsResponse (Maybe Text)
+lovrsVersionIdMarker = lens _lovrsVersionIdMarker (\ s a -> s{_lovrsVersionIdMarker = a});
 
 -- | FIXME: Undocumented member.
-lovrMaxKeys :: Lens' ListObjectVersionsResponse (Maybe Int)
-lovrMaxKeys = lens _lovrMaxKeys (\ s a -> s{_lovrMaxKeys = a});
+lovrsMaxKeys :: Lens' ListObjectVersionsResponse (Maybe Int)
+lovrsMaxKeys = lens _lovrsMaxKeys (\ s a -> s{_lovrsMaxKeys = a});
 
 -- | A flag that indicates whether or not Amazon S3 returned all of the
 -- results that satisfied the search criteria. If your results were
 -- truncated, you can make a follow-up paginated request using the
 -- NextKeyMarker and NextVersionIdMarker response parameters as a starting
 -- place in another request to return the rest of the results.
-lovrIsTruncated :: Lens' ListObjectVersionsResponse (Maybe Bool)
-lovrIsTruncated = lens _lovrIsTruncated (\ s a -> s{_lovrIsTruncated = a});
+lovrsIsTruncated :: Lens' ListObjectVersionsResponse (Maybe Bool)
+lovrsIsTruncated = lens _lovrsIsTruncated (\ s a -> s{_lovrsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lovrDelimiter :: Lens' ListObjectVersionsResponse (Maybe Char)
-lovrDelimiter = lens _lovrDelimiter (\ s a -> s{_lovrDelimiter = a});
+lovrsDelimiter :: Lens' ListObjectVersionsResponse (Maybe Char)
+lovrsDelimiter = lens _lovrsDelimiter (\ s a -> s{_lovrsDelimiter = a});
 
 -- | FIXME: Undocumented member.
-lovrStatus :: Lens' ListObjectVersionsResponse Int
-lovrStatus = lens _lovrStatus (\ s a -> s{_lovrStatus = a});
+lovrsStatus :: Lens' ListObjectVersionsResponse Int
+lovrsStatus = lens _lovrsStatus (\ s a -> s{_lovrsStatus = a});

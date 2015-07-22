@@ -54,9 +54,9 @@ module Network.AWS.Kinesis.Types
     -- * Record
     , Record
     , record
-    , recSequenceNumber
-    , recData
-    , recPartitionKey
+    , rSequenceNumber
+    , rData
+    , rPartitionKey
 
     -- * SequenceNumberRange
     , SequenceNumberRange
@@ -67,11 +67,11 @@ module Network.AWS.Kinesis.Types
     -- * Shard
     , Shard
     , shard
-    , shaAdjacentParentShardId
-    , shaParentShardId
-    , shaShardId
-    , shaHashKeyRange
-    , shaSequenceNumberRange
+    , sAdjacentParentShardId
+    , sParentShardId
+    , sShardId
+    , sHashKeyRange
+    , sSequenceNumberRange
 
     -- * StreamDescription
     , StreamDescription

@@ -748,38 +748,38 @@ instance ToJSON ActionTypeSettings where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'artLocation'
+-- * 'aLocation'
 --
--- * 'artName'
+-- * 'aName'
 --
--- * 'artRevision'
+-- * 'aRevision'
 data Artifact = Artifact'
-    { _artLocation :: !(Maybe ArtifactLocation)
-    , _artName     :: !(Maybe Text)
-    , _artRevision :: !(Maybe Text)
+    { _aLocation :: !(Maybe ArtifactLocation)
+    , _aName     :: !(Maybe Text)
+    , _aRevision :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Artifact' smart constructor.
 artifact :: Artifact
 artifact =
     Artifact'
-    { _artLocation = Nothing
-    , _artName = Nothing
-    , _artRevision = Nothing
+    { _aLocation = Nothing
+    , _aName = Nothing
+    , _aRevision = Nothing
     }
 
 -- | The location of an artifact.
-artLocation :: Lens' Artifact (Maybe ArtifactLocation)
-artLocation = lens _artLocation (\ s a -> s{_artLocation = a});
+aLocation :: Lens' Artifact (Maybe ArtifactLocation)
+aLocation = lens _aLocation (\ s a -> s{_aLocation = a});
 
 -- | The artifact\'s name.
-artName :: Lens' Artifact (Maybe Text)
-artName = lens _artName (\ s a -> s{_artName = a});
+aName :: Lens' Artifact (Maybe Text)
+aName = lens _aName (\ s a -> s{_aName = a});
 
 -- | The artifact\'s revision ID. Depending on the type of object, this could
 -- be a commit ID (GitHub) or a revision ID (Amazon S3).
-artRevision :: Lens' Artifact (Maybe Text)
-artRevision = lens _artRevision (\ s a -> s{_artRevision = a});
+aRevision :: Lens' Artifact (Maybe Text)
+aRevision = lens _aRevision (\ s a -> s{_aRevision = a});
 
 instance FromJSON Artifact where
         parseJSON

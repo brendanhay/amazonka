@@ -44,15 +44,15 @@ module Network.AWS.StorageGateway.DeleteGateway
     -- ** Request constructor
     , deleteGateway
     -- ** Request lenses
-    , dgGatewayARN
+    , dgrqGatewayARN
 
     -- * Response
     , DeleteGatewayResponse
     -- ** Response constructor
     , deleteGatewayResponse
     -- ** Response lenses
-    , dgrGatewayARN
-    , dgrStatus
+    , dgrsGatewayARN
+    , dgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -66,21 +66,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dgGatewayARN'
+-- * 'dgrqGatewayARN'
 newtype DeleteGateway = DeleteGateway'
-    { _dgGatewayARN :: Text
+    { _dgrqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGateway' smart constructor.
 deleteGateway :: Text -> DeleteGateway
 deleteGateway pGatewayARN =
     DeleteGateway'
-    { _dgGatewayARN = pGatewayARN
+    { _dgrqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-dgGatewayARN :: Lens' DeleteGateway Text
-dgGatewayARN = lens _dgGatewayARN (\ s a -> s{_dgGatewayARN = a});
+dgrqGatewayARN :: Lens' DeleteGateway Text
+dgrqGatewayARN = lens _dgrqGatewayARN (\ s a -> s{_dgrqGatewayARN = a});
 
 instance AWSRequest DeleteGateway where
         type Sv DeleteGateway = StorageGateway
@@ -104,7 +104,7 @@ instance ToHeaders DeleteGateway where
 
 instance ToJSON DeleteGateway where
         toJSON DeleteGateway'{..}
-          = object ["GatewayARN" .= _dgGatewayARN]
+          = object ["GatewayARN" .= _dgrqGatewayARN]
 
 instance ToPath DeleteGateway where
         toPath = const "/"
@@ -118,26 +118,26 @@ instance ToQuery DeleteGateway where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dgrGatewayARN'
+-- * 'dgrsGatewayARN'
 --
--- * 'dgrStatus'
+-- * 'dgrsStatus'
 data DeleteGatewayResponse = DeleteGatewayResponse'
-    { _dgrGatewayARN :: !(Maybe Text)
-    , _dgrStatus     :: !Int
+    { _dgrsGatewayARN :: !(Maybe Text)
+    , _dgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGatewayResponse' smart constructor.
 deleteGatewayResponse :: Int -> DeleteGatewayResponse
 deleteGatewayResponse pStatus =
     DeleteGatewayResponse'
-    { _dgrGatewayARN = Nothing
-    , _dgrStatus = pStatus
+    { _dgrsGatewayARN = Nothing
+    , _dgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dgrGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
-dgrGatewayARN = lens _dgrGatewayARN (\ s a -> s{_dgrGatewayARN = a});
+dgrsGatewayARN :: Lens' DeleteGatewayResponse (Maybe Text)
+dgrsGatewayARN = lens _dgrsGatewayARN (\ s a -> s{_dgrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dgrStatus :: Lens' DeleteGatewayResponse Int
-dgrStatus = lens _dgrStatus (\ s a -> s{_dgrStatus = a});
+dgrsStatus :: Lens' DeleteGatewayResponse Int
+dgrsStatus = lens _dgrsStatus (\ s a -> s{_dgrsStatus = a});

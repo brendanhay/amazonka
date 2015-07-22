@@ -27,19 +27,19 @@ module Network.AWS.S3.RestoreObject
     -- ** Request constructor
     , restoreObject
     -- ** Request lenses
-    , roVersionId
-    , roRequestPayer
-    , roRestoreRequest
-    , roBucket
-    , roKey
+    , rorqVersionId
+    , rorqRequestPayer
+    , rorqRestoreRequest
+    , rorqBucket
+    , rorqKey
 
     -- * Response
     , RestoreObjectResponse
     -- ** Response constructor
     , restoreObjectResponse
     -- ** Response lenses
-    , rorRequestCharged
-    , rorStatus
+    , rorsRequestCharged
+    , rorsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -51,53 +51,53 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'roVersionId'
+-- * 'rorqVersionId'
 --
--- * 'roRequestPayer'
+-- * 'rorqRequestPayer'
 --
--- * 'roRestoreRequest'
+-- * 'rorqRestoreRequest'
 --
--- * 'roBucket'
+-- * 'rorqBucket'
 --
--- * 'roKey'
+-- * 'rorqKey'
 data RestoreObject = RestoreObject'
-    { _roVersionId      :: !(Maybe ObjectVersionId)
-    , _roRequestPayer   :: !(Maybe RequestPayer)
-    , _roRestoreRequest :: !(Maybe RestoreRequest)
-    , _roBucket         :: !BucketName
-    , _roKey            :: !ObjectKey
+    { _rorqVersionId      :: !(Maybe ObjectVersionId)
+    , _rorqRequestPayer   :: !(Maybe RequestPayer)
+    , _rorqRestoreRequest :: !(Maybe RestoreRequest)
+    , _rorqBucket         :: !BucketName
+    , _rorqKey            :: !ObjectKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'RestoreObject' smart constructor.
 restoreObject :: BucketName -> ObjectKey -> RestoreObject
 restoreObject pBucket pKey =
     RestoreObject'
-    { _roVersionId = Nothing
-    , _roRequestPayer = Nothing
-    , _roRestoreRequest = Nothing
-    , _roBucket = pBucket
-    , _roKey = pKey
+    { _rorqVersionId = Nothing
+    , _rorqRequestPayer = Nothing
+    , _rorqRestoreRequest = Nothing
+    , _rorqBucket = pBucket
+    , _rorqKey = pKey
     }
 
 -- | FIXME: Undocumented member.
-roVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
-roVersionId = lens _roVersionId (\ s a -> s{_roVersionId = a});
+rorqVersionId :: Lens' RestoreObject (Maybe ObjectVersionId)
+rorqVersionId = lens _rorqVersionId (\ s a -> s{_rorqVersionId = a});
 
 -- | FIXME: Undocumented member.
-roRequestPayer :: Lens' RestoreObject (Maybe RequestPayer)
-roRequestPayer = lens _roRequestPayer (\ s a -> s{_roRequestPayer = a});
+rorqRequestPayer :: Lens' RestoreObject (Maybe RequestPayer)
+rorqRequestPayer = lens _rorqRequestPayer (\ s a -> s{_rorqRequestPayer = a});
 
 -- | FIXME: Undocumented member.
-roRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
-roRestoreRequest = lens _roRestoreRequest (\ s a -> s{_roRestoreRequest = a});
+rorqRestoreRequest :: Lens' RestoreObject (Maybe RestoreRequest)
+rorqRestoreRequest = lens _rorqRestoreRequest (\ s a -> s{_rorqRestoreRequest = a});
 
 -- | FIXME: Undocumented member.
-roBucket :: Lens' RestoreObject BucketName
-roBucket = lens _roBucket (\ s a -> s{_roBucket = a});
+rorqBucket :: Lens' RestoreObject BucketName
+rorqBucket = lens _rorqBucket (\ s a -> s{_rorqBucket = a});
 
 -- | FIXME: Undocumented member.
-roKey :: Lens' RestoreObject ObjectKey
-roKey = lens _roKey (\ s a -> s{_roKey = a});
+rorqKey :: Lens' RestoreObject ObjectKey
+rorqKey = lens _rorqKey (\ s a -> s{_rorqKey = a});
 
 instance AWSRequest RestoreObject where
         type Sv RestoreObject = S3
@@ -115,44 +115,46 @@ instance ToElement RestoreObject where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}RestoreRequest"
               .
-              _roRestoreRequest
+              _rorqRestoreRequest
 
 instance ToHeaders RestoreObject where
         toHeaders RestoreObject'{..}
-          = mconcat ["x-amz-request-payer" =# _roRequestPayer]
+          = mconcat
+              ["x-amz-request-payer" =# _rorqRequestPayer]
 
 instance ToPath RestoreObject where
         toPath RestoreObject'{..}
-          = mconcat ["/", toText _roBucket, "/", toText _roKey]
+          = mconcat
+              ["/", toText _rorqBucket, "/", toText _rorqKey]
 
 instance ToQuery RestoreObject where
         toQuery RestoreObject'{..}
-          = mconcat ["versionId" =: _roVersionId, "restore"]
+          = mconcat ["versionId" =: _rorqVersionId, "restore"]
 
 -- | /See:/ 'restoreObjectResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rorRequestCharged'
+-- * 'rorsRequestCharged'
 --
--- * 'rorStatus'
+-- * 'rorsStatus'
 data RestoreObjectResponse = RestoreObjectResponse'
-    { _rorRequestCharged :: !(Maybe RequestCharged)
-    , _rorStatus         :: !Int
+    { _rorsRequestCharged :: !(Maybe RequestCharged)
+    , _rorsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreObjectResponse' smart constructor.
 restoreObjectResponse :: Int -> RestoreObjectResponse
 restoreObjectResponse pStatus =
     RestoreObjectResponse'
-    { _rorRequestCharged = Nothing
-    , _rorStatus = pStatus
+    { _rorsRequestCharged = Nothing
+    , _rorsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rorRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
-rorRequestCharged = lens _rorRequestCharged (\ s a -> s{_rorRequestCharged = a});
+rorsRequestCharged :: Lens' RestoreObjectResponse (Maybe RequestCharged)
+rorsRequestCharged = lens _rorsRequestCharged (\ s a -> s{_rorsRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-rorStatus :: Lens' RestoreObjectResponse Int
-rorStatus = lens _rorStatus (\ s a -> s{_rorStatus = a});
+rorsStatus :: Lens' RestoreObjectResponse Int
+rorsStatus = lens _rorsStatus (\ s a -> s{_rorsStatus = a});

@@ -34,18 +34,18 @@ module Network.AWS.EC2.DescribeReservedInstancesModifications
     -- ** Request constructor
     , describeReservedInstancesModifications
     -- ** Request lenses
-    , drimFilters
-    , drimReservedInstancesModificationIds
-    , drimNextToken
+    , drimrqFilters
+    , drimrqReservedInstancesModificationIds
+    , drimrqNextToken
 
     -- * Response
     , DescribeReservedInstancesModificationsResponse
     -- ** Response constructor
     , describeReservedInstancesModificationsResponse
     -- ** Response lenses
-    , drimrNextToken
-    , drimrReservedInstancesModifications
-    , drimrStatus
+    , drimrsNextToken
+    , drimrsReservedInstancesModifications
+    , drimrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drimFilters'
+-- * 'drimrqFilters'
 --
--- * 'drimReservedInstancesModificationIds'
+-- * 'drimrqReservedInstancesModificationIds'
 --
--- * 'drimNextToken'
+-- * 'drimrqNextToken'
 data DescribeReservedInstancesModifications = DescribeReservedInstancesModifications'
-    { _drimFilters                          :: !(Maybe [Filter])
-    , _drimReservedInstancesModificationIds :: !(Maybe [Text])
-    , _drimNextToken                        :: !(Maybe Text)
+    { _drimrqFilters                          :: !(Maybe [Filter])
+    , _drimrqReservedInstancesModificationIds :: !(Maybe [Text])
+    , _drimrqNextToken                        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesModifications' smart constructor.
 describeReservedInstancesModifications :: DescribeReservedInstancesModifications
 describeReservedInstancesModifications =
     DescribeReservedInstancesModifications'
-    { _drimFilters = Nothing
-    , _drimReservedInstancesModificationIds = Nothing
-    , _drimNextToken = Nothing
+    { _drimrqFilters = Nothing
+    , _drimrqReservedInstancesModificationIds = Nothing
+    , _drimrqNextToken = Nothing
     }
 
 -- | One or more filters.
@@ -116,25 +116,25 @@ describeReservedInstancesModifications =
 -- -   @update-date@ - The time when the modification request was last
 --     updated.
 --
-drimFilters :: Lens' DescribeReservedInstancesModifications [Filter]
-drimFilters = lens _drimFilters (\ s a -> s{_drimFilters = a}) . _Default;
+drimrqFilters :: Lens' DescribeReservedInstancesModifications [Filter]
+drimrqFilters = lens _drimrqFilters (\ s a -> s{_drimrqFilters = a}) . _Default;
 
 -- | IDs for the submitted modification request.
-drimReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
-drimReservedInstancesModificationIds = lens _drimReservedInstancesModificationIds (\ s a -> s{_drimReservedInstancesModificationIds = a}) . _Default;
+drimrqReservedInstancesModificationIds :: Lens' DescribeReservedInstancesModifications [Text]
+drimrqReservedInstancesModificationIds = lens _drimrqReservedInstancesModificationIds (\ s a -> s{_drimrqReservedInstancesModificationIds = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
-drimNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
-drimNextToken = lens _drimNextToken (\ s a -> s{_drimNextToken = a});
+drimrqNextToken :: Lens' DescribeReservedInstancesModifications (Maybe Text)
+drimrqNextToken = lens _drimrqNextToken (\ s a -> s{_drimrqNextToken = a});
 
 instance AWSPager
          DescribeReservedInstancesModifications where
         page rq rs
-          | stop (rs ^. drimrNextToken) = Nothing
-          | stop (rs ^. drimrReservedInstancesModifications) =
+          | stop (rs ^. drimrsNextToken) = Nothing
+          | stop (rs ^. drimrsReservedInstancesModifications) =
             Nothing
           | otherwise =
-            Just $ rq & drimNextToken .~ rs ^. drimrNextToken
+            Just $ rq & drimrqNextToken .~ rs ^. drimrsNextToken
 
 instance AWSRequest
          DescribeReservedInstancesModifications where
@@ -167,45 +167,45 @@ instance ToQuery
                  ("DescribeReservedInstancesModifications" ::
                     ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drimFilters),
+               toQuery (toQueryList "Filter" <$> _drimrqFilters),
                toQuery
                  (toQueryList "ReservedInstancesModificationId" <$>
-                    _drimReservedInstancesModificationIds),
-               "NextToken" =: _drimNextToken]
+                    _drimrqReservedInstancesModificationIds),
+               "NextToken" =: _drimrqNextToken]
 
 -- | /See:/ 'describeReservedInstancesModificationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drimrNextToken'
+-- * 'drimrsNextToken'
 --
--- * 'drimrReservedInstancesModifications'
+-- * 'drimrsReservedInstancesModifications'
 --
--- * 'drimrStatus'
+-- * 'drimrsStatus'
 data DescribeReservedInstancesModificationsResponse = DescribeReservedInstancesModificationsResponse'
-    { _drimrNextToken                      :: !(Maybe Text)
-    , _drimrReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
-    , _drimrStatus                         :: !Int
+    { _drimrsNextToken                      :: !(Maybe Text)
+    , _drimrsReservedInstancesModifications :: !(Maybe [ReservedInstancesModification])
+    , _drimrsStatus                         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesModificationsResponse' smart constructor.
 describeReservedInstancesModificationsResponse :: Int -> DescribeReservedInstancesModificationsResponse
 describeReservedInstancesModificationsResponse pStatus =
     DescribeReservedInstancesModificationsResponse'
-    { _drimrNextToken = Nothing
-    , _drimrReservedInstancesModifications = Nothing
-    , _drimrStatus = pStatus
+    { _drimrsNextToken = Nothing
+    , _drimrsReservedInstancesModifications = Nothing
+    , _drimrsStatus = pStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-drimrNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
-drimrNextToken = lens _drimrNextToken (\ s a -> s{_drimrNextToken = a});
+drimrsNextToken :: Lens' DescribeReservedInstancesModificationsResponse (Maybe Text)
+drimrsNextToken = lens _drimrsNextToken (\ s a -> s{_drimrsNextToken = a});
 
 -- | The Reserved Instance modification information.
-drimrReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
-drimrReservedInstancesModifications = lens _drimrReservedInstancesModifications (\ s a -> s{_drimrReservedInstancesModifications = a}) . _Default;
+drimrsReservedInstancesModifications :: Lens' DescribeReservedInstancesModificationsResponse [ReservedInstancesModification]
+drimrsReservedInstancesModifications = lens _drimrsReservedInstancesModifications (\ s a -> s{_drimrsReservedInstancesModifications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drimrStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
-drimrStatus = lens _drimrStatus (\ s a -> s{_drimrStatus = a});
+drimrsStatus :: Lens' DescribeReservedInstancesModificationsResponse Int
+drimrsStatus = lens _drimrsStatus (\ s a -> s{_drimrsStatus = a});

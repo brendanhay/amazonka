@@ -30,15 +30,15 @@ module Network.AWS.SNS.GetEndpointAttributes
     -- ** Request constructor
     , getEndpointAttributes
     -- ** Request lenses
-    , geaEndpointARN
+    , gearqEndpointARN
 
     -- * Response
     , GetEndpointAttributesResponse
     -- ** Response constructor
     , getEndpointAttributesResponse
     -- ** Response lenses
-    , gearAttributes
-    , gearStatus
+    , gearsAttributes
+    , gearsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,21 +52,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'geaEndpointARN'
+-- * 'gearqEndpointARN'
 newtype GetEndpointAttributes = GetEndpointAttributes'
-    { _geaEndpointARN :: Text
+    { _gearqEndpointARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEndpointAttributes' smart constructor.
 getEndpointAttributes :: Text -> GetEndpointAttributes
 getEndpointAttributes pEndpointARN =
     GetEndpointAttributes'
-    { _geaEndpointARN = pEndpointARN
+    { _gearqEndpointARN = pEndpointARN
     }
 
 -- | EndpointArn for GetEndpointAttributes input.
-geaEndpointARN :: Lens' GetEndpointAttributes Text
-geaEndpointARN = lens _geaEndpointARN (\ s a -> s{_geaEndpointARN = a});
+gearqEndpointARN :: Lens' GetEndpointAttributes Text
+gearqEndpointARN = lens _gearqEndpointARN (\ s a -> s{_gearqEndpointARN = a});
 
 instance AWSRequest GetEndpointAttributes where
         type Sv GetEndpointAttributes = SNS
@@ -92,7 +92,7 @@ instance ToQuery GetEndpointAttributes where
           = mconcat
               ["Action" =: ("GetEndpointAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "EndpointArn" =: _geaEndpointARN]
+               "EndpointArn" =: _gearqEndpointARN]
 
 -- | Response from GetEndpointAttributes of the EndpointArn.
 --
@@ -100,20 +100,20 @@ instance ToQuery GetEndpointAttributes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gearAttributes'
+-- * 'gearsAttributes'
 --
--- * 'gearStatus'
+-- * 'gearsStatus'
 data GetEndpointAttributesResponse = GetEndpointAttributesResponse'
-    { _gearAttributes :: !(Maybe (Map Text Text))
-    , _gearStatus     :: !Int
+    { _gearsAttributes :: !(Maybe (Map Text Text))
+    , _gearsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetEndpointAttributesResponse' smart constructor.
 getEndpointAttributesResponse :: Int -> GetEndpointAttributesResponse
 getEndpointAttributesResponse pStatus =
     GetEndpointAttributesResponse'
-    { _gearAttributes = Nothing
-    , _gearStatus = pStatus
+    { _gearsAttributes = Nothing
+    , _gearsStatus = pStatus
     }
 
 -- | Attributes include the following:
@@ -129,9 +129,9 @@ getEndpointAttributesResponse pStatus =
 --     an app and mobile device. This is returned from the notification
 --     service when an app and mobile device are registered with the
 --     notification service.
-gearAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
-gearAttributes = lens _gearAttributes (\ s a -> s{_gearAttributes = a}) . _Default . _Map;
+gearsAttributes :: Lens' GetEndpointAttributesResponse (HashMap Text Text)
+gearsAttributes = lens _gearsAttributes (\ s a -> s{_gearsAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gearStatus :: Lens' GetEndpointAttributesResponse Int
-gearStatus = lens _gearStatus (\ s a -> s{_gearStatus = a});
+gearsStatus :: Lens' GetEndpointAttributesResponse Int
+gearsStatus = lens _gearsStatus (\ s a -> s{_gearsStatus = a});

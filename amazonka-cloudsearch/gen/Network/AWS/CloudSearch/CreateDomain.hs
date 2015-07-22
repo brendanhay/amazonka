@@ -29,15 +29,15 @@ module Network.AWS.CloudSearch.CreateDomain
     -- ** Request constructor
     , createDomain
     -- ** Request lenses
-    , cdDomainName
+    , cdrqDomainName
 
     -- * Response
     , CreateDomainResponse
     -- ** Response constructor
     , createDomainResponse
     -- ** Response lenses
-    , cdrDomainStatus
-    , cdrStatus
+    , cdrsDomainStatus
+    , cdrsStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdDomainName'
+-- * 'cdrqDomainName'
 newtype CreateDomain = CreateDomain'
-    { _cdDomainName :: Text
+    { _cdrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDomain' smart constructor.
 createDomain :: Text -> CreateDomain
 createDomain pDomainName =
     CreateDomain'
-    { _cdDomainName = pDomainName
+    { _cdrqDomainName = pDomainName
     }
 
 -- | A name for the domain you are creating. Allowed characters are a-z
 -- (lower-case letters), 0-9, and hyphen (-). Domain names must start with
 -- a letter or number and be at least 3 and no more than 28 characters
 -- long.
-cdDomainName :: Lens' CreateDomain Text
-cdDomainName = lens _cdDomainName (\ s a -> s{_cdDomainName = a});
+cdrqDomainName :: Lens' CreateDomain Text
+cdrqDomainName = lens _cdrqDomainName (\ s a -> s{_cdrqDomainName = a});
 
 instance AWSRequest CreateDomain where
         type Sv CreateDomain = CloudSearch
@@ -92,7 +92,7 @@ instance ToQuery CreateDomain where
           = mconcat
               ["Action" =: ("CreateDomain" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _cdDomainName]
+               "DomainName" =: _cdrqDomainName]
 
 -- | The result of a @CreateDomainRequest@. Contains the status of a newly
 -- created domain.
@@ -101,26 +101,26 @@ instance ToQuery CreateDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrDomainStatus'
+-- * 'cdrsDomainStatus'
 --
--- * 'cdrStatus'
+-- * 'cdrsStatus'
 data CreateDomainResponse = CreateDomainResponse'
-    { _cdrDomainStatus :: !(Maybe DomainStatus)
-    , _cdrStatus       :: !Int
+    { _cdrsDomainStatus :: !(Maybe DomainStatus)
+    , _cdrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDomainResponse' smart constructor.
 createDomainResponse :: Int -> CreateDomainResponse
 createDomainResponse pStatus =
     CreateDomainResponse'
-    { _cdrDomainStatus = Nothing
-    , _cdrStatus = pStatus
+    { _cdrsDomainStatus = Nothing
+    , _cdrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cdrDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
-cdrDomainStatus = lens _cdrDomainStatus (\ s a -> s{_cdrDomainStatus = a});
+cdrsDomainStatus :: Lens' CreateDomainResponse (Maybe DomainStatus)
+cdrsDomainStatus = lens _cdrsDomainStatus (\ s a -> s{_cdrsDomainStatus = a});
 
 -- | FIXME: Undocumented member.
-cdrStatus :: Lens' CreateDomainResponse Int
-cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});
+cdrsStatus :: Lens' CreateDomainResponse Int
+cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

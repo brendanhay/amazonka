@@ -31,9 +31,9 @@ module Network.AWS.AutoScaling.EnableMetricsCollection
     -- ** Request constructor
     , enableMetricsCollection
     -- ** Request lenses
-    , emcMetrics
-    , emcAutoScalingGroupName
-    , emcGranularity
+    , emcrqMetrics
+    , emcrqAutoScalingGroupName
+    , emcrqGranularity
 
     -- * Response
     , EnableMetricsCollectionResponse
@@ -50,24 +50,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'emcMetrics'
+-- * 'emcrqMetrics'
 --
--- * 'emcAutoScalingGroupName'
+-- * 'emcrqAutoScalingGroupName'
 --
--- * 'emcGranularity'
+-- * 'emcrqGranularity'
 data EnableMetricsCollection = EnableMetricsCollection'
-    { _emcMetrics              :: !(Maybe [Text])
-    , _emcAutoScalingGroupName :: !Text
-    , _emcGranularity          :: !Text
+    { _emcrqMetrics              :: !(Maybe [Text])
+    , _emcrqAutoScalingGroupName :: !Text
+    , _emcrqGranularity          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableMetricsCollection' smart constructor.
 enableMetricsCollection :: Text -> Text -> EnableMetricsCollection
 enableMetricsCollection pAutoScalingGroupName pGranularity =
     EnableMetricsCollection'
-    { _emcMetrics = Nothing
-    , _emcAutoScalingGroupName = pAutoScalingGroupName
-    , _emcGranularity = pGranularity
+    { _emcrqMetrics = Nothing
+    , _emcrqAutoScalingGroupName = pAutoScalingGroupName
+    , _emcrqGranularity = pGranularity
     }
 
 -- | One or more metrics. If you omit this parameter, all metrics are
@@ -91,17 +91,17 @@ enableMetricsCollection pAutoScalingGroupName pGranularity =
 --
 -- Note that the @GroupStandbyInstances@ metric is not enabled by default.
 -- You must explicitly request this metric.
-emcMetrics :: Lens' EnableMetricsCollection [Text]
-emcMetrics = lens _emcMetrics (\ s a -> s{_emcMetrics = a}) . _Default;
+emcrqMetrics :: Lens' EnableMetricsCollection [Text]
+emcrqMetrics = lens _emcrqMetrics (\ s a -> s{_emcrqMetrics = a}) . _Default;
 
 -- | The name or ARN of the Auto Scaling group.
-emcAutoScalingGroupName :: Lens' EnableMetricsCollection Text
-emcAutoScalingGroupName = lens _emcAutoScalingGroupName (\ s a -> s{_emcAutoScalingGroupName = a});
+emcrqAutoScalingGroupName :: Lens' EnableMetricsCollection Text
+emcrqAutoScalingGroupName = lens _emcrqAutoScalingGroupName (\ s a -> s{_emcrqAutoScalingGroupName = a});
 
 -- | The granularity to associate with the metrics to collect. The only valid
 -- value is @1Minute@.
-emcGranularity :: Lens' EnableMetricsCollection Text
-emcGranularity = lens _emcGranularity (\ s a -> s{_emcGranularity = a});
+emcrqGranularity :: Lens' EnableMetricsCollection Text
+emcrqGranularity = lens _emcrqGranularity (\ s a -> s{_emcrqGranularity = a});
 
 instance AWSRequest EnableMetricsCollection where
         type Sv EnableMetricsCollection = AutoScaling
@@ -124,9 +124,9 @@ instance ToQuery EnableMetricsCollection where
                  ("EnableMetricsCollection" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "Metrics" =:
-                 toQuery (toQueryList "member" <$> _emcMetrics),
-               "AutoScalingGroupName" =: _emcAutoScalingGroupName,
-               "Granularity" =: _emcGranularity]
+                 toQuery (toQueryList "member" <$> _emcrqMetrics),
+               "AutoScalingGroupName" =: _emcrqAutoScalingGroupName,
+               "Granularity" =: _emcrqGranularity]
 
 -- | /See:/ 'enableMetricsCollectionResponse' smart constructor.
 data EnableMetricsCollectionResponse =

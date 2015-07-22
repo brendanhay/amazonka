@@ -31,15 +31,15 @@ module Network.AWS.Route53Domains.ListTagsForDomain
     -- ** Request constructor
     , listTagsForDomain
     -- ** Request lenses
-    , ltfdDomainName
+    , ltfdrqDomainName
 
     -- * Response
     , ListTagsForDomainResponse
     -- ** Response constructor
     , listTagsForDomainResponse
     -- ** Response lenses
-    , ltfdrStatus
-    , ltfdrTagList
+    , ltfdrsStatus
+    , ltfdrsTagList
     ) where
 
 import           Network.AWS.Prelude
@@ -53,21 +53,21 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfdDomainName'
+-- * 'ltfdrqDomainName'
 newtype ListTagsForDomain = ListTagsForDomain'
-    { _ltfdDomainName :: Text
+    { _ltfdrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForDomain' smart constructor.
 listTagsForDomain :: Text -> ListTagsForDomain
 listTagsForDomain pDomainName =
     ListTagsForDomain'
-    { _ltfdDomainName = pDomainName
+    { _ltfdrqDomainName = pDomainName
     }
 
 -- | The domain for which you want to get a list of tags.
-ltfdDomainName :: Lens' ListTagsForDomain Text
-ltfdDomainName = lens _ltfdDomainName (\ s a -> s{_ltfdDomainName = a});
+ltfdrqDomainName :: Lens' ListTagsForDomain Text
+ltfdrqDomainName = lens _ltfdrqDomainName (\ s a -> s{_ltfdrqDomainName = a});
 
 instance AWSRequest ListTagsForDomain where
         type Sv ListTagsForDomain = Route53Domains
@@ -91,7 +91,7 @@ instance ToHeaders ListTagsForDomain where
 
 instance ToJSON ListTagsForDomain where
         toJSON ListTagsForDomain'{..}
-          = object ["DomainName" .= _ltfdDomainName]
+          = object ["DomainName" .= _ltfdrqDomainName]
 
 instance ToPath ListTagsForDomain where
         toPath = const "/"
@@ -105,25 +105,25 @@ instance ToQuery ListTagsForDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfdrStatus'
+-- * 'ltfdrsStatus'
 --
--- * 'ltfdrTagList'
+-- * 'ltfdrsTagList'
 data ListTagsForDomainResponse = ListTagsForDomainResponse'
-    { _ltfdrStatus  :: !Int
-    , _ltfdrTagList :: ![Tag]
+    { _ltfdrsStatus  :: !Int
+    , _ltfdrsTagList :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForDomainResponse' smart constructor.
 listTagsForDomainResponse :: Int -> ListTagsForDomainResponse
 listTagsForDomainResponse pStatus =
     ListTagsForDomainResponse'
-    { _ltfdrStatus = pStatus
-    , _ltfdrTagList = mempty
+    { _ltfdrsStatus = pStatus
+    , _ltfdrsTagList = mempty
     }
 
 -- | FIXME: Undocumented member.
-ltfdrStatus :: Lens' ListTagsForDomainResponse Int
-ltfdrStatus = lens _ltfdrStatus (\ s a -> s{_ltfdrStatus = a});
+ltfdrsStatus :: Lens' ListTagsForDomainResponse Int
+ltfdrsStatus = lens _ltfdrsStatus (\ s a -> s{_ltfdrsStatus = a});
 
 -- | A list of the tags that are associated with the specified domain.
 --
@@ -143,5 +143,5 @@ ltfdrStatus = lens _ltfdrStatus (\ s a -> s{_ltfdrStatus = a});
 --
 --     Type: String
 --
-ltfdrTagList :: Lens' ListTagsForDomainResponse [Tag]
-ltfdrTagList = lens _ltfdrTagList (\ s a -> s{_ltfdrTagList = a});
+ltfdrsTagList :: Lens' ListTagsForDomainResponse [Tag]
+ltfdrsTagList = lens _ltfdrsTagList (\ s a -> s{_ltfdrsTagList = a});

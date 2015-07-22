@@ -37,16 +37,16 @@ module Network.AWS.ElastiCache.RebootCacheCluster
     -- ** Request constructor
     , rebootCacheCluster
     -- ** Request lenses
-    , rccCacheClusterId
-    , rccCacheNodeIdsToReboot
+    , rccrqCacheClusterId
+    , rccrqCacheNodeIdsToReboot
 
     -- * Response
     , RebootCacheClusterResponse
     -- ** Response constructor
     , rebootCacheClusterResponse
     -- ** Response lenses
-    , rccrCacheCluster
-    , rccrStatus
+    , rccrsCacheCluster
+    , rccrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -60,32 +60,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rccCacheClusterId'
+-- * 'rccrqCacheClusterId'
 --
--- * 'rccCacheNodeIdsToReboot'
+-- * 'rccrqCacheNodeIdsToReboot'
 data RebootCacheCluster = RebootCacheCluster'
-    { _rccCacheClusterId       :: !Text
-    , _rccCacheNodeIdsToReboot :: ![Text]
+    { _rccrqCacheClusterId       :: !Text
+    , _rccrqCacheNodeIdsToReboot :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCacheCluster' smart constructor.
 rebootCacheCluster :: Text -> RebootCacheCluster
 rebootCacheCluster pCacheClusterId =
     RebootCacheCluster'
-    { _rccCacheClusterId = pCacheClusterId
-    , _rccCacheNodeIdsToReboot = mempty
+    { _rccrqCacheClusterId = pCacheClusterId
+    , _rccrqCacheNodeIdsToReboot = mempty
     }
 
 -- | The cache cluster identifier. This parameter is stored as a lowercase
 -- string.
-rccCacheClusterId :: Lens' RebootCacheCluster Text
-rccCacheClusterId = lens _rccCacheClusterId (\ s a -> s{_rccCacheClusterId = a});
+rccrqCacheClusterId :: Lens' RebootCacheCluster Text
+rccrqCacheClusterId = lens _rccrqCacheClusterId (\ s a -> s{_rccrqCacheClusterId = a});
 
 -- | A list of cache node IDs to reboot. A node ID is a numeric identifier
 -- (0001, 0002, etc.). To reboot an entire cache cluster, specify all of
 -- the cache node IDs.
-rccCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
-rccCacheNodeIdsToReboot = lens _rccCacheNodeIdsToReboot (\ s a -> s{_rccCacheNodeIdsToReboot = a});
+rccrqCacheNodeIdsToReboot :: Lens' RebootCacheCluster [Text]
+rccrqCacheNodeIdsToReboot = lens _rccrqCacheNodeIdsToReboot (\ s a -> s{_rccrqCacheNodeIdsToReboot = a});
 
 instance AWSRequest RebootCacheCluster where
         type Sv RebootCacheCluster = ElastiCache
@@ -109,34 +109,34 @@ instance ToQuery RebootCacheCluster where
           = mconcat
               ["Action" =: ("RebootCacheCluster" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheClusterId" =: _rccCacheClusterId,
+               "CacheClusterId" =: _rccrqCacheClusterId,
                "CacheNodeIdsToReboot" =:
-                 toQueryList "CacheNodeId" _rccCacheNodeIdsToReboot]
+                 toQueryList "CacheNodeId" _rccrqCacheNodeIdsToReboot]
 
 -- | /See:/ 'rebootCacheClusterResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rccrCacheCluster'
+-- * 'rccrsCacheCluster'
 --
--- * 'rccrStatus'
+-- * 'rccrsStatus'
 data RebootCacheClusterResponse = RebootCacheClusterResponse'
-    { _rccrCacheCluster :: !(Maybe CacheCluster)
-    , _rccrStatus       :: !Int
+    { _rccrsCacheCluster :: !(Maybe CacheCluster)
+    , _rccrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootCacheClusterResponse' smart constructor.
 rebootCacheClusterResponse :: Int -> RebootCacheClusterResponse
 rebootCacheClusterResponse pStatus =
     RebootCacheClusterResponse'
-    { _rccrCacheCluster = Nothing
-    , _rccrStatus = pStatus
+    { _rccrsCacheCluster = Nothing
+    , _rccrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rccrCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
-rccrCacheCluster = lens _rccrCacheCluster (\ s a -> s{_rccrCacheCluster = a});
+rccrsCacheCluster :: Lens' RebootCacheClusterResponse (Maybe CacheCluster)
+rccrsCacheCluster = lens _rccrsCacheCluster (\ s a -> s{_rccrsCacheCluster = a});
 
 -- | FIXME: Undocumented member.
-rccrStatus :: Lens' RebootCacheClusterResponse Int
-rccrStatus = lens _rccrStatus (\ s a -> s{_rccrStatus = a});
+rccrsStatus :: Lens' RebootCacheClusterResponse Int
+rccrsStatus = lens _rccrsStatus (\ s a -> s{_rccrsStatus = a});

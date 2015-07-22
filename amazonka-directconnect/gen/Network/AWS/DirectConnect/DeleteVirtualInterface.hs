@@ -27,15 +27,15 @@ module Network.AWS.DirectConnect.DeleteVirtualInterface
     -- ** Request constructor
     , deleteVirtualInterface
     -- ** Request lenses
-    , delVirtualInterfaceId
+    , drqVirtualInterfaceId
 
     -- * Response
     , DeleteVirtualInterfaceResponse
     -- ** Response constructor
     , deleteVirtualInterfaceResponse
     -- ** Response lenses
-    , dvirVirtualInterfaceState
-    , dvirStatus
+    , drsVirtualInterfaceState
+    , drsStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delVirtualInterfaceId'
+-- * 'drqVirtualInterfaceId'
 newtype DeleteVirtualInterface = DeleteVirtualInterface'
-    { _delVirtualInterfaceId :: Text
+    { _drqVirtualInterfaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualInterface' smart constructor.
 deleteVirtualInterface :: Text -> DeleteVirtualInterface
 deleteVirtualInterface pVirtualInterfaceId =
     DeleteVirtualInterface'
-    { _delVirtualInterfaceId = pVirtualInterfaceId
+    { _drqVirtualInterfaceId = pVirtualInterfaceId
     }
 
 -- | FIXME: Undocumented member.
-delVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
-delVirtualInterfaceId = lens _delVirtualInterfaceId (\ s a -> s{_delVirtualInterfaceId = a});
+drqVirtualInterfaceId :: Lens' DeleteVirtualInterface Text
+drqVirtualInterfaceId = lens _drqVirtualInterfaceId (\ s a -> s{_drqVirtualInterfaceId = a});
 
 instance AWSRequest DeleteVirtualInterface where
         type Sv DeleteVirtualInterface = DirectConnect
@@ -90,7 +90,7 @@ instance ToHeaders DeleteVirtualInterface where
 instance ToJSON DeleteVirtualInterface where
         toJSON DeleteVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _delVirtualInterfaceId]
+              ["virtualInterfaceId" .= _drqVirtualInterfaceId]
 
 instance ToPath DeleteVirtualInterface where
         toPath = const "/"
@@ -104,26 +104,26 @@ instance ToQuery DeleteVirtualInterface where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvirVirtualInterfaceState'
+-- * 'drsVirtualInterfaceState'
 --
--- * 'dvirStatus'
+-- * 'drsStatus'
 data DeleteVirtualInterfaceResponse = DeleteVirtualInterfaceResponse'
-    { _dvirVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _dvirStatus                :: !Int
+    { _drsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
+    , _drsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVirtualInterfaceResponse' smart constructor.
 deleteVirtualInterfaceResponse :: Int -> DeleteVirtualInterfaceResponse
 deleteVirtualInterfaceResponse pStatus =
     DeleteVirtualInterfaceResponse'
-    { _dvirVirtualInterfaceState = Nothing
-    , _dvirStatus = pStatus
+    { _drsVirtualInterfaceState = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dvirVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-dvirVirtualInterfaceState = lens _dvirVirtualInterfaceState (\ s a -> s{_dvirVirtualInterfaceState = a});
+drsVirtualInterfaceState :: Lens' DeleteVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+drsVirtualInterfaceState = lens _drsVirtualInterfaceState (\ s a -> s{_drsVirtualInterfaceState = a});
 
 -- | FIXME: Undocumented member.
-dvirStatus :: Lens' DeleteVirtualInterfaceResponse Int
-dvirStatus = lens _dvirStatus (\ s a -> s{_dvirStatus = a});
+drsStatus :: Lens' DeleteVirtualInterfaceResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

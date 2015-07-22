@@ -37,24 +37,24 @@ module Network.AWS.EC2.DescribeSpotPriceHistory
     -- ** Request constructor
     , describeSpotPriceHistory
     -- ** Request lenses
-    , dsphInstanceTypes
-    , dsphStartTime
-    , dsphFilters
-    , dsphNextToken
-    , dsphAvailabilityZone
-    , dsphEndTime
-    , dsphProductDescriptions
-    , dsphDryRun
-    , dsphMaxResults
+    , dsphrqInstanceTypes
+    , dsphrqStartTime
+    , dsphrqFilters
+    , dsphrqNextToken
+    , dsphrqAvailabilityZone
+    , dsphrqEndTime
+    , dsphrqProductDescriptions
+    , dsphrqDryRun
+    , dsphrqMaxResults
 
     -- * Response
     , DescribeSpotPriceHistoryResponse
     -- ** Response constructor
     , describeSpotPriceHistoryResponse
     -- ** Response lenses
-    , dsphrNextToken
-    , dsphrSpotPriceHistory
-    , dsphrStatus
+    , dsphrsNextToken
+    , dsphrsSpotPriceHistory
+    , dsphrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -69,59 +69,59 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsphInstanceTypes'
+-- * 'dsphrqInstanceTypes'
 --
--- * 'dsphStartTime'
+-- * 'dsphrqStartTime'
 --
--- * 'dsphFilters'
+-- * 'dsphrqFilters'
 --
--- * 'dsphNextToken'
+-- * 'dsphrqNextToken'
 --
--- * 'dsphAvailabilityZone'
+-- * 'dsphrqAvailabilityZone'
 --
--- * 'dsphEndTime'
+-- * 'dsphrqEndTime'
 --
--- * 'dsphProductDescriptions'
+-- * 'dsphrqProductDescriptions'
 --
--- * 'dsphDryRun'
+-- * 'dsphrqDryRun'
 --
--- * 'dsphMaxResults'
+-- * 'dsphrqMaxResults'
 data DescribeSpotPriceHistory = DescribeSpotPriceHistory'
-    { _dsphInstanceTypes       :: !(Maybe [InstanceType])
-    , _dsphStartTime           :: !(Maybe ISO8601)
-    , _dsphFilters             :: !(Maybe [Filter])
-    , _dsphNextToken           :: !(Maybe Text)
-    , _dsphAvailabilityZone    :: !(Maybe Text)
-    , _dsphEndTime             :: !(Maybe ISO8601)
-    , _dsphProductDescriptions :: !(Maybe [Text])
-    , _dsphDryRun              :: !(Maybe Bool)
-    , _dsphMaxResults          :: !(Maybe Int)
+    { _dsphrqInstanceTypes       :: !(Maybe [InstanceType])
+    , _dsphrqStartTime           :: !(Maybe ISO8601)
+    , _dsphrqFilters             :: !(Maybe [Filter])
+    , _dsphrqNextToken           :: !(Maybe Text)
+    , _dsphrqAvailabilityZone    :: !(Maybe Text)
+    , _dsphrqEndTime             :: !(Maybe ISO8601)
+    , _dsphrqProductDescriptions :: !(Maybe [Text])
+    , _dsphrqDryRun              :: !(Maybe Bool)
+    , _dsphrqMaxResults          :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotPriceHistory' smart constructor.
 describeSpotPriceHistory :: DescribeSpotPriceHistory
 describeSpotPriceHistory =
     DescribeSpotPriceHistory'
-    { _dsphInstanceTypes = Nothing
-    , _dsphStartTime = Nothing
-    , _dsphFilters = Nothing
-    , _dsphNextToken = Nothing
-    , _dsphAvailabilityZone = Nothing
-    , _dsphEndTime = Nothing
-    , _dsphProductDescriptions = Nothing
-    , _dsphDryRun = Nothing
-    , _dsphMaxResults = Nothing
+    { _dsphrqInstanceTypes = Nothing
+    , _dsphrqStartTime = Nothing
+    , _dsphrqFilters = Nothing
+    , _dsphrqNextToken = Nothing
+    , _dsphrqAvailabilityZone = Nothing
+    , _dsphrqEndTime = Nothing
+    , _dsphrqProductDescriptions = Nothing
+    , _dsphrqDryRun = Nothing
+    , _dsphrqMaxResults = Nothing
     }
 
 -- | Filters the results by the specified instance types.
-dsphInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
-dsphInstanceTypes = lens _dsphInstanceTypes (\ s a -> s{_dsphInstanceTypes = a}) . _Default;
+dsphrqInstanceTypes :: Lens' DescribeSpotPriceHistory [InstanceType]
+dsphrqInstanceTypes = lens _dsphrqInstanceTypes (\ s a -> s{_dsphrqInstanceTypes = a}) . _Default;
 
 -- | The date and time, up to the past 90 days, from which to start
 -- retrieving the price history data, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-dsphStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
-dsphStartTime = lens _dsphStartTime (\ s a -> s{_dsphStartTime = a}) . mapping _Time;
+dsphrqStartTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
+dsphrqStartTime = lens _dsphrqStartTime (\ s a -> s{_dsphrqStartTime = a}) . mapping _Time;
 
 -- | One or more filters.
 --
@@ -143,47 +143,47 @@ dsphStartTime = lens _dsphStartTime (\ s a -> s{_dsphStartTime = a}) . mapping _
 --     wildcards (* and ?). Greater than or less than comparison is not
 --     supported.
 --
-dsphFilters :: Lens' DescribeSpotPriceHistory [Filter]
-dsphFilters = lens _dsphFilters (\ s a -> s{_dsphFilters = a}) . _Default;
+dsphrqFilters :: Lens' DescribeSpotPriceHistory [Filter]
+dsphrqFilters = lens _dsphrqFilters (\ s a -> s{_dsphrqFilters = a}) . _Default;
 
 -- | The token for the next set of results.
-dsphNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
-dsphNextToken = lens _dsphNextToken (\ s a -> s{_dsphNextToken = a});
+dsphrqNextToken :: Lens' DescribeSpotPriceHistory (Maybe Text)
+dsphrqNextToken = lens _dsphrqNextToken (\ s a -> s{_dsphrqNextToken = a});
 
 -- | Filters the results by the specified Availability Zone.
-dsphAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
-dsphAvailabilityZone = lens _dsphAvailabilityZone (\ s a -> s{_dsphAvailabilityZone = a});
+dsphrqAvailabilityZone :: Lens' DescribeSpotPriceHistory (Maybe Text)
+dsphrqAvailabilityZone = lens _dsphrqAvailabilityZone (\ s a -> s{_dsphrqAvailabilityZone = a});
 
 -- | The date and time, up to the current date, from which to stop retrieving
 -- the price history data, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-dsphEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
-dsphEndTime = lens _dsphEndTime (\ s a -> s{_dsphEndTime = a}) . mapping _Time;
+dsphrqEndTime :: Lens' DescribeSpotPriceHistory (Maybe UTCTime)
+dsphrqEndTime = lens _dsphrqEndTime (\ s a -> s{_dsphrqEndTime = a}) . mapping _Time;
 
 -- | Filters the results by the specified basic product descriptions.
-dsphProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
-dsphProductDescriptions = lens _dsphProductDescriptions (\ s a -> s{_dsphProductDescriptions = a}) . _Default;
+dsphrqProductDescriptions :: Lens' DescribeSpotPriceHistory [Text]
+dsphrqProductDescriptions = lens _dsphrqProductDescriptions (\ s a -> s{_dsphrqProductDescriptions = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsphDryRun :: Lens' DescribeSpotPriceHistory (Maybe Bool)
-dsphDryRun = lens _dsphDryRun (\ s a -> s{_dsphDryRun = a});
+dsphrqDryRun :: Lens' DescribeSpotPriceHistory (Maybe Bool)
+dsphrqDryRun = lens _dsphrqDryRun (\ s a -> s{_dsphrqDryRun = a});
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
-dsphMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
-dsphMaxResults = lens _dsphMaxResults (\ s a -> s{_dsphMaxResults = a});
+dsphrqMaxResults :: Lens' DescribeSpotPriceHistory (Maybe Int)
+dsphrqMaxResults = lens _dsphrqMaxResults (\ s a -> s{_dsphrqMaxResults = a});
 
 instance AWSPager DescribeSpotPriceHistory where
         page rq rs
-          | stop (rs ^. dsphrNextToken) = Nothing
-          | stop (rs ^. dsphrSpotPriceHistory) = Nothing
+          | stop (rs ^. dsphrsNextToken) = Nothing
+          | stop (rs ^. dsphrsSpotPriceHistory) = Nothing
           | otherwise =
-            Just $ rq & dsphNextToken .~ rs ^. dsphrNextToken
+            Just $ rq & dsphrqNextToken .~ rs ^. dsphrsNextToken
 
 instance AWSRequest DescribeSpotPriceHistory where
         type Sv DescribeSpotPriceHistory = EC2
@@ -212,17 +212,18 @@ instance ToQuery DescribeSpotPriceHistory where
                  ("DescribeSpotPriceHistory" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "InstanceType" <$> _dsphInstanceTypes),
-               "StartTime" =: _dsphStartTime,
-               toQuery (toQueryList "Filter" <$> _dsphFilters),
-               "NextToken" =: _dsphNextToken,
-               "AvailabilityZone" =: _dsphAvailabilityZone,
-               "EndTime" =: _dsphEndTime,
+                 (toQueryList "InstanceType" <$>
+                    _dsphrqInstanceTypes),
+               "StartTime" =: _dsphrqStartTime,
+               toQuery (toQueryList "Filter" <$> _dsphrqFilters),
+               "NextToken" =: _dsphrqNextToken,
+               "AvailabilityZone" =: _dsphrqAvailabilityZone,
+               "EndTime" =: _dsphrqEndTime,
                toQuery
                  (toQueryList "ProductDescription" <$>
-                    _dsphProductDescriptions),
-               "DryRun" =: _dsphDryRun,
-               "MaxResults" =: _dsphMaxResults]
+                    _dsphrqProductDescriptions),
+               "DryRun" =: _dsphrqDryRun,
+               "MaxResults" =: _dsphrqMaxResults]
 
 -- | Contains the output of DescribeSpotPriceHistory.
 --
@@ -230,35 +231,35 @@ instance ToQuery DescribeSpotPriceHistory where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsphrNextToken'
+-- * 'dsphrsNextToken'
 --
--- * 'dsphrSpotPriceHistory'
+-- * 'dsphrsSpotPriceHistory'
 --
--- * 'dsphrStatus'
+-- * 'dsphrsStatus'
 data DescribeSpotPriceHistoryResponse = DescribeSpotPriceHistoryResponse'
-    { _dsphrNextToken        :: !(Maybe Text)
-    , _dsphrSpotPriceHistory :: !(Maybe [SpotPrice])
-    , _dsphrStatus           :: !Int
+    { _dsphrsNextToken        :: !(Maybe Text)
+    , _dsphrsSpotPriceHistory :: !(Maybe [SpotPrice])
+    , _dsphrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotPriceHistoryResponse' smart constructor.
 describeSpotPriceHistoryResponse :: Int -> DescribeSpotPriceHistoryResponse
 describeSpotPriceHistoryResponse pStatus =
     DescribeSpotPriceHistoryResponse'
-    { _dsphrNextToken = Nothing
-    , _dsphrSpotPriceHistory = Nothing
-    , _dsphrStatus = pStatus
+    { _dsphrsNextToken = Nothing
+    , _dsphrsSpotPriceHistory = Nothing
+    , _dsphrsStatus = pStatus
     }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
-dsphrNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
-dsphrNextToken = lens _dsphrNextToken (\ s a -> s{_dsphrNextToken = a});
+dsphrsNextToken :: Lens' DescribeSpotPriceHistoryResponse (Maybe Text)
+dsphrsNextToken = lens _dsphrsNextToken (\ s a -> s{_dsphrsNextToken = a});
 
 -- | The historical Spot Prices.
-dsphrSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
-dsphrSpotPriceHistory = lens _dsphrSpotPriceHistory (\ s a -> s{_dsphrSpotPriceHistory = a}) . _Default;
+dsphrsSpotPriceHistory :: Lens' DescribeSpotPriceHistoryResponse [SpotPrice]
+dsphrsSpotPriceHistory = lens _dsphrsSpotPriceHistory (\ s a -> s{_dsphrsSpotPriceHistory = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsphrStatus :: Lens' DescribeSpotPriceHistoryResponse Int
-dsphrStatus = lens _dsphrStatus (\ s a -> s{_dsphrStatus = a});
+dsphrsStatus :: Lens' DescribeSpotPriceHistoryResponse Int
+dsphrsStatus = lens _dsphrsStatus (\ s a -> s{_dsphrsStatus = a});

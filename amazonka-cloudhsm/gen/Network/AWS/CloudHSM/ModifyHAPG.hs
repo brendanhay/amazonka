@@ -27,17 +27,17 @@ module Network.AWS.CloudHSM.ModifyHAPG
     -- ** Request constructor
     , modifyHAPG
     -- ** Request lenses
-    , mhPartitionSerialList
-    , mhLabel
-    , mhHAPGARN
+    , mhrqPartitionSerialList
+    , mhrqLabel
+    , mhrqHAPGARN
 
     -- * Response
     , ModifyHAPGResponse
     -- ** Response constructor
     , modifyHAPGResponse
     -- ** Response lenses
-    , mhrHAPGARN
-    , mhrStatus
+    , mhrsHAPGARN
+    , mhrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -49,38 +49,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mhPartitionSerialList'
+-- * 'mhrqPartitionSerialList'
 --
--- * 'mhLabel'
+-- * 'mhrqLabel'
 --
--- * 'mhHAPGARN'
+-- * 'mhrqHAPGARN'
 data ModifyHAPG = ModifyHAPG'
-    { _mhPartitionSerialList :: !(Maybe [Text])
-    , _mhLabel               :: !(Maybe Text)
-    , _mhHAPGARN             :: !Text
+    { _mhrqPartitionSerialList :: !(Maybe [Text])
+    , _mhrqLabel               :: !(Maybe Text)
+    , _mhrqHAPGARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHAPG' smart constructor.
 modifyHAPG :: Text -> ModifyHAPG
 modifyHAPG pHAPGARN =
     ModifyHAPG'
-    { _mhPartitionSerialList = Nothing
-    , _mhLabel = Nothing
-    , _mhHAPGARN = pHAPGARN
+    { _mhrqPartitionSerialList = Nothing
+    , _mhrqLabel = Nothing
+    , _mhrqHAPGARN = pHAPGARN
     }
 
 -- | The list of partition serial numbers to make members of the
 -- high-availability partition group.
-mhPartitionSerialList :: Lens' ModifyHAPG [Text]
-mhPartitionSerialList = lens _mhPartitionSerialList (\ s a -> s{_mhPartitionSerialList = a}) . _Default;
+mhrqPartitionSerialList :: Lens' ModifyHAPG [Text]
+mhrqPartitionSerialList = lens _mhrqPartitionSerialList (\ s a -> s{_mhrqPartitionSerialList = a}) . _Default;
 
 -- | The new label for the high-availability partition group.
-mhLabel :: Lens' ModifyHAPG (Maybe Text)
-mhLabel = lens _mhLabel (\ s a -> s{_mhLabel = a});
+mhrqLabel :: Lens' ModifyHAPG (Maybe Text)
+mhrqLabel = lens _mhrqLabel (\ s a -> s{_mhrqLabel = a});
 
 -- | The ARN of the high-availability partition group to modify.
-mhHAPGARN :: Lens' ModifyHAPG Text
-mhHAPGARN = lens _mhHAPGARN (\ s a -> s{_mhHAPGARN = a});
+mhrqHAPGARN :: Lens' ModifyHAPG Text
+mhrqHAPGARN = lens _mhrqHAPGARN (\ s a -> s{_mhrqHAPGARN = a});
 
 instance AWSRequest ModifyHAPG where
         type Sv ModifyHAPG = CloudHSM
@@ -104,8 +104,8 @@ instance ToHeaders ModifyHAPG where
 instance ToJSON ModifyHAPG where
         toJSON ModifyHAPG'{..}
           = object
-              ["PartitionSerialList" .= _mhPartitionSerialList,
-               "Label" .= _mhLabel, "HapgArn" .= _mhHAPGARN]
+              ["PartitionSerialList" .= _mhrqPartitionSerialList,
+               "Label" .= _mhrqLabel, "HapgArn" .= _mhrqHAPGARN]
 
 instance ToPath ModifyHAPG where
         toPath = const "/"
@@ -117,26 +117,26 @@ instance ToQuery ModifyHAPG where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mhrHAPGARN'
+-- * 'mhrsHAPGARN'
 --
--- * 'mhrStatus'
+-- * 'mhrsStatus'
 data ModifyHAPGResponse = ModifyHAPGResponse'
-    { _mhrHAPGARN :: !(Maybe Text)
-    , _mhrStatus  :: !Int
+    { _mhrsHAPGARN :: !(Maybe Text)
+    , _mhrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHAPGResponse' smart constructor.
 modifyHAPGResponse :: Int -> ModifyHAPGResponse
 modifyHAPGResponse pStatus =
     ModifyHAPGResponse'
-    { _mhrHAPGARN = Nothing
-    , _mhrStatus = pStatus
+    { _mhrsHAPGARN = Nothing
+    , _mhrsStatus = pStatus
     }
 
 -- | The ARN of the high-availability partition group.
-mhrHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
-mhrHAPGARN = lens _mhrHAPGARN (\ s a -> s{_mhrHAPGARN = a});
+mhrsHAPGARN :: Lens' ModifyHAPGResponse (Maybe Text)
+mhrsHAPGARN = lens _mhrsHAPGARN (\ s a -> s{_mhrsHAPGARN = a});
 
 -- | FIXME: Undocumented member.
-mhrStatus :: Lens' ModifyHAPGResponse Int
-mhrStatus = lens _mhrStatus (\ s a -> s{_mhrStatus = a});
+mhrsStatus :: Lens' ModifyHAPGResponse Int
+mhrsStatus = lens _mhrsStatus (\ s a -> s{_mhrsStatus = a});

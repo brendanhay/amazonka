@@ -52,18 +52,18 @@ module Network.AWS.CloudSearchDomains.UploadDocuments
     -- ** Request constructor
     , uploadDocuments
     -- ** Request lenses
-    , udContentType
-    , udDocuments
+    , udrqContentType
+    , udrqDocuments
 
     -- * Response
     , UploadDocumentsResponse
     -- ** Response constructor
     , uploadDocumentsResponse
     -- ** Response lenses
-    , udrAdds
-    , udrWarnings
-    , udrDeletes
-    , udrStatus
+    , udrsAdds
+    , udrsWarnings
+    , udrsDeletes
+    , udrsStatus
     ) where
 
 import           Network.AWS.CloudSearchDomains.Types
@@ -77,20 +77,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udContentType'
+-- * 'udrqContentType'
 --
--- * 'udDocuments'
+-- * 'udrqDocuments'
 data UploadDocuments = UploadDocuments'
-    { _udContentType :: !ContentType
-    , _udDocuments   :: !RqBody
+    { _udrqContentType :: !ContentType
+    , _udrqDocuments   :: !RqBody
     } deriving (Show,Generic)
 
 -- | 'UploadDocuments' smart constructor.
 uploadDocuments :: ContentType -> RqBody -> UploadDocuments
 uploadDocuments pContentType pDocuments =
     UploadDocuments'
-    { _udContentType = pContentType
-    , _udDocuments = pDocuments
+    { _udrqContentType = pContentType
+    , _udrqDocuments = pDocuments
     }
 
 -- | The format of the batch you are uploading. Amazon CloudSearch supports
@@ -98,12 +98,12 @@ uploadDocuments pContentType pDocuments =
 --
 -- -   application\/json
 -- -   application\/xml
-udContentType :: Lens' UploadDocuments ContentType
-udContentType = lens _udContentType (\ s a -> s{_udContentType = a});
+udrqContentType :: Lens' UploadDocuments ContentType
+udrqContentType = lens _udrqContentType (\ s a -> s{_udrqContentType = a});
 
 -- | A batch of documents formatted in JSON or HTML.
-udDocuments :: Lens' UploadDocuments RqBody
-udDocuments = lens _udDocuments (\ s a -> s{_udDocuments = a});
+udrqDocuments :: Lens' UploadDocuments RqBody
+udrqDocuments = lens _udrqDocuments (\ s a -> s{_udrqDocuments = a});
 
 instance AWSRequest UploadDocuments where
         type Sv UploadDocuments = CloudSearchDomains
@@ -118,12 +118,12 @@ instance AWSRequest UploadDocuments where
                      <*> (pure (fromEnum s)))
 
 instance ToBody UploadDocuments where
-        toBody = _udDocuments
+        toBody = _udrqDocuments
 
 instance ToHeaders UploadDocuments where
         toHeaders UploadDocuments'{..}
           = mconcat
-              ["Content-Type" =# _udContentType,
+              ["Content-Type" =# _udrqContentType,
                "Content-Type" =#
                  ("application/x-amz-json-1.1" :: ByteString)]
 
@@ -139,43 +139,43 @@ instance ToQuery UploadDocuments where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udrAdds'
+-- * 'udrsAdds'
 --
--- * 'udrWarnings'
+-- * 'udrsWarnings'
 --
--- * 'udrDeletes'
+-- * 'udrsDeletes'
 --
--- * 'udrStatus'
+-- * 'udrsStatus'
 data UploadDocumentsResponse = UploadDocumentsResponse'
-    { _udrAdds     :: !(Maybe Integer)
-    , _udrWarnings :: !(Maybe [DocumentServiceWarning])
-    , _udrDeletes  :: !(Maybe Integer)
-    , _udrStatus   :: !Int
+    { _udrsAdds     :: !(Maybe Integer)
+    , _udrsWarnings :: !(Maybe [DocumentServiceWarning])
+    , _udrsDeletes  :: !(Maybe Integer)
+    , _udrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadDocumentsResponse' smart constructor.
 uploadDocumentsResponse :: Int -> UploadDocumentsResponse
 uploadDocumentsResponse pStatus =
     UploadDocumentsResponse'
-    { _udrAdds = Nothing
-    , _udrWarnings = Nothing
-    , _udrDeletes = Nothing
-    , _udrStatus = pStatus
+    { _udrsAdds = Nothing
+    , _udrsWarnings = Nothing
+    , _udrsDeletes = Nothing
+    , _udrsStatus = pStatus
     }
 
 -- | The number of documents that were added to the search domain.
-udrAdds :: Lens' UploadDocumentsResponse (Maybe Integer)
-udrAdds = lens _udrAdds (\ s a -> s{_udrAdds = a});
+udrsAdds :: Lens' UploadDocumentsResponse (Maybe Integer)
+udrsAdds = lens _udrsAdds (\ s a -> s{_udrsAdds = a});
 
 -- | Any warnings returned by the document service about the documents being
 -- uploaded.
-udrWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
-udrWarnings = lens _udrWarnings (\ s a -> s{_udrWarnings = a}) . _Default;
+udrsWarnings :: Lens' UploadDocumentsResponse [DocumentServiceWarning]
+udrsWarnings = lens _udrsWarnings (\ s a -> s{_udrsWarnings = a}) . _Default;
 
 -- | The number of documents that were deleted from the search domain.
-udrDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
-udrDeletes = lens _udrDeletes (\ s a -> s{_udrDeletes = a});
+udrsDeletes :: Lens' UploadDocumentsResponse (Maybe Integer)
+udrsDeletes = lens _udrsDeletes (\ s a -> s{_udrsDeletes = a});
 
 -- | FIXME: Undocumented member.
-udrStatus :: Lens' UploadDocumentsResponse Int
-udrStatus = lens _udrStatus (\ s a -> s{_udrStatus = a});
+udrsStatus :: Lens' UploadDocumentsResponse Int
+udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});

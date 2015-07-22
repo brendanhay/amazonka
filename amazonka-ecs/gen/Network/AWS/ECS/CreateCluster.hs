@@ -30,15 +30,15 @@ module Network.AWS.ECS.CreateCluster
     -- ** Request constructor
     , createCluster
     -- ** Request lenses
-    , ccClusterName
+    , ccrqClusterName
 
     -- * Response
     , CreateClusterResponse
     -- ** Response constructor
     , createClusterResponse
     -- ** Response lenses
-    , ccrCluster
-    , ccrStatus
+    , ccrsCluster
+    , ccrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -50,23 +50,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccClusterName'
+-- * 'ccrqClusterName'
 newtype CreateCluster = CreateCluster'
-    { _ccClusterName :: Maybe Text
+    { _ccrqClusterName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: CreateCluster
 createCluster =
     CreateCluster'
-    { _ccClusterName = Nothing
+    { _ccrqClusterName = Nothing
     }
 
 -- | The name of your cluster. If you do not specify a name for your cluster,
 -- you will create a cluster named @default@. Up to 255 letters (uppercase
 -- and lowercase), numbers, hyphens, and underscores are allowed.
-ccClusterName :: Lens' CreateCluster (Maybe Text)
-ccClusterName = lens _ccClusterName (\ s a -> s{_ccClusterName = a});
+ccrqClusterName :: Lens' CreateCluster (Maybe Text)
+ccrqClusterName = lens _ccrqClusterName (\ s a -> s{_ccrqClusterName = a});
 
 instance AWSRequest CreateCluster where
         type Sv CreateCluster = ECS
@@ -90,7 +90,7 @@ instance ToHeaders CreateCluster where
 
 instance ToJSON CreateCluster where
         toJSON CreateCluster'{..}
-          = object ["clusterName" .= _ccClusterName]
+          = object ["clusterName" .= _ccrqClusterName]
 
 instance ToPath CreateCluster where
         toPath = const "/"
@@ -102,26 +102,26 @@ instance ToQuery CreateCluster where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccrCluster'
+-- * 'ccrsCluster'
 --
--- * 'ccrStatus'
+-- * 'ccrsStatus'
 data CreateClusterResponse = CreateClusterResponse'
-    { _ccrCluster :: !(Maybe Cluster)
-    , _ccrStatus  :: !Int
+    { _ccrsCluster :: !(Maybe Cluster)
+    , _ccrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Int -> CreateClusterResponse
 createClusterResponse pStatus =
     CreateClusterResponse'
-    { _ccrCluster = Nothing
-    , _ccrStatus = pStatus
+    { _ccrsCluster = Nothing
+    , _ccrsStatus = pStatus
     }
 
 -- | The full description of your new cluster.
-ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
-ccrCluster = lens _ccrCluster (\ s a -> s{_ccrCluster = a});
+ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
+ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 
 -- | FIXME: Undocumented member.
-ccrStatus :: Lens' CreateClusterResponse Int
-ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});
+ccrsStatus :: Lens' CreateClusterResponse Int
+ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

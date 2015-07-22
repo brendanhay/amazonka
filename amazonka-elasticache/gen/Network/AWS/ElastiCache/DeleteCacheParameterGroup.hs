@@ -29,7 +29,7 @@ module Network.AWS.ElastiCache.DeleteCacheParameterGroup
     -- ** Request constructor
     , deleteCacheParameterGroup
     -- ** Request lenses
-    , delCacheParameterGroupName
+    , drqCacheParameterGroupName
 
     -- * Response
     , DeleteCacheParameterGroupResponse
@@ -48,24 +48,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delCacheParameterGroupName'
+-- * 'drqCacheParameterGroupName'
 newtype DeleteCacheParameterGroup = DeleteCacheParameterGroup'
-    { _delCacheParameterGroupName :: Text
+    { _drqCacheParameterGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheParameterGroup' smart constructor.
 deleteCacheParameterGroup :: Text -> DeleteCacheParameterGroup
 deleteCacheParameterGroup pCacheParameterGroupName =
     DeleteCacheParameterGroup'
-    { _delCacheParameterGroupName = pCacheParameterGroupName
+    { _drqCacheParameterGroupName = pCacheParameterGroupName
     }
 
 -- | The name of the cache parameter group to delete.
 --
 -- The specified cache security group must not be associated with any cache
 -- clusters.
-delCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
-delCacheParameterGroupName = lens _delCacheParameterGroupName (\ s a -> s{_delCacheParameterGroupName = a});
+drqCacheParameterGroupName :: Lens' DeleteCacheParameterGroup Text
+drqCacheParameterGroupName = lens _drqCacheParameterGroupName (\ s a -> s{_drqCacheParameterGroupName = a});
 
 instance AWSRequest DeleteCacheParameterGroup where
         type Sv DeleteCacheParameterGroup = ElastiCache
@@ -88,7 +88,7 @@ instance ToQuery DeleteCacheParameterGroup where
                  ("DeleteCacheParameterGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheParameterGroupName" =:
-                 _delCacheParameterGroupName]
+                 _drqCacheParameterGroupName]
 
 -- | /See:/ 'deleteCacheParameterGroupResponse' smart constructor.
 data DeleteCacheParameterGroupResponse =

@@ -38,16 +38,16 @@ module Network.AWS.ECS.UpdateContainerAgent
     -- ** Request constructor
     , updateContainerAgent
     -- ** Request lenses
-    , ucaCluster
-    , ucaContainerInstance
+    , ucarqCluster
+    , ucarqContainerInstance
 
     -- * Response
     , UpdateContainerAgentResponse
     -- ** Response constructor
     , updateContainerAgentResponse
     -- ** Response lenses
-    , ucarContainerInstance
-    , ucarStatus
+    , ucarsContainerInstance
+    , ucarsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -59,33 +59,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ucaCluster'
+-- * 'ucarqCluster'
 --
--- * 'ucaContainerInstance'
+-- * 'ucarqContainerInstance'
 data UpdateContainerAgent = UpdateContainerAgent'
-    { _ucaCluster           :: !(Maybe Text)
-    , _ucaContainerInstance :: !Text
+    { _ucarqCluster           :: !(Maybe Text)
+    , _ucarqContainerInstance :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateContainerAgent' smart constructor.
 updateContainerAgent :: Text -> UpdateContainerAgent
 updateContainerAgent pContainerInstance =
     UpdateContainerAgent'
-    { _ucaCluster = Nothing
-    , _ucaContainerInstance = pContainerInstance
+    { _ucarqCluster = Nothing
+    , _ucarqContainerInstance = pContainerInstance
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- your container instance is running on. If you do not specify a cluster,
 -- the default cluster is assumed.
-ucaCluster :: Lens' UpdateContainerAgent (Maybe Text)
-ucaCluster = lens _ucaCluster (\ s a -> s{_ucaCluster = a});
+ucarqCluster :: Lens' UpdateContainerAgent (Maybe Text)
+ucarqCluster = lens _ucarqCluster (\ s a -> s{_ucarqCluster = a});
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) entries
 -- for the container instance on which you would like to update the Amazon
 -- ECS container agent.
-ucaContainerInstance :: Lens' UpdateContainerAgent Text
-ucaContainerInstance = lens _ucaContainerInstance (\ s a -> s{_ucaContainerInstance = a});
+ucarqContainerInstance :: Lens' UpdateContainerAgent Text
+ucarqContainerInstance = lens _ucarqContainerInstance (\ s a -> s{_ucarqContainerInstance = a});
 
 instance AWSRequest UpdateContainerAgent where
         type Sv UpdateContainerAgent = ECS
@@ -111,8 +111,8 @@ instance ToHeaders UpdateContainerAgent where
 instance ToJSON UpdateContainerAgent where
         toJSON UpdateContainerAgent'{..}
           = object
-              ["cluster" .= _ucaCluster,
-               "containerInstance" .= _ucaContainerInstance]
+              ["cluster" .= _ucarqCluster,
+               "containerInstance" .= _ucarqContainerInstance]
 
 instance ToPath UpdateContainerAgent where
         toPath = const "/"
@@ -124,26 +124,26 @@ instance ToQuery UpdateContainerAgent where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ucarContainerInstance'
+-- * 'ucarsContainerInstance'
 --
--- * 'ucarStatus'
+-- * 'ucarsStatus'
 data UpdateContainerAgentResponse = UpdateContainerAgentResponse'
-    { _ucarContainerInstance :: !(Maybe ContainerInstance)
-    , _ucarStatus            :: !Int
+    { _ucarsContainerInstance :: !(Maybe ContainerInstance)
+    , _ucarsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateContainerAgentResponse' smart constructor.
 updateContainerAgentResponse :: Int -> UpdateContainerAgentResponse
 updateContainerAgentResponse pStatus =
     UpdateContainerAgentResponse'
-    { _ucarContainerInstance = Nothing
-    , _ucarStatus = pStatus
+    { _ucarsContainerInstance = Nothing
+    , _ucarsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ucarContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
-ucarContainerInstance = lens _ucarContainerInstance (\ s a -> s{_ucarContainerInstance = a});
+ucarsContainerInstance :: Lens' UpdateContainerAgentResponse (Maybe ContainerInstance)
+ucarsContainerInstance = lens _ucarsContainerInstance (\ s a -> s{_ucarsContainerInstance = a});
 
 -- | FIXME: Undocumented member.
-ucarStatus :: Lens' UpdateContainerAgentResponse Int
-ucarStatus = lens _ucarStatus (\ s a -> s{_ucarStatus = a});
+ucarsStatus :: Lens' UpdateContainerAgentResponse Int
+ucarsStatus = lens _ucarsStatus (\ s a -> s{_ucarsStatus = a});

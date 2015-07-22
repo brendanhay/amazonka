@@ -36,17 +36,17 @@ module Network.AWS.EC2.DescribeRouteTables
     -- ** Request constructor
     , describeRouteTables
     -- ** Request lenses
-    , drtsFilters
-    , drtsDryRun
-    , drtsRouteTableIds
+    , drtsrqFilters
+    , drtsrqDryRun
+    , drtsrqRouteTableIds
 
     -- * Response
     , DescribeRouteTablesResponse
     -- ** Response constructor
     , describeRouteTablesResponse
     -- ** Response lenses
-    , drtrRouteTables
-    , drtrStatus
+    , drtsrsRouteTables
+    , drtsrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drtsFilters'
+-- * 'drtsrqFilters'
 --
--- * 'drtsDryRun'
+-- * 'drtsrqDryRun'
 --
--- * 'drtsRouteTableIds'
+-- * 'drtsrqRouteTableIds'
 data DescribeRouteTables = DescribeRouteTables'
-    { _drtsFilters       :: !(Maybe [Filter])
-    , _drtsDryRun        :: !(Maybe Bool)
-    , _drtsRouteTableIds :: !(Maybe [Text])
+    { _drtsrqFilters       :: !(Maybe [Filter])
+    , _drtsrqDryRun        :: !(Maybe Bool)
+    , _drtsrqRouteTableIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRouteTables' smart constructor.
 describeRouteTables :: DescribeRouteTables
 describeRouteTables =
     DescribeRouteTables'
-    { _drtsFilters = Nothing
-    , _drtsDryRun = Nothing
-    , _drtsRouteTableIds = Nothing
+    { _drtsrqFilters = Nothing
+    , _drtsrqDryRun = Nothing
+    , _drtsrqRouteTableIds = Nothing
     }
 
 -- | One or more filters.
@@ -138,21 +138,21 @@ describeRouteTables =
 --
 -- -   @vpc-id@ - The ID of the VPC for the route table.
 --
-drtsFilters :: Lens' DescribeRouteTables [Filter]
-drtsFilters = lens _drtsFilters (\ s a -> s{_drtsFilters = a}) . _Default;
+drtsrqFilters :: Lens' DescribeRouteTables [Filter]
+drtsrqFilters = lens _drtsrqFilters (\ s a -> s{_drtsrqFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-drtsDryRun :: Lens' DescribeRouteTables (Maybe Bool)
-drtsDryRun = lens _drtsDryRun (\ s a -> s{_drtsDryRun = a});
+drtsrqDryRun :: Lens' DescribeRouteTables (Maybe Bool)
+drtsrqDryRun = lens _drtsrqDryRun (\ s a -> s{_drtsrqDryRun = a});
 
 -- | One or more route table IDs.
 --
 -- Default: Describes all your route tables.
-drtsRouteTableIds :: Lens' DescribeRouteTables [Text]
-drtsRouteTableIds = lens _drtsRouteTableIds (\ s a -> s{_drtsRouteTableIds = a}) . _Default;
+drtsrqRouteTableIds :: Lens' DescribeRouteTables [Text]
+drtsrqRouteTableIds = lens _drtsrqRouteTableIds (\ s a -> s{_drtsrqRouteTableIds = a}) . _Default;
 
 instance AWSRequest DescribeRouteTables where
         type Sv DescribeRouteTables = EC2
@@ -178,34 +178,35 @@ instance ToQuery DescribeRouteTables where
           = mconcat
               ["Action" =: ("DescribeRouteTables" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drtsFilters),
-               "DryRun" =: _drtsDryRun,
-               toQuery (toQueryList "item" <$> _drtsRouteTableIds)]
+               toQuery (toQueryList "Filter" <$> _drtsrqFilters),
+               "DryRun" =: _drtsrqDryRun,
+               toQuery
+                 (toQueryList "item" <$> _drtsrqRouteTableIds)]
 
 -- | /See:/ 'describeRouteTablesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drtrRouteTables'
+-- * 'drtsrsRouteTables'
 --
--- * 'drtrStatus'
+-- * 'drtsrsStatus'
 data DescribeRouteTablesResponse = DescribeRouteTablesResponse'
-    { _drtrRouteTables :: !(Maybe [RouteTable])
-    , _drtrStatus      :: !Int
+    { _drtsrsRouteTables :: !(Maybe [RouteTable])
+    , _drtsrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRouteTablesResponse' smart constructor.
 describeRouteTablesResponse :: Int -> DescribeRouteTablesResponse
 describeRouteTablesResponse pStatus =
     DescribeRouteTablesResponse'
-    { _drtrRouteTables = Nothing
-    , _drtrStatus = pStatus
+    { _drtsrsRouteTables = Nothing
+    , _drtsrsStatus = pStatus
     }
 
 -- | Information about one or more route tables.
-drtrRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
-drtrRouteTables = lens _drtrRouteTables (\ s a -> s{_drtrRouteTables = a}) . _Default;
+drtsrsRouteTables :: Lens' DescribeRouteTablesResponse [RouteTable]
+drtsrsRouteTables = lens _drtsrsRouteTables (\ s a -> s{_drtsrsRouteTables = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drtrStatus :: Lens' DescribeRouteTablesResponse Int
-drtrStatus = lens _drtrStatus (\ s a -> s{_drtrStatus = a});
+drtsrsStatus :: Lens' DescribeRouteTablesResponse Int
+drtsrsStatus = lens _drtsrsStatus (\ s a -> s{_drtsrsStatus = a});

@@ -30,9 +30,9 @@ module Network.AWS.ElasticBeanstalk.DeleteApplicationVersion
     -- ** Request constructor
     , deleteApplicationVersion
     -- ** Request lenses
-    , davDeleteSourceBundle
-    , davApplicationName
-    , davVersionLabel
+    , davrqDeleteSourceBundle
+    , davrqApplicationName
+    , davrqVersionLabel
 
     -- * Response
     , DeleteApplicationVersionResponse
@@ -51,24 +51,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'davDeleteSourceBundle'
+-- * 'davrqDeleteSourceBundle'
 --
--- * 'davApplicationName'
+-- * 'davrqApplicationName'
 --
--- * 'davVersionLabel'
+-- * 'davrqVersionLabel'
 data DeleteApplicationVersion = DeleteApplicationVersion'
-    { _davDeleteSourceBundle :: !(Maybe Bool)
-    , _davApplicationName    :: !Text
-    , _davVersionLabel       :: !Text
+    { _davrqDeleteSourceBundle :: !(Maybe Bool)
+    , _davrqApplicationName    :: !Text
+    , _davrqVersionLabel       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteApplicationVersion' smart constructor.
 deleteApplicationVersion :: Text -> Text -> DeleteApplicationVersion
 deleteApplicationVersion pApplicationName pVersionLabel =
     DeleteApplicationVersion'
-    { _davDeleteSourceBundle = Nothing
-    , _davApplicationName = pApplicationName
-    , _davVersionLabel = pVersionLabel
+    { _davrqDeleteSourceBundle = Nothing
+    , _davrqApplicationName = pApplicationName
+    , _davrqVersionLabel = pVersionLabel
     }
 
 -- | Indicates whether to delete the associated source bundle from Amazon S3:
@@ -79,16 +79,16 @@ deleteApplicationVersion pApplicationName pVersionLabel =
 --     at time of creation.
 --
 -- Valid Values: @true@ | @false@
-davDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
-davDeleteSourceBundle = lens _davDeleteSourceBundle (\ s a -> s{_davDeleteSourceBundle = a});
+davrqDeleteSourceBundle :: Lens' DeleteApplicationVersion (Maybe Bool)
+davrqDeleteSourceBundle = lens _davrqDeleteSourceBundle (\ s a -> s{_davrqDeleteSourceBundle = a});
 
 -- | The name of the application to delete releases from.
-davApplicationName :: Lens' DeleteApplicationVersion Text
-davApplicationName = lens _davApplicationName (\ s a -> s{_davApplicationName = a});
+davrqApplicationName :: Lens' DeleteApplicationVersion Text
+davrqApplicationName = lens _davrqApplicationName (\ s a -> s{_davrqApplicationName = a});
 
 -- | The label of the version to delete.
-davVersionLabel :: Lens' DeleteApplicationVersion Text
-davVersionLabel = lens _davVersionLabel (\ s a -> s{_davVersionLabel = a});
+davrqVersionLabel :: Lens' DeleteApplicationVersion Text
+davrqVersionLabel = lens _davrqVersionLabel (\ s a -> s{_davrqVersionLabel = a});
 
 instance AWSRequest DeleteApplicationVersion where
         type Sv DeleteApplicationVersion = ElasticBeanstalk
@@ -110,9 +110,9 @@ instance ToQuery DeleteApplicationVersion where
               ["Action" =:
                  ("DeleteApplicationVersion" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "DeleteSourceBundle" =: _davDeleteSourceBundle,
-               "ApplicationName" =: _davApplicationName,
-               "VersionLabel" =: _davVersionLabel]
+               "DeleteSourceBundle" =: _davrqDeleteSourceBundle,
+               "ApplicationName" =: _davrqApplicationName,
+               "VersionLabel" =: _davrqVersionLabel]
 
 -- | /See:/ 'deleteApplicationVersionResponse' smart constructor.
 data DeleteApplicationVersionResponse =

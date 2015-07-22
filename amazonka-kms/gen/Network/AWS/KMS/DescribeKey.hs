@@ -27,15 +27,15 @@ module Network.AWS.KMS.DescribeKey
     -- ** Request constructor
     , describeKey
     -- ** Request lenses
-    , desKeyId
+    , drqKeyId
 
     -- * Response
     , DescribeKeyResponse
     -- ** Response constructor
     , describeKeyResponse
     -- ** Response lenses
-    , dkrKeyMetadata
-    , dkrStatus
+    , drsKeyMetadata
+    , drsStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -47,16 +47,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desKeyId'
+-- * 'drqKeyId'
 newtype DescribeKey = DescribeKey'
-    { _desKeyId :: Text
+    { _drqKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKey' smart constructor.
 describeKey :: Text -> DescribeKey
 describeKey pKeyId =
     DescribeKey'
-    { _desKeyId = pKeyId
+    { _drqKeyId = pKeyId
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -70,8 +70,8 @@ describeKey pKeyId =
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
-desKeyId :: Lens' DescribeKey Text
-desKeyId = lens _desKeyId (\ s a -> s{_desKeyId = a});
+drqKeyId :: Lens' DescribeKey Text
+drqKeyId = lens _drqKeyId (\ s a -> s{_drqKeyId = a});
 
 instance AWSRequest DescribeKey where
         type Sv DescribeKey = KMS
@@ -94,7 +94,7 @@ instance ToHeaders DescribeKey where
 
 instance ToJSON DescribeKey where
         toJSON DescribeKey'{..}
-          = object ["KeyId" .= _desKeyId]
+          = object ["KeyId" .= _drqKeyId]
 
 instance ToPath DescribeKey where
         toPath = const "/"
@@ -106,26 +106,26 @@ instance ToQuery DescribeKey where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dkrKeyMetadata'
+-- * 'drsKeyMetadata'
 --
--- * 'dkrStatus'
+-- * 'drsStatus'
 data DescribeKeyResponse = DescribeKeyResponse'
-    { _dkrKeyMetadata :: !(Maybe KeyMetadata)
-    , _dkrStatus      :: !Int
+    { _drsKeyMetadata :: !(Maybe KeyMetadata)
+    , _drsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyResponse' smart constructor.
 describeKeyResponse :: Int -> DescribeKeyResponse
 describeKeyResponse pStatus =
     DescribeKeyResponse'
-    { _dkrKeyMetadata = Nothing
-    , _dkrStatus = pStatus
+    { _drsKeyMetadata = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | Metadata associated with the key.
-dkrKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
-dkrKeyMetadata = lens _dkrKeyMetadata (\ s a -> s{_dkrKeyMetadata = a});
+drsKeyMetadata :: Lens' DescribeKeyResponse (Maybe KeyMetadata)
+drsKeyMetadata = lens _drsKeyMetadata (\ s a -> s{_drsKeyMetadata = a});
 
 -- | FIXME: Undocumented member.
-dkrStatus :: Lens' DescribeKeyResponse Int
-dkrStatus = lens _dkrStatus (\ s a -> s{_dkrStatus = a});
+drsStatus :: Lens' DescribeKeyResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

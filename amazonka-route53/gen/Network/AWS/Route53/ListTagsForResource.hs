@@ -27,16 +27,16 @@ module Network.AWS.Route53.ListTagsForResource
     -- ** Request constructor
     , listTagsForResource
     -- ** Request lenses
-    , ltfrResourceType
-    , ltfrResourceId
+    , ltfrrqResourceType
+    , ltfrrqResourceId
 
     -- * Response
     , ListTagsForResourceResponse
     -- ** Response constructor
     , listTagsForResourceResponse
     -- ** Response lenses
-    , ltfrrStatus
-    , ltfrrResourceTagSet
+    , ltfrrsStatus
+    , ltfrrsResourceTagSet
     ) where
 
 import           Network.AWS.Prelude
@@ -51,20 +51,20 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrResourceType'
+-- * 'ltfrrqResourceType'
 --
--- * 'ltfrResourceId'
+-- * 'ltfrrqResourceId'
 data ListTagsForResource = ListTagsForResource'
-    { _ltfrResourceType :: !TagResourceType
-    , _ltfrResourceId   :: !Text
+    { _ltfrrqResourceType :: !TagResourceType
+    , _ltfrrqResourceId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: TagResourceType -> Text -> ListTagsForResource
 listTagsForResource pResourceType pResourceId =
     ListTagsForResource'
-    { _ltfrResourceType = pResourceType
-    , _ltfrResourceId = pResourceId
+    { _ltfrrqResourceType = pResourceType
+    , _ltfrrqResourceId = pResourceId
     }
 
 -- | The type of the resource.
@@ -72,12 +72,12 @@ listTagsForResource pResourceType pResourceId =
 -- - The resource type for health checks is @healthcheck@.
 --
 -- - The resource type for hosted zones is @hostedzone@.
-ltfrResourceType :: Lens' ListTagsForResource TagResourceType
-ltfrResourceType = lens _ltfrResourceType (\ s a -> s{_ltfrResourceType = a});
+ltfrrqResourceType :: Lens' ListTagsForResource TagResourceType
+ltfrrqResourceType = lens _ltfrrqResourceType (\ s a -> s{_ltfrrqResourceType = a});
 
 -- | The ID of the resource for which you want to retrieve tags.
-ltfrResourceId :: Lens' ListTagsForResource Text
-ltfrResourceId = lens _ltfrResourceId (\ s a -> s{_ltfrResourceId = a});
+ltfrrqResourceId :: Lens' ListTagsForResource Text
+ltfrrqResourceId = lens _ltfrrqResourceId (\ s a -> s{_ltfrrqResourceId = a});
 
 instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = Route53
@@ -96,8 +96,8 @@ instance ToHeaders ListTagsForResource where
 instance ToPath ListTagsForResource where
         toPath ListTagsForResource'{..}
           = mconcat
-              ["/2013-04-01/tags/", toText _ltfrResourceType, "/",
-               toText _ltfrResourceId]
+              ["/2013-04-01/tags/", toText _ltfrrqResourceType,
+               "/", toText _ltfrrqResourceId]
 
 instance ToQuery ListTagsForResource where
         toQuery = const mempty
@@ -108,27 +108,27 @@ instance ToQuery ListTagsForResource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrrStatus'
+-- * 'ltfrrsStatus'
 --
--- * 'ltfrrResourceTagSet'
+-- * 'ltfrrsResourceTagSet'
 data ListTagsForResourceResponse = ListTagsForResourceResponse'
-    { _ltfrrStatus         :: !Int
-    , _ltfrrResourceTagSet :: !ResourceTagSet
+    { _ltfrrsStatus         :: !Int
+    , _ltfrrsResourceTagSet :: !ResourceTagSet
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResourceResponse' smart constructor.
 listTagsForResourceResponse :: Int -> ResourceTagSet -> ListTagsForResourceResponse
 listTagsForResourceResponse pStatus pResourceTagSet =
     ListTagsForResourceResponse'
-    { _ltfrrStatus = pStatus
-    , _ltfrrResourceTagSet = pResourceTagSet
+    { _ltfrrsStatus = pStatus
+    , _ltfrrsResourceTagSet = pResourceTagSet
     }
 
 -- | FIXME: Undocumented member.
-ltfrrStatus :: Lens' ListTagsForResourceResponse Int
-ltfrrStatus = lens _ltfrrStatus (\ s a -> s{_ltfrrStatus = a});
+ltfrrsStatus :: Lens' ListTagsForResourceResponse Int
+ltfrrsStatus = lens _ltfrrsStatus (\ s a -> s{_ltfrrsStatus = a});
 
 -- | A @ResourceTagSet@ containing tags associated with the specified
 -- resource.
-ltfrrResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
-ltfrrResourceTagSet = lens _ltfrrResourceTagSet (\ s a -> s{_ltfrrResourceTagSet = a});
+ltfrrsResourceTagSet :: Lens' ListTagsForResourceResponse ResourceTagSet
+ltfrrsResourceTagSet = lens _ltfrrsResourceTagSet (\ s a -> s{_ltfrrsResourceTagSet = a});

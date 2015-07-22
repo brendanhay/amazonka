@@ -60,17 +60,17 @@ module Network.AWS.EC2.StopInstances
     -- ** Request constructor
     , stopInstances
     -- ** Request lenses
-    , siForce
-    , siDryRun
-    , siInstanceIds
+    , sirqForce
+    , sirqDryRun
+    , sirqInstanceIds
 
     -- * Response
     , StopInstancesResponse
     -- ** Response constructor
     , stopInstancesResponse
     -- ** Response lenses
-    , stoStoppingInstances
-    , stoStatus
+    , sirsStoppingInstances
+    , sirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -82,24 +82,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siForce'
+-- * 'sirqForce'
 --
--- * 'siDryRun'
+-- * 'sirqDryRun'
 --
--- * 'siInstanceIds'
+-- * 'sirqInstanceIds'
 data StopInstances = StopInstances'
-    { _siForce       :: !(Maybe Bool)
-    , _siDryRun      :: !(Maybe Bool)
-    , _siInstanceIds :: ![Text]
+    { _sirqForce       :: !(Maybe Bool)
+    , _sirqDryRun      :: !(Maybe Bool)
+    , _sirqInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstances' smart constructor.
 stopInstances :: StopInstances
 stopInstances =
     StopInstances'
-    { _siForce = Nothing
-    , _siDryRun = Nothing
-    , _siInstanceIds = mempty
+    { _sirqForce = Nothing
+    , _sirqDryRun = Nothing
+    , _sirqInstanceIds = mempty
     }
 
 -- | Forces the instances to stop. The instances do not have an opportunity
@@ -108,19 +108,19 @@ stopInstances =
 -- option is not recommended for Windows instances.
 --
 -- Default: @false@
-siForce :: Lens' StopInstances (Maybe Bool)
-siForce = lens _siForce (\ s a -> s{_siForce = a});
+sirqForce :: Lens' StopInstances (Maybe Bool)
+sirqForce = lens _sirqForce (\ s a -> s{_sirqForce = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-siDryRun :: Lens' StopInstances (Maybe Bool)
-siDryRun = lens _siDryRun (\ s a -> s{_siDryRun = a});
+sirqDryRun :: Lens' StopInstances (Maybe Bool)
+sirqDryRun = lens _sirqDryRun (\ s a -> s{_sirqDryRun = a});
 
 -- | One or more instance IDs.
-siInstanceIds :: Lens' StopInstances [Text]
-siInstanceIds = lens _siInstanceIds (\ s a -> s{_siInstanceIds = a});
+sirqInstanceIds :: Lens' StopInstances [Text]
+sirqInstanceIds = lens _sirqInstanceIds (\ s a -> s{_sirqInstanceIds = a});
 
 instance AWSRequest StopInstances where
         type Sv StopInstances = EC2
@@ -145,33 +145,33 @@ instance ToQuery StopInstances where
           = mconcat
               ["Action" =: ("StopInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Force" =: _siForce, "DryRun" =: _siDryRun,
-               toQueryList "InstanceId" _siInstanceIds]
+               "Force" =: _sirqForce, "DryRun" =: _sirqDryRun,
+               toQueryList "InstanceId" _sirqInstanceIds]
 
 -- | /See:/ 'stopInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stoStoppingInstances'
+-- * 'sirsStoppingInstances'
 --
--- * 'stoStatus'
+-- * 'sirsStatus'
 data StopInstancesResponse = StopInstancesResponse'
-    { _stoStoppingInstances :: !(Maybe [InstanceStateChange])
-    , _stoStatus            :: !Int
+    { _sirsStoppingInstances :: !(Maybe [InstanceStateChange])
+    , _sirsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstancesResponse' smart constructor.
 stopInstancesResponse :: Int -> StopInstancesResponse
 stopInstancesResponse pStatus =
     StopInstancesResponse'
-    { _stoStoppingInstances = Nothing
-    , _stoStatus = pStatus
+    { _sirsStoppingInstances = Nothing
+    , _sirsStatus = pStatus
     }
 
 -- | Information about one or more stopped instances.
-stoStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
-stoStoppingInstances = lens _stoStoppingInstances (\ s a -> s{_stoStoppingInstances = a}) . _Default;
+sirsStoppingInstances :: Lens' StopInstancesResponse [InstanceStateChange]
+sirsStoppingInstances = lens _sirsStoppingInstances (\ s a -> s{_sirsStoppingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-stoStatus :: Lens' StopInstancesResponse Int
-stoStatus = lens _stoStatus (\ s a -> s{_stoStatus = a});
+sirsStatus :: Lens' StopInstancesResponse Int
+sirsStatus = lens _sirsStatus (\ s a -> s{_sirsStatus = a});

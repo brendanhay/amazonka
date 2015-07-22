@@ -29,15 +29,15 @@ module Network.AWS.StorageGateway.DescribeChapCredentials
     -- ** Request constructor
     , describeChapCredentials
     -- ** Request lenses
-    , dccTargetARN
+    , dccrqTargetARN
 
     -- * Response
     , DescribeChapCredentialsResponse
     -- ** Response constructor
     , describeChapCredentialsResponse
     -- ** Response lenses
-    , dccrChapCredentials
-    , dccrStatus
+    , dccrsChapCredentials
+    , dccrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,23 +52,23 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccTargetARN'
+-- * 'dccrqTargetARN'
 newtype DescribeChapCredentials = DescribeChapCredentials'
-    { _dccTargetARN :: Text
+    { _dccrqTargetARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeChapCredentials' smart constructor.
 describeChapCredentials :: Text -> DescribeChapCredentials
 describeChapCredentials pTargetARN =
     DescribeChapCredentials'
-    { _dccTargetARN = pTargetARN
+    { _dccrqTargetARN = pTargetARN
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-dccTargetARN :: Lens' DescribeChapCredentials Text
-dccTargetARN = lens _dccTargetARN (\ s a -> s{_dccTargetARN = a});
+dccrqTargetARN :: Lens' DescribeChapCredentials Text
+dccrqTargetARN = lens _dccrqTargetARN (\ s a -> s{_dccrqTargetARN = a});
 
 instance AWSRequest DescribeChapCredentials where
         type Sv DescribeChapCredentials = StorageGateway
@@ -94,7 +94,7 @@ instance ToHeaders DescribeChapCredentials where
 
 instance ToJSON DescribeChapCredentials where
         toJSON DescribeChapCredentials'{..}
-          = object ["TargetARN" .= _dccTargetARN]
+          = object ["TargetARN" .= _dccrqTargetARN]
 
 instance ToPath DescribeChapCredentials where
         toPath = const "/"
@@ -108,20 +108,20 @@ instance ToQuery DescribeChapCredentials where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccrChapCredentials'
+-- * 'dccrsChapCredentials'
 --
--- * 'dccrStatus'
+-- * 'dccrsStatus'
 data DescribeChapCredentialsResponse = DescribeChapCredentialsResponse'
-    { _dccrChapCredentials :: !(Maybe [ChapInfo])
-    , _dccrStatus          :: !Int
+    { _dccrsChapCredentials :: !(Maybe [ChapInfo])
+    , _dccrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeChapCredentialsResponse' smart constructor.
 describeChapCredentialsResponse :: Int -> DescribeChapCredentialsResponse
 describeChapCredentialsResponse pStatus =
     DescribeChapCredentialsResponse'
-    { _dccrChapCredentials = Nothing
-    , _dccrStatus = pStatus
+    { _dccrsChapCredentials = Nothing
+    , _dccrsStatus = pStatus
     }
 
 -- | An array of ChapInfo objects that represent CHAP credentials. Each
@@ -142,9 +142,9 @@ describeChapCredentialsResponse pStatus =
 --
 -- -   __TargetARN__: The Amazon Resource Name (ARN) of the storage volume.
 --
-dccrChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
-dccrChapCredentials = lens _dccrChapCredentials (\ s a -> s{_dccrChapCredentials = a}) . _Default;
+dccrsChapCredentials :: Lens' DescribeChapCredentialsResponse [ChapInfo]
+dccrsChapCredentials = lens _dccrsChapCredentials (\ s a -> s{_dccrsChapCredentials = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dccrStatus :: Lens' DescribeChapCredentialsResponse Int
-dccrStatus = lens _dccrStatus (\ s a -> s{_dccrStatus = a});
+dccrsStatus :: Lens' DescribeChapCredentialsResponse Int
+dccrsStatus = lens _dccrsStatus (\ s a -> s{_dccrsStatus = a});

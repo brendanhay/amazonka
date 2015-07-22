@@ -34,15 +34,15 @@ module Network.AWS.CloudSearch.DescribeDomains
     -- ** Request constructor
     , describeDomains
     -- ** Request lenses
-    , ddDomainNames
+    , ddrqDomainNames
 
     -- * Response
     , DescribeDomainsResponse
     -- ** Response constructor
     , describeDomainsResponse
     -- ** Response lenses
-    , descStatus
-    , descDomainStatusList
+    , ddrsStatus
+    , ddrsDomainStatusList
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -59,21 +59,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddDomainNames'
+-- * 'ddrqDomainNames'
 newtype DescribeDomains = DescribeDomains'
-    { _ddDomainNames :: Maybe [Text]
+    { _ddrqDomainNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomains' smart constructor.
 describeDomains :: DescribeDomains
 describeDomains =
     DescribeDomains'
-    { _ddDomainNames = Nothing
+    { _ddrqDomainNames = Nothing
     }
 
 -- | The names of the domains you want to include in the response.
-ddDomainNames :: Lens' DescribeDomains [Text]
-ddDomainNames = lens _ddDomainNames (\ s a -> s{_ddDomainNames = a}) . _Default;
+ddrqDomainNames :: Lens' DescribeDomains [Text]
+ddrqDomainNames = lens _ddrqDomainNames (\ s a -> s{_ddrqDomainNames = a}) . _Default;
 
 instance AWSRequest DescribeDomains where
         type Sv DescribeDomains = CloudSearch
@@ -99,7 +99,7 @@ instance ToQuery DescribeDomains where
               ["Action" =: ("DescribeDomains" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
                "DomainNames" =:
-                 toQuery (toQueryList "member" <$> _ddDomainNames)]
+                 toQuery (toQueryList "member" <$> _ddrqDomainNames)]
 
 -- | The result of a @DescribeDomains@ request. Contains the status of the
 -- domains specified in the request or all domains owned by the account.
@@ -108,26 +108,26 @@ instance ToQuery DescribeDomains where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'descStatus'
+-- * 'ddrsStatus'
 --
--- * 'descDomainStatusList'
+-- * 'ddrsDomainStatusList'
 data DescribeDomainsResponse = DescribeDomainsResponse'
-    { _descStatus           :: !Int
-    , _descDomainStatusList :: ![DomainStatus]
+    { _ddrsStatus           :: !Int
+    , _ddrsDomainStatusList :: ![DomainStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomainsResponse' smart constructor.
 describeDomainsResponse :: Int -> DescribeDomainsResponse
 describeDomainsResponse pStatus =
     DescribeDomainsResponse'
-    { _descStatus = pStatus
-    , _descDomainStatusList = mempty
+    { _ddrsStatus = pStatus
+    , _ddrsDomainStatusList = mempty
     }
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeDomainsResponse Int
-descStatus = lens _descStatus (\ s a -> s{_descStatus = a});
+ddrsStatus :: Lens' DescribeDomainsResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
 
 -- | FIXME: Undocumented member.
-descDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
-descDomainStatusList = lens _descDomainStatusList (\ s a -> s{_descDomainStatusList = a});
+ddrsDomainStatusList :: Lens' DescribeDomainsResponse [DomainStatus]
+ddrsDomainStatusList = lens _ddrsDomainStatusList (\ s a -> s{_ddrsDomainStatusList = a});

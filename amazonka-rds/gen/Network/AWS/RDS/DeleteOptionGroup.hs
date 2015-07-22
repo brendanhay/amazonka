@@ -27,7 +27,7 @@ module Network.AWS.RDS.DeleteOptionGroup
     -- ** Request constructor
     , deleteOptionGroup
     -- ** Request lenses
-    , delOptionGroupName
+    , drqOptionGroupName
 
     -- * Response
     , DeleteOptionGroupResponse
@@ -46,23 +46,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delOptionGroupName'
+-- * 'drqOptionGroupName'
 newtype DeleteOptionGroup = DeleteOptionGroup'
-    { _delOptionGroupName :: Text
+    { _drqOptionGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteOptionGroup' smart constructor.
 deleteOptionGroup :: Text -> DeleteOptionGroup
 deleteOptionGroup pOptionGroupName =
     DeleteOptionGroup'
-    { _delOptionGroupName = pOptionGroupName
+    { _drqOptionGroupName = pOptionGroupName
     }
 
 -- | The name of the option group to be deleted.
 --
 -- You cannot delete default option groups.
-delOptionGroupName :: Lens' DeleteOptionGroup Text
-delOptionGroupName = lens _delOptionGroupName (\ s a -> s{_delOptionGroupName = a});
+drqOptionGroupName :: Lens' DeleteOptionGroup Text
+drqOptionGroupName = lens _drqOptionGroupName (\ s a -> s{_drqOptionGroupName = a});
 
 instance AWSRequest DeleteOptionGroup where
         type Sv DeleteOptionGroup = RDS
@@ -81,7 +81,7 @@ instance ToQuery DeleteOptionGroup where
           = mconcat
               ["Action" =: ("DeleteOptionGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "OptionGroupName" =: _delOptionGroupName]
+               "OptionGroupName" =: _drqOptionGroupName]
 
 -- | /See:/ 'deleteOptionGroupResponse' smart constructor.
 data DeleteOptionGroupResponse =

@@ -36,40 +36,40 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'artSizingPolicy'
+-- * 'aSizingPolicy'
 --
--- * 'artMaxHeight'
+-- * 'aMaxHeight'
 --
--- * 'artAlbumArtFormat'
+-- * 'aAlbumArtFormat'
 --
--- * 'artInputKey'
+-- * 'aInputKey'
 --
--- * 'artPaddingPolicy'
+-- * 'aPaddingPolicy'
 --
--- * 'artEncryption'
+-- * 'aEncryption'
 --
--- * 'artMaxWidth'
+-- * 'aMaxWidth'
 data Artwork = Artwork'
-    { _artSizingPolicy   :: !(Maybe Text)
-    , _artMaxHeight      :: !(Maybe Text)
-    , _artAlbumArtFormat :: !(Maybe Text)
-    , _artInputKey       :: !(Maybe Text)
-    , _artPaddingPolicy  :: !(Maybe Text)
-    , _artEncryption     :: !(Maybe Encryption)
-    , _artMaxWidth       :: !(Maybe Text)
+    { _aSizingPolicy   :: !(Maybe Text)
+    , _aMaxHeight      :: !(Maybe Text)
+    , _aAlbumArtFormat :: !(Maybe Text)
+    , _aInputKey       :: !(Maybe Text)
+    , _aPaddingPolicy  :: !(Maybe Text)
+    , _aEncryption     :: !(Maybe Encryption)
+    , _aMaxWidth       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Artwork' smart constructor.
 artwork :: Artwork
 artwork =
     Artwork'
-    { _artSizingPolicy = Nothing
-    , _artMaxHeight = Nothing
-    , _artAlbumArtFormat = Nothing
-    , _artInputKey = Nothing
-    , _artPaddingPolicy = Nothing
-    , _artEncryption = Nothing
-    , _artMaxWidth = Nothing
+    { _aSizingPolicy = Nothing
+    , _aMaxHeight = Nothing
+    , _aAlbumArtFormat = Nothing
+    , _aInputKey = Nothing
+    , _aPaddingPolicy = Nothing
+    , _aEncryption = Nothing
+    , _aMaxWidth = Nothing
     }
 
 -- | Specify one of the following values to control scaling of the output
@@ -99,18 +99,18 @@ artwork =
 --     of @MaxWidth@ and @MaxHeight@ without dropping below either value.
 --     If you specify this option, Elastic Transcoder does not scale the
 --     art up.
-artSizingPolicy :: Lens' Artwork (Maybe Text)
-artSizingPolicy = lens _artSizingPolicy (\ s a -> s{_artSizingPolicy = a});
+aSizingPolicy :: Lens' Artwork (Maybe Text)
+aSizingPolicy = lens _aSizingPolicy (\ s a -> s{_aSizingPolicy = a});
 
 -- | The maximum height of the output album art in pixels. If you specify
 -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
 -- a numeric value, enter an even integer between 32 and 3072, inclusive.
-artMaxHeight :: Lens' Artwork (Maybe Text)
-artMaxHeight = lens _artMaxHeight (\ s a -> s{_artMaxHeight = a});
+aMaxHeight :: Lens' Artwork (Maybe Text)
+aMaxHeight = lens _aMaxHeight (\ s a -> s{_aMaxHeight = a});
 
 -- | The format of album art, if any. Valid formats are @.jpg@ and @.png@.
-artAlbumArtFormat :: Lens' Artwork (Maybe Text)
-artAlbumArtFormat = lens _artAlbumArtFormat (\ s a -> s{_artAlbumArtFormat = a});
+aAlbumArtFormat :: Lens' Artwork (Maybe Text)
+aAlbumArtFormat = lens _aAlbumArtFormat (\ s a -> s{_aAlbumArtFormat = a});
 
 -- | The name of the file to be used as album art. To determine which Amazon
 -- S3 bucket contains the specified file, Elastic Transcoder checks the
@@ -120,26 +120,26 @@ artAlbumArtFormat = lens _artAlbumArtFormat (\ s a -> s{_artAlbumArtFormat = a})
 -- If the file name includes a prefix, for example, @cooking\/pie.jpg@,
 -- include the prefix in the key. If the file isn\'t in the specified
 -- bucket, Elastic Transcoder returns an error.
-artInputKey :: Lens' Artwork (Maybe Text)
-artInputKey = lens _artInputKey (\ s a -> s{_artInputKey = a});
+aInputKey :: Lens' Artwork (Maybe Text)
+aInputKey = lens _aInputKey (\ s a -> s{_aInputKey = a});
 
 -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add white
 -- bars to the top and bottom and\/or left and right sides of the output
 -- album art to make the total size of the output art match the values that
 -- you specified for @MaxWidth@ and @MaxHeight@.
-artPaddingPolicy :: Lens' Artwork (Maybe Text)
-artPaddingPolicy = lens _artPaddingPolicy (\ s a -> s{_artPaddingPolicy = a});
+aPaddingPolicy :: Lens' Artwork (Maybe Text)
+aPaddingPolicy = lens _aPaddingPolicy (\ s a -> s{_aPaddingPolicy = a});
 
 -- | The encryption settings, if any, that you want Elastic Transcoder to
 -- apply to your artwork.
-artEncryption :: Lens' Artwork (Maybe Encryption)
-artEncryption = lens _artEncryption (\ s a -> s{_artEncryption = a});
+aEncryption :: Lens' Artwork (Maybe Encryption)
+aEncryption = lens _aEncryption (\ s a -> s{_aEncryption = a});
 
 -- | The maximum width of the output album art in pixels. If you specify
 -- @auto@, Elastic Transcoder uses 600 as the default value. If you specify
 -- a numeric value, enter an even integer between 32 and 4096, inclusive.
-artMaxWidth :: Lens' Artwork (Maybe Text)
-artMaxWidth = lens _artMaxWidth (\ s a -> s{_artMaxWidth = a});
+aMaxWidth :: Lens' Artwork (Maybe Text)
+aMaxWidth = lens _aMaxWidth (\ s a -> s{_aMaxWidth = a});
 
 instance FromJSON Artwork where
         parseJSON
@@ -156,13 +156,13 @@ instance FromJSON Artwork where
 instance ToJSON Artwork where
         toJSON Artwork'{..}
           = object
-              ["SizingPolicy" .= _artSizingPolicy,
-               "MaxHeight" .= _artMaxHeight,
-               "AlbumArtFormat" .= _artAlbumArtFormat,
-               "InputKey" .= _artInputKey,
-               "PaddingPolicy" .= _artPaddingPolicy,
-               "Encryption" .= _artEncryption,
-               "MaxWidth" .= _artMaxWidth]
+              ["SizingPolicy" .= _aSizingPolicy,
+               "MaxHeight" .= _aMaxHeight,
+               "AlbumArtFormat" .= _aAlbumArtFormat,
+               "InputKey" .= _aInputKey,
+               "PaddingPolicy" .= _aPaddingPolicy,
+               "Encryption" .= _aEncryption,
+               "MaxWidth" .= _aMaxWidth]
 
 -- | Options associated with your audio codec.
 --
@@ -662,24 +662,24 @@ instance ToJSON CaptionSource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'capMergePolicy'
+-- * 'cMergePolicy'
 --
--- * 'capCaptionSources'
+-- * 'cCaptionSources'
 --
--- * 'capCaptionFormats'
+-- * 'cCaptionFormats'
 data Captions = Captions'
-    { _capMergePolicy    :: !(Maybe Text)
-    , _capCaptionSources :: !(Maybe [CaptionSource])
-    , _capCaptionFormats :: !(Maybe [CaptionFormat])
+    { _cMergePolicy    :: !(Maybe Text)
+    , _cCaptionSources :: !(Maybe [CaptionSource])
+    , _cCaptionFormats :: !(Maybe [CaptionFormat])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Captions' smart constructor.
 captions :: Captions
 captions =
     Captions'
-    { _capMergePolicy = Nothing
-    , _capCaptionSources = Nothing
-    , _capCaptionFormats = Nothing
+    { _cMergePolicy = Nothing
+    , _cCaptionSources = Nothing
+    , _cCaptionFormats = Nothing
     }
 
 -- | A policy that determines how Elastic Transcoder handles the existence of
@@ -702,18 +702,18 @@ captions =
 --     captions that you specify in @CaptionSources@.
 --
 -- @MergePolicy@ cannot be null.
-capMergePolicy :: Lens' Captions (Maybe Text)
-capMergePolicy = lens _capMergePolicy (\ s a -> s{_capMergePolicy = a});
+cMergePolicy :: Lens' Captions (Maybe Text)
+cMergePolicy = lens _cMergePolicy (\ s a -> s{_cMergePolicy = a});
 
 -- | Source files for the input sidecar captions used during the transcoding
 -- process. To omit all sidecar captions, leave @CaptionSources@ blank.
-capCaptionSources :: Lens' Captions [CaptionSource]
-capCaptionSources = lens _capCaptionSources (\ s a -> s{_capCaptionSources = a}) . _Default;
+cCaptionSources :: Lens' Captions [CaptionSource]
+cCaptionSources = lens _cCaptionSources (\ s a -> s{_cCaptionSources = a}) . _Default;
 
 -- | The array of file formats for the output captions. If you leave this
 -- value blank, Elastic Transcoder returns an error.
-capCaptionFormats :: Lens' Captions [CaptionFormat]
-capCaptionFormats = lens _capCaptionFormats (\ s a -> s{_capCaptionFormats = a}) . _Default;
+cCaptionFormats :: Lens' Captions [CaptionFormat]
+cCaptionFormats = lens _cCaptionFormats (\ s a -> s{_cCaptionFormats = a}) . _Default;
 
 instance FromJSON Captions where
         parseJSON
@@ -727,9 +727,9 @@ instance FromJSON Captions where
 instance ToJSON Captions where
         toJSON Captions'{..}
           = object
-              ["MergePolicy" .= _capMergePolicy,
-               "CaptionSources" .= _capCaptionSources,
-               "CaptionFormats" .= _capCaptionFormats]
+              ["MergePolicy" .= _cMergePolicy,
+               "CaptionSources" .= _cCaptionSources,
+               "CaptionFormats" .= _cCaptionFormats]
 
 -- | Settings for one clip in a composition. All jobs in a playlist must have
 -- the same clip settings.
@@ -738,21 +738,21 @@ instance ToJSON Captions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cliTimeSpan'
+-- * 'cTimeSpan'
 newtype Clip = Clip'
-    { _cliTimeSpan :: Maybe TimeSpan
+    { _cTimeSpan :: Maybe TimeSpan
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Clip' smart constructor.
 clip :: Clip
 clip =
     Clip'
-    { _cliTimeSpan = Nothing
+    { _cTimeSpan = Nothing
     }
 
 -- | Settings that determine when a clip begins and how long it lasts.
-cliTimeSpan :: Lens' Clip (Maybe TimeSpan)
-cliTimeSpan = lens _cliTimeSpan (\ s a -> s{_cliTimeSpan = a});
+cTimeSpan :: Lens' Clip (Maybe TimeSpan)
+cTimeSpan = lens _cTimeSpan (\ s a -> s{_cTimeSpan = a});
 
 instance FromJSON Clip where
         parseJSON
@@ -760,8 +760,7 @@ instance FromJSON Clip where
               (\ x -> Clip' <$> (x .:? "TimeSpan"))
 
 instance ToJSON Clip where
-        toJSON Clip'{..}
-          = object ["TimeSpan" .= _cliTimeSpan]
+        toJSON Clip'{..} = object ["TimeSpan" .= _cTimeSpan]
 
 -- | The @CreateJobOutput@ structure.
 --
@@ -1198,28 +1197,28 @@ instance ToJSON DetectedProperties where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'encKeyMD5'
+-- * 'eKeyMD5'
 --
--- * 'encMode'
+-- * 'eMode'
 --
--- * 'encKey'
+-- * 'eKey'
 --
--- * 'encInitializationVector'
+-- * 'eInitializationVector'
 data Encryption = Encryption'
-    { _encKeyMD5               :: !(Maybe Text)
-    , _encMode                 :: !(Maybe Text)
-    , _encKey                  :: !(Maybe Text)
-    , _encInitializationVector :: !(Maybe Text)
+    { _eKeyMD5               :: !(Maybe Text)
+    , _eMode                 :: !(Maybe Text)
+    , _eKey                  :: !(Maybe Text)
+    , _eInitializationVector :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Encryption' smart constructor.
 encryption :: Encryption
 encryption =
     Encryption'
-    { _encKeyMD5 = Nothing
-    , _encMode = Nothing
-    , _encKey = Nothing
-    , _encInitializationVector = Nothing
+    { _eKeyMD5 = Nothing
+    , _eMode = Nothing
+    , _eKey = Nothing
+    , _eInitializationVector = Nothing
     }
 
 -- | The MD5 digest of the key that you used to encrypt your input file, or
@@ -1227,8 +1226,8 @@ encryption =
 -- Elastic Transcoder uses the key digest as a checksum to make sure your
 -- key was not corrupted in transit. The key MD5 must be base64-encoded,
 -- and it must be exactly 16 bytes long before being base64-encoded.
-encKeyMD5 :: Lens' Encryption (Maybe Text)
-encKeyMD5 = lens _encKeyMD5 (\ s a -> s{_encKeyMD5 = a});
+eKeyMD5 :: Lens' Encryption (Maybe Text)
+eKeyMD5 = lens _eKeyMD5 (\ s a -> s{_eKeyMD5 = a});
 
 -- | The specific server-side encryption mode that you want Elastic
 -- Transcoder to use when decrypting your input files or encrypting your
@@ -1266,8 +1265,8 @@ encKeyMD5 = lens _encKeyMD5 (\ s a -> s{_encKeyMD5 = a});
 -- data are never stored by AWS; therefore, it is important that you safely
 -- manage your encryption keys. If you lose them, you won\'t be able to
 -- unencrypt your data.
-encMode :: Lens' Encryption (Maybe Text)
-encMode = lens _encMode (\ s a -> s{_encMode = a});
+eMode :: Lens' Encryption (Maybe Text)
+eMode = lens _eMode (\ s a -> s{_eMode = a});
 
 -- | The data encryption key that you want Elastic Transcoder to use to
 -- encrypt your output file, or that was used to encrypt your input file.
@@ -1278,16 +1277,16 @@ encMode = lens _encMode (\ s a -> s{_encMode = a});
 --
 -- The key must also be encrypted by using the Amazon Key Management
 -- Service.
-encKey :: Lens' Encryption (Maybe Text)
-encKey = lens _encKey (\ s a -> s{_encKey = a});
+eKey :: Lens' Encryption (Maybe Text)
+eKey = lens _eKey (\ s a -> s{_eKey = a});
 
 -- | The series of random bits created by a random bit generator, unique for
 -- every encryption operation, that you used to encrypt your input files or
 -- that you want Elastic Transcoder to use to encrypt your output files.
 -- The initialization vector must be base64-encoded, and it must be exactly
 -- 16 bytes long before being base64-encoded.
-encInitializationVector :: Lens' Encryption (Maybe Text)
-encInitializationVector = lens _encInitializationVector (\ s a -> s{_encInitializationVector = a});
+eInitializationVector :: Lens' Encryption (Maybe Text)
+eInitializationVector = lens _eInitializationVector (\ s a -> s{_eInitializationVector = a});
 
 instance FromJSON Encryption where
         parseJSON
@@ -1300,9 +1299,9 @@ instance FromJSON Encryption where
 instance ToJSON Encryption where
         toJSON Encryption'{..}
           = object
-              ["KeyMd5" .= _encKeyMD5, "Mode" .= _encMode,
-               "Key" .= _encKey,
-               "InitializationVector" .= _encInitializationVector]
+              ["KeyMd5" .= _eKeyMD5, "Mode" .= _eMode,
+               "Key" .= _eKey,
+               "InitializationVector" .= _eInitializationVector]
 
 -- | The HLS content protection settings, if any, that you want Elastic
 -- Transcoder to apply to your output files.
@@ -2232,49 +2231,49 @@ instance ToJSON JobWatermark where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'notError'
+-- * 'nError'
 --
--- * 'notWarning'
+-- * 'nWarning'
 --
--- * 'notCompleted'
+-- * 'nCompleted'
 --
--- * 'notProgressing'
+-- * 'nProgressing'
 data Notifications = Notifications'
-    { _notError       :: !(Maybe Text)
-    , _notWarning     :: !(Maybe Text)
-    , _notCompleted   :: !(Maybe Text)
-    , _notProgressing :: !(Maybe Text)
+    { _nError       :: !(Maybe Text)
+    , _nWarning     :: !(Maybe Text)
+    , _nCompleted   :: !(Maybe Text)
+    , _nProgressing :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Notifications' smart constructor.
 notifications :: Notifications
 notifications =
     Notifications'
-    { _notError = Nothing
-    , _notWarning = Nothing
-    , _notCompleted = Nothing
-    , _notProgressing = Nothing
+    { _nError = Nothing
+    , _nWarning = Nothing
+    , _nCompleted = Nothing
+    , _nProgressing = Nothing
     }
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters an error condition.
-notError :: Lens' Notifications (Maybe Text)
-notError = lens _notError (\ s a -> s{_notError = a});
+nError :: Lens' Notifications (Maybe Text)
+nError = lens _nError (\ s a -> s{_nError = a});
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder
 -- encounters a warning condition.
-notWarning :: Lens' Notifications (Maybe Text)
-notWarning = lens _notWarning (\ s a -> s{_notWarning = a});
+nWarning :: Lens' Notifications (Maybe Text)
+nWarning = lens _nWarning (\ s a -> s{_nWarning = a});
 
 -- | The Amazon SNS topic that you want to notify when Elastic Transcoder has
 -- finished processing the job.
-notCompleted :: Lens' Notifications (Maybe Text)
-notCompleted = lens _notCompleted (\ s a -> s{_notCompleted = a});
+nCompleted :: Lens' Notifications (Maybe Text)
+nCompleted = lens _nCompleted (\ s a -> s{_nCompleted = a});
 
 -- | The Amazon Simple Notification Service (Amazon SNS) topic that you want
 -- to notify when Elastic Transcoder has started to process the job.
-notProgressing :: Lens' Notifications (Maybe Text)
-notProgressing = lens _notProgressing (\ s a -> s{_notProgressing = a});
+nProgressing :: Lens' Notifications (Maybe Text)
+nProgressing = lens _nProgressing (\ s a -> s{_nProgressing = a});
 
 instance FromJSON Notifications where
         parseJSON
@@ -2288,9 +2287,9 @@ instance FromJSON Notifications where
 instance ToJSON Notifications where
         toJSON Notifications'{..}
           = object
-              ["Error" .= _notError, "Warning" .= _notWarning,
-               "Completed" .= _notCompleted,
-               "Progressing" .= _notProgressing]
+              ["Error" .= _nError, "Warning" .= _nWarning,
+               "Completed" .= _nCompleted,
+               "Progressing" .= _nProgressing]
 
 -- | The @Permission@ structure.
 --
@@ -2298,24 +2297,24 @@ instance ToJSON Notifications where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'perAccess'
+-- * 'pAccess'
 --
--- * 'perGranteeType'
+-- * 'pGranteeType'
 --
--- * 'perGrantee'
+-- * 'pGrantee'
 data Permission = Permission'
-    { _perAccess      :: !(Maybe [Text])
-    , _perGranteeType :: !(Maybe Text)
-    , _perGrantee     :: !(Maybe Text)
+    { _pAccess      :: !(Maybe [Text])
+    , _pGranteeType :: !(Maybe Text)
+    , _pGrantee     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Permission' smart constructor.
 permission :: Permission
 permission =
     Permission'
-    { _perAccess = Nothing
-    , _perGranteeType = Nothing
-    , _perGrantee = Nothing
+    { _pAccess = Nothing
+    , _pGranteeType = Nothing
+    , _pGrantee = Nothing
     }
 
 -- | The permission that you want to give to the AWS user that is listed in
@@ -2330,8 +2329,8 @@ permission =
 -- -   @FULL_CONTROL@: The grantee has READ, READ_ACP, and WRITE_ACP
 --     permissions for the thumbnails that Elastic Transcoder adds to the
 --     Amazon S3 bucket.
-perAccess :: Lens' Permission [Text]
-perAccess = lens _perAccess (\ s a -> s{_perAccess = a}) . _Default;
+pAccess :: Lens' Permission [Text]
+pAccess = lens _pAccess (\ s a -> s{_pAccess = a}) . _Default;
 
 -- | The type of value that appears in the Grantee object:
 --
@@ -2341,16 +2340,16 @@ perAccess = lens _perAccess (\ s a -> s{_perAccess = a}) . _Default;
 -- -   @Email@: The registered email address of an AWS account.
 -- -   @Group@: One of the following predefined Amazon S3 groups:
 --     @AllUsers@, @AuthenticatedUsers@, or @LogDelivery@.
-perGranteeType :: Lens' Permission (Maybe Text)
-perGranteeType = lens _perGranteeType (\ s a -> s{_perGranteeType = a});
+pGranteeType :: Lens' Permission (Maybe Text)
+pGranteeType = lens _pGranteeType (\ s a -> s{_pGranteeType = a});
 
 -- | The AWS user or group that you want to have access to transcoded files
 -- and playlists. To identify the user or group, you can specify the
 -- canonical user ID for an AWS account, an origin access identity for a
 -- CloudFront distribution, the registered email address of an AWS account,
 -- or a predefined Amazon S3 group.
-perGrantee :: Lens' Permission (Maybe Text)
-perGrantee = lens _perGrantee (\ s a -> s{_perGrantee = a});
+pGrantee :: Lens' Permission (Maybe Text)
+pGrantee = lens _pGrantee (\ s a -> s{_pGrantee = a});
 
 instance FromJSON Permission where
         parseJSON
@@ -2363,9 +2362,9 @@ instance FromJSON Permission where
 instance ToJSON Permission where
         toJSON Permission'{..}
           = object
-              ["Access" .= _perAccess,
-               "GranteeType" .= _perGranteeType,
-               "Grantee" .= _perGrantee]
+              ["Access" .= _pAccess,
+               "GranteeType" .= _pGranteeType,
+               "Grantee" .= _pGrantee]
 
 -- | The pipeline (queue) that is used to manage jobs.
 --
@@ -2800,50 +2799,50 @@ instance ToJSON PlayReadyDrm where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'plaPlayReadyDrm'
+-- * 'pPlayReadyDrm'
 --
--- * 'plaStatus'
+-- * 'pStatus'
 --
--- * 'plaOutputKeys'
+-- * 'pOutputKeys'
 --
--- * 'plaFormat'
+-- * 'pFormat'
 --
--- * 'plaName'
+-- * 'pName'
 --
--- * 'plaHlsContentProtection'
+-- * 'pHlsContentProtection'
 --
--- * 'plaStatusDetail'
+-- * 'pStatusDetail'
 data Playlist = Playlist'
-    { _plaPlayReadyDrm         :: !(Maybe PlayReadyDrm)
-    , _plaStatus               :: !(Maybe Text)
-    , _plaOutputKeys           :: !(Maybe [Text])
-    , _plaFormat               :: !(Maybe Text)
-    , _plaName                 :: !(Maybe Text)
-    , _plaHlsContentProtection :: !(Maybe HlsContentProtection)
-    , _plaStatusDetail         :: !(Maybe Text)
+    { _pPlayReadyDrm         :: !(Maybe PlayReadyDrm)
+    , _pStatus               :: !(Maybe Text)
+    , _pOutputKeys           :: !(Maybe [Text])
+    , _pFormat               :: !(Maybe Text)
+    , _pName                 :: !(Maybe Text)
+    , _pHlsContentProtection :: !(Maybe HlsContentProtection)
+    , _pStatusDetail         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Playlist' smart constructor.
 playlist :: Playlist
 playlist =
     Playlist'
-    { _plaPlayReadyDrm = Nothing
-    , _plaStatus = Nothing
-    , _plaOutputKeys = Nothing
-    , _plaFormat = Nothing
-    , _plaName = Nothing
-    , _plaHlsContentProtection = Nothing
-    , _plaStatusDetail = Nothing
+    { _pPlayReadyDrm = Nothing
+    , _pStatus = Nothing
+    , _pOutputKeys = Nothing
+    , _pFormat = Nothing
+    , _pName = Nothing
+    , _pHlsContentProtection = Nothing
+    , _pStatusDetail = Nothing
     }
 
 -- | The DRM settings, if any, that you want Elastic Transcoder to apply to
 -- the output files associated with this playlist.
-plaPlayReadyDrm :: Lens' Playlist (Maybe PlayReadyDrm)
-plaPlayReadyDrm = lens _plaPlayReadyDrm (\ s a -> s{_plaPlayReadyDrm = a});
+pPlayReadyDrm :: Lens' Playlist (Maybe PlayReadyDrm)
+pPlayReadyDrm = lens _pPlayReadyDrm (\ s a -> s{_pPlayReadyDrm = a});
 
 -- | The status of the job with which the playlist is associated.
-plaStatus :: Lens' Playlist (Maybe Text)
-plaStatus = lens _plaStatus (\ s a -> s{_plaStatus = a});
+pStatus :: Lens' Playlist (Maybe Text)
+pStatus = lens _pStatus (\ s a -> s{_pStatus = a});
 
 -- | For each output in this job that you want to include in a master
 -- playlist, the value of the Outputs:Key object.
@@ -2885,13 +2884,13 @@ plaStatus = lens _plaStatus (\ s a -> s{_plaStatus = a});
 -- outputs in the playlist. For @Smooth@ playlists, the @Audio:Profile@,
 -- @Video:Profile@, and @Video:FrameRate@ to @Video:KeyframesMaxDist@ ratio
 -- must be the same for all outputs.
-plaOutputKeys :: Lens' Playlist [Text]
-plaOutputKeys = lens _plaOutputKeys (\ s a -> s{_plaOutputKeys = a}) . _Default;
+pOutputKeys :: Lens' Playlist [Text]
+pOutputKeys = lens _pOutputKeys (\ s a -> s{_pOutputKeys = a}) . _Default;
 
 -- | The format of the output playlist. Valid formats include @HLSv3@,
 -- @HLSv4@, and @Smooth@.
-plaFormat :: Lens' Playlist (Maybe Text)
-plaFormat = lens _plaFormat (\ s a -> s{_plaFormat = a});
+pFormat :: Lens' Playlist (Maybe Text)
+pFormat = lens _pFormat (\ s a -> s{_pFormat = a});
 
 -- | The name that you want Elastic Transcoder to assign to the master
 -- playlist, for example, nyc-vacation.m3u8. If the name includes a @\/@
@@ -2903,17 +2902,17 @@ plaFormat = lens _plaFormat (\ s a -> s{_plaFormat = a});
 -- extension to the file name (@.m3u8@ for @HLSv3@ and @HLSv4@ playlists,
 -- and @.ism@ and @.ismc@ for @Smooth@ playlists). If you include a file
 -- extension in @Name@, the file name will have two extensions.
-plaName :: Lens' Playlist (Maybe Text)
-plaName = lens _plaName (\ s a -> s{_plaName = a});
+pName :: Lens' Playlist (Maybe Text)
+pName = lens _pName (\ s a -> s{_pName = a});
 
 -- | The HLS content protection settings, if any, that you want Elastic
 -- Transcoder to apply to the output files associated with this playlist.
-plaHlsContentProtection :: Lens' Playlist (Maybe HlsContentProtection)
-plaHlsContentProtection = lens _plaHlsContentProtection (\ s a -> s{_plaHlsContentProtection = a});
+pHlsContentProtection :: Lens' Playlist (Maybe HlsContentProtection)
+pHlsContentProtection = lens _pHlsContentProtection (\ s a -> s{_pHlsContentProtection = a});
 
 -- | Information that further explains the status.
-plaStatusDetail :: Lens' Playlist (Maybe Text)
-plaStatusDetail = lens _plaStatusDetail (\ s a -> s{_plaStatusDetail = a});
+pStatusDetail :: Lens' Playlist (Maybe Text)
+pStatusDetail = lens _pStatusDetail (\ s a -> s{_pStatusDetail = a});
 
 instance FromJSON Playlist where
         parseJSON
@@ -3291,44 +3290,44 @@ instance ToJSON PresetWatermark where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'thuSizingPolicy'
+-- * 'tSizingPolicy'
 --
--- * 'thuFormat'
+-- * 'tFormat'
 --
--- * 'thuMaxHeight'
+-- * 'tMaxHeight'
 --
--- * 'thuResolution'
+-- * 'tResolution'
 --
--- * 'thuPaddingPolicy'
+-- * 'tPaddingPolicy'
 --
--- * 'thuAspectRatio'
+-- * 'tAspectRatio'
 --
--- * 'thuInterval'
+-- * 'tInterval'
 --
--- * 'thuMaxWidth'
+-- * 'tMaxWidth'
 data Thumbnails = Thumbnails'
-    { _thuSizingPolicy  :: !(Maybe Text)
-    , _thuFormat        :: !(Maybe Text)
-    , _thuMaxHeight     :: !(Maybe Text)
-    , _thuResolution    :: !(Maybe Text)
-    , _thuPaddingPolicy :: !(Maybe Text)
-    , _thuAspectRatio   :: !(Maybe Text)
-    , _thuInterval      :: !(Maybe Text)
-    , _thuMaxWidth      :: !(Maybe Text)
+    { _tSizingPolicy  :: !(Maybe Text)
+    , _tFormat        :: !(Maybe Text)
+    , _tMaxHeight     :: !(Maybe Text)
+    , _tResolution    :: !(Maybe Text)
+    , _tPaddingPolicy :: !(Maybe Text)
+    , _tAspectRatio   :: !(Maybe Text)
+    , _tInterval      :: !(Maybe Text)
+    , _tMaxWidth      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Thumbnails' smart constructor.
 thumbnails :: Thumbnails
 thumbnails =
     Thumbnails'
-    { _thuSizingPolicy = Nothing
-    , _thuFormat = Nothing
-    , _thuMaxHeight = Nothing
-    , _thuResolution = Nothing
-    , _thuPaddingPolicy = Nothing
-    , _thuAspectRatio = Nothing
-    , _thuInterval = Nothing
-    , _thuMaxWidth = Nothing
+    { _tSizingPolicy = Nothing
+    , _tFormat = Nothing
+    , _tMaxHeight = Nothing
+    , _tResolution = Nothing
+    , _tPaddingPolicy = Nothing
+    , _tAspectRatio = Nothing
+    , _tInterval = Nothing
+    , _tMaxWidth = Nothing
     }
 
 -- | Specify one of the following values to control scaling of thumbnails:
@@ -3359,21 +3358,21 @@ thumbnails =
 --     one of @MaxWidth@ and @MaxHeight@ without dropping below either
 --     value. If you specify this option, Elastic Transcoder does not scale
 --     thumbnails up.
-thuSizingPolicy :: Lens' Thumbnails (Maybe Text)
-thuSizingPolicy = lens _thuSizingPolicy (\ s a -> s{_thuSizingPolicy = a});
+tSizingPolicy :: Lens' Thumbnails (Maybe Text)
+tSizingPolicy = lens _tSizingPolicy (\ s a -> s{_tSizingPolicy = a});
 
 -- | The format of thumbnails, if any. Valid values are @jpg@ and @png@.
 --
 -- You specify whether you want Elastic Transcoder to create thumbnails
 -- when you create a job.
-thuFormat :: Lens' Thumbnails (Maybe Text)
-thuFormat = lens _thuFormat (\ s a -> s{_thuFormat = a});
+tFormat :: Lens' Thumbnails (Maybe Text)
+tFormat = lens _tFormat (\ s a -> s{_tFormat = a});
 
 -- | The maximum height of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1080 (Full HD) as the default value. If you specify a
 -- numeric value, enter an even integer between 32 and 3072.
-thuMaxHeight :: Lens' Thumbnails (Maybe Text)
-thuMaxHeight = lens _thuMaxHeight (\ s a -> s{_thuMaxHeight = a});
+tMaxHeight :: Lens' Thumbnails (Maybe Text)
+tMaxHeight = lens _tMaxHeight (\ s a -> s{_tMaxHeight = a});
 
 -- | To better control resolution and aspect ratio of thumbnails, we
 -- recommend that you use the values @MaxWidth@, @MaxHeight@,
@@ -3385,15 +3384,15 @@ thuMaxHeight = lens _thuMaxHeight (\ s a -> s{_thuMaxHeight = a});
 -- the format @width@ x @height@ where both values are even integers. The
 -- values cannot exceed the width and height that you specified in the
 -- @Video:Resolution@ object.
-thuResolution :: Lens' Thumbnails (Maybe Text)
-thuResolution = lens _thuResolution (\ s a -> s{_thuResolution = a});
+tResolution :: Lens' Thumbnails (Maybe Text)
+tResolution = lens _tResolution (\ s a -> s{_tResolution = a});
 
 -- | When you set @PaddingPolicy@ to @Pad@, Elastic Transcoder may add black
 -- bars to the top and bottom and\/or left and right sides of thumbnails to
 -- make the total size of the thumbnails match the values that you
 -- specified for thumbnail @MaxWidth@ and @MaxHeight@ settings.
-thuPaddingPolicy :: Lens' Thumbnails (Maybe Text)
-thuPaddingPolicy = lens _thuPaddingPolicy (\ s a -> s{_thuPaddingPolicy = a});
+tPaddingPolicy :: Lens' Thumbnails (Maybe Text)
+tPaddingPolicy = lens _tPaddingPolicy (\ s a -> s{_tPaddingPolicy = a});
 
 -- | To better control resolution and aspect ratio of thumbnails, we
 -- recommend that you use the values @MaxWidth@, @MaxHeight@,
@@ -3407,19 +3406,19 @@ thuPaddingPolicy = lens _thuPaddingPolicy (\ s a -> s{_thuPaddingPolicy = a});
 --
 -- If you specify @auto@, Elastic Transcoder tries to preserve the aspect
 -- ratio of the video in the output file.
-thuAspectRatio :: Lens' Thumbnails (Maybe Text)
-thuAspectRatio = lens _thuAspectRatio (\ s a -> s{_thuAspectRatio = a});
+tAspectRatio :: Lens' Thumbnails (Maybe Text)
+tAspectRatio = lens _tAspectRatio (\ s a -> s{_tAspectRatio = a});
 
 -- | The approximate number of seconds between thumbnails. Specify an integer
 -- value.
-thuInterval :: Lens' Thumbnails (Maybe Text)
-thuInterval = lens _thuInterval (\ s a -> s{_thuInterval = a});
+tInterval :: Lens' Thumbnails (Maybe Text)
+tInterval = lens _tInterval (\ s a -> s{_tInterval = a});
 
 -- | The maximum width of thumbnails in pixels. If you specify auto, Elastic
 -- Transcoder uses 1920 (Full HD) as the default value. If you specify a
 -- numeric value, enter an even integer between 32 and 4096.
-thuMaxWidth :: Lens' Thumbnails (Maybe Text)
-thuMaxWidth = lens _thuMaxWidth (\ s a -> s{_thuMaxWidth = a});
+tMaxWidth :: Lens' Thumbnails (Maybe Text)
+tMaxWidth = lens _tMaxWidth (\ s a -> s{_tMaxWidth = a});
 
 instance FromJSON Thumbnails where
         parseJSON
@@ -3437,13 +3436,12 @@ instance FromJSON Thumbnails where
 instance ToJSON Thumbnails where
         toJSON Thumbnails'{..}
           = object
-              ["SizingPolicy" .= _thuSizingPolicy,
-               "Format" .= _thuFormat, "MaxHeight" .= _thuMaxHeight,
-               "Resolution" .= _thuResolution,
-               "PaddingPolicy" .= _thuPaddingPolicy,
-               "AspectRatio" .= _thuAspectRatio,
-               "Interval" .= _thuInterval,
-               "MaxWidth" .= _thuMaxWidth]
+              ["SizingPolicy" .= _tSizingPolicy,
+               "Format" .= _tFormat, "MaxHeight" .= _tMaxHeight,
+               "Resolution" .= _tResolution,
+               "PaddingPolicy" .= _tPaddingPolicy,
+               "AspectRatio" .= _tAspectRatio,
+               "Interval" .= _tInterval, "MaxWidth" .= _tMaxWidth]
 
 -- | Settings that determine when a clip begins and how long it lasts.
 --
@@ -3504,38 +3502,38 @@ instance ToJSON TimeSpan where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'timSubmitTimeMillis'
+-- * 'tSubmitTimeMillis'
 --
--- * 'timFinishTimeMillis'
+-- * 'tFinishTimeMillis'
 --
--- * 'timStartTimeMillis'
+-- * 'tStartTimeMillis'
 data Timing = Timing'
-    { _timSubmitTimeMillis :: !(Maybe Integer)
-    , _timFinishTimeMillis :: !(Maybe Integer)
-    , _timStartTimeMillis  :: !(Maybe Integer)
+    { _tSubmitTimeMillis :: !(Maybe Integer)
+    , _tFinishTimeMillis :: !(Maybe Integer)
+    , _tStartTimeMillis  :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Timing' smart constructor.
 timing :: Timing
 timing =
     Timing'
-    { _timSubmitTimeMillis = Nothing
-    , _timFinishTimeMillis = Nothing
-    , _timStartTimeMillis = Nothing
+    { _tSubmitTimeMillis = Nothing
+    , _tFinishTimeMillis = Nothing
+    , _tStartTimeMillis = Nothing
     }
 
 -- | The time the job was submitted to Elastic Transcoder, in epoch
 -- milliseconds.
-timSubmitTimeMillis :: Lens' Timing (Maybe Integer)
-timSubmitTimeMillis = lens _timSubmitTimeMillis (\ s a -> s{_timSubmitTimeMillis = a});
+tSubmitTimeMillis :: Lens' Timing (Maybe Integer)
+tSubmitTimeMillis = lens _tSubmitTimeMillis (\ s a -> s{_tSubmitTimeMillis = a});
 
 -- | The time the job finished transcoding, in epoch milliseconds.
-timFinishTimeMillis :: Lens' Timing (Maybe Integer)
-timFinishTimeMillis = lens _timFinishTimeMillis (\ s a -> s{_timFinishTimeMillis = a});
+tFinishTimeMillis :: Lens' Timing (Maybe Integer)
+tFinishTimeMillis = lens _tFinishTimeMillis (\ s a -> s{_tFinishTimeMillis = a});
 
 -- | The time the job began transcoding, in epoch milliseconds.
-timStartTimeMillis :: Lens' Timing (Maybe Integer)
-timStartTimeMillis = lens _timStartTimeMillis (\ s a -> s{_timStartTimeMillis = a});
+tStartTimeMillis :: Lens' Timing (Maybe Integer)
+tStartTimeMillis = lens _tStartTimeMillis (\ s a -> s{_tStartTimeMillis = a});
 
 instance FromJSON Timing where
         parseJSON
@@ -4063,32 +4061,32 @@ instance ToJSON VideoParameters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'warCode'
+-- * 'wCode'
 --
--- * 'warMessage'
+-- * 'wMessage'
 data Warning = Warning'
-    { _warCode    :: !(Maybe Text)
-    , _warMessage :: !(Maybe Text)
+    { _wCode    :: !(Maybe Text)
+    , _wMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Warning' smart constructor.
 warning :: Warning
 warning =
     Warning'
-    { _warCode = Nothing
-    , _warMessage = Nothing
+    { _wCode = Nothing
+    , _wMessage = Nothing
     }
 
 -- | The code of the cross-regional warning.
-warCode :: Lens' Warning (Maybe Text)
-warCode = lens _warCode (\ s a -> s{_warCode = a});
+wCode :: Lens' Warning (Maybe Text)
+wCode = lens _wCode (\ s a -> s{_wCode = a});
 
 -- | The message explaining what resources are in a different region from the
 -- pipeline.
 --
 -- __Note:__ AWS KMS keys must be in the same region as the pipeline.
-warMessage :: Lens' Warning (Maybe Text)
-warMessage = lens _warMessage (\ s a -> s{_warMessage = a});
+wMessage :: Lens' Warning (Maybe Text)
+wMessage = lens _wMessage (\ s a -> s{_wMessage = a});
 
 instance FromJSON Warning where
         parseJSON

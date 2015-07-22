@@ -27,22 +27,22 @@ module Network.AWS.EC2.ImportSnapshot
     -- ** Request constructor
     , importSnapshot
     -- ** Request lenses
-    , isDiskContainer
-    , isClientToken
-    , isRoleName
-    , isDryRun
-    , isDescription
-    , isClientData
+    , isrqDiskContainer
+    , isrqClientToken
+    , isrqRoleName
+    , isrqDryRun
+    , isrqDescription
+    , isrqClientData
 
     -- * Response
     , ImportSnapshotResponse
     -- ** Response constructor
     , importSnapshotResponse
     -- ** Response lenses
-    , isrSnapshotTaskDetail
-    , isrImportTaskId
-    , isrDescription
-    , isrStatus
+    , isrsSnapshotTaskDetail
+    , isrsImportTaskId
+    , isrsDescription
+    , isrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,65 +54,65 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'isDiskContainer'
+-- * 'isrqDiskContainer'
 --
--- * 'isClientToken'
+-- * 'isrqClientToken'
 --
--- * 'isRoleName'
+-- * 'isrqRoleName'
 --
--- * 'isDryRun'
+-- * 'isrqDryRun'
 --
--- * 'isDescription'
+-- * 'isrqDescription'
 --
--- * 'isClientData'
+-- * 'isrqClientData'
 data ImportSnapshot = ImportSnapshot'
-    { _isDiskContainer :: !(Maybe SnapshotDiskContainer)
-    , _isClientToken   :: !(Maybe Text)
-    , _isRoleName      :: !(Maybe Text)
-    , _isDryRun        :: !(Maybe Bool)
-    , _isDescription   :: !(Maybe Text)
-    , _isClientData    :: !(Maybe ClientData)
+    { _isrqDiskContainer :: !(Maybe SnapshotDiskContainer)
+    , _isrqClientToken   :: !(Maybe Text)
+    , _isrqRoleName      :: !(Maybe Text)
+    , _isrqDryRun        :: !(Maybe Bool)
+    , _isrqDescription   :: !(Maybe Text)
+    , _isrqClientData    :: !(Maybe ClientData)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportSnapshot' smart constructor.
 importSnapshot :: ImportSnapshot
 importSnapshot =
     ImportSnapshot'
-    { _isDiskContainer = Nothing
-    , _isClientToken = Nothing
-    , _isRoleName = Nothing
-    , _isDryRun = Nothing
-    , _isDescription = Nothing
-    , _isClientData = Nothing
+    { _isrqDiskContainer = Nothing
+    , _isrqClientToken = Nothing
+    , _isrqRoleName = Nothing
+    , _isrqDryRun = Nothing
+    , _isrqDescription = Nothing
+    , _isrqClientData = Nothing
     }
 
 -- | Information about the disk container.
-isDiskContainer :: Lens' ImportSnapshot (Maybe SnapshotDiskContainer)
-isDiskContainer = lens _isDiskContainer (\ s a -> s{_isDiskContainer = a});
+isrqDiskContainer :: Lens' ImportSnapshot (Maybe SnapshotDiskContainer)
+isrqDiskContainer = lens _isrqDiskContainer (\ s a -> s{_isrqDiskContainer = a});
 
 -- | Token to enable idempotency for VM import requests.
-isClientToken :: Lens' ImportSnapshot (Maybe Text)
-isClientToken = lens _isClientToken (\ s a -> s{_isClientToken = a});
+isrqClientToken :: Lens' ImportSnapshot (Maybe Text)
+isrqClientToken = lens _isrqClientToken (\ s a -> s{_isrqClientToken = a});
 
 -- | The name of the role to use when not using the default role,
 -- \'vmimport\'.
-isRoleName :: Lens' ImportSnapshot (Maybe Text)
-isRoleName = lens _isRoleName (\ s a -> s{_isRoleName = a});
+isrqRoleName :: Lens' ImportSnapshot (Maybe Text)
+isrqRoleName = lens _isrqRoleName (\ s a -> s{_isrqRoleName = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-isDryRun :: Lens' ImportSnapshot (Maybe Bool)
-isDryRun = lens _isDryRun (\ s a -> s{_isDryRun = a});
+isrqDryRun :: Lens' ImportSnapshot (Maybe Bool)
+isrqDryRun = lens _isrqDryRun (\ s a -> s{_isrqDryRun = a});
 
 -- | The description string for the import snapshot task.
-isDescription :: Lens' ImportSnapshot (Maybe Text)
-isDescription = lens _isDescription (\ s a -> s{_isDescription = a});
+isrqDescription :: Lens' ImportSnapshot (Maybe Text)
+isrqDescription = lens _isrqDescription (\ s a -> s{_isrqDescription = a});
 
 -- | The client-specific data.
-isClientData :: Lens' ImportSnapshot (Maybe ClientData)
-isClientData = lens _isClientData (\ s a -> s{_isClientData = a});
+isrqClientData :: Lens' ImportSnapshot (Maybe ClientData)
+isrqClientData = lens _isrqClientData (\ s a -> s{_isrqClientData = a});
 
 instance AWSRequest ImportSnapshot where
         type Sv ImportSnapshot = EC2
@@ -138,52 +138,52 @@ instance ToQuery ImportSnapshot where
           = mconcat
               ["Action" =: ("ImportSnapshot" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DiskContainer" =: _isDiskContainer,
-               "ClientToken" =: _isClientToken,
-               "RoleName" =: _isRoleName, "DryRun" =: _isDryRun,
-               "Description" =: _isDescription,
-               "ClientData" =: _isClientData]
+               "DiskContainer" =: _isrqDiskContainer,
+               "ClientToken" =: _isrqClientToken,
+               "RoleName" =: _isrqRoleName, "DryRun" =: _isrqDryRun,
+               "Description" =: _isrqDescription,
+               "ClientData" =: _isrqClientData]
 
 -- | /See:/ 'importSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'isrSnapshotTaskDetail'
+-- * 'isrsSnapshotTaskDetail'
 --
--- * 'isrImportTaskId'
+-- * 'isrsImportTaskId'
 --
--- * 'isrDescription'
+-- * 'isrsDescription'
 --
--- * 'isrStatus'
+-- * 'isrsStatus'
 data ImportSnapshotResponse = ImportSnapshotResponse'
-    { _isrSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
-    , _isrImportTaskId       :: !(Maybe Text)
-    , _isrDescription        :: !(Maybe Text)
-    , _isrStatus             :: !Int
+    { _isrsSnapshotTaskDetail :: !(Maybe SnapshotTaskDetail)
+    , _isrsImportTaskId       :: !(Maybe Text)
+    , _isrsDescription        :: !(Maybe Text)
+    , _isrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportSnapshotResponse' smart constructor.
 importSnapshotResponse :: Int -> ImportSnapshotResponse
 importSnapshotResponse pStatus =
     ImportSnapshotResponse'
-    { _isrSnapshotTaskDetail = Nothing
-    , _isrImportTaskId = Nothing
-    , _isrDescription = Nothing
-    , _isrStatus = pStatus
+    { _isrsSnapshotTaskDetail = Nothing
+    , _isrsImportTaskId = Nothing
+    , _isrsDescription = Nothing
+    , _isrsStatus = pStatus
     }
 
 -- | Information about the import snapshot task.
-isrSnapshotTaskDetail :: Lens' ImportSnapshotResponse (Maybe SnapshotTaskDetail)
-isrSnapshotTaskDetail = lens _isrSnapshotTaskDetail (\ s a -> s{_isrSnapshotTaskDetail = a});
+isrsSnapshotTaskDetail :: Lens' ImportSnapshotResponse (Maybe SnapshotTaskDetail)
+isrsSnapshotTaskDetail = lens _isrsSnapshotTaskDetail (\ s a -> s{_isrsSnapshotTaskDetail = a});
 
 -- | The ID of the import snapshot task.
-isrImportTaskId :: Lens' ImportSnapshotResponse (Maybe Text)
-isrImportTaskId = lens _isrImportTaskId (\ s a -> s{_isrImportTaskId = a});
+isrsImportTaskId :: Lens' ImportSnapshotResponse (Maybe Text)
+isrsImportTaskId = lens _isrsImportTaskId (\ s a -> s{_isrsImportTaskId = a});
 
 -- | A description of the import snapshot task.
-isrDescription :: Lens' ImportSnapshotResponse (Maybe Text)
-isrDescription = lens _isrDescription (\ s a -> s{_isrDescription = a});
+isrsDescription :: Lens' ImportSnapshotResponse (Maybe Text)
+isrsDescription = lens _isrsDescription (\ s a -> s{_isrsDescription = a});
 
 -- | FIXME: Undocumented member.
-isrStatus :: Lens' ImportSnapshotResponse Int
-isrStatus = lens _isrStatus (\ s a -> s{_isrStatus = a});
+isrsStatus :: Lens' ImportSnapshotResponse Int
+isrsStatus = lens _isrsStatus (\ s a -> s{_isrsStatus = a});

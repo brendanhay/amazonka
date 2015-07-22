@@ -31,16 +31,16 @@ module Network.AWS.ElastiCache.ResetCacheParameterGroup
     -- ** Request constructor
     , resetCacheParameterGroup
     -- ** Request lenses
-    , rcpgResetAllParameters
-    , rcpgCacheParameterGroupName
-    , rcpgParameterNameValues
+    , rcpgrqResetAllParameters
+    , rcpgrqCacheParameterGroupName
+    , rcpgrqParameterNameValues
 
     -- * Response
     , CacheParameterGroupNameMessage
     -- ** Response constructor
     , cacheParameterGroupNameMessage
     -- ** Response lenses
-    , cpgnmCacheParameterGroupName
+    , rcpgrsCacheParameterGroupName
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -54,42 +54,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcpgResetAllParameters'
+-- * 'rcpgrqResetAllParameters'
 --
--- * 'rcpgCacheParameterGroupName'
+-- * 'rcpgrqCacheParameterGroupName'
 --
--- * 'rcpgParameterNameValues'
+-- * 'rcpgrqParameterNameValues'
 data ResetCacheParameterGroup = ResetCacheParameterGroup'
-    { _rcpgResetAllParameters      :: !(Maybe Bool)
-    , _rcpgCacheParameterGroupName :: !Text
-    , _rcpgParameterNameValues     :: ![ParameterNameValue]
+    { _rcpgrqResetAllParameters      :: !(Maybe Bool)
+    , _rcpgrqCacheParameterGroupName :: !Text
+    , _rcpgrqParameterNameValues     :: ![ParameterNameValue]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetCacheParameterGroup' smart constructor.
 resetCacheParameterGroup :: Text -> ResetCacheParameterGroup
 resetCacheParameterGroup pCacheParameterGroupName =
     ResetCacheParameterGroup'
-    { _rcpgResetAllParameters = Nothing
-    , _rcpgCacheParameterGroupName = pCacheParameterGroupName
-    , _rcpgParameterNameValues = mempty
+    { _rcpgrqResetAllParameters = Nothing
+    , _rcpgrqCacheParameterGroupName = pCacheParameterGroupName
+    , _rcpgrqParameterNameValues = mempty
     }
 
 -- | If /true/, all parameters in the cache parameter group will be reset to
 -- default values. If /false/, no such action occurs.
 --
 -- Valid values: @true@ | @false@
-rcpgResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
-rcpgResetAllParameters = lens _rcpgResetAllParameters (\ s a -> s{_rcpgResetAllParameters = a});
+rcpgrqResetAllParameters :: Lens' ResetCacheParameterGroup (Maybe Bool)
+rcpgrqResetAllParameters = lens _rcpgrqResetAllParameters (\ s a -> s{_rcpgrqResetAllParameters = a});
 
 -- | The name of the cache parameter group to reset.
-rcpgCacheParameterGroupName :: Lens' ResetCacheParameterGroup Text
-rcpgCacheParameterGroupName = lens _rcpgCacheParameterGroupName (\ s a -> s{_rcpgCacheParameterGroupName = a});
+rcpgrqCacheParameterGroupName :: Lens' ResetCacheParameterGroup Text
+rcpgrqCacheParameterGroupName = lens _rcpgrqCacheParameterGroupName (\ s a -> s{_rcpgrqCacheParameterGroupName = a});
 
 -- | An array of parameter names to be reset. If you are not resetting the
 -- entire cache parameter group, you must specify at least one parameter
 -- name.
-rcpgParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
-rcpgParameterNameValues = lens _rcpgParameterNameValues (\ s a -> s{_rcpgParameterNameValues = a});
+rcpgrqParameterNameValues :: Lens' ResetCacheParameterGroup [ParameterNameValue]
+rcpgrqParameterNameValues = lens _rcpgrqParameterNameValues (\ s a -> s{_rcpgrqParameterNameValues = a});
 
 instance AWSRequest ResetCacheParameterGroup where
         type Sv ResetCacheParameterGroup = ElastiCache
@@ -112,9 +112,9 @@ instance ToQuery ResetCacheParameterGroup where
               ["Action" =:
                  ("ResetCacheParameterGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "ResetAllParameters" =: _rcpgResetAllParameters,
+               "ResetAllParameters" =: _rcpgrqResetAllParameters,
                "CacheParameterGroupName" =:
-                 _rcpgCacheParameterGroupName,
+                 _rcpgrqCacheParameterGroupName,
                "ParameterNameValues" =:
                  toQueryList "ParameterNameValue"
-                   _rcpgParameterNameValues]
+                   _rcpgrqParameterNameValues]

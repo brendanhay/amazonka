@@ -43,7 +43,7 @@ module Network.AWS.EFS.DeleteFileSystem
     -- ** Request constructor
     , deleteFileSystem
     -- ** Request lenses
-    , dFileSystemId
+    , delrqFileSystemId
 
     -- * Response
     , DeleteFileSystemResponse
@@ -60,21 +60,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dFileSystemId'
+-- * 'delrqFileSystemId'
 newtype DeleteFileSystem = DeleteFileSystem'
-    { _dFileSystemId :: Text
+    { _delrqFileSystemId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFileSystem' smart constructor.
 deleteFileSystem :: Text -> DeleteFileSystem
 deleteFileSystem pFileSystemId =
     DeleteFileSystem'
-    { _dFileSystemId = pFileSystemId
+    { _delrqFileSystemId = pFileSystemId
     }
 
 -- | The ID of the file system you want to delete.
-dFileSystemId :: Lens' DeleteFileSystem Text
-dFileSystemId = lens _dFileSystemId (\ s a -> s{_dFileSystemId = a});
+delrqFileSystemId :: Lens' DeleteFileSystem Text
+delrqFileSystemId = lens _delrqFileSystemId (\ s a -> s{_delrqFileSystemId = a});
 
 instance AWSRequest DeleteFileSystem where
         type Sv DeleteFileSystem = EFS
@@ -88,7 +88,8 @@ instance ToHeaders DeleteFileSystem where
 instance ToPath DeleteFileSystem where
         toPath DeleteFileSystem'{..}
           = mconcat
-              ["/2015-02-01/file-systems/", toText _dFileSystemId]
+              ["/2015-02-01/file-systems/",
+               toText _delrqFileSystemId]
 
 instance ToQuery DeleteFileSystem where
         toQuery = const mempty

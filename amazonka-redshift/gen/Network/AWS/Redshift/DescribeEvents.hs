@@ -31,22 +31,22 @@ module Network.AWS.Redshift.DescribeEvents
     -- ** Request constructor
     , describeEvents
     -- ** Request lenses
-    , deStartTime
-    , deSourceType
-    , deSourceIdentifier
-    , deMaxRecords
-    , deEndTime
-    , deMarker
-    , deDuration
+    , derqStartTime
+    , derqSourceType
+    , derqSourceIdentifier
+    , derqMaxRecords
+    , derqEndTime
+    , derqMarker
+    , derqDuration
 
     -- * Response
     , DescribeEventsResponse
     -- ** Response constructor
     , describeEventsResponse
     -- ** Response lenses
-    , derEvents
-    , derMarker
-    , derStatus
+    , dersEvents
+    , dersMarker
+    , dersStatus
     ) where
 
 import           Network.AWS.Pager
@@ -61,40 +61,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deStartTime'
+-- * 'derqStartTime'
 --
--- * 'deSourceType'
+-- * 'derqSourceType'
 --
--- * 'deSourceIdentifier'
+-- * 'derqSourceIdentifier'
 --
--- * 'deMaxRecords'
+-- * 'derqMaxRecords'
 --
--- * 'deEndTime'
+-- * 'derqEndTime'
 --
--- * 'deMarker'
+-- * 'derqMarker'
 --
--- * 'deDuration'
+-- * 'derqDuration'
 data DescribeEvents = DescribeEvents'
-    { _deStartTime        :: !(Maybe ISO8601)
-    , _deSourceType       :: !(Maybe SourceType)
-    , _deSourceIdentifier :: !(Maybe Text)
-    , _deMaxRecords       :: !(Maybe Int)
-    , _deEndTime          :: !(Maybe ISO8601)
-    , _deMarker           :: !(Maybe Text)
-    , _deDuration         :: !(Maybe Int)
+    { _derqStartTime        :: !(Maybe ISO8601)
+    , _derqSourceType       :: !(Maybe SourceType)
+    , _derqSourceIdentifier :: !(Maybe Text)
+    , _derqMaxRecords       :: !(Maybe Int)
+    , _derqEndTime          :: !(Maybe ISO8601)
+    , _derqMarker           :: !(Maybe Text)
+    , _derqDuration         :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvents' smart constructor.
 describeEvents :: DescribeEvents
 describeEvents =
     DescribeEvents'
-    { _deStartTime = Nothing
-    , _deSourceType = Nothing
-    , _deSourceIdentifier = Nothing
-    , _deMaxRecords = Nothing
-    , _deEndTime = Nothing
-    , _deMarker = Nothing
-    , _deDuration = Nothing
+    { _derqStartTime = Nothing
+    , _derqSourceType = Nothing
+    , _derqSourceIdentifier = Nothing
+    , _derqMaxRecords = Nothing
+    , _derqEndTime = Nothing
+    , _derqMarker = Nothing
+    , _derqDuration = Nothing
     }
 
 -- | The beginning of the time interval to retrieve events for, specified in
@@ -102,8 +102,8 @@ describeEvents =
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: @2009-07-08T18:00Z@
-deStartTime :: Lens' DescribeEvents (Maybe UTCTime)
-deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
+derqStartTime :: Lens' DescribeEvents (Maybe UTCTime)
+derqStartTime = lens _derqStartTime (\ s a -> s{_derqStartTime = a}) . mapping _Time;
 
 -- | The event source to retrieve events for. If no value is specified, all
 -- events are returned.
@@ -119,8 +119,8 @@ deStartTime = lens _deStartTime (\ s a -> s{_deStartTime = a}) . mapping _Time;
 --     cluster parameter group name.
 -- -   Specify @cluster-snapshot@ when /SourceIdentifier/ is a cluster
 --     snapshot identifier.
-deSourceType :: Lens' DescribeEvents (Maybe SourceType)
-deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
+derqSourceType :: Lens' DescribeEvents (Maybe SourceType)
+derqSourceType = lens _derqSourceType (\ s a -> s{_derqSourceType = a});
 
 -- | The identifier of the event source for which events will be returned. If
 -- this parameter is not specified, then all sources are included in the
@@ -137,8 +137,8 @@ deSourceType = lens _deSourceType (\ s a -> s{_deSourceType = a});
 --     @cluster-parameter-group@.
 -- -   Specify a cluster snapshot identifier when /SourceType/ is
 --     @cluster-snapshot@.
-deSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
-deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = a});
+derqSourceIdentifier :: Lens' DescribeEvents (Maybe Text)
+derqSourceIdentifier = lens _derqSourceIdentifier (\ s a -> s{_derqSourceIdentifier = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -149,16 +149,16 @@ deSourceIdentifier = lens _deSourceIdentifier (\ s a -> s{_deSourceIdentifier = 
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-deMaxRecords :: Lens' DescribeEvents (Maybe Int)
-deMaxRecords = lens _deMaxRecords (\ s a -> s{_deMaxRecords = a});
+derqMaxRecords :: Lens' DescribeEvents (Maybe Int)
+derqMaxRecords = lens _derqMaxRecords (\ s a -> s{_derqMaxRecords = a});
 
 -- | The end of the time interval for which to retrieve events, specified in
 -- ISO 8601 format. For more information about ISO 8601, go to the
 -- <http://en.wikipedia.org/wiki/ISO_8601 ISO8601 Wikipedia page.>
 --
 -- Example: @2009-07-08T18:00Z@
-deEndTime :: Lens' DescribeEvents (Maybe UTCTime)
-deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
+derqEndTime :: Lens' DescribeEvents (Maybe UTCTime)
+derqEndTime = lens _derqEndTime (\ s a -> s{_derqEndTime = a}) . mapping _Time;
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeEvents request exceed
@@ -166,8 +166,8 @@ deEndTime = lens _deEndTime (\ s a -> s{_deEndTime = a}) . mapping _Time;
 -- field of the response. You can retrieve the next set of response records
 -- by providing the returned marker value in the @Marker@ parameter and
 -- retrying the request.
-deMarker :: Lens' DescribeEvents (Maybe Text)
-deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
+derqMarker :: Lens' DescribeEvents (Maybe Text)
+derqMarker = lens _derqMarker (\ s a -> s{_derqMarker = a});
 
 -- | The number of minutes prior to the time of the request for which to
 -- retrieve events. For example, if the request is sent at 18:00 and you
@@ -175,14 +175,15 @@ deMarker = lens _deMarker (\ s a -> s{_deMarker = a});
 -- 17:00 will be returned.
 --
 -- Default: @60@
-deDuration :: Lens' DescribeEvents (Maybe Int)
-deDuration = lens _deDuration (\ s a -> s{_deDuration = a});
+derqDuration :: Lens' DescribeEvents (Maybe Int)
+derqDuration = lens _derqDuration (\ s a -> s{_derqDuration = a});
 
 instance AWSPager DescribeEvents where
         page rq rs
-          | stop (rs ^. derMarker) = Nothing
-          | stop (rs ^. derEvents) = Nothing
-          | otherwise = Just $ rq & deMarker .~ rs ^. derMarker
+          | stop (rs ^. dersMarker) = Nothing
+          | stop (rs ^. dersEvents) = Nothing
+          | otherwise =
+            Just $ rq & derqMarker .~ rs ^. dersMarker
 
 instance AWSRequest DescribeEvents where
         type Sv DescribeEvents = Redshift
@@ -208,12 +209,12 @@ instance ToQuery DescribeEvents where
           = mconcat
               ["Action" =: ("DescribeEvents" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "StartTime" =: _deStartTime,
-               "SourceType" =: _deSourceType,
-               "SourceIdentifier" =: _deSourceIdentifier,
-               "MaxRecords" =: _deMaxRecords,
-               "EndTime" =: _deEndTime, "Marker" =: _deMarker,
-               "Duration" =: _deDuration]
+               "StartTime" =: _derqStartTime,
+               "SourceType" =: _derqSourceType,
+               "SourceIdentifier" =: _derqSourceIdentifier,
+               "MaxRecords" =: _derqMaxRecords,
+               "EndTime" =: _derqEndTime, "Marker" =: _derqMarker,
+               "Duration" =: _derqDuration]
 
 -- | Contains the output from the DescribeEvents action.
 --
@@ -221,29 +222,29 @@ instance ToQuery DescribeEvents where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derEvents'
+-- * 'dersEvents'
 --
--- * 'derMarker'
+-- * 'dersMarker'
 --
--- * 'derStatus'
+-- * 'dersStatus'
 data DescribeEventsResponse = DescribeEventsResponse'
-    { _derEvents :: !(Maybe [Event])
-    , _derMarker :: !(Maybe Text)
-    , _derStatus :: !Int
+    { _dersEvents :: !(Maybe [Event])
+    , _dersMarker :: !(Maybe Text)
+    , _dersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventsResponse' smart constructor.
 describeEventsResponse :: Int -> DescribeEventsResponse
 describeEventsResponse pStatus =
     DescribeEventsResponse'
-    { _derEvents = Nothing
-    , _derMarker = Nothing
-    , _derStatus = pStatus
+    { _dersEvents = Nothing
+    , _dersMarker = Nothing
+    , _dersStatus = pStatus
     }
 
 -- | A list of Event instances.
-derEvents :: Lens' DescribeEventsResponse [Event]
-derEvents = lens _derEvents (\ s a -> s{_derEvents = a}) . _Default;
+dersEvents :: Lens' DescribeEventsResponse [Event]
+dersEvents = lens _dersEvents (\ s a -> s{_dersEvents = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -251,9 +252,9 @@ derEvents = lens _derEvents (\ s a -> s{_derEvents = a}) . _Default;
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-derMarker :: Lens' DescribeEventsResponse (Maybe Text)
-derMarker = lens _derMarker (\ s a -> s{_derMarker = a});
+dersMarker :: Lens' DescribeEventsResponse (Maybe Text)
+dersMarker = lens _dersMarker (\ s a -> s{_dersMarker = a});
 
 -- | FIXME: Undocumented member.
-derStatus :: Lens' DescribeEventsResponse Int
-derStatus = lens _derStatus (\ s a -> s{_derStatus = a});
+dersStatus :: Lens' DescribeEventsResponse Int
+dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

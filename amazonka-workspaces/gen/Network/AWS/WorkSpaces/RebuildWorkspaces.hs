@@ -47,15 +47,15 @@ module Network.AWS.WorkSpaces.RebuildWorkspaces
     -- ** Request constructor
     , rebuildWorkspaces
     -- ** Request lenses
-    , rwRebuildWorkspaceRequests
+    , rwrqRebuildWorkspaceRequests
 
     -- * Response
     , RebuildWorkspacesResponse
     -- ** Response constructor
     , rebuildWorkspacesResponse
     -- ** Response lenses
-    , rwrFailedRequests
-    , rwrStatus
+    , rwrsFailedRequests
+    , rwrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -69,21 +69,21 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rwRebuildWorkspaceRequests'
+-- * 'rwrqRebuildWorkspaceRequests'
 newtype RebuildWorkspaces = RebuildWorkspaces'
-    { _rwRebuildWorkspaceRequests :: List1 RebuildRequest
+    { _rwrqRebuildWorkspaceRequests :: List1 RebuildRequest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebuildWorkspaces' smart constructor.
 rebuildWorkspaces :: NonEmpty RebuildRequest -> RebuildWorkspaces
 rebuildWorkspaces pRebuildWorkspaceRequests =
     RebuildWorkspaces'
-    { _rwRebuildWorkspaceRequests = _List1 # pRebuildWorkspaceRequests
+    { _rwrqRebuildWorkspaceRequests = _List1 # pRebuildWorkspaceRequests
     }
 
 -- | An array of structures that specify the WorkSpaces to rebuild.
-rwRebuildWorkspaceRequests :: Lens' RebuildWorkspaces (NonEmpty RebuildRequest)
-rwRebuildWorkspaceRequests = lens _rwRebuildWorkspaceRequests (\ s a -> s{_rwRebuildWorkspaceRequests = a}) . _List1;
+rwrqRebuildWorkspaceRequests :: Lens' RebuildWorkspaces (NonEmpty RebuildRequest)
+rwrqRebuildWorkspaceRequests = lens _rwrqRebuildWorkspaceRequests (\ s a -> s{_rwrqRebuildWorkspaceRequests = a}) . _List1;
 
 instance AWSRequest RebuildWorkspaces where
         type Sv RebuildWorkspaces = WorkSpaces
@@ -110,7 +110,7 @@ instance ToJSON RebuildWorkspaces where
         toJSON RebuildWorkspaces'{..}
           = object
               ["RebuildWorkspaceRequests" .=
-                 _rwRebuildWorkspaceRequests]
+                 _rwrqRebuildWorkspaceRequests]
 
 instance ToPath RebuildWorkspaces where
         toPath = const "/"
@@ -124,27 +124,27 @@ instance ToQuery RebuildWorkspaces where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rwrFailedRequests'
+-- * 'rwrsFailedRequests'
 --
--- * 'rwrStatus'
+-- * 'rwrsStatus'
 data RebuildWorkspacesResponse = RebuildWorkspacesResponse'
-    { _rwrFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _rwrStatus         :: !Int
+    { _rwrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+    , _rwrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebuildWorkspacesResponse' smart constructor.
 rebuildWorkspacesResponse :: Int -> RebuildWorkspacesResponse
 rebuildWorkspacesResponse pStatus =
     RebuildWorkspacesResponse'
-    { _rwrFailedRequests = Nothing
-    , _rwrStatus = pStatus
+    { _rwrsFailedRequests = Nothing
+    , _rwrsStatus = pStatus
     }
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- rebuilt.
-rwrFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
-rwrFailedRequests = lens _rwrFailedRequests (\ s a -> s{_rwrFailedRequests = a}) . _Default;
+rwrsFailedRequests :: Lens' RebuildWorkspacesResponse [FailedWorkspaceChangeRequest]
+rwrsFailedRequests = lens _rwrsFailedRequests (\ s a -> s{_rwrsFailedRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rwrStatus :: Lens' RebuildWorkspacesResponse Int
-rwrStatus = lens _rwrStatus (\ s a -> s{_rwrStatus = a});
+rwrsStatus :: Lens' RebuildWorkspacesResponse Int
+rwrsStatus = lens _rwrsStatus (\ s a -> s{_rwrsStatus = a});

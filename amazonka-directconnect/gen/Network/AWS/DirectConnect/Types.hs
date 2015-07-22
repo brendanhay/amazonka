@@ -32,47 +32,47 @@ module Network.AWS.DirectConnect.Types
     -- * Connection
     , Connection
     , connection
-    , conVlan
-    , conLocation
-    , conConnectionId
-    , conConnectionName
-    , conPartnerName
-    , conBandwidth
-    , conRegion
-    , conOwnerAccount
-    , conConnectionState
+    , cVlan
+    , cLocation
+    , cConnectionId
+    , cConnectionName
+    , cPartnerName
+    , cBandwidth
+    , cRegion
+    , cOwnerAccount
+    , cConnectionState
 
     -- * Connections
     , Connections
     , connections
-    , conConnections
+    , cConnections
 
     -- * Interconnect
     , Interconnect
     , interconnect
-    , intInterconnectId
-    , intInterconnectName
-    , intLocation
-    , intBandwidth
-    , intInterconnectState
-    , intRegion
+    , iInterconnectId
+    , iInterconnectName
+    , iLocation
+    , iBandwidth
+    , iInterconnectState
+    , iRegion
 
     -- * Location
     , Location
     , location
-    , locLocationName
-    , locLocationCode
+    , lLocationName
+    , lLocationCode
 
     -- * NewPrivateVirtualInterface
     , NewPrivateVirtualInterface
     , newPrivateVirtualInterface
-    , newCustomerAddress
-    , newAmazonAddress
-    , newAuthKey
-    , newVirtualInterfaceName
-    , newVlan
-    , newAsn
-    , newVirtualGatewayId
+    , nCustomerAddress
+    , nAmazonAddress
+    , nAuthKey
+    , nVirtualInterfaceName
+    , nVlan
+    , nAsn
+    , nVirtualGatewayId
 
     -- * NewPrivateVirtualInterfaceAllocation
     , NewPrivateVirtualInterfaceAllocation
@@ -98,13 +98,13 @@ module Network.AWS.DirectConnect.Types
     -- * NewPublicVirtualInterfaceAllocation
     , NewPublicVirtualInterfaceAllocation
     , newPublicVirtualInterfaceAllocation
-    , nAuthKey
-    , nVirtualInterfaceName
-    , nVlan
-    , nAsn
-    , nAmazonAddress
-    , nCustomerAddress
-    , nRouteFilterPrefixes
+    , newAuthKey
+    , newVirtualInterfaceName
+    , newVlan
+    , newAsn
+    , newAmazonAddress
+    , newCustomerAddress
+    , newRouteFilterPrefixes
 
     -- * RouteFilterPrefix
     , RouteFilterPrefix

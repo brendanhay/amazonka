@@ -28,16 +28,16 @@ module Network.AWS.StorageGateway.CancelArchival
     -- ** Request constructor
     , cancelArchival
     -- ** Request lenses
-    , caGatewayARN
-    , caTapeARN
+    , carqGatewayARN
+    , carqTapeARN
 
     -- * Response
     , CancelArchivalResponse
     -- ** Response constructor
     , cancelArchivalResponse
     -- ** Response lenses
-    , carTapeARN
-    , carStatus
+    , carsTapeARN
+    , carsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -51,30 +51,30 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'caGatewayARN'
+-- * 'carqGatewayARN'
 --
--- * 'caTapeARN'
+-- * 'carqTapeARN'
 data CancelArchival = CancelArchival'
-    { _caGatewayARN :: !Text
-    , _caTapeARN    :: !Text
+    { _carqGatewayARN :: !Text
+    , _carqTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelArchival' smart constructor.
 cancelArchival :: Text -> Text -> CancelArchival
 cancelArchival pGatewayARN pTapeARN =
     CancelArchival'
-    { _caGatewayARN = pGatewayARN
-    , _caTapeARN = pTapeARN
+    { _carqGatewayARN = pGatewayARN
+    , _carqTapeARN = pTapeARN
     }
 
 -- | FIXME: Undocumented member.
-caGatewayARN :: Lens' CancelArchival Text
-caGatewayARN = lens _caGatewayARN (\ s a -> s{_caGatewayARN = a});
+carqGatewayARN :: Lens' CancelArchival Text
+carqGatewayARN = lens _carqGatewayARN (\ s a -> s{_carqGatewayARN = a});
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
 -- archiving for.
-caTapeARN :: Lens' CancelArchival Text
-caTapeARN = lens _caTapeARN (\ s a -> s{_caTapeARN = a});
+carqTapeARN :: Lens' CancelArchival Text
+carqTapeARN = lens _carqTapeARN (\ s a -> s{_carqTapeARN = a});
 
 instance AWSRequest CancelArchival where
         type Sv CancelArchival = StorageGateway
@@ -99,8 +99,8 @@ instance ToHeaders CancelArchival where
 instance ToJSON CancelArchival where
         toJSON CancelArchival'{..}
           = object
-              ["GatewayARN" .= _caGatewayARN,
-               "TapeARN" .= _caTapeARN]
+              ["GatewayARN" .= _carqGatewayARN,
+               "TapeARN" .= _carqTapeARN]
 
 instance ToPath CancelArchival where
         toPath = const "/"
@@ -114,27 +114,27 @@ instance ToQuery CancelArchival where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carTapeARN'
+-- * 'carsTapeARN'
 --
--- * 'carStatus'
+-- * 'carsStatus'
 data CancelArchivalResponse = CancelArchivalResponse'
-    { _carTapeARN :: !(Maybe Text)
-    , _carStatus  :: !Int
+    { _carsTapeARN :: !(Maybe Text)
+    , _carsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelArchivalResponse' smart constructor.
 cancelArchivalResponse :: Int -> CancelArchivalResponse
 cancelArchivalResponse pStatus =
     CancelArchivalResponse'
-    { _carTapeARN = Nothing
-    , _carStatus = pStatus
+    { _carsTapeARN = Nothing
+    , _carsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which archiving
 -- was canceled.
-carTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
-carTapeARN = lens _carTapeARN (\ s a -> s{_carTapeARN = a});
+carsTapeARN :: Lens' CancelArchivalResponse (Maybe Text)
+carsTapeARN = lens _carsTapeARN (\ s a -> s{_carsTapeARN = a});
 
 -- | FIXME: Undocumented member.
-carStatus :: Lens' CancelArchivalResponse Int
-carStatus = lens _carStatus (\ s a -> s{_carStatus = a});
+carsStatus :: Lens' CancelArchivalResponse Int
+carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

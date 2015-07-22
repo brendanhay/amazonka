@@ -29,17 +29,17 @@ module Network.AWS.ElastiCache.CreateCacheParameterGroup
     -- ** Request constructor
     , createCacheParameterGroup
     -- ** Request lenses
-    , ccpgCacheParameterGroupName
-    , ccpgCacheParameterGroupFamily
-    , ccpgDescription
+    , ccpgrqCacheParameterGroupName
+    , ccpgrqCacheParameterGroupFamily
+    , ccpgrqDescription
 
     -- * Response
     , CreateCacheParameterGroupResponse
     -- ** Response constructor
     , createCacheParameterGroupResponse
     -- ** Response lenses
-    , ccpgrCacheParameterGroup
-    , ccpgrStatus
+    , ccpgrsCacheParameterGroup
+    , ccpgrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -53,40 +53,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccpgCacheParameterGroupName'
+-- * 'ccpgrqCacheParameterGroupName'
 --
--- * 'ccpgCacheParameterGroupFamily'
+-- * 'ccpgrqCacheParameterGroupFamily'
 --
--- * 'ccpgDescription'
+-- * 'ccpgrqDescription'
 data CreateCacheParameterGroup = CreateCacheParameterGroup'
-    { _ccpgCacheParameterGroupName   :: !Text
-    , _ccpgCacheParameterGroupFamily :: !Text
-    , _ccpgDescription               :: !Text
+    { _ccpgrqCacheParameterGroupName   :: !Text
+    , _ccpgrqCacheParameterGroupFamily :: !Text
+    , _ccpgrqDescription               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheParameterGroup' smart constructor.
 createCacheParameterGroup :: Text -> Text -> Text -> CreateCacheParameterGroup
 createCacheParameterGroup pCacheParameterGroupName pCacheParameterGroupFamily pDescription =
     CreateCacheParameterGroup'
-    { _ccpgCacheParameterGroupName = pCacheParameterGroupName
-    , _ccpgCacheParameterGroupFamily = pCacheParameterGroupFamily
-    , _ccpgDescription = pDescription
+    { _ccpgrqCacheParameterGroupName = pCacheParameterGroupName
+    , _ccpgrqCacheParameterGroupFamily = pCacheParameterGroupFamily
+    , _ccpgrqDescription = pDescription
     }
 
 -- | A user-specified name for the cache parameter group.
-ccpgCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
-ccpgCacheParameterGroupName = lens _ccpgCacheParameterGroupName (\ s a -> s{_ccpgCacheParameterGroupName = a});
+ccpgrqCacheParameterGroupName :: Lens' CreateCacheParameterGroup Text
+ccpgrqCacheParameterGroupName = lens _ccpgrqCacheParameterGroupName (\ s a -> s{_ccpgrqCacheParameterGroupName = a});
 
 -- | The name of the cache parameter group family the cache parameter group
 -- can be used with.
 --
 -- Valid values are: @memcached1.4@ | @redis2.6@ | @redis2.8@
-ccpgCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
-ccpgCacheParameterGroupFamily = lens _ccpgCacheParameterGroupFamily (\ s a -> s{_ccpgCacheParameterGroupFamily = a});
+ccpgrqCacheParameterGroupFamily :: Lens' CreateCacheParameterGroup Text
+ccpgrqCacheParameterGroupFamily = lens _ccpgrqCacheParameterGroupFamily (\ s a -> s{_ccpgrqCacheParameterGroupFamily = a});
 
 -- | A user-specified description for the cache parameter group.
-ccpgDescription :: Lens' CreateCacheParameterGroup Text
-ccpgDescription = lens _ccpgDescription (\ s a -> s{_ccpgDescription = a});
+ccpgrqDescription :: Lens' CreateCacheParameterGroup Text
+ccpgrqDescription = lens _ccpgrqDescription (\ s a -> s{_ccpgrqDescription = a});
 
 instance AWSRequest CreateCacheParameterGroup where
         type Sv CreateCacheParameterGroup = ElastiCache
@@ -113,35 +113,35 @@ instance ToQuery CreateCacheParameterGroup where
                  ("CreateCacheParameterGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheParameterGroupName" =:
-                 _ccpgCacheParameterGroupName,
+                 _ccpgrqCacheParameterGroupName,
                "CacheParameterGroupFamily" =:
-                 _ccpgCacheParameterGroupFamily,
-               "Description" =: _ccpgDescription]
+                 _ccpgrqCacheParameterGroupFamily,
+               "Description" =: _ccpgrqDescription]
 
 -- | /See:/ 'createCacheParameterGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccpgrCacheParameterGroup'
+-- * 'ccpgrsCacheParameterGroup'
 --
--- * 'ccpgrStatus'
+-- * 'ccpgrsStatus'
 data CreateCacheParameterGroupResponse = CreateCacheParameterGroupResponse'
-    { _ccpgrCacheParameterGroup :: !(Maybe CacheParameterGroup)
-    , _ccpgrStatus              :: !Int
+    { _ccpgrsCacheParameterGroup :: !(Maybe CacheParameterGroup)
+    , _ccpgrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCacheParameterGroupResponse' smart constructor.
 createCacheParameterGroupResponse :: Int -> CreateCacheParameterGroupResponse
 createCacheParameterGroupResponse pStatus =
     CreateCacheParameterGroupResponse'
-    { _ccpgrCacheParameterGroup = Nothing
-    , _ccpgrStatus = pStatus
+    { _ccpgrsCacheParameterGroup = Nothing
+    , _ccpgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ccpgrCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
-ccpgrCacheParameterGroup = lens _ccpgrCacheParameterGroup (\ s a -> s{_ccpgrCacheParameterGroup = a});
+ccpgrsCacheParameterGroup :: Lens' CreateCacheParameterGroupResponse (Maybe CacheParameterGroup)
+ccpgrsCacheParameterGroup = lens _ccpgrsCacheParameterGroup (\ s a -> s{_ccpgrsCacheParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-ccpgrStatus :: Lens' CreateCacheParameterGroupResponse Int
-ccpgrStatus = lens _ccpgrStatus (\ s a -> s{_ccpgrStatus = a});
+ccpgrsStatus :: Lens' CreateCacheParameterGroupResponse Int
+ccpgrsStatus = lens _ccpgrsStatus (\ s a -> s{_ccpgrsStatus = a});

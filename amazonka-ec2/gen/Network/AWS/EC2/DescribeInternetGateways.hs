@@ -27,17 +27,17 @@ module Network.AWS.EC2.DescribeInternetGateways
     -- ** Request constructor
     , describeInternetGateways
     -- ** Request lenses
-    , desFilters
-    , desInternetGatewayIds
-    , desDryRun
+    , drqFilters
+    , drqInternetGatewayIds
+    , drqDryRun
 
     -- * Response
     , DescribeInternetGatewaysResponse
     -- ** Response constructor
     , describeInternetGatewaysResponse
     -- ** Response lenses
-    , digrInternetGateways
-    , digrStatus
+    , drsInternetGateways
+    , drsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -49,24 +49,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desFilters'
+-- * 'drqFilters'
 --
--- * 'desInternetGatewayIds'
+-- * 'drqInternetGatewayIds'
 --
--- * 'desDryRun'
+-- * 'drqDryRun'
 data DescribeInternetGateways = DescribeInternetGateways'
-    { _desFilters            :: !(Maybe [Filter])
-    , _desInternetGatewayIds :: !(Maybe [Text])
-    , _desDryRun             :: !(Maybe Bool)
+    { _drqFilters            :: !(Maybe [Filter])
+    , _drqInternetGatewayIds :: !(Maybe [Text])
+    , _drqDryRun             :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInternetGateways' smart constructor.
 describeInternetGateways :: DescribeInternetGateways
 describeInternetGateways =
     DescribeInternetGateways'
-    { _desFilters = Nothing
-    , _desInternetGatewayIds = Nothing
-    , _desDryRun = Nothing
+    { _drqFilters = Nothing
+    , _drqInternetGatewayIds = Nothing
+    , _drqDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -93,21 +93,21 @@ describeInternetGateways =
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-desFilters :: Lens' DescribeInternetGateways [Filter]
-desFilters = lens _desFilters (\ s a -> s{_desFilters = a}) . _Default;
+drqFilters :: Lens' DescribeInternetGateways [Filter]
+drqFilters = lens _drqFilters (\ s a -> s{_drqFilters = a}) . _Default;
 
 -- | One or more Internet gateway IDs.
 --
 -- Default: Describes all your Internet gateways.
-desInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
-desInternetGatewayIds = lens _desInternetGatewayIds (\ s a -> s{_desInternetGatewayIds = a}) . _Default;
+drqInternetGatewayIds :: Lens' DescribeInternetGateways [Text]
+drqInternetGatewayIds = lens _drqInternetGatewayIds (\ s a -> s{_drqInternetGatewayIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-desDryRun :: Lens' DescribeInternetGateways (Maybe Bool)
-desDryRun = lens _desDryRun (\ s a -> s{_desDryRun = a});
+drqDryRun :: Lens' DescribeInternetGateways (Maybe Bool)
+drqDryRun = lens _drqDryRun (\ s a -> s{_drqDryRun = a});
 
 instance AWSRequest DescribeInternetGateways where
         type Sv DescribeInternetGateways = EC2
@@ -134,35 +134,35 @@ instance ToQuery DescribeInternetGateways where
               ["Action" =:
                  ("DescribeInternetGateways" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _desFilters),
+               toQuery (toQueryList "Filter" <$> _drqFilters),
                toQuery
-                 (toQueryList "item" <$> _desInternetGatewayIds),
-               "DryRun" =: _desDryRun]
+                 (toQueryList "item" <$> _drqInternetGatewayIds),
+               "DryRun" =: _drqDryRun]
 
 -- | /See:/ 'describeInternetGatewaysResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'digrInternetGateways'
+-- * 'drsInternetGateways'
 --
--- * 'digrStatus'
+-- * 'drsStatus'
 data DescribeInternetGatewaysResponse = DescribeInternetGatewaysResponse'
-    { _digrInternetGateways :: !(Maybe [InternetGateway])
-    , _digrStatus           :: !Int
+    { _drsInternetGateways :: !(Maybe [InternetGateway])
+    , _drsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInternetGatewaysResponse' smart constructor.
 describeInternetGatewaysResponse :: Int -> DescribeInternetGatewaysResponse
 describeInternetGatewaysResponse pStatus =
     DescribeInternetGatewaysResponse'
-    { _digrInternetGateways = Nothing
-    , _digrStatus = pStatus
+    { _drsInternetGateways = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | Information about one or more Internet gateways.
-digrInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
-digrInternetGateways = lens _digrInternetGateways (\ s a -> s{_digrInternetGateways = a}) . _Default;
+drsInternetGateways :: Lens' DescribeInternetGatewaysResponse [InternetGateway]
+drsInternetGateways = lens _drsInternetGateways (\ s a -> s{_drsInternetGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-digrStatus :: Lens' DescribeInternetGatewaysResponse Int
-digrStatus = lens _digrStatus (\ s a -> s{_digrStatus = a});
+drsStatus :: Lens' DescribeInternetGatewaysResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -27,14 +27,14 @@ module Network.AWS.CloudTrail.DeleteTrail
     -- ** Request constructor
     , deleteTrail
     -- ** Request lenses
-    , dtName
+    , dtrqName
 
     -- * Response
     , DeleteTrailResponse
     -- ** Response constructor
     , deleteTrailResponse
     -- ** Response lenses
-    , delStatus
+    , dtrsStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtName'
+-- * 'dtrqName'
 newtype DeleteTrail = DeleteTrail'
-    { _dtName :: Text
+    { _dtrqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTrail' smart constructor.
 deleteTrail :: Text -> DeleteTrail
 deleteTrail pName =
     DeleteTrail'
-    { _dtName = pName
+    { _dtrqName = pName
     }
 
 -- | The name of a trail to be deleted.
-dtName :: Lens' DeleteTrail Text
-dtName = lens _dtName (\ s a -> s{_dtName = a});
+dtrqName :: Lens' DeleteTrail Text
+dtrqName = lens _dtrqName (\ s a -> s{_dtrqName = a});
 
 instance AWSRequest DeleteTrail where
         type Sv DeleteTrail = CloudTrail
@@ -84,7 +84,8 @@ instance ToHeaders DeleteTrail where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON DeleteTrail where
-        toJSON DeleteTrail'{..} = object ["Name" .= _dtName]
+        toJSON DeleteTrail'{..}
+          = object ["Name" .= _dtrqName]
 
 instance ToPath DeleteTrail where
         toPath = const "/"
@@ -99,18 +100,18 @@ instance ToQuery DeleteTrail where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatus'
+-- * 'dtrsStatus'
 newtype DeleteTrailResponse = DeleteTrailResponse'
-    { _delStatus :: Int
+    { _dtrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTrailResponse' smart constructor.
 deleteTrailResponse :: Int -> DeleteTrailResponse
 deleteTrailResponse pStatus =
     DeleteTrailResponse'
-    { _delStatus = pStatus
+    { _dtrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteTrailResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+dtrsStatus :: Lens' DeleteTrailResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

@@ -34,7 +34,7 @@ module Network.AWS.SES.VerifyEmailAddress
     -- ** Request constructor
     , verifyEmailAddress
     -- ** Request lenses
-    , veaEmailAddress
+    , vearqEmailAddress
 
     -- * Response
     , VerifyEmailAddressResponse
@@ -54,21 +54,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'veaEmailAddress'
+-- * 'vearqEmailAddress'
 newtype VerifyEmailAddress = VerifyEmailAddress'
-    { _veaEmailAddress :: Text
+    { _vearqEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyEmailAddress' smart constructor.
 verifyEmailAddress :: Text -> VerifyEmailAddress
 verifyEmailAddress pEmailAddress =
     VerifyEmailAddress'
-    { _veaEmailAddress = pEmailAddress
+    { _vearqEmailAddress = pEmailAddress
     }
 
 -- | The email address to be verified.
-veaEmailAddress :: Lens' VerifyEmailAddress Text
-veaEmailAddress = lens _veaEmailAddress (\ s a -> s{_veaEmailAddress = a});
+vearqEmailAddress :: Lens' VerifyEmailAddress Text
+vearqEmailAddress = lens _vearqEmailAddress (\ s a -> s{_vearqEmailAddress = a});
 
 instance AWSRequest VerifyEmailAddress where
         type Sv VerifyEmailAddress = SES
@@ -88,7 +88,7 @@ instance ToQuery VerifyEmailAddress where
           = mconcat
               ["Action" =: ("VerifyEmailAddress" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EmailAddress" =: _veaEmailAddress]
+               "EmailAddress" =: _vearqEmailAddress]
 
 -- | /See:/ 'verifyEmailAddressResponse' smart constructor.
 data VerifyEmailAddressResponse =

@@ -33,19 +33,19 @@ module Network.AWS.IAM.ListInstanceProfiles
     -- ** Request constructor
     , listInstanceProfiles
     -- ** Request lenses
-    , lipPathPrefix
-    , lipMaxItems
-    , lipMarker
+    , liprqPathPrefix
+    , liprqMaxItems
+    , liprqMarker
 
     -- * Response
     , ListInstanceProfilesResponse
     -- ** Response constructor
     , listInstanceProfilesResponse
     -- ** Response lenses
-    , liprMarker
-    , liprIsTruncated
-    , liprStatus
-    , liprInstanceProfiles
+    , liprsMarker
+    , liprsIsTruncated
+    , liprsStatus
+    , liprsInstanceProfiles
     ) where
 
 import           Network.AWS.IAM.Types
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lipPathPrefix'
+-- * 'liprqPathPrefix'
 --
--- * 'lipMaxItems'
+-- * 'liprqMaxItems'
 --
--- * 'lipMarker'
+-- * 'liprqMarker'
 data ListInstanceProfiles = ListInstanceProfiles'
-    { _lipPathPrefix :: !(Maybe Text)
-    , _lipMaxItems   :: !(Maybe Nat)
-    , _lipMarker     :: !(Maybe Text)
+    { _liprqPathPrefix :: !(Maybe Text)
+    , _liprqMaxItems   :: !(Maybe Nat)
+    , _liprqMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfiles' smart constructor.
 listInstanceProfiles :: ListInstanceProfiles
 listInstanceProfiles =
     ListInstanceProfiles'
-    { _lipPathPrefix = Nothing
-    , _lipMaxItems = Nothing
-    , _lipMarker = Nothing
+    { _liprqPathPrefix = Nothing
+    , _liprqMaxItems = Nothing
+    , _liprqMarker = Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -84,8 +84,8 @@ listInstanceProfiles =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/), listing all instance profiles.
-lipPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
-lipPathPrefix = lens _lipPathPrefix (\ s a -> s{_lipPathPrefix = a});
+liprqPathPrefix :: Lens' ListInstanceProfiles (Maybe Text)
+liprqPathPrefix = lens _liprqPathPrefix (\ s a -> s{_liprqPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -93,21 +93,21 @@ lipPathPrefix = lens _lipPathPrefix (\ s a -> s{_lipPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lipMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
-lipMaxItems = lens _lipMaxItems (\ s a -> s{_lipMaxItems = a}) . mapping _Nat;
+liprqMaxItems :: Lens' ListInstanceProfiles (Maybe Natural)
+liprqMaxItems = lens _liprqMaxItems (\ s a -> s{_liprqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lipMarker :: Lens' ListInstanceProfiles (Maybe Text)
-lipMarker = lens _lipMarker (\ s a -> s{_lipMarker = a});
+liprqMarker :: Lens' ListInstanceProfiles (Maybe Text)
+liprqMarker = lens _liprqMarker (\ s a -> s{_liprqMarker = a});
 
 instance AWSPager ListInstanceProfiles where
         page rq rs
-          | stop (rs ^. liprIsTruncated) = Nothing
-          | isNothing (rs ^. liprMarker) = Nothing
+          | stop (rs ^. liprsIsTruncated) = Nothing
+          | isNothing (rs ^. liprsMarker) = Nothing
           | otherwise =
-            Just $ rq & lipMarker .~ rs ^. liprMarker
+            Just $ rq & liprqMarker .~ rs ^. liprsMarker
 
 instance AWSRequest ListInstanceProfiles where
         type Sv ListInstanceProfiles = IAM
@@ -135,8 +135,9 @@ instance ToQuery ListInstanceProfiles where
           = mconcat
               ["Action" =: ("ListInstanceProfiles" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lipPathPrefix,
-               "MaxItems" =: _lipMaxItems, "Marker" =: _lipMarker]
+               "PathPrefix" =: _liprqPathPrefix,
+               "MaxItems" =: _liprqMaxItems,
+               "Marker" =: _liprqMarker]
 
 -- | Contains the response to a successful ListInstanceProfiles request.
 --
@@ -144,46 +145,46 @@ instance ToQuery ListInstanceProfiles where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liprMarker'
+-- * 'liprsMarker'
 --
--- * 'liprIsTruncated'
+-- * 'liprsIsTruncated'
 --
--- * 'liprStatus'
+-- * 'liprsStatus'
 --
--- * 'liprInstanceProfiles'
+-- * 'liprsInstanceProfiles'
 data ListInstanceProfilesResponse = ListInstanceProfilesResponse'
-    { _liprMarker           :: !(Maybe Text)
-    , _liprIsTruncated      :: !(Maybe Bool)
-    , _liprStatus           :: !Int
-    , _liprInstanceProfiles :: ![InstanceProfile]
+    { _liprsMarker           :: !(Maybe Text)
+    , _liprsIsTruncated      :: !(Maybe Bool)
+    , _liprsStatus           :: !Int
+    , _liprsInstanceProfiles :: ![InstanceProfile]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceProfilesResponse' smart constructor.
 listInstanceProfilesResponse :: Int -> ListInstanceProfilesResponse
 listInstanceProfilesResponse pStatus =
     ListInstanceProfilesResponse'
-    { _liprMarker = Nothing
-    , _liprIsTruncated = Nothing
-    , _liprStatus = pStatus
-    , _liprInstanceProfiles = mempty
+    { _liprsMarker = Nothing
+    , _liprsIsTruncated = Nothing
+    , _liprsStatus = pStatus
+    , _liprsInstanceProfiles = mempty
     }
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-liprMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
-liprMarker = lens _liprMarker (\ s a -> s{_liprMarker = a});
+liprsMarker :: Lens' ListInstanceProfilesResponse (Maybe Text)
+liprsMarker = lens _liprsMarker (\ s a -> s{_liprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-liprIsTruncated :: Lens' ListInstanceProfilesResponse (Maybe Bool)
-liprIsTruncated = lens _liprIsTruncated (\ s a -> s{_liprIsTruncated = a});
+liprsIsTruncated :: Lens' ListInstanceProfilesResponse (Maybe Bool)
+liprsIsTruncated = lens _liprsIsTruncated (\ s a -> s{_liprsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-liprStatus :: Lens' ListInstanceProfilesResponse Int
-liprStatus = lens _liprStatus (\ s a -> s{_liprStatus = a});
+liprsStatus :: Lens' ListInstanceProfilesResponse Int
+liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
 
 -- | A list of instance profiles.
-liprInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
-liprInstanceProfiles = lens _liprInstanceProfiles (\ s a -> s{_liprInstanceProfiles = a});
+liprsInstanceProfiles :: Lens' ListInstanceProfilesResponse [InstanceProfile]
+liprsInstanceProfiles = lens _liprsInstanceProfiles (\ s a -> s{_liprsInstanceProfiles = a});

@@ -27,15 +27,15 @@ module Network.AWS.DeviceFarm.GetTest
     -- ** Request constructor
     , getTest
     -- ** Request lenses
-    , gtArn
+    , gtrqArn
 
     -- * Response
     , GetTestResponse
     -- ** Response constructor
     , getTestResponse
     -- ** Response lenses
-    , gtrTest
-    , gtrStatus
+    , gtrsTest
+    , gtrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtArn'
+-- * 'gtrqArn'
 newtype GetTest = GetTest'
-    { _gtArn :: Text
+    { _gtrqArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTest' smart constructor.
 getTest :: Text -> GetTest
 getTest pArn =
     GetTest'
-    { _gtArn = pArn
+    { _gtrqArn = pArn
     }
 
 -- | The test\'s ARN.
-gtArn :: Lens' GetTest Text
-gtArn = lens _gtArn (\ s a -> s{_gtArn = a});
+gtrqArn :: Lens' GetTest Text
+gtrqArn = lens _gtrqArn (\ s a -> s{_gtrqArn = a});
 
 instance AWSRequest GetTest where
         type Sv GetTest = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetTest where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetTest where
-        toJSON GetTest'{..} = object ["arn" .= _gtArn]
+        toJSON GetTest'{..} = object ["arn" .= _gtrqArn]
 
 instance ToPath GetTest where
         toPath = const "/"
@@ -99,26 +99,26 @@ instance ToQuery GetTest where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtrTest'
+-- * 'gtrsTest'
 --
--- * 'gtrStatus'
+-- * 'gtrsStatus'
 data GetTestResponse = GetTestResponse'
-    { _gtrTest   :: !(Maybe Test)
-    , _gtrStatus :: !Int
+    { _gtrsTest   :: !(Maybe Test)
+    , _gtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTestResponse' smart constructor.
 getTestResponse :: Int -> GetTestResponse
 getTestResponse pStatus =
     GetTestResponse'
-    { _gtrTest = Nothing
-    , _gtrStatus = pStatus
+    { _gtrsTest = Nothing
+    , _gtrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gtrTest :: Lens' GetTestResponse (Maybe Test)
-gtrTest = lens _gtrTest (\ s a -> s{_gtrTest = a});
+gtrsTest :: Lens' GetTestResponse (Maybe Test)
+gtrsTest = lens _gtrsTest (\ s a -> s{_gtrsTest = a});
 
 -- | FIXME: Undocumented member.
-gtrStatus :: Lens' GetTestResponse Int
-gtrStatus = lens _gtrStatus (\ s a -> s{_gtrStatus = a});
+gtrsStatus :: Lens' GetTestResponse Int
+gtrsStatus = lens _gtrsStatus (\ s a -> s{_gtrsStatus = a});

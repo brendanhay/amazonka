@@ -33,15 +33,15 @@ module Network.AWS.OpsWorks.DescribeStacks
     -- ** Request constructor
     , describeStacks
     -- ** Request lenses
-    , dsStackIds
+    , dsrqStackIds
 
     -- * Response
     , DescribeStacksResponse
     -- ** Response constructor
     , describeStacksResponse
     -- ** Response lenses
-    , dsrStacks
-    , dsrStatus
+    , dsrsStacks
+    , dsrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -53,23 +53,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsStackIds'
+-- * 'dsrqStackIds'
 newtype DescribeStacks = DescribeStacks'
-    { _dsStackIds :: Maybe [Text]
+    { _dsrqStackIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStacks' smart constructor.
 describeStacks :: DescribeStacks
 describeStacks =
     DescribeStacks'
-    { _dsStackIds = Nothing
+    { _dsrqStackIds = Nothing
     }
 
 -- | An array of stack IDs that specify the stacks to be described. If you
 -- omit this parameter, @DescribeStacks@ returns a description of every
 -- stack.
-dsStackIds :: Lens' DescribeStacks [Text]
-dsStackIds = lens _dsStackIds (\ s a -> s{_dsStackIds = a}) . _Default;
+dsrqStackIds :: Lens' DescribeStacks [Text]
+dsrqStackIds = lens _dsrqStackIds (\ s a -> s{_dsrqStackIds = a}) . _Default;
 
 instance AWSRequest DescribeStacks where
         type Sv DescribeStacks = OpsWorks
@@ -92,7 +92,7 @@ instance ToHeaders DescribeStacks where
 
 instance ToJSON DescribeStacks where
         toJSON DescribeStacks'{..}
-          = object ["StackIds" .= _dsStackIds]
+          = object ["StackIds" .= _dsrqStackIds]
 
 instance ToPath DescribeStacks where
         toPath = const "/"
@@ -106,26 +106,26 @@ instance ToQuery DescribeStacks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrStacks'
+-- * 'dsrsStacks'
 --
--- * 'dsrStatus'
+-- * 'dsrsStatus'
 data DescribeStacksResponse = DescribeStacksResponse'
-    { _dsrStacks :: !(Maybe [Stack])
-    , _dsrStatus :: !Int
+    { _dsrsStacks :: !(Maybe [Stack])
+    , _dsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStacksResponse' smart constructor.
 describeStacksResponse :: Int -> DescribeStacksResponse
 describeStacksResponse pStatus =
     DescribeStacksResponse'
-    { _dsrStacks = Nothing
-    , _dsrStatus = pStatus
+    { _dsrsStacks = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | An array of @Stack@ objects that describe the stacks.
-dsrStacks :: Lens' DescribeStacksResponse [Stack]
-dsrStacks = lens _dsrStacks (\ s a -> s{_dsrStacks = a}) . _Default;
+dsrsStacks :: Lens' DescribeStacksResponse [Stack]
+dsrsStacks = lens _dsrsStacks (\ s a -> s{_dsrsStacks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStacksResponse Int
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+dsrsStatus :: Lens' DescribeStacksResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

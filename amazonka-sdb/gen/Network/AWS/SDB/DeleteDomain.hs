@@ -29,7 +29,7 @@ module Network.AWS.SDB.DeleteDomain
     -- ** Request constructor
     , deleteDomain
     -- ** Request lenses
-    , ddDomainName
+    , ddrqDomainName
 
     -- * Response
     , DeleteDomainResponse
@@ -46,21 +46,21 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddDomainName'
+-- * 'ddrqDomainName'
 newtype DeleteDomain = DeleteDomain'
-    { _ddDomainName :: Text
+    { _ddrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDomain' smart constructor.
 deleteDomain :: Text -> DeleteDomain
 deleteDomain pDomainName =
     DeleteDomain'
-    { _ddDomainName = pDomainName
+    { _ddrqDomainName = pDomainName
     }
 
 -- | The name of the domain to delete.
-ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
+ddrqDomainName :: Lens' DeleteDomain Text
+ddrqDomainName = lens _ddrqDomainName (\ s a -> s{_ddrqDomainName = a});
 
 instance AWSRequest DeleteDomain where
         type Sv DeleteDomain = SDB
@@ -79,7 +79,7 @@ instance ToQuery DeleteDomain where
           = mconcat
               ["Action" =: ("DeleteDomain" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _ddDomainName]
+               "DomainName" =: _ddrqDomainName]
 
 -- | /See:/ 'deleteDomainResponse' smart constructor.
 data DeleteDomainResponse =

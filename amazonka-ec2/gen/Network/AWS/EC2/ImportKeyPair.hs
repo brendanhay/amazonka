@@ -35,18 +35,18 @@ module Network.AWS.EC2.ImportKeyPair
     -- ** Request constructor
     , importKeyPair
     -- ** Request lenses
-    , ikpDryRun
-    , ikpKeyName
-    , ikpPublicKeyMaterial
+    , ikprqDryRun
+    , ikprqKeyName
+    , ikprqPublicKeyMaterial
 
     -- * Response
     , ImportKeyPairResponse
     -- ** Response constructor
     , importKeyPairResponse
     -- ** Response lenses
-    , ikprKeyFingerprint
-    , ikprKeyName
-    , ikprStatus
+    , ikprsKeyFingerprint
+    , ikprsKeyName
+    , ikprsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -58,41 +58,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ikpDryRun'
+-- * 'ikprqDryRun'
 --
--- * 'ikpKeyName'
+-- * 'ikprqKeyName'
 --
--- * 'ikpPublicKeyMaterial'
+-- * 'ikprqPublicKeyMaterial'
 data ImportKeyPair = ImportKeyPair'
-    { _ikpDryRun            :: !(Maybe Bool)
-    , _ikpKeyName           :: !Text
-    , _ikpPublicKeyMaterial :: !Base64
+    { _ikprqDryRun            :: !(Maybe Bool)
+    , _ikprqKeyName           :: !Text
+    , _ikprqPublicKeyMaterial :: !Base64
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportKeyPair' smart constructor.
 importKeyPair :: Text -> Base64 -> ImportKeyPair
 importKeyPair pKeyName pPublicKeyMaterial =
     ImportKeyPair'
-    { _ikpDryRun = Nothing
-    , _ikpKeyName = pKeyName
-    , _ikpPublicKeyMaterial = pPublicKeyMaterial
+    { _ikprqDryRun = Nothing
+    , _ikprqKeyName = pKeyName
+    , _ikprqPublicKeyMaterial = pPublicKeyMaterial
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ikpDryRun :: Lens' ImportKeyPair (Maybe Bool)
-ikpDryRun = lens _ikpDryRun (\ s a -> s{_ikpDryRun = a});
+ikprqDryRun :: Lens' ImportKeyPair (Maybe Bool)
+ikprqDryRun = lens _ikprqDryRun (\ s a -> s{_ikprqDryRun = a});
 
 -- | A unique name for the key pair.
-ikpKeyName :: Lens' ImportKeyPair Text
-ikpKeyName = lens _ikpKeyName (\ s a -> s{_ikpKeyName = a});
+ikprqKeyName :: Lens' ImportKeyPair Text
+ikprqKeyName = lens _ikprqKeyName (\ s a -> s{_ikprqKeyName = a});
 
 -- | The public key. You must base64 encode the public key material before
 -- sending it to AWS.
-ikpPublicKeyMaterial :: Lens' ImportKeyPair Base64
-ikpPublicKeyMaterial = lens _ikpPublicKeyMaterial (\ s a -> s{_ikpPublicKeyMaterial = a});
+ikprqPublicKeyMaterial :: Lens' ImportKeyPair Base64
+ikprqPublicKeyMaterial = lens _ikprqPublicKeyMaterial (\ s a -> s{_ikprqPublicKeyMaterial = a});
 
 instance AWSRequest ImportKeyPair where
         type Sv ImportKeyPair = EC2
@@ -116,41 +116,41 @@ instance ToQuery ImportKeyPair where
           = mconcat
               ["Action" =: ("ImportKeyPair" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ikpDryRun, "KeyName" =: _ikpKeyName,
-               "PublicKeyMaterial" =: _ikpPublicKeyMaterial]
+               "DryRun" =: _ikprqDryRun, "KeyName" =: _ikprqKeyName,
+               "PublicKeyMaterial" =: _ikprqPublicKeyMaterial]
 
 -- | /See:/ 'importKeyPairResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ikprKeyFingerprint'
+-- * 'ikprsKeyFingerprint'
 --
--- * 'ikprKeyName'
+-- * 'ikprsKeyName'
 --
--- * 'ikprStatus'
+-- * 'ikprsStatus'
 data ImportKeyPairResponse = ImportKeyPairResponse'
-    { _ikprKeyFingerprint :: !(Maybe Text)
-    , _ikprKeyName        :: !(Maybe Text)
-    , _ikprStatus         :: !Int
+    { _ikprsKeyFingerprint :: !(Maybe Text)
+    , _ikprsKeyName        :: !(Maybe Text)
+    , _ikprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportKeyPairResponse' smart constructor.
 importKeyPairResponse :: Int -> ImportKeyPairResponse
 importKeyPairResponse pStatus =
     ImportKeyPairResponse'
-    { _ikprKeyFingerprint = Nothing
-    , _ikprKeyName = Nothing
-    , _ikprStatus = pStatus
+    { _ikprsKeyFingerprint = Nothing
+    , _ikprsKeyName = Nothing
+    , _ikprsStatus = pStatus
     }
 
 -- | The MD5 public key fingerprint as specified in section 4 of RFC 4716.
-ikprKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
-ikprKeyFingerprint = lens _ikprKeyFingerprint (\ s a -> s{_ikprKeyFingerprint = a});
+ikprsKeyFingerprint :: Lens' ImportKeyPairResponse (Maybe Text)
+ikprsKeyFingerprint = lens _ikprsKeyFingerprint (\ s a -> s{_ikprsKeyFingerprint = a});
 
 -- | The key pair name you provided.
-ikprKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
-ikprKeyName = lens _ikprKeyName (\ s a -> s{_ikprKeyName = a});
+ikprsKeyName :: Lens' ImportKeyPairResponse (Maybe Text)
+ikprsKeyName = lens _ikprsKeyName (\ s a -> s{_ikprsKeyName = a});
 
 -- | FIXME: Undocumented member.
-ikprStatus :: Lens' ImportKeyPairResponse Int
-ikprStatus = lens _ikprStatus (\ s a -> s{_ikprStatus = a});
+ikprsStatus :: Lens' ImportKeyPairResponse Int
+ikprsStatus = lens _ikprsStatus (\ s a -> s{_ikprsStatus = a});

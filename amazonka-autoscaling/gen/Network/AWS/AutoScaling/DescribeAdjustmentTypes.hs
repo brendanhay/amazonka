@@ -32,8 +32,8 @@ module Network.AWS.AutoScaling.DescribeAdjustmentTypes
     -- ** Response constructor
     , describeAdjustmentTypesResponse
     -- ** Response lenses
-    , datrAdjustmentTypes
-    , datrStatus
+    , datrsAdjustmentTypes
+    , datrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -81,26 +81,26 @@ instance ToQuery DescribeAdjustmentTypes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'datrAdjustmentTypes'
+-- * 'datrsAdjustmentTypes'
 --
--- * 'datrStatus'
+-- * 'datrsStatus'
 data DescribeAdjustmentTypesResponse = DescribeAdjustmentTypesResponse'
-    { _datrAdjustmentTypes :: !(Maybe [AdjustmentType])
-    , _datrStatus          :: !Int
+    { _datrsAdjustmentTypes :: !(Maybe [AdjustmentType])
+    , _datrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAdjustmentTypesResponse' smart constructor.
 describeAdjustmentTypesResponse :: Int -> DescribeAdjustmentTypesResponse
 describeAdjustmentTypesResponse pStatus =
     DescribeAdjustmentTypesResponse'
-    { _datrAdjustmentTypes = Nothing
-    , _datrStatus = pStatus
+    { _datrsAdjustmentTypes = Nothing
+    , _datrsStatus = pStatus
     }
 
 -- | The policy adjustment types.
-datrAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
-datrAdjustmentTypes = lens _datrAdjustmentTypes (\ s a -> s{_datrAdjustmentTypes = a}) . _Default;
+datrsAdjustmentTypes :: Lens' DescribeAdjustmentTypesResponse [AdjustmentType]
+datrsAdjustmentTypes = lens _datrsAdjustmentTypes (\ s a -> s{_datrsAdjustmentTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-datrStatus :: Lens' DescribeAdjustmentTypesResponse Int
-datrStatus = lens _datrStatus (\ s a -> s{_datrStatus = a});
+datrsStatus :: Lens' DescribeAdjustmentTypesResponse Int
+datrsStatus = lens _datrsStatus (\ s a -> s{_datrsStatus = a});

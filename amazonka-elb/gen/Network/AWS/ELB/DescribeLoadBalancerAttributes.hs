@@ -27,15 +27,15 @@ module Network.AWS.ELB.DescribeLoadBalancerAttributes
     -- ** Request constructor
     , describeLoadBalancerAttributes
     -- ** Request lenses
-    , dlbaLoadBalancerName
+    , dlbarqLoadBalancerName
 
     -- * Response
     , DescribeLoadBalancerAttributesResponse
     -- ** Response constructor
     , describeLoadBalancerAttributesResponse
     -- ** Response lenses
-    , dlbarLoadBalancerAttributes
-    , dlbarStatus
+    , dlbarsLoadBalancerAttributes
+    , dlbarsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbaLoadBalancerName'
+-- * 'dlbarqLoadBalancerName'
 newtype DescribeLoadBalancerAttributes = DescribeLoadBalancerAttributes'
-    { _dlbaLoadBalancerName :: Text
+    { _dlbarqLoadBalancerName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerAttributes' smart constructor.
 describeLoadBalancerAttributes :: Text -> DescribeLoadBalancerAttributes
 describeLoadBalancerAttributes pLoadBalancerName =
     DescribeLoadBalancerAttributes'
-    { _dlbaLoadBalancerName = pLoadBalancerName
+    { _dlbarqLoadBalancerName = pLoadBalancerName
     }
 
 -- | The name of the load balancer.
-dlbaLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
-dlbaLoadBalancerName = lens _dlbaLoadBalancerName (\ s a -> s{_dlbaLoadBalancerName = a});
+dlbarqLoadBalancerName :: Lens' DescribeLoadBalancerAttributes Text
+dlbarqLoadBalancerName = lens _dlbarqLoadBalancerName (\ s a -> s{_dlbarqLoadBalancerName = a});
 
 instance AWSRequest DescribeLoadBalancerAttributes
          where
@@ -90,32 +90,32 @@ instance ToQuery DescribeLoadBalancerAttributes where
               ["Action" =:
                  ("DescribeLoadBalancerAttributes" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dlbaLoadBalancerName]
+               "LoadBalancerName" =: _dlbarqLoadBalancerName]
 
 -- | /See:/ 'describeLoadBalancerAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbarLoadBalancerAttributes'
+-- * 'dlbarsLoadBalancerAttributes'
 --
--- * 'dlbarStatus'
+-- * 'dlbarsStatus'
 data DescribeLoadBalancerAttributesResponse = DescribeLoadBalancerAttributesResponse'
-    { _dlbarLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-    , _dlbarStatus                 :: !Int
+    { _dlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
+    , _dlbarsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerAttributesResponse' smart constructor.
 describeLoadBalancerAttributesResponse :: Int -> DescribeLoadBalancerAttributesResponse
 describeLoadBalancerAttributesResponse pStatus =
     DescribeLoadBalancerAttributesResponse'
-    { _dlbarLoadBalancerAttributes = Nothing
-    , _dlbarStatus = pStatus
+    { _dlbarsLoadBalancerAttributes = Nothing
+    , _dlbarsStatus = pStatus
     }
 
 -- | Information about the load balancer attributes.
-dlbarLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-dlbarLoadBalancerAttributes = lens _dlbarLoadBalancerAttributes (\ s a -> s{_dlbarLoadBalancerAttributes = a});
+dlbarsLoadBalancerAttributes :: Lens' DescribeLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
+dlbarsLoadBalancerAttributes = lens _dlbarsLoadBalancerAttributes (\ s a -> s{_dlbarsLoadBalancerAttributes = a});
 
 -- | FIXME: Undocumented member.
-dlbarStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
-dlbarStatus = lens _dlbarStatus (\ s a -> s{_dlbarStatus = a});
+dlbarsStatus :: Lens' DescribeLoadBalancerAttributesResponse Int
+dlbarsStatus = lens _dlbarsStatus (\ s a -> s{_dlbarsStatus = a});

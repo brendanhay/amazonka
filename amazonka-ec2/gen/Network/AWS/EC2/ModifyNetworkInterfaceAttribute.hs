@@ -28,12 +28,12 @@ module Network.AWS.EC2.ModifyNetworkInterfaceAttribute
     -- ** Request constructor
     , modifyNetworkInterfaceAttribute
     -- ** Request lenses
-    , mniaGroups
-    , mniaSourceDestCheck
-    , mniaAttachment
-    , mniaDryRun
-    , mniaDescription
-    , mniaNetworkInterfaceId
+    , mniarqGroups
+    , mniarqSourceDestCheck
+    , mniarqAttachment
+    , mniarqDryRun
+    , mniarqDescription
+    , mniarqNetworkInterfaceId
 
     -- * Response
     , ModifyNetworkInterfaceAttributeResponse
@@ -50,44 +50,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mniaGroups'
+-- * 'mniarqGroups'
 --
--- * 'mniaSourceDestCheck'
+-- * 'mniarqSourceDestCheck'
 --
--- * 'mniaAttachment'
+-- * 'mniarqAttachment'
 --
--- * 'mniaDryRun'
+-- * 'mniarqDryRun'
 --
--- * 'mniaDescription'
+-- * 'mniarqDescription'
 --
--- * 'mniaNetworkInterfaceId'
+-- * 'mniarqNetworkInterfaceId'
 data ModifyNetworkInterfaceAttribute = ModifyNetworkInterfaceAttribute'
-    { _mniaGroups             :: !(Maybe [Text])
-    , _mniaSourceDestCheck    :: !(Maybe AttributeBooleanValue)
-    , _mniaAttachment         :: !(Maybe NetworkInterfaceAttachmentChanges)
-    , _mniaDryRun             :: !(Maybe Bool)
-    , _mniaDescription        :: !(Maybe AttributeValue)
-    , _mniaNetworkInterfaceId :: !Text
+    { _mniarqGroups             :: !(Maybe [Text])
+    , _mniarqSourceDestCheck    :: !(Maybe AttributeBooleanValue)
+    , _mniarqAttachment         :: !(Maybe NetworkInterfaceAttachmentChanges)
+    , _mniarqDryRun             :: !(Maybe Bool)
+    , _mniarqDescription        :: !(Maybe AttributeValue)
+    , _mniarqNetworkInterfaceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyNetworkInterfaceAttribute' smart constructor.
 modifyNetworkInterfaceAttribute :: Text -> ModifyNetworkInterfaceAttribute
 modifyNetworkInterfaceAttribute pNetworkInterfaceId =
     ModifyNetworkInterfaceAttribute'
-    { _mniaGroups = Nothing
-    , _mniaSourceDestCheck = Nothing
-    , _mniaAttachment = Nothing
-    , _mniaDryRun = Nothing
-    , _mniaDescription = Nothing
-    , _mniaNetworkInterfaceId = pNetworkInterfaceId
+    { _mniarqGroups = Nothing
+    , _mniarqSourceDestCheck = Nothing
+    , _mniarqAttachment = Nothing
+    , _mniarqDryRun = Nothing
+    , _mniarqDescription = Nothing
+    , _mniarqNetworkInterfaceId = pNetworkInterfaceId
     }
 
 -- | Changes the security groups for the network interface. The new set of
 -- groups you specify replaces the current set. You must specify at least
 -- one group, even if it\'s just the default security group in the VPC. You
 -- must specify the ID of the security group, not the name.
-mniaGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
-mniaGroups = lens _mniaGroups (\ s a -> s{_mniaGroups = a}) . _Default;
+mniarqGroups :: Lens' ModifyNetworkInterfaceAttribute [Text]
+mniarqGroups = lens _mniarqGroups (\ s a -> s{_mniarqGroups = a}) . _Default;
 
 -- | Indicates whether source\/destination checking is enabled. A value of
 -- @true@ means checking is enabled, and @false@ means checking is
@@ -95,29 +95,29 @@ mniaGroups = lens _mniaGroups (\ s a -> s{_mniaGroups = a}) . _Default;
 -- For more information, see
 -- <http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_NAT_Instance.html NAT Instances>
 -- in the /Amazon Virtual Private Cloud User Guide/.
-mniaSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
-mniaSourceDestCheck = lens _mniaSourceDestCheck (\ s a -> s{_mniaSourceDestCheck = a});
+mniarqSourceDestCheck :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeBooleanValue)
+mniarqSourceDestCheck = lens _mniarqSourceDestCheck (\ s a -> s{_mniarqSourceDestCheck = a});
 
 -- | Information about the interface attachment. If modifying the \'delete on
 -- termination\' attribute, you must specify the ID of the interface
 -- attachment.
-mniaAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
-mniaAttachment = lens _mniaAttachment (\ s a -> s{_mniaAttachment = a});
+mniarqAttachment :: Lens' ModifyNetworkInterfaceAttribute (Maybe NetworkInterfaceAttachmentChanges)
+mniarqAttachment = lens _mniarqAttachment (\ s a -> s{_mniarqAttachment = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-mniaDryRun :: Lens' ModifyNetworkInterfaceAttribute (Maybe Bool)
-mniaDryRun = lens _mniaDryRun (\ s a -> s{_mniaDryRun = a});
+mniarqDryRun :: Lens' ModifyNetworkInterfaceAttribute (Maybe Bool)
+mniarqDryRun = lens _mniarqDryRun (\ s a -> s{_mniarqDryRun = a});
 
 -- | A description for the network interface.
-mniaDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
-mniaDescription = lens _mniaDescription (\ s a -> s{_mniaDescription = a});
+mniarqDescription :: Lens' ModifyNetworkInterfaceAttribute (Maybe AttributeValue)
+mniarqDescription = lens _mniarqDescription (\ s a -> s{_mniarqDescription = a});
 
 -- | The ID of the network interface.
-mniaNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
-mniaNetworkInterfaceId = lens _mniaNetworkInterfaceId (\ s a -> s{_mniaNetworkInterfaceId = a});
+mniarqNetworkInterfaceId :: Lens' ModifyNetworkInterfaceAttribute Text
+mniarqNetworkInterfaceId = lens _mniarqNetworkInterfaceId (\ s a -> s{_mniarqNetworkInterfaceId = a});
 
 instance AWSRequest ModifyNetworkInterfaceAttribute
          where
@@ -144,12 +144,12 @@ instance ToQuery ModifyNetworkInterfaceAttribute
                  ("ModifyNetworkInterfaceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "SecurityGroupId" <$> _mniaGroups),
-               "SourceDestCheck" =: _mniaSourceDestCheck,
-               "Attachment" =: _mniaAttachment,
-               "DryRun" =: _mniaDryRun,
-               "Description" =: _mniaDescription,
-               "NetworkInterfaceId" =: _mniaNetworkInterfaceId]
+                 (toQueryList "SecurityGroupId" <$> _mniarqGroups),
+               "SourceDestCheck" =: _mniarqSourceDestCheck,
+               "Attachment" =: _mniarqAttachment,
+               "DryRun" =: _mniarqDryRun,
+               "Description" =: _mniarqDescription,
+               "NetworkInterfaceId" =: _mniarqNetworkInterfaceId]
 
 -- | /See:/ 'modifyNetworkInterfaceAttributeResponse' smart constructor.
 data ModifyNetworkInterfaceAttributeResponse =

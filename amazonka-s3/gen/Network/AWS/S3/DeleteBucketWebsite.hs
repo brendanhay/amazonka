@@ -27,7 +27,7 @@ module Network.AWS.S3.DeleteBucketWebsite
     -- ** Request constructor
     , deleteBucketWebsite
     -- ** Request lenses
-    , dbwBucket
+    , dbwrqBucket
 
     -- * Response
     , DeleteBucketWebsiteResponse
@@ -44,21 +44,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbwBucket'
+-- * 'dbwrqBucket'
 newtype DeleteBucketWebsite = DeleteBucketWebsite'
-    { _dbwBucket :: BucketName
+    { _dbwrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketWebsite' smart constructor.
 deleteBucketWebsite :: BucketName -> DeleteBucketWebsite
 deleteBucketWebsite pBucket =
     DeleteBucketWebsite'
-    { _dbwBucket = pBucket
+    { _dbwrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-dbwBucket :: Lens' DeleteBucketWebsite BucketName
-dbwBucket = lens _dbwBucket (\ s a -> s{_dbwBucket = a});
+dbwrqBucket :: Lens' DeleteBucketWebsite BucketName
+dbwrqBucket = lens _dbwrqBucket (\ s a -> s{_dbwrqBucket = a});
 
 instance AWSRequest DeleteBucketWebsite where
         type Sv DeleteBucketWebsite = S3
@@ -72,7 +72,7 @@ instance ToHeaders DeleteBucketWebsite where
 
 instance ToPath DeleteBucketWebsite where
         toPath DeleteBucketWebsite'{..}
-          = mconcat ["/", toText _dbwBucket]
+          = mconcat ["/", toText _dbwrqBucket]
 
 instance ToQuery DeleteBucketWebsite where
         toQuery = const (mconcat ["website"])

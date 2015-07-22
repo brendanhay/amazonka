@@ -48,8 +48,8 @@ module Network.AWS.SQS.DeleteMessage
     -- ** Request constructor
     , deleteMessage
     -- ** Request lenses
-    , dmQueueURL
-    , dmReceiptHandle
+    , dmrqQueueURL
+    , dmrqReceiptHandle
 
     -- * Response
     , DeleteMessageResponse
@@ -66,29 +66,29 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmQueueURL'
+-- * 'dmrqQueueURL'
 --
--- * 'dmReceiptHandle'
+-- * 'dmrqReceiptHandle'
 data DeleteMessage = DeleteMessage'
-    { _dmQueueURL      :: !Text
-    , _dmReceiptHandle :: !Text
+    { _dmrqQueueURL      :: !Text
+    , _dmrqReceiptHandle :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessage' smart constructor.
 deleteMessage :: Text -> Text -> DeleteMessage
 deleteMessage pQueueURL pReceiptHandle =
     DeleteMessage'
-    { _dmQueueURL = pQueueURL
-    , _dmReceiptHandle = pReceiptHandle
+    { _dmrqQueueURL = pQueueURL
+    , _dmrqReceiptHandle = pReceiptHandle
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-dmQueueURL :: Lens' DeleteMessage Text
-dmQueueURL = lens _dmQueueURL (\ s a -> s{_dmQueueURL = a});
+dmrqQueueURL :: Lens' DeleteMessage Text
+dmrqQueueURL = lens _dmrqQueueURL (\ s a -> s{_dmrqQueueURL = a});
 
 -- | The receipt handle associated with the message to delete.
-dmReceiptHandle :: Lens' DeleteMessage Text
-dmReceiptHandle = lens _dmReceiptHandle (\ s a -> s{_dmReceiptHandle = a});
+dmrqReceiptHandle :: Lens' DeleteMessage Text
+dmrqReceiptHandle = lens _dmrqReceiptHandle (\ s a -> s{_dmrqReceiptHandle = a});
 
 instance AWSRequest DeleteMessage where
         type Sv DeleteMessage = SQS
@@ -107,8 +107,8 @@ instance ToQuery DeleteMessage where
           = mconcat
               ["Action" =: ("DeleteMessage" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _dmQueueURL,
-               "ReceiptHandle" =: _dmReceiptHandle]
+               "QueueUrl" =: _dmrqQueueURL,
+               "ReceiptHandle" =: _dmrqReceiptHandle]
 
 -- | /See:/ 'deleteMessageResponse' smart constructor.
 data DeleteMessageResponse =

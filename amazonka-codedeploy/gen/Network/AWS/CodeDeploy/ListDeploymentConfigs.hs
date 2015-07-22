@@ -28,16 +28,16 @@ module Network.AWS.CodeDeploy.ListDeploymentConfigs
     -- ** Request constructor
     , listDeploymentConfigs
     -- ** Request lenses
-    , ldcNextToken
+    , ldcrqNextToken
 
     -- * Response
     , ListDeploymentConfigsResponse
     -- ** Response constructor
     , listDeploymentConfigsResponse
     -- ** Response lenses
-    , ldcrNextToken
-    , ldcrDeploymentConfigsList
-    , ldcrStatus
+    , ldcrsNextToken
+    , ldcrsDeploymentConfigsList
+    , ldcrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -51,23 +51,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldcNextToken'
+-- * 'ldcrqNextToken'
 newtype ListDeploymentConfigs = ListDeploymentConfigs'
-    { _ldcNextToken :: Maybe Text
+    { _ldcrqNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentConfigs' smart constructor.
 listDeploymentConfigs :: ListDeploymentConfigs
 listDeploymentConfigs =
     ListDeploymentConfigs'
-    { _ldcNextToken = Nothing
+    { _ldcrqNextToken = Nothing
     }
 
 -- | An identifier that was returned from the previous list deployment
 -- configurations call, which can be used to return the next set of
 -- deployment configurations in the list.
-ldcNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
-ldcNextToken = lens _ldcNextToken (\ s a -> s{_ldcNextToken = a});
+ldcrqNextToken :: Lens' ListDeploymentConfigs (Maybe Text)
+ldcrqNextToken = lens _ldcrqNextToken (\ s a -> s{_ldcrqNextToken = a});
 
 instance AWSRequest ListDeploymentConfigs where
         type Sv ListDeploymentConfigs = CodeDeploy
@@ -94,7 +94,7 @@ instance ToHeaders ListDeploymentConfigs where
 
 instance ToJSON ListDeploymentConfigs where
         toJSON ListDeploymentConfigs'{..}
-          = object ["nextToken" .= _ldcNextToken]
+          = object ["nextToken" .= _ldcrqNextToken]
 
 instance ToPath ListDeploymentConfigs where
         toPath = const "/"
@@ -108,38 +108,38 @@ instance ToQuery ListDeploymentConfigs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldcrNextToken'
+-- * 'ldcrsNextToken'
 --
--- * 'ldcrDeploymentConfigsList'
+-- * 'ldcrsDeploymentConfigsList'
 --
--- * 'ldcrStatus'
+-- * 'ldcrsStatus'
 data ListDeploymentConfigsResponse = ListDeploymentConfigsResponse'
-    { _ldcrNextToken             :: !(Maybe Text)
-    , _ldcrDeploymentConfigsList :: !(Maybe [Text])
-    , _ldcrStatus                :: !Int
+    { _ldcrsNextToken             :: !(Maybe Text)
+    , _ldcrsDeploymentConfigsList :: !(Maybe [Text])
+    , _ldcrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentConfigsResponse' smart constructor.
 listDeploymentConfigsResponse :: Int -> ListDeploymentConfigsResponse
 listDeploymentConfigsResponse pStatus =
     ListDeploymentConfigsResponse'
-    { _ldcrNextToken = Nothing
-    , _ldcrDeploymentConfigsList = Nothing
-    , _ldcrStatus = pStatus
+    { _ldcrsNextToken = Nothing
+    , _ldcrsDeploymentConfigsList = Nothing
+    , _ldcrsStatus = pStatus
     }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployment configurations call to return the next set of deployment
 -- configurations in the list.
-ldcrNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
-ldcrNextToken = lens _ldcrNextToken (\ s a -> s{_ldcrNextToken = a});
+ldcrsNextToken :: Lens' ListDeploymentConfigsResponse (Maybe Text)
+ldcrsNextToken = lens _ldcrsNextToken (\ s a -> s{_ldcrsNextToken = a});
 
 -- | A list of deployment configurations, including the built-in
 -- configurations such as CodeDeployDefault.OneAtATime.
-ldcrDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
-ldcrDeploymentConfigsList = lens _ldcrDeploymentConfigsList (\ s a -> s{_ldcrDeploymentConfigsList = a}) . _Default;
+ldcrsDeploymentConfigsList :: Lens' ListDeploymentConfigsResponse [Text]
+ldcrsDeploymentConfigsList = lens _ldcrsDeploymentConfigsList (\ s a -> s{_ldcrsDeploymentConfigsList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldcrStatus :: Lens' ListDeploymentConfigsResponse Int
-ldcrStatus = lens _ldcrStatus (\ s a -> s{_ldcrStatus = a});
+ldcrsStatus :: Lens' ListDeploymentConfigsResponse Int
+ldcrsStatus = lens _ldcrsStatus (\ s a -> s{_ldcrsStatus = a});

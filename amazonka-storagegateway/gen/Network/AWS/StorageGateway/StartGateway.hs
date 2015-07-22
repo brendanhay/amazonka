@@ -39,15 +39,15 @@ module Network.AWS.StorageGateway.StartGateway
     -- ** Request constructor
     , startGateway
     -- ** Request lenses
-    , sgGatewayARN
+    , sgrqGatewayARN
 
     -- * Response
     , StartGatewayResponse
     -- ** Response constructor
     , startGatewayResponse
     -- ** Response lenses
-    , staGatewayARN
-    , staStatus
+    , sgrsGatewayARN
+    , sgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -61,21 +61,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sgGatewayARN'
+-- * 'sgrqGatewayARN'
 newtype StartGateway = StartGateway'
-    { _sgGatewayARN :: Text
+    { _sgrqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartGateway' smart constructor.
 startGateway :: Text -> StartGateway
 startGateway pGatewayARN =
     StartGateway'
-    { _sgGatewayARN = pGatewayARN
+    { _sgrqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-sgGatewayARN :: Lens' StartGateway Text
-sgGatewayARN = lens _sgGatewayARN (\ s a -> s{_sgGatewayARN = a});
+sgrqGatewayARN :: Lens' StartGateway Text
+sgrqGatewayARN = lens _sgrqGatewayARN (\ s a -> s{_sgrqGatewayARN = a});
 
 instance AWSRequest StartGateway where
         type Sv StartGateway = StorageGateway
@@ -99,7 +99,7 @@ instance ToHeaders StartGateway where
 
 instance ToJSON StartGateway where
         toJSON StartGateway'{..}
-          = object ["GatewayARN" .= _sgGatewayARN]
+          = object ["GatewayARN" .= _sgrqGatewayARN]
 
 instance ToPath StartGateway where
         toPath = const "/"
@@ -113,26 +113,26 @@ instance ToQuery StartGateway where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staGatewayARN'
+-- * 'sgrsGatewayARN'
 --
--- * 'staStatus'
+-- * 'sgrsStatus'
 data StartGatewayResponse = StartGatewayResponse'
-    { _staGatewayARN :: !(Maybe Text)
-    , _staStatus     :: !Int
+    { _sgrsGatewayARN :: !(Maybe Text)
+    , _sgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartGatewayResponse' smart constructor.
 startGatewayResponse :: Int -> StartGatewayResponse
 startGatewayResponse pStatus =
     StartGatewayResponse'
-    { _staGatewayARN = Nothing
-    , _staStatus = pStatus
+    { _sgrsGatewayARN = Nothing
+    , _sgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-staGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
-staGatewayARN = lens _staGatewayARN (\ s a -> s{_staGatewayARN = a});
+sgrsGatewayARN :: Lens' StartGatewayResponse (Maybe Text)
+sgrsGatewayARN = lens _sgrsGatewayARN (\ s a -> s{_sgrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-staStatus :: Lens' StartGatewayResponse Int
-staStatus = lens _staStatus (\ s a -> s{_staStatus = a});
+sgrsStatus :: Lens' StartGatewayResponse Int
+sgrsStatus = lens _sgrsStatus (\ s a -> s{_sgrsStatus = a});

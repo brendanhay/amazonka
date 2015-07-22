@@ -52,19 +52,19 @@ module Network.AWS.SWF.ListDomains
     -- ** Request constructor
     , listDomains
     -- ** Request lenses
-    , ldNextPageToken
-    , ldReverseOrder
-    , ldMaximumPageSize
-    , ldRegistrationStatus
+    , ldrqNextPageToken
+    , ldrqReverseOrder
+    , ldrqMaximumPageSize
+    , ldrqRegistrationStatus
 
     -- * Response
     , ListDomainsResponse
     -- ** Response constructor
     , listDomainsResponse
     -- ** Response lenses
-    , ldrNextPageToken
-    , ldrStatus
-    , ldrDomainInfos
+    , ldrsNextPageToken
+    , ldrsStatus
+    , ldrsDomainInfos
     ) where
 
 import           Network.AWS.Pager
@@ -77,28 +77,28 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldNextPageToken'
+-- * 'ldrqNextPageToken'
 --
--- * 'ldReverseOrder'
+-- * 'ldrqReverseOrder'
 --
--- * 'ldMaximumPageSize'
+-- * 'ldrqMaximumPageSize'
 --
--- * 'ldRegistrationStatus'
+-- * 'ldrqRegistrationStatus'
 data ListDomains = ListDomains'
-    { _ldNextPageToken      :: !(Maybe Text)
-    , _ldReverseOrder       :: !(Maybe Bool)
-    , _ldMaximumPageSize    :: !(Maybe Nat)
-    , _ldRegistrationStatus :: !RegistrationStatus
+    { _ldrqNextPageToken      :: !(Maybe Text)
+    , _ldrqReverseOrder       :: !(Maybe Bool)
+    , _ldrqMaximumPageSize    :: !(Maybe Nat)
+    , _ldrqRegistrationStatus :: !RegistrationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: RegistrationStatus -> ListDomains
 listDomains pRegistrationStatus =
     ListDomains'
-    { _ldNextPageToken = Nothing
-    , _ldReverseOrder = Nothing
-    , _ldMaximumPageSize = Nothing
-    , _ldRegistrationStatus = pRegistrationStatus
+    { _ldrqNextPageToken = Nothing
+    , _ldrqReverseOrder = Nothing
+    , _ldrqMaximumPageSize = Nothing
+    , _ldrqRegistrationStatus = pRegistrationStatus
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -108,14 +108,14 @@ listDomains pRegistrationStatus =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-ldNextPageToken :: Lens' ListDomains (Maybe Text)
-ldNextPageToken = lens _ldNextPageToken (\ s a -> s{_ldNextPageToken = a});
+ldrqNextPageToken :: Lens' ListDomains (Maybe Text)
+ldrqNextPageToken = lens _ldrqNextPageToken (\ s a -> s{_ldrqNextPageToken = a});
 
 -- | When set to @true@, returns the results in reverse order. By default,
 -- the results are returned in ascending alphabetical order by @name@ of
 -- the domains.
-ldReverseOrder :: Lens' ListDomains (Maybe Bool)
-ldReverseOrder = lens _ldReverseOrder (\ s a -> s{_ldReverseOrder = a});
+ldrqReverseOrder :: Lens' ListDomains (Maybe Bool)
+ldrqReverseOrder = lens _ldrqReverseOrder (\ s a -> s{_ldrqReverseOrder = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
@@ -124,19 +124,20 @@ ldReverseOrder = lens _ldReverseOrder (\ s a -> s{_ldReverseOrder = a});
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.
-ldMaximumPageSize :: Lens' ListDomains (Maybe Natural)
-ldMaximumPageSize = lens _ldMaximumPageSize (\ s a -> s{_ldMaximumPageSize = a}) . mapping _Nat;
+ldrqMaximumPageSize :: Lens' ListDomains (Maybe Natural)
+ldrqMaximumPageSize = lens _ldrqMaximumPageSize (\ s a -> s{_ldrqMaximumPageSize = a}) . mapping _Nat;
 
 -- | Specifies the registration status of the domains to list.
-ldRegistrationStatus :: Lens' ListDomains RegistrationStatus
-ldRegistrationStatus = lens _ldRegistrationStatus (\ s a -> s{_ldRegistrationStatus = a});
+ldrqRegistrationStatus :: Lens' ListDomains RegistrationStatus
+ldrqRegistrationStatus = lens _ldrqRegistrationStatus (\ s a -> s{_ldrqRegistrationStatus = a});
 
 instance AWSPager ListDomains where
         page rq rs
-          | stop (rs ^. ldrNextPageToken) = Nothing
-          | stop (rs ^. ldrDomainInfos) = Nothing
+          | stop (rs ^. ldrsNextPageToken) = Nothing
+          | stop (rs ^. ldrsDomainInfos) = Nothing
           | otherwise =
-            Just $ rq & ldNextPageToken .~ rs ^. ldrNextPageToken
+            Just $ rq &
+              ldrqNextPageToken .~ rs ^. ldrsNextPageToken
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = SWF
@@ -161,10 +162,10 @@ instance ToHeaders ListDomains where
 instance ToJSON ListDomains where
         toJSON ListDomains'{..}
           = object
-              ["nextPageToken" .= _ldNextPageToken,
-               "reverseOrder" .= _ldReverseOrder,
-               "maximumPageSize" .= _ldMaximumPageSize,
-               "registrationStatus" .= _ldRegistrationStatus]
+              ["nextPageToken" .= _ldrqNextPageToken,
+               "reverseOrder" .= _ldrqReverseOrder,
+               "maximumPageSize" .= _ldrqMaximumPageSize,
+               "registrationStatus" .= _ldrqRegistrationStatus]
 
 instance ToPath ListDomains where
         toPath = const "/"
@@ -178,24 +179,24 @@ instance ToQuery ListDomains where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrNextPageToken'
+-- * 'ldrsNextPageToken'
 --
--- * 'ldrStatus'
+-- * 'ldrsStatus'
 --
--- * 'ldrDomainInfos'
+-- * 'ldrsDomainInfos'
 data ListDomainsResponse = ListDomainsResponse'
-    { _ldrNextPageToken :: !(Maybe Text)
-    , _ldrStatus        :: !Int
-    , _ldrDomainInfos   :: ![DomainInfo]
+    { _ldrsNextPageToken :: !(Maybe Text)
+    , _ldrsStatus        :: !Int
+    , _ldrsDomainInfos   :: ![DomainInfo]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse
 listDomainsResponse pStatus =
     ListDomainsResponse'
-    { _ldrNextPageToken = Nothing
-    , _ldrStatus = pStatus
-    , _ldrDomainInfos = mempty
+    { _ldrsNextPageToken = Nothing
+    , _ldrsStatus = pStatus
+    , _ldrsDomainInfos = mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -205,13 +206,13 @@ listDomainsResponse pStatus =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-ldrNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
-ldrNextPageToken = lens _ldrNextPageToken (\ s a -> s{_ldrNextPageToken = a});
+ldrsNextPageToken :: Lens' ListDomainsResponse (Maybe Text)
+ldrsNextPageToken = lens _ldrsNextPageToken (\ s a -> s{_ldrsNextPageToken = a});
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDomainsResponse Int
-ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+ldrsStatus :: Lens' ListDomainsResponse Int
+ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
 
 -- | A list of DomainInfo structures.
-ldrDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
-ldrDomainInfos = lens _ldrDomainInfos (\ s a -> s{_ldrDomainInfos = a});
+ldrsDomainInfos :: Lens' ListDomainsResponse [DomainInfo]
+ldrsDomainInfos = lens _ldrsDomainInfos (\ s a -> s{_ldrsDomainInfos = a});

@@ -35,8 +35,8 @@ module Network.AWS.OpsWorks.UpdateElasticIP
     -- ** Request constructor
     , updateElasticIP
     -- ** Request lenses
-    , ueiName
-    , ueiElasticIP
+    , ueirqName
+    , ueirqElasticIP
 
     -- * Response
     , UpdateElasticIPResponse
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ueiName'
+-- * 'ueirqName'
 --
--- * 'ueiElasticIP'
+-- * 'ueirqElasticIP'
 data UpdateElasticIP = UpdateElasticIP'
-    { _ueiName      :: !(Maybe Text)
-    , _ueiElasticIP :: !Text
+    { _ueirqName      :: !(Maybe Text)
+    , _ueirqElasticIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateElasticIP' smart constructor.
 updateElasticIP :: Text -> UpdateElasticIP
 updateElasticIP pElasticIP =
     UpdateElasticIP'
-    { _ueiName = Nothing
-    , _ueiElasticIP = pElasticIP
+    { _ueirqName = Nothing
+    , _ueirqElasticIP = pElasticIP
     }
 
 -- | The new name.
-ueiName :: Lens' UpdateElasticIP (Maybe Text)
-ueiName = lens _ueiName (\ s a -> s{_ueiName = a});
+ueirqName :: Lens' UpdateElasticIP (Maybe Text)
+ueirqName = lens _ueirqName (\ s a -> s{_ueirqName = a});
 
 -- | The address.
-ueiElasticIP :: Lens' UpdateElasticIP Text
-ueiElasticIP = lens _ueiElasticIP (\ s a -> s{_ueiElasticIP = a});
+ueirqElasticIP :: Lens' UpdateElasticIP Text
+ueirqElasticIP = lens _ueirqElasticIP (\ s a -> s{_ueirqElasticIP = a});
 
 instance AWSRequest UpdateElasticIP where
         type Sv UpdateElasticIP = OpsWorks
@@ -95,7 +95,8 @@ instance ToHeaders UpdateElasticIP where
 instance ToJSON UpdateElasticIP where
         toJSON UpdateElasticIP'{..}
           = object
-              ["Name" .= _ueiName, "ElasticIp" .= _ueiElasticIP]
+              ["Name" .= _ueirqName,
+               "ElasticIp" .= _ueirqElasticIP]
 
 instance ToPath UpdateElasticIP where
         toPath = const "/"

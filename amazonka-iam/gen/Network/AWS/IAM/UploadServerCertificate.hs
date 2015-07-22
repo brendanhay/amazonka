@@ -44,19 +44,19 @@ module Network.AWS.IAM.UploadServerCertificate
     -- ** Request constructor
     , uploadServerCertificate
     -- ** Request lenses
-    , uscPath
-    , uscCertificateChain
-    , uscServerCertificateName
-    , uscCertificateBody
-    , uscPrivateKey
+    , uscrqPath
+    , uscrqCertificateChain
+    , uscrqServerCertificateName
+    , uscrqCertificateBody
+    , uscrqPrivateKey
 
     -- * Response
     , UploadServerCertificateResponse
     -- ** Response constructor
     , uploadServerCertificateResponse
     -- ** Response lenses
-    , uplServerCertificateMetadata
-    , uplStatus
+    , uscrsServerCertificateMetadata
+    , uscrsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -68,32 +68,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uscPath'
+-- * 'uscrqPath'
 --
--- * 'uscCertificateChain'
+-- * 'uscrqCertificateChain'
 --
--- * 'uscServerCertificateName'
+-- * 'uscrqServerCertificateName'
 --
--- * 'uscCertificateBody'
+-- * 'uscrqCertificateBody'
 --
--- * 'uscPrivateKey'
+-- * 'uscrqPrivateKey'
 data UploadServerCertificate = UploadServerCertificate'
-    { _uscPath                  :: !(Maybe Text)
-    , _uscCertificateChain      :: !(Maybe Text)
-    , _uscServerCertificateName :: !Text
-    , _uscCertificateBody       :: !Text
-    , _uscPrivateKey            :: !(Sensitive Text)
+    { _uscrqPath                  :: !(Maybe Text)
+    , _uscrqCertificateChain      :: !(Maybe Text)
+    , _uscrqServerCertificateName :: !Text
+    , _uscrqCertificateBody       :: !Text
+    , _uscrqPrivateKey            :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadServerCertificate' smart constructor.
 uploadServerCertificate :: Text -> Text -> Text -> UploadServerCertificate
 uploadServerCertificate pServerCertificateName pCertificateBody pPrivateKey =
     UploadServerCertificate'
-    { _uscPath = Nothing
-    , _uscCertificateChain = Nothing
-    , _uscServerCertificateName = pServerCertificateName
-    , _uscCertificateBody = pCertificateBody
-    , _uscPrivateKey = _Sensitive # pPrivateKey
+    { _uscrqPath = Nothing
+    , _uscrqCertificateChain = Nothing
+    , _uscrqServerCertificateName = pServerCertificateName
+    , _uscrqCertificateBody = pCertificateBody
+    , _uscrqPrivateKey = _Sensitive # pPrivateKey
     }
 
 -- | The path for the server certificate. For more information about paths,
@@ -108,26 +108,26 @@ uploadServerCertificate pServerCertificateName pCertificateBody pPrivateKey =
 -- Amazon CloudFront distributions, you must specify a path using the
 -- @--path@ option. The path must begin with @\/cloudfront@ and must
 -- include a trailing slash (for example, @\/cloudfront\/test\/@).
-uscPath :: Lens' UploadServerCertificate (Maybe Text)
-uscPath = lens _uscPath (\ s a -> s{_uscPath = a});
+uscrqPath :: Lens' UploadServerCertificate (Maybe Text)
+uscrqPath = lens _uscrqPath (\ s a -> s{_uscrqPath = a});
 
 -- | The contents of the certificate chain. This is typically a concatenation
 -- of the PEM-encoded public key certificates of the chain.
-uscCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
-uscCertificateChain = lens _uscCertificateChain (\ s a -> s{_uscCertificateChain = a});
+uscrqCertificateChain :: Lens' UploadServerCertificate (Maybe Text)
+uscrqCertificateChain = lens _uscrqCertificateChain (\ s a -> s{_uscrqCertificateChain = a});
 
 -- | The name for the server certificate. Do not include the path in this
 -- value. The name of the certificate cannot contain any spaces.
-uscServerCertificateName :: Lens' UploadServerCertificate Text
-uscServerCertificateName = lens _uscServerCertificateName (\ s a -> s{_uscServerCertificateName = a});
+uscrqServerCertificateName :: Lens' UploadServerCertificate Text
+uscrqServerCertificateName = lens _uscrqServerCertificateName (\ s a -> s{_uscrqServerCertificateName = a});
 
 -- | The contents of the public key certificate in PEM-encoded format.
-uscCertificateBody :: Lens' UploadServerCertificate Text
-uscCertificateBody = lens _uscCertificateBody (\ s a -> s{_uscCertificateBody = a});
+uscrqCertificateBody :: Lens' UploadServerCertificate Text
+uscrqCertificateBody = lens _uscrqCertificateBody (\ s a -> s{_uscrqCertificateBody = a});
 
 -- | The contents of the private key in PEM-encoded format.
-uscPrivateKey :: Lens' UploadServerCertificate Text
-uscPrivateKey = lens _uscPrivateKey (\ s a -> s{_uscPrivateKey = a}) . _Sensitive;
+uscrqPrivateKey :: Lens' UploadServerCertificate Text
+uscrqPrivateKey = lens _uscrqPrivateKey (\ s a -> s{_uscrqPrivateKey = a}) . _Sensitive;
 
 instance AWSRequest UploadServerCertificate where
         type Sv UploadServerCertificate = IAM
@@ -153,11 +153,12 @@ instance ToQuery UploadServerCertificate where
               ["Action" =:
                  ("UploadServerCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _uscPath,
-               "CertificateChain" =: _uscCertificateChain,
-               "ServerCertificateName" =: _uscServerCertificateName,
-               "CertificateBody" =: _uscCertificateBody,
-               "PrivateKey" =: _uscPrivateKey]
+               "Path" =: _uscrqPath,
+               "CertificateChain" =: _uscrqCertificateChain,
+               "ServerCertificateName" =:
+                 _uscrqServerCertificateName,
+               "CertificateBody" =: _uscrqCertificateBody,
+               "PrivateKey" =: _uscrqPrivateKey]
 
 -- | Contains the response to a successful UploadServerCertificate request.
 --
@@ -165,27 +166,27 @@ instance ToQuery UploadServerCertificate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uplServerCertificateMetadata'
+-- * 'uscrsServerCertificateMetadata'
 --
--- * 'uplStatus'
+-- * 'uscrsStatus'
 data UploadServerCertificateResponse = UploadServerCertificateResponse'
-    { _uplServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
-    , _uplStatus                    :: !Int
+    { _uscrsServerCertificateMetadata :: !(Maybe ServerCertificateMetadata)
+    , _uscrsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadServerCertificateResponse' smart constructor.
 uploadServerCertificateResponse :: Int -> UploadServerCertificateResponse
 uploadServerCertificateResponse pStatus =
     UploadServerCertificateResponse'
-    { _uplServerCertificateMetadata = Nothing
-    , _uplStatus = pStatus
+    { _uscrsServerCertificateMetadata = Nothing
+    , _uscrsStatus = pStatus
     }
 
 -- | The meta information of the uploaded server certificate without its
 -- certificate body, certificate chain, and private key.
-uplServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
-uplServerCertificateMetadata = lens _uplServerCertificateMetadata (\ s a -> s{_uplServerCertificateMetadata = a});
+uscrsServerCertificateMetadata :: Lens' UploadServerCertificateResponse (Maybe ServerCertificateMetadata)
+uscrsServerCertificateMetadata = lens _uscrsServerCertificateMetadata (\ s a -> s{_uscrsServerCertificateMetadata = a});
 
 -- | FIXME: Undocumented member.
-uplStatus :: Lens' UploadServerCertificateResponse Int
-uplStatus = lens _uplStatus (\ s a -> s{_uplStatus = a});
+uscrsStatus :: Lens' UploadServerCertificateResponse Int
+uscrsStatus = lens _uscrsStatus (\ s a -> s{_uscrsStatus = a});

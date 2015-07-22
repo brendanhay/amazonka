@@ -35,17 +35,17 @@ module Network.AWS.OpsWorks.DescribeDeployments
     -- ** Request constructor
     , describeDeployments
     -- ** Request lenses
-    , ddAppId
-    , ddDeploymentIds
-    , ddStackId
+    , ddrqAppId
+    , ddrqDeploymentIds
+    , ddrqStackId
 
     -- * Response
     , DescribeDeploymentsResponse
     -- ** Response constructor
     , describeDeploymentsResponse
     -- ** Response lenses
-    , ddrDeployments
-    , ddrStatus
+    , ddrsDeployments
+    , ddrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -57,42 +57,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddAppId'
+-- * 'ddrqAppId'
 --
--- * 'ddDeploymentIds'
+-- * 'ddrqDeploymentIds'
 --
--- * 'ddStackId'
+-- * 'ddrqStackId'
 data DescribeDeployments = DescribeDeployments'
-    { _ddAppId         :: !(Maybe Text)
-    , _ddDeploymentIds :: !(Maybe [Text])
-    , _ddStackId       :: !(Maybe Text)
+    { _ddrqAppId         :: !(Maybe Text)
+    , _ddrqDeploymentIds :: !(Maybe [Text])
+    , _ddrqStackId       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeployments' smart constructor.
 describeDeployments :: DescribeDeployments
 describeDeployments =
     DescribeDeployments'
-    { _ddAppId = Nothing
-    , _ddDeploymentIds = Nothing
-    , _ddStackId = Nothing
+    { _ddrqAppId = Nothing
+    , _ddrqDeploymentIds = Nothing
+    , _ddrqStackId = Nothing
     }
 
 -- | The app ID. If you include this parameter, @DescribeDeployments@ returns
 -- a description of the commands associated with the specified app.
-ddAppId :: Lens' DescribeDeployments (Maybe Text)
-ddAppId = lens _ddAppId (\ s a -> s{_ddAppId = a});
+ddrqAppId :: Lens' DescribeDeployments (Maybe Text)
+ddrqAppId = lens _ddrqAppId (\ s a -> s{_ddrqAppId = a});
 
 -- | An array of deployment IDs to be described. If you include this
 -- parameter, @DescribeDeployments@ returns a description of the specified
 -- deployments. Otherwise, it returns a description of every deployment.
-ddDeploymentIds :: Lens' DescribeDeployments [Text]
-ddDeploymentIds = lens _ddDeploymentIds (\ s a -> s{_ddDeploymentIds = a}) . _Default;
+ddrqDeploymentIds :: Lens' DescribeDeployments [Text]
+ddrqDeploymentIds = lens _ddrqDeploymentIds (\ s a -> s{_ddrqDeploymentIds = a}) . _Default;
 
 -- | The stack ID. If you include this parameter, @DescribeDeployments@
 -- returns a description of the commands associated with the specified
 -- stack.
-ddStackId :: Lens' DescribeDeployments (Maybe Text)
-ddStackId = lens _ddStackId (\ s a -> s{_ddStackId = a});
+ddrqStackId :: Lens' DescribeDeployments (Maybe Text)
+ddrqStackId = lens _ddrqStackId (\ s a -> s{_ddrqStackId = a});
 
 instance AWSRequest DescribeDeployments where
         type Sv DescribeDeployments = OpsWorks
@@ -119,9 +119,9 @@ instance ToHeaders DescribeDeployments where
 instance ToJSON DescribeDeployments where
         toJSON DescribeDeployments'{..}
           = object
-              ["AppId" .= _ddAppId,
-               "DeploymentIds" .= _ddDeploymentIds,
-               "StackId" .= _ddStackId]
+              ["AppId" .= _ddrqAppId,
+               "DeploymentIds" .= _ddrqDeploymentIds,
+               "StackId" .= _ddrqStackId]
 
 instance ToPath DescribeDeployments where
         toPath = const "/"
@@ -135,26 +135,26 @@ instance ToQuery DescribeDeployments where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrDeployments'
+-- * 'ddrsDeployments'
 --
--- * 'ddrStatus'
+-- * 'ddrsStatus'
 data DescribeDeploymentsResponse = DescribeDeploymentsResponse'
-    { _ddrDeployments :: !(Maybe [Deployment])
-    , _ddrStatus      :: !Int
+    { _ddrsDeployments :: !(Maybe [Deployment])
+    , _ddrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeploymentsResponse' smart constructor.
 describeDeploymentsResponse :: Int -> DescribeDeploymentsResponse
 describeDeploymentsResponse pStatus =
     DescribeDeploymentsResponse'
-    { _ddrDeployments = Nothing
-    , _ddrStatus = pStatus
+    { _ddrsDeployments = Nothing
+    , _ddrsStatus = pStatus
     }
 
 -- | An array of @Deployment@ objects that describe the deployments.
-ddrDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
-ddrDeployments = lens _ddrDeployments (\ s a -> s{_ddrDeployments = a}) . _Default;
+ddrsDeployments :: Lens' DescribeDeploymentsResponse [Deployment]
+ddrsDeployments = lens _ddrsDeployments (\ s a -> s{_ddrsDeployments = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DescribeDeploymentsResponse Int
-ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});
+ddrsStatus :: Lens' DescribeDeploymentsResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

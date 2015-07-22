@@ -30,16 +30,16 @@ module Network.AWS.CloudFormation.DescribeStackResource
     -- ** Request constructor
     , describeStackResource
     -- ** Request lenses
-    , dStackName
-    , dLogicalResourceId
+    , desrqStackName
+    , desrqLogicalResourceId
 
     -- * Response
     , DescribeStackResourceResponse
     -- ** Response constructor
     , describeStackResourceResponse
     -- ** Response lenses
-    , dsrrStackResourceDetail
-    , dsrrStatus
+    , desrsStackResourceDetail
+    , desrsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -53,20 +53,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dStackName'
+-- * 'desrqStackName'
 --
--- * 'dLogicalResourceId'
+-- * 'desrqLogicalResourceId'
 data DescribeStackResource = DescribeStackResource'
-    { _dStackName         :: !Text
-    , _dLogicalResourceId :: !Text
+    { _desrqStackName         :: !Text
+    , _desrqLogicalResourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResource' smart constructor.
 describeStackResource :: Text -> Text -> DescribeStackResource
 describeStackResource pStackName pLogicalResourceId =
     DescribeStackResource'
-    { _dStackName = pStackName
-    , _dLogicalResourceId = pLogicalResourceId
+    { _desrqStackName = pStackName
+    , _desrqLogicalResourceId = pLogicalResourceId
     }
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -77,14 +77,14 @@ describeStackResource pStackName pLogicalResourceId =
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-dStackName :: Lens' DescribeStackResource Text
-dStackName = lens _dStackName (\ s a -> s{_dStackName = a});
+desrqStackName :: Lens' DescribeStackResource Text
+desrqStackName = lens _desrqStackName (\ s a -> s{_desrqStackName = a});
 
 -- | The logical name of the resource as specified in the template.
 --
 -- Default: There is no default value.
-dLogicalResourceId :: Lens' DescribeStackResource Text
-dLogicalResourceId = lens _dLogicalResourceId (\ s a -> s{_dLogicalResourceId = a});
+desrqLogicalResourceId :: Lens' DescribeStackResource Text
+desrqLogicalResourceId = lens _desrqLogicalResourceId (\ s a -> s{_desrqLogicalResourceId = a});
 
 instance AWSRequest DescribeStackResource where
         type Sv DescribeStackResource = CloudFormation
@@ -109,8 +109,8 @@ instance ToQuery DescribeStackResource where
           = mconcat
               ["Action" =: ("DescribeStackResource" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _dStackName,
-               "LogicalResourceId" =: _dLogicalResourceId]
+               "StackName" =: _desrqStackName,
+               "LogicalResourceId" =: _desrqLogicalResourceId]
 
 -- | The output for a DescribeStackResource action.
 --
@@ -118,27 +118,27 @@ instance ToQuery DescribeStackResource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrrStackResourceDetail'
+-- * 'desrsStackResourceDetail'
 --
--- * 'dsrrStatus'
+-- * 'desrsStatus'
 data DescribeStackResourceResponse = DescribeStackResourceResponse'
-    { _dsrrStackResourceDetail :: !(Maybe StackResourceDetail)
-    , _dsrrStatus              :: !Int
+    { _desrsStackResourceDetail :: !(Maybe StackResourceDetail)
+    , _desrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackResourceResponse' smart constructor.
 describeStackResourceResponse :: Int -> DescribeStackResourceResponse
 describeStackResourceResponse pStatus =
     DescribeStackResourceResponse'
-    { _dsrrStackResourceDetail = Nothing
-    , _dsrrStatus = pStatus
+    { _desrsStackResourceDetail = Nothing
+    , _desrsStatus = pStatus
     }
 
 -- | A @StackResourceDetail@ structure containing the description of the
 -- specified resource in the specified stack.
-dsrrStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
-dsrrStackResourceDetail = lens _dsrrStackResourceDetail (\ s a -> s{_dsrrStackResourceDetail = a});
+desrsStackResourceDetail :: Lens' DescribeStackResourceResponse (Maybe StackResourceDetail)
+desrsStackResourceDetail = lens _desrsStackResourceDetail (\ s a -> s{_desrsStackResourceDetail = a});
 
 -- | FIXME: Undocumented member.
-dsrrStatus :: Lens' DescribeStackResourceResponse Int
-dsrrStatus = lens _dsrrStatus (\ s a -> s{_dsrrStatus = a});
+desrsStatus :: Lens' DescribeStackResourceResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

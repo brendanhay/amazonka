@@ -74,8 +74,8 @@ module Network.AWS.SDB.BatchPutAttributes
     -- ** Request constructor
     , batchPutAttributes
     -- ** Request lenses
-    , bpaDomainName
-    , bpaItems
+    , bparqDomainName
+    , bparqItems
 
     -- * Response
     , BatchPutAttributesResponse
@@ -92,29 +92,29 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bpaDomainName'
+-- * 'bparqDomainName'
 --
--- * 'bpaItems'
+-- * 'bparqItems'
 data BatchPutAttributes = BatchPutAttributes'
-    { _bpaDomainName :: !Text
-    , _bpaItems      :: ![ReplaceableItem]
+    { _bparqDomainName :: !Text
+    , _bparqItems      :: ![ReplaceableItem]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchPutAttributes' smart constructor.
 batchPutAttributes :: Text -> BatchPutAttributes
 batchPutAttributes pDomainName =
     BatchPutAttributes'
-    { _bpaDomainName = pDomainName
-    , _bpaItems = mempty
+    { _bparqDomainName = pDomainName
+    , _bparqItems = mempty
     }
 
 -- | The name of the domain in which the attributes are being stored.
-bpaDomainName :: Lens' BatchPutAttributes Text
-bpaDomainName = lens _bpaDomainName (\ s a -> s{_bpaDomainName = a});
+bparqDomainName :: Lens' BatchPutAttributes Text
+bparqDomainName = lens _bparqDomainName (\ s a -> s{_bparqDomainName = a});
 
 -- | A list of items on which to perform the operation.
-bpaItems :: Lens' BatchPutAttributes [ReplaceableItem]
-bpaItems = lens _bpaItems (\ s a -> s{_bpaItems = a});
+bparqItems :: Lens' BatchPutAttributes [ReplaceableItem]
+bparqItems = lens _bparqItems (\ s a -> s{_bparqItems = a});
 
 instance AWSRequest BatchPutAttributes where
         type Sv BatchPutAttributes = SDB
@@ -134,8 +134,8 @@ instance ToQuery BatchPutAttributes where
           = mconcat
               ["Action" =: ("BatchPutAttributes" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _bpaDomainName,
-               toQueryList "Item" _bpaItems]
+               "DomainName" =: _bparqDomainName,
+               toQueryList "Item" _bparqItems]
 
 -- | /See:/ 'batchPutAttributesResponse' smart constructor.
 data BatchPutAttributesResponse =

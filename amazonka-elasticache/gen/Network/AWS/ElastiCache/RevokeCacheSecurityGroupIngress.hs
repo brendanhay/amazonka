@@ -29,17 +29,17 @@ module Network.AWS.ElastiCache.RevokeCacheSecurityGroupIngress
     -- ** Request constructor
     , revokeCacheSecurityGroupIngress
     -- ** Request lenses
-    , rcsgiCacheSecurityGroupName
-    , rcsgiEC2SecurityGroupName
-    , rcsgiEC2SecurityGroupOwnerId
+    , rcsgirqCacheSecurityGroupName
+    , rcsgirqEC2SecurityGroupName
+    , rcsgirqEC2SecurityGroupOwnerId
 
     -- * Response
     , RevokeCacheSecurityGroupIngressResponse
     -- ** Response constructor
     , revokeCacheSecurityGroupIngressResponse
     -- ** Response lenses
-    , rcsgirCacheSecurityGroup
-    , rcsgirStatus
+    , rcsgirsCacheSecurityGroup
+    , rcsgirsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -53,39 +53,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcsgiCacheSecurityGroupName'
+-- * 'rcsgirqCacheSecurityGroupName'
 --
--- * 'rcsgiEC2SecurityGroupName'
+-- * 'rcsgirqEC2SecurityGroupName'
 --
--- * 'rcsgiEC2SecurityGroupOwnerId'
+-- * 'rcsgirqEC2SecurityGroupOwnerId'
 data RevokeCacheSecurityGroupIngress = RevokeCacheSecurityGroupIngress'
-    { _rcsgiCacheSecurityGroupName  :: !Text
-    , _rcsgiEC2SecurityGroupName    :: !Text
-    , _rcsgiEC2SecurityGroupOwnerId :: !Text
+    { _rcsgirqCacheSecurityGroupName  :: !Text
+    , _rcsgirqEC2SecurityGroupName    :: !Text
+    , _rcsgirqEC2SecurityGroupOwnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeCacheSecurityGroupIngress' smart constructor.
 revokeCacheSecurityGroupIngress :: Text -> Text -> Text -> RevokeCacheSecurityGroupIngress
 revokeCacheSecurityGroupIngress pCacheSecurityGroupName pEC2SecurityGroupName pEC2SecurityGroupOwnerId =
     RevokeCacheSecurityGroupIngress'
-    { _rcsgiCacheSecurityGroupName = pCacheSecurityGroupName
-    , _rcsgiEC2SecurityGroupName = pEC2SecurityGroupName
-    , _rcsgiEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId
+    { _rcsgirqCacheSecurityGroupName = pCacheSecurityGroupName
+    , _rcsgirqEC2SecurityGroupName = pEC2SecurityGroupName
+    , _rcsgirqEC2SecurityGroupOwnerId = pEC2SecurityGroupOwnerId
     }
 
 -- | The name of the cache security group to revoke ingress from.
-rcsgiCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
-rcsgiCacheSecurityGroupName = lens _rcsgiCacheSecurityGroupName (\ s a -> s{_rcsgiCacheSecurityGroupName = a});
+rcsgirqCacheSecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
+rcsgirqCacheSecurityGroupName = lens _rcsgirqCacheSecurityGroupName (\ s a -> s{_rcsgirqCacheSecurityGroupName = a});
 
 -- | The name of the Amazon EC2 security group to revoke access from.
-rcsgiEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
-rcsgiEC2SecurityGroupName = lens _rcsgiEC2SecurityGroupName (\ s a -> s{_rcsgiEC2SecurityGroupName = a});
+rcsgirqEC2SecurityGroupName :: Lens' RevokeCacheSecurityGroupIngress Text
+rcsgirqEC2SecurityGroupName = lens _rcsgirqEC2SecurityGroupName (\ s a -> s{_rcsgirqEC2SecurityGroupName = a});
 
 -- | The AWS account number of the Amazon EC2 security group owner. Note that
 -- this is not the same thing as an AWS access key ID - you must provide a
 -- valid AWS account number for this parameter.
-rcsgiEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngress Text
-rcsgiEC2SecurityGroupOwnerId = lens _rcsgiEC2SecurityGroupOwnerId (\ s a -> s{_rcsgiEC2SecurityGroupOwnerId = a});
+rcsgirqEC2SecurityGroupOwnerId :: Lens' RevokeCacheSecurityGroupIngress Text
+rcsgirqEC2SecurityGroupOwnerId = lens _rcsgirqEC2SecurityGroupOwnerId (\ s a -> s{_rcsgirqEC2SecurityGroupOwnerId = a});
 
 instance AWSRequest RevokeCacheSecurityGroupIngress
          where
@@ -115,35 +115,36 @@ instance ToQuery RevokeCacheSecurityGroupIngress
                  ("RevokeCacheSecurityGroupIngress" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSecurityGroupName" =:
-                 _rcsgiCacheSecurityGroupName,
-               "EC2SecurityGroupName" =: _rcsgiEC2SecurityGroupName,
+                 _rcsgirqCacheSecurityGroupName,
+               "EC2SecurityGroupName" =:
+                 _rcsgirqEC2SecurityGroupName,
                "EC2SecurityGroupOwnerId" =:
-                 _rcsgiEC2SecurityGroupOwnerId]
+                 _rcsgirqEC2SecurityGroupOwnerId]
 
 -- | /See:/ 'revokeCacheSecurityGroupIngressResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcsgirCacheSecurityGroup'
+-- * 'rcsgirsCacheSecurityGroup'
 --
--- * 'rcsgirStatus'
+-- * 'rcsgirsStatus'
 data RevokeCacheSecurityGroupIngressResponse = RevokeCacheSecurityGroupIngressResponse'
-    { _rcsgirCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
-    , _rcsgirStatus             :: !Int
+    { _rcsgirsCacheSecurityGroup :: !(Maybe CacheSecurityGroup)
+    , _rcsgirsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeCacheSecurityGroupIngressResponse' smart constructor.
 revokeCacheSecurityGroupIngressResponse :: Int -> RevokeCacheSecurityGroupIngressResponse
 revokeCacheSecurityGroupIngressResponse pStatus =
     RevokeCacheSecurityGroupIngressResponse'
-    { _rcsgirCacheSecurityGroup = Nothing
-    , _rcsgirStatus = pStatus
+    { _rcsgirsCacheSecurityGroup = Nothing
+    , _rcsgirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rcsgirCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
-rcsgirCacheSecurityGroup = lens _rcsgirCacheSecurityGroup (\ s a -> s{_rcsgirCacheSecurityGroup = a});
+rcsgirsCacheSecurityGroup :: Lens' RevokeCacheSecurityGroupIngressResponse (Maybe CacheSecurityGroup)
+rcsgirsCacheSecurityGroup = lens _rcsgirsCacheSecurityGroup (\ s a -> s{_rcsgirsCacheSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-rcsgirStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
-rcsgirStatus = lens _rcsgirStatus (\ s a -> s{_rcsgirStatus = a});
+rcsgirsStatus :: Lens' RevokeCacheSecurityGroupIngressResponse Int
+rcsgirsStatus = lens _rcsgirsStatus (\ s a -> s{_rcsgirsStatus = a});

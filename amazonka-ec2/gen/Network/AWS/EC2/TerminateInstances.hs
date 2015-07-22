@@ -50,16 +50,16 @@ module Network.AWS.EC2.TerminateInstances
     -- ** Request constructor
     , terminateInstances
     -- ** Request lenses
-    , tiDryRun
-    , tiInstanceIds
+    , tirqDryRun
+    , tirqInstanceIds
 
     -- * Response
     , TerminateInstancesResponse
     -- ** Response constructor
     , terminateInstancesResponse
     -- ** Response lenses
-    , tirTerminatingInstances
-    , tirStatus
+    , tirsTerminatingInstances
+    , tirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -71,32 +71,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tiDryRun'
+-- * 'tirqDryRun'
 --
--- * 'tiInstanceIds'
+-- * 'tirqInstanceIds'
 data TerminateInstances = TerminateInstances'
-    { _tiDryRun      :: !(Maybe Bool)
-    , _tiInstanceIds :: ![Text]
+    { _tirqDryRun      :: !(Maybe Bool)
+    , _tirqInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstances' smart constructor.
 terminateInstances :: TerminateInstances
 terminateInstances =
     TerminateInstances'
-    { _tiDryRun = Nothing
-    , _tiInstanceIds = mempty
+    { _tirqDryRun = Nothing
+    , _tirqInstanceIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-tiDryRun :: Lens' TerminateInstances (Maybe Bool)
-tiDryRun = lens _tiDryRun (\ s a -> s{_tiDryRun = a});
+tirqDryRun :: Lens' TerminateInstances (Maybe Bool)
+tirqDryRun = lens _tirqDryRun (\ s a -> s{_tirqDryRun = a});
 
 -- | One or more instance IDs.
-tiInstanceIds :: Lens' TerminateInstances [Text]
-tiInstanceIds = lens _tiInstanceIds (\ s a -> s{_tiInstanceIds = a});
+tirqInstanceIds :: Lens' TerminateInstances [Text]
+tirqInstanceIds = lens _tirqInstanceIds (\ s a -> s{_tirqInstanceIds = a});
 
 instance AWSRequest TerminateInstances where
         type Sv TerminateInstances = EC2
@@ -122,33 +122,33 @@ instance ToQuery TerminateInstances where
           = mconcat
               ["Action" =: ("TerminateInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _tiDryRun,
-               toQueryList "InstanceId" _tiInstanceIds]
+               "DryRun" =: _tirqDryRun,
+               toQueryList "InstanceId" _tirqInstanceIds]
 
 -- | /See:/ 'terminateInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tirTerminatingInstances'
+-- * 'tirsTerminatingInstances'
 --
--- * 'tirStatus'
+-- * 'tirsStatus'
 data TerminateInstancesResponse = TerminateInstancesResponse'
-    { _tirTerminatingInstances :: !(Maybe [InstanceStateChange])
-    , _tirStatus               :: !Int
+    { _tirsTerminatingInstances :: !(Maybe [InstanceStateChange])
+    , _tirsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateInstancesResponse' smart constructor.
 terminateInstancesResponse :: Int -> TerminateInstancesResponse
 terminateInstancesResponse pStatus =
     TerminateInstancesResponse'
-    { _tirTerminatingInstances = Nothing
-    , _tirStatus = pStatus
+    { _tirsTerminatingInstances = Nothing
+    , _tirsStatus = pStatus
     }
 
 -- | Information about one or more terminated instances.
-tirTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
-tirTerminatingInstances = lens _tirTerminatingInstances (\ s a -> s{_tirTerminatingInstances = a}) . _Default;
+tirsTerminatingInstances :: Lens' TerminateInstancesResponse [InstanceStateChange]
+tirsTerminatingInstances = lens _tirsTerminatingInstances (\ s a -> s{_tirsTerminatingInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-tirStatus :: Lens' TerminateInstancesResponse Int
-tirStatus = lens _tirStatus (\ s a -> s{_tirStatus = a});
+tirsStatus :: Lens' TerminateInstancesResponse Int
+tirsStatus = lens _tirsStatus (\ s a -> s{_tirsStatus = a});

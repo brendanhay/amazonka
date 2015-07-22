@@ -44,8 +44,8 @@ module Network.AWS.CloudWatch.PutMetricData
     -- ** Request constructor
     , putMetricData
     -- ** Request lenses
-    , pmdNamespace
-    , pmdMetricData
+    , pmdrqNamespace
+    , pmdrqMetricData
 
     -- * Response
     , PutMetricDataResponse
@@ -62,29 +62,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pmdNamespace'
+-- * 'pmdrqNamespace'
 --
--- * 'pmdMetricData'
+-- * 'pmdrqMetricData'
 data PutMetricData = PutMetricData'
-    { _pmdNamespace  :: !Text
-    , _pmdMetricData :: ![MetricDatum]
+    { _pmdrqNamespace  :: !Text
+    , _pmdrqMetricData :: ![MetricDatum]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricData' smart constructor.
 putMetricData :: Text -> PutMetricData
 putMetricData pNamespace =
     PutMetricData'
-    { _pmdNamespace = pNamespace
-    , _pmdMetricData = mempty
+    { _pmdrqNamespace = pNamespace
+    , _pmdrqMetricData = mempty
     }
 
 -- | The namespace for the metric data.
-pmdNamespace :: Lens' PutMetricData Text
-pmdNamespace = lens _pmdNamespace (\ s a -> s{_pmdNamespace = a});
+pmdrqNamespace :: Lens' PutMetricData Text
+pmdrqNamespace = lens _pmdrqNamespace (\ s a -> s{_pmdrqNamespace = a});
 
 -- | A list of data describing the metric.
-pmdMetricData :: Lens' PutMetricData [MetricDatum]
-pmdMetricData = lens _pmdMetricData (\ s a -> s{_pmdMetricData = a});
+pmdrqMetricData :: Lens' PutMetricData [MetricDatum]
+pmdrqMetricData = lens _pmdrqMetricData (\ s a -> s{_pmdrqMetricData = a});
 
 instance AWSRequest PutMetricData where
         type Sv PutMetricData = CloudWatch
@@ -103,8 +103,9 @@ instance ToQuery PutMetricData where
           = mconcat
               ["Action" =: ("PutMetricData" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "Namespace" =: _pmdNamespace,
-               "MetricData" =: toQueryList "member" _pmdMetricData]
+               "Namespace" =: _pmdrqNamespace,
+               "MetricData" =:
+                 toQueryList "member" _pmdrqMetricData]
 
 -- | /See:/ 'putMetricDataResponse' smart constructor.
 data PutMetricDataResponse =

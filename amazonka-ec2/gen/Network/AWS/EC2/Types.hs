@@ -273,14 +273,14 @@ module Network.AWS.EC2.Types
     -- * Address
     , Address
     , address
-    , addInstanceId
-    , addAssociationId
-    , addNetworkInterfaceOwnerId
-    , addAllocationId
-    , addDomain
-    , addNetworkInterfaceId
-    , addPrivateIPAddress
-    , addPublicIP
+    , aInstanceId
+    , aAssociationId
+    , aNetworkInterfaceOwnerId
+    , aAllocationId
+    , aDomain
+    , aNetworkInterfaceId
+    , aPrivateIPAddress
+    , aPublicIP
 
     -- * AttributeBooleanValue
     , AttributeBooleanValue
@@ -433,10 +433,10 @@ module Network.AWS.EC2.Types
     -- * DiskImageDescription
     , DiskImageDescription
     , diskImageDescription
-    , disChecksum
-    , disFormat
-    , disSize
-    , disImportManifestURL
+    , dChecksum
+    , dFormat
+    , dSize
+    , dImportManifestURL
 
     -- * DiskImageDetail
     , DiskImageDetail
@@ -511,8 +511,8 @@ module Network.AWS.EC2.Types
     -- * Filter
     , Filter
     , filter'
-    , filValues
-    , filName
+    , fValues
+    , fName
 
     -- * FlowLog
     , FlowLog
@@ -576,29 +576,29 @@ module Network.AWS.EC2.Types
     -- * Image
     , Image
     , image
-    , imaPlatform
-    , imaImageOwnerAlias
-    , imaRAMDiskId
-    , imaKernelId
-    , imaRootDeviceName
-    , imaSRIOVNetSupport
-    , imaName
-    , imaCreationDate
-    , imaProductCodes
-    , imaStateReason
-    , imaBlockDeviceMappings
-    , imaDescription
-    , imaTags
-    , imaImageId
-    , imaImageLocation
-    , imaState
-    , imaOwnerId
-    , imaPublic
-    , imaArchitecture
-    , imaImageType
-    , imaRootDeviceType
-    , imaVirtualizationType
-    , imaHypervisor
+    , iPlatform
+    , iImageOwnerAlias
+    , iRAMDiskId
+    , iKernelId
+    , iRootDeviceName
+    , iSRIOVNetSupport
+    , iName
+    , iCreationDate
+    , iProductCodes
+    , iStateReason
+    , iBlockDeviceMappings
+    , iDescription
+    , iTags
+    , iImageId
+    , iImageLocation
+    , iState
+    , iOwnerId
+    , iPublic
+    , iArchitecture
+    , iImageType
+    , iRootDeviceType
+    , iVirtualizationType
+    , iHypervisor
 
     -- * ImageDiskContainer
     , ImageDiskContainer
@@ -901,7 +901,7 @@ module Network.AWS.EC2.Types
     -- * Monitoring
     , Monitoring
     , monitoring
-    , monState
+    , mState
 
     -- * MovingAddressStatus
     , MovingAddressStatus
@@ -1002,9 +1002,9 @@ module Network.AWS.EC2.Types
     -- * Placement
     , Placement
     , placement
-    , plaAvailabilityZone
-    , plaTenancy
-    , plaGroupName
+    , pAvailabilityZone
+    , pTenancy
+    , pGroupName
 
     -- * PlacementGroup
     , PlacementGroup
@@ -1104,11 +1104,11 @@ module Network.AWS.EC2.Types
     -- * Reservation
     , Reservation
     , reservation
-    , resGroups
-    , resInstances
-    , resRequesterId
-    , resReservationId
-    , resOwnerId
+    , rGroups
+    , rInstances
+    , rRequesterId
+    , rReservationId
+    , rOwnerId
 
     -- * ReservedInstanceLimitPrice
     , ReservedInstanceLimitPrice
@@ -1202,15 +1202,15 @@ module Network.AWS.EC2.Types
     -- * Route
     , Route
     , route
-    , rouInstanceId
-    , rouOrigin
-    , rouVPCPeeringConnectionId
-    , rouState
-    , rouNetworkInterfaceId
-    , rouGatewayId
-    , rouInstanceOwnerId
-    , rouDestinationPrefixListId
-    , rouDestinationCIdRBlock
+    , rInstanceId
+    , rOrigin
+    , rVPCPeeringConnectionId
+    , rState
+    , rNetworkInterfaceId
+    , rGatewayId
+    , rInstanceOwnerId
+    , rDestinationPrefixListId
+    , rDestinationCIdRBlock
 
     -- * RouteTable
     , RouteTable
@@ -1259,18 +1259,18 @@ module Network.AWS.EC2.Types
     -- * Snapshot
     , Snapshot
     , snapshot
-    , snaOwnerAlias
-    , snaKMSKeyId
-    , snaTags
-    , snaSnapshotId
-    , snaOwnerId
-    , snaVolumeId
-    , snaVolumeSize
-    , snaDescription
-    , snaStartTime
-    , snaProgress
-    , snaState
-    , snaEncrypted
+    , sOwnerAlias
+    , sKMSKeyId
+    , sTags
+    , sSnapshotId
+    , sOwnerId
+    , sVolumeId
+    , sVolumeSize
+    , sDescription
+    , sStartTime
+    , sProgress
+    , sState
+    , sEncrypted
 
     -- * SnapshotDetail
     , SnapshotDetail
@@ -1377,11 +1377,11 @@ module Network.AWS.EC2.Types
     -- * SpotPrice
     , SpotPrice
     , spotPrice
-    , spoProductDescription
-    , spoSpotPrice
-    , spoInstanceType
-    , spoAvailabilityZone
-    , spoTimestamp
+    , sProductDescription
+    , sSpotPrice
+    , sInstanceType
+    , sAvailabilityZone
+    , sTimestamp
 
     -- * StateReason
     , StateReason
@@ -1392,7 +1392,7 @@ module Network.AWS.EC2.Types
     -- * Storage
     , Storage
     , storage
-    , stoS3
+    , sS3
 
     -- * Subnet
     , Subnet
@@ -1504,12 +1504,12 @@ module Network.AWS.EC2.Types
     -- * VPCPeeringConnection
     , VPCPeeringConnection
     , vpcPeeringConnection
-    , vStatus
-    , vVPCPeeringConnectionId
-    , vAccepterVPCInfo
-    , vRequesterVPCInfo
-    , vExpirationTime
-    , vTags
+    , vpcpcStatus
+    , vpcpcVPCPeeringConnectionId
+    , vpcpcAccepterVPCInfo
+    , vpcpcRequesterVPCInfo
+    , vpcpcExpirationTime
+    , vpcpcTags
 
     -- * VPCPeeringConnectionStateReason
     , VPCPeeringConnectionStateReason
@@ -1568,28 +1568,28 @@ module Network.AWS.EC2.Types
     -- * Volume
     , Volume
     , volume
-    , volAttachments
-    , volIOPS
-    , volKMSKeyId
-    , volTags
-    , volAvailabilityZone
-    , volCreateTime
-    , volEncrypted
-    , volSize
-    , volSnapshotId
-    , volState
-    , volVolumeId
-    , volVolumeType
+    , vAttachments
+    , vIOPS
+    , vKMSKeyId
+    , vTags
+    , vAvailabilityZone
+    , vCreateTime
+    , vEncrypted
+    , vSize
+    , vSnapshotId
+    , vState
+    , vVolumeId
+    , vVolumeType
 
     -- * VolumeAttachment
     , VolumeAttachment
     , volumeAttachment
-    , vInstanceId
-    , vDeleteOnTermination
-    , vState
-    , vDevice
-    , vVolumeId
-    , vAttachTime
+    , volInstanceId
+    , volDeleteOnTermination
+    , volState
+    , volDevice
+    , volVolumeId
+    , volAttachTime
 
     -- * VolumeDetail
     , VolumeDetail

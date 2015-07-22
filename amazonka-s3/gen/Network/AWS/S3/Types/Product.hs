@@ -61,29 +61,29 @@ instance ToXML AccessControlPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bucCreationDate'
+-- * 'bCreationDate'
 --
--- * 'bucName'
+-- * 'bName'
 data Bucket = Bucket'
-    { _bucCreationDate :: !RFC822
-    , _bucName         :: !BucketName
+    { _bCreationDate :: !RFC822
+    , _bName         :: !BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Bucket' smart constructor.
 bucket :: UTCTime -> BucketName -> Bucket
 bucket pCreationDate pName =
     Bucket'
-    { _bucCreationDate = _Time # pCreationDate
-    , _bucName = pName
+    { _bCreationDate = _Time # pCreationDate
+    , _bName = pName
     }
 
 -- | Date the bucket was created.
-bucCreationDate :: Lens' Bucket UTCTime
-bucCreationDate = lens _bucCreationDate (\ s a -> s{_bucCreationDate = a}) . _Time;
+bCreationDate :: Lens' Bucket UTCTime
+bCreationDate = lens _bCreationDate (\ s a -> s{_bCreationDate = a}) . _Time;
 
 -- | The name of the bucket.
-bucName :: Lens' Bucket BucketName
-bucName = lens _bucName (\ s a -> s{_bucName = a});
+bName :: Lens' Bucket BucketName
+bName = lens _bName (\ s a -> s{_bName = a});
 
 instance FromXML Bucket where
         parseXML x
@@ -301,20 +301,20 @@ instance ToXML CompletedPart where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'conKeyPrefixEquals'
+-- * 'cKeyPrefixEquals'
 --
--- * 'conHTTPErrorCodeReturnedEquals'
+-- * 'cHTTPErrorCodeReturnedEquals'
 data Condition = Condition'
-    { _conKeyPrefixEquals             :: !(Maybe Text)
-    , _conHTTPErrorCodeReturnedEquals :: !(Maybe Text)
+    { _cKeyPrefixEquals             :: !(Maybe Text)
+    , _cHTTPErrorCodeReturnedEquals :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Condition' smart constructor.
 condition :: Condition
 condition =
     Condition'
-    { _conKeyPrefixEquals = Nothing
-    , _conHTTPErrorCodeReturnedEquals = Nothing
+    { _cKeyPrefixEquals = Nothing
+    , _cHTTPErrorCodeReturnedEquals = Nothing
     }
 
 -- | The object key name prefix when the redirect is applied. For example, to
@@ -325,16 +325,16 @@ condition =
 -- specified and sibling HttpErrorCodeReturnedEquals is not specified. If
 -- both conditions are specified, both must be true for the redirect to be
 -- applied.
-conKeyPrefixEquals :: Lens' Condition (Maybe Text)
-conKeyPrefixEquals = lens _conKeyPrefixEquals (\ s a -> s{_conKeyPrefixEquals = a});
+cKeyPrefixEquals :: Lens' Condition (Maybe Text)
+cKeyPrefixEquals = lens _cKeyPrefixEquals (\ s a -> s{_cKeyPrefixEquals = a});
 
 -- | The HTTP error code when the redirect is applied. In the event of an
 -- error, if the error code equals this value, then the specified redirect
 -- is applied. Required when parent element Condition is specified and
 -- sibling KeyPrefixEquals is not specified. If both are specified, then
 -- both must be true for the redirect to be applied.
-conHTTPErrorCodeReturnedEquals :: Lens' Condition (Maybe Text)
-conHTTPErrorCodeReturnedEquals = lens _conHTTPErrorCodeReturnedEquals (\ s a -> s{_conHTTPErrorCodeReturnedEquals = a});
+cHTTPErrorCodeReturnedEquals :: Lens' Condition (Maybe Text)
+cHTTPErrorCodeReturnedEquals = lens _cHTTPErrorCodeReturnedEquals (\ s a -> s{_cHTTPErrorCodeReturnedEquals = a});
 
 instance FromXML Condition where
         parseXML x
@@ -345,9 +345,9 @@ instance FromXML Condition where
 instance ToXML Condition where
         toXML Condition'{..}
           = mconcat
-              ["KeyPrefixEquals" @= _conKeyPrefixEquals,
+              ["KeyPrefixEquals" @= _cKeyPrefixEquals,
                "HttpErrorCodeReturnedEquals" @=
-                 _conHTTPErrorCodeReturnedEquals]
+                 _cHTTPErrorCodeReturnedEquals]
 
 -- | /See:/ 'copyObjectResult' smart constructor.
 --
@@ -445,36 +445,35 @@ instance ToXML CreateBucketConfiguration where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delQuiet'
+-- * 'dQuiet'
 --
--- * 'delObjects'
+-- * 'dObjects'
 data Delete = Delete'
-    { _delQuiet   :: !(Maybe Bool)
-    , _delObjects :: ![ObjectIdentifier]
+    { _dQuiet   :: !(Maybe Bool)
+    , _dObjects :: ![ObjectIdentifier]
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Delete' smart constructor.
 delete' :: Delete
 delete' =
     Delete'
-    { _delQuiet = Nothing
-    , _delObjects = mempty
+    { _dQuiet = Nothing
+    , _dObjects = mempty
     }
 
 -- | Element to enable quiet mode for the request. When you add this element,
 -- you must set its value to true.
-delQuiet :: Lens' Delete (Maybe Bool)
-delQuiet = lens _delQuiet (\ s a -> s{_delQuiet = a});
+dQuiet :: Lens' Delete (Maybe Bool)
+dQuiet = lens _dQuiet (\ s a -> s{_dQuiet = a});
 
 -- | FIXME: Undocumented member.
-delObjects :: Lens' Delete [ObjectIdentifier]
-delObjects = lens _delObjects (\ s a -> s{_delObjects = a});
+dObjects :: Lens' Delete [ObjectIdentifier]
+dObjects = lens _dObjects (\ s a -> s{_dObjects = a});
 
 instance ToXML Delete where
         toXML Delete'{..}
           = mconcat
-              ["Quiet" @= _delQuiet,
-               toXMLList "Object" _delObjects]
+              ["Quiet" @= _dQuiet, toXMLList "Object" _dObjects]
 
 -- | /See:/ 'deleteMarkerEntry' smart constructor.
 --
@@ -541,45 +540,45 @@ instance FromXML DeleteMarkerEntry where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delVersionId'
+-- * 'doVersionId'
 --
--- * 'delDeleteMarker'
+-- * 'doDeleteMarker'
 --
--- * 'delDeleteMarkerVersionId'
+-- * 'doDeleteMarkerVersionId'
 --
--- * 'delKey'
+-- * 'doKey'
 data DeletedObject = DeletedObject'
-    { _delVersionId             :: !(Maybe ObjectVersionId)
-    , _delDeleteMarker          :: !(Maybe Bool)
-    , _delDeleteMarkerVersionId :: !(Maybe Text)
-    , _delKey                   :: !(Maybe ObjectKey)
+    { _doVersionId             :: !(Maybe ObjectVersionId)
+    , _doDeleteMarker          :: !(Maybe Bool)
+    , _doDeleteMarkerVersionId :: !(Maybe Text)
+    , _doKey                   :: !(Maybe ObjectKey)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeletedObject' smart constructor.
 deletedObject :: DeletedObject
 deletedObject =
     DeletedObject'
-    { _delVersionId = Nothing
-    , _delDeleteMarker = Nothing
-    , _delDeleteMarkerVersionId = Nothing
-    , _delKey = Nothing
+    { _doVersionId = Nothing
+    , _doDeleteMarker = Nothing
+    , _doDeleteMarkerVersionId = Nothing
+    , _doKey = Nothing
     }
 
 -- | FIXME: Undocumented member.
-delVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
-delVersionId = lens _delVersionId (\ s a -> s{_delVersionId = a});
+doVersionId :: Lens' DeletedObject (Maybe ObjectVersionId)
+doVersionId = lens _doVersionId (\ s a -> s{_doVersionId = a});
 
 -- | FIXME: Undocumented member.
-delDeleteMarker :: Lens' DeletedObject (Maybe Bool)
-delDeleteMarker = lens _delDeleteMarker (\ s a -> s{_delDeleteMarker = a});
+doDeleteMarker :: Lens' DeletedObject (Maybe Bool)
+doDeleteMarker = lens _doDeleteMarker (\ s a -> s{_doDeleteMarker = a});
 
 -- | FIXME: Undocumented member.
-delDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
-delDeleteMarkerVersionId = lens _delDeleteMarkerVersionId (\ s a -> s{_delDeleteMarkerVersionId = a});
+doDeleteMarkerVersionId :: Lens' DeletedObject (Maybe Text)
+doDeleteMarkerVersionId = lens _doDeleteMarkerVersionId (\ s a -> s{_doDeleteMarkerVersionId = a});
 
 -- | FIXME: Undocumented member.
-delKey :: Lens' DeletedObject (Maybe ObjectKey)
-delKey = lens _delKey (\ s a -> s{_delKey = a});
+doKey :: Lens' DeletedObject (Maybe ObjectKey)
+doKey = lens _doKey (\ s a -> s{_doKey = a});
 
 instance FromXML DeletedObject where
         parseXML x
@@ -592,29 +591,29 @@ instance FromXML DeletedObject where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desBucket'
+-- * 'dBucket'
 newtype Destination = Destination'
-    { _desBucket :: BucketName
+    { _dBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Destination' smart constructor.
 destination :: BucketName -> Destination
 destination pBucket =
     Destination'
-    { _desBucket = pBucket
+    { _dBucket = pBucket
     }
 
 -- | Amazon resource name (ARN) of the bucket where you want Amazon S3 to
 -- store replicas of the object identified by the rule.
-desBucket :: Lens' Destination BucketName
-desBucket = lens _desBucket (\ s a -> s{_desBucket = a});
+dBucket :: Lens' Destination BucketName
+dBucket = lens _dBucket (\ s a -> s{_dBucket = a});
 
 instance FromXML Destination where
         parseXML x = Destination' <$> (x .@ "Bucket")
 
 instance ToXML Destination where
         toXML Destination'{..}
-          = mconcat ["Bucket" @= _desBucket]
+          = mconcat ["Bucket" @= _dBucket]
 
 -- | /See:/ 'errorDocument' smart constructor.
 --
@@ -646,29 +645,29 @@ instance ToXML ErrorDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'graPermission'
+-- * 'gPermission'
 --
--- * 'graGrantee'
+-- * 'gGrantee'
 data Grant = Grant'
-    { _graPermission :: !(Maybe Permission)
-    , _graGrantee    :: !(Maybe Grantee)
+    { _gPermission :: !(Maybe Permission)
+    , _gGrantee    :: !(Maybe Grantee)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Grant' smart constructor.
 grant :: Grant
 grant =
     Grant'
-    { _graPermission = Nothing
-    , _graGrantee = Nothing
+    { _gPermission = Nothing
+    , _gGrantee = Nothing
     }
 
 -- | Specifies the permission given to the grantee.
-graPermission :: Lens' Grant (Maybe Permission)
-graPermission = lens _graPermission (\ s a -> s{_graPermission = a});
+gPermission :: Lens' Grant (Maybe Permission)
+gPermission = lens _gPermission (\ s a -> s{_gPermission = a});
 
 -- | FIXME: Undocumented member.
-graGrantee :: Lens' Grant (Maybe Grantee)
-graGrantee = lens _graGrantee (\ s a -> s{_graGrantee = a});
+gGrantee :: Lens' Grant (Maybe Grantee)
+gGrantee = lens _gGrantee (\ s a -> s{_gGrantee = a});
 
 instance FromXML Grant where
         parseXML x
@@ -678,60 +677,60 @@ instance FromXML Grant where
 instance ToXML Grant where
         toXML Grant'{..}
           = mconcat
-              ["Permission" @= _graPermission,
-               "Grantee" @= _graGrantee]
+              ["Permission" @= _gPermission,
+               "Grantee" @= _gGrantee]
 
 -- | /See:/ 'grantee' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'graURI'
+-- * 'gURI'
 --
--- * 'graEmailAddress'
+-- * 'gEmailAddress'
 --
--- * 'graId'
+-- * 'gId'
 --
--- * 'graDisplayName'
+-- * 'gDisplayName'
 --
--- * 'graType'
+-- * 'gType'
 data Grantee = Grantee'
-    { _graURI          :: !(Maybe Text)
-    , _graEmailAddress :: !(Maybe Text)
-    , _graId           :: !(Maybe Text)
-    , _graDisplayName  :: !(Maybe Text)
-    , _graType         :: !Type
+    { _gURI          :: !(Maybe Text)
+    , _gEmailAddress :: !(Maybe Text)
+    , _gId           :: !(Maybe Text)
+    , _gDisplayName  :: !(Maybe Text)
+    , _gType         :: !Type
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Grantee' smart constructor.
 grantee :: Type -> Grantee
 grantee pType =
     Grantee'
-    { _graURI = Nothing
-    , _graEmailAddress = Nothing
-    , _graId = Nothing
-    , _graDisplayName = Nothing
-    , _graType = pType
+    { _gURI = Nothing
+    , _gEmailAddress = Nothing
+    , _gId = Nothing
+    , _gDisplayName = Nothing
+    , _gType = pType
     }
 
 -- | URI of the grantee group.
-graURI :: Lens' Grantee (Maybe Text)
-graURI = lens _graURI (\ s a -> s{_graURI = a});
+gURI :: Lens' Grantee (Maybe Text)
+gURI = lens _gURI (\ s a -> s{_gURI = a});
 
 -- | Email address of the grantee.
-graEmailAddress :: Lens' Grantee (Maybe Text)
-graEmailAddress = lens _graEmailAddress (\ s a -> s{_graEmailAddress = a});
+gEmailAddress :: Lens' Grantee (Maybe Text)
+gEmailAddress = lens _gEmailAddress (\ s a -> s{_gEmailAddress = a});
 
 -- | The canonical user ID of the grantee.
-graId :: Lens' Grantee (Maybe Text)
-graId = lens _graId (\ s a -> s{_graId = a});
+gId :: Lens' Grantee (Maybe Text)
+gId = lens _gId (\ s a -> s{_gId = a});
 
 -- | Screen name of the grantee.
-graDisplayName :: Lens' Grantee (Maybe Text)
-graDisplayName = lens _graDisplayName (\ s a -> s{_graDisplayName = a});
+gDisplayName :: Lens' Grantee (Maybe Text)
+gDisplayName = lens _gDisplayName (\ s a -> s{_gDisplayName = a});
 
 -- | Type of grantee
-graType :: Lens' Grantee Type
-graType = lens _graType (\ s a -> s{_graType = a});
+gType :: Lens' Grantee Type
+gType = lens _gType (\ s a -> s{_gType = a});
 
 instance FromXML Grantee where
         parseXML x
@@ -744,10 +743,9 @@ instance FromXML Grantee where
 instance ToXML Grantee where
         toXML Grantee'{..}
           = mconcat
-              ["URI" @= _graURI,
-               "EmailAddress" @= _graEmailAddress, "ID" @= _graId,
-               "DisplayName" @= _graDisplayName,
-               "xsi:type" @= _graType]
+              ["URI" @= _gURI, "EmailAddress" @= _gEmailAddress,
+               "ID" @= _gId, "DisplayName" @= _gDisplayName,
+               "xsi:type" @= _gType]
 
 -- | /See:/ 'indexDocument' smart constructor.
 --
@@ -784,30 +782,30 @@ instance ToXML IndexDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iniId'
+-- * 'iId'
 --
--- * 'iniDisplayName'
+-- * 'iDisplayName'
 data Initiator = Initiator'
-    { _iniId          :: !(Maybe Text)
-    , _iniDisplayName :: !(Maybe Text)
+    { _iId          :: !(Maybe Text)
+    , _iDisplayName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Initiator' smart constructor.
 initiator :: Initiator
 initiator =
     Initiator'
-    { _iniId = Nothing
-    , _iniDisplayName = Nothing
+    { _iId = Nothing
+    , _iDisplayName = Nothing
     }
 
 -- | If the principal is an AWS account, it provides the Canonical User ID.
 -- If the principal is an IAM User, it provides a user ARN value.
-iniId :: Lens' Initiator (Maybe Text)
-iniId = lens _iniId (\ s a -> s{_iniId = a});
+iId :: Lens' Initiator (Maybe Text)
+iId = lens _iId (\ s a -> s{_iId = a});
 
 -- | Name of the Principal.
-iniDisplayName :: Lens' Initiator (Maybe Text)
-iniDisplayName = lens _iniDisplayName (\ s a -> s{_iniDisplayName = a});
+iDisplayName :: Lens' Initiator (Maybe Text)
+iDisplayName = lens _iDisplayName (\ s a -> s{_iDisplayName = a});
 
 instance FromXML Initiator where
         parseXML x
@@ -1208,61 +1206,61 @@ instance ToXML NotificationConfiguration where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'objOwner'
+-- * 'oOwner'
 --
--- * 'objETag'
+-- * 'oETag'
 --
--- * 'objSize'
+-- * 'oSize'
 --
--- * 'objKey'
+-- * 'oKey'
 --
--- * 'objStorageClass'
+-- * 'oStorageClass'
 --
--- * 'objLastModified'
+-- * 'oLastModified'
 data Object = Object'
-    { _objOwner        :: !(Maybe Owner)
-    , _objETag         :: !ETag
-    , _objSize         :: !Int
-    , _objKey          :: !ObjectKey
-    , _objStorageClass :: !ObjectStorageClass
-    , _objLastModified :: !RFC822
+    { _oOwner        :: !(Maybe Owner)
+    , _oETag         :: !ETag
+    , _oSize         :: !Int
+    , _oKey          :: !ObjectKey
+    , _oStorageClass :: !ObjectStorageClass
+    , _oLastModified :: !RFC822
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Object' smart constructor.
 object' :: ETag -> Int -> ObjectKey -> ObjectStorageClass -> UTCTime -> Object
 object' pETag pSize pKey pStorageClass pLastModified =
     Object'
-    { _objOwner = Nothing
-    , _objETag = pETag
-    , _objSize = pSize
-    , _objKey = pKey
-    , _objStorageClass = pStorageClass
-    , _objLastModified = _Time # pLastModified
+    { _oOwner = Nothing
+    , _oETag = pETag
+    , _oSize = pSize
+    , _oKey = pKey
+    , _oStorageClass = pStorageClass
+    , _oLastModified = _Time # pLastModified
     }
 
 -- | FIXME: Undocumented member.
-objOwner :: Lens' Object (Maybe Owner)
-objOwner = lens _objOwner (\ s a -> s{_objOwner = a});
+oOwner :: Lens' Object (Maybe Owner)
+oOwner = lens _oOwner (\ s a -> s{_oOwner = a});
 
 -- | FIXME: Undocumented member.
-objETag :: Lens' Object ETag
-objETag = lens _objETag (\ s a -> s{_objETag = a});
+oETag :: Lens' Object ETag
+oETag = lens _oETag (\ s a -> s{_oETag = a});
 
 -- | FIXME: Undocumented member.
-objSize :: Lens' Object Int
-objSize = lens _objSize (\ s a -> s{_objSize = a});
+oSize :: Lens' Object Int
+oSize = lens _oSize (\ s a -> s{_oSize = a});
 
 -- | FIXME: Undocumented member.
-objKey :: Lens' Object ObjectKey
-objKey = lens _objKey (\ s a -> s{_objKey = a});
+oKey :: Lens' Object ObjectKey
+oKey = lens _oKey (\ s a -> s{_oKey = a});
 
 -- | The class of storage used to store the object.
-objStorageClass :: Lens' Object ObjectStorageClass
-objStorageClass = lens _objStorageClass (\ s a -> s{_objStorageClass = a});
+oStorageClass :: Lens' Object ObjectStorageClass
+oStorageClass = lens _oStorageClass (\ s a -> s{_oStorageClass = a});
 
 -- | FIXME: Undocumented member.
-objLastModified :: Lens' Object UTCTime
-objLastModified = lens _objLastModified (\ s a -> s{_objLastModified = a}) . _Time;
+oLastModified :: Lens' Object UTCTime
+oLastModified = lens _oLastModified (\ s a -> s{_oLastModified = a}) . _Time;
 
 instance FromXML Object where
         parseXML x
@@ -1397,29 +1395,29 @@ instance FromXML ObjectVersion where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ownId'
+-- * 'oId'
 --
--- * 'ownDisplayName'
+-- * 'oDisplayName'
 data Owner = Owner'
-    { _ownId          :: !(Maybe Text)
-    , _ownDisplayName :: !(Maybe Text)
+    { _oId          :: !(Maybe Text)
+    , _oDisplayName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Owner' smart constructor.
 owner :: Owner
 owner =
     Owner'
-    { _ownId = Nothing
-    , _ownDisplayName = Nothing
+    { _oId = Nothing
+    , _oDisplayName = Nothing
     }
 
 -- | FIXME: Undocumented member.
-ownId :: Lens' Owner (Maybe Text)
-ownId = lens _ownId (\ s a -> s{_ownId = a});
+oId :: Lens' Owner (Maybe Text)
+oId = lens _oId (\ s a -> s{_oId = a});
 
 -- | FIXME: Undocumented member.
-ownDisplayName :: Lens' Owner (Maybe Text)
-ownDisplayName = lens _ownDisplayName (\ s a -> s{_ownDisplayName = a});
+oDisplayName :: Lens' Owner (Maybe Text)
+oDisplayName = lens _oDisplayName (\ s a -> s{_oDisplayName = a});
 
 instance FromXML Owner where
         parseXML x
@@ -1428,51 +1426,51 @@ instance FromXML Owner where
 instance ToXML Owner where
         toXML Owner'{..}
           = mconcat
-              ["ID" @= _ownId, "DisplayName" @= _ownDisplayName]
+              ["ID" @= _oId, "DisplayName" @= _oDisplayName]
 
 -- | /See:/ 'part' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'parETag'
+-- * 'pETag'
 --
--- * 'parSize'
+-- * 'pSize'
 --
--- * 'parPartNumber'
+-- * 'pPartNumber'
 --
--- * 'parLastModified'
+-- * 'pLastModified'
 data Part = Part'
-    { _parETag         :: !(Maybe ETag)
-    , _parSize         :: !(Maybe Int)
-    , _parPartNumber   :: !(Maybe Int)
-    , _parLastModified :: !(Maybe RFC822)
+    { _pETag         :: !(Maybe ETag)
+    , _pSize         :: !(Maybe Int)
+    , _pPartNumber   :: !(Maybe Int)
+    , _pLastModified :: !(Maybe RFC822)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Part' smart constructor.
 part :: Part
 part =
     Part'
-    { _parETag = Nothing
-    , _parSize = Nothing
-    , _parPartNumber = Nothing
-    , _parLastModified = Nothing
+    { _pETag = Nothing
+    , _pSize = Nothing
+    , _pPartNumber = Nothing
+    , _pLastModified = Nothing
     }
 
 -- | Entity tag returned when the part was uploaded.
-parETag :: Lens' Part (Maybe ETag)
-parETag = lens _parETag (\ s a -> s{_parETag = a});
+pETag :: Lens' Part (Maybe ETag)
+pETag = lens _pETag (\ s a -> s{_pETag = a});
 
 -- | Size of the uploaded part data.
-parSize :: Lens' Part (Maybe Int)
-parSize = lens _parSize (\ s a -> s{_parSize = a});
+pSize :: Lens' Part (Maybe Int)
+pSize = lens _pSize (\ s a -> s{_pSize = a});
 
 -- | Part number identifying the part.
-parPartNumber :: Lens' Part (Maybe Int)
-parPartNumber = lens _parPartNumber (\ s a -> s{_parPartNumber = a});
+pPartNumber :: Lens' Part (Maybe Int)
+pPartNumber = lens _pPartNumber (\ s a -> s{_pPartNumber = a});
 
 -- | Date and time at which the part was uploaded.
-parLastModified :: Lens' Part (Maybe UTCTime)
-parLastModified = lens _parLastModified (\ s a -> s{_parLastModified = a}) . mapping _Time;
+pLastModified :: Lens' Part (Maybe UTCTime)
+pLastModified = lens _pLastModified (\ s a -> s{_pLastModified = a}) . mapping _Time;
 
 instance FromXML Part where
         parseXML x
@@ -1537,53 +1535,53 @@ instance ToXML QueueConfiguration where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'redHostName'
+-- * 'rHostName'
 --
--- * 'redProtocol'
+-- * 'rProtocol'
 --
--- * 'redHTTPRedirectCode'
+-- * 'rHTTPRedirectCode'
 --
--- * 'redReplaceKeyWith'
+-- * 'rReplaceKeyWith'
 --
--- * 'redReplaceKeyPrefixWith'
+-- * 'rReplaceKeyPrefixWith'
 data Redirect = Redirect'
-    { _redHostName             :: !(Maybe Text)
-    , _redProtocol             :: !(Maybe Protocol)
-    , _redHTTPRedirectCode     :: !(Maybe Text)
-    , _redReplaceKeyWith       :: !(Maybe Text)
-    , _redReplaceKeyPrefixWith :: !(Maybe Text)
+    { _rHostName             :: !(Maybe Text)
+    , _rProtocol             :: !(Maybe Protocol)
+    , _rHTTPRedirectCode     :: !(Maybe Text)
+    , _rReplaceKeyWith       :: !(Maybe Text)
+    , _rReplaceKeyPrefixWith :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Redirect' smart constructor.
 redirect :: Redirect
 redirect =
     Redirect'
-    { _redHostName = Nothing
-    , _redProtocol = Nothing
-    , _redHTTPRedirectCode = Nothing
-    , _redReplaceKeyWith = Nothing
-    , _redReplaceKeyPrefixWith = Nothing
+    { _rHostName = Nothing
+    , _rProtocol = Nothing
+    , _rHTTPRedirectCode = Nothing
+    , _rReplaceKeyWith = Nothing
+    , _rReplaceKeyPrefixWith = Nothing
     }
 
 -- | The host name to use in the redirect request.
-redHostName :: Lens' Redirect (Maybe Text)
-redHostName = lens _redHostName (\ s a -> s{_redHostName = a});
+rHostName :: Lens' Redirect (Maybe Text)
+rHostName = lens _rHostName (\ s a -> s{_rHostName = a});
 
 -- | Protocol to use (http, https) when redirecting requests. The default is
 -- the protocol that is used in the original request.
-redProtocol :: Lens' Redirect (Maybe Protocol)
-redProtocol = lens _redProtocol (\ s a -> s{_redProtocol = a});
+rProtocol :: Lens' Redirect (Maybe Protocol)
+rProtocol = lens _rProtocol (\ s a -> s{_rProtocol = a});
 
 -- | The HTTP redirect code to use on the response. Not required if one of
 -- the siblings is present.
-redHTTPRedirectCode :: Lens' Redirect (Maybe Text)
-redHTTPRedirectCode = lens _redHTTPRedirectCode (\ s a -> s{_redHTTPRedirectCode = a});
+rHTTPRedirectCode :: Lens' Redirect (Maybe Text)
+rHTTPRedirectCode = lens _rHTTPRedirectCode (\ s a -> s{_rHTTPRedirectCode = a});
 
 -- | The specific object key to use in the redirect request. For example,
 -- redirect request to error.html. Not required if one of the sibling is
 -- present. Can be present only if ReplaceKeyPrefixWith is not provided.
-redReplaceKeyWith :: Lens' Redirect (Maybe Text)
-redReplaceKeyWith = lens _redReplaceKeyWith (\ s a -> s{_redReplaceKeyWith = a});
+rReplaceKeyWith :: Lens' Redirect (Maybe Text)
+rReplaceKeyWith = lens _rReplaceKeyWith (\ s a -> s{_rReplaceKeyWith = a});
 
 -- | The object key prefix to use in the redirect request. For example, to
 -- redirect requests for all pages with prefix docs\/ (objects in the
@@ -1591,8 +1589,8 @@ redReplaceKeyWith = lens _redReplaceKeyWith (\ s a -> s{_redReplaceKeyWith = a})
 -- KeyPrefixEquals set to docs\/ and in the Redirect set
 -- ReplaceKeyPrefixWith to \/documents. Not required if one of the siblings
 -- is present. Can be present only if ReplaceKeyWith is not provided.
-redReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
-redReplaceKeyPrefixWith = lens _redReplaceKeyPrefixWith (\ s a -> s{_redReplaceKeyPrefixWith = a});
+rReplaceKeyPrefixWith :: Lens' Redirect (Maybe Text)
+rReplaceKeyPrefixWith = lens _rReplaceKeyPrefixWith (\ s a -> s{_rReplaceKeyPrefixWith = a});
 
 instance FromXML Redirect where
         parseXML x
@@ -1605,11 +1603,10 @@ instance FromXML Redirect where
 instance ToXML Redirect where
         toXML Redirect'{..}
           = mconcat
-              ["HostName" @= _redHostName,
-               "Protocol" @= _redProtocol,
-               "HttpRedirectCode" @= _redHTTPRedirectCode,
-               "ReplaceKeyWith" @= _redReplaceKeyWith,
-               "ReplaceKeyPrefixWith" @= _redReplaceKeyPrefixWith]
+              ["HostName" @= _rHostName, "Protocol" @= _rProtocol,
+               "HttpRedirectCode" @= _rHTTPRedirectCode,
+               "ReplaceKeyWith" @= _rReplaceKeyWith,
+               "ReplaceKeyPrefixWith" @= _rReplaceKeyPrefixWith]
 
 -- | /See:/ 'redirectAllRequestsTo' smart constructor.
 --
@@ -1852,71 +1849,71 @@ instance ToXML RoutingRule where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rulNoncurrentVersionExpiration'
+-- * 'rNoncurrentVersionExpiration'
 --
--- * 'rulTransition'
+-- * 'rTransition'
 --
--- * 'rulExpiration'
+-- * 'rExpiration'
 --
--- * 'rulNoncurrentVersionTransition'
+-- * 'rNoncurrentVersionTransition'
 --
--- * 'rulId'
+-- * 'rId'
 --
--- * 'rulPrefix'
+-- * 'rPrefix'
 --
--- * 'rulStatus'
+-- * 'rStatus'
 data Rule = Rule'
-    { _rulNoncurrentVersionExpiration :: !(Maybe NoncurrentVersionExpiration)
-    , _rulTransition                  :: !(Maybe Transition)
-    , _rulExpiration                  :: !(Maybe LifecycleExpiration)
-    , _rulNoncurrentVersionTransition :: !(Maybe NoncurrentVersionTransition)
-    , _rulId                          :: !(Maybe Text)
-    , _rulPrefix                      :: !Text
-    , _rulStatus                      :: !ExpirationStatus
+    { _rNoncurrentVersionExpiration :: !(Maybe NoncurrentVersionExpiration)
+    , _rTransition                  :: !(Maybe Transition)
+    , _rExpiration                  :: !(Maybe LifecycleExpiration)
+    , _rNoncurrentVersionTransition :: !(Maybe NoncurrentVersionTransition)
+    , _rId                          :: !(Maybe Text)
+    , _rPrefix                      :: !Text
+    , _rStatus                      :: !ExpirationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Rule' smart constructor.
 rule :: Text -> ExpirationStatus -> Rule
 rule pPrefix pStatus =
     Rule'
-    { _rulNoncurrentVersionExpiration = Nothing
-    , _rulTransition = Nothing
-    , _rulExpiration = Nothing
-    , _rulNoncurrentVersionTransition = Nothing
-    , _rulId = Nothing
-    , _rulPrefix = pPrefix
-    , _rulStatus = pStatus
+    { _rNoncurrentVersionExpiration = Nothing
+    , _rTransition = Nothing
+    , _rExpiration = Nothing
+    , _rNoncurrentVersionTransition = Nothing
+    , _rId = Nothing
+    , _rPrefix = pPrefix
+    , _rStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rulNoncurrentVersionExpiration :: Lens' Rule (Maybe NoncurrentVersionExpiration)
-rulNoncurrentVersionExpiration = lens _rulNoncurrentVersionExpiration (\ s a -> s{_rulNoncurrentVersionExpiration = a});
+rNoncurrentVersionExpiration :: Lens' Rule (Maybe NoncurrentVersionExpiration)
+rNoncurrentVersionExpiration = lens _rNoncurrentVersionExpiration (\ s a -> s{_rNoncurrentVersionExpiration = a});
 
 -- | FIXME: Undocumented member.
-rulTransition :: Lens' Rule (Maybe Transition)
-rulTransition = lens _rulTransition (\ s a -> s{_rulTransition = a});
+rTransition :: Lens' Rule (Maybe Transition)
+rTransition = lens _rTransition (\ s a -> s{_rTransition = a});
 
 -- | FIXME: Undocumented member.
-rulExpiration :: Lens' Rule (Maybe LifecycleExpiration)
-rulExpiration = lens _rulExpiration (\ s a -> s{_rulExpiration = a});
+rExpiration :: Lens' Rule (Maybe LifecycleExpiration)
+rExpiration = lens _rExpiration (\ s a -> s{_rExpiration = a});
 
 -- | FIXME: Undocumented member.
-rulNoncurrentVersionTransition :: Lens' Rule (Maybe NoncurrentVersionTransition)
-rulNoncurrentVersionTransition = lens _rulNoncurrentVersionTransition (\ s a -> s{_rulNoncurrentVersionTransition = a});
+rNoncurrentVersionTransition :: Lens' Rule (Maybe NoncurrentVersionTransition)
+rNoncurrentVersionTransition = lens _rNoncurrentVersionTransition (\ s a -> s{_rNoncurrentVersionTransition = a});
 
 -- | Unique identifier for the rule. The value cannot be longer than 255
 -- characters.
-rulId :: Lens' Rule (Maybe Text)
-rulId = lens _rulId (\ s a -> s{_rulId = a});
+rId :: Lens' Rule (Maybe Text)
+rId = lens _rId (\ s a -> s{_rId = a});
 
 -- | Prefix identifying one or more objects to which the rule applies.
-rulPrefix :: Lens' Rule Text
-rulPrefix = lens _rulPrefix (\ s a -> s{_rulPrefix = a});
+rPrefix :: Lens' Rule Text
+rPrefix = lens _rPrefix (\ s a -> s{_rPrefix = a});
 
 -- | If \'Enabled\', the rule is currently being applied. If \'Disabled\',
 -- the rule is not currently being applied.
-rulStatus :: Lens' Rule ExpirationStatus
-rulStatus = lens _rulStatus (\ s a -> s{_rulStatus = a});
+rStatus :: Lens' Rule ExpirationStatus
+rStatus = lens _rStatus (\ s a -> s{_rStatus = a});
 
 instance FromXML Rule where
         parseXML x
@@ -1933,13 +1930,13 @@ instance ToXML Rule where
         toXML Rule'{..}
           = mconcat
               ["NoncurrentVersionExpiration" @=
-                 _rulNoncurrentVersionExpiration,
-               "Transition" @= _rulTransition,
-               "Expiration" @= _rulExpiration,
+                 _rNoncurrentVersionExpiration,
+               "Transition" @= _rTransition,
+               "Expiration" @= _rExpiration,
                "NoncurrentVersionTransition" @=
-                 _rulNoncurrentVersionTransition,
-               "ID" @= _rulId, "Prefix" @= _rulPrefix,
-               "Status" @= _rulStatus]
+                 _rNoncurrentVersionTransition,
+               "ID" @= _rId, "Prefix" @= _rPrefix,
+               "Status" @= _rStatus]
 
 -- | /See:/ 's3ServiceError' smart constructor.
 --
@@ -2031,25 +2028,25 @@ instance ToXML Tag where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tagTagSet'
+-- * 'tTagSet'
 newtype Tagging = Tagging'
-    { _tagTagSet :: [Tag]
+    { _tTagSet :: [Tag]
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Tagging' smart constructor.
 tagging :: Tagging
 tagging =
     Tagging'
-    { _tagTagSet = mempty
+    { _tTagSet = mempty
     }
 
 -- | FIXME: Undocumented member.
-tagTagSet :: Lens' Tagging [Tag]
-tagTagSet = lens _tagTagSet (\ s a -> s{_tagTagSet = a});
+tTagSet :: Lens' Tagging [Tag]
+tTagSet = lens _tTagSet (\ s a -> s{_tTagSet = a});
 
 instance ToXML Tagging where
         toXML Tagging'{..}
-          = mconcat ["TagSet" @= toXMLList "Tag" _tagTagSet]
+          = mconcat ["TagSet" @= toXMLList "Tag" _tTagSet]
 
 -- | /See:/ 'targetGrant' smart constructor.
 --
@@ -2147,39 +2144,39 @@ instance ToXML TopicConfiguration where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'traDays'
+-- * 'tDays'
 --
--- * 'traDate'
+-- * 'tDate'
 --
--- * 'traStorageClass'
+-- * 'tStorageClass'
 data Transition = Transition'
-    { _traDays         :: !(Maybe Int)
-    , _traDate         :: !(Maybe RFC822)
-    , _traStorageClass :: !(Maybe TransitionStorageClass)
+    { _tDays         :: !(Maybe Int)
+    , _tDate         :: !(Maybe RFC822)
+    , _tStorageClass :: !(Maybe TransitionStorageClass)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Transition' smart constructor.
 transition :: Transition
 transition =
     Transition'
-    { _traDays = Nothing
-    , _traDate = Nothing
-    , _traStorageClass = Nothing
+    { _tDays = Nothing
+    , _tDate = Nothing
+    , _tStorageClass = Nothing
     }
 
 -- | Indicates the lifetime, in days, of the objects that are subject to the
 -- rule. The value must be a non-zero positive integer.
-traDays :: Lens' Transition (Maybe Int)
-traDays = lens _traDays (\ s a -> s{_traDays = a});
+tDays :: Lens' Transition (Maybe Int)
+tDays = lens _tDays (\ s a -> s{_tDays = a});
 
 -- | Indicates at what date the object is to be moved or deleted. Should be
 -- in GMT ISO 8601 Format.
-traDate :: Lens' Transition (Maybe UTCTime)
-traDate = lens _traDate (\ s a -> s{_traDate = a}) . mapping _Time;
+tDate :: Lens' Transition (Maybe UTCTime)
+tDate = lens _tDate (\ s a -> s{_tDate = a}) . mapping _Time;
 
 -- | The class of storage used to store the object.
-traStorageClass :: Lens' Transition (Maybe TransitionStorageClass)
-traStorageClass = lens _traStorageClass (\ s a -> s{_traStorageClass = a});
+tStorageClass :: Lens' Transition (Maybe TransitionStorageClass)
+tStorageClass = lens _tStorageClass (\ s a -> s{_tStorageClass = a});
 
 instance FromXML Transition where
         parseXML x
@@ -2190,8 +2187,8 @@ instance FromXML Transition where
 instance ToXML Transition where
         toXML Transition'{..}
           = mconcat
-              ["Days" @= _traDays, "Date" @= _traDate,
-               "StorageClass" @= _traStorageClass]
+              ["Days" @= _tDays, "Date" @= _tDate,
+               "StorageClass" @= _tStorageClass]
 
 -- | /See:/ 'versioningConfiguration' smart constructor.
 --

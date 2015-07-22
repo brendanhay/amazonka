@@ -28,19 +28,19 @@ module Network.AWS.CloudHSM.GetConfig
     -- ** Request constructor
     , getConfig
     -- ** Request lenses
-    , gcClientARN
-    , gcClientVersion
-    , gcHAPGList
+    , gcrqClientARN
+    , gcrqClientVersion
+    , gcrqHAPGList
 
     -- * Response
     , GetConfigResponse
     -- ** Response constructor
     , getConfigResponse
     -- ** Response lenses
-    , gcrConfigFile
-    , gcrConfigCred
-    , gcrConfigType
-    , gcrStatus
+    , gcrsConfigFile
+    , gcrsConfigCred
+    , gcrsConfigType
+    , gcrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcClientARN'
+-- * 'gcrqClientARN'
 --
--- * 'gcClientVersion'
+-- * 'gcrqClientVersion'
 --
--- * 'gcHAPGList'
+-- * 'gcrqHAPGList'
 data GetConfig = GetConfig'
-    { _gcClientARN     :: !Text
-    , _gcClientVersion :: !ClientVersion
-    , _gcHAPGList      :: ![Text]
+    { _gcrqClientARN     :: !Text
+    , _gcrqClientVersion :: !ClientVersion
+    , _gcrqHAPGList      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConfig' smart constructor.
 getConfig :: Text -> ClientVersion -> GetConfig
 getConfig pClientARN pClientVersion =
     GetConfig'
-    { _gcClientARN = pClientARN
-    , _gcClientVersion = pClientVersion
-    , _gcHAPGList = mempty
+    { _gcrqClientARN = pClientARN
+    , _gcrqClientVersion = pClientVersion
+    , _gcrqHAPGList = mempty
     }
 
 -- | The ARN of the client.
-gcClientARN :: Lens' GetConfig Text
-gcClientARN = lens _gcClientARN (\ s a -> s{_gcClientARN = a});
+gcrqClientARN :: Lens' GetConfig Text
+gcrqClientARN = lens _gcrqClientARN (\ s a -> s{_gcrqClientARN = a});
 
 -- | The client version.
-gcClientVersion :: Lens' GetConfig ClientVersion
-gcClientVersion = lens _gcClientVersion (\ s a -> s{_gcClientVersion = a});
+gcrqClientVersion :: Lens' GetConfig ClientVersion
+gcrqClientVersion = lens _gcrqClientVersion (\ s a -> s{_gcrqClientVersion = a});
 
 -- | A list of ARNs that identify the high-availability partition groups that
 -- are associated with the client.
-gcHAPGList :: Lens' GetConfig [Text]
-gcHAPGList = lens _gcHAPGList (\ s a -> s{_gcHAPGList = a});
+gcrqHAPGList :: Lens' GetConfig [Text]
+gcrqHAPGList = lens _gcrqHAPGList (\ s a -> s{_gcrqHAPGList = a});
 
 instance AWSRequest GetConfig where
         type Sv GetConfig = CloudHSM
@@ -109,9 +109,9 @@ instance ToHeaders GetConfig where
 instance ToJSON GetConfig where
         toJSON GetConfig'{..}
           = object
-              ["ClientArn" .= _gcClientARN,
-               "ClientVersion" .= _gcClientVersion,
-               "HapgList" .= _gcHAPGList]
+              ["ClientArn" .= _gcrqClientARN,
+               "ClientVersion" .= _gcrqClientVersion,
+               "HapgList" .= _gcrqHAPGList]
 
 instance ToPath GetConfig where
         toPath = const "/"
@@ -123,42 +123,42 @@ instance ToQuery GetConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcrConfigFile'
+-- * 'gcrsConfigFile'
 --
--- * 'gcrConfigCred'
+-- * 'gcrsConfigCred'
 --
--- * 'gcrConfigType'
+-- * 'gcrsConfigType'
 --
--- * 'gcrStatus'
+-- * 'gcrsStatus'
 data GetConfigResponse = GetConfigResponse'
-    { _gcrConfigFile :: !(Maybe Text)
-    , _gcrConfigCred :: !(Maybe Text)
-    , _gcrConfigType :: !(Maybe Text)
-    , _gcrStatus     :: !Int
+    { _gcrsConfigFile :: !(Maybe Text)
+    , _gcrsConfigCred :: !(Maybe Text)
+    , _gcrsConfigType :: !(Maybe Text)
+    , _gcrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConfigResponse' smart constructor.
 getConfigResponse :: Int -> GetConfigResponse
 getConfigResponse pStatus =
     GetConfigResponse'
-    { _gcrConfigFile = Nothing
-    , _gcrConfigCred = Nothing
-    , _gcrConfigType = Nothing
-    , _gcrStatus = pStatus
+    { _gcrsConfigFile = Nothing
+    , _gcrsConfigCred = Nothing
+    , _gcrsConfigType = Nothing
+    , _gcrsStatus = pStatus
     }
 
 -- | The chrystoki.conf configuration file.
-gcrConfigFile :: Lens' GetConfigResponse (Maybe Text)
-gcrConfigFile = lens _gcrConfigFile (\ s a -> s{_gcrConfigFile = a});
+gcrsConfigFile :: Lens' GetConfigResponse (Maybe Text)
+gcrsConfigFile = lens _gcrsConfigFile (\ s a -> s{_gcrsConfigFile = a});
 
 -- | The certificate file containing the server.pem files of the HSMs.
-gcrConfigCred :: Lens' GetConfigResponse (Maybe Text)
-gcrConfigCred = lens _gcrConfigCred (\ s a -> s{_gcrConfigCred = a});
+gcrsConfigCred :: Lens' GetConfigResponse (Maybe Text)
+gcrsConfigCred = lens _gcrsConfigCred (\ s a -> s{_gcrsConfigCred = a});
 
 -- | The type of credentials.
-gcrConfigType :: Lens' GetConfigResponse (Maybe Text)
-gcrConfigType = lens _gcrConfigType (\ s a -> s{_gcrConfigType = a});
+gcrsConfigType :: Lens' GetConfigResponse (Maybe Text)
+gcrsConfigType = lens _gcrsConfigType (\ s a -> s{_gcrsConfigType = a});
 
 -- | FIXME: Undocumented member.
-gcrStatus :: Lens' GetConfigResponse Int
-gcrStatus = lens _gcrStatus (\ s a -> s{_gcrStatus = a});
+gcrsStatus :: Lens' GetConfigResponse Int
+gcrsStatus = lens _gcrsStatus (\ s a -> s{_gcrsStatus = a});

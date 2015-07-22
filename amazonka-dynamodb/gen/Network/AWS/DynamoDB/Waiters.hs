@@ -39,7 +39,7 @@ tableExists =
     , _waitAcceptors = [ matchAll
                              "ACTIVE"
                              AcceptSuccess
-                             (desTable .
+                             (drsTable .
                               _Just . tdTableStatus . _Just . to toText)
                        , matchError "ResourceNotFoundException" AcceptRetry]
     }

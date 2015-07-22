@@ -51,8 +51,8 @@ module Network.AWS.SSM.Types
     -- * Association
     , Association
     , association
-    , assInstanceId
-    , assName
+    , aInstanceId
+    , aName
 
     -- * AssociationDescription
     , AssociationDescription
@@ -85,10 +85,10 @@ module Network.AWS.SSM.Types
     -- * DocumentDescription
     , DocumentDescription
     , documentDescription
-    , docStatus
-    , docSha1
-    , docCreatedDate
-    , docName
+    , ddStatus
+    , ddSha1
+    , ddCreatedDate
+    , ddName
 
     -- * DocumentFilter
     , DocumentFilter

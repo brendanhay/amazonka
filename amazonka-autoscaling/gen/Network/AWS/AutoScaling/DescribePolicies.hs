@@ -27,20 +27,20 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- ** Request constructor
     , describePolicies
     -- ** Request lenses
-    , dpsPolicyNames
-    , dpsNextToken
-    , dpsMaxRecords
-    , dpsAutoScalingGroupName
-    , dpsPolicyTypes
+    , dpsrqPolicyNames
+    , dpsrqNextToken
+    , dpsrqMaxRecords
+    , dpsrqAutoScalingGroupName
+    , dpsrqPolicyTypes
 
     -- * Response
     , DescribePoliciesResponse
     -- ** Response constructor
     , describePoliciesResponse
     -- ** Response lenses
-    , dprNextToken
-    , dprScalingPolicies
-    , dprStatus
+    , dpsrsNextToken
+    , dpsrsScalingPolicies
+    , dpsrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -53,65 +53,65 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpsPolicyNames'
+-- * 'dpsrqPolicyNames'
 --
--- * 'dpsNextToken'
+-- * 'dpsrqNextToken'
 --
--- * 'dpsMaxRecords'
+-- * 'dpsrqMaxRecords'
 --
--- * 'dpsAutoScalingGroupName'
+-- * 'dpsrqAutoScalingGroupName'
 --
--- * 'dpsPolicyTypes'
+-- * 'dpsrqPolicyTypes'
 data DescribePolicies = DescribePolicies'
-    { _dpsPolicyNames          :: !(Maybe [Text])
-    , _dpsNextToken            :: !(Maybe Text)
-    , _dpsMaxRecords           :: !(Maybe Int)
-    , _dpsAutoScalingGroupName :: !(Maybe Text)
-    , _dpsPolicyTypes          :: !(Maybe [Text])
+    { _dpsrqPolicyNames          :: !(Maybe [Text])
+    , _dpsrqNextToken            :: !(Maybe Text)
+    , _dpsrqMaxRecords           :: !(Maybe Int)
+    , _dpsrqAutoScalingGroupName :: !(Maybe Text)
+    , _dpsrqPolicyTypes          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePolicies' smart constructor.
 describePolicies :: DescribePolicies
 describePolicies =
     DescribePolicies'
-    { _dpsPolicyNames = Nothing
-    , _dpsNextToken = Nothing
-    , _dpsMaxRecords = Nothing
-    , _dpsAutoScalingGroupName = Nothing
-    , _dpsPolicyTypes = Nothing
+    { _dpsrqPolicyNames = Nothing
+    , _dpsrqNextToken = Nothing
+    , _dpsrqMaxRecords = Nothing
+    , _dpsrqAutoScalingGroupName = Nothing
+    , _dpsrqPolicyTypes = Nothing
     }
 
 -- | One or more policy names or policy ARNs to be described. If you omit
 -- this list, all policy names are described. If an group name is provided,
 -- the results are limited to that group. This list is limited to 50 items.
 -- If you specify an unknown policy name, it is ignored with no error.
-dpsPolicyNames :: Lens' DescribePolicies [Text]
-dpsPolicyNames = lens _dpsPolicyNames (\ s a -> s{_dpsPolicyNames = a}) . _Default;
+dpsrqPolicyNames :: Lens' DescribePolicies [Text]
+dpsrqPolicyNames = lens _dpsrqPolicyNames (\ s a -> s{_dpsrqPolicyNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dpsNextToken :: Lens' DescribePolicies (Maybe Text)
-dpsNextToken = lens _dpsNextToken (\ s a -> s{_dpsNextToken = a});
+dpsrqNextToken :: Lens' DescribePolicies (Maybe Text)
+dpsrqNextToken = lens _dpsrqNextToken (\ s a -> s{_dpsrqNextToken = a});
 
 -- | The maximum number of items to be returned with each call.
-dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
-dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
+dpsrqMaxRecords :: Lens' DescribePolicies (Maybe Int)
+dpsrqMaxRecords = lens _dpsrqMaxRecords (\ s a -> s{_dpsrqMaxRecords = a});
 
 -- | The name of the group.
-dpsAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
-dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScalingGroupName = a});
+dpsrqAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
+dpsrqAutoScalingGroupName = lens _dpsrqAutoScalingGroupName (\ s a -> s{_dpsrqAutoScalingGroupName = a});
 
 -- | One or more policy types. Valid values are @SimpleScaling@ and
 -- @StepScaling@.
-dpsPolicyTypes :: Lens' DescribePolicies [Text]
-dpsPolicyTypes = lens _dpsPolicyTypes (\ s a -> s{_dpsPolicyTypes = a}) . _Default;
+dpsrqPolicyTypes :: Lens' DescribePolicies [Text]
+dpsrqPolicyTypes = lens _dpsrqPolicyTypes (\ s a -> s{_dpsrqPolicyTypes = a}) . _Default;
 
 instance AWSPager DescribePolicies where
         page rq rs
-          | stop (rs ^. dprNextToken) = Nothing
-          | stop (rs ^. dprScalingPolicies) = Nothing
+          | stop (rs ^. dpsrsNextToken) = Nothing
+          | stop (rs ^. dpsrsScalingPolicies) = Nothing
           | otherwise =
-            Just $ rq & dpsNextToken .~ rs ^. dprNextToken
+            Just $ rq & dpsrqNextToken .~ rs ^. dpsrsNextToken
 
 instance AWSRequest DescribePolicies where
         type Sv DescribePolicies = AutoScaling
@@ -138,46 +138,46 @@ instance ToQuery DescribePolicies where
               ["Action" =: ("DescribePolicies" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "PolicyNames" =:
-                 toQuery (toQueryList "member" <$> _dpsPolicyNames),
-               "NextToken" =: _dpsNextToken,
-               "MaxRecords" =: _dpsMaxRecords,
-               "AutoScalingGroupName" =: _dpsAutoScalingGroupName,
+                 toQuery (toQueryList "member" <$> _dpsrqPolicyNames),
+               "NextToken" =: _dpsrqNextToken,
+               "MaxRecords" =: _dpsrqMaxRecords,
+               "AutoScalingGroupName" =: _dpsrqAutoScalingGroupName,
                "PolicyTypes" =:
-                 toQuery (toQueryList "member" <$> _dpsPolicyTypes)]
+                 toQuery (toQueryList "member" <$> _dpsrqPolicyTypes)]
 
 -- | /See:/ 'describePoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dprNextToken'
+-- * 'dpsrsNextToken'
 --
--- * 'dprScalingPolicies'
+-- * 'dpsrsScalingPolicies'
 --
--- * 'dprStatus'
+-- * 'dpsrsStatus'
 data DescribePoliciesResponse = DescribePoliciesResponse'
-    { _dprNextToken       :: !(Maybe Text)
-    , _dprScalingPolicies :: !(Maybe [ScalingPolicy])
-    , _dprStatus          :: !Int
+    { _dpsrsNextToken       :: !(Maybe Text)
+    , _dpsrsScalingPolicies :: !(Maybe [ScalingPolicy])
+    , _dpsrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePoliciesResponse' smart constructor.
 describePoliciesResponse :: Int -> DescribePoliciesResponse
 describePoliciesResponse pStatus =
     DescribePoliciesResponse'
-    { _dprNextToken = Nothing
-    , _dprScalingPolicies = Nothing
-    , _dprStatus = pStatus
+    { _dpsrsNextToken = Nothing
+    , _dpsrsScalingPolicies = Nothing
+    , _dpsrsStatus = pStatus
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dprNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
-dprNextToken = lens _dprNextToken (\ s a -> s{_dprNextToken = a});
+dpsrsNextToken :: Lens' DescribePoliciesResponse (Maybe Text)
+dpsrsNextToken = lens _dpsrsNextToken (\ s a -> s{_dpsrsNextToken = a});
 
 -- | The scaling policies.
-dprScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
-dprScalingPolicies = lens _dprScalingPolicies (\ s a -> s{_dprScalingPolicies = a}) . _Default;
+dpsrsScalingPolicies :: Lens' DescribePoliciesResponse [ScalingPolicy]
+dpsrsScalingPolicies = lens _dpsrsScalingPolicies (\ s a -> s{_dpsrsScalingPolicies = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dprStatus :: Lens' DescribePoliciesResponse Int
-dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});
+dpsrsStatus :: Lens' DescribePoliciesResponse Int
+dpsrsStatus = lens _dpsrsStatus (\ s a -> s{_dpsrsStatus = a});

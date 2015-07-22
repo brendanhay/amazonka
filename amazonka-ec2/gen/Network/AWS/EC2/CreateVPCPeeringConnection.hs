@@ -38,18 +38,18 @@ module Network.AWS.EC2.CreateVPCPeeringConnection
     -- ** Request constructor
     , createVPCPeeringConnection
     -- ** Request lenses
-    , cvpcPeerVPCId
-    , cvpcVPCId
-    , cvpcPeerOwnerId
-    , cvpcDryRun
+    , cvpcrqPeerVPCId
+    , cvpcrqVPCId
+    , cvpcrqPeerOwnerId
+    , cvpcrqDryRun
 
     -- * Response
     , CreateVPCPeeringConnectionResponse
     -- ** Response constructor
     , createVPCPeeringConnectionResponse
     -- ** Response lenses
-    , cvpcrVPCPeeringConnection
-    , cvpcrStatus
+    , cvpcrsVPCPeeringConnection
+    , cvpcrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -61,51 +61,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvpcPeerVPCId'
+-- * 'cvpcrqPeerVPCId'
 --
--- * 'cvpcVPCId'
+-- * 'cvpcrqVPCId'
 --
--- * 'cvpcPeerOwnerId'
+-- * 'cvpcrqPeerOwnerId'
 --
--- * 'cvpcDryRun'
+-- * 'cvpcrqDryRun'
 data CreateVPCPeeringConnection = CreateVPCPeeringConnection'
-    { _cvpcPeerVPCId   :: !(Maybe Text)
-    , _cvpcVPCId       :: !(Maybe Text)
-    , _cvpcPeerOwnerId :: !(Maybe Text)
-    , _cvpcDryRun      :: !(Maybe Bool)
+    { _cvpcrqPeerVPCId   :: !(Maybe Text)
+    , _cvpcrqVPCId       :: !(Maybe Text)
+    , _cvpcrqPeerOwnerId :: !(Maybe Text)
+    , _cvpcrqDryRun      :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCPeeringConnection' smart constructor.
 createVPCPeeringConnection :: CreateVPCPeeringConnection
 createVPCPeeringConnection =
     CreateVPCPeeringConnection'
-    { _cvpcPeerVPCId = Nothing
-    , _cvpcVPCId = Nothing
-    , _cvpcPeerOwnerId = Nothing
-    , _cvpcDryRun = Nothing
+    { _cvpcrqPeerVPCId = Nothing
+    , _cvpcrqVPCId = Nothing
+    , _cvpcrqPeerOwnerId = Nothing
+    , _cvpcrqDryRun = Nothing
     }
 
 -- | The ID of the VPC with which you are creating the VPC peering
 -- connection.
-cvpcPeerVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcPeerVPCId = lens _cvpcPeerVPCId (\ s a -> s{_cvpcPeerVPCId = a});
+cvpcrqPeerVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
+cvpcrqPeerVPCId = lens _cvpcrqPeerVPCId (\ s a -> s{_cvpcrqPeerVPCId = a});
 
 -- | The ID of the requester VPC.
-cvpcVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcVPCId = lens _cvpcVPCId (\ s a -> s{_cvpcVPCId = a});
+cvpcrqVPCId :: Lens' CreateVPCPeeringConnection (Maybe Text)
+cvpcrqVPCId = lens _cvpcrqVPCId (\ s a -> s{_cvpcrqVPCId = a});
 
 -- | The AWS account ID of the owner of the peer VPC.
 --
 -- Default: Your AWS account ID
-cvpcPeerOwnerId :: Lens' CreateVPCPeeringConnection (Maybe Text)
-cvpcPeerOwnerId = lens _cvpcPeerOwnerId (\ s a -> s{_cvpcPeerOwnerId = a});
+cvpcrqPeerOwnerId :: Lens' CreateVPCPeeringConnection (Maybe Text)
+cvpcrqPeerOwnerId = lens _cvpcrqPeerOwnerId (\ s a -> s{_cvpcrqPeerOwnerId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cvpcDryRun :: Lens' CreateVPCPeeringConnection (Maybe Bool)
-cvpcDryRun = lens _cvpcDryRun (\ s a -> s{_cvpcDryRun = a});
+cvpcrqDryRun :: Lens' CreateVPCPeeringConnection (Maybe Bool)
+cvpcrqDryRun = lens _cvpcrqDryRun (\ s a -> s{_cvpcrqDryRun = a});
 
 instance AWSRequest CreateVPCPeeringConnection where
         type Sv CreateVPCPeeringConnection = EC2
@@ -131,34 +131,35 @@ instance ToQuery CreateVPCPeeringConnection where
               ["Action" =:
                  ("CreateVPCPeeringConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "PeerVpcId" =: _cvpcPeerVPCId, "VpcId" =: _cvpcVPCId,
-               "PeerOwnerId" =: _cvpcPeerOwnerId,
-               "DryRun" =: _cvpcDryRun]
+               "PeerVpcId" =: _cvpcrqPeerVPCId,
+               "VpcId" =: _cvpcrqVPCId,
+               "PeerOwnerId" =: _cvpcrqPeerOwnerId,
+               "DryRun" =: _cvpcrqDryRun]
 
 -- | /See:/ 'createVPCPeeringConnectionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvpcrVPCPeeringConnection'
+-- * 'cvpcrsVPCPeeringConnection'
 --
--- * 'cvpcrStatus'
+-- * 'cvpcrsStatus'
 data CreateVPCPeeringConnectionResponse = CreateVPCPeeringConnectionResponse'
-    { _cvpcrVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _cvpcrStatus               :: !Int
+    { _cvpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
+    , _cvpcrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCPeeringConnectionResponse' smart constructor.
 createVPCPeeringConnectionResponse :: Int -> CreateVPCPeeringConnectionResponse
 createVPCPeeringConnectionResponse pStatus =
     CreateVPCPeeringConnectionResponse'
-    { _cvpcrVPCPeeringConnection = Nothing
-    , _cvpcrStatus = pStatus
+    { _cvpcrsVPCPeeringConnection = Nothing
+    , _cvpcrsStatus = pStatus
     }
 
 -- | Information about the VPC peering connection.
-cvpcrVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
-cvpcrVPCPeeringConnection = lens _cvpcrVPCPeeringConnection (\ s a -> s{_cvpcrVPCPeeringConnection = a});
+cvpcrsVPCPeeringConnection :: Lens' CreateVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
+cvpcrsVPCPeeringConnection = lens _cvpcrsVPCPeeringConnection (\ s a -> s{_cvpcrsVPCPeeringConnection = a});
 
 -- | FIXME: Undocumented member.
-cvpcrStatus :: Lens' CreateVPCPeeringConnectionResponse Int
-cvpcrStatus = lens _cvpcrStatus (\ s a -> s{_cvpcrStatus = a});
+cvpcrsStatus :: Lens' CreateVPCPeeringConnectionResponse Int
+cvpcrsStatus = lens _cvpcrsStatus (\ s a -> s{_cvpcrsStatus = a});

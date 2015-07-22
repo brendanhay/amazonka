@@ -27,8 +27,8 @@ module Network.AWS.AutoScaling.DeletePolicy
     -- ** Request constructor
     , deletePolicy
     -- ** Request lenses
-    , dpAutoScalingGroupName
-    , dpPolicyName
+    , dprqAutoScalingGroupName
+    , dprqPolicyName
 
     -- * Response
     , DeletePolicyResponse
@@ -47,29 +47,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpAutoScalingGroupName'
+-- * 'dprqAutoScalingGroupName'
 --
--- * 'dpPolicyName'
+-- * 'dprqPolicyName'
 data DeletePolicy = DeletePolicy'
-    { _dpAutoScalingGroupName :: !(Maybe Text)
-    , _dpPolicyName           :: !Text
+    { _dprqAutoScalingGroupName :: !(Maybe Text)
+    , _dprqPolicyName           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePolicy' smart constructor.
 deletePolicy :: Text -> DeletePolicy
 deletePolicy pPolicyName =
     DeletePolicy'
-    { _dpAutoScalingGroupName = Nothing
-    , _dpPolicyName = pPolicyName
+    { _dprqAutoScalingGroupName = Nothing
+    , _dprqPolicyName = pPolicyName
     }
 
 -- | The name of the Auto Scaling group.
-dpAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
-dpAutoScalingGroupName = lens _dpAutoScalingGroupName (\ s a -> s{_dpAutoScalingGroupName = a});
+dprqAutoScalingGroupName :: Lens' DeletePolicy (Maybe Text)
+dprqAutoScalingGroupName = lens _dprqAutoScalingGroupName (\ s a -> s{_dprqAutoScalingGroupName = a});
 
 -- | The name or Amazon Resource Name (ARN) of the policy.
-dpPolicyName :: Lens' DeletePolicy Text
-dpPolicyName = lens _dpPolicyName (\ s a -> s{_dpPolicyName = a});
+dprqPolicyName :: Lens' DeletePolicy Text
+dprqPolicyName = lens _dprqPolicyName (\ s a -> s{_dprqPolicyName = a});
 
 instance AWSRequest DeletePolicy where
         type Sv DeletePolicy = AutoScaling
@@ -88,8 +88,8 @@ instance ToQuery DeletePolicy where
           = mconcat
               ["Action" =: ("DeletePolicy" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "AutoScalingGroupName" =: _dpAutoScalingGroupName,
-               "PolicyName" =: _dpPolicyName]
+               "AutoScalingGroupName" =: _dprqAutoScalingGroupName,
+               "PolicyName" =: _dprqPolicyName]
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
 data DeletePolicyResponse =

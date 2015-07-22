@@ -27,15 +27,15 @@ module Network.AWS.SSM.DescribeDocument
     -- ** Request constructor
     , describeDocument
     -- ** Request lenses
-    , ddName
+    , ddrqName
 
     -- * Response
     , DescribeDocumentResponse
     -- ** Response constructor
     , describeDocumentResponse
     -- ** Response lenses
-    , desDocument
-    , desStatus
+    , ddrsDocument
+    , ddrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -47,21 +47,21 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddName'
+-- * 'ddrqName'
 newtype DescribeDocument = DescribeDocument'
-    { _ddName :: Text
+    { _ddrqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDocument' smart constructor.
 describeDocument :: Text -> DescribeDocument
 describeDocument pName =
     DescribeDocument'
-    { _ddName = pName
+    { _ddrqName = pName
     }
 
 -- | The name of the configuration document.
-ddName :: Lens' DescribeDocument Text
-ddName = lens _ddName (\ s a -> s{_ddName = a});
+ddrqName :: Lens' DescribeDocument Text
+ddrqName = lens _ddrqName (\ s a -> s{_ddrqName = a});
 
 instance AWSRequest DescribeDocument where
         type Sv DescribeDocument = SSM
@@ -84,7 +84,7 @@ instance ToHeaders DescribeDocument where
 
 instance ToJSON DescribeDocument where
         toJSON DescribeDocument'{..}
-          = object ["Name" .= _ddName]
+          = object ["Name" .= _ddrqName]
 
 instance ToPath DescribeDocument where
         toPath = const "/"
@@ -96,26 +96,26 @@ instance ToQuery DescribeDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desDocument'
+-- * 'ddrsDocument'
 --
--- * 'desStatus'
+-- * 'ddrsStatus'
 data DescribeDocumentResponse = DescribeDocumentResponse'
-    { _desDocument :: !(Maybe DocumentDescription)
-    , _desStatus   :: !Int
+    { _ddrsDocument :: !(Maybe DocumentDescription)
+    , _ddrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDocumentResponse' smart constructor.
 describeDocumentResponse :: Int -> DescribeDocumentResponse
 describeDocumentResponse pStatus =
     DescribeDocumentResponse'
-    { _desDocument = Nothing
-    , _desStatus = pStatus
+    { _ddrsDocument = Nothing
+    , _ddrsStatus = pStatus
     }
 
 -- | Information about the configuration document.
-desDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
-desDocument = lens _desDocument (\ s a -> s{_desDocument = a});
+ddrsDocument :: Lens' DescribeDocumentResponse (Maybe DocumentDescription)
+ddrsDocument = lens _ddrsDocument (\ s a -> s{_ddrsDocument = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeDocumentResponse Int
-desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+ddrsStatus :: Lens' DescribeDocumentResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

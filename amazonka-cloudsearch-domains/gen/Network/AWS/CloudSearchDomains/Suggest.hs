@@ -45,17 +45,17 @@ module Network.AWS.CloudSearchDomains.Suggest
     -- ** Request constructor
     , suggest
     -- ** Request lenses
-    , sugSize
-    , sugQuery
-    , sugSuggester
+    , srqSize
+    , srqQuery
+    , srqSuggester
 
     -- * Response
     , SuggestResponse
     -- ** Response constructor
     , suggestResponse
     -- ** Response lenses
-    , srSuggest
-    , srStatus
+    , srsSuggest
+    , srsStatus
     ) where
 
 import           Network.AWS.CloudSearchDomains.Types
@@ -69,37 +69,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sugSize'
+-- * 'srqSize'
 --
--- * 'sugQuery'
+-- * 'srqQuery'
 --
--- * 'sugSuggester'
+-- * 'srqSuggester'
 data Suggest = Suggest'
-    { _sugSize      :: !(Maybe Integer)
-    , _sugQuery     :: !Text
-    , _sugSuggester :: !Text
+    { _srqSize      :: !(Maybe Integer)
+    , _srqQuery     :: !Text
+    , _srqSuggester :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Suggest' smart constructor.
 suggest :: Text -> Text -> Suggest
 suggest pQuery pSuggester =
     Suggest'
-    { _sugSize = Nothing
-    , _sugQuery = pQuery
-    , _sugSuggester = pSuggester
+    { _srqSize = Nothing
+    , _srqQuery = pQuery
+    , _srqSuggester = pSuggester
     }
 
 -- | Specifies the maximum number of suggestions to return.
-sugSize :: Lens' Suggest (Maybe Integer)
-sugSize = lens _sugSize (\ s a -> s{_sugSize = a});
+srqSize :: Lens' Suggest (Maybe Integer)
+srqSize = lens _srqSize (\ s a -> s{_srqSize = a});
 
 -- | Specifies the string for which you want to get suggestions.
-sugQuery :: Lens' Suggest Text
-sugQuery = lens _sugQuery (\ s a -> s{_sugQuery = a});
+srqQuery :: Lens' Suggest Text
+srqQuery = lens _srqQuery (\ s a -> s{_srqQuery = a});
 
 -- | Specifies the name of the suggester to use to find suggested matches.
-sugSuggester :: Lens' Suggest Text
-sugSuggester = lens _sugSuggester (\ s a -> s{_sugSuggester = a});
+srqSuggester :: Lens' Suggest Text
+srqSuggester = lens _srqSuggester (\ s a -> s{_srqSuggester = a});
 
 instance AWSRequest Suggest where
         type Sv Suggest = CloudSearchDomains
@@ -124,8 +124,8 @@ instance ToPath Suggest where
 instance ToQuery Suggest where
         toQuery Suggest'{..}
           = mconcat
-              ["size" =: _sugSize, "q" =: _sugQuery,
-               "suggester" =: _sugSuggester,
+              ["size" =: _srqSize, "q" =: _srqQuery,
+               "suggester" =: _srqSuggester,
                "format=sdk&pretty=true"]
 
 -- | Contains the response to a @Suggest@ request.
@@ -134,26 +134,26 @@ instance ToQuery Suggest where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srSuggest'
+-- * 'srsSuggest'
 --
--- * 'srStatus'
+-- * 'srsStatus'
 data SuggestResponse = SuggestResponse'
-    { _srSuggest :: !(Maybe SuggestModel)
-    , _srStatus  :: !Int
+    { _srsSuggest :: !(Maybe SuggestModel)
+    , _srsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestResponse' smart constructor.
 suggestResponse :: Int -> SuggestResponse
 suggestResponse pStatus =
     SuggestResponse'
-    { _srSuggest = Nothing
-    , _srStatus = pStatus
+    { _srsSuggest = Nothing
+    , _srsStatus = pStatus
     }
 
 -- | Container for the matching search suggestion information.
-srSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
-srSuggest = lens _srSuggest (\ s a -> s{_srSuggest = a});
+srsSuggest :: Lens' SuggestResponse (Maybe SuggestModel)
+srsSuggest = lens _srsSuggest (\ s a -> s{_srsSuggest = a});
 
 -- | FIXME: Undocumented member.
-srStatus :: Lens' SuggestResponse Int
-srStatus = lens _srStatus (\ s a -> s{_srStatus = a});
+srsStatus :: Lens' SuggestResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

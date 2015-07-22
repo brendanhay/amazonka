@@ -39,22 +39,22 @@ module Network.AWS.StorageGateway.CreateStorediSCSIVolume
     -- ** Request constructor
     , createStorediSCSIVolume
     -- ** Request lenses
-    , csscsivSnapshotId
-    , csscsivGatewayARN
-    , csscsivDiskId
-    , csscsivPreserveExistingData
-    , csscsivTargetName
-    , csscsivNetworkInterfaceId
+    , csscsivrqSnapshotId
+    , csscsivrqGatewayARN
+    , csscsivrqDiskId
+    , csscsivrqPreserveExistingData
+    , csscsivrqTargetName
+    , csscsivrqNetworkInterfaceId
 
     -- * Response
     , CreateStorediSCSIVolumeResponse
     -- ** Response constructor
     , createStorediSCSIVolumeResponse
     -- ** Response lenses
-    , csscsivrTargetARN
-    , csscsivrVolumeARN
-    , csscsivrVolumeSizeInBytes
-    , csscsivrStatus
+    , csscsivrsTargetARN
+    , csscsivrsVolumeARN
+    , csscsivrsVolumeSizeInBytes
+    , csscsivrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -74,36 +74,36 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csscsivSnapshotId'
+-- * 'csscsivrqSnapshotId'
 --
--- * 'csscsivGatewayARN'
+-- * 'csscsivrqGatewayARN'
 --
--- * 'csscsivDiskId'
+-- * 'csscsivrqDiskId'
 --
--- * 'csscsivPreserveExistingData'
+-- * 'csscsivrqPreserveExistingData'
 --
--- * 'csscsivTargetName'
+-- * 'csscsivrqTargetName'
 --
--- * 'csscsivNetworkInterfaceId'
+-- * 'csscsivrqNetworkInterfaceId'
 data CreateStorediSCSIVolume = CreateStorediSCSIVolume'
-    { _csscsivSnapshotId           :: !(Maybe Text)
-    , _csscsivGatewayARN           :: !Text
-    , _csscsivDiskId               :: !Text
-    , _csscsivPreserveExistingData :: !Bool
-    , _csscsivTargetName           :: !Text
-    , _csscsivNetworkInterfaceId   :: !Text
+    { _csscsivrqSnapshotId           :: !(Maybe Text)
+    , _csscsivrqGatewayARN           :: !Text
+    , _csscsivrqDiskId               :: !Text
+    , _csscsivrqPreserveExistingData :: !Bool
+    , _csscsivrqTargetName           :: !Text
+    , _csscsivrqNetworkInterfaceId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStorediSCSIVolume' smart constructor.
 createStorediSCSIVolume :: Text -> Text -> Bool -> Text -> Text -> CreateStorediSCSIVolume
 createStorediSCSIVolume pGatewayARN pDiskId pPreserveExistingData pTargetName pNetworkInterfaceId =
     CreateStorediSCSIVolume'
-    { _csscsivSnapshotId = Nothing
-    , _csscsivGatewayARN = pGatewayARN
-    , _csscsivDiskId = pDiskId
-    , _csscsivPreserveExistingData = pPreserveExistingData
-    , _csscsivTargetName = pTargetName
-    , _csscsivNetworkInterfaceId = pNetworkInterfaceId
+    { _csscsivrqSnapshotId = Nothing
+    , _csscsivrqGatewayARN = pGatewayARN
+    , _csscsivrqDiskId = pDiskId
+    , _csscsivrqPreserveExistingData = pPreserveExistingData
+    , _csscsivrqTargetName = pTargetName
+    , _csscsivrqNetworkInterfaceId = pNetworkInterfaceId
     }
 
 -- | The snapshot ID (e.g. \"snap-1122aabb\") of the snapshot to restore as
@@ -112,42 +112,42 @@ createStorediSCSIVolume pGatewayARN pDiskId pPreserveExistingData pTargetName pN
 -- field. To list snapshots for your account use
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/ApiReference-query-DescribeSnapshots.html DescribeSnapshots>
 -- in the /Amazon Elastic Compute Cloud API Reference/.
-csscsivSnapshotId :: Lens' CreateStorediSCSIVolume (Maybe Text)
-csscsivSnapshotId = lens _csscsivSnapshotId (\ s a -> s{_csscsivSnapshotId = a});
+csscsivrqSnapshotId :: Lens' CreateStorediSCSIVolume (Maybe Text)
+csscsivrqSnapshotId = lens _csscsivrqSnapshotId (\ s a -> s{_csscsivrqSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csscsivGatewayARN :: Lens' CreateStorediSCSIVolume Text
-csscsivGatewayARN = lens _csscsivGatewayARN (\ s a -> s{_csscsivGatewayARN = a});
+csscsivrqGatewayARN :: Lens' CreateStorediSCSIVolume Text
+csscsivrqGatewayARN = lens _csscsivrqGatewayARN (\ s a -> s{_csscsivrqGatewayARN = a});
 
 -- | The unique identifier for the gateway local disk that is configured as a
 -- stored volume. Use
 -- <http://docs.aws.amazon.com/storagegateway/latest/userguide/API_ListLocalDisks.html ListLocalDisks>
 -- to list disk IDs for a gateway.
-csscsivDiskId :: Lens' CreateStorediSCSIVolume Text
-csscsivDiskId = lens _csscsivDiskId (\ s a -> s{_csscsivDiskId = a});
+csscsivrqDiskId :: Lens' CreateStorediSCSIVolume Text
+csscsivrqDiskId = lens _csscsivrqDiskId (\ s a -> s{_csscsivrqDiskId = a});
 
 -- | Specify this field as true if you want to preserve the data on the local
 -- disk. Otherwise, specifying this field as false creates an empty volume.
 --
 -- /Valid Values/: true, false
-csscsivPreserveExistingData :: Lens' CreateStorediSCSIVolume Bool
-csscsivPreserveExistingData = lens _csscsivPreserveExistingData (\ s a -> s{_csscsivPreserveExistingData = a});
+csscsivrqPreserveExistingData :: Lens' CreateStorediSCSIVolume Bool
+csscsivrqPreserveExistingData = lens _csscsivrqPreserveExistingData (\ s a -> s{_csscsivrqPreserveExistingData = a});
 
 -- | The name of the iSCSI target used by initiators to connect to the target
 -- and as a suffix for the target ARN. For example, specifying @TargetName@
 -- as /myvolume/ results in the target ARN of
 -- arn:aws:storagegateway:us-east-1:111122223333:gateway\/mygateway\/target\/iqn.1997-05.com.amazon:myvolume.
 -- The target name must be unique across all volumes of a gateway.
-csscsivTargetName :: Lens' CreateStorediSCSIVolume Text
-csscsivTargetName = lens _csscsivTargetName (\ s a -> s{_csscsivTargetName = a});
+csscsivrqTargetName :: Lens' CreateStorediSCSIVolume Text
+csscsivrqTargetName = lens _csscsivrqTargetName (\ s a -> s{_csscsivrqTargetName = a});
 
 -- | The network interface of the gateway on which to expose the iSCSI
 -- target. Only IPv4 addresses are accepted. Use DescribeGatewayInformation
 -- to get a list of the network interfaces available on a gateway.
 --
 -- /Valid Values/: A valid IP address.
-csscsivNetworkInterfaceId :: Lens' CreateStorediSCSIVolume Text
-csscsivNetworkInterfaceId = lens _csscsivNetworkInterfaceId (\ s a -> s{_csscsivNetworkInterfaceId = a});
+csscsivrqNetworkInterfaceId :: Lens' CreateStorediSCSIVolume Text
+csscsivrqNetworkInterfaceId = lens _csscsivrqNetworkInterfaceId (\ s a -> s{_csscsivrqNetworkInterfaceId = a});
 
 instance AWSRequest CreateStorediSCSIVolume where
         type Sv CreateStorediSCSIVolume = StorageGateway
@@ -175,13 +175,13 @@ instance ToHeaders CreateStorediSCSIVolume where
 instance ToJSON CreateStorediSCSIVolume where
         toJSON CreateStorediSCSIVolume'{..}
           = object
-              ["SnapshotId" .= _csscsivSnapshotId,
-               "GatewayARN" .= _csscsivGatewayARN,
-               "DiskId" .= _csscsivDiskId,
+              ["SnapshotId" .= _csscsivrqSnapshotId,
+               "GatewayARN" .= _csscsivrqGatewayARN,
+               "DiskId" .= _csscsivrqDiskId,
                "PreserveExistingData" .=
-                 _csscsivPreserveExistingData,
-               "TargetName" .= _csscsivTargetName,
-               "NetworkInterfaceId" .= _csscsivNetworkInterfaceId]
+                 _csscsivrqPreserveExistingData,
+               "TargetName" .= _csscsivrqTargetName,
+               "NetworkInterfaceId" .= _csscsivrqNetworkInterfaceId]
 
 instance ToPath CreateStorediSCSIVolume where
         toPath = const "/"
@@ -195,43 +195,43 @@ instance ToQuery CreateStorediSCSIVolume where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csscsivrTargetARN'
+-- * 'csscsivrsTargetARN'
 --
--- * 'csscsivrVolumeARN'
+-- * 'csscsivrsVolumeARN'
 --
--- * 'csscsivrVolumeSizeInBytes'
+-- * 'csscsivrsVolumeSizeInBytes'
 --
--- * 'csscsivrStatus'
+-- * 'csscsivrsStatus'
 data CreateStorediSCSIVolumeResponse = CreateStorediSCSIVolumeResponse'
-    { _csscsivrTargetARN         :: !(Maybe Text)
-    , _csscsivrVolumeARN         :: !(Maybe Text)
-    , _csscsivrVolumeSizeInBytes :: !(Maybe Integer)
-    , _csscsivrStatus            :: !Int
+    { _csscsivrsTargetARN         :: !(Maybe Text)
+    , _csscsivrsVolumeARN         :: !(Maybe Text)
+    , _csscsivrsVolumeSizeInBytes :: !(Maybe Integer)
+    , _csscsivrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStorediSCSIVolumeResponse' smart constructor.
 createStorediSCSIVolumeResponse :: Int -> CreateStorediSCSIVolumeResponse
 createStorediSCSIVolumeResponse pStatus =
     CreateStorediSCSIVolumeResponse'
-    { _csscsivrTargetARN = Nothing
-    , _csscsivrVolumeARN = Nothing
-    , _csscsivrVolumeSizeInBytes = Nothing
-    , _csscsivrStatus = pStatus
+    { _csscsivrsTargetARN = Nothing
+    , _csscsivrsVolumeARN = Nothing
+    , _csscsivrsVolumeSizeInBytes = Nothing
+    , _csscsivrsStatus = pStatus
     }
 
 -- | he Amazon Resource Name (ARN) of the volume target that includes the
 -- iSCSI name that initiators can use to connect to the target.
-csscsivrTargetARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
-csscsivrTargetARN = lens _csscsivrTargetARN (\ s a -> s{_csscsivrTargetARN = a});
+csscsivrsTargetARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
+csscsivrsTargetARN = lens _csscsivrsTargetARN (\ s a -> s{_csscsivrsTargetARN = a});
 
 -- | The Amazon Resource Name (ARN) of the configured volume.
-csscsivrVolumeARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
-csscsivrVolumeARN = lens _csscsivrVolumeARN (\ s a -> s{_csscsivrVolumeARN = a});
+csscsivrsVolumeARN :: Lens' CreateStorediSCSIVolumeResponse (Maybe Text)
+csscsivrsVolumeARN = lens _csscsivrsVolumeARN (\ s a -> s{_csscsivrsVolumeARN = a});
 
 -- | The size of the volume in bytes.
-csscsivrVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Integer)
-csscsivrVolumeSizeInBytes = lens _csscsivrVolumeSizeInBytes (\ s a -> s{_csscsivrVolumeSizeInBytes = a});
+csscsivrsVolumeSizeInBytes :: Lens' CreateStorediSCSIVolumeResponse (Maybe Integer)
+csscsivrsVolumeSizeInBytes = lens _csscsivrsVolumeSizeInBytes (\ s a -> s{_csscsivrsVolumeSizeInBytes = a});
 
 -- | FIXME: Undocumented member.
-csscsivrStatus :: Lens' CreateStorediSCSIVolumeResponse Int
-csscsivrStatus = lens _csscsivrStatus (\ s a -> s{_csscsivrStatus = a});
+csscsivrsStatus :: Lens' CreateStorediSCSIVolumeResponse Int
+csscsivrsStatus = lens _csscsivrsStatus (\ s a -> s{_csscsivrsStatus = a});

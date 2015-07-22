@@ -32,10 +32,10 @@ module Network.AWS.CloudWatchLogs.PutMetricFilter
     -- ** Request constructor
     , putMetricFilter
     -- ** Request lenses
-    , pmfLogGroupName
-    , pmfFilterName
-    , pmfFilterPattern
-    , pmfMetricTransformations
+    , pmfrqLogGroupName
+    , pmfrqFilterName
+    , pmfrqFilterPattern
+    , pmfrqMetricTransformations
 
     -- * Response
     , PutMetricFilterResponse
@@ -52,47 +52,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pmfLogGroupName'
+-- * 'pmfrqLogGroupName'
 --
--- * 'pmfFilterName'
+-- * 'pmfrqFilterName'
 --
--- * 'pmfFilterPattern'
+-- * 'pmfrqFilterPattern'
 --
--- * 'pmfMetricTransformations'
+-- * 'pmfrqMetricTransformations'
 data PutMetricFilter = PutMetricFilter'
-    { _pmfLogGroupName          :: !Text
-    , _pmfFilterName            :: !Text
-    , _pmfFilterPattern         :: !Text
-    , _pmfMetricTransformations :: !(List1 MetricTransformation)
+    { _pmfrqLogGroupName          :: !Text
+    , _pmfrqFilterName            :: !Text
+    , _pmfrqFilterPattern         :: !Text
+    , _pmfrqMetricTransformations :: !(List1 MetricTransformation)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutMetricFilter' smart constructor.
 putMetricFilter :: Text -> Text -> Text -> NonEmpty MetricTransformation -> PutMetricFilter
 putMetricFilter pLogGroupName pFilterName pFilterPattern pMetricTransformations =
     PutMetricFilter'
-    { _pmfLogGroupName = pLogGroupName
-    , _pmfFilterName = pFilterName
-    , _pmfFilterPattern = pFilterPattern
-    , _pmfMetricTransformations = _List1 # pMetricTransformations
+    { _pmfrqLogGroupName = pLogGroupName
+    , _pmfrqFilterName = pFilterName
+    , _pmfrqFilterPattern = pFilterPattern
+    , _pmfrqMetricTransformations = _List1 # pMetricTransformations
     }
 
 -- | The name of the log group to associate the metric filter with.
-pmfLogGroupName :: Lens' PutMetricFilter Text
-pmfLogGroupName = lens _pmfLogGroupName (\ s a -> s{_pmfLogGroupName = a});
+pmfrqLogGroupName :: Lens' PutMetricFilter Text
+pmfrqLogGroupName = lens _pmfrqLogGroupName (\ s a -> s{_pmfrqLogGroupName = a});
 
 -- | A name for the metric filter.
-pmfFilterName :: Lens' PutMetricFilter Text
-pmfFilterName = lens _pmfFilterName (\ s a -> s{_pmfFilterName = a});
+pmfrqFilterName :: Lens' PutMetricFilter Text
+pmfrqFilterName = lens _pmfrqFilterName (\ s a -> s{_pmfrqFilterName = a});
 
 -- | A valid CloudWatch Logs filter pattern for extracting metric data out of
 -- ingested log events.
-pmfFilterPattern :: Lens' PutMetricFilter Text
-pmfFilterPattern = lens _pmfFilterPattern (\ s a -> s{_pmfFilterPattern = a});
+pmfrqFilterPattern :: Lens' PutMetricFilter Text
+pmfrqFilterPattern = lens _pmfrqFilterPattern (\ s a -> s{_pmfrqFilterPattern = a});
 
 -- | A collection of information needed to define how metric data gets
 -- emitted.
-pmfMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation)
-pmfMetricTransformations = lens _pmfMetricTransformations (\ s a -> s{_pmfMetricTransformations = a}) . _List1;
+pmfrqMetricTransformations :: Lens' PutMetricFilter (NonEmpty MetricTransformation)
+pmfrqMetricTransformations = lens _pmfrqMetricTransformations (\ s a -> s{_pmfrqMetricTransformations = a}) . _List1;
 
 instance AWSRequest PutMetricFilter where
         type Sv PutMetricFilter = CloudWatchLogs
@@ -112,10 +112,11 @@ instance ToHeaders PutMetricFilter where
 instance ToJSON PutMetricFilter where
         toJSON PutMetricFilter'{..}
           = object
-              ["logGroupName" .= _pmfLogGroupName,
-               "filterName" .= _pmfFilterName,
-               "filterPattern" .= _pmfFilterPattern,
-               "metricTransformations" .= _pmfMetricTransformations]
+              ["logGroupName" .= _pmfrqLogGroupName,
+               "filterName" .= _pmfrqFilterName,
+               "filterPattern" .= _pmfrqFilterPattern,
+               "metricTransformations" .=
+                 _pmfrqMetricTransformations]
 
 instance ToPath PutMetricFilter where
         toPath = const "/"

@@ -27,15 +27,15 @@ module Network.AWS.CodeDeploy.BatchGetOnPremisesInstances
     -- ** Request constructor
     , batchGetOnPremisesInstances
     -- ** Request lenses
-    , bgopiInstanceNames
+    , bgopirqInstanceNames
 
     -- * Response
     , BatchGetOnPremisesInstancesResponse
     -- ** Response constructor
     , batchGetOnPremisesInstancesResponse
     -- ** Response lenses
-    , bgopirInstanceInfos
-    , bgopirStatus
+    , bgopirsInstanceInfos
+    , bgopirsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgopiInstanceNames'
+-- * 'bgopirqInstanceNames'
 newtype BatchGetOnPremisesInstances = BatchGetOnPremisesInstances'
-    { _bgopiInstanceNames :: Maybe [Text]
+    { _bgopirqInstanceNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetOnPremisesInstances' smart constructor.
 batchGetOnPremisesInstances :: BatchGetOnPremisesInstances
 batchGetOnPremisesInstances =
     BatchGetOnPremisesInstances'
-    { _bgopiInstanceNames = Nothing
+    { _bgopirqInstanceNames = Nothing
     }
 
 -- | The names of the on-premises instances to get information about.
-bgopiInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
-bgopiInstanceNames = lens _bgopiInstanceNames (\ s a -> s{_bgopiInstanceNames = a}) . _Default;
+bgopirqInstanceNames :: Lens' BatchGetOnPremisesInstances [Text]
+bgopirqInstanceNames = lens _bgopirqInstanceNames (\ s a -> s{_bgopirqInstanceNames = a}) . _Default;
 
 instance AWSRequest BatchGetOnPremisesInstances where
         type Sv BatchGetOnPremisesInstances = CodeDeploy
@@ -89,7 +89,7 @@ instance ToHeaders BatchGetOnPremisesInstances where
 
 instance ToJSON BatchGetOnPremisesInstances where
         toJSON BatchGetOnPremisesInstances'{..}
-          = object ["instanceNames" .= _bgopiInstanceNames]
+          = object ["instanceNames" .= _bgopirqInstanceNames]
 
 instance ToPath BatchGetOnPremisesInstances where
         toPath = const "/"
@@ -103,26 +103,26 @@ instance ToQuery BatchGetOnPremisesInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgopirInstanceInfos'
+-- * 'bgopirsInstanceInfos'
 --
--- * 'bgopirStatus'
+-- * 'bgopirsStatus'
 data BatchGetOnPremisesInstancesResponse = BatchGetOnPremisesInstancesResponse'
-    { _bgopirInstanceInfos :: !(Maybe [InstanceInfo])
-    , _bgopirStatus        :: !Int
+    { _bgopirsInstanceInfos :: !(Maybe [InstanceInfo])
+    , _bgopirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetOnPremisesInstancesResponse' smart constructor.
 batchGetOnPremisesInstancesResponse :: Int -> BatchGetOnPremisesInstancesResponse
 batchGetOnPremisesInstancesResponse pStatus =
     BatchGetOnPremisesInstancesResponse'
-    { _bgopirInstanceInfos = Nothing
-    , _bgopirStatus = pStatus
+    { _bgopirsInstanceInfos = Nothing
+    , _bgopirsStatus = pStatus
     }
 
 -- | Information about the on-premises instances.
-bgopirInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
-bgopirInstanceInfos = lens _bgopirInstanceInfos (\ s a -> s{_bgopirInstanceInfos = a}) . _Default;
+bgopirsInstanceInfos :: Lens' BatchGetOnPremisesInstancesResponse [InstanceInfo]
+bgopirsInstanceInfos = lens _bgopirsInstanceInfos (\ s a -> s{_bgopirsInstanceInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgopirStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
-bgopirStatus = lens _bgopirStatus (\ s a -> s{_bgopirStatus = a});
+bgopirsStatus :: Lens' BatchGetOnPremisesInstancesResponse Int
+bgopirsStatus = lens _bgopirsStatus (\ s a -> s{_bgopirsStatus = a});

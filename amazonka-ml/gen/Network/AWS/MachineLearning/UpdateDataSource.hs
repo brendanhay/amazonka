@@ -30,16 +30,16 @@ module Network.AWS.MachineLearning.UpdateDataSource
     -- ** Request constructor
     , updateDataSource
     -- ** Request lenses
-    , udsDataSourceId
-    , udsDataSourceName
+    , udsrqDataSourceId
+    , udsrqDataSourceName
 
     -- * Response
     , UpdateDataSourceResponse
     -- ** Response constructor
     , updateDataSourceResponse
     -- ** Response lenses
-    , udsrDataSourceId
-    , udsrStatus
+    , udsrsDataSourceId
+    , udsrsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udsDataSourceId'
+-- * 'udsrqDataSourceId'
 --
--- * 'udsDataSourceName'
+-- * 'udsrqDataSourceName'
 data UpdateDataSource = UpdateDataSource'
-    { _udsDataSourceId   :: !Text
-    , _udsDataSourceName :: !Text
+    { _udsrqDataSourceId   :: !Text
+    , _udsrqDataSourceName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDataSource' smart constructor.
 updateDataSource :: Text -> Text -> UpdateDataSource
 updateDataSource pDataSourceId pDataSourceName =
     UpdateDataSource'
-    { _udsDataSourceId = pDataSourceId
-    , _udsDataSourceName = pDataSourceName
+    { _udsrqDataSourceId = pDataSourceId
+    , _udsrqDataSourceName = pDataSourceName
     }
 
 -- | The ID assigned to the @DataSource@ during creation.
-udsDataSourceId :: Lens' UpdateDataSource Text
-udsDataSourceId = lens _udsDataSourceId (\ s a -> s{_udsDataSourceId = a});
+udsrqDataSourceId :: Lens' UpdateDataSource Text
+udsrqDataSourceId = lens _udsrqDataSourceId (\ s a -> s{_udsrqDataSourceId = a});
 
 -- | A new user-supplied name or description of the @DataSource@ that will
 -- replace the current description.
-udsDataSourceName :: Lens' UpdateDataSource Text
-udsDataSourceName = lens _udsDataSourceName (\ s a -> s{_udsDataSourceName = a});
+udsrqDataSourceName :: Lens' UpdateDataSource Text
+udsrqDataSourceName = lens _udsrqDataSourceName (\ s a -> s{_udsrqDataSourceName = a});
 
 instance AWSRequest UpdateDataSource where
         type Sv UpdateDataSource = MachineLearning
@@ -98,8 +98,8 @@ instance ToHeaders UpdateDataSource where
 instance ToJSON UpdateDataSource where
         toJSON UpdateDataSource'{..}
           = object
-              ["DataSourceId" .= _udsDataSourceId,
-               "DataSourceName" .= _udsDataSourceName]
+              ["DataSourceId" .= _udsrqDataSourceId,
+               "DataSourceName" .= _udsrqDataSourceName]
 
 instance ToPath UpdateDataSource where
         toPath = const "/"
@@ -116,27 +116,27 @@ instance ToQuery UpdateDataSource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udsrDataSourceId'
+-- * 'udsrsDataSourceId'
 --
--- * 'udsrStatus'
+-- * 'udsrsStatus'
 data UpdateDataSourceResponse = UpdateDataSourceResponse'
-    { _udsrDataSourceId :: !(Maybe Text)
-    , _udsrStatus       :: !Int
+    { _udsrsDataSourceId :: !(Maybe Text)
+    , _udsrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDataSourceResponse' smart constructor.
 updateDataSourceResponse :: Int -> UpdateDataSourceResponse
 updateDataSourceResponse pStatus =
     UpdateDataSourceResponse'
-    { _udsrDataSourceId = Nothing
-    , _udsrStatus = pStatus
+    { _udsrsDataSourceId = Nothing
+    , _udsrsStatus = pStatus
     }
 
 -- | The ID assigned to the @DataSource@ during creation. This value should
 -- be identical to the value of the @DataSourceID@ in the request.
-udsrDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
-udsrDataSourceId = lens _udsrDataSourceId (\ s a -> s{_udsrDataSourceId = a});
+udsrsDataSourceId :: Lens' UpdateDataSourceResponse (Maybe Text)
+udsrsDataSourceId = lens _udsrsDataSourceId (\ s a -> s{_udsrsDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-udsrStatus :: Lens' UpdateDataSourceResponse Int
-udsrStatus = lens _udsrStatus (\ s a -> s{_udsrStatus = a});
+udsrsStatus :: Lens' UpdateDataSourceResponse Int
+udsrsStatus = lens _udsrsStatus (\ s a -> s{_udsrsStatus = a});

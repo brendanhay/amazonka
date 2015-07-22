@@ -55,15 +55,15 @@ module Network.AWS.STS.DecodeAuthorizationMessage
     -- ** Request constructor
     , decodeAuthorizationMessage
     -- ** Request lenses
-    , damEncodedMessage
+    , damrqEncodedMessage
 
     -- * Response
     , DecodeAuthorizationMessageResponse
     -- ** Response constructor
     , decodeAuthorizationMessageResponse
     -- ** Response lenses
-    , damrDecodedMessage
-    , damrStatus
+    , damrsDecodedMessage
+    , damrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -75,21 +75,21 @@ import           Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'damEncodedMessage'
+-- * 'damrqEncodedMessage'
 newtype DecodeAuthorizationMessage = DecodeAuthorizationMessage'
-    { _damEncodedMessage :: Text
+    { _damrqEncodedMessage :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DecodeAuthorizationMessage' smart constructor.
 decodeAuthorizationMessage :: Text -> DecodeAuthorizationMessage
 decodeAuthorizationMessage pEncodedMessage =
     DecodeAuthorizationMessage'
-    { _damEncodedMessage = pEncodedMessage
+    { _damrqEncodedMessage = pEncodedMessage
     }
 
 -- | The encoded message that was returned with the response.
-damEncodedMessage :: Lens' DecodeAuthorizationMessage Text
-damEncodedMessage = lens _damEncodedMessage (\ s a -> s{_damEncodedMessage = a});
+damrqEncodedMessage :: Lens' DecodeAuthorizationMessage Text
+damrqEncodedMessage = lens _damrqEncodedMessage (\ s a -> s{_damrqEncodedMessage = a});
 
 instance AWSRequest DecodeAuthorizationMessage where
         type Sv DecodeAuthorizationMessage = STS
@@ -115,7 +115,7 @@ instance ToQuery DecodeAuthorizationMessage where
               ["Action" =:
                  ("DecodeAuthorizationMessage" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
-               "EncodedMessage" =: _damEncodedMessage]
+               "EncodedMessage" =: _damrqEncodedMessage]
 
 -- | A document that contains additional information about the authorization
 -- status of a request from an encoded message that is returned in response
@@ -125,27 +125,27 @@ instance ToQuery DecodeAuthorizationMessage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'damrDecodedMessage'
+-- * 'damrsDecodedMessage'
 --
--- * 'damrStatus'
+-- * 'damrsStatus'
 data DecodeAuthorizationMessageResponse = DecodeAuthorizationMessageResponse'
-    { _damrDecodedMessage :: !(Maybe Text)
-    , _damrStatus         :: !Int
+    { _damrsDecodedMessage :: !(Maybe Text)
+    , _damrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DecodeAuthorizationMessageResponse' smart constructor.
 decodeAuthorizationMessageResponse :: Int -> DecodeAuthorizationMessageResponse
 decodeAuthorizationMessageResponse pStatus =
     DecodeAuthorizationMessageResponse'
-    { _damrDecodedMessage = Nothing
-    , _damrStatus = pStatus
+    { _damrsDecodedMessage = Nothing
+    , _damrsStatus = pStatus
     }
 
 -- | An XML document that contains the decoded message. For more information,
 -- see @DecodeAuthorizationMessage@.
-damrDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
-damrDecodedMessage = lens _damrDecodedMessage (\ s a -> s{_damrDecodedMessage = a});
+damrsDecodedMessage :: Lens' DecodeAuthorizationMessageResponse (Maybe Text)
+damrsDecodedMessage = lens _damrsDecodedMessage (\ s a -> s{_damrsDecodedMessage = a});
 
 -- | FIXME: Undocumented member.
-damrStatus :: Lens' DecodeAuthorizationMessageResponse Int
-damrStatus = lens _damrStatus (\ s a -> s{_damrStatus = a});
+damrsStatus :: Lens' DecodeAuthorizationMessageResponse Int
+damrsStatus = lens _damrsStatus (\ s a -> s{_damrsStatus = a});

@@ -29,15 +29,15 @@ module Network.AWS.Route53.GetHealthCheckStatus
     -- ** Request constructor
     , getHealthCheckStatus
     -- ** Request lenses
-    , ghcsHealthCheckId
+    , ghcsrqHealthCheckId
 
     -- * Response
     , GetHealthCheckStatusResponse
     -- ** Response constructor
     , getHealthCheckStatusResponse
     -- ** Response lenses
-    , ghcsrStatus
-    , ghcsrHealthCheckObservations
+    , ghcsrsStatus
+    , ghcsrsHealthCheckObservations
     ) where
 
 import           Network.AWS.Prelude
@@ -52,22 +52,22 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghcsHealthCheckId'
+-- * 'ghcsrqHealthCheckId'
 newtype GetHealthCheckStatus = GetHealthCheckStatus'
-    { _ghcsHealthCheckId :: Text
+    { _ghcsrqHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckStatus' smart constructor.
 getHealthCheckStatus :: Text -> GetHealthCheckStatus
 getHealthCheckStatus pHealthCheckId =
     GetHealthCheckStatus'
-    { _ghcsHealthCheckId = pHealthCheckId
+    { _ghcsrqHealthCheckId = pHealthCheckId
     }
 
 -- | The ID of the health check for which you want to retrieve the most
 -- recent status.
-ghcsHealthCheckId :: Lens' GetHealthCheckStatus Text
-ghcsHealthCheckId = lens _ghcsHealthCheckId (\ s a -> s{_ghcsHealthCheckId = a});
+ghcsrqHealthCheckId :: Lens' GetHealthCheckStatus Text
+ghcsrqHealthCheckId = lens _ghcsrqHealthCheckId (\ s a -> s{_ghcsrqHealthCheckId = a});
 
 instance AWSRequest GetHealthCheckStatus where
         type Sv GetHealthCheckStatus = Route53
@@ -89,7 +89,7 @@ instance ToPath GetHealthCheckStatus where
         toPath GetHealthCheckStatus'{..}
           = mconcat
               ["/2013-04-01/healthcheck/",
-               toText _ghcsHealthCheckId, "/status"]
+               toText _ghcsrqHealthCheckId, "/status"]
 
 instance ToQuery GetHealthCheckStatus where
         toQuery = const mempty
@@ -101,27 +101,27 @@ instance ToQuery GetHealthCheckStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghcsrStatus'
+-- * 'ghcsrsStatus'
 --
--- * 'ghcsrHealthCheckObservations'
+-- * 'ghcsrsHealthCheckObservations'
 data GetHealthCheckStatusResponse = GetHealthCheckStatusResponse'
-    { _ghcsrStatus                  :: !Int
-    , _ghcsrHealthCheckObservations :: ![HealthCheckObservation]
+    { _ghcsrsStatus                  :: !Int
+    , _ghcsrsHealthCheckObservations :: ![HealthCheckObservation]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckStatusResponse' smart constructor.
 getHealthCheckStatusResponse :: Int -> GetHealthCheckStatusResponse
 getHealthCheckStatusResponse pStatus =
     GetHealthCheckStatusResponse'
-    { _ghcsrStatus = pStatus
-    , _ghcsrHealthCheckObservations = mempty
+    { _ghcsrsStatus = pStatus
+    , _ghcsrsHealthCheckObservations = mempty
     }
 
 -- | FIXME: Undocumented member.
-ghcsrStatus :: Lens' GetHealthCheckStatusResponse Int
-ghcsrStatus = lens _ghcsrStatus (\ s a -> s{_ghcsrStatus = a});
+ghcsrsStatus :: Lens' GetHealthCheckStatusResponse Int
+ghcsrsStatus = lens _ghcsrsStatus (\ s a -> s{_ghcsrsStatus = a});
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.
-ghcsrHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
-ghcsrHealthCheckObservations = lens _ghcsrHealthCheckObservations (\ s a -> s{_ghcsrHealthCheckObservations = a});
+ghcsrsHealthCheckObservations :: Lens' GetHealthCheckStatusResponse [HealthCheckObservation]
+ghcsrsHealthCheckObservations = lens _ghcsrsHealthCheckObservations (\ s a -> s{_ghcsrsHealthCheckObservations = a});

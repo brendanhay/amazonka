@@ -35,15 +35,15 @@ module Network.AWS.MachineLearning.DeleteDataSource
     -- ** Request constructor
     , deleteDataSource
     -- ** Request lenses
-    , ddsDataSourceId
+    , ddsrqDataSourceId
 
     -- * Response
     , DeleteDataSourceResponse
     -- ** Response constructor
     , deleteDataSourceResponse
     -- ** Response lenses
-    , ddsrDataSourceId
-    , ddsrStatus
+    , ddsrsDataSourceId
+    , ddsrsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsDataSourceId'
+-- * 'ddsrqDataSourceId'
 newtype DeleteDataSource = DeleteDataSource'
-    { _ddsDataSourceId :: Text
+    { _ddsrqDataSourceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDataSource' smart constructor.
 deleteDataSource :: Text -> DeleteDataSource
 deleteDataSource pDataSourceId =
     DeleteDataSource'
-    { _ddsDataSourceId = pDataSourceId
+    { _ddsrqDataSourceId = pDataSourceId
     }
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@.
-ddsDataSourceId :: Lens' DeleteDataSource Text
-ddsDataSourceId = lens _ddsDataSourceId (\ s a -> s{_ddsDataSourceId = a});
+ddsrqDataSourceId :: Lens' DeleteDataSource Text
+ddsrqDataSourceId = lens _ddsrqDataSourceId (\ s a -> s{_ddsrqDataSourceId = a});
 
 instance AWSRequest DeleteDataSource where
         type Sv DeleteDataSource = MachineLearning
@@ -92,7 +92,7 @@ instance ToHeaders DeleteDataSource where
 
 instance ToJSON DeleteDataSource where
         toJSON DeleteDataSource'{..}
-          = object ["DataSourceId" .= _ddsDataSourceId]
+          = object ["DataSourceId" .= _ddsrqDataSourceId]
 
 instance ToPath DeleteDataSource where
         toPath = const "/"
@@ -106,27 +106,27 @@ instance ToQuery DeleteDataSource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddsrDataSourceId'
+-- * 'ddsrsDataSourceId'
 --
--- * 'ddsrStatus'
+-- * 'ddsrsStatus'
 data DeleteDataSourceResponse = DeleteDataSourceResponse'
-    { _ddsrDataSourceId :: !(Maybe Text)
-    , _ddsrStatus       :: !Int
+    { _ddsrsDataSourceId :: !(Maybe Text)
+    , _ddsrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDataSourceResponse' smart constructor.
 deleteDataSourceResponse :: Int -> DeleteDataSourceResponse
 deleteDataSourceResponse pStatus =
     DeleteDataSourceResponse'
-    { _ddsrDataSourceId = Nothing
-    , _ddsrStatus = pStatus
+    { _ddsrsDataSourceId = Nothing
+    , _ddsrsStatus = pStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the @DataSource@. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-ddsrDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
-ddsrDataSourceId = lens _ddsrDataSourceId (\ s a -> s{_ddsrDataSourceId = a});
+ddsrsDataSourceId :: Lens' DeleteDataSourceResponse (Maybe Text)
+ddsrsDataSourceId = lens _ddsrsDataSourceId (\ s a -> s{_ddsrsDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-ddsrStatus :: Lens' DeleteDataSourceResponse Int
-ddsrStatus = lens _ddsrStatus (\ s a -> s{_ddsrStatus = a});
+ddsrsStatus :: Lens' DeleteDataSourceResponse Int
+ddsrsStatus = lens _ddsrsStatus (\ s a -> s{_ddsrsStatus = a});

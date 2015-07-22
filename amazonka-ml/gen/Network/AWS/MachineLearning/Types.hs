@@ -91,17 +91,17 @@ module Network.AWS.MachineLearning.Types
     -- * Evaluation
     , Evaluation
     , evaluation
-    , evaStatus
-    , evaPerformanceMetrics
-    , evaLastUpdatedAt
-    , evaCreatedAt
-    , evaInputDataLocationS3
-    , evaMLModelId
-    , evaName
-    , evaCreatedByIAMUser
-    , evaMessage
-    , evaEvaluationId
-    , evaEvaluationDataSourceId
+    , eStatus
+    , ePerformanceMetrics
+    , eLastUpdatedAt
+    , eCreatedAt
+    , eInputDataLocationS3
+    , eMLModelId
+    , eName
+    , eCreatedByIAMUser
+    , eMessage
+    , eEvaluationId
+    , eEvaluationDataSourceId
 
     -- * MLModel
     , MLModel
@@ -131,10 +131,10 @@ module Network.AWS.MachineLearning.Types
     -- * Prediction
     , Prediction
     , prediction
-    , prePredictedValue
-    , prePredictedLabel
-    , prePredictedScores
-    , preDetails
+    , pPredictedValue
+    , pPredictedLabel
+    , pPredictedScores
+    , pDetails
 
     -- * RDSDataSpec
     , RDSDataSpec
@@ -154,14 +154,14 @@ module Network.AWS.MachineLearning.Types
     -- * RDSDatabase
     , RDSDatabase
     , rdsDatabase
-    , rdsInstanceIdentifier
-    , rdsDatabaseName
+    , rdsdInstanceIdentifier
+    , rdsdDatabaseName
 
     -- * RDSDatabaseCredentials
     , RDSDatabaseCredentials
     , rdsDatabaseCredentials
-    , rdsUsername
-    , rdsPassword
+    , rdsdcUsername
+    , rdsdcPassword
 
     -- * RDSMetadata
     , RDSMetadata
@@ -184,13 +184,13 @@ module Network.AWS.MachineLearning.Types
     -- * RedshiftDataSpec
     , RedshiftDataSpec
     , redshiftDataSpec
-    , redDataSchemaURI
-    , redDataSchema
-    , redDataRearrangement
-    , redDatabaseInformation
-    , redSelectSqlQuery
-    , redDatabaseCredentials
-    , redS3StagingLocation
+    , rDataSchemaURI
+    , rDataSchema
+    , rDataRearrangement
+    , rDatabaseInformation
+    , rSelectSqlQuery
+    , rDatabaseCredentials
+    , rS3StagingLocation
 
     -- * RedshiftDatabase
     , RedshiftDatabase
@@ -207,9 +207,9 @@ module Network.AWS.MachineLearning.Types
     -- * RedshiftMetadata
     , RedshiftMetadata
     , redshiftMetadata
-    , rSelectSqlQuery
-    , rRedshiftDatabase
-    , rDatabaseUserName
+    , redSelectSqlQuery
+    , redRedshiftDatabase
+    , redDatabaseUserName
 
     -- * S3DataSpec
     , S3DataSpec

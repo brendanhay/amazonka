@@ -28,8 +28,8 @@ module Network.AWS.ElasticBeanstalk.AbortEnvironmentUpdate
     -- ** Request constructor
     , abortEnvironmentUpdate
     -- ** Request lenses
-    , aeuEnvironmentName
-    , aeuEnvironmentId
+    , aeurqEnvironmentName
+    , aeurqEnvironmentId
 
     -- * Response
     , AbortEnvironmentUpdateResponse
@@ -48,31 +48,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aeuEnvironmentName'
+-- * 'aeurqEnvironmentName'
 --
--- * 'aeuEnvironmentId'
+-- * 'aeurqEnvironmentId'
 data AbortEnvironmentUpdate = AbortEnvironmentUpdate'
-    { _aeuEnvironmentName :: !(Maybe Text)
-    , _aeuEnvironmentId   :: !(Maybe Text)
+    { _aeurqEnvironmentName :: !(Maybe Text)
+    , _aeurqEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AbortEnvironmentUpdate' smart constructor.
 abortEnvironmentUpdate :: AbortEnvironmentUpdate
 abortEnvironmentUpdate =
     AbortEnvironmentUpdate'
-    { _aeuEnvironmentName = Nothing
-    , _aeuEnvironmentId = Nothing
+    { _aeurqEnvironmentName = Nothing
+    , _aeurqEnvironmentId = Nothing
     }
 
 -- | This specifies the name of the environment with the in-progress update
 -- that you want to cancel.
-aeuEnvironmentName :: Lens' AbortEnvironmentUpdate (Maybe Text)
-aeuEnvironmentName = lens _aeuEnvironmentName (\ s a -> s{_aeuEnvironmentName = a});
+aeurqEnvironmentName :: Lens' AbortEnvironmentUpdate (Maybe Text)
+aeurqEnvironmentName = lens _aeurqEnvironmentName (\ s a -> s{_aeurqEnvironmentName = a});
 
 -- | This specifies the ID of the environment with the in-progress update
 -- that you want to cancel.
-aeuEnvironmentId :: Lens' AbortEnvironmentUpdate (Maybe Text)
-aeuEnvironmentId = lens _aeuEnvironmentId (\ s a -> s{_aeuEnvironmentId = a});
+aeurqEnvironmentId :: Lens' AbortEnvironmentUpdate (Maybe Text)
+aeurqEnvironmentId = lens _aeurqEnvironmentId (\ s a -> s{_aeurqEnvironmentId = a});
 
 instance AWSRequest AbortEnvironmentUpdate where
         type Sv AbortEnvironmentUpdate = ElasticBeanstalk
@@ -94,8 +94,8 @@ instance ToQuery AbortEnvironmentUpdate where
               ["Action" =:
                  ("AbortEnvironmentUpdate" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentName" =: _aeuEnvironmentName,
-               "EnvironmentId" =: _aeuEnvironmentId]
+               "EnvironmentName" =: _aeurqEnvironmentName,
+               "EnvironmentId" =: _aeurqEnvironmentId]
 
 -- | /See:/ 'abortEnvironmentUpdateResponse' smart constructor.
 data AbortEnvironmentUpdateResponse =

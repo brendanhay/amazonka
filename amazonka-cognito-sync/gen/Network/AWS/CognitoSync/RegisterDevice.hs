@@ -30,18 +30,18 @@ module Network.AWS.CognitoSync.RegisterDevice
     -- ** Request constructor
     , registerDevice
     -- ** Request lenses
-    , rdIdentityPoolId
-    , rdIdentityId
-    , rdPlatform
-    , rdToken
+    , rdrqIdentityPoolId
+    , rdrqIdentityId
+    , rdrqPlatform
+    , rdrqToken
 
     -- * Response
     , RegisterDeviceResponse
     -- ** Response constructor
     , registerDeviceResponse
     -- ** Response lenses
-    , rdrDeviceId
-    , rdrStatus
+    , rdrsDeviceId
+    , rdrsStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -55,47 +55,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdIdentityPoolId'
+-- * 'rdrqIdentityPoolId'
 --
--- * 'rdIdentityId'
+-- * 'rdrqIdentityId'
 --
--- * 'rdPlatform'
+-- * 'rdrqPlatform'
 --
--- * 'rdToken'
+-- * 'rdrqToken'
 data RegisterDevice = RegisterDevice'
-    { _rdIdentityPoolId :: !Text
-    , _rdIdentityId     :: !Text
-    , _rdPlatform       :: !Platform
-    , _rdToken          :: !Text
+    { _rdrqIdentityPoolId :: !Text
+    , _rdrqIdentityId     :: !Text
+    , _rdrqPlatform       :: !Platform
+    , _rdrqToken          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDevice' smart constructor.
 registerDevice :: Text -> Text -> Platform -> Text -> RegisterDevice
 registerDevice pIdentityPoolId pIdentityId pPlatform pToken =
     RegisterDevice'
-    { _rdIdentityPoolId = pIdentityPoolId
-    , _rdIdentityId = pIdentityId
-    , _rdPlatform = pPlatform
-    , _rdToken = pToken
+    { _rdrqIdentityPoolId = pIdentityPoolId
+    , _rdrqIdentityId = pIdentityId
+    , _rdrqPlatform = pPlatform
+    , _rdrqToken = pToken
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. Here, the ID of the pool that the identity belongs to.
-rdIdentityPoolId :: Lens' RegisterDevice Text
-rdIdentityPoolId = lens _rdIdentityPoolId (\ s a -> s{_rdIdentityPoolId = a});
+rdrqIdentityPoolId :: Lens' RegisterDevice Text
+rdrqIdentityPoolId = lens _rdrqIdentityPoolId (\ s a -> s{_rdrqIdentityPoolId = a});
 
 -- | The unique ID for this identity.
-rdIdentityId :: Lens' RegisterDevice Text
-rdIdentityId = lens _rdIdentityId (\ s a -> s{_rdIdentityId = a});
+rdrqIdentityId :: Lens' RegisterDevice Text
+rdrqIdentityId = lens _rdrqIdentityId (\ s a -> s{_rdrqIdentityId = a});
 
 -- | The SNS platform type (e.g. GCM, SDM, APNS, APNS_SANDBOX).
-rdPlatform :: Lens' RegisterDevice Platform
-rdPlatform = lens _rdPlatform (\ s a -> s{_rdPlatform = a});
+rdrqPlatform :: Lens' RegisterDevice Platform
+rdrqPlatform = lens _rdrqPlatform (\ s a -> s{_rdrqPlatform = a});
 
 -- | The push token.
-rdToken :: Lens' RegisterDevice Text
-rdToken = lens _rdToken (\ s a -> s{_rdToken = a});
+rdrqToken :: Lens' RegisterDevice Text
+rdrqToken = lens _rdrqToken (\ s a -> s{_rdrqToken = a});
 
 instance AWSRequest RegisterDevice where
         type Sv RegisterDevice = CognitoSync
@@ -117,13 +117,13 @@ instance ToHeaders RegisterDevice where
 instance ToJSON RegisterDevice where
         toJSON RegisterDevice'{..}
           = object
-              ["Platform" .= _rdPlatform, "Token" .= _rdToken]
+              ["Platform" .= _rdrqPlatform, "Token" .= _rdrqToken]
 
 instance ToPath RegisterDevice where
         toPath RegisterDevice'{..}
           = mconcat
-              ["/identitypools/", toText _rdIdentityPoolId,
-               "/identity/", toText _rdIdentityId, "/device"]
+              ["/identitypools/", toText _rdrqIdentityPoolId,
+               "/identity/", toText _rdrqIdentityId, "/device"]
 
 instance ToQuery RegisterDevice where
         toQuery = const mempty
@@ -134,26 +134,26 @@ instance ToQuery RegisterDevice where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdrDeviceId'
+-- * 'rdrsDeviceId'
 --
--- * 'rdrStatus'
+-- * 'rdrsStatus'
 data RegisterDeviceResponse = RegisterDeviceResponse'
-    { _rdrDeviceId :: !(Maybe Text)
-    , _rdrStatus   :: !Int
+    { _rdrsDeviceId :: !(Maybe Text)
+    , _rdrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDeviceResponse' smart constructor.
 registerDeviceResponse :: Int -> RegisterDeviceResponse
 registerDeviceResponse pStatus =
     RegisterDeviceResponse'
-    { _rdrDeviceId = Nothing
-    , _rdrStatus = pStatus
+    { _rdrsDeviceId = Nothing
+    , _rdrsStatus = pStatus
     }
 
 -- | The unique ID generated for this device by Cognito.
-rdrDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
-rdrDeviceId = lens _rdrDeviceId (\ s a -> s{_rdrDeviceId = a});
+rdrsDeviceId :: Lens' RegisterDeviceResponse (Maybe Text)
+rdrsDeviceId = lens _rdrsDeviceId (\ s a -> s{_rdrsDeviceId = a});
 
 -- | FIXME: Undocumented member.
-rdrStatus :: Lens' RegisterDeviceResponse Int
-rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});
+rdrsStatus :: Lens' RegisterDeviceResponse Int
+rdrsStatus = lens _rdrsStatus (\ s a -> s{_rdrsStatus = a});

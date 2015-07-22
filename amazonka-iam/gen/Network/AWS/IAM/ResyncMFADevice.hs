@@ -32,10 +32,10 @@ module Network.AWS.IAM.ResyncMFADevice
     -- ** Request constructor
     , resyncMFADevice
     -- ** Request lenses
-    , rmdUserName
-    , rmdSerialNumber
-    , rmdAuthenticationCode1
-    , rmdAuthenticationCode2
+    , rmdrqUserName
+    , rmdrqSerialNumber
+    , rmdrqAuthenticationCode1
+    , rmdrqAuthenticationCode2
 
     -- * Response
     , ResyncMFADeviceResponse
@@ -52,45 +52,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rmdUserName'
+-- * 'rmdrqUserName'
 --
--- * 'rmdSerialNumber'
+-- * 'rmdrqSerialNumber'
 --
--- * 'rmdAuthenticationCode1'
+-- * 'rmdrqAuthenticationCode1'
 --
--- * 'rmdAuthenticationCode2'
+-- * 'rmdrqAuthenticationCode2'
 data ResyncMFADevice = ResyncMFADevice'
-    { _rmdUserName            :: !Text
-    , _rmdSerialNumber        :: !Text
-    , _rmdAuthenticationCode1 :: !Text
-    , _rmdAuthenticationCode2 :: !Text
+    { _rmdrqUserName            :: !Text
+    , _rmdrqSerialNumber        :: !Text
+    , _rmdrqAuthenticationCode1 :: !Text
+    , _rmdrqAuthenticationCode2 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResyncMFADevice' smart constructor.
 resyncMFADevice :: Text -> Text -> Text -> Text -> ResyncMFADevice
 resyncMFADevice pUserName pSerialNumber pAuthenticationCode1 pAuthenticationCode2 =
     ResyncMFADevice'
-    { _rmdUserName = pUserName
-    , _rmdSerialNumber = pSerialNumber
-    , _rmdAuthenticationCode1 = pAuthenticationCode1
-    , _rmdAuthenticationCode2 = pAuthenticationCode2
+    { _rmdrqUserName = pUserName
+    , _rmdrqSerialNumber = pSerialNumber
+    , _rmdrqAuthenticationCode1 = pAuthenticationCode1
+    , _rmdrqAuthenticationCode2 = pAuthenticationCode2
     }
 
 -- | The name of the user whose MFA device you want to resynchronize.
-rmdUserName :: Lens' ResyncMFADevice Text
-rmdUserName = lens _rmdUserName (\ s a -> s{_rmdUserName = a});
+rmdrqUserName :: Lens' ResyncMFADevice Text
+rmdrqUserName = lens _rmdrqUserName (\ s a -> s{_rmdrqUserName = a});
 
 -- | Serial number that uniquely identifies the MFA device.
-rmdSerialNumber :: Lens' ResyncMFADevice Text
-rmdSerialNumber = lens _rmdSerialNumber (\ s a -> s{_rmdSerialNumber = a});
+rmdrqSerialNumber :: Lens' ResyncMFADevice Text
+rmdrqSerialNumber = lens _rmdrqSerialNumber (\ s a -> s{_rmdrqSerialNumber = a});
 
 -- | An authentication code emitted by the device.
-rmdAuthenticationCode1 :: Lens' ResyncMFADevice Text
-rmdAuthenticationCode1 = lens _rmdAuthenticationCode1 (\ s a -> s{_rmdAuthenticationCode1 = a});
+rmdrqAuthenticationCode1 :: Lens' ResyncMFADevice Text
+rmdrqAuthenticationCode1 = lens _rmdrqAuthenticationCode1 (\ s a -> s{_rmdrqAuthenticationCode1 = a});
 
 -- | A subsequent authentication code emitted by the device.
-rmdAuthenticationCode2 :: Lens' ResyncMFADevice Text
-rmdAuthenticationCode2 = lens _rmdAuthenticationCode2 (\ s a -> s{_rmdAuthenticationCode2 = a});
+rmdrqAuthenticationCode2 :: Lens' ResyncMFADevice Text
+rmdrqAuthenticationCode2 = lens _rmdrqAuthenticationCode2 (\ s a -> s{_rmdrqAuthenticationCode2 = a});
 
 instance AWSRequest ResyncMFADevice where
         type Sv ResyncMFADevice = IAM
@@ -109,10 +109,10 @@ instance ToQuery ResyncMFADevice where
           = mconcat
               ["Action" =: ("ResyncMFADevice" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _rmdUserName,
-               "SerialNumber" =: _rmdSerialNumber,
-               "AuthenticationCode1" =: _rmdAuthenticationCode1,
-               "AuthenticationCode2" =: _rmdAuthenticationCode2]
+               "UserName" =: _rmdrqUserName,
+               "SerialNumber" =: _rmdrqSerialNumber,
+               "AuthenticationCode1" =: _rmdrqAuthenticationCode1,
+               "AuthenticationCode2" =: _rmdrqAuthenticationCode2]
 
 -- | /See:/ 'resyncMFADeviceResponse' smart constructor.
 data ResyncMFADeviceResponse =

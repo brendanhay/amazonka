@@ -29,15 +29,15 @@ module Network.AWS.ElastiCache.DeleteSnapshot
     -- ** Request constructor
     , deleteSnapshot
     -- ** Request lenses
-    , delSnapshotName
+    , drqSnapshotName
 
     -- * Response
     , DeleteSnapshotResponse
     -- ** Response constructor
     , deleteSnapshotResponse
     -- ** Response lenses
-    , dsrSnapshot
-    , dsrStatus
+    , drsSnapshot
+    , drsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delSnapshotName'
+-- * 'drqSnapshotName'
 newtype DeleteSnapshot = DeleteSnapshot'
-    { _delSnapshotName :: Text
+    { _drqSnapshotName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
 deleteSnapshot pSnapshotName =
     DeleteSnapshot'
-    { _delSnapshotName = pSnapshotName
+    { _drqSnapshotName = pSnapshotName
     }
 
 -- | The name of the snapshot to be deleted.
-delSnapshotName :: Lens' DeleteSnapshot Text
-delSnapshotName = lens _delSnapshotName (\ s a -> s{_delSnapshotName = a});
+drqSnapshotName :: Lens' DeleteSnapshot Text
+drqSnapshotName = lens _drqSnapshotName (\ s a -> s{_drqSnapshotName = a});
 
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = ElastiCache
@@ -88,32 +88,32 @@ instance ToQuery DeleteSnapshot where
           = mconcat
               ["Action" =: ("DeleteSnapshot" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "SnapshotName" =: _delSnapshotName]
+               "SnapshotName" =: _drqSnapshotName]
 
 -- | /See:/ 'deleteSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrSnapshot'
+-- * 'drsSnapshot'
 --
--- * 'dsrStatus'
+-- * 'drsStatus'
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-    { _dsrSnapshot :: !(Maybe Snapshot)
-    , _dsrStatus   :: !Int
+    { _drsSnapshot :: !(Maybe Snapshot)
+    , _drsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
 deleteSnapshotResponse pStatus =
     DeleteSnapshotResponse'
-    { _dsrSnapshot = Nothing
-    , _dsrStatus = pStatus
+    { _drsSnapshot = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dsrSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
-dsrSnapshot = lens _dsrSnapshot (\ s a -> s{_dsrSnapshot = a});
+drsSnapshot :: Lens' DeleteSnapshotResponse (Maybe Snapshot)
+drsSnapshot = lens _drsSnapshot (\ s a -> s{_drsSnapshot = a});
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DeleteSnapshotResponse Int
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+drsStatus :: Lens' DeleteSnapshotResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

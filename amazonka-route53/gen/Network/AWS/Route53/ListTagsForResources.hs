@@ -27,16 +27,16 @@ module Network.AWS.Route53.ListTagsForResources
     -- ** Request constructor
     , listTagsForResources
     -- ** Request lenses
-    , lisResourceType
-    , lisResourceIds
+    , lrqResourceType
+    , lrqResourceIds
 
     -- * Response
     , ListTagsForResourcesResponse
     -- ** Response constructor
     , listTagsForResourcesResponse
     -- ** Response lenses
-    , lisStatus
-    , lisResourceTagSets
+    , lrsStatus
+    , lrsResourceTagSets
     ) where
 
 import           Network.AWS.Prelude
@@ -51,20 +51,20 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisResourceType'
+-- * 'lrqResourceType'
 --
--- * 'lisResourceIds'
+-- * 'lrqResourceIds'
 data ListTagsForResources = ListTagsForResources'
-    { _lisResourceType :: !TagResourceType
-    , _lisResourceIds  :: !(List1 Text)
+    { _lrqResourceType :: !TagResourceType
+    , _lrqResourceIds  :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResources' smart constructor.
 listTagsForResources :: TagResourceType -> NonEmpty Text -> ListTagsForResources
 listTagsForResources pResourceType pResourceIds =
     ListTagsForResources'
-    { _lisResourceType = pResourceType
-    , _lisResourceIds = _List1 # pResourceIds
+    { _lrqResourceType = pResourceType
+    , _lrqResourceIds = _List1 # pResourceIds
     }
 
 -- | The type of the resources.
@@ -72,13 +72,13 @@ listTagsForResources pResourceType pResourceIds =
 -- - The resource type for health checks is @healthcheck@.
 --
 -- - The resource type for hosted zones is @hostedzone@.
-lisResourceType :: Lens' ListTagsForResources TagResourceType
-lisResourceType = lens _lisResourceType (\ s a -> s{_lisResourceType = a});
+lrqResourceType :: Lens' ListTagsForResources TagResourceType
+lrqResourceType = lens _lrqResourceType (\ s a -> s{_lrqResourceType = a});
 
 -- | A complex type that contains the ResourceId element for each resource
 -- for which you want to get a list of tags.
-lisResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
-lisResourceIds = lens _lisResourceIds (\ s a -> s{_lisResourceIds = a}) . _List1;
+lrqResourceIds :: Lens' ListTagsForResources (NonEmpty Text)
+lrqResourceIds = lens _lrqResourceIds (\ s a -> s{_lrqResourceIds = a}) . _List1;
 
 instance AWSRequest ListTagsForResources where
         type Sv ListTagsForResources = Route53
@@ -104,7 +104,7 @@ instance ToHeaders ListTagsForResources where
 instance ToPath ListTagsForResources where
         toPath ListTagsForResources'{..}
           = mconcat
-              ["/2013-04-01/tags/", toText _lisResourceType]
+              ["/2013-04-01/tags/", toText _lrqResourceType]
 
 instance ToQuery ListTagsForResources where
         toQuery = const mempty
@@ -113,7 +113,7 @@ instance ToXML ListTagsForResources where
         toXML ListTagsForResources'{..}
           = mconcat
               ["ResourceIds" @=
-                 toXMLList "ResourceId" _lisResourceIds]
+                 toXMLList "ResourceId" _lrqResourceIds]
 
 -- | A complex type containing tags for the specified resources.
 --
@@ -121,27 +121,27 @@ instance ToXML ListTagsForResources where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisStatus'
+-- * 'lrsStatus'
 --
--- * 'lisResourceTagSets'
+-- * 'lrsResourceTagSets'
 data ListTagsForResourcesResponse = ListTagsForResourcesResponse'
-    { _lisStatus          :: !Int
-    , _lisResourceTagSets :: ![ResourceTagSet]
+    { _lrsStatus          :: !Int
+    , _lrsResourceTagSets :: ![ResourceTagSet]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResourcesResponse' smart constructor.
 listTagsForResourcesResponse :: Int -> ListTagsForResourcesResponse
 listTagsForResourcesResponse pStatus =
     ListTagsForResourcesResponse'
-    { _lisStatus = pStatus
-    , _lisResourceTagSets = mempty
+    { _lrsStatus = pStatus
+    , _lrsResourceTagSets = mempty
     }
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListTagsForResourcesResponse Int
-lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});
+lrsStatus :: Lens' ListTagsForResourcesResponse Int
+lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});
 
 -- | A list of @ResourceTagSet@s containing tags associated with the
 -- specified resources.
-lisResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
-lisResourceTagSets = lens _lisResourceTagSets (\ s a -> s{_lisResourceTagSets = a});
+lrsResourceTagSets :: Lens' ListTagsForResourcesResponse [ResourceTagSet]
+lrsResourceTagSets = lens _lrsResourceTagSets (\ s a -> s{_lrsResourceTagSets = a});

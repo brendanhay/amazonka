@@ -28,10 +28,10 @@ module Network.AWS.S3.PutBucketVersioning
     -- ** Request constructor
     , putBucketVersioning
     -- ** Request lenses
-    , pbvMFA
-    , pbvContentMD5
-    , pbvBucket
-    , pbvVersioningConfiguration
+    , pbvrqMFA
+    , pbvrqContentMD5
+    , pbvrqBucket
+    , pbvrqVersioningConfiguration
 
     -- * Response
     , PutBucketVersioningResponse
@@ -48,46 +48,46 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbvMFA'
+-- * 'pbvrqMFA'
 --
--- * 'pbvContentMD5'
+-- * 'pbvrqContentMD5'
 --
--- * 'pbvBucket'
+-- * 'pbvrqBucket'
 --
--- * 'pbvVersioningConfiguration'
+-- * 'pbvrqVersioningConfiguration'
 data PutBucketVersioning = PutBucketVersioning'
-    { _pbvMFA                     :: !(Maybe Text)
-    , _pbvContentMD5              :: !(Maybe Text)
-    , _pbvBucket                  :: !BucketName
-    , _pbvVersioningConfiguration :: !VersioningConfiguration
+    { _pbvrqMFA                     :: !(Maybe Text)
+    , _pbvrqContentMD5              :: !(Maybe Text)
+    , _pbvrqBucket                  :: !BucketName
+    , _pbvrqVersioningConfiguration :: !VersioningConfiguration
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketVersioning' smart constructor.
 putBucketVersioning :: BucketName -> VersioningConfiguration -> PutBucketVersioning
 putBucketVersioning pBucket pVersioningConfiguration =
     PutBucketVersioning'
-    { _pbvMFA = Nothing
-    , _pbvContentMD5 = Nothing
-    , _pbvBucket = pBucket
-    , _pbvVersioningConfiguration = pVersioningConfiguration
+    { _pbvrqMFA = Nothing
+    , _pbvrqContentMD5 = Nothing
+    , _pbvrqBucket = pBucket
+    , _pbvrqVersioningConfiguration = pVersioningConfiguration
     }
 
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
-pbvMFA :: Lens' PutBucketVersioning (Maybe Text)
-pbvMFA = lens _pbvMFA (\ s a -> s{_pbvMFA = a});
+pbvrqMFA :: Lens' PutBucketVersioning (Maybe Text)
+pbvrqMFA = lens _pbvrqMFA (\ s a -> s{_pbvrqMFA = a});
 
 -- | FIXME: Undocumented member.
-pbvContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
-pbvContentMD5 = lens _pbvContentMD5 (\ s a -> s{_pbvContentMD5 = a});
+pbvrqContentMD5 :: Lens' PutBucketVersioning (Maybe Text)
+pbvrqContentMD5 = lens _pbvrqContentMD5 (\ s a -> s{_pbvrqContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-pbvBucket :: Lens' PutBucketVersioning BucketName
-pbvBucket = lens _pbvBucket (\ s a -> s{_pbvBucket = a});
+pbvrqBucket :: Lens' PutBucketVersioning BucketName
+pbvrqBucket = lens _pbvrqBucket (\ s a -> s{_pbvrqBucket = a});
 
 -- | FIXME: Undocumented member.
-pbvVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
-pbvVersioningConfiguration = lens _pbvVersioningConfiguration (\ s a -> s{_pbvVersioningConfiguration = a});
+pbvrqVersioningConfiguration :: Lens' PutBucketVersioning VersioningConfiguration
+pbvrqVersioningConfiguration = lens _pbvrqVersioningConfiguration (\ s a -> s{_pbvrqVersioningConfiguration = a});
 
 instance AWSRequest PutBucketVersioning where
         type Sv PutBucketVersioning = S3
@@ -101,17 +101,17 @@ instance ToElement PutBucketVersioning where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}VersioningConfiguration"
               .
-              _pbvVersioningConfiguration
+              _pbvrqVersioningConfiguration
 
 instance ToHeaders PutBucketVersioning where
         toHeaders PutBucketVersioning'{..}
           = mconcat
-              ["x-amz-mfa" =# _pbvMFA,
-               "Content-MD5" =# _pbvContentMD5]
+              ["x-amz-mfa" =# _pbvrqMFA,
+               "Content-MD5" =# _pbvrqContentMD5]
 
 instance ToPath PutBucketVersioning where
         toPath PutBucketVersioning'{..}
-          = mconcat ["/", toText _pbvBucket]
+          = mconcat ["/", toText _pbvrqBucket]
 
 instance ToQuery PutBucketVersioning where
         toQuery = const (mconcat ["versioning"])

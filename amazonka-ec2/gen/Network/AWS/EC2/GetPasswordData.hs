@@ -41,18 +41,18 @@ module Network.AWS.EC2.GetPasswordData
     -- ** Request constructor
     , getPasswordData
     -- ** Request lenses
-    , gpdDryRun
-    , gpdInstanceId
+    , gpdrqDryRun
+    , gpdrqInstanceId
 
     -- * Response
     , GetPasswordDataResponse
     -- ** Response constructor
     , getPasswordDataResponse
     -- ** Response lenses
-    , gpdrStatus
-    , gpdrInstanceId
-    , gpdrPasswordData
-    , gpdrTimestamp
+    , gpdrsStatus
+    , gpdrsInstanceId
+    , gpdrsPasswordData
+    , gpdrsTimestamp
     ) where
 
 import           Network.AWS.EC2.Types
@@ -64,32 +64,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpdDryRun'
+-- * 'gpdrqDryRun'
 --
--- * 'gpdInstanceId'
+-- * 'gpdrqInstanceId'
 data GetPasswordData = GetPasswordData'
-    { _gpdDryRun     :: !(Maybe Bool)
-    , _gpdInstanceId :: !Text
+    { _gpdrqDryRun     :: !(Maybe Bool)
+    , _gpdrqInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPasswordData' smart constructor.
 getPasswordData :: Text -> GetPasswordData
 getPasswordData pInstanceId =
     GetPasswordData'
-    { _gpdDryRun = Nothing
-    , _gpdInstanceId = pInstanceId
+    { _gpdrqDryRun = Nothing
+    , _gpdrqInstanceId = pInstanceId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-gpdDryRun :: Lens' GetPasswordData (Maybe Bool)
-gpdDryRun = lens _gpdDryRun (\ s a -> s{_gpdDryRun = a});
+gpdrqDryRun :: Lens' GetPasswordData (Maybe Bool)
+gpdrqDryRun = lens _gpdrqDryRun (\ s a -> s{_gpdrqDryRun = a});
 
 -- | The ID of the Windows instance.
-gpdInstanceId :: Lens' GetPasswordData Text
-gpdInstanceId = lens _gpdInstanceId (\ s a -> s{_gpdInstanceId = a});
+gpdrqInstanceId :: Lens' GetPasswordData Text
+gpdrqInstanceId = lens _gpdrqInstanceId (\ s a -> s{_gpdrqInstanceId = a});
 
 instance AWSRequest GetPasswordData where
         type Sv GetPasswordData = EC2
@@ -114,49 +114,49 @@ instance ToQuery GetPasswordData where
           = mconcat
               ["Action" =: ("GetPasswordData" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _gpdDryRun,
-               "InstanceId" =: _gpdInstanceId]
+               "DryRun" =: _gpdrqDryRun,
+               "InstanceId" =: _gpdrqInstanceId]
 
 -- | /See:/ 'getPasswordDataResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpdrStatus'
+-- * 'gpdrsStatus'
 --
--- * 'gpdrInstanceId'
+-- * 'gpdrsInstanceId'
 --
--- * 'gpdrPasswordData'
+-- * 'gpdrsPasswordData'
 --
--- * 'gpdrTimestamp'
+-- * 'gpdrsTimestamp'
 data GetPasswordDataResponse = GetPasswordDataResponse'
-    { _gpdrStatus       :: !Int
-    , _gpdrInstanceId   :: !Text
-    , _gpdrPasswordData :: !Text
-    , _gpdrTimestamp    :: !ISO8601
+    { _gpdrsStatus       :: !Int
+    , _gpdrsInstanceId   :: !Text
+    , _gpdrsPasswordData :: !Text
+    , _gpdrsTimestamp    :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPasswordDataResponse' smart constructor.
 getPasswordDataResponse :: Int -> Text -> Text -> UTCTime -> GetPasswordDataResponse
 getPasswordDataResponse pStatus pInstanceId pPasswordData pTimestamp =
     GetPasswordDataResponse'
-    { _gpdrStatus = pStatus
-    , _gpdrInstanceId = pInstanceId
-    , _gpdrPasswordData = pPasswordData
-    , _gpdrTimestamp = _Time # pTimestamp
+    { _gpdrsStatus = pStatus
+    , _gpdrsInstanceId = pInstanceId
+    , _gpdrsPasswordData = pPasswordData
+    , _gpdrsTimestamp = _Time # pTimestamp
     }
 
 -- | FIXME: Undocumented member.
-gpdrStatus :: Lens' GetPasswordDataResponse Int
-gpdrStatus = lens _gpdrStatus (\ s a -> s{_gpdrStatus = a});
+gpdrsStatus :: Lens' GetPasswordDataResponse Int
+gpdrsStatus = lens _gpdrsStatus (\ s a -> s{_gpdrsStatus = a});
 
 -- | The ID of the Windows instance.
-gpdrInstanceId :: Lens' GetPasswordDataResponse Text
-gpdrInstanceId = lens _gpdrInstanceId (\ s a -> s{_gpdrInstanceId = a});
+gpdrsInstanceId :: Lens' GetPasswordDataResponse Text
+gpdrsInstanceId = lens _gpdrsInstanceId (\ s a -> s{_gpdrsInstanceId = a});
 
 -- | The password of the instance.
-gpdrPasswordData :: Lens' GetPasswordDataResponse Text
-gpdrPasswordData = lens _gpdrPasswordData (\ s a -> s{_gpdrPasswordData = a});
+gpdrsPasswordData :: Lens' GetPasswordDataResponse Text
+gpdrsPasswordData = lens _gpdrsPasswordData (\ s a -> s{_gpdrsPasswordData = a});
 
 -- | The time the data was last updated.
-gpdrTimestamp :: Lens' GetPasswordDataResponse UTCTime
-gpdrTimestamp = lens _gpdrTimestamp (\ s a -> s{_gpdrTimestamp = a}) . _Time;
+gpdrsTimestamp :: Lens' GetPasswordDataResponse UTCTime
+gpdrsTimestamp = lens _gpdrsTimestamp (\ s a -> s{_gpdrsTimestamp = a}) . _Time;

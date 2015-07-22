@@ -34,16 +34,16 @@ module Network.AWS.IAM.UploadSSHPublicKey
     -- ** Request constructor
     , uploadSSHPublicKey
     -- ** Request lenses
-    , uplUserName
-    , uplSSHPublicKeyBody
+    , usshpkrqUserName
+    , usshpkrqSSHPublicKeyBody
 
     -- * Response
     , UploadSSHPublicKeyResponse
     -- ** Response constructor
     , uploadSSHPublicKeyResponse
     -- ** Response lenses
-    , uspkrSSHPublicKey
-    , uspkrStatus
+    , usshpkrsSSHPublicKey
+    , usshpkrsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -55,30 +55,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uplUserName'
+-- * 'usshpkrqUserName'
 --
--- * 'uplSSHPublicKeyBody'
+-- * 'usshpkrqSSHPublicKeyBody'
 data UploadSSHPublicKey = UploadSSHPublicKey'
-    { _uplUserName         :: !Text
-    , _uplSSHPublicKeyBody :: !Text
+    { _usshpkrqUserName         :: !Text
+    , _usshpkrqSSHPublicKeyBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSSHPublicKey' smart constructor.
 uploadSSHPublicKey :: Text -> Text -> UploadSSHPublicKey
 uploadSSHPublicKey pUserName pSSHPublicKeyBody =
     UploadSSHPublicKey'
-    { _uplUserName = pUserName
-    , _uplSSHPublicKeyBody = pSSHPublicKeyBody
+    { _usshpkrqUserName = pUserName
+    , _usshpkrqSSHPublicKeyBody = pSSHPublicKeyBody
     }
 
 -- | The name of the IAM user to associate the SSH public key with.
-uplUserName :: Lens' UploadSSHPublicKey Text
-uplUserName = lens _uplUserName (\ s a -> s{_uplUserName = a});
+usshpkrqUserName :: Lens' UploadSSHPublicKey Text
+usshpkrqUserName = lens _usshpkrqUserName (\ s a -> s{_usshpkrqUserName = a});
 
 -- | The SSH public key. The public key must be encoded in ssh-rsa format or
 -- PEM format.
-uplSSHPublicKeyBody :: Lens' UploadSSHPublicKey Text
-uplSSHPublicKeyBody = lens _uplSSHPublicKeyBody (\ s a -> s{_uplSSHPublicKeyBody = a});
+usshpkrqSSHPublicKeyBody :: Lens' UploadSSHPublicKey Text
+usshpkrqSSHPublicKeyBody = lens _usshpkrqSSHPublicKeyBody (\ s a -> s{_usshpkrqSSHPublicKeyBody = a});
 
 instance AWSRequest UploadSSHPublicKey where
         type Sv UploadSSHPublicKey = IAM
@@ -102,8 +102,8 @@ instance ToQuery UploadSSHPublicKey where
           = mconcat
               ["Action" =: ("UploadSSHPublicKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _uplUserName,
-               "SSHPublicKeyBody" =: _uplSSHPublicKeyBody]
+               "UserName" =: _usshpkrqUserName,
+               "SSHPublicKeyBody" =: _usshpkrqSSHPublicKeyBody]
 
 -- | Contains the response to a successful UploadSSHPublicKey request.
 --
@@ -111,26 +111,26 @@ instance ToQuery UploadSSHPublicKey where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uspkrSSHPublicKey'
+-- * 'usshpkrsSSHPublicKey'
 --
--- * 'uspkrStatus'
+-- * 'usshpkrsStatus'
 data UploadSSHPublicKeyResponse = UploadSSHPublicKeyResponse'
-    { _uspkrSSHPublicKey :: !(Maybe SSHPublicKey)
-    , _uspkrStatus       :: !Int
+    { _usshpkrsSSHPublicKey :: !(Maybe SSHPublicKey)
+    , _usshpkrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSSHPublicKeyResponse' smart constructor.
 uploadSSHPublicKeyResponse :: Int -> UploadSSHPublicKeyResponse
 uploadSSHPublicKeyResponse pStatus =
     UploadSSHPublicKeyResponse'
-    { _uspkrSSHPublicKey = Nothing
-    , _uspkrStatus = pStatus
+    { _usshpkrsSSHPublicKey = Nothing
+    , _usshpkrsStatus = pStatus
     }
 
 -- | Contains information about the SSH public key.
-uspkrSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
-uspkrSSHPublicKey = lens _uspkrSSHPublicKey (\ s a -> s{_uspkrSSHPublicKey = a});
+usshpkrsSSHPublicKey :: Lens' UploadSSHPublicKeyResponse (Maybe SSHPublicKey)
+usshpkrsSSHPublicKey = lens _usshpkrsSSHPublicKey (\ s a -> s{_usshpkrsSSHPublicKey = a});
 
 -- | FIXME: Undocumented member.
-uspkrStatus :: Lens' UploadSSHPublicKeyResponse Int
-uspkrStatus = lens _uspkrStatus (\ s a -> s{_uspkrStatus = a});
+usshpkrsStatus :: Lens' UploadSSHPublicKeyResponse Int
+usshpkrsStatus = lens _usshpkrsStatus (\ s a -> s{_usshpkrsStatus = a});

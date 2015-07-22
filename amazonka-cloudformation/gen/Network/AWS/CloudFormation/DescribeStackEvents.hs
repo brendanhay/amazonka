@@ -33,17 +33,17 @@ module Network.AWS.CloudFormation.DescribeStackEvents
     -- ** Request constructor
     , describeStackEvents
     -- ** Request lenses
-    , dseNextToken
-    , dseStackName
+    , dserqNextToken
+    , dserqStackName
 
     -- * Response
     , DescribeStackEventsResponse
     -- ** Response constructor
     , describeStackEventsResponse
     -- ** Response lenses
-    , dserNextToken
-    , dserStackEvents
-    , dserStatus
+    , dsersNextToken
+    , dsersStackEvents
+    , dsersStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -58,28 +58,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dseNextToken'
+-- * 'dserqNextToken'
 --
--- * 'dseStackName'
+-- * 'dserqStackName'
 data DescribeStackEvents = DescribeStackEvents'
-    { _dseNextToken :: !(Maybe Text)
-    , _dseStackName :: !(Maybe Text)
+    { _dserqNextToken :: !(Maybe Text)
+    , _dserqStackName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackEvents' smart constructor.
 describeStackEvents :: DescribeStackEvents
 describeStackEvents =
     DescribeStackEvents'
-    { _dseNextToken = Nothing
-    , _dseStackName = Nothing
+    { _dserqNextToken = Nothing
+    , _dserqStackName = Nothing
     }
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
 --
 -- Default: There is no default value.
-dseNextToken :: Lens' DescribeStackEvents (Maybe Text)
-dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a});
+dserqNextToken :: Lens' DescribeStackEvents (Maybe Text)
+dserqNextToken = lens _dserqNextToken (\ s a -> s{_dserqNextToken = a});
 
 -- | The name or the unique stack ID that is associated with the stack, which
 -- are not always interchangeable:
@@ -89,15 +89,15 @@ dseNextToken = lens _dseNextToken (\ s a -> s{_dseNextToken = a});
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-dseStackName :: Lens' DescribeStackEvents (Maybe Text)
-dseStackName = lens _dseStackName (\ s a -> s{_dseStackName = a});
+dserqStackName :: Lens' DescribeStackEvents (Maybe Text)
+dserqStackName = lens _dserqStackName (\ s a -> s{_dserqStackName = a});
 
 instance AWSPager DescribeStackEvents where
         page rq rs
-          | stop (rs ^. dserNextToken) = Nothing
-          | stop (rs ^. dserStackEvents) = Nothing
+          | stop (rs ^. dsersNextToken) = Nothing
+          | stop (rs ^. dsersStackEvents) = Nothing
           | otherwise =
-            Just $ rq & dseNextToken .~ rs ^. dserNextToken
+            Just $ rq & dserqNextToken .~ rs ^. dsersNextToken
 
 instance AWSRequest DescribeStackEvents where
         type Sv DescribeStackEvents = CloudFormation
@@ -124,8 +124,8 @@ instance ToQuery DescribeStackEvents where
           = mconcat
               ["Action" =: ("DescribeStackEvents" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "NextToken" =: _dseNextToken,
-               "StackName" =: _dseStackName]
+               "NextToken" =: _dserqNextToken,
+               "StackName" =: _dserqStackName]
 
 -- | The output for a DescribeStackEvents action.
 --
@@ -133,35 +133,35 @@ instance ToQuery DescribeStackEvents where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dserNextToken'
+-- * 'dsersNextToken'
 --
--- * 'dserStackEvents'
+-- * 'dsersStackEvents'
 --
--- * 'dserStatus'
+-- * 'dsersStatus'
 data DescribeStackEventsResponse = DescribeStackEventsResponse'
-    { _dserNextToken   :: !(Maybe Text)
-    , _dserStackEvents :: !(Maybe [StackEvent])
-    , _dserStatus      :: !Int
+    { _dsersNextToken   :: !(Maybe Text)
+    , _dsersStackEvents :: !(Maybe [StackEvent])
+    , _dsersStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackEventsResponse' smart constructor.
 describeStackEventsResponse :: Int -> DescribeStackEventsResponse
 describeStackEventsResponse pStatus =
     DescribeStackEventsResponse'
-    { _dserNextToken = Nothing
-    , _dserStackEvents = Nothing
-    , _dserStatus = pStatus
+    { _dsersNextToken = Nothing
+    , _dsersStackEvents = Nothing
+    , _dsersStatus = pStatus
     }
 
 -- | String that identifies the start of the next list of events, if there is
 -- one.
-dserNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
-dserNextToken = lens _dserNextToken (\ s a -> s{_dserNextToken = a});
+dsersNextToken :: Lens' DescribeStackEventsResponse (Maybe Text)
+dsersNextToken = lens _dsersNextToken (\ s a -> s{_dsersNextToken = a});
 
 -- | A list of @StackEvents@ structures.
-dserStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
-dserStackEvents = lens _dserStackEvents (\ s a -> s{_dserStackEvents = a}) . _Default;
+dsersStackEvents :: Lens' DescribeStackEventsResponse [StackEvent]
+dsersStackEvents = lens _dsersStackEvents (\ s a -> s{_dsersStackEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dserStatus :: Lens' DescribeStackEventsResponse Int
-dserStatus = lens _dserStatus (\ s a -> s{_dserStatus = a});
+dsersStatus :: Lens' DescribeStackEventsResponse Int
+dsersStatus = lens _dsersStatus (\ s a -> s{_dsersStatus = a});

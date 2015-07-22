@@ -28,21 +28,21 @@ module Network.AWS.CodePipeline.CreateCustomActionType
     -- ** Request constructor
     , createCustomActionType
     -- ** Request lenses
-    , ccatSettings
-    , ccatConfigurationProperties
-    , ccatCategory
-    , ccatProvider
-    , ccatVersion
-    , ccatInputArtifactDetails
-    , ccatOutputArtifactDetails
+    , ccatrqSettings
+    , ccatrqConfigurationProperties
+    , ccatrqCategory
+    , ccatrqProvider
+    , ccatrqVersion
+    , ccatrqInputArtifactDetails
+    , ccatrqOutputArtifactDetails
 
     -- * Response
     , CreateCustomActionTypeResponse
     -- ** Response constructor
     , createCustomActionTypeResponse
     -- ** Response lenses
-    , ccatrStatus
-    , ccatrActionType
+    , ccatrsStatus
+    , ccatrsActionType
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -56,74 +56,74 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccatSettings'
+-- * 'ccatrqSettings'
 --
--- * 'ccatConfigurationProperties'
+-- * 'ccatrqConfigurationProperties'
 --
--- * 'ccatCategory'
+-- * 'ccatrqCategory'
 --
--- * 'ccatProvider'
+-- * 'ccatrqProvider'
 --
--- * 'ccatVersion'
+-- * 'ccatrqVersion'
 --
--- * 'ccatInputArtifactDetails'
+-- * 'ccatrqInputArtifactDetails'
 --
--- * 'ccatOutputArtifactDetails'
+-- * 'ccatrqOutputArtifactDetails'
 data CreateCustomActionType = CreateCustomActionType'
-    { _ccatSettings                :: !(Maybe ActionTypeSettings)
-    , _ccatConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
-    , _ccatCategory                :: !ActionCategory
-    , _ccatProvider                :: !Text
-    , _ccatVersion                 :: !Text
-    , _ccatInputArtifactDetails    :: !ArtifactDetails
-    , _ccatOutputArtifactDetails   :: !ArtifactDetails
+    { _ccatrqSettings                :: !(Maybe ActionTypeSettings)
+    , _ccatrqConfigurationProperties :: !(Maybe [ActionConfigurationProperty])
+    , _ccatrqCategory                :: !ActionCategory
+    , _ccatrqProvider                :: !Text
+    , _ccatrqVersion                 :: !Text
+    , _ccatrqInputArtifactDetails    :: !ArtifactDetails
+    , _ccatrqOutputArtifactDetails   :: !ArtifactDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomActionType' smart constructor.
 createCustomActionType :: ActionCategory -> Text -> Text -> ArtifactDetails -> ArtifactDetails -> CreateCustomActionType
 createCustomActionType pCategory pProvider pVersion pInputArtifactDetails pOutputArtifactDetails =
     CreateCustomActionType'
-    { _ccatSettings = Nothing
-    , _ccatConfigurationProperties = Nothing
-    , _ccatCategory = pCategory
-    , _ccatProvider = pProvider
-    , _ccatVersion = pVersion
-    , _ccatInputArtifactDetails = pInputArtifactDetails
-    , _ccatOutputArtifactDetails = pOutputArtifactDetails
+    { _ccatrqSettings = Nothing
+    , _ccatrqConfigurationProperties = Nothing
+    , _ccatrqCategory = pCategory
+    , _ccatrqProvider = pProvider
+    , _ccatrqVersion = pVersion
+    , _ccatrqInputArtifactDetails = pInputArtifactDetails
+    , _ccatrqOutputArtifactDetails = pOutputArtifactDetails
     }
 
 -- | FIXME: Undocumented member.
-ccatSettings :: Lens' CreateCustomActionType (Maybe ActionTypeSettings)
-ccatSettings = lens _ccatSettings (\ s a -> s{_ccatSettings = a});
+ccatrqSettings :: Lens' CreateCustomActionType (Maybe ActionTypeSettings)
+ccatrqSettings = lens _ccatrqSettings (\ s a -> s{_ccatrqSettings = a});
 
 -- | The configuration properties for the custom action.
-ccatConfigurationProperties :: Lens' CreateCustomActionType [ActionConfigurationProperty]
-ccatConfigurationProperties = lens _ccatConfigurationProperties (\ s a -> s{_ccatConfigurationProperties = a}) . _Default;
+ccatrqConfigurationProperties :: Lens' CreateCustomActionType [ActionConfigurationProperty]
+ccatrqConfigurationProperties = lens _ccatrqConfigurationProperties (\ s a -> s{_ccatrqConfigurationProperties = a}) . _Default;
 
 -- | The category of the custom action, such as a source action or a build
 -- action.
-ccatCategory :: Lens' CreateCustomActionType ActionCategory
-ccatCategory = lens _ccatCategory (\ s a -> s{_ccatCategory = a});
+ccatrqCategory :: Lens' CreateCustomActionType ActionCategory
+ccatrqCategory = lens _ccatrqCategory (\ s a -> s{_ccatrqCategory = a});
 
 -- | The provider of the service used in the custom action, such as AWS
 -- CodeDeploy.
-ccatProvider :: Lens' CreateCustomActionType Text
-ccatProvider = lens _ccatProvider (\ s a -> s{_ccatProvider = a});
+ccatrqProvider :: Lens' CreateCustomActionType Text
+ccatrqProvider = lens _ccatrqProvider (\ s a -> s{_ccatrqProvider = a});
 
 -- | The version number of the custom action.
 --
 -- A newly-created custom action is always assigned a version number of
 -- @1@. This is required.
-ccatVersion :: Lens' CreateCustomActionType Text
-ccatVersion = lens _ccatVersion (\ s a -> s{_ccatVersion = a});
+ccatrqVersion :: Lens' CreateCustomActionType Text
+ccatrqVersion = lens _ccatrqVersion (\ s a -> s{_ccatrqVersion = a});
 
 -- | FIXME: Undocumented member.
-ccatInputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
-ccatInputArtifactDetails = lens _ccatInputArtifactDetails (\ s a -> s{_ccatInputArtifactDetails = a});
+ccatrqInputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
+ccatrqInputArtifactDetails = lens _ccatrqInputArtifactDetails (\ s a -> s{_ccatrqInputArtifactDetails = a});
 
 -- | FIXME: Undocumented member.
-ccatOutputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
-ccatOutputArtifactDetails = lens _ccatOutputArtifactDetails (\ s a -> s{_ccatOutputArtifactDetails = a});
+ccatrqOutputArtifactDetails :: Lens' CreateCustomActionType ArtifactDetails
+ccatrqOutputArtifactDetails = lens _ccatrqOutputArtifactDetails (\ s a -> s{_ccatrqOutputArtifactDetails = a});
 
 instance AWSRequest CreateCustomActionType where
         type Sv CreateCustomActionType = CodePipeline
@@ -149,15 +149,16 @@ instance ToHeaders CreateCustomActionType where
 instance ToJSON CreateCustomActionType where
         toJSON CreateCustomActionType'{..}
           = object
-              ["settings" .= _ccatSettings,
+              ["settings" .= _ccatrqSettings,
                "configurationProperties" .=
-                 _ccatConfigurationProperties,
-               "category" .= _ccatCategory,
-               "provider" .= _ccatProvider,
-               "version" .= _ccatVersion,
-               "inputArtifactDetails" .= _ccatInputArtifactDetails,
+                 _ccatrqConfigurationProperties,
+               "category" .= _ccatrqCategory,
+               "provider" .= _ccatrqProvider,
+               "version" .= _ccatrqVersion,
+               "inputArtifactDetails" .=
+                 _ccatrqInputArtifactDetails,
                "outputArtifactDetails" .=
-                 _ccatOutputArtifactDetails]
+                 _ccatrqOutputArtifactDetails]
 
 instance ToPath CreateCustomActionType where
         toPath = const "/"
@@ -171,26 +172,26 @@ instance ToQuery CreateCustomActionType where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccatrStatus'
+-- * 'ccatrsStatus'
 --
--- * 'ccatrActionType'
+-- * 'ccatrsActionType'
 data CreateCustomActionTypeResponse = CreateCustomActionTypeResponse'
-    { _ccatrStatus     :: !Int
-    , _ccatrActionType :: !ActionType
+    { _ccatrsStatus     :: !Int
+    , _ccatrsActionType :: !ActionType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCustomActionTypeResponse' smart constructor.
 createCustomActionTypeResponse :: Int -> ActionType -> CreateCustomActionTypeResponse
 createCustomActionTypeResponse pStatus pActionType =
     CreateCustomActionTypeResponse'
-    { _ccatrStatus = pStatus
-    , _ccatrActionType = pActionType
+    { _ccatrsStatus = pStatus
+    , _ccatrsActionType = pActionType
     }
 
 -- | FIXME: Undocumented member.
-ccatrStatus :: Lens' CreateCustomActionTypeResponse Int
-ccatrStatus = lens _ccatrStatus (\ s a -> s{_ccatrStatus = a});
+ccatrsStatus :: Lens' CreateCustomActionTypeResponse Int
+ccatrsStatus = lens _ccatrsStatus (\ s a -> s{_ccatrsStatus = a});
 
 -- | FIXME: Undocumented member.
-ccatrActionType :: Lens' CreateCustomActionTypeResponse ActionType
-ccatrActionType = lens _ccatrActionType (\ s a -> s{_ccatrActionType = a});
+ccatrsActionType :: Lens' CreateCustomActionTypeResponse ActionType
+ccatrsActionType = lens _ccatrsActionType (\ s a -> s{_ccatrsActionType = a});

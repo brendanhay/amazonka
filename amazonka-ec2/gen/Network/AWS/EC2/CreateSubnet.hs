@@ -53,18 +53,18 @@ module Network.AWS.EC2.CreateSubnet
     -- ** Request constructor
     , createSubnet
     -- ** Request lenses
-    , creaAvailabilityZone
-    , creaDryRun
-    , creaVPCId
-    , creaCIdRBlock
+    , crerqAvailabilityZone
+    , crerqDryRun
+    , crerqVPCId
+    , crerqCIdRBlock
 
     -- * Response
     , CreateSubnetResponse
     -- ** Response constructor
     , createSubnetResponse
     -- ** Response lenses
-    , creSubnet
-    , creStatus
+    , crersSubnet
+    , crersStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -76,51 +76,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creaAvailabilityZone'
+-- * 'crerqAvailabilityZone'
 --
--- * 'creaDryRun'
+-- * 'crerqDryRun'
 --
--- * 'creaVPCId'
+-- * 'crerqVPCId'
 --
--- * 'creaCIdRBlock'
+-- * 'crerqCIdRBlock'
 data CreateSubnet = CreateSubnet'
-    { _creaAvailabilityZone :: !(Maybe Text)
-    , _creaDryRun           :: !(Maybe Bool)
-    , _creaVPCId            :: !Text
-    , _creaCIdRBlock        :: !Text
+    { _crerqAvailabilityZone :: !(Maybe Text)
+    , _crerqDryRun           :: !(Maybe Bool)
+    , _crerqVPCId            :: !Text
+    , _crerqCIdRBlock        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSubnet' smart constructor.
 createSubnet :: Text -> Text -> CreateSubnet
 createSubnet pVPCId pCIdRBlock =
     CreateSubnet'
-    { _creaAvailabilityZone = Nothing
-    , _creaDryRun = Nothing
-    , _creaVPCId = pVPCId
-    , _creaCIdRBlock = pCIdRBlock
+    { _crerqAvailabilityZone = Nothing
+    , _crerqDryRun = Nothing
+    , _crerqVPCId = pVPCId
+    , _crerqCIdRBlock = pCIdRBlock
     }
 
 -- | The Availability Zone for the subnet.
 --
 -- Default: Amazon EC2 selects one for you (recommended).
-creaAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
-creaAvailabilityZone = lens _creaAvailabilityZone (\ s a -> s{_creaAvailabilityZone = a});
+crerqAvailabilityZone :: Lens' CreateSubnet (Maybe Text)
+crerqAvailabilityZone = lens _crerqAvailabilityZone (\ s a -> s{_crerqAvailabilityZone = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-creaDryRun :: Lens' CreateSubnet (Maybe Bool)
-creaDryRun = lens _creaDryRun (\ s a -> s{_creaDryRun = a});
+crerqDryRun :: Lens' CreateSubnet (Maybe Bool)
+crerqDryRun = lens _crerqDryRun (\ s a -> s{_crerqDryRun = a});
 
 -- | The ID of the VPC.
-creaVPCId :: Lens' CreateSubnet Text
-creaVPCId = lens _creaVPCId (\ s a -> s{_creaVPCId = a});
+crerqVPCId :: Lens' CreateSubnet Text
+crerqVPCId = lens _crerqVPCId (\ s a -> s{_crerqVPCId = a});
 
 -- | The network range for the subnet, in CIDR notation. For example,
 -- @10.0.0.0\/24@.
-creaCIdRBlock :: Lens' CreateSubnet Text
-creaCIdRBlock = lens _creaCIdRBlock (\ s a -> s{_creaCIdRBlock = a});
+crerqCIdRBlock :: Lens' CreateSubnet Text
+crerqCIdRBlock = lens _crerqCIdRBlock (\ s a -> s{_crerqCIdRBlock = a});
 
 instance AWSRequest CreateSubnet where
         type Sv CreateSubnet = EC2
@@ -143,34 +143,34 @@ instance ToQuery CreateSubnet where
           = mconcat
               ["Action" =: ("CreateSubnet" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "AvailabilityZone" =: _creaAvailabilityZone,
-               "DryRun" =: _creaDryRun, "VpcId" =: _creaVPCId,
-               "CidrBlock" =: _creaCIdRBlock]
+               "AvailabilityZone" =: _crerqAvailabilityZone,
+               "DryRun" =: _crerqDryRun, "VpcId" =: _crerqVPCId,
+               "CidrBlock" =: _crerqCIdRBlock]
 
 -- | /See:/ 'createSubnetResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creSubnet'
+-- * 'crersSubnet'
 --
--- * 'creStatus'
+-- * 'crersStatus'
 data CreateSubnetResponse = CreateSubnetResponse'
-    { _creSubnet :: !(Maybe Subnet)
-    , _creStatus :: !Int
+    { _crersSubnet :: !(Maybe Subnet)
+    , _crersStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSubnetResponse' smart constructor.
 createSubnetResponse :: Int -> CreateSubnetResponse
 createSubnetResponse pStatus =
     CreateSubnetResponse'
-    { _creSubnet = Nothing
-    , _creStatus = pStatus
+    { _crersSubnet = Nothing
+    , _crersStatus = pStatus
     }
 
 -- | Information about the subnet.
-creSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
-creSubnet = lens _creSubnet (\ s a -> s{_creSubnet = a});
+crersSubnet :: Lens' CreateSubnetResponse (Maybe Subnet)
+crersSubnet = lens _crersSubnet (\ s a -> s{_crersSubnet = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateSubnetResponse Int
-creStatus = lens _creStatus (\ s a -> s{_creStatus = a});
+crersStatus :: Lens' CreateSubnetResponse Int
+crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

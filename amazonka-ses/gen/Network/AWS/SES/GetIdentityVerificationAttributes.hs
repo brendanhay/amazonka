@@ -32,15 +32,15 @@ module Network.AWS.SES.GetIdentityVerificationAttributes
     -- ** Request constructor
     , getIdentityVerificationAttributes
     -- ** Request lenses
-    , givaIdentities
+    , givarqIdentities
 
     -- * Response
     , GetIdentityVerificationAttributesResponse
     -- ** Response constructor
     , getIdentityVerificationAttributesResponse
     -- ** Response lenses
-    , givarStatus
-    , givarVerificationAttributes
+    , givarsStatus
+    , givarsVerificationAttributes
     ) where
 
 import           Network.AWS.Prelude
@@ -55,21 +55,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'givaIdentities'
+-- * 'givarqIdentities'
 newtype GetIdentityVerificationAttributes = GetIdentityVerificationAttributes'
-    { _givaIdentities :: [Text]
+    { _givarqIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityVerificationAttributes' smart constructor.
 getIdentityVerificationAttributes :: GetIdentityVerificationAttributes
 getIdentityVerificationAttributes =
     GetIdentityVerificationAttributes'
-    { _givaIdentities = mempty
+    { _givarqIdentities = mempty
     }
 
 -- | A list of identities.
-givaIdentities :: Lens' GetIdentityVerificationAttributes [Text]
-givaIdentities = lens _givaIdentities (\ s a -> s{_givaIdentities = a});
+givarqIdentities :: Lens' GetIdentityVerificationAttributes [Text]
+givarqIdentities = lens _givarqIdentities (\ s a -> s{_givarqIdentities = a});
 
 instance AWSRequest GetIdentityVerificationAttributes
          where
@@ -101,7 +101,8 @@ instance ToQuery GetIdentityVerificationAttributes
               ["Action" =:
                  ("GetIdentityVerificationAttributes" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =: toQueryList "member" _givaIdentities]
+               "Identities" =:
+                 toQueryList "member" _givarqIdentities]
 
 -- | Represents the verification attributes for a list of identities.
 --
@@ -109,26 +110,26 @@ instance ToQuery GetIdentityVerificationAttributes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'givarStatus'
+-- * 'givarsStatus'
 --
--- * 'givarVerificationAttributes'
+-- * 'givarsVerificationAttributes'
 data GetIdentityVerificationAttributesResponse = GetIdentityVerificationAttributesResponse'
-    { _givarStatus                 :: !Int
-    , _givarVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
+    { _givarsStatus                 :: !Int
+    , _givarsVerificationAttributes :: !(Map Text IdentityVerificationAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityVerificationAttributesResponse' smart constructor.
 getIdentityVerificationAttributesResponse :: Int -> GetIdentityVerificationAttributesResponse
 getIdentityVerificationAttributesResponse pStatus =
     GetIdentityVerificationAttributesResponse'
-    { _givarStatus = pStatus
-    , _givarVerificationAttributes = mempty
+    { _givarsStatus = pStatus
+    , _givarsVerificationAttributes = mempty
     }
 
 -- | FIXME: Undocumented member.
-givarStatus :: Lens' GetIdentityVerificationAttributesResponse Int
-givarStatus = lens _givarStatus (\ s a -> s{_givarStatus = a});
+givarsStatus :: Lens' GetIdentityVerificationAttributesResponse Int
+givarsStatus = lens _givarsStatus (\ s a -> s{_givarsStatus = a});
 
 -- | A map of Identities to IdentityVerificationAttributes objects.
-givarVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
-givarVerificationAttributes = lens _givarVerificationAttributes (\ s a -> s{_givarVerificationAttributes = a}) . _Map;
+givarsVerificationAttributes :: Lens' GetIdentityVerificationAttributesResponse (HashMap Text IdentityVerificationAttributes)
+givarsVerificationAttributes = lens _givarsVerificationAttributes (\ s a -> s{_givarsVerificationAttributes = a}) . _Map;

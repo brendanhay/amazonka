@@ -29,20 +29,20 @@ module Network.AWS.ECS.ListTaskDefinitions
     -- ** Request constructor
     , listTaskDefinitions
     -- ** Request lenses
-    , ltdStatus
-    , ltdFamilyPrefix
-    , ltdNextToken
-    , ltdSort
-    , ltdMaxResults
+    , ltdrqStatus
+    , ltdrqFamilyPrefix
+    , ltdrqNextToken
+    , ltdrqSort
+    , ltdrqMaxResults
 
     -- * Response
     , ListTaskDefinitionsResponse
     -- ** Response constructor
     , listTaskDefinitionsResponse
     -- ** Response lenses
-    , ltdrTaskDefinitionARNs
-    , ltdrNextToken
-    , ltdrStatus
+    , ltdrsTaskDefinitionARNs
+    , ltdrsNextToken
+    , ltdrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -55,32 +55,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltdStatus'
+-- * 'ltdrqStatus'
 --
--- * 'ltdFamilyPrefix'
+-- * 'ltdrqFamilyPrefix'
 --
--- * 'ltdNextToken'
+-- * 'ltdrqNextToken'
 --
--- * 'ltdSort'
+-- * 'ltdrqSort'
 --
--- * 'ltdMaxResults'
+-- * 'ltdrqMaxResults'
 data ListTaskDefinitions = ListTaskDefinitions'
-    { _ltdStatus       :: !(Maybe TaskDefinitionStatus)
-    , _ltdFamilyPrefix :: !(Maybe Text)
-    , _ltdNextToken    :: !(Maybe Text)
-    , _ltdSort         :: !(Maybe SortOrder)
-    , _ltdMaxResults   :: !(Maybe Int)
+    { _ltdrqStatus       :: !(Maybe TaskDefinitionStatus)
+    , _ltdrqFamilyPrefix :: !(Maybe Text)
+    , _ltdrqNextToken    :: !(Maybe Text)
+    , _ltdrqSort         :: !(Maybe SortOrder)
+    , _ltdrqMaxResults   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitions' smart constructor.
 listTaskDefinitions :: ListTaskDefinitions
 listTaskDefinitions =
     ListTaskDefinitions'
-    { _ltdStatus = Nothing
-    , _ltdFamilyPrefix = Nothing
-    , _ltdNextToken = Nothing
-    , _ltdSort = Nothing
-    , _ltdMaxResults = Nothing
+    { _ltdrqStatus = Nothing
+    , _ltdrqFamilyPrefix = Nothing
+    , _ltdrqNextToken = Nothing
+    , _ltdrqSort = Nothing
+    , _ltdrqMaxResults = Nothing
     }
 
 -- | The task definition status that you want to filter the
@@ -89,22 +89,22 @@ listTaskDefinitions =
 -- view task definitions that are @INACTIVE@ as long as an active task or
 -- service still references them. If you paginate the resulting output, be
 -- sure to keep the @status@ value constant in each subsequent request.
-ltdStatus :: Lens' ListTaskDefinitions (Maybe TaskDefinitionStatus)
-ltdStatus = lens _ltdStatus (\ s a -> s{_ltdStatus = a});
+ltdrqStatus :: Lens' ListTaskDefinitions (Maybe TaskDefinitionStatus)
+ltdrqStatus = lens _ltdrqStatus (\ s a -> s{_ltdrqStatus = a});
 
 -- | The full family name that you want to filter the @ListTaskDefinitions@
 -- results with. Specifying a @familyPrefix@ will limit the listed task
 -- definitions to task definition revisions that belong to that family.
-ltdFamilyPrefix :: Lens' ListTaskDefinitions (Maybe Text)
-ltdFamilyPrefix = lens _ltdFamilyPrefix (\ s a -> s{_ltdFamilyPrefix = a});
+ltdrqFamilyPrefix :: Lens' ListTaskDefinitions (Maybe Text)
+ltdrqFamilyPrefix = lens _ltdrqFamilyPrefix (\ s a -> s{_ltdrqFamilyPrefix = a});
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListTaskDefinitions@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is @null@ when there are no more results to return.
-ltdNextToken :: Lens' ListTaskDefinitions (Maybe Text)
-ltdNextToken = lens _ltdNextToken (\ s a -> s{_ltdNextToken = a});
+ltdrqNextToken :: Lens' ListTaskDefinitions (Maybe Text)
+ltdrqNextToken = lens _ltdrqNextToken (\ s a -> s{_ltdrqNextToken = a});
 
 -- | The order in which to sort the results. Valid values are @ASC@ and
 -- @DESC@. By default (@ASC@), task definitions are listed
@@ -113,8 +113,8 @@ ltdNextToken = lens _ltdNextToken (\ s a -> s{_ltdNextToken = a});
 -- last. Setting this parameter to @DESC@ reverses the sort order on family
 -- name and revision so that the newest task definitions in a family are
 -- listed first.
-ltdSort :: Lens' ListTaskDefinitions (Maybe SortOrder)
-ltdSort = lens _ltdSort (\ s a -> s{_ltdSort = a});
+ltdrqSort :: Lens' ListTaskDefinitions (Maybe SortOrder)
+ltdrqSort = lens _ltdrqSort (\ s a -> s{_ltdrqSort = a});
 
 -- | The maximum number of task definition results returned by
 -- @ListTaskDefinitions@ in paginated output. When this parameter is used,
@@ -124,15 +124,15 @@ ltdSort = lens _ltdSort (\ s a -> s{_ltdSort = a});
 -- request with the returned @nextToken@ value. This value can be between 1
 -- and 100. If this parameter is not used, then @ListTaskDefinitions@
 -- returns up to 100 results and a @nextToken@ value if applicable.
-ltdMaxResults :: Lens' ListTaskDefinitions (Maybe Int)
-ltdMaxResults = lens _ltdMaxResults (\ s a -> s{_ltdMaxResults = a});
+ltdrqMaxResults :: Lens' ListTaskDefinitions (Maybe Int)
+ltdrqMaxResults = lens _ltdrqMaxResults (\ s a -> s{_ltdrqMaxResults = a});
 
 instance AWSPager ListTaskDefinitions where
         page rq rs
-          | stop (rs ^. ltdrNextToken) = Nothing
-          | stop (rs ^. ltdrTaskDefinitionARNs) = Nothing
+          | stop (rs ^. ltdrsNextToken) = Nothing
+          | stop (rs ^. ltdrsTaskDefinitionARNs) = Nothing
           | otherwise =
-            Just $ rq & ltdNextToken .~ rs ^. ltdrNextToken
+            Just $ rq & ltdrqNextToken .~ rs ^. ltdrsNextToken
 
 instance AWSRequest ListTaskDefinitions where
         type Sv ListTaskDefinitions = ECS
@@ -160,10 +160,10 @@ instance ToHeaders ListTaskDefinitions where
 instance ToJSON ListTaskDefinitions where
         toJSON ListTaskDefinitions'{..}
           = object
-              ["status" .= _ltdStatus,
-               "familyPrefix" .= _ltdFamilyPrefix,
-               "nextToken" .= _ltdNextToken, "sort" .= _ltdSort,
-               "maxResults" .= _ltdMaxResults]
+              ["status" .= _ltdrqStatus,
+               "familyPrefix" .= _ltdrqFamilyPrefix,
+               "nextToken" .= _ltdrqNextToken, "sort" .= _ltdrqSort,
+               "maxResults" .= _ltdrqMaxResults]
 
 instance ToPath ListTaskDefinitions where
         toPath = const "/"
@@ -175,38 +175,38 @@ instance ToQuery ListTaskDefinitions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltdrTaskDefinitionARNs'
+-- * 'ltdrsTaskDefinitionARNs'
 --
--- * 'ltdrNextToken'
+-- * 'ltdrsNextToken'
 --
--- * 'ltdrStatus'
+-- * 'ltdrsStatus'
 data ListTaskDefinitionsResponse = ListTaskDefinitionsResponse'
-    { _ltdrTaskDefinitionARNs :: !(Maybe [Text])
-    , _ltdrNextToken          :: !(Maybe Text)
-    , _ltdrStatus             :: !Int
+    { _ltdrsTaskDefinitionARNs :: !(Maybe [Text])
+    , _ltdrsNextToken          :: !(Maybe Text)
+    , _ltdrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitionsResponse' smart constructor.
 listTaskDefinitionsResponse :: Int -> ListTaskDefinitionsResponse
 listTaskDefinitionsResponse pStatus =
     ListTaskDefinitionsResponse'
-    { _ltdrTaskDefinitionARNs = Nothing
-    , _ltdrNextToken = Nothing
-    , _ltdrStatus = pStatus
+    { _ltdrsTaskDefinitionARNs = Nothing
+    , _ltdrsNextToken = Nothing
+    , _ltdrsStatus = pStatus
     }
 
 -- | The list of task definition Amazon Resource Name (ARN) entries for the
 -- @ListTaskDefintions@ request.
-ltdrTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse [Text]
-ltdrTaskDefinitionARNs = lens _ltdrTaskDefinitionARNs (\ s a -> s{_ltdrTaskDefinitionARNs = a}) . _Default;
+ltdrsTaskDefinitionARNs :: Lens' ListTaskDefinitionsResponse [Text]
+ltdrsTaskDefinitionARNs = lens _ltdrsTaskDefinitionARNs (\ s a -> s{_ltdrsTaskDefinitionARNs = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future @ListTaskDefinitions@
 -- request. When the results of a @ListTaskDefinitions@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
-ltdrNextToken :: Lens' ListTaskDefinitionsResponse (Maybe Text)
-ltdrNextToken = lens _ltdrNextToken (\ s a -> s{_ltdrNextToken = a});
+ltdrsNextToken :: Lens' ListTaskDefinitionsResponse (Maybe Text)
+ltdrsNextToken = lens _ltdrsNextToken (\ s a -> s{_ltdrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltdrStatus :: Lens' ListTaskDefinitionsResponse Int
-ltdrStatus = lens _ltdrStatus (\ s a -> s{_ltdrStatus = a});
+ltdrsStatus :: Lens' ListTaskDefinitionsResponse Int
+ltdrsStatus = lens _ltdrsStatus (\ s a -> s{_ltdrsStatus = a});

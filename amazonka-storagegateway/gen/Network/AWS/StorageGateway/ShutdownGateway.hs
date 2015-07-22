@@ -50,15 +50,15 @@ module Network.AWS.StorageGateway.ShutdownGateway
     -- ** Request constructor
     , shutdownGateway
     -- ** Request lenses
-    , shuGatewayARN
+    , srqGatewayARN
 
     -- * Response
     , ShutdownGatewayResponse
     -- ** Response constructor
     , shutdownGatewayResponse
     -- ** Response lenses
-    , sgrGatewayARN
-    , sgrStatus
+    , srsGatewayARN
+    , srsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -72,21 +72,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'shuGatewayARN'
+-- * 'srqGatewayARN'
 newtype ShutdownGateway = ShutdownGateway'
-    { _shuGatewayARN :: Text
+    { _srqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ShutdownGateway' smart constructor.
 shutdownGateway :: Text -> ShutdownGateway
 shutdownGateway pGatewayARN =
     ShutdownGateway'
-    { _shuGatewayARN = pGatewayARN
+    { _srqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-shuGatewayARN :: Lens' ShutdownGateway Text
-shuGatewayARN = lens _shuGatewayARN (\ s a -> s{_shuGatewayARN = a});
+srqGatewayARN :: Lens' ShutdownGateway Text
+srqGatewayARN = lens _srqGatewayARN (\ s a -> s{_srqGatewayARN = a});
 
 instance AWSRequest ShutdownGateway where
         type Sv ShutdownGateway = StorageGateway
@@ -110,7 +110,7 @@ instance ToHeaders ShutdownGateway where
 
 instance ToJSON ShutdownGateway where
         toJSON ShutdownGateway'{..}
-          = object ["GatewayARN" .= _shuGatewayARN]
+          = object ["GatewayARN" .= _srqGatewayARN]
 
 instance ToPath ShutdownGateway where
         toPath = const "/"
@@ -124,26 +124,26 @@ instance ToQuery ShutdownGateway where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sgrGatewayARN'
+-- * 'srsGatewayARN'
 --
--- * 'sgrStatus'
+-- * 'srsStatus'
 data ShutdownGatewayResponse = ShutdownGatewayResponse'
-    { _sgrGatewayARN :: !(Maybe Text)
-    , _sgrStatus     :: !Int
+    { _srsGatewayARN :: !(Maybe Text)
+    , _srsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ShutdownGatewayResponse' smart constructor.
 shutdownGatewayResponse :: Int -> ShutdownGatewayResponse
 shutdownGatewayResponse pStatus =
     ShutdownGatewayResponse'
-    { _sgrGatewayARN = Nothing
-    , _sgrStatus = pStatus
+    { _srsGatewayARN = Nothing
+    , _srsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-sgrGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
-sgrGatewayARN = lens _sgrGatewayARN (\ s a -> s{_sgrGatewayARN = a});
+srsGatewayARN :: Lens' ShutdownGatewayResponse (Maybe Text)
+srsGatewayARN = lens _srsGatewayARN (\ s a -> s{_srsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-sgrStatus :: Lens' ShutdownGatewayResponse Int
-sgrStatus = lens _sgrStatus (\ s a -> s{_sgrStatus = a});
+srsStatus :: Lens' ShutdownGatewayResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

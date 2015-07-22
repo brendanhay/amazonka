@@ -30,16 +30,16 @@ module Network.AWS.CloudHSM.ModifyLunaClient
     -- ** Request constructor
     , modifyLunaClient
     -- ** Request lenses
-    , mlcClientARN
-    , mlcCertificate
+    , mlcrqClientARN
+    , mlcrqCertificate
 
     -- * Response
     , ModifyLunaClientResponse
     -- ** Response constructor
     , modifyLunaClientResponse
     -- ** Response lenses
-    , mlcrClientARN
-    , mlcrStatus
+    , mlcrsClientARN
+    , mlcrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mlcClientARN'
+-- * 'mlcrqClientARN'
 --
--- * 'mlcCertificate'
+-- * 'mlcrqCertificate'
 data ModifyLunaClient = ModifyLunaClient'
-    { _mlcClientARN   :: !Text
-    , _mlcCertificate :: !Text
+    { _mlcrqClientARN   :: !Text
+    , _mlcrqCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLunaClient' smart constructor.
 modifyLunaClient :: Text -> Text -> ModifyLunaClient
 modifyLunaClient pClientARN pCertificate =
     ModifyLunaClient'
-    { _mlcClientARN = pClientARN
-    , _mlcCertificate = pCertificate
+    { _mlcrqClientARN = pClientARN
+    , _mlcrqCertificate = pCertificate
     }
 
 -- | The ARN of the client.
-mlcClientARN :: Lens' ModifyLunaClient Text
-mlcClientARN = lens _mlcClientARN (\ s a -> s{_mlcClientARN = a});
+mlcrqClientARN :: Lens' ModifyLunaClient Text
+mlcrqClientARN = lens _mlcrqClientARN (\ s a -> s{_mlcrqClientARN = a});
 
 -- | The new certificate for the client.
-mlcCertificate :: Lens' ModifyLunaClient Text
-mlcCertificate = lens _mlcCertificate (\ s a -> s{_mlcCertificate = a});
+mlcrqCertificate :: Lens' ModifyLunaClient Text
+mlcrqCertificate = lens _mlcrqCertificate (\ s a -> s{_mlcrqCertificate = a});
 
 instance AWSRequest ModifyLunaClient where
         type Sv ModifyLunaClient = CloudHSM
@@ -98,8 +98,8 @@ instance ToHeaders ModifyLunaClient where
 instance ToJSON ModifyLunaClient where
         toJSON ModifyLunaClient'{..}
           = object
-              ["ClientArn" .= _mlcClientARN,
-               "Certificate" .= _mlcCertificate]
+              ["ClientArn" .= _mlcrqClientARN,
+               "Certificate" .= _mlcrqCertificate]
 
 instance ToPath ModifyLunaClient where
         toPath = const "/"
@@ -111,26 +111,26 @@ instance ToQuery ModifyLunaClient where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mlcrClientARN'
+-- * 'mlcrsClientARN'
 --
--- * 'mlcrStatus'
+-- * 'mlcrsStatus'
 data ModifyLunaClientResponse = ModifyLunaClientResponse'
-    { _mlcrClientARN :: !(Maybe Text)
-    , _mlcrStatus    :: !Int
+    { _mlcrsClientARN :: !(Maybe Text)
+    , _mlcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLunaClientResponse' smart constructor.
 modifyLunaClientResponse :: Int -> ModifyLunaClientResponse
 modifyLunaClientResponse pStatus =
     ModifyLunaClientResponse'
-    { _mlcrClientARN = Nothing
-    , _mlcrStatus = pStatus
+    { _mlcrsClientARN = Nothing
+    , _mlcrsStatus = pStatus
     }
 
 -- | The ARN of the client.
-mlcrClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
-mlcrClientARN = lens _mlcrClientARN (\ s a -> s{_mlcrClientARN = a});
+mlcrsClientARN :: Lens' ModifyLunaClientResponse (Maybe Text)
+mlcrsClientARN = lens _mlcrsClientARN (\ s a -> s{_mlcrsClientARN = a});
 
 -- | FIXME: Undocumented member.
-mlcrStatus :: Lens' ModifyLunaClientResponse Int
-mlcrStatus = lens _mlcrStatus (\ s a -> s{_mlcrStatus = a});
+mlcrsStatus :: Lens' ModifyLunaClientResponse Int
+mlcrsStatus = lens _mlcrsStatus (\ s a -> s{_mlcrsStatus = a});

@@ -32,19 +32,19 @@ module Network.AWS.EC2.DescribeSnapshotAttribute
     -- ** Request constructor
     , describeSnapshotAttribute
     -- ** Request lenses
-    , dsaDryRun
-    , dsaSnapshotId
-    , dsaAttribute
+    , dsarqDryRun
+    , dsarqSnapshotId
+    , dsarqAttribute
 
     -- * Response
     , DescribeSnapshotAttributeResponse
     -- ** Response constructor
     , describeSnapshotAttributeResponse
     -- ** Response lenses
-    , dsarCreateVolumePermissions
-    , dsarProductCodes
-    , dsarSnapshotId
-    , dsarStatus
+    , dsarsCreateVolumePermissions
+    , dsarsProductCodes
+    , dsarsSnapshotId
+    , dsarsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -56,40 +56,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsaDryRun'
+-- * 'dsarqDryRun'
 --
--- * 'dsaSnapshotId'
+-- * 'dsarqSnapshotId'
 --
--- * 'dsaAttribute'
+-- * 'dsarqAttribute'
 data DescribeSnapshotAttribute = DescribeSnapshotAttribute'
-    { _dsaDryRun     :: !(Maybe Bool)
-    , _dsaSnapshotId :: !Text
-    , _dsaAttribute  :: !SnapshotAttributeName
+    { _dsarqDryRun     :: !(Maybe Bool)
+    , _dsarqSnapshotId :: !Text
+    , _dsarqAttribute  :: !SnapshotAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotAttribute' smart constructor.
 describeSnapshotAttribute :: Text -> SnapshotAttributeName -> DescribeSnapshotAttribute
 describeSnapshotAttribute pSnapshotId pAttribute =
     DescribeSnapshotAttribute'
-    { _dsaDryRun = Nothing
-    , _dsaSnapshotId = pSnapshotId
-    , _dsaAttribute = pAttribute
+    { _dsarqDryRun = Nothing
+    , _dsarqSnapshotId = pSnapshotId
+    , _dsarqAttribute = pAttribute
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsaDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
-dsaDryRun = lens _dsaDryRun (\ s a -> s{_dsaDryRun = a});
+dsarqDryRun :: Lens' DescribeSnapshotAttribute (Maybe Bool)
+dsarqDryRun = lens _dsarqDryRun (\ s a -> s{_dsarqDryRun = a});
 
 -- | The ID of the EBS snapshot.
-dsaSnapshotId :: Lens' DescribeSnapshotAttribute Text
-dsaSnapshotId = lens _dsaSnapshotId (\ s a -> s{_dsaSnapshotId = a});
+dsarqSnapshotId :: Lens' DescribeSnapshotAttribute Text
+dsarqSnapshotId = lens _dsarqSnapshotId (\ s a -> s{_dsarqSnapshotId = a});
 
 -- | The snapshot attribute you would like to view.
-dsaAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
-dsaAttribute = lens _dsaAttribute (\ s a -> s{_dsaAttribute = a});
+dsarqAttribute :: Lens' DescribeSnapshotAttribute SnapshotAttributeName
+dsarqAttribute = lens _dsarqAttribute (\ s a -> s{_dsarqAttribute = a});
 
 instance AWSRequest DescribeSnapshotAttribute where
         type Sv DescribeSnapshotAttribute = EC2
@@ -120,50 +120,50 @@ instance ToQuery DescribeSnapshotAttribute where
               ["Action" =:
                  ("DescribeSnapshotAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dsaDryRun,
-               "SnapshotId" =: _dsaSnapshotId,
-               "Attribute" =: _dsaAttribute]
+               "DryRun" =: _dsarqDryRun,
+               "SnapshotId" =: _dsarqSnapshotId,
+               "Attribute" =: _dsarqAttribute]
 
 -- | /See:/ 'describeSnapshotAttributeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsarCreateVolumePermissions'
+-- * 'dsarsCreateVolumePermissions'
 --
--- * 'dsarProductCodes'
+-- * 'dsarsProductCodes'
 --
--- * 'dsarSnapshotId'
+-- * 'dsarsSnapshotId'
 --
--- * 'dsarStatus'
+-- * 'dsarsStatus'
 data DescribeSnapshotAttributeResponse = DescribeSnapshotAttributeResponse'
-    { _dsarCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
-    , _dsarProductCodes            :: !(Maybe [ProductCode])
-    , _dsarSnapshotId              :: !(Maybe Text)
-    , _dsarStatus                  :: !Int
+    { _dsarsCreateVolumePermissions :: !(Maybe [CreateVolumePermission])
+    , _dsarsProductCodes            :: !(Maybe [ProductCode])
+    , _dsarsSnapshotId              :: !(Maybe Text)
+    , _dsarsStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotAttributeResponse' smart constructor.
 describeSnapshotAttributeResponse :: Int -> DescribeSnapshotAttributeResponse
 describeSnapshotAttributeResponse pStatus =
     DescribeSnapshotAttributeResponse'
-    { _dsarCreateVolumePermissions = Nothing
-    , _dsarProductCodes = Nothing
-    , _dsarSnapshotId = Nothing
-    , _dsarStatus = pStatus
+    { _dsarsCreateVolumePermissions = Nothing
+    , _dsarsProductCodes = Nothing
+    , _dsarsSnapshotId = Nothing
+    , _dsarsStatus = pStatus
     }
 
 -- | A list of permissions for creating volumes from the snapshot.
-dsarCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
-dsarCreateVolumePermissions = lens _dsarCreateVolumePermissions (\ s a -> s{_dsarCreateVolumePermissions = a}) . _Default;
+dsarsCreateVolumePermissions :: Lens' DescribeSnapshotAttributeResponse [CreateVolumePermission]
+dsarsCreateVolumePermissions = lens _dsarsCreateVolumePermissions (\ s a -> s{_dsarsCreateVolumePermissions = a}) . _Default;
 
 -- | A list of product codes.
-dsarProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
-dsarProductCodes = lens _dsarProductCodes (\ s a -> s{_dsarProductCodes = a}) . _Default;
+dsarsProductCodes :: Lens' DescribeSnapshotAttributeResponse [ProductCode]
+dsarsProductCodes = lens _dsarsProductCodes (\ s a -> s{_dsarsProductCodes = a}) . _Default;
 
 -- | The ID of the EBS snapshot.
-dsarSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
-dsarSnapshotId = lens _dsarSnapshotId (\ s a -> s{_dsarSnapshotId = a});
+dsarsSnapshotId :: Lens' DescribeSnapshotAttributeResponse (Maybe Text)
+dsarsSnapshotId = lens _dsarsSnapshotId (\ s a -> s{_dsarsSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-dsarStatus :: Lens' DescribeSnapshotAttributeResponse Int
-dsarStatus = lens _dsarStatus (\ s a -> s{_dsarStatus = a});
+dsarsStatus :: Lens' DescribeSnapshotAttributeResponse Int
+dsarsStatus = lens _dsarsStatus (\ s a -> s{_dsarsStatus = a});

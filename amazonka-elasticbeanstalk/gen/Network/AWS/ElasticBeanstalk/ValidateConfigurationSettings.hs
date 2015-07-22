@@ -31,18 +31,18 @@ module Network.AWS.ElasticBeanstalk.ValidateConfigurationSettings
     -- ** Request constructor
     , validateConfigurationSettings
     -- ** Request lenses
-    , vcsTemplateName
-    , vcsEnvironmentName
-    , vcsApplicationName
-    , vcsOptionSettings
+    , vcsrqTemplateName
+    , vcsrqEnvironmentName
+    , vcsrqApplicationName
+    , vcsrqOptionSettings
 
     -- * Response
     , ValidateConfigurationSettingsResponse
     -- ** Response constructor
     , validateConfigurationSettingsResponse
     -- ** Response lenses
-    , vcsrMessages
-    , vcsrStatus
+    , vcsrsMessages
+    , vcsrsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -56,51 +56,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vcsTemplateName'
+-- * 'vcsrqTemplateName'
 --
--- * 'vcsEnvironmentName'
+-- * 'vcsrqEnvironmentName'
 --
--- * 'vcsApplicationName'
+-- * 'vcsrqApplicationName'
 --
--- * 'vcsOptionSettings'
+-- * 'vcsrqOptionSettings'
 data ValidateConfigurationSettings = ValidateConfigurationSettings'
-    { _vcsTemplateName    :: !(Maybe Text)
-    , _vcsEnvironmentName :: !(Maybe Text)
-    , _vcsApplicationName :: !Text
-    , _vcsOptionSettings  :: ![ConfigurationOptionSetting]
+    { _vcsrqTemplateName    :: !(Maybe Text)
+    , _vcsrqEnvironmentName :: !(Maybe Text)
+    , _vcsrqApplicationName :: !Text
+    , _vcsrqOptionSettings  :: ![ConfigurationOptionSetting]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateConfigurationSettings' smart constructor.
 validateConfigurationSettings :: Text -> ValidateConfigurationSettings
 validateConfigurationSettings pApplicationName =
     ValidateConfigurationSettings'
-    { _vcsTemplateName = Nothing
-    , _vcsEnvironmentName = Nothing
-    , _vcsApplicationName = pApplicationName
-    , _vcsOptionSettings = mempty
+    { _vcsrqTemplateName = Nothing
+    , _vcsrqEnvironmentName = Nothing
+    , _vcsrqApplicationName = pApplicationName
+    , _vcsrqOptionSettings = mempty
     }
 
 -- | The name of the configuration template to validate the settings against.
 --
 -- Condition: You cannot specify both this and an environment name.
-vcsTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsTemplateName = lens _vcsTemplateName (\ s a -> s{_vcsTemplateName = a});
+vcsrqTemplateName :: Lens' ValidateConfigurationSettings (Maybe Text)
+vcsrqTemplateName = lens _vcsrqTemplateName (\ s a -> s{_vcsrqTemplateName = a});
 
 -- | The name of the environment to validate the settings against.
 --
 -- Condition: You cannot specify both this and a configuration template
 -- name.
-vcsEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
-vcsEnvironmentName = lens _vcsEnvironmentName (\ s a -> s{_vcsEnvironmentName = a});
+vcsrqEnvironmentName :: Lens' ValidateConfigurationSettings (Maybe Text)
+vcsrqEnvironmentName = lens _vcsrqEnvironmentName (\ s a -> s{_vcsrqEnvironmentName = a});
 
 -- | The name of the application that the configuration template or
 -- environment belongs to.
-vcsApplicationName :: Lens' ValidateConfigurationSettings Text
-vcsApplicationName = lens _vcsApplicationName (\ s a -> s{_vcsApplicationName = a});
+vcsrqApplicationName :: Lens' ValidateConfigurationSettings Text
+vcsrqApplicationName = lens _vcsrqApplicationName (\ s a -> s{_vcsrqApplicationName = a});
 
 -- | A list of the options and desired values to evaluate.
-vcsOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
-vcsOptionSettings = lens _vcsOptionSettings (\ s a -> s{_vcsOptionSettings = a});
+vcsrqOptionSettings :: Lens' ValidateConfigurationSettings [ConfigurationOptionSetting]
+vcsrqOptionSettings = lens _vcsrqOptionSettings (\ s a -> s{_vcsrqOptionSettings = a});
 
 instance AWSRequest ValidateConfigurationSettings
          where
@@ -131,11 +131,11 @@ instance ToQuery ValidateConfigurationSettings where
               ["Action" =:
                  ("ValidateConfigurationSettings" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "TemplateName" =: _vcsTemplateName,
-               "EnvironmentName" =: _vcsEnvironmentName,
-               "ApplicationName" =: _vcsApplicationName,
+               "TemplateName" =: _vcsrqTemplateName,
+               "EnvironmentName" =: _vcsrqEnvironmentName,
+               "ApplicationName" =: _vcsrqApplicationName,
                "OptionSettings" =:
-                 toQueryList "member" _vcsOptionSettings]
+                 toQueryList "member" _vcsrqOptionSettings]
 
 -- | Provides a list of validation messages.
 --
@@ -143,26 +143,26 @@ instance ToQuery ValidateConfigurationSettings where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vcsrMessages'
+-- * 'vcsrsMessages'
 --
--- * 'vcsrStatus'
+-- * 'vcsrsStatus'
 data ValidateConfigurationSettingsResponse = ValidateConfigurationSettingsResponse'
-    { _vcsrMessages :: !(Maybe [ValidationMessage])
-    , _vcsrStatus   :: !Int
+    { _vcsrsMessages :: !(Maybe [ValidationMessage])
+    , _vcsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateConfigurationSettingsResponse' smart constructor.
 validateConfigurationSettingsResponse :: Int -> ValidateConfigurationSettingsResponse
 validateConfigurationSettingsResponse pStatus =
     ValidateConfigurationSettingsResponse'
-    { _vcsrMessages = Nothing
-    , _vcsrStatus = pStatus
+    { _vcsrsMessages = Nothing
+    , _vcsrsStatus = pStatus
     }
 
 -- | A list of ValidationMessage.
-vcsrMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
-vcsrMessages = lens _vcsrMessages (\ s a -> s{_vcsrMessages = a}) . _Default;
+vcsrsMessages :: Lens' ValidateConfigurationSettingsResponse [ValidationMessage]
+vcsrsMessages = lens _vcsrsMessages (\ s a -> s{_vcsrsMessages = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-vcsrStatus :: Lens' ValidateConfigurationSettingsResponse Int
-vcsrStatus = lens _vcsrStatus (\ s a -> s{_vcsrStatus = a});
+vcsrsStatus :: Lens' ValidateConfigurationSettingsResponse Int
+vcsrsStatus = lens _vcsrsStatus (\ s a -> s{_vcsrsStatus = a});

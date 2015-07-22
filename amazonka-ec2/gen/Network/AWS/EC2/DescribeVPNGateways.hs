@@ -31,17 +31,17 @@ module Network.AWS.EC2.DescribeVPNGateways
     -- ** Request constructor
     , describeVPNGateways
     -- ** Request lenses
-    , dvpngFilters
-    , dvpngDryRun
-    , dvpngVPNGatewayIds
+    , dvgsrqFilters
+    , dvgsrqDryRun
+    , dvgsrqVPNGatewayIds
 
     -- * Response
     , DescribeVPNGatewaysResponse
     -- ** Response constructor
     , describeVPNGatewaysResponse
     -- ** Response lenses
-    , dvgrVPNGateways
-    , dvgrStatus
+    , dvgsrsVPNGateways
+    , dvgsrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpngFilters'
+-- * 'dvgsrqFilters'
 --
--- * 'dvpngDryRun'
+-- * 'dvgsrqDryRun'
 --
--- * 'dvpngVPNGatewayIds'
+-- * 'dvgsrqVPNGatewayIds'
 data DescribeVPNGateways = DescribeVPNGateways'
-    { _dvpngFilters       :: !(Maybe [Filter])
-    , _dvpngDryRun        :: !(Maybe Bool)
-    , _dvpngVPNGatewayIds :: !(Maybe [Text])
+    { _dvgsrqFilters       :: !(Maybe [Filter])
+    , _dvgsrqDryRun        :: !(Maybe Bool)
+    , _dvgsrqVPNGatewayIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNGateways' smart constructor.
 describeVPNGateways :: DescribeVPNGateways
 describeVPNGateways =
     DescribeVPNGateways'
-    { _dvpngFilters = Nothing
-    , _dvpngDryRun = Nothing
-    , _dvpngVPNGatewayIds = Nothing
+    { _dvgsrqFilters = Nothing
+    , _dvgsrqDryRun = Nothing
+    , _dvgsrqVPNGatewayIds = Nothing
     }
 
 -- | One or more filters.
@@ -106,21 +106,21 @@ describeVPNGateways =
 --
 -- -   @vpn-gateway-id@ - The ID of the virtual private gateway.
 --
-dvpngFilters :: Lens' DescribeVPNGateways [Filter]
-dvpngFilters = lens _dvpngFilters (\ s a -> s{_dvpngFilters = a}) . _Default;
+dvgsrqFilters :: Lens' DescribeVPNGateways [Filter]
+dvgsrqFilters = lens _dvgsrqFilters (\ s a -> s{_dvgsrqFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvpngDryRun :: Lens' DescribeVPNGateways (Maybe Bool)
-dvpngDryRun = lens _dvpngDryRun (\ s a -> s{_dvpngDryRun = a});
+dvgsrqDryRun :: Lens' DescribeVPNGateways (Maybe Bool)
+dvgsrqDryRun = lens _dvgsrqDryRun (\ s a -> s{_dvgsrqDryRun = a});
 
 -- | One or more virtual private gateway IDs.
 --
 -- Default: Describes all your virtual private gateways.
-dvpngVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
-dvpngVPNGatewayIds = lens _dvpngVPNGatewayIds (\ s a -> s{_dvpngVPNGatewayIds = a}) . _Default;
+dvgsrqVPNGatewayIds :: Lens' DescribeVPNGateways [Text]
+dvgsrqVPNGatewayIds = lens _dvgsrqVPNGatewayIds (\ s a -> s{_dvgsrqVPNGatewayIds = a}) . _Default;
 
 instance AWSRequest DescribeVPNGateways where
         type Sv DescribeVPNGateways = EC2
@@ -146,35 +146,36 @@ instance ToQuery DescribeVPNGateways where
           = mconcat
               ["Action" =: ("DescribeVPNGateways" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvpngFilters),
-               "DryRun" =: _dvpngDryRun,
+               toQuery (toQueryList "Filter" <$> _dvgsrqFilters),
+               "DryRun" =: _dvgsrqDryRun,
                toQuery
-                 (toQueryList "VpnGatewayId" <$> _dvpngVPNGatewayIds)]
+                 (toQueryList "VpnGatewayId" <$>
+                    _dvgsrqVPNGatewayIds)]
 
 -- | /See:/ 'describeVPNGatewaysResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvgrVPNGateways'
+-- * 'dvgsrsVPNGateways'
 --
--- * 'dvgrStatus'
+-- * 'dvgsrsStatus'
 data DescribeVPNGatewaysResponse = DescribeVPNGatewaysResponse'
-    { _dvgrVPNGateways :: !(Maybe [VPNGateway])
-    , _dvgrStatus      :: !Int
+    { _dvgsrsVPNGateways :: !(Maybe [VPNGateway])
+    , _dvgsrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNGatewaysResponse' smart constructor.
 describeVPNGatewaysResponse :: Int -> DescribeVPNGatewaysResponse
 describeVPNGatewaysResponse pStatus =
     DescribeVPNGatewaysResponse'
-    { _dvgrVPNGateways = Nothing
-    , _dvgrStatus = pStatus
+    { _dvgsrsVPNGateways = Nothing
+    , _dvgsrsStatus = pStatus
     }
 
 -- | Information about one or more virtual private gateways.
-dvgrVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
-dvgrVPNGateways = lens _dvgrVPNGateways (\ s a -> s{_dvgrVPNGateways = a}) . _Default;
+dvgsrsVPNGateways :: Lens' DescribeVPNGatewaysResponse [VPNGateway]
+dvgsrsVPNGateways = lens _dvgsrsVPNGateways (\ s a -> s{_dvgsrsVPNGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvgrStatus :: Lens' DescribeVPNGatewaysResponse Int
-dvgrStatus = lens _dvgrStatus (\ s a -> s{_dvgrStatus = a});
+dvgsrsStatus :: Lens' DescribeVPNGatewaysResponse Int
+dvgsrsStatus = lens _dvgsrsStatus (\ s a -> s{_dvgsrsStatus = a});

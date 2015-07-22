@@ -27,30 +27,30 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bucValue'
+-- * 'bValue'
 --
--- * 'bucCount'
+-- * 'bCount'
 data Bucket = Bucket'
-    { _bucValue :: !(Maybe Text)
-    , _bucCount :: !(Maybe Integer)
+    { _bValue :: !(Maybe Text)
+    , _bCount :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Bucket' smart constructor.
 bucket :: Bucket
 bucket =
     Bucket'
-    { _bucValue = Nothing
-    , _bucCount = Nothing
+    { _bValue = Nothing
+    , _bCount = Nothing
     }
 
 -- | The facet value being counted.
-bucValue :: Lens' Bucket (Maybe Text)
-bucValue = lens _bucValue (\ s a -> s{_bucValue = a});
+bValue :: Lens' Bucket (Maybe Text)
+bValue = lens _bValue (\ s a -> s{_bValue = a});
 
 -- | The number of hits that contain the facet value in the specified facet
 -- field.
-bucCount :: Lens' Bucket (Maybe Integer)
-bucCount = lens _bucCount (\ s a -> s{_bucCount = a});
+bCount :: Lens' Bucket (Maybe Integer)
+bCount = lens _bCount (\ s a -> s{_bCount = a});
 
 instance FromJSON Bucket where
         parseJSON
@@ -176,46 +176,46 @@ instance FromJSON Hit where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'hitCursor'
+-- * 'hCursor'
 --
--- * 'hitHit'
+-- * 'hHit'
 --
--- * 'hitStart'
+-- * 'hStart'
 --
--- * 'hitFound'
+-- * 'hFound'
 data Hits = Hits'
-    { _hitCursor :: !(Maybe Text)
-    , _hitHit    :: !(Maybe [Hit])
-    , _hitStart  :: !(Maybe Integer)
-    , _hitFound  :: !(Maybe Integer)
+    { _hCursor :: !(Maybe Text)
+    , _hHit    :: !(Maybe [Hit])
+    , _hStart  :: !(Maybe Integer)
+    , _hFound  :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Hits' smart constructor.
 hits :: Hits
 hits =
     Hits'
-    { _hitCursor = Nothing
-    , _hitHit = Nothing
-    , _hitStart = Nothing
-    , _hitFound = Nothing
+    { _hCursor = Nothing
+    , _hHit = Nothing
+    , _hStart = Nothing
+    , _hFound = Nothing
     }
 
 -- | A cursor that can be used to retrieve the next set of matching documents
 -- when you want to page through a large result set.
-hitCursor :: Lens' Hits (Maybe Text)
-hitCursor = lens _hitCursor (\ s a -> s{_hitCursor = a});
+hCursor :: Lens' Hits (Maybe Text)
+hCursor = lens _hCursor (\ s a -> s{_hCursor = a});
 
 -- | A document that matches the search request.
-hitHit :: Lens' Hits [Hit]
-hitHit = lens _hitHit (\ s a -> s{_hitHit = a}) . _Default;
+hHit :: Lens' Hits [Hit]
+hHit = lens _hHit (\ s a -> s{_hHit = a}) . _Default;
 
 -- | The index of the first matching document.
-hitStart :: Lens' Hits (Maybe Integer)
-hitStart = lens _hitStart (\ s a -> s{_hitStart = a});
+hStart :: Lens' Hits (Maybe Integer)
+hStart = lens _hStart (\ s a -> s{_hStart = a});
 
 -- | The total number of documents that match the search request.
-hitFound :: Lens' Hits (Maybe Integer)
-hitFound = lens _hitFound (\ s a -> s{_hitFound = a});
+hFound :: Lens' Hits (Maybe Integer)
+hFound = lens _hFound (\ s a -> s{_hFound = a});
 
 instance FromJSON Hits where
         parseJSON
@@ -317,29 +317,29 @@ instance FromJSON SuggestModel where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sugRid'
+-- * 'sRid'
 --
--- * 'sugTimems'
+-- * 'sTimems'
 data SuggestStatus = SuggestStatus'
-    { _sugRid    :: !(Maybe Text)
-    , _sugTimems :: !(Maybe Integer)
+    { _sRid    :: !(Maybe Text)
+    , _sTimems :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SuggestStatus' smart constructor.
 suggestStatus :: SuggestStatus
 suggestStatus =
     SuggestStatus'
-    { _sugRid = Nothing
-    , _sugTimems = Nothing
+    { _sRid = Nothing
+    , _sTimems = Nothing
     }
 
 -- | The encrypted resource ID for the request.
-sugRid :: Lens' SuggestStatus (Maybe Text)
-sugRid = lens _sugRid (\ s a -> s{_sugRid = a});
+sRid :: Lens' SuggestStatus (Maybe Text)
+sRid = lens _sRid (\ s a -> s{_sRid = a});
 
 -- | How long it took to process the request, in milliseconds.
-sugTimems :: Lens' SuggestStatus (Maybe Integer)
-sugTimems = lens _sugTimems (\ s a -> s{_sugTimems = a});
+sTimems :: Lens' SuggestStatus (Maybe Integer)
+sTimems = lens _sTimems (\ s a -> s{_sTimems = a});
 
 instance FromJSON SuggestStatus where
         parseJSON

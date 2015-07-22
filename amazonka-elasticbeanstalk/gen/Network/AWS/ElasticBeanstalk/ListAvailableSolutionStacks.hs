@@ -32,9 +32,9 @@ module Network.AWS.ElasticBeanstalk.ListAvailableSolutionStacks
     -- ** Response constructor
     , listAvailableSolutionStacksResponse
     -- ** Response lenses
-    , lassrSolutionStacks
-    , lassrSolutionStackDetails
-    , lassrStatus
+    , lassrsSolutionStacks
+    , lassrsSolutionStackDetails
+    , lassrsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -89,34 +89,34 @@ instance ToQuery ListAvailableSolutionStacks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lassrSolutionStacks'
+-- * 'lassrsSolutionStacks'
 --
--- * 'lassrSolutionStackDetails'
+-- * 'lassrsSolutionStackDetails'
 --
--- * 'lassrStatus'
+-- * 'lassrsStatus'
 data ListAvailableSolutionStacksResponse = ListAvailableSolutionStacksResponse'
-    { _lassrSolutionStacks       :: !(Maybe [Text])
-    , _lassrSolutionStackDetails :: !(Maybe [SolutionStackDescription])
-    , _lassrStatus               :: !Int
+    { _lassrsSolutionStacks       :: !(Maybe [Text])
+    , _lassrsSolutionStackDetails :: !(Maybe [SolutionStackDescription])
+    , _lassrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAvailableSolutionStacksResponse' smart constructor.
 listAvailableSolutionStacksResponse :: Int -> ListAvailableSolutionStacksResponse
 listAvailableSolutionStacksResponse pStatus =
     ListAvailableSolutionStacksResponse'
-    { _lassrSolutionStacks = Nothing
-    , _lassrSolutionStackDetails = Nothing
-    , _lassrStatus = pStatus
+    { _lassrsSolutionStacks = Nothing
+    , _lassrsSolutionStackDetails = Nothing
+    , _lassrsStatus = pStatus
     }
 
 -- | A list of available solution stacks.
-lassrSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
-lassrSolutionStacks = lens _lassrSolutionStacks (\ s a -> s{_lassrSolutionStacks = a}) . _Default;
+lassrsSolutionStacks :: Lens' ListAvailableSolutionStacksResponse [Text]
+lassrsSolutionStacks = lens _lassrsSolutionStacks (\ s a -> s{_lassrsSolutionStacks = a}) . _Default;
 
 -- | A list of available solution stacks and their SolutionStackDescription.
-lassrSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
-lassrSolutionStackDetails = lens _lassrSolutionStackDetails (\ s a -> s{_lassrSolutionStackDetails = a}) . _Default;
+lassrsSolutionStackDetails :: Lens' ListAvailableSolutionStacksResponse [SolutionStackDescription]
+lassrsSolutionStackDetails = lens _lassrsSolutionStackDetails (\ s a -> s{_lassrsSolutionStackDetails = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lassrStatus :: Lens' ListAvailableSolutionStacksResponse Int
-lassrStatus = lens _lassrStatus (\ s a -> s{_lassrStatus = a});
+lassrsStatus :: Lens' ListAvailableSolutionStacksResponse Int
+lassrsStatus = lens _lassrsStatus (\ s a -> s{_lassrsStatus = a});

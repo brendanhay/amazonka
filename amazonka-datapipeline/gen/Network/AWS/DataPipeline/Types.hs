@@ -32,9 +32,9 @@ module Network.AWS.DataPipeline.Types
     -- * Field
     , Field
     , field
-    , fieRefValue
-    , fieStringValue
-    , fieKey
+    , fRefValue
+    , fStringValue
+    , fKey
 
     -- * InstanceIdentity
     , InstanceIdentity
@@ -45,8 +45,8 @@ module Network.AWS.DataPipeline.Types
     -- * Operator
     , Operator
     , operator
-    , opeValues
-    , opeType
+    , oValues
+    , oType
 
     -- * ParameterAttribute
     , ParameterAttribute
@@ -84,20 +84,20 @@ module Network.AWS.DataPipeline.Types
     -- * PipelineObject
     , PipelineObject
     , pipelineObject
-    , pipId
-    , pipName
-    , pipFields
+    , pId
+    , pName
+    , pFields
 
     -- * Query
     , Query
     , query
-    , queSelectors
+    , qSelectors
 
     -- * Selector
     , Selector
     , selector
-    , selOperator
-    , selFieldName
+    , sOperator
+    , sFieldName
 
     -- * Tag
     , Tag

@@ -33,18 +33,18 @@ module Network.AWS.Redshift.CreateClusterSubnetGroup
     -- ** Request constructor
     , createClusterSubnetGroup
     -- ** Request lenses
-    , ccsgTags
-    , ccsgClusterSubnetGroupName
-    , ccsgDescription
-    , ccsgSubnetIds
+    , ccsgrqTags
+    , ccsgrqClusterSubnetGroupName
+    , ccsgrqDescription
+    , ccsgrqSubnetIds
 
     -- * Response
     , CreateClusterSubnetGroupResponse
     -- ** Response constructor
     , createClusterSubnetGroupResponse
     -- ** Response lenses
-    , ccsgrClusterSubnetGroup
-    , ccsgrStatus
+    , ccsgrsClusterSubnetGroup
+    , ccsgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -58,33 +58,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgTags'
+-- * 'ccsgrqTags'
 --
--- * 'ccsgClusterSubnetGroupName'
+-- * 'ccsgrqClusterSubnetGroupName'
 --
--- * 'ccsgDescription'
+-- * 'ccsgrqDescription'
 --
--- * 'ccsgSubnetIds'
+-- * 'ccsgrqSubnetIds'
 data CreateClusterSubnetGroup = CreateClusterSubnetGroup'
-    { _ccsgTags                   :: !(Maybe [Tag])
-    , _ccsgClusterSubnetGroupName :: !Text
-    , _ccsgDescription            :: !Text
-    , _ccsgSubnetIds              :: ![Text]
+    { _ccsgrqTags                   :: !(Maybe [Tag])
+    , _ccsgrqClusterSubnetGroupName :: !Text
+    , _ccsgrqDescription            :: !Text
+    , _ccsgrqSubnetIds              :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSubnetGroup' smart constructor.
 createClusterSubnetGroup :: Text -> Text -> CreateClusterSubnetGroup
 createClusterSubnetGroup pClusterSubnetGroupName pDescription =
     CreateClusterSubnetGroup'
-    { _ccsgTags = Nothing
-    , _ccsgClusterSubnetGroupName = pClusterSubnetGroupName
-    , _ccsgDescription = pDescription
-    , _ccsgSubnetIds = mempty
+    { _ccsgrqTags = Nothing
+    , _ccsgrqClusterSubnetGroupName = pClusterSubnetGroupName
+    , _ccsgrqDescription = pDescription
+    , _ccsgrqSubnetIds = mempty
     }
 
 -- | A list of tag instances.
-ccsgTags :: Lens' CreateClusterSubnetGroup [Tag]
-ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default;
+ccsgrqTags :: Lens' CreateClusterSubnetGroup [Tag]
+ccsgrqTags = lens _ccsgrqTags (\ s a -> s{_ccsgrqTags = a}) . _Default;
 
 -- | The name for the subnet group. Amazon Redshift stores the value as a
 -- lowercase string.
@@ -97,17 +97,17 @@ ccsgTags = lens _ccsgTags (\ s a -> s{_ccsgTags = a}) . _Default;
 --     account.
 --
 -- Example: @examplesubnetgroup@
-ccsgClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
-ccsgClusterSubnetGroupName = lens _ccsgClusterSubnetGroupName (\ s a -> s{_ccsgClusterSubnetGroupName = a});
+ccsgrqClusterSubnetGroupName :: Lens' CreateClusterSubnetGroup Text
+ccsgrqClusterSubnetGroupName = lens _ccsgrqClusterSubnetGroupName (\ s a -> s{_ccsgrqClusterSubnetGroupName = a});
 
 -- | A description for the subnet group.
-ccsgDescription :: Lens' CreateClusterSubnetGroup Text
-ccsgDescription = lens _ccsgDescription (\ s a -> s{_ccsgDescription = a});
+ccsgrqDescription :: Lens' CreateClusterSubnetGroup Text
+ccsgrqDescription = lens _ccsgrqDescription (\ s a -> s{_ccsgrqDescription = a});
 
 -- | An array of VPC subnet IDs. A maximum of 20 subnets can be modified in a
 -- single request.
-ccsgSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
-ccsgSubnetIds = lens _ccsgSubnetIds (\ s a -> s{_ccsgSubnetIds = a});
+ccsgrqSubnetIds :: Lens' CreateClusterSubnetGroup [Text]
+ccsgrqSubnetIds = lens _ccsgrqSubnetIds (\ s a -> s{_ccsgrqSubnetIds = a});
 
 instance AWSRequest CreateClusterSubnetGroup where
         type Sv CreateClusterSubnetGroup = Redshift
@@ -132,37 +132,38 @@ instance ToQuery CreateClusterSubnetGroup where
               ["Action" =:
                  ("CreateClusterSubnetGroup" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _ccsgTags),
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _ccsgrqTags),
                "ClusterSubnetGroupName" =:
-                 _ccsgClusterSubnetGroupName,
-               "Description" =: _ccsgDescription,
+                 _ccsgrqClusterSubnetGroupName,
+               "Description" =: _ccsgrqDescription,
                "SubnetIds" =:
-                 toQueryList "SubnetIdentifier" _ccsgSubnetIds]
+                 toQueryList "SubnetIdentifier" _ccsgrqSubnetIds]
 
 -- | /See:/ 'createClusterSubnetGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsgrClusterSubnetGroup'
+-- * 'ccsgrsClusterSubnetGroup'
 --
--- * 'ccsgrStatus'
+-- * 'ccsgrsStatus'
 data CreateClusterSubnetGroupResponse = CreateClusterSubnetGroupResponse'
-    { _ccsgrClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
-    , _ccsgrStatus             :: !Int
+    { _ccsgrsClusterSubnetGroup :: !(Maybe ClusterSubnetGroup)
+    , _ccsgrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSubnetGroupResponse' smart constructor.
 createClusterSubnetGroupResponse :: Int -> CreateClusterSubnetGroupResponse
 createClusterSubnetGroupResponse pStatus =
     CreateClusterSubnetGroupResponse'
-    { _ccsgrClusterSubnetGroup = Nothing
-    , _ccsgrStatus = pStatus
+    { _ccsgrsClusterSubnetGroup = Nothing
+    , _ccsgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ccsgrClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
-ccsgrClusterSubnetGroup = lens _ccsgrClusterSubnetGroup (\ s a -> s{_ccsgrClusterSubnetGroup = a});
+ccsgrsClusterSubnetGroup :: Lens' CreateClusterSubnetGroupResponse (Maybe ClusterSubnetGroup)
+ccsgrsClusterSubnetGroup = lens _ccsgrsClusterSubnetGroup (\ s a -> s{_ccsgrsClusterSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-ccsgrStatus :: Lens' CreateClusterSubnetGroupResponse Int
-ccsgrStatus = lens _ccsgrStatus (\ s a -> s{_ccsgrStatus = a});
+ccsgrsStatus :: Lens' CreateClusterSubnetGroupResponse Int
+ccsgrsStatus = lens _ccsgrsStatus (\ s a -> s{_ccsgrsStatus = a});

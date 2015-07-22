@@ -27,15 +27,15 @@ module Network.AWS.CodeDeploy.GetApplication
     -- ** Request constructor
     , getApplication
     -- ** Request lenses
-    , gaApplicationName
+    , garqApplicationName
 
     -- * Response
     , GetApplicationResponse
     -- ** Response constructor
     , getApplicationResponse
     -- ** Response lenses
-    , garApplication
-    , garStatus
+    , garsApplication
+    , garsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaApplicationName'
+-- * 'garqApplicationName'
 newtype GetApplication = GetApplication'
-    { _gaApplicationName :: Text
+    { _garqApplicationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplication' smart constructor.
 getApplication :: Text -> GetApplication
 getApplication pApplicationName =
     GetApplication'
-    { _gaApplicationName = pApplicationName
+    { _garqApplicationName = pApplicationName
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-gaApplicationName :: Lens' GetApplication Text
-gaApplicationName = lens _gaApplicationName (\ s a -> s{_gaApplicationName = a});
+garqApplicationName :: Lens' GetApplication Text
+garqApplicationName = lens _garqApplicationName (\ s a -> s{_garqApplicationName = a});
 
 instance AWSRequest GetApplication where
         type Sv GetApplication = CodeDeploy
@@ -87,7 +87,7 @@ instance ToHeaders GetApplication where
 
 instance ToJSON GetApplication where
         toJSON GetApplication'{..}
-          = object ["applicationName" .= _gaApplicationName]
+          = object ["applicationName" .= _garqApplicationName]
 
 instance ToPath GetApplication where
         toPath = const "/"
@@ -101,26 +101,26 @@ instance ToQuery GetApplication where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'garApplication'
+-- * 'garsApplication'
 --
--- * 'garStatus'
+-- * 'garsStatus'
 data GetApplicationResponse = GetApplicationResponse'
-    { _garApplication :: !(Maybe ApplicationInfo)
-    , _garStatus      :: !Int
+    { _garsApplication :: !(Maybe ApplicationInfo)
+    , _garsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetApplicationResponse' smart constructor.
 getApplicationResponse :: Int -> GetApplicationResponse
 getApplicationResponse pStatus =
     GetApplicationResponse'
-    { _garApplication = Nothing
-    , _garStatus = pStatus
+    { _garsApplication = Nothing
+    , _garsStatus = pStatus
     }
 
 -- | Information about the application.
-garApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
-garApplication = lens _garApplication (\ s a -> s{_garApplication = a});
+garsApplication :: Lens' GetApplicationResponse (Maybe ApplicationInfo)
+garsApplication = lens _garsApplication (\ s a -> s{_garsApplication = a});
 
 -- | FIXME: Undocumented member.
-garStatus :: Lens' GetApplicationResponse Int
-garStatus = lens _garStatus (\ s a -> s{_garStatus = a});
+garsStatus :: Lens' GetApplicationResponse Int
+garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

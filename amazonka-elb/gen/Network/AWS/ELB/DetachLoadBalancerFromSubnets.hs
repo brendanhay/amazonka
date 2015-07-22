@@ -33,16 +33,16 @@ module Network.AWS.ELB.DetachLoadBalancerFromSubnets
     -- ** Request constructor
     , detachLoadBalancerFromSubnets
     -- ** Request lenses
-    , dlbfsLoadBalancerName
-    , dlbfsSubnets
+    , dlbfsrqLoadBalancerName
+    , dlbfsrqSubnets
 
     -- * Response
     , DetachLoadBalancerFromSubnetsResponse
     -- ** Response constructor
     , detachLoadBalancerFromSubnetsResponse
     -- ** Response lenses
-    , dlbfsrSubnets
-    , dlbfsrStatus
+    , dlbfsrsSubnets
+    , dlbfsrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -54,29 +54,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbfsLoadBalancerName'
+-- * 'dlbfsrqLoadBalancerName'
 --
--- * 'dlbfsSubnets'
+-- * 'dlbfsrqSubnets'
 data DetachLoadBalancerFromSubnets = DetachLoadBalancerFromSubnets'
-    { _dlbfsLoadBalancerName :: !Text
-    , _dlbfsSubnets          :: ![Text]
+    { _dlbfsrqLoadBalancerName :: !Text
+    , _dlbfsrqSubnets          :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancerFromSubnets' smart constructor.
 detachLoadBalancerFromSubnets :: Text -> DetachLoadBalancerFromSubnets
 detachLoadBalancerFromSubnets pLoadBalancerName =
     DetachLoadBalancerFromSubnets'
-    { _dlbfsLoadBalancerName = pLoadBalancerName
-    , _dlbfsSubnets = mempty
+    { _dlbfsrqLoadBalancerName = pLoadBalancerName
+    , _dlbfsrqSubnets = mempty
     }
 
 -- | The name of the load balancer.
-dlbfsLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
-dlbfsLoadBalancerName = lens _dlbfsLoadBalancerName (\ s a -> s{_dlbfsLoadBalancerName = a});
+dlbfsrqLoadBalancerName :: Lens' DetachLoadBalancerFromSubnets Text
+dlbfsrqLoadBalancerName = lens _dlbfsrqLoadBalancerName (\ s a -> s{_dlbfsrqLoadBalancerName = a});
 
 -- | The IDs of the subnets.
-dlbfsSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
-dlbfsSubnets = lens _dlbfsSubnets (\ s a -> s{_dlbfsSubnets = a});
+dlbfsrqSubnets :: Lens' DetachLoadBalancerFromSubnets [Text]
+dlbfsrqSubnets = lens _dlbfsrqSubnets (\ s a -> s{_dlbfsrqSubnets = a});
 
 instance AWSRequest DetachLoadBalancerFromSubnets
          where
@@ -106,33 +106,33 @@ instance ToQuery DetachLoadBalancerFromSubnets where
               ["Action" =:
                  ("DetachLoadBalancerFromSubnets" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dlbfsLoadBalancerName,
-               "Subnets" =: toQueryList "member" _dlbfsSubnets]
+               "LoadBalancerName" =: _dlbfsrqLoadBalancerName,
+               "Subnets" =: toQueryList "member" _dlbfsrqSubnets]
 
 -- | /See:/ 'detachLoadBalancerFromSubnetsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbfsrSubnets'
+-- * 'dlbfsrsSubnets'
 --
--- * 'dlbfsrStatus'
+-- * 'dlbfsrsStatus'
 data DetachLoadBalancerFromSubnetsResponse = DetachLoadBalancerFromSubnetsResponse'
-    { _dlbfsrSubnets :: !(Maybe [Text])
-    , _dlbfsrStatus  :: !Int
+    { _dlbfsrsSubnets :: !(Maybe [Text])
+    , _dlbfsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancerFromSubnetsResponse' smart constructor.
 detachLoadBalancerFromSubnetsResponse :: Int -> DetachLoadBalancerFromSubnetsResponse
 detachLoadBalancerFromSubnetsResponse pStatus =
     DetachLoadBalancerFromSubnetsResponse'
-    { _dlbfsrSubnets = Nothing
-    , _dlbfsrStatus = pStatus
+    { _dlbfsrsSubnets = Nothing
+    , _dlbfsrsStatus = pStatus
     }
 
 -- | The IDs of the remaining subnets for the load balancer.
-dlbfsrSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
-dlbfsrSubnets = lens _dlbfsrSubnets (\ s a -> s{_dlbfsrSubnets = a}) . _Default;
+dlbfsrsSubnets :: Lens' DetachLoadBalancerFromSubnetsResponse [Text]
+dlbfsrsSubnets = lens _dlbfsrsSubnets (\ s a -> s{_dlbfsrsSubnets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbfsrStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
-dlbfsrStatus = lens _dlbfsrStatus (\ s a -> s{_dlbfsrStatus = a});
+dlbfsrsStatus :: Lens' DetachLoadBalancerFromSubnetsResponse Int
+dlbfsrsStatus = lens _dlbfsrsStatus (\ s a -> s{_dlbfsrsStatus = a});

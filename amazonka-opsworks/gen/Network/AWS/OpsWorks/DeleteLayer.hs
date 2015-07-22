@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.DeleteLayer
     -- ** Request constructor
     , deleteLayer
     -- ** Request lenses
-    , dlLayerId
+    , dlrqLayerId
 
     -- * Response
     , DeleteLayerResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlLayerId'
+-- * 'dlrqLayerId'
 newtype DeleteLayer = DeleteLayer'
-    { _dlLayerId :: Text
+    { _dlrqLayerId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLayer' smart constructor.
 deleteLayer :: Text -> DeleteLayer
 deleteLayer pLayerId =
     DeleteLayer'
-    { _dlLayerId = pLayerId
+    { _dlrqLayerId = pLayerId
     }
 
 -- | The layer ID.
-dlLayerId :: Lens' DeleteLayer Text
-dlLayerId = lens _dlLayerId (\ s a -> s{_dlLayerId = a});
+dlrqLayerId :: Lens' DeleteLayer Text
+dlrqLayerId = lens _dlrqLayerId (\ s a -> s{_dlrqLayerId = a});
 
 instance AWSRequest DeleteLayer where
         type Sv DeleteLayer = OpsWorks
@@ -86,7 +86,7 @@ instance ToHeaders DeleteLayer where
 
 instance ToJSON DeleteLayer where
         toJSON DeleteLayer'{..}
-          = object ["LayerId" .= _dlLayerId]
+          = object ["LayerId" .= _dlrqLayerId]
 
 instance ToPath DeleteLayer where
         toPath = const "/"

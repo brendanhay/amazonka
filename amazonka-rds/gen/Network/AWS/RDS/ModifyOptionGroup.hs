@@ -27,18 +27,18 @@ module Network.AWS.RDS.ModifyOptionGroup
     -- ** Request constructor
     , modifyOptionGroup
     -- ** Request lenses
-    , mogOptionsToInclude
-    , mogOptionsToRemove
-    , mogApplyImmediately
-    , mogOptionGroupName
+    , mogrqOptionsToInclude
+    , mogrqOptionsToRemove
+    , mogrqApplyImmediately
+    , mogrqOptionGroupName
 
     -- * Response
     , ModifyOptionGroupResponse
     -- ** Response constructor
     , modifyOptionGroupResponse
     -- ** Response lenses
-    , mogrOptionGroup
-    , mogrStatus
+    , mogrsOptionGroup
+    , mogrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,45 +52,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mogOptionsToInclude'
+-- * 'mogrqOptionsToInclude'
 --
--- * 'mogOptionsToRemove'
+-- * 'mogrqOptionsToRemove'
 --
--- * 'mogApplyImmediately'
+-- * 'mogrqApplyImmediately'
 --
--- * 'mogOptionGroupName'
+-- * 'mogrqOptionGroupName'
 data ModifyOptionGroup = ModifyOptionGroup'
-    { _mogOptionsToInclude :: !(Maybe [OptionConfiguration])
-    , _mogOptionsToRemove  :: !(Maybe [Text])
-    , _mogApplyImmediately :: !(Maybe Bool)
-    , _mogOptionGroupName  :: !Text
+    { _mogrqOptionsToInclude :: !(Maybe [OptionConfiguration])
+    , _mogrqOptionsToRemove  :: !(Maybe [Text])
+    , _mogrqApplyImmediately :: !(Maybe Bool)
+    , _mogrqOptionGroupName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyOptionGroup' smart constructor.
 modifyOptionGroup :: Text -> ModifyOptionGroup
 modifyOptionGroup pOptionGroupName =
     ModifyOptionGroup'
-    { _mogOptionsToInclude = Nothing
-    , _mogOptionsToRemove = Nothing
-    , _mogApplyImmediately = Nothing
-    , _mogOptionGroupName = pOptionGroupName
+    { _mogrqOptionsToInclude = Nothing
+    , _mogrqOptionsToRemove = Nothing
+    , _mogrqApplyImmediately = Nothing
+    , _mogrqOptionGroupName = pOptionGroupName
     }
 
 -- | Options in this list are added to the option group or, if already
 -- present, the specified configuration is used to update the existing
 -- configuration.
-mogOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
-mogOptionsToInclude = lens _mogOptionsToInclude (\ s a -> s{_mogOptionsToInclude = a}) . _Default;
+mogrqOptionsToInclude :: Lens' ModifyOptionGroup [OptionConfiguration]
+mogrqOptionsToInclude = lens _mogrqOptionsToInclude (\ s a -> s{_mogrqOptionsToInclude = a}) . _Default;
 
 -- | Options in this list are removed from the option group.
-mogOptionsToRemove :: Lens' ModifyOptionGroup [Text]
-mogOptionsToRemove = lens _mogOptionsToRemove (\ s a -> s{_mogOptionsToRemove = a}) . _Default;
+mogrqOptionsToRemove :: Lens' ModifyOptionGroup [Text]
+mogrqOptionsToRemove = lens _mogrqOptionsToRemove (\ s a -> s{_mogrqOptionsToRemove = a}) . _Default;
 
 -- | Indicates whether the changes should be applied immediately, or during
 -- the next maintenance window for each instance associated with the option
 -- group.
-mogApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
-mogApplyImmediately = lens _mogApplyImmediately (\ s a -> s{_mogApplyImmediately = a});
+mogrqApplyImmediately :: Lens' ModifyOptionGroup (Maybe Bool)
+mogrqApplyImmediately = lens _mogrqApplyImmediately (\ s a -> s{_mogrqApplyImmediately = a});
 
 -- | The name of the option group to be modified.
 --
@@ -98,8 +98,8 @@ mogApplyImmediately = lens _mogApplyImmediately (\ s a -> s{_mogApplyImmediately
 -- TDE, cannot be removed from an option group, and that option group
 -- cannot be removed from a DB instance once it is associated with a DB
 -- instance
-mogOptionGroupName :: Lens' ModifyOptionGroup Text
-mogOptionGroupName = lens _mogOptionGroupName (\ s a -> s{_mogOptionGroupName = a});
+mogrqOptionGroupName :: Lens' ModifyOptionGroup Text
+mogrqOptionGroupName = lens _mogrqOptionGroupName (\ s a -> s{_mogrqOptionGroupName = a});
 
 instance AWSRequest ModifyOptionGroup where
         type Sv ModifyOptionGroup = RDS
@@ -125,37 +125,37 @@ instance ToQuery ModifyOptionGroup where
                "OptionsToInclude" =:
                  toQuery
                    (toQueryList "OptionConfiguration" <$>
-                      _mogOptionsToInclude),
+                      _mogrqOptionsToInclude),
                "OptionsToRemove" =:
                  toQuery
-                   (toQueryList "member" <$> _mogOptionsToRemove),
-               "ApplyImmediately" =: _mogApplyImmediately,
-               "OptionGroupName" =: _mogOptionGroupName]
+                   (toQueryList "member" <$> _mogrqOptionsToRemove),
+               "ApplyImmediately" =: _mogrqApplyImmediately,
+               "OptionGroupName" =: _mogrqOptionGroupName]
 
 -- | /See:/ 'modifyOptionGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mogrOptionGroup'
+-- * 'mogrsOptionGroup'
 --
--- * 'mogrStatus'
+-- * 'mogrsStatus'
 data ModifyOptionGroupResponse = ModifyOptionGroupResponse'
-    { _mogrOptionGroup :: !(Maybe OptionGroup)
-    , _mogrStatus      :: !Int
+    { _mogrsOptionGroup :: !(Maybe OptionGroup)
+    , _mogrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyOptionGroupResponse' smart constructor.
 modifyOptionGroupResponse :: Int -> ModifyOptionGroupResponse
 modifyOptionGroupResponse pStatus =
     ModifyOptionGroupResponse'
-    { _mogrOptionGroup = Nothing
-    , _mogrStatus = pStatus
+    { _mogrsOptionGroup = Nothing
+    , _mogrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-mogrOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
-mogrOptionGroup = lens _mogrOptionGroup (\ s a -> s{_mogrOptionGroup = a});
+mogrsOptionGroup :: Lens' ModifyOptionGroupResponse (Maybe OptionGroup)
+mogrsOptionGroup = lens _mogrsOptionGroup (\ s a -> s{_mogrsOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-mogrStatus :: Lens' ModifyOptionGroupResponse Int
-mogrStatus = lens _mogrStatus (\ s a -> s{_mogrStatus = a});
+mogrsStatus :: Lens' ModifyOptionGroupResponse Int
+mogrsStatus = lens _mogrsStatus (\ s a -> s{_mogrsStatus = a});

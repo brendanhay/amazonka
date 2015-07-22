@@ -27,16 +27,16 @@ module Network.AWS.S3.GetBucketACL
     -- ** Request constructor
     , getBucketACL
     -- ** Request lenses
-    , gbaBucket
+    , gbarqBucket
 
     -- * Response
     , GetBucketACLResponse
     -- ** Response constructor
     , getBucketACLResponse
     -- ** Response lenses
-    , gbarGrants
-    , gbarOwner
-    , gbarStatus
+    , gbarsGrants
+    , gbarsOwner
+    , gbarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -48,21 +48,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbaBucket'
+-- * 'gbarqBucket'
 newtype GetBucketACL = GetBucketACL'
-    { _gbaBucket :: BucketName
+    { _gbarqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketACL' smart constructor.
 getBucketACL :: BucketName -> GetBucketACL
 getBucketACL pBucket =
     GetBucketACL'
-    { _gbaBucket = pBucket
+    { _gbarqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gbaBucket :: Lens' GetBucketACL BucketName
-gbaBucket = lens _gbaBucket (\ s a -> s{_gbaBucket = a});
+gbarqBucket :: Lens' GetBucketACL BucketName
+gbarqBucket = lens _gbarqBucket (\ s a -> s{_gbarqBucket = a});
 
 instance AWSRequest GetBucketACL where
         type Sv GetBucketACL = S3
@@ -82,7 +82,7 @@ instance ToHeaders GetBucketACL where
 
 instance ToPath GetBucketACL where
         toPath GetBucketACL'{..}
-          = mconcat ["/", toText _gbaBucket]
+          = mconcat ["/", toText _gbarqBucket]
 
 instance ToQuery GetBucketACL where
         toQuery = const (mconcat ["acl"])
@@ -91,34 +91,34 @@ instance ToQuery GetBucketACL where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbarGrants'
+-- * 'gbarsGrants'
 --
--- * 'gbarOwner'
+-- * 'gbarsOwner'
 --
--- * 'gbarStatus'
+-- * 'gbarsStatus'
 data GetBucketACLResponse = GetBucketACLResponse'
-    { _gbarGrants :: !(Maybe [Grant])
-    , _gbarOwner  :: !(Maybe Owner)
-    , _gbarStatus :: !Int
+    { _gbarsGrants :: !(Maybe [Grant])
+    , _gbarsOwner  :: !(Maybe Owner)
+    , _gbarsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketACLResponse' smart constructor.
 getBucketACLResponse :: Int -> GetBucketACLResponse
 getBucketACLResponse pStatus =
     GetBucketACLResponse'
-    { _gbarGrants = Nothing
-    , _gbarOwner = Nothing
-    , _gbarStatus = pStatus
+    { _gbarsGrants = Nothing
+    , _gbarsOwner = Nothing
+    , _gbarsStatus = pStatus
     }
 
 -- | A list of grants.
-gbarGrants :: Lens' GetBucketACLResponse [Grant]
-gbarGrants = lens _gbarGrants (\ s a -> s{_gbarGrants = a}) . _Default;
+gbarsGrants :: Lens' GetBucketACLResponse [Grant]
+gbarsGrants = lens _gbarsGrants (\ s a -> s{_gbarsGrants = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gbarOwner :: Lens' GetBucketACLResponse (Maybe Owner)
-gbarOwner = lens _gbarOwner (\ s a -> s{_gbarOwner = a});
+gbarsOwner :: Lens' GetBucketACLResponse (Maybe Owner)
+gbarsOwner = lens _gbarsOwner (\ s a -> s{_gbarsOwner = a});
 
 -- | FIXME: Undocumented member.
-gbarStatus :: Lens' GetBucketACLResponse Int
-gbarStatus = lens _gbarStatus (\ s a -> s{_gbarStatus = a});
+gbarsStatus :: Lens' GetBucketACLResponse Int
+gbarsStatus = lens _gbarsStatus (\ s a -> s{_gbarsStatus = a});

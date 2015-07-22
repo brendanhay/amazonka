@@ -32,19 +32,19 @@ module Network.AWS.IAM.ListPolicyVersions
     -- ** Request constructor
     , listPolicyVersions
     -- ** Request lenses
-    , lpvMaxItems
-    , lpvMarker
-    , lpvPolicyARN
+    , lpvrqMaxItems
+    , lpvrqMarker
+    , lpvrqPolicyARN
 
     -- * Response
     , ListPolicyVersionsResponse
     -- ** Response constructor
     , listPolicyVersionsResponse
     -- ** Response lenses
-    , lpvrVersions
-    , lpvrMarker
-    , lpvrIsTruncated
-    , lpvrStatus
+    , lpvrsVersions
+    , lpvrsMarker
+    , lpvrsIsTruncated
+    , lpvrsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -56,24 +56,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpvMaxItems'
+-- * 'lpvrqMaxItems'
 --
--- * 'lpvMarker'
+-- * 'lpvrqMarker'
 --
--- * 'lpvPolicyARN'
+-- * 'lpvrqPolicyARN'
 data ListPolicyVersions = ListPolicyVersions'
-    { _lpvMaxItems  :: !(Maybe Nat)
-    , _lpvMarker    :: !(Maybe Text)
-    , _lpvPolicyARN :: !Text
+    { _lpvrqMaxItems  :: !(Maybe Nat)
+    , _lpvrqMarker    :: !(Maybe Text)
+    , _lpvrqPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicyVersions' smart constructor.
 listPolicyVersions :: Text -> ListPolicyVersions
 listPolicyVersions pPolicyARN =
     ListPolicyVersions'
-    { _lpvMaxItems = Nothing
-    , _lpvMarker = Nothing
-    , _lpvPolicyARN = pPolicyARN
+    { _lpvrqMaxItems = Nothing
+    , _lpvrqMarker = Nothing
+    , _lpvrqPolicyARN = pPolicyARN
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -82,18 +82,18 @@ listPolicyVersions pPolicyARN =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lpvMaxItems :: Lens' ListPolicyVersions (Maybe Natural)
-lpvMaxItems = lens _lpvMaxItems (\ s a -> s{_lpvMaxItems = a}) . mapping _Nat;
+lpvrqMaxItems :: Lens' ListPolicyVersions (Maybe Natural)
+lpvrqMaxItems = lens _lpvrqMaxItems (\ s a -> s{_lpvrqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lpvMarker :: Lens' ListPolicyVersions (Maybe Text)
-lpvMarker = lens _lpvMarker (\ s a -> s{_lpvMarker = a});
+lpvrqMarker :: Lens' ListPolicyVersions (Maybe Text)
+lpvrqMarker = lens _lpvrqMarker (\ s a -> s{_lpvrqMarker = a});
 
 -- | FIXME: Undocumented member.
-lpvPolicyARN :: Lens' ListPolicyVersions Text
-lpvPolicyARN = lens _lpvPolicyARN (\ s a -> s{_lpvPolicyARN = a});
+lpvrqPolicyARN :: Lens' ListPolicyVersions Text
+lpvrqPolicyARN = lens _lpvrqPolicyARN (\ s a -> s{_lpvrqPolicyARN = a});
 
 instance AWSRequest ListPolicyVersions where
         type Sv ListPolicyVersions = IAM
@@ -121,8 +121,9 @@ instance ToQuery ListPolicyVersions where
           = mconcat
               ["Action" =: ("ListPolicyVersions" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lpvMaxItems, "Marker" =: _lpvMarker,
-               "PolicyArn" =: _lpvPolicyARN]
+               "MaxItems" =: _lpvrqMaxItems,
+               "Marker" =: _lpvrqMarker,
+               "PolicyArn" =: _lpvrqPolicyARN]
 
 -- | Contains the response to a successful ListPolicyVersions request.
 --
@@ -130,28 +131,28 @@ instance ToQuery ListPolicyVersions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpvrVersions'
+-- * 'lpvrsVersions'
 --
--- * 'lpvrMarker'
+-- * 'lpvrsMarker'
 --
--- * 'lpvrIsTruncated'
+-- * 'lpvrsIsTruncated'
 --
--- * 'lpvrStatus'
+-- * 'lpvrsStatus'
 data ListPolicyVersionsResponse = ListPolicyVersionsResponse'
-    { _lpvrVersions    :: !(Maybe [PolicyVersion])
-    , _lpvrMarker      :: !(Maybe Text)
-    , _lpvrIsTruncated :: !(Maybe Bool)
-    , _lpvrStatus      :: !Int
+    { _lpvrsVersions    :: !(Maybe [PolicyVersion])
+    , _lpvrsMarker      :: !(Maybe Text)
+    , _lpvrsIsTruncated :: !(Maybe Bool)
+    , _lpvrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPolicyVersionsResponse' smart constructor.
 listPolicyVersionsResponse :: Int -> ListPolicyVersionsResponse
 listPolicyVersionsResponse pStatus =
     ListPolicyVersionsResponse'
-    { _lpvrVersions = Nothing
-    , _lpvrMarker = Nothing
-    , _lpvrIsTruncated = Nothing
-    , _lpvrStatus = pStatus
+    { _lpvrsVersions = Nothing
+    , _lpvrsMarker = Nothing
+    , _lpvrsIsTruncated = Nothing
+    , _lpvrsStatus = pStatus
     }
 
 -- | A list of policy versions.
@@ -159,21 +160,21 @@ listPolicyVersionsResponse pStatus =
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
-lpvrVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
-lpvrVersions = lens _lpvrVersions (\ s a -> s{_lpvrVersions = a}) . _Default;
+lpvrsVersions :: Lens' ListPolicyVersionsResponse [PolicyVersion]
+lpvrsVersions = lens _lpvrsVersions (\ s a -> s{_lpvrsVersions = a}) . _Default;
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-lpvrMarker :: Lens' ListPolicyVersionsResponse (Maybe Text)
-lpvrMarker = lens _lpvrMarker (\ s a -> s{_lpvrMarker = a});
+lpvrsMarker :: Lens' ListPolicyVersionsResponse (Maybe Text)
+lpvrsMarker = lens _lpvrsMarker (\ s a -> s{_lpvrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-lpvrIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
-lpvrIsTruncated = lens _lpvrIsTruncated (\ s a -> s{_lpvrIsTruncated = a});
+lpvrsIsTruncated :: Lens' ListPolicyVersionsResponse (Maybe Bool)
+lpvrsIsTruncated = lens _lpvrsIsTruncated (\ s a -> s{_lpvrsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lpvrStatus :: Lens' ListPolicyVersionsResponse Int
-lpvrStatus = lens _lpvrStatus (\ s a -> s{_lpvrStatus = a});
+lpvrsStatus :: Lens' ListPolicyVersionsResponse Int
+lpvrsStatus = lens _lpvrsStatus (\ s a -> s{_lpvrsStatus = a});

@@ -33,7 +33,7 @@ module Network.AWS.SES.DeleteVerifiedEmailAddress
     -- ** Request constructor
     , deleteVerifiedEmailAddress
     -- ** Request lenses
-    , dveaEmailAddress
+    , dvearqEmailAddress
 
     -- * Response
     , DeleteVerifiedEmailAddressResponse
@@ -53,21 +53,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dveaEmailAddress'
+-- * 'dvearqEmailAddress'
 newtype DeleteVerifiedEmailAddress = DeleteVerifiedEmailAddress'
-    { _dveaEmailAddress :: Text
+    { _dvearqEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVerifiedEmailAddress' smart constructor.
 deleteVerifiedEmailAddress :: Text -> DeleteVerifiedEmailAddress
 deleteVerifiedEmailAddress pEmailAddress =
     DeleteVerifiedEmailAddress'
-    { _dveaEmailAddress = pEmailAddress
+    { _dvearqEmailAddress = pEmailAddress
     }
 
 -- | An email address to be removed from the list of verified addresses.
-dveaEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
-dveaEmailAddress = lens _dveaEmailAddress (\ s a -> s{_dveaEmailAddress = a});
+dvearqEmailAddress :: Lens' DeleteVerifiedEmailAddress Text
+dvearqEmailAddress = lens _dvearqEmailAddress (\ s a -> s{_dvearqEmailAddress = a});
 
 instance AWSRequest DeleteVerifiedEmailAddress where
         type Sv DeleteVerifiedEmailAddress = SES
@@ -89,7 +89,7 @@ instance ToQuery DeleteVerifiedEmailAddress where
               ["Action" =:
                  ("DeleteVerifiedEmailAddress" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EmailAddress" =: _dveaEmailAddress]
+               "EmailAddress" =: _dvearqEmailAddress]
 
 -- | /See:/ 'deleteVerifiedEmailAddressResponse' smart constructor.
 data DeleteVerifiedEmailAddressResponse =

@@ -28,20 +28,20 @@ module Network.AWS.EC2.DescribeImportImageTasks
     -- ** Request constructor
     , describeImportImageTasks
     -- ** Request lenses
-    , diitFilters
-    , diitImportTaskIds
-    , diitNextToken
-    , diitDryRun
-    , diitMaxResults
+    , diitrqFilters
+    , diitrqImportTaskIds
+    , diitrqNextToken
+    , diitrqDryRun
+    , diitrqMaxResults
 
     -- * Response
     , DescribeImportImageTasksResponse
     -- ** Response constructor
     , describeImportImageTasksResponse
     -- ** Response lenses
-    , diitrImportImageTasks
-    , diitrNextToken
-    , diitrStatus
+    , diitrsImportImageTasks
+    , diitrsNextToken
+    , diitrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,56 +53,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diitFilters'
+-- * 'diitrqFilters'
 --
--- * 'diitImportTaskIds'
+-- * 'diitrqImportTaskIds'
 --
--- * 'diitNextToken'
+-- * 'diitrqNextToken'
 --
--- * 'diitDryRun'
+-- * 'diitrqDryRun'
 --
--- * 'diitMaxResults'
+-- * 'diitrqMaxResults'
 data DescribeImportImageTasks = DescribeImportImageTasks'
-    { _diitFilters       :: !(Maybe [Filter])
-    , _diitImportTaskIds :: !(Maybe [Text])
-    , _diitNextToken     :: !(Maybe Text)
-    , _diitDryRun        :: !(Maybe Bool)
-    , _diitMaxResults    :: !(Maybe Int)
+    { _diitrqFilters       :: !(Maybe [Filter])
+    , _diitrqImportTaskIds :: !(Maybe [Text])
+    , _diitrqNextToken     :: !(Maybe Text)
+    , _diitrqDryRun        :: !(Maybe Bool)
+    , _diitrqMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportImageTasks' smart constructor.
 describeImportImageTasks :: DescribeImportImageTasks
 describeImportImageTasks =
     DescribeImportImageTasks'
-    { _diitFilters = Nothing
-    , _diitImportTaskIds = Nothing
-    , _diitNextToken = Nothing
-    , _diitDryRun = Nothing
-    , _diitMaxResults = Nothing
+    { _diitrqFilters = Nothing
+    , _diitrqImportTaskIds = Nothing
+    , _diitrqNextToken = Nothing
+    , _diitrqDryRun = Nothing
+    , _diitrqMaxResults = Nothing
     }
 
 -- | One or more filters.
-diitFilters :: Lens' DescribeImportImageTasks [Filter]
-diitFilters = lens _diitFilters (\ s a -> s{_diitFilters = a}) . _Default;
+diitrqFilters :: Lens' DescribeImportImageTasks [Filter]
+diitrqFilters = lens _diitrqFilters (\ s a -> s{_diitrqFilters = a}) . _Default;
 
 -- | A list of import image task IDs.
-diitImportTaskIds :: Lens' DescribeImportImageTasks [Text]
-diitImportTaskIds = lens _diitImportTaskIds (\ s a -> s{_diitImportTaskIds = a}) . _Default;
+diitrqImportTaskIds :: Lens' DescribeImportImageTasks [Text]
+diitrqImportTaskIds = lens _diitrqImportTaskIds (\ s a -> s{_diitrqImportTaskIds = a}) . _Default;
 
 -- | A token that indicates the next page of results.
-diitNextToken :: Lens' DescribeImportImageTasks (Maybe Text)
-diitNextToken = lens _diitNextToken (\ s a -> s{_diitNextToken = a});
+diitrqNextToken :: Lens' DescribeImportImageTasks (Maybe Text)
+diitrqNextToken = lens _diitrqNextToken (\ s a -> s{_diitrqNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-diitDryRun :: Lens' DescribeImportImageTasks (Maybe Bool)
-diitDryRun = lens _diitDryRun (\ s a -> s{_diitDryRun = a});
+diitrqDryRun :: Lens' DescribeImportImageTasks (Maybe Bool)
+diitrqDryRun = lens _diitrqDryRun (\ s a -> s{_diitrqDryRun = a});
 
 -- | The maximum number of results to return in a single request.
-diitMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
-diitMaxResults = lens _diitMaxResults (\ s a -> s{_diitMaxResults = a});
+diitrqMaxResults :: Lens' DescribeImportImageTasks (Maybe Int)
+diitrqMaxResults = lens _diitrqMaxResults (\ s a -> s{_diitrqMaxResults = a});
 
 instance AWSRequest DescribeImportImageTasks where
         type Sv DescribeImportImageTasks = EC2
@@ -130,47 +130,48 @@ instance ToQuery DescribeImportImageTasks where
               ["Action" =:
                  ("DescribeImportImageTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _diitFilters),
+               toQuery (toQueryList "Filter" <$> _diitrqFilters),
                toQuery
-                 (toQueryList "ImportTaskId" <$> _diitImportTaskIds),
-               "NextToken" =: _diitNextToken,
-               "DryRun" =: _diitDryRun,
-               "MaxResults" =: _diitMaxResults]
+                 (toQueryList "ImportTaskId" <$>
+                    _diitrqImportTaskIds),
+               "NextToken" =: _diitrqNextToken,
+               "DryRun" =: _diitrqDryRun,
+               "MaxResults" =: _diitrqMaxResults]
 
 -- | /See:/ 'describeImportImageTasksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diitrImportImageTasks'
+-- * 'diitrsImportImageTasks'
 --
--- * 'diitrNextToken'
+-- * 'diitrsNextToken'
 --
--- * 'diitrStatus'
+-- * 'diitrsStatus'
 data DescribeImportImageTasksResponse = DescribeImportImageTasksResponse'
-    { _diitrImportImageTasks :: !(Maybe [ImportImageTask])
-    , _diitrNextToken        :: !(Maybe Text)
-    , _diitrStatus           :: !Int
+    { _diitrsImportImageTasks :: !(Maybe [ImportImageTask])
+    , _diitrsNextToken        :: !(Maybe Text)
+    , _diitrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportImageTasksResponse' smart constructor.
 describeImportImageTasksResponse :: Int -> DescribeImportImageTasksResponse
 describeImportImageTasksResponse pStatus =
     DescribeImportImageTasksResponse'
-    { _diitrImportImageTasks = Nothing
-    , _diitrNextToken = Nothing
-    , _diitrStatus = pStatus
+    { _diitrsImportImageTasks = Nothing
+    , _diitrsNextToken = Nothing
+    , _diitrsStatus = pStatus
     }
 
 -- | A list of zero or more import image tasks that are currently active or
 -- were completed or canceled in the previous 7 days.
-diitrImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
-diitrImportImageTasks = lens _diitrImportImageTasks (\ s a -> s{_diitrImportImageTasks = a}) . _Default;
+diitrsImportImageTasks :: Lens' DescribeImportImageTasksResponse [ImportImageTask]
+diitrsImportImageTasks = lens _diitrsImportImageTasks (\ s a -> s{_diitrsImportImageTasks = a}) . _Default;
 
 -- | The token to use to get the next page of results. This value is @null@
 -- when there are no more results to return.
-diitrNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
-diitrNextToken = lens _diitrNextToken (\ s a -> s{_diitrNextToken = a});
+diitrsNextToken :: Lens' DescribeImportImageTasksResponse (Maybe Text)
+diitrsNextToken = lens _diitrsNextToken (\ s a -> s{_diitrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-diitrStatus :: Lens' DescribeImportImageTasksResponse Int
-diitrStatus = lens _diitrStatus (\ s a -> s{_diitrStatus = a});
+diitrsStatus :: Lens' DescribeImportImageTasksResponse Int
+diitrsStatus = lens _diitrsStatus (\ s a -> s{_diitrsStatus = a});

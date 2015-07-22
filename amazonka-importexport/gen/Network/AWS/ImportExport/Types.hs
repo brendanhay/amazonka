@@ -44,8 +44,8 @@ module Network.AWS.ImportExport.Types
     -- * Artifact
     , Artifact
     , artifact
-    , artURL
-    , artDescription
+    , aURL
+    , aDescription
 
     -- * Job
     , Job

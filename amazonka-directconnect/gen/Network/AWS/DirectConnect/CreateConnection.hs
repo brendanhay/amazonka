@@ -37,24 +37,24 @@ module Network.AWS.DirectConnect.CreateConnection
     -- ** Request constructor
     , createConnection
     -- ** Request lenses
-    , ccLocation
-    , ccBandwidth
-    , ccConnectionName
+    , ccrqLocation
+    , ccrqBandwidth
+    , ccrqConnectionName
 
     -- * Response
     , Connection
     -- ** Response constructor
     , connection
     -- ** Response lenses
-    , conVlan
-    , conLocation
-    , conConnectionId
-    , conConnectionName
-    , conPartnerName
-    , conBandwidth
-    , conRegion
-    , conOwnerAccount
-    , conConnectionState
+    , ccrsVlan
+    , ccrsLocation
+    , ccrsConnectionId
+    , ccrsConnectionName
+    , ccrsPartnerName
+    , ccrsBandwidth
+    , ccrsRegion
+    , ccrsOwnerAccount
+    , ccrsConnectionState
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -68,37 +68,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccLocation'
+-- * 'ccrqLocation'
 --
--- * 'ccBandwidth'
+-- * 'ccrqBandwidth'
 --
--- * 'ccConnectionName'
+-- * 'ccrqConnectionName'
 data CreateConnection = CreateConnection'
-    { _ccLocation       :: !Text
-    , _ccBandwidth      :: !Text
-    , _ccConnectionName :: !Text
+    { _ccrqLocation       :: !Text
+    , _ccrqBandwidth      :: !Text
+    , _ccrqConnectionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateConnection' smart constructor.
 createConnection :: Text -> Text -> Text -> CreateConnection
 createConnection pLocation pBandwidth pConnectionName =
     CreateConnection'
-    { _ccLocation = pLocation
-    , _ccBandwidth = pBandwidth
-    , _ccConnectionName = pConnectionName
+    { _ccrqLocation = pLocation
+    , _ccrqBandwidth = pBandwidth
+    , _ccrqConnectionName = pConnectionName
     }
 
 -- | FIXME: Undocumented member.
-ccLocation :: Lens' CreateConnection Text
-ccLocation = lens _ccLocation (\ s a -> s{_ccLocation = a});
+ccrqLocation :: Lens' CreateConnection Text
+ccrqLocation = lens _ccrqLocation (\ s a -> s{_ccrqLocation = a});
 
 -- | FIXME: Undocumented member.
-ccBandwidth :: Lens' CreateConnection Text
-ccBandwidth = lens _ccBandwidth (\ s a -> s{_ccBandwidth = a});
+ccrqBandwidth :: Lens' CreateConnection Text
+ccrqBandwidth = lens _ccrqBandwidth (\ s a -> s{_ccrqBandwidth = a});
 
 -- | FIXME: Undocumented member.
-ccConnectionName :: Lens' CreateConnection Text
-ccConnectionName = lens _ccConnectionName (\ s a -> s{_ccConnectionName = a});
+ccrqConnectionName :: Lens' CreateConnection Text
+ccrqConnectionName = lens _ccrqConnectionName (\ s a -> s{_ccrqConnectionName = a});
 
 instance AWSRequest CreateConnection where
         type Sv CreateConnection = DirectConnect
@@ -118,9 +118,9 @@ instance ToHeaders CreateConnection where
 instance ToJSON CreateConnection where
         toJSON CreateConnection'{..}
           = object
-              ["location" .= _ccLocation,
-               "bandwidth" .= _ccBandwidth,
-               "connectionName" .= _ccConnectionName]
+              ["location" .= _ccrqLocation,
+               "bandwidth" .= _ccrqBandwidth,
+               "connectionName" .= _ccrqConnectionName]
 
 instance ToPath CreateConnection where
         toPath = const "/"

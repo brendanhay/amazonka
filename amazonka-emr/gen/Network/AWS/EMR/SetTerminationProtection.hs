@@ -46,8 +46,8 @@ module Network.AWS.EMR.SetTerminationProtection
     -- ** Request constructor
     , setTerminationProtection
     -- ** Request lenses
-    , stpJobFlowIds
-    , stpTerminationProtected
+    , stprqJobFlowIds
+    , stprqTerminationProtected
 
     -- * Response
     , SetTerminationProtectionResponse
@@ -66,33 +66,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stpJobFlowIds'
+-- * 'stprqJobFlowIds'
 --
--- * 'stpTerminationProtected'
+-- * 'stprqTerminationProtected'
 data SetTerminationProtection = SetTerminationProtection'
-    { _stpJobFlowIds           :: ![Text]
-    , _stpTerminationProtected :: !Bool
+    { _stprqJobFlowIds           :: ![Text]
+    , _stprqTerminationProtected :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetTerminationProtection' smart constructor.
 setTerminationProtection :: Bool -> SetTerminationProtection
 setTerminationProtection pTerminationProtected =
     SetTerminationProtection'
-    { _stpJobFlowIds = mempty
-    , _stpTerminationProtected = pTerminationProtected
+    { _stprqJobFlowIds = mempty
+    , _stprqTerminationProtected = pTerminationProtected
     }
 
 -- | A list of strings that uniquely identify the job flows to protect. This
 -- identifier is returned by RunJobFlow and can also be obtained from
 -- DescribeJobFlows .
-stpJobFlowIds :: Lens' SetTerminationProtection [Text]
-stpJobFlowIds = lens _stpJobFlowIds (\ s a -> s{_stpJobFlowIds = a});
+stprqJobFlowIds :: Lens' SetTerminationProtection [Text]
+stprqJobFlowIds = lens _stprqJobFlowIds (\ s a -> s{_stprqJobFlowIds = a});
 
 -- | A Boolean that indicates whether to protect the job flow and prevent the
 -- Amazon EC2 instances in the cluster from shutting down due to API calls,
 -- user intervention, or job-flow error.
-stpTerminationProtected :: Lens' SetTerminationProtection Bool
-stpTerminationProtected = lens _stpTerminationProtected (\ s a -> s{_stpTerminationProtected = a});
+stprqTerminationProtected :: Lens' SetTerminationProtection Bool
+stprqTerminationProtected = lens _stprqTerminationProtected (\ s a -> s{_stprqTerminationProtected = a});
 
 instance AWSRequest SetTerminationProtection where
         type Sv SetTerminationProtection = EMR
@@ -115,8 +115,8 @@ instance ToHeaders SetTerminationProtection where
 instance ToJSON SetTerminationProtection where
         toJSON SetTerminationProtection'{..}
           = object
-              ["JobFlowIds" .= _stpJobFlowIds,
-               "TerminationProtected" .= _stpTerminationProtected]
+              ["JobFlowIds" .= _stprqJobFlowIds,
+               "TerminationProtected" .= _stprqTerminationProtected]
 
 instance ToPath SetTerminationProtection where
         toPath = const "/"

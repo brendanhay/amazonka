@@ -27,16 +27,16 @@ module Network.AWS.ElasticBeanstalk.CheckDNSAvailability
     -- ** Request constructor
     , checkDNSAvailability
     -- ** Request lenses
-    , cdaCNAMEPrefix
+    , cdarqCNAMEPrefix
 
     -- * Response
     , CheckDNSAvailabilityResponse
     -- ** Response constructor
     , checkDNSAvailabilityResponse
     -- ** Response lenses
-    , cdarFullyQualifiedCNAME
-    , cdarAvailable
-    , cdarStatus
+    , cdarsFullyQualifiedCNAME
+    , cdarsAvailable
+    , cdarsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdaCNAMEPrefix'
+-- * 'cdarqCNAMEPrefix'
 newtype CheckDNSAvailability = CheckDNSAvailability'
-    { _cdaCNAMEPrefix :: Text
+    { _cdarqCNAMEPrefix :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CheckDNSAvailability' smart constructor.
 checkDNSAvailability :: Text -> CheckDNSAvailability
 checkDNSAvailability pCNAMEPrefix =
     CheckDNSAvailability'
-    { _cdaCNAMEPrefix = pCNAMEPrefix
+    { _cdarqCNAMEPrefix = pCNAMEPrefix
     }
 
 -- | The prefix used when this CNAME is reserved.
-cdaCNAMEPrefix :: Lens' CheckDNSAvailability Text
-cdaCNAMEPrefix = lens _cdaCNAMEPrefix (\ s a -> s{_cdaCNAMEPrefix = a});
+cdarqCNAMEPrefix :: Lens' CheckDNSAvailability Text
+cdarqCNAMEPrefix = lens _cdarqCNAMEPrefix (\ s a -> s{_cdarqCNAMEPrefix = a});
 
 instance AWSRequest CheckDNSAvailability where
         type Sv CheckDNSAvailability = ElasticBeanstalk
@@ -89,7 +89,7 @@ instance ToQuery CheckDNSAvailability where
           = mconcat
               ["Action" =: ("CheckDNSAvailability" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "CNAMEPrefix" =: _cdaCNAMEPrefix]
+               "CNAMEPrefix" =: _cdarqCNAMEPrefix]
 
 -- | Indicates if the specified CNAME is available.
 --
@@ -97,30 +97,30 @@ instance ToQuery CheckDNSAvailability where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdarFullyQualifiedCNAME'
+-- * 'cdarsFullyQualifiedCNAME'
 --
--- * 'cdarAvailable'
+-- * 'cdarsAvailable'
 --
--- * 'cdarStatus'
+-- * 'cdarsStatus'
 data CheckDNSAvailabilityResponse = CheckDNSAvailabilityResponse'
-    { _cdarFullyQualifiedCNAME :: !(Maybe Text)
-    , _cdarAvailable           :: !(Maybe Bool)
-    , _cdarStatus              :: !Int
+    { _cdarsFullyQualifiedCNAME :: !(Maybe Text)
+    , _cdarsAvailable           :: !(Maybe Bool)
+    , _cdarsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CheckDNSAvailabilityResponse' smart constructor.
 checkDNSAvailabilityResponse :: Int -> CheckDNSAvailabilityResponse
 checkDNSAvailabilityResponse pStatus =
     CheckDNSAvailabilityResponse'
-    { _cdarFullyQualifiedCNAME = Nothing
-    , _cdarAvailable = Nothing
-    , _cdarStatus = pStatus
+    { _cdarsFullyQualifiedCNAME = Nothing
+    , _cdarsAvailable = Nothing
+    , _cdarsStatus = pStatus
     }
 
 -- | The fully qualified CNAME to reserve when CreateEnvironment is called
 -- with the provided prefix.
-cdarFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
-cdarFullyQualifiedCNAME = lens _cdarFullyQualifiedCNAME (\ s a -> s{_cdarFullyQualifiedCNAME = a});
+cdarsFullyQualifiedCNAME :: Lens' CheckDNSAvailabilityResponse (Maybe Text)
+cdarsFullyQualifiedCNAME = lens _cdarsFullyQualifiedCNAME (\ s a -> s{_cdarsFullyQualifiedCNAME = a});
 
 -- | Indicates if the specified CNAME is available:
 --
@@ -130,9 +130,9 @@ cdarFullyQualifiedCNAME = lens _cdarFullyQualifiedCNAME (\ s a -> s{_cdarFullyQu
 --
 -- -   @true@ : The CNAME is available.
 -- -   @false@ : The CNAME is not available.
-cdarAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
-cdarAvailable = lens _cdarAvailable (\ s a -> s{_cdarAvailable = a});
+cdarsAvailable :: Lens' CheckDNSAvailabilityResponse (Maybe Bool)
+cdarsAvailable = lens _cdarsAvailable (\ s a -> s{_cdarsAvailable = a});
 
 -- | FIXME: Undocumented member.
-cdarStatus :: Lens' CheckDNSAvailabilityResponse Int
-cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});
+cdarsStatus :: Lens' CheckDNSAvailabilityResponse Int
+cdarsStatus = lens _cdarsStatus (\ s a -> s{_cdarsStatus = a});

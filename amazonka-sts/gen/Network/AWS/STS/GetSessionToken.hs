@@ -60,17 +60,17 @@ module Network.AWS.STS.GetSessionToken
     -- ** Request constructor
     , getSessionToken
     -- ** Request lenses
-    , gstTokenCode
-    , gstDurationSeconds
-    , gstSerialNumber
+    , gstrqTokenCode
+    , gstrqDurationSeconds
+    , gstrqSerialNumber
 
     -- * Response
     , GetSessionTokenResponse
     -- ** Response constructor
     , getSessionTokenResponse
     -- ** Response lenses
-    , gstrCredentials
-    , gstrStatus
+    , gstrsCredentials
+    , gstrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -82,24 +82,24 @@ import           Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gstTokenCode'
+-- * 'gstrqTokenCode'
 --
--- * 'gstDurationSeconds'
+-- * 'gstrqDurationSeconds'
 --
--- * 'gstSerialNumber'
+-- * 'gstrqSerialNumber'
 data GetSessionToken = GetSessionToken'
-    { _gstTokenCode       :: !(Maybe Text)
-    , _gstDurationSeconds :: !(Maybe Nat)
-    , _gstSerialNumber    :: !(Maybe Text)
+    { _gstrqTokenCode       :: !(Maybe Text)
+    , _gstrqDurationSeconds :: !(Maybe Nat)
+    , _gstrqSerialNumber    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSessionToken' smart constructor.
 getSessionToken :: GetSessionToken
 getSessionToken =
     GetSessionToken'
-    { _gstTokenCode = Nothing
-    , _gstDurationSeconds = Nothing
-    , _gstSerialNumber = Nothing
+    { _gstrqTokenCode = Nothing
+    , _gstrqDurationSeconds = Nothing
+    , _gstrqSerialNumber = Nothing
     }
 
 -- | The value provided by the MFA device, if MFA is required. If any policy
@@ -108,8 +108,8 @@ getSessionToken =
 -- requesting a set of temporary security credentials, the user will
 -- receive an \"access denied\" response when requesting resources that
 -- require MFA authentication.
-gstTokenCode :: Lens' GetSessionToken (Maybe Text)
-gstTokenCode = lens _gstTokenCode (\ s a -> s{_gstTokenCode = a});
+gstrqTokenCode :: Lens' GetSessionToken (Maybe Text)
+gstrqTokenCode = lens _gstrqTokenCode (\ s a -> s{_gstrqTokenCode = a});
 
 -- | The duration, in seconds, that the credentials should remain valid.
 -- Acceptable durations for IAM user sessions range from 900 seconds (15
@@ -117,8 +117,8 @@ gstTokenCode = lens _gstTokenCode (\ s a -> s{_gstTokenCode = a});
 -- the default. Sessions for AWS account owners are restricted to a maximum
 -- of 3600 seconds (one hour). If the duration is longer than one hour, the
 -- session for AWS account owners defaults to one hour.
-gstDurationSeconds :: Lens' GetSessionToken (Maybe Natural)
-gstDurationSeconds = lens _gstDurationSeconds (\ s a -> s{_gstDurationSeconds = a}) . mapping _Nat;
+gstrqDurationSeconds :: Lens' GetSessionToken (Maybe Natural)
+gstrqDurationSeconds = lens _gstrqDurationSeconds (\ s a -> s{_gstrqDurationSeconds = a}) . mapping _Nat;
 
 -- | The identification number of the MFA device that is associated with the
 -- IAM user who is making the @GetSessionToken@ call. Specify this value if
@@ -128,8 +128,8 @@ gstDurationSeconds = lens _gstDurationSeconds (\ s a -> s{_gstDurationSeconds = 
 -- @arn:aws:iam::123456789012:mfa\/user@). You can find the device for an
 -- IAM user by going to the AWS Management Console and viewing the user\'s
 -- security credentials.
-gstSerialNumber :: Lens' GetSessionToken (Maybe Text)
-gstSerialNumber = lens _gstSerialNumber (\ s a -> s{_gstSerialNumber = a});
+gstrqSerialNumber :: Lens' GetSessionToken (Maybe Text)
+gstrqSerialNumber = lens _gstrqSerialNumber (\ s a -> s{_gstrqSerialNumber = a});
 
 instance AWSRequest GetSessionToken where
         type Sv GetSessionToken = STS
@@ -152,9 +152,9 @@ instance ToQuery GetSessionToken where
           = mconcat
               ["Action" =: ("GetSessionToken" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
-               "TokenCode" =: _gstTokenCode,
-               "DurationSeconds" =: _gstDurationSeconds,
-               "SerialNumber" =: _gstSerialNumber]
+               "TokenCode" =: _gstrqTokenCode,
+               "DurationSeconds" =: _gstrqDurationSeconds,
+               "SerialNumber" =: _gstrqSerialNumber]
 
 -- | Contains the response to a successful GetSessionToken request, including
 -- temporary AWS credentials that can be used to make AWS requests.
@@ -163,26 +163,26 @@ instance ToQuery GetSessionToken where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gstrCredentials'
+-- * 'gstrsCredentials'
 --
--- * 'gstrStatus'
+-- * 'gstrsStatus'
 data GetSessionTokenResponse = GetSessionTokenResponse'
-    { _gstrCredentials :: !(Maybe Credentials)
-    , _gstrStatus      :: !Int
+    { _gstrsCredentials :: !(Maybe Credentials)
+    , _gstrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSessionTokenResponse' smart constructor.
 getSessionTokenResponse :: Int -> GetSessionTokenResponse
 getSessionTokenResponse pStatus =
     GetSessionTokenResponse'
-    { _gstrCredentials = Nothing
-    , _gstrStatus = pStatus
+    { _gstrsCredentials = Nothing
+    , _gstrsStatus = pStatus
     }
 
 -- | The session credentials for API authentication.
-gstrCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
-gstrCredentials = lens _gstrCredentials (\ s a -> s{_gstrCredentials = a});
+gstrsCredentials :: Lens' GetSessionTokenResponse (Maybe Credentials)
+gstrsCredentials = lens _gstrsCredentials (\ s a -> s{_gstrsCredentials = a});
 
 -- | FIXME: Undocumented member.
-gstrStatus :: Lens' GetSessionTokenResponse Int
-gstrStatus = lens _gstrStatus (\ s a -> s{_gstrStatus = a});
+gstrsStatus :: Lens' GetSessionTokenResponse Int
+gstrsStatus = lens _gstrsStatus (\ s a -> s{_gstrsStatus = a});

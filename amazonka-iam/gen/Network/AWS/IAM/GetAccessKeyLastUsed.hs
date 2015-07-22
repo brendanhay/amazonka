@@ -30,16 +30,16 @@ module Network.AWS.IAM.GetAccessKeyLastUsed
     -- ** Request constructor
     , getAccessKeyLastUsed
     -- ** Request lenses
-    , gakluAccessKeyId
+    , gaklurqAccessKeyId
 
     -- * Response
     , GetAccessKeyLastUsedResponse
     -- ** Response constructor
     , getAccessKeyLastUsedResponse
     -- ** Response lenses
-    , gaklurUserName
-    , gaklurAccessKeyLastUsed
-    , gaklurStatus
+    , gaklursUserName
+    , gaklursAccessKeyLastUsed
+    , gaklursStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gakluAccessKeyId'
+-- * 'gaklurqAccessKeyId'
 newtype GetAccessKeyLastUsed = GetAccessKeyLastUsed'
-    { _gakluAccessKeyId :: Text
+    { _gaklurqAccessKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccessKeyLastUsed' smart constructor.
 getAccessKeyLastUsed :: Text -> GetAccessKeyLastUsed
 getAccessKeyLastUsed pAccessKeyId =
     GetAccessKeyLastUsed'
-    { _gakluAccessKeyId = pAccessKeyId
+    { _gaklurqAccessKeyId = pAccessKeyId
     }
 
 -- | The identifier of an access key.
-gakluAccessKeyId :: Lens' GetAccessKeyLastUsed Text
-gakluAccessKeyId = lens _gakluAccessKeyId (\ s a -> s{_gakluAccessKeyId = a});
+gaklurqAccessKeyId :: Lens' GetAccessKeyLastUsed Text
+gaklurqAccessKeyId = lens _gaklurqAccessKeyId (\ s a -> s{_gaklurqAccessKeyId = a});
 
 instance AWSRequest GetAccessKeyLastUsed where
         type Sv GetAccessKeyLastUsed = IAM
@@ -90,7 +90,7 @@ instance ToQuery GetAccessKeyLastUsed where
           = mconcat
               ["Action" =: ("GetAccessKeyLastUsed" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "AccessKeyId" =: _gakluAccessKeyId]
+               "AccessKeyId" =: _gaklurqAccessKeyId]
 
 -- | Contains the response to a successful GetAccessKeyLastUsed request. It
 -- is also returned as a member of the AccessKeyMetaData structure returned
@@ -100,34 +100,34 @@ instance ToQuery GetAccessKeyLastUsed where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaklurUserName'
+-- * 'gaklursUserName'
 --
--- * 'gaklurAccessKeyLastUsed'
+-- * 'gaklursAccessKeyLastUsed'
 --
--- * 'gaklurStatus'
+-- * 'gaklursStatus'
 data GetAccessKeyLastUsedResponse = GetAccessKeyLastUsedResponse'
-    { _gaklurUserName          :: !(Maybe Text)
-    , _gaklurAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
-    , _gaklurStatus            :: !Int
+    { _gaklursUserName          :: !(Maybe Text)
+    , _gaklursAccessKeyLastUsed :: !(Maybe AccessKeyLastUsed)
+    , _gaklursStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccessKeyLastUsedResponse' smart constructor.
 getAccessKeyLastUsedResponse :: Int -> GetAccessKeyLastUsedResponse
 getAccessKeyLastUsedResponse pStatus =
     GetAccessKeyLastUsedResponse'
-    { _gaklurUserName = Nothing
-    , _gaklurAccessKeyLastUsed = Nothing
-    , _gaklurStatus = pStatus
+    { _gaklursUserName = Nothing
+    , _gaklursAccessKeyLastUsed = Nothing
+    , _gaklursStatus = pStatus
     }
 
 -- | The name of the AWS IAM user that owns this access key.
-gaklurUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
-gaklurUserName = lens _gaklurUserName (\ s a -> s{_gaklurUserName = a});
+gaklursUserName :: Lens' GetAccessKeyLastUsedResponse (Maybe Text)
+gaklursUserName = lens _gaklursUserName (\ s a -> s{_gaklursUserName = a});
 
 -- | Contains information about the last time the access key was used.
-gaklurAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
-gaklurAccessKeyLastUsed = lens _gaklurAccessKeyLastUsed (\ s a -> s{_gaklurAccessKeyLastUsed = a});
+gaklursAccessKeyLastUsed :: Lens' GetAccessKeyLastUsedResponse (Maybe AccessKeyLastUsed)
+gaklursAccessKeyLastUsed = lens _gaklursAccessKeyLastUsed (\ s a -> s{_gaklursAccessKeyLastUsed = a});
 
 -- | FIXME: Undocumented member.
-gaklurStatus :: Lens' GetAccessKeyLastUsedResponse Int
-gaklurStatus = lens _gaklurStatus (\ s a -> s{_gaklurStatus = a});
+gaklursStatus :: Lens' GetAccessKeyLastUsedResponse Int
+gaklursStatus = lens _gaklursStatus (\ s a -> s{_gaklursStatus = a});

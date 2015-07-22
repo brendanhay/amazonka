@@ -35,15 +35,15 @@ module Network.AWS.AutoScaling.AttachLoadBalancers
     -- ** Request constructor
     , attachLoadBalancers
     -- ** Request lenses
-    , albAutoScalingGroupName
-    , albLoadBalancerNames
+    , albrqAutoScalingGroupName
+    , albrqLoadBalancerNames
 
     -- * Response
     , AttachLoadBalancersResponse
     -- ** Response constructor
     , attachLoadBalancersResponse
     -- ** Response lenses
-    , albrStatus
+    , albrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -55,29 +55,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'albAutoScalingGroupName'
+-- * 'albrqAutoScalingGroupName'
 --
--- * 'albLoadBalancerNames'
+-- * 'albrqLoadBalancerNames'
 data AttachLoadBalancers = AttachLoadBalancers'
-    { _albAutoScalingGroupName :: !(Maybe Text)
-    , _albLoadBalancerNames    :: !(Maybe [Text])
+    { _albrqAutoScalingGroupName :: !(Maybe Text)
+    , _albrqLoadBalancerNames    :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancers' smart constructor.
 attachLoadBalancers :: AttachLoadBalancers
 attachLoadBalancers =
     AttachLoadBalancers'
-    { _albAutoScalingGroupName = Nothing
-    , _albLoadBalancerNames = Nothing
+    { _albrqAutoScalingGroupName = Nothing
+    , _albrqLoadBalancerNames = Nothing
     }
 
 -- | The name of the group.
-albAutoScalingGroupName :: Lens' AttachLoadBalancers (Maybe Text)
-albAutoScalingGroupName = lens _albAutoScalingGroupName (\ s a -> s{_albAutoScalingGroupName = a});
+albrqAutoScalingGroupName :: Lens' AttachLoadBalancers (Maybe Text)
+albrqAutoScalingGroupName = lens _albrqAutoScalingGroupName (\ s a -> s{_albrqAutoScalingGroupName = a});
 
 -- | One or more load balancer names.
-albLoadBalancerNames :: Lens' AttachLoadBalancers [Text]
-albLoadBalancerNames = lens _albLoadBalancerNames (\ s a -> s{_albLoadBalancerNames = a}) . _Default;
+albrqLoadBalancerNames :: Lens' AttachLoadBalancers [Text]
+albrqLoadBalancerNames = lens _albrqLoadBalancerNames (\ s a -> s{_albrqLoadBalancerNames = a}) . _Default;
 
 instance AWSRequest AttachLoadBalancers where
         type Sv AttachLoadBalancers = AutoScaling
@@ -100,27 +100,27 @@ instance ToQuery AttachLoadBalancers where
           = mconcat
               ["Action" =: ("AttachLoadBalancers" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "AutoScalingGroupName" =: _albAutoScalingGroupName,
+               "AutoScalingGroupName" =: _albrqAutoScalingGroupName,
                "LoadBalancerNames" =:
                  toQuery
-                   (toQueryList "member" <$> _albLoadBalancerNames)]
+                   (toQueryList "member" <$> _albrqLoadBalancerNames)]
 
 -- | /See:/ 'attachLoadBalancersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'albrStatus'
+-- * 'albrsStatus'
 newtype AttachLoadBalancersResponse = AttachLoadBalancersResponse'
-    { _albrStatus :: Int
+    { _albrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancersResponse' smart constructor.
 attachLoadBalancersResponse :: Int -> AttachLoadBalancersResponse
 attachLoadBalancersResponse pStatus =
     AttachLoadBalancersResponse'
-    { _albrStatus = pStatus
+    { _albrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-albrStatus :: Lens' AttachLoadBalancersResponse Int
-albrStatus = lens _albrStatus (\ s a -> s{_albrStatus = a});
+albrsStatus :: Lens' AttachLoadBalancersResponse Int
+albrsStatus = lens _albrsStatus (\ s a -> s{_albrsStatus = a});

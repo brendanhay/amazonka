@@ -30,7 +30,7 @@ module Network.AWS.SNS.DeleteTopic
     -- ** Request constructor
     , deleteTopic
     -- ** Request lenses
-    , dtTopicARN
+    , dtrqTopicARN
 
     -- * Response
     , DeleteTopicResponse
@@ -47,21 +47,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtTopicARN'
+-- * 'dtrqTopicARN'
 newtype DeleteTopic = DeleteTopic'
-    { _dtTopicARN :: Text
+    { _dtrqTopicARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTopic' smart constructor.
 deleteTopic :: Text -> DeleteTopic
 deleteTopic pTopicARN =
     DeleteTopic'
-    { _dtTopicARN = pTopicARN
+    { _dtrqTopicARN = pTopicARN
     }
 
 -- | The ARN of the topic you want to delete.
-dtTopicARN :: Lens' DeleteTopic Text
-dtTopicARN = lens _dtTopicARN (\ s a -> s{_dtTopicARN = a});
+dtrqTopicARN :: Lens' DeleteTopic Text
+dtrqTopicARN = lens _dtrqTopicARN (\ s a -> s{_dtrqTopicARN = a});
 
 instance AWSRequest DeleteTopic where
         type Sv DeleteTopic = SNS
@@ -80,7 +80,7 @@ instance ToQuery DeleteTopic where
           = mconcat
               ["Action" =: ("DeleteTopic" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "TopicArn" =: _dtTopicARN]
+               "TopicArn" =: _dtrqTopicARN]
 
 -- | /See:/ 'deleteTopicResponse' smart constructor.
 data DeleteTopicResponse =

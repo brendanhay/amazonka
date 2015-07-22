@@ -32,31 +32,31 @@ module Network.AWS.MachineLearning.GetDataSource
     -- ** Request constructor
     , getDataSource
     -- ** Request lenses
-    , gdsVerbose
-    , gdsDataSourceId
+    , gdsrqVerbose
+    , gdsrqDataSourceId
 
     -- * Response
     , GetDataSourceResponse
     -- ** Response constructor
     , getDataSourceResponse
     -- ** Response lenses
-    , gdsrNumberOfFiles
-    , gdsrLastUpdatedAt
-    , gdsrCreatedAt
-    , gdsrRDSMetadata
-    , gdsrDataSourceId
-    , gdsrDataSizeInBytes
-    , gdsrDataSourceSchema
-    , gdsrName
-    , gdsrCreatedByIAMUser
-    , gdsrLogURI
-    , gdsrDataLocationS3
-    , gdsrComputeStatistics
-    , gdsrMessage
-    , gdsrRedshiftMetadata
-    , gdsrRoleARN
-    , gdsrDataRearrangement
-    , gdsrStatus
+    , gdsrsNumberOfFiles
+    , gdsrsLastUpdatedAt
+    , gdsrsCreatedAt
+    , gdsrsRDSMetadata
+    , gdsrsDataSourceId
+    , gdsrsDataSizeInBytes
+    , gdsrsDataSourceSchema
+    , gdsrsName
+    , gdsrsCreatedByIAMUser
+    , gdsrsLogURI
+    , gdsrsDataLocationS3
+    , gdsrsComputeStatistics
+    , gdsrsMessage
+    , gdsrsRedshiftMetadata
+    , gdsrsRoleARN
+    , gdsrsDataRearrangement
+    , gdsrsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -68,20 +68,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdsVerbose'
+-- * 'gdsrqVerbose'
 --
--- * 'gdsDataSourceId'
+-- * 'gdsrqDataSourceId'
 data GetDataSource = GetDataSource'
-    { _gdsVerbose      :: !(Maybe Bool)
-    , _gdsDataSourceId :: !Text
+    { _gdsrqVerbose      :: !(Maybe Bool)
+    , _gdsrqDataSourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataSource' smart constructor.
 getDataSource :: Text -> GetDataSource
 getDataSource pDataSourceId =
     GetDataSource'
-    { _gdsVerbose = Nothing
-    , _gdsDataSourceId = pDataSourceId
+    { _gdsrqVerbose = Nothing
+    , _gdsrqDataSourceId = pDataSourceId
     }
 
 -- | Specifies whether the @GetDataSource@ operation should return
@@ -90,12 +90,12 @@ getDataSource pDataSourceId =
 -- If true, @DataSourceSchema@ is returned.
 --
 -- If false, @DataSourceSchema@ is not returned.
-gdsVerbose :: Lens' GetDataSource (Maybe Bool)
-gdsVerbose = lens _gdsVerbose (\ s a -> s{_gdsVerbose = a});
+gdsrqVerbose :: Lens' GetDataSource (Maybe Bool)
+gdsrqVerbose = lens _gdsrqVerbose (\ s a -> s{_gdsrqVerbose = a});
 
 -- | The ID assigned to the @DataSource@ at creation.
-gdsDataSourceId :: Lens' GetDataSource Text
-gdsDataSourceId = lens _gdsDataSourceId (\ s a -> s{_gdsDataSourceId = a});
+gdsrqDataSourceId :: Lens' GetDataSource Text
+gdsrqDataSourceId = lens _gdsrqDataSourceId (\ s a -> s{_gdsrqDataSourceId = a});
 
 instance AWSRequest GetDataSource where
         type Sv GetDataSource = MachineLearning
@@ -134,8 +134,8 @@ instance ToHeaders GetDataSource where
 instance ToJSON GetDataSource where
         toJSON GetDataSource'{..}
           = object
-              ["Verbose" .= _gdsVerbose,
-               "DataSourceId" .= _gdsDataSourceId]
+              ["Verbose" .= _gdsrqVerbose,
+               "DataSourceId" .= _gdsrqDataSourceId]
 
 instance ToPath GetDataSource where
         toPath = const "/"
@@ -150,160 +150,160 @@ instance ToQuery GetDataSource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdsrNumberOfFiles'
+-- * 'gdsrsNumberOfFiles'
 --
--- * 'gdsrLastUpdatedAt'
+-- * 'gdsrsLastUpdatedAt'
 --
--- * 'gdsrCreatedAt'
+-- * 'gdsrsCreatedAt'
 --
--- * 'gdsrRDSMetadata'
+-- * 'gdsrsRDSMetadata'
 --
--- * 'gdsrDataSourceId'
+-- * 'gdsrsDataSourceId'
 --
--- * 'gdsrDataSizeInBytes'
+-- * 'gdsrsDataSizeInBytes'
 --
--- * 'gdsrDataSourceSchema'
+-- * 'gdsrsDataSourceSchema'
 --
--- * 'gdsrName'
+-- * 'gdsrsName'
 --
--- * 'gdsrCreatedByIAMUser'
+-- * 'gdsrsCreatedByIAMUser'
 --
--- * 'gdsrLogURI'
+-- * 'gdsrsLogURI'
 --
--- * 'gdsrDataLocationS3'
+-- * 'gdsrsDataLocationS3'
 --
--- * 'gdsrComputeStatistics'
+-- * 'gdsrsComputeStatistics'
 --
--- * 'gdsrMessage'
+-- * 'gdsrsMessage'
 --
--- * 'gdsrRedshiftMetadata'
+-- * 'gdsrsRedshiftMetadata'
 --
--- * 'gdsrRoleARN'
+-- * 'gdsrsRoleARN'
 --
--- * 'gdsrDataRearrangement'
+-- * 'gdsrsDataRearrangement'
 --
--- * 'gdsrStatus'
+-- * 'gdsrsStatus'
 data GetDataSourceResponse = GetDataSourceResponse'
-    { _gdsrNumberOfFiles     :: !(Maybe Integer)
-    , _gdsrLastUpdatedAt     :: !(Maybe POSIX)
-    , _gdsrCreatedAt         :: !(Maybe POSIX)
-    , _gdsrRDSMetadata       :: !(Maybe RDSMetadata)
-    , _gdsrDataSourceId      :: !(Maybe Text)
-    , _gdsrDataSizeInBytes   :: !(Maybe Integer)
-    , _gdsrDataSourceSchema  :: !(Maybe Text)
-    , _gdsrName              :: !(Maybe Text)
-    , _gdsrCreatedByIAMUser  :: !(Maybe Text)
-    , _gdsrLogURI            :: !(Maybe Text)
-    , _gdsrDataLocationS3    :: !(Maybe Text)
-    , _gdsrComputeStatistics :: !(Maybe Bool)
-    , _gdsrMessage           :: !(Maybe Text)
-    , _gdsrRedshiftMetadata  :: !(Maybe RedshiftMetadata)
-    , _gdsrRoleARN           :: !(Maybe Text)
-    , _gdsrDataRearrangement :: !(Maybe Text)
-    , _gdsrStatus            :: !Int
+    { _gdsrsNumberOfFiles     :: !(Maybe Integer)
+    , _gdsrsLastUpdatedAt     :: !(Maybe POSIX)
+    , _gdsrsCreatedAt         :: !(Maybe POSIX)
+    , _gdsrsRDSMetadata       :: !(Maybe RDSMetadata)
+    , _gdsrsDataSourceId      :: !(Maybe Text)
+    , _gdsrsDataSizeInBytes   :: !(Maybe Integer)
+    , _gdsrsDataSourceSchema  :: !(Maybe Text)
+    , _gdsrsName              :: !(Maybe Text)
+    , _gdsrsCreatedByIAMUser  :: !(Maybe Text)
+    , _gdsrsLogURI            :: !(Maybe Text)
+    , _gdsrsDataLocationS3    :: !(Maybe Text)
+    , _gdsrsComputeStatistics :: !(Maybe Bool)
+    , _gdsrsMessage           :: !(Maybe Text)
+    , _gdsrsRedshiftMetadata  :: !(Maybe RedshiftMetadata)
+    , _gdsrsRoleARN           :: !(Maybe Text)
+    , _gdsrsDataRearrangement :: !(Maybe Text)
+    , _gdsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataSourceResponse' smart constructor.
 getDataSourceResponse :: Int -> GetDataSourceResponse
 getDataSourceResponse pStatus =
     GetDataSourceResponse'
-    { _gdsrNumberOfFiles = Nothing
-    , _gdsrLastUpdatedAt = Nothing
-    , _gdsrCreatedAt = Nothing
-    , _gdsrRDSMetadata = Nothing
-    , _gdsrDataSourceId = Nothing
-    , _gdsrDataSizeInBytes = Nothing
-    , _gdsrDataSourceSchema = Nothing
-    , _gdsrName = Nothing
-    , _gdsrCreatedByIAMUser = Nothing
-    , _gdsrLogURI = Nothing
-    , _gdsrDataLocationS3 = Nothing
-    , _gdsrComputeStatistics = Nothing
-    , _gdsrMessage = Nothing
-    , _gdsrRedshiftMetadata = Nothing
-    , _gdsrRoleARN = Nothing
-    , _gdsrDataRearrangement = Nothing
-    , _gdsrStatus = pStatus
+    { _gdsrsNumberOfFiles = Nothing
+    , _gdsrsLastUpdatedAt = Nothing
+    , _gdsrsCreatedAt = Nothing
+    , _gdsrsRDSMetadata = Nothing
+    , _gdsrsDataSourceId = Nothing
+    , _gdsrsDataSizeInBytes = Nothing
+    , _gdsrsDataSourceSchema = Nothing
+    , _gdsrsName = Nothing
+    , _gdsrsCreatedByIAMUser = Nothing
+    , _gdsrsLogURI = Nothing
+    , _gdsrsDataLocationS3 = Nothing
+    , _gdsrsComputeStatistics = Nothing
+    , _gdsrsMessage = Nothing
+    , _gdsrsRedshiftMetadata = Nothing
+    , _gdsrsRoleARN = Nothing
+    , _gdsrsDataRearrangement = Nothing
+    , _gdsrsStatus = pStatus
     }
 
 -- | The number of data files referenced by the @DataSource@.
-gdsrNumberOfFiles :: Lens' GetDataSourceResponse (Maybe Integer)
-gdsrNumberOfFiles = lens _gdsrNumberOfFiles (\ s a -> s{_gdsrNumberOfFiles = a});
+gdsrsNumberOfFiles :: Lens' GetDataSourceResponse (Maybe Integer)
+gdsrsNumberOfFiles = lens _gdsrsNumberOfFiles (\ s a -> s{_gdsrsNumberOfFiles = a});
 
 -- | The time of the most recent edit to the @DataSource@. The time is
 -- expressed in epoch time.
-gdsrLastUpdatedAt :: Lens' GetDataSourceResponse (Maybe UTCTime)
-gdsrLastUpdatedAt = lens _gdsrLastUpdatedAt (\ s a -> s{_gdsrLastUpdatedAt = a}) . mapping _Time;
+gdsrsLastUpdatedAt :: Lens' GetDataSourceResponse (Maybe UTCTime)
+gdsrsLastUpdatedAt = lens _gdsrsLastUpdatedAt (\ s a -> s{_gdsrsLastUpdatedAt = a}) . mapping _Time;
 
 -- | The time that the @DataSource@ was created. The time is expressed in
 -- epoch time.
-gdsrCreatedAt :: Lens' GetDataSourceResponse (Maybe UTCTime)
-gdsrCreatedAt = lens _gdsrCreatedAt (\ s a -> s{_gdsrCreatedAt = a}) . mapping _Time;
+gdsrsCreatedAt :: Lens' GetDataSourceResponse (Maybe UTCTime)
+gdsrsCreatedAt = lens _gdsrsCreatedAt (\ s a -> s{_gdsrsCreatedAt = a}) . mapping _Time;
 
 -- | FIXME: Undocumented member.
-gdsrRDSMetadata :: Lens' GetDataSourceResponse (Maybe RDSMetadata)
-gdsrRDSMetadata = lens _gdsrRDSMetadata (\ s a -> s{_gdsrRDSMetadata = a});
+gdsrsRDSMetadata :: Lens' GetDataSourceResponse (Maybe RDSMetadata)
+gdsrsRDSMetadata = lens _gdsrsRDSMetadata (\ s a -> s{_gdsrsRDSMetadata = a});
 
 -- | The ID assigned to the @DataSource@ at creation. This value should be
 -- identical to the value of the @DataSourceId@ in the request.
-gdsrDataSourceId :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrDataSourceId = lens _gdsrDataSourceId (\ s a -> s{_gdsrDataSourceId = a});
+gdsrsDataSourceId :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsDataSourceId = lens _gdsrsDataSourceId (\ s a -> s{_gdsrsDataSourceId = a});
 
 -- | The total size of observations in the data files.
-gdsrDataSizeInBytes :: Lens' GetDataSourceResponse (Maybe Integer)
-gdsrDataSizeInBytes = lens _gdsrDataSizeInBytes (\ s a -> s{_gdsrDataSizeInBytes = a});
+gdsrsDataSizeInBytes :: Lens' GetDataSourceResponse (Maybe Integer)
+gdsrsDataSizeInBytes = lens _gdsrsDataSizeInBytes (\ s a -> s{_gdsrsDataSizeInBytes = a});
 
 -- | The schema used by all of the data files of this @DataSource@.
 --
 -- Note
 --
 -- This parameter is provided as part of the verbose format.
-gdsrDataSourceSchema :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrDataSourceSchema = lens _gdsrDataSourceSchema (\ s a -> s{_gdsrDataSourceSchema = a});
+gdsrsDataSourceSchema :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsDataSourceSchema = lens _gdsrsDataSourceSchema (\ s a -> s{_gdsrsDataSourceSchema = a});
 
 -- | A user-supplied name or description of the @DataSource@.
-gdsrName :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrName = lens _gdsrName (\ s a -> s{_gdsrName = a});
+gdsrsName :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsName = lens _gdsrsName (\ s a -> s{_gdsrsName = a});
 
 -- | The AWS user account from which the @DataSource@ was created. The
 -- account type can be either an AWS root account or an AWS Identity and
 -- Access Management (IAM) user account.
-gdsrCreatedByIAMUser :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrCreatedByIAMUser = lens _gdsrCreatedByIAMUser (\ s a -> s{_gdsrCreatedByIAMUser = a});
+gdsrsCreatedByIAMUser :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsCreatedByIAMUser = lens _gdsrsCreatedByIAMUser (\ s a -> s{_gdsrsCreatedByIAMUser = a});
 
 -- | A link to the file containining logs of either create @DataSource@
 -- operation.
-gdsrLogURI :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrLogURI = lens _gdsrLogURI (\ s a -> s{_gdsrLogURI = a});
+gdsrsLogURI :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsLogURI = lens _gdsrsLogURI (\ s a -> s{_gdsrsLogURI = a});
 
 -- | The location of the data file or directory in Amazon Simple Storage
 -- Service (Amazon S3).
-gdsrDataLocationS3 :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrDataLocationS3 = lens _gdsrDataLocationS3 (\ s a -> s{_gdsrDataLocationS3 = a});
+gdsrsDataLocationS3 :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsDataLocationS3 = lens _gdsrsDataLocationS3 (\ s a -> s{_gdsrsDataLocationS3 = a});
 
 -- | The parameter is @true@ if statistics need to be generated from the
 -- observation data.
-gdsrComputeStatistics :: Lens' GetDataSourceResponse (Maybe Bool)
-gdsrComputeStatistics = lens _gdsrComputeStatistics (\ s a -> s{_gdsrComputeStatistics = a});
+gdsrsComputeStatistics :: Lens' GetDataSourceResponse (Maybe Bool)
+gdsrsComputeStatistics = lens _gdsrsComputeStatistics (\ s a -> s{_gdsrsComputeStatistics = a});
 
 -- | The description of the most recent details about creating the
 -- @DataSource@.
-gdsrMessage :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrMessage = lens _gdsrMessage (\ s a -> s{_gdsrMessage = a});
+gdsrsMessage :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsMessage = lens _gdsrsMessage (\ s a -> s{_gdsrsMessage = a});
 
 -- | FIXME: Undocumented member.
-gdsrRedshiftMetadata :: Lens' GetDataSourceResponse (Maybe RedshiftMetadata)
-gdsrRedshiftMetadata = lens _gdsrRedshiftMetadata (\ s a -> s{_gdsrRedshiftMetadata = a});
+gdsrsRedshiftMetadata :: Lens' GetDataSourceResponse (Maybe RedshiftMetadata)
+gdsrsRedshiftMetadata = lens _gdsrsRedshiftMetadata (\ s a -> s{_gdsrsRedshiftMetadata = a});
 
 -- | FIXME: Undocumented member.
-gdsrRoleARN :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrRoleARN = lens _gdsrRoleARN (\ s a -> s{_gdsrRoleARN = a});
+gdsrsRoleARN :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsRoleARN = lens _gdsrsRoleARN (\ s a -> s{_gdsrsRoleARN = a});
 
 -- | A JSON string that captures the splitting rearrangement requirement of
 -- the @DataSource@.
-gdsrDataRearrangement :: Lens' GetDataSourceResponse (Maybe Text)
-gdsrDataRearrangement = lens _gdsrDataRearrangement (\ s a -> s{_gdsrDataRearrangement = a});
+gdsrsDataRearrangement :: Lens' GetDataSourceResponse (Maybe Text)
+gdsrsDataRearrangement = lens _gdsrsDataRearrangement (\ s a -> s{_gdsrsDataRearrangement = a});
 
 -- | FIXME: Undocumented member.
-gdsrStatus :: Lens' GetDataSourceResponse Int
-gdsrStatus = lens _gdsrStatus (\ s a -> s{_gdsrStatus = a});
+gdsrsStatus :: Lens' GetDataSourceResponse Int
+gdsrsStatus = lens _gdsrsStatus (\ s a -> s{_gdsrsStatus = a});

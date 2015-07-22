@@ -32,17 +32,17 @@ module Network.AWS.CognitoIdentity.GetCredentialsForIdentity
     -- ** Request constructor
     , getCredentialsForIdentity
     -- ** Request lenses
-    , gcfiLogins
-    , gcfiIdentityId
+    , gcfirqLogins
+    , gcfirqIdentityId
 
     -- * Response
     , GetCredentialsForIdentityResponse
     -- ** Response constructor
     , getCredentialsForIdentityResponse
     -- ** Response lenses
-    , gcfirCredentials
-    , gcfirIdentityId
-    , gcfirStatus
+    , gcfirsCredentials
+    , gcfirsIdentityId
+    , gcfirsStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -56,30 +56,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcfiLogins'
+-- * 'gcfirqLogins'
 --
--- * 'gcfiIdentityId'
+-- * 'gcfirqIdentityId'
 data GetCredentialsForIdentity = GetCredentialsForIdentity'
-    { _gcfiLogins     :: !(Maybe (Map Text Text))
-    , _gcfiIdentityId :: !Text
+    { _gcfirqLogins     :: !(Maybe (Map Text Text))
+    , _gcfirqIdentityId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialsForIdentity' smart constructor.
 getCredentialsForIdentity :: Text -> GetCredentialsForIdentity
 getCredentialsForIdentity pIdentityId =
     GetCredentialsForIdentity'
-    { _gcfiLogins = Nothing
-    , _gcfiIdentityId = pIdentityId
+    { _gcfirqLogins = Nothing
+    , _gcfirqIdentityId = pIdentityId
     }
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
-gcfiLogins :: Lens' GetCredentialsForIdentity (HashMap Text Text)
-gcfiLogins = lens _gcfiLogins (\ s a -> s{_gcfiLogins = a}) . _Default . _Map;
+gcfirqLogins :: Lens' GetCredentialsForIdentity (HashMap Text Text)
+gcfirqLogins = lens _gcfirqLogins (\ s a -> s{_gcfirqLogins = a}) . _Default . _Map;
 
 -- | A unique identifier in the format REGION:GUID.
-gcfiIdentityId :: Lens' GetCredentialsForIdentity Text
-gcfiIdentityId = lens _gcfiIdentityId (\ s a -> s{_gcfiIdentityId = a});
+gcfirqIdentityId :: Lens' GetCredentialsForIdentity Text
+gcfirqIdentityId = lens _gcfirqIdentityId (\ s a -> s{_gcfirqIdentityId = a});
 
 instance AWSRequest GetCredentialsForIdentity where
         type Sv GetCredentialsForIdentity = CognitoIdentity
@@ -106,8 +106,8 @@ instance ToHeaders GetCredentialsForIdentity where
 instance ToJSON GetCredentialsForIdentity where
         toJSON GetCredentialsForIdentity'{..}
           = object
-              ["Logins" .= _gcfiLogins,
-               "IdentityId" .= _gcfiIdentityId]
+              ["Logins" .= _gcfirqLogins,
+               "IdentityId" .= _gcfirqIdentityId]
 
 instance ToPath GetCredentialsForIdentity where
         toPath = const "/"
@@ -122,34 +122,34 @@ instance ToQuery GetCredentialsForIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcfirCredentials'
+-- * 'gcfirsCredentials'
 --
--- * 'gcfirIdentityId'
+-- * 'gcfirsIdentityId'
 --
--- * 'gcfirStatus'
+-- * 'gcfirsStatus'
 data GetCredentialsForIdentityResponse = GetCredentialsForIdentityResponse'
-    { _gcfirCredentials :: !(Maybe Credentials)
-    , _gcfirIdentityId  :: !(Maybe Text)
-    , _gcfirStatus      :: !Int
+    { _gcfirsCredentials :: !(Maybe Credentials)
+    , _gcfirsIdentityId  :: !(Maybe Text)
+    , _gcfirsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetCredentialsForIdentityResponse' smart constructor.
 getCredentialsForIdentityResponse :: Int -> GetCredentialsForIdentityResponse
 getCredentialsForIdentityResponse pStatus =
     GetCredentialsForIdentityResponse'
-    { _gcfirCredentials = Nothing
-    , _gcfirIdentityId = Nothing
-    , _gcfirStatus = pStatus
+    { _gcfirsCredentials = Nothing
+    , _gcfirsIdentityId = Nothing
+    , _gcfirsStatus = pStatus
     }
 
 -- | Credentials for the the provided identity ID.
-gcfirCredentials :: Lens' GetCredentialsForIdentityResponse (Maybe Credentials)
-gcfirCredentials = lens _gcfirCredentials (\ s a -> s{_gcfirCredentials = a});
+gcfirsCredentials :: Lens' GetCredentialsForIdentityResponse (Maybe Credentials)
+gcfirsCredentials = lens _gcfirsCredentials (\ s a -> s{_gcfirsCredentials = a});
 
 -- | A unique identifier in the format REGION:GUID.
-gcfirIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
-gcfirIdentityId = lens _gcfirIdentityId (\ s a -> s{_gcfirIdentityId = a});
+gcfirsIdentityId :: Lens' GetCredentialsForIdentityResponse (Maybe Text)
+gcfirsIdentityId = lens _gcfirsIdentityId (\ s a -> s{_gcfirsIdentityId = a});
 
 -- | FIXME: Undocumented member.
-gcfirStatus :: Lens' GetCredentialsForIdentityResponse Int
-gcfirStatus = lens _gcfirStatus (\ s a -> s{_gcfirStatus = a});
+gcfirsStatus :: Lens' GetCredentialsForIdentityResponse Int
+gcfirsStatus = lens _gcfirsStatus (\ s a -> s{_gcfirsStatus = a});

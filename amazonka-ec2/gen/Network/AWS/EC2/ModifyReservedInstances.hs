@@ -34,17 +34,17 @@ module Network.AWS.EC2.ModifyReservedInstances
     -- ** Request constructor
     , modifyReservedInstances
     -- ** Request lenses
-    , mriClientToken
-    , mriReservedInstancesIds
-    , mriTargetConfigurations
+    , mrirqClientToken
+    , mrirqReservedInstancesIds
+    , mrirqTargetConfigurations
 
     -- * Response
     , ModifyReservedInstancesResponse
     -- ** Response constructor
     , modifyReservedInstancesResponse
     -- ** Response lenses
-    , mrirReservedInstancesModificationId
-    , mrirStatus
+    , mrirsReservedInstancesModificationId
+    , mrirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -56,39 +56,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mriClientToken'
+-- * 'mrirqClientToken'
 --
--- * 'mriReservedInstancesIds'
+-- * 'mrirqReservedInstancesIds'
 --
--- * 'mriTargetConfigurations'
+-- * 'mrirqTargetConfigurations'
 data ModifyReservedInstances = ModifyReservedInstances'
-    { _mriClientToken          :: !(Maybe Text)
-    , _mriReservedInstancesIds :: ![Text]
-    , _mriTargetConfigurations :: ![ReservedInstancesConfiguration]
+    { _mrirqClientToken          :: !(Maybe Text)
+    , _mrirqReservedInstancesIds :: ![Text]
+    , _mrirqTargetConfigurations :: ![ReservedInstancesConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReservedInstances' smart constructor.
 modifyReservedInstances :: ModifyReservedInstances
 modifyReservedInstances =
     ModifyReservedInstances'
-    { _mriClientToken = Nothing
-    , _mriReservedInstancesIds = mempty
-    , _mriTargetConfigurations = mempty
+    { _mrirqClientToken = Nothing
+    , _mrirqReservedInstancesIds = mempty
+    , _mrirqTargetConfigurations = mempty
     }
 
 -- | A unique, case-sensitive token you provide to ensure idempotency of your
 -- modification request. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-mriClientToken :: Lens' ModifyReservedInstances (Maybe Text)
-mriClientToken = lens _mriClientToken (\ s a -> s{_mriClientToken = a});
+mrirqClientToken :: Lens' ModifyReservedInstances (Maybe Text)
+mrirqClientToken = lens _mrirqClientToken (\ s a -> s{_mrirqClientToken = a});
 
 -- | The IDs of the Reserved Instances to modify.
-mriReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
-mriReservedInstancesIds = lens _mriReservedInstancesIds (\ s a -> s{_mriReservedInstancesIds = a});
+mrirqReservedInstancesIds :: Lens' ModifyReservedInstances [Text]
+mrirqReservedInstancesIds = lens _mrirqReservedInstancesIds (\ s a -> s{_mrirqReservedInstancesIds = a});
 
 -- | The configuration settings for the Reserved Instances to modify.
-mriTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
-mriTargetConfigurations = lens _mriTargetConfigurations (\ s a -> s{_mriTargetConfigurations = a});
+mrirqTargetConfigurations :: Lens' ModifyReservedInstances [ReservedInstancesConfiguration]
+mrirqTargetConfigurations = lens _mrirqTargetConfigurations (\ s a -> s{_mrirqTargetConfigurations = a});
 
 instance AWSRequest ModifyReservedInstances where
         type Sv ModifyReservedInstances = EC2
@@ -114,35 +114,35 @@ instance ToQuery ModifyReservedInstances where
               ["Action" =:
                  ("ModifyReservedInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ClientToken" =: _mriClientToken,
+               "ClientToken" =: _mrirqClientToken,
                toQueryList "ReservedInstancesId"
-                 _mriReservedInstancesIds,
-               toQueryList "item" _mriTargetConfigurations]
+                 _mrirqReservedInstancesIds,
+               toQueryList "item" _mrirqTargetConfigurations]
 
 -- | /See:/ 'modifyReservedInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mrirReservedInstancesModificationId'
+-- * 'mrirsReservedInstancesModificationId'
 --
--- * 'mrirStatus'
+-- * 'mrirsStatus'
 data ModifyReservedInstancesResponse = ModifyReservedInstancesResponse'
-    { _mrirReservedInstancesModificationId :: !(Maybe Text)
-    , _mrirStatus                          :: !Int
+    { _mrirsReservedInstancesModificationId :: !(Maybe Text)
+    , _mrirsStatus                          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyReservedInstancesResponse' smart constructor.
 modifyReservedInstancesResponse :: Int -> ModifyReservedInstancesResponse
 modifyReservedInstancesResponse pStatus =
     ModifyReservedInstancesResponse'
-    { _mrirReservedInstancesModificationId = Nothing
-    , _mrirStatus = pStatus
+    { _mrirsReservedInstancesModificationId = Nothing
+    , _mrirsStatus = pStatus
     }
 
 -- | The ID for the modification.
-mrirReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
-mrirReservedInstancesModificationId = lens _mrirReservedInstancesModificationId (\ s a -> s{_mrirReservedInstancesModificationId = a});
+mrirsReservedInstancesModificationId :: Lens' ModifyReservedInstancesResponse (Maybe Text)
+mrirsReservedInstancesModificationId = lens _mrirsReservedInstancesModificationId (\ s a -> s{_mrirsReservedInstancesModificationId = a});
 
 -- | FIXME: Undocumented member.
-mrirStatus :: Lens' ModifyReservedInstancesResponse Int
-mrirStatus = lens _mrirStatus (\ s a -> s{_mrirStatus = a});
+mrirsStatus :: Lens' ModifyReservedInstancesResponse Int
+mrirsStatus = lens _mrirsStatus (\ s a -> s{_mrirsStatus = a});

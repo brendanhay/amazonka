@@ -28,17 +28,17 @@ module Network.AWS.RDS.CreateDBSnapshot
     -- ** Request constructor
     , createDBSnapshot
     -- ** Request lenses
-    , creTags
-    , creDBSnapshotIdentifier
-    , creDBInstanceIdentifier
+    , cdbsrqTags
+    , cdbsrqDBSnapshotIdentifier
+    , cdbsrqDBInstanceIdentifier
 
     -- * Response
     , CreateDBSnapshotResponse
     -- ** Response constructor
     , createDBSnapshotResponse
     -- ** Response lenses
-    , creDBSnapshot
-    , creStatus
+    , cdbsrsDBSnapshot
+    , cdbsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creTags'
+-- * 'cdbsrqTags'
 --
--- * 'creDBSnapshotIdentifier'
+-- * 'cdbsrqDBSnapshotIdentifier'
 --
--- * 'creDBInstanceIdentifier'
+-- * 'cdbsrqDBInstanceIdentifier'
 data CreateDBSnapshot = CreateDBSnapshot'
-    { _creTags                 :: !(Maybe [Tag])
-    , _creDBSnapshotIdentifier :: !Text
-    , _creDBInstanceIdentifier :: !Text
+    { _cdbsrqTags                 :: !(Maybe [Tag])
+    , _cdbsrqDBSnapshotIdentifier :: !Text
+    , _cdbsrqDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSnapshot' smart constructor.
 createDBSnapshot :: Text -> Text -> CreateDBSnapshot
 createDBSnapshot pDBSnapshotIdentifier pDBInstanceIdentifier =
     CreateDBSnapshot'
-    { _creTags = Nothing
-    , _creDBSnapshotIdentifier = pDBSnapshotIdentifier
-    , _creDBInstanceIdentifier = pDBInstanceIdentifier
+    { _cdbsrqTags = Nothing
+    , _cdbsrqDBSnapshotIdentifier = pDBSnapshotIdentifier
+    , _cdbsrqDBInstanceIdentifier = pDBInstanceIdentifier
     }
 
 -- | FIXME: Undocumented member.
-creTags :: Lens' CreateDBSnapshot [Tag]
-creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default;
+cdbsrqTags :: Lens' CreateDBSnapshot [Tag]
+cdbsrqTags = lens _cdbsrqTags (\ s a -> s{_cdbsrqTags = a}) . _Default;
 
 -- | The identifier for the DB snapshot.
 --
@@ -86,8 +86,8 @@ creTags = lens _creTags (\ s a -> s{_creTags = a}) . _Default;
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-snapshot-id@
-creDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
-creDBSnapshotIdentifier = lens _creDBSnapshotIdentifier (\ s a -> s{_creDBSnapshotIdentifier = a});
+cdbsrqDBSnapshotIdentifier :: Lens' CreateDBSnapshot Text
+cdbsrqDBSnapshotIdentifier = lens _cdbsrqDBSnapshotIdentifier (\ s a -> s{_cdbsrqDBSnapshotIdentifier = a});
 
 -- | The DB instance identifier. This is the unique key that identifies a DB
 -- instance.
@@ -97,8 +97,8 @@ creDBSnapshotIdentifier = lens _creDBSnapshotIdentifier (\ s a -> s{_creDBSnapsh
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-creDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
-creDBInstanceIdentifier = lens _creDBInstanceIdentifier (\ s a -> s{_creDBInstanceIdentifier = a});
+cdbsrqDBInstanceIdentifier :: Lens' CreateDBSnapshot Text
+cdbsrqDBInstanceIdentifier = lens _cdbsrqDBInstanceIdentifier (\ s a -> s{_cdbsrqDBInstanceIdentifier = a});
 
 instance AWSRequest CreateDBSnapshot where
         type Sv CreateDBSnapshot = RDS
@@ -121,34 +121,37 @@ instance ToQuery CreateDBSnapshot where
           = mconcat
               ["Action" =: ("CreateDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _creTags),
-               "DBSnapshotIdentifier" =: _creDBSnapshotIdentifier,
-               "DBInstanceIdentifier" =: _creDBInstanceIdentifier]
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _cdbsrqTags),
+               "DBSnapshotIdentifier" =:
+                 _cdbsrqDBSnapshotIdentifier,
+               "DBInstanceIdentifier" =:
+                 _cdbsrqDBInstanceIdentifier]
 
 -- | /See:/ 'createDBSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creDBSnapshot'
+-- * 'cdbsrsDBSnapshot'
 --
--- * 'creStatus'
+-- * 'cdbsrsStatus'
 data CreateDBSnapshotResponse = CreateDBSnapshotResponse'
-    { _creDBSnapshot :: !(Maybe DBSnapshot)
-    , _creStatus     :: !Int
+    { _cdbsrsDBSnapshot :: !(Maybe DBSnapshot)
+    , _cdbsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSnapshotResponse' smart constructor.
 createDBSnapshotResponse :: Int -> CreateDBSnapshotResponse
 createDBSnapshotResponse pStatus =
     CreateDBSnapshotResponse'
-    { _creDBSnapshot = Nothing
-    , _creStatus = pStatus
+    { _cdbsrsDBSnapshot = Nothing
+    , _cdbsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-creDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
-creDBSnapshot = lens _creDBSnapshot (\ s a -> s{_creDBSnapshot = a});
+cdbsrsDBSnapshot :: Lens' CreateDBSnapshotResponse (Maybe DBSnapshot)
+cdbsrsDBSnapshot = lens _cdbsrsDBSnapshot (\ s a -> s{_cdbsrsDBSnapshot = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateDBSnapshotResponse Int
-creStatus = lens _creStatus (\ s a -> s{_creStatus = a});
+cdbsrsStatus :: Lens' CreateDBSnapshotResponse Int
+cdbsrsStatus = lens _cdbsrsStatus (\ s a -> s{_cdbsrsStatus = a});

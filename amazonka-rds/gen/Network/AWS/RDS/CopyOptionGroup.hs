@@ -27,18 +27,18 @@ module Network.AWS.RDS.CopyOptionGroup
     -- ** Request constructor
     , copyOptionGroup
     -- ** Request lenses
-    , copTags
-    , copSourceOptionGroupIdentifier
-    , copTargetOptionGroupIdentifier
-    , copTargetOptionGroupDescription
+    , crqTags
+    , crqSourceOptionGroupIdentifier
+    , crqTargetOptionGroupIdentifier
+    , crqTargetOptionGroupDescription
 
     -- * Response
     , CopyOptionGroupResponse
     -- ** Response constructor
     , copyOptionGroupResponse
     -- ** Response lenses
-    , cogrOptionGroup
-    , cogrStatus
+    , crsOptionGroup
+    , crsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'copTags'
+-- * 'crqTags'
 --
--- * 'copSourceOptionGroupIdentifier'
+-- * 'crqSourceOptionGroupIdentifier'
 --
--- * 'copTargetOptionGroupIdentifier'
+-- * 'crqTargetOptionGroupIdentifier'
 --
--- * 'copTargetOptionGroupDescription'
+-- * 'crqTargetOptionGroupDescription'
 data CopyOptionGroup = CopyOptionGroup'
-    { _copTags                         :: !(Maybe [Tag])
-    , _copSourceOptionGroupIdentifier  :: !Text
-    , _copTargetOptionGroupIdentifier  :: !Text
-    , _copTargetOptionGroupDescription :: !Text
+    { _crqTags                         :: !(Maybe [Tag])
+    , _crqSourceOptionGroupIdentifier  :: !Text
+    , _crqTargetOptionGroupIdentifier  :: !Text
+    , _crqTargetOptionGroupDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyOptionGroup' smart constructor.
 copyOptionGroup :: Text -> Text -> Text -> CopyOptionGroup
 copyOptionGroup pSourceOptionGroupIdentifier pTargetOptionGroupIdentifier pTargetOptionGroupDescription =
     CopyOptionGroup'
-    { _copTags = Nothing
-    , _copSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier
-    , _copTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier
-    , _copTargetOptionGroupDescription = pTargetOptionGroupDescription
+    { _crqTags = Nothing
+    , _crqSourceOptionGroupIdentifier = pSourceOptionGroupIdentifier
+    , _crqTargetOptionGroupIdentifier = pTargetOptionGroupIdentifier
+    , _crqTargetOptionGroupDescription = pTargetOptionGroupDescription
     }
 
 -- | FIXME: Undocumented member.
-copTags :: Lens' CopyOptionGroup [Tag]
-copTags = lens _copTags (\ s a -> s{_copTags = a}) . _Default;
+crqTags :: Lens' CopyOptionGroup [Tag]
+crqTags = lens _crqTags (\ s a -> s{_crqTags = a}) . _Default;
 
 -- | The identifier or ARN for the source option group.
 --
@@ -91,8 +91,8 @@ copTags = lens _copTags (\ s a -> s{_copTags = a}) . _Default;
 -- -   If the source option group is in a different region than the copy,
 --     specify a valid option group ARN, for example
 --     @arn:aws:rds:us-west-2:123456789012:og:special-options@.
-copSourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
-copSourceOptionGroupIdentifier = lens _copSourceOptionGroupIdentifier (\ s a -> s{_copSourceOptionGroupIdentifier = a});
+crqSourceOptionGroupIdentifier :: Lens' CopyOptionGroup Text
+crqSourceOptionGroupIdentifier = lens _crqSourceOptionGroupIdentifier (\ s a -> s{_crqSourceOptionGroupIdentifier = a});
 
 -- | The identifier for the copied option group.
 --
@@ -104,12 +104,12 @@ copSourceOptionGroupIdentifier = lens _copSourceOptionGroupIdentifier (\ s a -> 
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-option-group@
-copTargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
-copTargetOptionGroupIdentifier = lens _copTargetOptionGroupIdentifier (\ s a -> s{_copTargetOptionGroupIdentifier = a});
+crqTargetOptionGroupIdentifier :: Lens' CopyOptionGroup Text
+crqTargetOptionGroupIdentifier = lens _crqTargetOptionGroupIdentifier (\ s a -> s{_crqTargetOptionGroupIdentifier = a});
 
 -- | The description for the copied option group.
-copTargetOptionGroupDescription :: Lens' CopyOptionGroup Text
-copTargetOptionGroupDescription = lens _copTargetOptionGroupDescription (\ s a -> s{_copTargetOptionGroupDescription = a});
+crqTargetOptionGroupDescription :: Lens' CopyOptionGroup Text
+crqTargetOptionGroupDescription = lens _crqTargetOptionGroupDescription (\ s a -> s{_crqTargetOptionGroupDescription = a});
 
 instance AWSRequest CopyOptionGroup where
         type Sv CopyOptionGroup = RDS
@@ -132,38 +132,38 @@ instance ToQuery CopyOptionGroup where
           = mconcat
               ["Action" =: ("CopyOptionGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _copTags),
+               "Tags" =: toQuery (toQueryList "Tag" <$> _crqTags),
                "SourceOptionGroupIdentifier" =:
-                 _copSourceOptionGroupIdentifier,
+                 _crqSourceOptionGroupIdentifier,
                "TargetOptionGroupIdentifier" =:
-                 _copTargetOptionGroupIdentifier,
+                 _crqTargetOptionGroupIdentifier,
                "TargetOptionGroupDescription" =:
-                 _copTargetOptionGroupDescription]
+                 _crqTargetOptionGroupDescription]
 
 -- | /See:/ 'copyOptionGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cogrOptionGroup'
+-- * 'crsOptionGroup'
 --
--- * 'cogrStatus'
+-- * 'crsStatus'
 data CopyOptionGroupResponse = CopyOptionGroupResponse'
-    { _cogrOptionGroup :: !(Maybe OptionGroup)
-    , _cogrStatus      :: !Int
+    { _crsOptionGroup :: !(Maybe OptionGroup)
+    , _crsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyOptionGroupResponse' smart constructor.
 copyOptionGroupResponse :: Int -> CopyOptionGroupResponse
 copyOptionGroupResponse pStatus =
     CopyOptionGroupResponse'
-    { _cogrOptionGroup = Nothing
-    , _cogrStatus = pStatus
+    { _crsOptionGroup = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cogrOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
-cogrOptionGroup = lens _cogrOptionGroup (\ s a -> s{_cogrOptionGroup = a});
+crsOptionGroup :: Lens' CopyOptionGroupResponse (Maybe OptionGroup)
+crsOptionGroup = lens _crsOptionGroup (\ s a -> s{_crsOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-cogrStatus :: Lens' CopyOptionGroupResponse Int
-cogrStatus = lens _cogrStatus (\ s a -> s{_cogrStatus = a});
+crsStatus :: Lens' CopyOptionGroupResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

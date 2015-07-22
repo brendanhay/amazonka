@@ -34,16 +34,16 @@ module Network.AWS.ElasticTranscoder.UpdatePipelineStatus
     -- ** Request constructor
     , updatePipelineStatus
     -- ** Request lenses
-    , upsId
-    , upsStatus
+    , upsrqId
+    , upsrqStatus
 
     -- * Response
     , UpdatePipelineStatusResponse
     -- ** Response constructor
     , updatePipelineStatusResponse
     -- ** Response lenses
-    , upsrPipeline
-    , upsrStatus
+    , upsrsPipeline
+    , upsrsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -57,32 +57,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upsId'
+-- * 'upsrqId'
 --
--- * 'upsStatus'
+-- * 'upsrqStatus'
 data UpdatePipelineStatus = UpdatePipelineStatus'
-    { _upsId     :: !Text
-    , _upsStatus :: !Text
+    { _upsrqId     :: !Text
+    , _upsrqStatus :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineStatus' smart constructor.
 updatePipelineStatus :: Text -> Text -> UpdatePipelineStatus
 updatePipelineStatus pId pStatus =
     UpdatePipelineStatus'
-    { _upsId = pId
-    , _upsStatus = pStatus
+    { _upsrqId = pId
+    , _upsrqStatus = pStatus
     }
 
 -- | The identifier of the pipeline to update.
-upsId :: Lens' UpdatePipelineStatus Text
-upsId = lens _upsId (\ s a -> s{_upsId = a});
+upsrqId :: Lens' UpdatePipelineStatus Text
+upsrqId = lens _upsrqId (\ s a -> s{_upsrqId = a});
 
 -- | The desired status of the pipeline:
 --
 -- -   @Active@: The pipeline is processing jobs.
 -- -   @Paused@: The pipeline is not currently processing jobs.
-upsStatus :: Lens' UpdatePipelineStatus Text
-upsStatus = lens _upsStatus (\ s a -> s{_upsStatus = a});
+upsrqStatus :: Lens' UpdatePipelineStatus Text
+upsrqStatus = lens _upsrqStatus (\ s a -> s{_upsrqStatus = a});
 
 instance AWSRequest UpdatePipelineStatus where
         type Sv UpdatePipelineStatus = ElasticTranscoder
@@ -100,12 +100,13 @@ instance ToHeaders UpdatePipelineStatus where
 
 instance ToJSON UpdatePipelineStatus where
         toJSON UpdatePipelineStatus'{..}
-          = object ["Status" .= _upsStatus]
+          = object ["Status" .= _upsrqStatus]
 
 instance ToPath UpdatePipelineStatus where
         toPath UpdatePipelineStatus'{..}
           = mconcat
-              ["/2012-09-25/pipelines/", toText _upsId, "/status"]
+              ["/2012-09-25/pipelines/", toText _upsrqId,
+               "/status"]
 
 instance ToQuery UpdatePipelineStatus where
         toQuery = const mempty
@@ -117,27 +118,27 @@ instance ToQuery UpdatePipelineStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upsrPipeline'
+-- * 'upsrsPipeline'
 --
--- * 'upsrStatus'
+-- * 'upsrsStatus'
 data UpdatePipelineStatusResponse = UpdatePipelineStatusResponse'
-    { _upsrPipeline :: !(Maybe Pipeline)
-    , _upsrStatus   :: !Int
+    { _upsrsPipeline :: !(Maybe Pipeline)
+    , _upsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineStatusResponse' smart constructor.
 updatePipelineStatusResponse :: Int -> UpdatePipelineStatusResponse
 updatePipelineStatusResponse pStatus =
     UpdatePipelineStatusResponse'
-    { _upsrPipeline = Nothing
-    , _upsrStatus = pStatus
+    { _upsrsPipeline = Nothing
+    , _upsrsStatus = pStatus
     }
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-upsrPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
-upsrPipeline = lens _upsrPipeline (\ s a -> s{_upsrPipeline = a});
+upsrsPipeline :: Lens' UpdatePipelineStatusResponse (Maybe Pipeline)
+upsrsPipeline = lens _upsrsPipeline (\ s a -> s{_upsrsPipeline = a});
 
 -- | FIXME: Undocumented member.
-upsrStatus :: Lens' UpdatePipelineStatusResponse Int
-upsrStatus = lens _upsrStatus (\ s a -> s{_upsrStatus = a});
+upsrsStatus :: Lens' UpdatePipelineStatusResponse Int
+upsrsStatus = lens _upsrsStatus (\ s a -> s{_upsrsStatus = a});

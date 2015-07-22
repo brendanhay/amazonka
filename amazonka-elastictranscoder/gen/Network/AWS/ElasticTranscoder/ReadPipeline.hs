@@ -27,16 +27,16 @@ module Network.AWS.ElasticTranscoder.ReadPipeline
     -- ** Request constructor
     , readPipeline
     -- ** Request lenses
-    , reaId
+    , rrqId
 
     -- * Response
     , ReadPipelineResponse
     -- ** Response constructor
     , readPipelineResponse
     -- ** Response lenses
-    , reaWarnings
-    , reaPipeline
-    , reaStatus
+    , rrsWarnings
+    , rrsPipeline
+    , rrsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reaId'
+-- * 'rrqId'
 newtype ReadPipeline = ReadPipeline'
-    { _reaId :: Text
+    { _rrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadPipeline' smart constructor.
 readPipeline :: Text -> ReadPipeline
 readPipeline pId =
     ReadPipeline'
-    { _reaId = pId
+    { _rrqId = pId
     }
 
 -- | The identifier of the pipeline to read.
-reaId :: Lens' ReadPipeline Text
-reaId = lens _reaId (\ s a -> s{_reaId = a});
+rrqId :: Lens' ReadPipeline Text
+rrqId = lens _rrqId (\ s a -> s{_rrqId = a});
 
 instance AWSRequest ReadPipeline where
         type Sv ReadPipeline = ElasticTranscoder
@@ -82,7 +82,7 @@ instance ToHeaders ReadPipeline where
 
 instance ToPath ReadPipeline where
         toPath ReadPipeline'{..}
-          = mconcat ["/2012-09-25/pipelines/", toText _reaId]
+          = mconcat ["/2012-09-25/pipelines/", toText _rrqId]
 
 instance ToQuery ReadPipeline where
         toQuery = const mempty
@@ -93,24 +93,24 @@ instance ToQuery ReadPipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reaWarnings'
+-- * 'rrsWarnings'
 --
--- * 'reaPipeline'
+-- * 'rrsPipeline'
 --
--- * 'reaStatus'
+-- * 'rrsStatus'
 data ReadPipelineResponse = ReadPipelineResponse'
-    { _reaWarnings :: !(Maybe [Warning])
-    , _reaPipeline :: !(Maybe Pipeline)
-    , _reaStatus   :: !Int
+    { _rrsWarnings :: !(Maybe [Warning])
+    , _rrsPipeline :: !(Maybe Pipeline)
+    , _rrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadPipelineResponse' smart constructor.
 readPipelineResponse :: Int -> ReadPipelineResponse
 readPipelineResponse pStatus =
     ReadPipelineResponse'
-    { _reaWarnings = Nothing
-    , _reaPipeline = Nothing
-    , _reaStatus = pStatus
+    { _rrsWarnings = Nothing
+    , _rrsPipeline = Nothing
+    , _rrsStatus = pStatus
     }
 
 -- | Elastic Transcoder returns a warning if the resources used by your
@@ -119,14 +119,14 @@ readPipelineResponse pStatus =
 -- Using resources in the same region, such as your Amazon S3 buckets,
 -- Amazon SNS notification topics, and AWS KMS key, reduces processing time
 -- and prevents cross-regional charges.
-reaWarnings :: Lens' ReadPipelineResponse [Warning]
-reaWarnings = lens _reaWarnings (\ s a -> s{_reaWarnings = a}) . _Default;
+rrsWarnings :: Lens' ReadPipelineResponse [Warning]
+rrsWarnings = lens _rrsWarnings (\ s a -> s{_rrsWarnings = a}) . _Default;
 
 -- | A section of the response body that provides information about the
 -- pipeline.
-reaPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
-reaPipeline = lens _reaPipeline (\ s a -> s{_reaPipeline = a});
+rrsPipeline :: Lens' ReadPipelineResponse (Maybe Pipeline)
+rrsPipeline = lens _rrsPipeline (\ s a -> s{_rrsPipeline = a});
 
 -- | FIXME: Undocumented member.
-reaStatus :: Lens' ReadPipelineResponse Int
-reaStatus = lens _reaStatus (\ s a -> s{_reaStatus = a});
+rrsStatus :: Lens' ReadPipelineResponse Int
+rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});

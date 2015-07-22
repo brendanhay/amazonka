@@ -30,15 +30,15 @@ module Network.AWS.Route53.GetHealthCheckLastFailureReason
     -- ** Request constructor
     , getHealthCheckLastFailureReason
     -- ** Request lenses
-    , ghclfrHealthCheckId
+    , ghclfrrqHealthCheckId
 
     -- * Response
     , GetHealthCheckLastFailureReasonResponse
     -- ** Response constructor
     , getHealthCheckLastFailureReasonResponse
     -- ** Response lenses
-    , ghclfrrStatus
-    , ghclfrrHealthCheckObservations
+    , ghclfrrsStatus
+    , ghclfrrsHealthCheckObservations
     ) where
 
 import           Network.AWS.Prelude
@@ -53,22 +53,22 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghclfrHealthCheckId'
+-- * 'ghclfrrqHealthCheckId'
 newtype GetHealthCheckLastFailureReason = GetHealthCheckLastFailureReason'
-    { _ghclfrHealthCheckId :: Text
+    { _ghclfrrqHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckLastFailureReason' smart constructor.
 getHealthCheckLastFailureReason :: Text -> GetHealthCheckLastFailureReason
 getHealthCheckLastFailureReason pHealthCheckId =
     GetHealthCheckLastFailureReason'
-    { _ghclfrHealthCheckId = pHealthCheckId
+    { _ghclfrrqHealthCheckId = pHealthCheckId
     }
 
 -- | The ID of the health check for which you want to retrieve the reason for
 -- the most recent failure.
-ghclfrHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
-ghclfrHealthCheckId = lens _ghclfrHealthCheckId (\ s a -> s{_ghclfrHealthCheckId = a});
+ghclfrrqHealthCheckId :: Lens' GetHealthCheckLastFailureReason Text
+ghclfrrqHealthCheckId = lens _ghclfrrqHealthCheckId (\ s a -> s{_ghclfrrqHealthCheckId = a});
 
 instance AWSRequest GetHealthCheckLastFailureReason
          where
@@ -92,7 +92,7 @@ instance ToPath GetHealthCheckLastFailureReason where
         toPath GetHealthCheckLastFailureReason'{..}
           = mconcat
               ["/2013-04-01/healthcheck/",
-               toText _ghclfrHealthCheckId, "/lastfailurereason"]
+               toText _ghclfrrqHealthCheckId, "/lastfailurereason"]
 
 instance ToQuery GetHealthCheckLastFailureReason
          where
@@ -105,27 +105,27 @@ instance ToQuery GetHealthCheckLastFailureReason
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghclfrrStatus'
+-- * 'ghclfrrsStatus'
 --
--- * 'ghclfrrHealthCheckObservations'
+-- * 'ghclfrrsHealthCheckObservations'
 data GetHealthCheckLastFailureReasonResponse = GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrStatus                  :: !Int
-    , _ghclfrrHealthCheckObservations :: ![HealthCheckObservation]
+    { _ghclfrrsStatus                  :: !Int
+    , _ghclfrrsHealthCheckObservations :: ![HealthCheckObservation]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckLastFailureReasonResponse' smart constructor.
 getHealthCheckLastFailureReasonResponse :: Int -> GetHealthCheckLastFailureReasonResponse
 getHealthCheckLastFailureReasonResponse pStatus =
     GetHealthCheckLastFailureReasonResponse'
-    { _ghclfrrStatus = pStatus
-    , _ghclfrrHealthCheckObservations = mempty
+    { _ghclfrrsStatus = pStatus
+    , _ghclfrrsHealthCheckObservations = mempty
     }
 
 -- | FIXME: Undocumented member.
-ghclfrrStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
-ghclfrrStatus = lens _ghclfrrStatus (\ s a -> s{_ghclfrrStatus = a});
+ghclfrrsStatus :: Lens' GetHealthCheckLastFailureReasonResponse Int
+ghclfrrsStatus = lens _ghclfrrsStatus (\ s a -> s{_ghclfrrsStatus = a});
 
 -- | A list that contains one @HealthCheckObservation@ element for each Route
 -- 53 health checker.
-ghclfrrHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
-ghclfrrHealthCheckObservations = lens _ghclfrrHealthCheckObservations (\ s a -> s{_ghclfrrHealthCheckObservations = a});
+ghclfrrsHealthCheckObservations :: Lens' GetHealthCheckLastFailureReasonResponse [HealthCheckObservation]
+ghclfrrsHealthCheckObservations = lens _ghclfrrsHealthCheckObservations (\ s a -> s{_ghclfrrsHealthCheckObservations = a});

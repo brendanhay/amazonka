@@ -44,9 +44,9 @@ module Network.AWS.SWF.RespondDecisionTaskCompleted
     -- ** Request constructor
     , respondDecisionTaskCompleted
     -- ** Request lenses
-    , rdtcDecisions
-    , rdtcExecutionContext
-    , rdtcTaskToken
+    , rdtcrqDecisions
+    , rdtcrqExecutionContext
+    , rdtcrqTaskToken
 
     -- * Response
     , RespondDecisionTaskCompletedResponse
@@ -63,35 +63,35 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdtcDecisions'
+-- * 'rdtcrqDecisions'
 --
--- * 'rdtcExecutionContext'
+-- * 'rdtcrqExecutionContext'
 --
--- * 'rdtcTaskToken'
+-- * 'rdtcrqTaskToken'
 data RespondDecisionTaskCompleted = RespondDecisionTaskCompleted'
-    { _rdtcDecisions        :: !(Maybe [Decision])
-    , _rdtcExecutionContext :: !(Maybe Text)
-    , _rdtcTaskToken        :: !Text
+    { _rdtcrqDecisions        :: !(Maybe [Decision])
+    , _rdtcrqExecutionContext :: !(Maybe Text)
+    , _rdtcrqTaskToken        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondDecisionTaskCompleted' smart constructor.
 respondDecisionTaskCompleted :: Text -> RespondDecisionTaskCompleted
 respondDecisionTaskCompleted pTaskToken =
     RespondDecisionTaskCompleted'
-    { _rdtcDecisions = Nothing
-    , _rdtcExecutionContext = Nothing
-    , _rdtcTaskToken = pTaskToken
+    { _rdtcrqDecisions = Nothing
+    , _rdtcrqExecutionContext = Nothing
+    , _rdtcrqTaskToken = pTaskToken
     }
 
 -- | The list of decisions (possibly empty) made by the decider while
 -- processing this decision task. See the docs for the Decision structure
 -- for details.
-rdtcDecisions :: Lens' RespondDecisionTaskCompleted [Decision]
-rdtcDecisions = lens _rdtcDecisions (\ s a -> s{_rdtcDecisions = a}) . _Default;
+rdtcrqDecisions :: Lens' RespondDecisionTaskCompleted [Decision]
+rdtcrqDecisions = lens _rdtcrqDecisions (\ s a -> s{_rdtcrqDecisions = a}) . _Default;
 
 -- | User defined context to add to workflow execution.
-rdtcExecutionContext :: Lens' RespondDecisionTaskCompleted (Maybe Text)
-rdtcExecutionContext = lens _rdtcExecutionContext (\ s a -> s{_rdtcExecutionContext = a});
+rdtcrqExecutionContext :: Lens' RespondDecisionTaskCompleted (Maybe Text)
+rdtcrqExecutionContext = lens _rdtcrqExecutionContext (\ s a -> s{_rdtcrqExecutionContext = a});
 
 -- | The @taskToken@ from the DecisionTask.
 --
@@ -99,8 +99,8 @@ rdtcExecutionContext = lens _rdtcExecutionContext (\ s a -> s{_rdtcExecutionCont
 -- opaque value. If the task is passed to another process, its @taskToken@
 -- must also be passed. This enables it to provide its progress and respond
 -- with results.
-rdtcTaskToken :: Lens' RespondDecisionTaskCompleted Text
-rdtcTaskToken = lens _rdtcTaskToken (\ s a -> s{_rdtcTaskToken = a});
+rdtcrqTaskToken :: Lens' RespondDecisionTaskCompleted Text
+rdtcrqTaskToken = lens _rdtcrqTaskToken (\ s a -> s{_rdtcrqTaskToken = a});
 
 instance AWSRequest RespondDecisionTaskCompleted
          where
@@ -124,9 +124,9 @@ instance ToHeaders RespondDecisionTaskCompleted where
 instance ToJSON RespondDecisionTaskCompleted where
         toJSON RespondDecisionTaskCompleted'{..}
           = object
-              ["decisions" .= _rdtcDecisions,
-               "executionContext" .= _rdtcExecutionContext,
-               "taskToken" .= _rdtcTaskToken]
+              ["decisions" .= _rdtcrqDecisions,
+               "executionContext" .= _rdtcrqExecutionContext,
+               "taskToken" .= _rdtcrqTaskToken]
 
 instance ToPath RespondDecisionTaskCompleted where
         toPath = const "/"

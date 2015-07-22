@@ -74,18 +74,18 @@ module Network.AWS.Kinesis.GetRecords
     -- ** Request constructor
     , getRecords
     -- ** Request lenses
-    , grLimit
-    , grShardIterator
+    , grrqLimit
+    , grrqShardIterator
 
     -- * Response
     , GetRecordsResponse
     -- ** Response constructor
     , getRecordsResponse
     -- ** Response lenses
-    , grrMillisBehindLatest
-    , grrNextShardIterator
-    , grrStatus
-    , grrRecords
+    , grrsMillisBehindLatest
+    , grrsNextShardIterator
+    , grrsStatus
+    , grrsRecords
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -99,33 +99,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grLimit'
+-- * 'grrqLimit'
 --
--- * 'grShardIterator'
+-- * 'grrqShardIterator'
 data GetRecords = GetRecords'
-    { _grLimit         :: !(Maybe Nat)
-    , _grShardIterator :: !Text
+    { _grrqLimit         :: !(Maybe Nat)
+    , _grrqShardIterator :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRecords' smart constructor.
 getRecords :: Text -> GetRecords
 getRecords pShardIterator =
     GetRecords'
-    { _grLimit = Nothing
-    , _grShardIterator = pShardIterator
+    { _grrqLimit = Nothing
+    , _grrqShardIterator = pShardIterator
     }
 
 -- | The maximum number of records to return. Specify a value of up to
 -- 10,000. If you specify a value that is greater than 10,000, GetRecords
 -- throws @InvalidArgumentException@.
-grLimit :: Lens' GetRecords (Maybe Natural)
-grLimit = lens _grLimit (\ s a -> s{_grLimit = a}) . mapping _Nat;
+grrqLimit :: Lens' GetRecords (Maybe Natural)
+grrqLimit = lens _grrqLimit (\ s a -> s{_grrqLimit = a}) . mapping _Nat;
 
 -- | The position in the shard from which you want to start sequentially
 -- reading data records. A shard iterator specifies this position using the
 -- sequence number of a data record in the shard.
-grShardIterator :: Lens' GetRecords Text
-grShardIterator = lens _grShardIterator (\ s a -> s{_grShardIterator = a});
+grrqShardIterator :: Lens' GetRecords Text
+grrqShardIterator = lens _grrqShardIterator (\ s a -> s{_grrqShardIterator = a});
 
 instance AWSRequest GetRecords where
         type Sv GetRecords = Kinesis
@@ -152,8 +152,8 @@ instance ToHeaders GetRecords where
 instance ToJSON GetRecords where
         toJSON GetRecords'{..}
           = object
-              ["Limit" .= _grLimit,
-               "ShardIterator" .= _grShardIterator]
+              ["Limit" .= _grrqLimit,
+               "ShardIterator" .= _grrqShardIterator]
 
 instance ToPath GetRecords where
         toPath = const "/"
@@ -167,47 +167,47 @@ instance ToQuery GetRecords where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrMillisBehindLatest'
+-- * 'grrsMillisBehindLatest'
 --
--- * 'grrNextShardIterator'
+-- * 'grrsNextShardIterator'
 --
--- * 'grrStatus'
+-- * 'grrsStatus'
 --
--- * 'grrRecords'
+-- * 'grrsRecords'
 data GetRecordsResponse = GetRecordsResponse'
-    { _grrMillisBehindLatest :: !(Maybe Nat)
-    , _grrNextShardIterator  :: !(Maybe Text)
-    , _grrStatus             :: !Int
-    , _grrRecords            :: ![Record]
+    { _grrsMillisBehindLatest :: !(Maybe Nat)
+    , _grrsNextShardIterator  :: !(Maybe Text)
+    , _grrsStatus             :: !Int
+    , _grrsRecords            :: ![Record]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRecordsResponse' smart constructor.
 getRecordsResponse :: Int -> GetRecordsResponse
 getRecordsResponse pStatus =
     GetRecordsResponse'
-    { _grrMillisBehindLatest = Nothing
-    , _grrNextShardIterator = Nothing
-    , _grrStatus = pStatus
-    , _grrRecords = mempty
+    { _grrsMillisBehindLatest = Nothing
+    , _grrsNextShardIterator = Nothing
+    , _grrsStatus = pStatus
+    , _grrsRecords = mempty
     }
 
 -- | The number of milliseconds the GetRecords response is from the tip of
 -- the stream, indicating how far behind current time the consumer is. A
 -- value of zero indicates record processing is caught up, and there are no
 -- new records to process at this moment.
-grrMillisBehindLatest :: Lens' GetRecordsResponse (Maybe Natural)
-grrMillisBehindLatest = lens _grrMillisBehindLatest (\ s a -> s{_grrMillisBehindLatest = a}) . mapping _Nat;
+grrsMillisBehindLatest :: Lens' GetRecordsResponse (Maybe Natural)
+grrsMillisBehindLatest = lens _grrsMillisBehindLatest (\ s a -> s{_grrsMillisBehindLatest = a}) . mapping _Nat;
 
 -- | The next position in the shard from which to start sequentially reading
 -- data records. If set to @null@, the shard has been closed and the
 -- requested iterator will not return any more data.
-grrNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
-grrNextShardIterator = lens _grrNextShardIterator (\ s a -> s{_grrNextShardIterator = a});
+grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
+grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
 -- | FIXME: Undocumented member.
-grrStatus :: Lens' GetRecordsResponse Int
-grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
+grrsStatus :: Lens' GetRecordsResponse Int
+grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});
 
 -- | The data records retrieved from the shard.
-grrRecords :: Lens' GetRecordsResponse [Record]
-grrRecords = lens _grrRecords (\ s a -> s{_grrRecords = a});
+grrsRecords :: Lens' GetRecordsResponse [Record]
+grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a});

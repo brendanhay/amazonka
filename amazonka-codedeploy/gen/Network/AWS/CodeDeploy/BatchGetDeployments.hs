@@ -27,15 +27,15 @@ module Network.AWS.CodeDeploy.BatchGetDeployments
     -- ** Request constructor
     , batchGetDeployments
     -- ** Request lenses
-    , bgdDeploymentIds
+    , bgdrqDeploymentIds
 
     -- * Response
     , BatchGetDeploymentsResponse
     -- ** Response constructor
     , batchGetDeploymentsResponse
     -- ** Response lenses
-    , bgdrDeploymentsInfo
-    , bgdrStatus
+    , bgdrsDeploymentsInfo
+    , bgdrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgdDeploymentIds'
+-- * 'bgdrqDeploymentIds'
 newtype BatchGetDeployments = BatchGetDeployments'
-    { _bgdDeploymentIds :: Maybe [Text]
+    { _bgdrqDeploymentIds :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetDeployments' smart constructor.
 batchGetDeployments :: BatchGetDeployments
 batchGetDeployments =
     BatchGetDeployments'
-    { _bgdDeploymentIds = Nothing
+    { _bgdrqDeploymentIds = Nothing
     }
 
 -- | A list of deployment IDs, with multiple deployment IDs separated by
 -- spaces.
-bgdDeploymentIds :: Lens' BatchGetDeployments [Text]
-bgdDeploymentIds = lens _bgdDeploymentIds (\ s a -> s{_bgdDeploymentIds = a}) . _Default;
+bgdrqDeploymentIds :: Lens' BatchGetDeployments [Text]
+bgdrqDeploymentIds = lens _bgdrqDeploymentIds (\ s a -> s{_bgdrqDeploymentIds = a}) . _Default;
 
 instance AWSRequest BatchGetDeployments where
         type Sv BatchGetDeployments = CodeDeploy
@@ -90,7 +90,7 @@ instance ToHeaders BatchGetDeployments where
 
 instance ToJSON BatchGetDeployments where
         toJSON BatchGetDeployments'{..}
-          = object ["deploymentIds" .= _bgdDeploymentIds]
+          = object ["deploymentIds" .= _bgdrqDeploymentIds]
 
 instance ToPath BatchGetDeployments where
         toPath = const "/"
@@ -104,26 +104,26 @@ instance ToQuery BatchGetDeployments where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgdrDeploymentsInfo'
+-- * 'bgdrsDeploymentsInfo'
 --
--- * 'bgdrStatus'
+-- * 'bgdrsStatus'
 data BatchGetDeploymentsResponse = BatchGetDeploymentsResponse'
-    { _bgdrDeploymentsInfo :: !(Maybe [DeploymentInfo])
-    , _bgdrStatus          :: !Int
+    { _bgdrsDeploymentsInfo :: !(Maybe [DeploymentInfo])
+    , _bgdrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetDeploymentsResponse' smart constructor.
 batchGetDeploymentsResponse :: Int -> BatchGetDeploymentsResponse
 batchGetDeploymentsResponse pStatus =
     BatchGetDeploymentsResponse'
-    { _bgdrDeploymentsInfo = Nothing
-    , _bgdrStatus = pStatus
+    { _bgdrsDeploymentsInfo = Nothing
+    , _bgdrsStatus = pStatus
     }
 
 -- | Information about the deployments.
-bgdrDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
-bgdrDeploymentsInfo = lens _bgdrDeploymentsInfo (\ s a -> s{_bgdrDeploymentsInfo = a}) . _Default;
+bgdrsDeploymentsInfo :: Lens' BatchGetDeploymentsResponse [DeploymentInfo]
+bgdrsDeploymentsInfo = lens _bgdrsDeploymentsInfo (\ s a -> s{_bgdrsDeploymentsInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgdrStatus :: Lens' BatchGetDeploymentsResponse Int
-bgdrStatus = lens _bgdrStatus (\ s a -> s{_bgdrStatus = a});
+bgdrsStatus :: Lens' BatchGetDeploymentsResponse Int
+bgdrsStatus = lens _bgdrsStatus (\ s a -> s{_bgdrsStatus = a});

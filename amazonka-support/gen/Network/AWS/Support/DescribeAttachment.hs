@@ -31,15 +31,15 @@ module Network.AWS.Support.DescribeAttachment
     -- ** Request constructor
     , describeAttachment
     -- ** Request lenses
-    , daAttachmentId
+    , darqAttachmentId
 
     -- * Response
     , DescribeAttachmentResponse
     -- ** Response constructor
     , describeAttachmentResponse
     -- ** Response lenses
-    , darAttachment
-    , darStatus
+    , darsAttachment
+    , darsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -51,22 +51,22 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daAttachmentId'
+-- * 'darqAttachmentId'
 newtype DescribeAttachment = DescribeAttachment'
-    { _daAttachmentId :: Text
+    { _darqAttachmentId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAttachment' smart constructor.
 describeAttachment :: Text -> DescribeAttachment
 describeAttachment pAttachmentId =
     DescribeAttachment'
-    { _daAttachmentId = pAttachmentId
+    { _darqAttachmentId = pAttachmentId
     }
 
 -- | The ID of the attachment to return. Attachment IDs are returned by the
 -- DescribeCommunications operation.
-daAttachmentId :: Lens' DescribeAttachment Text
-daAttachmentId = lens _daAttachmentId (\ s a -> s{_daAttachmentId = a});
+darqAttachmentId :: Lens' DescribeAttachment Text
+darqAttachmentId = lens _darqAttachmentId (\ s a -> s{_darqAttachmentId = a});
 
 instance AWSRequest DescribeAttachment where
         type Sv DescribeAttachment = Support
@@ -91,7 +91,7 @@ instance ToHeaders DescribeAttachment where
 
 instance ToJSON DescribeAttachment where
         toJSON DescribeAttachment'{..}
-          = object ["attachmentId" .= _daAttachmentId]
+          = object ["attachmentId" .= _darqAttachmentId]
 
 instance ToPath DescribeAttachment where
         toPath = const "/"
@@ -106,26 +106,26 @@ instance ToQuery DescribeAttachment where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darAttachment'
+-- * 'darsAttachment'
 --
--- * 'darStatus'
+-- * 'darsStatus'
 data DescribeAttachmentResponse = DescribeAttachmentResponse'
-    { _darAttachment :: !(Maybe Attachment)
-    , _darStatus     :: !Int
+    { _darsAttachment :: !(Maybe Attachment)
+    , _darsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAttachmentResponse' smart constructor.
 describeAttachmentResponse :: Int -> DescribeAttachmentResponse
 describeAttachmentResponse pStatus =
     DescribeAttachmentResponse'
-    { _darAttachment = Nothing
-    , _darStatus = pStatus
+    { _darsAttachment = Nothing
+    , _darsStatus = pStatus
     }
 
 -- | The attachment content and file name.
-darAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
-darAttachment = lens _darAttachment (\ s a -> s{_darAttachment = a});
+darsAttachment :: Lens' DescribeAttachmentResponse (Maybe Attachment)
+darsAttachment = lens _darsAttachment (\ s a -> s{_darsAttachment = a});
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeAttachmentResponse Int
-darStatus = lens _darStatus (\ s a -> s{_darStatus = a});
+darsStatus :: Lens' DescribeAttachmentResponse Int
+darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

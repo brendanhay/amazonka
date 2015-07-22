@@ -44,15 +44,15 @@ module Network.AWS.IAM.CreateAccessKey
     -- ** Request constructor
     , createAccessKey
     -- ** Request lenses
-    , cakUserName
+    , cakrqUserName
 
     -- * Response
     , CreateAccessKeyResponse
     -- ** Response constructor
     , createAccessKeyResponse
     -- ** Response lenses
-    , cakrStatus
-    , cakrAccessKey
+    , cakrsStatus
+    , cakrsAccessKey
     ) where
 
 import           Network.AWS.IAM.Types
@@ -64,21 +64,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cakUserName'
+-- * 'cakrqUserName'
 newtype CreateAccessKey = CreateAccessKey'
-    { _cakUserName :: Maybe Text
+    { _cakrqUserName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccessKey' smart constructor.
 createAccessKey :: CreateAccessKey
 createAccessKey =
     CreateAccessKey'
-    { _cakUserName = Nothing
+    { _cakrqUserName = Nothing
     }
 
 -- | The user name that the new key will belong to.
-cakUserName :: Lens' CreateAccessKey (Maybe Text)
-cakUserName = lens _cakUserName (\ s a -> s{_cakUserName = a});
+cakrqUserName :: Lens' CreateAccessKey (Maybe Text)
+cakrqUserName = lens _cakrqUserName (\ s a -> s{_cakrqUserName = a});
 
 instance AWSRequest CreateAccessKey where
         type Sv CreateAccessKey = IAM
@@ -101,7 +101,7 @@ instance ToQuery CreateAccessKey where
           = mconcat
               ["Action" =: ("CreateAccessKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _cakUserName]
+               "UserName" =: _cakrqUserName]
 
 -- | Contains the response to a successful CreateAccessKey request.
 --
@@ -109,26 +109,26 @@ instance ToQuery CreateAccessKey where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cakrStatus'
+-- * 'cakrsStatus'
 --
--- * 'cakrAccessKey'
+-- * 'cakrsAccessKey'
 data CreateAccessKeyResponse = CreateAccessKeyResponse'
-    { _cakrStatus    :: !Int
-    , _cakrAccessKey :: !AccessKey
+    { _cakrsStatus    :: !Int
+    , _cakrsAccessKey :: !AccessKey
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccessKeyResponse' smart constructor.
 createAccessKeyResponse :: Int -> AccessKey -> CreateAccessKeyResponse
 createAccessKeyResponse pStatus pAccessKey =
     CreateAccessKeyResponse'
-    { _cakrStatus = pStatus
-    , _cakrAccessKey = pAccessKey
+    { _cakrsStatus = pStatus
+    , _cakrsAccessKey = pAccessKey
     }
 
 -- | FIXME: Undocumented member.
-cakrStatus :: Lens' CreateAccessKeyResponse Int
-cakrStatus = lens _cakrStatus (\ s a -> s{_cakrStatus = a});
+cakrsStatus :: Lens' CreateAccessKeyResponse Int
+cakrsStatus = lens _cakrsStatus (\ s a -> s{_cakrsStatus = a});
 
 -- | Information about the access key.
-cakrAccessKey :: Lens' CreateAccessKeyResponse AccessKey
-cakrAccessKey = lens _cakrAccessKey (\ s a -> s{_cakrAccessKey = a});
+cakrsAccessKey :: Lens' CreateAccessKeyResponse AccessKey
+cakrsAccessKey = lens _cakrsAccessKey (\ s a -> s{_cakrsAccessKey = a});

@@ -53,25 +53,25 @@ module Network.AWS.Glacier.ListParts
     -- ** Request constructor
     , listParts
     -- ** Request lenses
-    , lpMarker
-    , lpLimit
-    , lpAccountId
-    , lpVaultName
-    , lpUploadId
+    , lprqMarker
+    , lprqLimit
+    , lprqAccountId
+    , lprqVaultName
+    , lprqUploadId
 
     -- * Response
     , ListPartsResponse
     -- ** Response constructor
     , listPartsResponse
     -- ** Response lenses
-    , lprParts
-    , lprMultipartUploadId
-    , lprArchiveDescription
-    , lprPartSizeInBytes
-    , lprVaultARN
-    , lprMarker
-    , lprCreationDate
-    , lprStatus
+    , lprsParts
+    , lprsMultipartUploadId
+    , lprsArchiveDescription
+    , lprsPartSizeInBytes
+    , lprsVaultARN
+    , lprsMarker
+    , lprsCreationDate
+    , lprsStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -86,32 +86,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpMarker'
+-- * 'lprqMarker'
 --
--- * 'lpLimit'
+-- * 'lprqLimit'
 --
--- * 'lpAccountId'
+-- * 'lprqAccountId'
 --
--- * 'lpVaultName'
+-- * 'lprqVaultName'
 --
--- * 'lpUploadId'
+-- * 'lprqUploadId'
 data ListParts = ListParts'
-    { _lpMarker    :: !(Maybe Text)
-    , _lpLimit     :: !(Maybe Text)
-    , _lpAccountId :: !Text
-    , _lpVaultName :: !Text
-    , _lpUploadId  :: !Text
+    { _lprqMarker    :: !(Maybe Text)
+    , _lprqLimit     :: !(Maybe Text)
+    , _lprqAccountId :: !Text
+    , _lprqVaultName :: !Text
+    , _lprqUploadId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListParts' smart constructor.
 listParts :: Text -> Text -> Text -> ListParts
 listParts pAccountId pVaultName pUploadId =
     ListParts'
-    { _lpMarker = Nothing
-    , _lpLimit = Nothing
-    , _lpAccountId = pAccountId
-    , _lpVaultName = pVaultName
-    , _lpUploadId = pUploadId
+    { _lprqMarker = Nothing
+    , _lprqLimit = Nothing
+    , _lprqAccountId = pAccountId
+    , _lprqVaultName = pVaultName
+    , _lprqUploadId = pUploadId
     }
 
 -- | An opaque string used for pagination. This value specifies the part at
@@ -119,30 +119,30 @@ listParts pAccountId pVaultName pUploadId =
 -- response of a previous List Parts response. You need only include the
 -- marker if you are continuing the pagination of results started in a
 -- previous List Parts request.
-lpMarker :: Lens' ListParts (Maybe Text)
-lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
+lprqMarker :: Lens' ListParts (Maybe Text)
+lprqMarker = lens _lprqMarker (\ s a -> s{_lprqMarker = a});
 
 -- | Specifies the maximum number of parts returned in the response body. If
 -- this value is not specified, the List Parts operation returns up to
 -- 1,000 uploads.
-lpLimit :: Lens' ListParts (Maybe Text)
-lpLimit = lens _lpLimit (\ s a -> s{_lpLimit = a});
+lprqLimit :: Lens' ListParts (Maybe Text)
+lprqLimit = lens _lprqLimit (\ s a -> s{_lprqLimit = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-lpAccountId :: Lens' ListParts Text
-lpAccountId = lens _lpAccountId (\ s a -> s{_lpAccountId = a});
+lprqAccountId :: Lens' ListParts Text
+lprqAccountId = lens _lprqAccountId (\ s a -> s{_lprqAccountId = a});
 
 -- | The name of the vault.
-lpVaultName :: Lens' ListParts Text
-lpVaultName = lens _lpVaultName (\ s a -> s{_lpVaultName = a});
+lprqVaultName :: Lens' ListParts Text
+lprqVaultName = lens _lprqVaultName (\ s a -> s{_lprqVaultName = a});
 
 -- | The upload ID of the multipart upload.
-lpUploadId :: Lens' ListParts Text
-lpUploadId = lens _lpUploadId (\ s a -> s{_lpUploadId = a});
+lprqUploadId :: Lens' ListParts Text
+lprqUploadId = lens _lprqUploadId (\ s a -> s{_lprqUploadId = a});
 
 instance AWSRequest ListParts where
         type Sv ListParts = Glacier
@@ -167,14 +167,14 @@ instance ToHeaders ListParts where
 instance ToPath ListParts where
         toPath ListParts'{..}
           = mconcat
-              ["/", toText _lpAccountId, "/vaults/",
-               toText _lpVaultName, "/multipart-uploads/",
-               toText _lpUploadId]
+              ["/", toText _lprqAccountId, "/vaults/",
+               toText _lprqVaultName, "/multipart-uploads/",
+               toText _lprqUploadId]
 
 instance ToQuery ListParts where
         toQuery ListParts'{..}
           = mconcat
-              ["marker" =: _lpMarker, "limit" =: _lpLimit]
+              ["marker" =: _lprqMarker, "limit" =: _lprqLimit]
 
 -- | Contains the Amazon Glacier response to your request.
 --
@@ -182,78 +182,78 @@ instance ToQuery ListParts where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprParts'
+-- * 'lprsParts'
 --
--- * 'lprMultipartUploadId'
+-- * 'lprsMultipartUploadId'
 --
--- * 'lprArchiveDescription'
+-- * 'lprsArchiveDescription'
 --
--- * 'lprPartSizeInBytes'
+-- * 'lprsPartSizeInBytes'
 --
--- * 'lprVaultARN'
+-- * 'lprsVaultARN'
 --
--- * 'lprMarker'
+-- * 'lprsMarker'
 --
--- * 'lprCreationDate'
+-- * 'lprsCreationDate'
 --
--- * 'lprStatus'
+-- * 'lprsStatus'
 data ListPartsResponse = ListPartsResponse'
-    { _lprParts              :: !(Maybe [PartListElement])
-    , _lprMultipartUploadId  :: !(Maybe Text)
-    , _lprArchiveDescription :: !(Maybe Text)
-    , _lprPartSizeInBytes    :: !(Maybe Integer)
-    , _lprVaultARN           :: !(Maybe Text)
-    , _lprMarker             :: !(Maybe Text)
-    , _lprCreationDate       :: !(Maybe Text)
-    , _lprStatus             :: !Int
+    { _lprsParts              :: !(Maybe [PartListElement])
+    , _lprsMultipartUploadId  :: !(Maybe Text)
+    , _lprsArchiveDescription :: !(Maybe Text)
+    , _lprsPartSizeInBytes    :: !(Maybe Integer)
+    , _lprsVaultARN           :: !(Maybe Text)
+    , _lprsMarker             :: !(Maybe Text)
+    , _lprsCreationDate       :: !(Maybe Text)
+    , _lprsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPartsResponse' smart constructor.
 listPartsResponse :: Int -> ListPartsResponse
 listPartsResponse pStatus =
     ListPartsResponse'
-    { _lprParts = Nothing
-    , _lprMultipartUploadId = Nothing
-    , _lprArchiveDescription = Nothing
-    , _lprPartSizeInBytes = Nothing
-    , _lprVaultARN = Nothing
-    , _lprMarker = Nothing
-    , _lprCreationDate = Nothing
-    , _lprStatus = pStatus
+    { _lprsParts = Nothing
+    , _lprsMultipartUploadId = Nothing
+    , _lprsArchiveDescription = Nothing
+    , _lprsPartSizeInBytes = Nothing
+    , _lprsVaultARN = Nothing
+    , _lprsMarker = Nothing
+    , _lprsCreationDate = Nothing
+    , _lprsStatus = pStatus
     }
 
 -- | A list of the part sizes of the multipart upload.
-lprParts :: Lens' ListPartsResponse [PartListElement]
-lprParts = lens _lprParts (\ s a -> s{_lprParts = a}) . _Default;
+lprsParts :: Lens' ListPartsResponse [PartListElement]
+lprsParts = lens _lprsParts (\ s a -> s{_lprsParts = a}) . _Default;
 
 -- | The ID of the upload to which the parts are associated.
-lprMultipartUploadId :: Lens' ListPartsResponse (Maybe Text)
-lprMultipartUploadId = lens _lprMultipartUploadId (\ s a -> s{_lprMultipartUploadId = a});
+lprsMultipartUploadId :: Lens' ListPartsResponse (Maybe Text)
+lprsMultipartUploadId = lens _lprsMultipartUploadId (\ s a -> s{_lprsMultipartUploadId = a});
 
 -- | The description of the archive that was specified in the Initiate
 -- Multipart Upload request.
-lprArchiveDescription :: Lens' ListPartsResponse (Maybe Text)
-lprArchiveDescription = lens _lprArchiveDescription (\ s a -> s{_lprArchiveDescription = a});
+lprsArchiveDescription :: Lens' ListPartsResponse (Maybe Text)
+lprsArchiveDescription = lens _lprsArchiveDescription (\ s a -> s{_lprsArchiveDescription = a});
 
 -- | The part size in bytes.
-lprPartSizeInBytes :: Lens' ListPartsResponse (Maybe Integer)
-lprPartSizeInBytes = lens _lprPartSizeInBytes (\ s a -> s{_lprPartSizeInBytes = a});
+lprsPartSizeInBytes :: Lens' ListPartsResponse (Maybe Integer)
+lprsPartSizeInBytes = lens _lprsPartSizeInBytes (\ s a -> s{_lprsPartSizeInBytes = a});
 
 -- | The Amazon Resource Name (ARN) of the vault to which the multipart
 -- upload was initiated.
-lprVaultARN :: Lens' ListPartsResponse (Maybe Text)
-lprVaultARN = lens _lprVaultARN (\ s a -> s{_lprVaultARN = a});
+lprsVaultARN :: Lens' ListPartsResponse (Maybe Text)
+lprsVaultARN = lens _lprsVaultARN (\ s a -> s{_lprsVaultARN = a});
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Parts request to obtain more
 -- jobs in the list. If there are no more parts, this value is @null@.
-lprMarker :: Lens' ListPartsResponse (Maybe Text)
-lprMarker = lens _lprMarker (\ s a -> s{_lprMarker = a});
+lprsMarker :: Lens' ListPartsResponse (Maybe Text)
+lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 
 -- | The UTC time at which the multipart upload was initiated.
-lprCreationDate :: Lens' ListPartsResponse (Maybe Text)
-lprCreationDate = lens _lprCreationDate (\ s a -> s{_lprCreationDate = a});
+lprsCreationDate :: Lens' ListPartsResponse (Maybe Text)
+lprsCreationDate = lens _lprsCreationDate (\ s a -> s{_lprsCreationDate = a});
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPartsResponse Int
-lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});
+lprsStatus :: Lens' ListPartsResponse Int
+lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

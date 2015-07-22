@@ -29,21 +29,21 @@ module Network.AWS.SDB.DomainMetadata
     -- ** Request constructor
     , domainMetadata
     -- ** Request lenses
-    , dmDomainName
+    , dmrqDomainName
 
     -- * Response
     , DomainMetadataResponse
     -- ** Response constructor
     , domainMetadataResponse
     -- ** Response lenses
-    , dmrItemNamesSizeBytes
-    , dmrAttributeNameCount
-    , dmrAttributeValuesSizeBytes
-    , dmrAttributeValueCount
-    , dmrAttributeNamesSizeBytes
-    , dmrTimestamp
-    , dmrItemCount
-    , dmrStatus
+    , dmrsItemNamesSizeBytes
+    , dmrsAttributeNameCount
+    , dmrsAttributeValuesSizeBytes
+    , dmrsAttributeValueCount
+    , dmrsAttributeNamesSizeBytes
+    , dmrsTimestamp
+    , dmrsItemCount
+    , dmrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -55,21 +55,21 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmDomainName'
+-- * 'dmrqDomainName'
 newtype DomainMetadata = DomainMetadata'
-    { _dmDomainName :: Text
+    { _dmrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DomainMetadata' smart constructor.
 domainMetadata :: Text -> DomainMetadata
 domainMetadata pDomainName =
     DomainMetadata'
-    { _dmDomainName = pDomainName
+    { _dmrqDomainName = pDomainName
     }
 
 -- | The name of the domain for which to display the metadata of.
-dmDomainName :: Lens' DomainMetadata Text
-dmDomainName = lens _dmDomainName (\ s a -> s{_dmDomainName = a});
+dmrqDomainName :: Lens' DomainMetadata Text
+dmrqDomainName = lens _dmrqDomainName (\ s a -> s{_dmrqDomainName = a});
 
 instance AWSRequest DomainMetadata where
         type Sv DomainMetadata = SDB
@@ -99,80 +99,80 @@ instance ToQuery DomainMetadata where
           = mconcat
               ["Action" =: ("DomainMetadata" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "DomainName" =: _dmDomainName]
+               "DomainName" =: _dmrqDomainName]
 
 -- | /See:/ 'domainMetadataResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmrItemNamesSizeBytes'
+-- * 'dmrsItemNamesSizeBytes'
 --
--- * 'dmrAttributeNameCount'
+-- * 'dmrsAttributeNameCount'
 --
--- * 'dmrAttributeValuesSizeBytes'
+-- * 'dmrsAttributeValuesSizeBytes'
 --
--- * 'dmrAttributeValueCount'
+-- * 'dmrsAttributeValueCount'
 --
--- * 'dmrAttributeNamesSizeBytes'
+-- * 'dmrsAttributeNamesSizeBytes'
 --
--- * 'dmrTimestamp'
+-- * 'dmrsTimestamp'
 --
--- * 'dmrItemCount'
+-- * 'dmrsItemCount'
 --
--- * 'dmrStatus'
+-- * 'dmrsStatus'
 data DomainMetadataResponse = DomainMetadataResponse'
-    { _dmrItemNamesSizeBytes       :: !(Maybe Integer)
-    , _dmrAttributeNameCount       :: !(Maybe Int)
-    , _dmrAttributeValuesSizeBytes :: !(Maybe Integer)
-    , _dmrAttributeValueCount      :: !(Maybe Int)
-    , _dmrAttributeNamesSizeBytes  :: !(Maybe Integer)
-    , _dmrTimestamp                :: !(Maybe Int)
-    , _dmrItemCount                :: !(Maybe Int)
-    , _dmrStatus                   :: !Int
+    { _dmrsItemNamesSizeBytes       :: !(Maybe Integer)
+    , _dmrsAttributeNameCount       :: !(Maybe Int)
+    , _dmrsAttributeValuesSizeBytes :: !(Maybe Integer)
+    , _dmrsAttributeValueCount      :: !(Maybe Int)
+    , _dmrsAttributeNamesSizeBytes  :: !(Maybe Integer)
+    , _dmrsTimestamp                :: !(Maybe Int)
+    , _dmrsItemCount                :: !(Maybe Int)
+    , _dmrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DomainMetadataResponse' smart constructor.
 domainMetadataResponse :: Int -> DomainMetadataResponse
 domainMetadataResponse pStatus =
     DomainMetadataResponse'
-    { _dmrItemNamesSizeBytes = Nothing
-    , _dmrAttributeNameCount = Nothing
-    , _dmrAttributeValuesSizeBytes = Nothing
-    , _dmrAttributeValueCount = Nothing
-    , _dmrAttributeNamesSizeBytes = Nothing
-    , _dmrTimestamp = Nothing
-    , _dmrItemCount = Nothing
-    , _dmrStatus = pStatus
+    { _dmrsItemNamesSizeBytes = Nothing
+    , _dmrsAttributeNameCount = Nothing
+    , _dmrsAttributeValuesSizeBytes = Nothing
+    , _dmrsAttributeValueCount = Nothing
+    , _dmrsAttributeNamesSizeBytes = Nothing
+    , _dmrsTimestamp = Nothing
+    , _dmrsItemCount = Nothing
+    , _dmrsStatus = pStatus
     }
 
 -- | The total size of all item names in the domain, in bytes.
-dmrItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmrItemNamesSizeBytes = lens _dmrItemNamesSizeBytes (\ s a -> s{_dmrItemNamesSizeBytes = a});
+dmrsItemNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsItemNamesSizeBytes = lens _dmrsItemNamesSizeBytes (\ s a -> s{_dmrsItemNamesSizeBytes = a});
 
 -- | The number of unique attribute names in the domain.
-dmrAttributeNameCount :: Lens' DomainMetadataResponse (Maybe Int)
-dmrAttributeNameCount = lens _dmrAttributeNameCount (\ s a -> s{_dmrAttributeNameCount = a});
+dmrsAttributeNameCount :: Lens' DomainMetadataResponse (Maybe Int)
+dmrsAttributeNameCount = lens _dmrsAttributeNameCount (\ s a -> s{_dmrsAttributeNameCount = a});
 
 -- | The total size of all attribute values in the domain, in bytes.
-dmrAttributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmrAttributeValuesSizeBytes = lens _dmrAttributeValuesSizeBytes (\ s a -> s{_dmrAttributeValuesSizeBytes = a});
+dmrsAttributeValuesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsAttributeValuesSizeBytes = lens _dmrsAttributeValuesSizeBytes (\ s a -> s{_dmrsAttributeValuesSizeBytes = a});
 
 -- | The number of all attribute name\/value pairs in the domain.
-dmrAttributeValueCount :: Lens' DomainMetadataResponse (Maybe Int)
-dmrAttributeValueCount = lens _dmrAttributeValueCount (\ s a -> s{_dmrAttributeValueCount = a});
+dmrsAttributeValueCount :: Lens' DomainMetadataResponse (Maybe Int)
+dmrsAttributeValueCount = lens _dmrsAttributeValueCount (\ s a -> s{_dmrsAttributeValueCount = a});
 
 -- | The total size of all unique attribute names in the domain, in bytes.
-dmrAttributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
-dmrAttributeNamesSizeBytes = lens _dmrAttributeNamesSizeBytes (\ s a -> s{_dmrAttributeNamesSizeBytes = a});
+dmrsAttributeNamesSizeBytes :: Lens' DomainMetadataResponse (Maybe Integer)
+dmrsAttributeNamesSizeBytes = lens _dmrsAttributeNamesSizeBytes (\ s a -> s{_dmrsAttributeNamesSizeBytes = a});
 
 -- | The data and time when metadata was calculated, in Epoch (UNIX) seconds.
-dmrTimestamp :: Lens' DomainMetadataResponse (Maybe Int)
-dmrTimestamp = lens _dmrTimestamp (\ s a -> s{_dmrTimestamp = a});
+dmrsTimestamp :: Lens' DomainMetadataResponse (Maybe Int)
+dmrsTimestamp = lens _dmrsTimestamp (\ s a -> s{_dmrsTimestamp = a});
 
 -- | The number of all items in the domain.
-dmrItemCount :: Lens' DomainMetadataResponse (Maybe Int)
-dmrItemCount = lens _dmrItemCount (\ s a -> s{_dmrItemCount = a});
+dmrsItemCount :: Lens' DomainMetadataResponse (Maybe Int)
+dmrsItemCount = lens _dmrsItemCount (\ s a -> s{_dmrsItemCount = a});
 
 -- | FIXME: Undocumented member.
-dmrStatus :: Lens' DomainMetadataResponse Int
-dmrStatus = lens _dmrStatus (\ s a -> s{_dmrStatus = a});
+dmrsStatus :: Lens' DomainMetadataResponse Int
+dmrsStatus = lens _dmrsStatus (\ s a -> s{_dmrsStatus = a});

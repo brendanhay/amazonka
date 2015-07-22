@@ -30,16 +30,16 @@ module Network.AWS.SSM.CreateDocument
     -- ** Request constructor
     , createDocument
     -- ** Request lenses
-    , cdContent
-    , cdName
+    , cdrqContent
+    , cdrqName
 
     -- * Response
     , CreateDocumentResponse
     -- ** Response constructor
     , createDocumentResponse
     -- ** Response lenses
-    , cdrDocumentDescription
-    , cdrStatus
+    , cdrsDocumentDescription
+    , cdrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -51,31 +51,31 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdContent'
+-- * 'cdrqContent'
 --
--- * 'cdName'
+-- * 'cdrqName'
 data CreateDocument = CreateDocument'
-    { _cdContent :: !Text
-    , _cdName    :: !Text
+    { _cdrqContent :: !Text
+    , _cdrqName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDocument' smart constructor.
 createDocument :: Text -> Text -> CreateDocument
 createDocument pContent pName =
     CreateDocument'
-    { _cdContent = pContent
-    , _cdName = pName
+    { _cdrqContent = pContent
+    , _cdrqName = pName
     }
 
 -- | A valid JSON file. For more information about the contents of this file,
 -- see
 -- <http://docs.aws.amazon.com/ssm/latest/APIReference/aws-ssm-document.html Configuration Document>.
-cdContent :: Lens' CreateDocument Text
-cdContent = lens _cdContent (\ s a -> s{_cdContent = a});
+cdrqContent :: Lens' CreateDocument Text
+cdrqContent = lens _cdrqContent (\ s a -> s{_cdrqContent = a});
 
 -- | A name for the configuration document.
-cdName :: Lens' CreateDocument Text
-cdName = lens _cdName (\ s a -> s{_cdName = a});
+cdrqName :: Lens' CreateDocument Text
+cdrqName = lens _cdrqName (\ s a -> s{_cdrqName = a});
 
 instance AWSRequest CreateDocument where
         type Sv CreateDocument = SSM
@@ -99,7 +99,8 @@ instance ToHeaders CreateDocument where
 
 instance ToJSON CreateDocument where
         toJSON CreateDocument'{..}
-          = object ["Content" .= _cdContent, "Name" .= _cdName]
+          = object
+              ["Content" .= _cdrqContent, "Name" .= _cdrqName]
 
 instance ToPath CreateDocument where
         toPath = const "/"
@@ -111,26 +112,26 @@ instance ToQuery CreateDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrDocumentDescription'
+-- * 'cdrsDocumentDescription'
 --
--- * 'cdrStatus'
+-- * 'cdrsStatus'
 data CreateDocumentResponse = CreateDocumentResponse'
-    { _cdrDocumentDescription :: !(Maybe DocumentDescription)
-    , _cdrStatus              :: !Int
+    { _cdrsDocumentDescription :: !(Maybe DocumentDescription)
+    , _cdrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDocumentResponse' smart constructor.
 createDocumentResponse :: Int -> CreateDocumentResponse
 createDocumentResponse pStatus =
     CreateDocumentResponse'
-    { _cdrDocumentDescription = Nothing
-    , _cdrStatus = pStatus
+    { _cdrsDocumentDescription = Nothing
+    , _cdrsStatus = pStatus
     }
 
 -- | Information about the configuration document.
-cdrDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
-cdrDocumentDescription = lens _cdrDocumentDescription (\ s a -> s{_cdrDocumentDescription = a});
+cdrsDocumentDescription :: Lens' CreateDocumentResponse (Maybe DocumentDescription)
+cdrsDocumentDescription = lens _cdrsDocumentDescription (\ s a -> s{_cdrsDocumentDescription = a});
 
 -- | FIXME: Undocumented member.
-cdrStatus :: Lens' CreateDocumentResponse Int
-cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});
+cdrsStatus :: Lens' CreateDocumentResponse Int
+cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

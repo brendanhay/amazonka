@@ -36,18 +36,18 @@ module Network.AWS.Support.AddCommunicationToCase
     -- ** Request constructor
     , addCommunicationToCase
     -- ** Request lenses
-    , actcCaseId
-    , actcCcEmailAddresses
-    , actcAttachmentSetId
-    , actcCommunicationBody
+    , actcrqCaseId
+    , actcrqCcEmailAddresses
+    , actcrqAttachmentSetId
+    , actcrqCommunicationBody
 
     -- * Response
     , AddCommunicationToCaseResponse
     -- ** Response constructor
     , addCommunicationToCaseResponse
     -- ** Response lenses
-    , actcrResult
-    , actcrStatus
+    , actcrsResult
+    , actcrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -61,49 +61,49 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'actcCaseId'
+-- * 'actcrqCaseId'
 --
--- * 'actcCcEmailAddresses'
+-- * 'actcrqCcEmailAddresses'
 --
--- * 'actcAttachmentSetId'
+-- * 'actcrqAttachmentSetId'
 --
--- * 'actcCommunicationBody'
+-- * 'actcrqCommunicationBody'
 data AddCommunicationToCase = AddCommunicationToCase'
-    { _actcCaseId            :: !(Maybe Text)
-    , _actcCcEmailAddresses  :: !(Maybe [Text])
-    , _actcAttachmentSetId   :: !(Maybe Text)
-    , _actcCommunicationBody :: !Text
+    { _actcrqCaseId            :: !(Maybe Text)
+    , _actcrqCcEmailAddresses  :: !(Maybe [Text])
+    , _actcrqAttachmentSetId   :: !(Maybe Text)
+    , _actcrqCommunicationBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddCommunicationToCase' smart constructor.
 addCommunicationToCase :: Text -> AddCommunicationToCase
 addCommunicationToCase pCommunicationBody =
     AddCommunicationToCase'
-    { _actcCaseId = Nothing
-    , _actcCcEmailAddresses = Nothing
-    , _actcAttachmentSetId = Nothing
-    , _actcCommunicationBody = pCommunicationBody
+    { _actcrqCaseId = Nothing
+    , _actcrqCcEmailAddresses = Nothing
+    , _actcrqAttachmentSetId = Nothing
+    , _actcrqCommunicationBody = pCommunicationBody
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-actcCaseId :: Lens' AddCommunicationToCase (Maybe Text)
-actcCaseId = lens _actcCaseId (\ s a -> s{_actcCaseId = a});
+actcrqCaseId :: Lens' AddCommunicationToCase (Maybe Text)
+actcrqCaseId = lens _actcrqCaseId (\ s a -> s{_actcrqCaseId = a});
 
 -- | The email addresses in the CC line of an email to be added to the
 -- support case.
-actcCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
-actcCcEmailAddresses = lens _actcCcEmailAddresses (\ s a -> s{_actcCcEmailAddresses = a}) . _Default;
+actcrqCcEmailAddresses :: Lens' AddCommunicationToCase [Text]
+actcrqCcEmailAddresses = lens _actcrqCcEmailAddresses (\ s a -> s{_actcrqCcEmailAddresses = a}) . _Default;
 
 -- | The ID of a set of one or more attachments for the communication to add
 -- to the case. Create the set by calling AddAttachmentsToSet
-actcAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
-actcAttachmentSetId = lens _actcAttachmentSetId (\ s a -> s{_actcAttachmentSetId = a});
+actcrqAttachmentSetId :: Lens' AddCommunicationToCase (Maybe Text)
+actcrqAttachmentSetId = lens _actcrqAttachmentSetId (\ s a -> s{_actcrqAttachmentSetId = a});
 
 -- | The body of an email communication to add to the support case.
-actcCommunicationBody :: Lens' AddCommunicationToCase Text
-actcCommunicationBody = lens _actcCommunicationBody (\ s a -> s{_actcCommunicationBody = a});
+actcrqCommunicationBody :: Lens' AddCommunicationToCase Text
+actcrqCommunicationBody = lens _actcrqCommunicationBody (\ s a -> s{_actcrqCommunicationBody = a});
 
 instance AWSRequest AddCommunicationToCase where
         type Sv AddCommunicationToCase = Support
@@ -129,10 +129,10 @@ instance ToHeaders AddCommunicationToCase where
 instance ToJSON AddCommunicationToCase where
         toJSON AddCommunicationToCase'{..}
           = object
-              ["caseId" .= _actcCaseId,
-               "ccEmailAddresses" .= _actcCcEmailAddresses,
-               "attachmentSetId" .= _actcAttachmentSetId,
-               "communicationBody" .= _actcCommunicationBody]
+              ["caseId" .= _actcrqCaseId,
+               "ccEmailAddresses" .= _actcrqCcEmailAddresses,
+               "attachmentSetId" .= _actcrqAttachmentSetId,
+               "communicationBody" .= _actcrqCommunicationBody]
 
 instance ToPath AddCommunicationToCase where
         toPath = const "/"
@@ -146,26 +146,26 @@ instance ToQuery AddCommunicationToCase where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'actcrResult'
+-- * 'actcrsResult'
 --
--- * 'actcrStatus'
+-- * 'actcrsStatus'
 data AddCommunicationToCaseResponse = AddCommunicationToCaseResponse'
-    { _actcrResult :: !(Maybe Bool)
-    , _actcrStatus :: !Int
+    { _actcrsResult :: !(Maybe Bool)
+    , _actcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddCommunicationToCaseResponse' smart constructor.
 addCommunicationToCaseResponse :: Int -> AddCommunicationToCaseResponse
 addCommunicationToCaseResponse pStatus =
     AddCommunicationToCaseResponse'
-    { _actcrResult = Nothing
-    , _actcrStatus = pStatus
+    { _actcrsResult = Nothing
+    , _actcrsStatus = pStatus
     }
 
 -- | True if AddCommunicationToCase succeeds. Otherwise, returns an error.
-actcrResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
-actcrResult = lens _actcrResult (\ s a -> s{_actcrResult = a});
+actcrsResult :: Lens' AddCommunicationToCaseResponse (Maybe Bool)
+actcrsResult = lens _actcrsResult (\ s a -> s{_actcrsResult = a});
 
 -- | FIXME: Undocumented member.
-actcrStatus :: Lens' AddCommunicationToCaseResponse Int
-actcrStatus = lens _actcrStatus (\ s a -> s{_actcrStatus = a});
+actcrsStatus :: Lens' AddCommunicationToCaseResponse Int
+actcrsStatus = lens _actcrsStatus (\ s a -> s{_actcrsStatus = a});

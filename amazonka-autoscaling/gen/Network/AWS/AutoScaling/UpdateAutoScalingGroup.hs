@@ -53,18 +53,18 @@ module Network.AWS.AutoScaling.UpdateAutoScalingGroup
     -- ** Request constructor
     , updateAutoScalingGroup
     -- ** Request lenses
-    , uasgTerminationPolicies
-    , uasgHealthCheckGracePeriod
-    , uasgVPCZoneIdentifier
-    , uasgDefaultCooldown
-    , uasgMaxSize
-    , uasgDesiredCapacity
-    , uasgAvailabilityZones
-    , uasgMinSize
-    , uasgHealthCheckType
-    , uasgLaunchConfigurationName
-    , uasgPlacementGroup
-    , uasgAutoScalingGroupName
+    , uasgrqTerminationPolicies
+    , uasgrqHealthCheckGracePeriod
+    , uasgrqVPCZoneIdentifier
+    , uasgrqDefaultCooldown
+    , uasgrqMaxSize
+    , uasgrqDesiredCapacity
+    , uasgrqAvailabilityZones
+    , uasgrqMinSize
+    , uasgrqHealthCheckType
+    , uasgrqLaunchConfigurationName
+    , uasgrqPlacementGroup
+    , uasgrqAutoScalingGroupName
 
     -- * Response
     , UpdateAutoScalingGroupResponse
@@ -81,60 +81,60 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uasgTerminationPolicies'
+-- * 'uasgrqTerminationPolicies'
 --
--- * 'uasgHealthCheckGracePeriod'
+-- * 'uasgrqHealthCheckGracePeriod'
 --
--- * 'uasgVPCZoneIdentifier'
+-- * 'uasgrqVPCZoneIdentifier'
 --
--- * 'uasgDefaultCooldown'
+-- * 'uasgrqDefaultCooldown'
 --
--- * 'uasgMaxSize'
+-- * 'uasgrqMaxSize'
 --
--- * 'uasgDesiredCapacity'
+-- * 'uasgrqDesiredCapacity'
 --
--- * 'uasgAvailabilityZones'
+-- * 'uasgrqAvailabilityZones'
 --
--- * 'uasgMinSize'
+-- * 'uasgrqMinSize'
 --
--- * 'uasgHealthCheckType'
+-- * 'uasgrqHealthCheckType'
 --
--- * 'uasgLaunchConfigurationName'
+-- * 'uasgrqLaunchConfigurationName'
 --
--- * 'uasgPlacementGroup'
+-- * 'uasgrqPlacementGroup'
 --
--- * 'uasgAutoScalingGroupName'
+-- * 'uasgrqAutoScalingGroupName'
 data UpdateAutoScalingGroup = UpdateAutoScalingGroup'
-    { _uasgTerminationPolicies     :: !(Maybe [Text])
-    , _uasgHealthCheckGracePeriod  :: !(Maybe Int)
-    , _uasgVPCZoneIdentifier       :: !(Maybe Text)
-    , _uasgDefaultCooldown         :: !(Maybe Int)
-    , _uasgMaxSize                 :: !(Maybe Int)
-    , _uasgDesiredCapacity         :: !(Maybe Int)
-    , _uasgAvailabilityZones       :: !(Maybe (List1 Text))
-    , _uasgMinSize                 :: !(Maybe Int)
-    , _uasgHealthCheckType         :: !(Maybe Text)
-    , _uasgLaunchConfigurationName :: !(Maybe Text)
-    , _uasgPlacementGroup          :: !(Maybe Text)
-    , _uasgAutoScalingGroupName    :: !Text
+    { _uasgrqTerminationPolicies     :: !(Maybe [Text])
+    , _uasgrqHealthCheckGracePeriod  :: !(Maybe Int)
+    , _uasgrqVPCZoneIdentifier       :: !(Maybe Text)
+    , _uasgrqDefaultCooldown         :: !(Maybe Int)
+    , _uasgrqMaxSize                 :: !(Maybe Int)
+    , _uasgrqDesiredCapacity         :: !(Maybe Int)
+    , _uasgrqAvailabilityZones       :: !(Maybe (List1 Text))
+    , _uasgrqMinSize                 :: !(Maybe Int)
+    , _uasgrqHealthCheckType         :: !(Maybe Text)
+    , _uasgrqLaunchConfigurationName :: !(Maybe Text)
+    , _uasgrqPlacementGroup          :: !(Maybe Text)
+    , _uasgrqAutoScalingGroupName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAutoScalingGroup' smart constructor.
 updateAutoScalingGroup :: Text -> UpdateAutoScalingGroup
 updateAutoScalingGroup pAutoScalingGroupName =
     UpdateAutoScalingGroup'
-    { _uasgTerminationPolicies = Nothing
-    , _uasgHealthCheckGracePeriod = Nothing
-    , _uasgVPCZoneIdentifier = Nothing
-    , _uasgDefaultCooldown = Nothing
-    , _uasgMaxSize = Nothing
-    , _uasgDesiredCapacity = Nothing
-    , _uasgAvailabilityZones = Nothing
-    , _uasgMinSize = Nothing
-    , _uasgHealthCheckType = Nothing
-    , _uasgLaunchConfigurationName = Nothing
-    , _uasgPlacementGroup = Nothing
-    , _uasgAutoScalingGroupName = pAutoScalingGroupName
+    { _uasgrqTerminationPolicies = Nothing
+    , _uasgrqHealthCheckGracePeriod = Nothing
+    , _uasgrqVPCZoneIdentifier = Nothing
+    , _uasgrqDefaultCooldown = Nothing
+    , _uasgrqMaxSize = Nothing
+    , _uasgrqDesiredCapacity = Nothing
+    , _uasgrqAvailabilityZones = Nothing
+    , _uasgrqMinSize = Nothing
+    , _uasgrqHealthCheckType = Nothing
+    , _uasgrqLaunchConfigurationName = Nothing
+    , _uasgrqPlacementGroup = Nothing
+    , _uasgrqAutoScalingGroupName = pAutoScalingGroupName
     }
 
 -- | A standalone termination policy or a list of termination policies used
@@ -144,15 +144,15 @@ updateAutoScalingGroup pAutoScalingGroupName =
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/us-termination-policy.html Choosing a Termination Policy for Your Auto Scaling Group>
 -- in the /Auto Scaling Developer Guide/.
-uasgTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
-uasgTerminationPolicies = lens _uasgTerminationPolicies (\ s a -> s{_uasgTerminationPolicies = a}) . _Default;
+uasgrqTerminationPolicies :: Lens' UpdateAutoScalingGroup [Text]
+uasgrqTerminationPolicies = lens _uasgrqTerminationPolicies (\ s a -> s{_uasgrqTerminationPolicies = a}) . _Default;
 
 -- | The amount of time, in seconds, that Auto Scaling waits before checking
 -- the health status of an instance. The grace period begins when the
 -- instance passes the system status and instance status checks from Amazon
 -- EC2. For more information, see < >.
-uasgHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
-uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgHealthCheckGracePeriod = a});
+uasgrqHealthCheckGracePeriod :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgrqHealthCheckGracePeriod = lens _uasgrqHealthCheckGracePeriod (\ s a -> s{_uasgrqHealthCheckGracePeriod = a});
 
 -- | The ID of the subnet, if you are launching into a VPC. You can specify
 -- several subnets in a comma-separated list.
@@ -164,52 +164,52 @@ uasgHealthCheckGracePeriod = lens _uasgHealthCheckGracePeriod (\ s a -> s{_uasgH
 -- For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/autoscalingsubnets.html Auto Scaling and Amazon Virtual Private Cloud>
 -- in the /Auto Scaling Developer Guide/.
-uasgVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
-uasgVPCZoneIdentifier = lens _uasgVPCZoneIdentifier (\ s a -> s{_uasgVPCZoneIdentifier = a});
+uasgrqVPCZoneIdentifier :: Lens' UpdateAutoScalingGroup (Maybe Text)
+uasgrqVPCZoneIdentifier = lens _uasgrqVPCZoneIdentifier (\ s a -> s{_uasgrqVPCZoneIdentifier = a});
 
 -- | The amount of time, in seconds, after a scaling activity completes
 -- before another scaling activity can start. For more information, see
 -- <http://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/Cooldown.html Understanding Auto Scaling Cooldowns>.
-uasgDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
-uasgDefaultCooldown = lens _uasgDefaultCooldown (\ s a -> s{_uasgDefaultCooldown = a});
+uasgrqDefaultCooldown :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgrqDefaultCooldown = lens _uasgrqDefaultCooldown (\ s a -> s{_uasgrqDefaultCooldown = a});
 
 -- | The maximum size of the Auto Scaling group.
-uasgMaxSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
-uasgMaxSize = lens _uasgMaxSize (\ s a -> s{_uasgMaxSize = a});
+uasgrqMaxSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgrqMaxSize = lens _uasgrqMaxSize (\ s a -> s{_uasgrqMaxSize = a});
 
 -- | The number of EC2 instances that should be running in the Auto Scaling
 -- group. This number must be greater than or equal to the minimum size of
 -- the group and less than or equal to the maximum size of the group.
-uasgDesiredCapacity :: Lens' UpdateAutoScalingGroup (Maybe Int)
-uasgDesiredCapacity = lens _uasgDesiredCapacity (\ s a -> s{_uasgDesiredCapacity = a});
+uasgrqDesiredCapacity :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgrqDesiredCapacity = lens _uasgrqDesiredCapacity (\ s a -> s{_uasgrqDesiredCapacity = a});
 
 -- | One or more Availability Zones for the group.
-uasgAvailabilityZones :: Lens' UpdateAutoScalingGroup (Maybe (NonEmpty Text))
-uasgAvailabilityZones = lens _uasgAvailabilityZones (\ s a -> s{_uasgAvailabilityZones = a}) . mapping _List1;
+uasgrqAvailabilityZones :: Lens' UpdateAutoScalingGroup (Maybe (NonEmpty Text))
+uasgrqAvailabilityZones = lens _uasgrqAvailabilityZones (\ s a -> s{_uasgrqAvailabilityZones = a}) . mapping _List1;
 
 -- | The minimum size of the Auto Scaling group.
-uasgMinSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
-uasgMinSize = lens _uasgMinSize (\ s a -> s{_uasgMinSize = a});
+uasgrqMinSize :: Lens' UpdateAutoScalingGroup (Maybe Int)
+uasgrqMinSize = lens _uasgrqMinSize (\ s a -> s{_uasgrqMinSize = a});
 
 -- | The type of health check for the instances in the Auto Scaling group.
 -- The health check type can either be @EC2@ for Amazon EC2 or @ELB@ for
 -- Elastic Load Balancing.
-uasgHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
-uasgHealthCheckType = lens _uasgHealthCheckType (\ s a -> s{_uasgHealthCheckType = a});
+uasgrqHealthCheckType :: Lens' UpdateAutoScalingGroup (Maybe Text)
+uasgrqHealthCheckType = lens _uasgrqHealthCheckType (\ s a -> s{_uasgrqHealthCheckType = a});
 
 -- | The name of the launch configuration.
-uasgLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
-uasgLaunchConfigurationName = lens _uasgLaunchConfigurationName (\ s a -> s{_uasgLaunchConfigurationName = a});
+uasgrqLaunchConfigurationName :: Lens' UpdateAutoScalingGroup (Maybe Text)
+uasgrqLaunchConfigurationName = lens _uasgrqLaunchConfigurationName (\ s a -> s{_uasgrqLaunchConfigurationName = a});
 
 -- | The name of the placement group into which you\'ll launch your
 -- instances, if any. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html Placement Groups>.
-uasgPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
-uasgPlacementGroup = lens _uasgPlacementGroup (\ s a -> s{_uasgPlacementGroup = a});
+uasgrqPlacementGroup :: Lens' UpdateAutoScalingGroup (Maybe Text)
+uasgrqPlacementGroup = lens _uasgrqPlacementGroup (\ s a -> s{_uasgrqPlacementGroup = a});
 
 -- | The name of the Auto Scaling group.
-uasgAutoScalingGroupName :: Lens' UpdateAutoScalingGroup Text
-uasgAutoScalingGroupName = lens _uasgAutoScalingGroupName (\ s a -> s{_uasgAutoScalingGroupName = a});
+uasgrqAutoScalingGroupName :: Lens' UpdateAutoScalingGroup Text
+uasgrqAutoScalingGroupName = lens _uasgrqAutoScalingGroupName (\ s a -> s{_uasgrqAutoScalingGroupName = a});
 
 instance AWSRequest UpdateAutoScalingGroup where
         type Sv UpdateAutoScalingGroup = AutoScaling
@@ -233,22 +233,24 @@ instance ToQuery UpdateAutoScalingGroup where
                "Version" =: ("2011-01-01" :: ByteString),
                "TerminationPolicies" =:
                  toQuery
-                   (toQueryList "member" <$> _uasgTerminationPolicies),
+                   (toQueryList "member" <$>
+                      _uasgrqTerminationPolicies),
                "HealthCheckGracePeriod" =:
-                 _uasgHealthCheckGracePeriod,
-               "VPCZoneIdentifier" =: _uasgVPCZoneIdentifier,
-               "DefaultCooldown" =: _uasgDefaultCooldown,
-               "MaxSize" =: _uasgMaxSize,
-               "DesiredCapacity" =: _uasgDesiredCapacity,
+                 _uasgrqHealthCheckGracePeriod,
+               "VPCZoneIdentifier" =: _uasgrqVPCZoneIdentifier,
+               "DefaultCooldown" =: _uasgrqDefaultCooldown,
+               "MaxSize" =: _uasgrqMaxSize,
+               "DesiredCapacity" =: _uasgrqDesiredCapacity,
                "AvailabilityZones" =:
                  toQuery
-                   (toQueryList "member" <$> _uasgAvailabilityZones),
-               "MinSize" =: _uasgMinSize,
-               "HealthCheckType" =: _uasgHealthCheckType,
+                   (toQueryList "member" <$> _uasgrqAvailabilityZones),
+               "MinSize" =: _uasgrqMinSize,
+               "HealthCheckType" =: _uasgrqHealthCheckType,
                "LaunchConfigurationName" =:
-                 _uasgLaunchConfigurationName,
-               "PlacementGroup" =: _uasgPlacementGroup,
-               "AutoScalingGroupName" =: _uasgAutoScalingGroupName]
+                 _uasgrqLaunchConfigurationName,
+               "PlacementGroup" =: _uasgrqPlacementGroup,
+               "AutoScalingGroupName" =:
+                 _uasgrqAutoScalingGroupName]
 
 -- | /See:/ 'updateAutoScalingGroupResponse' smart constructor.
 data UpdateAutoScalingGroupResponse =

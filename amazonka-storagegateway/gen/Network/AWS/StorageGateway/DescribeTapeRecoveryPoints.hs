@@ -33,19 +33,19 @@ module Network.AWS.StorageGateway.DescribeTapeRecoveryPoints
     -- ** Request constructor
     , describeTapeRecoveryPoints
     -- ** Request lenses
-    , dtrpMarker
-    , dtrpLimit
-    , dtrpGatewayARN
+    , dtrprqMarker
+    , dtrprqLimit
+    , dtrprqGatewayARN
 
     -- * Response
     , DescribeTapeRecoveryPointsResponse
     -- ** Response constructor
     , describeTapeRecoveryPointsResponse
     -- ** Response lenses
-    , dtrprTapeRecoveryPointInfos
-    , dtrprGatewayARN
-    , dtrprMarker
-    , dtrprStatus
+    , dtrprsTapeRecoveryPointInfos
+    , dtrprsGatewayARN
+    , dtrprsMarker
+    , dtrprsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -60,46 +60,46 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrpMarker'
+-- * 'dtrprqMarker'
 --
--- * 'dtrpLimit'
+-- * 'dtrprqLimit'
 --
--- * 'dtrpGatewayARN'
+-- * 'dtrprqGatewayARN'
 data DescribeTapeRecoveryPoints = DescribeTapeRecoveryPoints'
-    { _dtrpMarker     :: !(Maybe Text)
-    , _dtrpLimit      :: !(Maybe Nat)
-    , _dtrpGatewayARN :: !Text
+    { _dtrprqMarker     :: !(Maybe Text)
+    , _dtrprqLimit      :: !(Maybe Nat)
+    , _dtrprqGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapeRecoveryPoints' smart constructor.
 describeTapeRecoveryPoints :: Text -> DescribeTapeRecoveryPoints
 describeTapeRecoveryPoints pGatewayARN =
     DescribeTapeRecoveryPoints'
-    { _dtrpMarker = Nothing
-    , _dtrpLimit = Nothing
-    , _dtrpGatewayARN = pGatewayARN
+    { _dtrprqMarker = Nothing
+    , _dtrprqLimit = Nothing
+    , _dtrprqGatewayARN = pGatewayARN
     }
 
 -- | An opaque string that indicates the position at which to begin
 -- describing the virtual tape recovery points.
-dtrpMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
-dtrpMarker = lens _dtrpMarker (\ s a -> s{_dtrpMarker = a});
+dtrprqMarker :: Lens' DescribeTapeRecoveryPoints (Maybe Text)
+dtrprqMarker = lens _dtrprqMarker (\ s a -> s{_dtrprqMarker = a});
 
 -- | Specifies that the number of virtual tape recovery points that are
 -- described be limited to the specified number.
-dtrpLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
-dtrpLimit = lens _dtrpLimit (\ s a -> s{_dtrpLimit = a}) . mapping _Nat;
+dtrprqLimit :: Lens' DescribeTapeRecoveryPoints (Maybe Natural)
+dtrprqLimit = lens _dtrprqLimit (\ s a -> s{_dtrprqLimit = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-dtrpGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
-dtrpGatewayARN = lens _dtrpGatewayARN (\ s a -> s{_dtrpGatewayARN = a});
+dtrprqGatewayARN :: Lens' DescribeTapeRecoveryPoints Text
+dtrprqGatewayARN = lens _dtrprqGatewayARN (\ s a -> s{_dtrprqGatewayARN = a});
 
 instance AWSPager DescribeTapeRecoveryPoints where
         page rq rs
-          | stop (rs ^. dtrprMarker) = Nothing
-          | stop (rs ^. dtrprTapeRecoveryPointInfos) = Nothing
+          | stop (rs ^. dtrprsMarker) = Nothing
+          | stop (rs ^. dtrprsTapeRecoveryPointInfos) = Nothing
           | otherwise =
-            Just $ rq & dtrpMarker .~ rs ^. dtrprMarker
+            Just $ rq & dtrprqMarker .~ rs ^. dtrprsMarker
 
 instance AWSRequest DescribeTapeRecoveryPoints where
         type Sv DescribeTapeRecoveryPoints = StorageGateway
@@ -128,8 +128,8 @@ instance ToHeaders DescribeTapeRecoveryPoints where
 instance ToJSON DescribeTapeRecoveryPoints where
         toJSON DescribeTapeRecoveryPoints'{..}
           = object
-              ["Marker" .= _dtrpMarker, "Limit" .= _dtrpLimit,
-               "GatewayARN" .= _dtrpGatewayARN]
+              ["Marker" .= _dtrprqMarker, "Limit" .= _dtrprqLimit,
+               "GatewayARN" .= _dtrprqGatewayARN]
 
 instance ToPath DescribeTapeRecoveryPoints where
         toPath = const "/"
@@ -143,38 +143,38 @@ instance ToQuery DescribeTapeRecoveryPoints where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrprTapeRecoveryPointInfos'
+-- * 'dtrprsTapeRecoveryPointInfos'
 --
--- * 'dtrprGatewayARN'
+-- * 'dtrprsGatewayARN'
 --
--- * 'dtrprMarker'
+-- * 'dtrprsMarker'
 --
--- * 'dtrprStatus'
+-- * 'dtrprsStatus'
 data DescribeTapeRecoveryPointsResponse = DescribeTapeRecoveryPointsResponse'
-    { _dtrprTapeRecoveryPointInfos :: !(Maybe [TapeRecoveryPointInfo])
-    , _dtrprGatewayARN             :: !(Maybe Text)
-    , _dtrprMarker                 :: !(Maybe Text)
-    , _dtrprStatus                 :: !Int
+    { _dtrprsTapeRecoveryPointInfos :: !(Maybe [TapeRecoveryPointInfo])
+    , _dtrprsGatewayARN             :: !(Maybe Text)
+    , _dtrprsMarker                 :: !(Maybe Text)
+    , _dtrprsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapeRecoveryPointsResponse' smart constructor.
 describeTapeRecoveryPointsResponse :: Int -> DescribeTapeRecoveryPointsResponse
 describeTapeRecoveryPointsResponse pStatus =
     DescribeTapeRecoveryPointsResponse'
-    { _dtrprTapeRecoveryPointInfos = Nothing
-    , _dtrprGatewayARN = Nothing
-    , _dtrprMarker = Nothing
-    , _dtrprStatus = pStatus
+    { _dtrprsTapeRecoveryPointInfos = Nothing
+    , _dtrprsGatewayARN = Nothing
+    , _dtrprsMarker = Nothing
+    , _dtrprsStatus = pStatus
     }
 
 -- | An array of TapeRecoveryPointInfos that are available for the specified
 -- gateway.
-dtrprTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
-dtrprTapeRecoveryPointInfos = lens _dtrprTapeRecoveryPointInfos (\ s a -> s{_dtrprTapeRecoveryPointInfos = a}) . _Default;
+dtrprsTapeRecoveryPointInfos :: Lens' DescribeTapeRecoveryPointsResponse [TapeRecoveryPointInfo]
+dtrprsTapeRecoveryPointInfos = lens _dtrprsTapeRecoveryPointInfos (\ s a -> s{_dtrprsTapeRecoveryPointInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrprGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrprGatewayARN = lens _dtrprGatewayARN (\ s a -> s{_dtrprGatewayARN = a});
+dtrprsGatewayARN :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
+dtrprsGatewayARN = lens _dtrprsGatewayARN (\ s a -> s{_dtrprsGatewayARN = a});
 
 -- | An opaque string that indicates the position at which the virtual tape
 -- recovery points that were listed for description ended.
@@ -182,9 +182,9 @@ dtrprGatewayARN = lens _dtrprGatewayARN (\ s a -> s{_dtrprGatewayARN = a});
 -- Use this marker in your next request to list the next set of virtual
 -- tape recovery points in the list. If there are no more recovery points
 -- to describe, this field does not appear in the response.
-dtrprMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
-dtrprMarker = lens _dtrprMarker (\ s a -> s{_dtrprMarker = a});
+dtrprsMarker :: Lens' DescribeTapeRecoveryPointsResponse (Maybe Text)
+dtrprsMarker = lens _dtrprsMarker (\ s a -> s{_dtrprsMarker = a});
 
 -- | FIXME: Undocumented member.
-dtrprStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
-dtrprStatus = lens _dtrprStatus (\ s a -> s{_dtrprStatus = a});
+dtrprsStatus :: Lens' DescribeTapeRecoveryPointsResponse Int
+dtrprsStatus = lens _dtrprsStatus (\ s a -> s{_dtrprsStatus = a});

@@ -29,16 +29,16 @@ module Network.AWS.CloudSearch.DeleteAnalysisScheme
     -- ** Request constructor
     , deleteAnalysisScheme
     -- ** Request lenses
-    , dasDomainName
-    , dasAnalysisSchemeName
+    , dasrqDomainName
+    , dasrqAnalysisSchemeName
 
     -- * Response
     , DeleteAnalysisSchemeResponse
     -- ** Response constructor
     , deleteAnalysisSchemeResponse
     -- ** Response lenses
-    , dStatus
-    , dAnalysisScheme
+    , dasrsStatus
+    , dasrsAnalysisScheme
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -54,29 +54,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasDomainName'
+-- * 'dasrqDomainName'
 --
--- * 'dasAnalysisSchemeName'
+-- * 'dasrqAnalysisSchemeName'
 data DeleteAnalysisScheme = DeleteAnalysisScheme'
-    { _dasDomainName         :: !Text
-    , _dasAnalysisSchemeName :: !Text
+    { _dasrqDomainName         :: !Text
+    , _dasrqAnalysisSchemeName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAnalysisScheme' smart constructor.
 deleteAnalysisScheme :: Text -> Text -> DeleteAnalysisScheme
 deleteAnalysisScheme pDomainName pAnalysisSchemeName =
     DeleteAnalysisScheme'
-    { _dasDomainName = pDomainName
-    , _dasAnalysisSchemeName = pAnalysisSchemeName
+    { _dasrqDomainName = pDomainName
+    , _dasrqAnalysisSchemeName = pAnalysisSchemeName
     }
 
 -- | FIXME: Undocumented member.
-dasDomainName :: Lens' DeleteAnalysisScheme Text
-dasDomainName = lens _dasDomainName (\ s a -> s{_dasDomainName = a});
+dasrqDomainName :: Lens' DeleteAnalysisScheme Text
+dasrqDomainName = lens _dasrqDomainName (\ s a -> s{_dasrqDomainName = a});
 
 -- | The name of the analysis scheme you want to delete.
-dasAnalysisSchemeName :: Lens' DeleteAnalysisScheme Text
-dasAnalysisSchemeName = lens _dasAnalysisSchemeName (\ s a -> s{_dasAnalysisSchemeName = a});
+dasrqAnalysisSchemeName :: Lens' DeleteAnalysisScheme Text
+dasrqAnalysisSchemeName = lens _dasrqAnalysisSchemeName (\ s a -> s{_dasrqAnalysisSchemeName = a});
 
 instance AWSRequest DeleteAnalysisScheme where
         type Sv DeleteAnalysisScheme = CloudSearch
@@ -100,8 +100,8 @@ instance ToQuery DeleteAnalysisScheme where
           = mconcat
               ["Action" =: ("DeleteAnalysisScheme" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _dasDomainName,
-               "AnalysisSchemeName" =: _dasAnalysisSchemeName]
+               "DomainName" =: _dasrqDomainName,
+               "AnalysisSchemeName" =: _dasrqAnalysisSchemeName]
 
 -- | The result of a @DeleteAnalysisScheme@ request. Contains the status of
 -- the deleted analysis scheme.
@@ -110,26 +110,26 @@ instance ToQuery DeleteAnalysisScheme where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dStatus'
+-- * 'dasrsStatus'
 --
--- * 'dAnalysisScheme'
+-- * 'dasrsAnalysisScheme'
 data DeleteAnalysisSchemeResponse = DeleteAnalysisSchemeResponse'
-    { _dStatus         :: !Int
-    , _dAnalysisScheme :: !AnalysisSchemeStatus
+    { _dasrsStatus         :: !Int
+    , _dasrsAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAnalysisSchemeResponse' smart constructor.
 deleteAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DeleteAnalysisSchemeResponse
 deleteAnalysisSchemeResponse pStatus pAnalysisScheme =
     DeleteAnalysisSchemeResponse'
-    { _dStatus = pStatus
-    , _dAnalysisScheme = pAnalysisScheme
+    { _dasrsStatus = pStatus
+    , _dasrsAnalysisScheme = pAnalysisScheme
     }
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DeleteAnalysisSchemeResponse Int
-dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+dasrsStatus :: Lens' DeleteAnalysisSchemeResponse Int
+dasrsStatus = lens _dasrsStatus (\ s a -> s{_dasrsStatus = a});
 
 -- | The status of the analysis scheme being deleted.
-dAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
-dAnalysisScheme = lens _dAnalysisScheme (\ s a -> s{_dAnalysisScheme = a});
+dasrsAnalysisScheme :: Lens' DeleteAnalysisSchemeResponse AnalysisSchemeStatus
+dasrsAnalysisScheme = lens _dasrsAnalysisScheme (\ s a -> s{_dasrsAnalysisScheme = a});

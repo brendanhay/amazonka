@@ -27,15 +27,15 @@ module Network.AWS.S3.GetBucketLocation
     -- ** Request constructor
     , getBucketLocation
     -- ** Request lenses
-    , gblBucket
+    , gblrqBucket
 
     -- * Response
     , GetBucketLocationResponse
     -- ** Response constructor
     , getBucketLocationResponse
     -- ** Response lenses
-    , gLocationConstraint
-    , gStatus
+    , gblrsLocationConstraint
+    , gblrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblBucket'
+-- * 'gblrqBucket'
 newtype GetBucketLocation = GetBucketLocation'
-    { _gblBucket :: BucketName
+    { _gblrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLocation' smart constructor.
 getBucketLocation :: BucketName -> GetBucketLocation
 getBucketLocation pBucket =
     GetBucketLocation'
-    { _gblBucket = pBucket
+    { _gblrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gblBucket :: Lens' GetBucketLocation BucketName
-gblBucket = lens _gblBucket (\ s a -> s{_gblBucket = a});
+gblrqBucket :: Lens' GetBucketLocation BucketName
+gblrqBucket = lens _gblrqBucket (\ s a -> s{_gblrqBucket = a});
 
 instance AWSRequest GetBucketLocation where
         type Sv GetBucketLocation = S3
@@ -78,7 +78,7 @@ instance ToHeaders GetBucketLocation where
 
 instance ToPath GetBucketLocation where
         toPath GetBucketLocation'{..}
-          = mconcat ["/", toText _gblBucket]
+          = mconcat ["/", toText _gblrqBucket]
 
 instance ToQuery GetBucketLocation where
         toQuery = const (mconcat ["location"])
@@ -87,26 +87,26 @@ instance ToQuery GetBucketLocation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gLocationConstraint'
+-- * 'gblrsLocationConstraint'
 --
--- * 'gStatus'
+-- * 'gblrsStatus'
 data GetBucketLocationResponse = GetBucketLocationResponse'
-    { _gLocationConstraint :: !(Maybe Region)
-    , _gStatus             :: !Int
+    { _gblrsLocationConstraint :: !(Maybe Region)
+    , _gblrsStatus             :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLocationResponse' smart constructor.
 getBucketLocationResponse :: Int -> GetBucketLocationResponse
 getBucketLocationResponse pStatus =
     GetBucketLocationResponse'
-    { _gLocationConstraint = Nothing
-    , _gStatus = pStatus
+    { _gblrsLocationConstraint = Nothing
+    , _gblrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
-gLocationConstraint = lens _gLocationConstraint (\ s a -> s{_gLocationConstraint = a});
+gblrsLocationConstraint :: Lens' GetBucketLocationResponse (Maybe Region)
+gblrsLocationConstraint = lens _gblrsLocationConstraint (\ s a -> s{_gblrsLocationConstraint = a});
 
 -- | FIXME: Undocumented member.
-gStatus :: Lens' GetBucketLocationResponse Int
-gStatus = lens _gStatus (\ s a -> s{_gStatus = a});
+gblrsStatus :: Lens' GetBucketLocationResponse Int
+gblrsStatus = lens _gblrsStatus (\ s a -> s{_gblrsStatus = a});

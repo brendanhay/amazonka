@@ -33,19 +33,19 @@ module Network.AWS.IAM.ListMFADevices
     -- ** Request constructor
     , listMFADevices
     -- ** Request lenses
-    , lmdUserName
-    , lmdMaxItems
-    , lmdMarker
+    , lmdrqUserName
+    , lmdrqMaxItems
+    , lmdrqMarker
 
     -- * Response
     , ListMFADevicesResponse
     -- ** Response constructor
     , listMFADevicesResponse
     -- ** Response lenses
-    , lmdrMarker
-    , lmdrIsTruncated
-    , lmdrStatus
-    , lmdrMFADevices
+    , lmdrsMarker
+    , lmdrsIsTruncated
+    , lmdrsStatus
+    , lmdrsMFADevices
     ) where
 
 import           Network.AWS.IAM.Types
@@ -58,29 +58,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmdUserName'
+-- * 'lmdrqUserName'
 --
--- * 'lmdMaxItems'
+-- * 'lmdrqMaxItems'
 --
--- * 'lmdMarker'
+-- * 'lmdrqMarker'
 data ListMFADevices = ListMFADevices'
-    { _lmdUserName :: !(Maybe Text)
-    , _lmdMaxItems :: !(Maybe Nat)
-    , _lmdMarker   :: !(Maybe Text)
+    { _lmdrqUserName :: !(Maybe Text)
+    , _lmdrqMaxItems :: !(Maybe Nat)
+    , _lmdrqMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMFADevices' smart constructor.
 listMFADevices :: ListMFADevices
 listMFADevices =
     ListMFADevices'
-    { _lmdUserName = Nothing
-    , _lmdMaxItems = Nothing
-    , _lmdMarker = Nothing
+    { _lmdrqUserName = Nothing
+    , _lmdrqMaxItems = Nothing
+    , _lmdrqMarker = Nothing
     }
 
 -- | The name of the user whose MFA devices you want to list.
-lmdUserName :: Lens' ListMFADevices (Maybe Text)
-lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
+lmdrqUserName :: Lens' ListMFADevices (Maybe Text)
+lmdrqUserName = lens _lmdrqUserName (\ s a -> s{_lmdrqUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -88,21 +88,21 @@ lmdUserName = lens _lmdUserName (\ s a -> s{_lmdUserName = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lmdMaxItems :: Lens' ListMFADevices (Maybe Natural)
-lmdMaxItems = lens _lmdMaxItems (\ s a -> s{_lmdMaxItems = a}) . mapping _Nat;
+lmdrqMaxItems :: Lens' ListMFADevices (Maybe Natural)
+lmdrqMaxItems = lens _lmdrqMaxItems (\ s a -> s{_lmdrqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lmdMarker :: Lens' ListMFADevices (Maybe Text)
-lmdMarker = lens _lmdMarker (\ s a -> s{_lmdMarker = a});
+lmdrqMarker :: Lens' ListMFADevices (Maybe Text)
+lmdrqMarker = lens _lmdrqMarker (\ s a -> s{_lmdrqMarker = a});
 
 instance AWSPager ListMFADevices where
         page rq rs
-          | stop (rs ^. lmdrIsTruncated) = Nothing
-          | isNothing (rs ^. lmdrMarker) = Nothing
+          | stop (rs ^. lmdrsIsTruncated) = Nothing
+          | isNothing (rs ^. lmdrsMarker) = Nothing
           | otherwise =
-            Just $ rq & lmdMarker .~ rs ^. lmdrMarker
+            Just $ rq & lmdrqMarker .~ rs ^. lmdrsMarker
 
 instance AWSRequest ListMFADevices where
         type Sv ListMFADevices = IAM
@@ -129,8 +129,9 @@ instance ToQuery ListMFADevices where
           = mconcat
               ["Action" =: ("ListMFADevices" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _lmdUserName,
-               "MaxItems" =: _lmdMaxItems, "Marker" =: _lmdMarker]
+               "UserName" =: _lmdrqUserName,
+               "MaxItems" =: _lmdrqMaxItems,
+               "Marker" =: _lmdrqMarker]
 
 -- | Contains the response to a successful ListMFADevices request.
 --
@@ -138,46 +139,46 @@ instance ToQuery ListMFADevices where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmdrMarker'
+-- * 'lmdrsMarker'
 --
--- * 'lmdrIsTruncated'
+-- * 'lmdrsIsTruncated'
 --
--- * 'lmdrStatus'
+-- * 'lmdrsStatus'
 --
--- * 'lmdrMFADevices'
+-- * 'lmdrsMFADevices'
 data ListMFADevicesResponse = ListMFADevicesResponse'
-    { _lmdrMarker      :: !(Maybe Text)
-    , _lmdrIsTruncated :: !(Maybe Bool)
-    , _lmdrStatus      :: !Int
-    , _lmdrMFADevices  :: ![MFADevice]
+    { _lmdrsMarker      :: !(Maybe Text)
+    , _lmdrsIsTruncated :: !(Maybe Bool)
+    , _lmdrsStatus      :: !Int
+    , _lmdrsMFADevices  :: ![MFADevice]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMFADevicesResponse' smart constructor.
 listMFADevicesResponse :: Int -> ListMFADevicesResponse
 listMFADevicesResponse pStatus =
     ListMFADevicesResponse'
-    { _lmdrMarker = Nothing
-    , _lmdrIsTruncated = Nothing
-    , _lmdrStatus = pStatus
-    , _lmdrMFADevices = mempty
+    { _lmdrsMarker = Nothing
+    , _lmdrsIsTruncated = Nothing
+    , _lmdrsStatus = pStatus
+    , _lmdrsMFADevices = mempty
     }
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-lmdrMarker :: Lens' ListMFADevicesResponse (Maybe Text)
-lmdrMarker = lens _lmdrMarker (\ s a -> s{_lmdrMarker = a});
+lmdrsMarker :: Lens' ListMFADevicesResponse (Maybe Text)
+lmdrsMarker = lens _lmdrsMarker (\ s a -> s{_lmdrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-lmdrIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
-lmdrIsTruncated = lens _lmdrIsTruncated (\ s a -> s{_lmdrIsTruncated = a});
+lmdrsIsTruncated :: Lens' ListMFADevicesResponse (Maybe Bool)
+lmdrsIsTruncated = lens _lmdrsIsTruncated (\ s a -> s{_lmdrsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lmdrStatus :: Lens' ListMFADevicesResponse Int
-lmdrStatus = lens _lmdrStatus (\ s a -> s{_lmdrStatus = a});
+lmdrsStatus :: Lens' ListMFADevicesResponse Int
+lmdrsStatus = lens _lmdrsStatus (\ s a -> s{_lmdrsStatus = a});
 
 -- | A list of MFA devices.
-lmdrMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
-lmdrMFADevices = lens _lmdrMFADevices (\ s a -> s{_lmdrMFADevices = a});
+lmdrsMFADevices :: Lens' ListMFADevicesResponse [MFADevice]
+lmdrsMFADevices = lens _lmdrsMFADevices (\ s a -> s{_lmdrsMFADevices = a});

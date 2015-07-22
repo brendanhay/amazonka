@@ -28,20 +28,20 @@ module Network.AWS.DataPipeline.ValidatePipelineDefinition
     -- ** Request constructor
     , validatePipelineDefinition
     -- ** Request lenses
-    , vpdParameterObjects
-    , vpdParameterValues
-    , vpdPipelineId
-    , vpdPipelineObjects
+    , vpdrqParameterObjects
+    , vpdrqParameterValues
+    , vpdrqPipelineId
+    , vpdrqPipelineObjects
 
     -- * Response
     , ValidatePipelineDefinitionResponse
     -- ** Response constructor
     , validatePipelineDefinitionResponse
     -- ** Response lenses
-    , vpdrValidationErrors
-    , vpdrValidationWarnings
-    , vpdrStatus
-    , vpdrErrored
+    , vpdrsValidationErrors
+    , vpdrsValidationWarnings
+    , vpdrsStatus
+    , vpdrsErrored
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -55,46 +55,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vpdParameterObjects'
+-- * 'vpdrqParameterObjects'
 --
--- * 'vpdParameterValues'
+-- * 'vpdrqParameterValues'
 --
--- * 'vpdPipelineId'
+-- * 'vpdrqPipelineId'
 --
--- * 'vpdPipelineObjects'
+-- * 'vpdrqPipelineObjects'
 data ValidatePipelineDefinition = ValidatePipelineDefinition'
-    { _vpdParameterObjects :: !(Maybe [ParameterObject])
-    , _vpdParameterValues  :: !(Maybe [ParameterValue])
-    , _vpdPipelineId       :: !Text
-    , _vpdPipelineObjects  :: ![PipelineObject]
+    { _vpdrqParameterObjects :: !(Maybe [ParameterObject])
+    , _vpdrqParameterValues  :: !(Maybe [ParameterValue])
+    , _vpdrqPipelineId       :: !Text
+    , _vpdrqPipelineObjects  :: ![PipelineObject]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidatePipelineDefinition' smart constructor.
 validatePipelineDefinition :: Text -> ValidatePipelineDefinition
 validatePipelineDefinition pPipelineId =
     ValidatePipelineDefinition'
-    { _vpdParameterObjects = Nothing
-    , _vpdParameterValues = Nothing
-    , _vpdPipelineId = pPipelineId
-    , _vpdPipelineObjects = mempty
+    { _vpdrqParameterObjects = Nothing
+    , _vpdrqParameterValues = Nothing
+    , _vpdrqPipelineId = pPipelineId
+    , _vpdrqPipelineObjects = mempty
     }
 
 -- | The parameter objects used with the pipeline.
-vpdParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
-vpdParameterObjects = lens _vpdParameterObjects (\ s a -> s{_vpdParameterObjects = a}) . _Default;
+vpdrqParameterObjects :: Lens' ValidatePipelineDefinition [ParameterObject]
+vpdrqParameterObjects = lens _vpdrqParameterObjects (\ s a -> s{_vpdrqParameterObjects = a}) . _Default;
 
 -- | The parameter values used with the pipeline.
-vpdParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
-vpdParameterValues = lens _vpdParameterValues (\ s a -> s{_vpdParameterValues = a}) . _Default;
+vpdrqParameterValues :: Lens' ValidatePipelineDefinition [ParameterValue]
+vpdrqParameterValues = lens _vpdrqParameterValues (\ s a -> s{_vpdrqParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
-vpdPipelineId :: Lens' ValidatePipelineDefinition Text
-vpdPipelineId = lens _vpdPipelineId (\ s a -> s{_vpdPipelineId = a});
+vpdrqPipelineId :: Lens' ValidatePipelineDefinition Text
+vpdrqPipelineId = lens _vpdrqPipelineId (\ s a -> s{_vpdrqPipelineId = a});
 
 -- | The objects that define the pipeline changes to validate against the
 -- pipeline.
-vpdPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
-vpdPipelineObjects = lens _vpdPipelineObjects (\ s a -> s{_vpdPipelineObjects = a});
+vpdrqPipelineObjects :: Lens' ValidatePipelineDefinition [PipelineObject]
+vpdrqPipelineObjects = lens _vpdrqPipelineObjects (\ s a -> s{_vpdrqPipelineObjects = a});
 
 instance AWSRequest ValidatePipelineDefinition where
         type Sv ValidatePipelineDefinition = DataPipeline
@@ -123,10 +123,10 @@ instance ToHeaders ValidatePipelineDefinition where
 instance ToJSON ValidatePipelineDefinition where
         toJSON ValidatePipelineDefinition'{..}
           = object
-              ["parameterObjects" .= _vpdParameterObjects,
-               "parameterValues" .= _vpdParameterValues,
-               "pipelineId" .= _vpdPipelineId,
-               "pipelineObjects" .= _vpdPipelineObjects]
+              ["parameterObjects" .= _vpdrqParameterObjects,
+               "parameterValues" .= _vpdrqParameterValues,
+               "pipelineId" .= _vpdrqPipelineId,
+               "pipelineObjects" .= _vpdrqPipelineObjects]
 
 instance ToPath ValidatePipelineDefinition where
         toPath = const "/"
@@ -140,42 +140,42 @@ instance ToQuery ValidatePipelineDefinition where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vpdrValidationErrors'
+-- * 'vpdrsValidationErrors'
 --
--- * 'vpdrValidationWarnings'
+-- * 'vpdrsValidationWarnings'
 --
--- * 'vpdrStatus'
+-- * 'vpdrsStatus'
 --
--- * 'vpdrErrored'
+-- * 'vpdrsErrored'
 data ValidatePipelineDefinitionResponse = ValidatePipelineDefinitionResponse'
-    { _vpdrValidationErrors   :: !(Maybe [ValidationError])
-    , _vpdrValidationWarnings :: !(Maybe [ValidationWarning])
-    , _vpdrStatus             :: !Int
-    , _vpdrErrored            :: !Bool
+    { _vpdrsValidationErrors   :: !(Maybe [ValidationError])
+    , _vpdrsValidationWarnings :: !(Maybe [ValidationWarning])
+    , _vpdrsStatus             :: !Int
+    , _vpdrsErrored            :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidatePipelineDefinitionResponse' smart constructor.
 validatePipelineDefinitionResponse :: Int -> Bool -> ValidatePipelineDefinitionResponse
 validatePipelineDefinitionResponse pStatus pErrored =
     ValidatePipelineDefinitionResponse'
-    { _vpdrValidationErrors = Nothing
-    , _vpdrValidationWarnings = Nothing
-    , _vpdrStatus = pStatus
-    , _vpdrErrored = pErrored
+    { _vpdrsValidationErrors = Nothing
+    , _vpdrsValidationWarnings = Nothing
+    , _vpdrsStatus = pStatus
+    , _vpdrsErrored = pErrored
     }
 
 -- | Any validation errors that were found.
-vpdrValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
-vpdrValidationErrors = lens _vpdrValidationErrors (\ s a -> s{_vpdrValidationErrors = a}) . _Default;
+vpdrsValidationErrors :: Lens' ValidatePipelineDefinitionResponse [ValidationError]
+vpdrsValidationErrors = lens _vpdrsValidationErrors (\ s a -> s{_vpdrsValidationErrors = a}) . _Default;
 
 -- | Any validation warnings that were found.
-vpdrValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
-vpdrValidationWarnings = lens _vpdrValidationWarnings (\ s a -> s{_vpdrValidationWarnings = a}) . _Default;
+vpdrsValidationWarnings :: Lens' ValidatePipelineDefinitionResponse [ValidationWarning]
+vpdrsValidationWarnings = lens _vpdrsValidationWarnings (\ s a -> s{_vpdrsValidationWarnings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-vpdrStatus :: Lens' ValidatePipelineDefinitionResponse Int
-vpdrStatus = lens _vpdrStatus (\ s a -> s{_vpdrStatus = a});
+vpdrsStatus :: Lens' ValidatePipelineDefinitionResponse Int
+vpdrsStatus = lens _vpdrsStatus (\ s a -> s{_vpdrsStatus = a});
 
 -- | Indicates whether there were validation errors.
-vpdrErrored :: Lens' ValidatePipelineDefinitionResponse Bool
-vpdrErrored = lens _vpdrErrored (\ s a -> s{_vpdrErrored = a});
+vpdrsErrored :: Lens' ValidatePipelineDefinitionResponse Bool
+vpdrsErrored = lens _vpdrsErrored (\ s a -> s{_vpdrsErrored = a});

@@ -27,16 +27,16 @@ module Network.AWS.CloudFront.GetDistributionConfig
     -- ** Request constructor
     , getDistributionConfig
     -- ** Request lenses
-    , gdcId
+    , gdcrqId
 
     -- * Response
     , GetDistributionConfigResponse
     -- ** Response constructor
     , getDistributionConfigResponse
     -- ** Response lenses
-    , gdcrETag
-    , gdcrDistributionConfig
-    , gdcrStatus
+    , gdcrsETag
+    , gdcrsDistributionConfig
+    , gdcrsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdcId'
+-- * 'gdcrqId'
 newtype GetDistributionConfig = GetDistributionConfig'
-    { _gdcId :: Text
+    { _gdcrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistributionConfig' smart constructor.
 getDistributionConfig :: Text -> GetDistributionConfig
 getDistributionConfig pId =
     GetDistributionConfig'
-    { _gdcId = pId
+    { _gdcrqId = pId
     }
 
 -- | The distribution\'s id.
-gdcId :: Lens' GetDistributionConfig Text
-gdcId = lens _gdcId (\ s a -> s{_gdcId = a});
+gdcrqId :: Lens' GetDistributionConfig Text
+gdcrqId = lens _gdcrqId (\ s a -> s{_gdcrqId = a});
 
 instance AWSRequest GetDistributionConfig where
         type Sv GetDistributionConfig = CloudFront
@@ -84,7 +84,7 @@ instance ToHeaders GetDistributionConfig where
 instance ToPath GetDistributionConfig where
         toPath GetDistributionConfig'{..}
           = mconcat
-              ["/2015-04-17/distribution/", toText _gdcId,
+              ["/2015-04-17/distribution/", toText _gdcrqId,
                "/config"]
 
 instance ToQuery GetDistributionConfig where
@@ -96,34 +96,34 @@ instance ToQuery GetDistributionConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdcrETag'
+-- * 'gdcrsETag'
 --
--- * 'gdcrDistributionConfig'
+-- * 'gdcrsDistributionConfig'
 --
--- * 'gdcrStatus'
+-- * 'gdcrsStatus'
 data GetDistributionConfigResponse = GetDistributionConfigResponse'
-    { _gdcrETag               :: !(Maybe Text)
-    , _gdcrDistributionConfig :: !(Maybe DistributionConfig)
-    , _gdcrStatus             :: !Int
+    { _gdcrsETag               :: !(Maybe Text)
+    , _gdcrsDistributionConfig :: !(Maybe DistributionConfig)
+    , _gdcrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistributionConfigResponse' smart constructor.
 getDistributionConfigResponse :: Int -> GetDistributionConfigResponse
 getDistributionConfigResponse pStatus =
     GetDistributionConfigResponse'
-    { _gdcrETag = Nothing
-    , _gdcrDistributionConfig = Nothing
-    , _gdcrStatus = pStatus
+    { _gdcrsETag = Nothing
+    , _gdcrsDistributionConfig = Nothing
+    , _gdcrsStatus = pStatus
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gdcrETag :: Lens' GetDistributionConfigResponse (Maybe Text)
-gdcrETag = lens _gdcrETag (\ s a -> s{_gdcrETag = a});
+gdcrsETag :: Lens' GetDistributionConfigResponse (Maybe Text)
+gdcrsETag = lens _gdcrsETag (\ s a -> s{_gdcrsETag = a});
 
 -- | The distribution\'s configuration information.
-gdcrDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
-gdcrDistributionConfig = lens _gdcrDistributionConfig (\ s a -> s{_gdcrDistributionConfig = a});
+gdcrsDistributionConfig :: Lens' GetDistributionConfigResponse (Maybe DistributionConfig)
+gdcrsDistributionConfig = lens _gdcrsDistributionConfig (\ s a -> s{_gdcrsDistributionConfig = a});
 
 -- | FIXME: Undocumented member.
-gdcrStatus :: Lens' GetDistributionConfigResponse Int
-gdcrStatus = lens _gdcrStatus (\ s a -> s{_gdcrStatus = a});
+gdcrsStatus :: Lens' GetDistributionConfigResponse Int
+gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a});

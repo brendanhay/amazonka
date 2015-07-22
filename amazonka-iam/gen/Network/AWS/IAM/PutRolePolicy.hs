@@ -52,9 +52,9 @@ module Network.AWS.IAM.PutRolePolicy
     -- ** Request constructor
     , putRolePolicy
     -- ** Request lenses
-    , prpRoleName
-    , prpPolicyName
-    , prpPolicyDocument
+    , prprqRoleName
+    , prprqPolicyName
+    , prprqPolicyDocument
 
     -- * Response
     , PutRolePolicyResponse
@@ -71,37 +71,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prpRoleName'
+-- * 'prprqRoleName'
 --
--- * 'prpPolicyName'
+-- * 'prprqPolicyName'
 --
--- * 'prpPolicyDocument'
+-- * 'prprqPolicyDocument'
 data PutRolePolicy = PutRolePolicy'
-    { _prpRoleName       :: !Text
-    , _prpPolicyName     :: !Text
-    , _prpPolicyDocument :: !Text
+    { _prprqRoleName       :: !Text
+    , _prprqPolicyName     :: !Text
+    , _prprqPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRolePolicy' smart constructor.
 putRolePolicy :: Text -> Text -> Text -> PutRolePolicy
 putRolePolicy pRoleName pPolicyName pPolicyDocument =
     PutRolePolicy'
-    { _prpRoleName = pRoleName
-    , _prpPolicyName = pPolicyName
-    , _prpPolicyDocument = pPolicyDocument
+    { _prprqRoleName = pRoleName
+    , _prprqPolicyName = pPolicyName
+    , _prprqPolicyDocument = pPolicyDocument
     }
 
 -- | The name of the role to associate the policy with.
-prpRoleName :: Lens' PutRolePolicy Text
-prpRoleName = lens _prpRoleName (\ s a -> s{_prpRoleName = a});
+prprqRoleName :: Lens' PutRolePolicy Text
+prprqRoleName = lens _prprqRoleName (\ s a -> s{_prprqRoleName = a});
 
 -- | The name of the policy document.
-prpPolicyName :: Lens' PutRolePolicy Text
-prpPolicyName = lens _prpPolicyName (\ s a -> s{_prpPolicyName = a});
+prprqPolicyName :: Lens' PutRolePolicy Text
+prprqPolicyName = lens _prprqPolicyName (\ s a -> s{_prprqPolicyName = a});
 
 -- | The policy document.
-prpPolicyDocument :: Lens' PutRolePolicy Text
-prpPolicyDocument = lens _prpPolicyDocument (\ s a -> s{_prpPolicyDocument = a});
+prprqPolicyDocument :: Lens' PutRolePolicy Text
+prprqPolicyDocument = lens _prprqPolicyDocument (\ s a -> s{_prprqPolicyDocument = a});
 
 instance AWSRequest PutRolePolicy where
         type Sv PutRolePolicy = IAM
@@ -120,9 +120,9 @@ instance ToQuery PutRolePolicy where
           = mconcat
               ["Action" =: ("PutRolePolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _prpRoleName,
-               "PolicyName" =: _prpPolicyName,
-               "PolicyDocument" =: _prpPolicyDocument]
+               "RoleName" =: _prprqRoleName,
+               "PolicyName" =: _prprqPolicyName,
+               "PolicyDocument" =: _prprqPolicyDocument]
 
 -- | /See:/ 'putRolePolicyResponse' smart constructor.
 data PutRolePolicyResponse =

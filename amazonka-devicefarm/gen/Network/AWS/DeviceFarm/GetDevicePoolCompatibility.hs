@@ -27,18 +27,18 @@ module Network.AWS.DeviceFarm.GetDevicePoolCompatibility
     -- ** Request constructor
     , getDevicePoolCompatibility
     -- ** Request lenses
-    , gdpcTestType
-    , gdpcDevicePoolARN
-    , gdpcAppARN
+    , gdpcrqTestType
+    , gdpcrqDevicePoolARN
+    , gdpcrqAppARN
 
     -- * Response
     , GetDevicePoolCompatibilityResponse
     -- ** Response constructor
     , getDevicePoolCompatibilityResponse
     -- ** Response lenses
-    , gdpcrIncompatibleDevices
-    , gdpcrCompatibleDevices
-    , gdpcrStatus
+    , gdpcrsIncompatibleDevices
+    , gdpcrsCompatibleDevices
+    , gdpcrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdpcTestType'
+-- * 'gdpcrqTestType'
 --
--- * 'gdpcDevicePoolARN'
+-- * 'gdpcrqDevicePoolARN'
 --
--- * 'gdpcAppARN'
+-- * 'gdpcrqAppARN'
 data GetDevicePoolCompatibility = GetDevicePoolCompatibility'
-    { _gdpcTestType      :: !(Maybe TestType)
-    , _gdpcDevicePoolARN :: !Text
-    , _gdpcAppARN        :: !Text
+    { _gdpcrqTestType      :: !(Maybe TestType)
+    , _gdpcrqDevicePoolARN :: !Text
+    , _gdpcrqAppARN        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevicePoolCompatibility' smart constructor.
 getDevicePoolCompatibility :: Text -> Text -> GetDevicePoolCompatibility
 getDevicePoolCompatibility pDevicePoolARN pAppARN =
     GetDevicePoolCompatibility'
-    { _gdpcTestType = Nothing
-    , _gdpcDevicePoolARN = pDevicePoolARN
-    , _gdpcAppARN = pAppARN
+    { _gdpcrqTestType = Nothing
+    , _gdpcrqDevicePoolARN = pDevicePoolARN
+    , _gdpcrqAppARN = pAppARN
     }
 
 -- | The test type for the specified device pool.
@@ -91,16 +91,16 @@ getDevicePoolCompatibility pDevicePoolARN pAppARN =
 --
 -- -   UIAUTOMATOR: The uiautomator type.
 --
-gdpcTestType :: Lens' GetDevicePoolCompatibility (Maybe TestType)
-gdpcTestType = lens _gdpcTestType (\ s a -> s{_gdpcTestType = a});
+gdpcrqTestType :: Lens' GetDevicePoolCompatibility (Maybe TestType)
+gdpcrqTestType = lens _gdpcrqTestType (\ s a -> s{_gdpcrqTestType = a});
 
 -- | The device pool\'s ARN.
-gdpcDevicePoolARN :: Lens' GetDevicePoolCompatibility Text
-gdpcDevicePoolARN = lens _gdpcDevicePoolARN (\ s a -> s{_gdpcDevicePoolARN = a});
+gdpcrqDevicePoolARN :: Lens' GetDevicePoolCompatibility Text
+gdpcrqDevicePoolARN = lens _gdpcrqDevicePoolARN (\ s a -> s{_gdpcrqDevicePoolARN = a});
 
 -- | The ARN of the app that is associated with the specified device pool.
-gdpcAppARN :: Lens' GetDevicePoolCompatibility Text
-gdpcAppARN = lens _gdpcAppARN (\ s a -> s{_gdpcAppARN = a});
+gdpcrqAppARN :: Lens' GetDevicePoolCompatibility Text
+gdpcrqAppARN = lens _gdpcrqAppARN (\ s a -> s{_gdpcrqAppARN = a});
 
 instance AWSRequest GetDevicePoolCompatibility where
         type Sv GetDevicePoolCompatibility = DeviceFarm
@@ -128,9 +128,9 @@ instance ToHeaders GetDevicePoolCompatibility where
 instance ToJSON GetDevicePoolCompatibility where
         toJSON GetDevicePoolCompatibility'{..}
           = object
-              ["testType" .= _gdpcTestType,
-               "devicePoolArn" .= _gdpcDevicePoolARN,
-               "appArn" .= _gdpcAppARN]
+              ["testType" .= _gdpcrqTestType,
+               "devicePoolArn" .= _gdpcrqDevicePoolARN,
+               "appArn" .= _gdpcrqAppARN]
 
 instance ToPath GetDevicePoolCompatibility where
         toPath = const "/"
@@ -144,34 +144,34 @@ instance ToQuery GetDevicePoolCompatibility where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdpcrIncompatibleDevices'
+-- * 'gdpcrsIncompatibleDevices'
 --
--- * 'gdpcrCompatibleDevices'
+-- * 'gdpcrsCompatibleDevices'
 --
--- * 'gdpcrStatus'
+-- * 'gdpcrsStatus'
 data GetDevicePoolCompatibilityResponse = GetDevicePoolCompatibilityResponse'
-    { _gdpcrIncompatibleDevices :: !(Maybe [DevicePoolCompatibilityResult])
-    , _gdpcrCompatibleDevices   :: !(Maybe [DevicePoolCompatibilityResult])
-    , _gdpcrStatus              :: !Int
+    { _gdpcrsIncompatibleDevices :: !(Maybe [DevicePoolCompatibilityResult])
+    , _gdpcrsCompatibleDevices   :: !(Maybe [DevicePoolCompatibilityResult])
+    , _gdpcrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevicePoolCompatibilityResponse' smart constructor.
 getDevicePoolCompatibilityResponse :: Int -> GetDevicePoolCompatibilityResponse
 getDevicePoolCompatibilityResponse pStatus =
     GetDevicePoolCompatibilityResponse'
-    { _gdpcrIncompatibleDevices = Nothing
-    , _gdpcrCompatibleDevices = Nothing
-    , _gdpcrStatus = pStatus
+    { _gdpcrsIncompatibleDevices = Nothing
+    , _gdpcrsCompatibleDevices = Nothing
+    , _gdpcrsStatus = pStatus
     }
 
 -- | Information about incompatible devices.
-gdpcrIncompatibleDevices :: Lens' GetDevicePoolCompatibilityResponse [DevicePoolCompatibilityResult]
-gdpcrIncompatibleDevices = lens _gdpcrIncompatibleDevices (\ s a -> s{_gdpcrIncompatibleDevices = a}) . _Default;
+gdpcrsIncompatibleDevices :: Lens' GetDevicePoolCompatibilityResponse [DevicePoolCompatibilityResult]
+gdpcrsIncompatibleDevices = lens _gdpcrsIncompatibleDevices (\ s a -> s{_gdpcrsIncompatibleDevices = a}) . _Default;
 
 -- | Information about compatible devices.
-gdpcrCompatibleDevices :: Lens' GetDevicePoolCompatibilityResponse [DevicePoolCompatibilityResult]
-gdpcrCompatibleDevices = lens _gdpcrCompatibleDevices (\ s a -> s{_gdpcrCompatibleDevices = a}) . _Default;
+gdpcrsCompatibleDevices :: Lens' GetDevicePoolCompatibilityResponse [DevicePoolCompatibilityResult]
+gdpcrsCompatibleDevices = lens _gdpcrsCompatibleDevices (\ s a -> s{_gdpcrsCompatibleDevices = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gdpcrStatus :: Lens' GetDevicePoolCompatibilityResponse Int
-gdpcrStatus = lens _gdpcrStatus (\ s a -> s{_gdpcrStatus = a});
+gdpcrsStatus :: Lens' GetDevicePoolCompatibilityResponse Int
+gdpcrsStatus = lens _gdpcrsStatus (\ s a -> s{_gdpcrsStatus = a});

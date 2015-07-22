@@ -27,17 +27,17 @@ module Network.AWS.EMR.ListInstanceGroups
     -- ** Request constructor
     , listInstanceGroups
     -- ** Request lenses
-    , ligMarker
-    , ligClusterId
+    , ligrqMarker
+    , ligrqClusterId
 
     -- * Response
     , ListInstanceGroupsResponse
     -- ** Response constructor
     , listInstanceGroupsResponse
     -- ** Response lenses
-    , ligrMarker
-    , ligrInstanceGroups
-    , ligrStatus
+    , ligrsMarker
+    , ligrsInstanceGroups
+    , ligrsStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -52,36 +52,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ligMarker'
+-- * 'ligrqMarker'
 --
--- * 'ligClusterId'
+-- * 'ligrqClusterId'
 data ListInstanceGroups = ListInstanceGroups'
-    { _ligMarker    :: !(Maybe Text)
-    , _ligClusterId :: !Text
+    { _ligrqMarker    :: !(Maybe Text)
+    , _ligrqClusterId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceGroups' smart constructor.
 listInstanceGroups :: Text -> ListInstanceGroups
 listInstanceGroups pClusterId =
     ListInstanceGroups'
-    { _ligMarker = Nothing
-    , _ligClusterId = pClusterId
+    { _ligrqMarker = Nothing
+    , _ligrqClusterId = pClusterId
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
-ligMarker :: Lens' ListInstanceGroups (Maybe Text)
-ligMarker = lens _ligMarker (\ s a -> s{_ligMarker = a});
+ligrqMarker :: Lens' ListInstanceGroups (Maybe Text)
+ligrqMarker = lens _ligrqMarker (\ s a -> s{_ligrqMarker = a});
 
 -- | The identifier of the cluster for which to list the instance groups.
-ligClusterId :: Lens' ListInstanceGroups Text
-ligClusterId = lens _ligClusterId (\ s a -> s{_ligClusterId = a});
+ligrqClusterId :: Lens' ListInstanceGroups Text
+ligrqClusterId = lens _ligrqClusterId (\ s a -> s{_ligrqClusterId = a});
 
 instance AWSPager ListInstanceGroups where
         page rq rs
-          | stop (rs ^. ligrMarker) = Nothing
-          | stop (rs ^. ligrInstanceGroups) = Nothing
+          | stop (rs ^. ligrsMarker) = Nothing
+          | stop (rs ^. ligrsInstanceGroups) = Nothing
           | otherwise =
-            Just $ rq & ligMarker .~ rs ^. ligrMarker
+            Just $ rq & ligrqMarker .~ rs ^. ligrsMarker
 
 instance AWSRequest ListInstanceGroups where
         type Sv ListInstanceGroups = EMR
@@ -109,8 +109,8 @@ instance ToHeaders ListInstanceGroups where
 instance ToJSON ListInstanceGroups where
         toJSON ListInstanceGroups'{..}
           = object
-              ["Marker" .= _ligMarker,
-               "ClusterId" .= _ligClusterId]
+              ["Marker" .= _ligrqMarker,
+               "ClusterId" .= _ligrqClusterId]
 
 instance ToPath ListInstanceGroups where
         toPath = const "/"
@@ -124,34 +124,34 @@ instance ToQuery ListInstanceGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ligrMarker'
+-- * 'ligrsMarker'
 --
--- * 'ligrInstanceGroups'
+-- * 'ligrsInstanceGroups'
 --
--- * 'ligrStatus'
+-- * 'ligrsStatus'
 data ListInstanceGroupsResponse = ListInstanceGroupsResponse'
-    { _ligrMarker         :: !(Maybe Text)
-    , _ligrInstanceGroups :: !(Maybe [InstanceGroup])
-    , _ligrStatus         :: !Int
+    { _ligrsMarker         :: !(Maybe Text)
+    , _ligrsInstanceGroups :: !(Maybe [InstanceGroup])
+    , _ligrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstanceGroupsResponse' smart constructor.
 listInstanceGroupsResponse :: Int -> ListInstanceGroupsResponse
 listInstanceGroupsResponse pStatus =
     ListInstanceGroupsResponse'
-    { _ligrMarker = Nothing
-    , _ligrInstanceGroups = Nothing
-    , _ligrStatus = pStatus
+    { _ligrsMarker = Nothing
+    , _ligrsInstanceGroups = Nothing
+    , _ligrsStatus = pStatus
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
-ligrMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
-ligrMarker = lens _ligrMarker (\ s a -> s{_ligrMarker = a});
+ligrsMarker :: Lens' ListInstanceGroupsResponse (Maybe Text)
+ligrsMarker = lens _ligrsMarker (\ s a -> s{_ligrsMarker = a});
 
 -- | The list of instance groups for the cluster and given filters.
-ligrInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
-ligrInstanceGroups = lens _ligrInstanceGroups (\ s a -> s{_ligrInstanceGroups = a}) . _Default;
+ligrsInstanceGroups :: Lens' ListInstanceGroupsResponse [InstanceGroup]
+ligrsInstanceGroups = lens _ligrsInstanceGroups (\ s a -> s{_ligrsInstanceGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ligrStatus :: Lens' ListInstanceGroupsResponse Int
-ligrStatus = lens _ligrStatus (\ s a -> s{_ligrStatus = a});
+ligrsStatus :: Lens' ListInstanceGroupsResponse Int
+ligrsStatus = lens _ligrsStatus (\ s a -> s{_ligrsStatus = a});

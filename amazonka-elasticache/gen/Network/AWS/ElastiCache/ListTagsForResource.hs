@@ -34,14 +34,14 @@ module Network.AWS.ElastiCache.ListTagsForResource
     -- ** Request constructor
     , listTagsForResource
     -- ** Request lenses
-    , ltfrResourceName
+    , ltfrrqResourceName
 
     -- * Response
     , TagListMessage
     -- ** Response constructor
     , tagListMessage
     -- ** Response lenses
-    , tlmTagList
+    , ltfrrsTagList
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -55,22 +55,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfrResourceName'
+-- * 'ltfrrqResourceName'
 newtype ListTagsForResource = ListTagsForResource'
-    { _ltfrResourceName :: Text
+    { _ltfrrqResourceName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForResource' smart constructor.
 listTagsForResource :: Text -> ListTagsForResource
 listTagsForResource pResourceName =
     ListTagsForResource'
-    { _ltfrResourceName = pResourceName
+    { _ltfrrqResourceName = pResourceName
     }
 
 -- | The name of the resource for which you want the list of tags, for
 -- example @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.
-ltfrResourceName :: Lens' ListTagsForResource Text
-ltfrResourceName = lens _ltfrResourceName (\ s a -> s{_ltfrResourceName = a});
+ltfrrqResourceName :: Lens' ListTagsForResource Text
+ltfrrqResourceName = lens _ltfrrqResourceName (\ s a -> s{_ltfrrqResourceName = a});
 
 instance AWSRequest ListTagsForResource where
         type Sv ListTagsForResource = ElastiCache
@@ -91,4 +91,4 @@ instance ToQuery ListTagsForResource where
           = mconcat
               ["Action" =: ("ListTagsForResource" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "ResourceName" =: _ltfrResourceName]
+               "ResourceName" =: _ltfrrqResourceName]

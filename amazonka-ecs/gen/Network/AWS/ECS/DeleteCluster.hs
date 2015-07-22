@@ -30,15 +30,15 @@ module Network.AWS.ECS.DeleteCluster
     -- ** Request constructor
     , deleteCluster
     -- ** Request lenses
-    , dcCluster
+    , dcrqCluster
 
     -- * Response
     , DeleteClusterResponse
     -- ** Response constructor
     , deleteClusterResponse
     -- ** Response lenses
-    , delCluster
-    , delStatus
+    , dcrsCluster
+    , dcrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -50,22 +50,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcCluster'
+-- * 'dcrqCluster'
 newtype DeleteCluster = DeleteCluster'
-    { _dcCluster :: Text
+    { _dcrqCluster :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCluster' smart constructor.
 deleteCluster :: Text -> DeleteCluster
 deleteCluster pCluster =
     DeleteCluster'
-    { _dcCluster = pCluster
+    { _dcrqCluster = pCluster
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to delete.
-dcCluster :: Lens' DeleteCluster Text
-dcCluster = lens _dcCluster (\ s a -> s{_dcCluster = a});
+dcrqCluster :: Lens' DeleteCluster Text
+dcrqCluster = lens _dcrqCluster (\ s a -> s{_dcrqCluster = a});
 
 instance AWSRequest DeleteCluster where
         type Sv DeleteCluster = ECS
@@ -89,7 +89,7 @@ instance ToHeaders DeleteCluster where
 
 instance ToJSON DeleteCluster where
         toJSON DeleteCluster'{..}
-          = object ["cluster" .= _dcCluster]
+          = object ["cluster" .= _dcrqCluster]
 
 instance ToPath DeleteCluster where
         toPath = const "/"
@@ -101,26 +101,26 @@ instance ToQuery DeleteCluster where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delCluster'
+-- * 'dcrsCluster'
 --
--- * 'delStatus'
+-- * 'dcrsStatus'
 data DeleteClusterResponse = DeleteClusterResponse'
-    { _delCluster :: !(Maybe Cluster)
-    , _delStatus  :: !Int
+    { _dcrsCluster :: !(Maybe Cluster)
+    , _dcrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterResponse' smart constructor.
 deleteClusterResponse :: Int -> DeleteClusterResponse
 deleteClusterResponse pStatus =
     DeleteClusterResponse'
-    { _delCluster = Nothing
-    , _delStatus = pStatus
+    { _dcrsCluster = Nothing
+    , _dcrsStatus = pStatus
     }
 
 -- | The full description of the deleted cluster.
-delCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
-delCluster = lens _delCluster (\ s a -> s{_delCluster = a});
+dcrsCluster :: Lens' DeleteClusterResponse (Maybe Cluster)
+dcrsCluster = lens _dcrsCluster (\ s a -> s{_dcrsCluster = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteClusterResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+dcrsStatus :: Lens' DeleteClusterResponse Int
+dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

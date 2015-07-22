@@ -29,21 +29,21 @@ module Network.AWS.AutoScaling.DescribeScheduledActions
     -- ** Request constructor
     , describeScheduledActions
     -- ** Request lenses
-    , desStartTime
-    , desNextToken
-    , desMaxRecords
-    , desEndTime
-    , desAutoScalingGroupName
-    , desScheduledActionNames
+    , dsasrqStartTime
+    , dsasrqNextToken
+    , dsasrqMaxRecords
+    , dsasrqEndTime
+    , dsasrqAutoScalingGroupName
+    , dsasrqScheduledActionNames
 
     -- * Response
     , DescribeScheduledActionsResponse
     -- ** Response constructor
     , describeScheduledActionsResponse
     -- ** Response lenses
-    , dsarScheduledUpdateGroupActions
-    , dsarNextToken
-    , dsarStatus
+    , dsasrsScheduledUpdateGroupActions
+    , dsasrsNextToken
+    , dsasrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -56,60 +56,60 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desStartTime'
+-- * 'dsasrqStartTime'
 --
--- * 'desNextToken'
+-- * 'dsasrqNextToken'
 --
--- * 'desMaxRecords'
+-- * 'dsasrqMaxRecords'
 --
--- * 'desEndTime'
+-- * 'dsasrqEndTime'
 --
--- * 'desAutoScalingGroupName'
+-- * 'dsasrqAutoScalingGroupName'
 --
--- * 'desScheduledActionNames'
+-- * 'dsasrqScheduledActionNames'
 data DescribeScheduledActions = DescribeScheduledActions'
-    { _desStartTime            :: !(Maybe ISO8601)
-    , _desNextToken            :: !(Maybe Text)
-    , _desMaxRecords           :: !(Maybe Int)
-    , _desEndTime              :: !(Maybe ISO8601)
-    , _desAutoScalingGroupName :: !(Maybe Text)
-    , _desScheduledActionNames :: !(Maybe [Text])
+    { _dsasrqStartTime            :: !(Maybe ISO8601)
+    , _dsasrqNextToken            :: !(Maybe Text)
+    , _dsasrqMaxRecords           :: !(Maybe Int)
+    , _dsasrqEndTime              :: !(Maybe ISO8601)
+    , _dsasrqAutoScalingGroupName :: !(Maybe Text)
+    , _dsasrqScheduledActionNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScheduledActions' smart constructor.
 describeScheduledActions :: DescribeScheduledActions
 describeScheduledActions =
     DescribeScheduledActions'
-    { _desStartTime = Nothing
-    , _desNextToken = Nothing
-    , _desMaxRecords = Nothing
-    , _desEndTime = Nothing
-    , _desAutoScalingGroupName = Nothing
-    , _desScheduledActionNames = Nothing
+    { _dsasrqStartTime = Nothing
+    , _dsasrqNextToken = Nothing
+    , _dsasrqMaxRecords = Nothing
+    , _dsasrqEndTime = Nothing
+    , _dsasrqAutoScalingGroupName = Nothing
+    , _dsasrqScheduledActionNames = Nothing
     }
 
 -- | The earliest scheduled start time to return. If scheduled action names
 -- are provided, this parameter is ignored.
-desStartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
-desStartTime = lens _desStartTime (\ s a -> s{_desStartTime = a}) . mapping _Time;
+dsasrqStartTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
+dsasrqStartTime = lens _dsasrqStartTime (\ s a -> s{_dsasrqStartTime = a}) . mapping _Time;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-desNextToken :: Lens' DescribeScheduledActions (Maybe Text)
-desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
+dsasrqNextToken :: Lens' DescribeScheduledActions (Maybe Text)
+dsasrqNextToken = lens _dsasrqNextToken (\ s a -> s{_dsasrqNextToken = a});
 
 -- | The maximum number of items to return with this call.
-desMaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
-desMaxRecords = lens _desMaxRecords (\ s a -> s{_desMaxRecords = a});
+dsasrqMaxRecords :: Lens' DescribeScheduledActions (Maybe Int)
+dsasrqMaxRecords = lens _dsasrqMaxRecords (\ s a -> s{_dsasrqMaxRecords = a});
 
 -- | The latest scheduled start time to return. If scheduled action names are
 -- provided, this parameter is ignored.
-desEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
-desEndTime = lens _desEndTime (\ s a -> s{_desEndTime = a}) . mapping _Time;
+dsasrqEndTime :: Lens' DescribeScheduledActions (Maybe UTCTime)
+dsasrqEndTime = lens _dsasrqEndTime (\ s a -> s{_dsasrqEndTime = a}) . mapping _Time;
 
 -- | The name of the group.
-desAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
-desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScalingGroupName = a});
+dsasrqAutoScalingGroupName :: Lens' DescribeScheduledActions (Maybe Text)
+dsasrqAutoScalingGroupName = lens _dsasrqAutoScalingGroupName (\ s a -> s{_dsasrqAutoScalingGroupName = a});
 
 -- | Describes one or more scheduled actions. If you omit this list, the call
 -- describes all scheduled actions. If you specify an unknown scheduled
@@ -119,16 +119,16 @@ desAutoScalingGroupName = lens _desAutoScalingGroupName (\ s a -> s{_desAutoScal
 -- there are more items to return, the call returns a token. To get the
 -- next set of items, repeat the call with the returned token in the
 -- @NextToken@ parameter.
-desScheduledActionNames :: Lens' DescribeScheduledActions [Text]
-desScheduledActionNames = lens _desScheduledActionNames (\ s a -> s{_desScheduledActionNames = a}) . _Default;
+dsasrqScheduledActionNames :: Lens' DescribeScheduledActions [Text]
+dsasrqScheduledActionNames = lens _dsasrqScheduledActionNames (\ s a -> s{_dsasrqScheduledActionNames = a}) . _Default;
 
 instance AWSPager DescribeScheduledActions where
         page rq rs
-          | stop (rs ^. dsarNextToken) = Nothing
-          | stop (rs ^. dsarScheduledUpdateGroupActions) =
+          | stop (rs ^. dsasrsNextToken) = Nothing
+          | stop (rs ^. dsasrsScheduledUpdateGroupActions) =
             Nothing
           | otherwise =
-            Just $ rq & desNextToken .~ rs ^. dsarNextToken
+            Just $ rq & dsasrqNextToken .~ rs ^. dsasrsNextToken
 
 instance AWSRequest DescribeScheduledActions where
         type Sv DescribeScheduledActions = AutoScaling
@@ -156,48 +156,50 @@ instance ToQuery DescribeScheduledActions where
               ["Action" =:
                  ("DescribeScheduledActions" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "StartTime" =: _desStartTime,
-               "NextToken" =: _desNextToken,
-               "MaxRecords" =: _desMaxRecords,
-               "EndTime" =: _desEndTime,
-               "AutoScalingGroupName" =: _desAutoScalingGroupName,
+               "StartTime" =: _dsasrqStartTime,
+               "NextToken" =: _dsasrqNextToken,
+               "MaxRecords" =: _dsasrqMaxRecords,
+               "EndTime" =: _dsasrqEndTime,
+               "AutoScalingGroupName" =:
+                 _dsasrqAutoScalingGroupName,
                "ScheduledActionNames" =:
                  toQuery
-                   (toQueryList "member" <$> _desScheduledActionNames)]
+                   (toQueryList "member" <$>
+                      _dsasrqScheduledActionNames)]
 
 -- | /See:/ 'describeScheduledActionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsarScheduledUpdateGroupActions'
+-- * 'dsasrsScheduledUpdateGroupActions'
 --
--- * 'dsarNextToken'
+-- * 'dsasrsNextToken'
 --
--- * 'dsarStatus'
+-- * 'dsasrsStatus'
 data DescribeScheduledActionsResponse = DescribeScheduledActionsResponse'
-    { _dsarScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
-    , _dsarNextToken                   :: !(Maybe Text)
-    , _dsarStatus                      :: !Int
+    { _dsasrsScheduledUpdateGroupActions :: !(Maybe [ScheduledUpdateGroupAction])
+    , _dsasrsNextToken                   :: !(Maybe Text)
+    , _dsasrsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScheduledActionsResponse' smart constructor.
 describeScheduledActionsResponse :: Int -> DescribeScheduledActionsResponse
 describeScheduledActionsResponse pStatus =
     DescribeScheduledActionsResponse'
-    { _dsarScheduledUpdateGroupActions = Nothing
-    , _dsarNextToken = Nothing
-    , _dsarStatus = pStatus
+    { _dsasrsScheduledUpdateGroupActions = Nothing
+    , _dsasrsNextToken = Nothing
+    , _dsasrsStatus = pStatus
     }
 
 -- | The scheduled actions.
-dsarScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
-dsarScheduledUpdateGroupActions = lens _dsarScheduledUpdateGroupActions (\ s a -> s{_dsarScheduledUpdateGroupActions = a}) . _Default;
+dsasrsScheduledUpdateGroupActions :: Lens' DescribeScheduledActionsResponse [ScheduledUpdateGroupAction]
+dsasrsScheduledUpdateGroupActions = lens _dsasrsScheduledUpdateGroupActions (\ s a -> s{_dsasrsScheduledUpdateGroupActions = a}) . _Default;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dsarNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
-dsarNextToken = lens _dsarNextToken (\ s a -> s{_dsarNextToken = a});
+dsasrsNextToken :: Lens' DescribeScheduledActionsResponse (Maybe Text)
+dsasrsNextToken = lens _dsasrsNextToken (\ s a -> s{_dsasrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsarStatus :: Lens' DescribeScheduledActionsResponse Int
-dsarStatus = lens _dsarStatus (\ s a -> s{_dsarStatus = a});
+dsasrsStatus :: Lens' DescribeScheduledActionsResponse Int
+dsasrsStatus = lens _dsasrsStatus (\ s a -> s{_dsasrsStatus = a});

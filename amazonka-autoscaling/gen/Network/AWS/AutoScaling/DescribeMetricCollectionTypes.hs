@@ -36,9 +36,9 @@ module Network.AWS.AutoScaling.DescribeMetricCollectionTypes
     -- ** Response constructor
     , describeMetricCollectionTypesResponse
     -- ** Response lenses
-    , dmctrMetrics
-    , dmctrGranularities
-    , dmctrStatus
+    , dmctrsMetrics
+    , dmctrsGranularities
+    , dmctrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -92,34 +92,34 @@ instance ToQuery DescribeMetricCollectionTypes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmctrMetrics'
+-- * 'dmctrsMetrics'
 --
--- * 'dmctrGranularities'
+-- * 'dmctrsGranularities'
 --
--- * 'dmctrStatus'
+-- * 'dmctrsStatus'
 data DescribeMetricCollectionTypesResponse = DescribeMetricCollectionTypesResponse'
-    { _dmctrMetrics       :: !(Maybe [MetricCollectionType])
-    , _dmctrGranularities :: !(Maybe [MetricGranularityType])
-    , _dmctrStatus        :: !Int
+    { _dmctrsMetrics       :: !(Maybe [MetricCollectionType])
+    , _dmctrsGranularities :: !(Maybe [MetricGranularityType])
+    , _dmctrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricCollectionTypesResponse' smart constructor.
 describeMetricCollectionTypesResponse :: Int -> DescribeMetricCollectionTypesResponse
 describeMetricCollectionTypesResponse pStatus =
     DescribeMetricCollectionTypesResponse'
-    { _dmctrMetrics = Nothing
-    , _dmctrGranularities = Nothing
-    , _dmctrStatus = pStatus
+    { _dmctrsMetrics = Nothing
+    , _dmctrsGranularities = Nothing
+    , _dmctrsStatus = pStatus
     }
 
 -- | One or more metrics.
-dmctrMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
-dmctrMetrics = lens _dmctrMetrics (\ s a -> s{_dmctrMetrics = a}) . _Default;
+dmctrsMetrics :: Lens' DescribeMetricCollectionTypesResponse [MetricCollectionType]
+dmctrsMetrics = lens _dmctrsMetrics (\ s a -> s{_dmctrsMetrics = a}) . _Default;
 
 -- | The granularities for the metrics.
-dmctrGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
-dmctrGranularities = lens _dmctrGranularities (\ s a -> s{_dmctrGranularities = a}) . _Default;
+dmctrsGranularities :: Lens' DescribeMetricCollectionTypesResponse [MetricGranularityType]
+dmctrsGranularities = lens _dmctrsGranularities (\ s a -> s{_dmctrsGranularities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dmctrStatus :: Lens' DescribeMetricCollectionTypesResponse Int
-dmctrStatus = lens _dmctrStatus (\ s a -> s{_dmctrStatus = a});
+dmctrsStatus :: Lens' DescribeMetricCollectionTypesResponse Int
+dmctrsStatus = lens _dmctrsStatus (\ s a -> s{_dmctrsStatus = a});

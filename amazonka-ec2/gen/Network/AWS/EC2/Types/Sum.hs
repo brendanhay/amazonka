@@ -1028,27 +1028,27 @@ instance FromXML InstanceType where
     parseXML = parseXMLText "InstanceType"
 
 data ListingState
-    = LisAvailable
-    | LisCancelled
-    | LisSold
-    | LisPending
+    = LSold
+    | LPending
+    | LCancelled
+    | LAvailable
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText ListingState where
     parser = takeLowerText >>= \case
-        "available" -> pure LisAvailable
-        "cancelled" -> pure LisCancelled
-        "pending" -> pure LisPending
-        "sold" -> pure LisSold
+        "available" -> pure LAvailable
+        "cancelled" -> pure LCancelled
+        "pending" -> pure LPending
+        "sold" -> pure LSold
         e -> fromTextError $ "Failure parsing ListingState from value: '" <> e
            <> "'. Accepted values: available, cancelled, pending, sold"
 
 instance ToText ListingState where
     toText = \case
-        LisAvailable -> "available"
-        LisCancelled -> "cancelled"
-        LisPending -> "pending"
-        LisSold -> "sold"
+        LAvailable -> "available"
+        LCancelled -> "cancelled"
+        LPending -> "pending"
+        LSold -> "sold"
 
 instance Hashable ListingState
 instance ToQuery  ListingState
@@ -1883,21 +1883,21 @@ instance FromXML StatusType where
     parseXML = parseXMLText "StatusType"
 
 data SubnetState
-    = SubPending
-    | SubAvailable
+    = SPending
+    | SAvailable
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText SubnetState where
     parser = takeLowerText >>= \case
-        "available" -> pure SubAvailable
-        "pending" -> pure SubPending
+        "available" -> pure SAvailable
+        "pending" -> pure SPending
         e -> fromTextError $ "Failure parsing SubnetState from value: '" <> e
            <> "'. Accepted values: available, pending"
 
 instance ToText SubnetState where
     toText = \case
-        SubAvailable -> "available"
-        SubPending -> "pending"
+        SAvailable -> "available"
+        SPending -> "pending"
 
 instance Hashable SubnetState
 instance ToQuery  SubnetState
@@ -2081,21 +2081,21 @@ instance FromXML VPCPeeringConnectionStateReasonCode where
     parseXML = parseXMLText "VPCPeeringConnectionStateReasonCode"
 
 data VPCState
-    = VpcPending
-    | VpcAvailable
+    = VPCSAvailable
+    | VPCSPending
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VPCState where
     parser = takeLowerText >>= \case
-        "available" -> pure VpcAvailable
-        "pending" -> pure VpcPending
+        "available" -> pure VPCSAvailable
+        "pending" -> pure VPCSPending
         e -> fromTextError $ "Failure parsing VPCState from value: '" <> e
            <> "'. Accepted values: available, pending"
 
 instance ToText VPCState where
     toText = \case
-        VpcAvailable -> "available"
-        VpcPending -> "pending"
+        VPCSAvailable -> "available"
+        VPCSPending -> "pending"
 
 instance Hashable VPCState
 instance ToQuery  VPCState
@@ -2231,33 +2231,33 @@ instance ToQuery  VolumeAttributeName
 instance ToHeader VolumeAttributeName
 
 data VolumeState
-    = VolCreating
-    | VolAvailable
-    | VolError'
-    | VolDeleted
-    | VolDeleting
-    | VolInUse
+    = VCreating
+    | VInUse
+    | VDeleting
+    | VError'
+    | VAvailable
+    | VDeleted
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText VolumeState where
     parser = takeLowerText >>= \case
-        "available" -> pure VolAvailable
-        "creating" -> pure VolCreating
-        "deleted" -> pure VolDeleted
-        "deleting" -> pure VolDeleting
-        "error" -> pure VolError'
-        "in-use" -> pure VolInUse
+        "available" -> pure VAvailable
+        "creating" -> pure VCreating
+        "deleted" -> pure VDeleted
+        "deleting" -> pure VDeleting
+        "error" -> pure VError'
+        "in-use" -> pure VInUse
         e -> fromTextError $ "Failure parsing VolumeState from value: '" <> e
            <> "'. Accepted values: available, creating, deleted, deleting, error, in-use"
 
 instance ToText VolumeState where
     toText = \case
-        VolAvailable -> "available"
-        VolCreating -> "creating"
-        VolDeleted -> "deleted"
-        VolDeleting -> "deleting"
-        VolError' -> "error"
-        VolInUse -> "in-use"
+        VAvailable -> "available"
+        VCreating -> "creating"
+        VDeleted -> "deleted"
+        VDeleting -> "deleting"
+        VError' -> "error"
+        VInUse -> "in-use"
 
 instance Hashable VolumeState
 instance ToQuery  VolumeState

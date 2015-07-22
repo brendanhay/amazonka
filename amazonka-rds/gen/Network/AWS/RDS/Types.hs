@@ -98,11 +98,11 @@ module Network.AWS.RDS.Types
     -- * Certificate
     , Certificate
     , certificate
-    , cerCertificateType
-    , cerValidTill
-    , cerCertificateIdentifier
-    , cerThumbprint
-    , cerValidFrom
+    , cCertificateType
+    , cValidTill
+    , cCertificateIdentifier
+    , cThumbprint
+    , cValidFrom
 
     -- * CharacterSet
     , CharacterSet
@@ -233,11 +233,11 @@ module Network.AWS.RDS.Types
     -- * DBSubnetGroup
     , DBSubnetGroup
     , dbSubnetGroup
-    , dbsDBSubnetGroupName
-    , dbsVPCId
-    , dbsSubnets
-    , dbsDBSubnetGroupDescription
-    , dbsSubnetGroupStatus
+    , dbsgDBSubnetGroupName
+    , dbsgVPCId
+    , dbsgSubnets
+    , dbsgDBSubnetGroupDescription
+    , dbsgSubnetGroupStatus
 
     -- * DescribeDBLogFilesDetails
     , DescribeDBLogFilesDetails
@@ -257,8 +257,8 @@ module Network.AWS.RDS.Types
     -- * Endpoint
     , Endpoint
     , endpoint
-    , endAddress
-    , endPort
+    , eAddress
+    , ePort
 
     -- * EngineDefaults
     , EngineDefaults
@@ -270,11 +270,11 @@ module Network.AWS.RDS.Types
     -- * Event
     , Event
     , event
-    , eveSourceType
-    , eveSourceIdentifier
-    , eveDate
-    , eveEventCategories
-    , eveMessage
+    , eSourceType
+    , eSourceIdentifier
+    , eDate
+    , eEventCategories
+    , eMessage
 
     -- * EventCategoriesMap
     , EventCategoriesMap
@@ -298,8 +298,8 @@ module Network.AWS.RDS.Types
     -- * Filter
     , Filter
     , filter'
-    , filName
-    , filValues
+    , fName
+    , fValues
 
     -- * IPRange
     , IPRange
@@ -310,14 +310,14 @@ module Network.AWS.RDS.Types
     -- * Option
     , Option
     , option
-    , optOptionName
-    , optPermanent
-    , optPersistent
-    , optOptionDescription
-    , optOptionSettings
-    , optVPCSecurityGroupMemberships
-    , optDBSecurityGroupMemberships
-    , optPort
+    , oOptionName
+    , oPermanent
+    , oPersistent
+    , oOptionDescription
+    , oOptionSettings
+    , oVPCSecurityGroupMemberships
+    , oDBSecurityGroupMemberships
+    , oPort
 
     -- * OptionConfiguration
     , OptionConfiguration
@@ -401,16 +401,16 @@ module Network.AWS.RDS.Types
     -- * Parameter
     , Parameter
     , parameter
-    , parApplyType
-    , parParameterValue
-    , parApplyMethod
-    , parMinimumEngineVersion
-    , parSource
-    , parIsModifiable
-    , parAllowedValues
-    , parDataType
-    , parParameterName
-    , parDescription
+    , pApplyType
+    , pParameterValue
+    , pApplyMethod
+    , pMinimumEngineVersion
+    , pSource
+    , pIsModifiable
+    , pAllowedValues
+    , pDataType
+    , pParameterName
+    , pDescription
 
     -- * PendingMaintenanceAction
     , PendingMaintenanceAction
@@ -484,9 +484,9 @@ module Network.AWS.RDS.Types
     -- * Subnet
     , Subnet
     , subnet
-    , subSubnetStatus
-    , subSubnetIdentifier
-    , subSubnetAvailabilityZone
+    , sSubnetStatus
+    , sSubnetIdentifier
+    , sSubnetAvailabilityZone
 
     -- * Tag
     , Tag

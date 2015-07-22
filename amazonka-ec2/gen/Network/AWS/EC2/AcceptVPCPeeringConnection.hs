@@ -31,16 +31,16 @@ module Network.AWS.EC2.AcceptVPCPeeringConnection
     -- ** Request constructor
     , acceptVPCPeeringConnection
     -- ** Request lenses
-    , avpcVPCPeeringConnectionId
-    , avpcDryRun
+    , avpcrqVPCPeeringConnectionId
+    , avpcrqDryRun
 
     -- * Response
     , AcceptVPCPeeringConnectionResponse
     -- ** Response constructor
     , acceptVPCPeeringConnectionResponse
     -- ** Response lenses
-    , avpcrVPCPeeringConnection
-    , avpcrStatus
+    , avpcrsVPCPeeringConnection
+    , avpcrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,32 +52,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avpcVPCPeeringConnectionId'
+-- * 'avpcrqVPCPeeringConnectionId'
 --
--- * 'avpcDryRun'
+-- * 'avpcrqDryRun'
 data AcceptVPCPeeringConnection = AcceptVPCPeeringConnection'
-    { _avpcVPCPeeringConnectionId :: !(Maybe Text)
-    , _avpcDryRun                 :: !(Maybe Bool)
+    { _avpcrqVPCPeeringConnectionId :: !(Maybe Text)
+    , _avpcrqDryRun                 :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcceptVPCPeeringConnection' smart constructor.
 acceptVPCPeeringConnection :: AcceptVPCPeeringConnection
 acceptVPCPeeringConnection =
     AcceptVPCPeeringConnection'
-    { _avpcVPCPeeringConnectionId = Nothing
-    , _avpcDryRun = Nothing
+    { _avpcrqVPCPeeringConnectionId = Nothing
+    , _avpcrqDryRun = Nothing
     }
 
 -- | The ID of the VPC peering connection.
-avpcVPCPeeringConnectionId :: Lens' AcceptVPCPeeringConnection (Maybe Text)
-avpcVPCPeeringConnectionId = lens _avpcVPCPeeringConnectionId (\ s a -> s{_avpcVPCPeeringConnectionId = a});
+avpcrqVPCPeeringConnectionId :: Lens' AcceptVPCPeeringConnection (Maybe Text)
+avpcrqVPCPeeringConnectionId = lens _avpcrqVPCPeeringConnectionId (\ s a -> s{_avpcrqVPCPeeringConnectionId = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-avpcDryRun :: Lens' AcceptVPCPeeringConnection (Maybe Bool)
-avpcDryRun = lens _avpcDryRun (\ s a -> s{_avpcDryRun = a});
+avpcrqDryRun :: Lens' AcceptVPCPeeringConnection (Maybe Bool)
+avpcrqDryRun = lens _avpcrqDryRun (\ s a -> s{_avpcrqDryRun = a});
 
 instance AWSRequest AcceptVPCPeeringConnection where
         type Sv AcceptVPCPeeringConnection = EC2
@@ -104,33 +104,33 @@ instance ToQuery AcceptVPCPeeringConnection where
                  ("AcceptVPCPeeringConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                "VpcPeeringConnectionId" =:
-                 _avpcVPCPeeringConnectionId,
-               "DryRun" =: _avpcDryRun]
+                 _avpcrqVPCPeeringConnectionId,
+               "DryRun" =: _avpcrqDryRun]
 
 -- | /See:/ 'acceptVPCPeeringConnectionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avpcrVPCPeeringConnection'
+-- * 'avpcrsVPCPeeringConnection'
 --
--- * 'avpcrStatus'
+-- * 'avpcrsStatus'
 data AcceptVPCPeeringConnectionResponse = AcceptVPCPeeringConnectionResponse'
-    { _avpcrVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
-    , _avpcrStatus               :: !Int
+    { _avpcrsVPCPeeringConnection :: !(Maybe VPCPeeringConnection)
+    , _avpcrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcceptVPCPeeringConnectionResponse' smart constructor.
 acceptVPCPeeringConnectionResponse :: Int -> AcceptVPCPeeringConnectionResponse
 acceptVPCPeeringConnectionResponse pStatus =
     AcceptVPCPeeringConnectionResponse'
-    { _avpcrVPCPeeringConnection = Nothing
-    , _avpcrStatus = pStatus
+    { _avpcrsVPCPeeringConnection = Nothing
+    , _avpcrsStatus = pStatus
     }
 
 -- | Information about the VPC peering connection.
-avpcrVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
-avpcrVPCPeeringConnection = lens _avpcrVPCPeeringConnection (\ s a -> s{_avpcrVPCPeeringConnection = a});
+avpcrsVPCPeeringConnection :: Lens' AcceptVPCPeeringConnectionResponse (Maybe VPCPeeringConnection)
+avpcrsVPCPeeringConnection = lens _avpcrsVPCPeeringConnection (\ s a -> s{_avpcrsVPCPeeringConnection = a});
 
 -- | FIXME: Undocumented member.
-avpcrStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
-avpcrStatus = lens _avpcrStatus (\ s a -> s{_avpcrStatus = a});
+avpcrsStatus :: Lens' AcceptVPCPeeringConnectionResponse Int
+avpcrsStatus = lens _avpcrsStatus (\ s a -> s{_avpcrsStatus = a});

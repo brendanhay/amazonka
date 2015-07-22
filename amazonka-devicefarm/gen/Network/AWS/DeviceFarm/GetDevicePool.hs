@@ -27,15 +27,15 @@ module Network.AWS.DeviceFarm.GetDevicePool
     -- ** Request constructor
     , getDevicePool
     -- ** Request lenses
-    , gdpArn
+    , gdprqArn
 
     -- * Response
     , GetDevicePoolResponse
     -- ** Response constructor
     , getDevicePoolResponse
     -- ** Response lenses
-    , gdprDevicePool
-    , gdprStatus
+    , gdprsDevicePool
+    , gdprsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdpArn'
+-- * 'gdprqArn'
 newtype GetDevicePool = GetDevicePool'
-    { _gdpArn :: Text
+    { _gdprqArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevicePool' smart constructor.
 getDevicePool :: Text -> GetDevicePool
 getDevicePool pArn =
     GetDevicePool'
-    { _gdpArn = pArn
+    { _gdprqArn = pArn
     }
 
 -- | The device pool\'s ARN.
-gdpArn :: Lens' GetDevicePool Text
-gdpArn = lens _gdpArn (\ s a -> s{_gdpArn = a});
+gdprqArn :: Lens' GetDevicePool Text
+gdprqArn = lens _gdprqArn (\ s a -> s{_gdprqArn = a});
 
 instance AWSRequest GetDevicePool where
         type Sv GetDevicePool = DeviceFarm
@@ -85,7 +85,8 @@ instance ToHeaders GetDevicePool where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDevicePool where
-        toJSON GetDevicePool'{..} = object ["arn" .= _gdpArn]
+        toJSON GetDevicePool'{..}
+          = object ["arn" .= _gdprqArn]
 
 instance ToPath GetDevicePool where
         toPath = const "/"
@@ -99,26 +100,26 @@ instance ToQuery GetDevicePool where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdprDevicePool'
+-- * 'gdprsDevicePool'
 --
--- * 'gdprStatus'
+-- * 'gdprsStatus'
 data GetDevicePoolResponse = GetDevicePoolResponse'
-    { _gdprDevicePool :: !(Maybe DevicePool)
-    , _gdprStatus     :: !Int
+    { _gdprsDevicePool :: !(Maybe DevicePool)
+    , _gdprsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevicePoolResponse' smart constructor.
 getDevicePoolResponse :: Int -> GetDevicePoolResponse
 getDevicePoolResponse pStatus =
     GetDevicePoolResponse'
-    { _gdprDevicePool = Nothing
-    , _gdprStatus = pStatus
+    { _gdprsDevicePool = Nothing
+    , _gdprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gdprDevicePool :: Lens' GetDevicePoolResponse (Maybe DevicePool)
-gdprDevicePool = lens _gdprDevicePool (\ s a -> s{_gdprDevicePool = a});
+gdprsDevicePool :: Lens' GetDevicePoolResponse (Maybe DevicePool)
+gdprsDevicePool = lens _gdprsDevicePool (\ s a -> s{_gdprsDevicePool = a});
 
 -- | FIXME: Undocumented member.
-gdprStatus :: Lens' GetDevicePoolResponse Int
-gdprStatus = lens _gdprStatus (\ s a -> s{_gdprStatus = a});
+gdprsStatus :: Lens' GetDevicePoolResponse Int
+gdprsStatus = lens _gdprsStatus (\ s a -> s{_gdprsStatus = a});

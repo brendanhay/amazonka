@@ -984,29 +984,29 @@ instance FromXML EC2SecurityGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'endAddress'
+-- * 'eAddress'
 --
--- * 'endPort'
+-- * 'ePort'
 data Endpoint = Endpoint'
-    { _endAddress :: !(Maybe Text)
-    , _endPort    :: !(Maybe Int)
+    { _eAddress :: !(Maybe Text)
+    , _ePort    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
 endpoint =
     Endpoint'
-    { _endAddress = Nothing
-    , _endPort = Nothing
+    { _eAddress = Nothing
+    , _ePort = Nothing
     }
 
 -- | The DNS hostname of the cache node.
-endAddress :: Lens' Endpoint (Maybe Text)
-endAddress = lens _endAddress (\ s a -> s{_endAddress = a});
+eAddress :: Lens' Endpoint (Maybe Text)
+eAddress = lens _eAddress (\ s a -> s{_eAddress = a});
 
 -- | The port number that the cache engine is listening on.
-endPort :: Lens' Endpoint (Maybe Int)
-endPort = lens _endPort (\ s a -> s{_endPort = a});
+ePort :: Lens' Endpoint (Maybe Int)
+ePort = lens _ePort (\ s a -> s{_ePort = a});
 
 instance FromXML Endpoint where
         parseXML x
@@ -1080,48 +1080,48 @@ instance FromXML EngineDefaults where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eveSourceType'
+-- * 'eSourceType'
 --
--- * 'eveSourceIdentifier'
+-- * 'eSourceIdentifier'
 --
--- * 'eveDate'
+-- * 'eDate'
 --
--- * 'eveMessage'
+-- * 'eMessage'
 data Event = Event'
-    { _eveSourceType       :: !(Maybe SourceType)
-    , _eveSourceIdentifier :: !(Maybe Text)
-    , _eveDate             :: !(Maybe ISO8601)
-    , _eveMessage          :: !(Maybe Text)
+    { _eSourceType       :: !(Maybe SourceType)
+    , _eSourceIdentifier :: !(Maybe Text)
+    , _eDate             :: !(Maybe ISO8601)
+    , _eMessage          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Event' smart constructor.
 event :: Event
 event =
     Event'
-    { _eveSourceType = Nothing
-    , _eveSourceIdentifier = Nothing
-    , _eveDate = Nothing
-    , _eveMessage = Nothing
+    { _eSourceType = Nothing
+    , _eSourceIdentifier = Nothing
+    , _eDate = Nothing
+    , _eMessage = Nothing
     }
 
 -- | Specifies the origin of this event - a cache cluster, a parameter group,
 -- a security group, etc.
-eveSourceType :: Lens' Event (Maybe SourceType)
-eveSourceType = lens _eveSourceType (\ s a -> s{_eveSourceType = a});
+eSourceType :: Lens' Event (Maybe SourceType)
+eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a});
 
 -- | The identifier for the source of the event. For example, if the event
 -- occurred at the cache cluster level, the identifier would be the name of
 -- the cache cluster.
-eveSourceIdentifier :: Lens' Event (Maybe Text)
-eveSourceIdentifier = lens _eveSourceIdentifier (\ s a -> s{_eveSourceIdentifier = a});
+eSourceIdentifier :: Lens' Event (Maybe Text)
+eSourceIdentifier = lens _eSourceIdentifier (\ s a -> s{_eSourceIdentifier = a});
 
 -- | The date and time when the event occurred.
-eveDate :: Lens' Event (Maybe UTCTime)
-eveDate = lens _eveDate (\ s a -> s{_eveDate = a}) . mapping _Time;
+eDate :: Lens' Event (Maybe UTCTime)
+eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time;
 
 -- | The text of the event.
-eveMessage :: Lens' Event (Maybe Text)
-eveMessage = lens _eveMessage (\ s a -> s{_eveMessage = a});
+eMessage :: Lens' Event (Maybe Text)
+eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 
 instance FromXML Event where
         parseXML x
@@ -1351,79 +1351,79 @@ instance FromXML NotificationConfiguration where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'parParameterValue'
+-- * 'pParameterValue'
 --
--- * 'parMinimumEngineVersion'
+-- * 'pMinimumEngineVersion'
 --
--- * 'parSource'
+-- * 'pSource'
 --
--- * 'parIsModifiable'
+-- * 'pIsModifiable'
 --
--- * 'parAllowedValues'
+-- * 'pAllowedValues'
 --
--- * 'parDataType'
+-- * 'pDataType'
 --
--- * 'parParameterName'
+-- * 'pParameterName'
 --
--- * 'parDescription'
+-- * 'pDescription'
 data Parameter = Parameter'
-    { _parParameterValue       :: !(Maybe Text)
-    , _parMinimumEngineVersion :: !(Maybe Text)
-    , _parSource               :: !(Maybe Text)
-    , _parIsModifiable         :: !(Maybe Bool)
-    , _parAllowedValues        :: !(Maybe Text)
-    , _parDataType             :: !(Maybe Text)
-    , _parParameterName        :: !(Maybe Text)
-    , _parDescription          :: !(Maybe Text)
+    { _pParameterValue       :: !(Maybe Text)
+    , _pMinimumEngineVersion :: !(Maybe Text)
+    , _pSource               :: !(Maybe Text)
+    , _pIsModifiable         :: !(Maybe Bool)
+    , _pAllowedValues        :: !(Maybe Text)
+    , _pDataType             :: !(Maybe Text)
+    , _pParameterName        :: !(Maybe Text)
+    , _pDescription          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
 parameter =
     Parameter'
-    { _parParameterValue = Nothing
-    , _parMinimumEngineVersion = Nothing
-    , _parSource = Nothing
-    , _parIsModifiable = Nothing
-    , _parAllowedValues = Nothing
-    , _parDataType = Nothing
-    , _parParameterName = Nothing
-    , _parDescription = Nothing
+    { _pParameterValue = Nothing
+    , _pMinimumEngineVersion = Nothing
+    , _pSource = Nothing
+    , _pIsModifiable = Nothing
+    , _pAllowedValues = Nothing
+    , _pDataType = Nothing
+    , _pParameterName = Nothing
+    , _pDescription = Nothing
     }
 
 -- | The value of the parameter.
-parParameterValue :: Lens' Parameter (Maybe Text)
-parParameterValue = lens _parParameterValue (\ s a -> s{_parParameterValue = a});
+pParameterValue :: Lens' Parameter (Maybe Text)
+pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a});
 
 -- | The earliest cache engine version to which the parameter can apply.
-parMinimumEngineVersion :: Lens' Parameter (Maybe Text)
-parMinimumEngineVersion = lens _parMinimumEngineVersion (\ s a -> s{_parMinimumEngineVersion = a});
+pMinimumEngineVersion :: Lens' Parameter (Maybe Text)
+pMinimumEngineVersion = lens _pMinimumEngineVersion (\ s a -> s{_pMinimumEngineVersion = a});
 
 -- | The source of the parameter.
-parSource :: Lens' Parameter (Maybe Text)
-parSource = lens _parSource (\ s a -> s{_parSource = a});
+pSource :: Lens' Parameter (Maybe Text)
+pSource = lens _pSource (\ s a -> s{_pSource = a});
 
 -- | Indicates whether (@true@) or not (@false@) the parameter can be
 -- modified. Some parameters have security or operational implications that
 -- prevent them from being changed.
-parIsModifiable :: Lens' Parameter (Maybe Bool)
-parIsModifiable = lens _parIsModifiable (\ s a -> s{_parIsModifiable = a});
+pIsModifiable :: Lens' Parameter (Maybe Bool)
+pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a});
 
 -- | The valid range of values for the parameter.
-parAllowedValues :: Lens' Parameter (Maybe Text)
-parAllowedValues = lens _parAllowedValues (\ s a -> s{_parAllowedValues = a});
+pAllowedValues :: Lens' Parameter (Maybe Text)
+pAllowedValues = lens _pAllowedValues (\ s a -> s{_pAllowedValues = a});
 
 -- | The valid data type for the parameter.
-parDataType :: Lens' Parameter (Maybe Text)
-parDataType = lens _parDataType (\ s a -> s{_parDataType = a});
+pDataType :: Lens' Parameter (Maybe Text)
+pDataType = lens _pDataType (\ s a -> s{_pDataType = a});
 
 -- | The name of the parameter.
-parParameterName :: Lens' Parameter (Maybe Text)
-parParameterName = lens _parParameterName (\ s a -> s{_parParameterName = a});
+pParameterName :: Lens' Parameter (Maybe Text)
+pParameterName = lens _pParameterName (\ s a -> s{_pParameterName = a});
 
 -- | A description of the parameter.
-parDescription :: Lens' Parameter (Maybe Text)
-parDescription = lens _parDescription (\ s a -> s{_parDescription = a});
+pDescription :: Lens' Parameter (Maybe Text)
+pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
 
 instance FromXML Parameter where
         parseXML x
@@ -2034,92 +2034,92 @@ instance FromXML SecurityGroupMembership where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'snaCacheNodeType'
+-- * 'sCacheNodeType'
 --
--- * 'snaEngineVersion'
+-- * 'sEngineVersion'
 --
--- * 'snaCacheClusterCreateTime'
+-- * 'sCacheClusterCreateTime'
 --
--- * 'snaAutoMinorVersionUpgrade'
+-- * 'sAutoMinorVersionUpgrade'
 --
--- * 'snaCacheParameterGroupName'
+-- * 'sCacheParameterGroupName'
 --
--- * 'snaSnapshotStatus'
+-- * 'sSnapshotStatus'
 --
--- * 'snaSnapshotWindow'
+-- * 'sSnapshotWindow'
 --
--- * 'snaVPCId'
+-- * 'sVPCId'
 --
--- * 'snaCacheClusterId'
+-- * 'sCacheClusterId'
 --
--- * 'snaEngine'
+-- * 'sEngine'
 --
--- * 'snaPreferredMaintenanceWindow'
+-- * 'sPreferredMaintenanceWindow'
 --
--- * 'snaTopicARN'
+-- * 'sTopicARN'
 --
--- * 'snaCacheSubnetGroupName'
+-- * 'sCacheSubnetGroupName'
 --
--- * 'snaNodeSnapshots'
+-- * 'sNodeSnapshots'
 --
--- * 'snaPreferredAvailabilityZone'
+-- * 'sPreferredAvailabilityZone'
 --
--- * 'snaSnapshotRetentionLimit'
+-- * 'sSnapshotRetentionLimit'
 --
--- * 'snaSnapshotName'
+-- * 'sSnapshotName'
 --
--- * 'snaSnapshotSource'
+-- * 'sSnapshotSource'
 --
--- * 'snaNumCacheNodes'
+-- * 'sNumCacheNodes'
 --
--- * 'snaPort'
+-- * 'sPort'
 data Snapshot = Snapshot'
-    { _snaCacheNodeType              :: !(Maybe Text)
-    , _snaEngineVersion              :: !(Maybe Text)
-    , _snaCacheClusterCreateTime     :: !(Maybe ISO8601)
-    , _snaAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _snaCacheParameterGroupName    :: !(Maybe Text)
-    , _snaSnapshotStatus             :: !(Maybe Text)
-    , _snaSnapshotWindow             :: !(Maybe Text)
-    , _snaVPCId                      :: !(Maybe Text)
-    , _snaCacheClusterId             :: !(Maybe Text)
-    , _snaEngine                     :: !(Maybe Text)
-    , _snaPreferredMaintenanceWindow :: !(Maybe Text)
-    , _snaTopicARN                   :: !(Maybe Text)
-    , _snaCacheSubnetGroupName       :: !(Maybe Text)
-    , _snaNodeSnapshots              :: !(Maybe [NodeSnapshot])
-    , _snaPreferredAvailabilityZone  :: !(Maybe Text)
-    , _snaSnapshotRetentionLimit     :: !(Maybe Int)
-    , _snaSnapshotName               :: !(Maybe Text)
-    , _snaSnapshotSource             :: !(Maybe Text)
-    , _snaNumCacheNodes              :: !(Maybe Int)
-    , _snaPort                       :: !(Maybe Int)
+    { _sCacheNodeType              :: !(Maybe Text)
+    , _sEngineVersion              :: !(Maybe Text)
+    , _sCacheClusterCreateTime     :: !(Maybe ISO8601)
+    , _sAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _sCacheParameterGroupName    :: !(Maybe Text)
+    , _sSnapshotStatus             :: !(Maybe Text)
+    , _sSnapshotWindow             :: !(Maybe Text)
+    , _sVPCId                      :: !(Maybe Text)
+    , _sCacheClusterId             :: !(Maybe Text)
+    , _sEngine                     :: !(Maybe Text)
+    , _sPreferredMaintenanceWindow :: !(Maybe Text)
+    , _sTopicARN                   :: !(Maybe Text)
+    , _sCacheSubnetGroupName       :: !(Maybe Text)
+    , _sNodeSnapshots              :: !(Maybe [NodeSnapshot])
+    , _sPreferredAvailabilityZone  :: !(Maybe Text)
+    , _sSnapshotRetentionLimit     :: !(Maybe Int)
+    , _sSnapshotName               :: !(Maybe Text)
+    , _sSnapshotSource             :: !(Maybe Text)
+    , _sNumCacheNodes              :: !(Maybe Int)
+    , _sPort                       :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
 snapshot =
     Snapshot'
-    { _snaCacheNodeType = Nothing
-    , _snaEngineVersion = Nothing
-    , _snaCacheClusterCreateTime = Nothing
-    , _snaAutoMinorVersionUpgrade = Nothing
-    , _snaCacheParameterGroupName = Nothing
-    , _snaSnapshotStatus = Nothing
-    , _snaSnapshotWindow = Nothing
-    , _snaVPCId = Nothing
-    , _snaCacheClusterId = Nothing
-    , _snaEngine = Nothing
-    , _snaPreferredMaintenanceWindow = Nothing
-    , _snaTopicARN = Nothing
-    , _snaCacheSubnetGroupName = Nothing
-    , _snaNodeSnapshots = Nothing
-    , _snaPreferredAvailabilityZone = Nothing
-    , _snaSnapshotRetentionLimit = Nothing
-    , _snaSnapshotName = Nothing
-    , _snaSnapshotSource = Nothing
-    , _snaNumCacheNodes = Nothing
-    , _snaPort = Nothing
+    { _sCacheNodeType = Nothing
+    , _sEngineVersion = Nothing
+    , _sCacheClusterCreateTime = Nothing
+    , _sAutoMinorVersionUpgrade = Nothing
+    , _sCacheParameterGroupName = Nothing
+    , _sSnapshotStatus = Nothing
+    , _sSnapshotWindow = Nothing
+    , _sVPCId = Nothing
+    , _sCacheClusterId = Nothing
+    , _sEngine = Nothing
+    , _sPreferredMaintenanceWindow = Nothing
+    , _sTopicARN = Nothing
+    , _sCacheSubnetGroupName = Nothing
+    , _sNodeSnapshots = Nothing
+    , _sPreferredAvailabilityZone = Nothing
+    , _sSnapshotRetentionLimit = Nothing
+    , _sSnapshotName = Nothing
+    , _sSnapshotSource = Nothing
+    , _sNumCacheNodes = Nothing
+    , _sPort = Nothing
     }
 
 -- | The name of the compute and memory capacity node type for the source
@@ -2154,50 +2154,50 @@ snapshot =
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached>
 -- or
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
-snaCacheNodeType :: Lens' Snapshot (Maybe Text)
-snaCacheNodeType = lens _snaCacheNodeType (\ s a -> s{_snaCacheNodeType = a});
+sCacheNodeType :: Lens' Snapshot (Maybe Text)
+sCacheNodeType = lens _sCacheNodeType (\ s a -> s{_sCacheNodeType = a});
 
 -- | The version of the cache engine version that is used by the source cache
 -- cluster.
-snaEngineVersion :: Lens' Snapshot (Maybe Text)
-snaEngineVersion = lens _snaEngineVersion (\ s a -> s{_snaEngineVersion = a});
+sEngineVersion :: Lens' Snapshot (Maybe Text)
+sEngineVersion = lens _sEngineVersion (\ s a -> s{_sEngineVersion = a});
 
 -- | The date and time when the source cache cluster was created.
-snaCacheClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
-snaCacheClusterCreateTime = lens _snaCacheClusterCreateTime (\ s a -> s{_snaCacheClusterCreateTime = a}) . mapping _Time;
+sCacheClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
+sCacheClusterCreateTime = lens _sCacheClusterCreateTime (\ s a -> s{_sCacheClusterCreateTime = a}) . mapping _Time;
 
 -- | This parameter is currently disabled.
-snaAutoMinorVersionUpgrade :: Lens' Snapshot (Maybe Bool)
-snaAutoMinorVersionUpgrade = lens _snaAutoMinorVersionUpgrade (\ s a -> s{_snaAutoMinorVersionUpgrade = a});
+sAutoMinorVersionUpgrade :: Lens' Snapshot (Maybe Bool)
+sAutoMinorVersionUpgrade = lens _sAutoMinorVersionUpgrade (\ s a -> s{_sAutoMinorVersionUpgrade = a});
 
 -- | The cache parameter group that is associated with the source cache
 -- cluster.
-snaCacheParameterGroupName :: Lens' Snapshot (Maybe Text)
-snaCacheParameterGroupName = lens _snaCacheParameterGroupName (\ s a -> s{_snaCacheParameterGroupName = a});
+sCacheParameterGroupName :: Lens' Snapshot (Maybe Text)
+sCacheParameterGroupName = lens _sCacheParameterGroupName (\ s a -> s{_sCacheParameterGroupName = a});
 
 -- | The status of the snapshot. Valid values: @creating@ | @available@ |
 -- @restoring@ | @copying@ | @deleting@.
-snaSnapshotStatus :: Lens' Snapshot (Maybe Text)
-snaSnapshotStatus = lens _snaSnapshotStatus (\ s a -> s{_snaSnapshotStatus = a});
+sSnapshotStatus :: Lens' Snapshot (Maybe Text)
+sSnapshotStatus = lens _sSnapshotStatus (\ s a -> s{_sSnapshotStatus = a});
 
 -- | The daily time range during which ElastiCache takes daily snapshots of
 -- the source cache cluster.
-snaSnapshotWindow :: Lens' Snapshot (Maybe Text)
-snaSnapshotWindow = lens _snaSnapshotWindow (\ s a -> s{_snaSnapshotWindow = a});
+sSnapshotWindow :: Lens' Snapshot (Maybe Text)
+sSnapshotWindow = lens _sSnapshotWindow (\ s a -> s{_sSnapshotWindow = a});
 
 -- | The Amazon Virtual Private Cloud identifier (VPC ID) of the cache subnet
 -- group for the source cache cluster.
-snaVPCId :: Lens' Snapshot (Maybe Text)
-snaVPCId = lens _snaVPCId (\ s a -> s{_snaVPCId = a});
+sVPCId :: Lens' Snapshot (Maybe Text)
+sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 
 -- | The user-supplied identifier of the source cache cluster.
-snaCacheClusterId :: Lens' Snapshot (Maybe Text)
-snaCacheClusterId = lens _snaCacheClusterId (\ s a -> s{_snaCacheClusterId = a});
+sCacheClusterId :: Lens' Snapshot (Maybe Text)
+sCacheClusterId = lens _sCacheClusterId (\ s a -> s{_sCacheClusterId = a});
 
 -- | The name of the cache engine (/memcached/ or /redis/) used by the source
 -- cache cluster.
-snaEngine :: Lens' Snapshot (Maybe Text)
-snaEngine = lens _snaEngine (\ s a -> s{_snaEngine = a});
+sEngine :: Lens' Snapshot (Maybe Text)
+sEngine = lens _sEngine (\ s a -> s{_sEngine = a});
 
 -- | Specifies the weekly time range during which maintenance on the cache
 -- cluster is performed. It is specified as a range in the format
@@ -2213,27 +2213,27 @@ snaEngine = lens _snaEngine (\ s a -> s{_snaEngine = a});
 -- -   @sat@
 --
 -- Example: @sun:05:00-sun:09:00@
-snaPreferredMaintenanceWindow :: Lens' Snapshot (Maybe Text)
-snaPreferredMaintenanceWindow = lens _snaPreferredMaintenanceWindow (\ s a -> s{_snaPreferredMaintenanceWindow = a});
+sPreferredMaintenanceWindow :: Lens' Snapshot (Maybe Text)
+sPreferredMaintenanceWindow = lens _sPreferredMaintenanceWindow (\ s a -> s{_sPreferredMaintenanceWindow = a});
 
 -- | The Amazon Resource Name (ARN) for the topic used by the source cache
 -- cluster for publishing notifications.
-snaTopicARN :: Lens' Snapshot (Maybe Text)
-snaTopicARN = lens _snaTopicARN (\ s a -> s{_snaTopicARN = a});
+sTopicARN :: Lens' Snapshot (Maybe Text)
+sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
 
 -- | The name of the cache subnet group associated with the source cache
 -- cluster.
-snaCacheSubnetGroupName :: Lens' Snapshot (Maybe Text)
-snaCacheSubnetGroupName = lens _snaCacheSubnetGroupName (\ s a -> s{_snaCacheSubnetGroupName = a});
+sCacheSubnetGroupName :: Lens' Snapshot (Maybe Text)
+sCacheSubnetGroupName = lens _sCacheSubnetGroupName (\ s a -> s{_sCacheSubnetGroupName = a});
 
 -- | A list of the cache nodes in the source cache cluster.
-snaNodeSnapshots :: Lens' Snapshot [NodeSnapshot]
-snaNodeSnapshots = lens _snaNodeSnapshots (\ s a -> s{_snaNodeSnapshots = a}) . _Default;
+sNodeSnapshots :: Lens' Snapshot [NodeSnapshot]
+sNodeSnapshots = lens _sNodeSnapshots (\ s a -> s{_sNodeSnapshots = a}) . _Default;
 
 -- | The name of the Availability Zone in which the source cache cluster is
 -- located.
-snaPreferredAvailabilityZone :: Lens' Snapshot (Maybe Text)
-snaPreferredAvailabilityZone = lens _snaPreferredAvailabilityZone (\ s a -> s{_snaPreferredAvailabilityZone = a});
+sPreferredAvailabilityZone :: Lens' Snapshot (Maybe Text)
+sPreferredAvailabilityZone = lens _sPreferredAvailabilityZone (\ s a -> s{_sPreferredAvailabilityZone = a});
 
 -- | For an automatic snapshot, the number of days for which ElastiCache will
 -- retain the snapshot before deleting it.
@@ -2246,29 +2246,29 @@ snaPreferredAvailabilityZone = lens _snaPreferredAvailabilityZone (\ s a -> s{_s
 -- __Important__
 -- If the value of SnapshotRetentionLimit is set to zero (0), backups are
 -- turned off.
-snaSnapshotRetentionLimit :: Lens' Snapshot (Maybe Int)
-snaSnapshotRetentionLimit = lens _snaSnapshotRetentionLimit (\ s a -> s{_snaSnapshotRetentionLimit = a});
+sSnapshotRetentionLimit :: Lens' Snapshot (Maybe Int)
+sSnapshotRetentionLimit = lens _sSnapshotRetentionLimit (\ s a -> s{_sSnapshotRetentionLimit = a});
 
 -- | The name of a snapshot. For an automatic snapshot, the name is
 -- system-generated; for a manual snapshot, this is the user-provided name.
-snaSnapshotName :: Lens' Snapshot (Maybe Text)
-snaSnapshotName = lens _snaSnapshotName (\ s a -> s{_snaSnapshotName = a});
+sSnapshotName :: Lens' Snapshot (Maybe Text)
+sSnapshotName = lens _sSnapshotName (\ s a -> s{_sSnapshotName = a});
 
 -- | Indicates whether the snapshot is from an automatic backup (@automated@)
 -- or was created manually (@manual@).
-snaSnapshotSource :: Lens' Snapshot (Maybe Text)
-snaSnapshotSource = lens _snaSnapshotSource (\ s a -> s{_snaSnapshotSource = a});
+sSnapshotSource :: Lens' Snapshot (Maybe Text)
+sSnapshotSource = lens _sSnapshotSource (\ s a -> s{_sSnapshotSource = a});
 
 -- | The number of cache nodes in the source cache cluster.
 --
 -- For clusters running Redis, this value must be 1. For clusters running
 -- Memcached, this value must be between 1 and 20.
-snaNumCacheNodes :: Lens' Snapshot (Maybe Int)
-snaNumCacheNodes = lens _snaNumCacheNodes (\ s a -> s{_snaNumCacheNodes = a});
+sNumCacheNodes :: Lens' Snapshot (Maybe Int)
+sNumCacheNodes = lens _sNumCacheNodes (\ s a -> s{_sNumCacheNodes = a});
 
 -- | The port number used by each cache nodes in the source cache cluster.
-snaPort :: Lens' Snapshot (Maybe Int)
-snaPort = lens _snaPort (\ s a -> s{_snaPort = a});
+sPort :: Lens' Snapshot (Maybe Int)
+sPort = lens _sPort (\ s a -> s{_sPort = a});
 
 instance FromXML Snapshot where
         parseXML x
@@ -2303,29 +2303,29 @@ instance FromXML Snapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'subSubnetIdentifier'
+-- * 'sSubnetIdentifier'
 --
--- * 'subSubnetAvailabilityZone'
+-- * 'sSubnetAvailabilityZone'
 data Subnet = Subnet'
-    { _subSubnetIdentifier       :: !(Maybe Text)
-    , _subSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
+    { _sSubnetIdentifier       :: !(Maybe Text)
+    , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
 subnet =
     Subnet'
-    { _subSubnetIdentifier = Nothing
-    , _subSubnetAvailabilityZone = Nothing
+    { _sSubnetIdentifier = Nothing
+    , _sSubnetAvailabilityZone = Nothing
     }
 
 -- | The unique identifier for the subnet.
-subSubnetIdentifier :: Lens' Subnet (Maybe Text)
-subSubnetIdentifier = lens _subSubnetIdentifier (\ s a -> s{_subSubnetIdentifier = a});
+sSubnetIdentifier :: Lens' Subnet (Maybe Text)
+sSubnetIdentifier = lens _sSubnetIdentifier (\ s a -> s{_sSubnetIdentifier = a});
 
 -- | The Availability Zone associated with the subnet.
-subSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-subSubnetAvailabilityZone = lens _subSubnetAvailabilityZone (\ s a -> s{_subSubnetAvailabilityZone = a});
+sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
+sSubnetAvailabilityZone = lens _sSubnetAvailabilityZone (\ s a -> s{_sSubnetAvailabilityZone = a});
 
 instance FromXML Subnet where
         parseXML x

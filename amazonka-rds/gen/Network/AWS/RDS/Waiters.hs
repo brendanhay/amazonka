@@ -31,42 +31,42 @@ dbInstanceAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "deleted"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "deleting"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "failed"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "incompatible-restore"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "incompatible-parameters"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "incompatible-parameters"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "incompatible-restore"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)]
     }
 
@@ -80,7 +80,7 @@ dbSnapshotCompleted =
                        , matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf ddsrDBSnapshots) .
+                             (folding (concatOf ddsrsDBSnapshots) .
                               dsStatus . _Just . to toText)]
     }
 
@@ -94,26 +94,26 @@ dbInstanceDeleted =
                        , matchAll
                              "deleted"
                              AcceptSuccess
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "creating"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "modifying"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "rebooting"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)
                        , matchAny
                              "resetting-master-credentials"
                              AcceptFailure
-                             (folding (concatOf desDBInstances) .
+                             (folding (concatOf ddbirsDBInstances) .
                               diDBInstanceStatus . _Just . to toText)]
     }

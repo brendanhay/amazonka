@@ -91,7 +91,7 @@ module Network.AWS.ELB.Types
     -- * Instance
     , Instance
     , instance'
-    , insInstanceId
+    , iInstanceId
 
     -- * InstanceState
     , InstanceState
@@ -110,11 +110,11 @@ module Network.AWS.ELB.Types
     -- * Listener
     , Listener
     , listener
-    , lisInstanceProtocol
-    , lisSSLCertificateId
-    , lisProtocol
-    , lisLoadBalancerPort
-    , lisInstancePort
+    , lInstanceProtocol
+    , lSSLCertificateId
+    , lProtocol
+    , lLoadBalancerPort
+    , lInstancePort
 
     -- * ListenerDescription
     , ListenerDescription
@@ -154,9 +154,9 @@ module Network.AWS.ELB.Types
     -- * Policies
     , Policies
     , policies
-    , polOtherPolicies
-    , polLBCookieStickinessPolicies
-    , polAppCookieStickinessPolicies
+    , pOtherPolicies
+    , pLBCookieStickinessPolicies
+    , pAppCookieStickinessPolicies
 
     -- * PolicyAttribute
     , PolicyAttribute

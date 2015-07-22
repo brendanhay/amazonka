@@ -32,18 +32,18 @@ module Network.AWS.ElasticBeanstalk.CreateApplicationVersion
     -- ** Request constructor
     , createApplicationVersion
     -- ** Request lenses
-    , cavSourceBundle
-    , cavAutoCreateApplication
-    , cavDescription
-    , cavApplicationName
-    , cavVersionLabel
+    , cavrqSourceBundle
+    , cavrqAutoCreateApplication
+    , cavrqDescription
+    , cavrqApplicationName
+    , cavrqVersionLabel
 
     -- * Response
     , ApplicationVersionDescriptionMessage
     -- ** Response constructor
     , applicationVersionDescriptionMessage
     -- ** Response lenses
-    , avdmApplicationVersion
+    , cavrsApplicationVersion
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -57,32 +57,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cavSourceBundle'
+-- * 'cavrqSourceBundle'
 --
--- * 'cavAutoCreateApplication'
+-- * 'cavrqAutoCreateApplication'
 --
--- * 'cavDescription'
+-- * 'cavrqDescription'
 --
--- * 'cavApplicationName'
+-- * 'cavrqApplicationName'
 --
--- * 'cavVersionLabel'
+-- * 'cavrqVersionLabel'
 data CreateApplicationVersion = CreateApplicationVersion'
-    { _cavSourceBundle          :: !(Maybe S3Location)
-    , _cavAutoCreateApplication :: !(Maybe Bool)
-    , _cavDescription           :: !(Maybe Text)
-    , _cavApplicationName       :: !Text
-    , _cavVersionLabel          :: !Text
+    { _cavrqSourceBundle          :: !(Maybe S3Location)
+    , _cavrqAutoCreateApplication :: !(Maybe Bool)
+    , _cavrqDescription           :: !(Maybe Text)
+    , _cavrqApplicationName       :: !Text
+    , _cavrqVersionLabel          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApplicationVersion' smart constructor.
 createApplicationVersion :: Text -> Text -> CreateApplicationVersion
 createApplicationVersion pApplicationName pVersionLabel =
     CreateApplicationVersion'
-    { _cavSourceBundle = Nothing
-    , _cavAutoCreateApplication = Nothing
-    , _cavDescription = Nothing
-    , _cavApplicationName = pApplicationName
-    , _cavVersionLabel = pVersionLabel
+    { _cavrqSourceBundle = Nothing
+    , _cavrqAutoCreateApplication = Nothing
+    , _cavrqDescription = Nothing
+    , _cavrqApplicationName = pApplicationName
+    , _cavrqVersionLabel = pVersionLabel
     }
 
 -- | The Amazon S3 bucket and key that identify the location of the source
@@ -97,8 +97,8 @@ createApplicationVersion pApplicationName pVersionLabel =
 -- provided but not the key) or if no data is found at the Amazon S3
 -- location, AWS Elastic Beanstalk returns an @InvalidParameterCombination@
 -- error.
-cavSourceBundle :: Lens' CreateApplicationVersion (Maybe S3Location)
-cavSourceBundle = lens _cavSourceBundle (\ s a -> s{_cavSourceBundle = a});
+cavrqSourceBundle :: Lens' CreateApplicationVersion (Maybe S3Location)
+cavrqSourceBundle = lens _cavrqSourceBundle (\ s a -> s{_cavrqSourceBundle = a});
 
 -- | Determines how the system behaves if the specified application for this
 -- version does not already exist:
@@ -117,26 +117,26 @@ cavSourceBundle = lens _cavSourceBundle (\ s a -> s{_cavSourceBundle = a});
 -- Default: @false@
 --
 -- Valid Values: @true@ | @false@
-cavAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
-cavAutoCreateApplication = lens _cavAutoCreateApplication (\ s a -> s{_cavAutoCreateApplication = a});
+cavrqAutoCreateApplication :: Lens' CreateApplicationVersion (Maybe Bool)
+cavrqAutoCreateApplication = lens _cavrqAutoCreateApplication (\ s a -> s{_cavrqAutoCreateApplication = a});
 
 -- | Describes this version.
-cavDescription :: Lens' CreateApplicationVersion (Maybe Text)
-cavDescription = lens _cavDescription (\ s a -> s{_cavDescription = a});
+cavrqDescription :: Lens' CreateApplicationVersion (Maybe Text)
+cavrqDescription = lens _cavrqDescription (\ s a -> s{_cavrqDescription = a});
 
 -- | The name of the application. If no application is found with this name,
 -- and @AutoCreateApplication@ is @false@, returns an
 -- @InvalidParameterValue@ error.
-cavApplicationName :: Lens' CreateApplicationVersion Text
-cavApplicationName = lens _cavApplicationName (\ s a -> s{_cavApplicationName = a});
+cavrqApplicationName :: Lens' CreateApplicationVersion Text
+cavrqApplicationName = lens _cavrqApplicationName (\ s a -> s{_cavrqApplicationName = a});
 
 -- | A label identifying this version.
 --
 -- Constraint: Must be unique per application. If an application version
 -- already exists with this label for the specified application, AWS
 -- Elastic Beanstalk returns an @InvalidParameterValue@ error.
-cavVersionLabel :: Lens' CreateApplicationVersion Text
-cavVersionLabel = lens _cavVersionLabel (\ s a -> s{_cavVersionLabel = a});
+cavrqVersionLabel :: Lens' CreateApplicationVersion Text
+cavrqVersionLabel = lens _cavrqVersionLabel (\ s a -> s{_cavrqVersionLabel = a});
 
 instance AWSRequest CreateApplicationVersion where
         type Sv CreateApplicationVersion = ElasticBeanstalk
@@ -159,8 +159,9 @@ instance ToQuery CreateApplicationVersion where
               ["Action" =:
                  ("CreateApplicationVersion" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "SourceBundle" =: _cavSourceBundle,
-               "AutoCreateApplication" =: _cavAutoCreateApplication,
-               "Description" =: _cavDescription,
-               "ApplicationName" =: _cavApplicationName,
-               "VersionLabel" =: _cavVersionLabel]
+               "SourceBundle" =: _cavrqSourceBundle,
+               "AutoCreateApplication" =:
+                 _cavrqAutoCreateApplication,
+               "Description" =: _cavrqDescription,
+               "ApplicationName" =: _cavrqApplicationName,
+               "VersionLabel" =: _cavrqVersionLabel]

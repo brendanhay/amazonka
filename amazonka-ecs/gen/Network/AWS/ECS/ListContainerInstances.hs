@@ -27,18 +27,18 @@ module Network.AWS.ECS.ListContainerInstances
     -- ** Request constructor
     , listContainerInstances
     -- ** Request lenses
-    , lciCluster
-    , lciNextToken
-    , lciMaxResults
+    , lcirqCluster
+    , lcirqNextToken
+    , lcirqMaxResults
 
     -- * Response
     , ListContainerInstancesResponse
     -- ** Response constructor
     , listContainerInstancesResponse
     -- ** Response lenses
-    , lcirContainerInstanceARNs
-    , lcirNextToken
-    , lcirStatus
+    , lcirsContainerInstanceARNs
+    , lcirsNextToken
+    , lcirsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -51,39 +51,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lciCluster'
+-- * 'lcirqCluster'
 --
--- * 'lciNextToken'
+-- * 'lcirqNextToken'
 --
--- * 'lciMaxResults'
+-- * 'lcirqMaxResults'
 data ListContainerInstances = ListContainerInstances'
-    { _lciCluster    :: !(Maybe Text)
-    , _lciNextToken  :: !(Maybe Text)
-    , _lciMaxResults :: !(Maybe Int)
+    { _lcirqCluster    :: !(Maybe Text)
+    , _lcirqNextToken  :: !(Maybe Text)
+    , _lcirqMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListContainerInstances' smart constructor.
 listContainerInstances :: ListContainerInstances
 listContainerInstances =
     ListContainerInstances'
-    { _lciCluster = Nothing
-    , _lciNextToken = Nothing
-    , _lciMaxResults = Nothing
+    { _lcirqCluster = Nothing
+    , _lcirqNextToken = Nothing
+    , _lcirqMaxResults = Nothing
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instances you want to list. If you do not specify a
 -- cluster, the default cluster is assumed..
-lciCluster :: Lens' ListContainerInstances (Maybe Text)
-lciCluster = lens _lciCluster (\ s a -> s{_lciCluster = a});
+lcirqCluster :: Lens' ListContainerInstances (Maybe Text)
+lcirqCluster = lens _lcirqCluster (\ s a -> s{_lcirqCluster = a});
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListContainerInstances@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is @null@ when there are no more results to return.
-lciNextToken :: Lens' ListContainerInstances (Maybe Text)
-lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
+lcirqNextToken :: Lens' ListContainerInstances (Maybe Text)
+lcirqNextToken = lens _lcirqNextToken (\ s a -> s{_lcirqNextToken = a});
 
 -- | The maximum number of container instance results returned by
 -- @ListContainerInstances@ in paginated output. When this parameter is
@@ -94,15 +94,15 @@ lciNextToken = lens _lciNextToken (\ s a -> s{_lciNextToken = a});
 -- This value can be between 1 and 100. If this parameter is not used, then
 -- @ListContainerInstances@ returns up to 100 results and a @nextToken@
 -- value if applicable.
-lciMaxResults :: Lens' ListContainerInstances (Maybe Int)
-lciMaxResults = lens _lciMaxResults (\ s a -> s{_lciMaxResults = a});
+lcirqMaxResults :: Lens' ListContainerInstances (Maybe Int)
+lcirqMaxResults = lens _lcirqMaxResults (\ s a -> s{_lcirqMaxResults = a});
 
 instance AWSPager ListContainerInstances where
         page rq rs
-          | stop (rs ^. lcirNextToken) = Nothing
-          | stop (rs ^. lcirContainerInstanceARNs) = Nothing
+          | stop (rs ^. lcirsNextToken) = Nothing
+          | stop (rs ^. lcirsContainerInstanceARNs) = Nothing
           | otherwise =
-            Just $ rq & lciNextToken .~ rs ^. lcirNextToken
+            Just $ rq & lcirqNextToken .~ rs ^. lcirsNextToken
 
 instance AWSRequest ListContainerInstances where
         type Sv ListContainerInstances = ECS
@@ -130,9 +130,9 @@ instance ToHeaders ListContainerInstances where
 instance ToJSON ListContainerInstances where
         toJSON ListContainerInstances'{..}
           = object
-              ["cluster" .= _lciCluster,
-               "nextToken" .= _lciNextToken,
-               "maxResults" .= _lciMaxResults]
+              ["cluster" .= _lcirqCluster,
+               "nextToken" .= _lcirqNextToken,
+               "maxResults" .= _lcirqMaxResults]
 
 instance ToPath ListContainerInstances where
         toPath = const "/"
@@ -144,38 +144,38 @@ instance ToQuery ListContainerInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcirContainerInstanceARNs'
+-- * 'lcirsContainerInstanceARNs'
 --
--- * 'lcirNextToken'
+-- * 'lcirsNextToken'
 --
--- * 'lcirStatus'
+-- * 'lcirsStatus'
 data ListContainerInstancesResponse = ListContainerInstancesResponse'
-    { _lcirContainerInstanceARNs :: !(Maybe [Text])
-    , _lcirNextToken             :: !(Maybe Text)
-    , _lcirStatus                :: !Int
+    { _lcirsContainerInstanceARNs :: !(Maybe [Text])
+    , _lcirsNextToken             :: !(Maybe Text)
+    , _lcirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListContainerInstancesResponse' smart constructor.
 listContainerInstancesResponse :: Int -> ListContainerInstancesResponse
 listContainerInstancesResponse pStatus =
     ListContainerInstancesResponse'
-    { _lcirContainerInstanceARNs = Nothing
-    , _lcirNextToken = Nothing
-    , _lcirStatus = pStatus
+    { _lcirsContainerInstanceARNs = Nothing
+    , _lcirsNextToken = Nothing
+    , _lcirsStatus = pStatus
     }
 
 -- | The list of container instance full Amazon Resource Name (ARN) entries
 -- for each container instance associated with the specified cluster.
-lcirContainerInstanceARNs :: Lens' ListContainerInstancesResponse [Text]
-lcirContainerInstanceARNs = lens _lcirContainerInstanceARNs (\ s a -> s{_lcirContainerInstanceARNs = a}) . _Default;
+lcirsContainerInstanceARNs :: Lens' ListContainerInstancesResponse [Text]
+lcirsContainerInstanceARNs = lens _lcirsContainerInstanceARNs (\ s a -> s{_lcirsContainerInstanceARNs = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future @ListContainerInstances@
 -- request. When the results of a @ListContainerInstances@ request exceed
 -- @maxResults@, this value can be used to retrieve the next page of
 -- results. This value is @null@ when there are no more results to return.
-lcirNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
-lcirNextToken = lens _lcirNextToken (\ s a -> s{_lcirNextToken = a});
+lcirsNextToken :: Lens' ListContainerInstancesResponse (Maybe Text)
+lcirsNextToken = lens _lcirsNextToken (\ s a -> s{_lcirsNextToken = a});
 
 -- | FIXME: Undocumented member.
-lcirStatus :: Lens' ListContainerInstancesResponse Int
-lcirStatus = lens _lcirStatus (\ s a -> s{_lcirStatus = a});
+lcirsStatus :: Lens' ListContainerInstancesResponse Int
+lcirsStatus = lens _lcirsStatus (\ s a -> s{_lcirsStatus = a});

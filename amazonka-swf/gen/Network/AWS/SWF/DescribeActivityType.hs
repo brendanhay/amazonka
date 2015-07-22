@@ -52,17 +52,17 @@ module Network.AWS.SWF.DescribeActivityType
     -- ** Request constructor
     , describeActivityType
     -- ** Request lenses
-    , datDomain
-    , datActivityType
+    , datrqDomain
+    , datrqActivityType
 
     -- * Response
     , DescribeActivityTypeResponse
     -- ** Response constructor
     , describeActivityTypeResponse
     -- ** Response lenses
-    , datrStatus
-    , datrTypeInfo
-    , datrConfiguration
+    , datrsStatus
+    , datrsTypeInfo
+    , datrsConfiguration
     ) where
 
 import           Network.AWS.Prelude
@@ -74,31 +74,31 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'datDomain'
+-- * 'datrqDomain'
 --
--- * 'datActivityType'
+-- * 'datrqActivityType'
 data DescribeActivityType = DescribeActivityType'
-    { _datDomain       :: !Text
-    , _datActivityType :: !ActivityType
+    { _datrqDomain       :: !Text
+    , _datrqActivityType :: !ActivityType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeActivityType' smart constructor.
 describeActivityType :: Text -> ActivityType -> DescribeActivityType
 describeActivityType pDomain pActivityType =
     DescribeActivityType'
-    { _datDomain = pDomain
-    , _datActivityType = pActivityType
+    { _datrqDomain = pDomain
+    , _datrqActivityType = pActivityType
     }
 
 -- | The name of the domain in which the activity type is registered.
-datDomain :: Lens' DescribeActivityType Text
-datDomain = lens _datDomain (\ s a -> s{_datDomain = a});
+datrqDomain :: Lens' DescribeActivityType Text
+datrqDomain = lens _datrqDomain (\ s a -> s{_datrqDomain = a});
 
 -- | The activity type to get information about. Activity types are
 -- identified by the @name@ and @version@ that were supplied when the
 -- activity was registered.
-datActivityType :: Lens' DescribeActivityType ActivityType
-datActivityType = lens _datActivityType (\ s a -> s{_datActivityType = a});
+datrqActivityType :: Lens' DescribeActivityType ActivityType
+datrqActivityType = lens _datrqActivityType (\ s a -> s{_datrqActivityType = a});
 
 instance AWSRequest DescribeActivityType where
         type Sv DescribeActivityType = SWF
@@ -125,8 +125,8 @@ instance ToHeaders DescribeActivityType where
 instance ToJSON DescribeActivityType where
         toJSON DescribeActivityType'{..}
           = object
-              ["domain" .= _datDomain,
-               "activityType" .= _datActivityType]
+              ["domain" .= _datrqDomain,
+               "activityType" .= _datrqActivityType]
 
 instance ToPath DescribeActivityType where
         toPath = const "/"
@@ -140,29 +140,29 @@ instance ToQuery DescribeActivityType where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'datrStatus'
+-- * 'datrsStatus'
 --
--- * 'datrTypeInfo'
+-- * 'datrsTypeInfo'
 --
--- * 'datrConfiguration'
+-- * 'datrsConfiguration'
 data DescribeActivityTypeResponse = DescribeActivityTypeResponse'
-    { _datrStatus        :: !Int
-    , _datrTypeInfo      :: !ActivityTypeInfo
-    , _datrConfiguration :: !ActivityTypeConfiguration
+    { _datrsStatus        :: !Int
+    , _datrsTypeInfo      :: !ActivityTypeInfo
+    , _datrsConfiguration :: !ActivityTypeConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeActivityTypeResponse' smart constructor.
 describeActivityTypeResponse :: Int -> ActivityTypeInfo -> ActivityTypeConfiguration -> DescribeActivityTypeResponse
 describeActivityTypeResponse pStatus pTypeInfo pConfiguration =
     DescribeActivityTypeResponse'
-    { _datrStatus = pStatus
-    , _datrTypeInfo = pTypeInfo
-    , _datrConfiguration = pConfiguration
+    { _datrsStatus = pStatus
+    , _datrsTypeInfo = pTypeInfo
+    , _datrsConfiguration = pConfiguration
     }
 
 -- | FIXME: Undocumented member.
-datrStatus :: Lens' DescribeActivityTypeResponse Int
-datrStatus = lens _datrStatus (\ s a -> s{_datrStatus = a});
+datrsStatus :: Lens' DescribeActivityTypeResponse Int
+datrsStatus = lens _datrsStatus (\ s a -> s{_datrsStatus = a});
 
 -- | General information about the activity type.
 --
@@ -174,9 +174,9 @@ datrStatus = lens _datrStatus (\ s a -> s{_datrStatus = a});
 -- -   __DEPRECATED__: The type was deprecated using DeprecateActivityType,
 --     but is still in use. You should keep workers supporting this type
 --     running. You cannot create new tasks of this type.
-datrTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
-datrTypeInfo = lens _datrTypeInfo (\ s a -> s{_datrTypeInfo = a});
+datrsTypeInfo :: Lens' DescribeActivityTypeResponse ActivityTypeInfo
+datrsTypeInfo = lens _datrsTypeInfo (\ s a -> s{_datrsTypeInfo = a});
 
 -- | The configuration settings registered with the activity type.
-datrConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
-datrConfiguration = lens _datrConfiguration (\ s a -> s{_datrConfiguration = a});
+datrsConfiguration :: Lens' DescribeActivityTypeResponse ActivityTypeConfiguration
+datrsConfiguration = lens _datrsConfiguration (\ s a -> s{_datrsConfiguration = a});

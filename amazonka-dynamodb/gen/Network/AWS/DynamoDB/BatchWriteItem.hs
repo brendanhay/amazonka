@@ -103,19 +103,19 @@ module Network.AWS.DynamoDB.BatchWriteItem
     -- ** Request constructor
     , batchWriteItem
     -- ** Request lenses
-    , bwiReturnConsumedCapacity
-    , bwiReturnItemCollectionMetrics
-    , bwiRequestItems
+    , bwirqReturnConsumedCapacity
+    , bwirqReturnItemCollectionMetrics
+    , bwirqRequestItems
 
     -- * Response
     , BatchWriteItemResponse
     -- ** Response constructor
     , batchWriteItemResponse
     -- ** Response lenses
-    , bwirConsumedCapacity
-    , bwirItemCollectionMetrics
-    , bwirUnprocessedItems
-    , bwirStatus
+    , bwirsConsumedCapacity
+    , bwirsItemCollectionMetrics
+    , bwirsUnprocessedItems
+    , bwirsStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -129,36 +129,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bwiReturnConsumedCapacity'
+-- * 'bwirqReturnConsumedCapacity'
 --
--- * 'bwiReturnItemCollectionMetrics'
+-- * 'bwirqReturnItemCollectionMetrics'
 --
--- * 'bwiRequestItems'
+-- * 'bwirqRequestItems'
 data BatchWriteItem = BatchWriteItem'
-    { _bwiReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _bwiReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _bwiRequestItems                :: !(Map Text (List1 WriteRequest))
+    { _bwirqReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _bwirqReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _bwirqRequestItems                :: !(Map Text (List1 WriteRequest))
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'BatchWriteItem' smart constructor.
 batchWriteItem :: BatchWriteItem
 batchWriteItem =
     BatchWriteItem'
-    { _bwiReturnConsumedCapacity = Nothing
-    , _bwiReturnItemCollectionMetrics = Nothing
-    , _bwiRequestItems = mempty
+    { _bwirqReturnConsumedCapacity = Nothing
+    , _bwirqReturnItemCollectionMetrics = Nothing
+    , _bwirqRequestItems = mempty
     }
 
 -- | FIXME: Undocumented member.
-bwiReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
-bwiReturnConsumedCapacity = lens _bwiReturnConsumedCapacity (\ s a -> s{_bwiReturnConsumedCapacity = a});
+bwirqReturnConsumedCapacity :: Lens' BatchWriteItem (Maybe ReturnConsumedCapacity)
+bwirqReturnConsumedCapacity = lens _bwirqReturnConsumedCapacity (\ s a -> s{_bwirqReturnConsumedCapacity = a});
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
-bwiReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
-bwiReturnItemCollectionMetrics = lens _bwiReturnItemCollectionMetrics (\ s a -> s{_bwiReturnItemCollectionMetrics = a});
+bwirqReturnItemCollectionMetrics :: Lens' BatchWriteItem (Maybe ReturnItemCollectionMetrics)
+bwirqReturnItemCollectionMetrics = lens _bwirqReturnItemCollectionMetrics (\ s a -> s{_bwirqReturnItemCollectionMetrics = a});
 
 -- | A map of one or more table names and, for each table, a list of
 -- operations to be performed (/DeleteRequest/ or /PutRequest/). Each
@@ -189,8 +189,8 @@ bwiReturnItemCollectionMetrics = lens _bwiReturnItemCollectionMetrics (\ s a -> 
 --         then the data types for those attributes must match those of the
 --         schema in the table\'s attribute definition.
 --
-bwiRequestItems :: Lens' BatchWriteItem (HashMap Text (NonEmpty WriteRequest))
-bwiRequestItems = lens _bwiRequestItems (\ s a -> s{_bwiRequestItems = a}) . _Map;
+bwirqRequestItems :: Lens' BatchWriteItem (HashMap Text (NonEmpty WriteRequest))
+bwirqRequestItems = lens _bwirqRequestItems (\ s a -> s{_bwirqRequestItems = a}) . _Map;
 
 instance AWSRequest BatchWriteItem where
         type Sv BatchWriteItem = DynamoDB
@@ -218,10 +218,10 @@ instance ToJSON BatchWriteItem where
         toJSON BatchWriteItem'{..}
           = object
               ["ReturnConsumedCapacity" .=
-                 _bwiReturnConsumedCapacity,
+                 _bwirqReturnConsumedCapacity,
                "ReturnItemCollectionMetrics" .=
-                 _bwiReturnItemCollectionMetrics,
-               "RequestItems" .= _bwiRequestItems]
+                 _bwirqReturnItemCollectionMetrics,
+               "RequestItems" .= _bwirqRequestItems]
 
 instance ToPath BatchWriteItem where
         toPath = const "/"
@@ -235,28 +235,28 @@ instance ToQuery BatchWriteItem where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bwirConsumedCapacity'
+-- * 'bwirsConsumedCapacity'
 --
--- * 'bwirItemCollectionMetrics'
+-- * 'bwirsItemCollectionMetrics'
 --
--- * 'bwirUnprocessedItems'
+-- * 'bwirsUnprocessedItems'
 --
--- * 'bwirStatus'
+-- * 'bwirsStatus'
 data BatchWriteItemResponse = BatchWriteItemResponse'
-    { _bwirConsumedCapacity      :: !(Maybe [ConsumedCapacity])
-    , _bwirItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
-    , _bwirUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
-    , _bwirStatus                :: !Int
+    { _bwirsConsumedCapacity      :: !(Maybe [ConsumedCapacity])
+    , _bwirsItemCollectionMetrics :: !(Maybe (Map Text [ItemCollectionMetrics]))
+    , _bwirsUnprocessedItems      :: !(Maybe (Map Text (List1 WriteRequest)))
+    , _bwirsStatus                :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'BatchWriteItemResponse' smart constructor.
 batchWriteItemResponse :: Int -> BatchWriteItemResponse
 batchWriteItemResponse pStatus =
     BatchWriteItemResponse'
-    { _bwirConsumedCapacity = Nothing
-    , _bwirItemCollectionMetrics = Nothing
-    , _bwirUnprocessedItems = Nothing
-    , _bwirStatus = pStatus
+    { _bwirsConsumedCapacity = Nothing
+    , _bwirsItemCollectionMetrics = Nothing
+    , _bwirsUnprocessedItems = Nothing
+    , _bwirsStatus = pStatus
     }
 
 -- | The capacity units consumed by the operation.
@@ -267,8 +267,8 @@ batchWriteItemResponse pStatus =
 --
 -- -   /CapacityUnits/ - The total number of capacity units consumed.
 --
-bwirConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
-bwirConsumedCapacity = lens _bwirConsumedCapacity (\ s a -> s{_bwirConsumedCapacity = a}) . _Default;
+bwirsConsumedCapacity :: Lens' BatchWriteItemResponse [ConsumedCapacity]
+bwirsConsumedCapacity = lens _bwirsConsumedCapacity (\ s a -> s{_bwirsConsumedCapacity = a}) . _Default;
 
 -- | A list of tables that were processed by /BatchWriteItem/ and, for each
 -- table, information about any item collections that were affected by
@@ -290,8 +290,8 @@ bwirConsumedCapacity = lens _bwirConsumedCapacity (\ s a -> s{_bwirConsumedCapac
 --     The estimate is subject to change over time; therefore, do not rely
 --     on the precision or accuracy of the estimate.
 --
-bwirItemCollectionMetrics :: Lens' BatchWriteItemResponse (HashMap Text [ItemCollectionMetrics])
-bwirItemCollectionMetrics = lens _bwirItemCollectionMetrics (\ s a -> s{_bwirItemCollectionMetrics = a}) . _Default . _Map;
+bwirsItemCollectionMetrics :: Lens' BatchWriteItemResponse (HashMap Text [ItemCollectionMetrics])
+bwirsItemCollectionMetrics = lens _bwirsItemCollectionMetrics (\ s a -> s{_bwirsItemCollectionMetrics = a}) . _Default . _Map;
 
 -- | A map of tables and requests against those tables that were not
 -- processed. The /UnprocessedItems/ value is in the same form as
@@ -326,9 +326,9 @@ bwirItemCollectionMetrics = lens _bwirItemCollectionMetrics (\ s a -> s{_bwirIte
 --
 -- If there are no unprocessed items remaining, the response contains an
 -- empty /UnprocessedItems/ map.
-bwirUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty WriteRequest))
-bwirUnprocessedItems = lens _bwirUnprocessedItems (\ s a -> s{_bwirUnprocessedItems = a}) . _Default . _Map;
+bwirsUnprocessedItems :: Lens' BatchWriteItemResponse (HashMap Text (NonEmpty WriteRequest))
+bwirsUnprocessedItems = lens _bwirsUnprocessedItems (\ s a -> s{_bwirsUnprocessedItems = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-bwirStatus :: Lens' BatchWriteItemResponse Int
-bwirStatus = lens _bwirStatus (\ s a -> s{_bwirStatus = a});
+bwirsStatus :: Lens' BatchWriteItemResponse Int
+bwirsStatus = lens _bwirsStatus (\ s a -> s{_bwirsStatus = a});

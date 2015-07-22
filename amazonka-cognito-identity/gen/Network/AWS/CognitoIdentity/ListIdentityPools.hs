@@ -29,17 +29,17 @@ module Network.AWS.CognitoIdentity.ListIdentityPools
     -- ** Request constructor
     , listIdentityPools
     -- ** Request lenses
-    , lipNextToken
-    , lipMaxResults
+    , liprqNextToken
+    , liprqMaxResults
 
     -- * Response
     , ListIdentityPoolsResponse
     -- ** Response constructor
     , listIdentityPoolsResponse
     -- ** Response lenses
-    , liprIdentityPools
-    , liprNextToken
-    , liprStatus
+    , liprsIdentityPools
+    , liprsNextToken
+    , liprsStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lipNextToken'
+-- * 'liprqNextToken'
 --
--- * 'lipMaxResults'
+-- * 'liprqMaxResults'
 data ListIdentityPools = ListIdentityPools'
-    { _lipNextToken  :: !(Maybe Text)
-    , _lipMaxResults :: !Nat
+    { _liprqNextToken  :: !(Maybe Text)
+    , _liprqMaxResults :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPools' smart constructor.
 listIdentityPools :: Natural -> ListIdentityPools
 listIdentityPools pMaxResults =
     ListIdentityPools'
-    { _lipNextToken = Nothing
-    , _lipMaxResults = _Nat # pMaxResults
+    { _liprqNextToken = Nothing
+    , _liprqMaxResults = _Nat # pMaxResults
     }
 
 -- | A pagination token.
-lipNextToken :: Lens' ListIdentityPools (Maybe Text)
-lipNextToken = lens _lipNextToken (\ s a -> s{_lipNextToken = a});
+liprqNextToken :: Lens' ListIdentityPools (Maybe Text)
+liprqNextToken = lens _liprqNextToken (\ s a -> s{_liprqNextToken = a});
 
 -- | The maximum number of identities to return.
-lipMaxResults :: Lens' ListIdentityPools Natural
-lipMaxResults = lens _lipMaxResults (\ s a -> s{_lipMaxResults = a}) . _Nat;
+liprqMaxResults :: Lens' ListIdentityPools Natural
+liprqMaxResults = lens _liprqMaxResults (\ s a -> s{_liprqMaxResults = a}) . _Nat;
 
 instance AWSRequest ListIdentityPools where
         type Sv ListIdentityPools = CognitoIdentity
@@ -102,8 +102,8 @@ instance ToHeaders ListIdentityPools where
 instance ToJSON ListIdentityPools where
         toJSON ListIdentityPools'{..}
           = object
-              ["NextToken" .= _lipNextToken,
-               "MaxResults" .= _lipMaxResults]
+              ["NextToken" .= _liprqNextToken,
+               "MaxResults" .= _liprqMaxResults]
 
 instance ToPath ListIdentityPools where
         toPath = const "/"
@@ -117,34 +117,34 @@ instance ToQuery ListIdentityPools where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liprIdentityPools'
+-- * 'liprsIdentityPools'
 --
--- * 'liprNextToken'
+-- * 'liprsNextToken'
 --
--- * 'liprStatus'
+-- * 'liprsStatus'
 data ListIdentityPoolsResponse = ListIdentityPoolsResponse'
-    { _liprIdentityPools :: !(Maybe [IdentityPoolShortDescription])
-    , _liprNextToken     :: !(Maybe Text)
-    , _liprStatus        :: !Int
+    { _liprsIdentityPools :: !(Maybe [IdentityPoolShortDescription])
+    , _liprsNextToken     :: !(Maybe Text)
+    , _liprsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoolsResponse' smart constructor.
 listIdentityPoolsResponse :: Int -> ListIdentityPoolsResponse
 listIdentityPoolsResponse pStatus =
     ListIdentityPoolsResponse'
-    { _liprIdentityPools = Nothing
-    , _liprNextToken = Nothing
-    , _liprStatus = pStatus
+    { _liprsIdentityPools = Nothing
+    , _liprsNextToken = Nothing
+    , _liprsStatus = pStatus
     }
 
 -- | The identity pools returned by the ListIdentityPools action.
-liprIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
-liprIdentityPools = lens _liprIdentityPools (\ s a -> s{_liprIdentityPools = a}) . _Default;
+liprsIdentityPools :: Lens' ListIdentityPoolsResponse [IdentityPoolShortDescription]
+liprsIdentityPools = lens _liprsIdentityPools (\ s a -> s{_liprsIdentityPools = a}) . _Default;
 
 -- | A pagination token.
-liprNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
-liprNextToken = lens _liprNextToken (\ s a -> s{_liprNextToken = a});
+liprsNextToken :: Lens' ListIdentityPoolsResponse (Maybe Text)
+liprsNextToken = lens _liprsNextToken (\ s a -> s{_liprsNextToken = a});
 
 -- | FIXME: Undocumented member.
-liprStatus :: Lens' ListIdentityPoolsResponse Int
-liprStatus = lens _liprStatus (\ s a -> s{_liprStatus = a});
+liprsStatus :: Lens' ListIdentityPoolsResponse Int
+liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});

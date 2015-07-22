@@ -32,18 +32,18 @@ module Network.AWS.ElasticTranscoder.ListJobsByPipeline
     -- ** Request constructor
     , listJobsByPipeline
     -- ** Request lenses
-    , ljbpAscending
-    , ljbpPageToken
-    , ljbpPipelineId
+    , ljbprqAscending
+    , ljbprqPageToken
+    , ljbprqPipelineId
 
     -- * Response
     , ListJobsByPipelineResponse
     -- ** Response constructor
     , listJobsByPipelineResponse
     -- ** Response lenses
-    , ljbprNextPageToken
-    , ljbprJobs
-    , ljbprStatus
+    , ljbprsNextPageToken
+    , ljbprsJobs
+    , ljbprsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -58,48 +58,49 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljbpAscending'
+-- * 'ljbprqAscending'
 --
--- * 'ljbpPageToken'
+-- * 'ljbprqPageToken'
 --
--- * 'ljbpPipelineId'
+-- * 'ljbprqPipelineId'
 data ListJobsByPipeline = ListJobsByPipeline'
-    { _ljbpAscending  :: !(Maybe Text)
-    , _ljbpPageToken  :: !(Maybe Text)
-    , _ljbpPipelineId :: !Text
+    { _ljbprqAscending  :: !(Maybe Text)
+    , _ljbprqPageToken  :: !(Maybe Text)
+    , _ljbprqPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByPipeline' smart constructor.
 listJobsByPipeline :: Text -> ListJobsByPipeline
 listJobsByPipeline pPipelineId =
     ListJobsByPipeline'
-    { _ljbpAscending = Nothing
-    , _ljbpPageToken = Nothing
-    , _ljbpPipelineId = pPipelineId
+    { _ljbprqAscending = Nothing
+    , _ljbprqPageToken = Nothing
+    , _ljbprqPipelineId = pPipelineId
     }
 
 -- | To list jobs in chronological order by the date and time that they were
 -- submitted, enter @true@. To list jobs in reverse chronological order,
 -- enter @false@.
-ljbpAscending :: Lens' ListJobsByPipeline (Maybe Text)
-ljbpAscending = lens _ljbpAscending (\ s a -> s{_ljbpAscending = a});
+ljbprqAscending :: Lens' ListJobsByPipeline (Maybe Text)
+ljbprqAscending = lens _ljbprqAscending (\ s a -> s{_ljbprqAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-ljbpPageToken :: Lens' ListJobsByPipeline (Maybe Text)
-ljbpPageToken = lens _ljbpPageToken (\ s a -> s{_ljbpPageToken = a});
+ljbprqPageToken :: Lens' ListJobsByPipeline (Maybe Text)
+ljbprqPageToken = lens _ljbprqPageToken (\ s a -> s{_ljbprqPageToken = a});
 
 -- | The ID of the pipeline for which you want to get job information.
-ljbpPipelineId :: Lens' ListJobsByPipeline Text
-ljbpPipelineId = lens _ljbpPipelineId (\ s a -> s{_ljbpPipelineId = a});
+ljbprqPipelineId :: Lens' ListJobsByPipeline Text
+ljbprqPipelineId = lens _ljbprqPipelineId (\ s a -> s{_ljbprqPipelineId = a});
 
 instance AWSPager ListJobsByPipeline where
         page rq rs
-          | stop (rs ^. ljbprNextPageToken) = Nothing
-          | stop (rs ^. ljbprJobs) = Nothing
+          | stop (rs ^. ljbprsNextPageToken) = Nothing
+          | stop (rs ^. ljbprsJobs) = Nothing
           | otherwise =
-            Just $ rq & ljbpPageToken .~ rs ^. ljbprNextPageToken
+            Just $ rq &
+              ljbprqPageToken .~ rs ^. ljbprsNextPageToken
 
 instance AWSRequest ListJobsByPipeline where
         type Sv ListJobsByPipeline = ElasticTranscoder
@@ -120,13 +121,13 @@ instance ToPath ListJobsByPipeline where
         toPath ListJobsByPipeline'{..}
           = mconcat
               ["/2012-09-25/jobsByPipeline/",
-               toText _ljbpPipelineId]
+               toText _ljbprqPipelineId]
 
 instance ToQuery ListJobsByPipeline where
         toQuery ListJobsByPipeline'{..}
           = mconcat
-              ["Ascending" =: _ljbpAscending,
-               "PageToken" =: _ljbpPageToken]
+              ["Ascending" =: _ljbprqAscending,
+               "PageToken" =: _ljbprqPageToken]
 
 -- | The @ListJobsByPipelineResponse@ structure.
 --
@@ -134,37 +135,37 @@ instance ToQuery ListJobsByPipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljbprNextPageToken'
+-- * 'ljbprsNextPageToken'
 --
--- * 'ljbprJobs'
+-- * 'ljbprsJobs'
 --
--- * 'ljbprStatus'
+-- * 'ljbprsStatus'
 data ListJobsByPipelineResponse = ListJobsByPipelineResponse'
-    { _ljbprNextPageToken :: !(Maybe Text)
-    , _ljbprJobs          :: !(Maybe [Job'])
-    , _ljbprStatus        :: !Int
+    { _ljbprsNextPageToken :: !(Maybe Text)
+    , _ljbprsJobs          :: !(Maybe [Job'])
+    , _ljbprsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsByPipelineResponse' smart constructor.
 listJobsByPipelineResponse :: Int -> ListJobsByPipelineResponse
 listJobsByPipelineResponse pStatus =
     ListJobsByPipelineResponse'
-    { _ljbprNextPageToken = Nothing
-    , _ljbprJobs = Nothing
-    , _ljbprStatus = pStatus
+    { _ljbprsNextPageToken = Nothing
+    , _ljbprsJobs = Nothing
+    , _ljbprsStatus = pStatus
     }
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the jobs in the specified pipeline fit on one page
 -- or when you\'ve reached the last page of results, the value of
 -- @NextPageToken@ is @null@.
-ljbprNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
-ljbprNextPageToken = lens _ljbprNextPageToken (\ s a -> s{_ljbprNextPageToken = a});
+ljbprsNextPageToken :: Lens' ListJobsByPipelineResponse (Maybe Text)
+ljbprsNextPageToken = lens _ljbprsNextPageToken (\ s a -> s{_ljbprsNextPageToken = a});
 
 -- | An array of @Job@ objects that are in the specified pipeline.
-ljbprJobs :: Lens' ListJobsByPipelineResponse [Job']
-ljbprJobs = lens _ljbprJobs (\ s a -> s{_ljbprJobs = a}) . _Default;
+ljbprsJobs :: Lens' ListJobsByPipelineResponse [Job']
+ljbprsJobs = lens _ljbprsJobs (\ s a -> s{_ljbprsJobs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ljbprStatus :: Lens' ListJobsByPipelineResponse Int
-ljbprStatus = lens _ljbprStatus (\ s a -> s{_ljbprStatus = a});
+ljbprsStatus :: Lens' ListJobsByPipelineResponse Int
+ljbprsStatus = lens _ljbprsStatus (\ s a -> s{_ljbprsStatus = a});

@@ -46,16 +46,16 @@ module Network.AWS.IAM.UploadSigningCertificate
     -- ** Request constructor
     , uploadSigningCertificate
     -- ** Request lenses
-    , uUserName
-    , uCertificateBody
+    , urqUserName
+    , urqCertificateBody
 
     -- * Response
     , UploadSigningCertificateResponse
     -- ** Response constructor
     , uploadSigningCertificateResponse
     -- ** Response lenses
-    , uscrStatus
-    , uscrCertificate
+    , ursStatus
+    , ursCertificate
     ) where
 
 import           Network.AWS.IAM.Types
@@ -67,29 +67,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uUserName'
+-- * 'urqUserName'
 --
--- * 'uCertificateBody'
+-- * 'urqCertificateBody'
 data UploadSigningCertificate = UploadSigningCertificate'
-    { _uUserName        :: !(Maybe Text)
-    , _uCertificateBody :: !Text
+    { _urqUserName        :: !(Maybe Text)
+    , _urqCertificateBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSigningCertificate' smart constructor.
 uploadSigningCertificate :: Text -> UploadSigningCertificate
 uploadSigningCertificate pCertificateBody =
     UploadSigningCertificate'
-    { _uUserName = Nothing
-    , _uCertificateBody = pCertificateBody
+    { _urqUserName = Nothing
+    , _urqCertificateBody = pCertificateBody
     }
 
 -- | The name of the user the signing certificate is for.
-uUserName :: Lens' UploadSigningCertificate (Maybe Text)
-uUserName = lens _uUserName (\ s a -> s{_uUserName = a});
+urqUserName :: Lens' UploadSigningCertificate (Maybe Text)
+urqUserName = lens _urqUserName (\ s a -> s{_urqUserName = a});
 
 -- | The contents of the signing certificate.
-uCertificateBody :: Lens' UploadSigningCertificate Text
-uCertificateBody = lens _uCertificateBody (\ s a -> s{_uCertificateBody = a});
+urqCertificateBody :: Lens' UploadSigningCertificate Text
+urqCertificateBody = lens _urqCertificateBody (\ s a -> s{_urqCertificateBody = a});
 
 instance AWSRequest UploadSigningCertificate where
         type Sv UploadSigningCertificate = IAM
@@ -114,8 +114,8 @@ instance ToQuery UploadSigningCertificate where
               ["Action" =:
                  ("UploadSigningCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _uUserName,
-               "CertificateBody" =: _uCertificateBody]
+               "UserName" =: _urqUserName,
+               "CertificateBody" =: _urqCertificateBody]
 
 -- | Contains the response to a successful UploadSigningCertificate request.
 --
@@ -123,26 +123,26 @@ instance ToQuery UploadSigningCertificate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uscrStatus'
+-- * 'ursStatus'
 --
--- * 'uscrCertificate'
+-- * 'ursCertificate'
 data UploadSigningCertificateResponse = UploadSigningCertificateResponse'
-    { _uscrStatus      :: !Int
-    , _uscrCertificate :: !SigningCertificate
+    { _ursStatus      :: !Int
+    , _ursCertificate :: !SigningCertificate
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UploadSigningCertificateResponse' smart constructor.
 uploadSigningCertificateResponse :: Int -> SigningCertificate -> UploadSigningCertificateResponse
 uploadSigningCertificateResponse pStatus pCertificate =
     UploadSigningCertificateResponse'
-    { _uscrStatus = pStatus
-    , _uscrCertificate = pCertificate
+    { _ursStatus = pStatus
+    , _ursCertificate = pCertificate
     }
 
 -- | FIXME: Undocumented member.
-uscrStatus :: Lens' UploadSigningCertificateResponse Int
-uscrStatus = lens _uscrStatus (\ s a -> s{_uscrStatus = a});
+ursStatus :: Lens' UploadSigningCertificateResponse Int
+ursStatus = lens _ursStatus (\ s a -> s{_ursStatus = a});
 
 -- | Information about the certificate.
-uscrCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
-uscrCertificate = lens _uscrCertificate (\ s a -> s{_uscrCertificate = a});
+ursCertificate :: Lens' UploadSigningCertificateResponse SigningCertificate
+ursCertificate = lens _ursCertificate (\ s a -> s{_ursCertificate = a});

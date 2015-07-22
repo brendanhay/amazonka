@@ -40,16 +40,16 @@ module Network.AWS.Support.DescribeServices
     -- ** Request constructor
     , describeServices
     -- ** Request lenses
-    , dsServiceCodeList
-    , dsLanguage
+    , dsrqServiceCodeList
+    , dsrqLanguage
 
     -- * Response
     , DescribeServicesResponse
     -- ** Response constructor
     , describeServicesResponse
     -- ** Response lenses
-    , dsrServices
-    , dsrStatus
+    , dsrsServices
+    , dsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -61,32 +61,32 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsServiceCodeList'
+-- * 'dsrqServiceCodeList'
 --
--- * 'dsLanguage'
+-- * 'dsrqLanguage'
 data DescribeServices = DescribeServices'
-    { _dsServiceCodeList :: !(Maybe [Text])
-    , _dsLanguage        :: !(Maybe Text)
+    { _dsrqServiceCodeList :: !(Maybe [Text])
+    , _dsrqLanguage        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
 describeServices =
     DescribeServices'
-    { _dsServiceCodeList = Nothing
-    , _dsLanguage = Nothing
+    { _dsrqServiceCodeList = Nothing
+    , _dsrqLanguage = Nothing
     }
 
 -- | A JSON-formatted list of service codes available for AWS services.
-dsServiceCodeList :: Lens' DescribeServices [Text]
-dsServiceCodeList = lens _dsServiceCodeList (\ s a -> s{_dsServiceCodeList = a}) . _Default;
+dsrqServiceCodeList :: Lens' DescribeServices [Text]
+dsrqServiceCodeList = lens _dsrqServiceCodeList (\ s a -> s{_dsrqServiceCodeList = a}) . _Default;
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-dsLanguage :: Lens' DescribeServices (Maybe Text)
-dsLanguage = lens _dsLanguage (\ s a -> s{_dsLanguage = a});
+dsrqLanguage :: Lens' DescribeServices (Maybe Text)
+dsrqLanguage = lens _dsrqLanguage (\ s a -> s{_dsrqLanguage = a});
 
 instance AWSRequest DescribeServices where
         type Sv DescribeServices = Support
@@ -112,8 +112,8 @@ instance ToHeaders DescribeServices where
 instance ToJSON DescribeServices where
         toJSON DescribeServices'{..}
           = object
-              ["serviceCodeList" .= _dsServiceCodeList,
-               "language" .= _dsLanguage]
+              ["serviceCodeList" .= _dsrqServiceCodeList,
+               "language" .= _dsrqLanguage]
 
 instance ToPath DescribeServices where
         toPath = const "/"
@@ -127,26 +127,26 @@ instance ToQuery DescribeServices where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrServices'
+-- * 'dsrsServices'
 --
--- * 'dsrStatus'
+-- * 'dsrsStatus'
 data DescribeServicesResponse = DescribeServicesResponse'
-    { _dsrServices :: !(Maybe [SupportService])
-    , _dsrStatus   :: !Int
+    { _dsrsServices :: !(Maybe [SupportService])
+    , _dsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse
 describeServicesResponse pStatus =
     DescribeServicesResponse'
-    { _dsrServices = Nothing
-    , _dsrStatus = pStatus
+    { _dsrsServices = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | A JSON-formatted list of AWS services.
-dsrServices :: Lens' DescribeServicesResponse [SupportService]
-dsrServices = lens _dsrServices (\ s a -> s{_dsrServices = a}) . _Default;
+dsrsServices :: Lens' DescribeServicesResponse [SupportService]
+dsrsServices = lens _dsrsServices (\ s a -> s{_dsrsServices = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeServicesResponse Int
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+dsrsStatus :: Lens' DescribeServicesResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

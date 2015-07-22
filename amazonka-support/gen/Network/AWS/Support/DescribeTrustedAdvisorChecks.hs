@@ -31,15 +31,15 @@ module Network.AWS.Support.DescribeTrustedAdvisorChecks
     -- ** Request constructor
     , describeTrustedAdvisorChecks
     -- ** Request lenses
-    , dtacLanguage
+    , dtacrqLanguage
 
     -- * Response
     , DescribeTrustedAdvisorChecksResponse
     -- ** Response constructor
     , describeTrustedAdvisorChecksResponse
     -- ** Response lenses
-    , dtacrStatus
-    , dtacrChecks
+    , dtacrsStatus
+    , dtacrsChecks
     ) where
 
 import           Network.AWS.Prelude
@@ -51,24 +51,24 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacLanguage'
+-- * 'dtacrqLanguage'
 newtype DescribeTrustedAdvisorChecks = DescribeTrustedAdvisorChecks'
-    { _dtacLanguage :: Text
+    { _dtacrqLanguage :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorChecks' smart constructor.
 describeTrustedAdvisorChecks :: Text -> DescribeTrustedAdvisorChecks
 describeTrustedAdvisorChecks pLanguage =
     DescribeTrustedAdvisorChecks'
-    { _dtacLanguage = pLanguage
+    { _dtacrqLanguage = pLanguage
     }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-dtacLanguage :: Lens' DescribeTrustedAdvisorChecks Text
-dtacLanguage = lens _dtacLanguage (\ s a -> s{_dtacLanguage = a});
+dtacrqLanguage :: Lens' DescribeTrustedAdvisorChecks Text
+dtacrqLanguage = lens _dtacrqLanguage (\ s a -> s{_dtacrqLanguage = a});
 
 instance AWSRequest DescribeTrustedAdvisorChecks
          where
@@ -94,7 +94,7 @@ instance ToHeaders DescribeTrustedAdvisorChecks where
 
 instance ToJSON DescribeTrustedAdvisorChecks where
         toJSON DescribeTrustedAdvisorChecks'{..}
-          = object ["language" .= _dtacLanguage]
+          = object ["language" .= _dtacrqLanguage]
 
 instance ToPath DescribeTrustedAdvisorChecks where
         toPath = const "/"
@@ -109,26 +109,26 @@ instance ToQuery DescribeTrustedAdvisorChecks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacrStatus'
+-- * 'dtacrsStatus'
 --
--- * 'dtacrChecks'
+-- * 'dtacrsChecks'
 data DescribeTrustedAdvisorChecksResponse = DescribeTrustedAdvisorChecksResponse'
-    { _dtacrStatus :: !Int
-    , _dtacrChecks :: ![TrustedAdvisorCheckDescription]
+    { _dtacrsStatus :: !Int
+    , _dtacrsChecks :: ![TrustedAdvisorCheckDescription]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorChecksResponse' smart constructor.
 describeTrustedAdvisorChecksResponse :: Int -> DescribeTrustedAdvisorChecksResponse
 describeTrustedAdvisorChecksResponse pStatus =
     DescribeTrustedAdvisorChecksResponse'
-    { _dtacrStatus = pStatus
-    , _dtacrChecks = mempty
+    { _dtacrsStatus = pStatus
+    , _dtacrsChecks = mempty
     }
 
 -- | FIXME: Undocumented member.
-dtacrStatus :: Lens' DescribeTrustedAdvisorChecksResponse Int
-dtacrStatus = lens _dtacrStatus (\ s a -> s{_dtacrStatus = a});
+dtacrsStatus :: Lens' DescribeTrustedAdvisorChecksResponse Int
+dtacrsStatus = lens _dtacrsStatus (\ s a -> s{_dtacrsStatus = a});
 
 -- | Information about all available Trusted Advisor checks.
-dtacrChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
-dtacrChecks = lens _dtacrChecks (\ s a -> s{_dtacrChecks = a});
+dtacrsChecks :: Lens' DescribeTrustedAdvisorChecksResponse [TrustedAdvisorCheckDescription]
+dtacrsChecks = lens _dtacrsChecks (\ s a -> s{_dtacrsChecks = a});

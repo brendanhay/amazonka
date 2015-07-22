@@ -27,20 +27,20 @@ module Network.AWS.EC2.DescribeImportSnapshotTasks
     -- ** Request constructor
     , describeImportSnapshotTasks
     -- ** Request lenses
-    , distFilters
-    , distImportTaskIds
-    , distNextToken
-    , distDryRun
-    , distMaxResults
+    , distrqFilters
+    , distrqImportTaskIds
+    , distrqNextToken
+    , distrqDryRun
+    , distrqMaxResults
 
     -- * Response
     , DescribeImportSnapshotTasksResponse
     -- ** Response constructor
     , describeImportSnapshotTasksResponse
     -- ** Response lenses
-    , distrNextToken
-    , distrImportSnapshotTasks
-    , distrStatus
+    , distrsNextToken
+    , distrsImportSnapshotTasks
+    , distrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,56 +52,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'distFilters'
+-- * 'distrqFilters'
 --
--- * 'distImportTaskIds'
+-- * 'distrqImportTaskIds'
 --
--- * 'distNextToken'
+-- * 'distrqNextToken'
 --
--- * 'distDryRun'
+-- * 'distrqDryRun'
 --
--- * 'distMaxResults'
+-- * 'distrqMaxResults'
 data DescribeImportSnapshotTasks = DescribeImportSnapshotTasks'
-    { _distFilters       :: !(Maybe [Filter])
-    , _distImportTaskIds :: !(Maybe [Text])
-    , _distNextToken     :: !(Maybe Text)
-    , _distDryRun        :: !(Maybe Bool)
-    , _distMaxResults    :: !(Maybe Int)
+    { _distrqFilters       :: !(Maybe [Filter])
+    , _distrqImportTaskIds :: !(Maybe [Text])
+    , _distrqNextToken     :: !(Maybe Text)
+    , _distrqDryRun        :: !(Maybe Bool)
+    , _distrqMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportSnapshotTasks' smart constructor.
 describeImportSnapshotTasks :: DescribeImportSnapshotTasks
 describeImportSnapshotTasks =
     DescribeImportSnapshotTasks'
-    { _distFilters = Nothing
-    , _distImportTaskIds = Nothing
-    , _distNextToken = Nothing
-    , _distDryRun = Nothing
-    , _distMaxResults = Nothing
+    { _distrqFilters = Nothing
+    , _distrqImportTaskIds = Nothing
+    , _distrqNextToken = Nothing
+    , _distrqDryRun = Nothing
+    , _distrqMaxResults = Nothing
     }
 
 -- | One or more filters.
-distFilters :: Lens' DescribeImportSnapshotTasks [Filter]
-distFilters = lens _distFilters (\ s a -> s{_distFilters = a}) . _Default;
+distrqFilters :: Lens' DescribeImportSnapshotTasks [Filter]
+distrqFilters = lens _distrqFilters (\ s a -> s{_distrqFilters = a}) . _Default;
 
 -- | A list of import snapshot task IDs.
-distImportTaskIds :: Lens' DescribeImportSnapshotTasks [Text]
-distImportTaskIds = lens _distImportTaskIds (\ s a -> s{_distImportTaskIds = a}) . _Default;
+distrqImportTaskIds :: Lens' DescribeImportSnapshotTasks [Text]
+distrqImportTaskIds = lens _distrqImportTaskIds (\ s a -> s{_distrqImportTaskIds = a}) . _Default;
 
 -- | A token that indicates the next page of results.
-distNextToken :: Lens' DescribeImportSnapshotTasks (Maybe Text)
-distNextToken = lens _distNextToken (\ s a -> s{_distNextToken = a});
+distrqNextToken :: Lens' DescribeImportSnapshotTasks (Maybe Text)
+distrqNextToken = lens _distrqNextToken (\ s a -> s{_distrqNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-distDryRun :: Lens' DescribeImportSnapshotTasks (Maybe Bool)
-distDryRun = lens _distDryRun (\ s a -> s{_distDryRun = a});
+distrqDryRun :: Lens' DescribeImportSnapshotTasks (Maybe Bool)
+distrqDryRun = lens _distrqDryRun (\ s a -> s{_distrqDryRun = a});
 
 -- | The maximum number of results to return in a single request.
-distMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
-distMaxResults = lens _distMaxResults (\ s a -> s{_distMaxResults = a});
+distrqMaxResults :: Lens' DescribeImportSnapshotTasks (Maybe Int)
+distrqMaxResults = lens _distrqMaxResults (\ s a -> s{_distrqMaxResults = a});
 
 instance AWSRequest DescribeImportSnapshotTasks where
         type Sv DescribeImportSnapshotTasks = EC2
@@ -129,47 +129,48 @@ instance ToQuery DescribeImportSnapshotTasks where
               ["Action" =:
                  ("DescribeImportSnapshotTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _distFilters),
+               toQuery (toQueryList "Filter" <$> _distrqFilters),
                toQuery
-                 (toQueryList "ImportTaskId" <$> _distImportTaskIds),
-               "NextToken" =: _distNextToken,
-               "DryRun" =: _distDryRun,
-               "MaxResults" =: _distMaxResults]
+                 (toQueryList "ImportTaskId" <$>
+                    _distrqImportTaskIds),
+               "NextToken" =: _distrqNextToken,
+               "DryRun" =: _distrqDryRun,
+               "MaxResults" =: _distrqMaxResults]
 
 -- | /See:/ 'describeImportSnapshotTasksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'distrNextToken'
+-- * 'distrsNextToken'
 --
--- * 'distrImportSnapshotTasks'
+-- * 'distrsImportSnapshotTasks'
 --
--- * 'distrStatus'
+-- * 'distrsStatus'
 data DescribeImportSnapshotTasksResponse = DescribeImportSnapshotTasksResponse'
-    { _distrNextToken           :: !(Maybe Text)
-    , _distrImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
-    , _distrStatus              :: !Int
+    { _distrsNextToken           :: !(Maybe Text)
+    , _distrsImportSnapshotTasks :: !(Maybe [ImportSnapshotTask])
+    , _distrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImportSnapshotTasksResponse' smart constructor.
 describeImportSnapshotTasksResponse :: Int -> DescribeImportSnapshotTasksResponse
 describeImportSnapshotTasksResponse pStatus =
     DescribeImportSnapshotTasksResponse'
-    { _distrNextToken = Nothing
-    , _distrImportSnapshotTasks = Nothing
-    , _distrStatus = pStatus
+    { _distrsNextToken = Nothing
+    , _distrsImportSnapshotTasks = Nothing
+    , _distrsStatus = pStatus
     }
 
 -- | The token to use to get the next page of results. This value is @null@
 -- when there are no more results to return.
-distrNextToken :: Lens' DescribeImportSnapshotTasksResponse (Maybe Text)
-distrNextToken = lens _distrNextToken (\ s a -> s{_distrNextToken = a});
+distrsNextToken :: Lens' DescribeImportSnapshotTasksResponse (Maybe Text)
+distrsNextToken = lens _distrsNextToken (\ s a -> s{_distrsNextToken = a});
 
 -- | A list of zero or more import snapshot tasks that are currently active
 -- or were completed or canceled in the previous 7 days.
-distrImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
-distrImportSnapshotTasks = lens _distrImportSnapshotTasks (\ s a -> s{_distrImportSnapshotTasks = a}) . _Default;
+distrsImportSnapshotTasks :: Lens' DescribeImportSnapshotTasksResponse [ImportSnapshotTask]
+distrsImportSnapshotTasks = lens _distrsImportSnapshotTasks (\ s a -> s{_distrsImportSnapshotTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-distrStatus :: Lens' DescribeImportSnapshotTasksResponse Int
-distrStatus = lens _distrStatus (\ s a -> s{_distrStatus = a});
+distrsStatus :: Lens' DescribeImportSnapshotTasksResponse Int
+distrsStatus = lens _distrsStatus (\ s a -> s{_distrsStatus = a});

@@ -44,19 +44,19 @@ module Network.AWS.CloudWatchLogs.PutLogEvents
     -- ** Request constructor
     , putLogEvents
     -- ** Request lenses
-    , pleSequenceToken
-    , pleLogGroupName
-    , pleLogStreamName
-    , pleLogEvents
+    , plerqSequenceToken
+    , plerqLogGroupName
+    , plerqLogStreamName
+    , plerqLogEvents
 
     -- * Response
     , PutLogEventsResponse
     -- ** Response constructor
     , putLogEventsResponse
     -- ** Response lenses
-    , plerRejectedLogEventsInfo
-    , plerNextSequenceToken
-    , plerStatus
+    , plersRejectedLogEventsInfo
+    , plersNextSequenceToken
+    , plersStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -68,46 +68,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pleSequenceToken'
+-- * 'plerqSequenceToken'
 --
--- * 'pleLogGroupName'
+-- * 'plerqLogGroupName'
 --
--- * 'pleLogStreamName'
+-- * 'plerqLogStreamName'
 --
--- * 'pleLogEvents'
+-- * 'plerqLogEvents'
 data PutLogEvents = PutLogEvents'
-    { _pleSequenceToken :: !(Maybe Text)
-    , _pleLogGroupName  :: !Text
-    , _pleLogStreamName :: !Text
-    , _pleLogEvents     :: !(List1 InputLogEvent)
+    { _plerqSequenceToken :: !(Maybe Text)
+    , _plerqLogGroupName  :: !Text
+    , _plerqLogStreamName :: !Text
+    , _plerqLogEvents     :: !(List1 InputLogEvent)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLogEvents' smart constructor.
 putLogEvents :: Text -> Text -> NonEmpty InputLogEvent -> PutLogEvents
 putLogEvents pLogGroupName pLogStreamName pLogEvents =
     PutLogEvents'
-    { _pleSequenceToken = Nothing
-    , _pleLogGroupName = pLogGroupName
-    , _pleLogStreamName = pLogStreamName
-    , _pleLogEvents = _List1 # pLogEvents
+    { _plerqSequenceToken = Nothing
+    , _plerqLogGroupName = pLogGroupName
+    , _plerqLogStreamName = pLogStreamName
+    , _plerqLogEvents = _List1 # pLogEvents
     }
 
 -- | A string token that must be obtained from the response of the previous
 -- @PutLogEvents@ request.
-pleSequenceToken :: Lens' PutLogEvents (Maybe Text)
-pleSequenceToken = lens _pleSequenceToken (\ s a -> s{_pleSequenceToken = a});
+plerqSequenceToken :: Lens' PutLogEvents (Maybe Text)
+plerqSequenceToken = lens _plerqSequenceToken (\ s a -> s{_plerqSequenceToken = a});
 
 -- | The name of the log group to put log events to.
-pleLogGroupName :: Lens' PutLogEvents Text
-pleLogGroupName = lens _pleLogGroupName (\ s a -> s{_pleLogGroupName = a});
+plerqLogGroupName :: Lens' PutLogEvents Text
+plerqLogGroupName = lens _plerqLogGroupName (\ s a -> s{_plerqLogGroupName = a});
 
 -- | The name of the log stream to put log events to.
-pleLogStreamName :: Lens' PutLogEvents Text
-pleLogStreamName = lens _pleLogStreamName (\ s a -> s{_pleLogStreamName = a});
+plerqLogStreamName :: Lens' PutLogEvents Text
+plerqLogStreamName = lens _plerqLogStreamName (\ s a -> s{_plerqLogStreamName = a});
 
 -- | FIXME: Undocumented member.
-pleLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
-pleLogEvents = lens _pleLogEvents (\ s a -> s{_pleLogEvents = a}) . _List1;
+plerqLogEvents :: Lens' PutLogEvents (NonEmpty InputLogEvent)
+plerqLogEvents = lens _plerqLogEvents (\ s a -> s{_plerqLogEvents = a}) . _List1;
 
 instance AWSRequest PutLogEvents where
         type Sv PutLogEvents = CloudWatchLogs
@@ -133,10 +133,10 @@ instance ToHeaders PutLogEvents where
 instance ToJSON PutLogEvents where
         toJSON PutLogEvents'{..}
           = object
-              ["sequenceToken" .= _pleSequenceToken,
-               "logGroupName" .= _pleLogGroupName,
-               "logStreamName" .= _pleLogStreamName,
-               "logEvents" .= _pleLogEvents]
+              ["sequenceToken" .= _plerqSequenceToken,
+               "logGroupName" .= _plerqLogGroupName,
+               "logStreamName" .= _plerqLogStreamName,
+               "logEvents" .= _plerqLogEvents]
 
 instance ToPath PutLogEvents where
         toPath = const "/"
@@ -148,34 +148,34 @@ instance ToQuery PutLogEvents where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'plerRejectedLogEventsInfo'
+-- * 'plersRejectedLogEventsInfo'
 --
--- * 'plerNextSequenceToken'
+-- * 'plersNextSequenceToken'
 --
--- * 'plerStatus'
+-- * 'plersStatus'
 data PutLogEventsResponse = PutLogEventsResponse'
-    { _plerRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
-    , _plerNextSequenceToken     :: !(Maybe Text)
-    , _plerStatus                :: !Int
+    { _plersRejectedLogEventsInfo :: !(Maybe RejectedLogEventsInfo)
+    , _plersNextSequenceToken     :: !(Maybe Text)
+    , _plersStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutLogEventsResponse' smart constructor.
 putLogEventsResponse :: Int -> PutLogEventsResponse
 putLogEventsResponse pStatus =
     PutLogEventsResponse'
-    { _plerRejectedLogEventsInfo = Nothing
-    , _plerNextSequenceToken = Nothing
-    , _plerStatus = pStatus
+    { _plersRejectedLogEventsInfo = Nothing
+    , _plersNextSequenceToken = Nothing
+    , _plersStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-plerRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
-plerRejectedLogEventsInfo = lens _plerRejectedLogEventsInfo (\ s a -> s{_plerRejectedLogEventsInfo = a});
+plersRejectedLogEventsInfo :: Lens' PutLogEventsResponse (Maybe RejectedLogEventsInfo)
+plersRejectedLogEventsInfo = lens _plersRejectedLogEventsInfo (\ s a -> s{_plersRejectedLogEventsInfo = a});
 
 -- | FIXME: Undocumented member.
-plerNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
-plerNextSequenceToken = lens _plerNextSequenceToken (\ s a -> s{_plerNextSequenceToken = a});
+plersNextSequenceToken :: Lens' PutLogEventsResponse (Maybe Text)
+plersNextSequenceToken = lens _plersNextSequenceToken (\ s a -> s{_plersNextSequenceToken = a});
 
 -- | FIXME: Undocumented member.
-plerStatus :: Lens' PutLogEventsResponse Int
-plerStatus = lens _plerStatus (\ s a -> s{_plerStatus = a});
+plersStatus :: Lens' PutLogEventsResponse Int
+plersStatus = lens _plersStatus (\ s a -> s{_plersStatus = a});

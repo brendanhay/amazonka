@@ -35,28 +35,28 @@ module Network.AWS.ElasticBeanstalk.CreateConfigurationTemplate
     -- ** Request constructor
     , createConfigurationTemplate
     -- ** Request lenses
-    , cctOptionSettings
-    , cctSourceConfiguration
-    , cctEnvironmentId
-    , cctSolutionStackName
-    , cctDescription
-    , cctApplicationName
-    , cctTemplateName
+    , cctrqOptionSettings
+    , cctrqSourceConfiguration
+    , cctrqEnvironmentId
+    , cctrqSolutionStackName
+    , cctrqDescription
+    , cctrqApplicationName
+    , cctrqTemplateName
 
     -- * Response
     , ConfigurationSettingsDescription
     -- ** Response constructor
     , configurationSettingsDescription
     -- ** Response lenses
-    , csdTemplateName
-    , csdOptionSettings
-    , csdDateUpdated
-    , csdDateCreated
-    , csdEnvironmentName
-    , csdApplicationName
-    , csdDeploymentStatus
-    , csdSolutionStackName
-    , csdDescription
+    , cctrsTemplateName
+    , cctrsOptionSettings
+    , cctrsDateUpdated
+    , cctrsDateCreated
+    , cctrsEnvironmentName
+    , cctrsApplicationName
+    , cctrsDeploymentStatus
+    , cctrsSolutionStackName
+    , cctrsDescription
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -70,47 +70,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cctOptionSettings'
+-- * 'cctrqOptionSettings'
 --
--- * 'cctSourceConfiguration'
+-- * 'cctrqSourceConfiguration'
 --
--- * 'cctEnvironmentId'
+-- * 'cctrqEnvironmentId'
 --
--- * 'cctSolutionStackName'
+-- * 'cctrqSolutionStackName'
 --
--- * 'cctDescription'
+-- * 'cctrqDescription'
 --
--- * 'cctApplicationName'
+-- * 'cctrqApplicationName'
 --
--- * 'cctTemplateName'
+-- * 'cctrqTemplateName'
 data CreateConfigurationTemplate = CreateConfigurationTemplate'
-    { _cctOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
-    , _cctSourceConfiguration :: !(Maybe SourceConfiguration)
-    , _cctEnvironmentId       :: !(Maybe Text)
-    , _cctSolutionStackName   :: !(Maybe Text)
-    , _cctDescription         :: !(Maybe Text)
-    , _cctApplicationName     :: !Text
-    , _cctTemplateName        :: !Text
+    { _cctrqOptionSettings      :: !(Maybe [ConfigurationOptionSetting])
+    , _cctrqSourceConfiguration :: !(Maybe SourceConfiguration)
+    , _cctrqEnvironmentId       :: !(Maybe Text)
+    , _cctrqSolutionStackName   :: !(Maybe Text)
+    , _cctrqDescription         :: !(Maybe Text)
+    , _cctrqApplicationName     :: !Text
+    , _cctrqTemplateName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateConfigurationTemplate' smart constructor.
 createConfigurationTemplate :: Text -> Text -> CreateConfigurationTemplate
 createConfigurationTemplate pApplicationName pTemplateName =
     CreateConfigurationTemplate'
-    { _cctOptionSettings = Nothing
-    , _cctSourceConfiguration = Nothing
-    , _cctEnvironmentId = Nothing
-    , _cctSolutionStackName = Nothing
-    , _cctDescription = Nothing
-    , _cctApplicationName = pApplicationName
-    , _cctTemplateName = pTemplateName
+    { _cctrqOptionSettings = Nothing
+    , _cctrqSourceConfiguration = Nothing
+    , _cctrqEnvironmentId = Nothing
+    , _cctrqSolutionStackName = Nothing
+    , _cctrqDescription = Nothing
+    , _cctrqApplicationName = pApplicationName
+    , _cctrqTemplateName = pTemplateName
     }
 
 -- | If specified, AWS Elastic Beanstalk sets the specified configuration
 -- option to the requested value. The new value overrides the value
 -- obtained from the solution stack or the source configuration template.
-cctOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
-cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a}) . _Default;
+cctrqOptionSettings :: Lens' CreateConfigurationTemplate [ConfigurationOptionSetting]
+cctrqOptionSettings = lens _cctrqOptionSettings (\ s a -> s{_cctrqOptionSettings = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk uses the configuration values from
 -- the specified configuration template to create a new configuration.
@@ -126,12 +126,12 @@ cctOptionSettings = lens _cctOptionSettings (\ s a -> s{_cctOptionSettings = a})
 -- configuration template must match the specified solution stack name or
 -- else AWS Elastic Beanstalk returns an @InvalidParameterCombination@
 -- error.
-cctSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
-cctSourceConfiguration = lens _cctSourceConfiguration (\ s a -> s{_cctSourceConfiguration = a});
+cctrqSourceConfiguration :: Lens' CreateConfigurationTemplate (Maybe SourceConfiguration)
+cctrqSourceConfiguration = lens _cctrqSourceConfiguration (\ s a -> s{_cctrqSourceConfiguration = a});
 
 -- | The ID of the environment used with this configuration template.
-cctEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
-cctEnvironmentId = lens _cctEnvironmentId (\ s a -> s{_cctEnvironmentId = a});
+cctrqEnvironmentId :: Lens' CreateConfigurationTemplate (Maybe Text)
+cctrqEnvironmentId = lens _cctrqEnvironmentId (\ s a -> s{_cctrqEnvironmentId = a});
 
 -- | The name of the solution stack used by this configuration. The solution
 -- stack specifies the operating system, architecture, and application
@@ -148,18 +148,18 @@ cctEnvironmentId = lens _cctEnvironmentId (\ s a -> s{_cctEnvironmentId = a});
 -- If a solution stack name is not specified and the source configuration
 -- parameter is specified, AWS Elastic Beanstalk uses the same solution
 -- stack as the source configuration template.
-cctSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
-cctSolutionStackName = lens _cctSolutionStackName (\ s a -> s{_cctSolutionStackName = a});
+cctrqSolutionStackName :: Lens' CreateConfigurationTemplate (Maybe Text)
+cctrqSolutionStackName = lens _cctrqSolutionStackName (\ s a -> s{_cctrqSolutionStackName = a});
 
 -- | Describes this configuration.
-cctDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
-cctDescription = lens _cctDescription (\ s a -> s{_cctDescription = a});
+cctrqDescription :: Lens' CreateConfigurationTemplate (Maybe Text)
+cctrqDescription = lens _cctrqDescription (\ s a -> s{_cctrqDescription = a});
 
 -- | The name of the application to associate with this configuration
 -- template. If no application is found with this name, AWS Elastic
 -- Beanstalk returns an @InvalidParameterValue@ error.
-cctApplicationName :: Lens' CreateConfigurationTemplate Text
-cctApplicationName = lens _cctApplicationName (\ s a -> s{_cctApplicationName = a});
+cctrqApplicationName :: Lens' CreateConfigurationTemplate Text
+cctrqApplicationName = lens _cctrqApplicationName (\ s a -> s{_cctrqApplicationName = a});
 
 -- | The name of the configuration template.
 --
@@ -167,8 +167,8 @@ cctApplicationName = lens _cctApplicationName (\ s a -> s{_cctApplicationName = 
 --
 -- Default: If a configuration template already exists with this name, AWS
 -- Elastic Beanstalk returns an @InvalidParameterValue@ error.
-cctTemplateName :: Lens' CreateConfigurationTemplate Text
-cctTemplateName = lens _cctTemplateName (\ s a -> s{_cctTemplateName = a});
+cctrqTemplateName :: Lens' CreateConfigurationTemplate Text
+cctrqTemplateName = lens _cctrqTemplateName (\ s a -> s{_cctrqTemplateName = a});
 
 instance AWSRequest CreateConfigurationTemplate where
         type Sv CreateConfigurationTemplate =
@@ -195,10 +195,10 @@ instance ToQuery CreateConfigurationTemplate where
                "Version" =: ("2010-12-01" :: ByteString),
                "OptionSettings" =:
                  toQuery
-                   (toQueryList "member" <$> _cctOptionSettings),
-               "SourceConfiguration" =: _cctSourceConfiguration,
-               "EnvironmentId" =: _cctEnvironmentId,
-               "SolutionStackName" =: _cctSolutionStackName,
-               "Description" =: _cctDescription,
-               "ApplicationName" =: _cctApplicationName,
-               "TemplateName" =: _cctTemplateName]
+                   (toQueryList "member" <$> _cctrqOptionSettings),
+               "SourceConfiguration" =: _cctrqSourceConfiguration,
+               "EnvironmentId" =: _cctrqEnvironmentId,
+               "SolutionStackName" =: _cctrqSolutionStackName,
+               "Description" =: _cctrqDescription,
+               "ApplicationName" =: _cctrqApplicationName,
+               "TemplateName" =: _cctrqTemplateName]

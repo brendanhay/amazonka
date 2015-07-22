@@ -57,16 +57,16 @@ module Network.AWS.ELB.RegisterInstancesWithLoadBalancer
     -- ** Request constructor
     , registerInstancesWithLoadBalancer
     -- ** Request lenses
-    , riwlbLoadBalancerName
-    , riwlbInstances
+    , riwlbrqLoadBalancerName
+    , riwlbrqInstances
 
     -- * Response
     , RegisterInstancesWithLoadBalancerResponse
     -- ** Response constructor
     , registerInstancesWithLoadBalancerResponse
     -- ** Response lenses
-    , riwlbrInstances
-    , riwlbrStatus
+    , riwlbrsInstances
+    , riwlbrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -78,29 +78,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riwlbLoadBalancerName'
+-- * 'riwlbrqLoadBalancerName'
 --
--- * 'riwlbInstances'
+-- * 'riwlbrqInstances'
 data RegisterInstancesWithLoadBalancer = RegisterInstancesWithLoadBalancer'
-    { _riwlbLoadBalancerName :: !Text
-    , _riwlbInstances        :: ![Instance]
+    { _riwlbrqLoadBalancerName :: !Text
+    , _riwlbrqInstances        :: ![Instance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstancesWithLoadBalancer' smart constructor.
 registerInstancesWithLoadBalancer :: Text -> RegisterInstancesWithLoadBalancer
 registerInstancesWithLoadBalancer pLoadBalancerName =
     RegisterInstancesWithLoadBalancer'
-    { _riwlbLoadBalancerName = pLoadBalancerName
-    , _riwlbInstances = mempty
+    { _riwlbrqLoadBalancerName = pLoadBalancerName
+    , _riwlbrqInstances = mempty
     }
 
 -- | The name of the load balancer.
-riwlbLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
-riwlbLoadBalancerName = lens _riwlbLoadBalancerName (\ s a -> s{_riwlbLoadBalancerName = a});
+riwlbrqLoadBalancerName :: Lens' RegisterInstancesWithLoadBalancer Text
+riwlbrqLoadBalancerName = lens _riwlbrqLoadBalancerName (\ s a -> s{_riwlbrqLoadBalancerName = a});
 
 -- | The IDs of the instances.
-riwlbInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
-riwlbInstances = lens _riwlbInstances (\ s a -> s{_riwlbInstances = a});
+riwlbrqInstances :: Lens' RegisterInstancesWithLoadBalancer [Instance]
+riwlbrqInstances = lens _riwlbrqInstances (\ s a -> s{_riwlbrqInstances = a});
 
 instance AWSRequest RegisterInstancesWithLoadBalancer
          where
@@ -132,33 +132,34 @@ instance ToQuery RegisterInstancesWithLoadBalancer
               ["Action" =:
                  ("RegisterInstancesWithLoadBalancer" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _riwlbLoadBalancerName,
-               "Instances" =: toQueryList "member" _riwlbInstances]
+               "LoadBalancerName" =: _riwlbrqLoadBalancerName,
+               "Instances" =:
+                 toQueryList "member" _riwlbrqInstances]
 
 -- | /See:/ 'registerInstancesWithLoadBalancerResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riwlbrInstances'
+-- * 'riwlbrsInstances'
 --
--- * 'riwlbrStatus'
+-- * 'riwlbrsStatus'
 data RegisterInstancesWithLoadBalancerResponse = RegisterInstancesWithLoadBalancerResponse'
-    { _riwlbrInstances :: !(Maybe [Instance])
-    , _riwlbrStatus    :: !Int
+    { _riwlbrsInstances :: !(Maybe [Instance])
+    , _riwlbrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstancesWithLoadBalancerResponse' smart constructor.
 registerInstancesWithLoadBalancerResponse :: Int -> RegisterInstancesWithLoadBalancerResponse
 registerInstancesWithLoadBalancerResponse pStatus =
     RegisterInstancesWithLoadBalancerResponse'
-    { _riwlbrInstances = Nothing
-    , _riwlbrStatus = pStatus
+    { _riwlbrsInstances = Nothing
+    , _riwlbrsStatus = pStatus
     }
 
 -- | The updated list of instances for the load balancer.
-riwlbrInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
-riwlbrInstances = lens _riwlbrInstances (\ s a -> s{_riwlbrInstances = a}) . _Default;
+riwlbrsInstances :: Lens' RegisterInstancesWithLoadBalancerResponse [Instance]
+riwlbrsInstances = lens _riwlbrsInstances (\ s a -> s{_riwlbrsInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-riwlbrStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
-riwlbrStatus = lens _riwlbrStatus (\ s a -> s{_riwlbrStatus = a});
+riwlbrsStatus :: Lens' RegisterInstancesWithLoadBalancerResponse Int
+riwlbrsStatus = lens _riwlbrsStatus (\ s a -> s{_riwlbrsStatus = a});

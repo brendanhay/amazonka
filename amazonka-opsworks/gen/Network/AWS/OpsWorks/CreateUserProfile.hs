@@ -32,18 +32,18 @@ module Network.AWS.OpsWorks.CreateUserProfile
     -- ** Request constructor
     , createUserProfile
     -- ** Request lenses
-    , cupSSHUsername
-    , cupSSHPublicKey
-    , cupAllowSelfManagement
-    , cupIAMUserARN
+    , cuprqSSHUsername
+    , cuprqSSHPublicKey
+    , cuprqAllowSelfManagement
+    , cuprqIAMUserARN
 
     -- * Response
     , CreateUserProfileResponse
     -- ** Response constructor
     , createUserProfileResponse
     -- ** Response lenses
-    , cuprIAMUserARN
-    , cuprStatus
+    , cuprsIAMUserARN
+    , cuprsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -55,28 +55,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cupSSHUsername'
+-- * 'cuprqSSHUsername'
 --
--- * 'cupSSHPublicKey'
+-- * 'cuprqSSHPublicKey'
 --
--- * 'cupAllowSelfManagement'
+-- * 'cuprqAllowSelfManagement'
 --
--- * 'cupIAMUserARN'
+-- * 'cuprqIAMUserARN'
 data CreateUserProfile = CreateUserProfile'
-    { _cupSSHUsername         :: !(Maybe Text)
-    , _cupSSHPublicKey        :: !(Maybe Text)
-    , _cupAllowSelfManagement :: !(Maybe Bool)
-    , _cupIAMUserARN          :: !Text
+    { _cuprqSSHUsername         :: !(Maybe Text)
+    , _cuprqSSHPublicKey        :: !(Maybe Text)
+    , _cuprqAllowSelfManagement :: !(Maybe Bool)
+    , _cuprqIAMUserARN          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUserProfile' smart constructor.
 createUserProfile :: Text -> CreateUserProfile
 createUserProfile pIAMUserARN =
     CreateUserProfile'
-    { _cupSSHUsername = Nothing
-    , _cupSSHPublicKey = Nothing
-    , _cupAllowSelfManagement = Nothing
-    , _cupIAMUserARN = pIAMUserARN
+    { _cuprqSSHUsername = Nothing
+    , _cuprqSSHPublicKey = Nothing
+    , _cuprqAllowSelfManagement = Nothing
+    , _cuprqIAMUserARN = pIAMUserARN
     }
 
 -- | The user\'s SSH user name. The allowable characters are [a-z], [A-Z],
@@ -84,22 +84,22 @@ createUserProfile pIAMUserARN =
 -- punctuation marks, AWS OpsWorks removes them. For example, @my.name@
 -- will be changed to @myname@. If you do not specify an SSH user name, AWS
 -- OpsWorks generates one from the IAM user name.
-cupSSHUsername :: Lens' CreateUserProfile (Maybe Text)
-cupSSHUsername = lens _cupSSHUsername (\ s a -> s{_cupSSHUsername = a});
+cuprqSSHUsername :: Lens' CreateUserProfile (Maybe Text)
+cuprqSSHUsername = lens _cuprqSSHUsername (\ s a -> s{_cuprqSSHUsername = a});
 
 -- | The user\'s public SSH key.
-cupSSHPublicKey :: Lens' CreateUserProfile (Maybe Text)
-cupSSHPublicKey = lens _cupSSHPublicKey (\ s a -> s{_cupSSHPublicKey = a});
+cuprqSSHPublicKey :: Lens' CreateUserProfile (Maybe Text)
+cuprqSSHPublicKey = lens _cuprqSSHPublicKey (\ s a -> s{_cuprqSSHPublicKey = a});
 
 -- | Whether users can specify their own SSH public key through the My
 -- Settings page. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/security-settingsshkey.html Setting an IAM User\'s Public SSH Key>.
-cupAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
-cupAllowSelfManagement = lens _cupAllowSelfManagement (\ s a -> s{_cupAllowSelfManagement = a});
+cuprqAllowSelfManagement :: Lens' CreateUserProfile (Maybe Bool)
+cuprqAllowSelfManagement = lens _cuprqAllowSelfManagement (\ s a -> s{_cuprqAllowSelfManagement = a});
 
 -- | The user\'s IAM ARN.
-cupIAMUserARN :: Lens' CreateUserProfile Text
-cupIAMUserARN = lens _cupIAMUserARN (\ s a -> s{_cupIAMUserARN = a});
+cuprqIAMUserARN :: Lens' CreateUserProfile Text
+cuprqIAMUserARN = lens _cuprqIAMUserARN (\ s a -> s{_cuprqIAMUserARN = a});
 
 instance AWSRequest CreateUserProfile where
         type Sv CreateUserProfile = OpsWorks
@@ -124,10 +124,10 @@ instance ToHeaders CreateUserProfile where
 instance ToJSON CreateUserProfile where
         toJSON CreateUserProfile'{..}
           = object
-              ["SshUsername" .= _cupSSHUsername,
-               "SshPublicKey" .= _cupSSHPublicKey,
-               "AllowSelfManagement" .= _cupAllowSelfManagement,
-               "IamUserArn" .= _cupIAMUserARN]
+              ["SshUsername" .= _cuprqSSHUsername,
+               "SshPublicKey" .= _cuprqSSHPublicKey,
+               "AllowSelfManagement" .= _cuprqAllowSelfManagement,
+               "IamUserArn" .= _cuprqIAMUserARN]
 
 instance ToPath CreateUserProfile where
         toPath = const "/"
@@ -141,26 +141,26 @@ instance ToQuery CreateUserProfile where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cuprIAMUserARN'
+-- * 'cuprsIAMUserARN'
 --
--- * 'cuprStatus'
+-- * 'cuprsStatus'
 data CreateUserProfileResponse = CreateUserProfileResponse'
-    { _cuprIAMUserARN :: !(Maybe Text)
-    , _cuprStatus     :: !Int
+    { _cuprsIAMUserARN :: !(Maybe Text)
+    , _cuprsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUserProfileResponse' smart constructor.
 createUserProfileResponse :: Int -> CreateUserProfileResponse
 createUserProfileResponse pStatus =
     CreateUserProfileResponse'
-    { _cuprIAMUserARN = Nothing
-    , _cuprStatus = pStatus
+    { _cuprsIAMUserARN = Nothing
+    , _cuprsStatus = pStatus
     }
 
 -- | The user\'s IAM ARN.
-cuprIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
-cuprIAMUserARN = lens _cuprIAMUserARN (\ s a -> s{_cuprIAMUserARN = a});
+cuprsIAMUserARN :: Lens' CreateUserProfileResponse (Maybe Text)
+cuprsIAMUserARN = lens _cuprsIAMUserARN (\ s a -> s{_cuprsIAMUserARN = a});
 
 -- | FIXME: Undocumented member.
-cuprStatus :: Lens' CreateUserProfileResponse Int
-cuprStatus = lens _cuprStatus (\ s a -> s{_cuprStatus = a});
+cuprsStatus :: Lens' CreateUserProfileResponse Int
+cuprsStatus = lens _cuprsStatus (\ s a -> s{_cuprsStatus = a});

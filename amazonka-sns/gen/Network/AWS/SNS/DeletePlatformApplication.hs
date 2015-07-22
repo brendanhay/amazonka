@@ -29,7 +29,7 @@ module Network.AWS.SNS.DeletePlatformApplication
     -- ** Request constructor
     , deletePlatformApplication
     -- ** Request lenses
-    , dpaPlatformApplicationARN
+    , dparqPlatformApplicationARN
 
     -- * Response
     , DeletePlatformApplicationResponse
@@ -48,21 +48,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpaPlatformApplicationARN'
+-- * 'dparqPlatformApplicationARN'
 newtype DeletePlatformApplication = DeletePlatformApplication'
-    { _dpaPlatformApplicationARN :: Text
+    { _dparqPlatformApplicationARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePlatformApplication' smart constructor.
 deletePlatformApplication :: Text -> DeletePlatformApplication
 deletePlatformApplication pPlatformApplicationARN =
     DeletePlatformApplication'
-    { _dpaPlatformApplicationARN = pPlatformApplicationARN
+    { _dparqPlatformApplicationARN = pPlatformApplicationARN
     }
 
 -- | PlatformApplicationArn of platform application object to delete.
-dpaPlatformApplicationARN :: Lens' DeletePlatformApplication Text
-dpaPlatformApplicationARN = lens _dpaPlatformApplicationARN (\ s a -> s{_dpaPlatformApplicationARN = a});
+dparqPlatformApplicationARN :: Lens' DeletePlatformApplication Text
+dparqPlatformApplicationARN = lens _dparqPlatformApplicationARN (\ s a -> s{_dparqPlatformApplicationARN = a});
 
 instance AWSRequest DeletePlatformApplication where
         type Sv DeletePlatformApplication = SNS
@@ -85,7 +85,7 @@ instance ToQuery DeletePlatformApplication where
                  ("DeletePlatformApplication" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
                "PlatformApplicationArn" =:
-                 _dpaPlatformApplicationARN]
+                 _dparqPlatformApplicationARN]
 
 -- | /See:/ 'deletePlatformApplicationResponse' smart constructor.
 data DeletePlatformApplicationResponse =

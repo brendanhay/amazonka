@@ -30,8 +30,8 @@ module Network.AWS.Support.Types
     -- * Attachment
     , Attachment
     , attachment
-    , attData
-    , attFileName
+    , aData
+    , aFileName
 
     -- * AttachmentDetails
     , AttachmentDetails
@@ -58,17 +58,17 @@ module Network.AWS.Support.Types
     -- * Category
     , Category
     , category
-    , catName
-    , catCode
+    , cName
+    , cCode
 
     -- * Communication
     , Communication
     , communication
-    , comBody
-    , comCaseId
-    , comSubmittedBy
-    , comTimeCreated
-    , comAttachmentSet
+    , cBody
+    , cCaseId
+    , cSubmittedBy
+    , cTimeCreated
+    , cAttachmentSet
 
     -- * RecentCaseCommunications
     , RecentCaseCommunications

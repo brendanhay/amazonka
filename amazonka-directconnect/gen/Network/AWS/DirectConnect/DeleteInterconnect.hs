@@ -27,15 +27,15 @@ module Network.AWS.DirectConnect.DeleteInterconnect
     -- ** Request constructor
     , deleteInterconnect
     -- ** Request lenses
-    , delInterconnectId
+    , drqInterconnectId
 
     -- * Response
     , DeleteInterconnectResponse
     -- ** Response constructor
     , deleteInterconnectResponse
     -- ** Response lenses
-    , delInterconnectState
-    , delStatus
+    , drsInterconnectState
+    , drsStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delInterconnectId'
+-- * 'drqInterconnectId'
 newtype DeleteInterconnect = DeleteInterconnect'
-    { _delInterconnectId :: Text
+    { _drqInterconnectId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInterconnect' smart constructor.
 deleteInterconnect :: Text -> DeleteInterconnect
 deleteInterconnect pInterconnectId =
     DeleteInterconnect'
-    { _delInterconnectId = pInterconnectId
+    { _drqInterconnectId = pInterconnectId
     }
 
 -- | FIXME: Undocumented member.
-delInterconnectId :: Lens' DeleteInterconnect Text
-delInterconnectId = lens _delInterconnectId (\ s a -> s{_delInterconnectId = a});
+drqInterconnectId :: Lens' DeleteInterconnect Text
+drqInterconnectId = lens _drqInterconnectId (\ s a -> s{_drqInterconnectId = a});
 
 instance AWSRequest DeleteInterconnect where
         type Sv DeleteInterconnect = DirectConnect
@@ -87,7 +87,7 @@ instance ToHeaders DeleteInterconnect where
 
 instance ToJSON DeleteInterconnect where
         toJSON DeleteInterconnect'{..}
-          = object ["interconnectId" .= _delInterconnectId]
+          = object ["interconnectId" .= _drqInterconnectId]
 
 instance ToPath DeleteInterconnect where
         toPath = const "/"
@@ -101,26 +101,26 @@ instance ToQuery DeleteInterconnect where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delInterconnectState'
+-- * 'drsInterconnectState'
 --
--- * 'delStatus'
+-- * 'drsStatus'
 data DeleteInterconnectResponse = DeleteInterconnectResponse'
-    { _delInterconnectState :: !(Maybe InterconnectState)
-    , _delStatus            :: !Int
+    { _drsInterconnectState :: !(Maybe InterconnectState)
+    , _drsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteInterconnectResponse' smart constructor.
 deleteInterconnectResponse :: Int -> DeleteInterconnectResponse
 deleteInterconnectResponse pStatus =
     DeleteInterconnectResponse'
-    { _delInterconnectState = Nothing
-    , _delStatus = pStatus
+    { _drsInterconnectState = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
-delInterconnectState = lens _delInterconnectState (\ s a -> s{_delInterconnectState = a});
+drsInterconnectState :: Lens' DeleteInterconnectResponse (Maybe InterconnectState)
+drsInterconnectState = lens _drsInterconnectState (\ s a -> s{_drsInterconnectState = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteInterconnectResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+drsStatus :: Lens' DeleteInterconnectResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

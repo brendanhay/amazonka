@@ -31,15 +31,15 @@ module Network.AWS.Config.DescribeConfigurationRecorders
     -- ** Request constructor
     , describeConfigurationRecorders
     -- ** Request lenses
-    , dcrConfigurationRecorderNames
+    , dcrrqConfigurationRecorderNames
 
     -- * Response
     , DescribeConfigurationRecordersResponse
     -- ** Response constructor
     , describeConfigurationRecordersResponse
     -- ** Response lenses
-    , dcrrConfigurationRecorders
-    , dcrrStatus
+    , dcrrsConfigurationRecorders
+    , dcrrsStatus
     ) where
 
 import           Network.AWS.Config.Types
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrConfigurationRecorderNames'
+-- * 'dcrrqConfigurationRecorderNames'
 newtype DescribeConfigurationRecorders = DescribeConfigurationRecorders'
-    { _dcrConfigurationRecorderNames :: Maybe [Text]
+    { _dcrrqConfigurationRecorderNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecorders' smart constructor.
 describeConfigurationRecorders :: DescribeConfigurationRecorders
 describeConfigurationRecorders =
     DescribeConfigurationRecorders'
-    { _dcrConfigurationRecorderNames = Nothing
+    { _dcrrqConfigurationRecorderNames = Nothing
     }
 
 -- | A list of configuration recorder names.
-dcrConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
-dcrConfigurationRecorderNames = lens _dcrConfigurationRecorderNames (\ s a -> s{_dcrConfigurationRecorderNames = a}) . _Default;
+dcrrqConfigurationRecorderNames :: Lens' DescribeConfigurationRecorders [Text]
+dcrrqConfigurationRecorderNames = lens _dcrrqConfigurationRecorderNames (\ s a -> s{_dcrrqConfigurationRecorderNames = a}) . _Default;
 
 instance AWSRequest DescribeConfigurationRecorders
          where
@@ -97,7 +97,7 @@ instance ToJSON DescribeConfigurationRecorders where
         toJSON DescribeConfigurationRecorders'{..}
           = object
               ["ConfigurationRecorderNames" .=
-                 _dcrConfigurationRecorderNames]
+                 _dcrrqConfigurationRecorderNames]
 
 instance ToPath DescribeConfigurationRecorders where
         toPath = const "/"
@@ -111,27 +111,27 @@ instance ToQuery DescribeConfigurationRecorders where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrrConfigurationRecorders'
+-- * 'dcrrsConfigurationRecorders'
 --
--- * 'dcrrStatus'
+-- * 'dcrrsStatus'
 data DescribeConfigurationRecordersResponse = DescribeConfigurationRecordersResponse'
-    { _dcrrConfigurationRecorders :: !(Maybe [ConfigurationRecorder])
-    , _dcrrStatus                 :: !Int
+    { _dcrrsConfigurationRecorders :: !(Maybe [ConfigurationRecorder])
+    , _dcrrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecordersResponse' smart constructor.
 describeConfigurationRecordersResponse :: Int -> DescribeConfigurationRecordersResponse
 describeConfigurationRecordersResponse pStatus =
     DescribeConfigurationRecordersResponse'
-    { _dcrrConfigurationRecorders = Nothing
-    , _dcrrStatus = pStatus
+    { _dcrrsConfigurationRecorders = Nothing
+    , _dcrrsStatus = pStatus
     }
 
 -- | A list that contains the descriptions of the specified configuration
 -- recorders.
-dcrrConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
-dcrrConfigurationRecorders = lens _dcrrConfigurationRecorders (\ s a -> s{_dcrrConfigurationRecorders = a}) . _Default;
+dcrrsConfigurationRecorders :: Lens' DescribeConfigurationRecordersResponse [ConfigurationRecorder]
+dcrrsConfigurationRecorders = lens _dcrrsConfigurationRecorders (\ s a -> s{_dcrrsConfigurationRecorders = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrrStatus :: Lens' DescribeConfigurationRecordersResponse Int
-dcrrStatus = lens _dcrrStatus (\ s a -> s{_dcrrStatus = a});
+dcrrsStatus :: Lens' DescribeConfigurationRecordersResponse Int
+dcrrsStatus = lens _dcrrsStatus (\ s a -> s{_dcrrsStatus = a});

@@ -31,17 +31,17 @@ module Network.AWS.CognitoSync.UnsubscribeFromDataset
     -- ** Request constructor
     , unsubscribeFromDataset
     -- ** Request lenses
-    , ufdIdentityPoolId
-    , ufdIdentityId
-    , ufdDatasetName
-    , ufdDeviceId
+    , ufdrqIdentityPoolId
+    , ufdrqIdentityId
+    , ufdrqDatasetName
+    , ufdrqDeviceId
 
     -- * Response
     , UnsubscribeFromDatasetResponse
     -- ** Response constructor
     , unsubscribeFromDatasetResponse
     -- ** Response lenses
-    , ufdrStatus
+    , ufdrsStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -55,47 +55,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ufdIdentityPoolId'
+-- * 'ufdrqIdentityPoolId'
 --
--- * 'ufdIdentityId'
+-- * 'ufdrqIdentityId'
 --
--- * 'ufdDatasetName'
+-- * 'ufdrqDatasetName'
 --
--- * 'ufdDeviceId'
+-- * 'ufdrqDeviceId'
 data UnsubscribeFromDataset = UnsubscribeFromDataset'
-    { _ufdIdentityPoolId :: !Text
-    , _ufdIdentityId     :: !Text
-    , _ufdDatasetName    :: !Text
-    , _ufdDeviceId       :: !Text
+    { _ufdrqIdentityPoolId :: !Text
+    , _ufdrqIdentityId     :: !Text
+    , _ufdrqDatasetName    :: !Text
+    , _ufdrqDeviceId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnsubscribeFromDataset' smart constructor.
 unsubscribeFromDataset :: Text -> Text -> Text -> Text -> UnsubscribeFromDataset
 unsubscribeFromDataset pIdentityPoolId pIdentityId pDatasetName pDeviceId =
     UnsubscribeFromDataset'
-    { _ufdIdentityPoolId = pIdentityPoolId
-    , _ufdIdentityId = pIdentityId
-    , _ufdDatasetName = pDatasetName
-    , _ufdDeviceId = pDeviceId
+    { _ufdrqIdentityPoolId = pIdentityPoolId
+    , _ufdrqIdentityId = pIdentityId
+    , _ufdrqDatasetName = pDatasetName
+    , _ufdrqDeviceId = pDeviceId
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. The ID of the pool to which this identity belongs.
-ufdIdentityPoolId :: Lens' UnsubscribeFromDataset Text
-ufdIdentityPoolId = lens _ufdIdentityPoolId (\ s a -> s{_ufdIdentityPoolId = a});
+ufdrqIdentityPoolId :: Lens' UnsubscribeFromDataset Text
+ufdrqIdentityPoolId = lens _ufdrqIdentityPoolId (\ s a -> s{_ufdrqIdentityPoolId = a});
 
 -- | Unique ID for this identity.
-ufdIdentityId :: Lens' UnsubscribeFromDataset Text
-ufdIdentityId = lens _ufdIdentityId (\ s a -> s{_ufdIdentityId = a});
+ufdrqIdentityId :: Lens' UnsubscribeFromDataset Text
+ufdrqIdentityId = lens _ufdrqIdentityId (\ s a -> s{_ufdrqIdentityId = a});
 
 -- | The name of the dataset from which to unsubcribe.
-ufdDatasetName :: Lens' UnsubscribeFromDataset Text
-ufdDatasetName = lens _ufdDatasetName (\ s a -> s{_ufdDatasetName = a});
+ufdrqDatasetName :: Lens' UnsubscribeFromDataset Text
+ufdrqDatasetName = lens _ufdrqDatasetName (\ s a -> s{_ufdrqDatasetName = a});
 
 -- | The unique ID generated for this device by Cognito.
-ufdDeviceId :: Lens' UnsubscribeFromDataset Text
-ufdDeviceId = lens _ufdDeviceId (\ s a -> s{_ufdDeviceId = a});
+ufdrqDeviceId :: Lens' UnsubscribeFromDataset Text
+ufdrqDeviceId = lens _ufdrqDeviceId (\ s a -> s{_ufdrqDeviceId = a});
 
 instance AWSRequest UnsubscribeFromDataset where
         type Sv UnsubscribeFromDataset = CognitoSync
@@ -118,10 +118,10 @@ instance ToHeaders UnsubscribeFromDataset where
 instance ToPath UnsubscribeFromDataset where
         toPath UnsubscribeFromDataset'{..}
           = mconcat
-              ["/identitypools/", toText _ufdIdentityPoolId,
-               "/identities/", toText _ufdIdentityId, "/datasets/",
-               toText _ufdDatasetName, "/subscriptions/",
-               toText _ufdDeviceId]
+              ["/identitypools/", toText _ufdrqIdentityPoolId,
+               "/identities/", toText _ufdrqIdentityId,
+               "/datasets/", toText _ufdrqDatasetName,
+               "/subscriptions/", toText _ufdrqDeviceId]
 
 instance ToQuery UnsubscribeFromDataset where
         toQuery = const mempty
@@ -132,18 +132,18 @@ instance ToQuery UnsubscribeFromDataset where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ufdrStatus'
+-- * 'ufdrsStatus'
 newtype UnsubscribeFromDatasetResponse = UnsubscribeFromDatasetResponse'
-    { _ufdrStatus :: Int
+    { _ufdrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnsubscribeFromDatasetResponse' smart constructor.
 unsubscribeFromDatasetResponse :: Int -> UnsubscribeFromDatasetResponse
 unsubscribeFromDatasetResponse pStatus =
     UnsubscribeFromDatasetResponse'
-    { _ufdrStatus = pStatus
+    { _ufdrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ufdrStatus :: Lens' UnsubscribeFromDatasetResponse Int
-ufdrStatus = lens _ufdrStatus (\ s a -> s{_ufdrStatus = a});
+ufdrsStatus :: Lens' UnsubscribeFromDatasetResponse Int
+ufdrsStatus = lens _ufdrsStatus (\ s a -> s{_ufdrsStatus = a});

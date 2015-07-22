@@ -43,15 +43,15 @@ module Network.AWS.SES.SetIdentityDkimEnabled
     -- ** Request constructor
     , setIdentityDkimEnabled
     -- ** Request lenses
-    , sideIdentity
-    , sideDkimEnabled
+    , siderqIdentity
+    , siderqDkimEnabled
 
     -- * Response
     , SetIdentityDkimEnabledResponse
     -- ** Response constructor
     , setIdentityDkimEnabledResponse
     -- ** Response lenses
-    , siderStatus
+    , sidersStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -66,30 +66,30 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sideIdentity'
+-- * 'siderqIdentity'
 --
--- * 'sideDkimEnabled'
+-- * 'siderqDkimEnabled'
 data SetIdentityDkimEnabled = SetIdentityDkimEnabled'
-    { _sideIdentity    :: !Text
-    , _sideDkimEnabled :: !Bool
+    { _siderqIdentity    :: !Text
+    , _siderqDkimEnabled :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityDkimEnabled' smart constructor.
 setIdentityDkimEnabled :: Text -> Bool -> SetIdentityDkimEnabled
 setIdentityDkimEnabled pIdentity pDkimEnabled =
     SetIdentityDkimEnabled'
-    { _sideIdentity = pIdentity
-    , _sideDkimEnabled = pDkimEnabled
+    { _siderqIdentity = pIdentity
+    , _siderqDkimEnabled = pDkimEnabled
     }
 
 -- | The identity for which DKIM signing should be enabled or disabled.
-sideIdentity :: Lens' SetIdentityDkimEnabled Text
-sideIdentity = lens _sideIdentity (\ s a -> s{_sideIdentity = a});
+siderqIdentity :: Lens' SetIdentityDkimEnabled Text
+siderqIdentity = lens _siderqIdentity (\ s a -> s{_siderqIdentity = a});
 
 -- | Sets whether DKIM signing is enabled for an identity. Set to @true@ to
 -- enable DKIM signing for this identity; @false@ to disable it.
-sideDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
-sideDkimEnabled = lens _sideDkimEnabled (\ s a -> s{_sideDkimEnabled = a});
+siderqDkimEnabled :: Lens' SetIdentityDkimEnabled Bool
+siderqDkimEnabled = lens _siderqDkimEnabled (\ s a -> s{_siderqDkimEnabled = a});
 
 instance AWSRequest SetIdentityDkimEnabled where
         type Sv SetIdentityDkimEnabled = SES
@@ -114,8 +114,8 @@ instance ToQuery SetIdentityDkimEnabled where
               ["Action" =:
                  ("SetIdentityDkimEnabled" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _sideIdentity,
-               "DkimEnabled" =: _sideDkimEnabled]
+               "Identity" =: _siderqIdentity,
+               "DkimEnabled" =: _siderqDkimEnabled]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
@@ -124,18 +124,18 @@ instance ToQuery SetIdentityDkimEnabled where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siderStatus'
+-- * 'sidersStatus'
 newtype SetIdentityDkimEnabledResponse = SetIdentityDkimEnabledResponse'
-    { _siderStatus :: Int
+    { _sidersStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityDkimEnabledResponse' smart constructor.
 setIdentityDkimEnabledResponse :: Int -> SetIdentityDkimEnabledResponse
 setIdentityDkimEnabledResponse pStatus =
     SetIdentityDkimEnabledResponse'
-    { _siderStatus = pStatus
+    { _sidersStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-siderStatus :: Lens' SetIdentityDkimEnabledResponse Int
-siderStatus = lens _siderStatus (\ s a -> s{_siderStatus = a});
+sidersStatus :: Lens' SetIdentityDkimEnabledResponse Int
+sidersStatus = lens _sidersStatus (\ s a -> s{_sidersStatus = a});

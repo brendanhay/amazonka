@@ -30,7 +30,7 @@ module Network.AWS.CodeDeploy.DeleteDeploymentConfig
     -- ** Request constructor
     , deleteDeploymentConfig
     -- ** Request lenses
-    , ddcDeploymentConfigName
+    , ddcrqDeploymentConfigName
 
     -- * Response
     , DeleteDeploymentConfigResponse
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcDeploymentConfigName'
+-- * 'ddcrqDeploymentConfigName'
 newtype DeleteDeploymentConfig = DeleteDeploymentConfig'
-    { _ddcDeploymentConfigName :: Text
+    { _ddcrqDeploymentConfigName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentConfig' smart constructor.
 deleteDeploymentConfig :: Text -> DeleteDeploymentConfig
 deleteDeploymentConfig pDeploymentConfigName =
     DeleteDeploymentConfig'
-    { _ddcDeploymentConfigName = pDeploymentConfigName
+    { _ddcrqDeploymentConfigName = pDeploymentConfigName
     }
 
 -- | The name of an existing deployment configuration associated with the
 -- applicable IAM user or AWS account.
-ddcDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
-ddcDeploymentConfigName = lens _ddcDeploymentConfigName (\ s a -> s{_ddcDeploymentConfigName = a});
+ddcrqDeploymentConfigName :: Lens' DeleteDeploymentConfig Text
+ddcrqDeploymentConfigName = lens _ddcrqDeploymentConfigName (\ s a -> s{_ddcrqDeploymentConfigName = a});
 
 instance AWSRequest DeleteDeploymentConfig where
         type Sv DeleteDeploymentConfig = CodeDeploy
@@ -87,7 +87,8 @@ instance ToHeaders DeleteDeploymentConfig where
 instance ToJSON DeleteDeploymentConfig where
         toJSON DeleteDeploymentConfig'{..}
           = object
-              ["deploymentConfigName" .= _ddcDeploymentConfigName]
+              ["deploymentConfigName" .=
+                 _ddcrqDeploymentConfigName]
 
 instance ToPath DeleteDeploymentConfig where
         toPath = const "/"

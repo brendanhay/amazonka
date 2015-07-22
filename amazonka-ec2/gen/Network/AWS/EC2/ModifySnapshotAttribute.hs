@@ -37,13 +37,13 @@ module Network.AWS.EC2.ModifySnapshotAttribute
     -- ** Request constructor
     , modifySnapshotAttribute
     -- ** Request lenses
-    , msaAttribute
-    , msaUserIds
-    , msaCreateVolumePermission
-    , msaGroupNames
-    , msaOperationType
-    , msaDryRun
-    , msaSnapshotId
+    , msarqAttribute
+    , msarqUserIds
+    , msarqCreateVolumePermission
+    , msarqGroupNames
+    , msarqOperationType
+    , msarqDryRun
+    , msarqSnapshotId
 
     -- * Response
     , ModifySnapshotAttributeResponse
@@ -60,72 +60,72 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'msaAttribute'
+-- * 'msarqAttribute'
 --
--- * 'msaUserIds'
+-- * 'msarqUserIds'
 --
--- * 'msaCreateVolumePermission'
+-- * 'msarqCreateVolumePermission'
 --
--- * 'msaGroupNames'
+-- * 'msarqGroupNames'
 --
--- * 'msaOperationType'
+-- * 'msarqOperationType'
 --
--- * 'msaDryRun'
+-- * 'msarqDryRun'
 --
--- * 'msaSnapshotId'
+-- * 'msarqSnapshotId'
 data ModifySnapshotAttribute = ModifySnapshotAttribute'
-    { _msaAttribute              :: !(Maybe ModifySnapshotAttributeName)
-    , _msaUserIds                :: !(Maybe [Text])
-    , _msaCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
-    , _msaGroupNames             :: !(Maybe [Text])
-    , _msaOperationType          :: !(Maybe Text)
-    , _msaDryRun                 :: !(Maybe Bool)
-    , _msaSnapshotId             :: !Text
+    { _msarqAttribute              :: !(Maybe ModifySnapshotAttributeName)
+    , _msarqUserIds                :: !(Maybe [Text])
+    , _msarqCreateVolumePermission :: !(Maybe CreateVolumePermissionModifications)
+    , _msarqGroupNames             :: !(Maybe [Text])
+    , _msarqOperationType          :: !(Maybe Text)
+    , _msarqDryRun                 :: !(Maybe Bool)
+    , _msarqSnapshotId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifySnapshotAttribute' smart constructor.
 modifySnapshotAttribute :: Text -> ModifySnapshotAttribute
 modifySnapshotAttribute pSnapshotId =
     ModifySnapshotAttribute'
-    { _msaAttribute = Nothing
-    , _msaUserIds = Nothing
-    , _msaCreateVolumePermission = Nothing
-    , _msaGroupNames = Nothing
-    , _msaOperationType = Nothing
-    , _msaDryRun = Nothing
-    , _msaSnapshotId = pSnapshotId
+    { _msarqAttribute = Nothing
+    , _msarqUserIds = Nothing
+    , _msarqCreateVolumePermission = Nothing
+    , _msarqGroupNames = Nothing
+    , _msarqOperationType = Nothing
+    , _msarqDryRun = Nothing
+    , _msarqSnapshotId = pSnapshotId
     }
 
 -- | The snapshot attribute to modify.
-msaAttribute :: Lens' ModifySnapshotAttribute (Maybe ModifySnapshotAttributeName)
-msaAttribute = lens _msaAttribute (\ s a -> s{_msaAttribute = a});
+msarqAttribute :: Lens' ModifySnapshotAttribute (Maybe ModifySnapshotAttributeName)
+msarqAttribute = lens _msarqAttribute (\ s a -> s{_msarqAttribute = a});
 
 -- | The account ID to modify for the snapshot.
-msaUserIds :: Lens' ModifySnapshotAttribute [Text]
-msaUserIds = lens _msaUserIds (\ s a -> s{_msaUserIds = a}) . _Default;
+msarqUserIds :: Lens' ModifySnapshotAttribute [Text]
+msarqUserIds = lens _msarqUserIds (\ s a -> s{_msarqUserIds = a}) . _Default;
 
 -- | A JSON representation of the snapshot attribute modification.
-msaCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
-msaCreateVolumePermission = lens _msaCreateVolumePermission (\ s a -> s{_msaCreateVolumePermission = a});
+msarqCreateVolumePermission :: Lens' ModifySnapshotAttribute (Maybe CreateVolumePermissionModifications)
+msarqCreateVolumePermission = lens _msarqCreateVolumePermission (\ s a -> s{_msarqCreateVolumePermission = a});
 
 -- | The group to modify for the snapshot.
-msaGroupNames :: Lens' ModifySnapshotAttribute [Text]
-msaGroupNames = lens _msaGroupNames (\ s a -> s{_msaGroupNames = a}) . _Default;
+msarqGroupNames :: Lens' ModifySnapshotAttribute [Text]
+msarqGroupNames = lens _msarqGroupNames (\ s a -> s{_msarqGroupNames = a}) . _Default;
 
 -- | The type of operation to perform to the attribute.
-msaOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
-msaOperationType = lens _msaOperationType (\ s a -> s{_msaOperationType = a});
+msarqOperationType :: Lens' ModifySnapshotAttribute (Maybe Text)
+msarqOperationType = lens _msarqOperationType (\ s a -> s{_msarqOperationType = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-msaDryRun :: Lens' ModifySnapshotAttribute (Maybe Bool)
-msaDryRun = lens _msaDryRun (\ s a -> s{_msaDryRun = a});
+msarqDryRun :: Lens' ModifySnapshotAttribute (Maybe Bool)
+msarqDryRun = lens _msarqDryRun (\ s a -> s{_msarqDryRun = a});
 
 -- | The ID of the snapshot.
-msaSnapshotId :: Lens' ModifySnapshotAttribute Text
-msaSnapshotId = lens _msaSnapshotId (\ s a -> s{_msaSnapshotId = a});
+msarqSnapshotId :: Lens' ModifySnapshotAttribute Text
+msarqSnapshotId = lens _msarqSnapshotId (\ s a -> s{_msarqSnapshotId = a});
 
 instance AWSRequest ModifySnapshotAttribute where
         type Sv ModifySnapshotAttribute = EC2
@@ -147,14 +147,15 @@ instance ToQuery ModifySnapshotAttribute where
               ["Action" =:
                  ("ModifySnapshotAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Attribute" =: _msaAttribute,
-               toQuery (toQueryList "UserId" <$> _msaUserIds),
+               "Attribute" =: _msarqAttribute,
+               toQuery (toQueryList "UserId" <$> _msarqUserIds),
                "CreateVolumePermission" =:
-                 _msaCreateVolumePermission,
-               toQuery (toQueryList "GroupName" <$> _msaGroupNames),
-               "OperationType" =: _msaOperationType,
-               "DryRun" =: _msaDryRun,
-               "SnapshotId" =: _msaSnapshotId]
+                 _msarqCreateVolumePermission,
+               toQuery
+                 (toQueryList "GroupName" <$> _msarqGroupNames),
+               "OperationType" =: _msarqOperationType,
+               "DryRun" =: _msarqDryRun,
+               "SnapshotId" =: _msarqSnapshotId]
 
 -- | /See:/ 'modifySnapshotAttributeResponse' smart constructor.
 data ModifySnapshotAttributeResponse =

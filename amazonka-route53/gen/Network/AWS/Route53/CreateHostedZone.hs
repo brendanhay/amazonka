@@ -49,23 +49,23 @@ module Network.AWS.Route53.CreateHostedZone
     -- ** Request constructor
     , createHostedZone
     -- ** Request lenses
-    , chzDelegationSetId
-    , chzHostedZoneConfig
-    , chzVPC
-    , chzName
-    , chzCallerReference
+    , chzrqDelegationSetId
+    , chzrqHostedZoneConfig
+    , chzrqVPC
+    , chzrqName
+    , chzrqCallerReference
 
     -- * Response
     , CreateHostedZoneResponse
     -- ** Response constructor
     , createHostedZoneResponse
     -- ** Response lenses
-    , chzrVPC
-    , chzrStatus
-    , chzrHostedZone
-    , chzrChangeInfo
-    , chzrDelegationSet
-    , chzrLocation
+    , chzrsVPC
+    , chzrsStatus
+    , chzrsHostedZone
+    , chzrsChangeInfo
+    , chzrsDelegationSet
+    , chzrsLocation
     ) where
 
 import           Network.AWS.Prelude
@@ -80,48 +80,48 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chzDelegationSetId'
+-- * 'chzrqDelegationSetId'
 --
--- * 'chzHostedZoneConfig'
+-- * 'chzrqHostedZoneConfig'
 --
--- * 'chzVPC'
+-- * 'chzrqVPC'
 --
--- * 'chzName'
+-- * 'chzrqName'
 --
--- * 'chzCallerReference'
+-- * 'chzrqCallerReference'
 data CreateHostedZone = CreateHostedZone'
-    { _chzDelegationSetId  :: !(Maybe Text)
-    , _chzHostedZoneConfig :: !(Maybe HostedZoneConfig)
-    , _chzVPC              :: !(Maybe VPC)
-    , _chzName             :: !Text
-    , _chzCallerReference  :: !Text
+    { _chzrqDelegationSetId  :: !(Maybe Text)
+    , _chzrqHostedZoneConfig :: !(Maybe HostedZoneConfig)
+    , _chzrqVPC              :: !(Maybe VPC)
+    , _chzrqName             :: !Text
+    , _chzrqCallerReference  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHostedZone' smart constructor.
 createHostedZone :: Text -> Text -> CreateHostedZone
 createHostedZone pName pCallerReference =
     CreateHostedZone'
-    { _chzDelegationSetId = Nothing
-    , _chzHostedZoneConfig = Nothing
-    , _chzVPC = Nothing
-    , _chzName = pName
-    , _chzCallerReference = pCallerReference
+    { _chzrqDelegationSetId = Nothing
+    , _chzrqHostedZoneConfig = Nothing
+    , _chzrqVPC = Nothing
+    , _chzrqName = pName
+    , _chzrqCallerReference = pCallerReference
     }
 
 -- | The delegation set id of the reusable delgation set whose NS records you
 -- want to assign to the new hosted zone.
-chzDelegationSetId :: Lens' CreateHostedZone (Maybe Text)
-chzDelegationSetId = lens _chzDelegationSetId (\ s a -> s{_chzDelegationSetId = a});
+chzrqDelegationSetId :: Lens' CreateHostedZone (Maybe Text)
+chzrqDelegationSetId = lens _chzrqDelegationSetId (\ s a -> s{_chzrqDelegationSetId = a});
 
 -- | A complex type that contains an optional comment about your hosted zone.
-chzHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
-chzHostedZoneConfig = lens _chzHostedZoneConfig (\ s a -> s{_chzHostedZoneConfig = a});
+chzrqHostedZoneConfig :: Lens' CreateHostedZone (Maybe HostedZoneConfig)
+chzrqHostedZoneConfig = lens _chzrqHostedZoneConfig (\ s a -> s{_chzrqHostedZoneConfig = a});
 
 -- | The VPC that you want your hosted zone to be associated with. By
 -- providing this parameter, your newly created hosted cannot be resolved
 -- anywhere other than the given VPC.
-chzVPC :: Lens' CreateHostedZone (Maybe VPC)
-chzVPC = lens _chzVPC (\ s a -> s{_chzVPC = a});
+chzrqVPC :: Lens' CreateHostedZone (Maybe VPC)
+chzrqVPC = lens _chzrqVPC (\ s a -> s{_chzrqVPC = a});
 
 -- | The name of the domain. This must be a fully-specified domain, for
 -- example, www.example.com. The trailing dot is optional; Route 53 assumes
@@ -132,8 +132,8 @@ chzVPC = lens _chzVPC (\ s a -> s{_chzVPC = a});
 -- This is the name you have registered with your DNS registrar. You should
 -- ask your registrar to change the authoritative name servers for your
 -- domain to the set of @NameServers@ elements returned in @DelegationSet@.
-chzName :: Lens' CreateHostedZone Text
-chzName = lens _chzName (\ s a -> s{_chzName = a});
+chzrqName :: Lens' CreateHostedZone Text
+chzrqName = lens _chzrqName (\ s a -> s{_chzrqName = a});
 
 -- | A unique string that identifies the request and that allows failed
 -- @CreateHostedZone@ requests to be retried without the risk of executing
@@ -145,8 +145,8 @@ chzName = lens _chzName (\ s a -> s{_chzName = a});
 -- Valid characters are any Unicode code points that are legal in an XML
 -- 1.0 document. The UTF-8 encoding of the value must be less than 128
 -- bytes.
-chzCallerReference :: Lens' CreateHostedZone Text
-chzCallerReference = lens _chzCallerReference (\ s a -> s{_chzCallerReference = a});
+chzrqCallerReference :: Lens' CreateHostedZone Text
+chzrqCallerReference = lens _chzrqCallerReference (\ s a -> s{_chzrqCallerReference = a});
 
 instance AWSRequest CreateHostedZone where
         type Sv CreateHostedZone = Route53
@@ -179,10 +179,10 @@ instance ToQuery CreateHostedZone where
 instance ToXML CreateHostedZone where
         toXML CreateHostedZone'{..}
           = mconcat
-              ["DelegationSetId" @= _chzDelegationSetId,
-               "HostedZoneConfig" @= _chzHostedZoneConfig,
-               "VPC" @= _chzVPC, "Name" @= _chzName,
-               "CallerReference" @= _chzCallerReference]
+              ["DelegationSetId" @= _chzrqDelegationSetId,
+               "HostedZoneConfig" @= _chzrqHostedZoneConfig,
+               "VPC" @= _chzrqVPC, "Name" @= _chzrqName,
+               "CallerReference" @= _chzrqCallerReference]
 
 -- | A complex type containing the response information for the new hosted
 -- zone.
@@ -191,61 +191,61 @@ instance ToXML CreateHostedZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chzrVPC'
+-- * 'chzrsVPC'
 --
--- * 'chzrStatus'
+-- * 'chzrsStatus'
 --
--- * 'chzrHostedZone'
+-- * 'chzrsHostedZone'
 --
--- * 'chzrChangeInfo'
+-- * 'chzrsChangeInfo'
 --
--- * 'chzrDelegationSet'
+-- * 'chzrsDelegationSet'
 --
--- * 'chzrLocation'
+-- * 'chzrsLocation'
 data CreateHostedZoneResponse = CreateHostedZoneResponse'
-    { _chzrVPC           :: !(Maybe VPC)
-    , _chzrStatus        :: !Int
-    , _chzrHostedZone    :: !HostedZone
-    , _chzrChangeInfo    :: !ChangeInfo
-    , _chzrDelegationSet :: !DelegationSet
-    , _chzrLocation      :: !Text
+    { _chzrsVPC           :: !(Maybe VPC)
+    , _chzrsStatus        :: !Int
+    , _chzrsHostedZone    :: !HostedZone
+    , _chzrsChangeInfo    :: !ChangeInfo
+    , _chzrsDelegationSet :: !DelegationSet
+    , _chzrsLocation      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHostedZoneResponse' smart constructor.
 createHostedZoneResponse :: Int -> HostedZone -> ChangeInfo -> DelegationSet -> Text -> CreateHostedZoneResponse
 createHostedZoneResponse pStatus pHostedZone pChangeInfo pDelegationSet pLocation =
     CreateHostedZoneResponse'
-    { _chzrVPC = Nothing
-    , _chzrStatus = pStatus
-    , _chzrHostedZone = pHostedZone
-    , _chzrChangeInfo = pChangeInfo
-    , _chzrDelegationSet = pDelegationSet
-    , _chzrLocation = pLocation
+    { _chzrsVPC = Nothing
+    , _chzrsStatus = pStatus
+    , _chzrsHostedZone = pHostedZone
+    , _chzrsChangeInfo = pChangeInfo
+    , _chzrsDelegationSet = pDelegationSet
+    , _chzrsLocation = pLocation
     }
 
 -- | FIXME: Undocumented member.
-chzrVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
-chzrVPC = lens _chzrVPC (\ s a -> s{_chzrVPC = a});
+chzrsVPC :: Lens' CreateHostedZoneResponse (Maybe VPC)
+chzrsVPC = lens _chzrsVPC (\ s a -> s{_chzrsVPC = a});
 
 -- | FIXME: Undocumented member.
-chzrStatus :: Lens' CreateHostedZoneResponse Int
-chzrStatus = lens _chzrStatus (\ s a -> s{_chzrStatus = a});
+chzrsStatus :: Lens' CreateHostedZoneResponse Int
+chzrsStatus = lens _chzrsStatus (\ s a -> s{_chzrsStatus = a});
 
 -- | A complex type that contains identifying information about the hosted
 -- zone.
-chzrHostedZone :: Lens' CreateHostedZoneResponse HostedZone
-chzrHostedZone = lens _chzrHostedZone (\ s a -> s{_chzrHostedZone = a});
+chzrsHostedZone :: Lens' CreateHostedZoneResponse HostedZone
+chzrsHostedZone = lens _chzrsHostedZone (\ s a -> s{_chzrsHostedZone = a});
 
 -- | A complex type that contains information about the request to create a
 -- hosted zone. This includes an ID that you use when you call the
 -- GetChange action to get the current status of the change request.
-chzrChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
-chzrChangeInfo = lens _chzrChangeInfo (\ s a -> s{_chzrChangeInfo = a});
+chzrsChangeInfo :: Lens' CreateHostedZoneResponse ChangeInfo
+chzrsChangeInfo = lens _chzrsChangeInfo (\ s a -> s{_chzrsChangeInfo = a});
 
 -- | A complex type that contains name server information.
-chzrDelegationSet :: Lens' CreateHostedZoneResponse DelegationSet
-chzrDelegationSet = lens _chzrDelegationSet (\ s a -> s{_chzrDelegationSet = a});
+chzrsDelegationSet :: Lens' CreateHostedZoneResponse DelegationSet
+chzrsDelegationSet = lens _chzrsDelegationSet (\ s a -> s{_chzrsDelegationSet = a});
 
 -- | The unique URL representing the new hosted zone.
-chzrLocation :: Lens' CreateHostedZoneResponse Text
-chzrLocation = lens _chzrLocation (\ s a -> s{_chzrLocation = a});
+chzrsLocation :: Lens' CreateHostedZoneResponse Text
+chzrsLocation = lens _chzrsLocation (\ s a -> s{_chzrsLocation = a});

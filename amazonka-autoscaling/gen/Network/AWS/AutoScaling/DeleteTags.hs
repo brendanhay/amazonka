@@ -27,7 +27,7 @@ module Network.AWS.AutoScaling.DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , dtTags
+    , dtrqTags
 
     -- * Response
     , DeleteTagsResponse
@@ -44,24 +44,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtTags'
+-- * 'dtrqTags'
 newtype DeleteTags = DeleteTags'
-    { _dtTags :: [Tag]
+    { _dtrqTags :: [Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: DeleteTags
 deleteTags =
     DeleteTags'
-    { _dtTags = mempty
+    { _dtrqTags = mempty
     }
 
 -- | Each tag should be defined by its resource type, resource ID, key,
 -- value, and a propagate flag. Valid values are: Resource type =
 -- /auto-scaling-group/, Resource ID = /AutoScalingGroupName/, key=/value/,
 -- value=/value/, propagate=/true/ or /false/.
-dtTags :: Lens' DeleteTags [Tag]
-dtTags = lens _dtTags (\ s a -> s{_dtTags = a});
+dtrqTags :: Lens' DeleteTags [Tag]
+dtrqTags = lens _dtrqTags (\ s a -> s{_dtrqTags = a});
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = AutoScaling
@@ -80,7 +80,7 @@ instance ToQuery DeleteTags where
           = mconcat
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "Tags" =: toQueryList "member" _dtTags]
+               "Tags" =: toQueryList "member" _dtrqTags]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =

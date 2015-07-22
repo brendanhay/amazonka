@@ -33,18 +33,18 @@ module Network.AWS.OpsWorks.UpdateInstance
     -- ** Request constructor
     , updateInstance
     -- ** Request lenses
-    , uiInstallUpdatesOnBoot
-    , uiHostname
-    , uiSSHKeyName
-    , uiAgentVersion
-    , uiInstanceType
-    , uiEBSOptimized
-    , uiOS
-    , uiAutoScalingType
-    , uiLayerIds
-    , uiArchitecture
-    , uiAMIId
-    , uiInstanceId
+    , uirqInstallUpdatesOnBoot
+    , uirqHostname
+    , uirqSSHKeyName
+    , uirqAgentVersion
+    , uirqInstanceType
+    , uirqEBSOptimized
+    , uirqOS
+    , uirqAutoScalingType
+    , uirqLayerIds
+    , uirqArchitecture
+    , uirqAMIId
+    , uirqInstanceId
 
     -- * Response
     , UpdateInstanceResponse
@@ -61,60 +61,60 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uiInstallUpdatesOnBoot'
+-- * 'uirqInstallUpdatesOnBoot'
 --
--- * 'uiHostname'
+-- * 'uirqHostname'
 --
--- * 'uiSSHKeyName'
+-- * 'uirqSSHKeyName'
 --
--- * 'uiAgentVersion'
+-- * 'uirqAgentVersion'
 --
--- * 'uiInstanceType'
+-- * 'uirqInstanceType'
 --
--- * 'uiEBSOptimized'
+-- * 'uirqEBSOptimized'
 --
--- * 'uiOS'
+-- * 'uirqOS'
 --
--- * 'uiAutoScalingType'
+-- * 'uirqAutoScalingType'
 --
--- * 'uiLayerIds'
+-- * 'uirqLayerIds'
 --
--- * 'uiArchitecture'
+-- * 'uirqArchitecture'
 --
--- * 'uiAMIId'
+-- * 'uirqAMIId'
 --
--- * 'uiInstanceId'
+-- * 'uirqInstanceId'
 data UpdateInstance = UpdateInstance'
-    { _uiInstallUpdatesOnBoot :: !(Maybe Bool)
-    , _uiHostname             :: !(Maybe Text)
-    , _uiSSHKeyName           :: !(Maybe Text)
-    , _uiAgentVersion         :: !(Maybe Text)
-    , _uiInstanceType         :: !(Maybe Text)
-    , _uiEBSOptimized         :: !(Maybe Bool)
-    , _uiOS                   :: !(Maybe Text)
-    , _uiAutoScalingType      :: !(Maybe AutoScalingType)
-    , _uiLayerIds             :: !(Maybe [Text])
-    , _uiArchitecture         :: !(Maybe Architecture)
-    , _uiAMIId                :: !(Maybe Text)
-    , _uiInstanceId           :: !Text
+    { _uirqInstallUpdatesOnBoot :: !(Maybe Bool)
+    , _uirqHostname             :: !(Maybe Text)
+    , _uirqSSHKeyName           :: !(Maybe Text)
+    , _uirqAgentVersion         :: !(Maybe Text)
+    , _uirqInstanceType         :: !(Maybe Text)
+    , _uirqEBSOptimized         :: !(Maybe Bool)
+    , _uirqOS                   :: !(Maybe Text)
+    , _uirqAutoScalingType      :: !(Maybe AutoScalingType)
+    , _uirqLayerIds             :: !(Maybe [Text])
+    , _uirqArchitecture         :: !(Maybe Architecture)
+    , _uirqAMIId                :: !(Maybe Text)
+    , _uirqInstanceId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateInstance' smart constructor.
 updateInstance :: Text -> UpdateInstance
 updateInstance pInstanceId =
     UpdateInstance'
-    { _uiInstallUpdatesOnBoot = Nothing
-    , _uiHostname = Nothing
-    , _uiSSHKeyName = Nothing
-    , _uiAgentVersion = Nothing
-    , _uiInstanceType = Nothing
-    , _uiEBSOptimized = Nothing
-    , _uiOS = Nothing
-    , _uiAutoScalingType = Nothing
-    , _uiLayerIds = Nothing
-    , _uiArchitecture = Nothing
-    , _uiAMIId = Nothing
-    , _uiInstanceId = pInstanceId
+    { _uirqInstallUpdatesOnBoot = Nothing
+    , _uirqHostname = Nothing
+    , _uirqSSHKeyName = Nothing
+    , _uirqAgentVersion = Nothing
+    , _uirqInstanceType = Nothing
+    , _uirqEBSOptimized = Nothing
+    , _uirqOS = Nothing
+    , _uirqAutoScalingType = Nothing
+    , _uirqLayerIds = Nothing
+    , _uirqArchitecture = Nothing
+    , _uirqAMIId = Nothing
+    , _uirqInstanceId = pInstanceId
     }
 
 -- | Whether to install operating system and package updates when the
@@ -126,16 +126,16 @@ updateInstance pInstanceId =
 --
 -- We strongly recommend using the default value of @true@, to ensure that
 -- your instances have the latest security updates.
-uiInstallUpdatesOnBoot :: Lens' UpdateInstance (Maybe Bool)
-uiInstallUpdatesOnBoot = lens _uiInstallUpdatesOnBoot (\ s a -> s{_uiInstallUpdatesOnBoot = a});
+uirqInstallUpdatesOnBoot :: Lens' UpdateInstance (Maybe Bool)
+uirqInstallUpdatesOnBoot = lens _uirqInstallUpdatesOnBoot (\ s a -> s{_uirqInstallUpdatesOnBoot = a});
 
 -- | The instance host name.
-uiHostname :: Lens' UpdateInstance (Maybe Text)
-uiHostname = lens _uiHostname (\ s a -> s{_uiHostname = a});
+uirqHostname :: Lens' UpdateInstance (Maybe Text)
+uirqHostname = lens _uirqHostname (\ s a -> s{_uirqHostname = a});
 
 -- | The instance\'s Amazon EC2 key name.
-uiSSHKeyName :: Lens' UpdateInstance (Maybe Text)
-uiSSHKeyName = lens _uiSSHKeyName (\ s a -> s{_uiSSHKeyName = a});
+uirqSSHKeyName :: Lens' UpdateInstance (Maybe Text)
+uirqSSHKeyName = lens _uirqSSHKeyName (\ s a -> s{_uirqSSHKeyName = a});
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
@@ -150,8 +150,8 @@ uiSSHKeyName = lens _uiSSHKeyName (\ s a -> s{_uiSSHKeyName = a});
 -- use the complete version number, not the abbreviated number shown on the
 -- console. For a list of available agent version numbers, call
 -- DescribeAgentVersions.
-uiAgentVersion :: Lens' UpdateInstance (Maybe Text)
-uiAgentVersion = lens _uiAgentVersion (\ s a -> s{_uiAgentVersion = a});
+uirqAgentVersion :: Lens' UpdateInstance (Maybe Text)
+uirqAgentVersion = lens _uirqAgentVersion (\ s a -> s{_uirqAgentVersion = a});
 
 -- | The instance type, such as @t2.micro@. For a list of supported instance
 -- types, open the stack in the console, choose __Instances__, and choose
@@ -160,12 +160,12 @@ uiAgentVersion = lens _uiAgentVersion (\ s a -> s{_uiAgentVersion = a});
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
 -- The parameter values that you use to specify the various types are in
 -- the __API Name__ column of the __Available Instance Types__ table.
-uiInstanceType :: Lens' UpdateInstance (Maybe Text)
-uiInstanceType = lens _uiInstanceType (\ s a -> s{_uiInstanceType = a});
+uirqInstanceType :: Lens' UpdateInstance (Maybe Text)
+uirqInstanceType = lens _uirqInstanceType (\ s a -> s{_uirqInstanceType = a});
 
 -- | This property cannot be updated.
-uiEBSOptimized :: Lens' UpdateInstance (Maybe Bool)
-uiEBSOptimized = lens _uiEBSOptimized (\ s a -> s{_uiEBSOptimized = a});
+uirqEBSOptimized :: Lens' UpdateInstance (Maybe Bool)
+uirqEBSOptimized = lens _uirqEBSOptimized (\ s a -> s{_uirqEBSOptimized = a});
 
 -- | The instance\'s operating system, which must be set to one of the
 -- following.
@@ -188,36 +188,36 @@ uiEBSOptimized = lens _uiEBSOptimized (\ s a -> s{_uiEBSOptimized = a});
 --
 -- You can specify a different Linux operating system for the updated
 -- stack, but you cannot change from Linux to Windows or Windows to Linux.
-uiOS :: Lens' UpdateInstance (Maybe Text)
-uiOS = lens _uiOS (\ s a -> s{_uiOS = a});
+uirqOS :: Lens' UpdateInstance (Maybe Text)
+uirqOS = lens _uirqOS (\ s a -> s{_uirqOS = a});
 
 -- | For load-based or time-based instances, the type. Windows stacks can use
 -- only time-based instances.
-uiAutoScalingType :: Lens' UpdateInstance (Maybe AutoScalingType)
-uiAutoScalingType = lens _uiAutoScalingType (\ s a -> s{_uiAutoScalingType = a});
+uirqAutoScalingType :: Lens' UpdateInstance (Maybe AutoScalingType)
+uirqAutoScalingType = lens _uirqAutoScalingType (\ s a -> s{_uirqAutoScalingType = a});
 
 -- | The instance\'s layer IDs.
-uiLayerIds :: Lens' UpdateInstance [Text]
-uiLayerIds = lens _uiLayerIds (\ s a -> s{_uiLayerIds = a}) . _Default;
+uirqLayerIds :: Lens' UpdateInstance [Text]
+uirqLayerIds = lens _uirqLayerIds (\ s a -> s{_uirqLayerIds = a}) . _Default;
 
 -- | The instance architecture. Instance types do not necessarily support
 -- both architectures. For a list of the architectures that are supported
 -- by the different instance types, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html Instance Families and Types>.
-uiArchitecture :: Lens' UpdateInstance (Maybe Architecture)
-uiArchitecture = lens _uiArchitecture (\ s a -> s{_uiArchitecture = a});
+uirqArchitecture :: Lens' UpdateInstance (Maybe Architecture)
+uirqArchitecture = lens _uirqArchitecture (\ s a -> s{_uirqArchitecture = a});
 
 -- | A custom AMI ID to be used to create the instance. The AMI must be based
 -- on one of the supported operating systems. For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-custom-ami.html Instances>
 --
 -- If you specify a custom AMI, you must set @Os@ to @Custom@.
-uiAMIId :: Lens' UpdateInstance (Maybe Text)
-uiAMIId = lens _uiAMIId (\ s a -> s{_uiAMIId = a});
+uirqAMIId :: Lens' UpdateInstance (Maybe Text)
+uirqAMIId = lens _uirqAMIId (\ s a -> s{_uirqAMIId = a});
 
 -- | The instance ID.
-uiInstanceId :: Lens' UpdateInstance Text
-uiInstanceId = lens _uiInstanceId (\ s a -> s{_uiInstanceId = a});
+uirqInstanceId :: Lens' UpdateInstance Text
+uirqInstanceId = lens _uirqInstanceId (\ s a -> s{_uirqInstanceId = a});
 
 instance AWSRequest UpdateInstance where
         type Sv UpdateInstance = OpsWorks
@@ -237,16 +237,17 @@ instance ToHeaders UpdateInstance where
 instance ToJSON UpdateInstance where
         toJSON UpdateInstance'{..}
           = object
-              ["InstallUpdatesOnBoot" .= _uiInstallUpdatesOnBoot,
-               "Hostname" .= _uiHostname,
-               "SshKeyName" .= _uiSSHKeyName,
-               "AgentVersion" .= _uiAgentVersion,
-               "InstanceType" .= _uiInstanceType,
-               "EbsOptimized" .= _uiEBSOptimized, "Os" .= _uiOS,
-               "AutoScalingType" .= _uiAutoScalingType,
-               "LayerIds" .= _uiLayerIds,
-               "Architecture" .= _uiArchitecture,
-               "AmiId" .= _uiAMIId, "InstanceId" .= _uiInstanceId]
+              ["InstallUpdatesOnBoot" .= _uirqInstallUpdatesOnBoot,
+               "Hostname" .= _uirqHostname,
+               "SshKeyName" .= _uirqSSHKeyName,
+               "AgentVersion" .= _uirqAgentVersion,
+               "InstanceType" .= _uirqInstanceType,
+               "EbsOptimized" .= _uirqEBSOptimized, "Os" .= _uirqOS,
+               "AutoScalingType" .= _uirqAutoScalingType,
+               "LayerIds" .= _uirqLayerIds,
+               "Architecture" .= _uirqArchitecture,
+               "AmiId" .= _uirqAMIId,
+               "InstanceId" .= _uirqInstanceId]
 
 instance ToPath UpdateInstance where
         toPath = const "/"

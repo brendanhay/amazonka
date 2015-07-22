@@ -30,16 +30,16 @@ module Network.AWS.EC2.RestoreAddressToClassic
     -- ** Request constructor
     , restoreAddressToClassic
     -- ** Request lenses
-    , ratcDryRun
-    , ratcPublicIP
+    , ratcrqDryRun
+    , ratcrqPublicIP
 
     -- * Response
     , RestoreAddressToClassicResponse
     -- ** Response constructor
     , restoreAddressToClassicResponse
     -- ** Response lenses
-    , ratcrPublicIP
-    , ratcrStatus
+    , ratcrsPublicIP
+    , ratcrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ratcDryRun'
+-- * 'ratcrqDryRun'
 --
--- * 'ratcPublicIP'
+-- * 'ratcrqPublicIP'
 data RestoreAddressToClassic = RestoreAddressToClassic'
-    { _ratcDryRun   :: !(Maybe Bool)
-    , _ratcPublicIP :: !Text
+    { _ratcrqDryRun   :: !(Maybe Bool)
+    , _ratcrqPublicIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreAddressToClassic' smart constructor.
 restoreAddressToClassic :: Text -> RestoreAddressToClassic
 restoreAddressToClassic pPublicIP =
     RestoreAddressToClassic'
-    { _ratcDryRun = Nothing
-    , _ratcPublicIP = pPublicIP
+    { _ratcrqDryRun = Nothing
+    , _ratcrqPublicIP = pPublicIP
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ratcDryRun :: Lens' RestoreAddressToClassic (Maybe Bool)
-ratcDryRun = lens _ratcDryRun (\ s a -> s{_ratcDryRun = a});
+ratcrqDryRun :: Lens' RestoreAddressToClassic (Maybe Bool)
+ratcrqDryRun = lens _ratcrqDryRun (\ s a -> s{_ratcrqDryRun = a});
 
 -- | The Elastic IP address.
-ratcPublicIP :: Lens' RestoreAddressToClassic Text
-ratcPublicIP = lens _ratcPublicIP (\ s a -> s{_ratcPublicIP = a});
+ratcrqPublicIP :: Lens' RestoreAddressToClassic Text
+ratcrqPublicIP = lens _ratcrqPublicIP (\ s a -> s{_ratcrqPublicIP = a});
 
 instance AWSRequest RestoreAddressToClassic where
         type Sv RestoreAddressToClassic = EC2
@@ -101,32 +101,33 @@ instance ToQuery RestoreAddressToClassic where
               ["Action" =:
                  ("RestoreAddressToClassic" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ratcDryRun, "PublicIp" =: _ratcPublicIP]
+               "DryRun" =: _ratcrqDryRun,
+               "PublicIp" =: _ratcrqPublicIP]
 
 -- | /See:/ 'restoreAddressToClassicResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ratcrPublicIP'
+-- * 'ratcrsPublicIP'
 --
--- * 'ratcrStatus'
+-- * 'ratcrsStatus'
 data RestoreAddressToClassicResponse = RestoreAddressToClassicResponse'
-    { _ratcrPublicIP :: !(Maybe Text)
-    , _ratcrStatus   :: !Int
+    { _ratcrsPublicIP :: !(Maybe Text)
+    , _ratcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreAddressToClassicResponse' smart constructor.
 restoreAddressToClassicResponse :: Int -> RestoreAddressToClassicResponse
 restoreAddressToClassicResponse pStatus =
     RestoreAddressToClassicResponse'
-    { _ratcrPublicIP = Nothing
-    , _ratcrStatus = pStatus
+    { _ratcrsPublicIP = Nothing
+    , _ratcrsStatus = pStatus
     }
 
 -- | The Elastic IP address.
-ratcrPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
-ratcrPublicIP = lens _ratcrPublicIP (\ s a -> s{_ratcrPublicIP = a});
+ratcrsPublicIP :: Lens' RestoreAddressToClassicResponse (Maybe Text)
+ratcrsPublicIP = lens _ratcrsPublicIP (\ s a -> s{_ratcrsPublicIP = a});
 
 -- | FIXME: Undocumented member.
-ratcrStatus :: Lens' RestoreAddressToClassicResponse Int
-ratcrStatus = lens _ratcrStatus (\ s a -> s{_ratcrStatus = a});
+ratcrsStatus :: Lens' RestoreAddressToClassicResponse Int
+ratcrsStatus = lens _ratcrsStatus (\ s a -> s{_ratcrsStatus = a});

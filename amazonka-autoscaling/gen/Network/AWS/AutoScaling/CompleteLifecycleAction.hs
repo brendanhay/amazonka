@@ -47,17 +47,17 @@ module Network.AWS.AutoScaling.CompleteLifecycleAction
     -- ** Request constructor
     , completeLifecycleAction
     -- ** Request lenses
-    , claLifecycleHookName
-    , claAutoScalingGroupName
-    , claLifecycleActionToken
-    , claLifecycleActionResult
+    , clarqLifecycleHookName
+    , clarqAutoScalingGroupName
+    , clarqLifecycleActionToken
+    , clarqLifecycleActionResult
 
     -- * Response
     , CompleteLifecycleActionResponse
     -- ** Response constructor
     , completeLifecycleActionResponse
     -- ** Response lenses
-    , clarStatus
+    , clarsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -69,49 +69,49 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'claLifecycleHookName'
+-- * 'clarqLifecycleHookName'
 --
--- * 'claAutoScalingGroupName'
+-- * 'clarqAutoScalingGroupName'
 --
--- * 'claLifecycleActionToken'
+-- * 'clarqLifecycleActionToken'
 --
--- * 'claLifecycleActionResult'
+-- * 'clarqLifecycleActionResult'
 data CompleteLifecycleAction = CompleteLifecycleAction'
-    { _claLifecycleHookName     :: !Text
-    , _claAutoScalingGroupName  :: !Text
-    , _claLifecycleActionToken  :: !Text
-    , _claLifecycleActionResult :: !Text
+    { _clarqLifecycleHookName     :: !Text
+    , _clarqAutoScalingGroupName  :: !Text
+    , _clarqLifecycleActionToken  :: !Text
+    , _clarqLifecycleActionResult :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteLifecycleAction' smart constructor.
 completeLifecycleAction :: Text -> Text -> Text -> Text -> CompleteLifecycleAction
 completeLifecycleAction pLifecycleHookName pAutoScalingGroupName pLifecycleActionToken pLifecycleActionResult =
     CompleteLifecycleAction'
-    { _claLifecycleHookName = pLifecycleHookName
-    , _claAutoScalingGroupName = pAutoScalingGroupName
-    , _claLifecycleActionToken = pLifecycleActionToken
-    , _claLifecycleActionResult = pLifecycleActionResult
+    { _clarqLifecycleHookName = pLifecycleHookName
+    , _clarqAutoScalingGroupName = pAutoScalingGroupName
+    , _clarqLifecycleActionToken = pLifecycleActionToken
+    , _clarqLifecycleActionResult = pLifecycleActionResult
     }
 
 -- | The name of the lifecycle hook.
-claLifecycleHookName :: Lens' CompleteLifecycleAction Text
-claLifecycleHookName = lens _claLifecycleHookName (\ s a -> s{_claLifecycleHookName = a});
+clarqLifecycleHookName :: Lens' CompleteLifecycleAction Text
+clarqLifecycleHookName = lens _clarqLifecycleHookName (\ s a -> s{_clarqLifecycleHookName = a});
 
 -- | The name of the group for the lifecycle hook.
-claAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
-claAutoScalingGroupName = lens _claAutoScalingGroupName (\ s a -> s{_claAutoScalingGroupName = a});
+clarqAutoScalingGroupName :: Lens' CompleteLifecycleAction Text
+clarqAutoScalingGroupName = lens _clarqAutoScalingGroupName (\ s a -> s{_clarqAutoScalingGroupName = a});
 
 -- | A universally unique identifier (UUID) that identifies a specific
 -- lifecycle action associated with an instance. Auto Scaling sends this
 -- token to the notification target you specified when you created the
 -- lifecycle hook.
-claLifecycleActionToken :: Lens' CompleteLifecycleAction Text
-claLifecycleActionToken = lens _claLifecycleActionToken (\ s a -> s{_claLifecycleActionToken = a});
+clarqLifecycleActionToken :: Lens' CompleteLifecycleAction Text
+clarqLifecycleActionToken = lens _clarqLifecycleActionToken (\ s a -> s{_clarqLifecycleActionToken = a});
 
 -- | The action for the group to take. This parameter can be either
 -- @CONTINUE@ or @ABANDON@.
-claLifecycleActionResult :: Lens' CompleteLifecycleAction Text
-claLifecycleActionResult = lens _claLifecycleActionResult (\ s a -> s{_claLifecycleActionResult = a});
+clarqLifecycleActionResult :: Lens' CompleteLifecycleAction Text
+clarqLifecycleActionResult = lens _clarqLifecycleActionResult (\ s a -> s{_clarqLifecycleActionResult = a});
 
 instance AWSRequest CompleteLifecycleAction where
         type Sv CompleteLifecycleAction = AutoScaling
@@ -136,27 +136,28 @@ instance ToQuery CompleteLifecycleAction where
               ["Action" =:
                  ("CompleteLifecycleAction" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "LifecycleHookName" =: _claLifecycleHookName,
-               "AutoScalingGroupName" =: _claAutoScalingGroupName,
-               "LifecycleActionToken" =: _claLifecycleActionToken,
-               "LifecycleActionResult" =: _claLifecycleActionResult]
+               "LifecycleHookName" =: _clarqLifecycleHookName,
+               "AutoScalingGroupName" =: _clarqAutoScalingGroupName,
+               "LifecycleActionToken" =: _clarqLifecycleActionToken,
+               "LifecycleActionResult" =:
+                 _clarqLifecycleActionResult]
 
 -- | /See:/ 'completeLifecycleActionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clarStatus'
+-- * 'clarsStatus'
 newtype CompleteLifecycleActionResponse = CompleteLifecycleActionResponse'
-    { _clarStatus :: Int
+    { _clarsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CompleteLifecycleActionResponse' smart constructor.
 completeLifecycleActionResponse :: Int -> CompleteLifecycleActionResponse
 completeLifecycleActionResponse pStatus =
     CompleteLifecycleActionResponse'
-    { _clarStatus = pStatus
+    { _clarsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-clarStatus :: Lens' CompleteLifecycleActionResponse Int
-clarStatus = lens _clarStatus (\ s a -> s{_clarStatus = a});
+clarsStatus :: Lens' CompleteLifecycleActionResponse Int
+clarsStatus = lens _clarsStatus (\ s a -> s{_clarsStatus = a});

@@ -27,20 +27,20 @@ module Network.AWS.S3.GetObjectACL
     -- ** Request constructor
     , getObjectACL
     -- ** Request lenses
-    , goaVersionId
-    , goaRequestPayer
-    , goaBucket
-    , goaKey
+    , goarqVersionId
+    , goarqRequestPayer
+    , goarqBucket
+    , goarqKey
 
     -- * Response
     , GetObjectACLResponse
     -- ** Response constructor
     , getObjectACLResponse
     -- ** Response lenses
-    , goarRequestCharged
-    , goarGrants
-    , goarOwner
-    , goarStatus
+    , goarsRequestCharged
+    , goarsGrants
+    , goarsOwner
+    , goarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,45 +52,45 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goaVersionId'
+-- * 'goarqVersionId'
 --
--- * 'goaRequestPayer'
+-- * 'goarqRequestPayer'
 --
--- * 'goaBucket'
+-- * 'goarqBucket'
 --
--- * 'goaKey'
+-- * 'goarqKey'
 data GetObjectACL = GetObjectACL'
-    { _goaVersionId    :: !(Maybe ObjectVersionId)
-    , _goaRequestPayer :: !(Maybe RequestPayer)
-    , _goaBucket       :: !BucketName
-    , _goaKey          :: !ObjectKey
+    { _goarqVersionId    :: !(Maybe ObjectVersionId)
+    , _goarqRequestPayer :: !(Maybe RequestPayer)
+    , _goarqBucket       :: !BucketName
+    , _goarqKey          :: !ObjectKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetObjectACL' smart constructor.
 getObjectACL :: BucketName -> ObjectKey -> GetObjectACL
 getObjectACL pBucket pKey =
     GetObjectACL'
-    { _goaVersionId = Nothing
-    , _goaRequestPayer = Nothing
-    , _goaBucket = pBucket
-    , _goaKey = pKey
+    { _goarqVersionId = Nothing
+    , _goarqRequestPayer = Nothing
+    , _goarqBucket = pBucket
+    , _goarqKey = pKey
     }
 
 -- | VersionId used to reference a specific version of the object.
-goaVersionId :: Lens' GetObjectACL (Maybe ObjectVersionId)
-goaVersionId = lens _goaVersionId (\ s a -> s{_goaVersionId = a});
+goarqVersionId :: Lens' GetObjectACL (Maybe ObjectVersionId)
+goarqVersionId = lens _goarqVersionId (\ s a -> s{_goarqVersionId = a});
 
 -- | FIXME: Undocumented member.
-goaRequestPayer :: Lens' GetObjectACL (Maybe RequestPayer)
-goaRequestPayer = lens _goaRequestPayer (\ s a -> s{_goaRequestPayer = a});
+goarqRequestPayer :: Lens' GetObjectACL (Maybe RequestPayer)
+goarqRequestPayer = lens _goarqRequestPayer (\ s a -> s{_goarqRequestPayer = a});
 
 -- | FIXME: Undocumented member.
-goaBucket :: Lens' GetObjectACL BucketName
-goaBucket = lens _goaBucket (\ s a -> s{_goaBucket = a});
+goarqBucket :: Lens' GetObjectACL BucketName
+goarqBucket = lens _goarqBucket (\ s a -> s{_goarqBucket = a});
 
 -- | FIXME: Undocumented member.
-goaKey :: Lens' GetObjectACL ObjectKey
-goaKey = lens _goaKey (\ s a -> s{_goaKey = a});
+goarqKey :: Lens' GetObjectACL ObjectKey
+goarqKey = lens _goarqKey (\ s a -> s{_goarqKey = a});
 
 instance AWSRequest GetObjectACL where
         type Sv GetObjectACL = S3
@@ -108,57 +108,58 @@ instance AWSRequest GetObjectACL where
 
 instance ToHeaders GetObjectACL where
         toHeaders GetObjectACL'{..}
-          = mconcat ["x-amz-request-payer" =# _goaRequestPayer]
+          = mconcat
+              ["x-amz-request-payer" =# _goarqRequestPayer]
 
 instance ToPath GetObjectACL where
         toPath GetObjectACL'{..}
           = mconcat
-              ["/", toText _goaBucket, "/", toText _goaKey]
+              ["/", toText _goarqBucket, "/", toText _goarqKey]
 
 instance ToQuery GetObjectACL where
         toQuery GetObjectACL'{..}
-          = mconcat ["versionId" =: _goaVersionId, "acl"]
+          = mconcat ["versionId" =: _goarqVersionId, "acl"]
 
 -- | /See:/ 'getObjectACLResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goarRequestCharged'
+-- * 'goarsRequestCharged'
 --
--- * 'goarGrants'
+-- * 'goarsGrants'
 --
--- * 'goarOwner'
+-- * 'goarsOwner'
 --
--- * 'goarStatus'
+-- * 'goarsStatus'
 data GetObjectACLResponse = GetObjectACLResponse'
-    { _goarRequestCharged :: !(Maybe RequestCharged)
-    , _goarGrants         :: !(Maybe [Grant])
-    , _goarOwner          :: !(Maybe Owner)
-    , _goarStatus         :: !Int
+    { _goarsRequestCharged :: !(Maybe RequestCharged)
+    , _goarsGrants         :: !(Maybe [Grant])
+    , _goarsOwner          :: !(Maybe Owner)
+    , _goarsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetObjectACLResponse' smart constructor.
 getObjectACLResponse :: Int -> GetObjectACLResponse
 getObjectACLResponse pStatus =
     GetObjectACLResponse'
-    { _goarRequestCharged = Nothing
-    , _goarGrants = Nothing
-    , _goarOwner = Nothing
-    , _goarStatus = pStatus
+    { _goarsRequestCharged = Nothing
+    , _goarsGrants = Nothing
+    , _goarsOwner = Nothing
+    , _goarsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-goarRequestCharged :: Lens' GetObjectACLResponse (Maybe RequestCharged)
-goarRequestCharged = lens _goarRequestCharged (\ s a -> s{_goarRequestCharged = a});
+goarsRequestCharged :: Lens' GetObjectACLResponse (Maybe RequestCharged)
+goarsRequestCharged = lens _goarsRequestCharged (\ s a -> s{_goarsRequestCharged = a});
 
 -- | A list of grants.
-goarGrants :: Lens' GetObjectACLResponse [Grant]
-goarGrants = lens _goarGrants (\ s a -> s{_goarGrants = a}) . _Default;
+goarsGrants :: Lens' GetObjectACLResponse [Grant]
+goarsGrants = lens _goarsGrants (\ s a -> s{_goarsGrants = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-goarOwner :: Lens' GetObjectACLResponse (Maybe Owner)
-goarOwner = lens _goarOwner (\ s a -> s{_goarOwner = a});
+goarsOwner :: Lens' GetObjectACLResponse (Maybe Owner)
+goarsOwner = lens _goarsOwner (\ s a -> s{_goarsOwner = a});
 
 -- | FIXME: Undocumented member.
-goarStatus :: Lens' GetObjectACLResponse Int
-goarStatus = lens _goarStatus (\ s a -> s{_goarStatus = a});
+goarsStatus :: Lens' GetObjectACLResponse Int
+goarsStatus = lens _goarsStatus (\ s a -> s{_goarsStatus = a});

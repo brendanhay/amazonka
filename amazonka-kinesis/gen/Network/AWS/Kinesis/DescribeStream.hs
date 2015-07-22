@@ -49,17 +49,17 @@ module Network.AWS.Kinesis.DescribeStream
     -- ** Request constructor
     , describeStream
     -- ** Request lenses
-    , desExclusiveStartShardId
-    , desLimit
-    , desStreamName
+    , drqExclusiveStartShardId
+    , drqLimit
+    , drqStreamName
 
     -- * Response
     , DescribeStreamResponse
     -- ** Response constructor
     , describeStreamResponse
     -- ** Response lenses
-    , dsrStatus
-    , dsrStreamDescription
+    , drsStatus
+    , drsStreamDescription
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -74,51 +74,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desExclusiveStartShardId'
+-- * 'drqExclusiveStartShardId'
 --
--- * 'desLimit'
+-- * 'drqLimit'
 --
--- * 'desStreamName'
+-- * 'drqStreamName'
 data DescribeStream = DescribeStream'
-    { _desExclusiveStartShardId :: !(Maybe Text)
-    , _desLimit                 :: !(Maybe Nat)
-    , _desStreamName            :: !Text
+    { _drqExclusiveStartShardId :: !(Maybe Text)
+    , _drqLimit                 :: !(Maybe Nat)
+    , _drqStreamName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
 describeStream pStreamName =
     DescribeStream'
-    { _desExclusiveStartShardId = Nothing
-    , _desLimit = Nothing
-    , _desStreamName = pStreamName
+    { _drqExclusiveStartShardId = Nothing
+    , _drqLimit = Nothing
+    , _drqStreamName = pStreamName
     }
 
 -- | The shard ID of the shard to start with.
-desExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
-desExclusiveStartShardId = lens _desExclusiveStartShardId (\ s a -> s{_desExclusiveStartShardId = a});
+drqExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
+drqExclusiveStartShardId = lens _drqExclusiveStartShardId (\ s a -> s{_drqExclusiveStartShardId = a});
 
 -- | The maximum number of shards to return.
-desLimit :: Lens' DescribeStream (Maybe Natural)
-desLimit = lens _desLimit (\ s a -> s{_desLimit = a}) . mapping _Nat;
+drqLimit :: Lens' DescribeStream (Maybe Natural)
+drqLimit = lens _drqLimit (\ s a -> s{_drqLimit = a}) . mapping _Nat;
 
 -- | The name of the stream to describe.
-desStreamName :: Lens' DescribeStream Text
-desStreamName = lens _desStreamName (\ s a -> s{_desStreamName = a});
+drqStreamName :: Lens' DescribeStream Text
+drqStreamName = lens _drqStreamName (\ s a -> s{_drqStreamName = a});
 
 instance AWSPager DescribeStream where
         page rq rs
-          | stop (rs ^. dsrStreamDescription . sdHasMoreShards)
+          | stop (rs ^. drsStreamDescription . sdHasMoreShards)
             = Nothing
           | isNothing
               (rs ^?
-                 dsrStreamDescription . sdShards . _last . shaShardId)
+                 drsStreamDescription . sdShards . _last . sShardId)
             = Nothing
           | otherwise =
             Just $ rq &
-              desExclusiveStartShardId .~
+              drqExclusiveStartShardId .~
                 rs ^?
-                  dsrStreamDescription . sdShards . _last . shaShardId
+                  drsStreamDescription . sdShards . _last . sShardId
 
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = Kinesis
@@ -143,8 +143,8 @@ instance ToJSON DescribeStream where
         toJSON DescribeStream'{..}
           = object
               ["ExclusiveStartShardId" .=
-                 _desExclusiveStartShardId,
-               "Limit" .= _desLimit, "StreamName" .= _desStreamName]
+                 _drqExclusiveStartShardId,
+               "Limit" .= _drqLimit, "StreamName" .= _drqStreamName]
 
 instance ToPath DescribeStream where
         toPath = const "/"
@@ -158,28 +158,28 @@ instance ToQuery DescribeStream where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrStatus'
+-- * 'drsStatus'
 --
--- * 'dsrStreamDescription'
+-- * 'drsStreamDescription'
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _dsrStatus            :: !Int
-    , _dsrStreamDescription :: !StreamDescription
+    { _drsStatus            :: !Int
+    , _drsStreamDescription :: !StreamDescription
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: Int -> StreamDescription -> DescribeStreamResponse
 describeStreamResponse pStatus pStreamDescription =
     DescribeStreamResponse'
-    { _dsrStatus = pStatus
-    , _dsrStreamDescription = pStreamDescription
+    { _drsStatus = pStatus
+    , _drsStreamDescription = pStreamDescription
     }
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStreamResponse Int
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+drsStatus :: Lens' DescribeStreamResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 
 -- | The current status of the stream, the stream ARN, an array of shard
 -- objects that comprise the stream, and states whether there are more
 -- shards available.
-dsrStreamDescription :: Lens' DescribeStreamResponse StreamDescription
-dsrStreamDescription = lens _dsrStreamDescription (\ s a -> s{_dsrStreamDescription = a});
+drsStreamDescription :: Lens' DescribeStreamResponse StreamDescription
+drsStreamDescription = lens _drsStreamDescription (\ s a -> s{_drsStreamDescription = a});

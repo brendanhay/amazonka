@@ -28,19 +28,19 @@ module Network.AWS.DirectoryService.CreateComputer
     -- ** Request constructor
     , createComputer
     -- ** Request lenses
-    , ccComputerAttributes
-    , ccOrganizationalUnitDistinguishedName
-    , ccDirectoryId
-    , ccComputerName
-    , ccPassword
+    , ccrqComputerAttributes
+    , ccrqOrganizationalUnitDistinguishedName
+    , ccrqDirectoryId
+    , ccrqComputerName
+    , ccrqPassword
 
     -- * Response
     , CreateComputerResponse
     -- ** Response constructor
     , createComputerResponse
     -- ** Response lenses
-    , ccrComputer
-    , ccrStatus
+    , ccrsComputer
+    , ccrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -54,56 +54,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccComputerAttributes'
+-- * 'ccrqComputerAttributes'
 --
--- * 'ccOrganizationalUnitDistinguishedName'
+-- * 'ccrqOrganizationalUnitDistinguishedName'
 --
--- * 'ccDirectoryId'
+-- * 'ccrqDirectoryId'
 --
--- * 'ccComputerName'
+-- * 'ccrqComputerName'
 --
--- * 'ccPassword'
+-- * 'ccrqPassword'
 data CreateComputer = CreateComputer'
-    { _ccComputerAttributes                  :: !(Maybe [Attribute])
-    , _ccOrganizationalUnitDistinguishedName :: !(Maybe Text)
-    , _ccDirectoryId                         :: !Text
-    , _ccComputerName                        :: !Text
-    , _ccPassword                            :: !(Sensitive Text)
+    { _ccrqComputerAttributes                  :: !(Maybe [Attribute])
+    , _ccrqOrganizationalUnitDistinguishedName :: !(Maybe Text)
+    , _ccrqDirectoryId                         :: !Text
+    , _ccrqComputerName                        :: !Text
+    , _ccrqPassword                            :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateComputer' smart constructor.
 createComputer :: Text -> Text -> Text -> CreateComputer
 createComputer pDirectoryId pComputerName pPassword =
     CreateComputer'
-    { _ccComputerAttributes = Nothing
-    , _ccOrganizationalUnitDistinguishedName = Nothing
-    , _ccDirectoryId = pDirectoryId
-    , _ccComputerName = pComputerName
-    , _ccPassword = _Sensitive # pPassword
+    { _ccrqComputerAttributes = Nothing
+    , _ccrqOrganizationalUnitDistinguishedName = Nothing
+    , _ccrqDirectoryId = pDirectoryId
+    , _ccrqComputerName = pComputerName
+    , _ccrqPassword = _Sensitive # pPassword
     }
 
 -- | An array of Attribute objects that contain any LDAP attributes to apply
 -- to the computer account.
-ccComputerAttributes :: Lens' CreateComputer [Attribute]
-ccComputerAttributes = lens _ccComputerAttributes (\ s a -> s{_ccComputerAttributes = a}) . _Default;
+ccrqComputerAttributes :: Lens' CreateComputer [Attribute]
+ccrqComputerAttributes = lens _ccrqComputerAttributes (\ s a -> s{_ccrqComputerAttributes = a}) . _Default;
 
 -- | The fully-qualified distinguished name of the organizational unit to
 -- place the computer account in.
-ccOrganizationalUnitDistinguishedName :: Lens' CreateComputer (Maybe Text)
-ccOrganizationalUnitDistinguishedName = lens _ccOrganizationalUnitDistinguishedName (\ s a -> s{_ccOrganizationalUnitDistinguishedName = a});
+ccrqOrganizationalUnitDistinguishedName :: Lens' CreateComputer (Maybe Text)
+ccrqOrganizationalUnitDistinguishedName = lens _ccrqOrganizationalUnitDistinguishedName (\ s a -> s{_ccrqOrganizationalUnitDistinguishedName = a});
 
 -- | The identifier of the directory to create the computer account in.
-ccDirectoryId :: Lens' CreateComputer Text
-ccDirectoryId = lens _ccDirectoryId (\ s a -> s{_ccDirectoryId = a});
+ccrqDirectoryId :: Lens' CreateComputer Text
+ccrqDirectoryId = lens _ccrqDirectoryId (\ s a -> s{_ccrqDirectoryId = a});
 
 -- | The name of the computer account.
-ccComputerName :: Lens' CreateComputer Text
-ccComputerName = lens _ccComputerName (\ s a -> s{_ccComputerName = a});
+ccrqComputerName :: Lens' CreateComputer Text
+ccrqComputerName = lens _ccrqComputerName (\ s a -> s{_ccrqComputerName = a});
 
 -- | A one-time password that is used to join the computer to the directory.
 -- You should generate a random, strong password to use for this parameter.
-ccPassword :: Lens' CreateComputer Text
-ccPassword = lens _ccPassword (\ s a -> s{_ccPassword = a}) . _Sensitive;
+ccrqPassword :: Lens' CreateComputer Text
+ccrqPassword = lens _ccrqPassword (\ s a -> s{_ccrqPassword = a}) . _Sensitive;
 
 instance AWSRequest CreateComputer where
         type Sv CreateComputer = DirectoryService
@@ -128,12 +128,12 @@ instance ToHeaders CreateComputer where
 instance ToJSON CreateComputer where
         toJSON CreateComputer'{..}
           = object
-              ["ComputerAttributes" .= _ccComputerAttributes,
+              ["ComputerAttributes" .= _ccrqComputerAttributes,
                "OrganizationalUnitDistinguishedName" .=
-                 _ccOrganizationalUnitDistinguishedName,
-               "DirectoryId" .= _ccDirectoryId,
-               "ComputerName" .= _ccComputerName,
-               "Password" .= _ccPassword]
+                 _ccrqOrganizationalUnitDistinguishedName,
+               "DirectoryId" .= _ccrqDirectoryId,
+               "ComputerName" .= _ccrqComputerName,
+               "Password" .= _ccrqPassword]
 
 instance ToPath CreateComputer where
         toPath = const "/"
@@ -147,26 +147,26 @@ instance ToQuery CreateComputer where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccrComputer'
+-- * 'ccrsComputer'
 --
--- * 'ccrStatus'
+-- * 'ccrsStatus'
 data CreateComputerResponse = CreateComputerResponse'
-    { _ccrComputer :: !(Maybe Computer)
-    , _ccrStatus   :: !Int
+    { _ccrsComputer :: !(Maybe Computer)
+    , _ccrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateComputerResponse' smart constructor.
 createComputerResponse :: Int -> CreateComputerResponse
 createComputerResponse pStatus =
     CreateComputerResponse'
-    { _ccrComputer = Nothing
-    , _ccrStatus = pStatus
+    { _ccrsComputer = Nothing
+    , _ccrsStatus = pStatus
     }
 
 -- | A Computer object the represents the computer account.
-ccrComputer :: Lens' CreateComputerResponse (Maybe Computer)
-ccrComputer = lens _ccrComputer (\ s a -> s{_ccrComputer = a});
+ccrsComputer :: Lens' CreateComputerResponse (Maybe Computer)
+ccrsComputer = lens _ccrsComputer (\ s a -> s{_ccrsComputer = a});
 
 -- | FIXME: Undocumented member.
-ccrStatus :: Lens' CreateComputerResponse Int
-ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});
+ccrsStatus :: Lens' CreateComputerResponse Int
+ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

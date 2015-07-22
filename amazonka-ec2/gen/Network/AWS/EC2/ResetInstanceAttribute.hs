@@ -36,9 +36,9 @@ module Network.AWS.EC2.ResetInstanceAttribute
     -- ** Request constructor
     , resetInstanceAttribute
     -- ** Request lenses
-    , riaDryRun
-    , riaInstanceId
-    , riaAttribute
+    , riarqDryRun
+    , riarqInstanceId
+    , riarqAttribute
 
     -- * Response
     , ResetInstanceAttributeResponse
@@ -55,40 +55,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riaDryRun'
+-- * 'riarqDryRun'
 --
--- * 'riaInstanceId'
+-- * 'riarqInstanceId'
 --
--- * 'riaAttribute'
+-- * 'riarqAttribute'
 data ResetInstanceAttribute = ResetInstanceAttribute'
-    { _riaDryRun     :: !(Maybe Bool)
-    , _riaInstanceId :: !Text
-    , _riaAttribute  :: !InstanceAttributeName
+    { _riarqDryRun     :: !(Maybe Bool)
+    , _riarqInstanceId :: !Text
+    , _riarqAttribute  :: !InstanceAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetInstanceAttribute' smart constructor.
 resetInstanceAttribute :: Text -> InstanceAttributeName -> ResetInstanceAttribute
 resetInstanceAttribute pInstanceId pAttribute =
     ResetInstanceAttribute'
-    { _riaDryRun = Nothing
-    , _riaInstanceId = pInstanceId
-    , _riaAttribute = pAttribute
+    { _riarqDryRun = Nothing
+    , _riarqInstanceId = pInstanceId
+    , _riarqAttribute = pAttribute
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-riaDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
-riaDryRun = lens _riaDryRun (\ s a -> s{_riaDryRun = a});
+riarqDryRun :: Lens' ResetInstanceAttribute (Maybe Bool)
+riarqDryRun = lens _riarqDryRun (\ s a -> s{_riarqDryRun = a});
 
 -- | The ID of the instance.
-riaInstanceId :: Lens' ResetInstanceAttribute Text
-riaInstanceId = lens _riaInstanceId (\ s a -> s{_riaInstanceId = a});
+riarqInstanceId :: Lens' ResetInstanceAttribute Text
+riarqInstanceId = lens _riarqInstanceId (\ s a -> s{_riarqInstanceId = a});
 
 -- | The attribute to reset.
-riaAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
-riaAttribute = lens _riaAttribute (\ s a -> s{_riaAttribute = a});
+riarqAttribute :: Lens' ResetInstanceAttribute InstanceAttributeName
+riarqAttribute = lens _riarqAttribute (\ s a -> s{_riarqAttribute = a});
 
 instance AWSRequest ResetInstanceAttribute where
         type Sv ResetInstanceAttribute = EC2
@@ -110,9 +110,9 @@ instance ToQuery ResetInstanceAttribute where
               ["Action" =:
                  ("ResetInstanceAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _riaDryRun,
-               "InstanceId" =: _riaInstanceId,
-               "Attribute" =: _riaAttribute]
+               "DryRun" =: _riarqDryRun,
+               "InstanceId" =: _riarqInstanceId,
+               "Attribute" =: _riarqAttribute]
 
 -- | /See:/ 'resetInstanceAttributeResponse' smart constructor.
 data ResetInstanceAttributeResponse =

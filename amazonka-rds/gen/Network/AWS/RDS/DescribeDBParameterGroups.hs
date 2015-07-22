@@ -29,19 +29,19 @@ module Network.AWS.RDS.DescribeDBParameterGroups
     -- ** Request constructor
     , describeDBParameterGroups
     -- ** Request lenses
-    , ddpgFilters
-    , ddpgDBParameterGroupName
-    , ddpgMaxRecords
-    , ddpgMarker
+    , ddpgrqFilters
+    , ddpgrqDBParameterGroupName
+    , ddpgrqMaxRecords
+    , ddpgrqMarker
 
     -- * Response
     , DescribeDBParameterGroupsResponse
     -- ** Response constructor
     , describeDBParameterGroupsResponse
     -- ** Response lenses
-    , ddpgrMarker
-    , ddpgrDBParameterGroups
-    , ddpgrStatus
+    , ddpgrsMarker
+    , ddpgrsDBParameterGroups
+    , ddpgrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -56,33 +56,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddpgFilters'
+-- * 'ddpgrqFilters'
 --
--- * 'ddpgDBParameterGroupName'
+-- * 'ddpgrqDBParameterGroupName'
 --
--- * 'ddpgMaxRecords'
+-- * 'ddpgrqMaxRecords'
 --
--- * 'ddpgMarker'
+-- * 'ddpgrqMarker'
 data DescribeDBParameterGroups = DescribeDBParameterGroups'
-    { _ddpgFilters              :: !(Maybe [Filter])
-    , _ddpgDBParameterGroupName :: !(Maybe Text)
-    , _ddpgMaxRecords           :: !(Maybe Int)
-    , _ddpgMarker               :: !(Maybe Text)
+    { _ddpgrqFilters              :: !(Maybe [Filter])
+    , _ddpgrqDBParameterGroupName :: !(Maybe Text)
+    , _ddpgrqMaxRecords           :: !(Maybe Int)
+    , _ddpgrqMarker               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBParameterGroups' smart constructor.
 describeDBParameterGroups :: DescribeDBParameterGroups
 describeDBParameterGroups =
     DescribeDBParameterGroups'
-    { _ddpgFilters = Nothing
-    , _ddpgDBParameterGroupName = Nothing
-    , _ddpgMaxRecords = Nothing
-    , _ddpgMarker = Nothing
+    { _ddpgrqFilters = Nothing
+    , _ddpgrqDBParameterGroupName = Nothing
+    , _ddpgrqMaxRecords = Nothing
+    , _ddpgrqMarker = Nothing
     }
 
 -- | This parameter is not currently supported.
-ddpgFilters :: Lens' DescribeDBParameterGroups [Filter]
-ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default;
+ddpgrqFilters :: Lens' DescribeDBParameterGroups [Filter]
+ddpgrqFilters = lens _ddpgrqFilters (\ s a -> s{_ddpgrqFilters = a}) . _Default;
 
 -- | The name of a specific DB parameter group to return details for.
 --
@@ -91,8 +91,8 @@ ddpgFilters = lens _ddpgFilters (\ s a -> s{_ddpgFilters = a}) . _Default;
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddpgDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
-ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBParameterGroupName = a});
+ddpgrqDBParameterGroupName :: Lens' DescribeDBParameterGroups (Maybe Text)
+ddpgrqDBParameterGroupName = lens _ddpgrqDBParameterGroupName (\ s a -> s{_ddpgrqDBParameterGroupName = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -102,22 +102,22 @@ ddpgDBParameterGroupName = lens _ddpgDBParameterGroupName (\ s a -> s{_ddpgDBPar
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-ddpgMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
-ddpgMaxRecords = lens _ddpgMaxRecords (\ s a -> s{_ddpgMaxRecords = a});
+ddpgrqMaxRecords :: Lens' DescribeDBParameterGroups (Maybe Int)
+ddpgrqMaxRecords = lens _ddpgrqMaxRecords (\ s a -> s{_ddpgrqMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- @DescribeDBParameterGroups@ request. If this parameter is specified, the
 -- response includes only records beyond the marker, up to the value
 -- specified by @MaxRecords@.
-ddpgMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
-ddpgMarker = lens _ddpgMarker (\ s a -> s{_ddpgMarker = a});
+ddpgrqMarker :: Lens' DescribeDBParameterGroups (Maybe Text)
+ddpgrqMarker = lens _ddpgrqMarker (\ s a -> s{_ddpgrqMarker = a});
 
 instance AWSPager DescribeDBParameterGroups where
         page rq rs
-          | stop (rs ^. ddpgrMarker) = Nothing
-          | stop (rs ^. ddpgrDBParameterGroups) = Nothing
+          | stop (rs ^. ddpgrsMarker) = Nothing
+          | stop (rs ^. ddpgrsDBParameterGroups) = Nothing
           | otherwise =
-            Just $ rq & ddpgMarker .~ rs ^. ddpgrMarker
+            Just $ rq & ddpgrqMarker .~ rs ^. ddpgrsMarker
 
 instance AWSRequest DescribeDBParameterGroups where
         type Sv DescribeDBParameterGroups = RDS
@@ -146,10 +146,11 @@ instance ToQuery DescribeDBParameterGroups where
                  ("DescribeDBParameterGroups" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddpgFilters),
-               "DBParameterGroupName" =: _ddpgDBParameterGroupName,
-               "MaxRecords" =: _ddpgMaxRecords,
-               "Marker" =: _ddpgMarker]
+                 toQuery (toQueryList "Filter" <$> _ddpgrqFilters),
+               "DBParameterGroupName" =:
+                 _ddpgrqDBParameterGroupName,
+               "MaxRecords" =: _ddpgrqMaxRecords,
+               "Marker" =: _ddpgrqMarker]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBParameterGroups action.
@@ -158,36 +159,36 @@ instance ToQuery DescribeDBParameterGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddpgrMarker'
+-- * 'ddpgrsMarker'
 --
--- * 'ddpgrDBParameterGroups'
+-- * 'ddpgrsDBParameterGroups'
 --
--- * 'ddpgrStatus'
+-- * 'ddpgrsStatus'
 data DescribeDBParameterGroupsResponse = DescribeDBParameterGroupsResponse'
-    { _ddpgrMarker            :: !(Maybe Text)
-    , _ddpgrDBParameterGroups :: !(Maybe [DBParameterGroup])
-    , _ddpgrStatus            :: !Int
+    { _ddpgrsMarker            :: !(Maybe Text)
+    , _ddpgrsDBParameterGroups :: !(Maybe [DBParameterGroup])
+    , _ddpgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBParameterGroupsResponse' smart constructor.
 describeDBParameterGroupsResponse :: Int -> DescribeDBParameterGroupsResponse
 describeDBParameterGroupsResponse pStatus =
     DescribeDBParameterGroupsResponse'
-    { _ddpgrMarker = Nothing
-    , _ddpgrDBParameterGroups = Nothing
-    , _ddpgrStatus = pStatus
+    { _ddpgrsMarker = Nothing
+    , _ddpgrsDBParameterGroups = Nothing
+    , _ddpgrsStatus = pStatus
     }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-ddpgrMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
-ddpgrMarker = lens _ddpgrMarker (\ s a -> s{_ddpgrMarker = a});
+ddpgrsMarker :: Lens' DescribeDBParameterGroupsResponse (Maybe Text)
+ddpgrsMarker = lens _ddpgrsMarker (\ s a -> s{_ddpgrsMarker = a});
 
 -- | A list of DBParameterGroup instances.
-ddpgrDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
-ddpgrDBParameterGroups = lens _ddpgrDBParameterGroups (\ s a -> s{_ddpgrDBParameterGroups = a}) . _Default;
+ddpgrsDBParameterGroups :: Lens' DescribeDBParameterGroupsResponse [DBParameterGroup]
+ddpgrsDBParameterGroups = lens _ddpgrsDBParameterGroups (\ s a -> s{_ddpgrsDBParameterGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddpgrStatus :: Lens' DescribeDBParameterGroupsResponse Int
-ddpgrStatus = lens _ddpgrStatus (\ s a -> s{_ddpgrStatus = a});
+ddpgrsStatus :: Lens' DescribeDBParameterGroupsResponse Int
+ddpgrsStatus = lens _ddpgrsStatus (\ s a -> s{_ddpgrsStatus = a});

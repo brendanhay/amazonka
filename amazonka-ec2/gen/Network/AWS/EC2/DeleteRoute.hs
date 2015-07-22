@@ -27,9 +27,9 @@ module Network.AWS.EC2.DeleteRoute
     -- ** Request constructor
     , deleteRoute
     -- ** Request lenses
-    , drDryRun
-    , drRouteTableId
-    , drDestinationCIdRBlock
+    , drrqDryRun
+    , drrqRouteTableId
+    , drrqDestinationCIdRBlock
 
     -- * Response
     , DeleteRouteResponse
@@ -46,41 +46,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drDryRun'
+-- * 'drrqDryRun'
 --
--- * 'drRouteTableId'
+-- * 'drrqRouteTableId'
 --
--- * 'drDestinationCIdRBlock'
+-- * 'drrqDestinationCIdRBlock'
 data DeleteRoute = DeleteRoute'
-    { _drDryRun               :: !(Maybe Bool)
-    , _drRouteTableId         :: !Text
-    , _drDestinationCIdRBlock :: !Text
+    { _drrqDryRun               :: !(Maybe Bool)
+    , _drrqRouteTableId         :: !Text
+    , _drrqDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRoute' smart constructor.
 deleteRoute :: Text -> Text -> DeleteRoute
 deleteRoute pRouteTableId pDestinationCIdRBlock =
     DeleteRoute'
-    { _drDryRun = Nothing
-    , _drRouteTableId = pRouteTableId
-    , _drDestinationCIdRBlock = pDestinationCIdRBlock
+    { _drrqDryRun = Nothing
+    , _drrqRouteTableId = pRouteTableId
+    , _drrqDestinationCIdRBlock = pDestinationCIdRBlock
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-drDryRun :: Lens' DeleteRoute (Maybe Bool)
-drDryRun = lens _drDryRun (\ s a -> s{_drDryRun = a});
+drrqDryRun :: Lens' DeleteRoute (Maybe Bool)
+drrqDryRun = lens _drrqDryRun (\ s a -> s{_drrqDryRun = a});
 
 -- | The ID of the route table.
-drRouteTableId :: Lens' DeleteRoute Text
-drRouteTableId = lens _drRouteTableId (\ s a -> s{_drRouteTableId = a});
+drrqRouteTableId :: Lens' DeleteRoute Text
+drrqRouteTableId = lens _drrqRouteTableId (\ s a -> s{_drrqRouteTableId = a});
 
 -- | The CIDR range for the route. The value you specify must match the CIDR
 -- for the route exactly.
-drDestinationCIdRBlock :: Lens' DeleteRoute Text
-drDestinationCIdRBlock = lens _drDestinationCIdRBlock (\ s a -> s{_drDestinationCIdRBlock = a});
+drrqDestinationCIdRBlock :: Lens' DeleteRoute Text
+drrqDestinationCIdRBlock = lens _drrqDestinationCIdRBlock (\ s a -> s{_drrqDestinationCIdRBlock = a});
 
 instance AWSRequest DeleteRoute where
         type Sv DeleteRoute = EC2
@@ -99,9 +99,9 @@ instance ToQuery DeleteRoute where
           = mconcat
               ["Action" =: ("DeleteRoute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _drDryRun,
-               "RouteTableId" =: _drRouteTableId,
-               "DestinationCidrBlock" =: _drDestinationCIdRBlock]
+               "DryRun" =: _drrqDryRun,
+               "RouteTableId" =: _drrqRouteTableId,
+               "DestinationCidrBlock" =: _drrqDestinationCIdRBlock]
 
 -- | /See:/ 'deleteRouteResponse' smart constructor.
 data DeleteRouteResponse =

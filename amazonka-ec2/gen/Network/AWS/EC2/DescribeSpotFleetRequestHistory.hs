@@ -32,24 +32,24 @@ module Network.AWS.EC2.DescribeSpotFleetRequestHistory
     -- ** Request constructor
     , describeSpotFleetRequestHistory
     -- ** Request lenses
-    , dsfrhNextToken
-    , dsfrhEventType
-    , dsfrhDryRun
-    , dsfrhMaxResults
-    , dsfrhSpotFleetRequestId
-    , dsfrhStartTime
+    , dsfrhrqNextToken
+    , dsfrhrqEventType
+    , dsfrhrqDryRun
+    , dsfrhrqMaxResults
+    , dsfrhrqSpotFleetRequestId
+    , dsfrhrqStartTime
 
     -- * Response
     , DescribeSpotFleetRequestHistoryResponse
     -- ** Response constructor
     , describeSpotFleetRequestHistoryResponse
     -- ** Response lenses
-    , dsfrhrNextToken
-    , dsfrhrStatus
-    , dsfrhrSpotFleetRequestId
-    , dsfrhrStartTime
-    , dsfrhrLastEvaluatedTime
-    , dsfrhrHistoryRecords
+    , dsfrhrsNextToken
+    , dsfrhrsStatus
+    , dsfrhrsSpotFleetRequestId
+    , dsfrhrsStartTime
+    , dsfrhrsLastEvaluatedTime
+    , dsfrhrsHistoryRecords
     ) where
 
 import           Network.AWS.EC2.Types
@@ -63,68 +63,68 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsfrhNextToken'
+-- * 'dsfrhrqNextToken'
 --
--- * 'dsfrhEventType'
+-- * 'dsfrhrqEventType'
 --
--- * 'dsfrhDryRun'
+-- * 'dsfrhrqDryRun'
 --
--- * 'dsfrhMaxResults'
+-- * 'dsfrhrqMaxResults'
 --
--- * 'dsfrhSpotFleetRequestId'
+-- * 'dsfrhrqSpotFleetRequestId'
 --
--- * 'dsfrhStartTime'
+-- * 'dsfrhrqStartTime'
 data DescribeSpotFleetRequestHistory = DescribeSpotFleetRequestHistory'
-    { _dsfrhNextToken          :: !(Maybe Text)
-    , _dsfrhEventType          :: !(Maybe EventType)
-    , _dsfrhDryRun             :: !(Maybe Bool)
-    , _dsfrhMaxResults         :: !(Maybe Int)
-    , _dsfrhSpotFleetRequestId :: !Text
-    , _dsfrhStartTime          :: !ISO8601
+    { _dsfrhrqNextToken          :: !(Maybe Text)
+    , _dsfrhrqEventType          :: !(Maybe EventType)
+    , _dsfrhrqDryRun             :: !(Maybe Bool)
+    , _dsfrhrqMaxResults         :: !(Maybe Int)
+    , _dsfrhrqSpotFleetRequestId :: !Text
+    , _dsfrhrqStartTime          :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequestHistory' smart constructor.
 describeSpotFleetRequestHistory :: Text -> UTCTime -> DescribeSpotFleetRequestHistory
 describeSpotFleetRequestHistory pSpotFleetRequestId pStartTime =
     DescribeSpotFleetRequestHistory'
-    { _dsfrhNextToken = Nothing
-    , _dsfrhEventType = Nothing
-    , _dsfrhDryRun = Nothing
-    , _dsfrhMaxResults = Nothing
-    , _dsfrhSpotFleetRequestId = pSpotFleetRequestId
-    , _dsfrhStartTime = _Time # pStartTime
+    { _dsfrhrqNextToken = Nothing
+    , _dsfrhrqEventType = Nothing
+    , _dsfrhrqDryRun = Nothing
+    , _dsfrhrqMaxResults = Nothing
+    , _dsfrhrqSpotFleetRequestId = pSpotFleetRequestId
+    , _dsfrhrqStartTime = _Time # pStartTime
     }
 
 -- | The token for the next set of results.
-dsfrhNextToken :: Lens' DescribeSpotFleetRequestHistory (Maybe Text)
-dsfrhNextToken = lens _dsfrhNextToken (\ s a -> s{_dsfrhNextToken = a});
+dsfrhrqNextToken :: Lens' DescribeSpotFleetRequestHistory (Maybe Text)
+dsfrhrqNextToken = lens _dsfrhrqNextToken (\ s a -> s{_dsfrhrqNextToken = a});
 
 -- | The type of events to describe. By default, all events are described.
-dsfrhEventType :: Lens' DescribeSpotFleetRequestHistory (Maybe EventType)
-dsfrhEventType = lens _dsfrhEventType (\ s a -> s{_dsfrhEventType = a});
+dsfrhrqEventType :: Lens' DescribeSpotFleetRequestHistory (Maybe EventType)
+dsfrhrqEventType = lens _dsfrhrqEventType (\ s a -> s{_dsfrhrqEventType = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsfrhDryRun :: Lens' DescribeSpotFleetRequestHistory (Maybe Bool)
-dsfrhDryRun = lens _dsfrhDryRun (\ s a -> s{_dsfrhDryRun = a});
+dsfrhrqDryRun :: Lens' DescribeSpotFleetRequestHistory (Maybe Bool)
+dsfrhrqDryRun = lens _dsfrhrqDryRun (\ s a -> s{_dsfrhrqDryRun = a});
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
-dsfrhMaxResults :: Lens' DescribeSpotFleetRequestHistory (Maybe Int)
-dsfrhMaxResults = lens _dsfrhMaxResults (\ s a -> s{_dsfrhMaxResults = a});
+dsfrhrqMaxResults :: Lens' DescribeSpotFleetRequestHistory (Maybe Int)
+dsfrhrqMaxResults = lens _dsfrhrqMaxResults (\ s a -> s{_dsfrhrqMaxResults = a});
 
 -- | The ID of the Spot fleet request.
-dsfrhSpotFleetRequestId :: Lens' DescribeSpotFleetRequestHistory Text
-dsfrhSpotFleetRequestId = lens _dsfrhSpotFleetRequestId (\ s a -> s{_dsfrhSpotFleetRequestId = a});
+dsfrhrqSpotFleetRequestId :: Lens' DescribeSpotFleetRequestHistory Text
+dsfrhrqSpotFleetRequestId = lens _dsfrhrqSpotFleetRequestId (\ s a -> s{_dsfrhrqSpotFleetRequestId = a});
 
 -- | The starting date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-dsfrhStartTime :: Lens' DescribeSpotFleetRequestHistory UTCTime
-dsfrhStartTime = lens _dsfrhStartTime (\ s a -> s{_dsfrhStartTime = a}) . _Time;
+dsfrhrqStartTime :: Lens' DescribeSpotFleetRequestHistory UTCTime
+dsfrhrqStartTime = lens _dsfrhrqStartTime (\ s a -> s{_dsfrhrqStartTime = a}) . _Time;
 
 instance AWSRequest DescribeSpotFleetRequestHistory
          where
@@ -158,12 +158,12 @@ instance ToQuery DescribeSpotFleetRequestHistory
               ["Action" =:
                  ("DescribeSpotFleetRequestHistory" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "NextToken" =: _dsfrhNextToken,
-               "EventType" =: _dsfrhEventType,
-               "DryRun" =: _dsfrhDryRun,
-               "MaxResults" =: _dsfrhMaxResults,
-               "SpotFleetRequestId" =: _dsfrhSpotFleetRequestId,
-               "StartTime" =: _dsfrhStartTime]
+               "NextToken" =: _dsfrhrqNextToken,
+               "EventType" =: _dsfrhrqEventType,
+               "DryRun" =: _dsfrhrqDryRun,
+               "MaxResults" =: _dsfrhrqMaxResults,
+               "SpotFleetRequestId" =: _dsfrhrqSpotFleetRequestId,
+               "StartTime" =: _dsfrhrqStartTime]
 
 -- | Contains the output of DescribeSpotFleetRequestHistory.
 --
@@ -171,55 +171,55 @@ instance ToQuery DescribeSpotFleetRequestHistory
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsfrhrNextToken'
+-- * 'dsfrhrsNextToken'
 --
--- * 'dsfrhrStatus'
+-- * 'dsfrhrsStatus'
 --
--- * 'dsfrhrSpotFleetRequestId'
+-- * 'dsfrhrsSpotFleetRequestId'
 --
--- * 'dsfrhrStartTime'
+-- * 'dsfrhrsStartTime'
 --
--- * 'dsfrhrLastEvaluatedTime'
+-- * 'dsfrhrsLastEvaluatedTime'
 --
--- * 'dsfrhrHistoryRecords'
+-- * 'dsfrhrsHistoryRecords'
 data DescribeSpotFleetRequestHistoryResponse = DescribeSpotFleetRequestHistoryResponse'
-    { _dsfrhrNextToken          :: !(Maybe Text)
-    , _dsfrhrStatus             :: !Int
-    , _dsfrhrSpotFleetRequestId :: !Text
-    , _dsfrhrStartTime          :: !ISO8601
-    , _dsfrhrLastEvaluatedTime  :: !ISO8601
-    , _dsfrhrHistoryRecords     :: ![HistoryRecord]
+    { _dsfrhrsNextToken          :: !(Maybe Text)
+    , _dsfrhrsStatus             :: !Int
+    , _dsfrhrsSpotFleetRequestId :: !Text
+    , _dsfrhrsStartTime          :: !ISO8601
+    , _dsfrhrsLastEvaluatedTime  :: !ISO8601
+    , _dsfrhrsHistoryRecords     :: ![HistoryRecord]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetRequestHistoryResponse' smart constructor.
 describeSpotFleetRequestHistoryResponse :: Int -> Text -> UTCTime -> UTCTime -> DescribeSpotFleetRequestHistoryResponse
 describeSpotFleetRequestHistoryResponse pStatus pSpotFleetRequestId pStartTime pLastEvaluatedTime =
     DescribeSpotFleetRequestHistoryResponse'
-    { _dsfrhrNextToken = Nothing
-    , _dsfrhrStatus = pStatus
-    , _dsfrhrSpotFleetRequestId = pSpotFleetRequestId
-    , _dsfrhrStartTime = _Time # pStartTime
-    , _dsfrhrLastEvaluatedTime = _Time # pLastEvaluatedTime
-    , _dsfrhrHistoryRecords = mempty
+    { _dsfrhrsNextToken = Nothing
+    , _dsfrhrsStatus = pStatus
+    , _dsfrhrsSpotFleetRequestId = pSpotFleetRequestId
+    , _dsfrhrsStartTime = _Time # pStartTime
+    , _dsfrhrsLastEvaluatedTime = _Time # pLastEvaluatedTime
+    , _dsfrhrsHistoryRecords = mempty
     }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
-dsfrhrNextToken :: Lens' DescribeSpotFleetRequestHistoryResponse (Maybe Text)
-dsfrhrNextToken = lens _dsfrhrNextToken (\ s a -> s{_dsfrhrNextToken = a});
+dsfrhrsNextToken :: Lens' DescribeSpotFleetRequestHistoryResponse (Maybe Text)
+dsfrhrsNextToken = lens _dsfrhrsNextToken (\ s a -> s{_dsfrhrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsfrhrStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
-dsfrhrStatus = lens _dsfrhrStatus (\ s a -> s{_dsfrhrStatus = a});
+dsfrhrsStatus :: Lens' DescribeSpotFleetRequestHistoryResponse Int
+dsfrhrsStatus = lens _dsfrhrsStatus (\ s a -> s{_dsfrhrsStatus = a});
 
 -- | The ID of the Spot fleet request.
-dsfrhrSpotFleetRequestId :: Lens' DescribeSpotFleetRequestHistoryResponse Text
-dsfrhrSpotFleetRequestId = lens _dsfrhrSpotFleetRequestId (\ s a -> s{_dsfrhrSpotFleetRequestId = a});
+dsfrhrsSpotFleetRequestId :: Lens' DescribeSpotFleetRequestHistoryResponse Text
+dsfrhrsSpotFleetRequestId = lens _dsfrhrsSpotFleetRequestId (\ s a -> s{_dsfrhrsSpotFleetRequestId = a});
 
 -- | The starting date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z).
-dsfrhrStartTime :: Lens' DescribeSpotFleetRequestHistoryResponse UTCTime
-dsfrhrStartTime = lens _dsfrhrStartTime (\ s a -> s{_dsfrhrStartTime = a}) . _Time;
+dsfrhrsStartTime :: Lens' DescribeSpotFleetRequestHistoryResponse UTCTime
+dsfrhrsStartTime = lens _dsfrhrsStartTime (\ s a -> s{_dsfrhrsStartTime = a}) . _Time;
 
 -- | The last date and time for the events, in UTC format (for example,
 -- /YYYY/-/MM/-/DD/T/HH/:/MM/:/SS/Z). All records up to this time were
@@ -227,9 +227,9 @@ dsfrhrStartTime = lens _dsfrhrStartTime (\ s a -> s{_dsfrhrStartTime = a}) . _Ti
 --
 -- If @nextToken@ indicates that there are more results, this value is not
 -- present.
-dsfrhrLastEvaluatedTime :: Lens' DescribeSpotFleetRequestHistoryResponse UTCTime
-dsfrhrLastEvaluatedTime = lens _dsfrhrLastEvaluatedTime (\ s a -> s{_dsfrhrLastEvaluatedTime = a}) . _Time;
+dsfrhrsLastEvaluatedTime :: Lens' DescribeSpotFleetRequestHistoryResponse UTCTime
+dsfrhrsLastEvaluatedTime = lens _dsfrhrsLastEvaluatedTime (\ s a -> s{_dsfrhrsLastEvaluatedTime = a}) . _Time;
 
 -- | Information about the events in the history of the Spot fleet request.
-dsfrhrHistoryRecords :: Lens' DescribeSpotFleetRequestHistoryResponse [HistoryRecord]
-dsfrhrHistoryRecords = lens _dsfrhrHistoryRecords (\ s a -> s{_dsfrhrHistoryRecords = a});
+dsfrhrsHistoryRecords :: Lens' DescribeSpotFleetRequestHistoryResponse [HistoryRecord]
+dsfrhrsHistoryRecords = lens _dsfrhrsHistoryRecords (\ s a -> s{_dsfrhrsHistoryRecords = a});

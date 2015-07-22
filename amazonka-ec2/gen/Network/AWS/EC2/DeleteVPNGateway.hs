@@ -31,8 +31,8 @@ module Network.AWS.EC2.DeleteVPNGateway
     -- ** Request constructor
     , deleteVPNGateway
     -- ** Request lenses
-    , dvgDryRun
-    , dvgVPNGatewayId
+    , dvgrqDryRun
+    , dvgrqVPNGatewayId
 
     -- * Response
     , DeleteVPNGatewayResponse
@@ -49,32 +49,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvgDryRun'
+-- * 'dvgrqDryRun'
 --
--- * 'dvgVPNGatewayId'
+-- * 'dvgrqVPNGatewayId'
 data DeleteVPNGateway = DeleteVPNGateway'
-    { _dvgDryRun       :: !(Maybe Bool)
-    , _dvgVPNGatewayId :: !Text
+    { _dvgrqDryRun       :: !(Maybe Bool)
+    , _dvgrqVPNGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPNGateway' smart constructor.
 deleteVPNGateway :: Text -> DeleteVPNGateway
 deleteVPNGateway pVPNGatewayId =
     DeleteVPNGateway'
-    { _dvgDryRun = Nothing
-    , _dvgVPNGatewayId = pVPNGatewayId
+    { _dvgrqDryRun = Nothing
+    , _dvgrqVPNGatewayId = pVPNGatewayId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvgDryRun :: Lens' DeleteVPNGateway (Maybe Bool)
-dvgDryRun = lens _dvgDryRun (\ s a -> s{_dvgDryRun = a});
+dvgrqDryRun :: Lens' DeleteVPNGateway (Maybe Bool)
+dvgrqDryRun = lens _dvgrqDryRun (\ s a -> s{_dvgrqDryRun = a});
 
 -- | The ID of the virtual private gateway.
-dvgVPNGatewayId :: Lens' DeleteVPNGateway Text
-dvgVPNGatewayId = lens _dvgVPNGatewayId (\ s a -> s{_dvgVPNGatewayId = a});
+dvgrqVPNGatewayId :: Lens' DeleteVPNGateway Text
+dvgrqVPNGatewayId = lens _dvgrqVPNGatewayId (\ s a -> s{_dvgrqVPNGatewayId = a});
 
 instance AWSRequest DeleteVPNGateway where
         type Sv DeleteVPNGateway = EC2
@@ -93,8 +93,8 @@ instance ToQuery DeleteVPNGateway where
           = mconcat
               ["Action" =: ("DeleteVPNGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dvgDryRun,
-               "VpnGatewayId" =: _dvgVPNGatewayId]
+               "DryRun" =: _dvgrqDryRun,
+               "VpnGatewayId" =: _dvgrqVPNGatewayId]
 
 -- | /See:/ 'deleteVPNGatewayResponse' smart constructor.
 data DeleteVPNGatewayResponse =

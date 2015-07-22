@@ -27,45 +27,45 @@ import           Network.AWS.SDB.Types.Sum
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attAlternateValueEncoding'
+-- * 'aAlternateValueEncoding'
 --
--- * 'attAlternateNameEncoding'
+-- * 'aAlternateNameEncoding'
 --
--- * 'attName'
+-- * 'aName'
 --
--- * 'attValue'
+-- * 'aValue'
 data Attribute = Attribute'
-    { _attAlternateValueEncoding :: !(Maybe Text)
-    , _attAlternateNameEncoding  :: !(Maybe Text)
-    , _attName                   :: !Text
-    , _attValue                  :: !Text
+    { _aAlternateValueEncoding :: !(Maybe Text)
+    , _aAlternateNameEncoding  :: !(Maybe Text)
+    , _aName                   :: !Text
+    , _aValue                  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Attribute' smart constructor.
 attribute :: Text -> Text -> Attribute
 attribute pName pValue =
     Attribute'
-    { _attAlternateValueEncoding = Nothing
-    , _attAlternateNameEncoding = Nothing
-    , _attName = pName
-    , _attValue = pValue
+    { _aAlternateValueEncoding = Nothing
+    , _aAlternateNameEncoding = Nothing
+    , _aName = pName
+    , _aValue = pValue
     }
 
 -- |
-attAlternateValueEncoding :: Lens' Attribute (Maybe Text)
-attAlternateValueEncoding = lens _attAlternateValueEncoding (\ s a -> s{_attAlternateValueEncoding = a});
+aAlternateValueEncoding :: Lens' Attribute (Maybe Text)
+aAlternateValueEncoding = lens _aAlternateValueEncoding (\ s a -> s{_aAlternateValueEncoding = a});
 
 -- |
-attAlternateNameEncoding :: Lens' Attribute (Maybe Text)
-attAlternateNameEncoding = lens _attAlternateNameEncoding (\ s a -> s{_attAlternateNameEncoding = a});
+aAlternateNameEncoding :: Lens' Attribute (Maybe Text)
+aAlternateNameEncoding = lens _aAlternateNameEncoding (\ s a -> s{_aAlternateNameEncoding = a});
 
 -- | The name of the attribute.
-attName :: Lens' Attribute Text
-attName = lens _attName (\ s a -> s{_attName = a});
+aName :: Lens' Attribute Text
+aName = lens _aName (\ s a -> s{_aName = a});
 
 -- | The value of the attribute.
-attValue :: Lens' Attribute Text
-attValue = lens _attValue (\ s a -> s{_attValue = a});
+aValue :: Lens' Attribute Text
+aValue = lens _aValue (\ s a -> s{_aValue = a});
 
 instance FromXML Attribute where
         parseXML x
@@ -79,9 +79,9 @@ instance ToQuery Attribute where
         toQuery Attribute'{..}
           = mconcat
               ["AlternateValueEncoding" =:
-                 _attAlternateValueEncoding,
-               "AlternateNameEncoding" =: _attAlternateNameEncoding,
-               "Name" =: _attName, "Value" =: _attValue]
+                 _aAlternateValueEncoding,
+               "AlternateNameEncoding" =: _aAlternateNameEncoding,
+               "Name" =: _aName, "Value" =: _aValue]
 
 -- | /See:/ 'deletableItem' smart constructor.
 --
@@ -123,37 +123,37 @@ instance ToQuery DeletableItem where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iteAlternateNameEncoding'
+-- * 'iAlternateNameEncoding'
 --
--- * 'iteName'
+-- * 'iName'
 --
--- * 'iteAttributes'
+-- * 'iAttributes'
 data Item = Item'
-    { _iteAlternateNameEncoding :: !(Maybe Text)
-    , _iteName                  :: !Text
-    , _iteAttributes            :: ![Attribute]
+    { _iAlternateNameEncoding :: !(Maybe Text)
+    , _iName                  :: !Text
+    , _iAttributes            :: ![Attribute]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Item' smart constructor.
 item :: Text -> Item
 item pName =
     Item'
-    { _iteAlternateNameEncoding = Nothing
-    , _iteName = pName
-    , _iteAttributes = mempty
+    { _iAlternateNameEncoding = Nothing
+    , _iName = pName
+    , _iAttributes = mempty
     }
 
 -- |
-iteAlternateNameEncoding :: Lens' Item (Maybe Text)
-iteAlternateNameEncoding = lens _iteAlternateNameEncoding (\ s a -> s{_iteAlternateNameEncoding = a});
+iAlternateNameEncoding :: Lens' Item (Maybe Text)
+iAlternateNameEncoding = lens _iAlternateNameEncoding (\ s a -> s{_iAlternateNameEncoding = a});
 
 -- | The name of the item.
-iteName :: Lens' Item Text
-iteName = lens _iteName (\ s a -> s{_iteName = a});
+iName :: Lens' Item Text
+iName = lens _iName (\ s a -> s{_iName = a});
 
 -- | A list of attributes.
-iteAttributes :: Lens' Item [Attribute]
-iteAttributes = lens _iteAttributes (\ s a -> s{_iteAttributes = a});
+iAttributes :: Lens' Item [Attribute]
+iAttributes = lens _iAttributes (\ s a -> s{_iAttributes = a});
 
 instance FromXML Item where
         parseXML x

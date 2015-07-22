@@ -27,15 +27,15 @@ module Network.AWS.CodeDeploy.GetDeploymentConfig
     -- ** Request constructor
     , getDeploymentConfig
     -- ** Request lenses
-    , gdcDeploymentConfigName
+    , gdcrqDeploymentConfigName
 
     -- * Response
     , GetDeploymentConfigResponse
     -- ** Response constructor
     , getDeploymentConfigResponse
     -- ** Response lenses
-    , gdcrDeploymentConfigInfo
-    , gdcrStatus
+    , gdcrsDeploymentConfigInfo
+    , gdcrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdcDeploymentConfigName'
+-- * 'gdcrqDeploymentConfigName'
 newtype GetDeploymentConfig = GetDeploymentConfig'
-    { _gdcDeploymentConfigName :: Text
+    { _gdcrqDeploymentConfigName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentConfig' smart constructor.
 getDeploymentConfig :: Text -> GetDeploymentConfig
 getDeploymentConfig pDeploymentConfigName =
     GetDeploymentConfig'
-    { _gdcDeploymentConfigName = pDeploymentConfigName
+    { _gdcrqDeploymentConfigName = pDeploymentConfigName
     }
 
 -- | The name of an existing deployment configuration associated with the
 -- applicable IAM user or AWS account.
-gdcDeploymentConfigName :: Lens' GetDeploymentConfig Text
-gdcDeploymentConfigName = lens _gdcDeploymentConfigName (\ s a -> s{_gdcDeploymentConfigName = a});
+gdcrqDeploymentConfigName :: Lens' GetDeploymentConfig Text
+gdcrqDeploymentConfigName = lens _gdcrqDeploymentConfigName (\ s a -> s{_gdcrqDeploymentConfigName = a});
 
 instance AWSRequest GetDeploymentConfig where
         type Sv GetDeploymentConfig = CodeDeploy
@@ -91,7 +91,8 @@ instance ToHeaders GetDeploymentConfig where
 instance ToJSON GetDeploymentConfig where
         toJSON GetDeploymentConfig'{..}
           = object
-              ["deploymentConfigName" .= _gdcDeploymentConfigName]
+              ["deploymentConfigName" .=
+                 _gdcrqDeploymentConfigName]
 
 instance ToPath GetDeploymentConfig where
         toPath = const "/"
@@ -105,26 +106,26 @@ instance ToQuery GetDeploymentConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdcrDeploymentConfigInfo'
+-- * 'gdcrsDeploymentConfigInfo'
 --
--- * 'gdcrStatus'
+-- * 'gdcrsStatus'
 data GetDeploymentConfigResponse = GetDeploymentConfigResponse'
-    { _gdcrDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
-    , _gdcrStatus               :: !Int
+    { _gdcrsDeploymentConfigInfo :: !(Maybe DeploymentConfigInfo)
+    , _gdcrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentConfigResponse' smart constructor.
 getDeploymentConfigResponse :: Int -> GetDeploymentConfigResponse
 getDeploymentConfigResponse pStatus =
     GetDeploymentConfigResponse'
-    { _gdcrDeploymentConfigInfo = Nothing
-    , _gdcrStatus = pStatus
+    { _gdcrsDeploymentConfigInfo = Nothing
+    , _gdcrsStatus = pStatus
     }
 
 -- | Information about the deployment configuration.
-gdcrDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
-gdcrDeploymentConfigInfo = lens _gdcrDeploymentConfigInfo (\ s a -> s{_gdcrDeploymentConfigInfo = a});
+gdcrsDeploymentConfigInfo :: Lens' GetDeploymentConfigResponse (Maybe DeploymentConfigInfo)
+gdcrsDeploymentConfigInfo = lens _gdcrsDeploymentConfigInfo (\ s a -> s{_gdcrsDeploymentConfigInfo = a});
 
 -- | FIXME: Undocumented member.
-gdcrStatus :: Lens' GetDeploymentConfigResponse Int
-gdcrStatus = lens _gdcrStatus (\ s a -> s{_gdcrStatus = a});
+gdcrsStatus :: Lens' GetDeploymentConfigResponse Int
+gdcrsStatus = lens _gdcrsStatus (\ s a -> s{_gdcrsStatus = a});

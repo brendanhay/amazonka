@@ -27,15 +27,15 @@ module Network.AWS.DataPipeline.AddTags
     -- ** Request constructor
     , addTags
     -- ** Request lenses
-    , atPipelineId
-    , atTags
+    , atrqPipelineId
+    , atrqTags
 
     -- * Response
     , AddTagsResponse
     -- ** Response constructor
     , addTagsResponse
     -- ** Response lenses
-    , atrStatus
+    , atrsStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -49,29 +49,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atPipelineId'
+-- * 'atrqPipelineId'
 --
--- * 'atTags'
+-- * 'atrqTags'
 data AddTags = AddTags'
-    { _atPipelineId :: !Text
-    , _atTags       :: ![Tag]
+    { _atrqPipelineId :: !Text
+    , _atrqTags       :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: Text -> AddTags
 addTags pPipelineId =
     AddTags'
-    { _atPipelineId = pPipelineId
-    , _atTags = mempty
+    { _atrqPipelineId = pPipelineId
+    , _atrqTags = mempty
     }
 
 -- | The ID of the pipeline.
-atPipelineId :: Lens' AddTags Text
-atPipelineId = lens _atPipelineId (\ s a -> s{_atPipelineId = a});
+atrqPipelineId :: Lens' AddTags Text
+atrqPipelineId = lens _atrqPipelineId (\ s a -> s{_atrqPipelineId = a});
 
 -- | The tags to add, as key\/value pairs.
-atTags :: Lens' AddTags [Tag]
-atTags = lens _atTags (\ s a -> s{_atTags = a});
+atrqTags :: Lens' AddTags [Tag]
+atrqTags = lens _atrqTags (\ s a -> s{_atrqTags = a});
 
 instance AWSRequest AddTags where
         type Sv AddTags = DataPipeline
@@ -93,7 +93,8 @@ instance ToHeaders AddTags where
 instance ToJSON AddTags where
         toJSON AddTags'{..}
           = object
-              ["pipelineId" .= _atPipelineId, "tags" .= _atTags]
+              ["pipelineId" .= _atrqPipelineId,
+               "tags" .= _atrqTags]
 
 instance ToPath AddTags where
         toPath = const "/"
@@ -107,18 +108,18 @@ instance ToQuery AddTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atrStatus'
+-- * 'atrsStatus'
 newtype AddTagsResponse = AddTagsResponse'
-    { _atrStatus :: Int
+    { _atrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
 addTagsResponse pStatus =
     AddTagsResponse'
-    { _atrStatus = pStatus
+    { _atrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-atrStatus :: Lens' AddTagsResponse Int
-atrStatus = lens _atrStatus (\ s a -> s{_atrStatus = a});
+atrsStatus :: Lens' AddTagsResponse Int
+atrsStatus = lens _atrsStatus (\ s a -> s{_atrsStatus = a});

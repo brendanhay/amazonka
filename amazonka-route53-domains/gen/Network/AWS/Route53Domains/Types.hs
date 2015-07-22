@@ -77,8 +77,8 @@ module Network.AWS.Route53Domains.Types
     -- * Nameserver
     , Nameserver
     , nameserver
-    , namGlueIPs
-    , namName
+    , nGlueIPs
+    , nName
 
     -- * OperationSummary
     , OperationSummary

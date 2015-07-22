@@ -27,20 +27,20 @@ module Network.AWS.RDS.DescribeOptionGroupOptions
     -- ** Request constructor
     , describeOptionGroupOptions
     -- ** Request lenses
-    , dogoFilters
-    , dogoMajorEngineVersion
-    , dogoMaxRecords
-    , dogoMarker
-    , dogoEngineName
+    , dogorqFilters
+    , dogorqMajorEngineVersion
+    , dogorqMaxRecords
+    , dogorqMarker
+    , dogorqEngineName
 
     -- * Response
     , DescribeOptionGroupOptionsResponse
     -- ** Response constructor
     , describeOptionGroupOptionsResponse
     -- ** Response lenses
-    , dogorOptionGroupOptions
-    , dogorMarker
-    , dogorStatus
+    , dogorsOptionGroupOptions
+    , dogorsMarker
+    , dogorsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -55,42 +55,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dogoFilters'
+-- * 'dogorqFilters'
 --
--- * 'dogoMajorEngineVersion'
+-- * 'dogorqMajorEngineVersion'
 --
--- * 'dogoMaxRecords'
+-- * 'dogorqMaxRecords'
 --
--- * 'dogoMarker'
+-- * 'dogorqMarker'
 --
--- * 'dogoEngineName'
+-- * 'dogorqEngineName'
 data DescribeOptionGroupOptions = DescribeOptionGroupOptions'
-    { _dogoFilters            :: !(Maybe [Filter])
-    , _dogoMajorEngineVersion :: !(Maybe Text)
-    , _dogoMaxRecords         :: !(Maybe Int)
-    , _dogoMarker             :: !(Maybe Text)
-    , _dogoEngineName         :: !Text
+    { _dogorqFilters            :: !(Maybe [Filter])
+    , _dogorqMajorEngineVersion :: !(Maybe Text)
+    , _dogorqMaxRecords         :: !(Maybe Int)
+    , _dogorqMarker             :: !(Maybe Text)
+    , _dogorqEngineName         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOptionGroupOptions' smart constructor.
 describeOptionGroupOptions :: Text -> DescribeOptionGroupOptions
 describeOptionGroupOptions pEngineName =
     DescribeOptionGroupOptions'
-    { _dogoFilters = Nothing
-    , _dogoMajorEngineVersion = Nothing
-    , _dogoMaxRecords = Nothing
-    , _dogoMarker = Nothing
-    , _dogoEngineName = pEngineName
+    { _dogorqFilters = Nothing
+    , _dogorqMajorEngineVersion = Nothing
+    , _dogorqMaxRecords = Nothing
+    , _dogorqMarker = Nothing
+    , _dogorqEngineName = pEngineName
     }
 
 -- | This parameter is not currently supported.
-dogoFilters :: Lens' DescribeOptionGroupOptions [Filter]
-dogoFilters = lens _dogoFilters (\ s a -> s{_dogoFilters = a}) . _Default;
+dogorqFilters :: Lens' DescribeOptionGroupOptions [Filter]
+dogorqFilters = lens _dogorqFilters (\ s a -> s{_dogorqFilters = a}) . _Default;
 
 -- | If specified, filters the results to include only options for the
 -- specified major engine version.
-dogoMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
-dogoMajorEngineVersion = lens _dogoMajorEngineVersion (\ s a -> s{_dogoMajorEngineVersion = a});
+dogorqMajorEngineVersion :: Lens' DescribeOptionGroupOptions (Maybe Text)
+dogorqMajorEngineVersion = lens _dogorqMajorEngineVersion (\ s a -> s{_dogorqMajorEngineVersion = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -100,26 +100,26 @@ dogoMajorEngineVersion = lens _dogoMajorEngineVersion (\ s a -> s{_dogoMajorEngi
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dogoMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
-dogoMaxRecords = lens _dogoMaxRecords (\ s a -> s{_dogoMaxRecords = a});
+dogorqMaxRecords :: Lens' DescribeOptionGroupOptions (Maybe Int)
+dogorqMaxRecords = lens _dogorqMaxRecords (\ s a -> s{_dogorqMaxRecords = a});
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-dogoMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
-dogoMarker = lens _dogoMarker (\ s a -> s{_dogoMarker = a});
+dogorqMarker :: Lens' DescribeOptionGroupOptions (Maybe Text)
+dogorqMarker = lens _dogorqMarker (\ s a -> s{_dogorqMarker = a});
 
 -- | A required parameter. Options available for the given Engine name will
 -- be described.
-dogoEngineName :: Lens' DescribeOptionGroupOptions Text
-dogoEngineName = lens _dogoEngineName (\ s a -> s{_dogoEngineName = a});
+dogorqEngineName :: Lens' DescribeOptionGroupOptions Text
+dogorqEngineName = lens _dogorqEngineName (\ s a -> s{_dogorqEngineName = a});
 
 instance AWSPager DescribeOptionGroupOptions where
         page rq rs
-          | stop (rs ^. dogorMarker) = Nothing
-          | stop (rs ^. dogorOptionGroupOptions) = Nothing
+          | stop (rs ^. dogorsMarker) = Nothing
+          | stop (rs ^. dogorsOptionGroupOptions) = Nothing
           | otherwise =
-            Just $ rq & dogoMarker .~ rs ^. dogorMarker
+            Just $ rq & dogorqMarker .~ rs ^. dogorsMarker
 
 instance AWSRequest DescribeOptionGroupOptions where
         type Sv DescribeOptionGroupOptions = RDS
@@ -149,11 +149,11 @@ instance ToQuery DescribeOptionGroupOptions where
                  ("DescribeOptionGroupOptions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dogoFilters),
-               "MajorEngineVersion" =: _dogoMajorEngineVersion,
-               "MaxRecords" =: _dogoMaxRecords,
-               "Marker" =: _dogoMarker,
-               "EngineName" =: _dogoEngineName]
+                 toQuery (toQueryList "Filter" <$> _dogorqFilters),
+               "MajorEngineVersion" =: _dogorqMajorEngineVersion,
+               "MaxRecords" =: _dogorqMaxRecords,
+               "Marker" =: _dogorqMarker,
+               "EngineName" =: _dogorqEngineName]
 
 -- |
 --
@@ -161,36 +161,36 @@ instance ToQuery DescribeOptionGroupOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dogorOptionGroupOptions'
+-- * 'dogorsOptionGroupOptions'
 --
--- * 'dogorMarker'
+-- * 'dogorsMarker'
 --
--- * 'dogorStatus'
+-- * 'dogorsStatus'
 data DescribeOptionGroupOptionsResponse = DescribeOptionGroupOptionsResponse'
-    { _dogorOptionGroupOptions :: !(Maybe [OptionGroupOption])
-    , _dogorMarker             :: !(Maybe Text)
-    , _dogorStatus             :: !Int
+    { _dogorsOptionGroupOptions :: !(Maybe [OptionGroupOption])
+    , _dogorsMarker             :: !(Maybe Text)
+    , _dogorsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOptionGroupOptionsResponse' smart constructor.
 describeOptionGroupOptionsResponse :: Int -> DescribeOptionGroupOptionsResponse
 describeOptionGroupOptionsResponse pStatus =
     DescribeOptionGroupOptionsResponse'
-    { _dogorOptionGroupOptions = Nothing
-    , _dogorMarker = Nothing
-    , _dogorStatus = pStatus
+    { _dogorsOptionGroupOptions = Nothing
+    , _dogorsMarker = Nothing
+    , _dogorsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dogorOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
-dogorOptionGroupOptions = lens _dogorOptionGroupOptions (\ s a -> s{_dogorOptionGroupOptions = a}) . _Default;
+dogorsOptionGroupOptions :: Lens' DescribeOptionGroupOptionsResponse [OptionGroupOption]
+dogorsOptionGroupOptions = lens _dogorsOptionGroupOptions (\ s a -> s{_dogorsOptionGroupOptions = a}) . _Default;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-dogorMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
-dogorMarker = lens _dogorMarker (\ s a -> s{_dogorMarker = a});
+dogorsMarker :: Lens' DescribeOptionGroupOptionsResponse (Maybe Text)
+dogorsMarker = lens _dogorsMarker (\ s a -> s{_dogorsMarker = a});
 
 -- | FIXME: Undocumented member.
-dogorStatus :: Lens' DescribeOptionGroupOptionsResponse Int
-dogorStatus = lens _dogorStatus (\ s a -> s{_dogorStatus = a});
+dogorsStatus :: Lens' DescribeOptionGroupOptionsResponse Int
+dogorsStatus = lens _dogorsStatus (\ s a -> s{_dogorsStatus = a});

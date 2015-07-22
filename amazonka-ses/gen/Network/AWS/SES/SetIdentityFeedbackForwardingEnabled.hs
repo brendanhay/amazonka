@@ -39,15 +39,15 @@ module Network.AWS.SES.SetIdentityFeedbackForwardingEnabled
     -- ** Request constructor
     , setIdentityFeedbackForwardingEnabled
     -- ** Request lenses
-    , siffeIdentity
-    , siffeForwardingEnabled
+    , sifferqIdentity
+    , sifferqForwardingEnabled
 
     -- * Response
     , SetIdentityFeedbackForwardingEnabledResponse
     -- ** Response constructor
     , setIdentityFeedbackForwardingEnabledResponse
     -- ** Response lenses
-    , sifferStatus
+    , siffersStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -59,26 +59,26 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siffeIdentity'
+-- * 'sifferqIdentity'
 --
--- * 'siffeForwardingEnabled'
+-- * 'sifferqForwardingEnabled'
 data SetIdentityFeedbackForwardingEnabled = SetIdentityFeedbackForwardingEnabled'
-    { _siffeIdentity          :: !Text
-    , _siffeForwardingEnabled :: !Bool
+    { _sifferqIdentity          :: !Text
+    , _sifferqForwardingEnabled :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityFeedbackForwardingEnabled' smart constructor.
 setIdentityFeedbackForwardingEnabled :: Text -> Bool -> SetIdentityFeedbackForwardingEnabled
 setIdentityFeedbackForwardingEnabled pIdentity pForwardingEnabled =
     SetIdentityFeedbackForwardingEnabled'
-    { _siffeIdentity = pIdentity
-    , _siffeForwardingEnabled = pForwardingEnabled
+    { _sifferqIdentity = pIdentity
+    , _sifferqForwardingEnabled = pForwardingEnabled
     }
 
 -- | The identity for which to set bounce and complaint notification
 -- forwarding. Examples: @user\@example.com@, @example.com@.
-siffeIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
-siffeIdentity = lens _siffeIdentity (\ s a -> s{_siffeIdentity = a});
+sifferqIdentity :: Lens' SetIdentityFeedbackForwardingEnabled Text
+sifferqIdentity = lens _sifferqIdentity (\ s a -> s{_sifferqIdentity = a});
 
 -- | Sets whether Amazon SES will forward bounce and complaint notifications
 -- as email. @true@ specifies that Amazon SES will forward bounce and
@@ -87,8 +87,8 @@ siffeIdentity = lens _siffeIdentity (\ s a -> s{_siffeIdentity = a});
 -- publish bounce and complaint notifications only through Amazon SNS. This
 -- value can only be set to @false@ when Amazon SNS topics are set for both
 -- @Bounce@ and @Complaint@ notification types.
-siffeForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
-siffeForwardingEnabled = lens _siffeForwardingEnabled (\ s a -> s{_siffeForwardingEnabled = a});
+sifferqForwardingEnabled :: Lens' SetIdentityFeedbackForwardingEnabled Bool
+sifferqForwardingEnabled = lens _sifferqForwardingEnabled (\ s a -> s{_sifferqForwardingEnabled = a});
 
 instance AWSRequest
          SetIdentityFeedbackForwardingEnabled where
@@ -119,8 +119,8 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
                  ("SetIdentityFeedbackForwardingEnabled" ::
                     ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _siffeIdentity,
-               "ForwardingEnabled" =: _siffeForwardingEnabled]
+               "Identity" =: _sifferqIdentity,
+               "ForwardingEnabled" =: _sifferqForwardingEnabled]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
@@ -129,18 +129,18 @@ instance ToQuery SetIdentityFeedbackForwardingEnabled
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sifferStatus'
+-- * 'siffersStatus'
 newtype SetIdentityFeedbackForwardingEnabledResponse = SetIdentityFeedbackForwardingEnabledResponse'
-    { _sifferStatus :: Int
+    { _siffersStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityFeedbackForwardingEnabledResponse' smart constructor.
 setIdentityFeedbackForwardingEnabledResponse :: Int -> SetIdentityFeedbackForwardingEnabledResponse
 setIdentityFeedbackForwardingEnabledResponse pStatus =
     SetIdentityFeedbackForwardingEnabledResponse'
-    { _sifferStatus = pStatus
+    { _siffersStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-sifferStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
-sifferStatus = lens _sifferStatus (\ s a -> s{_sifferStatus = a});
+siffersStatus :: Lens' SetIdentityFeedbackForwardingEnabledResponse Int
+siffersStatus = lens _siffersStatus (\ s a -> s{_siffersStatus = a});

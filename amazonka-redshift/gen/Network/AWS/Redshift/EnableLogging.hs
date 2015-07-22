@@ -28,21 +28,21 @@ module Network.AWS.Redshift.EnableLogging
     -- ** Request constructor
     , enableLogging
     -- ** Request lenses
-    , elS3KeyPrefix
-    , elClusterIdentifier
-    , elBucketName
+    , elrqS3KeyPrefix
+    , elrqClusterIdentifier
+    , elrqBucketName
 
     -- * Response
     , LoggingStatus
     -- ** Response constructor
     , loggingStatus
     -- ** Response lenses
-    , lsLastSuccessfulDeliveryTime
-    , lsLastFailureTime
-    , lsS3KeyPrefix
-    , lsBucketName
-    , lsLoggingEnabled
-    , lsLastFailureMessage
+    , elrsLastSuccessfulDeliveryTime
+    , elrsLastFailureTime
+    , elrsS3KeyPrefix
+    , elrsBucketName
+    , elrsLoggingEnabled
+    , elrsLastFailureMessage
     ) where
 
 import           Network.AWS.Prelude
@@ -56,24 +56,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'elS3KeyPrefix'
+-- * 'elrqS3KeyPrefix'
 --
--- * 'elClusterIdentifier'
+-- * 'elrqClusterIdentifier'
 --
--- * 'elBucketName'
+-- * 'elrqBucketName'
 data EnableLogging = EnableLogging'
-    { _elS3KeyPrefix       :: !(Maybe Text)
-    , _elClusterIdentifier :: !Text
-    , _elBucketName        :: !Text
+    { _elrqS3KeyPrefix       :: !(Maybe Text)
+    , _elrqClusterIdentifier :: !Text
+    , _elrqBucketName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableLogging' smart constructor.
 enableLogging :: Text -> Text -> EnableLogging
 enableLogging pClusterIdentifier pBucketName =
     EnableLogging'
-    { _elS3KeyPrefix = Nothing
-    , _elClusterIdentifier = pClusterIdentifier
-    , _elBucketName = pBucketName
+    { _elrqS3KeyPrefix = Nothing
+    , _elrqClusterIdentifier = pClusterIdentifier
+    , _elrqBucketName = pBucketName
     }
 
 -- | The prefix applied to the log file names.
@@ -89,14 +89,14 @@ enableLogging pClusterIdentifier pBucketName =
 --     -   x27
 --     -   x5c
 --     -   x7f or larger
-elS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
-elS3KeyPrefix = lens _elS3KeyPrefix (\ s a -> s{_elS3KeyPrefix = a});
+elrqS3KeyPrefix :: Lens' EnableLogging (Maybe Text)
+elrqS3KeyPrefix = lens _elrqS3KeyPrefix (\ s a -> s{_elrqS3KeyPrefix = a});
 
 -- | The identifier of the cluster on which logging is to be started.
 --
 -- Example: @examplecluster@
-elClusterIdentifier :: Lens' EnableLogging Text
-elClusterIdentifier = lens _elClusterIdentifier (\ s a -> s{_elClusterIdentifier = a});
+elrqClusterIdentifier :: Lens' EnableLogging Text
+elrqClusterIdentifier = lens _elrqClusterIdentifier (\ s a -> s{_elrqClusterIdentifier = a});
 
 -- | The name of an existing S3 bucket where the log files are to be stored.
 --
@@ -104,8 +104,8 @@ elClusterIdentifier = lens _elClusterIdentifier (\ s a -> s{_elClusterIdentifier
 --
 -- -   Must be in the same region as the cluster
 -- -   The cluster must have read bucket and put object permissions
-elBucketName :: Lens' EnableLogging Text
-elBucketName = lens _elBucketName (\ s a -> s{_elBucketName = a});
+elrqBucketName :: Lens' EnableLogging Text
+elrqBucketName = lens _elrqBucketName (\ s a -> s{_elrqBucketName = a});
 
 instance AWSRequest EnableLogging where
         type Sv EnableLogging = Redshift
@@ -126,6 +126,6 @@ instance ToQuery EnableLogging where
           = mconcat
               ["Action" =: ("EnableLogging" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "S3KeyPrefix" =: _elS3KeyPrefix,
-               "ClusterIdentifier" =: _elClusterIdentifier,
-               "BucketName" =: _elBucketName]
+               "S3KeyPrefix" =: _elrqS3KeyPrefix,
+               "ClusterIdentifier" =: _elrqClusterIdentifier,
+               "BucketName" =: _elrqBucketName]

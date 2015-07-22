@@ -41,19 +41,19 @@ module Network.AWS.MachineLearning.CreateBatchPrediction
     -- ** Request constructor
     , createBatchPrediction
     -- ** Request lenses
-    , cbpBatchPredictionName
-    , cbpBatchPredictionId
-    , cbpMLModelId
-    , cbpBatchPredictionDataSourceId
-    , cbpOutputURI
+    , cbprqBatchPredictionName
+    , cbprqBatchPredictionId
+    , cbprqMLModelId
+    , cbprqBatchPredictionDataSourceId
+    , cbprqOutputURI
 
     -- * Response
     , CreateBatchPredictionResponse
     -- ** Response constructor
     , createBatchPredictionResponse
     -- ** Response lenses
-    , cbprBatchPredictionId
-    , cbprStatus
+    , cbprsBatchPredictionId
+    , cbprsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -65,52 +65,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbpBatchPredictionName'
+-- * 'cbprqBatchPredictionName'
 --
--- * 'cbpBatchPredictionId'
+-- * 'cbprqBatchPredictionId'
 --
--- * 'cbpMLModelId'
+-- * 'cbprqMLModelId'
 --
--- * 'cbpBatchPredictionDataSourceId'
+-- * 'cbprqBatchPredictionDataSourceId'
 --
--- * 'cbpOutputURI'
+-- * 'cbprqOutputURI'
 data CreateBatchPrediction = CreateBatchPrediction'
-    { _cbpBatchPredictionName         :: !(Maybe Text)
-    , _cbpBatchPredictionId           :: !Text
-    , _cbpMLModelId                   :: !Text
-    , _cbpBatchPredictionDataSourceId :: !Text
-    , _cbpOutputURI                   :: !Text
+    { _cbprqBatchPredictionName         :: !(Maybe Text)
+    , _cbprqBatchPredictionId           :: !Text
+    , _cbprqMLModelId                   :: !Text
+    , _cbprqBatchPredictionDataSourceId :: !Text
+    , _cbprqOutputURI                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBatchPrediction' smart constructor.
 createBatchPrediction :: Text -> Text -> Text -> Text -> CreateBatchPrediction
 createBatchPrediction pBatchPredictionId pMLModelId pBatchPredictionDataSourceId pOutputURI =
     CreateBatchPrediction'
-    { _cbpBatchPredictionName = Nothing
-    , _cbpBatchPredictionId = pBatchPredictionId
-    , _cbpMLModelId = pMLModelId
-    , _cbpBatchPredictionDataSourceId = pBatchPredictionDataSourceId
-    , _cbpOutputURI = pOutputURI
+    { _cbprqBatchPredictionName = Nothing
+    , _cbprqBatchPredictionId = pBatchPredictionId
+    , _cbprqMLModelId = pMLModelId
+    , _cbprqBatchPredictionDataSourceId = pBatchPredictionDataSourceId
+    , _cbprqOutputURI = pOutputURI
     }
 
 -- | A user-supplied name or description of the @BatchPrediction@.
 -- @BatchPredictionName@ can only use the UTF-8 character set.
-cbpBatchPredictionName :: Lens' CreateBatchPrediction (Maybe Text)
-cbpBatchPredictionName = lens _cbpBatchPredictionName (\ s a -> s{_cbpBatchPredictionName = a});
+cbprqBatchPredictionName :: Lens' CreateBatchPrediction (Maybe Text)
+cbprqBatchPredictionName = lens _cbprqBatchPredictionName (\ s a -> s{_cbprqBatchPredictionName = a});
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@.
-cbpBatchPredictionId :: Lens' CreateBatchPrediction Text
-cbpBatchPredictionId = lens _cbpBatchPredictionId (\ s a -> s{_cbpBatchPredictionId = a});
+cbprqBatchPredictionId :: Lens' CreateBatchPrediction Text
+cbprqBatchPredictionId = lens _cbprqBatchPredictionId (\ s a -> s{_cbprqBatchPredictionId = a});
 
 -- | The ID of the @MLModel@ that will generate predictions for the group of
 -- observations.
-cbpMLModelId :: Lens' CreateBatchPrediction Text
-cbpMLModelId = lens _cbpMLModelId (\ s a -> s{_cbpMLModelId = a});
+cbprqMLModelId :: Lens' CreateBatchPrediction Text
+cbprqMLModelId = lens _cbprqMLModelId (\ s a -> s{_cbprqMLModelId = a});
 
 -- | The ID of the @DataSource@ that points to the group of observations to
 -- predict.
-cbpBatchPredictionDataSourceId :: Lens' CreateBatchPrediction Text
-cbpBatchPredictionDataSourceId = lens _cbpBatchPredictionDataSourceId (\ s a -> s{_cbpBatchPredictionDataSourceId = a});
+cbprqBatchPredictionDataSourceId :: Lens' CreateBatchPrediction Text
+cbprqBatchPredictionDataSourceId = lens _cbprqBatchPredictionDataSourceId (\ s a -> s{_cbprqBatchPredictionDataSourceId = a});
 
 -- | The location of an Amazon Simple Storage Service (Amazon S3) bucket or
 -- directory to store the batch prediction results. The following
@@ -120,8 +120,8 @@ cbpBatchPredictionDataSourceId = lens _cbpBatchPredictionDataSourceId (\ s a -> 
 -- Amazon ML needs permissions to store and retrieve the logs on your
 -- behalf. For information about how to set permissions, see the
 -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
-cbpOutputURI :: Lens' CreateBatchPrediction Text
-cbpOutputURI = lens _cbpOutputURI (\ s a -> s{_cbpOutputURI = a});
+cbprqOutputURI :: Lens' CreateBatchPrediction Text
+cbprqOutputURI = lens _cbprqOutputURI (\ s a -> s{_cbprqOutputURI = a});
 
 instance AWSRequest CreateBatchPrediction where
         type Sv CreateBatchPrediction = MachineLearning
@@ -147,12 +147,12 @@ instance ToHeaders CreateBatchPrediction where
 instance ToJSON CreateBatchPrediction where
         toJSON CreateBatchPrediction'{..}
           = object
-              ["BatchPredictionName" .= _cbpBatchPredictionName,
-               "BatchPredictionId" .= _cbpBatchPredictionId,
-               "MLModelId" .= _cbpMLModelId,
+              ["BatchPredictionName" .= _cbprqBatchPredictionName,
+               "BatchPredictionId" .= _cbprqBatchPredictionId,
+               "MLModelId" .= _cbprqMLModelId,
                "BatchPredictionDataSourceId" .=
-                 _cbpBatchPredictionDataSourceId,
-               "OutputUri" .= _cbpOutputURI]
+                 _cbprqBatchPredictionDataSourceId,
+               "OutputUri" .= _cbprqOutputURI]
 
 instance ToPath CreateBatchPrediction where
         toPath = const "/"
@@ -171,28 +171,28 @@ instance ToQuery CreateBatchPrediction where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbprBatchPredictionId'
+-- * 'cbprsBatchPredictionId'
 --
--- * 'cbprStatus'
+-- * 'cbprsStatus'
 data CreateBatchPredictionResponse = CreateBatchPredictionResponse'
-    { _cbprBatchPredictionId :: !(Maybe Text)
-    , _cbprStatus            :: !Int
+    { _cbprsBatchPredictionId :: !(Maybe Text)
+    , _cbprsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBatchPredictionResponse' smart constructor.
 createBatchPredictionResponse :: Int -> CreateBatchPredictionResponse
 createBatchPredictionResponse pStatus =
     CreateBatchPredictionResponse'
-    { _cbprBatchPredictionId = Nothing
-    , _cbprStatus = pStatus
+    { _cbprsBatchPredictionId = Nothing
+    , _cbprsStatus = pStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
 -- value is identical to the value of the @BatchPredictionId@ in the
 -- request.
-cbprBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
-cbprBatchPredictionId = lens _cbprBatchPredictionId (\ s a -> s{_cbprBatchPredictionId = a});
+cbprsBatchPredictionId :: Lens' CreateBatchPredictionResponse (Maybe Text)
+cbprsBatchPredictionId = lens _cbprsBatchPredictionId (\ s a -> s{_cbprsBatchPredictionId = a});
 
 -- | FIXME: Undocumented member.
-cbprStatus :: Lens' CreateBatchPredictionResponse Int
-cbprStatus = lens _cbprStatus (\ s a -> s{_cbprStatus = a});
+cbprsStatus :: Lens' CreateBatchPredictionResponse Int
+cbprsStatus = lens _cbprsStatus (\ s a -> s{_cbprsStatus = a});

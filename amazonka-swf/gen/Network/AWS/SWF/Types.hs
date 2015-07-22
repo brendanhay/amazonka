@@ -105,10 +105,10 @@ module Network.AWS.SWF.Types
     -- * ActivityTaskCanceledEventAttributes
     , ActivityTaskCanceledEventAttributes
     , activityTaskCanceledEventAttributes
-    , actLatestCancelRequestedEventId
-    , actDetails
-    , actScheduledEventId
-    , actStartedEventId
+    , aLatestCancelRequestedEventId
+    , aDetails
+    , aScheduledEventId
+    , aStartedEventId
 
     -- * ActivityTaskCompletedEventAttributes
     , ActivityTaskCompletedEventAttributes
@@ -199,17 +199,17 @@ module Network.AWS.SWF.Types
     -- * CancelWorkflowExecutionFailedEventAttributes
     , CancelWorkflowExecutionFailedEventAttributes
     , cancelWorkflowExecutionFailedEventAttributes
-    , canCause
-    , canDecisionTaskCompletedEventId
+    , cCause
+    , cDecisionTaskCompletedEventId
 
     -- * ChildWorkflowExecutionCanceledEventAttributes
     , ChildWorkflowExecutionCanceledEventAttributes
     , childWorkflowExecutionCanceledEventAttributes
-    , chiDetails
-    , chiWorkflowExecution
-    , chiWorkflowType
-    , chiInitiatedEventId
-    , chiStartedEventId
+    , cDetails
+    , cWorkflowExecution
+    , cWorkflowType
+    , cInitiatedEventId
+    , cStartedEventId
 
     -- * ChildWorkflowExecutionCompletedEventAttributes
     , ChildWorkflowExecutionCompletedEventAttributes
@@ -291,19 +291,19 @@ module Network.AWS.SWF.Types
     -- * Decision
     , Decision
     , decision
-    , decRequestCancelExternalWorkflowExecutionDecisionAttributes
-    , decScheduleActivityTaskDecisionAttributes
-    , decSignalExternalWorkflowExecutionDecisionAttributes
-    , decStartTimerDecisionAttributes
-    , decRecordMarkerDecisionAttributes
-    , decFailWorkflowExecutionDecisionAttributes
-    , decStartChildWorkflowExecutionDecisionAttributes
-    , decCompleteWorkflowExecutionDecisionAttributes
-    , decRequestCancelActivityTaskDecisionAttributes
-    , decCancelWorkflowExecutionDecisionAttributes
-    , decCancelTimerDecisionAttributes
-    , decContinueAsNewWorkflowExecutionDecisionAttributes
-    , decDecisionType
+    , dRequestCancelExternalWorkflowExecutionDecisionAttributes
+    , dScheduleActivityTaskDecisionAttributes
+    , dSignalExternalWorkflowExecutionDecisionAttributes
+    , dStartTimerDecisionAttributes
+    , dRecordMarkerDecisionAttributes
+    , dFailWorkflowExecutionDecisionAttributes
+    , dStartChildWorkflowExecutionDecisionAttributes
+    , dCompleteWorkflowExecutionDecisionAttributes
+    , dRequestCancelActivityTaskDecisionAttributes
+    , dCancelWorkflowExecutionDecisionAttributes
+    , dCancelTimerDecisionAttributes
+    , dContinueAsNewWorkflowExecutionDecisionAttributes
+    , dDecisionType
 
     -- * DecisionTaskCompletedEventAttributes
     , DecisionTaskCompletedEventAttributes
@@ -642,8 +642,8 @@ module Network.AWS.SWF.Types
     -- * WorkflowExecutionCanceledEventAttributes
     , WorkflowExecutionCanceledEventAttributes
     , workflowExecutionCanceledEventAttributes
-    , worDetails
-    , worDecisionTaskCompletedEventId
+    , wDetails
+    , wDecisionTaskCompletedEventId
 
     -- * WorkflowExecutionCompletedEventAttributes
     , WorkflowExecutionCompletedEventAttributes
@@ -722,10 +722,10 @@ module Network.AWS.SWF.Types
     -- * WorkflowExecutionSignaledEventAttributes
     , WorkflowExecutionSignaledEventAttributes
     , workflowExecutionSignaledEventAttributes
-    , worExternalWorkflowExecution
-    , worExternalInitiatedEventId
-    , worInput
-    , worSignalName
+    , wExternalWorkflowExecution
+    , wExternalInitiatedEventId
+    , wInput
+    , wSignalName
 
     -- * WorkflowExecutionStartedEventAttributes
     , WorkflowExecutionStartedEventAttributes

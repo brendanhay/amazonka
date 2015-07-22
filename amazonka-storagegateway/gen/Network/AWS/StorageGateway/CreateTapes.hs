@@ -32,19 +32,19 @@ module Network.AWS.StorageGateway.CreateTapes
     -- ** Request constructor
     , createTapes
     -- ** Request lenses
-    , ctGatewayARN
-    , ctTapeSizeInBytes
-    , ctClientToken
-    , ctNumTapesToCreate
-    , ctTapeBarcodePrefix
+    , ctrqGatewayARN
+    , ctrqTapeSizeInBytes
+    , ctrqClientToken
+    , ctrqNumTapesToCreate
+    , ctrqTapeBarcodePrefix
 
     -- * Response
     , CreateTapesResponse
     -- ** Response constructor
     , createTapesResponse
     -- ** Response lenses
-    , ctrTapeARNs
-    , ctrStatus
+    , ctrsTapeARNs
+    , ctrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -58,65 +58,65 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctGatewayARN'
+-- * 'ctrqGatewayARN'
 --
--- * 'ctTapeSizeInBytes'
+-- * 'ctrqTapeSizeInBytes'
 --
--- * 'ctClientToken'
+-- * 'ctrqClientToken'
 --
--- * 'ctNumTapesToCreate'
+-- * 'ctrqNumTapesToCreate'
 --
--- * 'ctTapeBarcodePrefix'
+-- * 'ctrqTapeBarcodePrefix'
 data CreateTapes = CreateTapes'
-    { _ctGatewayARN        :: !Text
-    , _ctTapeSizeInBytes   :: !Integer
-    , _ctClientToken       :: !Text
-    , _ctNumTapesToCreate  :: !Nat
-    , _ctTapeBarcodePrefix :: !Text
+    { _ctrqGatewayARN        :: !Text
+    , _ctrqTapeSizeInBytes   :: !Integer
+    , _ctrqClientToken       :: !Text
+    , _ctrqNumTapesToCreate  :: !Nat
+    , _ctrqTapeBarcodePrefix :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTapes' smart constructor.
 createTapes :: Text -> Integer -> Text -> Natural -> Text -> CreateTapes
 createTapes pGatewayARN pTapeSizeInBytes pClientToken pNumTapesToCreate pTapeBarcodePrefix =
     CreateTapes'
-    { _ctGatewayARN = pGatewayARN
-    , _ctTapeSizeInBytes = pTapeSizeInBytes
-    , _ctClientToken = pClientToken
-    , _ctNumTapesToCreate = _Nat # pNumTapesToCreate
-    , _ctTapeBarcodePrefix = pTapeBarcodePrefix
+    { _ctrqGatewayARN = pGatewayARN
+    , _ctrqTapeSizeInBytes = pTapeSizeInBytes
+    , _ctrqClientToken = pClientToken
+    , _ctrqNumTapesToCreate = _Nat # pNumTapesToCreate
+    , _ctrqTapeBarcodePrefix = pTapeBarcodePrefix
     }
 
 -- | The unique Amazon Resource Name(ARN) that represents the gateway to
 -- associate the virtual tapes with. Use the ListGateways operation to
 -- return a list of gateways for your account and region.
-ctGatewayARN :: Lens' CreateTapes Text
-ctGatewayARN = lens _ctGatewayARN (\ s a -> s{_ctGatewayARN = a});
+ctrqGatewayARN :: Lens' CreateTapes Text
+ctrqGatewayARN = lens _ctrqGatewayARN (\ s a -> s{_ctrqGatewayARN = a});
 
 -- | The size, in bytes, of the virtual tapes you want to create.
 --
 -- The size must be gigabyte (1024*1024*1024 byte) aligned.
-ctTapeSizeInBytes :: Lens' CreateTapes Integer
-ctTapeSizeInBytes = lens _ctTapeSizeInBytes (\ s a -> s{_ctTapeSizeInBytes = a});
+ctrqTapeSizeInBytes :: Lens' CreateTapes Integer
+ctrqTapeSizeInBytes = lens _ctrqTapeSizeInBytes (\ s a -> s{_ctrqTapeSizeInBytes = a});
 
 -- | A unique identifier that you use to retry a request. If you retry a
 -- request, use the same @ClientToken@ you specified in the initial
 -- request.
 --
 -- Using the same @ClientToken@ prevents creating the tape multiple times.
-ctClientToken :: Lens' CreateTapes Text
-ctClientToken = lens _ctClientToken (\ s a -> s{_ctClientToken = a});
+ctrqClientToken :: Lens' CreateTapes Text
+ctrqClientToken = lens _ctrqClientToken (\ s a -> s{_ctrqClientToken = a});
 
 -- | The number of virtual tapes you want to create.
-ctNumTapesToCreate :: Lens' CreateTapes Natural
-ctNumTapesToCreate = lens _ctNumTapesToCreate (\ s a -> s{_ctNumTapesToCreate = a}) . _Nat;
+ctrqNumTapesToCreate :: Lens' CreateTapes Natural
+ctrqNumTapesToCreate = lens _ctrqNumTapesToCreate (\ s a -> s{_ctrqNumTapesToCreate = a}) . _Nat;
 
 -- | A prefix you append to the barcode of the virtual tape you are creating.
 -- This makes a barcode unique.
 --
 -- The prefix must be 1 to 4 characters in length and must be upper-case
 -- letters A-Z.
-ctTapeBarcodePrefix :: Lens' CreateTapes Text
-ctTapeBarcodePrefix = lens _ctTapeBarcodePrefix (\ s a -> s{_ctTapeBarcodePrefix = a});
+ctrqTapeBarcodePrefix :: Lens' CreateTapes Text
+ctrqTapeBarcodePrefix = lens _ctrqTapeBarcodePrefix (\ s a -> s{_ctrqTapeBarcodePrefix = a});
 
 instance AWSRequest CreateTapes where
         type Sv CreateTapes = StorageGateway
@@ -142,11 +142,11 @@ instance ToHeaders CreateTapes where
 instance ToJSON CreateTapes where
         toJSON CreateTapes'{..}
           = object
-              ["GatewayARN" .= _ctGatewayARN,
-               "TapeSizeInBytes" .= _ctTapeSizeInBytes,
-               "ClientToken" .= _ctClientToken,
-               "NumTapesToCreate" .= _ctNumTapesToCreate,
-               "TapeBarcodePrefix" .= _ctTapeBarcodePrefix]
+              ["GatewayARN" .= _ctrqGatewayARN,
+               "TapeSizeInBytes" .= _ctrqTapeSizeInBytes,
+               "ClientToken" .= _ctrqClientToken,
+               "NumTapesToCreate" .= _ctrqNumTapesToCreate,
+               "TapeBarcodePrefix" .= _ctrqTapeBarcodePrefix]
 
 instance ToPath CreateTapes where
         toPath = const "/"
@@ -160,27 +160,27 @@ instance ToQuery CreateTapes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctrTapeARNs'
+-- * 'ctrsTapeARNs'
 --
--- * 'ctrStatus'
+-- * 'ctrsStatus'
 data CreateTapesResponse = CreateTapesResponse'
-    { _ctrTapeARNs :: !(Maybe [Text])
-    , _ctrStatus   :: !Int
+    { _ctrsTapeARNs :: !(Maybe [Text])
+    , _ctrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTapesResponse' smart constructor.
 createTapesResponse :: Int -> CreateTapesResponse
 createTapesResponse pStatus =
     CreateTapesResponse'
-    { _ctrTapeARNs = Nothing
-    , _ctrStatus = pStatus
+    { _ctrsTapeARNs = Nothing
+    , _ctrsStatus = pStatus
     }
 
 -- | A list of unique Amazon Resource Named (ARN) the represents the virtual
 -- tapes that were created.
-ctrTapeARNs :: Lens' CreateTapesResponse [Text]
-ctrTapeARNs = lens _ctrTapeARNs (\ s a -> s{_ctrTapeARNs = a}) . _Default;
+ctrsTapeARNs :: Lens' CreateTapesResponse [Text]
+ctrsTapeARNs = lens _ctrsTapeARNs (\ s a -> s{_ctrsTapeARNs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ctrStatus :: Lens' CreateTapesResponse Int
-ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});
+ctrsStatus :: Lens' CreateTapesResponse Int
+ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

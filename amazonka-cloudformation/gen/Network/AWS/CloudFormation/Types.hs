@@ -39,16 +39,16 @@ module Network.AWS.CloudFormation.Types
     -- * Output
     , Output
     , output
-    , outOutputValue
-    , outOutputKey
-    , outDescription
+    , oOutputValue
+    , oOutputKey
+    , oDescription
 
     -- * Parameter
     , Parameter
     , parameter
-    , parParameterValue
-    , parParameterKey
-    , parUsePreviousValue
+    , pParameterValue
+    , pParameterKey
+    , pUsePreviousValue
 
     -- * ParameterConstraints
     , ParameterConstraints
@@ -68,20 +68,20 @@ module Network.AWS.CloudFormation.Types
     -- * Stack
     , Stack
     , stack
-    , staDisableRollback
-    , staLastUpdatedTime
-    , staNotificationARNs
-    , staStackStatusReason
-    , staOutputs
-    , staParameters
-    , staStackId
-    , staCapabilities
-    , staDescription
-    , staTags
-    , staTimeoutInMinutes
-    , staStackName
-    , staCreationTime
-    , staStackStatus
+    , sDisableRollback
+    , sLastUpdatedTime
+    , sNotificationARNs
+    , sStackStatusReason
+    , sOutputs
+    , sParameters
+    , sStackId
+    , sCapabilities
+    , sDescription
+    , sTags
+    , sTimeoutInMinutes
+    , sStackName
+    , sCreationTime
+    , sStackStatus
 
     -- * StackEvent
     , StackEvent

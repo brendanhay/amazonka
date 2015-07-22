@@ -33,15 +33,15 @@ module Network.AWS.CodePipeline.GetJobDetails
     -- ** Request constructor
     , getJobDetails
     -- ** Request lenses
-    , gjdJobId
+    , gjdrqJobId
 
     -- * Response
     , GetJobDetailsResponse
     -- ** Response constructor
     , getJobDetailsResponse
     -- ** Response lenses
-    , gjdrJobDetails
-    , gjdrStatus
+    , gjdrsJobDetails
+    , gjdrsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gjdJobId'
+-- * 'gjdrqJobId'
 newtype GetJobDetails = GetJobDetails'
-    { _gjdJobId :: Text
+    { _gjdrqJobId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobDetails' smart constructor.
 getJobDetails :: Text -> GetJobDetails
 getJobDetails pJobId =
     GetJobDetails'
-    { _gjdJobId = pJobId
+    { _gjdrqJobId = pJobId
     }
 
 -- | The unique system-generated ID for the job.
-gjdJobId :: Lens' GetJobDetails Text
-gjdJobId = lens _gjdJobId (\ s a -> s{_gjdJobId = a});
+gjdrqJobId :: Lens' GetJobDetails Text
+gjdrqJobId = lens _gjdrqJobId (\ s a -> s{_gjdrqJobId = a});
 
 instance AWSRequest GetJobDetails where
         type Sv GetJobDetails = CodePipeline
@@ -93,7 +93,7 @@ instance ToHeaders GetJobDetails where
 
 instance ToJSON GetJobDetails where
         toJSON GetJobDetails'{..}
-          = object ["jobId" .= _gjdJobId]
+          = object ["jobId" .= _gjdrqJobId]
 
 instance ToPath GetJobDetails where
         toPath = const "/"
@@ -107,29 +107,29 @@ instance ToQuery GetJobDetails where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gjdrJobDetails'
+-- * 'gjdrsJobDetails'
 --
--- * 'gjdrStatus'
+-- * 'gjdrsStatus'
 data GetJobDetailsResponse = GetJobDetailsResponse'
-    { _gjdrJobDetails :: !(Maybe JobDetails)
-    , _gjdrStatus     :: !Int
+    { _gjdrsJobDetails :: !(Maybe JobDetails)
+    , _gjdrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobDetailsResponse' smart constructor.
 getJobDetailsResponse :: Int -> GetJobDetailsResponse
 getJobDetailsResponse pStatus =
     GetJobDetailsResponse'
-    { _gjdrJobDetails = Nothing
-    , _gjdrStatus = pStatus
+    { _gjdrsJobDetails = Nothing
+    , _gjdrsStatus = pStatus
     }
 
 -- | The details of the job.
 --
 -- If AWSSessionCredentials is used, a long-running job can call
 -- GetJobDetails again to obtain new credentials.
-gjdrJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
-gjdrJobDetails = lens _gjdrJobDetails (\ s a -> s{_gjdrJobDetails = a});
+gjdrsJobDetails :: Lens' GetJobDetailsResponse (Maybe JobDetails)
+gjdrsJobDetails = lens _gjdrsJobDetails (\ s a -> s{_gjdrsJobDetails = a});
 
 -- | FIXME: Undocumented member.
-gjdrStatus :: Lens' GetJobDetailsResponse Int
-gjdrStatus = lens _gjdrStatus (\ s a -> s{_gjdrStatus = a});
+gjdrsStatus :: Lens' GetJobDetailsResponse Int
+gjdrsStatus = lens _gjdrsStatus (\ s a -> s{_gjdrsStatus = a});

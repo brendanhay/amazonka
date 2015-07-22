@@ -28,18 +28,18 @@ module Network.AWS.CodeDeploy.ListDeploymentInstances
     -- ** Request constructor
     , listDeploymentInstances
     -- ** Request lenses
-    , ldiInstanceStatusFilter
-    , ldiNextToken
-    , ldiDeploymentId
+    , ldirqInstanceStatusFilter
+    , ldirqNextToken
+    , ldirqDeploymentId
 
     -- * Response
     , ListDeploymentInstancesResponse
     -- ** Response constructor
     , listDeploymentInstancesResponse
     -- ** Response lenses
-    , ldirNextToken
-    , ldirInstancesList
-    , ldirStatus
+    , ldirsNextToken
+    , ldirsInstancesList
+    , ldirsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldiInstanceStatusFilter'
+-- * 'ldirqInstanceStatusFilter'
 --
--- * 'ldiNextToken'
+-- * 'ldirqNextToken'
 --
--- * 'ldiDeploymentId'
+-- * 'ldirqDeploymentId'
 data ListDeploymentInstances = ListDeploymentInstances'
-    { _ldiInstanceStatusFilter :: !(Maybe [InstanceStatus])
-    , _ldiNextToken            :: !(Maybe Text)
-    , _ldiDeploymentId         :: !Text
+    { _ldirqInstanceStatusFilter :: !(Maybe [InstanceStatus])
+    , _ldirqNextToken            :: !(Maybe Text)
+    , _ldirqDeploymentId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentInstances' smart constructor.
 listDeploymentInstances :: Text -> ListDeploymentInstances
 listDeploymentInstances pDeploymentId =
     ListDeploymentInstances'
-    { _ldiInstanceStatusFilter = Nothing
-    , _ldiNextToken = Nothing
-    , _ldiDeploymentId = pDeploymentId
+    { _ldirqInstanceStatusFilter = Nothing
+    , _ldirqNextToken = Nothing
+    , _ldirqDeploymentId = pDeploymentId
     }
 
 -- | A subset of instances to list, by status:
@@ -87,18 +87,18 @@ listDeploymentInstances pDeploymentId =
 --     deployments.
 -- -   Unknown: Include in the resulting list those instances with
 --     deployments in an unknown state.
-ldiInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
-ldiInstanceStatusFilter = lens _ldiInstanceStatusFilter (\ s a -> s{_ldiInstanceStatusFilter = a}) . _Default;
+ldirqInstanceStatusFilter :: Lens' ListDeploymentInstances [InstanceStatus]
+ldirqInstanceStatusFilter = lens _ldirqInstanceStatusFilter (\ s a -> s{_ldirqInstanceStatusFilter = a}) . _Default;
 
 -- | An identifier that was returned from the previous list deployment
 -- instances call, which can be used to return the next set of deployment
 -- instances in the list.
-ldiNextToken :: Lens' ListDeploymentInstances (Maybe Text)
-ldiNextToken = lens _ldiNextToken (\ s a -> s{_ldiNextToken = a});
+ldirqNextToken :: Lens' ListDeploymentInstances (Maybe Text)
+ldirqNextToken = lens _ldirqNextToken (\ s a -> s{_ldirqNextToken = a});
 
 -- | The unique ID of a deployment.
-ldiDeploymentId :: Lens' ListDeploymentInstances Text
-ldiDeploymentId = lens _ldiDeploymentId (\ s a -> s{_ldiDeploymentId = a});
+ldirqDeploymentId :: Lens' ListDeploymentInstances Text
+ldirqDeploymentId = lens _ldirqDeploymentId (\ s a -> s{_ldirqDeploymentId = a});
 
 instance AWSRequest ListDeploymentInstances where
         type Sv ListDeploymentInstances = CodeDeploy
@@ -126,9 +126,10 @@ instance ToHeaders ListDeploymentInstances where
 instance ToJSON ListDeploymentInstances where
         toJSON ListDeploymentInstances'{..}
           = object
-              ["instanceStatusFilter" .= _ldiInstanceStatusFilter,
-               "nextToken" .= _ldiNextToken,
-               "deploymentId" .= _ldiDeploymentId]
+              ["instanceStatusFilter" .=
+                 _ldirqInstanceStatusFilter,
+               "nextToken" .= _ldirqNextToken,
+               "deploymentId" .= _ldirqDeploymentId]
 
 instance ToPath ListDeploymentInstances where
         toPath = const "/"
@@ -142,37 +143,37 @@ instance ToQuery ListDeploymentInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldirNextToken'
+-- * 'ldirsNextToken'
 --
--- * 'ldirInstancesList'
+-- * 'ldirsInstancesList'
 --
--- * 'ldirStatus'
+-- * 'ldirsStatus'
 data ListDeploymentInstancesResponse = ListDeploymentInstancesResponse'
-    { _ldirNextToken     :: !(Maybe Text)
-    , _ldirInstancesList :: !(Maybe [Text])
-    , _ldirStatus        :: !Int
+    { _ldirsNextToken     :: !(Maybe Text)
+    , _ldirsInstancesList :: !(Maybe [Text])
+    , _ldirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDeploymentInstancesResponse' smart constructor.
 listDeploymentInstancesResponse :: Int -> ListDeploymentInstancesResponse
 listDeploymentInstancesResponse pStatus =
     ListDeploymentInstancesResponse'
-    { _ldirNextToken = Nothing
-    , _ldirInstancesList = Nothing
-    , _ldirStatus = pStatus
+    { _ldirsNextToken = Nothing
+    , _ldirsInstancesList = Nothing
+    , _ldirsStatus = pStatus
     }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- deployment instances call to return the next set of deployment instances
 -- in the list.
-ldirNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
-ldirNextToken = lens _ldirNextToken (\ s a -> s{_ldirNextToken = a});
+ldirsNextToken :: Lens' ListDeploymentInstancesResponse (Maybe Text)
+ldirsNextToken = lens _ldirsNextToken (\ s a -> s{_ldirsNextToken = a});
 
 -- | A list of instances IDs.
-ldirInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
-ldirInstancesList = lens _ldirInstancesList (\ s a -> s{_ldirInstancesList = a}) . _Default;
+ldirsInstancesList :: Lens' ListDeploymentInstancesResponse [Text]
+ldirsInstancesList = lens _ldirsInstancesList (\ s a -> s{_ldirsInstancesList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldirStatus :: Lens' ListDeploymentInstancesResponse Int
-ldirStatus = lens _ldirStatus (\ s a -> s{_ldirStatus = a});
+ldirsStatus :: Lens' ListDeploymentInstancesResponse Int
+ldirsStatus = lens _ldirsStatus (\ s a -> s{_ldirsStatus = a});

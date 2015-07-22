@@ -48,7 +48,7 @@ module Network.AWS.IAM.DeletePolicy
     -- ** Request constructor
     , deletePolicy
     -- ** Request lenses
-    , dpPolicyARN
+    , dprqPolicyARN
 
     -- * Response
     , DeletePolicyResponse
@@ -65,21 +65,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpPolicyARN'
+-- * 'dprqPolicyARN'
 newtype DeletePolicy = DeletePolicy'
-    { _dpPolicyARN :: Text
+    { _dprqPolicyARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePolicy' smart constructor.
 deletePolicy :: Text -> DeletePolicy
 deletePolicy pPolicyARN =
     DeletePolicy'
-    { _dpPolicyARN = pPolicyARN
+    { _dprqPolicyARN = pPolicyARN
     }
 
 -- | FIXME: Undocumented member.
-dpPolicyARN :: Lens' DeletePolicy Text
-dpPolicyARN = lens _dpPolicyARN (\ s a -> s{_dpPolicyARN = a});
+dprqPolicyARN :: Lens' DeletePolicy Text
+dprqPolicyARN = lens _dprqPolicyARN (\ s a -> s{_dprqPolicyARN = a});
 
 instance AWSRequest DeletePolicy where
         type Sv DeletePolicy = IAM
@@ -98,7 +98,7 @@ instance ToQuery DeletePolicy where
           = mconcat
               ["Action" =: ("DeletePolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _dpPolicyARN]
+               "PolicyArn" =: _dprqPolicyARN]
 
 -- | /See:/ 'deletePolicyResponse' smart constructor.
 data DeletePolicyResponse =

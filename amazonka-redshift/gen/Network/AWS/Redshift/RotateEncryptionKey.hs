@@ -27,15 +27,15 @@ module Network.AWS.Redshift.RotateEncryptionKey
     -- ** Request constructor
     , rotateEncryptionKey
     -- ** Request lenses
-    , rekClusterIdentifier
+    , rekrqClusterIdentifier
 
     -- * Response
     , RotateEncryptionKeyResponse
     -- ** Response constructor
     , rotateEncryptionKeyResponse
     -- ** Response lenses
-    , rekrCluster
-    , rekrStatus
+    , rekrsCluster
+    , rekrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -49,16 +49,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rekClusterIdentifier'
+-- * 'rekrqClusterIdentifier'
 newtype RotateEncryptionKey = RotateEncryptionKey'
-    { _rekClusterIdentifier :: Text
+    { _rekrqClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RotateEncryptionKey' smart constructor.
 rotateEncryptionKey :: Text -> RotateEncryptionKey
 rotateEncryptionKey pClusterIdentifier =
     RotateEncryptionKey'
-    { _rekClusterIdentifier = pClusterIdentifier
+    { _rekrqClusterIdentifier = pClusterIdentifier
     }
 
 -- | The unique identifier of the cluster that you want to rotate the
@@ -66,8 +66,8 @@ rotateEncryptionKey pClusterIdentifier =
 --
 -- Constraints: Must be the name of valid cluster that has encryption
 -- enabled.
-rekClusterIdentifier :: Lens' RotateEncryptionKey Text
-rekClusterIdentifier = lens _rekClusterIdentifier (\ s a -> s{_rekClusterIdentifier = a});
+rekrqClusterIdentifier :: Lens' RotateEncryptionKey Text
+rekrqClusterIdentifier = lens _rekrqClusterIdentifier (\ s a -> s{_rekrqClusterIdentifier = a});
 
 instance AWSRequest RotateEncryptionKey where
         type Sv RotateEncryptionKey = Redshift
@@ -91,32 +91,32 @@ instance ToQuery RotateEncryptionKey where
           = mconcat
               ["Action" =: ("RotateEncryptionKey" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _rekClusterIdentifier]
+               "ClusterIdentifier" =: _rekrqClusterIdentifier]
 
 -- | /See:/ 'rotateEncryptionKeyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rekrCluster'
+-- * 'rekrsCluster'
 --
--- * 'rekrStatus'
+-- * 'rekrsStatus'
 data RotateEncryptionKeyResponse = RotateEncryptionKeyResponse'
-    { _rekrCluster :: !(Maybe Cluster)
-    , _rekrStatus  :: !Int
+    { _rekrsCluster :: !(Maybe Cluster)
+    , _rekrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RotateEncryptionKeyResponse' smart constructor.
 rotateEncryptionKeyResponse :: Int -> RotateEncryptionKeyResponse
 rotateEncryptionKeyResponse pStatus =
     RotateEncryptionKeyResponse'
-    { _rekrCluster = Nothing
-    , _rekrStatus = pStatus
+    { _rekrsCluster = Nothing
+    , _rekrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rekrCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
-rekrCluster = lens _rekrCluster (\ s a -> s{_rekrCluster = a});
+rekrsCluster :: Lens' RotateEncryptionKeyResponse (Maybe Cluster)
+rekrsCluster = lens _rekrsCluster (\ s a -> s{_rekrsCluster = a});
 
 -- | FIXME: Undocumented member.
-rekrStatus :: Lens' RotateEncryptionKeyResponse Int
-rekrStatus = lens _rekrStatus (\ s a -> s{_rekrStatus = a});
+rekrsStatus :: Lens' RotateEncryptionKeyResponse Int
+rekrsStatus = lens _rekrsStatus (\ s a -> s{_rekrsStatus = a});

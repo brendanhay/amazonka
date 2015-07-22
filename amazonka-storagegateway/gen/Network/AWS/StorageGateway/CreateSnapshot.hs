@@ -47,17 +47,17 @@ module Network.AWS.StorageGateway.CreateSnapshot
     -- ** Request constructor
     , createSnapshot
     -- ** Request lenses
-    , csVolumeARN
-    , csSnapshotDescription
+    , csrqVolumeARN
+    , csrqSnapshotDescription
 
     -- * Response
     , CreateSnapshotResponse
     -- ** Response constructor
     , createSnapshotResponse
     -- ** Response lenses
-    , csrVolumeARN
-    , csrSnapshotId
-    , csrStatus
+    , csrsVolumeARN
+    , csrsSnapshotId
+    , csrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -74,33 +74,33 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csVolumeARN'
+-- * 'csrqVolumeARN'
 --
--- * 'csSnapshotDescription'
+-- * 'csrqSnapshotDescription'
 data CreateSnapshot = CreateSnapshot'
-    { _csVolumeARN           :: !Text
-    , _csSnapshotDescription :: !Text
+    { _csrqVolumeARN           :: !Text
+    , _csrqSnapshotDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
 createSnapshot pVolumeARN pSnapshotDescription =
     CreateSnapshot'
-    { _csVolumeARN = pVolumeARN
-    , _csSnapshotDescription = pSnapshotDescription
+    { _csrqVolumeARN = pVolumeARN
+    , _csrqSnapshotDescription = pSnapshotDescription
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-csVolumeARN :: Lens' CreateSnapshot Text
-csVolumeARN = lens _csVolumeARN (\ s a -> s{_csVolumeARN = a});
+csrqVolumeARN :: Lens' CreateSnapshot Text
+csrqVolumeARN = lens _csrqVolumeARN (\ s a -> s{_csrqVolumeARN = a});
 
 -- | Textual description of the snapshot that appears in the Amazon EC2
 -- console, Elastic Block Store snapshots panel in the __Description__
 -- field, and in the AWS Storage Gateway snapshot __Details__ pane,
 -- __Description__ field
-csSnapshotDescription :: Lens' CreateSnapshot Text
-csSnapshotDescription = lens _csSnapshotDescription (\ s a -> s{_csSnapshotDescription = a});
+csrqSnapshotDescription :: Lens' CreateSnapshot Text
+csrqSnapshotDescription = lens _csrqSnapshotDescription (\ s a -> s{_csrqSnapshotDescription = a});
 
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = StorageGateway
@@ -126,8 +126,8 @@ instance ToHeaders CreateSnapshot where
 instance ToJSON CreateSnapshot where
         toJSON CreateSnapshot'{..}
           = object
-              ["VolumeARN" .= _csVolumeARN,
-               "SnapshotDescription" .= _csSnapshotDescription]
+              ["VolumeARN" .= _csrqVolumeARN,
+               "SnapshotDescription" .= _csrqSnapshotDescription]
 
 instance ToPath CreateSnapshot where
         toPath = const "/"
@@ -141,38 +141,38 @@ instance ToQuery CreateSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrVolumeARN'
+-- * 'csrsVolumeARN'
 --
--- * 'csrSnapshotId'
+-- * 'csrsSnapshotId'
 --
--- * 'csrStatus'
+-- * 'csrsStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
-    { _csrVolumeARN  :: !(Maybe Text)
-    , _csrSnapshotId :: !(Maybe Text)
-    , _csrStatus     :: !Int
+    { _csrsVolumeARN  :: !(Maybe Text)
+    , _csrsSnapshotId :: !(Maybe Text)
+    , _csrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
 createSnapshotResponse pStatus =
     CreateSnapshotResponse'
-    { _csrVolumeARN = Nothing
-    , _csrSnapshotId = Nothing
-    , _csrStatus = pStatus
+    { _csrsVolumeARN = Nothing
+    , _csrsSnapshotId = Nothing
+    , _csrsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the volume of which the snapshot was
 -- taken.
-csrVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
-csrVolumeARN = lens _csrVolumeARN (\ s a -> s{_csrVolumeARN = a});
+csrsVolumeARN :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsVolumeARN = lens _csrsVolumeARN (\ s a -> s{_csrsVolumeARN = a});
 
 -- | The snapshot ID that is used to refer to the snapshot in future
 -- operations such as describing snapshots (Amazon Elastic Compute Cloud
 -- API @DescribeSnapshots@) or creating a volume from a snapshot
 -- (CreateStorediSCSIVolume).
-csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
-csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
+csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CreateSnapshotResponse Int
-csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});
+csrsStatus :: Lens' CreateSnapshotResponse Int
+csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

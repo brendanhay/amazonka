@@ -57,22 +57,22 @@ module Network.AWS.EC2.AttachVolume
     -- ** Request constructor
     , attachVolume
     -- ** Request lenses
-    , avDryRun
-    , avVolumeId
-    , avInstanceId
-    , avDevice
+    , avrqDryRun
+    , avrqVolumeId
+    , avrqInstanceId
+    , avrqDevice
 
     -- * Response
     , VolumeAttachment
     -- ** Response constructor
     , volumeAttachment
     -- ** Response lenses
-    , vInstanceId
-    , vDeleteOnTermination
-    , vState
-    , vDevice
-    , vVolumeId
-    , vAttachTime
+    , avrsInstanceId
+    , avrsDeleteOnTermination
+    , avrsState
+    , avrsDevice
+    , avrsVolumeId
+    , avrsAttachTime
     ) where
 
 import           Network.AWS.EC2.Types
@@ -84,50 +84,50 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avDryRun'
+-- * 'avrqDryRun'
 --
--- * 'avVolumeId'
+-- * 'avrqVolumeId'
 --
--- * 'avInstanceId'
+-- * 'avrqInstanceId'
 --
--- * 'avDevice'
+-- * 'avrqDevice'
 data AttachVolume = AttachVolume'
-    { _avDryRun     :: !(Maybe Bool)
-    , _avVolumeId   :: !Text
-    , _avInstanceId :: !Text
-    , _avDevice     :: !Text
+    { _avrqDryRun     :: !(Maybe Bool)
+    , _avrqVolumeId   :: !Text
+    , _avrqInstanceId :: !Text
+    , _avrqDevice     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVolume' smart constructor.
 attachVolume :: Text -> Text -> Text -> AttachVolume
 attachVolume pVolumeId pInstanceId pDevice =
     AttachVolume'
-    { _avDryRun = Nothing
-    , _avVolumeId = pVolumeId
-    , _avInstanceId = pInstanceId
-    , _avDevice = pDevice
+    { _avrqDryRun = Nothing
+    , _avrqVolumeId = pVolumeId
+    , _avrqInstanceId = pInstanceId
+    , _avrqDevice = pDevice
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-avDryRun :: Lens' AttachVolume (Maybe Bool)
-avDryRun = lens _avDryRun (\ s a -> s{_avDryRun = a});
+avrqDryRun :: Lens' AttachVolume (Maybe Bool)
+avrqDryRun = lens _avrqDryRun (\ s a -> s{_avrqDryRun = a});
 
 -- | The ID of the EBS volume. The volume and instance must be within the
 -- same Availability Zone.
-avVolumeId :: Lens' AttachVolume Text
-avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
+avrqVolumeId :: Lens' AttachVolume Text
+avrqVolumeId = lens _avrqVolumeId (\ s a -> s{_avrqVolumeId = a});
 
 -- | The ID of the instance.
-avInstanceId :: Lens' AttachVolume Text
-avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
+avrqInstanceId :: Lens' AttachVolume Text
+avrqInstanceId = lens _avrqInstanceId (\ s a -> s{_avrqInstanceId = a});
 
 -- | The device name to expose to the instance (for example, @\/dev\/sdh@ or
 -- @xvdh@).
-avDevice :: Lens' AttachVolume Text
-avDevice = lens _avDevice (\ s a -> s{_avDevice = a});
+avrqDevice :: Lens' AttachVolume Text
+avrqDevice = lens _avrqDevice (\ s a -> s{_avrqDevice = a});
 
 instance AWSRequest AttachVolume where
         type Sv AttachVolume = EC2
@@ -146,5 +146,6 @@ instance ToQuery AttachVolume where
           = mconcat
               ["Action" =: ("AttachVolume" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _avDryRun, "VolumeId" =: _avVolumeId,
-               "InstanceId" =: _avInstanceId, "Device" =: _avDevice]
+               "DryRun" =: _avrqDryRun, "VolumeId" =: _avrqVolumeId,
+               "InstanceId" =: _avrqInstanceId,
+               "Device" =: _avrqDevice]

@@ -27,18 +27,18 @@ module Network.AWS.RDS.PurchaseReservedDBInstancesOffering
     -- ** Request constructor
     , purchaseReservedDBInstancesOffering
     -- ** Request lenses
-    , prdioDBInstanceCount
-    , prdioReservedDBInstanceId
-    , prdioTags
-    , prdioReservedDBInstancesOfferingId
+    , prdiorqDBInstanceCount
+    , prdiorqReservedDBInstanceId
+    , prdiorqTags
+    , prdiorqReservedDBInstancesOfferingId
 
     -- * Response
     , PurchaseReservedDBInstancesOfferingResponse
     -- ** Response constructor
     , purchaseReservedDBInstancesOfferingResponse
     -- ** Response lenses
-    , prdiorReservedDBInstance
-    , prdiorStatus
+    , prdiorsReservedDBInstance
+    , prdiorsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,51 +52,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prdioDBInstanceCount'
+-- * 'prdiorqDBInstanceCount'
 --
--- * 'prdioReservedDBInstanceId'
+-- * 'prdiorqReservedDBInstanceId'
 --
--- * 'prdioTags'
+-- * 'prdiorqTags'
 --
--- * 'prdioReservedDBInstancesOfferingId'
+-- * 'prdiorqReservedDBInstancesOfferingId'
 data PurchaseReservedDBInstancesOffering = PurchaseReservedDBInstancesOffering'
-    { _prdioDBInstanceCount               :: !(Maybe Int)
-    , _prdioReservedDBInstanceId          :: !(Maybe Text)
-    , _prdioTags                          :: !(Maybe [Tag])
-    , _prdioReservedDBInstancesOfferingId :: !Text
+    { _prdiorqDBInstanceCount               :: !(Maybe Int)
+    , _prdiorqReservedDBInstanceId          :: !(Maybe Text)
+    , _prdiorqTags                          :: !(Maybe [Tag])
+    , _prdiorqReservedDBInstancesOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedDBInstancesOffering' smart constructor.
 purchaseReservedDBInstancesOffering :: Text -> PurchaseReservedDBInstancesOffering
 purchaseReservedDBInstancesOffering pReservedDBInstancesOfferingId =
     PurchaseReservedDBInstancesOffering'
-    { _prdioDBInstanceCount = Nothing
-    , _prdioReservedDBInstanceId = Nothing
-    , _prdioTags = Nothing
-    , _prdioReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId
+    { _prdiorqDBInstanceCount = Nothing
+    , _prdiorqReservedDBInstanceId = Nothing
+    , _prdiorqTags = Nothing
+    , _prdiorqReservedDBInstancesOfferingId = pReservedDBInstancesOfferingId
     }
 
 -- | The number of instances to reserve.
 --
 -- Default: @1@
-prdioDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
-prdioDBInstanceCount = lens _prdioDBInstanceCount (\ s a -> s{_prdioDBInstanceCount = a});
+prdiorqDBInstanceCount :: Lens' PurchaseReservedDBInstancesOffering (Maybe Int)
+prdiorqDBInstanceCount = lens _prdiorqDBInstanceCount (\ s a -> s{_prdiorqDBInstanceCount = a});
 
 -- | Customer-specified identifier to track this reservation.
 --
 -- Example: myreservationID
-prdioReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
-prdioReservedDBInstanceId = lens _prdioReservedDBInstanceId (\ s a -> s{_prdioReservedDBInstanceId = a});
+prdiorqReservedDBInstanceId :: Lens' PurchaseReservedDBInstancesOffering (Maybe Text)
+prdiorqReservedDBInstanceId = lens _prdiorqReservedDBInstanceId (\ s a -> s{_prdiorqReservedDBInstanceId = a});
 
 -- | FIXME: Undocumented member.
-prdioTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
-prdioTags = lens _prdioTags (\ s a -> s{_prdioTags = a}) . _Default;
+prdiorqTags :: Lens' PurchaseReservedDBInstancesOffering [Tag]
+prdiorqTags = lens _prdiorqTags (\ s a -> s{_prdiorqTags = a}) . _Default;
 
 -- | The ID of the Reserved DB instance offering to purchase.
 --
 -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
-prdioReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
-prdioReservedDBInstancesOfferingId = lens _prdioReservedDBInstancesOfferingId (\ s a -> s{_prdioReservedDBInstancesOfferingId = a});
+prdiorqReservedDBInstancesOfferingId :: Lens' PurchaseReservedDBInstancesOffering Text
+prdiorqReservedDBInstancesOfferingId = lens _prdiorqReservedDBInstancesOfferingId (\ s a -> s{_prdiorqReservedDBInstancesOfferingId = a});
 
 instance AWSRequest
          PurchaseReservedDBInstancesOffering where
@@ -127,36 +127,38 @@ instance ToQuery PurchaseReservedDBInstancesOffering
                  ("PurchaseReservedDBInstancesOffering" ::
                     ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBInstanceCount" =: _prdioDBInstanceCount,
-               "ReservedDBInstanceId" =: _prdioReservedDBInstanceId,
-               "Tags" =: toQuery (toQueryList "Tag" <$> _prdioTags),
+               "DBInstanceCount" =: _prdiorqDBInstanceCount,
+               "ReservedDBInstanceId" =:
+                 _prdiorqReservedDBInstanceId,
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _prdiorqTags),
                "ReservedDBInstancesOfferingId" =:
-                 _prdioReservedDBInstancesOfferingId]
+                 _prdiorqReservedDBInstancesOfferingId]
 
 -- | /See:/ 'purchaseReservedDBInstancesOfferingResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prdiorReservedDBInstance'
+-- * 'prdiorsReservedDBInstance'
 --
--- * 'prdiorStatus'
+-- * 'prdiorsStatus'
 data PurchaseReservedDBInstancesOfferingResponse = PurchaseReservedDBInstancesOfferingResponse'
-    { _prdiorReservedDBInstance :: !(Maybe ReservedDBInstance)
-    , _prdiorStatus             :: !Int
+    { _prdiorsReservedDBInstance :: !(Maybe ReservedDBInstance)
+    , _prdiorsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedDBInstancesOfferingResponse' smart constructor.
 purchaseReservedDBInstancesOfferingResponse :: Int -> PurchaseReservedDBInstancesOfferingResponse
 purchaseReservedDBInstancesOfferingResponse pStatus =
     PurchaseReservedDBInstancesOfferingResponse'
-    { _prdiorReservedDBInstance = Nothing
-    , _prdiorStatus = pStatus
+    { _prdiorsReservedDBInstance = Nothing
+    , _prdiorsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-prdiorReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
-prdiorReservedDBInstance = lens _prdiorReservedDBInstance (\ s a -> s{_prdiorReservedDBInstance = a});
+prdiorsReservedDBInstance :: Lens' PurchaseReservedDBInstancesOfferingResponse (Maybe ReservedDBInstance)
+prdiorsReservedDBInstance = lens _prdiorsReservedDBInstance (\ s a -> s{_prdiorsReservedDBInstance = a});
 
 -- | FIXME: Undocumented member.
-prdiorStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
-prdiorStatus = lens _prdiorStatus (\ s a -> s{_prdiorStatus = a});
+prdiorsStatus :: Lens' PurchaseReservedDBInstancesOfferingResponse Int
+prdiorsStatus = lens _prdiorsStatus (\ s a -> s{_prdiorsStatus = a});

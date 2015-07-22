@@ -36,16 +36,16 @@ module Network.AWS.SSM.CreateAssociation
     -- ** Request constructor
     , createAssociation
     -- ** Request lenses
-    , caName
-    , caInstanceId
+    , carqName
+    , carqInstanceId
 
     -- * Response
     , CreateAssociationResponse
     -- ** Response constructor
     , createAssociationResponse
     -- ** Response lenses
-    , carAssociationDescription
-    , carStatus
+    , carsAssociationDescription
+    , carsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -57,29 +57,29 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'caName'
+-- * 'carqName'
 --
--- * 'caInstanceId'
+-- * 'carqInstanceId'
 data CreateAssociation = CreateAssociation'
-    { _caName       :: !Text
-    , _caInstanceId :: !Text
+    { _carqName       :: !Text
+    , _carqInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociation' smart constructor.
 createAssociation :: Text -> Text -> CreateAssociation
 createAssociation pName pInstanceId =
     CreateAssociation'
-    { _caName = pName
-    , _caInstanceId = pInstanceId
+    { _carqName = pName
+    , _carqInstanceId = pInstanceId
     }
 
 -- | The name of the configuration document.
-caName :: Lens' CreateAssociation Text
-caName = lens _caName (\ s a -> s{_caName = a});
+carqName :: Lens' CreateAssociation Text
+carqName = lens _carqName (\ s a -> s{_carqName = a});
 
 -- | The ID of the instance.
-caInstanceId :: Lens' CreateAssociation Text
-caInstanceId = lens _caInstanceId (\ s a -> s{_caInstanceId = a});
+carqInstanceId :: Lens' CreateAssociation Text
+carqInstanceId = lens _carqInstanceId (\ s a -> s{_carqInstanceId = a});
 
 instance AWSRequest CreateAssociation where
         type Sv CreateAssociation = SSM
@@ -104,7 +104,8 @@ instance ToHeaders CreateAssociation where
 instance ToJSON CreateAssociation where
         toJSON CreateAssociation'{..}
           = object
-              ["Name" .= _caName, "InstanceId" .= _caInstanceId]
+              ["Name" .= _carqName,
+               "InstanceId" .= _carqInstanceId]
 
 instance ToPath CreateAssociation where
         toPath = const "/"
@@ -116,26 +117,26 @@ instance ToQuery CreateAssociation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carAssociationDescription'
+-- * 'carsAssociationDescription'
 --
--- * 'carStatus'
+-- * 'carsStatus'
 data CreateAssociationResponse = CreateAssociationResponse'
-    { _carAssociationDescription :: !(Maybe AssociationDescription)
-    , _carStatus                 :: !Int
+    { _carsAssociationDescription :: !(Maybe AssociationDescription)
+    , _carsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociationResponse' smart constructor.
 createAssociationResponse :: Int -> CreateAssociationResponse
 createAssociationResponse pStatus =
     CreateAssociationResponse'
-    { _carAssociationDescription = Nothing
-    , _carStatus = pStatus
+    { _carsAssociationDescription = Nothing
+    , _carsStatus = pStatus
     }
 
 -- | Information about the association.
-carAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
-carAssociationDescription = lens _carAssociationDescription (\ s a -> s{_carAssociationDescription = a});
+carsAssociationDescription :: Lens' CreateAssociationResponse (Maybe AssociationDescription)
+carsAssociationDescription = lens _carsAssociationDescription (\ s a -> s{_carsAssociationDescription = a});
 
 -- | FIXME: Undocumented member.
-carStatus :: Lens' CreateAssociationResponse Int
-carStatus = lens _carStatus (\ s a -> s{_carStatus = a});
+carsStatus :: Lens' CreateAssociationResponse Int
+carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

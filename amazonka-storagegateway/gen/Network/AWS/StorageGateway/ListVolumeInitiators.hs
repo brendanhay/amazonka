@@ -29,15 +29,15 @@ module Network.AWS.StorageGateway.ListVolumeInitiators
     -- ** Request constructor
     , listVolumeInitiators
     -- ** Request lenses
-    , lviVolumeARN
+    , lvirqVolumeARN
 
     -- * Response
     , ListVolumeInitiatorsResponse
     -- ** Response constructor
     , listVolumeInitiatorsResponse
     -- ** Response lenses
-    , lvirInitiators
-    , lvirStatus
+    , lvirsInitiators
+    , lvirsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -51,22 +51,22 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lviVolumeARN'
+-- * 'lvirqVolumeARN'
 newtype ListVolumeInitiators = ListVolumeInitiators'
-    { _lviVolumeARN :: Text
+    { _lvirqVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeInitiators' smart constructor.
 listVolumeInitiators :: Text -> ListVolumeInitiators
 listVolumeInitiators pVolumeARN =
     ListVolumeInitiators'
-    { _lviVolumeARN = pVolumeARN
+    { _lvirqVolumeARN = pVolumeARN
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes for the gateway.
-lviVolumeARN :: Lens' ListVolumeInitiators Text
-lviVolumeARN = lens _lviVolumeARN (\ s a -> s{_lviVolumeARN = a});
+lvirqVolumeARN :: Lens' ListVolumeInitiators Text
+lvirqVolumeARN = lens _lvirqVolumeARN (\ s a -> s{_lvirqVolumeARN = a});
 
 instance AWSRequest ListVolumeInitiators where
         type Sv ListVolumeInitiators = StorageGateway
@@ -92,7 +92,7 @@ instance ToHeaders ListVolumeInitiators where
 
 instance ToJSON ListVolumeInitiators where
         toJSON ListVolumeInitiators'{..}
-          = object ["VolumeARN" .= _lviVolumeARN]
+          = object ["VolumeARN" .= _lvirqVolumeARN]
 
 instance ToPath ListVolumeInitiators where
         toPath = const "/"
@@ -106,27 +106,27 @@ instance ToQuery ListVolumeInitiators where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvirInitiators'
+-- * 'lvirsInitiators'
 --
--- * 'lvirStatus'
+-- * 'lvirsStatus'
 data ListVolumeInitiatorsResponse = ListVolumeInitiatorsResponse'
-    { _lvirInitiators :: !(Maybe [Text])
-    , _lvirStatus     :: !Int
+    { _lvirsInitiators :: !(Maybe [Text])
+    , _lvirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeInitiatorsResponse' smart constructor.
 listVolumeInitiatorsResponse :: Int -> ListVolumeInitiatorsResponse
 listVolumeInitiatorsResponse pStatus =
     ListVolumeInitiatorsResponse'
-    { _lvirInitiators = Nothing
-    , _lvirStatus = pStatus
+    { _lvirsInitiators = Nothing
+    , _lvirsStatus = pStatus
     }
 
 -- | The host names and port numbers of all iSCSI initiators that are
 -- connected to the gateway.
-lvirInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
-lvirInitiators = lens _lvirInitiators (\ s a -> s{_lvirInitiators = a}) . _Default;
+lvirsInitiators :: Lens' ListVolumeInitiatorsResponse [Text]
+lvirsInitiators = lens _lvirsInitiators (\ s a -> s{_lvirsInitiators = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvirStatus :: Lens' ListVolumeInitiatorsResponse Int
-lvirStatus = lens _lvirStatus (\ s a -> s{_lvirStatus = a});
+lvirsStatus :: Lens' ListVolumeInitiatorsResponse Int
+lvirsStatus = lens _lvirsStatus (\ s a -> s{_lvirsStatus = a});

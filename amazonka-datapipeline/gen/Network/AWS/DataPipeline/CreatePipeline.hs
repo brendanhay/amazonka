@@ -28,18 +28,18 @@ module Network.AWS.DataPipeline.CreatePipeline
     -- ** Request constructor
     , createPipeline
     -- ** Request lenses
-    , cpDescription
-    , cpTags
-    , cpName
-    , cpUniqueId
+    , cprqDescription
+    , cprqTags
+    , cprqName
+    , cprqUniqueId
 
     -- * Response
     , CreatePipelineResponse
     -- ** Response constructor
     , createPipelineResponse
     -- ** Response lenses
-    , cprStatus
-    , cprPipelineId
+    , cprsStatus
+    , cprsPipelineId
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -53,46 +53,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpDescription'
+-- * 'cprqDescription'
 --
--- * 'cpTags'
+-- * 'cprqTags'
 --
--- * 'cpName'
+-- * 'cprqName'
 --
--- * 'cpUniqueId'
+-- * 'cprqUniqueId'
 data CreatePipeline = CreatePipeline'
-    { _cpDescription :: !(Maybe Text)
-    , _cpTags        :: !(Maybe [Tag])
-    , _cpName        :: !Text
-    , _cpUniqueId    :: !Text
+    { _cprqDescription :: !(Maybe Text)
+    , _cprqTags        :: !(Maybe [Tag])
+    , _cprqName        :: !Text
+    , _cprqUniqueId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: Text -> Text -> CreatePipeline
 createPipeline pName pUniqueId =
     CreatePipeline'
-    { _cpDescription = Nothing
-    , _cpTags = Nothing
-    , _cpName = pName
-    , _cpUniqueId = pUniqueId
+    { _cprqDescription = Nothing
+    , _cprqTags = Nothing
+    , _cprqName = pName
+    , _cprqUniqueId = pUniqueId
     }
 
 -- | The description for the pipeline.
-cpDescription :: Lens' CreatePipeline (Maybe Text)
-cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
+cprqDescription :: Lens' CreatePipeline (Maybe Text)
+cprqDescription = lens _cprqDescription (\ s a -> s{_cprqDescription = a});
 
 -- | A list of tags to associate with the pipeline at creation. Tags let you
 -- control access to pipelines. For more information, see
 -- <http://docs.aws.amazon.com/datapipeline/latest/DeveloperGuide/dp-control-access.html Controlling User Access to Pipelines>
 -- in the /AWS Data Pipeline Developer Guide/.
-cpTags :: Lens' CreatePipeline [Tag]
-cpTags = lens _cpTags (\ s a -> s{_cpTags = a}) . _Default;
+cprqTags :: Lens' CreatePipeline [Tag]
+cprqTags = lens _cprqTags (\ s a -> s{_cprqTags = a}) . _Default;
 
 -- | The name for the pipeline. You can use the same name for multiple
 -- pipelines associated with your AWS account, because AWS Data Pipeline
 -- assigns each pipeline a unique pipeline identifier.
-cpName :: Lens' CreatePipeline Text
-cpName = lens _cpName (\ s a -> s{_cpName = a});
+cprqName :: Lens' CreatePipeline Text
+cprqName = lens _cprqName (\ s a -> s{_cprqName = a});
 
 -- | A unique identifier. This identifier is not the same as the pipeline
 -- identifier assigned by AWS Data Pipeline. You are responsible for
@@ -106,8 +106,8 @@ cpName = lens _cpName (\ s a -> s{_cpName = a});
 -- you\'ll receive the pipeline identifier from the previous attempt. The
 -- uniqueness of the name and unique identifier combination is scoped to
 -- the AWS account or IAM user credentials.
-cpUniqueId :: Lens' CreatePipeline Text
-cpUniqueId = lens _cpUniqueId (\ s a -> s{_cpUniqueId = a});
+cprqUniqueId :: Lens' CreatePipeline Text
+cprqUniqueId = lens _cprqUniqueId (\ s a -> s{_cprqUniqueId = a});
 
 instance AWSRequest CreatePipeline where
         type Sv CreatePipeline = DataPipeline
@@ -131,8 +131,9 @@ instance ToHeaders CreatePipeline where
 instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
           = object
-              ["description" .= _cpDescription, "tags" .= _cpTags,
-               "name" .= _cpName, "uniqueId" .= _cpUniqueId]
+              ["description" .= _cprqDescription,
+               "tags" .= _cprqTags, "name" .= _cprqName,
+               "uniqueId" .= _cprqUniqueId]
 
 instance ToPath CreatePipeline where
         toPath = const "/"
@@ -146,27 +147,27 @@ instance ToQuery CreatePipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprStatus'
+-- * 'cprsStatus'
 --
--- * 'cprPipelineId'
+-- * 'cprsPipelineId'
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprStatus     :: !Int
-    , _cprPipelineId :: !Text
+    { _cprsStatus     :: !Int
+    , _cprsPipelineId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> Text -> CreatePipelineResponse
 createPipelineResponse pStatus pPipelineId =
     CreatePipelineResponse'
-    { _cprStatus = pStatus
-    , _cprPipelineId = pPipelineId
+    { _cprsStatus = pStatus
+    , _cprsPipelineId = pPipelineId
     }
 
 -- | FIXME: Undocumented member.
-cprStatus :: Lens' CreatePipelineResponse Int
-cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});
+cprsStatus :: Lens' CreatePipelineResponse Int
+cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});
 
 -- | The ID that AWS Data Pipeline assigns the newly created pipeline. For
 -- example, @df-06372391ZG65EXAMPLE@.
-cprPipelineId :: Lens' CreatePipelineResponse Text
-cprPipelineId = lens _cprPipelineId (\ s a -> s{_cprPipelineId = a});
+cprsPipelineId :: Lens' CreatePipelineResponse Text
+cprsPipelineId = lens _cprsPipelineId (\ s a -> s{_cprsPipelineId = a});

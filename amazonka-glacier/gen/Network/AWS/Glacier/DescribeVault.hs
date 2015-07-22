@@ -48,20 +48,20 @@ module Network.AWS.Glacier.DescribeVault
     -- ** Request constructor
     , describeVault
     -- ** Request lenses
-    , dvAccountId
-    , dvVaultName
+    , dvrqAccountId
+    , dvrqVaultName
 
     -- * Response
     , DescribeVaultOutput
     -- ** Response constructor
     , describeVaultOutput
     -- ** Response lenses
-    , dvoVaultName
-    , dvoSizeInBytes
-    , dvoLastInventoryDate
-    , dvoVaultARN
-    , dvoCreationDate
-    , dvoNumberOfArchives
+    , dvrsVaultName
+    , dvrsSizeInBytes
+    , dvrsLastInventoryDate
+    , dvrsVaultARN
+    , dvrsCreationDate
+    , dvrsNumberOfArchives
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -76,20 +76,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvAccountId'
+-- * 'dvrqAccountId'
 --
--- * 'dvVaultName'
+-- * 'dvrqVaultName'
 data DescribeVault = DescribeVault'
-    { _dvAccountId :: !Text
-    , _dvVaultName :: !Text
+    { _dvrqAccountId :: !Text
+    , _dvrqVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVault' smart constructor.
 describeVault :: Text -> Text -> DescribeVault
 describeVault pAccountId pVaultName =
     DescribeVault'
-    { _dvAccountId = pAccountId
-    , _dvVaultName = pVaultName
+    { _dvrqAccountId = pAccountId
+    , _dvrqVaultName = pVaultName
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -97,12 +97,12 @@ describeVault pAccountId pVaultName =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-dvAccountId :: Lens' DescribeVault Text
-dvAccountId = lens _dvAccountId (\ s a -> s{_dvAccountId = a});
+dvrqAccountId :: Lens' DescribeVault Text
+dvrqAccountId = lens _dvrqAccountId (\ s a -> s{_dvrqAccountId = a});
 
 -- | The name of the vault.
-dvVaultName :: Lens' DescribeVault Text
-dvVaultName = lens _dvVaultName (\ s a -> s{_dvVaultName = a});
+dvrqVaultName :: Lens' DescribeVault Text
+dvrqVaultName = lens _dvrqVaultName (\ s a -> s{_dvrqVaultName = a});
 
 instance AWSRequest DescribeVault where
         type Sv DescribeVault = Glacier
@@ -116,8 +116,8 @@ instance ToHeaders DescribeVault where
 instance ToPath DescribeVault where
         toPath DescribeVault'{..}
           = mconcat
-              ["/", toText _dvAccountId, "/vaults/",
-               toText _dvVaultName]
+              ["/", toText _dvrqAccountId, "/vaults/",
+               toText _dvrqVaultName]
 
 instance ToQuery DescribeVault where
         toQuery = const mempty

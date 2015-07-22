@@ -28,17 +28,17 @@ module Network.AWS.Route53Domains.ListDomains
     -- ** Request constructor
     , listDomains
     -- ** Request lenses
-    , ldMaxItems
-    , ldMarker
+    , ldrqMaxItems
+    , ldrqMarker
 
     -- * Response
     , ListDomainsResponse
     -- ** Response constructor
     , listDomainsResponse
     -- ** Response lenses
-    , ldrNextPageMarker
-    , ldrStatus
-    , ldrDomains
+    , ldrsNextPageMarker
+    , ldrsStatus
+    , ldrsDomains
     ) where
 
 import           Network.AWS.Pager
@@ -53,20 +53,20 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldMaxItems'
+-- * 'ldrqMaxItems'
 --
--- * 'ldMarker'
+-- * 'ldrqMarker'
 data ListDomains = ListDomains'
-    { _ldMaxItems :: !(Maybe Int)
-    , _ldMarker   :: !(Maybe Text)
+    { _ldrqMaxItems :: !(Maybe Int)
+    , _ldrqMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: ListDomains
 listDomains =
     ListDomains'
-    { _ldMaxItems = Nothing
-    , _ldMarker = Nothing
+    { _ldrqMaxItems = Nothing
+    , _ldrqMarker = Nothing
     }
 
 -- | Number of domains to be returned.
@@ -78,8 +78,8 @@ listDomains =
 -- Constraints: A numeral between 1 and 100.
 --
 -- Required: No
-ldMaxItems :: Lens' ListDomains (Maybe Int)
-ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
+ldrqMaxItems :: Lens' ListDomains (Maybe Int)
+ldrqMaxItems = lens _ldrqMaxItems (\ s a -> s{_ldrqMaxItems = a});
 
 -- | For an initial request for a list of domains, omit this element. If the
 -- number of domains that are associated with the current AWS account is
@@ -96,15 +96,15 @@ ldMaxItems = lens _ldMaxItems (\ s a -> s{_ldMaxItems = a});
 -- request.
 --
 -- Required: No
-ldMarker :: Lens' ListDomains (Maybe Text)
-ldMarker = lens _ldMarker (\ s a -> s{_ldMarker = a});
+ldrqMarker :: Lens' ListDomains (Maybe Text)
+ldrqMarker = lens _ldrqMarker (\ s a -> s{_ldrqMarker = a});
 
 instance AWSPager ListDomains where
         page rq rs
-          | stop (rs ^. ldrNextPageMarker) = Nothing
-          | stop (rs ^. ldrDomains) = Nothing
+          | stop (rs ^. ldrsNextPageMarker) = Nothing
+          | stop (rs ^. ldrsDomains) = Nothing
           | otherwise =
-            Just $ rq & ldMarker .~ rs ^. ldrNextPageMarker
+            Just $ rq & ldrqMarker .~ rs ^. ldrsNextPageMarker
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = Route53Domains
@@ -130,7 +130,8 @@ instance ToHeaders ListDomains where
 instance ToJSON ListDomains where
         toJSON ListDomains'{..}
           = object
-              ["MaxItems" .= _ldMaxItems, "Marker" .= _ldMarker]
+              ["MaxItems" .= _ldrqMaxItems,
+               "Marker" .= _ldrqMarker]
 
 instance ToPath ListDomains where
         toPath = const "/"
@@ -144,24 +145,24 @@ instance ToQuery ListDomains where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrNextPageMarker'
+-- * 'ldrsNextPageMarker'
 --
--- * 'ldrStatus'
+-- * 'ldrsStatus'
 --
--- * 'ldrDomains'
+-- * 'ldrsDomains'
 data ListDomainsResponse = ListDomainsResponse'
-    { _ldrNextPageMarker :: !(Maybe Text)
-    , _ldrStatus         :: !Int
-    , _ldrDomains        :: ![DomainSummary]
+    { _ldrsNextPageMarker :: !(Maybe Text)
+    , _ldrsStatus         :: !Int
+    , _ldrsDomains        :: ![DomainSummary]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse
 listDomainsResponse pStatus =
     ListDomainsResponse'
-    { _ldrNextPageMarker = Nothing
-    , _ldrStatus = pStatus
-    , _ldrDomains = mempty
+    { _ldrsNextPageMarker = Nothing
+    , _ldrsStatus = pStatus
+    , _ldrsDomains = mempty
     }
 
 -- | If there are more domains than you specified for @MaxItems@ in the
@@ -171,17 +172,17 @@ listDomainsResponse pStatus =
 -- Type: String
 --
 -- Parent: @Operations@
-ldrNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
-ldrNextPageMarker = lens _ldrNextPageMarker (\ s a -> s{_ldrNextPageMarker = a});
+ldrsNextPageMarker :: Lens' ListDomainsResponse (Maybe Text)
+ldrsNextPageMarker = lens _ldrsNextPageMarker (\ s a -> s{_ldrsNextPageMarker = a});
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDomainsResponse Int
-ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+ldrsStatus :: Lens' ListDomainsResponse Int
+ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});
 
 -- | A summary of domains.
 --
 -- Type: Complex type containing a list of domain summaries.
 --
 -- Children: @AutoRenew@, @DomainName@, @Expiry@, @TransferLock@
-ldrDomains :: Lens' ListDomainsResponse [DomainSummary]
-ldrDomains = lens _ldrDomains (\ s a -> s{_ldrDomains = a});
+ldrsDomains :: Lens' ListDomainsResponse [DomainSummary]
+ldrsDomains = lens _ldrsDomains (\ s a -> s{_ldrsDomains = a});

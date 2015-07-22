@@ -28,15 +28,15 @@ module Network.AWS.Route53Domains.RetrieveDomainAuthCode
     -- ** Request constructor
     , retrieveDomainAuthCode
     -- ** Request lenses
-    , rdacDomainName
+    , rdacrqDomainName
 
     -- * Response
     , RetrieveDomainAuthCodeResponse
     -- ** Response constructor
     , retrieveDomainAuthCodeResponse
     -- ** Response lenses
-    , rdacrStatus
-    , rdacrAuthCode
+    , rdacrsStatus
+    , rdacrsAuthCode
     ) where
 
 import           Network.AWS.Prelude
@@ -50,16 +50,16 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdacDomainName'
+-- * 'rdacrqDomainName'
 newtype RetrieveDomainAuthCode = RetrieveDomainAuthCode'
-    { _rdacDomainName :: Text
+    { _rdacrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveDomainAuthCode' smart constructor.
 retrieveDomainAuthCode :: Text -> RetrieveDomainAuthCode
 retrieveDomainAuthCode pDomainName =
     RetrieveDomainAuthCode'
-    { _rdacDomainName = pDomainName
+    { _rdacrqDomainName = pDomainName
     }
 
 -- | The name of a domain.
@@ -73,8 +73,8 @@ retrieveDomainAuthCode pDomainName =
 -- are not supported.
 --
 -- Required: Yes
-rdacDomainName :: Lens' RetrieveDomainAuthCode Text
-rdacDomainName = lens _rdacDomainName (\ s a -> s{_rdacDomainName = a});
+rdacrqDomainName :: Lens' RetrieveDomainAuthCode Text
+rdacrqDomainName = lens _rdacrqDomainName (\ s a -> s{_rdacrqDomainName = a});
 
 instance AWSRequest RetrieveDomainAuthCode where
         type Sv RetrieveDomainAuthCode = Route53Domains
@@ -99,7 +99,7 @@ instance ToHeaders RetrieveDomainAuthCode where
 
 instance ToJSON RetrieveDomainAuthCode where
         toJSON RetrieveDomainAuthCode'{..}
-          = object ["DomainName" .= _rdacDomainName]
+          = object ["DomainName" .= _rdacrqDomainName]
 
 instance ToPath RetrieveDomainAuthCode where
         toPath = const "/"
@@ -113,28 +113,28 @@ instance ToQuery RetrieveDomainAuthCode where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdacrStatus'
+-- * 'rdacrsStatus'
 --
--- * 'rdacrAuthCode'
+-- * 'rdacrsAuthCode'
 data RetrieveDomainAuthCodeResponse = RetrieveDomainAuthCodeResponse'
-    { _rdacrStatus   :: !Int
-    , _rdacrAuthCode :: !(Sensitive Text)
+    { _rdacrsStatus   :: !Int
+    , _rdacrsAuthCode :: !(Sensitive Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveDomainAuthCodeResponse' smart constructor.
 retrieveDomainAuthCodeResponse :: Int -> Text -> RetrieveDomainAuthCodeResponse
 retrieveDomainAuthCodeResponse pStatus pAuthCode =
     RetrieveDomainAuthCodeResponse'
-    { _rdacrStatus = pStatus
-    , _rdacrAuthCode = _Sensitive # pAuthCode
+    { _rdacrsStatus = pStatus
+    , _rdacrsAuthCode = _Sensitive # pAuthCode
     }
 
 -- | FIXME: Undocumented member.
-rdacrStatus :: Lens' RetrieveDomainAuthCodeResponse Int
-rdacrStatus = lens _rdacrStatus (\ s a -> s{_rdacrStatus = a});
+rdacrsStatus :: Lens' RetrieveDomainAuthCodeResponse Int
+rdacrsStatus = lens _rdacrsStatus (\ s a -> s{_rdacrsStatus = a});
 
 -- | The authorization code for the domain.
 --
 -- Type: String
-rdacrAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
-rdacrAuthCode = lens _rdacrAuthCode (\ s a -> s{_rdacrAuthCode = a}) . _Sensitive;
+rdacrsAuthCode :: Lens' RetrieveDomainAuthCodeResponse Text
+rdacrsAuthCode = lens _rdacrsAuthCode (\ s a -> s{_rdacrsAuthCode = a}) . _Sensitive;

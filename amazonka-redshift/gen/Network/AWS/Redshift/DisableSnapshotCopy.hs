@@ -33,15 +33,15 @@ module Network.AWS.Redshift.DisableSnapshotCopy
     -- ** Request constructor
     , disableSnapshotCopy
     -- ** Request lenses
-    , dscClusterIdentifier
+    , dscrqClusterIdentifier
 
     -- * Response
     , DisableSnapshotCopyResponse
     -- ** Response constructor
     , disableSnapshotCopyResponse
     -- ** Response lenses
-    , dscrCluster
-    , dscrStatus
+    , dscrsCluster
+    , dscrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -55,16 +55,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dscClusterIdentifier'
+-- * 'dscrqClusterIdentifier'
 newtype DisableSnapshotCopy = DisableSnapshotCopy'
-    { _dscClusterIdentifier :: Text
+    { _dscrqClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableSnapshotCopy' smart constructor.
 disableSnapshotCopy :: Text -> DisableSnapshotCopy
 disableSnapshotCopy pClusterIdentifier =
     DisableSnapshotCopy'
-    { _dscClusterIdentifier = pClusterIdentifier
+    { _dscrqClusterIdentifier = pClusterIdentifier
     }
 
 -- | The unique identifier of the source cluster that you want to disable
@@ -72,8 +72,8 @@ disableSnapshotCopy pClusterIdentifier =
 --
 -- Constraints: Must be the valid name of an existing cluster that has
 -- cross-region snapshot copy enabled.
-dscClusterIdentifier :: Lens' DisableSnapshotCopy Text
-dscClusterIdentifier = lens _dscClusterIdentifier (\ s a -> s{_dscClusterIdentifier = a});
+dscrqClusterIdentifier :: Lens' DisableSnapshotCopy Text
+dscrqClusterIdentifier = lens _dscrqClusterIdentifier (\ s a -> s{_dscrqClusterIdentifier = a});
 
 instance AWSRequest DisableSnapshotCopy where
         type Sv DisableSnapshotCopy = Redshift
@@ -97,32 +97,32 @@ instance ToQuery DisableSnapshotCopy where
           = mconcat
               ["Action" =: ("DisableSnapshotCopy" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _dscClusterIdentifier]
+               "ClusterIdentifier" =: _dscrqClusterIdentifier]
 
 -- | /See:/ 'disableSnapshotCopyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dscrCluster'
+-- * 'dscrsCluster'
 --
--- * 'dscrStatus'
+-- * 'dscrsStatus'
 data DisableSnapshotCopyResponse = DisableSnapshotCopyResponse'
-    { _dscrCluster :: !(Maybe Cluster)
-    , _dscrStatus  :: !Int
+    { _dscrsCluster :: !(Maybe Cluster)
+    , _dscrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableSnapshotCopyResponse' smart constructor.
 disableSnapshotCopyResponse :: Int -> DisableSnapshotCopyResponse
 disableSnapshotCopyResponse pStatus =
     DisableSnapshotCopyResponse'
-    { _dscrCluster = Nothing
-    , _dscrStatus = pStatus
+    { _dscrsCluster = Nothing
+    , _dscrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dscrCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
-dscrCluster = lens _dscrCluster (\ s a -> s{_dscrCluster = a});
+dscrsCluster :: Lens' DisableSnapshotCopyResponse (Maybe Cluster)
+dscrsCluster = lens _dscrsCluster (\ s a -> s{_dscrsCluster = a});
 
 -- | FIXME: Undocumented member.
-dscrStatus :: Lens' DisableSnapshotCopyResponse Int
-dscrStatus = lens _dscrStatus (\ s a -> s{_dscrStatus = a});
+dscrsStatus :: Lens' DisableSnapshotCopyResponse Int
+dscrsStatus = lens _dscrsStatus (\ s a -> s{_dscrsStatus = a});

@@ -35,16 +35,16 @@ module Network.AWS.OpsWorks.DescribeElasticLoadBalancers
     -- ** Request constructor
     , describeElasticLoadBalancers
     -- ** Request lenses
-    , delbLayerIds
-    , delbStackId
+    , delbrqLayerIds
+    , delbrqStackId
 
     -- * Response
     , DescribeElasticLoadBalancersResponse
     -- ** Response constructor
     , describeElasticLoadBalancersResponse
     -- ** Response lenses
-    , delbrElasticLoadBalancers
-    , delbrStatus
+    , delbrsElasticLoadBalancers
+    , delbrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -56,31 +56,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delbLayerIds'
+-- * 'delbrqLayerIds'
 --
--- * 'delbStackId'
+-- * 'delbrqStackId'
 data DescribeElasticLoadBalancers = DescribeElasticLoadBalancers'
-    { _delbLayerIds :: !(Maybe [Text])
-    , _delbStackId  :: !(Maybe Text)
+    { _delbrqLayerIds :: !(Maybe [Text])
+    , _delbrqStackId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticLoadBalancers' smart constructor.
 describeElasticLoadBalancers :: DescribeElasticLoadBalancers
 describeElasticLoadBalancers =
     DescribeElasticLoadBalancers'
-    { _delbLayerIds = Nothing
-    , _delbStackId = Nothing
+    { _delbrqLayerIds = Nothing
+    , _delbrqStackId = Nothing
     }
 
 -- | A list of layer IDs. The action describes the Elastic Load Balancing
 -- instances for the specified layers.
-delbLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
-delbLayerIds = lens _delbLayerIds (\ s a -> s{_delbLayerIds = a}) . _Default;
+delbrqLayerIds :: Lens' DescribeElasticLoadBalancers [Text]
+delbrqLayerIds = lens _delbrqLayerIds (\ s a -> s{_delbrqLayerIds = a}) . _Default;
 
 -- | A stack ID. The action describes the stack\'s Elastic Load Balancing
 -- instances.
-delbStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
-delbStackId = lens _delbStackId (\ s a -> s{_delbStackId = a});
+delbrqStackId :: Lens' DescribeElasticLoadBalancers (Maybe Text)
+delbrqStackId = lens _delbrqStackId (\ s a -> s{_delbrqStackId = a});
 
 instance AWSRequest DescribeElasticLoadBalancers
          where
@@ -108,8 +108,8 @@ instance ToHeaders DescribeElasticLoadBalancers where
 instance ToJSON DescribeElasticLoadBalancers where
         toJSON DescribeElasticLoadBalancers'{..}
           = object
-              ["LayerIds" .= _delbLayerIds,
-               "StackId" .= _delbStackId]
+              ["LayerIds" .= _delbrqLayerIds,
+               "StackId" .= _delbrqStackId]
 
 instance ToPath DescribeElasticLoadBalancers where
         toPath = const "/"
@@ -123,27 +123,27 @@ instance ToQuery DescribeElasticLoadBalancers where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delbrElasticLoadBalancers'
+-- * 'delbrsElasticLoadBalancers'
 --
--- * 'delbrStatus'
+-- * 'delbrsStatus'
 data DescribeElasticLoadBalancersResponse = DescribeElasticLoadBalancersResponse'
-    { _delbrElasticLoadBalancers :: !(Maybe [ElasticLoadBalancer])
-    , _delbrStatus               :: !Int
+    { _delbrsElasticLoadBalancers :: !(Maybe [ElasticLoadBalancer])
+    , _delbrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeElasticLoadBalancersResponse' smart constructor.
 describeElasticLoadBalancersResponse :: Int -> DescribeElasticLoadBalancersResponse
 describeElasticLoadBalancersResponse pStatus =
     DescribeElasticLoadBalancersResponse'
-    { _delbrElasticLoadBalancers = Nothing
-    , _delbrStatus = pStatus
+    { _delbrsElasticLoadBalancers = Nothing
+    , _delbrsStatus = pStatus
     }
 
 -- | A list of @ElasticLoadBalancer@ objects that describe the specified
 -- Elastic Load Balancing instances.
-delbrElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
-delbrElasticLoadBalancers = lens _delbrElasticLoadBalancers (\ s a -> s{_delbrElasticLoadBalancers = a}) . _Default;
+delbrsElasticLoadBalancers :: Lens' DescribeElasticLoadBalancersResponse [ElasticLoadBalancer]
+delbrsElasticLoadBalancers = lens _delbrsElasticLoadBalancers (\ s a -> s{_delbrsElasticLoadBalancers = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-delbrStatus :: Lens' DescribeElasticLoadBalancersResponse Int
-delbrStatus = lens _delbrStatus (\ s a -> s{_delbrStatus = a});
+delbrsStatus :: Lens' DescribeElasticLoadBalancersResponse Int
+delbrsStatus = lens _delbrsStatus (\ s a -> s{_delbrsStatus = a});

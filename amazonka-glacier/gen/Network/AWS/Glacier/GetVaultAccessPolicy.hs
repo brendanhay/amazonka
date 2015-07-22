@@ -33,16 +33,16 @@ module Network.AWS.Glacier.GetVaultAccessPolicy
     -- ** Request constructor
     , getVaultAccessPolicy
     -- ** Request lenses
-    , gvapAccountId
-    , gvapVaultName
+    , gvaprqAccountId
+    , gvaprqVaultName
 
     -- * Response
     , GetVaultAccessPolicyResponse
     -- ** Response constructor
     , getVaultAccessPolicyResponse
     -- ** Response lenses
-    , gvaprPolicy
-    , gvaprStatus
+    , gvaprsPolicy
+    , gvaprsStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -56,20 +56,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gvapAccountId'
+-- * 'gvaprqAccountId'
 --
--- * 'gvapVaultName'
+-- * 'gvaprqVaultName'
 data GetVaultAccessPolicy = GetVaultAccessPolicy'
-    { _gvapAccountId :: !Text
-    , _gvapVaultName :: !Text
+    { _gvaprqAccountId :: !Text
+    , _gvaprqVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultAccessPolicy' smart constructor.
 getVaultAccessPolicy :: Text -> Text -> GetVaultAccessPolicy
 getVaultAccessPolicy pAccountId pVaultName =
     GetVaultAccessPolicy'
-    { _gvapAccountId = pAccountId
-    , _gvapVaultName = pVaultName
+    { _gvaprqAccountId = pAccountId
+    , _gvaprqVaultName = pVaultName
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -77,12 +77,12 @@ getVaultAccessPolicy pAccountId pVaultName =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-gvapAccountId :: Lens' GetVaultAccessPolicy Text
-gvapAccountId = lens _gvapAccountId (\ s a -> s{_gvapAccountId = a});
+gvaprqAccountId :: Lens' GetVaultAccessPolicy Text
+gvaprqAccountId = lens _gvaprqAccountId (\ s a -> s{_gvaprqAccountId = a});
 
 -- | The name of the vault.
-gvapVaultName :: Lens' GetVaultAccessPolicy Text
-gvapVaultName = lens _gvapVaultName (\ s a -> s{_gvapVaultName = a});
+gvaprqVaultName :: Lens' GetVaultAccessPolicy Text
+gvaprqVaultName = lens _gvaprqVaultName (\ s a -> s{_gvaprqVaultName = a});
 
 instance AWSRequest GetVaultAccessPolicy where
         type Sv GetVaultAccessPolicy = Glacier
@@ -101,8 +101,8 @@ instance ToHeaders GetVaultAccessPolicy where
 instance ToPath GetVaultAccessPolicy where
         toPath GetVaultAccessPolicy'{..}
           = mconcat
-              ["/", toText _gvapAccountId, "/vaults/",
-               toText _gvapVaultName, "/access-policy"]
+              ["/", toText _gvaprqAccountId, "/vaults/",
+               toText _gvaprqVaultName, "/access-policy"]
 
 instance ToQuery GetVaultAccessPolicy where
         toQuery = const mempty
@@ -113,26 +113,26 @@ instance ToQuery GetVaultAccessPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gvaprPolicy'
+-- * 'gvaprsPolicy'
 --
--- * 'gvaprStatus'
+-- * 'gvaprsStatus'
 data GetVaultAccessPolicyResponse = GetVaultAccessPolicyResponse'
-    { _gvaprPolicy :: !(Maybe VaultAccessPolicy)
-    , _gvaprStatus :: !Int
+    { _gvaprsPolicy :: !(Maybe VaultAccessPolicy)
+    , _gvaprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetVaultAccessPolicyResponse' smart constructor.
 getVaultAccessPolicyResponse :: Int -> GetVaultAccessPolicyResponse
 getVaultAccessPolicyResponse pStatus =
     GetVaultAccessPolicyResponse'
-    { _gvaprPolicy = Nothing
-    , _gvaprStatus = pStatus
+    { _gvaprsPolicy = Nothing
+    , _gvaprsStatus = pStatus
     }
 
 -- | Contains the returned vault access policy as a JSON string.
-gvaprPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
-gvaprPolicy = lens _gvaprPolicy (\ s a -> s{_gvaprPolicy = a});
+gvaprsPolicy :: Lens' GetVaultAccessPolicyResponse (Maybe VaultAccessPolicy)
+gvaprsPolicy = lens _gvaprsPolicy (\ s a -> s{_gvaprsPolicy = a});
 
 -- | FIXME: Undocumented member.
-gvaprStatus :: Lens' GetVaultAccessPolicyResponse Int
-gvaprStatus = lens _gvaprStatus (\ s a -> s{_gvaprStatus = a});
+gvaprsStatus :: Lens' GetVaultAccessPolicyResponse Int
+gvaprsStatus = lens _gvaprsStatus (\ s a -> s{_gvaprsStatus = a});

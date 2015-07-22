@@ -32,15 +32,15 @@ module Network.AWS.DataPipeline.DeactivatePipeline
     -- ** Request constructor
     , deactivatePipeline
     -- ** Request lenses
-    , deaCancelActive
-    , deaPipelineId
+    , drqCancelActive
+    , drqPipelineId
 
     -- * Response
     , DeactivatePipelineResponse
     -- ** Response constructor
     , deactivatePipelineResponse
     -- ** Response lenses
-    , deaStatus
+    , drsStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -54,31 +54,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deaCancelActive'
+-- * 'drqCancelActive'
 --
--- * 'deaPipelineId'
+-- * 'drqPipelineId'
 data DeactivatePipeline = DeactivatePipeline'
-    { _deaCancelActive :: !(Maybe Bool)
-    , _deaPipelineId   :: !Text
+    { _drqCancelActive :: !(Maybe Bool)
+    , _drqPipelineId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivatePipeline' smart constructor.
 deactivatePipeline :: Text -> DeactivatePipeline
 deactivatePipeline pPipelineId =
     DeactivatePipeline'
-    { _deaCancelActive = Nothing
-    , _deaPipelineId = pPipelineId
+    { _drqCancelActive = Nothing
+    , _drqPipelineId = pPipelineId
     }
 
 -- | Indicates whether to cancel any running objects. The default is true,
 -- which sets the state of any running objects to @CANCELED@. If this value
 -- is false, the pipeline is deactivated after all running objects finish.
-deaCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
-deaCancelActive = lens _deaCancelActive (\ s a -> s{_deaCancelActive = a});
+drqCancelActive :: Lens' DeactivatePipeline (Maybe Bool)
+drqCancelActive = lens _drqCancelActive (\ s a -> s{_drqCancelActive = a});
 
 -- | The ID of the pipeline.
-deaPipelineId :: Lens' DeactivatePipeline Text
-deaPipelineId = lens _deaPipelineId (\ s a -> s{_deaPipelineId = a});
+drqPipelineId :: Lens' DeactivatePipeline Text
+drqPipelineId = lens _drqPipelineId (\ s a -> s{_drqPipelineId = a});
 
 instance AWSRequest DeactivatePipeline where
         type Sv DeactivatePipeline = DataPipeline
@@ -102,8 +102,8 @@ instance ToHeaders DeactivatePipeline where
 instance ToJSON DeactivatePipeline where
         toJSON DeactivatePipeline'{..}
           = object
-              ["cancelActive" .= _deaCancelActive,
-               "pipelineId" .= _deaPipelineId]
+              ["cancelActive" .= _drqCancelActive,
+               "pipelineId" .= _drqPipelineId]
 
 instance ToPath DeactivatePipeline where
         toPath = const "/"
@@ -117,18 +117,18 @@ instance ToQuery DeactivatePipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deaStatus'
+-- * 'drsStatus'
 newtype DeactivatePipelineResponse = DeactivatePipelineResponse'
-    { _deaStatus :: Int
+    { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivatePipelineResponse' smart constructor.
 deactivatePipelineResponse :: Int -> DeactivatePipelineResponse
 deactivatePipelineResponse pStatus =
     DeactivatePipelineResponse'
-    { _deaStatus = pStatus
+    { _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-deaStatus :: Lens' DeactivatePipelineResponse Int
-deaStatus = lens _deaStatus (\ s a -> s{_deaStatus = a});
+drsStatus :: Lens' DeactivatePipelineResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

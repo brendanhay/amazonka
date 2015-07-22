@@ -31,17 +31,17 @@ module Network.AWS.EC2.DescribeNetworkACLs
     -- ** Request constructor
     , describeNetworkACLs
     -- ** Request lenses
-    , dnaclFilters
-    , dnaclDryRun
-    , dnaclNetworkACLIds
+    , dnaclrqFilters
+    , dnaclrqDryRun
+    , dnaclrqNetworkACLIds
 
     -- * Response
     , DescribeNetworkACLsResponse
     -- ** Response constructor
     , describeNetworkACLsResponse
     -- ** Response lenses
-    , dnarNetworkACLs
-    , dnarStatus
+    , dnaclrsNetworkACLs
+    , dnaclrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dnaclFilters'
+-- * 'dnaclrqFilters'
 --
--- * 'dnaclDryRun'
+-- * 'dnaclrqDryRun'
 --
--- * 'dnaclNetworkACLIds'
+-- * 'dnaclrqNetworkACLIds'
 data DescribeNetworkACLs = DescribeNetworkACLs'
-    { _dnaclFilters       :: !(Maybe [Filter])
-    , _dnaclDryRun        :: !(Maybe Bool)
-    , _dnaclNetworkACLIds :: !(Maybe [Text])
+    { _dnaclrqFilters       :: !(Maybe [Filter])
+    , _dnaclrqDryRun        :: !(Maybe Bool)
+    , _dnaclrqNetworkACLIds :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkACLs' smart constructor.
 describeNetworkACLs :: DescribeNetworkACLs
 describeNetworkACLs =
     DescribeNetworkACLs'
-    { _dnaclFilters = Nothing
-    , _dnaclDryRun = Nothing
-    , _dnaclNetworkACLIds = Nothing
+    { _dnaclrqFilters = Nothing
+    , _dnaclrqDryRun = Nothing
+    , _dnaclrqNetworkACLIds = Nothing
     }
 
 -- | One or more filters.
@@ -129,21 +129,21 @@ describeNetworkACLs =
 --
 -- -   @vpc-id@ - The ID of the VPC for the network ACL.
 --
-dnaclFilters :: Lens' DescribeNetworkACLs [Filter]
-dnaclFilters = lens _dnaclFilters (\ s a -> s{_dnaclFilters = a}) . _Default;
+dnaclrqFilters :: Lens' DescribeNetworkACLs [Filter]
+dnaclrqFilters = lens _dnaclrqFilters (\ s a -> s{_dnaclrqFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dnaclDryRun :: Lens' DescribeNetworkACLs (Maybe Bool)
-dnaclDryRun = lens _dnaclDryRun (\ s a -> s{_dnaclDryRun = a});
+dnaclrqDryRun :: Lens' DescribeNetworkACLs (Maybe Bool)
+dnaclrqDryRun = lens _dnaclrqDryRun (\ s a -> s{_dnaclrqDryRun = a});
 
 -- | One or more network ACL IDs.
 --
 -- Default: Describes all your network ACLs.
-dnaclNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
-dnaclNetworkACLIds = lens _dnaclNetworkACLIds (\ s a -> s{_dnaclNetworkACLIds = a}) . _Default;
+dnaclrqNetworkACLIds :: Lens' DescribeNetworkACLs [Text]
+dnaclrqNetworkACLIds = lens _dnaclrqNetworkACLIds (\ s a -> s{_dnaclrqNetworkACLIds = a}) . _Default;
 
 instance AWSRequest DescribeNetworkACLs where
         type Sv DescribeNetworkACLs = EC2
@@ -169,34 +169,35 @@ instance ToQuery DescribeNetworkACLs where
           = mconcat
               ["Action" =: ("DescribeNetworkACLs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dnaclFilters),
-               "DryRun" =: _dnaclDryRun,
-               toQuery (toQueryList "item" <$> _dnaclNetworkACLIds)]
+               toQuery (toQueryList "Filter" <$> _dnaclrqFilters),
+               "DryRun" =: _dnaclrqDryRun,
+               toQuery
+                 (toQueryList "item" <$> _dnaclrqNetworkACLIds)]
 
 -- | /See:/ 'describeNetworkACLsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dnarNetworkACLs'
+-- * 'dnaclrsNetworkACLs'
 --
--- * 'dnarStatus'
+-- * 'dnaclrsStatus'
 data DescribeNetworkACLsResponse = DescribeNetworkACLsResponse'
-    { _dnarNetworkACLs :: !(Maybe [NetworkACL])
-    , _dnarStatus      :: !Int
+    { _dnaclrsNetworkACLs :: !(Maybe [NetworkACL])
+    , _dnaclrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNetworkACLsResponse' smart constructor.
 describeNetworkACLsResponse :: Int -> DescribeNetworkACLsResponse
 describeNetworkACLsResponse pStatus =
     DescribeNetworkACLsResponse'
-    { _dnarNetworkACLs = Nothing
-    , _dnarStatus = pStatus
+    { _dnaclrsNetworkACLs = Nothing
+    , _dnaclrsStatus = pStatus
     }
 
 -- | Information about one or more network ACLs.
-dnarNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
-dnarNetworkACLs = lens _dnarNetworkACLs (\ s a -> s{_dnarNetworkACLs = a}) . _Default;
+dnaclrsNetworkACLs :: Lens' DescribeNetworkACLsResponse [NetworkACL]
+dnaclrsNetworkACLs = lens _dnaclrsNetworkACLs (\ s a -> s{_dnaclrsNetworkACLs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dnarStatus :: Lens' DescribeNetworkACLsResponse Int
-dnarStatus = lens _dnarStatus (\ s a -> s{_dnarStatus = a});
+dnaclrsStatus :: Lens' DescribeNetworkACLsResponse Int
+dnaclrsStatus = lens _dnaclrsStatus (\ s a -> s{_dnaclrsStatus = a});

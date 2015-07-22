@@ -31,12 +31,12 @@ servicesInactive =
     , _waitAcceptors = [ matchAny
                              "MISSING"
                              AcceptFailure
-                             (folding (concatOf dFailures) .
-                              faiReason . _Just . to toText)
+                             (folding (concatOf drsFailures) .
+                              fReason . _Just . to toText)
                        , matchAny
                              "INACTIVE"
                              AcceptSuccess
-                             (folding (concatOf dServices) .
+                             (folding (concatOf drsServices) .
                               csStatus . _Just . to toText)]
     }
 
@@ -49,18 +49,18 @@ tasksRunning =
     , _waitAcceptors = [ matchAny
                              "STOPPED"
                              AcceptFailure
-                             (folding (concatOf dtrTasks) .
-                              tasLastStatus . _Just . to toText)
+                             (folding (concatOf dtrsTasks) .
+                              tLastStatus . _Just . to toText)
                        , matchAny
                              "MISSING"
                              AcceptFailure
-                             (folding (concatOf dtrFailures) .
-                              faiReason . _Just . to toText)
+                             (folding (concatOf dtrsFailures) .
+                              fReason . _Just . to toText)
                        , matchAll
                              "RUNNING"
                              AcceptSuccess
-                             (folding (concatOf dtrTasks) .
-                              tasLastStatus . _Just . to toText)]
+                             (folding (concatOf dtrsTasks) .
+                              tLastStatus . _Just . to toText)]
     }
 
 tasksStopped :: Wait DescribeTasks
@@ -72,6 +72,6 @@ tasksStopped =
     , _waitAcceptors = [ matchAll
                              "STOPPED"
                              AcceptSuccess
-                             (folding (concatOf dtrTasks) .
-                              tasLastStatus . _Just . to toText)]
+                             (folding (concatOf dtrsTasks) .
+                              tLastStatus . _Just . to toText)]
     }

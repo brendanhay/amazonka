@@ -28,16 +28,16 @@ module Network.AWS.CodeDeploy.ListApplications
     -- ** Request constructor
     , listApplications
     -- ** Request lenses
-    , laNextToken
+    , larqNextToken
 
     -- * Response
     , ListApplicationsResponse
     -- ** Response constructor
     , listApplicationsResponse
     -- ** Response lenses
-    , larNextToken
-    , larApplications
-    , larStatus
+    , larsNextToken
+    , larsApplications
+    , larsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -51,23 +51,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'laNextToken'
+-- * 'larqNextToken'
 newtype ListApplications = ListApplications'
-    { _laNextToken :: Maybe Text
+    { _larqNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplications' smart constructor.
 listApplications :: ListApplications
 listApplications =
     ListApplications'
-    { _laNextToken = Nothing
+    { _larqNextToken = Nothing
     }
 
 -- | An identifier that was returned from the previous list applications
 -- call, which can be used to return the next set of applications in the
 -- list.
-laNextToken :: Lens' ListApplications (Maybe Text)
-laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
+larqNextToken :: Lens' ListApplications (Maybe Text)
+larqNextToken = lens _larqNextToken (\ s a -> s{_larqNextToken = a});
 
 instance AWSRequest ListApplications where
         type Sv ListApplications = CodeDeploy
@@ -93,7 +93,7 @@ instance ToHeaders ListApplications where
 
 instance ToJSON ListApplications where
         toJSON ListApplications'{..}
-          = object ["nextToken" .= _laNextToken]
+          = object ["nextToken" .= _larqNextToken]
 
 instance ToPath ListApplications where
         toPath = const "/"
@@ -107,36 +107,36 @@ instance ToQuery ListApplications where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larNextToken'
+-- * 'larsNextToken'
 --
--- * 'larApplications'
+-- * 'larsApplications'
 --
--- * 'larStatus'
+-- * 'larsStatus'
 data ListApplicationsResponse = ListApplicationsResponse'
-    { _larNextToken    :: !(Maybe Text)
-    , _larApplications :: !(Maybe [Text])
-    , _larStatus       :: !Int
+    { _larsNextToken    :: !(Maybe Text)
+    , _larsApplications :: !(Maybe [Text])
+    , _larsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationsResponse' smart constructor.
 listApplicationsResponse :: Int -> ListApplicationsResponse
 listApplicationsResponse pStatus =
     ListApplicationsResponse'
-    { _larNextToken = Nothing
-    , _larApplications = Nothing
-    , _larStatus = pStatus
+    { _larsNextToken = Nothing
+    , _larsApplications = Nothing
+    , _larsStatus = pStatus
     }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- applications call to return the next set of applications in the list.
-larNextToken :: Lens' ListApplicationsResponse (Maybe Text)
-larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
+larsNextToken :: Lens' ListApplicationsResponse (Maybe Text)
+larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
 -- | A list of application names.
-larApplications :: Lens' ListApplicationsResponse [Text]
-larApplications = lens _larApplications (\ s a -> s{_larApplications = a}) . _Default;
+larsApplications :: Lens' ListApplicationsResponse [Text]
+larsApplications = lens _larsApplications (\ s a -> s{_larsApplications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-larStatus :: Lens' ListApplicationsResponse Int
-larStatus = lens _larStatus (\ s a -> s{_larStatus = a});
+larsStatus :: Lens' ListApplicationsResponse Int
+larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

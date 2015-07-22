@@ -30,15 +30,15 @@ module Network.AWS.CognitoIdentity.DeleteIdentities
     -- ** Request constructor
     , deleteIdentities
     -- ** Request lenses
-    , diIdentityIdsToDelete
+    , dirqIdentityIdsToDelete
 
     -- * Response
     , DeleteIdentitiesResponse
     -- ** Response constructor
     , deleteIdentitiesResponse
     -- ** Response lenses
-    , dirUnprocessedIdentityIds
-    , dirStatus
+    , dirsUnprocessedIdentityIds
+    , dirsStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diIdentityIdsToDelete'
+-- * 'dirqIdentityIdsToDelete'
 newtype DeleteIdentities = DeleteIdentities'
-    { _diIdentityIdsToDelete :: List1 Text
+    { _dirqIdentityIdsToDelete :: List1 Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentities' smart constructor.
 deleteIdentities :: NonEmpty Text -> DeleteIdentities
 deleteIdentities pIdentityIdsToDelete =
     DeleteIdentities'
-    { _diIdentityIdsToDelete = _List1 # pIdentityIdsToDelete
+    { _dirqIdentityIdsToDelete = _List1 # pIdentityIdsToDelete
     }
 
 -- | A list of 1-60 identities that you want to delete.
-diIdentityIdsToDelete :: Lens' DeleteIdentities (NonEmpty Text)
-diIdentityIdsToDelete = lens _diIdentityIdsToDelete (\ s a -> s{_diIdentityIdsToDelete = a}) . _List1;
+dirqIdentityIdsToDelete :: Lens' DeleteIdentities (NonEmpty Text)
+dirqIdentityIdsToDelete = lens _dirqIdentityIdsToDelete (\ s a -> s{_dirqIdentityIdsToDelete = a}) . _List1;
 
 instance AWSRequest DeleteIdentities where
         type Sv DeleteIdentities = CognitoIdentity
@@ -92,7 +92,7 @@ instance ToHeaders DeleteIdentities where
 instance ToJSON DeleteIdentities where
         toJSON DeleteIdentities'{..}
           = object
-              ["IdentityIdsToDelete" .= _diIdentityIdsToDelete]
+              ["IdentityIdsToDelete" .= _dirqIdentityIdsToDelete]
 
 instance ToPath DeleteIdentities where
         toPath = const "/"
@@ -106,27 +106,27 @@ instance ToQuery DeleteIdentities where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirUnprocessedIdentityIds'
+-- * 'dirsUnprocessedIdentityIds'
 --
--- * 'dirStatus'
+-- * 'dirsStatus'
 data DeleteIdentitiesResponse = DeleteIdentitiesResponse'
-    { _dirUnprocessedIdentityIds :: !(Maybe [UnprocessedIdentityId])
-    , _dirStatus                 :: !Int
+    { _dirsUnprocessedIdentityIds :: !(Maybe [UnprocessedIdentityId])
+    , _dirsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentitiesResponse' smart constructor.
 deleteIdentitiesResponse :: Int -> DeleteIdentitiesResponse
 deleteIdentitiesResponse pStatus =
     DeleteIdentitiesResponse'
-    { _dirUnprocessedIdentityIds = Nothing
-    , _dirStatus = pStatus
+    { _dirsUnprocessedIdentityIds = Nothing
+    , _dirsStatus = pStatus
     }
 
 -- | An array of UnprocessedIdentityId objects, each of which contains an
 -- ErrorCode and IdentityId.
-dirUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
-dirUnprocessedIdentityIds = lens _dirUnprocessedIdentityIds (\ s a -> s{_dirUnprocessedIdentityIds = a}) . _Default;
+dirsUnprocessedIdentityIds :: Lens' DeleteIdentitiesResponse [UnprocessedIdentityId]
+dirsUnprocessedIdentityIds = lens _dirsUnprocessedIdentityIds (\ s a -> s{_dirsUnprocessedIdentityIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DeleteIdentitiesResponse Int
-dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});
+dirsStatus :: Lens' DeleteIdentitiesResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

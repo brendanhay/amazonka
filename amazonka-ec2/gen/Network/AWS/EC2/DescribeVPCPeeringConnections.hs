@@ -27,17 +27,17 @@ module Network.AWS.EC2.DescribeVPCPeeringConnections
     -- ** Request constructor
     , describeVPCPeeringConnections
     -- ** Request lenses
-    , dvpcpcFilters
-    , dvpcpcVPCPeeringConnectionIds
-    , dvpcpcDryRun
+    , dvpcpcrqFilters
+    , dvpcpcrqVPCPeeringConnectionIds
+    , dvpcpcrqDryRun
 
     -- * Response
     , DescribeVPCPeeringConnectionsResponse
     -- ** Response constructor
     , describeVPCPeeringConnectionsResponse
     -- ** Response lenses
-    , dvpcpcrVPCPeeringConnections
-    , dvpcpcrStatus
+    , dvpcpcrsVPCPeeringConnections
+    , dvpcpcrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -49,24 +49,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpcpcFilters'
+-- * 'dvpcpcrqFilters'
 --
--- * 'dvpcpcVPCPeeringConnectionIds'
+-- * 'dvpcpcrqVPCPeeringConnectionIds'
 --
--- * 'dvpcpcDryRun'
+-- * 'dvpcpcrqDryRun'
 data DescribeVPCPeeringConnections = DescribeVPCPeeringConnections'
-    { _dvpcpcFilters                 :: !(Maybe [Filter])
-    , _dvpcpcVPCPeeringConnectionIds :: !(Maybe [Text])
-    , _dvpcpcDryRun                  :: !(Maybe Bool)
+    { _dvpcpcrqFilters                 :: !(Maybe [Filter])
+    , _dvpcpcrqVPCPeeringConnectionIds :: !(Maybe [Text])
+    , _dvpcpcrqDryRun                  :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCPeeringConnections' smart constructor.
 describeVPCPeeringConnections :: DescribeVPCPeeringConnections
 describeVPCPeeringConnections =
     DescribeVPCPeeringConnections'
-    { _dvpcpcFilters = Nothing
-    , _dvpcpcVPCPeeringConnectionIds = Nothing
-    , _dvpcpcDryRun = Nothing
+    { _dvpcpcrqFilters = Nothing
+    , _dvpcpcrqVPCPeeringConnectionIds = Nothing
+    , _dvpcpcrqDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -112,21 +112,21 @@ describeVPCPeeringConnections =
 --
 -- -   @vpc-peering-connection-id@ - The ID of the VPC peering connection.
 --
-dvpcpcFilters :: Lens' DescribeVPCPeeringConnections [Filter]
-dvpcpcFilters = lens _dvpcpcFilters (\ s a -> s{_dvpcpcFilters = a}) . _Default;
+dvpcpcrqFilters :: Lens' DescribeVPCPeeringConnections [Filter]
+dvpcpcrqFilters = lens _dvpcpcrqFilters (\ s a -> s{_dvpcpcrqFilters = a}) . _Default;
 
 -- | One or more VPC peering connection IDs.
 --
 -- Default: Describes all your VPC peering connections.
-dvpcpcVPCPeeringConnectionIds :: Lens' DescribeVPCPeeringConnections [Text]
-dvpcpcVPCPeeringConnectionIds = lens _dvpcpcVPCPeeringConnectionIds (\ s a -> s{_dvpcpcVPCPeeringConnectionIds = a}) . _Default;
+dvpcpcrqVPCPeeringConnectionIds :: Lens' DescribeVPCPeeringConnections [Text]
+dvpcpcrqVPCPeeringConnectionIds = lens _dvpcpcrqVPCPeeringConnectionIds (\ s a -> s{_dvpcpcrqVPCPeeringConnectionIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvpcpcDryRun :: Lens' DescribeVPCPeeringConnections (Maybe Bool)
-dvpcpcDryRun = lens _dvpcpcDryRun (\ s a -> s{_dvpcpcDryRun = a});
+dvpcpcrqDryRun :: Lens' DescribeVPCPeeringConnections (Maybe Bool)
+dvpcpcrqDryRun = lens _dvpcpcrqDryRun (\ s a -> s{_dvpcpcrqDryRun = a});
 
 instance AWSRequest DescribeVPCPeeringConnections
          where
@@ -155,36 +155,36 @@ instance ToQuery DescribeVPCPeeringConnections where
               ["Action" =:
                  ("DescribeVPCPeeringConnections" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvpcpcFilters),
+               toQuery (toQueryList "Filter" <$> _dvpcpcrqFilters),
                toQuery
                  (toQueryList "item" <$>
-                    _dvpcpcVPCPeeringConnectionIds),
-               "DryRun" =: _dvpcpcDryRun]
+                    _dvpcpcrqVPCPeeringConnectionIds),
+               "DryRun" =: _dvpcpcrqDryRun]
 
 -- | /See:/ 'describeVPCPeeringConnectionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpcpcrVPCPeeringConnections'
+-- * 'dvpcpcrsVPCPeeringConnections'
 --
--- * 'dvpcpcrStatus'
+-- * 'dvpcpcrsStatus'
 data DescribeVPCPeeringConnectionsResponse = DescribeVPCPeeringConnectionsResponse'
-    { _dvpcpcrVPCPeeringConnections :: !(Maybe [VPCPeeringConnection])
-    , _dvpcpcrStatus                :: !Int
+    { _dvpcpcrsVPCPeeringConnections :: !(Maybe [VPCPeeringConnection])
+    , _dvpcpcrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCPeeringConnectionsResponse' smart constructor.
 describeVPCPeeringConnectionsResponse :: Int -> DescribeVPCPeeringConnectionsResponse
 describeVPCPeeringConnectionsResponse pStatus =
     DescribeVPCPeeringConnectionsResponse'
-    { _dvpcpcrVPCPeeringConnections = Nothing
-    , _dvpcpcrStatus = pStatus
+    { _dvpcpcrsVPCPeeringConnections = Nothing
+    , _dvpcpcrsStatus = pStatus
     }
 
 -- | Information about the VPC peering connections.
-dvpcpcrVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
-dvpcpcrVPCPeeringConnections = lens _dvpcpcrVPCPeeringConnections (\ s a -> s{_dvpcpcrVPCPeeringConnections = a}) . _Default;
+dvpcpcrsVPCPeeringConnections :: Lens' DescribeVPCPeeringConnectionsResponse [VPCPeeringConnection]
+dvpcpcrsVPCPeeringConnections = lens _dvpcpcrsVPCPeeringConnections (\ s a -> s{_dvpcpcrsVPCPeeringConnections = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvpcpcrStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
-dvpcpcrStatus = lens _dvpcpcrStatus (\ s a -> s{_dvpcpcrStatus = a});
+dvpcpcrsStatus :: Lens' DescribeVPCPeeringConnectionsResponse Int
+dvpcpcrsStatus = lens _dvpcpcrsStatus (\ s a -> s{_dvpcpcrsStatus = a});

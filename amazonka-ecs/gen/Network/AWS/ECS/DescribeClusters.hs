@@ -27,16 +27,16 @@ module Network.AWS.ECS.DescribeClusters
     -- ** Request constructor
     , describeClusters
     -- ** Request lenses
-    , dcClusters
+    , dcrqClusters
 
     -- * Response
     , DescribeClustersResponse
     -- ** Response constructor
     , describeClustersResponse
     -- ** Response lenses
-    , dcrFailures
-    , dcrClusters
-    , dcrStatus
+    , dcrsFailures
+    , dcrsClusters
+    , dcrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -48,23 +48,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcClusters'
+-- * 'dcrqClusters'
 newtype DescribeClusters = DescribeClusters'
-    { _dcClusters :: Maybe [Text]
+    { _dcrqClusters :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
 describeClusters =
     DescribeClusters'
-    { _dcClusters = Nothing
+    { _dcrqClusters = Nothing
     }
 
 -- | A space-separated list of cluster names or full cluster Amazon Resource
 -- Name (ARN) entries. If you do not specify a cluster, the default cluster
 -- is assumed.
-dcClusters :: Lens' DescribeClusters [Text]
-dcClusters = lens _dcClusters (\ s a -> s{_dcClusters = a}) . _Default;
+dcrqClusters :: Lens' DescribeClusters [Text]
+dcrqClusters = lens _dcrqClusters (\ s a -> s{_dcrqClusters = a}) . _Default;
 
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = ECS
@@ -90,7 +90,7 @@ instance ToHeaders DescribeClusters where
 
 instance ToJSON DescribeClusters where
         toJSON DescribeClusters'{..}
-          = object ["clusters" .= _dcClusters]
+          = object ["clusters" .= _dcrqClusters]
 
 instance ToPath DescribeClusters where
         toPath = const "/"
@@ -102,34 +102,34 @@ instance ToQuery DescribeClusters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrFailures'
+-- * 'dcrsFailures'
 --
--- * 'dcrClusters'
+-- * 'dcrsClusters'
 --
--- * 'dcrStatus'
+-- * 'dcrsStatus'
 data DescribeClustersResponse = DescribeClustersResponse'
-    { _dcrFailures :: !(Maybe [Failure])
-    , _dcrClusters :: !(Maybe [Cluster])
-    , _dcrStatus   :: !Int
+    { _dcrsFailures :: !(Maybe [Failure])
+    , _dcrsClusters :: !(Maybe [Cluster])
+    , _dcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: Int -> DescribeClustersResponse
 describeClustersResponse pStatus =
     DescribeClustersResponse'
-    { _dcrFailures = Nothing
-    , _dcrClusters = Nothing
-    , _dcrStatus = pStatus
+    { _dcrsFailures = Nothing
+    , _dcrsClusters = Nothing
+    , _dcrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dcrFailures :: Lens' DescribeClustersResponse [Failure]
-dcrFailures = lens _dcrFailures (\ s a -> s{_dcrFailures = a}) . _Default;
+dcrsFailures :: Lens' DescribeClustersResponse [Failure]
+dcrsFailures = lens _dcrsFailures (\ s a -> s{_dcrsFailures = a}) . _Default;
 
 -- | The list of clusters.
-dcrClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a}) . _Default;
+dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
+dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeClustersResponse Int
-dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});
+dcrsStatus :: Lens' DescribeClustersResponse Int
+dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

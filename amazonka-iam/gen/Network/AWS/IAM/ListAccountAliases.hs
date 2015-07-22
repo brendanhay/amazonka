@@ -33,18 +33,18 @@ module Network.AWS.IAM.ListAccountAliases
     -- ** Request constructor
     , listAccountAliases
     -- ** Request lenses
-    , laaMaxItems
-    , laaMarker
+    , laarqMaxItems
+    , laarqMarker
 
     -- * Response
     , ListAccountAliasesResponse
     -- ** Response constructor
     , listAccountAliasesResponse
     -- ** Response lenses
-    , laarMarker
-    , laarIsTruncated
-    , laarStatus
-    , laarAccountAliases
+    , laarsMarker
+    , laarsIsTruncated
+    , laarsStatus
+    , laarsAccountAliases
     ) where
 
 import           Network.AWS.IAM.Types
@@ -57,20 +57,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'laaMaxItems'
+-- * 'laarqMaxItems'
 --
--- * 'laaMarker'
+-- * 'laarqMarker'
 data ListAccountAliases = ListAccountAliases'
-    { _laaMaxItems :: !(Maybe Nat)
-    , _laaMarker   :: !(Maybe Text)
+    { _laarqMaxItems :: !(Maybe Nat)
+    , _laarqMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccountAliases' smart constructor.
 listAccountAliases :: ListAccountAliases
 listAccountAliases =
     ListAccountAliases'
-    { _laaMaxItems = Nothing
-    , _laaMarker = Nothing
+    { _laarqMaxItems = Nothing
+    , _laarqMarker = Nothing
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -79,21 +79,21 @@ listAccountAliases =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-laaMaxItems :: Lens' ListAccountAliases (Maybe Natural)
-laaMaxItems = lens _laaMaxItems (\ s a -> s{_laaMaxItems = a}) . mapping _Nat;
+laarqMaxItems :: Lens' ListAccountAliases (Maybe Natural)
+laarqMaxItems = lens _laarqMaxItems (\ s a -> s{_laarqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-laaMarker :: Lens' ListAccountAliases (Maybe Text)
-laaMarker = lens _laaMarker (\ s a -> s{_laaMarker = a});
+laarqMarker :: Lens' ListAccountAliases (Maybe Text)
+laarqMarker = lens _laarqMarker (\ s a -> s{_laarqMarker = a});
 
 instance AWSPager ListAccountAliases where
         page rq rs
-          | stop (rs ^. laarIsTruncated) = Nothing
-          | isNothing (rs ^. laarMarker) = Nothing
+          | stop (rs ^. laarsIsTruncated) = Nothing
+          | isNothing (rs ^. laarsMarker) = Nothing
           | otherwise =
-            Just $ rq & laaMarker .~ rs ^. laarMarker
+            Just $ rq & laarqMarker .~ rs ^. laarsMarker
 
 instance AWSRequest ListAccountAliases where
         type Sv ListAccountAliases = IAM
@@ -121,7 +121,8 @@ instance ToQuery ListAccountAliases where
           = mconcat
               ["Action" =: ("ListAccountAliases" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _laaMaxItems, "Marker" =: _laaMarker]
+               "MaxItems" =: _laarqMaxItems,
+               "Marker" =: _laarqMarker]
 
 -- | Contains the response to a successful ListAccountAliases request.
 --
@@ -129,46 +130,46 @@ instance ToQuery ListAccountAliases where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'laarMarker'
+-- * 'laarsMarker'
 --
--- * 'laarIsTruncated'
+-- * 'laarsIsTruncated'
 --
--- * 'laarStatus'
+-- * 'laarsStatus'
 --
--- * 'laarAccountAliases'
+-- * 'laarsAccountAliases'
 data ListAccountAliasesResponse = ListAccountAliasesResponse'
-    { _laarMarker         :: !(Maybe Text)
-    , _laarIsTruncated    :: !(Maybe Bool)
-    , _laarStatus         :: !Int
-    , _laarAccountAliases :: ![Text]
+    { _laarsMarker         :: !(Maybe Text)
+    , _laarsIsTruncated    :: !(Maybe Bool)
+    , _laarsStatus         :: !Int
+    , _laarsAccountAliases :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAccountAliasesResponse' smart constructor.
 listAccountAliasesResponse :: Int -> ListAccountAliasesResponse
 listAccountAliasesResponse pStatus =
     ListAccountAliasesResponse'
-    { _laarMarker = Nothing
-    , _laarIsTruncated = Nothing
-    , _laarStatus = pStatus
-    , _laarAccountAliases = mempty
+    { _laarsMarker = Nothing
+    , _laarsIsTruncated = Nothing
+    , _laarsStatus = pStatus
+    , _laarsAccountAliases = mempty
     }
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-laarMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
-laarMarker = lens _laarMarker (\ s a -> s{_laarMarker = a});
+laarsMarker :: Lens' ListAccountAliasesResponse (Maybe Text)
+laarsMarker = lens _laarsMarker (\ s a -> s{_laarsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-laarIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
-laarIsTruncated = lens _laarIsTruncated (\ s a -> s{_laarIsTruncated = a});
+laarsIsTruncated :: Lens' ListAccountAliasesResponse (Maybe Bool)
+laarsIsTruncated = lens _laarsIsTruncated (\ s a -> s{_laarsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-laarStatus :: Lens' ListAccountAliasesResponse Int
-laarStatus = lens _laarStatus (\ s a -> s{_laarStatus = a});
+laarsStatus :: Lens' ListAccountAliasesResponse Int
+laarsStatus = lens _laarsStatus (\ s a -> s{_laarsStatus = a});
 
 -- | A list of aliases associated with the account.
-laarAccountAliases :: Lens' ListAccountAliasesResponse [Text]
-laarAccountAliases = lens _laarAccountAliases (\ s a -> s{_laarAccountAliases = a});
+laarsAccountAliases :: Lens' ListAccountAliasesResponse [Text]
+laarsAccountAliases = lens _laarsAccountAliases (\ s a -> s{_laarsAccountAliases = a});

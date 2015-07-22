@@ -29,16 +29,16 @@ module Network.AWS.EC2.DeleteVPCEndpoints
     -- ** Request constructor
     , deleteVPCEndpoints
     -- ** Request lenses
-    , dveDryRun
-    , dveVPCEndpointIds
+    , dverqDryRun
+    , dverqVPCEndpointIds
 
     -- * Response
     , DeleteVPCEndpointsResponse
     -- ** Response constructor
     , deleteVPCEndpointsResponse
     -- ** Response lenses
-    , dverUnsuccessful
-    , dverStatus
+    , dversUnsuccessful
+    , dversStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -50,32 +50,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dveDryRun'
+-- * 'dverqDryRun'
 --
--- * 'dveVPCEndpointIds'
+-- * 'dverqVPCEndpointIds'
 data DeleteVPCEndpoints = DeleteVPCEndpoints'
-    { _dveDryRun         :: !(Maybe Bool)
-    , _dveVPCEndpointIds :: ![Text]
+    { _dverqDryRun         :: !(Maybe Bool)
+    , _dverqVPCEndpointIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCEndpoints' smart constructor.
 deleteVPCEndpoints :: DeleteVPCEndpoints
 deleteVPCEndpoints =
     DeleteVPCEndpoints'
-    { _dveDryRun = Nothing
-    , _dveVPCEndpointIds = mempty
+    { _dverqDryRun = Nothing
+    , _dverqVPCEndpointIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dveDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
-dveDryRun = lens _dveDryRun (\ s a -> s{_dveDryRun = a});
+dverqDryRun :: Lens' DeleteVPCEndpoints (Maybe Bool)
+dverqDryRun = lens _dverqDryRun (\ s a -> s{_dverqDryRun = a});
 
 -- | One or more endpoint IDs.
-dveVPCEndpointIds :: Lens' DeleteVPCEndpoints [Text]
-dveVPCEndpointIds = lens _dveVPCEndpointIds (\ s a -> s{_dveVPCEndpointIds = a});
+dverqVPCEndpointIds :: Lens' DeleteVPCEndpoints [Text]
+dverqVPCEndpointIds = lens _dverqVPCEndpointIds (\ s a -> s{_dverqVPCEndpointIds = a});
 
 instance AWSRequest DeleteVPCEndpoints where
         type Sv DeleteVPCEndpoints = EC2
@@ -101,33 +101,33 @@ instance ToQuery DeleteVPCEndpoints where
           = mconcat
               ["Action" =: ("DeleteVPCEndpoints" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dveDryRun,
-               toQueryList "item" _dveVPCEndpointIds]
+               "DryRun" =: _dverqDryRun,
+               toQueryList "item" _dverqVPCEndpointIds]
 
 -- | /See:/ 'deleteVPCEndpointsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dverUnsuccessful'
+-- * 'dversUnsuccessful'
 --
--- * 'dverStatus'
+-- * 'dversStatus'
 data DeleteVPCEndpointsResponse = DeleteVPCEndpointsResponse'
-    { _dverUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _dverStatus       :: !Int
+    { _dversUnsuccessful :: !(Maybe [UnsuccessfulItem])
+    , _dversStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVPCEndpointsResponse' smart constructor.
 deleteVPCEndpointsResponse :: Int -> DeleteVPCEndpointsResponse
 deleteVPCEndpointsResponse pStatus =
     DeleteVPCEndpointsResponse'
-    { _dverUnsuccessful = Nothing
-    , _dverStatus = pStatus
+    { _dversUnsuccessful = Nothing
+    , _dversStatus = pStatus
     }
 
 -- | Information about the endpoints that were not successfully deleted.
-dverUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
-dverUnsuccessful = lens _dverUnsuccessful (\ s a -> s{_dverUnsuccessful = a}) . _Default;
+dversUnsuccessful :: Lens' DeleteVPCEndpointsResponse [UnsuccessfulItem]
+dversUnsuccessful = lens _dversUnsuccessful (\ s a -> s{_dversUnsuccessful = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dverStatus :: Lens' DeleteVPCEndpointsResponse Int
-dverStatus = lens _dverStatus (\ s a -> s{_dverStatus = a});
+dversStatus :: Lens' DeleteVPCEndpointsResponse Int
+dversStatus = lens _dversStatus (\ s a -> s{_dversStatus = a});

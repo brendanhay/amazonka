@@ -27,15 +27,15 @@ module Network.AWS.S3.GetBucketRequestPayment
     -- ** Request constructor
     , getBucketRequestPayment
     -- ** Request lenses
-    , gbrpBucket
+    , gbrprqBucket
 
     -- * Response
     , GetBucketRequestPaymentResponse
     -- ** Response constructor
     , getBucketRequestPaymentResponse
     -- ** Response lenses
-    , gbrprPayer
-    , gbrprStatus
+    , gbrprsPayer
+    , gbrprsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrpBucket'
+-- * 'gbrprqBucket'
 newtype GetBucketRequestPayment = GetBucketRequestPayment'
-    { _gbrpBucket :: BucketName
+    { _gbrprqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketRequestPayment' smart constructor.
 getBucketRequestPayment :: BucketName -> GetBucketRequestPayment
 getBucketRequestPayment pBucket =
     GetBucketRequestPayment'
-    { _gbrpBucket = pBucket
+    { _gbrprqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gbrpBucket :: Lens' GetBucketRequestPayment BucketName
-gbrpBucket = lens _gbrpBucket (\ s a -> s{_gbrpBucket = a});
+gbrprqBucket :: Lens' GetBucketRequestPayment BucketName
+gbrprqBucket = lens _gbrprqBucket (\ s a -> s{_gbrprqBucket = a});
 
 instance AWSRequest GetBucketRequestPayment where
         type Sv GetBucketRequestPayment = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketRequestPayment where
 
 instance ToPath GetBucketRequestPayment where
         toPath GetBucketRequestPayment'{..}
-          = mconcat ["/", toText _gbrpBucket]
+          = mconcat ["/", toText _gbrprqBucket]
 
 instance ToQuery GetBucketRequestPayment where
         toQuery = const (mconcat ["requestPayment"])
@@ -88,26 +88,26 @@ instance ToQuery GetBucketRequestPayment where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrprPayer'
+-- * 'gbrprsPayer'
 --
--- * 'gbrprStatus'
+-- * 'gbrprsStatus'
 data GetBucketRequestPaymentResponse = GetBucketRequestPaymentResponse'
-    { _gbrprPayer  :: !(Maybe Payer)
-    , _gbrprStatus :: !Int
+    { _gbrprsPayer  :: !(Maybe Payer)
+    , _gbrprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketRequestPaymentResponse' smart constructor.
 getBucketRequestPaymentResponse :: Int -> GetBucketRequestPaymentResponse
 getBucketRequestPaymentResponse pStatus =
     GetBucketRequestPaymentResponse'
-    { _gbrprPayer = Nothing
-    , _gbrprStatus = pStatus
+    { _gbrprsPayer = Nothing
+    , _gbrprsStatus = pStatus
     }
 
 -- | Specifies who pays for the download and request fees.
-gbrprPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
-gbrprPayer = lens _gbrprPayer (\ s a -> s{_gbrprPayer = a});
+gbrprsPayer :: Lens' GetBucketRequestPaymentResponse (Maybe Payer)
+gbrprsPayer = lens _gbrprsPayer (\ s a -> s{_gbrprsPayer = a});
 
 -- | FIXME: Undocumented member.
-gbrprStatus :: Lens' GetBucketRequestPaymentResponse Int
-gbrprStatus = lens _gbrprStatus (\ s a -> s{_gbrprStatus = a});
+gbrprsStatus :: Lens' GetBucketRequestPaymentResponse Int
+gbrprsStatus = lens _gbrprsStatus (\ s a -> s{_gbrprsStatus = a});

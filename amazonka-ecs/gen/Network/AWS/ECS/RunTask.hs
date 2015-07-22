@@ -31,20 +31,20 @@ module Network.AWS.ECS.RunTask
     -- ** Request constructor
     , runTask
     -- ** Request lenses
-    , rtOverrides
-    , rtCluster
-    , rtCount
-    , rtStartedBy
-    , rtTaskDefinition
+    , rtrqOverrides
+    , rtrqCluster
+    , rtrqCount
+    , rtrqStartedBy
+    , rtrqTaskDefinition
 
     -- * Response
     , RunTaskResponse
     -- ** Response constructor
     , runTaskResponse
     -- ** Response lenses
-    , rtrFailures
-    , rtrTasks
-    , rtrStatus
+    , rtrsFailures
+    , rtrsTasks
+    , rtrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtOverrides'
+-- * 'rtrqOverrides'
 --
--- * 'rtCluster'
+-- * 'rtrqCluster'
 --
--- * 'rtCount'
+-- * 'rtrqCount'
 --
--- * 'rtStartedBy'
+-- * 'rtrqStartedBy'
 --
--- * 'rtTaskDefinition'
+-- * 'rtrqTaskDefinition'
 data RunTask = RunTask'
-    { _rtOverrides      :: !(Maybe TaskOverride)
-    , _rtCluster        :: !(Maybe Text)
-    , _rtCount          :: !(Maybe Int)
-    , _rtStartedBy      :: !(Maybe Text)
-    , _rtTaskDefinition :: !Text
+    { _rtrqOverrides      :: !(Maybe TaskOverride)
+    , _rtrqCluster        :: !(Maybe Text)
+    , _rtrqCount          :: !(Maybe Int)
+    , _rtrqStartedBy      :: !(Maybe Text)
+    , _rtrqTaskDefinition :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunTask' smart constructor.
 runTask :: Text -> RunTask
 runTask pTaskDefinition =
     RunTask'
-    { _rtOverrides = Nothing
-    , _rtCluster = Nothing
-    , _rtCount = Nothing
-    , _rtStartedBy = Nothing
-    , _rtTaskDefinition = pTaskDefinition
+    { _rtrqOverrides = Nothing
+    , _rtrqCluster = Nothing
+    , _rtrqCount = Nothing
+    , _rtrqStartedBy = Nothing
+    , _rtrqTaskDefinition = pTaskDefinition
     }
 
 -- | A list of container overrides in JSON format that specify the name of a
@@ -94,21 +94,21 @@ runTask pTaskDefinition =
 --
 -- A total of 8192 characters are allowed for overrides. This limit
 -- includes the JSON formatting characters of the override structure.
-rtOverrides :: Lens' RunTask (Maybe TaskOverride)
-rtOverrides = lens _rtOverrides (\ s a -> s{_rtOverrides = a});
+rtrqOverrides :: Lens' RunTask (Maybe TaskOverride)
+rtrqOverrides = lens _rtrqOverrides (\ s a -> s{_rtrqOverrides = a});
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- you want to run your task on. If you do not specify a cluster, the
 -- default cluster is assumed..
-rtCluster :: Lens' RunTask (Maybe Text)
-rtCluster = lens _rtCluster (\ s a -> s{_rtCluster = a});
+rtrqCluster :: Lens' RunTask (Maybe Text)
+rtrqCluster = lens _rtrqCluster (\ s a -> s{_rtrqCluster = a});
 
 -- | The number of instantiations of the specified task that you would like
 -- to place on your cluster.
 --
 -- The @count@ parameter is limited to 10 tasks per call.
-rtCount :: Lens' RunTask (Maybe Int)
-rtCount = lens _rtCount (\ s a -> s{_rtCount = a});
+rtrqCount :: Lens' RunTask (Maybe Int)
+rtrqCount = lens _rtrqCount (\ s a -> s{_rtrqCount = a});
 
 -- | An optional tag specified when a task is started. For example if you
 -- automatically trigger a task to run a batch process job, you could apply
@@ -118,14 +118,14 @@ rtCount = lens _rtCount (\ s a -> s{_rtCount = a});
 --
 -- If a task is started by an Amazon ECS service, then the @startedBy@
 -- parameter contains the deployment ID of the service that starts it.
-rtStartedBy :: Lens' RunTask (Maybe Text)
-rtStartedBy = lens _rtStartedBy (\ s a -> s{_rtStartedBy = a});
+rtrqStartedBy :: Lens' RunTask (Maybe Text)
+rtrqStartedBy = lens _rtrqStartedBy (\ s a -> s{_rtrqStartedBy = a});
 
 -- | The @family@ and @revision@ (@family:revision@) or full Amazon Resource
 -- Name (ARN) of the task definition that you want to run. If a @revision@
 -- is not specified, the latest @ACTIVE@ revision is used.
-rtTaskDefinition :: Lens' RunTask Text
-rtTaskDefinition = lens _rtTaskDefinition (\ s a -> s{_rtTaskDefinition = a});
+rtrqTaskDefinition :: Lens' RunTask Text
+rtrqTaskDefinition = lens _rtrqTaskDefinition (\ s a -> s{_rtrqTaskDefinition = a});
 
 instance AWSRequest RunTask where
         type Sv RunTask = ECS
@@ -152,10 +152,10 @@ instance ToHeaders RunTask where
 instance ToJSON RunTask where
         toJSON RunTask'{..}
           = object
-              ["overrides" .= _rtOverrides,
-               "cluster" .= _rtCluster, "count" .= _rtCount,
-               "startedBy" .= _rtStartedBy,
-               "taskDefinition" .= _rtTaskDefinition]
+              ["overrides" .= _rtrqOverrides,
+               "cluster" .= _rtrqCluster, "count" .= _rtrqCount,
+               "startedBy" .= _rtrqStartedBy,
+               "taskDefinition" .= _rtrqTaskDefinition]
 
 instance ToPath RunTask where
         toPath = const "/"
@@ -167,35 +167,35 @@ instance ToQuery RunTask where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrFailures'
+-- * 'rtrsFailures'
 --
--- * 'rtrTasks'
+-- * 'rtrsTasks'
 --
--- * 'rtrStatus'
+-- * 'rtrsStatus'
 data RunTaskResponse = RunTaskResponse'
-    { _rtrFailures :: !(Maybe [Failure])
-    , _rtrTasks    :: !(Maybe [Task])
-    , _rtrStatus   :: !Int
+    { _rtrsFailures :: !(Maybe [Failure])
+    , _rtrsTasks    :: !(Maybe [Task])
+    , _rtrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RunTaskResponse' smart constructor.
 runTaskResponse :: Int -> RunTaskResponse
 runTaskResponse pStatus =
     RunTaskResponse'
-    { _rtrFailures = Nothing
-    , _rtrTasks = Nothing
-    , _rtrStatus = pStatus
+    { _rtrsFailures = Nothing
+    , _rtrsTasks = Nothing
+    , _rtrsStatus = pStatus
     }
 
 -- | Any failed tasks from your @RunTask@ action are listed here.
-rtrFailures :: Lens' RunTaskResponse [Failure]
-rtrFailures = lens _rtrFailures (\ s a -> s{_rtrFailures = a}) . _Default;
+rtrsFailures :: Lens' RunTaskResponse [Failure]
+rtrsFailures = lens _rtrsFailures (\ s a -> s{_rtrsFailures = a}) . _Default;
 
 -- | A full description of the tasks that were run. Each task that was
 -- successfully placed on your cluster will be described here.
-rtrTasks :: Lens' RunTaskResponse [Task]
-rtrTasks = lens _rtrTasks (\ s a -> s{_rtrTasks = a}) . _Default;
+rtrsTasks :: Lens' RunTaskResponse [Task]
+rtrsTasks = lens _rtrsTasks (\ s a -> s{_rtrsTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-rtrStatus :: Lens' RunTaskResponse Int
-rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});
+rtrsStatus :: Lens' RunTaskResponse Int
+rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

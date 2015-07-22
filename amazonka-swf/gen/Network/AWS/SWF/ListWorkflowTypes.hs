@@ -47,21 +47,21 @@ module Network.AWS.SWF.ListWorkflowTypes
     -- ** Request constructor
     , listWorkflowTypes
     -- ** Request lenses
-    , lwtNextPageToken
-    , lwtReverseOrder
-    , lwtName
-    , lwtMaximumPageSize
-    , lwtDomain
-    , lwtRegistrationStatus
+    , lwtrqNextPageToken
+    , lwtrqReverseOrder
+    , lwtrqName
+    , lwtrqMaximumPageSize
+    , lwtrqDomain
+    , lwtrqRegistrationStatus
 
     -- * Response
     , ListWorkflowTypesResponse
     -- ** Response constructor
     , listWorkflowTypesResponse
     -- ** Response lenses
-    , lwtrNextPageToken
-    , lwtrStatus
-    , lwtrTypeInfos
+    , lwtrsNextPageToken
+    , lwtrsStatus
+    , lwtrsTypeInfos
     ) where
 
 import           Network.AWS.Pager
@@ -74,36 +74,36 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lwtNextPageToken'
+-- * 'lwtrqNextPageToken'
 --
--- * 'lwtReverseOrder'
+-- * 'lwtrqReverseOrder'
 --
--- * 'lwtName'
+-- * 'lwtrqName'
 --
--- * 'lwtMaximumPageSize'
+-- * 'lwtrqMaximumPageSize'
 --
--- * 'lwtDomain'
+-- * 'lwtrqDomain'
 --
--- * 'lwtRegistrationStatus'
+-- * 'lwtrqRegistrationStatus'
 data ListWorkflowTypes = ListWorkflowTypes'
-    { _lwtNextPageToken      :: !(Maybe Text)
-    , _lwtReverseOrder       :: !(Maybe Bool)
-    , _lwtName               :: !(Maybe Text)
-    , _lwtMaximumPageSize    :: !(Maybe Nat)
-    , _lwtDomain             :: !Text
-    , _lwtRegistrationStatus :: !RegistrationStatus
+    { _lwtrqNextPageToken      :: !(Maybe Text)
+    , _lwtrqReverseOrder       :: !(Maybe Bool)
+    , _lwtrqName               :: !(Maybe Text)
+    , _lwtrqMaximumPageSize    :: !(Maybe Nat)
+    , _lwtrqDomain             :: !Text
+    , _lwtrqRegistrationStatus :: !RegistrationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListWorkflowTypes' smart constructor.
 listWorkflowTypes :: Text -> RegistrationStatus -> ListWorkflowTypes
 listWorkflowTypes pDomain pRegistrationStatus =
     ListWorkflowTypes'
-    { _lwtNextPageToken = Nothing
-    , _lwtReverseOrder = Nothing
-    , _lwtName = Nothing
-    , _lwtMaximumPageSize = Nothing
-    , _lwtDomain = pDomain
-    , _lwtRegistrationStatus = pRegistrationStatus
+    { _lwtrqNextPageToken = Nothing
+    , _lwtrqReverseOrder = Nothing
+    , _lwtrqName = Nothing
+    , _lwtrqMaximumPageSize = Nothing
+    , _lwtrqDomain = pDomain
+    , _lwtrqRegistrationStatus = pRegistrationStatus
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -113,18 +113,18 @@ listWorkflowTypes pDomain pRegistrationStatus =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-lwtNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
-lwtNextPageToken = lens _lwtNextPageToken (\ s a -> s{_lwtNextPageToken = a});
+lwtrqNextPageToken :: Lens' ListWorkflowTypes (Maybe Text)
+lwtrqNextPageToken = lens _lwtrqNextPageToken (\ s a -> s{_lwtrqNextPageToken = a});
 
 -- | When set to @true@, returns the results in reverse order. By default the
 -- results are returned in ascending alphabetical order of the @name@ of
 -- the workflow types.
-lwtReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
-lwtReverseOrder = lens _lwtReverseOrder (\ s a -> s{_lwtReverseOrder = a});
+lwtrqReverseOrder :: Lens' ListWorkflowTypes (Maybe Bool)
+lwtrqReverseOrder = lens _lwtrqReverseOrder (\ s a -> s{_lwtrqReverseOrder = a});
 
 -- | If specified, lists the workflow type with this name.
-lwtName :: Lens' ListWorkflowTypes (Maybe Text)
-lwtName = lens _lwtName (\ s a -> s{_lwtName = a});
+lwtrqName :: Lens' ListWorkflowTypes (Maybe Text)
+lwtrqName = lens _lwtrqName (\ s a -> s{_lwtrqName = a});
 
 -- | The maximum number of results that will be returned per call.
 -- @nextPageToken@ can be used to obtain futher pages of results. The
@@ -133,24 +133,24 @@ lwtName = lens _lwtName (\ s a -> s{_lwtName = a});
 --
 -- This is an upper limit only; the actual number of results returned per
 -- call may be fewer than the specified maximum.
-lwtMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Natural)
-lwtMaximumPageSize = lens _lwtMaximumPageSize (\ s a -> s{_lwtMaximumPageSize = a}) . mapping _Nat;
+lwtrqMaximumPageSize :: Lens' ListWorkflowTypes (Maybe Natural)
+lwtrqMaximumPageSize = lens _lwtrqMaximumPageSize (\ s a -> s{_lwtrqMaximumPageSize = a}) . mapping _Nat;
 
 -- | The name of the domain in which the workflow types have been registered.
-lwtDomain :: Lens' ListWorkflowTypes Text
-lwtDomain = lens _lwtDomain (\ s a -> s{_lwtDomain = a});
+lwtrqDomain :: Lens' ListWorkflowTypes Text
+lwtrqDomain = lens _lwtrqDomain (\ s a -> s{_lwtrqDomain = a});
 
 -- | Specifies the registration status of the workflow types to list.
-lwtRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
-lwtRegistrationStatus = lens _lwtRegistrationStatus (\ s a -> s{_lwtRegistrationStatus = a});
+lwtrqRegistrationStatus :: Lens' ListWorkflowTypes RegistrationStatus
+lwtrqRegistrationStatus = lens _lwtrqRegistrationStatus (\ s a -> s{_lwtrqRegistrationStatus = a});
 
 instance AWSPager ListWorkflowTypes where
         page rq rs
-          | stop (rs ^. lwtrNextPageToken) = Nothing
-          | stop (rs ^. lwtrTypeInfos) = Nothing
+          | stop (rs ^. lwtrsNextPageToken) = Nothing
+          | stop (rs ^. lwtrsTypeInfos) = Nothing
           | otherwise =
             Just $ rq &
-              lwtNextPageToken .~ rs ^. lwtrNextPageToken
+              lwtrqNextPageToken .~ rs ^. lwtrsNextPageToken
 
 instance AWSRequest ListWorkflowTypes where
         type Sv ListWorkflowTypes = SWF
@@ -176,12 +176,12 @@ instance ToHeaders ListWorkflowTypes where
 instance ToJSON ListWorkflowTypes where
         toJSON ListWorkflowTypes'{..}
           = object
-              ["nextPageToken" .= _lwtNextPageToken,
-               "reverseOrder" .= _lwtReverseOrder,
-               "name" .= _lwtName,
-               "maximumPageSize" .= _lwtMaximumPageSize,
-               "domain" .= _lwtDomain,
-               "registrationStatus" .= _lwtRegistrationStatus]
+              ["nextPageToken" .= _lwtrqNextPageToken,
+               "reverseOrder" .= _lwtrqReverseOrder,
+               "name" .= _lwtrqName,
+               "maximumPageSize" .= _lwtrqMaximumPageSize,
+               "domain" .= _lwtrqDomain,
+               "registrationStatus" .= _lwtrqRegistrationStatus]
 
 instance ToPath ListWorkflowTypes where
         toPath = const "/"
@@ -196,24 +196,24 @@ instance ToQuery ListWorkflowTypes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lwtrNextPageToken'
+-- * 'lwtrsNextPageToken'
 --
--- * 'lwtrStatus'
+-- * 'lwtrsStatus'
 --
--- * 'lwtrTypeInfos'
+-- * 'lwtrsTypeInfos'
 data ListWorkflowTypesResponse = ListWorkflowTypesResponse'
-    { _lwtrNextPageToken :: !(Maybe Text)
-    , _lwtrStatus        :: !Int
-    , _lwtrTypeInfos     :: ![WorkflowTypeInfo]
+    { _lwtrsNextPageToken :: !(Maybe Text)
+    , _lwtrsStatus        :: !Int
+    , _lwtrsTypeInfos     :: ![WorkflowTypeInfo]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListWorkflowTypesResponse' smart constructor.
 listWorkflowTypesResponse :: Int -> ListWorkflowTypesResponse
 listWorkflowTypesResponse pStatus =
     ListWorkflowTypesResponse'
-    { _lwtrNextPageToken = Nothing
-    , _lwtrStatus = pStatus
-    , _lwtrTypeInfos = mempty
+    { _lwtrsNextPageToken = Nothing
+    , _lwtrsStatus = pStatus
+    , _lwtrsTypeInfos = mempty
     }
 
 -- | If a @NextPageToken@ was returned by a previous call, there are more
@@ -223,13 +223,13 @@ listWorkflowTypesResponse pStatus =
 --
 -- The configured @maximumPageSize@ determines how many results can be
 -- returned in a single call.
-lwtrNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
-lwtrNextPageToken = lens _lwtrNextPageToken (\ s a -> s{_lwtrNextPageToken = a});
+lwtrsNextPageToken :: Lens' ListWorkflowTypesResponse (Maybe Text)
+lwtrsNextPageToken = lens _lwtrsNextPageToken (\ s a -> s{_lwtrsNextPageToken = a});
 
 -- | FIXME: Undocumented member.
-lwtrStatus :: Lens' ListWorkflowTypesResponse Int
-lwtrStatus = lens _lwtrStatus (\ s a -> s{_lwtrStatus = a});
+lwtrsStatus :: Lens' ListWorkflowTypesResponse Int
+lwtrsStatus = lens _lwtrsStatus (\ s a -> s{_lwtrsStatus = a});
 
 -- | The list of workflow type information.
-lwtrTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
-lwtrTypeInfos = lens _lwtrTypeInfos (\ s a -> s{_lwtrTypeInfos = a});
+lwtrsTypeInfos :: Lens' ListWorkflowTypesResponse [WorkflowTypeInfo]
+lwtrsTypeInfos = lens _lwtrsTypeInfos (\ s a -> s{_lwtrsTypeInfos = a});

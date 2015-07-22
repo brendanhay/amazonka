@@ -45,9 +45,9 @@ module Network.AWS.IAM.PutUserPolicy
     -- ** Request constructor
     , putUserPolicy
     -- ** Request lenses
-    , pupUserName
-    , pupPolicyName
-    , pupPolicyDocument
+    , puprqUserName
+    , puprqPolicyName
+    , puprqPolicyDocument
 
     -- * Response
     , PutUserPolicyResponse
@@ -64,37 +64,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pupUserName'
+-- * 'puprqUserName'
 --
--- * 'pupPolicyName'
+-- * 'puprqPolicyName'
 --
--- * 'pupPolicyDocument'
+-- * 'puprqPolicyDocument'
 data PutUserPolicy = PutUserPolicy'
-    { _pupUserName       :: !Text
-    , _pupPolicyName     :: !Text
-    , _pupPolicyDocument :: !Text
+    { _puprqUserName       :: !Text
+    , _puprqPolicyName     :: !Text
+    , _puprqPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutUserPolicy' smart constructor.
 putUserPolicy :: Text -> Text -> Text -> PutUserPolicy
 putUserPolicy pUserName pPolicyName pPolicyDocument =
     PutUserPolicy'
-    { _pupUserName = pUserName
-    , _pupPolicyName = pPolicyName
-    , _pupPolicyDocument = pPolicyDocument
+    { _puprqUserName = pUserName
+    , _puprqPolicyName = pPolicyName
+    , _puprqPolicyDocument = pPolicyDocument
     }
 
 -- | The name of the user to associate the policy with.
-pupUserName :: Lens' PutUserPolicy Text
-pupUserName = lens _pupUserName (\ s a -> s{_pupUserName = a});
+puprqUserName :: Lens' PutUserPolicy Text
+puprqUserName = lens _puprqUserName (\ s a -> s{_puprqUserName = a});
 
 -- | The name of the policy document.
-pupPolicyName :: Lens' PutUserPolicy Text
-pupPolicyName = lens _pupPolicyName (\ s a -> s{_pupPolicyName = a});
+puprqPolicyName :: Lens' PutUserPolicy Text
+puprqPolicyName = lens _puprqPolicyName (\ s a -> s{_puprqPolicyName = a});
 
 -- | The policy document.
-pupPolicyDocument :: Lens' PutUserPolicy Text
-pupPolicyDocument = lens _pupPolicyDocument (\ s a -> s{_pupPolicyDocument = a});
+puprqPolicyDocument :: Lens' PutUserPolicy Text
+puprqPolicyDocument = lens _puprqPolicyDocument (\ s a -> s{_puprqPolicyDocument = a});
 
 instance AWSRequest PutUserPolicy where
         type Sv PutUserPolicy = IAM
@@ -113,9 +113,9 @@ instance ToQuery PutUserPolicy where
           = mconcat
               ["Action" =: ("PutUserPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _pupUserName,
-               "PolicyName" =: _pupPolicyName,
-               "PolicyDocument" =: _pupPolicyDocument]
+               "UserName" =: _puprqUserName,
+               "PolicyName" =: _puprqPolicyName,
+               "PolicyDocument" =: _puprqPolicyDocument]
 
 -- | /See:/ 'putUserPolicyResponse' smart constructor.
 data PutUserPolicyResponse =

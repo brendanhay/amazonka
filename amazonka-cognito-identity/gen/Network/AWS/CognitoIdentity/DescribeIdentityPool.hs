@@ -30,19 +30,19 @@ module Network.AWS.CognitoIdentity.DescribeIdentityPool
     -- ** Request constructor
     , describeIdentityPool
     -- ** Request lenses
-    , dipIdentityPoolId
+    , diprqIdentityPoolId
 
     -- * Response
     , IdentityPool
     -- ** Response constructor
     , identityPool
     -- ** Response lenses
-    , ipSupportedLoginProviders
-    , ipDeveloperProviderName
-    , ipOpenIdConnectProviderARNs
-    , ipIdentityPoolId
-    , ipIdentityPoolName
-    , ipAllowUnauthenticatedIdentities
+    , diprsSupportedLoginProviders
+    , diprsDeveloperProviderName
+    , diprsOpenIdConnectProviderARNs
+    , diprsIdentityPoolId
+    , diprsIdentityPoolName
+    , diprsAllowUnauthenticatedIdentities
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dipIdentityPoolId'
+-- * 'diprqIdentityPoolId'
 newtype DescribeIdentityPool = DescribeIdentityPool'
-    { _dipIdentityPoolId :: Text
+    { _diprqIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityPool' smart constructor.
 describeIdentityPool :: Text -> DescribeIdentityPool
 describeIdentityPool pIdentityPoolId =
     DescribeIdentityPool'
-    { _dipIdentityPoolId = pIdentityPoolId
+    { _diprqIdentityPoolId = pIdentityPoolId
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-dipIdentityPoolId :: Lens' DescribeIdentityPool Text
-dipIdentityPoolId = lens _dipIdentityPoolId (\ s a -> s{_dipIdentityPoolId = a});
+diprqIdentityPoolId :: Lens' DescribeIdentityPool Text
+diprqIdentityPoolId = lens _diprqIdentityPoolId (\ s a -> s{_diprqIdentityPoolId = a});
 
 instance AWSRequest DescribeIdentityPool where
         type Sv DescribeIdentityPool = CognitoIdentity
@@ -90,7 +90,7 @@ instance ToHeaders DescribeIdentityPool where
 
 instance ToJSON DescribeIdentityPool where
         toJSON DescribeIdentityPool'{..}
-          = object ["IdentityPoolId" .= _dipIdentityPoolId]
+          = object ["IdentityPoolId" .= _diprqIdentityPoolId]
 
 instance ToPath DescribeIdentityPool where
         toPath = const "/"

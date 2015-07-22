@@ -33,17 +33,17 @@ module Network.AWS.CloudSearch.DescribeExpressions
     -- ** Request constructor
     , describeExpressions
     -- ** Request lenses
-    , deDeployed
-    , deExpressionNames
-    , deDomainName
+    , derqDeployed
+    , derqExpressionNames
+    , derqDomainName
 
     -- * Response
     , DescribeExpressionsResponse
     -- ** Response constructor
     , describeExpressionsResponse
     -- ** Response lenses
-    , desStatus
-    , desExpressions
+    , dersStatus
+    , dersExpressions
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -61,39 +61,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deDeployed'
+-- * 'derqDeployed'
 --
--- * 'deExpressionNames'
+-- * 'derqExpressionNames'
 --
--- * 'deDomainName'
+-- * 'derqDomainName'
 data DescribeExpressions = DescribeExpressions'
-    { _deDeployed        :: !(Maybe Bool)
-    , _deExpressionNames :: !(Maybe [Text])
-    , _deDomainName      :: !Text
+    { _derqDeployed        :: !(Maybe Bool)
+    , _derqExpressionNames :: !(Maybe [Text])
+    , _derqDomainName      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExpressions' smart constructor.
 describeExpressions :: Text -> DescribeExpressions
 describeExpressions pDomainName =
     DescribeExpressions'
-    { _deDeployed = Nothing
-    , _deExpressionNames = Nothing
-    , _deDomainName = pDomainName
+    { _derqDeployed = Nothing
+    , _derqExpressionNames = Nothing
+    , _derqDomainName = pDomainName
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-deDeployed :: Lens' DescribeExpressions (Maybe Bool)
-deDeployed = lens _deDeployed (\ s a -> s{_deDeployed = a});
+derqDeployed :: Lens' DescribeExpressions (Maybe Bool)
+derqDeployed = lens _derqDeployed (\ s a -> s{_derqDeployed = a});
 
 -- | Limits the @DescribeExpressions@ response to the specified expressions.
 -- If not specified, all expressions are shown.
-deExpressionNames :: Lens' DescribeExpressions [Text]
-deExpressionNames = lens _deExpressionNames (\ s a -> s{_deExpressionNames = a}) . _Default;
+derqExpressionNames :: Lens' DescribeExpressions [Text]
+derqExpressionNames = lens _derqExpressionNames (\ s a -> s{_derqExpressionNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
-deDomainName :: Lens' DescribeExpressions Text
-deDomainName = lens _deDomainName (\ s a -> s{_deDomainName = a});
+derqDomainName :: Lens' DescribeExpressions Text
+derqDomainName = lens _derqDomainName (\ s a -> s{_derqDomainName = a});
 
 instance AWSRequest DescribeExpressions where
         type Sv DescribeExpressions = CloudSearch
@@ -119,11 +119,11 @@ instance ToQuery DescribeExpressions where
           = mconcat
               ["Action" =: ("DescribeExpressions" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _deDeployed,
+               "Deployed" =: _derqDeployed,
                "ExpressionNames" =:
                  toQuery
-                   (toQueryList "member" <$> _deExpressionNames),
-               "DomainName" =: _deDomainName]
+                   (toQueryList "member" <$> _derqExpressionNames),
+               "DomainName" =: _derqDomainName]
 
 -- | The result of a @DescribeExpressions@ request. Contains the expressions
 -- configured for the domain specified in the request.
@@ -132,26 +132,26 @@ instance ToQuery DescribeExpressions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desStatus'
+-- * 'dersStatus'
 --
--- * 'desExpressions'
+-- * 'dersExpressions'
 data DescribeExpressionsResponse = DescribeExpressionsResponse'
-    { _desStatus      :: !Int
-    , _desExpressions :: ![ExpressionStatus]
+    { _dersStatus      :: !Int
+    , _dersExpressions :: ![ExpressionStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeExpressionsResponse' smart constructor.
 describeExpressionsResponse :: Int -> DescribeExpressionsResponse
 describeExpressionsResponse pStatus =
     DescribeExpressionsResponse'
-    { _desStatus = pStatus
-    , _desExpressions = mempty
+    { _dersStatus = pStatus
+    , _dersExpressions = mempty
     }
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeExpressionsResponse Int
-desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+dersStatus :: Lens' DescribeExpressionsResponse Int
+dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});
 
 -- | The expressions configured for the domain.
-desExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
-desExpressions = lens _desExpressions (\ s a -> s{_desExpressions = a});
+dersExpressions :: Lens' DescribeExpressionsResponse [ExpressionStatus]
+dersExpressions = lens _dersExpressions (\ s a -> s{_dersExpressions = a});

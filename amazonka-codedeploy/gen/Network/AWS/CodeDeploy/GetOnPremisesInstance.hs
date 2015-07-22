@@ -27,15 +27,15 @@ module Network.AWS.CodeDeploy.GetOnPremisesInstance
     -- ** Request constructor
     , getOnPremisesInstance
     -- ** Request lenses
-    , gopiInstanceName
+    , gopirqInstanceName
 
     -- * Response
     , GetOnPremisesInstanceResponse
     -- ** Response constructor
     , getOnPremisesInstanceResponse
     -- ** Response lenses
-    , gopirInstanceInfo
-    , gopirStatus
+    , gopirsInstanceInfo
+    , gopirsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gopiInstanceName'
+-- * 'gopirqInstanceName'
 newtype GetOnPremisesInstance = GetOnPremisesInstance'
-    { _gopiInstanceName :: Text
+    { _gopirqInstanceName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOnPremisesInstance' smart constructor.
 getOnPremisesInstance :: Text -> GetOnPremisesInstance
 getOnPremisesInstance pInstanceName =
     GetOnPremisesInstance'
-    { _gopiInstanceName = pInstanceName
+    { _gopirqInstanceName = pInstanceName
     }
 
 -- | The name of the on-premises instance to get information about
-gopiInstanceName :: Lens' GetOnPremisesInstance Text
-gopiInstanceName = lens _gopiInstanceName (\ s a -> s{_gopiInstanceName = a});
+gopirqInstanceName :: Lens' GetOnPremisesInstance Text
+gopirqInstanceName = lens _gopirqInstanceName (\ s a -> s{_gopirqInstanceName = a});
 
 instance AWSRequest GetOnPremisesInstance where
         type Sv GetOnPremisesInstance = CodeDeploy
@@ -88,7 +88,7 @@ instance ToHeaders GetOnPremisesInstance where
 
 instance ToJSON GetOnPremisesInstance where
         toJSON GetOnPremisesInstance'{..}
-          = object ["instanceName" .= _gopiInstanceName]
+          = object ["instanceName" .= _gopirqInstanceName]
 
 instance ToPath GetOnPremisesInstance where
         toPath = const "/"
@@ -102,26 +102,26 @@ instance ToQuery GetOnPremisesInstance where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gopirInstanceInfo'
+-- * 'gopirsInstanceInfo'
 --
--- * 'gopirStatus'
+-- * 'gopirsStatus'
 data GetOnPremisesInstanceResponse = GetOnPremisesInstanceResponse'
-    { _gopirInstanceInfo :: !(Maybe InstanceInfo)
-    , _gopirStatus       :: !Int
+    { _gopirsInstanceInfo :: !(Maybe InstanceInfo)
+    , _gopirsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOnPremisesInstanceResponse' smart constructor.
 getOnPremisesInstanceResponse :: Int -> GetOnPremisesInstanceResponse
 getOnPremisesInstanceResponse pStatus =
     GetOnPremisesInstanceResponse'
-    { _gopirInstanceInfo = Nothing
-    , _gopirStatus = pStatus
+    { _gopirsInstanceInfo = Nothing
+    , _gopirsStatus = pStatus
     }
 
 -- | Information about the on-premises instance.
-gopirInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
-gopirInstanceInfo = lens _gopirInstanceInfo (\ s a -> s{_gopirInstanceInfo = a});
+gopirsInstanceInfo :: Lens' GetOnPremisesInstanceResponse (Maybe InstanceInfo)
+gopirsInstanceInfo = lens _gopirsInstanceInfo (\ s a -> s{_gopirsInstanceInfo = a});
 
 -- | FIXME: Undocumented member.
-gopirStatus :: Lens' GetOnPremisesInstanceResponse Int
-gopirStatus = lens _gopirStatus (\ s a -> s{_gopirStatus = a});
+gopirsStatus :: Lens' GetOnPremisesInstanceResponse Int
+gopirsStatus = lens _gopirsStatus (\ s a -> s{_gopirsStatus = a});

@@ -34,15 +34,15 @@ module Network.AWS.MachineLearning.DeleteMLModel
     -- ** Request constructor
     , deleteMLModel
     -- ** Request lenses
-    , dmlmMLModelId
+    , dmlmrqMLModelId
 
     -- * Response
     , DeleteMLModelResponse
     -- ** Response constructor
     , deleteMLModelResponse
     -- ** Response lenses
-    , dmlmrMLModelId
-    , dmlmrStatus
+    , dmlmrsMLModelId
+    , dmlmrsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmlmMLModelId'
+-- * 'dmlmrqMLModelId'
 newtype DeleteMLModel = DeleteMLModel'
-    { _dmlmMLModelId :: Text
+    { _dmlmrqMLModelId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMLModel' smart constructor.
 deleteMLModel :: Text -> DeleteMLModel
 deleteMLModel pMLModelId =
     DeleteMLModel'
-    { _dmlmMLModelId = pMLModelId
+    { _dmlmrqMLModelId = pMLModelId
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.
-dmlmMLModelId :: Lens' DeleteMLModel Text
-dmlmMLModelId = lens _dmlmMLModelId (\ s a -> s{_dmlmMLModelId = a});
+dmlmrqMLModelId :: Lens' DeleteMLModel Text
+dmlmrqMLModelId = lens _dmlmrqMLModelId (\ s a -> s{_dmlmrqMLModelId = a});
 
 instance AWSRequest DeleteMLModel where
         type Sv DeleteMLModel = MachineLearning
@@ -91,7 +91,7 @@ instance ToHeaders DeleteMLModel where
 
 instance ToJSON DeleteMLModel where
         toJSON DeleteMLModel'{..}
-          = object ["MLModelId" .= _dmlmMLModelId]
+          = object ["MLModelId" .= _dmlmrqMLModelId]
 
 instance ToPath DeleteMLModel where
         toPath = const "/"
@@ -108,27 +108,27 @@ instance ToQuery DeleteMLModel where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmlmrMLModelId'
+-- * 'dmlmrsMLModelId'
 --
--- * 'dmlmrStatus'
+-- * 'dmlmrsStatus'
 data DeleteMLModelResponse = DeleteMLModelResponse'
-    { _dmlmrMLModelId :: !(Maybe Text)
-    , _dmlmrStatus    :: !Int
+    { _dmlmrsMLModelId :: !(Maybe Text)
+    , _dmlmrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMLModelResponse' smart constructor.
 deleteMLModelResponse :: Int -> DeleteMLModelResponse
 deleteMLModelResponse pStatus =
     DeleteMLModelResponse'
-    { _dmlmrMLModelId = Nothing
-    , _dmlmrStatus = pStatus
+    { _dmlmrsMLModelId = Nothing
+    , _dmlmrsStatus = pStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelID@ in the request.
-dmlmrMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
-dmlmrMLModelId = lens _dmlmrMLModelId (\ s a -> s{_dmlmrMLModelId = a});
+dmlmrsMLModelId :: Lens' DeleteMLModelResponse (Maybe Text)
+dmlmrsMLModelId = lens _dmlmrsMLModelId (\ s a -> s{_dmlmrsMLModelId = a});
 
 -- | FIXME: Undocumented member.
-dmlmrStatus :: Lens' DeleteMLModelResponse Int
-dmlmrStatus = lens _dmlmrStatus (\ s a -> s{_dmlmrStatus = a});
+dmlmrsStatus :: Lens' DeleteMLModelResponse Int
+dmlmrsStatus = lens _dmlmrsStatus (\ s a -> s{_dmlmrsStatus = a});

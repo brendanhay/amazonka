@@ -31,7 +31,7 @@ module Network.AWS.AutoScaling.DeleteLaunchConfiguration
     -- ** Request constructor
     , deleteLaunchConfiguration
     -- ** Request lenses
-    , dlcLaunchConfigurationName
+    , dlcrqLaunchConfigurationName
 
     -- * Response
     , DeleteLaunchConfigurationResponse
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcLaunchConfigurationName'
+-- * 'dlcrqLaunchConfigurationName'
 newtype DeleteLaunchConfiguration = DeleteLaunchConfiguration'
-    { _dlcLaunchConfigurationName :: Text
+    { _dlcrqLaunchConfigurationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLaunchConfiguration' smart constructor.
 deleteLaunchConfiguration :: Text -> DeleteLaunchConfiguration
 deleteLaunchConfiguration pLaunchConfigurationName =
     DeleteLaunchConfiguration'
-    { _dlcLaunchConfigurationName = pLaunchConfigurationName
+    { _dlcrqLaunchConfigurationName = pLaunchConfigurationName
     }
 
 -- | The name of the launch configuration.
-dlcLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
-dlcLaunchConfigurationName = lens _dlcLaunchConfigurationName (\ s a -> s{_dlcLaunchConfigurationName = a});
+dlcrqLaunchConfigurationName :: Lens' DeleteLaunchConfiguration Text
+dlcrqLaunchConfigurationName = lens _dlcrqLaunchConfigurationName (\ s a -> s{_dlcrqLaunchConfigurationName = a});
 
 instance AWSRequest DeleteLaunchConfiguration where
         type Sv DeleteLaunchConfiguration = AutoScaling
@@ -85,7 +85,7 @@ instance ToQuery DeleteLaunchConfiguration where
                  ("DeleteLaunchConfiguration" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "LaunchConfigurationName" =:
-                 _dlcLaunchConfigurationName]
+                 _dlcrqLaunchConfigurationName]
 
 -- | /See:/ 'deleteLaunchConfigurationResponse' smart constructor.
 data DeleteLaunchConfigurationResponse =

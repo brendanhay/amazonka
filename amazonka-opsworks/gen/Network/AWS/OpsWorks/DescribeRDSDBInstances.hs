@@ -33,16 +33,16 @@ module Network.AWS.OpsWorks.DescribeRDSDBInstances
     -- ** Request constructor
     , describeRDSDBInstances
     -- ** Request lenses
-    , drdiRDSDBInstanceARNs
-    , drdiStackId
+    , drdirqRDSDBInstanceARNs
+    , drdirqStackId
 
     -- * Response
     , DescribeRDSDBInstancesResponse
     -- ** Response constructor
     , describeRDSDBInstancesResponse
     -- ** Response lenses
-    , drdirRDSDBInstances
-    , drdirStatus
+    , drdirsRDSDBInstances
+    , drdirsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -54,30 +54,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drdiRDSDBInstanceARNs'
+-- * 'drdirqRDSDBInstanceARNs'
 --
--- * 'drdiStackId'
+-- * 'drdirqStackId'
 data DescribeRDSDBInstances = DescribeRDSDBInstances'
-    { _drdiRDSDBInstanceARNs :: !(Maybe [Text])
-    , _drdiStackId           :: !Text
+    { _drdirqRDSDBInstanceARNs :: !(Maybe [Text])
+    , _drdirqStackId           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRDSDBInstances' smart constructor.
 describeRDSDBInstances :: Text -> DescribeRDSDBInstances
 describeRDSDBInstances pStackId =
     DescribeRDSDBInstances'
-    { _drdiRDSDBInstanceARNs = Nothing
-    , _drdiStackId = pStackId
+    { _drdirqRDSDBInstanceARNs = Nothing
+    , _drdirqStackId = pStackId
     }
 
 -- | An array containing the ARNs of the instances to be described.
-drdiRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
-drdiRDSDBInstanceARNs = lens _drdiRDSDBInstanceARNs (\ s a -> s{_drdiRDSDBInstanceARNs = a}) . _Default;
+drdirqRDSDBInstanceARNs :: Lens' DescribeRDSDBInstances [Text]
+drdirqRDSDBInstanceARNs = lens _drdirqRDSDBInstanceARNs (\ s a -> s{_drdirqRDSDBInstanceARNs = a}) . _Default;
 
 -- | The stack ID that the instances are registered with. The operation
 -- returns descriptions of all registered Amazon RDS instances.
-drdiStackId :: Lens' DescribeRDSDBInstances Text
-drdiStackId = lens _drdiStackId (\ s a -> s{_drdiStackId = a});
+drdirqStackId :: Lens' DescribeRDSDBInstances Text
+drdirqStackId = lens _drdirqStackId (\ s a -> s{_drdirqStackId = a});
 
 instance AWSRequest DescribeRDSDBInstances where
         type Sv DescribeRDSDBInstances = OpsWorks
@@ -104,8 +104,8 @@ instance ToHeaders DescribeRDSDBInstances where
 instance ToJSON DescribeRDSDBInstances where
         toJSON DescribeRDSDBInstances'{..}
           = object
-              ["RdsDbInstanceArns" .= _drdiRDSDBInstanceARNs,
-               "StackId" .= _drdiStackId]
+              ["RdsDbInstanceArns" .= _drdirqRDSDBInstanceARNs,
+               "StackId" .= _drdirqStackId]
 
 instance ToPath DescribeRDSDBInstances where
         toPath = const "/"
@@ -119,26 +119,26 @@ instance ToQuery DescribeRDSDBInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drdirRDSDBInstances'
+-- * 'drdirsRDSDBInstances'
 --
--- * 'drdirStatus'
+-- * 'drdirsStatus'
 data DescribeRDSDBInstancesResponse = DescribeRDSDBInstancesResponse'
-    { _drdirRDSDBInstances :: !(Maybe [RDSDBInstance])
-    , _drdirStatus         :: !Int
+    { _drdirsRDSDBInstances :: !(Maybe [RDSDBInstance])
+    , _drdirsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRDSDBInstancesResponse' smart constructor.
 describeRDSDBInstancesResponse :: Int -> DescribeRDSDBInstancesResponse
 describeRDSDBInstancesResponse pStatus =
     DescribeRDSDBInstancesResponse'
-    { _drdirRDSDBInstances = Nothing
-    , _drdirStatus = pStatus
+    { _drdirsRDSDBInstances = Nothing
+    , _drdirsStatus = pStatus
     }
 
 -- | An a array of @RdsDbInstance@ objects that describe the instances.
-drdirRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
-drdirRDSDBInstances = lens _drdirRDSDBInstances (\ s a -> s{_drdirRDSDBInstances = a}) . _Default;
+drdirsRDSDBInstances :: Lens' DescribeRDSDBInstancesResponse [RDSDBInstance]
+drdirsRDSDBInstances = lens _drdirsRDSDBInstances (\ s a -> s{_drdirsRDSDBInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drdirStatus :: Lens' DescribeRDSDBInstancesResponse Int
-drdirStatus = lens _drdirStatus (\ s a -> s{_drdirStatus = a});
+drdirsStatus :: Lens' DescribeRDSDBInstancesResponse Int
+drdirsStatus = lens _drdirsStatus (\ s a -> s{_drdirsStatus = a});

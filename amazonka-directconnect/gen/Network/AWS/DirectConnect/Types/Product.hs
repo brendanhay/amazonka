@@ -28,69 +28,69 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'conVlan'
+-- * 'cVlan'
 --
--- * 'conLocation'
+-- * 'cLocation'
 --
--- * 'conConnectionId'
+-- * 'cConnectionId'
 --
--- * 'conConnectionName'
+-- * 'cConnectionName'
 --
--- * 'conPartnerName'
+-- * 'cPartnerName'
 --
--- * 'conBandwidth'
+-- * 'cBandwidth'
 --
--- * 'conRegion'
+-- * 'cRegion'
 --
--- * 'conOwnerAccount'
+-- * 'cOwnerAccount'
 --
--- * 'conConnectionState'
+-- * 'cConnectionState'
 data Connection = Connection'
-    { _conVlan            :: !(Maybe Int)
-    , _conLocation        :: !(Maybe Text)
-    , _conConnectionId    :: !(Maybe Text)
-    , _conConnectionName  :: !(Maybe Text)
-    , _conPartnerName     :: !(Maybe Text)
-    , _conBandwidth       :: !(Maybe Text)
-    , _conRegion          :: !(Maybe Text)
-    , _conOwnerAccount    :: !(Maybe Text)
-    , _conConnectionState :: !(Maybe ConnectionState)
+    { _cVlan            :: !(Maybe Int)
+    , _cLocation        :: !(Maybe Text)
+    , _cConnectionId    :: !(Maybe Text)
+    , _cConnectionName  :: !(Maybe Text)
+    , _cPartnerName     :: !(Maybe Text)
+    , _cBandwidth       :: !(Maybe Text)
+    , _cRegion          :: !(Maybe Text)
+    , _cOwnerAccount    :: !(Maybe Text)
+    , _cConnectionState :: !(Maybe ConnectionState)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Connection' smart constructor.
 connection :: Connection
 connection =
     Connection'
-    { _conVlan = Nothing
-    , _conLocation = Nothing
-    , _conConnectionId = Nothing
-    , _conConnectionName = Nothing
-    , _conPartnerName = Nothing
-    , _conBandwidth = Nothing
-    , _conRegion = Nothing
-    , _conOwnerAccount = Nothing
-    , _conConnectionState = Nothing
+    { _cVlan = Nothing
+    , _cLocation = Nothing
+    , _cConnectionId = Nothing
+    , _cConnectionName = Nothing
+    , _cPartnerName = Nothing
+    , _cBandwidth = Nothing
+    , _cRegion = Nothing
+    , _cOwnerAccount = Nothing
+    , _cConnectionState = Nothing
     }
 
 -- | FIXME: Undocumented member.
-conVlan :: Lens' Connection (Maybe Int)
-conVlan = lens _conVlan (\ s a -> s{_conVlan = a});
+cVlan :: Lens' Connection (Maybe Int)
+cVlan = lens _cVlan (\ s a -> s{_cVlan = a});
 
 -- | FIXME: Undocumented member.
-conLocation :: Lens' Connection (Maybe Text)
-conLocation = lens _conLocation (\ s a -> s{_conLocation = a});
+cLocation :: Lens' Connection (Maybe Text)
+cLocation = lens _cLocation (\ s a -> s{_cLocation = a});
 
 -- | FIXME: Undocumented member.
-conConnectionId :: Lens' Connection (Maybe Text)
-conConnectionId = lens _conConnectionId (\ s a -> s{_conConnectionId = a});
+cConnectionId :: Lens' Connection (Maybe Text)
+cConnectionId = lens _cConnectionId (\ s a -> s{_cConnectionId = a});
 
 -- | FIXME: Undocumented member.
-conConnectionName :: Lens' Connection (Maybe Text)
-conConnectionName = lens _conConnectionName (\ s a -> s{_conConnectionName = a});
+cConnectionName :: Lens' Connection (Maybe Text)
+cConnectionName = lens _cConnectionName (\ s a -> s{_cConnectionName = a});
 
 -- | FIXME: Undocumented member.
-conPartnerName :: Lens' Connection (Maybe Text)
-conPartnerName = lens _conPartnerName (\ s a -> s{_conPartnerName = a});
+cPartnerName :: Lens' Connection (Maybe Text)
+cPartnerName = lens _cPartnerName (\ s a -> s{_cPartnerName = a});
 
 -- | Bandwidth of the connection.
 --
@@ -98,20 +98,20 @@ conPartnerName = lens _conPartnerName (\ s a -> s{_conPartnerName = a});
 -- connections)
 --
 -- Default: None
-conBandwidth :: Lens' Connection (Maybe Text)
-conBandwidth = lens _conBandwidth (\ s a -> s{_conBandwidth = a});
+cBandwidth :: Lens' Connection (Maybe Text)
+cBandwidth = lens _cBandwidth (\ s a -> s{_cBandwidth = a});
 
 -- | FIXME: Undocumented member.
-conRegion :: Lens' Connection (Maybe Text)
-conRegion = lens _conRegion (\ s a -> s{_conRegion = a});
+cRegion :: Lens' Connection (Maybe Text)
+cRegion = lens _cRegion (\ s a -> s{_cRegion = a});
 
 -- | FIXME: Undocumented member.
-conOwnerAccount :: Lens' Connection (Maybe Text)
-conOwnerAccount = lens _conOwnerAccount (\ s a -> s{_conOwnerAccount = a});
+cOwnerAccount :: Lens' Connection (Maybe Text)
+cOwnerAccount = lens _cOwnerAccount (\ s a -> s{_cOwnerAccount = a});
 
 -- | FIXME: Undocumented member.
-conConnectionState :: Lens' Connection (Maybe ConnectionState)
-conConnectionState = lens _conConnectionState (\ s a -> s{_conConnectionState = a});
+cConnectionState :: Lens' Connection (Maybe ConnectionState)
+cConnectionState = lens _cConnectionState (\ s a -> s{_cConnectionState = a});
 
 instance FromJSON Connection where
         parseJSON
@@ -133,21 +133,21 @@ instance FromJSON Connection where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'conConnections'
+-- * 'cConnections'
 newtype Connections = Connections'
-    { _conConnections :: Maybe [Connection]
+    { _cConnections :: Maybe [Connection]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Connections' smart constructor.
 connections :: Connections
 connections =
     Connections'
-    { _conConnections = Nothing
+    { _cConnections = Nothing
     }
 
 -- | A list of connections.
-conConnections :: Lens' Connections [Connection]
-conConnections = lens _conConnections (\ s a -> s{_conConnections = a}) . _Default;
+cConnections :: Lens' Connections [Connection]
+cConnections = lens _cConnections (\ s a -> s{_cConnections = a}) . _Default;
 
 instance FromJSON Connections where
         parseJSON
@@ -172,61 +172,61 @@ instance FromJSON Connections where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'intInterconnectId'
+-- * 'iInterconnectId'
 --
--- * 'intInterconnectName'
+-- * 'iInterconnectName'
 --
--- * 'intLocation'
+-- * 'iLocation'
 --
--- * 'intBandwidth'
+-- * 'iBandwidth'
 --
--- * 'intInterconnectState'
+-- * 'iInterconnectState'
 --
--- * 'intRegion'
+-- * 'iRegion'
 data Interconnect = Interconnect'
-    { _intInterconnectId    :: !(Maybe Text)
-    , _intInterconnectName  :: !(Maybe Text)
-    , _intLocation          :: !(Maybe Text)
-    , _intBandwidth         :: !(Maybe Text)
-    , _intInterconnectState :: !(Maybe InterconnectState)
-    , _intRegion            :: !(Maybe Text)
+    { _iInterconnectId    :: !(Maybe Text)
+    , _iInterconnectName  :: !(Maybe Text)
+    , _iLocation          :: !(Maybe Text)
+    , _iBandwidth         :: !(Maybe Text)
+    , _iInterconnectState :: !(Maybe InterconnectState)
+    , _iRegion            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Interconnect' smart constructor.
 interconnect :: Interconnect
 interconnect =
     Interconnect'
-    { _intInterconnectId = Nothing
-    , _intInterconnectName = Nothing
-    , _intLocation = Nothing
-    , _intBandwidth = Nothing
-    , _intInterconnectState = Nothing
-    , _intRegion = Nothing
+    { _iInterconnectId = Nothing
+    , _iInterconnectName = Nothing
+    , _iLocation = Nothing
+    , _iBandwidth = Nothing
+    , _iInterconnectState = Nothing
+    , _iRegion = Nothing
     }
 
 -- | FIXME: Undocumented member.
-intInterconnectId :: Lens' Interconnect (Maybe Text)
-intInterconnectId = lens _intInterconnectId (\ s a -> s{_intInterconnectId = a});
+iInterconnectId :: Lens' Interconnect (Maybe Text)
+iInterconnectId = lens _iInterconnectId (\ s a -> s{_iInterconnectId = a});
 
 -- | FIXME: Undocumented member.
-intInterconnectName :: Lens' Interconnect (Maybe Text)
-intInterconnectName = lens _intInterconnectName (\ s a -> s{_intInterconnectName = a});
+iInterconnectName :: Lens' Interconnect (Maybe Text)
+iInterconnectName = lens _iInterconnectName (\ s a -> s{_iInterconnectName = a});
 
 -- | FIXME: Undocumented member.
-intLocation :: Lens' Interconnect (Maybe Text)
-intLocation = lens _intLocation (\ s a -> s{_intLocation = a});
+iLocation :: Lens' Interconnect (Maybe Text)
+iLocation = lens _iLocation (\ s a -> s{_iLocation = a});
 
 -- | FIXME: Undocumented member.
-intBandwidth :: Lens' Interconnect (Maybe Text)
-intBandwidth = lens _intBandwidth (\ s a -> s{_intBandwidth = a});
+iBandwidth :: Lens' Interconnect (Maybe Text)
+iBandwidth = lens _iBandwidth (\ s a -> s{_iBandwidth = a});
 
 -- | FIXME: Undocumented member.
-intInterconnectState :: Lens' Interconnect (Maybe InterconnectState)
-intInterconnectState = lens _intInterconnectState (\ s a -> s{_intInterconnectState = a});
+iInterconnectState :: Lens' Interconnect (Maybe InterconnectState)
+iInterconnectState = lens _iInterconnectState (\ s a -> s{_iInterconnectState = a});
 
 -- | FIXME: Undocumented member.
-intRegion :: Lens' Interconnect (Maybe Text)
-intRegion = lens _intRegion (\ s a -> s{_intRegion = a});
+iRegion :: Lens' Interconnect (Maybe Text)
+iRegion = lens _iRegion (\ s a -> s{_iRegion = a});
 
 instance FromJSON Interconnect where
         parseJSON
@@ -247,30 +247,30 @@ instance FromJSON Interconnect where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'locLocationName'
+-- * 'lLocationName'
 --
--- * 'locLocationCode'
+-- * 'lLocationCode'
 data Location = Location'
-    { _locLocationName :: !(Maybe Text)
-    , _locLocationCode :: !(Maybe Text)
+    { _lLocationName :: !(Maybe Text)
+    , _lLocationCode :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Location' smart constructor.
 location :: Location
 location =
     Location'
-    { _locLocationName = Nothing
-    , _locLocationCode = Nothing
+    { _lLocationName = Nothing
+    , _lLocationCode = Nothing
     }
 
 -- | The name of the AWS Direct Connect location. The name includes the
 -- colocation partner name and the physical site of the lit building.
-locLocationName :: Lens' Location (Maybe Text)
-locLocationName = lens _locLocationName (\ s a -> s{_locLocationName = a});
+lLocationName :: Lens' Location (Maybe Text)
+lLocationName = lens _lLocationName (\ s a -> s{_lLocationName = a});
 
 -- | The code used to indicate the AWS Direct Connect location.
-locLocationCode :: Lens' Location (Maybe Text)
-locLocationCode = lens _locLocationCode (\ s a -> s{_locLocationCode = a});
+lLocationCode :: Lens' Location (Maybe Text)
+lLocationCode = lens _lLocationCode (\ s a -> s{_lLocationCode = a});
 
 instance FromJSON Location where
         parseJSON
@@ -286,79 +286,79 @@ instance FromJSON Location where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'newCustomerAddress'
+-- * 'nCustomerAddress'
 --
--- * 'newAmazonAddress'
+-- * 'nAmazonAddress'
 --
--- * 'newAuthKey'
+-- * 'nAuthKey'
 --
--- * 'newVirtualInterfaceName'
+-- * 'nVirtualInterfaceName'
 --
--- * 'newVlan'
+-- * 'nVlan'
 --
--- * 'newAsn'
+-- * 'nAsn'
 --
--- * 'newVirtualGatewayId'
+-- * 'nVirtualGatewayId'
 data NewPrivateVirtualInterface = NewPrivateVirtualInterface'
-    { _newCustomerAddress      :: !(Maybe Text)
-    , _newAmazonAddress        :: !(Maybe Text)
-    , _newAuthKey              :: !(Maybe Text)
-    , _newVirtualInterfaceName :: !Text
-    , _newVlan                 :: !Int
-    , _newAsn                  :: !Int
-    , _newVirtualGatewayId     :: !Text
+    { _nCustomerAddress      :: !(Maybe Text)
+    , _nAmazonAddress        :: !(Maybe Text)
+    , _nAuthKey              :: !(Maybe Text)
+    , _nVirtualInterfaceName :: !Text
+    , _nVlan                 :: !Int
+    , _nAsn                  :: !Int
+    , _nVirtualGatewayId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPrivateVirtualInterface' smart constructor.
 newPrivateVirtualInterface :: Text -> Int -> Int -> Text -> NewPrivateVirtualInterface
 newPrivateVirtualInterface pVirtualInterfaceName pVlan pAsn pVirtualGatewayId =
     NewPrivateVirtualInterface'
-    { _newCustomerAddress = Nothing
-    , _newAmazonAddress = Nothing
-    , _newAuthKey = Nothing
-    , _newVirtualInterfaceName = pVirtualInterfaceName
-    , _newVlan = pVlan
-    , _newAsn = pAsn
-    , _newVirtualGatewayId = pVirtualGatewayId
+    { _nCustomerAddress = Nothing
+    , _nAmazonAddress = Nothing
+    , _nAuthKey = Nothing
+    , _nVirtualInterfaceName = pVirtualInterfaceName
+    , _nVlan = pVlan
+    , _nAsn = pAsn
+    , _nVirtualGatewayId = pVirtualGatewayId
     }
 
 -- | FIXME: Undocumented member.
-newCustomerAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
-newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = a});
+nCustomerAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
+nCustomerAddress = lens _nCustomerAddress (\ s a -> s{_nCustomerAddress = a});
 
 -- | FIXME: Undocumented member.
-newAmazonAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
-newAmazonAddress = lens _newAmazonAddress (\ s a -> s{_newAmazonAddress = a});
+nAmazonAddress :: Lens' NewPrivateVirtualInterface (Maybe Text)
+nAmazonAddress = lens _nAmazonAddress (\ s a -> s{_nAmazonAddress = a});
 
 -- | FIXME: Undocumented member.
-newAuthKey :: Lens' NewPrivateVirtualInterface (Maybe Text)
-newAuthKey = lens _newAuthKey (\ s a -> s{_newAuthKey = a});
+nAuthKey :: Lens' NewPrivateVirtualInterface (Maybe Text)
+nAuthKey = lens _nAuthKey (\ s a -> s{_nAuthKey = a});
 
 -- | FIXME: Undocumented member.
-newVirtualInterfaceName :: Lens' NewPrivateVirtualInterface Text
-newVirtualInterfaceName = lens _newVirtualInterfaceName (\ s a -> s{_newVirtualInterfaceName = a});
+nVirtualInterfaceName :: Lens' NewPrivateVirtualInterface Text
+nVirtualInterfaceName = lens _nVirtualInterfaceName (\ s a -> s{_nVirtualInterfaceName = a});
 
 -- | FIXME: Undocumented member.
-newVlan :: Lens' NewPrivateVirtualInterface Int
-newVlan = lens _newVlan (\ s a -> s{_newVlan = a});
+nVlan :: Lens' NewPrivateVirtualInterface Int
+nVlan = lens _nVlan (\ s a -> s{_nVlan = a});
 
 -- | FIXME: Undocumented member.
-newAsn :: Lens' NewPrivateVirtualInterface Int
-newAsn = lens _newAsn (\ s a -> s{_newAsn = a});
+nAsn :: Lens' NewPrivateVirtualInterface Int
+nAsn = lens _nAsn (\ s a -> s{_nAsn = a});
 
 -- | FIXME: Undocumented member.
-newVirtualGatewayId :: Lens' NewPrivateVirtualInterface Text
-newVirtualGatewayId = lens _newVirtualGatewayId (\ s a -> s{_newVirtualGatewayId = a});
+nVirtualGatewayId :: Lens' NewPrivateVirtualInterface Text
+nVirtualGatewayId = lens _nVirtualGatewayId (\ s a -> s{_nVirtualGatewayId = a});
 
 instance ToJSON NewPrivateVirtualInterface where
         toJSON NewPrivateVirtualInterface'{..}
           = object
-              ["customerAddress" .= _newCustomerAddress,
-               "amazonAddress" .= _newAmazonAddress,
-               "authKey" .= _newAuthKey,
-               "virtualInterfaceName" .= _newVirtualInterfaceName,
-               "vlan" .= _newVlan, "asn" .= _newAsn,
-               "virtualGatewayId" .= _newVirtualGatewayId]
+              ["customerAddress" .= _nCustomerAddress,
+               "amazonAddress" .= _nAmazonAddress,
+               "authKey" .= _nAuthKey,
+               "virtualInterfaceName" .= _nVirtualInterfaceName,
+               "vlan" .= _nVlan, "asn" .= _nAsn,
+               "virtualGatewayId" .= _nVirtualGatewayId]
 
 -- | A structure containing information about a private virtual interface
 -- that will be provisioned on a connection.
@@ -520,80 +520,80 @@ instance ToJSON NewPublicVirtualInterface where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'nAuthKey'
+-- * 'newAuthKey'
 --
--- * 'nVirtualInterfaceName'
+-- * 'newVirtualInterfaceName'
 --
--- * 'nVlan'
+-- * 'newVlan'
 --
--- * 'nAsn'
+-- * 'newAsn'
 --
--- * 'nAmazonAddress'
+-- * 'newAmazonAddress'
 --
--- * 'nCustomerAddress'
+-- * 'newCustomerAddress'
 --
--- * 'nRouteFilterPrefixes'
+-- * 'newRouteFilterPrefixes'
 data NewPublicVirtualInterfaceAllocation = NewPublicVirtualInterfaceAllocation'
-    { _nAuthKey              :: !(Maybe Text)
-    , _nVirtualInterfaceName :: !Text
-    , _nVlan                 :: !Int
-    , _nAsn                  :: !Int
-    , _nAmazonAddress        :: !Text
-    , _nCustomerAddress      :: !Text
-    , _nRouteFilterPrefixes  :: ![RouteFilterPrefix]
+    { _newAuthKey              :: !(Maybe Text)
+    , _newVirtualInterfaceName :: !Text
+    , _newVlan                 :: !Int
+    , _newAsn                  :: !Int
+    , _newAmazonAddress        :: !Text
+    , _newCustomerAddress      :: !Text
+    , _newRouteFilterPrefixes  :: ![RouteFilterPrefix]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'NewPublicVirtualInterfaceAllocation' smart constructor.
 newPublicVirtualInterfaceAllocation :: Text -> Int -> Int -> Text -> Text -> NewPublicVirtualInterfaceAllocation
 newPublicVirtualInterfaceAllocation pVirtualInterfaceName pVlan pAsn pAmazonAddress pCustomerAddress =
     NewPublicVirtualInterfaceAllocation'
-    { _nAuthKey = Nothing
-    , _nVirtualInterfaceName = pVirtualInterfaceName
-    , _nVlan = pVlan
-    , _nAsn = pAsn
-    , _nAmazonAddress = pAmazonAddress
-    , _nCustomerAddress = pCustomerAddress
-    , _nRouteFilterPrefixes = mempty
+    { _newAuthKey = Nothing
+    , _newVirtualInterfaceName = pVirtualInterfaceName
+    , _newVlan = pVlan
+    , _newAsn = pAsn
+    , _newAmazonAddress = pAmazonAddress
+    , _newCustomerAddress = pCustomerAddress
+    , _newRouteFilterPrefixes = mempty
     }
 
 -- | FIXME: Undocumented member.
-nAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
-nAuthKey = lens _nAuthKey (\ s a -> s{_nAuthKey = a});
+newAuthKey :: Lens' NewPublicVirtualInterfaceAllocation (Maybe Text)
+newAuthKey = lens _newAuthKey (\ s a -> s{_newAuthKey = a});
 
 -- | FIXME: Undocumented member.
-nVirtualInterfaceName :: Lens' NewPublicVirtualInterfaceAllocation Text
-nVirtualInterfaceName = lens _nVirtualInterfaceName (\ s a -> s{_nVirtualInterfaceName = a});
+newVirtualInterfaceName :: Lens' NewPublicVirtualInterfaceAllocation Text
+newVirtualInterfaceName = lens _newVirtualInterfaceName (\ s a -> s{_newVirtualInterfaceName = a});
 
 -- | FIXME: Undocumented member.
-nVlan :: Lens' NewPublicVirtualInterfaceAllocation Int
-nVlan = lens _nVlan (\ s a -> s{_nVlan = a});
+newVlan :: Lens' NewPublicVirtualInterfaceAllocation Int
+newVlan = lens _newVlan (\ s a -> s{_newVlan = a});
 
 -- | FIXME: Undocumented member.
-nAsn :: Lens' NewPublicVirtualInterfaceAllocation Int
-nAsn = lens _nAsn (\ s a -> s{_nAsn = a});
+newAsn :: Lens' NewPublicVirtualInterfaceAllocation Int
+newAsn = lens _newAsn (\ s a -> s{_newAsn = a});
 
 -- | FIXME: Undocumented member.
-nAmazonAddress :: Lens' NewPublicVirtualInterfaceAllocation Text
-nAmazonAddress = lens _nAmazonAddress (\ s a -> s{_nAmazonAddress = a});
+newAmazonAddress :: Lens' NewPublicVirtualInterfaceAllocation Text
+newAmazonAddress = lens _newAmazonAddress (\ s a -> s{_newAmazonAddress = a});
 
 -- | FIXME: Undocumented member.
-nCustomerAddress :: Lens' NewPublicVirtualInterfaceAllocation Text
-nCustomerAddress = lens _nCustomerAddress (\ s a -> s{_nCustomerAddress = a});
+newCustomerAddress :: Lens' NewPublicVirtualInterfaceAllocation Text
+newCustomerAddress = lens _newCustomerAddress (\ s a -> s{_newCustomerAddress = a});
 
 -- | FIXME: Undocumented member.
-nRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
-nRouteFilterPrefixes = lens _nRouteFilterPrefixes (\ s a -> s{_nRouteFilterPrefixes = a});
+newRouteFilterPrefixes :: Lens' NewPublicVirtualInterfaceAllocation [RouteFilterPrefix]
+newRouteFilterPrefixes = lens _newRouteFilterPrefixes (\ s a -> s{_newRouteFilterPrefixes = a});
 
 instance ToJSON NewPublicVirtualInterfaceAllocation
          where
         toJSON NewPublicVirtualInterfaceAllocation'{..}
           = object
-              ["authKey" .= _nAuthKey,
-               "virtualInterfaceName" .= _nVirtualInterfaceName,
-               "vlan" .= _nVlan, "asn" .= _nAsn,
-               "amazonAddress" .= _nAmazonAddress,
-               "customerAddress" .= _nCustomerAddress,
-               "routeFilterPrefixes" .= _nRouteFilterPrefixes]
+              ["authKey" .= _newAuthKey,
+               "virtualInterfaceName" .= _newVirtualInterfaceName,
+               "vlan" .= _newVlan, "asn" .= _newAsn,
+               "amazonAddress" .= _newAmazonAddress,
+               "customerAddress" .= _newCustomerAddress,
+               "routeFilterPrefixes" .= _newRouteFilterPrefixes]
 
 -- | A route filter prefix that the customer can advertise through Border
 -- Gateway Protocol (BGP) over a public virtual interface.

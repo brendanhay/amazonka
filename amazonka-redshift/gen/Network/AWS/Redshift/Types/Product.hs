@@ -79,164 +79,164 @@ instance FromXML AvailabilityZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cluRestoreStatus'
+-- * 'cRestoreStatus'
 --
--- * 'cluClusterSnapshotCopyStatus'
+-- * 'cClusterSnapshotCopyStatus'
 --
--- * 'cluClusterRevisionNumber'
+-- * 'cClusterRevisionNumber'
 --
--- * 'cluMasterUsername'
+-- * 'cMasterUsername'
 --
--- * 'cluPubliclyAccessible'
+-- * 'cPubliclyAccessible'
 --
--- * 'cluVPCId'
+-- * 'cVPCId'
 --
--- * 'cluClusterSecurityGroups'
+-- * 'cClusterSecurityGroups'
 --
--- * 'cluAutomatedSnapshotRetentionPeriod'
+-- * 'cAutomatedSnapshotRetentionPeriod'
 --
--- * 'cluEncrypted'
+-- * 'cEncrypted'
 --
--- * 'cluClusterIdentifier'
+-- * 'cClusterIdentifier'
 --
--- * 'cluNumberOfNodes'
+-- * 'cNumberOfNodes'
 --
--- * 'cluClusterSubnetGroupName'
+-- * 'cClusterSubnetGroupName'
 --
--- * 'cluPreferredMaintenanceWindow'
+-- * 'cPreferredMaintenanceWindow'
 --
--- * 'cluModifyStatus'
+-- * 'cModifyStatus'
 --
--- * 'cluClusterPublicKey'
+-- * 'cClusterPublicKey'
 --
--- * 'cluClusterParameterGroups'
+-- * 'cClusterParameterGroups'
 --
--- * 'cluAvailabilityZone'
+-- * 'cAvailabilityZone'
 --
--- * 'cluVPCSecurityGroups'
+-- * 'cVPCSecurityGroups'
 --
--- * 'cluKMSKeyId'
+-- * 'cKMSKeyId'
 --
--- * 'cluHSMStatus'
+-- * 'cHSMStatus'
 --
--- * 'cluElasticIPStatus'
+-- * 'cElasticIPStatus'
 --
--- * 'cluClusterVersion'
+-- * 'cClusterVersion'
 --
--- * 'cluNodeType'
+-- * 'cNodeType'
 --
--- * 'cluEndpoint'
+-- * 'cEndpoint'
 --
--- * 'cluClusterCreateTime'
+-- * 'cClusterCreateTime'
 --
--- * 'cluAllowVersionUpgrade'
+-- * 'cAllowVersionUpgrade'
 --
--- * 'cluPendingModifiedValues'
+-- * 'cPendingModifiedValues'
 --
--- * 'cluClusterStatus'
+-- * 'cClusterStatus'
 --
--- * 'cluDBName'
+-- * 'cDBName'
 --
--- * 'cluTags'
+-- * 'cTags'
 --
--- * 'cluClusterNodes'
+-- * 'cClusterNodes'
 data Cluster = Cluster'
-    { _cluRestoreStatus                    :: !(Maybe RestoreStatus)
-    , _cluClusterSnapshotCopyStatus        :: !(Maybe ClusterSnapshotCopyStatus)
-    , _cluClusterRevisionNumber            :: !(Maybe Text)
-    , _cluMasterUsername                   :: !(Maybe Text)
-    , _cluPubliclyAccessible               :: !(Maybe Bool)
-    , _cluVPCId                            :: !(Maybe Text)
-    , _cluClusterSecurityGroups            :: !(Maybe [ClusterSecurityGroupMembership])
-    , _cluAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _cluEncrypted                        :: !(Maybe Bool)
-    , _cluClusterIdentifier                :: !(Maybe Text)
-    , _cluNumberOfNodes                    :: !(Maybe Int)
-    , _cluClusterSubnetGroupName           :: !(Maybe Text)
-    , _cluPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _cluModifyStatus                     :: !(Maybe Text)
-    , _cluClusterPublicKey                 :: !(Maybe Text)
-    , _cluClusterParameterGroups           :: !(Maybe [ClusterParameterGroupStatus])
-    , _cluAvailabilityZone                 :: !(Maybe Text)
-    , _cluVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
-    , _cluKMSKeyId                         :: !(Maybe Text)
-    , _cluHSMStatus                        :: !(Maybe HSMStatus)
-    , _cluElasticIPStatus                  :: !(Maybe ElasticIPStatus)
-    , _cluClusterVersion                   :: !(Maybe Text)
-    , _cluNodeType                         :: !(Maybe Text)
-    , _cluEndpoint                         :: !(Maybe Endpoint)
-    , _cluClusterCreateTime                :: !(Maybe ISO8601)
-    , _cluAllowVersionUpgrade              :: !(Maybe Bool)
-    , _cluPendingModifiedValues            :: !(Maybe PendingModifiedValues)
-    , _cluClusterStatus                    :: !(Maybe Text)
-    , _cluDBName                           :: !(Maybe Text)
-    , _cluTags                             :: !(Maybe [Tag])
-    , _cluClusterNodes                     :: !(Maybe [ClusterNode])
+    { _cRestoreStatus                    :: !(Maybe RestoreStatus)
+    , _cClusterSnapshotCopyStatus        :: !(Maybe ClusterSnapshotCopyStatus)
+    , _cClusterRevisionNumber            :: !(Maybe Text)
+    , _cMasterUsername                   :: !(Maybe Text)
+    , _cPubliclyAccessible               :: !(Maybe Bool)
+    , _cVPCId                            :: !(Maybe Text)
+    , _cClusterSecurityGroups            :: !(Maybe [ClusterSecurityGroupMembership])
+    , _cAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _cEncrypted                        :: !(Maybe Bool)
+    , _cClusterIdentifier                :: !(Maybe Text)
+    , _cNumberOfNodes                    :: !(Maybe Int)
+    , _cClusterSubnetGroupName           :: !(Maybe Text)
+    , _cPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _cModifyStatus                     :: !(Maybe Text)
+    , _cClusterPublicKey                 :: !(Maybe Text)
+    , _cClusterParameterGroups           :: !(Maybe [ClusterParameterGroupStatus])
+    , _cAvailabilityZone                 :: !(Maybe Text)
+    , _cVPCSecurityGroups                :: !(Maybe [VPCSecurityGroupMembership])
+    , _cKMSKeyId                         :: !(Maybe Text)
+    , _cHSMStatus                        :: !(Maybe HSMStatus)
+    , _cElasticIPStatus                  :: !(Maybe ElasticIPStatus)
+    , _cClusterVersion                   :: !(Maybe Text)
+    , _cNodeType                         :: !(Maybe Text)
+    , _cEndpoint                         :: !(Maybe Endpoint)
+    , _cClusterCreateTime                :: !(Maybe ISO8601)
+    , _cAllowVersionUpgrade              :: !(Maybe Bool)
+    , _cPendingModifiedValues            :: !(Maybe PendingModifiedValues)
+    , _cClusterStatus                    :: !(Maybe Text)
+    , _cDBName                           :: !(Maybe Text)
+    , _cTags                             :: !(Maybe [Tag])
+    , _cClusterNodes                     :: !(Maybe [ClusterNode])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Cluster' smart constructor.
 cluster :: Cluster
 cluster =
     Cluster'
-    { _cluRestoreStatus = Nothing
-    , _cluClusterSnapshotCopyStatus = Nothing
-    , _cluClusterRevisionNumber = Nothing
-    , _cluMasterUsername = Nothing
-    , _cluPubliclyAccessible = Nothing
-    , _cluVPCId = Nothing
-    , _cluClusterSecurityGroups = Nothing
-    , _cluAutomatedSnapshotRetentionPeriod = Nothing
-    , _cluEncrypted = Nothing
-    , _cluClusterIdentifier = Nothing
-    , _cluNumberOfNodes = Nothing
-    , _cluClusterSubnetGroupName = Nothing
-    , _cluPreferredMaintenanceWindow = Nothing
-    , _cluModifyStatus = Nothing
-    , _cluClusterPublicKey = Nothing
-    , _cluClusterParameterGroups = Nothing
-    , _cluAvailabilityZone = Nothing
-    , _cluVPCSecurityGroups = Nothing
-    , _cluKMSKeyId = Nothing
-    , _cluHSMStatus = Nothing
-    , _cluElasticIPStatus = Nothing
-    , _cluClusterVersion = Nothing
-    , _cluNodeType = Nothing
-    , _cluEndpoint = Nothing
-    , _cluClusterCreateTime = Nothing
-    , _cluAllowVersionUpgrade = Nothing
-    , _cluPendingModifiedValues = Nothing
-    , _cluClusterStatus = Nothing
-    , _cluDBName = Nothing
-    , _cluTags = Nothing
-    , _cluClusterNodes = Nothing
+    { _cRestoreStatus = Nothing
+    , _cClusterSnapshotCopyStatus = Nothing
+    , _cClusterRevisionNumber = Nothing
+    , _cMasterUsername = Nothing
+    , _cPubliclyAccessible = Nothing
+    , _cVPCId = Nothing
+    , _cClusterSecurityGroups = Nothing
+    , _cAutomatedSnapshotRetentionPeriod = Nothing
+    , _cEncrypted = Nothing
+    , _cClusterIdentifier = Nothing
+    , _cNumberOfNodes = Nothing
+    , _cClusterSubnetGroupName = Nothing
+    , _cPreferredMaintenanceWindow = Nothing
+    , _cModifyStatus = Nothing
+    , _cClusterPublicKey = Nothing
+    , _cClusterParameterGroups = Nothing
+    , _cAvailabilityZone = Nothing
+    , _cVPCSecurityGroups = Nothing
+    , _cKMSKeyId = Nothing
+    , _cHSMStatus = Nothing
+    , _cElasticIPStatus = Nothing
+    , _cClusterVersion = Nothing
+    , _cNodeType = Nothing
+    , _cEndpoint = Nothing
+    , _cClusterCreateTime = Nothing
+    , _cAllowVersionUpgrade = Nothing
+    , _cPendingModifiedValues = Nothing
+    , _cClusterStatus = Nothing
+    , _cDBName = Nothing
+    , _cTags = Nothing
+    , _cClusterNodes = Nothing
     }
 
 -- | Describes the status of a cluster restore action. Returns null if the
 -- cluster was not created by restoring a snapshot.
-cluRestoreStatus :: Lens' Cluster (Maybe RestoreStatus)
-cluRestoreStatus = lens _cluRestoreStatus (\ s a -> s{_cluRestoreStatus = a});
+cRestoreStatus :: Lens' Cluster (Maybe RestoreStatus)
+cRestoreStatus = lens _cRestoreStatus (\ s a -> s{_cRestoreStatus = a});
 
 -- | Returns the destination region and retention period that are configured
 -- for cross-region snapshot copy.
-cluClusterSnapshotCopyStatus :: Lens' Cluster (Maybe ClusterSnapshotCopyStatus)
-cluClusterSnapshotCopyStatus = lens _cluClusterSnapshotCopyStatus (\ s a -> s{_cluClusterSnapshotCopyStatus = a});
+cClusterSnapshotCopyStatus :: Lens' Cluster (Maybe ClusterSnapshotCopyStatus)
+cClusterSnapshotCopyStatus = lens _cClusterSnapshotCopyStatus (\ s a -> s{_cClusterSnapshotCopyStatus = a});
 
 -- | The specific revision number of the database in the cluster.
-cluClusterRevisionNumber :: Lens' Cluster (Maybe Text)
-cluClusterRevisionNumber = lens _cluClusterRevisionNumber (\ s a -> s{_cluClusterRevisionNumber = a});
+cClusterRevisionNumber :: Lens' Cluster (Maybe Text)
+cClusterRevisionNumber = lens _cClusterRevisionNumber (\ s a -> s{_cClusterRevisionNumber = a});
 
 -- | The master user name for the cluster. This name is used to connect to
 -- the database that is specified in __DBName__.
-cluMasterUsername :: Lens' Cluster (Maybe Text)
-cluMasterUsername = lens _cluMasterUsername (\ s a -> s{_cluMasterUsername = a});
+cMasterUsername :: Lens' Cluster (Maybe Text)
+cMasterUsername = lens _cMasterUsername (\ s a -> s{_cMasterUsername = a});
 
 -- | If @true@, the cluster can be accessed from a public network.
-cluPubliclyAccessible :: Lens' Cluster (Maybe Bool)
-cluPubliclyAccessible = lens _cluPubliclyAccessible (\ s a -> s{_cluPubliclyAccessible = a});
+cPubliclyAccessible :: Lens' Cluster (Maybe Bool)
+cPubliclyAccessible = lens _cPubliclyAccessible (\ s a -> s{_cPubliclyAccessible = a});
 
 -- | The identifier of the VPC the cluster is in, if the cluster is in a VPC.
-cluVPCId :: Lens' Cluster (Maybe Text)
-cluVPCId = lens _cluVPCId (\ s a -> s{_cluVPCId = a});
+cVPCId :: Lens' Cluster (Maybe Text)
+cVPCId = lens _cVPCId (\ s a -> s{_cVPCId = a});
 
 -- | A list of cluster security group that are associated with the cluster.
 -- Each security group is represented by an element that contains
@@ -246,120 +246,120 @@ cluVPCId = lens _cluVPCId (\ s a -> s{_cluVPCId = a});
 -- Cluster security groups are used when the cluster is not created in a
 -- VPC. Clusters that are created in a VPC use VPC security groups, which
 -- are listed by the __VpcSecurityGroups__ parameter.
-cluClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
-cluClusterSecurityGroups = lens _cluClusterSecurityGroups (\ s a -> s{_cluClusterSecurityGroups = a}) . _Default;
+cClusterSecurityGroups :: Lens' Cluster [ClusterSecurityGroupMembership]
+cClusterSecurityGroups = lens _cClusterSecurityGroups (\ s a -> s{_cClusterSecurityGroups = a}) . _Default;
 
 -- | The number of days that automatic cluster snapshots are retained.
-cluAutomatedSnapshotRetentionPeriod :: Lens' Cluster (Maybe Int)
-cluAutomatedSnapshotRetentionPeriod = lens _cluAutomatedSnapshotRetentionPeriod (\ s a -> s{_cluAutomatedSnapshotRetentionPeriod = a});
+cAutomatedSnapshotRetentionPeriod :: Lens' Cluster (Maybe Int)
+cAutomatedSnapshotRetentionPeriod = lens _cAutomatedSnapshotRetentionPeriod (\ s a -> s{_cAutomatedSnapshotRetentionPeriod = a});
 
 -- | If @true@, data in the cluster is encrypted at rest.
-cluEncrypted :: Lens' Cluster (Maybe Bool)
-cluEncrypted = lens _cluEncrypted (\ s a -> s{_cluEncrypted = a});
+cEncrypted :: Lens' Cluster (Maybe Bool)
+cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a});
 
 -- | The unique identifier of the cluster.
-cluClusterIdentifier :: Lens' Cluster (Maybe Text)
-cluClusterIdentifier = lens _cluClusterIdentifier (\ s a -> s{_cluClusterIdentifier = a});
+cClusterIdentifier :: Lens' Cluster (Maybe Text)
+cClusterIdentifier = lens _cClusterIdentifier (\ s a -> s{_cClusterIdentifier = a});
 
 -- | The number of compute nodes in the cluster.
-cluNumberOfNodes :: Lens' Cluster (Maybe Int)
-cluNumberOfNodes = lens _cluNumberOfNodes (\ s a -> s{_cluNumberOfNodes = a});
+cNumberOfNodes :: Lens' Cluster (Maybe Int)
+cNumberOfNodes = lens _cNumberOfNodes (\ s a -> s{_cNumberOfNodes = a});
 
 -- | The name of the subnet group that is associated with the cluster. This
 -- parameter is valid only when the cluster is in a VPC.
-cluClusterSubnetGroupName :: Lens' Cluster (Maybe Text)
-cluClusterSubnetGroupName = lens _cluClusterSubnetGroupName (\ s a -> s{_cluClusterSubnetGroupName = a});
+cClusterSubnetGroupName :: Lens' Cluster (Maybe Text)
+cClusterSubnetGroupName = lens _cClusterSubnetGroupName (\ s a -> s{_cClusterSubnetGroupName = a});
 
 -- | The weekly time range (in UTC) during which system maintenance can
 -- occur.
-cluPreferredMaintenanceWindow :: Lens' Cluster (Maybe Text)
-cluPreferredMaintenanceWindow = lens _cluPreferredMaintenanceWindow (\ s a -> s{_cluPreferredMaintenanceWindow = a});
+cPreferredMaintenanceWindow :: Lens' Cluster (Maybe Text)
+cPreferredMaintenanceWindow = lens _cPreferredMaintenanceWindow (\ s a -> s{_cPreferredMaintenanceWindow = a});
 
 -- | The status of a modify operation, if any, initiated for the cluster.
-cluModifyStatus :: Lens' Cluster (Maybe Text)
-cluModifyStatus = lens _cluModifyStatus (\ s a -> s{_cluModifyStatus = a});
+cModifyStatus :: Lens' Cluster (Maybe Text)
+cModifyStatus = lens _cModifyStatus (\ s a -> s{_cModifyStatus = a});
 
 -- | The public key for the cluster.
-cluClusterPublicKey :: Lens' Cluster (Maybe Text)
-cluClusterPublicKey = lens _cluClusterPublicKey (\ s a -> s{_cluClusterPublicKey = a});
+cClusterPublicKey :: Lens' Cluster (Maybe Text)
+cClusterPublicKey = lens _cClusterPublicKey (\ s a -> s{_cClusterPublicKey = a});
 
 -- | The list of cluster parameter groups that are associated with this
 -- cluster. Each parameter group in the list is returned with its status.
-cluClusterParameterGroups :: Lens' Cluster [ClusterParameterGroupStatus]
-cluClusterParameterGroups = lens _cluClusterParameterGroups (\ s a -> s{_cluClusterParameterGroups = a}) . _Default;
+cClusterParameterGroups :: Lens' Cluster [ClusterParameterGroupStatus]
+cClusterParameterGroups = lens _cClusterParameterGroups (\ s a -> s{_cClusterParameterGroups = a}) . _Default;
 
 -- | The name of the Availability Zone in which the cluster is located.
-cluAvailabilityZone :: Lens' Cluster (Maybe Text)
-cluAvailabilityZone = lens _cluAvailabilityZone (\ s a -> s{_cluAvailabilityZone = a});
+cAvailabilityZone :: Lens' Cluster (Maybe Text)
+cAvailabilityZone = lens _cAvailabilityZone (\ s a -> s{_cAvailabilityZone = a});
 
 -- | A list of Virtual Private Cloud (VPC) security groups that are
 -- associated with the cluster. This parameter is returned only if the
 -- cluster is in a VPC.
-cluVPCSecurityGroups :: Lens' Cluster [VPCSecurityGroupMembership]
-cluVPCSecurityGroups = lens _cluVPCSecurityGroups (\ s a -> s{_cluVPCSecurityGroups = a}) . _Default;
+cVPCSecurityGroups :: Lens' Cluster [VPCSecurityGroupMembership]
+cVPCSecurityGroups = lens _cVPCSecurityGroups (\ s a -> s{_cVPCSecurityGroups = a}) . _Default;
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key used
 -- to encrypt data in the cluster.
-cluKMSKeyId :: Lens' Cluster (Maybe Text)
-cluKMSKeyId = lens _cluKMSKeyId (\ s a -> s{_cluKMSKeyId = a});
+cKMSKeyId :: Lens' Cluster (Maybe Text)
+cKMSKeyId = lens _cKMSKeyId (\ s a -> s{_cKMSKeyId = a});
 
 -- | Reports whether the Amazon Redshift cluster has finished applying any
 -- HSM settings changes specified in a modify cluster command.
 --
 -- Values: active, applying
-cluHSMStatus :: Lens' Cluster (Maybe HSMStatus)
-cluHSMStatus = lens _cluHSMStatus (\ s a -> s{_cluHSMStatus = a});
+cHSMStatus :: Lens' Cluster (Maybe HSMStatus)
+cHSMStatus = lens _cHSMStatus (\ s a -> s{_cHSMStatus = a});
 
 -- | Describes the status of the elastic IP (EIP) address.
-cluElasticIPStatus :: Lens' Cluster (Maybe ElasticIPStatus)
-cluElasticIPStatus = lens _cluElasticIPStatus (\ s a -> s{_cluElasticIPStatus = a});
+cElasticIPStatus :: Lens' Cluster (Maybe ElasticIPStatus)
+cElasticIPStatus = lens _cElasticIPStatus (\ s a -> s{_cElasticIPStatus = a});
 
 -- | The version ID of the Amazon Redshift engine that is running on the
 -- cluster.
-cluClusterVersion :: Lens' Cluster (Maybe Text)
-cluClusterVersion = lens _cluClusterVersion (\ s a -> s{_cluClusterVersion = a});
+cClusterVersion :: Lens' Cluster (Maybe Text)
+cClusterVersion = lens _cClusterVersion (\ s a -> s{_cClusterVersion = a});
 
 -- | The node type for the nodes in the cluster.
-cluNodeType :: Lens' Cluster (Maybe Text)
-cluNodeType = lens _cluNodeType (\ s a -> s{_cluNodeType = a});
+cNodeType :: Lens' Cluster (Maybe Text)
+cNodeType = lens _cNodeType (\ s a -> s{_cNodeType = a});
 
 -- | The connection endpoint.
-cluEndpoint :: Lens' Cluster (Maybe Endpoint)
-cluEndpoint = lens _cluEndpoint (\ s a -> s{_cluEndpoint = a});
+cEndpoint :: Lens' Cluster (Maybe Endpoint)
+cEndpoint = lens _cEndpoint (\ s a -> s{_cEndpoint = a});
 
 -- | The date and time that the cluster was created.
-cluClusterCreateTime :: Lens' Cluster (Maybe UTCTime)
-cluClusterCreateTime = lens _cluClusterCreateTime (\ s a -> s{_cluClusterCreateTime = a}) . mapping _Time;
+cClusterCreateTime :: Lens' Cluster (Maybe UTCTime)
+cClusterCreateTime = lens _cClusterCreateTime (\ s a -> s{_cClusterCreateTime = a}) . mapping _Time;
 
 -- | If @true@, major version upgrades will be applied automatically to the
 -- cluster during the maintenance window.
-cluAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
-cluAllowVersionUpgrade = lens _cluAllowVersionUpgrade (\ s a -> s{_cluAllowVersionUpgrade = a});
+cAllowVersionUpgrade :: Lens' Cluster (Maybe Bool)
+cAllowVersionUpgrade = lens _cAllowVersionUpgrade (\ s a -> s{_cAllowVersionUpgrade = a});
 
 -- | If present, changes to the cluster are pending. Specific pending changes
 -- are identified by subelements.
-cluPendingModifiedValues :: Lens' Cluster (Maybe PendingModifiedValues)
-cluPendingModifiedValues = lens _cluPendingModifiedValues (\ s a -> s{_cluPendingModifiedValues = a});
+cPendingModifiedValues :: Lens' Cluster (Maybe PendingModifiedValues)
+cPendingModifiedValues = lens _cPendingModifiedValues (\ s a -> s{_cPendingModifiedValues = a});
 
 -- | The current state of this cluster. Possible values include @available@,
 -- @creating@, @deleting@, @rebooting@, @renaming@, and @resizing@.
-cluClusterStatus :: Lens' Cluster (Maybe Text)
-cluClusterStatus = lens _cluClusterStatus (\ s a -> s{_cluClusterStatus = a});
+cClusterStatus :: Lens' Cluster (Maybe Text)
+cClusterStatus = lens _cClusterStatus (\ s a -> s{_cClusterStatus = a});
 
 -- | The name of the initial database that was created when the cluster was
 -- created. This same name is returned for the life of the cluster. If an
 -- initial database was not specified, a database named \"dev\" was created
 -- by default.
-cluDBName :: Lens' Cluster (Maybe Text)
-cluDBName = lens _cluDBName (\ s a -> s{_cluDBName = a});
+cDBName :: Lens' Cluster (Maybe Text)
+cDBName = lens _cDBName (\ s a -> s{_cDBName = a});
 
 -- | The list of tags for the cluster.
-cluTags :: Lens' Cluster [Tag]
-cluTags = lens _cluTags (\ s a -> s{_cluTags = a}) . _Default;
+cTags :: Lens' Cluster [Tag]
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
 
 -- | The nodes in a cluster.
-cluClusterNodes :: Lens' Cluster [ClusterNode]
-cluClusterNodes = lens _cluClusterNodes (\ s a -> s{_cluClusterNodes = a}) . _Default;
+cClusterNodes :: Lens' Cluster [ClusterNode]
+cClusterNodes = lens _cClusterNodes (\ s a -> s{_cClusterNodes = a}) . _Default;
 
 instance FromXML Cluster where
         parseXML x
@@ -667,56 +667,56 @@ instance FromXML ClusterParameterStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cClusterSecurityGroupName'
+-- * 'cluClusterSecurityGroupName'
 --
--- * 'cIPRanges'
+-- * 'cluIPRanges'
 --
--- * 'cEC2SecurityGroups'
+-- * 'cluEC2SecurityGroups'
 --
--- * 'cDescription'
+-- * 'cluDescription'
 --
--- * 'cTags'
+-- * 'cluTags'
 data ClusterSecurityGroup = ClusterSecurityGroup'
-    { _cClusterSecurityGroupName :: !(Maybe Text)
-    , _cIPRanges                 :: !(Maybe [IPRange])
-    , _cEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
-    , _cDescription              :: !(Maybe Text)
-    , _cTags                     :: !(Maybe [Tag])
+    { _cluClusterSecurityGroupName :: !(Maybe Text)
+    , _cluIPRanges                 :: !(Maybe [IPRange])
+    , _cluEC2SecurityGroups        :: !(Maybe [EC2SecurityGroup])
+    , _cluDescription              :: !(Maybe Text)
+    , _cluTags                     :: !(Maybe [Tag])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ClusterSecurityGroup' smart constructor.
 clusterSecurityGroup :: ClusterSecurityGroup
 clusterSecurityGroup =
     ClusterSecurityGroup'
-    { _cClusterSecurityGroupName = Nothing
-    , _cIPRanges = Nothing
-    , _cEC2SecurityGroups = Nothing
-    , _cDescription = Nothing
-    , _cTags = Nothing
+    { _cluClusterSecurityGroupName = Nothing
+    , _cluIPRanges = Nothing
+    , _cluEC2SecurityGroups = Nothing
+    , _cluDescription = Nothing
+    , _cluTags = Nothing
     }
 
 -- | The name of the cluster security group to which the operation was
 -- applied.
-cClusterSecurityGroupName :: Lens' ClusterSecurityGroup (Maybe Text)
-cClusterSecurityGroupName = lens _cClusterSecurityGroupName (\ s a -> s{_cClusterSecurityGroupName = a});
+cluClusterSecurityGroupName :: Lens' ClusterSecurityGroup (Maybe Text)
+cluClusterSecurityGroupName = lens _cluClusterSecurityGroupName (\ s a -> s{_cluClusterSecurityGroupName = a});
 
 -- | A list of IP ranges (CIDR blocks) that are permitted to access clusters
 -- associated with this cluster security group.
-cIPRanges :: Lens' ClusterSecurityGroup [IPRange]
-cIPRanges = lens _cIPRanges (\ s a -> s{_cIPRanges = a}) . _Default;
+cluIPRanges :: Lens' ClusterSecurityGroup [IPRange]
+cluIPRanges = lens _cluIPRanges (\ s a -> s{_cluIPRanges = a}) . _Default;
 
 -- | A list of EC2 security groups that are permitted to access clusters
 -- associated with this cluster security group.
-cEC2SecurityGroups :: Lens' ClusterSecurityGroup [EC2SecurityGroup]
-cEC2SecurityGroups = lens _cEC2SecurityGroups (\ s a -> s{_cEC2SecurityGroups = a}) . _Default;
+cluEC2SecurityGroups :: Lens' ClusterSecurityGroup [EC2SecurityGroup]
+cluEC2SecurityGroups = lens _cluEC2SecurityGroups (\ s a -> s{_cluEC2SecurityGroups = a}) . _Default;
 
 -- | A description of the security group.
-cDescription :: Lens' ClusterSecurityGroup (Maybe Text)
-cDescription = lens _cDescription (\ s a -> s{_cDescription = a});
+cluDescription :: Lens' ClusterSecurityGroup (Maybe Text)
+cluDescription = lens _cluDescription (\ s a -> s{_cluDescription = a});
 
 -- | The list of tags for the cluster security group.
-cTags :: Lens' ClusterSecurityGroup [Tag]
-cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
+cluTags :: Lens' ClusterSecurityGroup [Tag]
+cluTags = lens _cluTags (\ s a -> s{_cluTags = a}) . _Default;
 
 instance FromXML ClusterSecurityGroup where
         parseXML x
@@ -1088,29 +1088,29 @@ instance FromXML ElasticIPStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'endAddress'
+-- * 'eAddress'
 --
--- * 'endPort'
+-- * 'ePort'
 data Endpoint = Endpoint'
-    { _endAddress :: !(Maybe Text)
-    , _endPort    :: !(Maybe Int)
+    { _eAddress :: !(Maybe Text)
+    , _ePort    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
 endpoint =
     Endpoint'
-    { _endAddress = Nothing
-    , _endPort = Nothing
+    { _eAddress = Nothing
+    , _ePort = Nothing
     }
 
 -- | The DNS address of the Cluster.
-endAddress :: Lens' Endpoint (Maybe Text)
-endAddress = lens _endAddress (\ s a -> s{_endAddress = a});
+eAddress :: Lens' Endpoint (Maybe Text)
+eAddress = lens _eAddress (\ s a -> s{_eAddress = a});
 
 -- | The port that the database engine is listening on.
-endPort :: Lens' Endpoint (Maybe Int)
-endPort = lens _endPort (\ s a -> s{_endPort = a});
+ePort :: Lens' Endpoint (Maybe Int)
+ePort = lens _ePort (\ s a -> s{_ePort = a});
 
 instance FromXML Endpoint where
         parseXML x
@@ -1122,73 +1122,73 @@ instance FromXML Endpoint where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eveSourceType'
+-- * 'eSourceType'
 --
--- * 'eveSeverity'
+-- * 'eSeverity'
 --
--- * 'eveSourceIdentifier'
+-- * 'eSourceIdentifier'
 --
--- * 'eveDate'
+-- * 'eDate'
 --
--- * 'eveEventCategories'
+-- * 'eEventCategories'
 --
--- * 'eveMessage'
+-- * 'eMessage'
 --
--- * 'eveEventId'
+-- * 'eEventId'
 data Event = Event'
-    { _eveSourceType       :: !(Maybe SourceType)
-    , _eveSeverity         :: !(Maybe Text)
-    , _eveSourceIdentifier :: !(Maybe Text)
-    , _eveDate             :: !(Maybe ISO8601)
-    , _eveEventCategories  :: !(Maybe [Text])
-    , _eveMessage          :: !(Maybe Text)
-    , _eveEventId          :: !(Maybe Text)
+    { _eSourceType       :: !(Maybe SourceType)
+    , _eSeverity         :: !(Maybe Text)
+    , _eSourceIdentifier :: !(Maybe Text)
+    , _eDate             :: !(Maybe ISO8601)
+    , _eEventCategories  :: !(Maybe [Text])
+    , _eMessage          :: !(Maybe Text)
+    , _eEventId          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Event' smart constructor.
 event :: Event
 event =
     Event'
-    { _eveSourceType = Nothing
-    , _eveSeverity = Nothing
-    , _eveSourceIdentifier = Nothing
-    , _eveDate = Nothing
-    , _eveEventCategories = Nothing
-    , _eveMessage = Nothing
-    , _eveEventId = Nothing
+    { _eSourceType = Nothing
+    , _eSeverity = Nothing
+    , _eSourceIdentifier = Nothing
+    , _eDate = Nothing
+    , _eEventCategories = Nothing
+    , _eMessage = Nothing
+    , _eEventId = Nothing
     }
 
 -- | The source type for this event.
-eveSourceType :: Lens' Event (Maybe SourceType)
-eveSourceType = lens _eveSourceType (\ s a -> s{_eveSourceType = a});
+eSourceType :: Lens' Event (Maybe SourceType)
+eSourceType = lens _eSourceType (\ s a -> s{_eSourceType = a});
 
 -- | The severity of the event.
 --
 -- Values: ERROR, INFO
-eveSeverity :: Lens' Event (Maybe Text)
-eveSeverity = lens _eveSeverity (\ s a -> s{_eveSeverity = a});
+eSeverity :: Lens' Event (Maybe Text)
+eSeverity = lens _eSeverity (\ s a -> s{_eSeverity = a});
 
 -- | The identifier for the source of the event.
-eveSourceIdentifier :: Lens' Event (Maybe Text)
-eveSourceIdentifier = lens _eveSourceIdentifier (\ s a -> s{_eveSourceIdentifier = a});
+eSourceIdentifier :: Lens' Event (Maybe Text)
+eSourceIdentifier = lens _eSourceIdentifier (\ s a -> s{_eSourceIdentifier = a});
 
 -- | The date and time of the event.
-eveDate :: Lens' Event (Maybe UTCTime)
-eveDate = lens _eveDate (\ s a -> s{_eveDate = a}) . mapping _Time;
+eDate :: Lens' Event (Maybe UTCTime)
+eDate = lens _eDate (\ s a -> s{_eDate = a}) . mapping _Time;
 
 -- | A list of the event categories.
 --
 -- Values: Configuration, Management, Monitoring, Security
-eveEventCategories :: Lens' Event [Text]
-eveEventCategories = lens _eveEventCategories (\ s a -> s{_eveEventCategories = a}) . _Default;
+eEventCategories :: Lens' Event [Text]
+eEventCategories = lens _eEventCategories (\ s a -> s{_eEventCategories = a}) . _Default;
 
 -- | The text of this event.
-eveMessage :: Lens' Event (Maybe Text)
-eveMessage = lens _eveMessage (\ s a -> s{_eveMessage = a});
+eMessage :: Lens' Event (Maybe Text)
+eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 
 -- | The identifier of the event.
-eveEventId :: Lens' Event (Maybe Text)
-eveEventId = lens _eveEventId (\ s a -> s{_eveEventId = a});
+eEventId :: Lens' Event (Maybe Text)
+eEventId = lens _eEventId (\ s a -> s{_eEventId = a});
 
 instance FromXML Event where
         parseXML x
@@ -1781,87 +1781,87 @@ instance FromXML OrderableClusterOption where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'parApplyType'
+-- * 'pApplyType'
 --
--- * 'parParameterValue'
+-- * 'pParameterValue'
 --
--- * 'parMinimumEngineVersion'
+-- * 'pMinimumEngineVersion'
 --
--- * 'parSource'
+-- * 'pSource'
 --
--- * 'parIsModifiable'
+-- * 'pIsModifiable'
 --
--- * 'parAllowedValues'
+-- * 'pAllowedValues'
 --
--- * 'parDataType'
+-- * 'pDataType'
 --
--- * 'parParameterName'
+-- * 'pParameterName'
 --
--- * 'parDescription'
+-- * 'pDescription'
 data Parameter = Parameter'
-    { _parApplyType            :: !(Maybe ParameterApplyType)
-    , _parParameterValue       :: !(Maybe Text)
-    , _parMinimumEngineVersion :: !(Maybe Text)
-    , _parSource               :: !(Maybe Text)
-    , _parIsModifiable         :: !(Maybe Bool)
-    , _parAllowedValues        :: !(Maybe Text)
-    , _parDataType             :: !(Maybe Text)
-    , _parParameterName        :: !(Maybe Text)
-    , _parDescription          :: !(Maybe Text)
+    { _pApplyType            :: !(Maybe ParameterApplyType)
+    , _pParameterValue       :: !(Maybe Text)
+    , _pMinimumEngineVersion :: !(Maybe Text)
+    , _pSource               :: !(Maybe Text)
+    , _pIsModifiable         :: !(Maybe Bool)
+    , _pAllowedValues        :: !(Maybe Text)
+    , _pDataType             :: !(Maybe Text)
+    , _pParameterName        :: !(Maybe Text)
+    , _pDescription          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
 parameter =
     Parameter'
-    { _parApplyType = Nothing
-    , _parParameterValue = Nothing
-    , _parMinimumEngineVersion = Nothing
-    , _parSource = Nothing
-    , _parIsModifiable = Nothing
-    , _parAllowedValues = Nothing
-    , _parDataType = Nothing
-    , _parParameterName = Nothing
-    , _parDescription = Nothing
+    { _pApplyType = Nothing
+    , _pParameterValue = Nothing
+    , _pMinimumEngineVersion = Nothing
+    , _pSource = Nothing
+    , _pIsModifiable = Nothing
+    , _pAllowedValues = Nothing
+    , _pDataType = Nothing
+    , _pParameterName = Nothing
+    , _pDescription = Nothing
     }
 
 -- | Specifies how to apply the parameter. Supported value: @static@.
-parApplyType :: Lens' Parameter (Maybe ParameterApplyType)
-parApplyType = lens _parApplyType (\ s a -> s{_parApplyType = a});
+pApplyType :: Lens' Parameter (Maybe ParameterApplyType)
+pApplyType = lens _pApplyType (\ s a -> s{_pApplyType = a});
 
 -- | The value of the parameter.
-parParameterValue :: Lens' Parameter (Maybe Text)
-parParameterValue = lens _parParameterValue (\ s a -> s{_parParameterValue = a});
+pParameterValue :: Lens' Parameter (Maybe Text)
+pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a});
 
 -- | The earliest engine version to which the parameter can apply.
-parMinimumEngineVersion :: Lens' Parameter (Maybe Text)
-parMinimumEngineVersion = lens _parMinimumEngineVersion (\ s a -> s{_parMinimumEngineVersion = a});
+pMinimumEngineVersion :: Lens' Parameter (Maybe Text)
+pMinimumEngineVersion = lens _pMinimumEngineVersion (\ s a -> s{_pMinimumEngineVersion = a});
 
 -- | The source of the parameter value, such as \"engine-default\" or
 -- \"user\".
-parSource :: Lens' Parameter (Maybe Text)
-parSource = lens _parSource (\ s a -> s{_parSource = a});
+pSource :: Lens' Parameter (Maybe Text)
+pSource = lens _pSource (\ s a -> s{_pSource = a});
 
 -- | If @true@, the parameter can be modified. Some parameters have security
 -- or operational implications that prevent them from being changed.
-parIsModifiable :: Lens' Parameter (Maybe Bool)
-parIsModifiable = lens _parIsModifiable (\ s a -> s{_parIsModifiable = a});
+pIsModifiable :: Lens' Parameter (Maybe Bool)
+pIsModifiable = lens _pIsModifiable (\ s a -> s{_pIsModifiable = a});
 
 -- | The valid range of values for the parameter.
-parAllowedValues :: Lens' Parameter (Maybe Text)
-parAllowedValues = lens _parAllowedValues (\ s a -> s{_parAllowedValues = a});
+pAllowedValues :: Lens' Parameter (Maybe Text)
+pAllowedValues = lens _pAllowedValues (\ s a -> s{_pAllowedValues = a});
 
 -- | The data type of the parameter.
-parDataType :: Lens' Parameter (Maybe Text)
-parDataType = lens _parDataType (\ s a -> s{_parDataType = a});
+pDataType :: Lens' Parameter (Maybe Text)
+pDataType = lens _pDataType (\ s a -> s{_pDataType = a});
 
 -- | The name of the parameter.
-parParameterName :: Lens' Parameter (Maybe Text)
-parParameterName = lens _parParameterName (\ s a -> s{_parParameterName = a});
+pParameterName :: Lens' Parameter (Maybe Text)
+pParameterName = lens _pParameterName (\ s a -> s{_pParameterName = a});
 
 -- | A description of the parameter.
-parDescription :: Lens' Parameter (Maybe Text)
-parDescription = lens _parDescription (\ s a -> s{_parDescription = a});
+pDescription :: Lens' Parameter (Maybe Text)
+pDescription = lens _pDescription (\ s a -> s{_pDescription = a});
 
 instance FromXML Parameter where
         parseXML x
@@ -1878,15 +1878,15 @@ instance FromXML Parameter where
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
-              ["ApplyType" =: _parApplyType,
-               "ParameterValue" =: _parParameterValue,
-               "MinimumEngineVersion" =: _parMinimumEngineVersion,
-               "Source" =: _parSource,
-               "IsModifiable" =: _parIsModifiable,
-               "AllowedValues" =: _parAllowedValues,
-               "DataType" =: _parDataType,
-               "ParameterName" =: _parParameterName,
-               "Description" =: _parDescription]
+              ["ApplyType" =: _pApplyType,
+               "ParameterValue" =: _pParameterValue,
+               "MinimumEngineVersion" =: _pMinimumEngineVersion,
+               "Source" =: _pSource,
+               "IsModifiable" =: _pIsModifiable,
+               "AllowedValues" =: _pAllowedValues,
+               "DataType" =: _pDataType,
+               "ParameterName" =: _pParameterName,
+               "Description" =: _pDescription]
 
 -- | Describes cluster attributes that are in a pending state. A change to
 -- one or more the attributes was requested and is in progress or will be
@@ -2330,130 +2330,130 @@ instance FromXML RestoreStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'snaRestorableNodeTypes'
+-- * 'sRestorableNodeTypes'
 --
--- * 'snaStatus'
+-- * 'sStatus'
 --
--- * 'snaAccountsWithRestoreAccess'
+-- * 'sAccountsWithRestoreAccess'
 --
--- * 'snaSnapshotIdentifier'
+-- * 'sSnapshotIdentifier'
 --
--- * 'snaEncryptedWithHSM'
+-- * 'sEncryptedWithHSM'
 --
--- * 'snaMasterUsername'
+-- * 'sMasterUsername'
 --
--- * 'snaSourceRegion'
+-- * 'sSourceRegion'
 --
--- * 'snaVPCId'
+-- * 'sVPCId'
 --
--- * 'snaBackupProgressInMegaBytes'
+-- * 'sBackupProgressInMegaBytes'
 --
--- * 'snaEncrypted'
+-- * 'sEncrypted'
 --
--- * 'snaClusterIdentifier'
+-- * 'sClusterIdentifier'
 --
--- * 'snaNumberOfNodes'
+-- * 'sNumberOfNodes'
 --
--- * 'snaSnapshotType'
+-- * 'sSnapshotType'
 --
--- * 'snaAvailabilityZone'
+-- * 'sAvailabilityZone'
 --
--- * 'snaKMSKeyId'
+-- * 'sKMSKeyId'
 --
--- * 'snaCurrentBackupRateInMegaBytesPerSecond'
+-- * 'sCurrentBackupRateInMegaBytesPerSecond'
 --
--- * 'snaSnapshotCreateTime'
+-- * 'sSnapshotCreateTime'
 --
--- * 'snaClusterVersion'
+-- * 'sClusterVersion'
 --
--- * 'snaOwnerAccount'
+-- * 'sOwnerAccount'
 --
--- * 'snaNodeType'
+-- * 'sNodeType'
 --
--- * 'snaClusterCreateTime'
+-- * 'sClusterCreateTime'
 --
--- * 'snaElapsedTimeInSeconds'
+-- * 'sElapsedTimeInSeconds'
 --
--- * 'snaEstimatedSecondsToCompletion'
+-- * 'sEstimatedSecondsToCompletion'
 --
--- * 'snaTotalBackupSizeInMegaBytes'
+-- * 'sTotalBackupSizeInMegaBytes'
 --
--- * 'snaDBName'
+-- * 'sDBName'
 --
--- * 'snaTags'
+-- * 'sTags'
 --
--- * 'snaActualIncrementalBackupSizeInMegaBytes'
+-- * 'sActualIncrementalBackupSizeInMegaBytes'
 --
--- * 'snaPort'
+-- * 'sPort'
 data Snapshot = Snapshot'
-    { _snaRestorableNodeTypes                    :: !(Maybe [Text])
-    , _snaStatus                                 :: !(Maybe Text)
-    , _snaAccountsWithRestoreAccess              :: !(Maybe [AccountWithRestoreAccess])
-    , _snaSnapshotIdentifier                     :: !(Maybe Text)
-    , _snaEncryptedWithHSM                       :: !(Maybe Bool)
-    , _snaMasterUsername                         :: !(Maybe Text)
-    , _snaSourceRegion                           :: !(Maybe Text)
-    , _snaVPCId                                  :: !(Maybe Text)
-    , _snaBackupProgressInMegaBytes              :: !(Maybe Double)
-    , _snaEncrypted                              :: !(Maybe Bool)
-    , _snaClusterIdentifier                      :: !(Maybe Text)
-    , _snaNumberOfNodes                          :: !(Maybe Int)
-    , _snaSnapshotType                           :: !(Maybe Text)
-    , _snaAvailabilityZone                       :: !(Maybe Text)
-    , _snaKMSKeyId                               :: !(Maybe Text)
-    , _snaCurrentBackupRateInMegaBytesPerSecond  :: !(Maybe Double)
-    , _snaSnapshotCreateTime                     :: !(Maybe ISO8601)
-    , _snaClusterVersion                         :: !(Maybe Text)
-    , _snaOwnerAccount                           :: !(Maybe Text)
-    , _snaNodeType                               :: !(Maybe Text)
-    , _snaClusterCreateTime                      :: !(Maybe ISO8601)
-    , _snaElapsedTimeInSeconds                   :: !(Maybe Integer)
-    , _snaEstimatedSecondsToCompletion           :: !(Maybe Integer)
-    , _snaTotalBackupSizeInMegaBytes             :: !(Maybe Double)
-    , _snaDBName                                 :: !(Maybe Text)
-    , _snaTags                                   :: !(Maybe [Tag])
-    , _snaActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
-    , _snaPort                                   :: !(Maybe Int)
+    { _sRestorableNodeTypes                    :: !(Maybe [Text])
+    , _sStatus                                 :: !(Maybe Text)
+    , _sAccountsWithRestoreAccess              :: !(Maybe [AccountWithRestoreAccess])
+    , _sSnapshotIdentifier                     :: !(Maybe Text)
+    , _sEncryptedWithHSM                       :: !(Maybe Bool)
+    , _sMasterUsername                         :: !(Maybe Text)
+    , _sSourceRegion                           :: !(Maybe Text)
+    , _sVPCId                                  :: !(Maybe Text)
+    , _sBackupProgressInMegaBytes              :: !(Maybe Double)
+    , _sEncrypted                              :: !(Maybe Bool)
+    , _sClusterIdentifier                      :: !(Maybe Text)
+    , _sNumberOfNodes                          :: !(Maybe Int)
+    , _sSnapshotType                           :: !(Maybe Text)
+    , _sAvailabilityZone                       :: !(Maybe Text)
+    , _sKMSKeyId                               :: !(Maybe Text)
+    , _sCurrentBackupRateInMegaBytesPerSecond  :: !(Maybe Double)
+    , _sSnapshotCreateTime                     :: !(Maybe ISO8601)
+    , _sClusterVersion                         :: !(Maybe Text)
+    , _sOwnerAccount                           :: !(Maybe Text)
+    , _sNodeType                               :: !(Maybe Text)
+    , _sClusterCreateTime                      :: !(Maybe ISO8601)
+    , _sElapsedTimeInSeconds                   :: !(Maybe Integer)
+    , _sEstimatedSecondsToCompletion           :: !(Maybe Integer)
+    , _sTotalBackupSizeInMegaBytes             :: !(Maybe Double)
+    , _sDBName                                 :: !(Maybe Text)
+    , _sTags                                   :: !(Maybe [Tag])
+    , _sActualIncrementalBackupSizeInMegaBytes :: !(Maybe Double)
+    , _sPort                                   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Snapshot' smart constructor.
 snapshot :: Snapshot
 snapshot =
     Snapshot'
-    { _snaRestorableNodeTypes = Nothing
-    , _snaStatus = Nothing
-    , _snaAccountsWithRestoreAccess = Nothing
-    , _snaSnapshotIdentifier = Nothing
-    , _snaEncryptedWithHSM = Nothing
-    , _snaMasterUsername = Nothing
-    , _snaSourceRegion = Nothing
-    , _snaVPCId = Nothing
-    , _snaBackupProgressInMegaBytes = Nothing
-    , _snaEncrypted = Nothing
-    , _snaClusterIdentifier = Nothing
-    , _snaNumberOfNodes = Nothing
-    , _snaSnapshotType = Nothing
-    , _snaAvailabilityZone = Nothing
-    , _snaKMSKeyId = Nothing
-    , _snaCurrentBackupRateInMegaBytesPerSecond = Nothing
-    , _snaSnapshotCreateTime = Nothing
-    , _snaClusterVersion = Nothing
-    , _snaOwnerAccount = Nothing
-    , _snaNodeType = Nothing
-    , _snaClusterCreateTime = Nothing
-    , _snaElapsedTimeInSeconds = Nothing
-    , _snaEstimatedSecondsToCompletion = Nothing
-    , _snaTotalBackupSizeInMegaBytes = Nothing
-    , _snaDBName = Nothing
-    , _snaTags = Nothing
-    , _snaActualIncrementalBackupSizeInMegaBytes = Nothing
-    , _snaPort = Nothing
+    { _sRestorableNodeTypes = Nothing
+    , _sStatus = Nothing
+    , _sAccountsWithRestoreAccess = Nothing
+    , _sSnapshotIdentifier = Nothing
+    , _sEncryptedWithHSM = Nothing
+    , _sMasterUsername = Nothing
+    , _sSourceRegion = Nothing
+    , _sVPCId = Nothing
+    , _sBackupProgressInMegaBytes = Nothing
+    , _sEncrypted = Nothing
+    , _sClusterIdentifier = Nothing
+    , _sNumberOfNodes = Nothing
+    , _sSnapshotType = Nothing
+    , _sAvailabilityZone = Nothing
+    , _sKMSKeyId = Nothing
+    , _sCurrentBackupRateInMegaBytesPerSecond = Nothing
+    , _sSnapshotCreateTime = Nothing
+    , _sClusterVersion = Nothing
+    , _sOwnerAccount = Nothing
+    , _sNodeType = Nothing
+    , _sClusterCreateTime = Nothing
+    , _sElapsedTimeInSeconds = Nothing
+    , _sEstimatedSecondsToCompletion = Nothing
+    , _sTotalBackupSizeInMegaBytes = Nothing
+    , _sDBName = Nothing
+    , _sTags = Nothing
+    , _sActualIncrementalBackupSizeInMegaBytes = Nothing
+    , _sPort = Nothing
     }
 
 -- | The list of node types that this cluster snapshot is able to restore
 -- into.
-snaRestorableNodeTypes :: Lens' Snapshot [Text]
-snaRestorableNodeTypes = lens _snaRestorableNodeTypes (\ s a -> s{_snaRestorableNodeTypes = a}) . _Default;
+sRestorableNodeTypes :: Lens' Snapshot [Text]
+sRestorableNodeTypes = lens _sRestorableNodeTypes (\ s a -> s{_sRestorableNodeTypes = a}) . _Default;
 
 -- | The snapshot status. The value of the status depends on the API
 -- operation used.
@@ -2463,130 +2463,130 @@ snaRestorableNodeTypes = lens _snaRestorableNodeTypes (\ s a -> s{_snaRestorable
 -- -   DescribeClusterSnapshots returns status as \"creating\",
 --     \"available\", \"final snapshot\", or \"failed\".
 -- -   DeleteClusterSnapshot returns status as \"deleted\".
-snaStatus :: Lens' Snapshot (Maybe Text)
-snaStatus = lens _snaStatus (\ s a -> s{_snaStatus = a});
+sStatus :: Lens' Snapshot (Maybe Text)
+sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
 -- | A list of the AWS customer accounts authorized to restore the snapshot.
 -- Returns @null@ if no accounts are authorized. Visible only to the
 -- snapshot owner.
-snaAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
-snaAccountsWithRestoreAccess = lens _snaAccountsWithRestoreAccess (\ s a -> s{_snaAccountsWithRestoreAccess = a}) . _Default;
+sAccountsWithRestoreAccess :: Lens' Snapshot [AccountWithRestoreAccess]
+sAccountsWithRestoreAccess = lens _sAccountsWithRestoreAccess (\ s a -> s{_sAccountsWithRestoreAccess = a}) . _Default;
 
 -- | The snapshot identifier that is provided in the request.
-snaSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
-snaSnapshotIdentifier = lens _snaSnapshotIdentifier (\ s a -> s{_snaSnapshotIdentifier = a});
+sSnapshotIdentifier :: Lens' Snapshot (Maybe Text)
+sSnapshotIdentifier = lens _sSnapshotIdentifier (\ s a -> s{_sSnapshotIdentifier = a});
 
 -- | A boolean that indicates whether the snapshot data is encrypted using
 -- the HSM keys of the source cluster. @true@ indicates that the data is
 -- encrypted using HSM keys.
-snaEncryptedWithHSM :: Lens' Snapshot (Maybe Bool)
-snaEncryptedWithHSM = lens _snaEncryptedWithHSM (\ s a -> s{_snaEncryptedWithHSM = a});
+sEncryptedWithHSM :: Lens' Snapshot (Maybe Bool)
+sEncryptedWithHSM = lens _sEncryptedWithHSM (\ s a -> s{_sEncryptedWithHSM = a});
 
 -- | The master user name for the cluster.
-snaMasterUsername :: Lens' Snapshot (Maybe Text)
-snaMasterUsername = lens _snaMasterUsername (\ s a -> s{_snaMasterUsername = a});
+sMasterUsername :: Lens' Snapshot (Maybe Text)
+sMasterUsername = lens _sMasterUsername (\ s a -> s{_sMasterUsername = a});
 
 -- | The source region from which the snapshot was copied.
-snaSourceRegion :: Lens' Snapshot (Maybe Text)
-snaSourceRegion = lens _snaSourceRegion (\ s a -> s{_snaSourceRegion = a});
+sSourceRegion :: Lens' Snapshot (Maybe Text)
+sSourceRegion = lens _sSourceRegion (\ s a -> s{_sSourceRegion = a});
 
 -- | The VPC identifier of the cluster if the snapshot is from a cluster in a
 -- VPC. Otherwise, this field is not in the output.
-snaVPCId :: Lens' Snapshot (Maybe Text)
-snaVPCId = lens _snaVPCId (\ s a -> s{_snaVPCId = a});
+sVPCId :: Lens' Snapshot (Maybe Text)
+sVPCId = lens _sVPCId (\ s a -> s{_sVPCId = a});
 
 -- | The number of megabytes that have been transferred to the snapshot
 -- backup.
-snaBackupProgressInMegaBytes :: Lens' Snapshot (Maybe Double)
-snaBackupProgressInMegaBytes = lens _snaBackupProgressInMegaBytes (\ s a -> s{_snaBackupProgressInMegaBytes = a});
+sBackupProgressInMegaBytes :: Lens' Snapshot (Maybe Double)
+sBackupProgressInMegaBytes = lens _sBackupProgressInMegaBytes (\ s a -> s{_sBackupProgressInMegaBytes = a});
 
 -- | If @true@, the data in the snapshot is encrypted at rest.
-snaEncrypted :: Lens' Snapshot (Maybe Bool)
-snaEncrypted = lens _snaEncrypted (\ s a -> s{_snaEncrypted = a});
+sEncrypted :: Lens' Snapshot (Maybe Bool)
+sEncrypted = lens _sEncrypted (\ s a -> s{_sEncrypted = a});
 
 -- | The identifier of the cluster for which the snapshot was taken.
-snaClusterIdentifier :: Lens' Snapshot (Maybe Text)
-snaClusterIdentifier = lens _snaClusterIdentifier (\ s a -> s{_snaClusterIdentifier = a});
+sClusterIdentifier :: Lens' Snapshot (Maybe Text)
+sClusterIdentifier = lens _sClusterIdentifier (\ s a -> s{_sClusterIdentifier = a});
 
 -- | The number of nodes in the cluster.
-snaNumberOfNodes :: Lens' Snapshot (Maybe Int)
-snaNumberOfNodes = lens _snaNumberOfNodes (\ s a -> s{_snaNumberOfNodes = a});
+sNumberOfNodes :: Lens' Snapshot (Maybe Int)
+sNumberOfNodes = lens _sNumberOfNodes (\ s a -> s{_sNumberOfNodes = a});
 
 -- | The snapshot type. Snapshots created using CreateClusterSnapshot and
 -- CopyClusterSnapshot will be of type \"manual\".
-snaSnapshotType :: Lens' Snapshot (Maybe Text)
-snaSnapshotType = lens _snaSnapshotType (\ s a -> s{_snaSnapshotType = a});
+sSnapshotType :: Lens' Snapshot (Maybe Text)
+sSnapshotType = lens _sSnapshotType (\ s a -> s{_sSnapshotType = a});
 
 -- | The Availability Zone in which the cluster was created.
-snaAvailabilityZone :: Lens' Snapshot (Maybe Text)
-snaAvailabilityZone = lens _snaAvailabilityZone (\ s a -> s{_snaAvailabilityZone = a});
+sAvailabilityZone :: Lens' Snapshot (Maybe Text)
+sAvailabilityZone = lens _sAvailabilityZone (\ s a -> s{_sAvailabilityZone = a});
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key that
 -- was used to encrypt data in the cluster from which the snapshot was
 -- taken.
-snaKMSKeyId :: Lens' Snapshot (Maybe Text)
-snaKMSKeyId = lens _snaKMSKeyId (\ s a -> s{_snaKMSKeyId = a});
+sKMSKeyId :: Lens' Snapshot (Maybe Text)
+sKMSKeyId = lens _sKMSKeyId (\ s a -> s{_sKMSKeyId = a});
 
 -- | The number of megabytes per second being transferred to the snapshot
 -- backup. Returns @0@ for a completed backup.
-snaCurrentBackupRateInMegaBytesPerSecond :: Lens' Snapshot (Maybe Double)
-snaCurrentBackupRateInMegaBytesPerSecond = lens _snaCurrentBackupRateInMegaBytesPerSecond (\ s a -> s{_snaCurrentBackupRateInMegaBytesPerSecond = a});
+sCurrentBackupRateInMegaBytesPerSecond :: Lens' Snapshot (Maybe Double)
+sCurrentBackupRateInMegaBytesPerSecond = lens _sCurrentBackupRateInMegaBytesPerSecond (\ s a -> s{_sCurrentBackupRateInMegaBytesPerSecond = a});
 
 -- | The time (UTC) when Amazon Redshift began the snapshot. A snapshot
 -- contains a copy of the cluster data as of this exact time.
-snaSnapshotCreateTime :: Lens' Snapshot (Maybe UTCTime)
-snaSnapshotCreateTime = lens _snaSnapshotCreateTime (\ s a -> s{_snaSnapshotCreateTime = a}) . mapping _Time;
+sSnapshotCreateTime :: Lens' Snapshot (Maybe UTCTime)
+sSnapshotCreateTime = lens _sSnapshotCreateTime (\ s a -> s{_sSnapshotCreateTime = a}) . mapping _Time;
 
 -- | The version ID of the Amazon Redshift engine that is running on the
 -- cluster.
-snaClusterVersion :: Lens' Snapshot (Maybe Text)
-snaClusterVersion = lens _snaClusterVersion (\ s a -> s{_snaClusterVersion = a});
+sClusterVersion :: Lens' Snapshot (Maybe Text)
+sClusterVersion = lens _sClusterVersion (\ s a -> s{_sClusterVersion = a});
 
 -- | For manual snapshots, the AWS customer account used to create or copy
 -- the snapshot. For automatic snapshots, the owner of the cluster. The
 -- owner can perform all snapshot actions, such as sharing a manual
 -- snapshot.
-snaOwnerAccount :: Lens' Snapshot (Maybe Text)
-snaOwnerAccount = lens _snaOwnerAccount (\ s a -> s{_snaOwnerAccount = a});
+sOwnerAccount :: Lens' Snapshot (Maybe Text)
+sOwnerAccount = lens _sOwnerAccount (\ s a -> s{_sOwnerAccount = a});
 
 -- | The node type of the nodes in the cluster.
-snaNodeType :: Lens' Snapshot (Maybe Text)
-snaNodeType = lens _snaNodeType (\ s a -> s{_snaNodeType = a});
+sNodeType :: Lens' Snapshot (Maybe Text)
+sNodeType = lens _sNodeType (\ s a -> s{_sNodeType = a});
 
 -- | The time (UTC) when the cluster was originally created.
-snaClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
-snaClusterCreateTime = lens _snaClusterCreateTime (\ s a -> s{_snaClusterCreateTime = a}) . mapping _Time;
+sClusterCreateTime :: Lens' Snapshot (Maybe UTCTime)
+sClusterCreateTime = lens _sClusterCreateTime (\ s a -> s{_sClusterCreateTime = a}) . mapping _Time;
 
 -- | The amount of time an in-progress snapshot backup has been running, or
 -- the amount of time it took a completed backup to finish.
-snaElapsedTimeInSeconds :: Lens' Snapshot (Maybe Integer)
-snaElapsedTimeInSeconds = lens _snaElapsedTimeInSeconds (\ s a -> s{_snaElapsedTimeInSeconds = a});
+sElapsedTimeInSeconds :: Lens' Snapshot (Maybe Integer)
+sElapsedTimeInSeconds = lens _sElapsedTimeInSeconds (\ s a -> s{_sElapsedTimeInSeconds = a});
 
 -- | The estimate of the time remaining before the snapshot backup will
 -- complete. Returns @0@ for a completed backup.
-snaEstimatedSecondsToCompletion :: Lens' Snapshot (Maybe Integer)
-snaEstimatedSecondsToCompletion = lens _snaEstimatedSecondsToCompletion (\ s a -> s{_snaEstimatedSecondsToCompletion = a});
+sEstimatedSecondsToCompletion :: Lens' Snapshot (Maybe Integer)
+sEstimatedSecondsToCompletion = lens _sEstimatedSecondsToCompletion (\ s a -> s{_sEstimatedSecondsToCompletion = a});
 
 -- | The size of the complete set of backup data that would be used to
 -- restore the cluster.
-snaTotalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
-snaTotalBackupSizeInMegaBytes = lens _snaTotalBackupSizeInMegaBytes (\ s a -> s{_snaTotalBackupSizeInMegaBytes = a});
+sTotalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
+sTotalBackupSizeInMegaBytes = lens _sTotalBackupSizeInMegaBytes (\ s a -> s{_sTotalBackupSizeInMegaBytes = a});
 
 -- | The name of the database that was created when the cluster was created.
-snaDBName :: Lens' Snapshot (Maybe Text)
-snaDBName = lens _snaDBName (\ s a -> s{_snaDBName = a});
+sDBName :: Lens' Snapshot (Maybe Text)
+sDBName = lens _sDBName (\ s a -> s{_sDBName = a});
 
 -- | The list of tags for the cluster snapshot.
-snaTags :: Lens' Snapshot [Tag]
-snaTags = lens _snaTags (\ s a -> s{_snaTags = a}) . _Default;
+sTags :: Lens' Snapshot [Tag]
+sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default;
 
 -- | The size of the incremental backup.
-snaActualIncrementalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
-snaActualIncrementalBackupSizeInMegaBytes = lens _snaActualIncrementalBackupSizeInMegaBytes (\ s a -> s{_snaActualIncrementalBackupSizeInMegaBytes = a});
+sActualIncrementalBackupSizeInMegaBytes :: Lens' Snapshot (Maybe Double)
+sActualIncrementalBackupSizeInMegaBytes = lens _sActualIncrementalBackupSizeInMegaBytes (\ s a -> s{_sActualIncrementalBackupSizeInMegaBytes = a});
 
 -- | The port that the cluster is listening on.
-snaPort :: Lens' Snapshot (Maybe Int)
-snaPort = lens _snaPort (\ s a -> s{_snaPort = a});
+sPort :: Lens' Snapshot (Maybe Int)
+sPort = lens _sPort (\ s a -> s{_sPort = a});
 
 instance FromXML Snapshot where
         parseXML x
@@ -2685,37 +2685,37 @@ instance FromXML SnapshotCopyGrant where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'subSubnetStatus'
+-- * 'sSubnetStatus'
 --
--- * 'subSubnetIdentifier'
+-- * 'sSubnetIdentifier'
 --
--- * 'subSubnetAvailabilityZone'
+-- * 'sSubnetAvailabilityZone'
 data Subnet = Subnet'
-    { _subSubnetStatus           :: !(Maybe Text)
-    , _subSubnetIdentifier       :: !(Maybe Text)
-    , _subSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
+    { _sSubnetStatus           :: !(Maybe Text)
+    , _sSubnetIdentifier       :: !(Maybe Text)
+    , _sSubnetAvailabilityZone :: !(Maybe AvailabilityZone)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subnet' smart constructor.
 subnet :: Subnet
 subnet =
     Subnet'
-    { _subSubnetStatus = Nothing
-    , _subSubnetIdentifier = Nothing
-    , _subSubnetAvailabilityZone = Nothing
+    { _sSubnetStatus = Nothing
+    , _sSubnetIdentifier = Nothing
+    , _sSubnetAvailabilityZone = Nothing
     }
 
 -- | The status of the subnet.
-subSubnetStatus :: Lens' Subnet (Maybe Text)
-subSubnetStatus = lens _subSubnetStatus (\ s a -> s{_subSubnetStatus = a});
+sSubnetStatus :: Lens' Subnet (Maybe Text)
+sSubnetStatus = lens _sSubnetStatus (\ s a -> s{_sSubnetStatus = a});
 
 -- | The identifier of the subnet.
-subSubnetIdentifier :: Lens' Subnet (Maybe Text)
-subSubnetIdentifier = lens _subSubnetIdentifier (\ s a -> s{_subSubnetIdentifier = a});
+sSubnetIdentifier :: Lens' Subnet (Maybe Text)
+sSubnetIdentifier = lens _sSubnetIdentifier (\ s a -> s{_sSubnetIdentifier = a});
 
 -- | FIXME: Undocumented member.
-subSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
-subSubnetAvailabilityZone = lens _subSubnetAvailabilityZone (\ s a -> s{_subSubnetAvailabilityZone = a});
+sSubnetAvailabilityZone :: Lens' Subnet (Maybe AvailabilityZone)
+sSubnetAvailabilityZone = lens _sSubnetAvailabilityZone (\ s a -> s{_sSubnetAvailabilityZone = a});
 
 instance FromXML Subnet where
         parseXML x

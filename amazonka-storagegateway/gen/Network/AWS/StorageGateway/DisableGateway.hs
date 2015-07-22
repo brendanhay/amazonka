@@ -34,15 +34,15 @@ module Network.AWS.StorageGateway.DisableGateway
     -- ** Request constructor
     , disableGateway
     -- ** Request lenses
-    , disGatewayARN
+    , drqGatewayARN
 
     -- * Response
     , DisableGatewayResponse
     -- ** Response constructor
     , disableGatewayResponse
     -- ** Response lenses
-    , dGatewayARN
-    , dStatus
+    , drsGatewayARN
+    , drsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -56,21 +56,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disGatewayARN'
+-- * 'drqGatewayARN'
 newtype DisableGateway = DisableGateway'
-    { _disGatewayARN :: Text
+    { _drqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableGateway' smart constructor.
 disableGateway :: Text -> DisableGateway
 disableGateway pGatewayARN =
     DisableGateway'
-    { _disGatewayARN = pGatewayARN
+    { _drqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-disGatewayARN :: Lens' DisableGateway Text
-disGatewayARN = lens _disGatewayARN (\ s a -> s{_disGatewayARN = a});
+drqGatewayARN :: Lens' DisableGateway Text
+drqGatewayARN = lens _drqGatewayARN (\ s a -> s{_drqGatewayARN = a});
 
 instance AWSRequest DisableGateway where
         type Sv DisableGateway = StorageGateway
@@ -94,7 +94,7 @@ instance ToHeaders DisableGateway where
 
 instance ToJSON DisableGateway where
         toJSON DisableGateway'{..}
-          = object ["GatewayARN" .= _disGatewayARN]
+          = object ["GatewayARN" .= _drqGatewayARN]
 
 instance ToPath DisableGateway where
         toPath = const "/"
@@ -108,26 +108,26 @@ instance ToQuery DisableGateway where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dGatewayARN'
+-- * 'drsGatewayARN'
 --
--- * 'dStatus'
+-- * 'drsStatus'
 data DisableGatewayResponse = DisableGatewayResponse'
-    { _dGatewayARN :: !(Maybe Text)
-    , _dStatus     :: !Int
+    { _drsGatewayARN :: !(Maybe Text)
+    , _drsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableGatewayResponse' smart constructor.
 disableGatewayResponse :: Int -> DisableGatewayResponse
 disableGatewayResponse pStatus =
     DisableGatewayResponse'
-    { _dGatewayARN = Nothing
-    , _dStatus = pStatus
+    { _drsGatewayARN = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | The unique Amazon Resource Name of the disabled gateway.
-dGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
-dGatewayARN = lens _dGatewayARN (\ s a -> s{_dGatewayARN = a});
+drsGatewayARN :: Lens' DisableGatewayResponse (Maybe Text)
+drsGatewayARN = lens _drsGatewayARN (\ s a -> s{_drsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DisableGatewayResponse Int
-dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+drsStatus :: Lens' DisableGatewayResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

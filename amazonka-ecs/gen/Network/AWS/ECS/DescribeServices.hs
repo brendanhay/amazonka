@@ -27,17 +27,17 @@ module Network.AWS.ECS.DescribeServices
     -- ** Request constructor
     , describeServices
     -- ** Request lenses
-    , desCluster
-    , desServices
+    , drqCluster
+    , drqServices
 
     -- * Response
     , DescribeServicesResponse
     -- ** Response constructor
     , describeServicesResponse
     -- ** Response lenses
-    , dFailures
-    , dServices
-    , dStatus
+    , drsFailures
+    , drsServices
+    , drsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -49,29 +49,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desCluster'
+-- * 'drqCluster'
 --
--- * 'desServices'
+-- * 'drqServices'
 data DescribeServices = DescribeServices'
-    { _desCluster  :: !(Maybe Text)
-    , _desServices :: ![Text]
+    { _drqCluster  :: !(Maybe Text)
+    , _drqServices :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServices' smart constructor.
 describeServices :: DescribeServices
 describeServices =
     DescribeServices'
-    { _desCluster = Nothing
-    , _desServices = mempty
+    { _drqCluster = Nothing
+    , _drqServices = mempty
     }
 
 -- | The name of the cluster that hosts the service you want to describe.
-desCluster :: Lens' DescribeServices (Maybe Text)
-desCluster = lens _desCluster (\ s a -> s{_desCluster = a});
+drqCluster :: Lens' DescribeServices (Maybe Text)
+drqCluster = lens _drqCluster (\ s a -> s{_drqCluster = a});
 
 -- | A list of services you want to describe.
-desServices :: Lens' DescribeServices [Text]
-desServices = lens _desServices (\ s a -> s{_desServices = a});
+drqServices :: Lens' DescribeServices [Text]
+drqServices = lens _drqServices (\ s a -> s{_drqServices = a});
 
 instance AWSRequest DescribeServices where
         type Sv DescribeServices = ECS
@@ -98,8 +98,8 @@ instance ToHeaders DescribeServices where
 instance ToJSON DescribeServices where
         toJSON DescribeServices'{..}
           = object
-              ["cluster" .= _desCluster,
-               "services" .= _desServices]
+              ["cluster" .= _drqCluster,
+               "services" .= _drqServices]
 
 instance ToPath DescribeServices where
         toPath = const "/"
@@ -111,34 +111,34 @@ instance ToQuery DescribeServices where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dFailures'
+-- * 'drsFailures'
 --
--- * 'dServices'
+-- * 'drsServices'
 --
--- * 'dStatus'
+-- * 'drsStatus'
 data DescribeServicesResponse = DescribeServicesResponse'
-    { _dFailures :: !(Maybe [Failure])
-    , _dServices :: !(Maybe [ContainerService])
-    , _dStatus   :: !Int
+    { _drsFailures :: !(Maybe [Failure])
+    , _drsServices :: !(Maybe [ContainerService])
+    , _drsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServicesResponse' smart constructor.
 describeServicesResponse :: Int -> DescribeServicesResponse
 describeServicesResponse pStatus =
     DescribeServicesResponse'
-    { _dFailures = Nothing
-    , _dServices = Nothing
-    , _dStatus = pStatus
+    { _drsFailures = Nothing
+    , _drsServices = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | Any failures associated with the call.
-dFailures :: Lens' DescribeServicesResponse [Failure]
-dFailures = lens _dFailures (\ s a -> s{_dFailures = a}) . _Default;
+drsFailures :: Lens' DescribeServicesResponse [Failure]
+drsFailures = lens _drsFailures (\ s a -> s{_drsFailures = a}) . _Default;
 
 -- | The list of services described.
-dServices :: Lens' DescribeServicesResponse [ContainerService]
-dServices = lens _dServices (\ s a -> s{_dServices = a}) . _Default;
+drsServices :: Lens' DescribeServicesResponse [ContainerService]
+drsServices = lens _drsServices (\ s a -> s{_drsServices = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DescribeServicesResponse Int
-dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+drsStatus :: Lens' DescribeServicesResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

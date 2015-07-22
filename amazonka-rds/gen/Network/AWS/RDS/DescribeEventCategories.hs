@@ -31,16 +31,16 @@ module Network.AWS.RDS.DescribeEventCategories
     -- ** Request constructor
     , describeEventCategories
     -- ** Request lenses
-    , decSourceType
-    , decFilters
+    , decrqSourceType
+    , decrqFilters
 
     -- * Response
     , DescribeEventCategoriesResponse
     -- ** Response constructor
     , describeEventCategoriesResponse
     -- ** Response lenses
-    , decrEventCategoriesMapList
-    , decrStatus
+    , decrsEventCategoriesMapList
+    , decrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -54,32 +54,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decSourceType'
+-- * 'decrqSourceType'
 --
--- * 'decFilters'
+-- * 'decrqFilters'
 data DescribeEventCategories = DescribeEventCategories'
-    { _decSourceType :: !(Maybe Text)
-    , _decFilters    :: !(Maybe [Filter])
+    { _decrqSourceType :: !(Maybe Text)
+    , _decrqFilters    :: !(Maybe [Filter])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventCategories' smart constructor.
 describeEventCategories :: DescribeEventCategories
 describeEventCategories =
     DescribeEventCategories'
-    { _decSourceType = Nothing
-    , _decFilters = Nothing
+    { _decrqSourceType = Nothing
+    , _decrqFilters = Nothing
     }
 
 -- | The type of source that will be generating the events.
 --
 -- Valid values: db-instance | db-parameter-group | db-security-group |
 -- db-snapshot
-decSourceType :: Lens' DescribeEventCategories (Maybe Text)
-decSourceType = lens _decSourceType (\ s a -> s{_decSourceType = a});
+decrqSourceType :: Lens' DescribeEventCategories (Maybe Text)
+decrqSourceType = lens _decrqSourceType (\ s a -> s{_decrqSourceType = a});
 
 -- | This parameter is not currently supported.
-decFilters :: Lens' DescribeEventCategories [Filter]
-decFilters = lens _decFilters (\ s a -> s{_decFilters = a}) . _Default;
+decrqFilters :: Lens' DescribeEventCategories [Filter]
+decrqFilters = lens _decrqFilters (\ s a -> s{_decrqFilters = a}) . _Default;
 
 instance AWSRequest DescribeEventCategories where
         type Sv DescribeEventCategories = RDS
@@ -106,9 +106,9 @@ instance ToQuery DescribeEventCategories where
               ["Action" =:
                  ("DescribeEventCategories" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "SourceType" =: _decSourceType,
+               "SourceType" =: _decrqSourceType,
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _decFilters)]
+                 toQuery (toQueryList "Filter" <$> _decrqFilters)]
 
 -- | Data returned from the __DescribeEventCategories__ action.
 --
@@ -116,26 +116,26 @@ instance ToQuery DescribeEventCategories where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'decrEventCategoriesMapList'
+-- * 'decrsEventCategoriesMapList'
 --
--- * 'decrStatus'
+-- * 'decrsStatus'
 data DescribeEventCategoriesResponse = DescribeEventCategoriesResponse'
-    { _decrEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
-    , _decrStatus                 :: !Int
+    { _decrsEventCategoriesMapList :: !(Maybe [EventCategoriesMap])
+    , _decrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventCategoriesResponse' smart constructor.
 describeEventCategoriesResponse :: Int -> DescribeEventCategoriesResponse
 describeEventCategoriesResponse pStatus =
     DescribeEventCategoriesResponse'
-    { _decrEventCategoriesMapList = Nothing
-    , _decrStatus = pStatus
+    { _decrsEventCategoriesMapList = Nothing
+    , _decrsStatus = pStatus
     }
 
 -- | A list of EventCategoriesMap data types.
-decrEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
-decrEventCategoriesMapList = lens _decrEventCategoriesMapList (\ s a -> s{_decrEventCategoriesMapList = a}) . _Default;
+decrsEventCategoriesMapList :: Lens' DescribeEventCategoriesResponse [EventCategoriesMap]
+decrsEventCategoriesMapList = lens _decrsEventCategoriesMapList (\ s a -> s{_decrsEventCategoriesMapList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-decrStatus :: Lens' DescribeEventCategoriesResponse Int
-decrStatus = lens _decrStatus (\ s a -> s{_decrStatus = a});
+decrsStatus :: Lens' DescribeEventCategoriesResponse Int
+decrsStatus = lens _decrsStatus (\ s a -> s{_decrsStatus = a});

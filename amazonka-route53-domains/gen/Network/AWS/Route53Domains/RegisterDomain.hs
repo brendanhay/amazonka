@@ -49,24 +49,24 @@ module Network.AWS.Route53Domains.RegisterDomain
     -- ** Request constructor
     , registerDomain
     -- ** Request lenses
-    , rdPrivacyProtectTechContact
-    , rdPrivacyProtectRegistrantContact
-    , rdAutoRenew
-    , rdPrivacyProtectAdminContact
-    , rdIdNLangCode
-    , rdDomainName
-    , rdDurationInYears
-    , rdAdminContact
-    , rdRegistrantContact
-    , rdTechContact
+    , rdrqPrivacyProtectTechContact
+    , rdrqPrivacyProtectRegistrantContact
+    , rdrqAutoRenew
+    , rdrqPrivacyProtectAdminContact
+    , rdrqIdNLangCode
+    , rdrqDomainName
+    , rdrqDurationInYears
+    , rdrqAdminContact
+    , rdrqRegistrantContact
+    , rdrqTechContact
 
     -- * Response
     , RegisterDomainResponse
     -- ** Response constructor
     , registerDomainResponse
     -- ** Response lenses
-    , rdrStatus
-    , rdrOperationId
+    , rdrsStatus
+    , rdrsOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -80,52 +80,52 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdPrivacyProtectTechContact'
+-- * 'rdrqPrivacyProtectTechContact'
 --
--- * 'rdPrivacyProtectRegistrantContact'
+-- * 'rdrqPrivacyProtectRegistrantContact'
 --
--- * 'rdAutoRenew'
+-- * 'rdrqAutoRenew'
 --
--- * 'rdPrivacyProtectAdminContact'
+-- * 'rdrqPrivacyProtectAdminContact'
 --
--- * 'rdIdNLangCode'
+-- * 'rdrqIdNLangCode'
 --
--- * 'rdDomainName'
+-- * 'rdrqDomainName'
 --
--- * 'rdDurationInYears'
+-- * 'rdrqDurationInYears'
 --
--- * 'rdAdminContact'
+-- * 'rdrqAdminContact'
 --
--- * 'rdRegistrantContact'
+-- * 'rdrqRegistrantContact'
 --
--- * 'rdTechContact'
+-- * 'rdrqTechContact'
 data RegisterDomain = RegisterDomain'
-    { _rdPrivacyProtectTechContact       :: !(Maybe Bool)
-    , _rdPrivacyProtectRegistrantContact :: !(Maybe Bool)
-    , _rdAutoRenew                       :: !(Maybe Bool)
-    , _rdPrivacyProtectAdminContact      :: !(Maybe Bool)
-    , _rdIdNLangCode                     :: !(Maybe Text)
-    , _rdDomainName                      :: !Text
-    , _rdDurationInYears                 :: !Nat
-    , _rdAdminContact                    :: !(Sensitive ContactDetail)
-    , _rdRegistrantContact               :: !(Sensitive ContactDetail)
-    , _rdTechContact                     :: !(Sensitive ContactDetail)
+    { _rdrqPrivacyProtectTechContact       :: !(Maybe Bool)
+    , _rdrqPrivacyProtectRegistrantContact :: !(Maybe Bool)
+    , _rdrqAutoRenew                       :: !(Maybe Bool)
+    , _rdrqPrivacyProtectAdminContact      :: !(Maybe Bool)
+    , _rdrqIdNLangCode                     :: !(Maybe Text)
+    , _rdrqDomainName                      :: !Text
+    , _rdrqDurationInYears                 :: !Nat
+    , _rdrqAdminContact                    :: !(Sensitive ContactDetail)
+    , _rdrqRegistrantContact               :: !(Sensitive ContactDetail)
+    , _rdrqTechContact                     :: !(Sensitive ContactDetail)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDomain' smart constructor.
 registerDomain :: Text -> Natural -> ContactDetail -> ContactDetail -> ContactDetail -> RegisterDomain
 registerDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTechContact =
     RegisterDomain'
-    { _rdPrivacyProtectTechContact = Nothing
-    , _rdPrivacyProtectRegistrantContact = Nothing
-    , _rdAutoRenew = Nothing
-    , _rdPrivacyProtectAdminContact = Nothing
-    , _rdIdNLangCode = Nothing
-    , _rdDomainName = pDomainName
-    , _rdDurationInYears = _Nat # pDurationInYears
-    , _rdAdminContact = _Sensitive # pAdminContact
-    , _rdRegistrantContact = _Sensitive # pRegistrantContact
-    , _rdTechContact = _Sensitive # pTechContact
+    { _rdrqPrivacyProtectTechContact = Nothing
+    , _rdrqPrivacyProtectRegistrantContact = Nothing
+    , _rdrqAutoRenew = Nothing
+    , _rdrqPrivacyProtectAdminContact = Nothing
+    , _rdrqIdNLangCode = Nothing
+    , _rdrqDomainName = pDomainName
+    , _rdrqDurationInYears = _Nat # pDurationInYears
+    , _rdrqAdminContact = _Sensitive # pAdminContact
+    , _rdrqRegistrantContact = _Sensitive # pRegistrantContact
+    , _rdrqTechContact = _Sensitive # pTechContact
     }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -140,8 +140,8 @@ registerDomain pDomainName pDurationInYears pAdminContact pRegistrantContact pTe
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-rdPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
-rdPrivacyProtectTechContact = lens _rdPrivacyProtectTechContact (\ s a -> s{_rdPrivacyProtectTechContact = a});
+rdrqPrivacyProtectTechContact :: Lens' RegisterDomain (Maybe Bool)
+rdrqPrivacyProtectTechContact = lens _rdrqPrivacyProtectTechContact (\ s a -> s{_rdrqPrivacyProtectTechContact = a});
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -155,8 +155,8 @@ rdPrivacyProtectTechContact = lens _rdPrivacyProtectTechContact (\ s a -> s{_rdP
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-rdPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
-rdPrivacyProtectRegistrantContact = lens _rdPrivacyProtectRegistrantContact (\ s a -> s{_rdPrivacyProtectRegistrantContact = a});
+rdrqPrivacyProtectRegistrantContact :: Lens' RegisterDomain (Maybe Bool)
+rdrqPrivacyProtectRegistrantContact = lens _rdrqPrivacyProtectRegistrantContact (\ s a -> s{_rdrqPrivacyProtectRegistrantContact = a});
 
 -- | Indicates whether the domain will be automatically renewed (@true@) or
 -- not (@false@). Autorenewal only takes effect after the account is
@@ -169,8 +169,8 @@ rdPrivacyProtectRegistrantContact = lens _rdPrivacyProtectRegistrantContact (\ s
 -- Default: @true@
 --
 -- Required: No
-rdAutoRenew :: Lens' RegisterDomain (Maybe Bool)
-rdAutoRenew = lens _rdAutoRenew (\ s a -> s{_rdAutoRenew = a});
+rdrqAutoRenew :: Lens' RegisterDomain (Maybe Bool)
+rdrqAutoRenew = lens _rdrqAutoRenew (\ s a -> s{_rdrqAutoRenew = a});
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -184,12 +184,12 @@ rdAutoRenew = lens _rdAutoRenew (\ s a -> s{_rdAutoRenew = a});
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-rdPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
-rdPrivacyProtectAdminContact = lens _rdPrivacyProtectAdminContact (\ s a -> s{_rdPrivacyProtectAdminContact = a});
+rdrqPrivacyProtectAdminContact :: Lens' RegisterDomain (Maybe Bool)
+rdrqPrivacyProtectAdminContact = lens _rdrqPrivacyProtectAdminContact (\ s a -> s{_rdrqPrivacyProtectAdminContact = a});
 
 -- | Reserved for future use.
-rdIdNLangCode :: Lens' RegisterDomain (Maybe Text)
-rdIdNLangCode = lens _rdIdNLangCode (\ s a -> s{_rdIdNLangCode = a});
+rdrqIdNLangCode :: Lens' RegisterDomain (Maybe Text)
+rdrqIdNLangCode = lens _rdrqIdNLangCode (\ s a -> s{_rdrqIdNLangCode = a});
 
 -- | The name of a domain.
 --
@@ -202,8 +202,8 @@ rdIdNLangCode = lens _rdIdNLangCode (\ s a -> s{_rdIdNLangCode = a});
 -- are not supported.
 --
 -- Required: Yes
-rdDomainName :: Lens' RegisterDomain Text
-rdDomainName = lens _rdDomainName (\ s a -> s{_rdDomainName = a});
+rdrqDomainName :: Lens' RegisterDomain Text
+rdrqDomainName = lens _rdrqDomainName (\ s a -> s{_rdrqDomainName = a});
 
 -- | The number of years the domain will be registered. Domains are
 -- registered for a minimum of one year. The maximum period depends on the
@@ -216,8 +216,8 @@ rdDomainName = lens _rdDomainName (\ s a -> s{_rdDomainName = a});
 -- Valid values: Integer from 1 to 10
 --
 -- Required: Yes
-rdDurationInYears :: Lens' RegisterDomain Natural
-rdDurationInYears = lens _rdDurationInYears (\ s a -> s{_rdDurationInYears = a}) . _Nat;
+rdrqDurationInYears :: Lens' RegisterDomain Natural
+rdrqDurationInYears = lens _rdrqDurationInYears (\ s a -> s{_rdrqDurationInYears = a}) . _Nat;
 
 -- | Provides detailed contact information.
 --
@@ -228,8 +228,8 @@ rdDurationInYears = lens _rdDurationInYears (\ s a -> s{_rdDurationInYears = a})
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-rdAdminContact :: Lens' RegisterDomain ContactDetail
-rdAdminContact = lens _rdAdminContact (\ s a -> s{_rdAdminContact = a}) . _Sensitive;
+rdrqAdminContact :: Lens' RegisterDomain ContactDetail
+rdrqAdminContact = lens _rdrqAdminContact (\ s a -> s{_rdrqAdminContact = a}) . _Sensitive;
 
 -- | Provides detailed contact information.
 --
@@ -240,8 +240,8 @@ rdAdminContact = lens _rdAdminContact (\ s a -> s{_rdAdminContact = a}) . _Sensi
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-rdRegistrantContact :: Lens' RegisterDomain ContactDetail
-rdRegistrantContact = lens _rdRegistrantContact (\ s a -> s{_rdRegistrantContact = a}) . _Sensitive;
+rdrqRegistrantContact :: Lens' RegisterDomain ContactDetail
+rdrqRegistrantContact = lens _rdrqRegistrantContact (\ s a -> s{_rdrqRegistrantContact = a}) . _Sensitive;
 
 -- | Provides detailed contact information.
 --
@@ -252,8 +252,8 @@ rdRegistrantContact = lens _rdRegistrantContact (\ s a -> s{_rdRegistrantContact
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-rdTechContact :: Lens' RegisterDomain ContactDetail
-rdTechContact = lens _rdTechContact (\ s a -> s{_rdTechContact = a}) . _Sensitive;
+rdrqTechContact :: Lens' RegisterDomain ContactDetail
+rdrqTechContact = lens _rdrqTechContact (\ s a -> s{_rdrqTechContact = a}) . _Sensitive;
 
 instance AWSRequest RegisterDomain where
         type Sv RegisterDomain = Route53Domains
@@ -279,18 +279,18 @@ instance ToJSON RegisterDomain where
         toJSON RegisterDomain'{..}
           = object
               ["PrivacyProtectTechContact" .=
-                 _rdPrivacyProtectTechContact,
+                 _rdrqPrivacyProtectTechContact,
                "PrivacyProtectRegistrantContact" .=
-                 _rdPrivacyProtectRegistrantContact,
-               "AutoRenew" .= _rdAutoRenew,
+                 _rdrqPrivacyProtectRegistrantContact,
+               "AutoRenew" .= _rdrqAutoRenew,
                "PrivacyProtectAdminContact" .=
-                 _rdPrivacyProtectAdminContact,
-               "IdnLangCode" .= _rdIdNLangCode,
-               "DomainName" .= _rdDomainName,
-               "DurationInYears" .= _rdDurationInYears,
-               "AdminContact" .= _rdAdminContact,
-               "RegistrantContact" .= _rdRegistrantContact,
-               "TechContact" .= _rdTechContact]
+                 _rdrqPrivacyProtectAdminContact,
+               "IdnLangCode" .= _rdrqIdNLangCode,
+               "DomainName" .= _rdrqDomainName,
+               "DurationInYears" .= _rdrqDurationInYears,
+               "AdminContact" .= _rdrqAdminContact,
+               "RegistrantContact" .= _rdrqRegistrantContact,
+               "TechContact" .= _rdrqTechContact]
 
 instance ToPath RegisterDomain where
         toPath = const "/"
@@ -304,25 +304,25 @@ instance ToQuery RegisterDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdrStatus'
+-- * 'rdrsStatus'
 --
--- * 'rdrOperationId'
+-- * 'rdrsOperationId'
 data RegisterDomainResponse = RegisterDomainResponse'
-    { _rdrStatus      :: !Int
-    , _rdrOperationId :: !Text
+    { _rdrsStatus      :: !Int
+    , _rdrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterDomainResponse' smart constructor.
 registerDomainResponse :: Int -> Text -> RegisterDomainResponse
 registerDomainResponse pStatus pOperationId =
     RegisterDomainResponse'
-    { _rdrStatus = pStatus
-    , _rdrOperationId = pOperationId
+    { _rdrsStatus = pStatus
+    , _rdrsOperationId = pOperationId
     }
 
 -- | FIXME: Undocumented member.
-rdrStatus :: Lens' RegisterDomainResponse Int
-rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});
+rdrsStatus :: Lens' RegisterDomainResponse Int
+rdrsStatus = lens _rdrsStatus (\ s a -> s{_rdrsStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -332,5 +332,5 @@ rdrStatus = lens _rdrStatus (\ s a -> s{_rdrStatus = a});
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
-rdrOperationId :: Lens' RegisterDomainResponse Text
-rdrOperationId = lens _rdrOperationId (\ s a -> s{_rdrOperationId = a});
+rdrsOperationId :: Lens' RegisterDomainResponse Text
+rdrsOperationId = lens _rdrsOperationId (\ s a -> s{_rdrsOperationId = a});

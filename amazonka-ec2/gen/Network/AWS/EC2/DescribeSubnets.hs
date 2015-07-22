@@ -31,17 +31,17 @@ module Network.AWS.EC2.DescribeSubnets
     -- ** Request constructor
     , describeSubnets
     -- ** Request lenses
-    , dsSubnetIds
-    , dsFilters
-    , dsDryRun
+    , dsrqSubnetIds
+    , dsrqFilters
+    , dsrqDryRun
 
     -- * Response
     , DescribeSubnetsResponse
     -- ** Response constructor
     , describeSubnetsResponse
     -- ** Response lenses
-    , dsrSubnets
-    , dsrStatus
+    , dsrsSubnets
+    , dsrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,31 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsSubnetIds'
+-- * 'dsrqSubnetIds'
 --
--- * 'dsFilters'
+-- * 'dsrqFilters'
 --
--- * 'dsDryRun'
+-- * 'dsrqDryRun'
 data DescribeSubnets = DescribeSubnets'
-    { _dsSubnetIds :: !(Maybe [Text])
-    , _dsFilters   :: !(Maybe [Filter])
-    , _dsDryRun    :: !(Maybe Bool)
+    { _dsrqSubnetIds :: !(Maybe [Text])
+    , _dsrqFilters   :: !(Maybe [Filter])
+    , _dsrqDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubnets' smart constructor.
 describeSubnets :: DescribeSubnets
 describeSubnets =
     DescribeSubnets'
-    { _dsSubnetIds = Nothing
-    , _dsFilters = Nothing
-    , _dsDryRun = Nothing
+    { _dsrqSubnetIds = Nothing
+    , _dsrqFilters = Nothing
+    , _dsrqDryRun = Nothing
     }
 
 -- | One or more subnet IDs.
 --
 -- Default: Describes all your subnets.
-dsSubnetIds :: Lens' DescribeSubnets [Text]
-dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a}) . _Default;
+dsrqSubnetIds :: Lens' DescribeSubnets [Text]
+dsrqSubnetIds = lens _dsrqSubnetIds (\ s a -> s{_dsrqSubnetIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -116,15 +116,15 @@ dsSubnetIds = lens _dsSubnetIds (\ s a -> s{_dsSubnetIds = a}) . _Default;
 --
 -- -   @vpc-id@ - The ID of the VPC for the subnet.
 --
-dsFilters :: Lens' DescribeSubnets [Filter]
-dsFilters = lens _dsFilters (\ s a -> s{_dsFilters = a}) . _Default;
+dsrqFilters :: Lens' DescribeSubnets [Filter]
+dsrqFilters = lens _dsrqFilters (\ s a -> s{_dsrqFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsDryRun :: Lens' DescribeSubnets (Maybe Bool)
-dsDryRun = lens _dsDryRun (\ s a -> s{_dsDryRun = a});
+dsrqDryRun :: Lens' DescribeSubnets (Maybe Bool)
+dsrqDryRun = lens _dsrqDryRun (\ s a -> s{_dsrqDryRun = a});
 
 instance AWSRequest DescribeSubnets where
         type Sv DescribeSubnets = EC2
@@ -149,34 +149,34 @@ instance ToQuery DescribeSubnets where
           = mconcat
               ["Action" =: ("DescribeSubnets" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "SubnetId" <$> _dsSubnetIds),
-               toQuery (toQueryList "Filter" <$> _dsFilters),
-               "DryRun" =: _dsDryRun]
+               toQuery (toQueryList "SubnetId" <$> _dsrqSubnetIds),
+               toQuery (toQueryList "Filter" <$> _dsrqFilters),
+               "DryRun" =: _dsrqDryRun]
 
 -- | /See:/ 'describeSubnetsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrSubnets'
+-- * 'dsrsSubnets'
 --
--- * 'dsrStatus'
+-- * 'dsrsStatus'
 data DescribeSubnetsResponse = DescribeSubnetsResponse'
-    { _dsrSubnets :: !(Maybe [Subnet])
-    , _dsrStatus  :: !Int
+    { _dsrsSubnets :: !(Maybe [Subnet])
+    , _dsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSubnetsResponse' smart constructor.
 describeSubnetsResponse :: Int -> DescribeSubnetsResponse
 describeSubnetsResponse pStatus =
     DescribeSubnetsResponse'
-    { _dsrSubnets = Nothing
-    , _dsrStatus = pStatus
+    { _dsrsSubnets = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | Information about one or more subnets.
-dsrSubnets :: Lens' DescribeSubnetsResponse [Subnet]
-dsrSubnets = lens _dsrSubnets (\ s a -> s{_dsrSubnets = a}) . _Default;
+dsrsSubnets :: Lens' DescribeSubnetsResponse [Subnet]
+dsrsSubnets = lens _dsrsSubnets (\ s a -> s{_dsrsSubnets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeSubnetsResponse Int
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+dsrsStatus :: Lens' DescribeSubnetsResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

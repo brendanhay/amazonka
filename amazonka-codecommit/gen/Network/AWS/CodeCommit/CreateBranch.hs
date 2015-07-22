@@ -30,9 +30,9 @@ module Network.AWS.CodeCommit.CreateBranch
     -- ** Request constructor
     , createBranch
     -- ** Request lenses
-    , cbRepositoryName
-    , cbBranchName
-    , cbCommitId
+    , cbrqRepositoryName
+    , cbrqBranchName
+    , cbrqCommitId
 
     -- * Response
     , CreateBranchResponse
@@ -51,40 +51,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cbRepositoryName'
+-- * 'cbrqRepositoryName'
 --
--- * 'cbBranchName'
+-- * 'cbrqBranchName'
 --
--- * 'cbCommitId'
+-- * 'cbrqCommitId'
 data CreateBranch = CreateBranch'
-    { _cbRepositoryName :: !Text
-    , _cbBranchName     :: !Text
-    , _cbCommitId       :: !Text
+    { _cbrqRepositoryName :: !Text
+    , _cbrqBranchName     :: !Text
+    , _cbrqCommitId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateBranch' smart constructor.
 createBranch :: Text -> Text -> Text -> CreateBranch
 createBranch pRepositoryName pBranchName pCommitId =
     CreateBranch'
-    { _cbRepositoryName = pRepositoryName
-    , _cbBranchName = pBranchName
-    , _cbCommitId = pCommitId
+    { _cbrqRepositoryName = pRepositoryName
+    , _cbrqBranchName = pBranchName
+    , _cbrqCommitId = pCommitId
     }
 
 -- | The name of the repository in which you want to create the new branch.
-cbRepositoryName :: Lens' CreateBranch Text
-cbRepositoryName = lens _cbRepositoryName (\ s a -> s{_cbRepositoryName = a});
+cbrqRepositoryName :: Lens' CreateBranch Text
+cbrqRepositoryName = lens _cbrqRepositoryName (\ s a -> s{_cbrqRepositoryName = a});
 
 -- | The name of the new branch to create.
-cbBranchName :: Lens' CreateBranch Text
-cbBranchName = lens _cbBranchName (\ s a -> s{_cbBranchName = a});
+cbrqBranchName :: Lens' CreateBranch Text
+cbrqBranchName = lens _cbrqBranchName (\ s a -> s{_cbrqBranchName = a});
 
 -- | The ID of the commit to point the new branch to.
 --
 -- If this commit ID is not specified, the new branch will point to the
 -- commit that is pointed to by the repository\'s default branch.
-cbCommitId :: Lens' CreateBranch Text
-cbCommitId = lens _cbCommitId (\ s a -> s{_cbCommitId = a});
+cbrqCommitId :: Lens' CreateBranch Text
+cbrqCommitId = lens _cbrqCommitId (\ s a -> s{_cbrqCommitId = a});
 
 instance AWSRequest CreateBranch where
         type Sv CreateBranch = CodeCommit
@@ -104,9 +104,9 @@ instance ToHeaders CreateBranch where
 instance ToJSON CreateBranch where
         toJSON CreateBranch'{..}
           = object
-              ["repositoryName" .= _cbRepositoryName,
-               "branchName" .= _cbBranchName,
-               "commitId" .= _cbCommitId]
+              ["repositoryName" .= _cbrqRepositoryName,
+               "branchName" .= _cbrqBranchName,
+               "commitId" .= _cbrqCommitId]
 
 instance ToPath CreateBranch where
         toPath = const "/"

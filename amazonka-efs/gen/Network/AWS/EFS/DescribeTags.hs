@@ -33,19 +33,19 @@ module Network.AWS.EFS.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtMaxItems
-    , dtMarker
-    , dtFileSystemId
+    , dtrqMaxItems
+    , dtrqMarker
+    , dtrqFileSystemId
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtrMarker
-    , dtrNextMarker
-    , dtrStatus
-    , dtrTags
+    , dtrsMarker
+    , dtrsNextMarker
+    , dtrsStatus
+    , dtrsTags
     ) where
 
 import           Network.AWS.EFS.Types
@@ -57,40 +57,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtMaxItems'
+-- * 'dtrqMaxItems'
 --
--- * 'dtMarker'
+-- * 'dtrqMarker'
 --
--- * 'dtFileSystemId'
+-- * 'dtrqFileSystemId'
 data DescribeTags = DescribeTags'
-    { _dtMaxItems     :: !(Maybe Nat)
-    , _dtMarker       :: !(Maybe Text)
-    , _dtFileSystemId :: !Text
+    { _dtrqMaxItems     :: !(Maybe Nat)
+    , _dtrqMarker       :: !(Maybe Text)
+    , _dtrqFileSystemId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: Text -> DescribeTags
 describeTags pFileSystemId =
     DescribeTags'
-    { _dtMaxItems = Nothing
-    , _dtMarker = Nothing
-    , _dtFileSystemId = pFileSystemId
+    { _dtrqMaxItems = Nothing
+    , _dtrqMarker = Nothing
+    , _dtrqFileSystemId = pFileSystemId
     }
 
 -- | Optional. Maximum number of file system tags to return in the response.
 -- It must be an integer with a value greater than zero.
-dtMaxItems :: Lens' DescribeTags (Maybe Natural)
-dtMaxItems = lens _dtMaxItems (\ s a -> s{_dtMaxItems = a}) . mapping _Nat;
+dtrqMaxItems :: Lens' DescribeTags (Maybe Natural)
+dtrqMaxItems = lens _dtrqMaxItems (\ s a -> s{_dtrqMaxItems = a}) . mapping _Nat;
 
 -- | Optional. String. Opaque pagination token returned from a previous
 -- @DescribeTags@ operation. If present, it specifies to continue the list
 -- from where the previous call left off.
-dtMarker :: Lens' DescribeTags (Maybe Text)
-dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
+dtrqMarker :: Lens' DescribeTags (Maybe Text)
+dtrqMarker = lens _dtrqMarker (\ s a -> s{_dtrqMarker = a});
 
 -- | The ID of the file system whose tag set you want to retrieve.
-dtFileSystemId :: Lens' DescribeTags Text
-dtFileSystemId = lens _dtFileSystemId (\ s a -> s{_dtFileSystemId = a});
+dtrqFileSystemId :: Lens' DescribeTags Text
+dtrqFileSystemId = lens _dtrqFileSystemId (\ s a -> s{_dtrqFileSystemId = a});
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = EFS
@@ -110,58 +110,59 @@ instance ToHeaders DescribeTags where
 instance ToPath DescribeTags where
         toPath DescribeTags'{..}
           = mconcat
-              ["/2015-02-01/tags/", toText _dtFileSystemId, "/"]
+              ["/2015-02-01/tags/", toText _dtrqFileSystemId, "/"]
 
 instance ToQuery DescribeTags where
         toQuery DescribeTags'{..}
           = mconcat
-              ["MaxItems" =: _dtMaxItems, "Marker" =: _dtMarker]
+              ["MaxItems" =: _dtrqMaxItems,
+               "Marker" =: _dtrqMarker]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrMarker'
+-- * 'dtrsMarker'
 --
--- * 'dtrNextMarker'
+-- * 'dtrsNextMarker'
 --
--- * 'dtrStatus'
+-- * 'dtrsStatus'
 --
--- * 'dtrTags'
+-- * 'dtrsTags'
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrMarker     :: !(Maybe Text)
-    , _dtrNextMarker :: !(Maybe Text)
-    , _dtrStatus     :: !Int
-    , _dtrTags       :: ![Tag]
+    { _dtrsMarker     :: !(Maybe Text)
+    , _dtrsNextMarker :: !(Maybe Text)
+    , _dtrsStatus     :: !Int
+    , _dtrsTags       :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
 describeTagsResponse pStatus =
     DescribeTagsResponse'
-    { _dtrMarker = Nothing
-    , _dtrNextMarker = Nothing
-    , _dtrStatus = pStatus
-    , _dtrTags = mempty
+    { _dtrsMarker = Nothing
+    , _dtrsNextMarker = Nothing
+    , _dtrsStatus = pStatus
+    , _dtrsTags = mempty
     }
 
 -- | If the request included a @Marker@, the response returns that value in
 -- this field.
-dtrMarker :: Lens' DescribeTagsResponse (Maybe Text)
-dtrMarker = lens _dtrMarker (\ s a -> s{_dtrMarker = a});
+dtrsMarker :: Lens' DescribeTagsResponse (Maybe Text)
+dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
 
 -- | If a value is present, there are more tags to return. In a subsequent
 -- request, you can provide the value of @NextMarker@ as the value of the
 -- @Marker@ parameter in your next request to retrieve the next set of
 -- tags.
-dtrNextMarker :: Lens' DescribeTagsResponse (Maybe Text)
-dtrNextMarker = lens _dtrNextMarker (\ s a -> s{_dtrNextMarker = a});
+dtrsNextMarker :: Lens' DescribeTagsResponse (Maybe Text)
+dtrsNextMarker = lens _dtrsNextMarker (\ s a -> s{_dtrsNextMarker = a});
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTagsResponse Int
-dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
+dtrsStatus :: Lens' DescribeTagsResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});
 
 -- | Returns tags associated with the file system as an array of @Tag@
 -- objects.
-dtrTags :: Lens' DescribeTagsResponse [Tag]
-dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a});
+dtrsTags :: Lens' DescribeTagsResponse [Tag]
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a});

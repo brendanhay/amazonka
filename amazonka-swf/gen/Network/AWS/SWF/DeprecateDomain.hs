@@ -53,7 +53,7 @@ module Network.AWS.SWF.DeprecateDomain
     -- ** Request constructor
     , deprecateDomain
     -- ** Request lenses
-    , depName
+    , drqName
 
     -- * Response
     , DeprecateDomainResponse
@@ -70,21 +70,21 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'depName'
+-- * 'drqName'
 newtype DeprecateDomain = DeprecateDomain'
-    { _depName :: Text
+    { _drqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeprecateDomain' smart constructor.
 deprecateDomain :: Text -> DeprecateDomain
 deprecateDomain pName =
     DeprecateDomain'
-    { _depName = pName
+    { _drqName = pName
     }
 
 -- | The name of the domain to deprecate.
-depName :: Lens' DeprecateDomain Text
-depName = lens _depName (\ s a -> s{_depName = a});
+drqName :: Lens' DeprecateDomain Text
+drqName = lens _drqName (\ s a -> s{_drqName = a});
 
 instance AWSRequest DeprecateDomain where
         type Sv DeprecateDomain = SWF
@@ -104,7 +104,7 @@ instance ToHeaders DeprecateDomain where
 
 instance ToJSON DeprecateDomain where
         toJSON DeprecateDomain'{..}
-          = object ["name" .= _depName]
+          = object ["name" .= _drqName]
 
 instance ToPath DeprecateDomain where
         toPath = const "/"

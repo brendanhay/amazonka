@@ -96,11 +96,11 @@ module Network.AWS.IAM.Types
     -- * Group
     , Group
     , group'
-    , groPath
-    , groGroupName
-    , groGroupId
-    , groARN
-    , groCreateDate
+    , gPath
+    , gGroupName
+    , gGroupId
+    , gARN
+    , gCreateDate
 
     -- * GroupDetail
     , GroupDetail
@@ -174,16 +174,16 @@ module Network.AWS.IAM.Types
     -- * Policy
     , Policy
     , policy
-    , polPolicyName
-    , polARN
-    , polPath
-    , polUpdateDate
-    , polPolicyId
-    , polCreateDate
-    , polIsAttachable
-    , polDefaultVersionId
-    , polAttachmentCount
-    , polDescription
+    , pPolicyName
+    , pARN
+    , pPath
+    , pUpdateDate
+    , pPolicyId
+    , pCreateDate
+    , pIsAttachable
+    , pDefaultVersionId
+    , pAttachmentCount
+    , pDescription
 
     -- * PolicyDetail
     , PolicyDetail
@@ -217,12 +217,12 @@ module Network.AWS.IAM.Types
     -- * Role
     , Role
     , role
-    , rolAssumeRolePolicyDocument
-    , rolPath
-    , rolRoleName
-    , rolRoleId
-    , rolARN
-    , rolCreateDate
+    , rAssumeRolePolicyDocument
+    , rPath
+    , rRoleName
+    , rRoleId
+    , rARN
+    , rCreateDate
 
     -- * RoleDetail
     , RoleDetail
@@ -265,9 +265,9 @@ module Network.AWS.IAM.Types
     -- * ServerCertificate
     , ServerCertificate
     , serverCertificate
-    , serCertificateChain
-    , serServerCertificateMetadata
-    , serCertificateBody
+    , sCertificateChain
+    , sServerCertificateMetadata
+    , sCertificateBody
 
     -- * ServerCertificateMetadata
     , ServerCertificateMetadata
@@ -291,12 +291,12 @@ module Network.AWS.IAM.Types
     -- * User
     , User
     , user
-    , usePasswordLastUsed
-    , usePath
-    , useUserName
-    , useUserId
-    , useARN
-    , useCreateDate
+    , uPasswordLastUsed
+    , uPath
+    , uUserName
+    , uUserId
+    , uARN
+    , uCreateDate
 
     -- * UserDetail
     , UserDetail

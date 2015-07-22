@@ -38,19 +38,19 @@ module Network.AWS.IAM.ListRolePolicies
     -- ** Request constructor
     , listRolePolicies
     -- ** Request lenses
-    , lrpMaxItems
-    , lrpMarker
-    , lrpRoleName
+    , lrprqMaxItems
+    , lrprqMarker
+    , lrprqRoleName
 
     -- * Response
     , ListRolePoliciesResponse
     -- ** Response constructor
     , listRolePoliciesResponse
     -- ** Response lenses
-    , lrprMarker
-    , lrprIsTruncated
-    , lrprStatus
-    , lrprPolicyNames
+    , lrprsMarker
+    , lrprsIsTruncated
+    , lrprsStatus
+    , lrprsPolicyNames
     ) where
 
 import           Network.AWS.IAM.Types
@@ -63,24 +63,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrpMaxItems'
+-- * 'lrprqMaxItems'
 --
--- * 'lrpMarker'
+-- * 'lrprqMarker'
 --
--- * 'lrpRoleName'
+-- * 'lrprqRoleName'
 data ListRolePolicies = ListRolePolicies'
-    { _lrpMaxItems :: !(Maybe Nat)
-    , _lrpMarker   :: !(Maybe Text)
-    , _lrpRoleName :: !Text
+    { _lrprqMaxItems :: !(Maybe Nat)
+    , _lrprqMarker   :: !(Maybe Text)
+    , _lrprqRoleName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolePolicies' smart constructor.
 listRolePolicies :: Text -> ListRolePolicies
 listRolePolicies pRoleName =
     ListRolePolicies'
-    { _lrpMaxItems = Nothing
-    , _lrpMarker = Nothing
-    , _lrpRoleName = pRoleName
+    { _lrprqMaxItems = Nothing
+    , _lrprqMarker = Nothing
+    , _lrprqRoleName = pRoleName
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -89,25 +89,25 @@ listRolePolicies pRoleName =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lrpMaxItems :: Lens' ListRolePolicies (Maybe Natural)
-lrpMaxItems = lens _lrpMaxItems (\ s a -> s{_lrpMaxItems = a}) . mapping _Nat;
+lrprqMaxItems :: Lens' ListRolePolicies (Maybe Natural)
+lrprqMaxItems = lens _lrprqMaxItems (\ s a -> s{_lrprqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lrpMarker :: Lens' ListRolePolicies (Maybe Text)
-lrpMarker = lens _lrpMarker (\ s a -> s{_lrpMarker = a});
+lrprqMarker :: Lens' ListRolePolicies (Maybe Text)
+lrprqMarker = lens _lrprqMarker (\ s a -> s{_lrprqMarker = a});
 
 -- | The name of the role to list policies for.
-lrpRoleName :: Lens' ListRolePolicies Text
-lrpRoleName = lens _lrpRoleName (\ s a -> s{_lrpRoleName = a});
+lrprqRoleName :: Lens' ListRolePolicies Text
+lrprqRoleName = lens _lrprqRoleName (\ s a -> s{_lrprqRoleName = a});
 
 instance AWSPager ListRolePolicies where
         page rq rs
-          | stop (rs ^. lrprIsTruncated) = Nothing
-          | isNothing (rs ^. lrprMarker) = Nothing
+          | stop (rs ^. lrprsIsTruncated) = Nothing
+          | isNothing (rs ^. lrprsMarker) = Nothing
           | otherwise =
-            Just $ rq & lrpMarker .~ rs ^. lrprMarker
+            Just $ rq & lrprqMarker .~ rs ^. lrprsMarker
 
 instance AWSRequest ListRolePolicies where
         type Sv ListRolePolicies = IAM
@@ -134,8 +134,9 @@ instance ToQuery ListRolePolicies where
           = mconcat
               ["Action" =: ("ListRolePolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lrpMaxItems, "Marker" =: _lrpMarker,
-               "RoleName" =: _lrpRoleName]
+               "MaxItems" =: _lrprqMaxItems,
+               "Marker" =: _lrprqMarker,
+               "RoleName" =: _lrprqRoleName]
 
 -- | Contains the response to a successful ListRolePolicies request.
 --
@@ -143,46 +144,46 @@ instance ToQuery ListRolePolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrprMarker'
+-- * 'lrprsMarker'
 --
--- * 'lrprIsTruncated'
+-- * 'lrprsIsTruncated'
 --
--- * 'lrprStatus'
+-- * 'lrprsStatus'
 --
--- * 'lrprPolicyNames'
+-- * 'lrprsPolicyNames'
 data ListRolePoliciesResponse = ListRolePoliciesResponse'
-    { _lrprMarker      :: !(Maybe Text)
-    , _lrprIsTruncated :: !(Maybe Bool)
-    , _lrprStatus      :: !Int
-    , _lrprPolicyNames :: ![Text]
+    { _lrprsMarker      :: !(Maybe Text)
+    , _lrprsIsTruncated :: !(Maybe Bool)
+    , _lrprsStatus      :: !Int
+    , _lrprsPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolePoliciesResponse' smart constructor.
 listRolePoliciesResponse :: Int -> ListRolePoliciesResponse
 listRolePoliciesResponse pStatus =
     ListRolePoliciesResponse'
-    { _lrprMarker = Nothing
-    , _lrprIsTruncated = Nothing
-    , _lrprStatus = pStatus
-    , _lrprPolicyNames = mempty
+    { _lrprsMarker = Nothing
+    , _lrprsIsTruncated = Nothing
+    , _lrprsStatus = pStatus
+    , _lrprsPolicyNames = mempty
     }
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-lrprMarker :: Lens' ListRolePoliciesResponse (Maybe Text)
-lrprMarker = lens _lrprMarker (\ s a -> s{_lrprMarker = a});
+lrprsMarker :: Lens' ListRolePoliciesResponse (Maybe Text)
+lrprsMarker = lens _lrprsMarker (\ s a -> s{_lrprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-lrprIsTruncated :: Lens' ListRolePoliciesResponse (Maybe Bool)
-lrprIsTruncated = lens _lrprIsTruncated (\ s a -> s{_lrprIsTruncated = a});
+lrprsIsTruncated :: Lens' ListRolePoliciesResponse (Maybe Bool)
+lrprsIsTruncated = lens _lrprsIsTruncated (\ s a -> s{_lrprsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lrprStatus :: Lens' ListRolePoliciesResponse Int
-lrprStatus = lens _lrprStatus (\ s a -> s{_lrprStatus = a});
+lrprsStatus :: Lens' ListRolePoliciesResponse Int
+lrprsStatus = lens _lrprsStatus (\ s a -> s{_lrprsStatus = a});
 
 -- | A list of policy names.
-lrprPolicyNames :: Lens' ListRolePoliciesResponse [Text]
-lrprPolicyNames = lens _lrprPolicyNames (\ s a -> s{_lrprPolicyNames = a});
+lrprsPolicyNames :: Lens' ListRolePoliciesResponse [Text]
+lrprsPolicyNames = lens _lrprsPolicyNames (\ s a -> s{_lrprsPolicyNames = a});

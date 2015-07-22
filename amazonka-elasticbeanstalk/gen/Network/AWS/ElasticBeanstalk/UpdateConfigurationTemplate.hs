@@ -36,26 +36,26 @@ module Network.AWS.ElasticBeanstalk.UpdateConfigurationTemplate
     -- ** Request constructor
     , updateConfigurationTemplate
     -- ** Request lenses
-    , uctOptionsToRemove
-    , uctOptionSettings
-    , uctDescription
-    , uctApplicationName
-    , uctTemplateName
+    , uctrqOptionsToRemove
+    , uctrqOptionSettings
+    , uctrqDescription
+    , uctrqApplicationName
+    , uctrqTemplateName
 
     -- * Response
     , ConfigurationSettingsDescription
     -- ** Response constructor
     , configurationSettingsDescription
     -- ** Response lenses
-    , csdTemplateName
-    , csdOptionSettings
-    , csdDateUpdated
-    , csdDateCreated
-    , csdEnvironmentName
-    , csdApplicationName
-    , csdDeploymentStatus
-    , csdSolutionStackName
-    , csdDescription
+    , uctrsTemplateName
+    , uctrsOptionSettings
+    , uctrsDateUpdated
+    , uctrsDateCreated
+    , uctrsEnvironmentName
+    , uctrsApplicationName
+    , uctrsDeploymentStatus
+    , uctrsSolutionStackName
+    , uctrsDescription
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -70,63 +70,63 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uctOptionsToRemove'
+-- * 'uctrqOptionsToRemove'
 --
--- * 'uctOptionSettings'
+-- * 'uctrqOptionSettings'
 --
--- * 'uctDescription'
+-- * 'uctrqDescription'
 --
--- * 'uctApplicationName'
+-- * 'uctrqApplicationName'
 --
--- * 'uctTemplateName'
+-- * 'uctrqTemplateName'
 data UpdateConfigurationTemplate = UpdateConfigurationTemplate'
-    { _uctOptionsToRemove :: !(Maybe [OptionSpecification])
-    , _uctOptionSettings  :: !(Maybe [ConfigurationOptionSetting])
-    , _uctDescription     :: !(Maybe Text)
-    , _uctApplicationName :: !Text
-    , _uctTemplateName    :: !Text
+    { _uctrqOptionsToRemove :: !(Maybe [OptionSpecification])
+    , _uctrqOptionSettings  :: !(Maybe [ConfigurationOptionSetting])
+    , _uctrqDescription     :: !(Maybe Text)
+    , _uctrqApplicationName :: !Text
+    , _uctrqTemplateName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateConfigurationTemplate' smart constructor.
 updateConfigurationTemplate :: Text -> Text -> UpdateConfigurationTemplate
 updateConfigurationTemplate pApplicationName pTemplateName =
     UpdateConfigurationTemplate'
-    { _uctOptionsToRemove = Nothing
-    , _uctOptionSettings = Nothing
-    , _uctDescription = Nothing
-    , _uctApplicationName = pApplicationName
-    , _uctTemplateName = pTemplateName
+    { _uctrqOptionsToRemove = Nothing
+    , _uctrqOptionSettings = Nothing
+    , _uctrqDescription = Nothing
+    , _uctrqApplicationName = pApplicationName
+    , _uctrqTemplateName = pTemplateName
     }
 
 -- | A list of configuration options to remove from the configuration set.
 --
 -- Constraint: You can remove only @UserDefined@ configuration options.
-uctOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
-uctOptionsToRemove = lens _uctOptionsToRemove (\ s a -> s{_uctOptionsToRemove = a}) . _Default;
+uctrqOptionsToRemove :: Lens' UpdateConfigurationTemplate [OptionSpecification]
+uctrqOptionsToRemove = lens _uctrqOptionsToRemove (\ s a -> s{_uctrqOptionsToRemove = a}) . _Default;
 
 -- | A list of configuration option settings to update with the new specified
 -- option value.
-uctOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
-uctOptionSettings = lens _uctOptionSettings (\ s a -> s{_uctOptionSettings = a}) . _Default;
+uctrqOptionSettings :: Lens' UpdateConfigurationTemplate [ConfigurationOptionSetting]
+uctrqOptionSettings = lens _uctrqOptionSettings (\ s a -> s{_uctrqOptionSettings = a}) . _Default;
 
 -- | A new description for the configuration.
-uctDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
-uctDescription = lens _uctDescription (\ s a -> s{_uctDescription = a});
+uctrqDescription :: Lens' UpdateConfigurationTemplate (Maybe Text)
+uctrqDescription = lens _uctrqDescription (\ s a -> s{_uctrqDescription = a});
 
 -- | The name of the application associated with the configuration template
 -- to update.
 --
 -- If no application is found with this name, @UpdateConfigurationTemplate@
 -- returns an @InvalidParameterValue@ error.
-uctApplicationName :: Lens' UpdateConfigurationTemplate Text
-uctApplicationName = lens _uctApplicationName (\ s a -> s{_uctApplicationName = a});
+uctrqApplicationName :: Lens' UpdateConfigurationTemplate Text
+uctrqApplicationName = lens _uctrqApplicationName (\ s a -> s{_uctrqApplicationName = a});
 
 -- | The name of the configuration template to update.
 --
 -- If no configuration template is found with this name,
 -- @UpdateConfigurationTemplate@ returns an @InvalidParameterValue@ error.
-uctTemplateName :: Lens' UpdateConfigurationTemplate Text
-uctTemplateName = lens _uctTemplateName (\ s a -> s{_uctTemplateName = a});
+uctrqTemplateName :: Lens' UpdateConfigurationTemplate Text
+uctrqTemplateName = lens _uctrqTemplateName (\ s a -> s{_uctrqTemplateName = a});
 
 instance AWSRequest UpdateConfigurationTemplate where
         type Sv UpdateConfigurationTemplate =
@@ -153,10 +153,10 @@ instance ToQuery UpdateConfigurationTemplate where
                "Version" =: ("2010-12-01" :: ByteString),
                "OptionsToRemove" =:
                  toQuery
-                   (toQueryList "member" <$> _uctOptionsToRemove),
+                   (toQueryList "member" <$> _uctrqOptionsToRemove),
                "OptionSettings" =:
                  toQuery
-                   (toQueryList "member" <$> _uctOptionSettings),
-               "Description" =: _uctDescription,
-               "ApplicationName" =: _uctApplicationName,
-               "TemplateName" =: _uctTemplateName]
+                   (toQueryList "member" <$> _uctrqOptionSettings),
+               "Description" =: _uctrqDescription,
+               "ApplicationName" =: _uctrqApplicationName,
+               "TemplateName" =: _uctrqTemplateName]

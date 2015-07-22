@@ -37,18 +37,18 @@ module Network.AWS.IAM.GetUserPolicy
     -- ** Request constructor
     , getUserPolicy
     -- ** Request lenses
-    , gupUserName
-    , gupPolicyName
+    , guprqUserName
+    , guprqPolicyName
 
     -- * Response
     , GetUserPolicyResponse
     -- ** Response constructor
     , getUserPolicyResponse
     -- ** Response lenses
-    , guprStatus
-    , guprUserName
-    , guprPolicyName
-    , guprPolicyDocument
+    , guprsStatus
+    , guprsUserName
+    , guprsPolicyName
+    , guprsPolicyDocument
     ) where
 
 import           Network.AWS.IAM.Types
@@ -60,29 +60,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gupUserName'
+-- * 'guprqUserName'
 --
--- * 'gupPolicyName'
+-- * 'guprqPolicyName'
 data GetUserPolicy = GetUserPolicy'
-    { _gupUserName   :: !Text
-    , _gupPolicyName :: !Text
+    { _guprqUserName   :: !Text
+    , _guprqPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserPolicy' smart constructor.
 getUserPolicy :: Text -> Text -> GetUserPolicy
 getUserPolicy pUserName pPolicyName =
     GetUserPolicy'
-    { _gupUserName = pUserName
-    , _gupPolicyName = pPolicyName
+    { _guprqUserName = pUserName
+    , _guprqPolicyName = pPolicyName
     }
 
 -- | The name of the user who the policy is associated with.
-gupUserName :: Lens' GetUserPolicy Text
-gupUserName = lens _gupUserName (\ s a -> s{_gupUserName = a});
+guprqUserName :: Lens' GetUserPolicy Text
+guprqUserName = lens _guprqUserName (\ s a -> s{_guprqUserName = a});
 
 -- | The name of the policy document to get.
-gupPolicyName :: Lens' GetUserPolicy Text
-gupPolicyName = lens _gupPolicyName (\ s a -> s{_gupPolicyName = a});
+guprqPolicyName :: Lens' GetUserPolicy Text
+guprqPolicyName = lens _guprqPolicyName (\ s a -> s{_guprqPolicyName = a});
 
 instance AWSRequest GetUserPolicy where
         type Sv GetUserPolicy = IAM
@@ -107,8 +107,8 @@ instance ToQuery GetUserPolicy where
           = mconcat
               ["Action" =: ("GetUserPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _gupUserName,
-               "PolicyName" =: _gupPolicyName]
+               "UserName" =: _guprqUserName,
+               "PolicyName" =: _guprqPolicyName]
 
 -- | Contains the response to a successful GetUserPolicy request.
 --
@@ -116,42 +116,42 @@ instance ToQuery GetUserPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'guprStatus'
+-- * 'guprsStatus'
 --
--- * 'guprUserName'
+-- * 'guprsUserName'
 --
--- * 'guprPolicyName'
+-- * 'guprsPolicyName'
 --
--- * 'guprPolicyDocument'
+-- * 'guprsPolicyDocument'
 data GetUserPolicyResponse = GetUserPolicyResponse'
-    { _guprStatus         :: !Int
-    , _guprUserName       :: !Text
-    , _guprPolicyName     :: !Text
-    , _guprPolicyDocument :: !Text
+    { _guprsStatus         :: !Int
+    , _guprsUserName       :: !Text
+    , _guprsPolicyName     :: !Text
+    , _guprsPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserPolicyResponse' smart constructor.
 getUserPolicyResponse :: Int -> Text -> Text -> Text -> GetUserPolicyResponse
 getUserPolicyResponse pStatus pUserName pPolicyName pPolicyDocument =
     GetUserPolicyResponse'
-    { _guprStatus = pStatus
-    , _guprUserName = pUserName
-    , _guprPolicyName = pPolicyName
-    , _guprPolicyDocument = pPolicyDocument
+    { _guprsStatus = pStatus
+    , _guprsUserName = pUserName
+    , _guprsPolicyName = pPolicyName
+    , _guprsPolicyDocument = pPolicyDocument
     }
 
 -- | FIXME: Undocumented member.
-guprStatus :: Lens' GetUserPolicyResponse Int
-guprStatus = lens _guprStatus (\ s a -> s{_guprStatus = a});
+guprsStatus :: Lens' GetUserPolicyResponse Int
+guprsStatus = lens _guprsStatus (\ s a -> s{_guprsStatus = a});
 
 -- | The user the policy is associated with.
-guprUserName :: Lens' GetUserPolicyResponse Text
-guprUserName = lens _guprUserName (\ s a -> s{_guprUserName = a});
+guprsUserName :: Lens' GetUserPolicyResponse Text
+guprsUserName = lens _guprsUserName (\ s a -> s{_guprsUserName = a});
 
 -- | The name of the policy.
-guprPolicyName :: Lens' GetUserPolicyResponse Text
-guprPolicyName = lens _guprPolicyName (\ s a -> s{_guprPolicyName = a});
+guprsPolicyName :: Lens' GetUserPolicyResponse Text
+guprsPolicyName = lens _guprsPolicyName (\ s a -> s{_guprsPolicyName = a});
 
 -- | The policy document.
-guprPolicyDocument :: Lens' GetUserPolicyResponse Text
-guprPolicyDocument = lens _guprPolicyDocument (\ s a -> s{_guprPolicyDocument = a});
+guprsPolicyDocument :: Lens' GetUserPolicyResponse Text
+guprsPolicyDocument = lens _guprsPolicyDocument (\ s a -> s{_guprsPolicyDocument = a});

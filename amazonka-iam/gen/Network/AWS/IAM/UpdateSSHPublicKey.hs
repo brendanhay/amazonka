@@ -37,9 +37,9 @@ module Network.AWS.IAM.UpdateSSHPublicKey
     -- ** Request constructor
     , updateSSHPublicKey
     -- ** Request lenses
-    , uspkUserName
-    , uspkSSHPublicKeyId
-    , uspkStatus
+    , uspkrqUserName
+    , uspkrqSSHPublicKeyId
+    , uspkrqStatus
 
     -- * Response
     , UpdateSSHPublicKeyResponse
@@ -56,39 +56,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uspkUserName'
+-- * 'uspkrqUserName'
 --
--- * 'uspkSSHPublicKeyId'
+-- * 'uspkrqSSHPublicKeyId'
 --
--- * 'uspkStatus'
+-- * 'uspkrqStatus'
 data UpdateSSHPublicKey = UpdateSSHPublicKey'
-    { _uspkUserName       :: !Text
-    , _uspkSSHPublicKeyId :: !Text
-    , _uspkStatus         :: !StatusType
+    { _uspkrqUserName       :: !Text
+    , _uspkrqSSHPublicKeyId :: !Text
+    , _uspkrqStatus         :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSSHPublicKey' smart constructor.
 updateSSHPublicKey :: Text -> Text -> StatusType -> UpdateSSHPublicKey
 updateSSHPublicKey pUserName pSSHPublicKeyId pStatus =
     UpdateSSHPublicKey'
-    { _uspkUserName = pUserName
-    , _uspkSSHPublicKeyId = pSSHPublicKeyId
-    , _uspkStatus = pStatus
+    { _uspkrqUserName = pUserName
+    , _uspkrqSSHPublicKeyId = pSSHPublicKeyId
+    , _uspkrqStatus = pStatus
     }
 
 -- | The name of the IAM user associated with the SSH public key.
-uspkUserName :: Lens' UpdateSSHPublicKey Text
-uspkUserName = lens _uspkUserName (\ s a -> s{_uspkUserName = a});
+uspkrqUserName :: Lens' UpdateSSHPublicKey Text
+uspkrqUserName = lens _uspkrqUserName (\ s a -> s{_uspkrqUserName = a});
 
 -- | The unique identifier for the SSH public key.
-uspkSSHPublicKeyId :: Lens' UpdateSSHPublicKey Text
-uspkSSHPublicKeyId = lens _uspkSSHPublicKeyId (\ s a -> s{_uspkSSHPublicKeyId = a});
+uspkrqSSHPublicKeyId :: Lens' UpdateSSHPublicKey Text
+uspkrqSSHPublicKeyId = lens _uspkrqSSHPublicKeyId (\ s a -> s{_uspkrqSSHPublicKeyId = a});
 
 -- | The status to assign to the SSH public key. @Active@ means the key can
 -- be used for authentication with an AWS CodeCommit repository. @Inactive@
 -- means the key cannot be used.
-uspkStatus :: Lens' UpdateSSHPublicKey StatusType
-uspkStatus = lens _uspkStatus (\ s a -> s{_uspkStatus = a});
+uspkrqStatus :: Lens' UpdateSSHPublicKey StatusType
+uspkrqStatus = lens _uspkrqStatus (\ s a -> s{_uspkrqStatus = a});
 
 instance AWSRequest UpdateSSHPublicKey where
         type Sv UpdateSSHPublicKey = IAM
@@ -108,9 +108,9 @@ instance ToQuery UpdateSSHPublicKey where
           = mconcat
               ["Action" =: ("UpdateSSHPublicKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _uspkUserName,
-               "SSHPublicKeyId" =: _uspkSSHPublicKeyId,
-               "Status" =: _uspkStatus]
+               "UserName" =: _uspkrqUserName,
+               "SSHPublicKeyId" =: _uspkrqSSHPublicKeyId,
+               "Status" =: _uspkrqStatus]
 
 -- | /See:/ 'updateSSHPublicKeyResponse' smart constructor.
 data UpdateSSHPublicKeyResponse =

@@ -29,17 +29,17 @@ module Network.AWS.EC2.AttachVPNGateway
     -- ** Request constructor
     , attachVPNGateway
     -- ** Request lenses
-    , avgDryRun
-    , avgVPNGatewayId
-    , avgVPCId
+    , avgrqDryRun
+    , avgrqVPNGatewayId
+    , avgrqVPCId
 
     -- * Response
     , AttachVPNGatewayResponse
     -- ** Response constructor
     , attachVPNGatewayResponse
     -- ** Response lenses
-    , avgrVPCAttachment
-    , avgrStatus
+    , avgrsVPCAttachment
+    , avgrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -51,40 +51,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avgDryRun'
+-- * 'avgrqDryRun'
 --
--- * 'avgVPNGatewayId'
+-- * 'avgrqVPNGatewayId'
 --
--- * 'avgVPCId'
+-- * 'avgrqVPCId'
 data AttachVPNGateway = AttachVPNGateway'
-    { _avgDryRun       :: !(Maybe Bool)
-    , _avgVPNGatewayId :: !Text
-    , _avgVPCId        :: !Text
+    { _avgrqDryRun       :: !(Maybe Bool)
+    , _avgrqVPNGatewayId :: !Text
+    , _avgrqVPCId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVPNGateway' smart constructor.
 attachVPNGateway :: Text -> Text -> AttachVPNGateway
 attachVPNGateway pVPNGatewayId pVPCId =
     AttachVPNGateway'
-    { _avgDryRun = Nothing
-    , _avgVPNGatewayId = pVPNGatewayId
-    , _avgVPCId = pVPCId
+    { _avgrqDryRun = Nothing
+    , _avgrqVPNGatewayId = pVPNGatewayId
+    , _avgrqVPCId = pVPCId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-avgDryRun :: Lens' AttachVPNGateway (Maybe Bool)
-avgDryRun = lens _avgDryRun (\ s a -> s{_avgDryRun = a});
+avgrqDryRun :: Lens' AttachVPNGateway (Maybe Bool)
+avgrqDryRun = lens _avgrqDryRun (\ s a -> s{_avgrqDryRun = a});
 
 -- | The ID of the virtual private gateway.
-avgVPNGatewayId :: Lens' AttachVPNGateway Text
-avgVPNGatewayId = lens _avgVPNGatewayId (\ s a -> s{_avgVPNGatewayId = a});
+avgrqVPNGatewayId :: Lens' AttachVPNGateway Text
+avgrqVPNGatewayId = lens _avgrqVPNGatewayId (\ s a -> s{_avgrqVPNGatewayId = a});
 
 -- | The ID of the VPC.
-avgVPCId :: Lens' AttachVPNGateway Text
-avgVPCId = lens _avgVPCId (\ s a -> s{_avgVPCId = a});
+avgrqVPCId :: Lens' AttachVPNGateway Text
+avgrqVPCId = lens _avgrqVPCId (\ s a -> s{_avgrqVPCId = a});
 
 instance AWSRequest AttachVPNGateway where
         type Sv AttachVPNGateway = EC2
@@ -107,34 +107,34 @@ instance ToQuery AttachVPNGateway where
           = mconcat
               ["Action" =: ("AttachVPNGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _avgDryRun,
-               "VpnGatewayId" =: _avgVPNGatewayId,
-               "VpcId" =: _avgVPCId]
+               "DryRun" =: _avgrqDryRun,
+               "VpnGatewayId" =: _avgrqVPNGatewayId,
+               "VpcId" =: _avgrqVPCId]
 
 -- | /See:/ 'attachVPNGatewayResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avgrVPCAttachment'
+-- * 'avgrsVPCAttachment'
 --
--- * 'avgrStatus'
+-- * 'avgrsStatus'
 data AttachVPNGatewayResponse = AttachVPNGatewayResponse'
-    { _avgrVPCAttachment :: !(Maybe VPCAttachment)
-    , _avgrStatus        :: !Int
+    { _avgrsVPCAttachment :: !(Maybe VPCAttachment)
+    , _avgrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachVPNGatewayResponse' smart constructor.
 attachVPNGatewayResponse :: Int -> AttachVPNGatewayResponse
 attachVPNGatewayResponse pStatus =
     AttachVPNGatewayResponse'
-    { _avgrVPCAttachment = Nothing
-    , _avgrStatus = pStatus
+    { _avgrsVPCAttachment = Nothing
+    , _avgrsStatus = pStatus
     }
 
 -- | Information about the attachment.
-avgrVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
-avgrVPCAttachment = lens _avgrVPCAttachment (\ s a -> s{_avgrVPCAttachment = a});
+avgrsVPCAttachment :: Lens' AttachVPNGatewayResponse (Maybe VPCAttachment)
+avgrsVPCAttachment = lens _avgrsVPCAttachment (\ s a -> s{_avgrsVPCAttachment = a});
 
 -- | FIXME: Undocumented member.
-avgrStatus :: Lens' AttachVPNGatewayResponse Int
-avgrStatus = lens _avgrStatus (\ s a -> s{_avgrStatus = a});
+avgrsStatus :: Lens' AttachVPNGatewayResponse Int
+avgrsStatus = lens _avgrsStatus (\ s a -> s{_avgrsStatus = a});

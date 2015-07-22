@@ -39,8 +39,8 @@ module Network.AWS.OpsWorks.AssignInstance
     -- ** Request constructor
     , assignInstance
     -- ** Request lenses
-    , aiInstanceId
-    , aiLayerIds
+    , airqInstanceId
+    , airqLayerIds
 
     -- * Response
     , AssignInstanceResponse
@@ -57,30 +57,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aiInstanceId'
+-- * 'airqInstanceId'
 --
--- * 'aiLayerIds'
+-- * 'airqLayerIds'
 data AssignInstance = AssignInstance'
-    { _aiInstanceId :: !Text
-    , _aiLayerIds   :: ![Text]
+    { _airqInstanceId :: !Text
+    , _airqLayerIds   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignInstance' smart constructor.
 assignInstance :: Text -> AssignInstance
 assignInstance pInstanceId =
     AssignInstance'
-    { _aiInstanceId = pInstanceId
-    , _aiLayerIds = mempty
+    { _airqInstanceId = pInstanceId
+    , _airqLayerIds = mempty
     }
 
 -- | The instance ID.
-aiInstanceId :: Lens' AssignInstance Text
-aiInstanceId = lens _aiInstanceId (\ s a -> s{_aiInstanceId = a});
+airqInstanceId :: Lens' AssignInstance Text
+airqInstanceId = lens _airqInstanceId (\ s a -> s{_airqInstanceId = a});
 
 -- | The layer ID, which must correspond to a custom layer. You cannot assign
 -- a registered instance to a built-in layer.
-aiLayerIds :: Lens' AssignInstance [Text]
-aiLayerIds = lens _aiLayerIds (\ s a -> s{_aiLayerIds = a});
+airqLayerIds :: Lens' AssignInstance [Text]
+airqLayerIds = lens _airqLayerIds (\ s a -> s{_airqLayerIds = a});
 
 instance AWSRequest AssignInstance where
         type Sv AssignInstance = OpsWorks
@@ -100,8 +100,8 @@ instance ToHeaders AssignInstance where
 instance ToJSON AssignInstance where
         toJSON AssignInstance'{..}
           = object
-              ["InstanceId" .= _aiInstanceId,
-               "LayerIds" .= _aiLayerIds]
+              ["InstanceId" .= _airqInstanceId,
+               "LayerIds" .= _airqLayerIds]
 
 instance ToPath AssignInstance where
         toPath = const "/"

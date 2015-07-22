@@ -33,17 +33,17 @@ module Network.AWS.Redshift.RevokeSnapshotAccess
     -- ** Request constructor
     , revokeSnapshotAccess
     -- ** Request lenses
-    , rsaSnapshotClusterIdentifier
-    , rsaSnapshotIdentifier
-    , rsaAccountWithRestoreAccess
+    , rsarqSnapshotClusterIdentifier
+    , rsarqSnapshotIdentifier
+    , rsarqAccountWithRestoreAccess
 
     -- * Response
     , RevokeSnapshotAccessResponse
     -- ** Response constructor
     , revokeSnapshotAccessResponse
     -- ** Response lenses
-    , rsarSnapshot
-    , rsarStatus
+    , rsarsSnapshot
+    , rsarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -57,41 +57,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsaSnapshotClusterIdentifier'
+-- * 'rsarqSnapshotClusterIdentifier'
 --
--- * 'rsaSnapshotIdentifier'
+-- * 'rsarqSnapshotIdentifier'
 --
--- * 'rsaAccountWithRestoreAccess'
+-- * 'rsarqAccountWithRestoreAccess'
 data RevokeSnapshotAccess = RevokeSnapshotAccess'
-    { _rsaSnapshotClusterIdentifier :: !(Maybe Text)
-    , _rsaSnapshotIdentifier        :: !Text
-    , _rsaAccountWithRestoreAccess  :: !Text
+    { _rsarqSnapshotClusterIdentifier :: !(Maybe Text)
+    , _rsarqSnapshotIdentifier        :: !Text
+    , _rsarqAccountWithRestoreAccess  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSnapshotAccess' smart constructor.
 revokeSnapshotAccess :: Text -> Text -> RevokeSnapshotAccess
 revokeSnapshotAccess pSnapshotIdentifier pAccountWithRestoreAccess =
     RevokeSnapshotAccess'
-    { _rsaSnapshotClusterIdentifier = Nothing
-    , _rsaSnapshotIdentifier = pSnapshotIdentifier
-    , _rsaAccountWithRestoreAccess = pAccountWithRestoreAccess
+    { _rsarqSnapshotClusterIdentifier = Nothing
+    , _rsarqSnapshotIdentifier = pSnapshotIdentifier
+    , _rsarqAccountWithRestoreAccess = pAccountWithRestoreAccess
     }
 
 -- | The identifier of the cluster the snapshot was created from. This
 -- parameter is required if your IAM user has a policy containing a
 -- snapshot resource element that specifies anything other than * for the
 -- cluster name.
-rsaSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
-rsaSnapshotClusterIdentifier = lens _rsaSnapshotClusterIdentifier (\ s a -> s{_rsaSnapshotClusterIdentifier = a});
+rsarqSnapshotClusterIdentifier :: Lens' RevokeSnapshotAccess (Maybe Text)
+rsarqSnapshotClusterIdentifier = lens _rsarqSnapshotClusterIdentifier (\ s a -> s{_rsarqSnapshotClusterIdentifier = a});
 
 -- | The identifier of the snapshot that the account can no longer access.
-rsaSnapshotIdentifier :: Lens' RevokeSnapshotAccess Text
-rsaSnapshotIdentifier = lens _rsaSnapshotIdentifier (\ s a -> s{_rsaSnapshotIdentifier = a});
+rsarqSnapshotIdentifier :: Lens' RevokeSnapshotAccess Text
+rsarqSnapshotIdentifier = lens _rsarqSnapshotIdentifier (\ s a -> s{_rsarqSnapshotIdentifier = a});
 
 -- | The identifier of the AWS customer account that can no longer restore
 -- the specified snapshot.
-rsaAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
-rsaAccountWithRestoreAccess = lens _rsaAccountWithRestoreAccess (\ s a -> s{_rsaAccountWithRestoreAccess = a});
+rsarqAccountWithRestoreAccess :: Lens' RevokeSnapshotAccess Text
+rsarqAccountWithRestoreAccess = lens _rsarqAccountWithRestoreAccess (\ s a -> s{_rsarqAccountWithRestoreAccess = a});
 
 instance AWSRequest RevokeSnapshotAccess where
         type Sv RevokeSnapshotAccess = Redshift
@@ -116,35 +116,35 @@ instance ToQuery RevokeSnapshotAccess where
               ["Action" =: ("RevokeSnapshotAccess" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "SnapshotClusterIdentifier" =:
-                 _rsaSnapshotClusterIdentifier,
-               "SnapshotIdentifier" =: _rsaSnapshotIdentifier,
+                 _rsarqSnapshotClusterIdentifier,
+               "SnapshotIdentifier" =: _rsarqSnapshotIdentifier,
                "AccountWithRestoreAccess" =:
-                 _rsaAccountWithRestoreAccess]
+                 _rsarqAccountWithRestoreAccess]
 
 -- | /See:/ 'revokeSnapshotAccessResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsarSnapshot'
+-- * 'rsarsSnapshot'
 --
--- * 'rsarStatus'
+-- * 'rsarsStatus'
 data RevokeSnapshotAccessResponse = RevokeSnapshotAccessResponse'
-    { _rsarSnapshot :: !(Maybe Snapshot)
-    , _rsarStatus   :: !Int
+    { _rsarsSnapshot :: !(Maybe Snapshot)
+    , _rsarsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeSnapshotAccessResponse' smart constructor.
 revokeSnapshotAccessResponse :: Int -> RevokeSnapshotAccessResponse
 revokeSnapshotAccessResponse pStatus =
     RevokeSnapshotAccessResponse'
-    { _rsarSnapshot = Nothing
-    , _rsarStatus = pStatus
+    { _rsarsSnapshot = Nothing
+    , _rsarsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rsarSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
-rsarSnapshot = lens _rsarSnapshot (\ s a -> s{_rsarSnapshot = a});
+rsarsSnapshot :: Lens' RevokeSnapshotAccessResponse (Maybe Snapshot)
+rsarsSnapshot = lens _rsarsSnapshot (\ s a -> s{_rsarsSnapshot = a});
 
 -- | FIXME: Undocumented member.
-rsarStatus :: Lens' RevokeSnapshotAccessResponse Int
-rsarStatus = lens _rsarStatus (\ s a -> s{_rsarStatus = a});
+rsarsStatus :: Lens' RevokeSnapshotAccessResponse Int
+rsarsStatus = lens _rsarsStatus (\ s a -> s{_rsarsStatus = a});

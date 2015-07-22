@@ -28,16 +28,16 @@ module Network.AWS.ImportExport.CancelJob
     -- ** Request constructor
     , cancelJob
     -- ** Request lenses
-    , canAPIVersion
-    , canJobId
+    , crqAPIVersion
+    , crqJobId
 
     -- * Response
     , CancelJobResponse
     -- ** Response constructor
     , cancelJobResponse
     -- ** Response lenses
-    , canSuccess
-    , canStatus
+    , crsSuccess
+    , crsStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'canAPIVersion'
+-- * 'crqAPIVersion'
 --
--- * 'canJobId'
+-- * 'crqJobId'
 data CancelJob = CancelJob'
-    { _canAPIVersion :: !(Maybe Text)
-    , _canJobId      :: !Text
+    { _crqAPIVersion :: !(Maybe Text)
+    , _crqJobId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
 cancelJob pJobId =
     CancelJob'
-    { _canAPIVersion = Nothing
-    , _canJobId = pJobId
+    { _crqAPIVersion = Nothing
+    , _crqJobId = pJobId
     }
 
 -- | FIXME: Undocumented member.
-canAPIVersion :: Lens' CancelJob (Maybe Text)
-canAPIVersion = lens _canAPIVersion (\ s a -> s{_canAPIVersion = a});
+crqAPIVersion :: Lens' CancelJob (Maybe Text)
+crqAPIVersion = lens _crqAPIVersion (\ s a -> s{_crqAPIVersion = a});
 
 -- | FIXME: Undocumented member.
-canJobId :: Lens' CancelJob Text
-canJobId = lens _canJobId (\ s a -> s{_canJobId = a});
+crqJobId :: Lens' CancelJob Text
+crqJobId = lens _crqJobId (\ s a -> s{_crqJobId = a});
 
 instance AWSRequest CancelJob where
         type Sv CancelJob = ImportExport
@@ -97,7 +97,7 @@ instance ToQuery CancelJob where
               ["Operation=CancelJob",
                "Action" =: ("CancelJob" :: ByteString),
                "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _canAPIVersion, "JobId" =: _canJobId]
+               "APIVersion" =: _crqAPIVersion, "JobId" =: _crqJobId]
 
 -- | Output structure for the CancelJob operation.
 --
@@ -105,26 +105,26 @@ instance ToQuery CancelJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'canSuccess'
+-- * 'crsSuccess'
 --
--- * 'canStatus'
+-- * 'crsStatus'
 data CancelJobResponse = CancelJobResponse'
-    { _canSuccess :: !(Maybe Bool)
-    , _canStatus  :: !Int
+    { _crsSuccess :: !(Maybe Bool)
+    , _crsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse
 cancelJobResponse pStatus =
     CancelJobResponse'
-    { _canSuccess = Nothing
-    , _canStatus = pStatus
+    { _crsSuccess = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-canSuccess :: Lens' CancelJobResponse (Maybe Bool)
-canSuccess = lens _canSuccess (\ s a -> s{_canSuccess = a});
+crsSuccess :: Lens' CancelJobResponse (Maybe Bool)
+crsSuccess = lens _crsSuccess (\ s a -> s{_crsSuccess = a});
 
 -- | FIXME: Undocumented member.
-canStatus :: Lens' CancelJobResponse Int
-canStatus = lens _canStatus (\ s a -> s{_canStatus = a});
+crsStatus :: Lens' CancelJobResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

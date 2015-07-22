@@ -41,12 +41,12 @@ module Network.AWS.CloudTrail.Types
     -- * Event
     , Event
     , event
-    , eveUsername
-    , eveEventTime
-    , eveResources
-    , eveCloudTrailEvent
-    , eveEventName
-    , eveEventId
+    , eUsername
+    , eEventTime
+    , eResources
+    , eCloudTrailEvent
+    , eEventName
+    , eEventId
 
     -- * LookupAttribute
     , LookupAttribute
@@ -57,19 +57,19 @@ module Network.AWS.CloudTrail.Types
     -- * Resource
     , Resource
     , resource
-    , resResourceType
-    , resResourceName
+    , rResourceType
+    , rResourceName
 
     -- * Trail
     , Trail
     , trail
-    , traS3KeyPrefix
-    , traSNSTopicName
-    , traCloudWatchLogsLogGroupARN
-    , traName
-    , traIncludeGlobalServiceEvents
-    , traCloudWatchLogsRoleARN
-    , traS3BucketName
+    , tS3KeyPrefix
+    , tSNSTopicName
+    , tCloudWatchLogsLogGroupARN
+    , tName
+    , tIncludeGlobalServiceEvents
+    , tCloudWatchLogsRoleARN
+    , tS3BucketName
     ) where
 
 import           Network.AWS.CloudTrail.Types.Product

@@ -32,19 +32,19 @@ module Network.AWS.RDS.DescribeEventSubscriptions
     -- ** Request constructor
     , describeEventSubscriptions
     -- ** Request lenses
-    , dSubscriptionName
-    , dFilters
-    , dMaxRecords
-    , dMarker
+    , drqSubscriptionName
+    , drqFilters
+    , drqMaxRecords
+    , drqMarker
 
     -- * Response
     , DescribeEventSubscriptionsResponse
     -- ** Response constructor
     , describeEventSubscriptionsResponse
     -- ** Response lenses
-    , desrEventSubscriptionsList
-    , desrMarker
-    , desrStatus
+    , drsEventSubscriptionsList
+    , drsMarker
+    , drsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -59,38 +59,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dSubscriptionName'
+-- * 'drqSubscriptionName'
 --
--- * 'dFilters'
+-- * 'drqFilters'
 --
--- * 'dMaxRecords'
+-- * 'drqMaxRecords'
 --
--- * 'dMarker'
+-- * 'drqMarker'
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-    { _dSubscriptionName :: !(Maybe Text)
-    , _dFilters          :: !(Maybe [Filter])
-    , _dMaxRecords       :: !(Maybe Int)
-    , _dMarker           :: !(Maybe Text)
+    { _drqSubscriptionName :: !(Maybe Text)
+    , _drqFilters          :: !(Maybe [Filter])
+    , _drqMaxRecords       :: !(Maybe Int)
+    , _drqMarker           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventSubscriptions' smart constructor.
 describeEventSubscriptions :: DescribeEventSubscriptions
 describeEventSubscriptions =
     DescribeEventSubscriptions'
-    { _dSubscriptionName = Nothing
-    , _dFilters = Nothing
-    , _dMaxRecords = Nothing
-    , _dMarker = Nothing
+    { _drqSubscriptionName = Nothing
+    , _drqFilters = Nothing
+    , _drqMaxRecords = Nothing
+    , _drqMarker = Nothing
     }
 
 -- | The name of the RDS event notification subscription you want to
 -- describe.
-dSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-dSubscriptionName = lens _dSubscriptionName (\ s a -> s{_dSubscriptionName = a});
+drqSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
+drqSubscriptionName = lens _drqSubscriptionName (\ s a -> s{_drqSubscriptionName = a});
 
 -- | This parameter is not currently supported.
-dFilters :: Lens' DescribeEventSubscriptions [Filter]
-dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default;
+drqFilters :: Lens' DescribeEventSubscriptions [Filter]
+drqFilters = lens _drqFilters (\ s a -> s{_drqFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -100,21 +100,22 @@ dFilters = lens _dFilters (\ s a -> s{_dFilters = a}) . _Default;
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
-dMaxRecords = lens _dMaxRecords (\ s a -> s{_dMaxRecords = a});
+drqMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
+drqMaxRecords = lens _drqMaxRecords (\ s a -> s{_drqMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@ .
-dMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
-dMarker = lens _dMarker (\ s a -> s{_dMarker = a});
+drqMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
+drqMarker = lens _drqMarker (\ s a -> s{_drqMarker = a});
 
 instance AWSPager DescribeEventSubscriptions where
         page rq rs
-          | stop (rs ^. desrMarker) = Nothing
-          | stop (rs ^. desrEventSubscriptionsList) = Nothing
-          | otherwise = Just $ rq & dMarker .~ rs ^. desrMarker
+          | stop (rs ^. drsMarker) = Nothing
+          | stop (rs ^. drsEventSubscriptionsList) = Nothing
+          | otherwise =
+            Just $ rq & drqMarker .~ rs ^. drsMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = RDS
@@ -143,10 +144,11 @@ instance ToQuery DescribeEventSubscriptions where
               ["Action" =:
                  ("DescribeEventSubscriptions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "SubscriptionName" =: _dSubscriptionName,
+               "SubscriptionName" =: _drqSubscriptionName,
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dFilters),
-               "MaxRecords" =: _dMaxRecords, "Marker" =: _dMarker]
+                 toQuery (toQueryList "Filter" <$> _drqFilters),
+               "MaxRecords" =: _drqMaxRecords,
+               "Marker" =: _drqMarker]
 
 -- | Data returned by the __DescribeEventSubscriptions__ action.
 --
@@ -154,37 +156,37 @@ instance ToQuery DescribeEventSubscriptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrEventSubscriptionsList'
+-- * 'drsEventSubscriptionsList'
 --
--- * 'desrMarker'
+-- * 'drsMarker'
 --
--- * 'desrStatus'
+-- * 'drsStatus'
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
-    { _desrEventSubscriptionsList :: !(Maybe [EventSubscription])
-    , _desrMarker                 :: !(Maybe Text)
-    , _desrStatus                 :: !Int
+    { _drsEventSubscriptionsList :: !(Maybe [EventSubscription])
+    , _drsMarker                 :: !(Maybe Text)
+    , _drsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
 describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse pStatus =
     DescribeEventSubscriptionsResponse'
-    { _desrEventSubscriptionsList = Nothing
-    , _desrMarker = Nothing
-    , _desrStatus = pStatus
+    { _drsEventSubscriptionsList = Nothing
+    , _drsMarker = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | A list of EventSubscriptions data types.
-desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrEventSubscriptionsList = lens _desrEventSubscriptionsList (\ s a -> s{_desrEventSubscriptionsList = a}) . _Default;
+drsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+drsEventSubscriptionsList = lens _drsEventSubscriptionsList (\ s a -> s{_drsEventSubscriptionsList = a}) . _Default;
 
 -- | An optional pagination token provided by a previous
 -- DescribeOrderableDBInstanceOptions request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-desrMarker = lens _desrMarker (\ s a -> s{_desrMarker = a});
+drsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
+drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 
 -- | FIXME: Undocumented member.
-desrStatus :: Lens' DescribeEventSubscriptionsResponse Int
-desrStatus = lens _desrStatus (\ s a -> s{_desrStatus = a});
+drsStatus :: Lens' DescribeEventSubscriptionsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

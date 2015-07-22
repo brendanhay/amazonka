@@ -51,16 +51,16 @@ module Network.AWS.EMR.AddJobFlowSteps
     -- ** Request constructor
     , addJobFlowSteps
     -- ** Request lenses
-    , ajfsJobFlowId
-    , ajfsSteps
+    , ajfsrqJobFlowId
+    , ajfsrqSteps
 
     -- * Response
     , AddJobFlowStepsResponse
     -- ** Response constructor
     , addJobFlowStepsResponse
     -- ** Response lenses
-    , ajfsrStepIds
-    , ajfsrStatus
+    , ajfsrsStepIds
+    , ajfsrsStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -74,30 +74,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ajfsJobFlowId'
+-- * 'ajfsrqJobFlowId'
 --
--- * 'ajfsSteps'
+-- * 'ajfsrqSteps'
 data AddJobFlowSteps = AddJobFlowSteps'
-    { _ajfsJobFlowId :: !Text
-    , _ajfsSteps     :: ![StepConfig]
+    { _ajfsrqJobFlowId :: !Text
+    , _ajfsrqSteps     :: ![StepConfig]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddJobFlowSteps' smart constructor.
 addJobFlowSteps :: Text -> AddJobFlowSteps
 addJobFlowSteps pJobFlowId =
     AddJobFlowSteps'
-    { _ajfsJobFlowId = pJobFlowId
-    , _ajfsSteps = mempty
+    { _ajfsrqJobFlowId = pJobFlowId
+    , _ajfsrqSteps = mempty
     }
 
 -- | A string that uniquely identifies the job flow. This identifier is
 -- returned by RunJobFlow and can also be obtained from ListClusters.
-ajfsJobFlowId :: Lens' AddJobFlowSteps Text
-ajfsJobFlowId = lens _ajfsJobFlowId (\ s a -> s{_ajfsJobFlowId = a});
+ajfsrqJobFlowId :: Lens' AddJobFlowSteps Text
+ajfsrqJobFlowId = lens _ajfsrqJobFlowId (\ s a -> s{_ajfsrqJobFlowId = a});
 
 -- | A list of StepConfig to be executed by the job flow.
-ajfsSteps :: Lens' AddJobFlowSteps [StepConfig]
-ajfsSteps = lens _ajfsSteps (\ s a -> s{_ajfsSteps = a});
+ajfsrqSteps :: Lens' AddJobFlowSteps [StepConfig]
+ajfsrqSteps = lens _ajfsrqSteps (\ s a -> s{_ajfsrqSteps = a});
 
 instance AWSRequest AddJobFlowSteps where
         type Sv AddJobFlowSteps = EMR
@@ -121,8 +121,8 @@ instance ToHeaders AddJobFlowSteps where
 instance ToJSON AddJobFlowSteps where
         toJSON AddJobFlowSteps'{..}
           = object
-              ["JobFlowId" .= _ajfsJobFlowId,
-               "Steps" .= _ajfsSteps]
+              ["JobFlowId" .= _ajfsrqJobFlowId,
+               "Steps" .= _ajfsrqSteps]
 
 instance ToPath AddJobFlowSteps where
         toPath = const "/"
@@ -136,26 +136,26 @@ instance ToQuery AddJobFlowSteps where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ajfsrStepIds'
+-- * 'ajfsrsStepIds'
 --
--- * 'ajfsrStatus'
+-- * 'ajfsrsStatus'
 data AddJobFlowStepsResponse = AddJobFlowStepsResponse'
-    { _ajfsrStepIds :: !(Maybe [Text])
-    , _ajfsrStatus  :: !Int
+    { _ajfsrsStepIds :: !(Maybe [Text])
+    , _ajfsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddJobFlowStepsResponse' smart constructor.
 addJobFlowStepsResponse :: Int -> AddJobFlowStepsResponse
 addJobFlowStepsResponse pStatus =
     AddJobFlowStepsResponse'
-    { _ajfsrStepIds = Nothing
-    , _ajfsrStatus = pStatus
+    { _ajfsrsStepIds = Nothing
+    , _ajfsrsStatus = pStatus
     }
 
 -- | The identifiers of the list of steps added to the job flow.
-ajfsrStepIds :: Lens' AddJobFlowStepsResponse [Text]
-ajfsrStepIds = lens _ajfsrStepIds (\ s a -> s{_ajfsrStepIds = a}) . _Default;
+ajfsrsStepIds :: Lens' AddJobFlowStepsResponse [Text]
+ajfsrsStepIds = lens _ajfsrsStepIds (\ s a -> s{_ajfsrsStepIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ajfsrStatus :: Lens' AddJobFlowStepsResponse Int
-ajfsrStatus = lens _ajfsrStatus (\ s a -> s{_ajfsrStatus = a});
+ajfsrsStatus :: Lens' AddJobFlowStepsResponse Int
+ajfsrsStatus = lens _ajfsrsStatus (\ s a -> s{_ajfsrsStatus = a});

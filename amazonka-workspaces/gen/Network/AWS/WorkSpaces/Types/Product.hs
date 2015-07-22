@@ -219,25 +219,25 @@ instance FromJSON FailedWorkspaceChangeRequest where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rebWorkspaceId'
+-- * 'rWorkspaceId'
 newtype RebootRequest = RebootRequest'
-    { _rebWorkspaceId :: Text
+    { _rWorkspaceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootRequest' smart constructor.
 rebootRequest :: Text -> RebootRequest
 rebootRequest pWorkspaceId =
     RebootRequest'
-    { _rebWorkspaceId = pWorkspaceId
+    { _rWorkspaceId = pWorkspaceId
     }
 
 -- | The identifier of the WorkSpace to reboot.
-rebWorkspaceId :: Lens' RebootRequest Text
-rebWorkspaceId = lens _rebWorkspaceId (\ s a -> s{_rebWorkspaceId = a});
+rWorkspaceId :: Lens' RebootRequest Text
+rWorkspaceId = lens _rWorkspaceId (\ s a -> s{_rWorkspaceId = a});
 
 instance ToJSON RebootRequest where
         toJSON RebootRequest'{..}
-          = object ["WorkspaceId" .= _rebWorkspaceId]
+          = object ["WorkspaceId" .= _rWorkspaceId]
 
 -- | Contains information used with the RebuildWorkspaces operation to
 -- rebuild a WorkSpace.
@@ -326,87 +326,87 @@ instance FromJSON UserStorage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'worDirectoryId'
+-- * 'wDirectoryId'
 --
--- * 'worIPAddress'
+-- * 'wIPAddress'
 --
--- * 'worState'
+-- * 'wState'
 --
--- * 'worUserName'
+-- * 'wUserName'
 --
--- * 'worSubnetId'
+-- * 'wSubnetId'
 --
--- * 'worBundleId'
+-- * 'wBundleId'
 --
--- * 'worErrorCode'
+-- * 'wErrorCode'
 --
--- * 'worWorkspaceId'
+-- * 'wWorkspaceId'
 --
--- * 'worErrorMessage'
+-- * 'wErrorMessage'
 data Workspace = Workspace'
-    { _worDirectoryId  :: !(Maybe Text)
-    , _worIPAddress    :: !(Maybe Text)
-    , _worState        :: !(Maybe WorkspaceState)
-    , _worUserName     :: !(Maybe Text)
-    , _worSubnetId     :: !(Maybe Text)
-    , _worBundleId     :: !(Maybe Text)
-    , _worErrorCode    :: !(Maybe Text)
-    , _worWorkspaceId  :: !(Maybe Text)
-    , _worErrorMessage :: !(Maybe Text)
+    { _wDirectoryId  :: !(Maybe Text)
+    , _wIPAddress    :: !(Maybe Text)
+    , _wState        :: !(Maybe WorkspaceState)
+    , _wUserName     :: !(Maybe Text)
+    , _wSubnetId     :: !(Maybe Text)
+    , _wBundleId     :: !(Maybe Text)
+    , _wErrorCode    :: !(Maybe Text)
+    , _wWorkspaceId  :: !(Maybe Text)
+    , _wErrorMessage :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Workspace' smart constructor.
 workspace :: Workspace
 workspace =
     Workspace'
-    { _worDirectoryId = Nothing
-    , _worIPAddress = Nothing
-    , _worState = Nothing
-    , _worUserName = Nothing
-    , _worSubnetId = Nothing
-    , _worBundleId = Nothing
-    , _worErrorCode = Nothing
-    , _worWorkspaceId = Nothing
-    , _worErrorMessage = Nothing
+    { _wDirectoryId = Nothing
+    , _wIPAddress = Nothing
+    , _wState = Nothing
+    , _wUserName = Nothing
+    , _wSubnetId = Nothing
+    , _wBundleId = Nothing
+    , _wErrorCode = Nothing
+    , _wWorkspaceId = Nothing
+    , _wErrorMessage = Nothing
     }
 
 -- | The identifier of the AWS Directory Service directory that the WorkSpace
 -- belongs to.
-worDirectoryId :: Lens' Workspace (Maybe Text)
-worDirectoryId = lens _worDirectoryId (\ s a -> s{_worDirectoryId = a});
+wDirectoryId :: Lens' Workspace (Maybe Text)
+wDirectoryId = lens _wDirectoryId (\ s a -> s{_wDirectoryId = a});
 
 -- | The IP address of the WorkSpace.
-worIPAddress :: Lens' Workspace (Maybe Text)
-worIPAddress = lens _worIPAddress (\ s a -> s{_worIPAddress = a});
+wIPAddress :: Lens' Workspace (Maybe Text)
+wIPAddress = lens _wIPAddress (\ s a -> s{_wIPAddress = a});
 
 -- | The operational state of the WorkSpace.
-worState :: Lens' Workspace (Maybe WorkspaceState)
-worState = lens _worState (\ s a -> s{_worState = a});
+wState :: Lens' Workspace (Maybe WorkspaceState)
+wState = lens _wState (\ s a -> s{_wState = a});
 
 -- | The user that the WorkSpace is assigned to.
-worUserName :: Lens' Workspace (Maybe Text)
-worUserName = lens _worUserName (\ s a -> s{_worUserName = a});
+wUserName :: Lens' Workspace (Maybe Text)
+wUserName = lens _wUserName (\ s a -> s{_wUserName = a});
 
 -- | The identifier of the subnet that the WorkSpace is in.
-worSubnetId :: Lens' Workspace (Maybe Text)
-worSubnetId = lens _worSubnetId (\ s a -> s{_worSubnetId = a});
+wSubnetId :: Lens' Workspace (Maybe Text)
+wSubnetId = lens _wSubnetId (\ s a -> s{_wSubnetId = a});
 
 -- | The identifier of the bundle that the WorkSpace was created from.
-worBundleId :: Lens' Workspace (Maybe Text)
-worBundleId = lens _worBundleId (\ s a -> s{_worBundleId = a});
+wBundleId :: Lens' Workspace (Maybe Text)
+wBundleId = lens _wBundleId (\ s a -> s{_wBundleId = a});
 
 -- | If the WorkSpace could not be created, this contains the error code.
-worErrorCode :: Lens' Workspace (Maybe Text)
-worErrorCode = lens _worErrorCode (\ s a -> s{_worErrorCode = a});
+wErrorCode :: Lens' Workspace (Maybe Text)
+wErrorCode = lens _wErrorCode (\ s a -> s{_wErrorCode = a});
 
 -- | The identifier of the WorkSpace.
-worWorkspaceId :: Lens' Workspace (Maybe Text)
-worWorkspaceId = lens _worWorkspaceId (\ s a -> s{_worWorkspaceId = a});
+wWorkspaceId :: Lens' Workspace (Maybe Text)
+wWorkspaceId = lens _wWorkspaceId (\ s a -> s{_wWorkspaceId = a});
 
 -- | If the WorkSpace could not be created, this contains a textual error
 -- message that describes the failure.
-worErrorMessage :: Lens' Workspace (Maybe Text)
-worErrorMessage = lens _worErrorMessage (\ s a -> s{_worErrorMessage = a});
+wErrorMessage :: Lens' Workspace (Maybe Text)
+wErrorMessage = lens _wErrorMessage (\ s a -> s{_wErrorMessage = a});
 
 instance FromJSON Workspace where
         parseJSON

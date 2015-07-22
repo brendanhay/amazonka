@@ -34,38 +34,38 @@ module Network.AWS.Redshift.CreateCluster
     -- ** Request constructor
     , createCluster
     -- ** Request lenses
-    , ccPubliclyAccessible
-    , ccHSMConfigurationIdentifier
-    , ccClusterSecurityGroups
-    , ccAutomatedSnapshotRetentionPeriod
-    , ccEncrypted
-    , ccNumberOfNodes
-    , ccHSMClientCertificateIdentifier
-    , ccClusterSubnetGroupName
-    , ccElasticIP
-    , ccPreferredMaintenanceWindow
-    , ccAvailabilityZone
-    , ccKMSKeyId
-    , ccVPCSecurityGroupIds
-    , ccClusterType
-    , ccClusterVersion
-    , ccAllowVersionUpgrade
-    , ccClusterParameterGroupName
-    , ccDBName
-    , ccTags
-    , ccPort
-    , ccClusterIdentifier
-    , ccNodeType
-    , ccMasterUsername
-    , ccMasterUserPassword
+    , ccrqPubliclyAccessible
+    , ccrqHSMConfigurationIdentifier
+    , ccrqClusterSecurityGroups
+    , ccrqAutomatedSnapshotRetentionPeriod
+    , ccrqEncrypted
+    , ccrqNumberOfNodes
+    , ccrqHSMClientCertificateIdentifier
+    , ccrqClusterSubnetGroupName
+    , ccrqElasticIP
+    , ccrqPreferredMaintenanceWindow
+    , ccrqAvailabilityZone
+    , ccrqKMSKeyId
+    , ccrqVPCSecurityGroupIds
+    , ccrqClusterType
+    , ccrqClusterVersion
+    , ccrqAllowVersionUpgrade
+    , ccrqClusterParameterGroupName
+    , ccrqDBName
+    , ccrqTags
+    , ccrqPort
+    , ccrqClusterIdentifier
+    , ccrqNodeType
+    , ccrqMasterUsername
+    , ccrqMasterUserPassword
 
     -- * Response
     , CreateClusterResponse
     -- ** Response constructor
     , createClusterResponse
     -- ** Response lenses
-    , ccrCluster
-    , ccrStatus
+    , ccrsCluster
+    , ccrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -79,125 +79,125 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccPubliclyAccessible'
+-- * 'ccrqPubliclyAccessible'
 --
--- * 'ccHSMConfigurationIdentifier'
+-- * 'ccrqHSMConfigurationIdentifier'
 --
--- * 'ccClusterSecurityGroups'
+-- * 'ccrqClusterSecurityGroups'
 --
--- * 'ccAutomatedSnapshotRetentionPeriod'
+-- * 'ccrqAutomatedSnapshotRetentionPeriod'
 --
--- * 'ccEncrypted'
+-- * 'ccrqEncrypted'
 --
--- * 'ccNumberOfNodes'
+-- * 'ccrqNumberOfNodes'
 --
--- * 'ccHSMClientCertificateIdentifier'
+-- * 'ccrqHSMClientCertificateIdentifier'
 --
--- * 'ccClusterSubnetGroupName'
+-- * 'ccrqClusterSubnetGroupName'
 --
--- * 'ccElasticIP'
+-- * 'ccrqElasticIP'
 --
--- * 'ccPreferredMaintenanceWindow'
+-- * 'ccrqPreferredMaintenanceWindow'
 --
--- * 'ccAvailabilityZone'
+-- * 'ccrqAvailabilityZone'
 --
--- * 'ccKMSKeyId'
+-- * 'ccrqKMSKeyId'
 --
--- * 'ccVPCSecurityGroupIds'
+-- * 'ccrqVPCSecurityGroupIds'
 --
--- * 'ccClusterType'
+-- * 'ccrqClusterType'
 --
--- * 'ccClusterVersion'
+-- * 'ccrqClusterVersion'
 --
--- * 'ccAllowVersionUpgrade'
+-- * 'ccrqAllowVersionUpgrade'
 --
--- * 'ccClusterParameterGroupName'
+-- * 'ccrqClusterParameterGroupName'
 --
--- * 'ccDBName'
+-- * 'ccrqDBName'
 --
--- * 'ccTags'
+-- * 'ccrqTags'
 --
--- * 'ccPort'
+-- * 'ccrqPort'
 --
--- * 'ccClusterIdentifier'
+-- * 'ccrqClusterIdentifier'
 --
--- * 'ccNodeType'
+-- * 'ccrqNodeType'
 --
--- * 'ccMasterUsername'
+-- * 'ccrqMasterUsername'
 --
--- * 'ccMasterUserPassword'
+-- * 'ccrqMasterUserPassword'
 data CreateCluster = CreateCluster'
-    { _ccPubliclyAccessible               :: !(Maybe Bool)
-    , _ccHSMConfigurationIdentifier       :: !(Maybe Text)
-    , _ccClusterSecurityGroups            :: !(Maybe [Text])
-    , _ccAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
-    , _ccEncrypted                        :: !(Maybe Bool)
-    , _ccNumberOfNodes                    :: !(Maybe Int)
-    , _ccHSMClientCertificateIdentifier   :: !(Maybe Text)
-    , _ccClusterSubnetGroupName           :: !(Maybe Text)
-    , _ccElasticIP                        :: !(Maybe Text)
-    , _ccPreferredMaintenanceWindow       :: !(Maybe Text)
-    , _ccAvailabilityZone                 :: !(Maybe Text)
-    , _ccKMSKeyId                         :: !(Maybe Text)
-    , _ccVPCSecurityGroupIds              :: !(Maybe [Text])
-    , _ccClusterType                      :: !(Maybe Text)
-    , _ccClusterVersion                   :: !(Maybe Text)
-    , _ccAllowVersionUpgrade              :: !(Maybe Bool)
-    , _ccClusterParameterGroupName        :: !(Maybe Text)
-    , _ccDBName                           :: !(Maybe Text)
-    , _ccTags                             :: !(Maybe [Tag])
-    , _ccPort                             :: !(Maybe Int)
-    , _ccClusterIdentifier                :: !Text
-    , _ccNodeType                         :: !Text
-    , _ccMasterUsername                   :: !Text
-    , _ccMasterUserPassword               :: !Text
+    { _ccrqPubliclyAccessible               :: !(Maybe Bool)
+    , _ccrqHSMConfigurationIdentifier       :: !(Maybe Text)
+    , _ccrqClusterSecurityGroups            :: !(Maybe [Text])
+    , _ccrqAutomatedSnapshotRetentionPeriod :: !(Maybe Int)
+    , _ccrqEncrypted                        :: !(Maybe Bool)
+    , _ccrqNumberOfNodes                    :: !(Maybe Int)
+    , _ccrqHSMClientCertificateIdentifier   :: !(Maybe Text)
+    , _ccrqClusterSubnetGroupName           :: !(Maybe Text)
+    , _ccrqElasticIP                        :: !(Maybe Text)
+    , _ccrqPreferredMaintenanceWindow       :: !(Maybe Text)
+    , _ccrqAvailabilityZone                 :: !(Maybe Text)
+    , _ccrqKMSKeyId                         :: !(Maybe Text)
+    , _ccrqVPCSecurityGroupIds              :: !(Maybe [Text])
+    , _ccrqClusterType                      :: !(Maybe Text)
+    , _ccrqClusterVersion                   :: !(Maybe Text)
+    , _ccrqAllowVersionUpgrade              :: !(Maybe Bool)
+    , _ccrqClusterParameterGroupName        :: !(Maybe Text)
+    , _ccrqDBName                           :: !(Maybe Text)
+    , _ccrqTags                             :: !(Maybe [Tag])
+    , _ccrqPort                             :: !(Maybe Int)
+    , _ccrqClusterIdentifier                :: !Text
+    , _ccrqNodeType                         :: !Text
+    , _ccrqMasterUsername                   :: !Text
+    , _ccrqMasterUserPassword               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCluster' smart constructor.
 createCluster :: Text -> Text -> Text -> Text -> CreateCluster
 createCluster pClusterIdentifier pNodeType pMasterUsername pMasterUserPassword =
     CreateCluster'
-    { _ccPubliclyAccessible = Nothing
-    , _ccHSMConfigurationIdentifier = Nothing
-    , _ccClusterSecurityGroups = Nothing
-    , _ccAutomatedSnapshotRetentionPeriod = Nothing
-    , _ccEncrypted = Nothing
-    , _ccNumberOfNodes = Nothing
-    , _ccHSMClientCertificateIdentifier = Nothing
-    , _ccClusterSubnetGroupName = Nothing
-    , _ccElasticIP = Nothing
-    , _ccPreferredMaintenanceWindow = Nothing
-    , _ccAvailabilityZone = Nothing
-    , _ccKMSKeyId = Nothing
-    , _ccVPCSecurityGroupIds = Nothing
-    , _ccClusterType = Nothing
-    , _ccClusterVersion = Nothing
-    , _ccAllowVersionUpgrade = Nothing
-    , _ccClusterParameterGroupName = Nothing
-    , _ccDBName = Nothing
-    , _ccTags = Nothing
-    , _ccPort = Nothing
-    , _ccClusterIdentifier = pClusterIdentifier
-    , _ccNodeType = pNodeType
-    , _ccMasterUsername = pMasterUsername
-    , _ccMasterUserPassword = pMasterUserPassword
+    { _ccrqPubliclyAccessible = Nothing
+    , _ccrqHSMConfigurationIdentifier = Nothing
+    , _ccrqClusterSecurityGroups = Nothing
+    , _ccrqAutomatedSnapshotRetentionPeriod = Nothing
+    , _ccrqEncrypted = Nothing
+    , _ccrqNumberOfNodes = Nothing
+    , _ccrqHSMClientCertificateIdentifier = Nothing
+    , _ccrqClusterSubnetGroupName = Nothing
+    , _ccrqElasticIP = Nothing
+    , _ccrqPreferredMaintenanceWindow = Nothing
+    , _ccrqAvailabilityZone = Nothing
+    , _ccrqKMSKeyId = Nothing
+    , _ccrqVPCSecurityGroupIds = Nothing
+    , _ccrqClusterType = Nothing
+    , _ccrqClusterVersion = Nothing
+    , _ccrqAllowVersionUpgrade = Nothing
+    , _ccrqClusterParameterGroupName = Nothing
+    , _ccrqDBName = Nothing
+    , _ccrqTags = Nothing
+    , _ccrqPort = Nothing
+    , _ccrqClusterIdentifier = pClusterIdentifier
+    , _ccrqNodeType = pNodeType
+    , _ccrqMasterUsername = pMasterUsername
+    , _ccrqMasterUserPassword = pMasterUserPassword
     }
 
 -- | If @true@, the cluster can be accessed from a public network.
-ccPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
-ccPubliclyAccessible = lens _ccPubliclyAccessible (\ s a -> s{_ccPubliclyAccessible = a});
+ccrqPubliclyAccessible :: Lens' CreateCluster (Maybe Bool)
+ccrqPubliclyAccessible = lens _ccrqPubliclyAccessible (\ s a -> s{_ccrqPubliclyAccessible = a});
 
 -- | Specifies the name of the HSM configuration that contains the
 -- information the Amazon Redshift cluster can use to retrieve and store
 -- keys in an HSM.
-ccHSMConfigurationIdentifier :: Lens' CreateCluster (Maybe Text)
-ccHSMConfigurationIdentifier = lens _ccHSMConfigurationIdentifier (\ s a -> s{_ccHSMConfigurationIdentifier = a});
+ccrqHSMConfigurationIdentifier :: Lens' CreateCluster (Maybe Text)
+ccrqHSMConfigurationIdentifier = lens _ccrqHSMConfigurationIdentifier (\ s a -> s{_ccrqHSMConfigurationIdentifier = a});
 
 -- | A list of security groups to be associated with this cluster.
 --
 -- Default: The default cluster security group for Amazon Redshift.
-ccClusterSecurityGroups :: Lens' CreateCluster [Text]
-ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSecurityGroups = a}) . _Default;
+ccrqClusterSecurityGroups :: Lens' CreateCluster [Text]
+ccrqClusterSecurityGroups = lens _ccrqClusterSecurityGroups (\ s a -> s{_ccrqClusterSecurityGroups = a}) . _Default;
 
 -- | The number of days that automated snapshots are retained. If the value
 -- is 0, automated snapshots are disabled. Even if automated snapshots are
@@ -207,14 +207,14 @@ ccClusterSecurityGroups = lens _ccClusterSecurityGroups (\ s a -> s{_ccClusterSe
 -- Default: @1@
 --
 -- Constraints: Must be a value from 0 to 35.
-ccAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
-ccAutomatedSnapshotRetentionPeriod = lens _ccAutomatedSnapshotRetentionPeriod (\ s a -> s{_ccAutomatedSnapshotRetentionPeriod = a});
+ccrqAutomatedSnapshotRetentionPeriod :: Lens' CreateCluster (Maybe Int)
+ccrqAutomatedSnapshotRetentionPeriod = lens _ccrqAutomatedSnapshotRetentionPeriod (\ s a -> s{_ccrqAutomatedSnapshotRetentionPeriod = a});
 
 -- | If @true@, the data in the cluster is encrypted at rest.
 --
 -- Default: false
-ccEncrypted :: Lens' CreateCluster (Maybe Bool)
-ccEncrypted = lens _ccEncrypted (\ s a -> s{_ccEncrypted = a});
+ccrqEncrypted :: Lens' CreateCluster (Maybe Bool)
+ccrqEncrypted = lens _ccrqEncrypted (\ s a -> s{_ccrqEncrypted = a});
 
 -- | The number of compute nodes in the cluster. This parameter is required
 -- when the __ClusterType__ parameter is specified as @multi-node@.
@@ -230,20 +230,20 @@ ccEncrypted = lens _ccEncrypted (\ s a -> s{_ccEncrypted = a});
 -- Default: @1@
 --
 -- Constraints: Value must be at least 1 and no more than 100.
-ccNumberOfNodes :: Lens' CreateCluster (Maybe Int)
-ccNumberOfNodes = lens _ccNumberOfNodes (\ s a -> s{_ccNumberOfNodes = a});
+ccrqNumberOfNodes :: Lens' CreateCluster (Maybe Int)
+ccrqNumberOfNodes = lens _ccrqNumberOfNodes (\ s a -> s{_ccrqNumberOfNodes = a});
 
 -- | Specifies the name of the HSM client certificate the Amazon Redshift
 -- cluster uses to retrieve the data encryption keys stored in an HSM.
-ccHSMClientCertificateIdentifier :: Lens' CreateCluster (Maybe Text)
-ccHSMClientCertificateIdentifier = lens _ccHSMClientCertificateIdentifier (\ s a -> s{_ccHSMClientCertificateIdentifier = a});
+ccrqHSMClientCertificateIdentifier :: Lens' CreateCluster (Maybe Text)
+ccrqHSMClientCertificateIdentifier = lens _ccrqHSMClientCertificateIdentifier (\ s a -> s{_ccrqHSMClientCertificateIdentifier = a});
 
 -- | The name of a cluster subnet group to be associated with this cluster.
 --
 -- If this parameter is not provided the resulting cluster will be deployed
 -- outside virtual private cloud (VPC).
-ccClusterSubnetGroupName :: Lens' CreateCluster (Maybe Text)
-ccClusterSubnetGroupName = lens _ccClusterSubnetGroupName (\ s a -> s{_ccClusterSubnetGroupName = a});
+ccrqClusterSubnetGroupName :: Lens' CreateCluster (Maybe Text)
+ccrqClusterSubnetGroupName = lens _ccrqClusterSubnetGroupName (\ s a -> s{_ccrqClusterSubnetGroupName = a});
 
 -- | The Elastic IP (EIP) address for the cluster.
 --
@@ -252,8 +252,8 @@ ccClusterSubnetGroupName = lens _ccClusterSubnetGroupName (\ s a -> s{_ccCluster
 -- about provisioning clusters in EC2-VPC, go to
 -- <http://docs.aws.amazon.com/redshift/latest/mgmt/working-with-clusters.html#cluster-platforms Supported Platforms to Launch Your Cluster>
 -- in the Amazon Redshift Cluster Management Guide.
-ccElasticIP :: Lens' CreateCluster (Maybe Text)
-ccElasticIP = lens _ccElasticIP (\ s a -> s{_ccElasticIP = a});
+ccrqElasticIP :: Lens' CreateCluster (Maybe Text)
+ccrqElasticIP = lens _ccrqElasticIP (\ s a -> s{_ccrqElasticIP = a});
 
 -- | The weekly time range (in UTC) during which automated cluster
 -- maintenance can occur.
@@ -269,8 +269,8 @@ ccElasticIP = lens _ccElasticIP (\ s a -> s{_ccElasticIP = a});
 -- Valid Days: Mon | Tue | Wed | Thu | Fri | Sat | Sun
 --
 -- Constraints: Minimum 30-minute window.
-ccPreferredMaintenanceWindow :: Lens' CreateCluster (Maybe Text)
-ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\ s a -> s{_ccPreferredMaintenanceWindow = a});
+ccrqPreferredMaintenanceWindow :: Lens' CreateCluster (Maybe Text)
+ccrqPreferredMaintenanceWindow = lens _ccrqPreferredMaintenanceWindow (\ s a -> s{_ccrqPreferredMaintenanceWindow = a});
 
 -- | The EC2 Availability Zone (AZ) in which you want Amazon Redshift to
 -- provision the cluster. For example, if you have several EC2 instances
@@ -284,20 +284,20 @@ ccPreferredMaintenanceWindow = lens _ccPreferredMaintenanceWindow (\ s a -> s{_c
 --
 -- Constraint: The specified Availability Zone must be in the same region
 -- as the current endpoint.
-ccAvailabilityZone :: Lens' CreateCluster (Maybe Text)
-ccAvailabilityZone = lens _ccAvailabilityZone (\ s a -> s{_ccAvailabilityZone = a});
+ccrqAvailabilityZone :: Lens' CreateCluster (Maybe Text)
+ccrqAvailabilityZone = lens _ccrqAvailabilityZone (\ s a -> s{_ccrqAvailabilityZone = a});
 
 -- | The AWS Key Management Service (KMS) key ID of the encryption key that
 -- you want to use to encrypt data in the cluster.
-ccKMSKeyId :: Lens' CreateCluster (Maybe Text)
-ccKMSKeyId = lens _ccKMSKeyId (\ s a -> s{_ccKMSKeyId = a});
+ccrqKMSKeyId :: Lens' CreateCluster (Maybe Text)
+ccrqKMSKeyId = lens _ccrqKMSKeyId (\ s a -> s{_ccrqKMSKeyId = a});
 
 -- | A list of Virtual Private Cloud (VPC) security groups to be associated
 -- with the cluster.
 --
 -- Default: The default VPC security group is associated with the cluster.
-ccVPCSecurityGroupIds :: Lens' CreateCluster [Text]
-ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGroupIds = a}) . _Default;
+ccrqVPCSecurityGroupIds :: Lens' CreateCluster [Text]
+ccrqVPCSecurityGroupIds = lens _ccrqVPCSecurityGroupIds (\ s a -> s{_ccrqVPCSecurityGroupIds = a}) . _Default;
 
 -- | The type of the cluster. When cluster type is specified as
 --
@@ -307,8 +307,8 @@ ccVPCSecurityGroupIds = lens _ccVPCSecurityGroupIds (\ s a -> s{_ccVPCSecurityGr
 -- Valid Values: @multi-node@ | @single-node@
 --
 -- Default: @multi-node@
-ccClusterType :: Lens' CreateCluster (Maybe Text)
-ccClusterType = lens _ccClusterType (\ s a -> s{_ccClusterType = a});
+ccrqClusterType :: Lens' CreateCluster (Maybe Text)
+ccrqClusterType = lens _ccrqClusterType (\ s a -> s{_ccrqClusterType = a});
 
 -- | The version of the Amazon Redshift engine software that you want to
 -- deploy on the cluster.
@@ -318,8 +318,8 @@ ccClusterType = lens _ccClusterType (\ s a -> s{_ccClusterType = a});
 -- Constraints: Only version 1.0 is currently available.
 --
 -- Example: @1.0@
-ccClusterVersion :: Lens' CreateCluster (Maybe Text)
-ccClusterVersion = lens _ccClusterVersion (\ s a -> s{_ccClusterVersion = a});
+ccrqClusterVersion :: Lens' CreateCluster (Maybe Text)
+ccrqClusterVersion = lens _ccrqClusterVersion (\ s a -> s{_ccrqClusterVersion = a});
 
 -- | If @true@, major version upgrades can be applied during the maintenance
 -- window to the Amazon Redshift engine that is running on the cluster.
@@ -330,8 +330,8 @@ ccClusterVersion = lens _ccClusterVersion (\ s a -> s{_ccClusterVersion = a});
 -- cluster.
 --
 -- Default: @true@
-ccAllowVersionUpgrade :: Lens' CreateCluster (Maybe Bool)
-ccAllowVersionUpgrade = lens _ccAllowVersionUpgrade (\ s a -> s{_ccAllowVersionUpgrade = a});
+ccrqAllowVersionUpgrade :: Lens' CreateCluster (Maybe Bool)
+ccrqAllowVersionUpgrade = lens _ccrqAllowVersionUpgrade (\ s a -> s{_ccrqAllowVersionUpgrade = a});
 
 -- | The name of the parameter group to be associated with this cluster.
 --
@@ -344,8 +344,8 @@ ccAllowVersionUpgrade = lens _ccAllowVersionUpgrade (\ s a -> s{_ccAllowVersionU
 -- -   Must be 1 to 255 alphanumeric characters or hyphens.
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
-ccClusterParameterGroupName :: Lens' CreateCluster (Maybe Text)
-ccClusterParameterGroupName = lens _ccClusterParameterGroupName (\ s a -> s{_ccClusterParameterGroupName = a});
+ccrqClusterParameterGroupName :: Lens' CreateCluster (Maybe Text)
+ccrqClusterParameterGroupName = lens _ccrqClusterParameterGroupName (\ s a -> s{_ccrqClusterParameterGroupName = a});
 
 -- | The name of the first database to be created when the cluster is
 -- created.
@@ -366,12 +366,12 @@ ccClusterParameterGroupName = lens _ccClusterParameterGroupName (\ s a -> s{_ccC
 --     words can be found in
 --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
-ccDBName :: Lens' CreateCluster (Maybe Text)
-ccDBName = lens _ccDBName (\ s a -> s{_ccDBName = a});
+ccrqDBName :: Lens' CreateCluster (Maybe Text)
+ccrqDBName = lens _ccrqDBName (\ s a -> s{_ccrqDBName = a});
 
 -- | A list of tag instances.
-ccTags :: Lens' CreateCluster [Tag]
-ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default;
+ccrqTags :: Lens' CreateCluster [Tag]
+ccrqTags = lens _ccrqTags (\ s a -> s{_ccrqTags = a}) . _Default;
 
 -- | The port number on which the cluster accepts incoming connections.
 --
@@ -382,8 +382,8 @@ ccTags = lens _ccTags (\ s a -> s{_ccTags = a}) . _Default;
 -- Default: @5439@
 --
 -- Valid Values: @1150-65535@
-ccPort :: Lens' CreateCluster (Maybe Int)
-ccPort = lens _ccPort (\ s a -> s{_ccPort = a});
+ccrqPort :: Lens' CreateCluster (Maybe Int)
+ccrqPort = lens _ccrqPort (\ s a -> s{_ccrqPort = a});
 
 -- | A unique identifier for the cluster. You use this identifier to refer to
 -- the cluster for any subsequent cluster operations such as deleting or
@@ -398,8 +398,8 @@ ccPort = lens _ccPort (\ s a -> s{_ccPort = a});
 -- -   Must be unique for all clusters within an AWS account.
 --
 -- Example: @myexamplecluster@
-ccClusterIdentifier :: Lens' CreateCluster Text
-ccClusterIdentifier = lens _ccClusterIdentifier (\ s a -> s{_ccClusterIdentifier = a});
+ccrqClusterIdentifier :: Lens' CreateCluster Text
+ccrqClusterIdentifier = lens _ccrqClusterIdentifier (\ s a -> s{_ccrqClusterIdentifier = a});
 
 -- | The node type to be provisioned for the cluster. For information about
 -- node types, go to
@@ -408,8 +408,8 @@ ccClusterIdentifier = lens _ccClusterIdentifier (\ s a -> s{_ccClusterIdentifier
 --
 -- Valid Values: @ds1.xlarge@ | @ds1.8xlarge@ | @ds2.xlarge@ |
 -- @ds2.8xlarge@ | @dc1.large@ | @dc1.8xlarge@.
-ccNodeType :: Lens' CreateCluster Text
-ccNodeType = lens _ccNodeType (\ s a -> s{_ccNodeType = a});
+ccrqNodeType :: Lens' CreateCluster Text
+ccrqNodeType = lens _ccrqNodeType (\ s a -> s{_ccrqNodeType = a});
 
 -- | The user name associated with the master user account for the cluster
 -- that is being created.
@@ -421,8 +421,8 @@ ccNodeType = lens _ccNodeType (\ s a -> s{_ccNodeType = a});
 -- -   Cannot be a reserved word. A list of reserved words can be found in
 --     <http://docs.aws.amazon.com/redshift/latest/dg/r_pg_keywords.html Reserved Words>
 --     in the Amazon Redshift Database Developer Guide.
-ccMasterUsername :: Lens' CreateCluster Text
-ccMasterUsername = lens _ccMasterUsername (\ s a -> s{_ccMasterUsername = a});
+ccrqMasterUsername :: Lens' CreateCluster Text
+ccrqMasterUsername = lens _ccrqMasterUsername (\ s a -> s{_ccrqMasterUsername = a});
 
 -- | The password associated with the master user account for the cluster
 -- that is being created.
@@ -435,8 +435,8 @@ ccMasterUsername = lens _ccMasterUsername (\ s a -> s{_ccMasterUsername = a});
 -- -   Must contain one number.
 -- -   Can be any printable ASCII character (ASCII code 33 to 126) except
 --     \' (single quote), \" (double quote), \\, \/, \@, or space.
-ccMasterUserPassword :: Lens' CreateCluster Text
-ccMasterUserPassword = lens _ccMasterUserPassword (\ s a -> s{_ccMasterUserPassword = a});
+ccrqMasterUserPassword :: Lens' CreateCluster Text
+ccrqMasterUserPassword = lens _ccrqMasterUserPassword (\ s a -> s{_ccrqMasterUserPassword = a});
 
 instance AWSRequest CreateCluster where
         type Sv CreateCluster = Redshift
@@ -459,67 +459,67 @@ instance ToQuery CreateCluster where
           = mconcat
               ["Action" =: ("CreateCluster" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "PubliclyAccessible" =: _ccPubliclyAccessible,
+               "PubliclyAccessible" =: _ccrqPubliclyAccessible,
                "HsmConfigurationIdentifier" =:
-                 _ccHSMConfigurationIdentifier,
+                 _ccrqHSMConfigurationIdentifier,
                "ClusterSecurityGroups" =:
                  toQuery
                    (toQueryList "ClusterSecurityGroupName" <$>
-                      _ccClusterSecurityGroups),
+                      _ccrqClusterSecurityGroups),
                "AutomatedSnapshotRetentionPeriod" =:
-                 _ccAutomatedSnapshotRetentionPeriod,
-               "Encrypted" =: _ccEncrypted,
-               "NumberOfNodes" =: _ccNumberOfNodes,
+                 _ccrqAutomatedSnapshotRetentionPeriod,
+               "Encrypted" =: _ccrqEncrypted,
+               "NumberOfNodes" =: _ccrqNumberOfNodes,
                "HsmClientCertificateIdentifier" =:
-                 _ccHSMClientCertificateIdentifier,
+                 _ccrqHSMClientCertificateIdentifier,
                "ClusterSubnetGroupName" =:
-                 _ccClusterSubnetGroupName,
-               "ElasticIp" =: _ccElasticIP,
+                 _ccrqClusterSubnetGroupName,
+               "ElasticIp" =: _ccrqElasticIP,
                "PreferredMaintenanceWindow" =:
-                 _ccPreferredMaintenanceWindow,
-               "AvailabilityZone" =: _ccAvailabilityZone,
-               "KmsKeyId" =: _ccKMSKeyId,
+                 _ccrqPreferredMaintenanceWindow,
+               "AvailabilityZone" =: _ccrqAvailabilityZone,
+               "KmsKeyId" =: _ccrqKMSKeyId,
                "VpcSecurityGroupIds" =:
                  toQuery
                    (toQueryList "VpcSecurityGroupId" <$>
-                      _ccVPCSecurityGroupIds),
-               "ClusterType" =: _ccClusterType,
-               "ClusterVersion" =: _ccClusterVersion,
-               "AllowVersionUpgrade" =: _ccAllowVersionUpgrade,
+                      _ccrqVPCSecurityGroupIds),
+               "ClusterType" =: _ccrqClusterType,
+               "ClusterVersion" =: _ccrqClusterVersion,
+               "AllowVersionUpgrade" =: _ccrqAllowVersionUpgrade,
                "ClusterParameterGroupName" =:
-                 _ccClusterParameterGroupName,
-               "DBName" =: _ccDBName,
-               "Tags" =: toQuery (toQueryList "Tag" <$> _ccTags),
-               "Port" =: _ccPort,
-               "ClusterIdentifier" =: _ccClusterIdentifier,
-               "NodeType" =: _ccNodeType,
-               "MasterUsername" =: _ccMasterUsername,
-               "MasterUserPassword" =: _ccMasterUserPassword]
+                 _ccrqClusterParameterGroupName,
+               "DBName" =: _ccrqDBName,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _ccrqTags),
+               "Port" =: _ccrqPort,
+               "ClusterIdentifier" =: _ccrqClusterIdentifier,
+               "NodeType" =: _ccrqNodeType,
+               "MasterUsername" =: _ccrqMasterUsername,
+               "MasterUserPassword" =: _ccrqMasterUserPassword]
 
 -- | /See:/ 'createClusterResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccrCluster'
+-- * 'ccrsCluster'
 --
--- * 'ccrStatus'
+-- * 'ccrsStatus'
 data CreateClusterResponse = CreateClusterResponse'
-    { _ccrCluster :: !(Maybe Cluster)
-    , _ccrStatus  :: !Int
+    { _ccrsCluster :: !(Maybe Cluster)
+    , _ccrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterResponse' smart constructor.
 createClusterResponse :: Int -> CreateClusterResponse
 createClusterResponse pStatus =
     CreateClusterResponse'
-    { _ccrCluster = Nothing
-    , _ccrStatus = pStatus
+    { _ccrsCluster = Nothing
+    , _ccrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ccrCluster :: Lens' CreateClusterResponse (Maybe Cluster)
-ccrCluster = lens _ccrCluster (\ s a -> s{_ccrCluster = a});
+ccrsCluster :: Lens' CreateClusterResponse (Maybe Cluster)
+ccrsCluster = lens _ccrsCluster (\ s a -> s{_ccrsCluster = a});
 
 -- | FIXME: Undocumented member.
-ccrStatus :: Lens' CreateClusterResponse Int
-ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});
+ccrsStatus :: Lens' CreateClusterResponse Int
+ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

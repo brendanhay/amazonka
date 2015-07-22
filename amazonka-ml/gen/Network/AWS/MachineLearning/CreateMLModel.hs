@@ -45,21 +45,21 @@ module Network.AWS.MachineLearning.CreateMLModel
     -- ** Request constructor
     , createMLModel
     -- ** Request lenses
-    , cmlmRecipe
-    , cmlmRecipeURI
-    , cmlmMLModelName
-    , cmlmParameters
-    , cmlmMLModelId
-    , cmlmMLModelType
-    , cmlmTrainingDataSourceId
+    , cmlmrqRecipe
+    , cmlmrqRecipeURI
+    , cmlmrqMLModelName
+    , cmlmrqParameters
+    , cmlmrqMLModelId
+    , cmlmrqMLModelType
+    , cmlmrqTrainingDataSourceId
 
     -- * Response
     , CreateMLModelResponse
     -- ** Response constructor
     , createMLModelResponse
     -- ** Response lenses
-    , cmlmrMLModelId
-    , cmlmrStatus
+    , cmlmrsMLModelId
+    , cmlmrsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -71,58 +71,58 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmlmRecipe'
+-- * 'cmlmrqRecipe'
 --
--- * 'cmlmRecipeURI'
+-- * 'cmlmrqRecipeURI'
 --
--- * 'cmlmMLModelName'
+-- * 'cmlmrqMLModelName'
 --
--- * 'cmlmParameters'
+-- * 'cmlmrqParameters'
 --
--- * 'cmlmMLModelId'
+-- * 'cmlmrqMLModelId'
 --
--- * 'cmlmMLModelType'
+-- * 'cmlmrqMLModelType'
 --
--- * 'cmlmTrainingDataSourceId'
+-- * 'cmlmrqTrainingDataSourceId'
 data CreateMLModel = CreateMLModel'
-    { _cmlmRecipe               :: !(Maybe Text)
-    , _cmlmRecipeURI            :: !(Maybe Text)
-    , _cmlmMLModelName          :: !(Maybe Text)
-    , _cmlmParameters           :: !(Maybe (Map Text Text))
-    , _cmlmMLModelId            :: !Text
-    , _cmlmMLModelType          :: !MLModelType
-    , _cmlmTrainingDataSourceId :: !Text
+    { _cmlmrqRecipe               :: !(Maybe Text)
+    , _cmlmrqRecipeURI            :: !(Maybe Text)
+    , _cmlmrqMLModelName          :: !(Maybe Text)
+    , _cmlmrqParameters           :: !(Maybe (Map Text Text))
+    , _cmlmrqMLModelId            :: !Text
+    , _cmlmrqMLModelType          :: !MLModelType
+    , _cmlmrqTrainingDataSourceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateMLModel' smart constructor.
 createMLModel :: Text -> MLModelType -> Text -> CreateMLModel
 createMLModel pMLModelId pMLModelType pTrainingDataSourceId =
     CreateMLModel'
-    { _cmlmRecipe = Nothing
-    , _cmlmRecipeURI = Nothing
-    , _cmlmMLModelName = Nothing
-    , _cmlmParameters = Nothing
-    , _cmlmMLModelId = pMLModelId
-    , _cmlmMLModelType = pMLModelType
-    , _cmlmTrainingDataSourceId = pTrainingDataSourceId
+    { _cmlmrqRecipe = Nothing
+    , _cmlmrqRecipeURI = Nothing
+    , _cmlmrqMLModelName = Nothing
+    , _cmlmrqParameters = Nothing
+    , _cmlmrqMLModelId = pMLModelId
+    , _cmlmrqMLModelType = pMLModelType
+    , _cmlmrqTrainingDataSourceId = pTrainingDataSourceId
     }
 
 -- | The data recipe for creating @MLModel@. You must specify either the
 -- recipe or its URI. If you don’t specify a recipe or its URI, Amazon ML
 -- creates a default.
-cmlmRecipe :: Lens' CreateMLModel (Maybe Text)
-cmlmRecipe = lens _cmlmRecipe (\ s a -> s{_cmlmRecipe = a});
+cmlmrqRecipe :: Lens' CreateMLModel (Maybe Text)
+cmlmrqRecipe = lens _cmlmrqRecipe (\ s a -> s{_cmlmrqRecipe = a});
 
 -- | The Amazon Simple Storage Service (Amazon S3) location and file name
 -- that contains the @MLModel@ recipe. You must specify either the recipe
 -- or its URI. If you don’t specify a recipe or its URI, Amazon ML creates
 -- a default.
-cmlmRecipeURI :: Lens' CreateMLModel (Maybe Text)
-cmlmRecipeURI = lens _cmlmRecipeURI (\ s a -> s{_cmlmRecipeURI = a});
+cmlmrqRecipeURI :: Lens' CreateMLModel (Maybe Text)
+cmlmrqRecipeURI = lens _cmlmrqRecipeURI (\ s a -> s{_cmlmrqRecipeURI = a});
 
 -- | A user-supplied name or description of the @MLModel@.
-cmlmMLModelName :: Lens' CreateMLModel (Maybe Text)
-cmlmMLModelName = lens _cmlmMLModelName (\ s a -> s{_cmlmMLModelName = a});
+cmlmrqMLModelName :: Lens' CreateMLModel (Maybe Text)
+cmlmrqMLModelName = lens _cmlmrqMLModelName (\ s a -> s{_cmlmrqMLModelName = a});
 
 -- | A list of the training parameters in the @MLModel@. The list is
 -- implemented as a map of key\/value pairs.
@@ -160,12 +160,12 @@ cmlmMLModelName = lens _cmlmMLModelName (\ s a -> s{_cmlmMLModelName = a});
 --     The value is an integer that ranges from 100000 to 2147483648. The
 --     default value is 33554432.
 --
-cmlmParameters :: Lens' CreateMLModel (HashMap Text Text)
-cmlmParameters = lens _cmlmParameters (\ s a -> s{_cmlmParameters = a}) . _Default . _Map;
+cmlmrqParameters :: Lens' CreateMLModel (HashMap Text Text)
+cmlmrqParameters = lens _cmlmrqParameters (\ s a -> s{_cmlmrqParameters = a}) . _Default . _Map;
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@.
-cmlmMLModelId :: Lens' CreateMLModel Text
-cmlmMLModelId = lens _cmlmMLModelId (\ s a -> s{_cmlmMLModelId = a});
+cmlmrqMLModelId :: Lens' CreateMLModel Text
+cmlmrqMLModelId = lens _cmlmrqMLModelId (\ s a -> s{_cmlmrqMLModelId = a});
 
 -- | The category of supervised learning that this @MLModel@ will address.
 -- Choose from the following types:
@@ -178,12 +178,12 @@ cmlmMLModelId = lens _cmlmMLModelId (\ s a -> s{_cmlmMLModelId = a});
 --
 -- For more information, see the
 -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
-cmlmMLModelType :: Lens' CreateMLModel MLModelType
-cmlmMLModelType = lens _cmlmMLModelType (\ s a -> s{_cmlmMLModelType = a});
+cmlmrqMLModelType :: Lens' CreateMLModel MLModelType
+cmlmrqMLModelType = lens _cmlmrqMLModelType (\ s a -> s{_cmlmrqMLModelType = a});
 
 -- | The @DataSource@ that points to the training data.
-cmlmTrainingDataSourceId :: Lens' CreateMLModel Text
-cmlmTrainingDataSourceId = lens _cmlmTrainingDataSourceId (\ s a -> s{_cmlmTrainingDataSourceId = a});
+cmlmrqTrainingDataSourceId :: Lens' CreateMLModel Text
+cmlmrqTrainingDataSourceId = lens _cmlmrqTrainingDataSourceId (\ s a -> s{_cmlmrqTrainingDataSourceId = a});
 
 instance AWSRequest CreateMLModel where
         type Sv CreateMLModel = MachineLearning
@@ -207,13 +207,14 @@ instance ToHeaders CreateMLModel where
 instance ToJSON CreateMLModel where
         toJSON CreateMLModel'{..}
           = object
-              ["Recipe" .= _cmlmRecipe,
-               "RecipeUri" .= _cmlmRecipeURI,
-               "MLModelName" .= _cmlmMLModelName,
-               "Parameters" .= _cmlmParameters,
-               "MLModelId" .= _cmlmMLModelId,
-               "MLModelType" .= _cmlmMLModelType,
-               "TrainingDataSourceId" .= _cmlmTrainingDataSourceId]
+              ["Recipe" .= _cmlmrqRecipe,
+               "RecipeUri" .= _cmlmrqRecipeURI,
+               "MLModelName" .= _cmlmrqMLModelName,
+               "Parameters" .= _cmlmrqParameters,
+               "MLModelId" .= _cmlmrqMLModelId,
+               "MLModelType" .= _cmlmrqMLModelType,
+               "TrainingDataSourceId" .=
+                 _cmlmrqTrainingDataSourceId]
 
 instance ToPath CreateMLModel where
         toPath = const "/"
@@ -232,27 +233,27 @@ instance ToQuery CreateMLModel where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cmlmrMLModelId'
+-- * 'cmlmrsMLModelId'
 --
--- * 'cmlmrStatus'
+-- * 'cmlmrsStatus'
 data CreateMLModelResponse = CreateMLModelResponse'
-    { _cmlmrMLModelId :: !(Maybe Text)
-    , _cmlmrStatus    :: !Int
+    { _cmlmrsMLModelId :: !(Maybe Text)
+    , _cmlmrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateMLModelResponse' smart constructor.
 createMLModelResponse :: Int -> CreateMLModelResponse
 createMLModelResponse pStatus =
     CreateMLModelResponse'
-    { _cmlmrMLModelId = Nothing
-    , _cmlmrStatus = pStatus
+    { _cmlmrsMLModelId = Nothing
+    , _cmlmrsStatus = pStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
-cmlmrMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
-cmlmrMLModelId = lens _cmlmrMLModelId (\ s a -> s{_cmlmrMLModelId = a});
+cmlmrsMLModelId :: Lens' CreateMLModelResponse (Maybe Text)
+cmlmrsMLModelId = lens _cmlmrsMLModelId (\ s a -> s{_cmlmrsMLModelId = a});
 
 -- | FIXME: Undocumented member.
-cmlmrStatus :: Lens' CreateMLModelResponse Int
-cmlmrStatus = lens _cmlmrStatus (\ s a -> s{_cmlmrStatus = a});
+cmlmrsStatus :: Lens' CreateMLModelResponse Int
+cmlmrsStatus = lens _cmlmrsStatus (\ s a -> s{_cmlmrsStatus = a});

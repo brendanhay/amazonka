@@ -29,19 +29,19 @@ module Network.AWS.EC2.DescribeFlowLogs
     -- ** Request constructor
     , describeFlowLogs
     -- ** Request lenses
-    , desNextToken
-    , desFilter
-    , desFlowLogIds
-    , desMaxResults
+    , drqNextToken
+    , drqFilter
+    , drqFlowLogIds
+    , drqMaxResults
 
     -- * Response
     , DescribeFlowLogsResponse
     -- ** Response constructor
     , describeFlowLogsResponse
     -- ** Response lenses
-    , descNextToken
-    , descFlowLogs
-    , descStatus
+    , drsNextToken
+    , drsFlowLogs
+    , drsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,33 +53,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desNextToken'
+-- * 'drqNextToken'
 --
--- * 'desFilter'
+-- * 'drqFilter'
 --
--- * 'desFlowLogIds'
+-- * 'drqFlowLogIds'
 --
--- * 'desMaxResults'
+-- * 'drqMaxResults'
 data DescribeFlowLogs = DescribeFlowLogs'
-    { _desNextToken  :: !(Maybe Text)
-    , _desFilter     :: !(Maybe [Filter])
-    , _desFlowLogIds :: !(Maybe [Text])
-    , _desMaxResults :: !(Maybe Int)
+    { _drqNextToken  :: !(Maybe Text)
+    , _drqFilter     :: !(Maybe [Filter])
+    , _drqFlowLogIds :: !(Maybe [Text])
+    , _drqMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFlowLogs' smart constructor.
 describeFlowLogs :: DescribeFlowLogs
 describeFlowLogs =
     DescribeFlowLogs'
-    { _desNextToken = Nothing
-    , _desFilter = Nothing
-    , _desFlowLogIds = Nothing
-    , _desMaxResults = Nothing
+    { _drqNextToken = Nothing
+    , _drqFilter = Nothing
+    , _drqFlowLogIds = Nothing
+    , _drqMaxResults = Nothing
     }
 
 -- | The token to retrieve the next page of results.
-desNextToken :: Lens' DescribeFlowLogs (Maybe Text)
-desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
+drqNextToken :: Lens' DescribeFlowLogs (Maybe Text)
+drqNextToken = lens _drqNextToken (\ s a -> s{_drqNextToken = a});
 
 -- | One or more filters.
 --
@@ -94,12 +94,12 @@ desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 --
 -- -   @traffic-type@ - The type of traffic (@ACCEPT@ | @REJECT@ | @ALL@)
 --
-desFilter :: Lens' DescribeFlowLogs [Filter]
-desFilter = lens _desFilter (\ s a -> s{_desFilter = a}) . _Default;
+drqFilter :: Lens' DescribeFlowLogs [Filter]
+drqFilter = lens _drqFilter (\ s a -> s{_drqFilter = a}) . _Default;
 
 -- | One or more flow log IDs.
-desFlowLogIds :: Lens' DescribeFlowLogs [Text]
-desFlowLogIds = lens _desFlowLogIds (\ s a -> s{_desFlowLogIds = a}) . _Default;
+drqFlowLogIds :: Lens' DescribeFlowLogs [Text]
+drqFlowLogIds = lens _drqFlowLogIds (\ s a -> s{_drqFlowLogIds = a}) . _Default;
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results can be seen by sending another request with
@@ -107,8 +107,8 @@ desFlowLogIds = lens _desFlowLogIds (\ s a -> s{_desFlowLogIds = a}) . _Default;
 -- @MaxResults@ is given a value larger than 1000, only 1000 results are
 -- returned. You cannot specify this parameter and the flow log IDs
 -- parameter in the same request.
-desMaxResults :: Lens' DescribeFlowLogs (Maybe Int)
-desMaxResults = lens _desMaxResults (\ s a -> s{_desMaxResults = a});
+drqMaxResults :: Lens' DescribeFlowLogs (Maybe Int)
+drqMaxResults = lens _drqMaxResults (\ s a -> s{_drqMaxResults = a});
 
 instance AWSRequest DescribeFlowLogs where
         type Sv DescribeFlowLogs = EC2
@@ -134,44 +134,44 @@ instance ToQuery DescribeFlowLogs where
           = mconcat
               ["Action" =: ("DescribeFlowLogs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "NextToken" =: _desNextToken,
-               toQuery (toQueryList "Filter" <$> _desFilter),
-               toQuery (toQueryList "item" <$> _desFlowLogIds),
-               "MaxResults" =: _desMaxResults]
+               "NextToken" =: _drqNextToken,
+               toQuery (toQueryList "Filter" <$> _drqFilter),
+               toQuery (toQueryList "item" <$> _drqFlowLogIds),
+               "MaxResults" =: _drqMaxResults]
 
 -- | /See:/ 'describeFlowLogsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'descNextToken'
+-- * 'drsNextToken'
 --
--- * 'descFlowLogs'
+-- * 'drsFlowLogs'
 --
--- * 'descStatus'
+-- * 'drsStatus'
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-    { _descNextToken :: !(Maybe Text)
-    , _descFlowLogs  :: !(Maybe [FlowLog])
-    , _descStatus    :: !Int
+    { _drsNextToken :: !(Maybe Text)
+    , _drsFlowLogs  :: !(Maybe [FlowLog])
+    , _drsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFlowLogsResponse' smart constructor.
 describeFlowLogsResponse :: Int -> DescribeFlowLogsResponse
 describeFlowLogsResponse pStatus =
     DescribeFlowLogsResponse'
-    { _descNextToken = Nothing
-    , _descFlowLogs = Nothing
-    , _descStatus = pStatus
+    { _drsNextToken = Nothing
+    , _drsFlowLogs = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-descNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
-descNextToken = lens _descNextToken (\ s a -> s{_descNextToken = a});
+drsNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
+drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
 -- | Information about the flow logs.
-descFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
-descFlowLogs = lens _descFlowLogs (\ s a -> s{_descFlowLogs = a}) . _Default;
+drsFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
+drsFlowLogs = lens _drsFlowLogs (\ s a -> s{_drsFlowLogs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeFlowLogsResponse Int
-descStatus = lens _descStatus (\ s a -> s{_descStatus = a});
+drsStatus :: Lens' DescribeFlowLogsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

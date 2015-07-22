@@ -98,62 +98,62 @@ instance FromXML AlarmHistoryItem where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'datSampleCount'
+-- * 'dSampleCount'
 --
--- * 'datMaximum'
+-- * 'dMaximum'
 --
--- * 'datAverage'
+-- * 'dAverage'
 --
--- * 'datMinimum'
+-- * 'dMinimum'
 --
--- * 'datSum'
+-- * 'dSum'
 --
--- * 'datTimestamp'
+-- * 'dTimestamp'
 --
--- * 'datUnit'
+-- * 'dUnit'
 data Datapoint = Datapoint'
-    { _datSampleCount :: !(Maybe Double)
-    , _datMaximum     :: !(Maybe Double)
-    , _datAverage     :: !(Maybe Double)
-    , _datMinimum     :: !(Maybe Double)
-    , _datSum         :: !(Maybe Double)
-    , _datTimestamp   :: !(Maybe ISO8601)
-    , _datUnit        :: !(Maybe StandardUnit)
+    { _dSampleCount :: !(Maybe Double)
+    , _dMaximum     :: !(Maybe Double)
+    , _dAverage     :: !(Maybe Double)
+    , _dMinimum     :: !(Maybe Double)
+    , _dSum         :: !(Maybe Double)
+    , _dTimestamp   :: !(Maybe ISO8601)
+    , _dUnit        :: !(Maybe StandardUnit)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Datapoint' smart constructor.
 datapoint :: Datapoint
 datapoint =
     Datapoint'
-    { _datSampleCount = Nothing
-    , _datMaximum = Nothing
-    , _datAverage = Nothing
-    , _datMinimum = Nothing
-    , _datSum = Nothing
-    , _datTimestamp = Nothing
-    , _datUnit = Nothing
+    { _dSampleCount = Nothing
+    , _dMaximum = Nothing
+    , _dAverage = Nothing
+    , _dMinimum = Nothing
+    , _dSum = Nothing
+    , _dTimestamp = Nothing
+    , _dUnit = Nothing
     }
 
 -- | The number of metric values that contributed to the aggregate value of
 -- this datapoint.
-datSampleCount :: Lens' Datapoint (Maybe Double)
-datSampleCount = lens _datSampleCount (\ s a -> s{_datSampleCount = a});
+dSampleCount :: Lens' Datapoint (Maybe Double)
+dSampleCount = lens _dSampleCount (\ s a -> s{_dSampleCount = a});
 
 -- | The maximum of the metric value used for the datapoint.
-datMaximum :: Lens' Datapoint (Maybe Double)
-datMaximum = lens _datMaximum (\ s a -> s{_datMaximum = a});
+dMaximum :: Lens' Datapoint (Maybe Double)
+dMaximum = lens _dMaximum (\ s a -> s{_dMaximum = a});
 
 -- | The average of metric values that correspond to the datapoint.
-datAverage :: Lens' Datapoint (Maybe Double)
-datAverage = lens _datAverage (\ s a -> s{_datAverage = a});
+dAverage :: Lens' Datapoint (Maybe Double)
+dAverage = lens _dAverage (\ s a -> s{_dAverage = a});
 
 -- | The minimum metric value used for the datapoint.
-datMinimum :: Lens' Datapoint (Maybe Double)
-datMinimum = lens _datMinimum (\ s a -> s{_datMinimum = a});
+dMinimum :: Lens' Datapoint (Maybe Double)
+dMinimum = lens _dMinimum (\ s a -> s{_dMinimum = a});
 
 -- | The sum of metric values used for the datapoint.
-datSum :: Lens' Datapoint (Maybe Double)
-datSum = lens _datSum (\ s a -> s{_datSum = a});
+dSum :: Lens' Datapoint (Maybe Double)
+dSum = lens _dSum (\ s a -> s{_dSum = a});
 
 -- | The time stamp used for the datapoint. Amazon CloudWatch uses
 -- Coordinated Universal Time (UTC) when returning time stamps, which do
@@ -161,12 +161,12 @@ datSum = lens _datSum (\ s a -> s{_datSum = a});
 -- more information, see
 -- <http://docs.aws.amazon.com/AmazonCloudWatch/latest/DeveloperGuide/cloudwatch_concepts.html#about_timestamp Time stamps>
 -- in the /Amazon CloudWatch Developer Guide/.
-datTimestamp :: Lens' Datapoint (Maybe UTCTime)
-datTimestamp = lens _datTimestamp (\ s a -> s{_datTimestamp = a}) . mapping _Time;
+dTimestamp :: Lens' Datapoint (Maybe UTCTime)
+dTimestamp = lens _dTimestamp (\ s a -> s{_dTimestamp = a}) . mapping _Time;
 
 -- | The standard unit used for the datapoint.
-datUnit :: Lens' Datapoint (Maybe StandardUnit)
-datUnit = lens _datUnit (\ s a -> s{_datUnit = a});
+dUnit :: Lens' Datapoint (Maybe StandardUnit)
+dUnit = lens _dUnit (\ s a -> s{_dUnit = a});
 
 instance FromXML Datapoint where
         parseXML x
@@ -187,29 +187,29 @@ instance FromXML Datapoint where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dimName'
+-- * 'dName'
 --
--- * 'dimValue'
+-- * 'dValue'
 data Dimension = Dimension'
-    { _dimName  :: !Text
-    , _dimValue :: !Text
+    { _dName  :: !Text
+    , _dValue :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Dimension' smart constructor.
 dimension :: Text -> Text -> Dimension
 dimension pName pValue =
     Dimension'
-    { _dimName = pName
-    , _dimValue = pValue
+    { _dName = pName
+    , _dValue = pValue
     }
 
 -- | The name of the dimension.
-dimName :: Lens' Dimension Text
-dimName = lens _dimName (\ s a -> s{_dimName = a});
+dName :: Lens' Dimension Text
+dName = lens _dName (\ s a -> s{_dName = a});
 
 -- | The value representing the dimension measurement
-dimValue :: Lens' Dimension Text
-dimValue = lens _dimValue (\ s a -> s{_dimValue = a});
+dValue :: Lens' Dimension Text
+dValue = lens _dValue (\ s a -> s{_dValue = a});
 
 instance FromXML Dimension where
         parseXML x
@@ -217,7 +217,7 @@ instance FromXML Dimension where
 
 instance ToQuery Dimension where
         toQuery Dimension'{..}
-          = mconcat ["Name" =: _dimName, "Value" =: _dimValue]
+          = mconcat ["Name" =: _dName, "Value" =: _dValue]
 
 -- | The @DimensionFilter@ data type is used to filter ListMetrics results.
 --
@@ -265,37 +265,37 @@ instance ToQuery DimensionFilter where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'metMetricName'
+-- * 'mMetricName'
 --
--- * 'metNamespace'
+-- * 'mNamespace'
 --
--- * 'metDimensions'
+-- * 'mDimensions'
 data Metric = Metric'
-    { _metMetricName :: !(Maybe Text)
-    , _metNamespace  :: !(Maybe Text)
-    , _metDimensions :: !(Maybe [Dimension])
+    { _mMetricName :: !(Maybe Text)
+    , _mNamespace  :: !(Maybe Text)
+    , _mDimensions :: !(Maybe [Dimension])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Metric' smart constructor.
 metric :: Metric
 metric =
     Metric'
-    { _metMetricName = Nothing
-    , _metNamespace = Nothing
-    , _metDimensions = Nothing
+    { _mMetricName = Nothing
+    , _mNamespace = Nothing
+    , _mDimensions = Nothing
     }
 
 -- | The name of the metric.
-metMetricName :: Lens' Metric (Maybe Text)
-metMetricName = lens _metMetricName (\ s a -> s{_metMetricName = a});
+mMetricName :: Lens' Metric (Maybe Text)
+mMetricName = lens _mMetricName (\ s a -> s{_mMetricName = a});
 
 -- | The namespace of the metric.
-metNamespace :: Lens' Metric (Maybe Text)
-metNamespace = lens _metNamespace (\ s a -> s{_metNamespace = a});
+mNamespace :: Lens' Metric (Maybe Text)
+mNamespace = lens _mNamespace (\ s a -> s{_mNamespace = a});
 
 -- | A list of dimensions associated with the metric.
-metDimensions :: Lens' Metric [Dimension]
-metDimensions = lens _metDimensions (\ s a -> s{_metDimensions = a}) . _Default;
+mDimensions :: Lens' Metric [Dimension]
+mDimensions = lens _mDimensions (\ s a -> s{_mDimensions = a}) . _Default;
 
 instance FromXML Metric where
         parseXML x

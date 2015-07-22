@@ -28,18 +28,18 @@ module Network.AWS.AutoScaling.DescribeAutoScalingGroups
     -- ** Request constructor
     , describeAutoScalingGroups
     -- ** Request lenses
-    , dasgAutoScalingGroupNames
-    , dasgNextToken
-    , dasgMaxRecords
+    , dasgrqAutoScalingGroupNames
+    , dasgrqNextToken
+    , dasgrqMaxRecords
 
     -- * Response
     , DescribeAutoScalingGroupsResponse
     -- ** Response constructor
     , describeAutoScalingGroupsResponse
     -- ** Response lenses
-    , dasgrNextToken
-    , dasgrStatus
-    , dasgrAutoScalingGroups
+    , dasgrsNextToken
+    , dasgrsStatus
+    , dasgrsAutoScalingGroups
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -52,45 +52,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasgAutoScalingGroupNames'
+-- * 'dasgrqAutoScalingGroupNames'
 --
--- * 'dasgNextToken'
+-- * 'dasgrqNextToken'
 --
--- * 'dasgMaxRecords'
+-- * 'dasgrqMaxRecords'
 data DescribeAutoScalingGroups = DescribeAutoScalingGroups'
-    { _dasgAutoScalingGroupNames :: !(Maybe [Text])
-    , _dasgNextToken             :: !(Maybe Text)
-    , _dasgMaxRecords            :: !(Maybe Int)
+    { _dasgrqAutoScalingGroupNames :: !(Maybe [Text])
+    , _dasgrqNextToken             :: !(Maybe Text)
+    , _dasgrqMaxRecords            :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingGroups' smart constructor.
 describeAutoScalingGroups :: DescribeAutoScalingGroups
 describeAutoScalingGroups =
     DescribeAutoScalingGroups'
-    { _dasgAutoScalingGroupNames = Nothing
-    , _dasgNextToken = Nothing
-    , _dasgMaxRecords = Nothing
+    { _dasgrqAutoScalingGroupNames = Nothing
+    , _dasgrqNextToken = Nothing
+    , _dasgrqMaxRecords = Nothing
     }
 
 -- | The group names.
-dasgAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
-dasgAutoScalingGroupNames = lens _dasgAutoScalingGroupNames (\ s a -> s{_dasgAutoScalingGroupNames = a}) . _Default;
+dasgrqAutoScalingGroupNames :: Lens' DescribeAutoScalingGroups [Text]
+dasgrqAutoScalingGroupNames = lens _dasgrqAutoScalingGroupNames (\ s a -> s{_dasgrqAutoScalingGroupNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dasgNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
-dasgNextToken = lens _dasgNextToken (\ s a -> s{_dasgNextToken = a});
+dasgrqNextToken :: Lens' DescribeAutoScalingGroups (Maybe Text)
+dasgrqNextToken = lens _dasgrqNextToken (\ s a -> s{_dasgrqNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dasgMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
-dasgMaxRecords = lens _dasgMaxRecords (\ s a -> s{_dasgMaxRecords = a});
+dasgrqMaxRecords :: Lens' DescribeAutoScalingGroups (Maybe Int)
+dasgrqMaxRecords = lens _dasgrqMaxRecords (\ s a -> s{_dasgrqMaxRecords = a});
 
 instance AWSPager DescribeAutoScalingGroups where
         page rq rs
-          | stop (rs ^. dasgrNextToken) = Nothing
-          | stop (rs ^. dasgrAutoScalingGroups) = Nothing
+          | stop (rs ^. dasgrsNextToken) = Nothing
+          | stop (rs ^. dasgrsAutoScalingGroups) = Nothing
           | otherwise =
-            Just $ rq & dasgNextToken .~ rs ^. dasgrNextToken
+            Just $ rq & dasgrqNextToken .~ rs ^. dasgrsNextToken
 
 instance AWSRequest DescribeAutoScalingGroups where
         type Sv DescribeAutoScalingGroups = AutoScaling
@@ -120,43 +120,43 @@ instance ToQuery DescribeAutoScalingGroups where
                "AutoScalingGroupNames" =:
                  toQuery
                    (toQueryList "member" <$>
-                      _dasgAutoScalingGroupNames),
-               "NextToken" =: _dasgNextToken,
-               "MaxRecords" =: _dasgMaxRecords]
+                      _dasgrqAutoScalingGroupNames),
+               "NextToken" =: _dasgrqNextToken,
+               "MaxRecords" =: _dasgrqMaxRecords]
 
 -- | /See:/ 'describeAutoScalingGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasgrNextToken'
+-- * 'dasgrsNextToken'
 --
--- * 'dasgrStatus'
+-- * 'dasgrsStatus'
 --
--- * 'dasgrAutoScalingGroups'
+-- * 'dasgrsAutoScalingGroups'
 data DescribeAutoScalingGroupsResponse = DescribeAutoScalingGroupsResponse'
-    { _dasgrNextToken         :: !(Maybe Text)
-    , _dasgrStatus            :: !Int
-    , _dasgrAutoScalingGroups :: ![AutoScalingGroup]
+    { _dasgrsNextToken         :: !(Maybe Text)
+    , _dasgrsStatus            :: !Int
+    , _dasgrsAutoScalingGroups :: ![AutoScalingGroup]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAutoScalingGroupsResponse' smart constructor.
 describeAutoScalingGroupsResponse :: Int -> DescribeAutoScalingGroupsResponse
 describeAutoScalingGroupsResponse pStatus =
     DescribeAutoScalingGroupsResponse'
-    { _dasgrNextToken = Nothing
-    , _dasgrStatus = pStatus
-    , _dasgrAutoScalingGroups = mempty
+    { _dasgrsNextToken = Nothing
+    , _dasgrsStatus = pStatus
+    , _dasgrsAutoScalingGroups = mempty
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dasgrNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
-dasgrNextToken = lens _dasgrNextToken (\ s a -> s{_dasgrNextToken = a});
+dasgrsNextToken :: Lens' DescribeAutoScalingGroupsResponse (Maybe Text)
+dasgrsNextToken = lens _dasgrsNextToken (\ s a -> s{_dasgrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dasgrStatus :: Lens' DescribeAutoScalingGroupsResponse Int
-dasgrStatus = lens _dasgrStatus (\ s a -> s{_dasgrStatus = a});
+dasgrsStatus :: Lens' DescribeAutoScalingGroupsResponse Int
+dasgrsStatus = lens _dasgrsStatus (\ s a -> s{_dasgrsStatus = a});
 
 -- | The groups.
-dasgrAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
-dasgrAutoScalingGroups = lens _dasgrAutoScalingGroups (\ s a -> s{_dasgrAutoScalingGroups = a});
+dasgrsAutoScalingGroups :: Lens' DescribeAutoScalingGroupsResponse [AutoScalingGroup]
+dasgrsAutoScalingGroups = lens _dasgrsAutoScalingGroups (\ s a -> s{_dasgrsAutoScalingGroups = a});

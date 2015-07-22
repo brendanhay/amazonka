@@ -28,15 +28,15 @@ module Network.AWS.DirectoryService.UpdateRadius
     -- ** Request constructor
     , updateRadius
     -- ** Request lenses
-    , urDirectoryId
-    , urRadiusSettings
+    , urrqDirectoryId
+    , urrqRadiusSettings
 
     -- * Response
     , UpdateRadiusResponse
     -- ** Response constructor
     , updateRadiusResponse
     -- ** Response lenses
-    , urrStatus
+    , urrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -50,31 +50,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urDirectoryId'
+-- * 'urrqDirectoryId'
 --
--- * 'urRadiusSettings'
+-- * 'urrqRadiusSettings'
 data UpdateRadius = UpdateRadius'
-    { _urDirectoryId    :: !Text
-    , _urRadiusSettings :: !RadiusSettings
+    { _urrqDirectoryId    :: !Text
+    , _urrqRadiusSettings :: !RadiusSettings
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRadius' smart constructor.
 updateRadius :: Text -> RadiusSettings -> UpdateRadius
 updateRadius pDirectoryId pRadiusSettings =
     UpdateRadius'
-    { _urDirectoryId = pDirectoryId
-    , _urRadiusSettings = pRadiusSettings
+    { _urrqDirectoryId = pDirectoryId
+    , _urrqRadiusSettings = pRadiusSettings
     }
 
 -- | The identifier of the directory to update the RADIUS server information
 -- for.
-urDirectoryId :: Lens' UpdateRadius Text
-urDirectoryId = lens _urDirectoryId (\ s a -> s{_urDirectoryId = a});
+urrqDirectoryId :: Lens' UpdateRadius Text
+urrqDirectoryId = lens _urrqDirectoryId (\ s a -> s{_urrqDirectoryId = a});
 
 -- | A RadiusSettings object that contains information about the RADIUS
 -- server.
-urRadiusSettings :: Lens' UpdateRadius RadiusSettings
-urRadiusSettings = lens _urRadiusSettings (\ s a -> s{_urRadiusSettings = a});
+urrqRadiusSettings :: Lens' UpdateRadius RadiusSettings
+urrqRadiusSettings = lens _urrqRadiusSettings (\ s a -> s{_urrqRadiusSettings = a});
 
 instance AWSRequest UpdateRadius where
         type Sv UpdateRadius = DirectoryService
@@ -98,8 +98,8 @@ instance ToHeaders UpdateRadius where
 instance ToJSON UpdateRadius where
         toJSON UpdateRadius'{..}
           = object
-              ["DirectoryId" .= _urDirectoryId,
-               "RadiusSettings" .= _urRadiusSettings]
+              ["DirectoryId" .= _urrqDirectoryId,
+               "RadiusSettings" .= _urrqRadiusSettings]
 
 instance ToPath UpdateRadius where
         toPath = const "/"
@@ -113,18 +113,18 @@ instance ToQuery UpdateRadius where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urrStatus'
+-- * 'urrsStatus'
 newtype UpdateRadiusResponse = UpdateRadiusResponse'
-    { _urrStatus :: Int
+    { _urrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRadiusResponse' smart constructor.
 updateRadiusResponse :: Int -> UpdateRadiusResponse
 updateRadiusResponse pStatus =
     UpdateRadiusResponse'
-    { _urrStatus = pStatus
+    { _urrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-urrStatus :: Lens' UpdateRadiusResponse Int
-urrStatus = lens _urrStatus (\ s a -> s{_urrStatus = a});
+urrsStatus :: Lens' UpdateRadiusResponse Int
+urrsStatus = lens _urrsStatus (\ s a -> s{_urrsStatus = a});

@@ -36,8 +36,8 @@ module Network.AWS.IAM.SetDefaultPolicyVersion
     -- ** Request constructor
     , setDefaultPolicyVersion
     -- ** Request lenses
-    , sdpvPolicyARN
-    , sdpvVersionId
+    , sdpvrqPolicyARN
+    , sdpvrqVersionId
 
     -- * Response
     , SetDefaultPolicyVersionResponse
@@ -54,33 +54,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdpvPolicyARN'
+-- * 'sdpvrqPolicyARN'
 --
--- * 'sdpvVersionId'
+-- * 'sdpvrqVersionId'
 data SetDefaultPolicyVersion = SetDefaultPolicyVersion'
-    { _sdpvPolicyARN :: !Text
-    , _sdpvVersionId :: !Text
+    { _sdpvrqPolicyARN :: !Text
+    , _sdpvrqVersionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetDefaultPolicyVersion' smart constructor.
 setDefaultPolicyVersion :: Text -> Text -> SetDefaultPolicyVersion
 setDefaultPolicyVersion pPolicyARN pVersionId =
     SetDefaultPolicyVersion'
-    { _sdpvPolicyARN = pPolicyARN
-    , _sdpvVersionId = pVersionId
+    { _sdpvrqPolicyARN = pPolicyARN
+    , _sdpvrqVersionId = pVersionId
     }
 
 -- | FIXME: Undocumented member.
-sdpvPolicyARN :: Lens' SetDefaultPolicyVersion Text
-sdpvPolicyARN = lens _sdpvPolicyARN (\ s a -> s{_sdpvPolicyARN = a});
+sdpvrqPolicyARN :: Lens' SetDefaultPolicyVersion Text
+sdpvrqPolicyARN = lens _sdpvrqPolicyARN (\ s a -> s{_sdpvrqPolicyARN = a});
 
 -- | The version of the policy to set as the default (operative) version.
 --
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
-sdpvVersionId :: Lens' SetDefaultPolicyVersion Text
-sdpvVersionId = lens _sdpvVersionId (\ s a -> s{_sdpvVersionId = a});
+sdpvrqVersionId :: Lens' SetDefaultPolicyVersion Text
+sdpvrqVersionId = lens _sdpvrqVersionId (\ s a -> s{_sdpvrqVersionId = a});
 
 instance AWSRequest SetDefaultPolicyVersion where
         type Sv SetDefaultPolicyVersion = IAM
@@ -102,8 +102,8 @@ instance ToQuery SetDefaultPolicyVersion where
               ["Action" =:
                  ("SetDefaultPolicyVersion" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _sdpvPolicyARN,
-               "VersionId" =: _sdpvVersionId]
+               "PolicyArn" =: _sdpvrqPolicyARN,
+               "VersionId" =: _sdpvrqVersionId]
 
 -- | /See:/ 'setDefaultPolicyVersionResponse' smart constructor.
 data SetDefaultPolicyVersionResponse =

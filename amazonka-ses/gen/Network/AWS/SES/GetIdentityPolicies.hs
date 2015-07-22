@@ -40,16 +40,16 @@ module Network.AWS.SES.GetIdentityPolicies
     -- ** Request constructor
     , getIdentityPolicies
     -- ** Request lenses
-    , gipIdentity
-    , gipPolicyNames
+    , giprqIdentity
+    , giprqPolicyNames
 
     -- * Response
     , GetIdentityPoliciesResponse
     -- ** Response constructor
     , getIdentityPoliciesResponse
     -- ** Response lenses
-    , giprStatus
-    , giprPolicies
+    , giprsStatus
+    , giprsPolicies
     ) where
 
 import           Network.AWS.Prelude
@@ -64,20 +64,20 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gipIdentity'
+-- * 'giprqIdentity'
 --
--- * 'gipPolicyNames'
+-- * 'giprqPolicyNames'
 data GetIdentityPolicies = GetIdentityPolicies'
-    { _gipIdentity    :: !Text
-    , _gipPolicyNames :: ![Text]
+    { _giprqIdentity    :: !Text
+    , _giprqPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPolicies' smart constructor.
 getIdentityPolicies :: Text -> GetIdentityPolicies
 getIdentityPolicies pIdentity =
     GetIdentityPolicies'
-    { _gipIdentity = pIdentity
-    , _gipPolicyNames = mempty
+    { _giprqIdentity = pIdentity
+    , _giprqPolicyNames = mempty
     }
 
 -- | The identity for which the policies will be retrieved. You can specify
@@ -86,15 +86,15 @@ getIdentityPolicies pIdentity =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-gipIdentity :: Lens' GetIdentityPolicies Text
-gipIdentity = lens _gipIdentity (\ s a -> s{_gipIdentity = a});
+giprqIdentity :: Lens' GetIdentityPolicies Text
+giprqIdentity = lens _giprqIdentity (\ s a -> s{_giprqIdentity = a});
 
 -- | A list of the names of policies to be retrieved. You can retrieve a
 -- maximum of 20 policies at a time. If you do not know the names of the
 -- policies that are attached to the identity, you can use
 -- @ListIdentityPolicies@.
-gipPolicyNames :: Lens' GetIdentityPolicies [Text]
-gipPolicyNames = lens _gipPolicyNames (\ s a -> s{_gipPolicyNames = a});
+giprqPolicyNames :: Lens' GetIdentityPolicies [Text]
+giprqPolicyNames = lens _giprqPolicyNames (\ s a -> s{_giprqPolicyNames = a});
 
 instance AWSRequest GetIdentityPolicies where
         type Sv GetIdentityPolicies = SES
@@ -120,9 +120,9 @@ instance ToQuery GetIdentityPolicies where
           = mconcat
               ["Action" =: ("GetIdentityPolicies" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _gipIdentity,
+               "Identity" =: _giprqIdentity,
                "PolicyNames" =:
-                 toQueryList "member" _gipPolicyNames]
+                 toQueryList "member" _giprqPolicyNames]
 
 -- | Represents a map of policy names to policies returned from a successful
 -- @GetIdentityPolicies@ request.
@@ -131,26 +131,26 @@ instance ToQuery GetIdentityPolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giprStatus'
+-- * 'giprsStatus'
 --
--- * 'giprPolicies'
+-- * 'giprsPolicies'
 data GetIdentityPoliciesResponse = GetIdentityPoliciesResponse'
-    { _giprStatus   :: !Int
-    , _giprPolicies :: !(Map Text Text)
+    { _giprsStatus   :: !Int
+    , _giprsPolicies :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoliciesResponse' smart constructor.
 getIdentityPoliciesResponse :: Int -> GetIdentityPoliciesResponse
 getIdentityPoliciesResponse pStatus =
     GetIdentityPoliciesResponse'
-    { _giprStatus = pStatus
-    , _giprPolicies = mempty
+    { _giprsStatus = pStatus
+    , _giprsPolicies = mempty
     }
 
 -- | FIXME: Undocumented member.
-giprStatus :: Lens' GetIdentityPoliciesResponse Int
-giprStatus = lens _giprStatus (\ s a -> s{_giprStatus = a});
+giprsStatus :: Lens' GetIdentityPoliciesResponse Int
+giprsStatus = lens _giprsStatus (\ s a -> s{_giprsStatus = a});
 
 -- | A map of policy names to policies.
-giprPolicies :: Lens' GetIdentityPoliciesResponse (HashMap Text Text)
-giprPolicies = lens _giprPolicies (\ s a -> s{_giprPolicies = a}) . _Map;
+giprsPolicies :: Lens' GetIdentityPoliciesResponse (HashMap Text Text)
+giprsPolicies = lens _giprsPolicies (\ s a -> s{_giprsPolicies = a}) . _Map;

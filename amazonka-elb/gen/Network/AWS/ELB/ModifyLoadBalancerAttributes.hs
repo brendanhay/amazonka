@@ -41,17 +41,17 @@ module Network.AWS.ELB.ModifyLoadBalancerAttributes
     -- ** Request constructor
     , modifyLoadBalancerAttributes
     -- ** Request lenses
-    , mlbaLoadBalancerName
-    , mlbaLoadBalancerAttributes
+    , mlbarqLoadBalancerName
+    , mlbarqLoadBalancerAttributes
 
     -- * Response
     , ModifyLoadBalancerAttributesResponse
     -- ** Response constructor
     , modifyLoadBalancerAttributesResponse
     -- ** Response lenses
-    , mlbarLoadBalancerAttributes
-    , mlbarLoadBalancerName
-    , mlbarStatus
+    , mlbarsLoadBalancerAttributes
+    , mlbarsLoadBalancerName
+    , mlbarsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -63,29 +63,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mlbaLoadBalancerName'
+-- * 'mlbarqLoadBalancerName'
 --
--- * 'mlbaLoadBalancerAttributes'
+-- * 'mlbarqLoadBalancerAttributes'
 data ModifyLoadBalancerAttributes = ModifyLoadBalancerAttributes'
-    { _mlbaLoadBalancerName       :: !Text
-    , _mlbaLoadBalancerAttributes :: !LoadBalancerAttributes
+    { _mlbarqLoadBalancerName       :: !Text
+    , _mlbarqLoadBalancerAttributes :: !LoadBalancerAttributes
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLoadBalancerAttributes' smart constructor.
 modifyLoadBalancerAttributes :: Text -> LoadBalancerAttributes -> ModifyLoadBalancerAttributes
 modifyLoadBalancerAttributes pLoadBalancerName pLoadBalancerAttributes =
     ModifyLoadBalancerAttributes'
-    { _mlbaLoadBalancerName = pLoadBalancerName
-    , _mlbaLoadBalancerAttributes = pLoadBalancerAttributes
+    { _mlbarqLoadBalancerName = pLoadBalancerName
+    , _mlbarqLoadBalancerAttributes = pLoadBalancerAttributes
     }
 
 -- | The name of the load balancer.
-mlbaLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
-mlbaLoadBalancerName = lens _mlbaLoadBalancerName (\ s a -> s{_mlbaLoadBalancerName = a});
+mlbarqLoadBalancerName :: Lens' ModifyLoadBalancerAttributes Text
+mlbarqLoadBalancerName = lens _mlbarqLoadBalancerName (\ s a -> s{_mlbarqLoadBalancerName = a});
 
 -- | The attributes of the load balancer.
-mlbaLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
-mlbaLoadBalancerAttributes = lens _mlbaLoadBalancerAttributes (\ s a -> s{_mlbaLoadBalancerAttributes = a});
+mlbarqLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributes LoadBalancerAttributes
+mlbarqLoadBalancerAttributes = lens _mlbarqLoadBalancerAttributes (\ s a -> s{_mlbarqLoadBalancerAttributes = a});
 
 instance AWSRequest ModifyLoadBalancerAttributes
          where
@@ -114,42 +114,42 @@ instance ToQuery ModifyLoadBalancerAttributes where
               ["Action" =:
                  ("ModifyLoadBalancerAttributes" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _mlbaLoadBalancerName,
+               "LoadBalancerName" =: _mlbarqLoadBalancerName,
                "LoadBalancerAttributes" =:
-                 _mlbaLoadBalancerAttributes]
+                 _mlbarqLoadBalancerAttributes]
 
 -- | /See:/ 'modifyLoadBalancerAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mlbarLoadBalancerAttributes'
+-- * 'mlbarsLoadBalancerAttributes'
 --
--- * 'mlbarLoadBalancerName'
+-- * 'mlbarsLoadBalancerName'
 --
--- * 'mlbarStatus'
+-- * 'mlbarsStatus'
 data ModifyLoadBalancerAttributesResponse = ModifyLoadBalancerAttributesResponse'
-    { _mlbarLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
-    , _mlbarLoadBalancerName       :: !(Maybe Text)
-    , _mlbarStatus                 :: !Int
+    { _mlbarsLoadBalancerAttributes :: !(Maybe LoadBalancerAttributes)
+    , _mlbarsLoadBalancerName       :: !(Maybe Text)
+    , _mlbarsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyLoadBalancerAttributesResponse' smart constructor.
 modifyLoadBalancerAttributesResponse :: Int -> ModifyLoadBalancerAttributesResponse
 modifyLoadBalancerAttributesResponse pStatus =
     ModifyLoadBalancerAttributesResponse'
-    { _mlbarLoadBalancerAttributes = Nothing
-    , _mlbarLoadBalancerName = Nothing
-    , _mlbarStatus = pStatus
+    { _mlbarsLoadBalancerAttributes = Nothing
+    , _mlbarsLoadBalancerName = Nothing
+    , _mlbarsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-mlbarLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
-mlbarLoadBalancerAttributes = lens _mlbarLoadBalancerAttributes (\ s a -> s{_mlbarLoadBalancerAttributes = a});
+mlbarsLoadBalancerAttributes :: Lens' ModifyLoadBalancerAttributesResponse (Maybe LoadBalancerAttributes)
+mlbarsLoadBalancerAttributes = lens _mlbarsLoadBalancerAttributes (\ s a -> s{_mlbarsLoadBalancerAttributes = a});
 
 -- | The name of the load balancer.
-mlbarLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
-mlbarLoadBalancerName = lens _mlbarLoadBalancerName (\ s a -> s{_mlbarLoadBalancerName = a});
+mlbarsLoadBalancerName :: Lens' ModifyLoadBalancerAttributesResponse (Maybe Text)
+mlbarsLoadBalancerName = lens _mlbarsLoadBalancerName (\ s a -> s{_mlbarsLoadBalancerName = a});
 
 -- | FIXME: Undocumented member.
-mlbarStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
-mlbarStatus = lens _mlbarStatus (\ s a -> s{_mlbarStatus = a});
+mlbarsStatus :: Lens' ModifyLoadBalancerAttributesResponse Int
+mlbarsStatus = lens _mlbarsStatus (\ s a -> s{_mlbarsStatus = a});

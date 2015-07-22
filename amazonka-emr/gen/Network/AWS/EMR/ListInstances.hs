@@ -31,19 +31,19 @@ module Network.AWS.EMR.ListInstances
     -- ** Request constructor
     , listInstances
     -- ** Request lenses
-    , liInstanceGroupTypes
-    , liMarker
-    , liInstanceGroupId
-    , liClusterId
+    , lirqInstanceGroupTypes
+    , lirqMarker
+    , lirqInstanceGroupId
+    , lirqClusterId
 
     -- * Response
     , ListInstancesResponse
     -- ** Response constructor
     , listInstancesResponse
     -- ** Response lenses
-    , lirInstances
-    , lirMarker
-    , lirStatus
+    , lirsInstances
+    , lirsMarker
+    , lirsStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -58,51 +58,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liInstanceGroupTypes'
+-- * 'lirqInstanceGroupTypes'
 --
--- * 'liMarker'
+-- * 'lirqMarker'
 --
--- * 'liInstanceGroupId'
+-- * 'lirqInstanceGroupId'
 --
--- * 'liClusterId'
+-- * 'lirqClusterId'
 data ListInstances = ListInstances'
-    { _liInstanceGroupTypes :: !(Maybe [InstanceGroupType])
-    , _liMarker             :: !(Maybe Text)
-    , _liInstanceGroupId    :: !(Maybe Text)
-    , _liClusterId          :: !Text
+    { _lirqInstanceGroupTypes :: !(Maybe [InstanceGroupType])
+    , _lirqMarker             :: !(Maybe Text)
+    , _lirqInstanceGroupId    :: !(Maybe Text)
+    , _lirqClusterId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstances' smart constructor.
 listInstances :: Text -> ListInstances
 listInstances pClusterId =
     ListInstances'
-    { _liInstanceGroupTypes = Nothing
-    , _liMarker = Nothing
-    , _liInstanceGroupId = Nothing
-    , _liClusterId = pClusterId
+    { _lirqInstanceGroupTypes = Nothing
+    , _lirqMarker = Nothing
+    , _lirqInstanceGroupId = Nothing
+    , _lirqClusterId = pClusterId
     }
 
 -- | The type of instance group for which to list the instances.
-liInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
-liInstanceGroupTypes = lens _liInstanceGroupTypes (\ s a -> s{_liInstanceGroupTypes = a}) . _Default;
+lirqInstanceGroupTypes :: Lens' ListInstances [InstanceGroupType]
+lirqInstanceGroupTypes = lens _lirqInstanceGroupTypes (\ s a -> s{_lirqInstanceGroupTypes = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
-liMarker :: Lens' ListInstances (Maybe Text)
-liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
+lirqMarker :: Lens' ListInstances (Maybe Text)
+lirqMarker = lens _lirqMarker (\ s a -> s{_lirqMarker = a});
 
 -- | The identifier of the instance group for which to list the instances.
-liInstanceGroupId :: Lens' ListInstances (Maybe Text)
-liInstanceGroupId = lens _liInstanceGroupId (\ s a -> s{_liInstanceGroupId = a});
+lirqInstanceGroupId :: Lens' ListInstances (Maybe Text)
+lirqInstanceGroupId = lens _lirqInstanceGroupId (\ s a -> s{_lirqInstanceGroupId = a});
 
 -- | The identifier of the cluster for which to list the instances.
-liClusterId :: Lens' ListInstances Text
-liClusterId = lens _liClusterId (\ s a -> s{_liClusterId = a});
+lirqClusterId :: Lens' ListInstances Text
+lirqClusterId = lens _lirqClusterId (\ s a -> s{_lirqClusterId = a});
 
 instance AWSPager ListInstances where
         page rq rs
-          | stop (rs ^. lirMarker) = Nothing
-          | stop (rs ^. lirInstances) = Nothing
-          | otherwise = Just $ rq & liMarker .~ rs ^. lirMarker
+          | stop (rs ^. lirsMarker) = Nothing
+          | stop (rs ^. lirsInstances) = Nothing
+          | otherwise =
+            Just $ rq & lirqMarker .~ rs ^. lirsMarker
 
 instance AWSRequest ListInstances where
         type Sv ListInstances = EMR
@@ -127,10 +128,10 @@ instance ToHeaders ListInstances where
 instance ToJSON ListInstances where
         toJSON ListInstances'{..}
           = object
-              ["InstanceGroupTypes" .= _liInstanceGroupTypes,
-               "Marker" .= _liMarker,
-               "InstanceGroupId" .= _liInstanceGroupId,
-               "ClusterId" .= _liClusterId]
+              ["InstanceGroupTypes" .= _lirqInstanceGroupTypes,
+               "Marker" .= _lirqMarker,
+               "InstanceGroupId" .= _lirqInstanceGroupId,
+               "ClusterId" .= _lirqClusterId]
 
 instance ToPath ListInstances where
         toPath = const "/"
@@ -144,34 +145,34 @@ instance ToQuery ListInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirInstances'
+-- * 'lirsInstances'
 --
--- * 'lirMarker'
+-- * 'lirsMarker'
 --
--- * 'lirStatus'
+-- * 'lirsStatus'
 data ListInstancesResponse = ListInstancesResponse'
-    { _lirInstances :: !(Maybe [Instance])
-    , _lirMarker    :: !(Maybe Text)
-    , _lirStatus    :: !Int
+    { _lirsInstances :: !(Maybe [Instance])
+    , _lirsMarker    :: !(Maybe Text)
+    , _lirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInstancesResponse' smart constructor.
 listInstancesResponse :: Int -> ListInstancesResponse
 listInstancesResponse pStatus =
     ListInstancesResponse'
-    { _lirInstances = Nothing
-    , _lirMarker = Nothing
-    , _lirStatus = pStatus
+    { _lirsInstances = Nothing
+    , _lirsMarker = Nothing
+    , _lirsStatus = pStatus
     }
 
 -- | The list of instances for the cluster and given filters.
-lirInstances :: Lens' ListInstancesResponse [Instance]
-lirInstances = lens _lirInstances (\ s a -> s{_lirInstances = a}) . _Default;
+lirsInstances :: Lens' ListInstancesResponse [Instance]
+lirsInstances = lens _lirsInstances (\ s a -> s{_lirsInstances = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lirMarker :: Lens' ListInstancesResponse (Maybe Text)
-lirMarker = lens _lirMarker (\ s a -> s{_lirMarker = a});
+lirsMarker :: Lens' ListInstancesResponse (Maybe Text)
+lirsMarker = lens _lirsMarker (\ s a -> s{_lirsMarker = a});
 
 -- | FIXME: Undocumented member.
-lirStatus :: Lens' ListInstancesResponse Int
-lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});
+lirsStatus :: Lens' ListInstancesResponse Int
+lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});

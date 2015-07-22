@@ -31,7 +31,7 @@ module Network.AWS.Config.StartConfigurationRecorder
     -- ** Request constructor
     , startConfigurationRecorder
     -- ** Request lenses
-    , staConfigurationRecorderName
+    , srqConfigurationRecorderName
 
     -- * Response
     , StartConfigurationRecorderResponse
@@ -50,22 +50,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staConfigurationRecorderName'
+-- * 'srqConfigurationRecorderName'
 newtype StartConfigurationRecorder = StartConfigurationRecorder'
-    { _staConfigurationRecorderName :: Text
+    { _srqConfigurationRecorderName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartConfigurationRecorder' smart constructor.
 startConfigurationRecorder :: Text -> StartConfigurationRecorder
 startConfigurationRecorder pConfigurationRecorderName =
     StartConfigurationRecorder'
-    { _staConfigurationRecorderName = pConfigurationRecorderName
+    { _srqConfigurationRecorderName = pConfigurationRecorderName
     }
 
 -- | The name of the recorder object that records each configuration change
 -- made to the resources.
-staConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
-staConfigurationRecorderName = lens _staConfigurationRecorderName (\ s a -> s{_staConfigurationRecorderName = a});
+srqConfigurationRecorderName :: Lens' StartConfigurationRecorder Text
+srqConfigurationRecorderName = lens _srqConfigurationRecorderName (\ s a -> s{_srqConfigurationRecorderName = a});
 
 instance AWSRequest StartConfigurationRecorder where
         type Sv StartConfigurationRecorder = Config
@@ -89,7 +89,7 @@ instance ToJSON StartConfigurationRecorder where
         toJSON StartConfigurationRecorder'{..}
           = object
               ["ConfigurationRecorderName" .=
-                 _staConfigurationRecorderName]
+                 _srqConfigurationRecorderName]
 
 instance ToPath StartConfigurationRecorder where
         toPath = const "/"

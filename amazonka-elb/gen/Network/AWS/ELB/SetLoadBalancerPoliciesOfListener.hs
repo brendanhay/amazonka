@@ -29,16 +29,16 @@ module Network.AWS.ELB.SetLoadBalancerPoliciesOfListener
     -- ** Request constructor
     , setLoadBalancerPoliciesOfListener
     -- ** Request lenses
-    , slbpolLoadBalancerName
-    , slbpolLoadBalancerPort
-    , slbpolPolicyNames
+    , slbpolrqLoadBalancerName
+    , slbpolrqLoadBalancerPort
+    , slbpolrqPolicyNames
 
     -- * Response
     , SetLoadBalancerPoliciesOfListenerResponse
     -- ** Response constructor
     , setLoadBalancerPoliciesOfListenerResponse
     -- ** Response lenses
-    , slbpolrStatus
+    , slbpolrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -50,38 +50,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slbpolLoadBalancerName'
+-- * 'slbpolrqLoadBalancerName'
 --
--- * 'slbpolLoadBalancerPort'
+-- * 'slbpolrqLoadBalancerPort'
 --
--- * 'slbpolPolicyNames'
+-- * 'slbpolrqPolicyNames'
 data SetLoadBalancerPoliciesOfListener = SetLoadBalancerPoliciesOfListener'
-    { _slbpolLoadBalancerName :: !Text
-    , _slbpolLoadBalancerPort :: !Int
-    , _slbpolPolicyNames      :: ![Text]
+    { _slbpolrqLoadBalancerName :: !Text
+    , _slbpolrqLoadBalancerPort :: !Int
+    , _slbpolrqPolicyNames      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesOfListener' smart constructor.
 setLoadBalancerPoliciesOfListener :: Text -> Int -> SetLoadBalancerPoliciesOfListener
 setLoadBalancerPoliciesOfListener pLoadBalancerName pLoadBalancerPort =
     SetLoadBalancerPoliciesOfListener'
-    { _slbpolLoadBalancerName = pLoadBalancerName
-    , _slbpolLoadBalancerPort = pLoadBalancerPort
-    , _slbpolPolicyNames = mempty
+    { _slbpolrqLoadBalancerName = pLoadBalancerName
+    , _slbpolrqLoadBalancerPort = pLoadBalancerPort
+    , _slbpolrqPolicyNames = mempty
     }
 
 -- | The name of the load balancer.
-slbpolLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
-slbpolLoadBalancerName = lens _slbpolLoadBalancerName (\ s a -> s{_slbpolLoadBalancerName = a});
+slbpolrqLoadBalancerName :: Lens' SetLoadBalancerPoliciesOfListener Text
+slbpolrqLoadBalancerName = lens _slbpolrqLoadBalancerName (\ s a -> s{_slbpolrqLoadBalancerName = a});
 
 -- | The external port of the load balancer for the policy.
-slbpolLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
-slbpolLoadBalancerPort = lens _slbpolLoadBalancerPort (\ s a -> s{_slbpolLoadBalancerPort = a});
+slbpolrqLoadBalancerPort :: Lens' SetLoadBalancerPoliciesOfListener Int
+slbpolrqLoadBalancerPort = lens _slbpolrqLoadBalancerPort (\ s a -> s{_slbpolrqLoadBalancerPort = a});
 
 -- | The names of the policies. If the list is empty, the current policy is
 -- removed from the listener.
-slbpolPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
-slbpolPolicyNames = lens _slbpolPolicyNames (\ s a -> s{_slbpolPolicyNames = a});
+slbpolrqPolicyNames :: Lens' SetLoadBalancerPoliciesOfListener [Text]
+slbpolrqPolicyNames = lens _slbpolrqPolicyNames (\ s a -> s{_slbpolrqPolicyNames = a});
 
 instance AWSRequest SetLoadBalancerPoliciesOfListener
          where
@@ -111,27 +111,27 @@ instance ToQuery SetLoadBalancerPoliciesOfListener
               ["Action" =:
                  ("SetLoadBalancerPoliciesOfListener" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _slbpolLoadBalancerName,
-               "LoadBalancerPort" =: _slbpolLoadBalancerPort,
+               "LoadBalancerName" =: _slbpolrqLoadBalancerName,
+               "LoadBalancerPort" =: _slbpolrqLoadBalancerPort,
                "PolicyNames" =:
-                 toQueryList "member" _slbpolPolicyNames]
+                 toQueryList "member" _slbpolrqPolicyNames]
 
 -- | /See:/ 'setLoadBalancerPoliciesOfListenerResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'slbpolrStatus'
+-- * 'slbpolrsStatus'
 newtype SetLoadBalancerPoliciesOfListenerResponse = SetLoadBalancerPoliciesOfListenerResponse'
-    { _slbpolrStatus :: Int
+    { _slbpolrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetLoadBalancerPoliciesOfListenerResponse' smart constructor.
 setLoadBalancerPoliciesOfListenerResponse :: Int -> SetLoadBalancerPoliciesOfListenerResponse
 setLoadBalancerPoliciesOfListenerResponse pStatus =
     SetLoadBalancerPoliciesOfListenerResponse'
-    { _slbpolrStatus = pStatus
+    { _slbpolrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-slbpolrStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
-slbpolrStatus = lens _slbpolrStatus (\ s a -> s{_slbpolrStatus = a});
+slbpolrsStatus :: Lens' SetLoadBalancerPoliciesOfListenerResponse Int
+slbpolrsStatus = lens _slbpolrsStatus (\ s a -> s{_slbpolrsStatus = a});

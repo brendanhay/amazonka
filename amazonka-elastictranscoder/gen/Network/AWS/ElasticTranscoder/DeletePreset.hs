@@ -31,14 +31,14 @@ module Network.AWS.ElasticTranscoder.DeletePreset
     -- ** Request constructor
     , deletePreset
     -- ** Request lenses
-    , dpId
+    , dprqId
 
     -- * Response
     , DeletePresetResponse
     -- ** Response constructor
     , deletePresetResponse
     -- ** Response lenses
-    , dprStatus
+    , dprsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -52,22 +52,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpId'
+-- * 'dprqId'
 newtype DeletePreset = DeletePreset'
-    { _dpId :: Text
+    { _dprqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePreset' smart constructor.
 deletePreset :: Text -> DeletePreset
 deletePreset pId =
     DeletePreset'
-    { _dpId = pId
+    { _dprqId = pId
     }
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-dpId :: Lens' DeletePreset Text
-dpId = lens _dpId (\ s a -> s{_dpId = a});
+dprqId :: Lens' DeletePreset Text
+dprqId = lens _dprqId (\ s a -> s{_dprqId = a});
 
 instance AWSRequest DeletePreset where
         type Sv DeletePreset = ElasticTranscoder
@@ -83,7 +83,7 @@ instance ToHeaders DeletePreset where
 
 instance ToPath DeletePreset where
         toPath DeletePreset'{..}
-          = mconcat ["/2012-09-25/presets/", toText _dpId]
+          = mconcat ["/2012-09-25/presets/", toText _dprqId]
 
 instance ToQuery DeletePreset where
         toQuery = const mempty
@@ -94,18 +94,18 @@ instance ToQuery DeletePreset where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dprStatus'
+-- * 'dprsStatus'
 newtype DeletePresetResponse = DeletePresetResponse'
-    { _dprStatus :: Int
+    { _dprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePresetResponse' smart constructor.
 deletePresetResponse :: Int -> DeletePresetResponse
 deletePresetResponse pStatus =
     DeletePresetResponse'
-    { _dprStatus = pStatus
+    { _dprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dprStatus :: Lens' DeletePresetResponse Int
-dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});
+dprsStatus :: Lens' DeletePresetResponse Int
+dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

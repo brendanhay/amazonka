@@ -27,16 +27,16 @@ module Network.AWS.SSM.GetDocument
     -- ** Request constructor
     , getDocument
     -- ** Request lenses
-    , gdName
+    , gdrqName
 
     -- * Response
     , GetDocumentResponse
     -- ** Response constructor
     , getDocumentResponse
     -- ** Response lenses
-    , gdrContent
-    , gdrName
-    , gdrStatus
+    , gdrsContent
+    , gdrsName
+    , gdrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -48,21 +48,21 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdName'
+-- * 'gdrqName'
 newtype GetDocument = GetDocument'
-    { _gdName :: Text
+    { _gdrqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDocument' smart constructor.
 getDocument :: Text -> GetDocument
 getDocument pName =
     GetDocument'
-    { _gdName = pName
+    { _gdrqName = pName
     }
 
 -- | The name of the configuration document.
-gdName :: Lens' GetDocument Text
-gdName = lens _gdName (\ s a -> s{_gdName = a});
+gdrqName :: Lens' GetDocument Text
+gdrqName = lens _gdrqName (\ s a -> s{_gdrqName = a});
 
 instance AWSRequest GetDocument where
         type Sv GetDocument = SSM
@@ -85,7 +85,8 @@ instance ToHeaders GetDocument where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDocument where
-        toJSON GetDocument'{..} = object ["Name" .= _gdName]
+        toJSON GetDocument'{..}
+          = object ["Name" .= _gdrqName]
 
 instance ToPath GetDocument where
         toPath = const "/"
@@ -97,34 +98,34 @@ instance ToQuery GetDocument where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrContent'
+-- * 'gdrsContent'
 --
--- * 'gdrName'
+-- * 'gdrsName'
 --
--- * 'gdrStatus'
+-- * 'gdrsStatus'
 data GetDocumentResponse = GetDocumentResponse'
-    { _gdrContent :: !(Maybe Text)
-    , _gdrName    :: !(Maybe Text)
-    , _gdrStatus  :: !Int
+    { _gdrsContent :: !(Maybe Text)
+    , _gdrsName    :: !(Maybe Text)
+    , _gdrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDocumentResponse' smart constructor.
 getDocumentResponse :: Int -> GetDocumentResponse
 getDocumentResponse pStatus =
     GetDocumentResponse'
-    { _gdrContent = Nothing
-    , _gdrName = Nothing
-    , _gdrStatus = pStatus
+    { _gdrsContent = Nothing
+    , _gdrsName = Nothing
+    , _gdrsStatus = pStatus
     }
 
 -- | The contents of the configuration document.
-gdrContent :: Lens' GetDocumentResponse (Maybe Text)
-gdrContent = lens _gdrContent (\ s a -> s{_gdrContent = a});
+gdrsContent :: Lens' GetDocumentResponse (Maybe Text)
+gdrsContent = lens _gdrsContent (\ s a -> s{_gdrsContent = a});
 
 -- | The name of the configuration document.
-gdrName :: Lens' GetDocumentResponse (Maybe Text)
-gdrName = lens _gdrName (\ s a -> s{_gdrName = a});
+gdrsName :: Lens' GetDocumentResponse (Maybe Text)
+gdrsName = lens _gdrsName (\ s a -> s{_gdrsName = a});
 
 -- | FIXME: Undocumented member.
-gdrStatus :: Lens' GetDocumentResponse Int
-gdrStatus = lens _gdrStatus (\ s a -> s{_gdrStatus = a});
+gdrsStatus :: Lens' GetDocumentResponse Int
+gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

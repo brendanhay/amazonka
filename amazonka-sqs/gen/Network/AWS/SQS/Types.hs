@@ -48,9 +48,9 @@ module Network.AWS.SQS.Types
     -- * ChangeMessageVisibilityBatchRequestEntry
     , ChangeMessageVisibilityBatchRequestEntry
     , changeMessageVisibilityBatchRequestEntry
-    , chaVisibilityTimeout
-    , chaId
-    , chaReceiptHandle
+    , cVisibilityTimeout
+    , cId
+    , cReceiptHandle
 
     -- * ChangeMessageVisibilityBatchResultEntry
     , ChangeMessageVisibilityBatchResultEntry
@@ -66,18 +66,18 @@ module Network.AWS.SQS.Types
     -- * DeleteMessageBatchResultEntry
     , DeleteMessageBatchResultEntry
     , deleteMessageBatchResultEntry
-    , delId
+    , dId
 
     -- * Message
     , Message
     , message
-    , mesMessageAttributes
-    , mesMD5OfBody
-    , mesBody
-    , mesAttributes
-    , mesMessageId
-    , mesReceiptHandle
-    , mesMD5OfMessageAttributes
+    , mMessageAttributes
+    , mMD5OfBody
+    , mBody
+    , mAttributes
+    , mMessageId
+    , mReceiptHandle
+    , mMD5OfMessageAttributes
 
     -- * MessageAttributeValue
     , MessageAttributeValue
@@ -91,10 +91,10 @@ module Network.AWS.SQS.Types
     -- * SendMessageBatchRequestEntry
     , SendMessageBatchRequestEntry
     , sendMessageBatchRequestEntry
-    , senMessageAttributes
-    , senDelaySeconds
-    , senId
-    , senMessageBody
+    , sMessageAttributes
+    , sDelaySeconds
+    , sId
+    , sMessageBody
 
     -- * SendMessageBatchResultEntry
     , SendMessageBatchResultEntry

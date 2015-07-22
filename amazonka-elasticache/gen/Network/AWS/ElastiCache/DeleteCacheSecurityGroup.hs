@@ -30,7 +30,7 @@ module Network.AWS.ElastiCache.DeleteCacheSecurityGroup
     -- ** Request constructor
     , deleteCacheSecurityGroup
     -- ** Request lenses
-    , dcsgCacheSecurityGroupName
+    , dcsgrqCacheSecurityGroupName
 
     -- * Response
     , DeleteCacheSecurityGroupResponse
@@ -49,23 +49,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgCacheSecurityGroupName'
+-- * 'dcsgrqCacheSecurityGroupName'
 newtype DeleteCacheSecurityGroup = DeleteCacheSecurityGroup'
-    { _dcsgCacheSecurityGroupName :: Text
+    { _dcsgrqCacheSecurityGroupName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheSecurityGroup' smart constructor.
 deleteCacheSecurityGroup :: Text -> DeleteCacheSecurityGroup
 deleteCacheSecurityGroup pCacheSecurityGroupName =
     DeleteCacheSecurityGroup'
-    { _dcsgCacheSecurityGroupName = pCacheSecurityGroupName
+    { _dcsgrqCacheSecurityGroupName = pCacheSecurityGroupName
     }
 
 -- | The name of the cache security group to delete.
 --
 -- You cannot delete the default security group.
-dcsgCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
-dcsgCacheSecurityGroupName = lens _dcsgCacheSecurityGroupName (\ s a -> s{_dcsgCacheSecurityGroupName = a});
+dcsgrqCacheSecurityGroupName :: Lens' DeleteCacheSecurityGroup Text
+dcsgrqCacheSecurityGroupName = lens _dcsgrqCacheSecurityGroupName (\ s a -> s{_dcsgrqCacheSecurityGroupName = a});
 
 instance AWSRequest DeleteCacheSecurityGroup where
         type Sv DeleteCacheSecurityGroup = ElastiCache
@@ -88,7 +88,7 @@ instance ToQuery DeleteCacheSecurityGroup where
                  ("DeleteCacheSecurityGroup" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSecurityGroupName" =:
-                 _dcsgCacheSecurityGroupName]
+                 _dcsgrqCacheSecurityGroupName]
 
 -- | /See:/ 'deleteCacheSecurityGroupResponse' smart constructor.
 data DeleteCacheSecurityGroupResponse =

@@ -28,15 +28,15 @@ module Network.AWS.Route53.GetHealthCheck
     -- ** Request constructor
     , getHealthCheck
     -- ** Request lenses
-    , ghcHealthCheckId
+    , ghcrqHealthCheckId
 
     -- * Response
     , GetHealthCheckResponse
     -- ** Response constructor
     , getHealthCheckResponse
     -- ** Response lenses
-    , ghcrStatus
-    , ghcrHealthCheck
+    , ghcrsStatus
+    , ghcrsHealthCheck
     ) where
 
 import           Network.AWS.Prelude
@@ -51,21 +51,21 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghcHealthCheckId'
+-- * 'ghcrqHealthCheckId'
 newtype GetHealthCheck = GetHealthCheck'
-    { _ghcHealthCheckId :: Text
+    { _ghcrqHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheck' smart constructor.
 getHealthCheck :: Text -> GetHealthCheck
 getHealthCheck pHealthCheckId =
     GetHealthCheck'
-    { _ghcHealthCheckId = pHealthCheckId
+    { _ghcrqHealthCheckId = pHealthCheckId
     }
 
 -- | The ID of the health check to retrieve.
-ghcHealthCheckId :: Lens' GetHealthCheck Text
-ghcHealthCheckId = lens _ghcHealthCheckId (\ s a -> s{_ghcHealthCheckId = a});
+ghcrqHealthCheckId :: Lens' GetHealthCheck Text
+ghcrqHealthCheckId = lens _ghcrqHealthCheckId (\ s a -> s{_ghcrqHealthCheckId = a});
 
 instance AWSRequest GetHealthCheck where
         type Sv GetHealthCheck = Route53
@@ -84,7 +84,7 @@ instance ToPath GetHealthCheck where
         toPath GetHealthCheck'{..}
           = mconcat
               ["/2013-04-01/healthcheck/",
-               toText _ghcHealthCheckId]
+               toText _ghcrqHealthCheckId]
 
 instance ToQuery GetHealthCheck where
         toQuery = const mempty
@@ -95,27 +95,27 @@ instance ToQuery GetHealthCheck where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghcrStatus'
+-- * 'ghcrsStatus'
 --
--- * 'ghcrHealthCheck'
+-- * 'ghcrsHealthCheck'
 data GetHealthCheckResponse = GetHealthCheckResponse'
-    { _ghcrStatus      :: !Int
-    , _ghcrHealthCheck :: !HealthCheck
+    { _ghcrsStatus      :: !Int
+    , _ghcrsHealthCheck :: !HealthCheck
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHealthCheckResponse' smart constructor.
 getHealthCheckResponse :: Int -> HealthCheck -> GetHealthCheckResponse
 getHealthCheckResponse pStatus pHealthCheck =
     GetHealthCheckResponse'
-    { _ghcrStatus = pStatus
-    , _ghcrHealthCheck = pHealthCheck
+    { _ghcrsStatus = pStatus
+    , _ghcrsHealthCheck = pHealthCheck
     }
 
 -- | FIXME: Undocumented member.
-ghcrStatus :: Lens' GetHealthCheckResponse Int
-ghcrStatus = lens _ghcrStatus (\ s a -> s{_ghcrStatus = a});
+ghcrsStatus :: Lens' GetHealthCheckResponse Int
+ghcrsStatus = lens _ghcrsStatus (\ s a -> s{_ghcrsStatus = a});
 
 -- | A complex type that contains the information about the specified health
 -- check.
-ghcrHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
-ghcrHealthCheck = lens _ghcrHealthCheck (\ s a -> s{_ghcrHealthCheck = a});
+ghcrsHealthCheck :: Lens' GetHealthCheckResponse HealthCheck
+ghcrsHealthCheck = lens _ghcrsHealthCheck (\ s a -> s{_ghcrsHealthCheck = a});

@@ -39,8 +39,8 @@ module Network.AWS.SES.ListVerifiedEmailAddresses
     -- ** Response constructor
     , listVerifiedEmailAddressesResponse
     -- ** Response lenses
-    , lvearVerifiedEmailAddresses
-    , lvearStatus
+    , lvearsVerifiedEmailAddresses
+    , lvearsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -92,26 +92,26 @@ instance ToQuery ListVerifiedEmailAddresses where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvearVerifiedEmailAddresses'
+-- * 'lvearsVerifiedEmailAddresses'
 --
--- * 'lvearStatus'
+-- * 'lvearsStatus'
 data ListVerifiedEmailAddressesResponse = ListVerifiedEmailAddressesResponse'
-    { _lvearVerifiedEmailAddresses :: !(Maybe [Text])
-    , _lvearStatus                 :: !Int
+    { _lvearsVerifiedEmailAddresses :: !(Maybe [Text])
+    , _lvearsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVerifiedEmailAddressesResponse' smart constructor.
 listVerifiedEmailAddressesResponse :: Int -> ListVerifiedEmailAddressesResponse
 listVerifiedEmailAddressesResponse pStatus =
     ListVerifiedEmailAddressesResponse'
-    { _lvearVerifiedEmailAddresses = Nothing
-    , _lvearStatus = pStatus
+    { _lvearsVerifiedEmailAddresses = Nothing
+    , _lvearsStatus = pStatus
     }
 
 -- | A list of email addresses that have been verified.
-lvearVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
-lvearVerifiedEmailAddresses = lens _lvearVerifiedEmailAddresses (\ s a -> s{_lvearVerifiedEmailAddresses = a}) . _Default;
+lvearsVerifiedEmailAddresses :: Lens' ListVerifiedEmailAddressesResponse [Text]
+lvearsVerifiedEmailAddresses = lens _lvearsVerifiedEmailAddresses (\ s a -> s{_lvearsVerifiedEmailAddresses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvearStatus :: Lens' ListVerifiedEmailAddressesResponse Int
-lvearStatus = lens _lvearStatus (\ s a -> s{_lvearStatus = a});
+lvearsStatus :: Lens' ListVerifiedEmailAddressesResponse Int
+lvearsStatus = lens _lvearsStatus (\ s a -> s{_lvearsStatus = a});

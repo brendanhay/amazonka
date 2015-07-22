@@ -35,16 +35,16 @@ module Network.AWS.CloudSearch.DefineIndexField
     -- ** Request constructor
     , defineIndexField
     -- ** Request lenses
-    , deffDomainName
-    , deffIndexField
+    , deffrqDomainName
+    , deffrqIndexField
 
     -- * Response
     , DefineIndexFieldResponse
     -- ** Response constructor
     , defineIndexFieldResponse
     -- ** Response lenses
-    , defStatus
-    , defIndexField
+    , deffrsStatus
+    , deffrsIndexField
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -60,29 +60,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deffDomainName'
+-- * 'deffrqDomainName'
 --
--- * 'deffIndexField'
+-- * 'deffrqIndexField'
 data DefineIndexField = DefineIndexField'
-    { _deffDomainName :: !Text
-    , _deffIndexField :: !IndexField
+    { _deffrqDomainName :: !Text
+    , _deffrqIndexField :: !IndexField
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineIndexField' smart constructor.
 defineIndexField :: Text -> IndexField -> DefineIndexField
 defineIndexField pDomainName pIndexField =
     DefineIndexField'
-    { _deffDomainName = pDomainName
-    , _deffIndexField = pIndexField
+    { _deffrqDomainName = pDomainName
+    , _deffrqIndexField = pIndexField
     }
 
 -- | FIXME: Undocumented member.
-deffDomainName :: Lens' DefineIndexField Text
-deffDomainName = lens _deffDomainName (\ s a -> s{_deffDomainName = a});
+deffrqDomainName :: Lens' DefineIndexField Text
+deffrqDomainName = lens _deffrqDomainName (\ s a -> s{_deffrqDomainName = a});
 
 -- | The index field and field options you want to configure.
-deffIndexField :: Lens' DefineIndexField IndexField
-deffIndexField = lens _deffIndexField (\ s a -> s{_deffIndexField = a});
+deffrqIndexField :: Lens' DefineIndexField IndexField
+deffrqIndexField = lens _deffrqIndexField (\ s a -> s{_deffrqIndexField = a});
 
 instance AWSRequest DefineIndexField where
         type Sv DefineIndexField = CloudSearch
@@ -105,8 +105,8 @@ instance ToQuery DefineIndexField where
           = mconcat
               ["Action" =: ("DefineIndexField" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _deffDomainName,
-               "IndexField" =: _deffIndexField]
+               "DomainName" =: _deffrqDomainName,
+               "IndexField" =: _deffrqIndexField]
 
 -- | The result of a @DefineIndexField@ request. Contains the status of the
 -- newly-configured index field.
@@ -115,26 +115,26 @@ instance ToQuery DefineIndexField where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'defStatus'
+-- * 'deffrsStatus'
 --
--- * 'defIndexField'
+-- * 'deffrsIndexField'
 data DefineIndexFieldResponse = DefineIndexFieldResponse'
-    { _defStatus     :: !Int
-    , _defIndexField :: !IndexFieldStatus
+    { _deffrsStatus     :: !Int
+    , _deffrsIndexField :: !IndexFieldStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineIndexFieldResponse' smart constructor.
 defineIndexFieldResponse :: Int -> IndexFieldStatus -> DefineIndexFieldResponse
 defineIndexFieldResponse pStatus pIndexField =
     DefineIndexFieldResponse'
-    { _defStatus = pStatus
-    , _defIndexField = pIndexField
+    { _deffrsStatus = pStatus
+    , _deffrsIndexField = pIndexField
     }
 
 -- | FIXME: Undocumented member.
-defStatus :: Lens' DefineIndexFieldResponse Int
-defStatus = lens _defStatus (\ s a -> s{_defStatus = a});
+deffrsStatus :: Lens' DefineIndexFieldResponse Int
+deffrsStatus = lens _deffrsStatus (\ s a -> s{_deffrsStatus = a});
 
 -- | FIXME: Undocumented member.
-defIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
-defIndexField = lens _defIndexField (\ s a -> s{_defIndexField = a});
+deffrsIndexField :: Lens' DefineIndexFieldResponse IndexFieldStatus
+deffrsIndexField = lens _deffrsIndexField (\ s a -> s{_deffrsIndexField = a});

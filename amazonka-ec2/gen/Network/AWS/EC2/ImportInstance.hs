@@ -33,19 +33,19 @@ module Network.AWS.EC2.ImportInstance
     -- ** Request constructor
     , importInstance
     -- ** Request lenses
-    , iiLaunchSpecification
-    , iiDiskImages
-    , iiDryRun
-    , iiDescription
-    , iiPlatform
+    , iirqLaunchSpecification
+    , iirqDiskImages
+    , iirqDryRun
+    , iirqDescription
+    , iirqPlatform
 
     -- * Response
     , ImportInstanceResponse
     -- ** Response constructor
     , importInstanceResponse
     -- ** Response lenses
-    , iirConversionTask
-    , iirStatus
+    , iirsConversionTask
+    , iirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -57,56 +57,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iiLaunchSpecification'
+-- * 'iirqLaunchSpecification'
 --
--- * 'iiDiskImages'
+-- * 'iirqDiskImages'
 --
--- * 'iiDryRun'
+-- * 'iirqDryRun'
 --
--- * 'iiDescription'
+-- * 'iirqDescription'
 --
--- * 'iiPlatform'
+-- * 'iirqPlatform'
 data ImportInstance = ImportInstance'
-    { _iiLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
-    , _iiDiskImages          :: !(Maybe [DiskImage])
-    , _iiDryRun              :: !(Maybe Bool)
-    , _iiDescription         :: !(Maybe Text)
-    , _iiPlatform            :: !PlatformValues
+    { _iirqLaunchSpecification :: !(Maybe ImportInstanceLaunchSpecification)
+    , _iirqDiskImages          :: !(Maybe [DiskImage])
+    , _iirqDryRun              :: !(Maybe Bool)
+    , _iirqDescription         :: !(Maybe Text)
+    , _iirqPlatform            :: !PlatformValues
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstance' smart constructor.
 importInstance :: PlatformValues -> ImportInstance
 importInstance pPlatform =
     ImportInstance'
-    { _iiLaunchSpecification = Nothing
-    , _iiDiskImages = Nothing
-    , _iiDryRun = Nothing
-    , _iiDescription = Nothing
-    , _iiPlatform = pPlatform
+    { _iirqLaunchSpecification = Nothing
+    , _iirqDiskImages = Nothing
+    , _iirqDryRun = Nothing
+    , _iirqDescription = Nothing
+    , _iirqPlatform = pPlatform
     }
 
 -- | The launch specification.
-iiLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
-iiLaunchSpecification = lens _iiLaunchSpecification (\ s a -> s{_iiLaunchSpecification = a});
+iirqLaunchSpecification :: Lens' ImportInstance (Maybe ImportInstanceLaunchSpecification)
+iirqLaunchSpecification = lens _iirqLaunchSpecification (\ s a -> s{_iirqLaunchSpecification = a});
 
 -- | The disk image.
-iiDiskImages :: Lens' ImportInstance [DiskImage]
-iiDiskImages = lens _iiDiskImages (\ s a -> s{_iiDiskImages = a}) . _Default;
+iirqDiskImages :: Lens' ImportInstance [DiskImage]
+iirqDiskImages = lens _iirqDiskImages (\ s a -> s{_iirqDiskImages = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-iiDryRun :: Lens' ImportInstance (Maybe Bool)
-iiDryRun = lens _iiDryRun (\ s a -> s{_iiDryRun = a});
+iirqDryRun :: Lens' ImportInstance (Maybe Bool)
+iirqDryRun = lens _iirqDryRun (\ s a -> s{_iirqDryRun = a});
 
 -- | A description for the instance being imported.
-iiDescription :: Lens' ImportInstance (Maybe Text)
-iiDescription = lens _iiDescription (\ s a -> s{_iiDescription = a});
+iirqDescription :: Lens' ImportInstance (Maybe Text)
+iirqDescription = lens _iirqDescription (\ s a -> s{_iirqDescription = a});
 
 -- | The instance operating system.
-iiPlatform :: Lens' ImportInstance PlatformValues
-iiPlatform = lens _iiPlatform (\ s a -> s{_iiPlatform = a});
+iirqPlatform :: Lens' ImportInstance PlatformValues
+iirqPlatform = lens _iirqPlatform (\ s a -> s{_iirqPlatform = a});
 
 instance AWSRequest ImportInstance where
         type Sv ImportInstance = EC2
@@ -129,36 +129,37 @@ instance ToQuery ImportInstance where
           = mconcat
               ["Action" =: ("ImportInstance" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "LaunchSpecification" =: _iiLaunchSpecification,
-               toQuery (toQueryList "DiskImage" <$> _iiDiskImages),
-               "DryRun" =: _iiDryRun,
-               "Description" =: _iiDescription,
-               "Platform" =: _iiPlatform]
+               "LaunchSpecification" =: _iirqLaunchSpecification,
+               toQuery
+                 (toQueryList "DiskImage" <$> _iirqDiskImages),
+               "DryRun" =: _iirqDryRun,
+               "Description" =: _iirqDescription,
+               "Platform" =: _iirqPlatform]
 
 -- | /See:/ 'importInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'iirConversionTask'
+-- * 'iirsConversionTask'
 --
--- * 'iirStatus'
+-- * 'iirsStatus'
 data ImportInstanceResponse = ImportInstanceResponse'
-    { _iirConversionTask :: !(Maybe ConversionTask)
-    , _iirStatus         :: !Int
+    { _iirsConversionTask :: !(Maybe ConversionTask)
+    , _iirsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ImportInstanceResponse' smart constructor.
 importInstanceResponse :: Int -> ImportInstanceResponse
 importInstanceResponse pStatus =
     ImportInstanceResponse'
-    { _iirConversionTask = Nothing
-    , _iirStatus = pStatus
+    { _iirsConversionTask = Nothing
+    , _iirsStatus = pStatus
     }
 
 -- | Information about the conversion task.
-iirConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
-iirConversionTask = lens _iirConversionTask (\ s a -> s{_iirConversionTask = a});
+iirsConversionTask :: Lens' ImportInstanceResponse (Maybe ConversionTask)
+iirsConversionTask = lens _iirsConversionTask (\ s a -> s{_iirsConversionTask = a});
 
 -- | FIXME: Undocumented member.
-iirStatus :: Lens' ImportInstanceResponse Int
-iirStatus = lens _iirStatus (\ s a -> s{_iirStatus = a});
+iirsStatus :: Lens' ImportInstanceResponse Int
+iirsStatus = lens _iirsStatus (\ s a -> s{_iirsStatus = a});

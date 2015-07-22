@@ -31,17 +31,17 @@ module Network.AWS.EC2.DescribeKeyPairs
     -- ** Request constructor
     , describeKeyPairs
     -- ** Request lenses
-    , dkpsFilters
-    , dkpsKeyNames
-    , dkpsDryRun
+    , dkpsrqFilters
+    , dkpsrqKeyNames
+    , dkpsrqDryRun
 
     -- * Response
     , DescribeKeyPairsResponse
     -- ** Response constructor
     , describeKeyPairsResponse
     -- ** Response lenses
-    , dkprKeyPairs
-    , dkprStatus
+    , dkpsrsKeyPairs
+    , dkpsrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dkpsFilters'
+-- * 'dkpsrqFilters'
 --
--- * 'dkpsKeyNames'
+-- * 'dkpsrqKeyNames'
 --
--- * 'dkpsDryRun'
+-- * 'dkpsrqDryRun'
 data DescribeKeyPairs = DescribeKeyPairs'
-    { _dkpsFilters  :: !(Maybe [Filter])
-    , _dkpsKeyNames :: !(Maybe [Text])
-    , _dkpsDryRun   :: !(Maybe Bool)
+    { _dkpsrqFilters  :: !(Maybe [Filter])
+    , _dkpsrqKeyNames :: !(Maybe [Text])
+    , _dkpsrqDryRun   :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyPairs' smart constructor.
 describeKeyPairs :: DescribeKeyPairs
 describeKeyPairs =
     DescribeKeyPairs'
-    { _dkpsFilters = Nothing
-    , _dkpsKeyNames = Nothing
-    , _dkpsDryRun = Nothing
+    { _dkpsrqFilters = Nothing
+    , _dkpsrqKeyNames = Nothing
+    , _dkpsrqDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -79,21 +79,21 @@ describeKeyPairs =
 --
 -- -   @key-name@ - The name of the key pair.
 --
-dkpsFilters :: Lens' DescribeKeyPairs [Filter]
-dkpsFilters = lens _dkpsFilters (\ s a -> s{_dkpsFilters = a}) . _Default;
+dkpsrqFilters :: Lens' DescribeKeyPairs [Filter]
+dkpsrqFilters = lens _dkpsrqFilters (\ s a -> s{_dkpsrqFilters = a}) . _Default;
 
 -- | One or more key pair names.
 --
 -- Default: Describes all your key pairs.
-dkpsKeyNames :: Lens' DescribeKeyPairs [Text]
-dkpsKeyNames = lens _dkpsKeyNames (\ s a -> s{_dkpsKeyNames = a}) . _Default;
+dkpsrqKeyNames :: Lens' DescribeKeyPairs [Text]
+dkpsrqKeyNames = lens _dkpsrqKeyNames (\ s a -> s{_dkpsrqKeyNames = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dkpsDryRun :: Lens' DescribeKeyPairs (Maybe Bool)
-dkpsDryRun = lens _dkpsDryRun (\ s a -> s{_dkpsDryRun = a});
+dkpsrqDryRun :: Lens' DescribeKeyPairs (Maybe Bool)
+dkpsrqDryRun = lens _dkpsrqDryRun (\ s a -> s{_dkpsrqDryRun = a});
 
 instance AWSRequest DescribeKeyPairs where
         type Sv DescribeKeyPairs = EC2
@@ -118,34 +118,34 @@ instance ToQuery DescribeKeyPairs where
           = mconcat
               ["Action" =: ("DescribeKeyPairs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dkpsFilters),
-               toQuery (toQueryList "KeyName" <$> _dkpsKeyNames),
-               "DryRun" =: _dkpsDryRun]
+               toQuery (toQueryList "Filter" <$> _dkpsrqFilters),
+               toQuery (toQueryList "KeyName" <$> _dkpsrqKeyNames),
+               "DryRun" =: _dkpsrqDryRun]
 
 -- | /See:/ 'describeKeyPairsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dkprKeyPairs'
+-- * 'dkpsrsKeyPairs'
 --
--- * 'dkprStatus'
+-- * 'dkpsrsStatus'
 data DescribeKeyPairsResponse = DescribeKeyPairsResponse'
-    { _dkprKeyPairs :: !(Maybe [KeyPairInfo])
-    , _dkprStatus   :: !Int
+    { _dkpsrsKeyPairs :: !(Maybe [KeyPairInfo])
+    , _dkpsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeKeyPairsResponse' smart constructor.
 describeKeyPairsResponse :: Int -> DescribeKeyPairsResponse
 describeKeyPairsResponse pStatus =
     DescribeKeyPairsResponse'
-    { _dkprKeyPairs = Nothing
-    , _dkprStatus = pStatus
+    { _dkpsrsKeyPairs = Nothing
+    , _dkpsrsStatus = pStatus
     }
 
 -- | Information about one or more key pairs.
-dkprKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
-dkprKeyPairs = lens _dkprKeyPairs (\ s a -> s{_dkprKeyPairs = a}) . _Default;
+dkpsrsKeyPairs :: Lens' DescribeKeyPairsResponse [KeyPairInfo]
+dkpsrsKeyPairs = lens _dkpsrsKeyPairs (\ s a -> s{_dkpsrsKeyPairs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dkprStatus :: Lens' DescribeKeyPairsResponse Int
-dkprStatus = lens _dkprStatus (\ s a -> s{_dkprStatus = a});
+dkpsrsStatus :: Lens' DescribeKeyPairsResponse Int
+dkpsrsStatus = lens _dkpsrsStatus (\ s a -> s{_dkpsrsStatus = a});

@@ -33,17 +33,17 @@ module Network.AWS.CognitoIdentity.GetOpenIdToken
     -- ** Request constructor
     , getOpenIdToken
     -- ** Request lenses
-    , goitLogins
-    , goitIdentityId
+    , goitrqLogins
+    , goitrqIdentityId
 
     -- * Response
     , GetOpenIdTokenResponse
     -- ** Response constructor
     , getOpenIdTokenResponse
     -- ** Response lenses
-    , goitrToken
-    , goitrIdentityId
-    , goitrStatus
+    , goitrsToken
+    , goitrsIdentityId
+    , goitrsStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -57,20 +57,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goitLogins'
+-- * 'goitrqLogins'
 --
--- * 'goitIdentityId'
+-- * 'goitrqIdentityId'
 data GetOpenIdToken = GetOpenIdToken'
-    { _goitLogins     :: !(Maybe (Map Text Text))
-    , _goitIdentityId :: !Text
+    { _goitrqLogins     :: !(Maybe (Map Text Text))
+    , _goitrqIdentityId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdToken' smart constructor.
 getOpenIdToken :: Text -> GetOpenIdToken
 getOpenIdToken pIdentityId =
     GetOpenIdToken'
-    { _goitLogins = Nothing
-    , _goitIdentityId = pIdentityId
+    { _goitrqLogins = Nothing
+    , _goitrqIdentityId = pIdentityId
     }
 
 -- | A set of optional name-value pairs that map provider names to provider
@@ -78,12 +78,12 @@ getOpenIdToken pIdentityId =
 -- access_token returned from the provider\'s authflow. For
 -- accounts.google.com or any other OpenId Connect provider, always include
 -- the id_token.
-goitLogins :: Lens' GetOpenIdToken (HashMap Text Text)
-goitLogins = lens _goitLogins (\ s a -> s{_goitLogins = a}) . _Default . _Map;
+goitrqLogins :: Lens' GetOpenIdToken (HashMap Text Text)
+goitrqLogins = lens _goitrqLogins (\ s a -> s{_goitrqLogins = a}) . _Default . _Map;
 
 -- | A unique identifier in the format REGION:GUID.
-goitIdentityId :: Lens' GetOpenIdToken Text
-goitIdentityId = lens _goitIdentityId (\ s a -> s{_goitIdentityId = a});
+goitrqIdentityId :: Lens' GetOpenIdToken Text
+goitrqIdentityId = lens _goitrqIdentityId (\ s a -> s{_goitrqIdentityId = a});
 
 instance AWSRequest GetOpenIdToken where
         type Sv GetOpenIdToken = CognitoIdentity
@@ -109,8 +109,8 @@ instance ToHeaders GetOpenIdToken where
 instance ToJSON GetOpenIdToken where
         toJSON GetOpenIdToken'{..}
           = object
-              ["Logins" .= _goitLogins,
-               "IdentityId" .= _goitIdentityId]
+              ["Logins" .= _goitrqLogins,
+               "IdentityId" .= _goitrqIdentityId]
 
 instance ToPath GetOpenIdToken where
         toPath = const "/"
@@ -124,35 +124,35 @@ instance ToQuery GetOpenIdToken where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'goitrToken'
+-- * 'goitrsToken'
 --
--- * 'goitrIdentityId'
+-- * 'goitrsIdentityId'
 --
--- * 'goitrStatus'
+-- * 'goitrsStatus'
 data GetOpenIdTokenResponse = GetOpenIdTokenResponse'
-    { _goitrToken      :: !(Maybe Text)
-    , _goitrIdentityId :: !(Maybe Text)
-    , _goitrStatus     :: !Int
+    { _goitrsToken      :: !(Maybe Text)
+    , _goitrsIdentityId :: !(Maybe Text)
+    , _goitrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetOpenIdTokenResponse' smart constructor.
 getOpenIdTokenResponse :: Int -> GetOpenIdTokenResponse
 getOpenIdTokenResponse pStatus =
     GetOpenIdTokenResponse'
-    { _goitrToken = Nothing
-    , _goitrIdentityId = Nothing
-    , _goitrStatus = pStatus
+    { _goitrsToken = Nothing
+    , _goitrsIdentityId = Nothing
+    , _goitrsStatus = pStatus
     }
 
 -- | An OpenID token, valid for 15 minutes.
-goitrToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrToken = lens _goitrToken (\ s a -> s{_goitrToken = a});
+goitrsToken :: Lens' GetOpenIdTokenResponse (Maybe Text)
+goitrsToken = lens _goitrsToken (\ s a -> s{_goitrsToken = a});
 
 -- | A unique identifier in the format REGION:GUID. Note that the IdentityId
 -- returned may not match the one passed on input.
-goitrIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
-goitrIdentityId = lens _goitrIdentityId (\ s a -> s{_goitrIdentityId = a});
+goitrsIdentityId :: Lens' GetOpenIdTokenResponse (Maybe Text)
+goitrsIdentityId = lens _goitrsIdentityId (\ s a -> s{_goitrsIdentityId = a});
 
 -- | FIXME: Undocumented member.
-goitrStatus :: Lens' GetOpenIdTokenResponse Int
-goitrStatus = lens _goitrStatus (\ s a -> s{_goitrStatus = a});
+goitrsStatus :: Lens' GetOpenIdTokenResponse Int
+goitrsStatus = lens _goitrsStatus (\ s a -> s{_goitrsStatus = a});

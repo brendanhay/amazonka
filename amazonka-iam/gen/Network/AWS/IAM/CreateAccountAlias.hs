@@ -30,7 +30,7 @@ module Network.AWS.IAM.CreateAccountAlias
     -- ** Request constructor
     , createAccountAlias
     -- ** Request lenses
-    , caaAccountAlias
+    , caarqAccountAlias
 
     -- * Response
     , CreateAccountAliasResponse
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'caaAccountAlias'
+-- * 'caarqAccountAlias'
 newtype CreateAccountAlias = CreateAccountAlias'
-    { _caaAccountAlias :: Text
+    { _caarqAccountAlias :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAccountAlias' smart constructor.
 createAccountAlias :: Text -> CreateAccountAlias
 createAccountAlias pAccountAlias =
     CreateAccountAlias'
-    { _caaAccountAlias = pAccountAlias
+    { _caarqAccountAlias = pAccountAlias
     }
 
 -- | The account alias to create.
-caaAccountAlias :: Lens' CreateAccountAlias Text
-caaAccountAlias = lens _caaAccountAlias (\ s a -> s{_caaAccountAlias = a});
+caarqAccountAlias :: Lens' CreateAccountAlias Text
+caarqAccountAlias = lens _caarqAccountAlias (\ s a -> s{_caarqAccountAlias = a});
 
 instance AWSRequest CreateAccountAlias where
         type Sv CreateAccountAlias = IAM
@@ -81,7 +81,7 @@ instance ToQuery CreateAccountAlias where
           = mconcat
               ["Action" =: ("CreateAccountAlias" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "AccountAlias" =: _caaAccountAlias]
+               "AccountAlias" =: _caarqAccountAlias]
 
 -- | /See:/ 'createAccountAliasResponse' smart constructor.
 data CreateAccountAliasResponse =

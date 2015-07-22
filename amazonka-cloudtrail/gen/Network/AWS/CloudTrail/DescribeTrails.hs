@@ -28,15 +28,15 @@ module Network.AWS.CloudTrail.DescribeTrails
     -- ** Request constructor
     , describeTrails
     -- ** Request lenses
-    , dtTrailNameList
+    , dtrqTrailNameList
 
     -- * Response
     , DescribeTrailsResponse
     -- ** Response constructor
     , describeTrailsResponse
     -- ** Response lenses
-    , dtrTrailList
-    , dtrStatus
+    , dtrsTrailList
+    , dtrsStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtTrailNameList'
+-- * 'dtrqTrailNameList'
 newtype DescribeTrails = DescribeTrails'
-    { _dtTrailNameList :: Maybe [Text]
+    { _dtrqTrailNameList :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrails' smart constructor.
 describeTrails :: DescribeTrails
 describeTrails =
     DescribeTrails'
-    { _dtTrailNameList = Nothing
+    { _dtrqTrailNameList = Nothing
     }
 
 -- | The trail returned.
-dtTrailNameList :: Lens' DescribeTrails [Text]
-dtTrailNameList = lens _dtTrailNameList (\ s a -> s{_dtTrailNameList = a}) . _Default;
+dtrqTrailNameList :: Lens' DescribeTrails [Text]
+dtrqTrailNameList = lens _dtrqTrailNameList (\ s a -> s{_dtrqTrailNameList = a}) . _Default;
 
 instance AWSRequest DescribeTrails where
         type Sv DescribeTrails = CloudTrail
@@ -89,7 +89,7 @@ instance ToHeaders DescribeTrails where
 
 instance ToJSON DescribeTrails where
         toJSON DescribeTrails'{..}
-          = object ["trailNameList" .= _dtTrailNameList]
+          = object ["trailNameList" .= _dtrqTrailNameList]
 
 instance ToPath DescribeTrails where
         toPath = const "/"
@@ -104,26 +104,26 @@ instance ToQuery DescribeTrails where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrTrailList'
+-- * 'dtrsTrailList'
 --
--- * 'dtrStatus'
+-- * 'dtrsStatus'
 data DescribeTrailsResponse = DescribeTrailsResponse'
-    { _dtrTrailList :: !(Maybe [Trail])
-    , _dtrStatus    :: !Int
+    { _dtrsTrailList :: !(Maybe [Trail])
+    , _dtrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrailsResponse' smart constructor.
 describeTrailsResponse :: Int -> DescribeTrailsResponse
 describeTrailsResponse pStatus =
     DescribeTrailsResponse'
-    { _dtrTrailList = Nothing
-    , _dtrStatus = pStatus
+    { _dtrsTrailList = Nothing
+    , _dtrsStatus = pStatus
     }
 
 -- | The list of trails.
-dtrTrailList :: Lens' DescribeTrailsResponse [Trail]
-dtrTrailList = lens _dtrTrailList (\ s a -> s{_dtrTrailList = a}) . _Default;
+dtrsTrailList :: Lens' DescribeTrailsResponse [Trail]
+dtrsTrailList = lens _dtrsTrailList (\ s a -> s{_dtrsTrailList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTrailsResponse Int
-dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
+dtrsStatus :: Lens' DescribeTrailsResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

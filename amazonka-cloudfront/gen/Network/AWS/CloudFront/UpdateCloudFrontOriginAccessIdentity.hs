@@ -27,18 +27,18 @@ module Network.AWS.CloudFront.UpdateCloudFrontOriginAccessIdentity
     -- ** Request constructor
     , updateCloudFrontOriginAccessIdentity
     -- ** Request lenses
-    , ucfoaiIfMatch
-    , ucfoaiCloudFrontOriginAccessIdentityConfig
-    , ucfoaiId
+    , ucfoairqIfMatch
+    , ucfoairqCloudFrontOriginAccessIdentityConfig
+    , ucfoairqId
 
     -- * Response
     , UpdateCloudFrontOriginAccessIdentityResponse
     -- ** Response constructor
     , updateCloudFrontOriginAccessIdentityResponse
     -- ** Response lenses
-    , ucfoairETag
-    , ucfoairCloudFrontOriginAccessIdentity
-    , ucfoairStatus
+    , ucfoairsETag
+    , ucfoairsCloudFrontOriginAccessIdentity
+    , ucfoairsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ucfoaiIfMatch'
+-- * 'ucfoairqIfMatch'
 --
--- * 'ucfoaiCloudFrontOriginAccessIdentityConfig'
+-- * 'ucfoairqCloudFrontOriginAccessIdentityConfig'
 --
--- * 'ucfoaiId'
+-- * 'ucfoairqId'
 data UpdateCloudFrontOriginAccessIdentity = UpdateCloudFrontOriginAccessIdentity'
-    { _ucfoaiIfMatch                              :: !(Maybe Text)
-    , _ucfoaiCloudFrontOriginAccessIdentityConfig :: !CloudFrontOriginAccessIdentityConfig
-    , _ucfoaiId                                   :: !Text
+    { _ucfoairqIfMatch                              :: !(Maybe Text)
+    , _ucfoairqCloudFrontOriginAccessIdentityConfig :: !CloudFrontOriginAccessIdentityConfig
+    , _ucfoairqId                                   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateCloudFrontOriginAccessIdentity' smart constructor.
 updateCloudFrontOriginAccessIdentity :: CloudFrontOriginAccessIdentityConfig -> Text -> UpdateCloudFrontOriginAccessIdentity
 updateCloudFrontOriginAccessIdentity pCloudFrontOriginAccessIdentityConfig pId =
     UpdateCloudFrontOriginAccessIdentity'
-    { _ucfoaiIfMatch = Nothing
-    , _ucfoaiCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig
-    , _ucfoaiId = pId
+    { _ucfoairqIfMatch = Nothing
+    , _ucfoairqCloudFrontOriginAccessIdentityConfig = pCloudFrontOriginAccessIdentityConfig
+    , _ucfoairqId = pId
     }
 
 -- | The value of the ETag header you received when retrieving the
 -- identity\'s configuration. For example: E2QWRUHAPOMQZL.
-ucfoaiIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
-ucfoaiIfMatch = lens _ucfoaiIfMatch (\ s a -> s{_ucfoaiIfMatch = a});
+ucfoairqIfMatch :: Lens' UpdateCloudFrontOriginAccessIdentity (Maybe Text)
+ucfoairqIfMatch = lens _ucfoairqIfMatch (\ s a -> s{_ucfoairqIfMatch = a});
 
 -- | The identity\'s configuration information.
-ucfoaiCloudFrontOriginAccessIdentityConfig :: Lens' UpdateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
-ucfoaiCloudFrontOriginAccessIdentityConfig = lens _ucfoaiCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ucfoaiCloudFrontOriginAccessIdentityConfig = a});
+ucfoairqCloudFrontOriginAccessIdentityConfig :: Lens' UpdateCloudFrontOriginAccessIdentity CloudFrontOriginAccessIdentityConfig
+ucfoairqCloudFrontOriginAccessIdentityConfig = lens _ucfoairqCloudFrontOriginAccessIdentityConfig (\ s a -> s{_ucfoairqCloudFrontOriginAccessIdentityConfig = a});
 
 -- | The identity\'s id.
-ucfoaiId :: Lens' UpdateCloudFrontOriginAccessIdentity Text
-ucfoaiId = lens _ucfoaiId (\ s a -> s{_ucfoaiId = a});
+ucfoairqId :: Lens' UpdateCloudFrontOriginAccessIdentity Text
+ucfoairqId = lens _ucfoairqId (\ s a -> s{_ucfoairqId = a});
 
 instance AWSRequest
          UpdateCloudFrontOriginAccessIdentity where
@@ -105,19 +105,19 @@ instance ToElement
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}CloudFrontOriginAccessIdentityConfig"
               .
-              _ucfoaiCloudFrontOriginAccessIdentityConfig
+              _ucfoairqCloudFrontOriginAccessIdentityConfig
 
 instance ToHeaders
          UpdateCloudFrontOriginAccessIdentity where
         toHeaders UpdateCloudFrontOriginAccessIdentity'{..}
-          = mconcat ["If-Match" =# _ucfoaiIfMatch]
+          = mconcat ["If-Match" =# _ucfoairqIfMatch]
 
 instance ToPath UpdateCloudFrontOriginAccessIdentity
          where
         toPath UpdateCloudFrontOriginAccessIdentity'{..}
           = mconcat
               ["/2015-04-17/origin-access-identity/cloudfront/",
-               toText _ucfoaiId, "/config"]
+               toText _ucfoairqId, "/config"]
 
 instance ToQuery UpdateCloudFrontOriginAccessIdentity
          where
@@ -129,34 +129,34 @@ instance ToQuery UpdateCloudFrontOriginAccessIdentity
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ucfoairETag'
+-- * 'ucfoairsETag'
 --
--- * 'ucfoairCloudFrontOriginAccessIdentity'
+-- * 'ucfoairsCloudFrontOriginAccessIdentity'
 --
--- * 'ucfoairStatus'
+-- * 'ucfoairsStatus'
 data UpdateCloudFrontOriginAccessIdentityResponse = UpdateCloudFrontOriginAccessIdentityResponse'
-    { _ucfoairETag                           :: !(Maybe Text)
-    , _ucfoairCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
-    , _ucfoairStatus                         :: !Int
+    { _ucfoairsETag                           :: !(Maybe Text)
+    , _ucfoairsCloudFrontOriginAccessIdentity :: !(Maybe CloudFrontOriginAccessIdentity)
+    , _ucfoairsStatus                         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateCloudFrontOriginAccessIdentityResponse' smart constructor.
 updateCloudFrontOriginAccessIdentityResponse :: Int -> UpdateCloudFrontOriginAccessIdentityResponse
 updateCloudFrontOriginAccessIdentityResponse pStatus =
     UpdateCloudFrontOriginAccessIdentityResponse'
-    { _ucfoairETag = Nothing
-    , _ucfoairCloudFrontOriginAccessIdentity = Nothing
-    , _ucfoairStatus = pStatus
+    { _ucfoairsETag = Nothing
+    , _ucfoairsCloudFrontOriginAccessIdentity = Nothing
+    , _ucfoairsStatus = pStatus
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-ucfoairETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
-ucfoairETag = lens _ucfoairETag (\ s a -> s{_ucfoairETag = a});
+ucfoairsETag :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe Text)
+ucfoairsETag = lens _ucfoairsETag (\ s a -> s{_ucfoairsETag = a});
 
 -- | The origin access identity\'s information.
-ucfoairCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
-ucfoairCloudFrontOriginAccessIdentity = lens _ucfoairCloudFrontOriginAccessIdentity (\ s a -> s{_ucfoairCloudFrontOriginAccessIdentity = a});
+ucfoairsCloudFrontOriginAccessIdentity :: Lens' UpdateCloudFrontOriginAccessIdentityResponse (Maybe CloudFrontOriginAccessIdentity)
+ucfoairsCloudFrontOriginAccessIdentity = lens _ucfoairsCloudFrontOriginAccessIdentity (\ s a -> s{_ucfoairsCloudFrontOriginAccessIdentity = a});
 
 -- | FIXME: Undocumented member.
-ucfoairStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
-ucfoairStatus = lens _ucfoairStatus (\ s a -> s{_ucfoairStatus = a});
+ucfoairsStatus :: Lens' UpdateCloudFrontOriginAccessIdentityResponse Int
+ucfoairsStatus = lens _ucfoairsStatus (\ s a -> s{_ucfoairsStatus = a});

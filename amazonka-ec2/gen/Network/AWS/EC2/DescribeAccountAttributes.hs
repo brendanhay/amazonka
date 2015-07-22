@@ -47,16 +47,16 @@ module Network.AWS.EC2.DescribeAccountAttributes
     -- ** Request constructor
     , describeAccountAttributes
     -- ** Request lenses
-    , daaAttributeNames
-    , daaDryRun
+    , daarqAttributeNames
+    , daarqDryRun
 
     -- * Response
     , DescribeAccountAttributesResponse
     -- ** Response constructor
     , describeAccountAttributesResponse
     -- ** Response lenses
-    , daarAccountAttributes
-    , daarStatus
+    , daarsAccountAttributes
+    , daarsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -68,32 +68,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daaAttributeNames'
+-- * 'daarqAttributeNames'
 --
--- * 'daaDryRun'
+-- * 'daarqDryRun'
 data DescribeAccountAttributes = DescribeAccountAttributes'
-    { _daaAttributeNames :: !(Maybe [AccountAttributeName])
-    , _daaDryRun         :: !(Maybe Bool)
+    { _daarqAttributeNames :: !(Maybe [AccountAttributeName])
+    , _daarqDryRun         :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountAttributes' smart constructor.
 describeAccountAttributes :: DescribeAccountAttributes
 describeAccountAttributes =
     DescribeAccountAttributes'
-    { _daaAttributeNames = Nothing
-    , _daaDryRun = Nothing
+    { _daarqAttributeNames = Nothing
+    , _daarqDryRun = Nothing
     }
 
 -- | One or more account attribute names.
-daaAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
-daaAttributeNames = lens _daaAttributeNames (\ s a -> s{_daaAttributeNames = a}) . _Default;
+daarqAttributeNames :: Lens' DescribeAccountAttributes [AccountAttributeName]
+daarqAttributeNames = lens _daarqAttributeNames (\ s a -> s{_daarqAttributeNames = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-daaDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
-daaDryRun = lens _daaDryRun (\ s a -> s{_daaDryRun = a});
+daarqDryRun :: Lens' DescribeAccountAttributes (Maybe Bool)
+daarqDryRun = lens _daarqDryRun (\ s a -> s{_daarqDryRun = a});
 
 instance AWSRequest DescribeAccountAttributes where
         type Sv DescribeAccountAttributes = EC2
@@ -121,33 +121,34 @@ instance ToQuery DescribeAccountAttributes where
                  ("DescribeAccountAttributes" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "attributeName" <$> _daaAttributeNames),
-               "DryRun" =: _daaDryRun]
+                 (toQueryList "attributeName" <$>
+                    _daarqAttributeNames),
+               "DryRun" =: _daarqDryRun]
 
 -- | /See:/ 'describeAccountAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daarAccountAttributes'
+-- * 'daarsAccountAttributes'
 --
--- * 'daarStatus'
+-- * 'daarsStatus'
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-    { _daarAccountAttributes :: !(Maybe [AccountAttribute])
-    , _daarStatus            :: !Int
+    { _daarsAccountAttributes :: !(Maybe [AccountAttribute])
+    , _daarsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pStatus =
     DescribeAccountAttributesResponse'
-    { _daarAccountAttributes = Nothing
-    , _daarStatus = pStatus
+    { _daarsAccountAttributes = Nothing
+    , _daarsStatus = pStatus
     }
 
 -- | Information about one or more account attributes.
-daarAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
-daarAccountAttributes = lens _daarAccountAttributes (\ s a -> s{_daarAccountAttributes = a}) . _Default;
+daarsAccountAttributes :: Lens' DescribeAccountAttributesResponse [AccountAttribute]
+daarsAccountAttributes = lens _daarsAccountAttributes (\ s a -> s{_daarsAccountAttributes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-daarStatus :: Lens' DescribeAccountAttributesResponse Int
-daarStatus = lens _daarStatus (\ s a -> s{_daarStatus = a});
+daarsStatus :: Lens' DescribeAccountAttributesResponse Int
+daarsStatus = lens _daarsStatus (\ s a -> s{_daarsStatus = a});

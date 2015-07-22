@@ -27,8 +27,8 @@ module Network.AWS.AutoScaling.DeleteNotificationConfiguration
     -- ** Request constructor
     , deleteNotificationConfiguration
     -- ** Request lenses
-    , dncAutoScalingGroupName
-    , dncTopicARN
+    , dncrqAutoScalingGroupName
+    , dncrqTopicARN
 
     -- * Response
     , DeleteNotificationConfigurationResponse
@@ -45,30 +45,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dncAutoScalingGroupName'
+-- * 'dncrqAutoScalingGroupName'
 --
--- * 'dncTopicARN'
+-- * 'dncrqTopicARN'
 data DeleteNotificationConfiguration = DeleteNotificationConfiguration'
-    { _dncAutoScalingGroupName :: !Text
-    , _dncTopicARN             :: !Text
+    { _dncrqAutoScalingGroupName :: !Text
+    , _dncrqTopicARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteNotificationConfiguration' smart constructor.
 deleteNotificationConfiguration :: Text -> Text -> DeleteNotificationConfiguration
 deleteNotificationConfiguration pAutoScalingGroupName pTopicARN =
     DeleteNotificationConfiguration'
-    { _dncAutoScalingGroupName = pAutoScalingGroupName
-    , _dncTopicARN = pTopicARN
+    { _dncrqAutoScalingGroupName = pAutoScalingGroupName
+    , _dncrqTopicARN = pTopicARN
     }
 
 -- | The name of the Auto Scaling group.
-dncAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
-dncAutoScalingGroupName = lens _dncAutoScalingGroupName (\ s a -> s{_dncAutoScalingGroupName = a});
+dncrqAutoScalingGroupName :: Lens' DeleteNotificationConfiguration Text
+dncrqAutoScalingGroupName = lens _dncrqAutoScalingGroupName (\ s a -> s{_dncrqAutoScalingGroupName = a});
 
 -- | The Amazon Resource Name (ARN) of the Amazon Simple Notification Service
 -- (SNS) topic.
-dncTopicARN :: Lens' DeleteNotificationConfiguration Text
-dncTopicARN = lens _dncTopicARN (\ s a -> s{_dncTopicARN = a});
+dncrqTopicARN :: Lens' DeleteNotificationConfiguration Text
+dncrqTopicARN = lens _dncrqTopicARN (\ s a -> s{_dncrqTopicARN = a});
 
 instance AWSRequest DeleteNotificationConfiguration
          where
@@ -94,8 +94,8 @@ instance ToQuery DeleteNotificationConfiguration
               ["Action" =:
                  ("DeleteNotificationConfiguration" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "AutoScalingGroupName" =: _dncAutoScalingGroupName,
-               "TopicARN" =: _dncTopicARN]
+               "AutoScalingGroupName" =: _dncrqAutoScalingGroupName,
+               "TopicARN" =: _dncrqTopicARN]
 
 -- | /See:/ 'deleteNotificationConfigurationResponse' smart constructor.
 data DeleteNotificationConfigurationResponse =

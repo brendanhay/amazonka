@@ -27,31 +27,31 @@ module Network.AWS.ElasticBeanstalk.TerminateEnvironment
     -- ** Request constructor
     , terminateEnvironment
     -- ** Request lenses
-    , teTerminateResources
-    , teEnvironmentName
-    , teEnvironmentId
+    , terqTerminateResources
+    , terqEnvironmentName
+    , terqEnvironmentId
 
     -- * Response
     , EnvironmentDescription
     -- ** Response constructor
     , environmentDescription
     -- ** Response lenses
-    , envCNAME
-    , envStatus
-    , envTemplateName
-    , envAbortableOperationInProgress
-    , envEndpointURL
-    , envDateUpdated
-    , envResources
-    , envHealth
-    , envVersionLabel
-    , envDateCreated
-    , envTier
-    , envEnvironmentName
-    , envApplicationName
-    , envEnvironmentId
-    , envSolutionStackName
-    , envDescription
+    , tersCNAME
+    , tersStatus
+    , tersTemplateName
+    , tersAbortableOperationInProgress
+    , tersEndpointURL
+    , tersDateUpdated
+    , tersResources
+    , tersHealth
+    , tersVersionLabel
+    , tersDateCreated
+    , tersTier
+    , tersEnvironmentName
+    , tersApplicationName
+    , tersEnvironmentId
+    , tersSolutionStackName
+    , tersDescription
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -65,24 +65,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'teTerminateResources'
+-- * 'terqTerminateResources'
 --
--- * 'teEnvironmentName'
+-- * 'terqEnvironmentName'
 --
--- * 'teEnvironmentId'
+-- * 'terqEnvironmentId'
 data TerminateEnvironment = TerminateEnvironment'
-    { _teTerminateResources :: !(Maybe Bool)
-    , _teEnvironmentName    :: !(Maybe Text)
-    , _teEnvironmentId      :: !(Maybe Text)
+    { _terqTerminateResources :: !(Maybe Bool)
+    , _terqEnvironmentName    :: !(Maybe Text)
+    , _terqEnvironmentId      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateEnvironment' smart constructor.
 terminateEnvironment :: TerminateEnvironment
 terminateEnvironment =
     TerminateEnvironment'
-    { _teTerminateResources = Nothing
-    , _teEnvironmentName = Nothing
-    , _teEnvironmentId = Nothing
+    { _terqTerminateResources = Nothing
+    , _terqEnvironmentName = Nothing
+    , _terqEnvironmentId = Nothing
     }
 
 -- | Indicates whether the associated AWS resources should shut down when the
@@ -106,24 +106,24 @@ terminateEnvironment =
 -- Default: @true@
 --
 -- Valid Values: @true@ | @false@
-teTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
-teTerminateResources = lens _teTerminateResources (\ s a -> s{_teTerminateResources = a});
+terqTerminateResources :: Lens' TerminateEnvironment (Maybe Bool)
+terqTerminateResources = lens _terqTerminateResources (\ s a -> s{_terqTerminateResources = a});
 
 -- | The name of the environment to terminate.
 --
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-teEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
-teEnvironmentName = lens _teEnvironmentName (\ s a -> s{_teEnvironmentName = a});
+terqEnvironmentName :: Lens' TerminateEnvironment (Maybe Text)
+terqEnvironmentName = lens _terqEnvironmentName (\ s a -> s{_terqEnvironmentName = a});
 
 -- | The ID of the environment to terminate.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-teEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
-teEnvironmentId = lens _teEnvironmentId (\ s a -> s{_teEnvironmentId = a});
+terqEnvironmentId :: Lens' TerminateEnvironment (Maybe Text)
+terqEnvironmentId = lens _terqEnvironmentId (\ s a -> s{_terqEnvironmentId = a});
 
 instance AWSRequest TerminateEnvironment where
         type Sv TerminateEnvironment = ElasticBeanstalk
@@ -144,6 +144,6 @@ instance ToQuery TerminateEnvironment where
           = mconcat
               ["Action" =: ("TerminateEnvironment" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "TerminateResources" =: _teTerminateResources,
-               "EnvironmentName" =: _teEnvironmentName,
-               "EnvironmentId" =: _teEnvironmentId]
+               "TerminateResources" =: _terqTerminateResources,
+               "EnvironmentName" =: _terqEnvironmentName,
+               "EnvironmentId" =: _terqEnvironmentId]

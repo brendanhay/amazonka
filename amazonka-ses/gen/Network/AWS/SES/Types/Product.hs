@@ -29,37 +29,37 @@ import           Network.AWS.SES.Types.Sum
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bodText'
+-- * 'bText'
 --
--- * 'bodHTML'
+-- * 'bHTML'
 data Body = Body'
-    { _bodText :: !(Maybe Content)
-    , _bodHTML :: !(Maybe Content)
+    { _bText :: !(Maybe Content)
+    , _bHTML :: !(Maybe Content)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Body' smart constructor.
 body :: Body
 body =
     Body'
-    { _bodText = Nothing
-    , _bodHTML = Nothing
+    { _bText = Nothing
+    , _bHTML = Nothing
     }
 
 -- | The content of the message, in text format. Use this for text-based
 -- email clients, or clients on high-latency networks (such as mobile
 -- devices).
-bodText :: Lens' Body (Maybe Content)
-bodText = lens _bodText (\ s a -> s{_bodText = a});
+bText :: Lens' Body (Maybe Content)
+bText = lens _bText (\ s a -> s{_bText = a});
 
 -- | The content of the message, in HTML format. Use this for email clients
 -- that can process HTML. You can include clickable links, formatted text,
 -- and much more in an HTML message.
-bodHTML :: Lens' Body (Maybe Content)
-bodHTML = lens _bodHTML (\ s a -> s{_bodHTML = a});
+bHTML :: Lens' Body (Maybe Content)
+bHTML = lens _bHTML (\ s a -> s{_bHTML = a});
 
 instance ToQuery Body where
         toQuery Body'{..}
-          = mconcat ["Text" =: _bodText, "Html" =: _bodHTML]
+          = mconcat ["Text" =: _bText, "Html" =: _bHTML]
 
 -- | Represents textual data, plus an optional character set specification.
 --
@@ -72,34 +72,33 @@ instance ToQuery Body where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'conCharset'
+-- * 'cCharset'
 --
--- * 'conData'
+-- * 'cData'
 data Content = Content'
-    { _conCharset :: !(Maybe Text)
-    , _conData    :: !Text
+    { _cCharset :: !(Maybe Text)
+    , _cData    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Content' smart constructor.
 content :: Text -> Content
 content pData =
     Content'
-    { _conCharset = Nothing
-    , _conData = pData
+    { _cCharset = Nothing
+    , _cData = pData
     }
 
 -- | The character set of the content.
-conCharset :: Lens' Content (Maybe Text)
-conCharset = lens _conCharset (\ s a -> s{_conCharset = a});
+cCharset :: Lens' Content (Maybe Text)
+cCharset = lens _cCharset (\ s a -> s{_cCharset = a});
 
 -- | The textual data of the content.
-conData :: Lens' Content Text
-conData = lens _conData (\ s a -> s{_conData = a});
+cData :: Lens' Content Text
+cData = lens _cData (\ s a -> s{_cData = a});
 
 instance ToQuery Content where
         toQuery Content'{..}
-          = mconcat
-              ["Charset" =: _conCharset, "Data" =: _conData]
+          = mconcat ["Charset" =: _cCharset, "Data" =: _cData]
 
 -- | Represents the destination of the message, consisting of To:, CC:, and
 -- BCC: fields.
@@ -114,47 +113,47 @@ instance ToQuery Content where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desBCCAddresses'
+-- * 'dBCCAddresses'
 --
--- * 'desCCAddresses'
+-- * 'dCCAddresses'
 --
--- * 'desToAddresses'
+-- * 'dToAddresses'
 data Destination = Destination'
-    { _desBCCAddresses :: !(Maybe [Text])
-    , _desCCAddresses  :: !(Maybe [Text])
-    , _desToAddresses  :: !(Maybe [Text])
+    { _dBCCAddresses :: !(Maybe [Text])
+    , _dCCAddresses  :: !(Maybe [Text])
+    , _dToAddresses  :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Destination' smart constructor.
 destination :: Destination
 destination =
     Destination'
-    { _desBCCAddresses = Nothing
-    , _desCCAddresses = Nothing
-    , _desToAddresses = Nothing
+    { _dBCCAddresses = Nothing
+    , _dCCAddresses = Nothing
+    , _dToAddresses = Nothing
     }
 
 -- | The BCC: field(s) of the message.
-desBCCAddresses :: Lens' Destination [Text]
-desBCCAddresses = lens _desBCCAddresses (\ s a -> s{_desBCCAddresses = a}) . _Default;
+dBCCAddresses :: Lens' Destination [Text]
+dBCCAddresses = lens _dBCCAddresses (\ s a -> s{_dBCCAddresses = a}) . _Default;
 
 -- | The CC: field(s) of the message.
-desCCAddresses :: Lens' Destination [Text]
-desCCAddresses = lens _desCCAddresses (\ s a -> s{_desCCAddresses = a}) . _Default;
+dCCAddresses :: Lens' Destination [Text]
+dCCAddresses = lens _dCCAddresses (\ s a -> s{_dCCAddresses = a}) . _Default;
 
 -- | The To: field(s) of the message.
-desToAddresses :: Lens' Destination [Text]
-desToAddresses = lens _desToAddresses (\ s a -> s{_desToAddresses = a}) . _Default;
+dToAddresses :: Lens' Destination [Text]
+dToAddresses = lens _dToAddresses (\ s a -> s{_dToAddresses = a}) . _Default;
 
 instance ToQuery Destination where
         toQuery Destination'{..}
           = mconcat
               ["BccAddresses" =:
-                 toQuery (toQueryList "member" <$> _desBCCAddresses),
+                 toQuery (toQueryList "member" <$> _dBCCAddresses),
                "CcAddresses" =:
-                 toQuery (toQueryList "member" <$> _desCCAddresses),
+                 toQuery (toQueryList "member" <$> _dCCAddresses),
                "ToAddresses" =:
-                 toQuery (toQueryList "member" <$> _desToAddresses)]
+                 toQuery (toQueryList "member" <$> _dToAddresses)]
 
 -- | Represents the DKIM attributes of a verified email address or a domain.
 --
@@ -322,35 +321,34 @@ instance FromXML IdentityVerificationAttributes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mesSubject'
+-- * 'mSubject'
 --
--- * 'mesBody'
+-- * 'mBody'
 data Message = Message'
-    { _mesSubject :: !Content
-    , _mesBody    :: !Body
+    { _mSubject :: !Content
+    , _mBody    :: !Body
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Message' smart constructor.
 message :: Content -> Body -> Message
 message pSubject pBody =
     Message'
-    { _mesSubject = pSubject
-    , _mesBody = pBody
+    { _mSubject = pSubject
+    , _mBody = pBody
     }
 
 -- | The subject of the message: A short summary of the content, which will
 -- appear in the recipient\'s inbox.
-mesSubject :: Lens' Message Content
-mesSubject = lens _mesSubject (\ s a -> s{_mesSubject = a});
+mSubject :: Lens' Message Content
+mSubject = lens _mSubject (\ s a -> s{_mSubject = a});
 
 -- | The message body.
-mesBody :: Lens' Message Body
-mesBody = lens _mesBody (\ s a -> s{_mesBody = a});
+mBody :: Lens' Message Body
+mBody = lens _mBody (\ s a -> s{_mBody = a});
 
 instance ToQuery Message where
         toQuery Message'{..}
-          = mconcat
-              ["Subject" =: _mesSubject, "Body" =: _mesBody]
+          = mconcat ["Subject" =: _mSubject, "Body" =: _mBody]
 
 -- | Represents the raw data of the message.
 --

@@ -28,18 +28,18 @@ module Network.AWS.SSM.ListAssociations
     -- ** Request constructor
     , listAssociations
     -- ** Request lenses
-    , laNextToken
-    , laMaxResults
-    , laAssociationFilterList
+    , larqNextToken
+    , larqMaxResults
+    , larqAssociationFilterList
 
     -- * Response
     , ListAssociationsResponse
     -- ** Response constructor
     , listAssociationsResponse
     -- ** Response lenses
-    , larNextToken
-    , larAssociations
-    , larStatus
+    , larsNextToken
+    , larsAssociations
+    , larsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -51,41 +51,41 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'laNextToken'
+-- * 'larqNextToken'
 --
--- * 'laMaxResults'
+-- * 'larqMaxResults'
 --
--- * 'laAssociationFilterList'
+-- * 'larqAssociationFilterList'
 data ListAssociations = ListAssociations'
-    { _laNextToken             :: !(Maybe Text)
-    , _laMaxResults            :: !(Maybe Nat)
-    , _laAssociationFilterList :: !(List1 AssociationFilter)
+    { _larqNextToken             :: !(Maybe Text)
+    , _larqMaxResults            :: !(Maybe Nat)
+    , _larqAssociationFilterList :: !(List1 AssociationFilter)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAssociations' smart constructor.
 listAssociations :: NonEmpty AssociationFilter -> ListAssociations
 listAssociations pAssociationFilterList =
     ListAssociations'
-    { _laNextToken = Nothing
-    , _laMaxResults = Nothing
-    , _laAssociationFilterList = _List1 # pAssociationFilterList
+    { _larqNextToken = Nothing
+    , _larqMaxResults = Nothing
+    , _larqAssociationFilterList = _List1 # pAssociationFilterList
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-laNextToken :: Lens' ListAssociations (Maybe Text)
-laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
+larqNextToken :: Lens' ListAssociations (Maybe Text)
+larqNextToken = lens _larqNextToken (\ s a -> s{_larqNextToken = a});
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-laMaxResults :: Lens' ListAssociations (Maybe Natural)
-laMaxResults = lens _laMaxResults (\ s a -> s{_laMaxResults = a}) . mapping _Nat;
+larqMaxResults :: Lens' ListAssociations (Maybe Natural)
+larqMaxResults = lens _larqMaxResults (\ s a -> s{_larqMaxResults = a}) . mapping _Nat;
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- results.
-laAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
-laAssociationFilterList = lens _laAssociationFilterList (\ s a -> s{_laAssociationFilterList = a}) . _List1;
+larqAssociationFilterList :: Lens' ListAssociations (NonEmpty AssociationFilter)
+larqAssociationFilterList = lens _larqAssociationFilterList (\ s a -> s{_larqAssociationFilterList = a}) . _List1;
 
 instance AWSRequest ListAssociations where
         type Sv ListAssociations = SSM
@@ -111,9 +111,10 @@ instance ToHeaders ListAssociations where
 instance ToJSON ListAssociations where
         toJSON ListAssociations'{..}
           = object
-              ["NextToken" .= _laNextToken,
-               "MaxResults" .= _laMaxResults,
-               "AssociationFilterList" .= _laAssociationFilterList]
+              ["NextToken" .= _larqNextToken,
+               "MaxResults" .= _larqMaxResults,
+               "AssociationFilterList" .=
+                 _larqAssociationFilterList]
 
 instance ToPath ListAssociations where
         toPath = const "/"
@@ -125,35 +126,35 @@ instance ToQuery ListAssociations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larNextToken'
+-- * 'larsNextToken'
 --
--- * 'larAssociations'
+-- * 'larsAssociations'
 --
--- * 'larStatus'
+-- * 'larsStatus'
 data ListAssociationsResponse = ListAssociationsResponse'
-    { _larNextToken    :: !(Maybe Text)
-    , _larAssociations :: !(Maybe [Association])
-    , _larStatus       :: !Int
+    { _larsNextToken    :: !(Maybe Text)
+    , _larsAssociations :: !(Maybe [Association])
+    , _larsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAssociationsResponse' smart constructor.
 listAssociationsResponse :: Int -> ListAssociationsResponse
 listAssociationsResponse pStatus =
     ListAssociationsResponse'
-    { _larNextToken = Nothing
-    , _larAssociations = Nothing
-    , _larStatus = pStatus
+    { _larsNextToken = Nothing
+    , _larsAssociations = Nothing
+    , _larsStatus = pStatus
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-larNextToken :: Lens' ListAssociationsResponse (Maybe Text)
-larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
+larsNextToken :: Lens' ListAssociationsResponse (Maybe Text)
+larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
 -- | The associations.
-larAssociations :: Lens' ListAssociationsResponse [Association]
-larAssociations = lens _larAssociations (\ s a -> s{_larAssociations = a}) . _Default;
+larsAssociations :: Lens' ListAssociationsResponse [Association]
+larsAssociations = lens _larsAssociations (\ s a -> s{_larsAssociations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-larStatus :: Lens' ListAssociationsResponse Int
-larStatus = lens _larStatus (\ s a -> s{_larStatus = a});
+larsStatus :: Lens' ListAssociationsResponse Int
+larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

@@ -154,18 +154,18 @@ module Network.AWS.Glacier.InitiateJob
     -- ** Request constructor
     , initiateJob
     -- ** Request lenses
-    , ijJobParameters
-    , ijAccountId
-    , ijVaultName
+    , ijrqJobParameters
+    , ijrqAccountId
+    , ijrqVaultName
 
     -- * Response
     , InitiateJobResponse
     -- ** Response constructor
     , initiateJobResponse
     -- ** Response lenses
-    , ijrJobId
-    , ijrLocation
-    , ijrStatus
+    , ijrsJobId
+    , ijrsLocation
+    , ijrsStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -179,41 +179,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ijJobParameters'
+-- * 'ijrqJobParameters'
 --
--- * 'ijAccountId'
+-- * 'ijrqAccountId'
 --
--- * 'ijVaultName'
+-- * 'ijrqVaultName'
 data InitiateJob = InitiateJob'
-    { _ijJobParameters :: !(Maybe JobParameters)
-    , _ijAccountId     :: !Text
-    , _ijVaultName     :: !Text
+    { _ijrqJobParameters :: !(Maybe JobParameters)
+    , _ijrqAccountId     :: !Text
+    , _ijrqVaultName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateJob' smart constructor.
 initiateJob :: Text -> Text -> InitiateJob
 initiateJob pAccountId pVaultName =
     InitiateJob'
-    { _ijJobParameters = Nothing
-    , _ijAccountId = pAccountId
-    , _ijVaultName = pVaultName
+    { _ijrqJobParameters = Nothing
+    , _ijrqAccountId = pAccountId
+    , _ijrqVaultName = pVaultName
     }
 
 -- | Provides options for specifying job information.
-ijJobParameters :: Lens' InitiateJob (Maybe JobParameters)
-ijJobParameters = lens _ijJobParameters (\ s a -> s{_ijJobParameters = a});
+ijrqJobParameters :: Lens' InitiateJob (Maybe JobParameters)
+ijrqJobParameters = lens _ijrqJobParameters (\ s a -> s{_ijrqJobParameters = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-ijAccountId :: Lens' InitiateJob Text
-ijAccountId = lens _ijAccountId (\ s a -> s{_ijAccountId = a});
+ijrqAccountId :: Lens' InitiateJob Text
+ijrqAccountId = lens _ijrqAccountId (\ s a -> s{_ijrqAccountId = a});
 
 -- | The name of the vault.
-ijVaultName :: Lens' InitiateJob Text
-ijVaultName = lens _ijVaultName (\ s a -> s{_ijVaultName = a});
+ijrqVaultName :: Lens' InitiateJob Text
+ijrqVaultName = lens _ijrqVaultName (\ s a -> s{_ijrqVaultName = a});
 
 instance AWSRequest InitiateJob where
         type Sv InitiateJob = Glacier
@@ -231,13 +231,13 @@ instance ToHeaders InitiateJob where
 
 instance ToJSON InitiateJob where
         toJSON InitiateJob'{..}
-          = object ["jobParameters" .= _ijJobParameters]
+          = object ["jobParameters" .= _ijrqJobParameters]
 
 instance ToPath InitiateJob where
         toPath InitiateJob'{..}
           = mconcat
-              ["/", toText _ijAccountId, "/vaults/",
-               toText _ijVaultName, "/jobs"]
+              ["/", toText _ijrqAccountId, "/vaults/",
+               toText _ijrqVaultName, "/jobs"]
 
 instance ToQuery InitiateJob where
         toQuery = const mempty
@@ -248,34 +248,34 @@ instance ToQuery InitiateJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ijrJobId'
+-- * 'ijrsJobId'
 --
--- * 'ijrLocation'
+-- * 'ijrsLocation'
 --
--- * 'ijrStatus'
+-- * 'ijrsStatus'
 data InitiateJobResponse = InitiateJobResponse'
-    { _ijrJobId    :: !(Maybe Text)
-    , _ijrLocation :: !(Maybe Text)
-    , _ijrStatus   :: !Int
+    { _ijrsJobId    :: !(Maybe Text)
+    , _ijrsLocation :: !(Maybe Text)
+    , _ijrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InitiateJobResponse' smart constructor.
 initiateJobResponse :: Int -> InitiateJobResponse
 initiateJobResponse pStatus =
     InitiateJobResponse'
-    { _ijrJobId = Nothing
-    , _ijrLocation = Nothing
-    , _ijrStatus = pStatus
+    { _ijrsJobId = Nothing
+    , _ijrsLocation = Nothing
+    , _ijrsStatus = pStatus
     }
 
 -- | The ID of the job.
-ijrJobId :: Lens' InitiateJobResponse (Maybe Text)
-ijrJobId = lens _ijrJobId (\ s a -> s{_ijrJobId = a});
+ijrsJobId :: Lens' InitiateJobResponse (Maybe Text)
+ijrsJobId = lens _ijrsJobId (\ s a -> s{_ijrsJobId = a});
 
 -- | The relative URI path of the job.
-ijrLocation :: Lens' InitiateJobResponse (Maybe Text)
-ijrLocation = lens _ijrLocation (\ s a -> s{_ijrLocation = a});
+ijrsLocation :: Lens' InitiateJobResponse (Maybe Text)
+ijrsLocation = lens _ijrsLocation (\ s a -> s{_ijrsLocation = a});
 
 -- | FIXME: Undocumented member.
-ijrStatus :: Lens' InitiateJobResponse Int
-ijrStatus = lens _ijrStatus (\ s a -> s{_ijrStatus = a});
+ijrsStatus :: Lens' InitiateJobResponse Int
+ijrsStatus = lens _ijrsStatus (\ s a -> s{_ijrsStatus = a});

@@ -31,17 +31,17 @@ module Network.AWS.AutoScaling.EnterStandby
     -- ** Request constructor
     , enterStandby
     -- ** Request lenses
-    , esInstanceIds
-    , esAutoScalingGroupName
-    , esShouldDecrementDesiredCapacity
+    , esrqInstanceIds
+    , esrqAutoScalingGroupName
+    , esrqShouldDecrementDesiredCapacity
 
     -- * Response
     , EnterStandbyResponse
     -- ** Response constructor
     , enterStandbyResponse
     -- ** Response lenses
-    , esrActivities
-    , esrStatus
+    , esrsActivities
+    , esrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -53,41 +53,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esInstanceIds'
+-- * 'esrqInstanceIds'
 --
--- * 'esAutoScalingGroupName'
+-- * 'esrqAutoScalingGroupName'
 --
--- * 'esShouldDecrementDesiredCapacity'
+-- * 'esrqShouldDecrementDesiredCapacity'
 data EnterStandby = EnterStandby'
-    { _esInstanceIds                    :: !(Maybe [Text])
-    , _esAutoScalingGroupName           :: !Text
-    , _esShouldDecrementDesiredCapacity :: !Bool
+    { _esrqInstanceIds                    :: !(Maybe [Text])
+    , _esrqAutoScalingGroupName           :: !Text
+    , _esrqShouldDecrementDesiredCapacity :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnterStandby' smart constructor.
 enterStandby :: Text -> Bool -> EnterStandby
 enterStandby pAutoScalingGroupName pShouldDecrementDesiredCapacity =
     EnterStandby'
-    { _esInstanceIds = Nothing
-    , _esAutoScalingGroupName = pAutoScalingGroupName
-    , _esShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
+    { _esrqInstanceIds = Nothing
+    , _esrqAutoScalingGroupName = pAutoScalingGroupName
+    , _esrqShouldDecrementDesiredCapacity = pShouldDecrementDesiredCapacity
     }
 
 -- | One or more instances to move into @Standby@ mode. You must specify at
 -- least one instance ID.
-esInstanceIds :: Lens' EnterStandby [Text]
-esInstanceIds = lens _esInstanceIds (\ s a -> s{_esInstanceIds = a}) . _Default;
+esrqInstanceIds :: Lens' EnterStandby [Text]
+esrqInstanceIds = lens _esrqInstanceIds (\ s a -> s{_esrqInstanceIds = a}) . _Default;
 
 -- | The name of the Auto Scaling group.
-esAutoScalingGroupName :: Lens' EnterStandby Text
-esAutoScalingGroupName = lens _esAutoScalingGroupName (\ s a -> s{_esAutoScalingGroupName = a});
+esrqAutoScalingGroupName :: Lens' EnterStandby Text
+esrqAutoScalingGroupName = lens _esrqAutoScalingGroupName (\ s a -> s{_esrqAutoScalingGroupName = a});
 
 -- | Specifies whether the instances moved to @Standby@ mode count as part of
 -- the Auto Scaling group\'s desired capacity. If set, the desired capacity
 -- for the Auto Scaling group decrements by the number of instances moved
 -- to @Standby@ mode.
-esShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
-esShouldDecrementDesiredCapacity = lens _esShouldDecrementDesiredCapacity (\ s a -> s{_esShouldDecrementDesiredCapacity = a});
+esrqShouldDecrementDesiredCapacity :: Lens' EnterStandby Bool
+esrqShouldDecrementDesiredCapacity = lens _esrqShouldDecrementDesiredCapacity (\ s a -> s{_esrqShouldDecrementDesiredCapacity = a});
 
 instance AWSRequest EnterStandby where
         type Sv EnterStandby = AutoScaling
@@ -113,35 +113,35 @@ instance ToQuery EnterStandby where
               ["Action" =: ("EnterStandby" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "InstanceIds" =:
-                 toQuery (toQueryList "member" <$> _esInstanceIds),
-               "AutoScalingGroupName" =: _esAutoScalingGroupName,
+                 toQuery (toQueryList "member" <$> _esrqInstanceIds),
+               "AutoScalingGroupName" =: _esrqAutoScalingGroupName,
                "ShouldDecrementDesiredCapacity" =:
-                 _esShouldDecrementDesiredCapacity]
+                 _esrqShouldDecrementDesiredCapacity]
 
 -- | /See:/ 'enterStandbyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'esrActivities'
+-- * 'esrsActivities'
 --
--- * 'esrStatus'
+-- * 'esrsStatus'
 data EnterStandbyResponse = EnterStandbyResponse'
-    { _esrActivities :: !(Maybe [Activity])
-    , _esrStatus     :: !Int
+    { _esrsActivities :: !(Maybe [Activity])
+    , _esrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnterStandbyResponse' smart constructor.
 enterStandbyResponse :: Int -> EnterStandbyResponse
 enterStandbyResponse pStatus =
     EnterStandbyResponse'
-    { _esrActivities = Nothing
-    , _esrStatus = pStatus
+    { _esrsActivities = Nothing
+    , _esrsStatus = pStatus
     }
 
 -- | The activities related to moving instances into @Standby@ mode.
-esrActivities :: Lens' EnterStandbyResponse [Activity]
-esrActivities = lens _esrActivities (\ s a -> s{_esrActivities = a}) . _Default;
+esrsActivities :: Lens' EnterStandbyResponse [Activity]
+esrsActivities = lens _esrsActivities (\ s a -> s{_esrsActivities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-esrStatus :: Lens' EnterStandbyResponse Int
-esrStatus = lens _esrStatus (\ s a -> s{_esrStatus = a});
+esrsStatus :: Lens' EnterStandbyResponse Int
+esrsStatus = lens _esrsStatus (\ s a -> s{_esrsStatus = a});

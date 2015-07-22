@@ -69,23 +69,23 @@ module Network.AWS.Support.CreateCase
     -- ** Request constructor
     , createCase
     -- ** Request lenses
-    , ccSeverityCode
-    , ccIssueType
-    , ccCcEmailAddresses
-    , ccLanguage
-    , ccCategoryCode
-    , ccServiceCode
-    , ccAttachmentSetId
-    , ccSubject
-    , ccCommunicationBody
+    , ccrqSeverityCode
+    , ccrqIssueType
+    , ccrqCcEmailAddresses
+    , ccrqLanguage
+    , ccrqCategoryCode
+    , ccrqServiceCode
+    , ccrqAttachmentSetId
+    , ccrqSubject
+    , ccrqCommunicationBody
 
     -- * Response
     , CreateCaseResponse
     -- ** Response constructor
     , createCaseResponse
     -- ** Response lenses
-    , ccrCaseId
-    , ccrStatus
+    , ccrsCaseId
+    , ccrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -97,48 +97,48 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccSeverityCode'
+-- * 'ccrqSeverityCode'
 --
--- * 'ccIssueType'
+-- * 'ccrqIssueType'
 --
--- * 'ccCcEmailAddresses'
+-- * 'ccrqCcEmailAddresses'
 --
--- * 'ccLanguage'
+-- * 'ccrqLanguage'
 --
--- * 'ccCategoryCode'
+-- * 'ccrqCategoryCode'
 --
--- * 'ccServiceCode'
+-- * 'ccrqServiceCode'
 --
--- * 'ccAttachmentSetId'
+-- * 'ccrqAttachmentSetId'
 --
--- * 'ccSubject'
+-- * 'ccrqSubject'
 --
--- * 'ccCommunicationBody'
+-- * 'ccrqCommunicationBody'
 data CreateCase = CreateCase'
-    { _ccSeverityCode      :: !(Maybe Text)
-    , _ccIssueType         :: !(Maybe Text)
-    , _ccCcEmailAddresses  :: !(Maybe [Text])
-    , _ccLanguage          :: !(Maybe Text)
-    , _ccCategoryCode      :: !(Maybe Text)
-    , _ccServiceCode       :: !(Maybe Text)
-    , _ccAttachmentSetId   :: !(Maybe Text)
-    , _ccSubject           :: !Text
-    , _ccCommunicationBody :: !Text
+    { _ccrqSeverityCode      :: !(Maybe Text)
+    , _ccrqIssueType         :: !(Maybe Text)
+    , _ccrqCcEmailAddresses  :: !(Maybe [Text])
+    , _ccrqLanguage          :: !(Maybe Text)
+    , _ccrqCategoryCode      :: !(Maybe Text)
+    , _ccrqServiceCode       :: !(Maybe Text)
+    , _ccrqAttachmentSetId   :: !(Maybe Text)
+    , _ccrqSubject           :: !Text
+    , _ccrqCommunicationBody :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCase' smart constructor.
 createCase :: Text -> Text -> CreateCase
 createCase pSubject pCommunicationBody =
     CreateCase'
-    { _ccSeverityCode = Nothing
-    , _ccIssueType = Nothing
-    , _ccCcEmailAddresses = Nothing
-    , _ccLanguage = Nothing
-    , _ccCategoryCode = Nothing
-    , _ccServiceCode = Nothing
-    , _ccAttachmentSetId = Nothing
-    , _ccSubject = pSubject
-    , _ccCommunicationBody = pCommunicationBody
+    { _ccrqSeverityCode = Nothing
+    , _ccrqIssueType = Nothing
+    , _ccrqCcEmailAddresses = Nothing
+    , _ccrqLanguage = Nothing
+    , _ccrqCategoryCode = Nothing
+    , _ccrqServiceCode = Nothing
+    , _ccrqAttachmentSetId = Nothing
+    , _ccrqSubject = pSubject
+    , _ccrqCommunicationBody = pCommunicationBody
     }
 
 -- | The code for the severity level returned by the call to
@@ -147,48 +147,48 @@ createCase pSubject pCommunicationBody =
 -- The availability of severity levels depends on each customer\'s support
 -- subscription. In other words, your subscription may not necessarily
 -- require the urgent level of response time.
-ccSeverityCode :: Lens' CreateCase (Maybe Text)
-ccSeverityCode = lens _ccSeverityCode (\ s a -> s{_ccSeverityCode = a});
+ccrqSeverityCode :: Lens' CreateCase (Maybe Text)
+ccrqSeverityCode = lens _ccrqSeverityCode (\ s a -> s{_ccrqSeverityCode = a});
 
 -- | The type of issue for the case. You can specify either
 -- \"customer-service\" or \"technical.\" If you do not indicate a value,
 -- the default is \"technical.\"
-ccIssueType :: Lens' CreateCase (Maybe Text)
-ccIssueType = lens _ccIssueType (\ s a -> s{_ccIssueType = a});
+ccrqIssueType :: Lens' CreateCase (Maybe Text)
+ccrqIssueType = lens _ccrqIssueType (\ s a -> s{_ccrqIssueType = a});
 
 -- | A list of email addresses that AWS Support copies on case
 -- correspondence.
-ccCcEmailAddresses :: Lens' CreateCase [Text]
-ccCcEmailAddresses = lens _ccCcEmailAddresses (\ s a -> s{_ccCcEmailAddresses = a}) . _Default;
+ccrqCcEmailAddresses :: Lens' CreateCase [Text]
+ccrqCcEmailAddresses = lens _ccrqCcEmailAddresses (\ s a -> s{_ccrqCcEmailAddresses = a}) . _Default;
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-ccLanguage :: Lens' CreateCase (Maybe Text)
-ccLanguage = lens _ccLanguage (\ s a -> s{_ccLanguage = a});
+ccrqLanguage :: Lens' CreateCase (Maybe Text)
+ccrqLanguage = lens _ccrqLanguage (\ s a -> s{_ccrqLanguage = a});
 
 -- | The category of problem for the AWS Support case.
-ccCategoryCode :: Lens' CreateCase (Maybe Text)
-ccCategoryCode = lens _ccCategoryCode (\ s a -> s{_ccCategoryCode = a});
+ccrqCategoryCode :: Lens' CreateCase (Maybe Text)
+ccrqCategoryCode = lens _ccrqCategoryCode (\ s a -> s{_ccrqCategoryCode = a});
 
 -- | The code for the AWS service returned by the call to DescribeServices.
-ccServiceCode :: Lens' CreateCase (Maybe Text)
-ccServiceCode = lens _ccServiceCode (\ s a -> s{_ccServiceCode = a});
+ccrqServiceCode :: Lens' CreateCase (Maybe Text)
+ccrqServiceCode = lens _ccrqServiceCode (\ s a -> s{_ccrqServiceCode = a});
 
 -- | The ID of a set of one or more attachments for the case. Create the set
 -- by using AddAttachmentsToSet.
-ccAttachmentSetId :: Lens' CreateCase (Maybe Text)
-ccAttachmentSetId = lens _ccAttachmentSetId (\ s a -> s{_ccAttachmentSetId = a});
+ccrqAttachmentSetId :: Lens' CreateCase (Maybe Text)
+ccrqAttachmentSetId = lens _ccrqAttachmentSetId (\ s a -> s{_ccrqAttachmentSetId = a});
 
 -- | The title of the AWS Support case.
-ccSubject :: Lens' CreateCase Text
-ccSubject = lens _ccSubject (\ s a -> s{_ccSubject = a});
+ccrqSubject :: Lens' CreateCase Text
+ccrqSubject = lens _ccrqSubject (\ s a -> s{_ccrqSubject = a});
 
 -- | The communication body text when you create an AWS Support case by
 -- calling CreateCase.
-ccCommunicationBody :: Lens' CreateCase Text
-ccCommunicationBody = lens _ccCommunicationBody (\ s a -> s{_ccCommunicationBody = a});
+ccrqCommunicationBody :: Lens' CreateCase Text
+ccrqCommunicationBody = lens _ccrqCommunicationBody (\ s a -> s{_ccrqCommunicationBody = a});
 
 instance AWSRequest CreateCase where
         type Sv CreateCase = Support
@@ -212,15 +212,15 @@ instance ToHeaders CreateCase where
 instance ToJSON CreateCase where
         toJSON CreateCase'{..}
           = object
-              ["severityCode" .= _ccSeverityCode,
-               "issueType" .= _ccIssueType,
-               "ccEmailAddresses" .= _ccCcEmailAddresses,
-               "language" .= _ccLanguage,
-               "categoryCode" .= _ccCategoryCode,
-               "serviceCode" .= _ccServiceCode,
-               "attachmentSetId" .= _ccAttachmentSetId,
-               "subject" .= _ccSubject,
-               "communicationBody" .= _ccCommunicationBody]
+              ["severityCode" .= _ccrqSeverityCode,
+               "issueType" .= _ccrqIssueType,
+               "ccEmailAddresses" .= _ccrqCcEmailAddresses,
+               "language" .= _ccrqLanguage,
+               "categoryCode" .= _ccrqCategoryCode,
+               "serviceCode" .= _ccrqServiceCode,
+               "attachmentSetId" .= _ccrqAttachmentSetId,
+               "subject" .= _ccrqSubject,
+               "communicationBody" .= _ccrqCommunicationBody]
 
 instance ToPath CreateCase where
         toPath = const "/"
@@ -235,28 +235,28 @@ instance ToQuery CreateCase where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccrCaseId'
+-- * 'ccrsCaseId'
 --
--- * 'ccrStatus'
+-- * 'ccrsStatus'
 data CreateCaseResponse = CreateCaseResponse'
-    { _ccrCaseId :: !(Maybe Text)
-    , _ccrStatus :: !Int
+    { _ccrsCaseId :: !(Maybe Text)
+    , _ccrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateCaseResponse' smart constructor.
 createCaseResponse :: Int -> CreateCaseResponse
 createCaseResponse pStatus =
     CreateCaseResponse'
-    { _ccrCaseId = Nothing
-    , _ccrStatus = pStatus
+    { _ccrsCaseId = Nothing
+    , _ccrsStatus = pStatus
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-ccrCaseId :: Lens' CreateCaseResponse (Maybe Text)
-ccrCaseId = lens _ccrCaseId (\ s a -> s{_ccrCaseId = a});
+ccrsCaseId :: Lens' CreateCaseResponse (Maybe Text)
+ccrsCaseId = lens _ccrsCaseId (\ s a -> s{_ccrsCaseId = a});
 
 -- | FIXME: Undocumented member.
-ccrStatus :: Lens' CreateCaseResponse Int
-ccrStatus = lens _ccrStatus (\ s a -> s{_ccrStatus = a});
+ccrsStatus :: Lens' CreateCaseResponse Int
+ccrsStatus = lens _ccrsStatus (\ s a -> s{_ccrsStatus = a});

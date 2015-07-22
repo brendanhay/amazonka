@@ -27,15 +27,15 @@ module Network.AWS.DirectoryService.GetSnapshotLimits
     -- ** Request constructor
     , getSnapshotLimits
     -- ** Request lenses
-    , gslDirectoryId
+    , gslrqDirectoryId
 
     -- * Response
     , GetSnapshotLimitsResponse
     -- ** Response constructor
     , getSnapshotLimitsResponse
     -- ** Response lenses
-    , gslrSnapshotLimits
-    , gslrStatus
+    , gslrsSnapshotLimits
+    , gslrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gslDirectoryId'
+-- * 'gslrqDirectoryId'
 newtype GetSnapshotLimits = GetSnapshotLimits'
-    { _gslDirectoryId :: Text
+    { _gslrqDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSnapshotLimits' smart constructor.
 getSnapshotLimits :: Text -> GetSnapshotLimits
 getSnapshotLimits pDirectoryId =
     GetSnapshotLimits'
-    { _gslDirectoryId = pDirectoryId
+    { _gslrqDirectoryId = pDirectoryId
     }
 
 -- | Contains the identifier of the directory to obtain the limits for.
-gslDirectoryId :: Lens' GetSnapshotLimits Text
-gslDirectoryId = lens _gslDirectoryId (\ s a -> s{_gslDirectoryId = a});
+gslrqDirectoryId :: Lens' GetSnapshotLimits Text
+gslrqDirectoryId = lens _gslrqDirectoryId (\ s a -> s{_gslrqDirectoryId = a});
 
 instance AWSRequest GetSnapshotLimits where
         type Sv GetSnapshotLimits = DirectoryService
@@ -87,7 +87,7 @@ instance ToHeaders GetSnapshotLimits where
 
 instance ToJSON GetSnapshotLimits where
         toJSON GetSnapshotLimits'{..}
-          = object ["DirectoryId" .= _gslDirectoryId]
+          = object ["DirectoryId" .= _gslrqDirectoryId]
 
 instance ToPath GetSnapshotLimits where
         toPath = const "/"
@@ -101,27 +101,27 @@ instance ToQuery GetSnapshotLimits where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gslrSnapshotLimits'
+-- * 'gslrsSnapshotLimits'
 --
--- * 'gslrStatus'
+-- * 'gslrsStatus'
 data GetSnapshotLimitsResponse = GetSnapshotLimitsResponse'
-    { _gslrSnapshotLimits :: !(Maybe SnapshotLimits)
-    , _gslrStatus         :: !Int
+    { _gslrsSnapshotLimits :: !(Maybe SnapshotLimits)
+    , _gslrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSnapshotLimitsResponse' smart constructor.
 getSnapshotLimitsResponse :: Int -> GetSnapshotLimitsResponse
 getSnapshotLimitsResponse pStatus =
     GetSnapshotLimitsResponse'
-    { _gslrSnapshotLimits = Nothing
-    , _gslrStatus = pStatus
+    { _gslrsSnapshotLimits = Nothing
+    , _gslrsStatus = pStatus
     }
 
 -- | A SnapshotLimits object that contains the manual snapshot limits for the
 -- specified directory.
-gslrSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
-gslrSnapshotLimits = lens _gslrSnapshotLimits (\ s a -> s{_gslrSnapshotLimits = a});
+gslrsSnapshotLimits :: Lens' GetSnapshotLimitsResponse (Maybe SnapshotLimits)
+gslrsSnapshotLimits = lens _gslrsSnapshotLimits (\ s a -> s{_gslrsSnapshotLimits = a});
 
 -- | FIXME: Undocumented member.
-gslrStatus :: Lens' GetSnapshotLimitsResponse Int
-gslrStatus = lens _gslrStatus (\ s a -> s{_gslrStatus = a});
+gslrsStatus :: Lens' GetSnapshotLimitsResponse Int
+gslrsStatus = lens _gslrsStatus (\ s a -> s{_gslrsStatus = a});

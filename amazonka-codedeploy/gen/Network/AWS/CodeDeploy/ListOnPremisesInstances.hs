@@ -31,18 +31,18 @@ module Network.AWS.CodeDeploy.ListOnPremisesInstances
     -- ** Request constructor
     , listOnPremisesInstances
     -- ** Request lenses
-    , lopiTagFilters
-    , lopiNextToken
-    , lopiRegistrationStatus
+    , lopirqTagFilters
+    , lopirqNextToken
+    , lopirqRegistrationStatus
 
     -- * Response
     , ListOnPremisesInstancesResponse
     -- ** Response constructor
     , listOnPremisesInstancesResponse
     -- ** Response lenses
-    , lopirNextToken
-    , lopirInstanceNames
-    , lopirStatus
+    , lopirsNextToken
+    , lopirsInstanceNames
+    , lopirsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -58,36 +58,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lopiTagFilters'
+-- * 'lopirqTagFilters'
 --
--- * 'lopiNextToken'
+-- * 'lopirqNextToken'
 --
--- * 'lopiRegistrationStatus'
+-- * 'lopirqRegistrationStatus'
 data ListOnPremisesInstances = ListOnPremisesInstances'
-    { _lopiTagFilters         :: !(Maybe [TagFilter])
-    , _lopiNextToken          :: !(Maybe Text)
-    , _lopiRegistrationStatus :: !(Maybe RegistrationStatus)
+    { _lopirqTagFilters         :: !(Maybe [TagFilter])
+    , _lopirqNextToken          :: !(Maybe Text)
+    , _lopirqRegistrationStatus :: !(Maybe RegistrationStatus)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOnPremisesInstances' smart constructor.
 listOnPremisesInstances :: ListOnPremisesInstances
 listOnPremisesInstances =
     ListOnPremisesInstances'
-    { _lopiTagFilters = Nothing
-    , _lopiNextToken = Nothing
-    , _lopiRegistrationStatus = Nothing
+    { _lopirqTagFilters = Nothing
+    , _lopirqNextToken = Nothing
+    , _lopirqRegistrationStatus = Nothing
     }
 
 -- | The on-premises instance tags that will be used to restrict the
 -- corresponding on-premises instance names that are returned.
-lopiTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
-lopiTagFilters = lens _lopiTagFilters (\ s a -> s{_lopiTagFilters = a}) . _Default;
+lopirqTagFilters :: Lens' ListOnPremisesInstances [TagFilter]
+lopirqTagFilters = lens _lopirqTagFilters (\ s a -> s{_lopirqTagFilters = a}) . _Default;
 
 -- | An identifier that was returned from the previous list on-premises
 -- instances call, which can be used to return the next set of on-premises
 -- instances in the list.
-lopiNextToken :: Lens' ListOnPremisesInstances (Maybe Text)
-lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a});
+lopirqNextToken :: Lens' ListOnPremisesInstances (Maybe Text)
+lopirqNextToken = lens _lopirqNextToken (\ s a -> s{_lopirqNextToken = a});
 
 -- | The on-premises instances registration status:
 --
@@ -95,8 +95,8 @@ lopiNextToken = lens _lopiNextToken (\ s a -> s{_lopiNextToken = a});
 --     instances.
 -- -   Registered: Include in the resulting list registered on-premises
 --     instances.
-lopiRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
-lopiRegistrationStatus = lens _lopiRegistrationStatus (\ s a -> s{_lopiRegistrationStatus = a});
+lopirqRegistrationStatus :: Lens' ListOnPremisesInstances (Maybe RegistrationStatus)
+lopirqRegistrationStatus = lens _lopirqRegistrationStatus (\ s a -> s{_lopirqRegistrationStatus = a});
 
 instance AWSRequest ListOnPremisesInstances where
         type Sv ListOnPremisesInstances = CodeDeploy
@@ -124,9 +124,9 @@ instance ToHeaders ListOnPremisesInstances where
 instance ToJSON ListOnPremisesInstances where
         toJSON ListOnPremisesInstances'{..}
           = object
-              ["tagFilters" .= _lopiTagFilters,
-               "nextToken" .= _lopiNextToken,
-               "registrationStatus" .= _lopiRegistrationStatus]
+              ["tagFilters" .= _lopirqTagFilters,
+               "nextToken" .= _lopirqNextToken,
+               "registrationStatus" .= _lopirqRegistrationStatus]
 
 instance ToPath ListOnPremisesInstances where
         toPath = const "/"
@@ -140,37 +140,37 @@ instance ToQuery ListOnPremisesInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lopirNextToken'
+-- * 'lopirsNextToken'
 --
--- * 'lopirInstanceNames'
+-- * 'lopirsInstanceNames'
 --
--- * 'lopirStatus'
+-- * 'lopirsStatus'
 data ListOnPremisesInstancesResponse = ListOnPremisesInstancesResponse'
-    { _lopirNextToken     :: !(Maybe Text)
-    , _lopirInstanceNames :: !(Maybe [Text])
-    , _lopirStatus        :: !Int
+    { _lopirsNextToken     :: !(Maybe Text)
+    , _lopirsInstanceNames :: !(Maybe [Text])
+    , _lopirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOnPremisesInstancesResponse' smart constructor.
 listOnPremisesInstancesResponse :: Int -> ListOnPremisesInstancesResponse
 listOnPremisesInstancesResponse pStatus =
     ListOnPremisesInstancesResponse'
-    { _lopirNextToken = Nothing
-    , _lopirInstanceNames = Nothing
-    , _lopirStatus = pStatus
+    { _lopirsNextToken = Nothing
+    , _lopirsInstanceNames = Nothing
+    , _lopirsStatus = pStatus
     }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- on-premises instances call to return the next set of on-premises
 -- instances in the list.
-lopirNextToken :: Lens' ListOnPremisesInstancesResponse (Maybe Text)
-lopirNextToken = lens _lopirNextToken (\ s a -> s{_lopirNextToken = a});
+lopirsNextToken :: Lens' ListOnPremisesInstancesResponse (Maybe Text)
+lopirsNextToken = lens _lopirsNextToken (\ s a -> s{_lopirsNextToken = a});
 
 -- | The list of matching on-premises instance names.
-lopirInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
-lopirInstanceNames = lens _lopirInstanceNames (\ s a -> s{_lopirInstanceNames = a}) . _Default;
+lopirsInstanceNames :: Lens' ListOnPremisesInstancesResponse [Text]
+lopirsInstanceNames = lens _lopirsInstanceNames (\ s a -> s{_lopirsInstanceNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lopirStatus :: Lens' ListOnPremisesInstancesResponse Int
-lopirStatus = lens _lopirStatus (\ s a -> s{_lopirStatus = a});
+lopirsStatus :: Lens' ListOnPremisesInstancesResponse Int
+lopirsStatus = lens _lopirsStatus (\ s a -> s{_lopirsStatus = a});

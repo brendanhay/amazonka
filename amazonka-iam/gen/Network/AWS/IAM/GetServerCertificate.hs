@@ -27,15 +27,15 @@ module Network.AWS.IAM.GetServerCertificate
     -- ** Request constructor
     , getServerCertificate
     -- ** Request lenses
-    , gscServerCertificateName
+    , gscrqServerCertificateName
 
     -- * Response
     , GetServerCertificateResponse
     -- ** Response constructor
     , getServerCertificateResponse
     -- ** Response lenses
-    , gscrStatus
-    , gscrServerCertificate
+    , gscrsStatus
+    , gscrsServerCertificate
     ) where
 
 import           Network.AWS.IAM.Types
@@ -47,22 +47,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gscServerCertificateName'
+-- * 'gscrqServerCertificateName'
 newtype GetServerCertificate = GetServerCertificate'
-    { _gscServerCertificateName :: Text
+    { _gscrqServerCertificateName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetServerCertificate' smart constructor.
 getServerCertificate :: Text -> GetServerCertificate
 getServerCertificate pServerCertificateName =
     GetServerCertificate'
-    { _gscServerCertificateName = pServerCertificateName
+    { _gscrqServerCertificateName = pServerCertificateName
     }
 
 -- | The name of the server certificate you want to retrieve information
 -- about.
-gscServerCertificateName :: Lens' GetServerCertificate Text
-gscServerCertificateName = lens _gscServerCertificateName (\ s a -> s{_gscServerCertificateName = a});
+gscrqServerCertificateName :: Lens' GetServerCertificate Text
+gscrqServerCertificateName = lens _gscrqServerCertificateName (\ s a -> s{_gscrqServerCertificateName = a});
 
 instance AWSRequest GetServerCertificate where
         type Sv GetServerCertificate = IAM
@@ -86,7 +86,8 @@ instance ToQuery GetServerCertificate where
           = mconcat
               ["Action" =: ("GetServerCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "ServerCertificateName" =: _gscServerCertificateName]
+               "ServerCertificateName" =:
+                 _gscrqServerCertificateName]
 
 -- | Contains the response to a successful GetServerCertificate request.
 --
@@ -94,26 +95,26 @@ instance ToQuery GetServerCertificate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gscrStatus'
+-- * 'gscrsStatus'
 --
--- * 'gscrServerCertificate'
+-- * 'gscrsServerCertificate'
 data GetServerCertificateResponse = GetServerCertificateResponse'
-    { _gscrStatus            :: !Int
-    , _gscrServerCertificate :: !ServerCertificate
+    { _gscrsStatus            :: !Int
+    , _gscrsServerCertificate :: !ServerCertificate
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetServerCertificateResponse' smart constructor.
 getServerCertificateResponse :: Int -> ServerCertificate -> GetServerCertificateResponse
 getServerCertificateResponse pStatus pServerCertificate =
     GetServerCertificateResponse'
-    { _gscrStatus = pStatus
-    , _gscrServerCertificate = pServerCertificate
+    { _gscrsStatus = pStatus
+    , _gscrsServerCertificate = pServerCertificate
     }
 
 -- | FIXME: Undocumented member.
-gscrStatus :: Lens' GetServerCertificateResponse Int
-gscrStatus = lens _gscrStatus (\ s a -> s{_gscrStatus = a});
+gscrsStatus :: Lens' GetServerCertificateResponse Int
+gscrsStatus = lens _gscrsStatus (\ s a -> s{_gscrsStatus = a});
 
 -- | Information about the server certificate.
-gscrServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
-gscrServerCertificate = lens _gscrServerCertificate (\ s a -> s{_gscrServerCertificate = a});
+gscrsServerCertificate :: Lens' GetServerCertificateResponse ServerCertificate
+gscrsServerCertificate = lens _gscrsServerCertificate (\ s a -> s{_gscrsServerCertificate = a});

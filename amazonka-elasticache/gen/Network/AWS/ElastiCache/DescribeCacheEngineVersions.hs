@@ -28,21 +28,21 @@ module Network.AWS.ElastiCache.DescribeCacheEngineVersions
     -- ** Request constructor
     , describeCacheEngineVersions
     -- ** Request lenses
-    , dcevCacheParameterGroupFamily
-    , dcevEngineVersion
-    , dcevDefaultOnly
-    , dcevEngine
-    , dcevMaxRecords
-    , dcevMarker
+    , dcevrqCacheParameterGroupFamily
+    , dcevrqEngineVersion
+    , dcevrqDefaultOnly
+    , dcevrqEngine
+    , dcevrqMaxRecords
+    , dcevrqMarker
 
     -- * Response
     , DescribeCacheEngineVersionsResponse
     -- ** Response constructor
     , describeCacheEngineVersionsResponse
     -- ** Response lenses
-    , dcevrCacheEngineVersions
-    , dcevrMarker
-    , dcevrStatus
+    , dcevrsCacheEngineVersions
+    , dcevrsMarker
+    , dcevrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -57,36 +57,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcevCacheParameterGroupFamily'
+-- * 'dcevrqCacheParameterGroupFamily'
 --
--- * 'dcevEngineVersion'
+-- * 'dcevrqEngineVersion'
 --
--- * 'dcevDefaultOnly'
+-- * 'dcevrqDefaultOnly'
 --
--- * 'dcevEngine'
+-- * 'dcevrqEngine'
 --
--- * 'dcevMaxRecords'
+-- * 'dcevrqMaxRecords'
 --
--- * 'dcevMarker'
+-- * 'dcevrqMarker'
 data DescribeCacheEngineVersions = DescribeCacheEngineVersions'
-    { _dcevCacheParameterGroupFamily :: !(Maybe Text)
-    , _dcevEngineVersion             :: !(Maybe Text)
-    , _dcevDefaultOnly               :: !(Maybe Bool)
-    , _dcevEngine                    :: !(Maybe Text)
-    , _dcevMaxRecords                :: !(Maybe Int)
-    , _dcevMarker                    :: !(Maybe Text)
+    { _dcevrqCacheParameterGroupFamily :: !(Maybe Text)
+    , _dcevrqEngineVersion             :: !(Maybe Text)
+    , _dcevrqDefaultOnly               :: !(Maybe Bool)
+    , _dcevrqEngine                    :: !(Maybe Text)
+    , _dcevrqMaxRecords                :: !(Maybe Int)
+    , _dcevrqMarker                    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheEngineVersions' smart constructor.
 describeCacheEngineVersions :: DescribeCacheEngineVersions
 describeCacheEngineVersions =
     DescribeCacheEngineVersions'
-    { _dcevCacheParameterGroupFamily = Nothing
-    , _dcevEngineVersion = Nothing
-    , _dcevDefaultOnly = Nothing
-    , _dcevEngine = Nothing
-    , _dcevMaxRecords = Nothing
-    , _dcevMarker = Nothing
+    { _dcevrqCacheParameterGroupFamily = Nothing
+    , _dcevrqEngineVersion = Nothing
+    , _dcevrqDefaultOnly = Nothing
+    , _dcevrqEngine = Nothing
+    , _dcevrqMaxRecords = Nothing
+    , _dcevrqMarker = Nothing
     }
 
 -- | The name of a specific cache parameter group family to return details
@@ -97,23 +97,23 @@ describeCacheEngineVersions =
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-dcevCacheParameterGroupFamily :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevCacheParameterGroupFamily = lens _dcevCacheParameterGroupFamily (\ s a -> s{_dcevCacheParameterGroupFamily = a});
+dcevrqCacheParameterGroupFamily :: Lens' DescribeCacheEngineVersions (Maybe Text)
+dcevrqCacheParameterGroupFamily = lens _dcevrqCacheParameterGroupFamily (\ s a -> s{_dcevrqCacheParameterGroupFamily = a});
 
 -- | The cache engine version to return.
 --
 -- Example: @1.4.14@
-dcevEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevEngineVersion = lens _dcevEngineVersion (\ s a -> s{_dcevEngineVersion = a});
+dcevrqEngineVersion :: Lens' DescribeCacheEngineVersions (Maybe Text)
+dcevrqEngineVersion = lens _dcevrqEngineVersion (\ s a -> s{_dcevrqEngineVersion = a});
 
 -- | If /true/, specifies that only the default version of the specified
 -- engine or engine and major version combination is to be returned.
-dcevDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
-dcevDefaultOnly = lens _dcevDefaultOnly (\ s a -> s{_dcevDefaultOnly = a});
+dcevrqDefaultOnly :: Lens' DescribeCacheEngineVersions (Maybe Bool)
+dcevrqDefaultOnly = lens _dcevrqDefaultOnly (\ s a -> s{_dcevrqDefaultOnly = a});
 
 -- | The cache engine to return. Valid values: @memcached@ | @redis@
-dcevEngine :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevEngine = lens _dcevEngine (\ s a -> s{_dcevEngine = a});
+dcevrqEngine :: Lens' DescribeCacheEngineVersions (Maybe Text)
+dcevrqEngine = lens _dcevrqEngine (\ s a -> s{_dcevrqEngine = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -122,22 +122,22 @@ dcevEngine = lens _dcevEngine (\ s a -> s{_dcevEngine = a});
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-dcevMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Int)
-dcevMaxRecords = lens _dcevMaxRecords (\ s a -> s{_dcevMaxRecords = a});
+dcevrqMaxRecords :: Lens' DescribeCacheEngineVersions (Maybe Int)
+dcevrqMaxRecords = lens _dcevrqMaxRecords (\ s a -> s{_dcevrqMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dcevMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
-dcevMarker = lens _dcevMarker (\ s a -> s{_dcevMarker = a});
+dcevrqMarker :: Lens' DescribeCacheEngineVersions (Maybe Text)
+dcevrqMarker = lens _dcevrqMarker (\ s a -> s{_dcevrqMarker = a});
 
 instance AWSPager DescribeCacheEngineVersions where
         page rq rs
-          | stop (rs ^. dcevrMarker) = Nothing
-          | stop (rs ^. dcevrCacheEngineVersions) = Nothing
+          | stop (rs ^. dcevrsMarker) = Nothing
+          | stop (rs ^. dcevrsCacheEngineVersions) = Nothing
           | otherwise =
-            Just $ rq & dcevMarker .~ rs ^. dcevrMarker
+            Just $ rq & dcevrqMarker .~ rs ^. dcevrsMarker
 
 instance AWSRequest DescribeCacheEngineVersions where
         type Sv DescribeCacheEngineVersions = ElastiCache
@@ -167,12 +167,12 @@ instance ToQuery DescribeCacheEngineVersions where
                  ("DescribeCacheEngineVersions" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheParameterGroupFamily" =:
-                 _dcevCacheParameterGroupFamily,
-               "EngineVersion" =: _dcevEngineVersion,
-               "DefaultOnly" =: _dcevDefaultOnly,
-               "Engine" =: _dcevEngine,
-               "MaxRecords" =: _dcevMaxRecords,
-               "Marker" =: _dcevMarker]
+                 _dcevrqCacheParameterGroupFamily,
+               "EngineVersion" =: _dcevrqEngineVersion,
+               "DefaultOnly" =: _dcevrqDefaultOnly,
+               "Engine" =: _dcevrqEngine,
+               "MaxRecords" =: _dcevrqMaxRecords,
+               "Marker" =: _dcevrqMarker]
 
 -- | Represents the output of a DescribeCacheEngineVersions action.
 --
@@ -180,35 +180,35 @@ instance ToQuery DescribeCacheEngineVersions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcevrCacheEngineVersions'
+-- * 'dcevrsCacheEngineVersions'
 --
--- * 'dcevrMarker'
+-- * 'dcevrsMarker'
 --
--- * 'dcevrStatus'
+-- * 'dcevrsStatus'
 data DescribeCacheEngineVersionsResponse = DescribeCacheEngineVersionsResponse'
-    { _dcevrCacheEngineVersions :: !(Maybe [CacheEngineVersion])
-    , _dcevrMarker              :: !(Maybe Text)
-    , _dcevrStatus              :: !Int
+    { _dcevrsCacheEngineVersions :: !(Maybe [CacheEngineVersion])
+    , _dcevrsMarker              :: !(Maybe Text)
+    , _dcevrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheEngineVersionsResponse' smart constructor.
 describeCacheEngineVersionsResponse :: Int -> DescribeCacheEngineVersionsResponse
 describeCacheEngineVersionsResponse pStatus =
     DescribeCacheEngineVersionsResponse'
-    { _dcevrCacheEngineVersions = Nothing
-    , _dcevrMarker = Nothing
-    , _dcevrStatus = pStatus
+    { _dcevrsCacheEngineVersions = Nothing
+    , _dcevrsMarker = Nothing
+    , _dcevrsStatus = pStatus
     }
 
 -- | A list of cache engine version details. Each element in the list
 -- contains detailed information about one cache engine version.
-dcevrCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
-dcevrCacheEngineVersions = lens _dcevrCacheEngineVersions (\ s a -> s{_dcevrCacheEngineVersions = a}) . _Default;
+dcevrsCacheEngineVersions :: Lens' DescribeCacheEngineVersionsResponse [CacheEngineVersion]
+dcevrsCacheEngineVersions = lens _dcevrsCacheEngineVersions (\ s a -> s{_dcevrsCacheEngineVersions = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
-dcevrMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
-dcevrMarker = lens _dcevrMarker (\ s a -> s{_dcevrMarker = a});
+dcevrsMarker :: Lens' DescribeCacheEngineVersionsResponse (Maybe Text)
+dcevrsMarker = lens _dcevrsMarker (\ s a -> s{_dcevrsMarker = a});
 
 -- | FIXME: Undocumented member.
-dcevrStatus :: Lens' DescribeCacheEngineVersionsResponse Int
-dcevrStatus = lens _dcevrStatus (\ s a -> s{_dcevrStatus = a});
+dcevrsStatus :: Lens' DescribeCacheEngineVersionsResponse Int
+dcevrsStatus = lens _dcevrsStatus (\ s a -> s{_dcevrsStatus = a});

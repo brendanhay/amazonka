@@ -27,8 +27,8 @@ module Network.AWS.IAM.RemoveUserFromGroup
     -- ** Request constructor
     , removeUserFromGroup
     -- ** Request lenses
-    , rufgGroupName
-    , rufgUserName
+    , rufgrqGroupName
+    , rufgrqUserName
 
     -- * Response
     , RemoveUserFromGroupResponse
@@ -45,29 +45,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rufgGroupName'
+-- * 'rufgrqGroupName'
 --
--- * 'rufgUserName'
+-- * 'rufgrqUserName'
 data RemoveUserFromGroup = RemoveUserFromGroup'
-    { _rufgGroupName :: !Text
-    , _rufgUserName  :: !Text
+    { _rufgrqGroupName :: !Text
+    , _rufgrqUserName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveUserFromGroup' smart constructor.
 removeUserFromGroup :: Text -> Text -> RemoveUserFromGroup
 removeUserFromGroup pGroupName pUserName =
     RemoveUserFromGroup'
-    { _rufgGroupName = pGroupName
-    , _rufgUserName = pUserName
+    { _rufgrqGroupName = pGroupName
+    , _rufgrqUserName = pUserName
     }
 
 -- | The name of the group to update.
-rufgGroupName :: Lens' RemoveUserFromGroup Text
-rufgGroupName = lens _rufgGroupName (\ s a -> s{_rufgGroupName = a});
+rufgrqGroupName :: Lens' RemoveUserFromGroup Text
+rufgrqGroupName = lens _rufgrqGroupName (\ s a -> s{_rufgrqGroupName = a});
 
 -- | The name of the user to remove.
-rufgUserName :: Lens' RemoveUserFromGroup Text
-rufgUserName = lens _rufgUserName (\ s a -> s{_rufgUserName = a});
+rufgrqUserName :: Lens' RemoveUserFromGroup Text
+rufgrqUserName = lens _rufgrqUserName (\ s a -> s{_rufgrqUserName = a});
 
 instance AWSRequest RemoveUserFromGroup where
         type Sv RemoveUserFromGroup = IAM
@@ -87,8 +87,8 @@ instance ToQuery RemoveUserFromGroup where
           = mconcat
               ["Action" =: ("RemoveUserFromGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _rufgGroupName,
-               "UserName" =: _rufgUserName]
+               "GroupName" =: _rufgrqGroupName,
+               "UserName" =: _rufgrqUserName]
 
 -- | /See:/ 'removeUserFromGroupResponse' smart constructor.
 data RemoveUserFromGroupResponse =

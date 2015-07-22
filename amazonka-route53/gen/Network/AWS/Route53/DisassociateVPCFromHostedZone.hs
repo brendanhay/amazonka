@@ -36,17 +36,17 @@ module Network.AWS.Route53.DisassociateVPCFromHostedZone
     -- ** Request constructor
     , disassociateVPCFromHostedZone
     -- ** Request lenses
-    , dvfhzComment
-    , dvfhzHostedZoneId
-    , dvfhzVPC
+    , dvfhzrqComment
+    , dvfhzrqHostedZoneId
+    , dvfhzrqVPC
 
     -- * Response
     , DisassociateVPCFromHostedZoneResponse
     -- ** Response constructor
     , disassociateVPCFromHostedZoneResponse
     -- ** Response lenses
-    , dvfhzrStatus
-    , dvfhzrChangeInfo
+    , dvfhzrsStatus
+    , dvfhzrsChangeInfo
     ) where
 
 import           Network.AWS.Prelude
@@ -61,40 +61,40 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvfhzComment'
+-- * 'dvfhzrqComment'
 --
--- * 'dvfhzHostedZoneId'
+-- * 'dvfhzrqHostedZoneId'
 --
--- * 'dvfhzVPC'
+-- * 'dvfhzrqVPC'
 data DisassociateVPCFromHostedZone = DisassociateVPCFromHostedZone'
-    { _dvfhzComment      :: !(Maybe Text)
-    , _dvfhzHostedZoneId :: !Text
-    , _dvfhzVPC          :: !VPC
+    { _dvfhzrqComment      :: !(Maybe Text)
+    , _dvfhzrqHostedZoneId :: !Text
+    , _dvfhzrqVPC          :: !VPC
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateVPCFromHostedZone' smart constructor.
 disassociateVPCFromHostedZone :: Text -> VPC -> DisassociateVPCFromHostedZone
 disassociateVPCFromHostedZone pHostedZoneId pVPC =
     DisassociateVPCFromHostedZone'
-    { _dvfhzComment = Nothing
-    , _dvfhzHostedZoneId = pHostedZoneId
-    , _dvfhzVPC = pVPC
+    { _dvfhzrqComment = Nothing
+    , _dvfhzrqHostedZoneId = pHostedZoneId
+    , _dvfhzrqVPC = pVPC
     }
 
 -- | /Optional:/ Any comments you want to include about a
 -- @DisassociateVPCFromHostedZoneRequest@.
-dvfhzComment :: Lens' DisassociateVPCFromHostedZone (Maybe Text)
-dvfhzComment = lens _dvfhzComment (\ s a -> s{_dvfhzComment = a});
+dvfhzrqComment :: Lens' DisassociateVPCFromHostedZone (Maybe Text)
+dvfhzrqComment = lens _dvfhzrqComment (\ s a -> s{_dvfhzrqComment = a});
 
 -- | The ID of the hosted zone you want to disassociate your VPC from.
 --
 -- Note that you cannot disassociate the last VPC from a hosted zone.
-dvfhzHostedZoneId :: Lens' DisassociateVPCFromHostedZone Text
-dvfhzHostedZoneId = lens _dvfhzHostedZoneId (\ s a -> s{_dvfhzHostedZoneId = a});
+dvfhzrqHostedZoneId :: Lens' DisassociateVPCFromHostedZone Text
+dvfhzrqHostedZoneId = lens _dvfhzrqHostedZoneId (\ s a -> s{_dvfhzrqHostedZoneId = a});
 
 -- | The VPC that you want your hosted zone to be disassociated from.
-dvfhzVPC :: Lens' DisassociateVPCFromHostedZone VPC
-dvfhzVPC = lens _dvfhzVPC (\ s a -> s{_dvfhzVPC = a});
+dvfhzrqVPC :: Lens' DisassociateVPCFromHostedZone VPC
+dvfhzrqVPC = lens _dvfhzrqVPC (\ s a -> s{_dvfhzrqVPC = a});
 
 instance AWSRequest DisassociateVPCFromHostedZone
          where
@@ -122,7 +122,7 @@ instance ToPath DisassociateVPCFromHostedZone where
         toPath DisassociateVPCFromHostedZone'{..}
           = mconcat
               ["/2013-04-01/hostedzone/",
-               toText _dvfhzHostedZoneId, "/disassociatevpc"]
+               toText _dvfhzrqHostedZoneId, "/disassociatevpc"]
 
 instance ToQuery DisassociateVPCFromHostedZone where
         toQuery = const mempty
@@ -130,7 +130,7 @@ instance ToQuery DisassociateVPCFromHostedZone where
 instance ToXML DisassociateVPCFromHostedZone where
         toXML DisassociateVPCFromHostedZone'{..}
           = mconcat
-              ["Comment" @= _dvfhzComment, "VPC" @= _dvfhzVPC]
+              ["Comment" @= _dvfhzrqComment, "VPC" @= _dvfhzrqVPC]
 
 -- | A complex type containing the response information for the request.
 --
@@ -138,27 +138,27 @@ instance ToXML DisassociateVPCFromHostedZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvfhzrStatus'
+-- * 'dvfhzrsStatus'
 --
--- * 'dvfhzrChangeInfo'
+-- * 'dvfhzrsChangeInfo'
 data DisassociateVPCFromHostedZoneResponse = DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrStatus     :: !Int
-    , _dvfhzrChangeInfo :: !ChangeInfo
+    { _dvfhzrsStatus     :: !Int
+    , _dvfhzrsChangeInfo :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisassociateVPCFromHostedZoneResponse' smart constructor.
 disassociateVPCFromHostedZoneResponse :: Int -> ChangeInfo -> DisassociateVPCFromHostedZoneResponse
 disassociateVPCFromHostedZoneResponse pStatus pChangeInfo =
     DisassociateVPCFromHostedZoneResponse'
-    { _dvfhzrStatus = pStatus
-    , _dvfhzrChangeInfo = pChangeInfo
+    { _dvfhzrsStatus = pStatus
+    , _dvfhzrsChangeInfo = pChangeInfo
     }
 
 -- | FIXME: Undocumented member.
-dvfhzrStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
-dvfhzrStatus = lens _dvfhzrStatus (\ s a -> s{_dvfhzrStatus = a});
+dvfhzrsStatus :: Lens' DisassociateVPCFromHostedZoneResponse Int
+dvfhzrsStatus = lens _dvfhzrsStatus (\ s a -> s{_dvfhzrsStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your @DisassociateVPCFromHostedZoneRequest@.
-dvfhzrChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
-dvfhzrChangeInfo = lens _dvfhzrChangeInfo (\ s a -> s{_dvfhzrChangeInfo = a});
+dvfhzrsChangeInfo :: Lens' DisassociateVPCFromHostedZoneResponse ChangeInfo
+dvfhzrsChangeInfo = lens _dvfhzrsChangeInfo (\ s a -> s{_dvfhzrsChangeInfo = a});

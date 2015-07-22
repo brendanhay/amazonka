@@ -34,8 +34,8 @@ module Network.AWS.IAM.DeleteSSHPublicKey
     -- ** Request constructor
     , deleteSSHPublicKey
     -- ** Request lenses
-    , dspkUserName
-    , dspkSSHPublicKeyId
+    , dspkrqUserName
+    , dspkrqSSHPublicKeyId
 
     -- * Response
     , DeleteSSHPublicKeyResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dspkUserName'
+-- * 'dspkrqUserName'
 --
--- * 'dspkSSHPublicKeyId'
+-- * 'dspkrqSSHPublicKeyId'
 data DeleteSSHPublicKey = DeleteSSHPublicKey'
-    { _dspkUserName       :: !Text
-    , _dspkSSHPublicKeyId :: !Text
+    { _dspkrqUserName       :: !Text
+    , _dspkrqSSHPublicKeyId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSSHPublicKey' smart constructor.
 deleteSSHPublicKey :: Text -> Text -> DeleteSSHPublicKey
 deleteSSHPublicKey pUserName pSSHPublicKeyId =
     DeleteSSHPublicKey'
-    { _dspkUserName = pUserName
-    , _dspkSSHPublicKeyId = pSSHPublicKeyId
+    { _dspkrqUserName = pUserName
+    , _dspkrqSSHPublicKeyId = pSSHPublicKeyId
     }
 
 -- | The name of the IAM user associated with the SSH public key.
-dspkUserName :: Lens' DeleteSSHPublicKey Text
-dspkUserName = lens _dspkUserName (\ s a -> s{_dspkUserName = a});
+dspkrqUserName :: Lens' DeleteSSHPublicKey Text
+dspkrqUserName = lens _dspkrqUserName (\ s a -> s{_dspkrqUserName = a});
 
 -- | The unique identifier for the SSH public key.
-dspkSSHPublicKeyId :: Lens' DeleteSSHPublicKey Text
-dspkSSHPublicKeyId = lens _dspkSSHPublicKeyId (\ s a -> s{_dspkSSHPublicKeyId = a});
+dspkrqSSHPublicKeyId :: Lens' DeleteSSHPublicKey Text
+dspkrqSSHPublicKeyId = lens _dspkrqSSHPublicKeyId (\ s a -> s{_dspkrqSSHPublicKeyId = a});
 
 instance AWSRequest DeleteSSHPublicKey where
         type Sv DeleteSSHPublicKey = IAM
@@ -94,8 +94,8 @@ instance ToQuery DeleteSSHPublicKey where
           = mconcat
               ["Action" =: ("DeleteSSHPublicKey" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _dspkUserName,
-               "SSHPublicKeyId" =: _dspkSSHPublicKeyId]
+               "UserName" =: _dspkrqUserName,
+               "SSHPublicKeyId" =: _dspkrqSSHPublicKeyId]
 
 -- | /See:/ 'deleteSSHPublicKeyResponse' smart constructor.
 data DeleteSSHPublicKeyResponse =

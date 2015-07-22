@@ -33,16 +33,16 @@ module Network.AWS.OpsWorks.DescribePermissions
     -- ** Request constructor
     , describePermissions
     -- ** Request lenses
-    , dpIAMUserARN
-    , dpStackId
+    , dprqIAMUserARN
+    , dprqStackId
 
     -- * Response
     , DescribePermissionsResponse
     -- ** Response constructor
     , describePermissionsResponse
     -- ** Response lenses
-    , dprPermissions
-    , dprStatus
+    , dprsPermissions
+    , dprsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -54,30 +54,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpIAMUserARN'
+-- * 'dprqIAMUserARN'
 --
--- * 'dpStackId'
+-- * 'dprqStackId'
 data DescribePermissions = DescribePermissions'
-    { _dpIAMUserARN :: !(Maybe Text)
-    , _dpStackId    :: !(Maybe Text)
+    { _dprqIAMUserARN :: !(Maybe Text)
+    , _dprqStackId    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePermissions' smart constructor.
 describePermissions :: DescribePermissions
 describePermissions =
     DescribePermissions'
-    { _dpIAMUserARN = Nothing
-    , _dpStackId = Nothing
+    { _dprqIAMUserARN = Nothing
+    , _dprqStackId = Nothing
     }
 
 -- | The user\'s IAM ARN. For more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-dpIAMUserARN :: Lens' DescribePermissions (Maybe Text)
-dpIAMUserARN = lens _dpIAMUserARN (\ s a -> s{_dpIAMUserARN = a});
+dprqIAMUserARN :: Lens' DescribePermissions (Maybe Text)
+dprqIAMUserARN = lens _dprqIAMUserARN (\ s a -> s{_dprqIAMUserARN = a});
 
 -- | The stack ID.
-dpStackId :: Lens' DescribePermissions (Maybe Text)
-dpStackId = lens _dpStackId (\ s a -> s{_dpStackId = a});
+dprqStackId :: Lens' DescribePermissions (Maybe Text)
+dprqStackId = lens _dprqStackId (\ s a -> s{_dprqStackId = a});
 
 instance AWSRequest DescribePermissions where
         type Sv DescribePermissions = OpsWorks
@@ -104,8 +104,8 @@ instance ToHeaders DescribePermissions where
 instance ToJSON DescribePermissions where
         toJSON DescribePermissions'{..}
           = object
-              ["IamUserArn" .= _dpIAMUserARN,
-               "StackId" .= _dpStackId]
+              ["IamUserArn" .= _dprqIAMUserARN,
+               "StackId" .= _dprqStackId]
 
 instance ToPath DescribePermissions where
         toPath = const "/"
@@ -119,20 +119,20 @@ instance ToQuery DescribePermissions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dprPermissions'
+-- * 'dprsPermissions'
 --
--- * 'dprStatus'
+-- * 'dprsStatus'
 data DescribePermissionsResponse = DescribePermissionsResponse'
-    { _dprPermissions :: !(Maybe [Permission])
-    , _dprStatus      :: !Int
+    { _dprsPermissions :: !(Maybe [Permission])
+    , _dprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePermissionsResponse' smart constructor.
 describePermissionsResponse :: Int -> DescribePermissionsResponse
 describePermissionsResponse pStatus =
     DescribePermissionsResponse'
-    { _dprPermissions = Nothing
-    , _dprStatus = pStatus
+    { _dprsPermissions = Nothing
+    , _dprsStatus = pStatus
     }
 
 -- | An array of @Permission@ objects that describe the stack permissions.
@@ -145,9 +145,9 @@ describePermissionsResponse pStatus =
 -- -   If the request contains a stack ID and an IAM ARN, the array
 --     contains a single @Permission@ object with permissions for the
 --     specified stack and IAM ARN.
-dprPermissions :: Lens' DescribePermissionsResponse [Permission]
-dprPermissions = lens _dprPermissions (\ s a -> s{_dprPermissions = a}) . _Default;
+dprsPermissions :: Lens' DescribePermissionsResponse [Permission]
+dprsPermissions = lens _dprsPermissions (\ s a -> s{_dprsPermissions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dprStatus :: Lens' DescribePermissionsResponse Int
-dprStatus = lens _dprStatus (\ s a -> s{_dprStatus = a});
+dprsStatus :: Lens' DescribePermissionsResponse Int
+dprsStatus = lens _dprsStatus (\ s a -> s{_dprsStatus = a});

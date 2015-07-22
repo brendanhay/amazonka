@@ -29,16 +29,16 @@ module Network.AWS.DirectoryService.CreateSnapshot
     -- ** Request constructor
     , createSnapshot
     -- ** Request lenses
-    , csName
-    , csDirectoryId
+    , csrqName
+    , csrqDirectoryId
 
     -- * Response
     , CreateSnapshotResponse
     -- ** Response constructor
     , createSnapshotResponse
     -- ** Response lenses
-    , csrSnapshotId
-    , csrStatus
+    , csrsSnapshotId
+    , csrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csName'
+-- * 'csrqName'
 --
--- * 'csDirectoryId'
+-- * 'csrqDirectoryId'
 data CreateSnapshot = CreateSnapshot'
-    { _csName        :: !(Maybe Text)
-    , _csDirectoryId :: !Text
+    { _csrqName        :: !(Maybe Text)
+    , _csrqDirectoryId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> CreateSnapshot
 createSnapshot pDirectoryId =
     CreateSnapshot'
-    { _csName = Nothing
-    , _csDirectoryId = pDirectoryId
+    { _csrqName = Nothing
+    , _csrqDirectoryId = pDirectoryId
     }
 
 -- | The descriptive name to apply to the snapshot.
-csName :: Lens' CreateSnapshot (Maybe Text)
-csName = lens _csName (\ s a -> s{_csName = a});
+csrqName :: Lens' CreateSnapshot (Maybe Text)
+csrqName = lens _csrqName (\ s a -> s{_csrqName = a});
 
 -- | The identifier of the directory to take a snapshot of.
-csDirectoryId :: Lens' CreateSnapshot Text
-csDirectoryId = lens _csDirectoryId (\ s a -> s{_csDirectoryId = a});
+csrqDirectoryId :: Lens' CreateSnapshot Text
+csrqDirectoryId = lens _csrqDirectoryId (\ s a -> s{_csrqDirectoryId = a});
 
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = DirectoryService
@@ -99,7 +99,8 @@ instance ToHeaders CreateSnapshot where
 instance ToJSON CreateSnapshot where
         toJSON CreateSnapshot'{..}
           = object
-              ["Name" .= _csName, "DirectoryId" .= _csDirectoryId]
+              ["Name" .= _csrqName,
+               "DirectoryId" .= _csrqDirectoryId]
 
 instance ToPath CreateSnapshot where
         toPath = const "/"
@@ -113,26 +114,26 @@ instance ToQuery CreateSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrSnapshotId'
+-- * 'csrsSnapshotId'
 --
--- * 'csrStatus'
+-- * 'csrsStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
-    { _csrSnapshotId :: !(Maybe Text)
-    , _csrStatus     :: !Int
+    { _csrsSnapshotId :: !(Maybe Text)
+    , _csrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
 createSnapshotResponse pStatus =
     CreateSnapshotResponse'
-    { _csrSnapshotId = Nothing
-    , _csrStatus = pStatus
+    { _csrsSnapshotId = Nothing
+    , _csrsStatus = pStatus
     }
 
 -- | The identifier of the snapshot that was created.
-csrSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
-csrSnapshotId = lens _csrSnapshotId (\ s a -> s{_csrSnapshotId = a});
+csrsSnapshotId :: Lens' CreateSnapshotResponse (Maybe Text)
+csrsSnapshotId = lens _csrsSnapshotId (\ s a -> s{_csrsSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CreateSnapshotResponse Int
-csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});
+csrsStatus :: Lens' CreateSnapshotResponse Int
+csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

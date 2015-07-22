@@ -27,17 +27,17 @@ module Network.AWS.DeviceFarm.ListDevices
     -- ** Request constructor
     , listDevices
     -- ** Request lenses
-    , ldArn
-    , ldNextToken
+    , ldrqArn
+    , ldrqNextToken
 
     -- * Response
     , ListDevicesResponse
     -- ** Response constructor
     , listDevicesResponse
     -- ** Response lenses
-    , ldrNextToken
-    , ldrDevices
-    , ldrStatus
+    , ldrsNextToken
+    , ldrsDevices
+    , ldrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldArn'
+-- * 'ldrqArn'
 --
--- * 'ldNextToken'
+-- * 'ldrqNextToken'
 data ListDevices = ListDevices'
-    { _ldArn       :: !(Maybe Text)
-    , _ldNextToken :: !(Maybe Text)
+    { _ldrqArn       :: !(Maybe Text)
+    , _ldrqNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevices' smart constructor.
 listDevices :: ListDevices
 listDevices =
     ListDevices'
-    { _ldArn = Nothing
-    , _ldNextToken = Nothing
+    { _ldrqArn = Nothing
+    , _ldrqNextToken = Nothing
     }
 
 -- | The device types\' ARNs.
-ldArn :: Lens' ListDevices (Maybe Text)
-ldArn = lens _ldArn (\ s a -> s{_ldArn = a});
+ldrqArn :: Lens' ListDevices (Maybe Text)
+ldrqArn = lens _ldrqArn (\ s a -> s{_ldrqArn = a});
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-ldNextToken :: Lens' ListDevices (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldrqNextToken :: Lens' ListDevices (Maybe Text)
+ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
 
 instance AWSRequest ListDevices where
         type Sv ListDevices = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListDevices where
 instance ToJSON ListDevices where
         toJSON ListDevices'{..}
           = object
-              ["arn" .= _ldArn, "nextToken" .= _ldNextToken]
+              ["arn" .= _ldrqArn, "nextToken" .= _ldrqNextToken]
 
 instance ToPath ListDevices where
         toPath = const "/"
@@ -114,36 +114,36 @@ instance ToQuery ListDevices where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrNextToken'
+-- * 'ldrsNextToken'
 --
--- * 'ldrDevices'
+-- * 'ldrsDevices'
 --
--- * 'ldrStatus'
+-- * 'ldrsStatus'
 data ListDevicesResponse = ListDevicesResponse'
-    { _ldrNextToken :: !(Maybe Text)
-    , _ldrDevices   :: !(Maybe [Device])
-    , _ldrStatus    :: !Int
+    { _ldrsNextToken :: !(Maybe Text)
+    , _ldrsDevices   :: !(Maybe [Device])
+    , _ldrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevicesResponse' smart constructor.
 listDevicesResponse :: Int -> ListDevicesResponse
 listDevicesResponse pStatus =
     ListDevicesResponse'
-    { _ldrNextToken = Nothing
-    , _ldrDevices = Nothing
-    , _ldrStatus = pStatus
+    { _ldrsNextToken = Nothing
+    , _ldrsDevices = Nothing
+    , _ldrsStatus = pStatus
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-ldrNextToken :: Lens' ListDevicesResponse (Maybe Text)
-ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
+ldrsNextToken :: Lens' ListDevicesResponse (Maybe Text)
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | Information about the devices.
-ldrDevices :: Lens' ListDevicesResponse [Device]
-ldrDevices = lens _ldrDevices (\ s a -> s{_ldrDevices = a}) . _Default;
+ldrsDevices :: Lens' ListDevicesResponse [Device]
+ldrsDevices = lens _ldrsDevices (\ s a -> s{_ldrsDevices = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDevicesResponse Int
-ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+ldrsStatus :: Lens' ListDevicesResponse Int
+ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

@@ -68,8 +68,8 @@ module Network.AWS.Kinesis.CreateStream
     -- ** Request constructor
     , createStream
     -- ** Request lenses
-    , csStreamName
-    , csShardCount
+    , csrqStreamName
+    , csrqShardCount
 
     -- * Response
     , CreateStreamResponse
@@ -88,20 +88,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csStreamName'
+-- * 'csrqStreamName'
 --
--- * 'csShardCount'
+-- * 'csrqShardCount'
 data CreateStream = CreateStream'
-    { _csStreamName :: !Text
-    , _csShardCount :: !Nat
+    { _csrqStreamName :: !Text
+    , _csrqShardCount :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStream' smart constructor.
 createStream :: Text -> Natural -> CreateStream
 createStream pStreamName pShardCount =
     CreateStream'
-    { _csStreamName = pStreamName
-    , _csShardCount = _Nat # pShardCount
+    { _csrqStreamName = pStreamName
+    , _csrqShardCount = _Nat # pShardCount
     }
 
 -- | A name to identify the stream. The stream name is scoped to the AWS
@@ -109,16 +109,16 @@ createStream pStreamName pShardCount =
 -- scoped by region. That is, two streams in two different AWS accounts can
 -- have the same name, and two streams in the same AWS account, but in two
 -- different regions, can have the same name.
-csStreamName :: Lens' CreateStream Text
-csStreamName = lens _csStreamName (\ s a -> s{_csStreamName = a});
+csrqStreamName :: Lens' CreateStream Text
+csrqStreamName = lens _csrqStreamName (\ s a -> s{_csrqStreamName = a});
 
 -- | The number of shards that the stream will use. The throughput of the
 -- stream is a function of the number of shards; more shards are required
 -- for greater provisioned throughput.
 --
 -- DefaultShardLimit;
-csShardCount :: Lens' CreateStream Natural
-csShardCount = lens _csShardCount (\ s a -> s{_csShardCount = a}) . _Nat;
+csrqShardCount :: Lens' CreateStream Natural
+csrqShardCount = lens _csrqShardCount (\ s a -> s{_csrqShardCount = a}) . _Nat;
 
 instance AWSRequest CreateStream where
         type Sv CreateStream = Kinesis
@@ -138,8 +138,8 @@ instance ToHeaders CreateStream where
 instance ToJSON CreateStream where
         toJSON CreateStream'{..}
           = object
-              ["StreamName" .= _csStreamName,
-               "ShardCount" .= _csShardCount]
+              ["StreamName" .= _csrqStreamName,
+               "ShardCount" .= _csrqShardCount]
 
 instance ToPath CreateStream where
         toPath = const "/"

@@ -29,13 +29,13 @@ jobComplete =
     , _waitAcceptors = [ matchAll
                              "Complete"
                              AcceptSuccess
-                             (rjrJob . jStatus . _Just . to toText)
+                             (rjrsJob . jStatus . _Just . to toText)
                        , matchAll
                              "Canceled"
                              AcceptFailure
-                             (rjrJob . jStatus . _Just . to toText)
+                             (rjrsJob . jStatus . _Just . to toText)
                        , matchAll
                              "Error"
                              AcceptFailure
-                             (rjrJob . jStatus . _Just . to toText)]
+                             (rjrsJob . jStatus . _Just . to toText)]
     }

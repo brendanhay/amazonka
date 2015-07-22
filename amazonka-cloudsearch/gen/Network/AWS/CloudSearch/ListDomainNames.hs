@@ -32,8 +32,8 @@ module Network.AWS.CloudSearch.ListDomainNames
     -- ** Response constructor
     , listDomainNamesResponse
     -- ** Response lenses
-    , ldnrDomainNames
-    , ldnrStatus
+    , ldnrsDomainNames
+    , ldnrsStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -82,26 +82,26 @@ instance ToQuery ListDomainNames where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldnrDomainNames'
+-- * 'ldnrsDomainNames'
 --
--- * 'ldnrStatus'
+-- * 'ldnrsStatus'
 data ListDomainNamesResponse = ListDomainNamesResponse'
-    { _ldnrDomainNames :: !(Maybe (Map Text Text))
-    , _ldnrStatus      :: !Int
+    { _ldnrsDomainNames :: !(Maybe (Map Text Text))
+    , _ldnrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainNamesResponse' smart constructor.
 listDomainNamesResponse :: Int -> ListDomainNamesResponse
 listDomainNamesResponse pStatus =
     ListDomainNamesResponse'
-    { _ldnrDomainNames = Nothing
-    , _ldnrStatus = pStatus
+    { _ldnrsDomainNames = Nothing
+    , _ldnrsStatus = pStatus
     }
 
 -- | The names of the search domains owned by an account.
-ldnrDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
-ldnrDomainNames = lens _ldnrDomainNames (\ s a -> s{_ldnrDomainNames = a}) . _Default . _Map;
+ldnrsDomainNames :: Lens' ListDomainNamesResponse (HashMap Text Text)
+ldnrsDomainNames = lens _ldnrsDomainNames (\ s a -> s{_ldnrsDomainNames = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-ldnrStatus :: Lens' ListDomainNamesResponse Int
-ldnrStatus = lens _ldnrStatus (\ s a -> s{_ldnrStatus = a});
+ldnrsStatus :: Lens' ListDomainNamesResponse Int
+ldnrsStatus = lens _ldnrsStatus (\ s a -> s{_ldnrsStatus = a});

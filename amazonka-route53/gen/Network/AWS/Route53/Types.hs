@@ -80,8 +80,8 @@ module Network.AWS.Route53.Types
     -- * Change
     , Change
     , change
-    , chaAction
-    , chaResourceRecordSet
+    , cAction
+    , cResourceRecordSet
 
     -- * ChangeBatch
     , ChangeBatch

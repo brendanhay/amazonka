@@ -35,18 +35,18 @@ module Network.AWS.OpsWorks.DescribeVolumes
     -- ** Request constructor
     , describeVolumes
     -- ** Request lenses
-    , dvInstanceId
-    , dvVolumeIds
-    , dvRAIdArrayId
-    , dvStackId
+    , dvrqInstanceId
+    , dvrqVolumeIds
+    , dvrqRAIdArrayId
+    , dvrqStackId
 
     -- * Response
     , DescribeVolumesResponse
     -- ** Response constructor
     , describeVolumesResponse
     -- ** Response lenses
-    , dvrVolumes
-    , dvrStatus
+    , dvrsVolumes
+    , dvrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -58,50 +58,50 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvInstanceId'
+-- * 'dvrqInstanceId'
 --
--- * 'dvVolumeIds'
+-- * 'dvrqVolumeIds'
 --
--- * 'dvRAIdArrayId'
+-- * 'dvrqRAIdArrayId'
 --
--- * 'dvStackId'
+-- * 'dvrqStackId'
 data DescribeVolumes = DescribeVolumes'
-    { _dvInstanceId  :: !(Maybe Text)
-    , _dvVolumeIds   :: !(Maybe [Text])
-    , _dvRAIdArrayId :: !(Maybe Text)
-    , _dvStackId     :: !(Maybe Text)
+    { _dvrqInstanceId  :: !(Maybe Text)
+    , _dvrqVolumeIds   :: !(Maybe [Text])
+    , _dvrqRAIdArrayId :: !(Maybe Text)
+    , _dvrqStackId     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
 describeVolumes =
     DescribeVolumes'
-    { _dvInstanceId = Nothing
-    , _dvVolumeIds = Nothing
-    , _dvRAIdArrayId = Nothing
-    , _dvStackId = Nothing
+    { _dvrqInstanceId = Nothing
+    , _dvrqVolumeIds = Nothing
+    , _dvrqRAIdArrayId = Nothing
+    , _dvrqStackId = Nothing
     }
 
 -- | The instance ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified instance.
-dvInstanceId :: Lens' DescribeVolumes (Maybe Text)
-dvInstanceId = lens _dvInstanceId (\ s a -> s{_dvInstanceId = a});
+dvrqInstanceId :: Lens' DescribeVolumes (Maybe Text)
+dvrqInstanceId = lens _dvrqInstanceId (\ s a -> s{_dvrqInstanceId = a});
 
 -- | Am array of volume IDs. If you use this parameter, @DescribeVolumes@
 -- returns descriptions of the specified volumes. Otherwise, it returns a
 -- description of every volume.
-dvVolumeIds :: Lens' DescribeVolumes [Text]
-dvVolumeIds = lens _dvVolumeIds (\ s a -> s{_dvVolumeIds = a}) . _Default;
+dvrqVolumeIds :: Lens' DescribeVolumes [Text]
+dvrqVolumeIds = lens _dvrqVolumeIds (\ s a -> s{_dvrqVolumeIds = a}) . _Default;
 
 -- | The RAID array ID. If you use this parameter, @DescribeVolumes@ returns
 -- descriptions of the volumes associated with the specified RAID array.
-dvRAIdArrayId :: Lens' DescribeVolumes (Maybe Text)
-dvRAIdArrayId = lens _dvRAIdArrayId (\ s a -> s{_dvRAIdArrayId = a});
+dvrqRAIdArrayId :: Lens' DescribeVolumes (Maybe Text)
+dvrqRAIdArrayId = lens _dvrqRAIdArrayId (\ s a -> s{_dvrqRAIdArrayId = a});
 
 -- | A stack ID. The action describes the stack\'s registered Amazon EBS
 -- volumes.
-dvStackId :: Lens' DescribeVolumes (Maybe Text)
-dvStackId = lens _dvStackId (\ s a -> s{_dvStackId = a});
+dvrqStackId :: Lens' DescribeVolumes (Maybe Text)
+dvrqStackId = lens _dvrqStackId (\ s a -> s{_dvrqStackId = a});
 
 instance AWSRequest DescribeVolumes where
         type Sv DescribeVolumes = OpsWorks
@@ -125,10 +125,10 @@ instance ToHeaders DescribeVolumes where
 instance ToJSON DescribeVolumes where
         toJSON DescribeVolumes'{..}
           = object
-              ["InstanceId" .= _dvInstanceId,
-               "VolumeIds" .= _dvVolumeIds,
-               "RaidArrayId" .= _dvRAIdArrayId,
-               "StackId" .= _dvStackId]
+              ["InstanceId" .= _dvrqInstanceId,
+               "VolumeIds" .= _dvrqVolumeIds,
+               "RaidArrayId" .= _dvrqRAIdArrayId,
+               "StackId" .= _dvrqStackId]
 
 instance ToPath DescribeVolumes where
         toPath = const "/"
@@ -142,26 +142,26 @@ instance ToQuery DescribeVolumes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrVolumes'
+-- * 'dvrsVolumes'
 --
--- * 'dvrStatus'
+-- * 'dvrsStatus'
 data DescribeVolumesResponse = DescribeVolumesResponse'
-    { _dvrVolumes :: !(Maybe [Volume])
-    , _dvrStatus  :: !Int
+    { _dvrsVolumes :: !(Maybe [Volume])
+    , _dvrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse
 describeVolumesResponse pStatus =
     DescribeVolumesResponse'
-    { _dvrVolumes = Nothing
-    , _dvrStatus = pStatus
+    { _dvrsVolumes = Nothing
+    , _dvrsStatus = pStatus
     }
 
 -- | An array of volume IDs.
-dvrVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrVolumes = lens _dvrVolumes (\ s a -> s{_dvrVolumes = a}) . _Default;
+dvrsVolumes :: Lens' DescribeVolumesResponse [Volume]
+dvrsVolumes = lens _dvrsVolumes (\ s a -> s{_dvrsVolumes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvrStatus :: Lens' DescribeVolumesResponse Int
-dvrStatus = lens _dvrStatus (\ s a -> s{_dvrStatus = a});
+dvrsStatus :: Lens' DescribeVolumesResponse Int
+dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});

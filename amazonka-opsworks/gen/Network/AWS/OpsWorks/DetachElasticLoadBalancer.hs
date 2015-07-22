@@ -33,8 +33,8 @@ module Network.AWS.OpsWorks.DetachElasticLoadBalancer
     -- ** Request constructor
     , detachElasticLoadBalancer
     -- ** Request lenses
-    , delbElasticLoadBalancerName
-    , delbLayerId
+    , delbrqElasticLoadBalancerName
+    , delbrqLayerId
 
     -- * Response
     , DetachElasticLoadBalancerResponse
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delbElasticLoadBalancerName'
+-- * 'delbrqElasticLoadBalancerName'
 --
--- * 'delbLayerId'
+-- * 'delbrqLayerId'
 data DetachElasticLoadBalancer = DetachElasticLoadBalancer'
-    { _delbElasticLoadBalancerName :: !Text
-    , _delbLayerId                 :: !Text
+    { _delbrqElasticLoadBalancerName :: !Text
+    , _delbrqLayerId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachElasticLoadBalancer' smart constructor.
 detachElasticLoadBalancer :: Text -> Text -> DetachElasticLoadBalancer
 detachElasticLoadBalancer pElasticLoadBalancerName pLayerId =
     DetachElasticLoadBalancer'
-    { _delbElasticLoadBalancerName = pElasticLoadBalancerName
-    , _delbLayerId = pLayerId
+    { _delbrqElasticLoadBalancerName = pElasticLoadBalancerName
+    , _delbrqLayerId = pLayerId
     }
 
 -- | The Elastic Load Balancing instance\'s name.
-delbElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
-delbElasticLoadBalancerName = lens _delbElasticLoadBalancerName (\ s a -> s{_delbElasticLoadBalancerName = a});
+delbrqElasticLoadBalancerName :: Lens' DetachElasticLoadBalancer Text
+delbrqElasticLoadBalancerName = lens _delbrqElasticLoadBalancerName (\ s a -> s{_delbrqElasticLoadBalancerName = a});
 
 -- | The ID of the layer that the Elastic Load Balancing instance is attached
 -- to.
-delbLayerId :: Lens' DetachElasticLoadBalancer Text
-delbLayerId = lens _delbLayerId (\ s a -> s{_delbLayerId = a});
+delbrqLayerId :: Lens' DetachElasticLoadBalancer Text
+delbrqLayerId = lens _delbrqLayerId (\ s a -> s{_delbrqLayerId = a});
 
 instance AWSRequest DetachElasticLoadBalancer where
         type Sv DetachElasticLoadBalancer = OpsWorks
@@ -98,8 +98,8 @@ instance ToJSON DetachElasticLoadBalancer where
         toJSON DetachElasticLoadBalancer'{..}
           = object
               ["ElasticLoadBalancerName" .=
-                 _delbElasticLoadBalancerName,
-               "LayerId" .= _delbLayerId]
+                 _delbrqElasticLoadBalancerName,
+               "LayerId" .= _delbrqLayerId]
 
 instance ToPath DetachElasticLoadBalancer where
         toPath = const "/"

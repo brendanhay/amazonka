@@ -27,18 +27,18 @@ module Network.AWS.DeviceFarm.CreateUpload
     -- ** Request constructor
     , createUpload
     -- ** Request lenses
-    , cuContentType
-    , cuProjectARN
-    , cuName
-    , cuType
+    , curqContentType
+    , curqProjectARN
+    , curqName
+    , curqType
 
     -- * Response
     , CreateUploadResponse
     -- ** Response constructor
     , createUploadResponse
     -- ** Response lenses
-    , curUpload
-    , curStatus
+    , cursUpload
+    , cursStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -52,41 +52,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cuContentType'
+-- * 'curqContentType'
 --
--- * 'cuProjectARN'
+-- * 'curqProjectARN'
 --
--- * 'cuName'
+-- * 'curqName'
 --
--- * 'cuType'
+-- * 'curqType'
 data CreateUpload = CreateUpload'
-    { _cuContentType :: !(Maybe Text)
-    , _cuProjectARN  :: !Text
-    , _cuName        :: !Text
-    , _cuType        :: !UploadType
+    { _curqContentType :: !(Maybe Text)
+    , _curqProjectARN  :: !Text
+    , _curqName        :: !Text
+    , _curqType        :: !UploadType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUpload' smart constructor.
 createUpload :: Text -> Text -> UploadType -> CreateUpload
 createUpload pProjectARN pName pType =
     CreateUpload'
-    { _cuContentType = Nothing
-    , _cuProjectARN = pProjectARN
-    , _cuName = pName
-    , _cuType = pType
+    { _curqContentType = Nothing
+    , _curqProjectARN = pProjectARN
+    , _curqName = pName
+    , _curqType = pType
     }
 
 -- | The upload\'s content type (for example, \"application\/octet-stream\").
-cuContentType :: Lens' CreateUpload (Maybe Text)
-cuContentType = lens _cuContentType (\ s a -> s{_cuContentType = a});
+curqContentType :: Lens' CreateUpload (Maybe Text)
+curqContentType = lens _curqContentType (\ s a -> s{_curqContentType = a});
 
 -- | The ARN of the project for the upload.
-cuProjectARN :: Lens' CreateUpload Text
-cuProjectARN = lens _cuProjectARN (\ s a -> s{_cuProjectARN = a});
+curqProjectARN :: Lens' CreateUpload Text
+curqProjectARN = lens _curqProjectARN (\ s a -> s{_curqProjectARN = a});
 
 -- | The upload\'s file name.
-cuName :: Lens' CreateUpload Text
-cuName = lens _cuName (\ s a -> s{_cuName = a});
+curqName :: Lens' CreateUpload Text
+curqName = lens _curqName (\ s a -> s{_curqName = a});
 
 -- | The upload\'s upload type.
 --
@@ -108,8 +108,8 @@ cuName = lens _cuName (\ s a -> s{_cuName = a});
 --
 -- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
 --
-cuType :: Lens' CreateUpload UploadType
-cuType = lens _cuType (\ s a -> s{_cuType = a});
+curqType :: Lens' CreateUpload UploadType
+curqType = lens _curqType (\ s a -> s{_curqType = a});
 
 instance AWSRequest CreateUpload where
         type Sv CreateUpload = DeviceFarm
@@ -133,9 +133,9 @@ instance ToHeaders CreateUpload where
 instance ToJSON CreateUpload where
         toJSON CreateUpload'{..}
           = object
-              ["contentType" .= _cuContentType,
-               "projectArn" .= _cuProjectARN, "name" .= _cuName,
-               "type" .= _cuType]
+              ["contentType" .= _curqContentType,
+               "projectArn" .= _curqProjectARN, "name" .= _curqName,
+               "type" .= _curqType]
 
 instance ToPath CreateUpload where
         toPath = const "/"
@@ -149,26 +149,26 @@ instance ToQuery CreateUpload where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'curUpload'
+-- * 'cursUpload'
 --
--- * 'curStatus'
+-- * 'cursStatus'
 data CreateUploadResponse = CreateUploadResponse'
-    { _curUpload :: !(Maybe Upload)
-    , _curStatus :: !Int
+    { _cursUpload :: !(Maybe Upload)
+    , _cursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUploadResponse' smart constructor.
 createUploadResponse :: Int -> CreateUploadResponse
 createUploadResponse pStatus =
     CreateUploadResponse'
-    { _curUpload = Nothing
-    , _curStatus = pStatus
+    { _cursUpload = Nothing
+    , _cursStatus = pStatus
     }
 
 -- | The newly created upload.
-curUpload :: Lens' CreateUploadResponse (Maybe Upload)
-curUpload = lens _curUpload (\ s a -> s{_curUpload = a});
+cursUpload :: Lens' CreateUploadResponse (Maybe Upload)
+cursUpload = lens _cursUpload (\ s a -> s{_cursUpload = a});
 
 -- | FIXME: Undocumented member.
-curStatus :: Lens' CreateUploadResponse Int
-curStatus = lens _curStatus (\ s a -> s{_curStatus = a});
+cursStatus :: Lens' CreateUploadResponse Int
+cursStatus = lens _cursStatus (\ s a -> s{_cursStatus = a});

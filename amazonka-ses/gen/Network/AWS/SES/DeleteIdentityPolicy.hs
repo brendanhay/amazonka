@@ -39,15 +39,15 @@ module Network.AWS.SES.DeleteIdentityPolicy
     -- ** Request constructor
     , deleteIdentityPolicy
     -- ** Request lenses
-    , dipIdentity
-    , dipPolicyName
+    , diprqIdentity
+    , diprqPolicyName
 
     -- * Response
     , DeleteIdentityPolicyResponse
     -- ** Response constructor
     , deleteIdentityPolicyResponse
     -- ** Response lenses
-    , diprStatus
+    , diprsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -64,20 +64,20 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dipIdentity'
+-- * 'diprqIdentity'
 --
--- * 'dipPolicyName'
+-- * 'diprqPolicyName'
 data DeleteIdentityPolicy = DeleteIdentityPolicy'
-    { _dipIdentity   :: !Text
-    , _dipPolicyName :: !Text
+    { _diprqIdentity   :: !Text
+    , _diprqPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentityPolicy' smart constructor.
 deleteIdentityPolicy :: Text -> Text -> DeleteIdentityPolicy
 deleteIdentityPolicy pIdentity pPolicyName =
     DeleteIdentityPolicy'
-    { _dipIdentity = pIdentity
-    , _dipPolicyName = pPolicyName
+    { _diprqIdentity = pIdentity
+    , _diprqPolicyName = pPolicyName
     }
 
 -- | The identity that is associated with the policy that you want to delete.
@@ -86,12 +86,12 @@ deleteIdentityPolicy pIdentity pPolicyName =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-dipIdentity :: Lens' DeleteIdentityPolicy Text
-dipIdentity = lens _dipIdentity (\ s a -> s{_dipIdentity = a});
+diprqIdentity :: Lens' DeleteIdentityPolicy Text
+diprqIdentity = lens _diprqIdentity (\ s a -> s{_diprqIdentity = a});
 
 -- | The name of the policy to be deleted.
-dipPolicyName :: Lens' DeleteIdentityPolicy Text
-dipPolicyName = lens _dipPolicyName (\ s a -> s{_dipPolicyName = a});
+diprqPolicyName :: Lens' DeleteIdentityPolicy Text
+diprqPolicyName = lens _diprqPolicyName (\ s a -> s{_diprqPolicyName = a});
 
 instance AWSRequest DeleteIdentityPolicy where
         type Sv DeleteIdentityPolicy = SES
@@ -115,8 +115,8 @@ instance ToQuery DeleteIdentityPolicy where
           = mconcat
               ["Action" =: ("DeleteIdentityPolicy" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _dipIdentity,
-               "PolicyName" =: _dipPolicyName]
+               "Identity" =: _diprqIdentity,
+               "PolicyName" =: _diprqPolicyName]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
@@ -125,18 +125,18 @@ instance ToQuery DeleteIdentityPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diprStatus'
+-- * 'diprsStatus'
 newtype DeleteIdentityPolicyResponse = DeleteIdentityPolicyResponse'
-    { _diprStatus :: Int
+    { _diprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentityPolicyResponse' smart constructor.
 deleteIdentityPolicyResponse :: Int -> DeleteIdentityPolicyResponse
 deleteIdentityPolicyResponse pStatus =
     DeleteIdentityPolicyResponse'
-    { _diprStatus = pStatus
+    { _diprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-diprStatus :: Lens' DeleteIdentityPolicyResponse Int
-diprStatus = lens _diprStatus (\ s a -> s{_diprStatus = a});
+diprsStatus :: Lens' DeleteIdentityPolicyResponse Int
+diprsStatus = lens _diprsStatus (\ s a -> s{_diprsStatus = a});

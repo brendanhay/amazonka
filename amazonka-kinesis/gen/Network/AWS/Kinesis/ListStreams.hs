@@ -43,17 +43,17 @@ module Network.AWS.Kinesis.ListStreams
     -- ** Request constructor
     , listStreams
     -- ** Request lenses
-    , lsLimit
-    , lsExclusiveStartStreamName
+    , lsrqLimit
+    , lsrqExclusiveStartStreamName
 
     -- * Response
     , ListStreamsResponse
     -- ** Response constructor
     , listStreamsResponse
     -- ** Response lenses
-    , lsrStatus
-    , lsrStreamNames
-    , lsrHasMoreStreams
+    , lsrsStatus
+    , lsrsStreamNames
+    , lsrsHasMoreStreams
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -68,38 +68,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsLimit'
+-- * 'lsrqLimit'
 --
--- * 'lsExclusiveStartStreamName'
+-- * 'lsrqExclusiveStartStreamName'
 data ListStreams = ListStreams'
-    { _lsLimit                    :: !(Maybe Nat)
-    , _lsExclusiveStartStreamName :: !(Maybe Text)
+    { _lsrqLimit                    :: !(Maybe Nat)
+    , _lsrqExclusiveStartStreamName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreams' smart constructor.
 listStreams :: ListStreams
 listStreams =
     ListStreams'
-    { _lsLimit = Nothing
-    , _lsExclusiveStartStreamName = Nothing
+    { _lsrqLimit = Nothing
+    , _lsrqExclusiveStartStreamName = Nothing
     }
 
 -- | The maximum number of streams to list.
-lsLimit :: Lens' ListStreams (Maybe Natural)
-lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
+lsrqLimit :: Lens' ListStreams (Maybe Natural)
+lsrqLimit = lens _lsrqLimit (\ s a -> s{_lsrqLimit = a}) . mapping _Nat;
 
 -- | The name of the stream to start the list with.
-lsExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
-lsExclusiveStartStreamName = lens _lsExclusiveStartStreamName (\ s a -> s{_lsExclusiveStartStreamName = a});
+lsrqExclusiveStartStreamName :: Lens' ListStreams (Maybe Text)
+lsrqExclusiveStartStreamName = lens _lsrqExclusiveStartStreamName (\ s a -> s{_lsrqExclusiveStartStreamName = a});
 
 instance AWSPager ListStreams where
         page rq rs
-          | stop (rs ^. lsrHasMoreStreams) = Nothing
-          | isNothing (rs ^? lsrStreamNames . _last) = Nothing
+          | stop (rs ^. lsrsHasMoreStreams) = Nothing
+          | isNothing (rs ^? lsrsStreamNames . _last) = Nothing
           | otherwise =
             Just $ rq &
-              lsExclusiveStartStreamName .~
-                rs ^? lsrStreamNames . _last
+              lsrqExclusiveStartStreamName .~
+                rs ^? lsrsStreamNames . _last
 
 instance AWSRequest ListStreams where
         type Sv ListStreams = Kinesis
@@ -125,9 +125,9 @@ instance ToHeaders ListStreams where
 instance ToJSON ListStreams where
         toJSON ListStreams'{..}
           = object
-              ["Limit" .= _lsLimit,
+              ["Limit" .= _lsrqLimit,
                "ExclusiveStartStreamName" .=
-                 _lsExclusiveStartStreamName]
+                 _lsrqExclusiveStartStreamName]
 
 instance ToPath ListStreams where
         toPath = const "/"
@@ -141,35 +141,35 @@ instance ToQuery ListStreams where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrStatus'
+-- * 'lsrsStatus'
 --
--- * 'lsrStreamNames'
+-- * 'lsrsStreamNames'
 --
--- * 'lsrHasMoreStreams'
+-- * 'lsrsHasMoreStreams'
 data ListStreamsResponse = ListStreamsResponse'
-    { _lsrStatus         :: !Int
-    , _lsrStreamNames    :: ![Text]
-    , _lsrHasMoreStreams :: !Bool
+    { _lsrsStatus         :: !Int
+    , _lsrsStreamNames    :: ![Text]
+    , _lsrsHasMoreStreams :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamsResponse' smart constructor.
 listStreamsResponse :: Int -> Bool -> ListStreamsResponse
 listStreamsResponse pStatus pHasMoreStreams =
     ListStreamsResponse'
-    { _lsrStatus = pStatus
-    , _lsrStreamNames = mempty
-    , _lsrHasMoreStreams = pHasMoreStreams
+    { _lsrsStatus = pStatus
+    , _lsrsStreamNames = mempty
+    , _lsrsHasMoreStreams = pHasMoreStreams
     }
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListStreamsResponse Int
-lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});
+lsrsStatus :: Lens' ListStreamsResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});
 
 -- | The names of the streams that are associated with the AWS account making
 -- the @ListStreams@ request.
-lsrStreamNames :: Lens' ListStreamsResponse [Text]
-lsrStreamNames = lens _lsrStreamNames (\ s a -> s{_lsrStreamNames = a});
+lsrsStreamNames :: Lens' ListStreamsResponse [Text]
+lsrsStreamNames = lens _lsrsStreamNames (\ s a -> s{_lsrsStreamNames = a});
 
 -- | If set to @true@, there are more streams available to list.
-lsrHasMoreStreams :: Lens' ListStreamsResponse Bool
-lsrHasMoreStreams = lens _lsrHasMoreStreams (\ s a -> s{_lsrHasMoreStreams = a});
+lsrsHasMoreStreams :: Lens' ListStreamsResponse Bool
+lsrsHasMoreStreams = lens _lsrsHasMoreStreams (\ s a -> s{_lsrsHasMoreStreams = a});

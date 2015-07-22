@@ -29,37 +29,37 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'fieRefValue'
+-- * 'fRefValue'
 --
--- * 'fieStringValue'
+-- * 'fStringValue'
 --
--- * 'fieKey'
+-- * 'fKey'
 data Field = Field'
-    { _fieRefValue    :: !(Maybe Text)
-    , _fieStringValue :: !(Maybe Text)
-    , _fieKey         :: !Text
+    { _fRefValue    :: !(Maybe Text)
+    , _fStringValue :: !(Maybe Text)
+    , _fKey         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Field' smart constructor.
 field :: Text -> Field
 field pKey =
     Field'
-    { _fieRefValue = Nothing
-    , _fieStringValue = Nothing
-    , _fieKey = pKey
+    { _fRefValue = Nothing
+    , _fStringValue = Nothing
+    , _fKey = pKey
     }
 
 -- | The field value, expressed as the identifier of another object.
-fieRefValue :: Lens' Field (Maybe Text)
-fieRefValue = lens _fieRefValue (\ s a -> s{_fieRefValue = a});
+fRefValue :: Lens' Field (Maybe Text)
+fRefValue = lens _fRefValue (\ s a -> s{_fRefValue = a});
 
 -- | The field value, expressed as a String.
-fieStringValue :: Lens' Field (Maybe Text)
-fieStringValue = lens _fieStringValue (\ s a -> s{_fieStringValue = a});
+fStringValue :: Lens' Field (Maybe Text)
+fStringValue = lens _fStringValue (\ s a -> s{_fStringValue = a});
 
 -- | The field identifier.
-fieKey :: Lens' Field Text
-fieKey = lens _fieKey (\ s a -> s{_fieKey = a});
+fKey :: Lens' Field Text
+fKey = lens _fKey (\ s a -> s{_fKey = a});
 
 instance FromJSON Field where
         parseJSON
@@ -72,8 +72,8 @@ instance FromJSON Field where
 instance ToJSON Field where
         toJSON Field'{..}
           = object
-              ["refValue" .= _fieRefValue,
-               "stringValue" .= _fieStringValue, "key" .= _fieKey]
+              ["refValue" .= _fRefValue,
+               "stringValue" .= _fStringValue, "key" .= _fKey]
 
 -- | Identity information for the EC2 instance that is hosting the task
 -- runner. You can get this value by calling a metadata URI from the EC2
@@ -128,25 +128,25 @@ instance ToJSON InstanceIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'opeValues'
+-- * 'oValues'
 --
--- * 'opeType'
+-- * 'oType'
 data Operator = Operator'
-    { _opeValues :: !(Maybe [Text])
-    , _opeType   :: !(Maybe OperatorType)
+    { _oValues :: !(Maybe [Text])
+    , _oType   :: !(Maybe OperatorType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Operator' smart constructor.
 operator :: Operator
 operator =
     Operator'
-    { _opeValues = Nothing
-    , _opeType = Nothing
+    { _oValues = Nothing
+    , _oType = Nothing
     }
 
 -- | The value that the actual field value will be compared with.
-opeValues :: Lens' Operator [Text]
-opeValues = lens _opeValues (\ s a -> s{_opeValues = a}) . _Default;
+oValues :: Lens' Operator [Text]
+oValues = lens _oValues (\ s a -> s{_oValues = a}) . _Default;
 
 -- | The logical operation to be performed: equal (@EQ@), equal reference
 -- (@REF_EQ@), less than or equal (@LE@), greater than or equal (@GE@), or
@@ -181,12 +181,12 @@ opeValues = lens _opeValues (\ s a -> s{_opeValues = a}) . _Default;
 -- containing only alpha-numeric values, as symbols may be reserved by AWS
 -- Data Pipeline. User-defined fields that you add to a pipeline should
 -- prefix their name with the string \"my\".
-opeType :: Lens' Operator (Maybe OperatorType)
-opeType = lens _opeType (\ s a -> s{_opeType = a});
+oType :: Lens' Operator (Maybe OperatorType)
+oType = lens _oType (\ s a -> s{_oType = a});
 
 instance ToJSON Operator where
         toJSON Operator'{..}
-          = object ["values" .= _opeValues, "type" .= _opeType]
+          = object ["values" .= _oValues, "type" .= _oType]
 
 -- | The attributes allowed or specified with a parameter object.
 --
@@ -428,37 +428,37 @@ instance FromJSON PipelineIdName where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pipId'
+-- * 'pId'
 --
--- * 'pipName'
+-- * 'pName'
 --
--- * 'pipFields'
+-- * 'pFields'
 data PipelineObject = PipelineObject'
-    { _pipId     :: !Text
-    , _pipName   :: !Text
-    , _pipFields :: ![Field]
+    { _pId     :: !Text
+    , _pName   :: !Text
+    , _pFields :: ![Field]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PipelineObject' smart constructor.
 pipelineObject :: Text -> Text -> PipelineObject
 pipelineObject pId pName =
     PipelineObject'
-    { _pipId = pId
-    , _pipName = pName
-    , _pipFields = mempty
+    { _pId = pId
+    , _pName = pName
+    , _pFields = mempty
     }
 
 -- | The ID of the object.
-pipId :: Lens' PipelineObject Text
-pipId = lens _pipId (\ s a -> s{_pipId = a});
+pId :: Lens' PipelineObject Text
+pId = lens _pId (\ s a -> s{_pId = a});
 
 -- | The name of the object.
-pipName :: Lens' PipelineObject Text
-pipName = lens _pipName (\ s a -> s{_pipName = a});
+pName :: Lens' PipelineObject Text
+pName = lens _pName (\ s a -> s{_pName = a});
 
 -- | Key-value pairs that define the properties of the object.
-pipFields :: Lens' PipelineObject [Field]
-pipFields = lens _pipFields (\ s a -> s{_pipFields = a});
+pFields :: Lens' PipelineObject [Field]
+pFields = lens _pFields (\ s a -> s{_pFields = a});
 
 instance FromJSON PipelineObject where
         parseJSON
@@ -471,8 +471,8 @@ instance FromJSON PipelineObject where
 instance ToJSON PipelineObject where
         toJSON PipelineObject'{..}
           = object
-              ["id" .= _pipId, "name" .= _pipName,
-               "fields" .= _pipFields]
+              ["id" .= _pId, "name" .= _pName,
+               "fields" .= _pFields]
 
 -- | Defines the query to run against an object.
 --
@@ -480,26 +480,26 @@ instance ToJSON PipelineObject where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'queSelectors'
+-- * 'qSelectors'
 newtype Query = Query'
-    { _queSelectors :: Maybe [Selector]
+    { _qSelectors :: Maybe [Selector]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Query' smart constructor.
 query :: Query
 query =
     Query'
-    { _queSelectors = Nothing
+    { _qSelectors = Nothing
     }
 
 -- | List of selectors that define the query. An object must satisfy all of
 -- the selectors to match the query.
-queSelectors :: Lens' Query [Selector]
-queSelectors = lens _queSelectors (\ s a -> s{_queSelectors = a}) . _Default;
+qSelectors :: Lens' Query [Selector]
+qSelectors = lens _qSelectors (\ s a -> s{_qSelectors = a}) . _Default;
 
 instance ToJSON Query where
         toJSON Query'{..}
-          = object ["selectors" .= _queSelectors]
+          = object ["selectors" .= _qSelectors]
 
 -- | A comparision that is used to determine whether a query should return
 -- this object.
@@ -508,38 +508,38 @@ instance ToJSON Query where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'selOperator'
+-- * 'sOperator'
 --
--- * 'selFieldName'
+-- * 'sFieldName'
 data Selector = Selector'
-    { _selOperator  :: !(Maybe Operator)
-    , _selFieldName :: !(Maybe Text)
+    { _sOperator  :: !(Maybe Operator)
+    , _sFieldName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Selector' smart constructor.
 selector :: Selector
 selector =
     Selector'
-    { _selOperator = Nothing
-    , _selFieldName = Nothing
+    { _sOperator = Nothing
+    , _sFieldName = Nothing
     }
 
 -- | FIXME: Undocumented member.
-selOperator :: Lens' Selector (Maybe Operator)
-selOperator = lens _selOperator (\ s a -> s{_selOperator = a});
+sOperator :: Lens' Selector (Maybe Operator)
+sOperator = lens _sOperator (\ s a -> s{_sOperator = a});
 
 -- | The name of the field that the operator will be applied to. The field
 -- name is the \"key\" portion of the field definition in the pipeline
 -- definition syntax that is used by the AWS Data Pipeline API. If the
 -- field is not set on the object, the condition fails.
-selFieldName :: Lens' Selector (Maybe Text)
-selFieldName = lens _selFieldName (\ s a -> s{_selFieldName = a});
+sFieldName :: Lens' Selector (Maybe Text)
+sFieldName = lens _sFieldName (\ s a -> s{_sFieldName = a});
 
 instance ToJSON Selector where
         toJSON Selector'{..}
           = object
-              ["operator" .= _selOperator,
-               "fieldName" .= _selFieldName]
+              ["operator" .= _sOperator,
+               "fieldName" .= _sFieldName]
 
 -- | Tags are key\/value pairs defined by a user and associated with a
 -- pipeline to control access. AWS Data Pipeline allows you to associate

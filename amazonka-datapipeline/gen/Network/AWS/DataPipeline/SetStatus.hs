@@ -32,9 +32,9 @@ module Network.AWS.DataPipeline.SetStatus
     -- ** Request constructor
     , setStatus
     -- ** Request lenses
-    , ssPipelineId
-    , ssObjectIds
-    , ssStatus
+    , ssrqPipelineId
+    , ssrqObjectIds
+    , ssrqStatus
 
     -- * Response
     , SetStatusResponse
@@ -53,40 +53,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ssPipelineId'
+-- * 'ssrqPipelineId'
 --
--- * 'ssObjectIds'
+-- * 'ssrqObjectIds'
 --
--- * 'ssStatus'
+-- * 'ssrqStatus'
 data SetStatus = SetStatus'
-    { _ssPipelineId :: !Text
-    , _ssObjectIds  :: ![Text]
-    , _ssStatus     :: !Text
+    { _ssrqPipelineId :: !Text
+    , _ssrqObjectIds  :: ![Text]
+    , _ssrqStatus     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetStatus' smart constructor.
 setStatus :: Text -> Text -> SetStatus
 setStatus pPipelineId pStatus =
     SetStatus'
-    { _ssPipelineId = pPipelineId
-    , _ssObjectIds = mempty
-    , _ssStatus = pStatus
+    { _ssrqPipelineId = pPipelineId
+    , _ssrqObjectIds = mempty
+    , _ssrqStatus = pStatus
     }
 
 -- | The ID of the pipeline that contains the objects.
-ssPipelineId :: Lens' SetStatus Text
-ssPipelineId = lens _ssPipelineId (\ s a -> s{_ssPipelineId = a});
+ssrqPipelineId :: Lens' SetStatus Text
+ssrqPipelineId = lens _ssrqPipelineId (\ s a -> s{_ssrqPipelineId = a});
 
 -- | The IDs of the objects. The corresponding objects can be either physical
 -- or components, but not a mix of both types.
-ssObjectIds :: Lens' SetStatus [Text]
-ssObjectIds = lens _ssObjectIds (\ s a -> s{_ssObjectIds = a});
+ssrqObjectIds :: Lens' SetStatus [Text]
+ssrqObjectIds = lens _ssrqObjectIds (\ s a -> s{_ssrqObjectIds = a});
 
 -- | The status to be set on all the objects specified in @objectIds@. For
 -- components, use @PAUSE@ or @RESUME@. For instances, use @TRY_CANCEL@,
 -- @RERUN@, or @MARK_FINISHED@.
-ssStatus :: Lens' SetStatus Text
-ssStatus = lens _ssStatus (\ s a -> s{_ssStatus = a});
+ssrqStatus :: Lens' SetStatus Text
+ssrqStatus = lens _ssrqStatus (\ s a -> s{_ssrqStatus = a});
 
 instance AWSRequest SetStatus where
         type Sv SetStatus = DataPipeline
@@ -106,8 +106,9 @@ instance ToHeaders SetStatus where
 instance ToJSON SetStatus where
         toJSON SetStatus'{..}
           = object
-              ["pipelineId" .= _ssPipelineId,
-               "objectIds" .= _ssObjectIds, "status" .= _ssStatus]
+              ["pipelineId" .= _ssrqPipelineId,
+               "objectIds" .= _ssrqObjectIds,
+               "status" .= _ssrqStatus]
 
 instance ToPath SetStatus where
         toPath = const "/"

@@ -33,15 +33,15 @@ module Network.AWS.CloudFormation.GetTemplate
     -- ** Request constructor
     , getTemplate
     -- ** Request lenses
-    , gtStackName
+    , gtrqStackName
 
     -- * Response
     , GetTemplateResponse
     -- ** Response constructor
     , getTemplateResponse
     -- ** Response lenses
-    , gtrTemplateBody
-    , gtrStatus
+    , gtrsTemplateBody
+    , gtrsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -55,16 +55,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtStackName'
+-- * 'gtrqStackName'
 newtype GetTemplate = GetTemplate'
-    { _gtStackName :: Text
+    { _gtrqStackName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplate' smart constructor.
 getTemplate :: Text -> GetTemplate
 getTemplate pStackName =
     GetTemplate'
-    { _gtStackName = pStackName
+    { _gtrqStackName = pStackName
     }
 
 -- | The name or the unique stack ID that is associated with the stack, which
@@ -75,8 +75,8 @@ getTemplate pStackName =
 -- -   Deleted stacks: You must specify the unique stack ID.
 --
 -- Default: There is no default value.
-gtStackName :: Lens' GetTemplate Text
-gtStackName = lens _gtStackName (\ s a -> s{_gtStackName = a});
+gtrqStackName :: Lens' GetTemplate Text
+gtrqStackName = lens _gtrqStackName (\ s a -> s{_gtrqStackName = a});
 
 instance AWSRequest GetTemplate where
         type Sv GetTemplate = CloudFormation
@@ -99,7 +99,7 @@ instance ToQuery GetTemplate where
           = mconcat
               ["Action" =: ("GetTemplate" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _gtStackName]
+               "StackName" =: _gtrqStackName]
 
 -- | The output for GetTemplate action.
 --
@@ -107,28 +107,28 @@ instance ToQuery GetTemplate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtrTemplateBody'
+-- * 'gtrsTemplateBody'
 --
--- * 'gtrStatus'
+-- * 'gtrsStatus'
 data GetTemplateResponse = GetTemplateResponse'
-    { _gtrTemplateBody :: !(Maybe Text)
-    , _gtrStatus       :: !Int
+    { _gtrsTemplateBody :: !(Maybe Text)
+    , _gtrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplateResponse' smart constructor.
 getTemplateResponse :: Int -> GetTemplateResponse
 getTemplateResponse pStatus =
     GetTemplateResponse'
-    { _gtrTemplateBody = Nothing
-    , _gtrStatus = pStatus
+    { _gtrsTemplateBody = Nothing
+    , _gtrsStatus = pStatus
     }
 
 -- | Structure containing the template body. (For more information, go to
 -- <http://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/template-anatomy.html Template Anatomy>
 -- in the AWS CloudFormation User Guide.)
-gtrTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
-gtrTemplateBody = lens _gtrTemplateBody (\ s a -> s{_gtrTemplateBody = a});
+gtrsTemplateBody :: Lens' GetTemplateResponse (Maybe Text)
+gtrsTemplateBody = lens _gtrsTemplateBody (\ s a -> s{_gtrsTemplateBody = a});
 
 -- | FIXME: Undocumented member.
-gtrStatus :: Lens' GetTemplateResponse Int
-gtrStatus = lens _gtrStatus (\ s a -> s{_gtrStatus = a});
+gtrsStatus :: Lens' GetTemplateResponse Int
+gtrsStatus = lens _gtrsStatus (\ s a -> s{_gtrsStatus = a});

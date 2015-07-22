@@ -29,17 +29,17 @@ module Network.AWS.DynamoDB.ListTables
     -- ** Request constructor
     , listTables
     -- ** Request lenses
-    , ltExclusiveStartTableName
-    , ltLimit
+    , ltrqExclusiveStartTableName
+    , ltrqLimit
 
     -- * Response
     , ListTablesResponse
     -- ** Response constructor
     , listTablesResponse
     -- ** Response lenses
-    , ltrLastEvaluatedTableName
-    , ltrTableNames
-    , ltrStatus
+    , ltrsLastEvaluatedTableName
+    , ltrsTableNames
+    , ltrsStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -54,41 +54,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltExclusiveStartTableName'
+-- * 'ltrqExclusiveStartTableName'
 --
--- * 'ltLimit'
+-- * 'ltrqLimit'
 data ListTables = ListTables'
-    { _ltExclusiveStartTableName :: !(Maybe Text)
-    , _ltLimit                   :: !(Maybe Nat)
+    { _ltrqExclusiveStartTableName :: !(Maybe Text)
+    , _ltrqLimit                   :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTables' smart constructor.
 listTables :: ListTables
 listTables =
     ListTables'
-    { _ltExclusiveStartTableName = Nothing
-    , _ltLimit = Nothing
+    { _ltrqExclusiveStartTableName = Nothing
+    , _ltrqLimit = Nothing
     }
 
 -- | The first table name that this operation will evaluate. Use the value
 -- that was returned for /LastEvaluatedTableName/ in a previous operation,
 -- so that you can obtain the next page of results.
-ltExclusiveStartTableName :: Lens' ListTables (Maybe Text)
-ltExclusiveStartTableName = lens _ltExclusiveStartTableName (\ s a -> s{_ltExclusiveStartTableName = a});
+ltrqExclusiveStartTableName :: Lens' ListTables (Maybe Text)
+ltrqExclusiveStartTableName = lens _ltrqExclusiveStartTableName (\ s a -> s{_ltrqExclusiveStartTableName = a});
 
 -- | A maximum number of table names to return. If this parameter is not
 -- specified, the limit is 100.
-ltLimit :: Lens' ListTables (Maybe Natural)
-ltLimit = lens _ltLimit (\ s a -> s{_ltLimit = a}) . mapping _Nat;
+ltrqLimit :: Lens' ListTables (Maybe Natural)
+ltrqLimit = lens _ltrqLimit (\ s a -> s{_ltrqLimit = a}) . mapping _Nat;
 
 instance AWSPager ListTables where
         page rq rs
-          | stop (rs ^. ltrLastEvaluatedTableName) = Nothing
-          | stop (rs ^. ltrTableNames) = Nothing
+          | stop (rs ^. ltrsLastEvaluatedTableName) = Nothing
+          | stop (rs ^. ltrsTableNames) = Nothing
           | otherwise =
             Just $ rq &
-              ltExclusiveStartTableName .~
-                rs ^. ltrLastEvaluatedTableName
+              ltrqExclusiveStartTableName .~
+                rs ^. ltrsLastEvaluatedTableName
 
 instance AWSRequest ListTables where
         type Sv ListTables = DynamoDB
@@ -115,8 +115,8 @@ instance ToJSON ListTables where
         toJSON ListTables'{..}
           = object
               ["ExclusiveStartTableName" .=
-                 _ltExclusiveStartTableName,
-               "Limit" .= _ltLimit]
+                 _ltrqExclusiveStartTableName,
+               "Limit" .= _ltrqLimit]
 
 instance ToPath ListTables where
         toPath = const "/"
@@ -130,24 +130,24 @@ instance ToQuery ListTables where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltrLastEvaluatedTableName'
+-- * 'ltrsLastEvaluatedTableName'
 --
--- * 'ltrTableNames'
+-- * 'ltrsTableNames'
 --
--- * 'ltrStatus'
+-- * 'ltrsStatus'
 data ListTablesResponse = ListTablesResponse'
-    { _ltrLastEvaluatedTableName :: !(Maybe Text)
-    , _ltrTableNames             :: !(Maybe [Text])
-    , _ltrStatus                 :: !Int
+    { _ltrsLastEvaluatedTableName :: !(Maybe Text)
+    , _ltrsTableNames             :: !(Maybe [Text])
+    , _ltrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTablesResponse' smart constructor.
 listTablesResponse :: Int -> ListTablesResponse
 listTablesResponse pStatus =
     ListTablesResponse'
-    { _ltrLastEvaluatedTableName = Nothing
-    , _ltrTableNames = Nothing
-    , _ltrStatus = pStatus
+    { _ltrsLastEvaluatedTableName = Nothing
+    , _ltrsTableNames = Nothing
+    , _ltrsStatus = pStatus
     }
 
 -- | The name of the last table in the current page of results. Use this
@@ -156,8 +156,8 @@ listTablesResponse pStatus =
 --
 -- If you do not receive a /LastEvaluatedTableName/ value in the response,
 -- this means that there are no more table names to be retrieved.
-ltrLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
-ltrLastEvaluatedTableName = lens _ltrLastEvaluatedTableName (\ s a -> s{_ltrLastEvaluatedTableName = a});
+ltrsLastEvaluatedTableName :: Lens' ListTablesResponse (Maybe Text)
+ltrsLastEvaluatedTableName = lens _ltrsLastEvaluatedTableName (\ s a -> s{_ltrsLastEvaluatedTableName = a});
 
 -- | The names of the tables associated with the current account at the
 -- current endpoint. The maximum size of this array is 100.
@@ -165,9 +165,9 @@ ltrLastEvaluatedTableName = lens _ltrLastEvaluatedTableName (\ s a -> s{_ltrLast
 -- If /LastEvaluatedTableName/ also appears in the output, you can use this
 -- value as the /ExclusiveStartTableName/ parameter in a subsequent
 -- /ListTables/ request and obtain the next page of results.
-ltrTableNames :: Lens' ListTablesResponse [Text]
-ltrTableNames = lens _ltrTableNames (\ s a -> s{_ltrTableNames = a}) . _Default;
+ltrsTableNames :: Lens' ListTablesResponse [Text]
+ltrsTableNames = lens _ltrsTableNames (\ s a -> s{_ltrsTableNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ltrStatus :: Lens' ListTablesResponse Int
-ltrStatus = lens _ltrStatus (\ s a -> s{_ltrStatus = a});
+ltrsStatus :: Lens' ListTablesResponse Int
+ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

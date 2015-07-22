@@ -30,15 +30,15 @@ module Network.AWS.Route53Domains.DeleteTagsForDomain
     -- ** Request constructor
     , deleteTagsForDomain
     -- ** Request lenses
-    , dtfdDomainName
-    , dtfdTagsToDelete
+    , dtfdrqDomainName
+    , dtfdrqTagsToDelete
 
     -- * Response
     , DeleteTagsForDomainResponse
     -- ** Response constructor
     , deleteTagsForDomainResponse
     -- ** Response lenses
-    , dtfdrStatus
+    , dtfdrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,20 +52,20 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtfdDomainName'
+-- * 'dtfdrqDomainName'
 --
--- * 'dtfdTagsToDelete'
+-- * 'dtfdrqTagsToDelete'
 data DeleteTagsForDomain = DeleteTagsForDomain'
-    { _dtfdDomainName   :: !Text
-    , _dtfdTagsToDelete :: ![Text]
+    { _dtfdrqDomainName   :: !Text
+    , _dtfdrqTagsToDelete :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTagsForDomain' smart constructor.
 deleteTagsForDomain :: Text -> DeleteTagsForDomain
 deleteTagsForDomain pDomainName =
     DeleteTagsForDomain'
-    { _dtfdDomainName = pDomainName
-    , _dtfdTagsToDelete = mempty
+    { _dtfdrqDomainName = pDomainName
+    , _dtfdrqTagsToDelete = mempty
     }
 
 -- | The domain for which you want to delete one or more tags.
@@ -83,8 +83,8 @@ deleteTagsForDomain pDomainName =
 -- an Internationalized Domain Name, you must convert the name to Punycode.
 --
 -- Required: Yes
-dtfdDomainName :: Lens' DeleteTagsForDomain Text
-dtfdDomainName = lens _dtfdDomainName (\ s a -> s{_dtfdDomainName = a});
+dtfdrqDomainName :: Lens' DeleteTagsForDomain Text
+dtfdrqDomainName = lens _dtfdrqDomainName (\ s a -> s{_dtfdrqDomainName = a});
 
 -- | A list of tag keys to delete.
 --
@@ -95,8 +95,8 @@ dtfdDomainName = lens _dtfdDomainName (\ s a -> s{_dtfdDomainName = a});
 -- Required: No
 --
 -- \'>
-dtfdTagsToDelete :: Lens' DeleteTagsForDomain [Text]
-dtfdTagsToDelete = lens _dtfdTagsToDelete (\ s a -> s{_dtfdTagsToDelete = a});
+dtfdrqTagsToDelete :: Lens' DeleteTagsForDomain [Text]
+dtfdrqTagsToDelete = lens _dtfdrqTagsToDelete (\ s a -> s{_dtfdrqTagsToDelete = a});
 
 instance AWSRequest DeleteTagsForDomain where
         type Sv DeleteTagsForDomain = Route53Domains
@@ -121,8 +121,8 @@ instance ToHeaders DeleteTagsForDomain where
 instance ToJSON DeleteTagsForDomain where
         toJSON DeleteTagsForDomain'{..}
           = object
-              ["DomainName" .= _dtfdDomainName,
-               "TagsToDelete" .= _dtfdTagsToDelete]
+              ["DomainName" .= _dtfdrqDomainName,
+               "TagsToDelete" .= _dtfdrqTagsToDelete]
 
 instance ToPath DeleteTagsForDomain where
         toPath = const "/"
@@ -134,18 +134,18 @@ instance ToQuery DeleteTagsForDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtfdrStatus'
+-- * 'dtfdrsStatus'
 newtype DeleteTagsForDomainResponse = DeleteTagsForDomainResponse'
-    { _dtfdrStatus :: Int
+    { _dtfdrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTagsForDomainResponse' smart constructor.
 deleteTagsForDomainResponse :: Int -> DeleteTagsForDomainResponse
 deleteTagsForDomainResponse pStatus =
     DeleteTagsForDomainResponse'
-    { _dtfdrStatus = pStatus
+    { _dtfdrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dtfdrStatus :: Lens' DeleteTagsForDomainResponse Int
-dtfdrStatus = lens _dtfdrStatus (\ s a -> s{_dtfdrStatus = a});
+dtfdrsStatus :: Lens' DeleteTagsForDomainResponse Int
+dtfdrsStatus = lens _dtfdrsStatus (\ s a -> s{_dtfdrsStatus = a});

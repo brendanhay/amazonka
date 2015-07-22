@@ -32,9 +32,9 @@ module Network.AWS.IAM.UpdateLoginProfile
     -- ** Request constructor
     , updateLoginProfile
     -- ** Request lenses
-    , ulpPassword
-    , ulpPasswordResetRequired
-    , ulpUserName
+    , ulprqPassword
+    , ulprqPasswordResetRequired
+    , ulprqUserName
 
     -- * Response
     , UpdateLoginProfileResponse
@@ -51,37 +51,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ulpPassword'
+-- * 'ulprqPassword'
 --
--- * 'ulpPasswordResetRequired'
+-- * 'ulprqPasswordResetRequired'
 --
--- * 'ulpUserName'
+-- * 'ulprqUserName'
 data UpdateLoginProfile = UpdateLoginProfile'
-    { _ulpPassword              :: !(Maybe (Sensitive Text))
-    , _ulpPasswordResetRequired :: !(Maybe Bool)
-    , _ulpUserName              :: !Text
+    { _ulprqPassword              :: !(Maybe (Sensitive Text))
+    , _ulprqPasswordResetRequired :: !(Maybe Bool)
+    , _ulprqUserName              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateLoginProfile' smart constructor.
 updateLoginProfile :: Text -> UpdateLoginProfile
 updateLoginProfile pUserName =
     UpdateLoginProfile'
-    { _ulpPassword = Nothing
-    , _ulpPasswordResetRequired = Nothing
-    , _ulpUserName = pUserName
+    { _ulprqPassword = Nothing
+    , _ulprqPasswordResetRequired = Nothing
+    , _ulprqUserName = pUserName
     }
 
 -- | The new password for the specified user.
-ulpPassword :: Lens' UpdateLoginProfile (Maybe Text)
-ulpPassword = lens _ulpPassword (\ s a -> s{_ulpPassword = a}) . mapping _Sensitive;
+ulprqPassword :: Lens' UpdateLoginProfile (Maybe Text)
+ulprqPassword = lens _ulprqPassword (\ s a -> s{_ulprqPassword = a}) . mapping _Sensitive;
 
 -- | Require the specified user to set a new password on next sign-in.
-ulpPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
-ulpPasswordResetRequired = lens _ulpPasswordResetRequired (\ s a -> s{_ulpPasswordResetRequired = a});
+ulprqPasswordResetRequired :: Lens' UpdateLoginProfile (Maybe Bool)
+ulprqPasswordResetRequired = lens _ulprqPasswordResetRequired (\ s a -> s{_ulprqPasswordResetRequired = a});
 
 -- | The name of the user whose password you want to update.
-ulpUserName :: Lens' UpdateLoginProfile Text
-ulpUserName = lens _ulpUserName (\ s a -> s{_ulpUserName = a});
+ulprqUserName :: Lens' UpdateLoginProfile Text
+ulprqUserName = lens _ulprqUserName (\ s a -> s{_ulprqUserName = a});
 
 instance AWSRequest UpdateLoginProfile where
         type Sv UpdateLoginProfile = IAM
@@ -101,9 +101,10 @@ instance ToQuery UpdateLoginProfile where
           = mconcat
               ["Action" =: ("UpdateLoginProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Password" =: _ulpPassword,
-               "PasswordResetRequired" =: _ulpPasswordResetRequired,
-               "UserName" =: _ulpUserName]
+               "Password" =: _ulprqPassword,
+               "PasswordResetRequired" =:
+                 _ulprqPasswordResetRequired,
+               "UserName" =: _ulprqUserName]
 
 -- | /See:/ 'updateLoginProfileResponse' smart constructor.
 data UpdateLoginProfileResponse =

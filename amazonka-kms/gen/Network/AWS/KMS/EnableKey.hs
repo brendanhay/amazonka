@@ -28,7 +28,7 @@ module Network.AWS.KMS.EnableKey
     -- ** Request constructor
     , enableKey
     -- ** Request lenses
-    , ekKeyId
+    , ekrqKeyId
 
     -- * Response
     , EnableKeyResponse
@@ -45,16 +45,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ekKeyId'
+-- * 'ekrqKeyId'
 newtype EnableKey = EnableKey'
-    { _ekKeyId :: Text
+    { _ekrqKeyId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableKey' smart constructor.
 enableKey :: Text -> EnableKey
 enableKey pKeyId =
     EnableKey'
-    { _ekKeyId = pKeyId
+    { _ekrqKeyId = pKeyId
     }
 
 -- | A unique identifier for the customer master key. This value can be a
@@ -64,8 +64,8 @@ enableKey pKeyId =
 --     arn:aws:kms:us-east-1:123456789012:key\/12345678-1234-1234-1234-123456789012
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
-ekKeyId :: Lens' EnableKey Text
-ekKeyId = lens _ekKeyId (\ s a -> s{_ekKeyId = a});
+ekrqKeyId :: Lens' EnableKey Text
+ekrqKeyId = lens _ekrqKeyId (\ s a -> s{_ekrqKeyId = a});
 
 instance AWSRequest EnableKey where
         type Sv EnableKey = KMS
@@ -83,7 +83,8 @@ instance ToHeaders EnableKey where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON EnableKey where
-        toJSON EnableKey'{..} = object ["KeyId" .= _ekKeyId]
+        toJSON EnableKey'{..}
+          = object ["KeyId" .= _ekrqKeyId]
 
 instance ToPath EnableKey where
         toPath = const "/"

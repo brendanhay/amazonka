@@ -31,14 +31,14 @@ module Network.AWS.ElasticTranscoder.CancelJob
     -- ** Request constructor
     , cancelJob
     -- ** Request lenses
-    , cjId
+    , cjrqId
 
     -- * Response
     , CancelJobResponse
     -- ** Response constructor
     , cancelJobResponse
     -- ** Response lenses
-    , canStatus
+    , cjrsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cjId'
+-- * 'cjrqId'
 newtype CancelJob = CancelJob'
-    { _cjId :: Text
+    { _cjrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJob' smart constructor.
 cancelJob :: Text -> CancelJob
 cancelJob pId =
     CancelJob'
-    { _cjId = pId
+    { _cjrqId = pId
     }
 
 -- | The identifier of the job that you want to cancel.
 --
 -- To get a list of the jobs (including their @jobId@) that have a status
 -- of @Submitted@, use the ListJobsByStatus API action.
-cjId :: Lens' CancelJob Text
-cjId = lens _cjId (\ s a -> s{_cjId = a});
+cjrqId :: Lens' CancelJob Text
+cjrqId = lens _cjrqId (\ s a -> s{_cjrqId = a});
 
 instance AWSRequest CancelJob where
         type Sv CancelJob = ElasticTranscoder
@@ -85,7 +85,7 @@ instance ToHeaders CancelJob where
 
 instance ToPath CancelJob where
         toPath CancelJob'{..}
-          = mconcat ["/2012-09-25/jobs/", toText _cjId]
+          = mconcat ["/2012-09-25/jobs/", toText _cjrqId]
 
 instance ToQuery CancelJob where
         toQuery = const mempty
@@ -97,18 +97,18 @@ instance ToQuery CancelJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'canStatus'
+-- * 'cjrsStatus'
 newtype CancelJobResponse = CancelJobResponse'
-    { _canStatus :: Int
+    { _cjrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelJobResponse' smart constructor.
 cancelJobResponse :: Int -> CancelJobResponse
 cancelJobResponse pStatus =
     CancelJobResponse'
-    { _canStatus = pStatus
+    { _cjrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-canStatus :: Lens' CancelJobResponse Int
-canStatus = lens _canStatus (\ s a -> s{_canStatus = a});
+cjrsStatus :: Lens' CancelJobResponse Int
+cjrsStatus = lens _cjrsStatus (\ s a -> s{_cjrsStatus = a});

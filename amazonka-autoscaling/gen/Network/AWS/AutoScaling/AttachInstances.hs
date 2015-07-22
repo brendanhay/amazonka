@@ -31,8 +31,8 @@ module Network.AWS.AutoScaling.AttachInstances
     -- ** Request constructor
     , attachInstances
     -- ** Request lenses
-    , aiInstanceIds
-    , aiAutoScalingGroupName
+    , airqInstanceIds
+    , airqAutoScalingGroupName
 
     -- * Response
     , AttachInstancesResponse
@@ -49,29 +49,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aiInstanceIds'
+-- * 'airqInstanceIds'
 --
--- * 'aiAutoScalingGroupName'
+-- * 'airqAutoScalingGroupName'
 data AttachInstances = AttachInstances'
-    { _aiInstanceIds          :: !(Maybe [Text])
-    , _aiAutoScalingGroupName :: !Text
+    { _airqInstanceIds          :: !(Maybe [Text])
+    , _airqAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachInstances' smart constructor.
 attachInstances :: Text -> AttachInstances
 attachInstances pAutoScalingGroupName =
     AttachInstances'
-    { _aiInstanceIds = Nothing
-    , _aiAutoScalingGroupName = pAutoScalingGroupName
+    { _airqInstanceIds = Nothing
+    , _airqAutoScalingGroupName = pAutoScalingGroupName
     }
 
 -- | One or more EC2 instance IDs.
-aiInstanceIds :: Lens' AttachInstances [Text]
-aiInstanceIds = lens _aiInstanceIds (\ s a -> s{_aiInstanceIds = a}) . _Default;
+airqInstanceIds :: Lens' AttachInstances [Text]
+airqInstanceIds = lens _airqInstanceIds (\ s a -> s{_airqInstanceIds = a}) . _Default;
 
 -- | The name of the group.
-aiAutoScalingGroupName :: Lens' AttachInstances Text
-aiAutoScalingGroupName = lens _aiAutoScalingGroupName (\ s a -> s{_aiAutoScalingGroupName = a});
+airqAutoScalingGroupName :: Lens' AttachInstances Text
+airqAutoScalingGroupName = lens _airqAutoScalingGroupName (\ s a -> s{_airqAutoScalingGroupName = a});
 
 instance AWSRequest AttachInstances where
         type Sv AttachInstances = AutoScaling
@@ -91,8 +91,8 @@ instance ToQuery AttachInstances where
               ["Action" =: ("AttachInstances" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "InstanceIds" =:
-                 toQuery (toQueryList "member" <$> _aiInstanceIds),
-               "AutoScalingGroupName" =: _aiAutoScalingGroupName]
+                 toQuery (toQueryList "member" <$> _airqInstanceIds),
+               "AutoScalingGroupName" =: _airqAutoScalingGroupName]
 
 -- | /See:/ 'attachInstancesResponse' smart constructor.
 data AttachInstancesResponse =

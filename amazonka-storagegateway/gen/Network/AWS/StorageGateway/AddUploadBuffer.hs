@@ -33,16 +33,16 @@ module Network.AWS.StorageGateway.AddUploadBuffer
     -- ** Request constructor
     , addUploadBuffer
     -- ** Request lenses
-    , aubGatewayARN
-    , aubDiskIds
+    , aubrqGatewayARN
+    , aubrqDiskIds
 
     -- * Response
     , AddUploadBufferResponse
     -- ** Response constructor
     , addUploadBufferResponse
     -- ** Response lenses
-    , aubrGatewayARN
-    , aubrStatus
+    , aubrsGatewayARN
+    , aubrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -54,29 +54,29 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aubGatewayARN'
+-- * 'aubrqGatewayARN'
 --
--- * 'aubDiskIds'
+-- * 'aubrqDiskIds'
 data AddUploadBuffer = AddUploadBuffer'
-    { _aubGatewayARN :: !Text
-    , _aubDiskIds    :: ![Text]
+    { _aubrqGatewayARN :: !Text
+    , _aubrqDiskIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUploadBuffer' smart constructor.
 addUploadBuffer :: Text -> AddUploadBuffer
 addUploadBuffer pGatewayARN =
     AddUploadBuffer'
-    { _aubGatewayARN = pGatewayARN
-    , _aubDiskIds = mempty
+    { _aubrqGatewayARN = pGatewayARN
+    , _aubrqDiskIds = mempty
     }
 
 -- | FIXME: Undocumented member.
-aubGatewayARN :: Lens' AddUploadBuffer Text
-aubGatewayARN = lens _aubGatewayARN (\ s a -> s{_aubGatewayARN = a});
+aubrqGatewayARN :: Lens' AddUploadBuffer Text
+aubrqGatewayARN = lens _aubrqGatewayARN (\ s a -> s{_aubrqGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-aubDiskIds :: Lens' AddUploadBuffer [Text]
-aubDiskIds = lens _aubDiskIds (\ s a -> s{_aubDiskIds = a});
+aubrqDiskIds :: Lens' AddUploadBuffer [Text]
+aubrqDiskIds = lens _aubrqDiskIds (\ s a -> s{_aubrqDiskIds = a});
 
 instance AWSRequest AddUploadBuffer where
         type Sv AddUploadBuffer = StorageGateway
@@ -101,8 +101,8 @@ instance ToHeaders AddUploadBuffer where
 instance ToJSON AddUploadBuffer where
         toJSON AddUploadBuffer'{..}
           = object
-              ["GatewayARN" .= _aubGatewayARN,
-               "DiskIds" .= _aubDiskIds]
+              ["GatewayARN" .= _aubrqGatewayARN,
+               "DiskIds" .= _aubrqDiskIds]
 
 instance ToPath AddUploadBuffer where
         toPath = const "/"
@@ -114,26 +114,26 @@ instance ToQuery AddUploadBuffer where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aubrGatewayARN'
+-- * 'aubrsGatewayARN'
 --
--- * 'aubrStatus'
+-- * 'aubrsStatus'
 data AddUploadBufferResponse = AddUploadBufferResponse'
-    { _aubrGatewayARN :: !(Maybe Text)
-    , _aubrStatus     :: !Int
+    { _aubrsGatewayARN :: !(Maybe Text)
+    , _aubrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUploadBufferResponse' smart constructor.
 addUploadBufferResponse :: Int -> AddUploadBufferResponse
 addUploadBufferResponse pStatus =
     AddUploadBufferResponse'
-    { _aubrGatewayARN = Nothing
-    , _aubrStatus = pStatus
+    { _aubrsGatewayARN = Nothing
+    , _aubrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-aubrGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
-aubrGatewayARN = lens _aubrGatewayARN (\ s a -> s{_aubrGatewayARN = a});
+aubrsGatewayARN :: Lens' AddUploadBufferResponse (Maybe Text)
+aubrsGatewayARN = lens _aubrsGatewayARN (\ s a -> s{_aubrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-aubrStatus :: Lens' AddUploadBufferResponse Int
-aubrStatus = lens _aubrStatus (\ s a -> s{_aubrStatus = a});
+aubrsStatus :: Lens' AddUploadBufferResponse Int
+aubrsStatus = lens _aubrsStatus (\ s a -> s{_aubrsStatus = a});

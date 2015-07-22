@@ -42,20 +42,20 @@ module Network.AWS.Redshift.DescribeClusters
     -- ** Request constructor
     , describeClusters
     -- ** Request lenses
-    , dcTagValues
-    , dcTagKeys
-    , dcClusterIdentifier
-    , dcMaxRecords
-    , dcMarker
+    , dcrqTagValues
+    , dcrqTagKeys
+    , dcrqClusterIdentifier
+    , dcrqMaxRecords
+    , dcrqMarker
 
     -- * Response
     , DescribeClustersResponse
     -- ** Response constructor
     , describeClustersResponse
     -- ** Response lenses
-    , dcrMarker
-    , dcrClusters
-    , dcrStatus
+    , dcrsMarker
+    , dcrsClusters
+    , dcrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -70,32 +70,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcTagValues'
+-- * 'dcrqTagValues'
 --
--- * 'dcTagKeys'
+-- * 'dcrqTagKeys'
 --
--- * 'dcClusterIdentifier'
+-- * 'dcrqClusterIdentifier'
 --
--- * 'dcMaxRecords'
+-- * 'dcrqMaxRecords'
 --
--- * 'dcMarker'
+-- * 'dcrqMarker'
 data DescribeClusters = DescribeClusters'
-    { _dcTagValues         :: !(Maybe [Text])
-    , _dcTagKeys           :: !(Maybe [Text])
-    , _dcClusterIdentifier :: !(Maybe Text)
-    , _dcMaxRecords        :: !(Maybe Int)
-    , _dcMarker            :: !(Maybe Text)
+    { _dcrqTagValues         :: !(Maybe [Text])
+    , _dcrqTagKeys           :: !(Maybe [Text])
+    , _dcrqClusterIdentifier :: !(Maybe Text)
+    , _dcrqMaxRecords        :: !(Maybe Int)
+    , _dcrqMarker            :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusters' smart constructor.
 describeClusters :: DescribeClusters
 describeClusters =
     DescribeClusters'
-    { _dcTagValues = Nothing
-    , _dcTagKeys = Nothing
-    , _dcClusterIdentifier = Nothing
-    , _dcMaxRecords = Nothing
-    , _dcMarker = Nothing
+    { _dcrqTagValues = Nothing
+    , _dcrqTagKeys = Nothing
+    , _dcrqClusterIdentifier = Nothing
+    , _dcrqMaxRecords = Nothing
+    , _dcrqMarker = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching clusters
@@ -104,8 +104,8 @@ describeClusters =
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with the clusters that have
 -- either or both of these tag values associated with them.
-dcTagValues :: Lens' DescribeClusters [Text]
-dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a}) . _Default;
+dcrqTagValues :: Lens' DescribeClusters [Text]
+dcrqTagValues = lens _dcrqTagValues (\ s a -> s{_dcrqTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching clusters
 -- that are associated with the specified key or keys. For example, suppose
@@ -113,15 +113,15 @@ dcTagValues = lens _dcTagValues (\ s a -> s{_dcTagValues = a}) . _Default;
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with the clusters that have either or
 -- both of these tag keys associated with them.
-dcTagKeys :: Lens' DescribeClusters [Text]
-dcTagKeys = lens _dcTagKeys (\ s a -> s{_dcTagKeys = a}) . _Default;
+dcrqTagKeys :: Lens' DescribeClusters [Text]
+dcrqTagKeys = lens _dcrqTagKeys (\ s a -> s{_dcrqTagKeys = a}) . _Default;
 
 -- | The unique identifier of a cluster whose properties you are requesting.
 -- This parameter is case sensitive.
 --
 -- The default is that all clusters defined for an account are returned.
-dcClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
-dcClusterIdentifier = lens _dcClusterIdentifier (\ s a -> s{_dcClusterIdentifier = a});
+dcrqClusterIdentifier :: Lens' DescribeClusters (Maybe Text)
+dcrqClusterIdentifier = lens _dcrqClusterIdentifier (\ s a -> s{_dcrqClusterIdentifier = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -132,8 +132,8 @@ dcClusterIdentifier = lens _dcClusterIdentifier (\ s a -> s{_dcClusterIdentifier
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dcMaxRecords :: Lens' DescribeClusters (Maybe Int)
-dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
+dcrqMaxRecords :: Lens' DescribeClusters (Maybe Int)
+dcrqMaxRecords = lens _dcrqMaxRecords (\ s a -> s{_dcrqMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeClusters request
@@ -144,14 +144,15 @@ dcMaxRecords = lens _dcMaxRecords (\ s a -> s{_dcMaxRecords = a});
 --
 -- Constraints: You can specify either the __ClusterIdentifier__ parameter
 -- or the __Marker__ parameter, but not both.
-dcMarker :: Lens' DescribeClusters (Maybe Text)
-dcMarker = lens _dcMarker (\ s a -> s{_dcMarker = a});
+dcrqMarker :: Lens' DescribeClusters (Maybe Text)
+dcrqMarker = lens _dcrqMarker (\ s a -> s{_dcrqMarker = a});
 
 instance AWSPager DescribeClusters where
         page rq rs
-          | stop (rs ^. dcrMarker) = Nothing
-          | stop (rs ^. dcrClusters) = Nothing
-          | otherwise = Just $ rq & dcMarker .~ rs ^. dcrMarker
+          | stop (rs ^. dcrsMarker) = Nothing
+          | stop (rs ^. dcrsClusters) = Nothing
+          | otherwise =
+            Just $ rq & dcrqMarker .~ rs ^. dcrsMarker
 
 instance AWSRequest DescribeClusters where
         type Sv DescribeClusters = Redshift
@@ -178,11 +179,12 @@ instance ToQuery DescribeClusters where
               ["Action" =: ("DescribeClusters" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dcTagValues),
+                 toQuery (toQueryList "TagValue" <$> _dcrqTagValues),
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dcTagKeys),
-               "ClusterIdentifier" =: _dcClusterIdentifier,
-               "MaxRecords" =: _dcMaxRecords, "Marker" =: _dcMarker]
+                 toQuery (toQueryList "TagKey" <$> _dcrqTagKeys),
+               "ClusterIdentifier" =: _dcrqClusterIdentifier,
+               "MaxRecords" =: _dcrqMaxRecords,
+               "Marker" =: _dcrqMarker]
 
 -- | Contains the output from the DescribeClusters action.
 --
@@ -190,24 +192,24 @@ instance ToQuery DescribeClusters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrMarker'
+-- * 'dcrsMarker'
 --
--- * 'dcrClusters'
+-- * 'dcrsClusters'
 --
--- * 'dcrStatus'
+-- * 'dcrsStatus'
 data DescribeClustersResponse = DescribeClustersResponse'
-    { _dcrMarker   :: !(Maybe Text)
-    , _dcrClusters :: !(Maybe [Cluster])
-    , _dcrStatus   :: !Int
+    { _dcrsMarker   :: !(Maybe Text)
+    , _dcrsClusters :: !(Maybe [Cluster])
+    , _dcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClustersResponse' smart constructor.
 describeClustersResponse :: Int -> DescribeClustersResponse
 describeClustersResponse pStatus =
     DescribeClustersResponse'
-    { _dcrMarker = Nothing
-    , _dcrClusters = Nothing
-    , _dcrStatus = pStatus
+    { _dcrsMarker = Nothing
+    , _dcrsClusters = Nothing
+    , _dcrsStatus = pStatus
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -216,13 +218,13 @@ describeClustersResponse pStatus =
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-dcrMarker :: Lens' DescribeClustersResponse (Maybe Text)
-dcrMarker = lens _dcrMarker (\ s a -> s{_dcrMarker = a});
+dcrsMarker :: Lens' DescribeClustersResponse (Maybe Text)
+dcrsMarker = lens _dcrsMarker (\ s a -> s{_dcrsMarker = a});
 
 -- | A list of Cluster objects, where each object describes one cluster.
-dcrClusters :: Lens' DescribeClustersResponse [Cluster]
-dcrClusters = lens _dcrClusters (\ s a -> s{_dcrClusters = a}) . _Default;
+dcrsClusters :: Lens' DescribeClustersResponse [Cluster]
+dcrsClusters = lens _dcrsClusters (\ s a -> s{_dcrsClusters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeClustersResponse Int
-dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});
+dcrsStatus :: Lens' DescribeClustersResponse Int
+dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

@@ -36,15 +36,15 @@ module Network.AWS.MachineLearning.DeleteBatchPrediction
     -- ** Request constructor
     , deleteBatchPrediction
     -- ** Request lenses
-    , dbpBatchPredictionId
+    , dbprqBatchPredictionId
 
     -- * Response
     , DeleteBatchPredictionResponse
     -- ** Response constructor
     , deleteBatchPredictionResponse
     -- ** Response lenses
-    , dbprBatchPredictionId
-    , dbprStatus
+    , dbprsBatchPredictionId
+    , dbprsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbpBatchPredictionId'
+-- * 'dbprqBatchPredictionId'
 newtype DeleteBatchPrediction = DeleteBatchPrediction'
-    { _dbpBatchPredictionId :: Text
+    { _dbprqBatchPredictionId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBatchPrediction' smart constructor.
 deleteBatchPrediction :: Text -> DeleteBatchPrediction
 deleteBatchPrediction pBatchPredictionId =
     DeleteBatchPrediction'
-    { _dbpBatchPredictionId = pBatchPredictionId
+    { _dbprqBatchPredictionId = pBatchPredictionId
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@.
-dbpBatchPredictionId :: Lens' DeleteBatchPrediction Text
-dbpBatchPredictionId = lens _dbpBatchPredictionId (\ s a -> s{_dbpBatchPredictionId = a});
+dbprqBatchPredictionId :: Lens' DeleteBatchPrediction Text
+dbprqBatchPredictionId = lens _dbprqBatchPredictionId (\ s a -> s{_dbprqBatchPredictionId = a});
 
 instance AWSRequest DeleteBatchPrediction where
         type Sv DeleteBatchPrediction = MachineLearning
@@ -96,7 +96,7 @@ instance ToHeaders DeleteBatchPrediction where
 instance ToJSON DeleteBatchPrediction where
         toJSON DeleteBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _dbpBatchPredictionId]
+              ["BatchPredictionId" .= _dbprqBatchPredictionId]
 
 instance ToPath DeleteBatchPrediction where
         toPath = const "/"
@@ -114,28 +114,28 @@ instance ToQuery DeleteBatchPrediction where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbprBatchPredictionId'
+-- * 'dbprsBatchPredictionId'
 --
--- * 'dbprStatus'
+-- * 'dbprsStatus'
 data DeleteBatchPredictionResponse = DeleteBatchPredictionResponse'
-    { _dbprBatchPredictionId :: !(Maybe Text)
-    , _dbprStatus            :: !Int
+    { _dbprsBatchPredictionId :: !(Maybe Text)
+    , _dbprsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBatchPredictionResponse' smart constructor.
 deleteBatchPredictionResponse :: Int -> DeleteBatchPredictionResponse
 deleteBatchPredictionResponse pStatus =
     DeleteBatchPredictionResponse'
-    { _dbprBatchPredictionId = Nothing
-    , _dbprStatus = pStatus
+    { _dbprsBatchPredictionId = Nothing
+    , _dbprsStatus = pStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the @BatchPrediction@. This
 -- value should be identical to the value of the @BatchPredictionID@ in the
 -- request.
-dbprBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
-dbprBatchPredictionId = lens _dbprBatchPredictionId (\ s a -> s{_dbprBatchPredictionId = a});
+dbprsBatchPredictionId :: Lens' DeleteBatchPredictionResponse (Maybe Text)
+dbprsBatchPredictionId = lens _dbprsBatchPredictionId (\ s a -> s{_dbprsBatchPredictionId = a});
 
 -- | FIXME: Undocumented member.
-dbprStatus :: Lens' DeleteBatchPredictionResponse Int
-dbprStatus = lens _dbprStatus (\ s a -> s{_dbprStatus = a});
+dbprsStatus :: Lens' DeleteBatchPredictionResponse Int
+dbprsStatus = lens _dbprsStatus (\ s a -> s{_dbprsStatus = a});

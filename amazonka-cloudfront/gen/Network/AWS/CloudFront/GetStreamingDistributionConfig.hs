@@ -27,16 +27,16 @@ module Network.AWS.CloudFront.GetStreamingDistributionConfig
     -- ** Request constructor
     , getStreamingDistributionConfig
     -- ** Request lenses
-    , gsdcId
+    , gsdcrqId
 
     -- * Response
     , GetStreamingDistributionConfigResponse
     -- ** Response constructor
     , getStreamingDistributionConfigResponse
     -- ** Response lenses
-    , gsdcrStreamingDistributionConfig
-    , gsdcrETag
-    , gsdcrStatus
+    , gsdcrsStreamingDistributionConfig
+    , gsdcrsETag
+    , gsdcrsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsdcId'
+-- * 'gsdcrqId'
 newtype GetStreamingDistributionConfig = GetStreamingDistributionConfig'
-    { _gsdcId :: Text
+    { _gsdcrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStreamingDistributionConfig' smart constructor.
 getStreamingDistributionConfig :: Text -> GetStreamingDistributionConfig
 getStreamingDistributionConfig pId =
     GetStreamingDistributionConfig'
-    { _gsdcId = pId
+    { _gsdcrqId = pId
     }
 
 -- | The streaming distribution\'s id.
-gsdcId :: Lens' GetStreamingDistributionConfig Text
-gsdcId = lens _gsdcId (\ s a -> s{_gsdcId = a});
+gsdcrqId :: Lens' GetStreamingDistributionConfig Text
+gsdcrqId = lens _gsdcrqId (\ s a -> s{_gsdcrqId = a});
 
 instance AWSRequest GetStreamingDistributionConfig
          where
@@ -87,7 +87,7 @@ instance ToPath GetStreamingDistributionConfig where
         toPath GetStreamingDistributionConfig'{..}
           = mconcat
               ["/2015-04-17/streaming-distribution/",
-               toText _gsdcId, "/config"]
+               toText _gsdcrqId, "/config"]
 
 instance ToQuery GetStreamingDistributionConfig where
         toQuery = const mempty
@@ -98,34 +98,34 @@ instance ToQuery GetStreamingDistributionConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsdcrStreamingDistributionConfig'
+-- * 'gsdcrsStreamingDistributionConfig'
 --
--- * 'gsdcrETag'
+-- * 'gsdcrsETag'
 --
--- * 'gsdcrStatus'
+-- * 'gsdcrsStatus'
 data GetStreamingDistributionConfigResponse = GetStreamingDistributionConfigResponse'
-    { _gsdcrStreamingDistributionConfig :: !(Maybe StreamingDistributionConfig)
-    , _gsdcrETag                        :: !(Maybe Text)
-    , _gsdcrStatus                      :: !Int
+    { _gsdcrsStreamingDistributionConfig :: !(Maybe StreamingDistributionConfig)
+    , _gsdcrsETag                        :: !(Maybe Text)
+    , _gsdcrsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStreamingDistributionConfigResponse' smart constructor.
 getStreamingDistributionConfigResponse :: Int -> GetStreamingDistributionConfigResponse
 getStreamingDistributionConfigResponse pStatus =
     GetStreamingDistributionConfigResponse'
-    { _gsdcrStreamingDistributionConfig = Nothing
-    , _gsdcrETag = Nothing
-    , _gsdcrStatus = pStatus
+    { _gsdcrsStreamingDistributionConfig = Nothing
+    , _gsdcrsETag = Nothing
+    , _gsdcrsStatus = pStatus
     }
 
 -- | The streaming distribution\'s configuration information.
-gsdcrStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
-gsdcrStreamingDistributionConfig = lens _gsdcrStreamingDistributionConfig (\ s a -> s{_gsdcrStreamingDistributionConfig = a});
+gsdcrsStreamingDistributionConfig :: Lens' GetStreamingDistributionConfigResponse (Maybe StreamingDistributionConfig)
+gsdcrsStreamingDistributionConfig = lens _gsdcrsStreamingDistributionConfig (\ s a -> s{_gsdcrsStreamingDistributionConfig = a});
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-gsdcrETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
-gsdcrETag = lens _gsdcrETag (\ s a -> s{_gsdcrETag = a});
+gsdcrsETag :: Lens' GetStreamingDistributionConfigResponse (Maybe Text)
+gsdcrsETag = lens _gsdcrsETag (\ s a -> s{_gsdcrsETag = a});
 
 -- | FIXME: Undocumented member.
-gsdcrStatus :: Lens' GetStreamingDistributionConfigResponse Int
-gsdcrStatus = lens _gsdcrStatus (\ s a -> s{_gsdcrStatus = a});
+gsdcrsStatus :: Lens' GetStreamingDistributionConfigResponse Int
+gsdcrsStatus = lens _gsdcrsStatus (\ s a -> s{_gsdcrsStatus = a});

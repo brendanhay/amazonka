@@ -27,7 +27,7 @@ module Network.AWS.Redshift.DeleteHSMConfiguration
     -- ** Request constructor
     , deleteHSMConfiguration
     -- ** Request lenses
-    , dhcHSMConfigurationIdentifier
+    , dhcrqHSMConfigurationIdentifier
 
     -- * Response
     , DeleteHSMConfigurationResponse
@@ -46,21 +46,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhcHSMConfigurationIdentifier'
+-- * 'dhcrqHSMConfigurationIdentifier'
 newtype DeleteHSMConfiguration = DeleteHSMConfiguration'
-    { _dhcHSMConfigurationIdentifier :: Text
+    { _dhcrqHSMConfigurationIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSMConfiguration' smart constructor.
 deleteHSMConfiguration :: Text -> DeleteHSMConfiguration
 deleteHSMConfiguration pHSMConfigurationIdentifier =
     DeleteHSMConfiguration'
-    { _dhcHSMConfigurationIdentifier = pHSMConfigurationIdentifier
+    { _dhcrqHSMConfigurationIdentifier = pHSMConfigurationIdentifier
     }
 
 -- | The identifier of the Amazon Redshift HSM configuration to be deleted.
-dhcHSMConfigurationIdentifier :: Lens' DeleteHSMConfiguration Text
-dhcHSMConfigurationIdentifier = lens _dhcHSMConfigurationIdentifier (\ s a -> s{_dhcHSMConfigurationIdentifier = a});
+dhcrqHSMConfigurationIdentifier :: Lens' DeleteHSMConfiguration Text
+dhcrqHSMConfigurationIdentifier = lens _dhcrqHSMConfigurationIdentifier (\ s a -> s{_dhcrqHSMConfigurationIdentifier = a});
 
 instance AWSRequest DeleteHSMConfiguration where
         type Sv DeleteHSMConfiguration = Redshift
@@ -83,7 +83,7 @@ instance ToQuery DeleteHSMConfiguration where
                  ("DeleteHSMConfiguration" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "HsmConfigurationIdentifier" =:
-                 _dhcHSMConfigurationIdentifier]
+                 _dhcrqHSMConfigurationIdentifier]
 
 -- | /See:/ 'deleteHSMConfigurationResponse' smart constructor.
 data DeleteHSMConfigurationResponse =

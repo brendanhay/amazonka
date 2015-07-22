@@ -31,16 +31,16 @@ module Network.AWS.IAM.CreateGroup
     -- ** Request constructor
     , createGroup
     -- ** Request lenses
-    , cgPath
-    , cgGroupName
+    , cgrqPath
+    , cgrqGroupName
 
     -- * Response
     , CreateGroupResponse
     -- ** Response constructor
     , createGroupResponse
     -- ** Response lenses
-    , cgrStatus
-    , cgrGroup
+    , cgrsStatus
+    , cgrsGroup
     ) where
 
 import           Network.AWS.IAM.Types
@@ -52,20 +52,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cgPath'
+-- * 'cgrqPath'
 --
--- * 'cgGroupName'
+-- * 'cgrqGroupName'
 data CreateGroup = CreateGroup'
-    { _cgPath      :: !(Maybe Text)
-    , _cgGroupName :: !Text
+    { _cgrqPath      :: !(Maybe Text)
+    , _cgrqGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGroup' smart constructor.
 createGroup :: Text -> CreateGroup
 createGroup pGroupName =
     CreateGroup'
-    { _cgPath = Nothing
-    , _cgGroupName = pGroupName
+    { _cgrqPath = Nothing
+    , _cgrqGroupName = pGroupName
     }
 
 -- | The path to the group. For more information about paths, see
@@ -74,12 +74,12 @@ createGroup pGroupName =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cgPath :: Lens' CreateGroup (Maybe Text)
-cgPath = lens _cgPath (\ s a -> s{_cgPath = a});
+cgrqPath :: Lens' CreateGroup (Maybe Text)
+cgrqPath = lens _cgrqPath (\ s a -> s{_cgrqPath = a});
 
 -- | The name of the group to create. Do not include the path in this value.
-cgGroupName :: Lens' CreateGroup Text
-cgGroupName = lens _cgGroupName (\ s a -> s{_cgGroupName = a});
+cgrqGroupName :: Lens' CreateGroup Text
+cgrqGroupName = lens _cgrqGroupName (\ s a -> s{_cgrqGroupName = a});
 
 instance AWSRequest CreateGroup where
         type Sv CreateGroup = IAM
@@ -102,7 +102,7 @@ instance ToQuery CreateGroup where
           = mconcat
               ["Action" =: ("CreateGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _cgPath, "GroupName" =: _cgGroupName]
+               "Path" =: _cgrqPath, "GroupName" =: _cgrqGroupName]
 
 -- | Contains the response to a successful CreateGroup request.
 --
@@ -110,26 +110,26 @@ instance ToQuery CreateGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cgrStatus'
+-- * 'cgrsStatus'
 --
--- * 'cgrGroup'
+-- * 'cgrsGroup'
 data CreateGroupResponse = CreateGroupResponse'
-    { _cgrStatus :: !Int
-    , _cgrGroup  :: !Group
+    { _cgrsStatus :: !Int
+    , _cgrsGroup  :: !Group
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateGroupResponse' smart constructor.
 createGroupResponse :: Int -> Group -> CreateGroupResponse
 createGroupResponse pStatus pGroup =
     CreateGroupResponse'
-    { _cgrStatus = pStatus
-    , _cgrGroup = pGroup
+    { _cgrsStatus = pStatus
+    , _cgrsGroup = pGroup
     }
 
 -- | FIXME: Undocumented member.
-cgrStatus :: Lens' CreateGroupResponse Int
-cgrStatus = lens _cgrStatus (\ s a -> s{_cgrStatus = a});
+cgrsStatus :: Lens' CreateGroupResponse Int
+cgrsStatus = lens _cgrsStatus (\ s a -> s{_cgrsStatus = a});
 
 -- | Information about the group.
-cgrGroup :: Lens' CreateGroupResponse Group
-cgrGroup = lens _cgrGroup (\ s a -> s{_cgrGroup = a});
+cgrsGroup :: Lens' CreateGroupResponse Group
+cgrsGroup = lens _cgrsGroup (\ s a -> s{_cgrsGroup = a});

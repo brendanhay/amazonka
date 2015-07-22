@@ -79,26 +79,26 @@ module Network.AWS.STS.AssumeRoleWithSAML
     -- ** Request constructor
     , assumeRoleWithSAML
     -- ** Request lenses
-    , arwsamlDurationSeconds
-    , arwsamlPolicy
-    , arwsamlRoleARN
-    , arwsamlPrincipalARN
-    , arwsamlSAMLAssertion
+    , arwsamlrqDurationSeconds
+    , arwsamlrqPolicy
+    , arwsamlrqRoleARN
+    , arwsamlrqPrincipalARN
+    , arwsamlrqSAMLAssertion
 
     -- * Response
     , AssumeRoleWithSAMLResponse
     -- ** Response constructor
     , assumeRoleWithSAMLResponse
     -- ** Response lenses
-    , arwsamlrAudience
-    , arwsamlrSubject
-    , arwsamlrPackedPolicySize
-    , arwsamlrCredentials
-    , arwsamlrSubjectType
-    , arwsamlrNameQualifier
-    , arwsamlrAssumedRoleUser
-    , arwsamlrIssuer
-    , arwsamlrStatus
+    , arwsamlrsAudience
+    , arwsamlrsSubject
+    , arwsamlrsPackedPolicySize
+    , arwsamlrsCredentials
+    , arwsamlrsSubjectType
+    , arwsamlrsNameQualifier
+    , arwsamlrsAssumedRoleUser
+    , arwsamlrsIssuer
+    , arwsamlrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -110,32 +110,32 @@ import           Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arwsamlDurationSeconds'
+-- * 'arwsamlrqDurationSeconds'
 --
--- * 'arwsamlPolicy'
+-- * 'arwsamlrqPolicy'
 --
--- * 'arwsamlRoleARN'
+-- * 'arwsamlrqRoleARN'
 --
--- * 'arwsamlPrincipalARN'
+-- * 'arwsamlrqPrincipalARN'
 --
--- * 'arwsamlSAMLAssertion'
+-- * 'arwsamlrqSAMLAssertion'
 data AssumeRoleWithSAML = AssumeRoleWithSAML'
-    { _arwsamlDurationSeconds :: !(Maybe Nat)
-    , _arwsamlPolicy          :: !(Maybe Text)
-    , _arwsamlRoleARN         :: !Text
-    , _arwsamlPrincipalARN    :: !Text
-    , _arwsamlSAMLAssertion   :: !Text
+    { _arwsamlrqDurationSeconds :: !(Maybe Nat)
+    , _arwsamlrqPolicy          :: !(Maybe Text)
+    , _arwsamlrqRoleARN         :: !Text
+    , _arwsamlrqPrincipalARN    :: !Text
+    , _arwsamlrqSAMLAssertion   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleWithSAML' smart constructor.
 assumeRoleWithSAML :: Text -> Text -> Text -> AssumeRoleWithSAML
 assumeRoleWithSAML pRoleARN pPrincipalARN pSAMLAssertion =
     AssumeRoleWithSAML'
-    { _arwsamlDurationSeconds = Nothing
-    , _arwsamlPolicy = Nothing
-    , _arwsamlRoleARN = pRoleARN
-    , _arwsamlPrincipalARN = pPrincipalARN
-    , _arwsamlSAMLAssertion = pSAMLAssertion
+    { _arwsamlrqDurationSeconds = Nothing
+    , _arwsamlrqPolicy = Nothing
+    , _arwsamlrqRoleARN = pRoleARN
+    , _arwsamlrqPrincipalARN = pPrincipalARN
+    , _arwsamlrqSAMLAssertion = pSAMLAssertion
     }
 
 -- | The duration, in seconds, of the role session. The value can range from
@@ -146,8 +146,8 @@ assumeRoleWithSAML pRoleARN pPrincipalARN pSAMLAssertion =
 --
 -- The maximum duration for a session is 1 hour, and the minimum duration
 -- is 15 minutes, even if values outside this range are specified.
-arwsamlDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
-arwsamlDurationSeconds = lens _arwsamlDurationSeconds (\ s a -> s{_arwsamlDurationSeconds = a}) . mapping _Nat;
+arwsamlrqDurationSeconds :: Lens' AssumeRoleWithSAML (Maybe Natural)
+arwsamlrqDurationSeconds = lens _arwsamlrqDurationSeconds (\ s a -> s{_arwsamlrqDurationSeconds = a}) . mapping _Nat;
 
 -- | An IAM policy in JSON format.
 --
@@ -167,25 +167,25 @@ arwsamlDurationSeconds = lens _arwsamlDurationSeconds (\ s a -> s{_arwsamlDurati
 -- separate limit. The PackedPolicySize response element indicates by
 -- percentage how close to the upper size limit the policy is, with 100%
 -- equaling the maximum allowed size.
-arwsamlPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
-arwsamlPolicy = lens _arwsamlPolicy (\ s a -> s{_arwsamlPolicy = a});
+arwsamlrqPolicy :: Lens' AssumeRoleWithSAML (Maybe Text)
+arwsamlrqPolicy = lens _arwsamlrqPolicy (\ s a -> s{_arwsamlrqPolicy = a});
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-arwsamlRoleARN :: Lens' AssumeRoleWithSAML Text
-arwsamlRoleARN = lens _arwsamlRoleARN (\ s a -> s{_arwsamlRoleARN = a});
+arwsamlrqRoleARN :: Lens' AssumeRoleWithSAML Text
+arwsamlrqRoleARN = lens _arwsamlrqRoleARN (\ s a -> s{_arwsamlrqRoleARN = a});
 
 -- | The Amazon Resource Name (ARN) of the SAML provider in IAM that
 -- describes the IdP.
-arwsamlPrincipalARN :: Lens' AssumeRoleWithSAML Text
-arwsamlPrincipalARN = lens _arwsamlPrincipalARN (\ s a -> s{_arwsamlPrincipalARN = a});
+arwsamlrqPrincipalARN :: Lens' AssumeRoleWithSAML Text
+arwsamlrqPrincipalARN = lens _arwsamlrqPrincipalARN (\ s a -> s{_arwsamlrqPrincipalARN = a});
 
 -- | The base-64 encoded SAML authentication response provided by the IdP.
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/create-role-saml-IdP-tasks.html Configuring a Relying Party and Adding Claims>
 -- in the /Using IAM/ guide.
-arwsamlSAMLAssertion :: Lens' AssumeRoleWithSAML Text
-arwsamlSAMLAssertion = lens _arwsamlSAMLAssertion (\ s a -> s{_arwsamlSAMLAssertion = a});
+arwsamlrqSAMLAssertion :: Lens' AssumeRoleWithSAML Text
+arwsamlrqSAMLAssertion = lens _arwsamlrqSAMLAssertion (\ s a -> s{_arwsamlrqSAMLAssertion = a});
 
 instance AWSRequest AssumeRoleWithSAML where
         type Sv AssumeRoleWithSAML = STS
@@ -216,11 +216,11 @@ instance ToQuery AssumeRoleWithSAML where
           = mconcat
               ["Action" =: ("AssumeRoleWithSAML" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
-               "DurationSeconds" =: _arwsamlDurationSeconds,
-               "Policy" =: _arwsamlPolicy,
-               "RoleArn" =: _arwsamlRoleARN,
-               "PrincipalArn" =: _arwsamlPrincipalARN,
-               "SAMLAssertion" =: _arwsamlSAMLAssertion]
+               "DurationSeconds" =: _arwsamlrqDurationSeconds,
+               "Policy" =: _arwsamlrqPolicy,
+               "RoleArn" =: _arwsamlrqRoleARN,
+               "PrincipalArn" =: _arwsamlrqPrincipalARN,
+               "SAMLAssertion" =: _arwsamlrqSAMLAssertion]
 
 -- | Contains the response to a successful AssumeRoleWithSAML request,
 -- including temporary AWS credentials that can be used to make AWS
@@ -230,69 +230,69 @@ instance ToQuery AssumeRoleWithSAML where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arwsamlrAudience'
+-- * 'arwsamlrsAudience'
 --
--- * 'arwsamlrSubject'
+-- * 'arwsamlrsSubject'
 --
--- * 'arwsamlrPackedPolicySize'
+-- * 'arwsamlrsPackedPolicySize'
 --
--- * 'arwsamlrCredentials'
+-- * 'arwsamlrsCredentials'
 --
--- * 'arwsamlrSubjectType'
+-- * 'arwsamlrsSubjectType'
 --
--- * 'arwsamlrNameQualifier'
+-- * 'arwsamlrsNameQualifier'
 --
--- * 'arwsamlrAssumedRoleUser'
+-- * 'arwsamlrsAssumedRoleUser'
 --
--- * 'arwsamlrIssuer'
+-- * 'arwsamlrsIssuer'
 --
--- * 'arwsamlrStatus'
+-- * 'arwsamlrsStatus'
 data AssumeRoleWithSAMLResponse = AssumeRoleWithSAMLResponse'
-    { _arwsamlrAudience         :: !(Maybe Text)
-    , _arwsamlrSubject          :: !(Maybe Text)
-    , _arwsamlrPackedPolicySize :: !(Maybe Nat)
-    , _arwsamlrCredentials      :: !(Maybe Credentials)
-    , _arwsamlrSubjectType      :: !(Maybe Text)
-    , _arwsamlrNameQualifier    :: !(Maybe Text)
-    , _arwsamlrAssumedRoleUser  :: !(Maybe AssumedRoleUser)
-    , _arwsamlrIssuer           :: !(Maybe Text)
-    , _arwsamlrStatus           :: !Int
+    { _arwsamlrsAudience         :: !(Maybe Text)
+    , _arwsamlrsSubject          :: !(Maybe Text)
+    , _arwsamlrsPackedPolicySize :: !(Maybe Nat)
+    , _arwsamlrsCredentials      :: !(Maybe Credentials)
+    , _arwsamlrsSubjectType      :: !(Maybe Text)
+    , _arwsamlrsNameQualifier    :: !(Maybe Text)
+    , _arwsamlrsAssumedRoleUser  :: !(Maybe AssumedRoleUser)
+    , _arwsamlrsIssuer           :: !(Maybe Text)
+    , _arwsamlrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleWithSAMLResponse' smart constructor.
 assumeRoleWithSAMLResponse :: Int -> AssumeRoleWithSAMLResponse
 assumeRoleWithSAMLResponse pStatus =
     AssumeRoleWithSAMLResponse'
-    { _arwsamlrAudience = Nothing
-    , _arwsamlrSubject = Nothing
-    , _arwsamlrPackedPolicySize = Nothing
-    , _arwsamlrCredentials = Nothing
-    , _arwsamlrSubjectType = Nothing
-    , _arwsamlrNameQualifier = Nothing
-    , _arwsamlrAssumedRoleUser = Nothing
-    , _arwsamlrIssuer = Nothing
-    , _arwsamlrStatus = pStatus
+    { _arwsamlrsAudience = Nothing
+    , _arwsamlrsSubject = Nothing
+    , _arwsamlrsPackedPolicySize = Nothing
+    , _arwsamlrsCredentials = Nothing
+    , _arwsamlrsSubjectType = Nothing
+    , _arwsamlrsNameQualifier = Nothing
+    , _arwsamlrsAssumedRoleUser = Nothing
+    , _arwsamlrsIssuer = Nothing
+    , _arwsamlrsStatus = pStatus
     }
 
 -- | The value of the @Recipient@ attribute of the @SubjectConfirmationData@
 -- element of the SAML assertion.
-arwsamlrAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrAudience = lens _arwsamlrAudience (\ s a -> s{_arwsamlrAudience = a});
+arwsamlrsAudience :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrsAudience = lens _arwsamlrsAudience (\ s a -> s{_arwsamlrsAudience = a});
 
 -- | The value of the @NameID@ element in the @Subject@ element of the SAML
 -- assertion.
-arwsamlrSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrSubject = lens _arwsamlrSubject (\ s a -> s{_arwsamlrSubject = a});
+arwsamlrsSubject :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrsSubject = lens _arwsamlrsSubject (\ s a -> s{_arwsamlrsSubject = a});
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100
 -- percent, which means the policy exceeded the allowed space.
-arwsamlrPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Natural)
-arwsamlrPackedPolicySize = lens _arwsamlrPackedPolicySize (\ s a -> s{_arwsamlrPackedPolicySize = a}) . mapping _Nat;
+arwsamlrsPackedPolicySize :: Lens' AssumeRoleWithSAMLResponse (Maybe Natural)
+arwsamlrsPackedPolicySize = lens _arwsamlrsPackedPolicySize (\ s a -> s{_arwsamlrsPackedPolicySize = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-arwsamlrCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
-arwsamlrCredentials = lens _arwsamlrCredentials (\ s a -> s{_arwsamlrCredentials = a});
+arwsamlrsCredentials :: Lens' AssumeRoleWithSAMLResponse (Maybe Credentials)
+arwsamlrsCredentials = lens _arwsamlrsCredentials (\ s a -> s{_arwsamlrsCredentials = a});
 
 -- | The format of the name ID, as defined by the @Format@ attribute in the
 -- @NameID@ element of the SAML assertion. Typical examples of the format
@@ -303,8 +303,8 @@ arwsamlrCredentials = lens _arwsamlrCredentials (\ s a -> s{_arwsamlrCredentials
 -- example, @urn:oasis:names:tc:SAML:2.0:nameid-format:transient@ is
 -- returned as @transient@. If the format includes any other prefix, the
 -- format is returned with no modifications.
-arwsamlrSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrSubjectType = lens _arwsamlrSubjectType (\ s a -> s{_arwsamlrSubjectType = a});
+arwsamlrsSubjectType :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrsSubjectType = lens _arwsamlrsSubjectType (\ s a -> s{_arwsamlrsSubjectType = a});
 
 -- | A hash value based on the concatenation of the @Issuer@ response value,
 -- the AWS account ID, and the friendly name (the last part of the ARN) of
@@ -314,17 +314,17 @@ arwsamlrSubjectType = lens _arwsamlrSubjectType (\ s a -> s{_arwsamlrSubjectType
 -- The following pseudocode shows how the hash value is calculated:
 --
 -- @BASE64 ( SHA1 ( \"https:\/\/example.com\/saml\" + \"123456789012\" + \"\/MySAMLIdP\" ) )@
-arwsamlrNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrNameQualifier = lens _arwsamlrNameQualifier (\ s a -> s{_arwsamlrNameQualifier = a});
+arwsamlrsNameQualifier :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrsNameQualifier = lens _arwsamlrsNameQualifier (\ s a -> s{_arwsamlrsNameQualifier = a});
 
 -- | FIXME: Undocumented member.
-arwsamlrAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleUser)
-arwsamlrAssumedRoleUser = lens _arwsamlrAssumedRoleUser (\ s a -> s{_arwsamlrAssumedRoleUser = a});
+arwsamlrsAssumedRoleUser :: Lens' AssumeRoleWithSAMLResponse (Maybe AssumedRoleUser)
+arwsamlrsAssumedRoleUser = lens _arwsamlrsAssumedRoleUser (\ s a -> s{_arwsamlrsAssumedRoleUser = a});
 
 -- | The value of the @Issuer@ element of the SAML assertion.
-arwsamlrIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
-arwsamlrIssuer = lens _arwsamlrIssuer (\ s a -> s{_arwsamlrIssuer = a});
+arwsamlrsIssuer :: Lens' AssumeRoleWithSAMLResponse (Maybe Text)
+arwsamlrsIssuer = lens _arwsamlrsIssuer (\ s a -> s{_arwsamlrsIssuer = a});
 
 -- | FIXME: Undocumented member.
-arwsamlrStatus :: Lens' AssumeRoleWithSAMLResponse Int
-arwsamlrStatus = lens _arwsamlrStatus (\ s a -> s{_arwsamlrStatus = a});
+arwsamlrsStatus :: Lens' AssumeRoleWithSAMLResponse Int
+arwsamlrsStatus = lens _arwsamlrsStatus (\ s a -> s{_arwsamlrsStatus = a});

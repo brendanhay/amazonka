@@ -28,29 +28,29 @@ import           Network.AWS.Support.Types.Sum
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'attData'
+-- * 'aData'
 --
--- * 'attFileName'
+-- * 'aFileName'
 data Attachment = Attachment'
-    { _attData     :: !(Maybe Base64)
-    , _attFileName :: !(Maybe Text)
+    { _aData     :: !(Maybe Base64)
+    , _aFileName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Attachment' smart constructor.
 attachment :: Attachment
 attachment =
     Attachment'
-    { _attData = Nothing
-    , _attFileName = Nothing
+    { _aData = Nothing
+    , _aFileName = Nothing
     }
 
 -- | The content of the attachment file.
-attData :: Lens' Attachment (Maybe Base64)
-attData = lens _attData (\ s a -> s{_attData = a});
+aData :: Lens' Attachment (Maybe Base64)
+aData = lens _aData (\ s a -> s{_aData = a});
 
 -- | The name of the attachment file.
-attFileName :: Lens' Attachment (Maybe Text)
-attFileName = lens _attFileName (\ s a -> s{_attFileName = a});
+aFileName :: Lens' Attachment (Maybe Text)
+aFileName = lens _aFileName (\ s a -> s{_aFileName = a});
 
 instance FromJSON Attachment where
         parseJSON
@@ -61,8 +61,7 @@ instance FromJSON Attachment where
 
 instance ToJSON Attachment where
         toJSON Attachment'{..}
-          = object
-              ["data" .= _attData, "fileName" .= _attFileName]
+          = object ["data" .= _aData, "fileName" .= _aFileName]
 
 -- | The file name and ID of an attachment to a case communication. You can
 -- use the ID to retrieve the attachment with the DescribeAttachment
@@ -276,29 +275,29 @@ instance FromJSON CaseDetails where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'catName'
+-- * 'cName'
 --
--- * 'catCode'
+-- * 'cCode'
 data Category = Category'
-    { _catName :: !(Maybe Text)
-    , _catCode :: !(Maybe Text)
+    { _cName :: !(Maybe Text)
+    , _cCode :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Category' smart constructor.
 category :: Category
 category =
     Category'
-    { _catName = Nothing
-    , _catCode = Nothing
+    { _cName = Nothing
+    , _cCode = Nothing
     }
 
 -- | The category name for the support case.
-catName :: Lens' Category (Maybe Text)
-catName = lens _catName (\ s a -> s{_catName = a});
+cName :: Lens' Category (Maybe Text)
+cName = lens _cName (\ s a -> s{_cName = a});
 
 -- | The category code for the support case.
-catCode :: Lens' Category (Maybe Text)
-catCode = lens _catCode (\ s a -> s{_catCode = a});
+cCode :: Lens' Category (Maybe Text)
+cCode = lens _cCode (\ s a -> s{_cCode = a});
 
 instance FromJSON Category where
         parseJSON
@@ -314,55 +313,55 @@ instance FromJSON Category where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'comBody'
+-- * 'cBody'
 --
--- * 'comCaseId'
+-- * 'cCaseId'
 --
--- * 'comSubmittedBy'
+-- * 'cSubmittedBy'
 --
--- * 'comTimeCreated'
+-- * 'cTimeCreated'
 --
--- * 'comAttachmentSet'
+-- * 'cAttachmentSet'
 data Communication = Communication'
-    { _comBody          :: !(Maybe Text)
-    , _comCaseId        :: !(Maybe Text)
-    , _comSubmittedBy   :: !(Maybe Text)
-    , _comTimeCreated   :: !(Maybe Text)
-    , _comAttachmentSet :: !(Maybe [AttachmentDetails])
+    { _cBody          :: !(Maybe Text)
+    , _cCaseId        :: !(Maybe Text)
+    , _cSubmittedBy   :: !(Maybe Text)
+    , _cTimeCreated   :: !(Maybe Text)
+    , _cAttachmentSet :: !(Maybe [AttachmentDetails])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Communication' smart constructor.
 communication :: Communication
 communication =
     Communication'
-    { _comBody = Nothing
-    , _comCaseId = Nothing
-    , _comSubmittedBy = Nothing
-    , _comTimeCreated = Nothing
-    , _comAttachmentSet = Nothing
+    { _cBody = Nothing
+    , _cCaseId = Nothing
+    , _cSubmittedBy = Nothing
+    , _cTimeCreated = Nothing
+    , _cAttachmentSet = Nothing
     }
 
 -- | The text of the communication between the customer and AWS Support.
-comBody :: Lens' Communication (Maybe Text)
-comBody = lens _comBody (\ s a -> s{_comBody = a});
+cBody :: Lens' Communication (Maybe Text)
+cBody = lens _cBody (\ s a -> s{_cBody = a});
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-comCaseId :: Lens' Communication (Maybe Text)
-comCaseId = lens _comCaseId (\ s a -> s{_comCaseId = a});
+cCaseId :: Lens' Communication (Maybe Text)
+cCaseId = lens _cCaseId (\ s a -> s{_cCaseId = a});
 
 -- | The email address of the account that submitted the AWS Support case.
-comSubmittedBy :: Lens' Communication (Maybe Text)
-comSubmittedBy = lens _comSubmittedBy (\ s a -> s{_comSubmittedBy = a});
+cSubmittedBy :: Lens' Communication (Maybe Text)
+cSubmittedBy = lens _cSubmittedBy (\ s a -> s{_cSubmittedBy = a});
 
 -- | The time the communication was created.
-comTimeCreated :: Lens' Communication (Maybe Text)
-comTimeCreated = lens _comTimeCreated (\ s a -> s{_comTimeCreated = a});
+cTimeCreated :: Lens' Communication (Maybe Text)
+cTimeCreated = lens _cTimeCreated (\ s a -> s{_cTimeCreated = a});
 
 -- | Information about the attachments to the case communication.
-comAttachmentSet :: Lens' Communication [AttachmentDetails]
-comAttachmentSet = lens _comAttachmentSet (\ s a -> s{_comAttachmentSet = a}) . _Default;
+cAttachmentSet :: Lens' Communication [AttachmentDetails]
+cAttachmentSet = lens _cAttachmentSet (\ s a -> s{_cAttachmentSet = a}) . _Default;
 
 instance FromJSON Communication where
         parseJSON

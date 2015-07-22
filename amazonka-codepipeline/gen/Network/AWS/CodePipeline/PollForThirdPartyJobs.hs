@@ -33,16 +33,16 @@ module Network.AWS.CodePipeline.PollForThirdPartyJobs
     -- ** Request constructor
     , pollForThirdPartyJobs
     -- ** Request lenses
-    , pftpjMaxBatchSize
-    , pftpjActionTypeId
+    , pftpjrqMaxBatchSize
+    , pftpjrqActionTypeId
 
     -- * Response
     , PollForThirdPartyJobsResponse
     -- ** Response constructor
     , pollForThirdPartyJobsResponse
     -- ** Response lenses
-    , pftpjrJobs
-    , pftpjrStatus
+    , pftpjrsJobs
+    , pftpjrsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pftpjMaxBatchSize'
+-- * 'pftpjrqMaxBatchSize'
 --
--- * 'pftpjActionTypeId'
+-- * 'pftpjrqActionTypeId'
 data PollForThirdPartyJobs = PollForThirdPartyJobs'
-    { _pftpjMaxBatchSize :: !(Maybe Nat)
-    , _pftpjActionTypeId :: !ActionTypeId
+    { _pftpjrqMaxBatchSize :: !(Maybe Nat)
+    , _pftpjrqActionTypeId :: !ActionTypeId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForThirdPartyJobs' smart constructor.
 pollForThirdPartyJobs :: ActionTypeId -> PollForThirdPartyJobs
 pollForThirdPartyJobs pActionTypeId =
     PollForThirdPartyJobs'
-    { _pftpjMaxBatchSize = Nothing
-    , _pftpjActionTypeId = pActionTypeId
+    { _pftpjrqMaxBatchSize = Nothing
+    , _pftpjrqActionTypeId = pActionTypeId
     }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
-pftpjMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
-pftpjMaxBatchSize = lens _pftpjMaxBatchSize (\ s a -> s{_pftpjMaxBatchSize = a}) . mapping _Nat;
+pftpjrqMaxBatchSize :: Lens' PollForThirdPartyJobs (Maybe Natural)
+pftpjrqMaxBatchSize = lens _pftpjrqMaxBatchSize (\ s a -> s{_pftpjrqMaxBatchSize = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-pftpjActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
-pftpjActionTypeId = lens _pftpjActionTypeId (\ s a -> s{_pftpjActionTypeId = a});
+pftpjrqActionTypeId :: Lens' PollForThirdPartyJobs ActionTypeId
+pftpjrqActionTypeId = lens _pftpjrqActionTypeId (\ s a -> s{_pftpjrqActionTypeId = a});
 
 instance AWSRequest PollForThirdPartyJobs where
         type Sv PollForThirdPartyJobs = CodePipeline
@@ -104,8 +104,8 @@ instance ToHeaders PollForThirdPartyJobs where
 instance ToJSON PollForThirdPartyJobs where
         toJSON PollForThirdPartyJobs'{..}
           = object
-              ["maxBatchSize" .= _pftpjMaxBatchSize,
-               "actionTypeId" .= _pftpjActionTypeId]
+              ["maxBatchSize" .= _pftpjrqMaxBatchSize,
+               "actionTypeId" .= _pftpjrqActionTypeId]
 
 instance ToPath PollForThirdPartyJobs where
         toPath = const "/"
@@ -119,26 +119,26 @@ instance ToQuery PollForThirdPartyJobs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pftpjrJobs'
+-- * 'pftpjrsJobs'
 --
--- * 'pftpjrStatus'
+-- * 'pftpjrsStatus'
 data PollForThirdPartyJobsResponse = PollForThirdPartyJobsResponse'
-    { _pftpjrJobs   :: !(Maybe [ThirdPartyJob])
-    , _pftpjrStatus :: !Int
+    { _pftpjrsJobs   :: !(Maybe [ThirdPartyJob])
+    , _pftpjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForThirdPartyJobsResponse' smart constructor.
 pollForThirdPartyJobsResponse :: Int -> PollForThirdPartyJobsResponse
 pollForThirdPartyJobsResponse pStatus =
     PollForThirdPartyJobsResponse'
-    { _pftpjrJobs = Nothing
-    , _pftpjrStatus = pStatus
+    { _pftpjrsJobs = Nothing
+    , _pftpjrsStatus = pStatus
     }
 
 -- | Information about the jobs to take action on.
-pftpjrJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
-pftpjrJobs = lens _pftpjrJobs (\ s a -> s{_pftpjrJobs = a}) . _Default;
+pftpjrsJobs :: Lens' PollForThirdPartyJobsResponse [ThirdPartyJob]
+pftpjrsJobs = lens _pftpjrsJobs (\ s a -> s{_pftpjrsJobs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-pftpjrStatus :: Lens' PollForThirdPartyJobsResponse Int
-pftpjrStatus = lens _pftpjrStatus (\ s a -> s{_pftpjrStatus = a});
+pftpjrsStatus :: Lens' PollForThirdPartyJobsResponse Int
+pftpjrsStatus = lens _pftpjrsStatus (\ s a -> s{_pftpjrsStatus = a});

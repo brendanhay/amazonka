@@ -83,30 +83,30 @@ instance FromXML ActiveTrustedSigners where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aliItems'
+-- * 'aItems'
 --
--- * 'aliQuantity'
+-- * 'aQuantity'
 data Aliases = Aliases'
-    { _aliItems    :: !(Maybe [Text])
-    , _aliQuantity :: !Int
+    { _aItems    :: !(Maybe [Text])
+    , _aQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Aliases' smart constructor.
 aliases :: Int -> Aliases
 aliases pQuantity =
     Aliases'
-    { _aliItems = Nothing
-    , _aliQuantity = pQuantity
+    { _aItems = Nothing
+    , _aQuantity = pQuantity
     }
 
 -- | Optional: A complex type that contains CNAME elements, if any, for this
 -- distribution. If Quantity is 0, you can omit Items.
-aliItems :: Lens' Aliases [Text]
-aliItems = lens _aliItems (\ s a -> s{_aliItems = a}) . _Default;
+aItems :: Lens' Aliases [Text]
+aItems = lens _aItems (\ s a -> s{_aItems = a}) . _Default;
 
 -- | The number of CNAMEs, if any, for this distribution.
-aliQuantity :: Lens' Aliases Int
-aliQuantity = lens _aliQuantity (\ s a -> s{_aliQuantity = a});
+aQuantity :: Lens' Aliases Int
+aQuantity = lens _aQuantity (\ s a -> s{_aQuantity = a});
 
 instance FromXML Aliases where
         parseXML x
@@ -118,8 +118,8 @@ instance FromXML Aliases where
 instance ToXML Aliases where
         toXML Aliases'{..}
           = mconcat
-              ["Items" @= toXML (toXMLList "CNAME" <$> _aliItems),
-               "Quantity" @= _aliQuantity]
+              ["Items" @= toXML (toXMLList "CNAME" <$> _aItems),
+               "Quantity" @= _aQuantity]
 
 -- | A complex type that controls which HTTP methods CloudFront processes and
 -- forwards to your Amazon S3 bucket or your custom origin. There are three
@@ -805,28 +805,28 @@ instance ToXML CookiePreference where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cerResponsePagePath'
+-- * 'ceResponsePagePath'
 --
--- * 'cerResponseCode'
+-- * 'ceResponseCode'
 --
--- * 'cerErrorCachingMinTTL'
+-- * 'ceErrorCachingMinTTL'
 --
--- * 'cerErrorCode'
+-- * 'ceErrorCode'
 data CustomErrorResponse = CustomErrorResponse'
-    { _cerResponsePagePath   :: !(Maybe Text)
-    , _cerResponseCode       :: !(Maybe Text)
-    , _cerErrorCachingMinTTL :: !(Maybe Integer)
-    , _cerErrorCode          :: !Int
+    { _ceResponsePagePath   :: !(Maybe Text)
+    , _ceResponseCode       :: !(Maybe Text)
+    , _ceErrorCachingMinTTL :: !(Maybe Integer)
+    , _ceErrorCode          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CustomErrorResponse' smart constructor.
 customErrorResponse :: Int -> CustomErrorResponse
 customErrorResponse pErrorCode =
     CustomErrorResponse'
-    { _cerResponsePagePath = Nothing
-    , _cerResponseCode = Nothing
-    , _cerErrorCachingMinTTL = Nothing
-    , _cerErrorCode = pErrorCode
+    { _ceResponsePagePath = Nothing
+    , _ceResponseCode = Nothing
+    , _ceErrorCachingMinTTL = Nothing
+    , _ceErrorCode = pErrorCode
     }
 
 -- | The path of the custom error page (for example, \/custom_404.html). The
@@ -835,27 +835,27 @@ customErrorResponse pErrorCode =
 -- defined in RFC 1783 (http:\/\/www.ietf.org\/rfc\/rfc1738.txt), URL
 -- encode those characters. Do not URL encode any other characters in the
 -- path, or CloudFront will not return the custom error page to the viewer.
-cerResponsePagePath :: Lens' CustomErrorResponse (Maybe Text)
-cerResponsePagePath = lens _cerResponsePagePath (\ s a -> s{_cerResponsePagePath = a});
+ceResponsePagePath :: Lens' CustomErrorResponse (Maybe Text)
+ceResponsePagePath = lens _ceResponsePagePath (\ s a -> s{_ceResponsePagePath = a});
 
 -- | The HTTP status code that you want CloudFront to return with the custom
 -- error page to the viewer. For a list of HTTP status codes that you can
 -- replace, see CloudFront Documentation.
-cerResponseCode :: Lens' CustomErrorResponse (Maybe Text)
-cerResponseCode = lens _cerResponseCode (\ s a -> s{_cerResponseCode = a});
+ceResponseCode :: Lens' CustomErrorResponse (Maybe Text)
+ceResponseCode = lens _ceResponseCode (\ s a -> s{_ceResponseCode = a});
 
 -- | The minimum amount of time you want HTTP error codes to stay in
 -- CloudFront caches before CloudFront queries your origin to see whether
 -- the object has been updated. You can specify a value from 0 to
 -- 31,536,000.
-cerErrorCachingMinTTL :: Lens' CustomErrorResponse (Maybe Integer)
-cerErrorCachingMinTTL = lens _cerErrorCachingMinTTL (\ s a -> s{_cerErrorCachingMinTTL = a});
+ceErrorCachingMinTTL :: Lens' CustomErrorResponse (Maybe Integer)
+ceErrorCachingMinTTL = lens _ceErrorCachingMinTTL (\ s a -> s{_ceErrorCachingMinTTL = a});
 
 -- | The 4xx or 5xx HTTP status code that you want to customize. For a list
 -- of HTTP status codes that you can customize, see CloudFront
 -- documentation.
-cerErrorCode :: Lens' CustomErrorResponse Int
-cerErrorCode = lens _cerErrorCode (\ s a -> s{_cerErrorCode = a});
+ceErrorCode :: Lens' CustomErrorResponse Int
+ceErrorCode = lens _ceErrorCode (\ s a -> s{_ceErrorCode = a});
 
 instance FromXML CustomErrorResponse where
         parseXML x
@@ -867,10 +867,10 @@ instance FromXML CustomErrorResponse where
 instance ToXML CustomErrorResponse where
         toXML CustomErrorResponse'{..}
           = mconcat
-              ["ResponsePagePath" @= _cerResponsePagePath,
-               "ResponseCode" @= _cerResponseCode,
-               "ErrorCachingMinTTL" @= _cerErrorCachingMinTTL,
-               "ErrorCode" @= _cerErrorCode]
+              ["ResponsePagePath" @= _ceResponsePagePath,
+               "ResponseCode" @= _ceResponseCode,
+               "ErrorCachingMinTTL" @= _ceErrorCachingMinTTL,
+               "ErrorCode" @= _ceErrorCode]
 
 -- | A complex type that contains zero or more CustomErrorResponse elements.
 --
@@ -1127,64 +1127,64 @@ instance ToXML DefaultCacheBehavior where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disId'
+-- * 'dId'
 --
--- * 'disStatus'
+-- * 'dStatus'
 --
--- * 'disLastModifiedTime'
+-- * 'dLastModifiedTime'
 --
--- * 'disInProgressInvalidationBatches'
+-- * 'dInProgressInvalidationBatches'
 --
--- * 'disDomainName'
+-- * 'dDomainName'
 --
--- * 'disActiveTrustedSigners'
+-- * 'dActiveTrustedSigners'
 --
--- * 'disDistributionConfig'
+-- * 'dDistributionConfig'
 data Distribution = Distribution'
-    { _disId                            :: !Text
-    , _disStatus                        :: !Text
-    , _disLastModifiedTime              :: !ISO8601
-    , _disInProgressInvalidationBatches :: !Int
-    , _disDomainName                    :: !Text
-    , _disActiveTrustedSigners          :: !ActiveTrustedSigners
-    , _disDistributionConfig            :: !DistributionConfig
+    { _dId                            :: !Text
+    , _dStatus                        :: !Text
+    , _dLastModifiedTime              :: !ISO8601
+    , _dInProgressInvalidationBatches :: !Int
+    , _dDomainName                    :: !Text
+    , _dActiveTrustedSigners          :: !ActiveTrustedSigners
+    , _dDistributionConfig            :: !DistributionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Distribution' smart constructor.
 distribution :: Text -> Text -> UTCTime -> Int -> Text -> ActiveTrustedSigners -> DistributionConfig -> Distribution
 distribution pId pStatus pLastModifiedTime pInProgressInvalidationBatches pDomainName pActiveTrustedSigners pDistributionConfig =
     Distribution'
-    { _disId = pId
-    , _disStatus = pStatus
-    , _disLastModifiedTime = _Time # pLastModifiedTime
-    , _disInProgressInvalidationBatches = pInProgressInvalidationBatches
-    , _disDomainName = pDomainName
-    , _disActiveTrustedSigners = pActiveTrustedSigners
-    , _disDistributionConfig = pDistributionConfig
+    { _dId = pId
+    , _dStatus = pStatus
+    , _dLastModifiedTime = _Time # pLastModifiedTime
+    , _dInProgressInvalidationBatches = pInProgressInvalidationBatches
+    , _dDomainName = pDomainName
+    , _dActiveTrustedSigners = pActiveTrustedSigners
+    , _dDistributionConfig = pDistributionConfig
     }
 
 -- | The identifier for the distribution. For example: EDFDVBD632BHDS5.
-disId :: Lens' Distribution Text
-disId = lens _disId (\ s a -> s{_disId = a});
+dId :: Lens' Distribution Text
+dId = lens _dId (\ s a -> s{_dId = a});
 
 -- | This response element indicates the current status of the distribution.
 -- When the status is Deployed, the distribution\'s information is fully
 -- propagated throughout the Amazon CloudFront system.
-disStatus :: Lens' Distribution Text
-disStatus = lens _disStatus (\ s a -> s{_disStatus = a});
+dStatus :: Lens' Distribution Text
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
 -- | The date and time the distribution was last modified.
-disLastModifiedTime :: Lens' Distribution UTCTime
-disLastModifiedTime = lens _disLastModifiedTime (\ s a -> s{_disLastModifiedTime = a}) . _Time;
+dLastModifiedTime :: Lens' Distribution UTCTime
+dLastModifiedTime = lens _dLastModifiedTime (\ s a -> s{_dLastModifiedTime = a}) . _Time;
 
 -- | The number of invalidation batches currently in progress.
-disInProgressInvalidationBatches :: Lens' Distribution Int
-disInProgressInvalidationBatches = lens _disInProgressInvalidationBatches (\ s a -> s{_disInProgressInvalidationBatches = a});
+dInProgressInvalidationBatches :: Lens' Distribution Int
+dInProgressInvalidationBatches = lens _dInProgressInvalidationBatches (\ s a -> s{_dInProgressInvalidationBatches = a});
 
 -- | The domain name corresponding to the distribution. For example:
 -- d604721fxaaqy9.cloudfront.net.
-disDomainName :: Lens' Distribution Text
-disDomainName = lens _disDomainName (\ s a -> s{_disDomainName = a});
+dDomainName :: Lens' Distribution Text
+dDomainName = lens _dDomainName (\ s a -> s{_dDomainName = a});
 
 -- | CloudFront automatically adds this element to the response only if
 -- you\'ve set up the distribution to serve private content with signed
@@ -1195,12 +1195,12 @@ disDomainName = lens _disDomainName (\ s a -> s{_disDomainName = a});
 -- associated with the trusted signer\'s AWS account. If no KeyPairId
 -- element appears for a Signer, that signer can\'t create working signed
 -- URLs.
-disActiveTrustedSigners :: Lens' Distribution ActiveTrustedSigners
-disActiveTrustedSigners = lens _disActiveTrustedSigners (\ s a -> s{_disActiveTrustedSigners = a});
+dActiveTrustedSigners :: Lens' Distribution ActiveTrustedSigners
+dActiveTrustedSigners = lens _dActiveTrustedSigners (\ s a -> s{_dActiveTrustedSigners = a});
 
 -- | The current configuration information for the distribution.
-disDistributionConfig :: Lens' Distribution DistributionConfig
-disDistributionConfig = lens _disDistributionConfig (\ s a -> s{_disDistributionConfig = a});
+dDistributionConfig :: Lens' Distribution DistributionConfig
+dDistributionConfig = lens _dDistributionConfig (\ s a -> s{_dDistributionConfig = a});
 
 instance FromXML Distribution where
         parseXML x
@@ -1766,27 +1766,27 @@ instance ToXML GeoRestriction where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'heaItems'
+-- * 'hItems'
 --
--- * 'heaQuantity'
+-- * 'hQuantity'
 data Headers = Headers'
-    { _heaItems    :: !(Maybe [Text])
-    , _heaQuantity :: !Int
+    { _hItems    :: !(Maybe [Text])
+    , _hQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Headers' smart constructor.
 headers :: Int -> Headers
 headers pQuantity =
     Headers'
-    { _heaItems = Nothing
-    , _heaQuantity = pQuantity
+    { _hItems = Nothing
+    , _hQuantity = pQuantity
     }
 
 -- | Optional: A complex type that contains a Name element for each header
 -- that you want CloudFront to forward to the origin and to vary on for
 -- this cache behavior. If Quantity is 0, omit Items.
-heaItems :: Lens' Headers [Text]
-heaItems = lens _heaItems (\ s a -> s{_heaItems = a}) . _Default;
+hItems :: Lens' Headers [Text]
+hItems = lens _hItems (\ s a -> s{_hItems = a}) . _Default;
 
 -- | The number of different headers that you want CloudFront to forward to
 -- the origin and to vary on for this cache behavior. The maximum number of
@@ -1795,8 +1795,8 @@ heaItems = lens _heaItems (\ s a -> s{_heaItems = a}) . _Default;
 -- Quantity and * for Name. If you don\'t want CloudFront to forward any
 -- additional headers to the origin or to vary on any headers, specify 0
 -- for Quantity and omit Items.
-heaQuantity :: Lens' Headers Int
-heaQuantity = lens _heaQuantity (\ s a -> s{_heaQuantity = a});
+hQuantity :: Lens' Headers Int
+hQuantity = lens _hQuantity (\ s a -> s{_hQuantity = a});
 
 instance FromXML Headers where
         parseXML x
@@ -1808,8 +1808,8 @@ instance FromXML Headers where
 instance ToXML Headers where
         toXML Headers'{..}
           = mconcat
-              ["Items" @= toXML (toXMLList "Name" <$> _heaItems),
-               "Quantity" @= _heaQuantity]
+              ["Items" @= toXML (toXMLList "Name" <$> _hItems),
+               "Quantity" @= _hQuantity]
 
 -- | An invalidation.
 --
@@ -1817,47 +1817,47 @@ instance ToXML Headers where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'invId'
+-- * 'iId'
 --
--- * 'invStatus'
+-- * 'iStatus'
 --
--- * 'invCreateTime'
+-- * 'iCreateTime'
 --
--- * 'invInvalidationBatch'
+-- * 'iInvalidationBatch'
 data Invalidation = Invalidation'
-    { _invId                :: !Text
-    , _invStatus            :: !Text
-    , _invCreateTime        :: !ISO8601
-    , _invInvalidationBatch :: !InvalidationBatch
+    { _iId                :: !Text
+    , _iStatus            :: !Text
+    , _iCreateTime        :: !ISO8601
+    , _iInvalidationBatch :: !InvalidationBatch
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Invalidation' smart constructor.
 invalidation :: Text -> Text -> UTCTime -> InvalidationBatch -> Invalidation
 invalidation pId pStatus pCreateTime pInvalidationBatch =
     Invalidation'
-    { _invId = pId
-    , _invStatus = pStatus
-    , _invCreateTime = _Time # pCreateTime
-    , _invInvalidationBatch = pInvalidationBatch
+    { _iId = pId
+    , _iStatus = pStatus
+    , _iCreateTime = _Time # pCreateTime
+    , _iInvalidationBatch = pInvalidationBatch
     }
 
 -- | The identifier for the invalidation request. For example:
 -- IDFDVBD632BHDS5.
-invId :: Lens' Invalidation Text
-invId = lens _invId (\ s a -> s{_invId = a});
+iId :: Lens' Invalidation Text
+iId = lens _iId (\ s a -> s{_iId = a});
 
 -- | The status of the invalidation request. When the invalidation batch is
 -- finished, the status is Completed.
-invStatus :: Lens' Invalidation Text
-invStatus = lens _invStatus (\ s a -> s{_invStatus = a});
+iStatus :: Lens' Invalidation Text
+iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 
 -- | The date and time the invalidation request was first made.
-invCreateTime :: Lens' Invalidation UTCTime
-invCreateTime = lens _invCreateTime (\ s a -> s{_invCreateTime = a}) . _Time;
+iCreateTime :: Lens' Invalidation UTCTime
+iCreateTime = lens _iCreateTime (\ s a -> s{_iCreateTime = a}) . _Time;
 
 -- | The current invalidation information for the batch request.
-invInvalidationBatch :: Lens' Invalidation InvalidationBatch
-invInvalidationBatch = lens _invInvalidationBatch (\ s a -> s{_invInvalidationBatch = a});
+iInvalidationBatch :: Lens' Invalidation InvalidationBatch
+iInvalidationBatch = lens _iInvalidationBatch (\ s a -> s{_iInvalidationBatch = a});
 
 instance FromXML Invalidation where
         parseXML x
@@ -2169,67 +2169,67 @@ instance ToXML LoggingConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'oriCustomOriginConfig'
+-- * 'oCustomOriginConfig'
 --
--- * 'oriS3OriginConfig'
+-- * 'oS3OriginConfig'
 --
--- * 'oriOriginPath'
+-- * 'oOriginPath'
 --
--- * 'oriId'
+-- * 'oId'
 --
--- * 'oriDomainName'
+-- * 'oDomainName'
 data Origin = Origin'
-    { _oriCustomOriginConfig :: !(Maybe CustomOriginConfig)
-    , _oriS3OriginConfig     :: !(Maybe S3OriginConfig)
-    , _oriOriginPath         :: !(Maybe Text)
-    , _oriId                 :: !Text
-    , _oriDomainName         :: !Text
+    { _oCustomOriginConfig :: !(Maybe CustomOriginConfig)
+    , _oS3OriginConfig     :: !(Maybe S3OriginConfig)
+    , _oOriginPath         :: !(Maybe Text)
+    , _oId                 :: !Text
+    , _oDomainName         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Origin' smart constructor.
 origin :: Text -> Text -> Origin
 origin pId pDomainName =
     Origin'
-    { _oriCustomOriginConfig = Nothing
-    , _oriS3OriginConfig = Nothing
-    , _oriOriginPath = Nothing
-    , _oriId = pId
-    , _oriDomainName = pDomainName
+    { _oCustomOriginConfig = Nothing
+    , _oS3OriginConfig = Nothing
+    , _oOriginPath = Nothing
+    , _oId = pId
+    , _oDomainName = pDomainName
     }
 
 -- | A complex type that contains information about a custom origin. If the
 -- origin is an Amazon S3 bucket, use the S3OriginConfig element instead.
-oriCustomOriginConfig :: Lens' Origin (Maybe CustomOriginConfig)
-oriCustomOriginConfig = lens _oriCustomOriginConfig (\ s a -> s{_oriCustomOriginConfig = a});
+oCustomOriginConfig :: Lens' Origin (Maybe CustomOriginConfig)
+oCustomOriginConfig = lens _oCustomOriginConfig (\ s a -> s{_oCustomOriginConfig = a});
 
 -- | A complex type that contains information about the Amazon S3 origin. If
 -- the origin is a custom origin, use the CustomOriginConfig element
 -- instead.
-oriS3OriginConfig :: Lens' Origin (Maybe S3OriginConfig)
-oriS3OriginConfig = lens _oriS3OriginConfig (\ s a -> s{_oriS3OriginConfig = a});
+oS3OriginConfig :: Lens' Origin (Maybe S3OriginConfig)
+oS3OriginConfig = lens _oS3OriginConfig (\ s a -> s{_oS3OriginConfig = a});
 
 -- | An optional element that causes CloudFront to request your content from
 -- a directory in your Amazon S3 bucket or your custom origin. When you
 -- include the OriginPath element, specify the directory name, beginning
 -- with a \/. CloudFront appends the directory name to the value of
 -- DomainName.
-oriOriginPath :: Lens' Origin (Maybe Text)
-oriOriginPath = lens _oriOriginPath (\ s a -> s{_oriOriginPath = a});
+oOriginPath :: Lens' Origin (Maybe Text)
+oOriginPath = lens _oOriginPath (\ s a -> s{_oOriginPath = a});
 
 -- | A unique identifier for the origin. The value of Id must be unique
 -- within the distribution. You use the value of Id when you create a cache
 -- behavior. The Id identifies the origin that CloudFront routes a request
 -- to when the request matches the path pattern for that cache behavior.
-oriId :: Lens' Origin Text
-oriId = lens _oriId (\ s a -> s{_oriId = a});
+oId :: Lens' Origin Text
+oId = lens _oId (\ s a -> s{_oId = a});
 
 -- | Amazon S3 origins: The DNS name of the Amazon S3 bucket from which you
 -- want CloudFront to get objects for this origin, for example,
 -- myawsbucket.s3.amazonaws.com. Custom origins: The DNS domain name for
 -- the HTTP server from which you want CloudFront to get objects for this
 -- origin, for example, www.example.com.
-oriDomainName :: Lens' Origin Text
-oriDomainName = lens _oriDomainName (\ s a -> s{_oriDomainName = a});
+oDomainName :: Lens' Origin Text
+oDomainName = lens _oDomainName (\ s a -> s{_oDomainName = a});
 
 instance FromXML Origin where
         parseXML x
@@ -2243,10 +2243,10 @@ instance FromXML Origin where
 instance ToXML Origin where
         toXML Origin'{..}
           = mconcat
-              ["CustomOriginConfig" @= _oriCustomOriginConfig,
-               "S3OriginConfig" @= _oriS3OriginConfig,
-               "OriginPath" @= _oriOriginPath, "Id" @= _oriId,
-               "DomainName" @= _oriDomainName]
+              ["CustomOriginConfig" @= _oCustomOriginConfig,
+               "S3OriginConfig" @= _oS3OriginConfig,
+               "OriginPath" @= _oOriginPath, "Id" @= _oId,
+               "DomainName" @= _oDomainName]
 
 -- | A complex type that contains information about origins for this
 -- distribution.
@@ -2255,29 +2255,29 @@ instance ToXML Origin where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'oriItems'
+-- * 'oItems'
 --
--- * 'oriQuantity'
+-- * 'oQuantity'
 data Origins = Origins'
-    { _oriItems    :: !(Maybe (List1 Origin))
-    , _oriQuantity :: !Int
+    { _oItems    :: !(Maybe (List1 Origin))
+    , _oQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Origins' smart constructor.
 origins :: Int -> Origins
 origins pQuantity =
     Origins'
-    { _oriItems = Nothing
-    , _oriQuantity = pQuantity
+    { _oItems = Nothing
+    , _oQuantity = pQuantity
     }
 
 -- | A complex type that contains origins for this distribution.
-oriItems :: Lens' Origins (Maybe (NonEmpty Origin))
-oriItems = lens _oriItems (\ s a -> s{_oriItems = a}) . mapping _List1;
+oItems :: Lens' Origins (Maybe (NonEmpty Origin))
+oItems = lens _oItems (\ s a -> s{_oItems = a}) . mapping _List1;
 
 -- | The number of origins for this distribution.
-oriQuantity :: Lens' Origins Int
-oriQuantity = lens _oriQuantity (\ s a -> s{_oriQuantity = a});
+oQuantity :: Lens' Origins Int
+oQuantity = lens _oQuantity (\ s a -> s{_oQuantity = a});
 
 instance FromXML Origins where
         parseXML x
@@ -2289,8 +2289,8 @@ instance FromXML Origins where
 instance ToXML Origins where
         toXML Origins'{..}
           = mconcat
-              ["Items" @= toXML (toXMLList "Origin" <$> _oriItems),
-               "Quantity" @= _oriQuantity]
+              ["Items" @= toXML (toXMLList "Origin" <$> _oItems),
+               "Quantity" @= _oQuantity]
 
 -- | A complex type that contains information about the objects that you want
 -- to invalidate.
@@ -2299,30 +2299,30 @@ instance ToXML Origins where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'patItems'
+-- * 'pItems'
 --
--- * 'patQuantity'
+-- * 'pQuantity'
 data Paths = Paths'
-    { _patItems    :: !(Maybe [Text])
-    , _patQuantity :: !Int
+    { _pItems    :: !(Maybe [Text])
+    , _pQuantity :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Paths' smart constructor.
 paths :: Int -> Paths
 paths pQuantity =
     Paths'
-    { _patItems = Nothing
-    , _patQuantity = pQuantity
+    { _pItems = Nothing
+    , _pQuantity = pQuantity
     }
 
 -- | A complex type that contains a list of the objects that you want to
 -- invalidate.
-patItems :: Lens' Paths [Text]
-patItems = lens _patItems (\ s a -> s{_patItems = a}) . _Default;
+pItems :: Lens' Paths [Text]
+pItems = lens _pItems (\ s a -> s{_pItems = a}) . _Default;
 
 -- | The number of objects that you want to invalidate.
-patQuantity :: Lens' Paths Int
-patQuantity = lens _patQuantity (\ s a -> s{_patQuantity = a});
+pQuantity :: Lens' Paths Int
+pQuantity = lens _pQuantity (\ s a -> s{_pQuantity = a});
 
 instance FromXML Paths where
         parseXML x
@@ -2334,8 +2334,8 @@ instance FromXML Paths where
 instance ToXML Paths where
         toXML Paths'{..}
           = mconcat
-              ["Items" @= toXML (toXMLList "Path" <$> _patItems),
-               "Quantity" @= _patQuantity]
+              ["Items" @= toXML (toXMLList "Path" <$> _pItems),
+               "Quantity" @= _pQuantity]
 
 -- | A complex type that identifies ways in which you want to restrict
 -- distribution of your content.
@@ -2344,21 +2344,21 @@ instance ToXML Paths where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'resGeoRestriction'
+-- * 'rGeoRestriction'
 newtype Restrictions = Restrictions'
-    { _resGeoRestriction :: GeoRestriction
+    { _rGeoRestriction :: GeoRestriction
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Restrictions' smart constructor.
 restrictions :: GeoRestriction -> Restrictions
 restrictions pGeoRestriction =
     Restrictions'
-    { _resGeoRestriction = pGeoRestriction
+    { _rGeoRestriction = pGeoRestriction
     }
 
 -- | FIXME: Undocumented member.
-resGeoRestriction :: Lens' Restrictions GeoRestriction
-resGeoRestriction = lens _resGeoRestriction (\ s a -> s{_resGeoRestriction = a});
+rGeoRestriction :: Lens' Restrictions GeoRestriction
+rGeoRestriction = lens _rGeoRestriction (\ s a -> s{_rGeoRestriction = a});
 
 instance FromXML Restrictions where
         parseXML x
@@ -2366,7 +2366,7 @@ instance FromXML Restrictions where
 
 instance ToXML Restrictions where
         toXML Restrictions'{..}
-          = mconcat ["GeoRestriction" @= _resGeoRestriction]
+          = mconcat ["GeoRestriction" @= _rGeoRestriction]
 
 -- | A complex type that contains information about the Amazon S3 bucket from
 -- which you want CloudFront to get your media files for distribution.
@@ -2462,33 +2462,33 @@ instance ToXML S3OriginConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sigAWSAccountNumber'
+-- * 'sAWSAccountNumber'
 --
--- * 'sigKeyPairIds'
+-- * 'sKeyPairIds'
 data Signer = Signer'
-    { _sigAWSAccountNumber :: !(Maybe Text)
-    , _sigKeyPairIds       :: !(Maybe KeyPairIds)
+    { _sAWSAccountNumber :: !(Maybe Text)
+    , _sKeyPairIds       :: !(Maybe KeyPairIds)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Signer' smart constructor.
 signer :: Signer
 signer =
     Signer'
-    { _sigAWSAccountNumber = Nothing
-    , _sigKeyPairIds = Nothing
+    { _sAWSAccountNumber = Nothing
+    , _sKeyPairIds = Nothing
     }
 
 -- | Specifies an AWS account that can create signed URLs. Values: self,
 -- which indicates that the AWS account that was used to create the
 -- distribution can created signed URLs, or an AWS account number. Omit the
 -- dashes in the account number.
-sigAWSAccountNumber :: Lens' Signer (Maybe Text)
-sigAWSAccountNumber = lens _sigAWSAccountNumber (\ s a -> s{_sigAWSAccountNumber = a});
+sAWSAccountNumber :: Lens' Signer (Maybe Text)
+sAWSAccountNumber = lens _sAWSAccountNumber (\ s a -> s{_sAWSAccountNumber = a});
 
 -- | A complex type that lists the active CloudFront key pairs, if any, that
 -- are associated with AwsAccountNumber.
-sigKeyPairIds :: Lens' Signer (Maybe KeyPairIds)
-sigKeyPairIds = lens _sigKeyPairIds (\ s a -> s{_sigKeyPairIds = a});
+sKeyPairIds :: Lens' Signer (Maybe KeyPairIds)
+sKeyPairIds = lens _sKeyPairIds (\ s a -> s{_sKeyPairIds = a});
 
 instance FromXML Signer where
         parseXML x

@@ -27,18 +27,18 @@ module Network.AWS.ECS.ListServices
     -- ** Request constructor
     , listServices
     -- ** Request lenses
-    , lsCluster
-    , lsNextToken
-    , lsMaxResults
+    , lsrqCluster
+    , lsrqNextToken
+    , lsrqMaxResults
 
     -- * Response
     , ListServicesResponse
     -- ** Response constructor
     , listServicesResponse
     -- ** Response lenses
-    , lsrServiceARNs
-    , lsrNextToken
-    , lsrStatus
+    , lsrsServiceARNs
+    , lsrsNextToken
+    , lsrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -51,39 +51,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsCluster'
+-- * 'lsrqCluster'
 --
--- * 'lsNextToken'
+-- * 'lsrqNextToken'
 --
--- * 'lsMaxResults'
+-- * 'lsrqMaxResults'
 data ListServices = ListServices'
-    { _lsCluster    :: !(Maybe Text)
-    , _lsNextToken  :: !(Maybe Text)
-    , _lsMaxResults :: !(Maybe Int)
+    { _lsrqCluster    :: !(Maybe Text)
+    , _lsrqNextToken  :: !(Maybe Text)
+    , _lsrqMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServices' smart constructor.
 listServices :: ListServices
 listServices =
     ListServices'
-    { _lsCluster = Nothing
-    , _lsNextToken = Nothing
-    , _lsMaxResults = Nothing
+    { _lsrqCluster = Nothing
+    , _lsrqNextToken = Nothing
+    , _lsrqMaxResults = Nothing
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the services you want to list. If you do not specify a cluster,
 -- the default cluster is assumed..
-lsCluster :: Lens' ListServices (Maybe Text)
-lsCluster = lens _lsCluster (\ s a -> s{_lsCluster = a});
+lsrqCluster :: Lens' ListServices (Maybe Text)
+lsrqCluster = lens _lsrqCluster (\ s a -> s{_lsrqCluster = a});
 
 -- | The @nextToken@ value returned from a previous paginated @ListServices@
 -- request where @maxResults@ was used and the results exceeded the value
 -- of that parameter. Pagination continues from the end of the previous
 -- results that returned the @nextToken@ value. This value is @null@ when
 -- there are no more results to return.
-lsNextToken :: Lens' ListServices (Maybe Text)
-lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
+lsrqNextToken :: Lens' ListServices (Maybe Text)
+lsrqNextToken = lens _lsrqNextToken (\ s a -> s{_lsrqNextToken = a});
 
 -- | The maximum number of container instance results returned by
 -- @ListServices@ in paginated output. When this parameter is used,
@@ -93,15 +93,15 @@ lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
 -- with the returned @nextToken@ value. This value can be between 1 and
 -- 100. If this parameter is not used, then @ListServices@ returns up to
 -- 100 results and a @nextToken@ value if applicable.
-lsMaxResults :: Lens' ListServices (Maybe Int)
-lsMaxResults = lens _lsMaxResults (\ s a -> s{_lsMaxResults = a});
+lsrqMaxResults :: Lens' ListServices (Maybe Int)
+lsrqMaxResults = lens _lsrqMaxResults (\ s a -> s{_lsrqMaxResults = a});
 
 instance AWSPager ListServices where
         page rq rs
-          | stop (rs ^. lsrNextToken) = Nothing
-          | stop (rs ^. lsrServiceARNs) = Nothing
+          | stop (rs ^. lsrsNextToken) = Nothing
+          | stop (rs ^. lsrsServiceARNs) = Nothing
           | otherwise =
-            Just $ rq & lsNextToken .~ rs ^. lsrNextToken
+            Just $ rq & lsrqNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListServices where
         type Sv ListServices = ECS
@@ -128,9 +128,9 @@ instance ToHeaders ListServices where
 instance ToJSON ListServices where
         toJSON ListServices'{..}
           = object
-              ["cluster" .= _lsCluster,
-               "nextToken" .= _lsNextToken,
-               "maxResults" .= _lsMaxResults]
+              ["cluster" .= _lsrqCluster,
+               "nextToken" .= _lsrqNextToken,
+               "maxResults" .= _lsrqMaxResults]
 
 instance ToPath ListServices where
         toPath = const "/"
@@ -142,38 +142,38 @@ instance ToQuery ListServices where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrServiceARNs'
+-- * 'lsrsServiceARNs'
 --
--- * 'lsrNextToken'
+-- * 'lsrsNextToken'
 --
--- * 'lsrStatus'
+-- * 'lsrsStatus'
 data ListServicesResponse = ListServicesResponse'
-    { _lsrServiceARNs :: !(Maybe [Text])
-    , _lsrNextToken   :: !(Maybe Text)
-    , _lsrStatus      :: !Int
+    { _lsrsServiceARNs :: !(Maybe [Text])
+    , _lsrsNextToken   :: !(Maybe Text)
+    , _lsrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListServicesResponse' smart constructor.
 listServicesResponse :: Int -> ListServicesResponse
 listServicesResponse pStatus =
     ListServicesResponse'
-    { _lsrServiceARNs = Nothing
-    , _lsrNextToken = Nothing
-    , _lsrStatus = pStatus
+    { _lsrsServiceARNs = Nothing
+    , _lsrsNextToken = Nothing
+    , _lsrsStatus = pStatus
     }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each service
 -- associated with the specified cluster.
-lsrServiceARNs :: Lens' ListServicesResponse [Text]
-lsrServiceARNs = lens _lsrServiceARNs (\ s a -> s{_lsrServiceARNs = a}) . _Default;
+lsrsServiceARNs :: Lens' ListServicesResponse [Text]
+lsrsServiceARNs = lens _lsrsServiceARNs (\ s a -> s{_lsrsServiceARNs = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future @ListServices@ request.
 -- When the results of a @ListServices@ request exceed @maxResults@, this
 -- value can be used to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-lsrNextToken :: Lens' ListServicesResponse (Maybe Text)
-lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
+lsrsNextToken :: Lens' ListServicesResponse (Maybe Text)
+lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListServicesResponse Int
-lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});
+lsrsStatus :: Lens' ListServicesResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

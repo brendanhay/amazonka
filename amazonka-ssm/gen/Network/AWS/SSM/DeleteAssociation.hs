@@ -34,15 +34,15 @@ module Network.AWS.SSM.DeleteAssociation
     -- ** Request constructor
     , deleteAssociation
     -- ** Request lenses
-    , delName
-    , delInstanceId
+    , drqName
+    , drqInstanceId
 
     -- * Response
     , DeleteAssociationResponse
     -- ** Response constructor
     , deleteAssociationResponse
     -- ** Response lenses
-    , delStatus
+    , drsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -54,29 +54,29 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delName'
+-- * 'drqName'
 --
--- * 'delInstanceId'
+-- * 'drqInstanceId'
 data DeleteAssociation = DeleteAssociation'
-    { _delName       :: !Text
-    , _delInstanceId :: !Text
+    { _drqName       :: !Text
+    , _drqInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAssociation' smart constructor.
 deleteAssociation :: Text -> Text -> DeleteAssociation
 deleteAssociation pName pInstanceId =
     DeleteAssociation'
-    { _delName = pName
-    , _delInstanceId = pInstanceId
+    { _drqName = pName
+    , _drqInstanceId = pInstanceId
     }
 
 -- | The name of the configuration document.
-delName :: Lens' DeleteAssociation Text
-delName = lens _delName (\ s a -> s{_delName = a});
+drqName :: Lens' DeleteAssociation Text
+drqName = lens _drqName (\ s a -> s{_drqName = a});
 
 -- | The ID of the instance.
-delInstanceId :: Lens' DeleteAssociation Text
-delInstanceId = lens _delInstanceId (\ s a -> s{_delInstanceId = a});
+drqInstanceId :: Lens' DeleteAssociation Text
+drqInstanceId = lens _drqInstanceId (\ s a -> s{_drqInstanceId = a});
 
 instance AWSRequest DeleteAssociation where
         type Sv DeleteAssociation = SSM
@@ -99,7 +99,7 @@ instance ToHeaders DeleteAssociation where
 instance ToJSON DeleteAssociation where
         toJSON DeleteAssociation'{..}
           = object
-              ["Name" .= _delName, "InstanceId" .= _delInstanceId]
+              ["Name" .= _drqName, "InstanceId" .= _drqInstanceId]
 
 instance ToPath DeleteAssociation where
         toPath = const "/"
@@ -111,18 +111,18 @@ instance ToQuery DeleteAssociation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatus'
+-- * 'drsStatus'
 newtype DeleteAssociationResponse = DeleteAssociationResponse'
-    { _delStatus :: Int
+    { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAssociationResponse' smart constructor.
 deleteAssociationResponse :: Int -> DeleteAssociationResponse
 deleteAssociationResponse pStatus =
     DeleteAssociationResponse'
-    { _delStatus = pStatus
+    { _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteAssociationResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+drsStatus :: Lens' DeleteAssociationResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

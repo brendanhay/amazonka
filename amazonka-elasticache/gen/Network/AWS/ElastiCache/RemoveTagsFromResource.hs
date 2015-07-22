@@ -28,15 +28,15 @@ module Network.AWS.ElastiCache.RemoveTagsFromResource
     -- ** Request constructor
     , removeTagsFromResource
     -- ** Request lenses
-    , rtfrResourceName
-    , rtfrTagKeys
+    , rtfrrqResourceName
+    , rtfrrqTagKeys
 
     -- * Response
     , TagListMessage
     -- ** Response constructor
     , tagListMessage
     -- ** Response lenses
-    , tlmTagList
+    , rtfrrsTagList
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -50,34 +50,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtfrResourceName'
+-- * 'rtfrrqResourceName'
 --
--- * 'rtfrTagKeys'
+-- * 'rtfrrqTagKeys'
 data RemoveTagsFromResource = RemoveTagsFromResource'
-    { _rtfrResourceName :: !Text
-    , _rtfrTagKeys      :: ![Text]
+    { _rtfrrqResourceName :: !Text
+    , _rtfrrqTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsFromResource' smart constructor.
 removeTagsFromResource :: Text -> RemoveTagsFromResource
 removeTagsFromResource pResourceName =
     RemoveTagsFromResource'
-    { _rtfrResourceName = pResourceName
-    , _rtfrTagKeys = mempty
+    { _rtfrrqResourceName = pResourceName
+    , _rtfrrqTagKeys = mempty
     }
 
 -- | The name of the ElastiCache resource from which you want the listed tags
 -- removed, for example
 -- @arn:aws:elasticache:us-west-2:0123456789:cluster:myCluster@.
-rtfrResourceName :: Lens' RemoveTagsFromResource Text
-rtfrResourceName = lens _rtfrResourceName (\ s a -> s{_rtfrResourceName = a});
+rtfrrqResourceName :: Lens' RemoveTagsFromResource Text
+rtfrrqResourceName = lens _rtfrrqResourceName (\ s a -> s{_rtfrrqResourceName = a});
 
 -- | A list of @TagKeys@ identifying the tags you want removed from the named
 -- resource. For example, @TagKeys.member.1=Region@ removes the cost
 -- allocation tag with the key name @Region@ from the resource named by the
 -- /ResourceName/ parameter.
-rtfrTagKeys :: Lens' RemoveTagsFromResource [Text]
-rtfrTagKeys = lens _rtfrTagKeys (\ s a -> s{_rtfrTagKeys = a});
+rtfrrqTagKeys :: Lens' RemoveTagsFromResource [Text]
+rtfrrqTagKeys = lens _rtfrrqTagKeys (\ s a -> s{_rtfrrqTagKeys = a});
 
 instance AWSRequest RemoveTagsFromResource where
         type Sv RemoveTagsFromResource = ElastiCache
@@ -99,5 +99,5 @@ instance ToQuery RemoveTagsFromResource where
               ["Action" =:
                  ("RemoveTagsFromResource" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "ResourceName" =: _rtfrResourceName,
-               "TagKeys" =: toQueryList "member" _rtfrTagKeys]
+               "ResourceName" =: _rtfrrqResourceName,
+               "TagKeys" =: toQueryList "member" _rtfrrqTagKeys]

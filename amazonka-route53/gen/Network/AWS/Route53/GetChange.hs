@@ -35,15 +35,15 @@ module Network.AWS.Route53.GetChange
     -- ** Request constructor
     , getChange
     -- ** Request lenses
-    , gcId
+    , gcrqId
 
     -- * Response
     , GetChangeResponse
     -- ** Response constructor
     , getChangeResponse
     -- ** Response lenses
-    , gcrStatus
-    , gcrChangeInfo
+    , gcrsStatus
+    , gcrsChangeInfo
     ) where
 
 import           Network.AWS.Prelude
@@ -57,23 +57,23 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcId'
+-- * 'gcrqId'
 newtype GetChange = GetChange'
-    { _gcId :: Text
+    { _gcrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetChange' smart constructor.
 getChange :: Text -> GetChange
 getChange pId =
     GetChange'
-    { _gcId = pId
+    { _gcrqId = pId
     }
 
 -- | The ID of the change batch request. The value that you specify here is
 -- the value that @ChangeResourceRecordSets@ returned in the Id element
 -- when you submitted the request.
-gcId :: Lens' GetChange Text
-gcId = lens _gcId (\ s a -> s{_gcId = a});
+gcrqId :: Lens' GetChange Text
+gcrqId = lens _gcrqId (\ s a -> s{_gcrqId = a});
 
 instance AWSRequest GetChange where
         type Sv GetChange = Route53
@@ -90,7 +90,7 @@ instance ToHeaders GetChange where
 
 instance ToPath GetChange where
         toPath GetChange'{..}
-          = mconcat ["/2013-04-01/change/", toText _gcId]
+          = mconcat ["/2013-04-01/change/", toText _gcrqId]
 
 instance ToQuery GetChange where
         toQuery = const mempty
@@ -101,28 +101,28 @@ instance ToQuery GetChange where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcrStatus'
+-- * 'gcrsStatus'
 --
--- * 'gcrChangeInfo'
+-- * 'gcrsChangeInfo'
 data GetChangeResponse = GetChangeResponse'
-    { _gcrStatus     :: !Int
-    , _gcrChangeInfo :: !ChangeInfo
+    { _gcrsStatus     :: !Int
+    , _gcrsChangeInfo :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetChangeResponse' smart constructor.
 getChangeResponse :: Int -> ChangeInfo -> GetChangeResponse
 getChangeResponse pStatus pChangeInfo =
     GetChangeResponse'
-    { _gcrStatus = pStatus
-    , _gcrChangeInfo = pChangeInfo
+    { _gcrsStatus = pStatus
+    , _gcrsChangeInfo = pChangeInfo
     }
 
 -- | FIXME: Undocumented member.
-gcrStatus :: Lens' GetChangeResponse Int
-gcrStatus = lens _gcrStatus (\ s a -> s{_gcrStatus = a});
+gcrsStatus :: Lens' GetChangeResponse Int
+gcrsStatus = lens _gcrsStatus (\ s a -> s{_gcrsStatus = a});
 
 -- | A complex type that contains information about the specified change
 -- batch, including the change batch ID, the status of the change, and the
 -- date and time of the request.
-gcrChangeInfo :: Lens' GetChangeResponse ChangeInfo
-gcrChangeInfo = lens _gcrChangeInfo (\ s a -> s{_gcrChangeInfo = a});
+gcrsChangeInfo :: Lens' GetChangeResponse ChangeInfo
+gcrsChangeInfo = lens _gcrsChangeInfo (\ s a -> s{_gcrsChangeInfo = a});

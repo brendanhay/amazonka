@@ -30,15 +30,15 @@ module Network.AWS.ElasticBeanstalk.UpdateApplication
     -- ** Request constructor
     , updateApplication
     -- ** Request lenses
-    , uaDescription
-    , uaApplicationName
+    , uarqDescription
+    , uarqApplicationName
 
     -- * Response
     , ApplicationDescriptionMessage
     -- ** Response constructor
     , applicationDescriptionMessage
     -- ** Response lenses
-    , admApplication
+    , uarsApplication
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uaDescription'
+-- * 'uarqDescription'
 --
--- * 'uaApplicationName'
+-- * 'uarqApplicationName'
 data UpdateApplication = UpdateApplication'
-    { _uaDescription     :: !(Maybe Text)
-    , _uaApplicationName :: !Text
+    { _uarqDescription     :: !(Maybe Text)
+    , _uarqApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApplication' smart constructor.
 updateApplication :: Text -> UpdateApplication
 updateApplication pApplicationName =
     UpdateApplication'
-    { _uaDescription = Nothing
-    , _uaApplicationName = pApplicationName
+    { _uarqDescription = Nothing
+    , _uarqApplicationName = pApplicationName
     }
 
 -- | A new description for the application.
 --
 -- Default: If not specified, AWS Elastic Beanstalk does not update the
 -- description.
-uaDescription :: Lens' UpdateApplication (Maybe Text)
-uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
+uarqDescription :: Lens' UpdateApplication (Maybe Text)
+uarqDescription = lens _uarqDescription (\ s a -> s{_uarqDescription = a});
 
 -- | The name of the application to update. If no such application is found,
 -- @UpdateApplication@ returns an @InvalidParameterValue@ error.
-uaApplicationName :: Lens' UpdateApplication Text
-uaApplicationName = lens _uaApplicationName (\ s a -> s{_uaApplicationName = a});
+uarqApplicationName :: Lens' UpdateApplication Text
+uarqApplicationName = lens _uarqApplicationName (\ s a -> s{_uarqApplicationName = a});
 
 instance AWSRequest UpdateApplication where
         type Sv UpdateApplication = ElasticBeanstalk
@@ -100,5 +100,5 @@ instance ToQuery UpdateApplication where
           = mconcat
               ["Action" =: ("UpdateApplication" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Description" =: _uaDescription,
-               "ApplicationName" =: _uaApplicationName]
+               "Description" =: _uarqDescription,
+               "ApplicationName" =: _uarqApplicationName]

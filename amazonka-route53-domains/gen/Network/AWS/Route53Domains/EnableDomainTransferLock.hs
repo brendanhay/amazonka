@@ -31,15 +31,15 @@ module Network.AWS.Route53Domains.EnableDomainTransferLock
     -- ** Request constructor
     , enableDomainTransferLock
     -- ** Request lenses
-    , edtlDomainName
+    , edtlrqDomainName
 
     -- * Response
     , EnableDomainTransferLockResponse
     -- ** Response constructor
     , enableDomainTransferLockResponse
     -- ** Response lenses
-    , edtlrStatus
-    , edtlrOperationId
+    , edtlrsStatus
+    , edtlrsOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -53,16 +53,16 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'edtlDomainName'
+-- * 'edtlrqDomainName'
 newtype EnableDomainTransferLock = EnableDomainTransferLock'
-    { _edtlDomainName :: Text
+    { _edtlrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableDomainTransferLock' smart constructor.
 enableDomainTransferLock :: Text -> EnableDomainTransferLock
 enableDomainTransferLock pDomainName =
     EnableDomainTransferLock'
-    { _edtlDomainName = pDomainName
+    { _edtlrqDomainName = pDomainName
     }
 
 -- | The name of a domain.
@@ -76,8 +76,8 @@ enableDomainTransferLock pDomainName =
 -- are not supported.
 --
 -- Required: Yes
-edtlDomainName :: Lens' EnableDomainTransferLock Text
-edtlDomainName = lens _edtlDomainName (\ s a -> s{_edtlDomainName = a});
+edtlrqDomainName :: Lens' EnableDomainTransferLock Text
+edtlrqDomainName = lens _edtlrqDomainName (\ s a -> s{_edtlrqDomainName = a});
 
 instance AWSRequest EnableDomainTransferLock where
         type Sv EnableDomainTransferLock = Route53Domains
@@ -102,7 +102,7 @@ instance ToHeaders EnableDomainTransferLock where
 
 instance ToJSON EnableDomainTransferLock where
         toJSON EnableDomainTransferLock'{..}
-          = object ["DomainName" .= _edtlDomainName]
+          = object ["DomainName" .= _edtlrqDomainName]
 
 instance ToPath EnableDomainTransferLock where
         toPath = const "/"
@@ -116,25 +116,25 @@ instance ToQuery EnableDomainTransferLock where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'edtlrStatus'
+-- * 'edtlrsStatus'
 --
--- * 'edtlrOperationId'
+-- * 'edtlrsOperationId'
 data EnableDomainTransferLockResponse = EnableDomainTransferLockResponse'
-    { _edtlrStatus      :: !Int
-    , _edtlrOperationId :: !Text
+    { _edtlrsStatus      :: !Int
+    , _edtlrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableDomainTransferLockResponse' smart constructor.
 enableDomainTransferLockResponse :: Int -> Text -> EnableDomainTransferLockResponse
 enableDomainTransferLockResponse pStatus pOperationId =
     EnableDomainTransferLockResponse'
-    { _edtlrStatus = pStatus
-    , _edtlrOperationId = pOperationId
+    { _edtlrsStatus = pStatus
+    , _edtlrsOperationId = pOperationId
     }
 
 -- | FIXME: Undocumented member.
-edtlrStatus :: Lens' EnableDomainTransferLockResponse Int
-edtlrStatus = lens _edtlrStatus (\ s a -> s{_edtlrStatus = a});
+edtlrsStatus :: Lens' EnableDomainTransferLockResponse Int
+edtlrsStatus = lens _edtlrsStatus (\ s a -> s{_edtlrsStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -144,5 +144,5 @@ edtlrStatus = lens _edtlrStatus (\ s a -> s{_edtlrStatus = a});
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
-edtlrOperationId :: Lens' EnableDomainTransferLockResponse Text
-edtlrOperationId = lens _edtlrOperationId (\ s a -> s{_edtlrOperationId = a});
+edtlrsOperationId :: Lens' EnableDomainTransferLockResponse Text
+edtlrsOperationId = lens _edtlrsOperationId (\ s a -> s{_edtlrsOperationId = a});

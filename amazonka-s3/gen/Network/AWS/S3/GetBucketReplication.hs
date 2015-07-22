@@ -27,15 +27,15 @@ module Network.AWS.S3.GetBucketReplication
     -- ** Request constructor
     , getBucketReplication
     -- ** Request lenses
-    , gbrBucket
+    , gbrrqBucket
 
     -- * Response
     , GetBucketReplicationResponse
     -- ** Response constructor
     , getBucketReplicationResponse
     -- ** Response lenses
-    , gbrrReplicationConfiguration
-    , gbrrStatus
+    , gbrrsReplicationConfiguration
+    , gbrrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrBucket'
+-- * 'gbrrqBucket'
 newtype GetBucketReplication = GetBucketReplication'
-    { _gbrBucket :: BucketName
+    { _gbrrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketReplication' smart constructor.
 getBucketReplication :: BucketName -> GetBucketReplication
 getBucketReplication pBucket =
     GetBucketReplication'
-    { _gbrBucket = pBucket
+    { _gbrrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gbrBucket :: Lens' GetBucketReplication BucketName
-gbrBucket = lens _gbrBucket (\ s a -> s{_gbrBucket = a});
+gbrrqBucket :: Lens' GetBucketReplication BucketName
+gbrrqBucket = lens _gbrrqBucket (\ s a -> s{_gbrrqBucket = a});
 
 instance AWSRequest GetBucketReplication where
         type Sv GetBucketReplication = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketReplication where
 
 instance ToPath GetBucketReplication where
         toPath GetBucketReplication'{..}
-          = mconcat ["/", toText _gbrBucket]
+          = mconcat ["/", toText _gbrrqBucket]
 
 instance ToQuery GetBucketReplication where
         toQuery = const (mconcat ["replication"])
@@ -88,26 +88,26 @@ instance ToQuery GetBucketReplication where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrrReplicationConfiguration'
+-- * 'gbrrsReplicationConfiguration'
 --
--- * 'gbrrStatus'
+-- * 'gbrrsStatus'
 data GetBucketReplicationResponse = GetBucketReplicationResponse'
-    { _gbrrReplicationConfiguration :: !(Maybe ReplicationConfiguration)
-    , _gbrrStatus                   :: !Int
+    { _gbrrsReplicationConfiguration :: !(Maybe ReplicationConfiguration)
+    , _gbrrsStatus                   :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketReplicationResponse' smart constructor.
 getBucketReplicationResponse :: Int -> GetBucketReplicationResponse
 getBucketReplicationResponse pStatus =
     GetBucketReplicationResponse'
-    { _gbrrReplicationConfiguration = Nothing
-    , _gbrrStatus = pStatus
+    { _gbrrsReplicationConfiguration = Nothing
+    , _gbrrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gbrrReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
-gbrrReplicationConfiguration = lens _gbrrReplicationConfiguration (\ s a -> s{_gbrrReplicationConfiguration = a});
+gbrrsReplicationConfiguration :: Lens' GetBucketReplicationResponse (Maybe ReplicationConfiguration)
+gbrrsReplicationConfiguration = lens _gbrrsReplicationConfiguration (\ s a -> s{_gbrrsReplicationConfiguration = a});
 
 -- | FIXME: Undocumented member.
-gbrrStatus :: Lens' GetBucketReplicationResponse Int
-gbrrStatus = lens _gbrrStatus (\ s a -> s{_gbrrStatus = a});
+gbrrsStatus :: Lens' GetBucketReplicationResponse Int
+gbrrsStatus = lens _gbrrsStatus (\ s a -> s{_gbrrsStatus = a});

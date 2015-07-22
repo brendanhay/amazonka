@@ -27,16 +27,16 @@ module Network.AWS.AutoScaling.DescribeLifecycleHooks
     -- ** Request constructor
     , describeLifecycleHooks
     -- ** Request lenses
-    , dlhLifecycleHookNames
-    , dlhAutoScalingGroupName
+    , dlhrqLifecycleHookNames
+    , dlhrqAutoScalingGroupName
 
     -- * Response
     , DescribeLifecycleHooksResponse
     -- ** Response constructor
     , describeLifecycleHooksResponse
     -- ** Response lenses
-    , dlhrLifecycleHooks
-    , dlhrStatus
+    , dlhrsLifecycleHooks
+    , dlhrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -48,29 +48,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlhLifecycleHookNames'
+-- * 'dlhrqLifecycleHookNames'
 --
--- * 'dlhAutoScalingGroupName'
+-- * 'dlhrqAutoScalingGroupName'
 data DescribeLifecycleHooks = DescribeLifecycleHooks'
-    { _dlhLifecycleHookNames   :: !(Maybe [Text])
-    , _dlhAutoScalingGroupName :: !Text
+    { _dlhrqLifecycleHookNames   :: !(Maybe [Text])
+    , _dlhrqAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHooks' smart constructor.
 describeLifecycleHooks :: Text -> DescribeLifecycleHooks
 describeLifecycleHooks pAutoScalingGroupName =
     DescribeLifecycleHooks'
-    { _dlhLifecycleHookNames = Nothing
-    , _dlhAutoScalingGroupName = pAutoScalingGroupName
+    { _dlhrqLifecycleHookNames = Nothing
+    , _dlhrqAutoScalingGroupName = pAutoScalingGroupName
     }
 
 -- | The names of one or more lifecycle hooks.
-dlhLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
-dlhLifecycleHookNames = lens _dlhLifecycleHookNames (\ s a -> s{_dlhLifecycleHookNames = a}) . _Default;
+dlhrqLifecycleHookNames :: Lens' DescribeLifecycleHooks [Text]
+dlhrqLifecycleHookNames = lens _dlhrqLifecycleHookNames (\ s a -> s{_dlhrqLifecycleHookNames = a}) . _Default;
 
 -- | The name of the group.
-dlhAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
-dlhAutoScalingGroupName = lens _dlhAutoScalingGroupName (\ s a -> s{_dlhAutoScalingGroupName = a});
+dlhrqAutoScalingGroupName :: Lens' DescribeLifecycleHooks Text
+dlhrqAutoScalingGroupName = lens _dlhrqAutoScalingGroupName (\ s a -> s{_dlhrqAutoScalingGroupName = a});
 
 instance AWSRequest DescribeLifecycleHooks where
         type Sv DescribeLifecycleHooks = AutoScaling
@@ -99,33 +99,33 @@ instance ToQuery DescribeLifecycleHooks where
                "Version" =: ("2011-01-01" :: ByteString),
                "LifecycleHookNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dlhLifecycleHookNames),
-               "AutoScalingGroupName" =: _dlhAutoScalingGroupName]
+                   (toQueryList "member" <$> _dlhrqLifecycleHookNames),
+               "AutoScalingGroupName" =: _dlhrqAutoScalingGroupName]
 
 -- | /See:/ 'describeLifecycleHooksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlhrLifecycleHooks'
+-- * 'dlhrsLifecycleHooks'
 --
--- * 'dlhrStatus'
+-- * 'dlhrsStatus'
 data DescribeLifecycleHooksResponse = DescribeLifecycleHooksResponse'
-    { _dlhrLifecycleHooks :: !(Maybe [LifecycleHook])
-    , _dlhrStatus         :: !Int
+    { _dlhrsLifecycleHooks :: !(Maybe [LifecycleHook])
+    , _dlhrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLifecycleHooksResponse' smart constructor.
 describeLifecycleHooksResponse :: Int -> DescribeLifecycleHooksResponse
 describeLifecycleHooksResponse pStatus =
     DescribeLifecycleHooksResponse'
-    { _dlhrLifecycleHooks = Nothing
-    , _dlhrStatus = pStatus
+    { _dlhrsLifecycleHooks = Nothing
+    , _dlhrsStatus = pStatus
     }
 
 -- | The lifecycle hooks for the specified group.
-dlhrLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
-dlhrLifecycleHooks = lens _dlhrLifecycleHooks (\ s a -> s{_dlhrLifecycleHooks = a}) . _Default;
+dlhrsLifecycleHooks :: Lens' DescribeLifecycleHooksResponse [LifecycleHook]
+dlhrsLifecycleHooks = lens _dlhrsLifecycleHooks (\ s a -> s{_dlhrsLifecycleHooks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlhrStatus :: Lens' DescribeLifecycleHooksResponse Int
-dlhrStatus = lens _dlhrStatus (\ s a -> s{_dlhrStatus = a});
+dlhrsStatus :: Lens' DescribeLifecycleHooksResponse Int
+dlhrsStatus = lens _dlhrsStatus (\ s a -> s{_dlhrsStatus = a});

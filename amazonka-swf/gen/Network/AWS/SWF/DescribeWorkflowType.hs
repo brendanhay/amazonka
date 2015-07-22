@@ -52,17 +52,17 @@ module Network.AWS.SWF.DescribeWorkflowType
     -- ** Request constructor
     , describeWorkflowType
     -- ** Request lenses
-    , dwtDomain
-    , dwtWorkflowType
+    , dwtrqDomain
+    , dwtrqWorkflowType
 
     -- * Response
     , DescribeWorkflowTypeResponse
     -- ** Response constructor
     , describeWorkflowTypeResponse
     -- ** Response lenses
-    , dwtrStatus
-    , dwtrTypeInfo
-    , dwtrConfiguration
+    , dwtrsStatus
+    , dwtrsTypeInfo
+    , dwtrsConfiguration
     ) where
 
 import           Network.AWS.Prelude
@@ -74,29 +74,29 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwtDomain'
+-- * 'dwtrqDomain'
 --
--- * 'dwtWorkflowType'
+-- * 'dwtrqWorkflowType'
 data DescribeWorkflowType = DescribeWorkflowType'
-    { _dwtDomain       :: !Text
-    , _dwtWorkflowType :: !WorkflowType
+    { _dwtrqDomain       :: !Text
+    , _dwtrqWorkflowType :: !WorkflowType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkflowType' smart constructor.
 describeWorkflowType :: Text -> WorkflowType -> DescribeWorkflowType
 describeWorkflowType pDomain pWorkflowType =
     DescribeWorkflowType'
-    { _dwtDomain = pDomain
-    , _dwtWorkflowType = pWorkflowType
+    { _dwtrqDomain = pDomain
+    , _dwtrqWorkflowType = pWorkflowType
     }
 
 -- | The name of the domain in which this workflow type is registered.
-dwtDomain :: Lens' DescribeWorkflowType Text
-dwtDomain = lens _dwtDomain (\ s a -> s{_dwtDomain = a});
+dwtrqDomain :: Lens' DescribeWorkflowType Text
+dwtrqDomain = lens _dwtrqDomain (\ s a -> s{_dwtrqDomain = a});
 
 -- | The workflow type to describe.
-dwtWorkflowType :: Lens' DescribeWorkflowType WorkflowType
-dwtWorkflowType = lens _dwtWorkflowType (\ s a -> s{_dwtWorkflowType = a});
+dwtrqWorkflowType :: Lens' DescribeWorkflowType WorkflowType
+dwtrqWorkflowType = lens _dwtrqWorkflowType (\ s a -> s{_dwtrqWorkflowType = a});
 
 instance AWSRequest DescribeWorkflowType where
         type Sv DescribeWorkflowType = SWF
@@ -123,8 +123,8 @@ instance ToHeaders DescribeWorkflowType where
 instance ToJSON DescribeWorkflowType where
         toJSON DescribeWorkflowType'{..}
           = object
-              ["domain" .= _dwtDomain,
-               "workflowType" .= _dwtWorkflowType]
+              ["domain" .= _dwtrqDomain,
+               "workflowType" .= _dwtrqWorkflowType]
 
 instance ToPath DescribeWorkflowType where
         toPath = const "/"
@@ -138,29 +138,29 @@ instance ToQuery DescribeWorkflowType where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwtrStatus'
+-- * 'dwtrsStatus'
 --
--- * 'dwtrTypeInfo'
+-- * 'dwtrsTypeInfo'
 --
--- * 'dwtrConfiguration'
+-- * 'dwtrsConfiguration'
 data DescribeWorkflowTypeResponse = DescribeWorkflowTypeResponse'
-    { _dwtrStatus        :: !Int
-    , _dwtrTypeInfo      :: !WorkflowTypeInfo
-    , _dwtrConfiguration :: !WorkflowTypeConfiguration
+    { _dwtrsStatus        :: !Int
+    , _dwtrsTypeInfo      :: !WorkflowTypeInfo
+    , _dwtrsConfiguration :: !WorkflowTypeConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkflowTypeResponse' smart constructor.
 describeWorkflowTypeResponse :: Int -> WorkflowTypeInfo -> WorkflowTypeConfiguration -> DescribeWorkflowTypeResponse
 describeWorkflowTypeResponse pStatus pTypeInfo pConfiguration =
     DescribeWorkflowTypeResponse'
-    { _dwtrStatus = pStatus
-    , _dwtrTypeInfo = pTypeInfo
-    , _dwtrConfiguration = pConfiguration
+    { _dwtrsStatus = pStatus
+    , _dwtrsTypeInfo = pTypeInfo
+    , _dwtrsConfiguration = pConfiguration
     }
 
 -- | FIXME: Undocumented member.
-dwtrStatus :: Lens' DescribeWorkflowTypeResponse Int
-dwtrStatus = lens _dwtrStatus (\ s a -> s{_dwtrStatus = a});
+dwtrsStatus :: Lens' DescribeWorkflowTypeResponse Int
+dwtrsStatus = lens _dwtrsStatus (\ s a -> s{_dwtrsStatus = a});
 
 -- | General information about the workflow type.
 --
@@ -172,10 +172,10 @@ dwtrStatus = lens _dwtrStatus (\ s a -> s{_dwtrStatus = a});
 -- -   __DEPRECATED__: The type was deprecated using DeprecateWorkflowType,
 --     but is still in use. You should keep workers supporting this type
 --     running. You cannot create new workflow executions of this type.
-dwtrTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
-dwtrTypeInfo = lens _dwtrTypeInfo (\ s a -> s{_dwtrTypeInfo = a});
+dwtrsTypeInfo :: Lens' DescribeWorkflowTypeResponse WorkflowTypeInfo
+dwtrsTypeInfo = lens _dwtrsTypeInfo (\ s a -> s{_dwtrsTypeInfo = a});
 
 -- | Configuration settings of the workflow type registered through
 -- RegisterWorkflowType
-dwtrConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
-dwtrConfiguration = lens _dwtrConfiguration (\ s a -> s{_dwtrConfiguration = a});
+dwtrsConfiguration :: Lens' DescribeWorkflowTypeResponse WorkflowTypeConfiguration
+dwtrsConfiguration = lens _dwtrsConfiguration (\ s a -> s{_dwtrsConfiguration = a});

@@ -27,15 +27,15 @@ module Network.AWS.DeviceFarm.GetSuite
     -- ** Request constructor
     , getSuite
     -- ** Request lenses
-    , gsArn
+    , gsrqArn
 
     -- * Response
     , GetSuiteResponse
     -- ** Response constructor
     , getSuiteResponse
     -- ** Response lenses
-    , gsrSuite
-    , gsrStatus
+    , gsrsSuite
+    , gsrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsArn'
+-- * 'gsrqArn'
 newtype GetSuite = GetSuite'
-    { _gsArn :: Text
+    { _gsrqArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSuite' smart constructor.
 getSuite :: Text -> GetSuite
 getSuite pArn =
     GetSuite'
-    { _gsArn = pArn
+    { _gsrqArn = pArn
     }
 
 -- | The suite\'s ARN.
-gsArn :: Lens' GetSuite Text
-gsArn = lens _gsArn (\ s a -> s{_gsArn = a});
+gsrqArn :: Lens' GetSuite Text
+gsrqArn = lens _gsrqArn (\ s a -> s{_gsrqArn = a});
 
 instance AWSRequest GetSuite where
         type Sv GetSuite = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetSuite where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetSuite where
-        toJSON GetSuite'{..} = object ["arn" .= _gsArn]
+        toJSON GetSuite'{..} = object ["arn" .= _gsrqArn]
 
 instance ToPath GetSuite where
         toPath = const "/"
@@ -99,26 +99,26 @@ instance ToQuery GetSuite where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsrSuite'
+-- * 'gsrsSuite'
 --
--- * 'gsrStatus'
+-- * 'gsrsStatus'
 data GetSuiteResponse = GetSuiteResponse'
-    { _gsrSuite  :: !(Maybe Suite)
-    , _gsrStatus :: !Int
+    { _gsrsSuite  :: !(Maybe Suite)
+    , _gsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSuiteResponse' smart constructor.
 getSuiteResponse :: Int -> GetSuiteResponse
 getSuiteResponse pStatus =
     GetSuiteResponse'
-    { _gsrSuite = Nothing
-    , _gsrStatus = pStatus
+    { _gsrsSuite = Nothing
+    , _gsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gsrSuite :: Lens' GetSuiteResponse (Maybe Suite)
-gsrSuite = lens _gsrSuite (\ s a -> s{_gsrSuite = a});
+gsrsSuite :: Lens' GetSuiteResponse (Maybe Suite)
+gsrsSuite = lens _gsrsSuite (\ s a -> s{_gsrsSuite = a});
 
 -- | FIXME: Undocumented member.
-gsrStatus :: Lens' GetSuiteResponse Int
-gsrStatus = lens _gsrStatus (\ s a -> s{_gsrStatus = a});
+gsrsStatus :: Lens' GetSuiteResponse Int
+gsrsStatus = lens _gsrsStatus (\ s a -> s{_gsrsStatus = a});

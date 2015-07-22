@@ -312,21 +312,21 @@ instance ToJSON AttributeValueUpdate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'capCapacityUnits'
+-- * 'cCapacityUnits'
 newtype Capacity = Capacity'
-    { _capCapacityUnits :: Maybe Double
+    { _cCapacityUnits :: Maybe Double
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Capacity' smart constructor.
 capacity :: Capacity
 capacity =
     Capacity'
-    { _capCapacityUnits = Nothing
+    { _cCapacityUnits = Nothing
     }
 
 -- | The total number of capacity units consumed on a table or an index.
-capCapacityUnits :: Lens' Capacity (Maybe Double)
-capCapacityUnits = lens _capCapacityUnits (\ s a -> s{_capCapacityUnits = a});
+cCapacityUnits :: Lens' Capacity (Maybe Double)
+cCapacityUnits = lens _cCapacityUnits (\ s a -> s{_cCapacityUnits = a});
 
 instance FromJSON Capacity where
         parseJSON
@@ -353,20 +353,20 @@ instance FromJSON Capacity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'conAttributeValueList'
+-- * 'cAttributeValueList'
 --
--- * 'conComparisonOperator'
+-- * 'cComparisonOperator'
 data Condition = Condition'
-    { _conAttributeValueList :: !(Maybe [AttributeValue])
-    , _conComparisonOperator :: !ComparisonOperator
+    { _cAttributeValueList :: !(Maybe [AttributeValue])
+    , _cComparisonOperator :: !ComparisonOperator
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Condition' smart constructor.
 condition :: ComparisonOperator -> Condition
 condition pComparisonOperator =
     Condition'
-    { _conAttributeValueList = Nothing
-    , _conComparisonOperator = pComparisonOperator
+    { _cAttributeValueList = Nothing
+    , _cComparisonOperator = pComparisonOperator
     }
 
 -- | One or more values to evaluate against the supplied attribute. The
@@ -382,8 +382,8 @@ condition pComparisonOperator =
 --
 -- For Binary, DynamoDB treats each byte of the binary data as unsigned
 -- when it compares binary values.
-conAttributeValueList :: Lens' Condition [AttributeValue]
-conAttributeValueList = lens _conAttributeValueList (\ s a -> s{_conAttributeValueList = a}) . _Default;
+cAttributeValueList :: Lens' Condition [AttributeValue]
+cAttributeValueList = lens _cAttributeValueList (\ s a -> s{_cAttributeValueList = a}) . _Default;
 
 -- | A comparator for evaluating attributes. For example, equals, greater
 -- than, less than, etc.
@@ -536,14 +536,14 @@ conAttributeValueList = lens _conAttributeValueList (\ s a -> s{_conAttributeVal
 -- For usage examples of /AttributeValueList/ and /ComparisonOperator/, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.html Legacy Conditional Parameters>
 -- in the /Amazon DynamoDB Developer Guide/.
-conComparisonOperator :: Lens' Condition ComparisonOperator
-conComparisonOperator = lens _conComparisonOperator (\ s a -> s{_conComparisonOperator = a});
+cComparisonOperator :: Lens' Condition ComparisonOperator
+cComparisonOperator = lens _cComparisonOperator (\ s a -> s{_cComparisonOperator = a});
 
 instance ToJSON Condition where
         toJSON Condition'{..}
           = object
-              ["AttributeValueList" .= _conAttributeValueList,
-               "ComparisonOperator" .= _conComparisonOperator]
+              ["AttributeValueList" .= _cAttributeValueList,
+               "ComparisonOperator" .= _cComparisonOperator]
 
 -- | The capacity units consumed by an operation. The data returned includes
 -- the total provisioned throughput consumed, along with statistics for the
@@ -1617,20 +1617,20 @@ instance FromJSON LocalSecondaryIndexDescription
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'proProjectionType'
+-- * 'pProjectionType'
 --
--- * 'proNonKeyAttributes'
+-- * 'pNonKeyAttributes'
 data Projection = Projection'
-    { _proProjectionType   :: !(Maybe ProjectionType)
-    , _proNonKeyAttributes :: !(Maybe (List1 Text))
+    { _pProjectionType   :: !(Maybe ProjectionType)
+    , _pNonKeyAttributes :: !(Maybe (List1 Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Projection' smart constructor.
 projection :: Projection
 projection =
     Projection'
-    { _proProjectionType = Nothing
-    , _proNonKeyAttributes = Nothing
+    { _pProjectionType = Nothing
+    , _pNonKeyAttributes = Nothing
     }
 
 -- | The set of attributes that are projected into the index:
@@ -1644,8 +1644,8 @@ projection =
 --
 -- -   @ALL@ - All of the table attributes are projected into the index.
 --
-proProjectionType :: Lens' Projection (Maybe ProjectionType)
-proProjectionType = lens _proProjectionType (\ s a -> s{_proProjectionType = a});
+pProjectionType :: Lens' Projection (Maybe ProjectionType)
+pProjectionType = lens _pProjectionType (\ s a -> s{_pProjectionType = a});
 
 -- | Represents the non-key attribute names which will be projected into the
 -- index.
@@ -1654,8 +1654,8 @@ proProjectionType = lens _proProjectionType (\ s a -> s{_proProjectionType = a})
 -- summed across all of the local secondary indexes, must not exceed 20. If
 -- you project the same attribute into two different indexes, this counts
 -- as two distinct attributes when determining the total.
-proNonKeyAttributes :: Lens' Projection (Maybe (NonEmpty Text))
-proNonKeyAttributes = lens _proNonKeyAttributes (\ s a -> s{_proNonKeyAttributes = a}) . mapping _List1;
+pNonKeyAttributes :: Lens' Projection (Maybe (NonEmpty Text))
+pNonKeyAttributes = lens _pNonKeyAttributes (\ s a -> s{_pNonKeyAttributes = a}) . mapping _List1;
 
 instance FromJSON Projection where
         parseJSON
@@ -1668,8 +1668,8 @@ instance FromJSON Projection where
 instance ToJSON Projection where
         toJSON Projection'{..}
           = object
-              ["ProjectionType" .= _proProjectionType,
-               "NonKeyAttributes" .= _proNonKeyAttributes]
+              ["ProjectionType" .= _pProjectionType,
+               "NonKeyAttributes" .= _pNonKeyAttributes]
 
 -- | Represents the provisioned throughput settings for a specified table or
 -- index. The settings can be modified using the /UpdateTable/ operation.

@@ -36,17 +36,17 @@ module Network.AWS.EC2.BundleInstance
     -- ** Request constructor
     , bundleInstance
     -- ** Request lenses
-    , biDryRun
-    , biInstanceId
-    , biStorage
+    , birqDryRun
+    , birqInstanceId
+    , birqStorage
 
     -- * Response
     , BundleInstanceResponse
     -- ** Response constructor
     , bundleInstanceResponse
     -- ** Response lenses
-    , birBundleTask
-    , birStatus
+    , birsBundleTask
+    , birsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -58,32 +58,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'biDryRun'
+-- * 'birqDryRun'
 --
--- * 'biInstanceId'
+-- * 'birqInstanceId'
 --
--- * 'biStorage'
+-- * 'birqStorage'
 data BundleInstance = BundleInstance'
-    { _biDryRun     :: !(Maybe Bool)
-    , _biInstanceId :: !Text
-    , _biStorage    :: !Storage
+    { _birqDryRun     :: !(Maybe Bool)
+    , _birqInstanceId :: !Text
+    , _birqStorage    :: !Storage
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BundleInstance' smart constructor.
 bundleInstance :: Text -> Storage -> BundleInstance
 bundleInstance pInstanceId pStorage =
     BundleInstance'
-    { _biDryRun = Nothing
-    , _biInstanceId = pInstanceId
-    , _biStorage = pStorage
+    { _birqDryRun = Nothing
+    , _birqInstanceId = pInstanceId
+    , _birqStorage = pStorage
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-biDryRun :: Lens' BundleInstance (Maybe Bool)
-biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a});
+birqDryRun :: Lens' BundleInstance (Maybe Bool)
+birqDryRun = lens _birqDryRun (\ s a -> s{_birqDryRun = a});
 
 -- | The ID of the instance to bundle.
 --
@@ -92,15 +92,15 @@ biDryRun = lens _biDryRun (\ s a -> s{_biDryRun = a});
 -- Default: None
 --
 -- Required: Yes
-biInstanceId :: Lens' BundleInstance Text
-biInstanceId = lens _biInstanceId (\ s a -> s{_biInstanceId = a});
+birqInstanceId :: Lens' BundleInstance Text
+birqInstanceId = lens _birqInstanceId (\ s a -> s{_birqInstanceId = a});
 
 -- | The bucket in which to store the AMI. You can specify a bucket that you
 -- already own or a new bucket that Amazon EC2 creates on your behalf. If
 -- you specify a bucket that belongs to someone else, Amazon EC2 returns an
 -- error.
-biStorage :: Lens' BundleInstance Storage
-biStorage = lens _biStorage (\ s a -> s{_biStorage = a});
+birqStorage :: Lens' BundleInstance Storage
+birqStorage = lens _birqStorage (\ s a -> s{_birqStorage = a});
 
 instance AWSRequest BundleInstance where
         type Sv BundleInstance = EC2
@@ -123,33 +123,34 @@ instance ToQuery BundleInstance where
           = mconcat
               ["Action" =: ("BundleInstance" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _biDryRun, "InstanceId" =: _biInstanceId,
-               "Storage" =: _biStorage]
+               "DryRun" =: _birqDryRun,
+               "InstanceId" =: _birqInstanceId,
+               "Storage" =: _birqStorage]
 
 -- | /See:/ 'bundleInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'birBundleTask'
+-- * 'birsBundleTask'
 --
--- * 'birStatus'
+-- * 'birsStatus'
 data BundleInstanceResponse = BundleInstanceResponse'
-    { _birBundleTask :: !(Maybe BundleTask)
-    , _birStatus     :: !Int
+    { _birsBundleTask :: !(Maybe BundleTask)
+    , _birsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BundleInstanceResponse' smart constructor.
 bundleInstanceResponse :: Int -> BundleInstanceResponse
 bundleInstanceResponse pStatus =
     BundleInstanceResponse'
-    { _birBundleTask = Nothing
-    , _birStatus = pStatus
+    { _birsBundleTask = Nothing
+    , _birsStatus = pStatus
     }
 
 -- | Information about the bundle task.
-birBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
-birBundleTask = lens _birBundleTask (\ s a -> s{_birBundleTask = a});
+birsBundleTask :: Lens' BundleInstanceResponse (Maybe BundleTask)
+birsBundleTask = lens _birsBundleTask (\ s a -> s{_birsBundleTask = a});
 
 -- | FIXME: Undocumented member.
-birStatus :: Lens' BundleInstanceResponse Int
-birStatus = lens _birStatus (\ s a -> s{_birStatus = a});
+birsStatus :: Lens' BundleInstanceResponse Int
+birsStatus = lens _birsStatus (\ s a -> s{_birsStatus = a});

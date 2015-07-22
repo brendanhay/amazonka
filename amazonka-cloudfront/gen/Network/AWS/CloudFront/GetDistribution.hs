@@ -27,16 +27,16 @@ module Network.AWS.CloudFront.GetDistribution
     -- ** Request constructor
     , getDistribution
     -- ** Request lenses
-    , gdId
+    , gdrqId
 
     -- * Response
     , GetDistributionResponse
     -- ** Response constructor
     , getDistributionResponse
     -- ** Response lenses
-    , gdrETag
-    , gdrDistribution
-    , gdrStatus
+    , gdrsETag
+    , gdrsDistribution
+    , gdrsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdId'
+-- * 'gdrqId'
 newtype GetDistribution = GetDistribution'
-    { _gdId :: Text
+    { _gdrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistribution' smart constructor.
 getDistribution :: Text -> GetDistribution
 getDistribution pId =
     GetDistribution'
-    { _gdId = pId
+    { _gdrqId = pId
     }
 
 -- | The distribution\'s id.
-gdId :: Lens' GetDistribution Text
-gdId = lens _gdId (\ s a -> s{_gdId = a});
+gdrqId :: Lens' GetDistribution Text
+gdrqId = lens _gdrqId (\ s a -> s{_gdrqId = a});
 
 instance AWSRequest GetDistribution where
         type Sv GetDistribution = CloudFront
@@ -82,7 +82,8 @@ instance ToHeaders GetDistribution where
 
 instance ToPath GetDistribution where
         toPath GetDistribution'{..}
-          = mconcat ["/2015-04-17/distribution/", toText _gdId]
+          = mconcat
+              ["/2015-04-17/distribution/", toText _gdrqId]
 
 instance ToQuery GetDistribution where
         toQuery = const mempty
@@ -93,35 +94,35 @@ instance ToQuery GetDistribution where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrETag'
+-- * 'gdrsETag'
 --
--- * 'gdrDistribution'
+-- * 'gdrsDistribution'
 --
--- * 'gdrStatus'
+-- * 'gdrsStatus'
 data GetDistributionResponse = GetDistributionResponse'
-    { _gdrETag         :: !(Maybe Text)
-    , _gdrDistribution :: !(Maybe Distribution)
-    , _gdrStatus       :: !Int
+    { _gdrsETag         :: !(Maybe Text)
+    , _gdrsDistribution :: !(Maybe Distribution)
+    , _gdrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDistributionResponse' smart constructor.
 getDistributionResponse :: Int -> GetDistributionResponse
 getDistributionResponse pStatus =
     GetDistributionResponse'
-    { _gdrETag = Nothing
-    , _gdrDistribution = Nothing
-    , _gdrStatus = pStatus
+    { _gdrsETag = Nothing
+    , _gdrsDistribution = Nothing
+    , _gdrsStatus = pStatus
     }
 
 -- | The current version of the distribution\'s information. For example:
 -- E2QWRUHAPOMQZL.
-gdrETag :: Lens' GetDistributionResponse (Maybe Text)
-gdrETag = lens _gdrETag (\ s a -> s{_gdrETag = a});
+gdrsETag :: Lens' GetDistributionResponse (Maybe Text)
+gdrsETag = lens _gdrsETag (\ s a -> s{_gdrsETag = a});
 
 -- | The distribution\'s information.
-gdrDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
-gdrDistribution = lens _gdrDistribution (\ s a -> s{_gdrDistribution = a});
+gdrsDistribution :: Lens' GetDistributionResponse (Maybe Distribution)
+gdrsDistribution = lens _gdrsDistribution (\ s a -> s{_gdrsDistribution = a});
 
 -- | FIXME: Undocumented member.
-gdrStatus :: Lens' GetDistributionResponse Int
-gdrStatus = lens _gdrStatus (\ s a -> s{_gdrStatus = a});
+gdrsStatus :: Lens' GetDistributionResponse Int
+gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

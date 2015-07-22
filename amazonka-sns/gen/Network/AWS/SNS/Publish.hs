@@ -37,20 +37,20 @@ module Network.AWS.SNS.Publish
     -- ** Request constructor
     , publish
     -- ** Request lenses
-    , pubMessageAttributes
-    , pubTargetARN
-    , pubSubject
-    , pubTopicARN
-    , pubMessageStructure
-    , pubMessage
+    , prqMessageAttributes
+    , prqTargetARN
+    , prqSubject
+    , prqTopicARN
+    , prqMessageStructure
+    , prqMessage
 
     -- * Response
     , PublishResponse
     -- ** Response constructor
     , publishResponse
     -- ** Response lenses
-    , prMessageId
-    , prStatus
+    , prsMessageId
+    , prsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -64,45 +64,45 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pubMessageAttributes'
+-- * 'prqMessageAttributes'
 --
--- * 'pubTargetARN'
+-- * 'prqTargetARN'
 --
--- * 'pubSubject'
+-- * 'prqSubject'
 --
--- * 'pubTopicARN'
+-- * 'prqTopicARN'
 --
--- * 'pubMessageStructure'
+-- * 'prqMessageStructure'
 --
--- * 'pubMessage'
+-- * 'prqMessage'
 data Publish = Publish'
-    { _pubMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
-    , _pubTargetARN         :: !(Maybe Text)
-    , _pubSubject           :: !(Maybe Text)
-    , _pubTopicARN          :: !(Maybe Text)
-    , _pubMessageStructure  :: !(Maybe Text)
-    , _pubMessage           :: !Text
+    { _prqMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _prqTargetARN         :: !(Maybe Text)
+    , _prqSubject           :: !(Maybe Text)
+    , _prqTopicARN          :: !(Maybe Text)
+    , _prqMessageStructure  :: !(Maybe Text)
+    , _prqMessage           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Publish' smart constructor.
 publish :: Text -> Publish
 publish pMessage =
     Publish'
-    { _pubMessageAttributes = Nothing
-    , _pubTargetARN = Nothing
-    , _pubSubject = Nothing
-    , _pubTopicARN = Nothing
-    , _pubMessageStructure = Nothing
-    , _pubMessage = pMessage
+    { _prqMessageAttributes = Nothing
+    , _prqTargetARN = Nothing
+    , _prqSubject = Nothing
+    , _prqTopicARN = Nothing
+    , _prqMessageStructure = Nothing
+    , _prqMessage = pMessage
     }
 
 -- | Message attributes for Publish action.
-pubMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
-pubMessageAttributes = lens _pubMessageAttributes (\ s a -> s{_pubMessageAttributes = a}) . _Default . _Map;
+prqMessageAttributes :: Lens' Publish (HashMap Text MessageAttributeValue)
+prqMessageAttributes = lens _prqMessageAttributes (\ s a -> s{_prqMessageAttributes = a}) . _Default . _Map;
 
 -- | Either TopicArn or EndpointArn, but not both.
-pubTargetARN :: Lens' Publish (Maybe Text)
-pubTargetARN = lens _pubTargetARN (\ s a -> s{_pubTargetARN = a});
+prqTargetARN :: Lens' Publish (Maybe Text)
+prqTargetARN = lens _prqTargetARN (\ s a -> s{_prqTargetARN = a});
 
 -- | Optional parameter to be used as the \"Subject\" line when the message
 -- is delivered to email endpoints. This field will also be included, if
@@ -111,12 +111,12 @@ pubTargetARN = lens _pubTargetARN (\ s a -> s{_pubTargetARN = a});
 -- Constraints: Subjects must be ASCII text that begins with a letter,
 -- number, or punctuation mark; must not include line breaks or control
 -- characters; and must be less than 100 characters long.
-pubSubject :: Lens' Publish (Maybe Text)
-pubSubject = lens _pubSubject (\ s a -> s{_pubSubject = a});
+prqSubject :: Lens' Publish (Maybe Text)
+prqSubject = lens _prqSubject (\ s a -> s{_prqSubject = a});
 
 -- | The topic you want to publish to.
-pubTopicARN :: Lens' Publish (Maybe Text)
-pubTopicARN = lens _pubTopicARN (\ s a -> s{_pubTopicARN = a});
+prqTopicARN :: Lens' Publish (Maybe Text)
+prqTopicARN = lens _prqTopicARN (\ s a -> s{_prqTopicARN = a});
 
 -- | Set @MessageStructure@ to @json@ if you want to send a different message
 -- for each protocol. For example, using one publish action, you can send a
@@ -137,8 +137,8 @@ pubTopicARN = lens _pubTopicARN (\ s a -> s{_pubTopicARN = a});
 -- in the /Amazon Simple Notification Service Getting Started Guide/.
 --
 -- Valid value: @json@
-pubMessageStructure :: Lens' Publish (Maybe Text)
-pubMessageStructure = lens _pubMessageStructure (\ s a -> s{_pubMessageStructure = a});
+prqMessageStructure :: Lens' Publish (Maybe Text)
+prqMessageStructure = lens _prqMessageStructure (\ s a -> s{_prqMessageStructure = a});
 
 -- | The message you want to send to the topic.
 --
@@ -171,8 +171,8 @@ pubMessageStructure = lens _pubMessageStructure (\ s a -> s{_pubMessageStructure
 -- -   Duplicate keys are not allowed.
 -- -   Failure to parse or validate any key or value in the message will
 --     cause the @Publish@ call to return an error (no partial delivery).
-pubMessage :: Lens' Publish Text
-pubMessage = lens _pubMessage (\ s a -> s{_pubMessage = a});
+prqMessage :: Lens' Publish Text
+prqMessage = lens _prqMessage (\ s a -> s{_prqMessage = a});
 
 instance AWSRequest Publish where
         type Sv Publish = SNS
@@ -198,11 +198,11 @@ instance ToQuery Publish where
                "MessageAttributes" =:
                  toQuery
                    (toQueryMap "entry" "Name" "Value" <$>
-                      _pubMessageAttributes),
-               "TargetArn" =: _pubTargetARN,
-               "Subject" =: _pubSubject, "TopicArn" =: _pubTopicARN,
-               "MessageStructure" =: _pubMessageStructure,
-               "Message" =: _pubMessage]
+                      _prqMessageAttributes),
+               "TargetArn" =: _prqTargetARN,
+               "Subject" =: _prqSubject, "TopicArn" =: _prqTopicARN,
+               "MessageStructure" =: _prqMessageStructure,
+               "Message" =: _prqMessage]
 
 -- | Response for Publish action.
 --
@@ -210,28 +210,28 @@ instance ToQuery Publish where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prMessageId'
+-- * 'prsMessageId'
 --
--- * 'prStatus'
+-- * 'prsStatus'
 data PublishResponse = PublishResponse'
-    { _prMessageId :: !(Maybe Text)
-    , _prStatus    :: !Int
+    { _prsMessageId :: !(Maybe Text)
+    , _prsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PublishResponse' smart constructor.
 publishResponse :: Int -> PublishResponse
 publishResponse pStatus =
     PublishResponse'
-    { _prMessageId = Nothing
-    , _prStatus = pStatus
+    { _prsMessageId = Nothing
+    , _prsStatus = pStatus
     }
 
 -- | Unique identifier assigned to the published message.
 --
 -- Length Constraint: Maximum 100 characters
-prMessageId :: Lens' PublishResponse (Maybe Text)
-prMessageId = lens _prMessageId (\ s a -> s{_prMessageId = a});
+prsMessageId :: Lens' PublishResponse (Maybe Text)
+prsMessageId = lens _prsMessageId (\ s a -> s{_prsMessageId = a});
 
 -- | FIXME: Undocumented member.
-prStatus :: Lens' PublishResponse Int
-prStatus = lens _prStatus (\ s a -> s{_prStatus = a});
+prsStatus :: Lens' PublishResponse Int
+prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});

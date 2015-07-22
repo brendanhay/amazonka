@@ -29,18 +29,18 @@ module Network.AWS.ElastiCache.DescribeCacheSecurityGroups
     -- ** Request constructor
     , describeCacheSecurityGroups
     -- ** Request lenses
-    , dcsgsCacheSecurityGroupName
-    , dcsgsMaxRecords
-    , dcsgsMarker
+    , dcsgsrqCacheSecurityGroupName
+    , dcsgsrqMaxRecords
+    , dcsgsrqMarker
 
     -- * Response
     , DescribeCacheSecurityGroupsResponse
     -- ** Response constructor
     , describeCacheSecurityGroupsResponse
     -- ** Response lenses
-    , descCacheSecurityGroups
-    , descMarker
-    , descStatus
+    , dcsgsrsCacheSecurityGroups
+    , dcsgsrsMarker
+    , dcsgsrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -55,29 +55,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsgsCacheSecurityGroupName'
+-- * 'dcsgsrqCacheSecurityGroupName'
 --
--- * 'dcsgsMaxRecords'
+-- * 'dcsgsrqMaxRecords'
 --
--- * 'dcsgsMarker'
+-- * 'dcsgsrqMarker'
 data DescribeCacheSecurityGroups = DescribeCacheSecurityGroups'
-    { _dcsgsCacheSecurityGroupName :: !(Maybe Text)
-    , _dcsgsMaxRecords             :: !(Maybe Int)
-    , _dcsgsMarker                 :: !(Maybe Text)
+    { _dcsgsrqCacheSecurityGroupName :: !(Maybe Text)
+    , _dcsgsrqMaxRecords             :: !(Maybe Int)
+    , _dcsgsrqMarker                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSecurityGroups' smart constructor.
 describeCacheSecurityGroups :: DescribeCacheSecurityGroups
 describeCacheSecurityGroups =
     DescribeCacheSecurityGroups'
-    { _dcsgsCacheSecurityGroupName = Nothing
-    , _dcsgsMaxRecords = Nothing
-    , _dcsgsMarker = Nothing
+    { _dcsgsrqCacheSecurityGroupName = Nothing
+    , _dcsgsrqMaxRecords = Nothing
+    , _dcsgsrqMarker = Nothing
     }
 
 -- | The name of the cache security group to return details for.
-dcsgsCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcsgsCacheSecurityGroupName = a});
+dcsgsrqCacheSecurityGroupName :: Lens' DescribeCacheSecurityGroups (Maybe Text)
+dcsgsrqCacheSecurityGroupName = lens _dcsgsrqCacheSecurityGroupName (\ s a -> s{_dcsgsrqCacheSecurityGroupName = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -86,22 +86,22 @@ dcsgsCacheSecurityGroupName = lens _dcsgsCacheSecurityGroupName (\ s a -> s{_dcs
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-dcsgsMaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
-dcsgsMaxRecords = lens _dcsgsMaxRecords (\ s a -> s{_dcsgsMaxRecords = a});
+dcsgsrqMaxRecords :: Lens' DescribeCacheSecurityGroups (Maybe Int)
+dcsgsrqMaxRecords = lens _dcsgsrqMaxRecords (\ s a -> s{_dcsgsrqMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dcsgsMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
-dcsgsMarker = lens _dcsgsMarker (\ s a -> s{_dcsgsMarker = a});
+dcsgsrqMarker :: Lens' DescribeCacheSecurityGroups (Maybe Text)
+dcsgsrqMarker = lens _dcsgsrqMarker (\ s a -> s{_dcsgsrqMarker = a});
 
 instance AWSPager DescribeCacheSecurityGroups where
         page rq rs
-          | stop (rs ^. descMarker) = Nothing
-          | stop (rs ^. descCacheSecurityGroups) = Nothing
+          | stop (rs ^. dcsgsrsMarker) = Nothing
+          | stop (rs ^. dcsgsrsCacheSecurityGroups) = Nothing
           | otherwise =
-            Just $ rq & dcsgsMarker .~ rs ^. descMarker
+            Just $ rq & dcsgsrqMarker .~ rs ^. dcsgsrsMarker
 
 instance AWSRequest DescribeCacheSecurityGroups where
         type Sv DescribeCacheSecurityGroups = ElastiCache
@@ -131,9 +131,9 @@ instance ToQuery DescribeCacheSecurityGroups where
                  ("DescribeCacheSecurityGroups" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "CacheSecurityGroupName" =:
-                 _dcsgsCacheSecurityGroupName,
-               "MaxRecords" =: _dcsgsMaxRecords,
-               "Marker" =: _dcsgsMarker]
+                 _dcsgsrqCacheSecurityGroupName,
+               "MaxRecords" =: _dcsgsrqMaxRecords,
+               "Marker" =: _dcsgsrqMarker]
 
 -- | Represents the output of a /DescribeCacheSecurityGroups/ action.
 --
@@ -141,35 +141,35 @@ instance ToQuery DescribeCacheSecurityGroups where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'descCacheSecurityGroups'
+-- * 'dcsgsrsCacheSecurityGroups'
 --
--- * 'descMarker'
+-- * 'dcsgsrsMarker'
 --
--- * 'descStatus'
+-- * 'dcsgsrsStatus'
 data DescribeCacheSecurityGroupsResponse = DescribeCacheSecurityGroupsResponse'
-    { _descCacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
-    , _descMarker              :: !(Maybe Text)
-    , _descStatus              :: !Int
+    { _dcsgsrsCacheSecurityGroups :: !(Maybe [CacheSecurityGroup])
+    , _dcsgsrsMarker              :: !(Maybe Text)
+    , _dcsgsrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheSecurityGroupsResponse' smart constructor.
 describeCacheSecurityGroupsResponse :: Int -> DescribeCacheSecurityGroupsResponse
 describeCacheSecurityGroupsResponse pStatus =
     DescribeCacheSecurityGroupsResponse'
-    { _descCacheSecurityGroups = Nothing
-    , _descMarker = Nothing
-    , _descStatus = pStatus
+    { _dcsgsrsCacheSecurityGroups = Nothing
+    , _dcsgsrsMarker = Nothing
+    , _dcsgsrsStatus = pStatus
     }
 
 -- | A list of cache security groups. Each element in the list contains
 -- detailed information about one group.
-descCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
-descCacheSecurityGroups = lens _descCacheSecurityGroups (\ s a -> s{_descCacheSecurityGroups = a}) . _Default;
+dcsgsrsCacheSecurityGroups :: Lens' DescribeCacheSecurityGroupsResponse [CacheSecurityGroup]
+dcsgsrsCacheSecurityGroups = lens _dcsgsrsCacheSecurityGroups (\ s a -> s{_dcsgsrsCacheSecurityGroups = a}) . _Default;
 
 -- | Provides an identifier to allow retrieval of paginated results.
-descMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
-descMarker = lens _descMarker (\ s a -> s{_descMarker = a});
+dcsgsrsMarker :: Lens' DescribeCacheSecurityGroupsResponse (Maybe Text)
+dcsgsrsMarker = lens _dcsgsrsMarker (\ s a -> s{_dcsgsrsMarker = a});
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
-descStatus = lens _descStatus (\ s a -> s{_descStatus = a});
+dcsgsrsStatus :: Lens' DescribeCacheSecurityGroupsResponse Int
+dcsgsrsStatus = lens _dcsgsrsStatus (\ s a -> s{_dcsgsrsStatus = a});

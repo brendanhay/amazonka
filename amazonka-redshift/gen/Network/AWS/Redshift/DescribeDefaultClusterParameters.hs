@@ -32,17 +32,17 @@ module Network.AWS.Redshift.DescribeDefaultClusterParameters
     -- ** Request constructor
     , describeDefaultClusterParameters
     -- ** Request lenses
-    , ddcpMaxRecords
-    , ddcpMarker
-    , ddcpParameterGroupFamily
+    , ddcprqMaxRecords
+    , ddcprqMarker
+    , ddcprqParameterGroupFamily
 
     -- * Response
     , DescribeDefaultClusterParametersResponse
     -- ** Response constructor
     , describeDefaultClusterParametersResponse
     -- ** Response lenses
-    , ddcprStatus
-    , ddcprDefaultClusterParameters
+    , ddcprsStatus
+    , ddcprsDefaultClusterParameters
     ) where
 
 import           Network.AWS.Pager
@@ -57,24 +57,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcpMaxRecords'
+-- * 'ddcprqMaxRecords'
 --
--- * 'ddcpMarker'
+-- * 'ddcprqMarker'
 --
--- * 'ddcpParameterGroupFamily'
+-- * 'ddcprqParameterGroupFamily'
 data DescribeDefaultClusterParameters = DescribeDefaultClusterParameters'
-    { _ddcpMaxRecords           :: !(Maybe Int)
-    , _ddcpMarker               :: !(Maybe Text)
-    , _ddcpParameterGroupFamily :: !Text
+    { _ddcprqMaxRecords           :: !(Maybe Int)
+    , _ddcprqMarker               :: !(Maybe Text)
+    , _ddcprqParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDefaultClusterParameters' smart constructor.
 describeDefaultClusterParameters :: Text -> DescribeDefaultClusterParameters
 describeDefaultClusterParameters pParameterGroupFamily =
     DescribeDefaultClusterParameters'
-    { _ddcpMaxRecords = Nothing
-    , _ddcpMarker = Nothing
-    , _ddcpParameterGroupFamily = pParameterGroupFamily
+    { _ddcprqMaxRecords = Nothing
+    , _ddcprqMarker = Nothing
+    , _ddcprqParameterGroupFamily = pParameterGroupFamily
     }
 
 -- | The maximum number of response records to return in each call. If the
@@ -86,8 +86,8 @@ describeDefaultClusterParameters pParameterGroupFamily =
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-ddcpMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
-ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a});
+ddcprqMaxRecords :: Lens' DescribeDefaultClusterParameters (Maybe Int)
+ddcprqMaxRecords = lens _ddcprqMaxRecords (\ s a -> s{_ddcprqMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
@@ -96,28 +96,29 @@ ddcpMaxRecords = lens _ddcpMaxRecords (\ s a -> s{_ddcpMaxRecords = a});
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the
 -- request.
-ddcpMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
-ddcpMarker = lens _ddcpMarker (\ s a -> s{_ddcpMarker = a});
+ddcprqMarker :: Lens' DescribeDefaultClusterParameters (Maybe Text)
+ddcprqMarker = lens _ddcprqMarker (\ s a -> s{_ddcprqMarker = a});
 
 -- | The name of the cluster parameter group family.
-ddcpParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
-ddcpParameterGroupFamily = lens _ddcpParameterGroupFamily (\ s a -> s{_ddcpParameterGroupFamily = a});
+ddcprqParameterGroupFamily :: Lens' DescribeDefaultClusterParameters Text
+ddcprqParameterGroupFamily = lens _ddcprqParameterGroupFamily (\ s a -> s{_ddcprqParameterGroupFamily = a});
 
 instance AWSPager DescribeDefaultClusterParameters
          where
         page rq rs
           | stop
               (rs ^?
-                 ddcprDefaultClusterParameters . dcpMarker . _Just)
+                 ddcprsDefaultClusterParameters . dcpMarker . _Just)
             = Nothing
           | stop
-              (rs ^. ddcprDefaultClusterParameters . dcpParameters)
+              (rs ^.
+                 ddcprsDefaultClusterParameters . dcpParameters)
             = Nothing
           | otherwise =
             Just $ rq &
-              ddcpMarker .~
+              ddcprqMarker .~
                 rs ^?
-                  ddcprDefaultClusterParameters . dcpMarker . _Just
+                  ddcprsDefaultClusterParameters . dcpMarker . _Just
 
 instance AWSRequest DescribeDefaultClusterParameters
          where
@@ -148,34 +149,35 @@ instance ToQuery DescribeDefaultClusterParameters
               ["Action" =:
                  ("DescribeDefaultClusterParameters" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "MaxRecords" =: _ddcpMaxRecords,
-               "Marker" =: _ddcpMarker,
-               "ParameterGroupFamily" =: _ddcpParameterGroupFamily]
+               "MaxRecords" =: _ddcprqMaxRecords,
+               "Marker" =: _ddcprqMarker,
+               "ParameterGroupFamily" =:
+                 _ddcprqParameterGroupFamily]
 
 -- | /See:/ 'describeDefaultClusterParametersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcprStatus'
+-- * 'ddcprsStatus'
 --
--- * 'ddcprDefaultClusterParameters'
+-- * 'ddcprsDefaultClusterParameters'
 data DescribeDefaultClusterParametersResponse = DescribeDefaultClusterParametersResponse'
-    { _ddcprStatus                   :: !Int
-    , _ddcprDefaultClusterParameters :: !DefaultClusterParameters
+    { _ddcprsStatus                   :: !Int
+    , _ddcprsDefaultClusterParameters :: !DefaultClusterParameters
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDefaultClusterParametersResponse' smart constructor.
 describeDefaultClusterParametersResponse :: Int -> DefaultClusterParameters -> DescribeDefaultClusterParametersResponse
 describeDefaultClusterParametersResponse pStatus pDefaultClusterParameters =
     DescribeDefaultClusterParametersResponse'
-    { _ddcprStatus = pStatus
-    , _ddcprDefaultClusterParameters = pDefaultClusterParameters
+    { _ddcprsStatus = pStatus
+    , _ddcprsDefaultClusterParameters = pDefaultClusterParameters
     }
 
 -- | FIXME: Undocumented member.
-ddcprStatus :: Lens' DescribeDefaultClusterParametersResponse Int
-ddcprStatus = lens _ddcprStatus (\ s a -> s{_ddcprStatus = a});
+ddcprsStatus :: Lens' DescribeDefaultClusterParametersResponse Int
+ddcprsStatus = lens _ddcprsStatus (\ s a -> s{_ddcprsStatus = a});
 
 -- | FIXME: Undocumented member.
-ddcprDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
-ddcprDefaultClusterParameters = lens _ddcprDefaultClusterParameters (\ s a -> s{_ddcprDefaultClusterParameters = a});
+ddcprsDefaultClusterParameters :: Lens' DescribeDefaultClusterParametersResponse DefaultClusterParameters
+ddcprsDefaultClusterParameters = lens _ddcprsDefaultClusterParameters (\ s a -> s{_ddcprsDefaultClusterParameters = a});

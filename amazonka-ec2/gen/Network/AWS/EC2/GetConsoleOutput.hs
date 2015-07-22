@@ -46,18 +46,18 @@ module Network.AWS.EC2.GetConsoleOutput
     -- ** Request constructor
     , getConsoleOutput
     -- ** Request lenses
-    , gcoDryRun
-    , gcoInstanceId
+    , gcorqDryRun
+    , gcorqInstanceId
 
     -- * Response
     , GetConsoleOutputResponse
     -- ** Response constructor
     , getConsoleOutputResponse
     -- ** Response lenses
-    , gcorInstanceId
-    , gcorOutput
-    , gcorTimestamp
-    , gcorStatus
+    , gcorsInstanceId
+    , gcorsOutput
+    , gcorsTimestamp
+    , gcorsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -69,32 +69,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcoDryRun'
+-- * 'gcorqDryRun'
 --
--- * 'gcoInstanceId'
+-- * 'gcorqInstanceId'
 data GetConsoleOutput = GetConsoleOutput'
-    { _gcoDryRun     :: !(Maybe Bool)
-    , _gcoInstanceId :: !Text
+    { _gcorqDryRun     :: !(Maybe Bool)
+    , _gcorqInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConsoleOutput' smart constructor.
 getConsoleOutput :: Text -> GetConsoleOutput
 getConsoleOutput pInstanceId =
     GetConsoleOutput'
-    { _gcoDryRun = Nothing
-    , _gcoInstanceId = pInstanceId
+    { _gcorqDryRun = Nothing
+    , _gcorqInstanceId = pInstanceId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-gcoDryRun :: Lens' GetConsoleOutput (Maybe Bool)
-gcoDryRun = lens _gcoDryRun (\ s a -> s{_gcoDryRun = a});
+gcorqDryRun :: Lens' GetConsoleOutput (Maybe Bool)
+gcorqDryRun = lens _gcorqDryRun (\ s a -> s{_gcorqDryRun = a});
 
 -- | The ID of the instance.
-gcoInstanceId :: Lens' GetConsoleOutput Text
-gcoInstanceId = lens _gcoInstanceId (\ s a -> s{_gcoInstanceId = a});
+gcorqInstanceId :: Lens' GetConsoleOutput Text
+gcorqInstanceId = lens _gcorqInstanceId (\ s a -> s{_gcorqInstanceId = a});
 
 instance AWSRequest GetConsoleOutput where
         type Sv GetConsoleOutput = EC2
@@ -119,49 +119,49 @@ instance ToQuery GetConsoleOutput where
           = mconcat
               ["Action" =: ("GetConsoleOutput" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _gcoDryRun,
-               "InstanceId" =: _gcoInstanceId]
+               "DryRun" =: _gcorqDryRun,
+               "InstanceId" =: _gcorqInstanceId]
 
 -- | /See:/ 'getConsoleOutputResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gcorInstanceId'
+-- * 'gcorsInstanceId'
 --
--- * 'gcorOutput'
+-- * 'gcorsOutput'
 --
--- * 'gcorTimestamp'
+-- * 'gcorsTimestamp'
 --
--- * 'gcorStatus'
+-- * 'gcorsStatus'
 data GetConsoleOutputResponse = GetConsoleOutputResponse'
-    { _gcorInstanceId :: !(Maybe Text)
-    , _gcorOutput     :: !(Maybe Text)
-    , _gcorTimestamp  :: !(Maybe ISO8601)
-    , _gcorStatus     :: !Int
+    { _gcorsInstanceId :: !(Maybe Text)
+    , _gcorsOutput     :: !(Maybe Text)
+    , _gcorsTimestamp  :: !(Maybe ISO8601)
+    , _gcorsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetConsoleOutputResponse' smart constructor.
 getConsoleOutputResponse :: Int -> GetConsoleOutputResponse
 getConsoleOutputResponse pStatus =
     GetConsoleOutputResponse'
-    { _gcorInstanceId = Nothing
-    , _gcorOutput = Nothing
-    , _gcorTimestamp = Nothing
-    , _gcorStatus = pStatus
+    { _gcorsInstanceId = Nothing
+    , _gcorsOutput = Nothing
+    , _gcorsTimestamp = Nothing
+    , _gcorsStatus = pStatus
     }
 
 -- | The ID of the instance.
-gcorInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
-gcorInstanceId = lens _gcorInstanceId (\ s a -> s{_gcorInstanceId = a});
+gcorsInstanceId :: Lens' GetConsoleOutputResponse (Maybe Text)
+gcorsInstanceId = lens _gcorsInstanceId (\ s a -> s{_gcorsInstanceId = a});
 
 -- | The console output, Base64 encoded.
-gcorOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
-gcorOutput = lens _gcorOutput (\ s a -> s{_gcorOutput = a});
+gcorsOutput :: Lens' GetConsoleOutputResponse (Maybe Text)
+gcorsOutput = lens _gcorsOutput (\ s a -> s{_gcorsOutput = a});
 
 -- | The time the output was last updated.
-gcorTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
-gcorTimestamp = lens _gcorTimestamp (\ s a -> s{_gcorTimestamp = a}) . mapping _Time;
+gcorsTimestamp :: Lens' GetConsoleOutputResponse (Maybe UTCTime)
+gcorsTimestamp = lens _gcorsTimestamp (\ s a -> s{_gcorsTimestamp = a}) . mapping _Time;
 
 -- | FIXME: Undocumented member.
-gcorStatus :: Lens' GetConsoleOutputResponse Int
-gcorStatus = lens _gcorStatus (\ s a -> s{_gcorStatus = a});
+gcorsStatus :: Lens' GetConsoleOutputResponse Int
+gcorsStatus = lens _gcorsStatus (\ s a -> s{_gcorsStatus = a});

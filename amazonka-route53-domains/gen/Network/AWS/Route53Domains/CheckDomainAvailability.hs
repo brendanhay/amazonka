@@ -30,16 +30,16 @@ module Network.AWS.Route53Domains.CheckDomainAvailability
     -- ** Request constructor
     , checkDomainAvailability
     -- ** Request lenses
-    , cdaIdNLangCode
-    , cdaDomainName
+    , cdarqIdNLangCode
+    , cdarqDomainName
 
     -- * Response
     , CheckDomainAvailabilityResponse
     -- ** Response constructor
     , checkDomainAvailabilityResponse
     -- ** Response lenses
-    , cdarStatus
-    , cdarAvailability
+    , cdarsStatus
+    , cdarsAvailability
     ) where
 
 import           Network.AWS.Prelude
@@ -53,25 +53,25 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdaIdNLangCode'
+-- * 'cdarqIdNLangCode'
 --
--- * 'cdaDomainName'
+-- * 'cdarqDomainName'
 data CheckDomainAvailability = CheckDomainAvailability'
-    { _cdaIdNLangCode :: !(Maybe Text)
-    , _cdaDomainName  :: !Text
+    { _cdarqIdNLangCode :: !(Maybe Text)
+    , _cdarqDomainName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CheckDomainAvailability' smart constructor.
 checkDomainAvailability :: Text -> CheckDomainAvailability
 checkDomainAvailability pDomainName =
     CheckDomainAvailability'
-    { _cdaIdNLangCode = Nothing
-    , _cdaDomainName = pDomainName
+    { _cdarqIdNLangCode = Nothing
+    , _cdarqDomainName = pDomainName
     }
 
 -- | Reserved for future use.
-cdaIdNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
-cdaIdNLangCode = lens _cdaIdNLangCode (\ s a -> s{_cdaIdNLangCode = a});
+cdarqIdNLangCode :: Lens' CheckDomainAvailability (Maybe Text)
+cdarqIdNLangCode = lens _cdarqIdNLangCode (\ s a -> s{_cdarqIdNLangCode = a});
 
 -- | The name of a domain.
 --
@@ -84,8 +84,8 @@ cdaIdNLangCode = lens _cdaIdNLangCode (\ s a -> s{_cdaIdNLangCode = a});
 -- are not supported.
 --
 -- Required: Yes
-cdaDomainName :: Lens' CheckDomainAvailability Text
-cdaDomainName = lens _cdaDomainName (\ s a -> s{_cdaDomainName = a});
+cdarqDomainName :: Lens' CheckDomainAvailability Text
+cdarqDomainName = lens _cdarqDomainName (\ s a -> s{_cdarqDomainName = a});
 
 instance AWSRequest CheckDomainAvailability where
         type Sv CheckDomainAvailability = Route53Domains
@@ -111,8 +111,8 @@ instance ToHeaders CheckDomainAvailability where
 instance ToJSON CheckDomainAvailability where
         toJSON CheckDomainAvailability'{..}
           = object
-              ["IdnLangCode" .= _cdaIdNLangCode,
-               "DomainName" .= _cdaDomainName]
+              ["IdnLangCode" .= _cdarqIdNLangCode,
+               "DomainName" .= _cdarqDomainName]
 
 instance ToPath CheckDomainAvailability where
         toPath = const "/"
@@ -126,25 +126,25 @@ instance ToQuery CheckDomainAvailability where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdarStatus'
+-- * 'cdarsStatus'
 --
--- * 'cdarAvailability'
+-- * 'cdarsAvailability'
 data CheckDomainAvailabilityResponse = CheckDomainAvailabilityResponse'
-    { _cdarStatus       :: !Int
-    , _cdarAvailability :: !DomainAvailability
+    { _cdarsStatus       :: !Int
+    , _cdarsAvailability :: !DomainAvailability
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CheckDomainAvailabilityResponse' smart constructor.
 checkDomainAvailabilityResponse :: Int -> DomainAvailability -> CheckDomainAvailabilityResponse
 checkDomainAvailabilityResponse pStatus pAvailability =
     CheckDomainAvailabilityResponse'
-    { _cdarStatus = pStatus
-    , _cdarAvailability = pAvailability
+    { _cdarsStatus = pStatus
+    , _cdarsAvailability = pAvailability
     }
 
 -- | FIXME: Undocumented member.
-cdarStatus :: Lens' CheckDomainAvailabilityResponse Int
-cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});
+cdarsStatus :: Lens' CheckDomainAvailabilityResponse Int
+cdarsStatus = lens _cdarsStatus (\ s a -> s{_cdarsStatus = a});
 
 -- | Whether the domain name is available for registering.
 --
@@ -168,5 +168,5 @@ cdarStatus = lens _cdarStatus (\ s a -> s{_cdarStatus = a});
 --     answer about whether the domain name is available. Amazon Route 53
 --     can return this response for a variety of reasons, for example, the
 --     registry is performing maintenance. Try again later.
-cdarAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
-cdarAvailability = lens _cdarAvailability (\ s a -> s{_cdarAvailability = a});
+cdarsAvailability :: Lens' CheckDomainAvailabilityResponse DomainAvailability
+cdarsAvailability = lens _cdarsAvailability (\ s a -> s{_cdarsAvailability = a});

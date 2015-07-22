@@ -38,8 +38,8 @@ module Network.AWS.DirectConnect.DescribeVirtualGateways
     -- ** Response constructor
     , describeVirtualGatewaysResponse
     -- ** Response lenses
-    , dvgrVirtualGateways
-    , dvgrStatus
+    , dvgrsVirtualGateways
+    , dvgrsStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -93,26 +93,26 @@ instance ToQuery DescribeVirtualGateways where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvgrVirtualGateways'
+-- * 'dvgrsVirtualGateways'
 --
--- * 'dvgrStatus'
+-- * 'dvgrsStatus'
 data DescribeVirtualGatewaysResponse = DescribeVirtualGatewaysResponse'
-    { _dvgrVirtualGateways :: !(Maybe [VirtualGateway])
-    , _dvgrStatus          :: !Int
+    { _dvgrsVirtualGateways :: !(Maybe [VirtualGateway])
+    , _dvgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVirtualGatewaysResponse' smart constructor.
 describeVirtualGatewaysResponse :: Int -> DescribeVirtualGatewaysResponse
 describeVirtualGatewaysResponse pStatus =
     DescribeVirtualGatewaysResponse'
-    { _dvgrVirtualGateways = Nothing
-    , _dvgrStatus = pStatus
+    { _dvgrsVirtualGateways = Nothing
+    , _dvgrsStatus = pStatus
     }
 
 -- | A list of virtual private gateways.
-dvgrVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
-dvgrVirtualGateways = lens _dvgrVirtualGateways (\ s a -> s{_dvgrVirtualGateways = a}) . _Default;
+dvgrsVirtualGateways :: Lens' DescribeVirtualGatewaysResponse [VirtualGateway]
+dvgrsVirtualGateways = lens _dvgrsVirtualGateways (\ s a -> s{_dvgrsVirtualGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvgrStatus :: Lens' DescribeVirtualGatewaysResponse Int
-dvgrStatus = lens _dvgrStatus (\ s a -> s{_dvgrStatus = a});
+dvgrsStatus :: Lens' DescribeVirtualGatewaysResponse Int
+dvgrsStatus = lens _dvgrsStatus (\ s a -> s{_dvgrsStatus = a});

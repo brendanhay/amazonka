@@ -108,16 +108,16 @@ module Network.AWS.OpsWorks.Types
     -- * Command
     , Command
     , command
-    , comInstanceId
-    , comDeploymentId
-    , comStatus
-    , comLogURL
-    , comCreatedAt
-    , comCommandId
-    , comExitCode
-    , comType
-    , comCompletedAt
-    , comAcknowledgedAt
+    , cInstanceId
+    , cDeploymentId
+    , cStatus
+    , cLogURL
+    , cCreatedAt
+    , cCommandId
+    , cExitCode
+    , cType
+    , cCompletedAt
+    , cAcknowledgedAt
 
     -- * DataSource
     , DataSource
@@ -129,18 +129,18 @@ module Network.AWS.OpsWorks.Types
     -- * Deployment
     , Deployment
     , deployment
-    , depDeploymentId
-    , depStatus
-    , depCommand
-    , depCreatedAt
-    , depCustomJSON
-    , depIAMUserARN
-    , depAppId
-    , depInstanceIds
-    , depCompletedAt
-    , depStackId
-    , depComment
-    , depDuration
+    , dDeploymentId
+    , dStatus
+    , dCommand
+    , dCreatedAt
+    , dCustomJSON
+    , dIAMUserARN
+    , dAppId
+    , dInstanceIds
+    , dCompletedAt
+    , dStackId
+    , dComment
+    , dDuration
 
     -- * DeploymentCommand
     , DeploymentCommand
@@ -189,43 +189,43 @@ module Network.AWS.OpsWorks.Types
     -- * Instance
     , Instance
     , instance'
-    , insInstanceId
-    , insPrivateIP
-    , insInstallUpdatesOnBoot
-    , insReportedAgentVersion
-    , insStatus
-    , insPrivateDNS
-    , insVirtualizationType
-    , insSecurityGroupIds
-    , insSSHHostRsaKeyFingerprint
-    , insInstanceProfileARN
-    , insPlatform
-    , insHostname
-    , insCreatedAt
-    , insSSHKeyName
-    , insEC2InstanceId
-    , insAgentVersion
-    , insRootDeviceVolumeId
-    , insSubnetId
-    , insInstanceType
-    , insInfrastructureClass
-    , insEBSOptimized
-    , insSSHHostDsaKeyFingerprint
-    , insElasticIP
-    , insOS
-    , insAvailabilityZone
-    , insLastServiceErrorId
-    , insAutoScalingType
-    , insLayerIds
-    , insArchitecture
-    , insPublicDNS
-    , insPublicIP
-    , insAMIId
-    , insReportedOS
-    , insStackId
-    , insRegisteredBy
-    , insBlockDeviceMappings
-    , insRootDeviceType
+    , iInstanceId
+    , iPrivateIP
+    , iInstallUpdatesOnBoot
+    , iReportedAgentVersion
+    , iStatus
+    , iPrivateDNS
+    , iVirtualizationType
+    , iSecurityGroupIds
+    , iSSHHostRsaKeyFingerprint
+    , iInstanceProfileARN
+    , iPlatform
+    , iHostname
+    , iCreatedAt
+    , iSSHKeyName
+    , iEC2InstanceId
+    , iAgentVersion
+    , iRootDeviceVolumeId
+    , iSubnetId
+    , iInstanceType
+    , iInfrastructureClass
+    , iEBSOptimized
+    , iSSHHostDsaKeyFingerprint
+    , iElasticIP
+    , iOS
+    , iAvailabilityZone
+    , iLastServiceErrorId
+    , iAutoScalingType
+    , iLayerIds
+    , iArchitecture
+    , iPublicDNS
+    , iPublicIP
+    , iAMIId
+    , iReportedOS
+    , iStackId
+    , iRegisteredBy
+    , iBlockDeviceMappings
+    , iRootDeviceType
 
     -- * InstanceIdentity
     , InstanceIdentity
@@ -259,26 +259,26 @@ module Network.AWS.OpsWorks.Types
     -- * Layer
     , Layer
     , layer
-    , layCustomInstanceProfileARN
-    , layInstallUpdatesOnBoot
-    , layCustomSecurityGroupIds
-    , layLifecycleEventConfiguration
-    , layShortname
-    , layCreatedAt
-    , layDefaultRecipes
-    , layCustomRecipes
-    , layVolumeConfigurations
-    , layEnableAutoHealing
-    , layPackages
-    , layName
-    , layAttributes
-    , layAutoAssignPublicIPs
-    , layUseEBSOptimizedInstances
-    , layType
-    , layStackId
-    , layLayerId
-    , layDefaultSecurityGroupNames
-    , layAutoAssignElasticIPs
+    , lCustomInstanceProfileARN
+    , lInstallUpdatesOnBoot
+    , lCustomSecurityGroupIds
+    , lLifecycleEventConfiguration
+    , lShortname
+    , lCreatedAt
+    , lDefaultRecipes
+    , lCustomRecipes
+    , lVolumeConfigurations
+    , lEnableAutoHealing
+    , lPackages
+    , lName
+    , lAttributes
+    , lAutoAssignPublicIPs
+    , lUseEBSOptimizedInstances
+    , lType
+    , lStackId
+    , lLayerId
+    , lDefaultSecurityGroupNames
+    , lAutoAssignElasticIPs
 
     -- * LifecycleEventConfiguration
     , LifecycleEventConfiguration
@@ -296,11 +296,11 @@ module Network.AWS.OpsWorks.Types
     -- * Permission
     , Permission
     , permission
-    , perIAMUserARN
-    , perAllowSudo
-    , perStackId
-    , perLevel
-    , perAllowSSH
+    , pIAMUserARN
+    , pAllowSudo
+    , pStackId
+    , pLevel
+    , pAllowSSH
 
     -- * RAIdArray
     , RAIdArray
@@ -335,11 +335,11 @@ module Network.AWS.OpsWorks.Types
     -- * Recipes
     , Recipes
     , recipes
-    , recSetup
-    , recUndeploy
-    , recShutdown
-    , recConfigure
-    , recDeploy
+    , rSetup
+    , rUndeploy
+    , rShutdown
+    , rConfigure
+    , rDeploy
 
     -- * ReportedOS
     , ReportedOS
@@ -382,38 +382,38 @@ module Network.AWS.OpsWorks.Types
     -- * Source
     , Source
     , source
-    , souURL
-    , souUsername
-    , souSSHKey
-    , souPassword
-    , souType
-    , souRevision
+    , sURL
+    , sUsername
+    , sSSHKey
+    , sPassword
+    , sType
+    , sRevision
 
     -- * Stack
     , Stack
     , stack
-    , staDefaultInstanceProfileARN
-    , staServiceRoleARN
-    , staARN
-    , staDefaultRootDeviceType
-    , staCreatedAt
-    , staChefConfiguration
-    , staVPCId
-    , staAgentVersion
-    , staDefaultSSHKeyName
-    , staCustomJSON
-    , staCustomCookbooksSource
-    , staDefaultAvailabilityZone
-    , staName
-    , staUseOpsworksSecurityGroups
-    , staDefaultOS
-    , staAttributes
-    , staUseCustomCookbooks
-    , staDefaultSubnetId
-    , staRegion
-    , staConfigurationManager
-    , staStackId
-    , staHostnameTheme
+    , sDefaultInstanceProfileARN
+    , sServiceRoleARN
+    , sARN
+    , sDefaultRootDeviceType
+    , sCreatedAt
+    , sChefConfiguration
+    , sVPCId
+    , sAgentVersion
+    , sDefaultSSHKeyName
+    , sCustomJSON
+    , sCustomCookbooksSource
+    , sDefaultAvailabilityZone
+    , sName
+    , sUseOpsworksSecurityGroups
+    , sDefaultOS
+    , sAttributes
+    , sUseCustomCookbooks
+    , sDefaultSubnetId
+    , sRegion
+    , sConfigurationManager
+    , sStackId
+    , sHostnameTheme
 
     -- * StackConfigurationManager
     , StackConfigurationManager
@@ -457,19 +457,19 @@ module Network.AWS.OpsWorks.Types
     -- * Volume
     , Volume
     , volume
-    , volInstanceId
-    , volStatus
-    , volSize
-    , volIOPS
-    , volDevice
-    , volName
-    , volAvailabilityZone
-    , volRAIdArrayId
-    , volVolumeId
-    , volRegion
-    , volVolumeType
-    , volEC2VolumeId
-    , volMountPoint
+    , vInstanceId
+    , vStatus
+    , vSize
+    , vIOPS
+    , vDevice
+    , vName
+    , vAvailabilityZone
+    , vRAIdArrayId
+    , vVolumeId
+    , vRegion
+    , vVolumeType
+    , vEC2VolumeId
+    , vMountPoint
 
     -- * VolumeConfiguration
     , VolumeConfiguration

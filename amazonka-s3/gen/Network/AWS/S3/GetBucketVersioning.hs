@@ -27,15 +27,15 @@ module Network.AWS.S3.GetBucketVersioning
     -- ** Request constructor
     , getBucketVersioning
     -- ** Request lenses
-    , gbvBucket
+    , gbvrqBucket
 
     -- * Response
     , GetBucketVersioningResponse
     -- ** Response constructor
     , getBucketVersioningResponse
     -- ** Response lenses
-    , gbvrMFADelete
-    , gbvrStatus
+    , gbvrsMFADelete
+    , gbvrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbvBucket'
+-- * 'gbvrqBucket'
 newtype GetBucketVersioning = GetBucketVersioning'
-    { _gbvBucket :: BucketName
+    { _gbvrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketVersioning' smart constructor.
 getBucketVersioning :: BucketName -> GetBucketVersioning
 getBucketVersioning pBucket =
     GetBucketVersioning'
-    { _gbvBucket = pBucket
+    { _gbvrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gbvBucket :: Lens' GetBucketVersioning BucketName
-gbvBucket = lens _gbvBucket (\ s a -> s{_gbvBucket = a});
+gbvrqBucket :: Lens' GetBucketVersioning BucketName
+gbvrqBucket = lens _gbvrqBucket (\ s a -> s{_gbvrqBucket = a});
 
 instance AWSRequest GetBucketVersioning where
         type Sv GetBucketVersioning = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketVersioning where
 
 instance ToPath GetBucketVersioning where
         toPath GetBucketVersioning'{..}
-          = mconcat ["/", toText _gbvBucket]
+          = mconcat ["/", toText _gbvrqBucket]
 
 instance ToQuery GetBucketVersioning where
         toQuery = const (mconcat ["versioning"])
@@ -88,29 +88,29 @@ instance ToQuery GetBucketVersioning where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbvrMFADelete'
+-- * 'gbvrsMFADelete'
 --
--- * 'gbvrStatus'
+-- * 'gbvrsStatus'
 data GetBucketVersioningResponse = GetBucketVersioningResponse'
-    { _gbvrMFADelete :: !(Maybe MFADeleteStatus)
-    , _gbvrStatus    :: !Int
+    { _gbvrsMFADelete :: !(Maybe MFADeleteStatus)
+    , _gbvrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketVersioningResponse' smart constructor.
 getBucketVersioningResponse :: Int -> GetBucketVersioningResponse
 getBucketVersioningResponse pStatus =
     GetBucketVersioningResponse'
-    { _gbvrMFADelete = Nothing
-    , _gbvrStatus = pStatus
+    { _gbvrsMFADelete = Nothing
+    , _gbvrsStatus = pStatus
     }
 
 -- | Specifies whether MFA delete is enabled in the bucket versioning
 -- configuration. This element is only returned if the bucket has been
 -- configured with MFA delete. If the bucket has never been so configured,
 -- this element is not returned.
-gbvrMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
-gbvrMFADelete = lens _gbvrMFADelete (\ s a -> s{_gbvrMFADelete = a});
+gbvrsMFADelete :: Lens' GetBucketVersioningResponse (Maybe MFADeleteStatus)
+gbvrsMFADelete = lens _gbvrsMFADelete (\ s a -> s{_gbvrsMFADelete = a});
 
 -- | FIXME: Undocumented member.
-gbvrStatus :: Lens' GetBucketVersioningResponse Int
-gbvrStatus = lens _gbvrStatus (\ s a -> s{_gbvrStatus = a});
+gbvrsStatus :: Lens' GetBucketVersioningResponse Int
+gbvrsStatus = lens _gbvrsStatus (\ s a -> s{_gbvrsStatus = a});

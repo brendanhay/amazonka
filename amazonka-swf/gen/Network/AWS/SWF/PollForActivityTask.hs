@@ -59,22 +59,22 @@ module Network.AWS.SWF.PollForActivityTask
     -- ** Request constructor
     , pollForActivityTask
     -- ** Request lenses
-    , pfatIdentity
-    , pfatDomain
-    , pfatTaskList
+    , pfatrqIdentity
+    , pfatrqDomain
+    , pfatrqTaskList
 
     -- * Response
     , PollForActivityTaskResponse
     -- ** Response constructor
     , pollForActivityTaskResponse
     -- ** Response lenses
-    , pfatrInput
-    , pfatrStatus
-    , pfatrTaskToken
-    , pfatrActivityId
-    , pfatrStartedEventId
-    , pfatrWorkflowExecution
-    , pfatrActivityType
+    , pfatrsInput
+    , pfatrsStatus
+    , pfatrsTaskToken
+    , pfatrsActivityId
+    , pfatrsStartedEventId
+    , pfatrsWorkflowExecution
+    , pfatrsActivityType
     ) where
 
 import           Network.AWS.Prelude
@@ -86,36 +86,36 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pfatIdentity'
+-- * 'pfatrqIdentity'
 --
--- * 'pfatDomain'
+-- * 'pfatrqDomain'
 --
--- * 'pfatTaskList'
+-- * 'pfatrqTaskList'
 data PollForActivityTask = PollForActivityTask'
-    { _pfatIdentity :: !(Maybe Text)
-    , _pfatDomain   :: !Text
-    , _pfatTaskList :: !TaskList
+    { _pfatrqIdentity :: !(Maybe Text)
+    , _pfatrqDomain   :: !Text
+    , _pfatrqTaskList :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForActivityTask' smart constructor.
 pollForActivityTask :: Text -> TaskList -> PollForActivityTask
 pollForActivityTask pDomain pTaskList =
     PollForActivityTask'
-    { _pfatIdentity = Nothing
-    , _pfatDomain = pDomain
-    , _pfatTaskList = pTaskList
+    { _pfatrqIdentity = Nothing
+    , _pfatrqDomain = pDomain
+    , _pfatrqTaskList = pTaskList
     }
 
 -- | Identity of the worker making the request, recorded in the
 -- @ActivityTaskStarted@ event in the workflow history. This enables
 -- diagnostic tracing when problems arise. The form of this identity is
 -- user defined.
-pfatIdentity :: Lens' PollForActivityTask (Maybe Text)
-pfatIdentity = lens _pfatIdentity (\ s a -> s{_pfatIdentity = a});
+pfatrqIdentity :: Lens' PollForActivityTask (Maybe Text)
+pfatrqIdentity = lens _pfatrqIdentity (\ s a -> s{_pfatrqIdentity = a});
 
 -- | The name of the domain that contains the task lists being polled.
-pfatDomain :: Lens' PollForActivityTask Text
-pfatDomain = lens _pfatDomain (\ s a -> s{_pfatDomain = a});
+pfatrqDomain :: Lens' PollForActivityTask Text
+pfatrqDomain = lens _pfatrqDomain (\ s a -> s{_pfatrqDomain = a});
 
 -- | Specifies the task list to poll for activity tasks.
 --
@@ -123,8 +123,8 @@ pfatDomain = lens _pfatDomain (\ s a -> s{_pfatDomain = a});
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-pfatTaskList :: Lens' PollForActivityTask TaskList
-pfatTaskList = lens _pfatTaskList (\ s a -> s{_pfatTaskList = a});
+pfatrqTaskList :: Lens' PollForActivityTask TaskList
+pfatrqTaskList = lens _pfatrqTaskList (\ s a -> s{_pfatrqTaskList = a});
 
 instance AWSRequest PollForActivityTask where
         type Sv PollForActivityTask = SWF
@@ -155,8 +155,9 @@ instance ToHeaders PollForActivityTask where
 instance ToJSON PollForActivityTask where
         toJSON PollForActivityTask'{..}
           = object
-              ["identity" .= _pfatIdentity,
-               "domain" .= _pfatDomain, "taskList" .= _pfatTaskList]
+              ["identity" .= _pfatrqIdentity,
+               "domain" .= _pfatrqDomain,
+               "taskList" .= _pfatrqTaskList]
 
 instance ToPath PollForActivityTask where
         toPath = const "/"
@@ -170,70 +171,70 @@ instance ToQuery PollForActivityTask where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pfatrInput'
+-- * 'pfatrsInput'
 --
--- * 'pfatrStatus'
+-- * 'pfatrsStatus'
 --
--- * 'pfatrTaskToken'
+-- * 'pfatrsTaskToken'
 --
--- * 'pfatrActivityId'
+-- * 'pfatrsActivityId'
 --
--- * 'pfatrStartedEventId'
+-- * 'pfatrsStartedEventId'
 --
--- * 'pfatrWorkflowExecution'
+-- * 'pfatrsWorkflowExecution'
 --
--- * 'pfatrActivityType'
+-- * 'pfatrsActivityType'
 data PollForActivityTaskResponse = PollForActivityTaskResponse'
-    { _pfatrInput             :: !(Maybe Text)
-    , _pfatrStatus            :: !Int
-    , _pfatrTaskToken         :: !Text
-    , _pfatrActivityId        :: !Text
-    , _pfatrStartedEventId    :: !Integer
-    , _pfatrWorkflowExecution :: !WorkflowExecution
-    , _pfatrActivityType      :: !ActivityType
+    { _pfatrsInput             :: !(Maybe Text)
+    , _pfatrsStatus            :: !Int
+    , _pfatrsTaskToken         :: !Text
+    , _pfatrsActivityId        :: !Text
+    , _pfatrsStartedEventId    :: !Integer
+    , _pfatrsWorkflowExecution :: !WorkflowExecution
+    , _pfatrsActivityType      :: !ActivityType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForActivityTaskResponse' smart constructor.
 pollForActivityTaskResponse :: Int -> Text -> Text -> Integer -> WorkflowExecution -> ActivityType -> PollForActivityTaskResponse
 pollForActivityTaskResponse pStatus pTaskToken pActivityId pStartedEventId pWorkflowExecution pActivityType =
     PollForActivityTaskResponse'
-    { _pfatrInput = Nothing
-    , _pfatrStatus = pStatus
-    , _pfatrTaskToken = pTaskToken
-    , _pfatrActivityId = pActivityId
-    , _pfatrStartedEventId = pStartedEventId
-    , _pfatrWorkflowExecution = pWorkflowExecution
-    , _pfatrActivityType = pActivityType
+    { _pfatrsInput = Nothing
+    , _pfatrsStatus = pStatus
+    , _pfatrsTaskToken = pTaskToken
+    , _pfatrsActivityId = pActivityId
+    , _pfatrsStartedEventId = pStartedEventId
+    , _pfatrsWorkflowExecution = pWorkflowExecution
+    , _pfatrsActivityType = pActivityType
     }
 
 -- | The inputs provided when the activity task was scheduled. The form of
 -- the input is user defined and should be meaningful to the activity
 -- implementation.
-pfatrInput :: Lens' PollForActivityTaskResponse (Maybe Text)
-pfatrInput = lens _pfatrInput (\ s a -> s{_pfatrInput = a});
+pfatrsInput :: Lens' PollForActivityTaskResponse (Maybe Text)
+pfatrsInput = lens _pfatrsInput (\ s a -> s{_pfatrsInput = a});
 
 -- | FIXME: Undocumented member.
-pfatrStatus :: Lens' PollForActivityTaskResponse Int
-pfatrStatus = lens _pfatrStatus (\ s a -> s{_pfatrStatus = a});
+pfatrsStatus :: Lens' PollForActivityTaskResponse Int
+pfatrsStatus = lens _pfatrsStatus (\ s a -> s{_pfatrsStatus = a});
 
 -- | The opaque string used as a handle on the task. This token is used by
 -- workers to communicate progress and response information back to the
 -- system about the task.
-pfatrTaskToken :: Lens' PollForActivityTaskResponse Text
-pfatrTaskToken = lens _pfatrTaskToken (\ s a -> s{_pfatrTaskToken = a});
+pfatrsTaskToken :: Lens' PollForActivityTaskResponse Text
+pfatrsTaskToken = lens _pfatrsTaskToken (\ s a -> s{_pfatrsTaskToken = a});
 
 -- | The unique ID of the task.
-pfatrActivityId :: Lens' PollForActivityTaskResponse Text
-pfatrActivityId = lens _pfatrActivityId (\ s a -> s{_pfatrActivityId = a});
+pfatrsActivityId :: Lens' PollForActivityTaskResponse Text
+pfatrsActivityId = lens _pfatrsActivityId (\ s a -> s{_pfatrsActivityId = a});
 
 -- | The id of the @ActivityTaskStarted@ event recorded in the history.
-pfatrStartedEventId :: Lens' PollForActivityTaskResponse Integer
-pfatrStartedEventId = lens _pfatrStartedEventId (\ s a -> s{_pfatrStartedEventId = a});
+pfatrsStartedEventId :: Lens' PollForActivityTaskResponse Integer
+pfatrsStartedEventId = lens _pfatrsStartedEventId (\ s a -> s{_pfatrsStartedEventId = a});
 
 -- | The workflow execution that started this activity task.
-pfatrWorkflowExecution :: Lens' PollForActivityTaskResponse WorkflowExecution
-pfatrWorkflowExecution = lens _pfatrWorkflowExecution (\ s a -> s{_pfatrWorkflowExecution = a});
+pfatrsWorkflowExecution :: Lens' PollForActivityTaskResponse WorkflowExecution
+pfatrsWorkflowExecution = lens _pfatrsWorkflowExecution (\ s a -> s{_pfatrsWorkflowExecution = a});
 
 -- | The type of this activity task.
-pfatrActivityType :: Lens' PollForActivityTaskResponse ActivityType
-pfatrActivityType = lens _pfatrActivityType (\ s a -> s{_pfatrActivityType = a});
+pfatrsActivityType :: Lens' PollForActivityTaskResponse ActivityType
+pfatrsActivityType = lens _pfatrsActivityType (\ s a -> s{_pfatrsActivityType = a});

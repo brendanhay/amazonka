@@ -29,19 +29,19 @@ module Network.AWS.StorageGateway.DescribeTapes
     -- ** Request constructor
     , describeTapes
     -- ** Request lenses
-    , dtMarker
-    , dtLimit
-    , dtTapeARNs
-    , dtGatewayARN
+    , dtrqMarker
+    , dtrqLimit
+    , dtrqTapeARNs
+    , dtrqGatewayARN
 
     -- * Response
     , DescribeTapesResponse
     -- ** Response constructor
     , describeTapesResponse
     -- ** Response lenses
-    , desMarker
-    , desTapes
-    , desStatus
+    , dtrsMarker
+    , dtrsTapes
+    , dtrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -56,60 +56,61 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtMarker'
+-- * 'dtrqMarker'
 --
--- * 'dtLimit'
+-- * 'dtrqLimit'
 --
--- * 'dtTapeARNs'
+-- * 'dtrqTapeARNs'
 --
--- * 'dtGatewayARN'
+-- * 'dtrqGatewayARN'
 data DescribeTapes = DescribeTapes'
-    { _dtMarker     :: !(Maybe Text)
-    , _dtLimit      :: !(Maybe Nat)
-    , _dtTapeARNs   :: !(Maybe [Text])
-    , _dtGatewayARN :: !Text
+    { _dtrqMarker     :: !(Maybe Text)
+    , _dtrqLimit      :: !(Maybe Nat)
+    , _dtrqTapeARNs   :: !(Maybe [Text])
+    , _dtrqGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapes' smart constructor.
 describeTapes :: Text -> DescribeTapes
 describeTapes pGatewayARN =
     DescribeTapes'
-    { _dtMarker = Nothing
-    , _dtLimit = Nothing
-    , _dtTapeARNs = Nothing
-    , _dtGatewayARN = pGatewayARN
+    { _dtrqMarker = Nothing
+    , _dtrqLimit = Nothing
+    , _dtrqTapeARNs = Nothing
+    , _dtrqGatewayARN = pGatewayARN
     }
 
 -- | A marker value, obtained in a previous call to @DescribeTapes@. This
 -- marker indicates which page of results to retrieve.
 --
 -- If not specified, the first page of results is retrieved.
-dtMarker :: Lens' DescribeTapes (Maybe Text)
-dtMarker = lens _dtMarker (\ s a -> s{_dtMarker = a});
+dtrqMarker :: Lens' DescribeTapes (Maybe Text)
+dtrqMarker = lens _dtrqMarker (\ s a -> s{_dtrqMarker = a});
 
 -- | Specifies that the number of virtual tapes described be limited to the
 -- specified number.
 --
 -- Amazon Web Services may impose its own limit, if this field is not set.
-dtLimit :: Lens' DescribeTapes (Maybe Natural)
-dtLimit = lens _dtLimit (\ s a -> s{_dtLimit = a}) . mapping _Nat;
+dtrqLimit :: Lens' DescribeTapes (Maybe Natural)
+dtrqLimit = lens _dtrqLimit (\ s a -> s{_dtrqLimit = a}) . mapping _Nat;
 
 -- | Specifies one or more unique Amazon Resource Names (ARNs) that represent
 -- the virtual tapes you want to describe. If this parameter is not
 -- specified, AWS Storage Gateway returns a description of all virtual
 -- tapes associated with the specified gateway.
-dtTapeARNs :: Lens' DescribeTapes [Text]
-dtTapeARNs = lens _dtTapeARNs (\ s a -> s{_dtTapeARNs = a}) . _Default;
+dtrqTapeARNs :: Lens' DescribeTapes [Text]
+dtrqTapeARNs = lens _dtrqTapeARNs (\ s a -> s{_dtrqTapeARNs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtGatewayARN :: Lens' DescribeTapes Text
-dtGatewayARN = lens _dtGatewayARN (\ s a -> s{_dtGatewayARN = a});
+dtrqGatewayARN :: Lens' DescribeTapes Text
+dtrqGatewayARN = lens _dtrqGatewayARN (\ s a -> s{_dtrqGatewayARN = a});
 
 instance AWSPager DescribeTapes where
         page rq rs
-          | stop (rs ^. desMarker) = Nothing
-          | stop (rs ^. desTapes) = Nothing
-          | otherwise = Just $ rq & dtMarker .~ rs ^. desMarker
+          | stop (rs ^. dtrsMarker) = Nothing
+          | stop (rs ^. dtrsTapes) = Nothing
+          | otherwise =
+            Just $ rq & dtrqMarker .~ rs ^. dtrsMarker
 
 instance AWSRequest DescribeTapes where
         type Sv DescribeTapes = StorageGateway
@@ -135,9 +136,9 @@ instance ToHeaders DescribeTapes where
 instance ToJSON DescribeTapes where
         toJSON DescribeTapes'{..}
           = object
-              ["Marker" .= _dtMarker, "Limit" .= _dtLimit,
-               "TapeARNs" .= _dtTapeARNs,
-               "GatewayARN" .= _dtGatewayARN]
+              ["Marker" .= _dtrqMarker, "Limit" .= _dtrqLimit,
+               "TapeARNs" .= _dtrqTapeARNs,
+               "GatewayARN" .= _dtrqGatewayARN]
 
 instance ToPath DescribeTapes where
         toPath = const "/"
@@ -151,24 +152,24 @@ instance ToQuery DescribeTapes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desMarker'
+-- * 'dtrsMarker'
 --
--- * 'desTapes'
+-- * 'dtrsTapes'
 --
--- * 'desStatus'
+-- * 'dtrsStatus'
 data DescribeTapesResponse = DescribeTapesResponse'
-    { _desMarker :: !(Maybe Text)
-    , _desTapes  :: !(Maybe [Tape])
-    , _desStatus :: !Int
+    { _dtrsMarker :: !(Maybe Text)
+    , _dtrsTapes  :: !(Maybe [Tape])
+    , _dtrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTapesResponse' smart constructor.
 describeTapesResponse :: Int -> DescribeTapesResponse
 describeTapesResponse pStatus =
     DescribeTapesResponse'
-    { _desMarker = Nothing
-    , _desTapes = Nothing
-    , _desStatus = pStatus
+    { _dtrsMarker = Nothing
+    , _dtrsTapes = Nothing
+    , _dtrsStatus = pStatus
     }
 
 -- | An opaque string which can be used as part of a subsequent DescribeTapes
@@ -176,13 +177,13 @@ describeTapesResponse pStatus =
 --
 -- If a response does not contain a marker, then there are no more results
 -- to be retrieved.
-desMarker :: Lens' DescribeTapesResponse (Maybe Text)
-desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
+dtrsMarker :: Lens' DescribeTapesResponse (Maybe Text)
+dtrsMarker = lens _dtrsMarker (\ s a -> s{_dtrsMarker = a});
 
 -- | An array of virtual tape descriptions.
-desTapes :: Lens' DescribeTapesResponse [Tape]
-desTapes = lens _desTapes (\ s a -> s{_desTapes = a}) . _Default;
+dtrsTapes :: Lens' DescribeTapesResponse [Tape]
+dtrsTapes = lens _dtrsTapes (\ s a -> s{_dtrsTapes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeTapesResponse Int
-desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+dtrsStatus :: Lens' DescribeTapesResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

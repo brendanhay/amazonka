@@ -30,16 +30,16 @@ module Network.AWS.MachineLearning.UpdateBatchPrediction
     -- ** Request constructor
     , updateBatchPrediction
     -- ** Request lenses
-    , ubpBatchPredictionId
-    , ubpBatchPredictionName
+    , ubprqBatchPredictionId
+    , ubprqBatchPredictionName
 
     -- * Response
     , UpdateBatchPredictionResponse
     -- ** Response constructor
     , updateBatchPredictionResponse
     -- ** Response lenses
-    , ubprBatchPredictionId
-    , ubprStatus
+    , ubprsBatchPredictionId
+    , ubprsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ubpBatchPredictionId'
+-- * 'ubprqBatchPredictionId'
 --
--- * 'ubpBatchPredictionName'
+-- * 'ubprqBatchPredictionName'
 data UpdateBatchPrediction = UpdateBatchPrediction'
-    { _ubpBatchPredictionId   :: !Text
-    , _ubpBatchPredictionName :: !Text
+    { _ubprqBatchPredictionId   :: !Text
+    , _ubprqBatchPredictionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBatchPrediction' smart constructor.
 updateBatchPrediction :: Text -> Text -> UpdateBatchPrediction
 updateBatchPrediction pBatchPredictionId pBatchPredictionName =
     UpdateBatchPrediction'
-    { _ubpBatchPredictionId = pBatchPredictionId
-    , _ubpBatchPredictionName = pBatchPredictionName
+    { _ubprqBatchPredictionId = pBatchPredictionId
+    , _ubprqBatchPredictionName = pBatchPredictionName
     }
 
 -- | The ID assigned to the @BatchPrediction@ during creation.
-ubpBatchPredictionId :: Lens' UpdateBatchPrediction Text
-ubpBatchPredictionId = lens _ubpBatchPredictionId (\ s a -> s{_ubpBatchPredictionId = a});
+ubprqBatchPredictionId :: Lens' UpdateBatchPrediction Text
+ubprqBatchPredictionId = lens _ubprqBatchPredictionId (\ s a -> s{_ubprqBatchPredictionId = a});
 
 -- | A new user-supplied name or description of the @BatchPrediction@.
-ubpBatchPredictionName :: Lens' UpdateBatchPrediction Text
-ubpBatchPredictionName = lens _ubpBatchPredictionName (\ s a -> s{_ubpBatchPredictionName = a});
+ubprqBatchPredictionName :: Lens' UpdateBatchPrediction Text
+ubprqBatchPredictionName = lens _ubprqBatchPredictionName (\ s a -> s{_ubprqBatchPredictionName = a});
 
 instance AWSRequest UpdateBatchPrediction where
         type Sv UpdateBatchPrediction = MachineLearning
@@ -99,8 +99,8 @@ instance ToHeaders UpdateBatchPrediction where
 instance ToJSON UpdateBatchPrediction where
         toJSON UpdateBatchPrediction'{..}
           = object
-              ["BatchPredictionId" .= _ubpBatchPredictionId,
-               "BatchPredictionName" .= _ubpBatchPredictionName]
+              ["BatchPredictionId" .= _ubprqBatchPredictionId,
+               "BatchPredictionName" .= _ubprqBatchPredictionName]
 
 instance ToPath UpdateBatchPrediction where
         toPath = const "/"
@@ -117,28 +117,28 @@ instance ToQuery UpdateBatchPrediction where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ubprBatchPredictionId'
+-- * 'ubprsBatchPredictionId'
 --
--- * 'ubprStatus'
+-- * 'ubprsStatus'
 data UpdateBatchPredictionResponse = UpdateBatchPredictionResponse'
-    { _ubprBatchPredictionId :: !(Maybe Text)
-    , _ubprStatus            :: !Int
+    { _ubprsBatchPredictionId :: !(Maybe Text)
+    , _ubprsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBatchPredictionResponse' smart constructor.
 updateBatchPredictionResponse :: Int -> UpdateBatchPredictionResponse
 updateBatchPredictionResponse pStatus =
     UpdateBatchPredictionResponse'
-    { _ubprBatchPredictionId = Nothing
-    , _ubprStatus = pStatus
+    { _ubprsBatchPredictionId = Nothing
+    , _ubprsStatus = pStatus
     }
 
 -- | The ID assigned to the @BatchPrediction@ during creation. This value
 -- should be identical to the value of the @BatchPredictionId@ in the
 -- request.
-ubprBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
-ubprBatchPredictionId = lens _ubprBatchPredictionId (\ s a -> s{_ubprBatchPredictionId = a});
+ubprsBatchPredictionId :: Lens' UpdateBatchPredictionResponse (Maybe Text)
+ubprsBatchPredictionId = lens _ubprsBatchPredictionId (\ s a -> s{_ubprsBatchPredictionId = a});
 
 -- | FIXME: Undocumented member.
-ubprStatus :: Lens' UpdateBatchPredictionResponse Int
-ubprStatus = lens _ubprStatus (\ s a -> s{_ubprStatus = a});
+ubprsStatus :: Lens' UpdateBatchPredictionResponse Int
+ubprsStatus = lens _ubprsStatus (\ s a -> s{_ubprsStatus = a});

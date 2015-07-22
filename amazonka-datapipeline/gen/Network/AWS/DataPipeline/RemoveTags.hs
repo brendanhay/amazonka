@@ -27,15 +27,15 @@ module Network.AWS.DataPipeline.RemoveTags
     -- ** Request constructor
     , removeTags
     -- ** Request lenses
-    , rtPipelineId
-    , rtTagKeys
+    , rtrqPipelineId
+    , rtrqTagKeys
 
     -- * Response
     , RemoveTagsResponse
     -- ** Response constructor
     , removeTagsResponse
     -- ** Response lenses
-    , rtrStatus
+    , rtrsStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -49,29 +49,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtPipelineId'
+-- * 'rtrqPipelineId'
 --
--- * 'rtTagKeys'
+-- * 'rtrqTagKeys'
 data RemoveTags = RemoveTags'
-    { _rtPipelineId :: !Text
-    , _rtTagKeys    :: ![Text]
+    { _rtrqPipelineId :: !Text
+    , _rtrqTagKeys    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
 removeTags pPipelineId =
     RemoveTags'
-    { _rtPipelineId = pPipelineId
-    , _rtTagKeys = mempty
+    { _rtrqPipelineId = pPipelineId
+    , _rtrqTagKeys = mempty
     }
 
 -- | The ID of the pipeline.
-rtPipelineId :: Lens' RemoveTags Text
-rtPipelineId = lens _rtPipelineId (\ s a -> s{_rtPipelineId = a});
+rtrqPipelineId :: Lens' RemoveTags Text
+rtrqPipelineId = lens _rtrqPipelineId (\ s a -> s{_rtrqPipelineId = a});
 
 -- | The keys of the tags to remove.
-rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a});
+rtrqTagKeys :: Lens' RemoveTags [Text]
+rtrqTagKeys = lens _rtrqTagKeys (\ s a -> s{_rtrqTagKeys = a});
 
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = DataPipeline
@@ -94,8 +94,8 @@ instance ToHeaders RemoveTags where
 instance ToJSON RemoveTags where
         toJSON RemoveTags'{..}
           = object
-              ["pipelineId" .= _rtPipelineId,
-               "tagKeys" .= _rtTagKeys]
+              ["pipelineId" .= _rtrqPipelineId,
+               "tagKeys" .= _rtrqTagKeys]
 
 instance ToPath RemoveTags where
         toPath = const "/"
@@ -109,18 +109,18 @@ instance ToQuery RemoveTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrStatus'
+-- * 'rtrsStatus'
 newtype RemoveTagsResponse = RemoveTagsResponse'
-    { _rtrStatus :: Int
+    { _rtrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
 removeTagsResponse pStatus =
     RemoveTagsResponse'
-    { _rtrStatus = pStatus
+    { _rtrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rtrStatus :: Lens' RemoveTagsResponse Int
-rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});
+rtrsStatus :: Lens' RemoveTagsResponse Int
+rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

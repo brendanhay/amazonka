@@ -32,17 +32,17 @@ module Network.AWS.Redshift.CreateClusterSnapshot
     -- ** Request constructor
     , createClusterSnapshot
     -- ** Request lenses
-    , ccsTags
-    , ccsSnapshotIdentifier
-    , ccsClusterIdentifier
+    , ccsrqTags
+    , ccsrqSnapshotIdentifier
+    , ccsrqClusterIdentifier
 
     -- * Response
     , CreateClusterSnapshotResponse
     -- ** Response constructor
     , createClusterSnapshotResponse
     -- ** Response lenses
-    , cSnapshot
-    , cStatus
+    , ccsrsSnapshot
+    , ccsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsTags'
+-- * 'ccsrqTags'
 --
--- * 'ccsSnapshotIdentifier'
+-- * 'ccsrqSnapshotIdentifier'
 --
--- * 'ccsClusterIdentifier'
+-- * 'ccsrqClusterIdentifier'
 data CreateClusterSnapshot = CreateClusterSnapshot'
-    { _ccsTags               :: !(Maybe [Tag])
-    , _ccsSnapshotIdentifier :: !Text
-    , _ccsClusterIdentifier  :: !Text
+    { _ccsrqTags               :: !(Maybe [Tag])
+    , _ccsrqSnapshotIdentifier :: !Text
+    , _ccsrqClusterIdentifier  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSnapshot' smart constructor.
 createClusterSnapshot :: Text -> Text -> CreateClusterSnapshot
 createClusterSnapshot pSnapshotIdentifier pClusterIdentifier =
     CreateClusterSnapshot'
-    { _ccsTags = Nothing
-    , _ccsSnapshotIdentifier = pSnapshotIdentifier
-    , _ccsClusterIdentifier = pClusterIdentifier
+    { _ccsrqTags = Nothing
+    , _ccsrqSnapshotIdentifier = pSnapshotIdentifier
+    , _ccsrqClusterIdentifier = pClusterIdentifier
     }
 
 -- | A list of tag instances.
-ccsTags :: Lens' CreateClusterSnapshot [Tag]
-ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default;
+ccsrqTags :: Lens' CreateClusterSnapshot [Tag]
+ccsrqTags = lens _ccsrqTags (\ s a -> s{_ccsrqTags = a}) . _Default;
 
 -- | A unique identifier for the snapshot that you are requesting. This
 -- identifier must be unique for all snapshots within the AWS account.
@@ -91,12 +91,12 @@ ccsTags = lens _ccsTags (\ s a -> s{_ccsTags = a}) . _Default;
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-snapshot-id@
-ccsSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
-ccsSnapshotIdentifier = lens _ccsSnapshotIdentifier (\ s a -> s{_ccsSnapshotIdentifier = a});
+ccsrqSnapshotIdentifier :: Lens' CreateClusterSnapshot Text
+ccsrqSnapshotIdentifier = lens _ccsrqSnapshotIdentifier (\ s a -> s{_ccsrqSnapshotIdentifier = a});
 
 -- | The cluster identifier for which you want a snapshot.
-ccsClusterIdentifier :: Lens' CreateClusterSnapshot Text
-ccsClusterIdentifier = lens _ccsClusterIdentifier (\ s a -> s{_ccsClusterIdentifier = a});
+ccsrqClusterIdentifier :: Lens' CreateClusterSnapshot Text
+ccsrqClusterIdentifier = lens _ccsrqClusterIdentifier (\ s a -> s{_ccsrqClusterIdentifier = a});
 
 instance AWSRequest CreateClusterSnapshot where
         type Sv CreateClusterSnapshot = Redshift
@@ -120,34 +120,34 @@ instance ToQuery CreateClusterSnapshot where
           = mconcat
               ["Action" =: ("CreateClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _ccsTags),
-               "SnapshotIdentifier" =: _ccsSnapshotIdentifier,
-               "ClusterIdentifier" =: _ccsClusterIdentifier]
+               "Tags" =: toQuery (toQueryList "Tag" <$> _ccsrqTags),
+               "SnapshotIdentifier" =: _ccsrqSnapshotIdentifier,
+               "ClusterIdentifier" =: _ccsrqClusterIdentifier]
 
 -- | /See:/ 'createClusterSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cSnapshot'
+-- * 'ccsrsSnapshot'
 --
--- * 'cStatus'
+-- * 'ccsrsStatus'
 data CreateClusterSnapshotResponse = CreateClusterSnapshotResponse'
-    { _cSnapshot :: !(Maybe Snapshot)
-    , _cStatus   :: !Int
+    { _ccsrsSnapshot :: !(Maybe Snapshot)
+    , _ccsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateClusterSnapshotResponse' smart constructor.
 createClusterSnapshotResponse :: Int -> CreateClusterSnapshotResponse
 createClusterSnapshotResponse pStatus =
     CreateClusterSnapshotResponse'
-    { _cSnapshot = Nothing
-    , _cStatus = pStatus
+    { _ccsrsSnapshot = Nothing
+    , _ccsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
-cSnapshot = lens _cSnapshot (\ s a -> s{_cSnapshot = a});
+ccsrsSnapshot :: Lens' CreateClusterSnapshotResponse (Maybe Snapshot)
+ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CreateClusterSnapshotResponse Int
-cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
+ccsrsStatus :: Lens' CreateClusterSnapshotResponse Int
+ccsrsStatus = lens _ccsrsStatus (\ s a -> s{_ccsrsStatus = a});

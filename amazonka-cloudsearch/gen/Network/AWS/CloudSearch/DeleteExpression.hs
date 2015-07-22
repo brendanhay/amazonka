@@ -30,16 +30,16 @@ module Network.AWS.CloudSearch.DeleteExpression
     -- ** Request constructor
     , deleteExpression
     -- ** Request lenses
-    , delDomainName
-    , delExpressionName
+    , delrqDomainName
+    , delrqExpressionName
 
     -- * Response
     , DeleteExpressionResponse
     -- ** Response constructor
     , deleteExpressionResponse
     -- ** Response lenses
-    , delStatus
-    , delExpression
+    , delrsStatus
+    , delrsExpression
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -55,29 +55,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delDomainName'
+-- * 'delrqDomainName'
 --
--- * 'delExpressionName'
+-- * 'delrqExpressionName'
 data DeleteExpression = DeleteExpression'
-    { _delDomainName     :: !Text
-    , _delExpressionName :: !Text
+    { _delrqDomainName     :: !Text
+    , _delrqExpressionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteExpression' smart constructor.
 deleteExpression :: Text -> Text -> DeleteExpression
 deleteExpression pDomainName pExpressionName =
     DeleteExpression'
-    { _delDomainName = pDomainName
-    , _delExpressionName = pExpressionName
+    { _delrqDomainName = pDomainName
+    , _delrqExpressionName = pExpressionName
     }
 
 -- | FIXME: Undocumented member.
-delDomainName :: Lens' DeleteExpression Text
-delDomainName = lens _delDomainName (\ s a -> s{_delDomainName = a});
+delrqDomainName :: Lens' DeleteExpression Text
+delrqDomainName = lens _delrqDomainName (\ s a -> s{_delrqDomainName = a});
 
 -- | The name of the @Expression@ to delete.
-delExpressionName :: Lens' DeleteExpression Text
-delExpressionName = lens _delExpressionName (\ s a -> s{_delExpressionName = a});
+delrqExpressionName :: Lens' DeleteExpression Text
+delrqExpressionName = lens _delrqExpressionName (\ s a -> s{_delrqExpressionName = a});
 
 instance AWSRequest DeleteExpression where
         type Sv DeleteExpression = CloudSearch
@@ -100,8 +100,8 @@ instance ToQuery DeleteExpression where
           = mconcat
               ["Action" =: ("DeleteExpression" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _delDomainName,
-               "ExpressionName" =: _delExpressionName]
+               "DomainName" =: _delrqDomainName,
+               "ExpressionName" =: _delrqExpressionName]
 
 -- | The result of a @DeleteExpression@ request. Specifies the expression
 -- being deleted.
@@ -110,26 +110,26 @@ instance ToQuery DeleteExpression where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatus'
+-- * 'delrsStatus'
 --
--- * 'delExpression'
+-- * 'delrsExpression'
 data DeleteExpressionResponse = DeleteExpressionResponse'
-    { _delStatus     :: !Int
-    , _delExpression :: !ExpressionStatus
+    { _delrsStatus     :: !Int
+    , _delrsExpression :: !ExpressionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteExpressionResponse' smart constructor.
 deleteExpressionResponse :: Int -> ExpressionStatus -> DeleteExpressionResponse
 deleteExpressionResponse pStatus pExpression =
     DeleteExpressionResponse'
-    { _delStatus = pStatus
-    , _delExpression = pExpression
+    { _delrsStatus = pStatus
+    , _delrsExpression = pExpression
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteExpressionResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+delrsStatus :: Lens' DeleteExpressionResponse Int
+delrsStatus = lens _delrsStatus (\ s a -> s{_delrsStatus = a});
 
 -- | The status of the expression being deleted.
-delExpression :: Lens' DeleteExpressionResponse ExpressionStatus
-delExpression = lens _delExpression (\ s a -> s{_delExpression = a});
+delrsExpression :: Lens' DeleteExpressionResponse ExpressionStatus
+delrsExpression = lens _delrsExpression (\ s a -> s{_delrsExpression = a});

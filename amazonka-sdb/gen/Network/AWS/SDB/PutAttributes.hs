@@ -62,10 +62,10 @@ module Network.AWS.SDB.PutAttributes
     -- ** Request constructor
     , putAttributes
     -- ** Request lenses
-    , paExpected
-    , paDomainName
-    , paItemName
-    , paAttributes
+    , parqExpected
+    , parqDomainName
+    , parqItemName
+    , parqAttributes
 
     -- * Response
     , PutAttributesResponse
@@ -82,48 +82,48 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'paExpected'
+-- * 'parqExpected'
 --
--- * 'paDomainName'
+-- * 'parqDomainName'
 --
--- * 'paItemName'
+-- * 'parqItemName'
 --
--- * 'paAttributes'
+-- * 'parqAttributes'
 data PutAttributes = PutAttributes'
-    { _paExpected   :: !(Maybe UpdateCondition)
-    , _paDomainName :: !Text
-    , _paItemName   :: !Text
-    , _paAttributes :: ![ReplaceableAttribute]
+    { _parqExpected   :: !(Maybe UpdateCondition)
+    , _parqDomainName :: !Text
+    , _parqItemName   :: !Text
+    , _parqAttributes :: ![ReplaceableAttribute]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutAttributes' smart constructor.
 putAttributes :: Text -> Text -> PutAttributes
 putAttributes pDomainName pItemName =
     PutAttributes'
-    { _paExpected = Nothing
-    , _paDomainName = pDomainName
-    , _paItemName = pItemName
-    , _paAttributes = mempty
+    { _parqExpected = Nothing
+    , _parqDomainName = pDomainName
+    , _parqItemName = pItemName
+    , _parqAttributes = mempty
     }
 
 -- | The update condition which, if specified, determines whether the
 -- specified attributes will be updated or not. The update condition must
 -- be satisfied in order for this request to be processed and the
 -- attributes to be updated.
-paExpected :: Lens' PutAttributes (Maybe UpdateCondition)
-paExpected = lens _paExpected (\ s a -> s{_paExpected = a});
+parqExpected :: Lens' PutAttributes (Maybe UpdateCondition)
+parqExpected = lens _parqExpected (\ s a -> s{_parqExpected = a});
 
 -- | The name of the domain in which to perform the operation.
-paDomainName :: Lens' PutAttributes Text
-paDomainName = lens _paDomainName (\ s a -> s{_paDomainName = a});
+parqDomainName :: Lens' PutAttributes Text
+parqDomainName = lens _parqDomainName (\ s a -> s{_parqDomainName = a});
 
 -- | The name of the item.
-paItemName :: Lens' PutAttributes Text
-paItemName = lens _paItemName (\ s a -> s{_paItemName = a});
+parqItemName :: Lens' PutAttributes Text
+parqItemName = lens _parqItemName (\ s a -> s{_parqItemName = a});
 
 -- | The list of attributes.
-paAttributes :: Lens' PutAttributes [ReplaceableAttribute]
-paAttributes = lens _paAttributes (\ s a -> s{_paAttributes = a});
+parqAttributes :: Lens' PutAttributes [ReplaceableAttribute]
+parqAttributes = lens _parqAttributes (\ s a -> s{_parqAttributes = a});
 
 instance AWSRequest PutAttributes where
         type Sv PutAttributes = SDB
@@ -142,10 +142,10 @@ instance ToQuery PutAttributes where
           = mconcat
               ["Action" =: ("PutAttributes" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "Expected" =: _paExpected,
-               "DomainName" =: _paDomainName,
-               "ItemName" =: _paItemName,
-               toQueryList "Attribute" _paAttributes]
+               "Expected" =: _parqExpected,
+               "DomainName" =: _parqDomainName,
+               "ItemName" =: _parqItemName,
+               toQueryList "Attribute" _parqAttributes]
 
 -- | /See:/ 'putAttributesResponse' smart constructor.
 data PutAttributesResponse =

@@ -28,7 +28,7 @@ module Network.AWS.KMS.DeleteAlias
     -- ** Request constructor
     , deleteAlias
     -- ** Request lenses
-    , daAliasName
+    , darqAliasName
 
     -- * Response
     , DeleteAliasResponse
@@ -45,23 +45,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daAliasName'
+-- * 'darqAliasName'
 newtype DeleteAlias = DeleteAlias'
-    { _daAliasName :: Text
+    { _darqAliasName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAlias' smart constructor.
 deleteAlias :: Text -> DeleteAlias
 deleteAlias pAliasName =
     DeleteAlias'
-    { _daAliasName = pAliasName
+    { _darqAliasName = pAliasName
     }
 
 -- | The alias to be deleted. The name must start with the word \"alias\"
 -- followed by a forward slash (alias\/). Aliases that begin with
 -- \"alias\/AWS\" are reserved.
-daAliasName :: Lens' DeleteAlias Text
-daAliasName = lens _daAliasName (\ s a -> s{_daAliasName = a});
+darqAliasName :: Lens' DeleteAlias Text
+darqAliasName = lens _darqAliasName (\ s a -> s{_darqAliasName = a});
 
 instance AWSRequest DeleteAlias where
         type Sv DeleteAlias = KMS
@@ -80,7 +80,7 @@ instance ToHeaders DeleteAlias where
 
 instance ToJSON DeleteAlias where
         toJSON DeleteAlias'{..}
-          = object ["AliasName" .= _daAliasName]
+          = object ["AliasName" .= _darqAliasName]
 
 instance ToPath DeleteAlias where
         toPath = const "/"

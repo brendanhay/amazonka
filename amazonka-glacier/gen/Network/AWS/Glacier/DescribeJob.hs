@@ -49,32 +49,32 @@ module Network.AWS.Glacier.DescribeJob
     -- ** Request constructor
     , describeJob
     -- ** Request lenses
-    , djAccountId
-    , djVaultName
-    , djJobId
+    , djrqAccountId
+    , djrqVaultName
+    , djrqJobId
 
     -- * Response
     , GlacierJobDescription
     -- ** Response constructor
     , glacierJobDescription
     -- ** Response lenses
-    , gjdArchiveId
-    , gjdSHA256TreeHash
-    , gjdJobId
-    , gjdRetrievalByteRange
-    , gjdInventoryRetrievalParameters
-    , gjdAction
-    , gjdJobDescription
-    , gjdSNSTopic
-    , gjdVaultARN
-    , gjdStatusMessage
-    , gjdArchiveSHA256TreeHash
-    , gjdCreationDate
-    , gjdCompleted
-    , gjdCompletionDate
-    , gjdArchiveSizeInBytes
-    , gjdStatusCode
-    , gjdInventorySizeInBytes
+    , djrsArchiveId
+    , djrsSHA256TreeHash
+    , djrsJobId
+    , djrsRetrievalByteRange
+    , djrsInventoryRetrievalParameters
+    , djrsAction
+    , djrsJobDescription
+    , djrsSNSTopic
+    , djrsVaultARN
+    , djrsStatusMessage
+    , djrsArchiveSHA256TreeHash
+    , djrsCreationDate
+    , djrsCompleted
+    , djrsCompletionDate
+    , djrsArchiveSizeInBytes
+    , djrsStatusCode
+    , djrsInventorySizeInBytes
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -88,24 +88,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'djAccountId'
+-- * 'djrqAccountId'
 --
--- * 'djVaultName'
+-- * 'djrqVaultName'
 --
--- * 'djJobId'
+-- * 'djrqJobId'
 data DescribeJob = DescribeJob'
-    { _djAccountId :: !Text
-    , _djVaultName :: !Text
-    , _djJobId     :: !Text
+    { _djrqAccountId :: !Text
+    , _djrqVaultName :: !Text
+    , _djrqJobId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeJob' smart constructor.
 describeJob :: Text -> Text -> Text -> DescribeJob
 describeJob pAccountId pVaultName pJobId =
     DescribeJob'
-    { _djAccountId = pAccountId
-    , _djVaultName = pVaultName
-    , _djJobId = pJobId
+    { _djrqAccountId = pAccountId
+    , _djrqVaultName = pVaultName
+    , _djrqJobId = pJobId
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -113,16 +113,16 @@ describeJob pAccountId pVaultName pJobId =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-djAccountId :: Lens' DescribeJob Text
-djAccountId = lens _djAccountId (\ s a -> s{_djAccountId = a});
+djrqAccountId :: Lens' DescribeJob Text
+djrqAccountId = lens _djrqAccountId (\ s a -> s{_djrqAccountId = a});
 
 -- | The name of the vault.
-djVaultName :: Lens' DescribeJob Text
-djVaultName = lens _djVaultName (\ s a -> s{_djVaultName = a});
+djrqVaultName :: Lens' DescribeJob Text
+djrqVaultName = lens _djrqVaultName (\ s a -> s{_djrqVaultName = a});
 
 -- | The ID of the job to describe.
-djJobId :: Lens' DescribeJob Text
-djJobId = lens _djJobId (\ s a -> s{_djJobId = a});
+djrqJobId :: Lens' DescribeJob Text
+djrqJobId = lens _djrqJobId (\ s a -> s{_djrqJobId = a});
 
 instance AWSRequest DescribeJob where
         type Sv DescribeJob = Glacier
@@ -136,8 +136,8 @@ instance ToHeaders DescribeJob where
 instance ToPath DescribeJob where
         toPath DescribeJob'{..}
           = mconcat
-              ["/", toText _djAccountId, "/vaults/",
-               toText _djVaultName, "/jobs/", toText _djJobId]
+              ["/", toText _djrqAccountId, "/vaults/",
+               toText _djrqVaultName, "/jobs/", toText _djrqJobId]
 
 instance ToQuery DescribeJob where
         toQuery = const mempty

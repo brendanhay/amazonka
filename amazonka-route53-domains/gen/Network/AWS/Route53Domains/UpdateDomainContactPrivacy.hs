@@ -38,18 +38,18 @@ module Network.AWS.Route53Domains.UpdateDomainContactPrivacy
     -- ** Request constructor
     , updateDomainContactPrivacy
     -- ** Request lenses
-    , udcpTechPrivacy
-    , udcpRegistrantPrivacy
-    , udcpAdminPrivacy
-    , udcpDomainName
+    , udcprqTechPrivacy
+    , udcprqRegistrantPrivacy
+    , udcprqAdminPrivacy
+    , udcprqDomainName
 
     -- * Response
     , UpdateDomainContactPrivacyResponse
     -- ** Response constructor
     , updateDomainContactPrivacyResponse
     -- ** Response lenses
-    , udcprStatus
-    , udcprOperationId
+    , udcprsStatus
+    , udcprsOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -63,28 +63,28 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udcpTechPrivacy'
+-- * 'udcprqTechPrivacy'
 --
--- * 'udcpRegistrantPrivacy'
+-- * 'udcprqRegistrantPrivacy'
 --
--- * 'udcpAdminPrivacy'
+-- * 'udcprqAdminPrivacy'
 --
--- * 'udcpDomainName'
+-- * 'udcprqDomainName'
 data UpdateDomainContactPrivacy = UpdateDomainContactPrivacy'
-    { _udcpTechPrivacy       :: !(Maybe Bool)
-    , _udcpRegistrantPrivacy :: !(Maybe Bool)
-    , _udcpAdminPrivacy      :: !(Maybe Bool)
-    , _udcpDomainName        :: !Text
+    { _udcprqTechPrivacy       :: !(Maybe Bool)
+    , _udcprqRegistrantPrivacy :: !(Maybe Bool)
+    , _udcprqAdminPrivacy      :: !(Maybe Bool)
+    , _udcprqDomainName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContactPrivacy' smart constructor.
 updateDomainContactPrivacy :: Text -> UpdateDomainContactPrivacy
 updateDomainContactPrivacy pDomainName =
     UpdateDomainContactPrivacy'
-    { _udcpTechPrivacy = Nothing
-    , _udcpRegistrantPrivacy = Nothing
-    , _udcpAdminPrivacy = Nothing
-    , _udcpDomainName = pDomainName
+    { _udcprqTechPrivacy = Nothing
+    , _udcprqRegistrantPrivacy = Nothing
+    , _udcprqAdminPrivacy = Nothing
+    , _udcprqDomainName = pDomainName
     }
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
@@ -99,8 +99,8 @@ updateDomainContactPrivacy pDomainName =
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-udcpTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcpTechPrivacy = lens _udcpTechPrivacy (\ s a -> s{_udcpTechPrivacy = a});
+udcprqTechPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
+udcprqTechPrivacy = lens _udcprqTechPrivacy (\ s a -> s{_udcprqTechPrivacy = a});
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -114,8 +114,8 @@ udcpTechPrivacy = lens _udcpTechPrivacy (\ s a -> s{_udcpTechPrivacy = a});
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-udcpRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcpRegistrantPrivacy = lens _udcpRegistrantPrivacy (\ s a -> s{_udcpRegistrantPrivacy = a});
+udcprqRegistrantPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
+udcprqRegistrantPrivacy = lens _udcprqRegistrantPrivacy (\ s a -> s{_udcprqRegistrantPrivacy = a});
 
 -- | Whether you want to conceal contact information from WHOIS queries. If
 -- you specify true, WHOIS (\"who is\") queries will return contact
@@ -129,8 +129,8 @@ udcpRegistrantPrivacy = lens _udcpRegistrantPrivacy (\ s a -> s{_udcpRegistrantP
 -- Valid values: @true@ | @false@
 --
 -- Required: No
-udcpAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
-udcpAdminPrivacy = lens _udcpAdminPrivacy (\ s a -> s{_udcpAdminPrivacy = a});
+udcprqAdminPrivacy :: Lens' UpdateDomainContactPrivacy (Maybe Bool)
+udcprqAdminPrivacy = lens _udcprqAdminPrivacy (\ s a -> s{_udcprqAdminPrivacy = a});
 
 -- | The name of a domain.
 --
@@ -143,8 +143,8 @@ udcpAdminPrivacy = lens _udcpAdminPrivacy (\ s a -> s{_udcpAdminPrivacy = a});
 -- are not supported.
 --
 -- Required: Yes
-udcpDomainName :: Lens' UpdateDomainContactPrivacy Text
-udcpDomainName = lens _udcpDomainName (\ s a -> s{_udcpDomainName = a});
+udcprqDomainName :: Lens' UpdateDomainContactPrivacy Text
+udcprqDomainName = lens _udcprqDomainName (\ s a -> s{_udcprqDomainName = a});
 
 instance AWSRequest UpdateDomainContactPrivacy where
         type Sv UpdateDomainContactPrivacy = Route53Domains
@@ -170,10 +170,10 @@ instance ToHeaders UpdateDomainContactPrivacy where
 instance ToJSON UpdateDomainContactPrivacy where
         toJSON UpdateDomainContactPrivacy'{..}
           = object
-              ["TechPrivacy" .= _udcpTechPrivacy,
-               "RegistrantPrivacy" .= _udcpRegistrantPrivacy,
-               "AdminPrivacy" .= _udcpAdminPrivacy,
-               "DomainName" .= _udcpDomainName]
+              ["TechPrivacy" .= _udcprqTechPrivacy,
+               "RegistrantPrivacy" .= _udcprqRegistrantPrivacy,
+               "AdminPrivacy" .= _udcprqAdminPrivacy,
+               "DomainName" .= _udcprqDomainName]
 
 instance ToPath UpdateDomainContactPrivacy where
         toPath = const "/"
@@ -187,25 +187,25 @@ instance ToQuery UpdateDomainContactPrivacy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udcprStatus'
+-- * 'udcprsStatus'
 --
--- * 'udcprOperationId'
+-- * 'udcprsOperationId'
 data UpdateDomainContactPrivacyResponse = UpdateDomainContactPrivacyResponse'
-    { _udcprStatus      :: !Int
-    , _udcprOperationId :: !Text
+    { _udcprsStatus      :: !Int
+    , _udcprsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContactPrivacyResponse' smart constructor.
 updateDomainContactPrivacyResponse :: Int -> Text -> UpdateDomainContactPrivacyResponse
 updateDomainContactPrivacyResponse pStatus pOperationId =
     UpdateDomainContactPrivacyResponse'
-    { _udcprStatus = pStatus
-    , _udcprOperationId = pOperationId
+    { _udcprsStatus = pStatus
+    , _udcprsOperationId = pOperationId
     }
 
 -- | FIXME: Undocumented member.
-udcprStatus :: Lens' UpdateDomainContactPrivacyResponse Int
-udcprStatus = lens _udcprStatus (\ s a -> s{_udcprStatus = a});
+udcprsStatus :: Lens' UpdateDomainContactPrivacyResponse Int
+udcprsStatus = lens _udcprsStatus (\ s a -> s{_udcprsStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -215,5 +215,5 @@ udcprStatus = lens _udcprStatus (\ s a -> s{_udcprStatus = a});
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
-udcprOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
-udcprOperationId = lens _udcprOperationId (\ s a -> s{_udcprOperationId = a});
+udcprsOperationId :: Lens' UpdateDomainContactPrivacyResponse Text
+udcprsOperationId = lens _udcprsOperationId (\ s a -> s{_udcprsOperationId = a});

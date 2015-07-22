@@ -37,18 +37,18 @@ module Network.AWS.IAM.CreatePolicy
     -- ** Request constructor
     , createPolicy
     -- ** Request lenses
-    , cpPath
-    , cpDescription
-    , cpPolicyName
-    , cpPolicyDocument
+    , cprqPath
+    , cprqDescription
+    , cprqPolicyName
+    , cprqPolicyDocument
 
     -- * Response
     , CreatePolicyResponse
     -- ** Response constructor
     , createPolicyResponse
     -- ** Response lenses
-    , cprPolicy
-    , cprStatus
+    , cprsPolicy
+    , cprsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -60,28 +60,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpPath'
+-- * 'cprqPath'
 --
--- * 'cpDescription'
+-- * 'cprqDescription'
 --
--- * 'cpPolicyName'
+-- * 'cprqPolicyName'
 --
--- * 'cpPolicyDocument'
+-- * 'cprqPolicyDocument'
 data CreatePolicy = CreatePolicy'
-    { _cpPath           :: !(Maybe Text)
-    , _cpDescription    :: !(Maybe Text)
-    , _cpPolicyName     :: !Text
-    , _cpPolicyDocument :: !Text
+    { _cprqPath           :: !(Maybe Text)
+    , _cprqDescription    :: !(Maybe Text)
+    , _cprqPolicyName     :: !Text
+    , _cprqPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicy' smart constructor.
 createPolicy :: Text -> Text -> CreatePolicy
 createPolicy pPolicyName pPolicyDocument =
     CreatePolicy'
-    { _cpPath = Nothing
-    , _cpDescription = Nothing
-    , _cpPolicyName = pPolicyName
-    , _cpPolicyDocument = pPolicyDocument
+    { _cprqPath = Nothing
+    , _cprqDescription = Nothing
+    , _cprqPolicyName = pPolicyName
+    , _cprqPolicyDocument = pPolicyDocument
     }
 
 -- | The path for the policy.
@@ -92,8 +92,8 @@ createPolicy pPolicyName pPolicyDocument =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cpPath :: Lens' CreatePolicy (Maybe Text)
-cpPath = lens _cpPath (\ s a -> s{_cpPath = a});
+cprqPath :: Lens' CreatePolicy (Maybe Text)
+cprqPath = lens _cprqPath (\ s a -> s{_cprqPath = a});
 
 -- | A friendly description of the policy.
 --
@@ -102,16 +102,16 @@ cpPath = lens _cpPath (\ s a -> s{_cpPath = a});
 --
 -- The policy description is immutable. After a value is assigned, it
 -- cannot be changed.
-cpDescription :: Lens' CreatePolicy (Maybe Text)
-cpDescription = lens _cpDescription (\ s a -> s{_cpDescription = a});
+cprqDescription :: Lens' CreatePolicy (Maybe Text)
+cprqDescription = lens _cprqDescription (\ s a -> s{_cprqDescription = a});
 
 -- | The name of the policy document.
-cpPolicyName :: Lens' CreatePolicy Text
-cpPolicyName = lens _cpPolicyName (\ s a -> s{_cpPolicyName = a});
+cprqPolicyName :: Lens' CreatePolicy Text
+cprqPolicyName = lens _cprqPolicyName (\ s a -> s{_cprqPolicyName = a});
 
 -- | The policy document.
-cpPolicyDocument :: Lens' CreatePolicy Text
-cpPolicyDocument = lens _cpPolicyDocument (\ s a -> s{_cpPolicyDocument = a});
+cprqPolicyDocument :: Lens' CreatePolicy Text
+cprqPolicyDocument = lens _cprqPolicyDocument (\ s a -> s{_cprqPolicyDocument = a});
 
 instance AWSRequest CreatePolicy where
         type Sv CreatePolicy = IAM
@@ -134,9 +134,10 @@ instance ToQuery CreatePolicy where
           = mconcat
               ["Action" =: ("CreatePolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _cpPath, "Description" =: _cpDescription,
-               "PolicyName" =: _cpPolicyName,
-               "PolicyDocument" =: _cpPolicyDocument]
+               "Path" =: _cprqPath,
+               "Description" =: _cprqDescription,
+               "PolicyName" =: _cprqPolicyName,
+               "PolicyDocument" =: _cprqPolicyDocument]
 
 -- | Contains the response to a successful CreatePolicy request.
 --
@@ -144,26 +145,26 @@ instance ToQuery CreatePolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprPolicy'
+-- * 'cprsPolicy'
 --
--- * 'cprStatus'
+-- * 'cprsStatus'
 data CreatePolicyResponse = CreatePolicyResponse'
-    { _cprPolicy :: !(Maybe Policy)
-    , _cprStatus :: !Int
+    { _cprsPolicy :: !(Maybe Policy)
+    , _cprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicyResponse' smart constructor.
 createPolicyResponse :: Int -> CreatePolicyResponse
 createPolicyResponse pStatus =
     CreatePolicyResponse'
-    { _cprPolicy = Nothing
-    , _cprStatus = pStatus
+    { _cprsPolicy = Nothing
+    , _cprsStatus = pStatus
     }
 
 -- | Information about the policy.
-cprPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
-cprPolicy = lens _cprPolicy (\ s a -> s{_cprPolicy = a});
+cprsPolicy :: Lens' CreatePolicyResponse (Maybe Policy)
+cprsPolicy = lens _cprsPolicy (\ s a -> s{_cprsPolicy = a});
 
 -- | FIXME: Undocumented member.
-cprStatus :: Lens' CreatePolicyResponse Int
-cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});
+cprsStatus :: Lens' CreatePolicyResponse Int
+cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

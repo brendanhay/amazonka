@@ -31,16 +31,16 @@ module Network.AWS.CloudSearch.DefineAnalysisScheme
     -- ** Request constructor
     , defineAnalysisScheme
     -- ** Request lenses
-    , defiDomainName
-    , defiAnalysisScheme
+    , ddrqDomainName
+    , ddrqAnalysisScheme
 
     -- * Response
     , DefineAnalysisSchemeResponse
     -- ** Response constructor
     , defineAnalysisSchemeResponse
     -- ** Response lenses
-    , dasrrStatus
-    , dasrrAnalysisScheme
+    , ddrsStatus
+    , ddrsAnalysisScheme
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'defiDomainName'
+-- * 'ddrqDomainName'
 --
--- * 'defiAnalysisScheme'
+-- * 'ddrqAnalysisScheme'
 data DefineAnalysisScheme = DefineAnalysisScheme'
-    { _defiDomainName     :: !Text
-    , _defiAnalysisScheme :: !AnalysisScheme
+    { _ddrqDomainName     :: !Text
+    , _ddrqAnalysisScheme :: !AnalysisScheme
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineAnalysisScheme' smart constructor.
 defineAnalysisScheme :: Text -> AnalysisScheme -> DefineAnalysisScheme
 defineAnalysisScheme pDomainName pAnalysisScheme =
     DefineAnalysisScheme'
-    { _defiDomainName = pDomainName
-    , _defiAnalysisScheme = pAnalysisScheme
+    { _ddrqDomainName = pDomainName
+    , _ddrqAnalysisScheme = pAnalysisScheme
     }
 
 -- | FIXME: Undocumented member.
-defiDomainName :: Lens' DefineAnalysisScheme Text
-defiDomainName = lens _defiDomainName (\ s a -> s{_defiDomainName = a});
+ddrqDomainName :: Lens' DefineAnalysisScheme Text
+ddrqDomainName = lens _ddrqDomainName (\ s a -> s{_ddrqDomainName = a});
 
 -- | FIXME: Undocumented member.
-defiAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
-defiAnalysisScheme = lens _defiAnalysisScheme (\ s a -> s{_defiAnalysisScheme = a});
+ddrqAnalysisScheme :: Lens' DefineAnalysisScheme AnalysisScheme
+ddrqAnalysisScheme = lens _ddrqAnalysisScheme (\ s a -> s{_ddrqAnalysisScheme = a});
 
 instance AWSRequest DefineAnalysisScheme where
         type Sv DefineAnalysisScheme = CloudSearch
@@ -102,8 +102,8 @@ instance ToQuery DefineAnalysisScheme where
           = mconcat
               ["Action" =: ("DefineAnalysisScheme" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _defiDomainName,
-               "AnalysisScheme" =: _defiAnalysisScheme]
+               "DomainName" =: _ddrqDomainName,
+               "AnalysisScheme" =: _ddrqAnalysisScheme]
 
 -- | The result of a @DefineAnalysisScheme@ request. Contains the status of
 -- the newly-configured analysis scheme.
@@ -112,26 +112,26 @@ instance ToQuery DefineAnalysisScheme where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dasrrStatus'
+-- * 'ddrsStatus'
 --
--- * 'dasrrAnalysisScheme'
+-- * 'ddrsAnalysisScheme'
 data DefineAnalysisSchemeResponse = DefineAnalysisSchemeResponse'
-    { _dasrrStatus         :: !Int
-    , _dasrrAnalysisScheme :: !AnalysisSchemeStatus
+    { _ddrsStatus         :: !Int
+    , _ddrsAnalysisScheme :: !AnalysisSchemeStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineAnalysisSchemeResponse' smart constructor.
 defineAnalysisSchemeResponse :: Int -> AnalysisSchemeStatus -> DefineAnalysisSchemeResponse
 defineAnalysisSchemeResponse pStatus pAnalysisScheme =
     DefineAnalysisSchemeResponse'
-    { _dasrrStatus = pStatus
-    , _dasrrAnalysisScheme = pAnalysisScheme
+    { _ddrsStatus = pStatus
+    , _ddrsAnalysisScheme = pAnalysisScheme
     }
 
 -- | FIXME: Undocumented member.
-dasrrStatus :: Lens' DefineAnalysisSchemeResponse Int
-dasrrStatus = lens _dasrrStatus (\ s a -> s{_dasrrStatus = a});
+ddrsStatus :: Lens' DefineAnalysisSchemeResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
 
 -- | FIXME: Undocumented member.
-dasrrAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
-dasrrAnalysisScheme = lens _dasrrAnalysisScheme (\ s a -> s{_dasrrAnalysisScheme = a});
+ddrsAnalysisScheme :: Lens' DefineAnalysisSchemeResponse AnalysisSchemeStatus
+ddrsAnalysisScheme = lens _ddrsAnalysisScheme (\ s a -> s{_ddrsAnalysisScheme = a});

@@ -34,19 +34,19 @@ module Network.AWS.CloudWatchLogs.DescribeMetricFilters
     -- ** Request constructor
     , describeMetricFilters
     -- ** Request lenses
-    , dmfFilterNamePrefix
-    , dmfNextToken
-    , dmfLimit
-    , dmfLogGroupName
+    , dmfrqFilterNamePrefix
+    , dmfrqNextToken
+    , dmfrqLimit
+    , dmfrqLogGroupName
 
     -- * Response
     , DescribeMetricFiltersResponse
     -- ** Response constructor
     , describeMetricFiltersResponse
     -- ** Response lenses
-    , dmfrNextToken
-    , dmfrMetricFilters
-    , dmfrStatus
+    , dmfrsNextToken
+    , dmfrsMetricFilters
+    , dmfrsStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -58,50 +58,50 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmfFilterNamePrefix'
+-- * 'dmfrqFilterNamePrefix'
 --
--- * 'dmfNextToken'
+-- * 'dmfrqNextToken'
 --
--- * 'dmfLimit'
+-- * 'dmfrqLimit'
 --
--- * 'dmfLogGroupName'
+-- * 'dmfrqLogGroupName'
 data DescribeMetricFilters = DescribeMetricFilters'
-    { _dmfFilterNamePrefix :: !(Maybe Text)
-    , _dmfNextToken        :: !(Maybe Text)
-    , _dmfLimit            :: !(Maybe Nat)
-    , _dmfLogGroupName     :: !Text
+    { _dmfrqFilterNamePrefix :: !(Maybe Text)
+    , _dmfrqNextToken        :: !(Maybe Text)
+    , _dmfrqLimit            :: !(Maybe Nat)
+    , _dmfrqLogGroupName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricFilters' smart constructor.
 describeMetricFilters :: Text -> DescribeMetricFilters
 describeMetricFilters pLogGroupName =
     DescribeMetricFilters'
-    { _dmfFilterNamePrefix = Nothing
-    , _dmfNextToken = Nothing
-    , _dmfLimit = Nothing
-    , _dmfLogGroupName = pLogGroupName
+    { _dmfrqFilterNamePrefix = Nothing
+    , _dmfrqNextToken = Nothing
+    , _dmfrqLimit = Nothing
+    , _dmfrqLogGroupName = pLogGroupName
     }
 
 -- | Will only return metric filters that match the provided
 -- filterNamePrefix. If you don\'t specify a value, no prefix filter is
 -- applied.
-dmfFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
-dmfFilterNamePrefix = lens _dmfFilterNamePrefix (\ s a -> s{_dmfFilterNamePrefix = a});
+dmfrqFilterNamePrefix :: Lens' DescribeMetricFilters (Maybe Text)
+dmfrqFilterNamePrefix = lens _dmfrqFilterNamePrefix (\ s a -> s{_dmfrqFilterNamePrefix = a});
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the response of the previous
 -- @DescribeMetricFilters@ request.
-dmfNextToken :: Lens' DescribeMetricFilters (Maybe Text)
-dmfNextToken = lens _dmfNextToken (\ s a -> s{_dmfNextToken = a});
+dmfrqNextToken :: Lens' DescribeMetricFilters (Maybe Text)
+dmfrqNextToken = lens _dmfrqNextToken (\ s a -> s{_dmfrqNextToken = a});
 
 -- | The maximum number of items returned in the response. If you don\'t
 -- specify a value, the request would return up to 50 items.
-dmfLimit :: Lens' DescribeMetricFilters (Maybe Natural)
-dmfLimit = lens _dmfLimit (\ s a -> s{_dmfLimit = a}) . mapping _Nat;
+dmfrqLimit :: Lens' DescribeMetricFilters (Maybe Natural)
+dmfrqLimit = lens _dmfrqLimit (\ s a -> s{_dmfrqLimit = a}) . mapping _Nat;
 
 -- | The log group name for which metric filters are to be listed.
-dmfLogGroupName :: Lens' DescribeMetricFilters Text
-dmfLogGroupName = lens _dmfLogGroupName (\ s a -> s{_dmfLogGroupName = a});
+dmfrqLogGroupName :: Lens' DescribeMetricFilters Text
+dmfrqLogGroupName = lens _dmfrqLogGroupName (\ s a -> s{_dmfrqLogGroupName = a});
 
 instance AWSRequest DescribeMetricFilters where
         type Sv DescribeMetricFilters = CloudWatchLogs
@@ -129,9 +129,10 @@ instance ToHeaders DescribeMetricFilters where
 instance ToJSON DescribeMetricFilters where
         toJSON DescribeMetricFilters'{..}
           = object
-              ["filterNamePrefix" .= _dmfFilterNamePrefix,
-               "nextToken" .= _dmfNextToken, "limit" .= _dmfLimit,
-               "logGroupName" .= _dmfLogGroupName]
+              ["filterNamePrefix" .= _dmfrqFilterNamePrefix,
+               "nextToken" .= _dmfrqNextToken,
+               "limit" .= _dmfrqLimit,
+               "logGroupName" .= _dmfrqLogGroupName]
 
 instance ToPath DescribeMetricFilters where
         toPath = const "/"
@@ -143,34 +144,34 @@ instance ToQuery DescribeMetricFilters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmfrNextToken'
+-- * 'dmfrsNextToken'
 --
--- * 'dmfrMetricFilters'
+-- * 'dmfrsMetricFilters'
 --
--- * 'dmfrStatus'
+-- * 'dmfrsStatus'
 data DescribeMetricFiltersResponse = DescribeMetricFiltersResponse'
-    { _dmfrNextToken     :: !(Maybe Text)
-    , _dmfrMetricFilters :: !(Maybe [MetricFilter])
-    , _dmfrStatus        :: !Int
+    { _dmfrsNextToken     :: !(Maybe Text)
+    , _dmfrsMetricFilters :: !(Maybe [MetricFilter])
+    , _dmfrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMetricFiltersResponse' smart constructor.
 describeMetricFiltersResponse :: Int -> DescribeMetricFiltersResponse
 describeMetricFiltersResponse pStatus =
     DescribeMetricFiltersResponse'
-    { _dmfrNextToken = Nothing
-    , _dmfrMetricFilters = Nothing
-    , _dmfrStatus = pStatus
+    { _dmfrsNextToken = Nothing
+    , _dmfrsMetricFilters = Nothing
+    , _dmfrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dmfrNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
-dmfrNextToken = lens _dmfrNextToken (\ s a -> s{_dmfrNextToken = a});
+dmfrsNextToken :: Lens' DescribeMetricFiltersResponse (Maybe Text)
+dmfrsNextToken = lens _dmfrsNextToken (\ s a -> s{_dmfrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dmfrMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
-dmfrMetricFilters = lens _dmfrMetricFilters (\ s a -> s{_dmfrMetricFilters = a}) . _Default;
+dmfrsMetricFilters :: Lens' DescribeMetricFiltersResponse [MetricFilter]
+dmfrsMetricFilters = lens _dmfrsMetricFilters (\ s a -> s{_dmfrsMetricFilters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dmfrStatus :: Lens' DescribeMetricFiltersResponse Int
-dmfrStatus = lens _dmfrStatus (\ s a -> s{_dmfrStatus = a});
+dmfrsStatus :: Lens' DescribeMetricFiltersResponse Int
+dmfrsStatus = lens _dmfrsStatus (\ s a -> s{_dmfrsStatus = a});

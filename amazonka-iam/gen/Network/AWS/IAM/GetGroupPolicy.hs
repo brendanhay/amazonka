@@ -37,18 +37,18 @@ module Network.AWS.IAM.GetGroupPolicy
     -- ** Request constructor
     , getGroupPolicy
     -- ** Request lenses
-    , ggpGroupName
-    , ggpPolicyName
+    , ggprqGroupName
+    , ggprqPolicyName
 
     -- * Response
     , GetGroupPolicyResponse
     -- ** Response constructor
     , getGroupPolicyResponse
     -- ** Response lenses
-    , ggprStatus
-    , ggprGroupName
-    , ggprPolicyName
-    , ggprPolicyDocument
+    , ggprsStatus
+    , ggprsGroupName
+    , ggprsPolicyName
+    , ggprsPolicyDocument
     ) where
 
 import           Network.AWS.IAM.Types
@@ -60,29 +60,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ggpGroupName'
+-- * 'ggprqGroupName'
 --
--- * 'ggpPolicyName'
+-- * 'ggprqPolicyName'
 data GetGroupPolicy = GetGroupPolicy'
-    { _ggpGroupName  :: !Text
-    , _ggpPolicyName :: !Text
+    { _ggprqGroupName  :: !Text
+    , _ggprqPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroupPolicy' smart constructor.
 getGroupPolicy :: Text -> Text -> GetGroupPolicy
 getGroupPolicy pGroupName pPolicyName =
     GetGroupPolicy'
-    { _ggpGroupName = pGroupName
-    , _ggpPolicyName = pPolicyName
+    { _ggprqGroupName = pGroupName
+    , _ggprqPolicyName = pPolicyName
     }
 
 -- | The name of the group the policy is associated with.
-ggpGroupName :: Lens' GetGroupPolicy Text
-ggpGroupName = lens _ggpGroupName (\ s a -> s{_ggpGroupName = a});
+ggprqGroupName :: Lens' GetGroupPolicy Text
+ggprqGroupName = lens _ggprqGroupName (\ s a -> s{_ggprqGroupName = a});
 
 -- | The name of the policy document to get.
-ggpPolicyName :: Lens' GetGroupPolicy Text
-ggpPolicyName = lens _ggpPolicyName (\ s a -> s{_ggpPolicyName = a});
+ggprqPolicyName :: Lens' GetGroupPolicy Text
+ggprqPolicyName = lens _ggprqPolicyName (\ s a -> s{_ggprqPolicyName = a});
 
 instance AWSRequest GetGroupPolicy where
         type Sv GetGroupPolicy = IAM
@@ -107,8 +107,8 @@ instance ToQuery GetGroupPolicy where
           = mconcat
               ["Action" =: ("GetGroupPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _ggpGroupName,
-               "PolicyName" =: _ggpPolicyName]
+               "GroupName" =: _ggprqGroupName,
+               "PolicyName" =: _ggprqPolicyName]
 
 -- | Contains the response to a successful GetGroupPolicy request.
 --
@@ -116,42 +116,42 @@ instance ToQuery GetGroupPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ggprStatus'
+-- * 'ggprsStatus'
 --
--- * 'ggprGroupName'
+-- * 'ggprsGroupName'
 --
--- * 'ggprPolicyName'
+-- * 'ggprsPolicyName'
 --
--- * 'ggprPolicyDocument'
+-- * 'ggprsPolicyDocument'
 data GetGroupPolicyResponse = GetGroupPolicyResponse'
-    { _ggprStatus         :: !Int
-    , _ggprGroupName      :: !Text
-    , _ggprPolicyName     :: !Text
-    , _ggprPolicyDocument :: !Text
+    { _ggprsStatus         :: !Int
+    , _ggprsGroupName      :: !Text
+    , _ggprsPolicyName     :: !Text
+    , _ggprsPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGroupPolicyResponse' smart constructor.
 getGroupPolicyResponse :: Int -> Text -> Text -> Text -> GetGroupPolicyResponse
 getGroupPolicyResponse pStatus pGroupName pPolicyName pPolicyDocument =
     GetGroupPolicyResponse'
-    { _ggprStatus = pStatus
-    , _ggprGroupName = pGroupName
-    , _ggprPolicyName = pPolicyName
-    , _ggprPolicyDocument = pPolicyDocument
+    { _ggprsStatus = pStatus
+    , _ggprsGroupName = pGroupName
+    , _ggprsPolicyName = pPolicyName
+    , _ggprsPolicyDocument = pPolicyDocument
     }
 
 -- | FIXME: Undocumented member.
-ggprStatus :: Lens' GetGroupPolicyResponse Int
-ggprStatus = lens _ggprStatus (\ s a -> s{_ggprStatus = a});
+ggprsStatus :: Lens' GetGroupPolicyResponse Int
+ggprsStatus = lens _ggprsStatus (\ s a -> s{_ggprsStatus = a});
 
 -- | The group the policy is associated with.
-ggprGroupName :: Lens' GetGroupPolicyResponse Text
-ggprGroupName = lens _ggprGroupName (\ s a -> s{_ggprGroupName = a});
+ggprsGroupName :: Lens' GetGroupPolicyResponse Text
+ggprsGroupName = lens _ggprsGroupName (\ s a -> s{_ggprsGroupName = a});
 
 -- | The name of the policy.
-ggprPolicyName :: Lens' GetGroupPolicyResponse Text
-ggprPolicyName = lens _ggprPolicyName (\ s a -> s{_ggprPolicyName = a});
+ggprsPolicyName :: Lens' GetGroupPolicyResponse Text
+ggprsPolicyName = lens _ggprsPolicyName (\ s a -> s{_ggprsPolicyName = a});
 
 -- | The policy document.
-ggprPolicyDocument :: Lens' GetGroupPolicyResponse Text
-ggprPolicyDocument = lens _ggprPolicyDocument (\ s a -> s{_ggprPolicyDocument = a});
+ggprsPolicyDocument :: Lens' GetGroupPolicyResponse Text
+ggprsPolicyDocument = lens _ggprsPolicyDocument (\ s a -> s{_ggprsPolicyDocument = a});

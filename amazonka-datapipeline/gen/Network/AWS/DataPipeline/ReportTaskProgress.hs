@@ -38,16 +38,16 @@ module Network.AWS.DataPipeline.ReportTaskProgress
     -- ** Request constructor
     , reportTaskProgress
     -- ** Request lenses
-    , rtpFields
-    , rtpTaskId
+    , rtprqFields
+    , rtprqTaskId
 
     -- * Response
     , ReportTaskProgressResponse
     -- ** Response constructor
     , reportTaskProgressResponse
     -- ** Response lenses
-    , rtprStatus
-    , rtprCanceled
+    , rtprsStatus
+    , rtprsCanceled
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -61,31 +61,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtpFields'
+-- * 'rtprqFields'
 --
--- * 'rtpTaskId'
+-- * 'rtprqTaskId'
 data ReportTaskProgress = ReportTaskProgress'
-    { _rtpFields :: !(Maybe [Field])
-    , _rtpTaskId :: !Text
+    { _rtprqFields :: !(Maybe [Field])
+    , _rtprqTaskId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskProgress' smart constructor.
 reportTaskProgress :: Text -> ReportTaskProgress
 reportTaskProgress pTaskId =
     ReportTaskProgress'
-    { _rtpFields = Nothing
-    , _rtpTaskId = pTaskId
+    { _rtprqFields = Nothing
+    , _rtprqTaskId = pTaskId
     }
 
 -- | Key-value pairs that define the properties of the
 -- ReportTaskProgressInput object.
-rtpFields :: Lens' ReportTaskProgress [Field]
-rtpFields = lens _rtpFields (\ s a -> s{_rtpFields = a}) . _Default;
+rtprqFields :: Lens' ReportTaskProgress [Field]
+rtprqFields = lens _rtprqFields (\ s a -> s{_rtprqFields = a}) . _Default;
 
 -- | The ID of the task assigned to the task runner. This value is provided
 -- in the response for PollForTask.
-rtpTaskId :: Lens' ReportTaskProgress Text
-rtpTaskId = lens _rtpTaskId (\ s a -> s{_rtpTaskId = a});
+rtprqTaskId :: Lens' ReportTaskProgress Text
+rtprqTaskId = lens _rtprqTaskId (\ s a -> s{_rtprqTaskId = a});
 
 instance AWSRequest ReportTaskProgress where
         type Sv ReportTaskProgress = DataPipeline
@@ -110,7 +110,7 @@ instance ToHeaders ReportTaskProgress where
 instance ToJSON ReportTaskProgress where
         toJSON ReportTaskProgress'{..}
           = object
-              ["fields" .= _rtpFields, "taskId" .= _rtpTaskId]
+              ["fields" .= _rtprqFields, "taskId" .= _rtprqTaskId]
 
 instance ToPath ReportTaskProgress where
         toPath = const "/"
@@ -124,27 +124,27 @@ instance ToQuery ReportTaskProgress where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtprStatus'
+-- * 'rtprsStatus'
 --
--- * 'rtprCanceled'
+-- * 'rtprsCanceled'
 data ReportTaskProgressResponse = ReportTaskProgressResponse'
-    { _rtprStatus   :: !Int
-    , _rtprCanceled :: !Bool
+    { _rtprsStatus   :: !Int
+    , _rtprsCanceled :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskProgressResponse' smart constructor.
 reportTaskProgressResponse :: Int -> Bool -> ReportTaskProgressResponse
 reportTaskProgressResponse pStatus pCanceled =
     ReportTaskProgressResponse'
-    { _rtprStatus = pStatus
-    , _rtprCanceled = pCanceled
+    { _rtprsStatus = pStatus
+    , _rtprsCanceled = pCanceled
     }
 
 -- | FIXME: Undocumented member.
-rtprStatus :: Lens' ReportTaskProgressResponse Int
-rtprStatus = lens _rtprStatus (\ s a -> s{_rtprStatus = a});
+rtprsStatus :: Lens' ReportTaskProgressResponse Int
+rtprsStatus = lens _rtprsStatus (\ s a -> s{_rtprsStatus = a});
 
 -- | If true, the calling task runner should cancel processing of the task.
 -- The task runner does not need to call SetTaskStatus for canceled tasks.
-rtprCanceled :: Lens' ReportTaskProgressResponse Bool
-rtprCanceled = lens _rtprCanceled (\ s a -> s{_rtprCanceled = a});
+rtprsCanceled :: Lens' ReportTaskProgressResponse Bool
+rtprsCanceled = lens _rtprsCanceled (\ s a -> s{_rtprsCanceled = a});

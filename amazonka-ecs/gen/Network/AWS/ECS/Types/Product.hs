@@ -31,76 +31,76 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cluStatus'
+-- * 'cStatus'
 --
--- * 'cluClusterARN'
+-- * 'cClusterARN'
 --
--- * 'cluRunningTasksCount'
+-- * 'cRunningTasksCount'
 --
--- * 'cluRegisteredContainerInstancesCount'
+-- * 'cRegisteredContainerInstancesCount'
 --
--- * 'cluPendingTasksCount'
+-- * 'cPendingTasksCount'
 --
--- * 'cluClusterName'
+-- * 'cClusterName'
 --
--- * 'cluActiveServicesCount'
+-- * 'cActiveServicesCount'
 data Cluster = Cluster'
-    { _cluStatus                            :: !(Maybe Text)
-    , _cluClusterARN                        :: !(Maybe Text)
-    , _cluRunningTasksCount                 :: !(Maybe Int)
-    , _cluRegisteredContainerInstancesCount :: !(Maybe Int)
-    , _cluPendingTasksCount                 :: !(Maybe Int)
-    , _cluClusterName                       :: !(Maybe Text)
-    , _cluActiveServicesCount               :: !(Maybe Int)
+    { _cStatus                            :: !(Maybe Text)
+    , _cClusterARN                        :: !(Maybe Text)
+    , _cRunningTasksCount                 :: !(Maybe Int)
+    , _cRegisteredContainerInstancesCount :: !(Maybe Int)
+    , _cPendingTasksCount                 :: !(Maybe Int)
+    , _cClusterName                       :: !(Maybe Text)
+    , _cActiveServicesCount               :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Cluster' smart constructor.
 cluster :: Cluster
 cluster =
     Cluster'
-    { _cluStatus = Nothing
-    , _cluClusterARN = Nothing
-    , _cluRunningTasksCount = Nothing
-    , _cluRegisteredContainerInstancesCount = Nothing
-    , _cluPendingTasksCount = Nothing
-    , _cluClusterName = Nothing
-    , _cluActiveServicesCount = Nothing
+    { _cStatus = Nothing
+    , _cClusterARN = Nothing
+    , _cRunningTasksCount = Nothing
+    , _cRegisteredContainerInstancesCount = Nothing
+    , _cPendingTasksCount = Nothing
+    , _cClusterName = Nothing
+    , _cActiveServicesCount = Nothing
     }
 
 -- | The status of the cluster. The valid values are @ACTIVE@ or @INACTIVE@.
 -- @ACTIVE@ indicates that you can register container instances with the
 -- cluster and the associated instances can accept tasks.
-cluStatus :: Lens' Cluster (Maybe Text)
-cluStatus = lens _cluStatus (\ s a -> s{_cluStatus = a});
+cStatus :: Lens' Cluster (Maybe Text)
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
 -- | The Amazon Resource Name (ARN) that identifies the cluster. The ARN
 -- contains the @arn:aws:ecs@ namespace, followed by the region of the
 -- cluster, the AWS account ID of the cluster owner, the @cluster@
 -- namespace, and then the cluster name. For example,
 -- arn:aws:ecs:/region/:/012345678910/:cluster\//test/.
-cluClusterARN :: Lens' Cluster (Maybe Text)
-cluClusterARN = lens _cluClusterARN (\ s a -> s{_cluClusterARN = a});
+cClusterARN :: Lens' Cluster (Maybe Text)
+cClusterARN = lens _cClusterARN (\ s a -> s{_cClusterARN = a});
 
 -- | The number of tasks in the cluster that are in the @RUNNING@ state.
-cluRunningTasksCount :: Lens' Cluster (Maybe Int)
-cluRunningTasksCount = lens _cluRunningTasksCount (\ s a -> s{_cluRunningTasksCount = a});
+cRunningTasksCount :: Lens' Cluster (Maybe Int)
+cRunningTasksCount = lens _cRunningTasksCount (\ s a -> s{_cRunningTasksCount = a});
 
 -- | The number of container instances registered into the cluster.
-cluRegisteredContainerInstancesCount :: Lens' Cluster (Maybe Int)
-cluRegisteredContainerInstancesCount = lens _cluRegisteredContainerInstancesCount (\ s a -> s{_cluRegisteredContainerInstancesCount = a});
+cRegisteredContainerInstancesCount :: Lens' Cluster (Maybe Int)
+cRegisteredContainerInstancesCount = lens _cRegisteredContainerInstancesCount (\ s a -> s{_cRegisteredContainerInstancesCount = a});
 
 -- | The number of tasks in the cluster that are in the @PENDING@ state.
-cluPendingTasksCount :: Lens' Cluster (Maybe Int)
-cluPendingTasksCount = lens _cluPendingTasksCount (\ s a -> s{_cluPendingTasksCount = a});
+cPendingTasksCount :: Lens' Cluster (Maybe Int)
+cPendingTasksCount = lens _cPendingTasksCount (\ s a -> s{_cPendingTasksCount = a});
 
 -- | A user-generated string that you can use to identify your cluster.
-cluClusterName :: Lens' Cluster (Maybe Text)
-cluClusterName = lens _cluClusterName (\ s a -> s{_cluClusterName = a});
+cClusterName :: Lens' Cluster (Maybe Text)
+cClusterName = lens _cClusterName (\ s a -> s{_cClusterName = a});
 
 -- | The number of services that are running on the cluster in an @ACTIVE@
 -- state. You can view these services with ListServices.
-cluActiveServicesCount :: Lens' Cluster (Maybe Int)
-cluActiveServicesCount = lens _cluActiveServicesCount (\ s a -> s{_cluActiveServicesCount = a});
+cActiveServicesCount :: Lens' Cluster (Maybe Int)
+cActiveServicesCount = lens _cActiveServicesCount (\ s a -> s{_cActiveServicesCount = a});
 
 instance FromJSON Cluster where
         parseJSON
@@ -120,70 +120,70 @@ instance FromJSON Cluster where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'conNetworkBindings'
+-- * 'cNetworkBindings'
 --
--- * 'conContainerARN'
+-- * 'cContainerARN'
 --
--- * 'conTaskARN'
+-- * 'cTaskARN'
 --
--- * 'conLastStatus'
+-- * 'cLastStatus'
 --
--- * 'conReason'
+-- * 'cReason'
 --
--- * 'conName'
+-- * 'cName'
 --
--- * 'conExitCode'
+-- * 'cExitCode'
 data Container = Container'
-    { _conNetworkBindings :: !(Maybe [NetworkBinding])
-    , _conContainerARN    :: !(Maybe Text)
-    , _conTaskARN         :: !(Maybe Text)
-    , _conLastStatus      :: !(Maybe Text)
-    , _conReason          :: !(Maybe Text)
-    , _conName            :: !(Maybe Text)
-    , _conExitCode        :: !(Maybe Int)
+    { _cNetworkBindings :: !(Maybe [NetworkBinding])
+    , _cContainerARN    :: !(Maybe Text)
+    , _cTaskARN         :: !(Maybe Text)
+    , _cLastStatus      :: !(Maybe Text)
+    , _cReason          :: !(Maybe Text)
+    , _cName            :: !(Maybe Text)
+    , _cExitCode        :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Container' smart constructor.
 container :: Container
 container =
     Container'
-    { _conNetworkBindings = Nothing
-    , _conContainerARN = Nothing
-    , _conTaskARN = Nothing
-    , _conLastStatus = Nothing
-    , _conReason = Nothing
-    , _conName = Nothing
-    , _conExitCode = Nothing
+    { _cNetworkBindings = Nothing
+    , _cContainerARN = Nothing
+    , _cTaskARN = Nothing
+    , _cLastStatus = Nothing
+    , _cReason = Nothing
+    , _cName = Nothing
+    , _cExitCode = Nothing
     }
 
 -- | The network bindings associated with the container.
-conNetworkBindings :: Lens' Container [NetworkBinding]
-conNetworkBindings = lens _conNetworkBindings (\ s a -> s{_conNetworkBindings = a}) . _Default;
+cNetworkBindings :: Lens' Container [NetworkBinding]
+cNetworkBindings = lens _cNetworkBindings (\ s a -> s{_cNetworkBindings = a}) . _Default;
 
 -- | The Amazon Resource Name (ARN) of the container.
-conContainerARN :: Lens' Container (Maybe Text)
-conContainerARN = lens _conContainerARN (\ s a -> s{_conContainerARN = a});
+cContainerARN :: Lens' Container (Maybe Text)
+cContainerARN = lens _cContainerARN (\ s a -> s{_cContainerARN = a});
 
 -- | The Amazon Resource Name (ARN) of the task.
-conTaskARN :: Lens' Container (Maybe Text)
-conTaskARN = lens _conTaskARN (\ s a -> s{_conTaskARN = a});
+cTaskARN :: Lens' Container (Maybe Text)
+cTaskARN = lens _cTaskARN (\ s a -> s{_cTaskARN = a});
 
 -- | The last known status of the container.
-conLastStatus :: Lens' Container (Maybe Text)
-conLastStatus = lens _conLastStatus (\ s a -> s{_conLastStatus = a});
+cLastStatus :: Lens' Container (Maybe Text)
+cLastStatus = lens _cLastStatus (\ s a -> s{_cLastStatus = a});
 
 -- | A short (255 max characters) human-readable string to provide additional
 -- detail about a running or stopped container.
-conReason :: Lens' Container (Maybe Text)
-conReason = lens _conReason (\ s a -> s{_conReason = a});
+cReason :: Lens' Container (Maybe Text)
+cReason = lens _cReason (\ s a -> s{_cReason = a});
 
 -- | The name of the container.
-conName :: Lens' Container (Maybe Text)
-conName = lens _conName (\ s a -> s{_conName = a});
+cName :: Lens' Container (Maybe Text)
+cName = lens _cName (\ s a -> s{_cName = a});
 
 -- | The exit code returned from the container.
-conExitCode :: Lens' Container (Maybe Int)
-conExitCode = lens _conExitCode (\ s a -> s{_conExitCode = a});
+cExitCode :: Lens' Container (Maybe Int)
+cExitCode = lens _cExitCode (\ s a -> s{_cExitCode = a});
 
 instance FromJSON Container where
         parseJSON
@@ -731,83 +731,83 @@ instance FromJSON ContainerService where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'depStatus'
+-- * 'dStatus'
 --
--- * 'depRunningCount'
+-- * 'dRunningCount'
 --
--- * 'depCreatedAt'
+-- * 'dCreatedAt'
 --
--- * 'depDesiredCount'
+-- * 'dDesiredCount'
 --
--- * 'depPendingCount'
+-- * 'dPendingCount'
 --
--- * 'depId'
+-- * 'dId'
 --
--- * 'depTaskDefinition'
+-- * 'dTaskDefinition'
 --
--- * 'depUpdatedAt'
+-- * 'dUpdatedAt'
 data Deployment = Deployment'
-    { _depStatus         :: !(Maybe Text)
-    , _depRunningCount   :: !(Maybe Int)
-    , _depCreatedAt      :: !(Maybe POSIX)
-    , _depDesiredCount   :: !(Maybe Int)
-    , _depPendingCount   :: !(Maybe Int)
-    , _depId             :: !(Maybe Text)
-    , _depTaskDefinition :: !(Maybe Text)
-    , _depUpdatedAt      :: !(Maybe POSIX)
+    { _dStatus         :: !(Maybe Text)
+    , _dRunningCount   :: !(Maybe Int)
+    , _dCreatedAt      :: !(Maybe POSIX)
+    , _dDesiredCount   :: !(Maybe Int)
+    , _dPendingCount   :: !(Maybe Int)
+    , _dId             :: !(Maybe Text)
+    , _dTaskDefinition :: !(Maybe Text)
+    , _dUpdatedAt      :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Deployment' smart constructor.
 deployment :: Deployment
 deployment =
     Deployment'
-    { _depStatus = Nothing
-    , _depRunningCount = Nothing
-    , _depCreatedAt = Nothing
-    , _depDesiredCount = Nothing
-    , _depPendingCount = Nothing
-    , _depId = Nothing
-    , _depTaskDefinition = Nothing
-    , _depUpdatedAt = Nothing
+    { _dStatus = Nothing
+    , _dRunningCount = Nothing
+    , _dCreatedAt = Nothing
+    , _dDesiredCount = Nothing
+    , _dPendingCount = Nothing
+    , _dId = Nothing
+    , _dTaskDefinition = Nothing
+    , _dUpdatedAt = Nothing
     }
 
 -- | The status of the deployment. Valid values are @PRIMARY@ (for the most
 -- recent deployment), @ACTIVE@ (for previous deployments that still have
 -- tasks running, but are being replaced with the @PRIMARY@ deployment),
 -- and @INACTIVE@ (for deployments that have been completely replaced).
-depStatus :: Lens' Deployment (Maybe Text)
-depStatus = lens _depStatus (\ s a -> s{_depStatus = a});
+dStatus :: Lens' Deployment (Maybe Text)
+dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
 
 -- | The number of tasks in the deployment that are in the @RUNNING@ status.
-depRunningCount :: Lens' Deployment (Maybe Int)
-depRunningCount = lens _depRunningCount (\ s a -> s{_depRunningCount = a});
+dRunningCount :: Lens' Deployment (Maybe Int)
+dRunningCount = lens _dRunningCount (\ s a -> s{_dRunningCount = a});
 
 -- | The Unix time in seconds and milliseconds when the service was created.
-depCreatedAt :: Lens' Deployment (Maybe UTCTime)
-depCreatedAt = lens _depCreatedAt (\ s a -> s{_depCreatedAt = a}) . mapping _Time;
+dCreatedAt :: Lens' Deployment (Maybe UTCTime)
+dCreatedAt = lens _dCreatedAt (\ s a -> s{_dCreatedAt = a}) . mapping _Time;
 
 -- | The most recent desired count of tasks that was specified for the
 -- service to deploy and\/or maintain.
-depDesiredCount :: Lens' Deployment (Maybe Int)
-depDesiredCount = lens _depDesiredCount (\ s a -> s{_depDesiredCount = a});
+dDesiredCount :: Lens' Deployment (Maybe Int)
+dDesiredCount = lens _dDesiredCount (\ s a -> s{_dDesiredCount = a});
 
 -- | The number of tasks in the deployment that are in the @PENDING@ status.
-depPendingCount :: Lens' Deployment (Maybe Int)
-depPendingCount = lens _depPendingCount (\ s a -> s{_depPendingCount = a});
+dPendingCount :: Lens' Deployment (Maybe Int)
+dPendingCount = lens _dPendingCount (\ s a -> s{_dPendingCount = a});
 
 -- | The ID of the deployment.
-depId :: Lens' Deployment (Maybe Text)
-depId = lens _depId (\ s a -> s{_depId = a});
+dId :: Lens' Deployment (Maybe Text)
+dId = lens _dId (\ s a -> s{_dId = a});
 
 -- | The most recent task definition that was specified for the service to
 -- use.
-depTaskDefinition :: Lens' Deployment (Maybe Text)
-depTaskDefinition = lens _depTaskDefinition (\ s a -> s{_depTaskDefinition = a});
+dTaskDefinition :: Lens' Deployment (Maybe Text)
+dTaskDefinition = lens _dTaskDefinition (\ s a -> s{_dTaskDefinition = a});
 
 -- | The Unix time in seconds and milliseconds when the service was last
 -- updated.
-depUpdatedAt :: Lens' Deployment (Maybe UTCTime)
-depUpdatedAt = lens _depUpdatedAt (\ s a -> s{_depUpdatedAt = a}) . mapping _Time;
+dUpdatedAt :: Lens' Deployment (Maybe UTCTime)
+dUpdatedAt = lens _dUpdatedAt (\ s a -> s{_dUpdatedAt = a}) . mapping _Time;
 
 instance FromJSON Deployment where
         parseJSON
@@ -828,29 +828,29 @@ instance FromJSON Deployment where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'faiArn'
+-- * 'fArn'
 --
--- * 'faiReason'
+-- * 'fReason'
 data Failure = Failure'
-    { _faiArn    :: !(Maybe Text)
-    , _faiReason :: !(Maybe Text)
+    { _fArn    :: !(Maybe Text)
+    , _fReason :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Failure' smart constructor.
 failure :: Failure
 failure =
     Failure'
-    { _faiArn = Nothing
-    , _faiReason = Nothing
+    { _fArn = Nothing
+    , _fReason = Nothing
     }
 
 -- | The Amazon Resource Name (ARN) of the failed resource.
-faiArn :: Lens' Failure (Maybe Text)
-faiArn = lens _faiArn (\ s a -> s{_faiArn = a});
+fArn :: Lens' Failure (Maybe Text)
+fArn = lens _fArn (\ s a -> s{_fArn = a});
 
 -- | The reason for the failure.
-faiReason :: Lens' Failure (Maybe Text)
-faiReason = lens _faiReason (\ s a -> s{_faiReason = a});
+fReason :: Lens' Failure (Maybe Text)
+fReason = lens _fReason (\ s a -> s{_fReason = a});
 
 instance FromJSON Failure where
         parseJSON
@@ -1198,67 +1198,67 @@ instance ToJSON PortMapping where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'resStringSetValue'
+-- * 'rStringSetValue'
 --
--- * 'resIntegerValue'
+-- * 'rIntegerValue'
 --
--- * 'resDoubleValue'
+-- * 'rDoubleValue'
 --
--- * 'resLongValue'
+-- * 'rLongValue'
 --
--- * 'resName'
+-- * 'rName'
 --
--- * 'resType'
+-- * 'rType'
 data Resource = Resource'
-    { _resStringSetValue :: !(Maybe [Text])
-    , _resIntegerValue   :: !(Maybe Int)
-    , _resDoubleValue    :: !(Maybe Double)
-    , _resLongValue      :: !(Maybe Integer)
-    , _resName           :: !(Maybe Text)
-    , _resType           :: !(Maybe Text)
+    { _rStringSetValue :: !(Maybe [Text])
+    , _rIntegerValue   :: !(Maybe Int)
+    , _rDoubleValue    :: !(Maybe Double)
+    , _rLongValue      :: !(Maybe Integer)
+    , _rName           :: !(Maybe Text)
+    , _rType           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Resource' smart constructor.
 resource :: Resource
 resource =
     Resource'
-    { _resStringSetValue = Nothing
-    , _resIntegerValue = Nothing
-    , _resDoubleValue = Nothing
-    , _resLongValue = Nothing
-    , _resName = Nothing
-    , _resType = Nothing
+    { _rStringSetValue = Nothing
+    , _rIntegerValue = Nothing
+    , _rDoubleValue = Nothing
+    , _rLongValue = Nothing
+    , _rName = Nothing
+    , _rType = Nothing
     }
 
 -- | When the @stringSetValue@ type is set, the value of the resource must be
 -- a string type.
-resStringSetValue :: Lens' Resource [Text]
-resStringSetValue = lens _resStringSetValue (\ s a -> s{_resStringSetValue = a}) . _Default;
+rStringSetValue :: Lens' Resource [Text]
+rStringSetValue = lens _rStringSetValue (\ s a -> s{_rStringSetValue = a}) . _Default;
 
 -- | When the @integerValue@ type is set, the value of the resource must be
 -- an integer.
-resIntegerValue :: Lens' Resource (Maybe Int)
-resIntegerValue = lens _resIntegerValue (\ s a -> s{_resIntegerValue = a});
+rIntegerValue :: Lens' Resource (Maybe Int)
+rIntegerValue = lens _rIntegerValue (\ s a -> s{_rIntegerValue = a});
 
 -- | When the @doubleValue@ type is set, the value of the resource must be a
 -- double precision floating-point type.
-resDoubleValue :: Lens' Resource (Maybe Double)
-resDoubleValue = lens _resDoubleValue (\ s a -> s{_resDoubleValue = a});
+rDoubleValue :: Lens' Resource (Maybe Double)
+rDoubleValue = lens _rDoubleValue (\ s a -> s{_rDoubleValue = a});
 
 -- | When the @longValue@ type is set, the value of the resource must be an
 -- extended precision floating-point type.
-resLongValue :: Lens' Resource (Maybe Integer)
-resLongValue = lens _resLongValue (\ s a -> s{_resLongValue = a});
+rLongValue :: Lens' Resource (Maybe Integer)
+rLongValue = lens _rLongValue (\ s a -> s{_rLongValue = a});
 
 -- | The name of the resource, such as @CPU@, @MEMORY@, @PORTS@, or a
 -- user-defined resource.
-resName :: Lens' Resource (Maybe Text)
-resName = lens _resName (\ s a -> s{_resName = a});
+rName :: Lens' Resource (Maybe Text)
+rName = lens _rName (\ s a -> s{_rName = a});
 
 -- | The type of the resource, such as @INTEGER@, @DOUBLE@, @LONG@, or
 -- @STRINGSET@.
-resType :: Lens' Resource (Maybe Text)
-resType = lens _resType (\ s a -> s{_resType = a});
+rType :: Lens' Resource (Maybe Text)
+rType = lens _rType (\ s a -> s{_rType = a});
 
 instance FromJSON Resource where
         parseJSON
@@ -1275,11 +1275,11 @@ instance FromJSON Resource where
 instance ToJSON Resource where
         toJSON Resource'{..}
           = object
-              ["stringSetValue" .= _resStringSetValue,
-               "integerValue" .= _resIntegerValue,
-               "doubleValue" .= _resDoubleValue,
-               "longValue" .= _resLongValue, "name" .= _resName,
-               "type" .= _resType]
+              ["stringSetValue" .= _rStringSetValue,
+               "integerValue" .= _rIntegerValue,
+               "doubleValue" .= _rDoubleValue,
+               "longValue" .= _rLongValue, "name" .= _rName,
+               "type" .= _rType]
 
 -- | Details on an event associated with a service.
 --
@@ -1333,90 +1333,90 @@ instance FromJSON ServiceEvent where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tasDesiredStatus'
+-- * 'tDesiredStatus'
 --
--- * 'tasClusterARN'
+-- * 'tClusterARN'
 --
--- * 'tasOverrides'
+-- * 'tOverrides'
 --
--- * 'tasTaskARN'
+-- * 'tTaskARN'
 --
--- * 'tasContainerInstanceARN'
+-- * 'tContainerInstanceARN'
 --
--- * 'tasLastStatus'
+-- * 'tLastStatus'
 --
--- * 'tasContainers'
+-- * 'tContainers'
 --
--- * 'tasStartedBy'
+-- * 'tStartedBy'
 --
--- * 'tasTaskDefinitionARN'
+-- * 'tTaskDefinitionARN'
 data Task = Task'
-    { _tasDesiredStatus        :: !(Maybe Text)
-    , _tasClusterARN           :: !(Maybe Text)
-    , _tasOverrides            :: !(Maybe TaskOverride)
-    , _tasTaskARN              :: !(Maybe Text)
-    , _tasContainerInstanceARN :: !(Maybe Text)
-    , _tasLastStatus           :: !(Maybe Text)
-    , _tasContainers           :: !(Maybe [Container])
-    , _tasStartedBy            :: !(Maybe Text)
-    , _tasTaskDefinitionARN    :: !(Maybe Text)
+    { _tDesiredStatus        :: !(Maybe Text)
+    , _tClusterARN           :: !(Maybe Text)
+    , _tOverrides            :: !(Maybe TaskOverride)
+    , _tTaskARN              :: !(Maybe Text)
+    , _tContainerInstanceARN :: !(Maybe Text)
+    , _tLastStatus           :: !(Maybe Text)
+    , _tContainers           :: !(Maybe [Container])
+    , _tStartedBy            :: !(Maybe Text)
+    , _tTaskDefinitionARN    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Task' smart constructor.
 task :: Task
 task =
     Task'
-    { _tasDesiredStatus = Nothing
-    , _tasClusterARN = Nothing
-    , _tasOverrides = Nothing
-    , _tasTaskARN = Nothing
-    , _tasContainerInstanceARN = Nothing
-    , _tasLastStatus = Nothing
-    , _tasContainers = Nothing
-    , _tasStartedBy = Nothing
-    , _tasTaskDefinitionARN = Nothing
+    { _tDesiredStatus = Nothing
+    , _tClusterARN = Nothing
+    , _tOverrides = Nothing
+    , _tTaskARN = Nothing
+    , _tContainerInstanceARN = Nothing
+    , _tLastStatus = Nothing
+    , _tContainers = Nothing
+    , _tStartedBy = Nothing
+    , _tTaskDefinitionARN = Nothing
     }
 
 -- | The desired status of the task.
-tasDesiredStatus :: Lens' Task (Maybe Text)
-tasDesiredStatus = lens _tasDesiredStatus (\ s a -> s{_tasDesiredStatus = a});
+tDesiredStatus :: Lens' Task (Maybe Text)
+tDesiredStatus = lens _tDesiredStatus (\ s a -> s{_tDesiredStatus = a});
 
 -- | The Amazon Resource Name (ARN) of the of the cluster that hosts the
 -- task.
-tasClusterARN :: Lens' Task (Maybe Text)
-tasClusterARN = lens _tasClusterARN (\ s a -> s{_tasClusterARN = a});
+tClusterARN :: Lens' Task (Maybe Text)
+tClusterARN = lens _tClusterARN (\ s a -> s{_tClusterARN = a});
 
 -- | One or more container overrides.
-tasOverrides :: Lens' Task (Maybe TaskOverride)
-tasOverrides = lens _tasOverrides (\ s a -> s{_tasOverrides = a});
+tOverrides :: Lens' Task (Maybe TaskOverride)
+tOverrides = lens _tOverrides (\ s a -> s{_tOverrides = a});
 
 -- | The Amazon Resource Name (ARN) of the task.
-tasTaskARN :: Lens' Task (Maybe Text)
-tasTaskARN = lens _tasTaskARN (\ s a -> s{_tasTaskARN = a});
+tTaskARN :: Lens' Task (Maybe Text)
+tTaskARN = lens _tTaskARN (\ s a -> s{_tTaskARN = a});
 
 -- | The Amazon Resource Name (ARN) of the container instances that host the
 -- task.
-tasContainerInstanceARN :: Lens' Task (Maybe Text)
-tasContainerInstanceARN = lens _tasContainerInstanceARN (\ s a -> s{_tasContainerInstanceARN = a});
+tContainerInstanceARN :: Lens' Task (Maybe Text)
+tContainerInstanceARN = lens _tContainerInstanceARN (\ s a -> s{_tContainerInstanceARN = a});
 
 -- | The last known status of the task.
-tasLastStatus :: Lens' Task (Maybe Text)
-tasLastStatus = lens _tasLastStatus (\ s a -> s{_tasLastStatus = a});
+tLastStatus :: Lens' Task (Maybe Text)
+tLastStatus = lens _tLastStatus (\ s a -> s{_tLastStatus = a});
 
 -- | The containers associated with the task.
-tasContainers :: Lens' Task [Container]
-tasContainers = lens _tasContainers (\ s a -> s{_tasContainers = a}) . _Default;
+tContainers :: Lens' Task [Container]
+tContainers = lens _tContainers (\ s a -> s{_tContainers = a}) . _Default;
 
 -- | The tag specified when a task is started. If the task is started by an
 -- Amazon ECS service, then the @startedBy@ parameter contains the
 -- deployment ID of the service that starts it.
-tasStartedBy :: Lens' Task (Maybe Text)
-tasStartedBy = lens _tasStartedBy (\ s a -> s{_tasStartedBy = a});
+tStartedBy :: Lens' Task (Maybe Text)
+tStartedBy = lens _tStartedBy (\ s a -> s{_tStartedBy = a});
 
 -- | The Amazon Resource Name (ARN) of the of the task definition that
 -- creates the task.
-tasTaskDefinitionARN :: Lens' Task (Maybe Text)
-tasTaskDefinitionARN = lens _tasTaskDefinitionARN (\ s a -> s{_tasTaskDefinitionARN = a});
+tTaskDefinitionARN :: Lens' Task (Maybe Text)
+tTaskDefinitionARN = lens _tTaskDefinitionARN (\ s a -> s{_tTaskDefinitionARN = a});
 
 instance FromJSON Task where
         parseJSON
@@ -1614,32 +1614,32 @@ instance ToJSON VersionInfo where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'volName'
+-- * 'vName'
 --
--- * 'volHost'
+-- * 'vHost'
 data Volume = Volume'
-    { _volName :: !(Maybe Text)
-    , _volHost :: !(Maybe HostVolumeProperties)
+    { _vName :: !(Maybe Text)
+    , _vHost :: !(Maybe HostVolumeProperties)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Volume' smart constructor.
 volume :: Volume
 volume =
     Volume'
-    { _volName = Nothing
-    , _volHost = Nothing
+    { _vName = Nothing
+    , _vHost = Nothing
     }
 
 -- | The name of the volume. This name is referenced in the @sourceVolume@
 -- parameter of container definition @mountPoints@.
-volName :: Lens' Volume (Maybe Text)
-volName = lens _volName (\ s a -> s{_volName = a});
+vName :: Lens' Volume (Maybe Text)
+vName = lens _vName (\ s a -> s{_vName = a});
 
 -- | The path on the host container instance that is presented to the
 -- containers which access the volume. If this parameter is empty, then the
 -- Docker daemon assigns a host path for you.
-volHost :: Lens' Volume (Maybe HostVolumeProperties)
-volHost = lens _volHost (\ s a -> s{_volHost = a});
+vHost :: Lens' Volume (Maybe HostVolumeProperties)
+vHost = lens _vHost (\ s a -> s{_vHost = a});
 
 instance FromJSON Volume where
         parseJSON
@@ -1649,7 +1649,7 @@ instance FromJSON Volume where
 
 instance ToJSON Volume where
         toJSON Volume'{..}
-          = object ["name" .= _volName, "host" .= _volHost]
+          = object ["name" .= _vName, "host" .= _vHost]
 
 -- | Details on a data volume from another container.
 --

@@ -28,16 +28,16 @@ module Network.AWS.ElastiCache.CreateSnapshot
     -- ** Request constructor
     , createSnapshot
     -- ** Request lenses
-    , csCacheClusterId
-    , csSnapshotName
+    , csrqCacheClusterId
+    , csrqSnapshotName
 
     -- * Response
     , CreateSnapshotResponse
     -- ** Response constructor
     , createSnapshotResponse
     -- ** Response lenses
-    , cSnapshot
-    , cStatus
+    , csrsSnapshot
+    , csrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csCacheClusterId'
+-- * 'csrqCacheClusterId'
 --
--- * 'csSnapshotName'
+-- * 'csrqSnapshotName'
 data CreateSnapshot = CreateSnapshot'
-    { _csCacheClusterId :: !Text
-    , _csSnapshotName   :: !Text
+    { _csrqCacheClusterId :: !Text
+    , _csrqSnapshotName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshot' smart constructor.
 createSnapshot :: Text -> Text -> CreateSnapshot
 createSnapshot pCacheClusterId pSnapshotName =
     CreateSnapshot'
-    { _csCacheClusterId = pCacheClusterId
-    , _csSnapshotName = pSnapshotName
+    { _csrqCacheClusterId = pCacheClusterId
+    , _csrqSnapshotName = pSnapshotName
     }
 
 -- | The identifier of an existing cache cluster. The snapshot will be
 -- created from this cache cluster.
-csCacheClusterId :: Lens' CreateSnapshot Text
-csCacheClusterId = lens _csCacheClusterId (\ s a -> s{_csCacheClusterId = a});
+csrqCacheClusterId :: Lens' CreateSnapshot Text
+csrqCacheClusterId = lens _csrqCacheClusterId (\ s a -> s{_csrqCacheClusterId = a});
 
 -- | A name for the snapshot being created.
-csSnapshotName :: Lens' CreateSnapshot Text
-csSnapshotName = lens _csSnapshotName (\ s a -> s{_csSnapshotName = a});
+csrqSnapshotName :: Lens' CreateSnapshot Text
+csrqSnapshotName = lens _csrqSnapshotName (\ s a -> s{_csrqSnapshotName = a});
 
 instance AWSRequest CreateSnapshot where
         type Sv CreateSnapshot = ElastiCache
@@ -97,33 +97,33 @@ instance ToQuery CreateSnapshot where
           = mconcat
               ["Action" =: ("CreateSnapshot" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheClusterId" =: _csCacheClusterId,
-               "SnapshotName" =: _csSnapshotName]
+               "CacheClusterId" =: _csrqCacheClusterId,
+               "SnapshotName" =: _csrqSnapshotName]
 
 -- | /See:/ 'createSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cSnapshot'
+-- * 'csrsSnapshot'
 --
--- * 'cStatus'
+-- * 'csrsStatus'
 data CreateSnapshotResponse = CreateSnapshotResponse'
-    { _cSnapshot :: !(Maybe Snapshot)
-    , _cStatus   :: !Int
+    { _csrsSnapshot :: !(Maybe Snapshot)
+    , _csrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotResponse' smart constructor.
 createSnapshotResponse :: Int -> CreateSnapshotResponse
 createSnapshotResponse pStatus =
     CreateSnapshotResponse'
-    { _cSnapshot = Nothing
-    , _cStatus = pStatus
+    { _csrsSnapshot = Nothing
+    , _csrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
-cSnapshot = lens _cSnapshot (\ s a -> s{_cSnapshot = a});
+csrsSnapshot :: Lens' CreateSnapshotResponse (Maybe Snapshot)
+csrsSnapshot = lens _csrsSnapshot (\ s a -> s{_csrsSnapshot = a});
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CreateSnapshotResponse Int
-cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
+csrsStatus :: Lens' CreateSnapshotResponse Int
+csrsStatus = lens _csrsStatus (\ s a -> s{_csrsStatus = a});

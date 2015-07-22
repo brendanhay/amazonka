@@ -35,17 +35,17 @@ module Network.AWS.OpsWorks.DescribeInstances
     -- ** Request constructor
     , describeInstances
     -- ** Request lenses
-    , diInstanceIds
-    , diStackId
-    , diLayerId
+    , dirqInstanceIds
+    , dirqStackId
+    , dirqLayerId
 
     -- * Response
     , DescribeInstancesResponse
     -- ** Response constructor
     , describeInstancesResponse
     -- ** Response lenses
-    , dirInstances
-    , dirStatus
+    , dirsInstances
+    , dirsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -57,41 +57,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diInstanceIds'
+-- * 'dirqInstanceIds'
 --
--- * 'diStackId'
+-- * 'dirqStackId'
 --
--- * 'diLayerId'
+-- * 'dirqLayerId'
 data DescribeInstances = DescribeInstances'
-    { _diInstanceIds :: !(Maybe [Text])
-    , _diStackId     :: !(Maybe Text)
-    , _diLayerId     :: !(Maybe Text)
+    { _dirqInstanceIds :: !(Maybe [Text])
+    , _dirqStackId     :: !(Maybe Text)
+    , _dirqLayerId     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstances' smart constructor.
 describeInstances :: DescribeInstances
 describeInstances =
     DescribeInstances'
-    { _diInstanceIds = Nothing
-    , _diStackId = Nothing
-    , _diLayerId = Nothing
+    { _dirqInstanceIds = Nothing
+    , _dirqStackId = Nothing
+    , _dirqLayerId = Nothing
     }
 
 -- | An array of instance IDs to be described. If you use this parameter,
 -- @DescribeInstances@ returns a description of the specified instances.
 -- Otherwise, it returns a description of every instance.
-diInstanceIds :: Lens' DescribeInstances [Text]
-diInstanceIds = lens _diInstanceIds (\ s a -> s{_diInstanceIds = a}) . _Default;
+dirqInstanceIds :: Lens' DescribeInstances [Text]
+dirqInstanceIds = lens _dirqInstanceIds (\ s a -> s{_dirqInstanceIds = a}) . _Default;
 
 -- | A stack ID. If you use this parameter, @DescribeInstances@ returns
 -- descriptions of the instances associated with the specified stack.
-diStackId :: Lens' DescribeInstances (Maybe Text)
-diStackId = lens _diStackId (\ s a -> s{_diStackId = a});
+dirqStackId :: Lens' DescribeInstances (Maybe Text)
+dirqStackId = lens _dirqStackId (\ s a -> s{_dirqStackId = a});
 
 -- | A layer ID. If you use this parameter, @DescribeInstances@ returns
 -- descriptions of the instances associated with the specified layer.
-diLayerId :: Lens' DescribeInstances (Maybe Text)
-diLayerId = lens _diLayerId (\ s a -> s{_diLayerId = a});
+dirqLayerId :: Lens' DescribeInstances (Maybe Text)
+dirqLayerId = lens _dirqLayerId (\ s a -> s{_dirqLayerId = a});
 
 instance AWSRequest DescribeInstances where
         type Sv DescribeInstances = OpsWorks
@@ -117,8 +117,8 @@ instance ToHeaders DescribeInstances where
 instance ToJSON DescribeInstances where
         toJSON DescribeInstances'{..}
           = object
-              ["InstanceIds" .= _diInstanceIds,
-               "StackId" .= _diStackId, "LayerId" .= _diLayerId]
+              ["InstanceIds" .= _dirqInstanceIds,
+               "StackId" .= _dirqStackId, "LayerId" .= _dirqLayerId]
 
 instance ToPath DescribeInstances where
         toPath = const "/"
@@ -132,26 +132,26 @@ instance ToQuery DescribeInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirInstances'
+-- * 'dirsInstances'
 --
--- * 'dirStatus'
+-- * 'dirsStatus'
 data DescribeInstancesResponse = DescribeInstancesResponse'
-    { _dirInstances :: !(Maybe [Instance])
-    , _dirStatus    :: !Int
+    { _dirsInstances :: !(Maybe [Instance])
+    , _dirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstancesResponse' smart constructor.
 describeInstancesResponse :: Int -> DescribeInstancesResponse
 describeInstancesResponse pStatus =
     DescribeInstancesResponse'
-    { _dirInstances = Nothing
-    , _dirStatus = pStatus
+    { _dirsInstances = Nothing
+    , _dirsStatus = pStatus
     }
 
 -- | An array of @Instance@ objects that describe the instances.
-dirInstances :: Lens' DescribeInstancesResponse [Instance]
-dirInstances = lens _dirInstances (\ s a -> s{_dirInstances = a}) . _Default;
+dirsInstances :: Lens' DescribeInstancesResponse [Instance]
+dirsInstances = lens _dirsInstances (\ s a -> s{_dirsInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DescribeInstancesResponse Int
-dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});
+dirsStatus :: Lens' DescribeInstancesResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

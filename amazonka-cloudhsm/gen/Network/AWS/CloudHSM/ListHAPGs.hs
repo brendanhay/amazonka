@@ -32,16 +32,16 @@ module Network.AWS.CloudHSM.ListHAPGs
     -- ** Request constructor
     , listHAPGs
     -- ** Request lenses
-    , lhNextToken
+    , lhrqNextToken
 
     -- * Response
     , ListHAPGsResponse
     -- ** Response constructor
     , listHAPGsResponse
     -- ** Response lenses
-    , lhrNextToken
-    , lhrStatus
-    , lhrHAPGList
+    , lhrsNextToken
+    , lhrsStatus
+    , lhrsHAPGList
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -53,22 +53,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhNextToken'
+-- * 'lhrqNextToken'
 newtype ListHAPGs = ListHAPGs'
-    { _lhNextToken :: Maybe Text
+    { _lhrqNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHAPGs' smart constructor.
 listHAPGs :: ListHAPGs
 listHAPGs =
     ListHAPGs'
-    { _lhNextToken = Nothing
+    { _lhrqNextToken = Nothing
     }
 
 -- | The /NextToken/ value from a previous call to ListHapgs. Pass null if
 -- this is the first call.
-lhNextToken :: Lens' ListHAPGs (Maybe Text)
-lhNextToken = lens _lhNextToken (\ s a -> s{_lhNextToken = a});
+lhrqNextToken :: Lens' ListHAPGs (Maybe Text)
+lhrqNextToken = lens _lhrqNextToken (\ s a -> s{_lhrqNextToken = a});
 
 instance AWSRequest ListHAPGs where
         type Sv ListHAPGs = CloudHSM
@@ -92,7 +92,7 @@ instance ToHeaders ListHAPGs where
 
 instance ToJSON ListHAPGs where
         toJSON ListHAPGs'{..}
-          = object ["NextToken" .= _lhNextToken]
+          = object ["NextToken" .= _lhrqNextToken]
 
 instance ToPath ListHAPGs where
         toPath = const "/"
@@ -104,35 +104,35 @@ instance ToQuery ListHAPGs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhrNextToken'
+-- * 'lhrsNextToken'
 --
--- * 'lhrStatus'
+-- * 'lhrsStatus'
 --
--- * 'lhrHAPGList'
+-- * 'lhrsHAPGList'
 data ListHAPGsResponse = ListHAPGsResponse'
-    { _lhrNextToken :: !(Maybe Text)
-    , _lhrStatus    :: !Int
-    , _lhrHAPGList  :: ![Text]
+    { _lhrsNextToken :: !(Maybe Text)
+    , _lhrsStatus    :: !Int
+    , _lhrsHAPGList  :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHAPGsResponse' smart constructor.
 listHAPGsResponse :: Int -> ListHAPGsResponse
 listHAPGsResponse pStatus =
     ListHAPGsResponse'
-    { _lhrNextToken = Nothing
-    , _lhrStatus = pStatus
-    , _lhrHAPGList = mempty
+    { _lhrsNextToken = Nothing
+    , _lhrsStatus = pStatus
+    , _lhrsHAPGList = mempty
     }
 
 -- | If not null, more results are available. Pass this value to ListHapgs to
 -- retrieve the next set of items.
-lhrNextToken :: Lens' ListHAPGsResponse (Maybe Text)
-lhrNextToken = lens _lhrNextToken (\ s a -> s{_lhrNextToken = a});
+lhrsNextToken :: Lens' ListHAPGsResponse (Maybe Text)
+lhrsNextToken = lens _lhrsNextToken (\ s a -> s{_lhrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-lhrStatus :: Lens' ListHAPGsResponse Int
-lhrStatus = lens _lhrStatus (\ s a -> s{_lhrStatus = a});
+lhrsStatus :: Lens' ListHAPGsResponse Int
+lhrsStatus = lens _lhrsStatus (\ s a -> s{_lhrsStatus = a});
 
 -- | The list of high-availability partition groups.
-lhrHAPGList :: Lens' ListHAPGsResponse [Text]
-lhrHAPGList = lens _lhrHAPGList (\ s a -> s{_lhrHAPGList = a});
+lhrsHAPGList :: Lens' ListHAPGsResponse [Text]
+lhrsHAPGList = lens _lhrsHAPGList (\ s a -> s{_lhrsHAPGList = a});

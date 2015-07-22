@@ -28,16 +28,16 @@ module Network.AWS.CodeCommit.GetBranch
     -- ** Request constructor
     , getBranch
     -- ** Request lenses
-    , gbBranchName
-    , gbRepositoryName
+    , gbrqBranchName
+    , gbrqRepositoryName
 
     -- * Response
     , GetBranchResponse
     -- ** Response constructor
     , getBranchResponse
     -- ** Response lenses
-    , gbrBranch
-    , gbrStatus
+    , gbrsBranch
+    , gbrsStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbBranchName'
+-- * 'gbrqBranchName'
 --
--- * 'gbRepositoryName'
+-- * 'gbrqRepositoryName'
 data GetBranch = GetBranch'
-    { _gbBranchName     :: !(Maybe Text)
-    , _gbRepositoryName :: !(Maybe Text)
+    { _gbrqBranchName     :: !(Maybe Text)
+    , _gbrqRepositoryName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBranch' smart constructor.
 getBranch :: GetBranch
 getBranch =
     GetBranch'
-    { _gbBranchName = Nothing
-    , _gbRepositoryName = Nothing
+    { _gbrqBranchName = Nothing
+    , _gbrqRepositoryName = Nothing
     }
 
 -- | The name of the branch for which you want to retrieve information.
-gbBranchName :: Lens' GetBranch (Maybe Text)
-gbBranchName = lens _gbBranchName (\ s a -> s{_gbBranchName = a});
+gbrqBranchName :: Lens' GetBranch (Maybe Text)
+gbrqBranchName = lens _gbrqBranchName (\ s a -> s{_gbrqBranchName = a});
 
 -- | FIXME: Undocumented member.
-gbRepositoryName :: Lens' GetBranch (Maybe Text)
-gbRepositoryName = lens _gbRepositoryName (\ s a -> s{_gbRepositoryName = a});
+gbrqRepositoryName :: Lens' GetBranch (Maybe Text)
+gbrqRepositoryName = lens _gbrqRepositoryName (\ s a -> s{_gbrqRepositoryName = a});
 
 instance AWSRequest GetBranch where
         type Sv GetBranch = CodeCommit
@@ -97,8 +97,8 @@ instance ToHeaders GetBranch where
 instance ToJSON GetBranch where
         toJSON GetBranch'{..}
           = object
-              ["branchName" .= _gbBranchName,
-               "repositoryName" .= _gbRepositoryName]
+              ["branchName" .= _gbrqBranchName,
+               "repositoryName" .= _gbrqRepositoryName]
 
 instance ToPath GetBranch where
         toPath = const "/"
@@ -112,26 +112,26 @@ instance ToQuery GetBranch where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbrBranch'
+-- * 'gbrsBranch'
 --
--- * 'gbrStatus'
+-- * 'gbrsStatus'
 data GetBranchResponse = GetBranchResponse'
-    { _gbrBranch :: !(Maybe BranchInfo)
-    , _gbrStatus :: !Int
+    { _gbrsBranch :: !(Maybe BranchInfo)
+    , _gbrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBranchResponse' smart constructor.
 getBranchResponse :: Int -> GetBranchResponse
 getBranchResponse pStatus =
     GetBranchResponse'
-    { _gbrBranch = Nothing
-    , _gbrStatus = pStatus
+    { _gbrsBranch = Nothing
+    , _gbrsStatus = pStatus
     }
 
 -- | The name of the branch.
-gbrBranch :: Lens' GetBranchResponse (Maybe BranchInfo)
-gbrBranch = lens _gbrBranch (\ s a -> s{_gbrBranch = a});
+gbrsBranch :: Lens' GetBranchResponse (Maybe BranchInfo)
+gbrsBranch = lens _gbrsBranch (\ s a -> s{_gbrsBranch = a});
 
 -- | FIXME: Undocumented member.
-gbrStatus :: Lens' GetBranchResponse Int
-gbrStatus = lens _gbrStatus (\ s a -> s{_gbrStatus = a});
+gbrsStatus :: Lens' GetBranchResponse Int
+gbrsStatus = lens _gbrsStatus (\ s a -> s{_gbrsStatus = a});

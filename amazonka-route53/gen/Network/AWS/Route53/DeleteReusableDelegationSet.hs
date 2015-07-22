@@ -36,14 +36,14 @@ module Network.AWS.Route53.DeleteReusableDelegationSet
     -- ** Request constructor
     , deleteReusableDelegationSet
     -- ** Request lenses
-    , drdsId
+    , drdsrqId
 
     -- * Response
     , DeleteReusableDelegationSetResponse
     -- ** Response constructor
     , deleteReusableDelegationSetResponse
     -- ** Response lenses
-    , drdsrStatus
+    , drdsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -57,21 +57,21 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drdsId'
+-- * 'drdsrqId'
 newtype DeleteReusableDelegationSet = DeleteReusableDelegationSet'
-    { _drdsId :: Text
+    { _drdsrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReusableDelegationSet' smart constructor.
 deleteReusableDelegationSet :: Text -> DeleteReusableDelegationSet
 deleteReusableDelegationSet pId =
     DeleteReusableDelegationSet'
-    { _drdsId = pId
+    { _drdsrqId = pId
     }
 
 -- | The ID of the reusable delegation set you want to delete.
-drdsId :: Lens' DeleteReusableDelegationSet Text
-drdsId = lens _drdsId (\ s a -> s{_drdsId = a});
+drdsrqId :: Lens' DeleteReusableDelegationSet Text
+drdsrqId = lens _drdsrqId (\ s a -> s{_drdsrqId = a});
 
 instance AWSRequest DeleteReusableDelegationSet where
         type Sv DeleteReusableDelegationSet = Route53
@@ -90,7 +90,7 @@ instance ToHeaders DeleteReusableDelegationSet where
 instance ToPath DeleteReusableDelegationSet where
         toPath DeleteReusableDelegationSet'{..}
           = mconcat
-              ["/2013-04-01/delegationset/", toText _drdsId]
+              ["/2013-04-01/delegationset/", toText _drdsrqId]
 
 instance ToQuery DeleteReusableDelegationSet where
         toQuery = const mempty
@@ -101,18 +101,18 @@ instance ToQuery DeleteReusableDelegationSet where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drdsrStatus'
+-- * 'drdsrsStatus'
 newtype DeleteReusableDelegationSetResponse = DeleteReusableDelegationSetResponse'
-    { _drdsrStatus :: Int
+    { _drdsrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteReusableDelegationSetResponse' smart constructor.
 deleteReusableDelegationSetResponse :: Int -> DeleteReusableDelegationSetResponse
 deleteReusableDelegationSetResponse pStatus =
     DeleteReusableDelegationSetResponse'
-    { _drdsrStatus = pStatus
+    { _drdsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drdsrStatus :: Lens' DeleteReusableDelegationSetResponse Int
-drdsrStatus = lens _drdsrStatus (\ s a -> s{_drdsrStatus = a});
+drdsrsStatus :: Lens' DeleteReusableDelegationSetResponse Int
+drdsrsStatus = lens _drdsrsStatus (\ s a -> s{_drdsrsStatus = a});

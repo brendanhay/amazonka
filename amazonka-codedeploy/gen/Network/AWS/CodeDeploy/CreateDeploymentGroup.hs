@@ -28,21 +28,21 @@ module Network.AWS.CodeDeploy.CreateDeploymentGroup
     -- ** Request constructor
     , createDeploymentGroup
     -- ** Request lenses
-    , cdgDeploymentConfigName
-    , cdgEc2TagFilters
-    , cdgOnPremisesInstanceTagFilters
-    , cdgAutoScalingGroups
-    , cdgApplicationName
-    , cdgDeploymentGroupName
-    , cdgServiceRoleARN
+    , cdgrqDeploymentConfigName
+    , cdgrqEc2TagFilters
+    , cdgrqOnPremisesInstanceTagFilters
+    , cdgrqAutoScalingGroups
+    , cdgrqApplicationName
+    , cdgrqDeploymentGroupName
+    , cdgrqServiceRoleARN
 
     -- * Response
     , CreateDeploymentGroupResponse
     -- ** Response constructor
     , createDeploymentGroupResponse
     -- ** Response lenses
-    , cdgrDeploymentGroupId
-    , cdgrStatus
+    , cdgrsDeploymentGroupId
+    , cdgrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -56,40 +56,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdgDeploymentConfigName'
+-- * 'cdgrqDeploymentConfigName'
 --
--- * 'cdgEc2TagFilters'
+-- * 'cdgrqEc2TagFilters'
 --
--- * 'cdgOnPremisesInstanceTagFilters'
+-- * 'cdgrqOnPremisesInstanceTagFilters'
 --
--- * 'cdgAutoScalingGroups'
+-- * 'cdgrqAutoScalingGroups'
 --
--- * 'cdgApplicationName'
+-- * 'cdgrqApplicationName'
 --
--- * 'cdgDeploymentGroupName'
+-- * 'cdgrqDeploymentGroupName'
 --
--- * 'cdgServiceRoleARN'
+-- * 'cdgrqServiceRoleARN'
 data CreateDeploymentGroup = CreateDeploymentGroup'
-    { _cdgDeploymentConfigName         :: !(Maybe Text)
-    , _cdgEc2TagFilters                :: !(Maybe [EC2TagFilter])
-    , _cdgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
-    , _cdgAutoScalingGroups            :: !(Maybe [Text])
-    , _cdgApplicationName              :: !Text
-    , _cdgDeploymentGroupName          :: !Text
-    , _cdgServiceRoleARN               :: !Text
+    { _cdgrqDeploymentConfigName         :: !(Maybe Text)
+    , _cdgrqEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    , _cdgrqOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _cdgrqAutoScalingGroups            :: !(Maybe [Text])
+    , _cdgrqApplicationName              :: !Text
+    , _cdgrqDeploymentGroupName          :: !Text
+    , _cdgrqServiceRoleARN               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentGroup' smart constructor.
 createDeploymentGroup :: Text -> Text -> Text -> CreateDeploymentGroup
 createDeploymentGroup pApplicationName pDeploymentGroupName pServiceRoleARN =
     CreateDeploymentGroup'
-    { _cdgDeploymentConfigName = Nothing
-    , _cdgEc2TagFilters = Nothing
-    , _cdgOnPremisesInstanceTagFilters = Nothing
-    , _cdgAutoScalingGroups = Nothing
-    , _cdgApplicationName = pApplicationName
-    , _cdgDeploymentGroupName = pDeploymentGroupName
-    , _cdgServiceRoleARN = pServiceRoleARN
+    { _cdgrqDeploymentConfigName = Nothing
+    , _cdgrqEc2TagFilters = Nothing
+    , _cdgrqOnPremisesInstanceTagFilters = Nothing
+    , _cdgrqAutoScalingGroups = Nothing
+    , _cdgrqApplicationName = pApplicationName
+    , _cdgrqDeploymentGroupName = pDeploymentGroupName
+    , _cdgrqServiceRoleARN = pServiceRoleARN
     }
 
 -- | If specified, the deployment configuration name must be one of the
@@ -127,34 +127,34 @@ createDeploymentGroup pApplicationName pDeploymentGroupName pServiceRoleARN =
 --
 -- To create a custom deployment configuration, call the create deployment
 -- configuration operation.
-cdgDeploymentConfigName :: Lens' CreateDeploymentGroup (Maybe Text)
-cdgDeploymentConfigName = lens _cdgDeploymentConfigName (\ s a -> s{_cdgDeploymentConfigName = a});
+cdgrqDeploymentConfigName :: Lens' CreateDeploymentGroup (Maybe Text)
+cdgrqDeploymentConfigName = lens _cdgrqDeploymentConfigName (\ s a -> s{_cdgrqDeploymentConfigName = a});
 
 -- | The Amazon EC2 tags to filter on.
-cdgEc2TagFilters :: Lens' CreateDeploymentGroup [EC2TagFilter]
-cdgEc2TagFilters = lens _cdgEc2TagFilters (\ s a -> s{_cdgEc2TagFilters = a}) . _Default;
+cdgrqEc2TagFilters :: Lens' CreateDeploymentGroup [EC2TagFilter]
+cdgrqEc2TagFilters = lens _cdgrqEc2TagFilters (\ s a -> s{_cdgrqEc2TagFilters = a}) . _Default;
 
 -- | The on-premises instance tags to filter on.
-cdgOnPremisesInstanceTagFilters :: Lens' CreateDeploymentGroup [TagFilter]
-cdgOnPremisesInstanceTagFilters = lens _cdgOnPremisesInstanceTagFilters (\ s a -> s{_cdgOnPremisesInstanceTagFilters = a}) . _Default;
+cdgrqOnPremisesInstanceTagFilters :: Lens' CreateDeploymentGroup [TagFilter]
+cdgrqOnPremisesInstanceTagFilters = lens _cdgrqOnPremisesInstanceTagFilters (\ s a -> s{_cdgrqOnPremisesInstanceTagFilters = a}) . _Default;
 
 -- | A list of associated Auto Scaling groups.
-cdgAutoScalingGroups :: Lens' CreateDeploymentGroup [Text]
-cdgAutoScalingGroups = lens _cdgAutoScalingGroups (\ s a -> s{_cdgAutoScalingGroups = a}) . _Default;
+cdgrqAutoScalingGroups :: Lens' CreateDeploymentGroup [Text]
+cdgrqAutoScalingGroups = lens _cdgrqAutoScalingGroups (\ s a -> s{_cdgrqAutoScalingGroups = a}) . _Default;
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-cdgApplicationName :: Lens' CreateDeploymentGroup Text
-cdgApplicationName = lens _cdgApplicationName (\ s a -> s{_cdgApplicationName = a});
+cdgrqApplicationName :: Lens' CreateDeploymentGroup Text
+cdgrqApplicationName = lens _cdgrqApplicationName (\ s a -> s{_cdgrqApplicationName = a});
 
 -- | The name of an existing deployment group for the specified application.
-cdgDeploymentGroupName :: Lens' CreateDeploymentGroup Text
-cdgDeploymentGroupName = lens _cdgDeploymentGroupName (\ s a -> s{_cdgDeploymentGroupName = a});
+cdgrqDeploymentGroupName :: Lens' CreateDeploymentGroup Text
+cdgrqDeploymentGroupName = lens _cdgrqDeploymentGroupName (\ s a -> s{_cdgrqDeploymentGroupName = a});
 
 -- | A service role ARN that allows AWS CodeDeploy to act on the user\'s
 -- behalf when interacting with AWS services.
-cdgServiceRoleARN :: Lens' CreateDeploymentGroup Text
-cdgServiceRoleARN = lens _cdgServiceRoleARN (\ s a -> s{_cdgServiceRoleARN = a});
+cdgrqServiceRoleARN :: Lens' CreateDeploymentGroup Text
+cdgrqServiceRoleARN = lens _cdgrqServiceRoleARN (\ s a -> s{_cdgrqServiceRoleARN = a});
 
 instance AWSRequest CreateDeploymentGroup where
         type Sv CreateDeploymentGroup = CodeDeploy
@@ -180,14 +180,15 @@ instance ToHeaders CreateDeploymentGroup where
 instance ToJSON CreateDeploymentGroup where
         toJSON CreateDeploymentGroup'{..}
           = object
-              ["deploymentConfigName" .= _cdgDeploymentConfigName,
-               "ec2TagFilters" .= _cdgEc2TagFilters,
+              ["deploymentConfigName" .=
+                 _cdgrqDeploymentConfigName,
+               "ec2TagFilters" .= _cdgrqEc2TagFilters,
                "onPremisesInstanceTagFilters" .=
-                 _cdgOnPremisesInstanceTagFilters,
-               "autoScalingGroups" .= _cdgAutoScalingGroups,
-               "applicationName" .= _cdgApplicationName,
-               "deploymentGroupName" .= _cdgDeploymentGroupName,
-               "serviceRoleArn" .= _cdgServiceRoleARN]
+                 _cdgrqOnPremisesInstanceTagFilters,
+               "autoScalingGroups" .= _cdgrqAutoScalingGroups,
+               "applicationName" .= _cdgrqApplicationName,
+               "deploymentGroupName" .= _cdgrqDeploymentGroupName,
+               "serviceRoleArn" .= _cdgrqServiceRoleARN]
 
 instance ToPath CreateDeploymentGroup where
         toPath = const "/"
@@ -201,26 +202,26 @@ instance ToQuery CreateDeploymentGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdgrDeploymentGroupId'
+-- * 'cdgrsDeploymentGroupId'
 --
--- * 'cdgrStatus'
+-- * 'cdgrsStatus'
 data CreateDeploymentGroupResponse = CreateDeploymentGroupResponse'
-    { _cdgrDeploymentGroupId :: !(Maybe Text)
-    , _cdgrStatus            :: !Int
+    { _cdgrsDeploymentGroupId :: !(Maybe Text)
+    , _cdgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentGroupResponse' smart constructor.
 createDeploymentGroupResponse :: Int -> CreateDeploymentGroupResponse
 createDeploymentGroupResponse pStatus =
     CreateDeploymentGroupResponse'
-    { _cdgrDeploymentGroupId = Nothing
-    , _cdgrStatus = pStatus
+    { _cdgrsDeploymentGroupId = Nothing
+    , _cdgrsStatus = pStatus
     }
 
 -- | A unique deployment group ID.
-cdgrDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
-cdgrDeploymentGroupId = lens _cdgrDeploymentGroupId (\ s a -> s{_cdgrDeploymentGroupId = a});
+cdgrsDeploymentGroupId :: Lens' CreateDeploymentGroupResponse (Maybe Text)
+cdgrsDeploymentGroupId = lens _cdgrsDeploymentGroupId (\ s a -> s{_cdgrsDeploymentGroupId = a});
 
 -- | FIXME: Undocumented member.
-cdgrStatus :: Lens' CreateDeploymentGroupResponse Int
-cdgrStatus = lens _cdgrStatus (\ s a -> s{_cdgrStatus = a});
+cdgrsStatus :: Lens' CreateDeploymentGroupResponse Int
+cdgrsStatus = lens _cdgrsStatus (\ s a -> s{_cdgrsStatus = a});

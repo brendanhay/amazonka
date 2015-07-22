@@ -27,17 +27,17 @@ module Network.AWS.EC2.DescribeVPCs
     -- ** Request constructor
     , describeVPCs
     -- ** Request lenses
-    , dvsFilters
-    , dvsVPCIds
-    , dvsDryRun
+    , dvsrqFilters
+    , dvsrqVPCIds
+    , dvsrqDryRun
 
     -- * Response
     , DescribeVPCsResponse
     -- ** Response constructor
     , describeVPCsResponse
     -- ** Response lenses
-    , dvrVPCs
-    , dvrStatus
+    , dvsrsVPCs
+    , dvsrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -49,24 +49,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvsFilters'
+-- * 'dvsrqFilters'
 --
--- * 'dvsVPCIds'
+-- * 'dvsrqVPCIds'
 --
--- * 'dvsDryRun'
+-- * 'dvsrqDryRun'
 data DescribeVPCs = DescribeVPCs'
-    { _dvsFilters :: !(Maybe [Filter])
-    , _dvsVPCIds  :: !(Maybe [Text])
-    , _dvsDryRun  :: !(Maybe Bool)
+    { _dvsrqFilters :: !(Maybe [Filter])
+    , _dvsrqVPCIds  :: !(Maybe [Text])
+    , _dvsrqDryRun  :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCs' smart constructor.
 describeVPCs :: DescribeVPCs
 describeVPCs =
     DescribeVPCs'
-    { _dvsFilters = Nothing
-    , _dvsVPCIds = Nothing
-    , _dvsDryRun = Nothing
+    { _dvsrqFilters = Nothing
+    , _dvsrqVPCIds = Nothing
+    , _dvsrqDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -98,21 +98,21 @@ describeVPCs =
 --
 -- -   @vpc-id@ - The ID of the VPC.
 --
-dvsFilters :: Lens' DescribeVPCs [Filter]
-dvsFilters = lens _dvsFilters (\ s a -> s{_dvsFilters = a}) . _Default;
+dvsrqFilters :: Lens' DescribeVPCs [Filter]
+dvsrqFilters = lens _dvsrqFilters (\ s a -> s{_dvsrqFilters = a}) . _Default;
 
 -- | One or more VPC IDs.
 --
 -- Default: Describes all your VPCs.
-dvsVPCIds :: Lens' DescribeVPCs [Text]
-dvsVPCIds = lens _dvsVPCIds (\ s a -> s{_dvsVPCIds = a}) . _Default;
+dvsrqVPCIds :: Lens' DescribeVPCs [Text]
+dvsrqVPCIds = lens _dvsrqVPCIds (\ s a -> s{_dvsrqVPCIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvsDryRun :: Lens' DescribeVPCs (Maybe Bool)
-dvsDryRun = lens _dvsDryRun (\ s a -> s{_dvsDryRun = a});
+dvsrqDryRun :: Lens' DescribeVPCs (Maybe Bool)
+dvsrqDryRun = lens _dvsrqDryRun (\ s a -> s{_dvsrqDryRun = a});
 
 instance AWSRequest DescribeVPCs where
         type Sv DescribeVPCs = EC2
@@ -137,34 +137,34 @@ instance ToQuery DescribeVPCs where
           = mconcat
               ["Action" =: ("DescribeVPCs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvsFilters),
-               toQuery (toQueryList "VpcId" <$> _dvsVPCIds),
-               "DryRun" =: _dvsDryRun]
+               toQuery (toQueryList "Filter" <$> _dvsrqFilters),
+               toQuery (toQueryList "VpcId" <$> _dvsrqVPCIds),
+               "DryRun" =: _dvsrqDryRun]
 
 -- | /See:/ 'describeVPCsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrVPCs'
+-- * 'dvsrsVPCs'
 --
--- * 'dvrStatus'
+-- * 'dvsrsStatus'
 data DescribeVPCsResponse = DescribeVPCsResponse'
-    { _dvrVPCs   :: !(Maybe [VPC])
-    , _dvrStatus :: !Int
+    { _dvsrsVPCs   :: !(Maybe [VPC])
+    , _dvsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCsResponse' smart constructor.
 describeVPCsResponse :: Int -> DescribeVPCsResponse
 describeVPCsResponse pStatus =
     DescribeVPCsResponse'
-    { _dvrVPCs = Nothing
-    , _dvrStatus = pStatus
+    { _dvsrsVPCs = Nothing
+    , _dvsrsStatus = pStatus
     }
 
 -- | Information about one or more VPCs.
-dvrVPCs :: Lens' DescribeVPCsResponse [VPC]
-dvrVPCs = lens _dvrVPCs (\ s a -> s{_dvrVPCs = a}) . _Default;
+dvsrsVPCs :: Lens' DescribeVPCsResponse [VPC]
+dvsrsVPCs = lens _dvsrsVPCs (\ s a -> s{_dvsrsVPCs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvrStatus :: Lens' DescribeVPCsResponse Int
-dvrStatus = lens _dvrStatus (\ s a -> s{_dvrStatus = a});
+dvsrsStatus :: Lens' DescribeVPCsResponse Int
+dvsrsStatus = lens _dvsrsStatus (\ s a -> s{_dvsrsStatus = a});

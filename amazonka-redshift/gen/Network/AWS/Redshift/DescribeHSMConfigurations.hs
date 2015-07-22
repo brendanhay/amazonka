@@ -39,20 +39,20 @@ module Network.AWS.Redshift.DescribeHSMConfigurations
     -- ** Request constructor
     , describeHSMConfigurations
     -- ** Request lenses
-    , dhsmcTagValues
-    , dhsmcHSMConfigurationIdentifier
-    , dhsmcTagKeys
-    , dhsmcMaxRecords
-    , dhsmcMarker
+    , dhsmcrqTagValues
+    , dhsmcrqHSMConfigurationIdentifier
+    , dhsmcrqTagKeys
+    , dhsmcrqMaxRecords
+    , dhsmcrqMarker
 
     -- * Response
     , DescribeHSMConfigurationsResponse
     -- ** Response constructor
     , describeHSMConfigurationsResponse
     -- ** Response lenses
-    , dhcrMarker
-    , dhcrHSMConfigurations
-    , dhcrStatus
+    , dhsmcrsMarker
+    , dhsmcrsHSMConfigurations
+    , dhsmcrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -67,32 +67,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhsmcTagValues'
+-- * 'dhsmcrqTagValues'
 --
--- * 'dhsmcHSMConfigurationIdentifier'
+-- * 'dhsmcrqHSMConfigurationIdentifier'
 --
--- * 'dhsmcTagKeys'
+-- * 'dhsmcrqTagKeys'
 --
--- * 'dhsmcMaxRecords'
+-- * 'dhsmcrqMaxRecords'
 --
--- * 'dhsmcMarker'
+-- * 'dhsmcrqMarker'
 data DescribeHSMConfigurations = DescribeHSMConfigurations'
-    { _dhsmcTagValues                  :: !(Maybe [Text])
-    , _dhsmcHSMConfigurationIdentifier :: !(Maybe Text)
-    , _dhsmcTagKeys                    :: !(Maybe [Text])
-    , _dhsmcMaxRecords                 :: !(Maybe Int)
-    , _dhsmcMarker                     :: !(Maybe Text)
+    { _dhsmcrqTagValues                  :: !(Maybe [Text])
+    , _dhsmcrqHSMConfigurationIdentifier :: !(Maybe Text)
+    , _dhsmcrqTagKeys                    :: !(Maybe [Text])
+    , _dhsmcrqMaxRecords                 :: !(Maybe Int)
+    , _dhsmcrqMarker                     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMConfigurations' smart constructor.
 describeHSMConfigurations :: DescribeHSMConfigurations
 describeHSMConfigurations =
     DescribeHSMConfigurations'
-    { _dhsmcTagValues = Nothing
-    , _dhsmcHSMConfigurationIdentifier = Nothing
-    , _dhsmcTagKeys = Nothing
-    , _dhsmcMaxRecords = Nothing
-    , _dhsmcMarker = Nothing
+    { _dhsmcrqTagValues = Nothing
+    , _dhsmcrqHSMConfigurationIdentifier = Nothing
+    , _dhsmcrqTagKeys = Nothing
+    , _dhsmcrqMaxRecords = Nothing
+    , _dhsmcrqMarker = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching HSM
@@ -102,14 +102,14 @@ describeHSMConfigurations =
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM configurations that have either or both of these tag values
 -- associated with them.
-dhsmcTagValues :: Lens' DescribeHSMConfigurations [Text]
-dhsmcTagValues = lens _dhsmcTagValues (\ s a -> s{_dhsmcTagValues = a}) . _Default;
+dhsmcrqTagValues :: Lens' DescribeHSMConfigurations [Text]
+dhsmcrqTagValues = lens _dhsmcrqTagValues (\ s a -> s{_dhsmcrqTagValues = a}) . _Default;
 
 -- | The identifier of a specific Amazon Redshift HSM configuration to be
 -- described. If no identifier is specified, information is returned for
 -- all HSM configurations owned by your AWS customer account.
-dhsmcHSMConfigurationIdentifier :: Lens' DescribeHSMConfigurations (Maybe Text)
-dhsmcHSMConfigurationIdentifier = lens _dhsmcHSMConfigurationIdentifier (\ s a -> s{_dhsmcHSMConfigurationIdentifier = a});
+dhsmcrqHSMConfigurationIdentifier :: Lens' DescribeHSMConfigurations (Maybe Text)
+dhsmcrqHSMConfigurationIdentifier = lens _dhsmcrqHSMConfigurationIdentifier (\ s a -> s{_dhsmcrqHSMConfigurationIdentifier = a});
 
 -- | A tag key or keys for which you want to return all matching HSM
 -- configurations that are associated with the specified key or keys. For
@@ -118,8 +118,8 @@ dhsmcHSMConfigurationIdentifier = lens _dhsmcHSMConfigurationIdentifier (\ s a -
 -- keys in the request, Amazon Redshift returns a response with the HSM
 -- configurations that have either or both of these tag keys associated
 -- with them.
-dhsmcTagKeys :: Lens' DescribeHSMConfigurations [Text]
-dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default;
+dhsmcrqTagKeys :: Lens' DescribeHSMConfigurations [Text]
+dhsmcrqTagKeys = lens _dhsmcrqTagKeys (\ s a -> s{_dhsmcrqTagKeys = a}) . _Default;
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -130,8 +130,8 @@ dhsmcTagKeys = lens _dhsmcTagKeys (\ s a -> s{_dhsmcTagKeys = a}) . _Default;
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dhsmcMaxRecords :: Lens' DescribeHSMConfigurations (Maybe Int)
-dhsmcMaxRecords = lens _dhsmcMaxRecords (\ s a -> s{_dhsmcMaxRecords = a});
+dhsmcrqMaxRecords :: Lens' DescribeHSMConfigurations (Maybe Int)
+dhsmcrqMaxRecords = lens _dhsmcrqMaxRecords (\ s a -> s{_dhsmcrqMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeHsmConfigurations
@@ -139,15 +139,15 @@ dhsmcMaxRecords = lens _dhsmcMaxRecords (\ s a -> s{_dhsmcMaxRecords = a});
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-dhsmcMarker :: Lens' DescribeHSMConfigurations (Maybe Text)
-dhsmcMarker = lens _dhsmcMarker (\ s a -> s{_dhsmcMarker = a});
+dhsmcrqMarker :: Lens' DescribeHSMConfigurations (Maybe Text)
+dhsmcrqMarker = lens _dhsmcrqMarker (\ s a -> s{_dhsmcrqMarker = a});
 
 instance AWSPager DescribeHSMConfigurations where
         page rq rs
-          | stop (rs ^. dhcrMarker) = Nothing
-          | stop (rs ^. dhcrHSMConfigurations) = Nothing
+          | stop (rs ^. dhsmcrsMarker) = Nothing
+          | stop (rs ^. dhsmcrsHSMConfigurations) = Nothing
           | otherwise =
-            Just $ rq & dhsmcMarker .~ rs ^. dhcrMarker
+            Just $ rq & dhsmcrqMarker .~ rs ^. dhsmcrsMarker
 
 instance AWSRequest DescribeHSMConfigurations where
         type Sv DescribeHSMConfigurations = Redshift
@@ -176,13 +176,14 @@ instance ToQuery DescribeHSMConfigurations where
                  ("DescribeHSMConfigurations" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dhsmcTagValues),
+                 toQuery
+                   (toQueryList "TagValue" <$> _dhsmcrqTagValues),
                "HsmConfigurationIdentifier" =:
-                 _dhsmcHSMConfigurationIdentifier,
+                 _dhsmcrqHSMConfigurationIdentifier,
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dhsmcTagKeys),
-               "MaxRecords" =: _dhsmcMaxRecords,
-               "Marker" =: _dhsmcMarker]
+                 toQuery (toQueryList "TagKey" <$> _dhsmcrqTagKeys),
+               "MaxRecords" =: _dhsmcrqMaxRecords,
+               "Marker" =: _dhsmcrqMarker]
 
 -- |
 --
@@ -190,24 +191,24 @@ instance ToQuery DescribeHSMConfigurations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhcrMarker'
+-- * 'dhsmcrsMarker'
 --
--- * 'dhcrHSMConfigurations'
+-- * 'dhsmcrsHSMConfigurations'
 --
--- * 'dhcrStatus'
+-- * 'dhsmcrsStatus'
 data DescribeHSMConfigurationsResponse = DescribeHSMConfigurationsResponse'
-    { _dhcrMarker            :: !(Maybe Text)
-    , _dhcrHSMConfigurations :: !(Maybe [HSMConfiguration])
-    , _dhcrStatus            :: !Int
+    { _dhsmcrsMarker            :: !(Maybe Text)
+    , _dhsmcrsHSMConfigurations :: !(Maybe [HSMConfiguration])
+    , _dhsmcrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMConfigurationsResponse' smart constructor.
 describeHSMConfigurationsResponse :: Int -> DescribeHSMConfigurationsResponse
 describeHSMConfigurationsResponse pStatus =
     DescribeHSMConfigurationsResponse'
-    { _dhcrMarker = Nothing
-    , _dhcrHSMConfigurations = Nothing
-    , _dhcrStatus = pStatus
+    { _dhsmcrsMarker = Nothing
+    , _dhsmcrsHSMConfigurations = Nothing
+    , _dhsmcrsStatus = pStatus
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -216,13 +217,13 @@ describeHSMConfigurationsResponse pStatus =
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-dhcrMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
-dhcrMarker = lens _dhcrMarker (\ s a -> s{_dhcrMarker = a});
+dhsmcrsMarker :: Lens' DescribeHSMConfigurationsResponse (Maybe Text)
+dhsmcrsMarker = lens _dhsmcrsMarker (\ s a -> s{_dhsmcrsMarker = a});
 
 -- | A list of Amazon Redshift HSM configurations.
-dhcrHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
-dhcrHSMConfigurations = lens _dhcrHSMConfigurations (\ s a -> s{_dhcrHSMConfigurations = a}) . _Default;
+dhsmcrsHSMConfigurations :: Lens' DescribeHSMConfigurationsResponse [HSMConfiguration]
+dhsmcrsHSMConfigurations = lens _dhsmcrsHSMConfigurations (\ s a -> s{_dhsmcrsHSMConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dhcrStatus :: Lens' DescribeHSMConfigurationsResponse Int
-dhcrStatus = lens _dhcrStatus (\ s a -> s{_dhcrStatus = a});
+dhsmcrsStatus :: Lens' DescribeHSMConfigurationsResponse Int
+dhsmcrsStatus = lens _dhsmcrsStatus (\ s a -> s{_dhsmcrsStatus = a});

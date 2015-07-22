@@ -28,17 +28,17 @@ module Network.AWS.RDS.ModifyDBSubnetGroup
     -- ** Request constructor
     , modifyDBSubnetGroup
     -- ** Request lenses
-    , mdsgDBSubnetGroupDescription
-    , mdsgDBSubnetGroupName
-    , mdsgSubnetIds
+    , mdsgrqDBSubnetGroupDescription
+    , mdsgrqDBSubnetGroupName
+    , mdsgrqSubnetIds
 
     -- * Response
     , ModifyDBSubnetGroupResponse
     -- ** Response constructor
     , modifyDBSubnetGroupResponse
     -- ** Response lenses
-    , mdsgrDBSubnetGroup
-    , mdsgrStatus
+    , mdsgrsDBSubnetGroup
+    , mdsgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mdsgDBSubnetGroupDescription'
+-- * 'mdsgrqDBSubnetGroupDescription'
 --
--- * 'mdsgDBSubnetGroupName'
+-- * 'mdsgrqDBSubnetGroupName'
 --
--- * 'mdsgSubnetIds'
+-- * 'mdsgrqSubnetIds'
 data ModifyDBSubnetGroup = ModifyDBSubnetGroup'
-    { _mdsgDBSubnetGroupDescription :: !(Maybe Text)
-    , _mdsgDBSubnetGroupName        :: !Text
-    , _mdsgSubnetIds                :: ![Text]
+    { _mdsgrqDBSubnetGroupDescription :: !(Maybe Text)
+    , _mdsgrqDBSubnetGroupName        :: !Text
+    , _mdsgrqSubnetIds                :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyDBSubnetGroup' smart constructor.
 modifyDBSubnetGroup :: Text -> ModifyDBSubnetGroup
 modifyDBSubnetGroup pDBSubnetGroupName =
     ModifyDBSubnetGroup'
-    { _mdsgDBSubnetGroupDescription = Nothing
-    , _mdsgDBSubnetGroupName = pDBSubnetGroupName
-    , _mdsgSubnetIds = mempty
+    { _mdsgrqDBSubnetGroupDescription = Nothing
+    , _mdsgrqDBSubnetGroupName = pDBSubnetGroupName
+    , _mdsgrqSubnetIds = mempty
     }
 
 -- | The description for the DB subnet group.
-mdsgDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
-mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_mdsgDBSubnetGroupDescription = a});
+mdsgrqDBSubnetGroupDescription :: Lens' ModifyDBSubnetGroup (Maybe Text)
+mdsgrqDBSubnetGroupDescription = lens _mdsgrqDBSubnetGroupDescription (\ s a -> s{_mdsgrqDBSubnetGroupDescription = a});
 
 -- | The name for the DB subnet group. This value is stored as a lowercase
 -- string.
@@ -83,12 +83,12 @@ mdsgDBSubnetGroupDescription = lens _mdsgDBSubnetGroupDescription (\ s a -> s{_m
 -- hyphens. Must not be \"Default\".
 --
 -- Example: @mySubnetgroup@
-mdsgDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
-mdsgDBSubnetGroupName = lens _mdsgDBSubnetGroupName (\ s a -> s{_mdsgDBSubnetGroupName = a});
+mdsgrqDBSubnetGroupName :: Lens' ModifyDBSubnetGroup Text
+mdsgrqDBSubnetGroupName = lens _mdsgrqDBSubnetGroupName (\ s a -> s{_mdsgrqDBSubnetGroupName = a});
 
 -- | The EC2 subnet IDs for the DB subnet group.
-mdsgSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
-mdsgSubnetIds = lens _mdsgSubnetIds (\ s a -> s{_mdsgSubnetIds = a});
+mdsgrqSubnetIds :: Lens' ModifyDBSubnetGroup [Text]
+mdsgrqSubnetIds = lens _mdsgrqSubnetIds (\ s a -> s{_mdsgrqSubnetIds = a});
 
 instance AWSRequest ModifyDBSubnetGroup where
         type Sv ModifyDBSubnetGroup = RDS
@@ -113,35 +113,35 @@ instance ToQuery ModifyDBSubnetGroup where
               ["Action" =: ("ModifyDBSubnetGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "DBSubnetGroupDescription" =:
-                 _mdsgDBSubnetGroupDescription,
-               "DBSubnetGroupName" =: _mdsgDBSubnetGroupName,
+                 _mdsgrqDBSubnetGroupDescription,
+               "DBSubnetGroupName" =: _mdsgrqDBSubnetGroupName,
                "SubnetIds" =:
-                 toQueryList "SubnetIdentifier" _mdsgSubnetIds]
+                 toQueryList "SubnetIdentifier" _mdsgrqSubnetIds]
 
 -- | /See:/ 'modifyDBSubnetGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mdsgrDBSubnetGroup'
+-- * 'mdsgrsDBSubnetGroup'
 --
--- * 'mdsgrStatus'
+-- * 'mdsgrsStatus'
 data ModifyDBSubnetGroupResponse = ModifyDBSubnetGroupResponse'
-    { _mdsgrDBSubnetGroup :: !(Maybe DBSubnetGroup)
-    , _mdsgrStatus        :: !Int
+    { _mdsgrsDBSubnetGroup :: !(Maybe DBSubnetGroup)
+    , _mdsgrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyDBSubnetGroupResponse' smart constructor.
 modifyDBSubnetGroupResponse :: Int -> ModifyDBSubnetGroupResponse
 modifyDBSubnetGroupResponse pStatus =
     ModifyDBSubnetGroupResponse'
-    { _mdsgrDBSubnetGroup = Nothing
-    , _mdsgrStatus = pStatus
+    { _mdsgrsDBSubnetGroup = Nothing
+    , _mdsgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-mdsgrDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
-mdsgrDBSubnetGroup = lens _mdsgrDBSubnetGroup (\ s a -> s{_mdsgrDBSubnetGroup = a});
+mdsgrsDBSubnetGroup :: Lens' ModifyDBSubnetGroupResponse (Maybe DBSubnetGroup)
+mdsgrsDBSubnetGroup = lens _mdsgrsDBSubnetGroup (\ s a -> s{_mdsgrsDBSubnetGroup = a});
 
 -- | FIXME: Undocumented member.
-mdsgrStatus :: Lens' ModifyDBSubnetGroupResponse Int
-mdsgrStatus = lens _mdsgrStatus (\ s a -> s{_mdsgrStatus = a});
+mdsgrsStatus :: Lens' ModifyDBSubnetGroupResponse Int
+mdsgrsStatus = lens _mdsgrsStatus (\ s a -> s{_mdsgrsStatus = a});

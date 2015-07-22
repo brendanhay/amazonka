@@ -32,17 +32,17 @@ module Network.AWS.DirectoryService.CreateAlias
     -- ** Request constructor
     , createAlias
     -- ** Request lenses
-    , caDirectoryId
-    , caAlias
+    , carqDirectoryId
+    , carqAlias
 
     -- * Response
     , CreateAliasResponse
     -- ** Response constructor
     , createAliasResponse
     -- ** Response lenses
-    , carDirectoryId
-    , carAlias
-    , carStatus
+    , carsDirectoryId
+    , carsAlias
+    , carsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'caDirectoryId'
+-- * 'carqDirectoryId'
 --
--- * 'caAlias'
+-- * 'carqAlias'
 data CreateAlias = CreateAlias'
-    { _caDirectoryId :: !Text
-    , _caAlias       :: !Text
+    { _carqDirectoryId :: !Text
+    , _carqAlias       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAlias' smart constructor.
 createAlias :: Text -> Text -> CreateAlias
 createAlias pDirectoryId pAlias =
     CreateAlias'
-    { _caDirectoryId = pDirectoryId
-    , _caAlias = pAlias
+    { _carqDirectoryId = pDirectoryId
+    , _carqAlias = pAlias
     }
 
 -- | The identifier of the directory to create the alias for.
-caDirectoryId :: Lens' CreateAlias Text
-caDirectoryId = lens _caDirectoryId (\ s a -> s{_caDirectoryId = a});
+carqDirectoryId :: Lens' CreateAlias Text
+carqDirectoryId = lens _carqDirectoryId (\ s a -> s{_carqDirectoryId = a});
 
 -- | The requested alias.
 --
 -- The alias must be unique amongst all aliases in AWS. This operation will
 -- throw an @EntityAlreadyExistsException@ if this alias already exists.
-caAlias :: Lens' CreateAlias Text
-caAlias = lens _caAlias (\ s a -> s{_caAlias = a});
+carqAlias :: Lens' CreateAlias Text
+carqAlias = lens _carqAlias (\ s a -> s{_carqAlias = a});
 
 instance AWSRequest CreateAlias where
         type Sv CreateAlias = DirectoryService
@@ -107,8 +107,8 @@ instance ToHeaders CreateAlias where
 instance ToJSON CreateAlias where
         toJSON CreateAlias'{..}
           = object
-              ["DirectoryId" .= _caDirectoryId,
-               "Alias" .= _caAlias]
+              ["DirectoryId" .= _carqDirectoryId,
+               "Alias" .= _carqAlias]
 
 instance ToPath CreateAlias where
         toPath = const "/"
@@ -122,34 +122,34 @@ instance ToQuery CreateAlias where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carDirectoryId'
+-- * 'carsDirectoryId'
 --
--- * 'carAlias'
+-- * 'carsAlias'
 --
--- * 'carStatus'
+-- * 'carsStatus'
 data CreateAliasResponse = CreateAliasResponse'
-    { _carDirectoryId :: !(Maybe Text)
-    , _carAlias       :: !(Maybe Text)
-    , _carStatus      :: !Int
+    { _carsDirectoryId :: !(Maybe Text)
+    , _carsAlias       :: !(Maybe Text)
+    , _carsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAliasResponse' smart constructor.
 createAliasResponse :: Int -> CreateAliasResponse
 createAliasResponse pStatus =
     CreateAliasResponse'
-    { _carDirectoryId = Nothing
-    , _carAlias = Nothing
-    , _carStatus = pStatus
+    { _carsDirectoryId = Nothing
+    , _carsAlias = Nothing
+    , _carsStatus = pStatus
     }
 
 -- | The identifier of the directory.
-carDirectoryId :: Lens' CreateAliasResponse (Maybe Text)
-carDirectoryId = lens _carDirectoryId (\ s a -> s{_carDirectoryId = a});
+carsDirectoryId :: Lens' CreateAliasResponse (Maybe Text)
+carsDirectoryId = lens _carsDirectoryId (\ s a -> s{_carsDirectoryId = a});
 
 -- | The alias for the directory.
-carAlias :: Lens' CreateAliasResponse (Maybe Text)
-carAlias = lens _carAlias (\ s a -> s{_carAlias = a});
+carsAlias :: Lens' CreateAliasResponse (Maybe Text)
+carsAlias = lens _carsAlias (\ s a -> s{_carsAlias = a});
 
 -- | FIXME: Undocumented member.
-carStatus :: Lens' CreateAliasResponse Int
-carStatus = lens _carStatus (\ s a -> s{_carStatus = a});
+carsStatus :: Lens' CreateAliasResponse Int
+carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

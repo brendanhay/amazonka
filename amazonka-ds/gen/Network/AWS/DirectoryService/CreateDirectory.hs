@@ -27,20 +27,20 @@ module Network.AWS.DirectoryService.CreateDirectory
     -- ** Request constructor
     , createDirectory
     -- ** Request lenses
-    , creShortName
-    , creVPCSettings
-    , creDescription
-    , creName
-    , crePassword
-    , creSize
+    , crqShortName
+    , crqVPCSettings
+    , crqDescription
+    , crqName
+    , crqPassword
+    , crqSize
 
     -- * Response
     , CreateDirectoryResponse
     -- ** Response constructor
     , createDirectoryResponse
     -- ** Response lenses
-    , creDirectoryId
-    , creStatus
+    , crsDirectoryId
+    , crsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -54,64 +54,64 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creShortName'
+-- * 'crqShortName'
 --
--- * 'creVPCSettings'
+-- * 'crqVPCSettings'
 --
--- * 'creDescription'
+-- * 'crqDescription'
 --
--- * 'creName'
+-- * 'crqName'
 --
--- * 'crePassword'
+-- * 'crqPassword'
 --
--- * 'creSize'
+-- * 'crqSize'
 data CreateDirectory = CreateDirectory'
-    { _creShortName   :: !(Maybe Text)
-    , _creVPCSettings :: !(Maybe DirectoryVPCSettings)
-    , _creDescription :: !(Maybe Text)
-    , _creName        :: !Text
-    , _crePassword    :: !(Sensitive Text)
-    , _creSize        :: !DirectorySize
+    { _crqShortName   :: !(Maybe Text)
+    , _crqVPCSettings :: !(Maybe DirectoryVPCSettings)
+    , _crqDescription :: !(Maybe Text)
+    , _crqName        :: !Text
+    , _crqPassword    :: !(Sensitive Text)
+    , _crqSize        :: !DirectorySize
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDirectory' smart constructor.
 createDirectory :: Text -> Text -> DirectorySize -> CreateDirectory
 createDirectory pName pPassword pSize =
     CreateDirectory'
-    { _creShortName = Nothing
-    , _creVPCSettings = Nothing
-    , _creDescription = Nothing
-    , _creName = pName
-    , _crePassword = _Sensitive # pPassword
-    , _creSize = pSize
+    { _crqShortName = Nothing
+    , _crqVPCSettings = Nothing
+    , _crqDescription = Nothing
+    , _crqName = pName
+    , _crqPassword = _Sensitive # pPassword
+    , _crqSize = pSize
     }
 
 -- | The short name of the directory, such as @CORP@.
-creShortName :: Lens' CreateDirectory (Maybe Text)
-creShortName = lens _creShortName (\ s a -> s{_creShortName = a});
+crqShortName :: Lens' CreateDirectory (Maybe Text)
+crqShortName = lens _crqShortName (\ s a -> s{_crqShortName = a});
 
 -- | A DirectoryVpcSettings object that contains additional information for
 -- the operation.
-creVPCSettings :: Lens' CreateDirectory (Maybe DirectoryVPCSettings)
-creVPCSettings = lens _creVPCSettings (\ s a -> s{_creVPCSettings = a});
+crqVPCSettings :: Lens' CreateDirectory (Maybe DirectoryVPCSettings)
+crqVPCSettings = lens _crqVPCSettings (\ s a -> s{_crqVPCSettings = a});
 
 -- | A textual description for the directory.
-creDescription :: Lens' CreateDirectory (Maybe Text)
-creDescription = lens _creDescription (\ s a -> s{_creDescription = a});
+crqDescription :: Lens' CreateDirectory (Maybe Text)
+crqDescription = lens _crqDescription (\ s a -> s{_crqDescription = a});
 
 -- | The fully qualified name for the directory, such as @corp.example.com@.
-creName :: Lens' CreateDirectory Text
-creName = lens _creName (\ s a -> s{_creName = a});
+crqName :: Lens' CreateDirectory Text
+crqName = lens _crqName (\ s a -> s{_crqName = a});
 
 -- | The password for the directory administrator. The directory creation
 -- process creates a directory administrator account with the username
 -- @Administrator@ and this password.
-crePassword :: Lens' CreateDirectory Text
-crePassword = lens _crePassword (\ s a -> s{_crePassword = a}) . _Sensitive;
+crqPassword :: Lens' CreateDirectory Text
+crqPassword = lens _crqPassword (\ s a -> s{_crqPassword = a}) . _Sensitive;
 
 -- | The size of the directory.
-creSize :: Lens' CreateDirectory DirectorySize
-creSize = lens _creSize (\ s a -> s{_creSize = a});
+crqSize :: Lens' CreateDirectory DirectorySize
+crqSize = lens _crqSize (\ s a -> s{_crqSize = a});
 
 instance AWSRequest CreateDirectory where
         type Sv CreateDirectory = DirectoryService
@@ -136,10 +136,10 @@ instance ToHeaders CreateDirectory where
 instance ToJSON CreateDirectory where
         toJSON CreateDirectory'{..}
           = object
-              ["ShortName" .= _creShortName,
-               "VpcSettings" .= _creVPCSettings,
-               "Description" .= _creDescription, "Name" .= _creName,
-               "Password" .= _crePassword, "Size" .= _creSize]
+              ["ShortName" .= _crqShortName,
+               "VpcSettings" .= _crqVPCSettings,
+               "Description" .= _crqDescription, "Name" .= _crqName,
+               "Password" .= _crqPassword, "Size" .= _crqSize]
 
 instance ToPath CreateDirectory where
         toPath = const "/"
@@ -153,26 +153,26 @@ instance ToQuery CreateDirectory where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creDirectoryId'
+-- * 'crsDirectoryId'
 --
--- * 'creStatus'
+-- * 'crsStatus'
 data CreateDirectoryResponse = CreateDirectoryResponse'
-    { _creDirectoryId :: !(Maybe Text)
-    , _creStatus      :: !Int
+    { _crsDirectoryId :: !(Maybe Text)
+    , _crsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDirectoryResponse' smart constructor.
 createDirectoryResponse :: Int -> CreateDirectoryResponse
 createDirectoryResponse pStatus =
     CreateDirectoryResponse'
-    { _creDirectoryId = Nothing
-    , _creStatus = pStatus
+    { _crsDirectoryId = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | The identifier of the directory that was created.
-creDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
-creDirectoryId = lens _creDirectoryId (\ s a -> s{_creDirectoryId = a});
+crsDirectoryId :: Lens' CreateDirectoryResponse (Maybe Text)
+crsDirectoryId = lens _crsDirectoryId (\ s a -> s{_crsDirectoryId = a});
 
 -- | FIXME: Undocumented member.
-creStatus :: Lens' CreateDirectoryResponse Int
-creStatus = lens _creStatus (\ s a -> s{_creStatus = a});
+crsStatus :: Lens' CreateDirectoryResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

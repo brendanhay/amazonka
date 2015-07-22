@@ -61,8 +61,8 @@ module Network.AWS.SWF.RespondActivityTaskCanceled
     -- ** Request constructor
     , respondActivityTaskCanceled
     -- ** Request lenses
-    , resDetails
-    , resTaskToken
+    , rrqDetails
+    , rrqTaskToken
 
     -- * Response
     , RespondActivityTaskCanceledResponse
@@ -79,25 +79,25 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'resDetails'
+-- * 'rrqDetails'
 --
--- * 'resTaskToken'
+-- * 'rrqTaskToken'
 data RespondActivityTaskCanceled = RespondActivityTaskCanceled'
-    { _resDetails   :: !(Maybe Text)
-    , _resTaskToken :: !Text
+    { _rrqDetails   :: !(Maybe Text)
+    , _rrqTaskToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondActivityTaskCanceled' smart constructor.
 respondActivityTaskCanceled :: Text -> RespondActivityTaskCanceled
 respondActivityTaskCanceled pTaskToken =
     RespondActivityTaskCanceled'
-    { _resDetails = Nothing
-    , _resTaskToken = pTaskToken
+    { _rrqDetails = Nothing
+    , _rrqTaskToken = pTaskToken
     }
 
 -- | /Optional./ Information about the cancellation.
-resDetails :: Lens' RespondActivityTaskCanceled (Maybe Text)
-resDetails = lens _resDetails (\ s a -> s{_resDetails = a});
+rrqDetails :: Lens' RespondActivityTaskCanceled (Maybe Text)
+rrqDetails = lens _rrqDetails (\ s a -> s{_rrqDetails = a});
 
 -- | The @taskToken@ of the ActivityTask.
 --
@@ -105,8 +105,8 @@ resDetails = lens _resDetails (\ s a -> s{_resDetails = a});
 -- opaque value. If the task is passed to another process, its @taskToken@
 -- must also be passed. This enables it to provide its progress and respond
 -- with results.
-resTaskToken :: Lens' RespondActivityTaskCanceled Text
-resTaskToken = lens _resTaskToken (\ s a -> s{_resTaskToken = a});
+rrqTaskToken :: Lens' RespondActivityTaskCanceled Text
+rrqTaskToken = lens _rrqTaskToken (\ s a -> s{_rrqTaskToken = a});
 
 instance AWSRequest RespondActivityTaskCanceled where
         type Sv RespondActivityTaskCanceled = SWF
@@ -129,8 +129,8 @@ instance ToHeaders RespondActivityTaskCanceled where
 instance ToJSON RespondActivityTaskCanceled where
         toJSON RespondActivityTaskCanceled'{..}
           = object
-              ["details" .= _resDetails,
-               "taskToken" .= _resTaskToken]
+              ["details" .= _rrqDetails,
+               "taskToken" .= _rrqTaskToken]
 
 instance ToPath RespondActivityTaskCanceled where
         toPath = const "/"

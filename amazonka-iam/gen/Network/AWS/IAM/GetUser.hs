@@ -31,15 +31,15 @@ module Network.AWS.IAM.GetUser
     -- ** Request constructor
     , getUser
     -- ** Request lenses
-    , guUserName
+    , gurqUserName
 
     -- * Response
     , GetUserResponse
     -- ** Response constructor
     , getUserResponse
     -- ** Response lenses
-    , gurStatus
-    , gurUser
+    , gursStatus
+    , gursUser
     ) where
 
 import           Network.AWS.IAM.Types
@@ -51,24 +51,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'guUserName'
+-- * 'gurqUserName'
 newtype GetUser = GetUser'
-    { _guUserName :: Maybe Text
+    { _gurqUserName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUser' smart constructor.
 getUser :: GetUser
 getUser =
     GetUser'
-    { _guUserName = Nothing
+    { _gurqUserName = Nothing
     }
 
 -- | The name of the user to get information about.
 --
 -- This parameter is optional. If it is not included, it defaults to the
 -- user making the request.
-guUserName :: Lens' GetUser (Maybe Text)
-guUserName = lens _guUserName (\ s a -> s{_guUserName = a});
+gurqUserName :: Lens' GetUser (Maybe Text)
+gurqUserName = lens _gurqUserName (\ s a -> s{_gurqUserName = a});
 
 instance AWSRequest GetUser where
         type Sv GetUser = IAM
@@ -91,7 +91,7 @@ instance ToQuery GetUser where
           = mconcat
               ["Action" =: ("GetUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _guUserName]
+               "UserName" =: _gurqUserName]
 
 -- | Contains the response to a successful GetUser request.
 --
@@ -99,26 +99,26 @@ instance ToQuery GetUser where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gurStatus'
+-- * 'gursStatus'
 --
--- * 'gurUser'
+-- * 'gursUser'
 data GetUserResponse = GetUserResponse'
-    { _gurStatus :: !Int
-    , _gurUser   :: !User
+    { _gursStatus :: !Int
+    , _gursUser   :: !User
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUserResponse' smart constructor.
 getUserResponse :: Int -> User -> GetUserResponse
 getUserResponse pStatus pUser =
     GetUserResponse'
-    { _gurStatus = pStatus
-    , _gurUser = pUser
+    { _gursStatus = pStatus
+    , _gursUser = pUser
     }
 
 -- | FIXME: Undocumented member.
-gurStatus :: Lens' GetUserResponse Int
-gurStatus = lens _gurStatus (\ s a -> s{_gurStatus = a});
+gursStatus :: Lens' GetUserResponse Int
+gursStatus = lens _gursStatus (\ s a -> s{_gursStatus = a});
 
 -- | Information about the user.
-gurUser :: Lens' GetUserResponse User
-gurUser = lens _gurUser (\ s a -> s{_gurUser = a});
+gursUser :: Lens' GetUserResponse User
+gursUser = lens _gursUser (\ s a -> s{_gursUser = a});

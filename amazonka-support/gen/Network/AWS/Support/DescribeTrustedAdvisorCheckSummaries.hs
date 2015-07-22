@@ -31,15 +31,15 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckSummaries
     -- ** Request constructor
     , describeTrustedAdvisorCheckSummaries
     -- ** Request lenses
-    , dtacsCheckIds
+    , dtacsrqCheckIds
 
     -- * Response
     , DescribeTrustedAdvisorCheckSummariesResponse
     -- ** Response constructor
     , describeTrustedAdvisorCheckSummariesResponse
     -- ** Response lenses
-    , dtacsrStatus
-    , dtacsrSummaries
+    , dtacsrsStatus
+    , dtacsrsSummaries
     ) where
 
 import           Network.AWS.Prelude
@@ -51,21 +51,21 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacsCheckIds'
+-- * 'dtacsrqCheckIds'
 newtype DescribeTrustedAdvisorCheckSummaries = DescribeTrustedAdvisorCheckSummaries'
-    { _dtacsCheckIds :: [Text]
+    { _dtacsrqCheckIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckSummaries' smart constructor.
 describeTrustedAdvisorCheckSummaries :: DescribeTrustedAdvisorCheckSummaries
 describeTrustedAdvisorCheckSummaries =
     DescribeTrustedAdvisorCheckSummaries'
-    { _dtacsCheckIds = mempty
+    { _dtacsrqCheckIds = mempty
     }
 
 -- | The IDs of the Trusted Advisor checks.
-dtacsCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
-dtacsCheckIds = lens _dtacsCheckIds (\ s a -> s{_dtacsCheckIds = a});
+dtacsrqCheckIds :: Lens' DescribeTrustedAdvisorCheckSummaries [Text]
+dtacsrqCheckIds = lens _dtacsrqCheckIds (\ s a -> s{_dtacsrqCheckIds = a});
 
 instance AWSRequest
          DescribeTrustedAdvisorCheckSummaries where
@@ -95,7 +95,7 @@ instance ToHeaders
 instance ToJSON DescribeTrustedAdvisorCheckSummaries
          where
         toJSON DescribeTrustedAdvisorCheckSummaries'{..}
-          = object ["checkIds" .= _dtacsCheckIds]
+          = object ["checkIds" .= _dtacsrqCheckIds]
 
 instance ToPath DescribeTrustedAdvisorCheckSummaries
          where
@@ -112,26 +112,26 @@ instance ToQuery DescribeTrustedAdvisorCheckSummaries
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacsrStatus'
+-- * 'dtacsrsStatus'
 --
--- * 'dtacsrSummaries'
+-- * 'dtacsrsSummaries'
 data DescribeTrustedAdvisorCheckSummariesResponse = DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrStatus    :: !Int
-    , _dtacsrSummaries :: ![TrustedAdvisorCheckSummary]
+    { _dtacsrsStatus    :: !Int
+    , _dtacsrsSummaries :: ![TrustedAdvisorCheckSummary]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckSummariesResponse' smart constructor.
 describeTrustedAdvisorCheckSummariesResponse :: Int -> DescribeTrustedAdvisorCheckSummariesResponse
 describeTrustedAdvisorCheckSummariesResponse pStatus =
     DescribeTrustedAdvisorCheckSummariesResponse'
-    { _dtacsrStatus = pStatus
-    , _dtacsrSummaries = mempty
+    { _dtacsrsStatus = pStatus
+    , _dtacsrsSummaries = mempty
     }
 
 -- | FIXME: Undocumented member.
-dtacsrStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
-dtacsrStatus = lens _dtacsrStatus (\ s a -> s{_dtacsrStatus = a});
+dtacsrsStatus :: Lens' DescribeTrustedAdvisorCheckSummariesResponse Int
+dtacsrsStatus = lens _dtacsrsStatus (\ s a -> s{_dtacsrsStatus = a});
 
 -- | The summary information for the requested Trusted Advisor checks.
-dtacsrSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
-dtacsrSummaries = lens _dtacsrSummaries (\ s a -> s{_dtacsrSummaries = a});
+dtacsrsSummaries :: Lens' DescribeTrustedAdvisorCheckSummariesResponse [TrustedAdvisorCheckSummary]
+dtacsrsSummaries = lens _dtacsrsSummaries (\ s a -> s{_dtacsrsSummaries = a});

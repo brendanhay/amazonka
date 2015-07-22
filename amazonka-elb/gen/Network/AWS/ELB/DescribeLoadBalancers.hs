@@ -28,18 +28,18 @@ module Network.AWS.ELB.DescribeLoadBalancers
     -- ** Request constructor
     , describeLoadBalancers
     -- ** Request lenses
-    , dlbMarker
-    , dlbPageSize
-    , dlbLoadBalancerNames
+    , dlbrqMarker
+    , dlbrqPageSize
+    , dlbrqLoadBalancerNames
 
     -- * Response
     , DescribeLoadBalancersResponse
     -- ** Response constructor
     , describeLoadBalancersResponse
     -- ** Response lenses
-    , dlbrLoadBalancerDescriptions
-    , dlbrNextMarker
-    , dlbrStatus
+    , dlbrsLoadBalancerDescriptions
+    , dlbrsNextMarker
+    , dlbrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -52,46 +52,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbMarker'
+-- * 'dlbrqMarker'
 --
--- * 'dlbPageSize'
+-- * 'dlbrqPageSize'
 --
--- * 'dlbLoadBalancerNames'
+-- * 'dlbrqLoadBalancerNames'
 data DescribeLoadBalancers = DescribeLoadBalancers'
-    { _dlbMarker            :: !(Maybe Text)
-    , _dlbPageSize          :: !(Maybe Nat)
-    , _dlbLoadBalancerNames :: !(Maybe [Text])
+    { _dlbrqMarker            :: !(Maybe Text)
+    , _dlbrqPageSize          :: !(Maybe Nat)
+    , _dlbrqLoadBalancerNames :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancers' smart constructor.
 describeLoadBalancers :: DescribeLoadBalancers
 describeLoadBalancers =
     DescribeLoadBalancers'
-    { _dlbMarker = Nothing
-    , _dlbPageSize = Nothing
-    , _dlbLoadBalancerNames = Nothing
+    { _dlbrqMarker = Nothing
+    , _dlbrqPageSize = Nothing
+    , _dlbrqLoadBalancerNames = Nothing
     }
 
 -- | The marker for the next set of results. (You received this marker from a
 -- previous call.)
-dlbMarker :: Lens' DescribeLoadBalancers (Maybe Text)
-dlbMarker = lens _dlbMarker (\ s a -> s{_dlbMarker = a});
+dlbrqMarker :: Lens' DescribeLoadBalancers (Maybe Text)
+dlbrqMarker = lens _dlbrqMarker (\ s a -> s{_dlbrqMarker = a});
 
 -- | The maximum number of results to return with this call (a number from 1
 -- to 400). The default is 400.
-dlbPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
-dlbPageSize = lens _dlbPageSize (\ s a -> s{_dlbPageSize = a}) . mapping _Nat;
+dlbrqPageSize :: Lens' DescribeLoadBalancers (Maybe Natural)
+dlbrqPageSize = lens _dlbrqPageSize (\ s a -> s{_dlbrqPageSize = a}) . mapping _Nat;
 
 -- | The names of the load balancers.
-dlbLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
-dlbLoadBalancerNames = lens _dlbLoadBalancerNames (\ s a -> s{_dlbLoadBalancerNames = a}) . _Default;
+dlbrqLoadBalancerNames :: Lens' DescribeLoadBalancers [Text]
+dlbrqLoadBalancerNames = lens _dlbrqLoadBalancerNames (\ s a -> s{_dlbrqLoadBalancerNames = a}) . _Default;
 
 instance AWSPager DescribeLoadBalancers where
         page rq rs
-          | stop (rs ^. dlbrNextMarker) = Nothing
-          | stop (rs ^. dlbrLoadBalancerDescriptions) = Nothing
+          | stop (rs ^. dlbrsNextMarker) = Nothing
+          | stop (rs ^. dlbrsLoadBalancerDescriptions) =
+            Nothing
           | otherwise =
-            Just $ rq & dlbMarker .~ rs ^. dlbrNextMarker
+            Just $ rq & dlbrqMarker .~ rs ^. dlbrsNextMarker
 
 instance AWSRequest DescribeLoadBalancers where
         type Sv DescribeLoadBalancers = ELB
@@ -118,44 +119,45 @@ instance ToQuery DescribeLoadBalancers where
           = mconcat
               ["Action" =: ("DescribeLoadBalancers" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "Marker" =: _dlbMarker, "PageSize" =: _dlbPageSize,
+               "Marker" =: _dlbrqMarker,
+               "PageSize" =: _dlbrqPageSize,
                "LoadBalancerNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dlbLoadBalancerNames)]
+                   (toQueryList "member" <$> _dlbrqLoadBalancerNames)]
 
 -- | /See:/ 'describeLoadBalancersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbrLoadBalancerDescriptions'
+-- * 'dlbrsLoadBalancerDescriptions'
 --
--- * 'dlbrNextMarker'
+-- * 'dlbrsNextMarker'
 --
--- * 'dlbrStatus'
+-- * 'dlbrsStatus'
 data DescribeLoadBalancersResponse = DescribeLoadBalancersResponse'
-    { _dlbrLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
-    , _dlbrNextMarker               :: !(Maybe Text)
-    , _dlbrStatus                   :: !Int
+    { _dlbrsLoadBalancerDescriptions :: !(Maybe [LoadBalancerDescription])
+    , _dlbrsNextMarker               :: !(Maybe Text)
+    , _dlbrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancersResponse' smart constructor.
 describeLoadBalancersResponse :: Int -> DescribeLoadBalancersResponse
 describeLoadBalancersResponse pStatus =
     DescribeLoadBalancersResponse'
-    { _dlbrLoadBalancerDescriptions = Nothing
-    , _dlbrNextMarker = Nothing
-    , _dlbrStatus = pStatus
+    { _dlbrsLoadBalancerDescriptions = Nothing
+    , _dlbrsNextMarker = Nothing
+    , _dlbrsStatus = pStatus
     }
 
 -- | Information about the load balancers.
-dlbrLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
-dlbrLoadBalancerDescriptions = lens _dlbrLoadBalancerDescriptions (\ s a -> s{_dlbrLoadBalancerDescriptions = a}) . _Default;
+dlbrsLoadBalancerDescriptions :: Lens' DescribeLoadBalancersResponse [LoadBalancerDescription]
+dlbrsLoadBalancerDescriptions = lens _dlbrsLoadBalancerDescriptions (\ s a -> s{_dlbrsLoadBalancerDescriptions = a}) . _Default;
 
 -- | The marker to use when requesting the next set of results. If there are
 -- no additional results, the string is empty.
-dlbrNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
-dlbrNextMarker = lens _dlbrNextMarker (\ s a -> s{_dlbrNextMarker = a});
+dlbrsNextMarker :: Lens' DescribeLoadBalancersResponse (Maybe Text)
+dlbrsNextMarker = lens _dlbrsNextMarker (\ s a -> s{_dlbrsNextMarker = a});
 
 -- | FIXME: Undocumented member.
-dlbrStatus :: Lens' DescribeLoadBalancersResponse Int
-dlbrStatus = lens _dlbrStatus (\ s a -> s{_dlbrStatus = a});
+dlbrsStatus :: Lens' DescribeLoadBalancersResponse Int
+dlbrsStatus = lens _dlbrsStatus (\ s a -> s{_dlbrsStatus = a});

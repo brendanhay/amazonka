@@ -29,15 +29,15 @@ module Network.AWS.SES.VerifyDomainIdentity
     -- ** Request constructor
     , verifyDomainIdentity
     -- ** Request lenses
-    , vdiDomain
+    , vdirqDomain
 
     -- * Response
     , VerifyDomainIdentityResponse
     -- ** Response constructor
     , verifyDomainIdentityResponse
     -- ** Response lenses
-    , vdirStatus
-    , vdirVerificationToken
+    , vdirsStatus
+    , vdirsVerificationToken
     ) where
 
 import           Network.AWS.Prelude
@@ -52,21 +52,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vdiDomain'
+-- * 'vdirqDomain'
 newtype VerifyDomainIdentity = VerifyDomainIdentity'
-    { _vdiDomain :: Text
+    { _vdirqDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainIdentity' smart constructor.
 verifyDomainIdentity :: Text -> VerifyDomainIdentity
 verifyDomainIdentity pDomain =
     VerifyDomainIdentity'
-    { _vdiDomain = pDomain
+    { _vdirqDomain = pDomain
     }
 
 -- | The domain to be verified.
-vdiDomain :: Lens' VerifyDomainIdentity Text
-vdiDomain = lens _vdiDomain (\ s a -> s{_vdiDomain = a});
+vdirqDomain :: Lens' VerifyDomainIdentity Text
+vdirqDomain = lens _vdirqDomain (\ s a -> s{_vdirqDomain = a});
 
 instance AWSRequest VerifyDomainIdentity where
         type Sv VerifyDomainIdentity = SES
@@ -90,7 +90,7 @@ instance ToQuery VerifyDomainIdentity where
           = mconcat
               ["Action" =: ("VerifyDomainIdentity" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Domain" =: _vdiDomain]
+               "Domain" =: _vdirqDomain]
 
 -- | Represents a token used for domain ownership verification.
 --
@@ -98,27 +98,27 @@ instance ToQuery VerifyDomainIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vdirStatus'
+-- * 'vdirsStatus'
 --
--- * 'vdirVerificationToken'
+-- * 'vdirsVerificationToken'
 data VerifyDomainIdentityResponse = VerifyDomainIdentityResponse'
-    { _vdirStatus            :: !Int
-    , _vdirVerificationToken :: !Text
+    { _vdirsStatus            :: !Int
+    , _vdirsVerificationToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainIdentityResponse' smart constructor.
 verifyDomainIdentityResponse :: Int -> Text -> VerifyDomainIdentityResponse
 verifyDomainIdentityResponse pStatus pVerificationToken =
     VerifyDomainIdentityResponse'
-    { _vdirStatus = pStatus
-    , _vdirVerificationToken = pVerificationToken
+    { _vdirsStatus = pStatus
+    , _vdirsVerificationToken = pVerificationToken
     }
 
 -- | FIXME: Undocumented member.
-vdirStatus :: Lens' VerifyDomainIdentityResponse Int
-vdirStatus = lens _vdirStatus (\ s a -> s{_vdirStatus = a});
+vdirsStatus :: Lens' VerifyDomainIdentityResponse Int
+vdirsStatus = lens _vdirsStatus (\ s a -> s{_vdirsStatus = a});
 
 -- | A TXT record that must be placed in the DNS settings for the domain, in
 -- order to complete domain verification.
-vdirVerificationToken :: Lens' VerifyDomainIdentityResponse Text
-vdirVerificationToken = lens _vdirVerificationToken (\ s a -> s{_vdirVerificationToken = a});
+vdirsVerificationToken :: Lens' VerifyDomainIdentityResponse Text
+vdirsVerificationToken = lens _vdirsVerificationToken (\ s a -> s{_vdirsVerificationToken = a});

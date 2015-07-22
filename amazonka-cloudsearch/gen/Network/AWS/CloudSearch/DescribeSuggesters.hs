@@ -34,17 +34,17 @@ module Network.AWS.CloudSearch.DescribeSuggesters
     -- ** Request constructor
     , describeSuggesters
     -- ** Request lenses
-    , desDeployed
-    , desSuggesterNames
-    , desDomainName
+    , dsrqDeployed
+    , dsrqSuggesterNames
+    , dsrqDomainName
 
     -- * Response
     , DescribeSuggestersResponse
     -- ** Response constructor
     , describeSuggestersResponse
     -- ** Response lenses
-    , dsrrStatus
-    , dsrrSuggesters
+    , dsrsStatus
+    , dsrsSuggesters
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -62,38 +62,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desDeployed'
+-- * 'dsrqDeployed'
 --
--- * 'desSuggesterNames'
+-- * 'dsrqSuggesterNames'
 --
--- * 'desDomainName'
+-- * 'dsrqDomainName'
 data DescribeSuggesters = DescribeSuggesters'
-    { _desDeployed       :: !(Maybe Bool)
-    , _desSuggesterNames :: !(Maybe [Text])
-    , _desDomainName     :: !Text
+    { _dsrqDeployed       :: !(Maybe Bool)
+    , _dsrqSuggesterNames :: !(Maybe [Text])
+    , _dsrqDomainName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSuggesters' smart constructor.
 describeSuggesters :: Text -> DescribeSuggesters
 describeSuggesters pDomainName =
     DescribeSuggesters'
-    { _desDeployed = Nothing
-    , _desSuggesterNames = Nothing
-    , _desDomainName = pDomainName
+    { _dsrqDeployed = Nothing
+    , _dsrqSuggesterNames = Nothing
+    , _dsrqDomainName = pDomainName
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-desDeployed :: Lens' DescribeSuggesters (Maybe Bool)
-desDeployed = lens _desDeployed (\ s a -> s{_desDeployed = a});
+dsrqDeployed :: Lens' DescribeSuggesters (Maybe Bool)
+dsrqDeployed = lens _dsrqDeployed (\ s a -> s{_dsrqDeployed = a});
 
 -- | The suggesters you want to describe.
-desSuggesterNames :: Lens' DescribeSuggesters [Text]
-desSuggesterNames = lens _desSuggesterNames (\ s a -> s{_desSuggesterNames = a}) . _Default;
+dsrqSuggesterNames :: Lens' DescribeSuggesters [Text]
+dsrqSuggesterNames = lens _dsrqSuggesterNames (\ s a -> s{_dsrqSuggesterNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
-desDomainName :: Lens' DescribeSuggesters Text
-desDomainName = lens _desDomainName (\ s a -> s{_desDomainName = a});
+dsrqDomainName :: Lens' DescribeSuggesters Text
+dsrqDomainName = lens _dsrqDomainName (\ s a -> s{_dsrqDomainName = a});
 
 instance AWSRequest DescribeSuggesters where
         type Sv DescribeSuggesters = CloudSearch
@@ -119,11 +119,11 @@ instance ToQuery DescribeSuggesters where
           = mconcat
               ["Action" =: ("DescribeSuggesters" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _desDeployed,
+               "Deployed" =: _dsrqDeployed,
                "SuggesterNames" =:
                  toQuery
-                   (toQueryList "member" <$> _desSuggesterNames),
-               "DomainName" =: _desDomainName]
+                   (toQueryList "member" <$> _dsrqSuggesterNames),
+               "DomainName" =: _dsrqDomainName]
 
 -- | The result of a @DescribeSuggesters@ request.
 --
@@ -131,26 +131,26 @@ instance ToQuery DescribeSuggesters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrrStatus'
+-- * 'dsrsStatus'
 --
--- * 'dsrrSuggesters'
+-- * 'dsrsSuggesters'
 data DescribeSuggestersResponse = DescribeSuggestersResponse'
-    { _dsrrStatus     :: !Int
-    , _dsrrSuggesters :: ![SuggesterStatus]
+    { _dsrsStatus     :: !Int
+    , _dsrsSuggesters :: ![SuggesterStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSuggestersResponse' smart constructor.
 describeSuggestersResponse :: Int -> DescribeSuggestersResponse
 describeSuggestersResponse pStatus =
     DescribeSuggestersResponse'
-    { _dsrrStatus = pStatus
-    , _dsrrSuggesters = mempty
+    { _dsrsStatus = pStatus
+    , _dsrsSuggesters = mempty
     }
 
 -- | FIXME: Undocumented member.
-dsrrStatus :: Lens' DescribeSuggestersResponse Int
-dsrrStatus = lens _dsrrStatus (\ s a -> s{_dsrrStatus = a});
+dsrsStatus :: Lens' DescribeSuggestersResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});
 
 -- | The suggesters configured for the domain specified in the request.
-dsrrSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
-dsrrSuggesters = lens _dsrrSuggesters (\ s a -> s{_dsrrSuggesters = a});
+dsrsSuggesters :: Lens' DescribeSuggestersResponse [SuggesterStatus]
+dsrsSuggesters = lens _dsrsSuggesters (\ s a -> s{_dsrsSuggesters = a});

@@ -46,16 +46,16 @@ module Network.AWS.SWF.DescribeDomain
     -- ** Request constructor
     , describeDomain
     -- ** Request lenses
-    , ddName
+    , ddrqName
 
     -- * Response
     , DescribeDomainResponse
     -- ** Response constructor
     , describeDomainResponse
     -- ** Response lenses
-    , ddrStatus
-    , ddrDomainInfo
-    , ddrConfiguration
+    , ddrsStatus
+    , ddrsDomainInfo
+    , ddrsConfiguration
     ) where
 
 import           Network.AWS.Prelude
@@ -67,21 +67,21 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddName'
+-- * 'ddrqName'
 newtype DescribeDomain = DescribeDomain'
-    { _ddName :: Text
+    { _ddrqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomain' smart constructor.
 describeDomain :: Text -> DescribeDomain
 describeDomain pName =
     DescribeDomain'
-    { _ddName = pName
+    { _ddrqName = pName
     }
 
 -- | The name of the domain to describe.
-ddName :: Lens' DescribeDomain Text
-ddName = lens _ddName (\ s a -> s{_ddName = a});
+ddrqName :: Lens' DescribeDomain Text
+ddrqName = lens _ddrqName (\ s a -> s{_ddrqName = a});
 
 instance AWSRequest DescribeDomain where
         type Sv DescribeDomain = SWF
@@ -106,7 +106,7 @@ instance ToHeaders DescribeDomain where
 
 instance ToJSON DescribeDomain where
         toJSON DescribeDomain'{..}
-          = object ["name" .= _ddName]
+          = object ["name" .= _ddrqName]
 
 instance ToPath DescribeDomain where
         toPath = const "/"
@@ -120,34 +120,34 @@ instance ToQuery DescribeDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrStatus'
+-- * 'ddrsStatus'
 --
--- * 'ddrDomainInfo'
+-- * 'ddrsDomainInfo'
 --
--- * 'ddrConfiguration'
+-- * 'ddrsConfiguration'
 data DescribeDomainResponse = DescribeDomainResponse'
-    { _ddrStatus        :: !Int
-    , _ddrDomainInfo    :: !DomainInfo
-    , _ddrConfiguration :: !DomainConfiguration
+    { _ddrsStatus        :: !Int
+    , _ddrsDomainInfo    :: !DomainInfo
+    , _ddrsConfiguration :: !DomainConfiguration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDomainResponse' smart constructor.
 describeDomainResponse :: Int -> DomainInfo -> DomainConfiguration -> DescribeDomainResponse
 describeDomainResponse pStatus pDomainInfo pConfiguration =
     DescribeDomainResponse'
-    { _ddrStatus = pStatus
-    , _ddrDomainInfo = pDomainInfo
-    , _ddrConfiguration = pConfiguration
+    { _ddrsStatus = pStatus
+    , _ddrsDomainInfo = pDomainInfo
+    , _ddrsConfiguration = pConfiguration
     }
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DescribeDomainResponse Int
-ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});
+ddrsStatus :: Lens' DescribeDomainResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});
 
 -- | FIXME: Undocumented member.
-ddrDomainInfo :: Lens' DescribeDomainResponse DomainInfo
-ddrDomainInfo = lens _ddrDomainInfo (\ s a -> s{_ddrDomainInfo = a});
+ddrsDomainInfo :: Lens' DescribeDomainResponse DomainInfo
+ddrsDomainInfo = lens _ddrsDomainInfo (\ s a -> s{_ddrsDomainInfo = a});
 
 -- | FIXME: Undocumented member.
-ddrConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
-ddrConfiguration = lens _ddrConfiguration (\ s a -> s{_ddrConfiguration = a});
+ddrsConfiguration :: Lens' DescribeDomainResponse DomainConfiguration
+ddrsConfiguration = lens _ddrsConfiguration (\ s a -> s{_ddrsConfiguration = a});

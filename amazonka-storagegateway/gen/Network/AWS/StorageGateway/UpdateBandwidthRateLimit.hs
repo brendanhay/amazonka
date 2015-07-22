@@ -38,17 +38,17 @@ module Network.AWS.StorageGateway.UpdateBandwidthRateLimit
     -- ** Request constructor
     , updateBandwidthRateLimit
     -- ** Request lenses
-    , ubrlAverageUploadRateLimitInBitsPerSec
-    , ubrlAverageDownloadRateLimitInBitsPerSec
-    , ubrlGatewayARN
+    , ubrlrqAverageUploadRateLimitInBitsPerSec
+    , ubrlrqAverageDownloadRateLimitInBitsPerSec
+    , ubrlrqGatewayARN
 
     -- * Response
     , UpdateBandwidthRateLimitResponse
     -- ** Response constructor
     , updateBandwidthRateLimitResponse
     -- ** Response lenses
-    , ubrlrGatewayARN
-    , ubrlrStatus
+    , ubrlrsGatewayARN
+    , ubrlrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -65,37 +65,37 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ubrlAverageUploadRateLimitInBitsPerSec'
+-- * 'ubrlrqAverageUploadRateLimitInBitsPerSec'
 --
--- * 'ubrlAverageDownloadRateLimitInBitsPerSec'
+-- * 'ubrlrqAverageDownloadRateLimitInBitsPerSec'
 --
--- * 'ubrlGatewayARN'
+-- * 'ubrlrqGatewayARN'
 data UpdateBandwidthRateLimit = UpdateBandwidthRateLimit'
-    { _ubrlAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
-    , _ubrlAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
-    , _ubrlGatewayARN                           :: !Text
+    { _ubrlrqAverageUploadRateLimitInBitsPerSec   :: !(Maybe Nat)
+    , _ubrlrqAverageDownloadRateLimitInBitsPerSec :: !(Maybe Nat)
+    , _ubrlrqGatewayARN                           :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBandwidthRateLimit' smart constructor.
 updateBandwidthRateLimit :: Text -> UpdateBandwidthRateLimit
 updateBandwidthRateLimit pGatewayARN =
     UpdateBandwidthRateLimit'
-    { _ubrlAverageUploadRateLimitInBitsPerSec = Nothing
-    , _ubrlAverageDownloadRateLimitInBitsPerSec = Nothing
-    , _ubrlGatewayARN = pGatewayARN
+    { _ubrlrqAverageUploadRateLimitInBitsPerSec = Nothing
+    , _ubrlrqAverageDownloadRateLimitInBitsPerSec = Nothing
+    , _ubrlrqGatewayARN = pGatewayARN
     }
 
 -- | The average upload bandwidth rate limit in bits per second.
-ubrlAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
-ubrlAverageUploadRateLimitInBitsPerSec = lens _ubrlAverageUploadRateLimitInBitsPerSec (\ s a -> s{_ubrlAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat;
+ubrlrqAverageUploadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
+ubrlrqAverageUploadRateLimitInBitsPerSec = lens _ubrlrqAverageUploadRateLimitInBitsPerSec (\ s a -> s{_ubrlrqAverageUploadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
 -- | The average download bandwidth rate limit in bits per second.
-ubrlAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
-ubrlAverageDownloadRateLimitInBitsPerSec = lens _ubrlAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_ubrlAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
+ubrlrqAverageDownloadRateLimitInBitsPerSec :: Lens' UpdateBandwidthRateLimit (Maybe Natural)
+ubrlrqAverageDownloadRateLimitInBitsPerSec = lens _ubrlrqAverageDownloadRateLimitInBitsPerSec (\ s a -> s{_ubrlrqAverageDownloadRateLimitInBitsPerSec = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-ubrlGatewayARN :: Lens' UpdateBandwidthRateLimit Text
-ubrlGatewayARN = lens _ubrlGatewayARN (\ s a -> s{_ubrlGatewayARN = a});
+ubrlrqGatewayARN :: Lens' UpdateBandwidthRateLimit Text
+ubrlrqGatewayARN = lens _ubrlrqGatewayARN (\ s a -> s{_ubrlrqGatewayARN = a});
 
 instance AWSRequest UpdateBandwidthRateLimit where
         type Sv UpdateBandwidthRateLimit = StorageGateway
@@ -122,10 +122,10 @@ instance ToJSON UpdateBandwidthRateLimit where
         toJSON UpdateBandwidthRateLimit'{..}
           = object
               ["AverageUploadRateLimitInBitsPerSec" .=
-                 _ubrlAverageUploadRateLimitInBitsPerSec,
+                 _ubrlrqAverageUploadRateLimitInBitsPerSec,
                "AverageDownloadRateLimitInBitsPerSec" .=
-                 _ubrlAverageDownloadRateLimitInBitsPerSec,
-               "GatewayARN" .= _ubrlGatewayARN]
+                 _ubrlrqAverageDownloadRateLimitInBitsPerSec,
+               "GatewayARN" .= _ubrlrqGatewayARN]
 
 instance ToPath UpdateBandwidthRateLimit where
         toPath = const "/"
@@ -140,26 +140,26 @@ instance ToQuery UpdateBandwidthRateLimit where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ubrlrGatewayARN'
+-- * 'ubrlrsGatewayARN'
 --
--- * 'ubrlrStatus'
+-- * 'ubrlrsStatus'
 data UpdateBandwidthRateLimitResponse = UpdateBandwidthRateLimitResponse'
-    { _ubrlrGatewayARN :: !(Maybe Text)
-    , _ubrlrStatus     :: !Int
+    { _ubrlrsGatewayARN :: !(Maybe Text)
+    , _ubrlrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateBandwidthRateLimitResponse' smart constructor.
 updateBandwidthRateLimitResponse :: Int -> UpdateBandwidthRateLimitResponse
 updateBandwidthRateLimitResponse pStatus =
     UpdateBandwidthRateLimitResponse'
-    { _ubrlrGatewayARN = Nothing
-    , _ubrlrStatus = pStatus
+    { _ubrlrsGatewayARN = Nothing
+    , _ubrlrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ubrlrGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
-ubrlrGatewayARN = lens _ubrlrGatewayARN (\ s a -> s{_ubrlrGatewayARN = a});
+ubrlrsGatewayARN :: Lens' UpdateBandwidthRateLimitResponse (Maybe Text)
+ubrlrsGatewayARN = lens _ubrlrsGatewayARN (\ s a -> s{_ubrlrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-ubrlrStatus :: Lens' UpdateBandwidthRateLimitResponse Int
-ubrlrStatus = lens _ubrlrStatus (\ s a -> s{_ubrlrStatus = a});
+ubrlrsStatus :: Lens' UpdateBandwidthRateLimitResponse Int
+ubrlrsStatus = lens _ubrlrsStatus (\ s a -> s{_ubrlrsStatus = a});

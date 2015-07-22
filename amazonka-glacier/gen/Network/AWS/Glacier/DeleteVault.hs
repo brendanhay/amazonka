@@ -51,8 +51,8 @@ module Network.AWS.Glacier.DeleteVault
     -- ** Request constructor
     , deleteVault
     -- ** Request lenses
-    , delAccountId
-    , delVaultName
+    , drqAccountId
+    , drqVaultName
 
     -- * Response
     , DeleteVaultResponse
@@ -71,20 +71,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delAccountId'
+-- * 'drqAccountId'
 --
--- * 'delVaultName'
+-- * 'drqVaultName'
 data DeleteVault = DeleteVault'
-    { _delAccountId :: !Text
-    , _delVaultName :: !Text
+    { _drqAccountId :: !Text
+    , _drqVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVault' smart constructor.
 deleteVault :: Text -> Text -> DeleteVault
 deleteVault pAccountId pVaultName =
     DeleteVault'
-    { _delAccountId = pAccountId
-    , _delVaultName = pVaultName
+    { _drqAccountId = pAccountId
+    , _drqVaultName = pVaultName
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -92,12 +92,12 @@ deleteVault pAccountId pVaultName =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-delAccountId :: Lens' DeleteVault Text
-delAccountId = lens _delAccountId (\ s a -> s{_delAccountId = a});
+drqAccountId :: Lens' DeleteVault Text
+drqAccountId = lens _drqAccountId (\ s a -> s{_drqAccountId = a});
 
 -- | The name of the vault.
-delVaultName :: Lens' DeleteVault Text
-delVaultName = lens _delVaultName (\ s a -> s{_delVaultName = a});
+drqVaultName :: Lens' DeleteVault Text
+drqVaultName = lens _drqVaultName (\ s a -> s{_drqVaultName = a});
 
 instance AWSRequest DeleteVault where
         type Sv DeleteVault = Glacier
@@ -111,8 +111,8 @@ instance ToHeaders DeleteVault where
 instance ToPath DeleteVault where
         toPath DeleteVault'{..}
           = mconcat
-              ["/", toText _delAccountId, "/vaults/",
-               toText _delVaultName]
+              ["/", toText _drqAccountId, "/vaults/",
+               toText _drqVaultName]
 
 instance ToQuery DeleteVault where
         toQuery = const mempty

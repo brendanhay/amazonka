@@ -31,19 +31,19 @@ module Network.AWS.CognitoSync.SetIdentityPoolConfiguration
     -- ** Request constructor
     , setIdentityPoolConfiguration
     -- ** Request lenses
-    , sipcCognitoStreams
-    , sipcPushSync
-    , sipcIdentityPoolId
+    , sipcrqCognitoStreams
+    , sipcrqPushSync
+    , sipcrqIdentityPoolId
 
     -- * Response
     , SetIdentityPoolConfigurationResponse
     -- ** Response constructor
     , setIdentityPoolConfigurationResponse
     -- ** Response lenses
-    , sipcrIdentityPoolId
-    , sipcrCognitoStreams
-    , sipcrPushSync
-    , sipcrStatus
+    , sipcrsIdentityPoolId
+    , sipcrsCognitoStreams
+    , sipcrsPushSync
+    , sipcrsStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -57,39 +57,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sipcCognitoStreams'
+-- * 'sipcrqCognitoStreams'
 --
--- * 'sipcPushSync'
+-- * 'sipcrqPushSync'
 --
--- * 'sipcIdentityPoolId'
+-- * 'sipcrqIdentityPoolId'
 data SetIdentityPoolConfiguration = SetIdentityPoolConfiguration'
-    { _sipcCognitoStreams :: !(Maybe CognitoStreams)
-    , _sipcPushSync       :: !(Maybe PushSync)
-    , _sipcIdentityPoolId :: !Text
+    { _sipcrqCognitoStreams :: !(Maybe CognitoStreams)
+    , _sipcrqPushSync       :: !(Maybe PushSync)
+    , _sipcrqIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolConfiguration' smart constructor.
 setIdentityPoolConfiguration :: Text -> SetIdentityPoolConfiguration
 setIdentityPoolConfiguration pIdentityPoolId =
     SetIdentityPoolConfiguration'
-    { _sipcCognitoStreams = Nothing
-    , _sipcPushSync = Nothing
-    , _sipcIdentityPoolId = pIdentityPoolId
+    { _sipcrqCognitoStreams = Nothing
+    , _sipcrqPushSync = Nothing
+    , _sipcrqIdentityPoolId = pIdentityPoolId
     }
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
-sipcCognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
-sipcCognitoStreams = lens _sipcCognitoStreams (\ s a -> s{_sipcCognitoStreams = a});
+sipcrqCognitoStreams :: Lens' SetIdentityPoolConfiguration (Maybe CognitoStreams)
+sipcrqCognitoStreams = lens _sipcrqCognitoStreams (\ s a -> s{_sipcrqCognitoStreams = a});
 
 -- | Options to apply to this identity pool for push synchronization.
-sipcPushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
-sipcPushSync = lens _sipcPushSync (\ s a -> s{_sipcPushSync = a});
+sipcrqPushSync :: Lens' SetIdentityPoolConfiguration (Maybe PushSync)
+sipcrqPushSync = lens _sipcrqPushSync (\ s a -> s{_sipcrqPushSync = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. This is the ID of the pool to modify.
-sipcIdentityPoolId :: Lens' SetIdentityPoolConfiguration Text
-sipcIdentityPoolId = lens _sipcIdentityPoolId (\ s a -> s{_sipcIdentityPoolId = a});
+sipcrqIdentityPoolId :: Lens' SetIdentityPoolConfiguration Text
+sipcrqIdentityPoolId = lens _sipcrqIdentityPoolId (\ s a -> s{_sipcrqIdentityPoolId = a});
 
 instance AWSRequest SetIdentityPoolConfiguration
          where
@@ -115,13 +115,13 @@ instance ToHeaders SetIdentityPoolConfiguration where
 instance ToJSON SetIdentityPoolConfiguration where
         toJSON SetIdentityPoolConfiguration'{..}
           = object
-              ["CognitoStreams" .= _sipcCognitoStreams,
-               "PushSync" .= _sipcPushSync]
+              ["CognitoStreams" .= _sipcrqCognitoStreams,
+               "PushSync" .= _sipcrqPushSync]
 
 instance ToPath SetIdentityPoolConfiguration where
         toPath SetIdentityPoolConfiguration'{..}
           = mconcat
-              ["/identitypools/", toText _sipcIdentityPoolId,
+              ["/identitypools/", toText _sipcrqIdentityPoolId,
                "/configuration"]
 
 instance ToQuery SetIdentityPoolConfiguration where
@@ -133,44 +133,44 @@ instance ToQuery SetIdentityPoolConfiguration where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sipcrIdentityPoolId'
+-- * 'sipcrsIdentityPoolId'
 --
--- * 'sipcrCognitoStreams'
+-- * 'sipcrsCognitoStreams'
 --
--- * 'sipcrPushSync'
+-- * 'sipcrsPushSync'
 --
--- * 'sipcrStatus'
+-- * 'sipcrsStatus'
 data SetIdentityPoolConfigurationResponse = SetIdentityPoolConfigurationResponse'
-    { _sipcrIdentityPoolId :: !(Maybe Text)
-    , _sipcrCognitoStreams :: !(Maybe CognitoStreams)
-    , _sipcrPushSync       :: !(Maybe PushSync)
-    , _sipcrStatus         :: !Int
+    { _sipcrsIdentityPoolId :: !(Maybe Text)
+    , _sipcrsCognitoStreams :: !(Maybe CognitoStreams)
+    , _sipcrsPushSync       :: !(Maybe PushSync)
+    , _sipcrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityPoolConfigurationResponse' smart constructor.
 setIdentityPoolConfigurationResponse :: Int -> SetIdentityPoolConfigurationResponse
 setIdentityPoolConfigurationResponse pStatus =
     SetIdentityPoolConfigurationResponse'
-    { _sipcrIdentityPoolId = Nothing
-    , _sipcrCognitoStreams = Nothing
-    , _sipcrPushSync = Nothing
-    , _sipcrStatus = pStatus
+    { _sipcrsIdentityPoolId = Nothing
+    , _sipcrsCognitoStreams = Nothing
+    , _sipcrsPushSync = Nothing
+    , _sipcrsStatus = pStatus
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito.
-sipcrIdentityPoolId :: Lens' SetIdentityPoolConfigurationResponse (Maybe Text)
-sipcrIdentityPoolId = lens _sipcrIdentityPoolId (\ s a -> s{_sipcrIdentityPoolId = a});
+sipcrsIdentityPoolId :: Lens' SetIdentityPoolConfigurationResponse (Maybe Text)
+sipcrsIdentityPoolId = lens _sipcrsIdentityPoolId (\ s a -> s{_sipcrsIdentityPoolId = a});
 
 -- | Options to apply to this identity pool for Amazon Cognito streams.
-sipcrCognitoStreams :: Lens' SetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
-sipcrCognitoStreams = lens _sipcrCognitoStreams (\ s a -> s{_sipcrCognitoStreams = a});
+sipcrsCognitoStreams :: Lens' SetIdentityPoolConfigurationResponse (Maybe CognitoStreams)
+sipcrsCognitoStreams = lens _sipcrsCognitoStreams (\ s a -> s{_sipcrsCognitoStreams = a});
 
 -- | Options to apply to this identity pool for push synchronization.
-sipcrPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
-sipcrPushSync = lens _sipcrPushSync (\ s a -> s{_sipcrPushSync = a});
+sipcrsPushSync :: Lens' SetIdentityPoolConfigurationResponse (Maybe PushSync)
+sipcrsPushSync = lens _sipcrsPushSync (\ s a -> s{_sipcrsPushSync = a});
 
 -- | FIXME: Undocumented member.
-sipcrStatus :: Lens' SetIdentityPoolConfigurationResponse Int
-sipcrStatus = lens _sipcrStatus (\ s a -> s{_sipcrStatus = a});
+sipcrsStatus :: Lens' SetIdentityPoolConfigurationResponse Int
+sipcrsStatus = lens _sipcrsStatus (\ s a -> s{_sipcrsStatus = a});

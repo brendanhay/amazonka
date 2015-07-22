@@ -27,15 +27,15 @@ module Network.AWS.S3.GetBucketCORS
     -- ** Request constructor
     , getBucketCORS
     -- ** Request lenses
-    , gbcBucket
+    , gbcrqBucket
 
     -- * Response
     , GetBucketCORSResponse
     -- ** Response constructor
     , getBucketCORSResponse
     -- ** Response lenses
-    , gbcrCORSRules
-    , gbcrStatus
+    , gbcrsCORSRules
+    , gbcrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbcBucket'
+-- * 'gbcrqBucket'
 newtype GetBucketCORS = GetBucketCORS'
-    { _gbcBucket :: BucketName
+    { _gbcrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketCORS' smart constructor.
 getBucketCORS :: BucketName -> GetBucketCORS
 getBucketCORS pBucket =
     GetBucketCORS'
-    { _gbcBucket = pBucket
+    { _gbcrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gbcBucket :: Lens' GetBucketCORS BucketName
-gbcBucket = lens _gbcBucket (\ s a -> s{_gbcBucket = a});
+gbcrqBucket :: Lens' GetBucketCORS BucketName
+gbcrqBucket = lens _gbcrqBucket (\ s a -> s{_gbcrqBucket = a});
 
 instance AWSRequest GetBucketCORS where
         type Sv GetBucketCORS = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketCORS where
 
 instance ToPath GetBucketCORS where
         toPath GetBucketCORS'{..}
-          = mconcat ["/", toText _gbcBucket]
+          = mconcat ["/", toText _gbcrqBucket]
 
 instance ToQuery GetBucketCORS where
         toQuery = const (mconcat ["cors"])
@@ -88,26 +88,26 @@ instance ToQuery GetBucketCORS where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbcrCORSRules'
+-- * 'gbcrsCORSRules'
 --
--- * 'gbcrStatus'
+-- * 'gbcrsStatus'
 data GetBucketCORSResponse = GetBucketCORSResponse'
-    { _gbcrCORSRules :: !(Maybe [CORSRule])
-    , _gbcrStatus    :: !Int
+    { _gbcrsCORSRules :: !(Maybe [CORSRule])
+    , _gbcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketCORSResponse' smart constructor.
 getBucketCORSResponse :: Int -> GetBucketCORSResponse
 getBucketCORSResponse pStatus =
     GetBucketCORSResponse'
-    { _gbcrCORSRules = Nothing
-    , _gbcrStatus = pStatus
+    { _gbcrsCORSRules = Nothing
+    , _gbcrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gbcrCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
-gbcrCORSRules = lens _gbcrCORSRules (\ s a -> s{_gbcrCORSRules = a}) . _Default;
+gbcrsCORSRules :: Lens' GetBucketCORSResponse [CORSRule]
+gbcrsCORSRules = lens _gbcrsCORSRules (\ s a -> s{_gbcrsCORSRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gbcrStatus :: Lens' GetBucketCORSResponse Int
-gbcrStatus = lens _gbcrStatus (\ s a -> s{_gbcrStatus = a});
+gbcrsStatus :: Lens' GetBucketCORSResponse Int
+gbcrsStatus = lens _gbcrsStatus (\ s a -> s{_gbcrsStatus = a});

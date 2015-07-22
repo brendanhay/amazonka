@@ -27,18 +27,18 @@ module Network.AWS.RDS.CopyDBParameterGroup
     -- ** Request constructor
     , copyDBParameterGroup
     -- ** Request lenses
-    , cdpgTags
-    , cdpgSourceDBParameterGroupIdentifier
-    , cdpgTargetDBParameterGroupIdentifier
-    , cdpgTargetDBParameterGroupDescription
+    , cdpgrqTags
+    , cdpgrqSourceDBParameterGroupIdentifier
+    , cdpgrqTargetDBParameterGroupIdentifier
+    , cdpgrqTargetDBParameterGroupDescription
 
     -- * Response
     , CopyDBParameterGroupResponse
     -- ** Response constructor
     , copyDBParameterGroupResponse
     -- ** Response lenses
-    , copDBParameterGroup
-    , copStatus
+    , cdpgrsDBParameterGroup
+    , cdpgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdpgTags'
+-- * 'cdpgrqTags'
 --
--- * 'cdpgSourceDBParameterGroupIdentifier'
+-- * 'cdpgrqSourceDBParameterGroupIdentifier'
 --
--- * 'cdpgTargetDBParameterGroupIdentifier'
+-- * 'cdpgrqTargetDBParameterGroupIdentifier'
 --
--- * 'cdpgTargetDBParameterGroupDescription'
+-- * 'cdpgrqTargetDBParameterGroupDescription'
 data CopyDBParameterGroup = CopyDBParameterGroup'
-    { _cdpgTags                              :: !(Maybe [Tag])
-    , _cdpgSourceDBParameterGroupIdentifier  :: !Text
-    , _cdpgTargetDBParameterGroupIdentifier  :: !Text
-    , _cdpgTargetDBParameterGroupDescription :: !Text
+    { _cdpgrqTags                              :: !(Maybe [Tag])
+    , _cdpgrqSourceDBParameterGroupIdentifier  :: !Text
+    , _cdpgrqTargetDBParameterGroupIdentifier  :: !Text
+    , _cdpgrqTargetDBParameterGroupDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyDBParameterGroup' smart constructor.
 copyDBParameterGroup :: Text -> Text -> Text -> CopyDBParameterGroup
 copyDBParameterGroup pSourceDBParameterGroupIdentifier pTargetDBParameterGroupIdentifier pTargetDBParameterGroupDescription =
     CopyDBParameterGroup'
-    { _cdpgTags = Nothing
-    , _cdpgSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier
-    , _cdpgTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier
-    , _cdpgTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription
+    { _cdpgrqTags = Nothing
+    , _cdpgrqSourceDBParameterGroupIdentifier = pSourceDBParameterGroupIdentifier
+    , _cdpgrqTargetDBParameterGroupIdentifier = pTargetDBParameterGroupIdentifier
+    , _cdpgrqTargetDBParameterGroupDescription = pTargetDBParameterGroupDescription
     }
 
 -- | FIXME: Undocumented member.
-cdpgTags :: Lens' CopyDBParameterGroup [Tag]
-cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default;
+cdpgrqTags :: Lens' CopyDBParameterGroup [Tag]
+cdpgrqTags = lens _cdpgrqTags (\ s a -> s{_cdpgrqTags = a}) . _Default;
 
 -- | The identifier or ARN for the source DB parameter group.
 --
@@ -91,8 +91,8 @@ cdpgTags = lens _cdpgTags (\ s a -> s{_cdpgTags = a}) . _Default;
 -- -   If the source DB parameter group is in a different region than the
 --     copy, specify a valid DB parameter group ARN, for example
 --     @arn:aws:rds:us-west-2:123456789012:pg:special-parameters@.
-cdpgSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
-cdpgSourceDBParameterGroupIdentifier = lens _cdpgSourceDBParameterGroupIdentifier (\ s a -> s{_cdpgSourceDBParameterGroupIdentifier = a});
+cdpgrqSourceDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
+cdpgrqSourceDBParameterGroupIdentifier = lens _cdpgrqSourceDBParameterGroupIdentifier (\ s a -> s{_cdpgrqSourceDBParameterGroupIdentifier = a});
 
 -- | The identifier for the copied DB parameter group.
 --
@@ -104,12 +104,12 @@ cdpgSourceDBParameterGroupIdentifier = lens _cdpgSourceDBParameterGroupIdentifie
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @my-db-parameter-group@
-cdpgTargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
-cdpgTargetDBParameterGroupIdentifier = lens _cdpgTargetDBParameterGroupIdentifier (\ s a -> s{_cdpgTargetDBParameterGroupIdentifier = a});
+cdpgrqTargetDBParameterGroupIdentifier :: Lens' CopyDBParameterGroup Text
+cdpgrqTargetDBParameterGroupIdentifier = lens _cdpgrqTargetDBParameterGroupIdentifier (\ s a -> s{_cdpgrqTargetDBParameterGroupIdentifier = a});
 
 -- | A description for the copied DB parameter group.
-cdpgTargetDBParameterGroupDescription :: Lens' CopyDBParameterGroup Text
-cdpgTargetDBParameterGroupDescription = lens _cdpgTargetDBParameterGroupDescription (\ s a -> s{_cdpgTargetDBParameterGroupDescription = a});
+cdpgrqTargetDBParameterGroupDescription :: Lens' CopyDBParameterGroup Text
+cdpgrqTargetDBParameterGroupDescription = lens _cdpgrqTargetDBParameterGroupDescription (\ s a -> s{_cdpgrqTargetDBParameterGroupDescription = a});
 
 instance AWSRequest CopyDBParameterGroup where
         type Sv CopyDBParameterGroup = RDS
@@ -133,38 +133,39 @@ instance ToQuery CopyDBParameterGroup where
           = mconcat
               ["Action" =: ("CopyDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cdpgTags),
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _cdpgrqTags),
                "SourceDBParameterGroupIdentifier" =:
-                 _cdpgSourceDBParameterGroupIdentifier,
+                 _cdpgrqSourceDBParameterGroupIdentifier,
                "TargetDBParameterGroupIdentifier" =:
-                 _cdpgTargetDBParameterGroupIdentifier,
+                 _cdpgrqTargetDBParameterGroupIdentifier,
                "TargetDBParameterGroupDescription" =:
-                 _cdpgTargetDBParameterGroupDescription]
+                 _cdpgrqTargetDBParameterGroupDescription]
 
 -- | /See:/ 'copyDBParameterGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'copDBParameterGroup'
+-- * 'cdpgrsDBParameterGroup'
 --
--- * 'copStatus'
+-- * 'cdpgrsStatus'
 data CopyDBParameterGroupResponse = CopyDBParameterGroupResponse'
-    { _copDBParameterGroup :: !(Maybe DBParameterGroup)
-    , _copStatus           :: !Int
+    { _cdpgrsDBParameterGroup :: !(Maybe DBParameterGroup)
+    , _cdpgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyDBParameterGroupResponse' smart constructor.
 copyDBParameterGroupResponse :: Int -> CopyDBParameterGroupResponse
 copyDBParameterGroupResponse pStatus =
     CopyDBParameterGroupResponse'
-    { _copDBParameterGroup = Nothing
-    , _copStatus = pStatus
+    { _cdpgrsDBParameterGroup = Nothing
+    , _cdpgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-copDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
-copDBParameterGroup = lens _copDBParameterGroup (\ s a -> s{_copDBParameterGroup = a});
+cdpgrsDBParameterGroup :: Lens' CopyDBParameterGroupResponse (Maybe DBParameterGroup)
+cdpgrsDBParameterGroup = lens _cdpgrsDBParameterGroup (\ s a -> s{_cdpgrsDBParameterGroup = a});
 
 -- | FIXME: Undocumented member.
-copStatus :: Lens' CopyDBParameterGroupResponse Int
-copStatus = lens _copStatus (\ s a -> s{_copStatus = a});
+cdpgrsStatus :: Lens' CopyDBParameterGroupResponse Int
+cdpgrsStatus = lens _cdpgrsStatus (\ s a -> s{_cdpgrsStatus = a});

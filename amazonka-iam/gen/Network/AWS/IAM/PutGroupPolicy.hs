@@ -46,9 +46,9 @@ module Network.AWS.IAM.PutGroupPolicy
     -- ** Request constructor
     , putGroupPolicy
     -- ** Request lenses
-    , pgpGroupName
-    , pgpPolicyName
-    , pgpPolicyDocument
+    , pgprqGroupName
+    , pgprqPolicyName
+    , pgprqPolicyDocument
 
     -- * Response
     , PutGroupPolicyResponse
@@ -65,37 +65,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pgpGroupName'
+-- * 'pgprqGroupName'
 --
--- * 'pgpPolicyName'
+-- * 'pgprqPolicyName'
 --
--- * 'pgpPolicyDocument'
+-- * 'pgprqPolicyDocument'
 data PutGroupPolicy = PutGroupPolicy'
-    { _pgpGroupName      :: !Text
-    , _pgpPolicyName     :: !Text
-    , _pgpPolicyDocument :: !Text
+    { _pgprqGroupName      :: !Text
+    , _pgprqPolicyName     :: !Text
+    , _pgprqPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutGroupPolicy' smart constructor.
 putGroupPolicy :: Text -> Text -> Text -> PutGroupPolicy
 putGroupPolicy pGroupName pPolicyName pPolicyDocument =
     PutGroupPolicy'
-    { _pgpGroupName = pGroupName
-    , _pgpPolicyName = pPolicyName
-    , _pgpPolicyDocument = pPolicyDocument
+    { _pgprqGroupName = pGroupName
+    , _pgprqPolicyName = pPolicyName
+    , _pgprqPolicyDocument = pPolicyDocument
     }
 
 -- | The name of the group to associate the policy with.
-pgpGroupName :: Lens' PutGroupPolicy Text
-pgpGroupName = lens _pgpGroupName (\ s a -> s{_pgpGroupName = a});
+pgprqGroupName :: Lens' PutGroupPolicy Text
+pgprqGroupName = lens _pgprqGroupName (\ s a -> s{_pgprqGroupName = a});
 
 -- | The name of the policy document.
-pgpPolicyName :: Lens' PutGroupPolicy Text
-pgpPolicyName = lens _pgpPolicyName (\ s a -> s{_pgpPolicyName = a});
+pgprqPolicyName :: Lens' PutGroupPolicy Text
+pgprqPolicyName = lens _pgprqPolicyName (\ s a -> s{_pgprqPolicyName = a});
 
 -- | The policy document.
-pgpPolicyDocument :: Lens' PutGroupPolicy Text
-pgpPolicyDocument = lens _pgpPolicyDocument (\ s a -> s{_pgpPolicyDocument = a});
+pgprqPolicyDocument :: Lens' PutGroupPolicy Text
+pgprqPolicyDocument = lens _pgprqPolicyDocument (\ s a -> s{_pgprqPolicyDocument = a});
 
 instance AWSRequest PutGroupPolicy where
         type Sv PutGroupPolicy = IAM
@@ -114,9 +114,9 @@ instance ToQuery PutGroupPolicy where
           = mconcat
               ["Action" =: ("PutGroupPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _pgpGroupName,
-               "PolicyName" =: _pgpPolicyName,
-               "PolicyDocument" =: _pgpPolicyDocument]
+               "GroupName" =: _pgprqGroupName,
+               "PolicyName" =: _pgprqPolicyName,
+               "PolicyDocument" =: _pgprqPolicyDocument]
 
 -- | /See:/ 'putGroupPolicyResponse' smart constructor.
 data PutGroupPolicyResponse =

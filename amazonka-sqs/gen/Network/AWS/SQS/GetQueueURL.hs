@@ -36,16 +36,16 @@ module Network.AWS.SQS.GetQueueURL
     -- ** Request constructor
     , getQueueURL
     -- ** Request lenses
-    , gquQueueOwnerAWSAccountId
-    , gquQueueName
+    , gqurqQueueOwnerAWSAccountId
+    , gqurqQueueName
 
     -- * Response
     , GetQueueURLResponse
     -- ** Response constructor
     , getQueueURLResponse
     -- ** Response lenses
-    , gqurStatus
-    , gqurQueueURL
+    , gqursStatus
+    , gqursQueueURL
     ) where
 
 import           Network.AWS.Prelude
@@ -57,30 +57,30 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gquQueueOwnerAWSAccountId'
+-- * 'gqurqQueueOwnerAWSAccountId'
 --
--- * 'gquQueueName'
+-- * 'gqurqQueueName'
 data GetQueueURL = GetQueueURL'
-    { _gquQueueOwnerAWSAccountId :: !(Maybe Text)
-    , _gquQueueName              :: !Text
+    { _gqurqQueueOwnerAWSAccountId :: !(Maybe Text)
+    , _gqurqQueueName              :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueURL' smart constructor.
 getQueueURL :: Text -> GetQueueURL
 getQueueURL pQueueName =
     GetQueueURL'
-    { _gquQueueOwnerAWSAccountId = Nothing
-    , _gquQueueName = pQueueName
+    { _gqurqQueueOwnerAWSAccountId = Nothing
+    , _gqurqQueueName = pQueueName
     }
 
 -- | The AWS account ID of the account that created the queue.
-gquQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
-gquQueueOwnerAWSAccountId = lens _gquQueueOwnerAWSAccountId (\ s a -> s{_gquQueueOwnerAWSAccountId = a});
+gqurqQueueOwnerAWSAccountId :: Lens' GetQueueURL (Maybe Text)
+gqurqQueueOwnerAWSAccountId = lens _gqurqQueueOwnerAWSAccountId (\ s a -> s{_gqurqQueueOwnerAWSAccountId = a});
 
 -- | The name of the queue whose URL must be fetched. Maximum 80 characters;
 -- alphanumeric characters, hyphens (-), and underscores (_) are allowed.
-gquQueueName :: Lens' GetQueueURL Text
-gquQueueName = lens _gquQueueName (\ s a -> s{_gquQueueName = a});
+gqurqQueueName :: Lens' GetQueueURL Text
+gqurqQueueName = lens _gqurqQueueName (\ s a -> s{_gqurqQueueName = a});
 
 instance AWSRequest GetQueueURL where
         type Sv GetQueueURL = SQS
@@ -104,8 +104,8 @@ instance ToQuery GetQueueURL where
               ["Action" =: ("GetQueueURL" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
                "QueueOwnerAWSAccountId" =:
-                 _gquQueueOwnerAWSAccountId,
-               "QueueName" =: _gquQueueName]
+                 _gqurqQueueOwnerAWSAccountId,
+               "QueueName" =: _gqurqQueueName]
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/UnderstandingResponses.html Responses>
@@ -115,26 +115,26 @@ instance ToQuery GetQueueURL where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqurStatus'
+-- * 'gqursStatus'
 --
--- * 'gqurQueueURL'
+-- * 'gqursQueueURL'
 data GetQueueURLResponse = GetQueueURLResponse'
-    { _gqurStatus   :: !Int
-    , _gqurQueueURL :: !Text
+    { _gqursStatus   :: !Int
+    , _gqursQueueURL :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueURLResponse' smart constructor.
 getQueueURLResponse :: Int -> Text -> GetQueueURLResponse
 getQueueURLResponse pStatus pQueueURL =
     GetQueueURLResponse'
-    { _gqurStatus = pStatus
-    , _gqurQueueURL = pQueueURL
+    { _gqursStatus = pStatus
+    , _gqursQueueURL = pQueueURL
     }
 
 -- | FIXME: Undocumented member.
-gqurStatus :: Lens' GetQueueURLResponse Int
-gqurStatus = lens _gqurStatus (\ s a -> s{_gqurStatus = a});
+gqursStatus :: Lens' GetQueueURLResponse Int
+gqursStatus = lens _gqursStatus (\ s a -> s{_gqursStatus = a});
 
 -- | The URL for the queue.
-gqurQueueURL :: Lens' GetQueueURLResponse Text
-gqurQueueURL = lens _gqurQueueURL (\ s a -> s{_gqurQueueURL = a});
+gqursQueueURL :: Lens' GetQueueURLResponse Text
+gqursQueueURL = lens _gqursQueueURL (\ s a -> s{_gqursQueueURL = a});

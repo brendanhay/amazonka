@@ -41,15 +41,15 @@ module Network.AWS.IAM.GetPolicy
     -- ** Request constructor
     , getPolicy
     -- ** Request lenses
-    , gpPolicyARN
+    , gprqPolicyARN
 
     -- * Response
     , GetPolicyResponse
     -- ** Response constructor
     , getPolicyResponse
     -- ** Response lenses
-    , gprPolicy
-    , gprStatus
+    , gprsPolicy
+    , gprsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -61,21 +61,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpPolicyARN'
+-- * 'gprqPolicyARN'
 newtype GetPolicy = GetPolicy'
-    { _gpPolicyARN :: Text
+    { _gprqPolicyARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicy' smart constructor.
 getPolicy :: Text -> GetPolicy
 getPolicy pPolicyARN =
     GetPolicy'
-    { _gpPolicyARN = pPolicyARN
+    { _gprqPolicyARN = pPolicyARN
     }
 
 -- | FIXME: Undocumented member.
-gpPolicyARN :: Lens' GetPolicy Text
-gpPolicyARN = lens _gpPolicyARN (\ s a -> s{_gpPolicyARN = a});
+gprqPolicyARN :: Lens' GetPolicy Text
+gprqPolicyARN = lens _gprqPolicyARN (\ s a -> s{_gprqPolicyARN = a});
 
 instance AWSRequest GetPolicy where
         type Sv GetPolicy = IAM
@@ -98,7 +98,7 @@ instance ToQuery GetPolicy where
           = mconcat
               ["Action" =: ("GetPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _gpPolicyARN]
+               "PolicyArn" =: _gprqPolicyARN]
 
 -- | Contains the response to a successful GetPolicy request.
 --
@@ -106,26 +106,26 @@ instance ToQuery GetPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gprPolicy'
+-- * 'gprsPolicy'
 --
--- * 'gprStatus'
+-- * 'gprsStatus'
 data GetPolicyResponse = GetPolicyResponse'
-    { _gprPolicy :: !(Maybe Policy)
-    , _gprStatus :: !Int
+    { _gprsPolicy :: !(Maybe Policy)
+    , _gprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicyResponse' smart constructor.
 getPolicyResponse :: Int -> GetPolicyResponse
 getPolicyResponse pStatus =
     GetPolicyResponse'
-    { _gprPolicy = Nothing
-    , _gprStatus = pStatus
+    { _gprsPolicy = Nothing
+    , _gprsStatus = pStatus
     }
 
 -- | Information about the policy.
-gprPolicy :: Lens' GetPolicyResponse (Maybe Policy)
-gprPolicy = lens _gprPolicy (\ s a -> s{_gprPolicy = a});
+gprsPolicy :: Lens' GetPolicyResponse (Maybe Policy)
+gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 
 -- | FIXME: Undocumented member.
-gprStatus :: Lens' GetPolicyResponse Int
-gprStatus = lens _gprStatus (\ s a -> s{_gprStatus = a});
+gprsStatus :: Lens' GetPolicyResponse Int
+gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

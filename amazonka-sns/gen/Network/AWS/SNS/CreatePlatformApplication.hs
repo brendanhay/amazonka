@@ -41,17 +41,17 @@ module Network.AWS.SNS.CreatePlatformApplication
     -- ** Request constructor
     , createPlatformApplication
     -- ** Request lenses
-    , cpaName
-    , cpaPlatform
-    , cpaAttributes
+    , cparqName
+    , cparqPlatform
+    , cparqAttributes
 
     -- * Response
     , CreatePlatformApplicationResponse
     -- ** Response constructor
     , createPlatformApplicationResponse
     -- ** Response lenses
-    , cparPlatformApplicationARN
-    , cparStatus
+    , cparsPlatformApplicationARN
+    , cparsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -65,42 +65,42 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpaName'
+-- * 'cparqName'
 --
--- * 'cpaPlatform'
+-- * 'cparqPlatform'
 --
--- * 'cpaAttributes'
+-- * 'cparqAttributes'
 data CreatePlatformApplication = CreatePlatformApplication'
-    { _cpaName       :: !Text
-    , _cpaPlatform   :: !Text
-    , _cpaAttributes :: !(Map Text Text)
+    { _cparqName       :: !Text
+    , _cparqPlatform   :: !Text
+    , _cparqAttributes :: !(Map Text Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlatformApplication' smart constructor.
 createPlatformApplication :: Text -> Text -> CreatePlatformApplication
 createPlatformApplication pName pPlatform =
     CreatePlatformApplication'
-    { _cpaName = pName
-    , _cpaPlatform = pPlatform
-    , _cpaAttributes = mempty
+    { _cparqName = pName
+    , _cparqPlatform = pPlatform
+    , _cparqAttributes = mempty
     }
 
 -- | Application names must be made up of only uppercase and lowercase ASCII
 -- letters, numbers, underscores, hyphens, and periods, and must be between
 -- 1 and 256 characters long.
-cpaName :: Lens' CreatePlatformApplication Text
-cpaName = lens _cpaName (\ s a -> s{_cpaName = a});
+cparqName :: Lens' CreatePlatformApplication Text
+cparqName = lens _cparqName (\ s a -> s{_cparqName = a});
 
 -- | The following platforms are supported: ADM (Amazon Device Messaging),
 -- APNS (Apple Push Notification Service), APNS_SANDBOX, and GCM (Google
 -- Cloud Messaging).
-cpaPlatform :: Lens' CreatePlatformApplication Text
-cpaPlatform = lens _cpaPlatform (\ s a -> s{_cpaPlatform = a});
+cparqPlatform :: Lens' CreatePlatformApplication Text
+cparqPlatform = lens _cparqPlatform (\ s a -> s{_cparqPlatform = a});
 
 -- | For a list of attributes, see
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html SetPlatformApplicationAttributes>
-cpaAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
-cpaAttributes = lens _cpaAttributes (\ s a -> s{_cpaAttributes = a}) . _Map;
+cparqAttributes :: Lens' CreatePlatformApplication (HashMap Text Text)
+cparqAttributes = lens _cparqAttributes (\ s a -> s{_cparqAttributes = a}) . _Map;
 
 instance AWSRequest CreatePlatformApplication where
         type Sv CreatePlatformApplication = SNS
@@ -126,9 +126,9 @@ instance ToQuery CreatePlatformApplication where
               ["Action" =:
                  ("CreatePlatformApplication" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "Name" =: _cpaName, "Platform" =: _cpaPlatform,
+               "Name" =: _cparqName, "Platform" =: _cparqPlatform,
                "Attributes" =:
-                 toQueryMap "entry" "key" "value" _cpaAttributes]
+                 toQueryMap "entry" "key" "value" _cparqAttributes]
 
 -- | Response from CreatePlatformApplication action.
 --
@@ -136,26 +136,26 @@ instance ToQuery CreatePlatformApplication where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cparPlatformApplicationARN'
+-- * 'cparsPlatformApplicationARN'
 --
--- * 'cparStatus'
+-- * 'cparsStatus'
 data CreatePlatformApplicationResponse = CreatePlatformApplicationResponse'
-    { _cparPlatformApplicationARN :: !(Maybe Text)
-    , _cparStatus                 :: !Int
+    { _cparsPlatformApplicationARN :: !(Maybe Text)
+    , _cparsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlatformApplicationResponse' smart constructor.
 createPlatformApplicationResponse :: Int -> CreatePlatformApplicationResponse
 createPlatformApplicationResponse pStatus =
     CreatePlatformApplicationResponse'
-    { _cparPlatformApplicationARN = Nothing
-    , _cparStatus = pStatus
+    { _cparsPlatformApplicationARN = Nothing
+    , _cparsStatus = pStatus
     }
 
 -- | PlatformApplicationArn is returned.
-cparPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Text)
-cparPlatformApplicationARN = lens _cparPlatformApplicationARN (\ s a -> s{_cparPlatformApplicationARN = a});
+cparsPlatformApplicationARN :: Lens' CreatePlatformApplicationResponse (Maybe Text)
+cparsPlatformApplicationARN = lens _cparsPlatformApplicationARN (\ s a -> s{_cparsPlatformApplicationARN = a});
 
 -- | FIXME: Undocumented member.
-cparStatus :: Lens' CreatePlatformApplicationResponse Int
-cparStatus = lens _cparStatus (\ s a -> s{_cparStatus = a});
+cparsStatus :: Lens' CreatePlatformApplicationResponse Int
+cparsStatus = lens _cparsStatus (\ s a -> s{_cparsStatus = a});

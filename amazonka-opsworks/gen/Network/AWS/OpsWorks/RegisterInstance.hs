@@ -42,21 +42,21 @@ module Network.AWS.OpsWorks.RegisterInstance
     -- ** Request constructor
     , registerInstance
     -- ** Request lenses
-    , riPrivateIP
-    , riHostname
-    , riInstanceIdentity
-    , riPublicIP
-    , riRsaPublicKeyFingerprint
-    , riRsaPublicKey
-    , riStackId
+    , rirqPrivateIP
+    , rirqHostname
+    , rirqInstanceIdentity
+    , rirqPublicIP
+    , rirqRsaPublicKeyFingerprint
+    , rirqRsaPublicKey
+    , rirqStackId
 
     -- * Response
     , RegisterInstanceResponse
     -- ** Response constructor
     , registerInstanceResponse
     -- ** Response lenses
-    , rirInstanceId
-    , rirStatus
+    , rirsInstanceId
+    , rirsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -68,70 +68,70 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riPrivateIP'
+-- * 'rirqPrivateIP'
 --
--- * 'riHostname'
+-- * 'rirqHostname'
 --
--- * 'riInstanceIdentity'
+-- * 'rirqInstanceIdentity'
 --
--- * 'riPublicIP'
+-- * 'rirqPublicIP'
 --
--- * 'riRsaPublicKeyFingerprint'
+-- * 'rirqRsaPublicKeyFingerprint'
 --
--- * 'riRsaPublicKey'
+-- * 'rirqRsaPublicKey'
 --
--- * 'riStackId'
+-- * 'rirqStackId'
 data RegisterInstance = RegisterInstance'
-    { _riPrivateIP               :: !(Maybe Text)
-    , _riHostname                :: !(Maybe Text)
-    , _riInstanceIdentity        :: !(Maybe InstanceIdentity)
-    , _riPublicIP                :: !(Maybe Text)
-    , _riRsaPublicKeyFingerprint :: !(Maybe Text)
-    , _riRsaPublicKey            :: !(Maybe Text)
-    , _riStackId                 :: !Text
+    { _rirqPrivateIP               :: !(Maybe Text)
+    , _rirqHostname                :: !(Maybe Text)
+    , _rirqInstanceIdentity        :: !(Maybe InstanceIdentity)
+    , _rirqPublicIP                :: !(Maybe Text)
+    , _rirqRsaPublicKeyFingerprint :: !(Maybe Text)
+    , _rirqRsaPublicKey            :: !(Maybe Text)
+    , _rirqStackId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstance' smart constructor.
 registerInstance :: Text -> RegisterInstance
 registerInstance pStackId =
     RegisterInstance'
-    { _riPrivateIP = Nothing
-    , _riHostname = Nothing
-    , _riInstanceIdentity = Nothing
-    , _riPublicIP = Nothing
-    , _riRsaPublicKeyFingerprint = Nothing
-    , _riRsaPublicKey = Nothing
-    , _riStackId = pStackId
+    { _rirqPrivateIP = Nothing
+    , _rirqHostname = Nothing
+    , _rirqInstanceIdentity = Nothing
+    , _rirqPublicIP = Nothing
+    , _rirqRsaPublicKeyFingerprint = Nothing
+    , _rirqRsaPublicKey = Nothing
+    , _rirqStackId = pStackId
     }
 
 -- | The instance\'s private IP address.
-riPrivateIP :: Lens' RegisterInstance (Maybe Text)
-riPrivateIP = lens _riPrivateIP (\ s a -> s{_riPrivateIP = a});
+rirqPrivateIP :: Lens' RegisterInstance (Maybe Text)
+rirqPrivateIP = lens _rirqPrivateIP (\ s a -> s{_rirqPrivateIP = a});
 
 -- | The instance\'s hostname.
-riHostname :: Lens' RegisterInstance (Maybe Text)
-riHostname = lens _riHostname (\ s a -> s{_riHostname = a});
+rirqHostname :: Lens' RegisterInstance (Maybe Text)
+rirqHostname = lens _rirqHostname (\ s a -> s{_rirqHostname = a});
 
 -- | An InstanceIdentity object that contains the instance\'s identity.
-riInstanceIdentity :: Lens' RegisterInstance (Maybe InstanceIdentity)
-riInstanceIdentity = lens _riInstanceIdentity (\ s a -> s{_riInstanceIdentity = a});
+rirqInstanceIdentity :: Lens' RegisterInstance (Maybe InstanceIdentity)
+rirqInstanceIdentity = lens _rirqInstanceIdentity (\ s a -> s{_rirqInstanceIdentity = a});
 
 -- | The instance\'s public IP address.
-riPublicIP :: Lens' RegisterInstance (Maybe Text)
-riPublicIP = lens _riPublicIP (\ s a -> s{_riPublicIP = a});
+rirqPublicIP :: Lens' RegisterInstance (Maybe Text)
+rirqPublicIP = lens _rirqPublicIP (\ s a -> s{_rirqPublicIP = a});
 
 -- | The instances public RSA key fingerprint.
-riRsaPublicKeyFingerprint :: Lens' RegisterInstance (Maybe Text)
-riRsaPublicKeyFingerprint = lens _riRsaPublicKeyFingerprint (\ s a -> s{_riRsaPublicKeyFingerprint = a});
+rirqRsaPublicKeyFingerprint :: Lens' RegisterInstance (Maybe Text)
+rirqRsaPublicKeyFingerprint = lens _rirqRsaPublicKeyFingerprint (\ s a -> s{_rirqRsaPublicKeyFingerprint = a});
 
 -- | The instances public RSA key. This key is used to encrypt communication
 -- between the instance and the service.
-riRsaPublicKey :: Lens' RegisterInstance (Maybe Text)
-riRsaPublicKey = lens _riRsaPublicKey (\ s a -> s{_riRsaPublicKey = a});
+rirqRsaPublicKey :: Lens' RegisterInstance (Maybe Text)
+rirqRsaPublicKey = lens _rirqRsaPublicKey (\ s a -> s{_rirqRsaPublicKey = a});
 
 -- | The ID of the stack that the instance is to be registered with.
-riStackId :: Lens' RegisterInstance Text
-riStackId = lens _riStackId (\ s a -> s{_riStackId = a});
+rirqStackId :: Lens' RegisterInstance Text
+rirqStackId = lens _rirqStackId (\ s a -> s{_rirqStackId = a});
 
 instance AWSRequest RegisterInstance where
         type Sv RegisterInstance = OpsWorks
@@ -155,14 +155,14 @@ instance ToHeaders RegisterInstance where
 instance ToJSON RegisterInstance where
         toJSON RegisterInstance'{..}
           = object
-              ["PrivateIp" .= _riPrivateIP,
-               "Hostname" .= _riHostname,
-               "InstanceIdentity" .= _riInstanceIdentity,
-               "PublicIp" .= _riPublicIP,
+              ["PrivateIp" .= _rirqPrivateIP,
+               "Hostname" .= _rirqHostname,
+               "InstanceIdentity" .= _rirqInstanceIdentity,
+               "PublicIp" .= _rirqPublicIP,
                "RsaPublicKeyFingerprint" .=
-                 _riRsaPublicKeyFingerprint,
-               "RsaPublicKey" .= _riRsaPublicKey,
-               "StackId" .= _riStackId]
+                 _rirqRsaPublicKeyFingerprint,
+               "RsaPublicKey" .= _rirqRsaPublicKey,
+               "StackId" .= _rirqStackId]
 
 instance ToPath RegisterInstance where
         toPath = const "/"
@@ -176,26 +176,26 @@ instance ToQuery RegisterInstance where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rirInstanceId'
+-- * 'rirsInstanceId'
 --
--- * 'rirStatus'
+-- * 'rirsStatus'
 data RegisterInstanceResponse = RegisterInstanceResponse'
-    { _rirInstanceId :: !(Maybe Text)
-    , _rirStatus     :: !Int
+    { _rirsInstanceId :: !(Maybe Text)
+    , _rirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterInstanceResponse' smart constructor.
 registerInstanceResponse :: Int -> RegisterInstanceResponse
 registerInstanceResponse pStatus =
     RegisterInstanceResponse'
-    { _rirInstanceId = Nothing
-    , _rirStatus = pStatus
+    { _rirsInstanceId = Nothing
+    , _rirsStatus = pStatus
     }
 
 -- | The registered instance\'s AWS OpsWorks ID.
-rirInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
-rirInstanceId = lens _rirInstanceId (\ s a -> s{_rirInstanceId = a});
+rirsInstanceId :: Lens' RegisterInstanceResponse (Maybe Text)
+rirsInstanceId = lens _rirsInstanceId (\ s a -> s{_rirsInstanceId = a});
 
 -- | FIXME: Undocumented member.
-rirStatus :: Lens' RegisterInstanceResponse Int
-rirStatus = lens _rirStatus (\ s a -> s{_rirStatus = a});
+rirsStatus :: Lens' RegisterInstanceResponse Int
+rirsStatus = lens _rirsStatus (\ s a -> s{_rirsStatus = a});

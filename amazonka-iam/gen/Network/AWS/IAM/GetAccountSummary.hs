@@ -37,8 +37,8 @@ module Network.AWS.IAM.GetAccountSummary
     -- ** Response constructor
     , getAccountSummaryResponse
     -- ** Response lenses
-    , gasrSummaryMap
-    , gasrStatus
+    , gasrsSummaryMap
+    , gasrsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -86,20 +86,20 @@ instance ToQuery GetAccountSummary where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gasrSummaryMap'
+-- * 'gasrsSummaryMap'
 --
--- * 'gasrStatus'
+-- * 'gasrsStatus'
 data GetAccountSummaryResponse = GetAccountSummaryResponse'
-    { _gasrSummaryMap :: !(Maybe (Map SummaryKeyType Int))
-    , _gasrStatus     :: !Int
+    { _gasrsSummaryMap :: !(Maybe (Map SummaryKeyType Int))
+    , _gasrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountSummaryResponse' smart constructor.
 getAccountSummaryResponse :: Int -> GetAccountSummaryResponse
 getAccountSummaryResponse pStatus =
     GetAccountSummaryResponse'
-    { _gasrSummaryMap = Nothing
-    , _gasrStatus = pStatus
+    { _gasrsSummaryMap = Nothing
+    , _gasrsStatus = pStatus
     }
 
 -- | A set of key value pairs containing information about IAM entity usage
@@ -255,9 +255,9 @@ getAccountSummaryResponse pStatus =
 --     The maximum number of policy versions allowed for each managed
 --     policy.
 --
-gasrSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
-gasrSummaryMap = lens _gasrSummaryMap (\ s a -> s{_gasrSummaryMap = a}) . _Default . _Map;
+gasrsSummaryMap :: Lens' GetAccountSummaryResponse (HashMap SummaryKeyType Int)
+gasrsSummaryMap = lens _gasrsSummaryMap (\ s a -> s{_gasrsSummaryMap = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gasrStatus :: Lens' GetAccountSummaryResponse Int
-gasrStatus = lens _gasrStatus (\ s a -> s{_gasrStatus = a});
+gasrsStatus :: Lens' GetAccountSummaryResponse Int
+gasrsStatus = lens _gasrsStatus (\ s a -> s{_gasrsStatus = a});

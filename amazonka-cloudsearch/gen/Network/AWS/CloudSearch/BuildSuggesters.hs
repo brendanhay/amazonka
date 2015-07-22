@@ -29,15 +29,15 @@ module Network.AWS.CloudSearch.BuildSuggesters
     -- ** Request constructor
     , buildSuggesters
     -- ** Request lenses
-    , bsDomainName
+    , bsrqDomainName
 
     -- * Response
     , BuildSuggestersResponse
     -- ** Response constructor
     , buildSuggestersResponse
     -- ** Response lenses
-    , bsrFieldNames
-    , bsrStatus
+    , bsrsFieldNames
+    , bsrsStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bsDomainName'
+-- * 'bsrqDomainName'
 newtype BuildSuggesters = BuildSuggesters'
-    { _bsDomainName :: Text
+    { _bsrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BuildSuggesters' smart constructor.
 buildSuggesters :: Text -> BuildSuggesters
 buildSuggesters pDomainName =
     BuildSuggesters'
-    { _bsDomainName = pDomainName
+    { _bsrqDomainName = pDomainName
     }
 
 -- | FIXME: Undocumented member.
-bsDomainName :: Lens' BuildSuggesters Text
-bsDomainName = lens _bsDomainName (\ s a -> s{_bsDomainName = a});
+bsrqDomainName :: Lens' BuildSuggesters Text
+bsrqDomainName = lens _bsrqDomainName (\ s a -> s{_bsrqDomainName = a});
 
 instance AWSRequest BuildSuggesters where
         type Sv BuildSuggesters = CloudSearch
@@ -91,7 +91,7 @@ instance ToQuery BuildSuggesters where
           = mconcat
               ["Action" =: ("BuildSuggesters" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _bsDomainName]
+               "DomainName" =: _bsrqDomainName]
 
 -- | The result of a @BuildSuggester@ request. Contains a list of the fields
 -- used for suggestions.
@@ -100,26 +100,26 @@ instance ToQuery BuildSuggesters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bsrFieldNames'
+-- * 'bsrsFieldNames'
 --
--- * 'bsrStatus'
+-- * 'bsrsStatus'
 data BuildSuggestersResponse = BuildSuggestersResponse'
-    { _bsrFieldNames :: !(Maybe [Text])
-    , _bsrStatus     :: !Int
+    { _bsrsFieldNames :: !(Maybe [Text])
+    , _bsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BuildSuggestersResponse' smart constructor.
 buildSuggestersResponse :: Int -> BuildSuggestersResponse
 buildSuggestersResponse pStatus =
     BuildSuggestersResponse'
-    { _bsrFieldNames = Nothing
-    , _bsrStatus = pStatus
+    { _bsrsFieldNames = Nothing
+    , _bsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-bsrFieldNames :: Lens' BuildSuggestersResponse [Text]
-bsrFieldNames = lens _bsrFieldNames (\ s a -> s{_bsrFieldNames = a}) . _Default;
+bsrsFieldNames :: Lens' BuildSuggestersResponse [Text]
+bsrsFieldNames = lens _bsrsFieldNames (\ s a -> s{_bsrsFieldNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bsrStatus :: Lens' BuildSuggestersResponse Int
-bsrStatus = lens _bsrStatus (\ s a -> s{_bsrStatus = a});
+bsrsStatus :: Lens' BuildSuggestersResponse Int
+bsrsStatus = lens _bsrsStatus (\ s a -> s{_bsrsStatus = a});

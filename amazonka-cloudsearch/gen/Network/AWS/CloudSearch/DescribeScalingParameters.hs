@@ -31,15 +31,15 @@ module Network.AWS.CloudSearch.DescribeScalingParameters
     -- ** Request constructor
     , describeScalingParameters
     -- ** Request lenses
-    , dspDomainName
+    , dsprqDomainName
 
     -- * Response
     , DescribeScalingParametersResponse
     -- ** Response constructor
     , describeScalingParametersResponse
     -- ** Response lenses
-    , dsprStatus
-    , dsprScalingParameters
+    , dsprsStatus
+    , dsprsScalingParameters
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dspDomainName'
+-- * 'dsprqDomainName'
 newtype DescribeScalingParameters = DescribeScalingParameters'
-    { _dspDomainName :: Text
+    { _dsprqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingParameters' smart constructor.
 describeScalingParameters :: Text -> DescribeScalingParameters
 describeScalingParameters pDomainName =
     DescribeScalingParameters'
-    { _dspDomainName = pDomainName
+    { _dsprqDomainName = pDomainName
     }
 
 -- | FIXME: Undocumented member.
-dspDomainName :: Lens' DescribeScalingParameters Text
-dspDomainName = lens _dspDomainName (\ s a -> s{_dspDomainName = a});
+dsprqDomainName :: Lens' DescribeScalingParameters Text
+dsprqDomainName = lens _dsprqDomainName (\ s a -> s{_dsprqDomainName = a});
 
 instance AWSRequest DescribeScalingParameters where
         type Sv DescribeScalingParameters = CloudSearch
@@ -93,7 +93,7 @@ instance ToQuery DescribeScalingParameters where
               ["Action" =:
                  ("DescribeScalingParameters" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _dspDomainName]
+               "DomainName" =: _dsprqDomainName]
 
 -- | The result of a @DescribeScalingParameters@ request. Contains the
 -- scaling parameters configured for the domain specified in the request.
@@ -102,26 +102,26 @@ instance ToQuery DescribeScalingParameters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsprStatus'
+-- * 'dsprsStatus'
 --
--- * 'dsprScalingParameters'
+-- * 'dsprsScalingParameters'
 data DescribeScalingParametersResponse = DescribeScalingParametersResponse'
-    { _dsprStatus            :: !Int
-    , _dsprScalingParameters :: !ScalingParametersStatus
+    { _dsprsStatus            :: !Int
+    , _dsprsScalingParameters :: !ScalingParametersStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingParametersResponse' smart constructor.
 describeScalingParametersResponse :: Int -> ScalingParametersStatus -> DescribeScalingParametersResponse
 describeScalingParametersResponse pStatus pScalingParameters =
     DescribeScalingParametersResponse'
-    { _dsprStatus = pStatus
-    , _dsprScalingParameters = pScalingParameters
+    { _dsprsStatus = pStatus
+    , _dsprsScalingParameters = pScalingParameters
     }
 
 -- | FIXME: Undocumented member.
-dsprStatus :: Lens' DescribeScalingParametersResponse Int
-dsprStatus = lens _dsprStatus (\ s a -> s{_dsprStatus = a});
+dsprsStatus :: Lens' DescribeScalingParametersResponse Int
+dsprsStatus = lens _dsprsStatus (\ s a -> s{_dsprsStatus = a});
 
 -- | FIXME: Undocumented member.
-dsprScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
-dsprScalingParameters = lens _dsprScalingParameters (\ s a -> s{_dsprScalingParameters = a});
+dsprsScalingParameters :: Lens' DescribeScalingParametersResponse ScalingParametersStatus
+dsprsScalingParameters = lens _dsprsScalingParameters (\ s a -> s{_dsprsScalingParameters = a});

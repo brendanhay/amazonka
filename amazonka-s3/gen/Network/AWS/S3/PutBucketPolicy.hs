@@ -28,9 +28,9 @@ module Network.AWS.S3.PutBucketPolicy
     -- ** Request constructor
     , putBucketPolicy
     -- ** Request lenses
-    , pbpContentMD5
-    , pbpBucket
-    , pbpPolicy
+    , pbprqContentMD5
+    , pbprqBucket
+    , pbprqPolicy
 
     -- * Response
     , PutBucketPolicyResponse
@@ -47,37 +47,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pbpContentMD5'
+-- * 'pbprqContentMD5'
 --
--- * 'pbpBucket'
+-- * 'pbprqBucket'
 --
--- * 'pbpPolicy'
+-- * 'pbprqPolicy'
 data PutBucketPolicy = PutBucketPolicy'
-    { _pbpContentMD5 :: !(Maybe Text)
-    , _pbpBucket     :: !BucketName
-    , _pbpPolicy     :: !Text
+    { _pbprqContentMD5 :: !(Maybe Text)
+    , _pbprqBucket     :: !BucketName
+    , _pbprqPolicy     :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketPolicy' smart constructor.
 putBucketPolicy :: BucketName -> Text -> PutBucketPolicy
 putBucketPolicy pBucket pPolicy =
     PutBucketPolicy'
-    { _pbpContentMD5 = Nothing
-    , _pbpBucket = pBucket
-    , _pbpPolicy = pPolicy
+    { _pbprqContentMD5 = Nothing
+    , _pbprqBucket = pBucket
+    , _pbprqPolicy = pPolicy
     }
 
 -- | FIXME: Undocumented member.
-pbpContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
-pbpContentMD5 = lens _pbpContentMD5 (\ s a -> s{_pbpContentMD5 = a});
+pbprqContentMD5 :: Lens' PutBucketPolicy (Maybe Text)
+pbprqContentMD5 = lens _pbprqContentMD5 (\ s a -> s{_pbprqContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-pbpBucket :: Lens' PutBucketPolicy BucketName
-pbpBucket = lens _pbpBucket (\ s a -> s{_pbpBucket = a});
+pbprqBucket :: Lens' PutBucketPolicy BucketName
+pbprqBucket = lens _pbprqBucket (\ s a -> s{_pbprqBucket = a});
 
 -- | The bucket policy as a JSON document.
-pbpPolicy :: Lens' PutBucketPolicy Text
-pbpPolicy = lens _pbpPolicy (\ s a -> s{_pbpPolicy = a});
+pbprqPolicy :: Lens' PutBucketPolicy Text
+pbprqPolicy = lens _pbprqPolicy (\ s a -> s{_pbprqPolicy = a});
 
 instance AWSRequest PutBucketPolicy where
         type Sv PutBucketPolicy = S3
@@ -86,15 +86,15 @@ instance AWSRequest PutBucketPolicy where
         response = receiveNull PutBucketPolicyResponse'
 
 instance ToElement PutBucketPolicy where
-        toElement = mkElement "Policy" . _pbpPolicy
+        toElement = mkElement "Policy" . _pbprqPolicy
 
 instance ToHeaders PutBucketPolicy where
         toHeaders PutBucketPolicy'{..}
-          = mconcat ["Content-MD5" =# _pbpContentMD5]
+          = mconcat ["Content-MD5" =# _pbprqContentMD5]
 
 instance ToPath PutBucketPolicy where
         toPath PutBucketPolicy'{..}
-          = mconcat ["/", toText _pbpBucket]
+          = mconcat ["/", toText _pbprqBucket]
 
 instance ToQuery PutBucketPolicy where
         toQuery = const (mconcat ["policy"])

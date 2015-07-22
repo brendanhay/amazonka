@@ -57,16 +57,16 @@ module Network.AWS.Route53.ChangeResourceRecordSets
     -- ** Request constructor
     , changeResourceRecordSets
     -- ** Request lenses
-    , crrsHostedZoneId
-    , crrsChangeBatch
+    , crrsrqHostedZoneId
+    , crrsrqChangeBatch
 
     -- * Response
     , ChangeResourceRecordSetsResponse
     -- ** Response constructor
     , changeResourceRecordSetsResponse
     -- ** Response lenses
-    , crrsrStatus
-    , crrsrChangeInfo
+    , crrsrsStatus
+    , crrsrsChangeInfo
     ) where
 
 import           Network.AWS.Prelude
@@ -80,31 +80,31 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrsHostedZoneId'
+-- * 'crrsrqHostedZoneId'
 --
--- * 'crrsChangeBatch'
+-- * 'crrsrqChangeBatch'
 data ChangeResourceRecordSets = ChangeResourceRecordSets'
-    { _crrsHostedZoneId :: !Text
-    , _crrsChangeBatch  :: !ChangeBatch
+    { _crrsrqHostedZoneId :: !Text
+    , _crrsrqChangeBatch  :: !ChangeBatch
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'ChangeResourceRecordSets' smart constructor.
 changeResourceRecordSets :: Text -> ChangeBatch -> ChangeResourceRecordSets
 changeResourceRecordSets pHostedZoneId pChangeBatch =
     ChangeResourceRecordSets'
-    { _crrsHostedZoneId = pHostedZoneId
-    , _crrsChangeBatch = pChangeBatch
+    { _crrsrqHostedZoneId = pHostedZoneId
+    , _crrsrqChangeBatch = pChangeBatch
     }
 
 -- | The ID of the hosted zone that contains the resource record sets that
 -- you want to change.
-crrsHostedZoneId :: Lens' ChangeResourceRecordSets Text
-crrsHostedZoneId = lens _crrsHostedZoneId (\ s a -> s{_crrsHostedZoneId = a});
+crrsrqHostedZoneId :: Lens' ChangeResourceRecordSets Text
+crrsrqHostedZoneId = lens _crrsrqHostedZoneId (\ s a -> s{_crrsrqHostedZoneId = a});
 
 -- | A complex type that contains an optional comment and the @Changes@
 -- element.
-crrsChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
-crrsChangeBatch = lens _crrsChangeBatch (\ s a -> s{_crrsChangeBatch = a});
+crrsrqChangeBatch :: Lens' ChangeResourceRecordSets ChangeBatch
+crrsrqChangeBatch = lens _crrsrqChangeBatch (\ s a -> s{_crrsrqChangeBatch = a});
 
 instance AWSRequest ChangeResourceRecordSets where
         type Sv ChangeResourceRecordSets = Route53
@@ -128,15 +128,15 @@ instance ToHeaders ChangeResourceRecordSets where
 instance ToPath ChangeResourceRecordSets where
         toPath ChangeResourceRecordSets'{..}
           = mconcat
-              ["/2013-04-01/hostedzone/", toText _crrsHostedZoneId,
-               "/rrset/"]
+              ["/2013-04-01/hostedzone/",
+               toText _crrsrqHostedZoneId, "/rrset/"]
 
 instance ToQuery ChangeResourceRecordSets where
         toQuery = const mempty
 
 instance ToXML ChangeResourceRecordSets where
         toXML ChangeResourceRecordSets'{..}
-          = mconcat ["ChangeBatch" @= _crrsChangeBatch]
+          = mconcat ["ChangeBatch" @= _crrsrqChangeBatch]
 
 -- | A complex type containing the response for the request.
 --
@@ -144,30 +144,30 @@ instance ToXML ChangeResourceRecordSets where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrsrStatus'
+-- * 'crrsrsStatus'
 --
--- * 'crrsrChangeInfo'
+-- * 'crrsrsChangeInfo'
 data ChangeResourceRecordSetsResponse = ChangeResourceRecordSetsResponse'
-    { _crrsrStatus     :: !Int
-    , _crrsrChangeInfo :: !ChangeInfo
+    { _crrsrsStatus     :: !Int
+    , _crrsrsChangeInfo :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeResourceRecordSetsResponse' smart constructor.
 changeResourceRecordSetsResponse :: Int -> ChangeInfo -> ChangeResourceRecordSetsResponse
 changeResourceRecordSetsResponse pStatus pChangeInfo =
     ChangeResourceRecordSetsResponse'
-    { _crrsrStatus = pStatus
-    , _crrsrChangeInfo = pChangeInfo
+    { _crrsrsStatus = pStatus
+    , _crrsrsChangeInfo = pChangeInfo
     }
 
 -- | FIXME: Undocumented member.
-crrsrStatus :: Lens' ChangeResourceRecordSetsResponse Int
-crrsrStatus = lens _crrsrStatus (\ s a -> s{_crrsrStatus = a});
+crrsrsStatus :: Lens' ChangeResourceRecordSetsResponse Int
+crrsrsStatus = lens _crrsrsStatus (\ s a -> s{_crrsrsStatus = a});
 
 -- | A complex type that contains information about changes made to your
 -- hosted zone.
 --
 -- This element contains an ID that you use when performing a GetChange
 -- action to get detailed information about the change.
-crrsrChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
-crrsrChangeInfo = lens _crrsrChangeInfo (\ s a -> s{_crrsrChangeInfo = a});
+crrsrsChangeInfo :: Lens' ChangeResourceRecordSetsResponse ChangeInfo
+crrsrsChangeInfo = lens _crrsrsChangeInfo (\ s a -> s{_crrsrsChangeInfo = a});

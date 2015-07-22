@@ -38,20 +38,20 @@ module Network.AWS.EC2.CreateImage
     -- ** Request constructor
     , createImage
     -- ** Request lenses
-    , ciiNoReboot
-    , ciiBlockDeviceMappings
-    , ciiDryRun
-    , ciiDescription
-    , ciiInstanceId
-    , ciiName
+    , ciirqNoReboot
+    , ciirqBlockDeviceMappings
+    , ciirqDryRun
+    , ciirqDescription
+    , ciirqInstanceId
+    , ciirqName
 
     -- * Response
     , CreateImageResponse
     -- ** Response constructor
     , createImageResponse
     -- ** Response lenses
-    , cirImageId
-    , cirStatus
+    , ciirsImageId
+    , ciirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -63,36 +63,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ciiNoReboot'
+-- * 'ciirqNoReboot'
 --
--- * 'ciiBlockDeviceMappings'
+-- * 'ciirqBlockDeviceMappings'
 --
--- * 'ciiDryRun'
+-- * 'ciirqDryRun'
 --
--- * 'ciiDescription'
+-- * 'ciirqDescription'
 --
--- * 'ciiInstanceId'
+-- * 'ciirqInstanceId'
 --
--- * 'ciiName'
+-- * 'ciirqName'
 data CreateImage = CreateImage'
-    { _ciiNoReboot            :: !(Maybe Bool)
-    , _ciiBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
-    , _ciiDryRun              :: !(Maybe Bool)
-    , _ciiDescription         :: !(Maybe Text)
-    , _ciiInstanceId          :: !Text
-    , _ciiName                :: !Text
+    { _ciirqNoReboot            :: !(Maybe Bool)
+    , _ciirqBlockDeviceMappings :: !(Maybe [BlockDeviceMapping])
+    , _ciirqDryRun              :: !(Maybe Bool)
+    , _ciirqDescription         :: !(Maybe Text)
+    , _ciirqInstanceId          :: !Text
+    , _ciirqName                :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateImage' smart constructor.
 createImage :: Text -> Text -> CreateImage
 createImage pInstanceId pName =
     CreateImage'
-    { _ciiNoReboot = Nothing
-    , _ciiBlockDeviceMappings = Nothing
-    , _ciiDryRun = Nothing
-    , _ciiDescription = Nothing
-    , _ciiInstanceId = pInstanceId
-    , _ciiName = pName
+    { _ciirqNoReboot = Nothing
+    , _ciirqBlockDeviceMappings = Nothing
+    , _ciirqDryRun = Nothing
+    , _ciirqDescription = Nothing
+    , _ciirqInstanceId = pInstanceId
+    , _ciirqName = pName
     }
 
 -- | By default, this parameter is set to @false@, which means Amazon EC2
@@ -101,35 +101,35 @@ createImage pInstanceId pName =
 -- EC2 doesn\'t shut down the instance before creating the image. When this
 -- option is used, file system integrity on the created image can\'t be
 -- guaranteed.
-ciiNoReboot :: Lens' CreateImage (Maybe Bool)
-ciiNoReboot = lens _ciiNoReboot (\ s a -> s{_ciiNoReboot = a});
+ciirqNoReboot :: Lens' CreateImage (Maybe Bool)
+ciirqNoReboot = lens _ciirqNoReboot (\ s a -> s{_ciirqNoReboot = a});
 
 -- | Information about one or more block device mappings.
-ciiBlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
-ciiBlockDeviceMappings = lens _ciiBlockDeviceMappings (\ s a -> s{_ciiBlockDeviceMappings = a}) . _Default;
+ciirqBlockDeviceMappings :: Lens' CreateImage [BlockDeviceMapping]
+ciirqBlockDeviceMappings = lens _ciirqBlockDeviceMappings (\ s a -> s{_ciirqBlockDeviceMappings = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ciiDryRun :: Lens' CreateImage (Maybe Bool)
-ciiDryRun = lens _ciiDryRun (\ s a -> s{_ciiDryRun = a});
+ciirqDryRun :: Lens' CreateImage (Maybe Bool)
+ciirqDryRun = lens _ciirqDryRun (\ s a -> s{_ciirqDryRun = a});
 
 -- | A description for the new image.
-ciiDescription :: Lens' CreateImage (Maybe Text)
-ciiDescription = lens _ciiDescription (\ s a -> s{_ciiDescription = a});
+ciirqDescription :: Lens' CreateImage (Maybe Text)
+ciirqDescription = lens _ciirqDescription (\ s a -> s{_ciirqDescription = a});
 
 -- | The ID of the instance.
-ciiInstanceId :: Lens' CreateImage Text
-ciiInstanceId = lens _ciiInstanceId (\ s a -> s{_ciiInstanceId = a});
+ciirqInstanceId :: Lens' CreateImage Text
+ciirqInstanceId = lens _ciirqInstanceId (\ s a -> s{_ciirqInstanceId = a});
 
 -- | A name for the new image.
 --
 -- Constraints: 3-128 alphanumeric characters, parentheses (()), square
 -- brackets ([]), spaces ( ), periods (.), slashes (\/), dashes (-), single
 -- quotes (\'), at-signs (\@), or underscores(_)
-ciiName :: Lens' CreateImage Text
-ciiName = lens _ciiName (\ s a -> s{_ciiName = a});
+ciirqName :: Lens' CreateImage Text
+ciirqName = lens _ciirqName (\ s a -> s{_ciirqName = a});
 
 instance AWSRequest CreateImage where
         type Sv CreateImage = EC2
@@ -152,38 +152,39 @@ instance ToQuery CreateImage where
           = mconcat
               ["Action" =: ("CreateImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "NoReboot" =: _ciiNoReboot,
+               "NoReboot" =: _ciirqNoReboot,
                toQuery
                  (toQueryList "BlockDeviceMapping" <$>
-                    _ciiBlockDeviceMappings),
-               "DryRun" =: _ciiDryRun,
-               "Description" =: _ciiDescription,
-               "InstanceId" =: _ciiInstanceId, "Name" =: _ciiName]
+                    _ciirqBlockDeviceMappings),
+               "DryRun" =: _ciirqDryRun,
+               "Description" =: _ciirqDescription,
+               "InstanceId" =: _ciirqInstanceId,
+               "Name" =: _ciirqName]
 
 -- | /See:/ 'createImageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cirImageId'
+-- * 'ciirsImageId'
 --
--- * 'cirStatus'
+-- * 'ciirsStatus'
 data CreateImageResponse = CreateImageResponse'
-    { _cirImageId :: !(Maybe Text)
-    , _cirStatus  :: !Int
+    { _ciirsImageId :: !(Maybe Text)
+    , _ciirsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateImageResponse' smart constructor.
 createImageResponse :: Int -> CreateImageResponse
 createImageResponse pStatus =
     CreateImageResponse'
-    { _cirImageId = Nothing
-    , _cirStatus = pStatus
+    { _ciirsImageId = Nothing
+    , _ciirsStatus = pStatus
     }
 
 -- | The ID of the new AMI.
-cirImageId :: Lens' CreateImageResponse (Maybe Text)
-cirImageId = lens _cirImageId (\ s a -> s{_cirImageId = a});
+ciirsImageId :: Lens' CreateImageResponse (Maybe Text)
+ciirsImageId = lens _ciirsImageId (\ s a -> s{_ciirsImageId = a});
 
 -- | FIXME: Undocumented member.
-cirStatus :: Lens' CreateImageResponse Int
-cirStatus = lens _cirStatus (\ s a -> s{_cirStatus = a});
+ciirsStatus :: Lens' CreateImageResponse Int
+ciirsStatus = lens _ciirsStatus (\ s a -> s{_ciirsStatus = a});

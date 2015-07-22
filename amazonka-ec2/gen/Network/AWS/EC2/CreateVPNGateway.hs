@@ -33,17 +33,17 @@ module Network.AWS.EC2.CreateVPNGateway
     -- ** Request constructor
     , createVPNGateway
     -- ** Request lenses
-    , cvgAvailabilityZone
-    , cvgDryRun
-    , cvgType
+    , cvgrqAvailabilityZone
+    , cvgrqDryRun
+    , cvgrqType
 
     -- * Response
     , CreateVPNGatewayResponse
     -- ** Response constructor
     , createVPNGatewayResponse
     -- ** Response lenses
-    , cvgrVPNGateway
-    , cvgrStatus
+    , cvgrsVPNGateway
+    , cvgrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -55,40 +55,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvgAvailabilityZone'
+-- * 'cvgrqAvailabilityZone'
 --
--- * 'cvgDryRun'
+-- * 'cvgrqDryRun'
 --
--- * 'cvgType'
+-- * 'cvgrqType'
 data CreateVPNGateway = CreateVPNGateway'
-    { _cvgAvailabilityZone :: !(Maybe Text)
-    , _cvgDryRun           :: !(Maybe Bool)
-    , _cvgType             :: !GatewayType
+    { _cvgrqAvailabilityZone :: !(Maybe Text)
+    , _cvgrqDryRun           :: !(Maybe Bool)
+    , _cvgrqType             :: !GatewayType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNGateway' smart constructor.
 createVPNGateway :: GatewayType -> CreateVPNGateway
 createVPNGateway pType =
     CreateVPNGateway'
-    { _cvgAvailabilityZone = Nothing
-    , _cvgDryRun = Nothing
-    , _cvgType = pType
+    { _cvgrqAvailabilityZone = Nothing
+    , _cvgrqDryRun = Nothing
+    , _cvgrqType = pType
     }
 
 -- | The Availability Zone for the virtual private gateway.
-cvgAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
-cvgAvailabilityZone = lens _cvgAvailabilityZone (\ s a -> s{_cvgAvailabilityZone = a});
+cvgrqAvailabilityZone :: Lens' CreateVPNGateway (Maybe Text)
+cvgrqAvailabilityZone = lens _cvgrqAvailabilityZone (\ s a -> s{_cvgrqAvailabilityZone = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cvgDryRun :: Lens' CreateVPNGateway (Maybe Bool)
-cvgDryRun = lens _cvgDryRun (\ s a -> s{_cvgDryRun = a});
+cvgrqDryRun :: Lens' CreateVPNGateway (Maybe Bool)
+cvgrqDryRun = lens _cvgrqDryRun (\ s a -> s{_cvgrqDryRun = a});
 
 -- | The type of VPN connection this virtual private gateway supports.
-cvgType :: Lens' CreateVPNGateway GatewayType
-cvgType = lens _cvgType (\ s a -> s{_cvgType = a});
+cvgrqType :: Lens' CreateVPNGateway GatewayType
+cvgrqType = lens _cvgrqType (\ s a -> s{_cvgrqType = a});
 
 instance AWSRequest CreateVPNGateway where
         type Sv CreateVPNGateway = EC2
@@ -111,33 +111,33 @@ instance ToQuery CreateVPNGateway where
           = mconcat
               ["Action" =: ("CreateVPNGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "AvailabilityZone" =: _cvgAvailabilityZone,
-               "DryRun" =: _cvgDryRun, "Type" =: _cvgType]
+               "AvailabilityZone" =: _cvgrqAvailabilityZone,
+               "DryRun" =: _cvgrqDryRun, "Type" =: _cvgrqType]
 
 -- | /See:/ 'createVPNGatewayResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvgrVPNGateway'
+-- * 'cvgrsVPNGateway'
 --
--- * 'cvgrStatus'
+-- * 'cvgrsStatus'
 data CreateVPNGatewayResponse = CreateVPNGatewayResponse'
-    { _cvgrVPNGateway :: !(Maybe VPNGateway)
-    , _cvgrStatus     :: !Int
+    { _cvgrsVPNGateway :: !(Maybe VPNGateway)
+    , _cvgrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNGatewayResponse' smart constructor.
 createVPNGatewayResponse :: Int -> CreateVPNGatewayResponse
 createVPNGatewayResponse pStatus =
     CreateVPNGatewayResponse'
-    { _cvgrVPNGateway = Nothing
-    , _cvgrStatus = pStatus
+    { _cvgrsVPNGateway = Nothing
+    , _cvgrsStatus = pStatus
     }
 
 -- | Information about the virtual private gateway.
-cvgrVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
-cvgrVPNGateway = lens _cvgrVPNGateway (\ s a -> s{_cvgrVPNGateway = a});
+cvgrsVPNGateway :: Lens' CreateVPNGatewayResponse (Maybe VPNGateway)
+cvgrsVPNGateway = lens _cvgrsVPNGateway (\ s a -> s{_cvgrsVPNGateway = a});
 
 -- | FIXME: Undocumented member.
-cvgrStatus :: Lens' CreateVPNGatewayResponse Int
-cvgrStatus = lens _cvgrStatus (\ s a -> s{_cvgrStatus = a});
+cvgrsStatus :: Lens' CreateVPNGatewayResponse Int
+cvgrsStatus = lens _cvgrsStatus (\ s a -> s{_cvgrsStatus = a});

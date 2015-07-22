@@ -37,15 +37,15 @@ module Network.AWS.WorkSpaces.TerminateWorkspaces
     -- ** Request constructor
     , terminateWorkspaces
     -- ** Request lenses
-    , twTerminateWorkspaceRequests
+    , twrqTerminateWorkspaceRequests
 
     -- * Response
     , TerminateWorkspacesResponse
     -- ** Response constructor
     , terminateWorkspacesResponse
     -- ** Response lenses
-    , twrFailedRequests
-    , twrStatus
+    , twrsFailedRequests
+    , twrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -59,21 +59,21 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'twTerminateWorkspaceRequests'
+-- * 'twrqTerminateWorkspaceRequests'
 newtype TerminateWorkspaces = TerminateWorkspaces'
-    { _twTerminateWorkspaceRequests :: List1 TerminateRequest
+    { _twrqTerminateWorkspaceRequests :: List1 TerminateRequest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateWorkspaces' smart constructor.
 terminateWorkspaces :: NonEmpty TerminateRequest -> TerminateWorkspaces
 terminateWorkspaces pTerminateWorkspaceRequests =
     TerminateWorkspaces'
-    { _twTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests
+    { _twrqTerminateWorkspaceRequests = _List1 # pTerminateWorkspaceRequests
     }
 
 -- | An array of structures that specify the WorkSpaces to terminate.
-twTerminateWorkspaceRequests :: Lens' TerminateWorkspaces (NonEmpty TerminateRequest)
-twTerminateWorkspaceRequests = lens _twTerminateWorkspaceRequests (\ s a -> s{_twTerminateWorkspaceRequests = a}) . _List1;
+twrqTerminateWorkspaceRequests :: Lens' TerminateWorkspaces (NonEmpty TerminateRequest)
+twrqTerminateWorkspaceRequests = lens _twrqTerminateWorkspaceRequests (\ s a -> s{_twrqTerminateWorkspaceRequests = a}) . _List1;
 
 instance AWSRequest TerminateWorkspaces where
         type Sv TerminateWorkspaces = WorkSpaces
@@ -101,7 +101,7 @@ instance ToJSON TerminateWorkspaces where
         toJSON TerminateWorkspaces'{..}
           = object
               ["TerminateWorkspaceRequests" .=
-                 _twTerminateWorkspaceRequests]
+                 _twrqTerminateWorkspaceRequests]
 
 instance ToPath TerminateWorkspaces where
         toPath = const "/"
@@ -115,27 +115,27 @@ instance ToQuery TerminateWorkspaces where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'twrFailedRequests'
+-- * 'twrsFailedRequests'
 --
--- * 'twrStatus'
+-- * 'twrsStatus'
 data TerminateWorkspacesResponse = TerminateWorkspacesResponse'
-    { _twrFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
-    , _twrStatus         :: !Int
+    { _twrsFailedRequests :: !(Maybe [FailedWorkspaceChangeRequest])
+    , _twrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TerminateWorkspacesResponse' smart constructor.
 terminateWorkspacesResponse :: Int -> TerminateWorkspacesResponse
 terminateWorkspacesResponse pStatus =
     TerminateWorkspacesResponse'
-    { _twrFailedRequests = Nothing
-    , _twrStatus = pStatus
+    { _twrsFailedRequests = Nothing
+    , _twrsStatus = pStatus
     }
 
 -- | An array of structures that represent any WorkSpaces that could not be
 -- terminated.
-twrFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
-twrFailedRequests = lens _twrFailedRequests (\ s a -> s{_twrFailedRequests = a}) . _Default;
+twrsFailedRequests :: Lens' TerminateWorkspacesResponse [FailedWorkspaceChangeRequest]
+twrsFailedRequests = lens _twrsFailedRequests (\ s a -> s{_twrsFailedRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-twrStatus :: Lens' TerminateWorkspacesResponse Int
-twrStatus = lens _twrStatus (\ s a -> s{_twrStatus = a});
+twrsStatus :: Lens' TerminateWorkspacesResponse Int
+twrsStatus = lens _twrsStatus (\ s a -> s{_twrsStatus = a});

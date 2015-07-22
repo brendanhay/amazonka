@@ -37,17 +37,17 @@ module Network.AWS.DynamoDBStreams.GetRecords
     -- ** Request constructor
     , getRecords
     -- ** Request lenses
-    , grLimit
-    , grShardIterator
+    , grrqLimit
+    , grrqShardIterator
 
     -- * Response
     , GetRecordsResponse
     -- ** Response constructor
     , getRecordsResponse
     -- ** Response lenses
-    , grrRecords
-    , grrNextShardIterator
-    , grrStatus
+    , grrsRecords
+    , grrsNextShardIterator
+    , grrsStatus
     ) where
 
 import           Network.AWS.DynamoDBStreams.Types
@@ -61,32 +61,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grLimit'
+-- * 'grrqLimit'
 --
--- * 'grShardIterator'
+-- * 'grrqShardIterator'
 data GetRecords = GetRecords'
-    { _grLimit         :: !(Maybe Nat)
-    , _grShardIterator :: !Text
+    { _grrqLimit         :: !(Maybe Nat)
+    , _grrqShardIterator :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRecords' smart constructor.
 getRecords :: Text -> GetRecords
 getRecords pShardIterator =
     GetRecords'
-    { _grLimit = Nothing
-    , _grShardIterator = pShardIterator
+    { _grrqLimit = Nothing
+    , _grrqShardIterator = pShardIterator
     }
 
 -- | The maximum number of records to return from the shard. The upper limit
 -- is 1000.
-grLimit :: Lens' GetRecords (Maybe Natural)
-grLimit = lens _grLimit (\ s a -> s{_grLimit = a}) . mapping _Nat;
+grrqLimit :: Lens' GetRecords (Maybe Natural)
+grrqLimit = lens _grrqLimit (\ s a -> s{_grrqLimit = a}) . mapping _Nat;
 
 -- | A shard iterator that was retrieved from a previous GetShardIterator
 -- operation. This iterator can be used to access the stream records in
 -- this shard.
-grShardIterator :: Lens' GetRecords Text
-grShardIterator = lens _grShardIterator (\ s a -> s{_grShardIterator = a});
+grrqShardIterator :: Lens' GetRecords Text
+grrqShardIterator = lens _grrqShardIterator (\ s a -> s{_grrqShardIterator = a});
 
 instance AWSRequest GetRecords where
         type Sv GetRecords = DynamoDBStreams
@@ -113,8 +113,8 @@ instance ToHeaders GetRecords where
 instance ToJSON GetRecords where
         toJSON GetRecords'{..}
           = object
-              ["Limit" .= _grLimit,
-               "ShardIterator" .= _grShardIterator]
+              ["Limit" .= _grrqLimit,
+               "ShardIterator" .= _grrqShardIterator]
 
 instance ToPath GetRecords where
         toPath = const "/"
@@ -128,37 +128,37 @@ instance ToQuery GetRecords where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrRecords'
+-- * 'grrsRecords'
 --
--- * 'grrNextShardIterator'
+-- * 'grrsNextShardIterator'
 --
--- * 'grrStatus'
+-- * 'grrsStatus'
 data GetRecordsResponse = GetRecordsResponse'
-    { _grrRecords           :: !(Maybe [Record])
-    , _grrNextShardIterator :: !(Maybe Text)
-    , _grrStatus            :: !Int
+    { _grrsRecords           :: !(Maybe [Record])
+    , _grrsNextShardIterator :: !(Maybe Text)
+    , _grrsStatus            :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetRecordsResponse' smart constructor.
 getRecordsResponse :: Int -> GetRecordsResponse
 getRecordsResponse pStatus =
     GetRecordsResponse'
-    { _grrRecords = Nothing
-    , _grrNextShardIterator = Nothing
-    , _grrStatus = pStatus
+    { _grrsRecords = Nothing
+    , _grrsNextShardIterator = Nothing
+    , _grrsStatus = pStatus
     }
 
 -- | The stream records from the shard, which were retrieved using the shard
 -- iterator.
-grrRecords :: Lens' GetRecordsResponse [Record]
-grrRecords = lens _grrRecords (\ s a -> s{_grrRecords = a}) . _Default;
+grrsRecords :: Lens' GetRecordsResponse [Record]
+grrsRecords = lens _grrsRecords (\ s a -> s{_grrsRecords = a}) . _Default;
 
 -- | The next position in the shard from which to start sequentially reading
 -- stream records. If set to @null@, the shard has been closed and the
 -- requested iterator will not return any more data.
-grrNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
-grrNextShardIterator = lens _grrNextShardIterator (\ s a -> s{_grrNextShardIterator = a});
+grrsNextShardIterator :: Lens' GetRecordsResponse (Maybe Text)
+grrsNextShardIterator = lens _grrsNextShardIterator (\ s a -> s{_grrsNextShardIterator = a});
 
 -- | FIXME: Undocumented member.
-grrStatus :: Lens' GetRecordsResponse Int
-grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
+grrsStatus :: Lens' GetRecordsResponse Int
+grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

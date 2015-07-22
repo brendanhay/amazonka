@@ -28,16 +28,16 @@ module Network.AWS.RDS.RemoveSourceIdentifierFromSubscription
     -- ** Request constructor
     , removeSourceIdentifierFromSubscription
     -- ** Request lenses
-    , rsifsSubscriptionName
-    , rsifsSourceIdentifier
+    , rsifsrqSubscriptionName
+    , rsifsrqSourceIdentifier
 
     -- * Response
     , RemoveSourceIdentifierFromSubscriptionResponse
     -- ** Response constructor
     , removeSourceIdentifierFromSubscriptionResponse
     -- ** Response lenses
-    , rsifsrEventSubscription
-    , rsifsrStatus
+    , rsifsrsEventSubscription
+    , rsifsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsifsSubscriptionName'
+-- * 'rsifsrqSubscriptionName'
 --
--- * 'rsifsSourceIdentifier'
+-- * 'rsifsrqSourceIdentifier'
 data RemoveSourceIdentifierFromSubscription = RemoveSourceIdentifierFromSubscription'
-    { _rsifsSubscriptionName :: !Text
-    , _rsifsSourceIdentifier :: !Text
+    { _rsifsrqSubscriptionName :: !Text
+    , _rsifsrqSourceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveSourceIdentifierFromSubscription' smart constructor.
 removeSourceIdentifierFromSubscription :: Text -> Text -> RemoveSourceIdentifierFromSubscription
 removeSourceIdentifierFromSubscription pSubscriptionName pSourceIdentifier =
     RemoveSourceIdentifierFromSubscription'
-    { _rsifsSubscriptionName = pSubscriptionName
-    , _rsifsSourceIdentifier = pSourceIdentifier
+    { _rsifsrqSubscriptionName = pSubscriptionName
+    , _rsifsrqSourceIdentifier = pSourceIdentifier
     }
 
 -- | The name of the RDS event notification subscription you want to remove a
 -- source identifier from.
-rsifsSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
-rsifsSubscriptionName = lens _rsifsSubscriptionName (\ s a -> s{_rsifsSubscriptionName = a});
+rsifsrqSubscriptionName :: Lens' RemoveSourceIdentifierFromSubscription Text
+rsifsrqSubscriptionName = lens _rsifsrqSubscriptionName (\ s a -> s{_rsifsrqSubscriptionName = a});
 
 -- | The source identifier to be removed from the subscription, such as the
 -- __DB instance identifier__ for a DB instance or the name of a security
 -- group.
-rsifsSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
-rsifsSourceIdentifier = lens _rsifsSourceIdentifier (\ s a -> s{_rsifsSourceIdentifier = a});
+rsifsrqSourceIdentifier :: Lens' RemoveSourceIdentifierFromSubscription Text
+rsifsrqSourceIdentifier = lens _rsifsrqSourceIdentifier (\ s a -> s{_rsifsrqSourceIdentifier = a});
 
 instance AWSRequest
          RemoveSourceIdentifierFromSubscription where
@@ -107,33 +107,33 @@ instance ToQuery
                  ("RemoveSourceIdentifierFromSubscription" ::
                     ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "SubscriptionName" =: _rsifsSubscriptionName,
-               "SourceIdentifier" =: _rsifsSourceIdentifier]
+               "SubscriptionName" =: _rsifsrqSubscriptionName,
+               "SourceIdentifier" =: _rsifsrqSourceIdentifier]
 
 -- | /See:/ 'removeSourceIdentifierFromSubscriptionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsifsrEventSubscription'
+-- * 'rsifsrsEventSubscription'
 --
--- * 'rsifsrStatus'
+-- * 'rsifsrsStatus'
 data RemoveSourceIdentifierFromSubscriptionResponse = RemoveSourceIdentifierFromSubscriptionResponse'
-    { _rsifsrEventSubscription :: !(Maybe EventSubscription)
-    , _rsifsrStatus            :: !Int
+    { _rsifsrsEventSubscription :: !(Maybe EventSubscription)
+    , _rsifsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveSourceIdentifierFromSubscriptionResponse' smart constructor.
 removeSourceIdentifierFromSubscriptionResponse :: Int -> RemoveSourceIdentifierFromSubscriptionResponse
 removeSourceIdentifierFromSubscriptionResponse pStatus =
     RemoveSourceIdentifierFromSubscriptionResponse'
-    { _rsifsrEventSubscription = Nothing
-    , _rsifsrStatus = pStatus
+    { _rsifsrsEventSubscription = Nothing
+    , _rsifsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rsifsrEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
-rsifsrEventSubscription = lens _rsifsrEventSubscription (\ s a -> s{_rsifsrEventSubscription = a});
+rsifsrsEventSubscription :: Lens' RemoveSourceIdentifierFromSubscriptionResponse (Maybe EventSubscription)
+rsifsrsEventSubscription = lens _rsifsrsEventSubscription (\ s a -> s{_rsifsrsEventSubscription = a});
 
 -- | FIXME: Undocumented member.
-rsifsrStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
-rsifsrStatus = lens _rsifsrStatus (\ s a -> s{_rsifsrStatus = a});
+rsifsrsStatus :: Lens' RemoveSourceIdentifierFromSubscriptionResponse Int
+rsifsrsStatus = lens _rsifsrsStatus (\ s a -> s{_rsifsrsStatus = a});

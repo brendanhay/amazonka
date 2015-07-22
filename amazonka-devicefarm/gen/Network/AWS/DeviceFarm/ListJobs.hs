@@ -27,17 +27,17 @@ module Network.AWS.DeviceFarm.ListJobs
     -- ** Request constructor
     , listJobs
     -- ** Request lenses
-    , ljNextToken
-    , ljArn
+    , ljrqNextToken
+    , ljrqArn
 
     -- * Response
     , ListJobsResponse
     -- ** Response constructor
     , listJobsResponse
     -- ** Response lenses
-    , ljrJobs
-    , ljrNextToken
-    , ljrStatus
+    , ljrsJobs
+    , ljrsNextToken
+    , ljrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljNextToken'
+-- * 'ljrqNextToken'
 --
--- * 'ljArn'
+-- * 'ljrqArn'
 data ListJobs = ListJobs'
-    { _ljNextToken :: !(Maybe Text)
-    , _ljArn       :: !Text
+    { _ljrqNextToken :: !(Maybe Text)
+    , _ljrqArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: Text -> ListJobs
 listJobs pArn =
     ListJobs'
-    { _ljNextToken = Nothing
-    , _ljArn = pArn
+    { _ljrqNextToken = Nothing
+    , _ljrqArn = pArn
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-ljNextToken :: Lens' ListJobs (Maybe Text)
-ljNextToken = lens _ljNextToken (\ s a -> s{_ljNextToken = a});
+ljrqNextToken :: Lens' ListJobs (Maybe Text)
+ljrqNextToken = lens _ljrqNextToken (\ s a -> s{_ljrqNextToken = a});
 
 -- | The jobs\' ARNs.
-ljArn :: Lens' ListJobs Text
-ljArn = lens _ljArn (\ s a -> s{_ljArn = a});
+ljrqArn :: Lens' ListJobs Text
+ljrqArn = lens _ljrqArn (\ s a -> s{_ljrqArn = a});
 
 instance AWSRequest ListJobs where
         type Sv ListJobs = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListJobs where
 instance ToJSON ListJobs where
         toJSON ListJobs'{..}
           = object
-              ["nextToken" .= _ljNextToken, "arn" .= _ljArn]
+              ["nextToken" .= _ljrqNextToken, "arn" .= _ljrqArn]
 
 instance ToPath ListJobs where
         toPath = const "/"
@@ -114,36 +114,36 @@ instance ToQuery ListJobs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljrJobs'
+-- * 'ljrsJobs'
 --
--- * 'ljrNextToken'
+-- * 'ljrsNextToken'
 --
--- * 'ljrStatus'
+-- * 'ljrsStatus'
 data ListJobsResponse = ListJobsResponse'
-    { _ljrJobs      :: !(Maybe [Job])
-    , _ljrNextToken :: !(Maybe Text)
-    , _ljrStatus    :: !Int
+    { _ljrsJobs      :: !(Maybe [Job])
+    , _ljrsNextToken :: !(Maybe Text)
+    , _ljrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
 listJobsResponse pStatus =
     ListJobsResponse'
-    { _ljrJobs = Nothing
-    , _ljrNextToken = Nothing
-    , _ljrStatus = pStatus
+    { _ljrsJobs = Nothing
+    , _ljrsNextToken = Nothing
+    , _ljrsStatus = pStatus
     }
 
 -- | Information about the jobs.
-ljrJobs :: Lens' ListJobsResponse [Job]
-ljrJobs = lens _ljrJobs (\ s a -> s{_ljrJobs = a}) . _Default;
+ljrsJobs :: Lens' ListJobsResponse [Job]
+ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-ljrNextToken :: Lens' ListJobsResponse (Maybe Text)
-ljrNextToken = lens _ljrNextToken (\ s a -> s{_ljrNextToken = a});
+ljrsNextToken :: Lens' ListJobsResponse (Maybe Text)
+ljrsNextToken = lens _ljrsNextToken (\ s a -> s{_ljrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ljrStatus :: Lens' ListJobsResponse Int
-ljrStatus = lens _ljrStatus (\ s a -> s{_ljrStatus = a});
+ljrsStatus :: Lens' ListJobsResponse Int
+ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});

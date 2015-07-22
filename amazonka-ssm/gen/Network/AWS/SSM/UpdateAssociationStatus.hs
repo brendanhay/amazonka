@@ -28,17 +28,17 @@ module Network.AWS.SSM.UpdateAssociationStatus
     -- ** Request constructor
     , updateAssociationStatus
     -- ** Request lenses
-    , uasName
-    , uasInstanceId
-    , uasAssociationStatus
+    , uasrqName
+    , uasrqInstanceId
+    , uasrqAssociationStatus
 
     -- * Response
     , UpdateAssociationStatusResponse
     -- ** Response constructor
     , updateAssociationStatusResponse
     -- ** Response lenses
-    , uasrAssociationDescription
-    , uasrStatus
+    , uasrsAssociationDescription
+    , uasrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -50,37 +50,37 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uasName'
+-- * 'uasrqName'
 --
--- * 'uasInstanceId'
+-- * 'uasrqInstanceId'
 --
--- * 'uasAssociationStatus'
+-- * 'uasrqAssociationStatus'
 data UpdateAssociationStatus = UpdateAssociationStatus'
-    { _uasName              :: !Text
-    , _uasInstanceId        :: !Text
-    , _uasAssociationStatus :: !AssociationStatus
+    { _uasrqName              :: !Text
+    , _uasrqInstanceId        :: !Text
+    , _uasrqAssociationStatus :: !AssociationStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssociationStatus' smart constructor.
 updateAssociationStatus :: Text -> Text -> AssociationStatus -> UpdateAssociationStatus
 updateAssociationStatus pName pInstanceId pAssociationStatus =
     UpdateAssociationStatus'
-    { _uasName = pName
-    , _uasInstanceId = pInstanceId
-    , _uasAssociationStatus = pAssociationStatus
+    { _uasrqName = pName
+    , _uasrqInstanceId = pInstanceId
+    , _uasrqAssociationStatus = pAssociationStatus
     }
 
 -- | The name of the configuration document.
-uasName :: Lens' UpdateAssociationStatus Text
-uasName = lens _uasName (\ s a -> s{_uasName = a});
+uasrqName :: Lens' UpdateAssociationStatus Text
+uasrqName = lens _uasrqName (\ s a -> s{_uasrqName = a});
 
 -- | The ID of the instance.
-uasInstanceId :: Lens' UpdateAssociationStatus Text
-uasInstanceId = lens _uasInstanceId (\ s a -> s{_uasInstanceId = a});
+uasrqInstanceId :: Lens' UpdateAssociationStatus Text
+uasrqInstanceId = lens _uasrqInstanceId (\ s a -> s{_uasrqInstanceId = a});
 
 -- | The association status.
-uasAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
-uasAssociationStatus = lens _uasAssociationStatus (\ s a -> s{_uasAssociationStatus = a});
+uasrqAssociationStatus :: Lens' UpdateAssociationStatus AssociationStatus
+uasrqAssociationStatus = lens _uasrqAssociationStatus (\ s a -> s{_uasrqAssociationStatus = a});
 
 instance AWSRequest UpdateAssociationStatus where
         type Sv UpdateAssociationStatus = SSM
@@ -106,8 +106,9 @@ instance ToHeaders UpdateAssociationStatus where
 instance ToJSON UpdateAssociationStatus where
         toJSON UpdateAssociationStatus'{..}
           = object
-              ["Name" .= _uasName, "InstanceId" .= _uasInstanceId,
-               "AssociationStatus" .= _uasAssociationStatus]
+              ["Name" .= _uasrqName,
+               "InstanceId" .= _uasrqInstanceId,
+               "AssociationStatus" .= _uasrqAssociationStatus]
 
 instance ToPath UpdateAssociationStatus where
         toPath = const "/"
@@ -119,26 +120,26 @@ instance ToQuery UpdateAssociationStatus where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uasrAssociationDescription'
+-- * 'uasrsAssociationDescription'
 --
--- * 'uasrStatus'
+-- * 'uasrsStatus'
 data UpdateAssociationStatusResponse = UpdateAssociationStatusResponse'
-    { _uasrAssociationDescription :: !(Maybe AssociationDescription)
-    , _uasrStatus                 :: !Int
+    { _uasrsAssociationDescription :: !(Maybe AssociationDescription)
+    , _uasrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAssociationStatusResponse' smart constructor.
 updateAssociationStatusResponse :: Int -> UpdateAssociationStatusResponse
 updateAssociationStatusResponse pStatus =
     UpdateAssociationStatusResponse'
-    { _uasrAssociationDescription = Nothing
-    , _uasrStatus = pStatus
+    { _uasrsAssociationDescription = Nothing
+    , _uasrsStatus = pStatus
     }
 
 -- | Information about the association.
-uasrAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
-uasrAssociationDescription = lens _uasrAssociationDescription (\ s a -> s{_uasrAssociationDescription = a});
+uasrsAssociationDescription :: Lens' UpdateAssociationStatusResponse (Maybe AssociationDescription)
+uasrsAssociationDescription = lens _uasrsAssociationDescription (\ s a -> s{_uasrsAssociationDescription = a});
 
 -- | FIXME: Undocumented member.
-uasrStatus :: Lens' UpdateAssociationStatusResponse Int
-uasrStatus = lens _uasrStatus (\ s a -> s{_uasrStatus = a});
+uasrsStatus :: Lens' UpdateAssociationStatusResponse Int
+uasrsStatus = lens _uasrsStatus (\ s a -> s{_uasrsStatus = a});

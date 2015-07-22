@@ -36,15 +36,15 @@ module Network.AWS.ELB.AddTags
     -- ** Request constructor
     , addTags
     -- ** Request lenses
-    , atLoadBalancerNames
-    , atTags
+    , atrqLoadBalancerNames
+    , atrqTags
 
     -- * Response
     , AddTagsResponse
     -- ** Response constructor
     , addTagsResponse
     -- ** Response lenses
-    , atrStatus
+    , atrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atLoadBalancerNames'
+-- * 'atrqLoadBalancerNames'
 --
--- * 'atTags'
+-- * 'atrqTags'
 data AddTags = AddTags'
-    { _atLoadBalancerNames :: ![Text]
-    , _atTags              :: !(List1 Tag)
+    { _atrqLoadBalancerNames :: ![Text]
+    , _atrqTags              :: !(List1 Tag)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: NonEmpty Tag -> AddTags
 addTags pTags =
     AddTags'
-    { _atLoadBalancerNames = mempty
-    , _atTags = _List1 # pTags
+    { _atrqLoadBalancerNames = mempty
+    , _atrqTags = _List1 # pTags
     }
 
 -- | The name of the load balancer. You can specify one load balancer only.
-atLoadBalancerNames :: Lens' AddTags [Text]
-atLoadBalancerNames = lens _atLoadBalancerNames (\ s a -> s{_atLoadBalancerNames = a});
+atrqLoadBalancerNames :: Lens' AddTags [Text]
+atrqLoadBalancerNames = lens _atrqLoadBalancerNames (\ s a -> s{_atrqLoadBalancerNames = a});
 
 -- | The tags.
-atTags :: Lens' AddTags (NonEmpty Tag)
-atTags = lens _atTags (\ s a -> s{_atTags = a}) . _List1;
+atrqTags :: Lens' AddTags (NonEmpty Tag)
+atrqTags = lens _atrqTags (\ s a -> s{_atrqTags = a}) . _List1;
 
 instance AWSRequest AddTags where
         type Sv AddTags = ELB
@@ -100,25 +100,25 @@ instance ToQuery AddTags where
               ["Action" =: ("AddTags" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerNames" =:
-                 toQueryList "member" _atLoadBalancerNames,
-               "Tags" =: toQueryList "member" _atTags]
+                 toQueryList "member" _atrqLoadBalancerNames,
+               "Tags" =: toQueryList "member" _atrqTags]
 
 -- | /See:/ 'addTagsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atrStatus'
+-- * 'atrsStatus'
 newtype AddTagsResponse = AddTagsResponse'
-    { _atrStatus :: Int
+    { _atrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
 addTagsResponse pStatus =
     AddTagsResponse'
-    { _atrStatus = pStatus
+    { _atrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-atrStatus :: Lens' AddTagsResponse Int
-atrStatus = lens _atrStatus (\ s a -> s{_atrStatus = a});
+atrsStatus :: Lens' AddTagsResponse Int
+atrsStatus = lens _atrsStatus (\ s a -> s{_atrsStatus = a});

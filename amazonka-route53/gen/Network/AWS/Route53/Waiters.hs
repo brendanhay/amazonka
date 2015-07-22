@@ -29,5 +29,5 @@ resourceRecordSetsChanged =
     , _waitAcceptors = [ matchAll
                              "INSYNC"
                              AcceptSuccess
-                             (gcrChangeInfo . ciStatus . to toText)]
+                             (gcrsChangeInfo . ciStatus . to toText)]
     }

@@ -42,18 +42,18 @@ module Network.AWS.SNS.CreatePlatformEndpoint
     -- ** Request constructor
     , createPlatformEndpoint
     -- ** Request lenses
-    , cpeCustomUserData
-    , cpeAttributes
-    , cpePlatformApplicationARN
-    , cpeToken
+    , cperqCustomUserData
+    , cperqAttributes
+    , cperqPlatformApplicationARN
+    , cperqToken
 
     -- * Response
     , CreatePlatformEndpointResponse
     -- ** Response constructor
     , createPlatformEndpointResponse
     -- ** Response lenses
-    , cperEndpointARN
-    , cperStatus
+    , cpersEndpointARN
+    , cpersStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -67,44 +67,44 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpeCustomUserData'
+-- * 'cperqCustomUserData'
 --
--- * 'cpeAttributes'
+-- * 'cperqAttributes'
 --
--- * 'cpePlatformApplicationARN'
+-- * 'cperqPlatformApplicationARN'
 --
--- * 'cpeToken'
+-- * 'cperqToken'
 data CreatePlatformEndpoint = CreatePlatformEndpoint'
-    { _cpeCustomUserData         :: !(Maybe Text)
-    , _cpeAttributes             :: !(Maybe (Map Text Text))
-    , _cpePlatformApplicationARN :: !Text
-    , _cpeToken                  :: !Text
+    { _cperqCustomUserData         :: !(Maybe Text)
+    , _cperqAttributes             :: !(Maybe (Map Text Text))
+    , _cperqPlatformApplicationARN :: !Text
+    , _cperqToken                  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlatformEndpoint' smart constructor.
 createPlatformEndpoint :: Text -> Text -> CreatePlatformEndpoint
 createPlatformEndpoint pPlatformApplicationARN pToken =
     CreatePlatformEndpoint'
-    { _cpeCustomUserData = Nothing
-    , _cpeAttributes = Nothing
-    , _cpePlatformApplicationARN = pPlatformApplicationARN
-    , _cpeToken = pToken
+    { _cperqCustomUserData = Nothing
+    , _cperqAttributes = Nothing
+    , _cperqPlatformApplicationARN = pPlatformApplicationARN
+    , _cperqToken = pToken
     }
 
 -- | Arbitrary user data to associate with the endpoint. Amazon SNS does not
 -- use this data. The data must be in UTF-8 format and less than 2KB.
-cpeCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
-cpeCustomUserData = lens _cpeCustomUserData (\ s a -> s{_cpeCustomUserData = a});
+cperqCustomUserData :: Lens' CreatePlatformEndpoint (Maybe Text)
+cperqCustomUserData = lens _cperqCustomUserData (\ s a -> s{_cperqCustomUserData = a});
 
 -- | For a list of attributes, see
 -- <http://docs.aws.amazon.com/sns/latest/api/API_SetEndpointAttributes.html SetEndpointAttributes>.
-cpeAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
-cpeAttributes = lens _cpeAttributes (\ s a -> s{_cpeAttributes = a}) . _Default . _Map;
+cperqAttributes :: Lens' CreatePlatformEndpoint (HashMap Text Text)
+cperqAttributes = lens _cperqAttributes (\ s a -> s{_cperqAttributes = a}) . _Default . _Map;
 
 -- | PlatformApplicationArn returned from CreatePlatformApplication is used
 -- to create a an endpoint.
-cpePlatformApplicationARN :: Lens' CreatePlatformEndpoint Text
-cpePlatformApplicationARN = lens _cpePlatformApplicationARN (\ s a -> s{_cpePlatformApplicationARN = a});
+cperqPlatformApplicationARN :: Lens' CreatePlatformEndpoint Text
+cperqPlatformApplicationARN = lens _cperqPlatformApplicationARN (\ s a -> s{_cperqPlatformApplicationARN = a});
 
 -- | Unique identifier created by the notification service for an app on a
 -- device. The specific name for Token will vary, depending on which
@@ -112,8 +112,8 @@ cpePlatformApplicationARN = lens _cpePlatformApplicationARN (\ s a -> s{_cpePlat
 -- notification service, you need the device token. Alternatively, when
 -- using GCM or ADM, the device token equivalent is called the registration
 -- ID.
-cpeToken :: Lens' CreatePlatformEndpoint Text
-cpeToken = lens _cpeToken (\ s a -> s{_cpeToken = a});
+cperqToken :: Lens' CreatePlatformEndpoint Text
+cperqToken = lens _cperqToken (\ s a -> s{_cperqToken = a});
 
 instance AWSRequest CreatePlatformEndpoint where
         type Sv CreatePlatformEndpoint = SNS
@@ -138,14 +138,14 @@ instance ToQuery CreatePlatformEndpoint where
               ["Action" =:
                  ("CreatePlatformEndpoint" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "CustomUserData" =: _cpeCustomUserData,
+               "CustomUserData" =: _cperqCustomUserData,
                "Attributes" =:
                  toQuery
                    (toQueryMap "entry" "key" "value" <$>
-                      _cpeAttributes),
+                      _cperqAttributes),
                "PlatformApplicationArn" =:
-                 _cpePlatformApplicationARN,
-               "Token" =: _cpeToken]
+                 _cperqPlatformApplicationARN,
+               "Token" =: _cperqToken]
 
 -- | Response from CreateEndpoint action.
 --
@@ -153,26 +153,26 @@ instance ToQuery CreatePlatformEndpoint where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cperEndpointARN'
+-- * 'cpersEndpointARN'
 --
--- * 'cperStatus'
+-- * 'cpersStatus'
 data CreatePlatformEndpointResponse = CreatePlatformEndpointResponse'
-    { _cperEndpointARN :: !(Maybe Text)
-    , _cperStatus      :: !Int
+    { _cpersEndpointARN :: !(Maybe Text)
+    , _cpersStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePlatformEndpointResponse' smart constructor.
 createPlatformEndpointResponse :: Int -> CreatePlatformEndpointResponse
 createPlatformEndpointResponse pStatus =
     CreatePlatformEndpointResponse'
-    { _cperEndpointARN = Nothing
-    , _cperStatus = pStatus
+    { _cpersEndpointARN = Nothing
+    , _cpersStatus = pStatus
     }
 
 -- | EndpointArn returned from CreateEndpoint action.
-cperEndpointARN :: Lens' CreatePlatformEndpointResponse (Maybe Text)
-cperEndpointARN = lens _cperEndpointARN (\ s a -> s{_cperEndpointARN = a});
+cpersEndpointARN :: Lens' CreatePlatformEndpointResponse (Maybe Text)
+cpersEndpointARN = lens _cpersEndpointARN (\ s a -> s{_cpersEndpointARN = a});
 
 -- | FIXME: Undocumented member.
-cperStatus :: Lens' CreatePlatformEndpointResponse Int
-cperStatus = lens _cperStatus (\ s a -> s{_cperStatus = a});
+cpersStatus :: Lens' CreatePlatformEndpointResponse Int
+cpersStatus = lens _cpersStatus (\ s a -> s{_cpersStatus = a});

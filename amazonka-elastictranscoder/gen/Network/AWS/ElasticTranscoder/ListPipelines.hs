@@ -28,17 +28,17 @@ module Network.AWS.ElasticTranscoder.ListPipelines
     -- ** Request constructor
     , listPipelines
     -- ** Request lenses
-    , lpAscending
-    , lpPageToken
+    , lprqAscending
+    , lprqPageToken
 
     -- * Response
     , ListPipelinesResponse
     -- ** Response constructor
     , listPipelinesResponse
     -- ** Response lenses
-    , lprNextPageToken
-    , lprPipelines
-    , lprStatus
+    , lprsNextPageToken
+    , lprsPipelines
+    , lprsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -53,40 +53,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpAscending'
+-- * 'lprqAscending'
 --
--- * 'lpPageToken'
+-- * 'lprqPageToken'
 data ListPipelines = ListPipelines'
-    { _lpAscending :: !(Maybe Text)
-    , _lpPageToken :: !(Maybe Text)
+    { _lprqAscending :: !(Maybe Text)
+    , _lprqPageToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
 listPipelines =
     ListPipelines'
-    { _lpAscending = Nothing
-    , _lpPageToken = Nothing
+    { _lprqAscending = Nothing
+    , _lprqPageToken = Nothing
     }
 
 -- | To list pipelines in chronological order by the date and time that they
 -- were created, enter @true@. To list pipelines in reverse chronological
 -- order, enter @false@.
-lpAscending :: Lens' ListPipelines (Maybe Text)
-lpAscending = lens _lpAscending (\ s a -> s{_lpAscending = a});
+lprqAscending :: Lens' ListPipelines (Maybe Text)
+lprqAscending = lens _lprqAscending (\ s a -> s{_lprqAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-lpPageToken :: Lens' ListPipelines (Maybe Text)
-lpPageToken = lens _lpPageToken (\ s a -> s{_lpPageToken = a});
+lprqPageToken :: Lens' ListPipelines (Maybe Text)
+lprqPageToken = lens _lprqPageToken (\ s a -> s{_lprqPageToken = a});
 
 instance AWSPager ListPipelines where
         page rq rs
-          | stop (rs ^. lprNextPageToken) = Nothing
-          | stop (rs ^. lprPipelines) = Nothing
+          | stop (rs ^. lprsNextPageToken) = Nothing
+          | stop (rs ^. lprsPipelines) = Nothing
           | otherwise =
-            Just $ rq & lpPageToken .~ rs ^. lprNextPageToken
+            Just $ rq & lprqPageToken .~ rs ^. lprsNextPageToken
 
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = ElasticTranscoder
@@ -109,8 +109,8 @@ instance ToPath ListPipelines where
 instance ToQuery ListPipelines where
         toQuery ListPipelines'{..}
           = mconcat
-              ["Ascending" =: _lpAscending,
-               "PageToken" =: _lpPageToken]
+              ["Ascending" =: _lprqAscending,
+               "PageToken" =: _lprqPageToken]
 
 -- | A list of the pipelines associated with the current AWS account.
 --
@@ -118,37 +118,37 @@ instance ToQuery ListPipelines where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprNextPageToken'
+-- * 'lprsNextPageToken'
 --
--- * 'lprPipelines'
+-- * 'lprsPipelines'
 --
--- * 'lprStatus'
+-- * 'lprsStatus'
 data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprNextPageToken :: !(Maybe Text)
-    , _lprPipelines     :: !(Maybe [Pipeline])
-    , _lprStatus        :: !Int
+    { _lprsNextPageToken :: !(Maybe Text)
+    , _lprsPipelines     :: !(Maybe [Pipeline])
+    , _lprsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse
 listPipelinesResponse pStatus =
     ListPipelinesResponse'
-    { _lprNextPageToken = Nothing
-    , _lprPipelines = Nothing
-    , _lprStatus = pStatus
+    { _lprsNextPageToken = Nothing
+    , _lprsPipelines = Nothing
+    , _lprsStatus = pStatus
     }
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the pipelines fit on one page or when you\'ve
 -- reached the last page of results, the value of @NextPageToken@ is
 -- @null@.
-lprNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
-lprNextPageToken = lens _lprNextPageToken (\ s a -> s{_lprNextPageToken = a});
+lprsNextPageToken :: Lens' ListPipelinesResponse (Maybe Text)
+lprsNextPageToken = lens _lprsNextPageToken (\ s a -> s{_lprsNextPageToken = a});
 
 -- | An array of @Pipeline@ objects.
-lprPipelines :: Lens' ListPipelinesResponse [Pipeline]
-lprPipelines = lens _lprPipelines (\ s a -> s{_lprPipelines = a}) . _Default;
+lprsPipelines :: Lens' ListPipelinesResponse [Pipeline]
+lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPipelinesResponse Int
-lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});
+lprsStatus :: Lens' ListPipelinesResponse Int
+lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

@@ -41,12 +41,12 @@ module Network.AWS.CognitoIdentity.UpdateIdentityPool
     -- ** Response constructor
     , identityPool
     -- ** Response lenses
-    , ipSupportedLoginProviders
-    , ipDeveloperProviderName
-    , ipOpenIdConnectProviderARNs
-    , ipIdentityPoolId
-    , ipIdentityPoolName
-    , ipAllowUnauthenticatedIdentities
+    , uiprsSupportedLoginProviders
+    , uiprsDeveloperProviderName
+    , uiprsOpenIdConnectProviderARNs
+    , uiprsIdentityPoolId
+    , uiprsIdentityPoolName
+    , uiprsAllowUnauthenticatedIdentities
     ) where
 
 import           Network.AWS.CognitoIdentity.Types

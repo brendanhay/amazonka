@@ -34,10 +34,10 @@ module Network.AWS.STS.Types
     -- * Credentials
     , Credentials
     , credentials
-    , creAccessKeyId
-    , creSecretAccessKey
-    , creSessionToken
-    , creExpiration
+    , cAccessKeyId
+    , cSecretAccessKey
+    , cSessionToken
+    , cExpiration
 
     -- * FederatedUser
     , FederatedUser

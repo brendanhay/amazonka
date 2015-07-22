@@ -28,18 +28,18 @@ module Network.AWS.RDS.DescribeEngineDefaultParameters
     -- ** Request constructor
     , describeEngineDefaultParameters
     -- ** Request lenses
-    , dedpFilters
-    , dedpMaxRecords
-    , dedpMarker
-    , dedpDBParameterGroupFamily
+    , dedprqFilters
+    , dedprqMaxRecords
+    , dedprqMarker
+    , dedprqDBParameterGroupFamily
 
     -- * Response
     , DescribeEngineDefaultParametersResponse
     -- ** Response constructor
     , describeEngineDefaultParametersResponse
     -- ** Response lenses
-    , dedprStatus
-    , dedprEngineDefaults
+    , dedprsStatus
+    , dedprsEngineDefaults
     ) where
 
 import           Network.AWS.Pager
@@ -54,33 +54,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedpFilters'
+-- * 'dedprqFilters'
 --
--- * 'dedpMaxRecords'
+-- * 'dedprqMaxRecords'
 --
--- * 'dedpMarker'
+-- * 'dedprqMarker'
 --
--- * 'dedpDBParameterGroupFamily'
+-- * 'dedprqDBParameterGroupFamily'
 data DescribeEngineDefaultParameters = DescribeEngineDefaultParameters'
-    { _dedpFilters                :: !(Maybe [Filter])
-    , _dedpMaxRecords             :: !(Maybe Int)
-    , _dedpMarker                 :: !(Maybe Text)
-    , _dedpDBParameterGroupFamily :: !Text
+    { _dedprqFilters                :: !(Maybe [Filter])
+    , _dedprqMaxRecords             :: !(Maybe Int)
+    , _dedprqMarker                 :: !(Maybe Text)
+    , _dedprqDBParameterGroupFamily :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParameters' smart constructor.
 describeEngineDefaultParameters :: Text -> DescribeEngineDefaultParameters
 describeEngineDefaultParameters pDBParameterGroupFamily =
     DescribeEngineDefaultParameters'
-    { _dedpFilters = Nothing
-    , _dedpMaxRecords = Nothing
-    , _dedpMarker = Nothing
-    , _dedpDBParameterGroupFamily = pDBParameterGroupFamily
+    { _dedprqFilters = Nothing
+    , _dedprqMaxRecords = Nothing
+    , _dedprqMarker = Nothing
+    , _dedprqDBParameterGroupFamily = pDBParameterGroupFamily
     }
 
 -- | Not currently supported.
-dedpFilters :: Lens' DescribeEngineDefaultParameters [Filter]
-dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default;
+dedprqFilters :: Lens' DescribeEngineDefaultParameters [Filter]
+dedprqFilters = lens _dedprqFilters (\ s a -> s{_dedprqFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -90,31 +90,32 @@ dedpFilters = lens _dedpFilters (\ s a -> s{_dedpFilters = a}) . _Default;
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dedpMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
-dedpMaxRecords = lens _dedpMaxRecords (\ s a -> s{_dedpMaxRecords = a});
+dedprqMaxRecords :: Lens' DescribeEngineDefaultParameters (Maybe Int)
+dedprqMaxRecords = lens _dedprqMaxRecords (\ s a -> s{_dedprqMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- @DescribeEngineDefaultParameters@ request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to
 -- the value specified by @MaxRecords@.
-dedpMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
-dedpMarker = lens _dedpMarker (\ s a -> s{_dedpMarker = a});
+dedprqMarker :: Lens' DescribeEngineDefaultParameters (Maybe Text)
+dedprqMarker = lens _dedprqMarker (\ s a -> s{_dedprqMarker = a});
 
 -- | The name of the DB parameter group family.
-dedpDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
-dedpDBParameterGroupFamily = lens _dedpDBParameterGroupFamily (\ s a -> s{_dedpDBParameterGroupFamily = a});
+dedprqDBParameterGroupFamily :: Lens' DescribeEngineDefaultParameters Text
+dedprqDBParameterGroupFamily = lens _dedprqDBParameterGroupFamily (\ s a -> s{_dedprqDBParameterGroupFamily = a});
 
 instance AWSPager DescribeEngineDefaultParameters
          where
         page rq rs
-          | stop (rs ^? dedprEngineDefaults . edMarker . _Just)
+          | stop
+              (rs ^? dedprsEngineDefaults . edMarker . _Just)
             = Nothing
-          | stop (rs ^. dedprEngineDefaults . edParameters) =
+          | stop (rs ^. dedprsEngineDefaults . edParameters) =
             Nothing
           | otherwise =
             Just $ rq &
-              dedpMarker .~
-                rs ^? dedprEngineDefaults . edMarker . _Just
+              dedprqMarker .~
+                rs ^? dedprsEngineDefaults . edMarker . _Just
 
 instance AWSRequest DescribeEngineDefaultParameters
          where
@@ -144,36 +145,36 @@ instance ToQuery DescribeEngineDefaultParameters
                  ("DescribeEngineDefaultParameters" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dedpFilters),
-               "MaxRecords" =: _dedpMaxRecords,
-               "Marker" =: _dedpMarker,
+                 toQuery (toQueryList "Filter" <$> _dedprqFilters),
+               "MaxRecords" =: _dedprqMaxRecords,
+               "Marker" =: _dedprqMarker,
                "DBParameterGroupFamily" =:
-                 _dedpDBParameterGroupFamily]
+                 _dedprqDBParameterGroupFamily]
 
 -- | /See:/ 'describeEngineDefaultParametersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dedprStatus'
+-- * 'dedprsStatus'
 --
--- * 'dedprEngineDefaults'
+-- * 'dedprsEngineDefaults'
 data DescribeEngineDefaultParametersResponse = DescribeEngineDefaultParametersResponse'
-    { _dedprStatus         :: !Int
-    , _dedprEngineDefaults :: !EngineDefaults
+    { _dedprsStatus         :: !Int
+    , _dedprsEngineDefaults :: !EngineDefaults
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEngineDefaultParametersResponse' smart constructor.
 describeEngineDefaultParametersResponse :: Int -> EngineDefaults -> DescribeEngineDefaultParametersResponse
 describeEngineDefaultParametersResponse pStatus pEngineDefaults =
     DescribeEngineDefaultParametersResponse'
-    { _dedprStatus = pStatus
-    , _dedprEngineDefaults = pEngineDefaults
+    { _dedprsStatus = pStatus
+    , _dedprsEngineDefaults = pEngineDefaults
     }
 
 -- | FIXME: Undocumented member.
-dedprStatus :: Lens' DescribeEngineDefaultParametersResponse Int
-dedprStatus = lens _dedprStatus (\ s a -> s{_dedprStatus = a});
+dedprsStatus :: Lens' DescribeEngineDefaultParametersResponse Int
+dedprsStatus = lens _dedprsStatus (\ s a -> s{_dedprsStatus = a});
 
 -- | FIXME: Undocumented member.
-dedprEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
-dedprEngineDefaults = lens _dedprEngineDefaults (\ s a -> s{_dedprEngineDefaults = a});
+dedprsEngineDefaults :: Lens' DescribeEngineDefaultParametersResponse EngineDefaults
+dedprsEngineDefaults = lens _dedprsEngineDefaults (\ s a -> s{_dedprsEngineDefaults = a});

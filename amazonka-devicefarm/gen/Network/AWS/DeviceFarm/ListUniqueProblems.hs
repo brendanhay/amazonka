@@ -27,17 +27,17 @@ module Network.AWS.DeviceFarm.ListUniqueProblems
     -- ** Request constructor
     , listUniqueProblems
     -- ** Request lenses
-    , lupNextToken
-    , lupArn
+    , luprqNextToken
+    , luprqArn
 
     -- * Response
     , ListUniqueProblemsResponse
     -- ** Response constructor
     , listUniqueProblemsResponse
     -- ** Response lenses
-    , luprNextToken
-    , luprUniqueProblems
-    , luprStatus
+    , luprsNextToken
+    , luprsUniqueProblems
+    , luprsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lupNextToken'
+-- * 'luprqNextToken'
 --
--- * 'lupArn'
+-- * 'luprqArn'
 data ListUniqueProblems = ListUniqueProblems'
-    { _lupNextToken :: !(Maybe Text)
-    , _lupArn       :: !Text
+    { _luprqNextToken :: !(Maybe Text)
+    , _luprqArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUniqueProblems' smart constructor.
 listUniqueProblems :: Text -> ListUniqueProblems
 listUniqueProblems pArn =
     ListUniqueProblems'
-    { _lupNextToken = Nothing
-    , _lupArn = pArn
+    { _luprqNextToken = Nothing
+    , _luprqArn = pArn
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-lupNextToken :: Lens' ListUniqueProblems (Maybe Text)
-lupNextToken = lens _lupNextToken (\ s a -> s{_lupNextToken = a});
+luprqNextToken :: Lens' ListUniqueProblems (Maybe Text)
+luprqNextToken = lens _luprqNextToken (\ s a -> s{_luprqNextToken = a});
 
 -- | The unique problems\' ARNs.
-lupArn :: Lens' ListUniqueProblems Text
-lupArn = lens _lupArn (\ s a -> s{_lupArn = a});
+luprqArn :: Lens' ListUniqueProblems Text
+luprqArn = lens _luprqArn (\ s a -> s{_luprqArn = a});
 
 instance AWSRequest ListUniqueProblems where
         type Sv ListUniqueProblems = DeviceFarm
@@ -103,7 +103,7 @@ instance ToHeaders ListUniqueProblems where
 instance ToJSON ListUniqueProblems where
         toJSON ListUniqueProblems'{..}
           = object
-              ["nextToken" .= _lupNextToken, "arn" .= _lupArn]
+              ["nextToken" .= _luprqNextToken, "arn" .= _luprqArn]
 
 instance ToPath ListUniqueProblems where
         toPath = const "/"
@@ -117,31 +117,31 @@ instance ToQuery ListUniqueProblems where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'luprNextToken'
+-- * 'luprsNextToken'
 --
--- * 'luprUniqueProblems'
+-- * 'luprsUniqueProblems'
 --
--- * 'luprStatus'
+-- * 'luprsStatus'
 data ListUniqueProblemsResponse = ListUniqueProblemsResponse'
-    { _luprNextToken      :: !(Maybe Text)
-    , _luprUniqueProblems :: !(Maybe (Map ExecutionResult [UniqueProblem]))
-    , _luprStatus         :: !Int
+    { _luprsNextToken      :: !(Maybe Text)
+    , _luprsUniqueProblems :: !(Maybe (Map ExecutionResult [UniqueProblem]))
+    , _luprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUniqueProblemsResponse' smart constructor.
 listUniqueProblemsResponse :: Int -> ListUniqueProblemsResponse
 listUniqueProblemsResponse pStatus =
     ListUniqueProblemsResponse'
-    { _luprNextToken = Nothing
-    , _luprUniqueProblems = Nothing
-    , _luprStatus = pStatus
+    { _luprsNextToken = Nothing
+    , _luprsUniqueProblems = Nothing
+    , _luprsStatus = pStatus
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-luprNextToken :: Lens' ListUniqueProblemsResponse (Maybe Text)
-luprNextToken = lens _luprNextToken (\ s a -> s{_luprNextToken = a});
+luprsNextToken :: Lens' ListUniqueProblemsResponse (Maybe Text)
+luprsNextToken = lens _luprsNextToken (\ s a -> s{_luprsNextToken = a});
 
 -- | Information about the unique problems.
 --
@@ -161,9 +161,9 @@ luprNextToken = lens _luprNextToken (\ s a -> s{_luprNextToken = a});
 --
 -- -   WARNED: A warning condition.
 --
-luprUniqueProblems :: Lens' ListUniqueProblemsResponse (HashMap ExecutionResult [UniqueProblem])
-luprUniqueProblems = lens _luprUniqueProblems (\ s a -> s{_luprUniqueProblems = a}) . _Default . _Map;
+luprsUniqueProblems :: Lens' ListUniqueProblemsResponse (HashMap ExecutionResult [UniqueProblem])
+luprsUniqueProblems = lens _luprsUniqueProblems (\ s a -> s{_luprsUniqueProblems = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-luprStatus :: Lens' ListUniqueProblemsResponse Int
-luprStatus = lens _luprStatus (\ s a -> s{_luprStatus = a});
+luprsStatus :: Lens' ListUniqueProblemsResponse Int
+luprsStatus = lens _luprsStatus (\ s a -> s{_luprsStatus = a});

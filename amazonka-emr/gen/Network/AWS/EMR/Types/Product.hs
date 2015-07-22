@@ -40,47 +40,47 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'appAdditionalInfo'
+-- * 'aAdditionalInfo'
 --
--- * 'appArgs'
+-- * 'aArgs'
 --
--- * 'appName'
+-- * 'aName'
 --
--- * 'appVersion'
+-- * 'aVersion'
 data Application = Application'
-    { _appAdditionalInfo :: !(Maybe (Map Text Text))
-    , _appArgs           :: !(Maybe [Text])
-    , _appName           :: !(Maybe Text)
-    , _appVersion        :: !(Maybe Text)
+    { _aAdditionalInfo :: !(Maybe (Map Text Text))
+    , _aArgs           :: !(Maybe [Text])
+    , _aName           :: !(Maybe Text)
+    , _aVersion        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Application' smart constructor.
 application :: Application
 application =
     Application'
-    { _appAdditionalInfo = Nothing
-    , _appArgs = Nothing
-    , _appName = Nothing
-    , _appVersion = Nothing
+    { _aAdditionalInfo = Nothing
+    , _aArgs = Nothing
+    , _aName = Nothing
+    , _aVersion = Nothing
     }
 
 -- | This option is for advanced users only. This is meta information about
 -- third-party applications that third-party vendors use for testing
 -- purposes.
-appAdditionalInfo :: Lens' Application (HashMap Text Text)
-appAdditionalInfo = lens _appAdditionalInfo (\ s a -> s{_appAdditionalInfo = a}) . _Default . _Map;
+aAdditionalInfo :: Lens' Application (HashMap Text Text)
+aAdditionalInfo = lens _aAdditionalInfo (\ s a -> s{_aAdditionalInfo = a}) . _Default . _Map;
 
 -- | Arguments for Amazon EMR to pass to the application.
-appArgs :: Lens' Application [Text]
-appArgs = lens _appArgs (\ s a -> s{_appArgs = a}) . _Default;
+aArgs :: Lens' Application [Text]
+aArgs = lens _aArgs (\ s a -> s{_aArgs = a}) . _Default;
 
 -- | The name of the application.
-appName :: Lens' Application (Maybe Text)
-appName = lens _appName (\ s a -> s{_appName = a});
+aName :: Lens' Application (Maybe Text)
+aName = lens _aName (\ s a -> s{_aName = a});
 
 -- | The version of the application.
-appVersion :: Lens' Application (Maybe Text)
-appVersion = lens _appVersion (\ s a -> s{_appVersion = a});
+aVersion :: Lens' Application (Maybe Text)
+aVersion = lens _aVersion (\ s a -> s{_aVersion = a});
 
 instance FromJSON Application where
         parseJSON
@@ -134,81 +134,81 @@ instance ToJSON BootstrapActionConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cluRequestedAMIVersion'
+-- * 'cRequestedAMIVersion'
 --
--- * 'cluEC2InstanceAttributes'
+-- * 'cEC2InstanceAttributes'
 --
--- * 'cluNormalizedInstanceHours'
+-- * 'cNormalizedInstanceHours'
 --
--- * 'cluLogURI'
+-- * 'cLogURI'
 --
--- * 'cluRunningAMIVersion'
+-- * 'cRunningAMIVersion'
 --
--- * 'cluMasterPublicDNSName'
+-- * 'cMasterPublicDNSName'
 --
--- * 'cluAutoTerminate'
+-- * 'cAutoTerminate'
 --
--- * 'cluTerminationProtected'
+-- * 'cTerminationProtected'
 --
--- * 'cluVisibleToAllUsers'
+-- * 'cVisibleToAllUsers'
 --
--- * 'cluApplications'
+-- * 'cApplications'
 --
--- * 'cluTags'
+-- * 'cTags'
 --
--- * 'cluServiceRole'
+-- * 'cServiceRole'
 --
--- * 'cluId'
+-- * 'cId'
 --
--- * 'cluName'
+-- * 'cName'
 --
--- * 'cluStatus'
+-- * 'cStatus'
 data Cluster = Cluster'
-    { _cluRequestedAMIVersion     :: !(Maybe Text)
-    , _cluEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
-    , _cluNormalizedInstanceHours :: !(Maybe Int)
-    , _cluLogURI                  :: !(Maybe Text)
-    , _cluRunningAMIVersion       :: !(Maybe Text)
-    , _cluMasterPublicDNSName     :: !(Maybe Text)
-    , _cluAutoTerminate           :: !(Maybe Bool)
-    , _cluTerminationProtected    :: !(Maybe Bool)
-    , _cluVisibleToAllUsers       :: !(Maybe Bool)
-    , _cluApplications            :: !(Maybe [Application])
-    , _cluTags                    :: !(Maybe [Tag])
-    , _cluServiceRole             :: !(Maybe Text)
-    , _cluId                      :: !Text
-    , _cluName                    :: !Text
-    , _cluStatus                  :: !ClusterStatus
+    { _cRequestedAMIVersion     :: !(Maybe Text)
+    , _cEC2InstanceAttributes   :: !(Maybe EC2InstanceAttributes)
+    , _cNormalizedInstanceHours :: !(Maybe Int)
+    , _cLogURI                  :: !(Maybe Text)
+    , _cRunningAMIVersion       :: !(Maybe Text)
+    , _cMasterPublicDNSName     :: !(Maybe Text)
+    , _cAutoTerminate           :: !(Maybe Bool)
+    , _cTerminationProtected    :: !(Maybe Bool)
+    , _cVisibleToAllUsers       :: !(Maybe Bool)
+    , _cApplications            :: !(Maybe [Application])
+    , _cTags                    :: !(Maybe [Tag])
+    , _cServiceRole             :: !(Maybe Text)
+    , _cId                      :: !Text
+    , _cName                    :: !Text
+    , _cStatus                  :: !ClusterStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Cluster' smart constructor.
 cluster :: Text -> Text -> ClusterStatus -> Cluster
 cluster pId pName pStatus =
     Cluster'
-    { _cluRequestedAMIVersion = Nothing
-    , _cluEC2InstanceAttributes = Nothing
-    , _cluNormalizedInstanceHours = Nothing
-    , _cluLogURI = Nothing
-    , _cluRunningAMIVersion = Nothing
-    , _cluMasterPublicDNSName = Nothing
-    , _cluAutoTerminate = Nothing
-    , _cluTerminationProtected = Nothing
-    , _cluVisibleToAllUsers = Nothing
-    , _cluApplications = Nothing
-    , _cluTags = Nothing
-    , _cluServiceRole = Nothing
-    , _cluId = pId
-    , _cluName = pName
-    , _cluStatus = pStatus
+    { _cRequestedAMIVersion = Nothing
+    , _cEC2InstanceAttributes = Nothing
+    , _cNormalizedInstanceHours = Nothing
+    , _cLogURI = Nothing
+    , _cRunningAMIVersion = Nothing
+    , _cMasterPublicDNSName = Nothing
+    , _cAutoTerminate = Nothing
+    , _cTerminationProtected = Nothing
+    , _cVisibleToAllUsers = Nothing
+    , _cApplications = Nothing
+    , _cTags = Nothing
+    , _cServiceRole = Nothing
+    , _cId = pId
+    , _cName = pName
+    , _cStatus = pStatus
     }
 
 -- | The AMI version requested for this cluster.
-cluRequestedAMIVersion :: Lens' Cluster (Maybe Text)
-cluRequestedAMIVersion = lens _cluRequestedAMIVersion (\ s a -> s{_cluRequestedAMIVersion = a});
+cRequestedAMIVersion :: Lens' Cluster (Maybe Text)
+cRequestedAMIVersion = lens _cRequestedAMIVersion (\ s a -> s{_cRequestedAMIVersion = a});
 
 -- | FIXME: Undocumented member.
-cluEC2InstanceAttributes :: Lens' Cluster (Maybe EC2InstanceAttributes)
-cluEC2InstanceAttributes = lens _cluEC2InstanceAttributes (\ s a -> s{_cluEC2InstanceAttributes = a});
+cEC2InstanceAttributes :: Lens' Cluster (Maybe EC2InstanceAttributes)
+cEC2InstanceAttributes = lens _cEC2InstanceAttributes (\ s a -> s{_cEC2InstanceAttributes = a});
 
 -- | An approximation of the cost of the job flow, represented in
 -- m1.small\/hours. This value is incremented one time for every hour an
@@ -216,34 +216,34 @@ cluEC2InstanceAttributes = lens _cluEC2InstanceAttributes (\ s a -> s{_cluEC2Ins
 -- instance that is roughly four times more expensive would result in the
 -- normalized instance hours being incremented by four. This result is only
 -- an approximation and does not reflect the actual billing rate.
-cluNormalizedInstanceHours :: Lens' Cluster (Maybe Int)
-cluNormalizedInstanceHours = lens _cluNormalizedInstanceHours (\ s a -> s{_cluNormalizedInstanceHours = a});
+cNormalizedInstanceHours :: Lens' Cluster (Maybe Int)
+cNormalizedInstanceHours = lens _cNormalizedInstanceHours (\ s a -> s{_cNormalizedInstanceHours = a});
 
 -- | The path to the Amazon S3 location where logs for this cluster are
 -- stored.
-cluLogURI :: Lens' Cluster (Maybe Text)
-cluLogURI = lens _cluLogURI (\ s a -> s{_cluLogURI = a});
+cLogURI :: Lens' Cluster (Maybe Text)
+cLogURI = lens _cLogURI (\ s a -> s{_cLogURI = a});
 
 -- | The AMI version running on this cluster. This differs from the requested
 -- version only if the requested version is a meta version, such as
 -- \"latest\".
-cluRunningAMIVersion :: Lens' Cluster (Maybe Text)
-cluRunningAMIVersion = lens _cluRunningAMIVersion (\ s a -> s{_cluRunningAMIVersion = a});
+cRunningAMIVersion :: Lens' Cluster (Maybe Text)
+cRunningAMIVersion = lens _cRunningAMIVersion (\ s a -> s{_cRunningAMIVersion = a});
 
 -- | The public DNS name of the master Ec2 instance.
-cluMasterPublicDNSName :: Lens' Cluster (Maybe Text)
-cluMasterPublicDNSName = lens _cluMasterPublicDNSName (\ s a -> s{_cluMasterPublicDNSName = a});
+cMasterPublicDNSName :: Lens' Cluster (Maybe Text)
+cMasterPublicDNSName = lens _cMasterPublicDNSName (\ s a -> s{_cMasterPublicDNSName = a});
 
 -- | Specifies whether the cluster should terminate after completing all
 -- steps.
-cluAutoTerminate :: Lens' Cluster (Maybe Bool)
-cluAutoTerminate = lens _cluAutoTerminate (\ s a -> s{_cluAutoTerminate = a});
+cAutoTerminate :: Lens' Cluster (Maybe Bool)
+cAutoTerminate = lens _cAutoTerminate (\ s a -> s{_cAutoTerminate = a});
 
 -- | Indicates whether Amazon EMR will lock the cluster to prevent the EC2
 -- instances from being terminated by an API call or user intervention, or
 -- in the event of a cluster error.
-cluTerminationProtected :: Lens' Cluster (Maybe Bool)
-cluTerminationProtected = lens _cluTerminationProtected (\ s a -> s{_cluTerminationProtected = a});
+cTerminationProtected :: Lens' Cluster (Maybe Bool)
+cTerminationProtected = lens _cTerminationProtected (\ s a -> s{_cTerminationProtected = a});
 
 -- | Indicates whether the job flow is visible to all IAM users of the AWS
 -- account associated with the job flow. If this value is set to @true@,
@@ -251,33 +251,33 @@ cluTerminationProtected = lens _cluTerminationProtected (\ s a -> s{_cluTerminat
 -- they have the proper policy permissions set. If this value is @false@,
 -- only the IAM user that created the cluster can view and manage it. This
 -- value can be changed using the SetVisibleToAllUsers action.
-cluVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
-cluVisibleToAllUsers = lens _cluVisibleToAllUsers (\ s a -> s{_cluVisibleToAllUsers = a});
+cVisibleToAllUsers :: Lens' Cluster (Maybe Bool)
+cVisibleToAllUsers = lens _cVisibleToAllUsers (\ s a -> s{_cVisibleToAllUsers = a});
 
 -- | The applications installed on this cluster.
-cluApplications :: Lens' Cluster [Application]
-cluApplications = lens _cluApplications (\ s a -> s{_cluApplications = a}) . _Default;
+cApplications :: Lens' Cluster [Application]
+cApplications = lens _cApplications (\ s a -> s{_cApplications = a}) . _Default;
 
 -- | A list of tags associated with a cluster.
-cluTags :: Lens' Cluster [Tag]
-cluTags = lens _cluTags (\ s a -> s{_cluTags = a}) . _Default;
+cTags :: Lens' Cluster [Tag]
+cTags = lens _cTags (\ s a -> s{_cTags = a}) . _Default;
 
 -- | The IAM role that will be assumed by the Amazon EMR service to access
 -- AWS resources on your behalf.
-cluServiceRole :: Lens' Cluster (Maybe Text)
-cluServiceRole = lens _cluServiceRole (\ s a -> s{_cluServiceRole = a});
+cServiceRole :: Lens' Cluster (Maybe Text)
+cServiceRole = lens _cServiceRole (\ s a -> s{_cServiceRole = a});
 
 -- | The unique identifier for the cluster.
-cluId :: Lens' Cluster Text
-cluId = lens _cluId (\ s a -> s{_cluId = a});
+cId :: Lens' Cluster Text
+cId = lens _cId (\ s a -> s{_cId = a});
 
 -- | The name of the cluster.
-cluName :: Lens' Cluster Text
-cluName = lens _cluName (\ s a -> s{_cluName = a});
+cName :: Lens' Cluster Text
+cName = lens _cName (\ s a -> s{_cName = a});
 
 -- | The current status details about the cluster.
-cluStatus :: Lens' Cluster ClusterStatus
-cluStatus = lens _cluStatus (\ s a -> s{_cluStatus = a});
+cStatus :: Lens' Cluster ClusterStatus
+cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
 
 instance FromJSON Cluster where
         parseJSON
@@ -768,69 +768,69 @@ instance FromJSON HadoopStepConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'insStatus'
+-- * 'iStatus'
 --
--- * 'insPublicDNSName'
+-- * 'iPublicDNSName'
 --
--- * 'insEC2InstanceId'
+-- * 'iEC2InstanceId'
 --
--- * 'insPrivateIPAddress'
+-- * 'iPrivateIPAddress'
 --
--- * 'insId'
+-- * 'iId'
 --
--- * 'insPrivateDNSName'
+-- * 'iPrivateDNSName'
 --
--- * 'insPublicIPAddress'
+-- * 'iPublicIPAddress'
 data Instance = Instance'
-    { _insStatus           :: !(Maybe InstanceStatus)
-    , _insPublicDNSName    :: !(Maybe Text)
-    , _insEC2InstanceId    :: !(Maybe Text)
-    , _insPrivateIPAddress :: !(Maybe Text)
-    , _insId               :: !(Maybe Text)
-    , _insPrivateDNSName   :: !(Maybe Text)
-    , _insPublicIPAddress  :: !(Maybe Text)
+    { _iStatus           :: !(Maybe InstanceStatus)
+    , _iPublicDNSName    :: !(Maybe Text)
+    , _iEC2InstanceId    :: !(Maybe Text)
+    , _iPrivateIPAddress :: !(Maybe Text)
+    , _iId               :: !(Maybe Text)
+    , _iPrivateDNSName   :: !(Maybe Text)
+    , _iPublicIPAddress  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
 instance' =
     Instance'
-    { _insStatus = Nothing
-    , _insPublicDNSName = Nothing
-    , _insEC2InstanceId = Nothing
-    , _insPrivateIPAddress = Nothing
-    , _insId = Nothing
-    , _insPrivateDNSName = Nothing
-    , _insPublicIPAddress = Nothing
+    { _iStatus = Nothing
+    , _iPublicDNSName = Nothing
+    , _iEC2InstanceId = Nothing
+    , _iPrivateIPAddress = Nothing
+    , _iId = Nothing
+    , _iPrivateDNSName = Nothing
+    , _iPublicIPAddress = Nothing
     }
 
 -- | The current status of the instance.
-insStatus :: Lens' Instance (Maybe InstanceStatus)
-insStatus = lens _insStatus (\ s a -> s{_insStatus = a});
+iStatus :: Lens' Instance (Maybe InstanceStatus)
+iStatus = lens _iStatus (\ s a -> s{_iStatus = a});
 
 -- | The public DNS name of the instance.
-insPublicDNSName :: Lens' Instance (Maybe Text)
-insPublicDNSName = lens _insPublicDNSName (\ s a -> s{_insPublicDNSName = a});
+iPublicDNSName :: Lens' Instance (Maybe Text)
+iPublicDNSName = lens _iPublicDNSName (\ s a -> s{_iPublicDNSName = a});
 
 -- | The unique identifier of the instance in Amazon EC2.
-insEC2InstanceId :: Lens' Instance (Maybe Text)
-insEC2InstanceId = lens _insEC2InstanceId (\ s a -> s{_insEC2InstanceId = a});
+iEC2InstanceId :: Lens' Instance (Maybe Text)
+iEC2InstanceId = lens _iEC2InstanceId (\ s a -> s{_iEC2InstanceId = a});
 
 -- | The private IP address of the instance.
-insPrivateIPAddress :: Lens' Instance (Maybe Text)
-insPrivateIPAddress = lens _insPrivateIPAddress (\ s a -> s{_insPrivateIPAddress = a});
+iPrivateIPAddress :: Lens' Instance (Maybe Text)
+iPrivateIPAddress = lens _iPrivateIPAddress (\ s a -> s{_iPrivateIPAddress = a});
 
 -- | The unique identifier for the instance in Amazon EMR.
-insId :: Lens' Instance (Maybe Text)
-insId = lens _insId (\ s a -> s{_insId = a});
+iId :: Lens' Instance (Maybe Text)
+iId = lens _iId (\ s a -> s{_iId = a});
 
 -- | The private DNS name of the instance.
-insPrivateDNSName :: Lens' Instance (Maybe Text)
-insPrivateDNSName = lens _insPrivateDNSName (\ s a -> s{_insPrivateDNSName = a});
+iPrivateDNSName :: Lens' Instance (Maybe Text)
+iPrivateDNSName = lens _iPrivateDNSName (\ s a -> s{_iPrivateDNSName = a});
 
 -- | The public IP address of the instance.
-insPublicIPAddress :: Lens' Instance (Maybe Text)
-insPublicIPAddress = lens _insPublicIPAddress (\ s a -> s{_insPublicIPAddress = a});
+iPublicIPAddress :: Lens' Instance (Maybe Text)
+iPublicIPAddress = lens _iPublicIPAddress (\ s a -> s{_iPublicIPAddress = a});
 
 instance FromJSON Instance where
         parseJSON
@@ -1601,54 +1601,54 @@ instance ToJSON ScriptBootstrapActionConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'steStatus'
+-- * 'sStatus'
 --
--- * 'steActionOnFailure'
+-- * 'sActionOnFailure'
 --
--- * 'steConfig'
+-- * 'sConfig'
 --
--- * 'steName'
+-- * 'sName'
 --
--- * 'steId'
+-- * 'sId'
 data Step = Step'
-    { _steStatus          :: !(Maybe StepStatus)
-    , _steActionOnFailure :: !(Maybe ActionOnFailure)
-    , _steConfig          :: !(Maybe HadoopStepConfig)
-    , _steName            :: !(Maybe Text)
-    , _steId              :: !(Maybe Text)
+    { _sStatus          :: !(Maybe StepStatus)
+    , _sActionOnFailure :: !(Maybe ActionOnFailure)
+    , _sConfig          :: !(Maybe HadoopStepConfig)
+    , _sName            :: !(Maybe Text)
+    , _sId              :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Step' smart constructor.
 step :: Step
 step =
     Step'
-    { _steStatus = Nothing
-    , _steActionOnFailure = Nothing
-    , _steConfig = Nothing
-    , _steName = Nothing
-    , _steId = Nothing
+    { _sStatus = Nothing
+    , _sActionOnFailure = Nothing
+    , _sConfig = Nothing
+    , _sName = Nothing
+    , _sId = Nothing
     }
 
 -- | The current execution status details of the cluster step.
-steStatus :: Lens' Step (Maybe StepStatus)
-steStatus = lens _steStatus (\ s a -> s{_steStatus = a});
+sStatus :: Lens' Step (Maybe StepStatus)
+sStatus = lens _sStatus (\ s a -> s{_sStatus = a});
 
 -- | This specifies what action to take when the cluster step fails. Possible
 -- values are TERMINATE_CLUSTER, CANCEL_AND_WAIT, and CONTINUE.
-steActionOnFailure :: Lens' Step (Maybe ActionOnFailure)
-steActionOnFailure = lens _steActionOnFailure (\ s a -> s{_steActionOnFailure = a});
+sActionOnFailure :: Lens' Step (Maybe ActionOnFailure)
+sActionOnFailure = lens _sActionOnFailure (\ s a -> s{_sActionOnFailure = a});
 
 -- | The Hadoop job configuration of the cluster step.
-steConfig :: Lens' Step (Maybe HadoopStepConfig)
-steConfig = lens _steConfig (\ s a -> s{_steConfig = a});
+sConfig :: Lens' Step (Maybe HadoopStepConfig)
+sConfig = lens _sConfig (\ s a -> s{_sConfig = a});
 
 -- | The name of the cluster step.
-steName :: Lens' Step (Maybe Text)
-steName = lens _steName (\ s a -> s{_steName = a});
+sName :: Lens' Step (Maybe Text)
+sName = lens _sName (\ s a -> s{_sName = a});
 
 -- | The identifier of the cluster step.
-steId :: Lens' Step (Maybe Text)
-steId = lens _steId (\ s a -> s{_steId = a});
+sId :: Lens' Step (Maybe Text)
+sId = lens _sId (\ s a -> s{_sId = a});
 
 instance FromJSON Step where
         parseJSON

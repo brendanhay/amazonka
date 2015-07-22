@@ -29,17 +29,17 @@ module Network.AWS.ElasticTranscoder.ListPresets
     -- ** Request constructor
     , listPresets
     -- ** Request lenses
-    , lisAscending
-    , lisPageToken
+    , lrqAscending
+    , lrqPageToken
 
     -- * Response
     , ListPresetsResponse
     -- ** Response constructor
     , listPresetsResponse
     -- ** Response lenses
-    , lisNextPageToken
-    , lisPresets
-    , lisStatus
+    , lrsNextPageToken
+    , lrsPresets
+    , lrsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -54,40 +54,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisAscending'
+-- * 'lrqAscending'
 --
--- * 'lisPageToken'
+-- * 'lrqPageToken'
 data ListPresets = ListPresets'
-    { _lisAscending :: !(Maybe Text)
-    , _lisPageToken :: !(Maybe Text)
+    { _lrqAscending :: !(Maybe Text)
+    , _lrqPageToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPresets' smart constructor.
 listPresets :: ListPresets
 listPresets =
     ListPresets'
-    { _lisAscending = Nothing
-    , _lisPageToken = Nothing
+    { _lrqAscending = Nothing
+    , _lrqPageToken = Nothing
     }
 
 -- | To list presets in chronological order by the date and time that they
 -- were created, enter @true@. To list presets in reverse chronological
 -- order, enter @false@.
-lisAscending :: Lens' ListPresets (Maybe Text)
-lisAscending = lens _lisAscending (\ s a -> s{_lisAscending = a});
+lrqAscending :: Lens' ListPresets (Maybe Text)
+lrqAscending = lens _lrqAscending (\ s a -> s{_lrqAscending = a});
 
 -- | When Elastic Transcoder returns more than one page of results, use
 -- @pageToken@ in subsequent @GET@ requests to get each successive page of
 -- results.
-lisPageToken :: Lens' ListPresets (Maybe Text)
-lisPageToken = lens _lisPageToken (\ s a -> s{_lisPageToken = a});
+lrqPageToken :: Lens' ListPresets (Maybe Text)
+lrqPageToken = lens _lrqPageToken (\ s a -> s{_lrqPageToken = a});
 
 instance AWSPager ListPresets where
         page rq rs
-          | stop (rs ^. lisNextPageToken) = Nothing
-          | stop (rs ^. lisPresets) = Nothing
+          | stop (rs ^. lrsNextPageToken) = Nothing
+          | stop (rs ^. lrsPresets) = Nothing
           | otherwise =
-            Just $ rq & lisPageToken .~ rs ^. lisNextPageToken
+            Just $ rq & lrqPageToken .~ rs ^. lrsNextPageToken
 
 instance AWSRequest ListPresets where
         type Sv ListPresets = ElasticTranscoder
@@ -110,8 +110,8 @@ instance ToPath ListPresets where
 instance ToQuery ListPresets where
         toQuery ListPresets'{..}
           = mconcat
-              ["Ascending" =: _lisAscending,
-               "PageToken" =: _lisPageToken]
+              ["Ascending" =: _lrqAscending,
+               "PageToken" =: _lrqPageToken]
 
 -- | The @ListPresetsResponse@ structure.
 --
@@ -119,37 +119,37 @@ instance ToQuery ListPresets where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisNextPageToken'
+-- * 'lrsNextPageToken'
 --
--- * 'lisPresets'
+-- * 'lrsPresets'
 --
--- * 'lisStatus'
+-- * 'lrsStatus'
 data ListPresetsResponse = ListPresetsResponse'
-    { _lisNextPageToken :: !(Maybe Text)
-    , _lisPresets       :: !(Maybe [Preset])
-    , _lisStatus        :: !Int
+    { _lrsNextPageToken :: !(Maybe Text)
+    , _lrsPresets       :: !(Maybe [Preset])
+    , _lrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPresetsResponse' smart constructor.
 listPresetsResponse :: Int -> ListPresetsResponse
 listPresetsResponse pStatus =
     ListPresetsResponse'
-    { _lisNextPageToken = Nothing
-    , _lisPresets = Nothing
-    , _lisStatus = pStatus
+    { _lrsNextPageToken = Nothing
+    , _lrsPresets = Nothing
+    , _lrsStatus = pStatus
     }
 
 -- | A value that you use to access the second and subsequent pages of
 -- results, if any. When the presets fit on one page or when you\'ve
 -- reached the last page of results, the value of @NextPageToken@ is
 -- @null@.
-lisNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
-lisNextPageToken = lens _lisNextPageToken (\ s a -> s{_lisNextPageToken = a});
+lrsNextPageToken :: Lens' ListPresetsResponse (Maybe Text)
+lrsNextPageToken = lens _lrsNextPageToken (\ s a -> s{_lrsNextPageToken = a});
 
 -- | An array of @Preset@ objects.
-lisPresets :: Lens' ListPresetsResponse [Preset]
-lisPresets = lens _lisPresets (\ s a -> s{_lisPresets = a}) . _Default;
+lrsPresets :: Lens' ListPresetsResponse [Preset]
+lrsPresets = lens _lrsPresets (\ s a -> s{_lrsPresets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListPresetsResponse Int
-lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});
+lrsStatus :: Lens' ListPresetsResponse Int
+lrsStatus = lens _lrsStatus (\ s a -> s{_lrsStatus = a});

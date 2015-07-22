@@ -27,18 +27,18 @@ module Network.AWS.DeviceFarm.CreateDevicePool
     -- ** Request constructor
     , createDevicePool
     -- ** Request lenses
-    , cdpDescription
-    , cdpProjectARN
-    , cdpName
-    , cdpRules
+    , cdprqDescription
+    , cdprqProjectARN
+    , cdprqName
+    , cdprqRules
 
     -- * Response
     , CreateDevicePoolResponse
     -- ** Response constructor
     , createDevicePoolResponse
     -- ** Response lenses
-    , cdprDevicePool
-    , cdprStatus
+    , cdprsDevicePool
+    , cdprsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -52,45 +52,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdpDescription'
+-- * 'cdprqDescription'
 --
--- * 'cdpProjectARN'
+-- * 'cdprqProjectARN'
 --
--- * 'cdpName'
+-- * 'cdprqName'
 --
--- * 'cdpRules'
+-- * 'cdprqRules'
 data CreateDevicePool = CreateDevicePool'
-    { _cdpDescription :: !(Maybe Text)
-    , _cdpProjectARN  :: !Text
-    , _cdpName        :: !Text
-    , _cdpRules       :: ![Rule]
+    { _cdprqDescription :: !(Maybe Text)
+    , _cdprqProjectARN  :: !Text
+    , _cdprqName        :: !Text
+    , _cdprqRules       :: ![Rule]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDevicePool' smart constructor.
 createDevicePool :: Text -> Text -> CreateDevicePool
 createDevicePool pProjectARN pName =
     CreateDevicePool'
-    { _cdpDescription = Nothing
-    , _cdpProjectARN = pProjectARN
-    , _cdpName = pName
-    , _cdpRules = mempty
+    { _cdprqDescription = Nothing
+    , _cdprqProjectARN = pProjectARN
+    , _cdprqName = pName
+    , _cdprqRules = mempty
     }
 
 -- | The device pool\'s description.
-cdpDescription :: Lens' CreateDevicePool (Maybe Text)
-cdpDescription = lens _cdpDescription (\ s a -> s{_cdpDescription = a});
+cdprqDescription :: Lens' CreateDevicePool (Maybe Text)
+cdprqDescription = lens _cdprqDescription (\ s a -> s{_cdprqDescription = a});
 
 -- | The ARN of the project for the device pool.
-cdpProjectARN :: Lens' CreateDevicePool Text
-cdpProjectARN = lens _cdpProjectARN (\ s a -> s{_cdpProjectARN = a});
+cdprqProjectARN :: Lens' CreateDevicePool Text
+cdprqProjectARN = lens _cdprqProjectARN (\ s a -> s{_cdprqProjectARN = a});
 
 -- | The device pool\'s name.
-cdpName :: Lens' CreateDevicePool Text
-cdpName = lens _cdpName (\ s a -> s{_cdpName = a});
+cdprqName :: Lens' CreateDevicePool Text
+cdprqName = lens _cdprqName (\ s a -> s{_cdprqName = a});
 
 -- | The device pool\'s rules.
-cdpRules :: Lens' CreateDevicePool [Rule]
-cdpRules = lens _cdpRules (\ s a -> s{_cdpRules = a});
+cdprqRules :: Lens' CreateDevicePool [Rule]
+cdprqRules = lens _cdprqRules (\ s a -> s{_cdprqRules = a});
 
 instance AWSRequest CreateDevicePool where
         type Sv CreateDevicePool = DeviceFarm
@@ -115,9 +115,9 @@ instance ToHeaders CreateDevicePool where
 instance ToJSON CreateDevicePool where
         toJSON CreateDevicePool'{..}
           = object
-              ["description" .= _cdpDescription,
-               "projectArn" .= _cdpProjectARN, "name" .= _cdpName,
-               "rules" .= _cdpRules]
+              ["description" .= _cdprqDescription,
+               "projectArn" .= _cdprqProjectARN,
+               "name" .= _cdprqName, "rules" .= _cdprqRules]
 
 instance ToPath CreateDevicePool where
         toPath = const "/"
@@ -131,26 +131,26 @@ instance ToQuery CreateDevicePool where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdprDevicePool'
+-- * 'cdprsDevicePool'
 --
--- * 'cdprStatus'
+-- * 'cdprsStatus'
 data CreateDevicePoolResponse = CreateDevicePoolResponse'
-    { _cdprDevicePool :: !(Maybe DevicePool)
-    , _cdprStatus     :: !Int
+    { _cdprsDevicePool :: !(Maybe DevicePool)
+    , _cdprsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDevicePoolResponse' smart constructor.
 createDevicePoolResponse :: Int -> CreateDevicePoolResponse
 createDevicePoolResponse pStatus =
     CreateDevicePoolResponse'
-    { _cdprDevicePool = Nothing
-    , _cdprStatus = pStatus
+    { _cdprsDevicePool = Nothing
+    , _cdprsStatus = pStatus
     }
 
 -- | The newly created device pool.
-cdprDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
-cdprDevicePool = lens _cdprDevicePool (\ s a -> s{_cdprDevicePool = a});
+cdprsDevicePool :: Lens' CreateDevicePoolResponse (Maybe DevicePool)
+cdprsDevicePool = lens _cdprsDevicePool (\ s a -> s{_cdprsDevicePool = a});
 
 -- | FIXME: Undocumented member.
-cdprStatus :: Lens' CreateDevicePoolResponse Int
-cdprStatus = lens _cdprStatus (\ s a -> s{_cdprStatus = a});
+cdprsStatus :: Lens' CreateDevicePoolResponse Int
+cdprsStatus = lens _cdprsStatus (\ s a -> s{_cdprsStatus = a});

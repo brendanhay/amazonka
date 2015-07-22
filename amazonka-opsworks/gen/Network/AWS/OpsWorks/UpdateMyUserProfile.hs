@@ -32,7 +32,7 @@ module Network.AWS.OpsWorks.UpdateMyUserProfile
     -- ** Request constructor
     , updateMyUserProfile
     -- ** Request lenses
-    , umupSSHPublicKey
+    , umuprqSSHPublicKey
 
     -- * Response
     , UpdateMyUserProfileResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'umupSSHPublicKey'
+-- * 'umuprqSSHPublicKey'
 newtype UpdateMyUserProfile = UpdateMyUserProfile'
-    { _umupSSHPublicKey :: Maybe Text
+    { _umuprqSSHPublicKey :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateMyUserProfile' smart constructor.
 updateMyUserProfile :: UpdateMyUserProfile
 updateMyUserProfile =
     UpdateMyUserProfile'
-    { _umupSSHPublicKey = Nothing
+    { _umuprqSSHPublicKey = Nothing
     }
 
 -- | The user\'s SSH public key.
-umupSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
-umupSSHPublicKey = lens _umupSSHPublicKey (\ s a -> s{_umupSSHPublicKey = a});
+umuprqSSHPublicKey :: Lens' UpdateMyUserProfile (Maybe Text)
+umuprqSSHPublicKey = lens _umuprqSSHPublicKey (\ s a -> s{_umuprqSSHPublicKey = a});
 
 instance AWSRequest UpdateMyUserProfile where
         type Sv UpdateMyUserProfile = OpsWorks
@@ -84,7 +84,7 @@ instance ToHeaders UpdateMyUserProfile where
 
 instance ToJSON UpdateMyUserProfile where
         toJSON UpdateMyUserProfile'{..}
-          = object ["SshPublicKey" .= _umupSSHPublicKey]
+          = object ["SshPublicKey" .= _umuprqSSHPublicKey]
 
 instance ToPath UpdateMyUserProfile where
         toPath = const "/"

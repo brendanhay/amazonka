@@ -30,21 +30,21 @@ module Network.AWS.Lambda.Invoke
     -- ** Request constructor
     , invoke
     -- ** Request lenses
-    , invInvocationType
-    , invPayload
-    , invLogType
-    , invClientContext
-    , invFunctionName
+    , irqInvocationType
+    , irqPayload
+    , irqLogType
+    , irqClientContext
+    , irqFunctionName
 
     -- * Response
     , InvokeResponse
     -- ** Response constructor
     , invokeResponse
     -- ** Response lenses
-    , irFunctionError
-    , irLogResult
-    , irPayload
-    , irStatusCode
+    , irsFunctionError
+    , irsLogResult
+    , irsPayload
+    , irsStatusCode
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'invInvocationType'
+-- * 'irqInvocationType'
 --
--- * 'invPayload'
+-- * 'irqPayload'
 --
--- * 'invLogType'
+-- * 'irqLogType'
 --
--- * 'invClientContext'
+-- * 'irqClientContext'
 --
--- * 'invFunctionName'
+-- * 'irqFunctionName'
 data Invoke = Invoke'
-    { _invInvocationType :: !(Maybe InvocationType)
-    , _invPayload        :: !(Maybe Base64)
-    , _invLogType        :: !(Maybe LogType)
-    , _invClientContext  :: !(Maybe Text)
-    , _invFunctionName   :: !Text
+    { _irqInvocationType :: !(Maybe InvocationType)
+    , _irqPayload        :: !(Maybe Base64)
+    , _irqLogType        :: !(Maybe LogType)
+    , _irqClientContext  :: !(Maybe Text)
+    , _irqFunctionName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Invoke' smart constructor.
 invoke :: Text -> Invoke
 invoke pFunctionName =
     Invoke'
-    { _invInvocationType = Nothing
-    , _invPayload = Nothing
-    , _invLogType = Nothing
-    , _invClientContext = Nothing
-    , _invFunctionName = pFunctionName
+    { _irqInvocationType = Nothing
+    , _irqPayload = Nothing
+    , _irqLogType = Nothing
+    , _irqClientContext = Nothing
+    , _irqFunctionName = pFunctionName
     }
 
 -- | By default, the @Invoke@ API assumes \"RequestResponse\" invocation
@@ -92,20 +92,20 @@ invoke pFunctionName =
 -- inputs are valid. You request this by specifying \"DryRun\" as the
 -- @InvocationType@. This is useful in a cross-account scenario when you
 -- want to verify access to a function without running it.
-invInvocationType :: Lens' Invoke (Maybe InvocationType)
-invInvocationType = lens _invInvocationType (\ s a -> s{_invInvocationType = a});
+irqInvocationType :: Lens' Invoke (Maybe InvocationType)
+irqInvocationType = lens _irqInvocationType (\ s a -> s{_irqInvocationType = a});
 
 -- | JSON that you want to provide to your Lambda function as input.
-invPayload :: Lens' Invoke (Maybe Base64)
-invPayload = lens _invPayload (\ s a -> s{_invPayload = a});
+irqPayload :: Lens' Invoke (Maybe Base64)
+irqPayload = lens _irqPayload (\ s a -> s{_irqPayload = a});
 
 -- | You can set this optional parameter to \"Tail\" in the request only if
 -- you specify the @InvocationType@ parameter with value
 -- \"RequestResponse\". In this case, AWS Lambda returns the base64-encoded
 -- last 4 KB of log data produced by your Lambda function in the
 -- @x-amz-log-results@ header.
-invLogType :: Lens' Invoke (Maybe LogType)
-invLogType = lens _invLogType (\ s a -> s{_invLogType = a});
+irqLogType :: Lens' Invoke (Maybe LogType)
+irqLogType = lens _irqLogType (\ s a -> s{_irqLogType = a});
 
 -- | Using the @ClientContext@ you can pass client-specific information to
 -- the Lambda function you are invoking. You can then process the client
@@ -115,8 +115,8 @@ invLogType = lens _invLogType (\ s a -> s{_invLogType = a});
 -- in the /Amazon Mobile Analytics API Reference and User Guide/.
 --
 -- The ClientContext JSON must be base64-encoded.
-invClientContext :: Lens' Invoke (Maybe Text)
-invClientContext = lens _invClientContext (\ s a -> s{_invClientContext = a});
+irqClientContext :: Lens' Invoke (Maybe Text)
+irqClientContext = lens _irqClientContext (\ s a -> s{_irqClientContext = a});
 
 -- | The Lambda function name.
 --
@@ -128,8 +128,8 @@ invClientContext = lens _invClientContext (\ s a -> s{_invClientContext = a});
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-invFunctionName :: Lens' Invoke Text
-invFunctionName = lens _invFunctionName (\ s a -> s{_invFunctionName = a});
+irqFunctionName :: Lens' Invoke Text
+irqFunctionName = lens _irqFunctionName (\ s a -> s{_irqFunctionName = a});
 
 instance AWSRequest Invoke where
         type Sv Invoke = Lambda
@@ -147,18 +147,18 @@ instance AWSRequest Invoke where
 instance ToHeaders Invoke where
         toHeaders Invoke'{..}
           = mconcat
-              ["X-Amz-Invocation-Type" =# _invInvocationType,
-               "X-Amz-Log-Type" =# _invLogType,
-               "X-Amz-Client-Context" =# _invClientContext]
+              ["X-Amz-Invocation-Type" =# _irqInvocationType,
+               "X-Amz-Log-Type" =# _irqLogType,
+               "X-Amz-Client-Context" =# _irqClientContext]
 
 instance ToJSON Invoke where
         toJSON Invoke'{..}
-          = object ["Payload" .= _invPayload]
+          = object ["Payload" .= _irqPayload]
 
 instance ToPath Invoke where
         toPath Invoke'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _invFunctionName,
+              ["/2015-03-31/functions/", toText _irqFunctionName,
                "/invocations"]
 
 instance ToQuery Invoke where
@@ -170,28 +170,28 @@ instance ToQuery Invoke where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'irFunctionError'
+-- * 'irsFunctionError'
 --
--- * 'irLogResult'
+-- * 'irsLogResult'
 --
--- * 'irPayload'
+-- * 'irsPayload'
 --
--- * 'irStatusCode'
+-- * 'irsStatusCode'
 data InvokeResponse = InvokeResponse'
-    { _irFunctionError :: !(Maybe Text)
-    , _irLogResult     :: !(Maybe Text)
-    , _irPayload       :: !(Maybe Base64)
-    , _irStatusCode    :: !Int
+    { _irsFunctionError :: !(Maybe Text)
+    , _irsLogResult     :: !(Maybe Text)
+    , _irsPayload       :: !(Maybe Base64)
+    , _irsStatusCode    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'InvokeResponse' smart constructor.
 invokeResponse :: Int -> InvokeResponse
 invokeResponse pStatusCode =
     InvokeResponse'
-    { _irFunctionError = Nothing
-    , _irLogResult = Nothing
-    , _irPayload = Nothing
-    , _irStatusCode = pStatusCode
+    { _irsFunctionError = Nothing
+    , _irsLogResult = Nothing
+    , _irsPayload = Nothing
+    , _irsStatusCode = pStatusCode
     }
 
 -- | Indicates whether an error occurred while executing the Lambda function.
@@ -201,14 +201,14 @@ invokeResponse pStatusCode =
 -- AWS Lambda. Unhandled errors include out of memory errors and function
 -- timeouts. For information about how to report an @Handled@ error, see
 -- <http://docs.aws.amazon.com/lambda/latest/dg/programming-model.html Programming Model>.
-irFunctionError :: Lens' InvokeResponse (Maybe Text)
-irFunctionError = lens _irFunctionError (\ s a -> s{_irFunctionError = a});
+irsFunctionError :: Lens' InvokeResponse (Maybe Text)
+irsFunctionError = lens _irsFunctionError (\ s a -> s{_irsFunctionError = a});
 
 -- | It is the base64-encoded logs for the Lambda function invocation. This
 -- is present only if the invocation type is \"RequestResponse\" and the
 -- logs were requested.
-irLogResult :: Lens' InvokeResponse (Maybe Text)
-irLogResult = lens _irLogResult (\ s a -> s{_irLogResult = a});
+irsLogResult :: Lens' InvokeResponse (Maybe Text)
+irsLogResult = lens _irsLogResult (\ s a -> s{_irsLogResult = a});
 
 -- | It is the JSON representation of the object returned by the Lambda
 -- function. In This is present only if the invocation type is
@@ -218,12 +218,12 @@ irLogResult = lens _irLogResult (\ s a -> s{_irLogResult = a});
 -- describing the error. For the @Handled@ errors the Lambda function will
 -- report this message. For @Unhandled@ errors AWS Lambda reports the
 -- message.
-irPayload :: Lens' InvokeResponse (Maybe Base64)
-irPayload = lens _irPayload (\ s a -> s{_irPayload = a});
+irsPayload :: Lens' InvokeResponse (Maybe Base64)
+irsPayload = lens _irsPayload (\ s a -> s{_irsPayload = a});
 
 -- | The HTTP status code will be in the 200 range for successful request.
 -- For the \"RequestResonse\" invocation type this status code will be 200.
 -- For the \"Event\" invocation type this status code will be 202. For the
 -- \"DryRun\" invocation type the status code will be 204.
-irStatusCode :: Lens' InvokeResponse Int
-irStatusCode = lens _irStatusCode (\ s a -> s{_irStatusCode = a});
+irsStatusCode :: Lens' InvokeResponse Int
+irsStatusCode = lens _irsStatusCode (\ s a -> s{_irsStatusCode = a});

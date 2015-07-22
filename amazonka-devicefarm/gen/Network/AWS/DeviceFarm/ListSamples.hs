@@ -27,17 +27,17 @@ module Network.AWS.DeviceFarm.ListSamples
     -- ** Request constructor
     , listSamples
     -- ** Request lenses
-    , lsNextToken
-    , lsArn
+    , lsrqNextToken
+    , lsrqArn
 
     -- * Response
     , ListSamplesResponse
     -- ** Response constructor
     , listSamplesResponse
     -- ** Response lenses
-    , lsrNextToken
-    , lsrSamples
-    , lsrStatus
+    , lsrsNextToken
+    , lsrsSamples
+    , lsrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsNextToken'
+-- * 'lsrqNextToken'
 --
--- * 'lsArn'
+-- * 'lsrqArn'
 data ListSamples = ListSamples'
-    { _lsNextToken :: !(Maybe Text)
-    , _lsArn       :: !Text
+    { _lsrqNextToken :: !(Maybe Text)
+    , _lsrqArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSamples' smart constructor.
 listSamples :: Text -> ListSamples
 listSamples pArn =
     ListSamples'
-    { _lsNextToken = Nothing
-    , _lsArn = pArn
+    { _lsrqNextToken = Nothing
+    , _lsrqArn = pArn
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-lsNextToken :: Lens' ListSamples (Maybe Text)
-lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
+lsrqNextToken :: Lens' ListSamples (Maybe Text)
+lsrqNextToken = lens _lsrqNextToken (\ s a -> s{_lsrqNextToken = a});
 
 -- | The samples\' ARNs.
-lsArn :: Lens' ListSamples Text
-lsArn = lens _lsArn (\ s a -> s{_lsArn = a});
+lsrqArn :: Lens' ListSamples Text
+lsrqArn = lens _lsrqArn (\ s a -> s{_lsrqArn = a});
 
 instance AWSRequest ListSamples where
         type Sv ListSamples = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListSamples where
 instance ToJSON ListSamples where
         toJSON ListSamples'{..}
           = object
-              ["nextToken" .= _lsNextToken, "arn" .= _lsArn]
+              ["nextToken" .= _lsrqNextToken, "arn" .= _lsrqArn]
 
 instance ToPath ListSamples where
         toPath = const "/"
@@ -114,36 +114,36 @@ instance ToQuery ListSamples where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrNextToken'
+-- * 'lsrsNextToken'
 --
--- * 'lsrSamples'
+-- * 'lsrsSamples'
 --
--- * 'lsrStatus'
+-- * 'lsrsStatus'
 data ListSamplesResponse = ListSamplesResponse'
-    { _lsrNextToken :: !(Maybe Text)
-    , _lsrSamples   :: !(Maybe [Sample])
-    , _lsrStatus    :: !Int
+    { _lsrsNextToken :: !(Maybe Text)
+    , _lsrsSamples   :: !(Maybe [Sample])
+    , _lsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSamplesResponse' smart constructor.
 listSamplesResponse :: Int -> ListSamplesResponse
 listSamplesResponse pStatus =
     ListSamplesResponse'
-    { _lsrNextToken = Nothing
-    , _lsrSamples = Nothing
-    , _lsrStatus = pStatus
+    { _lsrsNextToken = Nothing
+    , _lsrsSamples = Nothing
+    , _lsrsStatus = pStatus
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-lsrNextToken :: Lens' ListSamplesResponse (Maybe Text)
-lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
+lsrsNextToken :: Lens' ListSamplesResponse (Maybe Text)
+lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
 -- | Information about the samples.
-lsrSamples :: Lens' ListSamplesResponse [Sample]
-lsrSamples = lens _lsrSamples (\ s a -> s{_lsrSamples = a}) . _Default;
+lsrsSamples :: Lens' ListSamplesResponse [Sample]
+lsrsSamples = lens _lsrsSamples (\ s a -> s{_lsrsSamples = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListSamplesResponse Int
-lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});
+lsrsStatus :: Lens' ListSamplesResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

@@ -33,17 +33,17 @@ module Network.AWS.Route53.CreateHealthCheck
     -- ** Request constructor
     , createHealthCheck
     -- ** Request lenses
-    , chcCallerReference
-    , chcHealthCheckConfig
+    , chcrqCallerReference
+    , chcrqHealthCheckConfig
 
     -- * Response
     , CreateHealthCheckResponse
     -- ** Response constructor
     , createHealthCheckResponse
     -- ** Response lenses
-    , chcrStatus
-    , chcrHealthCheck
-    , chcrLocation
+    , chcrsStatus
+    , chcrsHealthCheck
+    , chcrsLocation
     ) where
 
 import           Network.AWS.Prelude
@@ -58,20 +58,20 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chcCallerReference'
+-- * 'chcrqCallerReference'
 --
--- * 'chcHealthCheckConfig'
+-- * 'chcrqHealthCheckConfig'
 data CreateHealthCheck = CreateHealthCheck'
-    { _chcCallerReference   :: !Text
-    , _chcHealthCheckConfig :: !HealthCheckConfig
+    { _chcrqCallerReference   :: !Text
+    , _chcrqHealthCheckConfig :: !HealthCheckConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHealthCheck' smart constructor.
 createHealthCheck :: Text -> HealthCheckConfig -> CreateHealthCheck
 createHealthCheck pCallerReference pHealthCheckConfig =
     CreateHealthCheck'
-    { _chcCallerReference = pCallerReference
-    , _chcHealthCheckConfig = pHealthCheckConfig
+    { _chcrqCallerReference = pCallerReference
+    , _chcrqHealthCheckConfig = pHealthCheckConfig
     }
 
 -- | A unique string that identifies the request and that allows failed
@@ -84,12 +84,12 @@ createHealthCheck pCallerReference pHealthCheckConfig =
 -- Valid characters are any Unicode code points that are legal in an XML
 -- 1.0 document. The UTF-8 encoding of the value must be less than 128
 -- bytes.
-chcCallerReference :: Lens' CreateHealthCheck Text
-chcCallerReference = lens _chcCallerReference (\ s a -> s{_chcCallerReference = a});
+chcrqCallerReference :: Lens' CreateHealthCheck Text
+chcrqCallerReference = lens _chcrqCallerReference (\ s a -> s{_chcrqCallerReference = a});
 
 -- | A complex type that contains health check configuration.
-chcHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
-chcHealthCheckConfig = lens _chcHealthCheckConfig (\ s a -> s{_chcHealthCheckConfig = a});
+chcrqHealthCheckConfig :: Lens' CreateHealthCheck HealthCheckConfig
+chcrqHealthCheckConfig = lens _chcrqHealthCheckConfig (\ s a -> s{_chcrqHealthCheckConfig = a});
 
 instance AWSRequest CreateHealthCheck where
         type Sv CreateHealthCheck = Route53
@@ -119,8 +119,8 @@ instance ToQuery CreateHealthCheck where
 instance ToXML CreateHealthCheck where
         toXML CreateHealthCheck'{..}
           = mconcat
-              ["CallerReference" @= _chcCallerReference,
-               "HealthCheckConfig" @= _chcHealthCheckConfig]
+              ["CallerReference" @= _chcrqCallerReference,
+               "HealthCheckConfig" @= _chcrqHealthCheckConfig]
 
 -- | A complex type containing the response information for the new health
 -- check.
@@ -129,35 +129,35 @@ instance ToXML CreateHealthCheck where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chcrStatus'
+-- * 'chcrsStatus'
 --
--- * 'chcrHealthCheck'
+-- * 'chcrsHealthCheck'
 --
--- * 'chcrLocation'
+-- * 'chcrsLocation'
 data CreateHealthCheckResponse = CreateHealthCheckResponse'
-    { _chcrStatus      :: !Int
-    , _chcrHealthCheck :: !HealthCheck
-    , _chcrLocation    :: !Text
+    { _chcrsStatus      :: !Int
+    , _chcrsHealthCheck :: !HealthCheck
+    , _chcrsLocation    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateHealthCheckResponse' smart constructor.
 createHealthCheckResponse :: Int -> HealthCheck -> Text -> CreateHealthCheckResponse
 createHealthCheckResponse pStatus pHealthCheck pLocation =
     CreateHealthCheckResponse'
-    { _chcrStatus = pStatus
-    , _chcrHealthCheck = pHealthCheck
-    , _chcrLocation = pLocation
+    { _chcrsStatus = pStatus
+    , _chcrsHealthCheck = pHealthCheck
+    , _chcrsLocation = pLocation
     }
 
 -- | FIXME: Undocumented member.
-chcrStatus :: Lens' CreateHealthCheckResponse Int
-chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});
+chcrsStatus :: Lens' CreateHealthCheckResponse Int
+chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});
 
 -- | A complex type that contains identifying information about the health
 -- check.
-chcrHealthCheck :: Lens' CreateHealthCheckResponse HealthCheck
-chcrHealthCheck = lens _chcrHealthCheck (\ s a -> s{_chcrHealthCheck = a});
+chcrsHealthCheck :: Lens' CreateHealthCheckResponse HealthCheck
+chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 
 -- | The unique URL representing the new health check.
-chcrLocation :: Lens' CreateHealthCheckResponse Text
-chcrLocation = lens _chcrLocation (\ s a -> s{_chcrLocation = a});
+chcrsLocation :: Lens' CreateHealthCheckResponse Text
+chcrsLocation = lens _chcrsLocation (\ s a -> s{_chcrsLocation = a});

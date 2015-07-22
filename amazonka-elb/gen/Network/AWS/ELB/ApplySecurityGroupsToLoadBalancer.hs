@@ -33,16 +33,16 @@ module Network.AWS.ELB.ApplySecurityGroupsToLoadBalancer
     -- ** Request constructor
     , applySecurityGroupsToLoadBalancer
     -- ** Request lenses
-    , asgtlbLoadBalancerName
-    , asgtlbSecurityGroups
+    , asgtlbrqLoadBalancerName
+    , asgtlbrqSecurityGroups
 
     -- * Response
     , ApplySecurityGroupsToLoadBalancerResponse
     -- ** Response constructor
     , applySecurityGroupsToLoadBalancerResponse
     -- ** Response lenses
-    , asgtlbrSecurityGroups
-    , asgtlbrStatus
+    , asgtlbrsSecurityGroups
+    , asgtlbrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -54,30 +54,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asgtlbLoadBalancerName'
+-- * 'asgtlbrqLoadBalancerName'
 --
--- * 'asgtlbSecurityGroups'
+-- * 'asgtlbrqSecurityGroups'
 data ApplySecurityGroupsToLoadBalancer = ApplySecurityGroupsToLoadBalancer'
-    { _asgtlbLoadBalancerName :: !Text
-    , _asgtlbSecurityGroups   :: ![Text]
+    { _asgtlbrqLoadBalancerName :: !Text
+    , _asgtlbrqSecurityGroups   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplySecurityGroupsToLoadBalancer' smart constructor.
 applySecurityGroupsToLoadBalancer :: Text -> ApplySecurityGroupsToLoadBalancer
 applySecurityGroupsToLoadBalancer pLoadBalancerName =
     ApplySecurityGroupsToLoadBalancer'
-    { _asgtlbLoadBalancerName = pLoadBalancerName
-    , _asgtlbSecurityGroups = mempty
+    { _asgtlbrqLoadBalancerName = pLoadBalancerName
+    , _asgtlbrqSecurityGroups = mempty
     }
 
 -- | The name of the load balancer.
-asgtlbLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
-asgtlbLoadBalancerName = lens _asgtlbLoadBalancerName (\ s a -> s{_asgtlbLoadBalancerName = a});
+asgtlbrqLoadBalancerName :: Lens' ApplySecurityGroupsToLoadBalancer Text
+asgtlbrqLoadBalancerName = lens _asgtlbrqLoadBalancerName (\ s a -> s{_asgtlbrqLoadBalancerName = a});
 
 -- | The IDs of the security groups to associate with the load balancer. Note
 -- that you cannot specify the name of the security group.
-asgtlbSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
-asgtlbSecurityGroups = lens _asgtlbSecurityGroups (\ s a -> s{_asgtlbSecurityGroups = a});
+asgtlbrqSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancer [Text]
+asgtlbrqSecurityGroups = lens _asgtlbrqSecurityGroups (\ s a -> s{_asgtlbrqSecurityGroups = a});
 
 instance AWSRequest ApplySecurityGroupsToLoadBalancer
          where
@@ -109,34 +109,34 @@ instance ToQuery ApplySecurityGroupsToLoadBalancer
               ["Action" =:
                  ("ApplySecurityGroupsToLoadBalancer" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _asgtlbLoadBalancerName,
+               "LoadBalancerName" =: _asgtlbrqLoadBalancerName,
                "SecurityGroups" =:
-                 toQueryList "member" _asgtlbSecurityGroups]
+                 toQueryList "member" _asgtlbrqSecurityGroups]
 
 -- | /See:/ 'applySecurityGroupsToLoadBalancerResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'asgtlbrSecurityGroups'
+-- * 'asgtlbrsSecurityGroups'
 --
--- * 'asgtlbrStatus'
+-- * 'asgtlbrsStatus'
 data ApplySecurityGroupsToLoadBalancerResponse = ApplySecurityGroupsToLoadBalancerResponse'
-    { _asgtlbrSecurityGroups :: !(Maybe [Text])
-    , _asgtlbrStatus         :: !Int
+    { _asgtlbrsSecurityGroups :: !(Maybe [Text])
+    , _asgtlbrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplySecurityGroupsToLoadBalancerResponse' smart constructor.
 applySecurityGroupsToLoadBalancerResponse :: Int -> ApplySecurityGroupsToLoadBalancerResponse
 applySecurityGroupsToLoadBalancerResponse pStatus =
     ApplySecurityGroupsToLoadBalancerResponse'
-    { _asgtlbrSecurityGroups = Nothing
-    , _asgtlbrStatus = pStatus
+    { _asgtlbrsSecurityGroups = Nothing
+    , _asgtlbrsStatus = pStatus
     }
 
 -- | The IDs of the security groups associated with the load balancer.
-asgtlbrSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
-asgtlbrSecurityGroups = lens _asgtlbrSecurityGroups (\ s a -> s{_asgtlbrSecurityGroups = a}) . _Default;
+asgtlbrsSecurityGroups :: Lens' ApplySecurityGroupsToLoadBalancerResponse [Text]
+asgtlbrsSecurityGroups = lens _asgtlbrsSecurityGroups (\ s a -> s{_asgtlbrsSecurityGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-asgtlbrStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
-asgtlbrStatus = lens _asgtlbrStatus (\ s a -> s{_asgtlbrStatus = a});
+asgtlbrsStatus :: Lens' ApplySecurityGroupsToLoadBalancerResponse Int
+asgtlbrsStatus = lens _asgtlbrsStatus (\ s a -> s{_asgtlbrsStatus = a});

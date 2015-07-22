@@ -28,22 +28,22 @@ module Network.AWS.ElastiCache.DescribeReservedCacheNodesOfferings
     -- ** Request constructor
     , describeReservedCacheNodesOfferings
     -- ** Request lenses
-    , drcnoCacheNodeType
-    , drcnoProductDescription
-    , drcnoMaxRecords
-    , drcnoMarker
-    , drcnoOfferingType
-    , drcnoDuration
-    , drcnoReservedCacheNodesOfferingId
+    , drcnorqCacheNodeType
+    , drcnorqProductDescription
+    , drcnorqMaxRecords
+    , drcnorqMarker
+    , drcnorqOfferingType
+    , drcnorqDuration
+    , drcnorqReservedCacheNodesOfferingId
 
     -- * Response
     , DescribeReservedCacheNodesOfferingsResponse
     -- ** Response constructor
     , describeReservedCacheNodesOfferingsResponse
     -- ** Response lenses
-    , drcnorMarker
-    , drcnorReservedCacheNodesOfferings
-    , drcnorStatus
+    , drcnorsMarker
+    , drcnorsReservedCacheNodesOfferings
+    , drcnorsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -58,40 +58,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drcnoCacheNodeType'
+-- * 'drcnorqCacheNodeType'
 --
--- * 'drcnoProductDescription'
+-- * 'drcnorqProductDescription'
 --
--- * 'drcnoMaxRecords'
+-- * 'drcnorqMaxRecords'
 --
--- * 'drcnoMarker'
+-- * 'drcnorqMarker'
 --
--- * 'drcnoOfferingType'
+-- * 'drcnorqOfferingType'
 --
--- * 'drcnoDuration'
+-- * 'drcnorqDuration'
 --
--- * 'drcnoReservedCacheNodesOfferingId'
+-- * 'drcnorqReservedCacheNodesOfferingId'
 data DescribeReservedCacheNodesOfferings = DescribeReservedCacheNodesOfferings'
-    { _drcnoCacheNodeType                :: !(Maybe Text)
-    , _drcnoProductDescription           :: !(Maybe Text)
-    , _drcnoMaxRecords                   :: !(Maybe Int)
-    , _drcnoMarker                       :: !(Maybe Text)
-    , _drcnoOfferingType                 :: !(Maybe Text)
-    , _drcnoDuration                     :: !(Maybe Text)
-    , _drcnoReservedCacheNodesOfferingId :: !(Maybe Text)
+    { _drcnorqCacheNodeType                :: !(Maybe Text)
+    , _drcnorqProductDescription           :: !(Maybe Text)
+    , _drcnorqMaxRecords                   :: !(Maybe Int)
+    , _drcnorqMarker                       :: !(Maybe Text)
+    , _drcnorqOfferingType                 :: !(Maybe Text)
+    , _drcnorqDuration                     :: !(Maybe Text)
+    , _drcnorqReservedCacheNodesOfferingId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedCacheNodesOfferings' smart constructor.
 describeReservedCacheNodesOfferings :: DescribeReservedCacheNodesOfferings
 describeReservedCacheNodesOfferings =
     DescribeReservedCacheNodesOfferings'
-    { _drcnoCacheNodeType = Nothing
-    , _drcnoProductDescription = Nothing
-    , _drcnoMaxRecords = Nothing
-    , _drcnoMarker = Nothing
-    , _drcnoOfferingType = Nothing
-    , _drcnoDuration = Nothing
-    , _drcnoReservedCacheNodesOfferingId = Nothing
+    { _drcnorqCacheNodeType = Nothing
+    , _drcnorqProductDescription = Nothing
+    , _drcnorqMaxRecords = Nothing
+    , _drcnorqMarker = Nothing
+    , _drcnorqOfferingType = Nothing
+    , _drcnorqDuration = Nothing
+    , _drcnorqReservedCacheNodesOfferingId = Nothing
     }
 
 -- | The cache node type filter value. Use this parameter to show only the
@@ -126,13 +126,13 @@ describeReservedCacheNodesOfferings =
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Memcached.html#CacheParameterGroups.Memcached.NodeSpecific Cache Node Type-Specific Parameters for Memcached>
 -- or
 -- <http://docs.aws.amazon.com/AmazonElastiCache/latest/UserGuide/CacheParameterGroups.Redis.html#CacheParameterGroups.Redis.NodeSpecific Cache Node Type-Specific Parameters for Redis>.
-drcnoCacheNodeType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnoCacheNodeType = lens _drcnoCacheNodeType (\ s a -> s{_drcnoCacheNodeType = a});
+drcnorqCacheNodeType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnorqCacheNodeType = lens _drcnorqCacheNodeType (\ s a -> s{_drcnorqCacheNodeType = a});
 
 -- | The product description filter value. Use this parameter to show only
 -- the available offerings matching the specified product description.
-drcnoProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnoProductDescription = lens _drcnoProductDescription (\ s a -> s{_drcnoProductDescription = a});
+drcnorqProductDescription :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnorqProductDescription = lens _drcnorqProductDescription (\ s a -> s{_drcnorqProductDescription = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -141,47 +141,47 @@ drcnoProductDescription = lens _drcnoProductDescription (\ s a -> s{_drcnoProduc
 -- Default: 100
 --
 -- Constraints: minimum 20; maximum 100.
-drcnoMaxRecords :: Lens' DescribeReservedCacheNodesOfferings (Maybe Int)
-drcnoMaxRecords = lens _drcnoMaxRecords (\ s a -> s{_drcnoMaxRecords = a});
+drcnorqMaxRecords :: Lens' DescribeReservedCacheNodesOfferings (Maybe Int)
+drcnorqMaxRecords = lens _drcnorqMaxRecords (\ s a -> s{_drcnorqMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-drcnoMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnoMarker = lens _drcnoMarker (\ s a -> s{_drcnoMarker = a});
+drcnorqMarker :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnorqMarker = lens _drcnorqMarker (\ s a -> s{_drcnorqMarker = a});
 
 -- | The offering type filter value. Use this parameter to show only the
 -- available offerings matching the specified offering type.
 --
 -- Valid Values:
 -- @\"Light Utilization\"|\"Medium Utilization\"|\"Heavy Utilization\"@
-drcnoOfferingType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnoOfferingType = lens _drcnoOfferingType (\ s a -> s{_drcnoOfferingType = a});
+drcnorqOfferingType :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnorqOfferingType = lens _drcnorqOfferingType (\ s a -> s{_drcnorqOfferingType = a});
 
 -- | Duration filter value, specified in years or seconds. Use this parameter
 -- to show only reservations for a given duration.
 --
 -- Valid Values: @1 | 3 | 31536000 | 94608000@
-drcnoDuration :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnoDuration = lens _drcnoDuration (\ s a -> s{_drcnoDuration = a});
+drcnorqDuration :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnorqDuration = lens _drcnorqDuration (\ s a -> s{_drcnorqDuration = a});
 
 -- | The offering identifier filter value. Use this parameter to show only
 -- the available offering that matches the specified reservation
 -- identifier.
 --
 -- Example: @438012d3-4052-4cc7-b2e3-8d3372e0e706@
-drcnoReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
-drcnoReservedCacheNodesOfferingId = lens _drcnoReservedCacheNodesOfferingId (\ s a -> s{_drcnoReservedCacheNodesOfferingId = a});
+drcnorqReservedCacheNodesOfferingId :: Lens' DescribeReservedCacheNodesOfferings (Maybe Text)
+drcnorqReservedCacheNodesOfferingId = lens _drcnorqReservedCacheNodesOfferingId (\ s a -> s{_drcnorqReservedCacheNodesOfferingId = a});
 
 instance AWSPager DescribeReservedCacheNodesOfferings
          where
         page rq rs
-          | stop (rs ^. drcnorMarker) = Nothing
-          | stop (rs ^. drcnorReservedCacheNodesOfferings) =
+          | stop (rs ^. drcnorsMarker) = Nothing
+          | stop (rs ^. drcnorsReservedCacheNodesOfferings) =
             Nothing
           | otherwise =
-            Just $ rq & drcnoMarker .~ rs ^. drcnorMarker
+            Just $ rq & drcnorqMarker .~ rs ^. drcnorsMarker
 
 instance AWSRequest
          DescribeReservedCacheNodesOfferings where
@@ -216,14 +216,14 @@ instance ToQuery DescribeReservedCacheNodesOfferings
                  ("DescribeReservedCacheNodesOfferings" ::
                     ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheNodeType" =: _drcnoCacheNodeType,
-               "ProductDescription" =: _drcnoProductDescription,
-               "MaxRecords" =: _drcnoMaxRecords,
-               "Marker" =: _drcnoMarker,
-               "OfferingType" =: _drcnoOfferingType,
-               "Duration" =: _drcnoDuration,
+               "CacheNodeType" =: _drcnorqCacheNodeType,
+               "ProductDescription" =: _drcnorqProductDescription,
+               "MaxRecords" =: _drcnorqMaxRecords,
+               "Marker" =: _drcnorqMarker,
+               "OfferingType" =: _drcnorqOfferingType,
+               "Duration" =: _drcnorqDuration,
                "ReservedCacheNodesOfferingId" =:
-                 _drcnoReservedCacheNodesOfferingId]
+                 _drcnorqReservedCacheNodesOfferingId]
 
 -- | Represents the output of a /DescribeReservedCacheNodesOfferings/ action.
 --
@@ -231,35 +231,35 @@ instance ToQuery DescribeReservedCacheNodesOfferings
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drcnorMarker'
+-- * 'drcnorsMarker'
 --
--- * 'drcnorReservedCacheNodesOfferings'
+-- * 'drcnorsReservedCacheNodesOfferings'
 --
--- * 'drcnorStatus'
+-- * 'drcnorsStatus'
 data DescribeReservedCacheNodesOfferingsResponse = DescribeReservedCacheNodesOfferingsResponse'
-    { _drcnorMarker                      :: !(Maybe Text)
-    , _drcnorReservedCacheNodesOfferings :: !(Maybe [ReservedCacheNodesOffering])
-    , _drcnorStatus                      :: !Int
+    { _drcnorsMarker                      :: !(Maybe Text)
+    , _drcnorsReservedCacheNodesOfferings :: !(Maybe [ReservedCacheNodesOffering])
+    , _drcnorsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedCacheNodesOfferingsResponse' smart constructor.
 describeReservedCacheNodesOfferingsResponse :: Int -> DescribeReservedCacheNodesOfferingsResponse
 describeReservedCacheNodesOfferingsResponse pStatus =
     DescribeReservedCacheNodesOfferingsResponse'
-    { _drcnorMarker = Nothing
-    , _drcnorReservedCacheNodesOfferings = Nothing
-    , _drcnorStatus = pStatus
+    { _drcnorsMarker = Nothing
+    , _drcnorsReservedCacheNodesOfferings = Nothing
+    , _drcnorsStatus = pStatus
     }
 
 -- | Provides an identifier to allow retrieval of paginated results.
-drcnorMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
-drcnorMarker = lens _drcnorMarker (\ s a -> s{_drcnorMarker = a});
+drcnorsMarker :: Lens' DescribeReservedCacheNodesOfferingsResponse (Maybe Text)
+drcnorsMarker = lens _drcnorsMarker (\ s a -> s{_drcnorsMarker = a});
 
 -- | A list of reserved cache node offerings. Each element in the list
 -- contains detailed information about one offering.
-drcnorReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
-drcnorReservedCacheNodesOfferings = lens _drcnorReservedCacheNodesOfferings (\ s a -> s{_drcnorReservedCacheNodesOfferings = a}) . _Default;
+drcnorsReservedCacheNodesOfferings :: Lens' DescribeReservedCacheNodesOfferingsResponse [ReservedCacheNodesOffering]
+drcnorsReservedCacheNodesOfferings = lens _drcnorsReservedCacheNodesOfferings (\ s a -> s{_drcnorsReservedCacheNodesOfferings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drcnorStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
-drcnorStatus = lens _drcnorStatus (\ s a -> s{_drcnorStatus = a});
+drcnorsStatus :: Lens' DescribeReservedCacheNodesOfferingsResponse Int
+drcnorsStatus = lens _drcnorsStatus (\ s a -> s{_drcnorsStatus = a});

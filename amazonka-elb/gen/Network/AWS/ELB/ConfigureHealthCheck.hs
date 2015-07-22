@@ -32,16 +32,16 @@ module Network.AWS.ELB.ConfigureHealthCheck
     -- ** Request constructor
     , configureHealthCheck
     -- ** Request lenses
-    , chcLoadBalancerName
-    , chcHealthCheck
+    , chcrqLoadBalancerName
+    , chcrqHealthCheck
 
     -- * Response
     , ConfigureHealthCheckResponse
     -- ** Response constructor
     , configureHealthCheckResponse
     -- ** Response lenses
-    , chcrHealthCheck
-    , chcrStatus
+    , chcrsHealthCheck
+    , chcrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chcLoadBalancerName'
+-- * 'chcrqLoadBalancerName'
 --
--- * 'chcHealthCheck'
+-- * 'chcrqHealthCheck'
 data ConfigureHealthCheck = ConfigureHealthCheck'
-    { _chcLoadBalancerName :: !Text
-    , _chcHealthCheck      :: !HealthCheck
+    { _chcrqLoadBalancerName :: !Text
+    , _chcrqHealthCheck      :: !HealthCheck
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigureHealthCheck' smart constructor.
 configureHealthCheck :: Text -> HealthCheck -> ConfigureHealthCheck
 configureHealthCheck pLoadBalancerName pHealthCheck =
     ConfigureHealthCheck'
-    { _chcLoadBalancerName = pLoadBalancerName
-    , _chcHealthCheck = pHealthCheck
+    { _chcrqLoadBalancerName = pLoadBalancerName
+    , _chcrqHealthCheck = pHealthCheck
     }
 
 -- | The name of the load balancer.
-chcLoadBalancerName :: Lens' ConfigureHealthCheck Text
-chcLoadBalancerName = lens _chcLoadBalancerName (\ s a -> s{_chcLoadBalancerName = a});
+chcrqLoadBalancerName :: Lens' ConfigureHealthCheck Text
+chcrqLoadBalancerName = lens _chcrqLoadBalancerName (\ s a -> s{_chcrqLoadBalancerName = a});
 
 -- | The configuration information for the new health check.
-chcHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
-chcHealthCheck = lens _chcHealthCheck (\ s a -> s{_chcHealthCheck = a});
+chcrqHealthCheck :: Lens' ConfigureHealthCheck HealthCheck
+chcrqHealthCheck = lens _chcrqHealthCheck (\ s a -> s{_chcrqHealthCheck = a});
 
 instance AWSRequest ConfigureHealthCheck where
         type Sv ConfigureHealthCheck = ELB
@@ -99,33 +99,33 @@ instance ToQuery ConfigureHealthCheck where
           = mconcat
               ["Action" =: ("ConfigureHealthCheck" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _chcLoadBalancerName,
-               "HealthCheck" =: _chcHealthCheck]
+               "LoadBalancerName" =: _chcrqLoadBalancerName,
+               "HealthCheck" =: _chcrqHealthCheck]
 
 -- | /See:/ 'configureHealthCheckResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chcrHealthCheck'
+-- * 'chcrsHealthCheck'
 --
--- * 'chcrStatus'
+-- * 'chcrsStatus'
 data ConfigureHealthCheckResponse = ConfigureHealthCheckResponse'
-    { _chcrHealthCheck :: !(Maybe HealthCheck)
-    , _chcrStatus      :: !Int
+    { _chcrsHealthCheck :: !(Maybe HealthCheck)
+    , _chcrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfigureHealthCheckResponse' smart constructor.
 configureHealthCheckResponse :: Int -> ConfigureHealthCheckResponse
 configureHealthCheckResponse pStatus =
     ConfigureHealthCheckResponse'
-    { _chcrHealthCheck = Nothing
-    , _chcrStatus = pStatus
+    { _chcrsHealthCheck = Nothing
+    , _chcrsStatus = pStatus
     }
 
 -- | The updated health check.
-chcrHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
-chcrHealthCheck = lens _chcrHealthCheck (\ s a -> s{_chcrHealthCheck = a});
+chcrsHealthCheck :: Lens' ConfigureHealthCheckResponse (Maybe HealthCheck)
+chcrsHealthCheck = lens _chcrsHealthCheck (\ s a -> s{_chcrsHealthCheck = a});
 
 -- | FIXME: Undocumented member.
-chcrStatus :: Lens' ConfigureHealthCheckResponse Int
-chcrStatus = lens _chcrStatus (\ s a -> s{_chcrStatus = a});
+chcrsStatus :: Lens' ConfigureHealthCheckResponse Int
+chcrsStatus = lens _chcrsStatus (\ s a -> s{_chcrsStatus = a});

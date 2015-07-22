@@ -29,15 +29,15 @@ module Network.AWS.CloudSearch.IndexDocuments
     -- ** Request constructor
     , indexDocuments
     -- ** Request lenses
-    , idDomainName
+    , idrqDomainName
 
     -- * Response
     , IndexDocumentsResponse
     -- ** Response constructor
     , indexDocumentsResponse
     -- ** Response lenses
-    , idrFieldNames
-    , idrStatus
+    , idrsFieldNames
+    , idrsStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'idDomainName'
+-- * 'idrqDomainName'
 newtype IndexDocuments = IndexDocuments'
-    { _idDomainName :: Text
+    { _idrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexDocuments' smart constructor.
 indexDocuments :: Text -> IndexDocuments
 indexDocuments pDomainName =
     IndexDocuments'
-    { _idDomainName = pDomainName
+    { _idrqDomainName = pDomainName
     }
 
 -- | FIXME: Undocumented member.
-idDomainName :: Lens' IndexDocuments Text
-idDomainName = lens _idDomainName (\ s a -> s{_idDomainName = a});
+idrqDomainName :: Lens' IndexDocuments Text
+idrqDomainName = lens _idrqDomainName (\ s a -> s{_idrqDomainName = a});
 
 instance AWSRequest IndexDocuments where
         type Sv IndexDocuments = CloudSearch
@@ -91,7 +91,7 @@ instance ToQuery IndexDocuments where
           = mconcat
               ["Action" =: ("IndexDocuments" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _idDomainName]
+               "DomainName" =: _idrqDomainName]
 
 -- | The result of an @IndexDocuments@ request. Contains the status of the
 -- indexing operation, including the fields being indexed.
@@ -100,26 +100,26 @@ instance ToQuery IndexDocuments where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'idrFieldNames'
+-- * 'idrsFieldNames'
 --
--- * 'idrStatus'
+-- * 'idrsStatus'
 data IndexDocumentsResponse = IndexDocumentsResponse'
-    { _idrFieldNames :: !(Maybe [Text])
-    , _idrStatus     :: !Int
+    { _idrsFieldNames :: !(Maybe [Text])
+    , _idrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'IndexDocumentsResponse' smart constructor.
 indexDocumentsResponse :: Int -> IndexDocumentsResponse
 indexDocumentsResponse pStatus =
     IndexDocumentsResponse'
-    { _idrFieldNames = Nothing
-    , _idrStatus = pStatus
+    { _idrsFieldNames = Nothing
+    , _idrsStatus = pStatus
     }
 
 -- | The names of the fields that are currently being indexed.
-idrFieldNames :: Lens' IndexDocumentsResponse [Text]
-idrFieldNames = lens _idrFieldNames (\ s a -> s{_idrFieldNames = a}) . _Default;
+idrsFieldNames :: Lens' IndexDocumentsResponse [Text]
+idrsFieldNames = lens _idrsFieldNames (\ s a -> s{_idrsFieldNames = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-idrStatus :: Lens' IndexDocumentsResponse Int
-idrStatus = lens _idrStatus (\ s a -> s{_idrStatus = a});
+idrsStatus :: Lens' IndexDocumentsResponse Int
+idrsStatus = lens _idrsStatus (\ s a -> s{_idrsStatus = a});

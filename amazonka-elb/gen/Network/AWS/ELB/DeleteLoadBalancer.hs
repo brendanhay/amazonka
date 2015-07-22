@@ -36,14 +36,14 @@ module Network.AWS.ELB.DeleteLoadBalancer
     -- ** Request constructor
     , deleteLoadBalancer
     -- ** Request lenses
-    , dlbLoadBalancerName
+    , dlbrqLoadBalancerName
 
     -- * Response
     , DeleteLoadBalancerResponse
     -- ** Response constructor
     , deleteLoadBalancerResponse
     -- ** Response lenses
-    , delStatus
+    , dlbrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbLoadBalancerName'
+-- * 'dlbrqLoadBalancerName'
 newtype DeleteLoadBalancer = DeleteLoadBalancer'
-    { _dlbLoadBalancerName :: Text
+    { _dlbrqLoadBalancerName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancer' smart constructor.
 deleteLoadBalancer :: Text -> DeleteLoadBalancer
 deleteLoadBalancer pLoadBalancerName =
     DeleteLoadBalancer'
-    { _dlbLoadBalancerName = pLoadBalancerName
+    { _dlbrqLoadBalancerName = pLoadBalancerName
     }
 
 -- | The name of the load balancer.
-dlbLoadBalancerName :: Lens' DeleteLoadBalancer Text
-dlbLoadBalancerName = lens _dlbLoadBalancerName (\ s a -> s{_dlbLoadBalancerName = a});
+dlbrqLoadBalancerName :: Lens' DeleteLoadBalancer Text
+dlbrqLoadBalancerName = lens _dlbrqLoadBalancerName (\ s a -> s{_dlbrqLoadBalancerName = a});
 
 instance AWSRequest DeleteLoadBalancer where
         type Sv DeleteLoadBalancer = ELB
@@ -92,24 +92,24 @@ instance ToQuery DeleteLoadBalancer where
           = mconcat
               ["Action" =: ("DeleteLoadBalancer" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dlbLoadBalancerName]
+               "LoadBalancerName" =: _dlbrqLoadBalancerName]
 
 -- | /See:/ 'deleteLoadBalancerResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delStatus'
+-- * 'dlbrsStatus'
 newtype DeleteLoadBalancerResponse = DeleteLoadBalancerResponse'
-    { _delStatus :: Int
+    { _dlbrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerResponse' smart constructor.
 deleteLoadBalancerResponse :: Int -> DeleteLoadBalancerResponse
 deleteLoadBalancerResponse pStatus =
     DeleteLoadBalancerResponse'
-    { _delStatus = pStatus
+    { _dlbrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteLoadBalancerResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+dlbrsStatus :: Lens' DeleteLoadBalancerResponse Int
+dlbrsStatus = lens _dlbrsStatus (\ s a -> s{_dlbrsStatus = a});

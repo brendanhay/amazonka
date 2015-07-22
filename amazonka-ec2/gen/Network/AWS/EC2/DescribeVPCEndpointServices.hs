@@ -28,18 +28,18 @@ module Network.AWS.EC2.DescribeVPCEndpointServices
     -- ** Request constructor
     , describeVPCEndpointServices
     -- ** Request lenses
-    , dvesNextToken
-    , dvesDryRun
-    , dvesMaxResults
+    , dvesrqNextToken
+    , dvesrqDryRun
+    , dvesrqMaxResults
 
     -- * Response
     , DescribeVPCEndpointServicesResponse
     -- ** Response constructor
     , describeVPCEndpointServicesResponse
     -- ** Response lenses
-    , dvesrServiceNames
-    , dvesrNextToken
-    , dvesrStatus
+    , dvesrsServiceNames
+    , dvesrsNextToken
+    , dvesrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -51,37 +51,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvesNextToken'
+-- * 'dvesrqNextToken'
 --
--- * 'dvesDryRun'
+-- * 'dvesrqDryRun'
 --
--- * 'dvesMaxResults'
+-- * 'dvesrqMaxResults'
 data DescribeVPCEndpointServices = DescribeVPCEndpointServices'
-    { _dvesNextToken  :: !(Maybe Text)
-    , _dvesDryRun     :: !(Maybe Bool)
-    , _dvesMaxResults :: !(Maybe Int)
+    { _dvesrqNextToken  :: !(Maybe Text)
+    , _dvesrqDryRun     :: !(Maybe Bool)
+    , _dvesrqMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCEndpointServices' smart constructor.
 describeVPCEndpointServices :: DescribeVPCEndpointServices
 describeVPCEndpointServices =
     DescribeVPCEndpointServices'
-    { _dvesNextToken = Nothing
-    , _dvesDryRun = Nothing
-    , _dvesMaxResults = Nothing
+    { _dvesrqNextToken = Nothing
+    , _dvesrqDryRun = Nothing
+    , _dvesrqMaxResults = Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
-dvesNextToken :: Lens' DescribeVPCEndpointServices (Maybe Text)
-dvesNextToken = lens _dvesNextToken (\ s a -> s{_dvesNextToken = a});
+dvesrqNextToken :: Lens' DescribeVPCEndpointServices (Maybe Text)
+dvesrqNextToken = lens _dvesrqNextToken (\ s a -> s{_dvesrqNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvesDryRun :: Lens' DescribeVPCEndpointServices (Maybe Bool)
-dvesDryRun = lens _dvesDryRun (\ s a -> s{_dvesDryRun = a});
+dvesrqDryRun :: Lens' DescribeVPCEndpointServices (Maybe Bool)
+dvesrqDryRun = lens _dvesrqDryRun (\ s a -> s{_dvesrqDryRun = a});
 
 -- | The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
@@ -89,8 +89,8 @@ dvesDryRun = lens _dvesDryRun (\ s a -> s{_dvesDryRun = a});
 --
 -- Constraint: If the value is greater than 1000, we return only 1000
 -- items.
-dvesMaxResults :: Lens' DescribeVPCEndpointServices (Maybe Int)
-dvesMaxResults = lens _dvesMaxResults (\ s a -> s{_dvesMaxResults = a});
+dvesrqMaxResults :: Lens' DescribeVPCEndpointServices (Maybe Int)
+dvesrqMaxResults = lens _dvesrqMaxResults (\ s a -> s{_dvesrqMaxResults = a});
 
 instance AWSRequest DescribeVPCEndpointServices where
         type Sv DescribeVPCEndpointServices = EC2
@@ -118,43 +118,43 @@ instance ToQuery DescribeVPCEndpointServices where
               ["Action" =:
                  ("DescribeVPCEndpointServices" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "NextToken" =: _dvesNextToken,
-               "DryRun" =: _dvesDryRun,
-               "MaxResults" =: _dvesMaxResults]
+               "NextToken" =: _dvesrqNextToken,
+               "DryRun" =: _dvesrqDryRun,
+               "MaxResults" =: _dvesrqMaxResults]
 
 -- | /See:/ 'describeVPCEndpointServicesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvesrServiceNames'
+-- * 'dvesrsServiceNames'
 --
--- * 'dvesrNextToken'
+-- * 'dvesrsNextToken'
 --
--- * 'dvesrStatus'
+-- * 'dvesrsStatus'
 data DescribeVPCEndpointServicesResponse = DescribeVPCEndpointServicesResponse'
-    { _dvesrServiceNames :: !(Maybe [Text])
-    , _dvesrNextToken    :: !(Maybe Text)
-    , _dvesrStatus       :: !Int
+    { _dvesrsServiceNames :: !(Maybe [Text])
+    , _dvesrsNextToken    :: !(Maybe Text)
+    , _dvesrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCEndpointServicesResponse' smart constructor.
 describeVPCEndpointServicesResponse :: Int -> DescribeVPCEndpointServicesResponse
 describeVPCEndpointServicesResponse pStatus =
     DescribeVPCEndpointServicesResponse'
-    { _dvesrServiceNames = Nothing
-    , _dvesrNextToken = Nothing
-    , _dvesrStatus = pStatus
+    { _dvesrsServiceNames = Nothing
+    , _dvesrsNextToken = Nothing
+    , _dvesrsStatus = pStatus
     }
 
 -- | A list of supported AWS services.
-dvesrServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
-dvesrServiceNames = lens _dvesrServiceNames (\ s a -> s{_dvesrServiceNames = a}) . _Default;
+dvesrsServiceNames :: Lens' DescribeVPCEndpointServicesResponse [Text]
+dvesrsServiceNames = lens _dvesrsServiceNames (\ s a -> s{_dvesrsServiceNames = a}) . _Default;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dvesrNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
-dvesrNextToken = lens _dvesrNextToken (\ s a -> s{_dvesrNextToken = a});
+dvesrsNextToken :: Lens' DescribeVPCEndpointServicesResponse (Maybe Text)
+dvesrsNextToken = lens _dvesrsNextToken (\ s a -> s{_dvesrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dvesrStatus :: Lens' DescribeVPCEndpointServicesResponse Int
-dvesrStatus = lens _dvesrStatus (\ s a -> s{_dvesrStatus = a});
+dvesrsStatus :: Lens' DescribeVPCEndpointServicesResponse Int
+dvesrsStatus = lens _dvesrsStatus (\ s a -> s{_dvesrsStatus = a});

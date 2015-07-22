@@ -34,17 +34,17 @@ module Network.AWS.CognitoSync.DescribeDataset
     -- ** Request constructor
     , describeDataset
     -- ** Request lenses
-    , ddIdentityPoolId
-    , ddIdentityId
-    , ddDatasetName
+    , ddrqIdentityPoolId
+    , ddrqIdentityId
+    , ddrqDatasetName
 
     -- * Response
     , DescribeDatasetResponse
     -- ** Response constructor
     , describeDatasetResponse
     -- ** Response lenses
-    , ddrDataset
-    , ddrStatus
+    , ddrsDataset
+    , ddrsStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -59,42 +59,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddIdentityPoolId'
+-- * 'ddrqIdentityPoolId'
 --
--- * 'ddIdentityId'
+-- * 'ddrqIdentityId'
 --
--- * 'ddDatasetName'
+-- * 'ddrqDatasetName'
 data DescribeDataset = DescribeDataset'
-    { _ddIdentityPoolId :: !Text
-    , _ddIdentityId     :: !Text
-    , _ddDatasetName    :: !Text
+    { _ddrqIdentityPoolId :: !Text
+    , _ddrqIdentityId     :: !Text
+    , _ddrqDatasetName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDataset' smart constructor.
 describeDataset :: Text -> Text -> Text -> DescribeDataset
 describeDataset pIdentityPoolId pIdentityId pDatasetName =
     DescribeDataset'
-    { _ddIdentityPoolId = pIdentityPoolId
-    , _ddIdentityId = pIdentityId
-    , _ddDatasetName = pDatasetName
+    { _ddrqIdentityPoolId = pIdentityPoolId
+    , _ddrqIdentityId = pIdentityId
+    , _ddrqDatasetName = pDatasetName
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-ddIdentityPoolId :: Lens' DescribeDataset Text
-ddIdentityPoolId = lens _ddIdentityPoolId (\ s a -> s{_ddIdentityPoolId = a});
+ddrqIdentityPoolId :: Lens' DescribeDataset Text
+ddrqIdentityPoolId = lens _ddrqIdentityPoolId (\ s a -> s{_ddrqIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-ddIdentityId :: Lens' DescribeDataset Text
-ddIdentityId = lens _ddIdentityId (\ s a -> s{_ddIdentityId = a});
+ddrqIdentityId :: Lens' DescribeDataset Text
+ddrqIdentityId = lens _ddrqIdentityId (\ s a -> s{_ddrqIdentityId = a});
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-ddDatasetName :: Lens' DescribeDataset Text
-ddDatasetName = lens _ddDatasetName (\ s a -> s{_ddDatasetName = a});
+ddrqDatasetName :: Lens' DescribeDataset Text
+ddrqDatasetName = lens _ddrqDatasetName (\ s a -> s{_ddrqDatasetName = a});
 
 instance AWSRequest DescribeDataset where
         type Sv DescribeDataset = CognitoSync
@@ -116,9 +116,9 @@ instance ToHeaders DescribeDataset where
 instance ToPath DescribeDataset where
         toPath DescribeDataset'{..}
           = mconcat
-              ["/identitypools/", toText _ddIdentityPoolId,
-               "/identities/", toText _ddIdentityId, "/datasets/",
-               toText _ddDatasetName]
+              ["/identitypools/", toText _ddrqIdentityPoolId,
+               "/identities/", toText _ddrqIdentityId, "/datasets/",
+               toText _ddrqDatasetName]
 
 instance ToQuery DescribeDataset where
         toQuery = const mempty
@@ -129,20 +129,20 @@ instance ToQuery DescribeDataset where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrDataset'
+-- * 'ddrsDataset'
 --
--- * 'ddrStatus'
+-- * 'ddrsStatus'
 data DescribeDatasetResponse = DescribeDatasetResponse'
-    { _ddrDataset :: !(Maybe Dataset)
-    , _ddrStatus  :: !Int
+    { _ddrsDataset :: !(Maybe Dataset)
+    , _ddrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDatasetResponse' smart constructor.
 describeDatasetResponse :: Int -> DescribeDatasetResponse
 describeDatasetResponse pStatus =
     DescribeDatasetResponse'
-    { _ddrDataset = Nothing
-    , _ddrStatus = pStatus
+    { _ddrsDataset = Nothing
+    , _ddrsStatus = pStatus
     }
 
 -- | Meta data for a collection of data for an identity. An identity can have
@@ -150,9 +150,9 @@ describeDatasetResponse pStatus =
 -- particular entity in an application (like a saved game). Datasets are
 -- automatically created if they don\'t exist. Data is synced by dataset,
 -- and a dataset can hold up to 1MB of key-value pairs.
-ddrDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
-ddrDataset = lens _ddrDataset (\ s a -> s{_ddrDataset = a});
+ddrsDataset :: Lens' DescribeDatasetResponse (Maybe Dataset)
+ddrsDataset = lens _ddrsDataset (\ s a -> s{_ddrsDataset = a});
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DescribeDatasetResponse Int
-ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});
+ddrsStatus :: Lens' DescribeDatasetResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

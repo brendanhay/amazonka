@@ -28,15 +28,15 @@ module Network.AWS.SNS.GetTopicAttributes
     -- ** Request constructor
     , getTopicAttributes
     -- ** Request lenses
-    , gtaTopicARN
+    , gtarqTopicARN
 
     -- * Response
     , GetTopicAttributesResponse
     -- ** Response constructor
     , getTopicAttributesResponse
     -- ** Response lenses
-    , gtarAttributes
-    , gtarStatus
+    , gtarsAttributes
+    , gtarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -50,21 +50,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtaTopicARN'
+-- * 'gtarqTopicARN'
 newtype GetTopicAttributes = GetTopicAttributes'
-    { _gtaTopicARN :: Text
+    { _gtarqTopicARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTopicAttributes' smart constructor.
 getTopicAttributes :: Text -> GetTopicAttributes
 getTopicAttributes pTopicARN =
     GetTopicAttributes'
-    { _gtaTopicARN = pTopicARN
+    { _gtarqTopicARN = pTopicARN
     }
 
 -- | The ARN of the topic whose properties you want to get.
-gtaTopicARN :: Lens' GetTopicAttributes Text
-gtaTopicARN = lens _gtaTopicARN (\ s a -> s{_gtaTopicARN = a});
+gtarqTopicARN :: Lens' GetTopicAttributes Text
+gtarqTopicARN = lens _gtarqTopicARN (\ s a -> s{_gtarqTopicARN = a});
 
 instance AWSRequest GetTopicAttributes where
         type Sv GetTopicAttributes = SNS
@@ -90,7 +90,7 @@ instance ToQuery GetTopicAttributes where
           = mconcat
               ["Action" =: ("GetTopicAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "TopicArn" =: _gtaTopicARN]
+               "TopicArn" =: _gtarqTopicARN]
 
 -- | Response for GetTopicAttributes action.
 --
@@ -98,20 +98,20 @@ instance ToQuery GetTopicAttributes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtarAttributes'
+-- * 'gtarsAttributes'
 --
--- * 'gtarStatus'
+-- * 'gtarsStatus'
 data GetTopicAttributesResponse = GetTopicAttributesResponse'
-    { _gtarAttributes :: !(Maybe (Map Text Text))
-    , _gtarStatus     :: !Int
+    { _gtarsAttributes :: !(Maybe (Map Text Text))
+    , _gtarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTopicAttributesResponse' smart constructor.
 getTopicAttributesResponse :: Int -> GetTopicAttributesResponse
 getTopicAttributesResponse pStatus =
     GetTopicAttributesResponse'
-    { _gtarAttributes = Nothing
-    , _gtarStatus = pStatus
+    { _gtarsAttributes = Nothing
+    , _gtarsStatus = pStatus
     }
 
 -- | A map of the topic\'s attributes. Attributes in this map include the
@@ -133,9 +133,9 @@ getTopicAttributesResponse pStatus =
 --     policy
 -- -   @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective
 --     delivery policy that takes into account system defaults
-gtarAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
-gtarAttributes = lens _gtarAttributes (\ s a -> s{_gtarAttributes = a}) . _Default . _Map;
+gtarsAttributes :: Lens' GetTopicAttributesResponse (HashMap Text Text)
+gtarsAttributes = lens _gtarsAttributes (\ s a -> s{_gtarsAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gtarStatus :: Lens' GetTopicAttributesResponse Int
-gtarStatus = lens _gtarStatus (\ s a -> s{_gtarStatus = a});
+gtarsStatus :: Lens' GetTopicAttributesResponse Int
+gtarsStatus = lens _gtarsStatus (\ s a -> s{_gtarsStatus = a});

@@ -32,15 +32,15 @@ module Network.AWS.CognitoSync.DescribeIdentityPoolUsage
     -- ** Request constructor
     , describeIdentityPoolUsage
     -- ** Request lenses
-    , dipuIdentityPoolId
+    , dipurqIdentityPoolId
 
     -- * Response
     , DescribeIdentityPoolUsageResponse
     -- ** Response constructor
     , describeIdentityPoolUsageResponse
     -- ** Response lenses
-    , dipurIdentityPoolUsage
-    , dipurStatus
+    , dipursIdentityPoolUsage
+    , dipursStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -54,23 +54,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dipuIdentityPoolId'
+-- * 'dipurqIdentityPoolId'
 newtype DescribeIdentityPoolUsage = DescribeIdentityPoolUsage'
-    { _dipuIdentityPoolId :: Text
+    { _dipurqIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityPoolUsage' smart constructor.
 describeIdentityPoolUsage :: Text -> DescribeIdentityPoolUsage
 describeIdentityPoolUsage pIdentityPoolId =
     DescribeIdentityPoolUsage'
-    { _dipuIdentityPoolId = pIdentityPoolId
+    { _dipurqIdentityPoolId = pIdentityPoolId
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-dipuIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
-dipuIdentityPoolId = lens _dipuIdentityPoolId (\ s a -> s{_dipuIdentityPoolId = a});
+dipurqIdentityPoolId :: Lens' DescribeIdentityPoolUsage Text
+dipurqIdentityPoolId = lens _dipurqIdentityPoolId (\ s a -> s{_dipurqIdentityPoolId = a});
 
 instance AWSRequest DescribeIdentityPoolUsage where
         type Sv DescribeIdentityPoolUsage = CognitoSync
@@ -93,7 +93,7 @@ instance ToHeaders DescribeIdentityPoolUsage where
 instance ToPath DescribeIdentityPoolUsage where
         toPath DescribeIdentityPoolUsage'{..}
           = mconcat
-              ["/identitypools/", toText _dipuIdentityPoolId]
+              ["/identitypools/", toText _dipurqIdentityPoolId]
 
 instance ToQuery DescribeIdentityPoolUsage where
         toQuery = const mempty
@@ -104,26 +104,26 @@ instance ToQuery DescribeIdentityPoolUsage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dipurIdentityPoolUsage'
+-- * 'dipursIdentityPoolUsage'
 --
--- * 'dipurStatus'
+-- * 'dipursStatus'
 data DescribeIdentityPoolUsageResponse = DescribeIdentityPoolUsageResponse'
-    { _dipurIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
-    , _dipurStatus            :: !Int
+    { _dipursIdentityPoolUsage :: !(Maybe IdentityPoolUsage)
+    , _dipursStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityPoolUsageResponse' smart constructor.
 describeIdentityPoolUsageResponse :: Int -> DescribeIdentityPoolUsageResponse
 describeIdentityPoolUsageResponse pStatus =
     DescribeIdentityPoolUsageResponse'
-    { _dipurIdentityPoolUsage = Nothing
-    , _dipurStatus = pStatus
+    { _dipursIdentityPoolUsage = Nothing
+    , _dipursStatus = pStatus
     }
 
 -- | Information about the usage of the identity pool.
-dipurIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
-dipurIdentityPoolUsage = lens _dipurIdentityPoolUsage (\ s a -> s{_dipurIdentityPoolUsage = a});
+dipursIdentityPoolUsage :: Lens' DescribeIdentityPoolUsageResponse (Maybe IdentityPoolUsage)
+dipursIdentityPoolUsage = lens _dipursIdentityPoolUsage (\ s a -> s{_dipursIdentityPoolUsage = a});
 
 -- | FIXME: Undocumented member.
-dipurStatus :: Lens' DescribeIdentityPoolUsageResponse Int
-dipurStatus = lens _dipurStatus (\ s a -> s{_dipurStatus = a});
+dipursStatus :: Lens' DescribeIdentityPoolUsageResponse Int
+dipursStatus = lens _dipursStatus (\ s a -> s{_dipursStatus = a});

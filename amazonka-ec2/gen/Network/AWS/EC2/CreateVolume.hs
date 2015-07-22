@@ -45,32 +45,32 @@ module Network.AWS.EC2.CreateVolume
     -- ** Request constructor
     , createVolume
     -- ** Request lenses
-    , cSize
-    , cIOPS
-    , cEncrypted
-    , cKMSKeyId
-    , cVolumeType
-    , cDryRun
-    , cSnapshotId
-    , cAvailabilityZone
+    , crqSize
+    , crqIOPS
+    , crqEncrypted
+    , crqKMSKeyId
+    , crqVolumeType
+    , crqDryRun
+    , crqSnapshotId
+    , crqAvailabilityZone
 
     -- * Response
     , Volume
     -- ** Response constructor
     , volume
     -- ** Response lenses
-    , volAttachments
-    , volIOPS
-    , volKMSKeyId
-    , volTags
-    , volAvailabilityZone
-    , volCreateTime
-    , volEncrypted
-    , volSize
-    , volSnapshotId
-    , volState
-    , volVolumeId
-    , volVolumeType
+    , crsAttachments
+    , crsIOPS
+    , crsKMSKeyId
+    , crsTags
+    , crsAvailabilityZone
+    , crsCreateTime
+    , crsEncrypted
+    , crsSize
+    , crsSnapshotId
+    , crsState
+    , crsVolumeId
+    , crsVolumeType
     ) where
 
 import           Network.AWS.EC2.Types
@@ -82,44 +82,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cSize'
+-- * 'crqSize'
 --
--- * 'cIOPS'
+-- * 'crqIOPS'
 --
--- * 'cEncrypted'
+-- * 'crqEncrypted'
 --
--- * 'cKMSKeyId'
+-- * 'crqKMSKeyId'
 --
--- * 'cVolumeType'
+-- * 'crqVolumeType'
 --
--- * 'cDryRun'
+-- * 'crqDryRun'
 --
--- * 'cSnapshotId'
+-- * 'crqSnapshotId'
 --
--- * 'cAvailabilityZone'
+-- * 'crqAvailabilityZone'
 data CreateVolume = CreateVolume'
-    { _cSize             :: !(Maybe Int)
-    , _cIOPS             :: !(Maybe Int)
-    , _cEncrypted        :: !(Maybe Bool)
-    , _cKMSKeyId         :: !(Maybe Text)
-    , _cVolumeType       :: !(Maybe VolumeType)
-    , _cDryRun           :: !(Maybe Bool)
-    , _cSnapshotId       :: !(Maybe Text)
-    , _cAvailabilityZone :: !Text
+    { _crqSize             :: !(Maybe Int)
+    , _crqIOPS             :: !(Maybe Int)
+    , _crqEncrypted        :: !(Maybe Bool)
+    , _crqKMSKeyId         :: !(Maybe Text)
+    , _crqVolumeType       :: !(Maybe VolumeType)
+    , _crqDryRun           :: !(Maybe Bool)
+    , _crqSnapshotId       :: !(Maybe Text)
+    , _crqAvailabilityZone :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVolume' smart constructor.
 createVolume :: Text -> CreateVolume
 createVolume pAvailabilityZone =
     CreateVolume'
-    { _cSize = Nothing
-    , _cIOPS = Nothing
-    , _cEncrypted = Nothing
-    , _cKMSKeyId = Nothing
-    , _cVolumeType = Nothing
-    , _cDryRun = Nothing
-    , _cSnapshotId = Nothing
-    , _cAvailabilityZone = pAvailabilityZone
+    { _crqSize = Nothing
+    , _crqIOPS = Nothing
+    , _crqEncrypted = Nothing
+    , _crqKMSKeyId = Nothing
+    , _crqVolumeType = Nothing
+    , _crqDryRun = Nothing
+    , _crqSnapshotId = Nothing
+    , _crqAvailabilityZone = pAvailabilityZone
     }
 
 -- | The size of the volume, in GiBs.
@@ -130,16 +130,16 @@ createVolume pAvailabilityZone =
 --
 -- Default: If you\'re creating the volume from a snapshot and don\'t
 -- specify a volume size, the default is the snapshot size.
-cSize :: Lens' CreateVolume (Maybe Int)
-cSize = lens _cSize (\ s a -> s{_cSize = a});
+crqSize :: Lens' CreateVolume (Maybe Int)
+crqSize = lens _crqSize (\ s a -> s{_crqSize = a});
 
 -- | Only valid for Provisioned IOPS (SSD) volumes. The number of I\/O
 -- operations per second (IOPS) to provision for the volume, with a maximum
 -- ratio of 30 IOPS\/GiB.
 --
 -- Constraint: Range is 100 to 20000 for Provisioned IOPS (SSD) volumes
-cIOPS :: Lens' CreateVolume (Maybe Int)
-cIOPS = lens _cIOPS (\ s a -> s{_cIOPS = a});
+crqIOPS :: Lens' CreateVolume (Maybe Int)
+crqIOPS = lens _crqIOPS (\ s a -> s{_crqIOPS = a});
 
 -- | Specifies whether the volume should be encrypted. Encrypted Amazon EBS
 -- volumes may only be attached to instances that support Amazon EBS
@@ -150,8 +150,8 @@ cIOPS = lens _cIOPS (\ s a -> s{_cIOPS = a});
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html Amazon EBS Encryption>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-cEncrypted :: Lens' CreateVolume (Maybe Bool)
-cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a});
+crqEncrypted :: Lens' CreateVolume (Maybe Bool)
+crqEncrypted = lens _crqEncrypted (\ s a -> s{_crqEncrypted = a});
 
 -- | The full ARN of the AWS Key Management Service (KMS) Customer Master Key
 -- (CMK) to use when creating the encrypted volume. This parameter is only
@@ -162,33 +162,33 @@ cEncrypted = lens _cEncrypted (\ s a -> s{_cEncrypted = a});
 -- For example,
 -- arn:aws:kms:/us-east-1/:/012345678910/:key\//abcd1234-a123-456a-a12b-a123b4cd56ef/.
 -- If a @KmsKeyId@ is specified, the @Encrypted@ flag must also be set.
-cKMSKeyId :: Lens' CreateVolume (Maybe Text)
-cKMSKeyId = lens _cKMSKeyId (\ s a -> s{_cKMSKeyId = a});
+crqKMSKeyId :: Lens' CreateVolume (Maybe Text)
+crqKMSKeyId = lens _crqKMSKeyId (\ s a -> s{_crqKMSKeyId = a});
 
 -- | The volume type. This can be @gp2@ for General Purpose (SSD) volumes,
 -- @io1@ for Provisioned IOPS (SSD) volumes, or @standard@ for Magnetic
 -- volumes.
 --
 -- Default: @standard@
-cVolumeType :: Lens' CreateVolume (Maybe VolumeType)
-cVolumeType = lens _cVolumeType (\ s a -> s{_cVolumeType = a});
+crqVolumeType :: Lens' CreateVolume (Maybe VolumeType)
+crqVolumeType = lens _crqVolumeType (\ s a -> s{_crqVolumeType = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cDryRun :: Lens' CreateVolume (Maybe Bool)
-cDryRun = lens _cDryRun (\ s a -> s{_cDryRun = a});
+crqDryRun :: Lens' CreateVolume (Maybe Bool)
+crqDryRun = lens _crqDryRun (\ s a -> s{_crqDryRun = a});
 
 -- | The snapshot from which to create the volume.
-cSnapshotId :: Lens' CreateVolume (Maybe Text)
-cSnapshotId = lens _cSnapshotId (\ s a -> s{_cSnapshotId = a});
+crqSnapshotId :: Lens' CreateVolume (Maybe Text)
+crqSnapshotId = lens _crqSnapshotId (\ s a -> s{_crqSnapshotId = a});
 
 -- | The Availability Zone in which to create the volume. Use
 -- DescribeAvailabilityZones to list the Availability Zones that are
 -- currently available to you.
-cAvailabilityZone :: Lens' CreateVolume Text
-cAvailabilityZone = lens _cAvailabilityZone (\ s a -> s{_cAvailabilityZone = a});
+crqAvailabilityZone :: Lens' CreateVolume Text
+crqAvailabilityZone = lens _crqAvailabilityZone (\ s a -> s{_crqAvailabilityZone = a});
 
 instance AWSRequest CreateVolume where
         type Sv CreateVolume = EC2
@@ -207,8 +207,10 @@ instance ToQuery CreateVolume where
           = mconcat
               ["Action" =: ("CreateVolume" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Size" =: _cSize, "Iops" =: _cIOPS,
-               "Encrypted" =: _cEncrypted, "KmsKeyId" =: _cKMSKeyId,
-               "VolumeType" =: _cVolumeType, "DryRun" =: _cDryRun,
-               "SnapshotId" =: _cSnapshotId,
-               "AvailabilityZone" =: _cAvailabilityZone]
+               "Size" =: _crqSize, "Iops" =: _crqIOPS,
+               "Encrypted" =: _crqEncrypted,
+               "KmsKeyId" =: _crqKMSKeyId,
+               "VolumeType" =: _crqVolumeType,
+               "DryRun" =: _crqDryRun,
+               "SnapshotId" =: _crqSnapshotId,
+               "AvailabilityZone" =: _crqAvailabilityZone]

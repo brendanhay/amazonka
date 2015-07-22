@@ -30,16 +30,16 @@ module Network.AWS.CloudSearch.DeleteIndexField
     -- ** Request constructor
     , deleteIndexField
     -- ** Request lenses
-    , diffDomainName
-    , diffIndexFieldName
+    , diffrqDomainName
+    , diffrqIndexFieldName
 
     -- * Response
     , DeleteIndexFieldResponse
     -- ** Response constructor
     , deleteIndexFieldResponse
     -- ** Response lenses
-    , difrStatus
-    , difrIndexField
+    , diffrsStatus
+    , diffrsIndexField
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -55,30 +55,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diffDomainName'
+-- * 'diffrqDomainName'
 --
--- * 'diffIndexFieldName'
+-- * 'diffrqIndexFieldName'
 data DeleteIndexField = DeleteIndexField'
-    { _diffDomainName     :: !Text
-    , _diffIndexFieldName :: !Text
+    { _diffrqDomainName     :: !Text
+    , _diffrqIndexFieldName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIndexField' smart constructor.
 deleteIndexField :: Text -> Text -> DeleteIndexField
 deleteIndexField pDomainName pIndexFieldName =
     DeleteIndexField'
-    { _diffDomainName = pDomainName
-    , _diffIndexFieldName = pIndexFieldName
+    { _diffrqDomainName = pDomainName
+    , _diffrqIndexFieldName = pIndexFieldName
     }
 
 -- | FIXME: Undocumented member.
-diffDomainName :: Lens' DeleteIndexField Text
-diffDomainName = lens _diffDomainName (\ s a -> s{_diffDomainName = a});
+diffrqDomainName :: Lens' DeleteIndexField Text
+diffrqDomainName = lens _diffrqDomainName (\ s a -> s{_diffrqDomainName = a});
 
 -- | The name of the index field your want to remove from the domain\'s
 -- indexing options.
-diffIndexFieldName :: Lens' DeleteIndexField Text
-diffIndexFieldName = lens _diffIndexFieldName (\ s a -> s{_diffIndexFieldName = a});
+diffrqIndexFieldName :: Lens' DeleteIndexField Text
+diffrqIndexFieldName = lens _diffrqIndexFieldName (\ s a -> s{_diffrqIndexFieldName = a});
 
 instance AWSRequest DeleteIndexField where
         type Sv DeleteIndexField = CloudSearch
@@ -101,8 +101,8 @@ instance ToQuery DeleteIndexField where
           = mconcat
               ["Action" =: ("DeleteIndexField" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _diffDomainName,
-               "IndexFieldName" =: _diffIndexFieldName]
+               "DomainName" =: _diffrqDomainName,
+               "IndexFieldName" =: _diffrqIndexFieldName]
 
 -- | The result of a @DeleteIndexField@ request.
 --
@@ -110,26 +110,26 @@ instance ToQuery DeleteIndexField where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'difrStatus'
+-- * 'diffrsStatus'
 --
--- * 'difrIndexField'
+-- * 'diffrsIndexField'
 data DeleteIndexFieldResponse = DeleteIndexFieldResponse'
-    { _difrStatus     :: !Int
-    , _difrIndexField :: !IndexFieldStatus
+    { _diffrsStatus     :: !Int
+    , _diffrsIndexField :: !IndexFieldStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIndexFieldResponse' smart constructor.
 deleteIndexFieldResponse :: Int -> IndexFieldStatus -> DeleteIndexFieldResponse
 deleteIndexFieldResponse pStatus pIndexField =
     DeleteIndexFieldResponse'
-    { _difrStatus = pStatus
-    , _difrIndexField = pIndexField
+    { _diffrsStatus = pStatus
+    , _diffrsIndexField = pIndexField
     }
 
 -- | FIXME: Undocumented member.
-difrStatus :: Lens' DeleteIndexFieldResponse Int
-difrStatus = lens _difrStatus (\ s a -> s{_difrStatus = a});
+diffrsStatus :: Lens' DeleteIndexFieldResponse Int
+diffrsStatus = lens _diffrsStatus (\ s a -> s{_diffrsStatus = a});
 
 -- | The status of the index field being deleted.
-difrIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
-difrIndexField = lens _difrIndexField (\ s a -> s{_difrIndexField = a});
+diffrsIndexField :: Lens' DeleteIndexFieldResponse IndexFieldStatus
+diffrsIndexField = lens _diffrsIndexField (\ s a -> s{_diffrsIndexField = a});

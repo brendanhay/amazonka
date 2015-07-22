@@ -30,15 +30,15 @@ module Network.AWS.Lambda.GetPolicy
     -- ** Request constructor
     , getPolicy
     -- ** Request lenses
-    , gpFunctionName
+    , gprqFunctionName
 
     -- * Response
     , GetPolicyResponse
     -- ** Response constructor
     , getPolicyResponse
     -- ** Response lenses
-    , gprPolicy
-    , gprStatus
+    , gprsPolicy
+    , gprsStatus
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -50,16 +50,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpFunctionName'
+-- * 'gprqFunctionName'
 newtype GetPolicy = GetPolicy'
-    { _gpFunctionName :: Text
+    { _gprqFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicy' smart constructor.
 getPolicy :: Text -> GetPolicy
 getPolicy pFunctionName =
     GetPolicy'
-    { _gpFunctionName = pFunctionName
+    { _gprqFunctionName = pFunctionName
     }
 
 -- | Function name whose access policy you want to retrieve.
@@ -72,8 +72,8 @@ getPolicy pFunctionName =
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-gpFunctionName :: Lens' GetPolicy Text
-gpFunctionName = lens _gpFunctionName (\ s a -> s{_gpFunctionName = a});
+gprqFunctionName :: Lens' GetPolicy Text
+gprqFunctionName = lens _gprqFunctionName (\ s a -> s{_gprqFunctionName = a});
 
 instance AWSRequest GetPolicy where
         type Sv GetPolicy = Lambda
@@ -91,7 +91,7 @@ instance ToHeaders GetPolicy where
 instance ToPath GetPolicy where
         toPath GetPolicy'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _gpFunctionName,
+              ["/2015-03-31/functions/", toText _gprqFunctionName,
                "/versions/HEAD/policy"]
 
 instance ToQuery GetPolicy where
@@ -101,28 +101,28 @@ instance ToQuery GetPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gprPolicy'
+-- * 'gprsPolicy'
 --
--- * 'gprStatus'
+-- * 'gprsStatus'
 data GetPolicyResponse = GetPolicyResponse'
-    { _gprPolicy :: !(Maybe Text)
-    , _gprStatus :: !Int
+    { _gprsPolicy :: !(Maybe Text)
+    , _gprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicyResponse' smart constructor.
 getPolicyResponse :: Int -> GetPolicyResponse
 getPolicyResponse pStatus =
     GetPolicyResponse'
-    { _gprPolicy = Nothing
-    , _gprStatus = pStatus
+    { _gprsPolicy = Nothing
+    , _gprsStatus = pStatus
     }
 
 -- | The access policy associated with the specified function. The response
 -- returns the same as a string using \"\\\" as an escape character in the
 -- JSON.
-gprPolicy :: Lens' GetPolicyResponse (Maybe Text)
-gprPolicy = lens _gprPolicy (\ s a -> s{_gprPolicy = a});
+gprsPolicy :: Lens' GetPolicyResponse (Maybe Text)
+gprsPolicy = lens _gprsPolicy (\ s a -> s{_gprsPolicy = a});
 
 -- | FIXME: Undocumented member.
-gprStatus :: Lens' GetPolicyResponse Int
-gprStatus = lens _gprStatus (\ s a -> s{_gprStatus = a});
+gprsStatus :: Lens' GetPolicyResponse Int
+gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

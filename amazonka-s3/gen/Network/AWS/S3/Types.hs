@@ -102,8 +102,8 @@ module Network.AWS.S3.Types
     -- * Bucket
     , Bucket
     , bucket
-    , bucCreationDate
-    , bucName
+    , bCreationDate
+    , bName
 
     -- * BucketLoggingStatus
     , BucketLoggingStatus
@@ -143,8 +143,8 @@ module Network.AWS.S3.Types
     -- * Condition
     , Condition
     , condition
-    , conKeyPrefixEquals
-    , conHTTPErrorCodeReturnedEquals
+    , cKeyPrefixEquals
+    , cHTTPErrorCodeReturnedEquals
 
     -- * CopyObjectResult
     , CopyObjectResult
@@ -166,8 +166,8 @@ module Network.AWS.S3.Types
     -- * Delete
     , Delete
     , delete'
-    , delQuiet
-    , delObjects
+    , dQuiet
+    , dObjects
 
     -- * DeleteMarkerEntry
     , DeleteMarkerEntry
@@ -181,15 +181,15 @@ module Network.AWS.S3.Types
     -- * DeletedObject
     , DeletedObject
     , deletedObject
-    , delVersionId
-    , delDeleteMarker
-    , delDeleteMarkerVersionId
-    , delKey
+    , doVersionId
+    , doDeleteMarker
+    , doDeleteMarkerVersionId
+    , doKey
 
     -- * Destination
     , Destination
     , destination
-    , desBucket
+    , dBucket
 
     -- * ErrorDocument
     , ErrorDocument
@@ -199,17 +199,17 @@ module Network.AWS.S3.Types
     -- * Grant
     , Grant
     , grant
-    , graPermission
-    , graGrantee
+    , gPermission
+    , gGrantee
 
     -- * Grantee
     , Grantee
     , grantee
-    , graURI
-    , graEmailAddress
-    , graId
-    , graDisplayName
-    , graType
+    , gURI
+    , gEmailAddress
+    , gId
+    , gDisplayName
+    , gType
 
     -- * IndexDocument
     , IndexDocument
@@ -219,8 +219,8 @@ module Network.AWS.S3.Types
     -- * Initiator
     , Initiator
     , initiator
-    , iniId
-    , iniDisplayName
+    , iId
+    , iDisplayName
 
     -- * LambdaFunctionConfiguration
     , LambdaFunctionConfiguration
@@ -278,12 +278,12 @@ module Network.AWS.S3.Types
     -- * Object
     , Object
     , object'
-    , objOwner
-    , objETag
-    , objSize
-    , objKey
-    , objStorageClass
-    , objLastModified
+    , oOwner
+    , oETag
+    , oSize
+    , oKey
+    , oStorageClass
+    , oLastModified
 
     -- * ObjectIdentifier
     , ObjectIdentifier
@@ -306,16 +306,16 @@ module Network.AWS.S3.Types
     -- * Owner
     , Owner
     , owner
-    , ownId
-    , ownDisplayName
+    , oId
+    , oDisplayName
 
     -- * Part
     , Part
     , part
-    , parETag
-    , parSize
-    , parPartNumber
-    , parLastModified
+    , pETag
+    , pSize
+    , pPartNumber
+    , pLastModified
 
     -- * QueueConfiguration
     , QueueConfiguration
@@ -327,11 +327,11 @@ module Network.AWS.S3.Types
     -- * Redirect
     , Redirect
     , redirect
-    , redHostName
-    , redProtocol
-    , redHTTPRedirectCode
-    , redReplaceKeyWith
-    , redReplaceKeyPrefixWith
+    , rHostName
+    , rProtocol
+    , rHTTPRedirectCode
+    , rReplaceKeyWith
+    , rReplaceKeyPrefixWith
 
     -- * RedirectAllRequestsTo
     , RedirectAllRequestsTo
@@ -372,13 +372,13 @@ module Network.AWS.S3.Types
     -- * Rule
     , Rule
     , rule
-    , rulNoncurrentVersionExpiration
-    , rulTransition
-    , rulExpiration
-    , rulNoncurrentVersionTransition
-    , rulId
-    , rulPrefix
-    , rulStatus
+    , rNoncurrentVersionExpiration
+    , rTransition
+    , rExpiration
+    , rNoncurrentVersionTransition
+    , rId
+    , rPrefix
+    , rStatus
 
     -- * S3ServiceError
     , S3ServiceError
@@ -397,7 +397,7 @@ module Network.AWS.S3.Types
     -- * Tagging
     , Tagging
     , tagging
-    , tagTagSet
+    , tTagSet
 
     -- * TargetGrant
     , TargetGrant
@@ -415,9 +415,9 @@ module Network.AWS.S3.Types
     -- * Transition
     , Transition
     , transition
-    , traDays
-    , traDate
-    , traStorageClass
+    , tDays
+    , tDate
+    , tStorageClass
 
     -- * VersioningConfiguration
     , VersioningConfiguration

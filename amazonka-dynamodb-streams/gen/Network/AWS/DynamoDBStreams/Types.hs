@@ -61,12 +61,12 @@ module Network.AWS.DynamoDBStreams.Types
     -- * Record
     , Record
     , record
-    , recEventVersion
-    , recDynamodb
-    , recAwsRegion
-    , recEventName
-    , recEventSource
-    , recEventId
+    , rEventVersion
+    , rDynamodb
+    , rAwsRegion
+    , rEventName
+    , rEventSource
+    , rEventId
 
     -- * SequenceNumberRange
     , SequenceNumberRange
@@ -77,16 +77,16 @@ module Network.AWS.DynamoDBStreams.Types
     -- * Shard
     , Shard
     , shard
-    , shaParentShardId
-    , shaSequenceNumberRange
-    , shaShardId
+    , sParentShardId
+    , sSequenceNumberRange
+    , sShardId
 
     -- * Stream
     , Stream
     , stream
-    , strStreamLabel
-    , strStreamARN
-    , strTableName
+    , sStreamLabel
+    , sStreamARN
+    , sTableName
 
     -- * StreamDescription
     , StreamDescription

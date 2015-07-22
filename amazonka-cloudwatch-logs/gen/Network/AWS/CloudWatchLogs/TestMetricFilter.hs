@@ -29,16 +29,16 @@ module Network.AWS.CloudWatchLogs.TestMetricFilter
     -- ** Request constructor
     , testMetricFilter
     -- ** Request lenses
-    , tmfFilterPattern
-    , tmfLogEventMessages
+    , tmfrqFilterPattern
+    , tmfrqLogEventMessages
 
     -- * Response
     , TestMetricFilterResponse
     -- ** Response constructor
     , testMetricFilterResponse
     -- ** Response lenses
-    , tmfrMatches
-    , tmfrStatus
+    , tmfrsMatches
+    , tmfrsStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tmfFilterPattern'
+-- * 'tmfrqFilterPattern'
 --
--- * 'tmfLogEventMessages'
+-- * 'tmfrqLogEventMessages'
 data TestMetricFilter = TestMetricFilter'
-    { _tmfFilterPattern    :: !Text
-    , _tmfLogEventMessages :: !(List1 Text)
+    { _tmfrqFilterPattern    :: !Text
+    , _tmfrqLogEventMessages :: !(List1 Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestMetricFilter' smart constructor.
 testMetricFilter :: Text -> NonEmpty Text -> TestMetricFilter
 testMetricFilter pFilterPattern pLogEventMessages =
     TestMetricFilter'
-    { _tmfFilterPattern = pFilterPattern
-    , _tmfLogEventMessages = _List1 # pLogEventMessages
+    { _tmfrqFilterPattern = pFilterPattern
+    , _tmfrqLogEventMessages = _List1 # pLogEventMessages
     }
 
 -- | FIXME: Undocumented member.
-tmfFilterPattern :: Lens' TestMetricFilter Text
-tmfFilterPattern = lens _tmfFilterPattern (\ s a -> s{_tmfFilterPattern = a});
+tmfrqFilterPattern :: Lens' TestMetricFilter Text
+tmfrqFilterPattern = lens _tmfrqFilterPattern (\ s a -> s{_tmfrqFilterPattern = a});
 
 -- | A list of log event messages to test.
-tmfLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
-tmfLogEventMessages = lens _tmfLogEventMessages (\ s a -> s{_tmfLogEventMessages = a}) . _List1;
+tmfrqLogEventMessages :: Lens' TestMetricFilter (NonEmpty Text)
+tmfrqLogEventMessages = lens _tmfrqLogEventMessages (\ s a -> s{_tmfrqLogEventMessages = a}) . _List1;
 
 instance AWSRequest TestMetricFilter where
         type Sv TestMetricFilter = CloudWatchLogs
@@ -96,8 +96,8 @@ instance ToHeaders TestMetricFilter where
 instance ToJSON TestMetricFilter where
         toJSON TestMetricFilter'{..}
           = object
-              ["filterPattern" .= _tmfFilterPattern,
-               "logEventMessages" .= _tmfLogEventMessages]
+              ["filterPattern" .= _tmfrqFilterPattern,
+               "logEventMessages" .= _tmfrqLogEventMessages]
 
 instance ToPath TestMetricFilter where
         toPath = const "/"
@@ -109,26 +109,26 @@ instance ToQuery TestMetricFilter where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tmfrMatches'
+-- * 'tmfrsMatches'
 --
--- * 'tmfrStatus'
+-- * 'tmfrsStatus'
 data TestMetricFilterResponse = TestMetricFilterResponse'
-    { _tmfrMatches :: !(Maybe [MetricFilterMatchRecord])
-    , _tmfrStatus  :: !Int
+    { _tmfrsMatches :: !(Maybe [MetricFilterMatchRecord])
+    , _tmfrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'TestMetricFilterResponse' smart constructor.
 testMetricFilterResponse :: Int -> TestMetricFilterResponse
 testMetricFilterResponse pStatus =
     TestMetricFilterResponse'
-    { _tmfrMatches = Nothing
-    , _tmfrStatus = pStatus
+    { _tmfrsMatches = Nothing
+    , _tmfrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-tmfrMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
-tmfrMatches = lens _tmfrMatches (\ s a -> s{_tmfrMatches = a}) . _Default;
+tmfrsMatches :: Lens' TestMetricFilterResponse [MetricFilterMatchRecord]
+tmfrsMatches = lens _tmfrsMatches (\ s a -> s{_tmfrsMatches = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-tmfrStatus :: Lens' TestMetricFilterResponse Int
-tmfrStatus = lens _tmfrStatus (\ s a -> s{_tmfrStatus = a});
+tmfrsStatus :: Lens' TestMetricFilterResponse Int
+tmfrsStatus = lens _tmfrsStatus (\ s a -> s{_tmfrsStatus = a});

@@ -28,8 +28,8 @@ module Network.AWS.EC2.DeleteKeyPair
     -- ** Request constructor
     , deleteKeyPair
     -- ** Request lenses
-    , dkpDryRun
-    , dkpKeyName
+    , dkprqDryRun
+    , dkprqKeyName
 
     -- * Response
     , DeleteKeyPairResponse
@@ -46,32 +46,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dkpDryRun'
+-- * 'dkprqDryRun'
 --
--- * 'dkpKeyName'
+-- * 'dkprqKeyName'
 data DeleteKeyPair = DeleteKeyPair'
-    { _dkpDryRun  :: !(Maybe Bool)
-    , _dkpKeyName :: !Text
+    { _dkprqDryRun  :: !(Maybe Bool)
+    , _dkprqKeyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteKeyPair' smart constructor.
 deleteKeyPair :: Text -> DeleteKeyPair
 deleteKeyPair pKeyName =
     DeleteKeyPair'
-    { _dkpDryRun = Nothing
-    , _dkpKeyName = pKeyName
+    { _dkprqDryRun = Nothing
+    , _dkprqKeyName = pKeyName
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dkpDryRun :: Lens' DeleteKeyPair (Maybe Bool)
-dkpDryRun = lens _dkpDryRun (\ s a -> s{_dkpDryRun = a});
+dkprqDryRun :: Lens' DeleteKeyPair (Maybe Bool)
+dkprqDryRun = lens _dkprqDryRun (\ s a -> s{_dkprqDryRun = a});
 
 -- | The name of the key pair.
-dkpKeyName :: Lens' DeleteKeyPair Text
-dkpKeyName = lens _dkpKeyName (\ s a -> s{_dkpKeyName = a});
+dkprqKeyName :: Lens' DeleteKeyPair Text
+dkprqKeyName = lens _dkprqKeyName (\ s a -> s{_dkprqKeyName = a});
 
 instance AWSRequest DeleteKeyPair where
         type Sv DeleteKeyPair = EC2
@@ -90,7 +90,7 @@ instance ToQuery DeleteKeyPair where
           = mconcat
               ["Action" =: ("DeleteKeyPair" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dkpDryRun, "KeyName" =: _dkpKeyName]
+               "DryRun" =: _dkprqDryRun, "KeyName" =: _dkprqKeyName]
 
 -- | /See:/ 'deleteKeyPairResponse' smart constructor.
 data DeleteKeyPairResponse =

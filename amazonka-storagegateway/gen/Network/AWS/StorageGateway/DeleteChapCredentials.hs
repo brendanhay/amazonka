@@ -28,17 +28,17 @@ module Network.AWS.StorageGateway.DeleteChapCredentials
     -- ** Request constructor
     , deleteChapCredentials
     -- ** Request lenses
-    , dTargetARN
-    , dInitiatorName
+    , drqTargetARN
+    , drqInitiatorName
 
     -- * Response
     , DeleteChapCredentialsResponse
     -- ** Response constructor
     , deleteChapCredentialsResponse
     -- ** Response lenses
-    , delTargetARN
-    , delInitiatorName
-    , delStatus
+    , drsTargetARN
+    , drsInitiatorName
+    , drsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -55,31 +55,31 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dTargetARN'
+-- * 'drqTargetARN'
 --
--- * 'dInitiatorName'
+-- * 'drqInitiatorName'
 data DeleteChapCredentials = DeleteChapCredentials'
-    { _dTargetARN     :: !Text
-    , _dInitiatorName :: !Text
+    { _drqTargetARN     :: !Text
+    , _drqInitiatorName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteChapCredentials' smart constructor.
 deleteChapCredentials :: Text -> Text -> DeleteChapCredentials
 deleteChapCredentials pTargetARN pInitiatorName =
     DeleteChapCredentials'
-    { _dTargetARN = pTargetARN
-    , _dInitiatorName = pInitiatorName
+    { _drqTargetARN = pTargetARN
+    , _drqInitiatorName = pInitiatorName
     }
 
 -- | The Amazon Resource Name (ARN) of the iSCSI volume target. Use the
 -- DescribeStorediSCSIVolumes operation to return to retrieve the TargetARN
 -- for specified VolumeARN.
-dTargetARN :: Lens' DeleteChapCredentials Text
-dTargetARN = lens _dTargetARN (\ s a -> s{_dTargetARN = a});
+drqTargetARN :: Lens' DeleteChapCredentials Text
+drqTargetARN = lens _drqTargetARN (\ s a -> s{_drqTargetARN = a});
 
 -- | The iSCSI initiator that connects to the target.
-dInitiatorName :: Lens' DeleteChapCredentials Text
-dInitiatorName = lens _dInitiatorName (\ s a -> s{_dInitiatorName = a});
+drqInitiatorName :: Lens' DeleteChapCredentials Text
+drqInitiatorName = lens _drqInitiatorName (\ s a -> s{_drqInitiatorName = a});
 
 instance AWSRequest DeleteChapCredentials where
         type Sv DeleteChapCredentials = StorageGateway
@@ -106,8 +106,8 @@ instance ToHeaders DeleteChapCredentials where
 instance ToJSON DeleteChapCredentials where
         toJSON DeleteChapCredentials'{..}
           = object
-              ["TargetARN" .= _dTargetARN,
-               "InitiatorName" .= _dInitiatorName]
+              ["TargetARN" .= _drqTargetARN,
+               "InitiatorName" .= _drqInitiatorName]
 
 instance ToPath DeleteChapCredentials where
         toPath = const "/"
@@ -121,34 +121,34 @@ instance ToQuery DeleteChapCredentials where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delTargetARN'
+-- * 'drsTargetARN'
 --
--- * 'delInitiatorName'
+-- * 'drsInitiatorName'
 --
--- * 'delStatus'
+-- * 'drsStatus'
 data DeleteChapCredentialsResponse = DeleteChapCredentialsResponse'
-    { _delTargetARN     :: !(Maybe Text)
-    , _delInitiatorName :: !(Maybe Text)
-    , _delStatus        :: !Int
+    { _drsTargetARN     :: !(Maybe Text)
+    , _drsInitiatorName :: !(Maybe Text)
+    , _drsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteChapCredentialsResponse' smart constructor.
 deleteChapCredentialsResponse :: Int -> DeleteChapCredentialsResponse
 deleteChapCredentialsResponse pStatus =
     DeleteChapCredentialsResponse'
-    { _delTargetARN = Nothing
-    , _delInitiatorName = Nothing
-    , _delStatus = pStatus
+    { _drsTargetARN = Nothing
+    , _drsInitiatorName = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the target.
-delTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-delTargetARN = lens _delTargetARN (\ s a -> s{_delTargetARN = a});
+drsTargetARN :: Lens' DeleteChapCredentialsResponse (Maybe Text)
+drsTargetARN = lens _drsTargetARN (\ s a -> s{_drsTargetARN = a});
 
 -- | The iSCSI initiator that connects to the target.
-delInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
-delInitiatorName = lens _delInitiatorName (\ s a -> s{_delInitiatorName = a});
+drsInitiatorName :: Lens' DeleteChapCredentialsResponse (Maybe Text)
+drsInitiatorName = lens _drsInitiatorName (\ s a -> s{_drsInitiatorName = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteChapCredentialsResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+drsStatus :: Lens' DeleteChapCredentialsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

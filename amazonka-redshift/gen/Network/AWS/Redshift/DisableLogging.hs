@@ -28,19 +28,19 @@ module Network.AWS.Redshift.DisableLogging
     -- ** Request constructor
     , disableLogging
     -- ** Request lenses
-    , dlClusterIdentifier
+    , dlrqClusterIdentifier
 
     -- * Response
     , LoggingStatus
     -- ** Response constructor
     , loggingStatus
     -- ** Response lenses
-    , lsLastSuccessfulDeliveryTime
-    , lsLastFailureTime
-    , lsS3KeyPrefix
-    , lsBucketName
-    , lsLoggingEnabled
-    , lsLastFailureMessage
+    , dlrsLastSuccessfulDeliveryTime
+    , dlrsLastFailureTime
+    , dlrsS3KeyPrefix
+    , dlrsBucketName
+    , dlrsLoggingEnabled
+    , dlrsLastFailureMessage
     ) where
 
 import           Network.AWS.Prelude
@@ -54,23 +54,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlClusterIdentifier'
+-- * 'dlrqClusterIdentifier'
 newtype DisableLogging = DisableLogging'
-    { _dlClusterIdentifier :: Text
+    { _dlrqClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableLogging' smart constructor.
 disableLogging :: Text -> DisableLogging
 disableLogging pClusterIdentifier =
     DisableLogging'
-    { _dlClusterIdentifier = pClusterIdentifier
+    { _dlrqClusterIdentifier = pClusterIdentifier
     }
 
 -- | The identifier of the cluster on which logging is to be stopped.
 --
 -- Example: @examplecluster@
-dlClusterIdentifier :: Lens' DisableLogging Text
-dlClusterIdentifier = lens _dlClusterIdentifier (\ s a -> s{_dlClusterIdentifier = a});
+dlrqClusterIdentifier :: Lens' DisableLogging Text
+dlrqClusterIdentifier = lens _dlrqClusterIdentifier (\ s a -> s{_dlrqClusterIdentifier = a});
 
 instance AWSRequest DisableLogging where
         type Sv DisableLogging = Redshift
@@ -91,4 +91,4 @@ instance ToQuery DisableLogging where
           = mconcat
               ["Action" =: ("DisableLogging" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _dlClusterIdentifier]
+               "ClusterIdentifier" =: _dlrqClusterIdentifier]

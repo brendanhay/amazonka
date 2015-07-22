@@ -33,20 +33,20 @@ module Network.AWS.CognitoSync.ListDatasets
     -- ** Request constructor
     , listDatasets
     -- ** Request lenses
-    , ldNextToken
-    , ldMaxResults
-    , ldIdentityId
-    , ldIdentityPoolId
+    , ldrqNextToken
+    , ldrqMaxResults
+    , ldrqIdentityId
+    , ldrqIdentityPoolId
 
     -- * Response
     , ListDatasetsResponse
     -- ** Response constructor
     , listDatasetsResponse
     -- ** Response lenses
-    , ldrCount
-    , ldrNextToken
-    , ldrDatasets
-    , ldrStatus
+    , ldrsCount
+    , ldrsNextToken
+    , ldrsDatasets
+    , ldrsStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -60,49 +60,49 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldNextToken'
+-- * 'ldrqNextToken'
 --
--- * 'ldMaxResults'
+-- * 'ldrqMaxResults'
 --
--- * 'ldIdentityId'
+-- * 'ldrqIdentityId'
 --
--- * 'ldIdentityPoolId'
+-- * 'ldrqIdentityPoolId'
 data ListDatasets = ListDatasets'
-    { _ldNextToken      :: !(Maybe Text)
-    , _ldMaxResults     :: !(Maybe Int)
-    , _ldIdentityId     :: !Text
-    , _ldIdentityPoolId :: !Text
+    { _ldrqNextToken      :: !(Maybe Text)
+    , _ldrqMaxResults     :: !(Maybe Int)
+    , _ldrqIdentityId     :: !Text
+    , _ldrqIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDatasets' smart constructor.
 listDatasets :: Text -> Text -> ListDatasets
 listDatasets pIdentityId pIdentityPoolId =
     ListDatasets'
-    { _ldNextToken = Nothing
-    , _ldMaxResults = Nothing
-    , _ldIdentityId = pIdentityId
-    , _ldIdentityPoolId = pIdentityPoolId
+    { _ldrqNextToken = Nothing
+    , _ldrqMaxResults = Nothing
+    , _ldrqIdentityId = pIdentityId
+    , _ldrqIdentityPoolId = pIdentityPoolId
     }
 
 -- | A pagination token for obtaining the next page of results.
-ldNextToken :: Lens' ListDatasets (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldrqNextToken :: Lens' ListDatasets (Maybe Text)
+ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
 
 -- | The maximum number of results to be returned.
-ldMaxResults :: Lens' ListDatasets (Maybe Int)
-ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a});
+ldrqMaxResults :: Lens' ListDatasets (Maybe Int)
+ldrqMaxResults = lens _ldrqMaxResults (\ s a -> s{_ldrqMaxResults = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-ldIdentityId :: Lens' ListDatasets Text
-ldIdentityId = lens _ldIdentityId (\ s a -> s{_ldIdentityId = a});
+ldrqIdentityId :: Lens' ListDatasets Text
+ldrqIdentityId = lens _ldrqIdentityId (\ s a -> s{_ldrqIdentityId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-ldIdentityPoolId :: Lens' ListDatasets Text
-ldIdentityPoolId = lens _ldIdentityPoolId (\ s a -> s{_ldIdentityPoolId = a});
+ldrqIdentityPoolId :: Lens' ListDatasets Text
+ldrqIdentityPoolId = lens _ldrqIdentityPoolId (\ s a -> s{_ldrqIdentityPoolId = a});
 
 instance AWSRequest ListDatasets where
         type Sv ListDatasets = CognitoSync
@@ -126,14 +126,14 @@ instance ToHeaders ListDatasets where
 instance ToPath ListDatasets where
         toPath ListDatasets'{..}
           = mconcat
-              ["/identitypools/", toText _ldIdentityPoolId,
-               "/identities/", toText _ldIdentityId, "/datasets"]
+              ["/identitypools/", toText _ldrqIdentityPoolId,
+               "/identities/", toText _ldrqIdentityId, "/datasets"]
 
 instance ToQuery ListDatasets where
         toQuery ListDatasets'{..}
           = mconcat
-              ["nextToken" =: _ldNextToken,
-               "maxResults" =: _ldMaxResults]
+              ["nextToken" =: _ldrqNextToken,
+               "maxResults" =: _ldrqMaxResults]
 
 -- | Returned for a successful ListDatasets request.
 --
@@ -141,42 +141,42 @@ instance ToQuery ListDatasets where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrCount'
+-- * 'ldrsCount'
 --
--- * 'ldrNextToken'
+-- * 'ldrsNextToken'
 --
--- * 'ldrDatasets'
+-- * 'ldrsDatasets'
 --
--- * 'ldrStatus'
+-- * 'ldrsStatus'
 data ListDatasetsResponse = ListDatasetsResponse'
-    { _ldrCount     :: !(Maybe Int)
-    , _ldrNextToken :: !(Maybe Text)
-    , _ldrDatasets  :: !(Maybe [Dataset])
-    , _ldrStatus    :: !Int
+    { _ldrsCount     :: !(Maybe Int)
+    , _ldrsNextToken :: !(Maybe Text)
+    , _ldrsDatasets  :: !(Maybe [Dataset])
+    , _ldrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDatasetsResponse' smart constructor.
 listDatasetsResponse :: Int -> ListDatasetsResponse
 listDatasetsResponse pStatus =
     ListDatasetsResponse'
-    { _ldrCount = Nothing
-    , _ldrNextToken = Nothing
-    , _ldrDatasets = Nothing
-    , _ldrStatus = pStatus
+    { _ldrsCount = Nothing
+    , _ldrsNextToken = Nothing
+    , _ldrsDatasets = Nothing
+    , _ldrsStatus = pStatus
     }
 
 -- | Number of datasets returned.
-ldrCount :: Lens' ListDatasetsResponse (Maybe Int)
-ldrCount = lens _ldrCount (\ s a -> s{_ldrCount = a});
+ldrsCount :: Lens' ListDatasetsResponse (Maybe Int)
+ldrsCount = lens _ldrsCount (\ s a -> s{_ldrsCount = a});
 
 -- | A pagination token for obtaining the next page of results.
-ldrNextToken :: Lens' ListDatasetsResponse (Maybe Text)
-ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
+ldrsNextToken :: Lens' ListDatasetsResponse (Maybe Text)
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | A set of datasets.
-ldrDatasets :: Lens' ListDatasetsResponse [Dataset]
-ldrDatasets = lens _ldrDatasets (\ s a -> s{_ldrDatasets = a}) . _Default;
+ldrsDatasets :: Lens' ListDatasetsResponse [Dataset]
+ldrsDatasets = lens _ldrsDatasets (\ s a -> s{_ldrsDatasets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDatasetsResponse Int
-ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+ldrsStatus :: Lens' ListDatasetsResponse Int
+ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

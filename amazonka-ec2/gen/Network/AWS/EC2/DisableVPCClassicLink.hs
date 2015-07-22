@@ -28,16 +28,16 @@ module Network.AWS.EC2.DisableVPCClassicLink
     -- ** Request constructor
     , disableVPCClassicLink
     -- ** Request lenses
-    , disDryRun
-    , disVPCId
+    , dvpcclrqDryRun
+    , dvpcclrqVPCId
 
     -- * Response
     , DisableVPCClassicLinkResponse
     -- ** Response constructor
     , disableVPCClassicLinkResponse
     -- ** Response lenses
-    , disReturn
-    , disStatus
+    , dvpcclrsReturn
+    , dvpcclrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -49,32 +49,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disDryRun'
+-- * 'dvpcclrqDryRun'
 --
--- * 'disVPCId'
+-- * 'dvpcclrqVPCId'
 data DisableVPCClassicLink = DisableVPCClassicLink'
-    { _disDryRun :: !(Maybe Bool)
-    , _disVPCId  :: !Text
+    { _dvpcclrqDryRun :: !(Maybe Bool)
+    , _dvpcclrqVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVPCClassicLink' smart constructor.
 disableVPCClassicLink :: Text -> DisableVPCClassicLink
 disableVPCClassicLink pVPCId =
     DisableVPCClassicLink'
-    { _disDryRun = Nothing
-    , _disVPCId = pVPCId
+    { _dvpcclrqDryRun = Nothing
+    , _dvpcclrqVPCId = pVPCId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-disDryRun :: Lens' DisableVPCClassicLink (Maybe Bool)
-disDryRun = lens _disDryRun (\ s a -> s{_disDryRun = a});
+dvpcclrqDryRun :: Lens' DisableVPCClassicLink (Maybe Bool)
+dvpcclrqDryRun = lens _dvpcclrqDryRun (\ s a -> s{_dvpcclrqDryRun = a});
 
 -- | The ID of the VPC.
-disVPCId :: Lens' DisableVPCClassicLink Text
-disVPCId = lens _disVPCId (\ s a -> s{_disVPCId = a});
+dvpcclrqVPCId :: Lens' DisableVPCClassicLink Text
+dvpcclrqVPCId = lens _dvpcclrqVPCId (\ s a -> s{_dvpcclrqVPCId = a});
 
 instance AWSRequest DisableVPCClassicLink where
         type Sv DisableVPCClassicLink = EC2
@@ -98,32 +98,33 @@ instance ToQuery DisableVPCClassicLink where
           = mconcat
               ["Action" =: ("DisableVPCClassicLink" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _disDryRun, "VpcId" =: _disVPCId]
+               "DryRun" =: _dvpcclrqDryRun,
+               "VpcId" =: _dvpcclrqVPCId]
 
 -- | /See:/ 'disableVPCClassicLinkResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disReturn'
+-- * 'dvpcclrsReturn'
 --
--- * 'disStatus'
+-- * 'dvpcclrsStatus'
 data DisableVPCClassicLinkResponse = DisableVPCClassicLinkResponse'
-    { _disReturn :: !(Maybe Bool)
-    , _disStatus :: !Int
+    { _dvpcclrsReturn :: !(Maybe Bool)
+    , _dvpcclrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableVPCClassicLinkResponse' smart constructor.
 disableVPCClassicLinkResponse :: Int -> DisableVPCClassicLinkResponse
 disableVPCClassicLinkResponse pStatus =
     DisableVPCClassicLinkResponse'
-    { _disReturn = Nothing
-    , _disStatus = pStatus
+    { _dvpcclrsReturn = Nothing
+    , _dvpcclrsStatus = pStatus
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-disReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
-disReturn = lens _disReturn (\ s a -> s{_disReturn = a});
+dvpcclrsReturn :: Lens' DisableVPCClassicLinkResponse (Maybe Bool)
+dvpcclrsReturn = lens _dvpcclrsReturn (\ s a -> s{_dvpcclrsReturn = a});
 
 -- | FIXME: Undocumented member.
-disStatus :: Lens' DisableVPCClassicLinkResponse Int
-disStatus = lens _disStatus (\ s a -> s{_disStatus = a});
+dvpcclrsStatus :: Lens' DisableVPCClassicLinkResponse Int
+dvpcclrsStatus = lens _dvpcclrsStatus (\ s a -> s{_dvpcclrsStatus = a});

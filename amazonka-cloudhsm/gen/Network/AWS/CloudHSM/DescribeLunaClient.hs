@@ -27,20 +27,20 @@ module Network.AWS.CloudHSM.DescribeLunaClient
     -- ** Request constructor
     , describeLunaClient
     -- ** Request lenses
-    , dlcClientARN
-    , dlcCertificateFingerprint
+    , dlcrqClientARN
+    , dlcrqCertificateFingerprint
 
     -- * Response
     , DescribeLunaClientResponse
     -- ** Response constructor
     , describeLunaClientResponse
     -- ** Response lenses
-    , dClientARN
-    , dCertificateFingerprint
-    , dLastModifiedTimestamp
-    , dCertificate
-    , dLabel
-    , dStatus
+    , dlcrsClientARN
+    , dlcrsCertificateFingerprint
+    , dlcrsLastModifiedTimestamp
+    , dlcrsCertificate
+    , dlcrsLabel
+    , dlcrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcClientARN'
+-- * 'dlcrqClientARN'
 --
--- * 'dlcCertificateFingerprint'
+-- * 'dlcrqCertificateFingerprint'
 data DescribeLunaClient = DescribeLunaClient'
-    { _dlcClientARN              :: !(Maybe Text)
-    , _dlcCertificateFingerprint :: !(Maybe Text)
+    { _dlcrqClientARN              :: !(Maybe Text)
+    , _dlcrqCertificateFingerprint :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLunaClient' smart constructor.
 describeLunaClient :: DescribeLunaClient
 describeLunaClient =
     DescribeLunaClient'
-    { _dlcClientARN = Nothing
-    , _dlcCertificateFingerprint = Nothing
+    { _dlcrqClientARN = Nothing
+    , _dlcrqCertificateFingerprint = Nothing
     }
 
 -- | The ARN of the client.
-dlcClientARN :: Lens' DescribeLunaClient (Maybe Text)
-dlcClientARN = lens _dlcClientARN (\ s a -> s{_dlcClientARN = a});
+dlcrqClientARN :: Lens' DescribeLunaClient (Maybe Text)
+dlcrqClientARN = lens _dlcrqClientARN (\ s a -> s{_dlcrqClientARN = a});
 
 -- | The certificate fingerprint.
-dlcCertificateFingerprint :: Lens' DescribeLunaClient (Maybe Text)
-dlcCertificateFingerprint = lens _dlcCertificateFingerprint (\ s a -> s{_dlcCertificateFingerprint = a});
+dlcrqCertificateFingerprint :: Lens' DescribeLunaClient (Maybe Text)
+dlcrqCertificateFingerprint = lens _dlcrqCertificateFingerprint (\ s a -> s{_dlcrqCertificateFingerprint = a});
 
 instance AWSRequest DescribeLunaClient where
         type Sv DescribeLunaClient = CloudHSM
@@ -105,9 +105,9 @@ instance ToHeaders DescribeLunaClient where
 instance ToJSON DescribeLunaClient where
         toJSON DescribeLunaClient'{..}
           = object
-              ["ClientArn" .= _dlcClientARN,
+              ["ClientArn" .= _dlcrqClientARN,
                "CertificateFingerprint" .=
-                 _dlcCertificateFingerprint]
+                 _dlcrqCertificateFingerprint]
 
 instance ToPath DescribeLunaClient where
         toPath = const "/"
@@ -119,58 +119,58 @@ instance ToQuery DescribeLunaClient where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dClientARN'
+-- * 'dlcrsClientARN'
 --
--- * 'dCertificateFingerprint'
+-- * 'dlcrsCertificateFingerprint'
 --
--- * 'dLastModifiedTimestamp'
+-- * 'dlcrsLastModifiedTimestamp'
 --
--- * 'dCertificate'
+-- * 'dlcrsCertificate'
 --
--- * 'dLabel'
+-- * 'dlcrsLabel'
 --
--- * 'dStatus'
+-- * 'dlcrsStatus'
 data DescribeLunaClientResponse = DescribeLunaClientResponse'
-    { _dClientARN              :: !(Maybe Text)
-    , _dCertificateFingerprint :: !(Maybe Text)
-    , _dLastModifiedTimestamp  :: !(Maybe Text)
-    , _dCertificate            :: !(Maybe Text)
-    , _dLabel                  :: !(Maybe Text)
-    , _dStatus                 :: !Int
+    { _dlcrsClientARN              :: !(Maybe Text)
+    , _dlcrsCertificateFingerprint :: !(Maybe Text)
+    , _dlcrsLastModifiedTimestamp  :: !(Maybe Text)
+    , _dlcrsCertificate            :: !(Maybe Text)
+    , _dlcrsLabel                  :: !(Maybe Text)
+    , _dlcrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLunaClientResponse' smart constructor.
 describeLunaClientResponse :: Int -> DescribeLunaClientResponse
 describeLunaClientResponse pStatus =
     DescribeLunaClientResponse'
-    { _dClientARN = Nothing
-    , _dCertificateFingerprint = Nothing
-    , _dLastModifiedTimestamp = Nothing
-    , _dCertificate = Nothing
-    , _dLabel = Nothing
-    , _dStatus = pStatus
+    { _dlcrsClientARN = Nothing
+    , _dlcrsCertificateFingerprint = Nothing
+    , _dlcrsLastModifiedTimestamp = Nothing
+    , _dlcrsCertificate = Nothing
+    , _dlcrsLabel = Nothing
+    , _dlcrsStatus = pStatus
     }
 
 -- | The ARN of the client.
-dClientARN :: Lens' DescribeLunaClientResponse (Maybe Text)
-dClientARN = lens _dClientARN (\ s a -> s{_dClientARN = a});
+dlcrsClientARN :: Lens' DescribeLunaClientResponse (Maybe Text)
+dlcrsClientARN = lens _dlcrsClientARN (\ s a -> s{_dlcrsClientARN = a});
 
 -- | The certificate fingerprint.
-dCertificateFingerprint :: Lens' DescribeLunaClientResponse (Maybe Text)
-dCertificateFingerprint = lens _dCertificateFingerprint (\ s a -> s{_dCertificateFingerprint = a});
+dlcrsCertificateFingerprint :: Lens' DescribeLunaClientResponse (Maybe Text)
+dlcrsCertificateFingerprint = lens _dlcrsCertificateFingerprint (\ s a -> s{_dlcrsCertificateFingerprint = a});
 
 -- | The date and time the client was last modified.
-dLastModifiedTimestamp :: Lens' DescribeLunaClientResponse (Maybe Text)
-dLastModifiedTimestamp = lens _dLastModifiedTimestamp (\ s a -> s{_dLastModifiedTimestamp = a});
+dlcrsLastModifiedTimestamp :: Lens' DescribeLunaClientResponse (Maybe Text)
+dlcrsLastModifiedTimestamp = lens _dlcrsLastModifiedTimestamp (\ s a -> s{_dlcrsLastModifiedTimestamp = a});
 
 -- | The certificate installed on the HSMs used by this client.
-dCertificate :: Lens' DescribeLunaClientResponse (Maybe Text)
-dCertificate = lens _dCertificate (\ s a -> s{_dCertificate = a});
+dlcrsCertificate :: Lens' DescribeLunaClientResponse (Maybe Text)
+dlcrsCertificate = lens _dlcrsCertificate (\ s a -> s{_dlcrsCertificate = a});
 
 -- | The label of the client.
-dLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
-dLabel = lens _dLabel (\ s a -> s{_dLabel = a});
+dlcrsLabel :: Lens' DescribeLunaClientResponse (Maybe Text)
+dlcrsLabel = lens _dlcrsLabel (\ s a -> s{_dlcrsLabel = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DescribeLunaClientResponse Int
-dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+dlcrsStatus :: Lens' DescribeLunaClientResponse Int
+dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});

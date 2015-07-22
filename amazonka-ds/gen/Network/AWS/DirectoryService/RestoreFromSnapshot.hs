@@ -36,14 +36,14 @@ module Network.AWS.DirectoryService.RestoreFromSnapshot
     -- ** Request constructor
     , restoreFromSnapshot
     -- ** Request lenses
-    , rfsSnapshotId
+    , rfsrqSnapshotId
 
     -- * Response
     , RestoreFromSnapshotResponse
     -- ** Response constructor
     , restoreFromSnapshotResponse
     -- ** Response lenses
-    , rfsrStatus
+    , rfsrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rfsSnapshotId'
+-- * 'rfsrqSnapshotId'
 newtype RestoreFromSnapshot = RestoreFromSnapshot'
-    { _rfsSnapshotId :: Text
+    { _rfsrqSnapshotId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreFromSnapshot' smart constructor.
 restoreFromSnapshot :: Text -> RestoreFromSnapshot
 restoreFromSnapshot pSnapshotId =
     RestoreFromSnapshot'
-    { _rfsSnapshotId = pSnapshotId
+    { _rfsrqSnapshotId = pSnapshotId
     }
 
 -- | The identifier of the snapshot to restore from.
-rfsSnapshotId :: Lens' RestoreFromSnapshot Text
-rfsSnapshotId = lens _rfsSnapshotId (\ s a -> s{_rfsSnapshotId = a});
+rfsrqSnapshotId :: Lens' RestoreFromSnapshot Text
+rfsrqSnapshotId = lens _rfsrqSnapshotId (\ s a -> s{_rfsrqSnapshotId = a});
 
 instance AWSRequest RestoreFromSnapshot where
         type Sv RestoreFromSnapshot = DirectoryService
@@ -95,7 +95,7 @@ instance ToHeaders RestoreFromSnapshot where
 
 instance ToJSON RestoreFromSnapshot where
         toJSON RestoreFromSnapshot'{..}
-          = object ["SnapshotId" .= _rfsSnapshotId]
+          = object ["SnapshotId" .= _rfsrqSnapshotId]
 
 instance ToPath RestoreFromSnapshot where
         toPath = const "/"
@@ -109,18 +109,18 @@ instance ToQuery RestoreFromSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rfsrStatus'
+-- * 'rfsrsStatus'
 newtype RestoreFromSnapshotResponse = RestoreFromSnapshotResponse'
-    { _rfsrStatus :: Int
+    { _rfsrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RestoreFromSnapshotResponse' smart constructor.
 restoreFromSnapshotResponse :: Int -> RestoreFromSnapshotResponse
 restoreFromSnapshotResponse pStatus =
     RestoreFromSnapshotResponse'
-    { _rfsrStatus = pStatus
+    { _rfsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rfsrStatus :: Lens' RestoreFromSnapshotResponse Int
-rfsrStatus = lens _rfsrStatus (\ s a -> s{_rfsrStatus = a});
+rfsrsStatus :: Lens' RestoreFromSnapshotResponse Int
+rfsrsStatus = lens _rfsrsStatus (\ s a -> s{_rfsrsStatus = a});

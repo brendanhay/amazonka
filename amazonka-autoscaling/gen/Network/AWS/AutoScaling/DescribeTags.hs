@@ -36,18 +36,18 @@ module Network.AWS.AutoScaling.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtFilters
-    , dtNextToken
-    , dtMaxRecords
+    , dtrqFilters
+    , dtrqNextToken
+    , dtrqMaxRecords
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtrNextToken
-    , dtrTags
-    , dtrStatus
+    , dtrsNextToken
+    , dtrsTags
+    , dtrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -60,45 +60,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtFilters'
+-- * 'dtrqFilters'
 --
--- * 'dtNextToken'
+-- * 'dtrqNextToken'
 --
--- * 'dtMaxRecords'
+-- * 'dtrqMaxRecords'
 data DescribeTags = DescribeTags'
-    { _dtFilters    :: !(Maybe [Filter])
-    , _dtNextToken  :: !(Maybe Text)
-    , _dtMaxRecords :: !(Maybe Int)
+    { _dtrqFilters    :: !(Maybe [Filter])
+    , _dtrqNextToken  :: !(Maybe Text)
+    , _dtrqMaxRecords :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
 describeTags =
     DescribeTags'
-    { _dtFilters = Nothing
-    , _dtNextToken = Nothing
-    , _dtMaxRecords = Nothing
+    { _dtrqFilters = Nothing
+    , _dtrqNextToken = Nothing
+    , _dtrqMaxRecords = Nothing
     }
 
 -- | A filter used to scope the tags to return.
-dtFilters :: Lens' DescribeTags [Filter]
-dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default;
+dtrqFilters :: Lens' DescribeTags [Filter]
+dtrqFilters = lens _dtrqFilters (\ s a -> s{_dtrqFilters = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dtNextToken :: Lens' DescribeTags (Maybe Text)
-dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
+dtrqNextToken :: Lens' DescribeTags (Maybe Text)
+dtrqNextToken = lens _dtrqNextToken (\ s a -> s{_dtrqNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dtMaxRecords :: Lens' DescribeTags (Maybe Int)
-dtMaxRecords = lens _dtMaxRecords (\ s a -> s{_dtMaxRecords = a});
+dtrqMaxRecords :: Lens' DescribeTags (Maybe Int)
+dtrqMaxRecords = lens _dtrqMaxRecords (\ s a -> s{_dtrqMaxRecords = a});
 
 instance AWSPager DescribeTags where
         page rq rs
-          | stop (rs ^. dtrNextToken) = Nothing
-          | stop (rs ^. dtrTags) = Nothing
+          | stop (rs ^. dtrsNextToken) = Nothing
+          | stop (rs ^. dtrsTags) = Nothing
           | otherwise =
-            Just $ rq & dtNextToken .~ rs ^. dtrNextToken
+            Just $ rq & dtrqNextToken .~ rs ^. dtrsNextToken
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = AutoScaling
@@ -125,43 +125,43 @@ instance ToQuery DescribeTags where
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "member" <$> _dtFilters),
-               "NextToken" =: _dtNextToken,
-               "MaxRecords" =: _dtMaxRecords]
+                 toQuery (toQueryList "member" <$> _dtrqFilters),
+               "NextToken" =: _dtrqNextToken,
+               "MaxRecords" =: _dtrqMaxRecords]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrNextToken'
+-- * 'dtrsNextToken'
 --
--- * 'dtrTags'
+-- * 'dtrsTags'
 --
--- * 'dtrStatus'
+-- * 'dtrsStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrNextToken :: !(Maybe Text)
-    , _dtrTags      :: !(Maybe [TagDescription])
-    , _dtrStatus    :: !Int
+    { _dtrsNextToken :: !(Maybe Text)
+    , _dtrsTags      :: !(Maybe [TagDescription])
+    , _dtrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
 describeTagsResponse pStatus =
     DescribeTagsResponse'
-    { _dtrNextToken = Nothing
-    , _dtrTags = Nothing
-    , _dtrStatus = pStatus
+    { _dtrsNextToken = Nothing
+    , _dtrsTags = Nothing
+    , _dtrsStatus = pStatus
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dtrNextToken = lens _dtrNextToken (\ s a -> s{_dtrNextToken = a});
+dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
+dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 
 -- | The tags.
-dtrTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a}) . _Default;
+dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTagsResponse Int
-dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
+dtrsStatus :: Lens' DescribeTagsResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

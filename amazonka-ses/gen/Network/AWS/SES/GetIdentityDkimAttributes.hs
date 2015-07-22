@@ -47,15 +47,15 @@ module Network.AWS.SES.GetIdentityDkimAttributes
     -- ** Request constructor
     , getIdentityDkimAttributes
     -- ** Request lenses
-    , gidaIdentities
+    , gidarqIdentities
 
     -- * Response
     , GetIdentityDkimAttributesResponse
     -- ** Response constructor
     , getIdentityDkimAttributesResponse
     -- ** Response lenses
-    , gidarStatus
-    , gidarDkimAttributes
+    , gidarsStatus
+    , gidarsDkimAttributes
     ) where
 
 import           Network.AWS.Prelude
@@ -74,22 +74,22 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gidaIdentities'
+-- * 'gidarqIdentities'
 newtype GetIdentityDkimAttributes = GetIdentityDkimAttributes'
-    { _gidaIdentities :: [Text]
+    { _gidarqIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityDkimAttributes' smart constructor.
 getIdentityDkimAttributes :: GetIdentityDkimAttributes
 getIdentityDkimAttributes =
     GetIdentityDkimAttributes'
-    { _gidaIdentities = mempty
+    { _gidarqIdentities = mempty
     }
 
 -- | A list of one or more verified identities - email addresses, domains, or
 -- both.
-gidaIdentities :: Lens' GetIdentityDkimAttributes [Text]
-gidaIdentities = lens _gidaIdentities (\ s a -> s{_gidaIdentities = a});
+gidarqIdentities :: Lens' GetIdentityDkimAttributes [Text]
+gidarqIdentities = lens _gidarqIdentities (\ s a -> s{_gidarqIdentities = a});
 
 instance AWSRequest GetIdentityDkimAttributes where
         type Sv GetIdentityDkimAttributes = SES
@@ -116,7 +116,8 @@ instance ToQuery GetIdentityDkimAttributes where
               ["Action" =:
                  ("GetIdentityDkimAttributes" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =: toQueryList "member" _gidaIdentities]
+               "Identities" =:
+                 toQueryList "member" _gidarqIdentities]
 
 -- | Represents a list of all the DKIM attributes for the specified identity.
 --
@@ -124,26 +125,26 @@ instance ToQuery GetIdentityDkimAttributes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gidarStatus'
+-- * 'gidarsStatus'
 --
--- * 'gidarDkimAttributes'
+-- * 'gidarsDkimAttributes'
 data GetIdentityDkimAttributesResponse = GetIdentityDkimAttributesResponse'
-    { _gidarStatus         :: !Int
-    , _gidarDkimAttributes :: !(Map Text IdentityDkimAttributes)
+    { _gidarsStatus         :: !Int
+    , _gidarsDkimAttributes :: !(Map Text IdentityDkimAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityDkimAttributesResponse' smart constructor.
 getIdentityDkimAttributesResponse :: Int -> GetIdentityDkimAttributesResponse
 getIdentityDkimAttributesResponse pStatus =
     GetIdentityDkimAttributesResponse'
-    { _gidarStatus = pStatus
-    , _gidarDkimAttributes = mempty
+    { _gidarsStatus = pStatus
+    , _gidarsDkimAttributes = mempty
     }
 
 -- | FIXME: Undocumented member.
-gidarStatus :: Lens' GetIdentityDkimAttributesResponse Int
-gidarStatus = lens _gidarStatus (\ s a -> s{_gidarStatus = a});
+gidarsStatus :: Lens' GetIdentityDkimAttributesResponse Int
+gidarsStatus = lens _gidarsStatus (\ s a -> s{_gidarsStatus = a});
 
 -- | The DKIM attributes for an email address or a domain.
-gidarDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
-gidarDkimAttributes = lens _gidarDkimAttributes (\ s a -> s{_gidarDkimAttributes = a}) . _Map;
+gidarsDkimAttributes :: Lens' GetIdentityDkimAttributesResponse (HashMap Text IdentityDkimAttributes)
+gidarsDkimAttributes = lens _gidarsDkimAttributes (\ s a -> s{_gidarsDkimAttributes = a}) . _Map;

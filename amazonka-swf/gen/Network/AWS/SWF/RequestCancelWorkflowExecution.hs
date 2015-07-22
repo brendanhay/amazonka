@@ -57,9 +57,9 @@ module Network.AWS.SWF.RequestCancelWorkflowExecution
     -- ** Request constructor
     , requestCancelWorkflowExecution
     -- ** Request lenses
-    , rcweRunId
-    , rcweDomain
-    , rcweWorkflowId
+    , rcwerqRunId
+    , rcwerqDomain
+    , rcwerqWorkflowId
 
     -- * Response
     , RequestCancelWorkflowExecutionResponse
@@ -76,37 +76,37 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcweRunId'
+-- * 'rcwerqRunId'
 --
--- * 'rcweDomain'
+-- * 'rcwerqDomain'
 --
--- * 'rcweWorkflowId'
+-- * 'rcwerqWorkflowId'
 data RequestCancelWorkflowExecution = RequestCancelWorkflowExecution'
-    { _rcweRunId      :: !(Maybe Text)
-    , _rcweDomain     :: !Text
-    , _rcweWorkflowId :: !Text
+    { _rcwerqRunId      :: !(Maybe Text)
+    , _rcwerqDomain     :: !Text
+    , _rcwerqWorkflowId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestCancelWorkflowExecution' smart constructor.
 requestCancelWorkflowExecution :: Text -> Text -> RequestCancelWorkflowExecution
 requestCancelWorkflowExecution pDomain pWorkflowId =
     RequestCancelWorkflowExecution'
-    { _rcweRunId = Nothing
-    , _rcweDomain = pDomain
-    , _rcweWorkflowId = pWorkflowId
+    { _rcwerqRunId = Nothing
+    , _rcwerqDomain = pDomain
+    , _rcwerqWorkflowId = pWorkflowId
     }
 
 -- | The runId of the workflow execution to cancel.
-rcweRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
-rcweRunId = lens _rcweRunId (\ s a -> s{_rcweRunId = a});
+rcwerqRunId :: Lens' RequestCancelWorkflowExecution (Maybe Text)
+rcwerqRunId = lens _rcwerqRunId (\ s a -> s{_rcwerqRunId = a});
 
 -- | The name of the domain containing the workflow execution to cancel.
-rcweDomain :: Lens' RequestCancelWorkflowExecution Text
-rcweDomain = lens _rcweDomain (\ s a -> s{_rcweDomain = a});
+rcwerqDomain :: Lens' RequestCancelWorkflowExecution Text
+rcwerqDomain = lens _rcwerqDomain (\ s a -> s{_rcwerqDomain = a});
 
 -- | The workflowId of the workflow execution to cancel.
-rcweWorkflowId :: Lens' RequestCancelWorkflowExecution Text
-rcweWorkflowId = lens _rcweWorkflowId (\ s a -> s{_rcweWorkflowId = a});
+rcwerqWorkflowId :: Lens' RequestCancelWorkflowExecution Text
+rcwerqWorkflowId = lens _rcwerqWorkflowId (\ s a -> s{_rcwerqWorkflowId = a});
 
 instance AWSRequest RequestCancelWorkflowExecution
          where
@@ -131,8 +131,8 @@ instance ToHeaders RequestCancelWorkflowExecution
 instance ToJSON RequestCancelWorkflowExecution where
         toJSON RequestCancelWorkflowExecution'{..}
           = object
-              ["runId" .= _rcweRunId, "domain" .= _rcweDomain,
-               "workflowId" .= _rcweWorkflowId]
+              ["runId" .= _rcwerqRunId, "domain" .= _rcwerqDomain,
+               "workflowId" .= _rcwerqWorkflowId]
 
 instance ToPath RequestCancelWorkflowExecution where
         toPath = const "/"

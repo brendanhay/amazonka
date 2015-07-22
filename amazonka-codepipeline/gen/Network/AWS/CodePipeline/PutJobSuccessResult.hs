@@ -28,10 +28,10 @@ module Network.AWS.CodePipeline.PutJobSuccessResult
     -- ** Request constructor
     , putJobSuccessResult
     -- ** Request lenses
-    , pjsrContinuationToken
-    , pjsrExecutionDetails
-    , pjsrCurrentRevision
-    , pjsrJobId
+    , pjsrrqContinuationToken
+    , pjsrrqExecutionDetails
+    , pjsrrqCurrentRevision
+    , pjsrrqJobId
 
     -- * Response
     , PutJobSuccessResultResponse
@@ -50,49 +50,49 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pjsrContinuationToken'
+-- * 'pjsrrqContinuationToken'
 --
--- * 'pjsrExecutionDetails'
+-- * 'pjsrrqExecutionDetails'
 --
--- * 'pjsrCurrentRevision'
+-- * 'pjsrrqCurrentRevision'
 --
--- * 'pjsrJobId'
+-- * 'pjsrrqJobId'
 data PutJobSuccessResult = PutJobSuccessResult'
-    { _pjsrContinuationToken :: !(Maybe Text)
-    , _pjsrExecutionDetails  :: !(Maybe ExecutionDetails)
-    , _pjsrCurrentRevision   :: !(Maybe CurrentRevision)
-    , _pjsrJobId             :: !Text
+    { _pjsrrqContinuationToken :: !(Maybe Text)
+    , _pjsrrqExecutionDetails  :: !(Maybe ExecutionDetails)
+    , _pjsrrqCurrentRevision   :: !(Maybe CurrentRevision)
+    , _pjsrrqJobId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutJobSuccessResult' smart constructor.
 putJobSuccessResult :: Text -> PutJobSuccessResult
 putJobSuccessResult pJobId =
     PutJobSuccessResult'
-    { _pjsrContinuationToken = Nothing
-    , _pjsrExecutionDetails = Nothing
-    , _pjsrCurrentRevision = Nothing
-    , _pjsrJobId = pJobId
+    { _pjsrrqContinuationToken = Nothing
+    , _pjsrrqExecutionDetails = Nothing
+    , _pjsrrqCurrentRevision = Nothing
+    , _pjsrrqJobId = pJobId
     }
 
 -- | A system-generated token, such as a AWS CodeDeploy deployment ID, that
 -- the successful job used to complete a job asynchronously.
-pjsrContinuationToken :: Lens' PutJobSuccessResult (Maybe Text)
-pjsrContinuationToken = lens _pjsrContinuationToken (\ s a -> s{_pjsrContinuationToken = a});
+pjsrrqContinuationToken :: Lens' PutJobSuccessResult (Maybe Text)
+pjsrrqContinuationToken = lens _pjsrrqContinuationToken (\ s a -> s{_pjsrrqContinuationToken = a});
 
 -- | The execution details of the successful job, such as the actions taken
 -- by the job worker.
-pjsrExecutionDetails :: Lens' PutJobSuccessResult (Maybe ExecutionDetails)
-pjsrExecutionDetails = lens _pjsrExecutionDetails (\ s a -> s{_pjsrExecutionDetails = a});
+pjsrrqExecutionDetails :: Lens' PutJobSuccessResult (Maybe ExecutionDetails)
+pjsrrqExecutionDetails = lens _pjsrrqExecutionDetails (\ s a -> s{_pjsrrqExecutionDetails = a});
 
 -- | The ID of the current revision of the artifact successfully worked upon
 -- by the job.
-pjsrCurrentRevision :: Lens' PutJobSuccessResult (Maybe CurrentRevision)
-pjsrCurrentRevision = lens _pjsrCurrentRevision (\ s a -> s{_pjsrCurrentRevision = a});
+pjsrrqCurrentRevision :: Lens' PutJobSuccessResult (Maybe CurrentRevision)
+pjsrrqCurrentRevision = lens _pjsrrqCurrentRevision (\ s a -> s{_pjsrrqCurrentRevision = a});
 
 -- | The unique system-generated ID of the job that succeeded. This is the
 -- same ID returned from PollForJobs.
-pjsrJobId :: Lens' PutJobSuccessResult Text
-pjsrJobId = lens _pjsrJobId (\ s a -> s{_pjsrJobId = a});
+pjsrrqJobId :: Lens' PutJobSuccessResult Text
+pjsrrqJobId = lens _pjsrrqJobId (\ s a -> s{_pjsrrqJobId = a});
 
 instance AWSRequest PutJobSuccessResult where
         type Sv PutJobSuccessResult = CodePipeline
@@ -114,10 +114,10 @@ instance ToHeaders PutJobSuccessResult where
 instance ToJSON PutJobSuccessResult where
         toJSON PutJobSuccessResult'{..}
           = object
-              ["continuationToken" .= _pjsrContinuationToken,
-               "executionDetails" .= _pjsrExecutionDetails,
-               "currentRevision" .= _pjsrCurrentRevision,
-               "jobId" .= _pjsrJobId]
+              ["continuationToken" .= _pjsrrqContinuationToken,
+               "executionDetails" .= _pjsrrqExecutionDetails,
+               "currentRevision" .= _pjsrrqCurrentRevision,
+               "jobId" .= _pjsrrqJobId]
 
 instance ToPath PutJobSuccessResult where
         toPath = const "/"

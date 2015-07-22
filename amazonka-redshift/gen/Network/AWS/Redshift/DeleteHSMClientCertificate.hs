@@ -27,7 +27,7 @@ module Network.AWS.Redshift.DeleteHSMClientCertificate
     -- ** Request constructor
     , deleteHSMClientCertificate
     -- ** Request lenses
-    , delHSMClientCertificateIdentifier
+    , dhsmccrqHSMClientCertificateIdentifier
 
     -- * Response
     , DeleteHSMClientCertificateResponse
@@ -46,21 +46,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delHSMClientCertificateIdentifier'
+-- * 'dhsmccrqHSMClientCertificateIdentifier'
 newtype DeleteHSMClientCertificate = DeleteHSMClientCertificate'
-    { _delHSMClientCertificateIdentifier :: Text
+    { _dhsmccrqHSMClientCertificateIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHSMClientCertificate' smart constructor.
 deleteHSMClientCertificate :: Text -> DeleteHSMClientCertificate
 deleteHSMClientCertificate pHSMClientCertificateIdentifier =
     DeleteHSMClientCertificate'
-    { _delHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier
+    { _dhsmccrqHSMClientCertificateIdentifier = pHSMClientCertificateIdentifier
     }
 
 -- | The identifier of the HSM client certificate to be deleted.
-delHSMClientCertificateIdentifier :: Lens' DeleteHSMClientCertificate Text
-delHSMClientCertificateIdentifier = lens _delHSMClientCertificateIdentifier (\ s a -> s{_delHSMClientCertificateIdentifier = a});
+dhsmccrqHSMClientCertificateIdentifier :: Lens' DeleteHSMClientCertificate Text
+dhsmccrqHSMClientCertificateIdentifier = lens _dhsmccrqHSMClientCertificateIdentifier (\ s a -> s{_dhsmccrqHSMClientCertificateIdentifier = a});
 
 instance AWSRequest DeleteHSMClientCertificate where
         type Sv DeleteHSMClientCertificate = Redshift
@@ -83,7 +83,7 @@ instance ToQuery DeleteHSMClientCertificate where
                  ("DeleteHSMClientCertificate" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "HsmClientCertificateIdentifier" =:
-                 _delHSMClientCertificateIdentifier]
+                 _dhsmccrqHSMClientCertificateIdentifier]
 
 -- | /See:/ 'deleteHSMClientCertificateResponse' smart constructor.
 data DeleteHSMClientCertificateResponse =

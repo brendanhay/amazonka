@@ -32,15 +32,15 @@ module Network.AWS.CodeCommit.DeleteRepository
     -- ** Request constructor
     , deleteRepository
     -- ** Request lenses
-    , drRepositoryName
+    , drrqRepositoryName
 
     -- * Response
     , DeleteRepositoryResponse
     -- ** Response constructor
     , deleteRepositoryResponse
     -- ** Response lenses
-    , drrRepositoryId
-    , drrStatus
+    , drrsRepositoryId
+    , drrsStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drRepositoryName'
+-- * 'drrqRepositoryName'
 newtype DeleteRepository = DeleteRepository'
-    { _drRepositoryName :: Text
+    { _drrqRepositoryName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRepository' smart constructor.
 deleteRepository :: Text -> DeleteRepository
 deleteRepository pRepositoryName =
     DeleteRepository'
-    { _drRepositoryName = pRepositoryName
+    { _drrqRepositoryName = pRepositoryName
     }
 
 -- | The name of the repository to delete.
-drRepositoryName :: Lens' DeleteRepository Text
-drRepositoryName = lens _drRepositoryName (\ s a -> s{_drRepositoryName = a});
+drrqRepositoryName :: Lens' DeleteRepository Text
+drrqRepositoryName = lens _drrqRepositoryName (\ s a -> s{_drrqRepositoryName = a});
 
 instance AWSRequest DeleteRepository where
         type Sv DeleteRepository = CodeCommit
@@ -92,7 +92,7 @@ instance ToHeaders DeleteRepository where
 
 instance ToJSON DeleteRepository where
         toJSON DeleteRepository'{..}
-          = object ["repositoryName" .= _drRepositoryName]
+          = object ["repositoryName" .= _drrqRepositoryName]
 
 instance ToPath DeleteRepository where
         toPath = const "/"
@@ -106,26 +106,26 @@ instance ToQuery DeleteRepository where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drrRepositoryId'
+-- * 'drrsRepositoryId'
 --
--- * 'drrStatus'
+-- * 'drrsStatus'
 data DeleteRepositoryResponse = DeleteRepositoryResponse'
-    { _drrRepositoryId :: !(Maybe Text)
-    , _drrStatus       :: !Int
+    { _drrsRepositoryId :: !(Maybe Text)
+    , _drrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRepositoryResponse' smart constructor.
 deleteRepositoryResponse :: Int -> DeleteRepositoryResponse
 deleteRepositoryResponse pStatus =
     DeleteRepositoryResponse'
-    { _drrRepositoryId = Nothing
-    , _drrStatus = pStatus
+    { _drrsRepositoryId = Nothing
+    , _drrsStatus = pStatus
     }
 
 -- | The ID of the repository that was deleted.
-drrRepositoryId :: Lens' DeleteRepositoryResponse (Maybe Text)
-drrRepositoryId = lens _drrRepositoryId (\ s a -> s{_drrRepositoryId = a});
+drrsRepositoryId :: Lens' DeleteRepositoryResponse (Maybe Text)
+drrsRepositoryId = lens _drrsRepositoryId (\ s a -> s{_drrsRepositoryId = a});
 
 -- | FIXME: Undocumented member.
-drrStatus :: Lens' DeleteRepositoryResponse Int
-drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});
+drrsStatus :: Lens' DeleteRepositoryResponse Int
+drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

@@ -36,17 +36,17 @@ module Network.AWS.IAM.CreateRole
     -- ** Request constructor
     , createRole
     -- ** Request lenses
-    , crPath
-    , crRoleName
-    , crAssumeRolePolicyDocument
+    , crrqPath
+    , crrqRoleName
+    , crrqAssumeRolePolicyDocument
 
     -- * Response
     , CreateRoleResponse
     -- ** Response constructor
     , createRoleResponse
     -- ** Response lenses
-    , crrStatus
-    , crrRole
+    , crrsStatus
+    , crrsRole
     ) where
 
 import           Network.AWS.IAM.Types
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crPath'
+-- * 'crrqPath'
 --
--- * 'crRoleName'
+-- * 'crrqRoleName'
 --
--- * 'crAssumeRolePolicyDocument'
+-- * 'crrqAssumeRolePolicyDocument'
 data CreateRole = CreateRole'
-    { _crPath                     :: !(Maybe Text)
-    , _crRoleName                 :: !Text
-    , _crAssumeRolePolicyDocument :: !Text
+    { _crrqPath                     :: !(Maybe Text)
+    , _crrqRoleName                 :: !Text
+    , _crrqAssumeRolePolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRole' smart constructor.
 createRole :: Text -> Text -> CreateRole
 createRole pRoleName pAssumeRolePolicyDocument =
     CreateRole'
-    { _crPath = Nothing
-    , _crRoleName = pRoleName
-    , _crAssumeRolePolicyDocument = pAssumeRolePolicyDocument
+    { _crrqPath = Nothing
+    , _crrqRoleName = pRoleName
+    , _crrqAssumeRolePolicyDocument = pAssumeRolePolicyDocument
     }
 
 -- | The path to the role. For more information about paths, see
@@ -84,16 +84,16 @@ createRole pRoleName pAssumeRolePolicyDocument =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-crPath :: Lens' CreateRole (Maybe Text)
-crPath = lens _crPath (\ s a -> s{_crPath = a});
+crrqPath :: Lens' CreateRole (Maybe Text)
+crrqPath = lens _crrqPath (\ s a -> s{_crrqPath = a});
 
 -- | The name of the role to create.
-crRoleName :: Lens' CreateRole Text
-crRoleName = lens _crRoleName (\ s a -> s{_crRoleName = a});
+crrqRoleName :: Lens' CreateRole Text
+crrqRoleName = lens _crrqRoleName (\ s a -> s{_crrqRoleName = a});
 
 -- | The policy that grants an entity permission to assume the role.
-crAssumeRolePolicyDocument :: Lens' CreateRole Text
-crAssumeRolePolicyDocument = lens _crAssumeRolePolicyDocument (\ s a -> s{_crAssumeRolePolicyDocument = a});
+crrqAssumeRolePolicyDocument :: Lens' CreateRole Text
+crrqAssumeRolePolicyDocument = lens _crrqAssumeRolePolicyDocument (\ s a -> s{_crrqAssumeRolePolicyDocument = a});
 
 instance AWSRequest CreateRole where
         type Sv CreateRole = IAM
@@ -116,9 +116,9 @@ instance ToQuery CreateRole where
           = mconcat
               ["Action" =: ("CreateRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _crPath, "RoleName" =: _crRoleName,
+               "Path" =: _crrqPath, "RoleName" =: _crrqRoleName,
                "AssumeRolePolicyDocument" =:
-                 _crAssumeRolePolicyDocument]
+                 _crrqAssumeRolePolicyDocument]
 
 -- | Contains the response to a successful CreateRole request.
 --
@@ -126,26 +126,26 @@ instance ToQuery CreateRole where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrStatus'
+-- * 'crrsStatus'
 --
--- * 'crrRole'
+-- * 'crrsRole'
 data CreateRoleResponse = CreateRoleResponse'
-    { _crrStatus :: !Int
-    , _crrRole   :: !Role
+    { _crrsStatus :: !Int
+    , _crrsRole   :: !Role
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRoleResponse' smart constructor.
 createRoleResponse :: Int -> Role -> CreateRoleResponse
 createRoleResponse pStatus pRole =
     CreateRoleResponse'
-    { _crrStatus = pStatus
-    , _crrRole = pRole
+    { _crrsStatus = pStatus
+    , _crrsRole = pRole
     }
 
 -- | FIXME: Undocumented member.
-crrStatus :: Lens' CreateRoleResponse Int
-crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});
+crrsStatus :: Lens' CreateRoleResponse Int
+crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});
 
 -- | Information about the role.
-crrRole :: Lens' CreateRoleResponse Role
-crrRole = lens _crrRole (\ s a -> s{_crrRole = a});
+crrsRole :: Lens' CreateRoleResponse Role
+crrsRole = lens _crrsRole (\ s a -> s{_crrsRole = a});

@@ -30,17 +30,17 @@ module Network.AWS.EC2.DescribePlacementGroups
     -- ** Request constructor
     , describePlacementGroups
     -- ** Request lenses
-    , dpgsGroupNames
-    , dpgsFilters
-    , dpgsDryRun
+    , dpgsrqGroupNames
+    , dpgsrqFilters
+    , dpgsrqDryRun
 
     -- * Response
     , DescribePlacementGroupsResponse
     -- ** Response constructor
     , describePlacementGroupsResponse
     -- ** Response lenses
-    , dpgrPlacementGroups
-    , dpgrStatus
+    , dpgsrsPlacementGroups
+    , dpgsrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,32 +52,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpgsGroupNames'
+-- * 'dpgsrqGroupNames'
 --
--- * 'dpgsFilters'
+-- * 'dpgsrqFilters'
 --
--- * 'dpgsDryRun'
+-- * 'dpgsrqDryRun'
 data DescribePlacementGroups = DescribePlacementGroups'
-    { _dpgsGroupNames :: !(Maybe [Text])
-    , _dpgsFilters    :: !(Maybe [Filter])
-    , _dpgsDryRun     :: !(Maybe Bool)
+    { _dpgsrqGroupNames :: !(Maybe [Text])
+    , _dpgsrqFilters    :: !(Maybe [Filter])
+    , _dpgsrqDryRun     :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePlacementGroups' smart constructor.
 describePlacementGroups :: DescribePlacementGroups
 describePlacementGroups =
     DescribePlacementGroups'
-    { _dpgsGroupNames = Nothing
-    , _dpgsFilters = Nothing
-    , _dpgsDryRun = Nothing
+    { _dpgsrqGroupNames = Nothing
+    , _dpgsrqFilters = Nothing
+    , _dpgsrqDryRun = Nothing
     }
 
 -- | One or more placement group names.
 --
 -- Default: Describes all your placement groups, or only those otherwise
 -- specified.
-dpgsGroupNames :: Lens' DescribePlacementGroups [Text]
-dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Default;
+dpgsrqGroupNames :: Lens' DescribePlacementGroups [Text]
+dpgsrqGroupNames = lens _dpgsrqGroupNames (\ s a -> s{_dpgsrqGroupNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -88,15 +88,15 @@ dpgsGroupNames = lens _dpgsGroupNames (\ s a -> s{_dpgsGroupNames = a}) . _Defau
 --
 -- -   @strategy@ - The strategy of the placement group (@cluster@).
 --
-dpgsFilters :: Lens' DescribePlacementGroups [Filter]
-dpgsFilters = lens _dpgsFilters (\ s a -> s{_dpgsFilters = a}) . _Default;
+dpgsrqFilters :: Lens' DescribePlacementGroups [Filter]
+dpgsrqFilters = lens _dpgsrqFilters (\ s a -> s{_dpgsrqFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dpgsDryRun :: Lens' DescribePlacementGroups (Maybe Bool)
-dpgsDryRun = lens _dpgsDryRun (\ s a -> s{_dpgsDryRun = a});
+dpgsrqDryRun :: Lens' DescribePlacementGroups (Maybe Bool)
+dpgsrqDryRun = lens _dpgsrqDryRun (\ s a -> s{_dpgsrqDryRun = a});
 
 instance AWSRequest DescribePlacementGroups where
         type Sv DescribePlacementGroups = EC2
@@ -124,34 +124,34 @@ instance ToQuery DescribePlacementGroups where
                  ("DescribePlacementGroups" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "GroupName" <$> _dpgsGroupNames),
-               toQuery (toQueryList "Filter" <$> _dpgsFilters),
-               "DryRun" =: _dpgsDryRun]
+                 (toQueryList "GroupName" <$> _dpgsrqGroupNames),
+               toQuery (toQueryList "Filter" <$> _dpgsrqFilters),
+               "DryRun" =: _dpgsrqDryRun]
 
 -- | /See:/ 'describePlacementGroupsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpgrPlacementGroups'
+-- * 'dpgsrsPlacementGroups'
 --
--- * 'dpgrStatus'
+-- * 'dpgsrsStatus'
 data DescribePlacementGroupsResponse = DescribePlacementGroupsResponse'
-    { _dpgrPlacementGroups :: !(Maybe [PlacementGroup])
-    , _dpgrStatus          :: !Int
+    { _dpgsrsPlacementGroups :: !(Maybe [PlacementGroup])
+    , _dpgsrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePlacementGroupsResponse' smart constructor.
 describePlacementGroupsResponse :: Int -> DescribePlacementGroupsResponse
 describePlacementGroupsResponse pStatus =
     DescribePlacementGroupsResponse'
-    { _dpgrPlacementGroups = Nothing
-    , _dpgrStatus = pStatus
+    { _dpgsrsPlacementGroups = Nothing
+    , _dpgsrsStatus = pStatus
     }
 
 -- | One or more placement groups.
-dpgrPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
-dpgrPlacementGroups = lens _dpgrPlacementGroups (\ s a -> s{_dpgrPlacementGroups = a}) . _Default;
+dpgsrsPlacementGroups :: Lens' DescribePlacementGroupsResponse [PlacementGroup]
+dpgsrsPlacementGroups = lens _dpgsrsPlacementGroups (\ s a -> s{_dpgsrsPlacementGroups = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dpgrStatus :: Lens' DescribePlacementGroupsResponse Int
-dpgrStatus = lens _dpgrStatus (\ s a -> s{_dpgrStatus = a});
+dpgsrsStatus :: Lens' DescribePlacementGroupsResponse Int
+dpgsrsStatus = lens _dpgsrsStatus (\ s a -> s{_dpgsrsStatus = a});

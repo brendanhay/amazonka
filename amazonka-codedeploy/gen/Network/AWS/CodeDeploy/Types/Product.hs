@@ -507,33 +507,33 @@ instance FromJSON DeploymentOverview where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diaLogTail'
+-- * 'dLogTail'
 --
--- * 'diaErrorCode'
+-- * 'dErrorCode'
 --
--- * 'diaScriptName'
+-- * 'dScriptName'
 --
--- * 'diaMessage'
+-- * 'dMessage'
 data Diagnostics = Diagnostics'
-    { _diaLogTail    :: !(Maybe Text)
-    , _diaErrorCode  :: !(Maybe LifecycleErrorCode)
-    , _diaScriptName :: !(Maybe Text)
-    , _diaMessage    :: !(Maybe Text)
+    { _dLogTail    :: !(Maybe Text)
+    , _dErrorCode  :: !(Maybe LifecycleErrorCode)
+    , _dScriptName :: !(Maybe Text)
+    , _dMessage    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Diagnostics' smart constructor.
 diagnostics :: Diagnostics
 diagnostics =
     Diagnostics'
-    { _diaLogTail = Nothing
-    , _diaErrorCode = Nothing
-    , _diaScriptName = Nothing
-    , _diaMessage = Nothing
+    { _dLogTail = Nothing
+    , _dErrorCode = Nothing
+    , _dScriptName = Nothing
+    , _dMessage = Nothing
     }
 
 -- | The last portion of the associated diagnostic log.
-diaLogTail :: Lens' Diagnostics (Maybe Text)
-diaLogTail = lens _diaLogTail (\ s a -> s{_diaLogTail = a});
+dLogTail :: Lens' Diagnostics (Maybe Text)
+dLogTail = lens _dLogTail (\ s a -> s{_dLogTail = a});
 
 -- | The associated error code:
 --
@@ -547,16 +547,16 @@ diaLogTail = lens _diaLogTail (\ s a -> s{_diaLogTail = a});
 -- -   ScriptFailed: The specified script failed to run as expected.
 -- -   UnknownError: The specified script did not run for an unknown
 --     reason.
-diaErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
-diaErrorCode = lens _diaErrorCode (\ s a -> s{_diaErrorCode = a});
+dErrorCode :: Lens' Diagnostics (Maybe LifecycleErrorCode)
+dErrorCode = lens _dErrorCode (\ s a -> s{_dErrorCode = a});
 
 -- | The name of the script.
-diaScriptName :: Lens' Diagnostics (Maybe Text)
-diaScriptName = lens _diaScriptName (\ s a -> s{_diaScriptName = a});
+dScriptName :: Lens' Diagnostics (Maybe Text)
+dScriptName = lens _dScriptName (\ s a -> s{_dScriptName = a});
 
 -- | The message associated with the error.
-diaMessage :: Lens' Diagnostics (Maybe Text)
-diaMessage = lens _diaMessage (\ s a -> s{_diaMessage = a});
+dMessage :: Lens' Diagnostics (Maybe Text)
+dMessage = lens _dMessage (\ s a -> s{_dMessage = a});
 
 instance FromJSON Diagnostics where
         parseJSON

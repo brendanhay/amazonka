@@ -53,19 +53,19 @@ module Network.AWS.CloudWatch.Types
     -- * Datapoint
     , Datapoint
     , datapoint
-    , datSampleCount
-    , datMaximum
-    , datAverage
-    , datMinimum
-    , datSum
-    , datTimestamp
-    , datUnit
+    , dSampleCount
+    , dMaximum
+    , dAverage
+    , dMinimum
+    , dSum
+    , dTimestamp
+    , dUnit
 
     -- * Dimension
     , Dimension
     , dimension
-    , dimName
-    , dimValue
+    , dName
+    , dValue
 
     -- * DimensionFilter
     , DimensionFilter
@@ -76,9 +76,9 @@ module Network.AWS.CloudWatch.Types
     -- * Metric
     , Metric
     , metric
-    , metMetricName
-    , metNamespace
-    , metDimensions
+    , mMetricName
+    , mNamespace
+    , mDimensions
 
     -- * MetricAlarm
     , MetricAlarm

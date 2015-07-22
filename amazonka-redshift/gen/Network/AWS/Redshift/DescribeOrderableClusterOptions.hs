@@ -36,19 +36,19 @@ module Network.AWS.Redshift.DescribeOrderableClusterOptions
     -- ** Request constructor
     , describeOrderableClusterOptions
     -- ** Request lenses
-    , docoMaxRecords
-    , docoMarker
-    , docoClusterVersion
-    , docoNodeType
+    , docorqMaxRecords
+    , docorqMarker
+    , docorqClusterVersion
+    , docorqNodeType
 
     -- * Response
     , DescribeOrderableClusterOptionsResponse
     -- ** Response constructor
     , describeOrderableClusterOptionsResponse
     -- ** Response lenses
-    , docorMarker
-    , docorOrderableClusterOptions
-    , docorStatus
+    , docorsMarker
+    , docorsOrderableClusterOptions
+    , docorsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -63,28 +63,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'docoMaxRecords'
+-- * 'docorqMaxRecords'
 --
--- * 'docoMarker'
+-- * 'docorqMarker'
 --
--- * 'docoClusterVersion'
+-- * 'docorqClusterVersion'
 --
--- * 'docoNodeType'
+-- * 'docorqNodeType'
 data DescribeOrderableClusterOptions = DescribeOrderableClusterOptions'
-    { _docoMaxRecords     :: !(Maybe Int)
-    , _docoMarker         :: !(Maybe Text)
-    , _docoClusterVersion :: !(Maybe Text)
-    , _docoNodeType       :: !(Maybe Text)
+    { _docorqMaxRecords     :: !(Maybe Int)
+    , _docorqMarker         :: !(Maybe Text)
+    , _docorqClusterVersion :: !(Maybe Text)
+    , _docorqNodeType       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOrderableClusterOptions' smart constructor.
 describeOrderableClusterOptions :: DescribeOrderableClusterOptions
 describeOrderableClusterOptions =
     DescribeOrderableClusterOptions'
-    { _docoMaxRecords = Nothing
-    , _docoMarker = Nothing
-    , _docoClusterVersion = Nothing
-    , _docoNodeType = Nothing
+    { _docorqMaxRecords = Nothing
+    , _docorqMarker = Nothing
+    , _docorqClusterVersion = Nothing
+    , _docorqNodeType = Nothing
     }
 
 -- | The maximum number of response records to return in each call. If the
@@ -96,8 +96,8 @@ describeOrderableClusterOptions =
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-docoMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Int)
-docoMaxRecords = lens _docoMaxRecords (\ s a -> s{_docoMaxRecords = a});
+docorqMaxRecords :: Lens' DescribeOrderableClusterOptions (Maybe Int)
+docorqMaxRecords = lens _docorqMaxRecords (\ s a -> s{_docorqMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a
@@ -106,8 +106,8 @@ docoMaxRecords = lens _docoMaxRecords (\ s a -> s{_docoMaxRecords = a});
 -- You can retrieve the next set of response records by providing the
 -- returned marker value in the @Marker@ parameter and retrying the
 -- request.
-docoMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docoMarker = lens _docoMarker (\ s a -> s{_docoMarker = a});
+docorqMarker :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docorqMarker = lens _docorqMarker (\ s a -> s{_docorqMarker = a});
 
 -- | The version filter value. Specify this parameter to show only the
 -- available offerings matching the specified version.
@@ -116,21 +116,22 @@ docoMarker = lens _docoMarker (\ s a -> s{_docoMarker = a});
 --
 -- Constraints: Must be one of the version returned from
 -- DescribeClusterVersions.
-docoClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docoClusterVersion = lens _docoClusterVersion (\ s a -> s{_docoClusterVersion = a});
+docorqClusterVersion :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docorqClusterVersion = lens _docorqClusterVersion (\ s a -> s{_docorqClusterVersion = a});
 
 -- | The node type filter value. Specify this parameter to show only the
 -- available offerings matching the specified node type.
-docoNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
-docoNodeType = lens _docoNodeType (\ s a -> s{_docoNodeType = a});
+docorqNodeType :: Lens' DescribeOrderableClusterOptions (Maybe Text)
+docorqNodeType = lens _docorqNodeType (\ s a -> s{_docorqNodeType = a});
 
 instance AWSPager DescribeOrderableClusterOptions
          where
         page rq rs
-          | stop (rs ^. docorMarker) = Nothing
-          | stop (rs ^. docorOrderableClusterOptions) = Nothing
+          | stop (rs ^. docorsMarker) = Nothing
+          | stop (rs ^. docorsOrderableClusterOptions) =
+            Nothing
           | otherwise =
-            Just $ rq & docoMarker .~ rs ^. docorMarker
+            Just $ rq & docorqMarker .~ rs ^. docorsMarker
 
 instance AWSRequest DescribeOrderableClusterOptions
          where
@@ -162,10 +163,10 @@ instance ToQuery DescribeOrderableClusterOptions
               ["Action" =:
                  ("DescribeOrderableClusterOptions" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "MaxRecords" =: _docoMaxRecords,
-               "Marker" =: _docoMarker,
-               "ClusterVersion" =: _docoClusterVersion,
-               "NodeType" =: _docoNodeType]
+               "MaxRecords" =: _docorqMaxRecords,
+               "Marker" =: _docorqMarker,
+               "ClusterVersion" =: _docorqClusterVersion,
+               "NodeType" =: _docorqNodeType]
 
 -- | Contains the output from the DescribeOrderableClusterOptions action.
 --
@@ -173,24 +174,24 @@ instance ToQuery DescribeOrderableClusterOptions
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'docorMarker'
+-- * 'docorsMarker'
 --
--- * 'docorOrderableClusterOptions'
+-- * 'docorsOrderableClusterOptions'
 --
--- * 'docorStatus'
+-- * 'docorsStatus'
 data DescribeOrderableClusterOptionsResponse = DescribeOrderableClusterOptionsResponse'
-    { _docorMarker                  :: !(Maybe Text)
-    , _docorOrderableClusterOptions :: !(Maybe [OrderableClusterOption])
-    , _docorStatus                  :: !Int
+    { _docorsMarker                  :: !(Maybe Text)
+    , _docorsOrderableClusterOptions :: !(Maybe [OrderableClusterOption])
+    , _docorsStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeOrderableClusterOptionsResponse' smart constructor.
 describeOrderableClusterOptionsResponse :: Int -> DescribeOrderableClusterOptionsResponse
 describeOrderableClusterOptionsResponse pStatus =
     DescribeOrderableClusterOptionsResponse'
-    { _docorMarker = Nothing
-    , _docorOrderableClusterOptions = Nothing
-    , _docorStatus = pStatus
+    { _docorsMarker = Nothing
+    , _docorsOrderableClusterOptions = Nothing
+    , _docorsStatus = pStatus
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -199,14 +200,14 @@ describeOrderableClusterOptionsResponse pStatus =
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-docorMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
-docorMarker = lens _docorMarker (\ s a -> s{_docorMarker = a});
+docorsMarker :: Lens' DescribeOrderableClusterOptionsResponse (Maybe Text)
+docorsMarker = lens _docorsMarker (\ s a -> s{_docorsMarker = a});
 
 -- | An OrderableClusterOption structure containing information about
 -- orderable options for the Cluster.
-docorOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
-docorOrderableClusterOptions = lens _docorOrderableClusterOptions (\ s a -> s{_docorOrderableClusterOptions = a}) . _Default;
+docorsOrderableClusterOptions :: Lens' DescribeOrderableClusterOptionsResponse [OrderableClusterOption]
+docorsOrderableClusterOptions = lens _docorsOrderableClusterOptions (\ s a -> s{_docorsOrderableClusterOptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-docorStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
-docorStatus = lens _docorStatus (\ s a -> s{_docorStatus = a});
+docorsStatus :: Lens' DescribeOrderableClusterOptionsResponse Int
+docorsStatus = lens _docorsStatus (\ s a -> s{_docorsStatus = a});

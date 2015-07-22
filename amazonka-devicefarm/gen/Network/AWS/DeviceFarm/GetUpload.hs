@@ -27,15 +27,15 @@ module Network.AWS.DeviceFarm.GetUpload
     -- ** Request constructor
     , getUpload
     -- ** Request lenses
-    , guArn
+    , gurqArn
 
     -- * Response
     , GetUploadResponse
     -- ** Response constructor
     , getUploadResponse
     -- ** Response lenses
-    , gurUpload
-    , gurStatus
+    , gursUpload
+    , gursStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'guArn'
+-- * 'gurqArn'
 newtype GetUpload = GetUpload'
-    { _guArn :: Text
+    { _gurqArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUpload' smart constructor.
 getUpload :: Text -> GetUpload
 getUpload pArn =
     GetUpload'
-    { _guArn = pArn
+    { _gurqArn = pArn
     }
 
 -- | The upload\'s ARN.
-guArn :: Lens' GetUpload Text
-guArn = lens _guArn (\ s a -> s{_guArn = a});
+gurqArn :: Lens' GetUpload Text
+gurqArn = lens _gurqArn (\ s a -> s{_gurqArn = a});
 
 instance AWSRequest GetUpload where
         type Sv GetUpload = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetUpload where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetUpload where
-        toJSON GetUpload'{..} = object ["arn" .= _guArn]
+        toJSON GetUpload'{..} = object ["arn" .= _gurqArn]
 
 instance ToPath GetUpload where
         toPath = const "/"
@@ -99,26 +99,26 @@ instance ToQuery GetUpload where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gurUpload'
+-- * 'gursUpload'
 --
--- * 'gurStatus'
+-- * 'gursStatus'
 data GetUploadResponse = GetUploadResponse'
-    { _gurUpload :: !(Maybe Upload)
-    , _gurStatus :: !Int
+    { _gursUpload :: !(Maybe Upload)
+    , _gursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetUploadResponse' smart constructor.
 getUploadResponse :: Int -> GetUploadResponse
 getUploadResponse pStatus =
     GetUploadResponse'
-    { _gurUpload = Nothing
-    , _gurStatus = pStatus
+    { _gursUpload = Nothing
+    , _gursStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gurUpload :: Lens' GetUploadResponse (Maybe Upload)
-gurUpload = lens _gurUpload (\ s a -> s{_gurUpload = a});
+gursUpload :: Lens' GetUploadResponse (Maybe Upload)
+gursUpload = lens _gursUpload (\ s a -> s{_gursUpload = a});
 
 -- | FIXME: Undocumented member.
-gurStatus :: Lens' GetUploadResponse Int
-gurStatus = lens _gurStatus (\ s a -> s{_gurStatus = a});
+gursStatus :: Lens' GetUploadResponse Int
+gursStatus = lens _gursStatus (\ s a -> s{_gursStatus = a});

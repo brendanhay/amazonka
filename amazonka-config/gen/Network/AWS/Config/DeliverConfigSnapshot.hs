@@ -36,15 +36,15 @@ module Network.AWS.Config.DeliverConfigSnapshot
     -- ** Request constructor
     , deliverConfigSnapshot
     -- ** Request lenses
-    , dcsDeliveryChannelName
+    , dcsrqDeliveryChannelName
 
     -- * Response
     , DeliverConfigSnapshotResponse
     -- ** Response constructor
     , deliverConfigSnapshotResponse
     -- ** Response lenses
-    , dcsrConfigSnapshotId
-    , dcsrStatus
+    , dcsrsConfigSnapshotId
+    , dcsrsStatus
     ) where
 
 import           Network.AWS.Config.Types
@@ -58,22 +58,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsDeliveryChannelName'
+-- * 'dcsrqDeliveryChannelName'
 newtype DeliverConfigSnapshot = DeliverConfigSnapshot'
-    { _dcsDeliveryChannelName :: Text
+    { _dcsrqDeliveryChannelName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliverConfigSnapshot' smart constructor.
 deliverConfigSnapshot :: Text -> DeliverConfigSnapshot
 deliverConfigSnapshot pDeliveryChannelName =
     DeliverConfigSnapshot'
-    { _dcsDeliveryChannelName = pDeliveryChannelName
+    { _dcsrqDeliveryChannelName = pDeliveryChannelName
     }
 
 -- | The name of the delivery channel through which the snapshot is
 -- delivered.
-dcsDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
-dcsDeliveryChannelName = lens _dcsDeliveryChannelName (\ s a -> s{_dcsDeliveryChannelName = a});
+dcsrqDeliveryChannelName :: Lens' DeliverConfigSnapshot Text
+dcsrqDeliveryChannelName = lens _dcsrqDeliveryChannelName (\ s a -> s{_dcsrqDeliveryChannelName = a});
 
 instance AWSRequest DeliverConfigSnapshot where
         type Sv DeliverConfigSnapshot = Config
@@ -99,7 +99,7 @@ instance ToHeaders DeliverConfigSnapshot where
 instance ToJSON DeliverConfigSnapshot where
         toJSON DeliverConfigSnapshot'{..}
           = object
-              ["deliveryChannelName" .= _dcsDeliveryChannelName]
+              ["deliveryChannelName" .= _dcsrqDeliveryChannelName]
 
 instance ToPath DeliverConfigSnapshot where
         toPath = const "/"
@@ -113,26 +113,26 @@ instance ToQuery DeliverConfigSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsrConfigSnapshotId'
+-- * 'dcsrsConfigSnapshotId'
 --
--- * 'dcsrStatus'
+-- * 'dcsrsStatus'
 data DeliverConfigSnapshotResponse = DeliverConfigSnapshotResponse'
-    { _dcsrConfigSnapshotId :: !(Maybe Text)
-    , _dcsrStatus           :: !Int
+    { _dcsrsConfigSnapshotId :: !(Maybe Text)
+    , _dcsrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeliverConfigSnapshotResponse' smart constructor.
 deliverConfigSnapshotResponse :: Int -> DeliverConfigSnapshotResponse
 deliverConfigSnapshotResponse pStatus =
     DeliverConfigSnapshotResponse'
-    { _dcsrConfigSnapshotId = Nothing
-    , _dcsrStatus = pStatus
+    { _dcsrsConfigSnapshotId = Nothing
+    , _dcsrsStatus = pStatus
     }
 
 -- | The ID of the snapshot that is being created.
-dcsrConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
-dcsrConfigSnapshotId = lens _dcsrConfigSnapshotId (\ s a -> s{_dcsrConfigSnapshotId = a});
+dcsrsConfigSnapshotId :: Lens' DeliverConfigSnapshotResponse (Maybe Text)
+dcsrsConfigSnapshotId = lens _dcsrsConfigSnapshotId (\ s a -> s{_dcsrsConfigSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-dcsrStatus :: Lens' DeliverConfigSnapshotResponse Int
-dcsrStatus = lens _dcsrStatus (\ s a -> s{_dcsrStatus = a});
+dcsrsStatus :: Lens' DeliverConfigSnapshotResponse Int
+dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

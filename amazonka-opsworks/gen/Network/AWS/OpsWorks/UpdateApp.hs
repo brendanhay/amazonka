@@ -33,17 +33,17 @@ module Network.AWS.OpsWorks.UpdateApp
     -- ** Request constructor
     , updateApp
     -- ** Request lenses
-    , uaSSLConfiguration
-    , uaEnableSSL
-    , uaEnvironment
-    , uaDataSources
-    , uaAppSource
-    , uaName
-    , uaAttributes
-    , uaType
-    , uaDomains
-    , uaDescription
-    , uaAppId
+    , uarqSSLConfiguration
+    , uarqEnableSSL
+    , uarqEnvironment
+    , uarqDataSources
+    , uarqAppSource
+    , uarqName
+    , uarqAttributes
+    , uarqType
+    , uarqDomains
+    , uarqDescription
+    , uarqAppId
 
     -- * Response
     , UpdateAppResponse
@@ -60,65 +60,65 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uaSSLConfiguration'
+-- * 'uarqSSLConfiguration'
 --
--- * 'uaEnableSSL'
+-- * 'uarqEnableSSL'
 --
--- * 'uaEnvironment'
+-- * 'uarqEnvironment'
 --
--- * 'uaDataSources'
+-- * 'uarqDataSources'
 --
--- * 'uaAppSource'
+-- * 'uarqAppSource'
 --
--- * 'uaName'
+-- * 'uarqName'
 --
--- * 'uaAttributes'
+-- * 'uarqAttributes'
 --
--- * 'uaType'
+-- * 'uarqType'
 --
--- * 'uaDomains'
+-- * 'uarqDomains'
 --
--- * 'uaDescription'
+-- * 'uarqDescription'
 --
--- * 'uaAppId'
+-- * 'uarqAppId'
 data UpdateApp = UpdateApp'
-    { _uaSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _uaEnableSSL        :: !(Maybe Bool)
-    , _uaEnvironment      :: !(Maybe [EnvironmentVariable])
-    , _uaDataSources      :: !(Maybe [DataSource])
-    , _uaAppSource        :: !(Maybe Source)
-    , _uaName             :: !(Maybe Text)
-    , _uaAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-    , _uaType             :: !(Maybe AppType)
-    , _uaDomains          :: !(Maybe [Text])
-    , _uaDescription      :: !(Maybe Text)
-    , _uaAppId            :: !Text
+    { _uarqSSLConfiguration :: !(Maybe SSLConfiguration)
+    , _uarqEnableSSL        :: !(Maybe Bool)
+    , _uarqEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _uarqDataSources      :: !(Maybe [DataSource])
+    , _uarqAppSource        :: !(Maybe Source)
+    , _uarqName             :: !(Maybe Text)
+    , _uarqAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _uarqType             :: !(Maybe AppType)
+    , _uarqDomains          :: !(Maybe [Text])
+    , _uarqDescription      :: !(Maybe Text)
+    , _uarqAppId            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateApp' smart constructor.
 updateApp :: Text -> UpdateApp
 updateApp pAppId =
     UpdateApp'
-    { _uaSSLConfiguration = Nothing
-    , _uaEnableSSL = Nothing
-    , _uaEnvironment = Nothing
-    , _uaDataSources = Nothing
-    , _uaAppSource = Nothing
-    , _uaName = Nothing
-    , _uaAttributes = Nothing
-    , _uaType = Nothing
-    , _uaDomains = Nothing
-    , _uaDescription = Nothing
-    , _uaAppId = pAppId
+    { _uarqSSLConfiguration = Nothing
+    , _uarqEnableSSL = Nothing
+    , _uarqEnvironment = Nothing
+    , _uarqDataSources = Nothing
+    , _uarqAppSource = Nothing
+    , _uarqName = Nothing
+    , _uarqAttributes = Nothing
+    , _uarqType = Nothing
+    , _uarqDomains = Nothing
+    , _uarqDescription = Nothing
+    , _uarqAppId = pAppId
     }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
-uaSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
-uaSSLConfiguration = lens _uaSSLConfiguration (\ s a -> s{_uaSSLConfiguration = a});
+uarqSSLConfiguration :: Lens' UpdateApp (Maybe SSLConfiguration)
+uarqSSLConfiguration = lens _uarqSSLConfiguration (\ s a -> s{_uarqSSLConfiguration = a});
 
 -- | Whether SSL is enabled for the app.
-uaEnableSSL :: Lens' UpdateApp (Maybe Bool)
-uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a});
+uarqEnableSSL :: Lens' UpdateApp (Maybe Bool)
+uarqEnableSSL = lens _uarqEnableSSL (\ s a -> s{_uarqEnableSSL = a});
 
 -- | An array of @EnvironmentVariable@ objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
@@ -136,42 +136,42 @@ uaEnableSSL = lens _uaEnableSSL (\ s a -> s{_uaEnableSSL = a});
 -- This parameter is supported only by Chef 11.10 stacks. If you have
 -- specified one or more environment variables, you cannot modify the
 -- stack\'s Chef version.
-uaEnvironment :: Lens' UpdateApp [EnvironmentVariable]
-uaEnvironment = lens _uaEnvironment (\ s a -> s{_uaEnvironment = a}) . _Default;
+uarqEnvironment :: Lens' UpdateApp [EnvironmentVariable]
+uarqEnvironment = lens _uarqEnvironment (\ s a -> s{_uarqEnvironment = a}) . _Default;
 
 -- | The app\'s data sources.
-uaDataSources :: Lens' UpdateApp [DataSource]
-uaDataSources = lens _uaDataSources (\ s a -> s{_uaDataSources = a}) . _Default;
+uarqDataSources :: Lens' UpdateApp [DataSource]
+uarqDataSources = lens _uarqDataSources (\ s a -> s{_uarqDataSources = a}) . _Default;
 
 -- | A @Source@ object that specifies the app repository.
-uaAppSource :: Lens' UpdateApp (Maybe Source)
-uaAppSource = lens _uaAppSource (\ s a -> s{_uaAppSource = a});
+uarqAppSource :: Lens' UpdateApp (Maybe Source)
+uarqAppSource = lens _uarqAppSource (\ s a -> s{_uarqAppSource = a});
 
 -- | The app name.
-uaName :: Lens' UpdateApp (Maybe Text)
-uaName = lens _uaName (\ s a -> s{_uaName = a});
+uarqName :: Lens' UpdateApp (Maybe Text)
+uarqName = lens _uarqName (\ s a -> s{_uarqName = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-uaAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
-uaAttributes = lens _uaAttributes (\ s a -> s{_uaAttributes = a}) . _Default . _Map;
+uarqAttributes :: Lens' UpdateApp (HashMap AppAttributesKeys Text)
+uarqAttributes = lens _uarqAttributes (\ s a -> s{_uarqAttributes = a}) . _Default . _Map;
 
 -- | The app type.
-uaType :: Lens' UpdateApp (Maybe AppType)
-uaType = lens _uaType (\ s a -> s{_uaType = a});
+uarqType :: Lens' UpdateApp (Maybe AppType)
+uarqType = lens _uarqType (\ s a -> s{_uarqType = a});
 
 -- | The app\'s virtual host settings, with multiple domains separated by
 -- commas. For example: @\'www.example.com, example.com\'@
-uaDomains :: Lens' UpdateApp [Text]
-uaDomains = lens _uaDomains (\ s a -> s{_uaDomains = a}) . _Default;
+uarqDomains :: Lens' UpdateApp [Text]
+uarqDomains = lens _uarqDomains (\ s a -> s{_uarqDomains = a}) . _Default;
 
 -- | A description of the app.
-uaDescription :: Lens' UpdateApp (Maybe Text)
-uaDescription = lens _uaDescription (\ s a -> s{_uaDescription = a});
+uarqDescription :: Lens' UpdateApp (Maybe Text)
+uarqDescription = lens _uarqDescription (\ s a -> s{_uarqDescription = a});
 
 -- | The app ID.
-uaAppId :: Lens' UpdateApp Text
-uaAppId = lens _uaAppId (\ s a -> s{_uaAppId = a});
+uarqAppId :: Lens' UpdateApp Text
+uarqAppId = lens _uarqAppId (\ s a -> s{_uarqAppId = a});
 
 instance AWSRequest UpdateApp where
         type Sv UpdateApp = OpsWorks
@@ -191,14 +191,15 @@ instance ToHeaders UpdateApp where
 instance ToJSON UpdateApp where
         toJSON UpdateApp'{..}
           = object
-              ["SslConfiguration" .= _uaSSLConfiguration,
-               "EnableSsl" .= _uaEnableSSL,
-               "Environment" .= _uaEnvironment,
-               "DataSources" .= _uaDataSources,
-               "AppSource" .= _uaAppSource, "Name" .= _uaName,
-               "Attributes" .= _uaAttributes, "Type" .= _uaType,
-               "Domains" .= _uaDomains,
-               "Description" .= _uaDescription, "AppId" .= _uaAppId]
+              ["SslConfiguration" .= _uarqSSLConfiguration,
+               "EnableSsl" .= _uarqEnableSSL,
+               "Environment" .= _uarqEnvironment,
+               "DataSources" .= _uarqDataSources,
+               "AppSource" .= _uarqAppSource, "Name" .= _uarqName,
+               "Attributes" .= _uarqAttributes, "Type" .= _uarqType,
+               "Domains" .= _uarqDomains,
+               "Description" .= _uarqDescription,
+               "AppId" .= _uarqAppId]
 
 instance ToPath UpdateApp where
         toPath = const "/"

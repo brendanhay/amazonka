@@ -34,8 +34,8 @@ module Network.AWS.IAM.DeleteGroupPolicy
     -- ** Request constructor
     , deleteGroupPolicy
     -- ** Request lenses
-    , delGroupName
-    , delPolicyName
+    , drqGroupName
+    , drqPolicyName
 
     -- * Response
     , DeleteGroupPolicyResponse
@@ -52,30 +52,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delGroupName'
+-- * 'drqGroupName'
 --
--- * 'delPolicyName'
+-- * 'drqPolicyName'
 data DeleteGroupPolicy = DeleteGroupPolicy'
-    { _delGroupName  :: !Text
-    , _delPolicyName :: !Text
+    { _drqGroupName  :: !Text
+    , _drqPolicyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteGroupPolicy' smart constructor.
 deleteGroupPolicy :: Text -> Text -> DeleteGroupPolicy
 deleteGroupPolicy pGroupName pPolicyName =
     DeleteGroupPolicy'
-    { _delGroupName = pGroupName
-    , _delPolicyName = pPolicyName
+    { _drqGroupName = pGroupName
+    , _drqPolicyName = pPolicyName
     }
 
 -- | The name (friendly name, not ARN) identifying the group that the policy
 -- is embedded in.
-delGroupName :: Lens' DeleteGroupPolicy Text
-delGroupName = lens _delGroupName (\ s a -> s{_delGroupName = a});
+drqGroupName :: Lens' DeleteGroupPolicy Text
+drqGroupName = lens _drqGroupName (\ s a -> s{_drqGroupName = a});
 
 -- | The name identifying the policy document to delete.
-delPolicyName :: Lens' DeleteGroupPolicy Text
-delPolicyName = lens _delPolicyName (\ s a -> s{_delPolicyName = a});
+drqPolicyName :: Lens' DeleteGroupPolicy Text
+drqPolicyName = lens _drqPolicyName (\ s a -> s{_drqPolicyName = a});
 
 instance AWSRequest DeleteGroupPolicy where
         type Sv DeleteGroupPolicy = IAM
@@ -94,8 +94,8 @@ instance ToQuery DeleteGroupPolicy where
           = mconcat
               ["Action" =: ("DeleteGroupPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _delGroupName,
-               "PolicyName" =: _delPolicyName]
+               "GroupName" =: _drqGroupName,
+               "PolicyName" =: _drqPolicyName]
 
 -- | /See:/ 'deleteGroupPolicyResponse' smart constructor.
 data DeleteGroupPolicyResponse =

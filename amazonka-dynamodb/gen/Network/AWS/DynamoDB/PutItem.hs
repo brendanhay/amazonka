@@ -54,26 +54,26 @@ module Network.AWS.DynamoDB.PutItem
     -- ** Request constructor
     , putItem
     -- ** Request lenses
-    , piReturnValues
-    , piExpressionAttributeNames
-    , piReturnConsumedCapacity
-    , piExpressionAttributeValues
-    , piReturnItemCollectionMetrics
-    , piConditionExpression
-    , piConditionalOperator
-    , piExpected
-    , piTableName
-    , piItem
+    , pirqReturnValues
+    , pirqExpressionAttributeNames
+    , pirqReturnConsumedCapacity
+    , pirqExpressionAttributeValues
+    , pirqReturnItemCollectionMetrics
+    , pirqConditionExpression
+    , pirqConditionalOperator
+    , pirqExpected
+    , pirqTableName
+    , pirqItem
 
     -- * Response
     , PutItemResponse
     -- ** Response constructor
     , putItemResponse
     -- ** Response lenses
-    , pirConsumedCapacity
-    , pirItemCollectionMetrics
-    , pirAttributes
-    , pirStatus
+    , pirsConsumedCapacity
+    , pirsItemCollectionMetrics
+    , pirsAttributes
+    , pirsStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -87,52 +87,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'piReturnValues'
+-- * 'pirqReturnValues'
 --
--- * 'piExpressionAttributeNames'
+-- * 'pirqExpressionAttributeNames'
 --
--- * 'piReturnConsumedCapacity'
+-- * 'pirqReturnConsumedCapacity'
 --
--- * 'piExpressionAttributeValues'
+-- * 'pirqExpressionAttributeValues'
 --
--- * 'piReturnItemCollectionMetrics'
+-- * 'pirqReturnItemCollectionMetrics'
 --
--- * 'piConditionExpression'
+-- * 'pirqConditionExpression'
 --
--- * 'piConditionalOperator'
+-- * 'pirqConditionalOperator'
 --
--- * 'piExpected'
+-- * 'pirqExpected'
 --
--- * 'piTableName'
+-- * 'pirqTableName'
 --
--- * 'piItem'
+-- * 'pirqItem'
 data PutItem = PutItem'
-    { _piReturnValues                :: !(Maybe ReturnValue)
-    , _piExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _piReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _piExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
-    , _piReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _piConditionExpression         :: !(Maybe Text)
-    , _piConditionalOperator         :: !(Maybe ConditionalOperator)
-    , _piExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _piTableName                   :: !Text
-    , _piItem                        :: !(Map Text AttributeValue)
+    { _pirqReturnValues                :: !(Maybe ReturnValue)
+    , _pirqExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _pirqReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _pirqExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _pirqReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _pirqConditionExpression         :: !(Maybe Text)
+    , _pirqConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _pirqExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _pirqTableName                   :: !Text
+    , _pirqItem                        :: !(Map Text AttributeValue)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutItem' smart constructor.
 putItem :: Text -> PutItem
 putItem pTableName =
     PutItem'
-    { _piReturnValues = Nothing
-    , _piExpressionAttributeNames = Nothing
-    , _piReturnConsumedCapacity = Nothing
-    , _piExpressionAttributeValues = Nothing
-    , _piReturnItemCollectionMetrics = Nothing
-    , _piConditionExpression = Nothing
-    , _piConditionalOperator = Nothing
-    , _piExpected = Nothing
-    , _piTableName = pTableName
-    , _piItem = mempty
+    { _pirqReturnValues = Nothing
+    , _pirqExpressionAttributeNames = Nothing
+    , _pirqReturnConsumedCapacity = Nothing
+    , _pirqExpressionAttributeValues = Nothing
+    , _pirqReturnItemCollectionMetrics = Nothing
+    , _pirqConditionExpression = Nothing
+    , _pirqConditionalOperator = Nothing
+    , _pirqExpected = Nothing
+    , _pirqTableName = pTableName
+    , _pirqItem = mempty
     }
 
 -- | Use /ReturnValues/ if you want to get the item attributes as they
@@ -147,8 +147,8 @@ putItem pTableName =
 --     then the content of the old item is returned.
 --
 -- Other \"Valid Values\" are not relevant to PutItem.
-piReturnValues :: Lens' PutItem (Maybe ReturnValue)
-piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
+pirqReturnValues :: Lens' PutItem (Maybe ReturnValue)
+pirqReturnValues = lens _pirqReturnValues (\ s a -> s{_pirqReturnValues = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -187,12 +187,12 @@ piReturnValues = lens _piReturnValues (\ s a -> s{_piReturnValues = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-piExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
-piExpressionAttributeNames = lens _piExpressionAttributeNames (\ s a -> s{_piExpressionAttributeNames = a}) . _Default . _Map;
+pirqExpressionAttributeNames :: Lens' PutItem (HashMap Text Text)
+pirqExpressionAttributeNames = lens _pirqExpressionAttributeNames (\ s a -> s{_pirqExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-piReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
-piReturnConsumedCapacity = lens _piReturnConsumedCapacity (\ s a -> s{_piReturnConsumedCapacity = a});
+pirqReturnConsumedCapacity :: Lens' PutItem (Maybe ReturnConsumedCapacity)
+pirqReturnConsumedCapacity = lens _pirqReturnConsumedCapacity (\ s a -> s{_pirqReturnConsumedCapacity = a});
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -213,15 +213,15 @@ piReturnConsumedCapacity = lens _piReturnConsumedCapacity (\ s a -> s{_piReturnC
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-piExpressionAttributeValues :: Lens' PutItem (HashMap Text AttributeValue)
-piExpressionAttributeValues = lens _piExpressionAttributeValues (\ s a -> s{_piExpressionAttributeValues = a}) . _Default . _Map;
+pirqExpressionAttributeValues :: Lens' PutItem (HashMap Text AttributeValue)
+pirqExpressionAttributeValues = lens _pirqExpressionAttributeValues (\ s a -> s{_pirqExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
-piReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
-piReturnItemCollectionMetrics = lens _piReturnItemCollectionMetrics (\ s a -> s{_piReturnItemCollectionMetrics = a});
+pirqReturnItemCollectionMetrics :: Lens' PutItem (Maybe ReturnItemCollectionMetrics)
+pirqReturnItemCollectionMetrics = lens _pirqReturnItemCollectionMetrics (\ s a -> s{_pirqReturnItemCollectionMetrics = a});
 
 -- | A condition that must be satisfied in order for a conditional /PutItem/
 -- operation to succeed.
@@ -243,8 +243,8 @@ piReturnItemCollectionMetrics = lens _piReturnItemCollectionMetrics (\ s a -> s{
 --
 -- /ConditionExpression/ replaces the legacy /ConditionalOperator/ and
 -- /Expected/ parameters.
-piConditionExpression :: Lens' PutItem (Maybe Text)
-piConditionExpression = lens _piConditionExpression (\ s a -> s{_piConditionExpression = a});
+pirqConditionExpression :: Lens' PutItem (Maybe Text)
+pirqConditionExpression = lens _pirqConditionExpression (\ s a -> s{_pirqConditionExpression = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ConditionExpression/ instead. Do not combine legacy
@@ -264,8 +264,8 @@ piConditionExpression = lens _piConditionExpression (\ s a -> s{_piConditionExpr
 -- The operation will succeed only if the entire map evaluates to true.
 --
 -- This parameter does not support attributes of type List or Map.
-piConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
-piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOperator = a});
+pirqConditionalOperator :: Lens' PutItem (Maybe ConditionalOperator)
+pirqConditionalOperator = lens _pirqConditionalOperator (\ s a -> s{_pirqConditionalOperator = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ConditionExpression/ instead. Do not combine legacy
@@ -490,12 +490,12 @@ piConditionalOperator = lens _piConditionalOperator (\ s a -> s{_piConditionalOp
 -- /AttributeValueList/ and /ComparisonOperator/. Note that if you use both
 -- sets of parameters at once, DynamoDB will return a /ValidationException/
 -- exception.
-piExpected :: Lens' PutItem (HashMap Text ExpectedAttributeValue)
-piExpected = lens _piExpected (\ s a -> s{_piExpected = a}) . _Default . _Map;
+pirqExpected :: Lens' PutItem (HashMap Text ExpectedAttributeValue)
+pirqExpected = lens _pirqExpected (\ s a -> s{_pirqExpected = a}) . _Default . _Map;
 
 -- | The name of the table to contain the item.
-piTableName :: Lens' PutItem Text
-piTableName = lens _piTableName (\ s a -> s{_piTableName = a});
+pirqTableName :: Lens' PutItem Text
+pirqTableName = lens _pirqTableName (\ s a -> s{_pirqTableName = a});
 
 -- | A map of attribute name\/value pairs, one for each attribute. Only the
 -- primary key attributes are required; you can optionally provide other
@@ -515,8 +515,8 @@ piTableName = lens _piTableName (\ s a -> s{_piTableName = a});
 -- in the /Amazon DynamoDB Developer Guide/.
 --
 -- Each element in the /Item/ map is an /AttributeValue/ object.
-piItem :: Lens' PutItem (HashMap Text AttributeValue)
-piItem = lens _piItem (\ s a -> s{_piItem = a}) . _Map;
+pirqItem :: Lens' PutItem (HashMap Text AttributeValue)
+pirqItem = lens _pirqItem (\ s a -> s{_pirqItem = a}) . _Map;
 
 instance AWSRequest PutItem where
         type Sv PutItem = DynamoDB
@@ -543,19 +543,19 @@ instance ToHeaders PutItem where
 instance ToJSON PutItem where
         toJSON PutItem'{..}
           = object
-              ["ReturnValues" .= _piReturnValues,
+              ["ReturnValues" .= _pirqReturnValues,
                "ExpressionAttributeNames" .=
-                 _piExpressionAttributeNames,
+                 _pirqExpressionAttributeNames,
                "ReturnConsumedCapacity" .=
-                 _piReturnConsumedCapacity,
+                 _pirqReturnConsumedCapacity,
                "ExpressionAttributeValues" .=
-                 _piExpressionAttributeValues,
+                 _pirqExpressionAttributeValues,
                "ReturnItemCollectionMetrics" .=
-                 _piReturnItemCollectionMetrics,
-               "ConditionExpression" .= _piConditionExpression,
-               "ConditionalOperator" .= _piConditionalOperator,
-               "Expected" .= _piExpected,
-               "TableName" .= _piTableName, "Item" .= _piItem]
+                 _pirqReturnItemCollectionMetrics,
+               "ConditionExpression" .= _pirqConditionExpression,
+               "ConditionalOperator" .= _pirqConditionalOperator,
+               "Expected" .= _pirqExpected,
+               "TableName" .= _pirqTableName, "Item" .= _pirqItem]
 
 instance ToPath PutItem where
         toPath = const "/"
@@ -569,33 +569,33 @@ instance ToQuery PutItem where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pirConsumedCapacity'
+-- * 'pirsConsumedCapacity'
 --
--- * 'pirItemCollectionMetrics'
+-- * 'pirsItemCollectionMetrics'
 --
--- * 'pirAttributes'
+-- * 'pirsAttributes'
 --
--- * 'pirStatus'
+-- * 'pirsStatus'
 data PutItemResponse = PutItemResponse'
-    { _pirConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _pirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _pirAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _pirStatus                :: !Int
+    { _pirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
+    , _pirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _pirsAttributes            :: !(Maybe (Map Text AttributeValue))
+    , _pirsStatus                :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutItemResponse' smart constructor.
 putItemResponse :: Int -> PutItemResponse
 putItemResponse pStatus =
     PutItemResponse'
-    { _pirConsumedCapacity = Nothing
-    , _pirItemCollectionMetrics = Nothing
-    , _pirAttributes = Nothing
-    , _pirStatus = pStatus
+    { _pirsConsumedCapacity = Nothing
+    , _pirsItemCollectionMetrics = Nothing
+    , _pirsAttributes = Nothing
+    , _pirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-pirConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
-pirConsumedCapacity = lens _pirConsumedCapacity (\ s a -> s{_pirConsumedCapacity = a});
+pirsConsumedCapacity :: Lens' PutItemResponse (Maybe ConsumedCapacity)
+pirsConsumedCapacity = lens _pirsConsumedCapacity (\ s a -> s{_pirsConsumedCapacity = a});
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. /ItemCollectionMetrics/ is only returned if the request asked
@@ -618,15 +618,15 @@ pirConsumedCapacity = lens _pirConsumedCapacity (\ s a -> s{_pirConsumedCapacity
 --     The estimate is subject to change over time; therefore, do not rely
 --     on the precision or accuracy of the estimate.
 --
-pirItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
-pirItemCollectionMetrics = lens _pirItemCollectionMetrics (\ s a -> s{_pirItemCollectionMetrics = a});
+pirsItemCollectionMetrics :: Lens' PutItemResponse (Maybe ItemCollectionMetrics)
+pirsItemCollectionMetrics = lens _pirsItemCollectionMetrics (\ s a -> s{_pirsItemCollectionMetrics = a});
 
 -- | The attribute values as they appeared before the /PutItem/ operation,
 -- but only if /ReturnValues/ is specified as @ALL_OLD@ in the request.
 -- Each element consists of an attribute name and an attribute value.
-pirAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
-pirAttributes = lens _pirAttributes (\ s a -> s{_pirAttributes = a}) . _Default . _Map;
+pirsAttributes :: Lens' PutItemResponse (HashMap Text AttributeValue)
+pirsAttributes = lens _pirsAttributes (\ s a -> s{_pirsAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-pirStatus :: Lens' PutItemResponse Int
-pirStatus = lens _pirStatus (\ s a -> s{_pirStatus = a});
+pirsStatus :: Lens' PutItemResponse Int
+pirsStatus = lens _pirsStatus (\ s a -> s{_pirsStatus = a});

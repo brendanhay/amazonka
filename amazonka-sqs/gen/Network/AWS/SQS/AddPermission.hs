@@ -49,10 +49,10 @@ module Network.AWS.SQS.AddPermission
     -- ** Request constructor
     , addPermission
     -- ** Request lenses
-    , apQueueURL
-    , apLabel
-    , apAWSAccountIds
-    , apActions
+    , aprqQueueURL
+    , aprqLabel
+    , aprqAWSAccountIds
+    , aprqActions
 
     -- * Response
     , AddPermissionResponse
@@ -69,39 +69,39 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apQueueURL'
+-- * 'aprqQueueURL'
 --
--- * 'apLabel'
+-- * 'aprqLabel'
 --
--- * 'apAWSAccountIds'
+-- * 'aprqAWSAccountIds'
 --
--- * 'apActions'
+-- * 'aprqActions'
 data AddPermission = AddPermission'
-    { _apQueueURL      :: !Text
-    , _apLabel         :: !Text
-    , _apAWSAccountIds :: ![Text]
-    , _apActions       :: ![Text]
+    { _aprqQueueURL      :: !Text
+    , _aprqLabel         :: !Text
+    , _aprqAWSAccountIds :: ![Text]
+    , _aprqActions       :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> AddPermission
 addPermission pQueueURL pLabel =
     AddPermission'
-    { _apQueueURL = pQueueURL
-    , _apLabel = pLabel
-    , _apAWSAccountIds = mempty
-    , _apActions = mempty
+    { _aprqQueueURL = pQueueURL
+    , _aprqLabel = pLabel
+    , _aprqAWSAccountIds = mempty
+    , _aprqActions = mempty
     }
 
 -- | The URL of the Amazon SQS queue to take action on.
-apQueueURL :: Lens' AddPermission Text
-apQueueURL = lens _apQueueURL (\ s a -> s{_apQueueURL = a});
+aprqQueueURL :: Lens' AddPermission Text
+aprqQueueURL = lens _aprqQueueURL (\ s a -> s{_aprqQueueURL = a});
 
 -- | The unique identification of the permission you\'re setting (e.g.,
 -- @AliceSendMessage@). Constraints: Maximum 80 characters; alphanumeric
 -- characters, hyphens (-), and underscores (_) are allowed.
-apLabel :: Lens' AddPermission Text
-apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
+aprqLabel :: Lens' AddPermission Text
+aprqLabel = lens _aprqLabel (\ s a -> s{_aprqLabel = a});
 
 -- | The AWS account number of the
 -- <http://docs.aws.amazon.com/general/latest/gr/glos-chap.html#P principal>
@@ -110,8 +110,8 @@ apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
 -- locating the AWS account identification, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AWSCredentials.html Your AWS Identifiers>
 -- in the /Amazon SQS Developer Guide/.
-apAWSAccountIds :: Lens' AddPermission [Text]
-apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a});
+aprqAWSAccountIds :: Lens' AddPermission [Text]
+aprqAWSAccountIds = lens _aprqAWSAccountIds (\ s a -> s{_aprqAWSAccountIds = a});
 
 -- | The action the client wants to allow for the specified principal. The
 -- following are valid values:
@@ -124,8 +124,8 @@ apAWSAccountIds = lens _apAWSAccountIds (\ s a -> s{_apAWSAccountIds = a});
 -- for the @ActionName.n@ also grants permissions for the corresponding
 -- batch versions of those actions: @SendMessageBatch@,
 -- @DeleteMessageBatch@, and @ChangeMessageVisibilityBatch@.
-apActions :: Lens' AddPermission [Text]
-apActions = lens _apActions (\ s a -> s{_apActions = a});
+aprqActions :: Lens' AddPermission [Text]
+aprqActions = lens _aprqActions (\ s a -> s{_aprqActions = a});
 
 instance AWSRequest AddPermission where
         type Sv AddPermission = SQS
@@ -144,9 +144,9 @@ instance ToQuery AddPermission where
           = mconcat
               ["Action" =: ("AddPermission" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueUrl" =: _apQueueURL, "Label" =: _apLabel,
-               toQueryList "AWSAccountId" _apAWSAccountIds,
-               toQueryList "ActionName" _apActions]
+               "QueueUrl" =: _aprqQueueURL, "Label" =: _aprqLabel,
+               toQueryList "AWSAccountId" _aprqAWSAccountIds,
+               toQueryList "ActionName" _aprqActions]
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse =

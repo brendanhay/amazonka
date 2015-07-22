@@ -33,17 +33,17 @@ module Network.AWS.SDB.ListDomains
     -- ** Request constructor
     , listDomains
     -- ** Request lenses
-    , ldMaxNumberOfDomains
-    , ldNextToken
+    , ldrqMaxNumberOfDomains
+    , ldrqNextToken
 
     -- * Response
     , ListDomainsResponse
     -- ** Response constructor
     , listDomainsResponse
     -- ** Response lenses
-    , ldrDomainNames
-    , ldrNextToken
-    , ldrStatus
+    , ldrsDomainNames
+    , ldrsNextToken
+    , ldrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -56,38 +56,38 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldMaxNumberOfDomains'
+-- * 'ldrqMaxNumberOfDomains'
 --
--- * 'ldNextToken'
+-- * 'ldrqNextToken'
 data ListDomains = ListDomains'
-    { _ldMaxNumberOfDomains :: !(Maybe Int)
-    , _ldNextToken          :: !(Maybe Text)
+    { _ldrqMaxNumberOfDomains :: !(Maybe Int)
+    , _ldrqNextToken          :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomains' smart constructor.
 listDomains :: ListDomains
 listDomains =
     ListDomains'
-    { _ldMaxNumberOfDomains = Nothing
-    , _ldNextToken = Nothing
+    { _ldrqMaxNumberOfDomains = Nothing
+    , _ldrqNextToken = Nothing
     }
 
 -- | The maximum number of domain names you want returned. The range is 1 to
 -- 100. The default setting is 100.
-ldMaxNumberOfDomains :: Lens' ListDomains (Maybe Int)
-ldMaxNumberOfDomains = lens _ldMaxNumberOfDomains (\ s a -> s{_ldMaxNumberOfDomains = a});
+ldrqMaxNumberOfDomains :: Lens' ListDomains (Maybe Int)
+ldrqMaxNumberOfDomains = lens _ldrqMaxNumberOfDomains (\ s a -> s{_ldrqMaxNumberOfDomains = a});
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- domain names.
-ldNextToken :: Lens' ListDomains (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldrqNextToken :: Lens' ListDomains (Maybe Text)
+ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
 
 instance AWSPager ListDomains where
         page rq rs
-          | stop (rs ^. ldrNextToken) = Nothing
-          | stop (rs ^. ldrDomainNames) = Nothing
+          | stop (rs ^. ldrsNextToken) = Nothing
+          | stop (rs ^. ldrsDomainNames) = Nothing
           | otherwise =
-            Just $ rq & ldNextToken .~ rs ^. ldrNextToken
+            Just $ rq & ldrqNextToken .~ rs ^. ldrsNextToken
 
 instance AWSRequest ListDomains where
         type Sv ListDomains = SDB
@@ -112,42 +112,42 @@ instance ToQuery ListDomains where
           = mconcat
               ["Action" =: ("ListDomains" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "MaxNumberOfDomains" =: _ldMaxNumberOfDomains,
-               "NextToken" =: _ldNextToken]
+               "MaxNumberOfDomains" =: _ldrqMaxNumberOfDomains,
+               "NextToken" =: _ldrqNextToken]
 
 -- | /See:/ 'listDomainsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrDomainNames'
+-- * 'ldrsDomainNames'
 --
--- * 'ldrNextToken'
+-- * 'ldrsNextToken'
 --
--- * 'ldrStatus'
+-- * 'ldrsStatus'
 data ListDomainsResponse = ListDomainsResponse'
-    { _ldrDomainNames :: !(Maybe [Text])
-    , _ldrNextToken   :: !(Maybe Text)
-    , _ldrStatus      :: !Int
+    { _ldrsDomainNames :: !(Maybe [Text])
+    , _ldrsNextToken   :: !(Maybe Text)
+    , _ldrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDomainsResponse' smart constructor.
 listDomainsResponse :: Int -> ListDomainsResponse
 listDomainsResponse pStatus =
     ListDomainsResponse'
-    { _ldrDomainNames = Nothing
-    , _ldrNextToken = Nothing
-    , _ldrStatus = pStatus
+    { _ldrsDomainNames = Nothing
+    , _ldrsNextToken = Nothing
+    , _ldrsStatus = pStatus
     }
 
 -- | A list of domain names that match the expression.
-ldrDomainNames :: Lens' ListDomainsResponse [Text]
-ldrDomainNames = lens _ldrDomainNames (\ s a -> s{_ldrDomainNames = a}) . _Default;
+ldrsDomainNames :: Lens' ListDomainsResponse [Text]
+ldrsDomainNames = lens _ldrsDomainNames (\ s a -> s{_ldrsDomainNames = a}) . _Default;
 
 -- | An opaque token indicating that there are more domains than the
 -- specified @MaxNumberOfDomains@ still available.
-ldrNextToken :: Lens' ListDomainsResponse (Maybe Text)
-ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
+ldrsNextToken :: Lens' ListDomainsResponse (Maybe Text)
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDomainsResponse Int
-ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+ldrsStatus :: Lens' ListDomainsResponse Int
+ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

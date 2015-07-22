@@ -30,16 +30,16 @@ module Network.AWS.OpsWorks.DescribeAgentVersions
     -- ** Request constructor
     , describeAgentVersions
     -- ** Request lenses
-    , davConfigurationManager
-    , davStackId
+    , davrqConfigurationManager
+    , davrqStackId
 
     -- * Response
     , DescribeAgentVersionsResponse
     -- ** Response constructor
     , describeAgentVersionsResponse
     -- ** Response lenses
-    , davrAgentVersions
-    , davrStatus
+    , davrsAgentVersions
+    , davrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'davConfigurationManager'
+-- * 'davrqConfigurationManager'
 --
--- * 'davStackId'
+-- * 'davrqStackId'
 data DescribeAgentVersions = DescribeAgentVersions'
-    { _davConfigurationManager :: !(Maybe StackConfigurationManager)
-    , _davStackId              :: !(Maybe Text)
+    { _davrqConfigurationManager :: !(Maybe StackConfigurationManager)
+    , _davrqStackId              :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAgentVersions' smart constructor.
 describeAgentVersions :: DescribeAgentVersions
 describeAgentVersions =
     DescribeAgentVersions'
-    { _davConfigurationManager = Nothing
-    , _davStackId = Nothing
+    { _davrqConfigurationManager = Nothing
+    , _davrqStackId = Nothing
     }
 
 -- | The configuration manager.
-davConfigurationManager :: Lens' DescribeAgentVersions (Maybe StackConfigurationManager)
-davConfigurationManager = lens _davConfigurationManager (\ s a -> s{_davConfigurationManager = a});
+davrqConfigurationManager :: Lens' DescribeAgentVersions (Maybe StackConfigurationManager)
+davrqConfigurationManager = lens _davrqConfigurationManager (\ s a -> s{_davrqConfigurationManager = a});
 
 -- | The stack ID.
-davStackId :: Lens' DescribeAgentVersions (Maybe Text)
-davStackId = lens _davStackId (\ s a -> s{_davStackId = a});
+davrqStackId :: Lens' DescribeAgentVersions (Maybe Text)
+davrqStackId = lens _davrqStackId (\ s a -> s{_davrqStackId = a});
 
 instance AWSRequest DescribeAgentVersions where
         type Sv DescribeAgentVersions = OpsWorks
@@ -100,8 +100,9 @@ instance ToHeaders DescribeAgentVersions where
 instance ToJSON DescribeAgentVersions where
         toJSON DescribeAgentVersions'{..}
           = object
-              ["ConfigurationManager" .= _davConfigurationManager,
-               "StackId" .= _davStackId]
+              ["ConfigurationManager" .=
+                 _davrqConfigurationManager,
+               "StackId" .= _davrqStackId]
 
 instance ToPath DescribeAgentVersions where
         toPath = const "/"
@@ -115,28 +116,28 @@ instance ToQuery DescribeAgentVersions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'davrAgentVersions'
+-- * 'davrsAgentVersions'
 --
--- * 'davrStatus'
+-- * 'davrsStatus'
 data DescribeAgentVersionsResponse = DescribeAgentVersionsResponse'
-    { _davrAgentVersions :: !(Maybe [AgentVersion])
-    , _davrStatus        :: !Int
+    { _davrsAgentVersions :: !(Maybe [AgentVersion])
+    , _davrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAgentVersionsResponse' smart constructor.
 describeAgentVersionsResponse :: Int -> DescribeAgentVersionsResponse
 describeAgentVersionsResponse pStatus =
     DescribeAgentVersionsResponse'
-    { _davrAgentVersions = Nothing
-    , _davrStatus = pStatus
+    { _davrsAgentVersions = Nothing
+    , _davrsStatus = pStatus
     }
 
 -- | The agent versions for the specified stack or configuration manager.
 -- Note that this value is the complete version number, not the abbreviated
 -- number used by the console.
-davrAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
-davrAgentVersions = lens _davrAgentVersions (\ s a -> s{_davrAgentVersions = a}) . _Default;
+davrsAgentVersions :: Lens' DescribeAgentVersionsResponse [AgentVersion]
+davrsAgentVersions = lens _davrsAgentVersions (\ s a -> s{_davrsAgentVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-davrStatus :: Lens' DescribeAgentVersionsResponse Int
-davrStatus = lens _davrStatus (\ s a -> s{_davrStatus = a});
+davrsStatus :: Lens' DescribeAgentVersionsResponse Int
+davrsStatus = lens _davrsStatus (\ s a -> s{_davrsStatus = a});

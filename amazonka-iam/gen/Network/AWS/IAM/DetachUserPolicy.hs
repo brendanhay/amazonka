@@ -33,8 +33,8 @@ module Network.AWS.IAM.DetachUserPolicy
     -- ** Request constructor
     , detachUserPolicy
     -- ** Request lenses
-    , detUserName
-    , detPolicyARN
+    , drqUserName
+    , drqPolicyARN
 
     -- * Response
     , DetachUserPolicyResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detUserName'
+-- * 'drqUserName'
 --
--- * 'detPolicyARN'
+-- * 'drqPolicyARN'
 data DetachUserPolicy = DetachUserPolicy'
-    { _detUserName  :: !Text
-    , _detPolicyARN :: !Text
+    { _drqUserName  :: !Text
+    , _drqPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachUserPolicy' smart constructor.
 detachUserPolicy :: Text -> Text -> DetachUserPolicy
 detachUserPolicy pUserName pPolicyARN =
     DetachUserPolicy'
-    { _detUserName = pUserName
-    , _detPolicyARN = pPolicyARN
+    { _drqUserName = pUserName
+    , _drqPolicyARN = pPolicyARN
     }
 
 -- | The name (friendly name, not ARN) of the user to detach the policy from.
-detUserName :: Lens' DetachUserPolicy Text
-detUserName = lens _detUserName (\ s a -> s{_detUserName = a});
+drqUserName :: Lens' DetachUserPolicy Text
+drqUserName = lens _drqUserName (\ s a -> s{_drqUserName = a});
 
 -- | FIXME: Undocumented member.
-detPolicyARN :: Lens' DetachUserPolicy Text
-detPolicyARN = lens _detPolicyARN (\ s a -> s{_detPolicyARN = a});
+drqPolicyARN :: Lens' DetachUserPolicy Text
+drqPolicyARN = lens _drqPolicyARN (\ s a -> s{_drqPolicyARN = a});
 
 instance AWSRequest DetachUserPolicy where
         type Sv DetachUserPolicy = IAM
@@ -92,8 +92,8 @@ instance ToQuery DetachUserPolicy where
           = mconcat
               ["Action" =: ("DetachUserPolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _detUserName,
-               "PolicyArn" =: _detPolicyARN]
+               "UserName" =: _drqUserName,
+               "PolicyArn" =: _drqPolicyARN]
 
 -- | /See:/ 'detachUserPolicyResponse' smart constructor.
 data DetachUserPolicyResponse =

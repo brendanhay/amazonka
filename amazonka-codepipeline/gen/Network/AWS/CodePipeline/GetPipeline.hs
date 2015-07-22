@@ -30,16 +30,16 @@ module Network.AWS.CodePipeline.GetPipeline
     -- ** Request constructor
     , getPipeline
     -- ** Request lenses
-    , gpVersion
-    , gpName
+    , gprqVersion
+    , gprqName
 
     -- * Response
     , GetPipelineResponse
     -- ** Response constructor
     , getPipelineResponse
     -- ** Response lenses
-    , gprPipeline
-    , gprStatus
+    , gprsPipeline
+    , gprsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -53,31 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpVersion'
+-- * 'gprqVersion'
 --
--- * 'gpName'
+-- * 'gprqName'
 data GetPipeline = GetPipeline'
-    { _gpVersion :: !(Maybe Nat)
-    , _gpName    :: !Text
+    { _gprqVersion :: !(Maybe Nat)
+    , _gprqName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipeline' smart constructor.
 getPipeline :: Text -> GetPipeline
 getPipeline pName =
     GetPipeline'
-    { _gpVersion = Nothing
-    , _gpName = pName
+    { _gprqVersion = Nothing
+    , _gprqName = pName
     }
 
 -- | The version number of the pipeline. If you do not specify a version,
 -- defaults to the most current version.
-gpVersion :: Lens' GetPipeline (Maybe Natural)
-gpVersion = lens _gpVersion (\ s a -> s{_gpVersion = a}) . mapping _Nat;
+gprqVersion :: Lens' GetPipeline (Maybe Natural)
+gprqVersion = lens _gprqVersion (\ s a -> s{_gprqVersion = a}) . mapping _Nat;
 
 -- | The name of the pipeline for which you want to get information. Pipeline
 -- names must be unique under an Amazon Web Services (AWS) user account.
-gpName :: Lens' GetPipeline Text
-gpName = lens _gpName (\ s a -> s{_gpName = a});
+gprqName :: Lens' GetPipeline Text
+gprqName = lens _gprqName (\ s a -> s{_gprqName = a});
 
 instance AWSRequest GetPipeline where
         type Sv GetPipeline = CodePipeline
@@ -100,7 +100,8 @@ instance ToHeaders GetPipeline where
 
 instance ToJSON GetPipeline where
         toJSON GetPipeline'{..}
-          = object ["version" .= _gpVersion, "name" .= _gpName]
+          = object
+              ["version" .= _gprqVersion, "name" .= _gprqName]
 
 instance ToPath GetPipeline where
         toPath = const "/"
@@ -114,26 +115,26 @@ instance ToQuery GetPipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gprPipeline'
+-- * 'gprsPipeline'
 --
--- * 'gprStatus'
+-- * 'gprsStatus'
 data GetPipelineResponse = GetPipelineResponse'
-    { _gprPipeline :: !(Maybe PipelineDeclaration)
-    , _gprStatus   :: !Int
+    { _gprsPipeline :: !(Maybe PipelineDeclaration)
+    , _gprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineResponse' smart constructor.
 getPipelineResponse :: Int -> GetPipelineResponse
 getPipelineResponse pStatus =
     GetPipelineResponse'
-    { _gprPipeline = Nothing
-    , _gprStatus = pStatus
+    { _gprsPipeline = Nothing
+    , _gprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gprPipeline :: Lens' GetPipelineResponse (Maybe PipelineDeclaration)
-gprPipeline = lens _gprPipeline (\ s a -> s{_gprPipeline = a});
+gprsPipeline :: Lens' GetPipelineResponse (Maybe PipelineDeclaration)
+gprsPipeline = lens _gprsPipeline (\ s a -> s{_gprsPipeline = a});
 
 -- | FIXME: Undocumented member.
-gprStatus :: Lens' GetPipelineResponse Int
-gprStatus = lens _gprStatus (\ s a -> s{_gprStatus = a});
+gprsStatus :: Lens' GetPipelineResponse Int
+gprsStatus = lens _gprsStatus (\ s a -> s{_gprsStatus = a});

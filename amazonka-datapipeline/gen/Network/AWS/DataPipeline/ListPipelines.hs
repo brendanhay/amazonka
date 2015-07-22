@@ -28,17 +28,17 @@ module Network.AWS.DataPipeline.ListPipelines
     -- ** Request constructor
     , listPipelines
     -- ** Request lenses
-    , lpMarker
+    , lprqMarker
 
     -- * Response
     , ListPipelinesResponse
     -- ** Response constructor
     , listPipelinesResponse
     -- ** Response lenses
-    , lprHasMoreResults
-    , lprMarker
-    , lprStatus
-    , lprPipelineIdList
+    , lprsHasMoreResults
+    , lprsMarker
+    , lprsStatus
+    , lprsPipelineIdList
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -53,30 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpMarker'
+-- * 'lprqMarker'
 newtype ListPipelines = ListPipelines'
-    { _lpMarker :: Maybe Text
+    { _lprqMarker :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
 listPipelines =
     ListPipelines'
-    { _lpMarker = Nothing
+    { _lprqMarker = Nothing
     }
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @ListPipelines@ with the marker value from the previous call to
 -- retrieve the next set of results.
-lpMarker :: Lens' ListPipelines (Maybe Text)
-lpMarker = lens _lpMarker (\ s a -> s{_lpMarker = a});
+lprqMarker :: Lens' ListPipelines (Maybe Text)
+lprqMarker = lens _lprqMarker (\ s a -> s{_lprqMarker = a});
 
 instance AWSPager ListPipelines where
         page rq rs
-          | stop (rs ^. lprHasMoreResults) = Nothing
-          | isNothing (rs ^. lprMarker) = Nothing
-          | otherwise = Just $ rq & lpMarker .~ rs ^. lprMarker
+          | stop (rs ^. lprsHasMoreResults) = Nothing
+          | isNothing (rs ^. lprsMarker) = Nothing
+          | otherwise =
+            Just $ rq & lprqMarker .~ rs ^. lprsMarker
 
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = DataPipeline
@@ -101,7 +102,7 @@ instance ToHeaders ListPipelines where
 
 instance ToJSON ListPipelines where
         toJSON ListPipelines'{..}
-          = object ["marker" .= _lpMarker]
+          = object ["marker" .= _lprqMarker]
 
 instance ToPath ListPipelines where
         toPath = const "/"
@@ -115,47 +116,47 @@ instance ToQuery ListPipelines where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprHasMoreResults'
+-- * 'lprsHasMoreResults'
 --
--- * 'lprMarker'
+-- * 'lprsMarker'
 --
--- * 'lprStatus'
+-- * 'lprsStatus'
 --
--- * 'lprPipelineIdList'
+-- * 'lprsPipelineIdList'
 data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprHasMoreResults :: !(Maybe Bool)
-    , _lprMarker         :: !(Maybe Text)
-    , _lprStatus         :: !Int
-    , _lprPipelineIdList :: ![PipelineIdName]
+    { _lprsHasMoreResults :: !(Maybe Bool)
+    , _lprsMarker         :: !(Maybe Text)
+    , _lprsStatus         :: !Int
+    , _lprsPipelineIdList :: ![PipelineIdName]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse
 listPipelinesResponse pStatus =
     ListPipelinesResponse'
-    { _lprHasMoreResults = Nothing
-    , _lprMarker = Nothing
-    , _lprStatus = pStatus
-    , _lprPipelineIdList = mempty
+    { _lprsHasMoreResults = Nothing
+    , _lprsMarker = Nothing
+    , _lprsStatus = pStatus
+    , _lprsPipelineIdList = mempty
     }
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.
-lprHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
-lprHasMoreResults = lens _lprHasMoreResults (\ s a -> s{_lprHasMoreResults = a});
+lprsHasMoreResults :: Lens' ListPipelinesResponse (Maybe Bool)
+lprsHasMoreResults = lens _lprsHasMoreResults (\ s a -> s{_lprsHasMoreResults = a});
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @ListPipelinesOutput@ again with this marker value. If
 -- the value is null, there are no more results.
-lprMarker :: Lens' ListPipelinesResponse (Maybe Text)
-lprMarker = lens _lprMarker (\ s a -> s{_lprMarker = a});
+lprsMarker :: Lens' ListPipelinesResponse (Maybe Text)
+lprsMarker = lens _lprsMarker (\ s a -> s{_lprsMarker = a});
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPipelinesResponse Int
-lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});
+lprsStatus :: Lens' ListPipelinesResponse Int
+lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});
 
 -- | The pipeline identifiers. If you require additional information about
 -- the pipelines, you can use these identifiers to call DescribePipelines
 -- and GetPipelineDefinition.
-lprPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
-lprPipelineIdList = lens _lprPipelineIdList (\ s a -> s{_lprPipelineIdList = a});
+lprsPipelineIdList :: Lens' ListPipelinesResponse [PipelineIdName]
+lprsPipelineIdList = lens _lprsPipelineIdList (\ s a -> s{_lprsPipelineIdList = a});

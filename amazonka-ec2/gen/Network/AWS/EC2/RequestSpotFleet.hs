@@ -31,16 +31,16 @@ module Network.AWS.EC2.RequestSpotFleet
     -- ** Request constructor
     , requestSpotFleet
     -- ** Request lenses
-    , rsfDryRun
-    , rsfSpotFleetRequestConfig
+    , rsfrqDryRun
+    , rsfrqSpotFleetRequestConfig
 
     -- * Response
     , RequestSpotFleetResponse
     -- ** Response constructor
     , requestSpotFleetResponse
     -- ** Response lenses
-    , rsfrStatus
-    , rsfrSpotFleetRequestId
+    , rsfrsStatus
+    , rsfrsSpotFleetRequestId
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,32 +54,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsfDryRun'
+-- * 'rsfrqDryRun'
 --
--- * 'rsfSpotFleetRequestConfig'
+-- * 'rsfrqSpotFleetRequestConfig'
 data RequestSpotFleet = RequestSpotFleet'
-    { _rsfDryRun                 :: !(Maybe Bool)
-    , _rsfSpotFleetRequestConfig :: !SpotFleetRequestConfigData
+    { _rsfrqDryRun                 :: !(Maybe Bool)
+    , _rsfrqSpotFleetRequestConfig :: !SpotFleetRequestConfigData
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotFleet' smart constructor.
 requestSpotFleet :: SpotFleetRequestConfigData -> RequestSpotFleet
 requestSpotFleet pSpotFleetRequestConfig =
     RequestSpotFleet'
-    { _rsfDryRun = Nothing
-    , _rsfSpotFleetRequestConfig = pSpotFleetRequestConfig
+    { _rsfrqDryRun = Nothing
+    , _rsfrqSpotFleetRequestConfig = pSpotFleetRequestConfig
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rsfDryRun :: Lens' RequestSpotFleet (Maybe Bool)
-rsfDryRun = lens _rsfDryRun (\ s a -> s{_rsfDryRun = a});
+rsfrqDryRun :: Lens' RequestSpotFleet (Maybe Bool)
+rsfrqDryRun = lens _rsfrqDryRun (\ s a -> s{_rsfrqDryRun = a});
 
 -- | The configuration for the Spot fleet request.
-rsfSpotFleetRequestConfig :: Lens' RequestSpotFleet SpotFleetRequestConfigData
-rsfSpotFleetRequestConfig = lens _rsfSpotFleetRequestConfig (\ s a -> s{_rsfSpotFleetRequestConfig = a});
+rsfrqSpotFleetRequestConfig :: Lens' RequestSpotFleet SpotFleetRequestConfigData
+rsfrqSpotFleetRequestConfig = lens _rsfrqSpotFleetRequestConfig (\ s a -> s{_rsfrqSpotFleetRequestConfig = a});
 
 instance AWSRequest RequestSpotFleet where
         type Sv RequestSpotFleet = EC2
@@ -102,9 +102,9 @@ instance ToQuery RequestSpotFleet where
           = mconcat
               ["Action" =: ("RequestSpotFleet" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rsfDryRun,
+               "DryRun" =: _rsfrqDryRun,
                "SpotFleetRequestConfig" =:
-                 _rsfSpotFleetRequestConfig]
+                 _rsfrqSpotFleetRequestConfig]
 
 -- | Contains the output of RequestSpotFleet.
 --
@@ -112,26 +112,26 @@ instance ToQuery RequestSpotFleet where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rsfrStatus'
+-- * 'rsfrsStatus'
 --
--- * 'rsfrSpotFleetRequestId'
+-- * 'rsfrsSpotFleetRequestId'
 data RequestSpotFleetResponse = RequestSpotFleetResponse'
-    { _rsfrStatus             :: !Int
-    , _rsfrSpotFleetRequestId :: !Text
+    { _rsfrsStatus             :: !Int
+    , _rsfrsSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RequestSpotFleetResponse' smart constructor.
 requestSpotFleetResponse :: Int -> Text -> RequestSpotFleetResponse
 requestSpotFleetResponse pStatus pSpotFleetRequestId =
     RequestSpotFleetResponse'
-    { _rsfrStatus = pStatus
-    , _rsfrSpotFleetRequestId = pSpotFleetRequestId
+    { _rsfrsStatus = pStatus
+    , _rsfrsSpotFleetRequestId = pSpotFleetRequestId
     }
 
 -- | FIXME: Undocumented member.
-rsfrStatus :: Lens' RequestSpotFleetResponse Int
-rsfrStatus = lens _rsfrStatus (\ s a -> s{_rsfrStatus = a});
+rsfrsStatus :: Lens' RequestSpotFleetResponse Int
+rsfrsStatus = lens _rsfrsStatus (\ s a -> s{_rsfrsStatus = a});
 
 -- | The ID of the Spot fleet request.
-rsfrSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
-rsfrSpotFleetRequestId = lens _rsfrSpotFleetRequestId (\ s a -> s{_rsfrSpotFleetRequestId = a});
+rsfrsSpotFleetRequestId :: Lens' RequestSpotFleetResponse Text
+rsfrsSpotFleetRequestId = lens _rsfrsSpotFleetRequestId (\ s a -> s{_rsfrsSpotFleetRequestId = a});

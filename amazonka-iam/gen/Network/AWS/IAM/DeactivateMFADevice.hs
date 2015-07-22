@@ -33,8 +33,8 @@ module Network.AWS.IAM.DeactivateMFADevice
     -- ** Request constructor
     , deactivateMFADevice
     -- ** Request lenses
-    , dmdUserName
-    , dmdSerialNumber
+    , dmdrqUserName
+    , dmdrqSerialNumber
 
     -- * Response
     , DeactivateMFADeviceResponse
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmdUserName'
+-- * 'dmdrqUserName'
 --
--- * 'dmdSerialNumber'
+-- * 'dmdrqSerialNumber'
 data DeactivateMFADevice = DeactivateMFADevice'
-    { _dmdUserName     :: !Text
-    , _dmdSerialNumber :: !Text
+    { _dmdrqUserName     :: !Text
+    , _dmdrqSerialNumber :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeactivateMFADevice' smart constructor.
 deactivateMFADevice :: Text -> Text -> DeactivateMFADevice
 deactivateMFADevice pUserName pSerialNumber =
     DeactivateMFADevice'
-    { _dmdUserName = pUserName
-    , _dmdSerialNumber = pSerialNumber
+    { _dmdrqUserName = pUserName
+    , _dmdrqSerialNumber = pSerialNumber
     }
 
 -- | The name of the user whose MFA device you want to deactivate.
-dmdUserName :: Lens' DeactivateMFADevice Text
-dmdUserName = lens _dmdUserName (\ s a -> s{_dmdUserName = a});
+dmdrqUserName :: Lens' DeactivateMFADevice Text
+dmdrqUserName = lens _dmdrqUserName (\ s a -> s{_dmdrqUserName = a});
 
 -- | The serial number that uniquely identifies the MFA device. For virtual
 -- MFA devices, the serial number is the device ARN.
-dmdSerialNumber :: Lens' DeactivateMFADevice Text
-dmdSerialNumber = lens _dmdSerialNumber (\ s a -> s{_dmdSerialNumber = a});
+dmdrqSerialNumber :: Lens' DeactivateMFADevice Text
+dmdrqSerialNumber = lens _dmdrqSerialNumber (\ s a -> s{_dmdrqSerialNumber = a});
 
 instance AWSRequest DeactivateMFADevice where
         type Sv DeactivateMFADevice = IAM
@@ -94,8 +94,8 @@ instance ToQuery DeactivateMFADevice where
           = mconcat
               ["Action" =: ("DeactivateMFADevice" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _dmdUserName,
-               "SerialNumber" =: _dmdSerialNumber]
+               "UserName" =: _dmdrqUserName,
+               "SerialNumber" =: _dmdrqSerialNumber]
 
 -- | /See:/ 'deactivateMFADeviceResponse' smart constructor.
 data DeactivateMFADeviceResponse =

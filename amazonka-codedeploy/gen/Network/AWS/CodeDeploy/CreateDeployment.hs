@@ -27,20 +27,20 @@ module Network.AWS.CodeDeploy.CreateDeployment
     -- ** Request constructor
     , createDeployment
     -- ** Request lenses
-    , cdDeploymentConfigName
-    , cdRevision
-    , cdDescription
-    , cdIgnoreApplicationStopFailures
-    , cdDeploymentGroupName
-    , cdApplicationName
+    , cdrqDeploymentConfigName
+    , cdrqRevision
+    , cdrqDescription
+    , cdrqIgnoreApplicationStopFailures
+    , cdrqDeploymentGroupName
+    , cdrqApplicationName
 
     -- * Response
     , CreateDeploymentResponse
     -- ** Response constructor
     , createDeploymentResponse
     -- ** Response lenses
-    , cdrDeploymentId
-    , cdrStatus
+    , cdrsDeploymentId
+    , cdrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -54,36 +54,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdDeploymentConfigName'
+-- * 'cdrqDeploymentConfigName'
 --
--- * 'cdRevision'
+-- * 'cdrqRevision'
 --
--- * 'cdDescription'
+-- * 'cdrqDescription'
 --
--- * 'cdIgnoreApplicationStopFailures'
+-- * 'cdrqIgnoreApplicationStopFailures'
 --
--- * 'cdDeploymentGroupName'
+-- * 'cdrqDeploymentGroupName'
 --
--- * 'cdApplicationName'
+-- * 'cdrqApplicationName'
 data CreateDeployment = CreateDeployment'
-    { _cdDeploymentConfigName          :: !(Maybe Text)
-    , _cdRevision                      :: !(Maybe RevisionLocation)
-    , _cdDescription                   :: !(Maybe Text)
-    , _cdIgnoreApplicationStopFailures :: !(Maybe Bool)
-    , _cdDeploymentGroupName           :: !(Maybe Text)
-    , _cdApplicationName               :: !Text
+    { _cdrqDeploymentConfigName          :: !(Maybe Text)
+    , _cdrqRevision                      :: !(Maybe RevisionLocation)
+    , _cdrqDescription                   :: !(Maybe Text)
+    , _cdrqIgnoreApplicationStopFailures :: !(Maybe Bool)
+    , _cdrqDeploymentGroupName           :: !(Maybe Text)
+    , _cdrqApplicationName               :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeployment' smart constructor.
 createDeployment :: Text -> CreateDeployment
 createDeployment pApplicationName =
     CreateDeployment'
-    { _cdDeploymentConfigName = Nothing
-    , _cdRevision = Nothing
-    , _cdDescription = Nothing
-    , _cdIgnoreApplicationStopFailures = Nothing
-    , _cdDeploymentGroupName = Nothing
-    , _cdApplicationName = pApplicationName
+    { _cdrqDeploymentConfigName = Nothing
+    , _cdrqRevision = Nothing
+    , _cdrqDescription = Nothing
+    , _cdrqIgnoreApplicationStopFailures = Nothing
+    , _cdrqDeploymentGroupName = Nothing
+    , _cdrqApplicationName = pApplicationName
     }
 
 -- | The name of an existing deployment configuration associated with the
@@ -93,17 +93,17 @@ createDeployment pApplicationName =
 -- used as the default. If the deployment group does not have a deployment
 -- configuration associated with it, then CodeDeployDefault.OneAtATime will
 -- be used by default.
-cdDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
-cdDeploymentConfigName = lens _cdDeploymentConfigName (\ s a -> s{_cdDeploymentConfigName = a});
+cdrqDeploymentConfigName :: Lens' CreateDeployment (Maybe Text)
+cdrqDeploymentConfigName = lens _cdrqDeploymentConfigName (\ s a -> s{_cdrqDeploymentConfigName = a});
 
 -- | The type of revision to deploy, along with information about the
 -- revision\'s location.
-cdRevision :: Lens' CreateDeployment (Maybe RevisionLocation)
-cdRevision = lens _cdRevision (\ s a -> s{_cdRevision = a});
+cdrqRevision :: Lens' CreateDeployment (Maybe RevisionLocation)
+cdrqRevision = lens _cdrqRevision (\ s a -> s{_cdrqRevision = a});
 
 -- | A comment about the deployment.
-cdDescription :: Lens' CreateDeployment (Maybe Text)
-cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
+cdrqDescription :: Lens' CreateDeployment (Maybe Text)
+cdrqDescription = lens _cdrqDescription (\ s a -> s{_cdrqDescription = a});
 
 -- | If set to true, then if the deployment causes the ApplicationStop
 -- deployment lifecycle event to fail to a specific instance, the
@@ -115,17 +115,17 @@ cdDescription = lens _cdDescription (\ s a -> s{_cdDescription = a});
 -- ApplicationStop deployment lifecycle event to fail to a specific
 -- instance, the deployment will stop to that instance, and the deployment
 -- to that instance will be considered to have failed.
-cdIgnoreApplicationStopFailures :: Lens' CreateDeployment (Maybe Bool)
-cdIgnoreApplicationStopFailures = lens _cdIgnoreApplicationStopFailures (\ s a -> s{_cdIgnoreApplicationStopFailures = a});
+cdrqIgnoreApplicationStopFailures :: Lens' CreateDeployment (Maybe Bool)
+cdrqIgnoreApplicationStopFailures = lens _cdrqIgnoreApplicationStopFailures (\ s a -> s{_cdrqIgnoreApplicationStopFailures = a});
 
 -- | The deployment group\'s name.
-cdDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
-cdDeploymentGroupName = lens _cdDeploymentGroupName (\ s a -> s{_cdDeploymentGroupName = a});
+cdrqDeploymentGroupName :: Lens' CreateDeployment (Maybe Text)
+cdrqDeploymentGroupName = lens _cdrqDeploymentGroupName (\ s a -> s{_cdrqDeploymentGroupName = a});
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-cdApplicationName :: Lens' CreateDeployment Text
-cdApplicationName = lens _cdApplicationName (\ s a -> s{_cdApplicationName = a});
+cdrqApplicationName :: Lens' CreateDeployment Text
+cdrqApplicationName = lens _cdrqApplicationName (\ s a -> s{_cdrqApplicationName = a});
 
 instance AWSRequest CreateDeployment where
         type Sv CreateDeployment = CodeDeploy
@@ -150,13 +150,13 @@ instance ToHeaders CreateDeployment where
 instance ToJSON CreateDeployment where
         toJSON CreateDeployment'{..}
           = object
-              ["deploymentConfigName" .= _cdDeploymentConfigName,
-               "revision" .= _cdRevision,
-               "description" .= _cdDescription,
+              ["deploymentConfigName" .= _cdrqDeploymentConfigName,
+               "revision" .= _cdrqRevision,
+               "description" .= _cdrqDescription,
                "ignoreApplicationStopFailures" .=
-                 _cdIgnoreApplicationStopFailures,
-               "deploymentGroupName" .= _cdDeploymentGroupName,
-               "applicationName" .= _cdApplicationName]
+                 _cdrqIgnoreApplicationStopFailures,
+               "deploymentGroupName" .= _cdrqDeploymentGroupName,
+               "applicationName" .= _cdrqApplicationName]
 
 instance ToPath CreateDeployment where
         toPath = const "/"
@@ -170,26 +170,26 @@ instance ToQuery CreateDeployment where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrDeploymentId'
+-- * 'cdrsDeploymentId'
 --
--- * 'cdrStatus'
+-- * 'cdrsStatus'
 data CreateDeploymentResponse = CreateDeploymentResponse'
-    { _cdrDeploymentId :: !(Maybe Text)
-    , _cdrStatus       :: !Int
+    { _cdrsDeploymentId :: !(Maybe Text)
+    , _cdrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentResponse' smart constructor.
 createDeploymentResponse :: Int -> CreateDeploymentResponse
 createDeploymentResponse pStatus =
     CreateDeploymentResponse'
-    { _cdrDeploymentId = Nothing
-    , _cdrStatus = pStatus
+    { _cdrsDeploymentId = Nothing
+    , _cdrsStatus = pStatus
     }
 
 -- | A unique deployment ID.
-cdrDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
-cdrDeploymentId = lens _cdrDeploymentId (\ s a -> s{_cdrDeploymentId = a});
+cdrsDeploymentId :: Lens' CreateDeploymentResponse (Maybe Text)
+cdrsDeploymentId = lens _cdrsDeploymentId (\ s a -> s{_cdrsDeploymentId = a});
 
 -- | FIXME: Undocumented member.
-cdrStatus :: Lens' CreateDeploymentResponse Int
-cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});
+cdrsStatus :: Lens' CreateDeploymentResponse Int
+cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

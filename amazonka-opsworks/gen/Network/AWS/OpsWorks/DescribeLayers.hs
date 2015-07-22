@@ -35,16 +35,16 @@ module Network.AWS.OpsWorks.DescribeLayers
     -- ** Request constructor
     , describeLayers
     -- ** Request lenses
-    , dlLayerIds
-    , dlStackId
+    , dlrqLayerIds
+    , dlrqStackId
 
     -- * Response
     , DescribeLayersResponse
     -- ** Response constructor
     , describeLayersResponse
     -- ** Response lenses
-    , dlrLayers
-    , dlrStatus
+    , dlrsLayers
+    , dlrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -56,31 +56,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlLayerIds'
+-- * 'dlrqLayerIds'
 --
--- * 'dlStackId'
+-- * 'dlrqStackId'
 data DescribeLayers = DescribeLayers'
-    { _dlLayerIds :: !(Maybe [Text])
-    , _dlStackId  :: !(Maybe Text)
+    { _dlrqLayerIds :: !(Maybe [Text])
+    , _dlrqStackId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLayers' smart constructor.
 describeLayers :: DescribeLayers
 describeLayers =
     DescribeLayers'
-    { _dlLayerIds = Nothing
-    , _dlStackId = Nothing
+    { _dlrqLayerIds = Nothing
+    , _dlrqStackId = Nothing
     }
 
 -- | An array of layer IDs that specify the layers to be described. If you
 -- omit this parameter, @DescribeLayers@ returns a description of every
 -- layer in the specified stack.
-dlLayerIds :: Lens' DescribeLayers [Text]
-dlLayerIds = lens _dlLayerIds (\ s a -> s{_dlLayerIds = a}) . _Default;
+dlrqLayerIds :: Lens' DescribeLayers [Text]
+dlrqLayerIds = lens _dlrqLayerIds (\ s a -> s{_dlrqLayerIds = a}) . _Default;
 
 -- | The stack ID.
-dlStackId :: Lens' DescribeLayers (Maybe Text)
-dlStackId = lens _dlStackId (\ s a -> s{_dlStackId = a});
+dlrqStackId :: Lens' DescribeLayers (Maybe Text)
+dlrqStackId = lens _dlrqStackId (\ s a -> s{_dlrqStackId = a});
 
 instance AWSRequest DescribeLayers where
         type Sv DescribeLayers = OpsWorks
@@ -104,7 +104,8 @@ instance ToHeaders DescribeLayers where
 instance ToJSON DescribeLayers where
         toJSON DescribeLayers'{..}
           = object
-              ["LayerIds" .= _dlLayerIds, "StackId" .= _dlStackId]
+              ["LayerIds" .= _dlrqLayerIds,
+               "StackId" .= _dlrqStackId]
 
 instance ToPath DescribeLayers where
         toPath = const "/"
@@ -118,26 +119,26 @@ instance ToQuery DescribeLayers where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlrLayers'
+-- * 'dlrsLayers'
 --
--- * 'dlrStatus'
+-- * 'dlrsStatus'
 data DescribeLayersResponse = DescribeLayersResponse'
-    { _dlrLayers :: !(Maybe [Layer])
-    , _dlrStatus :: !Int
+    { _dlrsLayers :: !(Maybe [Layer])
+    , _dlrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLayersResponse' smart constructor.
 describeLayersResponse :: Int -> DescribeLayersResponse
 describeLayersResponse pStatus =
     DescribeLayersResponse'
-    { _dlrLayers = Nothing
-    , _dlrStatus = pStatus
+    { _dlrsLayers = Nothing
+    , _dlrsStatus = pStatus
     }
 
 -- | An array of @Layer@ objects that describe the layers.
-dlrLayers :: Lens' DescribeLayersResponse [Layer]
-dlrLayers = lens _dlrLayers (\ s a -> s{_dlrLayers = a}) . _Default;
+dlrsLayers :: Lens' DescribeLayersResponse [Layer]
+dlrsLayers = lens _dlrsLayers (\ s a -> s{_dlrsLayers = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlrStatus :: Lens' DescribeLayersResponse Int
-dlrStatus = lens _dlrStatus (\ s a -> s{_dlrStatus = a});
+dlrsStatus :: Lens' DescribeLayersResponse Int
+dlrsStatus = lens _dlrsStatus (\ s a -> s{_dlrsStatus = a});

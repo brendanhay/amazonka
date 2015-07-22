@@ -32,8 +32,8 @@ module Network.AWS.CloudHSM.ListAvailableZones
     -- ** Response constructor
     , listAvailableZonesResponse
     -- ** Response lenses
-    , lazrAZList
-    , lazrStatus
+    , lazrsAZList
+    , lazrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -86,27 +86,27 @@ instance ToQuery ListAvailableZones where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lazrAZList'
+-- * 'lazrsAZList'
 --
--- * 'lazrStatus'
+-- * 'lazrsStatus'
 data ListAvailableZonesResponse = ListAvailableZonesResponse'
-    { _lazrAZList :: !(Maybe [Text])
-    , _lazrStatus :: !Int
+    { _lazrsAZList :: !(Maybe [Text])
+    , _lazrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAvailableZonesResponse' smart constructor.
 listAvailableZonesResponse :: Int -> ListAvailableZonesResponse
 listAvailableZonesResponse pStatus =
     ListAvailableZonesResponse'
-    { _lazrAZList = Nothing
-    , _lazrStatus = pStatus
+    { _lazrsAZList = Nothing
+    , _lazrsStatus = pStatus
     }
 
 -- | The list of Availability Zones that have available AWS CloudHSM
 -- capacity.
-lazrAZList :: Lens' ListAvailableZonesResponse [Text]
-lazrAZList = lens _lazrAZList (\ s a -> s{_lazrAZList = a}) . _Default;
+lazrsAZList :: Lens' ListAvailableZonesResponse [Text]
+lazrsAZList = lens _lazrsAZList (\ s a -> s{_lazrsAZList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lazrStatus :: Lens' ListAvailableZonesResponse Int
-lazrStatus = lens _lazrStatus (\ s a -> s{_lazrStatus = a});
+lazrsStatus :: Lens' ListAvailableZonesResponse Int
+lazrsStatus = lens _lazrsStatus (\ s a -> s{_lazrsStatus = a});

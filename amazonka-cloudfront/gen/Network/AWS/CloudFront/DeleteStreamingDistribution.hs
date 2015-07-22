@@ -27,8 +27,8 @@ module Network.AWS.CloudFront.DeleteStreamingDistribution
     -- ** Request constructor
     , deleteStreamingDistribution
     -- ** Request lenses
-    , dsdIfMatch
-    , dsdId
+    , dsdrqIfMatch
+    , dsdrqId
 
     -- * Response
     , DeleteStreamingDistributionResponse
@@ -47,30 +47,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsdIfMatch'
+-- * 'dsdrqIfMatch'
 --
--- * 'dsdId'
+-- * 'dsdrqId'
 data DeleteStreamingDistribution = DeleteStreamingDistribution'
-    { _dsdIfMatch :: !(Maybe Text)
-    , _dsdId      :: !Text
+    { _dsdrqIfMatch :: !(Maybe Text)
+    , _dsdrqId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStreamingDistribution' smart constructor.
 deleteStreamingDistribution :: Text -> DeleteStreamingDistribution
 deleteStreamingDistribution pId =
     DeleteStreamingDistribution'
-    { _dsdIfMatch = Nothing
-    , _dsdId = pId
+    { _dsdrqIfMatch = Nothing
+    , _dsdrqId = pId
     }
 
 -- | The value of the ETag header you received when you disabled the
 -- streaming distribution. For example: E2QWRUHAPOMQZL.
-dsdIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
-dsdIfMatch = lens _dsdIfMatch (\ s a -> s{_dsdIfMatch = a});
+dsdrqIfMatch :: Lens' DeleteStreamingDistribution (Maybe Text)
+dsdrqIfMatch = lens _dsdrqIfMatch (\ s a -> s{_dsdrqIfMatch = a});
 
 -- | The distribution id.
-dsdId :: Lens' DeleteStreamingDistribution Text
-dsdId = lens _dsdId (\ s a -> s{_dsdId = a});
+dsdrqId :: Lens' DeleteStreamingDistribution Text
+dsdrqId = lens _dsdrqId (\ s a -> s{_dsdrqId = a});
 
 instance AWSRequest DeleteStreamingDistribution where
         type Sv DeleteStreamingDistribution = CloudFront
@@ -82,13 +82,13 @@ instance AWSRequest DeleteStreamingDistribution where
 
 instance ToHeaders DeleteStreamingDistribution where
         toHeaders DeleteStreamingDistribution'{..}
-          = mconcat ["If-Match" =# _dsdIfMatch]
+          = mconcat ["If-Match" =# _dsdrqIfMatch]
 
 instance ToPath DeleteStreamingDistribution where
         toPath DeleteStreamingDistribution'{..}
           = mconcat
               ["/2015-04-17/streaming-distribution/",
-               toText _dsdId]
+               toText _dsdrqId]
 
 instance ToQuery DeleteStreamingDistribution where
         toQuery = const mempty

@@ -27,18 +27,18 @@ module Network.AWS.S3.GetObjectTorrent
     -- ** Request constructor
     , getObjectTorrent
     -- ** Request lenses
-    , gotRequestPayer
-    , gotBucket
-    , gotKey
+    , gotrqRequestPayer
+    , gotrqBucket
+    , gotrqKey
 
     -- * Response
     , GetObjectTorrentResponse
     -- ** Response constructor
     , getObjectTorrentResponse
     -- ** Response lenses
-    , gotrRequestCharged
-    , gotrStatus
-    , gotrBody
+    , gotrsRequestCharged
+    , gotrsStatus
+    , gotrsBody
     ) where
 
 import           Network.AWS.Prelude
@@ -50,37 +50,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gotRequestPayer'
+-- * 'gotrqRequestPayer'
 --
--- * 'gotBucket'
+-- * 'gotrqBucket'
 --
--- * 'gotKey'
+-- * 'gotrqKey'
 data GetObjectTorrent = GetObjectTorrent'
-    { _gotRequestPayer :: !(Maybe RequestPayer)
-    , _gotBucket       :: !BucketName
-    , _gotKey          :: !ObjectKey
+    { _gotrqRequestPayer :: !(Maybe RequestPayer)
+    , _gotrqBucket       :: !BucketName
+    , _gotrqKey          :: !ObjectKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetObjectTorrent' smart constructor.
 getObjectTorrent :: BucketName -> ObjectKey -> GetObjectTorrent
 getObjectTorrent pBucket pKey =
     GetObjectTorrent'
-    { _gotRequestPayer = Nothing
-    , _gotBucket = pBucket
-    , _gotKey = pKey
+    { _gotrqRequestPayer = Nothing
+    , _gotrqBucket = pBucket
+    , _gotrqKey = pKey
     }
 
 -- | FIXME: Undocumented member.
-gotRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
-gotRequestPayer = lens _gotRequestPayer (\ s a -> s{_gotRequestPayer = a});
+gotrqRequestPayer :: Lens' GetObjectTorrent (Maybe RequestPayer)
+gotrqRequestPayer = lens _gotrqRequestPayer (\ s a -> s{_gotrqRequestPayer = a});
 
 -- | FIXME: Undocumented member.
-gotBucket :: Lens' GetObjectTorrent BucketName
-gotBucket = lens _gotBucket (\ s a -> s{_gotBucket = a});
+gotrqBucket :: Lens' GetObjectTorrent BucketName
+gotrqBucket = lens _gotrqBucket (\ s a -> s{_gotrqBucket = a});
 
 -- | FIXME: Undocumented member.
-gotKey :: Lens' GetObjectTorrent ObjectKey
-gotKey = lens _gotKey (\ s a -> s{_gotKey = a});
+gotrqKey :: Lens' GetObjectTorrent ObjectKey
+gotrqKey = lens _gotrqKey (\ s a -> s{_gotrqKey = a});
 
 instance AWSRequest GetObjectTorrent where
         type Sv GetObjectTorrent = S3
@@ -96,12 +96,13 @@ instance AWSRequest GetObjectTorrent where
 
 instance ToHeaders GetObjectTorrent where
         toHeaders GetObjectTorrent'{..}
-          = mconcat ["x-amz-request-payer" =# _gotRequestPayer]
+          = mconcat
+              ["x-amz-request-payer" =# _gotrqRequestPayer]
 
 instance ToPath GetObjectTorrent where
         toPath GetObjectTorrent'{..}
           = mconcat
-              ["/", toText _gotBucket, "/", toText _gotKey]
+              ["/", toText _gotrqBucket, "/", toText _gotrqKey]
 
 instance ToQuery GetObjectTorrent where
         toQuery = const (mconcat ["torrent"])
@@ -110,34 +111,34 @@ instance ToQuery GetObjectTorrent where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gotrRequestCharged'
+-- * 'gotrsRequestCharged'
 --
--- * 'gotrStatus'
+-- * 'gotrsStatus'
 --
--- * 'gotrBody'
+-- * 'gotrsBody'
 data GetObjectTorrentResponse = GetObjectTorrentResponse'
-    { _gotrRequestCharged :: !(Maybe RequestCharged)
-    , _gotrStatus         :: !Int
-    , _gotrBody           :: !RsBody
+    { _gotrsRequestCharged :: !(Maybe RequestCharged)
+    , _gotrsStatus         :: !Int
+    , _gotrsBody           :: !RsBody
     } deriving (Show,Generic)
 
 -- | 'GetObjectTorrentResponse' smart constructor.
 getObjectTorrentResponse :: Int -> RsBody -> GetObjectTorrentResponse
 getObjectTorrentResponse pStatus pBody =
     GetObjectTorrentResponse'
-    { _gotrRequestCharged = Nothing
-    , _gotrStatus = pStatus
-    , _gotrBody = pBody
+    { _gotrsRequestCharged = Nothing
+    , _gotrsStatus = pStatus
+    , _gotrsBody = pBody
     }
 
 -- | FIXME: Undocumented member.
-gotrRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
-gotrRequestCharged = lens _gotrRequestCharged (\ s a -> s{_gotrRequestCharged = a});
+gotrsRequestCharged :: Lens' GetObjectTorrentResponse (Maybe RequestCharged)
+gotrsRequestCharged = lens _gotrsRequestCharged (\ s a -> s{_gotrsRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-gotrStatus :: Lens' GetObjectTorrentResponse Int
-gotrStatus = lens _gotrStatus (\ s a -> s{_gotrStatus = a});
+gotrsStatus :: Lens' GetObjectTorrentResponse Int
+gotrsStatus = lens _gotrsStatus (\ s a -> s{_gotrsStatus = a});
 
 -- | FIXME: Undocumented member.
-gotrBody :: Lens' GetObjectTorrentResponse RsBody
-gotrBody = lens _gotrBody (\ s a -> s{_gotrBody = a});
+gotrsBody :: Lens' GetObjectTorrentResponse RsBody
+gotrsBody = lens _gotrsBody (\ s a -> s{_gotrsBody = a});

@@ -64,7 +64,7 @@ module Network.AWS.WorkSpaces.Types
     -- * RebootRequest
     , RebootRequest
     , rebootRequest
-    , rebWorkspaceId
+    , rWorkspaceId
 
     -- * RebuildRequest
     , RebuildRequest
@@ -84,15 +84,15 @@ module Network.AWS.WorkSpaces.Types
     -- * Workspace
     , Workspace
     , workspace
-    , worDirectoryId
-    , worIPAddress
-    , worState
-    , worUserName
-    , worSubnetId
-    , worBundleId
-    , worErrorCode
-    , worWorkspaceId
-    , worErrorMessage
+    , wDirectoryId
+    , wIPAddress
+    , wState
+    , wUserName
+    , wSubnetId
+    , wBundleId
+    , wErrorCode
+    , wWorkspaceId
+    , wErrorMessage
 
     -- * WorkspaceBundle
     , WorkspaceBundle

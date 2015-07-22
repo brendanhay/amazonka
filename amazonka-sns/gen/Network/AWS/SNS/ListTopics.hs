@@ -30,16 +30,16 @@ module Network.AWS.SNS.ListTopics
     -- ** Request constructor
     , listTopics
     -- ** Request lenses
-    , ltNextToken
+    , ltrqNextToken
 
     -- * Response
     , ListTopicsResponse
     -- ** Response constructor
     , listTopicsResponse
     -- ** Response lenses
-    , ltrTopics
-    , ltrNextToken
-    , ltrStatus
+    , ltrsTopics
+    , ltrsNextToken
+    , ltrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -52,28 +52,28 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltNextToken'
+-- * 'ltrqNextToken'
 newtype ListTopics = ListTopics'
-    { _ltNextToken :: Maybe Text
+    { _ltrqNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTopics' smart constructor.
 listTopics :: ListTopics
 listTopics =
     ListTopics'
-    { _ltNextToken = Nothing
+    { _ltrqNextToken = Nothing
     }
 
 -- | Token returned by the previous @ListTopics@ request.
-ltNextToken :: Lens' ListTopics (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
+ltrqNextToken :: Lens' ListTopics (Maybe Text)
+ltrqNextToken = lens _ltrqNextToken (\ s a -> s{_ltrqNextToken = a});
 
 instance AWSPager ListTopics where
         page rq rs
-          | stop (rs ^. ltrNextToken) = Nothing
-          | stop (rs ^. ltrTopics) = Nothing
+          | stop (rs ^. ltrsNextToken) = Nothing
+          | stop (rs ^. ltrsTopics) = Nothing
           | otherwise =
-            Just $ rq & ltNextToken .~ rs ^. ltrNextToken
+            Just $ rq & ltrqNextToken .~ rs ^. ltrsNextToken
 
 instance AWSRequest ListTopics where
         type Sv ListTopics = SNS
@@ -99,7 +99,7 @@ instance ToQuery ListTopics where
           = mconcat
               ["Action" =: ("ListTopics" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _ltNextToken]
+               "NextToken" =: _ltrqNextToken]
 
 -- | Response for ListTopics action.
 --
@@ -107,35 +107,35 @@ instance ToQuery ListTopics where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltrTopics'
+-- * 'ltrsTopics'
 --
--- * 'ltrNextToken'
+-- * 'ltrsNextToken'
 --
--- * 'ltrStatus'
+-- * 'ltrsStatus'
 data ListTopicsResponse = ListTopicsResponse'
-    { _ltrTopics    :: !(Maybe [Topic])
-    , _ltrNextToken :: !(Maybe Text)
-    , _ltrStatus    :: !Int
+    { _ltrsTopics    :: !(Maybe [Topic])
+    , _ltrsNextToken :: !(Maybe Text)
+    , _ltrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTopicsResponse' smart constructor.
 listTopicsResponse :: Int -> ListTopicsResponse
 listTopicsResponse pStatus =
     ListTopicsResponse'
-    { _ltrTopics = Nothing
-    , _ltrNextToken = Nothing
-    , _ltrStatus = pStatus
+    { _ltrsTopics = Nothing
+    , _ltrsNextToken = Nothing
+    , _ltrsStatus = pStatus
     }
 
 -- | A list of topic ARNs.
-ltrTopics :: Lens' ListTopicsResponse [Topic]
-ltrTopics = lens _ltrTopics (\ s a -> s{_ltrTopics = a}) . _Default;
+ltrsTopics :: Lens' ListTopicsResponse [Topic]
+ltrsTopics = lens _ltrsTopics (\ s a -> s{_ltrsTopics = a}) . _Default;
 
 -- | Token to pass along to the next @ListTopics@ request. This element is
 -- returned if there are additional topics to retrieve.
-ltrNextToken :: Lens' ListTopicsResponse (Maybe Text)
-ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
+ltrsNextToken :: Lens' ListTopicsResponse (Maybe Text)
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltrStatus :: Lens' ListTopicsResponse Int
-ltrStatus = lens _ltrStatus (\ s a -> s{_ltrStatus = a});
+ltrsStatus :: Lens' ListTopicsResponse Int
+ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

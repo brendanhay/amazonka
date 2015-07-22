@@ -34,16 +34,16 @@ module Network.AWS.IAM.CreateInstanceProfile
     -- ** Request constructor
     , createInstanceProfile
     -- ** Request lenses
-    , cipPath
-    , cipInstanceProfileName
+    , ciprqPath
+    , ciprqInstanceProfileName
 
     -- * Response
     , CreateInstanceProfileResponse
     -- ** Response constructor
     , createInstanceProfileResponse
     -- ** Response lenses
-    , ciprStatus
-    , ciprInstanceProfile
+    , ciprsStatus
+    , ciprsInstanceProfile
     ) where
 
 import           Network.AWS.IAM.Types
@@ -55,20 +55,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cipPath'
+-- * 'ciprqPath'
 --
--- * 'cipInstanceProfileName'
+-- * 'ciprqInstanceProfileName'
 data CreateInstanceProfile = CreateInstanceProfile'
-    { _cipPath                :: !(Maybe Text)
-    , _cipInstanceProfileName :: !Text
+    { _ciprqPath                :: !(Maybe Text)
+    , _ciprqInstanceProfileName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceProfile' smart constructor.
 createInstanceProfile :: Text -> CreateInstanceProfile
 createInstanceProfile pInstanceProfileName =
     CreateInstanceProfile'
-    { _cipPath = Nothing
-    , _cipInstanceProfileName = pInstanceProfileName
+    { _ciprqPath = Nothing
+    , _ciprqInstanceProfileName = pInstanceProfileName
     }
 
 -- | The path to the instance profile. For more information about paths, see
@@ -77,12 +77,12 @@ createInstanceProfile pInstanceProfileName =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cipPath :: Lens' CreateInstanceProfile (Maybe Text)
-cipPath = lens _cipPath (\ s a -> s{_cipPath = a});
+ciprqPath :: Lens' CreateInstanceProfile (Maybe Text)
+ciprqPath = lens _ciprqPath (\ s a -> s{_ciprqPath = a});
 
 -- | The name of the instance profile to create.
-cipInstanceProfileName :: Lens' CreateInstanceProfile Text
-cipInstanceProfileName = lens _cipInstanceProfileName (\ s a -> s{_cipInstanceProfileName = a});
+ciprqInstanceProfileName :: Lens' CreateInstanceProfile Text
+ciprqInstanceProfileName = lens _ciprqInstanceProfileName (\ s a -> s{_ciprqInstanceProfileName = a});
 
 instance AWSRequest CreateInstanceProfile where
         type Sv CreateInstanceProfile = IAM
@@ -106,8 +106,8 @@ instance ToQuery CreateInstanceProfile where
           = mconcat
               ["Action" =: ("CreateInstanceProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _cipPath,
-               "InstanceProfileName" =: _cipInstanceProfileName]
+               "Path" =: _ciprqPath,
+               "InstanceProfileName" =: _ciprqInstanceProfileName]
 
 -- | Contains the response to a successful CreateInstanceProfile request.
 --
@@ -115,26 +115,26 @@ instance ToQuery CreateInstanceProfile where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ciprStatus'
+-- * 'ciprsStatus'
 --
--- * 'ciprInstanceProfile'
+-- * 'ciprsInstanceProfile'
 data CreateInstanceProfileResponse = CreateInstanceProfileResponse'
-    { _ciprStatus          :: !Int
-    , _ciprInstanceProfile :: !InstanceProfile
+    { _ciprsStatus          :: !Int
+    , _ciprsInstanceProfile :: !InstanceProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateInstanceProfileResponse' smart constructor.
 createInstanceProfileResponse :: Int -> InstanceProfile -> CreateInstanceProfileResponse
 createInstanceProfileResponse pStatus pInstanceProfile =
     CreateInstanceProfileResponse'
-    { _ciprStatus = pStatus
-    , _ciprInstanceProfile = pInstanceProfile
+    { _ciprsStatus = pStatus
+    , _ciprsInstanceProfile = pInstanceProfile
     }
 
 -- | FIXME: Undocumented member.
-ciprStatus :: Lens' CreateInstanceProfileResponse Int
-ciprStatus = lens _ciprStatus (\ s a -> s{_ciprStatus = a});
+ciprsStatus :: Lens' CreateInstanceProfileResponse Int
+ciprsStatus = lens _ciprsStatus (\ s a -> s{_ciprsStatus = a});
 
 -- | Information about the instance profile.
-ciprInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
-ciprInstanceProfile = lens _ciprInstanceProfile (\ s a -> s{_ciprInstanceProfile = a});
+ciprsInstanceProfile :: Lens' CreateInstanceProfileResponse InstanceProfile
+ciprsInstanceProfile = lens _ciprsInstanceProfile (\ s a -> s{_ciprsInstanceProfile = a});

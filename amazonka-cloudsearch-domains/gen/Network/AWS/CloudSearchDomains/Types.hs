@@ -29,8 +29,8 @@ module Network.AWS.CloudSearchDomains.Types
     -- * Bucket
     , Bucket
     , bucket
-    , bucValue
-    , bucCount
+    , bValue
+    , bCount
 
     -- * BucketInfo
     , BucketInfo
@@ -53,10 +53,10 @@ module Network.AWS.CloudSearchDomains.Types
     -- * Hits
     , Hits
     , hits
-    , hitCursor
-    , hitHit
-    , hitStart
-    , hitFound
+    , hCursor
+    , hHit
+    , hStart
+    , hFound
 
     -- * SearchStatus
     , SearchStatus
@@ -74,8 +74,8 @@ module Network.AWS.CloudSearchDomains.Types
     -- * SuggestStatus
     , SuggestStatus
     , suggestStatus
-    , sugRid
-    , sugTimems
+    , sRid
+    , sTimems
 
     -- * SuggestionMatch
     , SuggestionMatch

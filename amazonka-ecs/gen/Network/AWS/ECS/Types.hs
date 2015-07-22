@@ -47,24 +47,24 @@ module Network.AWS.ECS.Types
     -- * Cluster
     , Cluster
     , cluster
-    , cluStatus
-    , cluClusterARN
-    , cluRunningTasksCount
-    , cluRegisteredContainerInstancesCount
-    , cluPendingTasksCount
-    , cluClusterName
-    , cluActiveServicesCount
+    , cStatus
+    , cClusterARN
+    , cRunningTasksCount
+    , cRegisteredContainerInstancesCount
+    , cPendingTasksCount
+    , cClusterName
+    , cActiveServicesCount
 
     -- * Container
     , Container
     , container
-    , conNetworkBindings
-    , conContainerARN
-    , conTaskARN
-    , conLastStatus
-    , conReason
-    , conName
-    , conExitCode
+    , cNetworkBindings
+    , cContainerARN
+    , cTaskARN
+    , cLastStatus
+    , cReason
+    , cName
+    , cExitCode
 
     -- * ContainerDefinition
     , ContainerDefinition
@@ -122,20 +122,20 @@ module Network.AWS.ECS.Types
     -- * Deployment
     , Deployment
     , deployment
-    , depStatus
-    , depRunningCount
-    , depCreatedAt
-    , depDesiredCount
-    , depPendingCount
-    , depId
-    , depTaskDefinition
-    , depUpdatedAt
+    , dStatus
+    , dRunningCount
+    , dCreatedAt
+    , dDesiredCount
+    , dPendingCount
+    , dId
+    , dTaskDefinition
+    , dUpdatedAt
 
     -- * Failure
     , Failure
     , failure
-    , faiArn
-    , faiReason
+    , fArn
+    , fReason
 
     -- * HostVolumeProperties
     , HostVolumeProperties
@@ -180,12 +180,12 @@ module Network.AWS.ECS.Types
     -- * Resource
     , Resource
     , resource
-    , resStringSetValue
-    , resIntegerValue
-    , resDoubleValue
-    , resLongValue
-    , resName
-    , resType
+    , rStringSetValue
+    , rIntegerValue
+    , rDoubleValue
+    , rLongValue
+    , rName
+    , rType
 
     -- * ServiceEvent
     , ServiceEvent
@@ -197,15 +197,15 @@ module Network.AWS.ECS.Types
     -- * Task
     , Task
     , task
-    , tasDesiredStatus
-    , tasClusterARN
-    , tasOverrides
-    , tasTaskARN
-    , tasContainerInstanceARN
-    , tasLastStatus
-    , tasContainers
-    , tasStartedBy
-    , tasTaskDefinitionARN
+    , tDesiredStatus
+    , tClusterARN
+    , tOverrides
+    , tTaskARN
+    , tContainerInstanceARN
+    , tLastStatus
+    , tContainers
+    , tStartedBy
+    , tTaskDefinitionARN
 
     -- * TaskDefinition
     , TaskDefinition
@@ -232,8 +232,8 @@ module Network.AWS.ECS.Types
     -- * Volume
     , Volume
     , volume
-    , volName
-    , volHost
+    , vName
+    , vHost
 
     -- * VolumeFrom
     , VolumeFrom

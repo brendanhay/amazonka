@@ -27,45 +27,45 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creSessionToken'
+-- * 'cSessionToken'
 --
--- * 'creExpiration'
+-- * 'cExpiration'
 --
--- * 'creSecretKey'
+-- * 'cSecretKey'
 --
--- * 'creAccessKeyId'
+-- * 'cAccessKeyId'
 data Credentials = Credentials'
-    { _creSessionToken :: !(Maybe Text)
-    , _creExpiration   :: !(Maybe POSIX)
-    , _creSecretKey    :: !(Maybe Text)
-    , _creAccessKeyId  :: !(Maybe Text)
+    { _cSessionToken :: !(Maybe Text)
+    , _cExpiration   :: !(Maybe POSIX)
+    , _cSecretKey    :: !(Maybe Text)
+    , _cAccessKeyId  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Credentials' smart constructor.
 credentials :: Credentials
 credentials =
     Credentials'
-    { _creSessionToken = Nothing
-    , _creExpiration = Nothing
-    , _creSecretKey = Nothing
-    , _creAccessKeyId = Nothing
+    { _cSessionToken = Nothing
+    , _cExpiration = Nothing
+    , _cSecretKey = Nothing
+    , _cAccessKeyId = Nothing
     }
 
 -- | The Session Token portion of the credentials
-creSessionToken :: Lens' Credentials (Maybe Text)
-creSessionToken = lens _creSessionToken (\ s a -> s{_creSessionToken = a});
+cSessionToken :: Lens' Credentials (Maybe Text)
+cSessionToken = lens _cSessionToken (\ s a -> s{_cSessionToken = a});
 
 -- | The date at which these credentials will expire.
-creExpiration :: Lens' Credentials (Maybe UTCTime)
-creExpiration = lens _creExpiration (\ s a -> s{_creExpiration = a}) . mapping _Time;
+cExpiration :: Lens' Credentials (Maybe UTCTime)
+cExpiration = lens _cExpiration (\ s a -> s{_cExpiration = a}) . mapping _Time;
 
 -- | The Secret Access Key portion of the credentials
-creSecretKey :: Lens' Credentials (Maybe Text)
-creSecretKey = lens _creSecretKey (\ s a -> s{_creSecretKey = a});
+cSecretKey :: Lens' Credentials (Maybe Text)
+cSecretKey = lens _cSecretKey (\ s a -> s{_cSecretKey = a});
 
 -- | The Access Key portion of the credentials.
-creAccessKeyId :: Lens' Credentials (Maybe Text)
-creAccessKeyId = lens _creAccessKeyId (\ s a -> s{_creAccessKeyId = a});
+cAccessKeyId :: Lens' Credentials (Maybe Text)
+cAccessKeyId = lens _cAccessKeyId (\ s a -> s{_cAccessKeyId = a});
 
 instance FromJSON Credentials where
         parseJSON

@@ -75,16 +75,16 @@ module Network.AWS.SQS.GetQueueAttributes
     -- ** Request constructor
     , getQueueAttributes
     -- ** Request lenses
-    , gqaAttributeNames
-    , gqaQueueURL
+    , gqarqAttributeNames
+    , gqarqQueueURL
 
     -- * Response
     , GetQueueAttributesResponse
     -- ** Response constructor
     , getQueueAttributesResponse
     -- ** Response lenses
-    , gqarAttributes
-    , gqarStatus
+    , gqarsAttributes
+    , gqarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -96,29 +96,29 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqaAttributeNames'
+-- * 'gqarqAttributeNames'
 --
--- * 'gqaQueueURL'
+-- * 'gqarqQueueURL'
 data GetQueueAttributes = GetQueueAttributes'
-    { _gqaAttributeNames :: !(Maybe [QueueAttributeName])
-    , _gqaQueueURL       :: !Text
+    { _gqarqAttributeNames :: !(Maybe [QueueAttributeName])
+    , _gqarqQueueURL       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueAttributes' smart constructor.
 getQueueAttributes :: Text -> GetQueueAttributes
 getQueueAttributes pQueueURL =
     GetQueueAttributes'
-    { _gqaAttributeNames = Nothing
-    , _gqaQueueURL = pQueueURL
+    { _gqarqAttributeNames = Nothing
+    , _gqarqQueueURL = pQueueURL
     }
 
 -- | A list of attributes to retrieve information for.
-gqaAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
-gqaAttributeNames = lens _gqaAttributeNames (\ s a -> s{_gqaAttributeNames = a}) . _Default;
+gqarqAttributeNames :: Lens' GetQueueAttributes [QueueAttributeName]
+gqarqAttributeNames = lens _gqarqAttributeNames (\ s a -> s{_gqarqAttributeNames = a}) . _Default;
 
 -- | The URL of the Amazon SQS queue to take action on.
-gqaQueueURL :: Lens' GetQueueAttributes Text
-gqaQueueURL = lens _gqaQueueURL (\ s a -> s{_gqaQueueURL = a});
+gqarqQueueURL :: Lens' GetQueueAttributes Text
+gqarqQueueURL = lens _gqarqQueueURL (\ s a -> s{_gqarqQueueURL = a});
 
 instance AWSRequest GetQueueAttributes where
         type Sv GetQueueAttributes = SQS
@@ -144,8 +144,9 @@ instance ToQuery GetQueueAttributes where
               ["Action" =: ("GetQueueAttributes" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
                toQuery
-                 (toQueryList "AttributeName" <$> _gqaAttributeNames),
-               "QueueUrl" =: _gqaQueueURL]
+                 (toQueryList "AttributeName" <$>
+                    _gqarqAttributeNames),
+               "QueueUrl" =: _gqarqQueueURL]
 
 -- | A list of returned queue attributes.
 --
@@ -153,26 +154,26 @@ instance ToQuery GetQueueAttributes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gqarAttributes'
+-- * 'gqarsAttributes'
 --
--- * 'gqarStatus'
+-- * 'gqarsStatus'
 data GetQueueAttributesResponse = GetQueueAttributesResponse'
-    { _gqarAttributes :: !(Maybe (Map QueueAttributeName Text))
-    , _gqarStatus     :: !Int
+    { _gqarsAttributes :: !(Maybe (Map QueueAttributeName Text))
+    , _gqarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetQueueAttributesResponse' smart constructor.
 getQueueAttributesResponse :: Int -> GetQueueAttributesResponse
 getQueueAttributesResponse pStatus =
     GetQueueAttributesResponse'
-    { _gqarAttributes = Nothing
-    , _gqarStatus = pStatus
+    { _gqarsAttributes = Nothing
+    , _gqarsStatus = pStatus
     }
 
 -- | A map of attributes to the respective values.
-gqarAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName Text)
-gqarAttributes = lens _gqarAttributes (\ s a -> s{_gqarAttributes = a}) . _Default . _Map;
+gqarsAttributes :: Lens' GetQueueAttributesResponse (HashMap QueueAttributeName Text)
+gqarsAttributes = lens _gqarsAttributes (\ s a -> s{_gqarsAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gqarStatus :: Lens' GetQueueAttributesResponse Int
-gqarStatus = lens _gqarStatus (\ s a -> s{_gqarStatus = a});
+gqarsStatus :: Lens' GetQueueAttributesResponse Int
+gqarsStatus = lens _gqarsStatus (\ s a -> s{_gqarsStatus = a});

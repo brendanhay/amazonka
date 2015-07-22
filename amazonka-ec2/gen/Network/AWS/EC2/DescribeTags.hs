@@ -31,19 +31,19 @@ module Network.AWS.EC2.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtFilters
-    , dtNextToken
-    , dtDryRun
-    , dtMaxResults
+    , dtrqFilters
+    , dtrqNextToken
+    , dtrqDryRun
+    , dtrqMaxResults
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtrNextToken
-    , dtrTags
-    , dtrStatus
+    , dtrsNextToken
+    , dtrsTags
+    , dtrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -56,28 +56,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtFilters'
+-- * 'dtrqFilters'
 --
--- * 'dtNextToken'
+-- * 'dtrqNextToken'
 --
--- * 'dtDryRun'
+-- * 'dtrqDryRun'
 --
--- * 'dtMaxResults'
+-- * 'dtrqMaxResults'
 data DescribeTags = DescribeTags'
-    { _dtFilters    :: !(Maybe [Filter])
-    , _dtNextToken  :: !(Maybe Text)
-    , _dtDryRun     :: !(Maybe Bool)
-    , _dtMaxResults :: !(Maybe Int)
+    { _dtrqFilters    :: !(Maybe [Filter])
+    , _dtrqNextToken  :: !(Maybe Text)
+    , _dtrqDryRun     :: !(Maybe Bool)
+    , _dtrqMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: DescribeTags
 describeTags =
     DescribeTags'
-    { _dtFilters = Nothing
-    , _dtNextToken = Nothing
-    , _dtDryRun = Nothing
-    , _dtMaxResults = Nothing
+    { _dtrqFilters = Nothing
+    , _dtrqNextToken = Nothing
+    , _dtrqDryRun = Nothing
+    , _dtrqMaxResults = Nothing
     }
 
 -- | One or more filters.
@@ -95,34 +95,34 @@ describeTags =
 --
 -- -   @value@ - The tag value.
 --
-dtFilters :: Lens' DescribeTags [Filter]
-dtFilters = lens _dtFilters (\ s a -> s{_dtFilters = a}) . _Default;
+dtrqFilters :: Lens' DescribeTags [Filter]
+dtrqFilters = lens _dtrqFilters (\ s a -> s{_dtrqFilters = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
-dtNextToken :: Lens' DescribeTags (Maybe Text)
-dtNextToken = lens _dtNextToken (\ s a -> s{_dtNextToken = a});
+dtrqNextToken :: Lens' DescribeTags (Maybe Text)
+dtrqNextToken = lens _dtrqNextToken (\ s a -> s{_dtrqNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dtDryRun :: Lens' DescribeTags (Maybe Bool)
-dtDryRun = lens _dtDryRun (\ s a -> s{_dtDryRun = a});
+dtrqDryRun :: Lens' DescribeTags (Maybe Bool)
+dtrqDryRun = lens _dtrqDryRun (\ s a -> s{_dtrqDryRun = a});
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
 -- sending another request with the returned @NextToken@ value. This value
 -- can be between 5 and 1000; if @MaxResults@ is given a value larger than
 -- 1000, only 1000 results are returned.
-dtMaxResults :: Lens' DescribeTags (Maybe Int)
-dtMaxResults = lens _dtMaxResults (\ s a -> s{_dtMaxResults = a});
+dtrqMaxResults :: Lens' DescribeTags (Maybe Int)
+dtrqMaxResults = lens _dtrqMaxResults (\ s a -> s{_dtrqMaxResults = a});
 
 instance AWSPager DescribeTags where
         page rq rs
-          | stop (rs ^. dtrNextToken) = Nothing
-          | stop (rs ^. dtrTags) = Nothing
+          | stop (rs ^. dtrsNextToken) = Nothing
+          | stop (rs ^. dtrsTags) = Nothing
           | otherwise =
-            Just $ rq & dtNextToken .~ rs ^. dtrNextToken
+            Just $ rq & dtrqNextToken .~ rs ^. dtrsNextToken
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = EC2
@@ -148,43 +148,44 @@ instance ToQuery DescribeTags where
           = mconcat
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dtFilters),
-               "NextToken" =: _dtNextToken, "DryRun" =: _dtDryRun,
-               "MaxResults" =: _dtMaxResults]
+               toQuery (toQueryList "Filter" <$> _dtrqFilters),
+               "NextToken" =: _dtrqNextToken,
+               "DryRun" =: _dtrqDryRun,
+               "MaxResults" =: _dtrqMaxResults]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrNextToken'
+-- * 'dtrsNextToken'
 --
--- * 'dtrTags'
+-- * 'dtrsTags'
 --
--- * 'dtrStatus'
+-- * 'dtrsStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrNextToken :: !(Maybe Text)
-    , _dtrTags      :: !(Maybe [TagDescription])
-    , _dtrStatus    :: !Int
+    { _dtrsNextToken :: !(Maybe Text)
+    , _dtrsTags      :: !(Maybe [TagDescription])
+    , _dtrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
 describeTagsResponse pStatus =
     DescribeTagsResponse'
-    { _dtrNextToken = Nothing
-    , _dtrTags = Nothing
-    , _dtrStatus = pStatus
+    { _dtrsNextToken = Nothing
+    , _dtrsTags = Nothing
+    , _dtrsStatus = pStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return..
-dtrNextToken :: Lens' DescribeTagsResponse (Maybe Text)
-dtrNextToken = lens _dtrNextToken (\ s a -> s{_dtrNextToken = a});
+dtrsNextToken :: Lens' DescribeTagsResponse (Maybe Text)
+dtrsNextToken = lens _dtrsNextToken (\ s a -> s{_dtrsNextToken = a});
 
 -- | A list of tags.
-dtrTags :: Lens' DescribeTagsResponse [TagDescription]
-dtrTags = lens _dtrTags (\ s a -> s{_dtrTags = a}) . _Default;
+dtrsTags :: Lens' DescribeTagsResponse [TagDescription]
+dtrsTags = lens _dtrsTags (\ s a -> s{_dtrsTags = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTagsResponse Int
-dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
+dtrsStatus :: Lens' DescribeTagsResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

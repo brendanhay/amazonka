@@ -30,20 +30,20 @@ module Network.AWS.ElastiCache.DescribeSnapshots
     -- ** Request constructor
     , describeSnapshots
     -- ** Request lenses
-    , dsCacheClusterId
-    , dsMaxRecords
-    , dsMarker
-    , dsSnapshotName
-    , dsSnapshotSource
+    , dsrqCacheClusterId
+    , dsrqMaxRecords
+    , dsrqMarker
+    , dsrqSnapshotName
+    , dsrqSnapshotSource
 
     -- * Response
     , DescribeSnapshotsResponse
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , dsrrSnapshots
-    , dsrrMarker
-    , dsrrStatus
+    , dsrsSnapshots
+    , dsrsMarker
+    , dsrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -58,38 +58,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsCacheClusterId'
+-- * 'dsrqCacheClusterId'
 --
--- * 'dsMaxRecords'
+-- * 'dsrqMaxRecords'
 --
--- * 'dsMarker'
+-- * 'dsrqMarker'
 --
--- * 'dsSnapshotName'
+-- * 'dsrqSnapshotName'
 --
--- * 'dsSnapshotSource'
+-- * 'dsrqSnapshotSource'
 data DescribeSnapshots = DescribeSnapshots'
-    { _dsCacheClusterId :: !(Maybe Text)
-    , _dsMaxRecords     :: !(Maybe Int)
-    , _dsMarker         :: !(Maybe Text)
-    , _dsSnapshotName   :: !(Maybe Text)
-    , _dsSnapshotSource :: !(Maybe Text)
+    { _dsrqCacheClusterId :: !(Maybe Text)
+    , _dsrqMaxRecords     :: !(Maybe Int)
+    , _dsrqMarker         :: !(Maybe Text)
+    , _dsrqSnapshotName   :: !(Maybe Text)
+    , _dsrqSnapshotSource :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
 describeSnapshots =
     DescribeSnapshots'
-    { _dsCacheClusterId = Nothing
-    , _dsMaxRecords = Nothing
-    , _dsMarker = Nothing
-    , _dsSnapshotName = Nothing
-    , _dsSnapshotSource = Nothing
+    { _dsrqCacheClusterId = Nothing
+    , _dsrqMaxRecords = Nothing
+    , _dsrqMarker = Nothing
+    , _dsrqSnapshotName = Nothing
+    , _dsrqSnapshotSource = Nothing
     }
 
 -- | A user-supplied cluster identifier. If this parameter is specified, only
 -- snapshots associated with that specific cache cluster will be described.
-dsCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
-dsCacheClusterId = lens _dsCacheClusterId (\ s a -> s{_dsCacheClusterId = a});
+dsrqCacheClusterId :: Lens' DescribeSnapshots (Maybe Text)
+dsrqCacheClusterId = lens _dsrqCacheClusterId (\ s a -> s{_dsrqCacheClusterId = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a marker is
@@ -98,34 +98,34 @@ dsCacheClusterId = lens _dsCacheClusterId (\ s a -> s{_dsCacheClusterId = a});
 -- Default: 50
 --
 -- Constraints: minimum 20; maximum 50.
-dsMaxRecords :: Lens' DescribeSnapshots (Maybe Int)
-dsMaxRecords = lens _dsMaxRecords (\ s a -> s{_dsMaxRecords = a});
+dsrqMaxRecords :: Lens' DescribeSnapshots (Maybe Int)
+dsrqMaxRecords = lens _dsrqMaxRecords (\ s a -> s{_dsrqMaxRecords = a});
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dsMarker :: Lens' DescribeSnapshots (Maybe Text)
-dsMarker = lens _dsMarker (\ s a -> s{_dsMarker = a});
+dsrqMarker :: Lens' DescribeSnapshots (Maybe Text)
+dsrqMarker = lens _dsrqMarker (\ s a -> s{_dsrqMarker = a});
 
 -- | A user-supplied name of the snapshot. If this parameter is specified,
 -- only this snapshot will be described.
-dsSnapshotName :: Lens' DescribeSnapshots (Maybe Text)
-dsSnapshotName = lens _dsSnapshotName (\ s a -> s{_dsSnapshotName = a});
+dsrqSnapshotName :: Lens' DescribeSnapshots (Maybe Text)
+dsrqSnapshotName = lens _dsrqSnapshotName (\ s a -> s{_dsrqSnapshotName = a});
 
 -- | If set to @system@, the output shows snapshots that were automatically
 -- created by ElastiCache. If set to @user@ the output shows snapshots that
 -- were manually created. If omitted, the output shows both automatically
 -- and manually created snapshots.
-dsSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
-dsSnapshotSource = lens _dsSnapshotSource (\ s a -> s{_dsSnapshotSource = a});
+dsrqSnapshotSource :: Lens' DescribeSnapshots (Maybe Text)
+dsrqSnapshotSource = lens _dsrqSnapshotSource (\ s a -> s{_dsrqSnapshotSource = a});
 
 instance AWSPager DescribeSnapshots where
         page rq rs
-          | stop (rs ^. dsrrMarker) = Nothing
-          | stop (rs ^. dsrrSnapshots) = Nothing
+          | stop (rs ^. dsrsMarker) = Nothing
+          | stop (rs ^. dsrsSnapshots) = Nothing
           | otherwise =
-            Just $ rq & dsMarker .~ rs ^. dsrrMarker
+            Just $ rq & dsrqMarker .~ rs ^. dsrsMarker
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = ElastiCache
@@ -151,10 +151,11 @@ instance ToQuery DescribeSnapshots where
           = mconcat
               ["Action" =: ("DescribeSnapshots" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheClusterId" =: _dsCacheClusterId,
-               "MaxRecords" =: _dsMaxRecords, "Marker" =: _dsMarker,
-               "SnapshotName" =: _dsSnapshotName,
-               "SnapshotSource" =: _dsSnapshotSource]
+               "CacheClusterId" =: _dsrqCacheClusterId,
+               "MaxRecords" =: _dsrqMaxRecords,
+               "Marker" =: _dsrqMarker,
+               "SnapshotName" =: _dsrqSnapshotName,
+               "SnapshotSource" =: _dsrqSnapshotSource]
 
 -- | Represents the output of a /DescribeSnapshots/ action.
 --
@@ -162,38 +163,38 @@ instance ToQuery DescribeSnapshots where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrrSnapshots'
+-- * 'dsrsSnapshots'
 --
--- * 'dsrrMarker'
+-- * 'dsrsMarker'
 --
--- * 'dsrrStatus'
+-- * 'dsrsStatus'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _dsrrSnapshots :: !(Maybe [Snapshot])
-    , _dsrrMarker    :: !(Maybe Text)
-    , _dsrrStatus    :: !Int
+    { _dsrsSnapshots :: !(Maybe [Snapshot])
+    , _dsrsMarker    :: !(Maybe Text)
+    , _dsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
 describeSnapshotsResponse pStatus =
     DescribeSnapshotsResponse'
-    { _dsrrSnapshots = Nothing
-    , _dsrrMarker = Nothing
-    , _dsrrStatus = pStatus
+    { _dsrsSnapshots = Nothing
+    , _dsrsMarker = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | A list of snapshots. Each item in the list contains detailed information
 -- about one snapshot.
-dsrrSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-dsrrSnapshots = lens _dsrrSnapshots (\ s a -> s{_dsrrSnapshots = a}) . _Default;
+dsrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrsSnapshots = lens _dsrsSnapshots (\ s a -> s{_dsrsSnapshots = a}) . _Default;
 
 -- | An optional marker returned from a prior request. Use this marker for
 -- pagination of results from this action. If this parameter is specified,
 -- the response includes only records beyond the marker, up to the value
 -- specified by /MaxRecords/.
-dsrrMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
-dsrrMarker = lens _dsrrMarker (\ s a -> s{_dsrrMarker = a});
+dsrsMarker :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dsrsMarker = lens _dsrsMarker (\ s a -> s{_dsrsMarker = a});
 
 -- | FIXME: Undocumented member.
-dsrrStatus :: Lens' DescribeSnapshotsResponse Int
-dsrrStatus = lens _dsrrStatus (\ s a -> s{_dsrrStatus = a});
+dsrsStatus :: Lens' DescribeSnapshotsResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

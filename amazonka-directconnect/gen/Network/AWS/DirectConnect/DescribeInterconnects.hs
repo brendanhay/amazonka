@@ -30,15 +30,15 @@ module Network.AWS.DirectConnect.DescribeInterconnects
     -- ** Request constructor
     , describeInterconnects
     -- ** Request lenses
-    , diInterconnectId
+    , dirqInterconnectId
 
     -- * Response
     , DescribeInterconnectsResponse
     -- ** Response constructor
     , describeInterconnectsResponse
     -- ** Response lenses
-    , dirInterconnects
-    , dirStatus
+    , dirsInterconnects
+    , dirsStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diInterconnectId'
+-- * 'dirqInterconnectId'
 newtype DescribeInterconnects = DescribeInterconnects'
-    { _diInterconnectId :: Maybe Text
+    { _dirqInterconnectId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInterconnects' smart constructor.
 describeInterconnects :: DescribeInterconnects
 describeInterconnects =
     DescribeInterconnects'
-    { _diInterconnectId = Nothing
+    { _dirqInterconnectId = Nothing
     }
 
 -- | FIXME: Undocumented member.
-diInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
-diInterconnectId = lens _diInterconnectId (\ s a -> s{_diInterconnectId = a});
+dirqInterconnectId :: Lens' DescribeInterconnects (Maybe Text)
+dirqInterconnectId = lens _dirqInterconnectId (\ s a -> s{_dirqInterconnectId = a});
 
 instance AWSRequest DescribeInterconnects where
         type Sv DescribeInterconnects = DirectConnect
@@ -92,7 +92,7 @@ instance ToHeaders DescribeInterconnects where
 
 instance ToJSON DescribeInterconnects where
         toJSON DescribeInterconnects'{..}
-          = object ["interconnectId" .= _diInterconnectId]
+          = object ["interconnectId" .= _dirqInterconnectId]
 
 instance ToPath DescribeInterconnects where
         toPath = const "/"
@@ -106,26 +106,26 @@ instance ToQuery DescribeInterconnects where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirInterconnects'
+-- * 'dirsInterconnects'
 --
--- * 'dirStatus'
+-- * 'dirsStatus'
 data DescribeInterconnectsResponse = DescribeInterconnectsResponse'
-    { _dirInterconnects :: !(Maybe [Interconnect])
-    , _dirStatus        :: !Int
+    { _dirsInterconnects :: !(Maybe [Interconnect])
+    , _dirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInterconnectsResponse' smart constructor.
 describeInterconnectsResponse :: Int -> DescribeInterconnectsResponse
 describeInterconnectsResponse pStatus =
     DescribeInterconnectsResponse'
-    { _dirInterconnects = Nothing
-    , _dirStatus = pStatus
+    { _dirsInterconnects = Nothing
+    , _dirsStatus = pStatus
     }
 
 -- | A list of interconnects.
-dirInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
-dirInterconnects = lens _dirInterconnects (\ s a -> s{_dirInterconnects = a}) . _Default;
+dirsInterconnects :: Lens' DescribeInterconnectsResponse [Interconnect]
+dirsInterconnects = lens _dirsInterconnects (\ s a -> s{_dirsInterconnects = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DescribeInterconnectsResponse Int
-dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});
+dirsStatus :: Lens' DescribeInterconnectsResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

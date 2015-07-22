@@ -39,9 +39,9 @@ module Network.AWS.IAM.UpdateGroup
     -- ** Request constructor
     , updateGroup
     -- ** Request lenses
-    , ugNewGroupName
-    , ugNewPath
-    , ugGroupName
+    , ugrqNewGroupName
+    , ugrqNewPath
+    , ugrqGroupName
 
     -- * Response
     , UpdateGroupResponse
@@ -58,38 +58,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ugNewGroupName'
+-- * 'ugrqNewGroupName'
 --
--- * 'ugNewPath'
+-- * 'ugrqNewPath'
 --
--- * 'ugGroupName'
+-- * 'ugrqGroupName'
 data UpdateGroup = UpdateGroup'
-    { _ugNewGroupName :: !(Maybe Text)
-    , _ugNewPath      :: !(Maybe Text)
-    , _ugGroupName    :: !Text
+    { _ugrqNewGroupName :: !(Maybe Text)
+    , _ugrqNewPath      :: !(Maybe Text)
+    , _ugrqGroupName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGroup' smart constructor.
 updateGroup :: Text -> UpdateGroup
 updateGroup pGroupName =
     UpdateGroup'
-    { _ugNewGroupName = Nothing
-    , _ugNewPath = Nothing
-    , _ugGroupName = pGroupName
+    { _ugrqNewGroupName = Nothing
+    , _ugrqNewPath = Nothing
+    , _ugrqGroupName = pGroupName
     }
 
 -- | New name for the group. Only include this if changing the group\'s name.
-ugNewGroupName :: Lens' UpdateGroup (Maybe Text)
-ugNewGroupName = lens _ugNewGroupName (\ s a -> s{_ugNewGroupName = a});
+ugrqNewGroupName :: Lens' UpdateGroup (Maybe Text)
+ugrqNewGroupName = lens _ugrqNewGroupName (\ s a -> s{_ugrqNewGroupName = a});
 
 -- | New path for the group. Only include this if changing the group\'s path.
-ugNewPath :: Lens' UpdateGroup (Maybe Text)
-ugNewPath = lens _ugNewPath (\ s a -> s{_ugNewPath = a});
+ugrqNewPath :: Lens' UpdateGroup (Maybe Text)
+ugrqNewPath = lens _ugrqNewPath (\ s a -> s{_ugrqNewPath = a});
 
 -- | Name of the group to update. If you\'re changing the name of the group,
 -- this is the original name.
-ugGroupName :: Lens' UpdateGroup Text
-ugGroupName = lens _ugGroupName (\ s a -> s{_ugGroupName = a});
+ugrqGroupName :: Lens' UpdateGroup Text
+ugrqGroupName = lens _ugrqGroupName (\ s a -> s{_ugrqGroupName = a});
 
 instance AWSRequest UpdateGroup where
         type Sv UpdateGroup = IAM
@@ -108,8 +108,9 @@ instance ToQuery UpdateGroup where
           = mconcat
               ["Action" =: ("UpdateGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "NewGroupName" =: _ugNewGroupName,
-               "NewPath" =: _ugNewPath, "GroupName" =: _ugGroupName]
+               "NewGroupName" =: _ugrqNewGroupName,
+               "NewPath" =: _ugrqNewPath,
+               "GroupName" =: _ugrqGroupName]
 
 -- | /See:/ 'updateGroupResponse' smart constructor.
 data UpdateGroupResponse =

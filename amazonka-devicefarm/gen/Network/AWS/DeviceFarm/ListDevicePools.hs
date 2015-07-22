@@ -27,18 +27,18 @@ module Network.AWS.DeviceFarm.ListDevicePools
     -- ** Request constructor
     , listDevicePools
     -- ** Request lenses
-    , ldpNextToken
-    , ldpType
-    , ldpArn
+    , ldprqNextToken
+    , ldprqType
+    , ldprqArn
 
     -- * Response
     , ListDevicePoolsResponse
     -- ** Response constructor
     , listDevicePoolsResponse
     -- ** Response lenses
-    , ldprDevicePools
-    , ldprNextToken
-    , ldprStatus
+    , ldprsDevicePools
+    , ldprsNextToken
+    , ldprsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -52,31 +52,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldpNextToken'
+-- * 'ldprqNextToken'
 --
--- * 'ldpType'
+-- * 'ldprqType'
 --
--- * 'ldpArn'
+-- * 'ldprqArn'
 data ListDevicePools = ListDevicePools'
-    { _ldpNextToken :: !(Maybe Text)
-    , _ldpType      :: !(Maybe DevicePoolType)
-    , _ldpArn       :: !Text
+    { _ldprqNextToken :: !(Maybe Text)
+    , _ldprqType      :: !(Maybe DevicePoolType)
+    , _ldprqArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevicePools' smart constructor.
 listDevicePools :: Text -> ListDevicePools
 listDevicePools pArn =
     ListDevicePools'
-    { _ldpNextToken = Nothing
-    , _ldpType = Nothing
-    , _ldpArn = pArn
+    { _ldprqNextToken = Nothing
+    , _ldprqType = Nothing
+    , _ldprqArn = pArn
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-ldpNextToken :: Lens' ListDevicePools (Maybe Text)
-ldpNextToken = lens _ldpNextToken (\ s a -> s{_ldpNextToken = a});
+ldprqNextToken :: Lens' ListDevicePools (Maybe Text)
+ldprqNextToken = lens _ldprqNextToken (\ s a -> s{_ldprqNextToken = a});
 
 -- | The device pools\' type.
 --
@@ -88,12 +88,12 @@ ldpNextToken = lens _ldpNextToken (\ s a -> s{_ldpNextToken = a});
 -- -   PRIVATE: A device pool that is created and managed by the device
 --     pool developer.
 --
-ldpType :: Lens' ListDevicePools (Maybe DevicePoolType)
-ldpType = lens _ldpType (\ s a -> s{_ldpType = a});
+ldprqType :: Lens' ListDevicePools (Maybe DevicePoolType)
+ldprqType = lens _ldprqType (\ s a -> s{_ldprqType = a});
 
 -- | The project ARN.
-ldpArn :: Lens' ListDevicePools Text
-ldpArn = lens _ldpArn (\ s a -> s{_ldpArn = a});
+ldprqArn :: Lens' ListDevicePools Text
+ldprqArn = lens _ldprqArn (\ s a -> s{_ldprqArn = a});
 
 instance AWSRequest ListDevicePools where
         type Sv ListDevicePools = DeviceFarm
@@ -120,8 +120,8 @@ instance ToHeaders ListDevicePools where
 instance ToJSON ListDevicePools where
         toJSON ListDevicePools'{..}
           = object
-              ["nextToken" .= _ldpNextToken, "type" .= _ldpType,
-               "arn" .= _ldpArn]
+              ["nextToken" .= _ldprqNextToken,
+               "type" .= _ldprqType, "arn" .= _ldprqArn]
 
 instance ToPath ListDevicePools where
         toPath = const "/"
@@ -135,36 +135,36 @@ instance ToQuery ListDevicePools where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldprDevicePools'
+-- * 'ldprsDevicePools'
 --
--- * 'ldprNextToken'
+-- * 'ldprsNextToken'
 --
--- * 'ldprStatus'
+-- * 'ldprsStatus'
 data ListDevicePoolsResponse = ListDevicePoolsResponse'
-    { _ldprDevicePools :: !(Maybe [DevicePool])
-    , _ldprNextToken   :: !(Maybe Text)
-    , _ldprStatus      :: !Int
+    { _ldprsDevicePools :: !(Maybe [DevicePool])
+    , _ldprsNextToken   :: !(Maybe Text)
+    , _ldprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDevicePoolsResponse' smart constructor.
 listDevicePoolsResponse :: Int -> ListDevicePoolsResponse
 listDevicePoolsResponse pStatus =
     ListDevicePoolsResponse'
-    { _ldprDevicePools = Nothing
-    , _ldprNextToken = Nothing
-    , _ldprStatus = pStatus
+    { _ldprsDevicePools = Nothing
+    , _ldprsNextToken = Nothing
+    , _ldprsStatus = pStatus
     }
 
 -- | Information about the device pools.
-ldprDevicePools :: Lens' ListDevicePoolsResponse [DevicePool]
-ldprDevicePools = lens _ldprDevicePools (\ s a -> s{_ldprDevicePools = a}) . _Default;
+ldprsDevicePools :: Lens' ListDevicePoolsResponse [DevicePool]
+ldprsDevicePools = lens _ldprsDevicePools (\ s a -> s{_ldprsDevicePools = a}) . _Default;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-ldprNextToken :: Lens' ListDevicePoolsResponse (Maybe Text)
-ldprNextToken = lens _ldprNextToken (\ s a -> s{_ldprNextToken = a});
+ldprsNextToken :: Lens' ListDevicePoolsResponse (Maybe Text)
+ldprsNextToken = lens _ldprsNextToken (\ s a -> s{_ldprsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ldprStatus :: Lens' ListDevicePoolsResponse Int
-ldprStatus = lens _ldprStatus (\ s a -> s{_ldprStatus = a});
+ldprsStatus :: Lens' ListDevicePoolsResponse Int
+ldprsStatus = lens _ldprsStatus (\ s a -> s{_ldprsStatus = a});

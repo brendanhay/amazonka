@@ -35,17 +35,17 @@ module Network.AWS.EC2.DescribeAvailabilityZones
     -- ** Request constructor
     , describeAvailabilityZones
     -- ** Request lenses
-    , dazZoneNames
-    , dazFilters
-    , dazDryRun
+    , dazrqZoneNames
+    , dazrqFilters
+    , dazrqDryRun
 
     -- * Response
     , DescribeAvailabilityZonesResponse
     -- ** Response constructor
     , describeAvailabilityZonesResponse
     -- ** Response lenses
-    , dazrAvailabilityZones
-    , dazrStatus
+    , dazrsAvailabilityZones
+    , dazrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -57,29 +57,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dazZoneNames'
+-- * 'dazrqZoneNames'
 --
--- * 'dazFilters'
+-- * 'dazrqFilters'
 --
--- * 'dazDryRun'
+-- * 'dazrqDryRun'
 data DescribeAvailabilityZones = DescribeAvailabilityZones'
-    { _dazZoneNames :: !(Maybe [Text])
-    , _dazFilters   :: !(Maybe [Filter])
-    , _dazDryRun    :: !(Maybe Bool)
+    { _dazrqZoneNames :: !(Maybe [Text])
+    , _dazrqFilters   :: !(Maybe [Filter])
+    , _dazrqDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityZones' smart constructor.
 describeAvailabilityZones :: DescribeAvailabilityZones
 describeAvailabilityZones =
     DescribeAvailabilityZones'
-    { _dazZoneNames = Nothing
-    , _dazFilters = Nothing
-    , _dazDryRun = Nothing
+    { _dazrqZoneNames = Nothing
+    , _dazrqFilters = Nothing
+    , _dazrqDryRun = Nothing
     }
 
 -- | The names of one or more Availability Zones.
-dazZoneNames :: Lens' DescribeAvailabilityZones [Text]
-dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default;
+dazrqZoneNames :: Lens' DescribeAvailabilityZones [Text]
+dazrqZoneNames = lens _dazrqZoneNames (\ s a -> s{_dazrqZoneNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -94,15 +94,15 @@ dazZoneNames = lens _dazZoneNames (\ s a -> s{_dazZoneNames = a}) . _Default;
 -- -   @zone-name@ - The name of the Availability Zone (for example,
 --     @us-east-1a@).
 --
-dazFilters :: Lens' DescribeAvailabilityZones [Filter]
-dazFilters = lens _dazFilters (\ s a -> s{_dazFilters = a}) . _Default;
+dazrqFilters :: Lens' DescribeAvailabilityZones [Filter]
+dazrqFilters = lens _dazrqFilters (\ s a -> s{_dazrqFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dazDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
-dazDryRun = lens _dazDryRun (\ s a -> s{_dazDryRun = a});
+dazrqDryRun :: Lens' DescribeAvailabilityZones (Maybe Bool)
+dazrqDryRun = lens _dazrqDryRun (\ s a -> s{_dazrqDryRun = a});
 
 instance AWSRequest DescribeAvailabilityZones where
         type Sv DescribeAvailabilityZones = EC2
@@ -129,34 +129,34 @@ instance ToQuery DescribeAvailabilityZones where
               ["Action" =:
                  ("DescribeAvailabilityZones" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "ZoneName" <$> _dazZoneNames),
-               toQuery (toQueryList "Filter" <$> _dazFilters),
-               "DryRun" =: _dazDryRun]
+               toQuery (toQueryList "ZoneName" <$> _dazrqZoneNames),
+               toQuery (toQueryList "Filter" <$> _dazrqFilters),
+               "DryRun" =: _dazrqDryRun]
 
 -- | /See:/ 'describeAvailabilityZonesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dazrAvailabilityZones'
+-- * 'dazrsAvailabilityZones'
 --
--- * 'dazrStatus'
+-- * 'dazrsStatus'
 data DescribeAvailabilityZonesResponse = DescribeAvailabilityZonesResponse'
-    { _dazrAvailabilityZones :: !(Maybe [AvailabilityZone])
-    , _dazrStatus            :: !Int
+    { _dazrsAvailabilityZones :: !(Maybe [AvailabilityZone])
+    , _dazrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAvailabilityZonesResponse' smart constructor.
 describeAvailabilityZonesResponse :: Int -> DescribeAvailabilityZonesResponse
 describeAvailabilityZonesResponse pStatus =
     DescribeAvailabilityZonesResponse'
-    { _dazrAvailabilityZones = Nothing
-    , _dazrStatus = pStatus
+    { _dazrsAvailabilityZones = Nothing
+    , _dazrsStatus = pStatus
     }
 
 -- | Information about one or more Availability Zones.
-dazrAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
-dazrAvailabilityZones = lens _dazrAvailabilityZones (\ s a -> s{_dazrAvailabilityZones = a}) . _Default;
+dazrsAvailabilityZones :: Lens' DescribeAvailabilityZonesResponse [AvailabilityZone]
+dazrsAvailabilityZones = lens _dazrsAvailabilityZones (\ s a -> s{_dazrsAvailabilityZones = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dazrStatus :: Lens' DescribeAvailabilityZonesResponse Int
-dazrStatus = lens _dazrStatus (\ s a -> s{_dazrStatus = a});
+dazrsStatus :: Lens' DescribeAvailabilityZonesResponse Int
+dazrsStatus = lens _dazrsStatus (\ s a -> s{_dazrsStatus = a});

@@ -28,8 +28,8 @@ module Network.AWS.EC2.DeleteCustomerGateway
     -- ** Request constructor
     , deleteCustomerGateway
     -- ** Request lenses
-    , dcggDryRun
-    , dcggCustomerGatewayId
+    , dcggrqDryRun
+    , dcggrqCustomerGatewayId
 
     -- * Response
     , DeleteCustomerGatewayResponse
@@ -46,32 +46,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcggDryRun'
+-- * 'dcggrqDryRun'
 --
--- * 'dcggCustomerGatewayId'
+-- * 'dcggrqCustomerGatewayId'
 data DeleteCustomerGateway = DeleteCustomerGateway'
-    { _dcggDryRun            :: !(Maybe Bool)
-    , _dcggCustomerGatewayId :: !Text
+    { _dcggrqDryRun            :: !(Maybe Bool)
+    , _dcggrqCustomerGatewayId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCustomerGateway' smart constructor.
 deleteCustomerGateway :: Text -> DeleteCustomerGateway
 deleteCustomerGateway pCustomerGatewayId =
     DeleteCustomerGateway'
-    { _dcggDryRun = Nothing
-    , _dcggCustomerGatewayId = pCustomerGatewayId
+    { _dcggrqDryRun = Nothing
+    , _dcggrqCustomerGatewayId = pCustomerGatewayId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dcggDryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
-dcggDryRun = lens _dcggDryRun (\ s a -> s{_dcggDryRun = a});
+dcggrqDryRun :: Lens' DeleteCustomerGateway (Maybe Bool)
+dcggrqDryRun = lens _dcggrqDryRun (\ s a -> s{_dcggrqDryRun = a});
 
 -- | The ID of the customer gateway.
-dcggCustomerGatewayId :: Lens' DeleteCustomerGateway Text
-dcggCustomerGatewayId = lens _dcggCustomerGatewayId (\ s a -> s{_dcggCustomerGatewayId = a});
+dcggrqCustomerGatewayId :: Lens' DeleteCustomerGateway Text
+dcggrqCustomerGatewayId = lens _dcggrqCustomerGatewayId (\ s a -> s{_dcggrqCustomerGatewayId = a});
 
 instance AWSRequest DeleteCustomerGateway where
         type Sv DeleteCustomerGateway = EC2
@@ -91,8 +91,8 @@ instance ToQuery DeleteCustomerGateway where
           = mconcat
               ["Action" =: ("DeleteCustomerGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dcggDryRun,
-               "CustomerGatewayId" =: _dcggCustomerGatewayId]
+               "DryRun" =: _dcggrqDryRun,
+               "CustomerGatewayId" =: _dcggrqCustomerGatewayId]
 
 -- | /See:/ 'deleteCustomerGatewayResponse' smart constructor.
 data DeleteCustomerGatewayResponse =

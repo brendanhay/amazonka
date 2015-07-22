@@ -100,8 +100,8 @@ module Network.AWS.CloudFront.Types
     -- * Aliases
     , Aliases
     , aliases
-    , aliItems
-    , aliQuantity
+    , aItems
+    , aQuantity
 
     -- * AllowedMethods
     , AllowedMethods
@@ -181,10 +181,10 @@ module Network.AWS.CloudFront.Types
     -- * CustomErrorResponse
     , CustomErrorResponse
     , customErrorResponse
-    , cerResponsePagePath
-    , cerResponseCode
-    , cerErrorCachingMinTTL
-    , cerErrorCode
+    , ceResponsePagePath
+    , ceResponseCode
+    , ceErrorCachingMinTTL
+    , ceErrorCode
 
     -- * CustomErrorResponses
     , CustomErrorResponses
@@ -215,13 +215,13 @@ module Network.AWS.CloudFront.Types
     -- * Distribution
     , Distribution
     , distribution
-    , disId
-    , disStatus
-    , disLastModifiedTime
-    , disInProgressInvalidationBatches
-    , disDomainName
-    , disActiveTrustedSigners
-    , disDistributionConfig
+    , dId
+    , dStatus
+    , dLastModifiedTime
+    , dInProgressInvalidationBatches
+    , dDomainName
+    , dActiveTrustedSigners
+    , dDistributionConfig
 
     -- * DistributionConfig
     , DistributionConfig
@@ -285,16 +285,16 @@ module Network.AWS.CloudFront.Types
     -- * Headers
     , Headers
     , headers
-    , heaItems
-    , heaQuantity
+    , hItems
+    , hQuantity
 
     -- * Invalidation
     , Invalidation
     , invalidation
-    , invId
-    , invStatus
-    , invCreateTime
-    , invInvalidationBatch
+    , iId
+    , iStatus
+    , iCreateTime
+    , iInvalidationBatch
 
     -- * InvalidationBatch
     , InvalidationBatch
@@ -336,28 +336,28 @@ module Network.AWS.CloudFront.Types
     -- * Origin
     , Origin
     , origin
-    , oriCustomOriginConfig
-    , oriS3OriginConfig
-    , oriOriginPath
-    , oriId
-    , oriDomainName
+    , oCustomOriginConfig
+    , oS3OriginConfig
+    , oOriginPath
+    , oId
+    , oDomainName
 
     -- * Origins
     , Origins
     , origins
-    , oriItems
-    , oriQuantity
+    , oItems
+    , oQuantity
 
     -- * Paths
     , Paths
     , paths
-    , patItems
-    , patQuantity
+    , pItems
+    , pQuantity
 
     -- * Restrictions
     , Restrictions
     , restrictions
-    , resGeoRestriction
+    , rGeoRestriction
 
     -- * S3Origin
     , S3Origin
@@ -373,8 +373,8 @@ module Network.AWS.CloudFront.Types
     -- * Signer
     , Signer
     , signer
-    , sigAWSAccountNumber
-    , sigKeyPairIds
+    , sAWSAccountNumber
+    , sKeyPairIds
 
     -- * StreamingDistribution
     , StreamingDistribution

@@ -37,7 +37,7 @@ module Network.AWS.OpsWorks.StopInstance
     -- ** Request constructor
     , stopInstance
     -- ** Request lenses
-    , siInstanceId
+    , sirqInstanceId
 
     -- * Response
     , StopInstanceResponse
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'siInstanceId'
+-- * 'sirqInstanceId'
 newtype StopInstance = StopInstance'
-    { _siInstanceId :: Text
+    { _sirqInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopInstance' smart constructor.
 stopInstance :: Text -> StopInstance
 stopInstance pInstanceId =
     StopInstance'
-    { _siInstanceId = pInstanceId
+    { _sirqInstanceId = pInstanceId
     }
 
 -- | The instance ID.
-siInstanceId :: Lens' StopInstance Text
-siInstanceId = lens _siInstanceId (\ s a -> s{_siInstanceId = a});
+sirqInstanceId :: Lens' StopInstance Text
+sirqInstanceId = lens _sirqInstanceId (\ s a -> s{_sirqInstanceId = a});
 
 instance AWSRequest StopInstance where
         type Sv StopInstance = OpsWorks
@@ -87,7 +87,7 @@ instance ToHeaders StopInstance where
 
 instance ToJSON StopInstance where
         toJSON StopInstance'{..}
-          = object ["InstanceId" .= _siInstanceId]
+          = object ["InstanceId" .= _sirqInstanceId]
 
 instance ToPath StopInstance where
         toPath = const "/"

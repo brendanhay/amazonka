@@ -27,8 +27,8 @@ module Network.AWS.CloudWatchLogs.DeleteSubscriptionFilter
     -- ** Request constructor
     , deleteSubscriptionFilter
     -- ** Request lenses
-    , delLogGroupName
-    , delFilterName
+    , drqLogGroupName
+    , drqFilterName
 
     -- * Response
     , DeleteSubscriptionFilterResponse
@@ -45,30 +45,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delLogGroupName'
+-- * 'drqLogGroupName'
 --
--- * 'delFilterName'
+-- * 'drqFilterName'
 data DeleteSubscriptionFilter = DeleteSubscriptionFilter'
-    { _delLogGroupName :: !Text
-    , _delFilterName   :: !Text
+    { _drqLogGroupName :: !Text
+    , _drqFilterName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSubscriptionFilter' smart constructor.
 deleteSubscriptionFilter :: Text -> Text -> DeleteSubscriptionFilter
 deleteSubscriptionFilter pLogGroupName pFilterName =
     DeleteSubscriptionFilter'
-    { _delLogGroupName = pLogGroupName
-    , _delFilterName = pFilterName
+    { _drqLogGroupName = pLogGroupName
+    , _drqFilterName = pFilterName
     }
 
 -- | The name of the log group that is associated with the subscription
 -- filter to delete.
-delLogGroupName :: Lens' DeleteSubscriptionFilter Text
-delLogGroupName = lens _delLogGroupName (\ s a -> s{_delLogGroupName = a});
+drqLogGroupName :: Lens' DeleteSubscriptionFilter Text
+drqLogGroupName = lens _drqLogGroupName (\ s a -> s{_drqLogGroupName = a});
 
 -- | The name of the subscription filter to delete.
-delFilterName :: Lens' DeleteSubscriptionFilter Text
-delFilterName = lens _delFilterName (\ s a -> s{_delFilterName = a});
+drqFilterName :: Lens' DeleteSubscriptionFilter Text
+drqFilterName = lens _drqFilterName (\ s a -> s{_drqFilterName = a});
 
 instance AWSRequest DeleteSubscriptionFilter where
         type Sv DeleteSubscriptionFilter = CloudWatchLogs
@@ -91,8 +91,8 @@ instance ToHeaders DeleteSubscriptionFilter where
 instance ToJSON DeleteSubscriptionFilter where
         toJSON DeleteSubscriptionFilter'{..}
           = object
-              ["logGroupName" .= _delLogGroupName,
-               "filterName" .= _delFilterName]
+              ["logGroupName" .= _drqLogGroupName,
+               "filterName" .= _drqFilterName]
 
 instance ToPath DeleteSubscriptionFilter where
         toPath = const "/"

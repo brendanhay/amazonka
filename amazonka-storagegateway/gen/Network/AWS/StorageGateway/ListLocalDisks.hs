@@ -36,16 +36,16 @@ module Network.AWS.StorageGateway.ListLocalDisks
     -- ** Request constructor
     , listLocalDisks
     -- ** Request lenses
-    , lldGatewayARN
+    , lldrqGatewayARN
 
     -- * Response
     , ListLocalDisksResponse
     -- ** Response constructor
     , listLocalDisksResponse
     -- ** Response lenses
-    , lldrGatewayARN
-    , lldrDisks
-    , lldrStatus
+    , lldrsGatewayARN
+    , lldrsDisks
+    , lldrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -59,21 +59,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lldGatewayARN'
+-- * 'lldrqGatewayARN'
 newtype ListLocalDisks = ListLocalDisks'
-    { _lldGatewayARN :: Text
+    { _lldrqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLocalDisks' smart constructor.
 listLocalDisks :: Text -> ListLocalDisks
 listLocalDisks pGatewayARN =
     ListLocalDisks'
-    { _lldGatewayARN = pGatewayARN
+    { _lldrqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-lldGatewayARN :: Lens' ListLocalDisks Text
-lldGatewayARN = lens _lldGatewayARN (\ s a -> s{_lldGatewayARN = a});
+lldrqGatewayARN :: Lens' ListLocalDisks Text
+lldrqGatewayARN = lens _lldrqGatewayARN (\ s a -> s{_lldrqGatewayARN = a});
 
 instance AWSRequest ListLocalDisks where
         type Sv ListLocalDisks = StorageGateway
@@ -98,7 +98,7 @@ instance ToHeaders ListLocalDisks where
 
 instance ToJSON ListLocalDisks where
         toJSON ListLocalDisks'{..}
-          = object ["GatewayARN" .= _lldGatewayARN]
+          = object ["GatewayARN" .= _lldrqGatewayARN]
 
 instance ToPath ListLocalDisks where
         toPath = const "/"
@@ -110,34 +110,34 @@ instance ToQuery ListLocalDisks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lldrGatewayARN'
+-- * 'lldrsGatewayARN'
 --
--- * 'lldrDisks'
+-- * 'lldrsDisks'
 --
--- * 'lldrStatus'
+-- * 'lldrsStatus'
 data ListLocalDisksResponse = ListLocalDisksResponse'
-    { _lldrGatewayARN :: !(Maybe Text)
-    , _lldrDisks      :: !(Maybe [Disk])
-    , _lldrStatus     :: !Int
+    { _lldrsGatewayARN :: !(Maybe Text)
+    , _lldrsDisks      :: !(Maybe [Disk])
+    , _lldrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLocalDisksResponse' smart constructor.
 listLocalDisksResponse :: Int -> ListLocalDisksResponse
 listLocalDisksResponse pStatus =
     ListLocalDisksResponse'
-    { _lldrGatewayARN = Nothing
-    , _lldrDisks = Nothing
-    , _lldrStatus = pStatus
+    { _lldrsGatewayARN = Nothing
+    , _lldrsDisks = Nothing
+    , _lldrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-lldrGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
-lldrGatewayARN = lens _lldrGatewayARN (\ s a -> s{_lldrGatewayARN = a});
+lldrsGatewayARN :: Lens' ListLocalDisksResponse (Maybe Text)
+lldrsGatewayARN = lens _lldrsGatewayARN (\ s a -> s{_lldrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-lldrDisks :: Lens' ListLocalDisksResponse [Disk]
-lldrDisks = lens _lldrDisks (\ s a -> s{_lldrDisks = a}) . _Default;
+lldrsDisks :: Lens' ListLocalDisksResponse [Disk]
+lldrsDisks = lens _lldrsDisks (\ s a -> s{_lldrsDisks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lldrStatus :: Lens' ListLocalDisksResponse Int
-lldrStatus = lens _lldrStatus (\ s a -> s{_lldrStatus = a});
+lldrsStatus :: Lens' ListLocalDisksResponse Int
+lldrsStatus = lens _lldrsStatus (\ s a -> s{_lldrsStatus = a});

@@ -621,81 +621,81 @@ instance FromXML ConfigurationSettingsDescription
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'envCNAME'
+-- * 'eCNAME'
 --
--- * 'envStatus'
+-- * 'eStatus'
 --
--- * 'envTemplateName'
+-- * 'eTemplateName'
 --
--- * 'envAbortableOperationInProgress'
+-- * 'eAbortableOperationInProgress'
 --
--- * 'envEndpointURL'
+-- * 'eEndpointURL'
 --
--- * 'envDateUpdated'
+-- * 'eDateUpdated'
 --
--- * 'envResources'
+-- * 'eResources'
 --
--- * 'envHealth'
+-- * 'eHealth'
 --
--- * 'envVersionLabel'
+-- * 'eVersionLabel'
 --
--- * 'envDateCreated'
+-- * 'eDateCreated'
 --
--- * 'envTier'
+-- * 'eTier'
 --
--- * 'envEnvironmentName'
+-- * 'eEnvironmentName'
 --
--- * 'envApplicationName'
+-- * 'eApplicationName'
 --
--- * 'envEnvironmentId'
+-- * 'eEnvironmentId'
 --
--- * 'envSolutionStackName'
+-- * 'eSolutionStackName'
 --
--- * 'envDescription'
+-- * 'eDescription'
 data EnvironmentDescription = EnvironmentDescription'
-    { _envCNAME                        :: !(Maybe Text)
-    , _envStatus                       :: !(Maybe EnvironmentStatus)
-    , _envTemplateName                 :: !(Maybe Text)
-    , _envAbortableOperationInProgress :: !(Maybe Bool)
-    , _envEndpointURL                  :: !(Maybe Text)
-    , _envDateUpdated                  :: !(Maybe ISO8601)
-    , _envResources                    :: !(Maybe EnvironmentResourcesDescription)
-    , _envHealth                       :: !(Maybe EnvironmentHealth)
-    , _envVersionLabel                 :: !(Maybe Text)
-    , _envDateCreated                  :: !(Maybe ISO8601)
-    , _envTier                         :: !(Maybe EnvironmentTier)
-    , _envEnvironmentName              :: !(Maybe Text)
-    , _envApplicationName              :: !(Maybe Text)
-    , _envEnvironmentId                :: !(Maybe Text)
-    , _envSolutionStackName            :: !(Maybe Text)
-    , _envDescription                  :: !(Maybe Text)
+    { _eCNAME                        :: !(Maybe Text)
+    , _eStatus                       :: !(Maybe EnvironmentStatus)
+    , _eTemplateName                 :: !(Maybe Text)
+    , _eAbortableOperationInProgress :: !(Maybe Bool)
+    , _eEndpointURL                  :: !(Maybe Text)
+    , _eDateUpdated                  :: !(Maybe ISO8601)
+    , _eResources                    :: !(Maybe EnvironmentResourcesDescription)
+    , _eHealth                       :: !(Maybe EnvironmentHealth)
+    , _eVersionLabel                 :: !(Maybe Text)
+    , _eDateCreated                  :: !(Maybe ISO8601)
+    , _eTier                         :: !(Maybe EnvironmentTier)
+    , _eEnvironmentName              :: !(Maybe Text)
+    , _eApplicationName              :: !(Maybe Text)
+    , _eEnvironmentId                :: !(Maybe Text)
+    , _eSolutionStackName            :: !(Maybe Text)
+    , _eDescription                  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnvironmentDescription' smart constructor.
 environmentDescription :: EnvironmentDescription
 environmentDescription =
     EnvironmentDescription'
-    { _envCNAME = Nothing
-    , _envStatus = Nothing
-    , _envTemplateName = Nothing
-    , _envAbortableOperationInProgress = Nothing
-    , _envEndpointURL = Nothing
-    , _envDateUpdated = Nothing
-    , _envResources = Nothing
-    , _envHealth = Nothing
-    , _envVersionLabel = Nothing
-    , _envDateCreated = Nothing
-    , _envTier = Nothing
-    , _envEnvironmentName = Nothing
-    , _envApplicationName = Nothing
-    , _envEnvironmentId = Nothing
-    , _envSolutionStackName = Nothing
-    , _envDescription = Nothing
+    { _eCNAME = Nothing
+    , _eStatus = Nothing
+    , _eTemplateName = Nothing
+    , _eAbortableOperationInProgress = Nothing
+    , _eEndpointURL = Nothing
+    , _eDateUpdated = Nothing
+    , _eResources = Nothing
+    , _eHealth = Nothing
+    , _eVersionLabel = Nothing
+    , _eDateCreated = Nothing
+    , _eTier = Nothing
+    , _eEnvironmentName = Nothing
+    , _eApplicationName = Nothing
+    , _eEnvironmentId = Nothing
+    , _eSolutionStackName = Nothing
+    , _eDescription = Nothing
     }
 
 -- | The URL to the CNAME for this environment.
-envCNAME :: Lens' EnvironmentDescription (Maybe Text)
-envCNAME = lens _envCNAME (\ s a -> s{_envCNAME = a});
+eCNAME :: Lens' EnvironmentDescription (Maybe Text)
+eCNAME = lens _eCNAME (\ s a -> s{_eCNAME = a});
 
 -- | The current operational status of the environment:
 --
@@ -706,13 +706,13 @@ envCNAME = lens _envCNAME (\ s a -> s{_envCNAME = a});
 --     such as update or terminate.
 -- -   @Terminating@: Environment is in the shut-down process.
 -- -   @Terminated@: Environment is not running.
-envStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
-envStatus = lens _envStatus (\ s a -> s{_envStatus = a});
+eStatus :: Lens' EnvironmentDescription (Maybe EnvironmentStatus)
+eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 
 -- | The name of the configuration template used to originally launch this
 -- environment.
-envTemplateName :: Lens' EnvironmentDescription (Maybe Text)
-envTemplateName = lens _envTemplateName (\ s a -> s{_envTemplateName = a});
+eTemplateName :: Lens' EnvironmentDescription (Maybe Text)
+eTemplateName = lens _eTemplateName (\ s a -> s{_eTemplateName = a});
 
 -- | Indicates if there is an in-progress environment configuration update or
 -- application version deployment that you can cancel.
@@ -720,22 +720,22 @@ envTemplateName = lens _envTemplateName (\ s a -> s{_envTemplateName = a});
 -- @true:@ There is an update in progress.
 --
 -- @false:@ There are no updates currently in progress.
-envAbortableOperationInProgress :: Lens' EnvironmentDescription (Maybe Bool)
-envAbortableOperationInProgress = lens _envAbortableOperationInProgress (\ s a -> s{_envAbortableOperationInProgress = a});
+eAbortableOperationInProgress :: Lens' EnvironmentDescription (Maybe Bool)
+eAbortableOperationInProgress = lens _eAbortableOperationInProgress (\ s a -> s{_eAbortableOperationInProgress = a});
 
 -- | For load-balanced, autoscaling environments, the URL to the
 -- LoadBalancer. For single-instance environments, the IP address of the
 -- instance.
-envEndpointURL :: Lens' EnvironmentDescription (Maybe Text)
-envEndpointURL = lens _envEndpointURL (\ s a -> s{_envEndpointURL = a});
+eEndpointURL :: Lens' EnvironmentDescription (Maybe Text)
+eEndpointURL = lens _eEndpointURL (\ s a -> s{_eEndpointURL = a});
 
 -- | The last modified date for this environment.
-envDateUpdated :: Lens' EnvironmentDescription (Maybe UTCTime)
-envDateUpdated = lens _envDateUpdated (\ s a -> s{_envDateUpdated = a}) . mapping _Time;
+eDateUpdated :: Lens' EnvironmentDescription (Maybe UTCTime)
+eDateUpdated = lens _eDateUpdated (\ s a -> s{_eDateUpdated = a}) . mapping _Time;
 
 -- | The description of the AWS resources used by this environment.
-envResources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
-envResources = lens _envResources (\ s a -> s{_envResources = a});
+eResources :: Lens' EnvironmentDescription (Maybe EnvironmentResourcesDescription)
+eResources = lens _eResources (\ s a -> s{_eResources = a});
 
 -- | Describes the health status of the environment. AWS Elastic Beanstalk
 -- indicates the failure levels for a running environment:
@@ -758,40 +758,40 @@ envResources = lens _envResources (\ s a -> s{_envResources = a});
 --     request.
 --
 -- Default: @Grey@
-envHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
-envHealth = lens _envHealth (\ s a -> s{_envHealth = a});
+eHealth :: Lens' EnvironmentDescription (Maybe EnvironmentHealth)
+eHealth = lens _eHealth (\ s a -> s{_eHealth = a});
 
 -- | The application version deployed in this environment.
-envVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
-envVersionLabel = lens _envVersionLabel (\ s a -> s{_envVersionLabel = a});
+eVersionLabel :: Lens' EnvironmentDescription (Maybe Text)
+eVersionLabel = lens _eVersionLabel (\ s a -> s{_eVersionLabel = a});
 
 -- | The creation date for this environment.
-envDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
-envDateCreated = lens _envDateCreated (\ s a -> s{_envDateCreated = a}) . mapping _Time;
+eDateCreated :: Lens' EnvironmentDescription (Maybe UTCTime)
+eDateCreated = lens _eDateCreated (\ s a -> s{_eDateCreated = a}) . mapping _Time;
 
 -- | Describes the current tier of this environment.
-envTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
-envTier = lens _envTier (\ s a -> s{_envTier = a});
+eTier :: Lens' EnvironmentDescription (Maybe EnvironmentTier)
+eTier = lens _eTier (\ s a -> s{_eTier = a});
 
 -- | The name of this environment.
-envEnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
-envEnvironmentName = lens _envEnvironmentName (\ s a -> s{_envEnvironmentName = a});
+eEnvironmentName :: Lens' EnvironmentDescription (Maybe Text)
+eEnvironmentName = lens _eEnvironmentName (\ s a -> s{_eEnvironmentName = a});
 
 -- | The name of the application associated with this environment.
-envApplicationName :: Lens' EnvironmentDescription (Maybe Text)
-envApplicationName = lens _envApplicationName (\ s a -> s{_envApplicationName = a});
+eApplicationName :: Lens' EnvironmentDescription (Maybe Text)
+eApplicationName = lens _eApplicationName (\ s a -> s{_eApplicationName = a});
 
 -- | The ID of this environment.
-envEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
-envEnvironmentId = lens _envEnvironmentId (\ s a -> s{_envEnvironmentId = a});
+eEnvironmentId :: Lens' EnvironmentDescription (Maybe Text)
+eEnvironmentId = lens _eEnvironmentId (\ s a -> s{_eEnvironmentId = a});
 
 -- | The name of the @SolutionStack@ deployed with this environment.
-envSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
-envSolutionStackName = lens _envSolutionStackName (\ s a -> s{_envSolutionStackName = a});
+eSolutionStackName :: Lens' EnvironmentDescription (Maybe Text)
+eSolutionStackName = lens _eSolutionStackName (\ s a -> s{_eSolutionStackName = a});
 
 -- | Describes this environment.
-envDescription :: Lens' EnvironmentDescription (Maybe Text)
-envDescription = lens _envDescription (\ s a -> s{_envDescription = a});
+eDescription :: Lens' EnvironmentDescription (Maybe Text)
+eDescription = lens _eDescription (\ s a -> s{_eDescription = a});
 
 instance FromXML EnvironmentDescription where
         parseXML x
@@ -1133,21 +1133,21 @@ instance FromXML EventDescription where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'insId'
+-- * 'iId'
 newtype Instance = Instance'
-    { _insId :: Maybe Text
+    { _iId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
 instance' =
     Instance'
-    { _insId = Nothing
+    { _iId = Nothing
     }
 
 -- | The ID of the Amazon EC2 instance.
-insId :: Lens' Instance (Maybe Text)
-insId = lens _insId (\ s a -> s{_insId = a});
+iId :: Lens' Instance (Maybe Text)
+iId = lens _iId (\ s a -> s{_iId = a});
 
 instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "Id")
@@ -1183,29 +1183,29 @@ instance FromXML LaunchConfiguration where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisProtocol'
+-- * 'lProtocol'
 --
--- * 'lisPort'
+-- * 'lPort'
 data Listener = Listener'
-    { _lisProtocol :: !(Maybe Text)
-    , _lisPort     :: !(Maybe Int)
+    { _lProtocol :: !(Maybe Text)
+    , _lPort     :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Listener' smart constructor.
 listener :: Listener
 listener =
     Listener'
-    { _lisProtocol = Nothing
-    , _lisPort = Nothing
+    { _lProtocol = Nothing
+    , _lPort = Nothing
     }
 
 -- | The protocol that is used by the Listener.
-lisProtocol :: Lens' Listener (Maybe Text)
-lisProtocol = lens _lisProtocol (\ s a -> s{_lisProtocol = a});
+lProtocol :: Lens' Listener (Maybe Text)
+lProtocol = lens _lProtocol (\ s a -> s{_lProtocol = a});
 
 -- | The port that is used by the Listener.
-lisPort :: Lens' Listener (Maybe Int)
-lisPort = lens _lisPort (\ s a -> s{_lisPort = a});
+lPort :: Lens' Listener (Maybe Int)
+lPort = lens _lPort (\ s a -> s{_lPort = a});
 
 instance FromXML Listener where
         parseXML x
@@ -1369,29 +1369,29 @@ instance ToQuery OptionSpecification where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'queURL'
+-- * 'qURL'
 --
--- * 'queName'
+-- * 'qName'
 data Queue = Queue'
-    { _queURL  :: !(Maybe Text)
-    , _queName :: !(Maybe Text)
+    { _qURL  :: !(Maybe Text)
+    , _qName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Queue' smart constructor.
 queue :: Queue
 queue =
     Queue'
-    { _queURL = Nothing
-    , _queName = Nothing
+    { _qURL = Nothing
+    , _qName = Nothing
     }
 
 -- | The URL of the queue.
-queURL :: Lens' Queue (Maybe Text)
-queURL = lens _queURL (\ s a -> s{_queURL = a});
+qURL :: Lens' Queue (Maybe Text)
+qURL = lens _qURL (\ s a -> s{_qURL = a});
 
 -- | The name of the queue.
-queName :: Lens' Queue (Maybe Text)
-queName = lens _queName (\ s a -> s{_queName = a});
+qName :: Lens' Queue (Maybe Text)
+qName = lens _qName (\ s a -> s{_qName = a});
 
 instance FromXML Queue where
         parseXML x
@@ -1550,21 +1550,21 @@ instance ToQuery Tag where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'triName'
+-- * 'tName'
 newtype Trigger = Trigger'
-    { _triName :: Maybe Text
+    { _tName :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Trigger' smart constructor.
 trigger :: Trigger
 trigger =
     Trigger'
-    { _triName = Nothing
+    { _tName = Nothing
     }
 
 -- | The name of the trigger.
-triName :: Lens' Trigger (Maybe Text)
-triName = lens _triName (\ s a -> s{_triName = a});
+tName :: Lens' Trigger (Maybe Text)
+tName = lens _tName (\ s a -> s{_tName = a});
 
 instance FromXML Trigger where
         parseXML x = Trigger' <$> (x .@? "Name")

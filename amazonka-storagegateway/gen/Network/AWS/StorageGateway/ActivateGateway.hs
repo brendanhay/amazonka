@@ -37,21 +37,21 @@ module Network.AWS.StorageGateway.ActivateGateway
     -- ** Request constructor
     , activateGateway
     -- ** Request lenses
-    , agMediumChangerType
-    , agTapeDriveType
-    , agGatewayType
-    , agActivationKey
-    , agGatewayName
-    , agGatewayTimezone
-    , agGatewayRegion
+    , agrqMediumChangerType
+    , agrqTapeDriveType
+    , agrqGatewayType
+    , agrqActivationKey
+    , agrqGatewayName
+    , agrqGatewayTimezone
+    , agrqGatewayRegion
 
     -- * Response
     , ActivateGatewayResponse
     -- ** Response constructor
     , activateGatewayResponse
     -- ** Response lenses
-    , agrGatewayARN
-    , agrStatus
+    , agrsGatewayARN
+    , agrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -73,61 +73,61 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'agMediumChangerType'
+-- * 'agrqMediumChangerType'
 --
--- * 'agTapeDriveType'
+-- * 'agrqTapeDriveType'
 --
--- * 'agGatewayType'
+-- * 'agrqGatewayType'
 --
--- * 'agActivationKey'
+-- * 'agrqActivationKey'
 --
--- * 'agGatewayName'
+-- * 'agrqGatewayName'
 --
--- * 'agGatewayTimezone'
+-- * 'agrqGatewayTimezone'
 --
--- * 'agGatewayRegion'
+-- * 'agrqGatewayRegion'
 data ActivateGateway = ActivateGateway'
-    { _agMediumChangerType :: !(Maybe Text)
-    , _agTapeDriveType     :: !(Maybe Text)
-    , _agGatewayType       :: !(Maybe Text)
-    , _agActivationKey     :: !Text
-    , _agGatewayName       :: !Text
-    , _agGatewayTimezone   :: !Text
-    , _agGatewayRegion     :: !Text
+    { _agrqMediumChangerType :: !(Maybe Text)
+    , _agrqTapeDriveType     :: !(Maybe Text)
+    , _agrqGatewayType       :: !(Maybe Text)
+    , _agrqActivationKey     :: !Text
+    , _agrqGatewayName       :: !Text
+    , _agrqGatewayTimezone   :: !Text
+    , _agrqGatewayRegion     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivateGateway' smart constructor.
 activateGateway :: Text -> Text -> Text -> Text -> ActivateGateway
 activateGateway pActivationKey pGatewayName pGatewayTimezone pGatewayRegion =
     ActivateGateway'
-    { _agMediumChangerType = Nothing
-    , _agTapeDriveType = Nothing
-    , _agGatewayType = Nothing
-    , _agActivationKey = pActivationKey
-    , _agGatewayName = pGatewayName
-    , _agGatewayTimezone = pGatewayTimezone
-    , _agGatewayRegion = pGatewayRegion
+    { _agrqMediumChangerType = Nothing
+    , _agrqTapeDriveType = Nothing
+    , _agrqGatewayType = Nothing
+    , _agrqActivationKey = pActivationKey
+    , _agrqGatewayName = pGatewayName
+    , _agrqGatewayTimezone = pGatewayTimezone
+    , _agrqGatewayRegion = pGatewayRegion
     }
 
 -- | The value that indicates the type of medium changer to use for
 -- gateway-VTL. This field is optional.
 --
 -- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"
-agMediumChangerType :: Lens' ActivateGateway (Maybe Text)
-agMediumChangerType = lens _agMediumChangerType (\ s a -> s{_agMediumChangerType = a});
+agrqMediumChangerType :: Lens' ActivateGateway (Maybe Text)
+agrqMediumChangerType = lens _agrqMediumChangerType (\ s a -> s{_agrqMediumChangerType = a});
 
 -- | The value that indicates the type of tape drive to use for gateway-VTL.
 -- This field is optional.
 --
 -- /Valid Values/: \"IBM-ULT3580-TD5\"
-agTapeDriveType :: Lens' ActivateGateway (Maybe Text)
-agTapeDriveType = lens _agTapeDriveType (\ s a -> s{_agTapeDriveType = a});
+agrqTapeDriveType :: Lens' ActivateGateway (Maybe Text)
+agrqTapeDriveType = lens _agrqTapeDriveType (\ s a -> s{_agrqTapeDriveType = a});
 
 -- | One of the values that defines the type of gateway to activate. The type
 -- specified is critical to all later functions of the gateway and cannot
 -- be changed after activation. The default value is @STORED@.
-agGatewayType :: Lens' ActivateGateway (Maybe Text)
-agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a});
+agrqGatewayType :: Lens' ActivateGateway (Maybe Text)
+agrqGatewayType = lens _agrqGatewayType (\ s a -> s{_agrqGatewayType = a});
 
 -- | Your gateway activation key. You can obtain the activation key by
 -- sending an HTTP GET request with redirects enabled to the gateway IP
@@ -137,18 +137,18 @@ agGatewayType = lens _agGatewayType (\ s a -> s{_agGatewayType = a});
 -- parameters, however, these are merely defaults -- the arguments you pass
 -- to the @ActivateGateway@ API call determine the actual configuration of
 -- your gateway.
-agActivationKey :: Lens' ActivateGateway Text
-agActivationKey = lens _agActivationKey (\ s a -> s{_agActivationKey = a});
+agrqActivationKey :: Lens' ActivateGateway Text
+agrqActivationKey = lens _agrqActivationKey (\ s a -> s{_agrqActivationKey = a});
 
 -- | FIXME: Undocumented member.
-agGatewayName :: Lens' ActivateGateway Text
-agGatewayName = lens _agGatewayName (\ s a -> s{_agGatewayName = a});
+agrqGatewayName :: Lens' ActivateGateway Text
+agrqGatewayName = lens _agrqGatewayName (\ s a -> s{_agrqGatewayName = a});
 
 -- | One of the values that indicates the time zone you want to set for the
 -- gateway. The time zone is used, for example, for scheduling snapshots
 -- and your gateway\'s maintenance schedule.
-agGatewayTimezone :: Lens' ActivateGateway Text
-agGatewayTimezone = lens _agGatewayTimezone (\ s a -> s{_agGatewayTimezone = a});
+agrqGatewayTimezone :: Lens' ActivateGateway Text
+agrqGatewayTimezone = lens _agrqGatewayTimezone (\ s a -> s{_agrqGatewayTimezone = a});
 
 -- | One of the values that indicates the region where you want to store the
 -- snapshot backups. The gateway region specified must be the same region
@@ -160,8 +160,8 @@ agGatewayTimezone = lens _agGatewayTimezone (\ s a -> s{_agGatewayTimezone = a})
 -- /Valid Values/: \"us-east-1\", \"us-west-1\", \"us-west-2\",
 -- \"eu-west-1\", \"eu-central-1\", \"ap-northeast-1\", \"ap-southeast-1\",
 -- \"ap-southeast-2\", \"sa-east-1\"
-agGatewayRegion :: Lens' ActivateGateway Text
-agGatewayRegion = lens _agGatewayRegion (\ s a -> s{_agGatewayRegion = a});
+agrqGatewayRegion :: Lens' ActivateGateway Text
+agrqGatewayRegion = lens _agrqGatewayRegion (\ s a -> s{_agrqGatewayRegion = a});
 
 instance AWSRequest ActivateGateway where
         type Sv ActivateGateway = StorageGateway
@@ -186,13 +186,13 @@ instance ToHeaders ActivateGateway where
 instance ToJSON ActivateGateway where
         toJSON ActivateGateway'{..}
           = object
-              ["MediumChangerType" .= _agMediumChangerType,
-               "TapeDriveType" .= _agTapeDriveType,
-               "GatewayType" .= _agGatewayType,
-               "ActivationKey" .= _agActivationKey,
-               "GatewayName" .= _agGatewayName,
-               "GatewayTimezone" .= _agGatewayTimezone,
-               "GatewayRegion" .= _agGatewayRegion]
+              ["MediumChangerType" .= _agrqMediumChangerType,
+               "TapeDriveType" .= _agrqTapeDriveType,
+               "GatewayType" .= _agrqGatewayType,
+               "ActivationKey" .= _agrqActivationKey,
+               "GatewayName" .= _agrqGatewayName,
+               "GatewayTimezone" .= _agrqGatewayTimezone,
+               "GatewayRegion" .= _agrqGatewayRegion]
 
 instance ToPath ActivateGateway where
         toPath = const "/"
@@ -209,26 +209,26 @@ instance ToQuery ActivateGateway where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'agrGatewayARN'
+-- * 'agrsGatewayARN'
 --
--- * 'agrStatus'
+-- * 'agrsStatus'
 data ActivateGatewayResponse = ActivateGatewayResponse'
-    { _agrGatewayARN :: !(Maybe Text)
-    , _agrStatus     :: !Int
+    { _agrsGatewayARN :: !(Maybe Text)
+    , _agrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ActivateGatewayResponse' smart constructor.
 activateGatewayResponse :: Int -> ActivateGatewayResponse
 activateGatewayResponse pStatus =
     ActivateGatewayResponse'
-    { _agrGatewayARN = Nothing
-    , _agrStatus = pStatus
+    { _agrsGatewayARN = Nothing
+    , _agrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-agrGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
-agrGatewayARN = lens _agrGatewayARN (\ s a -> s{_agrGatewayARN = a});
+agrsGatewayARN :: Lens' ActivateGatewayResponse (Maybe Text)
+agrsGatewayARN = lens _agrsGatewayARN (\ s a -> s{_agrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-agrStatus :: Lens' ActivateGatewayResponse Int
-agrStatus = lens _agrStatus (\ s a -> s{_agrStatus = a});
+agrsStatus :: Lens' ActivateGatewayResponse Int
+agrsStatus = lens _agrsStatus (\ s a -> s{_agrsStatus = a});

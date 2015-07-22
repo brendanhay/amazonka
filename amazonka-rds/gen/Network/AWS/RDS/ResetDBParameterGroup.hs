@@ -34,16 +34,16 @@ module Network.AWS.RDS.ResetDBParameterGroup
     -- ** Request constructor
     , resetDBParameterGroup
     -- ** Request lenses
-    , rdpgResetAllParameters
-    , rdpgParameters
-    , rdpgDBParameterGroupName
+    , rdpgrqResetAllParameters
+    , rdpgrqParameters
+    , rdpgrqDBParameterGroupName
 
     -- * Response
     , DBParameterGroupNameMessage
     -- ** Response constructor
     , dbParameterGroupNameMessage
     -- ** Response lenses
-    , dpgnmDBParameterGroupName
+    , rdpgrsDBParameterGroupName
     ) where
 
 import           Network.AWS.Prelude
@@ -57,32 +57,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdpgResetAllParameters'
+-- * 'rdpgrqResetAllParameters'
 --
--- * 'rdpgParameters'
+-- * 'rdpgrqParameters'
 --
--- * 'rdpgDBParameterGroupName'
+-- * 'rdpgrqDBParameterGroupName'
 data ResetDBParameterGroup = ResetDBParameterGroup'
-    { _rdpgResetAllParameters   :: !(Maybe Bool)
-    , _rdpgParameters           :: !(Maybe [Parameter])
-    , _rdpgDBParameterGroupName :: !Text
+    { _rdpgrqResetAllParameters   :: !(Maybe Bool)
+    , _rdpgrqParameters           :: !(Maybe [Parameter])
+    , _rdpgrqDBParameterGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetDBParameterGroup' smart constructor.
 resetDBParameterGroup :: Text -> ResetDBParameterGroup
 resetDBParameterGroup pDBParameterGroupName =
     ResetDBParameterGroup'
-    { _rdpgResetAllParameters = Nothing
-    , _rdpgParameters = Nothing
-    , _rdpgDBParameterGroupName = pDBParameterGroupName
+    { _rdpgrqResetAllParameters = Nothing
+    , _rdpgrqParameters = Nothing
+    , _rdpgrqDBParameterGroupName = pDBParameterGroupName
     }
 
 -- | Specifies whether (@true@) or not (@false@) to reset all parameters in
 -- the DB parameter group to default values.
 --
 -- Default: @true@
-rdpgResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
-rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllParameters = a});
+rdpgrqResetAllParameters :: Lens' ResetDBParameterGroup (Maybe Bool)
+rdpgrqResetAllParameters = lens _rdpgrqResetAllParameters (\ s a -> s{_rdpgrqResetAllParameters = a});
 
 -- | An array of parameter names, values, and the apply method for the
 -- parameter update. At least one parameter name, value, and apply method
@@ -100,8 +100,8 @@ rdpgResetAllParameters = lens _rdpgResetAllParameters (\ s a -> s{_rdpgResetAllP
 -- __Oracle__
 --
 -- Valid Values (for Apply method): @pending-reboot@
-rdpgParameters :: Lens' ResetDBParameterGroup [Parameter]
-rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Default;
+rdpgrqParameters :: Lens' ResetDBParameterGroup [Parameter]
+rdpgrqParameters = lens _rdpgrqParameters (\ s a -> s{_rdpgrqParameters = a}) . _Default;
 
 -- | The name of the DB parameter group.
 --
@@ -110,8 +110,8 @@ rdpgParameters = lens _rdpgParameters (\ s a -> s{_rdpgParameters = a}) . _Defau
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-rdpgDBParameterGroupName :: Lens' ResetDBParameterGroup Text
-rdpgDBParameterGroupName = lens _rdpgDBParameterGroupName (\ s a -> s{_rdpgDBParameterGroupName = a});
+rdpgrqDBParameterGroupName :: Lens' ResetDBParameterGroup Text
+rdpgrqDBParameterGroupName = lens _rdpgrqDBParameterGroupName (\ s a -> s{_rdpgrqDBParameterGroupName = a});
 
 instance AWSRequest ResetDBParameterGroup where
         type Sv ResetDBParameterGroup = RDS
@@ -133,8 +133,9 @@ instance ToQuery ResetDBParameterGroup where
           = mconcat
               ["Action" =: ("ResetDBParameterGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "ResetAllParameters" =: _rdpgResetAllParameters,
+               "ResetAllParameters" =: _rdpgrqResetAllParameters,
                "Parameters" =:
                  toQuery
-                   (toQueryList "Parameter" <$> _rdpgParameters),
-               "DBParameterGroupName" =: _rdpgDBParameterGroupName]
+                   (toQueryList "Parameter" <$> _rdpgrqParameters),
+               "DBParameterGroupName" =:
+                 _rdpgrqDBParameterGroupName]

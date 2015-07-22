@@ -27,16 +27,16 @@ module Network.AWS.CloudFront.ListCloudFrontOriginAccessIdentities
     -- ** Request constructor
     , listCloudFrontOriginAccessIdentities
     -- ** Request lenses
-    , lcfoaiMaxItems
-    , lcfoaiMarker
+    , lcfoairqMaxItems
+    , lcfoairqMarker
 
     -- * Response
     , ListCloudFrontOriginAccessIdentitiesResponse
     -- ** Response constructor
     , listCloudFrontOriginAccessIdentitiesResponse
     -- ** Response lenses
-    , lcfoairStatus
-    , lcfoairCloudFrontOriginAccessIdentityList
+    , lcfoairsStatus
+    , lcfoairsCloudFrontOriginAccessIdentityList
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -50,34 +50,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcfoaiMaxItems'
+-- * 'lcfoairqMaxItems'
 --
--- * 'lcfoaiMarker'
+-- * 'lcfoairqMarker'
 data ListCloudFrontOriginAccessIdentities = ListCloudFrontOriginAccessIdentities'
-    { _lcfoaiMaxItems :: !(Maybe Text)
-    , _lcfoaiMarker   :: !(Maybe Text)
+    { _lcfoairqMaxItems :: !(Maybe Text)
+    , _lcfoairqMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentities' smart constructor.
 listCloudFrontOriginAccessIdentities :: ListCloudFrontOriginAccessIdentities
 listCloudFrontOriginAccessIdentities =
     ListCloudFrontOriginAccessIdentities'
-    { _lcfoaiMaxItems = Nothing
-    , _lcfoaiMarker = Nothing
+    { _lcfoairqMaxItems = Nothing
+    , _lcfoairqMarker = Nothing
     }
 
 -- | The maximum number of origin access identities you want in the response
 -- body.
-lcfoaiMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoaiMaxItems = lens _lcfoaiMaxItems (\ s a -> s{_lcfoaiMaxItems = a});
+lcfoairqMaxItems :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+lcfoairqMaxItems = lens _lcfoairqMaxItems (\ s a -> s{_lcfoairqMaxItems = a});
 
 -- | Use this when paginating results to indicate where to begin in your list
 -- of origin access identities. The results include identities in the list
 -- that occur after the marker. To get the next page of results, set the
 -- Marker to the value of the NextMarker from the current page\'s response
 -- (which is also the ID of the last identity on that page).
-lcfoaiMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
-lcfoaiMarker = lens _lcfoaiMarker (\ s a -> s{_lcfoaiMarker = a});
+lcfoairqMarker :: Lens' ListCloudFrontOriginAccessIdentities (Maybe Text)
+lcfoairqMarker = lens _lcfoairqMarker (\ s a -> s{_lcfoairqMarker = a});
 
 instance AWSRequest
          ListCloudFrontOriginAccessIdentities where
@@ -106,8 +106,8 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
          where
         toQuery ListCloudFrontOriginAccessIdentities'{..}
           = mconcat
-              ["MaxItems" =: _lcfoaiMaxItems,
-               "Marker" =: _lcfoaiMarker]
+              ["MaxItems" =: _lcfoairqMaxItems,
+               "Marker" =: _lcfoairqMarker]
 
 -- | The returned result of the corresponding request.
 --
@@ -115,26 +115,26 @@ instance ToQuery ListCloudFrontOriginAccessIdentities
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcfoairStatus'
+-- * 'lcfoairsStatus'
 --
--- * 'lcfoairCloudFrontOriginAccessIdentityList'
+-- * 'lcfoairsCloudFrontOriginAccessIdentityList'
 data ListCloudFrontOriginAccessIdentitiesResponse = ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairStatus                             :: !Int
-    , _lcfoairCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
+    { _lcfoairsStatus                             :: !Int
+    , _lcfoairsCloudFrontOriginAccessIdentityList :: !CloudFrontOriginAccessIdentityList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListCloudFrontOriginAccessIdentitiesResponse' smart constructor.
 listCloudFrontOriginAccessIdentitiesResponse :: Int -> CloudFrontOriginAccessIdentityList -> ListCloudFrontOriginAccessIdentitiesResponse
 listCloudFrontOriginAccessIdentitiesResponse pStatus pCloudFrontOriginAccessIdentityList =
     ListCloudFrontOriginAccessIdentitiesResponse'
-    { _lcfoairStatus = pStatus
-    , _lcfoairCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList
+    { _lcfoairsStatus = pStatus
+    , _lcfoairsCloudFrontOriginAccessIdentityList = pCloudFrontOriginAccessIdentityList
     }
 
 -- | FIXME: Undocumented member.
-lcfoairStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
-lcfoairStatus = lens _lcfoairStatus (\ s a -> s{_lcfoairStatus = a});
+lcfoairsStatus :: Lens' ListCloudFrontOriginAccessIdentitiesResponse Int
+lcfoairsStatus = lens _lcfoairsStatus (\ s a -> s{_lcfoairsStatus = a});
 
 -- | The CloudFrontOriginAccessIdentityList type.
-lcfoairCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
-lcfoairCloudFrontOriginAccessIdentityList = lens _lcfoairCloudFrontOriginAccessIdentityList (\ s a -> s{_lcfoairCloudFrontOriginAccessIdentityList = a});
+lcfoairsCloudFrontOriginAccessIdentityList :: Lens' ListCloudFrontOriginAccessIdentitiesResponse CloudFrontOriginAccessIdentityList
+lcfoairsCloudFrontOriginAccessIdentityList = lens _lcfoairsCloudFrontOriginAccessIdentityList (\ s a -> s{_lcfoairsCloudFrontOriginAccessIdentityList = a});

@@ -34,29 +34,29 @@ module Network.AWS.CognitoSync.ListRecords
     -- ** Request constructor
     , listRecords
     -- ** Request lenses
-    , lrLastSyncCount
-    , lrNextToken
-    , lrSyncSessionToken
-    , lrMaxResults
-    , lrIdentityPoolId
-    , lrIdentityId
-    , lrDatasetName
+    , lrrqLastSyncCount
+    , lrrqNextToken
+    , lrrqSyncSessionToken
+    , lrrqMaxResults
+    , lrrqIdentityPoolId
+    , lrrqIdentityId
+    , lrrqDatasetName
 
     -- * Response
     , ListRecordsResponse
     -- ** Response constructor
     , listRecordsResponse
     -- ** Response lenses
-    , lrrDatasetDeletedAfterRequestedSyncCount
-    , lrrDatasetExists
-    , lrrCount
-    , lrrRecords
-    , lrrNextToken
-    , lrrSyncSessionToken
-    , lrrMergedDatasetNames
-    , lrrLastModifiedBy
-    , lrrDatasetSyncCount
-    , lrrStatus
+    , lrrsDatasetDeletedAfterRequestedSyncCount
+    , lrrsDatasetExists
+    , lrrsCount
+    , lrrsRecords
+    , lrrsNextToken
+    , lrrsSyncSessionToken
+    , lrrsMergedDatasetNames
+    , lrrsLastModifiedBy
+    , lrrsDatasetSyncCount
+    , lrrsStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -70,74 +70,74 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrLastSyncCount'
+-- * 'lrrqLastSyncCount'
 --
--- * 'lrNextToken'
+-- * 'lrrqNextToken'
 --
--- * 'lrSyncSessionToken'
+-- * 'lrrqSyncSessionToken'
 --
--- * 'lrMaxResults'
+-- * 'lrrqMaxResults'
 --
--- * 'lrIdentityPoolId'
+-- * 'lrrqIdentityPoolId'
 --
--- * 'lrIdentityId'
+-- * 'lrrqIdentityId'
 --
--- * 'lrDatasetName'
+-- * 'lrrqDatasetName'
 data ListRecords = ListRecords'
-    { _lrLastSyncCount    :: !(Maybe Integer)
-    , _lrNextToken        :: !(Maybe Text)
-    , _lrSyncSessionToken :: !(Maybe Text)
-    , _lrMaxResults       :: !(Maybe Int)
-    , _lrIdentityPoolId   :: !Text
-    , _lrIdentityId       :: !Text
-    , _lrDatasetName      :: !Text
+    { _lrrqLastSyncCount    :: !(Maybe Integer)
+    , _lrrqNextToken        :: !(Maybe Text)
+    , _lrrqSyncSessionToken :: !(Maybe Text)
+    , _lrrqMaxResults       :: !(Maybe Int)
+    , _lrrqIdentityPoolId   :: !Text
+    , _lrrqIdentityId       :: !Text
+    , _lrrqDatasetName      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRecords' smart constructor.
 listRecords :: Text -> Text -> Text -> ListRecords
 listRecords pIdentityPoolId pIdentityId pDatasetName =
     ListRecords'
-    { _lrLastSyncCount = Nothing
-    , _lrNextToken = Nothing
-    , _lrSyncSessionToken = Nothing
-    , _lrMaxResults = Nothing
-    , _lrIdentityPoolId = pIdentityPoolId
-    , _lrIdentityId = pIdentityId
-    , _lrDatasetName = pDatasetName
+    { _lrrqLastSyncCount = Nothing
+    , _lrrqNextToken = Nothing
+    , _lrrqSyncSessionToken = Nothing
+    , _lrrqMaxResults = Nothing
+    , _lrrqIdentityPoolId = pIdentityPoolId
+    , _lrrqIdentityId = pIdentityId
+    , _lrrqDatasetName = pDatasetName
     }
 
 -- | The last server sync count for this record.
-lrLastSyncCount :: Lens' ListRecords (Maybe Integer)
-lrLastSyncCount = lens _lrLastSyncCount (\ s a -> s{_lrLastSyncCount = a});
+lrrqLastSyncCount :: Lens' ListRecords (Maybe Integer)
+lrrqLastSyncCount = lens _lrrqLastSyncCount (\ s a -> s{_lrrqLastSyncCount = a});
 
 -- | A pagination token for obtaining the next page of results.
-lrNextToken :: Lens' ListRecords (Maybe Text)
-lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
+lrrqNextToken :: Lens' ListRecords (Maybe Text)
+lrrqNextToken = lens _lrrqNextToken (\ s a -> s{_lrrqNextToken = a});
 
 -- | A token containing a session ID, identity ID, and expiration.
-lrSyncSessionToken :: Lens' ListRecords (Maybe Text)
-lrSyncSessionToken = lens _lrSyncSessionToken (\ s a -> s{_lrSyncSessionToken = a});
+lrrqSyncSessionToken :: Lens' ListRecords (Maybe Text)
+lrrqSyncSessionToken = lens _lrrqSyncSessionToken (\ s a -> s{_lrrqSyncSessionToken = a});
 
 -- | The maximum number of results to be returned.
-lrMaxResults :: Lens' ListRecords (Maybe Int)
-lrMaxResults = lens _lrMaxResults (\ s a -> s{_lrMaxResults = a});
+lrrqMaxResults :: Lens' ListRecords (Maybe Int)
+lrrqMaxResults = lens _lrrqMaxResults (\ s a -> s{_lrrqMaxResults = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-lrIdentityPoolId :: Lens' ListRecords Text
-lrIdentityPoolId = lens _lrIdentityPoolId (\ s a -> s{_lrIdentityPoolId = a});
+lrrqIdentityPoolId :: Lens' ListRecords Text
+lrrqIdentityPoolId = lens _lrrqIdentityPoolId (\ s a -> s{_lrrqIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-lrIdentityId :: Lens' ListRecords Text
-lrIdentityId = lens _lrIdentityId (\ s a -> s{_lrIdentityId = a});
+lrrqIdentityId :: Lens' ListRecords Text
+lrrqIdentityId = lens _lrrqIdentityId (\ s a -> s{_lrrqIdentityId = a});
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-lrDatasetName :: Lens' ListRecords Text
-lrDatasetName = lens _lrDatasetName (\ s a -> s{_lrDatasetName = a});
+lrrqDatasetName :: Lens' ListRecords Text
+lrrqDatasetName = lens _lrrqDatasetName (\ s a -> s{_lrrqDatasetName = a});
 
 instance AWSRequest ListRecords where
         type Sv ListRecords = CognitoSync
@@ -168,17 +168,17 @@ instance ToHeaders ListRecords where
 instance ToPath ListRecords where
         toPath ListRecords'{..}
           = mconcat
-              ["/identitypools/", toText _lrIdentityPoolId,
-               "/identities/", toText _lrIdentityId, "/datasets/",
-               toText _lrDatasetName, "/records"]
+              ["/identitypools/", toText _lrrqIdentityPoolId,
+               "/identities/", toText _lrrqIdentityId, "/datasets/",
+               toText _lrrqDatasetName, "/records"]
 
 instance ToQuery ListRecords where
         toQuery ListRecords'{..}
           = mconcat
-              ["lastSyncCount" =: _lrLastSyncCount,
-               "nextToken" =: _lrNextToken,
-               "syncSessionToken" =: _lrSyncSessionToken,
-               "maxResults" =: _lrMaxResults]
+              ["lastSyncCount" =: _lrrqLastSyncCount,
+               "nextToken" =: _lrrqNextToken,
+               "syncSessionToken" =: _lrrqSyncSessionToken,
+               "maxResults" =: _lrrqMaxResults]
 
 -- | Returned for a successful ListRecordsRequest.
 --
@@ -186,90 +186,90 @@ instance ToQuery ListRecords where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrrDatasetDeletedAfterRequestedSyncCount'
+-- * 'lrrsDatasetDeletedAfterRequestedSyncCount'
 --
--- * 'lrrDatasetExists'
+-- * 'lrrsDatasetExists'
 --
--- * 'lrrCount'
+-- * 'lrrsCount'
 --
--- * 'lrrRecords'
+-- * 'lrrsRecords'
 --
--- * 'lrrNextToken'
+-- * 'lrrsNextToken'
 --
--- * 'lrrSyncSessionToken'
+-- * 'lrrsSyncSessionToken'
 --
--- * 'lrrMergedDatasetNames'
+-- * 'lrrsMergedDatasetNames'
 --
--- * 'lrrLastModifiedBy'
+-- * 'lrrsLastModifiedBy'
 --
--- * 'lrrDatasetSyncCount'
+-- * 'lrrsDatasetSyncCount'
 --
--- * 'lrrStatus'
+-- * 'lrrsStatus'
 data ListRecordsResponse = ListRecordsResponse'
-    { _lrrDatasetDeletedAfterRequestedSyncCount :: !(Maybe Bool)
-    , _lrrDatasetExists                         :: !(Maybe Bool)
-    , _lrrCount                                 :: !(Maybe Int)
-    , _lrrRecords                               :: !(Maybe [Record])
-    , _lrrNextToken                             :: !(Maybe Text)
-    , _lrrSyncSessionToken                      :: !(Maybe Text)
-    , _lrrMergedDatasetNames                    :: !(Maybe [Text])
-    , _lrrLastModifiedBy                        :: !(Maybe Text)
-    , _lrrDatasetSyncCount                      :: !(Maybe Integer)
-    , _lrrStatus                                :: !Int
+    { _lrrsDatasetDeletedAfterRequestedSyncCount :: !(Maybe Bool)
+    , _lrrsDatasetExists                         :: !(Maybe Bool)
+    , _lrrsCount                                 :: !(Maybe Int)
+    , _lrrsRecords                               :: !(Maybe [Record])
+    , _lrrsNextToken                             :: !(Maybe Text)
+    , _lrrsSyncSessionToken                      :: !(Maybe Text)
+    , _lrrsMergedDatasetNames                    :: !(Maybe [Text])
+    , _lrrsLastModifiedBy                        :: !(Maybe Text)
+    , _lrrsDatasetSyncCount                      :: !(Maybe Integer)
+    , _lrrsStatus                                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRecordsResponse' smart constructor.
 listRecordsResponse :: Int -> ListRecordsResponse
 listRecordsResponse pStatus =
     ListRecordsResponse'
-    { _lrrDatasetDeletedAfterRequestedSyncCount = Nothing
-    , _lrrDatasetExists = Nothing
-    , _lrrCount = Nothing
-    , _lrrRecords = Nothing
-    , _lrrNextToken = Nothing
-    , _lrrSyncSessionToken = Nothing
-    , _lrrMergedDatasetNames = Nothing
-    , _lrrLastModifiedBy = Nothing
-    , _lrrDatasetSyncCount = Nothing
-    , _lrrStatus = pStatus
+    { _lrrsDatasetDeletedAfterRequestedSyncCount = Nothing
+    , _lrrsDatasetExists = Nothing
+    , _lrrsCount = Nothing
+    , _lrrsRecords = Nothing
+    , _lrrsNextToken = Nothing
+    , _lrrsSyncSessionToken = Nothing
+    , _lrrsMergedDatasetNames = Nothing
+    , _lrrsLastModifiedBy = Nothing
+    , _lrrsDatasetSyncCount = Nothing
+    , _lrrsStatus = pStatus
     }
 
 -- | A boolean value specifying whether to delete the dataset locally.
-lrrDatasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
-lrrDatasetDeletedAfterRequestedSyncCount = lens _lrrDatasetDeletedAfterRequestedSyncCount (\ s a -> s{_lrrDatasetDeletedAfterRequestedSyncCount = a});
+lrrsDatasetDeletedAfterRequestedSyncCount :: Lens' ListRecordsResponse (Maybe Bool)
+lrrsDatasetDeletedAfterRequestedSyncCount = lens _lrrsDatasetDeletedAfterRequestedSyncCount (\ s a -> s{_lrrsDatasetDeletedAfterRequestedSyncCount = a});
 
 -- | Indicates whether the dataset exists.
-lrrDatasetExists :: Lens' ListRecordsResponse (Maybe Bool)
-lrrDatasetExists = lens _lrrDatasetExists (\ s a -> s{_lrrDatasetExists = a});
+lrrsDatasetExists :: Lens' ListRecordsResponse (Maybe Bool)
+lrrsDatasetExists = lens _lrrsDatasetExists (\ s a -> s{_lrrsDatasetExists = a});
 
 -- | Total number of records.
-lrrCount :: Lens' ListRecordsResponse (Maybe Int)
-lrrCount = lens _lrrCount (\ s a -> s{_lrrCount = a});
+lrrsCount :: Lens' ListRecordsResponse (Maybe Int)
+lrrsCount = lens _lrrsCount (\ s a -> s{_lrrsCount = a});
 
 -- | A list of all records.
-lrrRecords :: Lens' ListRecordsResponse [Record]
-lrrRecords = lens _lrrRecords (\ s a -> s{_lrrRecords = a}) . _Default;
+lrrsRecords :: Lens' ListRecordsResponse [Record]
+lrrsRecords = lens _lrrsRecords (\ s a -> s{_lrrsRecords = a}) . _Default;
 
 -- | A pagination token for obtaining the next page of results.
-lrrNextToken :: Lens' ListRecordsResponse (Maybe Text)
-lrrNextToken = lens _lrrNextToken (\ s a -> s{_lrrNextToken = a});
+lrrsNextToken :: Lens' ListRecordsResponse (Maybe Text)
+lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
 -- | A token containing a session ID, identity ID, and expiration.
-lrrSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
-lrrSyncSessionToken = lens _lrrSyncSessionToken (\ s a -> s{_lrrSyncSessionToken = a});
+lrrsSyncSessionToken :: Lens' ListRecordsResponse (Maybe Text)
+lrrsSyncSessionToken = lens _lrrsSyncSessionToken (\ s a -> s{_lrrsSyncSessionToken = a});
 
 -- | Names of merged datasets.
-lrrMergedDatasetNames :: Lens' ListRecordsResponse [Text]
-lrrMergedDatasetNames = lens _lrrMergedDatasetNames (\ s a -> s{_lrrMergedDatasetNames = a}) . _Default;
+lrrsMergedDatasetNames :: Lens' ListRecordsResponse [Text]
+lrrsMergedDatasetNames = lens _lrrsMergedDatasetNames (\ s a -> s{_lrrsMergedDatasetNames = a}) . _Default;
 
 -- | The user\/device that made the last change to this record.
-lrrLastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)
-lrrLastModifiedBy = lens _lrrLastModifiedBy (\ s a -> s{_lrrLastModifiedBy = a});
+lrrsLastModifiedBy :: Lens' ListRecordsResponse (Maybe Text)
+lrrsLastModifiedBy = lens _lrrsLastModifiedBy (\ s a -> s{_lrrsLastModifiedBy = a});
 
 -- | Server sync count for this dataset.
-lrrDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
-lrrDatasetSyncCount = lens _lrrDatasetSyncCount (\ s a -> s{_lrrDatasetSyncCount = a});
+lrrsDatasetSyncCount :: Lens' ListRecordsResponse (Maybe Integer)
+lrrsDatasetSyncCount = lens _lrrsDatasetSyncCount (\ s a -> s{_lrrsDatasetSyncCount = a});
 
 -- | FIXME: Undocumented member.
-lrrStatus :: Lens' ListRecordsResponse Int
-lrrStatus = lens _lrrStatus (\ s a -> s{_lrrStatus = a});
+lrrsStatus :: Lens' ListRecordsResponse Int
+lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});

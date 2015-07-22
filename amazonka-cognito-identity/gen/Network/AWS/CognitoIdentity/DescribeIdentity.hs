@@ -30,17 +30,17 @@ module Network.AWS.CognitoIdentity.DescribeIdentity
     -- ** Request constructor
     , describeIdentity
     -- ** Request lenses
-    , diIdentityId
+    , dirqIdentityId
 
     -- * Response
     , IdentityDescription
     -- ** Response constructor
     , identityDescription
     -- ** Response lenses
-    , idLastModifiedDate
-    , idCreationDate
-    , idLogins
-    , idIdentityId
+    , dirsLastModifiedDate
+    , dirsCreationDate
+    , dirsLogins
+    , dirsIdentityId
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diIdentityId'
+-- * 'dirqIdentityId'
 newtype DescribeIdentity = DescribeIdentity'
-    { _diIdentityId :: Text
+    { _dirqIdentityId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentity' smart constructor.
 describeIdentity :: Text -> DescribeIdentity
 describeIdentity pIdentityId =
     DescribeIdentity'
-    { _diIdentityId = pIdentityId
+    { _dirqIdentityId = pIdentityId
     }
 
 -- | A unique identifier in the format REGION:GUID.
-diIdentityId :: Lens' DescribeIdentity Text
-diIdentityId = lens _diIdentityId (\ s a -> s{_diIdentityId = a});
+dirqIdentityId :: Lens' DescribeIdentity Text
+dirqIdentityId = lens _dirqIdentityId (\ s a -> s{_dirqIdentityId = a});
 
 instance AWSRequest DescribeIdentity where
         type Sv DescribeIdentity = CognitoIdentity
@@ -88,7 +88,7 @@ instance ToHeaders DescribeIdentity where
 
 instance ToJSON DescribeIdentity where
         toJSON DescribeIdentity'{..}
-          = object ["IdentityId" .= _diIdentityId]
+          = object ["IdentityId" .= _dirqIdentityId]
 
 instance ToPath DescribeIdentity where
         toPath = const "/"

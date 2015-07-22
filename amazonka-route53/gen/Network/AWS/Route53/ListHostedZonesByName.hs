@@ -37,23 +37,23 @@ module Network.AWS.Route53.ListHostedZonesByName
     -- ** Request constructor
     , listHostedZonesByName
     -- ** Request lenses
-    , lhzbnHostedZoneId
-    , lhzbnMaxItems
-    , lhzbnDNSName
+    , lhzbnrqHostedZoneId
+    , lhzbnrqMaxItems
+    , lhzbnrqDNSName
 
     -- * Response
     , ListHostedZonesByNameResponse
     -- ** Response constructor
     , listHostedZonesByNameResponse
     -- ** Response lenses
-    , lhzbnrHostedZoneId
-    , lhzbnrNextHostedZoneId
-    , lhzbnrDNSName
-    , lhzbnrNextDNSName
-    , lhzbnrStatus
-    , lhzbnrHostedZones
-    , lhzbnrIsTruncated
-    , lhzbnrMaxItems
+    , lhzbnrsHostedZoneId
+    , lhzbnrsNextHostedZoneId
+    , lhzbnrsDNSName
+    , lhzbnrsNextDNSName
+    , lhzbnrsStatus
+    , lhzbnrsHostedZones
+    , lhzbnrsIsTruncated
+    , lhzbnrsMaxItems
     ) where
 
 import           Network.AWS.Prelude
@@ -78,37 +78,37 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhzbnHostedZoneId'
+-- * 'lhzbnrqHostedZoneId'
 --
--- * 'lhzbnMaxItems'
+-- * 'lhzbnrqMaxItems'
 --
--- * 'lhzbnDNSName'
+-- * 'lhzbnrqDNSName'
 data ListHostedZonesByName = ListHostedZonesByName'
-    { _lhzbnHostedZoneId :: !(Maybe Text)
-    , _lhzbnMaxItems     :: !(Maybe Text)
-    , _lhzbnDNSName      :: !(Maybe Text)
+    { _lhzbnrqHostedZoneId :: !(Maybe Text)
+    , _lhzbnrqMaxItems     :: !(Maybe Text)
+    , _lhzbnrqDNSName      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZonesByName' smart constructor.
 listHostedZonesByName :: ListHostedZonesByName
 listHostedZonesByName =
     ListHostedZonesByName'
-    { _lhzbnHostedZoneId = Nothing
-    , _lhzbnMaxItems = Nothing
-    , _lhzbnDNSName = Nothing
+    { _lhzbnrqHostedZoneId = Nothing
+    , _lhzbnrqMaxItems = Nothing
+    , _lhzbnrqDNSName = Nothing
     }
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextDNSName@ and @NextHostedZoneId@
 -- from the last response in the @DNSName@ and @HostedZoneId@ parameters to
 -- get the next page of results.
-lhzbnHostedZoneId :: Lens' ListHostedZonesByName (Maybe Text)
-lhzbnHostedZoneId = lens _lhzbnHostedZoneId (\ s a -> s{_lhzbnHostedZoneId = a});
+lhzbnrqHostedZoneId :: Lens' ListHostedZonesByName (Maybe Text)
+lhzbnrqHostedZoneId = lens _lhzbnrqHostedZoneId (\ s a -> s{_lhzbnrqHostedZoneId = a});
 
 -- | Specify the maximum number of hosted zones to return per page of
 -- results.
-lhzbnMaxItems :: Lens' ListHostedZonesByName (Maybe Text)
-lhzbnMaxItems = lens _lhzbnMaxItems (\ s a -> s{_lhzbnMaxItems = a});
+lhzbnrqMaxItems :: Lens' ListHostedZonesByName (Maybe Text)
+lhzbnrqMaxItems = lens _lhzbnrqMaxItems (\ s a -> s{_lhzbnrqMaxItems = a});
 
 -- | The first name in the lexicographic ordering of domain names that you
 -- want the @ListHostedZonesByNameRequest@ request to list.
@@ -117,8 +117,8 @@ lhzbnMaxItems = lens _lhzbnMaxItems (\ s a -> s{_lhzbnMaxItems = a});
 -- request and specify the value of @NextDNSName@ and @NextHostedZoneId@
 -- from the last response in the @DNSName@ and @HostedZoneId@ parameters to
 -- get the next page of results.
-lhzbnDNSName :: Lens' ListHostedZonesByName (Maybe Text)
-lhzbnDNSName = lens _lhzbnDNSName (\ s a -> s{_lhzbnDNSName = a});
+lhzbnrqDNSName :: Lens' ListHostedZonesByName (Maybe Text)
+lhzbnrqDNSName = lens _lhzbnrqDNSName (\ s a -> s{_lhzbnrqDNSName = a});
 
 instance AWSRequest ListHostedZonesByName where
         type Sv ListHostedZonesByName = Route53
@@ -148,9 +148,9 @@ instance ToPath ListHostedZonesByName where
 instance ToQuery ListHostedZonesByName where
         toQuery ListHostedZonesByName'{..}
           = mconcat
-              ["hostedzoneid" =: _lhzbnHostedZoneId,
-               "maxitems" =: _lhzbnMaxItems,
-               "dnsname" =: _lhzbnDNSName]
+              ["hostedzoneid" =: _lhzbnrqHostedZoneId,
+               "maxitems" =: _lhzbnrqMaxItems,
+               "dnsname" =: _lhzbnrqDNSName]
 
 -- | A complex type that contains the response for the request.
 --
@@ -158,49 +158,49 @@ instance ToQuery ListHostedZonesByName where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lhzbnrHostedZoneId'
+-- * 'lhzbnrsHostedZoneId'
 --
--- * 'lhzbnrNextHostedZoneId'
+-- * 'lhzbnrsNextHostedZoneId'
 --
--- * 'lhzbnrDNSName'
+-- * 'lhzbnrsDNSName'
 --
--- * 'lhzbnrNextDNSName'
+-- * 'lhzbnrsNextDNSName'
 --
--- * 'lhzbnrStatus'
+-- * 'lhzbnrsStatus'
 --
--- * 'lhzbnrHostedZones'
+-- * 'lhzbnrsHostedZones'
 --
--- * 'lhzbnrIsTruncated'
+-- * 'lhzbnrsIsTruncated'
 --
--- * 'lhzbnrMaxItems'
+-- * 'lhzbnrsMaxItems'
 data ListHostedZonesByNameResponse = ListHostedZonesByNameResponse'
-    { _lhzbnrHostedZoneId     :: !(Maybe Text)
-    , _lhzbnrNextHostedZoneId :: !(Maybe Text)
-    , _lhzbnrDNSName          :: !(Maybe Text)
-    , _lhzbnrNextDNSName      :: !(Maybe Text)
-    , _lhzbnrStatus           :: !Int
-    , _lhzbnrHostedZones      :: ![HostedZone]
-    , _lhzbnrIsTruncated      :: !Bool
-    , _lhzbnrMaxItems         :: !Text
+    { _lhzbnrsHostedZoneId     :: !(Maybe Text)
+    , _lhzbnrsNextHostedZoneId :: !(Maybe Text)
+    , _lhzbnrsDNSName          :: !(Maybe Text)
+    , _lhzbnrsNextDNSName      :: !(Maybe Text)
+    , _lhzbnrsStatus           :: !Int
+    , _lhzbnrsHostedZones      :: ![HostedZone]
+    , _lhzbnrsIsTruncated      :: !Bool
+    , _lhzbnrsMaxItems         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHostedZonesByNameResponse' smart constructor.
 listHostedZonesByNameResponse :: Int -> Bool -> Text -> ListHostedZonesByNameResponse
 listHostedZonesByNameResponse pStatus pIsTruncated pMaxItems =
     ListHostedZonesByNameResponse'
-    { _lhzbnrHostedZoneId = Nothing
-    , _lhzbnrNextHostedZoneId = Nothing
-    , _lhzbnrDNSName = Nothing
-    , _lhzbnrNextDNSName = Nothing
-    , _lhzbnrStatus = pStatus
-    , _lhzbnrHostedZones = mempty
-    , _lhzbnrIsTruncated = pIsTruncated
-    , _lhzbnrMaxItems = pMaxItems
+    { _lhzbnrsHostedZoneId = Nothing
+    , _lhzbnrsNextHostedZoneId = Nothing
+    , _lhzbnrsDNSName = Nothing
+    , _lhzbnrsNextDNSName = Nothing
+    , _lhzbnrsStatus = pStatus
+    , _lhzbnrsHostedZones = mempty
+    , _lhzbnrsIsTruncated = pIsTruncated
+    , _lhzbnrsMaxItems = pMaxItems
     }
 
 -- | The @HostedZoneId@ value sent in the request.
-lhzbnrHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
-lhzbnrHostedZoneId = lens _lhzbnrHostedZoneId (\ s a -> s{_lhzbnrHostedZoneId = a});
+lhzbnrsHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
+lhzbnrsHostedZoneId = lens _lhzbnrsHostedZoneId (\ s a -> s{_lhzbnrsHostedZoneId = a});
 
 -- | If ListHostedZonesByNameResponse$IsTruncated is @true@, there are more
 -- hosted zones associated with the current AWS account. To get the next
@@ -209,12 +209,12 @@ lhzbnrHostedZoneId = lens _lhzbnrHostedZoneId (\ s a -> s{_lhzbnrHostedZoneId = 
 -- ListHostedZonesByNameRequest$DNSName element and
 -- ListHostedZonesByNameResponse$NextHostedZoneId in the
 -- ListHostedZonesByNameRequest$HostedZoneId element.
-lhzbnrNextHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
-lhzbnrNextHostedZoneId = lens _lhzbnrNextHostedZoneId (\ s a -> s{_lhzbnrNextHostedZoneId = a});
+lhzbnrsNextHostedZoneId :: Lens' ListHostedZonesByNameResponse (Maybe Text)
+lhzbnrsNextHostedZoneId = lens _lhzbnrsNextHostedZoneId (\ s a -> s{_lhzbnrsNextHostedZoneId = a});
 
 -- | The @DNSName@ value sent in the request.
-lhzbnrDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
-lhzbnrDNSName = lens _lhzbnrDNSName (\ s a -> s{_lhzbnrDNSName = a});
+lhzbnrsDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
+lhzbnrsDNSName = lens _lhzbnrsDNSName (\ s a -> s{_lhzbnrsDNSName = a});
 
 -- | If ListHostedZonesByNameResponse$IsTruncated is @true@, there are more
 -- hosted zones associated with the current AWS account. To get the next
@@ -223,17 +223,17 @@ lhzbnrDNSName = lens _lhzbnrDNSName (\ s a -> s{_lhzbnrDNSName = a});
 -- ListHostedZonesByNameRequest$DNSName element and
 -- ListHostedZonesByNameResponse$NextHostedZoneId in the
 -- ListHostedZonesByNameRequest$HostedZoneId element.
-lhzbnrNextDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
-lhzbnrNextDNSName = lens _lhzbnrNextDNSName (\ s a -> s{_lhzbnrNextDNSName = a});
+lhzbnrsNextDNSName :: Lens' ListHostedZonesByNameResponse (Maybe Text)
+lhzbnrsNextDNSName = lens _lhzbnrsNextDNSName (\ s a -> s{_lhzbnrsNextDNSName = a});
 
 -- | FIXME: Undocumented member.
-lhzbnrStatus :: Lens' ListHostedZonesByNameResponse Int
-lhzbnrStatus = lens _lhzbnrStatus (\ s a -> s{_lhzbnrStatus = a});
+lhzbnrsStatus :: Lens' ListHostedZonesByNameResponse Int
+lhzbnrsStatus = lens _lhzbnrsStatus (\ s a -> s{_lhzbnrsStatus = a});
 
 -- | A complex type that contains information about the hosted zones
 -- associated with the current AWS account.
-lhzbnrHostedZones :: Lens' ListHostedZonesByNameResponse [HostedZone]
-lhzbnrHostedZones = lens _lhzbnrHostedZones (\ s a -> s{_lhzbnrHostedZones = a});
+lhzbnrsHostedZones :: Lens' ListHostedZonesByNameResponse [HostedZone]
+lhzbnrsHostedZones = lens _lhzbnrsHostedZones (\ s a -> s{_lhzbnrsHostedZones = a});
 
 -- | A flag indicating whether there are more hosted zones to be listed. If
 -- your results were truncated, you can make a follow-up request for the
@@ -241,8 +241,8 @@ lhzbnrHostedZones = lens _lhzbnrHostedZones (\ s a -> s{_lhzbnrHostedZones = a})
 -- elements.
 --
 -- Valid Values: @true@ | @false@
-lhzbnrIsTruncated :: Lens' ListHostedZonesByNameResponse Bool
-lhzbnrIsTruncated = lens _lhzbnrIsTruncated (\ s a -> s{_lhzbnrIsTruncated = a});
+lhzbnrsIsTruncated :: Lens' ListHostedZonesByNameResponse Bool
+lhzbnrsIsTruncated = lens _lhzbnrsIsTruncated (\ s a -> s{_lhzbnrsIsTruncated = a});
 
 -- | The maximum number of hosted zones to be included in the response body.
 -- If the number of hosted zones associated with this AWS account exceeds
@@ -251,5 +251,5 @@ lhzbnrIsTruncated = lens _lhzbnrIsTruncated (\ s a -> s{_lhzbnrIsTruncated = a})
 -- the value of ListHostedZonesByNameResponse$NextDNSName and
 -- ListHostedZonesByNameResponse$NextHostedZoneId elements respectively to
 -- get the next page of results.
-lhzbnrMaxItems :: Lens' ListHostedZonesByNameResponse Text
-lhzbnrMaxItems = lens _lhzbnrMaxItems (\ s a -> s{_lhzbnrMaxItems = a});
+lhzbnrsMaxItems :: Lens' ListHostedZonesByNameResponse Text
+lhzbnrsMaxItems = lens _lhzbnrsMaxItems (\ s a -> s{_lhzbnrsMaxItems = a});

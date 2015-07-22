@@ -27,15 +27,15 @@ module Network.AWS.DirectoryService.DeleteSnapshot
     -- ** Request constructor
     , deleteSnapshot
     -- ** Request lenses
-    , dsSnapshotId
+    , dsrqSnapshotId
 
     -- * Response
     , DeleteSnapshotResponse
     -- ** Response constructor
     , deleteSnapshotResponse
     -- ** Response lenses
-    , dsrSnapshotId
-    , dsrStatus
+    , dsrsSnapshotId
+    , dsrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsSnapshotId'
+-- * 'dsrqSnapshotId'
 newtype DeleteSnapshot = DeleteSnapshot'
-    { _dsSnapshotId :: Text
+    { _dsrqSnapshotId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshot' smart constructor.
 deleteSnapshot :: Text -> DeleteSnapshot
 deleteSnapshot pSnapshotId =
     DeleteSnapshot'
-    { _dsSnapshotId = pSnapshotId
+    { _dsrqSnapshotId = pSnapshotId
     }
 
 -- | The identifier of the directory snapshot to be deleted.
-dsSnapshotId :: Lens' DeleteSnapshot Text
-dsSnapshotId = lens _dsSnapshotId (\ s a -> s{_dsSnapshotId = a});
+dsrqSnapshotId :: Lens' DeleteSnapshot Text
+dsrqSnapshotId = lens _dsrqSnapshotId (\ s a -> s{_dsrqSnapshotId = a});
 
 instance AWSRequest DeleteSnapshot where
         type Sv DeleteSnapshot = DirectoryService
@@ -87,7 +87,7 @@ instance ToHeaders DeleteSnapshot where
 
 instance ToJSON DeleteSnapshot where
         toJSON DeleteSnapshot'{..}
-          = object ["SnapshotId" .= _dsSnapshotId]
+          = object ["SnapshotId" .= _dsrqSnapshotId]
 
 instance ToPath DeleteSnapshot where
         toPath = const "/"
@@ -101,26 +101,26 @@ instance ToQuery DeleteSnapshot where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrSnapshotId'
+-- * 'dsrsSnapshotId'
 --
--- * 'dsrStatus'
+-- * 'dsrsStatus'
 data DeleteSnapshotResponse = DeleteSnapshotResponse'
-    { _dsrSnapshotId :: !(Maybe Text)
-    , _dsrStatus     :: !Int
+    { _dsrsSnapshotId :: !(Maybe Text)
+    , _dsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSnapshotResponse' smart constructor.
 deleteSnapshotResponse :: Int -> DeleteSnapshotResponse
 deleteSnapshotResponse pStatus =
     DeleteSnapshotResponse'
-    { _dsrSnapshotId = Nothing
-    , _dsrStatus = pStatus
+    { _dsrsSnapshotId = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | The identifier of the directory snapshot that was deleted.
-dsrSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
-dsrSnapshotId = lens _dsrSnapshotId (\ s a -> s{_dsrSnapshotId = a});
+dsrsSnapshotId :: Lens' DeleteSnapshotResponse (Maybe Text)
+dsrsSnapshotId = lens _dsrsSnapshotId (\ s a -> s{_dsrsSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DeleteSnapshotResponse Int
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+dsrsStatus :: Lens' DeleteSnapshotResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

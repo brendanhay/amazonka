@@ -27,8 +27,8 @@ module Network.AWS.IAM.AddUserToGroup
     -- ** Request constructor
     , addUserToGroup
     -- ** Request lenses
-    , autgGroupName
-    , autgUserName
+    , autgrqGroupName
+    , autgrqUserName
 
     -- * Response
     , AddUserToGroupResponse
@@ -45,29 +45,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'autgGroupName'
+-- * 'autgrqGroupName'
 --
--- * 'autgUserName'
+-- * 'autgrqUserName'
 data AddUserToGroup = AddUserToGroup'
-    { _autgGroupName :: !Text
-    , _autgUserName  :: !Text
+    { _autgrqGroupName :: !Text
+    , _autgrqUserName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddUserToGroup' smart constructor.
 addUserToGroup :: Text -> Text -> AddUserToGroup
 addUserToGroup pGroupName pUserName =
     AddUserToGroup'
-    { _autgGroupName = pGroupName
-    , _autgUserName = pUserName
+    { _autgrqGroupName = pGroupName
+    , _autgrqUserName = pUserName
     }
 
 -- | The name of the group to update.
-autgGroupName :: Lens' AddUserToGroup Text
-autgGroupName = lens _autgGroupName (\ s a -> s{_autgGroupName = a});
+autgrqGroupName :: Lens' AddUserToGroup Text
+autgrqGroupName = lens _autgrqGroupName (\ s a -> s{_autgrqGroupName = a});
 
 -- | The name of the user to add.
-autgUserName :: Lens' AddUserToGroup Text
-autgUserName = lens _autgUserName (\ s a -> s{_autgUserName = a});
+autgrqUserName :: Lens' AddUserToGroup Text
+autgrqUserName = lens _autgrqUserName (\ s a -> s{_autgrqUserName = a});
 
 instance AWSRequest AddUserToGroup where
         type Sv AddUserToGroup = IAM
@@ -86,8 +86,8 @@ instance ToQuery AddUserToGroup where
           = mconcat
               ["Action" =: ("AddUserToGroup" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "GroupName" =: _autgGroupName,
-               "UserName" =: _autgUserName]
+               "GroupName" =: _autgrqGroupName,
+               "UserName" =: _autgrqUserName]
 
 -- | /See:/ 'addUserToGroupResponse' smart constructor.
 data AddUserToGroupResponse =

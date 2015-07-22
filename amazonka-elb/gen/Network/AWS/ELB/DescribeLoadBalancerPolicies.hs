@@ -35,16 +35,16 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicies
     -- ** Request constructor
     , describeLoadBalancerPolicies
     -- ** Request lenses
-    , dlbpPolicyNames
-    , dlbpLoadBalancerName
+    , dlbprqPolicyNames
+    , dlbprqLoadBalancerName
 
     -- * Response
     , DescribeLoadBalancerPoliciesResponse
     -- ** Response constructor
     , describeLoadBalancerPoliciesResponse
     -- ** Response lenses
-    , dlbprPolicyDescriptions
-    , dlbprStatus
+    , dlbprsPolicyDescriptions
+    , dlbprsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbpPolicyNames'
+-- * 'dlbprqPolicyNames'
 --
--- * 'dlbpLoadBalancerName'
+-- * 'dlbprqLoadBalancerName'
 data DescribeLoadBalancerPolicies = DescribeLoadBalancerPolicies'
-    { _dlbpPolicyNames      :: !(Maybe [Text])
-    , _dlbpLoadBalancerName :: !(Maybe Text)
+    { _dlbprqPolicyNames      :: !(Maybe [Text])
+    , _dlbprqLoadBalancerName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPolicies' smart constructor.
 describeLoadBalancerPolicies :: DescribeLoadBalancerPolicies
 describeLoadBalancerPolicies =
     DescribeLoadBalancerPolicies'
-    { _dlbpPolicyNames = Nothing
-    , _dlbpLoadBalancerName = Nothing
+    { _dlbprqPolicyNames = Nothing
+    , _dlbprqLoadBalancerName = Nothing
     }
 
 -- | The names of the policies.
-dlbpPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
-dlbpPolicyNames = lens _dlbpPolicyNames (\ s a -> s{_dlbpPolicyNames = a}) . _Default;
+dlbprqPolicyNames :: Lens' DescribeLoadBalancerPolicies [Text]
+dlbprqPolicyNames = lens _dlbprqPolicyNames (\ s a -> s{_dlbprqPolicyNames = a}) . _Default;
 
 -- | The name of the load balancer.
-dlbpLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
-dlbpLoadBalancerName = lens _dlbpLoadBalancerName (\ s a -> s{_dlbpLoadBalancerName = a});
+dlbprqLoadBalancerName :: Lens' DescribeLoadBalancerPolicies (Maybe Text)
+dlbprqLoadBalancerName = lens _dlbprqLoadBalancerName (\ s a -> s{_dlbprqLoadBalancerName = a});
 
 instance AWSRequest DescribeLoadBalancerPolicies
          where
@@ -108,33 +108,34 @@ instance ToQuery DescribeLoadBalancerPolicies where
                  ("DescribeLoadBalancerPolicies" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "PolicyNames" =:
-                 toQuery (toQueryList "member" <$> _dlbpPolicyNames),
-               "LoadBalancerName" =: _dlbpLoadBalancerName]
+                 toQuery
+                   (toQueryList "member" <$> _dlbprqPolicyNames),
+               "LoadBalancerName" =: _dlbprqLoadBalancerName]
 
 -- | /See:/ 'describeLoadBalancerPoliciesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbprPolicyDescriptions'
+-- * 'dlbprsPolicyDescriptions'
 --
--- * 'dlbprStatus'
+-- * 'dlbprsStatus'
 data DescribeLoadBalancerPoliciesResponse = DescribeLoadBalancerPoliciesResponse'
-    { _dlbprPolicyDescriptions :: !(Maybe [PolicyDescription])
-    , _dlbprStatus             :: !Int
+    { _dlbprsPolicyDescriptions :: !(Maybe [PolicyDescription])
+    , _dlbprsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPoliciesResponse' smart constructor.
 describeLoadBalancerPoliciesResponse :: Int -> DescribeLoadBalancerPoliciesResponse
 describeLoadBalancerPoliciesResponse pStatus =
     DescribeLoadBalancerPoliciesResponse'
-    { _dlbprPolicyDescriptions = Nothing
-    , _dlbprStatus = pStatus
+    { _dlbprsPolicyDescriptions = Nothing
+    , _dlbprsStatus = pStatus
     }
 
 -- | Information about the policies.
-dlbprPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
-dlbprPolicyDescriptions = lens _dlbprPolicyDescriptions (\ s a -> s{_dlbprPolicyDescriptions = a}) . _Default;
+dlbprsPolicyDescriptions :: Lens' DescribeLoadBalancerPoliciesResponse [PolicyDescription]
+dlbprsPolicyDescriptions = lens _dlbprsPolicyDescriptions (\ s a -> s{_dlbprsPolicyDescriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbprStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
-dlbprStatus = lens _dlbprStatus (\ s a -> s{_dlbprStatus = a});
+dlbprsStatus :: Lens' DescribeLoadBalancerPoliciesResponse Int
+dlbprsStatus = lens _dlbprsStatus (\ s a -> s{_dlbprsStatus = a});

@@ -31,17 +31,17 @@ module Network.AWS.DataPipeline.ReportTaskRunnerHeartbeat
     -- ** Request constructor
     , reportTaskRunnerHeartbeat
     -- ** Request lenses
-    , rtrhHostname
-    , rtrhWorkerGroup
-    , rtrhTaskrunnerId
+    , rtrhrqHostname
+    , rtrhrqWorkerGroup
+    , rtrhrqTaskrunnerId
 
     -- * Response
     , ReportTaskRunnerHeartbeatResponse
     -- ** Response constructor
     , reportTaskRunnerHeartbeatResponse
     -- ** Response lenses
-    , rtrhrStatus
-    , rtrhrTerminate
+    , rtrhrsStatus
+    , rtrhrsTerminate
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -55,37 +55,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrhHostname'
+-- * 'rtrhrqHostname'
 --
--- * 'rtrhWorkerGroup'
+-- * 'rtrhrqWorkerGroup'
 --
--- * 'rtrhTaskrunnerId'
+-- * 'rtrhrqTaskrunnerId'
 data ReportTaskRunnerHeartbeat = ReportTaskRunnerHeartbeat'
-    { _rtrhHostname     :: !(Maybe Text)
-    , _rtrhWorkerGroup  :: !(Maybe Text)
-    , _rtrhTaskrunnerId :: !Text
+    { _rtrhrqHostname     :: !(Maybe Text)
+    , _rtrhrqWorkerGroup  :: !(Maybe Text)
+    , _rtrhrqTaskrunnerId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskRunnerHeartbeat' smart constructor.
 reportTaskRunnerHeartbeat :: Text -> ReportTaskRunnerHeartbeat
 reportTaskRunnerHeartbeat pTaskrunnerId =
     ReportTaskRunnerHeartbeat'
-    { _rtrhHostname = Nothing
-    , _rtrhWorkerGroup = Nothing
-    , _rtrhTaskrunnerId = pTaskrunnerId
+    { _rtrhrqHostname = Nothing
+    , _rtrhrqWorkerGroup = Nothing
+    , _rtrhrqTaskrunnerId = pTaskrunnerId
     }
 
 -- | The public DNS name of the task runner.
-rtrhHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhHostname = lens _rtrhHostname (\ s a -> s{_rtrhHostname = a});
+rtrhrqHostname :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+rtrhrqHostname = lens _rtrhrqHostname (\ s a -> s{_rtrhrqHostname = a});
 
 -- | The type of task the task runner is configured to accept and process.
 -- The worker group is set as a field on objects in the pipeline when they
 -- are created. You can only specify a single value for @workerGroup@.
 -- There are no wildcard values permitted in @workerGroup@; the string must
 -- be an exact, case-sensitive, match.
-rtrhWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
-rtrhWorkerGroup = lens _rtrhWorkerGroup (\ s a -> s{_rtrhWorkerGroup = a});
+rtrhrqWorkerGroup :: Lens' ReportTaskRunnerHeartbeat (Maybe Text)
+rtrhrqWorkerGroup = lens _rtrhrqWorkerGroup (\ s a -> s{_rtrhrqWorkerGroup = a});
 
 -- | The ID of the task runner. This value should be unique across your AWS
 -- account. In the case of AWS Data Pipeline Task Runner launched on a
@@ -93,8 +93,8 @@ rtrhWorkerGroup = lens _rtrhWorkerGroup (\ s a -> s{_rtrhWorkerGroup = a});
 -- identifier when it launches the application. If you have written a
 -- custom task runner, you should assign a unique identifier for the task
 -- runner.
-rtrhTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
-rtrhTaskrunnerId = lens _rtrhTaskrunnerId (\ s a -> s{_rtrhTaskrunnerId = a});
+rtrhrqTaskrunnerId :: Lens' ReportTaskRunnerHeartbeat Text
+rtrhrqTaskrunnerId = lens _rtrhrqTaskrunnerId (\ s a -> s{_rtrhrqTaskrunnerId = a});
 
 instance AWSRequest ReportTaskRunnerHeartbeat where
         type Sv ReportTaskRunnerHeartbeat = DataPipeline
@@ -120,9 +120,9 @@ instance ToHeaders ReportTaskRunnerHeartbeat where
 instance ToJSON ReportTaskRunnerHeartbeat where
         toJSON ReportTaskRunnerHeartbeat'{..}
           = object
-              ["hostname" .= _rtrhHostname,
-               "workerGroup" .= _rtrhWorkerGroup,
-               "taskrunnerId" .= _rtrhTaskrunnerId]
+              ["hostname" .= _rtrhrqHostname,
+               "workerGroup" .= _rtrhrqWorkerGroup,
+               "taskrunnerId" .= _rtrhrqTaskrunnerId]
 
 instance ToPath ReportTaskRunnerHeartbeat where
         toPath = const "/"
@@ -136,26 +136,26 @@ instance ToQuery ReportTaskRunnerHeartbeat where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrhrStatus'
+-- * 'rtrhrsStatus'
 --
--- * 'rtrhrTerminate'
+-- * 'rtrhrsTerminate'
 data ReportTaskRunnerHeartbeatResponse = ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrStatus    :: !Int
-    , _rtrhrTerminate :: !Bool
+    { _rtrhrsStatus    :: !Int
+    , _rtrhrsTerminate :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportTaskRunnerHeartbeatResponse' smart constructor.
 reportTaskRunnerHeartbeatResponse :: Int -> Bool -> ReportTaskRunnerHeartbeatResponse
 reportTaskRunnerHeartbeatResponse pStatus pTerminate =
     ReportTaskRunnerHeartbeatResponse'
-    { _rtrhrStatus = pStatus
-    , _rtrhrTerminate = pTerminate
+    { _rtrhrsStatus = pStatus
+    , _rtrhrsTerminate = pTerminate
     }
 
 -- | FIXME: Undocumented member.
-rtrhrStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
-rtrhrStatus = lens _rtrhrStatus (\ s a -> s{_rtrhrStatus = a});
+rtrhrsStatus :: Lens' ReportTaskRunnerHeartbeatResponse Int
+rtrhrsStatus = lens _rtrhrsStatus (\ s a -> s{_rtrhrsStatus = a});
 
 -- | Indicates whether the calling task runner should terminate.
-rtrhrTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
-rtrhrTerminate = lens _rtrhrTerminate (\ s a -> s{_rtrhrTerminate = a});
+rtrhrsTerminate :: Lens' ReportTaskRunnerHeartbeatResponse Bool
+rtrhrsTerminate = lens _rtrhrsTerminate (\ s a -> s{_rtrhrsTerminate = a});

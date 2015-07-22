@@ -28,7 +28,7 @@ module Network.AWS.CloudWatch.DeleteAlarms
     -- ** Request constructor
     , deleteAlarms
     -- ** Request lenses
-    , delAlarmNames
+    , drqAlarmNames
 
     -- * Response
     , DeleteAlarmsResponse
@@ -45,21 +45,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delAlarmNames'
+-- * 'drqAlarmNames'
 newtype DeleteAlarms = DeleteAlarms'
-    { _delAlarmNames :: [Text]
+    { _drqAlarmNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteAlarms' smart constructor.
 deleteAlarms :: DeleteAlarms
 deleteAlarms =
     DeleteAlarms'
-    { _delAlarmNames = mempty
+    { _drqAlarmNames = mempty
     }
 
 -- | A list of alarms to be deleted.
-delAlarmNames :: Lens' DeleteAlarms [Text]
-delAlarmNames = lens _delAlarmNames (\ s a -> s{_delAlarmNames = a});
+drqAlarmNames :: Lens' DeleteAlarms [Text]
+drqAlarmNames = lens _drqAlarmNames (\ s a -> s{_drqAlarmNames = a});
 
 instance AWSRequest DeleteAlarms where
         type Sv DeleteAlarms = CloudWatch
@@ -78,7 +78,7 @@ instance ToQuery DeleteAlarms where
           = mconcat
               ["Action" =: ("DeleteAlarms" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNames" =: toQueryList "member" _delAlarmNames]
+               "AlarmNames" =: toQueryList "member" _drqAlarmNames]
 
 -- | /See:/ 'deleteAlarmsResponse' smart constructor.
 data DeleteAlarmsResponse =

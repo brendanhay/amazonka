@@ -36,23 +36,23 @@ module Network.AWS.CloudWatchLogs.GetLogEvents
     -- ** Request constructor
     , getLogEvents
     -- ** Request lenses
-    , gleStartTime
-    , gleStartFromHead
-    , gleNextToken
-    , gleEndTime
-    , gleLimit
-    , gleLogGroupName
-    , gleLogStreamName
+    , glerqStartTime
+    , glerqStartFromHead
+    , glerqNextToken
+    , glerqEndTime
+    , glerqLimit
+    , glerqLogGroupName
+    , glerqLogStreamName
 
     -- * Response
     , GetLogEventsResponse
     -- ** Response constructor
     , getLogEventsResponse
     -- ** Response lenses
-    , glerNextBackwardToken
-    , glerNextForwardToken
-    , glerEvents
-    , glerStatus
+    , glersNextBackwardToken
+    , glersNextForwardToken
+    , glersEvents
+    , glersStatus
     ) where
 
 import           Network.AWS.CloudWatchLogs.Types
@@ -64,75 +64,75 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gleStartTime'
+-- * 'glerqStartTime'
 --
--- * 'gleStartFromHead'
+-- * 'glerqStartFromHead'
 --
--- * 'gleNextToken'
+-- * 'glerqNextToken'
 --
--- * 'gleEndTime'
+-- * 'glerqEndTime'
 --
--- * 'gleLimit'
+-- * 'glerqLimit'
 --
--- * 'gleLogGroupName'
+-- * 'glerqLogGroupName'
 --
--- * 'gleLogStreamName'
+-- * 'glerqLogStreamName'
 data GetLogEvents = GetLogEvents'
-    { _gleStartTime     :: !(Maybe Nat)
-    , _gleStartFromHead :: !(Maybe Bool)
-    , _gleNextToken     :: !(Maybe Text)
-    , _gleEndTime       :: !(Maybe Nat)
-    , _gleLimit         :: !(Maybe Nat)
-    , _gleLogGroupName  :: !Text
-    , _gleLogStreamName :: !Text
+    { _glerqStartTime     :: !(Maybe Nat)
+    , _glerqStartFromHead :: !(Maybe Bool)
+    , _glerqNextToken     :: !(Maybe Text)
+    , _glerqEndTime       :: !(Maybe Nat)
+    , _glerqLimit         :: !(Maybe Nat)
+    , _glerqLogGroupName  :: !Text
+    , _glerqLogStreamName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLogEvents' smart constructor.
 getLogEvents :: Text -> Text -> GetLogEvents
 getLogEvents pLogGroupName pLogStreamName =
     GetLogEvents'
-    { _gleStartTime = Nothing
-    , _gleStartFromHead = Nothing
-    , _gleNextToken = Nothing
-    , _gleEndTime = Nothing
-    , _gleLimit = Nothing
-    , _gleLogGroupName = pLogGroupName
-    , _gleLogStreamName = pLogStreamName
+    { _glerqStartTime = Nothing
+    , _glerqStartFromHead = Nothing
+    , _glerqNextToken = Nothing
+    , _glerqEndTime = Nothing
+    , _glerqLimit = Nothing
+    , _glerqLogGroupName = pLogGroupName
+    , _glerqLogStreamName = pLogStreamName
     }
 
 -- | FIXME: Undocumented member.
-gleStartTime :: Lens' GetLogEvents (Maybe Natural)
-gleStartTime = lens _gleStartTime (\ s a -> s{_gleStartTime = a}) . mapping _Nat;
+glerqStartTime :: Lens' GetLogEvents (Maybe Natural)
+glerqStartTime = lens _glerqStartTime (\ s a -> s{_glerqStartTime = a}) . mapping _Nat;
 
 -- | If set to true, the earliest log events would be returned first. The
 -- default is false (the latest log events are returned first).
-gleStartFromHead :: Lens' GetLogEvents (Maybe Bool)
-gleStartFromHead = lens _gleStartFromHead (\ s a -> s{_gleStartFromHead = a});
+glerqStartFromHead :: Lens' GetLogEvents (Maybe Bool)
+glerqStartFromHead = lens _glerqStartFromHead (\ s a -> s{_glerqStartFromHead = a});
 
 -- | A string token used for pagination that points to the next page of
 -- results. It must be a value obtained from the @nextForwardToken@ or
 -- @nextBackwardToken@ fields in the response of the previous
 -- @GetLogEvents@ request.
-gleNextToken :: Lens' GetLogEvents (Maybe Text)
-gleNextToken = lens _gleNextToken (\ s a -> s{_gleNextToken = a});
+glerqNextToken :: Lens' GetLogEvents (Maybe Text)
+glerqNextToken = lens _glerqNextToken (\ s a -> s{_glerqNextToken = a});
 
 -- | FIXME: Undocumented member.
-gleEndTime :: Lens' GetLogEvents (Maybe Natural)
-gleEndTime = lens _gleEndTime (\ s a -> s{_gleEndTime = a}) . mapping _Nat;
+glerqEndTime :: Lens' GetLogEvents (Maybe Natural)
+glerqEndTime = lens _glerqEndTime (\ s a -> s{_glerqEndTime = a}) . mapping _Nat;
 
 -- | The maximum number of log events returned in the response. If you don\'t
 -- specify a value, the request would return as many log events as can fit
 -- in a response size of 1MB, up to 10,000 log events.
-gleLimit :: Lens' GetLogEvents (Maybe Natural)
-gleLimit = lens _gleLimit (\ s a -> s{_gleLimit = a}) . mapping _Nat;
+glerqLimit :: Lens' GetLogEvents (Maybe Natural)
+glerqLimit = lens _glerqLimit (\ s a -> s{_glerqLimit = a}) . mapping _Nat;
 
 -- | The name of the log group to query.
-gleLogGroupName :: Lens' GetLogEvents Text
-gleLogGroupName = lens _gleLogGroupName (\ s a -> s{_gleLogGroupName = a});
+glerqLogGroupName :: Lens' GetLogEvents Text
+glerqLogGroupName = lens _glerqLogGroupName (\ s a -> s{_glerqLogGroupName = a});
 
 -- | The name of the log stream to query.
-gleLogStreamName :: Lens' GetLogEvents Text
-gleLogStreamName = lens _gleLogStreamName (\ s a -> s{_gleLogStreamName = a});
+glerqLogStreamName :: Lens' GetLogEvents Text
+glerqLogStreamName = lens _glerqLogStreamName (\ s a -> s{_glerqLogStreamName = a});
 
 instance AWSRequest GetLogEvents where
         type Sv GetLogEvents = CloudWatchLogs
@@ -159,12 +159,12 @@ instance ToHeaders GetLogEvents where
 instance ToJSON GetLogEvents where
         toJSON GetLogEvents'{..}
           = object
-              ["startTime" .= _gleStartTime,
-               "startFromHead" .= _gleStartFromHead,
-               "nextToken" .= _gleNextToken,
-               "endTime" .= _gleEndTime, "limit" .= _gleLimit,
-               "logGroupName" .= _gleLogGroupName,
-               "logStreamName" .= _gleLogStreamName]
+              ["startTime" .= _glerqStartTime,
+               "startFromHead" .= _glerqStartFromHead,
+               "nextToken" .= _glerqNextToken,
+               "endTime" .= _glerqEndTime, "limit" .= _glerqLimit,
+               "logGroupName" .= _glerqLogGroupName,
+               "logStreamName" .= _glerqLogStreamName]
 
 instance ToPath GetLogEvents where
         toPath = const "/"
@@ -176,42 +176,42 @@ instance ToQuery GetLogEvents where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'glerNextBackwardToken'
+-- * 'glersNextBackwardToken'
 --
--- * 'glerNextForwardToken'
+-- * 'glersNextForwardToken'
 --
--- * 'glerEvents'
+-- * 'glersEvents'
 --
--- * 'glerStatus'
+-- * 'glersStatus'
 data GetLogEventsResponse = GetLogEventsResponse'
-    { _glerNextBackwardToken :: !(Maybe Text)
-    , _glerNextForwardToken  :: !(Maybe Text)
-    , _glerEvents            :: !(Maybe [OutputLogEvent])
-    , _glerStatus            :: !Int
+    { _glersNextBackwardToken :: !(Maybe Text)
+    , _glersNextForwardToken  :: !(Maybe Text)
+    , _glersEvents            :: !(Maybe [OutputLogEvent])
+    , _glersStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetLogEventsResponse' smart constructor.
 getLogEventsResponse :: Int -> GetLogEventsResponse
 getLogEventsResponse pStatus =
     GetLogEventsResponse'
-    { _glerNextBackwardToken = Nothing
-    , _glerNextForwardToken = Nothing
-    , _glerEvents = Nothing
-    , _glerStatus = pStatus
+    { _glersNextBackwardToken = Nothing
+    , _glersNextForwardToken = Nothing
+    , _glersEvents = Nothing
+    , _glersStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-glerNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
-glerNextBackwardToken = lens _glerNextBackwardToken (\ s a -> s{_glerNextBackwardToken = a});
+glersNextBackwardToken :: Lens' GetLogEventsResponse (Maybe Text)
+glersNextBackwardToken = lens _glersNextBackwardToken (\ s a -> s{_glersNextBackwardToken = a});
 
 -- | FIXME: Undocumented member.
-glerNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
-glerNextForwardToken = lens _glerNextForwardToken (\ s a -> s{_glerNextForwardToken = a});
+glersNextForwardToken :: Lens' GetLogEventsResponse (Maybe Text)
+glersNextForwardToken = lens _glersNextForwardToken (\ s a -> s{_glersNextForwardToken = a});
 
 -- | FIXME: Undocumented member.
-glerEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
-glerEvents = lens _glerEvents (\ s a -> s{_glerEvents = a}) . _Default;
+glersEvents :: Lens' GetLogEventsResponse [OutputLogEvent]
+glersEvents = lens _glersEvents (\ s a -> s{_glersEvents = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-glerStatus :: Lens' GetLogEventsResponse Int
-glerStatus = lens _glerStatus (\ s a -> s{_glerStatus = a});
+glersStatus :: Lens' GetLogEventsResponse Int
+glersStatus = lens _glersStatus (\ s a -> s{_glersStatus = a});

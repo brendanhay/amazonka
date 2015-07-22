@@ -31,19 +31,19 @@ module Network.AWS.RDS.RevokeDBSecurityGroupIngress
     -- ** Request constructor
     , revokeDBSecurityGroupIngress
     -- ** Request lenses
-    , rdsgiEC2SecurityGroupOwnerId
-    , rdsgiEC2SecurityGroupName
-    , rdsgiCIdRIP
-    , rdsgiEC2SecurityGroupId
-    , rdsgiDBSecurityGroupName
+    , rdsgirqEC2SecurityGroupOwnerId
+    , rdsgirqEC2SecurityGroupName
+    , rdsgirqCIdRIP
+    , rdsgirqEC2SecurityGroupId
+    , rdsgirqDBSecurityGroupName
 
     -- * Response
     , RevokeDBSecurityGroupIngressResponse
     -- ** Response constructor
     , revokeDBSecurityGroupIngressResponse
     -- ** Response lenses
-    , rdsgirDBSecurityGroup
-    , rdsgirStatus
+    , rdsgirsDBSecurityGroup
+    , rdsgirsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -57,32 +57,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdsgiEC2SecurityGroupOwnerId'
+-- * 'rdsgirqEC2SecurityGroupOwnerId'
 --
--- * 'rdsgiEC2SecurityGroupName'
+-- * 'rdsgirqEC2SecurityGroupName'
 --
--- * 'rdsgiCIdRIP'
+-- * 'rdsgirqCIdRIP'
 --
--- * 'rdsgiEC2SecurityGroupId'
+-- * 'rdsgirqEC2SecurityGroupId'
 --
--- * 'rdsgiDBSecurityGroupName'
+-- * 'rdsgirqDBSecurityGroupName'
 data RevokeDBSecurityGroupIngress = RevokeDBSecurityGroupIngress'
-    { _rdsgiEC2SecurityGroupOwnerId :: !(Maybe Text)
-    , _rdsgiEC2SecurityGroupName    :: !(Maybe Text)
-    , _rdsgiCIdRIP                  :: !(Maybe Text)
-    , _rdsgiEC2SecurityGroupId      :: !(Maybe Text)
-    , _rdsgiDBSecurityGroupName     :: !Text
+    { _rdsgirqEC2SecurityGroupOwnerId :: !(Maybe Text)
+    , _rdsgirqEC2SecurityGroupName    :: !(Maybe Text)
+    , _rdsgirqCIdRIP                  :: !(Maybe Text)
+    , _rdsgirqEC2SecurityGroupId      :: !(Maybe Text)
+    , _rdsgirqDBSecurityGroupName     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeDBSecurityGroupIngress' smart constructor.
 revokeDBSecurityGroupIngress :: Text -> RevokeDBSecurityGroupIngress
 revokeDBSecurityGroupIngress pDBSecurityGroupName =
     RevokeDBSecurityGroupIngress'
-    { _rdsgiEC2SecurityGroupOwnerId = Nothing
-    , _rdsgiEC2SecurityGroupName = Nothing
-    , _rdsgiCIdRIP = Nothing
-    , _rdsgiEC2SecurityGroupId = Nothing
-    , _rdsgiDBSecurityGroupName = pDBSecurityGroupName
+    { _rdsgirqEC2SecurityGroupOwnerId = Nothing
+    , _rdsgirqEC2SecurityGroupName = Nothing
+    , _rdsgirqCIdRIP = Nothing
+    , _rdsgirqEC2SecurityGroupId = Nothing
+    , _rdsgirqDBSecurityGroupName = pDBSecurityGroupName
     }
 
 -- | The AWS Account Number of the owner of the EC2 security group specified
@@ -90,32 +90,32 @@ revokeDBSecurityGroupIngress pDBSecurityGroupName =
 -- acceptable value. For VPC DB security groups, @EC2SecurityGroupId@ must
 -- be provided. Otherwise, EC2SecurityGroupOwnerId and either
 -- @EC2SecurityGroupName@ or @EC2SecurityGroupId@ must be provided.
-rdsgiEC2SecurityGroupOwnerId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
-rdsgiEC2SecurityGroupOwnerId = lens _rdsgiEC2SecurityGroupOwnerId (\ s a -> s{_rdsgiEC2SecurityGroupOwnerId = a});
+rdsgirqEC2SecurityGroupOwnerId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
+rdsgirqEC2SecurityGroupOwnerId = lens _rdsgirqEC2SecurityGroupOwnerId (\ s a -> s{_rdsgirqEC2SecurityGroupOwnerId = a});
 
 -- | The name of the EC2 security group to revoke access from. For VPC DB
 -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
 -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
-rdsgiEC2SecurityGroupName :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
-rdsgiEC2SecurityGroupName = lens _rdsgiEC2SecurityGroupName (\ s a -> s{_rdsgiEC2SecurityGroupName = a});
+rdsgirqEC2SecurityGroupName :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
+rdsgirqEC2SecurityGroupName = lens _rdsgirqEC2SecurityGroupName (\ s a -> s{_rdsgirqEC2SecurityGroupName = a});
 
 -- | The IP range to revoke access from. Must be a valid CIDR range. If
 -- @CIDRIP@ is specified, @EC2SecurityGroupName@, @EC2SecurityGroupId@ and
 -- @EC2SecurityGroupOwnerId@ cannot be provided.
-rdsgiCIdRIP :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
-rdsgiCIdRIP = lens _rdsgiCIdRIP (\ s a -> s{_rdsgiCIdRIP = a});
+rdsgirqCIdRIP :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
+rdsgirqCIdRIP = lens _rdsgirqCIdRIP (\ s a -> s{_rdsgirqCIdRIP = a});
 
 -- | The id of the EC2 security group to revoke access from. For VPC DB
 -- security groups, @EC2SecurityGroupId@ must be provided. Otherwise,
 -- EC2SecurityGroupOwnerId and either @EC2SecurityGroupName@ or
 -- @EC2SecurityGroupId@ must be provided.
-rdsgiEC2SecurityGroupId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
-rdsgiEC2SecurityGroupId = lens _rdsgiEC2SecurityGroupId (\ s a -> s{_rdsgiEC2SecurityGroupId = a});
+rdsgirqEC2SecurityGroupId :: Lens' RevokeDBSecurityGroupIngress (Maybe Text)
+rdsgirqEC2SecurityGroupId = lens _rdsgirqEC2SecurityGroupId (\ s a -> s{_rdsgirqEC2SecurityGroupId = a});
 
 -- | The name of the DB security group to revoke ingress from.
-rdsgiDBSecurityGroupName :: Lens' RevokeDBSecurityGroupIngress Text
-rdsgiDBSecurityGroupName = lens _rdsgiDBSecurityGroupName (\ s a -> s{_rdsgiDBSecurityGroupName = a});
+rdsgirqDBSecurityGroupName :: Lens' RevokeDBSecurityGroupIngress Text
+rdsgirqDBSecurityGroupName = lens _rdsgirqDBSecurityGroupName (\ s a -> s{_rdsgirqDBSecurityGroupName = a});
 
 instance AWSRequest RevokeDBSecurityGroupIngress
          where
@@ -143,36 +143,37 @@ instance ToQuery RevokeDBSecurityGroupIngress where
                  ("RevokeDBSecurityGroupIngress" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "EC2SecurityGroupOwnerId" =:
-                 _rdsgiEC2SecurityGroupOwnerId,
-               "EC2SecurityGroupName" =: _rdsgiEC2SecurityGroupName,
-               "CIDRIP" =: _rdsgiCIdRIP,
-               "EC2SecurityGroupId" =: _rdsgiEC2SecurityGroupId,
-               "DBSecurityGroupName" =: _rdsgiDBSecurityGroupName]
+                 _rdsgirqEC2SecurityGroupOwnerId,
+               "EC2SecurityGroupName" =:
+                 _rdsgirqEC2SecurityGroupName,
+               "CIDRIP" =: _rdsgirqCIdRIP,
+               "EC2SecurityGroupId" =: _rdsgirqEC2SecurityGroupId,
+               "DBSecurityGroupName" =: _rdsgirqDBSecurityGroupName]
 
 -- | /See:/ 'revokeDBSecurityGroupIngressResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdsgirDBSecurityGroup'
+-- * 'rdsgirsDBSecurityGroup'
 --
--- * 'rdsgirStatus'
+-- * 'rdsgirsStatus'
 data RevokeDBSecurityGroupIngressResponse = RevokeDBSecurityGroupIngressResponse'
-    { _rdsgirDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _rdsgirStatus          :: !Int
+    { _rdsgirsDBSecurityGroup :: !(Maybe DBSecurityGroup)
+    , _rdsgirsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RevokeDBSecurityGroupIngressResponse' smart constructor.
 revokeDBSecurityGroupIngressResponse :: Int -> RevokeDBSecurityGroupIngressResponse
 revokeDBSecurityGroupIngressResponse pStatus =
     RevokeDBSecurityGroupIngressResponse'
-    { _rdsgirDBSecurityGroup = Nothing
-    , _rdsgirStatus = pStatus
+    { _rdsgirsDBSecurityGroup = Nothing
+    , _rdsgirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rdsgirDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
-rdsgirDBSecurityGroup = lens _rdsgirDBSecurityGroup (\ s a -> s{_rdsgirDBSecurityGroup = a});
+rdsgirsDBSecurityGroup :: Lens' RevokeDBSecurityGroupIngressResponse (Maybe DBSecurityGroup)
+rdsgirsDBSecurityGroup = lens _rdsgirsDBSecurityGroup (\ s a -> s{_rdsgirsDBSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-rdsgirStatus :: Lens' RevokeDBSecurityGroupIngressResponse Int
-rdsgirStatus = lens _rdsgirStatus (\ s a -> s{_rdsgirStatus = a});
+rdsgirsStatus :: Lens' RevokeDBSecurityGroupIngressResponse Int
+rdsgirsStatus = lens _rdsgirsStatus (\ s a -> s{_rdsgirsStatus = a});

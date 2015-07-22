@@ -31,8 +31,8 @@ module Network.AWS.IAM.AddRoleToInstanceProfile
     -- ** Request constructor
     , addRoleToInstanceProfile
     -- ** Request lenses
-    , artipInstanceProfileName
-    , artipRoleName
+    , artiprqInstanceProfileName
+    , artiprqRoleName
 
     -- * Response
     , AddRoleToInstanceProfileResponse
@@ -49,29 +49,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'artipInstanceProfileName'
+-- * 'artiprqInstanceProfileName'
 --
--- * 'artipRoleName'
+-- * 'artiprqRoleName'
 data AddRoleToInstanceProfile = AddRoleToInstanceProfile'
-    { _artipInstanceProfileName :: !Text
-    , _artipRoleName            :: !Text
+    { _artiprqInstanceProfileName :: !Text
+    , _artiprqRoleName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddRoleToInstanceProfile' smart constructor.
 addRoleToInstanceProfile :: Text -> Text -> AddRoleToInstanceProfile
 addRoleToInstanceProfile pInstanceProfileName pRoleName =
     AddRoleToInstanceProfile'
-    { _artipInstanceProfileName = pInstanceProfileName
-    , _artipRoleName = pRoleName
+    { _artiprqInstanceProfileName = pInstanceProfileName
+    , _artiprqRoleName = pRoleName
     }
 
 -- | The name of the instance profile to update.
-artipInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
-artipInstanceProfileName = lens _artipInstanceProfileName (\ s a -> s{_artipInstanceProfileName = a});
+artiprqInstanceProfileName :: Lens' AddRoleToInstanceProfile Text
+artiprqInstanceProfileName = lens _artiprqInstanceProfileName (\ s a -> s{_artiprqInstanceProfileName = a});
 
 -- | The name of the role to add.
-artipRoleName :: Lens' AddRoleToInstanceProfile Text
-artipRoleName = lens _artipRoleName (\ s a -> s{_artipRoleName = a});
+artiprqRoleName :: Lens' AddRoleToInstanceProfile Text
+artiprqRoleName = lens _artiprqRoleName (\ s a -> s{_artiprqRoleName = a});
 
 instance AWSRequest AddRoleToInstanceProfile where
         type Sv AddRoleToInstanceProfile = IAM
@@ -93,8 +93,8 @@ instance ToQuery AddRoleToInstanceProfile where
               ["Action" =:
                  ("AddRoleToInstanceProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "InstanceProfileName" =: _artipInstanceProfileName,
-               "RoleName" =: _artipRoleName]
+               "InstanceProfileName" =: _artiprqInstanceProfileName,
+               "RoleName" =: _artiprqRoleName]
 
 -- | /See:/ 'addRoleToInstanceProfileResponse' smart constructor.
 data AddRoleToInstanceProfileResponse =

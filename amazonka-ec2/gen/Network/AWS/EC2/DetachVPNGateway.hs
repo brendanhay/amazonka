@@ -35,9 +35,9 @@ module Network.AWS.EC2.DetachVPNGateway
     -- ** Request constructor
     , detachVPNGateway
     -- ** Request lenses
-    , detDryRun
-    , detVPNGatewayId
-    , detVPCId
+    , dvpngrqDryRun
+    , dvpngrqVPNGatewayId
+    , dvpngrqVPCId
 
     -- * Response
     , DetachVPNGatewayResponse
@@ -54,40 +54,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detDryRun'
+-- * 'dvpngrqDryRun'
 --
--- * 'detVPNGatewayId'
+-- * 'dvpngrqVPNGatewayId'
 --
--- * 'detVPCId'
+-- * 'dvpngrqVPCId'
 data DetachVPNGateway = DetachVPNGateway'
-    { _detDryRun       :: !(Maybe Bool)
-    , _detVPNGatewayId :: !Text
-    , _detVPCId        :: !Text
+    { _dvpngrqDryRun       :: !(Maybe Bool)
+    , _dvpngrqVPNGatewayId :: !Text
+    , _dvpngrqVPCId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachVPNGateway' smart constructor.
 detachVPNGateway :: Text -> Text -> DetachVPNGateway
 detachVPNGateway pVPNGatewayId pVPCId =
     DetachVPNGateway'
-    { _detDryRun = Nothing
-    , _detVPNGatewayId = pVPNGatewayId
-    , _detVPCId = pVPCId
+    { _dvpngrqDryRun = Nothing
+    , _dvpngrqVPNGatewayId = pVPNGatewayId
+    , _dvpngrqVPCId = pVPCId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-detDryRun :: Lens' DetachVPNGateway (Maybe Bool)
-detDryRun = lens _detDryRun (\ s a -> s{_detDryRun = a});
+dvpngrqDryRun :: Lens' DetachVPNGateway (Maybe Bool)
+dvpngrqDryRun = lens _dvpngrqDryRun (\ s a -> s{_dvpngrqDryRun = a});
 
 -- | The ID of the virtual private gateway.
-detVPNGatewayId :: Lens' DetachVPNGateway Text
-detVPNGatewayId = lens _detVPNGatewayId (\ s a -> s{_detVPNGatewayId = a});
+dvpngrqVPNGatewayId :: Lens' DetachVPNGateway Text
+dvpngrqVPNGatewayId = lens _dvpngrqVPNGatewayId (\ s a -> s{_dvpngrqVPNGatewayId = a});
 
 -- | The ID of the VPC.
-detVPCId :: Lens' DetachVPNGateway Text
-detVPCId = lens _detVPCId (\ s a -> s{_detVPCId = a});
+dvpngrqVPCId :: Lens' DetachVPNGateway Text
+dvpngrqVPCId = lens _dvpngrqVPCId (\ s a -> s{_dvpngrqVPCId = a});
 
 instance AWSRequest DetachVPNGateway where
         type Sv DetachVPNGateway = EC2
@@ -106,9 +106,9 @@ instance ToQuery DetachVPNGateway where
           = mconcat
               ["Action" =: ("DetachVPNGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _detDryRun,
-               "VpnGatewayId" =: _detVPNGatewayId,
-               "VpcId" =: _detVPCId]
+               "DryRun" =: _dvpngrqDryRun,
+               "VpnGatewayId" =: _dvpngrqVPNGatewayId,
+               "VpcId" =: _dvpngrqVPCId]
 
 -- | /See:/ 'detachVPNGatewayResponse' smart constructor.
 data DetachVPNGatewayResponse =

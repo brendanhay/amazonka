@@ -27,15 +27,15 @@ module Network.AWS.ElasticBeanstalk.DescribeApplications
     -- ** Request constructor
     , describeApplications
     -- ** Request lenses
-    , daApplicationNames
+    , darqApplicationNames
 
     -- * Response
     , DescribeApplicationsResponse
     -- ** Response constructor
     , describeApplicationsResponse
     -- ** Response lenses
-    , darApplications
-    , darStatus
+    , darsApplications
+    , darsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daApplicationNames'
+-- * 'darqApplicationNames'
 newtype DescribeApplications = DescribeApplications'
-    { _daApplicationNames :: Maybe [Text]
+    { _darqApplicationNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplications' smart constructor.
 describeApplications :: DescribeApplications
 describeApplications =
     DescribeApplications'
-    { _daApplicationNames = Nothing
+    { _darqApplicationNames = Nothing
     }
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include those with the specified names.
-daApplicationNames :: Lens' DescribeApplications [Text]
-daApplicationNames = lens _daApplicationNames (\ s a -> s{_daApplicationNames = a}) . _Default;
+darqApplicationNames :: Lens' DescribeApplications [Text]
+darqApplicationNames = lens _darqApplicationNames (\ s a -> s{_darqApplicationNames = a}) . _Default;
 
 instance AWSRequest DescribeApplications where
         type Sv DescribeApplications = ElasticBeanstalk
@@ -92,7 +92,7 @@ instance ToQuery DescribeApplications where
                "Version" =: ("2010-12-01" :: ByteString),
                "ApplicationNames" =:
                  toQuery
-                   (toQueryList "member" <$> _daApplicationNames)]
+                   (toQueryList "member" <$> _darqApplicationNames)]
 
 -- | Result message containing a list of application descriptions.
 --
@@ -100,26 +100,26 @@ instance ToQuery DescribeApplications where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darApplications'
+-- * 'darsApplications'
 --
--- * 'darStatus'
+-- * 'darsStatus'
 data DescribeApplicationsResponse = DescribeApplicationsResponse'
-    { _darApplications :: !(Maybe [ApplicationDescription])
-    , _darStatus       :: !Int
+    { _darsApplications :: !(Maybe [ApplicationDescription])
+    , _darsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationsResponse' smart constructor.
 describeApplicationsResponse :: Int -> DescribeApplicationsResponse
 describeApplicationsResponse pStatus =
     DescribeApplicationsResponse'
-    { _darApplications = Nothing
-    , _darStatus = pStatus
+    { _darsApplications = Nothing
+    , _darsStatus = pStatus
     }
 
 -- | This parameter contains a list of ApplicationDescription.
-darApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
-darApplications = lens _darApplications (\ s a -> s{_darApplications = a}) . _Default;
+darsApplications :: Lens' DescribeApplicationsResponse [ApplicationDescription]
+darsApplications = lens _darsApplications (\ s a -> s{_darsApplications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeApplicationsResponse Int
-darStatus = lens _darStatus (\ s a -> s{_darStatus = a});
+darsStatus :: Lens' DescribeApplicationsResponse Int
+darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

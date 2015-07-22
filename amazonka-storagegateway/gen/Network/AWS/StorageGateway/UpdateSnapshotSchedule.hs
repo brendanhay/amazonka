@@ -37,18 +37,18 @@ module Network.AWS.StorageGateway.UpdateSnapshotSchedule
     -- ** Request constructor
     , updateSnapshotSchedule
     -- ** Request lenses
-    , ussDescription
-    , ussVolumeARN
-    , ussStartAt
-    , ussRecurrenceInHours
+    , ussrqDescription
+    , ussrqVolumeARN
+    , ussrqStartAt
+    , ussrqRecurrenceInHours
 
     -- * Response
     , UpdateSnapshotScheduleResponse
     -- ** Response constructor
     , updateSnapshotScheduleResponse
     -- ** Response lenses
-    , ussrVolumeARN
-    , ussrStatus
+    , ussrsVolumeARN
+    , ussrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -67,49 +67,49 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ussDescription'
+-- * 'ussrqDescription'
 --
--- * 'ussVolumeARN'
+-- * 'ussrqVolumeARN'
 --
--- * 'ussStartAt'
+-- * 'ussrqStartAt'
 --
--- * 'ussRecurrenceInHours'
+-- * 'ussrqRecurrenceInHours'
 data UpdateSnapshotSchedule = UpdateSnapshotSchedule'
-    { _ussDescription       :: !(Maybe Text)
-    , _ussVolumeARN         :: !Text
-    , _ussStartAt           :: !Nat
-    , _ussRecurrenceInHours :: !Nat
+    { _ussrqDescription       :: !(Maybe Text)
+    , _ussrqVolumeARN         :: !Text
+    , _ussrqStartAt           :: !Nat
+    , _ussrqRecurrenceInHours :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSnapshotSchedule' smart constructor.
 updateSnapshotSchedule :: Text -> Natural -> Natural -> UpdateSnapshotSchedule
 updateSnapshotSchedule pVolumeARN pStartAt pRecurrenceInHours =
     UpdateSnapshotSchedule'
-    { _ussDescription = Nothing
-    , _ussVolumeARN = pVolumeARN
-    , _ussStartAt = _Nat # pStartAt
-    , _ussRecurrenceInHours = _Nat # pRecurrenceInHours
+    { _ussrqDescription = Nothing
+    , _ussrqVolumeARN = pVolumeARN
+    , _ussrqStartAt = _Nat # pStartAt
+    , _ussrqRecurrenceInHours = _Nat # pRecurrenceInHours
     }
 
 -- | Optional description of the snapshot that overwrites the existing
 -- description.
-ussDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
-ussDescription = lens _ussDescription (\ s a -> s{_ussDescription = a});
+ussrqDescription :: Lens' UpdateSnapshotSchedule (Maybe Text)
+ussrqDescription = lens _ussrqDescription (\ s a -> s{_ussrqDescription = a});
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-ussVolumeARN :: Lens' UpdateSnapshotSchedule Text
-ussVolumeARN = lens _ussVolumeARN (\ s a -> s{_ussVolumeARN = a});
+ussrqVolumeARN :: Lens' UpdateSnapshotSchedule Text
+ussrqVolumeARN = lens _ussrqVolumeARN (\ s a -> s{_ussrqVolumeARN = a});
 
 -- | The hour of the day at which the snapshot schedule begins represented as
 -- /hh/, where /hh/ is the hour (0 to 23). The hour of the day is in the
 -- time zone of the gateway.
-ussStartAt :: Lens' UpdateSnapshotSchedule Natural
-ussStartAt = lens _ussStartAt (\ s a -> s{_ussStartAt = a}) . _Nat;
+ussrqStartAt :: Lens' UpdateSnapshotSchedule Natural
+ussrqStartAt = lens _ussrqStartAt (\ s a -> s{_ussrqStartAt = a}) . _Nat;
 
 -- | Frequency of snapshots. Specify the number of hours between snapshots.
-ussRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
-ussRecurrenceInHours = lens _ussRecurrenceInHours (\ s a -> s{_ussRecurrenceInHours = a}) . _Nat;
+ussrqRecurrenceInHours :: Lens' UpdateSnapshotSchedule Natural
+ussrqRecurrenceInHours = lens _ussrqRecurrenceInHours (\ s a -> s{_ussrqRecurrenceInHours = a}) . _Nat;
 
 instance AWSRequest UpdateSnapshotSchedule where
         type Sv UpdateSnapshotSchedule = StorageGateway
@@ -135,10 +135,10 @@ instance ToHeaders UpdateSnapshotSchedule where
 instance ToJSON UpdateSnapshotSchedule where
         toJSON UpdateSnapshotSchedule'{..}
           = object
-              ["Description" .= _ussDescription,
-               "VolumeARN" .= _ussVolumeARN,
-               "StartAt" .= _ussStartAt,
-               "RecurrenceInHours" .= _ussRecurrenceInHours]
+              ["Description" .= _ussrqDescription,
+               "VolumeARN" .= _ussrqVolumeARN,
+               "StartAt" .= _ussrqStartAt,
+               "RecurrenceInHours" .= _ussrqRecurrenceInHours]
 
 instance ToPath UpdateSnapshotSchedule where
         toPath = const "/"
@@ -152,26 +152,26 @@ instance ToQuery UpdateSnapshotSchedule where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ussrVolumeARN'
+-- * 'ussrsVolumeARN'
 --
--- * 'ussrStatus'
+-- * 'ussrsStatus'
 data UpdateSnapshotScheduleResponse = UpdateSnapshotScheduleResponse'
-    { _ussrVolumeARN :: !(Maybe Text)
-    , _ussrStatus    :: !Int
+    { _ussrsVolumeARN :: !(Maybe Text)
+    , _ussrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSnapshotScheduleResponse' smart constructor.
 updateSnapshotScheduleResponse :: Int -> UpdateSnapshotScheduleResponse
 updateSnapshotScheduleResponse pStatus =
     UpdateSnapshotScheduleResponse'
-    { _ussrVolumeARN = Nothing
-    , _ussrStatus = pStatus
+    { _ussrsVolumeARN = Nothing
+    , _ussrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ussrVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
-ussrVolumeARN = lens _ussrVolumeARN (\ s a -> s{_ussrVolumeARN = a});
+ussrsVolumeARN :: Lens' UpdateSnapshotScheduleResponse (Maybe Text)
+ussrsVolumeARN = lens _ussrsVolumeARN (\ s a -> s{_ussrsVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-ussrStatus :: Lens' UpdateSnapshotScheduleResponse Int
-ussrStatus = lens _ussrStatus (\ s a -> s{_ussrStatus = a});
+ussrsStatus :: Lens' UpdateSnapshotScheduleResponse Int
+ussrsStatus = lens _ussrsStatus (\ s a -> s{_ussrsStatus = a});

@@ -31,16 +31,16 @@ module Network.AWS.AutoScaling.ExitStandby
     -- ** Request constructor
     , exitStandby
     -- ** Request lenses
-    , exiInstanceIds
-    , exiAutoScalingGroupName
+    , erqInstanceIds
+    , erqAutoScalingGroupName
 
     -- * Response
     , ExitStandbyResponse
     -- ** Response constructor
     , exitStandbyResponse
     -- ** Response lenses
-    , exiActivities
-    , exiStatus
+    , ersActivities
+    , ersStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'exiInstanceIds'
+-- * 'erqInstanceIds'
 --
--- * 'exiAutoScalingGroupName'
+-- * 'erqAutoScalingGroupName'
 data ExitStandby = ExitStandby'
-    { _exiInstanceIds          :: !(Maybe [Text])
-    , _exiAutoScalingGroupName :: !Text
+    { _erqInstanceIds          :: !(Maybe [Text])
+    , _erqAutoScalingGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExitStandby' smart constructor.
 exitStandby :: Text -> ExitStandby
 exitStandby pAutoScalingGroupName =
     ExitStandby'
-    { _exiInstanceIds = Nothing
-    , _exiAutoScalingGroupName = pAutoScalingGroupName
+    { _erqInstanceIds = Nothing
+    , _erqAutoScalingGroupName = pAutoScalingGroupName
     }
 
 -- | One or more instance IDs. You must specify at least one instance ID.
-exiInstanceIds :: Lens' ExitStandby [Text]
-exiInstanceIds = lens _exiInstanceIds (\ s a -> s{_exiInstanceIds = a}) . _Default;
+erqInstanceIds :: Lens' ExitStandby [Text]
+erqInstanceIds = lens _erqInstanceIds (\ s a -> s{_erqInstanceIds = a}) . _Default;
 
 -- | The name of the Auto Scaling group.
-exiAutoScalingGroupName :: Lens' ExitStandby Text
-exiAutoScalingGroupName = lens _exiAutoScalingGroupName (\ s a -> s{_exiAutoScalingGroupName = a});
+erqAutoScalingGroupName :: Lens' ExitStandby Text
+erqAutoScalingGroupName = lens _erqAutoScalingGroupName (\ s a -> s{_erqAutoScalingGroupName = a});
 
 instance AWSRequest ExitStandby where
         type Sv ExitStandby = AutoScaling
@@ -100,33 +100,33 @@ instance ToQuery ExitStandby where
               ["Action" =: ("ExitStandby" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "InstanceIds" =:
-                 toQuery (toQueryList "member" <$> _exiInstanceIds),
-               "AutoScalingGroupName" =: _exiAutoScalingGroupName]
+                 toQuery (toQueryList "member" <$> _erqInstanceIds),
+               "AutoScalingGroupName" =: _erqAutoScalingGroupName]
 
 -- | /See:/ 'exitStandbyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'exiActivities'
+-- * 'ersActivities'
 --
--- * 'exiStatus'
+-- * 'ersStatus'
 data ExitStandbyResponse = ExitStandbyResponse'
-    { _exiActivities :: !(Maybe [Activity])
-    , _exiStatus     :: !Int
+    { _ersActivities :: !(Maybe [Activity])
+    , _ersStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ExitStandbyResponse' smart constructor.
 exitStandbyResponse :: Int -> ExitStandbyResponse
 exitStandbyResponse pStatus =
     ExitStandbyResponse'
-    { _exiActivities = Nothing
-    , _exiStatus = pStatus
+    { _ersActivities = Nothing
+    , _ersStatus = pStatus
     }
 
 -- | The activities related to moving instances out of @Standby@ mode.
-exiActivities :: Lens' ExitStandbyResponse [Activity]
-exiActivities = lens _exiActivities (\ s a -> s{_exiActivities = a}) . _Default;
+ersActivities :: Lens' ExitStandbyResponse [Activity]
+ersActivities = lens _ersActivities (\ s a -> s{_ersActivities = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-exiStatus :: Lens' ExitStandbyResponse Int
-exiStatus = lens _exiStatus (\ s a -> s{_exiStatus = a});
+ersStatus :: Lens' ExitStandbyResponse Int
+ersStatus = lens _ersStatus (\ s a -> s{_ersStatus = a});

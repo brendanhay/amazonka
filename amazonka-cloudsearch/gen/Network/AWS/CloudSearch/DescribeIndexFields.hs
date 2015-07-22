@@ -33,17 +33,17 @@ module Network.AWS.CloudSearch.DescribeIndexFields
     -- ** Request constructor
     , describeIndexFields
     -- ** Request lenses
-    , difDeployed
-    , difFieldNames
-    , difDomainName
+    , difrqDeployed
+    , difrqFieldNames
+    , difrqDomainName
 
     -- * Response
     , DescribeIndexFieldsResponse
     -- ** Response constructor
     , describeIndexFieldsResponse
     -- ** Response lenses
-    , difrrStatus
-    , difrrIndexFields
+    , difrsStatus
+    , difrsIndexFields
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -61,39 +61,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'difDeployed'
+-- * 'difrqDeployed'
 --
--- * 'difFieldNames'
+-- * 'difrqFieldNames'
 --
--- * 'difDomainName'
+-- * 'difrqDomainName'
 data DescribeIndexFields = DescribeIndexFields'
-    { _difDeployed   :: !(Maybe Bool)
-    , _difFieldNames :: !(Maybe [Text])
-    , _difDomainName :: !Text
+    { _difrqDeployed   :: !(Maybe Bool)
+    , _difrqFieldNames :: !(Maybe [Text])
+    , _difrqDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIndexFields' smart constructor.
 describeIndexFields :: Text -> DescribeIndexFields
 describeIndexFields pDomainName =
     DescribeIndexFields'
-    { _difDeployed = Nothing
-    , _difFieldNames = Nothing
-    , _difDomainName = pDomainName
+    { _difrqDeployed = Nothing
+    , _difrqFieldNames = Nothing
+    , _difrqDomainName = pDomainName
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-difDeployed :: Lens' DescribeIndexFields (Maybe Bool)
-difDeployed = lens _difDeployed (\ s a -> s{_difDeployed = a});
+difrqDeployed :: Lens' DescribeIndexFields (Maybe Bool)
+difrqDeployed = lens _difrqDeployed (\ s a -> s{_difrqDeployed = a});
 
 -- | A list of the index fields you want to describe. If not specified,
 -- information is returned for all configured index fields.
-difFieldNames :: Lens' DescribeIndexFields [Text]
-difFieldNames = lens _difFieldNames (\ s a -> s{_difFieldNames = a}) . _Default;
+difrqFieldNames :: Lens' DescribeIndexFields [Text]
+difrqFieldNames = lens _difrqFieldNames (\ s a -> s{_difrqFieldNames = a}) . _Default;
 
 -- | The name of the domain you want to describe.
-difDomainName :: Lens' DescribeIndexFields Text
-difDomainName = lens _difDomainName (\ s a -> s{_difDomainName = a});
+difrqDomainName :: Lens' DescribeIndexFields Text
+difrqDomainName = lens _difrqDomainName (\ s a -> s{_difrqDomainName = a});
 
 instance AWSRequest DescribeIndexFields where
         type Sv DescribeIndexFields = CloudSearch
@@ -119,10 +119,10 @@ instance ToQuery DescribeIndexFields where
           = mconcat
               ["Action" =: ("DescribeIndexFields" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _difDeployed,
+               "Deployed" =: _difrqDeployed,
                "FieldNames" =:
-                 toQuery (toQueryList "member" <$> _difFieldNames),
-               "DomainName" =: _difDomainName]
+                 toQuery (toQueryList "member" <$> _difrqFieldNames),
+               "DomainName" =: _difrqDomainName]
 
 -- | The result of a @DescribeIndexFields@ request. Contains the index fields
 -- configured for the domain specified in the request.
@@ -131,26 +131,26 @@ instance ToQuery DescribeIndexFields where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'difrrStatus'
+-- * 'difrsStatus'
 --
--- * 'difrrIndexFields'
+-- * 'difrsIndexFields'
 data DescribeIndexFieldsResponse = DescribeIndexFieldsResponse'
-    { _difrrStatus      :: !Int
-    , _difrrIndexFields :: ![IndexFieldStatus]
+    { _difrsStatus      :: !Int
+    , _difrsIndexFields :: ![IndexFieldStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIndexFieldsResponse' smart constructor.
 describeIndexFieldsResponse :: Int -> DescribeIndexFieldsResponse
 describeIndexFieldsResponse pStatus =
     DescribeIndexFieldsResponse'
-    { _difrrStatus = pStatus
-    , _difrrIndexFields = mempty
+    { _difrsStatus = pStatus
+    , _difrsIndexFields = mempty
     }
 
 -- | FIXME: Undocumented member.
-difrrStatus :: Lens' DescribeIndexFieldsResponse Int
-difrrStatus = lens _difrrStatus (\ s a -> s{_difrrStatus = a});
+difrsStatus :: Lens' DescribeIndexFieldsResponse Int
+difrsStatus = lens _difrsStatus (\ s a -> s{_difrsStatus = a});
 
 -- | The index fields configured for the domain.
-difrrIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
-difrrIndexFields = lens _difrrIndexFields (\ s a -> s{_difrrIndexFields = a});
+difrsIndexFields :: Lens' DescribeIndexFieldsResponse [IndexFieldStatus]
+difrsIndexFields = lens _difrsIndexFields (\ s a -> s{_difrsIndexFields = a});

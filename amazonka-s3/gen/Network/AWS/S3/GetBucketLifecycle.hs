@@ -27,15 +27,15 @@ module Network.AWS.S3.GetBucketLifecycle
     -- ** Request constructor
     , getBucketLifecycle
     -- ** Request lenses
-    , getBucket
+    , grqBucket
 
     -- * Response
     , GetBucketLifecycleResponse
     -- ** Response constructor
     , getBucketLifecycleResponse
     -- ** Response lenses
-    , gblrRules
-    , gblrStatus
+    , grsRules
+    , grsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'getBucket'
+-- * 'grqBucket'
 newtype GetBucketLifecycle = GetBucketLifecycle'
-    { _getBucket :: BucketName
+    { _grqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLifecycle' smart constructor.
 getBucketLifecycle :: BucketName -> GetBucketLifecycle
 getBucketLifecycle pBucket =
     GetBucketLifecycle'
-    { _getBucket = pBucket
+    { _grqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-getBucket :: Lens' GetBucketLifecycle BucketName
-getBucket = lens _getBucket (\ s a -> s{_getBucket = a});
+grqBucket :: Lens' GetBucketLifecycle BucketName
+grqBucket = lens _grqBucket (\ s a -> s{_grqBucket = a});
 
 instance AWSRequest GetBucketLifecycle where
         type Sv GetBucketLifecycle = S3
@@ -80,7 +80,7 @@ instance ToHeaders GetBucketLifecycle where
 
 instance ToPath GetBucketLifecycle where
         toPath GetBucketLifecycle'{..}
-          = mconcat ["/", toText _getBucket]
+          = mconcat ["/", toText _grqBucket]
 
 instance ToQuery GetBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])
@@ -89,26 +89,26 @@ instance ToQuery GetBucketLifecycle where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gblrRules'
+-- * 'grsRules'
 --
--- * 'gblrStatus'
+-- * 'grsStatus'
 data GetBucketLifecycleResponse = GetBucketLifecycleResponse'
-    { _gblrRules  :: !(Maybe [Rule])
-    , _gblrStatus :: !Int
+    { _grsRules  :: !(Maybe [Rule])
+    , _grsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLifecycleResponse' smart constructor.
 getBucketLifecycleResponse :: Int -> GetBucketLifecycleResponse
 getBucketLifecycleResponse pStatus =
     GetBucketLifecycleResponse'
-    { _gblrRules = Nothing
-    , _gblrStatus = pStatus
+    { _grsRules = Nothing
+    , _grsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gblrRules :: Lens' GetBucketLifecycleResponse [Rule]
-gblrRules = lens _gblrRules (\ s a -> s{_gblrRules = a}) . _Default;
+grsRules :: Lens' GetBucketLifecycleResponse [Rule]
+grsRules = lens _grsRules (\ s a -> s{_grsRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gblrStatus :: Lens' GetBucketLifecycleResponse Int
-gblrStatus = lens _gblrStatus (\ s a -> s{_gblrStatus = a});
+grsStatus :: Lens' GetBucketLifecycleResponse Int
+grsStatus = lens _grsStatus (\ s a -> s{_grsStatus = a});

@@ -27,15 +27,15 @@ module Network.AWS.CodeDeploy.StopDeployment
     -- ** Request constructor
     , stopDeployment
     -- ** Request lenses
-    , sdDeploymentId
+    , sdrqDeploymentId
 
     -- * Response
     , StopDeploymentResponse
     -- ** Response constructor
     , stopDeploymentResponse
     -- ** Response lenses
-    , sdrStatusMessage
-    , sdrStatus
+    , sdrsStatusMessage
+    , sdrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdDeploymentId'
+-- * 'sdrqDeploymentId'
 newtype StopDeployment = StopDeployment'
-    { _sdDeploymentId :: Text
+    { _sdrqDeploymentId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopDeployment' smart constructor.
 stopDeployment :: Text -> StopDeployment
 stopDeployment pDeploymentId =
     StopDeployment'
-    { _sdDeploymentId = pDeploymentId
+    { _sdrqDeploymentId = pDeploymentId
     }
 
 -- | The unique ID of a deployment.
-sdDeploymentId :: Lens' StopDeployment Text
-sdDeploymentId = lens _sdDeploymentId (\ s a -> s{_sdDeploymentId = a});
+sdrqDeploymentId :: Lens' StopDeployment Text
+sdrqDeploymentId = lens _sdrqDeploymentId (\ s a -> s{_sdrqDeploymentId = a});
 
 instance AWSRequest StopDeployment where
         type Sv StopDeployment = CodeDeploy
@@ -86,7 +86,7 @@ instance ToHeaders StopDeployment where
 
 instance ToJSON StopDeployment where
         toJSON StopDeployment'{..}
-          = object ["deploymentId" .= _sdDeploymentId]
+          = object ["deploymentId" .= _sdrqDeploymentId]
 
 instance ToPath StopDeployment where
         toPath = const "/"
@@ -100,26 +100,26 @@ instance ToQuery StopDeployment where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sdrStatusMessage'
+-- * 'sdrsStatusMessage'
 --
--- * 'sdrStatus'
+-- * 'sdrsStatus'
 data StopDeploymentResponse = StopDeploymentResponse'
-    { _sdrStatusMessage :: !(Maybe Text)
-    , _sdrStatus        :: !Int
+    { _sdrsStatusMessage :: !(Maybe Text)
+    , _sdrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopDeploymentResponse' smart constructor.
 stopDeploymentResponse :: Int -> StopDeploymentResponse
 stopDeploymentResponse pStatus =
     StopDeploymentResponse'
-    { _sdrStatusMessage = Nothing
-    , _sdrStatus = pStatus
+    { _sdrsStatusMessage = Nothing
+    , _sdrsStatus = pStatus
     }
 
 -- | An accompanying status message.
-sdrStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
-sdrStatusMessage = lens _sdrStatusMessage (\ s a -> s{_sdrStatusMessage = a});
+sdrsStatusMessage :: Lens' StopDeploymentResponse (Maybe Text)
+sdrsStatusMessage = lens _sdrsStatusMessage (\ s a -> s{_sdrsStatusMessage = a});
 
 -- | FIXME: Undocumented member.
-sdrStatus :: Lens' StopDeploymentResponse Int
-sdrStatus = lens _sdrStatus (\ s a -> s{_sdrStatus = a});
+sdrsStatus :: Lens' StopDeploymentResponse Int
+sdrsStatus = lens _sdrsStatus (\ s a -> s{_sdrsStatus = a});

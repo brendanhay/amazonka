@@ -32,15 +32,15 @@ module Network.AWS.IAM.GetInstanceProfile
     -- ** Request constructor
     , getInstanceProfile
     -- ** Request lenses
-    , gipInstanceProfileName
+    , giprqInstanceProfileName
 
     -- * Response
     , GetInstanceProfileResponse
     -- ** Response constructor
     , getInstanceProfileResponse
     -- ** Response lenses
-    , giprStatus
-    , giprInstanceProfile
+    , giprsStatus
+    , giprsInstanceProfile
     ) where
 
 import           Network.AWS.IAM.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gipInstanceProfileName'
+-- * 'giprqInstanceProfileName'
 newtype GetInstanceProfile = GetInstanceProfile'
-    { _gipInstanceProfileName :: Text
+    { _giprqInstanceProfileName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInstanceProfile' smart constructor.
 getInstanceProfile :: Text -> GetInstanceProfile
 getInstanceProfile pInstanceProfileName =
     GetInstanceProfile'
-    { _gipInstanceProfileName = pInstanceProfileName
+    { _giprqInstanceProfileName = pInstanceProfileName
     }
 
 -- | The name of the instance profile to get information about.
-gipInstanceProfileName :: Lens' GetInstanceProfile Text
-gipInstanceProfileName = lens _gipInstanceProfileName (\ s a -> s{_gipInstanceProfileName = a});
+giprqInstanceProfileName :: Lens' GetInstanceProfile Text
+giprqInstanceProfileName = lens _giprqInstanceProfileName (\ s a -> s{_giprqInstanceProfileName = a});
 
 instance AWSRequest GetInstanceProfile where
         type Sv GetInstanceProfile = IAM
@@ -90,7 +90,7 @@ instance ToQuery GetInstanceProfile where
           = mconcat
               ["Action" =: ("GetInstanceProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "InstanceProfileName" =: _gipInstanceProfileName]
+               "InstanceProfileName" =: _giprqInstanceProfileName]
 
 -- | Contains the response to a successful GetInstanceProfile request.
 --
@@ -98,26 +98,26 @@ instance ToQuery GetInstanceProfile where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giprStatus'
+-- * 'giprsStatus'
 --
--- * 'giprInstanceProfile'
+-- * 'giprsInstanceProfile'
 data GetInstanceProfileResponse = GetInstanceProfileResponse'
-    { _giprStatus          :: !Int
-    , _giprInstanceProfile :: !InstanceProfile
+    { _giprsStatus          :: !Int
+    , _giprsInstanceProfile :: !InstanceProfile
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetInstanceProfileResponse' smart constructor.
 getInstanceProfileResponse :: Int -> InstanceProfile -> GetInstanceProfileResponse
 getInstanceProfileResponse pStatus pInstanceProfile =
     GetInstanceProfileResponse'
-    { _giprStatus = pStatus
-    , _giprInstanceProfile = pInstanceProfile
+    { _giprsStatus = pStatus
+    , _giprsInstanceProfile = pInstanceProfile
     }
 
 -- | FIXME: Undocumented member.
-giprStatus :: Lens' GetInstanceProfileResponse Int
-giprStatus = lens _giprStatus (\ s a -> s{_giprStatus = a});
+giprsStatus :: Lens' GetInstanceProfileResponse Int
+giprsStatus = lens _giprsStatus (\ s a -> s{_giprsStatus = a});
 
 -- | Information about the instance profile.
-giprInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
-giprInstanceProfile = lens _giprInstanceProfile (\ s a -> s{_giprInstanceProfile = a});
+giprsInstanceProfile :: Lens' GetInstanceProfileResponse InstanceProfile
+giprsInstanceProfile = lens _giprsInstanceProfile (\ s a -> s{_giprsInstanceProfile = a});

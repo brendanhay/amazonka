@@ -37,8 +37,8 @@ module Network.AWS.RDS.DescribeAccountAttributes
     -- ** Response constructor
     , describeAccountAttributesResponse
     -- ** Response lenses
-    , daarAccountQuotas
-    , daarStatus
+    , daarsAccountQuotas
+    , daarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -90,28 +90,28 @@ instance ToQuery DescribeAccountAttributes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daarAccountQuotas'
+-- * 'daarsAccountQuotas'
 --
--- * 'daarStatus'
+-- * 'daarsStatus'
 data DescribeAccountAttributesResponse = DescribeAccountAttributesResponse'
-    { _daarAccountQuotas :: !(Maybe [AccountQuota])
-    , _daarStatus        :: !Int
+    { _daarsAccountQuotas :: !(Maybe [AccountQuota])
+    , _daarsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAccountAttributesResponse' smart constructor.
 describeAccountAttributesResponse :: Int -> DescribeAccountAttributesResponse
 describeAccountAttributesResponse pStatus =
     DescribeAccountAttributesResponse'
-    { _daarAccountQuotas = Nothing
-    , _daarStatus = pStatus
+    { _daarsAccountQuotas = Nothing
+    , _daarsStatus = pStatus
     }
 
 -- | A list of AccountQuota objects. Within this list, each quota has a name,
 -- a count of usage toward the quota maximum, and a maximum value for the
 -- quota.
-daarAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
-daarAccountQuotas = lens _daarAccountQuotas (\ s a -> s{_daarAccountQuotas = a}) . _Default;
+daarsAccountQuotas :: Lens' DescribeAccountAttributesResponse [AccountQuota]
+daarsAccountQuotas = lens _daarsAccountQuotas (\ s a -> s{_daarsAccountQuotas = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-daarStatus :: Lens' DescribeAccountAttributesResponse Int
-daarStatus = lens _daarStatus (\ s a -> s{_daarStatus = a});
+daarsStatus :: Lens' DescribeAccountAttributesResponse Int
+daarsStatus = lens _daarsStatus (\ s a -> s{_daarsStatus = a});

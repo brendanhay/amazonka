@@ -30,16 +30,16 @@ module Network.AWS.Glacier.ListTagsForVault
     -- ** Request constructor
     , listTagsForVault
     -- ** Request lenses
-    , ltfvAccountId
-    , ltfvVaultName
+    , ltfvrqAccountId
+    , ltfvrqVaultName
 
     -- * Response
     , ListTagsForVaultResponse
     -- ** Response constructor
     , listTagsForVaultResponse
     -- ** Response lenses
-    , ltfvrTags
-    , ltfvrStatus
+    , ltfvrsTags
+    , ltfvrsStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -53,20 +53,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfvAccountId'
+-- * 'ltfvrqAccountId'
 --
--- * 'ltfvVaultName'
+-- * 'ltfvrqVaultName'
 data ListTagsForVault = ListTagsForVault'
-    { _ltfvAccountId :: !Text
-    , _ltfvVaultName :: !Text
+    { _ltfvrqAccountId :: !Text
+    , _ltfvrqVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForVault' smart constructor.
 listTagsForVault :: Text -> Text -> ListTagsForVault
 listTagsForVault pAccountId pVaultName =
     ListTagsForVault'
-    { _ltfvAccountId = pAccountId
-    , _ltfvVaultName = pVaultName
+    { _ltfvrqAccountId = pAccountId
+    , _ltfvrqVaultName = pVaultName
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -74,12 +74,12 @@ listTagsForVault pAccountId pVaultName =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-ltfvAccountId :: Lens' ListTagsForVault Text
-ltfvAccountId = lens _ltfvAccountId (\ s a -> s{_ltfvAccountId = a});
+ltfvrqAccountId :: Lens' ListTagsForVault Text
+ltfvrqAccountId = lens _ltfvrqAccountId (\ s a -> s{_ltfvrqAccountId = a});
 
 -- | The name of the vault.
-ltfvVaultName :: Lens' ListTagsForVault Text
-ltfvVaultName = lens _ltfvVaultName (\ s a -> s{_ltfvVaultName = a});
+ltfvrqVaultName :: Lens' ListTagsForVault Text
+ltfvrqVaultName = lens _ltfvrqVaultName (\ s a -> s{_ltfvrqVaultName = a});
 
 instance AWSRequest ListTagsForVault where
         type Sv ListTagsForVault = Glacier
@@ -97,8 +97,8 @@ instance ToHeaders ListTagsForVault where
 instance ToPath ListTagsForVault where
         toPath ListTagsForVault'{..}
           = mconcat
-              ["/", toText _ltfvAccountId, "/vaults/",
-               toText _ltfvVaultName, "/tags"]
+              ["/", toText _ltfvrqAccountId, "/vaults/",
+               toText _ltfvrqVaultName, "/tags"]
 
 instance ToQuery ListTagsForVault where
         toQuery = const mempty
@@ -109,27 +109,27 @@ instance ToQuery ListTagsForVault where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltfvrTags'
+-- * 'ltfvrsTags'
 --
--- * 'ltfvrStatus'
+-- * 'ltfvrsStatus'
 data ListTagsForVaultResponse = ListTagsForVaultResponse'
-    { _ltfvrTags   :: !(Maybe (Map Text Text))
-    , _ltfvrStatus :: !Int
+    { _ltfvrsTags   :: !(Maybe (Map Text Text))
+    , _ltfvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTagsForVaultResponse' smart constructor.
 listTagsForVaultResponse :: Int -> ListTagsForVaultResponse
 listTagsForVaultResponse pStatus =
     ListTagsForVaultResponse'
-    { _ltfvrTags = Nothing
-    , _ltfvrStatus = pStatus
+    { _ltfvrsTags = Nothing
+    , _ltfvrsStatus = pStatus
     }
 
 -- | The tags attached to the vault. Each tag is composed of a key and a
 -- value.
-ltfvrTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
-ltfvrTags = lens _ltfvrTags (\ s a -> s{_ltfvrTags = a}) . _Default . _Map;
+ltfvrsTags :: Lens' ListTagsForVaultResponse (HashMap Text Text)
+ltfvrsTags = lens _ltfvrsTags (\ s a -> s{_ltfvrsTags = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-ltfvrStatus :: Lens' ListTagsForVaultResponse Int
-ltfvrStatus = lens _ltfvrStatus (\ s a -> s{_ltfvrStatus = a});
+ltfvrsStatus :: Lens' ListTagsForVaultResponse Int
+ltfvrsStatus = lens _ltfvrsStatus (\ s a -> s{_ltfvrsStatus = a});

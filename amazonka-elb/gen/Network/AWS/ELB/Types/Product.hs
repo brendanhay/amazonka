@@ -403,28 +403,28 @@ instance ToQuery HealthCheck where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'insInstanceId'
+-- * 'iInstanceId'
 newtype Instance = Instance'
-    { _insInstanceId :: Maybe Text
+    { _iInstanceId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Instance
 instance' =
     Instance'
-    { _insInstanceId = Nothing
+    { _iInstanceId = Nothing
     }
 
 -- | The ID of the instance.
-insInstanceId :: Lens' Instance (Maybe Text)
-insInstanceId = lens _insInstanceId (\ s a -> s{_insInstanceId = a});
+iInstanceId :: Lens' Instance (Maybe Text)
+iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
 
 instance FromXML Instance where
         parseXML x = Instance' <$> (x .@? "InstanceId")
 
 instance ToQuery Instance where
         toQuery Instance'{..}
-          = mconcat ["InstanceId" =: _insInstanceId]
+          = mconcat ["InstanceId" =: _iInstanceId]
 
 -- | Information about the state of a back-end instance.
 --
@@ -560,32 +560,32 @@ instance FromXML LBCookieStickinessPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisInstanceProtocol'
+-- * 'lInstanceProtocol'
 --
--- * 'lisSSLCertificateId'
+-- * 'lSSLCertificateId'
 --
--- * 'lisProtocol'
+-- * 'lProtocol'
 --
--- * 'lisLoadBalancerPort'
+-- * 'lLoadBalancerPort'
 --
--- * 'lisInstancePort'
+-- * 'lInstancePort'
 data Listener = Listener'
-    { _lisInstanceProtocol :: !(Maybe Text)
-    , _lisSSLCertificateId :: !(Maybe Text)
-    , _lisProtocol         :: !Text
-    , _lisLoadBalancerPort :: !Int
-    , _lisInstancePort     :: !Nat
+    { _lInstanceProtocol :: !(Maybe Text)
+    , _lSSLCertificateId :: !(Maybe Text)
+    , _lProtocol         :: !Text
+    , _lLoadBalancerPort :: !Int
+    , _lInstancePort     :: !Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Listener' smart constructor.
 listener :: Text -> Int -> Natural -> Listener
 listener pProtocol pLoadBalancerPort pInstancePort =
     Listener'
-    { _lisInstanceProtocol = Nothing
-    , _lisSSLCertificateId = Nothing
-    , _lisProtocol = pProtocol
-    , _lisLoadBalancerPort = pLoadBalancerPort
-    , _lisInstancePort = _Nat # pInstancePort
+    { _lInstanceProtocol = Nothing
+    , _lSSLCertificateId = Nothing
+    , _lProtocol = pProtocol
+    , _lLoadBalancerPort = pLoadBalancerPort
+    , _lInstancePort = _Nat # pInstancePort
     }
 
 -- | The protocol to use for routing traffic to back-end instances: HTTP,
@@ -601,26 +601,26 @@ listener pProtocol pLoadBalancerPort pInstancePort =
 -- If there is another listener with the same @InstancePort@ whose
 -- @InstanceProtocol@ is HTTP or TCP, the listener\'s @InstanceProtocol@
 -- must be HTTP or TCP.
-lisInstanceProtocol :: Lens' Listener (Maybe Text)
-lisInstanceProtocol = lens _lisInstanceProtocol (\ s a -> s{_lisInstanceProtocol = a});
+lInstanceProtocol :: Lens' Listener (Maybe Text)
+lInstanceProtocol = lens _lInstanceProtocol (\ s a -> s{_lInstanceProtocol = a});
 
 -- | The Amazon Resource Name (ARN) of the server certificate.
-lisSSLCertificateId :: Lens' Listener (Maybe Text)
-lisSSLCertificateId = lens _lisSSLCertificateId (\ s a -> s{_lisSSLCertificateId = a});
+lSSLCertificateId :: Lens' Listener (Maybe Text)
+lSSLCertificateId = lens _lSSLCertificateId (\ s a -> s{_lSSLCertificateId = a});
 
 -- | The load balancer transport protocol to use for routing: HTTP, HTTPS,
 -- TCP, or SSL.
-lisProtocol :: Lens' Listener Text
-lisProtocol = lens _lisProtocol (\ s a -> s{_lisProtocol = a});
+lProtocol :: Lens' Listener Text
+lProtocol = lens _lProtocol (\ s a -> s{_lProtocol = a});
 
 -- | The port on which the load balancer is listening. The supported ports
 -- are: 25, 80, 443, 465, 587, and 1024-65535.
-lisLoadBalancerPort :: Lens' Listener Int
-lisLoadBalancerPort = lens _lisLoadBalancerPort (\ s a -> s{_lisLoadBalancerPort = a});
+lLoadBalancerPort :: Lens' Listener Int
+lLoadBalancerPort = lens _lLoadBalancerPort (\ s a -> s{_lLoadBalancerPort = a});
 
 -- | The port on which the instance is listening.
-lisInstancePort :: Lens' Listener Natural
-lisInstancePort = lens _lisInstancePort (\ s a -> s{_lisInstancePort = a}) . _Nat;
+lInstancePort :: Lens' Listener Natural
+lInstancePort = lens _lInstancePort (\ s a -> s{_lInstancePort = a}) . _Nat;
 
 instance FromXML Listener where
         parseXML x
@@ -634,11 +634,11 @@ instance FromXML Listener where
 instance ToQuery Listener where
         toQuery Listener'{..}
           = mconcat
-              ["InstanceProtocol" =: _lisInstanceProtocol,
-               "SSLCertificateId" =: _lisSSLCertificateId,
-               "Protocol" =: _lisProtocol,
-               "LoadBalancerPort" =: _lisLoadBalancerPort,
-               "InstancePort" =: _lisInstancePort]
+              ["InstanceProtocol" =: _lInstanceProtocol,
+               "SSLCertificateId" =: _lSSLCertificateId,
+               "Protocol" =: _lProtocol,
+               "LoadBalancerPort" =: _lLoadBalancerPort,
+               "InstancePort" =: _lInstancePort]
 
 -- | The policies enabled for a listener.
 --
@@ -974,37 +974,37 @@ instance FromXML LoadBalancerDescription where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'polOtherPolicies'
+-- * 'pOtherPolicies'
 --
--- * 'polLBCookieStickinessPolicies'
+-- * 'pLBCookieStickinessPolicies'
 --
--- * 'polAppCookieStickinessPolicies'
+-- * 'pAppCookieStickinessPolicies'
 data Policies = Policies'
-    { _polOtherPolicies               :: !(Maybe [Text])
-    , _polLBCookieStickinessPolicies  :: !(Maybe [LBCookieStickinessPolicy])
-    , _polAppCookieStickinessPolicies :: !(Maybe [AppCookieStickinessPolicy])
+    { _pOtherPolicies               :: !(Maybe [Text])
+    , _pLBCookieStickinessPolicies  :: !(Maybe [LBCookieStickinessPolicy])
+    , _pAppCookieStickinessPolicies :: !(Maybe [AppCookieStickinessPolicy])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Policies' smart constructor.
 policies :: Policies
 policies =
     Policies'
-    { _polOtherPolicies = Nothing
-    , _polLBCookieStickinessPolicies = Nothing
-    , _polAppCookieStickinessPolicies = Nothing
+    { _pOtherPolicies = Nothing
+    , _pLBCookieStickinessPolicies = Nothing
+    , _pAppCookieStickinessPolicies = Nothing
     }
 
 -- | The policies other than the stickiness policies.
-polOtherPolicies :: Lens' Policies [Text]
-polOtherPolicies = lens _polOtherPolicies (\ s a -> s{_polOtherPolicies = a}) . _Default;
+pOtherPolicies :: Lens' Policies [Text]
+pOtherPolicies = lens _pOtherPolicies (\ s a -> s{_pOtherPolicies = a}) . _Default;
 
 -- | The stickiness policies created using CreateLBCookieStickinessPolicy.
-polLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
-polLBCookieStickinessPolicies = lens _polLBCookieStickinessPolicies (\ s a -> s{_polLBCookieStickinessPolicies = a}) . _Default;
+pLBCookieStickinessPolicies :: Lens' Policies [LBCookieStickinessPolicy]
+pLBCookieStickinessPolicies = lens _pLBCookieStickinessPolicies (\ s a -> s{_pLBCookieStickinessPolicies = a}) . _Default;
 
 -- | The stickiness policies created using CreateAppCookieStickinessPolicy.
-polAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
-polAppCookieStickinessPolicies = lens _polAppCookieStickinessPolicies (\ s a -> s{_polAppCookieStickinessPolicies = a}) . _Default;
+pAppCookieStickinessPolicies :: Lens' Policies [AppCookieStickinessPolicy]
+pAppCookieStickinessPolicies = lens _pAppCookieStickinessPolicies (\ s a -> s{_pAppCookieStickinessPolicies = a}) . _Default;
 
 instance FromXML Policies where
         parseXML x

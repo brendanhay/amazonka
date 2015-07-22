@@ -33,17 +33,17 @@ module Network.AWS.CognitoSync.DeleteDataset
     -- ** Request constructor
     , deleteDataset
     -- ** Request lenses
-    , delIdentityPoolId
-    , delIdentityId
-    , delDatasetName
+    , drqIdentityPoolId
+    , drqIdentityId
+    , drqDatasetName
 
     -- * Response
     , DeleteDatasetResponse
     -- ** Response constructor
     , deleteDatasetResponse
     -- ** Response lenses
-    , delDataset
-    , delStatus
+    , drsDataset
+    , drsStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -57,42 +57,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delIdentityPoolId'
+-- * 'drqIdentityPoolId'
 --
--- * 'delIdentityId'
+-- * 'drqIdentityId'
 --
--- * 'delDatasetName'
+-- * 'drqDatasetName'
 data DeleteDataset = DeleteDataset'
-    { _delIdentityPoolId :: !Text
-    , _delIdentityId     :: !Text
-    , _delDatasetName    :: !Text
+    { _drqIdentityPoolId :: !Text
+    , _drqIdentityId     :: !Text
+    , _drqDatasetName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDataset' smart constructor.
 deleteDataset :: Text -> Text -> Text -> DeleteDataset
 deleteDataset pIdentityPoolId pIdentityId pDatasetName =
     DeleteDataset'
-    { _delIdentityPoolId = pIdentityPoolId
-    , _delIdentityId = pIdentityId
-    , _delDatasetName = pDatasetName
+    { _drqIdentityPoolId = pIdentityPoolId
+    , _drqIdentityId = pIdentityId
+    , _drqDatasetName = pDatasetName
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-delIdentityPoolId :: Lens' DeleteDataset Text
-delIdentityPoolId = lens _delIdentityPoolId (\ s a -> s{_delIdentityPoolId = a});
+drqIdentityPoolId :: Lens' DeleteDataset Text
+drqIdentityPoolId = lens _drqIdentityPoolId (\ s a -> s{_drqIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-delIdentityId :: Lens' DeleteDataset Text
-delIdentityId = lens _delIdentityId (\ s a -> s{_delIdentityId = a});
+drqIdentityId :: Lens' DeleteDataset Text
+drqIdentityId = lens _drqIdentityId (\ s a -> s{_drqIdentityId = a});
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-delDatasetName :: Lens' DeleteDataset Text
-delDatasetName = lens _delDatasetName (\ s a -> s{_delDatasetName = a});
+drqDatasetName :: Lens' DeleteDataset Text
+drqDatasetName = lens _drqDatasetName (\ s a -> s{_drqDatasetName = a});
 
 instance AWSRequest DeleteDataset where
         type Sv DeleteDataset = CognitoSync
@@ -114,9 +114,9 @@ instance ToHeaders DeleteDataset where
 instance ToPath DeleteDataset where
         toPath DeleteDataset'{..}
           = mconcat
-              ["/identitypools/", toText _delIdentityPoolId,
-               "/identities/", toText _delIdentityId, "/datasets/",
-               toText _delDatasetName]
+              ["/identitypools/", toText _drqIdentityPoolId,
+               "/identities/", toText _drqIdentityId, "/datasets/",
+               toText _drqDatasetName]
 
 instance ToQuery DeleteDataset where
         toQuery = const mempty
@@ -127,20 +127,20 @@ instance ToQuery DeleteDataset where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delDataset'
+-- * 'drsDataset'
 --
--- * 'delStatus'
+-- * 'drsStatus'
 data DeleteDatasetResponse = DeleteDatasetResponse'
-    { _delDataset :: !(Maybe Dataset)
-    , _delStatus  :: !Int
+    { _drsDataset :: !(Maybe Dataset)
+    , _drsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDatasetResponse' smart constructor.
 deleteDatasetResponse :: Int -> DeleteDatasetResponse
 deleteDatasetResponse pStatus =
     DeleteDatasetResponse'
-    { _delDataset = Nothing
-    , _delStatus = pStatus
+    { _drsDataset = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | A collection of data for an identity pool. An identity pool can have
@@ -148,9 +148,9 @@ deleteDatasetResponse pStatus =
 -- associated with a particular entity in an application (like a saved
 -- game). Datasets are automatically created if they don\'t exist. Data is
 -- synced by dataset, and a dataset can hold up to 1MB of key-value pairs.
-delDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
-delDataset = lens _delDataset (\ s a -> s{_delDataset = a});
+drsDataset :: Lens' DeleteDatasetResponse (Maybe Dataset)
+drsDataset = lens _drsDataset (\ s a -> s{_drsDataset = a});
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteDatasetResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+drsStatus :: Lens' DeleteDatasetResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

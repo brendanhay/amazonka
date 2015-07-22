@@ -33,16 +33,16 @@ module Network.AWS.CloudHSM.ListHSMs
     -- ** Request constructor
     , listHSMs
     -- ** Request lenses
-    , lNextToken
+    , lhsmrqNextToken
 
     -- * Response
     , ListHSMsResponse
     -- ** Response constructor
     , listHSMsResponse
     -- ** Response lenses
-    , lisNextToken
-    , lisHSMList
-    , lisStatus
+    , lhsmrsNextToken
+    , lhsmrsHSMList
+    , lhsmrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -54,22 +54,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lNextToken'
+-- * 'lhsmrqNextToken'
 newtype ListHSMs = ListHSMs'
-    { _lNextToken :: Maybe Text
+    { _lhsmrqNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHSMs' smart constructor.
 listHSMs :: ListHSMs
 listHSMs =
     ListHSMs'
-    { _lNextToken = Nothing
+    { _lhsmrqNextToken = Nothing
     }
 
 -- | The /NextToken/ value from a previous call to ListHsms. Pass null if
 -- this is the first call.
-lNextToken :: Lens' ListHSMs (Maybe Text)
-lNextToken = lens _lNextToken (\ s a -> s{_lNextToken = a});
+lhsmrqNextToken :: Lens' ListHSMs (Maybe Text)
+lhsmrqNextToken = lens _lhsmrqNextToken (\ s a -> s{_lhsmrqNextToken = a});
 
 instance AWSRequest ListHSMs where
         type Sv ListHSMs = CloudHSM
@@ -93,7 +93,7 @@ instance ToHeaders ListHSMs where
 
 instance ToJSON ListHSMs where
         toJSON ListHSMs'{..}
-          = object ["NextToken" .= _lNextToken]
+          = object ["NextToken" .= _lhsmrqNextToken]
 
 instance ToPath ListHSMs where
         toPath = const "/"
@@ -107,35 +107,35 @@ instance ToQuery ListHSMs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisNextToken'
+-- * 'lhsmrsNextToken'
 --
--- * 'lisHSMList'
+-- * 'lhsmrsHSMList'
 --
--- * 'lisStatus'
+-- * 'lhsmrsStatus'
 data ListHSMsResponse = ListHSMsResponse'
-    { _lisNextToken :: !(Maybe Text)
-    , _lisHSMList   :: !(Maybe [Text])
-    , _lisStatus    :: !Int
+    { _lhsmrsNextToken :: !(Maybe Text)
+    , _lhsmrsHSMList   :: !(Maybe [Text])
+    , _lhsmrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListHSMsResponse' smart constructor.
 listHSMsResponse :: Int -> ListHSMsResponse
 listHSMsResponse pStatus =
     ListHSMsResponse'
-    { _lisNextToken = Nothing
-    , _lisHSMList = Nothing
-    , _lisStatus = pStatus
+    { _lhsmrsNextToken = Nothing
+    , _lhsmrsHSMList = Nothing
+    , _lhsmrsStatus = pStatus
     }
 
 -- | If not null, more results are available. Pass this value to ListHsms to
 -- retrieve the next set of items.
-lisNextToken :: Lens' ListHSMsResponse (Maybe Text)
-lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
+lhsmrsNextToken :: Lens' ListHSMsResponse (Maybe Text)
+lhsmrsNextToken = lens _lhsmrsNextToken (\ s a -> s{_lhsmrsNextToken = a});
 
 -- | The list of ARNs that identify the HSMs.
-lisHSMList :: Lens' ListHSMsResponse [Text]
-lisHSMList = lens _lisHSMList (\ s a -> s{_lisHSMList = a}) . _Default;
+lhsmrsHSMList :: Lens' ListHSMsResponse [Text]
+lhsmrsHSMList = lens _lhsmrsHSMList (\ s a -> s{_lhsmrsHSMList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lisStatus :: Lens' ListHSMsResponse Int
-lisStatus = lens _lisStatus (\ s a -> s{_lisStatus = a});
+lhsmrsStatus :: Lens' ListHSMsResponse Int
+lhsmrsStatus = lens _lhsmrsStatus (\ s a -> s{_lhsmrsStatus = a});

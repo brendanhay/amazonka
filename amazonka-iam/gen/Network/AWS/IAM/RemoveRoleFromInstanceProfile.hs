@@ -37,8 +37,8 @@ module Network.AWS.IAM.RemoveRoleFromInstanceProfile
     -- ** Request constructor
     , removeRoleFromInstanceProfile
     -- ** Request lenses
-    , rrfipInstanceProfileName
-    , rrfipRoleName
+    , rrfiprqInstanceProfileName
+    , rrfiprqRoleName
 
     -- * Response
     , RemoveRoleFromInstanceProfileResponse
@@ -55,29 +55,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrfipInstanceProfileName'
+-- * 'rrfiprqInstanceProfileName'
 --
--- * 'rrfipRoleName'
+-- * 'rrfiprqRoleName'
 data RemoveRoleFromInstanceProfile = RemoveRoleFromInstanceProfile'
-    { _rrfipInstanceProfileName :: !Text
-    , _rrfipRoleName            :: !Text
+    { _rrfiprqInstanceProfileName :: !Text
+    , _rrfiprqRoleName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveRoleFromInstanceProfile' smart constructor.
 removeRoleFromInstanceProfile :: Text -> Text -> RemoveRoleFromInstanceProfile
 removeRoleFromInstanceProfile pInstanceProfileName pRoleName =
     RemoveRoleFromInstanceProfile'
-    { _rrfipInstanceProfileName = pInstanceProfileName
-    , _rrfipRoleName = pRoleName
+    { _rrfiprqInstanceProfileName = pInstanceProfileName
+    , _rrfiprqRoleName = pRoleName
     }
 
 -- | The name of the instance profile to update.
-rrfipInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
-rrfipInstanceProfileName = lens _rrfipInstanceProfileName (\ s a -> s{_rrfipInstanceProfileName = a});
+rrfiprqInstanceProfileName :: Lens' RemoveRoleFromInstanceProfile Text
+rrfiprqInstanceProfileName = lens _rrfiprqInstanceProfileName (\ s a -> s{_rrfiprqInstanceProfileName = a});
 
 -- | The name of the role to remove.
-rrfipRoleName :: Lens' RemoveRoleFromInstanceProfile Text
-rrfipRoleName = lens _rrfipRoleName (\ s a -> s{_rrfipRoleName = a});
+rrfiprqRoleName :: Lens' RemoveRoleFromInstanceProfile Text
+rrfiprqRoleName = lens _rrfiprqRoleName (\ s a -> s{_rrfiprqRoleName = a});
 
 instance AWSRequest RemoveRoleFromInstanceProfile
          where
@@ -101,8 +101,8 @@ instance ToQuery RemoveRoleFromInstanceProfile where
               ["Action" =:
                  ("RemoveRoleFromInstanceProfile" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "InstanceProfileName" =: _rrfipInstanceProfileName,
-               "RoleName" =: _rrfipRoleName]
+               "InstanceProfileName" =: _rrfiprqInstanceProfileName,
+               "RoleName" =: _rrfiprqRoleName]
 
 -- | /See:/ 'removeRoleFromInstanceProfileResponse' smart constructor.
 data RemoveRoleFromInstanceProfileResponse =

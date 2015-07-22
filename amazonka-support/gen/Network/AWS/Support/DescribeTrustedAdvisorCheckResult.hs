@@ -43,16 +43,16 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckResult
     -- ** Request constructor
     , describeTrustedAdvisorCheckResult
     -- ** Request lenses
-    , dtacrLanguage
-    , dtacrCheckId
+    , dtacrrqLanguage
+    , dtacrrqCheckId
 
     -- * Response
     , DescribeTrustedAdvisorCheckResultResponse
     -- ** Response constructor
     , describeTrustedAdvisorCheckResultResponse
     -- ** Response lenses
-    , dtacrrResult
-    , dtacrrStatus
+    , dtacrrsResult
+    , dtacrrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -64,32 +64,32 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacrLanguage'
+-- * 'dtacrrqLanguage'
 --
--- * 'dtacrCheckId'
+-- * 'dtacrrqCheckId'
 data DescribeTrustedAdvisorCheckResult = DescribeTrustedAdvisorCheckResult'
-    { _dtacrLanguage :: !(Maybe Text)
-    , _dtacrCheckId  :: !Text
+    { _dtacrrqLanguage :: !(Maybe Text)
+    , _dtacrrqCheckId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckResult' smart constructor.
 describeTrustedAdvisorCheckResult :: Text -> DescribeTrustedAdvisorCheckResult
 describeTrustedAdvisorCheckResult pCheckId =
     DescribeTrustedAdvisorCheckResult'
-    { _dtacrLanguage = Nothing
-    , _dtacrCheckId = pCheckId
+    { _dtacrrqLanguage = Nothing
+    , _dtacrrqCheckId = pCheckId
     }
 
 -- | The ISO 639-1 code for the language in which AWS provides support. AWS
 -- Support currently supports English (\"en\") and Japanese (\"ja\").
 -- Language parameters must be passed explicitly for operations that take
 -- them.
-dtacrLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
-dtacrLanguage = lens _dtacrLanguage (\ s a -> s{_dtacrLanguage = a});
+dtacrrqLanguage :: Lens' DescribeTrustedAdvisorCheckResult (Maybe Text)
+dtacrrqLanguage = lens _dtacrrqLanguage (\ s a -> s{_dtacrrqLanguage = a});
 
 -- | The unique identifier for the Trusted Advisor check.
-dtacrCheckId :: Lens' DescribeTrustedAdvisorCheckResult Text
-dtacrCheckId = lens _dtacrCheckId (\ s a -> s{_dtacrCheckId = a});
+dtacrrqCheckId :: Lens' DescribeTrustedAdvisorCheckResult Text
+dtacrrqCheckId = lens _dtacrrqCheckId (\ s a -> s{_dtacrrqCheckId = a});
 
 instance AWSRequest DescribeTrustedAdvisorCheckResult
          where
@@ -118,8 +118,8 @@ instance ToJSON DescribeTrustedAdvisorCheckResult
          where
         toJSON DescribeTrustedAdvisorCheckResult'{..}
           = object
-              ["language" .= _dtacrLanguage,
-               "checkId" .= _dtacrCheckId]
+              ["language" .= _dtacrrqLanguage,
+               "checkId" .= _dtacrrqCheckId]
 
 instance ToPath DescribeTrustedAdvisorCheckResult
          where
@@ -136,26 +136,26 @@ instance ToQuery DescribeTrustedAdvisorCheckResult
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacrrResult'
+-- * 'dtacrrsResult'
 --
--- * 'dtacrrStatus'
+-- * 'dtacrrsStatus'
 data DescribeTrustedAdvisorCheckResultResponse = DescribeTrustedAdvisorCheckResultResponse'
-    { _dtacrrResult :: !(Maybe TrustedAdvisorCheckResult)
-    , _dtacrrStatus :: !Int
+    { _dtacrrsResult :: !(Maybe TrustedAdvisorCheckResult)
+    , _dtacrrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckResultResponse' smart constructor.
 describeTrustedAdvisorCheckResultResponse :: Int -> DescribeTrustedAdvisorCheckResultResponse
 describeTrustedAdvisorCheckResultResponse pStatus =
     DescribeTrustedAdvisorCheckResultResponse'
-    { _dtacrrResult = Nothing
-    , _dtacrrStatus = pStatus
+    { _dtacrrsResult = Nothing
+    , _dtacrrsStatus = pStatus
     }
 
 -- | The detailed results of the Trusted Advisor check.
-dtacrrResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
-dtacrrResult = lens _dtacrrResult (\ s a -> s{_dtacrrResult = a});
+dtacrrsResult :: Lens' DescribeTrustedAdvisorCheckResultResponse (Maybe TrustedAdvisorCheckResult)
+dtacrrsResult = lens _dtacrrsResult (\ s a -> s{_dtacrrsResult = a});
 
 -- | FIXME: Undocumented member.
-dtacrrStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
-dtacrrStatus = lens _dtacrrStatus (\ s a -> s{_dtacrrStatus = a});
+dtacrrsStatus :: Lens' DescribeTrustedAdvisorCheckResultResponse Int
+dtacrrsStatus = lens _dtacrrsStatus (\ s a -> s{_dtacrrsStatus = a});

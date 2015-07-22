@@ -28,8 +28,8 @@ module Network.AWS.EC2.UnassignPrivateIPAddresses
     -- ** Request constructor
     , unassignPrivateIPAddresses
     -- ** Request lenses
-    , upiaNetworkInterfaceId
-    , upiaPrivateIPAddresses
+    , upiarqNetworkInterfaceId
+    , upiarqPrivateIPAddresses
 
     -- * Response
     , UnassignPrivateIPAddressesResponse
@@ -46,31 +46,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upiaNetworkInterfaceId'
+-- * 'upiarqNetworkInterfaceId'
 --
--- * 'upiaPrivateIPAddresses'
+-- * 'upiarqPrivateIPAddresses'
 data UnassignPrivateIPAddresses = UnassignPrivateIPAddresses'
-    { _upiaNetworkInterfaceId :: !Text
-    , _upiaPrivateIPAddresses :: ![Text]
+    { _upiarqNetworkInterfaceId :: !Text
+    , _upiarqPrivateIPAddresses :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignPrivateIPAddresses' smart constructor.
 unassignPrivateIPAddresses :: Text -> UnassignPrivateIPAddresses
 unassignPrivateIPAddresses pNetworkInterfaceId =
     UnassignPrivateIPAddresses'
-    { _upiaNetworkInterfaceId = pNetworkInterfaceId
-    , _upiaPrivateIPAddresses = mempty
+    { _upiarqNetworkInterfaceId = pNetworkInterfaceId
+    , _upiarqPrivateIPAddresses = mempty
     }
 
 -- | The ID of the network interface.
-upiaNetworkInterfaceId :: Lens' UnassignPrivateIPAddresses Text
-upiaNetworkInterfaceId = lens _upiaNetworkInterfaceId (\ s a -> s{_upiaNetworkInterfaceId = a});
+upiarqNetworkInterfaceId :: Lens' UnassignPrivateIPAddresses Text
+upiarqNetworkInterfaceId = lens _upiarqNetworkInterfaceId (\ s a -> s{_upiarqNetworkInterfaceId = a});
 
 -- | The secondary private IP addresses to unassign from the network
 -- interface. You can specify this option multiple times to unassign more
 -- than one IP address.
-upiaPrivateIPAddresses :: Lens' UnassignPrivateIPAddresses [Text]
-upiaPrivateIPAddresses = lens _upiaPrivateIPAddresses (\ s a -> s{_upiaPrivateIPAddresses = a});
+upiarqPrivateIPAddresses :: Lens' UnassignPrivateIPAddresses [Text]
+upiarqPrivateIPAddresses = lens _upiarqPrivateIPAddresses (\ s a -> s{_upiarqPrivateIPAddresses = a});
 
 instance AWSRequest UnassignPrivateIPAddresses where
         type Sv UnassignPrivateIPAddresses = EC2
@@ -92,9 +92,9 @@ instance ToQuery UnassignPrivateIPAddresses where
               ["Action" =:
                  ("UnassignPrivateIPAddresses" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "NetworkInterfaceId" =: _upiaNetworkInterfaceId,
+               "NetworkInterfaceId" =: _upiarqNetworkInterfaceId,
                toQueryList "PrivateIpAddress"
-                 _upiaPrivateIPAddresses]
+                 _upiarqPrivateIPAddresses]
 
 -- | /See:/ 'unassignPrivateIPAddressesResponse' smart constructor.
 data UnassignPrivateIPAddressesResponse =

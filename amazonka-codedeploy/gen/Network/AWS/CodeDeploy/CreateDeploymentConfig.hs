@@ -27,16 +27,16 @@ module Network.AWS.CodeDeploy.CreateDeploymentConfig
     -- ** Request constructor
     , createDeploymentConfig
     -- ** Request lenses
-    , cdcMinimumHealthyHosts
-    , cdcDeploymentConfigName
+    , cdcrqMinimumHealthyHosts
+    , cdcrqDeploymentConfigName
 
     -- * Response
     , CreateDeploymentConfigResponse
     -- ** Response constructor
     , createDeploymentConfigResponse
     -- ** Response lenses
-    , cdcrDeploymentConfigId
-    , cdcrStatus
+    , cdcrsDeploymentConfigId
+    , cdcrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -50,20 +50,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdcMinimumHealthyHosts'
+-- * 'cdcrqMinimumHealthyHosts'
 --
--- * 'cdcDeploymentConfigName'
+-- * 'cdcrqDeploymentConfigName'
 data CreateDeploymentConfig = CreateDeploymentConfig'
-    { _cdcMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
-    , _cdcDeploymentConfigName :: !Text
+    { _cdcrqMinimumHealthyHosts  :: !(Maybe MinimumHealthyHosts)
+    , _cdcrqDeploymentConfigName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentConfig' smart constructor.
 createDeploymentConfig :: Text -> CreateDeploymentConfig
 createDeploymentConfig pDeploymentConfigName =
     CreateDeploymentConfig'
-    { _cdcMinimumHealthyHosts = Nothing
-    , _cdcDeploymentConfigName = pDeploymentConfigName
+    { _cdcrqMinimumHealthyHosts = Nothing
+    , _cdcrqDeploymentConfigName = pDeploymentConfigName
     }
 
 -- | The minimum number of healthy instances that should be available at any
@@ -84,12 +84,12 @@ createDeploymentConfig pDeploymentConfigName =
 --
 -- For example, to set a minimum of 95% healthy instances, specify a type
 -- of FLEET_PERCENT and a value of 95.
-cdcMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHosts)
-cdcMinimumHealthyHosts = lens _cdcMinimumHealthyHosts (\ s a -> s{_cdcMinimumHealthyHosts = a});
+cdcrqMinimumHealthyHosts :: Lens' CreateDeploymentConfig (Maybe MinimumHealthyHosts)
+cdcrqMinimumHealthyHosts = lens _cdcrqMinimumHealthyHosts (\ s a -> s{_cdcrqMinimumHealthyHosts = a});
 
 -- | The name of the deployment configuration to create.
-cdcDeploymentConfigName :: Lens' CreateDeploymentConfig Text
-cdcDeploymentConfigName = lens _cdcDeploymentConfigName (\ s a -> s{_cdcDeploymentConfigName = a});
+cdcrqDeploymentConfigName :: Lens' CreateDeploymentConfig Text
+cdcrqDeploymentConfigName = lens _cdcrqDeploymentConfigName (\ s a -> s{_cdcrqDeploymentConfigName = a});
 
 instance AWSRequest CreateDeploymentConfig where
         type Sv CreateDeploymentConfig = CodeDeploy
@@ -115,8 +115,8 @@ instance ToHeaders CreateDeploymentConfig where
 instance ToJSON CreateDeploymentConfig where
         toJSON CreateDeploymentConfig'{..}
           = object
-              ["minimumHealthyHosts" .= _cdcMinimumHealthyHosts,
-               "deploymentConfigName" .= _cdcDeploymentConfigName]
+              ["minimumHealthyHosts" .= _cdcrqMinimumHealthyHosts,
+               "deploymentConfigName" .= _cdcrqDeploymentConfigName]
 
 instance ToPath CreateDeploymentConfig where
         toPath = const "/"
@@ -130,26 +130,26 @@ instance ToQuery CreateDeploymentConfig where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdcrDeploymentConfigId'
+-- * 'cdcrsDeploymentConfigId'
 --
--- * 'cdcrStatus'
+-- * 'cdcrsStatus'
 data CreateDeploymentConfigResponse = CreateDeploymentConfigResponse'
-    { _cdcrDeploymentConfigId :: !(Maybe Text)
-    , _cdcrStatus             :: !Int
+    { _cdcrsDeploymentConfigId :: !(Maybe Text)
+    , _cdcrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDeploymentConfigResponse' smart constructor.
 createDeploymentConfigResponse :: Int -> CreateDeploymentConfigResponse
 createDeploymentConfigResponse pStatus =
     CreateDeploymentConfigResponse'
-    { _cdcrDeploymentConfigId = Nothing
-    , _cdcrStatus = pStatus
+    { _cdcrsDeploymentConfigId = Nothing
+    , _cdcrsStatus = pStatus
     }
 
 -- | A unique deployment configuration ID.
-cdcrDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
-cdcrDeploymentConfigId = lens _cdcrDeploymentConfigId (\ s a -> s{_cdcrDeploymentConfigId = a});
+cdcrsDeploymentConfigId :: Lens' CreateDeploymentConfigResponse (Maybe Text)
+cdcrsDeploymentConfigId = lens _cdcrsDeploymentConfigId (\ s a -> s{_cdcrsDeploymentConfigId = a});
 
 -- | FIXME: Undocumented member.
-cdcrStatus :: Lens' CreateDeploymentConfigResponse Int
-cdcrStatus = lens _cdcrStatus (\ s a -> s{_cdcrStatus = a});
+cdcrsStatus :: Lens' CreateDeploymentConfigResponse Int
+cdcrsStatus = lens _cdcrsStatus (\ s a -> s{_cdcrsStatus = a});

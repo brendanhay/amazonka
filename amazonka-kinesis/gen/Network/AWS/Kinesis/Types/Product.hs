@@ -186,40 +186,40 @@ instance FromJSON PutRecordsResultEntry where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'recSequenceNumber'
+-- * 'rSequenceNumber'
 --
--- * 'recData'
+-- * 'rData'
 --
--- * 'recPartitionKey'
+-- * 'rPartitionKey'
 data Record = Record'
-    { _recSequenceNumber :: !Text
-    , _recData           :: !Base64
-    , _recPartitionKey   :: !Text
+    { _rSequenceNumber :: !Text
+    , _rData           :: !Base64
+    , _rPartitionKey   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
 record :: Text -> Base64 -> Text -> Record
 record pSequenceNumber pData pPartitionKey =
     Record'
-    { _recSequenceNumber = pSequenceNumber
-    , _recData = pData
-    , _recPartitionKey = pPartitionKey
+    { _rSequenceNumber = pSequenceNumber
+    , _rData = pData
+    , _rPartitionKey = pPartitionKey
     }
 
 -- | The unique identifier for the record in the Amazon Kinesis stream.
-recSequenceNumber :: Lens' Record Text
-recSequenceNumber = lens _recSequenceNumber (\ s a -> s{_recSequenceNumber = a});
+rSequenceNumber :: Lens' Record Text
+rSequenceNumber = lens _rSequenceNumber (\ s a -> s{_rSequenceNumber = a});
 
 -- | The data blob. The data in the blob is both opaque and immutable to the
 -- Amazon Kinesis service, which does not inspect, interpret, or change the
 -- data in the blob in any way. The maximum size of the data blob (the
 -- payload before base64-encoding) is 50 kilobytes (KB)
-recData :: Lens' Record Base64
-recData = lens _recData (\ s a -> s{_recData = a});
+rData :: Lens' Record Base64
+rData = lens _rData (\ s a -> s{_rData = a});
 
 -- | Identifies which shard in the stream the data record is assigned to.
-recPartitionKey :: Lens' Record Text
-recPartitionKey = lens _recPartitionKey (\ s a -> s{_recPartitionKey = a});
+rPartitionKey :: Lens' Record Text
+rPartitionKey = lens _rPartitionKey (\ s a -> s{_rPartitionKey = a});
 
 instance FromJSON Record where
         parseJSON
@@ -274,54 +274,54 @@ instance FromJSON SequenceNumberRange where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'shaAdjacentParentShardId'
+-- * 'sAdjacentParentShardId'
 --
--- * 'shaParentShardId'
+-- * 'sParentShardId'
 --
--- * 'shaShardId'
+-- * 'sShardId'
 --
--- * 'shaHashKeyRange'
+-- * 'sHashKeyRange'
 --
--- * 'shaSequenceNumberRange'
+-- * 'sSequenceNumberRange'
 data Shard = Shard'
-    { _shaAdjacentParentShardId :: !(Maybe Text)
-    , _shaParentShardId         :: !(Maybe Text)
-    , _shaShardId               :: !Text
-    , _shaHashKeyRange          :: !HashKeyRange
-    , _shaSequenceNumberRange   :: !SequenceNumberRange
+    { _sAdjacentParentShardId :: !(Maybe Text)
+    , _sParentShardId         :: !(Maybe Text)
+    , _sShardId               :: !Text
+    , _sHashKeyRange          :: !HashKeyRange
+    , _sSequenceNumberRange   :: !SequenceNumberRange
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Shard' smart constructor.
 shard :: Text -> HashKeyRange -> SequenceNumberRange -> Shard
 shard pShardId pHashKeyRange pSequenceNumberRange =
     Shard'
-    { _shaAdjacentParentShardId = Nothing
-    , _shaParentShardId = Nothing
-    , _shaShardId = pShardId
-    , _shaHashKeyRange = pHashKeyRange
-    , _shaSequenceNumberRange = pSequenceNumberRange
+    { _sAdjacentParentShardId = Nothing
+    , _sParentShardId = Nothing
+    , _sShardId = pShardId
+    , _sHashKeyRange = pHashKeyRange
+    , _sSequenceNumberRange = pSequenceNumberRange
     }
 
 -- | The shard Id of the shard adjacent to the shard\'s parent.
-shaAdjacentParentShardId :: Lens' Shard (Maybe Text)
-shaAdjacentParentShardId = lens _shaAdjacentParentShardId (\ s a -> s{_shaAdjacentParentShardId = a});
+sAdjacentParentShardId :: Lens' Shard (Maybe Text)
+sAdjacentParentShardId = lens _sAdjacentParentShardId (\ s a -> s{_sAdjacentParentShardId = a});
 
 -- | The shard Id of the shard\'s parent.
-shaParentShardId :: Lens' Shard (Maybe Text)
-shaParentShardId = lens _shaParentShardId (\ s a -> s{_shaParentShardId = a});
+sParentShardId :: Lens' Shard (Maybe Text)
+sParentShardId = lens _sParentShardId (\ s a -> s{_sParentShardId = a});
 
 -- | The unique identifier of the shard within the Amazon Kinesis stream.
-shaShardId :: Lens' Shard Text
-shaShardId = lens _shaShardId (\ s a -> s{_shaShardId = a});
+sShardId :: Lens' Shard Text
+sShardId = lens _sShardId (\ s a -> s{_sShardId = a});
 
 -- | The range of possible hash key values for the shard, which is a set of
 -- ordered contiguous positive integers.
-shaHashKeyRange :: Lens' Shard HashKeyRange
-shaHashKeyRange = lens _shaHashKeyRange (\ s a -> s{_shaHashKeyRange = a});
+sHashKeyRange :: Lens' Shard HashKeyRange
+sHashKeyRange = lens _sHashKeyRange (\ s a -> s{_sHashKeyRange = a});
 
 -- | The range of possible sequence numbers for the shard.
-shaSequenceNumberRange :: Lens' Shard SequenceNumberRange
-shaSequenceNumberRange = lens _shaSequenceNumberRange (\ s a -> s{_shaSequenceNumberRange = a});
+sSequenceNumberRange :: Lens' Shard SequenceNumberRange
+sSequenceNumberRange = lens _sSequenceNumberRange (\ s a -> s{_sSequenceNumberRange = a});
 
 instance FromJSON Shard where
         parseJSON

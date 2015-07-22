@@ -27,7 +27,7 @@ module Network.AWS.S3.DeleteBucketLifecycle
     -- ** Request constructor
     , deleteBucketLifecycle
     -- ** Request lenses
-    , dblBucket
+    , dblrqBucket
 
     -- * Response
     , DeleteBucketLifecycleResponse
@@ -44,21 +44,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dblBucket'
+-- * 'dblrqBucket'
 newtype DeleteBucketLifecycle = DeleteBucketLifecycle'
-    { _dblBucket :: BucketName
+    { _dblrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketLifecycle' smart constructor.
 deleteBucketLifecycle :: BucketName -> DeleteBucketLifecycle
 deleteBucketLifecycle pBucket =
     DeleteBucketLifecycle'
-    { _dblBucket = pBucket
+    { _dblrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-dblBucket :: Lens' DeleteBucketLifecycle BucketName
-dblBucket = lens _dblBucket (\ s a -> s{_dblBucket = a});
+dblrqBucket :: Lens' DeleteBucketLifecycle BucketName
+dblrqBucket = lens _dblrqBucket (\ s a -> s{_dblrqBucket = a});
 
 instance AWSRequest DeleteBucketLifecycle where
         type Sv DeleteBucketLifecycle = S3
@@ -72,7 +72,7 @@ instance ToHeaders DeleteBucketLifecycle where
 
 instance ToPath DeleteBucketLifecycle where
         toPath DeleteBucketLifecycle'{..}
-          = mconcat ["/", toText _dblBucket]
+          = mconcat ["/", toText _dblrqBucket]
 
 instance ToQuery DeleteBucketLifecycle where
         toQuery = const (mconcat ["lifecycle"])

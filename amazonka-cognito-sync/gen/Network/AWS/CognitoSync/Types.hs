@@ -53,13 +53,13 @@ module Network.AWS.CognitoSync.Types
     -- * Dataset
     , Dataset
     , dataset
-    , datLastModifiedDate
-    , datNumRecords
-    , datDataStorage
-    , datDatasetName
-    , datCreationDate
-    , datLastModifiedBy
-    , datIdentityId
+    , dLastModifiedDate
+    , dNumRecords
+    , dDataStorage
+    , dDatasetName
+    , dCreationDate
+    , dLastModifiedBy
+    , dIdentityId
 
     -- * IdentityPoolUsage
     , IdentityPoolUsage
@@ -87,12 +87,12 @@ module Network.AWS.CognitoSync.Types
     -- * Record
     , Record
     , record
-    , recSyncCount
-    , recLastModifiedDate
-    , recDeviceLastModifiedDate
-    , recValue
-    , recKey
-    , recLastModifiedBy
+    , rSyncCount
+    , rLastModifiedDate
+    , rDeviceLastModifiedDate
+    , rValue
+    , rKey
+    , rLastModifiedBy
 
     -- * RecordPatch
     , RecordPatch

@@ -27,15 +27,15 @@ module Network.AWS.S3.GetBucketPolicy
     -- ** Request constructor
     , getBucketPolicy
     -- ** Request lenses
-    , gbpBucket
+    , gbprqBucket
 
     -- * Response
     , GetBucketPolicyResponse
     -- ** Response constructor
     , getBucketPolicyResponse
     -- ** Response lenses
-    , gbprPolicy
-    , gbprStatus
+    , gbprsPolicy
+    , gbprsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbpBucket'
+-- * 'gbprqBucket'
 newtype GetBucketPolicy = GetBucketPolicy'
-    { _gbpBucket :: BucketName
+    { _gbprqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketPolicy' smart constructor.
 getBucketPolicy :: BucketName -> GetBucketPolicy
 getBucketPolicy pBucket =
     GetBucketPolicy'
-    { _gbpBucket = pBucket
+    { _gbprqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gbpBucket :: Lens' GetBucketPolicy BucketName
-gbpBucket = lens _gbpBucket (\ s a -> s{_gbpBucket = a});
+gbprqBucket :: Lens' GetBucketPolicy BucketName
+gbprqBucket = lens _gbprqBucket (\ s a -> s{_gbprqBucket = a});
 
 instance AWSRequest GetBucketPolicy where
         type Sv GetBucketPolicy = S3
@@ -78,7 +78,7 @@ instance ToHeaders GetBucketPolicy where
 
 instance ToPath GetBucketPolicy where
         toPath GetBucketPolicy'{..}
-          = mconcat ["/", toText _gbpBucket]
+          = mconcat ["/", toText _gbprqBucket]
 
 instance ToQuery GetBucketPolicy where
         toQuery = const (mconcat ["policy"])
@@ -87,26 +87,26 @@ instance ToQuery GetBucketPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbprPolicy'
+-- * 'gbprsPolicy'
 --
--- * 'gbprStatus'
+-- * 'gbprsStatus'
 data GetBucketPolicyResponse = GetBucketPolicyResponse'
-    { _gbprPolicy :: !(Maybe Text)
-    , _gbprStatus :: !Int
+    { _gbprsPolicy :: !(Maybe Text)
+    , _gbprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketPolicyResponse' smart constructor.
 getBucketPolicyResponse :: Int -> GetBucketPolicyResponse
 getBucketPolicyResponse pStatus =
     GetBucketPolicyResponse'
-    { _gbprPolicy = Nothing
-    , _gbprStatus = pStatus
+    { _gbprsPolicy = Nothing
+    , _gbprsStatus = pStatus
     }
 
 -- | The bucket policy as a JSON document.
-gbprPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
-gbprPolicy = lens _gbprPolicy (\ s a -> s{_gbprPolicy = a});
+gbprsPolicy :: Lens' GetBucketPolicyResponse (Maybe Text)
+gbprsPolicy = lens _gbprsPolicy (\ s a -> s{_gbprsPolicy = a});
 
 -- | FIXME: Undocumented member.
-gbprStatus :: Lens' GetBucketPolicyResponse Int
-gbprStatus = lens _gbprStatus (\ s a -> s{_gbprStatus = a});
+gbprsStatus :: Lens' GetBucketPolicyResponse Int
+gbprsStatus = lens _gbprsStatus (\ s a -> s{_gbprsStatus = a});

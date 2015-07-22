@@ -28,13 +28,13 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Artwork
     , Artwork
     , artwork
-    , artSizingPolicy
-    , artMaxHeight
-    , artAlbumArtFormat
-    , artInputKey
-    , artPaddingPolicy
-    , artEncryption
-    , artMaxWidth
+    , aSizingPolicy
+    , aMaxHeight
+    , aAlbumArtFormat
+    , aInputKey
+    , aPaddingPolicy
+    , aEncryption
+    , aMaxWidth
 
     -- * AudioCodecOptions
     , AudioCodecOptions
@@ -73,14 +73,14 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Captions
     , Captions
     , captions
-    , capMergePolicy
-    , capCaptionSources
-    , capCaptionFormats
+    , cMergePolicy
+    , cCaptionSources
+    , cCaptionFormats
 
     -- * Clip
     , Clip
     , clip
-    , cliTimeSpan
+    , cTimeSpan
 
     -- * CreateJobOutput
     , CreateJobOutput
@@ -118,10 +118,10 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Encryption
     , Encryption
     , encryption
-    , encKeyMD5
-    , encMode
-    , encKey
-    , encInitializationVector
+    , eKeyMD5
+    , eMode
+    , eKey
+    , eInitializationVector
 
     -- * HlsContentProtection
     , HlsContentProtection
@@ -201,17 +201,17 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Notifications
     , Notifications
     , notifications
-    , notError
-    , notWarning
-    , notCompleted
-    , notProgressing
+    , nError
+    , nWarning
+    , nCompleted
+    , nProgressing
 
     -- * Permission
     , Permission
     , permission
-    , perAccess
-    , perGranteeType
-    , perGrantee
+    , pAccess
+    , pGranteeType
+    , pGrantee
 
     -- * Pipeline
     , Pipeline
@@ -248,13 +248,13 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Playlist
     , Playlist
     , playlist
-    , plaPlayReadyDrm
-    , plaStatus
-    , plaOutputKeys
-    , plaFormat
-    , plaName
-    , plaHlsContentProtection
-    , plaStatusDetail
+    , pPlayReadyDrm
+    , pStatus
+    , pOutputKeys
+    , pFormat
+    , pName
+    , pHlsContentProtection
+    , pStatusDetail
 
     -- * Preset
     , Preset
@@ -286,14 +286,14 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Thumbnails
     , Thumbnails
     , thumbnails
-    , thuSizingPolicy
-    , thuFormat
-    , thuMaxHeight
-    , thuResolution
-    , thuPaddingPolicy
-    , thuAspectRatio
-    , thuInterval
-    , thuMaxWidth
+    , tSizingPolicy
+    , tFormat
+    , tMaxHeight
+    , tResolution
+    , tPaddingPolicy
+    , tAspectRatio
+    , tInterval
+    , tMaxWidth
 
     -- * TimeSpan
     , TimeSpan
@@ -304,9 +304,9 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Timing
     , Timing
     , timing
-    , timSubmitTimeMillis
-    , timFinishTimeMillis
-    , timStartTimeMillis
+    , tSubmitTimeMillis
+    , tFinishTimeMillis
+    , tStartTimeMillis
 
     -- * VideoParameters
     , VideoParameters
@@ -330,8 +330,8 @@ module Network.AWS.ElasticTranscoder.Types
     -- * Warning
     , Warning
     , warning
-    , warCode
-    , warMessage
+    , wCode
+    , wMessage
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types.Product

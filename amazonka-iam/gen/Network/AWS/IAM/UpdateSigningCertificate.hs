@@ -35,9 +35,9 @@ module Network.AWS.IAM.UpdateSigningCertificate
     -- ** Request constructor
     , updateSigningCertificate
     -- ** Request lenses
-    , uscUserName
-    , uscCertificateId
-    , uscStatus
+    , uscrqUserName
+    , uscrqCertificateId
+    , uscrqStatus
 
     -- * Response
     , UpdateSigningCertificateResponse
@@ -54,39 +54,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uscUserName'
+-- * 'uscrqUserName'
 --
--- * 'uscCertificateId'
+-- * 'uscrqCertificateId'
 --
--- * 'uscStatus'
+-- * 'uscrqStatus'
 data UpdateSigningCertificate = UpdateSigningCertificate'
-    { _uscUserName      :: !(Maybe Text)
-    , _uscCertificateId :: !Text
-    , _uscStatus        :: !StatusType
+    { _uscrqUserName      :: !(Maybe Text)
+    , _uscrqCertificateId :: !Text
+    , _uscrqStatus        :: !StatusType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateSigningCertificate' smart constructor.
 updateSigningCertificate :: Text -> StatusType -> UpdateSigningCertificate
 updateSigningCertificate pCertificateId pStatus =
     UpdateSigningCertificate'
-    { _uscUserName = Nothing
-    , _uscCertificateId = pCertificateId
-    , _uscStatus = pStatus
+    { _uscrqUserName = Nothing
+    , _uscrqCertificateId = pCertificateId
+    , _uscrqStatus = pStatus
     }
 
 -- | The name of the user the signing certificate belongs to.
-uscUserName :: Lens' UpdateSigningCertificate (Maybe Text)
-uscUserName = lens _uscUserName (\ s a -> s{_uscUserName = a});
+uscrqUserName :: Lens' UpdateSigningCertificate (Maybe Text)
+uscrqUserName = lens _uscrqUserName (\ s a -> s{_uscrqUserName = a});
 
 -- | The ID of the signing certificate you want to update.
-uscCertificateId :: Lens' UpdateSigningCertificate Text
-uscCertificateId = lens _uscCertificateId (\ s a -> s{_uscCertificateId = a});
+uscrqCertificateId :: Lens' UpdateSigningCertificate Text
+uscrqCertificateId = lens _uscrqCertificateId (\ s a -> s{_uscrqCertificateId = a});
 
 -- | The status you want to assign to the certificate. @Active@ means the
 -- certificate can be used for API calls to AWS, while @Inactive@ means the
 -- certificate cannot be used.
-uscStatus :: Lens' UpdateSigningCertificate StatusType
-uscStatus = lens _uscStatus (\ s a -> s{_uscStatus = a});
+uscrqStatus :: Lens' UpdateSigningCertificate StatusType
+uscrqStatus = lens _uscrqStatus (\ s a -> s{_uscrqStatus = a});
 
 instance AWSRequest UpdateSigningCertificate where
         type Sv UpdateSigningCertificate = IAM
@@ -108,9 +108,9 @@ instance ToQuery UpdateSigningCertificate where
               ["Action" =:
                  ("UpdateSigningCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _uscUserName,
-               "CertificateId" =: _uscCertificateId,
-               "Status" =: _uscStatus]
+               "UserName" =: _uscrqUserName,
+               "CertificateId" =: _uscrqCertificateId,
+               "Status" =: _uscrqStatus]
 
 -- | /See:/ 'updateSigningCertificateResponse' smart constructor.
 data UpdateSigningCertificateResponse =

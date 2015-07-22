@@ -31,15 +31,15 @@ module Network.AWS.Config.DescribeDeliveryChannels
     -- ** Request constructor
     , describeDeliveryChannels
     -- ** Request lenses
-    , ddcDeliveryChannelNames
+    , ddcrqDeliveryChannelNames
 
     -- * Response
     , DescribeDeliveryChannelsResponse
     -- ** Response constructor
     , describeDeliveryChannelsResponse
     -- ** Response lenses
-    , ddcrDeliveryChannels
-    , ddcrStatus
+    , ddcrsDeliveryChannels
+    , ddcrsStatus
     ) where
 
 import           Network.AWS.Config.Types
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcDeliveryChannelNames'
+-- * 'ddcrqDeliveryChannelNames'
 newtype DescribeDeliveryChannels = DescribeDeliveryChannels'
-    { _ddcDeliveryChannelNames :: Maybe [Text]
+    { _ddcrqDeliveryChannelNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeliveryChannels' smart constructor.
 describeDeliveryChannels :: DescribeDeliveryChannels
 describeDeliveryChannels =
     DescribeDeliveryChannels'
-    { _ddcDeliveryChannelNames = Nothing
+    { _ddcrqDeliveryChannelNames = Nothing
     }
 
 -- | A list of delivery channel names.
-ddcDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
-ddcDeliveryChannelNames = lens _ddcDeliveryChannelNames (\ s a -> s{_ddcDeliveryChannelNames = a}) . _Default;
+ddcrqDeliveryChannelNames :: Lens' DescribeDeliveryChannels [Text]
+ddcrqDeliveryChannelNames = lens _ddcrqDeliveryChannelNames (\ s a -> s{_ddcrqDeliveryChannelNames = a}) . _Default;
 
 instance AWSRequest DescribeDeliveryChannels where
         type Sv DescribeDeliveryChannels = Config
@@ -94,7 +94,8 @@ instance ToHeaders DescribeDeliveryChannels where
 instance ToJSON DescribeDeliveryChannels where
         toJSON DescribeDeliveryChannels'{..}
           = object
-              ["DeliveryChannelNames" .= _ddcDeliveryChannelNames]
+              ["DeliveryChannelNames" .=
+                 _ddcrqDeliveryChannelNames]
 
 instance ToPath DescribeDeliveryChannels where
         toPath = const "/"
@@ -108,26 +109,26 @@ instance ToQuery DescribeDeliveryChannels where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddcrDeliveryChannels'
+-- * 'ddcrsDeliveryChannels'
 --
--- * 'ddcrStatus'
+-- * 'ddcrsStatus'
 data DescribeDeliveryChannelsResponse = DescribeDeliveryChannelsResponse'
-    { _ddcrDeliveryChannels :: !(Maybe [DeliveryChannel])
-    , _ddcrStatus           :: !Int
+    { _ddcrsDeliveryChannels :: !(Maybe [DeliveryChannel])
+    , _ddcrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDeliveryChannelsResponse' smart constructor.
 describeDeliveryChannelsResponse :: Int -> DescribeDeliveryChannelsResponse
 describeDeliveryChannelsResponse pStatus =
     DescribeDeliveryChannelsResponse'
-    { _ddcrDeliveryChannels = Nothing
-    , _ddcrStatus = pStatus
+    { _ddcrsDeliveryChannels = Nothing
+    , _ddcrsStatus = pStatus
     }
 
 -- | A list that contains the descriptions of the specified delivery channel.
-ddcrDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
-ddcrDeliveryChannels = lens _ddcrDeliveryChannels (\ s a -> s{_ddcrDeliveryChannels = a}) . _Default;
+ddcrsDeliveryChannels :: Lens' DescribeDeliveryChannelsResponse [DeliveryChannel]
+ddcrsDeliveryChannels = lens _ddcrsDeliveryChannels (\ s a -> s{_ddcrsDeliveryChannels = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddcrStatus :: Lens' DescribeDeliveryChannelsResponse Int
-ddcrStatus = lens _ddcrStatus (\ s a -> s{_ddcrStatus = a});
+ddcrsStatus :: Lens' DescribeDeliveryChannelsResponse Int
+ddcrsStatus = lens _ddcrsStatus (\ s a -> s{_ddcrsStatus = a});

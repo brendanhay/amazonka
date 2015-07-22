@@ -30,17 +30,17 @@ module Network.AWS.SNS.Subscribe
     -- ** Request constructor
     , subscribe
     -- ** Request lenses
-    , sEndpoint
-    , sTopicARN
-    , sProtocol
+    , srqEndpoint
+    , srqTopicARN
+    , srqProtocol
 
     -- * Response
     , SubscribeResponse
     -- ** Response constructor
     , subscribeResponse
     -- ** Response lenses
-    , srSubscriptionARN
-    , srStatus
+    , srsSubscriptionARN
+    , srsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -54,24 +54,24 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sEndpoint'
+-- * 'srqEndpoint'
 --
--- * 'sTopicARN'
+-- * 'srqTopicARN'
 --
--- * 'sProtocol'
+-- * 'srqProtocol'
 data Subscribe = Subscribe'
-    { _sEndpoint :: !(Maybe Endpoint)
-    , _sTopicARN :: !Text
-    , _sProtocol :: !Text
+    { _srqEndpoint :: !(Maybe Endpoint)
+    , _srqTopicARN :: !Text
+    , _srqProtocol :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subscribe' smart constructor.
 subscribe :: Text -> Text -> Subscribe
 subscribe pTopicARN pProtocol =
     Subscribe'
-    { _sEndpoint = Nothing
-    , _sTopicARN = pTopicARN
-    , _sProtocol = pProtocol
+    { _srqEndpoint = Nothing
+    , _srqTopicARN = pTopicARN
+    , _srqProtocol = pProtocol
     }
 
 -- | The endpoint that you want to receive notifications. Endpoints vary by
@@ -89,12 +89,12 @@ subscribe pTopicARN pProtocol =
 --     queue
 -- -   For the @application@ protocol, the endpoint is the EndpointArn of a
 --     mobile app and device.
-sEndpoint :: Lens' Subscribe (Maybe Endpoint)
-sEndpoint = lens _sEndpoint (\ s a -> s{_sEndpoint = a});
+srqEndpoint :: Lens' Subscribe (Maybe Endpoint)
+srqEndpoint = lens _srqEndpoint (\ s a -> s{_srqEndpoint = a});
 
 -- | The ARN of the topic you want to subscribe to.
-sTopicARN :: Lens' Subscribe Text
-sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
+srqTopicARN :: Lens' Subscribe Text
+srqTopicARN = lens _srqTopicARN (\ s a -> s{_srqTopicARN = a});
 
 -- | The protocol you want to use. Supported protocols include:
 --
@@ -106,8 +106,8 @@ sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
 -- -   @sqs@ -- delivery of JSON-encoded message to an Amazon SQS queue
 -- -   @application@ -- delivery of JSON-encoded message to an EndpointArn
 --     for a mobile app and device.
-sProtocol :: Lens' Subscribe Text
-sProtocol = lens _sProtocol (\ s a -> s{_sProtocol = a});
+srqProtocol :: Lens' Subscribe Text
+srqProtocol = lens _srqProtocol (\ s a -> s{_srqProtocol = a});
 
 instance AWSRequest Subscribe where
         type Sv Subscribe = SNS
@@ -130,8 +130,9 @@ instance ToQuery Subscribe where
           = mconcat
               ["Action" =: ("Subscribe" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "Endpoint" =: _sEndpoint, "TopicArn" =: _sTopicARN,
-               "Protocol" =: _sProtocol]
+               "Endpoint" =: _srqEndpoint,
+               "TopicArn" =: _srqTopicARN,
+               "Protocol" =: _srqProtocol]
 
 -- | Response for Subscribe action.
 --
@@ -139,28 +140,28 @@ instance ToQuery Subscribe where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srSubscriptionARN'
+-- * 'srsSubscriptionARN'
 --
--- * 'srStatus'
+-- * 'srsStatus'
 data SubscribeResponse = SubscribeResponse'
-    { _srSubscriptionARN :: !(Maybe Text)
-    , _srStatus          :: !Int
+    { _srsSubscriptionARN :: !(Maybe Text)
+    , _srsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SubscribeResponse' smart constructor.
 subscribeResponse :: Int -> SubscribeResponse
 subscribeResponse pStatus =
     SubscribeResponse'
-    { _srSubscriptionARN = Nothing
-    , _srStatus = pStatus
+    { _srsSubscriptionARN = Nothing
+    , _srsStatus = pStatus
     }
 
 -- | The ARN of the subscription, if the service was able to create a
 -- subscription immediately (without requiring endpoint owner
 -- confirmation).
-srSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
-srSubscriptionARN = lens _srSubscriptionARN (\ s a -> s{_srSubscriptionARN = a});
+srsSubscriptionARN :: Lens' SubscribeResponse (Maybe Text)
+srsSubscriptionARN = lens _srsSubscriptionARN (\ s a -> s{_srsSubscriptionARN = a});
 
 -- | FIXME: Undocumented member.
-srStatus :: Lens' SubscribeResponse Int
-srStatus = lens _srStatus (\ s a -> s{_srStatus = a});
+srsStatus :: Lens' SubscribeResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

@@ -34,8 +34,8 @@ module Network.AWS.EC2.CreateVPNConnectionRoute
     -- ** Request constructor
     , createVPNConnectionRoute
     -- ** Request lenses
-    , cvcrVPNConnectionId
-    , cvcrDestinationCIdRBlock
+    , cvcrrqVPNConnectionId
+    , cvcrrqDestinationCIdRBlock
 
     -- * Response
     , CreateVPNConnectionRouteResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvcrVPNConnectionId'
+-- * 'cvcrrqVPNConnectionId'
 --
--- * 'cvcrDestinationCIdRBlock'
+-- * 'cvcrrqDestinationCIdRBlock'
 data CreateVPNConnectionRoute = CreateVPNConnectionRoute'
-    { _cvcrVPNConnectionId      :: !Text
-    , _cvcrDestinationCIdRBlock :: !Text
+    { _cvcrrqVPNConnectionId      :: !Text
+    , _cvcrrqDestinationCIdRBlock :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPNConnectionRoute' smart constructor.
 createVPNConnectionRoute :: Text -> Text -> CreateVPNConnectionRoute
 createVPNConnectionRoute pVPNConnectionId pDestinationCIdRBlock =
     CreateVPNConnectionRoute'
-    { _cvcrVPNConnectionId = pVPNConnectionId
-    , _cvcrDestinationCIdRBlock = pDestinationCIdRBlock
+    { _cvcrrqVPNConnectionId = pVPNConnectionId
+    , _cvcrrqDestinationCIdRBlock = pDestinationCIdRBlock
     }
 
 -- | The ID of the VPN connection.
-cvcrVPNConnectionId :: Lens' CreateVPNConnectionRoute Text
-cvcrVPNConnectionId = lens _cvcrVPNConnectionId (\ s a -> s{_cvcrVPNConnectionId = a});
+cvcrrqVPNConnectionId :: Lens' CreateVPNConnectionRoute Text
+cvcrrqVPNConnectionId = lens _cvcrrqVPNConnectionId (\ s a -> s{_cvcrrqVPNConnectionId = a});
 
 -- | The CIDR block associated with the local subnet of the customer network.
-cvcrDestinationCIdRBlock :: Lens' CreateVPNConnectionRoute Text
-cvcrDestinationCIdRBlock = lens _cvcrDestinationCIdRBlock (\ s a -> s{_cvcrDestinationCIdRBlock = a});
+cvcrrqDestinationCIdRBlock :: Lens' CreateVPNConnectionRoute Text
+cvcrrqDestinationCIdRBlock = lens _cvcrrqDestinationCIdRBlock (\ s a -> s{_cvcrrqDestinationCIdRBlock = a});
 
 instance AWSRequest CreateVPNConnectionRoute where
         type Sv CreateVPNConnectionRoute = EC2
@@ -96,8 +96,9 @@ instance ToQuery CreateVPNConnectionRoute where
               ["Action" =:
                  ("CreateVPNConnectionRoute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "VpnConnectionId" =: _cvcrVPNConnectionId,
-               "DestinationCidrBlock" =: _cvcrDestinationCIdRBlock]
+               "VpnConnectionId" =: _cvcrrqVPNConnectionId,
+               "DestinationCidrBlock" =:
+                 _cvcrrqDestinationCIdRBlock]
 
 -- | /See:/ 'createVPNConnectionRouteResponse' smart constructor.
 data CreateVPNConnectionRouteResponse =

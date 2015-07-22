@@ -35,8 +35,8 @@ module Network.AWS.IAM.ListSAMLProviders
     -- ** Response constructor
     , listSAMLProvidersResponse
     -- ** Response lenses
-    , lsamlprSAMLProviderList
-    , lsamlprStatus
+    , lsamlprsSAMLProviderList
+    , lsamlprsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -84,26 +84,26 @@ instance ToQuery ListSAMLProviders where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsamlprSAMLProviderList'
+-- * 'lsamlprsSAMLProviderList'
 --
--- * 'lsamlprStatus'
+-- * 'lsamlprsStatus'
 data ListSAMLProvidersResponse = ListSAMLProvidersResponse'
-    { _lsamlprSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
-    , _lsamlprStatus           :: !Int
+    { _lsamlprsSAMLProviderList :: !(Maybe [SAMLProviderListEntry])
+    , _lsamlprsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSAMLProvidersResponse' smart constructor.
 listSAMLProvidersResponse :: Int -> ListSAMLProvidersResponse
 listSAMLProvidersResponse pStatus =
     ListSAMLProvidersResponse'
-    { _lsamlprSAMLProviderList = Nothing
-    , _lsamlprStatus = pStatus
+    { _lsamlprsSAMLProviderList = Nothing
+    , _lsamlprsStatus = pStatus
     }
 
 -- | The list of SAML providers for this account.
-lsamlprSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
-lsamlprSAMLProviderList = lens _lsamlprSAMLProviderList (\ s a -> s{_lsamlprSAMLProviderList = a}) . _Default;
+lsamlprsSAMLProviderList :: Lens' ListSAMLProvidersResponse [SAMLProviderListEntry]
+lsamlprsSAMLProviderList = lens _lsamlprsSAMLProviderList (\ s a -> s{_lsamlprsSAMLProviderList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsamlprStatus :: Lens' ListSAMLProvidersResponse Int
-lsamlprStatus = lens _lsamlprStatus (\ s a -> s{_lsamlprStatus = a});
+lsamlprsStatus :: Lens' ListSAMLProvidersResponse Int
+lsamlprsStatus = lens _lsamlprsStatus (\ s a -> s{_lsamlprsStatus = a});

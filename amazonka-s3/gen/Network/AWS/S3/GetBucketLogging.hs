@@ -28,15 +28,15 @@ module Network.AWS.S3.GetBucketLogging
     -- ** Request constructor
     , getBucketLogging
     -- ** Request lenses
-    , gBucket
+    , getrqBucket
 
     -- * Response
     , GetBucketLoggingResponse
     -- ** Response constructor
     , getBucketLoggingResponse
     -- ** Response lenses
-    , getLoggingEnabled
-    , getStatus
+    , getrsLoggingEnabled
+    , getrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -48,21 +48,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gBucket'
+-- * 'getrqBucket'
 newtype GetBucketLogging = GetBucketLogging'
-    { _gBucket :: BucketName
+    { _getrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLogging' smart constructor.
 getBucketLogging :: BucketName -> GetBucketLogging
 getBucketLogging pBucket =
     GetBucketLogging'
-    { _gBucket = pBucket
+    { _getrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gBucket :: Lens' GetBucketLogging BucketName
-gBucket = lens _gBucket (\ s a -> s{_gBucket = a});
+getrqBucket :: Lens' GetBucketLogging BucketName
+getrqBucket = lens _getrqBucket (\ s a -> s{_getrqBucket = a});
 
 instance AWSRequest GetBucketLogging where
         type Sv GetBucketLogging = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketLogging where
 
 instance ToPath GetBucketLogging where
         toPath GetBucketLogging'{..}
-          = mconcat ["/", toText _gBucket]
+          = mconcat ["/", toText _getrqBucket]
 
 instance ToQuery GetBucketLogging where
         toQuery = const (mconcat ["logging"])
@@ -88,26 +88,26 @@ instance ToQuery GetBucketLogging where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'getLoggingEnabled'
+-- * 'getrsLoggingEnabled'
 --
--- * 'getStatus'
+-- * 'getrsStatus'
 data GetBucketLoggingResponse = GetBucketLoggingResponse'
-    { _getLoggingEnabled :: !(Maybe LoggingEnabled)
-    , _getStatus         :: !Int
+    { _getrsLoggingEnabled :: !(Maybe LoggingEnabled)
+    , _getrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketLoggingResponse' smart constructor.
 getBucketLoggingResponse :: Int -> GetBucketLoggingResponse
 getBucketLoggingResponse pStatus =
     GetBucketLoggingResponse'
-    { _getLoggingEnabled = Nothing
-    , _getStatus = pStatus
+    { _getrsLoggingEnabled = Nothing
+    , _getrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-getLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
-getLoggingEnabled = lens _getLoggingEnabled (\ s a -> s{_getLoggingEnabled = a});
+getrsLoggingEnabled :: Lens' GetBucketLoggingResponse (Maybe LoggingEnabled)
+getrsLoggingEnabled = lens _getrsLoggingEnabled (\ s a -> s{_getrsLoggingEnabled = a});
 
 -- | FIXME: Undocumented member.
-getStatus :: Lens' GetBucketLoggingResponse Int
-getStatus = lens _getStatus (\ s a -> s{_getStatus = a});
+getrsStatus :: Lens' GetBucketLoggingResponse Int
+getrsStatus = lens _getrsStatus (\ s a -> s{_getrsStatus = a});

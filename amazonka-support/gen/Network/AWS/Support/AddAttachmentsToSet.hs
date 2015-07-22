@@ -37,17 +37,17 @@ module Network.AWS.Support.AddAttachmentsToSet
     -- ** Request constructor
     , addAttachmentsToSet
     -- ** Request lenses
-    , aatsAttachmentSetId
-    , aatsAttachments
+    , aatsrqAttachmentSetId
+    , aatsrqAttachments
 
     -- * Response
     , AddAttachmentsToSetResponse
     -- ** Response constructor
     , addAttachmentsToSetResponse
     -- ** Response lenses
-    , aatsrExpiryTime
-    , aatsrAttachmentSetId
-    , aatsrStatus
+    , aatsrsExpiryTime
+    , aatsrsAttachmentSetId
+    , aatsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -59,33 +59,33 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aatsAttachmentSetId'
+-- * 'aatsrqAttachmentSetId'
 --
--- * 'aatsAttachments'
+-- * 'aatsrqAttachments'
 data AddAttachmentsToSet = AddAttachmentsToSet'
-    { _aatsAttachmentSetId :: !(Maybe Text)
-    , _aatsAttachments     :: ![Attachment]
+    { _aatsrqAttachmentSetId :: !(Maybe Text)
+    , _aatsrqAttachments     :: ![Attachment]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddAttachmentsToSet' smart constructor.
 addAttachmentsToSet :: AddAttachmentsToSet
 addAttachmentsToSet =
     AddAttachmentsToSet'
-    { _aatsAttachmentSetId = Nothing
-    , _aatsAttachments = mempty
+    { _aatsrqAttachmentSetId = Nothing
+    , _aatsrqAttachments = mempty
     }
 
 -- | The ID of the attachment set. If an @AttachmentSetId@ is not specified,
 -- a new attachment set is created, and the ID of the set is returned in
 -- the response. If an @AttachmentSetId@ is specified, the attachments are
 -- added to the specified set, if it exists.
-aatsAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
-aatsAttachmentSetId = lens _aatsAttachmentSetId (\ s a -> s{_aatsAttachmentSetId = a});
+aatsrqAttachmentSetId :: Lens' AddAttachmentsToSet (Maybe Text)
+aatsrqAttachmentSetId = lens _aatsrqAttachmentSetId (\ s a -> s{_aatsrqAttachmentSetId = a});
 
 -- | One or more attachments to add to the set. The limit is 3 attachments
 -- per set, and the size limit is 5 MB per attachment.
-aatsAttachments :: Lens' AddAttachmentsToSet [Attachment]
-aatsAttachments = lens _aatsAttachments (\ s a -> s{_aatsAttachments = a});
+aatsrqAttachments :: Lens' AddAttachmentsToSet [Attachment]
+aatsrqAttachments = lens _aatsrqAttachments (\ s a -> s{_aatsrqAttachments = a});
 
 instance AWSRequest AddAttachmentsToSet where
         type Sv AddAttachmentsToSet = Support
@@ -112,8 +112,8 @@ instance ToHeaders AddAttachmentsToSet where
 instance ToJSON AddAttachmentsToSet where
         toJSON AddAttachmentsToSet'{..}
           = object
-              ["attachmentSetId" .= _aatsAttachmentSetId,
-               "attachments" .= _aatsAttachments]
+              ["attachmentSetId" .= _aatsrqAttachmentSetId,
+               "attachments" .= _aatsrqAttachments]
 
 instance ToPath AddAttachmentsToSet where
         toPath = const "/"
@@ -128,37 +128,37 @@ instance ToQuery AddAttachmentsToSet where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aatsrExpiryTime'
+-- * 'aatsrsExpiryTime'
 --
--- * 'aatsrAttachmentSetId'
+-- * 'aatsrsAttachmentSetId'
 --
--- * 'aatsrStatus'
+-- * 'aatsrsStatus'
 data AddAttachmentsToSetResponse = AddAttachmentsToSetResponse'
-    { _aatsrExpiryTime      :: !(Maybe Text)
-    , _aatsrAttachmentSetId :: !(Maybe Text)
-    , _aatsrStatus          :: !Int
+    { _aatsrsExpiryTime      :: !(Maybe Text)
+    , _aatsrsAttachmentSetId :: !(Maybe Text)
+    , _aatsrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddAttachmentsToSetResponse' smart constructor.
 addAttachmentsToSetResponse :: Int -> AddAttachmentsToSetResponse
 addAttachmentsToSetResponse pStatus =
     AddAttachmentsToSetResponse'
-    { _aatsrExpiryTime = Nothing
-    , _aatsrAttachmentSetId = Nothing
-    , _aatsrStatus = pStatus
+    { _aatsrsExpiryTime = Nothing
+    , _aatsrsAttachmentSetId = Nothing
+    , _aatsrsStatus = pStatus
     }
 
 -- | The time and date when the attachment set expires.
-aatsrExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatsrExpiryTime = lens _aatsrExpiryTime (\ s a -> s{_aatsrExpiryTime = a});
+aatsrsExpiryTime :: Lens' AddAttachmentsToSetResponse (Maybe Text)
+aatsrsExpiryTime = lens _aatsrsExpiryTime (\ s a -> s{_aatsrsExpiryTime = a});
 
 -- | The ID of the attachment set. If an @AttachmentSetId@ was not specified,
 -- a new attachment set is created, and the ID of the set is returned in
 -- the response. If an @AttachmentSetId@ was specified, the attachments are
 -- added to the specified set, if it exists.
-aatsrAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
-aatsrAttachmentSetId = lens _aatsrAttachmentSetId (\ s a -> s{_aatsrAttachmentSetId = a});
+aatsrsAttachmentSetId :: Lens' AddAttachmentsToSetResponse (Maybe Text)
+aatsrsAttachmentSetId = lens _aatsrsAttachmentSetId (\ s a -> s{_aatsrsAttachmentSetId = a});
 
 -- | FIXME: Undocumented member.
-aatsrStatus :: Lens' AddAttachmentsToSetResponse Int
-aatsrStatus = lens _aatsrStatus (\ s a -> s{_aatsrStatus = a});
+aatsrsStatus :: Lens' AddAttachmentsToSetResponse Int
+aatsrsStatus = lens _aatsrsStatus (\ s a -> s{_aatsrsStatus = a});

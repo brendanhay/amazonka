@@ -28,19 +28,19 @@ module Network.AWS.CodePipeline.PutActionRevision
     -- ** Request constructor
     , putActionRevision
     -- ** Request lenses
-    , parPipelineName
-    , parStageName
-    , parActionName
-    , parActionRevision
+    , parrqPipelineName
+    , parrqStageName
+    , parrqActionName
+    , parrqActionRevision
 
     -- * Response
     , PutActionRevisionResponse
     -- ** Response constructor
     , putActionRevisionResponse
     -- ** Response lenses
-    , parrNewRevision
-    , parrPipelineExecutionId
-    , parrStatus
+    , parrsNewRevision
+    , parrsPipelineExecutionId
+    , parrsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -54,47 +54,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'parPipelineName'
+-- * 'parrqPipelineName'
 --
--- * 'parStageName'
+-- * 'parrqStageName'
 --
--- * 'parActionName'
+-- * 'parrqActionName'
 --
--- * 'parActionRevision'
+-- * 'parrqActionRevision'
 data PutActionRevision = PutActionRevision'
-    { _parPipelineName   :: !Text
-    , _parStageName      :: !Text
-    , _parActionName     :: !Text
-    , _parActionRevision :: !ActionRevision
+    { _parrqPipelineName   :: !Text
+    , _parrqStageName      :: !Text
+    , _parrqActionName     :: !Text
+    , _parrqActionRevision :: !ActionRevision
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutActionRevision' smart constructor.
 putActionRevision :: Text -> Text -> Text -> ActionRevision -> PutActionRevision
 putActionRevision pPipelineName pStageName pActionName pActionRevision =
     PutActionRevision'
-    { _parPipelineName = pPipelineName
-    , _parStageName = pStageName
-    , _parActionName = pActionName
-    , _parActionRevision = pActionRevision
+    { _parrqPipelineName = pPipelineName
+    , _parrqStageName = pStageName
+    , _parrqActionName = pActionName
+    , _parrqActionRevision = pActionRevision
     }
 
 -- | The name of the pipeline that will start processing the revision to the
 -- source.
-parPipelineName :: Lens' PutActionRevision Text
-parPipelineName = lens _parPipelineName (\ s a -> s{_parPipelineName = a});
+parrqPipelineName :: Lens' PutActionRevision Text
+parrqPipelineName = lens _parrqPipelineName (\ s a -> s{_parrqPipelineName = a});
 
 -- | The name of the stage that contains the action that will act upon the
 -- revision.
-parStageName :: Lens' PutActionRevision Text
-parStageName = lens _parStageName (\ s a -> s{_parStageName = a});
+parrqStageName :: Lens' PutActionRevision Text
+parrqStageName = lens _parrqStageName (\ s a -> s{_parrqStageName = a});
 
 -- | The name of the action that will process the revision.
-parActionName :: Lens' PutActionRevision Text
-parActionName = lens _parActionName (\ s a -> s{_parActionName = a});
+parrqActionName :: Lens' PutActionRevision Text
+parrqActionName = lens _parrqActionName (\ s a -> s{_parrqActionName = a});
 
 -- | FIXME: Undocumented member.
-parActionRevision :: Lens' PutActionRevision ActionRevision
-parActionRevision = lens _parActionRevision (\ s a -> s{_parActionRevision = a});
+parrqActionRevision :: Lens' PutActionRevision ActionRevision
+parrqActionRevision = lens _parrqActionRevision (\ s a -> s{_parrqActionRevision = a});
 
 instance AWSRequest PutActionRevision where
         type Sv PutActionRevision = CodePipeline
@@ -121,10 +121,10 @@ instance ToHeaders PutActionRevision where
 instance ToJSON PutActionRevision where
         toJSON PutActionRevision'{..}
           = object
-              ["pipelineName" .= _parPipelineName,
-               "stageName" .= _parStageName,
-               "actionName" .= _parActionName,
-               "actionRevision" .= _parActionRevision]
+              ["pipelineName" .= _parrqPipelineName,
+               "stageName" .= _parrqStageName,
+               "actionName" .= _parrqActionName,
+               "actionRevision" .= _parrqActionRevision]
 
 instance ToPath PutActionRevision where
         toPath = const "/"
@@ -138,35 +138,35 @@ instance ToQuery PutActionRevision where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'parrNewRevision'
+-- * 'parrsNewRevision'
 --
--- * 'parrPipelineExecutionId'
+-- * 'parrsPipelineExecutionId'
 --
--- * 'parrStatus'
+-- * 'parrsStatus'
 data PutActionRevisionResponse = PutActionRevisionResponse'
-    { _parrNewRevision         :: !(Maybe Bool)
-    , _parrPipelineExecutionId :: !(Maybe Text)
-    , _parrStatus              :: !Int
+    { _parrsNewRevision         :: !(Maybe Bool)
+    , _parrsPipelineExecutionId :: !(Maybe Text)
+    , _parrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutActionRevisionResponse' smart constructor.
 putActionRevisionResponse :: Int -> PutActionRevisionResponse
 putActionRevisionResponse pStatus =
     PutActionRevisionResponse'
-    { _parrNewRevision = Nothing
-    , _parrPipelineExecutionId = Nothing
-    , _parrStatus = pStatus
+    { _parrsNewRevision = Nothing
+    , _parrsPipelineExecutionId = Nothing
+    , _parrsStatus = pStatus
     }
 
 -- | The new revision number or ID for the revision after the action
 -- completes.
-parrNewRevision :: Lens' PutActionRevisionResponse (Maybe Bool)
-parrNewRevision = lens _parrNewRevision (\ s a -> s{_parrNewRevision = a});
+parrsNewRevision :: Lens' PutActionRevisionResponse (Maybe Bool)
+parrsNewRevision = lens _parrsNewRevision (\ s a -> s{_parrsNewRevision = a});
 
 -- | The ID of the current workflow state of the pipeline.
-parrPipelineExecutionId :: Lens' PutActionRevisionResponse (Maybe Text)
-parrPipelineExecutionId = lens _parrPipelineExecutionId (\ s a -> s{_parrPipelineExecutionId = a});
+parrsPipelineExecutionId :: Lens' PutActionRevisionResponse (Maybe Text)
+parrsPipelineExecutionId = lens _parrsPipelineExecutionId (\ s a -> s{_parrsPipelineExecutionId = a});
 
 -- | FIXME: Undocumented member.
-parrStatus :: Lens' PutActionRevisionResponse Int
-parrStatus = lens _parrStatus (\ s a -> s{_parrStatus = a});
+parrsStatus :: Lens' PutActionRevisionResponse Int
+parrsStatus = lens _parrsStatus (\ s a -> s{_parrsStatus = a});

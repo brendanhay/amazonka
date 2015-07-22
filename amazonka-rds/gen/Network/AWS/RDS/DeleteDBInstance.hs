@@ -36,17 +36,17 @@ module Network.AWS.RDS.DeleteDBInstance
     -- ** Request constructor
     , deleteDBInstance
     -- ** Request lenses
-    , ddiFinalDBSnapshotIdentifier
-    , ddiSkipFinalSnapshot
-    , ddiDBInstanceIdentifier
+    , ddirqFinalDBSnapshotIdentifier
+    , ddirqSkipFinalSnapshot
+    , ddirqDBInstanceIdentifier
 
     -- * Response
     , DeleteDBInstanceResponse
     -- ** Response constructor
     , deleteDBInstanceResponse
     -- ** Response lenses
-    , ddirDBInstance
-    , ddirStatus
+    , ddirsDBInstance
+    , ddirsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -60,24 +60,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddiFinalDBSnapshotIdentifier'
+-- * 'ddirqFinalDBSnapshotIdentifier'
 --
--- * 'ddiSkipFinalSnapshot'
+-- * 'ddirqSkipFinalSnapshot'
 --
--- * 'ddiDBInstanceIdentifier'
+-- * 'ddirqDBInstanceIdentifier'
 data DeleteDBInstance = DeleteDBInstance'
-    { _ddiFinalDBSnapshotIdentifier :: !(Maybe Text)
-    , _ddiSkipFinalSnapshot         :: !(Maybe Bool)
-    , _ddiDBInstanceIdentifier      :: !Text
+    { _ddirqFinalDBSnapshotIdentifier :: !(Maybe Text)
+    , _ddirqSkipFinalSnapshot         :: !(Maybe Bool)
+    , _ddirqDBInstanceIdentifier      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBInstance' smart constructor.
 deleteDBInstance :: Text -> DeleteDBInstance
 deleteDBInstance pDBInstanceIdentifier =
     DeleteDBInstance'
-    { _ddiFinalDBSnapshotIdentifier = Nothing
-    , _ddiSkipFinalSnapshot = Nothing
-    , _ddiDBInstanceIdentifier = pDBInstanceIdentifier
+    { _ddirqFinalDBSnapshotIdentifier = Nothing
+    , _ddirqSkipFinalSnapshot = Nothing
+    , _ddirqDBInstanceIdentifier = pDBInstanceIdentifier
     }
 
 -- | The DBSnapshotIdentifier of the new DBSnapshot created when
@@ -92,8 +92,8 @@ deleteDBInstance pDBInstanceIdentifier =
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 -- -   Cannot be specified when deleting a Read Replica.
-ddiFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
-ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_ddiFinalDBSnapshotIdentifier = a});
+ddirqFinalDBSnapshotIdentifier :: Lens' DeleteDBInstance (Maybe Text)
+ddirqFinalDBSnapshotIdentifier = lens _ddirqFinalDBSnapshotIdentifier (\ s a -> s{_ddirqFinalDBSnapshotIdentifier = a});
 
 -- | Determines whether a final DB snapshot is created before the DB instance
 -- is deleted. If @true@ is specified, no DBSnapshot is created. If @false@
@@ -106,8 +106,8 @@ ddiFinalDBSnapshotIdentifier = lens _ddiFinalDBSnapshotIdentifier (\ s a -> s{_d
 -- SkipFinalSnapshot is @false@.
 --
 -- Default: @false@
-ddiSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
-ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnapshot = a});
+ddirqSkipFinalSnapshot :: Lens' DeleteDBInstance (Maybe Bool)
+ddirqSkipFinalSnapshot = lens _ddirqSkipFinalSnapshot (\ s a -> s{_ddirqSkipFinalSnapshot = a});
 
 -- | The DB instance identifier for the DB instance to be deleted. This
 -- parameter isn\'t case sensitive.
@@ -117,8 +117,8 @@ ddiSkipFinalSnapshot = lens _ddiSkipFinalSnapshot (\ s a -> s{_ddiSkipFinalSnaps
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddiDBInstanceIdentifier :: Lens' DeleteDBInstance Text
-ddiDBInstanceIdentifier = lens _ddiDBInstanceIdentifier (\ s a -> s{_ddiDBInstanceIdentifier = a});
+ddirqDBInstanceIdentifier :: Lens' DeleteDBInstance Text
+ddirqDBInstanceIdentifier = lens _ddirqDBInstanceIdentifier (\ s a -> s{_ddirqDBInstanceIdentifier = a});
 
 instance AWSRequest DeleteDBInstance where
         type Sv DeleteDBInstance = RDS
@@ -142,34 +142,34 @@ instance ToQuery DeleteDBInstance where
               ["Action" =: ("DeleteDBInstance" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "FinalDBSnapshotIdentifier" =:
-                 _ddiFinalDBSnapshotIdentifier,
-               "SkipFinalSnapshot" =: _ddiSkipFinalSnapshot,
-               "DBInstanceIdentifier" =: _ddiDBInstanceIdentifier]
+                 _ddirqFinalDBSnapshotIdentifier,
+               "SkipFinalSnapshot" =: _ddirqSkipFinalSnapshot,
+               "DBInstanceIdentifier" =: _ddirqDBInstanceIdentifier]
 
 -- | /See:/ 'deleteDBInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddirDBInstance'
+-- * 'ddirsDBInstance'
 --
--- * 'ddirStatus'
+-- * 'ddirsStatus'
 data DeleteDBInstanceResponse = DeleteDBInstanceResponse'
-    { _ddirDBInstance :: !(Maybe DBInstance)
-    , _ddirStatus     :: !Int
+    { _ddirsDBInstance :: !(Maybe DBInstance)
+    , _ddirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBInstanceResponse' smart constructor.
 deleteDBInstanceResponse :: Int -> DeleteDBInstanceResponse
 deleteDBInstanceResponse pStatus =
     DeleteDBInstanceResponse'
-    { _ddirDBInstance = Nothing
-    , _ddirStatus = pStatus
+    { _ddirsDBInstance = Nothing
+    , _ddirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ddirDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
-ddirDBInstance = lens _ddirDBInstance (\ s a -> s{_ddirDBInstance = a});
+ddirsDBInstance :: Lens' DeleteDBInstanceResponse (Maybe DBInstance)
+ddirsDBInstance = lens _ddirsDBInstance (\ s a -> s{_ddirsDBInstance = a});
 
 -- | FIXME: Undocumented member.
-ddirStatus :: Lens' DeleteDBInstanceResponse Int
-ddirStatus = lens _ddirStatus (\ s a -> s{_ddirStatus = a});
+ddirsStatus :: Lens' DeleteDBInstanceResponse Int
+ddirsStatus = lens _ddirsStatus (\ s a -> s{_ddirsStatus = a});

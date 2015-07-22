@@ -32,13 +32,13 @@ clusterDeleted =
                        , matchAny
                              "creating"
                              AcceptFailure
-                             (folding (concatOf dcrClusters) .
-                              cluClusterStatus . _Just . to toText)
+                             (folding (concatOf dcrsClusters) .
+                              cClusterStatus . _Just . to toText)
                        , matchAny
                              "rebooting"
                              AcceptFailure
-                             (folding (concatOf dcrClusters) .
-                              cluClusterStatus . _Just . to toText)]
+                             (folding (concatOf dcrsClusters) .
+                              cClusterStatus . _Just . to toText)]
     }
 
 snapshotAvailable :: Wait DescribeClusterSnapshots
@@ -50,18 +50,18 @@ snapshotAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf descSnapshots) .
-                              snaStatus . _Just . to toText)
+                             (folding (concatOf dcssrsSnapshots) .
+                              sStatus . _Just . to toText)
                        , matchAny
                              "failed"
                              AcceptFailure
-                             (folding (concatOf descSnapshots) .
-                              snaStatus . _Just . to toText)
+                             (folding (concatOf dcssrsSnapshots) .
+                              sStatus . _Just . to toText)
                        , matchAny
                              "deleted"
                              AcceptFailure
-                             (folding (concatOf descSnapshots) .
-                              snaStatus . _Just . to toText)]
+                             (folding (concatOf dcssrsSnapshots) .
+                              sStatus . _Just . to toText)]
     }
 
 clusterAvailable :: Wait DescribeClusters
@@ -73,12 +73,12 @@ clusterAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf dcrClusters) .
-                              cluClusterStatus . _Just . to toText)
+                             (folding (concatOf dcrsClusters) .
+                              cClusterStatus . _Just . to toText)
                        , matchAny
                              "deleting"
                              AcceptFailure
-                             (folding (concatOf dcrClusters) .
-                              cluClusterStatus . _Just . to toText)
+                             (folding (concatOf dcrsClusters) .
+                              cClusterStatus . _Just . to toText)
                        , matchError "ClusterNotFound" AcceptRetry]
     }

@@ -35,17 +35,17 @@ module Network.AWS.OpsWorks.DescribeRAIdArrays
     -- ** Request constructor
     , describeRAIdArrays
     -- ** Request lenses
-    , draiaInstanceId
-    , draiaRAIdArrayIds
-    , draiaStackId
+    , draiarqInstanceId
+    , draiarqRAIdArrayIds
+    , draiarqStackId
 
     -- * Response
     , DescribeRAIdArraysResponse
     -- ** Response constructor
     , describeRAIdArraysResponse
     -- ** Response lenses
-    , draiarRAIdArrays
-    , draiarStatus
+    , draiarsRAIdArrays
+    , draiarsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -57,40 +57,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'draiaInstanceId'
+-- * 'draiarqInstanceId'
 --
--- * 'draiaRAIdArrayIds'
+-- * 'draiarqRAIdArrayIds'
 --
--- * 'draiaStackId'
+-- * 'draiarqStackId'
 data DescribeRAIdArrays = DescribeRAIdArrays'
-    { _draiaInstanceId   :: !(Maybe Text)
-    , _draiaRAIdArrayIds :: !(Maybe [Text])
-    , _draiaStackId      :: !(Maybe Text)
+    { _draiarqInstanceId   :: !(Maybe Text)
+    , _draiarqRAIdArrayIds :: !(Maybe [Text])
+    , _draiarqStackId      :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRAIdArrays' smart constructor.
 describeRAIdArrays :: DescribeRAIdArrays
 describeRAIdArrays =
     DescribeRAIdArrays'
-    { _draiaInstanceId = Nothing
-    , _draiaRAIdArrayIds = Nothing
-    , _draiaStackId = Nothing
+    { _draiarqInstanceId = Nothing
+    , _draiarqRAIdArrayIds = Nothing
+    , _draiarqStackId = Nothing
     }
 
 -- | The instance ID. If you use this parameter, @DescribeRaidArrays@ returns
 -- descriptions of the RAID arrays associated with the specified instance.
-draiaInstanceId :: Lens' DescribeRAIdArrays (Maybe Text)
-draiaInstanceId = lens _draiaInstanceId (\ s a -> s{_draiaInstanceId = a});
+draiarqInstanceId :: Lens' DescribeRAIdArrays (Maybe Text)
+draiarqInstanceId = lens _draiarqInstanceId (\ s a -> s{_draiarqInstanceId = a});
 
 -- | An array of RAID array IDs. If you use this parameter,
 -- @DescribeRaidArrays@ returns descriptions of the specified arrays.
 -- Otherwise, it returns a description of every array.
-draiaRAIdArrayIds :: Lens' DescribeRAIdArrays [Text]
-draiaRAIdArrayIds = lens _draiaRAIdArrayIds (\ s a -> s{_draiaRAIdArrayIds = a}) . _Default;
+draiarqRAIdArrayIds :: Lens' DescribeRAIdArrays [Text]
+draiarqRAIdArrayIds = lens _draiarqRAIdArrayIds (\ s a -> s{_draiarqRAIdArrayIds = a}) . _Default;
 
 -- | The stack ID.
-draiaStackId :: Lens' DescribeRAIdArrays (Maybe Text)
-draiaStackId = lens _draiaStackId (\ s a -> s{_draiaStackId = a});
+draiarqStackId :: Lens' DescribeRAIdArrays (Maybe Text)
+draiarqStackId = lens _draiarqStackId (\ s a -> s{_draiarqStackId = a});
 
 instance AWSRequest DescribeRAIdArrays where
         type Sv DescribeRAIdArrays = OpsWorks
@@ -117,9 +117,9 @@ instance ToHeaders DescribeRAIdArrays where
 instance ToJSON DescribeRAIdArrays where
         toJSON DescribeRAIdArrays'{..}
           = object
-              ["InstanceId" .= _draiaInstanceId,
-               "RaidArrayIds" .= _draiaRAIdArrayIds,
-               "StackId" .= _draiaStackId]
+              ["InstanceId" .= _draiarqInstanceId,
+               "RaidArrayIds" .= _draiarqRAIdArrayIds,
+               "StackId" .= _draiarqStackId]
 
 instance ToPath DescribeRAIdArrays where
         toPath = const "/"
@@ -133,26 +133,26 @@ instance ToQuery DescribeRAIdArrays where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'draiarRAIdArrays'
+-- * 'draiarsRAIdArrays'
 --
--- * 'draiarStatus'
+-- * 'draiarsStatus'
 data DescribeRAIdArraysResponse = DescribeRAIdArraysResponse'
-    { _draiarRAIdArrays :: !(Maybe [RAIdArray])
-    , _draiarStatus     :: !Int
+    { _draiarsRAIdArrays :: !(Maybe [RAIdArray])
+    , _draiarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRAIdArraysResponse' smart constructor.
 describeRAIdArraysResponse :: Int -> DescribeRAIdArraysResponse
 describeRAIdArraysResponse pStatus =
     DescribeRAIdArraysResponse'
-    { _draiarRAIdArrays = Nothing
-    , _draiarStatus = pStatus
+    { _draiarsRAIdArrays = Nothing
+    , _draiarsStatus = pStatus
     }
 
 -- | A @RaidArrays@ object that describes the specified RAID arrays.
-draiarRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
-draiarRAIdArrays = lens _draiarRAIdArrays (\ s a -> s{_draiarRAIdArrays = a}) . _Default;
+draiarsRAIdArrays :: Lens' DescribeRAIdArraysResponse [RAIdArray]
+draiarsRAIdArrays = lens _draiarsRAIdArrays (\ s a -> s{_draiarsRAIdArrays = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-draiarStatus :: Lens' DescribeRAIdArraysResponse Int
-draiarStatus = lens _draiarStatus (\ s a -> s{_draiarStatus = a});
+draiarsStatus :: Lens' DescribeRAIdArraysResponse Int
+draiarsStatus = lens _draiarsStatus (\ s a -> s{_draiarsStatus = a});

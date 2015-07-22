@@ -41,15 +41,15 @@ module Network.AWS.StorageGateway.DeleteVolume
     -- ** Request constructor
     , deleteVolume
     -- ** Request lenses
-    , dvVolumeARN
+    , dvrqVolumeARN
 
     -- * Response
     , DeleteVolumeResponse
     -- ** Response constructor
     , deleteVolumeResponse
     -- ** Response lenses
-    , dvrVolumeARN
-    , dvrStatus
+    , dvrsVolumeARN
+    , dvrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -63,22 +63,22 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvVolumeARN'
+-- * 'dvrqVolumeARN'
 newtype DeleteVolume = DeleteVolume'
-    { _dvVolumeARN :: Text
+    { _dvrqVolumeARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVolume' smart constructor.
 deleteVolume :: Text -> DeleteVolume
 deleteVolume pVolumeARN =
     DeleteVolume'
-    { _dvVolumeARN = pVolumeARN
+    { _dvrqVolumeARN = pVolumeARN
     }
 
 -- | The Amazon Resource Name (ARN) of the volume. Use the ListVolumes
 -- operation to return a list of gateway volumes.
-dvVolumeARN :: Lens' DeleteVolume Text
-dvVolumeARN = lens _dvVolumeARN (\ s a -> s{_dvVolumeARN = a});
+dvrqVolumeARN :: Lens' DeleteVolume Text
+dvrqVolumeARN = lens _dvrqVolumeARN (\ s a -> s{_dvrqVolumeARN = a});
 
 instance AWSRequest DeleteVolume where
         type Sv DeleteVolume = StorageGateway
@@ -102,7 +102,7 @@ instance ToHeaders DeleteVolume where
 
 instance ToJSON DeleteVolume where
         toJSON DeleteVolume'{..}
-          = object ["VolumeARN" .= _dvVolumeARN]
+          = object ["VolumeARN" .= _dvrqVolumeARN]
 
 instance ToPath DeleteVolume where
         toPath = const "/"
@@ -116,27 +116,27 @@ instance ToQuery DeleteVolume where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrVolumeARN'
+-- * 'dvrsVolumeARN'
 --
--- * 'dvrStatus'
+-- * 'dvrsStatus'
 data DeleteVolumeResponse = DeleteVolumeResponse'
-    { _dvrVolumeARN :: !(Maybe Text)
-    , _dvrStatus    :: !Int
+    { _dvrsVolumeARN :: !(Maybe Text)
+    , _dvrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteVolumeResponse' smart constructor.
 deleteVolumeResponse :: Int -> DeleteVolumeResponse
 deleteVolumeResponse pStatus =
     DeleteVolumeResponse'
-    { _dvrVolumeARN = Nothing
-    , _dvrStatus = pStatus
+    { _dvrsVolumeARN = Nothing
+    , _dvrsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the storage volume that was deleted.
 -- It is the same ARN you provided in the request.
-dvrVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
-dvrVolumeARN = lens _dvrVolumeARN (\ s a -> s{_dvrVolumeARN = a});
+dvrsVolumeARN :: Lens' DeleteVolumeResponse (Maybe Text)
+dvrsVolumeARN = lens _dvrsVolumeARN (\ s a -> s{_dvrsVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-dvrStatus :: Lens' DeleteVolumeResponse Int
-dvrStatus = lens _dvrStatus (\ s a -> s{_dvrStatus = a});
+dvrsStatus :: Lens' DeleteVolumeResponse Int
+dvrsStatus = lens _dvrsStatus (\ s a -> s{_dvrsStatus = a});

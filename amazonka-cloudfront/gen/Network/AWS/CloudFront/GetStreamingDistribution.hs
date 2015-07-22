@@ -27,16 +27,16 @@ module Network.AWS.CloudFront.GetStreamingDistribution
     -- ** Request constructor
     , getStreamingDistribution
     -- ** Request lenses
-    , gsdId
+    , gsdrqId
 
     -- * Response
     , GetStreamingDistributionResponse
     -- ** Response constructor
     , getStreamingDistributionResponse
     -- ** Response lenses
-    , gsdrETag
-    , gsdrStreamingDistribution
-    , gsdrStatus
+    , gsdrsETag
+    , gsdrsStreamingDistribution
+    , gsdrsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsdId'
+-- * 'gsdrqId'
 newtype GetStreamingDistribution = GetStreamingDistribution'
-    { _gsdId :: Text
+    { _gsdrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStreamingDistribution' smart constructor.
 getStreamingDistribution :: Text -> GetStreamingDistribution
 getStreamingDistribution pId =
     GetStreamingDistribution'
-    { _gsdId = pId
+    { _gsdrqId = pId
     }
 
 -- | The streaming distribution\'s id.
-gsdId :: Lens' GetStreamingDistribution Text
-gsdId = lens _gsdId (\ s a -> s{_gsdId = a});
+gsdrqId :: Lens' GetStreamingDistribution Text
+gsdrqId = lens _gsdrqId (\ s a -> s{_gsdrqId = a});
 
 instance AWSRequest GetStreamingDistribution where
         type Sv GetStreamingDistribution = CloudFront
@@ -85,7 +85,7 @@ instance ToPath GetStreamingDistribution where
         toPath GetStreamingDistribution'{..}
           = mconcat
               ["/2015-04-17/streaming-distribution/",
-               toText _gsdId]
+               toText _gsdrqId]
 
 instance ToQuery GetStreamingDistribution where
         toQuery = const mempty
@@ -96,35 +96,35 @@ instance ToQuery GetStreamingDistribution where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsdrETag'
+-- * 'gsdrsETag'
 --
--- * 'gsdrStreamingDistribution'
+-- * 'gsdrsStreamingDistribution'
 --
--- * 'gsdrStatus'
+-- * 'gsdrsStatus'
 data GetStreamingDistributionResponse = GetStreamingDistributionResponse'
-    { _gsdrETag                  :: !(Maybe Text)
-    , _gsdrStreamingDistribution :: !(Maybe StreamingDistribution)
-    , _gsdrStatus                :: !Int
+    { _gsdrsETag                  :: !(Maybe Text)
+    , _gsdrsStreamingDistribution :: !(Maybe StreamingDistribution)
+    , _gsdrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetStreamingDistributionResponse' smart constructor.
 getStreamingDistributionResponse :: Int -> GetStreamingDistributionResponse
 getStreamingDistributionResponse pStatus =
     GetStreamingDistributionResponse'
-    { _gsdrETag = Nothing
-    , _gsdrStreamingDistribution = Nothing
-    , _gsdrStatus = pStatus
+    { _gsdrsETag = Nothing
+    , _gsdrsStreamingDistribution = Nothing
+    , _gsdrsStatus = pStatus
     }
 
 -- | The current version of the streaming distribution\'s information. For
 -- example: E2QWRUHAPOMQZL.
-gsdrETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
-gsdrETag = lens _gsdrETag (\ s a -> s{_gsdrETag = a});
+gsdrsETag :: Lens' GetStreamingDistributionResponse (Maybe Text)
+gsdrsETag = lens _gsdrsETag (\ s a -> s{_gsdrsETag = a});
 
 -- | The streaming distribution\'s information.
-gsdrStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
-gsdrStreamingDistribution = lens _gsdrStreamingDistribution (\ s a -> s{_gsdrStreamingDistribution = a});
+gsdrsStreamingDistribution :: Lens' GetStreamingDistributionResponse (Maybe StreamingDistribution)
+gsdrsStreamingDistribution = lens _gsdrsStreamingDistribution (\ s a -> s{_gsdrsStreamingDistribution = a});
 
 -- | FIXME: Undocumented member.
-gsdrStatus :: Lens' GetStreamingDistributionResponse Int
-gsdrStatus = lens _gsdrStatus (\ s a -> s{_gsdrStatus = a});
+gsdrsStatus :: Lens' GetStreamingDistributionResponse Int
+gsdrsStatus = lens _gsdrsStatus (\ s a -> s{_gsdrsStatus = a});

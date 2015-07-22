@@ -28,15 +28,15 @@ module Network.AWS.ElasticBeanstalk.CreateApplication
     -- ** Request constructor
     , createApplication
     -- ** Request lenses
-    , caDescription
-    , caApplicationName
+    , carqDescription
+    , carqApplicationName
 
     -- * Response
     , ApplicationDescriptionMessage
     -- ** Response constructor
     , applicationDescriptionMessage
     -- ** Response lenses
-    , admApplication
+    , carsApplication
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -50,33 +50,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'caDescription'
+-- * 'carqDescription'
 --
--- * 'caApplicationName'
+-- * 'carqApplicationName'
 data CreateApplication = CreateApplication'
-    { _caDescription     :: !(Maybe Text)
-    , _caApplicationName :: !Text
+    { _carqDescription     :: !(Maybe Text)
+    , _carqApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
 createApplication pApplicationName =
     CreateApplication'
-    { _caDescription = Nothing
-    , _caApplicationName = pApplicationName
+    { _carqDescription = Nothing
+    , _carqApplicationName = pApplicationName
     }
 
 -- | Describes the application.
-caDescription :: Lens' CreateApplication (Maybe Text)
-caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
+carqDescription :: Lens' CreateApplication (Maybe Text)
+carqDescription = lens _carqDescription (\ s a -> s{_carqDescription = a});
 
 -- | The name of the application.
 --
 -- Constraint: This name must be unique within your account. If the
 -- specified name already exists, the action returns an
 -- @InvalidParameterValue@ error.
-caApplicationName :: Lens' CreateApplication Text
-caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
+carqApplicationName :: Lens' CreateApplication Text
+carqApplicationName = lens _carqApplicationName (\ s a -> s{_carqApplicationName = a});
 
 instance AWSRequest CreateApplication where
         type Sv CreateApplication = ElasticBeanstalk
@@ -98,5 +98,5 @@ instance ToQuery CreateApplication where
           = mconcat
               ["Action" =: ("CreateApplication" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Description" =: _caDescription,
-               "ApplicationName" =: _caApplicationName]
+               "Description" =: _carqDescription,
+               "ApplicationName" =: _carqApplicationName]

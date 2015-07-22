@@ -28,21 +28,21 @@ module Network.AWS.DataPipeline.QueryObjects
     -- ** Request constructor
     , queryObjects
     -- ** Request lenses
-    , qoQuery
-    , qoMarker
-    , qoLimit
-    , qoPipelineId
-    , qoSphere
+    , qorqQuery
+    , qorqMarker
+    , qorqLimit
+    , qorqPipelineId
+    , qorqSphere
 
     -- * Response
     , QueryObjectsResponse
     -- ** Response constructor
     , queryObjectsResponse
     -- ** Response lenses
-    , qorHasMoreResults
-    , qorIds
-    , qorMarker
-    , qorStatus
+    , qorsHasMoreResults
+    , qorsIds
+    , qorsMarker
+    , qorsStatus
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -57,67 +57,68 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'qoQuery'
+-- * 'qorqQuery'
 --
--- * 'qoMarker'
+-- * 'qorqMarker'
 --
--- * 'qoLimit'
+-- * 'qorqLimit'
 --
--- * 'qoPipelineId'
+-- * 'qorqPipelineId'
 --
--- * 'qoSphere'
+-- * 'qorqSphere'
 data QueryObjects = QueryObjects'
-    { _qoQuery      :: !(Maybe Query)
-    , _qoMarker     :: !(Maybe Text)
-    , _qoLimit      :: !(Maybe Int)
-    , _qoPipelineId :: !Text
-    , _qoSphere     :: !Text
+    { _qorqQuery      :: !(Maybe Query)
+    , _qorqMarker     :: !(Maybe Text)
+    , _qorqLimit      :: !(Maybe Int)
+    , _qorqPipelineId :: !Text
+    , _qorqSphere     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'QueryObjects' smart constructor.
 queryObjects :: Text -> Text -> QueryObjects
 queryObjects pPipelineId pSphere =
     QueryObjects'
-    { _qoQuery = Nothing
-    , _qoMarker = Nothing
-    , _qoLimit = Nothing
-    , _qoPipelineId = pPipelineId
-    , _qoSphere = pSphere
+    { _qorqQuery = Nothing
+    , _qorqMarker = Nothing
+    , _qorqLimit = Nothing
+    , _qorqPipelineId = pPipelineId
+    , _qorqSphere = pSphere
     }
 
 -- | The query that defines the objects to be returned. The @Query@ object
 -- can contain a maximum of ten selectors. The conditions in the query are
 -- limited to top-level String fields in the object. These filters can be
 -- applied to components, instances, and attempts.
-qoQuery :: Lens' QueryObjects (Maybe Query)
-qoQuery = lens _qoQuery (\ s a -> s{_qoQuery = a});
+qorqQuery :: Lens' QueryObjects (Maybe Query)
+qorqQuery = lens _qorqQuery (\ s a -> s{_qorqQuery = a});
 
 -- | The starting point for the results to be returned. For the first call,
 -- this value should be empty. As long as there are more results, continue
 -- to call @QueryObjects@ with the marker value from the previous call to
 -- retrieve the next set of results.
-qoMarker :: Lens' QueryObjects (Maybe Text)
-qoMarker = lens _qoMarker (\ s a -> s{_qoMarker = a});
+qorqMarker :: Lens' QueryObjects (Maybe Text)
+qorqMarker = lens _qorqMarker (\ s a -> s{_qorqMarker = a});
 
 -- | The maximum number of object names that @QueryObjects@ will return in a
 -- single call. The default value is 100.
-qoLimit :: Lens' QueryObjects (Maybe Int)
-qoLimit = lens _qoLimit (\ s a -> s{_qoLimit = a});
+qorqLimit :: Lens' QueryObjects (Maybe Int)
+qorqLimit = lens _qorqLimit (\ s a -> s{_qorqLimit = a});
 
 -- | The ID of the pipeline.
-qoPipelineId :: Lens' QueryObjects Text
-qoPipelineId = lens _qoPipelineId (\ s a -> s{_qoPipelineId = a});
+qorqPipelineId :: Lens' QueryObjects Text
+qorqPipelineId = lens _qorqPipelineId (\ s a -> s{_qorqPipelineId = a});
 
 -- | Indicates whether the query applies to components or instances. The
 -- possible values are: @COMPONENT@, @INSTANCE@, and @ATTEMPT@.
-qoSphere :: Lens' QueryObjects Text
-qoSphere = lens _qoSphere (\ s a -> s{_qoSphere = a});
+qorqSphere :: Lens' QueryObjects Text
+qorqSphere = lens _qorqSphere (\ s a -> s{_qorqSphere = a});
 
 instance AWSPager QueryObjects where
         page rq rs
-          | stop (rs ^. qorHasMoreResults) = Nothing
-          | isNothing (rs ^. qorMarker) = Nothing
-          | otherwise = Just $ rq & qoMarker .~ rs ^. qorMarker
+          | stop (rs ^. qorsHasMoreResults) = Nothing
+          | isNothing (rs ^. qorsMarker) = Nothing
+          | otherwise =
+            Just $ rq & qorqMarker .~ rs ^. qorsMarker
 
 instance AWSRequest QueryObjects where
         type Sv QueryObjects = DataPipeline
@@ -143,9 +144,10 @@ instance ToHeaders QueryObjects where
 instance ToJSON QueryObjects where
         toJSON QueryObjects'{..}
           = object
-              ["query" .= _qoQuery, "marker" .= _qoMarker,
-               "limit" .= _qoLimit, "pipelineId" .= _qoPipelineId,
-               "sphere" .= _qoSphere]
+              ["query" .= _qorqQuery, "marker" .= _qorqMarker,
+               "limit" .= _qorqLimit,
+               "pipelineId" .= _qorqPipelineId,
+               "sphere" .= _qorqSphere]
 
 instance ToPath QueryObjects where
         toPath = const "/"
@@ -159,45 +161,45 @@ instance ToQuery QueryObjects where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'qorHasMoreResults'
+-- * 'qorsHasMoreResults'
 --
--- * 'qorIds'
+-- * 'qorsIds'
 --
--- * 'qorMarker'
+-- * 'qorsMarker'
 --
--- * 'qorStatus'
+-- * 'qorsStatus'
 data QueryObjectsResponse = QueryObjectsResponse'
-    { _qorHasMoreResults :: !(Maybe Bool)
-    , _qorIds            :: !(Maybe [Text])
-    , _qorMarker         :: !(Maybe Text)
-    , _qorStatus         :: !Int
+    { _qorsHasMoreResults :: !(Maybe Bool)
+    , _qorsIds            :: !(Maybe [Text])
+    , _qorsMarker         :: !(Maybe Text)
+    , _qorsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'QueryObjectsResponse' smart constructor.
 queryObjectsResponse :: Int -> QueryObjectsResponse
 queryObjectsResponse pStatus =
     QueryObjectsResponse'
-    { _qorHasMoreResults = Nothing
-    , _qorIds = Nothing
-    , _qorMarker = Nothing
-    , _qorStatus = pStatus
+    { _qorsHasMoreResults = Nothing
+    , _qorsIds = Nothing
+    , _qorsMarker = Nothing
+    , _qorsStatus = pStatus
     }
 
 -- | Indicates whether there are more results that can be obtained by a
 -- subsequent call.
-qorHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
-qorHasMoreResults = lens _qorHasMoreResults (\ s a -> s{_qorHasMoreResults = a});
+qorsHasMoreResults :: Lens' QueryObjectsResponse (Maybe Bool)
+qorsHasMoreResults = lens _qorsHasMoreResults (\ s a -> s{_qorsHasMoreResults = a});
 
 -- | The identifiers that match the query selectors.
-qorIds :: Lens' QueryObjectsResponse [Text]
-qorIds = lens _qorIds (\ s a -> s{_qorIds = a}) . _Default;
+qorsIds :: Lens' QueryObjectsResponse [Text]
+qorsIds = lens _qorsIds (\ s a -> s{_qorsIds = a}) . _Default;
 
 -- | The starting point for the next page of results. To view the next page
 -- of results, call @QueryObjects@ again with this marker value. If the
 -- value is null, there are no more results.
-qorMarker :: Lens' QueryObjectsResponse (Maybe Text)
-qorMarker = lens _qorMarker (\ s a -> s{_qorMarker = a});
+qorsMarker :: Lens' QueryObjectsResponse (Maybe Text)
+qorsMarker = lens _qorsMarker (\ s a -> s{_qorsMarker = a});
 
 -- | FIXME: Undocumented member.
-qorStatus :: Lens' QueryObjectsResponse Int
-qorStatus = lens _qorStatus (\ s a -> s{_qorStatus = a});
+qorsStatus :: Lens' QueryObjectsResponse Int
+qorsStatus = lens _qorsStatus (\ s a -> s{_qorsStatus = a});

@@ -49,18 +49,18 @@ module Network.AWS.Glacier.ListVaults
     -- ** Request constructor
     , listVaults
     -- ** Request lenses
-    , lvMarker
-    , lvLimit
-    , lvAccountId
+    , lvrqMarker
+    , lvrqLimit
+    , lvrqAccountId
 
     -- * Response
     , ListVaultsResponse
     -- ** Response constructor
     , listVaultsResponse
     -- ** Response lenses
-    , lvrMarker
-    , lvrVaultList
-    , lvrStatus
+    , lvrsMarker
+    , lvrsVaultList
+    , lvrsStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -75,35 +75,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvMarker'
+-- * 'lvrqMarker'
 --
--- * 'lvLimit'
+-- * 'lvrqLimit'
 --
--- * 'lvAccountId'
+-- * 'lvrqAccountId'
 data ListVaults = ListVaults'
-    { _lvMarker    :: !(Maybe Text)
-    , _lvLimit     :: !(Maybe Text)
-    , _lvAccountId :: !Text
+    { _lvrqMarker    :: !(Maybe Text)
+    , _lvrqLimit     :: !(Maybe Text)
+    , _lvrqAccountId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVaults' smart constructor.
 listVaults :: Text -> ListVaults
 listVaults pAccountId =
     ListVaults'
-    { _lvMarker = Nothing
-    , _lvLimit = Nothing
-    , _lvAccountId = pAccountId
+    { _lvrqMarker = Nothing
+    , _lvrqLimit = Nothing
+    , _lvrqAccountId = pAccountId
     }
 
 -- | A string used for pagination. The marker specifies the vault ARN after
 -- which the listing of vaults should begin.
-lvMarker :: Lens' ListVaults (Maybe Text)
-lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a});
+lvrqMarker :: Lens' ListVaults (Maybe Text)
+lvrqMarker = lens _lvrqMarker (\ s a -> s{_lvrqMarker = a});
 
 -- | The maximum number of items returned in the response. If you don\'t
 -- specify a value, the List Vaults operation returns up to 1,000 items.
-lvLimit :: Lens' ListVaults (Maybe Text)
-lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a});
+lvrqLimit :: Lens' ListVaults (Maybe Text)
+lvrqLimit = lens _lvrqLimit (\ s a -> s{_lvrqLimit = a});
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
 -- AWS account ID associated with the credentials used to sign the request.
@@ -112,8 +112,8 @@ lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a});
 -- ID associated with the credentials used to sign the request. If you
 -- specify your Account ID, do not include any hyphens (apos-apos) in the
 -- ID.
-lvAccountId :: Lens' ListVaults Text
-lvAccountId = lens _lvAccountId (\ s a -> s{_lvAccountId = a});
+lvrqAccountId :: Lens' ListVaults Text
+lvrqAccountId = lens _lvrqAccountId (\ s a -> s{_lvrqAccountId = a});
 
 instance AWSRequest ListVaults where
         type Sv ListVaults = Glacier
@@ -131,12 +131,12 @@ instance ToHeaders ListVaults where
 
 instance ToPath ListVaults where
         toPath ListVaults'{..}
-          = mconcat ["/", toText _lvAccountId, "/vaults"]
+          = mconcat ["/", toText _lvrqAccountId, "/vaults"]
 
 instance ToQuery ListVaults where
         toQuery ListVaults'{..}
           = mconcat
-              ["marker" =: _lvMarker, "limit" =: _lvLimit]
+              ["marker" =: _lvrqMarker, "limit" =: _lvrqLimit]
 
 -- | Contains the Amazon Glacier response to your request.
 --
@@ -144,36 +144,36 @@ instance ToQuery ListVaults where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvrMarker'
+-- * 'lvrsMarker'
 --
--- * 'lvrVaultList'
+-- * 'lvrsVaultList'
 --
--- * 'lvrStatus'
+-- * 'lvrsStatus'
 data ListVaultsResponse = ListVaultsResponse'
-    { _lvrMarker    :: !(Maybe Text)
-    , _lvrVaultList :: !(Maybe [DescribeVaultOutput])
-    , _lvrStatus    :: !Int
+    { _lvrsMarker    :: !(Maybe Text)
+    , _lvrsVaultList :: !(Maybe [DescribeVaultOutput])
+    , _lvrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVaultsResponse' smart constructor.
 listVaultsResponse :: Int -> ListVaultsResponse
 listVaultsResponse pStatus =
     ListVaultsResponse'
-    { _lvrMarker = Nothing
-    , _lvrVaultList = Nothing
-    , _lvrStatus = pStatus
+    { _lvrsMarker = Nothing
+    , _lvrsVaultList = Nothing
+    , _lvrsStatus = pStatus
     }
 
 -- | The vault ARN at which to continue pagination of the results. You use
 -- the marker in another List Vaults request to obtain more vaults in the
 -- list.
-lvrMarker :: Lens' ListVaultsResponse (Maybe Text)
-lvrMarker = lens _lvrMarker (\ s a -> s{_lvrMarker = a});
+lvrsMarker :: Lens' ListVaultsResponse (Maybe Text)
+lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
 
 -- | List of vaults.
-lvrVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
-lvrVaultList = lens _lvrVaultList (\ s a -> s{_lvrVaultList = a}) . _Default;
+lvrsVaultList :: Lens' ListVaultsResponse [DescribeVaultOutput]
+lvrsVaultList = lens _lvrsVaultList (\ s a -> s{_lvrsVaultList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvrStatus :: Lens' ListVaultsResponse Int
-lvrStatus = lens _lvrStatus (\ s a -> s{_lvrStatus = a});
+lvrsStatus :: Lens' ListVaultsResponse Int
+lvrsStatus = lens _lvrsStatus (\ s a -> s{_lvrsStatus = a});

@@ -28,18 +28,18 @@ module Network.AWS.AutoScaling.DescribeLaunchConfigurations
     -- ** Request constructor
     , describeLaunchConfigurations
     -- ** Request lenses
-    , dlcLaunchConfigurationNames
-    , dlcNextToken
-    , dlcMaxRecords
+    , dlcrqLaunchConfigurationNames
+    , dlcrqNextToken
+    , dlcrqMaxRecords
 
     -- * Response
     , DescribeLaunchConfigurationsResponse
     -- ** Response constructor
     , describeLaunchConfigurationsResponse
     -- ** Response lenses
-    , dlcrNextToken
-    , dlcrStatus
-    , dlcrLaunchConfigurations
+    , dlcrsNextToken
+    , dlcrsStatus
+    , dlcrsLaunchConfigurations
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -52,46 +52,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcLaunchConfigurationNames'
+-- * 'dlcrqLaunchConfigurationNames'
 --
--- * 'dlcNextToken'
+-- * 'dlcrqNextToken'
 --
--- * 'dlcMaxRecords'
+-- * 'dlcrqMaxRecords'
 data DescribeLaunchConfigurations = DescribeLaunchConfigurations'
-    { _dlcLaunchConfigurationNames :: !(Maybe [Text])
-    , _dlcNextToken                :: !(Maybe Text)
-    , _dlcMaxRecords               :: !(Maybe Int)
+    { _dlcrqLaunchConfigurationNames :: !(Maybe [Text])
+    , _dlcrqNextToken                :: !(Maybe Text)
+    , _dlcrqMaxRecords               :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLaunchConfigurations' smart constructor.
 describeLaunchConfigurations :: DescribeLaunchConfigurations
 describeLaunchConfigurations =
     DescribeLaunchConfigurations'
-    { _dlcLaunchConfigurationNames = Nothing
-    , _dlcNextToken = Nothing
-    , _dlcMaxRecords = Nothing
+    { _dlcrqLaunchConfigurationNames = Nothing
+    , _dlcrqNextToken = Nothing
+    , _dlcrqMaxRecords = Nothing
     }
 
 -- | The launch configuration names.
-dlcLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
-dlcLaunchConfigurationNames = lens _dlcLaunchConfigurationNames (\ s a -> s{_dlcLaunchConfigurationNames = a}) . _Default;
+dlcrqLaunchConfigurationNames :: Lens' DescribeLaunchConfigurations [Text]
+dlcrqLaunchConfigurationNames = lens _dlcrqLaunchConfigurationNames (\ s a -> s{_dlcrqLaunchConfigurationNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dlcNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
-dlcNextToken = lens _dlcNextToken (\ s a -> s{_dlcNextToken = a});
+dlcrqNextToken :: Lens' DescribeLaunchConfigurations (Maybe Text)
+dlcrqNextToken = lens _dlcrqNextToken (\ s a -> s{_dlcrqNextToken = a});
 
 -- | The maximum number of items to return with this call. The default is
 -- 100.
-dlcMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
-dlcMaxRecords = lens _dlcMaxRecords (\ s a -> s{_dlcMaxRecords = a});
+dlcrqMaxRecords :: Lens' DescribeLaunchConfigurations (Maybe Int)
+dlcrqMaxRecords = lens _dlcrqMaxRecords (\ s a -> s{_dlcrqMaxRecords = a});
 
 instance AWSPager DescribeLaunchConfigurations where
         page rq rs
-          | stop (rs ^. dlcrNextToken) = Nothing
-          | stop (rs ^. dlcrLaunchConfigurations) = Nothing
+          | stop (rs ^. dlcrsNextToken) = Nothing
+          | stop (rs ^. dlcrsLaunchConfigurations) = Nothing
           | otherwise =
-            Just $ rq & dlcNextToken .~ rs ^. dlcrNextToken
+            Just $ rq & dlcrqNextToken .~ rs ^. dlcrsNextToken
 
 instance AWSRequest DescribeLaunchConfigurations
          where
@@ -123,43 +123,43 @@ instance ToQuery DescribeLaunchConfigurations where
                "LaunchConfigurationNames" =:
                  toQuery
                    (toQueryList "member" <$>
-                      _dlcLaunchConfigurationNames),
-               "NextToken" =: _dlcNextToken,
-               "MaxRecords" =: _dlcMaxRecords]
+                      _dlcrqLaunchConfigurationNames),
+               "NextToken" =: _dlcrqNextToken,
+               "MaxRecords" =: _dlcrqMaxRecords]
 
 -- | /See:/ 'describeLaunchConfigurationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcrNextToken'
+-- * 'dlcrsNextToken'
 --
--- * 'dlcrStatus'
+-- * 'dlcrsStatus'
 --
--- * 'dlcrLaunchConfigurations'
+-- * 'dlcrsLaunchConfigurations'
 data DescribeLaunchConfigurationsResponse = DescribeLaunchConfigurationsResponse'
-    { _dlcrNextToken            :: !(Maybe Text)
-    , _dlcrStatus               :: !Int
-    , _dlcrLaunchConfigurations :: ![LaunchConfiguration]
+    { _dlcrsNextToken            :: !(Maybe Text)
+    , _dlcrsStatus               :: !Int
+    , _dlcrsLaunchConfigurations :: ![LaunchConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLaunchConfigurationsResponse' smart constructor.
 describeLaunchConfigurationsResponse :: Int -> DescribeLaunchConfigurationsResponse
 describeLaunchConfigurationsResponse pStatus =
     DescribeLaunchConfigurationsResponse'
-    { _dlcrNextToken = Nothing
-    , _dlcrStatus = pStatus
-    , _dlcrLaunchConfigurations = mempty
+    { _dlcrsNextToken = Nothing
+    , _dlcrsStatus = pStatus
+    , _dlcrsLaunchConfigurations = mempty
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dlcrNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
-dlcrNextToken = lens _dlcrNextToken (\ s a -> s{_dlcrNextToken = a});
+dlcrsNextToken :: Lens' DescribeLaunchConfigurationsResponse (Maybe Text)
+dlcrsNextToken = lens _dlcrsNextToken (\ s a -> s{_dlcrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dlcrStatus :: Lens' DescribeLaunchConfigurationsResponse Int
-dlcrStatus = lens _dlcrStatus (\ s a -> s{_dlcrStatus = a});
+dlcrsStatus :: Lens' DescribeLaunchConfigurationsResponse Int
+dlcrsStatus = lens _dlcrsStatus (\ s a -> s{_dlcrsStatus = a});
 
 -- | The launch configurations.
-dlcrLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
-dlcrLaunchConfigurations = lens _dlcrLaunchConfigurations (\ s a -> s{_dlcrLaunchConfigurations = a});
+dlcrsLaunchConfigurations :: Lens' DescribeLaunchConfigurationsResponse [LaunchConfiguration]
+dlcrsLaunchConfigurations = lens _dlcrsLaunchConfigurations (\ s a -> s{_dlcrsLaunchConfigurations = a});

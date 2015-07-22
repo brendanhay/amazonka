@@ -93,13 +93,13 @@ module Network.AWS.DynamoDB.Types
     -- * Capacity
     , Capacity
     , capacity
-    , capCapacityUnits
+    , cCapacityUnits
 
     -- * Condition
     , Condition
     , condition
-    , conAttributeValueList
-    , conComparisonOperator
+    , cAttributeValueList
+    , cComparisonOperator
 
     -- * ConsumedCapacity
     , ConsumedCapacity
@@ -205,8 +205,8 @@ module Network.AWS.DynamoDB.Types
     -- * Projection
     , Projection
     , projection
-    , proProjectionType
-    , proNonKeyAttributes
+    , pProjectionType
+    , pNonKeyAttributes
 
     -- * ProvisionedThroughput
     , ProvisionedThroughput

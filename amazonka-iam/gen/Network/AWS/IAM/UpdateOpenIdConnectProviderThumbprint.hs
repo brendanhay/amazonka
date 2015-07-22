@@ -43,8 +43,8 @@ module Network.AWS.IAM.UpdateOpenIdConnectProviderThumbprint
     -- ** Request constructor
     , updateOpenIdConnectProviderThumbprint
     -- ** Request lenses
-    , uoicptOpenIdConnectProviderARN
-    , uoicptThumbprintList
+    , uoicptrqOpenIdConnectProviderARN
+    , uoicptrqThumbprintList
 
     -- * Response
     , UpdateOpenIdConnectProviderThumbprintResponse
@@ -61,33 +61,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uoicptOpenIdConnectProviderARN'
+-- * 'uoicptrqOpenIdConnectProviderARN'
 --
--- * 'uoicptThumbprintList'
+-- * 'uoicptrqThumbprintList'
 data UpdateOpenIdConnectProviderThumbprint = UpdateOpenIdConnectProviderThumbprint'
-    { _uoicptOpenIdConnectProviderARN :: !Text
-    , _uoicptThumbprintList           :: ![Text]
+    { _uoicptrqOpenIdConnectProviderARN :: !Text
+    , _uoicptrqThumbprintList           :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateOpenIdConnectProviderThumbprint' smart constructor.
 updateOpenIdConnectProviderThumbprint :: Text -> UpdateOpenIdConnectProviderThumbprint
 updateOpenIdConnectProviderThumbprint pOpenIdConnectProviderARN =
     UpdateOpenIdConnectProviderThumbprint'
-    { _uoicptOpenIdConnectProviderARN = pOpenIdConnectProviderARN
-    , _uoicptThumbprintList = mempty
+    { _uoicptrqOpenIdConnectProviderARN = pOpenIdConnectProviderARN
+    , _uoicptrqThumbprintList = mempty
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to update the thumbprint for. You can get a list of OIDC provider ARNs
 -- by using the ListOpenIDConnectProviders action.
-uoicptOpenIdConnectProviderARN :: Lens' UpdateOpenIdConnectProviderThumbprint Text
-uoicptOpenIdConnectProviderARN = lens _uoicptOpenIdConnectProviderARN (\ s a -> s{_uoicptOpenIdConnectProviderARN = a});
+uoicptrqOpenIdConnectProviderARN :: Lens' UpdateOpenIdConnectProviderThumbprint Text
+uoicptrqOpenIdConnectProviderARN = lens _uoicptrqOpenIdConnectProviderARN (\ s a -> s{_uoicptrqOpenIdConnectProviderARN = a});
 
 -- | A list of certificate thumbprints that are associated with the specified
 -- IAM OpenID Connect provider. For more information, see
 -- CreateOpenIDConnectProvider.
-uoicptThumbprintList :: Lens' UpdateOpenIdConnectProviderThumbprint [Text]
-uoicptThumbprintList = lens _uoicptThumbprintList (\ s a -> s{_uoicptThumbprintList = a});
+uoicptrqThumbprintList :: Lens' UpdateOpenIdConnectProviderThumbprint [Text]
+uoicptrqThumbprintList = lens _uoicptrqThumbprintList (\ s a -> s{_uoicptrqThumbprintList = a});
 
 instance AWSRequest
          UpdateOpenIdConnectProviderThumbprint where
@@ -116,9 +116,9 @@ instance ToQuery
                     ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:
-                 _uoicptOpenIdConnectProviderARN,
+                 _uoicptrqOpenIdConnectProviderARN,
                "ThumbprintList" =:
-                 toQueryList "member" _uoicptThumbprintList]
+                 toQueryList "member" _uoicptrqThumbprintList]
 
 -- | /See:/ 'updateOpenIdConnectProviderThumbprintResponse' smart constructor.
 data UpdateOpenIdConnectProviderThumbprintResponse =

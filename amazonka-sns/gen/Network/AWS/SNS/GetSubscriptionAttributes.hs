@@ -27,15 +27,15 @@ module Network.AWS.SNS.GetSubscriptionAttributes
     -- ** Request constructor
     , getSubscriptionAttributes
     -- ** Request lenses
-    , gsaSubscriptionARN
+    , gsarqSubscriptionARN
 
     -- * Response
     , GetSubscriptionAttributesResponse
     -- ** Response constructor
     , getSubscriptionAttributesResponse
     -- ** Response lenses
-    , gsarAttributes
-    , gsarStatus
+    , gsarsAttributes
+    , gsarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -49,21 +49,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsaSubscriptionARN'
+-- * 'gsarqSubscriptionARN'
 newtype GetSubscriptionAttributes = GetSubscriptionAttributes'
-    { _gsaSubscriptionARN :: Text
+    { _gsarqSubscriptionARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSubscriptionAttributes' smart constructor.
 getSubscriptionAttributes :: Text -> GetSubscriptionAttributes
 getSubscriptionAttributes pSubscriptionARN =
     GetSubscriptionAttributes'
-    { _gsaSubscriptionARN = pSubscriptionARN
+    { _gsarqSubscriptionARN = pSubscriptionARN
     }
 
 -- | The ARN of the subscription whose properties you want to get.
-gsaSubscriptionARN :: Lens' GetSubscriptionAttributes Text
-gsaSubscriptionARN = lens _gsaSubscriptionARN (\ s a -> s{_gsaSubscriptionARN = a});
+gsarqSubscriptionARN :: Lens' GetSubscriptionAttributes Text
+gsarqSubscriptionARN = lens _gsarqSubscriptionARN (\ s a -> s{_gsarqSubscriptionARN = a});
 
 instance AWSRequest GetSubscriptionAttributes where
         type Sv GetSubscriptionAttributes = SNS
@@ -90,7 +90,7 @@ instance ToQuery GetSubscriptionAttributes where
               ["Action" =:
                  ("GetSubscriptionAttributes" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "SubscriptionArn" =: _gsaSubscriptionARN]
+               "SubscriptionArn" =: _gsarqSubscriptionARN]
 
 -- | Response for GetSubscriptionAttributes action.
 --
@@ -98,20 +98,20 @@ instance ToQuery GetSubscriptionAttributes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsarAttributes'
+-- * 'gsarsAttributes'
 --
--- * 'gsarStatus'
+-- * 'gsarsStatus'
 data GetSubscriptionAttributesResponse = GetSubscriptionAttributesResponse'
-    { _gsarAttributes :: !(Maybe (Map Text Text))
-    , _gsarStatus     :: !Int
+    { _gsarsAttributes :: !(Maybe (Map Text Text))
+    , _gsarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSubscriptionAttributesResponse' smart constructor.
 getSubscriptionAttributesResponse :: Int -> GetSubscriptionAttributesResponse
 getSubscriptionAttributesResponse pStatus =
     GetSubscriptionAttributesResponse'
-    { _gsarAttributes = Nothing
-    , _gsarStatus = pStatus
+    { _gsarsAttributes = Nothing
+    , _gsarsStatus = pStatus
     }
 
 -- | A map of the subscription\'s attributes. Attributes in this map include
@@ -127,9 +127,9 @@ getSubscriptionAttributesResponse pStatus =
 -- -   @EffectiveDeliveryPolicy@ -- the JSON serialization of the effective
 --     delivery policy that takes into account the topic delivery policy
 --     and account system defaults
-gsarAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
-gsarAttributes = lens _gsarAttributes (\ s a -> s{_gsarAttributes = a}) . _Default . _Map;
+gsarsAttributes :: Lens' GetSubscriptionAttributesResponse (HashMap Text Text)
+gsarsAttributes = lens _gsarsAttributes (\ s a -> s{_gsarsAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-gsarStatus :: Lens' GetSubscriptionAttributesResponse Int
-gsarStatus = lens _gsarStatus (\ s a -> s{_gsarStatus = a});
+gsarsStatus :: Lens' GetSubscriptionAttributesResponse Int
+gsarsStatus = lens _gsarsStatus (\ s a -> s{_gsarsStatus = a});

@@ -34,7 +34,7 @@ module Network.AWS.IAM.DeleteRole
     -- ** Request constructor
     , deleteRole
     -- ** Request lenses
-    , drRoleName
+    , drrqRoleName
 
     -- * Response
     , DeleteRoleResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drRoleName'
+-- * 'drrqRoleName'
 newtype DeleteRole = DeleteRole'
-    { _drRoleName :: Text
+    { _drrqRoleName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRole' smart constructor.
 deleteRole :: Text -> DeleteRole
 deleteRole pRoleName =
     DeleteRole'
-    { _drRoleName = pRoleName
+    { _drrqRoleName = pRoleName
     }
 
 -- | The name of the role to delete.
-drRoleName :: Lens' DeleteRole Text
-drRoleName = lens _drRoleName (\ s a -> s{_drRoleName = a});
+drrqRoleName :: Lens' DeleteRole Text
+drrqRoleName = lens _drrqRoleName (\ s a -> s{_drrqRoleName = a});
 
 instance AWSRequest DeleteRole where
         type Sv DeleteRole = IAM
@@ -84,7 +84,7 @@ instance ToQuery DeleteRole where
           = mconcat
               ["Action" =: ("DeleteRole" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _drRoleName]
+               "RoleName" =: _drrqRoleName]
 
 -- | /See:/ 'deleteRoleResponse' smart constructor.
 data DeleteRoleResponse =

@@ -30,15 +30,15 @@ module Network.AWS.ELB.DescribeLoadBalancerPolicyTypes
     -- ** Request constructor
     , describeLoadBalancerPolicyTypes
     -- ** Request lenses
-    , dlbptPolicyTypeNames
+    , dlbptrqPolicyTypeNames
 
     -- * Response
     , DescribeLoadBalancerPolicyTypesResponse
     -- ** Response constructor
     , describeLoadBalancerPolicyTypesResponse
     -- ** Response lenses
-    , dlbptrPolicyTypeDescriptions
-    , dlbptrStatus
+    , dlbptrsPolicyTypeDescriptions
+    , dlbptrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -50,22 +50,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbptPolicyTypeNames'
+-- * 'dlbptrqPolicyTypeNames'
 newtype DescribeLoadBalancerPolicyTypes = DescribeLoadBalancerPolicyTypes'
-    { _dlbptPolicyTypeNames :: Maybe [Text]
+    { _dlbptrqPolicyTypeNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPolicyTypes' smart constructor.
 describeLoadBalancerPolicyTypes :: DescribeLoadBalancerPolicyTypes
 describeLoadBalancerPolicyTypes =
     DescribeLoadBalancerPolicyTypes'
-    { _dlbptPolicyTypeNames = Nothing
+    { _dlbptrqPolicyTypeNames = Nothing
     }
 
 -- | The names of the policy types. If no names are specified, describes all
 -- policy types defined by Elastic Load Balancing.
-dlbptPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
-dlbptPolicyTypeNames = lens _dlbptPolicyTypeNames (\ s a -> s{_dlbptPolicyTypeNames = a}) . _Default;
+dlbptrqPolicyTypeNames :: Lens' DescribeLoadBalancerPolicyTypes [Text]
+dlbptrqPolicyTypeNames = lens _dlbptrqPolicyTypeNames (\ s a -> s{_dlbptrqPolicyTypeNames = a}) . _Default;
 
 instance AWSRequest DescribeLoadBalancerPolicyTypes
          where
@@ -98,32 +98,32 @@ instance ToQuery DescribeLoadBalancerPolicyTypes
                "Version" =: ("2012-06-01" :: ByteString),
                "PolicyTypeNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dlbptPolicyTypeNames)]
+                   (toQueryList "member" <$> _dlbptrqPolicyTypeNames)]
 
 -- | /See:/ 'describeLoadBalancerPolicyTypesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlbptrPolicyTypeDescriptions'
+-- * 'dlbptrsPolicyTypeDescriptions'
 --
--- * 'dlbptrStatus'
+-- * 'dlbptrsStatus'
 data DescribeLoadBalancerPolicyTypesResponse = DescribeLoadBalancerPolicyTypesResponse'
-    { _dlbptrPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
-    , _dlbptrStatus                 :: !Int
+    { _dlbptrsPolicyTypeDescriptions :: !(Maybe [PolicyTypeDescription])
+    , _dlbptrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoadBalancerPolicyTypesResponse' smart constructor.
 describeLoadBalancerPolicyTypesResponse :: Int -> DescribeLoadBalancerPolicyTypesResponse
 describeLoadBalancerPolicyTypesResponse pStatus =
     DescribeLoadBalancerPolicyTypesResponse'
-    { _dlbptrPolicyTypeDescriptions = Nothing
-    , _dlbptrStatus = pStatus
+    { _dlbptrsPolicyTypeDescriptions = Nothing
+    , _dlbptrsStatus = pStatus
     }
 
 -- | Information about the policy types.
-dlbptrPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
-dlbptrPolicyTypeDescriptions = lens _dlbptrPolicyTypeDescriptions (\ s a -> s{_dlbptrPolicyTypeDescriptions = a}) . _Default;
+dlbptrsPolicyTypeDescriptions :: Lens' DescribeLoadBalancerPolicyTypesResponse [PolicyTypeDescription]
+dlbptrsPolicyTypeDescriptions = lens _dlbptrsPolicyTypeDescriptions (\ s a -> s{_dlbptrsPolicyTypeDescriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlbptrStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
-dlbptrStatus = lens _dlbptrStatus (\ s a -> s{_dlbptrStatus = a});
+dlbptrsStatus :: Lens' DescribeLoadBalancerPolicyTypesResponse Int
+dlbptrsStatus = lens _dlbptrsStatus (\ s a -> s{_dlbptrsStatus = a});

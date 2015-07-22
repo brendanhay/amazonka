@@ -73,23 +73,23 @@ module Network.AWS.Glacier.GetJobOutput
     -- ** Request constructor
     , getJobOutput
     -- ** Request lenses
-    , gjoRange
-    , gjoAccountId
-    , gjoVaultName
-    , gjoJobId
+    , gjorqRange
+    , gjorqAccountId
+    , gjorqVaultName
+    , gjorqJobId
 
     -- * Response
     , GetJobOutputResponse
     -- ** Response constructor
     , getJobOutputResponse
     -- ** Response lenses
-    , gjorChecksum
-    , gjorAcceptRanges
-    , gjorArchiveDescription
-    , gjorContentRange
-    , gjorContentType
-    , gjorStatus
-    , gjorBody
+    , gjorsChecksum
+    , gjorsAcceptRanges
+    , gjorsArchiveDescription
+    , gjorsContentRange
+    , gjorsContentType
+    , gjorsStatus
+    , gjorsBody
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -103,52 +103,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gjoRange'
+-- * 'gjorqRange'
 --
--- * 'gjoAccountId'
+-- * 'gjorqAccountId'
 --
--- * 'gjoVaultName'
+-- * 'gjorqVaultName'
 --
--- * 'gjoJobId'
+-- * 'gjorqJobId'
 data GetJobOutput = GetJobOutput'
-    { _gjoRange     :: !(Maybe Text)
-    , _gjoAccountId :: !Text
-    , _gjoVaultName :: !Text
-    , _gjoJobId     :: !Text
+    { _gjorqRange     :: !(Maybe Text)
+    , _gjorqAccountId :: !Text
+    , _gjorqVaultName :: !Text
+    , _gjorqJobId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobOutput' smart constructor.
 getJobOutput :: Text -> Text -> Text -> GetJobOutput
 getJobOutput pAccountId pVaultName pJobId =
     GetJobOutput'
-    { _gjoRange = Nothing
-    , _gjoAccountId = pAccountId
-    , _gjoVaultName = pVaultName
-    , _gjoJobId = pJobId
+    { _gjorqRange = Nothing
+    , _gjorqAccountId = pAccountId
+    , _gjorqVaultName = pVaultName
+    , _gjorqJobId = pJobId
     }
 
 -- | The range of bytes to retrieve from the output. For example, if you want
 -- to download the first 1,048,576 bytes, specify \"Range:
 -- bytes=0-1048575\". By default, this operation downloads the entire
 -- output.
-gjoRange :: Lens' GetJobOutput (Maybe Text)
-gjoRange = lens _gjoRange (\ s a -> s{_gjoRange = a});
+gjorqRange :: Lens' GetJobOutput (Maybe Text)
+gjorqRange = lens _gjorqRange (\ s a -> s{_gjorqRange = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-gjoAccountId :: Lens' GetJobOutput Text
-gjoAccountId = lens _gjoAccountId (\ s a -> s{_gjoAccountId = a});
+gjorqAccountId :: Lens' GetJobOutput Text
+gjorqAccountId = lens _gjorqAccountId (\ s a -> s{_gjorqAccountId = a});
 
 -- | The name of the vault.
-gjoVaultName :: Lens' GetJobOutput Text
-gjoVaultName = lens _gjoVaultName (\ s a -> s{_gjoVaultName = a});
+gjorqVaultName :: Lens' GetJobOutput Text
+gjorqVaultName = lens _gjorqVaultName (\ s a -> s{_gjorqVaultName = a});
 
 -- | The job ID whose data is downloaded.
-gjoJobId :: Lens' GetJobOutput Text
-gjoJobId = lens _gjoJobId (\ s a -> s{_gjoJobId = a});
+gjorqJobId :: Lens' GetJobOutput Text
+gjorqJobId = lens _gjorqJobId (\ s a -> s{_gjorqJobId = a});
 
 instance AWSRequest GetJobOutput where
         type Sv GetJobOutput = Glacier
@@ -168,13 +168,13 @@ instance AWSRequest GetJobOutput where
 
 instance ToHeaders GetJobOutput where
         toHeaders GetJobOutput'{..}
-          = mconcat ["Range" =# _gjoRange]
+          = mconcat ["Range" =# _gjorqRange]
 
 instance ToPath GetJobOutput where
         toPath GetJobOutput'{..}
           = mconcat
-              ["/", toText _gjoAccountId, "/vaults/",
-               toText _gjoVaultName, "/jobs/", toText _gjoJobId,
+              ["/", toText _gjorqAccountId, "/vaults/",
+               toText _gjorqVaultName, "/jobs/", toText _gjorqJobId,
                "/output"]
 
 instance ToQuery GetJobOutput where
@@ -186,40 +186,40 @@ instance ToQuery GetJobOutput where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gjorChecksum'
+-- * 'gjorsChecksum'
 --
--- * 'gjorAcceptRanges'
+-- * 'gjorsAcceptRanges'
 --
--- * 'gjorArchiveDescription'
+-- * 'gjorsArchiveDescription'
 --
--- * 'gjorContentRange'
+-- * 'gjorsContentRange'
 --
--- * 'gjorContentType'
+-- * 'gjorsContentType'
 --
--- * 'gjorStatus'
+-- * 'gjorsStatus'
 --
--- * 'gjorBody'
+-- * 'gjorsBody'
 data GetJobOutputResponse = GetJobOutputResponse'
-    { _gjorChecksum           :: !(Maybe Text)
-    , _gjorAcceptRanges       :: !(Maybe Text)
-    , _gjorArchiveDescription :: !(Maybe Text)
-    , _gjorContentRange       :: !(Maybe Text)
-    , _gjorContentType        :: !(Maybe Text)
-    , _gjorStatus             :: !Int
-    , _gjorBody               :: !RsBody
+    { _gjorsChecksum           :: !(Maybe Text)
+    , _gjorsAcceptRanges       :: !(Maybe Text)
+    , _gjorsArchiveDescription :: !(Maybe Text)
+    , _gjorsContentRange       :: !(Maybe Text)
+    , _gjorsContentType        :: !(Maybe Text)
+    , _gjorsStatus             :: !Int
+    , _gjorsBody               :: !RsBody
     } deriving (Show,Generic)
 
 -- | 'GetJobOutputResponse' smart constructor.
 getJobOutputResponse :: Int -> RsBody -> GetJobOutputResponse
 getJobOutputResponse pStatus pBody =
     GetJobOutputResponse'
-    { _gjorChecksum = Nothing
-    , _gjorAcceptRanges = Nothing
-    , _gjorArchiveDescription = Nothing
-    , _gjorContentRange = Nothing
-    , _gjorContentType = Nothing
-    , _gjorStatus = pStatus
-    , _gjorBody = pBody
+    { _gjorsChecksum = Nothing
+    , _gjorsAcceptRanges = Nothing
+    , _gjorsArchiveDescription = Nothing
+    , _gjorsContentRange = Nothing
+    , _gjorsContentType = Nothing
+    , _gjorsStatus = pStatus
+    , _gjorsBody = pBody
     }
 
 -- | The checksum of the data in the response. This header is returned only
@@ -236,24 +236,24 @@ getJobOutputResponse pStatus pBody =
 --     you have a 3.1 MB archive and you specify a range that starts at 2
 --     MB and ends at 3.1 MB (the end of the archive), then the
 --     x-amz-sha256-tree-hash is returned as a response header.
-gjorChecksum :: Lens' GetJobOutputResponse (Maybe Text)
-gjorChecksum = lens _gjorChecksum (\ s a -> s{_gjorChecksum = a});
+gjorsChecksum :: Lens' GetJobOutputResponse (Maybe Text)
+gjorsChecksum = lens _gjorsChecksum (\ s a -> s{_gjorsChecksum = a});
 
 -- | Indicates the range units accepted. For more information, go to
 -- <http://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html RFC2616>.
-gjorAcceptRanges :: Lens' GetJobOutputResponse (Maybe Text)
-gjorAcceptRanges = lens _gjorAcceptRanges (\ s a -> s{_gjorAcceptRanges = a});
+gjorsAcceptRanges :: Lens' GetJobOutputResponse (Maybe Text)
+gjorsAcceptRanges = lens _gjorsAcceptRanges (\ s a -> s{_gjorsAcceptRanges = a});
 
 -- | The description of an archive.
-gjorArchiveDescription :: Lens' GetJobOutputResponse (Maybe Text)
-gjorArchiveDescription = lens _gjorArchiveDescription (\ s a -> s{_gjorArchiveDescription = a});
+gjorsArchiveDescription :: Lens' GetJobOutputResponse (Maybe Text)
+gjorsArchiveDescription = lens _gjorsArchiveDescription (\ s a -> s{_gjorsArchiveDescription = a});
 
 -- | The range of bytes returned by Amazon Glacier. If only partial output is
 -- downloaded, the response provides the range of bytes Amazon Glacier
 -- returned. For example, bytes 0-1048575\/8388608 returns the first 1 MB
 -- from 8 MB.
-gjorContentRange :: Lens' GetJobOutputResponse (Maybe Text)
-gjorContentRange = lens _gjorContentRange (\ s a -> s{_gjorContentRange = a});
+gjorsContentRange :: Lens' GetJobOutputResponse (Maybe Text)
+gjorsContentRange = lens _gjorsContentRange (\ s a -> s{_gjorsContentRange = a});
 
 -- | The Content-Type depends on whether the job output is an archive or a
 -- vault inventory. For archive data, the Content-Type is
@@ -261,14 +261,14 @@ gjorContentRange = lens _gjorContentRange (\ s a -> s{_gjorContentRange = a});
 -- format when you initiated the job, the Content-Type is text\/csv.
 -- Otherwise, by default, vault inventory is returned as JSON, and the
 -- Content-Type is application\/json.
-gjorContentType :: Lens' GetJobOutputResponse (Maybe Text)
-gjorContentType = lens _gjorContentType (\ s a -> s{_gjorContentType = a});
+gjorsContentType :: Lens' GetJobOutputResponse (Maybe Text)
+gjorsContentType = lens _gjorsContentType (\ s a -> s{_gjorsContentType = a});
 
 -- | The HTTP response code for a job output request. The value depends on
 -- whether a range was specified in the request.
-gjorStatus :: Lens' GetJobOutputResponse Int
-gjorStatus = lens _gjorStatus (\ s a -> s{_gjorStatus = a});
+gjorsStatus :: Lens' GetJobOutputResponse Int
+gjorsStatus = lens _gjorsStatus (\ s a -> s{_gjorsStatus = a});
 
 -- | The job data, either archive data or inventory data.
-gjorBody :: Lens' GetJobOutputResponse RsBody
-gjorBody = lens _gjorBody (\ s a -> s{_gjorBody = a});
+gjorsBody :: Lens' GetJobOutputResponse RsBody
+gjorsBody = lens _gjorsBody (\ s a -> s{_gjorsBody = a});

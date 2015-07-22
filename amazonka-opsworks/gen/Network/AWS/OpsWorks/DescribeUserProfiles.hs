@@ -32,15 +32,15 @@ module Network.AWS.OpsWorks.DescribeUserProfiles
     -- ** Request constructor
     , describeUserProfiles
     -- ** Request lenses
-    , dupIAMUserARNs
+    , duprqIAMUserARNs
 
     -- * Response
     , DescribeUserProfilesResponse
     -- ** Response constructor
     , describeUserProfilesResponse
     -- ** Response lenses
-    , duprUserProfiles
-    , duprStatus
+    , duprsUserProfiles
+    , duprsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dupIAMUserARNs'
+-- * 'duprqIAMUserARNs'
 newtype DescribeUserProfiles = DescribeUserProfiles'
-    { _dupIAMUserARNs :: Maybe [Text]
+    { _duprqIAMUserARNs :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUserProfiles' smart constructor.
 describeUserProfiles :: DescribeUserProfiles
 describeUserProfiles =
     DescribeUserProfiles'
-    { _dupIAMUserARNs = Nothing
+    { _duprqIAMUserARNs = Nothing
     }
 
 -- | An array of IAM user ARNs that identify the users to be described.
-dupIAMUserARNs :: Lens' DescribeUserProfiles [Text]
-dupIAMUserARNs = lens _dupIAMUserARNs (\ s a -> s{_dupIAMUserARNs = a}) . _Default;
+duprqIAMUserARNs :: Lens' DescribeUserProfiles [Text]
+duprqIAMUserARNs = lens _duprqIAMUserARNs (\ s a -> s{_duprqIAMUserARNs = a}) . _Default;
 
 instance AWSRequest DescribeUserProfiles where
         type Sv DescribeUserProfiles = OpsWorks
@@ -92,7 +92,7 @@ instance ToHeaders DescribeUserProfiles where
 
 instance ToJSON DescribeUserProfiles where
         toJSON DescribeUserProfiles'{..}
-          = object ["IamUserArns" .= _dupIAMUserARNs]
+          = object ["IamUserArns" .= _duprqIAMUserARNs]
 
 instance ToPath DescribeUserProfiles where
         toPath = const "/"
@@ -106,26 +106,26 @@ instance ToQuery DescribeUserProfiles where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'duprUserProfiles'
+-- * 'duprsUserProfiles'
 --
--- * 'duprStatus'
+-- * 'duprsStatus'
 data DescribeUserProfilesResponse = DescribeUserProfilesResponse'
-    { _duprUserProfiles :: !(Maybe [UserProfile])
-    , _duprStatus       :: !Int
+    { _duprsUserProfiles :: !(Maybe [UserProfile])
+    , _duprsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUserProfilesResponse' smart constructor.
 describeUserProfilesResponse :: Int -> DescribeUserProfilesResponse
 describeUserProfilesResponse pStatus =
     DescribeUserProfilesResponse'
-    { _duprUserProfiles = Nothing
-    , _duprStatus = pStatus
+    { _duprsUserProfiles = Nothing
+    , _duprsStatus = pStatus
     }
 
 -- | A @Users@ object that describes the specified users.
-duprUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
-duprUserProfiles = lens _duprUserProfiles (\ s a -> s{_duprUserProfiles = a}) . _Default;
+duprsUserProfiles :: Lens' DescribeUserProfilesResponse [UserProfile]
+duprsUserProfiles = lens _duprsUserProfiles (\ s a -> s{_duprsUserProfiles = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-duprStatus :: Lens' DescribeUserProfilesResponse Int
-duprStatus = lens _duprStatus (\ s a -> s{_duprStatus = a});
+duprsStatus :: Lens' DescribeUserProfilesResponse Int
+duprsStatus = lens _duprsStatus (\ s a -> s{_duprsStatus = a});

@@ -32,17 +32,17 @@ module Network.AWS.ElasticBeanstalk.RetrieveEnvironmentInfo
     -- ** Request constructor
     , retrieveEnvironmentInfo
     -- ** Request lenses
-    , retEnvironmentName
-    , retEnvironmentId
-    , retInfoType
+    , rrqEnvironmentName
+    , rrqEnvironmentId
+    , rrqInfoType
 
     -- * Response
     , RetrieveEnvironmentInfoResponse
     -- ** Response constructor
     , retrieveEnvironmentInfoResponse
     -- ** Response lenses
-    , reirEnvironmentInfo
-    , reirStatus
+    , rrsEnvironmentInfo
+    , rrsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -56,24 +56,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'retEnvironmentName'
+-- * 'rrqEnvironmentName'
 --
--- * 'retEnvironmentId'
+-- * 'rrqEnvironmentId'
 --
--- * 'retInfoType'
+-- * 'rrqInfoType'
 data RetrieveEnvironmentInfo = RetrieveEnvironmentInfo'
-    { _retEnvironmentName :: !(Maybe Text)
-    , _retEnvironmentId   :: !(Maybe Text)
-    , _retInfoType        :: !EnvironmentInfoType
+    { _rrqEnvironmentName :: !(Maybe Text)
+    , _rrqEnvironmentId   :: !(Maybe Text)
+    , _rrqInfoType        :: !EnvironmentInfoType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveEnvironmentInfo' smart constructor.
 retrieveEnvironmentInfo :: EnvironmentInfoType -> RetrieveEnvironmentInfo
 retrieveEnvironmentInfo pInfoType =
     RetrieveEnvironmentInfo'
-    { _retEnvironmentName = Nothing
-    , _retEnvironmentId = Nothing
-    , _retInfoType = pInfoType
+    { _rrqEnvironmentName = Nothing
+    , _rrqEnvironmentId = Nothing
+    , _rrqInfoType = pInfoType
     }
 
 -- | The name of the data\'s environment.
@@ -84,8 +84,8 @@ retrieveEnvironmentInfo pInfoType =
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-retEnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-retEnvironmentName = lens _retEnvironmentName (\ s a -> s{_retEnvironmentName = a});
+rrqEnvironmentName :: Lens' RetrieveEnvironmentInfo (Maybe Text)
+rrqEnvironmentName = lens _rrqEnvironmentName (\ s a -> s{_rrqEnvironmentName = a});
 
 -- | The ID of the data\'s environment.
 --
@@ -95,12 +95,12 @@ retEnvironmentName = lens _retEnvironmentName (\ s a -> s{_retEnvironmentName = 
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-retEnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
-retEnvironmentId = lens _retEnvironmentId (\ s a -> s{_retEnvironmentId = a});
+rrqEnvironmentId :: Lens' RetrieveEnvironmentInfo (Maybe Text)
+rrqEnvironmentId = lens _rrqEnvironmentId (\ s a -> s{_rrqEnvironmentId = a});
 
 -- | The type of information to retrieve.
-retInfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
-retInfoType = lens _retInfoType (\ s a -> s{_retInfoType = a});
+rrqInfoType :: Lens' RetrieveEnvironmentInfo EnvironmentInfoType
+rrqInfoType = lens _rrqInfoType (\ s a -> s{_rrqInfoType = a});
 
 instance AWSRequest RetrieveEnvironmentInfo where
         type Sv RetrieveEnvironmentInfo = ElasticBeanstalk
@@ -127,9 +127,9 @@ instance ToQuery RetrieveEnvironmentInfo where
               ["Action" =:
                  ("RetrieveEnvironmentInfo" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentName" =: _retEnvironmentName,
-               "EnvironmentId" =: _retEnvironmentId,
-               "InfoType" =: _retInfoType]
+               "EnvironmentName" =: _rrqEnvironmentName,
+               "EnvironmentId" =: _rrqEnvironmentId,
+               "InfoType" =: _rrqInfoType]
 
 -- | Result message containing a description of the requested environment
 -- info.
@@ -138,26 +138,26 @@ instance ToQuery RetrieveEnvironmentInfo where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reirEnvironmentInfo'
+-- * 'rrsEnvironmentInfo'
 --
--- * 'reirStatus'
+-- * 'rrsStatus'
 data RetrieveEnvironmentInfoResponse = RetrieveEnvironmentInfoResponse'
-    { _reirEnvironmentInfo :: !(Maybe [EnvironmentInfoDescription])
-    , _reirStatus          :: !Int
+    { _rrsEnvironmentInfo :: !(Maybe [EnvironmentInfoDescription])
+    , _rrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveEnvironmentInfoResponse' smart constructor.
 retrieveEnvironmentInfoResponse :: Int -> RetrieveEnvironmentInfoResponse
 retrieveEnvironmentInfoResponse pStatus =
     RetrieveEnvironmentInfoResponse'
-    { _reirEnvironmentInfo = Nothing
-    , _reirStatus = pStatus
+    { _rrsEnvironmentInfo = Nothing
+    , _rrsStatus = pStatus
     }
 
 -- | The EnvironmentInfoDescription of the environment.
-reirEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
-reirEnvironmentInfo = lens _reirEnvironmentInfo (\ s a -> s{_reirEnvironmentInfo = a}) . _Default;
+rrsEnvironmentInfo :: Lens' RetrieveEnvironmentInfoResponse [EnvironmentInfoDescription]
+rrsEnvironmentInfo = lens _rrsEnvironmentInfo (\ s a -> s{_rrsEnvironmentInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-reirStatus :: Lens' RetrieveEnvironmentInfoResponse Int
-reirStatus = lens _reirStatus (\ s a -> s{_reirStatus = a});
+rrsStatus :: Lens' RetrieveEnvironmentInfoResponse Int
+rrsStatus = lens _rrsStatus (\ s a -> s{_rrsStatus = a});

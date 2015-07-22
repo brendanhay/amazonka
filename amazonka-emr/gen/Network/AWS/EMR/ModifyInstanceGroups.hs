@@ -30,7 +30,7 @@ module Network.AWS.EMR.ModifyInstanceGroups
     -- ** Request constructor
     , modifyInstanceGroups
     -- ** Request lenses
-    , migInstanceGroups
+    , migrqInstanceGroups
 
     -- * Response
     , ModifyInstanceGroupsResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'migInstanceGroups'
+-- * 'migrqInstanceGroups'
 newtype ModifyInstanceGroups = ModifyInstanceGroups'
-    { _migInstanceGroups :: Maybe [InstanceGroupModifyConfig]
+    { _migrqInstanceGroups :: Maybe [InstanceGroupModifyConfig]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyInstanceGroups' smart constructor.
 modifyInstanceGroups :: ModifyInstanceGroups
 modifyInstanceGroups =
     ModifyInstanceGroups'
-    { _migInstanceGroups = Nothing
+    { _migrqInstanceGroups = Nothing
     }
 
 -- | Instance groups to change.
-migInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
-migInstanceGroups = lens _migInstanceGroups (\ s a -> s{_migInstanceGroups = a}) . _Default;
+migrqInstanceGroups :: Lens' ModifyInstanceGroups [InstanceGroupModifyConfig]
+migrqInstanceGroups = lens _migrqInstanceGroups (\ s a -> s{_migrqInstanceGroups = a}) . _Default;
 
 instance AWSRequest ModifyInstanceGroups where
         type Sv ModifyInstanceGroups = EMR
@@ -84,7 +84,7 @@ instance ToHeaders ModifyInstanceGroups where
 
 instance ToJSON ModifyInstanceGroups where
         toJSON ModifyInstanceGroups'{..}
-          = object ["InstanceGroups" .= _migInstanceGroups]
+          = object ["InstanceGroups" .= _migrqInstanceGroups]
 
 instance ToPath ModifyInstanceGroups where
         toPath = const "/"

@@ -37,20 +37,20 @@ module Network.AWS.Route53.ListReusableDelegationSets
     -- ** Request constructor
     , listReusableDelegationSets
     -- ** Request lenses
-    , lrdsMaxItems
-    , lrdsMarker
+    , lrdsrqMaxItems
+    , lrdsrqMarker
 
     -- * Response
     , ListReusableDelegationSetsResponse
     -- ** Response constructor
     , listReusableDelegationSetsResponse
     -- ** Response lenses
-    , lrdsrNextMarker
-    , lrdsrStatus
-    , lrdsrDelegationSets
-    , lrdsrMarker
-    , lrdsrIsTruncated
-    , lrdsrMaxItems
+    , lrdsrsNextMarker
+    , lrdsrsStatus
+    , lrdsrsDelegationSets
+    , lrdsrsMarker
+    , lrdsrsIsTruncated
+    , lrdsrsMaxItems
     ) where
 
 import           Network.AWS.Prelude
@@ -74,32 +74,32 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrdsMaxItems'
+-- * 'lrdsrqMaxItems'
 --
--- * 'lrdsMarker'
+-- * 'lrdsrqMarker'
 data ListReusableDelegationSets = ListReusableDelegationSets'
-    { _lrdsMaxItems :: !(Maybe Text)
-    , _lrdsMarker   :: !(Maybe Text)
+    { _lrdsrqMaxItems :: !(Maybe Text)
+    , _lrdsrqMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListReusableDelegationSets' smart constructor.
 listReusableDelegationSets :: ListReusableDelegationSets
 listReusableDelegationSets =
     ListReusableDelegationSets'
-    { _lrdsMaxItems = Nothing
-    , _lrdsMarker = Nothing
+    { _lrdsrqMaxItems = Nothing
+    , _lrdsrqMarker = Nothing
     }
 
 -- | Specify the maximum number of reusable delegation sets to return per
 -- page of results.
-lrdsMaxItems :: Lens' ListReusableDelegationSets (Maybe Text)
-lrdsMaxItems = lens _lrdsMaxItems (\ s a -> s{_lrdsMaxItems = a});
+lrdsrqMaxItems :: Lens' ListReusableDelegationSets (Maybe Text)
+lrdsrqMaxItems = lens _lrdsrqMaxItems (\ s a -> s{_lrdsrqMaxItems = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in
 -- the @marker@ parameter to get the next page of results.
-lrdsMarker :: Lens' ListReusableDelegationSets (Maybe Text)
-lrdsMarker = lens _lrdsMarker (\ s a -> s{_lrdsMarker = a});
+lrdsrqMarker :: Lens' ListReusableDelegationSets (Maybe Text)
+lrdsrqMarker = lens _lrdsrqMarker (\ s a -> s{_lrdsrqMarker = a});
 
 instance AWSRequest ListReusableDelegationSets where
         type Sv ListReusableDelegationSets = Route53
@@ -126,8 +126,8 @@ instance ToPath ListReusableDelegationSets where
 instance ToQuery ListReusableDelegationSets where
         toQuery ListReusableDelegationSets'{..}
           = mconcat
-              ["maxitems" =: _lrdsMaxItems,
-               "marker" =: _lrdsMarker]
+              ["maxitems" =: _lrdsrqMaxItems,
+               "marker" =: _lrdsrqMarker]
 
 -- | A complex type that contains the response for the request.
 --
@@ -135,36 +135,36 @@ instance ToQuery ListReusableDelegationSets where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrdsrNextMarker'
+-- * 'lrdsrsNextMarker'
 --
--- * 'lrdsrStatus'
+-- * 'lrdsrsStatus'
 --
--- * 'lrdsrDelegationSets'
+-- * 'lrdsrsDelegationSets'
 --
--- * 'lrdsrMarker'
+-- * 'lrdsrsMarker'
 --
--- * 'lrdsrIsTruncated'
+-- * 'lrdsrsIsTruncated'
 --
--- * 'lrdsrMaxItems'
+-- * 'lrdsrsMaxItems'
 data ListReusableDelegationSetsResponse = ListReusableDelegationSetsResponse'
-    { _lrdsrNextMarker     :: !(Maybe Text)
-    , _lrdsrStatus         :: !Int
-    , _lrdsrDelegationSets :: ![DelegationSet]
-    , _lrdsrMarker         :: !Text
-    , _lrdsrIsTruncated    :: !Bool
-    , _lrdsrMaxItems       :: !Text
+    { _lrdsrsNextMarker     :: !(Maybe Text)
+    , _lrdsrsStatus         :: !Int
+    , _lrdsrsDelegationSets :: ![DelegationSet]
+    , _lrdsrsMarker         :: !Text
+    , _lrdsrsIsTruncated    :: !Bool
+    , _lrdsrsMaxItems       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListReusableDelegationSetsResponse' smart constructor.
 listReusableDelegationSetsResponse :: Int -> Text -> Bool -> Text -> ListReusableDelegationSetsResponse
 listReusableDelegationSetsResponse pStatus pMarker pIsTruncated pMaxItems =
     ListReusableDelegationSetsResponse'
-    { _lrdsrNextMarker = Nothing
-    , _lrdsrStatus = pStatus
-    , _lrdsrDelegationSets = mempty
-    , _lrdsrMarker = pMarker
-    , _lrdsrIsTruncated = pIsTruncated
-    , _lrdsrMaxItems = pMaxItems
+    { _lrdsrsNextMarker = Nothing
+    , _lrdsrsStatus = pStatus
+    , _lrdsrsDelegationSets = mempty
+    , _lrdsrsMarker = pMarker
+    , _lrdsrsIsTruncated = pIsTruncated
+    , _lrdsrsMaxItems = pMaxItems
     }
 
 -- | Indicates where to continue listing reusable delegation sets. If
@@ -172,31 +172,31 @@ listReusableDelegationSetsResponse pStatus pMarker pIsTruncated pMaxItems =
 -- request to @ListReusableDelegationSets@ and include the value of the
 -- @NextMarker@ element in the @Marker@ element to get the next page of
 -- results.
-lrdsrNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
-lrdsrNextMarker = lens _lrdsrNextMarker (\ s a -> s{_lrdsrNextMarker = a});
+lrdsrsNextMarker :: Lens' ListReusableDelegationSetsResponse (Maybe Text)
+lrdsrsNextMarker = lens _lrdsrsNextMarker (\ s a -> s{_lrdsrsNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lrdsrStatus :: Lens' ListReusableDelegationSetsResponse Int
-lrdsrStatus = lens _lrdsrStatus (\ s a -> s{_lrdsrStatus = a});
+lrdsrsStatus :: Lens' ListReusableDelegationSetsResponse Int
+lrdsrsStatus = lens _lrdsrsStatus (\ s a -> s{_lrdsrsStatus = a});
 
 -- | A complex type that contains information about the reusable delegation
 -- sets associated with the current AWS account.
-lrdsrDelegationSets :: Lens' ListReusableDelegationSetsResponse [DelegationSet]
-lrdsrDelegationSets = lens _lrdsrDelegationSets (\ s a -> s{_lrdsrDelegationSets = a});
+lrdsrsDelegationSets :: Lens' ListReusableDelegationSetsResponse [DelegationSet]
+lrdsrsDelegationSets = lens _lrdsrsDelegationSets (\ s a -> s{_lrdsrsDelegationSets = a});
 
 -- | If the request returned more than one page of results, submit another
 -- request and specify the value of @NextMarker@ from the last response in
 -- the @marker@ parameter to get the next page of results.
-lrdsrMarker :: Lens' ListReusableDelegationSetsResponse Text
-lrdsrMarker = lens _lrdsrMarker (\ s a -> s{_lrdsrMarker = a});
+lrdsrsMarker :: Lens' ListReusableDelegationSetsResponse Text
+lrdsrsMarker = lens _lrdsrsMarker (\ s a -> s{_lrdsrsMarker = a});
 
 -- | A flag indicating whether there are more reusable delegation sets to be
 -- listed. If your results were truncated, you can make a follow-up request
 -- for the next page of results by using the @Marker@ element.
 --
 -- Valid Values: @true@ | @false@
-lrdsrIsTruncated :: Lens' ListReusableDelegationSetsResponse Bool
-lrdsrIsTruncated = lens _lrdsrIsTruncated (\ s a -> s{_lrdsrIsTruncated = a});
+lrdsrsIsTruncated :: Lens' ListReusableDelegationSetsResponse Bool
+lrdsrsIsTruncated = lens _lrdsrsIsTruncated (\ s a -> s{_lrdsrsIsTruncated = a});
 
 -- | The maximum number of reusable delegation sets to be included in the
 -- response body. If the number of reusable delegation sets associated with
@@ -206,5 +206,5 @@ lrdsrIsTruncated = lens _lrdsrIsTruncated (\ s a -> s{_lrdsrIsTruncated = a});
 -- ListReusableDelegationSetsResponse$NextMarker in the
 -- ListReusableDelegationSetsRequest$Marker element to get the next page of
 -- results.
-lrdsrMaxItems :: Lens' ListReusableDelegationSetsResponse Text
-lrdsrMaxItems = lens _lrdsrMaxItems (\ s a -> s{_lrdsrMaxItems = a});
+lrdsrsMaxItems :: Lens' ListReusableDelegationSetsResponse Text
+lrdsrsMaxItems = lens _lrdsrsMaxItems (\ s a -> s{_lrdsrsMaxItems = a});

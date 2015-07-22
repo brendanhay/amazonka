@@ -30,21 +30,21 @@ module Network.AWS.CloudWatch.DescribeAlarms
     -- ** Request constructor
     , describeAlarms
     -- ** Request lenses
-    , daAlarmNamePrefix
-    , daActionPrefix
-    , daNextToken
-    , daStateValue
-    , daAlarmNames
-    , daMaxRecords
+    , darqAlarmNamePrefix
+    , darqActionPrefix
+    , darqNextToken
+    , darqStateValue
+    , darqAlarmNames
+    , darqMaxRecords
 
     -- * Response
     , DescribeAlarmsResponse
     -- ** Response constructor
     , describeAlarmsResponse
     -- ** Response lenses
-    , darMetricAlarms
-    , darNextToken
-    , darStatus
+    , darsMetricAlarms
+    , darsNextToken
+    , darsStatus
     ) where
 
 import           Network.AWS.CloudWatch.Types
@@ -57,70 +57,70 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daAlarmNamePrefix'
+-- * 'darqAlarmNamePrefix'
 --
--- * 'daActionPrefix'
+-- * 'darqActionPrefix'
 --
--- * 'daNextToken'
+-- * 'darqNextToken'
 --
--- * 'daStateValue'
+-- * 'darqStateValue'
 --
--- * 'daAlarmNames'
+-- * 'darqAlarmNames'
 --
--- * 'daMaxRecords'
+-- * 'darqMaxRecords'
 data DescribeAlarms = DescribeAlarms'
-    { _daAlarmNamePrefix :: !(Maybe Text)
-    , _daActionPrefix    :: !(Maybe Text)
-    , _daNextToken       :: !(Maybe Text)
-    , _daStateValue      :: !(Maybe StateValue)
-    , _daAlarmNames      :: !(Maybe [Text])
-    , _daMaxRecords      :: !(Maybe Nat)
+    { _darqAlarmNamePrefix :: !(Maybe Text)
+    , _darqActionPrefix    :: !(Maybe Text)
+    , _darqNextToken       :: !(Maybe Text)
+    , _darqStateValue      :: !(Maybe StateValue)
+    , _darqAlarmNames      :: !(Maybe [Text])
+    , _darqMaxRecords      :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarms' smart constructor.
 describeAlarms :: DescribeAlarms
 describeAlarms =
     DescribeAlarms'
-    { _daAlarmNamePrefix = Nothing
-    , _daActionPrefix = Nothing
-    , _daNextToken = Nothing
-    , _daStateValue = Nothing
-    , _daAlarmNames = Nothing
-    , _daMaxRecords = Nothing
+    { _darqAlarmNamePrefix = Nothing
+    , _darqActionPrefix = Nothing
+    , _darqNextToken = Nothing
+    , _darqStateValue = Nothing
+    , _darqAlarmNames = Nothing
+    , _darqMaxRecords = Nothing
     }
 
 -- | The alarm name prefix. @AlarmNames@ cannot be specified if this
 -- parameter is specified.
-daAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
-daAlarmNamePrefix = lens _daAlarmNamePrefix (\ s a -> s{_daAlarmNamePrefix = a});
+darqAlarmNamePrefix :: Lens' DescribeAlarms (Maybe Text)
+darqAlarmNamePrefix = lens _darqAlarmNamePrefix (\ s a -> s{_darqAlarmNamePrefix = a});
 
 -- | The action name prefix.
-daActionPrefix :: Lens' DescribeAlarms (Maybe Text)
-daActionPrefix = lens _daActionPrefix (\ s a -> s{_daActionPrefix = a});
+darqActionPrefix :: Lens' DescribeAlarms (Maybe Text)
+darqActionPrefix = lens _darqActionPrefix (\ s a -> s{_darqActionPrefix = a});
 
 -- | The token returned by a previous call to indicate that there is more
 -- data available.
-daNextToken :: Lens' DescribeAlarms (Maybe Text)
-daNextToken = lens _daNextToken (\ s a -> s{_daNextToken = a});
+darqNextToken :: Lens' DescribeAlarms (Maybe Text)
+darqNextToken = lens _darqNextToken (\ s a -> s{_darqNextToken = a});
 
 -- | The state value to be used in matching alarms.
-daStateValue :: Lens' DescribeAlarms (Maybe StateValue)
-daStateValue = lens _daStateValue (\ s a -> s{_daStateValue = a});
+darqStateValue :: Lens' DescribeAlarms (Maybe StateValue)
+darqStateValue = lens _darqStateValue (\ s a -> s{_darqStateValue = a});
 
 -- | A list of alarm names to retrieve information for.
-daAlarmNames :: Lens' DescribeAlarms [Text]
-daAlarmNames = lens _daAlarmNames (\ s a -> s{_daAlarmNames = a}) . _Default;
+darqAlarmNames :: Lens' DescribeAlarms [Text]
+darqAlarmNames = lens _darqAlarmNames (\ s a -> s{_darqAlarmNames = a}) . _Default;
 
 -- | The maximum number of alarm descriptions to retrieve.
-daMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
-daMaxRecords = lens _daMaxRecords (\ s a -> s{_daMaxRecords = a}) . mapping _Nat;
+darqMaxRecords :: Lens' DescribeAlarms (Maybe Natural)
+darqMaxRecords = lens _darqMaxRecords (\ s a -> s{_darqMaxRecords = a}) . mapping _Nat;
 
 instance AWSPager DescribeAlarms where
         page rq rs
-          | stop (rs ^. darNextToken) = Nothing
-          | stop (rs ^. darMetricAlarms) = Nothing
+          | stop (rs ^. darsNextToken) = Nothing
+          | stop (rs ^. darsMetricAlarms) = Nothing
           | otherwise =
-            Just $ rq & daNextToken .~ rs ^. darNextToken
+            Just $ rq & darqNextToken .~ rs ^. darsNextToken
 
 instance AWSRequest DescribeAlarms where
         type Sv DescribeAlarms = CloudWatch
@@ -146,13 +146,13 @@ instance ToQuery DescribeAlarms where
           = mconcat
               ["Action" =: ("DescribeAlarms" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNamePrefix" =: _daAlarmNamePrefix,
-               "ActionPrefix" =: _daActionPrefix,
-               "NextToken" =: _daNextToken,
-               "StateValue" =: _daStateValue,
+               "AlarmNamePrefix" =: _darqAlarmNamePrefix,
+               "ActionPrefix" =: _darqActionPrefix,
+               "NextToken" =: _darqNextToken,
+               "StateValue" =: _darqStateValue,
                "AlarmNames" =:
-                 toQuery (toQueryList "member" <$> _daAlarmNames),
-               "MaxRecords" =: _daMaxRecords]
+                 toQuery (toQueryList "member" <$> _darqAlarmNames),
+               "MaxRecords" =: _darqMaxRecords]
 
 -- | The output for the DescribeAlarms action.
 --
@@ -160,34 +160,34 @@ instance ToQuery DescribeAlarms where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darMetricAlarms'
+-- * 'darsMetricAlarms'
 --
--- * 'darNextToken'
+-- * 'darsNextToken'
 --
--- * 'darStatus'
+-- * 'darsStatus'
 data DescribeAlarmsResponse = DescribeAlarmsResponse'
-    { _darMetricAlarms :: !(Maybe [MetricAlarm])
-    , _darNextToken    :: !(Maybe Text)
-    , _darStatus       :: !Int
+    { _darsMetricAlarms :: !(Maybe [MetricAlarm])
+    , _darsNextToken    :: !(Maybe Text)
+    , _darsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAlarmsResponse' smart constructor.
 describeAlarmsResponse :: Int -> DescribeAlarmsResponse
 describeAlarmsResponse pStatus =
     DescribeAlarmsResponse'
-    { _darMetricAlarms = Nothing
-    , _darNextToken = Nothing
-    , _darStatus = pStatus
+    { _darsMetricAlarms = Nothing
+    , _darsNextToken = Nothing
+    , _darsStatus = pStatus
     }
 
 -- | A list of information for the specified alarms.
-darMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
-darMetricAlarms = lens _darMetricAlarms (\ s a -> s{_darMetricAlarms = a}) . _Default;
+darsMetricAlarms :: Lens' DescribeAlarmsResponse [MetricAlarm]
+darsMetricAlarms = lens _darsMetricAlarms (\ s a -> s{_darsMetricAlarms = a}) . _Default;
 
 -- | A string that marks the start of the next batch of returned results.
-darNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
-darNextToken = lens _darNextToken (\ s a -> s{_darNextToken = a});
+darsNextToken :: Lens' DescribeAlarmsResponse (Maybe Text)
+darsNextToken = lens _darsNextToken (\ s a -> s{_darsNextToken = a});
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeAlarmsResponse Int
-darStatus = lens _darStatus (\ s a -> s{_darStatus = a});
+darsStatus :: Lens' DescribeAlarmsResponse Int
+darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

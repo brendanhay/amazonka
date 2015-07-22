@@ -36,8 +36,8 @@ module Network.AWS.OpsWorks.AssociateElasticIP
     -- ** Request constructor
     , associateElasticIP
     -- ** Request lenses
-    , aeiInstanceId
-    , aeiElasticIP
+    , aeirqInstanceId
+    , aeirqElasticIP
 
     -- * Response
     , AssociateElasticIPResponse
@@ -54,29 +54,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aeiInstanceId'
+-- * 'aeirqInstanceId'
 --
--- * 'aeiElasticIP'
+-- * 'aeirqElasticIP'
 data AssociateElasticIP = AssociateElasticIP'
-    { _aeiInstanceId :: !(Maybe Text)
-    , _aeiElasticIP  :: !Text
+    { _aeirqInstanceId :: !(Maybe Text)
+    , _aeirqElasticIP  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateElasticIP' smart constructor.
 associateElasticIP :: Text -> AssociateElasticIP
 associateElasticIP pElasticIP =
     AssociateElasticIP'
-    { _aeiInstanceId = Nothing
-    , _aeiElasticIP = pElasticIP
+    { _aeirqInstanceId = Nothing
+    , _aeirqElasticIP = pElasticIP
     }
 
 -- | The instance ID.
-aeiInstanceId :: Lens' AssociateElasticIP (Maybe Text)
-aeiInstanceId = lens _aeiInstanceId (\ s a -> s{_aeiInstanceId = a});
+aeirqInstanceId :: Lens' AssociateElasticIP (Maybe Text)
+aeirqInstanceId = lens _aeirqInstanceId (\ s a -> s{_aeirqInstanceId = a});
 
 -- | The Elastic IP address.
-aeiElasticIP :: Lens' AssociateElasticIP Text
-aeiElasticIP = lens _aeiElasticIP (\ s a -> s{_aeiElasticIP = a});
+aeirqElasticIP :: Lens' AssociateElasticIP Text
+aeirqElasticIP = lens _aeirqElasticIP (\ s a -> s{_aeirqElasticIP = a});
 
 instance AWSRequest AssociateElasticIP where
         type Sv AssociateElasticIP = OpsWorks
@@ -98,8 +98,8 @@ instance ToHeaders AssociateElasticIP where
 instance ToJSON AssociateElasticIP where
         toJSON AssociateElasticIP'{..}
           = object
-              ["InstanceId" .= _aeiInstanceId,
-               "ElasticIp" .= _aeiElasticIP]
+              ["InstanceId" .= _aeirqInstanceId,
+               "ElasticIp" .= _aeirqElasticIP]
 
 instance ToPath AssociateElasticIP where
         toPath = const "/"

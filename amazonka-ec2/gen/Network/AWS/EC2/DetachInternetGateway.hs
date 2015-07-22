@@ -29,9 +29,9 @@ module Network.AWS.EC2.DetachInternetGateway
     -- ** Request constructor
     , detachInternetGateway
     -- ** Request lenses
-    , digDryRun
-    , digInternetGatewayId
-    , digVPCId
+    , digrqDryRun
+    , digrqInternetGatewayId
+    , digrqVPCId
 
     -- * Response
     , DetachInternetGatewayResponse
@@ -48,40 +48,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'digDryRun'
+-- * 'digrqDryRun'
 --
--- * 'digInternetGatewayId'
+-- * 'digrqInternetGatewayId'
 --
--- * 'digVPCId'
+-- * 'digrqVPCId'
 data DetachInternetGateway = DetachInternetGateway'
-    { _digDryRun            :: !(Maybe Bool)
-    , _digInternetGatewayId :: !Text
-    , _digVPCId             :: !Text
+    { _digrqDryRun            :: !(Maybe Bool)
+    , _digrqInternetGatewayId :: !Text
+    , _digrqVPCId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachInternetGateway' smart constructor.
 detachInternetGateway :: Text -> Text -> DetachInternetGateway
 detachInternetGateway pInternetGatewayId pVPCId =
     DetachInternetGateway'
-    { _digDryRun = Nothing
-    , _digInternetGatewayId = pInternetGatewayId
-    , _digVPCId = pVPCId
+    { _digrqDryRun = Nothing
+    , _digrqInternetGatewayId = pInternetGatewayId
+    , _digrqVPCId = pVPCId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-digDryRun :: Lens' DetachInternetGateway (Maybe Bool)
-digDryRun = lens _digDryRun (\ s a -> s{_digDryRun = a});
+digrqDryRun :: Lens' DetachInternetGateway (Maybe Bool)
+digrqDryRun = lens _digrqDryRun (\ s a -> s{_digrqDryRun = a});
 
 -- | The ID of the Internet gateway.
-digInternetGatewayId :: Lens' DetachInternetGateway Text
-digInternetGatewayId = lens _digInternetGatewayId (\ s a -> s{_digInternetGatewayId = a});
+digrqInternetGatewayId :: Lens' DetachInternetGateway Text
+digrqInternetGatewayId = lens _digrqInternetGatewayId (\ s a -> s{_digrqInternetGatewayId = a});
 
 -- | The ID of the VPC.
-digVPCId :: Lens' DetachInternetGateway Text
-digVPCId = lens _digVPCId (\ s a -> s{_digVPCId = a});
+digrqVPCId :: Lens' DetachInternetGateway Text
+digrqVPCId = lens _digrqVPCId (\ s a -> s{_digrqVPCId = a});
 
 instance AWSRequest DetachInternetGateway where
         type Sv DetachInternetGateway = EC2
@@ -101,9 +101,9 @@ instance ToQuery DetachInternetGateway where
           = mconcat
               ["Action" =: ("DetachInternetGateway" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _digDryRun,
-               "InternetGatewayId" =: _digInternetGatewayId,
-               "VpcId" =: _digVPCId]
+               "DryRun" =: _digrqDryRun,
+               "InternetGatewayId" =: _digrqInternetGatewayId,
+               "VpcId" =: _digrqVPCId]
 
 -- | /See:/ 'detachInternetGatewayResponse' smart constructor.
 data DetachInternetGatewayResponse =

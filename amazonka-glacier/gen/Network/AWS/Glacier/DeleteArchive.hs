@@ -52,9 +52,9 @@ module Network.AWS.Glacier.DeleteArchive
     -- ** Request constructor
     , deleteArchive
     -- ** Request lenses
-    , daAccountId
-    , daVaultName
-    , daArchiveId
+    , darqAccountId
+    , darqVaultName
+    , darqArchiveId
 
     -- * Response
     , DeleteArchiveResponse
@@ -73,24 +73,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daAccountId'
+-- * 'darqAccountId'
 --
--- * 'daVaultName'
+-- * 'darqVaultName'
 --
--- * 'daArchiveId'
+-- * 'darqArchiveId'
 data DeleteArchive = DeleteArchive'
-    { _daAccountId :: !Text
-    , _daVaultName :: !Text
-    , _daArchiveId :: !Text
+    { _darqAccountId :: !Text
+    , _darqVaultName :: !Text
+    , _darqArchiveId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteArchive' smart constructor.
 deleteArchive :: Text -> Text -> Text -> DeleteArchive
 deleteArchive pAccountId pVaultName pArchiveId =
     DeleteArchive'
-    { _daAccountId = pAccountId
-    , _daVaultName = pVaultName
-    , _daArchiveId = pArchiveId
+    { _darqAccountId = pAccountId
+    , _darqVaultName = pVaultName
+    , _darqArchiveId = pArchiveId
     }
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
@@ -98,16 +98,16 @@ deleteArchive pAccountId pVaultName pArchiveId =
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-daAccountId :: Lens' DeleteArchive Text
-daAccountId = lens _daAccountId (\ s a -> s{_daAccountId = a});
+darqAccountId :: Lens' DeleteArchive Text
+darqAccountId = lens _darqAccountId (\ s a -> s{_darqAccountId = a});
 
 -- | The name of the vault.
-daVaultName :: Lens' DeleteArchive Text
-daVaultName = lens _daVaultName (\ s a -> s{_daVaultName = a});
+darqVaultName :: Lens' DeleteArchive Text
+darqVaultName = lens _darqVaultName (\ s a -> s{_darqVaultName = a});
 
 -- | The ID of the archive to delete.
-daArchiveId :: Lens' DeleteArchive Text
-daArchiveId = lens _daArchiveId (\ s a -> s{_daArchiveId = a});
+darqArchiveId :: Lens' DeleteArchive Text
+darqArchiveId = lens _darqArchiveId (\ s a -> s{_darqArchiveId = a});
 
 instance AWSRequest DeleteArchive where
         type Sv DeleteArchive = Glacier
@@ -121,9 +121,9 @@ instance ToHeaders DeleteArchive where
 instance ToPath DeleteArchive where
         toPath DeleteArchive'{..}
           = mconcat
-              ["/", toText _daAccountId, "/vaults/",
-               toText _daVaultName, "/archives/",
-               toText _daArchiveId]
+              ["/", toText _darqAccountId, "/vaults/",
+               toText _darqVaultName, "/archives/",
+               toText _darqArchiveId]
 
 instance ToQuery DeleteArchive where
         toQuery = const mempty

@@ -27,15 +27,15 @@ module Network.AWS.S3.GetBucketTagging
     -- ** Request constructor
     , getBucketTagging
     -- ** Request lenses
-    , gbtBucket
+    , gbtrqBucket
 
     -- * Response
     , GetBucketTaggingResponse
     -- ** Response constructor
     , getBucketTaggingResponse
     -- ** Response lenses
-    , gbtrStatus
-    , gbtrTagSet
+    , gbtrsStatus
+    , gbtrsTagSet
     ) where
 
 import           Network.AWS.Prelude
@@ -47,21 +47,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbtBucket'
+-- * 'gbtrqBucket'
 newtype GetBucketTagging = GetBucketTagging'
-    { _gbtBucket :: BucketName
+    { _gbtrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketTagging' smart constructor.
 getBucketTagging :: BucketName -> GetBucketTagging
 getBucketTagging pBucket =
     GetBucketTagging'
-    { _gbtBucket = pBucket
+    { _gbtrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gbtBucket :: Lens' GetBucketTagging BucketName
-gbtBucket = lens _gbtBucket (\ s a -> s{_gbtBucket = a});
+gbtrqBucket :: Lens' GetBucketTagging BucketName
+gbtrqBucket = lens _gbtrqBucket (\ s a -> s{_gbtrqBucket = a});
 
 instance AWSRequest GetBucketTagging where
         type Sv GetBucketTagging = S3
@@ -79,7 +79,7 @@ instance ToHeaders GetBucketTagging where
 
 instance ToPath GetBucketTagging where
         toPath GetBucketTagging'{..}
-          = mconcat ["/", toText _gbtBucket]
+          = mconcat ["/", toText _gbtrqBucket]
 
 instance ToQuery GetBucketTagging where
         toQuery = const (mconcat ["tagging"])
@@ -88,26 +88,26 @@ instance ToQuery GetBucketTagging where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbtrStatus'
+-- * 'gbtrsStatus'
 --
--- * 'gbtrTagSet'
+-- * 'gbtrsTagSet'
 data GetBucketTaggingResponse = GetBucketTaggingResponse'
-    { _gbtrStatus :: !Int
-    , _gbtrTagSet :: ![Tag]
+    { _gbtrsStatus :: !Int
+    , _gbtrsTagSet :: ![Tag]
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketTaggingResponse' smart constructor.
 getBucketTaggingResponse :: Int -> GetBucketTaggingResponse
 getBucketTaggingResponse pStatus =
     GetBucketTaggingResponse'
-    { _gbtrStatus = pStatus
-    , _gbtrTagSet = mempty
+    { _gbtrsStatus = pStatus
+    , _gbtrsTagSet = mempty
     }
 
 -- | FIXME: Undocumented member.
-gbtrStatus :: Lens' GetBucketTaggingResponse Int
-gbtrStatus = lens _gbtrStatus (\ s a -> s{_gbtrStatus = a});
+gbtrsStatus :: Lens' GetBucketTaggingResponse Int
+gbtrsStatus = lens _gbtrsStatus (\ s a -> s{_gbtrsStatus = a});
 
 -- | FIXME: Undocumented member.
-gbtrTagSet :: Lens' GetBucketTaggingResponse [Tag]
-gbtrTagSet = lens _gbtrTagSet (\ s a -> s{_gbtrTagSet = a});
+gbtrsTagSet :: Lens' GetBucketTaggingResponse [Tag]
+gbtrsTagSet = lens _gbtrsTagSet (\ s a -> s{_gbtrsTagSet = a});

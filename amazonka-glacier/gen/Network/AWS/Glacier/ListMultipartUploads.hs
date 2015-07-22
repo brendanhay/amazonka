@@ -59,19 +59,19 @@ module Network.AWS.Glacier.ListMultipartUploads
     -- ** Request constructor
     , listMultipartUploads
     -- ** Request lenses
-    , lmuMarker
-    , lmuLimit
-    , lmuAccountId
-    , lmuVaultName
+    , lmurqMarker
+    , lmurqLimit
+    , lmurqAccountId
+    , lmurqVaultName
 
     -- * Response
     , ListMultipartUploadsResponse
     -- ** Response constructor
     , listMultipartUploadsResponse
     -- ** Response lenses
-    , lmurUploadsList
-    , lmurMarker
-    , lmurStatus
+    , lmursUploadsList
+    , lmursMarker
+    , lmursStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -86,28 +86,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmuMarker'
+-- * 'lmurqMarker'
 --
--- * 'lmuLimit'
+-- * 'lmurqLimit'
 --
--- * 'lmuAccountId'
+-- * 'lmurqAccountId'
 --
--- * 'lmuVaultName'
+-- * 'lmurqVaultName'
 data ListMultipartUploads = ListMultipartUploads'
-    { _lmuMarker    :: !(Maybe Text)
-    , _lmuLimit     :: !(Maybe Text)
-    , _lmuAccountId :: !Text
-    , _lmuVaultName :: !Text
+    { _lmurqMarker    :: !(Maybe Text)
+    , _lmurqLimit     :: !(Maybe Text)
+    , _lmurqAccountId :: !Text
+    , _lmurqVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploads' smart constructor.
 listMultipartUploads :: Text -> Text -> ListMultipartUploads
 listMultipartUploads pAccountId pVaultName =
     ListMultipartUploads'
-    { _lmuMarker = Nothing
-    , _lmuLimit = Nothing
-    , _lmuAccountId = pAccountId
-    , _lmuVaultName = pVaultName
+    { _lmurqMarker = Nothing
+    , _lmurqLimit = Nothing
+    , _lmurqAccountId = pAccountId
+    , _lmurqVaultName = pVaultName
     }
 
 -- | An opaque string used for pagination. This value specifies the upload at
@@ -115,26 +115,26 @@ listMultipartUploads pAccountId pVaultName =
 -- previous List Uploads response. You need only include the marker if you
 -- are continuing the pagination of results started in a previous List
 -- Uploads request.
-lmuMarker :: Lens' ListMultipartUploads (Maybe Text)
-lmuMarker = lens _lmuMarker (\ s a -> s{_lmuMarker = a});
+lmurqMarker :: Lens' ListMultipartUploads (Maybe Text)
+lmurqMarker = lens _lmurqMarker (\ s a -> s{_lmurqMarker = a});
 
 -- | Specifies the maximum number of uploads returned in the response body.
 -- If this value is not specified, the List Uploads operation returns up to
 -- 1,000 uploads.
-lmuLimit :: Lens' ListMultipartUploads (Maybe Text)
-lmuLimit = lens _lmuLimit (\ s a -> s{_lmuLimit = a});
+lmurqLimit :: Lens' ListMultipartUploads (Maybe Text)
+lmurqLimit = lens _lmurqLimit (\ s a -> s{_lmurqLimit = a});
 
 -- | The @AccountId@ value is the AWS account ID of the account that owns the
 -- vault. You can either specify an AWS account ID or optionally a single
 -- apos@-@apos (hyphen), in which case Amazon Glacier uses the AWS account
 -- ID associated with the credentials used to sign the request. If you use
 -- an account ID, do not include any hyphens (apos-apos) in the ID.
-lmuAccountId :: Lens' ListMultipartUploads Text
-lmuAccountId = lens _lmuAccountId (\ s a -> s{_lmuAccountId = a});
+lmurqAccountId :: Lens' ListMultipartUploads Text
+lmurqAccountId = lens _lmurqAccountId (\ s a -> s{_lmurqAccountId = a});
 
 -- | The name of the vault.
-lmuVaultName :: Lens' ListMultipartUploads Text
-lmuVaultName = lens _lmuVaultName (\ s a -> s{_lmuVaultName = a});
+lmurqVaultName :: Lens' ListMultipartUploads Text
+lmurqVaultName = lens _lmurqVaultName (\ s a -> s{_lmurqVaultName = a});
 
 instance AWSRequest ListMultipartUploads where
         type Sv ListMultipartUploads = Glacier
@@ -154,13 +154,13 @@ instance ToHeaders ListMultipartUploads where
 instance ToPath ListMultipartUploads where
         toPath ListMultipartUploads'{..}
           = mconcat
-              ["/", toText _lmuAccountId, "/vaults/",
-               toText _lmuVaultName, "/multipart-uploads"]
+              ["/", toText _lmurqAccountId, "/vaults/",
+               toText _lmurqVaultName, "/multipart-uploads"]
 
 instance ToQuery ListMultipartUploads where
         toQuery ListMultipartUploads'{..}
           = mconcat
-              ["marker" =: _lmuMarker, "limit" =: _lmuLimit]
+              ["marker" =: _lmurqMarker, "limit" =: _lmurqLimit]
 
 -- | Contains the Amazon Glacier response to your request.
 --
@@ -168,37 +168,37 @@ instance ToQuery ListMultipartUploads where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lmurUploadsList'
+-- * 'lmursUploadsList'
 --
--- * 'lmurMarker'
+-- * 'lmursMarker'
 --
--- * 'lmurStatus'
+-- * 'lmursStatus'
 data ListMultipartUploadsResponse = ListMultipartUploadsResponse'
-    { _lmurUploadsList :: !(Maybe [UploadListElement])
-    , _lmurMarker      :: !(Maybe Text)
-    , _lmurStatus      :: !Int
+    { _lmursUploadsList :: !(Maybe [UploadListElement])
+    , _lmursMarker      :: !(Maybe Text)
+    , _lmursStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListMultipartUploadsResponse' smart constructor.
 listMultipartUploadsResponse :: Int -> ListMultipartUploadsResponse
 listMultipartUploadsResponse pStatus =
     ListMultipartUploadsResponse'
-    { _lmurUploadsList = Nothing
-    , _lmurMarker = Nothing
-    , _lmurStatus = pStatus
+    { _lmursUploadsList = Nothing
+    , _lmursMarker = Nothing
+    , _lmursStatus = pStatus
     }
 
 -- | A list of in-progress multipart uploads.
-lmurUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
-lmurUploadsList = lens _lmurUploadsList (\ s a -> s{_lmurUploadsList = a}) . _Default;
+lmursUploadsList :: Lens' ListMultipartUploadsResponse [UploadListElement]
+lmursUploadsList = lens _lmursUploadsList (\ s a -> s{_lmursUploadsList = a}) . _Default;
 
 -- | An opaque string that represents where to continue pagination of the
 -- results. You use the marker in a new List Multipart Uploads request to
 -- obtain more uploads in the list. If there are no more uploads, this
 -- value is @null@.
-lmurMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
-lmurMarker = lens _lmurMarker (\ s a -> s{_lmurMarker = a});
+lmursMarker :: Lens' ListMultipartUploadsResponse (Maybe Text)
+lmursMarker = lens _lmursMarker (\ s a -> s{_lmursMarker = a});
 
 -- | FIXME: Undocumented member.
-lmurStatus :: Lens' ListMultipartUploadsResponse Int
-lmurStatus = lens _lmurStatus (\ s a -> s{_lmurStatus = a});
+lmursStatus :: Lens' ListMultipartUploadsResponse Int
+lmursStatus = lens _lmursStatus (\ s a -> s{_lmursStatus = a});

@@ -27,15 +27,15 @@ module Network.AWS.DeviceFarm.CreateProject
     -- ** Request constructor
     , createProject
     -- ** Request lenses
-    , cpName
+    , cprqName
 
     -- * Response
     , CreateProjectResponse
     -- ** Response constructor
     , createProjectResponse
     -- ** Response lenses
-    , cprProject
-    , cprStatus
+    , cprsProject
+    , cprsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpName'
+-- * 'cprqName'
 newtype CreateProject = CreateProject'
-    { _cpName :: Text
+    { _cprqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateProject' smart constructor.
 createProject :: Text -> CreateProject
 createProject pName =
     CreateProject'
-    { _cpName = pName
+    { _cprqName = pName
     }
 
 -- | The project\'s name.
-cpName :: Lens' CreateProject Text
-cpName = lens _cpName (\ s a -> s{_cpName = a});
+cprqName :: Lens' CreateProject Text
+cprqName = lens _cprqName (\ s a -> s{_cprqName = a});
 
 instance AWSRequest CreateProject where
         type Sv CreateProject = DeviceFarm
@@ -86,7 +86,7 @@ instance ToHeaders CreateProject where
 
 instance ToJSON CreateProject where
         toJSON CreateProject'{..}
-          = object ["name" .= _cpName]
+          = object ["name" .= _cprqName]
 
 instance ToPath CreateProject where
         toPath = const "/"
@@ -100,26 +100,26 @@ instance ToQuery CreateProject where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprProject'
+-- * 'cprsProject'
 --
--- * 'cprStatus'
+-- * 'cprsStatus'
 data CreateProjectResponse = CreateProjectResponse'
-    { _cprProject :: !(Maybe Project)
-    , _cprStatus  :: !Int
+    { _cprsProject :: !(Maybe Project)
+    , _cprsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateProjectResponse' smart constructor.
 createProjectResponse :: Int -> CreateProjectResponse
 createProjectResponse pStatus =
     CreateProjectResponse'
-    { _cprProject = Nothing
-    , _cprStatus = pStatus
+    { _cprsProject = Nothing
+    , _cprsStatus = pStatus
     }
 
 -- | The newly created project.
-cprProject :: Lens' CreateProjectResponse (Maybe Project)
-cprProject = lens _cprProject (\ s a -> s{_cprProject = a});
+cprsProject :: Lens' CreateProjectResponse (Maybe Project)
+cprsProject = lens _cprsProject (\ s a -> s{_cprsProject = a});
 
 -- | FIXME: Undocumented member.
-cprStatus :: Lens' CreateProjectResponse Int
-cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});
+cprsStatus :: Lens' CreateProjectResponse Int
+cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

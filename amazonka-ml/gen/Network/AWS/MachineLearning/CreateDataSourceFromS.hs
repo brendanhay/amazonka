@@ -60,18 +60,18 @@ module Network.AWS.MachineLearning.CreateDataSourceFromS
     -- ** Request constructor
     , createDataSourceFromS
     -- ** Request lenses
-    , cdsfsDataSourceName
-    , cdsfsComputeStatistics
-    , cdsfsDataSourceId
-    , cdsfsDataSpec
+    , cdsfsrqDataSourceName
+    , cdsfsrqComputeStatistics
+    , cdsfsrqDataSourceId
+    , cdsfsrqDataSpec
 
     -- * Response
     , CreateDataSourceFromSResponse
     -- ** Response constructor
     , createDataSourceFromSResponse
     -- ** Response lenses
-    , cdsfsrDataSourceId
-    , cdsfsrStatus
+    , cdsfsrsDataSourceId
+    , cdsfsrsStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -83,45 +83,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdsfsDataSourceName'
+-- * 'cdsfsrqDataSourceName'
 --
--- * 'cdsfsComputeStatistics'
+-- * 'cdsfsrqComputeStatistics'
 --
--- * 'cdsfsDataSourceId'
+-- * 'cdsfsrqDataSourceId'
 --
--- * 'cdsfsDataSpec'
+-- * 'cdsfsrqDataSpec'
 data CreateDataSourceFromS = CreateDataSourceFromS'
-    { _cdsfsDataSourceName    :: !(Maybe Text)
-    , _cdsfsComputeStatistics :: !(Maybe Bool)
-    , _cdsfsDataSourceId      :: !Text
-    , _cdsfsDataSpec          :: !S3DataSpec
+    { _cdsfsrqDataSourceName    :: !(Maybe Text)
+    , _cdsfsrqComputeStatistics :: !(Maybe Bool)
+    , _cdsfsrqDataSourceId      :: !Text
+    , _cdsfsrqDataSpec          :: !S3DataSpec
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromS' smart constructor.
 createDataSourceFromS :: Text -> S3DataSpec -> CreateDataSourceFromS
 createDataSourceFromS pDataSourceId pDataSpec =
     CreateDataSourceFromS'
-    { _cdsfsDataSourceName = Nothing
-    , _cdsfsComputeStatistics = Nothing
-    , _cdsfsDataSourceId = pDataSourceId
-    , _cdsfsDataSpec = pDataSpec
+    { _cdsfsrqDataSourceName = Nothing
+    , _cdsfsrqComputeStatistics = Nothing
+    , _cdsfsrqDataSourceId = pDataSourceId
+    , _cdsfsrqDataSpec = pDataSpec
     }
 
 -- | A user-supplied name or description of the @DataSource@.
-cdsfsDataSourceName :: Lens' CreateDataSourceFromS (Maybe Text)
-cdsfsDataSourceName = lens _cdsfsDataSourceName (\ s a -> s{_cdsfsDataSourceName = a});
+cdsfsrqDataSourceName :: Lens' CreateDataSourceFromS (Maybe Text)
+cdsfsrqDataSourceName = lens _cdsfsrqDataSourceName (\ s a -> s{_cdsfsrqDataSourceName = a});
 
 -- | The compute statistics for a @DataSource@. The statistics are generated
 -- from the observation data referenced by a @DataSource@. Amazon ML uses
 -- the statistics internally during an @MLModel@ training. This parameter
 -- must be set to @true@ if the @@DataSource@@ needs to be used for
 -- @MLModel@ training
-cdsfsComputeStatistics :: Lens' CreateDataSourceFromS (Maybe Bool)
-cdsfsComputeStatistics = lens _cdsfsComputeStatistics (\ s a -> s{_cdsfsComputeStatistics = a});
+cdsfsrqComputeStatistics :: Lens' CreateDataSourceFromS (Maybe Bool)
+cdsfsrqComputeStatistics = lens _cdsfsrqComputeStatistics (\ s a -> s{_cdsfsrqComputeStatistics = a});
 
 -- | A user-supplied identifier that uniquely identifies the @DataSource@.
-cdsfsDataSourceId :: Lens' CreateDataSourceFromS Text
-cdsfsDataSourceId = lens _cdsfsDataSourceId (\ s a -> s{_cdsfsDataSourceId = a});
+cdsfsrqDataSourceId :: Lens' CreateDataSourceFromS Text
+cdsfsrqDataSourceId = lens _cdsfsrqDataSourceId (\ s a -> s{_cdsfsrqDataSourceId = a});
 
 -- | The data specification of a @DataSource@:
 --
@@ -139,8 +139,8 @@ cdsfsDataSourceId = lens _cdsfsDataSourceId (\ s a -> s{_cdsfsDataSourceId = a})
 --     Sample -
 --     @ \"{\\\"randomSeed\\\":\\\"some-random-seed\\\", \\\"splitting\\\":{\\\"percentBegin\\\":10,\\\"percentEnd\\\":60}}\"@
 --
-cdsfsDataSpec :: Lens' CreateDataSourceFromS S3DataSpec
-cdsfsDataSpec = lens _cdsfsDataSpec (\ s a -> s{_cdsfsDataSpec = a});
+cdsfsrqDataSpec :: Lens' CreateDataSourceFromS S3DataSpec
+cdsfsrqDataSpec = lens _cdsfsrqDataSpec (\ s a -> s{_cdsfsrqDataSpec = a});
 
 instance AWSRequest CreateDataSourceFromS where
         type Sv CreateDataSourceFromS = MachineLearning
@@ -166,10 +166,10 @@ instance ToHeaders CreateDataSourceFromS where
 instance ToJSON CreateDataSourceFromS where
         toJSON CreateDataSourceFromS'{..}
           = object
-              ["DataSourceName" .= _cdsfsDataSourceName,
-               "ComputeStatistics" .= _cdsfsComputeStatistics,
-               "DataSourceId" .= _cdsfsDataSourceId,
-               "DataSpec" .= _cdsfsDataSpec]
+              ["DataSourceName" .= _cdsfsrqDataSourceName,
+               "ComputeStatistics" .= _cdsfsrqComputeStatistics,
+               "DataSourceId" .= _cdsfsrqDataSourceId,
+               "DataSpec" .= _cdsfsrqDataSpec]
 
 instance ToPath CreateDataSourceFromS where
         toPath = const "/"
@@ -188,27 +188,27 @@ instance ToQuery CreateDataSourceFromS where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdsfsrDataSourceId'
+-- * 'cdsfsrsDataSourceId'
 --
--- * 'cdsfsrStatus'
+-- * 'cdsfsrsStatus'
 data CreateDataSourceFromSResponse = CreateDataSourceFromSResponse'
-    { _cdsfsrDataSourceId :: !(Maybe Text)
-    , _cdsfsrStatus       :: !Int
+    { _cdsfsrsDataSourceId :: !(Maybe Text)
+    , _cdsfsrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDataSourceFromSResponse' smart constructor.
 createDataSourceFromSResponse :: Int -> CreateDataSourceFromSResponse
 createDataSourceFromSResponse pStatus =
     CreateDataSourceFromSResponse'
-    { _cdsfsrDataSourceId = Nothing
-    , _cdsfsrStatus = pStatus
+    { _cdsfsrsDataSourceId = Nothing
+    , _cdsfsrsStatus = pStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the datasource. This value
 -- should be identical to the value of the @DataSourceID@ in the request.
-cdsfsrDataSourceId :: Lens' CreateDataSourceFromSResponse (Maybe Text)
-cdsfsrDataSourceId = lens _cdsfsrDataSourceId (\ s a -> s{_cdsfsrDataSourceId = a});
+cdsfsrsDataSourceId :: Lens' CreateDataSourceFromSResponse (Maybe Text)
+cdsfsrsDataSourceId = lens _cdsfsrsDataSourceId (\ s a -> s{_cdsfsrsDataSourceId = a});
 
 -- | FIXME: Undocumented member.
-cdsfsrStatus :: Lens' CreateDataSourceFromSResponse Int
-cdsfsrStatus = lens _cdsfsrStatus (\ s a -> s{_cdsfsrStatus = a});
+cdsfsrsStatus :: Lens' CreateDataSourceFromSResponse Int
+cdsfsrsStatus = lens _cdsfsrsStatus (\ s a -> s{_cdsfsrsStatus = a});

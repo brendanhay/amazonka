@@ -46,18 +46,18 @@ module Network.AWS.StorageGateway.CreateSnapshotFromVolumeRecoveryPoint
     -- ** Request constructor
     , createSnapshotFromVolumeRecoveryPoint
     -- ** Request lenses
-    , csfvrpVolumeARN
-    , csfvrpSnapshotDescription
+    , csfvrprqVolumeARN
+    , csfvrprqSnapshotDescription
 
     -- * Response
     , CreateSnapshotFromVolumeRecoveryPointResponse
     -- ** Response constructor
     , createSnapshotFromVolumeRecoveryPointResponse
     -- ** Response lenses
-    , csfvrprVolumeRecoveryPointTime
-    , csfvrprVolumeARN
-    , csfvrprSnapshotId
-    , csfvrprStatus
+    , csfvrprsVolumeRecoveryPointTime
+    , csfvrprsVolumeARN
+    , csfvrprsSnapshotId
+    , csfvrprsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -69,29 +69,29 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csfvrpVolumeARN'
+-- * 'csfvrprqVolumeARN'
 --
--- * 'csfvrpSnapshotDescription'
+-- * 'csfvrprqSnapshotDescription'
 data CreateSnapshotFromVolumeRecoveryPoint = CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrpVolumeARN           :: !Text
-    , _csfvrpSnapshotDescription :: !Text
+    { _csfvrprqVolumeARN           :: !Text
+    , _csfvrprqSnapshotDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPoint' smart constructor.
 createSnapshotFromVolumeRecoveryPoint :: Text -> Text -> CreateSnapshotFromVolumeRecoveryPoint
 createSnapshotFromVolumeRecoveryPoint pVolumeARN pSnapshotDescription =
     CreateSnapshotFromVolumeRecoveryPoint'
-    { _csfvrpVolumeARN = pVolumeARN
-    , _csfvrpSnapshotDescription = pSnapshotDescription
+    { _csfvrprqVolumeARN = pVolumeARN
+    , _csfvrprqSnapshotDescription = pSnapshotDescription
     }
 
 -- | FIXME: Undocumented member.
-csfvrpVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
-csfvrpVolumeARN = lens _csfvrpVolumeARN (\ s a -> s{_csfvrpVolumeARN = a});
+csfvrprqVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
+csfvrprqVolumeARN = lens _csfvrprqVolumeARN (\ s a -> s{_csfvrprqVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-csfvrpSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
-csfvrpSnapshotDescription = lens _csfvrpSnapshotDescription (\ s a -> s{_csfvrpSnapshotDescription = a});
+csfvrprqSnapshotDescription :: Lens' CreateSnapshotFromVolumeRecoveryPoint Text
+csfvrprqSnapshotDescription = lens _csfvrprqSnapshotDescription (\ s a -> s{_csfvrprqSnapshotDescription = a});
 
 instance AWSRequest
          CreateSnapshotFromVolumeRecoveryPoint where
@@ -124,8 +124,9 @@ instance ToJSON CreateSnapshotFromVolumeRecoveryPoint
          where
         toJSON CreateSnapshotFromVolumeRecoveryPoint'{..}
           = object
-              ["VolumeARN" .= _csfvrpVolumeARN,
-               "SnapshotDescription" .= _csfvrpSnapshotDescription]
+              ["VolumeARN" .= _csfvrprqVolumeARN,
+               "SnapshotDescription" .=
+                 _csfvrprqSnapshotDescription]
 
 instance ToPath CreateSnapshotFromVolumeRecoveryPoint
          where
@@ -139,42 +140,42 @@ instance ToQuery
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csfvrprVolumeRecoveryPointTime'
+-- * 'csfvrprsVolumeRecoveryPointTime'
 --
--- * 'csfvrprVolumeARN'
+-- * 'csfvrprsVolumeARN'
 --
--- * 'csfvrprSnapshotId'
+-- * 'csfvrprsSnapshotId'
 --
--- * 'csfvrprStatus'
+-- * 'csfvrprsStatus'
 data CreateSnapshotFromVolumeRecoveryPointResponse = CreateSnapshotFromVolumeRecoveryPointResponse'
-    { _csfvrprVolumeRecoveryPointTime :: !(Maybe Text)
-    , _csfvrprVolumeARN               :: !(Maybe Text)
-    , _csfvrprSnapshotId              :: !(Maybe Text)
-    , _csfvrprStatus                  :: !Int
+    { _csfvrprsVolumeRecoveryPointTime :: !(Maybe Text)
+    , _csfvrprsVolumeARN               :: !(Maybe Text)
+    , _csfvrprsSnapshotId              :: !(Maybe Text)
+    , _csfvrprsStatus                  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotFromVolumeRecoveryPointResponse' smart constructor.
 createSnapshotFromVolumeRecoveryPointResponse :: Int -> CreateSnapshotFromVolumeRecoveryPointResponse
 createSnapshotFromVolumeRecoveryPointResponse pStatus =
     CreateSnapshotFromVolumeRecoveryPointResponse'
-    { _csfvrprVolumeRecoveryPointTime = Nothing
-    , _csfvrprVolumeARN = Nothing
-    , _csfvrprSnapshotId = Nothing
-    , _csfvrprStatus = pStatus
+    { _csfvrprsVolumeRecoveryPointTime = Nothing
+    , _csfvrprsVolumeARN = Nothing
+    , _csfvrprsSnapshotId = Nothing
+    , _csfvrprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-csfvrprVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprVolumeRecoveryPointTime = lens _csfvrprVolumeRecoveryPointTime (\ s a -> s{_csfvrprVolumeRecoveryPointTime = a});
+csfvrprsVolumeRecoveryPointTime :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprsVolumeRecoveryPointTime = lens _csfvrprsVolumeRecoveryPointTime (\ s a -> s{_csfvrprsVolumeRecoveryPointTime = a});
 
 -- | FIXME: Undocumented member.
-csfvrprVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprVolumeARN = lens _csfvrprVolumeARN (\ s a -> s{_csfvrprVolumeARN = a});
+csfvrprsVolumeARN :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprsVolumeARN = lens _csfvrprsVolumeARN (\ s a -> s{_csfvrprsVolumeARN = a});
 
 -- | FIXME: Undocumented member.
-csfvrprSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
-csfvrprSnapshotId = lens _csfvrprSnapshotId (\ s a -> s{_csfvrprSnapshotId = a});
+csfvrprsSnapshotId :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse (Maybe Text)
+csfvrprsSnapshotId = lens _csfvrprsSnapshotId (\ s a -> s{_csfvrprsSnapshotId = a});
 
 -- | FIXME: Undocumented member.
-csfvrprStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
-csfvrprStatus = lens _csfvrprStatus (\ s a -> s{_csfvrprStatus = a});
+csfvrprsStatus :: Lens' CreateSnapshotFromVolumeRecoveryPointResponse Int
+csfvrprsStatus = lens _csfvrprsStatus (\ s a -> s{_csfvrprsStatus = a});

@@ -39,16 +39,16 @@ module Network.AWS.SES.SetIdentityNotificationTopic
     -- ** Request constructor
     , setIdentityNotificationTopic
     -- ** Request lenses
-    , sintSNSTopic
-    , sintIdentity
-    , sintNotificationType
+    , sintrqSNSTopic
+    , sintrqIdentity
+    , sintrqNotificationType
 
     -- * Response
     , SetIdentityNotificationTopicResponse
     -- ** Response constructor
     , setIdentityNotificationTopicResponse
     -- ** Response lenses
-    , sintrStatus
+    , sintrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -62,43 +62,43 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sintSNSTopic'
+-- * 'sintrqSNSTopic'
 --
--- * 'sintIdentity'
+-- * 'sintrqIdentity'
 --
--- * 'sintNotificationType'
+-- * 'sintrqNotificationType'
 data SetIdentityNotificationTopic = SetIdentityNotificationTopic'
-    { _sintSNSTopic         :: !(Maybe Text)
-    , _sintIdentity         :: !Text
-    , _sintNotificationType :: !NotificationType
+    { _sintrqSNSTopic         :: !(Maybe Text)
+    , _sintrqIdentity         :: !Text
+    , _sintrqNotificationType :: !NotificationType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityNotificationTopic' smart constructor.
 setIdentityNotificationTopic :: Text -> NotificationType -> SetIdentityNotificationTopic
 setIdentityNotificationTopic pIdentity pNotificationType =
     SetIdentityNotificationTopic'
-    { _sintSNSTopic = Nothing
-    , _sintIdentity = pIdentity
-    , _sintNotificationType = pNotificationType
+    { _sintrqSNSTopic = Nothing
+    , _sintrqIdentity = pIdentity
+    , _sintrqNotificationType = pNotificationType
     }
 
 -- | The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter
 -- is omitted from the request or a null value is passed, @SnsTopic@ is
 -- cleared and publishing is disabled.
-sintSNSTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
-sintSNSTopic = lens _sintSNSTopic (\ s a -> s{_sintSNSTopic = a});
+sintrqSNSTopic :: Lens' SetIdentityNotificationTopic (Maybe Text)
+sintrqSNSTopic = lens _sintrqSNSTopic (\ s a -> s{_sintrqSNSTopic = a});
 
 -- | The identity for which the Amazon SNS topic will be set. You can specify
 -- an identity by using its name or by using its Amazon Resource Name
 -- (ARN). Examples: @user\@example.com@, @example.com@,
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
-sintIdentity :: Lens' SetIdentityNotificationTopic Text
-sintIdentity = lens _sintIdentity (\ s a -> s{_sintIdentity = a});
+sintrqIdentity :: Lens' SetIdentityNotificationTopic Text
+sintrqIdentity = lens _sintrqIdentity (\ s a -> s{_sintrqIdentity = a});
 
 -- | The type of notifications that will be published to the specified Amazon
 -- SNS topic.
-sintNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
-sintNotificationType = lens _sintNotificationType (\ s a -> s{_sintNotificationType = a});
+sintrqNotificationType :: Lens' SetIdentityNotificationTopic NotificationType
+sintrqNotificationType = lens _sintrqNotificationType (\ s a -> s{_sintrqNotificationType = a});
 
 instance AWSRequest SetIdentityNotificationTopic
          where
@@ -125,9 +125,9 @@ instance ToQuery SetIdentityNotificationTopic where
               ["Action" =:
                  ("SetIdentityNotificationTopic" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "SnsTopic" =: _sintSNSTopic,
-               "Identity" =: _sintIdentity,
-               "NotificationType" =: _sintNotificationType]
+               "SnsTopic" =: _sintrqSNSTopic,
+               "Identity" =: _sintrqIdentity,
+               "NotificationType" =: _sintrqNotificationType]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
@@ -136,18 +136,18 @@ instance ToQuery SetIdentityNotificationTopic where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sintrStatus'
+-- * 'sintrsStatus'
 newtype SetIdentityNotificationTopicResponse = SetIdentityNotificationTopicResponse'
-    { _sintrStatus :: Int
+    { _sintrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetIdentityNotificationTopicResponse' smart constructor.
 setIdentityNotificationTopicResponse :: Int -> SetIdentityNotificationTopicResponse
 setIdentityNotificationTopicResponse pStatus =
     SetIdentityNotificationTopicResponse'
-    { _sintrStatus = pStatus
+    { _sintrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-sintrStatus :: Lens' SetIdentityNotificationTopicResponse Int
-sintrStatus = lens _sintrStatus (\ s a -> s{_sintrStatus = a});
+sintrsStatus :: Lens' SetIdentityNotificationTopicResponse Int
+sintrsStatus = lens _sintrsStatus (\ s a -> s{_sintrsStatus = a});

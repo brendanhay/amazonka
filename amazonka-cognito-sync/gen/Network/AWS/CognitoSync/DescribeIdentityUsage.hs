@@ -31,16 +31,16 @@ module Network.AWS.CognitoSync.DescribeIdentityUsage
     -- ** Request constructor
     , describeIdentityUsage
     -- ** Request lenses
-    , diuIdentityPoolId
-    , diuIdentityId
+    , diurqIdentityPoolId
+    , diurqIdentityId
 
     -- * Response
     , DescribeIdentityUsageResponse
     -- ** Response constructor
     , describeIdentityUsageResponse
     -- ** Response lenses
-    , diurIdentityUsage
-    , diurStatus
+    , diursIdentityUsage
+    , diursStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -54,33 +54,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diuIdentityPoolId'
+-- * 'diurqIdentityPoolId'
 --
--- * 'diuIdentityId'
+-- * 'diurqIdentityId'
 data DescribeIdentityUsage = DescribeIdentityUsage'
-    { _diuIdentityPoolId :: !Text
-    , _diuIdentityId     :: !Text
+    { _diurqIdentityPoolId :: !Text
+    , _diurqIdentityId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityUsage' smart constructor.
 describeIdentityUsage :: Text -> Text -> DescribeIdentityUsage
 describeIdentityUsage pIdentityPoolId pIdentityId =
     DescribeIdentityUsage'
-    { _diuIdentityPoolId = pIdentityPoolId
-    , _diuIdentityId = pIdentityId
+    { _diurqIdentityPoolId = pIdentityPoolId
+    , _diurqIdentityId = pIdentityId
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-diuIdentityPoolId :: Lens' DescribeIdentityUsage Text
-diuIdentityPoolId = lens _diuIdentityPoolId (\ s a -> s{_diuIdentityPoolId = a});
+diurqIdentityPoolId :: Lens' DescribeIdentityUsage Text
+diurqIdentityPoolId = lens _diurqIdentityPoolId (\ s a -> s{_diurqIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-diuIdentityId :: Lens' DescribeIdentityUsage Text
-diuIdentityId = lens _diuIdentityId (\ s a -> s{_diuIdentityId = a});
+diurqIdentityId :: Lens' DescribeIdentityUsage Text
+diurqIdentityId = lens _diurqIdentityId (\ s a -> s{_diurqIdentityId = a});
 
 instance AWSRequest DescribeIdentityUsage where
         type Sv DescribeIdentityUsage = CognitoSync
@@ -103,8 +103,8 @@ instance ToHeaders DescribeIdentityUsage where
 instance ToPath DescribeIdentityUsage where
         toPath DescribeIdentityUsage'{..}
           = mconcat
-              ["/identitypools/", toText _diuIdentityPoolId,
-               "/identities/", toText _diuIdentityId]
+              ["/identitypools/", toText _diurqIdentityPoolId,
+               "/identities/", toText _diurqIdentityId]
 
 instance ToQuery DescribeIdentityUsage where
         toQuery = const mempty
@@ -115,26 +115,26 @@ instance ToQuery DescribeIdentityUsage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diurIdentityUsage'
+-- * 'diursIdentityUsage'
 --
--- * 'diurStatus'
+-- * 'diursStatus'
 data DescribeIdentityUsageResponse = DescribeIdentityUsageResponse'
-    { _diurIdentityUsage :: !(Maybe IdentityUsage)
-    , _diurStatus        :: !Int
+    { _diursIdentityUsage :: !(Maybe IdentityUsage)
+    , _diursStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeIdentityUsageResponse' smart constructor.
 describeIdentityUsageResponse :: Int -> DescribeIdentityUsageResponse
 describeIdentityUsageResponse pStatus =
     DescribeIdentityUsageResponse'
-    { _diurIdentityUsage = Nothing
-    , _diurStatus = pStatus
+    { _diursIdentityUsage = Nothing
+    , _diursStatus = pStatus
     }
 
 -- | Usage information for the identity.
-diurIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
-diurIdentityUsage = lens _diurIdentityUsage (\ s a -> s{_diurIdentityUsage = a});
+diursIdentityUsage :: Lens' DescribeIdentityUsageResponse (Maybe IdentityUsage)
+diursIdentityUsage = lens _diursIdentityUsage (\ s a -> s{_diursIdentityUsage = a});
 
 -- | FIXME: Undocumented member.
-diurStatus :: Lens' DescribeIdentityUsageResponse Int
-diurStatus = lens _diurStatus (\ s a -> s{_diurStatus = a});
+diursStatus :: Lens' DescribeIdentityUsageResponse Int
+diursStatus = lens _diursStatus (\ s a -> s{_diursStatus = a});

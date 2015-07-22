@@ -46,15 +46,15 @@ module Network.AWS.DynamoDB.DeleteTable
     -- ** Request constructor
     , deleteTable
     -- ** Request lenses
-    , dtTableName
+    , dtrqTableName
 
     -- * Response
     , DeleteTableResponse
     -- ** Response constructor
     , deleteTableResponse
     -- ** Response lenses
-    , dtrTableDescription
-    , dtrStatus
+    , dtrsTableDescription
+    , dtrsStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -68,21 +68,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtTableName'
+-- * 'dtrqTableName'
 newtype DeleteTable = DeleteTable'
-    { _dtTableName :: Text
+    { _dtrqTableName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTable' smart constructor.
 deleteTable :: Text -> DeleteTable
 deleteTable pTableName =
     DeleteTable'
-    { _dtTableName = pTableName
+    { _dtrqTableName = pTableName
     }
 
 -- | The name of the table to delete.
-dtTableName :: Lens' DeleteTable Text
-dtTableName = lens _dtTableName (\ s a -> s{_dtTableName = a});
+dtrqTableName :: Lens' DeleteTable Text
+dtrqTableName = lens _dtrqTableName (\ s a -> s{_dtrqTableName = a});
 
 instance AWSRequest DeleteTable where
         type Sv DeleteTable = DynamoDB
@@ -105,7 +105,7 @@ instance ToHeaders DeleteTable where
 
 instance ToJSON DeleteTable where
         toJSON DeleteTable'{..}
-          = object ["TableName" .= _dtTableName]
+          = object ["TableName" .= _dtrqTableName]
 
 instance ToPath DeleteTable where
         toPath = const "/"
@@ -119,26 +119,26 @@ instance ToQuery DeleteTable where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrTableDescription'
+-- * 'dtrsTableDescription'
 --
--- * 'dtrStatus'
+-- * 'dtrsStatus'
 data DeleteTableResponse = DeleteTableResponse'
-    { _dtrTableDescription :: !(Maybe TableDescription)
-    , _dtrStatus           :: !Int
+    { _dtrsTableDescription :: !(Maybe TableDescription)
+    , _dtrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTableResponse' smart constructor.
 deleteTableResponse :: Int -> DeleteTableResponse
 deleteTableResponse pStatus =
     DeleteTableResponse'
-    { _dtrTableDescription = Nothing
-    , _dtrStatus = pStatus
+    { _dtrsTableDescription = Nothing
+    , _dtrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dtrTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
-dtrTableDescription = lens _dtrTableDescription (\ s a -> s{_dtrTableDescription = a});
+dtrsTableDescription :: Lens' DeleteTableResponse (Maybe TableDescription)
+dtrsTableDescription = lens _dtrsTableDescription (\ s a -> s{_dtrsTableDescription = a});
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DeleteTableResponse Int
-dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
+dtrsStatus :: Lens' DeleteTableResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

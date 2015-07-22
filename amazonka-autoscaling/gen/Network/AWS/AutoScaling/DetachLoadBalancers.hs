@@ -33,15 +33,15 @@ module Network.AWS.AutoScaling.DetachLoadBalancers
     -- ** Request constructor
     , detachLoadBalancers
     -- ** Request lenses
-    , detAutoScalingGroupName
-    , detLoadBalancerNames
+    , drqAutoScalingGroupName
+    , drqLoadBalancerNames
 
     -- * Response
     , DetachLoadBalancersResponse
     -- ** Response constructor
     , detachLoadBalancersResponse
     -- ** Response lenses
-    , detStatus
+    , drsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -53,29 +53,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detAutoScalingGroupName'
+-- * 'drqAutoScalingGroupName'
 --
--- * 'detLoadBalancerNames'
+-- * 'drqLoadBalancerNames'
 data DetachLoadBalancers = DetachLoadBalancers'
-    { _detAutoScalingGroupName :: !(Maybe Text)
-    , _detLoadBalancerNames    :: !(Maybe [Text])
+    { _drqAutoScalingGroupName :: !(Maybe Text)
+    , _drqLoadBalancerNames    :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancers' smart constructor.
 detachLoadBalancers :: DetachLoadBalancers
 detachLoadBalancers =
     DetachLoadBalancers'
-    { _detAutoScalingGroupName = Nothing
-    , _detLoadBalancerNames = Nothing
+    { _drqAutoScalingGroupName = Nothing
+    , _drqLoadBalancerNames = Nothing
     }
 
 -- | The name of the group.
-detAutoScalingGroupName :: Lens' DetachLoadBalancers (Maybe Text)
-detAutoScalingGroupName = lens _detAutoScalingGroupName (\ s a -> s{_detAutoScalingGroupName = a});
+drqAutoScalingGroupName :: Lens' DetachLoadBalancers (Maybe Text)
+drqAutoScalingGroupName = lens _drqAutoScalingGroupName (\ s a -> s{_drqAutoScalingGroupName = a});
 
 -- | One or more load balancer names.
-detLoadBalancerNames :: Lens' DetachLoadBalancers [Text]
-detLoadBalancerNames = lens _detLoadBalancerNames (\ s a -> s{_detLoadBalancerNames = a}) . _Default;
+drqLoadBalancerNames :: Lens' DetachLoadBalancers [Text]
+drqLoadBalancerNames = lens _drqLoadBalancerNames (\ s a -> s{_drqLoadBalancerNames = a}) . _Default;
 
 instance AWSRequest DetachLoadBalancers where
         type Sv DetachLoadBalancers = AutoScaling
@@ -98,27 +98,27 @@ instance ToQuery DetachLoadBalancers where
           = mconcat
               ["Action" =: ("DetachLoadBalancers" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "AutoScalingGroupName" =: _detAutoScalingGroupName,
+               "AutoScalingGroupName" =: _drqAutoScalingGroupName,
                "LoadBalancerNames" =:
                  toQuery
-                   (toQueryList "member" <$> _detLoadBalancerNames)]
+                   (toQueryList "member" <$> _drqLoadBalancerNames)]
 
 -- | /See:/ 'detachLoadBalancersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'detStatus'
+-- * 'drsStatus'
 newtype DetachLoadBalancersResponse = DetachLoadBalancersResponse'
-    { _detStatus :: Int
+    { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachLoadBalancersResponse' smart constructor.
 detachLoadBalancersResponse :: Int -> DetachLoadBalancersResponse
 detachLoadBalancersResponse pStatus =
     DetachLoadBalancersResponse'
-    { _detStatus = pStatus
+    { _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-detStatus :: Lens' DetachLoadBalancersResponse Int
-detStatus = lens _detStatus (\ s a -> s{_detStatus = a});
+drsStatus :: Lens' DetachLoadBalancersResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

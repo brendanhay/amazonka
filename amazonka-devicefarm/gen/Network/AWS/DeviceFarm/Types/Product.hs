@@ -28,50 +28,50 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'artArn'
+-- * 'aArn'
 --
--- * 'artUrl'
+-- * 'aUrl'
 --
--- * 'artExtension'
+-- * 'aExtension'
 --
--- * 'artName'
+-- * 'aName'
 --
--- * 'artType'
+-- * 'aType'
 data Artifact = Artifact'
-    { _artArn       :: !(Maybe Text)
-    , _artUrl       :: !(Maybe Text)
-    , _artExtension :: !(Maybe Text)
-    , _artName      :: !(Maybe Text)
-    , _artType      :: !(Maybe ArtifactType)
+    { _aArn       :: !(Maybe Text)
+    , _aUrl       :: !(Maybe Text)
+    , _aExtension :: !(Maybe Text)
+    , _aName      :: !(Maybe Text)
+    , _aType      :: !(Maybe ArtifactType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Artifact' smart constructor.
 artifact :: Artifact
 artifact =
     Artifact'
-    { _artArn = Nothing
-    , _artUrl = Nothing
-    , _artExtension = Nothing
-    , _artName = Nothing
-    , _artType = Nothing
+    { _aArn = Nothing
+    , _aUrl = Nothing
+    , _aExtension = Nothing
+    , _aName = Nothing
+    , _aType = Nothing
     }
 
 -- | The artifact\'s ARN.
-artArn :: Lens' Artifact (Maybe Text)
-artArn = lens _artArn (\ s a -> s{_artArn = a});
+aArn :: Lens' Artifact (Maybe Text)
+aArn = lens _aArn (\ s a -> s{_aArn = a});
 
 -- | The pre-signed Amazon S3 URL that can be used with a corresponding GET
 -- request to download the artifact\'s file.
-artUrl :: Lens' Artifact (Maybe Text)
-artUrl = lens _artUrl (\ s a -> s{_artUrl = a});
+aUrl :: Lens' Artifact (Maybe Text)
+aUrl = lens _aUrl (\ s a -> s{_aUrl = a});
 
 -- | The artifact\'s file extension.
-artExtension :: Lens' Artifact (Maybe Text)
-artExtension = lens _artExtension (\ s a -> s{_artExtension = a});
+aExtension :: Lens' Artifact (Maybe Text)
+aExtension = lens _aExtension (\ s a -> s{_aExtension = a});
 
 -- | The artifact\'s name.
-artName :: Lens' Artifact (Maybe Text)
-artName = lens _artName (\ s a -> s{_artName = a});
+aName :: Lens' Artifact (Maybe Text)
+aName = lens _aName (\ s a -> s{_aName = a});
 
 -- | The artifact\'s type.
 --
@@ -110,8 +110,8 @@ artName = lens _artName (\ s a -> s{_artName = a});
 --
 -- -   UNKNOWN: An unknown type.
 --
-artType :: Lens' Artifact (Maybe ArtifactType)
-artType = lens _artType (\ s a -> s{_artType = a});
+aType :: Lens' Artifact (Maybe ArtifactType)
+aType = lens _aType (\ s a -> s{_aType = a});
 
 instance FromJSON Artifact where
         parseJSON
@@ -178,69 +178,69 @@ instance FromJSON CPU where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'couPassed'
+-- * 'cPassed'
 --
--- * 'couSkipped'
+-- * 'cSkipped'
 --
--- * 'couWarned'
+-- * 'cWarned'
 --
--- * 'couStopped'
+-- * 'cStopped'
 --
--- * 'couTotal'
+-- * 'cTotal'
 --
--- * 'couFailed'
+-- * 'cFailed'
 --
--- * 'couErrored'
+-- * 'cErrored'
 data Counters = Counters'
-    { _couPassed  :: !(Maybe Int)
-    , _couSkipped :: !(Maybe Int)
-    , _couWarned  :: !(Maybe Int)
-    , _couStopped :: !(Maybe Int)
-    , _couTotal   :: !(Maybe Int)
-    , _couFailed  :: !(Maybe Int)
-    , _couErrored :: !(Maybe Int)
+    { _cPassed  :: !(Maybe Int)
+    , _cSkipped :: !(Maybe Int)
+    , _cWarned  :: !(Maybe Int)
+    , _cStopped :: !(Maybe Int)
+    , _cTotal   :: !(Maybe Int)
+    , _cFailed  :: !(Maybe Int)
+    , _cErrored :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Counters' smart constructor.
 counters :: Counters
 counters =
     Counters'
-    { _couPassed = Nothing
-    , _couSkipped = Nothing
-    , _couWarned = Nothing
-    , _couStopped = Nothing
-    , _couTotal = Nothing
-    , _couFailed = Nothing
-    , _couErrored = Nothing
+    { _cPassed = Nothing
+    , _cSkipped = Nothing
+    , _cWarned = Nothing
+    , _cStopped = Nothing
+    , _cTotal = Nothing
+    , _cFailed = Nothing
+    , _cErrored = Nothing
     }
 
 -- | The number of passed entities.
-couPassed :: Lens' Counters (Maybe Int)
-couPassed = lens _couPassed (\ s a -> s{_couPassed = a});
+cPassed :: Lens' Counters (Maybe Int)
+cPassed = lens _cPassed (\ s a -> s{_cPassed = a});
 
 -- | The number of skipped entities.
-couSkipped :: Lens' Counters (Maybe Int)
-couSkipped = lens _couSkipped (\ s a -> s{_couSkipped = a});
+cSkipped :: Lens' Counters (Maybe Int)
+cSkipped = lens _cSkipped (\ s a -> s{_cSkipped = a});
 
 -- | The number of warned entities.
-couWarned :: Lens' Counters (Maybe Int)
-couWarned = lens _couWarned (\ s a -> s{_couWarned = a});
+cWarned :: Lens' Counters (Maybe Int)
+cWarned = lens _cWarned (\ s a -> s{_cWarned = a});
 
 -- | The number of stopped entities.
-couStopped :: Lens' Counters (Maybe Int)
-couStopped = lens _couStopped (\ s a -> s{_couStopped = a});
+cStopped :: Lens' Counters (Maybe Int)
+cStopped = lens _cStopped (\ s a -> s{_cStopped = a});
 
 -- | The total number of entities.
-couTotal :: Lens' Counters (Maybe Int)
-couTotal = lens _couTotal (\ s a -> s{_couTotal = a});
+cTotal :: Lens' Counters (Maybe Int)
+cTotal = lens _cTotal (\ s a -> s{_cTotal = a});
 
 -- | The number of failed entities.
-couFailed :: Lens' Counters (Maybe Int)
-couFailed = lens _couFailed (\ s a -> s{_couFailed = a});
+cFailed :: Lens' Counters (Maybe Int)
+cFailed = lens _cFailed (\ s a -> s{_cFailed = a});
 
 -- | The number of errored entities.
-couErrored :: Lens' Counters (Maybe Int)
-couErrored = lens _couErrored (\ s a -> s{_couErrored = a});
+cErrored :: Lens' Counters (Maybe Int)
+cErrored = lens _cErrored (\ s a -> s{_cErrored = a});
 
 instance FromJSON Counters where
         parseJSON
@@ -260,81 +260,81 @@ instance FromJSON Counters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'devCarrier'
+-- * 'dCarrier'
 --
--- * 'devImage'
+-- * 'dImage'
 --
--- * 'devManufacturer'
+-- * 'dManufacturer'
 --
--- * 'devPlatform'
+-- * 'dPlatform'
 --
--- * 'devArn'
+-- * 'dArn'
 --
--- * 'devFormFactor'
+-- * 'dFormFactor'
 --
--- * 'devResolution'
+-- * 'dResolution'
 --
--- * 'devMemory'
+-- * 'dMemory'
 --
--- * 'devRadio'
+-- * 'dRadio'
 --
--- * 'devOs'
+-- * 'dOs'
 --
--- * 'devName'
+-- * 'dName'
 --
--- * 'devModel'
+-- * 'dModel'
 --
--- * 'devCpu'
+-- * 'dCpu'
 --
--- * 'devHeapSize'
+-- * 'dHeapSize'
 data Device = Device'
-    { _devCarrier      :: !(Maybe Text)
-    , _devImage        :: !(Maybe Text)
-    , _devManufacturer :: !(Maybe Text)
-    , _devPlatform     :: !(Maybe DevicePlatform)
-    , _devArn          :: !(Maybe Text)
-    , _devFormFactor   :: !(Maybe DeviceFormFactor)
-    , _devResolution   :: !(Maybe Resolution)
-    , _devMemory       :: !(Maybe Integer)
-    , _devRadio        :: !(Maybe Text)
-    , _devOs           :: !(Maybe Text)
-    , _devName         :: !(Maybe Text)
-    , _devModel        :: !(Maybe Text)
-    , _devCpu          :: !(Maybe CPU)
-    , _devHeapSize     :: !(Maybe Integer)
+    { _dCarrier      :: !(Maybe Text)
+    , _dImage        :: !(Maybe Text)
+    , _dManufacturer :: !(Maybe Text)
+    , _dPlatform     :: !(Maybe DevicePlatform)
+    , _dArn          :: !(Maybe Text)
+    , _dFormFactor   :: !(Maybe DeviceFormFactor)
+    , _dResolution   :: !(Maybe Resolution)
+    , _dMemory       :: !(Maybe Integer)
+    , _dRadio        :: !(Maybe Text)
+    , _dOs           :: !(Maybe Text)
+    , _dName         :: !(Maybe Text)
+    , _dModel        :: !(Maybe Text)
+    , _dCpu          :: !(Maybe CPU)
+    , _dHeapSize     :: !(Maybe Integer)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Device' smart constructor.
 device :: Device
 device =
     Device'
-    { _devCarrier = Nothing
-    , _devImage = Nothing
-    , _devManufacturer = Nothing
-    , _devPlatform = Nothing
-    , _devArn = Nothing
-    , _devFormFactor = Nothing
-    , _devResolution = Nothing
-    , _devMemory = Nothing
-    , _devRadio = Nothing
-    , _devOs = Nothing
-    , _devName = Nothing
-    , _devModel = Nothing
-    , _devCpu = Nothing
-    , _devHeapSize = Nothing
+    { _dCarrier = Nothing
+    , _dImage = Nothing
+    , _dManufacturer = Nothing
+    , _dPlatform = Nothing
+    , _dArn = Nothing
+    , _dFormFactor = Nothing
+    , _dResolution = Nothing
+    , _dMemory = Nothing
+    , _dRadio = Nothing
+    , _dOs = Nothing
+    , _dName = Nothing
+    , _dModel = Nothing
+    , _dCpu = Nothing
+    , _dHeapSize = Nothing
     }
 
 -- | The device\'s carrier.
-devCarrier :: Lens' Device (Maybe Text)
-devCarrier = lens _devCarrier (\ s a -> s{_devCarrier = a});
+dCarrier :: Lens' Device (Maybe Text)
+dCarrier = lens _dCarrier (\ s a -> s{_dCarrier = a});
 
 -- | The device\'s image name.
-devImage :: Lens' Device (Maybe Text)
-devImage = lens _devImage (\ s a -> s{_devImage = a});
+dImage :: Lens' Device (Maybe Text)
+dImage = lens _dImage (\ s a -> s{_dImage = a});
 
 -- | The device\'s manufacturer name.
-devManufacturer :: Lens' Device (Maybe Text)
-devManufacturer = lens _devManufacturer (\ s a -> s{_devManufacturer = a});
+dManufacturer :: Lens' Device (Maybe Text)
+dManufacturer = lens _dManufacturer (\ s a -> s{_dManufacturer = a});
 
 -- | The device\'s platform.
 --
@@ -342,12 +342,12 @@ devManufacturer = lens _devManufacturer (\ s a -> s{_devManufacturer = a});
 --
 -- -   ANDROID: The Android platform.
 --
-devPlatform :: Lens' Device (Maybe DevicePlatform)
-devPlatform = lens _devPlatform (\ s a -> s{_devPlatform = a});
+dPlatform :: Lens' Device (Maybe DevicePlatform)
+dPlatform = lens _dPlatform (\ s a -> s{_dPlatform = a});
 
 -- | The device\'s ARN.
-devArn :: Lens' Device (Maybe Text)
-devArn = lens _devArn (\ s a -> s{_devArn = a});
+dArn :: Lens' Device (Maybe Text)
+dArn = lens _dArn (\ s a -> s{_dArn = a});
 
 -- | The device\'s form factor.
 --
@@ -357,40 +357,40 @@ devArn = lens _devArn (\ s a -> s{_devArn = a});
 --
 -- -   TABLET: The tablet form factor.
 --
-devFormFactor :: Lens' Device (Maybe DeviceFormFactor)
-devFormFactor = lens _devFormFactor (\ s a -> s{_devFormFactor = a});
+dFormFactor :: Lens' Device (Maybe DeviceFormFactor)
+dFormFactor = lens _dFormFactor (\ s a -> s{_dFormFactor = a});
 
 -- | FIXME: Undocumented member.
-devResolution :: Lens' Device (Maybe Resolution)
-devResolution = lens _devResolution (\ s a -> s{_devResolution = a});
+dResolution :: Lens' Device (Maybe Resolution)
+dResolution = lens _dResolution (\ s a -> s{_dResolution = a});
 
 -- | The device\'s total memory size, expressed in bytes.
-devMemory :: Lens' Device (Maybe Integer)
-devMemory = lens _devMemory (\ s a -> s{_devMemory = a});
+dMemory :: Lens' Device (Maybe Integer)
+dMemory = lens _dMemory (\ s a -> s{_dMemory = a});
 
 -- | The device\'s radio.
-devRadio :: Lens' Device (Maybe Text)
-devRadio = lens _devRadio (\ s a -> s{_devRadio = a});
+dRadio :: Lens' Device (Maybe Text)
+dRadio = lens _dRadio (\ s a -> s{_dRadio = a});
 
 -- | The device\'s operating system type.
-devOs :: Lens' Device (Maybe Text)
-devOs = lens _devOs (\ s a -> s{_devOs = a});
+dOs :: Lens' Device (Maybe Text)
+dOs = lens _dOs (\ s a -> s{_dOs = a});
 
 -- | The device\'s display name.
-devName :: Lens' Device (Maybe Text)
-devName = lens _devName (\ s a -> s{_devName = a});
+dName :: Lens' Device (Maybe Text)
+dName = lens _dName (\ s a -> s{_dName = a});
 
 -- | The device\'s model name.
-devModel :: Lens' Device (Maybe Text)
-devModel = lens _devModel (\ s a -> s{_devModel = a});
+dModel :: Lens' Device (Maybe Text)
+dModel = lens _dModel (\ s a -> s{_dModel = a});
 
 -- | Information about the device\'s CPU.
-devCpu :: Lens' Device (Maybe CPU)
-devCpu = lens _devCpu (\ s a -> s{_devCpu = a});
+dCpu :: Lens' Device (Maybe CPU)
+dCpu = lens _dCpu (\ s a -> s{_dCpu = a});
 
 -- | The device\'s heap size, expressed in bytes.
-devHeapSize :: Lens' Device (Maybe Integer)
-devHeapSize = lens _devHeapSize (\ s a -> s{_devHeapSize = a});
+dHeapSize :: Lens' Device (Maybe Integer)
+dHeapSize = lens _dHeapSize (\ s a -> s{_dHeapSize = a});
 
 instance FromJSON Device where
         parseJSON
@@ -753,35 +753,35 @@ instance FromJSON Job where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'locLatitude'
+-- * 'lLatitude'
 --
--- * 'locLongitude'
+-- * 'lLongitude'
 data Location = Location'
-    { _locLatitude  :: !Double
-    , _locLongitude :: !Double
+    { _lLatitude  :: !Double
+    , _lLongitude :: !Double
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Location' smart constructor.
 location :: Double -> Double -> Location
 location pLatitude pLongitude =
     Location'
-    { _locLatitude = pLatitude
-    , _locLongitude = pLongitude
+    { _lLatitude = pLatitude
+    , _lLongitude = pLongitude
     }
 
 -- | The latitude.
-locLatitude :: Lens' Location Double
-locLatitude = lens _locLatitude (\ s a -> s{_locLatitude = a});
+lLatitude :: Lens' Location Double
+lLatitude = lens _lLatitude (\ s a -> s{_lLatitude = a});
 
 -- | The longitude.
-locLongitude :: Lens' Location Double
-locLongitude = lens _locLongitude (\ s a -> s{_locLongitude = a});
+lLongitude :: Lens' Location Double
+lLongitude = lens _lLongitude (\ s a -> s{_lLongitude = a});
 
 instance ToJSON Location where
         toJSON Location'{..}
           = object
-              ["latitude" .= _locLatitude,
-               "longitude" .= _locLongitude]
+              ["latitude" .= _lLatitude,
+               "longitude" .= _lLongitude]
 
 -- | Represents a specific warning or failure.
 --
@@ -789,49 +789,49 @@ instance ToJSON Location where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'proDevice'
+-- * 'pDevice'
 --
--- * 'proTest'
+-- * 'pTest'
 --
--- * 'proResult'
+-- * 'pResult'
 --
--- * 'proRun'
+-- * 'pRun'
 --
--- * 'proJob'
+-- * 'pJob'
 --
--- * 'proMessage'
+-- * 'pMessage'
 --
--- * 'proSuite'
+-- * 'pSuite'
 data Problem = Problem'
-    { _proDevice  :: !(Maybe Device)
-    , _proTest    :: !(Maybe ProblemDetail)
-    , _proResult  :: !(Maybe ExecutionResult)
-    , _proRun     :: !(Maybe ProblemDetail)
-    , _proJob     :: !(Maybe ProblemDetail)
-    , _proMessage :: !(Maybe Text)
-    , _proSuite   :: !(Maybe ProblemDetail)
+    { _pDevice  :: !(Maybe Device)
+    , _pTest    :: !(Maybe ProblemDetail)
+    , _pResult  :: !(Maybe ExecutionResult)
+    , _pRun     :: !(Maybe ProblemDetail)
+    , _pJob     :: !(Maybe ProblemDetail)
+    , _pMessage :: !(Maybe Text)
+    , _pSuite   :: !(Maybe ProblemDetail)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Problem' smart constructor.
 problem :: Problem
 problem =
     Problem'
-    { _proDevice = Nothing
-    , _proTest = Nothing
-    , _proResult = Nothing
-    , _proRun = Nothing
-    , _proJob = Nothing
-    , _proMessage = Nothing
-    , _proSuite = Nothing
+    { _pDevice = Nothing
+    , _pTest = Nothing
+    , _pResult = Nothing
+    , _pRun = Nothing
+    , _pJob = Nothing
+    , _pMessage = Nothing
+    , _pSuite = Nothing
     }
 
 -- | Information about the associated device.
-proDevice :: Lens' Problem (Maybe Device)
-proDevice = lens _proDevice (\ s a -> s{_proDevice = a});
+pDevice :: Lens' Problem (Maybe Device)
+pDevice = lens _pDevice (\ s a -> s{_pDevice = a});
 
 -- | Information about the associated test.
-proTest :: Lens' Problem (Maybe ProblemDetail)
-proTest = lens _proTest (\ s a -> s{_proTest = a});
+pTest :: Lens' Problem (Maybe ProblemDetail)
+pTest = lens _pTest (\ s a -> s{_pTest = a});
 
 -- | The problem\'s result.
 --
@@ -851,24 +851,24 @@ proTest = lens _proTest (\ s a -> s{_proTest = a});
 --
 -- -   WARNED: A warning condition.
 --
-proResult :: Lens' Problem (Maybe ExecutionResult)
-proResult = lens _proResult (\ s a -> s{_proResult = a});
+pResult :: Lens' Problem (Maybe ExecutionResult)
+pResult = lens _pResult (\ s a -> s{_pResult = a});
 
 -- | Information about the associated run.
-proRun :: Lens' Problem (Maybe ProblemDetail)
-proRun = lens _proRun (\ s a -> s{_proRun = a});
+pRun :: Lens' Problem (Maybe ProblemDetail)
+pRun = lens _pRun (\ s a -> s{_pRun = a});
 
 -- | Information about the associated job.
-proJob :: Lens' Problem (Maybe ProblemDetail)
-proJob = lens _proJob (\ s a -> s{_proJob = a});
+pJob :: Lens' Problem (Maybe ProblemDetail)
+pJob = lens _pJob (\ s a -> s{_pJob = a});
 
 -- | A message about the problem\'s result.
-proMessage :: Lens' Problem (Maybe Text)
-proMessage = lens _proMessage (\ s a -> s{_proMessage = a});
+pMessage :: Lens' Problem (Maybe Text)
+pMessage = lens _pMessage (\ s a -> s{_pMessage = a});
 
 -- | Information about the associated suite.
-proSuite :: Lens' Problem (Maybe ProblemDetail)
-proSuite = lens _proSuite (\ s a -> s{_proSuite = a});
+pSuite :: Lens' Problem (Maybe ProblemDetail)
+pSuite = lens _pSuite (\ s a -> s{_pSuite = a});
 
 instance FromJSON Problem where
         parseJSON
@@ -925,37 +925,37 @@ instance FromJSON ProblemDetail where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'proArn'
+-- * 'pArn'
 --
--- * 'proCreated'
+-- * 'pCreated'
 --
--- * 'proName'
+-- * 'pName'
 data Project = Project'
-    { _proArn     :: !(Maybe Text)
-    , _proCreated :: !(Maybe POSIX)
-    , _proName    :: !(Maybe Text)
+    { _pArn     :: !(Maybe Text)
+    , _pCreated :: !(Maybe POSIX)
+    , _pName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Project' smart constructor.
 project :: Project
 project =
     Project'
-    { _proArn = Nothing
-    , _proCreated = Nothing
-    , _proName = Nothing
+    { _pArn = Nothing
+    , _pCreated = Nothing
+    , _pName = Nothing
     }
 
 -- | The project\'s ARN.
-proArn :: Lens' Project (Maybe Text)
-proArn = lens _proArn (\ s a -> s{_proArn = a});
+pArn :: Lens' Project (Maybe Text)
+pArn = lens _pArn (\ s a -> s{_pArn = a});
 
 -- | When the project was created.
-proCreated :: Lens' Project (Maybe UTCTime)
-proCreated = lens _proCreated (\ s a -> s{_proCreated = a}) . mapping _Time;
+pCreated :: Lens' Project (Maybe UTCTime)
+pCreated = lens _pCreated (\ s a -> s{_pCreated = a}) . mapping _Time;
 
 -- | The project\'s name.
-proName :: Lens' Project (Maybe Text)
-proName = lens _proName (\ s a -> s{_proName = a});
+pName :: Lens' Project (Maybe Text)
+pName = lens _pName (\ s a -> s{_pName = a});
 
 instance FromJSON Project where
         parseJSON
@@ -972,52 +972,52 @@ instance FromJSON Project where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'radNfc'
+-- * 'rNfc'
 --
--- * 'radGps'
+-- * 'rGps'
 --
--- * 'radBluetooth'
+-- * 'rBluetooth'
 --
--- * 'radWifi'
+-- * 'rWifi'
 data Radios = Radios'
-    { _radNfc       :: !(Maybe Bool)
-    , _radGps       :: !(Maybe Bool)
-    , _radBluetooth :: !(Maybe Bool)
-    , _radWifi      :: !(Maybe Bool)
+    { _rNfc       :: !(Maybe Bool)
+    , _rGps       :: !(Maybe Bool)
+    , _rBluetooth :: !(Maybe Bool)
+    , _rWifi      :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Radios' smart constructor.
 radios :: Radios
 radios =
     Radios'
-    { _radNfc = Nothing
-    , _radGps = Nothing
-    , _radBluetooth = Nothing
-    , _radWifi = Nothing
+    { _rNfc = Nothing
+    , _rGps = Nothing
+    , _rBluetooth = Nothing
+    , _rWifi = Nothing
     }
 
 -- | True if NFC is enabled at the beginning of the test; otherwise, false.
-radNfc :: Lens' Radios (Maybe Bool)
-radNfc = lens _radNfc (\ s a -> s{_radNfc = a});
+rNfc :: Lens' Radios (Maybe Bool)
+rNfc = lens _rNfc (\ s a -> s{_rNfc = a});
 
 -- | True if GPS is enabled at the beginning of the test; otherwise, false.
-radGps :: Lens' Radios (Maybe Bool)
-radGps = lens _radGps (\ s a -> s{_radGps = a});
+rGps :: Lens' Radios (Maybe Bool)
+rGps = lens _rGps (\ s a -> s{_rGps = a});
 
 -- | True if Bluetooth is enabled at the beginning of the test; otherwise,
 -- false.
-radBluetooth :: Lens' Radios (Maybe Bool)
-radBluetooth = lens _radBluetooth (\ s a -> s{_radBluetooth = a});
+rBluetooth :: Lens' Radios (Maybe Bool)
+rBluetooth = lens _rBluetooth (\ s a -> s{_rBluetooth = a});
 
 -- | True if Wi-Fi is enabled at the beginning of the test; otherwise, false.
-radWifi :: Lens' Radios (Maybe Bool)
-radWifi = lens _radWifi (\ s a -> s{_radWifi = a});
+rWifi :: Lens' Radios (Maybe Bool)
+rWifi = lens _rWifi (\ s a -> s{_rWifi = a});
 
 instance ToJSON Radios where
         toJSON Radios'{..}
           = object
-              ["nfc" .= _radNfc, "gps" .= _radGps,
-               "bluetooth" .= _radBluetooth, "wifi" .= _radWifi]
+              ["nfc" .= _rNfc, "gps" .= _rGps,
+               "bluetooth" .= _rBluetooth, "wifi" .= _rWifi]
 
 -- | Represents the screen resolution of a device in height and width,
 -- expressed in pixels.
@@ -1026,29 +1026,29 @@ instance ToJSON Radios where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'resHeight'
+-- * 'rHeight'
 --
--- * 'resWidth'
+-- * 'rWidth'
 data Resolution = Resolution'
-    { _resHeight :: !(Maybe Int)
-    , _resWidth  :: !(Maybe Int)
+    { _rHeight :: !(Maybe Int)
+    , _rWidth  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Resolution' smart constructor.
 resolution :: Resolution
 resolution =
     Resolution'
-    { _resHeight = Nothing
-    , _resWidth = Nothing
+    { _rHeight = Nothing
+    , _rWidth = Nothing
     }
 
 -- | The screen resolution\'s height, expressed in pixels.
-resHeight :: Lens' Resolution (Maybe Int)
-resHeight = lens _resHeight (\ s a -> s{_resHeight = a});
+rHeight :: Lens' Resolution (Maybe Int)
+rHeight = lens _rHeight (\ s a -> s{_rHeight = a});
 
 -- | The screen resolution\'s width, expressed in pixels.
-resWidth :: Lens' Resolution (Maybe Int)
-resWidth = lens _resWidth (\ s a -> s{_resWidth = a});
+rWidth :: Lens' Resolution (Maybe Int)
+rWidth = lens _rWidth (\ s a -> s{_rWidth = a});
 
 instance FromJSON Resolution where
         parseJSON
@@ -1062,24 +1062,24 @@ instance FromJSON Resolution where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rulAttribute'
+-- * 'rAttribute'
 --
--- * 'rulOperator'
+-- * 'rOperator'
 --
--- * 'rulValue'
+-- * 'rValue'
 data Rule = Rule'
-    { _rulAttribute :: !(Maybe DeviceAttribute)
-    , _rulOperator  :: !(Maybe RuleOperator)
-    , _rulValue     :: !(Maybe Text)
+    { _rAttribute :: !(Maybe DeviceAttribute)
+    , _rOperator  :: !(Maybe RuleOperator)
+    , _rValue     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Rule' smart constructor.
 rule :: Rule
 rule =
     Rule'
-    { _rulAttribute = Nothing
-    , _rulOperator = Nothing
-    , _rulValue = Nothing
+    { _rAttribute = Nothing
+    , _rOperator = Nothing
+    , _rValue = Nothing
     }
 
 -- | The rule\'s attribute.
@@ -1094,8 +1094,8 @@ rule =
 --
 -- -   PLATFORM: The platform.
 --
-rulAttribute :: Lens' Rule (Maybe DeviceAttribute)
-rulAttribute = lens _rulAttribute (\ s a -> s{_rulAttribute = a});
+rAttribute :: Lens' Rule (Maybe DeviceAttribute)
+rAttribute = lens _rAttribute (\ s a -> s{_rAttribute = a});
 
 -- | The rule\'s operator.
 --
@@ -1109,12 +1109,12 @@ rulAttribute = lens _rulAttribute (\ s a -> s{_rulAttribute = a});
 --
 -- -   NOT_IN: The not-in operator.
 --
-rulOperator :: Lens' Rule (Maybe RuleOperator)
-rulOperator = lens _rulOperator (\ s a -> s{_rulOperator = a});
+rOperator :: Lens' Rule (Maybe RuleOperator)
+rOperator = lens _rOperator (\ s a -> s{_rOperator = a});
 
 -- | The rule\'s value.
-rulValue :: Lens' Rule (Maybe Text)
-rulValue = lens _rulValue (\ s a -> s{_rulValue = a});
+rValue :: Lens' Rule (Maybe Text)
+rValue = lens _rValue (\ s a -> s{_rValue = a});
 
 instance FromJSON Rule where
         parseJSON
@@ -1127,8 +1127,8 @@ instance FromJSON Rule where
 instance ToJSON Rule where
         toJSON Rule'{..}
           = object
-              ["attribute" .= _rulAttribute,
-               "operator" .= _rulOperator, "value" .= _rulValue]
+              ["attribute" .= _rAttribute,
+               "operator" .= _rOperator, "value" .= _rValue]
 
 -- | Represents an app on a set of devices with a specific test and
 -- configuration.
@@ -1326,34 +1326,34 @@ instance FromJSON Run where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'samArn'
+-- * 'sArn'
 --
--- * 'samUrl'
+-- * 'sUrl'
 --
--- * 'samType'
+-- * 'sType'
 data Sample = Sample'
-    { _samArn  :: !(Maybe Text)
-    , _samUrl  :: !(Maybe Text)
-    , _samType :: !(Maybe SampleType)
+    { _sArn  :: !(Maybe Text)
+    , _sUrl  :: !(Maybe Text)
+    , _sType :: !(Maybe SampleType)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Sample' smart constructor.
 sample :: Sample
 sample =
     Sample'
-    { _samArn = Nothing
-    , _samUrl = Nothing
-    , _samType = Nothing
+    { _sArn = Nothing
+    , _sUrl = Nothing
+    , _sType = Nothing
     }
 
 -- | The sample\'s ARN.
-samArn :: Lens' Sample (Maybe Text)
-samArn = lens _samArn (\ s a -> s{_samArn = a});
+sArn :: Lens' Sample (Maybe Text)
+sArn = lens _sArn (\ s a -> s{_sArn = a});
 
 -- | The pre-signed Amazon S3 URL that can be used with a corresponding GET
 -- request to download the sample\'s file.
-samUrl :: Lens' Sample (Maybe Text)
-samUrl = lens _samUrl (\ s a -> s{_samUrl = a});
+sUrl :: Lens' Sample (Maybe Text)
+sUrl = lens _sUrl (\ s a -> s{_sUrl = a});
 
 -- | The sample\'s type.
 --
@@ -1399,8 +1399,8 @@ samUrl = lens _samUrl (\ s a -> s{_samUrl = a});
 -- -   TX_RATE: The total number of bytes per second (TCP and UDP) that are
 --     received, by app process.
 --
-samType :: Lens' Sample (Maybe SampleType)
-samType = lens _samType (\ s a -> s{_samType = a});
+sType :: Lens' Sample (Maybe SampleType)
+sType = lens _sType (\ s a -> s{_sType = a});
 
 instance FromJSON Sample where
         parseJSON
@@ -1717,52 +1717,52 @@ instance FromJSON Suite where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tesStatus'
+-- * 'tStatus'
 --
--- * 'tesCounters'
+-- * 'tCounters'
 --
--- * 'tesArn'
+-- * 'tArn'
 --
--- * 'tesCreated'
+-- * 'tCreated'
 --
--- * 'tesStopped'
+-- * 'tStopped'
 --
--- * 'tesResult'
+-- * 'tResult'
 --
--- * 'tesName'
+-- * 'tName'
 --
--- * 'tesType'
+-- * 'tType'
 --
--- * 'tesMessage'
+-- * 'tMessage'
 --
--- * 'tesStarted'
+-- * 'tStarted'
 data Test = Test'
-    { _tesStatus   :: !(Maybe ExecutionStatus)
-    , _tesCounters :: !(Maybe Counters)
-    , _tesArn      :: !(Maybe Text)
-    , _tesCreated  :: !(Maybe POSIX)
-    , _tesStopped  :: !(Maybe POSIX)
-    , _tesResult   :: !(Maybe ExecutionResult)
-    , _tesName     :: !(Maybe Text)
-    , _tesType     :: !(Maybe TestType)
-    , _tesMessage  :: !(Maybe Text)
-    , _tesStarted  :: !(Maybe POSIX)
+    { _tStatus   :: !(Maybe ExecutionStatus)
+    , _tCounters :: !(Maybe Counters)
+    , _tArn      :: !(Maybe Text)
+    , _tCreated  :: !(Maybe POSIX)
+    , _tStopped  :: !(Maybe POSIX)
+    , _tResult   :: !(Maybe ExecutionResult)
+    , _tName     :: !(Maybe Text)
+    , _tType     :: !(Maybe TestType)
+    , _tMessage  :: !(Maybe Text)
+    , _tStarted  :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Test' smart constructor.
 test :: Test
 test =
     Test'
-    { _tesStatus = Nothing
-    , _tesCounters = Nothing
-    , _tesArn = Nothing
-    , _tesCreated = Nothing
-    , _tesStopped = Nothing
-    , _tesResult = Nothing
-    , _tesName = Nothing
-    , _tesType = Nothing
-    , _tesMessage = Nothing
-    , _tesStarted = Nothing
+    { _tStatus = Nothing
+    , _tCounters = Nothing
+    , _tArn = Nothing
+    , _tCreated = Nothing
+    , _tStopped = Nothing
+    , _tResult = Nothing
+    , _tName = Nothing
+    , _tType = Nothing
+    , _tMessage = Nothing
+    , _tStarted = Nothing
     }
 
 -- | The test\'s status.
@@ -1779,24 +1779,24 @@ test =
 --
 -- -   SCHEDULING: A scheduling status.
 --
-tesStatus :: Lens' Test (Maybe ExecutionStatus)
-tesStatus = lens _tesStatus (\ s a -> s{_tesStatus = a});
+tStatus :: Lens' Test (Maybe ExecutionStatus)
+tStatus = lens _tStatus (\ s a -> s{_tStatus = a});
 
 -- | The test\'s result counters.
-tesCounters :: Lens' Test (Maybe Counters)
-tesCounters = lens _tesCounters (\ s a -> s{_tesCounters = a});
+tCounters :: Lens' Test (Maybe Counters)
+tCounters = lens _tCounters (\ s a -> s{_tCounters = a});
 
 -- | The test\'s ARN.
-tesArn :: Lens' Test (Maybe Text)
-tesArn = lens _tesArn (\ s a -> s{_tesArn = a});
+tArn :: Lens' Test (Maybe Text)
+tArn = lens _tArn (\ s a -> s{_tArn = a});
 
 -- | When the test was created.
-tesCreated :: Lens' Test (Maybe UTCTime)
-tesCreated = lens _tesCreated (\ s a -> s{_tesCreated = a}) . mapping _Time;
+tCreated :: Lens' Test (Maybe UTCTime)
+tCreated = lens _tCreated (\ s a -> s{_tCreated = a}) . mapping _Time;
 
 -- | The test\'s stop time.
-tesStopped :: Lens' Test (Maybe UTCTime)
-tesStopped = lens _tesStopped (\ s a -> s{_tesStopped = a}) . mapping _Time;
+tStopped :: Lens' Test (Maybe UTCTime)
+tStopped = lens _tStopped (\ s a -> s{_tStopped = a}) . mapping _Time;
 
 -- | The test\'s result.
 --
@@ -1816,12 +1816,12 @@ tesStopped = lens _tesStopped (\ s a -> s{_tesStopped = a}) . mapping _Time;
 --
 -- -   WARNED: A warning condition.
 --
-tesResult :: Lens' Test (Maybe ExecutionResult)
-tesResult = lens _tesResult (\ s a -> s{_tesResult = a});
+tResult :: Lens' Test (Maybe ExecutionResult)
+tResult = lens _tResult (\ s a -> s{_tResult = a});
 
 -- | The test\'s name.
-tesName :: Lens' Test (Maybe Text)
-tesName = lens _tesName (\ s a -> s{_tesName = a});
+tName :: Lens' Test (Maybe Text)
+tName = lens _tName (\ s a -> s{_tName = a});
 
 -- | The test\'s type.
 --
@@ -1842,16 +1842,16 @@ tesName = lens _tesName (\ s a -> s{_tesName = a});
 --
 -- -   UIAUTOMATOR: The uiautomator type.
 --
-tesType :: Lens' Test (Maybe TestType)
-tesType = lens _tesType (\ s a -> s{_tesType = a});
+tType :: Lens' Test (Maybe TestType)
+tType = lens _tType (\ s a -> s{_tType = a});
 
 -- | A message about the test\'s result.
-tesMessage :: Lens' Test (Maybe Text)
-tesMessage = lens _tesMessage (\ s a -> s{_tesMessage = a});
+tMessage :: Lens' Test (Maybe Text)
+tMessage = lens _tMessage (\ s a -> s{_tMessage = a});
 
 -- | The test\'s start time.
-tesStarted :: Lens' Test (Maybe UTCTime)
-tesStarted = lens _tesStarted (\ s a -> s{_tesStarted = a}) . mapping _Time;
+tStarted :: Lens' Test (Maybe UTCTime)
+tStarted = lens _tStarted (\ s a -> s{_tStarted = a}) . mapping _Time;
 
 instance FromJSON Test where
         parseJSON
@@ -1912,48 +1912,48 @@ instance FromJSON UniqueProblem where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uplStatus'
+-- * 'uStatus'
 --
--- * 'uplArn'
+-- * 'uArn'
 --
--- * 'uplCreated'
+-- * 'uCreated'
 --
--- * 'uplUrl'
+-- * 'uUrl'
 --
--- * 'uplName'
+-- * 'uName'
 --
--- * 'uplMetadata'
+-- * 'uMetadata'
 --
--- * 'uplType'
+-- * 'uType'
 --
--- * 'uplMessage'
+-- * 'uMessage'
 --
--- * 'uplContentType'
+-- * 'uContentType'
 data Upload = Upload'
-    { _uplStatus      :: !(Maybe UploadStatus)
-    , _uplArn         :: !(Maybe Text)
-    , _uplCreated     :: !(Maybe POSIX)
-    , _uplUrl         :: !(Maybe Text)
-    , _uplName        :: !(Maybe Text)
-    , _uplMetadata    :: !(Maybe Text)
-    , _uplType        :: !(Maybe UploadType)
-    , _uplMessage     :: !(Maybe Text)
-    , _uplContentType :: !(Maybe Text)
+    { _uStatus      :: !(Maybe UploadStatus)
+    , _uArn         :: !(Maybe Text)
+    , _uCreated     :: !(Maybe POSIX)
+    , _uUrl         :: !(Maybe Text)
+    , _uName        :: !(Maybe Text)
+    , _uMetadata    :: !(Maybe Text)
+    , _uType        :: !(Maybe UploadType)
+    , _uMessage     :: !(Maybe Text)
+    , _uContentType :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Upload' smart constructor.
 upload :: Upload
 upload =
     Upload'
-    { _uplStatus = Nothing
-    , _uplArn = Nothing
-    , _uplCreated = Nothing
-    , _uplUrl = Nothing
-    , _uplName = Nothing
-    , _uplMetadata = Nothing
-    , _uplType = Nothing
-    , _uplMessage = Nothing
-    , _uplContentType = Nothing
+    { _uStatus = Nothing
+    , _uArn = Nothing
+    , _uCreated = Nothing
+    , _uUrl = Nothing
+    , _uName = Nothing
+    , _uMetadata = Nothing
+    , _uType = Nothing
+    , _uMessage = Nothing
+    , _uContentType = Nothing
     }
 
 -- | The upload\'s status.
@@ -1968,31 +1968,31 @@ upload =
 --
 -- -   SUCCEEDED: A succeeded status.
 --
-uplStatus :: Lens' Upload (Maybe UploadStatus)
-uplStatus = lens _uplStatus (\ s a -> s{_uplStatus = a});
+uStatus :: Lens' Upload (Maybe UploadStatus)
+uStatus = lens _uStatus (\ s a -> s{_uStatus = a});
 
 -- | The upload\'s ARN.
-uplArn :: Lens' Upload (Maybe Text)
-uplArn = lens _uplArn (\ s a -> s{_uplArn = a});
+uArn :: Lens' Upload (Maybe Text)
+uArn = lens _uArn (\ s a -> s{_uArn = a});
 
 -- | When the upload was created.
-uplCreated :: Lens' Upload (Maybe UTCTime)
-uplCreated = lens _uplCreated (\ s a -> s{_uplCreated = a}) . mapping _Time;
+uCreated :: Lens' Upload (Maybe UTCTime)
+uCreated = lens _uCreated (\ s a -> s{_uCreated = a}) . mapping _Time;
 
 -- | The pre-signed Amazon S3 URL that was used to store a file through a
 -- corresponding PUT request.
-uplUrl :: Lens' Upload (Maybe Text)
-uplUrl = lens _uplUrl (\ s a -> s{_uplUrl = a});
+uUrl :: Lens' Upload (Maybe Text)
+uUrl = lens _uUrl (\ s a -> s{_uUrl = a});
 
 -- | The upload\'s file name.
-uplName :: Lens' Upload (Maybe Text)
-uplName = lens _uplName (\ s a -> s{_uplName = a});
+uName :: Lens' Upload (Maybe Text)
+uName = lens _uName (\ s a -> s{_uName = a});
 
 -- | The upload\'s metadata. This contains information that is parsed from
 -- the manifest and is displayed in the AWS Device Farm console after the
 -- associated app is uploaded.
-uplMetadata :: Lens' Upload (Maybe Text)
-uplMetadata = lens _uplMetadata (\ s a -> s{_uplMetadata = a});
+uMetadata :: Lens' Upload (Maybe Text)
+uMetadata = lens _uMetadata (\ s a -> s{_uMetadata = a});
 
 -- | The upload\'s type.
 --
@@ -2014,16 +2014,16 @@ uplMetadata = lens _uplMetadata (\ s a -> s{_uplMetadata = a});
 --
 -- -   UIAUTOMATOR_TEST_PACKAGE: A uiautomator test package upload.
 --
-uplType :: Lens' Upload (Maybe UploadType)
-uplType = lens _uplType (\ s a -> s{_uplType = a});
+uType :: Lens' Upload (Maybe UploadType)
+uType = lens _uType (\ s a -> s{_uType = a});
 
 -- | A message about the upload\'s result.
-uplMessage :: Lens' Upload (Maybe Text)
-uplMessage = lens _uplMessage (\ s a -> s{_uplMessage = a});
+uMessage :: Lens' Upload (Maybe Text)
+uMessage = lens _uMessage (\ s a -> s{_uMessage = a});
 
 -- | The upload\'s content type (for example, \"application\/octet-stream\").
-uplContentType :: Lens' Upload (Maybe Text)
-uplContentType = lens _uplContentType (\ s a -> s{_uplContentType = a});
+uContentType :: Lens' Upload (Maybe Text)
+uContentType = lens _uContentType (\ s a -> s{_uContentType = a});
 
 instance FromJSON Upload where
         parseJSON

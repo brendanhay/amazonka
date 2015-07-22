@@ -36,17 +36,17 @@ module Network.AWS.EC2.AssociateRouteTable
     -- ** Request constructor
     , associateRouteTable
     -- ** Request lenses
-    , artDryRun
-    , artSubnetId
-    , artRouteTableId
+    , artrqDryRun
+    , artrqSubnetId
+    , artrqRouteTableId
 
     -- * Response
     , AssociateRouteTableResponse
     -- ** Response constructor
     , associateRouteTableResponse
     -- ** Response lenses
-    , artrAssociationId
-    , artrStatus
+    , artrsAssociationId
+    , artrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -58,40 +58,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'artDryRun'
+-- * 'artrqDryRun'
 --
--- * 'artSubnetId'
+-- * 'artrqSubnetId'
 --
--- * 'artRouteTableId'
+-- * 'artrqRouteTableId'
 data AssociateRouteTable = AssociateRouteTable'
-    { _artDryRun       :: !(Maybe Bool)
-    , _artSubnetId     :: !Text
-    , _artRouteTableId :: !Text
+    { _artrqDryRun       :: !(Maybe Bool)
+    , _artrqSubnetId     :: !Text
+    , _artrqRouteTableId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateRouteTable' smart constructor.
 associateRouteTable :: Text -> Text -> AssociateRouteTable
 associateRouteTable pSubnetId pRouteTableId =
     AssociateRouteTable'
-    { _artDryRun = Nothing
-    , _artSubnetId = pSubnetId
-    , _artRouteTableId = pRouteTableId
+    { _artrqDryRun = Nothing
+    , _artrqSubnetId = pSubnetId
+    , _artrqRouteTableId = pRouteTableId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-artDryRun :: Lens' AssociateRouteTable (Maybe Bool)
-artDryRun = lens _artDryRun (\ s a -> s{_artDryRun = a});
+artrqDryRun :: Lens' AssociateRouteTable (Maybe Bool)
+artrqDryRun = lens _artrqDryRun (\ s a -> s{_artrqDryRun = a});
 
 -- | The ID of the subnet.
-artSubnetId :: Lens' AssociateRouteTable Text
-artSubnetId = lens _artSubnetId (\ s a -> s{_artSubnetId = a});
+artrqSubnetId :: Lens' AssociateRouteTable Text
+artrqSubnetId = lens _artrqSubnetId (\ s a -> s{_artrqSubnetId = a});
 
 -- | The ID of the route table.
-artRouteTableId :: Lens' AssociateRouteTable Text
-artRouteTableId = lens _artRouteTableId (\ s a -> s{_artRouteTableId = a});
+artrqRouteTableId :: Lens' AssociateRouteTable Text
+artrqRouteTableId = lens _artrqRouteTableId (\ s a -> s{_artrqRouteTableId = a});
 
 instance AWSRequest AssociateRouteTable where
         type Sv AssociateRouteTable = EC2
@@ -115,33 +115,34 @@ instance ToQuery AssociateRouteTable where
           = mconcat
               ["Action" =: ("AssociateRouteTable" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _artDryRun, "SubnetId" =: _artSubnetId,
-               "RouteTableId" =: _artRouteTableId]
+               "DryRun" =: _artrqDryRun,
+               "SubnetId" =: _artrqSubnetId,
+               "RouteTableId" =: _artrqRouteTableId]
 
 -- | /See:/ 'associateRouteTableResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'artrAssociationId'
+-- * 'artrsAssociationId'
 --
--- * 'artrStatus'
+-- * 'artrsStatus'
 data AssociateRouteTableResponse = AssociateRouteTableResponse'
-    { _artrAssociationId :: !(Maybe Text)
-    , _artrStatus        :: !Int
+    { _artrsAssociationId :: !(Maybe Text)
+    , _artrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateRouteTableResponse' smart constructor.
 associateRouteTableResponse :: Int -> AssociateRouteTableResponse
 associateRouteTableResponse pStatus =
     AssociateRouteTableResponse'
-    { _artrAssociationId = Nothing
-    , _artrStatus = pStatus
+    { _artrsAssociationId = Nothing
+    , _artrsStatus = pStatus
     }
 
 -- | The route table association ID (needed to disassociate the route table).
-artrAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
-artrAssociationId = lens _artrAssociationId (\ s a -> s{_artrAssociationId = a});
+artrsAssociationId :: Lens' AssociateRouteTableResponse (Maybe Text)
+artrsAssociationId = lens _artrsAssociationId (\ s a -> s{_artrsAssociationId = a});
 
 -- | FIXME: Undocumented member.
-artrStatus :: Lens' AssociateRouteTableResponse Int
-artrStatus = lens _artrStatus (\ s a -> s{_artrStatus = a});
+artrsStatus :: Lens' AssociateRouteTableResponse Int
+artrsStatus = lens _artrsStatus (\ s a -> s{_artrsStatus = a});

@@ -37,19 +37,19 @@ module Network.AWS.StorageGateway.ListVolumes
     -- ** Request constructor
     , listVolumes
     -- ** Request lenses
-    , lvMarker
-    , lvLimit
-    , lvGatewayARN
+    , lvrqMarker
+    , lvrqLimit
+    , lvrqGatewayARN
 
     -- * Response
     , ListVolumesResponse
     -- ** Response constructor
     , listVolumesResponse
     -- ** Response lenses
-    , lvrGatewayARN
-    , lvrMarker
-    , lvrVolumeInfos
-    , lvrStatus
+    , lvrsGatewayARN
+    , lvrsMarker
+    , lvrsVolumeInfos
+    , lvrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -67,46 +67,47 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvMarker'
+-- * 'lvrqMarker'
 --
--- * 'lvLimit'
+-- * 'lvrqLimit'
 --
--- * 'lvGatewayARN'
+-- * 'lvrqGatewayARN'
 data ListVolumes = ListVolumes'
-    { _lvMarker     :: !(Maybe Text)
-    , _lvLimit      :: !(Maybe Nat)
-    , _lvGatewayARN :: !Text
+    { _lvrqMarker     :: !(Maybe Text)
+    , _lvrqLimit      :: !(Maybe Nat)
+    , _lvrqGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumes' smart constructor.
 listVolumes :: Text -> ListVolumes
 listVolumes pGatewayARN =
     ListVolumes'
-    { _lvMarker = Nothing
-    , _lvLimit = Nothing
-    , _lvGatewayARN = pGatewayARN
+    { _lvrqMarker = Nothing
+    , _lvrqLimit = Nothing
+    , _lvrqGatewayARN = pGatewayARN
     }
 
 -- | A string that indicates the position at which to begin the returned list
 -- of volumes. Obtain the marker from the response of a previous List iSCSI
 -- Volumes request.
-lvMarker :: Lens' ListVolumes (Maybe Text)
-lvMarker = lens _lvMarker (\ s a -> s{_lvMarker = a});
+lvrqMarker :: Lens' ListVolumes (Maybe Text)
+lvrqMarker = lens _lvrqMarker (\ s a -> s{_lvrqMarker = a});
 
 -- | Specifies that the list of volumes returned be limited to the specified
 -- number of items.
-lvLimit :: Lens' ListVolumes (Maybe Natural)
-lvLimit = lens _lvLimit (\ s a -> s{_lvLimit = a}) . mapping _Nat;
+lvrqLimit :: Lens' ListVolumes (Maybe Natural)
+lvrqLimit = lens _lvrqLimit (\ s a -> s{_lvrqLimit = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-lvGatewayARN :: Lens' ListVolumes Text
-lvGatewayARN = lens _lvGatewayARN (\ s a -> s{_lvGatewayARN = a});
+lvrqGatewayARN :: Lens' ListVolumes Text
+lvrqGatewayARN = lens _lvrqGatewayARN (\ s a -> s{_lvrqGatewayARN = a});
 
 instance AWSPager ListVolumes where
         page rq rs
-          | stop (rs ^. lvrMarker) = Nothing
-          | stop (rs ^. lvrVolumeInfos) = Nothing
-          | otherwise = Just $ rq & lvMarker .~ rs ^. lvrMarker
+          | stop (rs ^. lvrsMarker) = Nothing
+          | stop (rs ^. lvrsVolumeInfos) = Nothing
+          | otherwise =
+            Just $ rq & lvrqMarker .~ rs ^. lvrsMarker
 
 instance AWSRequest ListVolumes where
         type Sv ListVolumes = StorageGateway
@@ -133,8 +134,8 @@ instance ToHeaders ListVolumes where
 instance ToJSON ListVolumes where
         toJSON ListVolumes'{..}
           = object
-              ["Marker" .= _lvMarker, "Limit" .= _lvLimit,
-               "GatewayARN" .= _lvGatewayARN]
+              ["Marker" .= _lvrqMarker, "Limit" .= _lvrqLimit,
+               "GatewayARN" .= _lvrqGatewayARN]
 
 instance ToPath ListVolumes where
         toPath = const "/"
@@ -146,42 +147,42 @@ instance ToQuery ListVolumes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvrGatewayARN'
+-- * 'lvrsGatewayARN'
 --
--- * 'lvrMarker'
+-- * 'lvrsMarker'
 --
--- * 'lvrVolumeInfos'
+-- * 'lvrsVolumeInfos'
 --
--- * 'lvrStatus'
+-- * 'lvrsStatus'
 data ListVolumesResponse = ListVolumesResponse'
-    { _lvrGatewayARN  :: !(Maybe Text)
-    , _lvrMarker      :: !(Maybe Text)
-    , _lvrVolumeInfos :: !(Maybe [VolumeInfo])
-    , _lvrStatus      :: !Int
+    { _lvrsGatewayARN  :: !(Maybe Text)
+    , _lvrsMarker      :: !(Maybe Text)
+    , _lvrsVolumeInfos :: !(Maybe [VolumeInfo])
+    , _lvrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumesResponse' smart constructor.
 listVolumesResponse :: Int -> ListVolumesResponse
 listVolumesResponse pStatus =
     ListVolumesResponse'
-    { _lvrGatewayARN = Nothing
-    , _lvrMarker = Nothing
-    , _lvrVolumeInfos = Nothing
-    , _lvrStatus = pStatus
+    { _lvrsGatewayARN = Nothing
+    , _lvrsMarker = Nothing
+    , _lvrsVolumeInfos = Nothing
+    , _lvrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-lvrGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
-lvrGatewayARN = lens _lvrGatewayARN (\ s a -> s{_lvrGatewayARN = a});
+lvrsGatewayARN :: Lens' ListVolumesResponse (Maybe Text)
+lvrsGatewayARN = lens _lvrsGatewayARN (\ s a -> s{_lvrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-lvrMarker :: Lens' ListVolumesResponse (Maybe Text)
-lvrMarker = lens _lvrMarker (\ s a -> s{_lvrMarker = a});
+lvrsMarker :: Lens' ListVolumesResponse (Maybe Text)
+lvrsMarker = lens _lvrsMarker (\ s a -> s{_lvrsMarker = a});
 
 -- | FIXME: Undocumented member.
-lvrVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
-lvrVolumeInfos = lens _lvrVolumeInfos (\ s a -> s{_lvrVolumeInfos = a}) . _Default;
+lvrsVolumeInfos :: Lens' ListVolumesResponse [VolumeInfo]
+lvrsVolumeInfos = lens _lvrsVolumeInfos (\ s a -> s{_lvrsVolumeInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvrStatus :: Lens' ListVolumesResponse Int
-lvrStatus = lens _lvrStatus (\ s a -> s{_lvrStatus = a});
+lvrsStatus :: Lens' ListVolumesResponse Int
+lvrsStatus = lens _lvrsStatus (\ s a -> s{_lvrsStatus = a});

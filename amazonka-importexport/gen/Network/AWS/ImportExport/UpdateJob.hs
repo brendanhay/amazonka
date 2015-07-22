@@ -31,21 +31,21 @@ module Network.AWS.ImportExport.UpdateJob
     -- ** Request constructor
     , updateJob
     -- ** Request lenses
-    , ujAPIVersion
-    , ujJobId
-    , ujManifest
-    , ujJobType
-    , ujValidateOnly
+    , ujrqAPIVersion
+    , ujrqJobId
+    , ujrqManifest
+    , ujrqJobType
+    , ujrqValidateOnly
 
     -- * Response
     , UpdateJobResponse
     -- ** Response constructor
     , updateJobResponse
     -- ** Response lenses
-    , ujrSuccess
-    , ujrWarningMessage
-    , ujrArtifactList
-    , ujrStatus
+    , ujrsSuccess
+    , ujrsWarningMessage
+    , ujrsArtifactList
+    , ujrsStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -59,53 +59,53 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ujAPIVersion'
+-- * 'ujrqAPIVersion'
 --
--- * 'ujJobId'
+-- * 'ujrqJobId'
 --
--- * 'ujManifest'
+-- * 'ujrqManifest'
 --
--- * 'ujJobType'
+-- * 'ujrqJobType'
 --
--- * 'ujValidateOnly'
+-- * 'ujrqValidateOnly'
 data UpdateJob = UpdateJob'
-    { _ujAPIVersion   :: !(Maybe Text)
-    , _ujJobId        :: !Text
-    , _ujManifest     :: !Text
-    , _ujJobType      :: !JobType
-    , _ujValidateOnly :: !Bool
+    { _ujrqAPIVersion   :: !(Maybe Text)
+    , _ujrqJobId        :: !Text
+    , _ujrqManifest     :: !Text
+    , _ujrqJobType      :: !JobType
+    , _ujrqValidateOnly :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateJob' smart constructor.
 updateJob :: Text -> Text -> JobType -> Bool -> UpdateJob
 updateJob pJobId pManifest pJobType pValidateOnly =
     UpdateJob'
-    { _ujAPIVersion = Nothing
-    , _ujJobId = pJobId
-    , _ujManifest = pManifest
-    , _ujJobType = pJobType
-    , _ujValidateOnly = pValidateOnly
+    { _ujrqAPIVersion = Nothing
+    , _ujrqJobId = pJobId
+    , _ujrqManifest = pManifest
+    , _ujrqJobType = pJobType
+    , _ujrqValidateOnly = pValidateOnly
     }
 
 -- | FIXME: Undocumented member.
-ujAPIVersion :: Lens' UpdateJob (Maybe Text)
-ujAPIVersion = lens _ujAPIVersion (\ s a -> s{_ujAPIVersion = a});
+ujrqAPIVersion :: Lens' UpdateJob (Maybe Text)
+ujrqAPIVersion = lens _ujrqAPIVersion (\ s a -> s{_ujrqAPIVersion = a});
 
 -- | FIXME: Undocumented member.
-ujJobId :: Lens' UpdateJob Text
-ujJobId = lens _ujJobId (\ s a -> s{_ujJobId = a});
+ujrqJobId :: Lens' UpdateJob Text
+ujrqJobId = lens _ujrqJobId (\ s a -> s{_ujrqJobId = a});
 
 -- | FIXME: Undocumented member.
-ujManifest :: Lens' UpdateJob Text
-ujManifest = lens _ujManifest (\ s a -> s{_ujManifest = a});
+ujrqManifest :: Lens' UpdateJob Text
+ujrqManifest = lens _ujrqManifest (\ s a -> s{_ujrqManifest = a});
 
 -- | FIXME: Undocumented member.
-ujJobType :: Lens' UpdateJob JobType
-ujJobType = lens _ujJobType (\ s a -> s{_ujJobType = a});
+ujrqJobType :: Lens' UpdateJob JobType
+ujrqJobType = lens _ujrqJobType (\ s a -> s{_ujrqJobType = a});
 
 -- | FIXME: Undocumented member.
-ujValidateOnly :: Lens' UpdateJob Bool
-ujValidateOnly = lens _ujValidateOnly (\ s a -> s{_ujValidateOnly = a});
+ujrqValidateOnly :: Lens' UpdateJob Bool
+ujrqValidateOnly = lens _ujrqValidateOnly (\ s a -> s{_ujrqValidateOnly = a});
 
 instance AWSRequest UpdateJob where
         type Sv UpdateJob = ImportExport
@@ -132,9 +132,10 @@ instance ToQuery UpdateJob where
               ["Operation=UpdateJob",
                "Action" =: ("UpdateJob" :: ByteString),
                "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _ujAPIVersion, "JobId" =: _ujJobId,
-               "Manifest" =: _ujManifest, "JobType" =: _ujJobType,
-               "ValidateOnly" =: _ujValidateOnly]
+               "APIVersion" =: _ujrqAPIVersion,
+               "JobId" =: _ujrqJobId, "Manifest" =: _ujrqManifest,
+               "JobType" =: _ujrqJobType,
+               "ValidateOnly" =: _ujrqValidateOnly]
 
 -- | Output structure for the UpateJob operation.
 --
@@ -142,42 +143,42 @@ instance ToQuery UpdateJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ujrSuccess'
+-- * 'ujrsSuccess'
 --
--- * 'ujrWarningMessage'
+-- * 'ujrsWarningMessage'
 --
--- * 'ujrArtifactList'
+-- * 'ujrsArtifactList'
 --
--- * 'ujrStatus'
+-- * 'ujrsStatus'
 data UpdateJobResponse = UpdateJobResponse'
-    { _ujrSuccess        :: !(Maybe Bool)
-    , _ujrWarningMessage :: !(Maybe Text)
-    , _ujrArtifactList   :: !(Maybe [Artifact])
-    , _ujrStatus         :: !Int
+    { _ujrsSuccess        :: !(Maybe Bool)
+    , _ujrsWarningMessage :: !(Maybe Text)
+    , _ujrsArtifactList   :: !(Maybe [Artifact])
+    , _ujrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateJobResponse' smart constructor.
 updateJobResponse :: Int -> UpdateJobResponse
 updateJobResponse pStatus =
     UpdateJobResponse'
-    { _ujrSuccess = Nothing
-    , _ujrWarningMessage = Nothing
-    , _ujrArtifactList = Nothing
-    , _ujrStatus = pStatus
+    { _ujrsSuccess = Nothing
+    , _ujrsWarningMessage = Nothing
+    , _ujrsArtifactList = Nothing
+    , _ujrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ujrSuccess :: Lens' UpdateJobResponse (Maybe Bool)
-ujrSuccess = lens _ujrSuccess (\ s a -> s{_ujrSuccess = a});
+ujrsSuccess :: Lens' UpdateJobResponse (Maybe Bool)
+ujrsSuccess = lens _ujrsSuccess (\ s a -> s{_ujrsSuccess = a});
 
 -- | FIXME: Undocumented member.
-ujrWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
-ujrWarningMessage = lens _ujrWarningMessage (\ s a -> s{_ujrWarningMessage = a});
+ujrsWarningMessage :: Lens' UpdateJobResponse (Maybe Text)
+ujrsWarningMessage = lens _ujrsWarningMessage (\ s a -> s{_ujrsWarningMessage = a});
 
 -- | FIXME: Undocumented member.
-ujrArtifactList :: Lens' UpdateJobResponse [Artifact]
-ujrArtifactList = lens _ujrArtifactList (\ s a -> s{_ujrArtifactList = a}) . _Default;
+ujrsArtifactList :: Lens' UpdateJobResponse [Artifact]
+ujrsArtifactList = lens _ujrsArtifactList (\ s a -> s{_ujrsArtifactList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ujrStatus :: Lens' UpdateJobResponse Int
-ujrStatus = lens _ujrStatus (\ s a -> s{_ujrStatus = a});
+ujrsStatus :: Lens' UpdateJobResponse Int
+ujrsStatus = lens _ujrsStatus (\ s a -> s{_ujrsStatus = a});

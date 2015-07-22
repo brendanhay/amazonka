@@ -29,15 +29,15 @@ module Network.AWS.Support.DescribeTrustedAdvisorCheckRefreshStatuses
     -- ** Request constructor
     , describeTrustedAdvisorCheckRefreshStatuses
     -- ** Request lenses
-    , dtacrsCheckIds
+    , dtacrsrqCheckIds
 
     -- * Response
     , DescribeTrustedAdvisorCheckRefreshStatusesResponse
     -- ** Response constructor
     , describeTrustedAdvisorCheckRefreshStatusesResponse
     -- ** Response lenses
-    , dtacrsrStatus
-    , dtacrsrStatuses
+    , dtacrsrsStatus
+    , dtacrsrsStatuses
     ) where
 
 import           Network.AWS.Prelude
@@ -49,21 +49,21 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacrsCheckIds'
+-- * 'dtacrsrqCheckIds'
 newtype DescribeTrustedAdvisorCheckRefreshStatuses = DescribeTrustedAdvisorCheckRefreshStatuses'
-    { _dtacrsCheckIds :: [Text]
+    { _dtacrsrqCheckIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatuses' smart constructor.
 describeTrustedAdvisorCheckRefreshStatuses :: DescribeTrustedAdvisorCheckRefreshStatuses
 describeTrustedAdvisorCheckRefreshStatuses =
     DescribeTrustedAdvisorCheckRefreshStatuses'
-    { _dtacrsCheckIds = mempty
+    { _dtacrsrqCheckIds = mempty
     }
 
 -- | The IDs of the Trusted Advisor checks.
-dtacrsCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
-dtacrsCheckIds = lens _dtacrsCheckIds (\ s a -> s{_dtacrsCheckIds = a});
+dtacrsrqCheckIds :: Lens' DescribeTrustedAdvisorCheckRefreshStatuses [Text]
+dtacrsrqCheckIds = lens _dtacrsrqCheckIds (\ s a -> s{_dtacrsrqCheckIds = a});
 
 instance AWSRequest
          DescribeTrustedAdvisorCheckRefreshStatuses where
@@ -95,7 +95,7 @@ instance ToJSON
          DescribeTrustedAdvisorCheckRefreshStatuses where
         toJSON
           DescribeTrustedAdvisorCheckRefreshStatuses'{..}
-          = object ["checkIds" .= _dtacrsCheckIds]
+          = object ["checkIds" .= _dtacrsrqCheckIds]
 
 instance ToPath
          DescribeTrustedAdvisorCheckRefreshStatuses where
@@ -112,26 +112,26 @@ instance ToQuery
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtacrsrStatus'
+-- * 'dtacrsrsStatus'
 --
--- * 'dtacrsrStatuses'
+-- * 'dtacrsrsStatuses'
 data DescribeTrustedAdvisorCheckRefreshStatusesResponse = DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-    { _dtacrsrStatus   :: !Int
-    , _dtacrsrStatuses :: ![TrustedAdvisorCheckRefreshStatus]
+    { _dtacrsrsStatus   :: !Int
+    , _dtacrsrsStatuses :: ![TrustedAdvisorCheckRefreshStatus]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTrustedAdvisorCheckRefreshStatusesResponse' smart constructor.
 describeTrustedAdvisorCheckRefreshStatusesResponse :: Int -> DescribeTrustedAdvisorCheckRefreshStatusesResponse
 describeTrustedAdvisorCheckRefreshStatusesResponse pStatus =
     DescribeTrustedAdvisorCheckRefreshStatusesResponse'
-    { _dtacrsrStatus = pStatus
-    , _dtacrsrStatuses = mempty
+    { _dtacrsrsStatus = pStatus
+    , _dtacrsrsStatuses = mempty
     }
 
 -- | FIXME: Undocumented member.
-dtacrsrStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
-dtacrsrStatus = lens _dtacrsrStatus (\ s a -> s{_dtacrsrStatus = a});
+dtacrsrsStatus :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse Int
+dtacrsrsStatus = lens _dtacrsrsStatus (\ s a -> s{_dtacrsrsStatus = a});
 
 -- | The refresh status of the specified Trusted Advisor checks.
-dtacrsrStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
-dtacrsrStatuses = lens _dtacrsrStatuses (\ s a -> s{_dtacrsrStatuses = a});
+dtacrsrsStatuses :: Lens' DescribeTrustedAdvisorCheckRefreshStatusesResponse [TrustedAdvisorCheckRefreshStatus]
+dtacrsrsStatuses = lens _dtacrsrsStatuses (\ s a -> s{_dtacrsrsStatuses = a});

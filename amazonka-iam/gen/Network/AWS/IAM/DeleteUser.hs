@@ -28,7 +28,7 @@ module Network.AWS.IAM.DeleteUser
     -- ** Request constructor
     , deleteUser
     -- ** Request lenses
-    , duUserName
+    , durqUserName
 
     -- * Response
     , DeleteUserResponse
@@ -45,21 +45,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'duUserName'
+-- * 'durqUserName'
 newtype DeleteUser = DeleteUser'
-    { _duUserName :: Text
+    { _durqUserName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUser' smart constructor.
 deleteUser :: Text -> DeleteUser
 deleteUser pUserName =
     DeleteUser'
-    { _duUserName = pUserName
+    { _durqUserName = pUserName
     }
 
 -- | The name of the user to delete.
-duUserName :: Lens' DeleteUser Text
-duUserName = lens _duUserName (\ s a -> s{_duUserName = a});
+durqUserName :: Lens' DeleteUser Text
+durqUserName = lens _durqUserName (\ s a -> s{_durqUserName = a});
 
 instance AWSRequest DeleteUser where
         type Sv DeleteUser = IAM
@@ -78,7 +78,7 @@ instance ToQuery DeleteUser where
           = mconcat
               ["Action" =: ("DeleteUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _duUserName]
+               "UserName" =: _durqUserName]
 
 -- | /See:/ 'deleteUserResponse' smart constructor.
 data DeleteUserResponse =

@@ -40,15 +40,15 @@ module Network.AWS.SES.ListIdentityPolicies
     -- ** Request constructor
     , listIdentityPolicies
     -- ** Request lenses
-    , lipIdentity
+    , liprqIdentity
 
     -- * Response
     , ListIdentityPoliciesResponse
     -- ** Response constructor
     , listIdentityPoliciesResponse
     -- ** Response lenses
-    , liprStatus
-    , liprPolicyNames
+    , liprsStatus
+    , liprsPolicyNames
     ) where
 
 import           Network.AWS.Prelude
@@ -63,16 +63,16 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lipIdentity'
+-- * 'liprqIdentity'
 newtype ListIdentityPolicies = ListIdentityPolicies'
-    { _lipIdentity :: Text
+    { _liprqIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPolicies' smart constructor.
 listIdentityPolicies :: Text -> ListIdentityPolicies
 listIdentityPolicies pIdentity =
     ListIdentityPolicies'
-    { _lipIdentity = pIdentity
+    { _liprqIdentity = pIdentity
     }
 
 -- | The identity that is associated with the policy for which the policies
@@ -82,8 +82,8 @@ listIdentityPolicies pIdentity =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-lipIdentity :: Lens' ListIdentityPolicies Text
-lipIdentity = lens _lipIdentity (\ s a -> s{_lipIdentity = a});
+liprqIdentity :: Lens' ListIdentityPolicies Text
+liprqIdentity = lens _liprqIdentity (\ s a -> s{_liprqIdentity = a});
 
 instance AWSRequest ListIdentityPolicies where
         type Sv ListIdentityPolicies = SES
@@ -109,7 +109,7 @@ instance ToQuery ListIdentityPolicies where
           = mconcat
               ["Action" =: ("ListIdentityPolicies" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _lipIdentity]
+               "Identity" =: _liprqIdentity]
 
 -- | Represents a list of policy names returned from a successful
 -- @ListIdentityPolicies@ request.
@@ -118,26 +118,26 @@ instance ToQuery ListIdentityPolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liprStatus'
+-- * 'liprsStatus'
 --
--- * 'liprPolicyNames'
+-- * 'liprsPolicyNames'
 data ListIdentityPoliciesResponse = ListIdentityPoliciesResponse'
-    { _liprStatus      :: !Int
-    , _liprPolicyNames :: ![Text]
+    { _liprsStatus      :: !Int
+    , _liprsPolicyNames :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListIdentityPoliciesResponse' smart constructor.
 listIdentityPoliciesResponse :: Int -> ListIdentityPoliciesResponse
 listIdentityPoliciesResponse pStatus =
     ListIdentityPoliciesResponse'
-    { _liprStatus = pStatus
-    , _liprPolicyNames = mempty
+    { _liprsStatus = pStatus
+    , _liprsPolicyNames = mempty
     }
 
 -- | FIXME: Undocumented member.
-liprStatus :: Lens' ListIdentityPoliciesResponse Int
-liprStatus = lens _liprStatus (\ s a -> s{_liprStatus = a});
+liprsStatus :: Lens' ListIdentityPoliciesResponse Int
+liprsStatus = lens _liprsStatus (\ s a -> s{_liprsStatus = a});
 
 -- | A list of names of policies that apply to the specified identity.
-liprPolicyNames :: Lens' ListIdentityPoliciesResponse [Text]
-liprPolicyNames = lens _liprPolicyNames (\ s a -> s{_liprPolicyNames = a});
+liprsPolicyNames :: Lens' ListIdentityPoliciesResponse [Text]
+liprsPolicyNames = lens _liprsPolicyNames (\ s a -> s{_liprsPolicyNames = a});

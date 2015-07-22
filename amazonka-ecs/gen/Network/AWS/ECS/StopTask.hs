@@ -27,16 +27,16 @@ module Network.AWS.ECS.StopTask
     -- ** Request constructor
     , stopTask
     -- ** Request lenses
-    , stCluster
-    , stTask
+    , strqCluster
+    , strqTask
 
     -- * Response
     , StopTaskResponse
     -- ** Response constructor
     , stopTaskResponse
     -- ** Response lenses
-    , stoTask
-    , stoStatus
+    , strsTask
+    , strsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -48,32 +48,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stCluster'
+-- * 'strqCluster'
 --
--- * 'stTask'
+-- * 'strqTask'
 data StopTask = StopTask'
-    { _stCluster :: !(Maybe Text)
-    , _stTask    :: !Text
+    { _strqCluster :: !(Maybe Text)
+    , _strqTask    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopTask' smart constructor.
 stopTask :: Text -> StopTask
 stopTask pTask =
     StopTask'
-    { _stCluster = Nothing
-    , _stTask = pTask
+    { _strqCluster = Nothing
+    , _strqTask = pTask
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task you want to stop. If you do not specify a cluster, the
 -- default cluster is assumed..
-stCluster :: Lens' StopTask (Maybe Text)
-stCluster = lens _stCluster (\ s a -> s{_stCluster = a});
+strqCluster :: Lens' StopTask (Maybe Text)
+strqCluster = lens _strqCluster (\ s a -> s{_strqCluster = a});
 
 -- | The task UUIDs or full Amazon Resource Name (ARN) entry of the task you
 -- would like to stop.
-stTask :: Lens' StopTask Text
-stTask = lens _stTask (\ s a -> s{_stTask = a});
+strqTask :: Lens' StopTask Text
+strqTask = lens _strqTask (\ s a -> s{_strqTask = a});
 
 instance AWSRequest StopTask where
         type Sv StopTask = ECS
@@ -97,7 +97,8 @@ instance ToHeaders StopTask where
 
 instance ToJSON StopTask where
         toJSON StopTask'{..}
-          = object ["cluster" .= _stCluster, "task" .= _stTask]
+          = object
+              ["cluster" .= _strqCluster, "task" .= _strqTask]
 
 instance ToPath StopTask where
         toPath = const "/"
@@ -109,26 +110,26 @@ instance ToQuery StopTask where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'stoTask'
+-- * 'strsTask'
 --
--- * 'stoStatus'
+-- * 'strsStatus'
 data StopTaskResponse = StopTaskResponse'
-    { _stoTask   :: !(Maybe Task)
-    , _stoStatus :: !Int
+    { _strsTask   :: !(Maybe Task)
+    , _strsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StopTaskResponse' smart constructor.
 stopTaskResponse :: Int -> StopTaskResponse
 stopTaskResponse pStatus =
     StopTaskResponse'
-    { _stoTask = Nothing
-    , _stoStatus = pStatus
+    { _strsTask = Nothing
+    , _strsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-stoTask :: Lens' StopTaskResponse (Maybe Task)
-stoTask = lens _stoTask (\ s a -> s{_stoTask = a});
+strsTask :: Lens' StopTaskResponse (Maybe Task)
+strsTask = lens _strsTask (\ s a -> s{_strsTask = a});
 
 -- | FIXME: Undocumented member.
-stoStatus :: Lens' StopTaskResponse Int
-stoStatus = lens _stoStatus (\ s a -> s{_stoStatus = a});
+strsStatus :: Lens' StopTaskResponse Int
+strsStatus = lens _strsStatus (\ s a -> s{_strsStatus = a});

@@ -27,7 +27,7 @@ module Network.AWS.S3.DeleteBucketReplication
     -- ** Request constructor
     , deleteBucketReplication
     -- ** Request lenses
-    , dbrBucket
+    , dbrrqBucket
 
     -- * Response
     , DeleteBucketReplicationResponse
@@ -44,21 +44,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbrBucket'
+-- * 'dbrrqBucket'
 newtype DeleteBucketReplication = DeleteBucketReplication'
-    { _dbrBucket :: BucketName
+    { _dbrrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketReplication' smart constructor.
 deleteBucketReplication :: BucketName -> DeleteBucketReplication
 deleteBucketReplication pBucket =
     DeleteBucketReplication'
-    { _dbrBucket = pBucket
+    { _dbrrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-dbrBucket :: Lens' DeleteBucketReplication BucketName
-dbrBucket = lens _dbrBucket (\ s a -> s{_dbrBucket = a});
+dbrrqBucket :: Lens' DeleteBucketReplication BucketName
+dbrrqBucket = lens _dbrrqBucket (\ s a -> s{_dbrrqBucket = a});
 
 instance AWSRequest DeleteBucketReplication where
         type Sv DeleteBucketReplication = S3
@@ -73,7 +73,7 @@ instance ToHeaders DeleteBucketReplication where
 
 instance ToPath DeleteBucketReplication where
         toPath DeleteBucketReplication'{..}
-          = mconcat ["/", toText _dbrBucket]
+          = mconcat ["/", toText _dbrrqBucket]
 
 instance ToQuery DeleteBucketReplication where
         toQuery = const (mconcat ["replication"])

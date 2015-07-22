@@ -27,15 +27,15 @@ module Network.AWS.ELB.DescribeTags
     -- ** Request constructor
     , describeTags
     -- ** Request lenses
-    , dtLoadBalancerNames
+    , dtrqLoadBalancerNames
 
     -- * Response
     , DescribeTagsResponse
     -- ** Response constructor
     , describeTagsResponse
     -- ** Response lenses
-    , dtrTagDescriptions
-    , dtrStatus
+    , dtrsTagDescriptions
+    , dtrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtLoadBalancerNames'
+-- * 'dtrqLoadBalancerNames'
 newtype DescribeTags = DescribeTags'
-    { _dtLoadBalancerNames :: List1 Text
+    { _dtrqLoadBalancerNames :: List1 Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTags' smart constructor.
 describeTags :: NonEmpty Text -> DescribeTags
 describeTags pLoadBalancerNames =
     DescribeTags'
-    { _dtLoadBalancerNames = _List1 # pLoadBalancerNames
+    { _dtrqLoadBalancerNames = _List1 # pLoadBalancerNames
     }
 
 -- | The names of the load balancers.
-dtLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
-dtLoadBalancerNames = lens _dtLoadBalancerNames (\ s a -> s{_dtLoadBalancerNames = a}) . _List1;
+dtrqLoadBalancerNames :: Lens' DescribeTags (NonEmpty Text)
+dtrqLoadBalancerNames = lens _dtrqLoadBalancerNames (\ s a -> s{_dtrqLoadBalancerNames = a}) . _List1;
 
 instance AWSRequest DescribeTags where
         type Sv DescribeTags = ELB
@@ -87,32 +87,32 @@ instance ToQuery DescribeTags where
               ["Action" =: ("DescribeTags" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerNames" =:
-                 toQueryList "member" _dtLoadBalancerNames]
+                 toQueryList "member" _dtrqLoadBalancerNames]
 
 -- | /See:/ 'describeTagsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrTagDescriptions'
+-- * 'dtrsTagDescriptions'
 --
--- * 'dtrStatus'
+-- * 'dtrsStatus'
 data DescribeTagsResponse = DescribeTagsResponse'
-    { _dtrTagDescriptions :: !(Maybe [TagDescription])
-    , _dtrStatus          :: !Int
+    { _dtrsTagDescriptions :: !(Maybe [TagDescription])
+    , _dtrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTagsResponse' smart constructor.
 describeTagsResponse :: Int -> DescribeTagsResponse
 describeTagsResponse pStatus =
     DescribeTagsResponse'
-    { _dtrTagDescriptions = Nothing
-    , _dtrStatus = pStatus
+    { _dtrsTagDescriptions = Nothing
+    , _dtrsStatus = pStatus
     }
 
 -- | Information about the tags.
-dtrTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
-dtrTagDescriptions = lens _dtrTagDescriptions (\ s a -> s{_dtrTagDescriptions = a}) . _Default;
+dtrsTagDescriptions :: Lens' DescribeTagsResponse [TagDescription]
+dtrsTagDescriptions = lens _dtrsTagDescriptions (\ s a -> s{_dtrsTagDescriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTagsResponse Int
-dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
+dtrsStatus :: Lens' DescribeTagsResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

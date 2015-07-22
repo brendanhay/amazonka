@@ -348,56 +348,56 @@ instance FromJSON DataSource where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'evaStatus'
+-- * 'eStatus'
 --
--- * 'evaPerformanceMetrics'
+-- * 'ePerformanceMetrics'
 --
--- * 'evaLastUpdatedAt'
+-- * 'eLastUpdatedAt'
 --
--- * 'evaCreatedAt'
+-- * 'eCreatedAt'
 --
--- * 'evaInputDataLocationS3'
+-- * 'eInputDataLocationS3'
 --
--- * 'evaMLModelId'
+-- * 'eMLModelId'
 --
--- * 'evaName'
+-- * 'eName'
 --
--- * 'evaCreatedByIAMUser'
+-- * 'eCreatedByIAMUser'
 --
--- * 'evaMessage'
+-- * 'eMessage'
 --
--- * 'evaEvaluationId'
+-- * 'eEvaluationId'
 --
--- * 'evaEvaluationDataSourceId'
+-- * 'eEvaluationDataSourceId'
 data Evaluation = Evaluation'
-    { _evaStatus                 :: !(Maybe EntityStatus)
-    , _evaPerformanceMetrics     :: !(Maybe PerformanceMetrics)
-    , _evaLastUpdatedAt          :: !(Maybe POSIX)
-    , _evaCreatedAt              :: !(Maybe POSIX)
-    , _evaInputDataLocationS3    :: !(Maybe Text)
-    , _evaMLModelId              :: !(Maybe Text)
-    , _evaName                   :: !(Maybe Text)
-    , _evaCreatedByIAMUser       :: !(Maybe Text)
-    , _evaMessage                :: !(Maybe Text)
-    , _evaEvaluationId           :: !(Maybe Text)
-    , _evaEvaluationDataSourceId :: !(Maybe Text)
+    { _eStatus                 :: !(Maybe EntityStatus)
+    , _ePerformanceMetrics     :: !(Maybe PerformanceMetrics)
+    , _eLastUpdatedAt          :: !(Maybe POSIX)
+    , _eCreatedAt              :: !(Maybe POSIX)
+    , _eInputDataLocationS3    :: !(Maybe Text)
+    , _eMLModelId              :: !(Maybe Text)
+    , _eName                   :: !(Maybe Text)
+    , _eCreatedByIAMUser       :: !(Maybe Text)
+    , _eMessage                :: !(Maybe Text)
+    , _eEvaluationId           :: !(Maybe Text)
+    , _eEvaluationDataSourceId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Evaluation' smart constructor.
 evaluation :: Evaluation
 evaluation =
     Evaluation'
-    { _evaStatus = Nothing
-    , _evaPerformanceMetrics = Nothing
-    , _evaLastUpdatedAt = Nothing
-    , _evaCreatedAt = Nothing
-    , _evaInputDataLocationS3 = Nothing
-    , _evaMLModelId = Nothing
-    , _evaName = Nothing
-    , _evaCreatedByIAMUser = Nothing
-    , _evaMessage = Nothing
-    , _evaEvaluationId = Nothing
-    , _evaEvaluationDataSourceId = Nothing
+    { _eStatus = Nothing
+    , _ePerformanceMetrics = Nothing
+    , _eLastUpdatedAt = Nothing
+    , _eCreatedAt = Nothing
+    , _eInputDataLocationS3 = Nothing
+    , _eMLModelId = Nothing
+    , _eName = Nothing
+    , _eCreatedByIAMUser = Nothing
+    , _eMessage = Nothing
+    , _eEvaluationId = Nothing
+    , _eEvaluationDataSourceId = Nothing
     }
 
 -- | The status of the evaluation. This element can have one of the following
@@ -410,8 +410,8 @@ evaluation =
 --     completion. It is not usable.
 -- -   @COMPLETED@ - The evaluation process completed successfully.
 -- -   @DELETED@ - The @Evaluation@ is marked as deleted. It is not usable.
-evaStatus :: Lens' Evaluation (Maybe EntityStatus)
-evaStatus = lens _evaStatus (\ s a -> s{_evaStatus = a});
+eStatus :: Lens' Evaluation (Maybe EntityStatus)
+eStatus = lens _eStatus (\ s a -> s{_eStatus = a});
 
 -- | Measurements of how well the @MLModel@ performed, using observations
 -- referenced by the @DataSource@. One of the following metrics is
@@ -430,49 +430,49 @@ evaStatus = lens _evaStatus (\ s a -> s{_evaStatus = a});
 --
 -- For more information about performance metrics, please see the
 -- <http://docs.aws.amazon.com/machine-learning/latest/dg Amazon Machine Learning Developer Guide>.
-evaPerformanceMetrics :: Lens' Evaluation (Maybe PerformanceMetrics)
-evaPerformanceMetrics = lens _evaPerformanceMetrics (\ s a -> s{_evaPerformanceMetrics = a});
+ePerformanceMetrics :: Lens' Evaluation (Maybe PerformanceMetrics)
+ePerformanceMetrics = lens _ePerformanceMetrics (\ s a -> s{_ePerformanceMetrics = a});
 
 -- | The time of the most recent edit to the @Evaluation@. The time is
 -- expressed in epoch time.
-evaLastUpdatedAt :: Lens' Evaluation (Maybe UTCTime)
-evaLastUpdatedAt = lens _evaLastUpdatedAt (\ s a -> s{_evaLastUpdatedAt = a}) . mapping _Time;
+eLastUpdatedAt :: Lens' Evaluation (Maybe UTCTime)
+eLastUpdatedAt = lens _eLastUpdatedAt (\ s a -> s{_eLastUpdatedAt = a}) . mapping _Time;
 
 -- | The time that the @Evaluation@ was created. The time is expressed in
 -- epoch time.
-evaCreatedAt :: Lens' Evaluation (Maybe UTCTime)
-evaCreatedAt = lens _evaCreatedAt (\ s a -> s{_evaCreatedAt = a}) . mapping _Time;
+eCreatedAt :: Lens' Evaluation (Maybe UTCTime)
+eCreatedAt = lens _eCreatedAt (\ s a -> s{_eCreatedAt = a}) . mapping _Time;
 
 -- | The location and name of the data in Amazon Simple Storage Server
 -- (Amazon S3) that is used in the evaluation.
-evaInputDataLocationS3 :: Lens' Evaluation (Maybe Text)
-evaInputDataLocationS3 = lens _evaInputDataLocationS3 (\ s a -> s{_evaInputDataLocationS3 = a});
+eInputDataLocationS3 :: Lens' Evaluation (Maybe Text)
+eInputDataLocationS3 = lens _eInputDataLocationS3 (\ s a -> s{_eInputDataLocationS3 = a});
 
 -- | The ID of the @MLModel@ that is the focus of the evaluation.
-evaMLModelId :: Lens' Evaluation (Maybe Text)
-evaMLModelId = lens _evaMLModelId (\ s a -> s{_evaMLModelId = a});
+eMLModelId :: Lens' Evaluation (Maybe Text)
+eMLModelId = lens _eMLModelId (\ s a -> s{_eMLModelId = a});
 
 -- | A user-supplied name or description of the @Evaluation@.
-evaName :: Lens' Evaluation (Maybe Text)
-evaName = lens _evaName (\ s a -> s{_evaName = a});
+eName :: Lens' Evaluation (Maybe Text)
+eName = lens _eName (\ s a -> s{_eName = a});
 
 -- | The AWS user account that invoked the evaluation. The account type can
 -- be either an AWS root account or an AWS Identity and Access Management
 -- (IAM) user account.
-evaCreatedByIAMUser :: Lens' Evaluation (Maybe Text)
-evaCreatedByIAMUser = lens _evaCreatedByIAMUser (\ s a -> s{_evaCreatedByIAMUser = a});
+eCreatedByIAMUser :: Lens' Evaluation (Maybe Text)
+eCreatedByIAMUser = lens _eCreatedByIAMUser (\ s a -> s{_eCreatedByIAMUser = a});
 
 -- | A description of the most recent details about evaluating the @MLModel@.
-evaMessage :: Lens' Evaluation (Maybe Text)
-evaMessage = lens _evaMessage (\ s a -> s{_evaMessage = a});
+eMessage :: Lens' Evaluation (Maybe Text)
+eMessage = lens _eMessage (\ s a -> s{_eMessage = a});
 
 -- | The ID that is assigned to the @Evaluation@ at creation.
-evaEvaluationId :: Lens' Evaluation (Maybe Text)
-evaEvaluationId = lens _evaEvaluationId (\ s a -> s{_evaEvaluationId = a});
+eEvaluationId :: Lens' Evaluation (Maybe Text)
+eEvaluationId = lens _eEvaluationId (\ s a -> s{_eEvaluationId = a});
 
 -- | The ID of the @DataSource@ that is used to evaluate the @MLModel@.
-evaEvaluationDataSourceId :: Lens' Evaluation (Maybe Text)
-evaEvaluationDataSourceId = lens _evaEvaluationDataSourceId (\ s a -> s{_evaEvaluationDataSourceId = a});
+eEvaluationDataSourceId :: Lens' Evaluation (Maybe Text)
+eEvaluationDataSourceId = lens _eEvaluationDataSourceId (\ s a -> s{_eEvaluationDataSourceId = a});
 
 instance FromJSON Evaluation where
         parseJSON
@@ -784,45 +784,45 @@ instance FromJSON PerformanceMetrics where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prePredictedValue'
+-- * 'pPredictedValue'
 --
--- * 'prePredictedLabel'
+-- * 'pPredictedLabel'
 --
--- * 'prePredictedScores'
+-- * 'pPredictedScores'
 --
--- * 'preDetails'
+-- * 'pDetails'
 data Prediction = Prediction'
-    { _prePredictedValue  :: !(Maybe Double)
-    , _prePredictedLabel  :: !(Maybe Text)
-    , _prePredictedScores :: !(Maybe (Map Text Double))
-    , _preDetails         :: !(Maybe (Map DetailsAttributes Text))
+    { _pPredictedValue  :: !(Maybe Double)
+    , _pPredictedLabel  :: !(Maybe Text)
+    , _pPredictedScores :: !(Maybe (Map Text Double))
+    , _pDetails         :: !(Maybe (Map DetailsAttributes Text))
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Prediction' smart constructor.
 prediction :: Prediction
 prediction =
     Prediction'
-    { _prePredictedValue = Nothing
-    , _prePredictedLabel = Nothing
-    , _prePredictedScores = Nothing
-    , _preDetails = Nothing
+    { _pPredictedValue = Nothing
+    , _pPredictedLabel = Nothing
+    , _pPredictedScores = Nothing
+    , _pDetails = Nothing
     }
 
 -- | The prediction value for REGRESSION @MLModel@.
-prePredictedValue :: Lens' Prediction (Maybe Double)
-prePredictedValue = lens _prePredictedValue (\ s a -> s{_prePredictedValue = a});
+pPredictedValue :: Lens' Prediction (Maybe Double)
+pPredictedValue = lens _pPredictedValue (\ s a -> s{_pPredictedValue = a});
 
 -- | The prediction label for either a BINARY or MULTICLASS @MLModel@.
-prePredictedLabel :: Lens' Prediction (Maybe Text)
-prePredictedLabel = lens _prePredictedLabel (\ s a -> s{_prePredictedLabel = a});
+pPredictedLabel :: Lens' Prediction (Maybe Text)
+pPredictedLabel = lens _pPredictedLabel (\ s a -> s{_pPredictedLabel = a});
 
 -- | FIXME: Undocumented member.
-prePredictedScores :: Lens' Prediction (HashMap Text Double)
-prePredictedScores = lens _prePredictedScores (\ s a -> s{_prePredictedScores = a}) . _Default . _Map;
+pPredictedScores :: Lens' Prediction (HashMap Text Double)
+pPredictedScores = lens _pPredictedScores (\ s a -> s{_pPredictedScores = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-preDetails :: Lens' Prediction (HashMap DetailsAttributes Text)
-preDetails = lens _preDetails (\ s a -> s{_preDetails = a}) . _Default . _Map;
+pDetails :: Lens' Prediction (HashMap DetailsAttributes Text)
+pDetails = lens _pDetails (\ s a -> s{_pDetails = a}) . _Default . _Map;
 
 instance FromJSON Prediction where
         parseJSON
@@ -979,29 +979,29 @@ instance ToJSON RDSDataSpec where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdsInstanceIdentifier'
+-- * 'rdsdInstanceIdentifier'
 --
--- * 'rdsDatabaseName'
+-- * 'rdsdDatabaseName'
 data RDSDatabase = RDSDatabase'
-    { _rdsInstanceIdentifier :: !Text
-    , _rdsDatabaseName       :: !Text
+    { _rdsdInstanceIdentifier :: !Text
+    , _rdsdDatabaseName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RDSDatabase' smart constructor.
 rdsDatabase :: Text -> Text -> RDSDatabase
 rdsDatabase pInstanceIdentifier pDatabaseName =
     RDSDatabase'
-    { _rdsInstanceIdentifier = pInstanceIdentifier
-    , _rdsDatabaseName = pDatabaseName
+    { _rdsdInstanceIdentifier = pInstanceIdentifier
+    , _rdsdDatabaseName = pDatabaseName
     }
 
 -- | The ID of an RDS DB instance.
-rdsInstanceIdentifier :: Lens' RDSDatabase Text
-rdsInstanceIdentifier = lens _rdsInstanceIdentifier (\ s a -> s{_rdsInstanceIdentifier = a});
+rdsdInstanceIdentifier :: Lens' RDSDatabase Text
+rdsdInstanceIdentifier = lens _rdsdInstanceIdentifier (\ s a -> s{_rdsdInstanceIdentifier = a});
 
 -- | FIXME: Undocumented member.
-rdsDatabaseName :: Lens' RDSDatabase Text
-rdsDatabaseName = lens _rdsDatabaseName (\ s a -> s{_rdsDatabaseName = a});
+rdsdDatabaseName :: Lens' RDSDatabase Text
+rdsdDatabaseName = lens _rdsdDatabaseName (\ s a -> s{_rdsdDatabaseName = a});
 
 instance FromJSON RDSDatabase where
         parseJSON
@@ -1014,8 +1014,8 @@ instance FromJSON RDSDatabase where
 instance ToJSON RDSDatabase where
         toJSON RDSDatabase'{..}
           = object
-              ["InstanceIdentifier" .= _rdsInstanceIdentifier,
-               "DatabaseName" .= _rdsDatabaseName]
+              ["InstanceIdentifier" .= _rdsdInstanceIdentifier,
+               "DatabaseName" .= _rdsdDatabaseName]
 
 -- | The database credentials to connect to a database on an RDS DB instance.
 --
@@ -1023,35 +1023,35 @@ instance ToJSON RDSDatabase where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdsUsername'
+-- * 'rdsdcUsername'
 --
--- * 'rdsPassword'
+-- * 'rdsdcPassword'
 data RDSDatabaseCredentials = RDSDatabaseCredentials'
-    { _rdsUsername :: !Text
-    , _rdsPassword :: !Text
+    { _rdsdcUsername :: !Text
+    , _rdsdcPassword :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RDSDatabaseCredentials' smart constructor.
 rdsDatabaseCredentials :: Text -> Text -> RDSDatabaseCredentials
 rdsDatabaseCredentials pUsername pPassword =
     RDSDatabaseCredentials'
-    { _rdsUsername = pUsername
-    , _rdsPassword = pPassword
+    { _rdsdcUsername = pUsername
+    , _rdsdcPassword = pPassword
     }
 
 -- | FIXME: Undocumented member.
-rdsUsername :: Lens' RDSDatabaseCredentials Text
-rdsUsername = lens _rdsUsername (\ s a -> s{_rdsUsername = a});
+rdsdcUsername :: Lens' RDSDatabaseCredentials Text
+rdsdcUsername = lens _rdsdcUsername (\ s a -> s{_rdsdcUsername = a});
 
 -- | FIXME: Undocumented member.
-rdsPassword :: Lens' RDSDatabaseCredentials Text
-rdsPassword = lens _rdsPassword (\ s a -> s{_rdsPassword = a});
+rdsdcPassword :: Lens' RDSDatabaseCredentials Text
+rdsdcPassword = lens _rdsdcPassword (\ s a -> s{_rdsdcPassword = a});
 
 instance ToJSON RDSDatabaseCredentials where
         toJSON RDSDatabaseCredentials'{..}
           = object
-              ["Username" .= _rdsUsername,
-               "Password" .= _rdsPassword]
+              ["Username" .= _rdsdcUsername,
+               "Password" .= _rdsdcPassword]
 
 -- | The datasource details that are specific to Amazon RDS.
 --
@@ -1211,84 +1211,84 @@ instance FromJSON RealtimeEndpointInfo where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'redDataSchemaURI'
+-- * 'rDataSchemaURI'
 --
--- * 'redDataSchema'
+-- * 'rDataSchema'
 --
--- * 'redDataRearrangement'
+-- * 'rDataRearrangement'
 --
--- * 'redDatabaseInformation'
+-- * 'rDatabaseInformation'
 --
--- * 'redSelectSqlQuery'
+-- * 'rSelectSqlQuery'
 --
--- * 'redDatabaseCredentials'
+-- * 'rDatabaseCredentials'
 --
--- * 'redS3StagingLocation'
+-- * 'rS3StagingLocation'
 data RedshiftDataSpec = RedshiftDataSpec'
-    { _redDataSchemaURI       :: !(Maybe Text)
-    , _redDataSchema          :: !(Maybe Text)
-    , _redDataRearrangement   :: !(Maybe Text)
-    , _redDatabaseInformation :: !RedshiftDatabase
-    , _redSelectSqlQuery      :: !Text
-    , _redDatabaseCredentials :: !RedshiftDatabaseCredentials
-    , _redS3StagingLocation   :: !Text
+    { _rDataSchemaURI       :: !(Maybe Text)
+    , _rDataSchema          :: !(Maybe Text)
+    , _rDataRearrangement   :: !(Maybe Text)
+    , _rDatabaseInformation :: !RedshiftDatabase
+    , _rSelectSqlQuery      :: !Text
+    , _rDatabaseCredentials :: !RedshiftDatabaseCredentials
+    , _rS3StagingLocation   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RedshiftDataSpec' smart constructor.
 redshiftDataSpec :: RedshiftDatabase -> Text -> RedshiftDatabaseCredentials -> Text -> RedshiftDataSpec
 redshiftDataSpec pDatabaseInformation pSelectSqlQuery pDatabaseCredentials pS3StagingLocation =
     RedshiftDataSpec'
-    { _redDataSchemaURI = Nothing
-    , _redDataSchema = Nothing
-    , _redDataRearrangement = Nothing
-    , _redDatabaseInformation = pDatabaseInformation
-    , _redSelectSqlQuery = pSelectSqlQuery
-    , _redDatabaseCredentials = pDatabaseCredentials
-    , _redS3StagingLocation = pS3StagingLocation
+    { _rDataSchemaURI = Nothing
+    , _rDataSchema = Nothing
+    , _rDataRearrangement = Nothing
+    , _rDatabaseInformation = pDatabaseInformation
+    , _rSelectSqlQuery = pSelectSqlQuery
+    , _rDatabaseCredentials = pDatabaseCredentials
+    , _rS3StagingLocation = pS3StagingLocation
     }
 
 -- | Describes the schema location for an Amazon Redshift @DataSource@.
-redDataSchemaURI :: Lens' RedshiftDataSpec (Maybe Text)
-redDataSchemaURI = lens _redDataSchemaURI (\ s a -> s{_redDataSchemaURI = a});
+rDataSchemaURI :: Lens' RedshiftDataSpec (Maybe Text)
+rDataSchemaURI = lens _rDataSchemaURI (\ s a -> s{_rDataSchemaURI = a});
 
 -- | Describes the schema for an Amazon Redshift @DataSource@.
-redDataSchema :: Lens' RedshiftDataSpec (Maybe Text)
-redDataSchema = lens _redDataSchema (\ s a -> s{_redDataSchema = a});
+rDataSchema :: Lens' RedshiftDataSpec (Maybe Text)
+rDataSchema = lens _rDataSchema (\ s a -> s{_rDataSchema = a});
 
 -- | Describes the splitting specifications for a @DataSource@.
-redDataRearrangement :: Lens' RedshiftDataSpec (Maybe Text)
-redDataRearrangement = lens _redDataRearrangement (\ s a -> s{_redDataRearrangement = a});
+rDataRearrangement :: Lens' RedshiftDataSpec (Maybe Text)
+rDataRearrangement = lens _rDataRearrangement (\ s a -> s{_rDataRearrangement = a});
 
 -- | Describes the @DatabaseName@ and @ClusterIdentifier@ for an Amazon
 -- Redshift @DataSource@.
-redDatabaseInformation :: Lens' RedshiftDataSpec RedshiftDatabase
-redDatabaseInformation = lens _redDatabaseInformation (\ s a -> s{_redDatabaseInformation = a});
+rDatabaseInformation :: Lens' RedshiftDataSpec RedshiftDatabase
+rDatabaseInformation = lens _rDatabaseInformation (\ s a -> s{_rDatabaseInformation = a});
 
 -- | Describes the SQL Query to execute on an Amazon Redshift database for an
 -- Amazon Redshift @DataSource@.
-redSelectSqlQuery :: Lens' RedshiftDataSpec Text
-redSelectSqlQuery = lens _redSelectSqlQuery (\ s a -> s{_redSelectSqlQuery = a});
+rSelectSqlQuery :: Lens' RedshiftDataSpec Text
+rSelectSqlQuery = lens _rSelectSqlQuery (\ s a -> s{_rSelectSqlQuery = a});
 
 -- | Describes AWS Identity and Access Management (IAM) credentials that are
 -- used connect to the Amazon Redshift database.
-redDatabaseCredentials :: Lens' RedshiftDataSpec RedshiftDatabaseCredentials
-redDatabaseCredentials = lens _redDatabaseCredentials (\ s a -> s{_redDatabaseCredentials = a});
+rDatabaseCredentials :: Lens' RedshiftDataSpec RedshiftDatabaseCredentials
+rDatabaseCredentials = lens _rDatabaseCredentials (\ s a -> s{_rDatabaseCredentials = a});
 
 -- | Describes an Amazon S3 location to store the result set of the
 -- @SelectSqlQuery@ query.
-redS3StagingLocation :: Lens' RedshiftDataSpec Text
-redS3StagingLocation = lens _redS3StagingLocation (\ s a -> s{_redS3StagingLocation = a});
+rS3StagingLocation :: Lens' RedshiftDataSpec Text
+rS3StagingLocation = lens _rS3StagingLocation (\ s a -> s{_rS3StagingLocation = a});
 
 instance ToJSON RedshiftDataSpec where
         toJSON RedshiftDataSpec'{..}
           = object
-              ["DataSchemaUri" .= _redDataSchemaURI,
-               "DataSchema" .= _redDataSchema,
-               "DataRearrangement" .= _redDataRearrangement,
-               "DatabaseInformation" .= _redDatabaseInformation,
-               "SelectSqlQuery" .= _redSelectSqlQuery,
-               "DatabaseCredentials" .= _redDatabaseCredentials,
-               "S3StagingLocation" .= _redS3StagingLocation]
+              ["DataSchemaUri" .= _rDataSchemaURI,
+               "DataSchema" .= _rDataSchema,
+               "DataRearrangement" .= _rDataRearrangement,
+               "DatabaseInformation" .= _rDatabaseInformation,
+               "SelectSqlQuery" .= _rSelectSqlQuery,
+               "DatabaseCredentials" .= _rDatabaseCredentials,
+               "S3StagingLocation" .= _rS3StagingLocation]
 
 -- | Describes the database details required to connect to an Amazon Redshift
 -- database.
@@ -1377,38 +1377,38 @@ instance ToJSON RedshiftDatabaseCredentials where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rSelectSqlQuery'
+-- * 'redSelectSqlQuery'
 --
--- * 'rRedshiftDatabase'
+-- * 'redRedshiftDatabase'
 --
--- * 'rDatabaseUserName'
+-- * 'redDatabaseUserName'
 data RedshiftMetadata = RedshiftMetadata'
-    { _rSelectSqlQuery   :: !(Maybe Text)
-    , _rRedshiftDatabase :: !(Maybe RedshiftDatabase)
-    , _rDatabaseUserName :: !(Maybe Text)
+    { _redSelectSqlQuery   :: !(Maybe Text)
+    , _redRedshiftDatabase :: !(Maybe RedshiftDatabase)
+    , _redDatabaseUserName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RedshiftMetadata' smart constructor.
 redshiftMetadata :: RedshiftMetadata
 redshiftMetadata =
     RedshiftMetadata'
-    { _rSelectSqlQuery = Nothing
-    , _rRedshiftDatabase = Nothing
-    , _rDatabaseUserName = Nothing
+    { _redSelectSqlQuery = Nothing
+    , _redRedshiftDatabase = Nothing
+    , _redDatabaseUserName = Nothing
     }
 
 -- | The SQL query that is specified during CreateDataSourceFromRedshift.
 -- Returns only if @Verbose@ is true in GetDataSourceInput.
-rSelectSqlQuery :: Lens' RedshiftMetadata (Maybe Text)
-rSelectSqlQuery = lens _rSelectSqlQuery (\ s a -> s{_rSelectSqlQuery = a});
+redSelectSqlQuery :: Lens' RedshiftMetadata (Maybe Text)
+redSelectSqlQuery = lens _redSelectSqlQuery (\ s a -> s{_redSelectSqlQuery = a});
 
 -- | FIXME: Undocumented member.
-rRedshiftDatabase :: Lens' RedshiftMetadata (Maybe RedshiftDatabase)
-rRedshiftDatabase = lens _rRedshiftDatabase (\ s a -> s{_rRedshiftDatabase = a});
+redRedshiftDatabase :: Lens' RedshiftMetadata (Maybe RedshiftDatabase)
+redRedshiftDatabase = lens _redRedshiftDatabase (\ s a -> s{_redRedshiftDatabase = a});
 
 -- | FIXME: Undocumented member.
-rDatabaseUserName :: Lens' RedshiftMetadata (Maybe Text)
-rDatabaseUserName = lens _rDatabaseUserName (\ s a -> s{_rDatabaseUserName = a});
+redDatabaseUserName :: Lens' RedshiftMetadata (Maybe Text)
+redDatabaseUserName = lens _redDatabaseUserName (\ s a -> s{_redDatabaseUserName = a});
 
 instance FromJSON RedshiftMetadata where
         parseJSON

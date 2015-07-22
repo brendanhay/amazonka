@@ -33,18 +33,18 @@ module Network.AWS.SDB.GetAttributes
     -- ** Request constructor
     , getAttributes
     -- ** Request lenses
-    , gaConsistentRead
-    , gaAttributeNames
-    , gaDomainName
-    , gaItemName
+    , garqConsistentRead
+    , garqAttributeNames
+    , garqDomainName
+    , garqItemName
 
     -- * Response
     , GetAttributesResponse
     -- ** Response constructor
     , getAttributesResponse
     -- ** Response lenses
-    , garAttributes
-    , garStatus
+    , garsAttributes
+    , garsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -56,28 +56,28 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaConsistentRead'
+-- * 'garqConsistentRead'
 --
--- * 'gaAttributeNames'
+-- * 'garqAttributeNames'
 --
--- * 'gaDomainName'
+-- * 'garqDomainName'
 --
--- * 'gaItemName'
+-- * 'garqItemName'
 data GetAttributes = GetAttributes'
-    { _gaConsistentRead :: !(Maybe Bool)
-    , _gaAttributeNames :: !(Maybe [Text])
-    , _gaDomainName     :: !Text
-    , _gaItemName       :: !Text
+    { _garqConsistentRead :: !(Maybe Bool)
+    , _garqAttributeNames :: !(Maybe [Text])
+    , _garqDomainName     :: !Text
+    , _garqItemName       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAttributes' smart constructor.
 getAttributes :: Text -> Text -> GetAttributes
 getAttributes pDomainName pItemName =
     GetAttributes'
-    { _gaConsistentRead = Nothing
-    , _gaAttributeNames = Nothing
-    , _gaDomainName = pDomainName
-    , _gaItemName = pItemName
+    { _garqConsistentRead = Nothing
+    , _garqAttributeNames = Nothing
+    , _garqDomainName = pDomainName
+    , _garqItemName = pItemName
     }
 
 -- | Determines whether or not strong consistency should be enforced when
@@ -85,20 +85,20 @@ getAttributes pDomainName pItemName =
 -- SimpleDB will be returned. Otherwise, results will be consistent
 -- eventually, and the client may not see data that was written immediately
 -- before your read.
-gaConsistentRead :: Lens' GetAttributes (Maybe Bool)
-gaConsistentRead = lens _gaConsistentRead (\ s a -> s{_gaConsistentRead = a});
+garqConsistentRead :: Lens' GetAttributes (Maybe Bool)
+garqConsistentRead = lens _garqConsistentRead (\ s a -> s{_garqConsistentRead = a});
 
 -- | The names of the attributes.
-gaAttributeNames :: Lens' GetAttributes [Text]
-gaAttributeNames = lens _gaAttributeNames (\ s a -> s{_gaAttributeNames = a}) . _Default;
+garqAttributeNames :: Lens' GetAttributes [Text]
+garqAttributeNames = lens _garqAttributeNames (\ s a -> s{_garqAttributeNames = a}) . _Default;
 
 -- | The name of the domain in which to perform the operation.
-gaDomainName :: Lens' GetAttributes Text
-gaDomainName = lens _gaDomainName (\ s a -> s{_gaDomainName = a});
+garqDomainName :: Lens' GetAttributes Text
+garqDomainName = lens _garqDomainName (\ s a -> s{_garqDomainName = a});
 
 -- | The name of the item.
-gaItemName :: Lens' GetAttributes Text
-gaItemName = lens _gaItemName (\ s a -> s{_gaItemName = a});
+garqItemName :: Lens' GetAttributes Text
+garqItemName = lens _garqItemName (\ s a -> s{_garqItemName = a});
 
 instance AWSRequest GetAttributes where
         type Sv GetAttributes = SDB
@@ -122,36 +122,37 @@ instance ToQuery GetAttributes where
           = mconcat
               ["Action" =: ("GetAttributes" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "ConsistentRead" =: _gaConsistentRead,
+               "ConsistentRead" =: _garqConsistentRead,
                toQuery
-                 (toQueryList "AttributeName" <$> _gaAttributeNames),
-               "DomainName" =: _gaDomainName,
-               "ItemName" =: _gaItemName]
+                 (toQueryList "AttributeName" <$>
+                    _garqAttributeNames),
+               "DomainName" =: _garqDomainName,
+               "ItemName" =: _garqItemName]
 
 -- | /See:/ 'getAttributesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'garAttributes'
+-- * 'garsAttributes'
 --
--- * 'garStatus'
+-- * 'garsStatus'
 data GetAttributesResponse = GetAttributesResponse'
-    { _garAttributes :: !(Maybe [Attribute])
-    , _garStatus     :: !Int
+    { _garsAttributes :: !(Maybe [Attribute])
+    , _garsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAttributesResponse' smart constructor.
 getAttributesResponse :: Int -> GetAttributesResponse
 getAttributesResponse pStatus =
     GetAttributesResponse'
-    { _garAttributes = Nothing
-    , _garStatus = pStatus
+    { _garsAttributes = Nothing
+    , _garsStatus = pStatus
     }
 
 -- | The list of attributes returned by the operation.
-garAttributes :: Lens' GetAttributesResponse [Attribute]
-garAttributes = lens _garAttributes (\ s a -> s{_garAttributes = a}) . _Default;
+garsAttributes :: Lens' GetAttributesResponse [Attribute]
+garsAttributes = lens _garsAttributes (\ s a -> s{_garsAttributes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-garStatus :: Lens' GetAttributesResponse Int
-garStatus = lens _garStatus (\ s a -> s{_garStatus = a});
+garsStatus :: Lens' GetAttributesResponse Int
+garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

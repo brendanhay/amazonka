@@ -33,15 +33,15 @@ module Network.AWS.EMR.RemoveTags
     -- ** Request constructor
     , removeTags
     -- ** Request lenses
-    , rtResourceId
-    , rtTagKeys
+    , rtrqResourceId
+    , rtrqTagKeys
 
     -- * Response
     , RemoveTagsResponse
     -- ** Response constructor
     , removeTagsResponse
     -- ** Response lenses
-    , rtrStatus
+    , rtrsStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -55,30 +55,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtResourceId'
+-- * 'rtrqResourceId'
 --
--- * 'rtTagKeys'
+-- * 'rtrqTagKeys'
 data RemoveTags = RemoveTags'
-    { _rtResourceId :: !Text
-    , _rtTagKeys    :: ![Text]
+    { _rtrqResourceId :: !Text
+    , _rtrqTagKeys    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: Text -> RemoveTags
 removeTags pResourceId =
     RemoveTags'
-    { _rtResourceId = pResourceId
-    , _rtTagKeys = mempty
+    { _rtrqResourceId = pResourceId
+    , _rtrqTagKeys = mempty
     }
 
 -- | The Amazon EMR resource identifier from which tags will be removed. This
 -- value must be a cluster identifier.
-rtResourceId :: Lens' RemoveTags Text
-rtResourceId = lens _rtResourceId (\ s a -> s{_rtResourceId = a});
+rtrqResourceId :: Lens' RemoveTags Text
+rtrqResourceId = lens _rtrqResourceId (\ s a -> s{_rtrqResourceId = a});
 
 -- | A list of tag keys to remove from a resource.
-rtTagKeys :: Lens' RemoveTags [Text]
-rtTagKeys = lens _rtTagKeys (\ s a -> s{_rtTagKeys = a});
+rtrqTagKeys :: Lens' RemoveTags [Text]
+rtrqTagKeys = lens _rtrqTagKeys (\ s a -> s{_rtrqTagKeys = a});
 
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = EMR
@@ -101,8 +101,8 @@ instance ToHeaders RemoveTags where
 instance ToJSON RemoveTags where
         toJSON RemoveTags'{..}
           = object
-              ["ResourceId" .= _rtResourceId,
-               "TagKeys" .= _rtTagKeys]
+              ["ResourceId" .= _rtrqResourceId,
+               "TagKeys" .= _rtrqTagKeys]
 
 instance ToPath RemoveTags where
         toPath = const "/"
@@ -116,18 +116,18 @@ instance ToQuery RemoveTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrStatus'
+-- * 'rtrsStatus'
 newtype RemoveTagsResponse = RemoveTagsResponse'
-    { _rtrStatus :: Int
+    { _rtrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
 removeTagsResponse pStatus =
     RemoveTagsResponse'
-    { _rtrStatus = pStatus
+    { _rtrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rtrStatus :: Lens' RemoveTagsResponse Int
-rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});
+rtrsStatus :: Lens' RemoveTagsResponse Int
+rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

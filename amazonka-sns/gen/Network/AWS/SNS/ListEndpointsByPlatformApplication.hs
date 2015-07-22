@@ -36,17 +36,17 @@ module Network.AWS.SNS.ListEndpointsByPlatformApplication
     -- ** Request constructor
     , listEndpointsByPlatformApplication
     -- ** Request lenses
-    , lebpaNextToken
-    , lebpaPlatformApplicationARN
+    , lebparqNextToken
+    , lebparqPlatformApplicationARN
 
     -- * Response
     , ListEndpointsByPlatformApplicationResponse
     -- ** Response constructor
     , listEndpointsByPlatformApplicationResponse
     -- ** Response lenses
-    , lebparNextToken
-    , lebparEndpoints
-    , lebparStatus
+    , lebparsNextToken
+    , lebparsEndpoints
+    , lebparsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -61,40 +61,41 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lebpaNextToken'
+-- * 'lebparqNextToken'
 --
--- * 'lebpaPlatformApplicationARN'
+-- * 'lebparqPlatformApplicationARN'
 data ListEndpointsByPlatformApplication = ListEndpointsByPlatformApplication'
-    { _lebpaNextToken              :: !(Maybe Text)
-    , _lebpaPlatformApplicationARN :: !Text
+    { _lebparqNextToken              :: !(Maybe Text)
+    , _lebparqPlatformApplicationARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEndpointsByPlatformApplication' smart constructor.
 listEndpointsByPlatformApplication :: Text -> ListEndpointsByPlatformApplication
 listEndpointsByPlatformApplication pPlatformApplicationARN =
     ListEndpointsByPlatformApplication'
-    { _lebpaNextToken = Nothing
-    , _lebpaPlatformApplicationARN = pPlatformApplicationARN
+    { _lebparqNextToken = Nothing
+    , _lebparqPlatformApplicationARN = pPlatformApplicationARN
     }
 
 -- | NextToken string is used when calling ListEndpointsByPlatformApplication
 -- action to retrieve additional records that are available after the first
 -- page results.
-lebpaNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
-lebpaNextToken = lens _lebpaNextToken (\ s a -> s{_lebpaNextToken = a});
+lebparqNextToken :: Lens' ListEndpointsByPlatformApplication (Maybe Text)
+lebparqNextToken = lens _lebparqNextToken (\ s a -> s{_lebparqNextToken = a});
 
 -- | PlatformApplicationArn for ListEndpointsByPlatformApplicationInput
 -- action.
-lebpaPlatformApplicationARN :: Lens' ListEndpointsByPlatformApplication Text
-lebpaPlatformApplicationARN = lens _lebpaPlatformApplicationARN (\ s a -> s{_lebpaPlatformApplicationARN = a});
+lebparqPlatformApplicationARN :: Lens' ListEndpointsByPlatformApplication Text
+lebparqPlatformApplicationARN = lens _lebparqPlatformApplicationARN (\ s a -> s{_lebparqPlatformApplicationARN = a});
 
 instance AWSPager ListEndpointsByPlatformApplication
          where
         page rq rs
-          | stop (rs ^. lebparNextToken) = Nothing
-          | stop (rs ^. lebparEndpoints) = Nothing
+          | stop (rs ^. lebparsNextToken) = Nothing
+          | stop (rs ^. lebparsEndpoints) = Nothing
           | otherwise =
-            Just $ rq & lebpaNextToken .~ rs ^. lebparNextToken
+            Just $ rq &
+              lebparqNextToken .~ rs ^. lebparsNextToken
 
 instance AWSRequest
          ListEndpointsByPlatformApplication where
@@ -127,9 +128,9 @@ instance ToQuery ListEndpointsByPlatformApplication
               ["Action" =:
                  ("ListEndpointsByPlatformApplication" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _lebpaNextToken,
+               "NextToken" =: _lebparqNextToken,
                "PlatformApplicationArn" =:
-                 _lebpaPlatformApplicationARN]
+                 _lebparqPlatformApplicationARN]
 
 -- | Response for ListEndpointsByPlatformApplication action.
 --
@@ -137,36 +138,36 @@ instance ToQuery ListEndpointsByPlatformApplication
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lebparNextToken'
+-- * 'lebparsNextToken'
 --
--- * 'lebparEndpoints'
+-- * 'lebparsEndpoints'
 --
--- * 'lebparStatus'
+-- * 'lebparsStatus'
 data ListEndpointsByPlatformApplicationResponse = ListEndpointsByPlatformApplicationResponse'
-    { _lebparNextToken :: !(Maybe Text)
-    , _lebparEndpoints :: !(Maybe [Endpoint])
-    , _lebparStatus    :: !Int
+    { _lebparsNextToken :: !(Maybe Text)
+    , _lebparsEndpoints :: !(Maybe [Endpoint])
+    , _lebparsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListEndpointsByPlatformApplicationResponse' smart constructor.
 listEndpointsByPlatformApplicationResponse :: Int -> ListEndpointsByPlatformApplicationResponse
 listEndpointsByPlatformApplicationResponse pStatus =
     ListEndpointsByPlatformApplicationResponse'
-    { _lebparNextToken = Nothing
-    , _lebparEndpoints = Nothing
-    , _lebparStatus = pStatus
+    { _lebparsNextToken = Nothing
+    , _lebparsEndpoints = Nothing
+    , _lebparsStatus = pStatus
     }
 
 -- | NextToken string is returned when calling
 -- ListEndpointsByPlatformApplication action if additional records are
 -- available after the first page results.
-lebparNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
-lebparNextToken = lens _lebparNextToken (\ s a -> s{_lebparNextToken = a});
+lebparsNextToken :: Lens' ListEndpointsByPlatformApplicationResponse (Maybe Text)
+lebparsNextToken = lens _lebparsNextToken (\ s a -> s{_lebparsNextToken = a});
 
 -- | Endpoints returned for ListEndpointsByPlatformApplication action.
-lebparEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
-lebparEndpoints = lens _lebparEndpoints (\ s a -> s{_lebparEndpoints = a}) . _Default;
+lebparsEndpoints :: Lens' ListEndpointsByPlatformApplicationResponse [Endpoint]
+lebparsEndpoints = lens _lebparsEndpoints (\ s a -> s{_lebparsEndpoints = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lebparStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
-lebparStatus = lens _lebparStatus (\ s a -> s{_lebparStatus = a});
+lebparsStatus :: Lens' ListEndpointsByPlatformApplicationResponse Int
+lebparsStatus = lens _lebparsStatus (\ s a -> s{_lebparsStatus = a});

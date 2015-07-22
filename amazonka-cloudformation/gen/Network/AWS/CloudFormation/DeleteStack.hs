@@ -29,7 +29,7 @@ module Network.AWS.CloudFormation.DeleteStack
     -- ** Request constructor
     , deleteStack
     -- ** Request lenses
-    , dsStackName
+    , dsrqStackName
 
     -- * Response
     , DeleteStackResponse
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsStackName'
+-- * 'dsrqStackName'
 newtype DeleteStack = DeleteStack'
-    { _dsStackName :: Text
+    { _dsrqStackName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteStack' smart constructor.
 deleteStack :: Text -> DeleteStack
 deleteStack pStackName =
     DeleteStack'
-    { _dsStackName = pStackName
+    { _dsrqStackName = pStackName
     }
 
 -- | The name or the unique stack ID that is associated with the stack.
-dsStackName :: Lens' DeleteStack Text
-dsStackName = lens _dsStackName (\ s a -> s{_dsStackName = a});
+dsrqStackName :: Lens' DeleteStack Text
+dsrqStackName = lens _dsrqStackName (\ s a -> s{_dsrqStackName = a});
 
 instance AWSRequest DeleteStack where
         type Sv DeleteStack = CloudFormation
@@ -81,7 +81,7 @@ instance ToQuery DeleteStack where
           = mconcat
               ["Action" =: ("DeleteStack" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "StackName" =: _dsStackName]
+               "StackName" =: _dsrqStackName]
 
 -- | /See:/ 'deleteStackResponse' smart constructor.
 data DeleteStackResponse =

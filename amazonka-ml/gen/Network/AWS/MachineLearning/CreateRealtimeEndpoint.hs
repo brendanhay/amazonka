@@ -29,16 +29,16 @@ module Network.AWS.MachineLearning.CreateRealtimeEndpoint
     -- ** Request constructor
     , createRealtimeEndpoint
     -- ** Request lenses
-    , creMLModelId
+    , crerqMLModelId
 
     -- * Response
     , CreateRealtimeEndpointResponse
     -- ** Response constructor
     , createRealtimeEndpointResponse
     -- ** Response lenses
-    , crerRealtimeEndpointInfo
-    , crerMLModelId
-    , crerStatus
+    , crersRealtimeEndpointInfo
+    , crersMLModelId
+    , crersStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creMLModelId'
+-- * 'crerqMLModelId'
 newtype CreateRealtimeEndpoint = CreateRealtimeEndpoint'
-    { _creMLModelId :: Text
+    { _crerqMLModelId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRealtimeEndpoint' smart constructor.
 createRealtimeEndpoint :: Text -> CreateRealtimeEndpoint
 createRealtimeEndpoint pMLModelId =
     CreateRealtimeEndpoint'
-    { _creMLModelId = pMLModelId
+    { _crerqMLModelId = pMLModelId
     }
 
 -- | The ID assigned to the @MLModel@ during creation.
-creMLModelId :: Lens' CreateRealtimeEndpoint Text
-creMLModelId = lens _creMLModelId (\ s a -> s{_creMLModelId = a});
+crerqMLModelId :: Lens' CreateRealtimeEndpoint Text
+crerqMLModelId = lens _crerqMLModelId (\ s a -> s{_crerqMLModelId = a});
 
 instance AWSRequest CreateRealtimeEndpoint where
         type Sv CreateRealtimeEndpoint = MachineLearning
@@ -91,7 +91,7 @@ instance ToHeaders CreateRealtimeEndpoint where
 
 instance ToJSON CreateRealtimeEndpoint where
         toJSON CreateRealtimeEndpoint'{..}
-          = object ["MLModelId" .= _creMLModelId]
+          = object ["MLModelId" .= _crerqMLModelId]
 
 instance ToPath CreateRealtimeEndpoint where
         toPath = const "/"
@@ -111,35 +111,35 @@ instance ToQuery CreateRealtimeEndpoint where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crerRealtimeEndpointInfo'
+-- * 'crersRealtimeEndpointInfo'
 --
--- * 'crerMLModelId'
+-- * 'crersMLModelId'
 --
--- * 'crerStatus'
+-- * 'crersStatus'
 data CreateRealtimeEndpointResponse = CreateRealtimeEndpointResponse'
-    { _crerRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
-    , _crerMLModelId            :: !(Maybe Text)
-    , _crerStatus               :: !Int
+    { _crersRealtimeEndpointInfo :: !(Maybe RealtimeEndpointInfo)
+    , _crersMLModelId            :: !(Maybe Text)
+    , _crersStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateRealtimeEndpointResponse' smart constructor.
 createRealtimeEndpointResponse :: Int -> CreateRealtimeEndpointResponse
 createRealtimeEndpointResponse pStatus =
     CreateRealtimeEndpointResponse'
-    { _crerRealtimeEndpointInfo = Nothing
-    , _crerMLModelId = Nothing
-    , _crerStatus = pStatus
+    { _crersRealtimeEndpointInfo = Nothing
+    , _crersMLModelId = Nothing
+    , _crersStatus = pStatus
     }
 
 -- | The endpoint information of the @MLModel@
-crerRealtimeEndpointInfo :: Lens' CreateRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
-crerRealtimeEndpointInfo = lens _crerRealtimeEndpointInfo (\ s a -> s{_crerRealtimeEndpointInfo = a});
+crersRealtimeEndpointInfo :: Lens' CreateRealtimeEndpointResponse (Maybe RealtimeEndpointInfo)
+crersRealtimeEndpointInfo = lens _crersRealtimeEndpointInfo (\ s a -> s{_crersRealtimeEndpointInfo = a});
 
 -- | A user-supplied ID that uniquely identifies the @MLModel@. This value
 -- should be identical to the value of the @MLModelId@ in the request.
-crerMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
-crerMLModelId = lens _crerMLModelId (\ s a -> s{_crerMLModelId = a});
+crersMLModelId :: Lens' CreateRealtimeEndpointResponse (Maybe Text)
+crersMLModelId = lens _crersMLModelId (\ s a -> s{_crersMLModelId = a});
 
 -- | FIXME: Undocumented member.
-crerStatus :: Lens' CreateRealtimeEndpointResponse Int
-crerStatus = lens _crerStatus (\ s a -> s{_crerStatus = a});
+crersStatus :: Lens' CreateRealtimeEndpointResponse Int
+crersStatus = lens _crersStatus (\ s a -> s{_crersStatus = a});

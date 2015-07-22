@@ -37,22 +37,22 @@ module Network.AWS.CloudFormation.GetTemplateSummary
     -- ** Request constructor
     , getTemplateSummary
     -- ** Request lenses
-    , gtsTemplateBody
-    , gtsTemplateURL
-    , gtsStackName
+    , gtsrqTemplateBody
+    , gtsrqTemplateURL
+    , gtsrqStackName
 
     -- * Response
     , GetTemplateSummaryResponse
     -- ** Response constructor
     , getTemplateSummaryResponse
     -- ** Response lenses
-    , gtsrVersion
-    , gtsrParameters
-    , gtsrCapabilitiesReason
-    , gtsrMetadata
-    , gtsrCapabilities
-    , gtsrDescription
-    , gtsrStatus
+    , gtsrsVersion
+    , gtsrsParameters
+    , gtsrsCapabilitiesReason
+    , gtsrsMetadata
+    , gtsrsCapabilities
+    , gtsrsDescription
+    , gtsrsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -66,24 +66,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtsTemplateBody'
+-- * 'gtsrqTemplateBody'
 --
--- * 'gtsTemplateURL'
+-- * 'gtsrqTemplateURL'
 --
--- * 'gtsStackName'
+-- * 'gtsrqStackName'
 data GetTemplateSummary = GetTemplateSummary'
-    { _gtsTemplateBody :: !(Maybe Text)
-    , _gtsTemplateURL  :: !(Maybe Text)
-    , _gtsStackName    :: !(Maybe Text)
+    { _gtsrqTemplateBody :: !(Maybe Text)
+    , _gtsrqTemplateURL  :: !(Maybe Text)
+    , _gtsrqStackName    :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplateSummary' smart constructor.
 getTemplateSummary :: GetTemplateSummary
 getTemplateSummary =
     GetTemplateSummary'
-    { _gtsTemplateBody = Nothing
-    , _gtsTemplateURL = Nothing
-    , _gtsStackName = Nothing
+    { _gtsrqTemplateBody = Nothing
+    , _gtsrqTemplateURL = Nothing
+    , _gtsrqStackName = Nothing
     }
 
 -- | Structure containing the template body with a minimum length of 1 byte
@@ -94,8 +94,8 @@ getTemplateSummary =
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @TemplateBody@, or @TemplateURL@.
-gtsTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
-gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
+gtsrqTemplateBody :: Lens' GetTemplateSummary (Maybe Text)
+gtsrqTemplateBody = lens _gtsrqTemplateBody (\ s a -> s{_gtsrqTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 460,800 bytes) located in an Amazon S3 bucket. For
@@ -105,8 +105,8 @@ gtsTemplateBody = lens _gtsTemplateBody (\ s a -> s{_gtsTemplateBody = a});
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @TemplateBody@, or @TemplateURL@.
-gtsTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
-gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
+gtsrqTemplateURL :: Lens' GetTemplateSummary (Maybe Text)
+gtsrqTemplateURL = lens _gtsrqTemplateURL (\ s a -> s{_gtsrqTemplateURL = a});
 
 -- | The name or the stack ID that is associated with the stack, which are
 -- not always interchangeable. For running stacks, you can specify either
@@ -115,8 +115,8 @@ gtsTemplateURL = lens _gtsTemplateURL (\ s a -> s{_gtsTemplateURL = a});
 --
 -- Conditional: You must specify only one of the following parameters:
 -- @StackName@, @TemplateBody@, or @TemplateURL@.
-gtsStackName :: Lens' GetTemplateSummary (Maybe Text)
-gtsStackName = lens _gtsStackName (\ s a -> s{_gtsStackName = a});
+gtsrqStackName :: Lens' GetTemplateSummary (Maybe Text)
+gtsrqStackName = lens _gtsrqStackName (\ s a -> s{_gtsrqStackName = a});
 
 instance AWSRequest GetTemplateSummary where
         type Sv GetTemplateSummary = CloudFormation
@@ -149,9 +149,9 @@ instance ToQuery GetTemplateSummary where
           = mconcat
               ["Action" =: ("GetTemplateSummary" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "TemplateBody" =: _gtsTemplateBody,
-               "TemplateURL" =: _gtsTemplateURL,
-               "StackName" =: _gtsStackName]
+               "TemplateBody" =: _gtsrqTemplateBody,
+               "TemplateURL" =: _gtsrqTemplateURL,
+               "StackName" =: _gtsrqStackName]
 
 -- | The output for the GetTemplateSummary action.
 --
@@ -159,60 +159,60 @@ instance ToQuery GetTemplateSummary where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gtsrVersion'
+-- * 'gtsrsVersion'
 --
--- * 'gtsrParameters'
+-- * 'gtsrsParameters'
 --
--- * 'gtsrCapabilitiesReason'
+-- * 'gtsrsCapabilitiesReason'
 --
--- * 'gtsrMetadata'
+-- * 'gtsrsMetadata'
 --
--- * 'gtsrCapabilities'
+-- * 'gtsrsCapabilities'
 --
--- * 'gtsrDescription'
+-- * 'gtsrsDescription'
 --
--- * 'gtsrStatus'
+-- * 'gtsrsStatus'
 data GetTemplateSummaryResponse = GetTemplateSummaryResponse'
-    { _gtsrVersion            :: !(Maybe Text)
-    , _gtsrParameters         :: !(Maybe [ParameterDeclaration])
-    , _gtsrCapabilitiesReason :: !(Maybe Text)
-    , _gtsrMetadata           :: !(Maybe Text)
-    , _gtsrCapabilities       :: !(Maybe [Capability])
-    , _gtsrDescription        :: !(Maybe Text)
-    , _gtsrStatus             :: !Int
+    { _gtsrsVersion            :: !(Maybe Text)
+    , _gtsrsParameters         :: !(Maybe [ParameterDeclaration])
+    , _gtsrsCapabilitiesReason :: !(Maybe Text)
+    , _gtsrsMetadata           :: !(Maybe Text)
+    , _gtsrsCapabilities       :: !(Maybe [Capability])
+    , _gtsrsDescription        :: !(Maybe Text)
+    , _gtsrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetTemplateSummaryResponse' smart constructor.
 getTemplateSummaryResponse :: Int -> GetTemplateSummaryResponse
 getTemplateSummaryResponse pStatus =
     GetTemplateSummaryResponse'
-    { _gtsrVersion = Nothing
-    , _gtsrParameters = Nothing
-    , _gtsrCapabilitiesReason = Nothing
-    , _gtsrMetadata = Nothing
-    , _gtsrCapabilities = Nothing
-    , _gtsrDescription = Nothing
-    , _gtsrStatus = pStatus
+    { _gtsrsVersion = Nothing
+    , _gtsrsParameters = Nothing
+    , _gtsrsCapabilitiesReason = Nothing
+    , _gtsrsMetadata = Nothing
+    , _gtsrsCapabilities = Nothing
+    , _gtsrsDescription = Nothing
+    , _gtsrsStatus = pStatus
     }
 
 -- | The AWS template format version, which identifies the capabilities of
 -- the template.
-gtsrVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)
-gtsrVersion = lens _gtsrVersion (\ s a -> s{_gtsrVersion = a});
+gtsrsVersion :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrsVersion = lens _gtsrsVersion (\ s a -> s{_gtsrsVersion = a});
 
 -- | A list of parameter declarations that describe various properties for
 -- each parameter.
-gtsrParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
-gtsrParameters = lens _gtsrParameters (\ s a -> s{_gtsrParameters = a}) . _Default;
+gtsrsParameters :: Lens' GetTemplateSummaryResponse [ParameterDeclaration]
+gtsrsParameters = lens _gtsrsParameters (\ s a -> s{_gtsrsParameters = a}) . _Default;
 
 -- | The list of resources that generated the values in the @Capabilities@
 -- response element.
-gtsrCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
-gtsrCapabilitiesReason = lens _gtsrCapabilitiesReason (\ s a -> s{_gtsrCapabilitiesReason = a});
+gtsrsCapabilitiesReason :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrsCapabilitiesReason = lens _gtsrsCapabilitiesReason (\ s a -> s{_gtsrsCapabilitiesReason = a});
 
 -- | The value that is defined for the @Metadata@ property of the template.
-gtsrMetadata :: Lens' GetTemplateSummaryResponse (Maybe Text)
-gtsrMetadata = lens _gtsrMetadata (\ s a -> s{_gtsrMetadata = a});
+gtsrsMetadata :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrsMetadata = lens _gtsrsMetadata (\ s a -> s{_gtsrsMetadata = a});
 
 -- | The capabilities found within the template. Currently, AWS
 -- CloudFormation supports only the CAPABILITY_IAM capability. If your
@@ -220,13 +220,13 @@ gtsrMetadata = lens _gtsrMetadata (\ s a -> s{_gtsrMetadata = a});
 -- value for this parameter when you use the CreateStack or UpdateStack
 -- actions with your template; otherwise, those actions return an
 -- InsufficientCapabilities error.
-gtsrCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
-gtsrCapabilities = lens _gtsrCapabilities (\ s a -> s{_gtsrCapabilities = a}) . _Default;
+gtsrsCapabilities :: Lens' GetTemplateSummaryResponse [Capability]
+gtsrsCapabilities = lens _gtsrsCapabilities (\ s a -> s{_gtsrsCapabilities = a}) . _Default;
 
 -- | The value that is defined in the @Description@ property of the template.
-gtsrDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
-gtsrDescription = lens _gtsrDescription (\ s a -> s{_gtsrDescription = a});
+gtsrsDescription :: Lens' GetTemplateSummaryResponse (Maybe Text)
+gtsrsDescription = lens _gtsrsDescription (\ s a -> s{_gtsrsDescription = a});
 
 -- | FIXME: Undocumented member.
-gtsrStatus :: Lens' GetTemplateSummaryResponse Int
-gtsrStatus = lens _gtsrStatus (\ s a -> s{_gtsrStatus = a});
+gtsrsStatus :: Lens' GetTemplateSummaryResponse Int
+gtsrsStatus = lens _gtsrsStatus (\ s a -> s{_gtsrsStatus = a});

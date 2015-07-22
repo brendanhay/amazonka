@@ -59,24 +59,24 @@ module Network.AWS.SWF.StartWorkflowExecution
     -- ** Request constructor
     , startWorkflowExecution
     -- ** Request lenses
-    , staTagList
-    , staTaskStartToCloseTimeout
-    , staInput
-    , staExecutionStartToCloseTimeout
-    , staTaskList
-    , staTaskPriority
-    , staChildPolicy
-    , staDomain
-    , staWorkflowId
-    , staWorkflowType
+    , srqTagList
+    , srqTaskStartToCloseTimeout
+    , srqInput
+    , srqExecutionStartToCloseTimeout
+    , srqTaskList
+    , srqTaskPriority
+    , srqChildPolicy
+    , srqDomain
+    , srqWorkflowId
+    , srqWorkflowType
 
     -- * Response
     , StartWorkflowExecutionResponse
     -- ** Response constructor
     , startWorkflowExecutionResponse
     -- ** Response lenses
-    , swerRunId
-    , swerStatus
+    , srsRunId
+    , srsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -88,60 +88,60 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staTagList'
+-- * 'srqTagList'
 --
--- * 'staTaskStartToCloseTimeout'
+-- * 'srqTaskStartToCloseTimeout'
 --
--- * 'staInput'
+-- * 'srqInput'
 --
--- * 'staExecutionStartToCloseTimeout'
+-- * 'srqExecutionStartToCloseTimeout'
 --
--- * 'staTaskList'
+-- * 'srqTaskList'
 --
--- * 'staTaskPriority'
+-- * 'srqTaskPriority'
 --
--- * 'staChildPolicy'
+-- * 'srqChildPolicy'
 --
--- * 'staDomain'
+-- * 'srqDomain'
 --
--- * 'staWorkflowId'
+-- * 'srqWorkflowId'
 --
--- * 'staWorkflowType'
+-- * 'srqWorkflowType'
 data StartWorkflowExecution = StartWorkflowExecution'
-    { _staTagList                      :: !(Maybe [Text])
-    , _staTaskStartToCloseTimeout      :: !(Maybe Text)
-    , _staInput                        :: !(Maybe Text)
-    , _staExecutionStartToCloseTimeout :: !(Maybe Text)
-    , _staTaskList                     :: !(Maybe TaskList)
-    , _staTaskPriority                 :: !(Maybe Text)
-    , _staChildPolicy                  :: !(Maybe ChildPolicy)
-    , _staDomain                       :: !Text
-    , _staWorkflowId                   :: !Text
-    , _staWorkflowType                 :: !WorkflowType
+    { _srqTagList                      :: !(Maybe [Text])
+    , _srqTaskStartToCloseTimeout      :: !(Maybe Text)
+    , _srqInput                        :: !(Maybe Text)
+    , _srqExecutionStartToCloseTimeout :: !(Maybe Text)
+    , _srqTaskList                     :: !(Maybe TaskList)
+    , _srqTaskPriority                 :: !(Maybe Text)
+    , _srqChildPolicy                  :: !(Maybe ChildPolicy)
+    , _srqDomain                       :: !Text
+    , _srqWorkflowId                   :: !Text
+    , _srqWorkflowType                 :: !WorkflowType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartWorkflowExecution' smart constructor.
 startWorkflowExecution :: Text -> Text -> WorkflowType -> StartWorkflowExecution
 startWorkflowExecution pDomain pWorkflowId pWorkflowType =
     StartWorkflowExecution'
-    { _staTagList = Nothing
-    , _staTaskStartToCloseTimeout = Nothing
-    , _staInput = Nothing
-    , _staExecutionStartToCloseTimeout = Nothing
-    , _staTaskList = Nothing
-    , _staTaskPriority = Nothing
-    , _staChildPolicy = Nothing
-    , _staDomain = pDomain
-    , _staWorkflowId = pWorkflowId
-    , _staWorkflowType = pWorkflowType
+    { _srqTagList = Nothing
+    , _srqTaskStartToCloseTimeout = Nothing
+    , _srqInput = Nothing
+    , _srqExecutionStartToCloseTimeout = Nothing
+    , _srqTaskList = Nothing
+    , _srqTaskPriority = Nothing
+    , _srqChildPolicy = Nothing
+    , _srqDomain = pDomain
+    , _srqWorkflowId = pWorkflowId
+    , _srqWorkflowType = pWorkflowType
     }
 
 -- | The list of tags to associate with the workflow execution. You can
 -- specify a maximum of 5 tags. You can list workflow executions with a
 -- specific tag by calling ListOpenWorkflowExecutions or
 -- ListClosedWorkflowExecutions and specifying a TagFilter.
-staTagList :: Lens' StartWorkflowExecution [Text]
-staTagList = lens _staTagList (\ s a -> s{_staTagList = a}) . _Default;
+srqTagList :: Lens' StartWorkflowExecution [Text]
+srqTagList = lens _srqTagList (\ s a -> s{_srqTagList = a}) . _Default;
 
 -- | Specifies the maximum duration of decision tasks for this workflow
 -- execution. This parameter overrides the @defaultTaskStartToCloseTimout@
@@ -155,15 +155,15 @@ staTagList = lens _staTagList (\ s a -> s{_staTagList = a}) . _Default;
 -- parameter. If neither this parameter is set nor a default task
 -- start-to-close timeout was specified at registration time then a fault
 -- will be returned.
-staTaskStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
-staTaskStartToCloseTimeout = lens _staTaskStartToCloseTimeout (\ s a -> s{_staTaskStartToCloseTimeout = a});
+srqTaskStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
+srqTaskStartToCloseTimeout = lens _srqTaskStartToCloseTimeout (\ s a -> s{_srqTaskStartToCloseTimeout = a});
 
 -- | The input for the workflow execution. This is a free form string which
 -- should be meaningful to the workflow you are starting. This @input@ is
 -- made available to the new workflow execution in the
 -- @WorkflowExecutionStarted@ history event.
-staInput :: Lens' StartWorkflowExecution (Maybe Text)
-staInput = lens _staInput (\ s a -> s{_staInput = a});
+srqInput :: Lens' StartWorkflowExecution (Maybe Text)
+srqInput = lens _srqInput (\ s a -> s{_srqInput = a});
 
 -- | The total duration for this workflow execution. This overrides the
 -- defaultExecutionStartToCloseTimeout specified when registering the
@@ -179,8 +179,8 @@ staInput = lens _staInput (\ s a -> s{_staInput = a});
 -- this parameter or as a default when the workflow type is registered. If
 -- neither this parameter nor a default execution start-to-close timeout is
 -- specified, a fault is returned.
-staExecutionStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
-staExecutionStartToCloseTimeout = lens _staExecutionStartToCloseTimeout (\ s a -> s{_staExecutionStartToCloseTimeout = a});
+srqExecutionStartToCloseTimeout :: Lens' StartWorkflowExecution (Maybe Text)
+srqExecutionStartToCloseTimeout = lens _srqExecutionStartToCloseTimeout (\ s a -> s{_srqExecutionStartToCloseTimeout = a});
 
 -- | The task list to use for the decision tasks generated for this workflow
 -- execution. This overrides the @defaultTaskList@ specified when
@@ -195,8 +195,8 @@ staExecutionStartToCloseTimeout = lens _staExecutionStartToCloseTimeout (\ s a -
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-staTaskList :: Lens' StartWorkflowExecution (Maybe TaskList)
-staTaskList = lens _staTaskList (\ s a -> s{_staTaskList = a});
+srqTaskList :: Lens' StartWorkflowExecution (Maybe TaskList)
+srqTaskList = lens _srqTaskList (\ s a -> s{_srqTaskList = a});
 
 -- | The task priority to use for this workflow execution. This will override
 -- any default priority that was assigned when the workflow type was
@@ -208,8 +208,8 @@ staTaskList = lens _staTaskList (\ s a -> s{_staTaskList = a});
 -- For more information about setting task priority, see
 -- <http://docs.aws.amazon.com/amazonswf/latest/developerguide/programming-priority.html Setting Task Priority>
 -- in the /Amazon Simple Workflow Developer Guide/.
-staTaskPriority :: Lens' StartWorkflowExecution (Maybe Text)
-staTaskPriority = lens _staTaskPriority (\ s a -> s{_staTaskPriority = a});
+srqTaskPriority :: Lens' StartWorkflowExecution (Maybe Text)
+srqTaskPriority = lens _srqTaskPriority (\ s a -> s{_srqTaskPriority = a});
 
 -- | If set, specifies the policy to use for the child workflow executions of
 -- this workflow execution if it is terminated, by calling the
@@ -231,12 +231,12 @@ staTaskPriority = lens _staTaskPriority (\ s a -> s{_staTaskPriority = a});
 -- default for the workflow type or through this parameter. If neither this
 -- parameter is set nor a default child policy was specified at
 -- registration time then a fault will be returned.
-staChildPolicy :: Lens' StartWorkflowExecution (Maybe ChildPolicy)
-staChildPolicy = lens _staChildPolicy (\ s a -> s{_staChildPolicy = a});
+srqChildPolicy :: Lens' StartWorkflowExecution (Maybe ChildPolicy)
+srqChildPolicy = lens _srqChildPolicy (\ s a -> s{_srqChildPolicy = a});
 
 -- | The name of the domain in which the workflow execution is created.
-staDomain :: Lens' StartWorkflowExecution Text
-staDomain = lens _staDomain (\ s a -> s{_staDomain = a});
+srqDomain :: Lens' StartWorkflowExecution Text
+srqDomain = lens _srqDomain (\ s a -> s{_srqDomain = a});
 
 -- | The user defined identifier associated with the workflow execution. You
 -- can use this to associate a custom identifier with the workflow
@@ -248,12 +248,12 @@ staDomain = lens _staDomain (\ s a -> s{_staDomain = a});
 -- contain a @:@ (colon), @\/@ (slash), @|@ (vertical bar), or any control
 -- characters (\\u0000-\\u001f | \\u007f - \\u009f). Also, it must not
 -- contain the literal string quotarnquot.
-staWorkflowId :: Lens' StartWorkflowExecution Text
-staWorkflowId = lens _staWorkflowId (\ s a -> s{_staWorkflowId = a});
+srqWorkflowId :: Lens' StartWorkflowExecution Text
+srqWorkflowId = lens _srqWorkflowId (\ s a -> s{_srqWorkflowId = a});
 
 -- | The type of the workflow to start.
-staWorkflowType :: Lens' StartWorkflowExecution WorkflowType
-staWorkflowType = lens _staWorkflowType (\ s a -> s{_staWorkflowType = a});
+srqWorkflowType :: Lens' StartWorkflowExecution WorkflowType
+srqWorkflowType = lens _srqWorkflowType (\ s a -> s{_srqWorkflowType = a});
 
 instance AWSRequest StartWorkflowExecution where
         type Sv StartWorkflowExecution = SWF
@@ -279,18 +279,18 @@ instance ToHeaders StartWorkflowExecution where
 instance ToJSON StartWorkflowExecution where
         toJSON StartWorkflowExecution'{..}
           = object
-              ["tagList" .= _staTagList,
+              ["tagList" .= _srqTagList,
                "taskStartToCloseTimeout" .=
-                 _staTaskStartToCloseTimeout,
-               "input" .= _staInput,
+                 _srqTaskStartToCloseTimeout,
+               "input" .= _srqInput,
                "executionStartToCloseTimeout" .=
-                 _staExecutionStartToCloseTimeout,
-               "taskList" .= _staTaskList,
-               "taskPriority" .= _staTaskPriority,
-               "childPolicy" .= _staChildPolicy,
-               "domain" .= _staDomain,
-               "workflowId" .= _staWorkflowId,
-               "workflowType" .= _staWorkflowType]
+                 _srqExecutionStartToCloseTimeout,
+               "taskList" .= _srqTaskList,
+               "taskPriority" .= _srqTaskPriority,
+               "childPolicy" .= _srqChildPolicy,
+               "domain" .= _srqDomain,
+               "workflowId" .= _srqWorkflowId,
+               "workflowType" .= _srqWorkflowType]
 
 instance ToPath StartWorkflowExecution where
         toPath = const "/"
@@ -304,28 +304,28 @@ instance ToQuery StartWorkflowExecution where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'swerRunId'
+-- * 'srsRunId'
 --
--- * 'swerStatus'
+-- * 'srsStatus'
 data StartWorkflowExecutionResponse = StartWorkflowExecutionResponse'
-    { _swerRunId  :: !(Maybe Text)
-    , _swerStatus :: !Int
+    { _srsRunId  :: !(Maybe Text)
+    , _srsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartWorkflowExecutionResponse' smart constructor.
 startWorkflowExecutionResponse :: Int -> StartWorkflowExecutionResponse
 startWorkflowExecutionResponse pStatus =
     StartWorkflowExecutionResponse'
-    { _swerRunId = Nothing
-    , _swerStatus = pStatus
+    { _srsRunId = Nothing
+    , _srsStatus = pStatus
     }
 
 -- | The @runId@ of a workflow execution. This Id is generated by the service
 -- and can be used to uniquely identify the workflow execution within a
 -- domain.
-swerRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
-swerRunId = lens _swerRunId (\ s a -> s{_swerRunId = a});
+srsRunId :: Lens' StartWorkflowExecutionResponse (Maybe Text)
+srsRunId = lens _srsRunId (\ s a -> s{_srsRunId = a});
 
 -- | FIXME: Undocumented member.
-swerStatus :: Lens' StartWorkflowExecutionResponse Int
-swerStatus = lens _swerStatus (\ s a -> s{_swerStatus = a});
+srsStatus :: Lens' StartWorkflowExecutionResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

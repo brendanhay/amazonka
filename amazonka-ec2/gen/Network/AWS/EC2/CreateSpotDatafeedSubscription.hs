@@ -31,17 +31,17 @@ module Network.AWS.EC2.CreateSpotDatafeedSubscription
     -- ** Request constructor
     , createSpotDatafeedSubscription
     -- ** Request lenses
-    , csdsPrefix
-    , csdsDryRun
-    , csdsBucket
+    , csdsrqPrefix
+    , csdsrqDryRun
+    , csdsrqBucket
 
     -- * Response
     , CreateSpotDatafeedSubscriptionResponse
     -- ** Response constructor
     , createSpotDatafeedSubscriptionResponse
     -- ** Response lenses
-    , csdsrSpotDatafeedSubscription
-    , csdsrStatus
+    , csdsrsSpotDatafeedSubscription
+    , csdsrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -55,40 +55,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csdsPrefix'
+-- * 'csdsrqPrefix'
 --
--- * 'csdsDryRun'
+-- * 'csdsrqDryRun'
 --
--- * 'csdsBucket'
+-- * 'csdsrqBucket'
 data CreateSpotDatafeedSubscription = CreateSpotDatafeedSubscription'
-    { _csdsPrefix :: !(Maybe Text)
-    , _csdsDryRun :: !(Maybe Bool)
-    , _csdsBucket :: !Text
+    { _csdsrqPrefix :: !(Maybe Text)
+    , _csdsrqDryRun :: !(Maybe Bool)
+    , _csdsrqBucket :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSpotDatafeedSubscription' smart constructor.
 createSpotDatafeedSubscription :: Text -> CreateSpotDatafeedSubscription
 createSpotDatafeedSubscription pBucket =
     CreateSpotDatafeedSubscription'
-    { _csdsPrefix = Nothing
-    , _csdsDryRun = Nothing
-    , _csdsBucket = pBucket
+    { _csdsrqPrefix = Nothing
+    , _csdsrqDryRun = Nothing
+    , _csdsrqBucket = pBucket
     }
 
 -- | A prefix for the data feed file names.
-csdsPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
-csdsPrefix = lens _csdsPrefix (\ s a -> s{_csdsPrefix = a});
+csdsrqPrefix :: Lens' CreateSpotDatafeedSubscription (Maybe Text)
+csdsrqPrefix = lens _csdsrqPrefix (\ s a -> s{_csdsrqPrefix = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-csdsDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
-csdsDryRun = lens _csdsDryRun (\ s a -> s{_csdsDryRun = a});
+csdsrqDryRun :: Lens' CreateSpotDatafeedSubscription (Maybe Bool)
+csdsrqDryRun = lens _csdsrqDryRun (\ s a -> s{_csdsrqDryRun = a});
 
 -- | The Amazon S3 bucket in which to store the Spot Instance data feed.
-csdsBucket :: Lens' CreateSpotDatafeedSubscription Text
-csdsBucket = lens _csdsBucket (\ s a -> s{_csdsBucket = a});
+csdsrqBucket :: Lens' CreateSpotDatafeedSubscription Text
+csdsrqBucket = lens _csdsrqBucket (\ s a -> s{_csdsrqBucket = a});
 
 instance AWSRequest CreateSpotDatafeedSubscription
          where
@@ -116,8 +116,8 @@ instance ToQuery CreateSpotDatafeedSubscription where
               ["Action" =:
                  ("CreateSpotDatafeedSubscription" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Prefix" =: _csdsPrefix, "DryRun" =: _csdsDryRun,
-               "Bucket" =: _csdsBucket]
+               "Prefix" =: _csdsrqPrefix, "DryRun" =: _csdsrqDryRun,
+               "Bucket" =: _csdsrqBucket]
 
 -- | Contains the output of CreateSpotDatafeedSubscription.
 --
@@ -125,26 +125,26 @@ instance ToQuery CreateSpotDatafeedSubscription where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csdsrSpotDatafeedSubscription'
+-- * 'csdsrsSpotDatafeedSubscription'
 --
--- * 'csdsrStatus'
+-- * 'csdsrsStatus'
 data CreateSpotDatafeedSubscriptionResponse = CreateSpotDatafeedSubscriptionResponse'
-    { _csdsrSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
-    , _csdsrStatus                   :: !Int
+    { _csdsrsSpotDatafeedSubscription :: !(Maybe SpotDatafeedSubscription)
+    , _csdsrsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSpotDatafeedSubscriptionResponse' smart constructor.
 createSpotDatafeedSubscriptionResponse :: Int -> CreateSpotDatafeedSubscriptionResponse
 createSpotDatafeedSubscriptionResponse pStatus =
     CreateSpotDatafeedSubscriptionResponse'
-    { _csdsrSpotDatafeedSubscription = Nothing
-    , _csdsrStatus = pStatus
+    { _csdsrsSpotDatafeedSubscription = Nothing
+    , _csdsrsStatus = pStatus
     }
 
 -- | The Spot Instance data feed subscription.
-csdsrSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
-csdsrSpotDatafeedSubscription = lens _csdsrSpotDatafeedSubscription (\ s a -> s{_csdsrSpotDatafeedSubscription = a});
+csdsrsSpotDatafeedSubscription :: Lens' CreateSpotDatafeedSubscriptionResponse (Maybe SpotDatafeedSubscription)
+csdsrsSpotDatafeedSubscription = lens _csdsrsSpotDatafeedSubscription (\ s a -> s{_csdsrsSpotDatafeedSubscription = a});
 
 -- | FIXME: Undocumented member.
-csdsrStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
-csdsrStatus = lens _csdsrStatus (\ s a -> s{_csdsrStatus = a});
+csdsrsStatus :: Lens' CreateSpotDatafeedSubscriptionResponse Int
+csdsrsStatus = lens _csdsrsStatus (\ s a -> s{_csdsrsStatus = a});

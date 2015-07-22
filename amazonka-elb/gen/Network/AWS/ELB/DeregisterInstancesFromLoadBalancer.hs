@@ -36,16 +36,16 @@ module Network.AWS.ELB.DeregisterInstancesFromLoadBalancer
     -- ** Request constructor
     , deregisterInstancesFromLoadBalancer
     -- ** Request lenses
-    , diflbLoadBalancerName
-    , diflbInstances
+    , diflbrqLoadBalancerName
+    , diflbrqInstances
 
     -- * Response
     , DeregisterInstancesFromLoadBalancerResponse
     -- ** Response constructor
     , deregisterInstancesFromLoadBalancerResponse
     -- ** Response lenses
-    , diflbrInstances
-    , diflbrStatus
+    , diflbrsInstances
+    , diflbrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -57,29 +57,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diflbLoadBalancerName'
+-- * 'diflbrqLoadBalancerName'
 --
--- * 'diflbInstances'
+-- * 'diflbrqInstances'
 data DeregisterInstancesFromLoadBalancer = DeregisterInstancesFromLoadBalancer'
-    { _diflbLoadBalancerName :: !Text
-    , _diflbInstances        :: ![Instance]
+    { _diflbrqLoadBalancerName :: !Text
+    , _diflbrqInstances        :: ![Instance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstancesFromLoadBalancer' smart constructor.
 deregisterInstancesFromLoadBalancer :: Text -> DeregisterInstancesFromLoadBalancer
 deregisterInstancesFromLoadBalancer pLoadBalancerName =
     DeregisterInstancesFromLoadBalancer'
-    { _diflbLoadBalancerName = pLoadBalancerName
-    , _diflbInstances = mempty
+    { _diflbrqLoadBalancerName = pLoadBalancerName
+    , _diflbrqInstances = mempty
     }
 
 -- | The name of the load balancer.
-diflbLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
-diflbLoadBalancerName = lens _diflbLoadBalancerName (\ s a -> s{_diflbLoadBalancerName = a});
+diflbrqLoadBalancerName :: Lens' DeregisterInstancesFromLoadBalancer Text
+diflbrqLoadBalancerName = lens _diflbrqLoadBalancerName (\ s a -> s{_diflbrqLoadBalancerName = a});
 
 -- | The IDs of the instances.
-diflbInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
-diflbInstances = lens _diflbInstances (\ s a -> s{_diflbInstances = a});
+diflbrqInstances :: Lens' DeregisterInstancesFromLoadBalancer [Instance]
+diflbrqInstances = lens _diflbrqInstances (\ s a -> s{_diflbrqInstances = a});
 
 instance AWSRequest
          DeregisterInstancesFromLoadBalancer where
@@ -112,33 +112,34 @@ instance ToQuery DeregisterInstancesFromLoadBalancer
                  ("DeregisterInstancesFromLoadBalancer" ::
                     ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _diflbLoadBalancerName,
-               "Instances" =: toQueryList "member" _diflbInstances]
+               "LoadBalancerName" =: _diflbrqLoadBalancerName,
+               "Instances" =:
+                 toQueryList "member" _diflbrqInstances]
 
 -- | /See:/ 'deregisterInstancesFromLoadBalancerResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diflbrInstances'
+-- * 'diflbrsInstances'
 --
--- * 'diflbrStatus'
+-- * 'diflbrsStatus'
 data DeregisterInstancesFromLoadBalancerResponse = DeregisterInstancesFromLoadBalancerResponse'
-    { _diflbrInstances :: !(Maybe [Instance])
-    , _diflbrStatus    :: !Int
+    { _diflbrsInstances :: !(Maybe [Instance])
+    , _diflbrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstancesFromLoadBalancerResponse' smart constructor.
 deregisterInstancesFromLoadBalancerResponse :: Int -> DeregisterInstancesFromLoadBalancerResponse
 deregisterInstancesFromLoadBalancerResponse pStatus =
     DeregisterInstancesFromLoadBalancerResponse'
-    { _diflbrInstances = Nothing
-    , _diflbrStatus = pStatus
+    { _diflbrsInstances = Nothing
+    , _diflbrsStatus = pStatus
     }
 
 -- | The remaining instances registered with the load balancer.
-diflbrInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
-diflbrInstances = lens _diflbrInstances (\ s a -> s{_diflbrInstances = a}) . _Default;
+diflbrsInstances :: Lens' DeregisterInstancesFromLoadBalancerResponse [Instance]
+diflbrsInstances = lens _diflbrsInstances (\ s a -> s{_diflbrsInstances = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-diflbrStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
-diflbrStatus = lens _diflbrStatus (\ s a -> s{_diflbrStatus = a});
+diflbrsStatus :: Lens' DeregisterInstancesFromLoadBalancerResponse Int
+diflbrsStatus = lens _diflbrsStatus (\ s a -> s{_diflbrsStatus = a});

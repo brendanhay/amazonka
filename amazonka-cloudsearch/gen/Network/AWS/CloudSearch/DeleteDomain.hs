@@ -30,15 +30,15 @@ module Network.AWS.CloudSearch.DeleteDomain
     -- ** Request constructor
     , deleteDomain
     -- ** Request lenses
-    , ddDomainName
+    , dddrqDomainName
 
     -- * Response
     , DeleteDomainResponse
     -- ** Response constructor
     , deleteDomainResponse
     -- ** Response lenses
-    , ddrDomainStatus
-    , ddrStatus
+    , dddrsDomainStatus
+    , dddrsStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddDomainName'
+-- * 'dddrqDomainName'
 newtype DeleteDomain = DeleteDomain'
-    { _ddDomainName :: Text
+    { _dddrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDomain' smart constructor.
 deleteDomain :: Text -> DeleteDomain
 deleteDomain pDomainName =
     DeleteDomain'
-    { _ddDomainName = pDomainName
+    { _dddrqDomainName = pDomainName
     }
 
 -- | The name of the domain you want to permanently delete.
-ddDomainName :: Lens' DeleteDomain Text
-ddDomainName = lens _ddDomainName (\ s a -> s{_ddDomainName = a});
+dddrqDomainName :: Lens' DeleteDomain Text
+dddrqDomainName = lens _dddrqDomainName (\ s a -> s{_dddrqDomainName = a});
 
 instance AWSRequest DeleteDomain where
         type Sv DeleteDomain = CloudSearch
@@ -90,7 +90,7 @@ instance ToQuery DeleteDomain where
           = mconcat
               ["Action" =: ("DeleteDomain" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _ddDomainName]
+               "DomainName" =: _dddrqDomainName]
 
 -- | The result of a @DeleteDomain@ request. Contains the status of a newly
 -- deleted domain, or no status if the domain has already been completely
@@ -100,26 +100,26 @@ instance ToQuery DeleteDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrDomainStatus'
+-- * 'dddrsDomainStatus'
 --
--- * 'ddrStatus'
+-- * 'dddrsStatus'
 data DeleteDomainResponse = DeleteDomainResponse'
-    { _ddrDomainStatus :: !(Maybe DomainStatus)
-    , _ddrStatus       :: !Int
+    { _dddrsDomainStatus :: !(Maybe DomainStatus)
+    , _dddrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDomainResponse' smart constructor.
 deleteDomainResponse :: Int -> DeleteDomainResponse
 deleteDomainResponse pStatus =
     DeleteDomainResponse'
-    { _ddrDomainStatus = Nothing
-    , _ddrStatus = pStatus
+    { _dddrsDomainStatus = Nothing
+    , _dddrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ddrDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
-ddrDomainStatus = lens _ddrDomainStatus (\ s a -> s{_ddrDomainStatus = a});
+dddrsDomainStatus :: Lens' DeleteDomainResponse (Maybe DomainStatus)
+dddrsDomainStatus = lens _dddrsDomainStatus (\ s a -> s{_dddrsDomainStatus = a});
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DeleteDomainResponse Int
-ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});
+dddrsStatus :: Lens' DeleteDomainResponse Int
+dddrsStatus = lens _dddrsStatus (\ s a -> s{_dddrsStatus = a});

@@ -31,20 +31,20 @@ module Network.AWS.EC2.DescribePrefixLists
     -- ** Request constructor
     , describePrefixLists
     -- ** Request lenses
-    , dplFilters
-    , dplNextToken
-    , dplPrefixListIds
-    , dplDryRun
-    , dplMaxResults
+    , dplrqFilters
+    , dplrqNextToken
+    , dplrqPrefixListIds
+    , dplrqDryRun
+    , dplrqMaxResults
 
     -- * Response
     , DescribePrefixListsResponse
     -- ** Response constructor
     , describePrefixListsResponse
     -- ** Response lenses
-    , dplrNextToken
-    , dplrPrefixLists
-    , dplrStatus
+    , dplrsNextToken
+    , dplrsPrefixLists
+    , dplrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dplFilters'
+-- * 'dplrqFilters'
 --
--- * 'dplNextToken'
+-- * 'dplrqNextToken'
 --
--- * 'dplPrefixListIds'
+-- * 'dplrqPrefixListIds'
 --
--- * 'dplDryRun'
+-- * 'dplrqDryRun'
 --
--- * 'dplMaxResults'
+-- * 'dplrqMaxResults'
 data DescribePrefixLists = DescribePrefixLists'
-    { _dplFilters       :: !(Maybe [Filter])
-    , _dplNextToken     :: !(Maybe Text)
-    , _dplPrefixListIds :: !(Maybe [Text])
-    , _dplDryRun        :: !(Maybe Bool)
-    , _dplMaxResults    :: !(Maybe Int)
+    { _dplrqFilters       :: !(Maybe [Filter])
+    , _dplrqNextToken     :: !(Maybe Text)
+    , _dplrqPrefixListIds :: !(Maybe [Text])
+    , _dplrqDryRun        :: !(Maybe Bool)
+    , _dplrqMaxResults    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePrefixLists' smart constructor.
 describePrefixLists :: DescribePrefixLists
 describePrefixLists =
     DescribePrefixLists'
-    { _dplFilters = Nothing
-    , _dplNextToken = Nothing
-    , _dplPrefixListIds = Nothing
-    , _dplDryRun = Nothing
-    , _dplMaxResults = Nothing
+    { _dplrqFilters = Nothing
+    , _dplrqNextToken = Nothing
+    , _dplrqPrefixListIds = Nothing
+    , _dplrqDryRun = Nothing
+    , _dplrqMaxResults = Nothing
     }
 
 -- | One or more filters.
@@ -90,24 +90,24 @@ describePrefixLists =
 --
 -- -   @prefix-list-name@: The name of a prefix list.
 --
-dplFilters :: Lens' DescribePrefixLists [Filter]
-dplFilters = lens _dplFilters (\ s a -> s{_dplFilters = a}) . _Default;
+dplrqFilters :: Lens' DescribePrefixLists [Filter]
+dplrqFilters = lens _dplrqFilters (\ s a -> s{_dplrqFilters = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a prior call.)
-dplNextToken :: Lens' DescribePrefixLists (Maybe Text)
-dplNextToken = lens _dplNextToken (\ s a -> s{_dplNextToken = a});
+dplrqNextToken :: Lens' DescribePrefixLists (Maybe Text)
+dplrqNextToken = lens _dplrqNextToken (\ s a -> s{_dplrqNextToken = a});
 
 -- | One or more prefix list IDs.
-dplPrefixListIds :: Lens' DescribePrefixLists [Text]
-dplPrefixListIds = lens _dplPrefixListIds (\ s a -> s{_dplPrefixListIds = a}) . _Default;
+dplrqPrefixListIds :: Lens' DescribePrefixLists [Text]
+dplrqPrefixListIds = lens _dplrqPrefixListIds (\ s a -> s{_dplrqPrefixListIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dplDryRun :: Lens' DescribePrefixLists (Maybe Bool)
-dplDryRun = lens _dplDryRun (\ s a -> s{_dplDryRun = a});
+dplrqDryRun :: Lens' DescribePrefixLists (Maybe Bool)
+dplrqDryRun = lens _dplrqDryRun (\ s a -> s{_dplrqDryRun = a});
 
 -- | The maximum number of items to return for this request. The request
 -- returns a token that you can specify in a subsequent call to get the
@@ -115,8 +115,8 @@ dplDryRun = lens _dplDryRun (\ s a -> s{_dplDryRun = a});
 --
 -- Constraint: If the value specified is greater than 1000, we return only
 -- 1000 items.
-dplMaxResults :: Lens' DescribePrefixLists (Maybe Int)
-dplMaxResults = lens _dplMaxResults (\ s a -> s{_dplMaxResults = a});
+dplrqMaxResults :: Lens' DescribePrefixLists (Maybe Int)
+dplrqMaxResults = lens _dplrqMaxResults (\ s a -> s{_dplrqMaxResults = a});
 
 instance AWSRequest DescribePrefixLists where
         type Sv DescribePrefixLists = EC2
@@ -143,45 +143,45 @@ instance ToQuery DescribePrefixLists where
           = mconcat
               ["Action" =: ("DescribePrefixLists" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dplFilters),
-               "NextToken" =: _dplNextToken,
-               toQuery (toQueryList "item" <$> _dplPrefixListIds),
-               "DryRun" =: _dplDryRun,
-               "MaxResults" =: _dplMaxResults]
+               toQuery (toQueryList "Filter" <$> _dplrqFilters),
+               "NextToken" =: _dplrqNextToken,
+               toQuery (toQueryList "item" <$> _dplrqPrefixListIds),
+               "DryRun" =: _dplrqDryRun,
+               "MaxResults" =: _dplrqMaxResults]
 
 -- | /See:/ 'describePrefixListsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dplrNextToken'
+-- * 'dplrsNextToken'
 --
--- * 'dplrPrefixLists'
+-- * 'dplrsPrefixLists'
 --
--- * 'dplrStatus'
+-- * 'dplrsStatus'
 data DescribePrefixListsResponse = DescribePrefixListsResponse'
-    { _dplrNextToken   :: !(Maybe Text)
-    , _dplrPrefixLists :: !(Maybe [PrefixList])
-    , _dplrStatus      :: !Int
+    { _dplrsNextToken   :: !(Maybe Text)
+    , _dplrsPrefixLists :: !(Maybe [PrefixList])
+    , _dplrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePrefixListsResponse' smart constructor.
 describePrefixListsResponse :: Int -> DescribePrefixListsResponse
 describePrefixListsResponse pStatus =
     DescribePrefixListsResponse'
-    { _dplrNextToken = Nothing
-    , _dplrPrefixLists = Nothing
-    , _dplrStatus = pStatus
+    { _dplrsNextToken = Nothing
+    , _dplrsPrefixLists = Nothing
+    , _dplrsStatus = pStatus
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dplrNextToken :: Lens' DescribePrefixListsResponse (Maybe Text)
-dplrNextToken = lens _dplrNextToken (\ s a -> s{_dplrNextToken = a});
+dplrsNextToken :: Lens' DescribePrefixListsResponse (Maybe Text)
+dplrsNextToken = lens _dplrsNextToken (\ s a -> s{_dplrsNextToken = a});
 
 -- | All available prefix lists.
-dplrPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
-dplrPrefixLists = lens _dplrPrefixLists (\ s a -> s{_dplrPrefixLists = a}) . _Default;
+dplrsPrefixLists :: Lens' DescribePrefixListsResponse [PrefixList]
+dplrsPrefixLists = lens _dplrsPrefixLists (\ s a -> s{_dplrsPrefixLists = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dplrStatus :: Lens' DescribePrefixListsResponse Int
-dplrStatus = lens _dplrStatus (\ s a -> s{_dplrStatus = a});
+dplrsStatus :: Lens' DescribePrefixListsResponse Int
+dplrsStatus = lens _dplrsStatus (\ s a -> s{_dplrsStatus = a});

@@ -32,9 +32,9 @@ module Network.AWS.EC2.DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , delDryRun
-    , delTags
-    , delResources
+    , dtsrqDryRun
+    , dtsrqTags
+    , dtsrqResources
 
     -- * Response
     , DeleteTagsResponse
@@ -51,44 +51,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delDryRun'
+-- * 'dtsrqDryRun'
 --
--- * 'delTags'
+-- * 'dtsrqTags'
 --
--- * 'delResources'
+-- * 'dtsrqResources'
 data DeleteTags = DeleteTags'
-    { _delDryRun    :: !(Maybe Bool)
-    , _delTags      :: !(Maybe [Tag])
-    , _delResources :: ![Text]
+    { _dtsrqDryRun    :: !(Maybe Bool)
+    , _dtsrqTags      :: !(Maybe [Tag])
+    , _dtsrqResources :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: DeleteTags
 deleteTags =
     DeleteTags'
-    { _delDryRun = Nothing
-    , _delTags = Nothing
-    , _delResources = mempty
+    { _dtsrqDryRun = Nothing
+    , _dtsrqTags = Nothing
+    , _dtsrqResources = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-delDryRun :: Lens' DeleteTags (Maybe Bool)
-delDryRun = lens _delDryRun (\ s a -> s{_delDryRun = a});
+dtsrqDryRun :: Lens' DeleteTags (Maybe Bool)
+dtsrqDryRun = lens _dtsrqDryRun (\ s a -> s{_dtsrqDryRun = a});
 
 -- | One or more tags to delete. If you omit the @value@ parameter, we delete
 -- the tag regardless of its value. If you specify this parameter with an
 -- empty string as the value, we delete the key only if its value is an
 -- empty string.
-delTags :: Lens' DeleteTags [Tag]
-delTags = lens _delTags (\ s a -> s{_delTags = a}) . _Default;
+dtsrqTags :: Lens' DeleteTags [Tag]
+dtsrqTags = lens _dtsrqTags (\ s a -> s{_dtsrqTags = a}) . _Default;
 
 -- | The ID of the resource. For example, ami-1a2b3c4d. You can specify more
 -- than one resource ID.
-delResources :: Lens' DeleteTags [Text]
-delResources = lens _delResources (\ s a -> s{_delResources = a});
+dtsrqResources :: Lens' DeleteTags [Text]
+dtsrqResources = lens _dtsrqResources (\ s a -> s{_dtsrqResources = a});
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = EC2
@@ -107,9 +107,9 @@ instance ToQuery DeleteTags where
           = mconcat
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _delDryRun,
-               toQuery (toQueryList "item" <$> _delTags),
-               toQueryList "ResourceId" _delResources]
+               "DryRun" =: _dtsrqDryRun,
+               toQuery (toQueryList "item" <$> _dtsrqTags),
+               toQueryList "ResourceId" _dtsrqResources]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =

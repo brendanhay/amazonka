@@ -27,15 +27,15 @@ module Network.AWS.EC2.DeleteFlowLogs
     -- ** Request constructor
     , deleteFlowLogs
     -- ** Request lenses
-    , dflFlowLogIds
+    , dflrqFlowLogIds
 
     -- * Response
     , DeleteFlowLogsResponse
     -- ** Response constructor
     , deleteFlowLogsResponse
     -- ** Response lenses
-    , dflrUnsuccessful
-    , dflrStatus
+    , dflrsUnsuccessful
+    , dflrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -47,21 +47,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dflFlowLogIds'
+-- * 'dflrqFlowLogIds'
 newtype DeleteFlowLogs = DeleteFlowLogs'
-    { _dflFlowLogIds :: [Text]
+    { _dflrqFlowLogIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFlowLogs' smart constructor.
 deleteFlowLogs :: DeleteFlowLogs
 deleteFlowLogs =
     DeleteFlowLogs'
-    { _dflFlowLogIds = mempty
+    { _dflrqFlowLogIds = mempty
     }
 
 -- | One or more flow log IDs.
-dflFlowLogIds :: Lens' DeleteFlowLogs [Text]
-dflFlowLogIds = lens _dflFlowLogIds (\ s a -> s{_dflFlowLogIds = a});
+dflrqFlowLogIds :: Lens' DeleteFlowLogs [Text]
+dflrqFlowLogIds = lens _dflrqFlowLogIds (\ s a -> s{_dflrqFlowLogIds = a});
 
 instance AWSRequest DeleteFlowLogs where
         type Sv DeleteFlowLogs = EC2
@@ -86,32 +86,32 @@ instance ToQuery DeleteFlowLogs where
           = mconcat
               ["Action" =: ("DeleteFlowLogs" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQueryList "item" _dflFlowLogIds]
+               toQueryList "item" _dflrqFlowLogIds]
 
 -- | /See:/ 'deleteFlowLogsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dflrUnsuccessful'
+-- * 'dflrsUnsuccessful'
 --
--- * 'dflrStatus'
+-- * 'dflrsStatus'
 data DeleteFlowLogsResponse = DeleteFlowLogsResponse'
-    { _dflrUnsuccessful :: !(Maybe [UnsuccessfulItem])
-    , _dflrStatus       :: !Int
+    { _dflrsUnsuccessful :: !(Maybe [UnsuccessfulItem])
+    , _dflrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFlowLogsResponse' smart constructor.
 deleteFlowLogsResponse :: Int -> DeleteFlowLogsResponse
 deleteFlowLogsResponse pStatus =
     DeleteFlowLogsResponse'
-    { _dflrUnsuccessful = Nothing
-    , _dflrStatus = pStatus
+    { _dflrsUnsuccessful = Nothing
+    , _dflrsStatus = pStatus
     }
 
 -- | Information about the flow logs that could not be deleted successfully.
-dflrUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
-dflrUnsuccessful = lens _dflrUnsuccessful (\ s a -> s{_dflrUnsuccessful = a}) . _Default;
+dflrsUnsuccessful :: Lens' DeleteFlowLogsResponse [UnsuccessfulItem]
+dflrsUnsuccessful = lens _dflrsUnsuccessful (\ s a -> s{_dflrsUnsuccessful = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dflrStatus :: Lens' DeleteFlowLogsResponse Int
-dflrStatus = lens _dflrStatus (\ s a -> s{_dflrStatus = a});
+dflrsStatus :: Lens' DeleteFlowLogsResponse Int
+dflrsStatus = lens _dflrsStatus (\ s a -> s{_dflrsStatus = a});

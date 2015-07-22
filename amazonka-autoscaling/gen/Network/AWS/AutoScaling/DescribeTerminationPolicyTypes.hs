@@ -32,8 +32,8 @@ module Network.AWS.AutoScaling.DescribeTerminationPolicyTypes
     -- ** Response constructor
     , describeTerminationPolicyTypesResponse
     -- ** Response lenses
-    , dtptrTerminationPolicyTypes
-    , dtptrStatus
+    , dtptrsTerminationPolicyTypes
+    , dtptrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -84,28 +84,28 @@ instance ToQuery DescribeTerminationPolicyTypes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtptrTerminationPolicyTypes'
+-- * 'dtptrsTerminationPolicyTypes'
 --
--- * 'dtptrStatus'
+-- * 'dtptrsStatus'
 data DescribeTerminationPolicyTypesResponse = DescribeTerminationPolicyTypesResponse'
-    { _dtptrTerminationPolicyTypes :: !(Maybe [Text])
-    , _dtptrStatus                 :: !Int
+    { _dtptrsTerminationPolicyTypes :: !(Maybe [Text])
+    , _dtptrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTerminationPolicyTypesResponse' smart constructor.
 describeTerminationPolicyTypesResponse :: Int -> DescribeTerminationPolicyTypesResponse
 describeTerminationPolicyTypesResponse pStatus =
     DescribeTerminationPolicyTypesResponse'
-    { _dtptrTerminationPolicyTypes = Nothing
-    , _dtptrStatus = pStatus
+    { _dtptrsTerminationPolicyTypes = Nothing
+    , _dtptrsStatus = pStatus
     }
 
 -- | The termination policies supported by Auto Scaling (@OldestInstance@,
 -- @OldestLaunchConfiguration@, @NewestInstance@,
 -- @ClosestToNextInstanceHour@, and @Default@).
-dtptrTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
-dtptrTerminationPolicyTypes = lens _dtptrTerminationPolicyTypes (\ s a -> s{_dtptrTerminationPolicyTypes = a}) . _Default;
+dtptrsTerminationPolicyTypes :: Lens' DescribeTerminationPolicyTypesResponse [Text]
+dtptrsTerminationPolicyTypes = lens _dtptrsTerminationPolicyTypes (\ s a -> s{_dtptrsTerminationPolicyTypes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtptrStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
-dtptrStatus = lens _dtptrStatus (\ s a -> s{_dtptrStatus = a});
+dtptrsStatus :: Lens' DescribeTerminationPolicyTypesResponse Int
+dtptrsStatus = lens _dtptrsStatus (\ s a -> s{_dtptrsStatus = a});

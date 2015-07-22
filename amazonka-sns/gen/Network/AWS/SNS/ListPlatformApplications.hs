@@ -35,16 +35,16 @@ module Network.AWS.SNS.ListPlatformApplications
     -- ** Request constructor
     , listPlatformApplications
     -- ** Request lenses
-    , lpaNextToken
+    , lparqNextToken
 
     -- * Response
     , ListPlatformApplicationsResponse
     -- ** Response constructor
     , listPlatformApplicationsResponse
     -- ** Response lenses
-    , lparPlatformApplications
-    , lparNextToken
-    , lparStatus
+    , lparsPlatformApplications
+    , lparsNextToken
+    , lparsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -59,30 +59,30 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpaNextToken'
+-- * 'lparqNextToken'
 newtype ListPlatformApplications = ListPlatformApplications'
-    { _lpaNextToken :: Maybe Text
+    { _lparqNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPlatformApplications' smart constructor.
 listPlatformApplications :: ListPlatformApplications
 listPlatformApplications =
     ListPlatformApplications'
-    { _lpaNextToken = Nothing
+    { _lparqNextToken = Nothing
     }
 
 -- | NextToken string is used when calling ListPlatformApplications action to
 -- retrieve additional records that are available after the first page
 -- results.
-lpaNextToken :: Lens' ListPlatformApplications (Maybe Text)
-lpaNextToken = lens _lpaNextToken (\ s a -> s{_lpaNextToken = a});
+lparqNextToken :: Lens' ListPlatformApplications (Maybe Text)
+lparqNextToken = lens _lparqNextToken (\ s a -> s{_lparqNextToken = a});
 
 instance AWSPager ListPlatformApplications where
         page rq rs
-          | stop (rs ^. lparNextToken) = Nothing
-          | stop (rs ^. lparPlatformApplications) = Nothing
+          | stop (rs ^. lparsNextToken) = Nothing
+          | stop (rs ^. lparsPlatformApplications) = Nothing
           | otherwise =
-            Just $ rq & lpaNextToken .~ rs ^. lparNextToken
+            Just $ rq & lparqNextToken .~ rs ^. lparsNextToken
 
 instance AWSRequest ListPlatformApplications where
         type Sv ListPlatformApplications = SNS
@@ -110,7 +110,7 @@ instance ToQuery ListPlatformApplications where
               ["Action" =:
                  ("ListPlatformApplications" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _lpaNextToken]
+               "NextToken" =: _lparqNextToken]
 
 -- | Response for ListPlatformApplications action.
 --
@@ -118,36 +118,36 @@ instance ToQuery ListPlatformApplications where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lparPlatformApplications'
+-- * 'lparsPlatformApplications'
 --
--- * 'lparNextToken'
+-- * 'lparsNextToken'
 --
--- * 'lparStatus'
+-- * 'lparsStatus'
 data ListPlatformApplicationsResponse = ListPlatformApplicationsResponse'
-    { _lparPlatformApplications :: !(Maybe [PlatformApplication])
-    , _lparNextToken            :: !(Maybe Text)
-    , _lparStatus               :: !Int
+    { _lparsPlatformApplications :: !(Maybe [PlatformApplication])
+    , _lparsNextToken            :: !(Maybe Text)
+    , _lparsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPlatformApplicationsResponse' smart constructor.
 listPlatformApplicationsResponse :: Int -> ListPlatformApplicationsResponse
 listPlatformApplicationsResponse pStatus =
     ListPlatformApplicationsResponse'
-    { _lparPlatformApplications = Nothing
-    , _lparNextToken = Nothing
-    , _lparStatus = pStatus
+    { _lparsPlatformApplications = Nothing
+    , _lparsNextToken = Nothing
+    , _lparsStatus = pStatus
     }
 
 -- | Platform applications returned when calling ListPlatformApplications
 -- action.
-lparPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
-lparPlatformApplications = lens _lparPlatformApplications (\ s a -> s{_lparPlatformApplications = a}) . _Default;
+lparsPlatformApplications :: Lens' ListPlatformApplicationsResponse [PlatformApplication]
+lparsPlatformApplications = lens _lparsPlatformApplications (\ s a -> s{_lparsPlatformApplications = a}) . _Default;
 
 -- | NextToken string is returned when calling ListPlatformApplications
 -- action if additional records are available after the first page results.
-lparNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
-lparNextToken = lens _lparNextToken (\ s a -> s{_lparNextToken = a});
+lparsNextToken :: Lens' ListPlatformApplicationsResponse (Maybe Text)
+lparsNextToken = lens _lparsNextToken (\ s a -> s{_lparsNextToken = a});
 
 -- | FIXME: Undocumented member.
-lparStatus :: Lens' ListPlatformApplicationsResponse Int
-lparStatus = lens _lparStatus (\ s a -> s{_lparStatus = a});
+lparsStatus :: Lens' ListPlatformApplicationsResponse Int
+lparsStatus = lens _lparsStatus (\ s a -> s{_lparsStatus = a});

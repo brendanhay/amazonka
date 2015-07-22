@@ -27,18 +27,18 @@ module Network.AWS.S3.GetBucketWebsite
     -- ** Request constructor
     , getBucketWebsite
     -- ** Request lenses
-    , gbwBucket
+    , gbwrqBucket
 
     -- * Response
     , GetBucketWebsiteResponse
     -- ** Response constructor
     , getBucketWebsiteResponse
     -- ** Response lenses
-    , gbwrRedirectAllRequestsTo
-    , gbwrErrorDocument
-    , gbwrRoutingRules
-    , gbwrIndexDocument
-    , gbwrStatus
+    , gbwrsRedirectAllRequestsTo
+    , gbwrsErrorDocument
+    , gbwrsRoutingRules
+    , gbwrsIndexDocument
+    , gbwrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -50,21 +50,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbwBucket'
+-- * 'gbwrqBucket'
 newtype GetBucketWebsite = GetBucketWebsite'
-    { _gbwBucket :: BucketName
+    { _gbwrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketWebsite' smart constructor.
 getBucketWebsite :: BucketName -> GetBucketWebsite
 getBucketWebsite pBucket =
     GetBucketWebsite'
-    { _gbwBucket = pBucket
+    { _gbwrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-gbwBucket :: Lens' GetBucketWebsite BucketName
-gbwBucket = lens _gbwBucket (\ s a -> s{_gbwBucket = a});
+gbwrqBucket :: Lens' GetBucketWebsite BucketName
+gbwrqBucket = lens _gbwrqBucket (\ s a -> s{_gbwrqBucket = a});
 
 instance AWSRequest GetBucketWebsite where
         type Sv GetBucketWebsite = S3
@@ -87,7 +87,7 @@ instance ToHeaders GetBucketWebsite where
 
 instance ToPath GetBucketWebsite where
         toPath GetBucketWebsite'{..}
-          = mconcat ["/", toText _gbwBucket]
+          = mconcat ["/", toText _gbwrqBucket]
 
 instance ToQuery GetBucketWebsite where
         toQuery = const (mconcat ["website"])
@@ -96,50 +96,50 @@ instance ToQuery GetBucketWebsite where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gbwrRedirectAllRequestsTo'
+-- * 'gbwrsRedirectAllRequestsTo'
 --
--- * 'gbwrErrorDocument'
+-- * 'gbwrsErrorDocument'
 --
--- * 'gbwrRoutingRules'
+-- * 'gbwrsRoutingRules'
 --
--- * 'gbwrIndexDocument'
+-- * 'gbwrsIndexDocument'
 --
--- * 'gbwrStatus'
+-- * 'gbwrsStatus'
 data GetBucketWebsiteResponse = GetBucketWebsiteResponse'
-    { _gbwrRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
-    , _gbwrErrorDocument         :: !(Maybe ErrorDocument)
-    , _gbwrRoutingRules          :: !(Maybe [RoutingRule])
-    , _gbwrIndexDocument         :: !(Maybe IndexDocument)
-    , _gbwrStatus                :: !Int
+    { _gbwrsRedirectAllRequestsTo :: !(Maybe RedirectAllRequestsTo)
+    , _gbwrsErrorDocument         :: !(Maybe ErrorDocument)
+    , _gbwrsRoutingRules          :: !(Maybe [RoutingRule])
+    , _gbwrsIndexDocument         :: !(Maybe IndexDocument)
+    , _gbwrsStatus                :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'GetBucketWebsiteResponse' smart constructor.
 getBucketWebsiteResponse :: Int -> GetBucketWebsiteResponse
 getBucketWebsiteResponse pStatus =
     GetBucketWebsiteResponse'
-    { _gbwrRedirectAllRequestsTo = Nothing
-    , _gbwrErrorDocument = Nothing
-    , _gbwrRoutingRules = Nothing
-    , _gbwrIndexDocument = Nothing
-    , _gbwrStatus = pStatus
+    { _gbwrsRedirectAllRequestsTo = Nothing
+    , _gbwrsErrorDocument = Nothing
+    , _gbwrsRoutingRules = Nothing
+    , _gbwrsIndexDocument = Nothing
+    , _gbwrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gbwrRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
-gbwrRedirectAllRequestsTo = lens _gbwrRedirectAllRequestsTo (\ s a -> s{_gbwrRedirectAllRequestsTo = a});
+gbwrsRedirectAllRequestsTo :: Lens' GetBucketWebsiteResponse (Maybe RedirectAllRequestsTo)
+gbwrsRedirectAllRequestsTo = lens _gbwrsRedirectAllRequestsTo (\ s a -> s{_gbwrsRedirectAllRequestsTo = a});
 
 -- | FIXME: Undocumented member.
-gbwrErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
-gbwrErrorDocument = lens _gbwrErrorDocument (\ s a -> s{_gbwrErrorDocument = a});
+gbwrsErrorDocument :: Lens' GetBucketWebsiteResponse (Maybe ErrorDocument)
+gbwrsErrorDocument = lens _gbwrsErrorDocument (\ s a -> s{_gbwrsErrorDocument = a});
 
 -- | FIXME: Undocumented member.
-gbwrRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
-gbwrRoutingRules = lens _gbwrRoutingRules (\ s a -> s{_gbwrRoutingRules = a}) . _Default;
+gbwrsRoutingRules :: Lens' GetBucketWebsiteResponse [RoutingRule]
+gbwrsRoutingRules = lens _gbwrsRoutingRules (\ s a -> s{_gbwrsRoutingRules = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gbwrIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
-gbwrIndexDocument = lens _gbwrIndexDocument (\ s a -> s{_gbwrIndexDocument = a});
+gbwrsIndexDocument :: Lens' GetBucketWebsiteResponse (Maybe IndexDocument)
+gbwrsIndexDocument = lens _gbwrsIndexDocument (\ s a -> s{_gbwrsIndexDocument = a});
 
 -- | FIXME: Undocumented member.
-gbwrStatus :: Lens' GetBucketWebsiteResponse Int
-gbwrStatus = lens _gbwrStatus (\ s a -> s{_gbwrStatus = a});
+gbwrsStatus :: Lens' GetBucketWebsiteResponse Int
+gbwrsStatus = lens _gbwrsStatus (\ s a -> s{_gbwrsStatus = a});

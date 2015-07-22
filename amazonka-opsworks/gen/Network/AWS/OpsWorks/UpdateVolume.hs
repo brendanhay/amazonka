@@ -35,9 +35,9 @@ module Network.AWS.OpsWorks.UpdateVolume
     -- ** Request constructor
     , updateVolume
     -- ** Request lenses
-    , updName
-    , updMountPoint
-    , updVolumeId
+    , urqName
+    , urqMountPoint
+    , urqVolumeId
 
     -- * Response
     , UpdateVolumeResponse
@@ -54,37 +54,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'updName'
+-- * 'urqName'
 --
--- * 'updMountPoint'
+-- * 'urqMountPoint'
 --
--- * 'updVolumeId'
+-- * 'urqVolumeId'
 data UpdateVolume = UpdateVolume'
-    { _updName       :: !(Maybe Text)
-    , _updMountPoint :: !(Maybe Text)
-    , _updVolumeId   :: !Text
+    { _urqName       :: !(Maybe Text)
+    , _urqMountPoint :: !(Maybe Text)
+    , _urqVolumeId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVolume' smart constructor.
 updateVolume :: Text -> UpdateVolume
 updateVolume pVolumeId =
     UpdateVolume'
-    { _updName = Nothing
-    , _updMountPoint = Nothing
-    , _updVolumeId = pVolumeId
+    { _urqName = Nothing
+    , _urqMountPoint = Nothing
+    , _urqVolumeId = pVolumeId
     }
 
 -- | The new name.
-updName :: Lens' UpdateVolume (Maybe Text)
-updName = lens _updName (\ s a -> s{_updName = a});
+urqName :: Lens' UpdateVolume (Maybe Text)
+urqName = lens _urqName (\ s a -> s{_urqName = a});
 
 -- | The new mount point.
-updMountPoint :: Lens' UpdateVolume (Maybe Text)
-updMountPoint = lens _updMountPoint (\ s a -> s{_updMountPoint = a});
+urqMountPoint :: Lens' UpdateVolume (Maybe Text)
+urqMountPoint = lens _urqMountPoint (\ s a -> s{_urqMountPoint = a});
 
 -- | The volume ID.
-updVolumeId :: Lens' UpdateVolume Text
-updVolumeId = lens _updVolumeId (\ s a -> s{_updVolumeId = a});
+urqVolumeId :: Lens' UpdateVolume Text
+urqVolumeId = lens _urqVolumeId (\ s a -> s{_urqVolumeId = a});
 
 instance AWSRequest UpdateVolume where
         type Sv UpdateVolume = OpsWorks
@@ -104,8 +104,8 @@ instance ToHeaders UpdateVolume where
 instance ToJSON UpdateVolume where
         toJSON UpdateVolume'{..}
           = object
-              ["Name" .= _updName, "MountPoint" .= _updMountPoint,
-               "VolumeId" .= _updVolumeId]
+              ["Name" .= _urqName, "MountPoint" .= _urqMountPoint,
+               "VolumeId" .= _urqVolumeId]
 
 instance ToPath UpdateVolume where
         toPath = const "/"

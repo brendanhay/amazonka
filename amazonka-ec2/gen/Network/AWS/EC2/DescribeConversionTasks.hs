@@ -30,17 +30,17 @@ module Network.AWS.EC2.DescribeConversionTasks
     -- ** Request constructor
     , describeConversionTasks
     -- ** Request lenses
-    , dctConversionTaskIds
-    , dctFilters
-    , dctDryRun
+    , dctrqConversionTaskIds
+    , dctrqFilters
+    , dctrqDryRun
 
     -- * Response
     , DescribeConversionTasksResponse
     -- ** Response constructor
     , describeConversionTasksResponse
     -- ** Response lenses
-    , dctrConversionTasks
-    , dctrStatus
+    , dctrsConversionTasks
+    , dctrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,40 +52,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dctConversionTaskIds'
+-- * 'dctrqConversionTaskIds'
 --
--- * 'dctFilters'
+-- * 'dctrqFilters'
 --
--- * 'dctDryRun'
+-- * 'dctrqDryRun'
 data DescribeConversionTasks = DescribeConversionTasks'
-    { _dctConversionTaskIds :: !(Maybe [Text])
-    , _dctFilters           :: !(Maybe [Filter])
-    , _dctDryRun            :: !(Maybe Bool)
+    { _dctrqConversionTaskIds :: !(Maybe [Text])
+    , _dctrqFilters           :: !(Maybe [Filter])
+    , _dctrqDryRun            :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConversionTasks' smart constructor.
 describeConversionTasks :: DescribeConversionTasks
 describeConversionTasks =
     DescribeConversionTasks'
-    { _dctConversionTaskIds = Nothing
-    , _dctFilters = Nothing
-    , _dctDryRun = Nothing
+    { _dctrqConversionTaskIds = Nothing
+    , _dctrqFilters = Nothing
+    , _dctrqDryRun = Nothing
     }
 
 -- | One or more conversion task IDs.
-dctConversionTaskIds :: Lens' DescribeConversionTasks [Text]
-dctConversionTaskIds = lens _dctConversionTaskIds (\ s a -> s{_dctConversionTaskIds = a}) . _Default;
+dctrqConversionTaskIds :: Lens' DescribeConversionTasks [Text]
+dctrqConversionTaskIds = lens _dctrqConversionTaskIds (\ s a -> s{_dctrqConversionTaskIds = a}) . _Default;
 
 -- | One or more filters.
-dctFilters :: Lens' DescribeConversionTasks [Filter]
-dctFilters = lens _dctFilters (\ s a -> s{_dctFilters = a}) . _Default;
+dctrqFilters :: Lens' DescribeConversionTasks [Filter]
+dctrqFilters = lens _dctrqFilters (\ s a -> s{_dctrqFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dctDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
-dctDryRun = lens _dctDryRun (\ s a -> s{_dctDryRun = a});
+dctrqDryRun :: Lens' DescribeConversionTasks (Maybe Bool)
+dctrqDryRun = lens _dctrqDryRun (\ s a -> s{_dctrqDryRun = a});
 
 instance AWSRequest DescribeConversionTasks where
         type Sv DescribeConversionTasks = EC2
@@ -113,34 +113,34 @@ instance ToQuery DescribeConversionTasks where
                  ("DescribeConversionTasks" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "item" <$> _dctConversionTaskIds),
-               toQuery (toQueryList "Filter" <$> _dctFilters),
-               "DryRun" =: _dctDryRun]
+                 (toQueryList "item" <$> _dctrqConversionTaskIds),
+               toQuery (toQueryList "Filter" <$> _dctrqFilters),
+               "DryRun" =: _dctrqDryRun]
 
 -- | /See:/ 'describeConversionTasksResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dctrConversionTasks'
+-- * 'dctrsConversionTasks'
 --
--- * 'dctrStatus'
+-- * 'dctrsStatus'
 data DescribeConversionTasksResponse = DescribeConversionTasksResponse'
-    { _dctrConversionTasks :: !(Maybe [ConversionTask])
-    , _dctrStatus          :: !Int
+    { _dctrsConversionTasks :: !(Maybe [ConversionTask])
+    , _dctrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConversionTasksResponse' smart constructor.
 describeConversionTasksResponse :: Int -> DescribeConversionTasksResponse
 describeConversionTasksResponse pStatus =
     DescribeConversionTasksResponse'
-    { _dctrConversionTasks = Nothing
-    , _dctrStatus = pStatus
+    { _dctrsConversionTasks = Nothing
+    , _dctrsStatus = pStatus
     }
 
 -- | Information about the conversion tasks.
-dctrConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
-dctrConversionTasks = lens _dctrConversionTasks (\ s a -> s{_dctrConversionTasks = a}) . _Default;
+dctrsConversionTasks :: Lens' DescribeConversionTasksResponse [ConversionTask]
+dctrsConversionTasks = lens _dctrsConversionTasks (\ s a -> s{_dctrsConversionTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dctrStatus :: Lens' DescribeConversionTasksResponse Int
-dctrStatus = lens _dctrStatus (\ s a -> s{_dctrStatus = a});
+dctrsStatus :: Lens' DescribeConversionTasksResponse Int
+dctrsStatus = lens _dctrsStatus (\ s a -> s{_dctrsStatus = a});

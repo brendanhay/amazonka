@@ -33,16 +33,16 @@ module Network.AWS.EC2.MoveAddressToVPC
     -- ** Request constructor
     , moveAddressToVPC
     -- ** Request lenses
-    , matvDryRun
-    , matvPublicIP
+    , matvrqDryRun
+    , matvrqPublicIP
 
     -- * Response
     , MoveAddressToVPCResponse
     -- ** Response constructor
     , moveAddressToVPCResponse
     -- ** Response lenses
-    , matvrAllocationId
-    , matvrStatus
+    , matvrsAllocationId
+    , matvrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,32 +54,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'matvDryRun'
+-- * 'matvrqDryRun'
 --
--- * 'matvPublicIP'
+-- * 'matvrqPublicIP'
 data MoveAddressToVPC = MoveAddressToVPC'
-    { _matvDryRun   :: !(Maybe Bool)
-    , _matvPublicIP :: !Text
+    { _matvrqDryRun   :: !(Maybe Bool)
+    , _matvrqPublicIP :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MoveAddressToVPC' smart constructor.
 moveAddressToVPC :: Text -> MoveAddressToVPC
 moveAddressToVPC pPublicIP =
     MoveAddressToVPC'
-    { _matvDryRun = Nothing
-    , _matvPublicIP = pPublicIP
+    { _matvrqDryRun = Nothing
+    , _matvrqPublicIP = pPublicIP
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-matvDryRun :: Lens' MoveAddressToVPC (Maybe Bool)
-matvDryRun = lens _matvDryRun (\ s a -> s{_matvDryRun = a});
+matvrqDryRun :: Lens' MoveAddressToVPC (Maybe Bool)
+matvrqDryRun = lens _matvrqDryRun (\ s a -> s{_matvrqDryRun = a});
 
 -- | The Elastic IP address.
-matvPublicIP :: Lens' MoveAddressToVPC Text
-matvPublicIP = lens _matvPublicIP (\ s a -> s{_matvPublicIP = a});
+matvrqPublicIP :: Lens' MoveAddressToVPC Text
+matvrqPublicIP = lens _matvrqPublicIP (\ s a -> s{_matvrqPublicIP = a});
 
 instance AWSRequest MoveAddressToVPC where
         type Sv MoveAddressToVPC = EC2
@@ -102,32 +102,33 @@ instance ToQuery MoveAddressToVPC where
           = mconcat
               ["Action" =: ("MoveAddressToVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _matvDryRun, "PublicIp" =: _matvPublicIP]
+               "DryRun" =: _matvrqDryRun,
+               "PublicIp" =: _matvrqPublicIP]
 
 -- | /See:/ 'moveAddressToVPCResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'matvrAllocationId'
+-- * 'matvrsAllocationId'
 --
--- * 'matvrStatus'
+-- * 'matvrsStatus'
 data MoveAddressToVPCResponse = MoveAddressToVPCResponse'
-    { _matvrAllocationId :: !(Maybe Text)
-    , _matvrStatus       :: !Int
+    { _matvrsAllocationId :: !(Maybe Text)
+    , _matvrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MoveAddressToVPCResponse' smart constructor.
 moveAddressToVPCResponse :: Int -> MoveAddressToVPCResponse
 moveAddressToVPCResponse pStatus =
     MoveAddressToVPCResponse'
-    { _matvrAllocationId = Nothing
-    , _matvrStatus = pStatus
+    { _matvrsAllocationId = Nothing
+    , _matvrsStatus = pStatus
     }
 
 -- | The allocation ID for the Elastic IP address.
-matvrAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
-matvrAllocationId = lens _matvrAllocationId (\ s a -> s{_matvrAllocationId = a});
+matvrsAllocationId :: Lens' MoveAddressToVPCResponse (Maybe Text)
+matvrsAllocationId = lens _matvrsAllocationId (\ s a -> s{_matvrsAllocationId = a});
 
 -- | FIXME: Undocumented member.
-matvrStatus :: Lens' MoveAddressToVPCResponse Int
-matvrStatus = lens _matvrStatus (\ s a -> s{_matvrStatus = a});
+matvrsStatus :: Lens' MoveAddressToVPCResponse Int
+matvrsStatus = lens _matvrsStatus (\ s a -> s{_matvrsStatus = a});

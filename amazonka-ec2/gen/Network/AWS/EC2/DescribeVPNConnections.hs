@@ -31,17 +31,17 @@ module Network.AWS.EC2.DescribeVPNConnections
     -- ** Request constructor
     , describeVPNConnections
     -- ** Request lenses
-    , dvpncFilters
-    , dvpncVPNConnectionIds
-    , dvpncDryRun
+    , dvpncrqFilters
+    , dvpncrqVPNConnectionIds
+    , dvpncrqDryRun
 
     -- * Response
     , DescribeVPNConnectionsResponse
     -- ** Response constructor
     , describeVPNConnectionsResponse
     -- ** Response lenses
-    , dvcrVPNConnections
-    , dvcrStatus
+    , dvpncrsVPNConnections
+    , dvpncrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,24 +53,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpncFilters'
+-- * 'dvpncrqFilters'
 --
--- * 'dvpncVPNConnectionIds'
+-- * 'dvpncrqVPNConnectionIds'
 --
--- * 'dvpncDryRun'
+-- * 'dvpncrqDryRun'
 data DescribeVPNConnections = DescribeVPNConnections'
-    { _dvpncFilters          :: !(Maybe [Filter])
-    , _dvpncVPNConnectionIds :: !(Maybe [Text])
-    , _dvpncDryRun           :: !(Maybe Bool)
+    { _dvpncrqFilters          :: !(Maybe [Filter])
+    , _dvpncrqVPNConnectionIds :: !(Maybe [Text])
+    , _dvpncrqDryRun           :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNConnections' smart constructor.
 describeVPNConnections :: DescribeVPNConnections
 describeVPNConnections =
     DescribeVPNConnections'
-    { _dvpncFilters = Nothing
-    , _dvpncVPNConnectionIds = Nothing
-    , _dvpncDryRun = Nothing
+    { _dvpncrqFilters = Nothing
+    , _dvpncrqVPNConnectionIds = Nothing
+    , _dvpncrqDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -116,21 +116,21 @@ describeVPNConnections =
 -- -   @vpn-gateway-id@ - The ID of a virtual private gateway associated
 --     with the VPN connection.
 --
-dvpncFilters :: Lens' DescribeVPNConnections [Filter]
-dvpncFilters = lens _dvpncFilters (\ s a -> s{_dvpncFilters = a}) . _Default;
+dvpncrqFilters :: Lens' DescribeVPNConnections [Filter]
+dvpncrqFilters = lens _dvpncrqFilters (\ s a -> s{_dvpncrqFilters = a}) . _Default;
 
 -- | One or more VPN connection IDs.
 --
 -- Default: Describes your VPN connections.
-dvpncVPNConnectionIds :: Lens' DescribeVPNConnections [Text]
-dvpncVPNConnectionIds = lens _dvpncVPNConnectionIds (\ s a -> s{_dvpncVPNConnectionIds = a}) . _Default;
+dvpncrqVPNConnectionIds :: Lens' DescribeVPNConnections [Text]
+dvpncrqVPNConnectionIds = lens _dvpncrqVPNConnectionIds (\ s a -> s{_dvpncrqVPNConnectionIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvpncDryRun :: Lens' DescribeVPNConnections (Maybe Bool)
-dvpncDryRun = lens _dvpncDryRun (\ s a -> s{_dvpncDryRun = a});
+dvpncrqDryRun :: Lens' DescribeVPNConnections (Maybe Bool)
+dvpncrqDryRun = lens _dvpncrqDryRun (\ s a -> s{_dvpncrqDryRun = a});
 
 instance AWSRequest DescribeVPNConnections where
         type Sv DescribeVPNConnections = EC2
@@ -157,36 +157,36 @@ instance ToQuery DescribeVPNConnections where
               ["Action" =:
                  ("DescribeVPNConnections" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvpncFilters),
+               toQuery (toQueryList "Filter" <$> _dvpncrqFilters),
                toQuery
                  (toQueryList "VpnConnectionId" <$>
-                    _dvpncVPNConnectionIds),
-               "DryRun" =: _dvpncDryRun]
+                    _dvpncrqVPNConnectionIds),
+               "DryRun" =: _dvpncrqDryRun]
 
 -- | /See:/ 'describeVPNConnectionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvcrVPNConnections'
+-- * 'dvpncrsVPNConnections'
 --
--- * 'dvcrStatus'
+-- * 'dvpncrsStatus'
 data DescribeVPNConnectionsResponse = DescribeVPNConnectionsResponse'
-    { _dvcrVPNConnections :: !(Maybe [VPNConnection])
-    , _dvcrStatus         :: !Int
+    { _dvpncrsVPNConnections :: !(Maybe [VPNConnection])
+    , _dvpncrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPNConnectionsResponse' smart constructor.
 describeVPNConnectionsResponse :: Int -> DescribeVPNConnectionsResponse
 describeVPNConnectionsResponse pStatus =
     DescribeVPNConnectionsResponse'
-    { _dvcrVPNConnections = Nothing
-    , _dvcrStatus = pStatus
+    { _dvpncrsVPNConnections = Nothing
+    , _dvpncrsStatus = pStatus
     }
 
 -- | Information about one or more VPN connections.
-dvcrVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
-dvcrVPNConnections = lens _dvcrVPNConnections (\ s a -> s{_dvcrVPNConnections = a}) . _Default;
+dvpncrsVPNConnections :: Lens' DescribeVPNConnectionsResponse [VPNConnection]
+dvpncrsVPNConnections = lens _dvpncrsVPNConnections (\ s a -> s{_dvpncrsVPNConnections = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvcrStatus :: Lens' DescribeVPNConnectionsResponse Int
-dvcrStatus = lens _dvcrStatus (\ s a -> s{_dvcrStatus = a});
+dvpncrsStatus :: Lens' DescribeVPNConnectionsResponse Int
+dvpncrsStatus = lens _dvpncrsStatus (\ s a -> s{_dvpncrsStatus = a});

@@ -188,10 +188,10 @@ module Network.AWS.CodeDeploy.Types
     -- * Diagnostics
     , Diagnostics
     , diagnostics
-    , diaLogTail
-    , diaErrorCode
-    , diaScriptName
-    , diaMessage
+    , dLogTail
+    , dErrorCode
+    , dScriptName
+    , dMessage
 
     -- * EC2TagFilter
     , EC2TagFilter

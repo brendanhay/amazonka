@@ -30,15 +30,15 @@ module Network.AWS.CodePipeline.UpdatePipeline
     -- ** Request constructor
     , updatePipeline
     -- ** Request lenses
-    , upPipeline
+    , uprqPipeline
 
     -- * Response
     , UpdatePipelineResponse
     -- ** Response constructor
     , updatePipelineResponse
     -- ** Response lenses
-    , uprPipeline
-    , uprStatus
+    , uprsPipeline
+    , uprsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'upPipeline'
+-- * 'uprqPipeline'
 newtype UpdatePipeline = UpdatePipeline'
-    { _upPipeline :: PipelineDeclaration
+    { _uprqPipeline :: PipelineDeclaration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipeline' smart constructor.
 updatePipeline :: PipelineDeclaration -> UpdatePipeline
 updatePipeline pPipeline =
     UpdatePipeline'
-    { _upPipeline = pPipeline
+    { _uprqPipeline = pPipeline
     }
 
 -- | The name of the pipeline to be updated.
-upPipeline :: Lens' UpdatePipeline PipelineDeclaration
-upPipeline = lens _upPipeline (\ s a -> s{_upPipeline = a});
+uprqPipeline :: Lens' UpdatePipeline PipelineDeclaration
+uprqPipeline = lens _uprqPipeline (\ s a -> s{_uprqPipeline = a});
 
 instance AWSRequest UpdatePipeline where
         type Sv UpdatePipeline = CodePipeline
@@ -90,7 +90,7 @@ instance ToHeaders UpdatePipeline where
 
 instance ToJSON UpdatePipeline where
         toJSON UpdatePipeline'{..}
-          = object ["pipeline" .= _upPipeline]
+          = object ["pipeline" .= _uprqPipeline]
 
 instance ToPath UpdatePipeline where
         toPath = const "/"
@@ -104,26 +104,26 @@ instance ToQuery UpdatePipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uprPipeline'
+-- * 'uprsPipeline'
 --
--- * 'uprStatus'
+-- * 'uprsStatus'
 data UpdatePipelineResponse = UpdatePipelineResponse'
-    { _uprPipeline :: !(Maybe PipelineDeclaration)
-    , _uprStatus   :: !Int
+    { _uprsPipeline :: !(Maybe PipelineDeclaration)
+    , _uprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdatePipelineResponse' smart constructor.
 updatePipelineResponse :: Int -> UpdatePipelineResponse
 updatePipelineResponse pStatus =
     UpdatePipelineResponse'
-    { _uprPipeline = Nothing
-    , _uprStatus = pStatus
+    { _uprsPipeline = Nothing
+    , _uprsStatus = pStatus
     }
 
 -- | The structure of the updated pipeline.
-uprPipeline :: Lens' UpdatePipelineResponse (Maybe PipelineDeclaration)
-uprPipeline = lens _uprPipeline (\ s a -> s{_uprPipeline = a});
+uprsPipeline :: Lens' UpdatePipelineResponse (Maybe PipelineDeclaration)
+uprsPipeline = lens _uprsPipeline (\ s a -> s{_uprsPipeline = a});
 
 -- | FIXME: Undocumented member.
-uprStatus :: Lens' UpdatePipelineResponse Int
-uprStatus = lens _uprStatus (\ s a -> s{_uprStatus = a});
+uprsStatus :: Lens' UpdatePipelineResponse Int
+uprsStatus = lens _uprsStatus (\ s a -> s{_uprsStatus = a});

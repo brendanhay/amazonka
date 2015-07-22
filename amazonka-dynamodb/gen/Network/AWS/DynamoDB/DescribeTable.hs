@@ -35,15 +35,15 @@ module Network.AWS.DynamoDB.DescribeTable
     -- ** Request constructor
     , describeTable
     -- ** Request lenses
-    , desTableName
+    , drqTableName
 
     -- * Response
     , DescribeTableResponse
     -- ** Response constructor
     , describeTableResponse
     -- ** Response lenses
-    , desTable
-    , desStatus
+    , drsTable
+    , drsStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desTableName'
+-- * 'drqTableName'
 newtype DescribeTable = DescribeTable'
-    { _desTableName :: Text
+    { _drqTableName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTable' smart constructor.
 describeTable :: Text -> DescribeTable
 describeTable pTableName =
     DescribeTable'
-    { _desTableName = pTableName
+    { _drqTableName = pTableName
     }
 
 -- | The name of the table to describe.
-desTableName :: Lens' DescribeTable Text
-desTableName = lens _desTableName (\ s a -> s{_desTableName = a});
+drqTableName :: Lens' DescribeTable Text
+drqTableName = lens _drqTableName (\ s a -> s{_drqTableName = a});
 
 instance AWSRequest DescribeTable where
         type Sv DescribeTable = DynamoDB
@@ -94,7 +94,7 @@ instance ToHeaders DescribeTable where
 
 instance ToJSON DescribeTable where
         toJSON DescribeTable'{..}
-          = object ["TableName" .= _desTableName]
+          = object ["TableName" .= _drqTableName]
 
 instance ToPath DescribeTable where
         toPath = const "/"
@@ -108,26 +108,26 @@ instance ToQuery DescribeTable where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desTable'
+-- * 'drsTable'
 --
--- * 'desStatus'
+-- * 'drsStatus'
 data DescribeTableResponse = DescribeTableResponse'
-    { _desTable  :: !(Maybe TableDescription)
-    , _desStatus :: !Int
+    { _drsTable  :: !(Maybe TableDescription)
+    , _drsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTableResponse' smart constructor.
 describeTableResponse :: Int -> DescribeTableResponse
 describeTableResponse pStatus =
     DescribeTableResponse'
-    { _desTable = Nothing
-    , _desStatus = pStatus
+    { _drsTable = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-desTable :: Lens' DescribeTableResponse (Maybe TableDescription)
-desTable = lens _desTable (\ s a -> s{_desTable = a});
+drsTable :: Lens' DescribeTableResponse (Maybe TableDescription)
+drsTable = lens _drsTable (\ s a -> s{_drsTable = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeTableResponse Int
-desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+drsStatus :: Lens' DescribeTableResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

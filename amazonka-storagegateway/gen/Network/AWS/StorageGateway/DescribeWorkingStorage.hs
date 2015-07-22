@@ -37,18 +37,18 @@ module Network.AWS.StorageGateway.DescribeWorkingStorage
     -- ** Request constructor
     , describeWorkingStorage
     -- ** Request lenses
-    , dwsGatewayARN
+    , dwsrqGatewayARN
 
     -- * Response
     , DescribeWorkingStorageResponse
     -- ** Response constructor
     , describeWorkingStorageResponse
     -- ** Response lenses
-    , dwsrGatewayARN
-    , dwsrDiskIds
-    , dwsrWorkingStorageAllocatedInBytes
-    , dwsrWorkingStorageUsedInBytes
-    , dwsrStatus
+    , dwsrsGatewayARN
+    , dwsrsDiskIds
+    , dwsrsWorkingStorageAllocatedInBytes
+    , dwsrsWorkingStorageUsedInBytes
+    , dwsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -62,21 +62,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwsGatewayARN'
+-- * 'dwsrqGatewayARN'
 newtype DescribeWorkingStorage = DescribeWorkingStorage'
-    { _dwsGatewayARN :: Text
+    { _dwsrqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkingStorage' smart constructor.
 describeWorkingStorage :: Text -> DescribeWorkingStorage
 describeWorkingStorage pGatewayARN =
     DescribeWorkingStorage'
-    { _dwsGatewayARN = pGatewayARN
+    { _dwsrqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-dwsGatewayARN :: Lens' DescribeWorkingStorage Text
-dwsGatewayARN = lens _dwsGatewayARN (\ s a -> s{_dwsGatewayARN = a});
+dwsrqGatewayARN :: Lens' DescribeWorkingStorage Text
+dwsrqGatewayARN = lens _dwsrqGatewayARN (\ s a -> s{_dwsrqGatewayARN = a});
 
 instance AWSRequest DescribeWorkingStorage where
         type Sv DescribeWorkingStorage = StorageGateway
@@ -104,7 +104,7 @@ instance ToHeaders DescribeWorkingStorage where
 
 instance ToJSON DescribeWorkingStorage where
         toJSON DescribeWorkingStorage'{..}
-          = object ["GatewayARN" .= _dwsGatewayARN]
+          = object ["GatewayARN" .= _dwsrqGatewayARN]
 
 instance ToPath DescribeWorkingStorage where
         toPath = const "/"
@@ -118,55 +118,55 @@ instance ToQuery DescribeWorkingStorage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dwsrGatewayARN'
+-- * 'dwsrsGatewayARN'
 --
--- * 'dwsrDiskIds'
+-- * 'dwsrsDiskIds'
 --
--- * 'dwsrWorkingStorageAllocatedInBytes'
+-- * 'dwsrsWorkingStorageAllocatedInBytes'
 --
--- * 'dwsrWorkingStorageUsedInBytes'
+-- * 'dwsrsWorkingStorageUsedInBytes'
 --
--- * 'dwsrStatus'
+-- * 'dwsrsStatus'
 data DescribeWorkingStorageResponse = DescribeWorkingStorageResponse'
-    { _dwsrGatewayARN                     :: !(Maybe Text)
-    , _dwsrDiskIds                        :: !(Maybe [Text])
-    , _dwsrWorkingStorageAllocatedInBytes :: !(Maybe Integer)
-    , _dwsrWorkingStorageUsedInBytes      :: !(Maybe Integer)
-    , _dwsrStatus                         :: !Int
+    { _dwsrsGatewayARN                     :: !(Maybe Text)
+    , _dwsrsDiskIds                        :: !(Maybe [Text])
+    , _dwsrsWorkingStorageAllocatedInBytes :: !(Maybe Integer)
+    , _dwsrsWorkingStorageUsedInBytes      :: !(Maybe Integer)
+    , _dwsrsStatus                         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeWorkingStorageResponse' smart constructor.
 describeWorkingStorageResponse :: Int -> DescribeWorkingStorageResponse
 describeWorkingStorageResponse pStatus =
     DescribeWorkingStorageResponse'
-    { _dwsrGatewayARN = Nothing
-    , _dwsrDiskIds = Nothing
-    , _dwsrWorkingStorageAllocatedInBytes = Nothing
-    , _dwsrWorkingStorageUsedInBytes = Nothing
-    , _dwsrStatus = pStatus
+    { _dwsrsGatewayARN = Nothing
+    , _dwsrsDiskIds = Nothing
+    , _dwsrsWorkingStorageAllocatedInBytes = Nothing
+    , _dwsrsWorkingStorageUsedInBytes = Nothing
+    , _dwsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dwsrGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
-dwsrGatewayARN = lens _dwsrGatewayARN (\ s a -> s{_dwsrGatewayARN = a});
+dwsrsGatewayARN :: Lens' DescribeWorkingStorageResponse (Maybe Text)
+dwsrsGatewayARN = lens _dwsrsGatewayARN (\ s a -> s{_dwsrsGatewayARN = a});
 
 -- | An array of the gateway\'s local disk IDs that are configured as working
 -- storage. Each local disk ID is specified as a string (minimum length of
 -- 1 and maximum length of 300). If no local disks are configured as
 -- working storage, then the DiskIds array is empty.
-dwsrDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
-dwsrDiskIds = lens _dwsrDiskIds (\ s a -> s{_dwsrDiskIds = a}) . _Default;
+dwsrsDiskIds :: Lens' DescribeWorkingStorageResponse [Text]
+dwsrsDiskIds = lens _dwsrsDiskIds (\ s a -> s{_dwsrsDiskIds = a}) . _Default;
 
 -- | The total working storage in bytes allocated for the gateway. If no
 -- working storage is configured for the gateway, this field returns 0.
-dwsrWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
-dwsrWorkingStorageAllocatedInBytes = lens _dwsrWorkingStorageAllocatedInBytes (\ s a -> s{_dwsrWorkingStorageAllocatedInBytes = a});
+dwsrsWorkingStorageAllocatedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
+dwsrsWorkingStorageAllocatedInBytes = lens _dwsrsWorkingStorageAllocatedInBytes (\ s a -> s{_dwsrsWorkingStorageAllocatedInBytes = a});
 
 -- | The total working storage in bytes in use by the gateway. If no working
 -- storage is configured for the gateway, this field returns 0.
-dwsrWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
-dwsrWorkingStorageUsedInBytes = lens _dwsrWorkingStorageUsedInBytes (\ s a -> s{_dwsrWorkingStorageUsedInBytes = a});
+dwsrsWorkingStorageUsedInBytes :: Lens' DescribeWorkingStorageResponse (Maybe Integer)
+dwsrsWorkingStorageUsedInBytes = lens _dwsrsWorkingStorageUsedInBytes (\ s a -> s{_dwsrsWorkingStorageUsedInBytes = a});
 
 -- | FIXME: Undocumented member.
-dwsrStatus :: Lens' DescribeWorkingStorageResponse Int
-dwsrStatus = lens _dwsrStatus (\ s a -> s{_dwsrStatus = a});
+dwsrsStatus :: Lens' DescribeWorkingStorageResponse Int
+dwsrsStatus = lens _dwsrsStatus (\ s a -> s{_dwsrsStatus = a});

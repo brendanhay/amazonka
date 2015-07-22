@@ -34,16 +34,16 @@ module Network.AWS.StorageGateway.ListVolumeRecoveryPoints
     -- ** Request constructor
     , listVolumeRecoveryPoints
     -- ** Request lenses
-    , lvrpGatewayARN
+    , lvrprqGatewayARN
 
     -- * Response
     , ListVolumeRecoveryPointsResponse
     -- ** Response constructor
     , listVolumeRecoveryPointsResponse
     -- ** Response lenses
-    , lvrprVolumeRecoveryPointInfos
-    , lvrprGatewayARN
-    , lvrprStatus
+    , lvrprsVolumeRecoveryPointInfos
+    , lvrprsGatewayARN
+    , lvrprsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -55,21 +55,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvrpGatewayARN'
+-- * 'lvrprqGatewayARN'
 newtype ListVolumeRecoveryPoints = ListVolumeRecoveryPoints'
-    { _lvrpGatewayARN :: Text
+    { _lvrprqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeRecoveryPoints' smart constructor.
 listVolumeRecoveryPoints :: Text -> ListVolumeRecoveryPoints
 listVolumeRecoveryPoints pGatewayARN =
     ListVolumeRecoveryPoints'
-    { _lvrpGatewayARN = pGatewayARN
+    { _lvrprqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-lvrpGatewayARN :: Lens' ListVolumeRecoveryPoints Text
-lvrpGatewayARN = lens _lvrpGatewayARN (\ s a -> s{_lvrpGatewayARN = a});
+lvrprqGatewayARN :: Lens' ListVolumeRecoveryPoints Text
+lvrprqGatewayARN = lens _lvrprqGatewayARN (\ s a -> s{_lvrprqGatewayARN = a});
 
 instance AWSRequest ListVolumeRecoveryPoints where
         type Sv ListVolumeRecoveryPoints = StorageGateway
@@ -96,7 +96,7 @@ instance ToHeaders ListVolumeRecoveryPoints where
 
 instance ToJSON ListVolumeRecoveryPoints where
         toJSON ListVolumeRecoveryPoints'{..}
-          = object ["GatewayARN" .= _lvrpGatewayARN]
+          = object ["GatewayARN" .= _lvrprqGatewayARN]
 
 instance ToPath ListVolumeRecoveryPoints where
         toPath = const "/"
@@ -108,34 +108,34 @@ instance ToQuery ListVolumeRecoveryPoints where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lvrprVolumeRecoveryPointInfos'
+-- * 'lvrprsVolumeRecoveryPointInfos'
 --
--- * 'lvrprGatewayARN'
+-- * 'lvrprsGatewayARN'
 --
--- * 'lvrprStatus'
+-- * 'lvrprsStatus'
 data ListVolumeRecoveryPointsResponse = ListVolumeRecoveryPointsResponse'
-    { _lvrprVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
-    , _lvrprGatewayARN               :: !(Maybe Text)
-    , _lvrprStatus                   :: !Int
+    { _lvrprsVolumeRecoveryPointInfos :: !(Maybe [VolumeRecoveryPointInfo])
+    , _lvrprsGatewayARN               :: !(Maybe Text)
+    , _lvrprsStatus                   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListVolumeRecoveryPointsResponse' smart constructor.
 listVolumeRecoveryPointsResponse :: Int -> ListVolumeRecoveryPointsResponse
 listVolumeRecoveryPointsResponse pStatus =
     ListVolumeRecoveryPointsResponse'
-    { _lvrprVolumeRecoveryPointInfos = Nothing
-    , _lvrprGatewayARN = Nothing
-    , _lvrprStatus = pStatus
+    { _lvrprsVolumeRecoveryPointInfos = Nothing
+    , _lvrprsGatewayARN = Nothing
+    , _lvrprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-lvrprVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
-lvrprVolumeRecoveryPointInfos = lens _lvrprVolumeRecoveryPointInfos (\ s a -> s{_lvrprVolumeRecoveryPointInfos = a}) . _Default;
+lvrprsVolumeRecoveryPointInfos :: Lens' ListVolumeRecoveryPointsResponse [VolumeRecoveryPointInfo]
+lvrprsVolumeRecoveryPointInfos = lens _lvrprsVolumeRecoveryPointInfos (\ s a -> s{_lvrprsVolumeRecoveryPointInfos = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lvrprGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
-lvrprGatewayARN = lens _lvrprGatewayARN (\ s a -> s{_lvrprGatewayARN = a});
+lvrprsGatewayARN :: Lens' ListVolumeRecoveryPointsResponse (Maybe Text)
+lvrprsGatewayARN = lens _lvrprsGatewayARN (\ s a -> s{_lvrprsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-lvrprStatus :: Lens' ListVolumeRecoveryPointsResponse Int
-lvrprStatus = lens _lvrprStatus (\ s a -> s{_lvrprStatus = a});
+lvrprsStatus :: Lens' ListVolumeRecoveryPointsResponse Int
+lvrprsStatus = lens _lvrprsStatus (\ s a -> s{_lvrprsStatus = a});

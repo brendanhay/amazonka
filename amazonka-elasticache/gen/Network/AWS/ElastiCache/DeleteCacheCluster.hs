@@ -34,16 +34,16 @@ module Network.AWS.ElastiCache.DeleteCacheCluster
     -- ** Request constructor
     , deleteCacheCluster
     -- ** Request lenses
-    , dccFinalSnapshotIdentifier
-    , dccCacheClusterId
+    , dccrqFinalSnapshotIdentifier
+    , dccrqCacheClusterId
 
     -- * Response
     , DeleteCacheClusterResponse
     -- ** Response constructor
     , deleteCacheClusterResponse
     -- ** Response lenses
-    , dccrCacheCluster
-    , dccrStatus
+    , dccrsCacheCluster
+    , dccrsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -57,32 +57,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccFinalSnapshotIdentifier'
+-- * 'dccrqFinalSnapshotIdentifier'
 --
--- * 'dccCacheClusterId'
+-- * 'dccrqCacheClusterId'
 data DeleteCacheCluster = DeleteCacheCluster'
-    { _dccFinalSnapshotIdentifier :: !(Maybe Text)
-    , _dccCacheClusterId          :: !Text
+    { _dccrqFinalSnapshotIdentifier :: !(Maybe Text)
+    , _dccrqCacheClusterId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheCluster' smart constructor.
 deleteCacheCluster :: Text -> DeleteCacheCluster
 deleteCacheCluster pCacheClusterId =
     DeleteCacheCluster'
-    { _dccFinalSnapshotIdentifier = Nothing
-    , _dccCacheClusterId = pCacheClusterId
+    { _dccrqFinalSnapshotIdentifier = Nothing
+    , _dccrqCacheClusterId = pCacheClusterId
     }
 
 -- | The user-supplied name of a final cache cluster snapshot. This is the
 -- unique name that identifies the snapshot. ElastiCache creates the
 -- snapshot, and then deletes the cache cluster immediately afterward.
-dccFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
-dccFinalSnapshotIdentifier = lens _dccFinalSnapshotIdentifier (\ s a -> s{_dccFinalSnapshotIdentifier = a});
+dccrqFinalSnapshotIdentifier :: Lens' DeleteCacheCluster (Maybe Text)
+dccrqFinalSnapshotIdentifier = lens _dccrqFinalSnapshotIdentifier (\ s a -> s{_dccrqFinalSnapshotIdentifier = a});
 
 -- | The cache cluster identifier for the cluster to be deleted. This
 -- parameter is not case sensitive.
-dccCacheClusterId :: Lens' DeleteCacheCluster Text
-dccCacheClusterId = lens _dccCacheClusterId (\ s a -> s{_dccCacheClusterId = a});
+dccrqCacheClusterId :: Lens' DeleteCacheCluster Text
+dccrqCacheClusterId = lens _dccrqCacheClusterId (\ s a -> s{_dccrqCacheClusterId = a});
 
 instance AWSRequest DeleteCacheCluster where
         type Sv DeleteCacheCluster = ElastiCache
@@ -107,33 +107,33 @@ instance ToQuery DeleteCacheCluster where
               ["Action" =: ("DeleteCacheCluster" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
                "FinalSnapshotIdentifier" =:
-                 _dccFinalSnapshotIdentifier,
-               "CacheClusterId" =: _dccCacheClusterId]
+                 _dccrqFinalSnapshotIdentifier,
+               "CacheClusterId" =: _dccrqCacheClusterId]
 
 -- | /See:/ 'deleteCacheClusterResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dccrCacheCluster'
+-- * 'dccrsCacheCluster'
 --
--- * 'dccrStatus'
+-- * 'dccrsStatus'
 data DeleteCacheClusterResponse = DeleteCacheClusterResponse'
-    { _dccrCacheCluster :: !(Maybe CacheCluster)
-    , _dccrStatus       :: !Int
+    { _dccrsCacheCluster :: !(Maybe CacheCluster)
+    , _dccrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteCacheClusterResponse' smart constructor.
 deleteCacheClusterResponse :: Int -> DeleteCacheClusterResponse
 deleteCacheClusterResponse pStatus =
     DeleteCacheClusterResponse'
-    { _dccrCacheCluster = Nothing
-    , _dccrStatus = pStatus
+    { _dccrsCacheCluster = Nothing
+    , _dccrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dccrCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
-dccrCacheCluster = lens _dccrCacheCluster (\ s a -> s{_dccrCacheCluster = a});
+dccrsCacheCluster :: Lens' DeleteCacheClusterResponse (Maybe CacheCluster)
+dccrsCacheCluster = lens _dccrsCacheCluster (\ s a -> s{_dccrsCacheCluster = a});
 
 -- | FIXME: Undocumented member.
-dccrStatus :: Lens' DeleteCacheClusterResponse Int
-dccrStatus = lens _dccrStatus (\ s a -> s{_dccrStatus = a});
+dccrsStatus :: Lens' DeleteCacheClusterResponse Int
+dccrsStatus = lens _dccrsStatus (\ s a -> s{_dccrsStatus = a});

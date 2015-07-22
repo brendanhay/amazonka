@@ -30,15 +30,15 @@ module Network.AWS.Route53Domains.UpdateTagsForDomain
     -- ** Request constructor
     , updateTagsForDomain
     -- ** Request lenses
-    , utfdTagsToUpdate
-    , utfdDomainName
+    , utfdrqTagsToUpdate
+    , utfdrqDomainName
 
     -- * Response
     , UpdateTagsForDomainResponse
     -- ** Response constructor
     , updateTagsForDomainResponse
     -- ** Response lenses
-    , utfdrStatus
+    , utfdrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,20 +52,20 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'utfdTagsToUpdate'
+-- * 'utfdrqTagsToUpdate'
 --
--- * 'utfdDomainName'
+-- * 'utfdrqDomainName'
 data UpdateTagsForDomain = UpdateTagsForDomain'
-    { _utfdTagsToUpdate :: !(Maybe [Tag])
-    , _utfdDomainName   :: !Text
+    { _utfdrqTagsToUpdate :: !(Maybe [Tag])
+    , _utfdrqDomainName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTagsForDomain' smart constructor.
 updateTagsForDomain :: Text -> UpdateTagsForDomain
 updateTagsForDomain pDomainName =
     UpdateTagsForDomain'
-    { _utfdTagsToUpdate = Nothing
-    , _utfdDomainName = pDomainName
+    { _utfdrqTagsToUpdate = Nothing
+    , _utfdrqDomainName = pDomainName
     }
 
 -- | A list of the tag keys and values that you want to add or update. If you
@@ -112,8 +112,8 @@ updateTagsForDomain pDomainName =
 --
 --     Required: Yes
 --
-utfdTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
-utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . _Default;
+utfdrqTagsToUpdate :: Lens' UpdateTagsForDomain [Tag]
+utfdrqTagsToUpdate = lens _utfdrqTagsToUpdate (\ s a -> s{_utfdrqTagsToUpdate = a}) . _Default;
 
 -- | The domain for which you want to add or update tags.
 --
@@ -130,8 +130,8 @@ utfdTagsToUpdate = lens _utfdTagsToUpdate (\ s a -> s{_utfdTagsToUpdate = a}) . 
 -- an Internationalized Domain Name, you must convert the name to Punycode.
 --
 -- Required: Yes
-utfdDomainName :: Lens' UpdateTagsForDomain Text
-utfdDomainName = lens _utfdDomainName (\ s a -> s{_utfdDomainName = a});
+utfdrqDomainName :: Lens' UpdateTagsForDomain Text
+utfdrqDomainName = lens _utfdrqDomainName (\ s a -> s{_utfdrqDomainName = a});
 
 instance AWSRequest UpdateTagsForDomain where
         type Sv UpdateTagsForDomain = Route53Domains
@@ -156,8 +156,8 @@ instance ToHeaders UpdateTagsForDomain where
 instance ToJSON UpdateTagsForDomain where
         toJSON UpdateTagsForDomain'{..}
           = object
-              ["TagsToUpdate" .= _utfdTagsToUpdate,
-               "DomainName" .= _utfdDomainName]
+              ["TagsToUpdate" .= _utfdrqTagsToUpdate,
+               "DomainName" .= _utfdrqDomainName]
 
 instance ToPath UpdateTagsForDomain where
         toPath = const "/"
@@ -169,18 +169,18 @@ instance ToQuery UpdateTagsForDomain where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'utfdrStatus'
+-- * 'utfdrsStatus'
 newtype UpdateTagsForDomainResponse = UpdateTagsForDomainResponse'
-    { _utfdrStatus :: Int
+    { _utfdrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTagsForDomainResponse' smart constructor.
 updateTagsForDomainResponse :: Int -> UpdateTagsForDomainResponse
 updateTagsForDomainResponse pStatus =
     UpdateTagsForDomainResponse'
-    { _utfdrStatus = pStatus
+    { _utfdrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-utfdrStatus :: Lens' UpdateTagsForDomainResponse Int
-utfdrStatus = lens _utfdrStatus (\ s a -> s{_utfdrStatus = a});
+utfdrsStatus :: Lens' UpdateTagsForDomainResponse Int
+utfdrsStatus = lens _utfdrsStatus (\ s a -> s{_utfdrsStatus = a});

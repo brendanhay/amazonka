@@ -27,17 +27,17 @@ module Network.AWS.CodeCommit.ListBranches
     -- ** Request constructor
     , listBranches
     -- ** Request lenses
-    , lbNextToken
-    , lbRepositoryName
+    , lbrqNextToken
+    , lbrqRepositoryName
 
     -- * Response
     , ListBranchesResponse
     -- ** Response constructor
     , listBranchesResponse
     -- ** Response lenses
-    , lbrBranches
-    , lbrNextToken
-    , lbrStatus
+    , lbrsBranches
+    , lbrsNextToken
+    , lbrsStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lbNextToken'
+-- * 'lbrqNextToken'
 --
--- * 'lbRepositoryName'
+-- * 'lbrqRepositoryName'
 data ListBranches = ListBranches'
-    { _lbNextToken      :: !(Maybe Text)
-    , _lbRepositoryName :: !Text
+    { _lbrqNextToken      :: !(Maybe Text)
+    , _lbrqRepositoryName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBranches' smart constructor.
 listBranches :: Text -> ListBranches
 listBranches pRepositoryName =
     ListBranches'
-    { _lbNextToken = Nothing
-    , _lbRepositoryName = pRepositoryName
+    { _lbrqNextToken = Nothing
+    , _lbrqRepositoryName = pRepositoryName
     }
 
 -- | An enumeration token that allows the operation to batch the results.
-lbNextToken :: Lens' ListBranches (Maybe Text)
-lbNextToken = lens _lbNextToken (\ s a -> s{_lbNextToken = a});
+lbrqNextToken :: Lens' ListBranches (Maybe Text)
+lbrqNextToken = lens _lbrqNextToken (\ s a -> s{_lbrqNextToken = a});
 
 -- | The name of the repository that contains the branches.
-lbRepositoryName :: Lens' ListBranches Text
-lbRepositoryName = lens _lbRepositoryName (\ s a -> s{_lbRepositoryName = a});
+lbrqRepositoryName :: Lens' ListBranches Text
+lbrqRepositoryName = lens _lbrqRepositoryName (\ s a -> s{_lbrqRepositoryName = a});
 
 instance AWSRequest ListBranches where
         type Sv ListBranches = CodeCommit
@@ -98,8 +98,8 @@ instance ToHeaders ListBranches where
 instance ToJSON ListBranches where
         toJSON ListBranches'{..}
           = object
-              ["nextToken" .= _lbNextToken,
-               "repositoryName" .= _lbRepositoryName]
+              ["nextToken" .= _lbrqNextToken,
+               "repositoryName" .= _lbrqRepositoryName]
 
 instance ToPath ListBranches where
         toPath = const "/"
@@ -113,34 +113,34 @@ instance ToQuery ListBranches where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lbrBranches'
+-- * 'lbrsBranches'
 --
--- * 'lbrNextToken'
+-- * 'lbrsNextToken'
 --
--- * 'lbrStatus'
+-- * 'lbrsStatus'
 data ListBranchesResponse = ListBranchesResponse'
-    { _lbrBranches  :: !(Maybe [Text])
-    , _lbrNextToken :: !(Maybe Text)
-    , _lbrStatus    :: !Int
+    { _lbrsBranches  :: !(Maybe [Text])
+    , _lbrsNextToken :: !(Maybe Text)
+    , _lbrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBranchesResponse' smart constructor.
 listBranchesResponse :: Int -> ListBranchesResponse
 listBranchesResponse pStatus =
     ListBranchesResponse'
-    { _lbrBranches = Nothing
-    , _lbrNextToken = Nothing
-    , _lbrStatus = pStatus
+    { _lbrsBranches = Nothing
+    , _lbrsNextToken = Nothing
+    , _lbrsStatus = pStatus
     }
 
 -- | The list of branch names.
-lbrBranches :: Lens' ListBranchesResponse [Text]
-lbrBranches = lens _lbrBranches (\ s a -> s{_lbrBranches = a}) . _Default;
+lbrsBranches :: Lens' ListBranchesResponse [Text]
+lbrsBranches = lens _lbrsBranches (\ s a -> s{_lbrsBranches = a}) . _Default;
 
 -- | An enumeration token that returns the batch of the results.
-lbrNextToken :: Lens' ListBranchesResponse (Maybe Text)
-lbrNextToken = lens _lbrNextToken (\ s a -> s{_lbrNextToken = a});
+lbrsNextToken :: Lens' ListBranchesResponse (Maybe Text)
+lbrsNextToken = lens _lbrsNextToken (\ s a -> s{_lbrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-lbrStatus :: Lens' ListBranchesResponse Int
-lbrStatus = lens _lbrStatus (\ s a -> s{_lbrStatus = a});
+lbrsStatus :: Lens' ListBranchesResponse Int
+lbrsStatus = lens _lbrsStatus (\ s a -> s{_lbrsStatus = a});

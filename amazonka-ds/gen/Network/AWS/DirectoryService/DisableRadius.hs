@@ -28,14 +28,14 @@ module Network.AWS.DirectoryService.DisableRadius
     -- ** Request constructor
     , disableRadius
     -- ** Request lenses
-    , drDirectoryId
+    , drrqDirectoryId
 
     -- * Response
     , DisableRadiusResponse
     -- ** Response constructor
     , disableRadiusResponse
     -- ** Response lenses
-    , drrStatus
+    , drrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drDirectoryId'
+-- * 'drrqDirectoryId'
 newtype DisableRadius = DisableRadius'
-    { _drDirectoryId :: Text
+    { _drrqDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableRadius' smart constructor.
 disableRadius :: Text -> DisableRadius
 disableRadius pDirectoryId =
     DisableRadius'
-    { _drDirectoryId = pDirectoryId
+    { _drrqDirectoryId = pDirectoryId
     }
 
 -- | The identifier of the directory to disable MFA for.
-drDirectoryId :: Lens' DisableRadius Text
-drDirectoryId = lens _drDirectoryId (\ s a -> s{_drDirectoryId = a});
+drrqDirectoryId :: Lens' DisableRadius Text
+drrqDirectoryId = lens _drrqDirectoryId (\ s a -> s{_drrqDirectoryId = a});
 
 instance AWSRequest DisableRadius where
         type Sv DisableRadius = DirectoryService
@@ -86,7 +86,7 @@ instance ToHeaders DisableRadius where
 
 instance ToJSON DisableRadius where
         toJSON DisableRadius'{..}
-          = object ["DirectoryId" .= _drDirectoryId]
+          = object ["DirectoryId" .= _drrqDirectoryId]
 
 instance ToPath DisableRadius where
         toPath = const "/"
@@ -100,18 +100,18 @@ instance ToQuery DisableRadius where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drrStatus'
+-- * 'drrsStatus'
 newtype DisableRadiusResponse = DisableRadiusResponse'
-    { _drrStatus :: Int
+    { _drrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DisableRadiusResponse' smart constructor.
 disableRadiusResponse :: Int -> DisableRadiusResponse
 disableRadiusResponse pStatus =
     DisableRadiusResponse'
-    { _drrStatus = pStatus
+    { _drrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-drrStatus :: Lens' DisableRadiusResponse Int
-drrStatus = lens _drrStatus (\ s a -> s{_drrStatus = a});
+drrsStatus :: Lens' DisableRadiusResponse Int
+drrsStatus = lens _drrsStatus (\ s a -> s{_drrsStatus = a});

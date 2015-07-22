@@ -29,8 +29,8 @@ module Network.AWS.EC2.DeleteRouteTable
     -- ** Request constructor
     , deleteRouteTable
     -- ** Request lenses
-    , drttDryRun
-    , drttRouteTableId
+    , drttrqDryRun
+    , drttrqRouteTableId
 
     -- * Response
     , DeleteRouteTableResponse
@@ -47,32 +47,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drttDryRun'
+-- * 'drttrqDryRun'
 --
--- * 'drttRouteTableId'
+-- * 'drttrqRouteTableId'
 data DeleteRouteTable = DeleteRouteTable'
-    { _drttDryRun       :: !(Maybe Bool)
-    , _drttRouteTableId :: !Text
+    { _drttrqDryRun       :: !(Maybe Bool)
+    , _drttrqRouteTableId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteRouteTable' smart constructor.
 deleteRouteTable :: Text -> DeleteRouteTable
 deleteRouteTable pRouteTableId =
     DeleteRouteTable'
-    { _drttDryRun = Nothing
-    , _drttRouteTableId = pRouteTableId
+    { _drttrqDryRun = Nothing
+    , _drttrqRouteTableId = pRouteTableId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-drttDryRun :: Lens' DeleteRouteTable (Maybe Bool)
-drttDryRun = lens _drttDryRun (\ s a -> s{_drttDryRun = a});
+drttrqDryRun :: Lens' DeleteRouteTable (Maybe Bool)
+drttrqDryRun = lens _drttrqDryRun (\ s a -> s{_drttrqDryRun = a});
 
 -- | The ID of the route table.
-drttRouteTableId :: Lens' DeleteRouteTable Text
-drttRouteTableId = lens _drttRouteTableId (\ s a -> s{_drttRouteTableId = a});
+drttrqRouteTableId :: Lens' DeleteRouteTable Text
+drttrqRouteTableId = lens _drttrqRouteTableId (\ s a -> s{_drttrqRouteTableId = a});
 
 instance AWSRequest DeleteRouteTable where
         type Sv DeleteRouteTable = EC2
@@ -91,8 +91,8 @@ instance ToQuery DeleteRouteTable where
           = mconcat
               ["Action" =: ("DeleteRouteTable" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _drttDryRun,
-               "RouteTableId" =: _drttRouteTableId]
+               "DryRun" =: _drttrqDryRun,
+               "RouteTableId" =: _drttrqRouteTableId]
 
 -- | /See:/ 'deleteRouteTableResponse' smart constructor.
 data DeleteRouteTableResponse =

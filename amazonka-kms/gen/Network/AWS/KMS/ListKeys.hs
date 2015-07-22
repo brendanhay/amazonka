@@ -27,18 +27,18 @@ module Network.AWS.KMS.ListKeys
     -- ** Request constructor
     , listKeys
     -- ** Request lenses
-    , lkMarker
-    , lkLimit
+    , lkrqMarker
+    , lkrqLimit
 
     -- * Response
     , ListKeysResponse
     -- ** Response constructor
     , listKeysResponse
     -- ** Response lenses
-    , lkrTruncated
-    , lkrKeys
-    , lkrNextMarker
-    , lkrStatus
+    , lkrsTruncated
+    , lkrsKeys
+    , lkrsNextMarker
+    , lkrsStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -50,35 +50,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lkMarker'
+-- * 'lkrqMarker'
 --
--- * 'lkLimit'
+-- * 'lkrqLimit'
 data ListKeys = ListKeys'
-    { _lkMarker :: !(Maybe Text)
-    , _lkLimit  :: !(Maybe Nat)
+    { _lkrqMarker :: !(Maybe Text)
+    , _lkrqLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeys' smart constructor.
 listKeys :: ListKeys
 listKeys =
     ListKeys'
-    { _lkMarker = Nothing
-    , _lkLimit = Nothing
+    { _lkrqMarker = Nothing
+    , _lkrqLimit = Nothing
     }
 
 -- | Use this parameter only when paginating results, and only in a
 -- subsequent request after you\'ve received a response where the results
 -- are truncated. Set it to the value of the @NextMarker@ in the response
 -- you just received.
-lkMarker :: Lens' ListKeys (Maybe Text)
-lkMarker = lens _lkMarker (\ s a -> s{_lkMarker = a});
+lkrqMarker :: Lens' ListKeys (Maybe Text)
+lkrqMarker = lens _lkrqMarker (\ s a -> s{_lkrqMarker = a});
 
 -- | Specify this parameter only when paginating results to indicate the
 -- maximum number of keys you want listed in the response. If there are
 -- additional keys beyond the maximum you specify, the @Truncated@ response
 -- element will be set to @true.@
-lkLimit :: Lens' ListKeys (Maybe Natural)
-lkLimit = lens _lkLimit (\ s a -> s{_lkLimit = a}) . mapping _Nat;
+lkrqLimit :: Lens' ListKeys (Maybe Natural)
+lkrqLimit = lens _lkrqLimit (\ s a -> s{_lkrqLimit = a}) . mapping _Nat;
 
 instance AWSRequest ListKeys where
         type Sv ListKeys = KMS
@@ -103,7 +103,8 @@ instance ToHeaders ListKeys where
 
 instance ToJSON ListKeys where
         toJSON ListKeys'{..}
-          = object ["Marker" .= _lkMarker, "Limit" .= _lkLimit]
+          = object
+              ["Marker" .= _lkrqMarker, "Limit" .= _lkrqLimit]
 
 instance ToPath ListKeys where
         toPath = const "/"
@@ -115,46 +116,46 @@ instance ToQuery ListKeys where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lkrTruncated'
+-- * 'lkrsTruncated'
 --
--- * 'lkrKeys'
+-- * 'lkrsKeys'
 --
--- * 'lkrNextMarker'
+-- * 'lkrsNextMarker'
 --
--- * 'lkrStatus'
+-- * 'lkrsStatus'
 data ListKeysResponse = ListKeysResponse'
-    { _lkrTruncated  :: !(Maybe Bool)
-    , _lkrKeys       :: !(Maybe [KeyListEntry])
-    , _lkrNextMarker :: !(Maybe Text)
-    , _lkrStatus     :: !Int
+    { _lkrsTruncated  :: !(Maybe Bool)
+    , _lkrsKeys       :: !(Maybe [KeyListEntry])
+    , _lkrsNextMarker :: !(Maybe Text)
+    , _lkrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListKeysResponse' smart constructor.
 listKeysResponse :: Int -> ListKeysResponse
 listKeysResponse pStatus =
     ListKeysResponse'
-    { _lkrTruncated = Nothing
-    , _lkrKeys = Nothing
-    , _lkrNextMarker = Nothing
-    , _lkrStatus = pStatus
+    { _lkrsTruncated = Nothing
+    , _lkrsKeys = Nothing
+    , _lkrsNextMarker = Nothing
+    , _lkrsStatus = pStatus
     }
 
 -- | A flag that indicates whether there are more items in the list. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more keys in the list.
-lkrTruncated :: Lens' ListKeysResponse (Maybe Bool)
-lkrTruncated = lens _lkrTruncated (\ s a -> s{_lkrTruncated = a});
+lkrsTruncated :: Lens' ListKeysResponse (Maybe Bool)
+lkrsTruncated = lens _lkrsTruncated (\ s a -> s{_lkrsTruncated = a});
 
 -- | A list of keys.
-lkrKeys :: Lens' ListKeysResponse [KeyListEntry]
-lkrKeys = lens _lkrKeys (\ s a -> s{_lkrKeys = a}) . _Default;
+lkrsKeys :: Lens' ListKeysResponse [KeyListEntry]
+lkrsKeys = lens _lkrsKeys (\ s a -> s{_lkrsKeys = a}) . _Default;
 
 -- | If @Truncated@ is true, this value is present and contains the value to
 -- use for the @Marker@ request parameter in a subsequent pagination
 -- request.
-lkrNextMarker :: Lens' ListKeysResponse (Maybe Text)
-lkrNextMarker = lens _lkrNextMarker (\ s a -> s{_lkrNextMarker = a});
+lkrsNextMarker :: Lens' ListKeysResponse (Maybe Text)
+lkrsNextMarker = lens _lkrsNextMarker (\ s a -> s{_lkrsNextMarker = a});
 
 -- | FIXME: Undocumented member.
-lkrStatus :: Lens' ListKeysResponse Int
-lkrStatus = lens _lkrStatus (\ s a -> s{_lkrStatus = a});
+lkrsStatus :: Lens' ListKeysResponse Int
+lkrsStatus = lens _lkrsStatus (\ s a -> s{_lkrsStatus = a});

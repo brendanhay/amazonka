@@ -27,16 +27,16 @@ module Network.AWS.CodeDeploy.DeleteDeploymentGroup
     -- ** Request constructor
     , deleteDeploymentGroup
     -- ** Request lenses
-    , ddgApplicationName
-    , ddgDeploymentGroupName
+    , ddgrqApplicationName
+    , ddgrqDeploymentGroupName
 
     -- * Response
     , DeleteDeploymentGroupResponse
     -- ** Response constructor
     , deleteDeploymentGroupResponse
     -- ** Response lenses
-    , ddgrHooksNotCleanedUp
-    , ddgrStatus
+    , ddgrsHooksNotCleanedUp
+    , ddgrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -50,30 +50,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddgApplicationName'
+-- * 'ddgrqApplicationName'
 --
--- * 'ddgDeploymentGroupName'
+-- * 'ddgrqDeploymentGroupName'
 data DeleteDeploymentGroup = DeleteDeploymentGroup'
-    { _ddgApplicationName     :: !Text
-    , _ddgDeploymentGroupName :: !Text
+    { _ddgrqApplicationName     :: !Text
+    , _ddgrqDeploymentGroupName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentGroup' smart constructor.
 deleteDeploymentGroup :: Text -> Text -> DeleteDeploymentGroup
 deleteDeploymentGroup pApplicationName pDeploymentGroupName =
     DeleteDeploymentGroup'
-    { _ddgApplicationName = pApplicationName
-    , _ddgDeploymentGroupName = pDeploymentGroupName
+    { _ddgrqApplicationName = pApplicationName
+    , _ddgrqDeploymentGroupName = pDeploymentGroupName
     }
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-ddgApplicationName :: Lens' DeleteDeploymentGroup Text
-ddgApplicationName = lens _ddgApplicationName (\ s a -> s{_ddgApplicationName = a});
+ddgrqApplicationName :: Lens' DeleteDeploymentGroup Text
+ddgrqApplicationName = lens _ddgrqApplicationName (\ s a -> s{_ddgrqApplicationName = a});
 
 -- | The name of an existing deployment group for the specified application.
-ddgDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
-ddgDeploymentGroupName = lens _ddgDeploymentGroupName (\ s a -> s{_ddgDeploymentGroupName = a});
+ddgrqDeploymentGroupName :: Lens' DeleteDeploymentGroup Text
+ddgrqDeploymentGroupName = lens _ddgrqDeploymentGroupName (\ s a -> s{_ddgrqDeploymentGroupName = a});
 
 instance AWSRequest DeleteDeploymentGroup where
         type Sv DeleteDeploymentGroup = CodeDeploy
@@ -100,8 +100,8 @@ instance ToHeaders DeleteDeploymentGroup where
 instance ToJSON DeleteDeploymentGroup where
         toJSON DeleteDeploymentGroup'{..}
           = object
-              ["applicationName" .= _ddgApplicationName,
-               "deploymentGroupName" .= _ddgDeploymentGroupName]
+              ["applicationName" .= _ddgrqApplicationName,
+               "deploymentGroupName" .= _ddgrqDeploymentGroupName]
 
 instance ToPath DeleteDeploymentGroup where
         toPath = const "/"
@@ -115,20 +115,20 @@ instance ToQuery DeleteDeploymentGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddgrHooksNotCleanedUp'
+-- * 'ddgrsHooksNotCleanedUp'
 --
--- * 'ddgrStatus'
+-- * 'ddgrsStatus'
 data DeleteDeploymentGroupResponse = DeleteDeploymentGroupResponse'
-    { _ddgrHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _ddgrStatus            :: !Int
+    { _ddgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
+    , _ddgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDeploymentGroupResponse' smart constructor.
 deleteDeploymentGroupResponse :: Int -> DeleteDeploymentGroupResponse
 deleteDeploymentGroupResponse pStatus =
     DeleteDeploymentGroupResponse'
-    { _ddgrHooksNotCleanedUp = Nothing
-    , _ddgrStatus = pStatus
+    { _ddgrsHooksNotCleanedUp = Nothing
+    , _ddgrsStatus = pStatus
     }
 
 -- | If the output contains no data, and the corresponding deployment group
@@ -137,9 +137,9 @@ deleteDeploymentGroupResponse pStatus =
 -- Amazon EC2 instances in the Auto Scaling. If the output does contain
 -- data, AWS CodeDeploy could not remove some Auto Scaling lifecycle event
 -- hooks from the Amazon EC2 instances in the Auto Scaling group.
-ddgrHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
-ddgrHooksNotCleanedUp = lens _ddgrHooksNotCleanedUp (\ s a -> s{_ddgrHooksNotCleanedUp = a}) . _Default;
+ddgrsHooksNotCleanedUp :: Lens' DeleteDeploymentGroupResponse [AutoScalingGroup]
+ddgrsHooksNotCleanedUp = lens _ddgrsHooksNotCleanedUp (\ s a -> s{_ddgrsHooksNotCleanedUp = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddgrStatus :: Lens' DeleteDeploymentGroupResponse Int
-ddgrStatus = lens _ddgrStatus (\ s a -> s{_ddgrStatus = a});
+ddgrsStatus :: Lens' DeleteDeploymentGroupResponse Int
+ddgrsStatus = lens _ddgrsStatus (\ s a -> s{_ddgrsStatus = a});

@@ -27,17 +27,17 @@ module Network.AWS.ECS.DescribeTasks
     -- ** Request constructor
     , describeTasks
     -- ** Request lenses
-    , dtCluster
-    , dtTasks
+    , dtrqCluster
+    , dtrqTasks
 
     -- * Response
     , DescribeTasksResponse
     -- ** Response constructor
     , describeTasksResponse
     -- ** Response lenses
-    , dtrFailures
-    , dtrTasks
-    , dtrStatus
+    , dtrsFailures
+    , dtrsTasks
+    , dtrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -49,32 +49,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtCluster'
+-- * 'dtrqCluster'
 --
--- * 'dtTasks'
+-- * 'dtrqTasks'
 data DescribeTasks = DescribeTasks'
-    { _dtCluster :: !(Maybe Text)
-    , _dtTasks   :: ![Text]
+    { _dtrqCluster :: !(Maybe Text)
+    , _dtrqTasks   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTasks' smart constructor.
 describeTasks :: DescribeTasks
 describeTasks =
     DescribeTasks'
-    { _dtCluster = Nothing
-    , _dtTasks = mempty
+    { _dtrqCluster = Nothing
+    , _dtrqTasks = mempty
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the task you want to describe. If you do not specify a cluster,
 -- the default cluster is assumed.
-dtCluster :: Lens' DescribeTasks (Maybe Text)
-dtCluster = lens _dtCluster (\ s a -> s{_dtCluster = a});
+dtrqCluster :: Lens' DescribeTasks (Maybe Text)
+dtrqCluster = lens _dtrqCluster (\ s a -> s{_dtrqCluster = a});
 
 -- | A space-separated list of task UUIDs or full Amazon Resource Name (ARN)
 -- entries.
-dtTasks :: Lens' DescribeTasks [Text]
-dtTasks = lens _dtTasks (\ s a -> s{_dtTasks = a});
+dtrqTasks :: Lens' DescribeTasks [Text]
+dtrqTasks = lens _dtrqTasks (\ s a -> s{_dtrqTasks = a});
 
 instance AWSRequest DescribeTasks where
         type Sv DescribeTasks = ECS
@@ -101,7 +101,7 @@ instance ToHeaders DescribeTasks where
 instance ToJSON DescribeTasks where
         toJSON DescribeTasks'{..}
           = object
-              ["cluster" .= _dtCluster, "tasks" .= _dtTasks]
+              ["cluster" .= _dtrqCluster, "tasks" .= _dtrqTasks]
 
 instance ToPath DescribeTasks where
         toPath = const "/"
@@ -113,34 +113,34 @@ instance ToQuery DescribeTasks where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtrFailures'
+-- * 'dtrsFailures'
 --
--- * 'dtrTasks'
+-- * 'dtrsTasks'
 --
--- * 'dtrStatus'
+-- * 'dtrsStatus'
 data DescribeTasksResponse = DescribeTasksResponse'
-    { _dtrFailures :: !(Maybe [Failure])
-    , _dtrTasks    :: !(Maybe [Task])
-    , _dtrStatus   :: !Int
+    { _dtrsFailures :: !(Maybe [Failure])
+    , _dtrsTasks    :: !(Maybe [Task])
+    , _dtrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTasksResponse' smart constructor.
 describeTasksResponse :: Int -> DescribeTasksResponse
 describeTasksResponse pStatus =
     DescribeTasksResponse'
-    { _dtrFailures = Nothing
-    , _dtrTasks = Nothing
-    , _dtrStatus = pStatus
+    { _dtrsFailures = Nothing
+    , _dtrsTasks = Nothing
+    , _dtrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dtrFailures :: Lens' DescribeTasksResponse [Failure]
-dtrFailures = lens _dtrFailures (\ s a -> s{_dtrFailures = a}) . _Default;
+dtrsFailures :: Lens' DescribeTasksResponse [Failure]
+dtrsFailures = lens _dtrsFailures (\ s a -> s{_dtrsFailures = a}) . _Default;
 
 -- | The list of tasks.
-dtrTasks :: Lens' DescribeTasksResponse [Task]
-dtrTasks = lens _dtrTasks (\ s a -> s{_dtrTasks = a}) . _Default;
+dtrsTasks :: Lens' DescribeTasksResponse [Task]
+dtrsTasks = lens _dtrsTasks (\ s a -> s{_dtrsTasks = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtrStatus :: Lens' DescribeTasksResponse Int
-dtrStatus = lens _dtrStatus (\ s a -> s{_dtrStatus = a});
+dtrsStatus :: Lens' DescribeTasksResponse Int
+dtrsStatus = lens _dtrsStatus (\ s a -> s{_dtrsStatus = a});

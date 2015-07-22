@@ -60,21 +60,21 @@ module Network.AWS.KMS.GenerateDataKey
     -- ** Request constructor
     , generateDataKey
     -- ** Request lenses
-    , gdkKeySpec
-    , gdkEncryptionContext
-    , gdkNumberOfBytes
-    , gdkGrantTokens
-    , gdkKeyId
+    , gdkrqKeySpec
+    , gdkrqEncryptionContext
+    , gdkrqNumberOfBytes
+    , gdkrqGrantTokens
+    , gdkrqKeyId
 
     -- * Response
     , GenerateDataKeyResponse
     -- ** Response constructor
     , generateDataKeyResponse
     -- ** Response lenses
-    , gdkrKeyId
-    , gdkrPlaintext
-    , gdkrCiphertextBlob
-    , gdkrStatus
+    , gdkrsKeyId
+    , gdkrsPlaintext
+    , gdkrsCiphertextBlob
+    , gdkrsStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -86,56 +86,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdkKeySpec'
+-- * 'gdkrqKeySpec'
 --
--- * 'gdkEncryptionContext'
+-- * 'gdkrqEncryptionContext'
 --
--- * 'gdkNumberOfBytes'
+-- * 'gdkrqNumberOfBytes'
 --
--- * 'gdkGrantTokens'
+-- * 'gdkrqGrantTokens'
 --
--- * 'gdkKeyId'
+-- * 'gdkrqKeyId'
 data GenerateDataKey = GenerateDataKey'
-    { _gdkKeySpec           :: !(Maybe DataKeySpec)
-    , _gdkEncryptionContext :: !(Maybe (Map Text Text))
-    , _gdkNumberOfBytes     :: !(Maybe Nat)
-    , _gdkGrantTokens       :: !(Maybe [Text])
-    , _gdkKeyId             :: !Text
+    { _gdkrqKeySpec           :: !(Maybe DataKeySpec)
+    , _gdkrqEncryptionContext :: !(Maybe (Map Text Text))
+    , _gdkrqNumberOfBytes     :: !(Maybe Nat)
+    , _gdkrqGrantTokens       :: !(Maybe [Text])
+    , _gdkrqKeyId             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKey' smart constructor.
 generateDataKey :: Text -> GenerateDataKey
 generateDataKey pKeyId =
     GenerateDataKey'
-    { _gdkKeySpec = Nothing
-    , _gdkEncryptionContext = Nothing
-    , _gdkNumberOfBytes = Nothing
-    , _gdkGrantTokens = Nothing
-    , _gdkKeyId = pKeyId
+    { _gdkrqKeySpec = Nothing
+    , _gdkrqEncryptionContext = Nothing
+    , _gdkrqNumberOfBytes = Nothing
+    , _gdkrqGrantTokens = Nothing
+    , _gdkrqKeyId = pKeyId
     }
 
 -- | Value that identifies the encryption algorithm and key size to generate
 -- a data key for. Currently this can be AES_128 or AES_256.
-gdkKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
-gdkKeySpec = lens _gdkKeySpec (\ s a -> s{_gdkKeySpec = a});
+gdkrqKeySpec :: Lens' GenerateDataKey (Maybe DataKeySpec)
+gdkrqKeySpec = lens _gdkrqKeySpec (\ s a -> s{_gdkrqKeySpec = a});
 
 -- | Name\/value pair that contains additional data to be authenticated
 -- during the encryption and decryption processes that use the key. This
 -- value is logged by AWS CloudTrail to provide context around the data
 -- encrypted by the key.
-gdkEncryptionContext :: Lens' GenerateDataKey (HashMap Text Text)
-gdkEncryptionContext = lens _gdkEncryptionContext (\ s a -> s{_gdkEncryptionContext = a}) . _Default . _Map;
+gdkrqEncryptionContext :: Lens' GenerateDataKey (HashMap Text Text)
+gdkrqEncryptionContext = lens _gdkrqEncryptionContext (\ s a -> s{_gdkrqEncryptionContext = a}) . _Default . _Map;
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, and 1024. 1024 is the current limit. We recommend that
 -- you use the @KeySpec@ parameter instead.
-gdkNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
-gdkNumberOfBytes = lens _gdkNumberOfBytes (\ s a -> s{_gdkNumberOfBytes = a}) . mapping _Nat;
+gdkrqNumberOfBytes :: Lens' GenerateDataKey (Maybe Natural)
+gdkrqNumberOfBytes = lens _gdkrqNumberOfBytes (\ s a -> s{_gdkrqNumberOfBytes = a}) . mapping _Nat;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-gdkGrantTokens :: Lens' GenerateDataKey [Text]
-gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Default;
+gdkrqGrantTokens :: Lens' GenerateDataKey [Text]
+gdkrqGrantTokens = lens _gdkrqGrantTokens (\ s a -> s{_gdkrqGrantTokens = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -148,8 +148,8 @@ gdkGrantTokens = lens _gdkGrantTokens (\ s a -> s{_gdkGrantTokens = a}) . _Defau
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
-gdkKeyId :: Lens' GenerateDataKey Text
-gdkKeyId = lens _gdkKeyId (\ s a -> s{_gdkKeyId = a});
+gdkrqKeyId :: Lens' GenerateDataKey Text
+gdkrqKeyId = lens _gdkrqKeyId (\ s a -> s{_gdkrqKeyId = a});
 
 instance AWSRequest GenerateDataKey where
         type Sv GenerateDataKey = KMS
@@ -175,11 +175,11 @@ instance ToHeaders GenerateDataKey where
 instance ToJSON GenerateDataKey where
         toJSON GenerateDataKey'{..}
           = object
-              ["KeySpec" .= _gdkKeySpec,
-               "EncryptionContext" .= _gdkEncryptionContext,
-               "NumberOfBytes" .= _gdkNumberOfBytes,
-               "GrantTokens" .= _gdkGrantTokens,
-               "KeyId" .= _gdkKeyId]
+              ["KeySpec" .= _gdkrqKeySpec,
+               "EncryptionContext" .= _gdkrqEncryptionContext,
+               "NumberOfBytes" .= _gdkrqNumberOfBytes,
+               "GrantTokens" .= _gdkrqGrantTokens,
+               "KeyId" .= _gdkrqKeyId]
 
 instance ToPath GenerateDataKey where
         toPath = const "/"
@@ -191,39 +191,39 @@ instance ToQuery GenerateDataKey where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdkrKeyId'
+-- * 'gdkrsKeyId'
 --
--- * 'gdkrPlaintext'
+-- * 'gdkrsPlaintext'
 --
--- * 'gdkrCiphertextBlob'
+-- * 'gdkrsCiphertextBlob'
 --
--- * 'gdkrStatus'
+-- * 'gdkrsStatus'
 data GenerateDataKeyResponse = GenerateDataKeyResponse'
-    { _gdkrKeyId          :: !(Maybe Text)
-    , _gdkrPlaintext      :: !(Maybe (Sensitive Base64))
-    , _gdkrCiphertextBlob :: !(Maybe Base64)
-    , _gdkrStatus         :: !Int
+    { _gdkrsKeyId          :: !(Maybe Text)
+    , _gdkrsPlaintext      :: !(Maybe (Sensitive Base64))
+    , _gdkrsCiphertextBlob :: !(Maybe Base64)
+    , _gdkrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateDataKeyResponse' smart constructor.
 generateDataKeyResponse :: Int -> GenerateDataKeyResponse
 generateDataKeyResponse pStatus =
     GenerateDataKeyResponse'
-    { _gdkrKeyId = Nothing
-    , _gdkrPlaintext = Nothing
-    , _gdkrCiphertextBlob = Nothing
-    , _gdkrStatus = pStatus
+    { _gdkrsKeyId = Nothing
+    , _gdkrsPlaintext = Nothing
+    , _gdkrsCiphertextBlob = Nothing
+    , _gdkrsStatus = pStatus
     }
 
 -- | System generated unique identifier of the key to be used to decrypt the
 -- encrypted copy of the data key.
-gdkrKeyId :: Lens' GenerateDataKeyResponse (Maybe Text)
-gdkrKeyId = lens _gdkrKeyId (\ s a -> s{_gdkrKeyId = a});
+gdkrsKeyId :: Lens' GenerateDataKeyResponse (Maybe Text)
+gdkrsKeyId = lens _gdkrsKeyId (\ s a -> s{_gdkrsKeyId = a});
 
 -- | Plaintext that contains the data key. Use this for encryption and
 -- decryption and then remove it from memory as soon as possible.
-gdkrPlaintext :: Lens' GenerateDataKeyResponse (Maybe Base64)
-gdkrPlaintext = lens _gdkrPlaintext (\ s a -> s{_gdkrPlaintext = a}) . mapping _Sensitive;
+gdkrsPlaintext :: Lens' GenerateDataKeyResponse (Maybe Base64)
+gdkrsPlaintext = lens _gdkrsPlaintext (\ s a -> s{_gdkrsPlaintext = a}) . mapping _Sensitive;
 
 -- | Ciphertext that contains the encrypted data key. You must store the blob
 -- and enough information to reconstruct the encryption context so that the
@@ -233,9 +233,9 @@ gdkrPlaintext = lens _gdkrPlaintext (\ s a -> s{_gdkrPlaintext = a}) . mapping _
 --
 -- If you are using the CLI, the value is Base64 encoded. Otherwise, it is
 -- not encoded.
-gdkrCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe Base64)
-gdkrCiphertextBlob = lens _gdkrCiphertextBlob (\ s a -> s{_gdkrCiphertextBlob = a});
+gdkrsCiphertextBlob :: Lens' GenerateDataKeyResponse (Maybe Base64)
+gdkrsCiphertextBlob = lens _gdkrsCiphertextBlob (\ s a -> s{_gdkrsCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-gdkrStatus :: Lens' GenerateDataKeyResponse Int
-gdkrStatus = lens _gdkrStatus (\ s a -> s{_gdkrStatus = a});
+gdkrsStatus :: Lens' GenerateDataKeyResponse Int
+gdkrsStatus = lens _gdkrsStatus (\ s a -> s{_gdkrsStatus = a});

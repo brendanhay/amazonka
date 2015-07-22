@@ -28,7 +28,7 @@ module Network.AWS.S3.HeadBucket
     -- ** Request constructor
     , headBucket
     -- ** Request lenses
-    , hbBucket
+    , hbrqBucket
 
     -- * Response
     , HeadBucketResponse
@@ -45,21 +45,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'hbBucket'
+-- * 'hbrqBucket'
 newtype HeadBucket = HeadBucket'
-    { _hbBucket :: BucketName
+    { _hbrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'HeadBucket' smart constructor.
 headBucket :: BucketName -> HeadBucket
 headBucket pBucket =
     HeadBucket'
-    { _hbBucket = pBucket
+    { _hbrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-hbBucket :: Lens' HeadBucket BucketName
-hbBucket = lens _hbBucket (\ s a -> s{_hbBucket = a});
+hbrqBucket :: Lens' HeadBucket BucketName
+hbrqBucket = lens _hbrqBucket (\ s a -> s{_hbrqBucket = a});
 
 instance AWSRequest HeadBucket where
         type Sv HeadBucket = S3
@@ -72,7 +72,7 @@ instance ToHeaders HeadBucket where
 
 instance ToPath HeadBucket where
         toPath HeadBucket'{..}
-          = mconcat ["/", toText _hbBucket]
+          = mconcat ["/", toText _hbrqBucket]
 
 instance ToQuery HeadBucket where
         toQuery = const mempty

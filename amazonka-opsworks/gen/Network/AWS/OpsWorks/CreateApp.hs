@@ -34,26 +34,26 @@ module Network.AWS.OpsWorks.CreateApp
     -- ** Request constructor
     , createApp
     -- ** Request lenses
-    , caSSLConfiguration
-    , caShortname
-    , caEnableSSL
-    , caEnvironment
-    , caDataSources
-    , caAppSource
-    , caAttributes
-    , caDomains
-    , caDescription
-    , caStackId
-    , caName
-    , caType
+    , carqSSLConfiguration
+    , carqShortname
+    , carqEnableSSL
+    , carqEnvironment
+    , carqDataSources
+    , carqAppSource
+    , carqAttributes
+    , carqDomains
+    , carqDescription
+    , carqStackId
+    , carqName
+    , carqType
 
     -- * Response
     , CreateAppResponse
     -- ** Response constructor
     , createAppResponse
     -- ** Response lenses
-    , carAppId
-    , carStatus
+    , carsAppId
+    , carsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -65,73 +65,73 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'caSSLConfiguration'
+-- * 'carqSSLConfiguration'
 --
--- * 'caShortname'
+-- * 'carqShortname'
 --
--- * 'caEnableSSL'
+-- * 'carqEnableSSL'
 --
--- * 'caEnvironment'
+-- * 'carqEnvironment'
 --
--- * 'caDataSources'
+-- * 'carqDataSources'
 --
--- * 'caAppSource'
+-- * 'carqAppSource'
 --
--- * 'caAttributes'
+-- * 'carqAttributes'
 --
--- * 'caDomains'
+-- * 'carqDomains'
 --
--- * 'caDescription'
+-- * 'carqDescription'
 --
--- * 'caStackId'
+-- * 'carqStackId'
 --
--- * 'caName'
+-- * 'carqName'
 --
--- * 'caType'
+-- * 'carqType'
 data CreateApp = CreateApp'
-    { _caSSLConfiguration :: !(Maybe SSLConfiguration)
-    , _caShortname        :: !(Maybe Text)
-    , _caEnableSSL        :: !(Maybe Bool)
-    , _caEnvironment      :: !(Maybe [EnvironmentVariable])
-    , _caDataSources      :: !(Maybe [DataSource])
-    , _caAppSource        :: !(Maybe Source)
-    , _caAttributes       :: !(Maybe (Map AppAttributesKeys Text))
-    , _caDomains          :: !(Maybe [Text])
-    , _caDescription      :: !(Maybe Text)
-    , _caStackId          :: !Text
-    , _caName             :: !Text
-    , _caType             :: !AppType
+    { _carqSSLConfiguration :: !(Maybe SSLConfiguration)
+    , _carqShortname        :: !(Maybe Text)
+    , _carqEnableSSL        :: !(Maybe Bool)
+    , _carqEnvironment      :: !(Maybe [EnvironmentVariable])
+    , _carqDataSources      :: !(Maybe [DataSource])
+    , _carqAppSource        :: !(Maybe Source)
+    , _carqAttributes       :: !(Maybe (Map AppAttributesKeys Text))
+    , _carqDomains          :: !(Maybe [Text])
+    , _carqDescription      :: !(Maybe Text)
+    , _carqStackId          :: !Text
+    , _carqName             :: !Text
+    , _carqType             :: !AppType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApp' smart constructor.
 createApp :: Text -> Text -> AppType -> CreateApp
 createApp pStackId pName pType =
     CreateApp'
-    { _caSSLConfiguration = Nothing
-    , _caShortname = Nothing
-    , _caEnableSSL = Nothing
-    , _caEnvironment = Nothing
-    , _caDataSources = Nothing
-    , _caAppSource = Nothing
-    , _caAttributes = Nothing
-    , _caDomains = Nothing
-    , _caDescription = Nothing
-    , _caStackId = pStackId
-    , _caName = pName
-    , _caType = pType
+    { _carqSSLConfiguration = Nothing
+    , _carqShortname = Nothing
+    , _carqEnableSSL = Nothing
+    , _carqEnvironment = Nothing
+    , _carqDataSources = Nothing
+    , _carqAppSource = Nothing
+    , _carqAttributes = Nothing
+    , _carqDomains = Nothing
+    , _carqDescription = Nothing
+    , _carqStackId = pStackId
+    , _carqName = pName
+    , _carqType = pType
     }
 
 -- | An @SslConfiguration@ object with the SSL configuration.
-caSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
-caSSLConfiguration = lens _caSSLConfiguration (\ s a -> s{_caSSLConfiguration = a});
+carqSSLConfiguration :: Lens' CreateApp (Maybe SSLConfiguration)
+carqSSLConfiguration = lens _carqSSLConfiguration (\ s a -> s{_carqSSLConfiguration = a});
 
 -- | The app\'s short name.
-caShortname :: Lens' CreateApp (Maybe Text)
-caShortname = lens _caShortname (\ s a -> s{_caShortname = a});
+carqShortname :: Lens' CreateApp (Maybe Text)
+carqShortname = lens _carqShortname (\ s a -> s{_carqShortname = a});
 
 -- | Whether to enable SSL for the app.
-caEnableSSL :: Lens' CreateApp (Maybe Bool)
-caEnableSSL = lens _caEnableSSL (\ s a -> s{_caEnableSSL = a});
+carqEnableSSL :: Lens' CreateApp (Maybe Bool)
+carqEnableSSL = lens _carqEnableSSL (\ s a -> s{_carqEnableSSL = a});
 
 -- | An array of @EnvironmentVariable@ objects that specify environment
 -- variables to be associated with the app. After you deploy the app, these
@@ -149,46 +149,46 @@ caEnableSSL = lens _caEnableSSL (\ s a -> s{_caEnableSSL = a});
 -- This parameter is supported only by Chef 11.10 stacks. If you have
 -- specified one or more environment variables, you cannot modify the
 -- stack\'s Chef version.
-caEnvironment :: Lens' CreateApp [EnvironmentVariable]
-caEnvironment = lens _caEnvironment (\ s a -> s{_caEnvironment = a}) . _Default;
+carqEnvironment :: Lens' CreateApp [EnvironmentVariable]
+carqEnvironment = lens _carqEnvironment (\ s a -> s{_carqEnvironment = a}) . _Default;
 
 -- | The app\'s data source.
-caDataSources :: Lens' CreateApp [DataSource]
-caDataSources = lens _caDataSources (\ s a -> s{_caDataSources = a}) . _Default;
+carqDataSources :: Lens' CreateApp [DataSource]
+carqDataSources = lens _carqDataSources (\ s a -> s{_carqDataSources = a}) . _Default;
 
 -- | A @Source@ object that specifies the app repository.
-caAppSource :: Lens' CreateApp (Maybe Source)
-caAppSource = lens _caAppSource (\ s a -> s{_caAppSource = a});
+carqAppSource :: Lens' CreateApp (Maybe Source)
+carqAppSource = lens _carqAppSource (\ s a -> s{_carqAppSource = a});
 
 -- | One or more user-defined key\/value pairs to be added to the stack
 -- attributes.
-caAttributes :: Lens' CreateApp (HashMap AppAttributesKeys Text)
-caAttributes = lens _caAttributes (\ s a -> s{_caAttributes = a}) . _Default . _Map;
+carqAttributes :: Lens' CreateApp (HashMap AppAttributesKeys Text)
+carqAttributes = lens _carqAttributes (\ s a -> s{_carqAttributes = a}) . _Default . _Map;
 
 -- | The app virtual host settings, with multiple domains separated by
 -- commas. For example: @\'www.example.com, example.com\'@
-caDomains :: Lens' CreateApp [Text]
-caDomains = lens _caDomains (\ s a -> s{_caDomains = a}) . _Default;
+carqDomains :: Lens' CreateApp [Text]
+carqDomains = lens _carqDomains (\ s a -> s{_carqDomains = a}) . _Default;
 
 -- | A description of the app.
-caDescription :: Lens' CreateApp (Maybe Text)
-caDescription = lens _caDescription (\ s a -> s{_caDescription = a});
+carqDescription :: Lens' CreateApp (Maybe Text)
+carqDescription = lens _carqDescription (\ s a -> s{_carqDescription = a});
 
 -- | The stack ID.
-caStackId :: Lens' CreateApp Text
-caStackId = lens _caStackId (\ s a -> s{_caStackId = a});
+carqStackId :: Lens' CreateApp Text
+carqStackId = lens _carqStackId (\ s a -> s{_carqStackId = a});
 
 -- | The app name.
-caName :: Lens' CreateApp Text
-caName = lens _caName (\ s a -> s{_caName = a});
+carqName :: Lens' CreateApp Text
+carqName = lens _carqName (\ s a -> s{_carqName = a});
 
 -- | The app type. Each supported type is associated with a particular layer.
 -- For example, PHP applications are associated with a PHP layer. AWS
 -- OpsWorks deploys an application to those instances that are members of
 -- the corresponding layer. If your app isn\'t one of the standard types,
 -- or you prefer to implement your own Deploy recipes, specify @other@.
-caType :: Lens' CreateApp AppType
-caType = lens _caType (\ s a -> s{_caType = a});
+carqType :: Lens' CreateApp AppType
+carqType = lens _carqType (\ s a -> s{_carqType = a});
 
 instance AWSRequest CreateApp where
         type Sv CreateApp = OpsWorks
@@ -212,17 +212,17 @@ instance ToHeaders CreateApp where
 instance ToJSON CreateApp where
         toJSON CreateApp'{..}
           = object
-              ["SslConfiguration" .= _caSSLConfiguration,
-               "Shortname" .= _caShortname,
-               "EnableSsl" .= _caEnableSSL,
-               "Environment" .= _caEnvironment,
-               "DataSources" .= _caDataSources,
-               "AppSource" .= _caAppSource,
-               "Attributes" .= _caAttributes,
-               "Domains" .= _caDomains,
-               "Description" .= _caDescription,
-               "StackId" .= _caStackId, "Name" .= _caName,
-               "Type" .= _caType]
+              ["SslConfiguration" .= _carqSSLConfiguration,
+               "Shortname" .= _carqShortname,
+               "EnableSsl" .= _carqEnableSSL,
+               "Environment" .= _carqEnvironment,
+               "DataSources" .= _carqDataSources,
+               "AppSource" .= _carqAppSource,
+               "Attributes" .= _carqAttributes,
+               "Domains" .= _carqDomains,
+               "Description" .= _carqDescription,
+               "StackId" .= _carqStackId, "Name" .= _carqName,
+               "Type" .= _carqType]
 
 instance ToPath CreateApp where
         toPath = const "/"
@@ -236,26 +236,26 @@ instance ToQuery CreateApp where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carAppId'
+-- * 'carsAppId'
 --
--- * 'carStatus'
+-- * 'carsStatus'
 data CreateAppResponse = CreateAppResponse'
-    { _carAppId  :: !(Maybe Text)
-    , _carStatus :: !Int
+    { _carsAppId  :: !(Maybe Text)
+    , _carsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAppResponse' smart constructor.
 createAppResponse :: Int -> CreateAppResponse
 createAppResponse pStatus =
     CreateAppResponse'
-    { _carAppId = Nothing
-    , _carStatus = pStatus
+    { _carsAppId = Nothing
+    , _carsStatus = pStatus
     }
 
 -- | The app ID.
-carAppId :: Lens' CreateAppResponse (Maybe Text)
-carAppId = lens _carAppId (\ s a -> s{_carAppId = a});
+carsAppId :: Lens' CreateAppResponse (Maybe Text)
+carsAppId = lens _carsAppId (\ s a -> s{_carsAppId = a});
 
 -- | FIXME: Undocumented member.
-carStatus :: Lens' CreateAppResponse Int
-carStatus = lens _carStatus (\ s a -> s{_carStatus = a});
+carsStatus :: Lens' CreateAppResponse Int
+carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

@@ -27,16 +27,16 @@ module Network.AWS.CodeDeploy.GetDeploymentInstance
     -- ** Request constructor
     , getDeploymentInstance
     -- ** Request lenses
-    , gdiDeploymentId
-    , gdiInstanceId
+    , gdirqDeploymentId
+    , gdirqInstanceId
 
     -- * Response
     , GetDeploymentInstanceResponse
     -- ** Response constructor
     , getDeploymentInstanceResponse
     -- ** Response lenses
-    , gdirInstanceSummary
-    , gdirStatus
+    , gdirsInstanceSummary
+    , gdirsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdiDeploymentId'
+-- * 'gdirqDeploymentId'
 --
--- * 'gdiInstanceId'
+-- * 'gdirqInstanceId'
 data GetDeploymentInstance = GetDeploymentInstance'
-    { _gdiDeploymentId :: !Text
-    , _gdiInstanceId   :: !Text
+    { _gdirqDeploymentId :: !Text
+    , _gdirqInstanceId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentInstance' smart constructor.
 getDeploymentInstance :: Text -> Text -> GetDeploymentInstance
 getDeploymentInstance pDeploymentId pInstanceId =
     GetDeploymentInstance'
-    { _gdiDeploymentId = pDeploymentId
-    , _gdiInstanceId = pInstanceId
+    { _gdirqDeploymentId = pDeploymentId
+    , _gdirqInstanceId = pInstanceId
     }
 
 -- | The unique ID of a deployment.
-gdiDeploymentId :: Lens' GetDeploymentInstance Text
-gdiDeploymentId = lens _gdiDeploymentId (\ s a -> s{_gdiDeploymentId = a});
+gdirqDeploymentId :: Lens' GetDeploymentInstance Text
+gdirqDeploymentId = lens _gdirqDeploymentId (\ s a -> s{_gdirqDeploymentId = a});
 
 -- | The unique ID of an instance in the deployment\'s deployment group.
-gdiInstanceId :: Lens' GetDeploymentInstance Text
-gdiInstanceId = lens _gdiInstanceId (\ s a -> s{_gdiInstanceId = a});
+gdirqInstanceId :: Lens' GetDeploymentInstance Text
+gdirqInstanceId = lens _gdirqInstanceId (\ s a -> s{_gdirqInstanceId = a});
 
 instance AWSRequest GetDeploymentInstance where
         type Sv GetDeploymentInstance = CodeDeploy
@@ -98,8 +98,8 @@ instance ToHeaders GetDeploymentInstance where
 instance ToJSON GetDeploymentInstance where
         toJSON GetDeploymentInstance'{..}
           = object
-              ["deploymentId" .= _gdiDeploymentId,
-               "instanceId" .= _gdiInstanceId]
+              ["deploymentId" .= _gdirqDeploymentId,
+               "instanceId" .= _gdirqInstanceId]
 
 instance ToPath GetDeploymentInstance where
         toPath = const "/"
@@ -113,26 +113,26 @@ instance ToQuery GetDeploymentInstance where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdirInstanceSummary'
+-- * 'gdirsInstanceSummary'
 --
--- * 'gdirStatus'
+-- * 'gdirsStatus'
 data GetDeploymentInstanceResponse = GetDeploymentInstanceResponse'
-    { _gdirInstanceSummary :: !(Maybe InstanceSummary)
-    , _gdirStatus          :: !Int
+    { _gdirsInstanceSummary :: !(Maybe InstanceSummary)
+    , _gdirsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentInstanceResponse' smart constructor.
 getDeploymentInstanceResponse :: Int -> GetDeploymentInstanceResponse
 getDeploymentInstanceResponse pStatus =
     GetDeploymentInstanceResponse'
-    { _gdirInstanceSummary = Nothing
-    , _gdirStatus = pStatus
+    { _gdirsInstanceSummary = Nothing
+    , _gdirsStatus = pStatus
     }
 
 -- | Information about the instance.
-gdirInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
-gdirInstanceSummary = lens _gdirInstanceSummary (\ s a -> s{_gdirInstanceSummary = a});
+gdirsInstanceSummary :: Lens' GetDeploymentInstanceResponse (Maybe InstanceSummary)
+gdirsInstanceSummary = lens _gdirsInstanceSummary (\ s a -> s{_gdirsInstanceSummary = a});
 
 -- | FIXME: Undocumented member.
-gdirStatus :: Lens' GetDeploymentInstanceResponse Int
-gdirStatus = lens _gdirStatus (\ s a -> s{_gdirStatus = a});
+gdirsStatus :: Lens' GetDeploymentInstanceResponse Int
+gdirsStatus = lens _gdirsStatus (\ s a -> s{_gdirsStatus = a});

@@ -38,14 +38,14 @@ module Network.AWS.Support.RefreshTrustedAdvisorCheck
     -- ** Request constructor
     , refreshTrustedAdvisorCheck
     -- ** Request lenses
-    , rtacCheckId
+    , rtacrqCheckId
 
     -- * Response
     , RefreshTrustedAdvisorCheckResponse
     -- ** Response constructor
     , refreshTrustedAdvisorCheckResponse
     -- ** Response lenses
-    , rtacrStatus
+    , rtacrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -57,21 +57,21 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtacCheckId'
+-- * 'rtacrqCheckId'
 newtype RefreshTrustedAdvisorCheck = RefreshTrustedAdvisorCheck'
-    { _rtacCheckId :: Text
+    { _rtacrqCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RefreshTrustedAdvisorCheck' smart constructor.
 refreshTrustedAdvisorCheck :: Text -> RefreshTrustedAdvisorCheck
 refreshTrustedAdvisorCheck pCheckId =
     RefreshTrustedAdvisorCheck'
-    { _rtacCheckId = pCheckId
+    { _rtacrqCheckId = pCheckId
     }
 
 -- | The unique identifier for the Trusted Advisor check.
-rtacCheckId :: Lens' RefreshTrustedAdvisorCheck Text
-rtacCheckId = lens _rtacCheckId (\ s a -> s{_rtacCheckId = a});
+rtacrqCheckId :: Lens' RefreshTrustedAdvisorCheck Text
+rtacrqCheckId = lens _rtacrqCheckId (\ s a -> s{_rtacrqCheckId = a});
 
 instance AWSRequest RefreshTrustedAdvisorCheck where
         type Sv RefreshTrustedAdvisorCheck = Support
@@ -96,7 +96,7 @@ instance ToHeaders RefreshTrustedAdvisorCheck where
 
 instance ToJSON RefreshTrustedAdvisorCheck where
         toJSON RefreshTrustedAdvisorCheck'{..}
-          = object ["checkId" .= _rtacCheckId]
+          = object ["checkId" .= _rtacrqCheckId]
 
 instance ToPath RefreshTrustedAdvisorCheck where
         toPath = const "/"
@@ -110,18 +110,18 @@ instance ToQuery RefreshTrustedAdvisorCheck where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtacrStatus'
+-- * 'rtacrsStatus'
 newtype RefreshTrustedAdvisorCheckResponse = RefreshTrustedAdvisorCheckResponse'
-    { _rtacrStatus :: Int
+    { _rtacrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RefreshTrustedAdvisorCheckResponse' smart constructor.
 refreshTrustedAdvisorCheckResponse :: Int -> RefreshTrustedAdvisorCheckResponse
 refreshTrustedAdvisorCheckResponse pStatus =
     RefreshTrustedAdvisorCheckResponse'
-    { _rtacrStatus = pStatus
+    { _rtacrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rtacrStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
-rtacrStatus = lens _rtacrStatus (\ s a -> s{_rtacrStatus = a});
+rtacrsStatus :: Lens' RefreshTrustedAdvisorCheckResponse Int
+rtacrsStatus = lens _rtacrsStatus (\ s a -> s{_rtacrsStatus = a});

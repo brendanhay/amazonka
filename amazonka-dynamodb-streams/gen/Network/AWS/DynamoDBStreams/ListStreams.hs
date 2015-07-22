@@ -31,18 +31,18 @@ module Network.AWS.DynamoDBStreams.ListStreams
     -- ** Request constructor
     , listStreams
     -- ** Request lenses
-    , lsExclusiveStartStreamARN
-    , lsLimit
-    , lsTableName
+    , lsrqExclusiveStartStreamARN
+    , lsrqLimit
+    , lsrqTableName
 
     -- * Response
     , ListStreamsResponse
     -- ** Response constructor
     , listStreamsResponse
     -- ** Response lenses
-    , lsrLastEvaluatedStreamARN
-    , lsrStreams
-    , lsrStatus
+    , lsrsLastEvaluatedStreamARN
+    , lsrsStreams
+    , lsrsStatus
     ) where
 
 import           Network.AWS.DynamoDBStreams.Types
@@ -56,40 +56,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsExclusiveStartStreamARN'
+-- * 'lsrqExclusiveStartStreamARN'
 --
--- * 'lsLimit'
+-- * 'lsrqLimit'
 --
--- * 'lsTableName'
+-- * 'lsrqTableName'
 data ListStreams = ListStreams'
-    { _lsExclusiveStartStreamARN :: !(Maybe Text)
-    , _lsLimit                   :: !(Maybe Nat)
-    , _lsTableName               :: !(Maybe Text)
+    { _lsrqExclusiveStartStreamARN :: !(Maybe Text)
+    , _lsrqLimit                   :: !(Maybe Nat)
+    , _lsrqTableName               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreams' smart constructor.
 listStreams :: ListStreams
 listStreams =
     ListStreams'
-    { _lsExclusiveStartStreamARN = Nothing
-    , _lsLimit = Nothing
-    , _lsTableName = Nothing
+    { _lsrqExclusiveStartStreamARN = Nothing
+    , _lsrqLimit = Nothing
+    , _lsrqTableName = Nothing
     }
 
 -- | The ARN (Amazon Resource Name) of the first item that this operation
 -- will evaluate. Use the value that was returned for
 -- @LastEvaluatedStreamArn@ in the previous operation.
-lsExclusiveStartStreamARN :: Lens' ListStreams (Maybe Text)
-lsExclusiveStartStreamARN = lens _lsExclusiveStartStreamARN (\ s a -> s{_lsExclusiveStartStreamARN = a});
+lsrqExclusiveStartStreamARN :: Lens' ListStreams (Maybe Text)
+lsrqExclusiveStartStreamARN = lens _lsrqExclusiveStartStreamARN (\ s a -> s{_lsrqExclusiveStartStreamARN = a});
 
 -- | The maximum number of streams to return. The upper limit is 100.
-lsLimit :: Lens' ListStreams (Maybe Natural)
-lsLimit = lens _lsLimit (\ s a -> s{_lsLimit = a}) . mapping _Nat;
+lsrqLimit :: Lens' ListStreams (Maybe Natural)
+lsrqLimit = lens _lsrqLimit (\ s a -> s{_lsrqLimit = a}) . mapping _Nat;
 
 -- | If this parameter is provided, then only the streams associated with
 -- this table name are returned.
-lsTableName :: Lens' ListStreams (Maybe Text)
-lsTableName = lens _lsTableName (\ s a -> s{_lsTableName = a});
+lsrqTableName :: Lens' ListStreams (Maybe Text)
+lsrqTableName = lens _lsrqTableName (\ s a -> s{_lsrqTableName = a});
 
 instance AWSRequest ListStreams where
         type Sv ListStreams = DynamoDBStreams
@@ -117,8 +117,8 @@ instance ToJSON ListStreams where
         toJSON ListStreams'{..}
           = object
               ["ExclusiveStartStreamArn" .=
-                 _lsExclusiveStartStreamARN,
-               "Limit" .= _lsLimit, "TableName" .= _lsTableName]
+                 _lsrqExclusiveStartStreamARN,
+               "Limit" .= _lsrqLimit, "TableName" .= _lsrqTableName]
 
 instance ToPath ListStreams where
         toPath = const "/"
@@ -132,24 +132,24 @@ instance ToQuery ListStreams where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrLastEvaluatedStreamARN'
+-- * 'lsrsLastEvaluatedStreamARN'
 --
--- * 'lsrStreams'
+-- * 'lsrsStreams'
 --
--- * 'lsrStatus'
+-- * 'lsrsStatus'
 data ListStreamsResponse = ListStreamsResponse'
-    { _lsrLastEvaluatedStreamARN :: !(Maybe Text)
-    , _lsrStreams                :: !(Maybe [Stream])
-    , _lsrStatus                 :: !Int
+    { _lsrsLastEvaluatedStreamARN :: !(Maybe Text)
+    , _lsrsStreams                :: !(Maybe [Stream])
+    , _lsrsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStreamsResponse' smart constructor.
 listStreamsResponse :: Int -> ListStreamsResponse
 listStreamsResponse pStatus =
     ListStreamsResponse'
-    { _lsrLastEvaluatedStreamARN = Nothing
-    , _lsrStreams = Nothing
-    , _lsrStatus = pStatus
+    { _lsrsLastEvaluatedStreamARN = Nothing
+    , _lsrsStreams = Nothing
+    , _lsrsStatus = pStatus
     }
 
 -- | The stream ARN of the item where the operation stopped, inclusive of the
@@ -163,14 +163,14 @@ listStreamsResponse pStatus =
 -- that there is more data in the result set. The only way to know when you
 -- have reached the end of the result set is when @LastEvaluatedStreamArn@
 -- is empty.
-lsrLastEvaluatedStreamARN :: Lens' ListStreamsResponse (Maybe Text)
-lsrLastEvaluatedStreamARN = lens _lsrLastEvaluatedStreamARN (\ s a -> s{_lsrLastEvaluatedStreamARN = a});
+lsrsLastEvaluatedStreamARN :: Lens' ListStreamsResponse (Maybe Text)
+lsrsLastEvaluatedStreamARN = lens _lsrsLastEvaluatedStreamARN (\ s a -> s{_lsrsLastEvaluatedStreamARN = a});
 
 -- | A list of stream descriptors associated with the current account and
 -- endpoint.
-lsrStreams :: Lens' ListStreamsResponse [Stream]
-lsrStreams = lens _lsrStreams (\ s a -> s{_lsrStreams = a}) . _Default;
+lsrsStreams :: Lens' ListStreamsResponse [Stream]
+lsrsStreams = lens _lsrsStreams (\ s a -> s{_lsrsStreams = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListStreamsResponse Int
-lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});
+lsrsStatus :: Lens' ListStreamsResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

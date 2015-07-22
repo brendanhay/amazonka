@@ -35,17 +35,17 @@ module Network.AWS.Route53Domains.UpdateDomainNameservers
     -- ** Request constructor
     , updateDomainNameservers
     -- ** Request lenses
-    , udnFIAuthKey
-    , udnDomainName
-    , udnNameservers
+    , udnrqFIAuthKey
+    , udnrqDomainName
+    , udnrqNameservers
 
     -- * Response
     , UpdateDomainNameserversResponse
     -- ** Response constructor
     , updateDomainNameserversResponse
     -- ** Response lenses
-    , udnrStatus
-    , udnrOperationId
+    , udnrsStatus
+    , udnrsOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -59,29 +59,29 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udnFIAuthKey'
+-- * 'udnrqFIAuthKey'
 --
--- * 'udnDomainName'
+-- * 'udnrqDomainName'
 --
--- * 'udnNameservers'
+-- * 'udnrqNameservers'
 data UpdateDomainNameservers = UpdateDomainNameservers'
-    { _udnFIAuthKey   :: !(Maybe Text)
-    , _udnDomainName  :: !Text
-    , _udnNameservers :: ![Nameserver]
+    { _udnrqFIAuthKey   :: !(Maybe Text)
+    , _udnrqDomainName  :: !Text
+    , _udnrqNameservers :: ![Nameserver]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainNameservers' smart constructor.
 updateDomainNameservers :: Text -> UpdateDomainNameservers
 updateDomainNameservers pDomainName =
     UpdateDomainNameservers'
-    { _udnFIAuthKey = Nothing
-    , _udnDomainName = pDomainName
-    , _udnNameservers = mempty
+    { _udnrqFIAuthKey = Nothing
+    , _udnrqDomainName = pDomainName
+    , _udnrqNameservers = mempty
     }
 
 -- | The authorization key for .fi domains
-udnFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
-udnFIAuthKey = lens _udnFIAuthKey (\ s a -> s{_udnFIAuthKey = a});
+udnrqFIAuthKey :: Lens' UpdateDomainNameservers (Maybe Text)
+udnrqFIAuthKey = lens _udnrqFIAuthKey (\ s a -> s{_udnrqFIAuthKey = a});
 
 -- | The name of a domain.
 --
@@ -94,8 +94,8 @@ udnFIAuthKey = lens _udnFIAuthKey (\ s a -> s{_udnFIAuthKey = a});
 -- are not supported.
 --
 -- Required: Yes
-udnDomainName :: Lens' UpdateDomainNameservers Text
-udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
+udnrqDomainName :: Lens' UpdateDomainNameservers Text
+udnrqDomainName = lens _udnrqDomainName (\ s a -> s{_udnrqDomainName = a});
 
 -- | A list of new name servers for the domain.
 --
@@ -104,8 +104,8 @@ udnDomainName = lens _udnDomainName (\ s a -> s{_udnDomainName = a});
 -- Children: @Name@, @GlueIps@
 --
 -- Required: Yes
-udnNameservers :: Lens' UpdateDomainNameservers [Nameserver]
-udnNameservers = lens _udnNameservers (\ s a -> s{_udnNameservers = a});
+udnrqNameservers :: Lens' UpdateDomainNameservers [Nameserver]
+udnrqNameservers = lens _udnrqNameservers (\ s a -> s{_udnrqNameservers = a});
 
 instance AWSRequest UpdateDomainNameservers where
         type Sv UpdateDomainNameservers = Route53Domains
@@ -131,9 +131,9 @@ instance ToHeaders UpdateDomainNameservers where
 instance ToJSON UpdateDomainNameservers where
         toJSON UpdateDomainNameservers'{..}
           = object
-              ["FIAuthKey" .= _udnFIAuthKey,
-               "DomainName" .= _udnDomainName,
-               "Nameservers" .= _udnNameservers]
+              ["FIAuthKey" .= _udnrqFIAuthKey,
+               "DomainName" .= _udnrqDomainName,
+               "Nameservers" .= _udnrqNameservers]
 
 instance ToPath UpdateDomainNameservers where
         toPath = const "/"
@@ -147,25 +147,25 @@ instance ToQuery UpdateDomainNameservers where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udnrStatus'
+-- * 'udnrsStatus'
 --
--- * 'udnrOperationId'
+-- * 'udnrsOperationId'
 data UpdateDomainNameserversResponse = UpdateDomainNameserversResponse'
-    { _udnrStatus      :: !Int
-    , _udnrOperationId :: !Text
+    { _udnrsStatus      :: !Int
+    , _udnrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainNameserversResponse' smart constructor.
 updateDomainNameserversResponse :: Int -> Text -> UpdateDomainNameserversResponse
 updateDomainNameserversResponse pStatus pOperationId =
     UpdateDomainNameserversResponse'
-    { _udnrStatus = pStatus
-    , _udnrOperationId = pOperationId
+    { _udnrsStatus = pStatus
+    , _udnrsOperationId = pOperationId
     }
 
 -- | FIXME: Undocumented member.
-udnrStatus :: Lens' UpdateDomainNameserversResponse Int
-udnrStatus = lens _udnrStatus (\ s a -> s{_udnrStatus = a});
+udnrsStatus :: Lens' UpdateDomainNameserversResponse Int
+udnrsStatus = lens _udnrsStatus (\ s a -> s{_udnrsStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -175,5 +175,5 @@ udnrStatus = lens _udnrStatus (\ s a -> s{_udnrStatus = a});
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
-udnrOperationId :: Lens' UpdateDomainNameserversResponse Text
-udnrOperationId = lens _udnrOperationId (\ s a -> s{_udnrOperationId = a});
+udnrsOperationId :: Lens' UpdateDomainNameserversResponse Text
+udnrsOperationId = lens _udnrsOperationId (\ s a -> s{_udnrsOperationId = a});

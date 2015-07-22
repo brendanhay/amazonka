@@ -31,8 +31,8 @@ module Network.AWS.IAM.RemoveClientIdFromOpenIdConnectProvider
     -- ** Request constructor
     , removeClientIdFromOpenIdConnectProvider
     -- ** Request lenses
-    , rcifoicpOpenIdConnectProviderARN
-    , rcifoicpClientId
+    , rcifoicprqOpenIdConnectProviderARN
+    , rcifoicprqClientId
 
     -- * Response
     , RemoveClientIdFromOpenIdConnectProviderResponse
@@ -49,33 +49,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcifoicpOpenIdConnectProviderARN'
+-- * 'rcifoicprqOpenIdConnectProviderARN'
 --
--- * 'rcifoicpClientId'
+-- * 'rcifoicprqClientId'
 data RemoveClientIdFromOpenIdConnectProvider = RemoveClientIdFromOpenIdConnectProvider'
-    { _rcifoicpOpenIdConnectProviderARN :: !Text
-    , _rcifoicpClientId                 :: !Text
+    { _rcifoicprqOpenIdConnectProviderARN :: !Text
+    , _rcifoicprqClientId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveClientIdFromOpenIdConnectProvider' smart constructor.
 removeClientIdFromOpenIdConnectProvider :: Text -> Text -> RemoveClientIdFromOpenIdConnectProvider
 removeClientIdFromOpenIdConnectProvider pOpenIdConnectProviderARN pClientId =
     RemoveClientIdFromOpenIdConnectProvider'
-    { _rcifoicpOpenIdConnectProviderARN = pOpenIdConnectProviderARN
-    , _rcifoicpClientId = pClientId
+    { _rcifoicprqOpenIdConnectProviderARN = pOpenIdConnectProviderARN
+    , _rcifoicprqClientId = pClientId
     }
 
 -- | The Amazon Resource Name (ARN) of the IAM OpenID Connect (OIDC) provider
 -- to remove the client ID from. You can get a list of OIDC provider ARNs
 -- by using the ListOpenIDConnectProviders action.
-rcifoicpOpenIdConnectProviderARN :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
-rcifoicpOpenIdConnectProviderARN = lens _rcifoicpOpenIdConnectProviderARN (\ s a -> s{_rcifoicpOpenIdConnectProviderARN = a});
+rcifoicprqOpenIdConnectProviderARN :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
+rcifoicprqOpenIdConnectProviderARN = lens _rcifoicprqOpenIdConnectProviderARN (\ s a -> s{_rcifoicprqOpenIdConnectProviderARN = a});
 
 -- | The client ID (also known as audience) to remove from the IAM OpenID
 -- Connect provider. For more information about client IDs, see
 -- CreateOpenIDConnectProvider.
-rcifoicpClientId :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
-rcifoicpClientId = lens _rcifoicpClientId (\ s a -> s{_rcifoicpClientId = a});
+rcifoicprqClientId :: Lens' RemoveClientIdFromOpenIdConnectProvider Text
+rcifoicprqClientId = lens _rcifoicprqClientId (\ s a -> s{_rcifoicprqClientId = a});
 
 instance AWSRequest
          RemoveClientIdFromOpenIdConnectProvider where
@@ -104,8 +104,8 @@ instance ToQuery
                     ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
                "OpenIDConnectProviderArn" =:
-                 _rcifoicpOpenIdConnectProviderARN,
-               "ClientID" =: _rcifoicpClientId]
+                 _rcifoicprqOpenIdConnectProviderARN,
+               "ClientID" =: _rcifoicprqClientId]
 
 -- | /See:/ 'removeClientIdFromOpenIdConnectProviderResponse' smart constructor.
 data RemoveClientIdFromOpenIdConnectProviderResponse =

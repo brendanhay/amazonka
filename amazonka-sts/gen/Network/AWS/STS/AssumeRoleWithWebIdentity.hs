@@ -101,25 +101,25 @@ module Network.AWS.STS.AssumeRoleWithWebIdentity
     -- ** Request constructor
     , assumeRoleWithWebIdentity
     -- ** Request lenses
-    , arwwiProviderId
-    , arwwiDurationSeconds
-    , arwwiPolicy
-    , arwwiRoleARN
-    , arwwiRoleSessionName
-    , arwwiWebIdentityToken
+    , arwwirqProviderId
+    , arwwirqDurationSeconds
+    , arwwirqPolicy
+    , arwwirqRoleARN
+    , arwwirqRoleSessionName
+    , arwwirqWebIdentityToken
 
     -- * Response
     , AssumeRoleWithWebIdentityResponse
     -- ** Response constructor
     , assumeRoleWithWebIdentityResponse
     -- ** Response lenses
-    , arwwirAudience
-    , arwwirSubjectFromWebIdentityToken
-    , arwwirPackedPolicySize
-    , arwwirCredentials
-    , arwwirAssumedRoleUser
-    , arwwirProvider
-    , arwwirStatus
+    , arwwirsAudience
+    , arwwirsSubjectFromWebIdentityToken
+    , arwwirsPackedPolicySize
+    , arwwirsCredentials
+    , arwwirsAssumedRoleUser
+    , arwwirsProvider
+    , arwwirsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -131,36 +131,36 @@ import           Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arwwiProviderId'
+-- * 'arwwirqProviderId'
 --
--- * 'arwwiDurationSeconds'
+-- * 'arwwirqDurationSeconds'
 --
--- * 'arwwiPolicy'
+-- * 'arwwirqPolicy'
 --
--- * 'arwwiRoleARN'
+-- * 'arwwirqRoleARN'
 --
--- * 'arwwiRoleSessionName'
+-- * 'arwwirqRoleSessionName'
 --
--- * 'arwwiWebIdentityToken'
+-- * 'arwwirqWebIdentityToken'
 data AssumeRoleWithWebIdentity = AssumeRoleWithWebIdentity'
-    { _arwwiProviderId       :: !(Maybe Text)
-    , _arwwiDurationSeconds  :: !(Maybe Nat)
-    , _arwwiPolicy           :: !(Maybe Text)
-    , _arwwiRoleARN          :: !Text
-    , _arwwiRoleSessionName  :: !Text
-    , _arwwiWebIdentityToken :: !Text
+    { _arwwirqProviderId       :: !(Maybe Text)
+    , _arwwirqDurationSeconds  :: !(Maybe Nat)
+    , _arwwirqPolicy           :: !(Maybe Text)
+    , _arwwirqRoleARN          :: !Text
+    , _arwwirqRoleSessionName  :: !Text
+    , _arwwirqWebIdentityToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleWithWebIdentity' smart constructor.
 assumeRoleWithWebIdentity :: Text -> Text -> Text -> AssumeRoleWithWebIdentity
 assumeRoleWithWebIdentity pRoleARN pRoleSessionName pWebIdentityToken =
     AssumeRoleWithWebIdentity'
-    { _arwwiProviderId = Nothing
-    , _arwwiDurationSeconds = Nothing
-    , _arwwiPolicy = Nothing
-    , _arwwiRoleARN = pRoleARN
-    , _arwwiRoleSessionName = pRoleSessionName
-    , _arwwiWebIdentityToken = pWebIdentityToken
+    { _arwwirqProviderId = Nothing
+    , _arwwirqDurationSeconds = Nothing
+    , _arwwirqPolicy = Nothing
+    , _arwwirqRoleARN = pRoleARN
+    , _arwwirqRoleSessionName = pRoleSessionName
+    , _arwwirqWebIdentityToken = pWebIdentityToken
     }
 
 -- | The fully qualified host component of the domain name of the identity
@@ -172,14 +172,14 @@ assumeRoleWithWebIdentity pRoleARN pRoleSessionName pWebIdentityToken =
 -- schemes and port numbers.
 --
 -- Do not specify this value for OpenID Connect ID tokens.
-arwwiProviderId :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
-arwwiProviderId = lens _arwwiProviderId (\ s a -> s{_arwwiProviderId = a});
+arwwirqProviderId :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
+arwwirqProviderId = lens _arwwirqProviderId (\ s a -> s{_arwwirqProviderId = a});
 
 -- | The duration, in seconds, of the role session. The value can range from
 -- 900 seconds (15 minutes) to 3600 seconds (1 hour). By default, the value
 -- is set to 3600 seconds.
-arwwiDurationSeconds :: Lens' AssumeRoleWithWebIdentity (Maybe Natural)
-arwwiDurationSeconds = lens _arwwiDurationSeconds (\ s a -> s{_arwwiDurationSeconds = a}) . mapping _Nat;
+arwwirqDurationSeconds :: Lens' AssumeRoleWithWebIdentity (Maybe Natural)
+arwwirqDurationSeconds = lens _arwwirqDurationSeconds (\ s a -> s{_arwwirqDurationSeconds = a}) . mapping _Nat;
 
 -- | An IAM policy in JSON format.
 --
@@ -198,12 +198,12 @@ arwwiDurationSeconds = lens _arwwiDurationSeconds (\ s a -> s{_arwwiDurationSeco
 -- separate limit. The PackedPolicySize response element indicates by
 -- percentage how close to the upper size limit the policy is, with 100%
 -- equaling the maximum allowed size.
-arwwiPolicy :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
-arwwiPolicy = lens _arwwiPolicy (\ s a -> s{_arwwiPolicy = a});
+arwwirqPolicy :: Lens' AssumeRoleWithWebIdentity (Maybe Text)
+arwwirqPolicy = lens _arwwirqPolicy (\ s a -> s{_arwwirqPolicy = a});
 
 -- | The Amazon Resource Name (ARN) of the role that the caller is assuming.
-arwwiRoleARN :: Lens' AssumeRoleWithWebIdentity Text
-arwwiRoleARN = lens _arwwiRoleARN (\ s a -> s{_arwwiRoleARN = a});
+arwwirqRoleARN :: Lens' AssumeRoleWithWebIdentity Text
+arwwirqRoleARN = lens _arwwirqRoleARN (\ s a -> s{_arwwirqRoleARN = a});
 
 -- | An identifier for the assumed role session. Typically, you pass the name
 -- or identifier that is associated with the user who is using your
@@ -211,16 +211,16 @@ arwwiRoleARN = lens _arwwiRoleARN (\ s a -> s{_arwwiRoleARN = a});
 -- application will use are associated with that user. This session name is
 -- included as part of the ARN and assumed role ID in the @AssumedRoleUser@
 -- response element.
-arwwiRoleSessionName :: Lens' AssumeRoleWithWebIdentity Text
-arwwiRoleSessionName = lens _arwwiRoleSessionName (\ s a -> s{_arwwiRoleSessionName = a});
+arwwirqRoleSessionName :: Lens' AssumeRoleWithWebIdentity Text
+arwwirqRoleSessionName = lens _arwwirqRoleSessionName (\ s a -> s{_arwwirqRoleSessionName = a});
 
 -- | The OAuth 2.0 access token or OpenID Connect ID token that is provided
 -- by the identity provider. Your application must get this token by
 -- authenticating the user who is using your application with a web
 -- identity provider before the application makes an
 -- @AssumeRoleWithWebIdentity@ call.
-arwwiWebIdentityToken :: Lens' AssumeRoleWithWebIdentity Text
-arwwiWebIdentityToken = lens _arwwiWebIdentityToken (\ s a -> s{_arwwiWebIdentityToken = a});
+arwwirqWebIdentityToken :: Lens' AssumeRoleWithWebIdentity Text
+arwwirqWebIdentityToken = lens _arwwirqWebIdentityToken (\ s a -> s{_arwwirqWebIdentityToken = a});
 
 instance AWSRequest AssumeRoleWithWebIdentity where
         type Sv AssumeRoleWithWebIdentity = STS
@@ -251,11 +251,12 @@ instance ToQuery AssumeRoleWithWebIdentity where
               ["Action" =:
                  ("AssumeRoleWithWebIdentity" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
-               "ProviderId" =: _arwwiProviderId,
-               "DurationSeconds" =: _arwwiDurationSeconds,
-               "Policy" =: _arwwiPolicy, "RoleArn" =: _arwwiRoleARN,
-               "RoleSessionName" =: _arwwiRoleSessionName,
-               "WebIdentityToken" =: _arwwiWebIdentityToken]
+               "ProviderId" =: _arwwirqProviderId,
+               "DurationSeconds" =: _arwwirqDurationSeconds,
+               "Policy" =: _arwwirqPolicy,
+               "RoleArn" =: _arwwirqRoleARN,
+               "RoleSessionName" =: _arwwirqRoleSessionName,
+               "WebIdentityToken" =: _arwwirqWebIdentityToken]
 
 -- | Contains the response to a successful AssumeRoleWithWebIdentity request,
 -- including temporary AWS credentials that can be used to make AWS
@@ -265,47 +266,47 @@ instance ToQuery AssumeRoleWithWebIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arwwirAudience'
+-- * 'arwwirsAudience'
 --
--- * 'arwwirSubjectFromWebIdentityToken'
+-- * 'arwwirsSubjectFromWebIdentityToken'
 --
--- * 'arwwirPackedPolicySize'
+-- * 'arwwirsPackedPolicySize'
 --
--- * 'arwwirCredentials'
+-- * 'arwwirsCredentials'
 --
--- * 'arwwirAssumedRoleUser'
+-- * 'arwwirsAssumedRoleUser'
 --
--- * 'arwwirProvider'
+-- * 'arwwirsProvider'
 --
--- * 'arwwirStatus'
+-- * 'arwwirsStatus'
 data AssumeRoleWithWebIdentityResponse = AssumeRoleWithWebIdentityResponse'
-    { _arwwirAudience                    :: !(Maybe Text)
-    , _arwwirSubjectFromWebIdentityToken :: !(Maybe Text)
-    , _arwwirPackedPolicySize            :: !(Maybe Nat)
-    , _arwwirCredentials                 :: !(Maybe Credentials)
-    , _arwwirAssumedRoleUser             :: !(Maybe AssumedRoleUser)
-    , _arwwirProvider                    :: !(Maybe Text)
-    , _arwwirStatus                      :: !Int
+    { _arwwirsAudience                    :: !(Maybe Text)
+    , _arwwirsSubjectFromWebIdentityToken :: !(Maybe Text)
+    , _arwwirsPackedPolicySize            :: !(Maybe Nat)
+    , _arwwirsCredentials                 :: !(Maybe Credentials)
+    , _arwwirsAssumedRoleUser             :: !(Maybe AssumedRoleUser)
+    , _arwwirsProvider                    :: !(Maybe Text)
+    , _arwwirsStatus                      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssumeRoleWithWebIdentityResponse' smart constructor.
 assumeRoleWithWebIdentityResponse :: Int -> AssumeRoleWithWebIdentityResponse
 assumeRoleWithWebIdentityResponse pStatus =
     AssumeRoleWithWebIdentityResponse'
-    { _arwwirAudience = Nothing
-    , _arwwirSubjectFromWebIdentityToken = Nothing
-    , _arwwirPackedPolicySize = Nothing
-    , _arwwirCredentials = Nothing
-    , _arwwirAssumedRoleUser = Nothing
-    , _arwwirProvider = Nothing
-    , _arwwirStatus = pStatus
+    { _arwwirsAudience = Nothing
+    , _arwwirsSubjectFromWebIdentityToken = Nothing
+    , _arwwirsPackedPolicySize = Nothing
+    , _arwwirsCredentials = Nothing
+    , _arwwirsAssumedRoleUser = Nothing
+    , _arwwirsProvider = Nothing
+    , _arwwirsStatus = pStatus
     }
 
 -- | The intended audience (also known as client ID) of the web identity
 -- token. This is traditionally the client identifier issued to the
 -- application that requested the web identity token.
-arwwirAudience :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
-arwwirAudience = lens _arwwirAudience (\ s a -> s{_arwwirAudience = a});
+arwwirsAudience :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
+arwwirsAudience = lens _arwwirsAudience (\ s a -> s{_arwwirsAudience = a});
 
 -- | The unique user identifier that is returned by the identity provider.
 -- This identifier is associated with the @WebIdentityToken@ that was
@@ -314,19 +315,19 @@ arwwirAudience = lens _arwwirAudience (\ s a -> s{_arwwirAudience = a});
 -- @WebIdentityToken@ (pairwise identifier). For OpenID Connect ID tokens,
 -- this field contains the value returned by the identity provider as the
 -- token\'s @sub@ (Subject) claim.
-arwwirSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
-arwwirSubjectFromWebIdentityToken = lens _arwwirSubjectFromWebIdentityToken (\ s a -> s{_arwwirSubjectFromWebIdentityToken = a});
+arwwirsSubjectFromWebIdentityToken :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
+arwwirsSubjectFromWebIdentityToken = lens _arwwirsSubjectFromWebIdentityToken (\ s a -> s{_arwwirsSubjectFromWebIdentityToken = a});
 
 -- | A percentage value that indicates the size of the policy in packed form.
 -- The service rejects any policy with a packed size greater than 100
 -- percent, which means the policy exceeded the allowed space.
-arwwirPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Natural)
-arwwirPackedPolicySize = lens _arwwirPackedPolicySize (\ s a -> s{_arwwirPackedPolicySize = a}) . mapping _Nat;
+arwwirsPackedPolicySize :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Natural)
+arwwirsPackedPolicySize = lens _arwwirsPackedPolicySize (\ s a -> s{_arwwirsPackedPolicySize = a}) . mapping _Nat;
 
 -- | The temporary security credentials, which include an access key ID, a
 -- secret access key, and a security token.
-arwwirCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Credentials)
-arwwirCredentials = lens _arwwirCredentials (\ s a -> s{_arwwirCredentials = a});
+arwwirsCredentials :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Credentials)
+arwwirsCredentials = lens _arwwirsCredentials (\ s a -> s{_arwwirsCredentials = a});
 
 -- | The Amazon Resource Name (ARN) and the assumed role ID, which are
 -- identifiers that you can use to refer to the resulting temporary
@@ -334,16 +335,16 @@ arwwirCredentials = lens _arwwirCredentials (\ s a -> s{_arwwirCredentials = a})
 -- as a principal in a resource-based policy by using the ARN or assumed
 -- role ID. The ARN and ID include the @RoleSessionName@ that you specified
 -- when you called @AssumeRole@.
-arwwirAssumedRoleUser :: Lens' AssumeRoleWithWebIdentityResponse (Maybe AssumedRoleUser)
-arwwirAssumedRoleUser = lens _arwwirAssumedRoleUser (\ s a -> s{_arwwirAssumedRoleUser = a});
+arwwirsAssumedRoleUser :: Lens' AssumeRoleWithWebIdentityResponse (Maybe AssumedRoleUser)
+arwwirsAssumedRoleUser = lens _arwwirsAssumedRoleUser (\ s a -> s{_arwwirsAssumedRoleUser = a});
 
 -- | The issuing authority of the web identity token presented. For OpenID
 -- Connect ID Tokens this contains the value of the @iss@ field. For OAuth
 -- 2.0 access tokens, this contains the value of the @ProviderId@ parameter
 -- that was passed in the @AssumeRoleWithWebIdentity@ request.
-arwwirProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
-arwwirProvider = lens _arwwirProvider (\ s a -> s{_arwwirProvider = a});
+arwwirsProvider :: Lens' AssumeRoleWithWebIdentityResponse (Maybe Text)
+arwwirsProvider = lens _arwwirsProvider (\ s a -> s{_arwwirsProvider = a});
 
 -- | FIXME: Undocumented member.
-arwwirStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
-arwwirStatus = lens _arwwirStatus (\ s a -> s{_arwwirStatus = a});
+arwwirsStatus :: Lens' AssumeRoleWithWebIdentityResponse Int
+arwwirsStatus = lens _arwwirsStatus (\ s a -> s{_arwwirsStatus = a});

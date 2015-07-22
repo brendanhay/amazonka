@@ -28,10 +28,10 @@ module Network.AWS.SNS.AddPermission
     -- ** Request constructor
     , addPermission
     -- ** Request lenses
-    , apTopicARN
-    , apLabel
-    , apAWSAccountId
-    , apActionName
+    , aprqTopicARN
+    , aprqLabel
+    , aprqAWSAccountId
+    , aprqActionName
 
     -- * Response
     , AddPermissionResponse
@@ -48,49 +48,49 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apTopicARN'
+-- * 'aprqTopicARN'
 --
--- * 'apLabel'
+-- * 'aprqLabel'
 --
--- * 'apAWSAccountId'
+-- * 'aprqAWSAccountId'
 --
--- * 'apActionName'
+-- * 'aprqActionName'
 data AddPermission = AddPermission'
-    { _apTopicARN     :: !Text
-    , _apLabel        :: !Text
-    , _apAWSAccountId :: ![Text]
-    , _apActionName   :: ![Text]
+    { _aprqTopicARN     :: !Text
+    , _aprqLabel        :: !Text
+    , _aprqAWSAccountId :: ![Text]
+    , _aprqActionName   :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddPermission' smart constructor.
 addPermission :: Text -> Text -> AddPermission
 addPermission pTopicARN pLabel =
     AddPermission'
-    { _apTopicARN = pTopicARN
-    , _apLabel = pLabel
-    , _apAWSAccountId = mempty
-    , _apActionName = mempty
+    { _aprqTopicARN = pTopicARN
+    , _aprqLabel = pLabel
+    , _aprqAWSAccountId = mempty
+    , _aprqActionName = mempty
     }
 
 -- | The ARN of the topic whose access control policy you wish to modify.
-apTopicARN :: Lens' AddPermission Text
-apTopicARN = lens _apTopicARN (\ s a -> s{_apTopicARN = a});
+aprqTopicARN :: Lens' AddPermission Text
+aprqTopicARN = lens _aprqTopicARN (\ s a -> s{_aprqTopicARN = a});
 
 -- | A unique identifier for the new policy statement.
-apLabel :: Lens' AddPermission Text
-apLabel = lens _apLabel (\ s a -> s{_apLabel = a});
+aprqLabel :: Lens' AddPermission Text
+aprqLabel = lens _aprqLabel (\ s a -> s{_aprqLabel = a});
 
 -- | The AWS account IDs of the users (principals) who will be given access
 -- to the specified actions. The users must have AWS accounts, but do not
 -- need to be signed up for this service.
-apAWSAccountId :: Lens' AddPermission [Text]
-apAWSAccountId = lens _apAWSAccountId (\ s a -> s{_apAWSAccountId = a});
+aprqAWSAccountId :: Lens' AddPermission [Text]
+aprqAWSAccountId = lens _aprqAWSAccountId (\ s a -> s{_aprqAWSAccountId = a});
 
 -- | The action you want to allow for the specified principal(s).
 --
 -- Valid values: any Amazon SNS action name.
-apActionName :: Lens' AddPermission [Text]
-apActionName = lens _apActionName (\ s a -> s{_apActionName = a});
+aprqActionName :: Lens' AddPermission [Text]
+aprqActionName = lens _aprqActionName (\ s a -> s{_aprqActionName = a});
 
 instance AWSRequest AddPermission where
         type Sv AddPermission = SNS
@@ -109,10 +109,10 @@ instance ToQuery AddPermission where
           = mconcat
               ["Action" =: ("AddPermission" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "TopicArn" =: _apTopicARN, "Label" =: _apLabel,
+               "TopicArn" =: _aprqTopicARN, "Label" =: _aprqLabel,
                "AWSAccountId" =:
-                 toQueryList "member" _apAWSAccountId,
-               "ActionName" =: toQueryList "member" _apActionName]
+                 toQueryList "member" _aprqAWSAccountId,
+               "ActionName" =: toQueryList "member" _aprqActionName]
 
 -- | /See:/ 'addPermissionResponse' smart constructor.
 data AddPermissionResponse =

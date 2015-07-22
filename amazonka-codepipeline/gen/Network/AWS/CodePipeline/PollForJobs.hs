@@ -33,17 +33,17 @@ module Network.AWS.CodePipeline.PollForJobs
     -- ** Request constructor
     , pollForJobs
     -- ** Request lenses
-    , pfjMaxBatchSize
-    , pfjQueryParam
-    , pfjActionTypeId
+    , pfjrqMaxBatchSize
+    , pfjrqQueryParam
+    , pfjrqActionTypeId
 
     -- * Response
     , PollForJobsResponse
     -- ** Response constructor
     , pollForJobsResponse
     -- ** Response lenses
-    , pfjrJobs
-    , pfjrStatus
+    , pfjrsJobs
+    , pfjrsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -57,41 +57,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pfjMaxBatchSize'
+-- * 'pfjrqMaxBatchSize'
 --
--- * 'pfjQueryParam'
+-- * 'pfjrqQueryParam'
 --
--- * 'pfjActionTypeId'
+-- * 'pfjrqActionTypeId'
 data PollForJobs = PollForJobs'
-    { _pfjMaxBatchSize :: !(Maybe Nat)
-    , _pfjQueryParam   :: !(Maybe (Map Text Text))
-    , _pfjActionTypeId :: !ActionTypeId
+    { _pfjrqMaxBatchSize :: !(Maybe Nat)
+    , _pfjrqQueryParam   :: !(Maybe (Map Text Text))
+    , _pfjrqActionTypeId :: !ActionTypeId
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForJobs' smart constructor.
 pollForJobs :: ActionTypeId -> PollForJobs
 pollForJobs pActionTypeId =
     PollForJobs'
-    { _pfjMaxBatchSize = Nothing
-    , _pfjQueryParam = Nothing
-    , _pfjActionTypeId = pActionTypeId
+    { _pfjrqMaxBatchSize = Nothing
+    , _pfjrqQueryParam = Nothing
+    , _pfjrqActionTypeId = pActionTypeId
     }
 
 -- | The maximum number of jobs to return in a poll for jobs call.
-pfjMaxBatchSize :: Lens' PollForJobs (Maybe Natural)
-pfjMaxBatchSize = lens _pfjMaxBatchSize (\ s a -> s{_pfjMaxBatchSize = a}) . mapping _Nat;
+pfjrqMaxBatchSize :: Lens' PollForJobs (Maybe Natural)
+pfjrqMaxBatchSize = lens _pfjrqMaxBatchSize (\ s a -> s{_pfjrqMaxBatchSize = a}) . mapping _Nat;
 
 -- | A map of property names and values. For an action type with no queryable
 -- properties, this value must be null or an empty map. For an action type
 -- with a queryable property, you must supply that property as a key in the
 -- map. Only jobs whose action configuration matches the mapped value will
 -- be returned.
-pfjQueryParam :: Lens' PollForJobs (HashMap Text Text)
-pfjQueryParam = lens _pfjQueryParam (\ s a -> s{_pfjQueryParam = a}) . _Default . _Map;
+pfjrqQueryParam :: Lens' PollForJobs (HashMap Text Text)
+pfjrqQueryParam = lens _pfjrqQueryParam (\ s a -> s{_pfjrqQueryParam = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-pfjActionTypeId :: Lens' PollForJobs ActionTypeId
-pfjActionTypeId = lens _pfjActionTypeId (\ s a -> s{_pfjActionTypeId = a});
+pfjrqActionTypeId :: Lens' PollForJobs ActionTypeId
+pfjrqActionTypeId = lens _pfjrqActionTypeId (\ s a -> s{_pfjrqActionTypeId = a});
 
 instance AWSRequest PollForJobs where
         type Sv PollForJobs = CodePipeline
@@ -115,9 +115,9 @@ instance ToHeaders PollForJobs where
 instance ToJSON PollForJobs where
         toJSON PollForJobs'{..}
           = object
-              ["maxBatchSize" .= _pfjMaxBatchSize,
-               "queryParam" .= _pfjQueryParam,
-               "actionTypeId" .= _pfjActionTypeId]
+              ["maxBatchSize" .= _pfjrqMaxBatchSize,
+               "queryParam" .= _pfjrqQueryParam,
+               "actionTypeId" .= _pfjrqActionTypeId]
 
 instance ToPath PollForJobs where
         toPath = const "/"
@@ -131,26 +131,26 @@ instance ToQuery PollForJobs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pfjrJobs'
+-- * 'pfjrsJobs'
 --
--- * 'pfjrStatus'
+-- * 'pfjrsStatus'
 data PollForJobsResponse = PollForJobsResponse'
-    { _pfjrJobs   :: !(Maybe [Job])
-    , _pfjrStatus :: !Int
+    { _pfjrsJobs   :: !(Maybe [Job])
+    , _pfjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PollForJobsResponse' smart constructor.
 pollForJobsResponse :: Int -> PollForJobsResponse
 pollForJobsResponse pStatus =
     PollForJobsResponse'
-    { _pfjrJobs = Nothing
-    , _pfjrStatus = pStatus
+    { _pfjrsJobs = Nothing
+    , _pfjrsStatus = pStatus
     }
 
 -- | Information about the jobs to take action on.
-pfjrJobs :: Lens' PollForJobsResponse [Job]
-pfjrJobs = lens _pfjrJobs (\ s a -> s{_pfjrJobs = a}) . _Default;
+pfjrsJobs :: Lens' PollForJobsResponse [Job]
+pfjrsJobs = lens _pfjrsJobs (\ s a -> s{_pfjrsJobs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-pfjrStatus :: Lens' PollForJobsResponse Int
-pfjrStatus = lens _pfjrStatus (\ s a -> s{_pfjrStatus = a});
+pfjrsStatus :: Lens' PollForJobsResponse Int
+pfjrsStatus = lens _pfjrsStatus (\ s a -> s{_pfjrsStatus = a});

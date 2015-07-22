@@ -40,17 +40,17 @@ module Network.AWS.Redshift.CopyClusterSnapshot
     -- ** Request constructor
     , copyClusterSnapshot
     -- ** Request lenses
-    , ccsSourceSnapshotClusterIdentifier
-    , ccsSourceSnapshotIdentifier
-    , ccsTargetSnapshotIdentifier
+    , ccsrqSourceSnapshotClusterIdentifier
+    , ccsrqSourceSnapshotIdentifier
+    , ccsrqTargetSnapshotIdentifier
 
     -- * Response
     , CopyClusterSnapshotResponse
     -- ** Response constructor
     , copyClusterSnapshotResponse
     -- ** Response lenses
-    , ccsrSnapshot
-    , ccsrStatus
+    , ccsrsSnapshot
+    , ccsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -64,24 +64,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsSourceSnapshotClusterIdentifier'
+-- * 'ccsrqSourceSnapshotClusterIdentifier'
 --
--- * 'ccsSourceSnapshotIdentifier'
+-- * 'ccsrqSourceSnapshotIdentifier'
 --
--- * 'ccsTargetSnapshotIdentifier'
+-- * 'ccsrqTargetSnapshotIdentifier'
 data CopyClusterSnapshot = CopyClusterSnapshot'
-    { _ccsSourceSnapshotClusterIdentifier :: !(Maybe Text)
-    , _ccsSourceSnapshotIdentifier        :: !Text
-    , _ccsTargetSnapshotIdentifier        :: !Text
+    { _ccsrqSourceSnapshotClusterIdentifier :: !(Maybe Text)
+    , _ccsrqSourceSnapshotIdentifier        :: !Text
+    , _ccsrqTargetSnapshotIdentifier        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyClusterSnapshot' smart constructor.
 copyClusterSnapshot :: Text -> Text -> CopyClusterSnapshot
 copyClusterSnapshot pSourceSnapshotIdentifier pTargetSnapshotIdentifier =
     CopyClusterSnapshot'
-    { _ccsSourceSnapshotClusterIdentifier = Nothing
-    , _ccsSourceSnapshotIdentifier = pSourceSnapshotIdentifier
-    , _ccsTargetSnapshotIdentifier = pTargetSnapshotIdentifier
+    { _ccsrqSourceSnapshotClusterIdentifier = Nothing
+    , _ccsrqSourceSnapshotIdentifier = pSourceSnapshotIdentifier
+    , _ccsrqTargetSnapshotIdentifier = pTargetSnapshotIdentifier
     }
 
 -- | The identifier of the cluster the source snapshot was created from. This
@@ -92,8 +92,8 @@ copyClusterSnapshot pSourceSnapshotIdentifier pTargetSnapshotIdentifier =
 -- Constraints:
 --
 -- -   Must be the identifier for a valid cluster.
-ccsSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
-ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\ s a -> s{_ccsSourceSnapshotClusterIdentifier = a});
+ccsrqSourceSnapshotClusterIdentifier :: Lens' CopyClusterSnapshot (Maybe Text)
+ccsrqSourceSnapshotClusterIdentifier = lens _ccsrqSourceSnapshotClusterIdentifier (\ s a -> s{_ccsrqSourceSnapshotClusterIdentifier = a});
 
 -- | The identifier for the source snapshot.
 --
@@ -101,8 +101,8 @@ ccsSourceSnapshotClusterIdentifier = lens _ccsSourceSnapshotClusterIdentifier (\
 --
 -- -   Must be the identifier for a valid automated snapshot whose state is
 --     @available@.
-ccsSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccsSourceSnapshotIdentifier = a});
+ccsrqSourceSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
+ccsrqSourceSnapshotIdentifier = lens _ccsrqSourceSnapshotIdentifier (\ s a -> s{_ccsrqSourceSnapshotIdentifier = a});
 
 -- | The identifier given to the new manual snapshot.
 --
@@ -113,8 +113,8 @@ ccsSourceSnapshotIdentifier = lens _ccsSourceSnapshotIdentifier (\ s a -> s{_ccs
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 -- -   Must be unique for the AWS account that is making the request.
-ccsTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
-ccsTargetSnapshotIdentifier = lens _ccsTargetSnapshotIdentifier (\ s a -> s{_ccsTargetSnapshotIdentifier = a});
+ccsrqTargetSnapshotIdentifier :: Lens' CopyClusterSnapshot Text
+ccsrqTargetSnapshotIdentifier = lens _ccsrqTargetSnapshotIdentifier (\ s a -> s{_ccsrqTargetSnapshotIdentifier = a});
 
 instance AWSRequest CopyClusterSnapshot where
         type Sv CopyClusterSnapshot = Redshift
@@ -139,36 +139,36 @@ instance ToQuery CopyClusterSnapshot where
               ["Action" =: ("CopyClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "SourceSnapshotClusterIdentifier" =:
-                 _ccsSourceSnapshotClusterIdentifier,
+                 _ccsrqSourceSnapshotClusterIdentifier,
                "SourceSnapshotIdentifier" =:
-                 _ccsSourceSnapshotIdentifier,
+                 _ccsrqSourceSnapshotIdentifier,
                "TargetSnapshotIdentifier" =:
-                 _ccsTargetSnapshotIdentifier]
+                 _ccsrqTargetSnapshotIdentifier]
 
 -- | /See:/ 'copyClusterSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ccsrSnapshot'
+-- * 'ccsrsSnapshot'
 --
--- * 'ccsrStatus'
+-- * 'ccsrsStatus'
 data CopyClusterSnapshotResponse = CopyClusterSnapshotResponse'
-    { _ccsrSnapshot :: !(Maybe Snapshot)
-    , _ccsrStatus   :: !Int
+    { _ccsrsSnapshot :: !(Maybe Snapshot)
+    , _ccsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyClusterSnapshotResponse' smart constructor.
 copyClusterSnapshotResponse :: Int -> CopyClusterSnapshotResponse
 copyClusterSnapshotResponse pStatus =
     CopyClusterSnapshotResponse'
-    { _ccsrSnapshot = Nothing
-    , _ccsrStatus = pStatus
+    { _ccsrsSnapshot = Nothing
+    , _ccsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ccsrSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
-ccsrSnapshot = lens _ccsrSnapshot (\ s a -> s{_ccsrSnapshot = a});
+ccsrsSnapshot :: Lens' CopyClusterSnapshotResponse (Maybe Snapshot)
+ccsrsSnapshot = lens _ccsrsSnapshot (\ s a -> s{_ccsrsSnapshot = a});
 
 -- | FIXME: Undocumented member.
-ccsrStatus :: Lens' CopyClusterSnapshotResponse Int
-ccsrStatus = lens _ccsrStatus (\ s a -> s{_ccsrStatus = a});
+ccsrsStatus :: Lens' CopyClusterSnapshotResponse Int
+ccsrsStatus = lens _ccsrsStatus (\ s a -> s{_ccsrsStatus = a});

@@ -30,15 +30,15 @@ module Network.AWS.EMR.AddTags
     -- ** Request constructor
     , addTags
     -- ** Request lenses
-    , atResourceId
-    , atTags
+    , atrqResourceId
+    , atrqTags
 
     -- * Response
     , AddTagsResponse
     -- ** Response constructor
     , addTagsResponse
     -- ** Response lenses
-    , atrStatus
+    , atrsStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atResourceId'
+-- * 'atrqResourceId'
 --
--- * 'atTags'
+-- * 'atrqTags'
 data AddTags = AddTags'
-    { _atResourceId :: !Text
-    , _atTags       :: ![Tag]
+    { _atrqResourceId :: !Text
+    , _atrqTags       :: ![Tag]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTags' smart constructor.
 addTags :: Text -> AddTags
 addTags pResourceId =
     AddTags'
-    { _atResourceId = pResourceId
-    , _atTags = mempty
+    { _atrqResourceId = pResourceId
+    , _atrqTags = mempty
     }
 
 -- | The Amazon EMR resource identifier to which tags will be added. This
 -- value must be a cluster identifier.
-atResourceId :: Lens' AddTags Text
-atResourceId = lens _atResourceId (\ s a -> s{_atResourceId = a});
+atrqResourceId :: Lens' AddTags Text
+atrqResourceId = lens _atrqResourceId (\ s a -> s{_atrqResourceId = a});
 
 -- | A list of tags to associate with a cluster and propagate to Amazon EC2
 -- instances. Tags are user-defined key\/value pairs that consist of a
 -- required key string with a maximum of 128 characters, and an optional
 -- value string with a maximum of 256 characters.
-atTags :: Lens' AddTags [Tag]
-atTags = lens _atTags (\ s a -> s{_atTags = a});
+atrqTags :: Lens' AddTags [Tag]
+atrqTags = lens _atrqTags (\ s a -> s{_atrqTags = a});
 
 instance AWSRequest AddTags where
         type Sv AddTags = EMR
@@ -100,7 +100,8 @@ instance ToHeaders AddTags where
 instance ToJSON AddTags where
         toJSON AddTags'{..}
           = object
-              ["ResourceId" .= _atResourceId, "Tags" .= _atTags]
+              ["ResourceId" .= _atrqResourceId,
+               "Tags" .= _atrqTags]
 
 instance ToPath AddTags where
         toPath = const "/"
@@ -114,18 +115,18 @@ instance ToQuery AddTags where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'atrStatus'
+-- * 'atrsStatus'
 newtype AddTagsResponse = AddTagsResponse'
-    { _atrStatus :: Int
+    { _atrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddTagsResponse' smart constructor.
 addTagsResponse :: Int -> AddTagsResponse
 addTagsResponse pStatus =
     AddTagsResponse'
-    { _atrStatus = pStatus
+    { _atrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-atrStatus :: Lens' AddTagsResponse Int
-atrStatus = lens _atrStatus (\ s a -> s{_atrStatus = a});
+atrsStatus :: Lens' AddTagsResponse Int
+atrsStatus = lens _atrsStatus (\ s a -> s{_atrsStatus = a});

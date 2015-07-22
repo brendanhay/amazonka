@@ -30,16 +30,16 @@ module Network.AWS.StorageGateway.UpdateVTLDeviceType
     -- ** Request constructor
     , updateVTLDeviceType
     -- ** Request lenses
-    , uvtldtVTLDeviceARN
-    , uvtldtDeviceType
+    , uvtldtrqVTLDeviceARN
+    , uvtldtrqDeviceType
 
     -- * Response
     , UpdateVTLDeviceTypeResponse
     -- ** Response constructor
     , updateVTLDeviceTypeResponse
     -- ** Response lenses
-    , uvtldtrVTLDeviceARN
-    , uvtldtrStatus
+    , uvtldtrsVTLDeviceARN
+    , uvtldtrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -53,31 +53,31 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uvtldtVTLDeviceARN'
+-- * 'uvtldtrqVTLDeviceARN'
 --
--- * 'uvtldtDeviceType'
+-- * 'uvtldtrqDeviceType'
 data UpdateVTLDeviceType = UpdateVTLDeviceType'
-    { _uvtldtVTLDeviceARN :: !Text
-    , _uvtldtDeviceType   :: !Text
+    { _uvtldtrqVTLDeviceARN :: !Text
+    , _uvtldtrqDeviceType   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVTLDeviceType' smart constructor.
 updateVTLDeviceType :: Text -> Text -> UpdateVTLDeviceType
 updateVTLDeviceType pVTLDeviceARN pDeviceType =
     UpdateVTLDeviceType'
-    { _uvtldtVTLDeviceARN = pVTLDeviceARN
-    , _uvtldtDeviceType = pDeviceType
+    { _uvtldtrqVTLDeviceARN = pVTLDeviceARN
+    , _uvtldtrqDeviceType = pDeviceType
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you want to select.
-uvtldtVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
-uvtldtVTLDeviceARN = lens _uvtldtVTLDeviceARN (\ s a -> s{_uvtldtVTLDeviceARN = a});
+uvtldtrqVTLDeviceARN :: Lens' UpdateVTLDeviceType Text
+uvtldtrqVTLDeviceARN = lens _uvtldtrqVTLDeviceARN (\ s a -> s{_uvtldtrqVTLDeviceARN = a});
 
 -- | The type of medium changer you want to select.
 --
 -- /Valid Values/: \"STK-L700\", \"AWS-Gateway-VTL\"
-uvtldtDeviceType :: Lens' UpdateVTLDeviceType Text
-uvtldtDeviceType = lens _uvtldtDeviceType (\ s a -> s{_uvtldtDeviceType = a});
+uvtldtrqDeviceType :: Lens' UpdateVTLDeviceType Text
+uvtldtrqDeviceType = lens _uvtldtrqDeviceType (\ s a -> s{_uvtldtrqDeviceType = a});
 
 instance AWSRequest UpdateVTLDeviceType where
         type Sv UpdateVTLDeviceType = StorageGateway
@@ -103,8 +103,8 @@ instance ToHeaders UpdateVTLDeviceType where
 instance ToJSON UpdateVTLDeviceType where
         toJSON UpdateVTLDeviceType'{..}
           = object
-              ["VTLDeviceARN" .= _uvtldtVTLDeviceARN,
-               "DeviceType" .= _uvtldtDeviceType]
+              ["VTLDeviceARN" .= _uvtldtrqVTLDeviceARN,
+               "DeviceType" .= _uvtldtrqDeviceType]
 
 instance ToPath UpdateVTLDeviceType where
         toPath = const "/"
@@ -118,26 +118,26 @@ instance ToQuery UpdateVTLDeviceType where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uvtldtrVTLDeviceARN'
+-- * 'uvtldtrsVTLDeviceARN'
 --
--- * 'uvtldtrStatus'
+-- * 'uvtldtrsStatus'
 data UpdateVTLDeviceTypeResponse = UpdateVTLDeviceTypeResponse'
-    { _uvtldtrVTLDeviceARN :: !(Maybe Text)
-    , _uvtldtrStatus       :: !Int
+    { _uvtldtrsVTLDeviceARN :: !(Maybe Text)
+    , _uvtldtrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateVTLDeviceTypeResponse' smart constructor.
 updateVTLDeviceTypeResponse :: Int -> UpdateVTLDeviceTypeResponse
 updateVTLDeviceTypeResponse pStatus =
     UpdateVTLDeviceTypeResponse'
-    { _uvtldtrVTLDeviceARN = Nothing
-    , _uvtldtrStatus = pStatus
+    { _uvtldtrsVTLDeviceARN = Nothing
+    , _uvtldtrsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the medium changer you have selected.
-uvtldtrVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
-uvtldtrVTLDeviceARN = lens _uvtldtrVTLDeviceARN (\ s a -> s{_uvtldtrVTLDeviceARN = a});
+uvtldtrsVTLDeviceARN :: Lens' UpdateVTLDeviceTypeResponse (Maybe Text)
+uvtldtrsVTLDeviceARN = lens _uvtldtrsVTLDeviceARN (\ s a -> s{_uvtldtrsVTLDeviceARN = a});
 
 -- | FIXME: Undocumented member.
-uvtldtrStatus :: Lens' UpdateVTLDeviceTypeResponse Int
-uvtldtrStatus = lens _uvtldtrStatus (\ s a -> s{_uvtldtrStatus = a});
+uvtldtrsStatus :: Lens' UpdateVTLDeviceTypeResponse Int
+uvtldtrsStatus = lens _uvtldtrsStatus (\ s a -> s{_uvtldtrsStatus = a});

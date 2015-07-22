@@ -33,27 +33,27 @@ module Network.AWS.CloudTrail.UpdateTrail
     -- ** Request constructor
     , updateTrail
     -- ** Request lenses
-    , utS3KeyPrefix
-    , utSNSTopicName
-    , utCloudWatchLogsLogGroupARN
-    , utIncludeGlobalServiceEvents
-    , utCloudWatchLogsRoleARN
-    , utS3BucketName
-    , utName
+    , utrqS3KeyPrefix
+    , utrqSNSTopicName
+    , utrqCloudWatchLogsLogGroupARN
+    , utrqIncludeGlobalServiceEvents
+    , utrqCloudWatchLogsRoleARN
+    , utrqS3BucketName
+    , utrqName
 
     -- * Response
     , UpdateTrailResponse
     -- ** Response constructor
     , updateTrailResponse
     -- ** Response lenses
-    , utrS3KeyPrefix
-    , utrSNSTopicName
-    , utrCloudWatchLogsLogGroupARN
-    , utrName
-    , utrIncludeGlobalServiceEvents
-    , utrCloudWatchLogsRoleARN
-    , utrS3BucketName
-    , utrStatus
+    , utrsS3KeyPrefix
+    , utrsSNSTopicName
+    , utrsCloudWatchLogsLogGroupARN
+    , utrsName
+    , utrsIncludeGlobalServiceEvents
+    , utrsCloudWatchLogsRoleARN
+    , utrsS3BucketName
+    , utrsStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -67,76 +67,76 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'utS3KeyPrefix'
+-- * 'utrqS3KeyPrefix'
 --
--- * 'utSNSTopicName'
+-- * 'utrqSNSTopicName'
 --
--- * 'utCloudWatchLogsLogGroupARN'
+-- * 'utrqCloudWatchLogsLogGroupARN'
 --
--- * 'utIncludeGlobalServiceEvents'
+-- * 'utrqIncludeGlobalServiceEvents'
 --
--- * 'utCloudWatchLogsRoleARN'
+-- * 'utrqCloudWatchLogsRoleARN'
 --
--- * 'utS3BucketName'
+-- * 'utrqS3BucketName'
 --
--- * 'utName'
+-- * 'utrqName'
 data UpdateTrail = UpdateTrail'
-    { _utS3KeyPrefix                :: !(Maybe Text)
-    , _utSNSTopicName               :: !(Maybe Text)
-    , _utCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _utIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _utCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _utS3BucketName               :: !(Maybe Text)
-    , _utName                       :: !Text
+    { _utrqS3KeyPrefix                :: !(Maybe Text)
+    , _utrqSNSTopicName               :: !(Maybe Text)
+    , _utrqCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _utrqIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _utrqCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _utrqS3BucketName               :: !(Maybe Text)
+    , _utrqName                       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTrail' smart constructor.
 updateTrail :: Text -> UpdateTrail
 updateTrail pName =
     UpdateTrail'
-    { _utS3KeyPrefix = Nothing
-    , _utSNSTopicName = Nothing
-    , _utCloudWatchLogsLogGroupARN = Nothing
-    , _utIncludeGlobalServiceEvents = Nothing
-    , _utCloudWatchLogsRoleARN = Nothing
-    , _utS3BucketName = Nothing
-    , _utName = pName
+    { _utrqS3KeyPrefix = Nothing
+    , _utrqSNSTopicName = Nothing
+    , _utrqCloudWatchLogsLogGroupARN = Nothing
+    , _utrqIncludeGlobalServiceEvents = Nothing
+    , _utrqCloudWatchLogsRoleARN = Nothing
+    , _utrqS3BucketName = Nothing
+    , _utrqName = pName
     }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
 -- you have designated for log file delivery.
-utS3KeyPrefix :: Lens' UpdateTrail (Maybe Text)
-utS3KeyPrefix = lens _utS3KeyPrefix (\ s a -> s{_utS3KeyPrefix = a});
+utrqS3KeyPrefix :: Lens' UpdateTrail (Maybe Text)
+utrqS3KeyPrefix = lens _utrqS3KeyPrefix (\ s a -> s{_utrqS3KeyPrefix = a});
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of
 -- log file delivery.
-utSNSTopicName :: Lens' UpdateTrail (Maybe Text)
-utSNSTopicName = lens _utSNSTopicName (\ s a -> s{_utSNSTopicName = a});
+utrqSNSTopicName :: Lens' UpdateTrail (Maybe Text)
+utrqSNSTopicName = lens _utrqSNSTopicName (\ s a -> s{_utrqSNSTopicName = a});
 
 -- | Specifies a log group name using an Amazon Resource Name (ARN), a unique
 -- identifier that represents the log group to which CloudTrail logs will
 -- be delivered. Not required unless you specify CloudWatchLogsRoleArn.
-utCloudWatchLogsLogGroupARN :: Lens' UpdateTrail (Maybe Text)
-utCloudWatchLogsLogGroupARN = lens _utCloudWatchLogsLogGroupARN (\ s a -> s{_utCloudWatchLogsLogGroupARN = a});
+utrqCloudWatchLogsLogGroupARN :: Lens' UpdateTrail (Maybe Text)
+utrqCloudWatchLogsLogGroupARN = lens _utrqCloudWatchLogsLogGroupARN (\ s a -> s{_utrqCloudWatchLogsLogGroupARN = a});
 
 -- | Specifies whether the trail is publishing events from global services
 -- such as IAM to the log files.
-utIncludeGlobalServiceEvents :: Lens' UpdateTrail (Maybe Bool)
-utIncludeGlobalServiceEvents = lens _utIncludeGlobalServiceEvents (\ s a -> s{_utIncludeGlobalServiceEvents = a});
+utrqIncludeGlobalServiceEvents :: Lens' UpdateTrail (Maybe Bool)
+utrqIncludeGlobalServiceEvents = lens _utrqIncludeGlobalServiceEvents (\ s a -> s{_utrqIncludeGlobalServiceEvents = a});
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
 -- to a user’s log group.
-utCloudWatchLogsRoleARN :: Lens' UpdateTrail (Maybe Text)
-utCloudWatchLogsRoleARN = lens _utCloudWatchLogsRoleARN (\ s a -> s{_utCloudWatchLogsRoleARN = a});
+utrqCloudWatchLogsRoleARN :: Lens' UpdateTrail (Maybe Text)
+utrqCloudWatchLogsRoleARN = lens _utrqCloudWatchLogsRoleARN (\ s a -> s{_utrqCloudWatchLogsRoleARN = a});
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
-utS3BucketName :: Lens' UpdateTrail (Maybe Text)
-utS3BucketName = lens _utS3BucketName (\ s a -> s{_utS3BucketName = a});
+utrqS3BucketName :: Lens' UpdateTrail (Maybe Text)
+utrqS3BucketName = lens _utrqS3BucketName (\ s a -> s{_utrqS3BucketName = a});
 
 -- | Specifies the name of the trail.
-utName :: Lens' UpdateTrail Text
-utName = lens _utName (\ s a -> s{_utName = a});
+utrqName :: Lens' UpdateTrail Text
+utrqName = lens _utrqName (\ s a -> s{_utrqName = a});
 
 instance AWSRequest UpdateTrail where
         type Sv UpdateTrail = CloudTrail
@@ -167,14 +167,16 @@ instance ToHeaders UpdateTrail where
 instance ToJSON UpdateTrail where
         toJSON UpdateTrail'{..}
           = object
-              ["S3KeyPrefix" .= _utS3KeyPrefix,
-               "SnsTopicName" .= _utSNSTopicName,
+              ["S3KeyPrefix" .= _utrqS3KeyPrefix,
+               "SnsTopicName" .= _utrqSNSTopicName,
                "CloudWatchLogsLogGroupArn" .=
-                 _utCloudWatchLogsLogGroupARN,
+                 _utrqCloudWatchLogsLogGroupARN,
                "IncludeGlobalServiceEvents" .=
-                 _utIncludeGlobalServiceEvents,
-               "CloudWatchLogsRoleArn" .= _utCloudWatchLogsRoleARN,
-               "S3BucketName" .= _utS3BucketName, "Name" .= _utName]
+                 _utrqIncludeGlobalServiceEvents,
+               "CloudWatchLogsRoleArn" .=
+                 _utrqCloudWatchLogsRoleARN,
+               "S3BucketName" .= _utrqS3BucketName,
+               "Name" .= _utrqName]
 
 instance ToPath UpdateTrail where
         toPath = const "/"
@@ -189,80 +191,80 @@ instance ToQuery UpdateTrail where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'utrS3KeyPrefix'
+-- * 'utrsS3KeyPrefix'
 --
--- * 'utrSNSTopicName'
+-- * 'utrsSNSTopicName'
 --
--- * 'utrCloudWatchLogsLogGroupARN'
+-- * 'utrsCloudWatchLogsLogGroupARN'
 --
--- * 'utrName'
+-- * 'utrsName'
 --
--- * 'utrIncludeGlobalServiceEvents'
+-- * 'utrsIncludeGlobalServiceEvents'
 --
--- * 'utrCloudWatchLogsRoleARN'
+-- * 'utrsCloudWatchLogsRoleARN'
 --
--- * 'utrS3BucketName'
+-- * 'utrsS3BucketName'
 --
--- * 'utrStatus'
+-- * 'utrsStatus'
 data UpdateTrailResponse = UpdateTrailResponse'
-    { _utrS3KeyPrefix                :: !(Maybe Text)
-    , _utrSNSTopicName               :: !(Maybe Text)
-    , _utrCloudWatchLogsLogGroupARN  :: !(Maybe Text)
-    , _utrName                       :: !(Maybe Text)
-    , _utrIncludeGlobalServiceEvents :: !(Maybe Bool)
-    , _utrCloudWatchLogsRoleARN      :: !(Maybe Text)
-    , _utrS3BucketName               :: !(Maybe Text)
-    , _utrStatus                     :: !Int
+    { _utrsS3KeyPrefix                :: !(Maybe Text)
+    , _utrsSNSTopicName               :: !(Maybe Text)
+    , _utrsCloudWatchLogsLogGroupARN  :: !(Maybe Text)
+    , _utrsName                       :: !(Maybe Text)
+    , _utrsIncludeGlobalServiceEvents :: !(Maybe Bool)
+    , _utrsCloudWatchLogsRoleARN      :: !(Maybe Text)
+    , _utrsS3BucketName               :: !(Maybe Text)
+    , _utrsStatus                     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateTrailResponse' smart constructor.
 updateTrailResponse :: Int -> UpdateTrailResponse
 updateTrailResponse pStatus =
     UpdateTrailResponse'
-    { _utrS3KeyPrefix = Nothing
-    , _utrSNSTopicName = Nothing
-    , _utrCloudWatchLogsLogGroupARN = Nothing
-    , _utrName = Nothing
-    , _utrIncludeGlobalServiceEvents = Nothing
-    , _utrCloudWatchLogsRoleARN = Nothing
-    , _utrS3BucketName = Nothing
-    , _utrStatus = pStatus
+    { _utrsS3KeyPrefix = Nothing
+    , _utrsSNSTopicName = Nothing
+    , _utrsCloudWatchLogsLogGroupARN = Nothing
+    , _utrsName = Nothing
+    , _utrsIncludeGlobalServiceEvents = Nothing
+    , _utrsCloudWatchLogsRoleARN = Nothing
+    , _utrsS3BucketName = Nothing
+    , _utrsStatus = pStatus
     }
 
 -- | Specifies the Amazon S3 key prefix that precedes the name of the bucket
 -- you have designated for log file delivery.
-utrS3KeyPrefix :: Lens' UpdateTrailResponse (Maybe Text)
-utrS3KeyPrefix = lens _utrS3KeyPrefix (\ s a -> s{_utrS3KeyPrefix = a});
+utrsS3KeyPrefix :: Lens' UpdateTrailResponse (Maybe Text)
+utrsS3KeyPrefix = lens _utrsS3KeyPrefix (\ s a -> s{_utrsS3KeyPrefix = a});
 
 -- | Specifies the name of the Amazon SNS topic defined for notification of
 -- log file delivery.
-utrSNSTopicName :: Lens' UpdateTrailResponse (Maybe Text)
-utrSNSTopicName = lens _utrSNSTopicName (\ s a -> s{_utrSNSTopicName = a});
+utrsSNSTopicName :: Lens' UpdateTrailResponse (Maybe Text)
+utrsSNSTopicName = lens _utrsSNSTopicName (\ s a -> s{_utrsSNSTopicName = a});
 
 -- | Specifies the Amazon Resource Name (ARN) of the log group to which
 -- CloudTrail logs will be delivered.
-utrCloudWatchLogsLogGroupARN :: Lens' UpdateTrailResponse (Maybe Text)
-utrCloudWatchLogsLogGroupARN = lens _utrCloudWatchLogsLogGroupARN (\ s a -> s{_utrCloudWatchLogsLogGroupARN = a});
+utrsCloudWatchLogsLogGroupARN :: Lens' UpdateTrailResponse (Maybe Text)
+utrsCloudWatchLogsLogGroupARN = lens _utrsCloudWatchLogsLogGroupARN (\ s a -> s{_utrsCloudWatchLogsLogGroupARN = a});
 
 -- | Specifies the name of the trail.
-utrName :: Lens' UpdateTrailResponse (Maybe Text)
-utrName = lens _utrName (\ s a -> s{_utrName = a});
+utrsName :: Lens' UpdateTrailResponse (Maybe Text)
+utrsName = lens _utrsName (\ s a -> s{_utrsName = a});
 
 -- | Specifies whether the trail is publishing events from global services
 -- such as IAM to the log files.
-utrIncludeGlobalServiceEvents :: Lens' UpdateTrailResponse (Maybe Bool)
-utrIncludeGlobalServiceEvents = lens _utrIncludeGlobalServiceEvents (\ s a -> s{_utrIncludeGlobalServiceEvents = a});
+utrsIncludeGlobalServiceEvents :: Lens' UpdateTrailResponse (Maybe Bool)
+utrsIncludeGlobalServiceEvents = lens _utrsIncludeGlobalServiceEvents (\ s a -> s{_utrsIncludeGlobalServiceEvents = a});
 
 -- | Specifies the role for the CloudWatch Logs endpoint to assume to write
 -- to a user’s log group.
-utrCloudWatchLogsRoleARN :: Lens' UpdateTrailResponse (Maybe Text)
-utrCloudWatchLogsRoleARN = lens _utrCloudWatchLogsRoleARN (\ s a -> s{_utrCloudWatchLogsRoleARN = a});
+utrsCloudWatchLogsRoleARN :: Lens' UpdateTrailResponse (Maybe Text)
+utrsCloudWatchLogsRoleARN = lens _utrsCloudWatchLogsRoleARN (\ s a -> s{_utrsCloudWatchLogsRoleARN = a});
 
 -- | Specifies the name of the Amazon S3 bucket designated for publishing log
 -- files.
-utrS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
-utrS3BucketName = lens _utrS3BucketName (\ s a -> s{_utrS3BucketName = a});
+utrsS3BucketName :: Lens' UpdateTrailResponse (Maybe Text)
+utrsS3BucketName = lens _utrsS3BucketName (\ s a -> s{_utrsS3BucketName = a});
 
 -- | FIXME: Undocumented member.
-utrStatus :: Lens' UpdateTrailResponse Int
-utrStatus = lens _utrStatus (\ s a -> s{_utrStatus = a});
+utrsStatus :: Lens' UpdateTrailResponse Int
+utrsStatus = lens _utrsStatus (\ s a -> s{_utrsStatus = a});

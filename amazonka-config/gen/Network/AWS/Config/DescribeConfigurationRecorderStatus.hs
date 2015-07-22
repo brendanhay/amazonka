@@ -31,15 +31,15 @@ module Network.AWS.Config.DescribeConfigurationRecorderStatus
     -- ** Request constructor
     , describeConfigurationRecorderStatus
     -- ** Request lenses
-    , dcrsConfigurationRecorderNames
+    , dcrsrqConfigurationRecorderNames
 
     -- * Response
     , DescribeConfigurationRecorderStatusResponse
     -- ** Response constructor
     , describeConfigurationRecorderStatusResponse
     -- ** Response lenses
-    , dcrsrConfigurationRecordersStatus
-    , dcrsrStatus
+    , dcrsrsConfigurationRecordersStatus
+    , dcrsrsStatus
     ) where
 
 import           Network.AWS.Config.Types
@@ -53,23 +53,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrsConfigurationRecorderNames'
+-- * 'dcrsrqConfigurationRecorderNames'
 newtype DescribeConfigurationRecorderStatus = DescribeConfigurationRecorderStatus'
-    { _dcrsConfigurationRecorderNames :: Maybe [Text]
+    { _dcrsrqConfigurationRecorderNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecorderStatus' smart constructor.
 describeConfigurationRecorderStatus :: DescribeConfigurationRecorderStatus
 describeConfigurationRecorderStatus =
     DescribeConfigurationRecorderStatus'
-    { _dcrsConfigurationRecorderNames = Nothing
+    { _dcrsrqConfigurationRecorderNames = Nothing
     }
 
 -- | The name(s) of the configuration recorder. If the name is not specified,
 -- the action returns the current status of all the configuration recorders
 -- associated with the account.
-dcrsConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
-dcrsConfigurationRecorderNames = lens _dcrsConfigurationRecorderNames (\ s a -> s{_dcrsConfigurationRecorderNames = a}) . _Default;
+dcrsrqConfigurationRecorderNames :: Lens' DescribeConfigurationRecorderStatus [Text]
+dcrsrqConfigurationRecorderNames = lens _dcrsrqConfigurationRecorderNames (\ s a -> s{_dcrsrqConfigurationRecorderNames = a}) . _Default;
 
 instance AWSRequest
          DescribeConfigurationRecorderStatus where
@@ -100,7 +100,7 @@ instance ToJSON DescribeConfigurationRecorderStatus
         toJSON DescribeConfigurationRecorderStatus'{..}
           = object
               ["ConfigurationRecorderNames" .=
-                 _dcrsConfigurationRecorderNames]
+                 _dcrsrqConfigurationRecorderNames]
 
 instance ToPath DescribeConfigurationRecorderStatus
          where
@@ -117,26 +117,26 @@ instance ToQuery DescribeConfigurationRecorderStatus
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrsrConfigurationRecordersStatus'
+-- * 'dcrsrsConfigurationRecordersStatus'
 --
--- * 'dcrsrStatus'
+-- * 'dcrsrsStatus'
 data DescribeConfigurationRecorderStatusResponse = DescribeConfigurationRecorderStatusResponse'
-    { _dcrsrConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
-    , _dcrsrStatus                       :: !Int
+    { _dcrsrsConfigurationRecordersStatus :: !(Maybe [ConfigurationRecorderStatus])
+    , _dcrsrsStatus                       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConfigurationRecorderStatusResponse' smart constructor.
 describeConfigurationRecorderStatusResponse :: Int -> DescribeConfigurationRecorderStatusResponse
 describeConfigurationRecorderStatusResponse pStatus =
     DescribeConfigurationRecorderStatusResponse'
-    { _dcrsrConfigurationRecordersStatus = Nothing
-    , _dcrsrStatus = pStatus
+    { _dcrsrsConfigurationRecordersStatus = Nothing
+    , _dcrsrsStatus = pStatus
     }
 
 -- | A list that contains status of the specified recorders.
-dcrsrConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
-dcrsrConfigurationRecordersStatus = lens _dcrsrConfigurationRecordersStatus (\ s a -> s{_dcrsrConfigurationRecordersStatus = a}) . _Default;
+dcrsrsConfigurationRecordersStatus :: Lens' DescribeConfigurationRecorderStatusResponse [ConfigurationRecorderStatus]
+dcrsrsConfigurationRecordersStatus = lens _dcrsrsConfigurationRecordersStatus (\ s a -> s{_dcrsrsConfigurationRecordersStatus = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrsrStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
-dcrsrStatus = lens _dcrsrStatus (\ s a -> s{_dcrsrStatus = a});
+dcrsrsStatus :: Lens' DescribeConfigurationRecorderStatusResponse Int
+dcrsrsStatus = lens _dcrsrsStatus (\ s a -> s{_dcrsrsStatus = a});

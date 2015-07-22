@@ -33,7 +33,7 @@ module Network.AWS.OpsWorks.DeregisterRDSDBInstance
     -- ** Request constructor
     , deregisterRDSDBInstance
     -- ** Request lenses
-    , drdiRDSDBInstanceARN
+    , drdirqRDSDBInstanceARN
 
     -- * Response
     , DeregisterRDSDBInstanceResponse
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drdiRDSDBInstanceARN'
+-- * 'drdirqRDSDBInstanceARN'
 newtype DeregisterRDSDBInstance = DeregisterRDSDBInstance'
-    { _drdiRDSDBInstanceARN :: Text
+    { _drdirqRDSDBInstanceARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterRDSDBInstance' smart constructor.
 deregisterRDSDBInstance :: Text -> DeregisterRDSDBInstance
 deregisterRDSDBInstance pRDSDBInstanceARN =
     DeregisterRDSDBInstance'
-    { _drdiRDSDBInstanceARN = pRDSDBInstanceARN
+    { _drdirqRDSDBInstanceARN = pRDSDBInstanceARN
     }
 
 -- | The Amazon RDS instance\'s ARN.
-drdiRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
-drdiRDSDBInstanceARN = lens _drdiRDSDBInstanceARN (\ s a -> s{_drdiRDSDBInstanceARN = a});
+drdirqRDSDBInstanceARN :: Lens' DeregisterRDSDBInstance Text
+drdirqRDSDBInstanceARN = lens _drdirqRDSDBInstanceARN (\ s a -> s{_drdirqRDSDBInstanceARN = a});
 
 instance AWSRequest DeregisterRDSDBInstance where
         type Sv DeregisterRDSDBInstance = OpsWorks
@@ -87,7 +87,7 @@ instance ToHeaders DeregisterRDSDBInstance where
 instance ToJSON DeregisterRDSDBInstance where
         toJSON DeregisterRDSDBInstance'{..}
           = object
-              ["RdsDbInstanceArn" .= _drdiRDSDBInstanceARN]
+              ["RdsDbInstanceArn" .= _drdirqRDSDBInstanceARN]
 
 instance ToPath DeregisterRDSDBInstance where
         toPath = const "/"

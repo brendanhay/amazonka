@@ -123,22 +123,22 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * EnvironmentDescription
     , EnvironmentDescription
     , environmentDescription
-    , envCNAME
-    , envStatus
-    , envTemplateName
-    , envAbortableOperationInProgress
-    , envEndpointURL
-    , envDateUpdated
-    , envResources
-    , envHealth
-    , envVersionLabel
-    , envDateCreated
-    , envTier
-    , envEnvironmentName
-    , envApplicationName
-    , envEnvironmentId
-    , envSolutionStackName
-    , envDescription
+    , eCNAME
+    , eStatus
+    , eTemplateName
+    , eAbortableOperationInProgress
+    , eEndpointURL
+    , eDateUpdated
+    , eResources
+    , eHealth
+    , eVersionLabel
+    , eDateCreated
+    , eTier
+    , eEnvironmentName
+    , eApplicationName
+    , eEnvironmentId
+    , eSolutionStackName
+    , eDescription
 
     -- * EnvironmentInfoDescription
     , EnvironmentInfoDescription
@@ -186,7 +186,7 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * Instance
     , Instance
     , instance'
-    , insId
+    , iId
 
     -- * LaunchConfiguration
     , LaunchConfiguration
@@ -196,8 +196,8 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * Listener
     , Listener
     , listener
-    , lisProtocol
-    , lisPort
+    , lProtocol
+    , lPort
 
     -- * LoadBalancer
     , LoadBalancer
@@ -227,8 +227,8 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * Queue
     , Queue
     , queue
-    , queURL
-    , queName
+    , qURL
+    , qName
 
     -- * S3Location
     , S3Location
@@ -257,7 +257,7 @@ module Network.AWS.ElasticBeanstalk.Types
     -- * Trigger
     , Trigger
     , trigger
-    , triName
+    , tName
 
     -- * ValidationMessage
     , ValidationMessage

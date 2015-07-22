@@ -34,11 +34,11 @@ module Network.AWS.OpsWorks.SetPermission
     -- ** Request constructor
     , setPermission
     -- ** Request lenses
-    , spAllowSudo
-    , spLevel
-    , spAllowSSH
-    , spStackId
-    , spIAMUserARN
+    , sprqAllowSudo
+    , sprqLevel
+    , sprqAllowSSH
+    , sprqStackId
+    , sprqIAMUserARN
 
     -- * Response
     , SetPermissionResponse
@@ -55,37 +55,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'spAllowSudo'
+-- * 'sprqAllowSudo'
 --
--- * 'spLevel'
+-- * 'sprqLevel'
 --
--- * 'spAllowSSH'
+-- * 'sprqAllowSSH'
 --
--- * 'spStackId'
+-- * 'sprqStackId'
 --
--- * 'spIAMUserARN'
+-- * 'sprqIAMUserARN'
 data SetPermission = SetPermission'
-    { _spAllowSudo  :: !(Maybe Bool)
-    , _spLevel      :: !(Maybe Text)
-    , _spAllowSSH   :: !(Maybe Bool)
-    , _spStackId    :: !Text
-    , _spIAMUserARN :: !Text
+    { _sprqAllowSudo  :: !(Maybe Bool)
+    , _sprqLevel      :: !(Maybe Text)
+    , _sprqAllowSSH   :: !(Maybe Bool)
+    , _sprqStackId    :: !Text
+    , _sprqIAMUserARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SetPermission' smart constructor.
 setPermission :: Text -> Text -> SetPermission
 setPermission pStackId pIAMUserARN =
     SetPermission'
-    { _spAllowSudo = Nothing
-    , _spLevel = Nothing
-    , _spAllowSSH = Nothing
-    , _spStackId = pStackId
-    , _spIAMUserARN = pIAMUserARN
+    { _sprqAllowSudo = Nothing
+    , _sprqLevel = Nothing
+    , _sprqAllowSSH = Nothing
+    , _sprqStackId = pStackId
+    , _sprqIAMUserARN = pIAMUserARN
     }
 
 -- | The user is allowed to use __sudo__ to elevate privileges.
-spAllowSudo :: Lens' SetPermission (Maybe Bool)
-spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a});
+sprqAllowSudo :: Lens' SetPermission (Maybe Bool)
+sprqAllowSudo = lens _sprqAllowSudo (\ s a -> s{_sprqAllowSudo = a});
 
 -- | The user\'s permission level, which must be set to one of the following
 -- strings. You cannot set your own permissions level.
@@ -99,20 +99,20 @@ spAllowSudo = lens _spAllowSudo (\ s a -> s{_spAllowSudo = a});
 -- For more information on the permissions associated with these levels,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/opsworks-security-users.html Managing User Permissions>.
-spLevel :: Lens' SetPermission (Maybe Text)
-spLevel = lens _spLevel (\ s a -> s{_spLevel = a});
+sprqLevel :: Lens' SetPermission (Maybe Text)
+sprqLevel = lens _sprqLevel (\ s a -> s{_sprqLevel = a});
 
 -- | The user is allowed to use SSH to communicate with the instance.
-spAllowSSH :: Lens' SetPermission (Maybe Bool)
-spAllowSSH = lens _spAllowSSH (\ s a -> s{_spAllowSSH = a});
+sprqAllowSSH :: Lens' SetPermission (Maybe Bool)
+sprqAllowSSH = lens _sprqAllowSSH (\ s a -> s{_sprqAllowSSH = a});
 
 -- | The stack ID.
-spStackId :: Lens' SetPermission Text
-spStackId = lens _spStackId (\ s a -> s{_spStackId = a});
+sprqStackId :: Lens' SetPermission Text
+sprqStackId = lens _sprqStackId (\ s a -> s{_sprqStackId = a});
 
 -- | The user\'s IAM ARN.
-spIAMUserARN :: Lens' SetPermission Text
-spIAMUserARN = lens _spIAMUserARN (\ s a -> s{_spIAMUserARN = a});
+sprqIAMUserARN :: Lens' SetPermission Text
+sprqIAMUserARN = lens _sprqIAMUserARN (\ s a -> s{_sprqIAMUserARN = a});
 
 instance AWSRequest SetPermission where
         type Sv SetPermission = OpsWorks
@@ -132,9 +132,10 @@ instance ToHeaders SetPermission where
 instance ToJSON SetPermission where
         toJSON SetPermission'{..}
           = object
-              ["AllowSudo" .= _spAllowSudo, "Level" .= _spLevel,
-               "AllowSsh" .= _spAllowSSH, "StackId" .= _spStackId,
-               "IamUserArn" .= _spIAMUserARN]
+              ["AllowSudo" .= _sprqAllowSudo,
+               "Level" .= _sprqLevel, "AllowSsh" .= _sprqAllowSSH,
+               "StackId" .= _sprqStackId,
+               "IamUserArn" .= _sprqIAMUserARN]
 
 instance ToPath SetPermission where
         toPath = const "/"

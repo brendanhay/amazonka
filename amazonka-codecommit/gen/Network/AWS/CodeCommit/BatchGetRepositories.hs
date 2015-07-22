@@ -34,16 +34,16 @@ module Network.AWS.CodeCommit.BatchGetRepositories
     -- ** Request constructor
     , batchGetRepositories
     -- ** Request lenses
-    , bgrRepositoryNames
+    , bgrrqRepositoryNames
 
     -- * Response
     , BatchGetRepositoriesResponse
     -- ** Response constructor
     , batchGetRepositoriesResponse
     -- ** Response lenses
-    , bgrrRepositories
-    , bgrrRepositoriesNotFound
-    , bgrrStatus
+    , bgrrsRepositories
+    , bgrrsRepositoriesNotFound
+    , bgrrsStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgrRepositoryNames'
+-- * 'bgrrqRepositoryNames'
 newtype BatchGetRepositories = BatchGetRepositories'
-    { _bgrRepositoryNames :: [Text]
+    { _bgrrqRepositoryNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetRepositories' smart constructor.
 batchGetRepositories :: BatchGetRepositories
 batchGetRepositories =
     BatchGetRepositories'
-    { _bgrRepositoryNames = mempty
+    { _bgrrqRepositoryNames = mempty
     }
 
 -- | The names of the repositories to get information about.
-bgrRepositoryNames :: Lens' BatchGetRepositories [Text]
-bgrRepositoryNames = lens _bgrRepositoryNames (\ s a -> s{_bgrRepositoryNames = a});
+bgrrqRepositoryNames :: Lens' BatchGetRepositories [Text]
+bgrrqRepositoryNames = lens _bgrrqRepositoryNames (\ s a -> s{_bgrrqRepositoryNames = a});
 
 instance AWSRequest BatchGetRepositories where
         type Sv BatchGetRepositories = CodeCommit
@@ -98,7 +98,7 @@ instance ToHeaders BatchGetRepositories where
 
 instance ToJSON BatchGetRepositories where
         toJSON BatchGetRepositories'{..}
-          = object ["repositoryNames" .= _bgrRepositoryNames]
+          = object ["repositoryNames" .= _bgrrqRepositoryNames]
 
 instance ToPath BatchGetRepositories where
         toPath = const "/"
@@ -112,35 +112,35 @@ instance ToQuery BatchGetRepositories where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgrrRepositories'
+-- * 'bgrrsRepositories'
 --
--- * 'bgrrRepositoriesNotFound'
+-- * 'bgrrsRepositoriesNotFound'
 --
--- * 'bgrrStatus'
+-- * 'bgrrsStatus'
 data BatchGetRepositoriesResponse = BatchGetRepositoriesResponse'
-    { _bgrrRepositories         :: !(Maybe [RepositoryMetadata])
-    , _bgrrRepositoriesNotFound :: !(Maybe [Text])
-    , _bgrrStatus               :: !Int
+    { _bgrrsRepositories         :: !(Maybe [RepositoryMetadata])
+    , _bgrrsRepositoriesNotFound :: !(Maybe [Text])
+    , _bgrrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetRepositoriesResponse' smart constructor.
 batchGetRepositoriesResponse :: Int -> BatchGetRepositoriesResponse
 batchGetRepositoriesResponse pStatus =
     BatchGetRepositoriesResponse'
-    { _bgrrRepositories = Nothing
-    , _bgrrRepositoriesNotFound = Nothing
-    , _bgrrStatus = pStatus
+    { _bgrrsRepositories = Nothing
+    , _bgrrsRepositoriesNotFound = Nothing
+    , _bgrrsStatus = pStatus
     }
 
 -- | A list of repositories returned by the batch get repositories operation.
-bgrrRepositories :: Lens' BatchGetRepositoriesResponse [RepositoryMetadata]
-bgrrRepositories = lens _bgrrRepositories (\ s a -> s{_bgrrRepositories = a}) . _Default;
+bgrrsRepositories :: Lens' BatchGetRepositoriesResponse [RepositoryMetadata]
+bgrrsRepositories = lens _bgrrsRepositories (\ s a -> s{_bgrrsRepositories = a}) . _Default;
 
 -- | Returns a list of repository names for which information could not be
 -- found.
-bgrrRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
-bgrrRepositoriesNotFound = lens _bgrrRepositoriesNotFound (\ s a -> s{_bgrrRepositoriesNotFound = a}) . _Default;
+bgrrsRepositoriesNotFound :: Lens' BatchGetRepositoriesResponse [Text]
+bgrrsRepositoriesNotFound = lens _bgrrsRepositoriesNotFound (\ s a -> s{_bgrrsRepositoriesNotFound = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgrrStatus :: Lens' BatchGetRepositoriesResponse Int
-bgrrStatus = lens _bgrrStatus (\ s a -> s{_bgrrStatus = a});
+bgrrsStatus :: Lens' BatchGetRepositoriesResponse Int
+bgrrsStatus = lens _bgrrsStatus (\ s a -> s{_bgrrsStatus = a});

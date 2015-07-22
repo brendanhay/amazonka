@@ -27,16 +27,16 @@ module Network.AWS.ElasticBeanstalk.DescribeEnvironmentResources
     -- ** Request constructor
     , describeEnvironmentResources
     -- ** Request lenses
-    , derEnvironmentName
-    , derEnvironmentId
+    , derrqEnvironmentName
+    , derrqEnvironmentId
 
     -- * Response
     , DescribeEnvironmentResourcesResponse
     -- ** Response constructor
     , describeEnvironmentResourcesResponse
     -- ** Response lenses
-    , derrEnvironmentResources
-    , derrStatus
+    , derrsEnvironmentResources
+    , derrsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -50,20 +50,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derEnvironmentName'
+-- * 'derrqEnvironmentName'
 --
--- * 'derEnvironmentId'
+-- * 'derrqEnvironmentId'
 data DescribeEnvironmentResources = DescribeEnvironmentResources'
-    { _derEnvironmentName :: !(Maybe Text)
-    , _derEnvironmentId   :: !(Maybe Text)
+    { _derrqEnvironmentName :: !(Maybe Text)
+    , _derrqEnvironmentId   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironmentResources' smart constructor.
 describeEnvironmentResources :: DescribeEnvironmentResources
 describeEnvironmentResources =
     DescribeEnvironmentResources'
-    { _derEnvironmentName = Nothing
-    , _derEnvironmentId = Nothing
+    { _derrqEnvironmentName = Nothing
+    , _derrqEnvironmentId = Nothing
     }
 
 -- | The name of the environment to retrieve AWS resource usage data.
@@ -71,16 +71,16 @@ describeEnvironmentResources =
 -- Condition: You must specify either this or an EnvironmentId, or both. If
 -- you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-derEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
-derEnvironmentName = lens _derEnvironmentName (\ s a -> s{_derEnvironmentName = a});
+derrqEnvironmentName :: Lens' DescribeEnvironmentResources (Maybe Text)
+derrqEnvironmentName = lens _derrqEnvironmentName (\ s a -> s{_derrqEnvironmentName = a});
 
 -- | The ID of the environment to retrieve AWS resource usage data.
 --
 -- Condition: You must specify either this or an EnvironmentName, or both.
 -- If you do not specify either, AWS Elastic Beanstalk returns
 -- @MissingRequiredParameter@ error.
-derEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
-derEnvironmentId = lens _derEnvironmentId (\ s a -> s{_derEnvironmentId = a});
+derrqEnvironmentId :: Lens' DescribeEnvironmentResources (Maybe Text)
+derrqEnvironmentId = lens _derrqEnvironmentId (\ s a -> s{_derrqEnvironmentId = a});
 
 instance AWSRequest DescribeEnvironmentResources
          where
@@ -109,8 +109,8 @@ instance ToQuery DescribeEnvironmentResources where
               ["Action" =:
                  ("DescribeEnvironmentResources" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EnvironmentName" =: _derEnvironmentName,
-               "EnvironmentId" =: _derEnvironmentId]
+               "EnvironmentName" =: _derrqEnvironmentName,
+               "EnvironmentId" =: _derrqEnvironmentId]
 
 -- | Result message containing a list of environment resource descriptions.
 --
@@ -118,26 +118,26 @@ instance ToQuery DescribeEnvironmentResources where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derrEnvironmentResources'
+-- * 'derrsEnvironmentResources'
 --
--- * 'derrStatus'
+-- * 'derrsStatus'
 data DescribeEnvironmentResourcesResponse = DescribeEnvironmentResourcesResponse'
-    { _derrEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
-    , _derrStatus               :: !Int
+    { _derrsEnvironmentResources :: !(Maybe EnvironmentResourceDescription)
+    , _derrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEnvironmentResourcesResponse' smart constructor.
 describeEnvironmentResourcesResponse :: Int -> DescribeEnvironmentResourcesResponse
 describeEnvironmentResourcesResponse pStatus =
     DescribeEnvironmentResourcesResponse'
-    { _derrEnvironmentResources = Nothing
-    , _derrStatus = pStatus
+    { _derrsEnvironmentResources = Nothing
+    , _derrsStatus = pStatus
     }
 
 -- | A list of EnvironmentResourceDescription.
-derrEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
-derrEnvironmentResources = lens _derrEnvironmentResources (\ s a -> s{_derrEnvironmentResources = a});
+derrsEnvironmentResources :: Lens' DescribeEnvironmentResourcesResponse (Maybe EnvironmentResourceDescription)
+derrsEnvironmentResources = lens _derrsEnvironmentResources (\ s a -> s{_derrsEnvironmentResources = a});
 
 -- | FIXME: Undocumented member.
-derrStatus :: Lens' DescribeEnvironmentResourcesResponse Int
-derrStatus = lens _derrStatus (\ s a -> s{_derrStatus = a});
+derrsStatus :: Lens' DescribeEnvironmentResourcesResponse Int
+derrsStatus = lens _derrsStatus (\ s a -> s{_derrsStatus = a});

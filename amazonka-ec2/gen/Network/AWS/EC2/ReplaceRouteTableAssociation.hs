@@ -37,17 +37,17 @@ module Network.AWS.EC2.ReplaceRouteTableAssociation
     -- ** Request constructor
     , replaceRouteTableAssociation
     -- ** Request lenses
-    , rrtaDryRun
-    , rrtaAssociationId
-    , rrtaRouteTableId
+    , rrtarqDryRun
+    , rrtarqAssociationId
+    , rrtarqRouteTableId
 
     -- * Response
     , ReplaceRouteTableAssociationResponse
     -- ** Response constructor
     , replaceRouteTableAssociationResponse
     -- ** Response lenses
-    , rrtarNewAssociationId
-    , rrtarStatus
+    , rrtarsNewAssociationId
+    , rrtarsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -59,40 +59,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrtaDryRun'
+-- * 'rrtarqDryRun'
 --
--- * 'rrtaAssociationId'
+-- * 'rrtarqAssociationId'
 --
--- * 'rrtaRouteTableId'
+-- * 'rrtarqRouteTableId'
 data ReplaceRouteTableAssociation = ReplaceRouteTableAssociation'
-    { _rrtaDryRun        :: !(Maybe Bool)
-    , _rrtaAssociationId :: !Text
-    , _rrtaRouteTableId  :: !Text
+    { _rrtarqDryRun        :: !(Maybe Bool)
+    , _rrtarqAssociationId :: !Text
+    , _rrtarqRouteTableId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRouteTableAssociation' smart constructor.
 replaceRouteTableAssociation :: Text -> Text -> ReplaceRouteTableAssociation
 replaceRouteTableAssociation pAssociationId pRouteTableId =
     ReplaceRouteTableAssociation'
-    { _rrtaDryRun = Nothing
-    , _rrtaAssociationId = pAssociationId
-    , _rrtaRouteTableId = pRouteTableId
+    { _rrtarqDryRun = Nothing
+    , _rrtarqAssociationId = pAssociationId
+    , _rrtarqRouteTableId = pRouteTableId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rrtaDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
-rrtaDryRun = lens _rrtaDryRun (\ s a -> s{_rrtaDryRun = a});
+rrtarqDryRun :: Lens' ReplaceRouteTableAssociation (Maybe Bool)
+rrtarqDryRun = lens _rrtarqDryRun (\ s a -> s{_rrtarqDryRun = a});
 
 -- | The association ID.
-rrtaAssociationId :: Lens' ReplaceRouteTableAssociation Text
-rrtaAssociationId = lens _rrtaAssociationId (\ s a -> s{_rrtaAssociationId = a});
+rrtarqAssociationId :: Lens' ReplaceRouteTableAssociation Text
+rrtarqAssociationId = lens _rrtarqAssociationId (\ s a -> s{_rrtarqAssociationId = a});
 
 -- | The ID of the new route table to associate with the subnet.
-rrtaRouteTableId :: Lens' ReplaceRouteTableAssociation Text
-rrtaRouteTableId = lens _rrtaRouteTableId (\ s a -> s{_rrtaRouteTableId = a});
+rrtarqRouteTableId :: Lens' ReplaceRouteTableAssociation Text
+rrtarqRouteTableId = lens _rrtarqRouteTableId (\ s a -> s{_rrtarqRouteTableId = a});
 
 instance AWSRequest ReplaceRouteTableAssociation
          where
@@ -118,34 +118,34 @@ instance ToQuery ReplaceRouteTableAssociation where
               ["Action" =:
                  ("ReplaceRouteTableAssociation" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rrtaDryRun,
-               "AssociationId" =: _rrtaAssociationId,
-               "RouteTableId" =: _rrtaRouteTableId]
+               "DryRun" =: _rrtarqDryRun,
+               "AssociationId" =: _rrtarqAssociationId,
+               "RouteTableId" =: _rrtarqRouteTableId]
 
 -- | /See:/ 'replaceRouteTableAssociationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrtarNewAssociationId'
+-- * 'rrtarsNewAssociationId'
 --
--- * 'rrtarStatus'
+-- * 'rrtarsStatus'
 data ReplaceRouteTableAssociationResponse = ReplaceRouteTableAssociationResponse'
-    { _rrtarNewAssociationId :: !(Maybe Text)
-    , _rrtarStatus           :: !Int
+    { _rrtarsNewAssociationId :: !(Maybe Text)
+    , _rrtarsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceRouteTableAssociationResponse' smart constructor.
 replaceRouteTableAssociationResponse :: Int -> ReplaceRouteTableAssociationResponse
 replaceRouteTableAssociationResponse pStatus =
     ReplaceRouteTableAssociationResponse'
-    { _rrtarNewAssociationId = Nothing
-    , _rrtarStatus = pStatus
+    { _rrtarsNewAssociationId = Nothing
+    , _rrtarsStatus = pStatus
     }
 
 -- | The ID of the new association.
-rrtarNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
-rrtarNewAssociationId = lens _rrtarNewAssociationId (\ s a -> s{_rrtarNewAssociationId = a});
+rrtarsNewAssociationId :: Lens' ReplaceRouteTableAssociationResponse (Maybe Text)
+rrtarsNewAssociationId = lens _rrtarsNewAssociationId (\ s a -> s{_rrtarsNewAssociationId = a});
 
 -- | FIXME: Undocumented member.
-rrtarStatus :: Lens' ReplaceRouteTableAssociationResponse Int
-rrtarStatus = lens _rrtarStatus (\ s a -> s{_rrtarStatus = a});
+rrtarsStatus :: Lens' ReplaceRouteTableAssociationResponse Int
+rrtarsStatus = lens _rrtarsStatus (\ s a -> s{_rrtarsStatus = a});

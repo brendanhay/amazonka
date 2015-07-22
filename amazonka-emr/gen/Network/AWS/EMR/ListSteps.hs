@@ -27,19 +27,19 @@ module Network.AWS.EMR.ListSteps
     -- ** Request constructor
     , listSteps
     -- ** Request lenses
-    , lsStepIds
-    , lsStepStates
-    , lsMarker
-    , lsClusterId
+    , lsrqStepIds
+    , lsrqStepStates
+    , lsrqMarker
+    , lsrqClusterId
 
     -- * Response
     , ListStepsResponse
     -- ** Response constructor
     , listStepsResponse
     -- ** Response lenses
-    , lsrSteps
-    , lsrMarker
-    , lsrStatus
+    , lsrsSteps
+    , lsrsMarker
+    , lsrsStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -54,51 +54,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsStepIds'
+-- * 'lsrqStepIds'
 --
--- * 'lsStepStates'
+-- * 'lsrqStepStates'
 --
--- * 'lsMarker'
+-- * 'lsrqMarker'
 --
--- * 'lsClusterId'
+-- * 'lsrqClusterId'
 data ListSteps = ListSteps'
-    { _lsStepIds    :: !(Maybe [Text])
-    , _lsStepStates :: !(Maybe [StepState])
-    , _lsMarker     :: !(Maybe Text)
-    , _lsClusterId  :: !Text
+    { _lsrqStepIds    :: !(Maybe [Text])
+    , _lsrqStepStates :: !(Maybe [StepState])
+    , _lsrqMarker     :: !(Maybe Text)
+    , _lsrqClusterId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSteps' smart constructor.
 listSteps :: Text -> ListSteps
 listSteps pClusterId =
     ListSteps'
-    { _lsStepIds = Nothing
-    , _lsStepStates = Nothing
-    , _lsMarker = Nothing
-    , _lsClusterId = pClusterId
+    { _lsrqStepIds = Nothing
+    , _lsrqStepStates = Nothing
+    , _lsrqMarker = Nothing
+    , _lsrqClusterId = pClusterId
     }
 
 -- | The filter to limit the step list based on the identifier of the steps.
-lsStepIds :: Lens' ListSteps [Text]
-lsStepIds = lens _lsStepIds (\ s a -> s{_lsStepIds = a}) . _Default;
+lsrqStepIds :: Lens' ListSteps [Text]
+lsrqStepIds = lens _lsrqStepIds (\ s a -> s{_lsrqStepIds = a}) . _Default;
 
 -- | The filter to limit the step list based on certain states.
-lsStepStates :: Lens' ListSteps [StepState]
-lsStepStates = lens _lsStepStates (\ s a -> s{_lsStepStates = a}) . _Default;
+lsrqStepStates :: Lens' ListSteps [StepState]
+lsrqStepStates = lens _lsrqStepStates (\ s a -> s{_lsrqStepStates = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lsMarker :: Lens' ListSteps (Maybe Text)
-lsMarker = lens _lsMarker (\ s a -> s{_lsMarker = a});
+lsrqMarker :: Lens' ListSteps (Maybe Text)
+lsrqMarker = lens _lsrqMarker (\ s a -> s{_lsrqMarker = a});
 
 -- | The identifier of the cluster for which to list the steps.
-lsClusterId :: Lens' ListSteps Text
-lsClusterId = lens _lsClusterId (\ s a -> s{_lsClusterId = a});
+lsrqClusterId :: Lens' ListSteps Text
+lsrqClusterId = lens _lsrqClusterId (\ s a -> s{_lsrqClusterId = a});
 
 instance AWSPager ListSteps where
         page rq rs
-          | stop (rs ^. lsrMarker) = Nothing
-          | stop (rs ^. lsrSteps) = Nothing
-          | otherwise = Just $ rq & lsMarker .~ rs ^. lsrMarker
+          | stop (rs ^. lsrsMarker) = Nothing
+          | stop (rs ^. lsrsSteps) = Nothing
+          | otherwise =
+            Just $ rq & lsrqMarker .~ rs ^. lsrsMarker
 
 instance AWSRequest ListSteps where
         type Sv ListSteps = EMR
@@ -123,9 +124,10 @@ instance ToHeaders ListSteps where
 instance ToJSON ListSteps where
         toJSON ListSteps'{..}
           = object
-              ["StepIds" .= _lsStepIds,
-               "StepStates" .= _lsStepStates, "Marker" .= _lsMarker,
-               "ClusterId" .= _lsClusterId]
+              ["StepIds" .= _lsrqStepIds,
+               "StepStates" .= _lsrqStepStates,
+               "Marker" .= _lsrqMarker,
+               "ClusterId" .= _lsrqClusterId]
 
 instance ToPath ListSteps where
         toPath = const "/"
@@ -139,34 +141,34 @@ instance ToQuery ListSteps where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrSteps'
+-- * 'lsrsSteps'
 --
--- * 'lsrMarker'
+-- * 'lsrsMarker'
 --
--- * 'lsrStatus'
+-- * 'lsrsStatus'
 data ListStepsResponse = ListStepsResponse'
-    { _lsrSteps  :: !(Maybe [StepSummary])
-    , _lsrMarker :: !(Maybe Text)
-    , _lsrStatus :: !Int
+    { _lsrsSteps  :: !(Maybe [StepSummary])
+    , _lsrsMarker :: !(Maybe Text)
+    , _lsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListStepsResponse' smart constructor.
 listStepsResponse :: Int -> ListStepsResponse
 listStepsResponse pStatus =
     ListStepsResponse'
-    { _lsrSteps = Nothing
-    , _lsrMarker = Nothing
-    , _lsrStatus = pStatus
+    { _lsrsSteps = Nothing
+    , _lsrsMarker = Nothing
+    , _lsrsStatus = pStatus
     }
 
 -- | The filtered list of steps for the cluster.
-lsrSteps :: Lens' ListStepsResponse [StepSummary]
-lsrSteps = lens _lsrSteps (\ s a -> s{_lsrSteps = a}) . _Default;
+lsrsSteps :: Lens' ListStepsResponse [StepSummary]
+lsrsSteps = lens _lsrsSteps (\ s a -> s{_lsrsSteps = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lsrMarker :: Lens' ListStepsResponse (Maybe Text)
-lsrMarker = lens _lsrMarker (\ s a -> s{_lsrMarker = a});
+lsrsMarker :: Lens' ListStepsResponse (Maybe Text)
+lsrsMarker = lens _lsrsMarker (\ s a -> s{_lsrsMarker = a});
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListStepsResponse Int
-lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});
+lsrsStatus :: Lens' ListStepsResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

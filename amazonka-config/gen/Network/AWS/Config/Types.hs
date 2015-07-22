@@ -134,9 +134,9 @@ module Network.AWS.Config.Types
     -- * Relationship
     , Relationship
     , relationship
-    , relResourceId
-    , relResourceType
-    , relRelationshipName
+    , rResourceId
+    , rResourceType
+    , rRelationshipName
     ) where
 
 import           Network.AWS.Config.Types.Product

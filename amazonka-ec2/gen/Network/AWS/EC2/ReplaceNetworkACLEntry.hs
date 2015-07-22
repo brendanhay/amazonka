@@ -30,15 +30,15 @@ module Network.AWS.EC2.ReplaceNetworkACLEntry
     -- ** Request constructor
     , replaceNetworkACLEntry
     -- ** Request lenses
-    , rnaeICMPTypeCode
-    , rnaePortRange
-    , rnaeDryRun
-    , rnaeNetworkACLId
-    , rnaeRuleNumber
-    , rnaeProtocol
-    , rnaeRuleAction
-    , rnaeEgress
-    , rnaeCIdRBlock
+    , rnaerqICMPTypeCode
+    , rnaerqPortRange
+    , rnaerqDryRun
+    , rnaerqNetworkACLId
+    , rnaerqRuleNumber
+    , rnaerqProtocol
+    , rnaerqRuleAction
+    , rnaerqEgress
+    , rnaerqCIdRBlock
 
     -- * Response
     , ReplaceNetworkACLEntryResponse
@@ -55,92 +55,92 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rnaeICMPTypeCode'
+-- * 'rnaerqICMPTypeCode'
 --
--- * 'rnaePortRange'
+-- * 'rnaerqPortRange'
 --
--- * 'rnaeDryRun'
+-- * 'rnaerqDryRun'
 --
--- * 'rnaeNetworkACLId'
+-- * 'rnaerqNetworkACLId'
 --
--- * 'rnaeRuleNumber'
+-- * 'rnaerqRuleNumber'
 --
--- * 'rnaeProtocol'
+-- * 'rnaerqProtocol'
 --
--- * 'rnaeRuleAction'
+-- * 'rnaerqRuleAction'
 --
--- * 'rnaeEgress'
+-- * 'rnaerqEgress'
 --
--- * 'rnaeCIdRBlock'
+-- * 'rnaerqCIdRBlock'
 data ReplaceNetworkACLEntry = ReplaceNetworkACLEntry'
-    { _rnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
-    , _rnaePortRange    :: !(Maybe PortRange)
-    , _rnaeDryRun       :: !(Maybe Bool)
-    , _rnaeNetworkACLId :: !Text
-    , _rnaeRuleNumber   :: !Int
-    , _rnaeProtocol     :: !Text
-    , _rnaeRuleAction   :: !RuleAction
-    , _rnaeEgress       :: !Bool
-    , _rnaeCIdRBlock    :: !Text
+    { _rnaerqICMPTypeCode :: !(Maybe ICMPTypeCode)
+    , _rnaerqPortRange    :: !(Maybe PortRange)
+    , _rnaerqDryRun       :: !(Maybe Bool)
+    , _rnaerqNetworkACLId :: !Text
+    , _rnaerqRuleNumber   :: !Int
+    , _rnaerqProtocol     :: !Text
+    , _rnaerqRuleAction   :: !RuleAction
+    , _rnaerqEgress       :: !Bool
+    , _rnaerqCIdRBlock    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLEntry' smart constructor.
 replaceNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> ReplaceNetworkACLEntry
 replaceNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIdRBlock =
     ReplaceNetworkACLEntry'
-    { _rnaeICMPTypeCode = Nothing
-    , _rnaePortRange = Nothing
-    , _rnaeDryRun = Nothing
-    , _rnaeNetworkACLId = pNetworkACLId
-    , _rnaeRuleNumber = pRuleNumber
-    , _rnaeProtocol = pProtocol
-    , _rnaeRuleAction = pRuleAction
-    , _rnaeEgress = pEgress
-    , _rnaeCIdRBlock = pCIdRBlock
+    { _rnaerqICMPTypeCode = Nothing
+    , _rnaerqPortRange = Nothing
+    , _rnaerqDryRun = Nothing
+    , _rnaerqNetworkACLId = pNetworkACLId
+    , _rnaerqRuleNumber = pRuleNumber
+    , _rnaerqProtocol = pProtocol
+    , _rnaerqRuleAction = pRuleAction
+    , _rnaerqEgress = pEgress
+    , _rnaerqCIdRBlock = pCIdRBlock
     }
 
 -- | ICMP protocol: The ICMP type and code. Required if specifying 1 (ICMP)
 -- for the protocol.
-rnaeICMPTypeCode :: Lens' ReplaceNetworkACLEntry (Maybe ICMPTypeCode)
-rnaeICMPTypeCode = lens _rnaeICMPTypeCode (\ s a -> s{_rnaeICMPTypeCode = a});
+rnaerqICMPTypeCode :: Lens' ReplaceNetworkACLEntry (Maybe ICMPTypeCode)
+rnaerqICMPTypeCode = lens _rnaerqICMPTypeCode (\ s a -> s{_rnaerqICMPTypeCode = a});
 
 -- | TCP or UDP protocols: The range of ports the rule applies to. Required
 -- if specifying 6 (TCP) or 17 (UDP) for the protocol.
-rnaePortRange :: Lens' ReplaceNetworkACLEntry (Maybe PortRange)
-rnaePortRange = lens _rnaePortRange (\ s a -> s{_rnaePortRange = a});
+rnaerqPortRange :: Lens' ReplaceNetworkACLEntry (Maybe PortRange)
+rnaerqPortRange = lens _rnaerqPortRange (\ s a -> s{_rnaerqPortRange = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rnaeDryRun :: Lens' ReplaceNetworkACLEntry (Maybe Bool)
-rnaeDryRun = lens _rnaeDryRun (\ s a -> s{_rnaeDryRun = a});
+rnaerqDryRun :: Lens' ReplaceNetworkACLEntry (Maybe Bool)
+rnaerqDryRun = lens _rnaerqDryRun (\ s a -> s{_rnaerqDryRun = a});
 
 -- | The ID of the ACL.
-rnaeNetworkACLId :: Lens' ReplaceNetworkACLEntry Text
-rnaeNetworkACLId = lens _rnaeNetworkACLId (\ s a -> s{_rnaeNetworkACLId = a});
+rnaerqNetworkACLId :: Lens' ReplaceNetworkACLEntry Text
+rnaerqNetworkACLId = lens _rnaerqNetworkACLId (\ s a -> s{_rnaerqNetworkACLId = a});
 
 -- | The rule number of the entry to replace.
-rnaeRuleNumber :: Lens' ReplaceNetworkACLEntry Int
-rnaeRuleNumber = lens _rnaeRuleNumber (\ s a -> s{_rnaeRuleNumber = a});
+rnaerqRuleNumber :: Lens' ReplaceNetworkACLEntry Int
+rnaerqRuleNumber = lens _rnaerqRuleNumber (\ s a -> s{_rnaerqRuleNumber = a});
 
 -- | The IP protocol. You can specify @all@ or @-1@ to mean all protocols.
-rnaeProtocol :: Lens' ReplaceNetworkACLEntry Text
-rnaeProtocol = lens _rnaeProtocol (\ s a -> s{_rnaeProtocol = a});
+rnaerqProtocol :: Lens' ReplaceNetworkACLEntry Text
+rnaerqProtocol = lens _rnaerqProtocol (\ s a -> s{_rnaerqProtocol = a});
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-rnaeRuleAction :: Lens' ReplaceNetworkACLEntry RuleAction
-rnaeRuleAction = lens _rnaeRuleAction (\ s a -> s{_rnaeRuleAction = a});
+rnaerqRuleAction :: Lens' ReplaceNetworkACLEntry RuleAction
+rnaerqRuleAction = lens _rnaerqRuleAction (\ s a -> s{_rnaerqRuleAction = a});
 
 -- | Indicates whether to replace the egress rule.
 --
 -- Default: If no value is specified, we replace the ingress rule.
-rnaeEgress :: Lens' ReplaceNetworkACLEntry Bool
-rnaeEgress = lens _rnaeEgress (\ s a -> s{_rnaeEgress = a});
+rnaerqEgress :: Lens' ReplaceNetworkACLEntry Bool
+rnaerqEgress = lens _rnaerqEgress (\ s a -> s{_rnaerqEgress = a});
 
 -- | The network range to allow or deny, in CIDR notation.
-rnaeCIdRBlock :: Lens' ReplaceNetworkACLEntry Text
-rnaeCIdRBlock = lens _rnaeCIdRBlock (\ s a -> s{_rnaeCIdRBlock = a});
+rnaerqCIdRBlock :: Lens' ReplaceNetworkACLEntry Text
+rnaerqCIdRBlock = lens _rnaerqCIdRBlock (\ s a -> s{_rnaerqCIdRBlock = a});
 
 instance AWSRequest ReplaceNetworkACLEntry where
         type Sv ReplaceNetworkACLEntry = EC2
@@ -162,15 +162,15 @@ instance ToQuery ReplaceNetworkACLEntry where
               ["Action" =:
                  ("ReplaceNetworkACLEntry" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Icmp" =: _rnaeICMPTypeCode,
-               "PortRange" =: _rnaePortRange,
-               "DryRun" =: _rnaeDryRun,
-               "NetworkAclId" =: _rnaeNetworkACLId,
-               "RuleNumber" =: _rnaeRuleNumber,
-               "Protocol" =: _rnaeProtocol,
-               "RuleAction" =: _rnaeRuleAction,
-               "Egress" =: _rnaeEgress,
-               "CidrBlock" =: _rnaeCIdRBlock]
+               "Icmp" =: _rnaerqICMPTypeCode,
+               "PortRange" =: _rnaerqPortRange,
+               "DryRun" =: _rnaerqDryRun,
+               "NetworkAclId" =: _rnaerqNetworkACLId,
+               "RuleNumber" =: _rnaerqRuleNumber,
+               "Protocol" =: _rnaerqProtocol,
+               "RuleAction" =: _rnaerqRuleAction,
+               "Egress" =: _rnaerqEgress,
+               "CidrBlock" =: _rnaerqCIdRBlock]
 
 -- | /See:/ 'replaceNetworkACLEntryResponse' smart constructor.
 data ReplaceNetworkACLEntryResponse =

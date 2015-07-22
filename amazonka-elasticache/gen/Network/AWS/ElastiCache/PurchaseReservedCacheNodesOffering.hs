@@ -28,17 +28,17 @@ module Network.AWS.ElastiCache.PurchaseReservedCacheNodesOffering
     -- ** Request constructor
     , purchaseReservedCacheNodesOffering
     -- ** Request lenses
-    , prcnoCacheNodeCount
-    , prcnoReservedCacheNodeId
-    , prcnoReservedCacheNodesOfferingId
+    , prcnorqCacheNodeCount
+    , prcnorqReservedCacheNodeId
+    , prcnorqReservedCacheNodesOfferingId
 
     -- * Response
     , PurchaseReservedCacheNodesOfferingResponse
     -- ** Response constructor
     , purchaseReservedCacheNodesOfferingResponse
     -- ** Response lenses
-    , prcnorReservedCacheNode
-    , prcnorStatus
+    , prcnorsReservedCacheNode
+    , prcnorsStatus
     ) where
 
 import           Network.AWS.ElastiCache.Types
@@ -52,43 +52,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prcnoCacheNodeCount'
+-- * 'prcnorqCacheNodeCount'
 --
--- * 'prcnoReservedCacheNodeId'
+-- * 'prcnorqReservedCacheNodeId'
 --
--- * 'prcnoReservedCacheNodesOfferingId'
+-- * 'prcnorqReservedCacheNodesOfferingId'
 data PurchaseReservedCacheNodesOffering = PurchaseReservedCacheNodesOffering'
-    { _prcnoCacheNodeCount               :: !(Maybe Int)
-    , _prcnoReservedCacheNodeId          :: !(Maybe Text)
-    , _prcnoReservedCacheNodesOfferingId :: !Text
+    { _prcnorqCacheNodeCount               :: !(Maybe Int)
+    , _prcnorqReservedCacheNodeId          :: !(Maybe Text)
+    , _prcnorqReservedCacheNodesOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedCacheNodesOffering' smart constructor.
 purchaseReservedCacheNodesOffering :: Text -> PurchaseReservedCacheNodesOffering
 purchaseReservedCacheNodesOffering pReservedCacheNodesOfferingId =
     PurchaseReservedCacheNodesOffering'
-    { _prcnoCacheNodeCount = Nothing
-    , _prcnoReservedCacheNodeId = Nothing
-    , _prcnoReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId
+    { _prcnorqCacheNodeCount = Nothing
+    , _prcnorqReservedCacheNodeId = Nothing
+    , _prcnorqReservedCacheNodesOfferingId = pReservedCacheNodesOfferingId
     }
 
 -- | The number of cache node instances to reserve.
 --
 -- Default: @1@
-prcnoCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
-prcnoCacheNodeCount = lens _prcnoCacheNodeCount (\ s a -> s{_prcnoCacheNodeCount = a});
+prcnorqCacheNodeCount :: Lens' PurchaseReservedCacheNodesOffering (Maybe Int)
+prcnorqCacheNodeCount = lens _prcnorqCacheNodeCount (\ s a -> s{_prcnorqCacheNodeCount = a});
 
 -- | A customer-specified identifier to track this reservation.
 --
 -- Example: myreservationID
-prcnoReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
-prcnoReservedCacheNodeId = lens _prcnoReservedCacheNodeId (\ s a -> s{_prcnoReservedCacheNodeId = a});
+prcnorqReservedCacheNodeId :: Lens' PurchaseReservedCacheNodesOffering (Maybe Text)
+prcnorqReservedCacheNodeId = lens _prcnorqReservedCacheNodeId (\ s a -> s{_prcnorqReservedCacheNodeId = a});
 
 -- | The ID of the reserved cache node offering to purchase.
 --
 -- Example: 438012d3-4052-4cc7-b2e3-8d3372e0e706
-prcnoReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Text
-prcnoReservedCacheNodesOfferingId = lens _prcnoReservedCacheNodesOfferingId (\ s a -> s{_prcnoReservedCacheNodesOfferingId = a});
+prcnorqReservedCacheNodesOfferingId :: Lens' PurchaseReservedCacheNodesOffering Text
+prcnorqReservedCacheNodesOfferingId = lens _prcnorqReservedCacheNodesOfferingId (\ s a -> s{_prcnorqReservedCacheNodesOfferingId = a});
 
 instance AWSRequest
          PurchaseReservedCacheNodesOffering where
@@ -119,35 +119,35 @@ instance ToQuery PurchaseReservedCacheNodesOffering
               ["Action" =:
                  ("PurchaseReservedCacheNodesOffering" :: ByteString),
                "Version" =: ("2015-02-02" :: ByteString),
-               "CacheNodeCount" =: _prcnoCacheNodeCount,
-               "ReservedCacheNodeId" =: _prcnoReservedCacheNodeId,
+               "CacheNodeCount" =: _prcnorqCacheNodeCount,
+               "ReservedCacheNodeId" =: _prcnorqReservedCacheNodeId,
                "ReservedCacheNodesOfferingId" =:
-                 _prcnoReservedCacheNodesOfferingId]
+                 _prcnorqReservedCacheNodesOfferingId]
 
 -- | /See:/ 'purchaseReservedCacheNodesOfferingResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prcnorReservedCacheNode'
+-- * 'prcnorsReservedCacheNode'
 --
--- * 'prcnorStatus'
+-- * 'prcnorsStatus'
 data PurchaseReservedCacheNodesOfferingResponse = PurchaseReservedCacheNodesOfferingResponse'
-    { _prcnorReservedCacheNode :: !(Maybe ReservedCacheNode)
-    , _prcnorStatus            :: !Int
+    { _prcnorsReservedCacheNode :: !(Maybe ReservedCacheNode)
+    , _prcnorsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedCacheNodesOfferingResponse' smart constructor.
 purchaseReservedCacheNodesOfferingResponse :: Int -> PurchaseReservedCacheNodesOfferingResponse
 purchaseReservedCacheNodesOfferingResponse pStatus =
     PurchaseReservedCacheNodesOfferingResponse'
-    { _prcnorReservedCacheNode = Nothing
-    , _prcnorStatus = pStatus
+    { _prcnorsReservedCacheNode = Nothing
+    , _prcnorsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-prcnorReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
-prcnorReservedCacheNode = lens _prcnorReservedCacheNode (\ s a -> s{_prcnorReservedCacheNode = a});
+prcnorsReservedCacheNode :: Lens' PurchaseReservedCacheNodesOfferingResponse (Maybe ReservedCacheNode)
+prcnorsReservedCacheNode = lens _prcnorsReservedCacheNode (\ s a -> s{_prcnorsReservedCacheNode = a});
 
 -- | FIXME: Undocumented member.
-prcnorStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
-prcnorStatus = lens _prcnorStatus (\ s a -> s{_prcnorStatus = a});
+prcnorsStatus :: Lens' PurchaseReservedCacheNodesOfferingResponse Int
+prcnorsStatus = lens _prcnorsStatus (\ s a -> s{_prcnorsStatus = a});

@@ -28,8 +28,8 @@ module Network.AWS.CodePipeline.PutJobFailureResult
     -- ** Request constructor
     , putJobFailureResult
     -- ** Request lenses
-    , pjfrJobId
-    , pjfrFailureDetails
+    , pjfrrqJobId
+    , pjfrrqFailureDetails
 
     -- * Response
     , PutJobFailureResultResponse
@@ -48,30 +48,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pjfrJobId'
+-- * 'pjfrrqJobId'
 --
--- * 'pjfrFailureDetails'
+-- * 'pjfrrqFailureDetails'
 data PutJobFailureResult = PutJobFailureResult'
-    { _pjfrJobId          :: !Text
-    , _pjfrFailureDetails :: !FailureDetails
+    { _pjfrrqJobId          :: !Text
+    , _pjfrrqFailureDetails :: !FailureDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutJobFailureResult' smart constructor.
 putJobFailureResult :: Text -> FailureDetails -> PutJobFailureResult
 putJobFailureResult pJobId pFailureDetails =
     PutJobFailureResult'
-    { _pjfrJobId = pJobId
-    , _pjfrFailureDetails = pFailureDetails
+    { _pjfrrqJobId = pJobId
+    , _pjfrrqFailureDetails = pFailureDetails
     }
 
 -- | The unique system-generated ID of the job that failed. This is the same
 -- ID returned from PollForJobs.
-pjfrJobId :: Lens' PutJobFailureResult Text
-pjfrJobId = lens _pjfrJobId (\ s a -> s{_pjfrJobId = a});
+pjfrrqJobId :: Lens' PutJobFailureResult Text
+pjfrrqJobId = lens _pjfrrqJobId (\ s a -> s{_pjfrrqJobId = a});
 
 -- | The details about the failure of a job.
-pjfrFailureDetails :: Lens' PutJobFailureResult FailureDetails
-pjfrFailureDetails = lens _pjfrFailureDetails (\ s a -> s{_pjfrFailureDetails = a});
+pjfrrqFailureDetails :: Lens' PutJobFailureResult FailureDetails
+pjfrrqFailureDetails = lens _pjfrrqFailureDetails (\ s a -> s{_pjfrrqFailureDetails = a});
 
 instance AWSRequest PutJobFailureResult where
         type Sv PutJobFailureResult = CodePipeline
@@ -93,8 +93,8 @@ instance ToHeaders PutJobFailureResult where
 instance ToJSON PutJobFailureResult where
         toJSON PutJobFailureResult'{..}
           = object
-              ["jobId" .= _pjfrJobId,
-               "failureDetails" .= _pjfrFailureDetails]
+              ["jobId" .= _pjfrrqJobId,
+               "failureDetails" .= _pjfrrqFailureDetails]
 
 instance ToPath PutJobFailureResult where
         toPath = const "/"

@@ -41,26 +41,26 @@ module Network.AWS.DynamoDB.DeleteItem
     -- ** Request constructor
     , deleteItem
     -- ** Request lenses
-    , diReturnValues
-    , diExpressionAttributeNames
-    , diReturnConsumedCapacity
-    , diExpressionAttributeValues
-    , diReturnItemCollectionMetrics
-    , diConditionExpression
-    , diConditionalOperator
-    , diExpected
-    , diTableName
-    , diKey
+    , dirqReturnValues
+    , dirqExpressionAttributeNames
+    , dirqReturnConsumedCapacity
+    , dirqExpressionAttributeValues
+    , dirqReturnItemCollectionMetrics
+    , dirqConditionExpression
+    , dirqConditionalOperator
+    , dirqExpected
+    , dirqTableName
+    , dirqKey
 
     -- * Response
     , DeleteItemResponse
     -- ** Response constructor
     , deleteItemResponse
     -- ** Response lenses
-    , dirConsumedCapacity
-    , dirItemCollectionMetrics
-    , dirAttributes
-    , dirStatus
+    , dirsConsumedCapacity
+    , dirsItemCollectionMetrics
+    , dirsAttributes
+    , dirsStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -74,52 +74,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diReturnValues'
+-- * 'dirqReturnValues'
 --
--- * 'diExpressionAttributeNames'
+-- * 'dirqExpressionAttributeNames'
 --
--- * 'diReturnConsumedCapacity'
+-- * 'dirqReturnConsumedCapacity'
 --
--- * 'diExpressionAttributeValues'
+-- * 'dirqExpressionAttributeValues'
 --
--- * 'diReturnItemCollectionMetrics'
+-- * 'dirqReturnItemCollectionMetrics'
 --
--- * 'diConditionExpression'
+-- * 'dirqConditionExpression'
 --
--- * 'diConditionalOperator'
+-- * 'dirqConditionalOperator'
 --
--- * 'diExpected'
+-- * 'dirqExpected'
 --
--- * 'diTableName'
+-- * 'dirqTableName'
 --
--- * 'diKey'
+-- * 'dirqKey'
 data DeleteItem = DeleteItem'
-    { _diReturnValues                :: !(Maybe ReturnValue)
-    , _diExpressionAttributeNames    :: !(Maybe (Map Text Text))
-    , _diReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
-    , _diExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
-    , _diReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
-    , _diConditionExpression         :: !(Maybe Text)
-    , _diConditionalOperator         :: !(Maybe ConditionalOperator)
-    , _diExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
-    , _diTableName                   :: !Text
-    , _diKey                         :: !(Map Text AttributeValue)
+    { _dirqReturnValues                :: !(Maybe ReturnValue)
+    , _dirqExpressionAttributeNames    :: !(Maybe (Map Text Text))
+    , _dirqReturnConsumedCapacity      :: !(Maybe ReturnConsumedCapacity)
+    , _dirqExpressionAttributeValues   :: !(Maybe (Map Text AttributeValue))
+    , _dirqReturnItemCollectionMetrics :: !(Maybe ReturnItemCollectionMetrics)
+    , _dirqConditionExpression         :: !(Maybe Text)
+    , _dirqConditionalOperator         :: !(Maybe ConditionalOperator)
+    , _dirqExpected                    :: !(Maybe (Map Text ExpectedAttributeValue))
+    , _dirqTableName                   :: !Text
+    , _dirqKey                         :: !(Map Text AttributeValue)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteItem' smart constructor.
 deleteItem :: Text -> DeleteItem
 deleteItem pTableName =
     DeleteItem'
-    { _diReturnValues = Nothing
-    , _diExpressionAttributeNames = Nothing
-    , _diReturnConsumedCapacity = Nothing
-    , _diExpressionAttributeValues = Nothing
-    , _diReturnItemCollectionMetrics = Nothing
-    , _diConditionExpression = Nothing
-    , _diConditionalOperator = Nothing
-    , _diExpected = Nothing
-    , _diTableName = pTableName
-    , _diKey = mempty
+    { _dirqReturnValues = Nothing
+    , _dirqExpressionAttributeNames = Nothing
+    , _dirqReturnConsumedCapacity = Nothing
+    , _dirqExpressionAttributeValues = Nothing
+    , _dirqReturnItemCollectionMetrics = Nothing
+    , _dirqConditionExpression = Nothing
+    , _dirqConditionalOperator = Nothing
+    , _dirqExpected = Nothing
+    , _dirqTableName = pTableName
+    , _dirqKey = mempty
     }
 
 -- | Use /ReturnValues/ if you want to get the item attributes as they
@@ -132,8 +132,8 @@ deleteItem pTableName =
 --
 -- -   @ALL_OLD@ - The content of the old item is returned.
 --
-diReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
-diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
+dirqReturnValues :: Lens' DeleteItem (Maybe ReturnValue)
+dirqReturnValues = lens _dirqReturnValues (\ s a -> s{_dirqReturnValues = a});
 
 -- | One or more substitution tokens for attribute names in an expression.
 -- The following are some use cases for using /ExpressionAttributeNames/:
@@ -172,12 +172,12 @@ diReturnValues = lens _diReturnValues (\ s a -> s{_diReturnValues = a});
 -- For more information on expression attribute names, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html Accessing Item Attributes>
 -- in the /Amazon DynamoDB Developer Guide/.
-diExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
-diExpressionAttributeNames = lens _diExpressionAttributeNames (\ s a -> s{_diExpressionAttributeNames = a}) . _Default . _Map;
+dirqExpressionAttributeNames :: Lens' DeleteItem (HashMap Text Text)
+dirqExpressionAttributeNames = lens _dirqExpressionAttributeNames (\ s a -> s{_dirqExpressionAttributeNames = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-diReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
-diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnConsumedCapacity = a});
+dirqReturnConsumedCapacity :: Lens' DeleteItem (Maybe ReturnConsumedCapacity)
+dirqReturnConsumedCapacity = lens _dirqReturnConsumedCapacity (\ s a -> s{_dirqReturnConsumedCapacity = a});
 
 -- | One or more values that can be substituted in an expression.
 --
@@ -198,15 +198,15 @@ diReturnConsumedCapacity = lens _diReturnConsumedCapacity (\ s a -> s{_diReturnC
 -- For more information on expression attribute values, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html Specifying Conditions>
 -- in the /Amazon DynamoDB Developer Guide/.
-diExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
-diExpressionAttributeValues = lens _diExpressionAttributeValues (\ s a -> s{_diExpressionAttributeValues = a}) . _Default . _Map;
+dirqExpressionAttributeValues :: Lens' DeleteItem (HashMap Text AttributeValue)
+dirqExpressionAttributeValues = lens _dirqExpressionAttributeValues (\ s a -> s{_dirqExpressionAttributeValues = a}) . _Default . _Map;
 
 -- | Determines whether item collection metrics are returned. If set to
 -- @SIZE@, the response includes statistics about item collections, if any,
 -- that were modified during the operation are returned in the response. If
 -- set to @NONE@ (the default), no statistics are returned.
-diReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
-diReturnItemCollectionMetrics = lens _diReturnItemCollectionMetrics (\ s a -> s{_diReturnItemCollectionMetrics = a});
+dirqReturnItemCollectionMetrics :: Lens' DeleteItem (Maybe ReturnItemCollectionMetrics)
+dirqReturnItemCollectionMetrics = lens _dirqReturnItemCollectionMetrics (\ s a -> s{_dirqReturnItemCollectionMetrics = a});
 
 -- | A condition that must be satisfied in order for a conditional
 -- /DeleteItem/ to succeed.
@@ -228,8 +228,8 @@ diReturnItemCollectionMetrics = lens _diReturnItemCollectionMetrics (\ s a -> s{
 --
 -- /ConditionExpression/ replaces the legacy /ConditionalOperator/ and
 -- /Expected/ parameters.
-diConditionExpression :: Lens' DeleteItem (Maybe Text)
-diConditionExpression = lens _diConditionExpression (\ s a -> s{_diConditionExpression = a});
+dirqConditionExpression :: Lens' DeleteItem (Maybe Text)
+dirqConditionExpression = lens _dirqConditionExpression (\ s a -> s{_dirqConditionExpression = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ConditionExpression/ instead. Do not combine legacy
@@ -249,8 +249,8 @@ diConditionExpression = lens _diConditionExpression (\ s a -> s{_diConditionExpr
 -- The operation will succeed only if the entire map evaluates to true.
 --
 -- This parameter does not support attributes of type List or Map.
-diConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
-diConditionalOperator = lens _diConditionalOperator (\ s a -> s{_diConditionalOperator = a});
+dirqConditionalOperator :: Lens' DeleteItem (Maybe ConditionalOperator)
+dirqConditionalOperator = lens _dirqConditionalOperator (\ s a -> s{_dirqConditionalOperator = a});
 
 -- | This is a legacy parameter, for backward compatibility. New applications
 -- should use /ConditionExpression/ instead. Do not combine legacy
@@ -475,12 +475,12 @@ diConditionalOperator = lens _diConditionalOperator (\ s a -> s{_diConditionalOp
 -- exception.
 --
 -- This parameter does not support attributes of type List or Map.
-diExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
-diExpected = lens _diExpected (\ s a -> s{_diExpected = a}) . _Default . _Map;
+dirqExpected :: Lens' DeleteItem (HashMap Text ExpectedAttributeValue)
+dirqExpected = lens _dirqExpected (\ s a -> s{_dirqExpected = a}) . _Default . _Map;
 
 -- | The name of the table from which to delete the item.
-diTableName :: Lens' DeleteItem Text
-diTableName = lens _diTableName (\ s a -> s{_diTableName = a});
+dirqTableName :: Lens' DeleteItem Text
+dirqTableName = lens _dirqTableName (\ s a -> s{_dirqTableName = a});
 
 -- | A map of attribute names to /AttributeValue/ objects, representing the
 -- primary key of the item to delete.
@@ -489,8 +489,8 @@ diTableName = lens _diTableName (\ s a -> s{_diTableName = a});
 -- example, with a hash type primary key, you only need to provide the hash
 -- attribute. For a hash-and-range type primary key, you must provide both
 -- the hash attribute and the range attribute.
-diKey :: Lens' DeleteItem (HashMap Text AttributeValue)
-diKey = lens _diKey (\ s a -> s{_diKey = a}) . _Map;
+dirqKey :: Lens' DeleteItem (HashMap Text AttributeValue)
+dirqKey = lens _dirqKey (\ s a -> s{_dirqKey = a}) . _Map;
 
 instance AWSRequest DeleteItem where
         type Sv DeleteItem = DynamoDB
@@ -517,19 +517,19 @@ instance ToHeaders DeleteItem where
 instance ToJSON DeleteItem where
         toJSON DeleteItem'{..}
           = object
-              ["ReturnValues" .= _diReturnValues,
+              ["ReturnValues" .= _dirqReturnValues,
                "ExpressionAttributeNames" .=
-                 _diExpressionAttributeNames,
+                 _dirqExpressionAttributeNames,
                "ReturnConsumedCapacity" .=
-                 _diReturnConsumedCapacity,
+                 _dirqReturnConsumedCapacity,
                "ExpressionAttributeValues" .=
-                 _diExpressionAttributeValues,
+                 _dirqExpressionAttributeValues,
                "ReturnItemCollectionMetrics" .=
-                 _diReturnItemCollectionMetrics,
-               "ConditionExpression" .= _diConditionExpression,
-               "ConditionalOperator" .= _diConditionalOperator,
-               "Expected" .= _diExpected,
-               "TableName" .= _diTableName, "Key" .= _diKey]
+                 _dirqReturnItemCollectionMetrics,
+               "ConditionExpression" .= _dirqConditionExpression,
+               "ConditionalOperator" .= _dirqConditionalOperator,
+               "Expected" .= _dirqExpected,
+               "TableName" .= _dirqTableName, "Key" .= _dirqKey]
 
 instance ToPath DeleteItem where
         toPath = const "/"
@@ -543,33 +543,33 @@ instance ToQuery DeleteItem where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirConsumedCapacity'
+-- * 'dirsConsumedCapacity'
 --
--- * 'dirItemCollectionMetrics'
+-- * 'dirsItemCollectionMetrics'
 --
--- * 'dirAttributes'
+-- * 'dirsAttributes'
 --
--- * 'dirStatus'
+-- * 'dirsStatus'
 data DeleteItemResponse = DeleteItemResponse'
-    { _dirConsumedCapacity      :: !(Maybe ConsumedCapacity)
-    , _dirItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
-    , _dirAttributes            :: !(Maybe (Map Text AttributeValue))
-    , _dirStatus                :: !Int
+    { _dirsConsumedCapacity      :: !(Maybe ConsumedCapacity)
+    , _dirsItemCollectionMetrics :: !(Maybe ItemCollectionMetrics)
+    , _dirsAttributes            :: !(Maybe (Map Text AttributeValue))
+    , _dirsStatus                :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteItemResponse' smart constructor.
 deleteItemResponse :: Int -> DeleteItemResponse
 deleteItemResponse pStatus =
     DeleteItemResponse'
-    { _dirConsumedCapacity = Nothing
-    , _dirItemCollectionMetrics = Nothing
-    , _dirAttributes = Nothing
-    , _dirStatus = pStatus
+    { _dirsConsumedCapacity = Nothing
+    , _dirsItemCollectionMetrics = Nothing
+    , _dirsAttributes = Nothing
+    , _dirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dirConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
-dirConsumedCapacity = lens _dirConsumedCapacity (\ s a -> s{_dirConsumedCapacity = a});
+dirsConsumedCapacity :: Lens' DeleteItemResponse (Maybe ConsumedCapacity)
+dirsConsumedCapacity = lens _dirsConsumedCapacity (\ s a -> s{_dirsConsumedCapacity = a});
 
 -- | Information about item collections, if any, that were affected by the
 -- operation. /ItemCollectionMetrics/ is only returned if the request asked
@@ -592,16 +592,16 @@ dirConsumedCapacity = lens _dirConsumedCapacity (\ s a -> s{_dirConsumedCapacity
 --     The estimate is subject to change over time; therefore, do not rely
 --     on the precision or accuracy of the estimate.
 --
-dirItemCollectionMetrics :: Lens' DeleteItemResponse (Maybe ItemCollectionMetrics)
-dirItemCollectionMetrics = lens _dirItemCollectionMetrics (\ s a -> s{_dirItemCollectionMetrics = a});
+dirsItemCollectionMetrics :: Lens' DeleteItemResponse (Maybe ItemCollectionMetrics)
+dirsItemCollectionMetrics = lens _dirsItemCollectionMetrics (\ s a -> s{_dirsItemCollectionMetrics = a});
 
 -- | A map of attribute names to /AttributeValue/ objects, representing the
 -- item as it appeared before the /DeleteItem/ operation. This map appears
 -- in the response only if /ReturnValues/ was specified as @ALL_OLD@ in the
 -- request.
-dirAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
-dirAttributes = lens _dirAttributes (\ s a -> s{_dirAttributes = a}) . _Default . _Map;
+dirsAttributes :: Lens' DeleteItemResponse (HashMap Text AttributeValue)
+dirsAttributes = lens _dirsAttributes (\ s a -> s{_dirsAttributes = a}) . _Default . _Map;
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DeleteItemResponse Int
-dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});
+dirsStatus :: Lens' DeleteItemResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

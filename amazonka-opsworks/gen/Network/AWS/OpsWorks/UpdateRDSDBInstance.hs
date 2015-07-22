@@ -33,9 +33,9 @@ module Network.AWS.OpsWorks.UpdateRDSDBInstance
     -- ** Request constructor
     , updateRDSDBInstance
     -- ** Request lenses
-    , urdiDBUser
-    , urdiDBPassword
-    , urdiRDSDBInstanceARN
+    , urdirqDBUser
+    , urdirqDBPassword
+    , urdirqRDSDBInstanceARN
 
     -- * Response
     , UpdateRDSDBInstanceResponse
@@ -52,37 +52,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urdiDBUser'
+-- * 'urdirqDBUser'
 --
--- * 'urdiDBPassword'
+-- * 'urdirqDBPassword'
 --
--- * 'urdiRDSDBInstanceARN'
+-- * 'urdirqRDSDBInstanceARN'
 data UpdateRDSDBInstance = UpdateRDSDBInstance'
-    { _urdiDBUser           :: !(Maybe Text)
-    , _urdiDBPassword       :: !(Maybe Text)
-    , _urdiRDSDBInstanceARN :: !Text
+    { _urdirqDBUser           :: !(Maybe Text)
+    , _urdirqDBPassword       :: !(Maybe Text)
+    , _urdirqRDSDBInstanceARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRDSDBInstance' smart constructor.
 updateRDSDBInstance :: Text -> UpdateRDSDBInstance
 updateRDSDBInstance pRDSDBInstanceARN =
     UpdateRDSDBInstance'
-    { _urdiDBUser = Nothing
-    , _urdiDBPassword = Nothing
-    , _urdiRDSDBInstanceARN = pRDSDBInstanceARN
+    { _urdirqDBUser = Nothing
+    , _urdirqDBPassword = Nothing
+    , _urdirqRDSDBInstanceARN = pRDSDBInstanceARN
     }
 
 -- | The master user name.
-urdiDBUser :: Lens' UpdateRDSDBInstance (Maybe Text)
-urdiDBUser = lens _urdiDBUser (\ s a -> s{_urdiDBUser = a});
+urdirqDBUser :: Lens' UpdateRDSDBInstance (Maybe Text)
+urdirqDBUser = lens _urdirqDBUser (\ s a -> s{_urdirqDBUser = a});
 
 -- | The database password.
-urdiDBPassword :: Lens' UpdateRDSDBInstance (Maybe Text)
-urdiDBPassword = lens _urdiDBPassword (\ s a -> s{_urdiDBPassword = a});
+urdirqDBPassword :: Lens' UpdateRDSDBInstance (Maybe Text)
+urdirqDBPassword = lens _urdirqDBPassword (\ s a -> s{_urdirqDBPassword = a});
 
 -- | The Amazon RDS instance\'s ARN.
-urdiRDSDBInstanceARN :: Lens' UpdateRDSDBInstance Text
-urdiRDSDBInstanceARN = lens _urdiRDSDBInstanceARN (\ s a -> s{_urdiRDSDBInstanceARN = a});
+urdirqRDSDBInstanceARN :: Lens' UpdateRDSDBInstance Text
+urdirqRDSDBInstanceARN = lens _urdirqRDSDBInstanceARN (\ s a -> s{_urdirqRDSDBInstanceARN = a});
 
 instance AWSRequest UpdateRDSDBInstance where
         type Sv UpdateRDSDBInstance = OpsWorks
@@ -104,9 +104,9 @@ instance ToHeaders UpdateRDSDBInstance where
 instance ToJSON UpdateRDSDBInstance where
         toJSON UpdateRDSDBInstance'{..}
           = object
-              ["DbUser" .= _urdiDBUser,
-               "DbPassword" .= _urdiDBPassword,
-               "RdsDbInstanceArn" .= _urdiRDSDBInstanceARN]
+              ["DbUser" .= _urdirqDBUser,
+               "DbPassword" .= _urdirqDBPassword,
+               "RdsDbInstanceArn" .= _urdirqRDSDBInstanceARN]
 
 instance ToPath UpdateRDSDBInstance where
         toPath = const "/"

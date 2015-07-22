@@ -30,15 +30,15 @@ module Network.AWS.SQS.ListQueues
     -- ** Request constructor
     , listQueues
     -- ** Request lenses
-    , lqQueueNamePrefix
+    , lqrqQueueNamePrefix
 
     -- * Response
     , ListQueuesResponse
     -- ** Response constructor
     , listQueuesResponse
     -- ** Response lenses
-    , lqrQueueURLs
-    , lqrStatus
+    , lqrsQueueURLs
+    , lqrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -50,22 +50,22 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lqQueueNamePrefix'
+-- * 'lqrqQueueNamePrefix'
 newtype ListQueues = ListQueues'
-    { _lqQueueNamePrefix :: Maybe Text
+    { _lqrqQueueNamePrefix :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListQueues' smart constructor.
 listQueues :: ListQueues
 listQueues =
     ListQueues'
-    { _lqQueueNamePrefix = Nothing
+    { _lqrqQueueNamePrefix = Nothing
     }
 
 -- | A string to use for filtering the list results. Only those queues whose
 -- name begins with the specified string are returned.
-lqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
-lqQueueNamePrefix = lens _lqQueueNamePrefix (\ s a -> s{_lqQueueNamePrefix = a});
+lqrqQueueNamePrefix :: Lens' ListQueues (Maybe Text)
+lqrqQueueNamePrefix = lens _lqrqQueueNamePrefix (\ s a -> s{_lqrqQueueNamePrefix = a});
 
 instance AWSRequest ListQueues where
         type Sv ListQueues = SQS
@@ -89,7 +89,7 @@ instance ToQuery ListQueues where
           = mconcat
               ["Action" =: ("ListQueues" :: ByteString),
                "Version" =: ("2012-11-05" :: ByteString),
-               "QueueNamePrefix" =: _lqQueueNamePrefix]
+               "QueueNamePrefix" =: _lqrqQueueNamePrefix]
 
 -- | A list of your queues.
 --
@@ -97,26 +97,26 @@ instance ToQuery ListQueues where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lqrQueueURLs'
+-- * 'lqrsQueueURLs'
 --
--- * 'lqrStatus'
+-- * 'lqrsStatus'
 data ListQueuesResponse = ListQueuesResponse'
-    { _lqrQueueURLs :: !(Maybe [Text])
-    , _lqrStatus    :: !Int
+    { _lqrsQueueURLs :: !(Maybe [Text])
+    , _lqrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListQueuesResponse' smart constructor.
 listQueuesResponse :: Int -> ListQueuesResponse
 listQueuesResponse pStatus =
     ListQueuesResponse'
-    { _lqrQueueURLs = Nothing
-    , _lqrStatus = pStatus
+    { _lqrsQueueURLs = Nothing
+    , _lqrsStatus = pStatus
     }
 
 -- | A list of queue URLs, up to 1000 entries.
-lqrQueueURLs :: Lens' ListQueuesResponse [Text]
-lqrQueueURLs = lens _lqrQueueURLs (\ s a -> s{_lqrQueueURLs = a}) . _Default;
+lqrsQueueURLs :: Lens' ListQueuesResponse [Text]
+lqrsQueueURLs = lens _lqrsQueueURLs (\ s a -> s{_lqrsQueueURLs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lqrStatus :: Lens' ListQueuesResponse Int
-lqrStatus = lens _lqrStatus (\ s a -> s{_lqrStatus = a});
+lqrsStatus :: Lens' ListQueuesResponse Int
+lqrsStatus = lens _lqrsStatus (\ s a -> s{_lqrsStatus = a});

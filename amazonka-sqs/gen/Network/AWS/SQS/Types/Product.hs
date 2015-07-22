@@ -93,46 +93,46 @@ instance FromXML BatchResultErrorEntry where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chaVisibilityTimeout'
+-- * 'cVisibilityTimeout'
 --
--- * 'chaId'
+-- * 'cId'
 --
--- * 'chaReceiptHandle'
+-- * 'cReceiptHandle'
 data ChangeMessageVisibilityBatchRequestEntry = ChangeMessageVisibilityBatchRequestEntry'
-    { _chaVisibilityTimeout :: !(Maybe Int)
-    , _chaId                :: !Text
-    , _chaReceiptHandle     :: !Text
+    { _cVisibilityTimeout :: !(Maybe Int)
+    , _cId                :: !Text
+    , _cReceiptHandle     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ChangeMessageVisibilityBatchRequestEntry' smart constructor.
 changeMessageVisibilityBatchRequestEntry :: Text -> Text -> ChangeMessageVisibilityBatchRequestEntry
 changeMessageVisibilityBatchRequestEntry pId pReceiptHandle =
     ChangeMessageVisibilityBatchRequestEntry'
-    { _chaVisibilityTimeout = Nothing
-    , _chaId = pId
-    , _chaReceiptHandle = pReceiptHandle
+    { _cVisibilityTimeout = Nothing
+    , _cId = pId
+    , _cReceiptHandle = pReceiptHandle
     }
 
 -- | The new value (in seconds) for the message\'s visibility timeout.
-chaVisibilityTimeout :: Lens' ChangeMessageVisibilityBatchRequestEntry (Maybe Int)
-chaVisibilityTimeout = lens _chaVisibilityTimeout (\ s a -> s{_chaVisibilityTimeout = a});
+cVisibilityTimeout :: Lens' ChangeMessageVisibilityBatchRequestEntry (Maybe Int)
+cVisibilityTimeout = lens _cVisibilityTimeout (\ s a -> s{_cVisibilityTimeout = a});
 
 -- | An identifier for this particular receipt handle. This is used to
 -- communicate the result. Note that the @Id@s of a batch request need to
 -- be unique within the request.
-chaId :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
-chaId = lens _chaId (\ s a -> s{_chaId = a});
+cId :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
+cId = lens _cId (\ s a -> s{_cId = a});
 
 -- | A receipt handle.
-chaReceiptHandle :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
-chaReceiptHandle = lens _chaReceiptHandle (\ s a -> s{_chaReceiptHandle = a});
+cReceiptHandle :: Lens' ChangeMessageVisibilityBatchRequestEntry Text
+cReceiptHandle = lens _cReceiptHandle (\ s a -> s{_cReceiptHandle = a});
 
 instance ToQuery
          ChangeMessageVisibilityBatchRequestEntry where
         toQuery ChangeMessageVisibilityBatchRequestEntry'{..}
           = mconcat
-              ["VisibilityTimeout" =: _chaVisibilityTimeout,
-               "Id" =: _chaId, "ReceiptHandle" =: _chaReceiptHandle]
+              ["VisibilityTimeout" =: _cVisibilityTimeout,
+               "Id" =: _cId, "ReceiptHandle" =: _cReceiptHandle]
 
 -- | Encloses the id of an entry in ChangeMessageVisibilityBatch.
 --
@@ -207,21 +207,21 @@ instance ToQuery DeleteMessageBatchRequestEntry where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delId'
+-- * 'dId'
 newtype DeleteMessageBatchResultEntry = DeleteMessageBatchResultEntry'
-    { _delId :: Text
+    { _dId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteMessageBatchResultEntry' smart constructor.
 deleteMessageBatchResultEntry :: Text -> DeleteMessageBatchResultEntry
 deleteMessageBatchResultEntry pId =
     DeleteMessageBatchResultEntry'
-    { _delId = pId
+    { _dId = pId
     }
 
 -- | Represents a successfully deleted message.
-delId :: Lens' DeleteMessageBatchResultEntry Text
-delId = lens _delId (\ s a -> s{_delId = a});
+dId :: Lens' DeleteMessageBatchResultEntry Text
+dId = lens _dId (\ s a -> s{_dId = a});
 
 instance FromXML DeleteMessageBatchResultEntry where
         parseXML x
@@ -233,82 +233,82 @@ instance FromXML DeleteMessageBatchResultEntry where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mesMessageAttributes'
+-- * 'mMessageAttributes'
 --
--- * 'mesMD5OfBody'
+-- * 'mMD5OfBody'
 --
--- * 'mesBody'
+-- * 'mBody'
 --
--- * 'mesAttributes'
+-- * 'mAttributes'
 --
--- * 'mesMessageId'
+-- * 'mMessageId'
 --
--- * 'mesReceiptHandle'
+-- * 'mReceiptHandle'
 --
--- * 'mesMD5OfMessageAttributes'
+-- * 'mMD5OfMessageAttributes'
 data Message = Message'
-    { _mesMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
-    , _mesMD5OfBody              :: !(Maybe Text)
-    , _mesBody                   :: !(Maybe Text)
-    , _mesAttributes             :: !(Maybe (Map QueueAttributeName Text))
-    , _mesMessageId              :: !(Maybe Text)
-    , _mesReceiptHandle          :: !(Maybe Text)
-    , _mesMD5OfMessageAttributes :: !(Maybe Text)
+    { _mMessageAttributes      :: !(Maybe (Map Text MessageAttributeValue))
+    , _mMD5OfBody              :: !(Maybe Text)
+    , _mBody                   :: !(Maybe Text)
+    , _mAttributes             :: !(Maybe (Map QueueAttributeName Text))
+    , _mMessageId              :: !(Maybe Text)
+    , _mReceiptHandle          :: !(Maybe Text)
+    , _mMD5OfMessageAttributes :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Message' smart constructor.
 message :: Message
 message =
     Message'
-    { _mesMessageAttributes = Nothing
-    , _mesMD5OfBody = Nothing
-    , _mesBody = Nothing
-    , _mesAttributes = Nothing
-    , _mesMessageId = Nothing
-    , _mesReceiptHandle = Nothing
-    , _mesMD5OfMessageAttributes = Nothing
+    { _mMessageAttributes = Nothing
+    , _mMD5OfBody = Nothing
+    , _mBody = Nothing
+    , _mAttributes = Nothing
+    , _mMessageId = Nothing
+    , _mReceiptHandle = Nothing
+    , _mMD5OfMessageAttributes = Nothing
     }
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-mesMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
-mesMessageAttributes = lens _mesMessageAttributes (\ s a -> s{_mesMessageAttributes = a}) . _Default . _Map;
+mMessageAttributes :: Lens' Message (HashMap Text MessageAttributeValue)
+mMessageAttributes = lens _mMessageAttributes (\ s a -> s{_mMessageAttributes = a}) . _Default . _Map;
 
 -- | An MD5 digest of the non-URL-encoded message body string.
-mesMD5OfBody :: Lens' Message (Maybe Text)
-mesMD5OfBody = lens _mesMD5OfBody (\ s a -> s{_mesMD5OfBody = a});
+mMD5OfBody :: Lens' Message (Maybe Text)
+mMD5OfBody = lens _mMD5OfBody (\ s a -> s{_mMD5OfBody = a});
 
 -- | The message\'s contents (not URL-encoded).
-mesBody :: Lens' Message (Maybe Text)
-mesBody = lens _mesBody (\ s a -> s{_mesBody = a});
+mBody :: Lens' Message (Maybe Text)
+mBody = lens _mBody (\ s a -> s{_mBody = a});
 
 -- | @SenderId@, @SentTimestamp@, @ApproximateReceiveCount@, and\/or
 -- @ApproximateFirstReceiveTimestamp@. @SentTimestamp@ and
 -- @ApproximateFirstReceiveTimestamp@ are each returned as an integer
 -- representing the <http://en.wikipedia.org/wiki/Unix_time epoch time> in
 -- milliseconds.
-mesAttributes :: Lens' Message (HashMap QueueAttributeName Text)
-mesAttributes = lens _mesAttributes (\ s a -> s{_mesAttributes = a}) . _Default . _Map;
+mAttributes :: Lens' Message (HashMap QueueAttributeName Text)
+mAttributes = lens _mAttributes (\ s a -> s{_mAttributes = a}) . _Default . _Map;
 
 -- | A unique identifier for the message. Message IDs are considered unique
 -- across all AWS accounts for an extended period of time.
-mesMessageId :: Lens' Message (Maybe Text)
-mesMessageId = lens _mesMessageId (\ s a -> s{_mesMessageId = a});
+mMessageId :: Lens' Message (Maybe Text)
+mMessageId = lens _mMessageId (\ s a -> s{_mMessageId = a});
 
 -- | An identifier associated with the act of receiving the message. A new
 -- receipt handle is returned every time you receive a message. When
 -- deleting a message, you provide the last received receipt handle to
 -- delete the message.
-mesReceiptHandle :: Lens' Message (Maybe Text)
-mesReceiptHandle = lens _mesReceiptHandle (\ s a -> s{_mesReceiptHandle = a});
+mReceiptHandle :: Lens' Message (Maybe Text)
+mReceiptHandle = lens _mReceiptHandle (\ s a -> s{_mReceiptHandle = a});
 
 -- | An MD5 digest of the non-URL-encoded message attribute string. This can
 -- be used to verify that Amazon SQS received the message correctly. Amazon
 -- SQS first URL decodes the message before creating the MD5 digest. For
 -- information about MD5, go to <http://www.faqs.org/rfcs/rfc1321.html>.
-mesMD5OfMessageAttributes :: Lens' Message (Maybe Text)
-mesMD5OfMessageAttributes = lens _mesMD5OfMessageAttributes (\ s a -> s{_mesMD5OfMessageAttributes = a});
+mMD5OfMessageAttributes :: Lens' Message (Maybe Text)
+mMD5OfMessageAttributes = lens _mMD5OfMessageAttributes (\ s a -> s{_mMD5OfMessageAttributes = a});
 
 instance FromXML Message where
         parseXML x
@@ -423,58 +423,58 @@ instance ToQuery MessageAttributeValue where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'senMessageAttributes'
+-- * 'sMessageAttributes'
 --
--- * 'senDelaySeconds'
+-- * 'sDelaySeconds'
 --
--- * 'senId'
+-- * 'sId'
 --
--- * 'senMessageBody'
+-- * 'sMessageBody'
 data SendMessageBatchRequestEntry = SendMessageBatchRequestEntry'
-    { _senMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
-    , _senDelaySeconds      :: !(Maybe Int)
-    , _senId                :: !Text
-    , _senMessageBody       :: !Text
+    { _sMessageAttributes :: !(Maybe (Map Text MessageAttributeValue))
+    , _sDelaySeconds      :: !(Maybe Int)
+    , _sId                :: !Text
+    , _sMessageBody       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendMessageBatchRequestEntry' smart constructor.
 sendMessageBatchRequestEntry :: Text -> Text -> SendMessageBatchRequestEntry
 sendMessageBatchRequestEntry pId pMessageBody =
     SendMessageBatchRequestEntry'
-    { _senMessageAttributes = Nothing
-    , _senDelaySeconds = Nothing
-    , _senId = pId
-    , _senMessageBody = pMessageBody
+    { _sMessageAttributes = Nothing
+    , _sDelaySeconds = Nothing
+    , _sId = pId
+    , _sMessageBody = pMessageBody
     }
 
 -- | Each message attribute consists of a Name, Type, and Value. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/SQSMessageAttributes.html#SQSMessageAttributesNTV Message Attribute Items>.
-senMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
-senMessageAttributes = lens _senMessageAttributes (\ s a -> s{_senMessageAttributes = a}) . _Default . _Map;
+sMessageAttributes :: Lens' SendMessageBatchRequestEntry (HashMap Text MessageAttributeValue)
+sMessageAttributes = lens _sMessageAttributes (\ s a -> s{_sMessageAttributes = a}) . _Default . _Map;
 
 -- | The number of seconds for which the message has to be delayed.
-senDelaySeconds :: Lens' SendMessageBatchRequestEntry (Maybe Int)
-senDelaySeconds = lens _senDelaySeconds (\ s a -> s{_senDelaySeconds = a});
+sDelaySeconds :: Lens' SendMessageBatchRequestEntry (Maybe Int)
+sDelaySeconds = lens _sDelaySeconds (\ s a -> s{_sDelaySeconds = a});
 
 -- | An identifier for the message in this batch. This is used to communicate
 -- the result. Note that the @Id@s of a batch request need to be unique
 -- within the request.
-senId :: Lens' SendMessageBatchRequestEntry Text
-senId = lens _senId (\ s a -> s{_senId = a});
+sId :: Lens' SendMessageBatchRequestEntry Text
+sId = lens _sId (\ s a -> s{_sId = a});
 
 -- | Body of the message.
-senMessageBody :: Lens' SendMessageBatchRequestEntry Text
-senMessageBody = lens _senMessageBody (\ s a -> s{_senMessageBody = a});
+sMessageBody :: Lens' SendMessageBatchRequestEntry Text
+sMessageBody = lens _sMessageBody (\ s a -> s{_sMessageBody = a});
 
 instance ToQuery SendMessageBatchRequestEntry where
         toQuery SendMessageBatchRequestEntry'{..}
           = mconcat
               [toQuery
                  (toQueryMap "MessageAttribute" "Name" "Value" <$>
-                    _senMessageAttributes),
-               "DelaySeconds" =: _senDelaySeconds, "Id" =: _senId,
-               "MessageBody" =: _senMessageBody]
+                    _sMessageAttributes),
+               "DelaySeconds" =: _sDelaySeconds, "Id" =: _sId,
+               "MessageBody" =: _sMessageBody]
 
 -- | Encloses a message ID for successfully enqueued message of a
 -- SendMessageBatch.

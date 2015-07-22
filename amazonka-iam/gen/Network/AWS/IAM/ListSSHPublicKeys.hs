@@ -38,19 +38,19 @@ module Network.AWS.IAM.ListSSHPublicKeys
     -- ** Request constructor
     , listSSHPublicKeys
     -- ** Request lenses
-    , lspkUserName
-    , lspkMaxItems
-    , lspkMarker
+    , lspkrqUserName
+    , lspkrqMaxItems
+    , lspkrqMarker
 
     -- * Response
     , ListSSHPublicKeysResponse
     -- ** Response constructor
     , listSSHPublicKeysResponse
     -- ** Response lenses
-    , lspkrSSHPublicKeys
-    , lspkrMarker
-    , lspkrIsTruncated
-    , lspkrStatus
+    , lspkrsSSHPublicKeys
+    , lspkrsMarker
+    , lspkrsIsTruncated
+    , lspkrsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -62,31 +62,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lspkUserName'
+-- * 'lspkrqUserName'
 --
--- * 'lspkMaxItems'
+-- * 'lspkrqMaxItems'
 --
--- * 'lspkMarker'
+-- * 'lspkrqMarker'
 data ListSSHPublicKeys = ListSSHPublicKeys'
-    { _lspkUserName :: !(Maybe Text)
-    , _lspkMaxItems :: !(Maybe Nat)
-    , _lspkMarker   :: !(Maybe Text)
+    { _lspkrqUserName :: !(Maybe Text)
+    , _lspkrqMaxItems :: !(Maybe Nat)
+    , _lspkrqMarker   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSSHPublicKeys' smart constructor.
 listSSHPublicKeys :: ListSSHPublicKeys
 listSSHPublicKeys =
     ListSSHPublicKeys'
-    { _lspkUserName = Nothing
-    , _lspkMaxItems = Nothing
-    , _lspkMarker = Nothing
+    { _lspkrqUserName = Nothing
+    , _lspkrqMaxItems = Nothing
+    , _lspkrqMarker = Nothing
     }
 
 -- | The name of the IAM user to list SSH public keys for. If none is
 -- specified, the UserName field is determined implicitly based on the AWS
 -- access key used to sign the request.
-lspkUserName :: Lens' ListSSHPublicKeys (Maybe Text)
-lspkUserName = lens _lspkUserName (\ s a -> s{_lspkUserName = a});
+lspkrqUserName :: Lens' ListSSHPublicKeys (Maybe Text)
+lspkrqUserName = lens _lspkrqUserName (\ s a -> s{_lspkrqUserName = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -94,14 +94,14 @@ lspkUserName = lens _lspkUserName (\ s a -> s{_lspkUserName = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lspkMaxItems :: Lens' ListSSHPublicKeys (Maybe Natural)
-lspkMaxItems = lens _lspkMaxItems (\ s a -> s{_lspkMaxItems = a}) . mapping _Nat;
+lspkrqMaxItems :: Lens' ListSSHPublicKeys (Maybe Natural)
+lspkrqMaxItems = lens _lspkrqMaxItems (\ s a -> s{_lspkrqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lspkMarker :: Lens' ListSSHPublicKeys (Maybe Text)
-lspkMarker = lens _lspkMarker (\ s a -> s{_lspkMarker = a});
+lspkrqMarker :: Lens' ListSSHPublicKeys (Maybe Text)
+lspkrqMarker = lens _lspkrqMarker (\ s a -> s{_lspkrqMarker = a});
 
 instance AWSRequest ListSSHPublicKeys where
         type Sv ListSSHPublicKeys = IAM
@@ -128,8 +128,9 @@ instance ToQuery ListSSHPublicKeys where
           = mconcat
               ["Action" =: ("ListSSHPublicKeys" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _lspkUserName,
-               "MaxItems" =: _lspkMaxItems, "Marker" =: _lspkMarker]
+               "UserName" =: _lspkrqUserName,
+               "MaxItems" =: _lspkrqMaxItems,
+               "Marker" =: _lspkrqMarker]
 
 -- | Contains the response to a successful ListSSHPublicKeys request.
 --
@@ -137,46 +138,46 @@ instance ToQuery ListSSHPublicKeys where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lspkrSSHPublicKeys'
+-- * 'lspkrsSSHPublicKeys'
 --
--- * 'lspkrMarker'
+-- * 'lspkrsMarker'
 --
--- * 'lspkrIsTruncated'
+-- * 'lspkrsIsTruncated'
 --
--- * 'lspkrStatus'
+-- * 'lspkrsStatus'
 data ListSSHPublicKeysResponse = ListSSHPublicKeysResponse'
-    { _lspkrSSHPublicKeys :: !(Maybe [SSHPublicKeyMetadata])
-    , _lspkrMarker        :: !(Maybe Text)
-    , _lspkrIsTruncated   :: !(Maybe Bool)
-    , _lspkrStatus        :: !Int
+    { _lspkrsSSHPublicKeys :: !(Maybe [SSHPublicKeyMetadata])
+    , _lspkrsMarker        :: !(Maybe Text)
+    , _lspkrsIsTruncated   :: !(Maybe Bool)
+    , _lspkrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSSHPublicKeysResponse' smart constructor.
 listSSHPublicKeysResponse :: Int -> ListSSHPublicKeysResponse
 listSSHPublicKeysResponse pStatus =
     ListSSHPublicKeysResponse'
-    { _lspkrSSHPublicKeys = Nothing
-    , _lspkrMarker = Nothing
-    , _lspkrIsTruncated = Nothing
-    , _lspkrStatus = pStatus
+    { _lspkrsSSHPublicKeys = Nothing
+    , _lspkrsMarker = Nothing
+    , _lspkrsIsTruncated = Nothing
+    , _lspkrsStatus = pStatus
     }
 
 -- | A list of SSH public keys.
-lspkrSSHPublicKeys :: Lens' ListSSHPublicKeysResponse [SSHPublicKeyMetadata]
-lspkrSSHPublicKeys = lens _lspkrSSHPublicKeys (\ s a -> s{_lspkrSSHPublicKeys = a}) . _Default;
+lspkrsSSHPublicKeys :: Lens' ListSSHPublicKeysResponse [SSHPublicKeyMetadata]
+lspkrsSSHPublicKeys = lens _lspkrsSSHPublicKeys (\ s a -> s{_lspkrsSSHPublicKeys = a}) . _Default;
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-lspkrMarker :: Lens' ListSSHPublicKeysResponse (Maybe Text)
-lspkrMarker = lens _lspkrMarker (\ s a -> s{_lspkrMarker = a});
+lspkrsMarker :: Lens' ListSSHPublicKeysResponse (Maybe Text)
+lspkrsMarker = lens _lspkrsMarker (\ s a -> s{_lspkrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-lspkrIsTruncated :: Lens' ListSSHPublicKeysResponse (Maybe Bool)
-lspkrIsTruncated = lens _lspkrIsTruncated (\ s a -> s{_lspkrIsTruncated = a});
+lspkrsIsTruncated :: Lens' ListSSHPublicKeysResponse (Maybe Bool)
+lspkrsIsTruncated = lens _lspkrsIsTruncated (\ s a -> s{_lspkrsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lspkrStatus :: Lens' ListSSHPublicKeysResponse Int
-lspkrStatus = lens _lspkrStatus (\ s a -> s{_lspkrStatus = a});
+lspkrsStatus :: Lens' ListSSHPublicKeysResponse Int
+lspkrsStatus = lens _lspkrsStatus (\ s a -> s{_lspkrsStatus = a});

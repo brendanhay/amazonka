@@ -34,7 +34,7 @@ module Network.AWS.DataPipeline.DeletePipeline
     -- ** Request constructor
     , deletePipeline
     -- ** Request lenses
-    , dpPipelineId
+    , dprqPipelineId
 
     -- * Response
     , DeletePipelineResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpPipelineId'
+-- * 'dprqPipelineId'
 newtype DeletePipeline = DeletePipeline'
-    { _dpPipelineId :: Text
+    { _dprqPipelineId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeletePipeline' smart constructor.
 deletePipeline :: Text -> DeletePipeline
 deletePipeline pPipelineId =
     DeletePipeline'
-    { _dpPipelineId = pPipelineId
+    { _dprqPipelineId = pPipelineId
     }
 
 -- | The ID of the pipeline.
-dpPipelineId :: Lens' DeletePipeline Text
-dpPipelineId = lens _dpPipelineId (\ s a -> s{_dpPipelineId = a});
+dprqPipelineId :: Lens' DeletePipeline Text
+dprqPipelineId = lens _dprqPipelineId (\ s a -> s{_dprqPipelineId = a});
 
 instance AWSRequest DeletePipeline where
         type Sv DeletePipeline = DataPipeline
@@ -86,7 +86,7 @@ instance ToHeaders DeletePipeline where
 
 instance ToJSON DeletePipeline where
         toJSON DeletePipeline'{..}
-          = object ["pipelineId" .= _dpPipelineId]
+          = object ["pipelineId" .= _dprqPipelineId]
 
 instance ToPath DeletePipeline where
         toPath = const "/"

@@ -27,20 +27,20 @@ module Network.AWS.CloudHSM.ModifyHSM
     -- ** Request constructor
     , modifyHSM
     -- ** Request lenses
-    , mhIAMRoleARN
-    , mhSubnetId
-    , mhSyslogIP
-    , mhExternalId
-    , mhEniIP
-    , mhHSMARN
+    , mhrqIAMRoleARN
+    , mhrqSubnetId
+    , mhrqSyslogIP
+    , mhrqExternalId
+    , mhrqEniIP
+    , mhrqHSMARN
 
     -- * Response
     , ModifyHSMResponse
     -- ** Response constructor
     , modifyHSMResponse
     -- ** Response lenses
-    , modHSMARN
-    , modStatus
+    , mhrsHSMARN
+    , mhrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -54,62 +54,62 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mhIAMRoleARN'
+-- * 'mhrqIAMRoleARN'
 --
--- * 'mhSubnetId'
+-- * 'mhrqSubnetId'
 --
--- * 'mhSyslogIP'
+-- * 'mhrqSyslogIP'
 --
--- * 'mhExternalId'
+-- * 'mhrqExternalId'
 --
--- * 'mhEniIP'
+-- * 'mhrqEniIP'
 --
--- * 'mhHSMARN'
+-- * 'mhrqHSMARN'
 data ModifyHSM = ModifyHSM'
-    { _mhIAMRoleARN :: !(Maybe Text)
-    , _mhSubnetId   :: !(Maybe Text)
-    , _mhSyslogIP   :: !(Maybe Text)
-    , _mhExternalId :: !(Maybe Text)
-    , _mhEniIP      :: !(Maybe Text)
-    , _mhHSMARN     :: !Text
+    { _mhrqIAMRoleARN :: !(Maybe Text)
+    , _mhrqSubnetId   :: !(Maybe Text)
+    , _mhrqSyslogIP   :: !(Maybe Text)
+    , _mhrqExternalId :: !(Maybe Text)
+    , _mhrqEniIP      :: !(Maybe Text)
+    , _mhrqHSMARN     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHSM' smart constructor.
 modifyHSM :: Text -> ModifyHSM
 modifyHSM pHSMARN =
     ModifyHSM'
-    { _mhIAMRoleARN = Nothing
-    , _mhSubnetId = Nothing
-    , _mhSyslogIP = Nothing
-    , _mhExternalId = Nothing
-    , _mhEniIP = Nothing
-    , _mhHSMARN = pHSMARN
+    { _mhrqIAMRoleARN = Nothing
+    , _mhrqSubnetId = Nothing
+    , _mhrqSyslogIP = Nothing
+    , _mhrqExternalId = Nothing
+    , _mhrqEniIP = Nothing
+    , _mhrqHSMARN = pHSMARN
     }
 
 -- | The new IAM role ARN.
-mhIAMRoleARN :: Lens' ModifyHSM (Maybe Text)
-mhIAMRoleARN = lens _mhIAMRoleARN (\ s a -> s{_mhIAMRoleARN = a});
+mhrqIAMRoleARN :: Lens' ModifyHSM (Maybe Text)
+mhrqIAMRoleARN = lens _mhrqIAMRoleARN (\ s a -> s{_mhrqIAMRoleARN = a});
 
 -- | The new identifier of the subnet that the HSM is in.
-mhSubnetId :: Lens' ModifyHSM (Maybe Text)
-mhSubnetId = lens _mhSubnetId (\ s a -> s{_mhSubnetId = a});
+mhrqSubnetId :: Lens' ModifyHSM (Maybe Text)
+mhrqSubnetId = lens _mhrqSubnetId (\ s a -> s{_mhrqSubnetId = a});
 
 -- | The new IP address for the syslog monitoring server.
-mhSyslogIP :: Lens' ModifyHSM (Maybe Text)
-mhSyslogIP = lens _mhSyslogIP (\ s a -> s{_mhSyslogIP = a});
+mhrqSyslogIP :: Lens' ModifyHSM (Maybe Text)
+mhrqSyslogIP = lens _mhrqSyslogIP (\ s a -> s{_mhrqSyslogIP = a});
 
 -- | The new external ID.
-mhExternalId :: Lens' ModifyHSM (Maybe Text)
-mhExternalId = lens _mhExternalId (\ s a -> s{_mhExternalId = a});
+mhrqExternalId :: Lens' ModifyHSM (Maybe Text)
+mhrqExternalId = lens _mhrqExternalId (\ s a -> s{_mhrqExternalId = a});
 
 -- | The new IP address for the elastic network interface attached to the
 -- HSM.
-mhEniIP :: Lens' ModifyHSM (Maybe Text)
-mhEniIP = lens _mhEniIP (\ s a -> s{_mhEniIP = a});
+mhrqEniIP :: Lens' ModifyHSM (Maybe Text)
+mhrqEniIP = lens _mhrqEniIP (\ s a -> s{_mhrqEniIP = a});
 
 -- | The ARN of the HSM to modify.
-mhHSMARN :: Lens' ModifyHSM Text
-mhHSMARN = lens _mhHSMARN (\ s a -> s{_mhHSMARN = a});
+mhrqHSMARN :: Lens' ModifyHSM Text
+mhrqHSMARN = lens _mhrqHSMARN (\ s a -> s{_mhrqHSMARN = a});
 
 instance AWSRequest ModifyHSM where
         type Sv ModifyHSM = CloudHSM
@@ -133,10 +133,11 @@ instance ToHeaders ModifyHSM where
 instance ToJSON ModifyHSM where
         toJSON ModifyHSM'{..}
           = object
-              ["IamRoleArn" .= _mhIAMRoleARN,
-               "SubnetId" .= _mhSubnetId, "SyslogIp" .= _mhSyslogIP,
-               "ExternalId" .= _mhExternalId, "EniIp" .= _mhEniIP,
-               "HsmArn" .= _mhHSMARN]
+              ["IamRoleArn" .= _mhrqIAMRoleARN,
+               "SubnetId" .= _mhrqSubnetId,
+               "SyslogIp" .= _mhrqSyslogIP,
+               "ExternalId" .= _mhrqExternalId,
+               "EniIp" .= _mhrqEniIP, "HsmArn" .= _mhrqHSMARN]
 
 instance ToPath ModifyHSM where
         toPath = const "/"
@@ -150,26 +151,26 @@ instance ToQuery ModifyHSM where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'modHSMARN'
+-- * 'mhrsHSMARN'
 --
--- * 'modStatus'
+-- * 'mhrsStatus'
 data ModifyHSMResponse = ModifyHSMResponse'
-    { _modHSMARN :: !(Maybe Text)
-    , _modStatus :: !Int
+    { _mhrsHSMARN :: !(Maybe Text)
+    , _mhrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyHSMResponse' smart constructor.
 modifyHSMResponse :: Int -> ModifyHSMResponse
 modifyHSMResponse pStatus =
     ModifyHSMResponse'
-    { _modHSMARN = Nothing
-    , _modStatus = pStatus
+    { _mhrsHSMARN = Nothing
+    , _mhrsStatus = pStatus
     }
 
 -- | The ARN of the HSM.
-modHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
-modHSMARN = lens _modHSMARN (\ s a -> s{_modHSMARN = a});
+mhrsHSMARN :: Lens' ModifyHSMResponse (Maybe Text)
+mhrsHSMARN = lens _mhrsHSMARN (\ s a -> s{_mhrsHSMARN = a});
 
 -- | FIXME: Undocumented member.
-modStatus :: Lens' ModifyHSMResponse Int
-modStatus = lens _modStatus (\ s a -> s{_modStatus = a});
+mhrsStatus :: Lens' ModifyHSMResponse Int
+mhrsStatus = lens _mhrsStatus (\ s a -> s{_mhrsStatus = a});

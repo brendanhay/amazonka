@@ -50,16 +50,16 @@ module Network.AWS.SWF.CountPendingDecisionTasks
     -- ** Request constructor
     , countPendingDecisionTasks
     -- ** Request lenses
-    , cpdtDomain
-    , cpdtTaskList
+    , cpdtrqDomain
+    , cpdtrqTaskList
 
     -- * Response
     , PendingTaskCount
     -- ** Response constructor
     , pendingTaskCount
     -- ** Response lenses
-    , ptcTruncated
-    , ptcCount
+    , cpdtrsTruncated
+    , cpdtrsCount
     ) where
 
 import           Network.AWS.Prelude
@@ -71,29 +71,29 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpdtDomain'
+-- * 'cpdtrqDomain'
 --
--- * 'cpdtTaskList'
+-- * 'cpdtrqTaskList'
 data CountPendingDecisionTasks = CountPendingDecisionTasks'
-    { _cpdtDomain   :: !Text
-    , _cpdtTaskList :: !TaskList
+    { _cpdtrqDomain   :: !Text
+    , _cpdtrqTaskList :: !TaskList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CountPendingDecisionTasks' smart constructor.
 countPendingDecisionTasks :: Text -> TaskList -> CountPendingDecisionTasks
 countPendingDecisionTasks pDomain pTaskList =
     CountPendingDecisionTasks'
-    { _cpdtDomain = pDomain
-    , _cpdtTaskList = pTaskList
+    { _cpdtrqDomain = pDomain
+    , _cpdtrqTaskList = pTaskList
     }
 
 -- | The name of the domain that contains the task list.
-cpdtDomain :: Lens' CountPendingDecisionTasks Text
-cpdtDomain = lens _cpdtDomain (\ s a -> s{_cpdtDomain = a});
+cpdtrqDomain :: Lens' CountPendingDecisionTasks Text
+cpdtrqDomain = lens _cpdtrqDomain (\ s a -> s{_cpdtrqDomain = a});
 
 -- | The name of the task list.
-cpdtTaskList :: Lens' CountPendingDecisionTasks TaskList
-cpdtTaskList = lens _cpdtTaskList (\ s a -> s{_cpdtTaskList = a});
+cpdtrqTaskList :: Lens' CountPendingDecisionTasks TaskList
+cpdtrqTaskList = lens _cpdtrqTaskList (\ s a -> s{_cpdtrqTaskList = a});
 
 instance AWSRequest CountPendingDecisionTasks where
         type Sv CountPendingDecisionTasks = SWF
@@ -114,8 +114,8 @@ instance ToHeaders CountPendingDecisionTasks where
 instance ToJSON CountPendingDecisionTasks where
         toJSON CountPendingDecisionTasks'{..}
           = object
-              ["domain" .= _cpdtDomain,
-               "taskList" .= _cpdtTaskList]
+              ["domain" .= _cpdtrqDomain,
+               "taskList" .= _cpdtrqTaskList]
 
 instance ToPath CountPendingDecisionTasks where
         toPath = const "/"

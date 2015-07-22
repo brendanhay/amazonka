@@ -30,15 +30,15 @@ module Network.AWS.Glacier.GetDataRetrievalPolicy
     -- ** Request constructor
     , getDataRetrievalPolicy
     -- ** Request lenses
-    , gdrpAccountId
+    , gdrprqAccountId
 
     -- * Response
     , GetDataRetrievalPolicyResponse
     -- ** Response constructor
     , getDataRetrievalPolicyResponse
     -- ** Response lenses
-    , gdrprPolicy
-    , gdrprStatus
+    , gdrprsPolicy
+    , gdrprsStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -52,16 +52,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrpAccountId'
+-- * 'gdrprqAccountId'
 newtype GetDataRetrievalPolicy = GetDataRetrievalPolicy'
-    { _gdrpAccountId :: Text
+    { _gdrprqAccountId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataRetrievalPolicy' smart constructor.
 getDataRetrievalPolicy :: Text -> GetDataRetrievalPolicy
 getDataRetrievalPolicy pAccountId =
     GetDataRetrievalPolicy'
-    { _gdrpAccountId = pAccountId
+    { _gdrprqAccountId = pAccountId
     }
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
@@ -71,8 +71,8 @@ getDataRetrievalPolicy pAccountId =
 -- ID associated with the credentials used to sign the request. If you
 -- specify your Account ID, do not include any hyphens (apos-apos) in the
 -- ID.
-gdrpAccountId :: Lens' GetDataRetrievalPolicy Text
-gdrpAccountId = lens _gdrpAccountId (\ s a -> s{_gdrpAccountId = a});
+gdrprqAccountId :: Lens' GetDataRetrievalPolicy Text
+gdrprqAccountId = lens _gdrprqAccountId (\ s a -> s{_gdrprqAccountId = a});
 
 instance AWSRequest GetDataRetrievalPolicy where
         type Sv GetDataRetrievalPolicy = Glacier
@@ -91,7 +91,7 @@ instance ToHeaders GetDataRetrievalPolicy where
 instance ToPath GetDataRetrievalPolicy where
         toPath GetDataRetrievalPolicy'{..}
           = mconcat
-              ["/", toText _gdrpAccountId,
+              ["/", toText _gdrprqAccountId,
                "/policies/data-retrieval"]
 
 instance ToQuery GetDataRetrievalPolicy where
@@ -104,26 +104,26 @@ instance ToQuery GetDataRetrievalPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrprPolicy'
+-- * 'gdrprsPolicy'
 --
--- * 'gdrprStatus'
+-- * 'gdrprsStatus'
 data GetDataRetrievalPolicyResponse = GetDataRetrievalPolicyResponse'
-    { _gdrprPolicy :: !(Maybe DataRetrievalPolicy)
-    , _gdrprStatus :: !Int
+    { _gdrprsPolicy :: !(Maybe DataRetrievalPolicy)
+    , _gdrprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDataRetrievalPolicyResponse' smart constructor.
 getDataRetrievalPolicyResponse :: Int -> GetDataRetrievalPolicyResponse
 getDataRetrievalPolicyResponse pStatus =
     GetDataRetrievalPolicyResponse'
-    { _gdrprPolicy = Nothing
-    , _gdrprStatus = pStatus
+    { _gdrprsPolicy = Nothing
+    , _gdrprsStatus = pStatus
     }
 
 -- | Contains the returned data retrieval policy in JSON format.
-gdrprPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
-gdrprPolicy = lens _gdrprPolicy (\ s a -> s{_gdrprPolicy = a});
+gdrprsPolicy :: Lens' GetDataRetrievalPolicyResponse (Maybe DataRetrievalPolicy)
+gdrprsPolicy = lens _gdrprsPolicy (\ s a -> s{_gdrprsPolicy = a});
 
 -- | FIXME: Undocumented member.
-gdrprStatus :: Lens' GetDataRetrievalPolicyResponse Int
-gdrprStatus = lens _gdrprStatus (\ s a -> s{_gdrprStatus = a});
+gdrprsStatus :: Lens' GetDataRetrievalPolicyResponse Int
+gdrprsStatus = lens _gdrprsStatus (\ s a -> s{_gdrprsStatus = a});

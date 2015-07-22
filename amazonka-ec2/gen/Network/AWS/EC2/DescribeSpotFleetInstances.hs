@@ -27,20 +27,20 @@ module Network.AWS.EC2.DescribeSpotFleetInstances
     -- ** Request constructor
     , describeSpotFleetInstances
     -- ** Request lenses
-    , dsfiNextToken
-    , dsfiDryRun
-    , dsfiMaxResults
-    , dsfiSpotFleetRequestId
+    , dsfirqNextToken
+    , dsfirqDryRun
+    , dsfirqMaxResults
+    , dsfirqSpotFleetRequestId
 
     -- * Response
     , DescribeSpotFleetInstancesResponse
     -- ** Response constructor
     , describeSpotFleetInstancesResponse
     -- ** Response lenses
-    , dsfirNextToken
-    , dsfirStatus
-    , dsfirSpotFleetRequestId
-    , dsfirActiveInstances
+    , dsfirsNextToken
+    , dsfirsStatus
+    , dsfirsSpotFleetRequestId
+    , dsfirsActiveInstances
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,51 +54,51 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsfiNextToken'
+-- * 'dsfirqNextToken'
 --
--- * 'dsfiDryRun'
+-- * 'dsfirqDryRun'
 --
--- * 'dsfiMaxResults'
+-- * 'dsfirqMaxResults'
 --
--- * 'dsfiSpotFleetRequestId'
+-- * 'dsfirqSpotFleetRequestId'
 data DescribeSpotFleetInstances = DescribeSpotFleetInstances'
-    { _dsfiNextToken          :: !(Maybe Text)
-    , _dsfiDryRun             :: !(Maybe Bool)
-    , _dsfiMaxResults         :: !(Maybe Int)
-    , _dsfiSpotFleetRequestId :: !Text
+    { _dsfirqNextToken          :: !(Maybe Text)
+    , _dsfirqDryRun             :: !(Maybe Bool)
+    , _dsfirqMaxResults         :: !(Maybe Int)
+    , _dsfirqSpotFleetRequestId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetInstances' smart constructor.
 describeSpotFleetInstances :: Text -> DescribeSpotFleetInstances
 describeSpotFleetInstances pSpotFleetRequestId =
     DescribeSpotFleetInstances'
-    { _dsfiNextToken = Nothing
-    , _dsfiDryRun = Nothing
-    , _dsfiMaxResults = Nothing
-    , _dsfiSpotFleetRequestId = pSpotFleetRequestId
+    { _dsfirqNextToken = Nothing
+    , _dsfirqDryRun = Nothing
+    , _dsfirqMaxResults = Nothing
+    , _dsfirqSpotFleetRequestId = pSpotFleetRequestId
     }
 
 -- | The token for the next set of results.
-dsfiNextToken :: Lens' DescribeSpotFleetInstances (Maybe Text)
-dsfiNextToken = lens _dsfiNextToken (\ s a -> s{_dsfiNextToken = a});
+dsfirqNextToken :: Lens' DescribeSpotFleetInstances (Maybe Text)
+dsfirqNextToken = lens _dsfirqNextToken (\ s a -> s{_dsfirqNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsfiDryRun :: Lens' DescribeSpotFleetInstances (Maybe Bool)
-dsfiDryRun = lens _dsfiDryRun (\ s a -> s{_dsfiDryRun = a});
+dsfirqDryRun :: Lens' DescribeSpotFleetInstances (Maybe Bool)
+dsfirqDryRun = lens _dsfirqDryRun (\ s a -> s{_dsfirqDryRun = a});
 
 -- | The maximum number of results to return in a single call. Specify a
 -- value between 1 and 1000. The default value is 1000. To retrieve the
 -- remaining results, make another call with the returned @NextToken@
 -- value.
-dsfiMaxResults :: Lens' DescribeSpotFleetInstances (Maybe Int)
-dsfiMaxResults = lens _dsfiMaxResults (\ s a -> s{_dsfiMaxResults = a});
+dsfirqMaxResults :: Lens' DescribeSpotFleetInstances (Maybe Int)
+dsfirqMaxResults = lens _dsfirqMaxResults (\ s a -> s{_dsfirqMaxResults = a});
 
 -- | The ID of the Spot fleet request.
-dsfiSpotFleetRequestId :: Lens' DescribeSpotFleetInstances Text
-dsfiSpotFleetRequestId = lens _dsfiSpotFleetRequestId (\ s a -> s{_dsfiSpotFleetRequestId = a});
+dsfirqSpotFleetRequestId :: Lens' DescribeSpotFleetInstances Text
+dsfirqSpotFleetRequestId = lens _dsfirqSpotFleetRequestId (\ s a -> s{_dsfirqSpotFleetRequestId = a});
 
 instance AWSRequest DescribeSpotFleetInstances where
         type Sv DescribeSpotFleetInstances = EC2
@@ -127,10 +127,10 @@ instance ToQuery DescribeSpotFleetInstances where
               ["Action" =:
                  ("DescribeSpotFleetInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "NextToken" =: _dsfiNextToken,
-               "DryRun" =: _dsfiDryRun,
-               "MaxResults" =: _dsfiMaxResults,
-               "SpotFleetRequestId" =: _dsfiSpotFleetRequestId]
+               "NextToken" =: _dsfirqNextToken,
+               "DryRun" =: _dsfirqDryRun,
+               "MaxResults" =: _dsfirqMaxResults,
+               "SpotFleetRequestId" =: _dsfirqSpotFleetRequestId]
 
 -- | Contains the output of DescribeSpotFleetInstances.
 --
@@ -138,44 +138,44 @@ instance ToQuery DescribeSpotFleetInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsfirNextToken'
+-- * 'dsfirsNextToken'
 --
--- * 'dsfirStatus'
+-- * 'dsfirsStatus'
 --
--- * 'dsfirSpotFleetRequestId'
+-- * 'dsfirsSpotFleetRequestId'
 --
--- * 'dsfirActiveInstances'
+-- * 'dsfirsActiveInstances'
 data DescribeSpotFleetInstancesResponse = DescribeSpotFleetInstancesResponse'
-    { _dsfirNextToken          :: !(Maybe Text)
-    , _dsfirStatus             :: !Int
-    , _dsfirSpotFleetRequestId :: !Text
-    , _dsfirActiveInstances    :: ![ActiveInstance]
+    { _dsfirsNextToken          :: !(Maybe Text)
+    , _dsfirsStatus             :: !Int
+    , _dsfirsSpotFleetRequestId :: !Text
+    , _dsfirsActiveInstances    :: ![ActiveInstance]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotFleetInstancesResponse' smart constructor.
 describeSpotFleetInstancesResponse :: Int -> Text -> DescribeSpotFleetInstancesResponse
 describeSpotFleetInstancesResponse pStatus pSpotFleetRequestId =
     DescribeSpotFleetInstancesResponse'
-    { _dsfirNextToken = Nothing
-    , _dsfirStatus = pStatus
-    , _dsfirSpotFleetRequestId = pSpotFleetRequestId
-    , _dsfirActiveInstances = mempty
+    { _dsfirsNextToken = Nothing
+    , _dsfirsStatus = pStatus
+    , _dsfirsSpotFleetRequestId = pSpotFleetRequestId
+    , _dsfirsActiveInstances = mempty
     }
 
 -- | The token required to retrieve the next set of results. This value is
 -- @null@ when there are no more results to return.
-dsfirNextToken :: Lens' DescribeSpotFleetInstancesResponse (Maybe Text)
-dsfirNextToken = lens _dsfirNextToken (\ s a -> s{_dsfirNextToken = a});
+dsfirsNextToken :: Lens' DescribeSpotFleetInstancesResponse (Maybe Text)
+dsfirsNextToken = lens _dsfirsNextToken (\ s a -> s{_dsfirsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dsfirStatus :: Lens' DescribeSpotFleetInstancesResponse Int
-dsfirStatus = lens _dsfirStatus (\ s a -> s{_dsfirStatus = a});
+dsfirsStatus :: Lens' DescribeSpotFleetInstancesResponse Int
+dsfirsStatus = lens _dsfirsStatus (\ s a -> s{_dsfirsStatus = a});
 
 -- | The ID of the Spot fleet request.
-dsfirSpotFleetRequestId :: Lens' DescribeSpotFleetInstancesResponse Text
-dsfirSpotFleetRequestId = lens _dsfirSpotFleetRequestId (\ s a -> s{_dsfirSpotFleetRequestId = a});
+dsfirsSpotFleetRequestId :: Lens' DescribeSpotFleetInstancesResponse Text
+dsfirsSpotFleetRequestId = lens _dsfirsSpotFleetRequestId (\ s a -> s{_dsfirsSpotFleetRequestId = a});
 
 -- | The running instances. Note that this list is refreshed periodically and
 -- might be out of date.
-dsfirActiveInstances :: Lens' DescribeSpotFleetInstancesResponse [ActiveInstance]
-dsfirActiveInstances = lens _dsfirActiveInstances (\ s a -> s{_dsfirActiveInstances = a});
+dsfirsActiveInstances :: Lens' DescribeSpotFleetInstancesResponse [ActiveInstance]
+dsfirsActiveInstances = lens _dsfirsActiveInstances (\ s a -> s{_dsfirsActiveInstances = a});

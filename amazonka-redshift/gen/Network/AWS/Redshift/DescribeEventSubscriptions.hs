@@ -29,18 +29,18 @@ module Network.AWS.Redshift.DescribeEventSubscriptions
     -- ** Request constructor
     , describeEventSubscriptions
     -- ** Request lenses
-    , dessSubscriptionName
-    , dessMaxRecords
-    , dessMarker
+    , drqSubscriptionName
+    , drqMaxRecords
+    , drqMarker
 
     -- * Response
     , DescribeEventSubscriptionsResponse
     -- ** Response constructor
     , describeEventSubscriptionsResponse
     -- ** Response lenses
-    , desrEventSubscriptionsList
-    , desrMarker
-    , desrStatus
+    , drsEventSubscriptionsList
+    , drsMarker
+    , drsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -55,30 +55,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dessSubscriptionName'
+-- * 'drqSubscriptionName'
 --
--- * 'dessMaxRecords'
+-- * 'drqMaxRecords'
 --
--- * 'dessMarker'
+-- * 'drqMarker'
 data DescribeEventSubscriptions = DescribeEventSubscriptions'
-    { _dessSubscriptionName :: !(Maybe Text)
-    , _dessMaxRecords       :: !(Maybe Int)
-    , _dessMarker           :: !(Maybe Text)
+    { _drqSubscriptionName :: !(Maybe Text)
+    , _drqMaxRecords       :: !(Maybe Int)
+    , _drqMarker           :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventSubscriptions' smart constructor.
 describeEventSubscriptions :: DescribeEventSubscriptions
 describeEventSubscriptions =
     DescribeEventSubscriptions'
-    { _dessSubscriptionName = Nothing
-    , _dessMaxRecords = Nothing
-    , _dessMarker = Nothing
+    { _drqSubscriptionName = Nothing
+    , _drqMaxRecords = Nothing
+    , _drqMarker = Nothing
     }
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- described.
-dessSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
-dessSubscriptionName = lens _dessSubscriptionName (\ s a -> s{_dessSubscriptionName = a});
+drqSubscriptionName :: Lens' DescribeEventSubscriptions (Maybe Text)
+drqSubscriptionName = lens _drqSubscriptionName (\ s a -> s{_drqSubscriptionName = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -89,8 +89,8 @@ dessSubscriptionName = lens _dessSubscriptionName (\ s a -> s{_dessSubscriptionN
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dessMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
-dessMaxRecords = lens _dessMaxRecords (\ s a -> s{_dessMaxRecords = a});
+drqMaxRecords :: Lens' DescribeEventSubscriptions (Maybe Int)
+drqMaxRecords = lens _drqMaxRecords (\ s a -> s{_drqMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeEventSubscriptions
@@ -98,15 +98,15 @@ dessMaxRecords = lens _dessMaxRecords (\ s a -> s{_dessMaxRecords = a});
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-dessMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
-dessMarker = lens _dessMarker (\ s a -> s{_dessMarker = a});
+drqMarker :: Lens' DescribeEventSubscriptions (Maybe Text)
+drqMarker = lens _drqMarker (\ s a -> s{_drqMarker = a});
 
 instance AWSPager DescribeEventSubscriptions where
         page rq rs
-          | stop (rs ^. desrMarker) = Nothing
-          | stop (rs ^. desrEventSubscriptionsList) = Nothing
+          | stop (rs ^. drsMarker) = Nothing
+          | stop (rs ^. drsEventSubscriptionsList) = Nothing
           | otherwise =
-            Just $ rq & dessMarker .~ rs ^. desrMarker
+            Just $ rq & drqMarker .~ rs ^. drsMarker
 
 instance AWSRequest DescribeEventSubscriptions where
         type Sv DescribeEventSubscriptions = Redshift
@@ -135,9 +135,9 @@ instance ToQuery DescribeEventSubscriptions where
               ["Action" =:
                  ("DescribeEventSubscriptions" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "SubscriptionName" =: _dessSubscriptionName,
-               "MaxRecords" =: _dessMaxRecords,
-               "Marker" =: _dessMarker]
+               "SubscriptionName" =: _drqSubscriptionName,
+               "MaxRecords" =: _drqMaxRecords,
+               "Marker" =: _drqMarker]
 
 -- |
 --
@@ -145,29 +145,29 @@ instance ToQuery DescribeEventSubscriptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desrEventSubscriptionsList'
+-- * 'drsEventSubscriptionsList'
 --
--- * 'desrMarker'
+-- * 'drsMarker'
 --
--- * 'desrStatus'
+-- * 'drsStatus'
 data DescribeEventSubscriptionsResponse = DescribeEventSubscriptionsResponse'
-    { _desrEventSubscriptionsList :: !(Maybe [EventSubscription])
-    , _desrMarker                 :: !(Maybe Text)
-    , _desrStatus                 :: !Int
+    { _drsEventSubscriptionsList :: !(Maybe [EventSubscription])
+    , _drsMarker                 :: !(Maybe Text)
+    , _drsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEventSubscriptionsResponse' smart constructor.
 describeEventSubscriptionsResponse :: Int -> DescribeEventSubscriptionsResponse
 describeEventSubscriptionsResponse pStatus =
     DescribeEventSubscriptionsResponse'
-    { _desrEventSubscriptionsList = Nothing
-    , _desrMarker = Nothing
-    , _desrStatus = pStatus
+    { _drsEventSubscriptionsList = Nothing
+    , _drsMarker = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | A list of event subscriptions.
-desrEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
-desrEventSubscriptionsList = lens _desrEventSubscriptionsList (\ s a -> s{_desrEventSubscriptionsList = a}) . _Default;
+drsEventSubscriptionsList :: Lens' DescribeEventSubscriptionsResponse [EventSubscription]
+drsEventSubscriptionsList = lens _drsEventSubscriptionsList (\ s a -> s{_drsEventSubscriptionsList = a}) . _Default;
 
 -- | A value that indicates the starting point for the next set of response
 -- records in a subsequent request. If a value is returned in a response,
@@ -175,9 +175,9 @@ desrEventSubscriptionsList = lens _desrEventSubscriptionsList (\ s a -> s{_desrE
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-desrMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
-desrMarker = lens _desrMarker (\ s a -> s{_desrMarker = a});
+drsMarker :: Lens' DescribeEventSubscriptionsResponse (Maybe Text)
+drsMarker = lens _drsMarker (\ s a -> s{_drsMarker = a});
 
 -- | FIXME: Undocumented member.
-desrStatus :: Lens' DescribeEventSubscriptionsResponse Int
-desrStatus = lens _desrStatus (\ s a -> s{_desrStatus = a});
+drsStatus :: Lens' DescribeEventSubscriptionsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

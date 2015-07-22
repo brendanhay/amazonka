@@ -51,21 +51,21 @@ module Network.AWS.SES.SendEmail
     -- ** Request constructor
     , sendEmail
     -- ** Request lenses
-    , seReturnPath
-    , seSourceARN
-    , seReturnPathARN
-    , seReplyToAddresses
-    , seSource
-    , seDestination
-    , seMessage
+    , serqReturnPath
+    , serqSourceARN
+    , serqReturnPathARN
+    , serqReplyToAddresses
+    , serqSource
+    , serqDestination
+    , serqMessage
 
     -- * Response
     , SendEmailResponse
     -- ** Response constructor
     , sendEmailResponse
     -- ** Response lenses
-    , serStatus
-    , serMessageId
+    , sersStatus
+    , sersMessageId
     ) where
 
 import           Network.AWS.Prelude
@@ -84,40 +84,40 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'seReturnPath'
+-- * 'serqReturnPath'
 --
--- * 'seSourceARN'
+-- * 'serqSourceARN'
 --
--- * 'seReturnPathARN'
+-- * 'serqReturnPathARN'
 --
--- * 'seReplyToAddresses'
+-- * 'serqReplyToAddresses'
 --
--- * 'seSource'
+-- * 'serqSource'
 --
--- * 'seDestination'
+-- * 'serqDestination'
 --
--- * 'seMessage'
+-- * 'serqMessage'
 data SendEmail = SendEmail'
-    { _seReturnPath       :: !(Maybe Text)
-    , _seSourceARN        :: !(Maybe Text)
-    , _seReturnPathARN    :: !(Maybe Text)
-    , _seReplyToAddresses :: !(Maybe [Text])
-    , _seSource           :: !Text
-    , _seDestination      :: !Destination
-    , _seMessage          :: !Message
+    { _serqReturnPath       :: !(Maybe Text)
+    , _serqSourceARN        :: !(Maybe Text)
+    , _serqReturnPathARN    :: !(Maybe Text)
+    , _serqReplyToAddresses :: !(Maybe [Text])
+    , _serqSource           :: !Text
+    , _serqDestination      :: !Destination
+    , _serqMessage          :: !Message
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendEmail' smart constructor.
 sendEmail :: Text -> Destination -> Message -> SendEmail
 sendEmail pSource pDestination pMessage =
     SendEmail'
-    { _seReturnPath = Nothing
-    , _seSourceARN = Nothing
-    , _seReturnPathARN = Nothing
-    , _seReplyToAddresses = Nothing
-    , _seSource = pSource
-    , _seDestination = pDestination
-    , _seMessage = pMessage
+    { _serqReturnPath = Nothing
+    , _serqSourceARN = Nothing
+    , _serqReturnPathARN = Nothing
+    , _serqReplyToAddresses = Nothing
+    , _serqSource = pSource
+    , _serqDestination = pDestination
+    , _serqMessage = pMessage
     }
 
 -- | The email address to which bounces and complaints are to be forwarded
@@ -128,8 +128,8 @@ sendEmail pSource pDestination pMessage =
 -- parameter is never overwritten. This email address must be either
 -- individually verified with Amazon SES, or from a domain that has been
 -- verified with Amazon SES.
-seReturnPath :: Lens' SendEmail (Maybe Text)
-seReturnPath = lens _seReturnPath (\ s a -> s{_seReturnPath = a});
+serqReturnPath :: Lens' SendEmail (Maybe Text)
+serqReturnPath = lens _serqReturnPath (\ s a -> s{_serqReturnPath = a});
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -145,8 +145,8 @@ seReturnPath = lens _seReturnPath (\ s a -> s{_seReturnPath = a});
 --
 -- For more information about sending authorization, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-seSourceARN :: Lens' SendEmail (Maybe Text)
-seSourceARN = lens _seSourceARN (\ s a -> s{_seSourceARN = a});
+serqSourceARN :: Lens' SendEmail (Maybe Text)
+serqSourceARN = lens _serqSourceARN (\ s a -> s{_serqSourceARN = a});
 
 -- | This parameter is used only for sending authorization. It is the ARN of
 -- the identity that is associated with the sending authorization policy
@@ -162,13 +162,13 @@ seSourceARN = lens _seSourceARN (\ s a -> s{_seSourceARN = a});
 --
 -- For more information about sending authorization, see the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html Amazon SES Developer Guide>.
-seReturnPathARN :: Lens' SendEmail (Maybe Text)
-seReturnPathARN = lens _seReturnPathARN (\ s a -> s{_seReturnPathARN = a});
+serqReturnPathARN :: Lens' SendEmail (Maybe Text)
+serqReturnPathARN = lens _serqReturnPathARN (\ s a -> s{_serqReturnPathARN = a});
 
 -- | The reply-to email address(es) for the message. If the recipient replies
 -- to the message, each reply-to address will receive the reply.
-seReplyToAddresses :: Lens' SendEmail [Text]
-seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = a}) . _Default;
+serqReplyToAddresses :: Lens' SendEmail [Text]
+serqReplyToAddresses = lens _serqReplyToAddresses (\ s a -> s{_serqReplyToAddresses = a}) . _Default;
 
 -- | The email address that is sending the email. This email address must be
 -- either individually verified with Amazon SES, or from a domain that has
@@ -187,16 +187,16 @@ seReplyToAddresses = lens _seReplyToAddresses (\ s a -> s{_seReplyToAddresses = 
 -- (RFC 2047) instead of a literal string. MIME encoded-word syntax uses
 -- the following form: @=?charset?encoding?encoded-text?=@. For more
 -- information, see <http://tools.ietf.org/html/rfc2047 RFC 2047>.
-seSource :: Lens' SendEmail Text
-seSource = lens _seSource (\ s a -> s{_seSource = a});
+serqSource :: Lens' SendEmail Text
+serqSource = lens _serqSource (\ s a -> s{_serqSource = a});
 
 -- | The destination for this email, composed of To:, CC:, and BCC: fields.
-seDestination :: Lens' SendEmail Destination
-seDestination = lens _seDestination (\ s a -> s{_seDestination = a});
+serqDestination :: Lens' SendEmail Destination
+serqDestination = lens _serqDestination (\ s a -> s{_serqDestination = a});
 
 -- | The message to be sent.
-seMessage :: Lens' SendEmail Message
-seMessage = lens _seMessage (\ s a -> s{_seMessage = a});
+serqMessage :: Lens' SendEmail Message
+serqMessage = lens _serqMessage (\ s a -> s{_serqMessage = a});
 
 instance AWSRequest SendEmail where
         type Sv SendEmail = SES
@@ -219,15 +219,15 @@ instance ToQuery SendEmail where
           = mconcat
               ["Action" =: ("SendEmail" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "ReturnPath" =: _seReturnPath,
-               "SourceArn" =: _seSourceARN,
-               "ReturnPathArn" =: _seReturnPathARN,
+               "ReturnPath" =: _serqReturnPath,
+               "SourceArn" =: _serqSourceARN,
+               "ReturnPathArn" =: _serqReturnPathARN,
                "ReplyToAddresses" =:
                  toQuery
-                   (toQueryList "member" <$> _seReplyToAddresses),
-               "Source" =: _seSource,
-               "Destination" =: _seDestination,
-               "Message" =: _seMessage]
+                   (toQueryList "member" <$> _serqReplyToAddresses),
+               "Source" =: _serqSource,
+               "Destination" =: _serqDestination,
+               "Message" =: _serqMessage]
 
 -- | Represents a unique message ID returned from a successful @SendEmail@
 -- request.
@@ -236,26 +236,26 @@ instance ToQuery SendEmail where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'serStatus'
+-- * 'sersStatus'
 --
--- * 'serMessageId'
+-- * 'sersMessageId'
 data SendEmailResponse = SendEmailResponse'
-    { _serStatus    :: !Int
-    , _serMessageId :: !Text
+    { _sersStatus    :: !Int
+    , _sersMessageId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SendEmailResponse' smart constructor.
 sendEmailResponse :: Int -> Text -> SendEmailResponse
 sendEmailResponse pStatus pMessageId =
     SendEmailResponse'
-    { _serStatus = pStatus
-    , _serMessageId = pMessageId
+    { _sersStatus = pStatus
+    , _sersMessageId = pMessageId
     }
 
 -- | FIXME: Undocumented member.
-serStatus :: Lens' SendEmailResponse Int
-serStatus = lens _serStatus (\ s a -> s{_serStatus = a});
+sersStatus :: Lens' SendEmailResponse Int
+sersStatus = lens _sersStatus (\ s a -> s{_sersStatus = a});
 
 -- | The unique message identifier returned from the @SendEmail@ action.
-serMessageId :: Lens' SendEmailResponse Text
-serMessageId = lens _serMessageId (\ s a -> s{_serMessageId = a});
+sersMessageId :: Lens' SendEmailResponse Text
+sersMessageId = lens _sersMessageId (\ s a -> s{_sersMessageId = a});

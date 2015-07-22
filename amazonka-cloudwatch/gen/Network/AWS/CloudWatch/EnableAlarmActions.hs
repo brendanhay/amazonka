@@ -27,7 +27,7 @@ module Network.AWS.CloudWatch.EnableAlarmActions
     -- ** Request constructor
     , enableAlarmActions
     -- ** Request lenses
-    , eaaAlarmNames
+    , eaarqAlarmNames
 
     -- * Response
     , EnableAlarmActionsResponse
@@ -44,21 +44,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'eaaAlarmNames'
+-- * 'eaarqAlarmNames'
 newtype EnableAlarmActions = EnableAlarmActions'
-    { _eaaAlarmNames :: [Text]
+    { _eaarqAlarmNames :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableAlarmActions' smart constructor.
 enableAlarmActions :: EnableAlarmActions
 enableAlarmActions =
     EnableAlarmActions'
-    { _eaaAlarmNames = mempty
+    { _eaarqAlarmNames = mempty
     }
 
 -- | The names of the alarms to enable actions for.
-eaaAlarmNames :: Lens' EnableAlarmActions [Text]
-eaaAlarmNames = lens _eaaAlarmNames (\ s a -> s{_eaaAlarmNames = a});
+eaarqAlarmNames :: Lens' EnableAlarmActions [Text]
+eaarqAlarmNames = lens _eaarqAlarmNames (\ s a -> s{_eaarqAlarmNames = a});
 
 instance AWSRequest EnableAlarmActions where
         type Sv EnableAlarmActions = CloudWatch
@@ -78,7 +78,8 @@ instance ToQuery EnableAlarmActions where
           = mconcat
               ["Action" =: ("EnableAlarmActions" :: ByteString),
                "Version" =: ("2010-08-01" :: ByteString),
-               "AlarmNames" =: toQueryList "member" _eaaAlarmNames]
+               "AlarmNames" =:
+                 toQueryList "member" _eaarqAlarmNames]
 
 -- | /See:/ 'enableAlarmActionsResponse' smart constructor.
 data EnableAlarmActionsResponse =

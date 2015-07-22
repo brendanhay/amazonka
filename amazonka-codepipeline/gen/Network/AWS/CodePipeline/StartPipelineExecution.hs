@@ -28,15 +28,15 @@ module Network.AWS.CodePipeline.StartPipelineExecution
     -- ** Request constructor
     , startPipelineExecution
     -- ** Request lenses
-    , speName
+    , sperqName
 
     -- * Response
     , StartPipelineExecutionResponse
     -- ** Response constructor
     , startPipelineExecutionResponse
     -- ** Response lenses
-    , sperPipelineExecutionId
-    , sperStatus
+    , spersPipelineExecutionId
+    , spersStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -50,21 +50,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'speName'
+-- * 'sperqName'
 newtype StartPipelineExecution = StartPipelineExecution'
-    { _speName :: Text
+    { _sperqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartPipelineExecution' smart constructor.
 startPipelineExecution :: Text -> StartPipelineExecution
 startPipelineExecution pName =
     StartPipelineExecution'
-    { _speName = pName
+    { _sperqName = pName
     }
 
 -- | The name of the pipeline to start.
-speName :: Lens' StartPipelineExecution Text
-speName = lens _speName (\ s a -> s{_speName = a});
+sperqName :: Lens' StartPipelineExecution Text
+sperqName = lens _sperqName (\ s a -> s{_sperqName = a});
 
 instance AWSRequest StartPipelineExecution where
         type Sv StartPipelineExecution = CodePipeline
@@ -90,7 +90,7 @@ instance ToHeaders StartPipelineExecution where
 
 instance ToJSON StartPipelineExecution where
         toJSON StartPipelineExecution'{..}
-          = object ["name" .= _speName]
+          = object ["name" .= _sperqName]
 
 instance ToPath StartPipelineExecution where
         toPath = const "/"
@@ -104,26 +104,26 @@ instance ToQuery StartPipelineExecution where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'sperPipelineExecutionId'
+-- * 'spersPipelineExecutionId'
 --
--- * 'sperStatus'
+-- * 'spersStatus'
 data StartPipelineExecutionResponse = StartPipelineExecutionResponse'
-    { _sperPipelineExecutionId :: !(Maybe Text)
-    , _sperStatus              :: !Int
+    { _spersPipelineExecutionId :: !(Maybe Text)
+    , _spersStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartPipelineExecutionResponse' smart constructor.
 startPipelineExecutionResponse :: Int -> StartPipelineExecutionResponse
 startPipelineExecutionResponse pStatus =
     StartPipelineExecutionResponse'
-    { _sperPipelineExecutionId = Nothing
-    , _sperStatus = pStatus
+    { _spersPipelineExecutionId = Nothing
+    , _spersStatus = pStatus
     }
 
 -- | The unique system-generated ID of the pipeline that was started.
-sperPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
-sperPipelineExecutionId = lens _sperPipelineExecutionId (\ s a -> s{_sperPipelineExecutionId = a});
+spersPipelineExecutionId :: Lens' StartPipelineExecutionResponse (Maybe Text)
+spersPipelineExecutionId = lens _spersPipelineExecutionId (\ s a -> s{_spersPipelineExecutionId = a});
 
 -- | FIXME: Undocumented member.
-sperStatus :: Lens' StartPipelineExecutionResponse Int
-sperStatus = lens _sperStatus (\ s a -> s{_sperStatus = a});
+spersStatus :: Lens' StartPipelineExecutionResponse Int
+spersStatus = lens _spersStatus (\ s a -> s{_spersStatus = a});

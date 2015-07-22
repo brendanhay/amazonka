@@ -28,19 +28,19 @@ module Network.AWS.Redshift.DescribeLoggingStatus
     -- ** Request constructor
     , describeLoggingStatus
     -- ** Request lenses
-    , dlsClusterIdentifier
+    , dlsrqClusterIdentifier
 
     -- * Response
     , LoggingStatus
     -- ** Response constructor
     , loggingStatus
     -- ** Response lenses
-    , lsLastSuccessfulDeliveryTime
-    , lsLastFailureTime
-    , lsS3KeyPrefix
-    , lsBucketName
-    , lsLoggingEnabled
-    , lsLastFailureMessage
+    , dlsrsLastSuccessfulDeliveryTime
+    , dlsrsLastFailureTime
+    , dlsrsS3KeyPrefix
+    , dlsrsBucketName
+    , dlsrsLoggingEnabled
+    , dlsrsLastFailureMessage
     ) where
 
 import           Network.AWS.Prelude
@@ -54,23 +54,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlsClusterIdentifier'
+-- * 'dlsrqClusterIdentifier'
 newtype DescribeLoggingStatus = DescribeLoggingStatus'
-    { _dlsClusterIdentifier :: Text
+    { _dlsrqClusterIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLoggingStatus' smart constructor.
 describeLoggingStatus :: Text -> DescribeLoggingStatus
 describeLoggingStatus pClusterIdentifier =
     DescribeLoggingStatus'
-    { _dlsClusterIdentifier = pClusterIdentifier
+    { _dlsrqClusterIdentifier = pClusterIdentifier
     }
 
 -- | The identifier of the cluster to get the logging status from.
 --
 -- Example: @examplecluster@
-dlsClusterIdentifier :: Lens' DescribeLoggingStatus Text
-dlsClusterIdentifier = lens _dlsClusterIdentifier (\ s a -> s{_dlsClusterIdentifier = a});
+dlsrqClusterIdentifier :: Lens' DescribeLoggingStatus Text
+dlsrqClusterIdentifier = lens _dlsrqClusterIdentifier (\ s a -> s{_dlsrqClusterIdentifier = a});
 
 instance AWSRequest DescribeLoggingStatus where
         type Sv DescribeLoggingStatus = Redshift
@@ -91,4 +91,4 @@ instance ToQuery DescribeLoggingStatus where
           = mconcat
               ["Action" =: ("DescribeLoggingStatus" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ClusterIdentifier" =: _dlsClusterIdentifier]
+               "ClusterIdentifier" =: _dlsrqClusterIdentifier]

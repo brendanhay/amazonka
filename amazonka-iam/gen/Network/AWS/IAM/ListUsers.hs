@@ -32,19 +32,19 @@ module Network.AWS.IAM.ListUsers
     -- ** Request constructor
     , listUsers
     -- ** Request lenses
-    , luPathPrefix
-    , luMaxItems
-    , luMarker
+    , lurqPathPrefix
+    , lurqMaxItems
+    , lurqMarker
 
     -- * Response
     , ListUsersResponse
     -- ** Response constructor
     , listUsersResponse
     -- ** Response lenses
-    , lurMarker
-    , lurIsTruncated
-    , lurStatus
-    , lurUsers
+    , lursMarker
+    , lursIsTruncated
+    , lursStatus
+    , lursUsers
     ) where
 
 import           Network.AWS.IAM.Types
@@ -57,24 +57,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'luPathPrefix'
+-- * 'lurqPathPrefix'
 --
--- * 'luMaxItems'
+-- * 'lurqMaxItems'
 --
--- * 'luMarker'
+-- * 'lurqMarker'
 data ListUsers = ListUsers'
-    { _luPathPrefix :: !(Maybe Text)
-    , _luMaxItems   :: !(Maybe Nat)
-    , _luMarker     :: !(Maybe Text)
+    { _lurqPathPrefix :: !(Maybe Text)
+    , _lurqMaxItems   :: !(Maybe Nat)
+    , _lurqMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUsers' smart constructor.
 listUsers :: ListUsers
 listUsers =
     ListUsers'
-    { _luPathPrefix = Nothing
-    , _luMaxItems = Nothing
-    , _luMarker = Nothing
+    { _lurqPathPrefix = Nothing
+    , _lurqMaxItems = Nothing
+    , _lurqMarker = Nothing
     }
 
 -- | The path prefix for filtering the results. For example:
@@ -83,8 +83,8 @@ listUsers =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/), listing all user names.
-luPathPrefix :: Lens' ListUsers (Maybe Text)
-luPathPrefix = lens _luPathPrefix (\ s a -> s{_luPathPrefix = a});
+lurqPathPrefix :: Lens' ListUsers (Maybe Text)
+lurqPathPrefix = lens _lurqPathPrefix (\ s a -> s{_lurqPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -92,20 +92,21 @@ luPathPrefix = lens _luPathPrefix (\ s a -> s{_luPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-luMaxItems :: Lens' ListUsers (Maybe Natural)
-luMaxItems = lens _luMaxItems (\ s a -> s{_luMaxItems = a}) . mapping _Nat;
+lurqMaxItems :: Lens' ListUsers (Maybe Natural)
+lurqMaxItems = lens _lurqMaxItems (\ s a -> s{_lurqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-luMarker :: Lens' ListUsers (Maybe Text)
-luMarker = lens _luMarker (\ s a -> s{_luMarker = a});
+lurqMarker :: Lens' ListUsers (Maybe Text)
+lurqMarker = lens _lurqMarker (\ s a -> s{_lurqMarker = a});
 
 instance AWSPager ListUsers where
         page rq rs
-          | stop (rs ^. lurIsTruncated) = Nothing
-          | isNothing (rs ^. lurMarker) = Nothing
-          | otherwise = Just $ rq & luMarker .~ rs ^. lurMarker
+          | stop (rs ^. lursIsTruncated) = Nothing
+          | isNothing (rs ^. lursMarker) = Nothing
+          | otherwise =
+            Just $ rq & lurqMarker .~ rs ^. lursMarker
 
 instance AWSRequest ListUsers where
         type Sv ListUsers = IAM
@@ -131,8 +132,8 @@ instance ToQuery ListUsers where
           = mconcat
               ["Action" =: ("ListUsers" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _luPathPrefix,
-               "MaxItems" =: _luMaxItems, "Marker" =: _luMarker]
+               "PathPrefix" =: _lurqPathPrefix,
+               "MaxItems" =: _lurqMaxItems, "Marker" =: _lurqMarker]
 
 -- | Contains the response to a successful ListUsers request.
 --
@@ -140,46 +141,46 @@ instance ToQuery ListUsers where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lurMarker'
+-- * 'lursMarker'
 --
--- * 'lurIsTruncated'
+-- * 'lursIsTruncated'
 --
--- * 'lurStatus'
+-- * 'lursStatus'
 --
--- * 'lurUsers'
+-- * 'lursUsers'
 data ListUsersResponse = ListUsersResponse'
-    { _lurMarker      :: !(Maybe Text)
-    , _lurIsTruncated :: !(Maybe Bool)
-    , _lurStatus      :: !Int
-    , _lurUsers       :: ![User]
+    { _lursMarker      :: !(Maybe Text)
+    , _lursIsTruncated :: !(Maybe Bool)
+    , _lursStatus      :: !Int
+    , _lursUsers       :: ![User]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUsersResponse' smart constructor.
 listUsersResponse :: Int -> ListUsersResponse
 listUsersResponse pStatus =
     ListUsersResponse'
-    { _lurMarker = Nothing
-    , _lurIsTruncated = Nothing
-    , _lurStatus = pStatus
-    , _lurUsers = mempty
+    { _lursMarker = Nothing
+    , _lursIsTruncated = Nothing
+    , _lursStatus = pStatus
+    , _lursUsers = mempty
     }
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-lurMarker :: Lens' ListUsersResponse (Maybe Text)
-lurMarker = lens _lurMarker (\ s a -> s{_lurMarker = a});
+lursMarker :: Lens' ListUsersResponse (Maybe Text)
+lursMarker = lens _lursMarker (\ s a -> s{_lursMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-lurIsTruncated :: Lens' ListUsersResponse (Maybe Bool)
-lurIsTruncated = lens _lurIsTruncated (\ s a -> s{_lurIsTruncated = a});
+lursIsTruncated :: Lens' ListUsersResponse (Maybe Bool)
+lursIsTruncated = lens _lursIsTruncated (\ s a -> s{_lursIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lurStatus :: Lens' ListUsersResponse Int
-lurStatus = lens _lurStatus (\ s a -> s{_lurStatus = a});
+lursStatus :: Lens' ListUsersResponse Int
+lursStatus = lens _lursStatus (\ s a -> s{_lursStatus = a});
 
 -- | A list of users.
-lurUsers :: Lens' ListUsersResponse [User]
-lurUsers = lens _lurUsers (\ s a -> s{_lurUsers = a});
+lursUsers :: Lens' ListUsersResponse [User]
+lursUsers = lens _lursUsers (\ s a -> s{_lursUsers = a});

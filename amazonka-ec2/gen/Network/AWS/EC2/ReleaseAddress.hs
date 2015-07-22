@@ -43,9 +43,9 @@ module Network.AWS.EC2.ReleaseAddress
     -- ** Request constructor
     , releaseAddress
     -- ** Request lenses
-    , raAllocationId
-    , raPublicIP
-    , raDryRun
+    , rarqAllocationId
+    , rarqPublicIP
+    , rarqDryRun
 
     -- * Response
     , ReleaseAddressResponse
@@ -62,40 +62,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'raAllocationId'
+-- * 'rarqAllocationId'
 --
--- * 'raPublicIP'
+-- * 'rarqPublicIP'
 --
--- * 'raDryRun'
+-- * 'rarqDryRun'
 data ReleaseAddress = ReleaseAddress'
-    { _raAllocationId :: !(Maybe Text)
-    , _raPublicIP     :: !(Maybe Text)
-    , _raDryRun       :: !(Maybe Bool)
+    { _rarqAllocationId :: !(Maybe Text)
+    , _rarqPublicIP     :: !(Maybe Text)
+    , _rarqDryRun       :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReleaseAddress' smart constructor.
 releaseAddress :: ReleaseAddress
 releaseAddress =
     ReleaseAddress'
-    { _raAllocationId = Nothing
-    , _raPublicIP = Nothing
-    , _raDryRun = Nothing
+    { _rarqAllocationId = Nothing
+    , _rarqPublicIP = Nothing
+    , _rarqDryRun = Nothing
     }
 
 -- | [EC2-VPC] The allocation ID. Required for EC2-VPC.
-raAllocationId :: Lens' ReleaseAddress (Maybe Text)
-raAllocationId = lens _raAllocationId (\ s a -> s{_raAllocationId = a});
+rarqAllocationId :: Lens' ReleaseAddress (Maybe Text)
+rarqAllocationId = lens _rarqAllocationId (\ s a -> s{_rarqAllocationId = a});
 
 -- | [EC2-Classic] The Elastic IP address. Required for EC2-Classic.
-raPublicIP :: Lens' ReleaseAddress (Maybe Text)
-raPublicIP = lens _raPublicIP (\ s a -> s{_raPublicIP = a});
+rarqPublicIP :: Lens' ReleaseAddress (Maybe Text)
+rarqPublicIP = lens _rarqPublicIP (\ s a -> s{_rarqPublicIP = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-raDryRun :: Lens' ReleaseAddress (Maybe Bool)
-raDryRun = lens _raDryRun (\ s a -> s{_raDryRun = a});
+rarqDryRun :: Lens' ReleaseAddress (Maybe Bool)
+rarqDryRun = lens _rarqDryRun (\ s a -> s{_rarqDryRun = a});
 
 instance AWSRequest ReleaseAddress where
         type Sv ReleaseAddress = EC2
@@ -114,8 +114,8 @@ instance ToQuery ReleaseAddress where
           = mconcat
               ["Action" =: ("ReleaseAddress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "AllocationId" =: _raAllocationId,
-               "PublicIp" =: _raPublicIP, "DryRun" =: _raDryRun]
+               "AllocationId" =: _rarqAllocationId,
+               "PublicIp" =: _rarqPublicIP, "DryRun" =: _rarqDryRun]
 
 -- | /See:/ 'releaseAddressResponse' smart constructor.
 data ReleaseAddressResponse =

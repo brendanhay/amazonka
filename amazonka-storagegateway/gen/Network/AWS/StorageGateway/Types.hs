@@ -51,13 +51,13 @@ module Network.AWS.StorageGateway.Types
     -- * Disk
     , Disk
     , disk
-    , disDiskAllocationResource
-    , disDiskAllocationType
-    , disDiskNode
-    , disDiskPath
-    , disDiskSizeInBytes
-    , disDiskStatus
-    , disDiskId
+    , dDiskAllocationResource
+    , dDiskAllocationType
+    , dDiskNode
+    , dDiskPath
+    , dDiskSizeInBytes
+    , dDiskStatus
+    , dDiskId
 
     -- * GatewayInfo
     , GatewayInfo
@@ -90,12 +90,12 @@ module Network.AWS.StorageGateway.Types
     -- * Tape
     , Tape
     , tape
-    , tapTapeBarcode
-    , tapTapeStatus
-    , tapProgress
-    , tapTapeARN
-    , tapTapeSizeInBytes
-    , tapVTLDevice
+    , tTapeBarcode
+    , tTapeStatus
+    , tProgress
+    , tTapeARN
+    , tTapeSizeInBytes
+    , tVTLDevice
 
     -- * TapeArchive
     , TapeArchive

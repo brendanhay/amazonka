@@ -28,16 +28,16 @@ module Network.AWS.Support.ResolveCase
     -- ** Request constructor
     , resolveCase
     -- ** Request lenses
-    , rcCaseId
+    , rcrqCaseId
 
     -- * Response
     , ResolveCaseResponse
     -- ** Response constructor
     , resolveCaseResponse
     -- ** Response lenses
-    , rcrInitialCaseStatus
-    , rcrFinalCaseStatus
-    , rcrStatus
+    , rcrsInitialCaseStatus
+    , rcrsFinalCaseStatus
+    , rcrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -49,23 +49,23 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcCaseId'
+-- * 'rcrqCaseId'
 newtype ResolveCase = ResolveCase'
-    { _rcCaseId :: Maybe Text
+    { _rcrqCaseId :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResolveCase' smart constructor.
 resolveCase :: ResolveCase
 resolveCase =
     ResolveCase'
-    { _rcCaseId = Nothing
+    { _rcrqCaseId = Nothing
     }
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-rcCaseId :: Lens' ResolveCase (Maybe Text)
-rcCaseId = lens _rcCaseId (\ s a -> s{_rcCaseId = a});
+rcrqCaseId :: Lens' ResolveCase (Maybe Text)
+rcrqCaseId = lens _rcrqCaseId (\ s a -> s{_rcrqCaseId = a});
 
 instance AWSRequest ResolveCase where
         type Sv ResolveCase = Support
@@ -90,7 +90,7 @@ instance ToHeaders ResolveCase where
 
 instance ToJSON ResolveCase where
         toJSON ResolveCase'{..}
-          = object ["caseId" .= _rcCaseId]
+          = object ["caseId" .= _rcrqCaseId]
 
 instance ToPath ResolveCase where
         toPath = const "/"
@@ -104,34 +104,34 @@ instance ToQuery ResolveCase where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcrInitialCaseStatus'
+-- * 'rcrsInitialCaseStatus'
 --
--- * 'rcrFinalCaseStatus'
+-- * 'rcrsFinalCaseStatus'
 --
--- * 'rcrStatus'
+-- * 'rcrsStatus'
 data ResolveCaseResponse = ResolveCaseResponse'
-    { _rcrInitialCaseStatus :: !(Maybe Text)
-    , _rcrFinalCaseStatus   :: !(Maybe Text)
-    , _rcrStatus            :: !Int
+    { _rcrsInitialCaseStatus :: !(Maybe Text)
+    , _rcrsFinalCaseStatus   :: !(Maybe Text)
+    , _rcrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResolveCaseResponse' smart constructor.
 resolveCaseResponse :: Int -> ResolveCaseResponse
 resolveCaseResponse pStatus =
     ResolveCaseResponse'
-    { _rcrInitialCaseStatus = Nothing
-    , _rcrFinalCaseStatus = Nothing
-    , _rcrStatus = pStatus
+    { _rcrsInitialCaseStatus = Nothing
+    , _rcrsFinalCaseStatus = Nothing
+    , _rcrsStatus = pStatus
     }
 
 -- | The status of the case when the ResolveCase request was sent.
-rcrInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcrInitialCaseStatus = lens _rcrInitialCaseStatus (\ s a -> s{_rcrInitialCaseStatus = a});
+rcrsInitialCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
+rcrsInitialCaseStatus = lens _rcrsInitialCaseStatus (\ s a -> s{_rcrsInitialCaseStatus = a});
 
 -- | The status of the case after the ResolveCase request was processed.
-rcrFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
-rcrFinalCaseStatus = lens _rcrFinalCaseStatus (\ s a -> s{_rcrFinalCaseStatus = a});
+rcrsFinalCaseStatus :: Lens' ResolveCaseResponse (Maybe Text)
+rcrsFinalCaseStatus = lens _rcrsFinalCaseStatus (\ s a -> s{_rcrsFinalCaseStatus = a});
 
 -- | FIXME: Undocumented member.
-rcrStatus :: Lens' ResolveCaseResponse Int
-rcrStatus = lens _rcrStatus (\ s a -> s{_rcrStatus = a});
+rcrsStatus :: Lens' ResolveCaseResponse Int
+rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});

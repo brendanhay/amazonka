@@ -41,18 +41,18 @@ module Network.AWS.EC2.CreateKeyPair
     -- ** Request constructor
     , createKeyPair
     -- ** Request lenses
-    , ckpDryRun
-    , ckpKeyName
+    , ckprqDryRun
+    , ckprqKeyName
 
     -- * Response
     , CreateKeyPairResponse
     -- ** Response constructor
     , createKeyPairResponse
     -- ** Response lenses
-    , ckprStatus
-    , ckprKeyName
-    , ckprKeyFingerprint
-    , ckprKeyMaterial
+    , ckprsStatus
+    , ckprsKeyName
+    , ckprsKeyFingerprint
+    , ckprsKeyMaterial
     ) where
 
 import           Network.AWS.EC2.Types
@@ -64,34 +64,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ckpDryRun'
+-- * 'ckprqDryRun'
 --
--- * 'ckpKeyName'
+-- * 'ckprqKeyName'
 data CreateKeyPair = CreateKeyPair'
-    { _ckpDryRun  :: !(Maybe Bool)
-    , _ckpKeyName :: !Text
+    { _ckprqDryRun  :: !(Maybe Bool)
+    , _ckprqKeyName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKeyPair' smart constructor.
 createKeyPair :: Text -> CreateKeyPair
 createKeyPair pKeyName =
     CreateKeyPair'
-    { _ckpDryRun = Nothing
-    , _ckpKeyName = pKeyName
+    { _ckprqDryRun = Nothing
+    , _ckprqKeyName = pKeyName
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ckpDryRun :: Lens' CreateKeyPair (Maybe Bool)
-ckpDryRun = lens _ckpDryRun (\ s a -> s{_ckpDryRun = a});
+ckprqDryRun :: Lens' CreateKeyPair (Maybe Bool)
+ckprqDryRun = lens _ckprqDryRun (\ s a -> s{_ckprqDryRun = a});
 
 -- | A unique name for the key pair.
 --
 -- Constraints: Up to 255 ASCII characters
-ckpKeyName :: Lens' CreateKeyPair Text
-ckpKeyName = lens _ckpKeyName (\ s a -> s{_ckpKeyName = a});
+ckprqKeyName :: Lens' CreateKeyPair Text
+ckprqKeyName = lens _ckprqKeyName (\ s a -> s{_ckprqKeyName = a});
 
 instance AWSRequest CreateKeyPair where
         type Sv CreateKeyPair = EC2
@@ -116,7 +116,7 @@ instance ToQuery CreateKeyPair where
           = mconcat
               ["Action" =: ("CreateKeyPair" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _ckpDryRun, "KeyName" =: _ckpKeyName]
+               "DryRun" =: _ckprqDryRun, "KeyName" =: _ckprqKeyName]
 
 -- | Describes a key pair.
 --
@@ -124,42 +124,42 @@ instance ToQuery CreateKeyPair where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ckprStatus'
+-- * 'ckprsStatus'
 --
--- * 'ckprKeyName'
+-- * 'ckprsKeyName'
 --
--- * 'ckprKeyFingerprint'
+-- * 'ckprsKeyFingerprint'
 --
--- * 'ckprKeyMaterial'
+-- * 'ckprsKeyMaterial'
 data CreateKeyPairResponse = CreateKeyPairResponse'
-    { _ckprStatus         :: !Int
-    , _ckprKeyName        :: !Text
-    , _ckprKeyFingerprint :: !Text
-    , _ckprKeyMaterial    :: !Text
+    { _ckprsStatus         :: !Int
+    , _ckprsKeyName        :: !Text
+    , _ckprsKeyFingerprint :: !Text
+    , _ckprsKeyMaterial    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateKeyPairResponse' smart constructor.
 createKeyPairResponse :: Int -> Text -> Text -> Text -> CreateKeyPairResponse
 createKeyPairResponse pStatus pKeyName pKeyFingerprint pKeyMaterial =
     CreateKeyPairResponse'
-    { _ckprStatus = pStatus
-    , _ckprKeyName = pKeyName
-    , _ckprKeyFingerprint = pKeyFingerprint
-    , _ckprKeyMaterial = pKeyMaterial
+    { _ckprsStatus = pStatus
+    , _ckprsKeyName = pKeyName
+    , _ckprsKeyFingerprint = pKeyFingerprint
+    , _ckprsKeyMaterial = pKeyMaterial
     }
 
 -- | FIXME: Undocumented member.
-ckprStatus :: Lens' CreateKeyPairResponse Int
-ckprStatus = lens _ckprStatus (\ s a -> s{_ckprStatus = a});
+ckprsStatus :: Lens' CreateKeyPairResponse Int
+ckprsStatus = lens _ckprsStatus (\ s a -> s{_ckprsStatus = a});
 
 -- | The name of the key pair.
-ckprKeyName :: Lens' CreateKeyPairResponse Text
-ckprKeyName = lens _ckprKeyName (\ s a -> s{_ckprKeyName = a});
+ckprsKeyName :: Lens' CreateKeyPairResponse Text
+ckprsKeyName = lens _ckprsKeyName (\ s a -> s{_ckprsKeyName = a});
 
 -- | The SHA-1 digest of the DER encoded private key.
-ckprKeyFingerprint :: Lens' CreateKeyPairResponse Text
-ckprKeyFingerprint = lens _ckprKeyFingerprint (\ s a -> s{_ckprKeyFingerprint = a});
+ckprsKeyFingerprint :: Lens' CreateKeyPairResponse Text
+ckprsKeyFingerprint = lens _ckprsKeyFingerprint (\ s a -> s{_ckprsKeyFingerprint = a});
 
 -- | An unencrypted PEM encoded RSA private key.
-ckprKeyMaterial :: Lens' CreateKeyPairResponse Text
-ckprKeyMaterial = lens _ckprKeyMaterial (\ s a -> s{_ckprKeyMaterial = a});
+ckprsKeyMaterial :: Lens' CreateKeyPairResponse Text
+ckprsKeyMaterial = lens _ckprsKeyMaterial (\ s a -> s{_ckprsKeyMaterial = a});

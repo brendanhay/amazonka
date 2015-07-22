@@ -27,15 +27,15 @@ module Network.AWS.ELB.DeleteLoadBalancerListeners
     -- ** Request constructor
     , deleteLoadBalancerListeners
     -- ** Request lenses
-    , dlblLoadBalancerName
-    , dlblLoadBalancerPorts
+    , dlblrqLoadBalancerName
+    , dlblrqLoadBalancerPorts
 
     -- * Response
     , DeleteLoadBalancerListenersResponse
     -- ** Response constructor
     , deleteLoadBalancerListenersResponse
     -- ** Response lenses
-    , dlblrStatus
+    , dlblrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -47,29 +47,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlblLoadBalancerName'
+-- * 'dlblrqLoadBalancerName'
 --
--- * 'dlblLoadBalancerPorts'
+-- * 'dlblrqLoadBalancerPorts'
 data DeleteLoadBalancerListeners = DeleteLoadBalancerListeners'
-    { _dlblLoadBalancerName  :: !Text
-    , _dlblLoadBalancerPorts :: ![Int]
+    { _dlblrqLoadBalancerName  :: !Text
+    , _dlblrqLoadBalancerPorts :: ![Int]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerListeners' smart constructor.
 deleteLoadBalancerListeners :: Text -> DeleteLoadBalancerListeners
 deleteLoadBalancerListeners pLoadBalancerName =
     DeleteLoadBalancerListeners'
-    { _dlblLoadBalancerName = pLoadBalancerName
-    , _dlblLoadBalancerPorts = mempty
+    { _dlblrqLoadBalancerName = pLoadBalancerName
+    , _dlblrqLoadBalancerPorts = mempty
     }
 
 -- | The name of the load balancer.
-dlblLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
-dlblLoadBalancerName = lens _dlblLoadBalancerName (\ s a -> s{_dlblLoadBalancerName = a});
+dlblrqLoadBalancerName :: Lens' DeleteLoadBalancerListeners Text
+dlblrqLoadBalancerName = lens _dlblrqLoadBalancerName (\ s a -> s{_dlblrqLoadBalancerName = a});
 
 -- | The client port numbers of the listeners.
-dlblLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
-dlblLoadBalancerPorts = lens _dlblLoadBalancerPorts (\ s a -> s{_dlblLoadBalancerPorts = a});
+dlblrqLoadBalancerPorts :: Lens' DeleteLoadBalancerListeners [Int]
+dlblrqLoadBalancerPorts = lens _dlblrqLoadBalancerPorts (\ s a -> s{_dlblrqLoadBalancerPorts = a});
 
 instance AWSRequest DeleteLoadBalancerListeners where
         type Sv DeleteLoadBalancerListeners = ELB
@@ -95,26 +95,26 @@ instance ToQuery DeleteLoadBalancerListeners where
               ["Action" =:
                  ("DeleteLoadBalancerListeners" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _dlblLoadBalancerName,
+               "LoadBalancerName" =: _dlblrqLoadBalancerName,
                "LoadBalancerPorts" =:
-                 toQueryList "member" _dlblLoadBalancerPorts]
+                 toQueryList "member" _dlblrqLoadBalancerPorts]
 
 -- | /See:/ 'deleteLoadBalancerListenersResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlblrStatus'
+-- * 'dlblrsStatus'
 newtype DeleteLoadBalancerListenersResponse = DeleteLoadBalancerListenersResponse'
-    { _dlblrStatus :: Int
+    { _dlblrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLoadBalancerListenersResponse' smart constructor.
 deleteLoadBalancerListenersResponse :: Int -> DeleteLoadBalancerListenersResponse
 deleteLoadBalancerListenersResponse pStatus =
     DeleteLoadBalancerListenersResponse'
-    { _dlblrStatus = pStatus
+    { _dlblrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dlblrStatus :: Lens' DeleteLoadBalancerListenersResponse Int
-dlblrStatus = lens _dlblrStatus (\ s a -> s{_dlblrStatus = a});
+dlblrsStatus :: Lens' DeleteLoadBalancerListenersResponse Int
+dlblrsStatus = lens _dlblrsStatus (\ s a -> s{_dlblrsStatus = a});

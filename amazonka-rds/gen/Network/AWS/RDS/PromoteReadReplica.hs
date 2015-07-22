@@ -32,17 +32,17 @@ module Network.AWS.RDS.PromoteReadReplica
     -- ** Request constructor
     , promoteReadReplica
     -- ** Request lenses
-    , prrPreferredBackupWindow
-    , prrBackupRetentionPeriod
-    , prrDBInstanceIdentifier
+    , prrrqPreferredBackupWindow
+    , prrrqBackupRetentionPeriod
+    , prrrqDBInstanceIdentifier
 
     -- * Response
     , PromoteReadReplicaResponse
     -- ** Response constructor
     , promoteReadReplicaResponse
     -- ** Response lenses
-    , prrrDBInstance
-    , prrrStatus
+    , prrrsDBInstance
+    , prrrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -56,24 +56,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prrPreferredBackupWindow'
+-- * 'prrrqPreferredBackupWindow'
 --
--- * 'prrBackupRetentionPeriod'
+-- * 'prrrqBackupRetentionPeriod'
 --
--- * 'prrDBInstanceIdentifier'
+-- * 'prrrqDBInstanceIdentifier'
 data PromoteReadReplica = PromoteReadReplica'
-    { _prrPreferredBackupWindow :: !(Maybe Text)
-    , _prrBackupRetentionPeriod :: !(Maybe Int)
-    , _prrDBInstanceIdentifier  :: !Text
+    { _prrrqPreferredBackupWindow :: !(Maybe Text)
+    , _prrrqBackupRetentionPeriod :: !(Maybe Int)
+    , _prrrqDBInstanceIdentifier  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PromoteReadReplica' smart constructor.
 promoteReadReplica :: Text -> PromoteReadReplica
 promoteReadReplica pDBInstanceIdentifier =
     PromoteReadReplica'
-    { _prrPreferredBackupWindow = Nothing
-    , _prrBackupRetentionPeriod = Nothing
-    , _prrDBInstanceIdentifier = pDBInstanceIdentifier
+    { _prrrqPreferredBackupWindow = Nothing
+    , _prrrqBackupRetentionPeriod = Nothing
+    , _prrrqDBInstanceIdentifier = pDBInstanceIdentifier
     }
 
 -- | The daily time range during which automated backups are created if
@@ -87,8 +87,8 @@ promoteReadReplica pDBInstanceIdentifier =
 -- Constraints: Must be in the format @hh24:mi-hh24:mi@. Times should be
 -- Universal Time Coordinated (UTC). Must not conflict with the preferred
 -- maintenance window. Must be at least 30 minutes.
-prrPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
-prrPreferredBackupWindow = lens _prrPreferredBackupWindow (\ s a -> s{_prrPreferredBackupWindow = a});
+prrrqPreferredBackupWindow :: Lens' PromoteReadReplica (Maybe Text)
+prrrqPreferredBackupWindow = lens _prrrqPreferredBackupWindow (\ s a -> s{_prrrqPreferredBackupWindow = a});
 
 -- | The number of days to retain automated backups. Setting this parameter
 -- to a positive number enables backups. Setting this parameter to 0
@@ -99,8 +99,8 @@ prrPreferredBackupWindow = lens _prrPreferredBackupWindow (\ s a -> s{_prrPrefer
 -- Constraints:
 --
 -- -   Must be a value from 0 to 8
-prrBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Int)
-prrBackupRetentionPeriod = lens _prrBackupRetentionPeriod (\ s a -> s{_prrBackupRetentionPeriod = a});
+prrrqBackupRetentionPeriod :: Lens' PromoteReadReplica (Maybe Int)
+prrrqBackupRetentionPeriod = lens _prrrqBackupRetentionPeriod (\ s a -> s{_prrrqBackupRetentionPeriod = a});
 
 -- | The DB instance identifier. This value is stored as a lowercase string.
 --
@@ -112,8 +112,8 @@ prrBackupRetentionPeriod = lens _prrBackupRetentionPeriod (\ s a -> s{_prrBackup
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: mydbinstance
-prrDBInstanceIdentifier :: Lens' PromoteReadReplica Text
-prrDBInstanceIdentifier = lens _prrDBInstanceIdentifier (\ s a -> s{_prrDBInstanceIdentifier = a});
+prrrqDBInstanceIdentifier :: Lens' PromoteReadReplica Text
+prrrqDBInstanceIdentifier = lens _prrrqDBInstanceIdentifier (\ s a -> s{_prrrqDBInstanceIdentifier = a});
 
 instance AWSRequest PromoteReadReplica where
         type Sv PromoteReadReplica = RDS
@@ -137,34 +137,36 @@ instance ToQuery PromoteReadReplica where
           = mconcat
               ["Action" =: ("PromoteReadReplica" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "PreferredBackupWindow" =: _prrPreferredBackupWindow,
-               "BackupRetentionPeriod" =: _prrBackupRetentionPeriod,
-               "DBInstanceIdentifier" =: _prrDBInstanceIdentifier]
+               "PreferredBackupWindow" =:
+                 _prrrqPreferredBackupWindow,
+               "BackupRetentionPeriod" =:
+                 _prrrqBackupRetentionPeriod,
+               "DBInstanceIdentifier" =: _prrrqDBInstanceIdentifier]
 
 -- | /See:/ 'promoteReadReplicaResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prrrDBInstance'
+-- * 'prrrsDBInstance'
 --
--- * 'prrrStatus'
+-- * 'prrrsStatus'
 data PromoteReadReplicaResponse = PromoteReadReplicaResponse'
-    { _prrrDBInstance :: !(Maybe DBInstance)
-    , _prrrStatus     :: !Int
+    { _prrrsDBInstance :: !(Maybe DBInstance)
+    , _prrrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PromoteReadReplicaResponse' smart constructor.
 promoteReadReplicaResponse :: Int -> PromoteReadReplicaResponse
 promoteReadReplicaResponse pStatus =
     PromoteReadReplicaResponse'
-    { _prrrDBInstance = Nothing
-    , _prrrStatus = pStatus
+    { _prrrsDBInstance = Nothing
+    , _prrrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-prrrDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
-prrrDBInstance = lens _prrrDBInstance (\ s a -> s{_prrrDBInstance = a});
+prrrsDBInstance :: Lens' PromoteReadReplicaResponse (Maybe DBInstance)
+prrrsDBInstance = lens _prrrsDBInstance (\ s a -> s{_prrrsDBInstance = a});
 
 -- | FIXME: Undocumented member.
-prrrStatus :: Lens' PromoteReadReplicaResponse Int
-prrrStatus = lens _prrrStatus (\ s a -> s{_prrrStatus = a});
+prrrsStatus :: Lens' PromoteReadReplicaResponse Int
+prrrsStatus = lens _prrrsStatus (\ s a -> s{_prrrsStatus = a});

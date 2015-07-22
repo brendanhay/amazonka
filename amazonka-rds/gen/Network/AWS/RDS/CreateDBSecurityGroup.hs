@@ -28,17 +28,17 @@ module Network.AWS.RDS.CreateDBSecurityGroup
     -- ** Request constructor
     , createDBSecurityGroup
     -- ** Request lenses
-    , cdsgTags
-    , cdsgDBSecurityGroupName
-    , cdsgDBSecurityGroupDescription
+    , cdsgrqTags
+    , cdsgrqDBSecurityGroupName
+    , cdsgrqDBSecurityGroupDescription
 
     -- * Response
     , CreateDBSecurityGroupResponse
     -- ** Response constructor
     , createDBSecurityGroupResponse
     -- ** Response lenses
-    , cDBSecurityGroup
-    , cStatus
+    , cdsgrsDBSecurityGroup
+    , cdsgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdsgTags'
+-- * 'cdsgrqTags'
 --
--- * 'cdsgDBSecurityGroupName'
+-- * 'cdsgrqDBSecurityGroupName'
 --
--- * 'cdsgDBSecurityGroupDescription'
+-- * 'cdsgrqDBSecurityGroupDescription'
 data CreateDBSecurityGroup = CreateDBSecurityGroup'
-    { _cdsgTags                       :: !(Maybe [Tag])
-    , _cdsgDBSecurityGroupName        :: !Text
-    , _cdsgDBSecurityGroupDescription :: !Text
+    { _cdsgrqTags                       :: !(Maybe [Tag])
+    , _cdsgrqDBSecurityGroupName        :: !Text
+    , _cdsgrqDBSecurityGroupDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSecurityGroup' smart constructor.
 createDBSecurityGroup :: Text -> Text -> CreateDBSecurityGroup
 createDBSecurityGroup pDBSecurityGroupName pDBSecurityGroupDescription =
     CreateDBSecurityGroup'
-    { _cdsgTags = Nothing
-    , _cdsgDBSecurityGroupName = pDBSecurityGroupName
-    , _cdsgDBSecurityGroupDescription = pDBSecurityGroupDescription
+    { _cdsgrqTags = Nothing
+    , _cdsgrqDBSecurityGroupName = pDBSecurityGroupName
+    , _cdsgrqDBSecurityGroupDescription = pDBSecurityGroupDescription
     }
 
 -- | FIXME: Undocumented member.
-cdsgTags :: Lens' CreateDBSecurityGroup [Tag]
-cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default;
+cdsgrqTags :: Lens' CreateDBSecurityGroup [Tag]
+cdsgrqTags = lens _cdsgrqTags (\ s a -> s{_cdsgrqTags = a}) . _Default;
 
 -- | The name for the DB security group. This value is stored as a lowercase
 -- string.
@@ -88,12 +88,12 @@ cdsgTags = lens _cdsgTags (\ s a -> s{_cdsgTags = a}) . _Default;
 -- -   May not contain spaces
 --
 -- Example: @mysecuritygroup@
-cdsgDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
-cdsgDBSecurityGroupName = lens _cdsgDBSecurityGroupName (\ s a -> s{_cdsgDBSecurityGroupName = a});
+cdsgrqDBSecurityGroupName :: Lens' CreateDBSecurityGroup Text
+cdsgrqDBSecurityGroupName = lens _cdsgrqDBSecurityGroupName (\ s a -> s{_cdsgrqDBSecurityGroupName = a});
 
 -- | The description for the DB security group.
-cdsgDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup Text
-cdsgDBSecurityGroupDescription = lens _cdsgDBSecurityGroupDescription (\ s a -> s{_cdsgDBSecurityGroupDescription = a});
+cdsgrqDBSecurityGroupDescription :: Lens' CreateDBSecurityGroup Text
+cdsgrqDBSecurityGroupDescription = lens _cdsgrqDBSecurityGroupDescription (\ s a -> s{_cdsgrqDBSecurityGroupDescription = a});
 
 instance AWSRequest CreateDBSecurityGroup where
         type Sv CreateDBSecurityGroup = RDS
@@ -117,35 +117,36 @@ instance ToQuery CreateDBSecurityGroup where
           = mconcat
               ["Action" =: ("CreateDBSecurityGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cdsgTags),
-               "DBSecurityGroupName" =: _cdsgDBSecurityGroupName,
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _cdsgrqTags),
+               "DBSecurityGroupName" =: _cdsgrqDBSecurityGroupName,
                "DBSecurityGroupDescription" =:
-                 _cdsgDBSecurityGroupDescription]
+                 _cdsgrqDBSecurityGroupDescription]
 
 -- | /See:/ 'createDBSecurityGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cDBSecurityGroup'
+-- * 'cdsgrsDBSecurityGroup'
 --
--- * 'cStatus'
+-- * 'cdsgrsStatus'
 data CreateDBSecurityGroupResponse = CreateDBSecurityGroupResponse'
-    { _cDBSecurityGroup :: !(Maybe DBSecurityGroup)
-    , _cStatus          :: !Int
+    { _cdsgrsDBSecurityGroup :: !(Maybe DBSecurityGroup)
+    , _cdsgrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBSecurityGroupResponse' smart constructor.
 createDBSecurityGroupResponse :: Int -> CreateDBSecurityGroupResponse
 createDBSecurityGroupResponse pStatus =
     CreateDBSecurityGroupResponse'
-    { _cDBSecurityGroup = Nothing
-    , _cStatus = pStatus
+    { _cdsgrsDBSecurityGroup = Nothing
+    , _cdsgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
-cDBSecurityGroup = lens _cDBSecurityGroup (\ s a -> s{_cDBSecurityGroup = a});
+cdsgrsDBSecurityGroup :: Lens' CreateDBSecurityGroupResponse (Maybe DBSecurityGroup)
+cdsgrsDBSecurityGroup = lens _cdsgrsDBSecurityGroup (\ s a -> s{_cdsgrsDBSecurityGroup = a});
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CreateDBSecurityGroupResponse Int
-cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
+cdsgrsStatus :: Lens' CreateDBSecurityGroupResponse Int
+cdsgrsStatus = lens _cdsgrsStatus (\ s a -> s{_cdsgrsStatus = a});

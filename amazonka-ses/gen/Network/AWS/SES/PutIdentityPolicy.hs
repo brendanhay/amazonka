@@ -38,16 +38,16 @@ module Network.AWS.SES.PutIdentityPolicy
     -- ** Request constructor
     , putIdentityPolicy
     -- ** Request lenses
-    , pipIdentity
-    , pipPolicyName
-    , pipPolicy
+    , piprqIdentity
+    , piprqPolicyName
+    , piprqPolicy
 
     -- * Response
     , PutIdentityPolicyResponse
     -- ** Response constructor
     , putIdentityPolicyResponse
     -- ** Response lenses
-    , piprStatus
+    , piprsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -62,24 +62,24 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pipIdentity'
+-- * 'piprqIdentity'
 --
--- * 'pipPolicyName'
+-- * 'piprqPolicyName'
 --
--- * 'pipPolicy'
+-- * 'piprqPolicy'
 data PutIdentityPolicy = PutIdentityPolicy'
-    { _pipIdentity   :: !Text
-    , _pipPolicyName :: !Text
-    , _pipPolicy     :: !Text
+    { _piprqIdentity   :: !Text
+    , _piprqPolicyName :: !Text
+    , _piprqPolicy     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutIdentityPolicy' smart constructor.
 putIdentityPolicy :: Text -> Text -> Text -> PutIdentityPolicy
 putIdentityPolicy pIdentity pPolicyName pPolicy =
     PutIdentityPolicy'
-    { _pipIdentity = pIdentity
-    , _pipPolicyName = pPolicyName
-    , _pipPolicy = pPolicy
+    { _piprqIdentity = pIdentity
+    , _piprqPolicyName = pPolicyName
+    , _piprqPolicy = pPolicy
     }
 
 -- | The identity to which the policy will apply. You can specify an identity
@@ -88,23 +88,23 @@ putIdentityPolicy pIdentity pPolicyName pPolicy =
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
 --
 -- To successfully call this API, you must own the identity.
-pipIdentity :: Lens' PutIdentityPolicy Text
-pipIdentity = lens _pipIdentity (\ s a -> s{_pipIdentity = a});
+piprqIdentity :: Lens' PutIdentityPolicy Text
+piprqIdentity = lens _piprqIdentity (\ s a -> s{_piprqIdentity = a});
 
 -- | The name of the policy.
 --
 -- The policy name cannot exceed 64 characters and can only include
 -- alphanumeric characters, dashes, and underscores.
-pipPolicyName :: Lens' PutIdentityPolicy Text
-pipPolicyName = lens _pipPolicyName (\ s a -> s{_pipPolicyName = a});
+piprqPolicyName :: Lens' PutIdentityPolicy Text
+piprqPolicyName = lens _piprqPolicyName (\ s a -> s{_piprqPolicyName = a});
 
 -- | The text of the policy in JSON format. The policy cannot exceed 4 KB.
 --
 -- For information about the syntax of sending authorization policies, see
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html Amazon SES Developer Guide>.
-pipPolicy :: Lens' PutIdentityPolicy Text
-pipPolicy = lens _pipPolicy (\ s a -> s{_pipPolicy = a});
+piprqPolicy :: Lens' PutIdentityPolicy Text
+piprqPolicy = lens _piprqPolicy (\ s a -> s{_piprqPolicy = a});
 
 instance AWSRequest PutIdentityPolicy where
         type Sv PutIdentityPolicy = SES
@@ -126,9 +126,9 @@ instance ToQuery PutIdentityPolicy where
           = mconcat
               ["Action" =: ("PutIdentityPolicy" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _pipIdentity,
-               "PolicyName" =: _pipPolicyName,
-               "Policy" =: _pipPolicy]
+               "Identity" =: _piprqIdentity,
+               "PolicyName" =: _piprqPolicyName,
+               "Policy" =: _piprqPolicy]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
@@ -137,18 +137,18 @@ instance ToQuery PutIdentityPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'piprStatus'
+-- * 'piprsStatus'
 newtype PutIdentityPolicyResponse = PutIdentityPolicyResponse'
-    { _piprStatus :: Int
+    { _piprsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutIdentityPolicyResponse' smart constructor.
 putIdentityPolicyResponse :: Int -> PutIdentityPolicyResponse
 putIdentityPolicyResponse pStatus =
     PutIdentityPolicyResponse'
-    { _piprStatus = pStatus
+    { _piprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-piprStatus :: Lens' PutIdentityPolicyResponse Int
-piprStatus = lens _piprStatus (\ s a -> s{_piprStatus = a});
+piprsStatus :: Lens' PutIdentityPolicyResponse Int
+piprsStatus = lens _piprsStatus (\ s a -> s{_piprsStatus = a});

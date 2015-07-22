@@ -30,19 +30,19 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- ** Request constructor
     , describeScalingActivities
     -- ** Request lenses
-    , dsasNextToken
-    , dsasMaxRecords
-    , dsasAutoScalingGroupName
-    , dsasActivityIds
+    , desrqNextToken
+    , desrqMaxRecords
+    , desrqAutoScalingGroupName
+    , desrqActivityIds
 
     -- * Response
     , DescribeScalingActivitiesResponse
     -- ** Response constructor
     , describeScalingActivitiesResponse
     -- ** Response lenses
-    , dNextToken
-    , dStatus
-    , dActivities
+    , desrsNextToken
+    , desrsStatus
+    , desrsActivities
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -55,57 +55,57 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsasNextToken'
+-- * 'desrqNextToken'
 --
--- * 'dsasMaxRecords'
+-- * 'desrqMaxRecords'
 --
--- * 'dsasAutoScalingGroupName'
+-- * 'desrqAutoScalingGroupName'
 --
--- * 'dsasActivityIds'
+-- * 'desrqActivityIds'
 data DescribeScalingActivities = DescribeScalingActivities'
-    { _dsasNextToken            :: !(Maybe Text)
-    , _dsasMaxRecords           :: !(Maybe Int)
-    , _dsasAutoScalingGroupName :: !(Maybe Text)
-    , _dsasActivityIds          :: !(Maybe [Text])
+    { _desrqNextToken            :: !(Maybe Text)
+    , _desrqMaxRecords           :: !(Maybe Int)
+    , _desrqAutoScalingGroupName :: !(Maybe Text)
+    , _desrqActivityIds          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingActivities' smart constructor.
 describeScalingActivities :: DescribeScalingActivities
 describeScalingActivities =
     DescribeScalingActivities'
-    { _dsasNextToken = Nothing
-    , _dsasMaxRecords = Nothing
-    , _dsasAutoScalingGroupName = Nothing
-    , _dsasActivityIds = Nothing
+    { _desrqNextToken = Nothing
+    , _desrqMaxRecords = Nothing
+    , _desrqAutoScalingGroupName = Nothing
+    , _desrqActivityIds = Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dsasNextToken :: Lens' DescribeScalingActivities (Maybe Text)
-dsasNextToken = lens _dsasNextToken (\ s a -> s{_dsasNextToken = a});
+desrqNextToken :: Lens' DescribeScalingActivities (Maybe Text)
+desrqNextToken = lens _desrqNextToken (\ s a -> s{_desrqNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dsasMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
-dsasMaxRecords = lens _dsasMaxRecords (\ s a -> s{_dsasMaxRecords = a});
+desrqMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
+desrqMaxRecords = lens _desrqMaxRecords (\ s a -> s{_desrqMaxRecords = a});
 
 -- | The name of the group.
-dsasAutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
-dsasAutoScalingGroupName = lens _dsasAutoScalingGroupName (\ s a -> s{_dsasAutoScalingGroupName = a});
+desrqAutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
+desrqAutoScalingGroupName = lens _desrqAutoScalingGroupName (\ s a -> s{_desrqAutoScalingGroupName = a});
 
 -- | The activity IDs of the desired scaling activities. If this list is
 -- omitted, all activities are described. If the @AutoScalingGroupName@
 -- parameter is provided, the results are limited to that group. The list
 -- of requested activities cannot contain more than 50 items. If unknown
 -- activities are requested, they are ignored with no error.
-dsasActivityIds :: Lens' DescribeScalingActivities [Text]
-dsasActivityIds = lens _dsasActivityIds (\ s a -> s{_dsasActivityIds = a}) . _Default;
+desrqActivityIds :: Lens' DescribeScalingActivities [Text]
+desrqActivityIds = lens _desrqActivityIds (\ s a -> s{_desrqActivityIds = a}) . _Default;
 
 instance AWSPager DescribeScalingActivities where
         page rq rs
-          | stop (rs ^. dNextToken) = Nothing
-          | stop (rs ^. dActivities) = Nothing
+          | stop (rs ^. desrsNextToken) = Nothing
+          | stop (rs ^. desrsActivities) = Nothing
           | otherwise =
-            Just $ rq & dsasNextToken .~ rs ^. dNextToken
+            Just $ rq & desrqNextToken .~ rs ^. desrsNextToken
 
 instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling
@@ -132,45 +132,45 @@ instance ToQuery DescribeScalingActivities where
               ["Action" =:
                  ("DescribeScalingActivities" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "NextToken" =: _dsasNextToken,
-               "MaxRecords" =: _dsasMaxRecords,
-               "AutoScalingGroupName" =: _dsasAutoScalingGroupName,
+               "NextToken" =: _desrqNextToken,
+               "MaxRecords" =: _desrqMaxRecords,
+               "AutoScalingGroupName" =: _desrqAutoScalingGroupName,
                "ActivityIds" =:
-                 toQuery (toQueryList "member" <$> _dsasActivityIds)]
+                 toQuery (toQueryList "member" <$> _desrqActivityIds)]
 
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dNextToken'
+-- * 'desrsNextToken'
 --
--- * 'dStatus'
+-- * 'desrsStatus'
 --
--- * 'dActivities'
+-- * 'desrsActivities'
 data DescribeScalingActivitiesResponse = DescribeScalingActivitiesResponse'
-    { _dNextToken  :: !(Maybe Text)
-    , _dStatus     :: !Int
-    , _dActivities :: ![Activity]
+    { _desrsNextToken  :: !(Maybe Text)
+    , _desrsStatus     :: !Int
+    , _desrsActivities :: ![Activity]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingActivitiesResponse' smart constructor.
 describeScalingActivitiesResponse :: Int -> DescribeScalingActivitiesResponse
 describeScalingActivitiesResponse pStatus =
     DescribeScalingActivitiesResponse'
-    { _dNextToken = Nothing
-    , _dStatus = pStatus
-    , _dActivities = mempty
+    { _desrsNextToken = Nothing
+    , _desrsStatus = pStatus
+    , _desrsActivities = mempty
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+desrsNextToken :: Lens' DescribeScalingActivitiesResponse (Maybe Text)
+desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DescribeScalingActivitiesResponse Int
-dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+desrsStatus :: Lens' DescribeScalingActivitiesResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});
 
 -- | The scaling activities.
-dActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
-dActivities = lens _dActivities (\ s a -> s{_dActivities = a});
+desrsActivities :: Lens' DescribeScalingActivitiesResponse [Activity]
+desrsActivities = lens _desrsActivities (\ s a -> s{_desrsActivities = a});

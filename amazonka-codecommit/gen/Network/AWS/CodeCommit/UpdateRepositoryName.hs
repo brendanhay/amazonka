@@ -27,8 +27,8 @@ module Network.AWS.CodeCommit.UpdateRepositoryName
     -- ** Request constructor
     , updateRepositoryName
     -- ** Request lenses
-    , urnOldName
-    , urnNewName
+    , urnrqOldName
+    , urnrqNewName
 
     -- * Response
     , UpdateRepositoryNameResponse
@@ -47,29 +47,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urnOldName'
+-- * 'urnrqOldName'
 --
--- * 'urnNewName'
+-- * 'urnrqNewName'
 data UpdateRepositoryName = UpdateRepositoryName'
-    { _urnOldName :: !Text
-    , _urnNewName :: !Text
+    { _urnrqOldName :: !Text
+    , _urnrqNewName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRepositoryName' smart constructor.
 updateRepositoryName :: Text -> Text -> UpdateRepositoryName
 updateRepositoryName pOldName pNewName =
     UpdateRepositoryName'
-    { _urnOldName = pOldName
-    , _urnNewName = pNewName
+    { _urnrqOldName = pOldName
+    , _urnrqNewName = pNewName
     }
 
 -- | FIXME: Undocumented member.
-urnOldName :: Lens' UpdateRepositoryName Text
-urnOldName = lens _urnOldName (\ s a -> s{_urnOldName = a});
+urnrqOldName :: Lens' UpdateRepositoryName Text
+urnrqOldName = lens _urnrqOldName (\ s a -> s{_urnrqOldName = a});
 
 -- | FIXME: Undocumented member.
-urnNewName :: Lens' UpdateRepositoryName Text
-urnNewName = lens _urnNewName (\ s a -> s{_urnNewName = a});
+urnrqNewName :: Lens' UpdateRepositoryName Text
+urnrqNewName = lens _urnrqNewName (\ s a -> s{_urnrqNewName = a});
 
 instance AWSRequest UpdateRepositoryName where
         type Sv UpdateRepositoryName = CodeCommit
@@ -91,7 +91,8 @@ instance ToHeaders UpdateRepositoryName where
 instance ToJSON UpdateRepositoryName where
         toJSON UpdateRepositoryName'{..}
           = object
-              ["oldName" .= _urnOldName, "newName" .= _urnNewName]
+              ["oldName" .= _urnrqOldName,
+               "newName" .= _urnrqNewName]
 
 instance ToPath UpdateRepositoryName where
         toPath = const "/"

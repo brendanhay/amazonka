@@ -32,8 +32,8 @@ module Network.AWS.IAM.ListOpenIdConnectProviders
     -- ** Response constructor
     , listOpenIdConnectProvidersResponse
     -- ** Response lenses
-    , loicprOpenIdConnectProviderList
-    , loicprStatus
+    , loicprsOpenIdConnectProviderList
+    , loicprsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -85,26 +85,26 @@ instance ToQuery ListOpenIdConnectProviders where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'loicprOpenIdConnectProviderList'
+-- * 'loicprsOpenIdConnectProviderList'
 --
--- * 'loicprStatus'
+-- * 'loicprsStatus'
 data ListOpenIdConnectProvidersResponse = ListOpenIdConnectProvidersResponse'
-    { _loicprOpenIdConnectProviderList :: !(Maybe [OpenIdConnectProviderListEntry])
-    , _loicprStatus                    :: !Int
+    { _loicprsOpenIdConnectProviderList :: !(Maybe [OpenIdConnectProviderListEntry])
+    , _loicprsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListOpenIdConnectProvidersResponse' smart constructor.
 listOpenIdConnectProvidersResponse :: Int -> ListOpenIdConnectProvidersResponse
 listOpenIdConnectProvidersResponse pStatus =
     ListOpenIdConnectProvidersResponse'
-    { _loicprOpenIdConnectProviderList = Nothing
-    , _loicprStatus = pStatus
+    { _loicprsOpenIdConnectProviderList = Nothing
+    , _loicprsStatus = pStatus
     }
 
 -- | The list of IAM OpenID Connect providers in the AWS account.
-loicprOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [OpenIdConnectProviderListEntry]
-loicprOpenIdConnectProviderList = lens _loicprOpenIdConnectProviderList (\ s a -> s{_loicprOpenIdConnectProviderList = a}) . _Default;
+loicprsOpenIdConnectProviderList :: Lens' ListOpenIdConnectProvidersResponse [OpenIdConnectProviderListEntry]
+loicprsOpenIdConnectProviderList = lens _loicprsOpenIdConnectProviderList (\ s a -> s{_loicprsOpenIdConnectProviderList = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-loicprStatus :: Lens' ListOpenIdConnectProvidersResponse Int
-loicprStatus = lens _loicprStatus (\ s a -> s{_loicprStatus = a});
+loicprsStatus :: Lens' ListOpenIdConnectProvidersResponse Int
+loicprsStatus = lens _loicprsStatus (\ s a -> s{_loicprsStatus = a});

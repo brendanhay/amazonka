@@ -33,18 +33,18 @@ module Network.AWS.StorageGateway.DescribeUploadBuffer
     -- ** Request constructor
     , describeUploadBuffer
     -- ** Request lenses
-    , dubGatewayARN
+    , dubrqGatewayARN
 
     -- * Response
     , DescribeUploadBufferResponse
     -- ** Response constructor
     , describeUploadBufferResponse
     -- ** Response lenses
-    , dubrUploadBufferAllocatedInBytes
-    , dubrGatewayARN
-    , dubrDiskIds
-    , dubrUploadBufferUsedInBytes
-    , dubrStatus
+    , dubrsUploadBufferAllocatedInBytes
+    , dubrsGatewayARN
+    , dubrsDiskIds
+    , dubrsUploadBufferUsedInBytes
+    , dubrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -56,21 +56,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dubGatewayARN'
+-- * 'dubrqGatewayARN'
 newtype DescribeUploadBuffer = DescribeUploadBuffer'
-    { _dubGatewayARN :: Text
+    { _dubrqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUploadBuffer' smart constructor.
 describeUploadBuffer :: Text -> DescribeUploadBuffer
 describeUploadBuffer pGatewayARN =
     DescribeUploadBuffer'
-    { _dubGatewayARN = pGatewayARN
+    { _dubrqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-dubGatewayARN :: Lens' DescribeUploadBuffer Text
-dubGatewayARN = lens _dubGatewayARN (\ s a -> s{_dubGatewayARN = a});
+dubrqGatewayARN :: Lens' DescribeUploadBuffer Text
+dubrqGatewayARN = lens _dubrqGatewayARN (\ s a -> s{_dubrqGatewayARN = a});
 
 instance AWSRequest DescribeUploadBuffer where
         type Sv DescribeUploadBuffer = StorageGateway
@@ -99,7 +99,7 @@ instance ToHeaders DescribeUploadBuffer where
 
 instance ToJSON DescribeUploadBuffer where
         toJSON DescribeUploadBuffer'{..}
-          = object ["GatewayARN" .= _dubGatewayARN]
+          = object ["GatewayARN" .= _dubrqGatewayARN]
 
 instance ToPath DescribeUploadBuffer where
         toPath = const "/"
@@ -111,50 +111,50 @@ instance ToQuery DescribeUploadBuffer where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dubrUploadBufferAllocatedInBytes'
+-- * 'dubrsUploadBufferAllocatedInBytes'
 --
--- * 'dubrGatewayARN'
+-- * 'dubrsGatewayARN'
 --
--- * 'dubrDiskIds'
+-- * 'dubrsDiskIds'
 --
--- * 'dubrUploadBufferUsedInBytes'
+-- * 'dubrsUploadBufferUsedInBytes'
 --
--- * 'dubrStatus'
+-- * 'dubrsStatus'
 data DescribeUploadBufferResponse = DescribeUploadBufferResponse'
-    { _dubrUploadBufferAllocatedInBytes :: !(Maybe Integer)
-    , _dubrGatewayARN                   :: !(Maybe Text)
-    , _dubrDiskIds                      :: !(Maybe [Text])
-    , _dubrUploadBufferUsedInBytes      :: !(Maybe Integer)
-    , _dubrStatus                       :: !Int
+    { _dubrsUploadBufferAllocatedInBytes :: !(Maybe Integer)
+    , _dubrsGatewayARN                   :: !(Maybe Text)
+    , _dubrsDiskIds                      :: !(Maybe [Text])
+    , _dubrsUploadBufferUsedInBytes      :: !(Maybe Integer)
+    , _dubrsStatus                       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeUploadBufferResponse' smart constructor.
 describeUploadBufferResponse :: Int -> DescribeUploadBufferResponse
 describeUploadBufferResponse pStatus =
     DescribeUploadBufferResponse'
-    { _dubrUploadBufferAllocatedInBytes = Nothing
-    , _dubrGatewayARN = Nothing
-    , _dubrDiskIds = Nothing
-    , _dubrUploadBufferUsedInBytes = Nothing
-    , _dubrStatus = pStatus
+    { _dubrsUploadBufferAllocatedInBytes = Nothing
+    , _dubrsGatewayARN = Nothing
+    , _dubrsDiskIds = Nothing
+    , _dubrsUploadBufferUsedInBytes = Nothing
+    , _dubrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dubrUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-dubrUploadBufferAllocatedInBytes = lens _dubrUploadBufferAllocatedInBytes (\ s a -> s{_dubrUploadBufferAllocatedInBytes = a});
+dubrsUploadBufferAllocatedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
+dubrsUploadBufferAllocatedInBytes = lens _dubrsUploadBufferAllocatedInBytes (\ s a -> s{_dubrsUploadBufferAllocatedInBytes = a});
 
 -- | FIXME: Undocumented member.
-dubrGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
-dubrGatewayARN = lens _dubrGatewayARN (\ s a -> s{_dubrGatewayARN = a});
+dubrsGatewayARN :: Lens' DescribeUploadBufferResponse (Maybe Text)
+dubrsGatewayARN = lens _dubrsGatewayARN (\ s a -> s{_dubrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dubrDiskIds :: Lens' DescribeUploadBufferResponse [Text]
-dubrDiskIds = lens _dubrDiskIds (\ s a -> s{_dubrDiskIds = a}) . _Default;
+dubrsDiskIds :: Lens' DescribeUploadBufferResponse [Text]
+dubrsDiskIds = lens _dubrsDiskIds (\ s a -> s{_dubrsDiskIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dubrUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
-dubrUploadBufferUsedInBytes = lens _dubrUploadBufferUsedInBytes (\ s a -> s{_dubrUploadBufferUsedInBytes = a});
+dubrsUploadBufferUsedInBytes :: Lens' DescribeUploadBufferResponse (Maybe Integer)
+dubrsUploadBufferUsedInBytes = lens _dubrsUploadBufferUsedInBytes (\ s a -> s{_dubrsUploadBufferUsedInBytes = a});
 
 -- | FIXME: Undocumented member.
-dubrStatus :: Lens' DescribeUploadBufferResponse Int
-dubrStatus = lens _dubrStatus (\ s a -> s{_dubrStatus = a});
+dubrsStatus :: Lens' DescribeUploadBufferResponse Int
+dubrsStatus = lens _dubrsStatus (\ s a -> s{_dubrsStatus = a});

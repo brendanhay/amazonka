@@ -27,17 +27,17 @@ module Network.AWS.CloudFront.CreateDistribution
     -- ** Request constructor
     , createDistribution
     -- ** Request lenses
-    , cdDistributionConfig
+    , cdrqDistributionConfig
 
     -- * Response
     , CreateDistributionResponse
     -- ** Response constructor
     , createDistributionResponse
     -- ** Response lenses
-    , cdrETag
-    , cdrDistribution
-    , cdrLocation
-    , cdrStatus
+    , cdrsETag
+    , cdrsDistribution
+    , cdrsLocation
+    , cdrsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdDistributionConfig'
+-- * 'cdrqDistributionConfig'
 newtype CreateDistribution = CreateDistribution'
-    { _cdDistributionConfig :: DistributionConfig
+    { _cdrqDistributionConfig :: DistributionConfig
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDistribution' smart constructor.
 createDistribution :: DistributionConfig -> CreateDistribution
 createDistribution pDistributionConfig =
     CreateDistribution'
-    { _cdDistributionConfig = pDistributionConfig
+    { _cdrqDistributionConfig = pDistributionConfig
     }
 
 -- | The distribution\'s configuration information.
-cdDistributionConfig :: Lens' CreateDistribution DistributionConfig
-cdDistributionConfig = lens _cdDistributionConfig (\ s a -> s{_cdDistributionConfig = a});
+cdrqDistributionConfig :: Lens' CreateDistribution DistributionConfig
+cdrqDistributionConfig = lens _cdrqDistributionConfig (\ s a -> s{_cdrqDistributionConfig = a});
 
 instance AWSRequest CreateDistribution where
         type Sv CreateDistribution = CloudFront
@@ -85,7 +85,7 @@ instance ToElement CreateDistribution where
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}DistributionConfig"
               .
-              _cdDistributionConfig
+              _cdrqDistributionConfig
 
 instance ToHeaders CreateDistribution where
         toHeaders = const mempty
@@ -102,44 +102,44 @@ instance ToQuery CreateDistribution where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdrETag'
+-- * 'cdrsETag'
 --
--- * 'cdrDistribution'
+-- * 'cdrsDistribution'
 --
--- * 'cdrLocation'
+-- * 'cdrsLocation'
 --
--- * 'cdrStatus'
+-- * 'cdrsStatus'
 data CreateDistributionResponse = CreateDistributionResponse'
-    { _cdrETag         :: !(Maybe Text)
-    , _cdrDistribution :: !(Maybe Distribution)
-    , _cdrLocation     :: !(Maybe Text)
-    , _cdrStatus       :: !Int
+    { _cdrsETag         :: !(Maybe Text)
+    , _cdrsDistribution :: !(Maybe Distribution)
+    , _cdrsLocation     :: !(Maybe Text)
+    , _cdrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDistributionResponse' smart constructor.
 createDistributionResponse :: Int -> CreateDistributionResponse
 createDistributionResponse pStatus =
     CreateDistributionResponse'
-    { _cdrETag = Nothing
-    , _cdrDistribution = Nothing
-    , _cdrLocation = Nothing
-    , _cdrStatus = pStatus
+    { _cdrsETag = Nothing
+    , _cdrsDistribution = Nothing
+    , _cdrsLocation = Nothing
+    , _cdrsStatus = pStatus
     }
 
 -- | The current version of the distribution created.
-cdrETag :: Lens' CreateDistributionResponse (Maybe Text)
-cdrETag = lens _cdrETag (\ s a -> s{_cdrETag = a});
+cdrsETag :: Lens' CreateDistributionResponse (Maybe Text)
+cdrsETag = lens _cdrsETag (\ s a -> s{_cdrsETag = a});
 
 -- | The distribution\'s information.
-cdrDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
-cdrDistribution = lens _cdrDistribution (\ s a -> s{_cdrDistribution = a});
+cdrsDistribution :: Lens' CreateDistributionResponse (Maybe Distribution)
+cdrsDistribution = lens _cdrsDistribution (\ s a -> s{_cdrsDistribution = a});
 
 -- | The fully qualified URI of the new distribution resource just created.
 -- For example:
 -- https:\/\/cloudfront.amazonaws.com\/2010-11-01\/distribution\/EDFDVBD632BHDS5.
-cdrLocation :: Lens' CreateDistributionResponse (Maybe Text)
-cdrLocation = lens _cdrLocation (\ s a -> s{_cdrLocation = a});
+cdrsLocation :: Lens' CreateDistributionResponse (Maybe Text)
+cdrsLocation = lens _cdrsLocation (\ s a -> s{_cdrsLocation = a});
 
 -- | FIXME: Undocumented member.
-cdrStatus :: Lens' CreateDistributionResponse Int
-cdrStatus = lens _cdrStatus (\ s a -> s{_cdrStatus = a});
+cdrsStatus :: Lens' CreateDistributionResponse Int
+cdrsStatus = lens _cdrsStatus (\ s a -> s{_cdrsStatus = a});

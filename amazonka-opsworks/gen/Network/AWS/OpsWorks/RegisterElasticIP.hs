@@ -37,16 +37,16 @@ module Network.AWS.OpsWorks.RegisterElasticIP
     -- ** Request constructor
     , registerElasticIP
     -- ** Request lenses
-    , reiElasticIP
-    , reiStackId
+    , reirqElasticIP
+    , reirqStackId
 
     -- * Response
     , RegisterElasticIPResponse
     -- ** Response constructor
     , registerElasticIPResponse
     -- ** Response lenses
-    , reirElasticIP
-    , reirStatus
+    , reirsElasticIP
+    , reirsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -58,29 +58,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reiElasticIP'
+-- * 'reirqElasticIP'
 --
--- * 'reiStackId'
+-- * 'reirqStackId'
 data RegisterElasticIP = RegisterElasticIP'
-    { _reiElasticIP :: !Text
-    , _reiStackId   :: !Text
+    { _reirqElasticIP :: !Text
+    , _reirqStackId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterElasticIP' smart constructor.
 registerElasticIP :: Text -> Text -> RegisterElasticIP
 registerElasticIP pElasticIP pStackId =
     RegisterElasticIP'
-    { _reiElasticIP = pElasticIP
-    , _reiStackId = pStackId
+    { _reirqElasticIP = pElasticIP
+    , _reirqStackId = pStackId
     }
 
 -- | The Elastic IP address.
-reiElasticIP :: Lens' RegisterElasticIP Text
-reiElasticIP = lens _reiElasticIP (\ s a -> s{_reiElasticIP = a});
+reirqElasticIP :: Lens' RegisterElasticIP Text
+reirqElasticIP = lens _reirqElasticIP (\ s a -> s{_reirqElasticIP = a});
 
 -- | The stack ID.
-reiStackId :: Lens' RegisterElasticIP Text
-reiStackId = lens _reiStackId (\ s a -> s{_reiStackId = a});
+reirqStackId :: Lens' RegisterElasticIP Text
+reirqStackId = lens _reirqStackId (\ s a -> s{_reirqStackId = a});
 
 instance AWSRequest RegisterElasticIP where
         type Sv RegisterElasticIP = OpsWorks
@@ -105,8 +105,8 @@ instance ToHeaders RegisterElasticIP where
 instance ToJSON RegisterElasticIP where
         toJSON RegisterElasticIP'{..}
           = object
-              ["ElasticIp" .= _reiElasticIP,
-               "StackId" .= _reiStackId]
+              ["ElasticIp" .= _reirqElasticIP,
+               "StackId" .= _reirqStackId]
 
 instance ToPath RegisterElasticIP where
         toPath = const "/"
@@ -120,26 +120,26 @@ instance ToQuery RegisterElasticIP where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'reirElasticIP'
+-- * 'reirsElasticIP'
 --
--- * 'reirStatus'
+-- * 'reirsStatus'
 data RegisterElasticIPResponse = RegisterElasticIPResponse'
-    { _reirElasticIP :: !(Maybe Text)
-    , _reirStatus    :: !Int
+    { _reirsElasticIP :: !(Maybe Text)
+    , _reirsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterElasticIPResponse' smart constructor.
 registerElasticIPResponse :: Int -> RegisterElasticIPResponse
 registerElasticIPResponse pStatus =
     RegisterElasticIPResponse'
-    { _reirElasticIP = Nothing
-    , _reirStatus = pStatus
+    { _reirsElasticIP = Nothing
+    , _reirsStatus = pStatus
     }
 
 -- | The Elastic IP address.
-reirElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
-reirElasticIP = lens _reirElasticIP (\ s a -> s{_reirElasticIP = a});
+reirsElasticIP :: Lens' RegisterElasticIPResponse (Maybe Text)
+reirsElasticIP = lens _reirsElasticIP (\ s a -> s{_reirsElasticIP = a});
 
 -- | FIXME: Undocumented member.
-reirStatus :: Lens' RegisterElasticIPResponse Int
-reirStatus = lens _reirStatus (\ s a -> s{_reirStatus = a});
+reirsStatus :: Lens' RegisterElasticIPResponse Int
+reirsStatus = lens _reirsStatus (\ s a -> s{_reirsStatus = a});

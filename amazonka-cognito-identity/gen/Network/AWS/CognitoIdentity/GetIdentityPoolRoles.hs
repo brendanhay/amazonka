@@ -29,16 +29,16 @@ module Network.AWS.CognitoIdentity.GetIdentityPoolRoles
     -- ** Request constructor
     , getIdentityPoolRoles
     -- ** Request lenses
-    , giprIdentityPoolId
+    , giprrqIdentityPoolId
 
     -- * Response
     , GetIdentityPoolRolesResponse
     -- ** Response constructor
     , getIdentityPoolRolesResponse
     -- ** Response lenses
-    , giprrRoles
-    , giprrIdentityPoolId
-    , giprrStatus
+    , giprrsRoles
+    , giprrsIdentityPoolId
+    , giprrsStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giprIdentityPoolId'
+-- * 'giprrqIdentityPoolId'
 newtype GetIdentityPoolRoles = GetIdentityPoolRoles'
-    { _giprIdentityPoolId :: Text
+    { _giprrqIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolRoles' smart constructor.
 getIdentityPoolRoles :: Text -> GetIdentityPoolRoles
 getIdentityPoolRoles pIdentityPoolId =
     GetIdentityPoolRoles'
-    { _giprIdentityPoolId = pIdentityPoolId
+    { _giprrqIdentityPoolId = pIdentityPoolId
     }
 
 -- | An identity pool ID in the format REGION:GUID.
-giprIdentityPoolId :: Lens' GetIdentityPoolRoles Text
-giprIdentityPoolId = lens _giprIdentityPoolId (\ s a -> s{_giprIdentityPoolId = a});
+giprrqIdentityPoolId :: Lens' GetIdentityPoolRoles Text
+giprrqIdentityPoolId = lens _giprrqIdentityPoolId (\ s a -> s{_giprrqIdentityPoolId = a});
 
 instance AWSRequest GetIdentityPoolRoles where
         type Sv GetIdentityPoolRoles = CognitoIdentity
@@ -93,7 +93,7 @@ instance ToHeaders GetIdentityPoolRoles where
 
 instance ToJSON GetIdentityPoolRoles where
         toJSON GetIdentityPoolRoles'{..}
-          = object ["IdentityPoolId" .= _giprIdentityPoolId]
+          = object ["IdentityPoolId" .= _giprrqIdentityPoolId]
 
 instance ToPath GetIdentityPoolRoles where
         toPath = const "/"
@@ -107,35 +107,35 @@ instance ToQuery GetIdentityPoolRoles where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giprrRoles'
+-- * 'giprrsRoles'
 --
--- * 'giprrIdentityPoolId'
+-- * 'giprrsIdentityPoolId'
 --
--- * 'giprrStatus'
+-- * 'giprrsStatus'
 data GetIdentityPoolRolesResponse = GetIdentityPoolRolesResponse'
-    { _giprrRoles          :: !(Maybe (Map Text Text))
-    , _giprrIdentityPoolId :: !(Maybe Text)
-    , _giprrStatus         :: !Int
+    { _giprrsRoles          :: !(Maybe (Map Text Text))
+    , _giprrsIdentityPoolId :: !(Maybe Text)
+    , _giprrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityPoolRolesResponse' smart constructor.
 getIdentityPoolRolesResponse :: Int -> GetIdentityPoolRolesResponse
 getIdentityPoolRolesResponse pStatus =
     GetIdentityPoolRolesResponse'
-    { _giprrRoles = Nothing
-    , _giprrIdentityPoolId = Nothing
-    , _giprrStatus = pStatus
+    { _giprrsRoles = Nothing
+    , _giprrsIdentityPoolId = Nothing
+    , _giprrsStatus = pStatus
     }
 
 -- | The map of roles associated with this pool. Currently only authenticated
 -- and unauthenticated roles are supported.
-giprrRoles :: Lens' GetIdentityPoolRolesResponse (HashMap Text Text)
-giprrRoles = lens _giprrRoles (\ s a -> s{_giprrRoles = a}) . _Default . _Map;
+giprrsRoles :: Lens' GetIdentityPoolRolesResponse (HashMap Text Text)
+giprrsRoles = lens _giprrsRoles (\ s a -> s{_giprrsRoles = a}) . _Default . _Map;
 
 -- | An identity pool ID in the format REGION:GUID.
-giprrIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
-giprrIdentityPoolId = lens _giprrIdentityPoolId (\ s a -> s{_giprrIdentityPoolId = a});
+giprrsIdentityPoolId :: Lens' GetIdentityPoolRolesResponse (Maybe Text)
+giprrsIdentityPoolId = lens _giprrsIdentityPoolId (\ s a -> s{_giprrsIdentityPoolId = a});
 
 -- | FIXME: Undocumented member.
-giprrStatus :: Lens' GetIdentityPoolRolesResponse Int
-giprrStatus = lens _giprrStatus (\ s a -> s{_giprrStatus = a});
+giprrsStatus :: Lens' GetIdentityPoolRolesResponse Int
+giprrsStatus = lens _giprrsStatus (\ s a -> s{_giprrsStatus = a});

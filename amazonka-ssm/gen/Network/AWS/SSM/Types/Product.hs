@@ -27,29 +27,29 @@ import           Network.AWS.SSM.Types.Sum
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'assInstanceId'
+-- * 'aInstanceId'
 --
--- * 'assName'
+-- * 'aName'
 data Association = Association'
-    { _assInstanceId :: !(Maybe Text)
-    , _assName       :: !(Maybe Text)
+    { _aInstanceId :: !(Maybe Text)
+    , _aName       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Association' smart constructor.
 association :: Association
 association =
     Association'
-    { _assInstanceId = Nothing
-    , _assName = Nothing
+    { _aInstanceId = Nothing
+    , _aName = Nothing
     }
 
 -- | The ID of the instance.
-assInstanceId :: Lens' Association (Maybe Text)
-assInstanceId = lens _assInstanceId (\ s a -> s{_assInstanceId = a});
+aInstanceId :: Lens' Association (Maybe Text)
+aInstanceId = lens _aInstanceId (\ s a -> s{_aInstanceId = a});
 
 -- | The name of the configuration document.
-assName :: Lens' Association (Maybe Text)
-assName = lens _assName (\ s a -> s{_assName = a});
+aName :: Lens' Association (Maybe Text)
+aName = lens _aName (\ s a -> s{_aName = a});
 
 instance FromJSON Association where
         parseJSON
@@ -260,46 +260,46 @@ instance ToJSON CreateAssociationBatchRequestEntry
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'docStatus'
+-- * 'ddStatus'
 --
--- * 'docSha1'
+-- * 'ddSha1'
 --
--- * 'docCreatedDate'
+-- * 'ddCreatedDate'
 --
--- * 'docName'
+-- * 'ddName'
 data DocumentDescription = DocumentDescription'
-    { _docStatus      :: !(Maybe DocumentStatus)
-    , _docSha1        :: !(Maybe Text)
-    , _docCreatedDate :: !(Maybe POSIX)
-    , _docName        :: !(Maybe Text)
+    { _ddStatus      :: !(Maybe DocumentStatus)
+    , _ddSha1        :: !(Maybe Text)
+    , _ddCreatedDate :: !(Maybe POSIX)
+    , _ddName        :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DocumentDescription' smart constructor.
 documentDescription :: DocumentDescription
 documentDescription =
     DocumentDescription'
-    { _docStatus = Nothing
-    , _docSha1 = Nothing
-    , _docCreatedDate = Nothing
-    , _docName = Nothing
+    { _ddStatus = Nothing
+    , _ddSha1 = Nothing
+    , _ddCreatedDate = Nothing
+    , _ddName = Nothing
     }
 
 -- | The status of the configuration document.
-docStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
-docStatus = lens _docStatus (\ s a -> s{_docStatus = a});
+ddStatus :: Lens' DocumentDescription (Maybe DocumentStatus)
+ddStatus = lens _ddStatus (\ s a -> s{_ddStatus = a});
 
 -- | The SHA1 hash of the document, which you can use for verification
 -- purposes.
-docSha1 :: Lens' DocumentDescription (Maybe Text)
-docSha1 = lens _docSha1 (\ s a -> s{_docSha1 = a});
+ddSha1 :: Lens' DocumentDescription (Maybe Text)
+ddSha1 = lens _ddSha1 (\ s a -> s{_ddSha1 = a});
 
 -- | The date when the configuration document was created.
-docCreatedDate :: Lens' DocumentDescription (Maybe UTCTime)
-docCreatedDate = lens _docCreatedDate (\ s a -> s{_docCreatedDate = a}) . mapping _Time;
+ddCreatedDate :: Lens' DocumentDescription (Maybe UTCTime)
+ddCreatedDate = lens _ddCreatedDate (\ s a -> s{_ddCreatedDate = a}) . mapping _Time;
 
 -- | The name of the configuration document.
-docName :: Lens' DocumentDescription (Maybe Text)
-docName = lens _docName (\ s a -> s{_docName = a});
+ddName :: Lens' DocumentDescription (Maybe Text)
+ddName = lens _ddName (\ s a -> s{_ddName = a});
 
 instance FromJSON DocumentDescription where
         parseJSON

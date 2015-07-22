@@ -29,16 +29,16 @@ module Network.AWS.StorageGateway.CancelRetrieval
     -- ** Request constructor
     , cancelRetrieval
     -- ** Request lenses
-    , crGatewayARN
-    , crTapeARN
+    , crrqGatewayARN
+    , crrqTapeARN
 
     -- * Response
     , CancelRetrievalResponse
     -- ** Response constructor
     , cancelRetrievalResponse
     -- ** Response lenses
-    , crrTapeARN
-    , crrStatus
+    , crrsTapeARN
+    , crrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,30 +52,30 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crGatewayARN'
+-- * 'crrqGatewayARN'
 --
--- * 'crTapeARN'
+-- * 'crrqTapeARN'
 data CancelRetrieval = CancelRetrieval'
-    { _crGatewayARN :: !Text
-    , _crTapeARN    :: !Text
+    { _crrqGatewayARN :: !Text
+    , _crrqTapeARN    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelRetrieval' smart constructor.
 cancelRetrieval :: Text -> Text -> CancelRetrieval
 cancelRetrieval pGatewayARN pTapeARN =
     CancelRetrieval'
-    { _crGatewayARN = pGatewayARN
-    , _crTapeARN = pTapeARN
+    { _crrqGatewayARN = pGatewayARN
+    , _crrqTapeARN = pTapeARN
     }
 
 -- | FIXME: Undocumented member.
-crGatewayARN :: Lens' CancelRetrieval Text
-crGatewayARN = lens _crGatewayARN (\ s a -> s{_crGatewayARN = a});
+crrqGatewayARN :: Lens' CancelRetrieval Text
+crrqGatewayARN = lens _crrqGatewayARN (\ s a -> s{_crrqGatewayARN = a});
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to cancel
 -- retrieval for.
-crTapeARN :: Lens' CancelRetrieval Text
-crTapeARN = lens _crTapeARN (\ s a -> s{_crTapeARN = a});
+crrqTapeARN :: Lens' CancelRetrieval Text
+crrqTapeARN = lens _crrqTapeARN (\ s a -> s{_crrqTapeARN = a});
 
 instance AWSRequest CancelRetrieval where
         type Sv CancelRetrieval = StorageGateway
@@ -100,8 +100,8 @@ instance ToHeaders CancelRetrieval where
 instance ToJSON CancelRetrieval where
         toJSON CancelRetrieval'{..}
           = object
-              ["GatewayARN" .= _crGatewayARN,
-               "TapeARN" .= _crTapeARN]
+              ["GatewayARN" .= _crrqGatewayARN,
+               "TapeARN" .= _crrqTapeARN]
 
 instance ToPath CancelRetrieval where
         toPath = const "/"
@@ -115,27 +115,27 @@ instance ToQuery CancelRetrieval where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crrTapeARN'
+-- * 'crrsTapeARN'
 --
--- * 'crrStatus'
+-- * 'crrsStatus'
 data CancelRetrievalResponse = CancelRetrievalResponse'
-    { _crrTapeARN :: !(Maybe Text)
-    , _crrStatus  :: !Int
+    { _crrsTapeARN :: !(Maybe Text)
+    , _crrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CancelRetrievalResponse' smart constructor.
 cancelRetrievalResponse :: Int -> CancelRetrievalResponse
 cancelRetrievalResponse pStatus =
     CancelRetrievalResponse'
-    { _crrTapeARN = Nothing
-    , _crrStatus = pStatus
+    { _crrsTapeARN = Nothing
+    , _crrsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape for which retrieval
 -- was canceled.
-crrTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
-crrTapeARN = lens _crrTapeARN (\ s a -> s{_crrTapeARN = a});
+crrsTapeARN :: Lens' CancelRetrievalResponse (Maybe Text)
+crrsTapeARN = lens _crrsTapeARN (\ s a -> s{_crrsTapeARN = a});
 
 -- | FIXME: Undocumented member.
-crrStatus :: Lens' CancelRetrievalResponse Int
-crrStatus = lens _crrStatus (\ s a -> s{_crrStatus = a});
+crrsStatus :: Lens' CancelRetrievalResponse Int
+crrsStatus = lens _crrsStatus (\ s a -> s{_crrsStatus = a});

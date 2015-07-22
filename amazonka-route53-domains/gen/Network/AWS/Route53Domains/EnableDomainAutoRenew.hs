@@ -36,14 +36,14 @@ module Network.AWS.Route53Domains.EnableDomainAutoRenew
     -- ** Request constructor
     , enableDomainAutoRenew
     -- ** Request lenses
-    , edarDomainName
+    , edarrqDomainName
 
     -- * Response
     , EnableDomainAutoRenewResponse
     -- ** Response constructor
     , enableDomainAutoRenewResponse
     -- ** Response lenses
-    , edarrStatus
+    , edarrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -55,21 +55,21 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'edarDomainName'
+-- * 'edarrqDomainName'
 newtype EnableDomainAutoRenew = EnableDomainAutoRenew'
-    { _edarDomainName :: Text
+    { _edarrqDomainName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableDomainAutoRenew' smart constructor.
 enableDomainAutoRenew :: Text -> EnableDomainAutoRenew
 enableDomainAutoRenew pDomainName =
     EnableDomainAutoRenew'
-    { _edarDomainName = pDomainName
+    { _edarrqDomainName = pDomainName
     }
 
 -- | FIXME: Undocumented member.
-edarDomainName :: Lens' EnableDomainAutoRenew Text
-edarDomainName = lens _edarDomainName (\ s a -> s{_edarDomainName = a});
+edarrqDomainName :: Lens' EnableDomainAutoRenew Text
+edarrqDomainName = lens _edarrqDomainName (\ s a -> s{_edarrqDomainName = a});
 
 instance AWSRequest EnableDomainAutoRenew where
         type Sv EnableDomainAutoRenew = Route53Domains
@@ -94,7 +94,7 @@ instance ToHeaders EnableDomainAutoRenew where
 
 instance ToJSON EnableDomainAutoRenew where
         toJSON EnableDomainAutoRenew'{..}
-          = object ["DomainName" .= _edarDomainName]
+          = object ["DomainName" .= _edarrqDomainName]
 
 instance ToPath EnableDomainAutoRenew where
         toPath = const "/"
@@ -106,18 +106,18 @@ instance ToQuery EnableDomainAutoRenew where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'edarrStatus'
+-- * 'edarrsStatus'
 newtype EnableDomainAutoRenewResponse = EnableDomainAutoRenewResponse'
-    { _edarrStatus :: Int
+    { _edarrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableDomainAutoRenewResponse' smart constructor.
 enableDomainAutoRenewResponse :: Int -> EnableDomainAutoRenewResponse
 enableDomainAutoRenewResponse pStatus =
     EnableDomainAutoRenewResponse'
-    { _edarrStatus = pStatus
+    { _edarrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-edarrStatus :: Lens' EnableDomainAutoRenewResponse Int
-edarrStatus = lens _edarrStatus (\ s a -> s{_edarrStatus = a});
+edarrsStatus :: Lens' EnableDomainAutoRenewResponse Int
+edarrsStatus = lens _edarrsStatus (\ s a -> s{_edarrsStatus = a});

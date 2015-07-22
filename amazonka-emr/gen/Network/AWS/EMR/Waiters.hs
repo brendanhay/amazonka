@@ -29,26 +29,26 @@ clusterRunning =
     , _waitAcceptors = [ matchAll
                              "RUNNING"
                              AcceptSuccess
-                             (dcrCluster .
-                              cluStatus . csState . _Just . to toText)
+                             (dcrsCluster .
+                              cStatus . csState . _Just . to toText)
                        , matchAll
                              "WAITING"
                              AcceptSuccess
-                             (dcrCluster .
-                              cluStatus . csState . _Just . to toText)
+                             (dcrsCluster .
+                              cStatus . csState . _Just . to toText)
                        , matchAll
                              "TERMINATING"
                              AcceptFailure
-                             (dcrCluster .
-                              cluStatus . csState . _Just . to toText)
+                             (dcrsCluster .
+                              cStatus . csState . _Just . to toText)
                        , matchAll
                              "TERMINATED"
                              AcceptFailure
-                             (dcrCluster .
-                              cluStatus . csState . _Just . to toText)
+                             (dcrsCluster .
+                              cStatus . csState . _Just . to toText)
                        , matchAll
                              "TERMINATED_WITH_ERRORS"
                              AcceptFailure
-                             (dcrCluster .
-                              cluStatus . csState . _Just . to toText)]
+                             (dcrsCluster .
+                              cStatus . csState . _Just . to toText)]
     }

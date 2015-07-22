@@ -27,15 +27,15 @@ module Network.AWS.CodeDeploy.CreateApplication
     -- ** Request constructor
     , createApplication
     -- ** Request lenses
-    , caApplicationName
+    , carqApplicationName
 
     -- * Response
     , CreateApplicationResponse
     -- ** Response constructor
     , createApplicationResponse
     -- ** Response lenses
-    , carApplicationId
-    , carStatus
+    , carsApplicationId
+    , carsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'caApplicationName'
+-- * 'carqApplicationName'
 newtype CreateApplication = CreateApplication'
-    { _caApplicationName :: Text
+    { _carqApplicationName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApplication' smart constructor.
 createApplication :: Text -> CreateApplication
 createApplication pApplicationName =
     CreateApplication'
-    { _caApplicationName = pApplicationName
+    { _carqApplicationName = pApplicationName
     }
 
 -- | The name of the application. This name must be unique with the
 -- applicable IAM user or AWS account.
-caApplicationName :: Lens' CreateApplication Text
-caApplicationName = lens _caApplicationName (\ s a -> s{_caApplicationName = a});
+carqApplicationName :: Lens' CreateApplication Text
+carqApplicationName = lens _carqApplicationName (\ s a -> s{_carqApplicationName = a});
 
 instance AWSRequest CreateApplication where
         type Sv CreateApplication = CodeDeploy
@@ -88,7 +88,7 @@ instance ToHeaders CreateApplication where
 
 instance ToJSON CreateApplication where
         toJSON CreateApplication'{..}
-          = object ["applicationName" .= _caApplicationName]
+          = object ["applicationName" .= _carqApplicationName]
 
 instance ToPath CreateApplication where
         toPath = const "/"
@@ -102,26 +102,26 @@ instance ToQuery CreateApplication where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'carApplicationId'
+-- * 'carsApplicationId'
 --
--- * 'carStatus'
+-- * 'carsStatus'
 data CreateApplicationResponse = CreateApplicationResponse'
-    { _carApplicationId :: !(Maybe Text)
-    , _carStatus        :: !Int
+    { _carsApplicationId :: !(Maybe Text)
+    , _carsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateApplicationResponse' smart constructor.
 createApplicationResponse :: Int -> CreateApplicationResponse
 createApplicationResponse pStatus =
     CreateApplicationResponse'
-    { _carApplicationId = Nothing
-    , _carStatus = pStatus
+    { _carsApplicationId = Nothing
+    , _carsStatus = pStatus
     }
 
 -- | A unique application ID.
-carApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
-carApplicationId = lens _carApplicationId (\ s a -> s{_carApplicationId = a});
+carsApplicationId :: Lens' CreateApplicationResponse (Maybe Text)
+carsApplicationId = lens _carsApplicationId (\ s a -> s{_carsApplicationId = a});
 
 -- | FIXME: Undocumented member.
-carStatus :: Lens' CreateApplicationResponse Int
-carStatus = lens _carStatus (\ s a -> s{_carStatus = a});
+carsStatus :: Lens' CreateApplicationResponse Int
+carsStatus = lens _carsStatus (\ s a -> s{_carsStatus = a});

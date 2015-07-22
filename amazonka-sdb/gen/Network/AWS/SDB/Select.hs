@@ -39,18 +39,18 @@ module Network.AWS.SDB.Select
     -- ** Request constructor
     , select
     -- ** Request lenses
-    , selConsistentRead
-    , selNextToken
-    , selSelectExpression
+    , srqConsistentRead
+    , srqNextToken
+    , srqSelectExpression
 
     -- * Response
     , SelectResponse
     -- ** Response constructor
     , selectResponse
     -- ** Response lenses
-    , srItems
-    , srNextToken
-    , srStatus
+    , srsItems
+    , srsNextToken
+    , srsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -63,24 +63,24 @@ import           Network.AWS.SDB.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'selConsistentRead'
+-- * 'srqConsistentRead'
 --
--- * 'selNextToken'
+-- * 'srqNextToken'
 --
--- * 'selSelectExpression'
+-- * 'srqSelectExpression'
 data Select = Select'
-    { _selConsistentRead   :: !(Maybe Bool)
-    , _selNextToken        :: !(Maybe Text)
-    , _selSelectExpression :: !Text
+    { _srqConsistentRead   :: !(Maybe Bool)
+    , _srqNextToken        :: !(Maybe Text)
+    , _srqSelectExpression :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Select' smart constructor.
 select :: Text -> Select
 select pSelectExpression =
     Select'
-    { _selConsistentRead = Nothing
-    , _selNextToken = Nothing
-    , _selSelectExpression = pSelectExpression
+    { _srqConsistentRead = Nothing
+    , _srqNextToken = Nothing
+    , _srqSelectExpression = pSelectExpression
     }
 
 -- | Determines whether or not strong consistency should be enforced when
@@ -88,24 +88,24 @@ select pSelectExpression =
 -- SimpleDB will be returned. Otherwise, results will be consistent
 -- eventually, and the client may not see data that was written immediately
 -- before your read.
-selConsistentRead :: Lens' Select (Maybe Bool)
-selConsistentRead = lens _selConsistentRead (\ s a -> s{_selConsistentRead = a});
+srqConsistentRead :: Lens' Select (Maybe Bool)
+srqConsistentRead = lens _srqConsistentRead (\ s a -> s{_srqConsistentRead = a});
 
 -- | A string informing Amazon SimpleDB where to start the next list of
 -- @ItemNames@.
-selNextToken :: Lens' Select (Maybe Text)
-selNextToken = lens _selNextToken (\ s a -> s{_selNextToken = a});
+srqNextToken :: Lens' Select (Maybe Text)
+srqNextToken = lens _srqNextToken (\ s a -> s{_srqNextToken = a});
 
 -- | The expression used to query the domain.
-selSelectExpression :: Lens' Select Text
-selSelectExpression = lens _selSelectExpression (\ s a -> s{_selSelectExpression = a});
+srqSelectExpression :: Lens' Select Text
+srqSelectExpression = lens _srqSelectExpression (\ s a -> s{_srqSelectExpression = a});
 
 instance AWSPager Select where
         page rq rs
-          | stop (rs ^. srNextToken) = Nothing
-          | stop (rs ^. srItems) = Nothing
+          | stop (rs ^. srsNextToken) = Nothing
+          | stop (rs ^. srsItems) = Nothing
           | otherwise =
-            Just $ rq & selNextToken .~ rs ^. srNextToken
+            Just $ rq & srqNextToken .~ rs ^. srsNextToken
 
 instance AWSRequest Select where
         type Sv Select = SDB
@@ -129,44 +129,44 @@ instance ToQuery Select where
           = mconcat
               ["Action" =: ("Select" :: ByteString),
                "Version" =: ("2009-04-15" :: ByteString),
-               "ConsistentRead" =: _selConsistentRead,
-               "NextToken" =: _selNextToken,
-               "SelectExpression" =: _selSelectExpression]
+               "ConsistentRead" =: _srqConsistentRead,
+               "NextToken" =: _srqNextToken,
+               "SelectExpression" =: _srqSelectExpression]
 
 -- | /See:/ 'selectResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'srItems'
+-- * 'srsItems'
 --
--- * 'srNextToken'
+-- * 'srsNextToken'
 --
--- * 'srStatus'
+-- * 'srsStatus'
 data SelectResponse = SelectResponse'
-    { _srItems     :: !(Maybe [Item])
-    , _srNextToken :: !(Maybe Text)
-    , _srStatus    :: !Int
+    { _srsItems     :: !(Maybe [Item])
+    , _srsNextToken :: !(Maybe Text)
+    , _srsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'SelectResponse' smart constructor.
 selectResponse :: Int -> SelectResponse
 selectResponse pStatus =
     SelectResponse'
-    { _srItems = Nothing
-    , _srNextToken = Nothing
-    , _srStatus = pStatus
+    { _srsItems = Nothing
+    , _srsNextToken = Nothing
+    , _srsStatus = pStatus
     }
 
 -- | A list of items that match the select expression.
-srItems :: Lens' SelectResponse [Item]
-srItems = lens _srItems (\ s a -> s{_srItems = a}) . _Default;
+srsItems :: Lens' SelectResponse [Item]
+srsItems = lens _srsItems (\ s a -> s{_srsItems = a}) . _Default;
 
 -- | An opaque token indicating that more items than @MaxNumberOfItems@ were
 -- matched, the response size exceeded 1 megabyte, or the execution time
 -- exceeded 5 seconds.
-srNextToken :: Lens' SelectResponse (Maybe Text)
-srNextToken = lens _srNextToken (\ s a -> s{_srNextToken = a});
+srsNextToken :: Lens' SelectResponse (Maybe Text)
+srsNextToken = lens _srsNextToken (\ s a -> s{_srsNextToken = a});
 
 -- | FIXME: Undocumented member.
-srStatus :: Lens' SelectResponse Int
-srStatus = lens _srStatus (\ s a -> s{_srStatus = a});
+srsStatus :: Lens' SelectResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

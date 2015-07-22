@@ -27,7 +27,7 @@ module Network.AWS.Redshift.DeleteEventSubscription
     -- ** Request constructor
     , deleteEventSubscription
     -- ** Request lenses
-    , desSubscriptionName
+    , desrqSubscriptionName
 
     -- * Response
     , DeleteEventSubscriptionResponse
@@ -46,22 +46,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desSubscriptionName'
+-- * 'desrqSubscriptionName'
 newtype DeleteEventSubscription = DeleteEventSubscription'
-    { _desSubscriptionName :: Text
+    { _desrqSubscriptionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEventSubscription' smart constructor.
 deleteEventSubscription :: Text -> DeleteEventSubscription
 deleteEventSubscription pSubscriptionName =
     DeleteEventSubscription'
-    { _desSubscriptionName = pSubscriptionName
+    { _desrqSubscriptionName = pSubscriptionName
     }
 
 -- | The name of the Amazon Redshift event notification subscription to be
 -- deleted.
-desSubscriptionName :: Lens' DeleteEventSubscription Text
-desSubscriptionName = lens _desSubscriptionName (\ s a -> s{_desSubscriptionName = a});
+desrqSubscriptionName :: Lens' DeleteEventSubscription Text
+desrqSubscriptionName = lens _desrqSubscriptionName (\ s a -> s{_desrqSubscriptionName = a});
 
 instance AWSRequest DeleteEventSubscription where
         type Sv DeleteEventSubscription = Redshift
@@ -83,7 +83,7 @@ instance ToQuery DeleteEventSubscription where
               ["Action" =:
                  ("DeleteEventSubscription" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "SubscriptionName" =: _desSubscriptionName]
+               "SubscriptionName" =: _desrqSubscriptionName]
 
 -- | /See:/ 'deleteEventSubscriptionResponse' smart constructor.
 data DeleteEventSubscriptionResponse =

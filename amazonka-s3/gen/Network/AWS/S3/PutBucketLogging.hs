@@ -29,9 +29,9 @@ module Network.AWS.S3.PutBucketLogging
     -- ** Request constructor
     , putBucketLogging
     -- ** Request lenses
-    , pblContentMD5
-    , pblBucket
-    , pblBucketLoggingStatus
+    , pblrqContentMD5
+    , pblrqBucket
+    , pblrqBucketLoggingStatus
 
     -- * Response
     , PutBucketLoggingResponse
@@ -48,37 +48,37 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pblContentMD5'
+-- * 'pblrqContentMD5'
 --
--- * 'pblBucket'
+-- * 'pblrqBucket'
 --
--- * 'pblBucketLoggingStatus'
+-- * 'pblrqBucketLoggingStatus'
 data PutBucketLogging = PutBucketLogging'
-    { _pblContentMD5          :: !(Maybe Text)
-    , _pblBucket              :: !BucketName
-    , _pblBucketLoggingStatus :: !BucketLoggingStatus
+    { _pblrqContentMD5          :: !(Maybe Text)
+    , _pblrqBucket              :: !BucketName
+    , _pblrqBucketLoggingStatus :: !BucketLoggingStatus
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutBucketLogging' smart constructor.
 putBucketLogging :: BucketName -> BucketLoggingStatus -> PutBucketLogging
 putBucketLogging pBucket pBucketLoggingStatus =
     PutBucketLogging'
-    { _pblContentMD5 = Nothing
-    , _pblBucket = pBucket
-    , _pblBucketLoggingStatus = pBucketLoggingStatus
+    { _pblrqContentMD5 = Nothing
+    , _pblrqBucket = pBucket
+    , _pblrqBucketLoggingStatus = pBucketLoggingStatus
     }
 
 -- | FIXME: Undocumented member.
-pblContentMD5 :: Lens' PutBucketLogging (Maybe Text)
-pblContentMD5 = lens _pblContentMD5 (\ s a -> s{_pblContentMD5 = a});
+pblrqContentMD5 :: Lens' PutBucketLogging (Maybe Text)
+pblrqContentMD5 = lens _pblrqContentMD5 (\ s a -> s{_pblrqContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-pblBucket :: Lens' PutBucketLogging BucketName
-pblBucket = lens _pblBucket (\ s a -> s{_pblBucket = a});
+pblrqBucket :: Lens' PutBucketLogging BucketName
+pblrqBucket = lens _pblrqBucket (\ s a -> s{_pblrqBucket = a});
 
 -- | FIXME: Undocumented member.
-pblBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
-pblBucketLoggingStatus = lens _pblBucketLoggingStatus (\ s a -> s{_pblBucketLoggingStatus = a});
+pblrqBucketLoggingStatus :: Lens' PutBucketLogging BucketLoggingStatus
+pblrqBucketLoggingStatus = lens _pblrqBucketLoggingStatus (\ s a -> s{_pblrqBucketLoggingStatus = a});
 
 instance AWSRequest PutBucketLogging where
         type Sv PutBucketLogging = S3
@@ -91,15 +91,15 @@ instance ToElement PutBucketLogging where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}BucketLoggingStatus"
               .
-              _pblBucketLoggingStatus
+              _pblrqBucketLoggingStatus
 
 instance ToHeaders PutBucketLogging where
         toHeaders PutBucketLogging'{..}
-          = mconcat ["Content-MD5" =# _pblContentMD5]
+          = mconcat ["Content-MD5" =# _pblrqContentMD5]
 
 instance ToPath PutBucketLogging where
         toPath PutBucketLogging'{..}
-          = mconcat ["/", toText _pblBucket]
+          = mconcat ["/", toText _pblrqBucket]
 
 instance ToQuery PutBucketLogging where
         toQuery = const (mconcat ["logging"])

@@ -27,19 +27,19 @@ module Network.AWS.RDS.CreateOptionGroup
     -- ** Request constructor
     , createOptionGroup
     -- ** Request lenses
-    , cogTags
-    , cogOptionGroupName
-    , cogEngineName
-    , cogMajorEngineVersion
-    , cogOptionGroupDescription
+    , cogrqTags
+    , cogrqOptionGroupName
+    , cogrqEngineName
+    , cogrqMajorEngineVersion
+    , cogrqOptionGroupDescription
 
     -- * Response
     , CreateOptionGroupResponse
     -- ** Response constructor
     , createOptionGroupResponse
     -- ** Response lenses
-    , creaOptionGroup
-    , creaStatus
+    , cogrsOptionGroup
+    , cogrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -53,37 +53,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cogTags'
+-- * 'cogrqTags'
 --
--- * 'cogOptionGroupName'
+-- * 'cogrqOptionGroupName'
 --
--- * 'cogEngineName'
+-- * 'cogrqEngineName'
 --
--- * 'cogMajorEngineVersion'
+-- * 'cogrqMajorEngineVersion'
 --
--- * 'cogOptionGroupDescription'
+-- * 'cogrqOptionGroupDescription'
 data CreateOptionGroup = CreateOptionGroup'
-    { _cogTags                   :: !(Maybe [Tag])
-    , _cogOptionGroupName        :: !Text
-    , _cogEngineName             :: !Text
-    , _cogMajorEngineVersion     :: !Text
-    , _cogOptionGroupDescription :: !Text
+    { _cogrqTags                   :: !(Maybe [Tag])
+    , _cogrqOptionGroupName        :: !Text
+    , _cogrqEngineName             :: !Text
+    , _cogrqMajorEngineVersion     :: !Text
+    , _cogrqOptionGroupDescription :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOptionGroup' smart constructor.
 createOptionGroup :: Text -> Text -> Text -> Text -> CreateOptionGroup
 createOptionGroup pOptionGroupName pEngineName pMajorEngineVersion pOptionGroupDescription =
     CreateOptionGroup'
-    { _cogTags = Nothing
-    , _cogOptionGroupName = pOptionGroupName
-    , _cogEngineName = pEngineName
-    , _cogMajorEngineVersion = pMajorEngineVersion
-    , _cogOptionGroupDescription = pOptionGroupDescription
+    { _cogrqTags = Nothing
+    , _cogrqOptionGroupName = pOptionGroupName
+    , _cogrqEngineName = pEngineName
+    , _cogrqMajorEngineVersion = pMajorEngineVersion
+    , _cogrqOptionGroupDescription = pOptionGroupDescription
     }
 
 -- | FIXME: Undocumented member.
-cogTags :: Lens' CreateOptionGroup [Tag]
-cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default;
+cogrqTags :: Lens' CreateOptionGroup [Tag]
+cogrqTags = lens _cogrqTags (\ s a -> s{_cogrqTags = a}) . _Default;
 
 -- | Specifies the name of the option group to be created.
 --
@@ -94,22 +94,22 @@ cogTags = lens _cogTags (\ s a -> s{_cogTags = a}) . _Default;
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
 --
 -- Example: @myoptiongroup@
-cogOptionGroupName :: Lens' CreateOptionGroup Text
-cogOptionGroupName = lens _cogOptionGroupName (\ s a -> s{_cogOptionGroupName = a});
+cogrqOptionGroupName :: Lens' CreateOptionGroup Text
+cogrqOptionGroupName = lens _cogrqOptionGroupName (\ s a -> s{_cogrqOptionGroupName = a});
 
 -- | Specifies the name of the engine that this option group should be
 -- associated with.
-cogEngineName :: Lens' CreateOptionGroup Text
-cogEngineName = lens _cogEngineName (\ s a -> s{_cogEngineName = a});
+cogrqEngineName :: Lens' CreateOptionGroup Text
+cogrqEngineName = lens _cogrqEngineName (\ s a -> s{_cogrqEngineName = a});
 
 -- | Specifies the major version of the engine that this option group should
 -- be associated with.
-cogMajorEngineVersion :: Lens' CreateOptionGroup Text
-cogMajorEngineVersion = lens _cogMajorEngineVersion (\ s a -> s{_cogMajorEngineVersion = a});
+cogrqMajorEngineVersion :: Lens' CreateOptionGroup Text
+cogrqMajorEngineVersion = lens _cogrqMajorEngineVersion (\ s a -> s{_cogrqMajorEngineVersion = a});
 
 -- | The description of the option group.
-cogOptionGroupDescription :: Lens' CreateOptionGroup Text
-cogOptionGroupDescription = lens _cogOptionGroupDescription (\ s a -> s{_cogOptionGroupDescription = a});
+cogrqOptionGroupDescription :: Lens' CreateOptionGroup Text
+cogrqOptionGroupDescription = lens _cogrqOptionGroupDescription (\ s a -> s{_cogrqOptionGroupDescription = a});
 
 instance AWSRequest CreateOptionGroup where
         type Sv CreateOptionGroup = RDS
@@ -132,37 +132,37 @@ instance ToQuery CreateOptionGroup where
           = mconcat
               ["Action" =: ("CreateOptionGroup" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cogTags),
-               "OptionGroupName" =: _cogOptionGroupName,
-               "EngineName" =: _cogEngineName,
-               "MajorEngineVersion" =: _cogMajorEngineVersion,
+               "Tags" =: toQuery (toQueryList "Tag" <$> _cogrqTags),
+               "OptionGroupName" =: _cogrqOptionGroupName,
+               "EngineName" =: _cogrqEngineName,
+               "MajorEngineVersion" =: _cogrqMajorEngineVersion,
                "OptionGroupDescription" =:
-                 _cogOptionGroupDescription]
+                 _cogrqOptionGroupDescription]
 
 -- | /See:/ 'createOptionGroupResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creaOptionGroup'
+-- * 'cogrsOptionGroup'
 --
--- * 'creaStatus'
+-- * 'cogrsStatus'
 data CreateOptionGroupResponse = CreateOptionGroupResponse'
-    { _creaOptionGroup :: !(Maybe OptionGroup)
-    , _creaStatus      :: !Int
+    { _cogrsOptionGroup :: !(Maybe OptionGroup)
+    , _cogrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateOptionGroupResponse' smart constructor.
 createOptionGroupResponse :: Int -> CreateOptionGroupResponse
 createOptionGroupResponse pStatus =
     CreateOptionGroupResponse'
-    { _creaOptionGroup = Nothing
-    , _creaStatus = pStatus
+    { _cogrsOptionGroup = Nothing
+    , _cogrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-creaOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
-creaOptionGroup = lens _creaOptionGroup (\ s a -> s{_creaOptionGroup = a});
+cogrsOptionGroup :: Lens' CreateOptionGroupResponse (Maybe OptionGroup)
+cogrsOptionGroup = lens _cogrsOptionGroup (\ s a -> s{_cogrsOptionGroup = a});
 
 -- | FIXME: Undocumented member.
-creaStatus :: Lens' CreateOptionGroupResponse Int
-creaStatus = lens _creaStatus (\ s a -> s{_creaStatus = a});
+cogrsStatus :: Lens' CreateOptionGroupResponse Int
+cogrsStatus = lens _cogrsStatus (\ s a -> s{_cogrsStatus = a});

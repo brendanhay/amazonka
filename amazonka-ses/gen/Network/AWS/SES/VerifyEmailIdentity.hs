@@ -30,14 +30,14 @@ module Network.AWS.SES.VerifyEmailIdentity
     -- ** Request constructor
     , verifyEmailIdentity
     -- ** Request lenses
-    , veiEmailAddress
+    , veirqEmailAddress
 
     -- * Response
     , VerifyEmailIdentityResponse
     -- ** Response constructor
     , verifyEmailIdentityResponse
     -- ** Response lenses
-    , veirStatus
+    , veirsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,21 +52,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'veiEmailAddress'
+-- * 'veirqEmailAddress'
 newtype VerifyEmailIdentity = VerifyEmailIdentity'
-    { _veiEmailAddress :: Text
+    { _veirqEmailAddress :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyEmailIdentity' smart constructor.
 verifyEmailIdentity :: Text -> VerifyEmailIdentity
 verifyEmailIdentity pEmailAddress =
     VerifyEmailIdentity'
-    { _veiEmailAddress = pEmailAddress
+    { _veirqEmailAddress = pEmailAddress
     }
 
 -- | The email address to be verified.
-veiEmailAddress :: Lens' VerifyEmailIdentity Text
-veiEmailAddress = lens _veiEmailAddress (\ s a -> s{_veiEmailAddress = a});
+veirqEmailAddress :: Lens' VerifyEmailIdentity Text
+veirqEmailAddress = lens _veirqEmailAddress (\ s a -> s{_veirqEmailAddress = a});
 
 instance AWSRequest VerifyEmailIdentity where
         type Sv VerifyEmailIdentity = SES
@@ -89,7 +89,7 @@ instance ToQuery VerifyEmailIdentity where
           = mconcat
               ["Action" =: ("VerifyEmailIdentity" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "EmailAddress" =: _veiEmailAddress]
+               "EmailAddress" =: _veirqEmailAddress]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
@@ -98,18 +98,18 @@ instance ToQuery VerifyEmailIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'veirStatus'
+-- * 'veirsStatus'
 newtype VerifyEmailIdentityResponse = VerifyEmailIdentityResponse'
-    { _veirStatus :: Int
+    { _veirsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyEmailIdentityResponse' smart constructor.
 verifyEmailIdentityResponse :: Int -> VerifyEmailIdentityResponse
 verifyEmailIdentityResponse pStatus =
     VerifyEmailIdentityResponse'
-    { _veirStatus = pStatus
+    { _veirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-veirStatus :: Lens' VerifyEmailIdentityResponse Int
-veirStatus = lens _veirStatus (\ s a -> s{_veirStatus = a});
+veirsStatus :: Lens' VerifyEmailIdentityResponse Int
+veirsStatus = lens _veirsStatus (\ s a -> s{_veirsStatus = a});

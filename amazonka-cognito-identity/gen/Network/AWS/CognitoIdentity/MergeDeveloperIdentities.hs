@@ -36,18 +36,18 @@ module Network.AWS.CognitoIdentity.MergeDeveloperIdentities
     -- ** Request constructor
     , mergeDeveloperIdentities
     -- ** Request lenses
-    , mdiSourceUserIdentifier
-    , mdiDestinationUserIdentifier
-    , mdiDeveloperProviderName
-    , mdiIdentityPoolId
+    , mdirqSourceUserIdentifier
+    , mdirqDestinationUserIdentifier
+    , mdirqDeveloperProviderName
+    , mdirqIdentityPoolId
 
     -- * Response
     , MergeDeveloperIdentitiesResponse
     -- ** Response constructor
     , mergeDeveloperIdentitiesResponse
     -- ** Response lenses
-    , mdirIdentityId
-    , mdirStatus
+    , mdirsIdentityId
+    , mdirsStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -61,39 +61,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mdiSourceUserIdentifier'
+-- * 'mdirqSourceUserIdentifier'
 --
--- * 'mdiDestinationUserIdentifier'
+-- * 'mdirqDestinationUserIdentifier'
 --
--- * 'mdiDeveloperProviderName'
+-- * 'mdirqDeveloperProviderName'
 --
--- * 'mdiIdentityPoolId'
+-- * 'mdirqIdentityPoolId'
 data MergeDeveloperIdentities = MergeDeveloperIdentities'
-    { _mdiSourceUserIdentifier      :: !Text
-    , _mdiDestinationUserIdentifier :: !Text
-    , _mdiDeveloperProviderName     :: !Text
-    , _mdiIdentityPoolId            :: !Text
+    { _mdirqSourceUserIdentifier      :: !Text
+    , _mdirqDestinationUserIdentifier :: !Text
+    , _mdirqDeveloperProviderName     :: !Text
+    , _mdirqIdentityPoolId            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeDeveloperIdentities' smart constructor.
 mergeDeveloperIdentities :: Text -> Text -> Text -> Text -> MergeDeveloperIdentities
 mergeDeveloperIdentities pSourceUserIdentifier pDestinationUserIdentifier pDeveloperProviderName pIdentityPoolId =
     MergeDeveloperIdentities'
-    { _mdiSourceUserIdentifier = pSourceUserIdentifier
-    , _mdiDestinationUserIdentifier = pDestinationUserIdentifier
-    , _mdiDeveloperProviderName = pDeveloperProviderName
-    , _mdiIdentityPoolId = pIdentityPoolId
+    { _mdirqSourceUserIdentifier = pSourceUserIdentifier
+    , _mdirqDestinationUserIdentifier = pDestinationUserIdentifier
+    , _mdirqDeveloperProviderName = pDeveloperProviderName
+    , _mdirqIdentityPoolId = pIdentityPoolId
     }
 
 -- | User identifier for the source user. The value should be a
 -- @DeveloperUserIdentifier@.
-mdiSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
-mdiSourceUserIdentifier = lens _mdiSourceUserIdentifier (\ s a -> s{_mdiSourceUserIdentifier = a});
+mdirqSourceUserIdentifier :: Lens' MergeDeveloperIdentities Text
+mdirqSourceUserIdentifier = lens _mdirqSourceUserIdentifier (\ s a -> s{_mdirqSourceUserIdentifier = a});
 
 -- | User identifier for the destination user. The value should be a
 -- @DeveloperUserIdentifier@.
-mdiDestinationUserIdentifier :: Lens' MergeDeveloperIdentities Text
-mdiDestinationUserIdentifier = lens _mdiDestinationUserIdentifier (\ s a -> s{_mdiDestinationUserIdentifier = a});
+mdirqDestinationUserIdentifier :: Lens' MergeDeveloperIdentities Text
+mdirqDestinationUserIdentifier = lens _mdirqDestinationUserIdentifier (\ s a -> s{_mdirqDestinationUserIdentifier = a});
 
 -- | The \"domain\" by which Cognito will refer to your users. This is a
 -- (pseudo) domain name that you provide while creating an identity pool.
@@ -101,12 +101,12 @@ mdiDestinationUserIdentifier = lens _mdiDestinationUserIdentifier (\ s a -> s{_m
 -- service to communicate about the developer provider. For the
 -- @DeveloperProviderName@, you can use letters as well as period (.),
 -- underscore (_), and dash (-).
-mdiDeveloperProviderName :: Lens' MergeDeveloperIdentities Text
-mdiDeveloperProviderName = lens _mdiDeveloperProviderName (\ s a -> s{_mdiDeveloperProviderName = a});
+mdirqDeveloperProviderName :: Lens' MergeDeveloperIdentities Text
+mdirqDeveloperProviderName = lens _mdirqDeveloperProviderName (\ s a -> s{_mdirqDeveloperProviderName = a});
 
 -- | An identity pool ID in the format REGION:GUID.
-mdiIdentityPoolId :: Lens' MergeDeveloperIdentities Text
-mdiIdentityPoolId = lens _mdiIdentityPoolId (\ s a -> s{_mdiIdentityPoolId = a});
+mdirqIdentityPoolId :: Lens' MergeDeveloperIdentities Text
+mdirqIdentityPoolId = lens _mdirqIdentityPoolId (\ s a -> s{_mdirqIdentityPoolId = a});
 
 instance AWSRequest MergeDeveloperIdentities where
         type Sv MergeDeveloperIdentities = CognitoIdentity
@@ -132,11 +132,13 @@ instance ToHeaders MergeDeveloperIdentities where
 instance ToJSON MergeDeveloperIdentities where
         toJSON MergeDeveloperIdentities'{..}
           = object
-              ["SourceUserIdentifier" .= _mdiSourceUserIdentifier,
+              ["SourceUserIdentifier" .=
+                 _mdirqSourceUserIdentifier,
                "DestinationUserIdentifier" .=
-                 _mdiDestinationUserIdentifier,
-               "DeveloperProviderName" .= _mdiDeveloperProviderName,
-               "IdentityPoolId" .= _mdiIdentityPoolId]
+                 _mdirqDestinationUserIdentifier,
+               "DeveloperProviderName" .=
+                 _mdirqDeveloperProviderName,
+               "IdentityPoolId" .= _mdirqIdentityPoolId]
 
 instance ToPath MergeDeveloperIdentities where
         toPath = const "/"
@@ -150,26 +152,26 @@ instance ToQuery MergeDeveloperIdentities where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mdirIdentityId'
+-- * 'mdirsIdentityId'
 --
--- * 'mdirStatus'
+-- * 'mdirsStatus'
 data MergeDeveloperIdentitiesResponse = MergeDeveloperIdentitiesResponse'
-    { _mdirIdentityId :: !(Maybe Text)
-    , _mdirStatus     :: !Int
+    { _mdirsIdentityId :: !(Maybe Text)
+    , _mdirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MergeDeveloperIdentitiesResponse' smart constructor.
 mergeDeveloperIdentitiesResponse :: Int -> MergeDeveloperIdentitiesResponse
 mergeDeveloperIdentitiesResponse pStatus =
     MergeDeveloperIdentitiesResponse'
-    { _mdirIdentityId = Nothing
-    , _mdirStatus = pStatus
+    { _mdirsIdentityId = Nothing
+    , _mdirsStatus = pStatus
     }
 
 -- | A unique identifier in the format REGION:GUID.
-mdirIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
-mdirIdentityId = lens _mdirIdentityId (\ s a -> s{_mdirIdentityId = a});
+mdirsIdentityId :: Lens' MergeDeveloperIdentitiesResponse (Maybe Text)
+mdirsIdentityId = lens _mdirsIdentityId (\ s a -> s{_mdirsIdentityId = a});
 
 -- | FIXME: Undocumented member.
-mdirStatus :: Lens' MergeDeveloperIdentitiesResponse Int
-mdirStatus = lens _mdirStatus (\ s a -> s{_mdirStatus = a});
+mdirsStatus :: Lens' MergeDeveloperIdentitiesResponse Int
+mdirsStatus = lens _mdirsStatus (\ s a -> s{_mdirsStatus = a});

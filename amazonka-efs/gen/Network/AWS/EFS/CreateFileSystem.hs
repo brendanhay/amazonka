@@ -66,21 +66,21 @@ module Network.AWS.EFS.CreateFileSystem
     -- ** Request constructor
     , createFileSystem
     -- ** Request lenses
-    , cfsCreationToken
+    , cfsrqCreationToken
 
     -- * Response
     , FileSystemDescription
     -- ** Response constructor
     , fileSystemDescription
     -- ** Response lenses
-    , fsdName
-    , fsdOwnerId
-    , fsdCreationToken
-    , fsdFileSystemId
-    , fsdCreationTime
-    , fsdLifeCycleState
-    , fsdNumberOfMountTargets
-    , fsdSizeInBytes
+    , cfsrsName
+    , cfsrsOwnerId
+    , cfsrsCreationToken
+    , cfsrsFileSystemId
+    , cfsrsCreationTime
+    , cfsrsLifeCycleState
+    , cfsrsNumberOfMountTargets
+    , cfsrsSizeInBytes
     ) where
 
 import           Network.AWS.EFS.Types
@@ -92,22 +92,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cfsCreationToken'
+-- * 'cfsrqCreationToken'
 newtype CreateFileSystem = CreateFileSystem'
-    { _cfsCreationToken :: Text
+    { _cfsrqCreationToken :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateFileSystem' smart constructor.
 createFileSystem :: Text -> CreateFileSystem
 createFileSystem pCreationToken =
     CreateFileSystem'
-    { _cfsCreationToken = pCreationToken
+    { _cfsrqCreationToken = pCreationToken
     }
 
 -- | String of up to 64 ASCII characters. Amazon EFS uses this to ensure
 -- idempotent creation.
-cfsCreationToken :: Lens' CreateFileSystem Text
-cfsCreationToken = lens _cfsCreationToken (\ s a -> s{_cfsCreationToken = a});
+cfsrqCreationToken :: Lens' CreateFileSystem Text
+cfsrqCreationToken = lens _cfsrqCreationToken (\ s a -> s{_cfsrqCreationToken = a});
 
 instance AWSRequest CreateFileSystem where
         type Sv CreateFileSystem = EFS
@@ -120,7 +120,7 @@ instance ToHeaders CreateFileSystem where
 
 instance ToJSON CreateFileSystem where
         toJSON CreateFileSystem'{..}
-          = object ["CreationToken" .= _cfsCreationToken]
+          = object ["CreationToken" .= _cfsrqCreationToken]
 
 instance ToPath CreateFileSystem where
         toPath = const "/2015-02-01/file-systems"

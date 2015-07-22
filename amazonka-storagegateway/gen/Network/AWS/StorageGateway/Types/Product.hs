@@ -233,69 +233,69 @@ instance FromJSON DeviceiSCSIAttributes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disDiskAllocationResource'
+-- * 'dDiskAllocationResource'
 --
--- * 'disDiskAllocationType'
+-- * 'dDiskAllocationType'
 --
--- * 'disDiskNode'
+-- * 'dDiskNode'
 --
--- * 'disDiskPath'
+-- * 'dDiskPath'
 --
--- * 'disDiskSizeInBytes'
+-- * 'dDiskSizeInBytes'
 --
--- * 'disDiskStatus'
+-- * 'dDiskStatus'
 --
--- * 'disDiskId'
+-- * 'dDiskId'
 data Disk = Disk'
-    { _disDiskAllocationResource :: !(Maybe Text)
-    , _disDiskAllocationType     :: !(Maybe Text)
-    , _disDiskNode               :: !(Maybe Text)
-    , _disDiskPath               :: !(Maybe Text)
-    , _disDiskSizeInBytes        :: !(Maybe Integer)
-    , _disDiskStatus             :: !(Maybe Text)
-    , _disDiskId                 :: !(Maybe Text)
+    { _dDiskAllocationResource :: !(Maybe Text)
+    , _dDiskAllocationType     :: !(Maybe Text)
+    , _dDiskNode               :: !(Maybe Text)
+    , _dDiskPath               :: !(Maybe Text)
+    , _dDiskSizeInBytes        :: !(Maybe Integer)
+    , _dDiskStatus             :: !(Maybe Text)
+    , _dDiskId                 :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Disk' smart constructor.
 disk :: Disk
 disk =
     Disk'
-    { _disDiskAllocationResource = Nothing
-    , _disDiskAllocationType = Nothing
-    , _disDiskNode = Nothing
-    , _disDiskPath = Nothing
-    , _disDiskSizeInBytes = Nothing
-    , _disDiskStatus = Nothing
-    , _disDiskId = Nothing
+    { _dDiskAllocationResource = Nothing
+    , _dDiskAllocationType = Nothing
+    , _dDiskNode = Nothing
+    , _dDiskPath = Nothing
+    , _dDiskSizeInBytes = Nothing
+    , _dDiskStatus = Nothing
+    , _dDiskId = Nothing
     }
 
 -- | FIXME: Undocumented member.
-disDiskAllocationResource :: Lens' Disk (Maybe Text)
-disDiskAllocationResource = lens _disDiskAllocationResource (\ s a -> s{_disDiskAllocationResource = a});
+dDiskAllocationResource :: Lens' Disk (Maybe Text)
+dDiskAllocationResource = lens _dDiskAllocationResource (\ s a -> s{_dDiskAllocationResource = a});
 
 -- | FIXME: Undocumented member.
-disDiskAllocationType :: Lens' Disk (Maybe Text)
-disDiskAllocationType = lens _disDiskAllocationType (\ s a -> s{_disDiskAllocationType = a});
+dDiskAllocationType :: Lens' Disk (Maybe Text)
+dDiskAllocationType = lens _dDiskAllocationType (\ s a -> s{_dDiskAllocationType = a});
 
 -- | FIXME: Undocumented member.
-disDiskNode :: Lens' Disk (Maybe Text)
-disDiskNode = lens _disDiskNode (\ s a -> s{_disDiskNode = a});
+dDiskNode :: Lens' Disk (Maybe Text)
+dDiskNode = lens _dDiskNode (\ s a -> s{_dDiskNode = a});
 
 -- | FIXME: Undocumented member.
-disDiskPath :: Lens' Disk (Maybe Text)
-disDiskPath = lens _disDiskPath (\ s a -> s{_disDiskPath = a});
+dDiskPath :: Lens' Disk (Maybe Text)
+dDiskPath = lens _dDiskPath (\ s a -> s{_dDiskPath = a});
 
 -- | FIXME: Undocumented member.
-disDiskSizeInBytes :: Lens' Disk (Maybe Integer)
-disDiskSizeInBytes = lens _disDiskSizeInBytes (\ s a -> s{_disDiskSizeInBytes = a});
+dDiskSizeInBytes :: Lens' Disk (Maybe Integer)
+dDiskSizeInBytes = lens _dDiskSizeInBytes (\ s a -> s{_dDiskSizeInBytes = a});
 
 -- | FIXME: Undocumented member.
-disDiskStatus :: Lens' Disk (Maybe Text)
-disDiskStatus = lens _disDiskStatus (\ s a -> s{_disDiskStatus = a});
+dDiskStatus :: Lens' Disk (Maybe Text)
+dDiskStatus = lens _dDiskStatus (\ s a -> s{_dDiskStatus = a});
 
 -- | FIXME: Undocumented member.
-disDiskId :: Lens' Disk (Maybe Text)
-disDiskId = lens _disDiskId (\ s a -> s{_disDiskId = a});
+dDiskId :: Lens' Disk (Maybe Text)
+dDiskId = lens _dDiskId (\ s a -> s{_dDiskId = a});
 
 instance FromJSON Disk where
         parseJSON
@@ -518,65 +518,65 @@ instance FromJSON StorediSCSIVolume where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'tapTapeBarcode'
+-- * 'tTapeBarcode'
 --
--- * 'tapTapeStatus'
+-- * 'tTapeStatus'
 --
--- * 'tapProgress'
+-- * 'tProgress'
 --
--- * 'tapTapeARN'
+-- * 'tTapeARN'
 --
--- * 'tapTapeSizeInBytes'
+-- * 'tTapeSizeInBytes'
 --
--- * 'tapVTLDevice'
+-- * 'tVTLDevice'
 data Tape = Tape'
-    { _tapTapeBarcode     :: !(Maybe Text)
-    , _tapTapeStatus      :: !(Maybe Text)
-    , _tapProgress        :: !(Maybe Double)
-    , _tapTapeARN         :: !(Maybe Text)
-    , _tapTapeSizeInBytes :: !(Maybe Integer)
-    , _tapVTLDevice       :: !(Maybe Text)
+    { _tTapeBarcode     :: !(Maybe Text)
+    , _tTapeStatus      :: !(Maybe Text)
+    , _tProgress        :: !(Maybe Double)
+    , _tTapeARN         :: !(Maybe Text)
+    , _tTapeSizeInBytes :: !(Maybe Integer)
+    , _tVTLDevice       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Tape' smart constructor.
 tape :: Tape
 tape =
     Tape'
-    { _tapTapeBarcode = Nothing
-    , _tapTapeStatus = Nothing
-    , _tapProgress = Nothing
-    , _tapTapeARN = Nothing
-    , _tapTapeSizeInBytes = Nothing
-    , _tapVTLDevice = Nothing
+    { _tTapeBarcode = Nothing
+    , _tTapeStatus = Nothing
+    , _tProgress = Nothing
+    , _tTapeARN = Nothing
+    , _tTapeSizeInBytes = Nothing
+    , _tVTLDevice = Nothing
     }
 
 -- | The barcode that identifies a specific virtual tape.
-tapTapeBarcode :: Lens' Tape (Maybe Text)
-tapTapeBarcode = lens _tapTapeBarcode (\ s a -> s{_tapTapeBarcode = a});
+tTapeBarcode :: Lens' Tape (Maybe Text)
+tTapeBarcode = lens _tTapeBarcode (\ s a -> s{_tTapeBarcode = a});
 
 -- | The current state of the virtual tape.
-tapTapeStatus :: Lens' Tape (Maybe Text)
-tapTapeStatus = lens _tapTapeStatus (\ s a -> s{_tapTapeStatus = a});
+tTapeStatus :: Lens' Tape (Maybe Text)
+tTapeStatus = lens _tTapeStatus (\ s a -> s{_tTapeStatus = a});
 
 -- | For archiving virtual tapes, indicates how much data remains to be
 -- uploaded before archiving is complete.
 --
 -- Range: 0 (not started) to 100 (complete).
-tapProgress :: Lens' Tape (Maybe Double)
-tapProgress = lens _tapProgress (\ s a -> s{_tapProgress = a});
+tProgress :: Lens' Tape (Maybe Double)
+tProgress = lens _tProgress (\ s a -> s{_tProgress = a});
 
 -- | The Amazon Resource Name (ARN) of the virtual tape.
-tapTapeARN :: Lens' Tape (Maybe Text)
-tapTapeARN = lens _tapTapeARN (\ s a -> s{_tapTapeARN = a});
+tTapeARN :: Lens' Tape (Maybe Text)
+tTapeARN = lens _tTapeARN (\ s a -> s{_tTapeARN = a});
 
 -- | The size, in bytes, of the virtual tape.
-tapTapeSizeInBytes :: Lens' Tape (Maybe Integer)
-tapTapeSizeInBytes = lens _tapTapeSizeInBytes (\ s a -> s{_tapTapeSizeInBytes = a});
+tTapeSizeInBytes :: Lens' Tape (Maybe Integer)
+tTapeSizeInBytes = lens _tTapeSizeInBytes (\ s a -> s{_tTapeSizeInBytes = a});
 
 -- | The virtual tape library (VTL) device that the virtual tape is
 -- associated with.
-tapVTLDevice :: Lens' Tape (Maybe Text)
-tapVTLDevice = lens _tapVTLDevice (\ s a -> s{_tapVTLDevice = a});
+tVTLDevice :: Lens' Tape (Maybe Text)
+tVTLDevice = lens _tVTLDevice (\ s a -> s{_tVTLDevice = a});
 
 instance FromJSON Tape where
         parseJSON

@@ -29,20 +29,20 @@ module Network.AWS.EC2.ModifyVPCEndpoint
     -- ** Request constructor
     , modifyVPCEndpoint
     -- ** Request lenses
-    , mvePolicyDocument
-    , mveRemoveRouteTableIds
-    , mveResetPolicy
-    , mveAddRouteTableIds
-    , mveDryRun
-    , mveVPCEndpointId
+    , mverqPolicyDocument
+    , mverqRemoveRouteTableIds
+    , mverqResetPolicy
+    , mverqAddRouteTableIds
+    , mverqDryRun
+    , mverqVPCEndpointId
 
     -- * Response
     , ModifyVPCEndpointResponse
     -- ** Response constructor
     , modifyVPCEndpointResponse
     -- ** Response lenses
-    , mverReturn
-    , mverStatus
+    , mversReturn
+    , mversStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,66 +54,66 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mvePolicyDocument'
+-- * 'mverqPolicyDocument'
 --
--- * 'mveRemoveRouteTableIds'
+-- * 'mverqRemoveRouteTableIds'
 --
--- * 'mveResetPolicy'
+-- * 'mverqResetPolicy'
 --
--- * 'mveAddRouteTableIds'
+-- * 'mverqAddRouteTableIds'
 --
--- * 'mveDryRun'
+-- * 'mverqDryRun'
 --
--- * 'mveVPCEndpointId'
+-- * 'mverqVPCEndpointId'
 data ModifyVPCEndpoint = ModifyVPCEndpoint'
-    { _mvePolicyDocument      :: !(Maybe Text)
-    , _mveRemoveRouteTableIds :: !(Maybe [Text])
-    , _mveResetPolicy         :: !(Maybe Bool)
-    , _mveAddRouteTableIds    :: !(Maybe [Text])
-    , _mveDryRun              :: !(Maybe Bool)
-    , _mveVPCEndpointId       :: !Text
+    { _mverqPolicyDocument      :: !(Maybe Text)
+    , _mverqRemoveRouteTableIds :: !(Maybe [Text])
+    , _mverqResetPolicy         :: !(Maybe Bool)
+    , _mverqAddRouteTableIds    :: !(Maybe [Text])
+    , _mverqDryRun              :: !(Maybe Bool)
+    , _mverqVPCEndpointId       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCEndpoint' smart constructor.
 modifyVPCEndpoint :: Text -> ModifyVPCEndpoint
 modifyVPCEndpoint pVPCEndpointId =
     ModifyVPCEndpoint'
-    { _mvePolicyDocument = Nothing
-    , _mveRemoveRouteTableIds = Nothing
-    , _mveResetPolicy = Nothing
-    , _mveAddRouteTableIds = Nothing
-    , _mveDryRun = Nothing
-    , _mveVPCEndpointId = pVPCEndpointId
+    { _mverqPolicyDocument = Nothing
+    , _mverqRemoveRouteTableIds = Nothing
+    , _mverqResetPolicy = Nothing
+    , _mverqAddRouteTableIds = Nothing
+    , _mverqDryRun = Nothing
+    , _mverqVPCEndpointId = pVPCEndpointId
     }
 
 -- | A policy document to attach to the endpoint. The policy must be in valid
 -- JSON format.
-mvePolicyDocument :: Lens' ModifyVPCEndpoint (Maybe Text)
-mvePolicyDocument = lens _mvePolicyDocument (\ s a -> s{_mvePolicyDocument = a});
+mverqPolicyDocument :: Lens' ModifyVPCEndpoint (Maybe Text)
+mverqPolicyDocument = lens _mverqPolicyDocument (\ s a -> s{_mverqPolicyDocument = a});
 
 -- | One or more route table IDs to disassociate from the endpoint.
-mveRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
-mveRemoveRouteTableIds = lens _mveRemoveRouteTableIds (\ s a -> s{_mveRemoveRouteTableIds = a}) . _Default;
+mverqRemoveRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
+mverqRemoveRouteTableIds = lens _mverqRemoveRouteTableIds (\ s a -> s{_mverqRemoveRouteTableIds = a}) . _Default;
 
 -- | Specify @true@ to reset the policy document to the default policy. The
 -- default policy allows access to the service.
-mveResetPolicy :: Lens' ModifyVPCEndpoint (Maybe Bool)
-mveResetPolicy = lens _mveResetPolicy (\ s a -> s{_mveResetPolicy = a});
+mverqResetPolicy :: Lens' ModifyVPCEndpoint (Maybe Bool)
+mverqResetPolicy = lens _mverqResetPolicy (\ s a -> s{_mverqResetPolicy = a});
 
 -- | One or more route tables IDs to associate with the endpoint.
-mveAddRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
-mveAddRouteTableIds = lens _mveAddRouteTableIds (\ s a -> s{_mveAddRouteTableIds = a}) . _Default;
+mverqAddRouteTableIds :: Lens' ModifyVPCEndpoint [Text]
+mverqAddRouteTableIds = lens _mverqAddRouteTableIds (\ s a -> s{_mverqAddRouteTableIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-mveDryRun :: Lens' ModifyVPCEndpoint (Maybe Bool)
-mveDryRun = lens _mveDryRun (\ s a -> s{_mveDryRun = a});
+mverqDryRun :: Lens' ModifyVPCEndpoint (Maybe Bool)
+mverqDryRun = lens _mverqDryRun (\ s a -> s{_mverqDryRun = a});
 
 -- | The ID of the endpoint.
-mveVPCEndpointId :: Lens' ModifyVPCEndpoint Text
-mveVPCEndpointId = lens _mveVPCEndpointId (\ s a -> s{_mveVPCEndpointId = a});
+mverqVPCEndpointId :: Lens' ModifyVPCEndpoint Text
+mverqVPCEndpointId = lens _mverqVPCEndpointId (\ s a -> s{_mverqVPCEndpointId = a});
 
 instance AWSRequest ModifyVPCEndpoint where
         type Sv ModifyVPCEndpoint = EC2
@@ -136,39 +136,39 @@ instance ToQuery ModifyVPCEndpoint where
           = mconcat
               ["Action" =: ("ModifyVPCEndpoint" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "PolicyDocument" =: _mvePolicyDocument,
+               "PolicyDocument" =: _mverqPolicyDocument,
                toQuery
-                 (toQueryList "item" <$> _mveRemoveRouteTableIds),
-               "ResetPolicy" =: _mveResetPolicy,
+                 (toQueryList "item" <$> _mverqRemoveRouteTableIds),
+               "ResetPolicy" =: _mverqResetPolicy,
                toQuery
-                 (toQueryList "item" <$> _mveAddRouteTableIds),
-               "DryRun" =: _mveDryRun,
-               "VpcEndpointId" =: _mveVPCEndpointId]
+                 (toQueryList "item" <$> _mverqAddRouteTableIds),
+               "DryRun" =: _mverqDryRun,
+               "VpcEndpointId" =: _mverqVPCEndpointId]
 
 -- | /See:/ 'modifyVPCEndpointResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mverReturn'
+-- * 'mversReturn'
 --
--- * 'mverStatus'
+-- * 'mversStatus'
 data ModifyVPCEndpointResponse = ModifyVPCEndpointResponse'
-    { _mverReturn :: !(Maybe Bool)
-    , _mverStatus :: !Int
+    { _mversReturn :: !(Maybe Bool)
+    , _mversStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVPCEndpointResponse' smart constructor.
 modifyVPCEndpointResponse :: Int -> ModifyVPCEndpointResponse
 modifyVPCEndpointResponse pStatus =
     ModifyVPCEndpointResponse'
-    { _mverReturn = Nothing
-    , _mverStatus = pStatus
+    { _mversReturn = Nothing
+    , _mversStatus = pStatus
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-mverReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
-mverReturn = lens _mverReturn (\ s a -> s{_mverReturn = a});
+mversReturn :: Lens' ModifyVPCEndpointResponse (Maybe Bool)
+mversReturn = lens _mversReturn (\ s a -> s{_mversReturn = a});
 
 -- | FIXME: Undocumented member.
-mverStatus :: Lens' ModifyVPCEndpointResponse Int
-mverStatus = lens _mverStatus (\ s a -> s{_mverStatus = a});
+mversStatus :: Lens' ModifyVPCEndpointResponse Int
+mversStatus = lens _mversStatus (\ s a -> s{_mversStatus = a});

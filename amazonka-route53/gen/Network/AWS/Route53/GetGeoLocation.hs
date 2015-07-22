@@ -29,17 +29,17 @@ module Network.AWS.Route53.GetGeoLocation
     -- ** Request constructor
     , getGeoLocation
     -- ** Request lenses
-    , gglSubdivisionCode
-    , gglCountryCode
-    , gglContinentCode
+    , gglrqSubdivisionCode
+    , gglrqCountryCode
+    , gglrqContinentCode
 
     -- * Response
     , GetGeoLocationResponse
     -- ** Response constructor
     , getGeoLocationResponse
     -- ** Response lenses
-    , gglrStatus
-    , gglrGeoLocationDetails
+    , gglrsStatus
+    , gglrsGeoLocationDetails
     ) where
 
 import           Network.AWS.Prelude
@@ -54,24 +54,24 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gglSubdivisionCode'
+-- * 'gglrqSubdivisionCode'
 --
--- * 'gglCountryCode'
+-- * 'gglrqCountryCode'
 --
--- * 'gglContinentCode'
+-- * 'gglrqContinentCode'
 data GetGeoLocation = GetGeoLocation'
-    { _gglSubdivisionCode :: !(Maybe Text)
-    , _gglCountryCode     :: !(Maybe Text)
-    , _gglContinentCode   :: !(Maybe Text)
+    { _gglrqSubdivisionCode :: !(Maybe Text)
+    , _gglrqCountryCode     :: !(Maybe Text)
+    , _gglrqContinentCode   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGeoLocation' smart constructor.
 getGeoLocation :: GetGeoLocation
 getGeoLocation =
     GetGeoLocation'
-    { _gglSubdivisionCode = Nothing
-    , _gglCountryCode = Nothing
-    , _gglContinentCode = Nothing
+    { _gglrqSubdivisionCode = Nothing
+    , _gglrqCountryCode = Nothing
+    , _gglrqContinentCode = Nothing
     }
 
 -- | The code for a country\'s subdivision (e.g., a province of Canada). A
@@ -79,8 +79,8 @@ getGeoLocation =
 --
 -- Constraint: Specifying @SubdivisionCode@ without @CountryCode@ returns
 -- an InvalidInput error.
-gglSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
-gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = a});
+gglrqSubdivisionCode :: Lens' GetGeoLocation (Maybe Text)
+gglrqSubdivisionCode = lens _gglrqSubdivisionCode (\ s a -> s{_gglrqSubdivisionCode = a});
 
 -- | The code for a country geo location. The default location uses \'*\' for
 -- the country code and will match all locations that are not matched by a
@@ -88,8 +88,8 @@ gglSubdivisionCode = lens _gglSubdivisionCode (\ s a -> s{_gglSubdivisionCode = 
 --
 -- The default geo location uses a @*@ for the country code. All other
 -- country codes follow the ISO 3166 two-character code.
-gglCountryCode :: Lens' GetGeoLocation (Maybe Text)
-gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
+gglrqCountryCode :: Lens' GetGeoLocation (Maybe Text)
+gglrqCountryCode = lens _gglrqCountryCode (\ s a -> s{_gglrqCountryCode = a});
 
 -- | The code for a continent geo location. Note: only continent locations
 -- have a continent code.
@@ -98,8 +98,8 @@ gglCountryCode = lens _gglCountryCode (\ s a -> s{_gglCountryCode = a});
 --
 -- Constraint: Specifying @ContinentCode@ with either @CountryCode@ or
 -- @SubdivisionCode@ returns an InvalidInput error.
-gglContinentCode :: Lens' GetGeoLocation (Maybe Text)
-gglContinentCode = lens _gglContinentCode (\ s a -> s{_gglContinentCode = a});
+gglrqContinentCode :: Lens' GetGeoLocation (Maybe Text)
+gglrqContinentCode = lens _gglrqContinentCode (\ s a -> s{_gglrqContinentCode = a});
 
 instance AWSRequest GetGeoLocation where
         type Sv GetGeoLocation = Route53
@@ -120,9 +120,9 @@ instance ToPath GetGeoLocation where
 instance ToQuery GetGeoLocation where
         toQuery GetGeoLocation'{..}
           = mconcat
-              ["subdivisioncode" =: _gglSubdivisionCode,
-               "countrycode" =: _gglCountryCode,
-               "continentcode" =: _gglContinentCode]
+              ["subdivisioncode" =: _gglrqSubdivisionCode,
+               "countrycode" =: _gglrqCountryCode,
+               "continentcode" =: _gglrqContinentCode]
 
 -- | A complex type containing information about the specified geo location.
 --
@@ -130,27 +130,27 @@ instance ToQuery GetGeoLocation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gglrStatus'
+-- * 'gglrsStatus'
 --
--- * 'gglrGeoLocationDetails'
+-- * 'gglrsGeoLocationDetails'
 data GetGeoLocationResponse = GetGeoLocationResponse'
-    { _gglrStatus             :: !Int
-    , _gglrGeoLocationDetails :: !GeoLocationDetails
+    { _gglrsStatus             :: !Int
+    , _gglrsGeoLocationDetails :: !GeoLocationDetails
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetGeoLocationResponse' smart constructor.
 getGeoLocationResponse :: Int -> GeoLocationDetails -> GetGeoLocationResponse
 getGeoLocationResponse pStatus pGeoLocationDetails =
     GetGeoLocationResponse'
-    { _gglrStatus = pStatus
-    , _gglrGeoLocationDetails = pGeoLocationDetails
+    { _gglrsStatus = pStatus
+    , _gglrsGeoLocationDetails = pGeoLocationDetails
     }
 
 -- | FIXME: Undocumented member.
-gglrStatus :: Lens' GetGeoLocationResponse Int
-gglrStatus = lens _gglrStatus (\ s a -> s{_gglrStatus = a});
+gglrsStatus :: Lens' GetGeoLocationResponse Int
+gglrsStatus = lens _gglrsStatus (\ s a -> s{_gglrsStatus = a});
 
 -- | A complex type that contains the information about the specified geo
 -- location.
-gglrGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
-gglrGeoLocationDetails = lens _gglrGeoLocationDetails (\ s a -> s{_gglrGeoLocationDetails = a});
+gglrsGeoLocationDetails :: Lens' GetGeoLocationResponse GeoLocationDetails
+gglrsGeoLocationDetails = lens _gglrsGeoLocationDetails (\ s a -> s{_gglrsGeoLocationDetails = a});

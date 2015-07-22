@@ -35,15 +35,15 @@ module Network.AWS.MachineLearning.DeleteEvaluation
     -- ** Request constructor
     , deleteEvaluation
     -- ** Request lenses
-    , deEvaluationId
+    , derqEvaluationId
 
     -- * Response
     , DeleteEvaluationResponse
     -- ** Response constructor
     , deleteEvaluationResponse
     -- ** Response lenses
-    , derEvaluationId
-    , derStatus
+    , dersEvaluationId
+    , dersStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -55,21 +55,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deEvaluationId'
+-- * 'derqEvaluationId'
 newtype DeleteEvaluation = DeleteEvaluation'
-    { _deEvaluationId :: Text
+    { _derqEvaluationId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEvaluation' smart constructor.
 deleteEvaluation :: Text -> DeleteEvaluation
 deleteEvaluation pEvaluationId =
     DeleteEvaluation'
-    { _deEvaluationId = pEvaluationId
+    { _derqEvaluationId = pEvaluationId
     }
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@ to delete.
-deEvaluationId :: Lens' DeleteEvaluation Text
-deEvaluationId = lens _deEvaluationId (\ s a -> s{_deEvaluationId = a});
+derqEvaluationId :: Lens' DeleteEvaluation Text
+derqEvaluationId = lens _derqEvaluationId (\ s a -> s{_derqEvaluationId = a});
 
 instance AWSRequest DeleteEvaluation where
         type Sv DeleteEvaluation = MachineLearning
@@ -92,7 +92,7 @@ instance ToHeaders DeleteEvaluation where
 
 instance ToJSON DeleteEvaluation where
         toJSON DeleteEvaluation'{..}
-          = object ["EvaluationId" .= _deEvaluationId]
+          = object ["EvaluationId" .= _derqEvaluationId]
 
 instance ToPath DeleteEvaluation where
         toPath = const "/"
@@ -111,27 +111,27 @@ instance ToQuery DeleteEvaluation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derEvaluationId'
+-- * 'dersEvaluationId'
 --
--- * 'derStatus'
+-- * 'dersStatus'
 data DeleteEvaluationResponse = DeleteEvaluationResponse'
-    { _derEvaluationId :: !(Maybe Text)
-    , _derStatus       :: !Int
+    { _dersEvaluationId :: !(Maybe Text)
+    , _dersStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEvaluationResponse' smart constructor.
 deleteEvaluationResponse :: Int -> DeleteEvaluationResponse
 deleteEvaluationResponse pStatus =
     DeleteEvaluationResponse'
-    { _derEvaluationId = Nothing
-    , _derStatus = pStatus
+    { _dersEvaluationId = Nothing
+    , _dersStatus = pStatus
     }
 
 -- | A user-supplied ID that uniquely identifies the @Evaluation@. This value
 -- should be identical to the value of the @EvaluationId@ in the request.
-derEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
-derEvaluationId = lens _derEvaluationId (\ s a -> s{_derEvaluationId = a});
+dersEvaluationId :: Lens' DeleteEvaluationResponse (Maybe Text)
+dersEvaluationId = lens _dersEvaluationId (\ s a -> s{_dersEvaluationId = a});
 
 -- | FIXME: Undocumented member.
-derStatus :: Lens' DeleteEvaluationResponse Int
-derStatus = lens _derStatus (\ s a -> s{_derStatus = a});
+dersStatus :: Lens' DeleteEvaluationResponse Int
+dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

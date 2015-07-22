@@ -33,10 +33,10 @@ module Network.AWS.OpsWorks.RegisterRDSDBInstance
     -- ** Request constructor
     , registerRDSDBInstance
     -- ** Request lenses
-    , rrdiStackId
-    , rrdiRDSDBInstanceARN
-    , rrdiDBUser
-    , rrdiDBPassword
+    , rrdirqStackId
+    , rrdirqRDSDBInstanceARN
+    , rrdirqDBUser
+    , rrdirqDBPassword
 
     -- * Response
     , RegisterRDSDBInstanceResponse
@@ -53,45 +53,45 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rrdiStackId'
+-- * 'rrdirqStackId'
 --
--- * 'rrdiRDSDBInstanceARN'
+-- * 'rrdirqRDSDBInstanceARN'
 --
--- * 'rrdiDBUser'
+-- * 'rrdirqDBUser'
 --
--- * 'rrdiDBPassword'
+-- * 'rrdirqDBPassword'
 data RegisterRDSDBInstance = RegisterRDSDBInstance'
-    { _rrdiStackId          :: !Text
-    , _rrdiRDSDBInstanceARN :: !Text
-    , _rrdiDBUser           :: !Text
-    , _rrdiDBPassword       :: !Text
+    { _rrdirqStackId          :: !Text
+    , _rrdirqRDSDBInstanceARN :: !Text
+    , _rrdirqDBUser           :: !Text
+    , _rrdirqDBPassword       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterRDSDBInstance' smart constructor.
 registerRDSDBInstance :: Text -> Text -> Text -> Text -> RegisterRDSDBInstance
 registerRDSDBInstance pStackId pRDSDBInstanceARN pDBUser pDBPassword =
     RegisterRDSDBInstance'
-    { _rrdiStackId = pStackId
-    , _rrdiRDSDBInstanceARN = pRDSDBInstanceARN
-    , _rrdiDBUser = pDBUser
-    , _rrdiDBPassword = pDBPassword
+    { _rrdirqStackId = pStackId
+    , _rrdirqRDSDBInstanceARN = pRDSDBInstanceARN
+    , _rrdirqDBUser = pDBUser
+    , _rrdirqDBPassword = pDBPassword
     }
 
 -- | The stack ID.
-rrdiStackId :: Lens' RegisterRDSDBInstance Text
-rrdiStackId = lens _rrdiStackId (\ s a -> s{_rrdiStackId = a});
+rrdirqStackId :: Lens' RegisterRDSDBInstance Text
+rrdirqStackId = lens _rrdirqStackId (\ s a -> s{_rrdirqStackId = a});
 
 -- | The Amazon RDS instance\'s ARN.
-rrdiRDSDBInstanceARN :: Lens' RegisterRDSDBInstance Text
-rrdiRDSDBInstanceARN = lens _rrdiRDSDBInstanceARN (\ s a -> s{_rrdiRDSDBInstanceARN = a});
+rrdirqRDSDBInstanceARN :: Lens' RegisterRDSDBInstance Text
+rrdirqRDSDBInstanceARN = lens _rrdirqRDSDBInstanceARN (\ s a -> s{_rrdirqRDSDBInstanceARN = a});
 
 -- | The database\'s master user name.
-rrdiDBUser :: Lens' RegisterRDSDBInstance Text
-rrdiDBUser = lens _rrdiDBUser (\ s a -> s{_rrdiDBUser = a});
+rrdirqDBUser :: Lens' RegisterRDSDBInstance Text
+rrdirqDBUser = lens _rrdirqDBUser (\ s a -> s{_rrdirqDBUser = a});
 
 -- | The database password.
-rrdiDBPassword :: Lens' RegisterRDSDBInstance Text
-rrdiDBPassword = lens _rrdiDBPassword (\ s a -> s{_rrdiDBPassword = a});
+rrdirqDBPassword :: Lens' RegisterRDSDBInstance Text
+rrdirqDBPassword = lens _rrdirqDBPassword (\ s a -> s{_rrdirqDBPassword = a});
 
 instance AWSRequest RegisterRDSDBInstance where
         type Sv RegisterRDSDBInstance = OpsWorks
@@ -113,10 +113,10 @@ instance ToHeaders RegisterRDSDBInstance where
 instance ToJSON RegisterRDSDBInstance where
         toJSON RegisterRDSDBInstance'{..}
           = object
-              ["StackId" .= _rrdiStackId,
-               "RdsDbInstanceArn" .= _rrdiRDSDBInstanceARN,
-               "DbUser" .= _rrdiDBUser,
-               "DbPassword" .= _rrdiDBPassword]
+              ["StackId" .= _rrdirqStackId,
+               "RdsDbInstanceArn" .= _rrdirqRDSDBInstanceARN,
+               "DbUser" .= _rrdirqDBUser,
+               "DbPassword" .= _rrdirqDBPassword]
 
 instance ToPath RegisterRDSDBInstance where
         toPath = const "/"

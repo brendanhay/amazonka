@@ -30,8 +30,8 @@ module Network.AWS.EC2.DeregisterImage
     -- ** Request constructor
     , deregisterImage
     -- ** Request lenses
-    , diDryRun
-    , diImageId
+    , dirqDryRun
+    , dirqImageId
 
     -- * Response
     , DeregisterImageResponse
@@ -48,32 +48,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diDryRun'
+-- * 'dirqDryRun'
 --
--- * 'diImageId'
+-- * 'dirqImageId'
 data DeregisterImage = DeregisterImage'
-    { _diDryRun  :: !(Maybe Bool)
-    , _diImageId :: !Text
+    { _dirqDryRun  :: !(Maybe Bool)
+    , _dirqImageId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterImage' smart constructor.
 deregisterImage :: Text -> DeregisterImage
 deregisterImage pImageId =
     DeregisterImage'
-    { _diDryRun = Nothing
-    , _diImageId = pImageId
+    { _dirqDryRun = Nothing
+    , _dirqImageId = pImageId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-diDryRun :: Lens' DeregisterImage (Maybe Bool)
-diDryRun = lens _diDryRun (\ s a -> s{_diDryRun = a});
+dirqDryRun :: Lens' DeregisterImage (Maybe Bool)
+dirqDryRun = lens _dirqDryRun (\ s a -> s{_dirqDryRun = a});
 
 -- | The ID of the AMI.
-diImageId :: Lens' DeregisterImage Text
-diImageId = lens _diImageId (\ s a -> s{_diImageId = a});
+dirqImageId :: Lens' DeregisterImage Text
+dirqImageId = lens _dirqImageId (\ s a -> s{_dirqImageId = a});
 
 instance AWSRequest DeregisterImage where
         type Sv DeregisterImage = EC2
@@ -92,7 +92,7 @@ instance ToQuery DeregisterImage where
           = mconcat
               ["Action" =: ("DeregisterImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _diDryRun, "ImageId" =: _diImageId]
+               "DryRun" =: _dirqDryRun, "ImageId" =: _dirqImageId]
 
 -- | /See:/ 'deregisterImageResponse' smart constructor.
 data DeregisterImageResponse =

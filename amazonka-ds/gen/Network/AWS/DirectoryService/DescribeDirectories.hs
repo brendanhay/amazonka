@@ -40,18 +40,18 @@ module Network.AWS.DirectoryService.DescribeDirectories
     -- ** Request constructor
     , describeDirectories
     -- ** Request lenses
-    , ddNextToken
-    , ddDirectoryIds
-    , ddLimit
+    , ddrqNextToken
+    , ddrqDirectoryIds
+    , ddrqLimit
 
     -- * Response
     , DescribeDirectoriesResponse
     -- ** Response constructor
     , describeDirectoriesResponse
     -- ** Response lenses
-    , ddrDirectoryDescriptions
-    , ddrNextToken
-    , ddrStatus
+    , ddrsDirectoryDescriptions
+    , ddrsNextToken
+    , ddrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -65,44 +65,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddNextToken'
+-- * 'ddrqNextToken'
 --
--- * 'ddDirectoryIds'
+-- * 'ddrqDirectoryIds'
 --
--- * 'ddLimit'
+-- * 'ddrqLimit'
 data DescribeDirectories = DescribeDirectories'
-    { _ddNextToken    :: !(Maybe Text)
-    , _ddDirectoryIds :: !(Maybe [Text])
-    , _ddLimit        :: !(Maybe Nat)
+    { _ddrqNextToken    :: !(Maybe Text)
+    , _ddrqDirectoryIds :: !(Maybe [Text])
+    , _ddrqLimit        :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDirectories' smart constructor.
 describeDirectories :: DescribeDirectories
 describeDirectories =
     DescribeDirectories'
-    { _ddNextToken = Nothing
-    , _ddDirectoryIds = Nothing
-    , _ddLimit = Nothing
+    { _ddrqNextToken = Nothing
+    , _ddrqDirectoryIds = Nothing
+    , _ddrqLimit = Nothing
     }
 
 -- | The /DescribeDirectoriesResult.NextToken/ value from a previous call to
 -- DescribeDirectories. Pass null if this is the first call.
-ddNextToken :: Lens' DescribeDirectories (Maybe Text)
-ddNextToken = lens _ddNextToken (\ s a -> s{_ddNextToken = a});
+ddrqNextToken :: Lens' DescribeDirectories (Maybe Text)
+ddrqNextToken = lens _ddrqNextToken (\ s a -> s{_ddrqNextToken = a});
 
 -- | A list of identifiers of the directories to obtain the information for.
 -- If this member is null, all directories that belong to the current
 -- account are returned.
 --
 -- An empty list results in an @InvalidParameterException@ being thrown.
-ddDirectoryIds :: Lens' DescribeDirectories [Text]
-ddDirectoryIds = lens _ddDirectoryIds (\ s a -> s{_ddDirectoryIds = a}) . _Default;
+ddrqDirectoryIds :: Lens' DescribeDirectories [Text]
+ddrqDirectoryIds = lens _ddrqDirectoryIds (\ s a -> s{_ddrqDirectoryIds = a}) . _Default;
 
 -- | The maximum number of items to return. If this value is zero, the
 -- maximum number of items is specified by the limitations of the
 -- operation.
-ddLimit :: Lens' DescribeDirectories (Maybe Natural)
-ddLimit = lens _ddLimit (\ s a -> s{_ddLimit = a}) . mapping _Nat;
+ddrqLimit :: Lens' DescribeDirectories (Maybe Natural)
+ddrqLimit = lens _ddrqLimit (\ s a -> s{_ddrqLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeDirectories where
         type Sv DescribeDirectories = DirectoryService
@@ -130,9 +130,9 @@ instance ToHeaders DescribeDirectories where
 instance ToJSON DescribeDirectories where
         toJSON DescribeDirectories'{..}
           = object
-              ["NextToken" .= _ddNextToken,
-               "DirectoryIds" .= _ddDirectoryIds,
-               "Limit" .= _ddLimit]
+              ["NextToken" .= _ddrqNextToken,
+               "DirectoryIds" .= _ddrqDirectoryIds,
+               "Limit" .= _ddrqLimit]
 
 instance ToPath DescribeDirectories where
         toPath = const "/"
@@ -146,24 +146,24 @@ instance ToQuery DescribeDirectories where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddrDirectoryDescriptions'
+-- * 'ddrsDirectoryDescriptions'
 --
--- * 'ddrNextToken'
+-- * 'ddrsNextToken'
 --
--- * 'ddrStatus'
+-- * 'ddrsStatus'
 data DescribeDirectoriesResponse = DescribeDirectoriesResponse'
-    { _ddrDirectoryDescriptions :: !(Maybe [DirectoryDescription])
-    , _ddrNextToken             :: !(Maybe Text)
-    , _ddrStatus                :: !Int
+    { _ddrsDirectoryDescriptions :: !(Maybe [DirectoryDescription])
+    , _ddrsNextToken             :: !(Maybe Text)
+    , _ddrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDirectoriesResponse' smart constructor.
 describeDirectoriesResponse :: Int -> DescribeDirectoriesResponse
 describeDirectoriesResponse pStatus =
     DescribeDirectoriesResponse'
-    { _ddrDirectoryDescriptions = Nothing
-    , _ddrNextToken = Nothing
-    , _ddrStatus = pStatus
+    { _ddrsDirectoryDescriptions = Nothing
+    , _ddrsNextToken = Nothing
+    , _ddrsStatus = pStatus
     }
 
 -- | The list of DirectoryDescription objects that were retrieved.
@@ -172,15 +172,15 @@ describeDirectoriesResponse pStatus =
 -- specified in the /Limit/ member of the request. This occurs if there are
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
-ddrDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
-ddrDirectoryDescriptions = lens _ddrDirectoryDescriptions (\ s a -> s{_ddrDirectoryDescriptions = a}) . _Default;
+ddrsDirectoryDescriptions :: Lens' DescribeDirectoriesResponse [DirectoryDescription]
+ddrsDirectoryDescriptions = lens _ddrsDirectoryDescriptions (\ s a -> s{_ddrsDirectoryDescriptions = a}) . _Default;
 
 -- | If not null, more results are available. Pass this value for the
 -- /NextToken/ parameter in a subsequent call to DescribeDirectories to
 -- retrieve the next set of items.
-ddrNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
-ddrNextToken = lens _ddrNextToken (\ s a -> s{_ddrNextToken = a});
+ddrsNextToken :: Lens' DescribeDirectoriesResponse (Maybe Text)
+ddrsNextToken = lens _ddrsNextToken (\ s a -> s{_ddrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ddrStatus :: Lens' DescribeDirectoriesResponse Int
-ddrStatus = lens _ddrStatus (\ s a -> s{_ddrStatus = a});
+ddrsStatus :: Lens' DescribeDirectoriesResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

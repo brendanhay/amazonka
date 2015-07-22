@@ -34,15 +34,15 @@ module Network.AWS.OpsWorks.DescribeStackSummary
     -- ** Request constructor
     , describeStackSummary
     -- ** Request lenses
-    , dssStackId
+    , dssrqStackId
 
     -- * Response
     , DescribeStackSummaryResponse
     -- ** Response constructor
     , describeStackSummaryResponse
     -- ** Response lenses
-    , dssrStackSummary
-    , dssrStatus
+    , dssrsStackSummary
+    , dssrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dssStackId'
+-- * 'dssrqStackId'
 newtype DescribeStackSummary = DescribeStackSummary'
-    { _dssStackId :: Text
+    { _dssrqStackId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackSummary' smart constructor.
 describeStackSummary :: Text -> DescribeStackSummary
 describeStackSummary pStackId =
     DescribeStackSummary'
-    { _dssStackId = pStackId
+    { _dssrqStackId = pStackId
     }
 
 -- | The stack ID.
-dssStackId :: Lens' DescribeStackSummary Text
-dssStackId = lens _dssStackId (\ s a -> s{_dssStackId = a});
+dssrqStackId :: Lens' DescribeStackSummary Text
+dssrqStackId = lens _dssrqStackId (\ s a -> s{_dssrqStackId = a});
 
 instance AWSRequest DescribeStackSummary where
         type Sv DescribeStackSummary = OpsWorks
@@ -93,7 +93,7 @@ instance ToHeaders DescribeStackSummary where
 
 instance ToJSON DescribeStackSummary where
         toJSON DescribeStackSummary'{..}
-          = object ["StackId" .= _dssStackId]
+          = object ["StackId" .= _dssrqStackId]
 
 instance ToPath DescribeStackSummary where
         toPath = const "/"
@@ -107,26 +107,26 @@ instance ToQuery DescribeStackSummary where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dssrStackSummary'
+-- * 'dssrsStackSummary'
 --
--- * 'dssrStatus'
+-- * 'dssrsStatus'
 data DescribeStackSummaryResponse = DescribeStackSummaryResponse'
-    { _dssrStackSummary :: !(Maybe StackSummary)
-    , _dssrStatus       :: !Int
+    { _dssrsStackSummary :: !(Maybe StackSummary)
+    , _dssrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStackSummaryResponse' smart constructor.
 describeStackSummaryResponse :: Int -> DescribeStackSummaryResponse
 describeStackSummaryResponse pStatus =
     DescribeStackSummaryResponse'
-    { _dssrStackSummary = Nothing
-    , _dssrStatus = pStatus
+    { _dssrsStackSummary = Nothing
+    , _dssrsStatus = pStatus
     }
 
 -- | A @StackSummary@ object that contains the results.
-dssrStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
-dssrStackSummary = lens _dssrStackSummary (\ s a -> s{_dssrStackSummary = a});
+dssrsStackSummary :: Lens' DescribeStackSummaryResponse (Maybe StackSummary)
+dssrsStackSummary = lens _dssrsStackSummary (\ s a -> s{_dssrsStackSummary = a});
 
 -- | FIXME: Undocumented member.
-dssrStatus :: Lens' DescribeStackSummaryResponse Int
-dssrStatus = lens _dssrStatus (\ s a -> s{_dssrStatus = a});
+dssrsStatus :: Lens' DescribeStackSummaryResponse Int
+dssrsStatus = lens _dssrsStatus (\ s a -> s{_dssrsStatus = a});

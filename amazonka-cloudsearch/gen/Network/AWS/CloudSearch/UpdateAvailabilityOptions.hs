@@ -33,16 +33,16 @@ module Network.AWS.CloudSearch.UpdateAvailabilityOptions
     -- ** Request constructor
     , updateAvailabilityOptions
     -- ** Request lenses
-    , uaoDomainName
-    , uaoMultiAZ
+    , uaorqDomainName
+    , uaorqMultiAZ
 
     -- * Response
     , UpdateAvailabilityOptionsResponse
     -- ** Response constructor
     , updateAvailabilityOptionsResponse
     -- ** Response lenses
-    , uaorAvailabilityOptions
-    , uaorStatus
+    , uaorsAvailabilityOptions
+    , uaorsStatus
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -58,32 +58,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uaoDomainName'
+-- * 'uaorqDomainName'
 --
--- * 'uaoMultiAZ'
+-- * 'uaorqMultiAZ'
 data UpdateAvailabilityOptions = UpdateAvailabilityOptions'
-    { _uaoDomainName :: !Text
-    , _uaoMultiAZ    :: !Bool
+    { _uaorqDomainName :: !Text
+    , _uaorqMultiAZ    :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAvailabilityOptions' smart constructor.
 updateAvailabilityOptions :: Text -> Bool -> UpdateAvailabilityOptions
 updateAvailabilityOptions pDomainName pMultiAZ =
     UpdateAvailabilityOptions'
-    { _uaoDomainName = pDomainName
-    , _uaoMultiAZ = pMultiAZ
+    { _uaorqDomainName = pDomainName
+    , _uaorqMultiAZ = pMultiAZ
     }
 
 -- | FIXME: Undocumented member.
-uaoDomainName :: Lens' UpdateAvailabilityOptions Text
-uaoDomainName = lens _uaoDomainName (\ s a -> s{_uaoDomainName = a});
+uaorqDomainName :: Lens' UpdateAvailabilityOptions Text
+uaorqDomainName = lens _uaorqDomainName (\ s a -> s{_uaorqDomainName = a});
 
 -- | You expand an existing search domain to a second Availability Zone by
 -- setting the Multi-AZ option to true. Similarly, you can turn off the
 -- Multi-AZ option to downgrade the domain to a single Availability Zone by
 -- setting the Multi-AZ option to @false@.
-uaoMultiAZ :: Lens' UpdateAvailabilityOptions Bool
-uaoMultiAZ = lens _uaoMultiAZ (\ s a -> s{_uaoMultiAZ = a});
+uaorqMultiAZ :: Lens' UpdateAvailabilityOptions Bool
+uaorqMultiAZ = lens _uaorqMultiAZ (\ s a -> s{_uaorqMultiAZ = a});
 
 instance AWSRequest UpdateAvailabilityOptions where
         type Sv UpdateAvailabilityOptions = CloudSearch
@@ -109,8 +109,8 @@ instance ToQuery UpdateAvailabilityOptions where
               ["Action" =:
                  ("UpdateAvailabilityOptions" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _uaoDomainName,
-               "MultiAZ" =: _uaoMultiAZ]
+               "DomainName" =: _uaorqDomainName,
+               "MultiAZ" =: _uaorqMultiAZ]
 
 -- | The result of a @UpdateAvailabilityOptions@ request. Contains the status
 -- of the domain\'s availability options.
@@ -119,27 +119,27 @@ instance ToQuery UpdateAvailabilityOptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uaorAvailabilityOptions'
+-- * 'uaorsAvailabilityOptions'
 --
--- * 'uaorStatus'
+-- * 'uaorsStatus'
 data UpdateAvailabilityOptionsResponse = UpdateAvailabilityOptionsResponse'
-    { _uaorAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
-    , _uaorStatus              :: !Int
+    { _uaorsAvailabilityOptions :: !(Maybe AvailabilityOptionsStatus)
+    , _uaorsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateAvailabilityOptionsResponse' smart constructor.
 updateAvailabilityOptionsResponse :: Int -> UpdateAvailabilityOptionsResponse
 updateAvailabilityOptionsResponse pStatus =
     UpdateAvailabilityOptionsResponse'
-    { _uaorAvailabilityOptions = Nothing
-    , _uaorStatus = pStatus
+    { _uaorsAvailabilityOptions = Nothing
+    , _uaorsStatus = pStatus
     }
 
 -- | The newly-configured availability options. Indicates whether Multi-AZ is
 -- enabled for the domain.
-uaorAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
-uaorAvailabilityOptions = lens _uaorAvailabilityOptions (\ s a -> s{_uaorAvailabilityOptions = a});
+uaorsAvailabilityOptions :: Lens' UpdateAvailabilityOptionsResponse (Maybe AvailabilityOptionsStatus)
+uaorsAvailabilityOptions = lens _uaorsAvailabilityOptions (\ s a -> s{_uaorsAvailabilityOptions = a});
 
 -- | FIXME: Undocumented member.
-uaorStatus :: Lens' UpdateAvailabilityOptionsResponse Int
-uaorStatus = lens _uaorStatus (\ s a -> s{_uaorStatus = a});
+uaorsStatus :: Lens' UpdateAvailabilityOptionsResponse Int
+uaorsStatus = lens _uaorsStatus (\ s a -> s{_uaorsStatus = a});

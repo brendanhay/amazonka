@@ -31,18 +31,18 @@ module Network.AWS.ImportExport.ListJobs
     -- ** Request constructor
     , listJobs
     -- ** Request lenses
-    , ljAPIVersion
-    , ljMarker
-    , ljMaxJobs
+    , ljrqAPIVersion
+    , ljrqMarker
+    , ljrqMaxJobs
 
     -- * Response
     , ListJobsResponse
     -- ** Response constructor
     , listJobsResponse
     -- ** Response lenses
-    , ljrJobs
-    , ljrIsTruncated
-    , ljrStatus
+    , ljrsJobs
+    , ljrsIsTruncated
+    , ljrsStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -57,46 +57,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljAPIVersion'
+-- * 'ljrqAPIVersion'
 --
--- * 'ljMarker'
+-- * 'ljrqMarker'
 --
--- * 'ljMaxJobs'
+-- * 'ljrqMaxJobs'
 data ListJobs = ListJobs'
-    { _ljAPIVersion :: !(Maybe Text)
-    , _ljMarker     :: !(Maybe Text)
-    , _ljMaxJobs    :: !(Maybe Int)
+    { _ljrqAPIVersion :: !(Maybe Text)
+    , _ljrqMarker     :: !(Maybe Text)
+    , _ljrqMaxJobs    :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobs' smart constructor.
 listJobs :: ListJobs
 listJobs =
     ListJobs'
-    { _ljAPIVersion = Nothing
-    , _ljMarker = Nothing
-    , _ljMaxJobs = Nothing
+    { _ljrqAPIVersion = Nothing
+    , _ljrqMarker = Nothing
+    , _ljrqMaxJobs = Nothing
     }
 
 -- | FIXME: Undocumented member.
-ljAPIVersion :: Lens' ListJobs (Maybe Text)
-ljAPIVersion = lens _ljAPIVersion (\ s a -> s{_ljAPIVersion = a});
+ljrqAPIVersion :: Lens' ListJobs (Maybe Text)
+ljrqAPIVersion = lens _ljrqAPIVersion (\ s a -> s{_ljrqAPIVersion = a});
 
 -- | FIXME: Undocumented member.
-ljMarker :: Lens' ListJobs (Maybe Text)
-ljMarker = lens _ljMarker (\ s a -> s{_ljMarker = a});
+ljrqMarker :: Lens' ListJobs (Maybe Text)
+ljrqMarker = lens _ljrqMarker (\ s a -> s{_ljrqMarker = a});
 
 -- | FIXME: Undocumented member.
-ljMaxJobs :: Lens' ListJobs (Maybe Int)
-ljMaxJobs = lens _ljMaxJobs (\ s a -> s{_ljMaxJobs = a});
+ljrqMaxJobs :: Lens' ListJobs (Maybe Int)
+ljrqMaxJobs = lens _ljrqMaxJobs (\ s a -> s{_ljrqMaxJobs = a});
 
 instance AWSPager ListJobs where
         page rq rs
-          | stop (rs ^. ljrIsTruncated) = Nothing
-          | isNothing (rs ^? ljrJobs . _last . jobJobId) =
+          | stop (rs ^. ljrsIsTruncated) = Nothing
+          | isNothing (rs ^? ljrsJobs . _last . jobJobId) =
             Nothing
           | otherwise =
             Just $ rq &
-              ljMarker .~ rs ^? ljrJobs . _last . jobJobId
+              ljrqMarker .~ rs ^? ljrsJobs . _last . jobJobId
 
 instance AWSRequest ListJobs where
         type Sv ListJobs = ImportExport
@@ -123,8 +123,8 @@ instance ToQuery ListJobs where
               ["Operation=ListJobs",
                "Action" =: ("ListJobs" :: ByteString),
                "Version" =: ("2010-06-01" :: ByteString),
-               "APIVersion" =: _ljAPIVersion, "Marker" =: _ljMarker,
-               "MaxJobs" =: _ljMaxJobs]
+               "APIVersion" =: _ljrqAPIVersion,
+               "Marker" =: _ljrqMarker, "MaxJobs" =: _ljrqMaxJobs]
 
 -- | Output structure for the ListJobs operation.
 --
@@ -132,34 +132,34 @@ instance ToQuery ListJobs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ljrJobs'
+-- * 'ljrsJobs'
 --
--- * 'ljrIsTruncated'
+-- * 'ljrsIsTruncated'
 --
--- * 'ljrStatus'
+-- * 'ljrsStatus'
 data ListJobsResponse = ListJobsResponse'
-    { _ljrJobs        :: !(Maybe [Job])
-    , _ljrIsTruncated :: !(Maybe Bool)
-    , _ljrStatus      :: !Int
+    { _ljrsJobs        :: !(Maybe [Job])
+    , _ljrsIsTruncated :: !(Maybe Bool)
+    , _ljrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListJobsResponse' smart constructor.
 listJobsResponse :: Int -> ListJobsResponse
 listJobsResponse pStatus =
     ListJobsResponse'
-    { _ljrJobs = Nothing
-    , _ljrIsTruncated = Nothing
-    , _ljrStatus = pStatus
+    { _ljrsJobs = Nothing
+    , _ljrsIsTruncated = Nothing
+    , _ljrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ljrJobs :: Lens' ListJobsResponse [Job]
-ljrJobs = lens _ljrJobs (\ s a -> s{_ljrJobs = a}) . _Default;
+ljrsJobs :: Lens' ListJobsResponse [Job]
+ljrsJobs = lens _ljrsJobs (\ s a -> s{_ljrsJobs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ljrIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
-ljrIsTruncated = lens _ljrIsTruncated (\ s a -> s{_ljrIsTruncated = a});
+ljrsIsTruncated :: Lens' ListJobsResponse (Maybe Bool)
+ljrsIsTruncated = lens _ljrsIsTruncated (\ s a -> s{_ljrsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-ljrStatus :: Lens' ListJobsResponse Int
-ljrStatus = lens _ljrStatus (\ s a -> s{_ljrStatus = a});
+ljrsStatus :: Lens' ListJobsResponse Int
+ljrsStatus = lens _ljrsStatus (\ s a -> s{_ljrsStatus = a});

@@ -32,16 +32,16 @@ module Network.AWS.IAM.CreateUser
     -- ** Request constructor
     , createUser
     -- ** Request lenses
-    , cuPath
-    , cuUserName
+    , curqPath
+    , curqUserName
 
     -- * Response
     , CreateUserResponse
     -- ** Response constructor
     , createUserResponse
     -- ** Response lenses
-    , curUser
-    , curStatus
+    , cursUser
+    , cursStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -53,20 +53,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cuPath'
+-- * 'curqPath'
 --
--- * 'cuUserName'
+-- * 'curqUserName'
 data CreateUser = CreateUser'
-    { _cuPath     :: !(Maybe Text)
-    , _cuUserName :: !Text
+    { _curqPath     :: !(Maybe Text)
+    , _curqUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUser' smart constructor.
 createUser :: Text -> CreateUser
 createUser pUserName =
     CreateUser'
-    { _cuPath = Nothing
-    , _cuUserName = pUserName
+    { _curqPath = Nothing
+    , _curqUserName = pUserName
     }
 
 -- | The path for the user name. For more information about paths, see
@@ -75,12 +75,12 @@ createUser pUserName =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/).
-cuPath :: Lens' CreateUser (Maybe Text)
-cuPath = lens _cuPath (\ s a -> s{_cuPath = a});
+curqPath :: Lens' CreateUser (Maybe Text)
+curqPath = lens _curqPath (\ s a -> s{_curqPath = a});
 
 -- | The name of the user to create.
-cuUserName :: Lens' CreateUser Text
-cuUserName = lens _cuUserName (\ s a -> s{_cuUserName = a});
+curqUserName :: Lens' CreateUser Text
+curqUserName = lens _curqUserName (\ s a -> s{_curqUserName = a});
 
 instance AWSRequest CreateUser where
         type Sv CreateUser = IAM
@@ -103,7 +103,7 @@ instance ToQuery CreateUser where
           = mconcat
               ["Action" =: ("CreateUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "Path" =: _cuPath, "UserName" =: _cuUserName]
+               "Path" =: _curqPath, "UserName" =: _curqUserName]
 
 -- | Contains the response to a successful CreateUser request.
 --
@@ -111,26 +111,26 @@ instance ToQuery CreateUser where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'curUser'
+-- * 'cursUser'
 --
--- * 'curStatus'
+-- * 'cursStatus'
 data CreateUserResponse = CreateUserResponse'
-    { _curUser   :: !(Maybe User)
-    , _curStatus :: !Int
+    { _cursUser   :: !(Maybe User)
+    , _cursStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateUserResponse' smart constructor.
 createUserResponse :: Int -> CreateUserResponse
 createUserResponse pStatus =
     CreateUserResponse'
-    { _curUser = Nothing
-    , _curStatus = pStatus
+    { _cursUser = Nothing
+    , _cursStatus = pStatus
     }
 
 -- | Information about the user.
-curUser :: Lens' CreateUserResponse (Maybe User)
-curUser = lens _curUser (\ s a -> s{_curUser = a});
+cursUser :: Lens' CreateUserResponse (Maybe User)
+cursUser = lens _cursUser (\ s a -> s{_cursUser = a});
 
 -- | FIXME: Undocumented member.
-curStatus :: Lens' CreateUserResponse Int
-curStatus = lens _curStatus (\ s a -> s{_curStatus = a});
+cursStatus :: Lens' CreateUserResponse Int
+cursStatus = lens _cursStatus (\ s a -> s{_cursStatus = a});

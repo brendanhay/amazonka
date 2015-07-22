@@ -38,16 +38,16 @@ module Network.AWS.IAM.GetPolicyVersion
     -- ** Request constructor
     , getPolicyVersion
     -- ** Request lenses
-    , gpvPolicyARN
-    , gpvVersionId
+    , gpvrqPolicyARN
+    , gpvrqVersionId
 
     -- * Response
     , GetPolicyVersionResponse
     -- ** Response constructor
     , getPolicyVersionResponse
     -- ** Response lenses
-    , gpvrPolicyVersion
-    , gpvrStatus
+    , gpvrsPolicyVersion
+    , gpvrsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -59,29 +59,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpvPolicyARN'
+-- * 'gpvrqPolicyARN'
 --
--- * 'gpvVersionId'
+-- * 'gpvrqVersionId'
 data GetPolicyVersion = GetPolicyVersion'
-    { _gpvPolicyARN :: !Text
-    , _gpvVersionId :: !Text
+    { _gpvrqPolicyARN :: !Text
+    , _gpvrqVersionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicyVersion' smart constructor.
 getPolicyVersion :: Text -> Text -> GetPolicyVersion
 getPolicyVersion pPolicyARN pVersionId =
     GetPolicyVersion'
-    { _gpvPolicyARN = pPolicyARN
-    , _gpvVersionId = pVersionId
+    { _gpvrqPolicyARN = pPolicyARN
+    , _gpvrqVersionId = pVersionId
     }
 
 -- | FIXME: Undocumented member.
-gpvPolicyARN :: Lens' GetPolicyVersion Text
-gpvPolicyARN = lens _gpvPolicyARN (\ s a -> s{_gpvPolicyARN = a});
+gpvrqPolicyARN :: Lens' GetPolicyVersion Text
+gpvrqPolicyARN = lens _gpvrqPolicyARN (\ s a -> s{_gpvrqPolicyARN = a});
 
 -- | Identifies the policy version to retrieve.
-gpvVersionId :: Lens' GetPolicyVersion Text
-gpvVersionId = lens _gpvVersionId (\ s a -> s{_gpvVersionId = a});
+gpvrqVersionId :: Lens' GetPolicyVersion Text
+gpvrqVersionId = lens _gpvrqVersionId (\ s a -> s{_gpvrqVersionId = a});
 
 instance AWSRequest GetPolicyVersion where
         type Sv GetPolicyVersion = IAM
@@ -104,8 +104,8 @@ instance ToQuery GetPolicyVersion where
           = mconcat
               ["Action" =: ("GetPolicyVersion" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PolicyArn" =: _gpvPolicyARN,
-               "VersionId" =: _gpvVersionId]
+               "PolicyArn" =: _gpvrqPolicyARN,
+               "VersionId" =: _gpvrqVersionId]
 
 -- | Contains the response to a successful GetPolicyVersion request.
 --
@@ -113,20 +113,20 @@ instance ToQuery GetPolicyVersion where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpvrPolicyVersion'
+-- * 'gpvrsPolicyVersion'
 --
--- * 'gpvrStatus'
+-- * 'gpvrsStatus'
 data GetPolicyVersionResponse = GetPolicyVersionResponse'
-    { _gpvrPolicyVersion :: !(Maybe PolicyVersion)
-    , _gpvrStatus        :: !Int
+    { _gpvrsPolicyVersion :: !(Maybe PolicyVersion)
+    , _gpvrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPolicyVersionResponse' smart constructor.
 getPolicyVersionResponse :: Int -> GetPolicyVersionResponse
 getPolicyVersionResponse pStatus =
     GetPolicyVersionResponse'
-    { _gpvrPolicyVersion = Nothing
-    , _gpvrStatus = pStatus
+    { _gpvrsPolicyVersion = Nothing
+    , _gpvrsStatus = pStatus
     }
 
 -- | Information about the policy version.
@@ -134,9 +134,9 @@ getPolicyVersionResponse pStatus =
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
-gpvrPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
-gpvrPolicyVersion = lens _gpvrPolicyVersion (\ s a -> s{_gpvrPolicyVersion = a});
+gpvrsPolicyVersion :: Lens' GetPolicyVersionResponse (Maybe PolicyVersion)
+gpvrsPolicyVersion = lens _gpvrsPolicyVersion (\ s a -> s{_gpvrsPolicyVersion = a});
 
 -- | FIXME: Undocumented member.
-gpvrStatus :: Lens' GetPolicyVersionResponse Int
-gpvrStatus = lens _gpvrStatus (\ s a -> s{_gpvrStatus = a});
+gpvrsStatus :: Lens' GetPolicyVersionResponse Int
+gpvrsStatus = lens _gpvrsStatus (\ s a -> s{_gpvrsStatus = a});

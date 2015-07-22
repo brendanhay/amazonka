@@ -69,46 +69,46 @@ instance FromXML AssumedRoleUser where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'creAccessKeyId'
+-- * 'cAccessKeyId'
 --
--- * 'creSecretAccessKey'
+-- * 'cSecretAccessKey'
 --
--- * 'creSessionToken'
+-- * 'cSessionToken'
 --
--- * 'creExpiration'
+-- * 'cExpiration'
 data Credentials = Credentials'
-    { _creAccessKeyId     :: !Text
-    , _creSecretAccessKey :: !Text
-    , _creSessionToken    :: !Text
-    , _creExpiration      :: !ISO8601
+    { _cAccessKeyId     :: !Text
+    , _cSecretAccessKey :: !Text
+    , _cSessionToken    :: !Text
+    , _cExpiration      :: !ISO8601
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Credentials' smart constructor.
 credentials :: Text -> Text -> Text -> UTCTime -> Credentials
 credentials pAccessKeyId pSecretAccessKey pSessionToken pExpiration =
     Credentials'
-    { _creAccessKeyId = pAccessKeyId
-    , _creSecretAccessKey = pSecretAccessKey
-    , _creSessionToken = pSessionToken
-    , _creExpiration = _Time # pExpiration
+    { _cAccessKeyId = pAccessKeyId
+    , _cSecretAccessKey = pSecretAccessKey
+    , _cSessionToken = pSessionToken
+    , _cExpiration = _Time # pExpiration
     }
 
 -- | The access key ID that identifies the temporary security credentials.
-creAccessKeyId :: Lens' Credentials Text
-creAccessKeyId = lens _creAccessKeyId (\ s a -> s{_creAccessKeyId = a});
+cAccessKeyId :: Lens' Credentials Text
+cAccessKeyId = lens _cAccessKeyId (\ s a -> s{_cAccessKeyId = a});
 
 -- | The secret access key that can be used to sign requests.
-creSecretAccessKey :: Lens' Credentials Text
-creSecretAccessKey = lens _creSecretAccessKey (\ s a -> s{_creSecretAccessKey = a});
+cSecretAccessKey :: Lens' Credentials Text
+cSecretAccessKey = lens _cSecretAccessKey (\ s a -> s{_cSecretAccessKey = a});
 
 -- | The token that users must pass to the service API to use the temporary
 -- credentials.
-creSessionToken :: Lens' Credentials Text
-creSessionToken = lens _creSessionToken (\ s a -> s{_creSessionToken = a});
+cSessionToken :: Lens' Credentials Text
+cSessionToken = lens _cSessionToken (\ s a -> s{_cSessionToken = a});
 
 -- | The date on which the current credentials expire.
-creExpiration :: Lens' Credentials UTCTime
-creExpiration = lens _creExpiration (\ s a -> s{_creExpiration = a}) . _Time;
+cExpiration :: Lens' Credentials UTCTime
+cExpiration = lens _cExpiration (\ s a -> s{_cExpiration = a}) . _Time;
 
 instance FromXML Credentials where
         parseXML x

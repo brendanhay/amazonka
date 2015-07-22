@@ -28,19 +28,19 @@ module Network.AWS.CodePipeline.GetPipelineState
     -- ** Request constructor
     , getPipelineState
     -- ** Request lenses
-    , gpsName
+    , gpsrqName
 
     -- * Response
     , GetPipelineStateResponse
     -- ** Response constructor
     , getPipelineStateResponse
     -- ** Response lenses
-    , gpsrPipelineName
-    , gpsrPipelineVersion
-    , gpsrCreated
-    , gpsrStageStates
-    , gpsrUpdated
-    , gpsrStatus
+    , gpsrsPipelineName
+    , gpsrsPipelineVersion
+    , gpsrsCreated
+    , gpsrsStageStates
+    , gpsrsUpdated
+    , gpsrsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -54,21 +54,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpsName'
+-- * 'gpsrqName'
 newtype GetPipelineState = GetPipelineState'
-    { _gpsName :: Text
+    { _gpsrqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineState' smart constructor.
 getPipelineState :: Text -> GetPipelineState
 getPipelineState pName =
     GetPipelineState'
-    { _gpsName = pName
+    { _gpsrqName = pName
     }
 
 -- | The name of the pipeline about which you want to get information.
-gpsName :: Lens' GetPipelineState Text
-gpsName = lens _gpsName (\ s a -> s{_gpsName = a});
+gpsrqName :: Lens' GetPipelineState Text
+gpsrqName = lens _gpsrqName (\ s a -> s{_gpsrqName = a});
 
 instance AWSRequest GetPipelineState where
         type Sv GetPipelineState = CodePipeline
@@ -96,7 +96,7 @@ instance ToHeaders GetPipelineState where
 
 instance ToJSON GetPipelineState where
         toJSON GetPipelineState'{..}
-          = object ["name" .= _gpsName]
+          = object ["name" .= _gpsrqName]
 
 instance ToPath GetPipelineState where
         toPath = const "/"
@@ -110,62 +110,62 @@ instance ToQuery GetPipelineState where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gpsrPipelineName'
+-- * 'gpsrsPipelineName'
 --
--- * 'gpsrPipelineVersion'
+-- * 'gpsrsPipelineVersion'
 --
--- * 'gpsrCreated'
+-- * 'gpsrsCreated'
 --
--- * 'gpsrStageStates'
+-- * 'gpsrsStageStates'
 --
--- * 'gpsrUpdated'
+-- * 'gpsrsUpdated'
 --
--- * 'gpsrStatus'
+-- * 'gpsrsStatus'
 data GetPipelineStateResponse = GetPipelineStateResponse'
-    { _gpsrPipelineName    :: !(Maybe Text)
-    , _gpsrPipelineVersion :: !(Maybe Nat)
-    , _gpsrCreated         :: !(Maybe POSIX)
-    , _gpsrStageStates     :: !(Maybe [StageState])
-    , _gpsrUpdated         :: !(Maybe POSIX)
-    , _gpsrStatus          :: !Int
+    { _gpsrsPipelineName    :: !(Maybe Text)
+    , _gpsrsPipelineVersion :: !(Maybe Nat)
+    , _gpsrsCreated         :: !(Maybe POSIX)
+    , _gpsrsStageStates     :: !(Maybe [StageState])
+    , _gpsrsUpdated         :: !(Maybe POSIX)
+    , _gpsrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetPipelineStateResponse' smart constructor.
 getPipelineStateResponse :: Int -> GetPipelineStateResponse
 getPipelineStateResponse pStatus =
     GetPipelineStateResponse'
-    { _gpsrPipelineName = Nothing
-    , _gpsrPipelineVersion = Nothing
-    , _gpsrCreated = Nothing
-    , _gpsrStageStates = Nothing
-    , _gpsrUpdated = Nothing
-    , _gpsrStatus = pStatus
+    { _gpsrsPipelineName = Nothing
+    , _gpsrsPipelineVersion = Nothing
+    , _gpsrsCreated = Nothing
+    , _gpsrsStageStates = Nothing
+    , _gpsrsUpdated = Nothing
+    , _gpsrsStatus = pStatus
     }
 
 -- | The name of the pipeline for which you want to get the state.
-gpsrPipelineName :: Lens' GetPipelineStateResponse (Maybe Text)
-gpsrPipelineName = lens _gpsrPipelineName (\ s a -> s{_gpsrPipelineName = a});
+gpsrsPipelineName :: Lens' GetPipelineStateResponse (Maybe Text)
+gpsrsPipelineName = lens _gpsrsPipelineName (\ s a -> s{_gpsrsPipelineName = a});
 
 -- | The version number of the pipeline.
 --
 -- A newly-created pipeline is always assigned a version number of @1@.
-gpsrPipelineVersion :: Lens' GetPipelineStateResponse (Maybe Natural)
-gpsrPipelineVersion = lens _gpsrPipelineVersion (\ s a -> s{_gpsrPipelineVersion = a}) . mapping _Nat;
+gpsrsPipelineVersion :: Lens' GetPipelineStateResponse (Maybe Natural)
+gpsrsPipelineVersion = lens _gpsrsPipelineVersion (\ s a -> s{_gpsrsPipelineVersion = a}) . mapping _Nat;
 
 -- | The date and time the pipeline was created, in timestamp format.
-gpsrCreated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
-gpsrCreated = lens _gpsrCreated (\ s a -> s{_gpsrCreated = a}) . mapping _Time;
+gpsrsCreated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
+gpsrsCreated = lens _gpsrsCreated (\ s a -> s{_gpsrsCreated = a}) . mapping _Time;
 
 -- | A list of the pipeline stage output information, including stage name,
 -- state, most recent run details, whether the stage is disabled, and other
 -- data.
-gpsrStageStates :: Lens' GetPipelineStateResponse [StageState]
-gpsrStageStates = lens _gpsrStageStates (\ s a -> s{_gpsrStageStates = a}) . _Default;
+gpsrsStageStates :: Lens' GetPipelineStateResponse [StageState]
+gpsrsStageStates = lens _gpsrsStageStates (\ s a -> s{_gpsrsStageStates = a}) . _Default;
 
 -- | The date and time the pipeline was last updated, in timestamp format.
-gpsrUpdated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
-gpsrUpdated = lens _gpsrUpdated (\ s a -> s{_gpsrUpdated = a}) . mapping _Time;
+gpsrsUpdated :: Lens' GetPipelineStateResponse (Maybe UTCTime)
+gpsrsUpdated = lens _gpsrsUpdated (\ s a -> s{_gpsrsUpdated = a}) . mapping _Time;
 
 -- | FIXME: Undocumented member.
-gpsrStatus :: Lens' GetPipelineStateResponse Int
-gpsrStatus = lens _gpsrStatus (\ s a -> s{_gpsrStatus = a});
+gpsrsStatus :: Lens' GetPipelineStateResponse Int
+gpsrsStatus = lens _gpsrsStatus (\ s a -> s{_gpsrsStatus = a});

@@ -56,8 +56,8 @@ module Network.AWS.SWF.DeprecateActivityType
     -- ** Request constructor
     , deprecateActivityType
     -- ** Request lenses
-    , dDomain
-    , dActivityType
+    , deprqDomain
+    , deprqActivityType
 
     -- * Response
     , DeprecateActivityTypeResponse
@@ -74,29 +74,29 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dDomain'
+-- * 'deprqDomain'
 --
--- * 'dActivityType'
+-- * 'deprqActivityType'
 data DeprecateActivityType = DeprecateActivityType'
-    { _dDomain       :: !Text
-    , _dActivityType :: !ActivityType
+    { _deprqDomain       :: !Text
+    , _deprqActivityType :: !ActivityType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeprecateActivityType' smart constructor.
 deprecateActivityType :: Text -> ActivityType -> DeprecateActivityType
 deprecateActivityType pDomain pActivityType =
     DeprecateActivityType'
-    { _dDomain = pDomain
-    , _dActivityType = pActivityType
+    { _deprqDomain = pDomain
+    , _deprqActivityType = pActivityType
     }
 
 -- | The name of the domain in which the activity type is registered.
-dDomain :: Lens' DeprecateActivityType Text
-dDomain = lens _dDomain (\ s a -> s{_dDomain = a});
+deprqDomain :: Lens' DeprecateActivityType Text
+deprqDomain = lens _deprqDomain (\ s a -> s{_deprqDomain = a});
 
 -- | The activity type to deprecate.
-dActivityType :: Lens' DeprecateActivityType ActivityType
-dActivityType = lens _dActivityType (\ s a -> s{_dActivityType = a});
+deprqActivityType :: Lens' DeprecateActivityType ActivityType
+deprqActivityType = lens _deprqActivityType (\ s a -> s{_deprqActivityType = a});
 
 instance AWSRequest DeprecateActivityType where
         type Sv DeprecateActivityType = SWF
@@ -118,8 +118,8 @@ instance ToHeaders DeprecateActivityType where
 instance ToJSON DeprecateActivityType where
         toJSON DeprecateActivityType'{..}
           = object
-              ["domain" .= _dDomain,
-               "activityType" .= _dActivityType]
+              ["domain" .= _deprqDomain,
+               "activityType" .= _deprqActivityType]
 
 instance ToPath DeprecateActivityType where
         toPath = const "/"

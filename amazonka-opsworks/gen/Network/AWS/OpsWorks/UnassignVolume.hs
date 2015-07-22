@@ -35,7 +35,7 @@ module Network.AWS.OpsWorks.UnassignVolume
     -- ** Request constructor
     , unassignVolume
     -- ** Request lenses
-    , uvVolumeId
+    , uvrqVolumeId
 
     -- * Response
     , UnassignVolumeResponse
@@ -52,21 +52,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uvVolumeId'
+-- * 'uvrqVolumeId'
 newtype UnassignVolume = UnassignVolume'
-    { _uvVolumeId :: Text
+    { _uvrqVolumeId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnassignVolume' smart constructor.
 unassignVolume :: Text -> UnassignVolume
 unassignVolume pVolumeId =
     UnassignVolume'
-    { _uvVolumeId = pVolumeId
+    { _uvrqVolumeId = pVolumeId
     }
 
 -- | The volume ID.
-uvVolumeId :: Lens' UnassignVolume Text
-uvVolumeId = lens _uvVolumeId (\ s a -> s{_uvVolumeId = a});
+uvrqVolumeId :: Lens' UnassignVolume Text
+uvrqVolumeId = lens _uvrqVolumeId (\ s a -> s{_uvrqVolumeId = a});
 
 instance AWSRequest UnassignVolume where
         type Sv UnassignVolume = OpsWorks
@@ -85,7 +85,7 @@ instance ToHeaders UnassignVolume where
 
 instance ToJSON UnassignVolume where
         toJSON UnassignVolume'{..}
-          = object ["VolumeId" .= _uvVolumeId]
+          = object ["VolumeId" .= _uvrqVolumeId]
 
 instance ToPath UnassignVolume where
         toPath = const "/"

@@ -50,17 +50,17 @@ module Network.AWS.EC2.DescribeReservedInstancesListings
     -- ** Request constructor
     , describeReservedInstancesListings
     -- ** Request lenses
-    , drilFilters
-    , drilReservedInstancesId
-    , drilReservedInstancesListingId
+    , drilrqFilters
+    , drilrqReservedInstancesId
+    , drilrqReservedInstancesListingId
 
     -- * Response
     , DescribeReservedInstancesListingsResponse
     -- ** Response constructor
     , describeReservedInstancesListingsResponse
     -- ** Response lenses
-    , drilrReservedInstancesListings
-    , drilrStatus
+    , drilrsReservedInstancesListings
+    , drilrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -72,24 +72,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drilFilters'
+-- * 'drilrqFilters'
 --
--- * 'drilReservedInstancesId'
+-- * 'drilrqReservedInstancesId'
 --
--- * 'drilReservedInstancesListingId'
+-- * 'drilrqReservedInstancesListingId'
 data DescribeReservedInstancesListings = DescribeReservedInstancesListings'
-    { _drilFilters                    :: !(Maybe [Filter])
-    , _drilReservedInstancesId        :: !(Maybe Text)
-    , _drilReservedInstancesListingId :: !(Maybe Text)
+    { _drilrqFilters                    :: !(Maybe [Filter])
+    , _drilrqReservedInstancesId        :: !(Maybe Text)
+    , _drilrqReservedInstancesListingId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesListings' smart constructor.
 describeReservedInstancesListings :: DescribeReservedInstancesListings
 describeReservedInstancesListings =
     DescribeReservedInstancesListings'
-    { _drilFilters = Nothing
-    , _drilReservedInstancesId = Nothing
-    , _drilReservedInstancesListingId = Nothing
+    { _drilrqFilters = Nothing
+    , _drilrqReservedInstancesId = Nothing
+    , _drilrqReservedInstancesListingId = Nothing
     }
 
 -- | One or more filters.
@@ -104,16 +104,16 @@ describeReservedInstancesListings =
 --
 -- -   @status-message@ - The reason for the status.
 --
-drilFilters :: Lens' DescribeReservedInstancesListings [Filter]
-drilFilters = lens _drilFilters (\ s a -> s{_drilFilters = a}) . _Default;
+drilrqFilters :: Lens' DescribeReservedInstancesListings [Filter]
+drilrqFilters = lens _drilrqFilters (\ s a -> s{_drilrqFilters = a}) . _Default;
 
 -- | One or more Reserved Instance IDs.
-drilReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilReservedInstancesId = lens _drilReservedInstancesId (\ s a -> s{_drilReservedInstancesId = a});
+drilrqReservedInstancesId :: Lens' DescribeReservedInstancesListings (Maybe Text)
+drilrqReservedInstancesId = lens _drilrqReservedInstancesId (\ s a -> s{_drilrqReservedInstancesId = a});
 
 -- | One or more Reserved Instance Listing IDs.
-drilReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
-drilReservedInstancesListingId = lens _drilReservedInstancesListingId (\ s a -> s{_drilReservedInstancesListingId = a});
+drilrqReservedInstancesListingId :: Lens' DescribeReservedInstancesListings (Maybe Text)
+drilrqReservedInstancesListingId = lens _drilrqReservedInstancesListingId (\ s a -> s{_drilrqReservedInstancesListingId = a});
 
 instance AWSRequest DescribeReservedInstancesListings
          where
@@ -144,35 +144,35 @@ instance ToQuery DescribeReservedInstancesListings
               ["Action" =:
                  ("DescribeReservedInstancesListings" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _drilFilters),
-               "ReservedInstancesId" =: _drilReservedInstancesId,
+               toQuery (toQueryList "Filter" <$> _drilrqFilters),
+               "ReservedInstancesId" =: _drilrqReservedInstancesId,
                "ReservedInstancesListingId" =:
-                 _drilReservedInstancesListingId]
+                 _drilrqReservedInstancesListingId]
 
 -- | /See:/ 'describeReservedInstancesListingsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'drilrReservedInstancesListings'
+-- * 'drilrsReservedInstancesListings'
 --
--- * 'drilrStatus'
+-- * 'drilrsStatus'
 data DescribeReservedInstancesListingsResponse = DescribeReservedInstancesListingsResponse'
-    { _drilrReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _drilrStatus                    :: !Int
+    { _drilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
+    , _drilrsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeReservedInstancesListingsResponse' smart constructor.
 describeReservedInstancesListingsResponse :: Int -> DescribeReservedInstancesListingsResponse
 describeReservedInstancesListingsResponse pStatus =
     DescribeReservedInstancesListingsResponse'
-    { _drilrReservedInstancesListings = Nothing
-    , _drilrStatus = pStatus
+    { _drilrsReservedInstancesListings = Nothing
+    , _drilrsStatus = pStatus
     }
 
 -- | Information about the Reserved Instance listing.
-drilrReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
-drilrReservedInstancesListings = lens _drilrReservedInstancesListings (\ s a -> s{_drilrReservedInstancesListings = a}) . _Default;
+drilrsReservedInstancesListings :: Lens' DescribeReservedInstancesListingsResponse [ReservedInstancesListing]
+drilrsReservedInstancesListings = lens _drilrsReservedInstancesListings (\ s a -> s{_drilrsReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-drilrStatus :: Lens' DescribeReservedInstancesListingsResponse Int
-drilrStatus = lens _drilrStatus (\ s a -> s{_drilrStatus = a});
+drilrsStatus :: Lens' DescribeReservedInstancesListingsResponse Int
+drilrsStatus = lens _drilrsStatus (\ s a -> s{_drilrsStatus = a});

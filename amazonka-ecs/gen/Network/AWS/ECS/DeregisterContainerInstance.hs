@@ -41,17 +41,17 @@ module Network.AWS.ECS.DeregisterContainerInstance
     -- ** Request constructor
     , deregisterContainerInstance
     -- ** Request lenses
-    , derCluster
-    , derForce
-    , derContainerInstance
+    , derrqCluster
+    , derrqForce
+    , derrqContainerInstance
 
     -- * Response
     , DeregisterContainerInstanceResponse
     -- ** Response constructor
     , deregisterContainerInstanceResponse
     -- ** Response lenses
-    , dcirContainerInstance
-    , dcirStatus
+    , derrsContainerInstance
+    , derrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -63,31 +63,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derCluster'
+-- * 'derrqCluster'
 --
--- * 'derForce'
+-- * 'derrqForce'
 --
--- * 'derContainerInstance'
+-- * 'derrqContainerInstance'
 data DeregisterContainerInstance = DeregisterContainerInstance'
-    { _derCluster           :: !(Maybe Text)
-    , _derForce             :: !(Maybe Bool)
-    , _derContainerInstance :: !Text
+    { _derrqCluster           :: !(Maybe Text)
+    , _derrqForce             :: !(Maybe Bool)
+    , _derrqContainerInstance :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterContainerInstance' smart constructor.
 deregisterContainerInstance :: Text -> DeregisterContainerInstance
 deregisterContainerInstance pContainerInstance =
     DeregisterContainerInstance'
-    { _derCluster = Nothing
-    , _derForce = Nothing
-    , _derContainerInstance = pContainerInstance
+    { _derrqCluster = Nothing
+    , _derrqForce = Nothing
+    , _derrqContainerInstance = pContainerInstance
     }
 
 -- | The short name or full Amazon Resource Name (ARN) of the cluster that
 -- hosts the container instance you want to deregister. If you do not
 -- specify a cluster, the default cluster is assumed.
-derCluster :: Lens' DeregisterContainerInstance (Maybe Text)
-derCluster = lens _derCluster (\ s a -> s{_derCluster = a});
+derrqCluster :: Lens' DeregisterContainerInstance (Maybe Text)
+derrqCluster = lens _derrqCluster (\ s a -> s{_derrqCluster = a});
 
 -- | Force the deregistration of the container instance. If you have tasks
 -- running on the container instance when you deregister it with the
@@ -98,8 +98,8 @@ derCluster = lens _derCluster (\ s a -> s{_derCluster = a});
 -- If an orphaned task on your container instance is part of an Amazon ECS
 -- service, then the service scheduler will start another copy of that task
 -- on a different container instance if possible.
-derForce :: Lens' DeregisterContainerInstance (Maybe Bool)
-derForce = lens _derForce (\ s a -> s{_derForce = a});
+derrqForce :: Lens' DeregisterContainerInstance (Maybe Bool)
+derrqForce = lens _derrqForce (\ s a -> s{_derrqForce = a});
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) of the
 -- container instance you want to deregister. The ARN contains the
@@ -108,8 +108,8 @@ derForce = lens _derForce (\ s a -> s{_derForce = a});
 -- @container-instance@ namespace, and then the container instance UUID.
 -- For example,
 -- arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_UUID/.
-derContainerInstance :: Lens' DeregisterContainerInstance Text
-derContainerInstance = lens _derContainerInstance (\ s a -> s{_derContainerInstance = a});
+derrqContainerInstance :: Lens' DeregisterContainerInstance Text
+derrqContainerInstance = lens _derrqContainerInstance (\ s a -> s{_derrqContainerInstance = a});
 
 instance AWSRequest DeregisterContainerInstance where
         type Sv DeregisterContainerInstance = ECS
@@ -135,8 +135,8 @@ instance ToHeaders DeregisterContainerInstance where
 instance ToJSON DeregisterContainerInstance where
         toJSON DeregisterContainerInstance'{..}
           = object
-              ["cluster" .= _derCluster, "force" .= _derForce,
-               "containerInstance" .= _derContainerInstance]
+              ["cluster" .= _derrqCluster, "force" .= _derrqForce,
+               "containerInstance" .= _derrqContainerInstance]
 
 instance ToPath DeregisterContainerInstance where
         toPath = const "/"
@@ -148,26 +148,26 @@ instance ToQuery DeregisterContainerInstance where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcirContainerInstance'
+-- * 'derrsContainerInstance'
 --
--- * 'dcirStatus'
+-- * 'derrsStatus'
 data DeregisterContainerInstanceResponse = DeregisterContainerInstanceResponse'
-    { _dcirContainerInstance :: !(Maybe ContainerInstance)
-    , _dcirStatus            :: !Int
+    { _derrsContainerInstance :: !(Maybe ContainerInstance)
+    , _derrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterContainerInstanceResponse' smart constructor.
 deregisterContainerInstanceResponse :: Int -> DeregisterContainerInstanceResponse
 deregisterContainerInstanceResponse pStatus =
     DeregisterContainerInstanceResponse'
-    { _dcirContainerInstance = Nothing
-    , _dcirStatus = pStatus
+    { _derrsContainerInstance = Nothing
+    , _derrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dcirContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
-dcirContainerInstance = lens _dcirContainerInstance (\ s a -> s{_dcirContainerInstance = a});
+derrsContainerInstance :: Lens' DeregisterContainerInstanceResponse (Maybe ContainerInstance)
+derrsContainerInstance = lens _derrsContainerInstance (\ s a -> s{_derrsContainerInstance = a});
 
 -- | FIXME: Undocumented member.
-dcirStatus :: Lens' DeregisterContainerInstanceResponse Int
-dcirStatus = lens _dcirStatus (\ s a -> s{_dcirStatus = a});
+derrsStatus :: Lens' DeregisterContainerInstanceResponse Int
+derrsStatus = lens _derrsStatus (\ s a -> s{_derrsStatus = a});

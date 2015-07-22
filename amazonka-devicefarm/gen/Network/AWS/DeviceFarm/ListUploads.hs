@@ -27,17 +27,17 @@ module Network.AWS.DeviceFarm.ListUploads
     -- ** Request constructor
     , listUploads
     -- ** Request lenses
-    , luNextToken
-    , luArn
+    , lurqNextToken
+    , lurqArn
 
     -- * Response
     , ListUploadsResponse
     -- ** Response constructor
     , listUploadsResponse
     -- ** Response lenses
-    , lurNextToken
-    , lurUploads
-    , lurStatus
+    , lursNextToken
+    , lursUploads
+    , lursStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'luNextToken'
+-- * 'lurqNextToken'
 --
--- * 'luArn'
+-- * 'lurqArn'
 data ListUploads = ListUploads'
-    { _luNextToken :: !(Maybe Text)
-    , _luArn       :: !Text
+    { _lurqNextToken :: !(Maybe Text)
+    , _lurqArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUploads' smart constructor.
 listUploads :: Text -> ListUploads
 listUploads pArn =
     ListUploads'
-    { _luNextToken = Nothing
-    , _luArn = pArn
+    { _lurqNextToken = Nothing
+    , _lurqArn = pArn
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-luNextToken :: Lens' ListUploads (Maybe Text)
-luNextToken = lens _luNextToken (\ s a -> s{_luNextToken = a});
+lurqNextToken :: Lens' ListUploads (Maybe Text)
+lurqNextToken = lens _lurqNextToken (\ s a -> s{_lurqNextToken = a});
 
 -- | The uploads\' ARNs.
-luArn :: Lens' ListUploads Text
-luArn = lens _luArn (\ s a -> s{_luArn = a});
+lurqArn :: Lens' ListUploads Text
+lurqArn = lens _lurqArn (\ s a -> s{_lurqArn = a});
 
 instance AWSRequest ListUploads where
         type Sv ListUploads = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListUploads where
 instance ToJSON ListUploads where
         toJSON ListUploads'{..}
           = object
-              ["nextToken" .= _luNextToken, "arn" .= _luArn]
+              ["nextToken" .= _lurqNextToken, "arn" .= _lurqArn]
 
 instance ToPath ListUploads where
         toPath = const "/"
@@ -114,36 +114,36 @@ instance ToQuery ListUploads where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lurNextToken'
+-- * 'lursNextToken'
 --
--- * 'lurUploads'
+-- * 'lursUploads'
 --
--- * 'lurStatus'
+-- * 'lursStatus'
 data ListUploadsResponse = ListUploadsResponse'
-    { _lurNextToken :: !(Maybe Text)
-    , _lurUploads   :: !(Maybe [Upload])
-    , _lurStatus    :: !Int
+    { _lursNextToken :: !(Maybe Text)
+    , _lursUploads   :: !(Maybe [Upload])
+    , _lursStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListUploadsResponse' smart constructor.
 listUploadsResponse :: Int -> ListUploadsResponse
 listUploadsResponse pStatus =
     ListUploadsResponse'
-    { _lurNextToken = Nothing
-    , _lurUploads = Nothing
-    , _lurStatus = pStatus
+    { _lursNextToken = Nothing
+    , _lursUploads = Nothing
+    , _lursStatus = pStatus
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-lurNextToken :: Lens' ListUploadsResponse (Maybe Text)
-lurNextToken = lens _lurNextToken (\ s a -> s{_lurNextToken = a});
+lursNextToken :: Lens' ListUploadsResponse (Maybe Text)
+lursNextToken = lens _lursNextToken (\ s a -> s{_lursNextToken = a});
 
 -- | Information about the uploads.
-lurUploads :: Lens' ListUploadsResponse [Upload]
-lurUploads = lens _lurUploads (\ s a -> s{_lurUploads = a}) . _Default;
+lursUploads :: Lens' ListUploadsResponse [Upload]
+lursUploads = lens _lursUploads (\ s a -> s{_lursUploads = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lurStatus :: Lens' ListUploadsResponse Int
-lurStatus = lens _lurStatus (\ s a -> s{_lurStatus = a});
+lursStatus :: Lens' ListUploadsResponse Int
+lursStatus = lens _lursStatus (\ s a -> s{_lursStatus = a});

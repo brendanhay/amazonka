@@ -28,25 +28,25 @@ module Network.AWS.S3.PutObjectACL
     -- ** Request constructor
     , putObjectACL
     -- ** Request lenses
-    , poaGrantReadACP
-    , poaRequestPayer
-    , poaGrantWriteACP
-    , poaGrantRead
-    , poaGrantFullControl
-    , poaContentMD5
-    , poaAccessControlPolicy
-    , poaGrantWrite
-    , poaACL
-    , poaBucket
-    , poaKey
+    , poarqGrantReadACP
+    , poarqRequestPayer
+    , poarqGrantWriteACP
+    , poarqGrantRead
+    , poarqGrantFullControl
+    , poarqContentMD5
+    , poarqAccessControlPolicy
+    , poarqGrantWrite
+    , poarqACL
+    , poarqBucket
+    , poarqKey
 
     -- * Response
     , PutObjectACLResponse
     -- ** Response constructor
     , putObjectACLResponse
     -- ** Response lenses
-    , poarRequestCharged
-    , poarStatus
+    , poarsRequestCharged
+    , poarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -58,103 +58,103 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'poaGrantReadACP'
+-- * 'poarqGrantReadACP'
 --
--- * 'poaRequestPayer'
+-- * 'poarqRequestPayer'
 --
--- * 'poaGrantWriteACP'
+-- * 'poarqGrantWriteACP'
 --
--- * 'poaGrantRead'
+-- * 'poarqGrantRead'
 --
--- * 'poaGrantFullControl'
+-- * 'poarqGrantFullControl'
 --
--- * 'poaContentMD5'
+-- * 'poarqContentMD5'
 --
--- * 'poaAccessControlPolicy'
+-- * 'poarqAccessControlPolicy'
 --
--- * 'poaGrantWrite'
+-- * 'poarqGrantWrite'
 --
--- * 'poaACL'
+-- * 'poarqACL'
 --
--- * 'poaBucket'
+-- * 'poarqBucket'
 --
--- * 'poaKey'
+-- * 'poarqKey'
 data PutObjectACL = PutObjectACL'
-    { _poaGrantReadACP        :: !(Maybe Text)
-    , _poaRequestPayer        :: !(Maybe RequestPayer)
-    , _poaGrantWriteACP       :: !(Maybe Text)
-    , _poaGrantRead           :: !(Maybe Text)
-    , _poaGrantFullControl    :: !(Maybe Text)
-    , _poaContentMD5          :: !(Maybe Text)
-    , _poaAccessControlPolicy :: !(Maybe AccessControlPolicy)
-    , _poaGrantWrite          :: !(Maybe Text)
-    , _poaACL                 :: !(Maybe ObjectCannedACL)
-    , _poaBucket              :: !BucketName
-    , _poaKey                 :: !ObjectKey
+    { _poarqGrantReadACP        :: !(Maybe Text)
+    , _poarqRequestPayer        :: !(Maybe RequestPayer)
+    , _poarqGrantWriteACP       :: !(Maybe Text)
+    , _poarqGrantRead           :: !(Maybe Text)
+    , _poarqGrantFullControl    :: !(Maybe Text)
+    , _poarqContentMD5          :: !(Maybe Text)
+    , _poarqAccessControlPolicy :: !(Maybe AccessControlPolicy)
+    , _poarqGrantWrite          :: !(Maybe Text)
+    , _poarqACL                 :: !(Maybe ObjectCannedACL)
+    , _poarqBucket              :: !BucketName
+    , _poarqKey                 :: !ObjectKey
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'PutObjectACL' smart constructor.
 putObjectACL :: BucketName -> ObjectKey -> PutObjectACL
 putObjectACL pBucket pKey =
     PutObjectACL'
-    { _poaGrantReadACP = Nothing
-    , _poaRequestPayer = Nothing
-    , _poaGrantWriteACP = Nothing
-    , _poaGrantRead = Nothing
-    , _poaGrantFullControl = Nothing
-    , _poaContentMD5 = Nothing
-    , _poaAccessControlPolicy = Nothing
-    , _poaGrantWrite = Nothing
-    , _poaACL = Nothing
-    , _poaBucket = pBucket
-    , _poaKey = pKey
+    { _poarqGrantReadACP = Nothing
+    , _poarqRequestPayer = Nothing
+    , _poarqGrantWriteACP = Nothing
+    , _poarqGrantRead = Nothing
+    , _poarqGrantFullControl = Nothing
+    , _poarqContentMD5 = Nothing
+    , _poarqAccessControlPolicy = Nothing
+    , _poarqGrantWrite = Nothing
+    , _poarqACL = Nothing
+    , _poarqBucket = pBucket
+    , _poarqKey = pKey
     }
 
 -- | Allows grantee to read the bucket ACL.
-poaGrantReadACP :: Lens' PutObjectACL (Maybe Text)
-poaGrantReadACP = lens _poaGrantReadACP (\ s a -> s{_poaGrantReadACP = a});
+poarqGrantReadACP :: Lens' PutObjectACL (Maybe Text)
+poarqGrantReadACP = lens _poarqGrantReadACP (\ s a -> s{_poarqGrantReadACP = a});
 
 -- | FIXME: Undocumented member.
-poaRequestPayer :: Lens' PutObjectACL (Maybe RequestPayer)
-poaRequestPayer = lens _poaRequestPayer (\ s a -> s{_poaRequestPayer = a});
+poarqRequestPayer :: Lens' PutObjectACL (Maybe RequestPayer)
+poarqRequestPayer = lens _poarqRequestPayer (\ s a -> s{_poarqRequestPayer = a});
 
 -- | Allows grantee to write the ACL for the applicable bucket.
-poaGrantWriteACP :: Lens' PutObjectACL (Maybe Text)
-poaGrantWriteACP = lens _poaGrantWriteACP (\ s a -> s{_poaGrantWriteACP = a});
+poarqGrantWriteACP :: Lens' PutObjectACL (Maybe Text)
+poarqGrantWriteACP = lens _poarqGrantWriteACP (\ s a -> s{_poarqGrantWriteACP = a});
 
 -- | Allows grantee to list the objects in the bucket.
-poaGrantRead :: Lens' PutObjectACL (Maybe Text)
-poaGrantRead = lens _poaGrantRead (\ s a -> s{_poaGrantRead = a});
+poarqGrantRead :: Lens' PutObjectACL (Maybe Text)
+poarqGrantRead = lens _poarqGrantRead (\ s a -> s{_poarqGrantRead = a});
 
 -- | Allows grantee the read, write, read ACP, and write ACP permissions on
 -- the bucket.
-poaGrantFullControl :: Lens' PutObjectACL (Maybe Text)
-poaGrantFullControl = lens _poaGrantFullControl (\ s a -> s{_poaGrantFullControl = a});
+poarqGrantFullControl :: Lens' PutObjectACL (Maybe Text)
+poarqGrantFullControl = lens _poarqGrantFullControl (\ s a -> s{_poarqGrantFullControl = a});
 
 -- | FIXME: Undocumented member.
-poaContentMD5 :: Lens' PutObjectACL (Maybe Text)
-poaContentMD5 = lens _poaContentMD5 (\ s a -> s{_poaContentMD5 = a});
+poarqContentMD5 :: Lens' PutObjectACL (Maybe Text)
+poarqContentMD5 = lens _poarqContentMD5 (\ s a -> s{_poarqContentMD5 = a});
 
 -- | FIXME: Undocumented member.
-poaAccessControlPolicy :: Lens' PutObjectACL (Maybe AccessControlPolicy)
-poaAccessControlPolicy = lens _poaAccessControlPolicy (\ s a -> s{_poaAccessControlPolicy = a});
+poarqAccessControlPolicy :: Lens' PutObjectACL (Maybe AccessControlPolicy)
+poarqAccessControlPolicy = lens _poarqAccessControlPolicy (\ s a -> s{_poarqAccessControlPolicy = a});
 
 -- | Allows grantee to create, overwrite, and delete any object in the
 -- bucket.
-poaGrantWrite :: Lens' PutObjectACL (Maybe Text)
-poaGrantWrite = lens _poaGrantWrite (\ s a -> s{_poaGrantWrite = a});
+poarqGrantWrite :: Lens' PutObjectACL (Maybe Text)
+poarqGrantWrite = lens _poarqGrantWrite (\ s a -> s{_poarqGrantWrite = a});
 
 -- | The canned ACL to apply to the object.
-poaACL :: Lens' PutObjectACL (Maybe ObjectCannedACL)
-poaACL = lens _poaACL (\ s a -> s{_poaACL = a});
+poarqACL :: Lens' PutObjectACL (Maybe ObjectCannedACL)
+poarqACL = lens _poarqACL (\ s a -> s{_poarqACL = a});
 
 -- | FIXME: Undocumented member.
-poaBucket :: Lens' PutObjectACL BucketName
-poaBucket = lens _poaBucket (\ s a -> s{_poaBucket = a});
+poarqBucket :: Lens' PutObjectACL BucketName
+poarqBucket = lens _poarqBucket (\ s a -> s{_poarqBucket = a});
 
 -- | FIXME: Undocumented member.
-poaKey :: Lens' PutObjectACL ObjectKey
-poaKey = lens _poaKey (\ s a -> s{_poaKey = a});
+poarqKey :: Lens' PutObjectACL ObjectKey
+poarqKey = lens _poarqKey (\ s a -> s{_poarqKey = a});
 
 instance AWSRequest PutObjectACL where
         type Sv PutObjectACL = S3
@@ -172,24 +172,24 @@ instance ToElement PutObjectACL where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}AccessControlPolicy"
               .
-              _poaAccessControlPolicy
+              _poarqAccessControlPolicy
 
 instance ToHeaders PutObjectACL where
         toHeaders PutObjectACL'{..}
           = mconcat
-              ["x-amz-grant-read-acp" =# _poaGrantReadACP,
-               "x-amz-request-payer" =# _poaRequestPayer,
-               "x-amz-grant-write-acp" =# _poaGrantWriteACP,
-               "x-amz-grant-read" =# _poaGrantRead,
-               "x-amz-grant-full-control" =# _poaGrantFullControl,
-               "Content-MD5" =# _poaContentMD5,
-               "x-amz-grant-write" =# _poaGrantWrite,
-               "x-amz-acl" =# _poaACL]
+              ["x-amz-grant-read-acp" =# _poarqGrantReadACP,
+               "x-amz-request-payer" =# _poarqRequestPayer,
+               "x-amz-grant-write-acp" =# _poarqGrantWriteACP,
+               "x-amz-grant-read" =# _poarqGrantRead,
+               "x-amz-grant-full-control" =# _poarqGrantFullControl,
+               "Content-MD5" =# _poarqContentMD5,
+               "x-amz-grant-write" =# _poarqGrantWrite,
+               "x-amz-acl" =# _poarqACL]
 
 instance ToPath PutObjectACL where
         toPath PutObjectACL'{..}
           = mconcat
-              ["/", toText _poaBucket, "/", toText _poaKey]
+              ["/", toText _poarqBucket, "/", toText _poarqKey]
 
 instance ToQuery PutObjectACL where
         toQuery = const (mconcat ["acl"])
@@ -198,26 +198,26 @@ instance ToQuery PutObjectACL where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'poarRequestCharged'
+-- * 'poarsRequestCharged'
 --
--- * 'poarStatus'
+-- * 'poarsStatus'
 data PutObjectACLResponse = PutObjectACLResponse'
-    { _poarRequestCharged :: !(Maybe RequestCharged)
-    , _poarStatus         :: !Int
+    { _poarsRequestCharged :: !(Maybe RequestCharged)
+    , _poarsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutObjectACLResponse' smart constructor.
 putObjectACLResponse :: Int -> PutObjectACLResponse
 putObjectACLResponse pStatus =
     PutObjectACLResponse'
-    { _poarRequestCharged = Nothing
-    , _poarStatus = pStatus
+    { _poarsRequestCharged = Nothing
+    , _poarsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-poarRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
-poarRequestCharged = lens _poarRequestCharged (\ s a -> s{_poarRequestCharged = a});
+poarsRequestCharged :: Lens' PutObjectACLResponse (Maybe RequestCharged)
+poarsRequestCharged = lens _poarsRequestCharged (\ s a -> s{_poarsRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-poarStatus :: Lens' PutObjectACLResponse Int
-poarStatus = lens _poarStatus (\ s a -> s{_poarStatus = a});
+poarsStatus :: Lens' PutObjectACLResponse Int
+poarsStatus = lens _poarsStatus (\ s a -> s{_poarsStatus = a});

@@ -28,17 +28,17 @@ module Network.AWS.RDS.ApplyPendingMaintenanceAction
     -- ** Request constructor
     , applyPendingMaintenanceAction
     -- ** Request lenses
-    , apmaResourceIdentifier
-    , apmaApplyAction
-    , apmaOptInType
+    , apmarqResourceIdentifier
+    , apmarqApplyAction
+    , apmarqOptInType
 
     -- * Response
     , ApplyPendingMaintenanceActionResponse
     -- ** Response constructor
     , applyPendingMaintenanceActionResponse
     -- ** Response lenses
-    , apmarResourcePendingMaintenanceActions
-    , apmarStatus
+    , apmarsResourcePendingMaintenanceActions
+    , apmarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,33 +52,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apmaResourceIdentifier'
+-- * 'apmarqResourceIdentifier'
 --
--- * 'apmaApplyAction'
+-- * 'apmarqApplyAction'
 --
--- * 'apmaOptInType'
+-- * 'apmarqOptInType'
 data ApplyPendingMaintenanceAction = ApplyPendingMaintenanceAction'
-    { _apmaResourceIdentifier :: !Text
-    , _apmaApplyAction        :: !Text
-    , _apmaOptInType          :: !Text
+    { _apmarqResourceIdentifier :: !Text
+    , _apmarqApplyAction        :: !Text
+    , _apmarqOptInType          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplyPendingMaintenanceAction' smart constructor.
 applyPendingMaintenanceAction :: Text -> Text -> Text -> ApplyPendingMaintenanceAction
 applyPendingMaintenanceAction pResourceIdentifier pApplyAction pOptInType =
     ApplyPendingMaintenanceAction'
-    { _apmaResourceIdentifier = pResourceIdentifier
-    , _apmaApplyAction = pApplyAction
-    , _apmaOptInType = pOptInType
+    { _apmarqResourceIdentifier = pResourceIdentifier
+    , _apmarqApplyAction = pApplyAction
+    , _apmarqOptInType = pOptInType
     }
 
 -- | The ARN of the resource that the pending maintenance action applies to.
-apmaResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
-apmaResourceIdentifier = lens _apmaResourceIdentifier (\ s a -> s{_apmaResourceIdentifier = a});
+apmarqResourceIdentifier :: Lens' ApplyPendingMaintenanceAction Text
+apmarqResourceIdentifier = lens _apmarqResourceIdentifier (\ s a -> s{_apmarqResourceIdentifier = a});
 
 -- | The pending maintenance action to apply to this resource.
-apmaApplyAction :: Lens' ApplyPendingMaintenanceAction Text
-apmaApplyAction = lens _apmaApplyAction (\ s a -> s{_apmaApplyAction = a});
+apmarqApplyAction :: Lens' ApplyPendingMaintenanceAction Text
+apmarqApplyAction = lens _apmarqApplyAction (\ s a -> s{_apmarqApplyAction = a});
 
 -- | A value that specifies the type of opt-in request, or undoes an opt-in
 -- request. An opt-in request of type @immediate@ cannot be undone.
@@ -90,8 +90,8 @@ apmaApplyAction = lens _apmaApplyAction (\ s a -> s{_apmaApplyAction = a});
 --     maintenance window for the resource.
 -- -   @undo-opt-in@ - Cancel any existing @next-maintenance@ opt-in
 --     requests.
-apmaOptInType :: Lens' ApplyPendingMaintenanceAction Text
-apmaOptInType = lens _apmaOptInType (\ s a -> s{_apmaOptInType = a});
+apmarqOptInType :: Lens' ApplyPendingMaintenanceAction Text
+apmarqOptInType = lens _apmarqOptInType (\ s a -> s{_apmarqOptInType = a});
 
 instance AWSRequest ApplyPendingMaintenanceAction
          where
@@ -120,34 +120,34 @@ instance ToQuery ApplyPendingMaintenanceAction where
               ["Action" =:
                  ("ApplyPendingMaintenanceAction" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "ResourceIdentifier" =: _apmaResourceIdentifier,
-               "ApplyAction" =: _apmaApplyAction,
-               "OptInType" =: _apmaOptInType]
+               "ResourceIdentifier" =: _apmarqResourceIdentifier,
+               "ApplyAction" =: _apmarqApplyAction,
+               "OptInType" =: _apmarqOptInType]
 
 -- | /See:/ 'applyPendingMaintenanceActionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'apmarResourcePendingMaintenanceActions'
+-- * 'apmarsResourcePendingMaintenanceActions'
 --
--- * 'apmarStatus'
+-- * 'apmarsStatus'
 data ApplyPendingMaintenanceActionResponse = ApplyPendingMaintenanceActionResponse'
-    { _apmarResourcePendingMaintenanceActions :: !(Maybe ResourcePendingMaintenanceActions)
-    , _apmarStatus                            :: !Int
+    { _apmarsResourcePendingMaintenanceActions :: !(Maybe ResourcePendingMaintenanceActions)
+    , _apmarsStatus                            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ApplyPendingMaintenanceActionResponse' smart constructor.
 applyPendingMaintenanceActionResponse :: Int -> ApplyPendingMaintenanceActionResponse
 applyPendingMaintenanceActionResponse pStatus =
     ApplyPendingMaintenanceActionResponse'
-    { _apmarResourcePendingMaintenanceActions = Nothing
-    , _apmarStatus = pStatus
+    { _apmarsResourcePendingMaintenanceActions = Nothing
+    , _apmarsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-apmarResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
-apmarResourcePendingMaintenanceActions = lens _apmarResourcePendingMaintenanceActions (\ s a -> s{_apmarResourcePendingMaintenanceActions = a});
+apmarsResourcePendingMaintenanceActions :: Lens' ApplyPendingMaintenanceActionResponse (Maybe ResourcePendingMaintenanceActions)
+apmarsResourcePendingMaintenanceActions = lens _apmarsResourcePendingMaintenanceActions (\ s a -> s{_apmarsResourcePendingMaintenanceActions = a});
 
 -- | FIXME: Undocumented member.
-apmarStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
-apmarStatus = lens _apmarStatus (\ s a -> s{_apmarStatus = a});
+apmarsStatus :: Lens' ApplyPendingMaintenanceActionResponse Int
+apmarsStatus = lens _apmarsStatus (\ s a -> s{_apmarsStatus = a});

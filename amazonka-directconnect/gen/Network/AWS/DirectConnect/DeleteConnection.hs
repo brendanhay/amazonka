@@ -32,22 +32,22 @@ module Network.AWS.DirectConnect.DeleteConnection
     -- ** Request constructor
     , deleteConnection
     -- ** Request lenses
-    , dcConnectionId
+    , dcrqConnectionId
 
     -- * Response
     , Connection
     -- ** Response constructor
     , connection
     -- ** Response lenses
-    , conVlan
-    , conLocation
-    , conConnectionId
-    , conConnectionName
-    , conPartnerName
-    , conBandwidth
-    , conRegion
-    , conOwnerAccount
-    , conConnectionState
+    , dcrsVlan
+    , dcrsLocation
+    , dcrsConnectionId
+    , dcrsConnectionName
+    , dcrsPartnerName
+    , dcrsBandwidth
+    , dcrsRegion
+    , dcrsOwnerAccount
+    , dcrsConnectionState
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -61,21 +61,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcConnectionId'
+-- * 'dcrqConnectionId'
 newtype DeleteConnection = DeleteConnection'
-    { _dcConnectionId :: Text
+    { _dcrqConnectionId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteConnection' smart constructor.
 deleteConnection :: Text -> DeleteConnection
 deleteConnection pConnectionId =
     DeleteConnection'
-    { _dcConnectionId = pConnectionId
+    { _dcrqConnectionId = pConnectionId
     }
 
 -- | FIXME: Undocumented member.
-dcConnectionId :: Lens' DeleteConnection Text
-dcConnectionId = lens _dcConnectionId (\ s a -> s{_dcConnectionId = a});
+dcrqConnectionId :: Lens' DeleteConnection Text
+dcrqConnectionId = lens _dcrqConnectionId (\ s a -> s{_dcrqConnectionId = a});
 
 instance AWSRequest DeleteConnection where
         type Sv DeleteConnection = DirectConnect
@@ -94,7 +94,7 @@ instance ToHeaders DeleteConnection where
 
 instance ToJSON DeleteConnection where
         toJSON DeleteConnection'{..}
-          = object ["connectionId" .= _dcConnectionId]
+          = object ["connectionId" .= _dcrqConnectionId]
 
 instance ToPath DeleteConnection where
         toPath = const "/"

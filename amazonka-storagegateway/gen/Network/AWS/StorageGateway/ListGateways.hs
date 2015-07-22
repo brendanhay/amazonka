@@ -38,17 +38,17 @@ module Network.AWS.StorageGateway.ListGateways
     -- ** Request constructor
     , listGateways
     -- ** Request lenses
-    , lgMarker
-    , lgLimit
+    , lgrqMarker
+    , lgrqLimit
 
     -- * Response
     , ListGatewaysResponse
     -- ** Response constructor
     , listGatewaysResponse
     -- ** Response lenses
-    , lgrMarker
-    , lgrGateways
-    , lgrStatus
+    , lgrsMarker
+    , lgrsGateways
+    , lgrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -66,37 +66,38 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgMarker'
+-- * 'lgrqMarker'
 --
--- * 'lgLimit'
+-- * 'lgrqLimit'
 data ListGateways = ListGateways'
-    { _lgMarker :: !(Maybe Text)
-    , _lgLimit  :: !(Maybe Nat)
+    { _lgrqMarker :: !(Maybe Text)
+    , _lgrqLimit  :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGateways' smart constructor.
 listGateways :: ListGateways
 listGateways =
     ListGateways'
-    { _lgMarker = Nothing
-    , _lgLimit = Nothing
+    { _lgrqMarker = Nothing
+    , _lgrqLimit = Nothing
     }
 
 -- | An opaque string that indicates the position at which to begin the
 -- returned list of gateways.
-lgMarker :: Lens' ListGateways (Maybe Text)
-lgMarker = lens _lgMarker (\ s a -> s{_lgMarker = a});
+lgrqMarker :: Lens' ListGateways (Maybe Text)
+lgrqMarker = lens _lgrqMarker (\ s a -> s{_lgrqMarker = a});
 
 -- | Specifies that the list of gateways returned be limited to the specified
 -- number of items.
-lgLimit :: Lens' ListGateways (Maybe Natural)
-lgLimit = lens _lgLimit (\ s a -> s{_lgLimit = a}) . mapping _Nat;
+lgrqLimit :: Lens' ListGateways (Maybe Natural)
+lgrqLimit = lens _lgrqLimit (\ s a -> s{_lgrqLimit = a}) . mapping _Nat;
 
 instance AWSPager ListGateways where
         page rq rs
-          | stop (rs ^. lgrMarker) = Nothing
-          | stop (rs ^. lgrGateways) = Nothing
-          | otherwise = Just $ rq & lgMarker .~ rs ^. lgrMarker
+          | stop (rs ^. lgrsMarker) = Nothing
+          | stop (rs ^. lgrsGateways) = Nothing
+          | otherwise =
+            Just $ rq & lgrqMarker .~ rs ^. lgrsMarker
 
 instance AWSRequest ListGateways where
         type Sv ListGateways = StorageGateway
@@ -121,7 +122,8 @@ instance ToHeaders ListGateways where
 
 instance ToJSON ListGateways where
         toJSON ListGateways'{..}
-          = object ["Marker" .= _lgMarker, "Limit" .= _lgLimit]
+          = object
+              ["Marker" .= _lgrqMarker, "Limit" .= _lgrqLimit]
 
 instance ToPath ListGateways where
         toPath = const "/"
@@ -133,34 +135,34 @@ instance ToQuery ListGateways where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgrMarker'
+-- * 'lgrsMarker'
 --
--- * 'lgrGateways'
+-- * 'lgrsGateways'
 --
--- * 'lgrStatus'
+-- * 'lgrsStatus'
 data ListGatewaysResponse = ListGatewaysResponse'
-    { _lgrMarker   :: !(Maybe Text)
-    , _lgrGateways :: !(Maybe [GatewayInfo])
-    , _lgrStatus   :: !Int
+    { _lgrsMarker   :: !(Maybe Text)
+    , _lgrsGateways :: !(Maybe [GatewayInfo])
+    , _lgrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGatewaysResponse' smart constructor.
 listGatewaysResponse :: Int -> ListGatewaysResponse
 listGatewaysResponse pStatus =
     ListGatewaysResponse'
-    { _lgrMarker = Nothing
-    , _lgrGateways = Nothing
-    , _lgrStatus = pStatus
+    { _lgrsMarker = Nothing
+    , _lgrsGateways = Nothing
+    , _lgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-lgrMarker :: Lens' ListGatewaysResponse (Maybe Text)
-lgrMarker = lens _lgrMarker (\ s a -> s{_lgrMarker = a});
+lgrsMarker :: Lens' ListGatewaysResponse (Maybe Text)
+lgrsMarker = lens _lgrsMarker (\ s a -> s{_lgrsMarker = a});
 
 -- | FIXME: Undocumented member.
-lgrGateways :: Lens' ListGatewaysResponse [GatewayInfo]
-lgrGateways = lens _lgrGateways (\ s a -> s{_lgrGateways = a}) . _Default;
+lgrsGateways :: Lens' ListGatewaysResponse [GatewayInfo]
+lgrsGateways = lens _lgrsGateways (\ s a -> s{_lgrsGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lgrStatus :: Lens' ListGatewaysResponse Int
-lgrStatus = lens _lgrStatus (\ s a -> s{_lgrStatus = a});
+lgrsStatus :: Lens' ListGatewaysResponse Int
+lgrsStatus = lens _lgrsStatus (\ s a -> s{_lgrsStatus = a});

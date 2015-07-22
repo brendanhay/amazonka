@@ -35,26 +35,26 @@ module Network.AWS.RDS.CreateDBInstanceReadReplica
     -- ** Request constructor
     , createDBInstanceReadReplica
     -- ** Request lenses
-    , cdirrAutoMinorVersionUpgrade
-    , cdirrPubliclyAccessible
-    , cdirrDBSubnetGroupName
-    , cdirrIOPS
-    , cdirrDBInstanceClass
-    , cdirrAvailabilityZone
-    , cdirrOptionGroupName
-    , cdirrTags
-    , cdirrPort
-    , cdirrStorageType
-    , cdirrDBInstanceIdentifier
-    , cdirrSourceDBInstanceIdentifier
+    , cdirrrqAutoMinorVersionUpgrade
+    , cdirrrqPubliclyAccessible
+    , cdirrrqDBSubnetGroupName
+    , cdirrrqIOPS
+    , cdirrrqDBInstanceClass
+    , cdirrrqAvailabilityZone
+    , cdirrrqOptionGroupName
+    , cdirrrqTags
+    , cdirrrqPort
+    , cdirrrqStorageType
+    , cdirrrqDBInstanceIdentifier
+    , cdirrrqSourceDBInstanceIdentifier
 
     -- * Response
     , CreateDBInstanceReadReplicaResponse
     -- ** Response constructor
     , createDBInstanceReadReplicaResponse
     -- ** Response lenses
-    , cdirrrDBInstance
-    , cdirrrStatus
+    , cdirrrsDBInstance
+    , cdirrrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -66,68 +66,68 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdirrAutoMinorVersionUpgrade'
+-- * 'cdirrrqAutoMinorVersionUpgrade'
 --
--- * 'cdirrPubliclyAccessible'
+-- * 'cdirrrqPubliclyAccessible'
 --
--- * 'cdirrDBSubnetGroupName'
+-- * 'cdirrrqDBSubnetGroupName'
 --
--- * 'cdirrIOPS'
+-- * 'cdirrrqIOPS'
 --
--- * 'cdirrDBInstanceClass'
+-- * 'cdirrrqDBInstanceClass'
 --
--- * 'cdirrAvailabilityZone'
+-- * 'cdirrrqAvailabilityZone'
 --
--- * 'cdirrOptionGroupName'
+-- * 'cdirrrqOptionGroupName'
 --
--- * 'cdirrTags'
+-- * 'cdirrrqTags'
 --
--- * 'cdirrPort'
+-- * 'cdirrrqPort'
 --
--- * 'cdirrStorageType'
+-- * 'cdirrrqStorageType'
 --
--- * 'cdirrDBInstanceIdentifier'
+-- * 'cdirrrqDBInstanceIdentifier'
 --
--- * 'cdirrSourceDBInstanceIdentifier'
+-- * 'cdirrrqSourceDBInstanceIdentifier'
 data CreateDBInstanceReadReplica = CreateDBInstanceReadReplica'
-    { _cdirrAutoMinorVersionUpgrade    :: !(Maybe Bool)
-    , _cdirrPubliclyAccessible         :: !(Maybe Bool)
-    , _cdirrDBSubnetGroupName          :: !(Maybe Text)
-    , _cdirrIOPS                       :: !(Maybe Int)
-    , _cdirrDBInstanceClass            :: !(Maybe Text)
-    , _cdirrAvailabilityZone           :: !(Maybe Text)
-    , _cdirrOptionGroupName            :: !(Maybe Text)
-    , _cdirrTags                       :: !(Maybe [Tag])
-    , _cdirrPort                       :: !(Maybe Int)
-    , _cdirrStorageType                :: !(Maybe Text)
-    , _cdirrDBInstanceIdentifier       :: !Text
-    , _cdirrSourceDBInstanceIdentifier :: !Text
+    { _cdirrrqAutoMinorVersionUpgrade    :: !(Maybe Bool)
+    , _cdirrrqPubliclyAccessible         :: !(Maybe Bool)
+    , _cdirrrqDBSubnetGroupName          :: !(Maybe Text)
+    , _cdirrrqIOPS                       :: !(Maybe Int)
+    , _cdirrrqDBInstanceClass            :: !(Maybe Text)
+    , _cdirrrqAvailabilityZone           :: !(Maybe Text)
+    , _cdirrrqOptionGroupName            :: !(Maybe Text)
+    , _cdirrrqTags                       :: !(Maybe [Tag])
+    , _cdirrrqPort                       :: !(Maybe Int)
+    , _cdirrrqStorageType                :: !(Maybe Text)
+    , _cdirrrqDBInstanceIdentifier       :: !Text
+    , _cdirrrqSourceDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBInstanceReadReplica' smart constructor.
 createDBInstanceReadReplica :: Text -> Text -> CreateDBInstanceReadReplica
 createDBInstanceReadReplica pDBInstanceIdentifier pSourceDBInstanceIdentifier =
     CreateDBInstanceReadReplica'
-    { _cdirrAutoMinorVersionUpgrade = Nothing
-    , _cdirrPubliclyAccessible = Nothing
-    , _cdirrDBSubnetGroupName = Nothing
-    , _cdirrIOPS = Nothing
-    , _cdirrDBInstanceClass = Nothing
-    , _cdirrAvailabilityZone = Nothing
-    , _cdirrOptionGroupName = Nothing
-    , _cdirrTags = Nothing
-    , _cdirrPort = Nothing
-    , _cdirrStorageType = Nothing
-    , _cdirrDBInstanceIdentifier = pDBInstanceIdentifier
-    , _cdirrSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier
+    { _cdirrrqAutoMinorVersionUpgrade = Nothing
+    , _cdirrrqPubliclyAccessible = Nothing
+    , _cdirrrqDBSubnetGroupName = Nothing
+    , _cdirrrqIOPS = Nothing
+    , _cdirrrqDBInstanceClass = Nothing
+    , _cdirrrqAvailabilityZone = Nothing
+    , _cdirrrqOptionGroupName = Nothing
+    , _cdirrrqTags = Nothing
+    , _cdirrrqPort = Nothing
+    , _cdirrrqStorageType = Nothing
+    , _cdirrrqDBInstanceIdentifier = pDBInstanceIdentifier
+    , _cdirrrqSourceDBInstanceIdentifier = pSourceDBInstanceIdentifier
     }
 
 -- | Indicates that minor engine upgrades will be applied automatically to
 -- the Read Replica during the maintenance window.
 --
 -- Default: Inherits from the source DB instance
-cdirrAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
-cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_cdirrAutoMinorVersionUpgrade = a});
+cdirrrqAutoMinorVersionUpgrade :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
+cdirrrqAutoMinorVersionUpgrade = lens _cdirrrqAutoMinorVersionUpgrade (\ s a -> s{_cdirrrqAutoMinorVersionUpgrade = a});
 
 -- | Specifies the accessibility options for the DB instance. A value of true
 -- specifies an Internet-facing instance with a publicly resolvable DNS
@@ -147,8 +147,8 @@ cdirrAutoMinorVersionUpgrade = lens _cdirrAutoMinorVersionUpgrade (\ s a -> s{_c
 -- publicly accessible. If a specific DB subnet group has been specified as
 -- part of the request and the PubliclyAccessible value has not been set,
 -- the DB instance will be private.
-cdirrPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
-cdirrPubliclyAccessible = lens _cdirrPubliclyAccessible (\ s a -> s{_cdirrPubliclyAccessible = a});
+cdirrrqPubliclyAccessible :: Lens' CreateDBInstanceReadReplica (Maybe Bool)
+cdirrrqPubliclyAccessible = lens _cdirrrqPubliclyAccessible (\ s a -> s{_cdirrrqPubliclyAccessible = a});
 
 -- | Specifies a DB subnet group for the DB instance. The new DB instance
 -- will be created in the VPC associated with the DB subnet group. If no DB
@@ -167,13 +167,13 @@ cdirrPubliclyAccessible = lens _cdirrPubliclyAccessible (\ s a -> s{_cdirrPublic
 --         Replicas will be created in the same VPC.
 --     -   Not specify a DB subnet group. All these Read Replicas will be
 --         created outside of any VPC.
-cdirrDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdirrDBSubnetGroupName = lens _cdirrDBSubnetGroupName (\ s a -> s{_cdirrDBSubnetGroupName = a});
+cdirrrqDBSubnetGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrrqDBSubnetGroupName = lens _cdirrrqDBSubnetGroupName (\ s a -> s{_cdirrrqDBSubnetGroupName = a});
 
 -- | The amount of Provisioned IOPS (input\/output operations per second) to
 -- be initially allocated for the DB instance.
-cdirrIOPS :: Lens' CreateDBInstanceReadReplica (Maybe Int)
-cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
+cdirrrqIOPS :: Lens' CreateDBInstanceReadReplica (Maybe Int)
+cdirrrqIOPS = lens _cdirrrqIOPS (\ s a -> s{_cdirrrqIOPS = a});
 
 -- | The compute and memory capacity of the Read Replica.
 --
@@ -181,8 +181,8 @@ cdirrIOPS = lens _cdirrIOPS (\ s a -> s{_cdirrIOPS = a});
 -- @db.m1.small | db.m1.medium | db.m1.large | db.m1.xlarge | db.m2.xlarge |db.m2.2xlarge | db.m2.4xlarge | db.m3.medium | db.m3.large | db.m3.xlarge | db.m3.2xlarge | db.r3.large | db.r3.xlarge | db.r3.2xlarge | db.r3.4xlarge | db.r3.8xlarge | db.t2.micro | db.t2.small | db.t2.medium@
 --
 -- Default: Inherits from the source DB instance.
-cdirrDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdirrDBInstanceClass = lens _cdirrDBInstanceClass (\ s a -> s{_cdirrDBInstanceClass = a});
+cdirrrqDBInstanceClass :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrrqDBInstanceClass = lens _cdirrrqDBInstanceClass (\ s a -> s{_cdirrrqDBInstanceClass = a});
 
 -- | The Amazon EC2 Availability Zone that the Read Replica will be created
 -- in.
@@ -191,25 +191,25 @@ cdirrDBInstanceClass = lens _cdirrDBInstanceClass (\ s a -> s{_cdirrDBInstanceCl
 -- region.
 --
 -- Example: @us-east-1d@
-cdirrAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdirrAvailabilityZone = lens _cdirrAvailabilityZone (\ s a -> s{_cdirrAvailabilityZone = a});
+cdirrrqAvailabilityZone :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrrqAvailabilityZone = lens _cdirrrqAvailabilityZone (\ s a -> s{_cdirrrqAvailabilityZone = a});
 
 -- | The option group the DB instance will be associated with. If omitted,
 -- the default option group for the engine specified will be used.
-cdirrOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdirrOptionGroupName = lens _cdirrOptionGroupName (\ s a -> s{_cdirrOptionGroupName = a});
+cdirrrqOptionGroupName :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrrqOptionGroupName = lens _cdirrrqOptionGroupName (\ s a -> s{_cdirrrqOptionGroupName = a});
 
 -- | FIXME: Undocumented member.
-cdirrTags :: Lens' CreateDBInstanceReadReplica [Tag]
-cdirrTags = lens _cdirrTags (\ s a -> s{_cdirrTags = a}) . _Default;
+cdirrrqTags :: Lens' CreateDBInstanceReadReplica [Tag]
+cdirrrqTags = lens _cdirrrqTags (\ s a -> s{_cdirrrqTags = a}) . _Default;
 
 -- | The port number that the DB instance uses for connections.
 --
 -- Default: Inherits from the source DB instance
 --
 -- Valid Values: @1150-65535@
-cdirrPort :: Lens' CreateDBInstanceReadReplica (Maybe Int)
-cdirrPort = lens _cdirrPort (\ s a -> s{_cdirrPort = a});
+cdirrrqPort :: Lens' CreateDBInstanceReadReplica (Maybe Int)
+cdirrrqPort = lens _cdirrrqPort (\ s a -> s{_cdirrrqPort = a});
 
 -- | Specifies the storage type to be associated with the Read Replica.
 --
@@ -220,14 +220,14 @@ cdirrPort = lens _cdirrPort (\ s a -> s{_cdirrPort = a});
 --
 -- Default: @io1@ if the @Iops@ parameter is specified; otherwise
 -- @standard@
-cdirrStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
-cdirrStorageType = lens _cdirrStorageType (\ s a -> s{_cdirrStorageType = a});
+cdirrrqStorageType :: Lens' CreateDBInstanceReadReplica (Maybe Text)
+cdirrrqStorageType = lens _cdirrrqStorageType (\ s a -> s{_cdirrrqStorageType = a});
 
 -- | The DB instance identifier of the Read Replica. This is the unique key
 -- that identifies a DB instance. This parameter is stored as a lowercase
 -- string.
-cdirrDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
-cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDBInstanceIdentifier = a});
+cdirrrqDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
+cdirrrqDBInstanceIdentifier = lens _cdirrrqDBInstanceIdentifier (\ s a -> s{_cdirrrqDBInstanceIdentifier = a});
 
 -- | The identifier of the DB instance that will act as the source for the
 -- Read Replica. Each DB instance can have up to five Read Replicas.
@@ -247,8 +247,8 @@ cdirrDBInstanceIdentifier = lens _cdirrDBInstanceIdentifier (\ s a -> s{_cdirrDB
 --     Replica, specify a valid DB instance ARN. For more information, go
 --     to
 --     <http://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_Tagging.html#USER_Tagging.ARN Constructing a Amazon RDS Amazon Resource Name (ARN)>.
-cdirrSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
-cdirrSourceDBInstanceIdentifier = lens _cdirrSourceDBInstanceIdentifier (\ s a -> s{_cdirrSourceDBInstanceIdentifier = a});
+cdirrrqSourceDBInstanceIdentifier :: Lens' CreateDBInstanceReadReplica Text
+cdirrrqSourceDBInstanceIdentifier = lens _cdirrrqSourceDBInstanceIdentifier (\ s a -> s{_cdirrrqSourceDBInstanceIdentifier = a});
 
 instance AWSRequest CreateDBInstanceReadReplica where
         type Sv CreateDBInstanceReadReplica = RDS
@@ -275,44 +275,46 @@ instance ToQuery CreateDBInstanceReadReplica where
                  ("CreateDBInstanceReadReplica" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "AutoMinorVersionUpgrade" =:
-                 _cdirrAutoMinorVersionUpgrade,
-               "PubliclyAccessible" =: _cdirrPubliclyAccessible,
-               "DBSubnetGroupName" =: _cdirrDBSubnetGroupName,
-               "Iops" =: _cdirrIOPS,
-               "DBInstanceClass" =: _cdirrDBInstanceClass,
-               "AvailabilityZone" =: _cdirrAvailabilityZone,
-               "OptionGroupName" =: _cdirrOptionGroupName,
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cdirrTags),
-               "Port" =: _cdirrPort,
-               "StorageType" =: _cdirrStorageType,
-               "DBInstanceIdentifier" =: _cdirrDBInstanceIdentifier,
+                 _cdirrrqAutoMinorVersionUpgrade,
+               "PubliclyAccessible" =: _cdirrrqPubliclyAccessible,
+               "DBSubnetGroupName" =: _cdirrrqDBSubnetGroupName,
+               "Iops" =: _cdirrrqIOPS,
+               "DBInstanceClass" =: _cdirrrqDBInstanceClass,
+               "AvailabilityZone" =: _cdirrrqAvailabilityZone,
+               "OptionGroupName" =: _cdirrrqOptionGroupName,
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _cdirrrqTags),
+               "Port" =: _cdirrrqPort,
+               "StorageType" =: _cdirrrqStorageType,
+               "DBInstanceIdentifier" =:
+                 _cdirrrqDBInstanceIdentifier,
                "SourceDBInstanceIdentifier" =:
-                 _cdirrSourceDBInstanceIdentifier]
+                 _cdirrrqSourceDBInstanceIdentifier]
 
 -- | /See:/ 'createDBInstanceReadReplicaResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdirrrDBInstance'
+-- * 'cdirrrsDBInstance'
 --
--- * 'cdirrrStatus'
+-- * 'cdirrrsStatus'
 data CreateDBInstanceReadReplicaResponse = CreateDBInstanceReadReplicaResponse'
-    { _cdirrrDBInstance :: !(Maybe DBInstance)
-    , _cdirrrStatus     :: !Int
+    { _cdirrrsDBInstance :: !(Maybe DBInstance)
+    , _cdirrrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDBInstanceReadReplicaResponse' smart constructor.
 createDBInstanceReadReplicaResponse :: Int -> CreateDBInstanceReadReplicaResponse
 createDBInstanceReadReplicaResponse pStatus =
     CreateDBInstanceReadReplicaResponse'
-    { _cdirrrDBInstance = Nothing
-    , _cdirrrStatus = pStatus
+    { _cdirrrsDBInstance = Nothing
+    , _cdirrrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cdirrrDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
-cdirrrDBInstance = lens _cdirrrDBInstance (\ s a -> s{_cdirrrDBInstance = a});
+cdirrrsDBInstance :: Lens' CreateDBInstanceReadReplicaResponse (Maybe DBInstance)
+cdirrrsDBInstance = lens _cdirrrsDBInstance (\ s a -> s{_cdirrrsDBInstance = a});
 
 -- | FIXME: Undocumented member.
-cdirrrStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
-cdirrrStatus = lens _cdirrrStatus (\ s a -> s{_cdirrrStatus = a});
+cdirrrsStatus :: Lens' CreateDBInstanceReadReplicaResponse Int
+cdirrrsStatus = lens _cdirrrsStatus (\ s a -> s{_cdirrrsStatus = a});

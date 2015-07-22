@@ -31,21 +31,21 @@ module Network.AWS.StorageGateway.DescribeCache
     -- ** Request constructor
     , describeCache
     -- ** Request lenses
-    , dcGatewayARN
+    , dcrqGatewayARN
 
     -- * Response
     , DescribeCacheResponse
     -- ** Response constructor
     , describeCacheResponse
     -- ** Response lenses
-    , dcrGatewayARN
-    , dcrDiskIds
-    , dcrCacheUsedPercentage
-    , dcrCacheHitPercentage
-    , dcrCacheMissPercentage
-    , dcrCacheAllocatedInBytes
-    , dcrCacheDirtyPercentage
-    , dcrStatus
+    , dcrsGatewayARN
+    , dcrsDiskIds
+    , dcrsCacheUsedPercentage
+    , dcrsCacheHitPercentage
+    , dcrsCacheMissPercentage
+    , dcrsCacheAllocatedInBytes
+    , dcrsCacheDirtyPercentage
+    , dcrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -57,21 +57,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcGatewayARN'
+-- * 'dcrqGatewayARN'
 newtype DescribeCache = DescribeCache'
-    { _dcGatewayARN :: Text
+    { _dcrqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCache' smart constructor.
 describeCache :: Text -> DescribeCache
 describeCache pGatewayARN =
     DescribeCache'
-    { _dcGatewayARN = pGatewayARN
+    { _dcrqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-dcGatewayARN :: Lens' DescribeCache Text
-dcGatewayARN = lens _dcGatewayARN (\ s a -> s{_dcGatewayARN = a});
+dcrqGatewayARN :: Lens' DescribeCache Text
+dcrqGatewayARN = lens _dcrqGatewayARN (\ s a -> s{_dcrqGatewayARN = a});
 
 instance AWSRequest DescribeCache where
         type Sv DescribeCache = StorageGateway
@@ -101,7 +101,7 @@ instance ToHeaders DescribeCache where
 
 instance ToJSON DescribeCache where
         toJSON DescribeCache'{..}
-          = object ["GatewayARN" .= _dcGatewayARN]
+          = object ["GatewayARN" .= _dcrqGatewayARN]
 
 instance ToPath DescribeCache where
         toPath = const "/"
@@ -113,74 +113,74 @@ instance ToQuery DescribeCache where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrGatewayARN'
+-- * 'dcrsGatewayARN'
 --
--- * 'dcrDiskIds'
+-- * 'dcrsDiskIds'
 --
--- * 'dcrCacheUsedPercentage'
+-- * 'dcrsCacheUsedPercentage'
 --
--- * 'dcrCacheHitPercentage'
+-- * 'dcrsCacheHitPercentage'
 --
--- * 'dcrCacheMissPercentage'
+-- * 'dcrsCacheMissPercentage'
 --
--- * 'dcrCacheAllocatedInBytes'
+-- * 'dcrsCacheAllocatedInBytes'
 --
--- * 'dcrCacheDirtyPercentage'
+-- * 'dcrsCacheDirtyPercentage'
 --
--- * 'dcrStatus'
+-- * 'dcrsStatus'
 data DescribeCacheResponse = DescribeCacheResponse'
-    { _dcrGatewayARN            :: !(Maybe Text)
-    , _dcrDiskIds               :: !(Maybe [Text])
-    , _dcrCacheUsedPercentage   :: !(Maybe Double)
-    , _dcrCacheHitPercentage    :: !(Maybe Double)
-    , _dcrCacheMissPercentage   :: !(Maybe Double)
-    , _dcrCacheAllocatedInBytes :: !(Maybe Integer)
-    , _dcrCacheDirtyPercentage  :: !(Maybe Double)
-    , _dcrStatus                :: !Int
+    { _dcrsGatewayARN            :: !(Maybe Text)
+    , _dcrsDiskIds               :: !(Maybe [Text])
+    , _dcrsCacheUsedPercentage   :: !(Maybe Double)
+    , _dcrsCacheHitPercentage    :: !(Maybe Double)
+    , _dcrsCacheMissPercentage   :: !(Maybe Double)
+    , _dcrsCacheAllocatedInBytes :: !(Maybe Integer)
+    , _dcrsCacheDirtyPercentage  :: !(Maybe Double)
+    , _dcrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCacheResponse' smart constructor.
 describeCacheResponse :: Int -> DescribeCacheResponse
 describeCacheResponse pStatus =
     DescribeCacheResponse'
-    { _dcrGatewayARN = Nothing
-    , _dcrDiskIds = Nothing
-    , _dcrCacheUsedPercentage = Nothing
-    , _dcrCacheHitPercentage = Nothing
-    , _dcrCacheMissPercentage = Nothing
-    , _dcrCacheAllocatedInBytes = Nothing
-    , _dcrCacheDirtyPercentage = Nothing
-    , _dcrStatus = pStatus
+    { _dcrsGatewayARN = Nothing
+    , _dcrsDiskIds = Nothing
+    , _dcrsCacheUsedPercentage = Nothing
+    , _dcrsCacheHitPercentage = Nothing
+    , _dcrsCacheMissPercentage = Nothing
+    , _dcrsCacheAllocatedInBytes = Nothing
+    , _dcrsCacheDirtyPercentage = Nothing
+    , _dcrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dcrGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
-dcrGatewayARN = lens _dcrGatewayARN (\ s a -> s{_dcrGatewayARN = a});
+dcrsGatewayARN :: Lens' DescribeCacheResponse (Maybe Text)
+dcrsGatewayARN = lens _dcrsGatewayARN (\ s a -> s{_dcrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-dcrDiskIds :: Lens' DescribeCacheResponse [Text]
-dcrDiskIds = lens _dcrDiskIds (\ s a -> s{_dcrDiskIds = a}) . _Default;
+dcrsDiskIds :: Lens' DescribeCacheResponse [Text]
+dcrsDiskIds = lens _dcrsDiskIds (\ s a -> s{_dcrsDiskIds = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrCacheUsedPercentage = lens _dcrCacheUsedPercentage (\ s a -> s{_dcrCacheUsedPercentage = a});
+dcrsCacheUsedPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrsCacheUsedPercentage = lens _dcrsCacheUsedPercentage (\ s a -> s{_dcrsCacheUsedPercentage = a});
 
 -- | FIXME: Undocumented member.
-dcrCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrCacheHitPercentage = lens _dcrCacheHitPercentage (\ s a -> s{_dcrCacheHitPercentage = a});
+dcrsCacheHitPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrsCacheHitPercentage = lens _dcrsCacheHitPercentage (\ s a -> s{_dcrsCacheHitPercentage = a});
 
 -- | FIXME: Undocumented member.
-dcrCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrCacheMissPercentage = lens _dcrCacheMissPercentage (\ s a -> s{_dcrCacheMissPercentage = a});
+dcrsCacheMissPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrsCacheMissPercentage = lens _dcrsCacheMissPercentage (\ s a -> s{_dcrsCacheMissPercentage = a});
 
 -- | FIXME: Undocumented member.
-dcrCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
-dcrCacheAllocatedInBytes = lens _dcrCacheAllocatedInBytes (\ s a -> s{_dcrCacheAllocatedInBytes = a});
+dcrsCacheAllocatedInBytes :: Lens' DescribeCacheResponse (Maybe Integer)
+dcrsCacheAllocatedInBytes = lens _dcrsCacheAllocatedInBytes (\ s a -> s{_dcrsCacheAllocatedInBytes = a});
 
 -- | FIXME: Undocumented member.
-dcrCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
-dcrCacheDirtyPercentage = lens _dcrCacheDirtyPercentage (\ s a -> s{_dcrCacheDirtyPercentage = a});
+dcrsCacheDirtyPercentage :: Lens' DescribeCacheResponse (Maybe Double)
+dcrsCacheDirtyPercentage = lens _dcrsCacheDirtyPercentage (\ s a -> s{_dcrsCacheDirtyPercentage = a});
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeCacheResponse Int
-dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});
+dcrsStatus :: Lens' DescribeCacheResponse Int
+dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});

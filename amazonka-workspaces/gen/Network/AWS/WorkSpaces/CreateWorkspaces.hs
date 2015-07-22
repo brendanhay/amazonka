@@ -30,16 +30,16 @@ module Network.AWS.WorkSpaces.CreateWorkspaces
     -- ** Request constructor
     , createWorkspaces
     -- ** Request lenses
-    , cwWorkspaces
+    , cwrqWorkspaces
 
     -- * Response
     , CreateWorkspacesResponse
     -- ** Response constructor
     , createWorkspacesResponse
     -- ** Response lenses
-    , cwrFailedRequests
-    , cwrPendingRequests
-    , cwrStatus
+    , cwrsFailedRequests
+    , cwrsPendingRequests
+    , cwrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -53,21 +53,21 @@ import           Network.AWS.WorkSpaces.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cwWorkspaces'
+-- * 'cwrqWorkspaces'
 newtype CreateWorkspaces = CreateWorkspaces'
-    { _cwWorkspaces :: List1 WorkspaceRequest
+    { _cwrqWorkspaces :: List1 WorkspaceRequest
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateWorkspaces' smart constructor.
 createWorkspaces :: NonEmpty WorkspaceRequest -> CreateWorkspaces
 createWorkspaces pWorkspaces =
     CreateWorkspaces'
-    { _cwWorkspaces = _List1 # pWorkspaces
+    { _cwrqWorkspaces = _List1 # pWorkspaces
     }
 
 -- | An array of structures that specify the WorkSpaces to create.
-cwWorkspaces :: Lens' CreateWorkspaces (NonEmpty WorkspaceRequest)
-cwWorkspaces = lens _cwWorkspaces (\ s a -> s{_cwWorkspaces = a}) . _List1;
+cwrqWorkspaces :: Lens' CreateWorkspaces (NonEmpty WorkspaceRequest)
+cwrqWorkspaces = lens _cwrqWorkspaces (\ s a -> s{_cwrqWorkspaces = a}) . _List1;
 
 instance AWSRequest CreateWorkspaces where
         type Sv CreateWorkspaces = WorkSpaces
@@ -92,7 +92,7 @@ instance ToHeaders CreateWorkspaces where
 
 instance ToJSON CreateWorkspaces where
         toJSON CreateWorkspaces'{..}
-          = object ["Workspaces" .= _cwWorkspaces]
+          = object ["Workspaces" .= _cwrqWorkspaces]
 
 instance ToPath CreateWorkspaces where
         toPath = const "/"
@@ -106,39 +106,39 @@ instance ToQuery CreateWorkspaces where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cwrFailedRequests'
+-- * 'cwrsFailedRequests'
 --
--- * 'cwrPendingRequests'
+-- * 'cwrsPendingRequests'
 --
--- * 'cwrStatus'
+-- * 'cwrsStatus'
 data CreateWorkspacesResponse = CreateWorkspacesResponse'
-    { _cwrFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
-    , _cwrPendingRequests :: !(Maybe [Workspace])
-    , _cwrStatus          :: !Int
+    { _cwrsFailedRequests  :: !(Maybe [FailedCreateWorkspaceRequest])
+    , _cwrsPendingRequests :: !(Maybe [Workspace])
+    , _cwrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateWorkspacesResponse' smart constructor.
 createWorkspacesResponse :: Int -> CreateWorkspacesResponse
 createWorkspacesResponse pStatus =
     CreateWorkspacesResponse'
-    { _cwrFailedRequests = Nothing
-    , _cwrPendingRequests = Nothing
-    , _cwrStatus = pStatus
+    { _cwrsFailedRequests = Nothing
+    , _cwrsPendingRequests = Nothing
+    , _cwrsStatus = pStatus
     }
 
 -- | An array of structures that represent the WorkSpaces that could not be
 -- created.
-cwrFailedRequests :: Lens' CreateWorkspacesResponse [FailedCreateWorkspaceRequest]
-cwrFailedRequests = lens _cwrFailedRequests (\ s a -> s{_cwrFailedRequests = a}) . _Default;
+cwrsFailedRequests :: Lens' CreateWorkspacesResponse [FailedCreateWorkspaceRequest]
+cwrsFailedRequests = lens _cwrsFailedRequests (\ s a -> s{_cwrsFailedRequests = a}) . _Default;
 
 -- | An array of structures that represent the WorkSpaces that were created.
 --
 -- Because this operation is asynchronous, the identifier in @WorkspaceId@
 -- is not immediately available. If you immediately call DescribeWorkspaces
 -- with this identifier, no information will be returned.
-cwrPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
-cwrPendingRequests = lens _cwrPendingRequests (\ s a -> s{_cwrPendingRequests = a}) . _Default;
+cwrsPendingRequests :: Lens' CreateWorkspacesResponse [Workspace]
+cwrsPendingRequests = lens _cwrsPendingRequests (\ s a -> s{_cwrsPendingRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cwrStatus :: Lens' CreateWorkspacesResponse Int
-cwrStatus = lens _cwrStatus (\ s a -> s{_cwrStatus = a});
+cwrsStatus :: Lens' CreateWorkspacesResponse Int
+cwrsStatus = lens _cwrsStatus (\ s a -> s{_cwrsStatus = a});

@@ -189,51 +189,51 @@ instance FromJSON KeySchemaElement where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'recEventVersion'
+-- * 'rEventVersion'
 --
--- * 'recDynamodb'
+-- * 'rDynamodb'
 --
--- * 'recAwsRegion'
+-- * 'rAwsRegion'
 --
--- * 'recEventName'
+-- * 'rEventName'
 --
--- * 'recEventSource'
+-- * 'rEventSource'
 --
--- * 'recEventId'
+-- * 'rEventId'
 data Record = Record'
-    { _recEventVersion :: !(Maybe Text)
-    , _recDynamodb     :: !(Maybe StreamRecord)
-    , _recAwsRegion    :: !(Maybe Text)
-    , _recEventName    :: !(Maybe OperationType)
-    , _recEventSource  :: !(Maybe Text)
-    , _recEventId      :: !(Maybe Text)
+    { _rEventVersion :: !(Maybe Text)
+    , _rDynamodb     :: !(Maybe StreamRecord)
+    , _rAwsRegion    :: !(Maybe Text)
+    , _rEventName    :: !(Maybe OperationType)
+    , _rEventSource  :: !(Maybe Text)
+    , _rEventId      :: !(Maybe Text)
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
 record :: Record
 record =
     Record'
-    { _recEventVersion = Nothing
-    , _recDynamodb = Nothing
-    , _recAwsRegion = Nothing
-    , _recEventName = Nothing
-    , _recEventSource = Nothing
-    , _recEventId = Nothing
+    { _rEventVersion = Nothing
+    , _rDynamodb = Nothing
+    , _rAwsRegion = Nothing
+    , _rEventName = Nothing
+    , _rEventSource = Nothing
+    , _rEventId = Nothing
     }
 
 -- | The version number of the stream record format. Currently, this is
 -- /1.0/.
-recEventVersion :: Lens' Record (Maybe Text)
-recEventVersion = lens _recEventVersion (\ s a -> s{_recEventVersion = a});
+rEventVersion :: Lens' Record (Maybe Text)
+rEventVersion = lens _rEventVersion (\ s a -> s{_rEventVersion = a});
 
 -- | The main body of the stream record, containing all of the
 -- DynamoDB-specific fields.
-recDynamodb :: Lens' Record (Maybe StreamRecord)
-recDynamodb = lens _recDynamodb (\ s a -> s{_recDynamodb = a});
+rDynamodb :: Lens' Record (Maybe StreamRecord)
+rDynamodb = lens _rDynamodb (\ s a -> s{_rDynamodb = a});
 
 -- | The region in which the /GetRecords/ request was received.
-recAwsRegion :: Lens' Record (Maybe Text)
-recAwsRegion = lens _recAwsRegion (\ s a -> s{_recAwsRegion = a});
+rAwsRegion :: Lens' Record (Maybe Text)
+rAwsRegion = lens _rAwsRegion (\ s a -> s{_rAwsRegion = a});
 
 -- | The type of data modification that was performed on the DynamoDB table:
 --
@@ -243,18 +243,18 @@ recAwsRegion = lens _recAwsRegion (\ s a -> s{_recAwsRegion = a});
 --
 -- -   @REMOVE@ - the item was deleted from the table
 --
-recEventName :: Lens' Record (Maybe OperationType)
-recEventName = lens _recEventName (\ s a -> s{_recEventName = a});
+rEventName :: Lens' Record (Maybe OperationType)
+rEventName = lens _rEventName (\ s a -> s{_rEventName = a});
 
 -- | The AWS service from which the stream record originated. For DynamoDB
 -- Streams, this is /aws:dynamodb/.
-recEventSource :: Lens' Record (Maybe Text)
-recEventSource = lens _recEventSource (\ s a -> s{_recEventSource = a});
+rEventSource :: Lens' Record (Maybe Text)
+rEventSource = lens _rEventSource (\ s a -> s{_rEventSource = a});
 
 -- | A globally unique identifier for the event that was recorded in this
 -- stream record.
-recEventId :: Lens' Record (Maybe Text)
-recEventId = lens _recEventId (\ s a -> s{_recEventId = a});
+rEventId :: Lens' Record (Maybe Text)
+rEventId = lens _rEventId (\ s a -> s{_rEventId = a});
 
 instance FromJSON Record where
         parseJSON
@@ -312,37 +312,37 @@ instance FromJSON SequenceNumberRange where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'shaParentShardId'
+-- * 'sParentShardId'
 --
--- * 'shaSequenceNumberRange'
+-- * 'sSequenceNumberRange'
 --
--- * 'shaShardId'
+-- * 'sShardId'
 data Shard = Shard'
-    { _shaParentShardId       :: !(Maybe Text)
-    , _shaSequenceNumberRange :: !(Maybe SequenceNumberRange)
-    , _shaShardId             :: !(Maybe Text)
+    { _sParentShardId       :: !(Maybe Text)
+    , _sSequenceNumberRange :: !(Maybe SequenceNumberRange)
+    , _sShardId             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Shard' smart constructor.
 shard :: Shard
 shard =
     Shard'
-    { _shaParentShardId = Nothing
-    , _shaSequenceNumberRange = Nothing
-    , _shaShardId = Nothing
+    { _sParentShardId = Nothing
+    , _sSequenceNumberRange = Nothing
+    , _sShardId = Nothing
     }
 
 -- | The shard ID of the current shard\'s parent.
-shaParentShardId :: Lens' Shard (Maybe Text)
-shaParentShardId = lens _shaParentShardId (\ s a -> s{_shaParentShardId = a});
+sParentShardId :: Lens' Shard (Maybe Text)
+sParentShardId = lens _sParentShardId (\ s a -> s{_sParentShardId = a});
 
 -- | The range of possible sequence numbers for the shard.
-shaSequenceNumberRange :: Lens' Shard (Maybe SequenceNumberRange)
-shaSequenceNumberRange = lens _shaSequenceNumberRange (\ s a -> s{_shaSequenceNumberRange = a});
+sSequenceNumberRange :: Lens' Shard (Maybe SequenceNumberRange)
+sSequenceNumberRange = lens _sSequenceNumberRange (\ s a -> s{_sSequenceNumberRange = a});
 
 -- | The system-generated identifier for this shard.
-shaShardId :: Lens' Shard (Maybe Text)
-shaShardId = lens _shaShardId (\ s a -> s{_shaShardId = a});
+sShardId :: Lens' Shard (Maybe Text)
+sShardId = lens _sShardId (\ s a -> s{_sShardId = a});
 
 instance FromJSON Shard where
         parseJSON
@@ -359,24 +359,24 @@ instance FromJSON Shard where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'strStreamLabel'
+-- * 'sStreamLabel'
 --
--- * 'strStreamARN'
+-- * 'sStreamARN'
 --
--- * 'strTableName'
+-- * 'sTableName'
 data Stream = Stream'
-    { _strStreamLabel :: !(Maybe Text)
-    , _strStreamARN   :: !(Maybe Text)
-    , _strTableName   :: !(Maybe Text)
+    { _sStreamLabel :: !(Maybe Text)
+    , _sStreamARN   :: !(Maybe Text)
+    , _sTableName   :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Stream' smart constructor.
 stream :: Stream
 stream =
     Stream'
-    { _strStreamLabel = Nothing
-    , _strStreamARN = Nothing
-    , _strTableName = Nothing
+    { _sStreamLabel = Nothing
+    , _sStreamARN = Nothing
+    , _sTableName = Nothing
     }
 
 -- | A timestamp, in ISO 8601 format, for this stream.
@@ -392,16 +392,16 @@ stream =
 --
 -- -   the /StreamLabel/
 --
-strStreamLabel :: Lens' Stream (Maybe Text)
-strStreamLabel = lens _strStreamLabel (\ s a -> s{_strStreamLabel = a});
+sStreamLabel :: Lens' Stream (Maybe Text)
+sStreamLabel = lens _sStreamLabel (\ s a -> s{_sStreamLabel = a});
 
 -- | The Amazon Resource Name (ARN) for the stream.
-strStreamARN :: Lens' Stream (Maybe Text)
-strStreamARN = lens _strStreamARN (\ s a -> s{_strStreamARN = a});
+sStreamARN :: Lens' Stream (Maybe Text)
+sStreamARN = lens _sStreamARN (\ s a -> s{_sStreamARN = a});
 
 -- | The DynamoDB table with which the stream is associated.
-strTableName :: Lens' Stream (Maybe Text)
-strTableName = lens _strTableName (\ s a -> s{_strTableName = a});
+sTableName :: Lens' Stream (Maybe Text)
+sTableName = lens _sTableName (\ s a -> s{_sTableName = a});
 
 instance FromJSON Stream where
         parseJSON

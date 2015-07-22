@@ -34,18 +34,18 @@ module Network.AWS.Route53Domains.UpdateDomainContact
     -- ** Request constructor
     , updateDomainContact
     -- ** Request lenses
-    , udcRegistrantContact
-    , udcAdminContact
-    , udcTechContact
-    , udcDomainName
+    , udcrqRegistrantContact
+    , udcrqAdminContact
+    , udcrqTechContact
+    , udcrqDomainName
 
     -- * Response
     , UpdateDomainContactResponse
     -- ** Response constructor
     , updateDomainContactResponse
     -- ** Response lenses
-    , udcrStatus
-    , udcrOperationId
+    , udcrsStatus
+    , udcrsOperationId
     ) where
 
 import           Network.AWS.Prelude
@@ -59,28 +59,28 @@ import           Network.AWS.Route53Domains.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udcRegistrantContact'
+-- * 'udcrqRegistrantContact'
 --
--- * 'udcAdminContact'
+-- * 'udcrqAdminContact'
 --
--- * 'udcTechContact'
+-- * 'udcrqTechContact'
 --
--- * 'udcDomainName'
+-- * 'udcrqDomainName'
 data UpdateDomainContact = UpdateDomainContact'
-    { _udcRegistrantContact :: !(Maybe (Sensitive ContactDetail))
-    , _udcAdminContact      :: !(Maybe (Sensitive ContactDetail))
-    , _udcTechContact       :: !(Maybe (Sensitive ContactDetail))
-    , _udcDomainName        :: !Text
+    { _udcrqRegistrantContact :: !(Maybe (Sensitive ContactDetail))
+    , _udcrqAdminContact      :: !(Maybe (Sensitive ContactDetail))
+    , _udcrqTechContact       :: !(Maybe (Sensitive ContactDetail))
+    , _udcrqDomainName        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContact' smart constructor.
 updateDomainContact :: Text -> UpdateDomainContact
 updateDomainContact pDomainName =
     UpdateDomainContact'
-    { _udcRegistrantContact = Nothing
-    , _udcAdminContact = Nothing
-    , _udcTechContact = Nothing
-    , _udcDomainName = pDomainName
+    { _udcrqRegistrantContact = Nothing
+    , _udcrqAdminContact = Nothing
+    , _udcrqTechContact = Nothing
+    , _udcrqDomainName = pDomainName
     }
 
 -- | Provides detailed contact information.
@@ -92,8 +92,8 @@ updateDomainContact pDomainName =
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-udcRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantContact = a}) . mapping _Sensitive;
+udcrqRegistrantContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
+udcrqRegistrantContact = lens _udcrqRegistrantContact (\ s a -> s{_udcrqRegistrantContact = a}) . mapping _Sensitive;
 
 -- | Provides detailed contact information.
 --
@@ -104,8 +104,8 @@ udcRegistrantContact = lens _udcRegistrantContact (\ s a -> s{_udcRegistrantCont
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-udcAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . mapping _Sensitive;
+udcrqAdminContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
+udcrqAdminContact = lens _udcrqAdminContact (\ s a -> s{_udcrqAdminContact = a}) . mapping _Sensitive;
 
 -- | Provides detailed contact information.
 --
@@ -116,8 +116,8 @@ udcAdminContact = lens _udcAdminContact (\ s a -> s{_udcAdminContact = a}) . map
 -- @CountryCode@, @ZipCode@, @PhoneNumber@, @Email@, @Fax@, @ExtraParams@
 --
 -- Required: Yes
-udcTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
-udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mapping _Sensitive;
+udcrqTechContact :: Lens' UpdateDomainContact (Maybe ContactDetail)
+udcrqTechContact = lens _udcrqTechContact (\ s a -> s{_udcrqTechContact = a}) . mapping _Sensitive;
 
 -- | The name of a domain.
 --
@@ -130,8 +130,8 @@ udcTechContact = lens _udcTechContact (\ s a -> s{_udcTechContact = a}) . mappin
 -- are not supported.
 --
 -- Required: Yes
-udcDomainName :: Lens' UpdateDomainContact Text
-udcDomainName = lens _udcDomainName (\ s a -> s{_udcDomainName = a});
+udcrqDomainName :: Lens' UpdateDomainContact Text
+udcrqDomainName = lens _udcrqDomainName (\ s a -> s{_udcrqDomainName = a});
 
 instance AWSRequest UpdateDomainContact where
         type Sv UpdateDomainContact = Route53Domains
@@ -157,10 +157,10 @@ instance ToHeaders UpdateDomainContact where
 instance ToJSON UpdateDomainContact where
         toJSON UpdateDomainContact'{..}
           = object
-              ["RegistrantContact" .= _udcRegistrantContact,
-               "AdminContact" .= _udcAdminContact,
-               "TechContact" .= _udcTechContact,
-               "DomainName" .= _udcDomainName]
+              ["RegistrantContact" .= _udcrqRegistrantContact,
+               "AdminContact" .= _udcrqAdminContact,
+               "TechContact" .= _udcrqTechContact,
+               "DomainName" .= _udcrqDomainName]
 
 instance ToPath UpdateDomainContact where
         toPath = const "/"
@@ -174,25 +174,25 @@ instance ToQuery UpdateDomainContact where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udcrStatus'
+-- * 'udcrsStatus'
 --
--- * 'udcrOperationId'
+-- * 'udcrsOperationId'
 data UpdateDomainContactResponse = UpdateDomainContactResponse'
-    { _udcrStatus      :: !Int
-    , _udcrOperationId :: !Text
+    { _udcrsStatus      :: !Int
+    , _udcrsOperationId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDomainContactResponse' smart constructor.
 updateDomainContactResponse :: Int -> Text -> UpdateDomainContactResponse
 updateDomainContactResponse pStatus pOperationId =
     UpdateDomainContactResponse'
-    { _udcrStatus = pStatus
-    , _udcrOperationId = pOperationId
+    { _udcrsStatus = pStatus
+    , _udcrsOperationId = pOperationId
     }
 
 -- | FIXME: Undocumented member.
-udcrStatus :: Lens' UpdateDomainContactResponse Int
-udcrStatus = lens _udcrStatus (\ s a -> s{_udcrStatus = a});
+udcrsStatus :: Lens' UpdateDomainContactResponse Int
+udcrsStatus = lens _udcrsStatus (\ s a -> s{_udcrsStatus = a});
 
 -- | Identifier for tracking the progress of the request. To use this ID to
 -- query the operation status, use GetOperationDetail.
@@ -202,5 +202,5 @@ udcrStatus = lens _udcrStatus (\ s a -> s{_udcrStatus = a});
 -- Default: None
 --
 -- Constraints: Maximum 255 characters.
-udcrOperationId :: Lens' UpdateDomainContactResponse Text
-udcrOperationId = lens _udcrOperationId (\ s a -> s{_udcrOperationId = a});
+udcrsOperationId :: Lens' UpdateDomainContactResponse Text
+udcrsOperationId = lens _udcrsOperationId (\ s a -> s{_udcrsOperationId = a});

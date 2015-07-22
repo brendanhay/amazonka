@@ -40,17 +40,17 @@ module Network.AWS.IAM.CreatePolicyVersion
     -- ** Request constructor
     , createPolicyVersion
     -- ** Request lenses
-    , cpvSetAsDefault
-    , cpvPolicyARN
-    , cpvPolicyDocument
+    , cpvrqSetAsDefault
+    , cpvrqPolicyARN
+    , cpvrqPolicyDocument
 
     -- * Response
     , CreatePolicyVersionResponse
     -- ** Response constructor
     , createPolicyVersionResponse
     -- ** Response lenses
-    , cpvrPolicyVersion
-    , cpvrStatus
+    , cpvrsPolicyVersion
+    , cpvrsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -62,24 +62,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpvSetAsDefault'
+-- * 'cpvrqSetAsDefault'
 --
--- * 'cpvPolicyARN'
+-- * 'cpvrqPolicyARN'
 --
--- * 'cpvPolicyDocument'
+-- * 'cpvrqPolicyDocument'
 data CreatePolicyVersion = CreatePolicyVersion'
-    { _cpvSetAsDefault   :: !(Maybe Bool)
-    , _cpvPolicyARN      :: !Text
-    , _cpvPolicyDocument :: !Text
+    { _cpvrqSetAsDefault   :: !(Maybe Bool)
+    , _cpvrqPolicyARN      :: !Text
+    , _cpvrqPolicyDocument :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicyVersion' smart constructor.
 createPolicyVersion :: Text -> Text -> CreatePolicyVersion
 createPolicyVersion pPolicyARN pPolicyDocument =
     CreatePolicyVersion'
-    { _cpvSetAsDefault = Nothing
-    , _cpvPolicyARN = pPolicyARN
-    , _cpvPolicyDocument = pPolicyDocument
+    { _cpvrqSetAsDefault = Nothing
+    , _cpvrqPolicyARN = pPolicyARN
+    , _cpvrqPolicyDocument = pPolicyDocument
     }
 
 -- | Specifies whether to set this version as the policy\'s default version.
@@ -91,16 +91,16 @@ createPolicyVersion pPolicyARN pPolicyDocument =
 -- For more information about managed policy versions, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/policies-managed-versions.html Versioning for Managed Policies>
 -- in the /Using IAM/ guide.
-cpvSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
-cpvSetAsDefault = lens _cpvSetAsDefault (\ s a -> s{_cpvSetAsDefault = a});
+cpvrqSetAsDefault :: Lens' CreatePolicyVersion (Maybe Bool)
+cpvrqSetAsDefault = lens _cpvrqSetAsDefault (\ s a -> s{_cpvrqSetAsDefault = a});
 
 -- | FIXME: Undocumented member.
-cpvPolicyARN :: Lens' CreatePolicyVersion Text
-cpvPolicyARN = lens _cpvPolicyARN (\ s a -> s{_cpvPolicyARN = a});
+cpvrqPolicyARN :: Lens' CreatePolicyVersion Text
+cpvrqPolicyARN = lens _cpvrqPolicyARN (\ s a -> s{_cpvrqPolicyARN = a});
 
 -- | The policy document.
-cpvPolicyDocument :: Lens' CreatePolicyVersion Text
-cpvPolicyDocument = lens _cpvPolicyDocument (\ s a -> s{_cpvPolicyDocument = a});
+cpvrqPolicyDocument :: Lens' CreatePolicyVersion Text
+cpvrqPolicyDocument = lens _cpvrqPolicyDocument (\ s a -> s{_cpvrqPolicyDocument = a});
 
 instance AWSRequest CreatePolicyVersion where
         type Sv CreatePolicyVersion = IAM
@@ -124,9 +124,9 @@ instance ToQuery CreatePolicyVersion where
           = mconcat
               ["Action" =: ("CreatePolicyVersion" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "SetAsDefault" =: _cpvSetAsDefault,
-               "PolicyArn" =: _cpvPolicyARN,
-               "PolicyDocument" =: _cpvPolicyDocument]
+               "SetAsDefault" =: _cpvrqSetAsDefault,
+               "PolicyArn" =: _cpvrqPolicyARN,
+               "PolicyDocument" =: _cpvrqPolicyDocument]
 
 -- | Contains the response to a successful CreatePolicyVersion request.
 --
@@ -134,26 +134,26 @@ instance ToQuery CreatePolicyVersion where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpvrPolicyVersion'
+-- * 'cpvrsPolicyVersion'
 --
--- * 'cpvrStatus'
+-- * 'cpvrsStatus'
 data CreatePolicyVersionResponse = CreatePolicyVersionResponse'
-    { _cpvrPolicyVersion :: !(Maybe PolicyVersion)
-    , _cpvrStatus        :: !Int
+    { _cpvrsPolicyVersion :: !(Maybe PolicyVersion)
+    , _cpvrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePolicyVersionResponse' smart constructor.
 createPolicyVersionResponse :: Int -> CreatePolicyVersionResponse
 createPolicyVersionResponse pStatus =
     CreatePolicyVersionResponse'
-    { _cpvrPolicyVersion = Nothing
-    , _cpvrStatus = pStatus
+    { _cpvrsPolicyVersion = Nothing
+    , _cpvrsStatus = pStatus
     }
 
 -- | Information about the policy version.
-cpvrPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
-cpvrPolicyVersion = lens _cpvrPolicyVersion (\ s a -> s{_cpvrPolicyVersion = a});
+cpvrsPolicyVersion :: Lens' CreatePolicyVersionResponse (Maybe PolicyVersion)
+cpvrsPolicyVersion = lens _cpvrsPolicyVersion (\ s a -> s{_cpvrsPolicyVersion = a});
 
 -- | FIXME: Undocumented member.
-cpvrStatus :: Lens' CreatePolicyVersionResponse Int
-cpvrStatus = lens _cpvrStatus (\ s a -> s{_cpvrStatus = a});
+cpvrsStatus :: Lens' CreatePolicyVersionResponse Int
+cpvrsStatus = lens _cpvrsStatus (\ s a -> s{_cpvrsStatus = a});

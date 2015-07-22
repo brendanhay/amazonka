@@ -67,18 +67,18 @@ module Network.AWS.Kinesis.GetShardIterator
     -- ** Request constructor
     , getShardIterator
     -- ** Request lenses
-    , gsiStartingSequenceNumber
-    , gsiStreamName
-    , gsiShardId
-    , gsiShardIteratorType
+    , gsirqStartingSequenceNumber
+    , gsirqStreamName
+    , gsirqShardId
+    , gsirqShardIteratorType
 
     -- * Response
     , GetShardIteratorResponse
     -- ** Response constructor
     , getShardIteratorResponse
     -- ** Response lenses
-    , gsirShardIterator
-    , gsirStatus
+    , gsirsShardIterator
+    , gsirsStatus
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -92,42 +92,42 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsiStartingSequenceNumber'
+-- * 'gsirqStartingSequenceNumber'
 --
--- * 'gsiStreamName'
+-- * 'gsirqStreamName'
 --
--- * 'gsiShardId'
+-- * 'gsirqShardId'
 --
--- * 'gsiShardIteratorType'
+-- * 'gsirqShardIteratorType'
 data GetShardIterator = GetShardIterator'
-    { _gsiStartingSequenceNumber :: !(Maybe Text)
-    , _gsiStreamName             :: !Text
-    , _gsiShardId                :: !Text
-    , _gsiShardIteratorType      :: !ShardIteratorType
+    { _gsirqStartingSequenceNumber :: !(Maybe Text)
+    , _gsirqStreamName             :: !Text
+    , _gsirqShardId                :: !Text
+    , _gsirqShardIteratorType      :: !ShardIteratorType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIterator' smart constructor.
 getShardIterator :: Text -> Text -> ShardIteratorType -> GetShardIterator
 getShardIterator pStreamName pShardId pShardIteratorType =
     GetShardIterator'
-    { _gsiStartingSequenceNumber = Nothing
-    , _gsiStreamName = pStreamName
-    , _gsiShardId = pShardId
-    , _gsiShardIteratorType = pShardIteratorType
+    { _gsirqStartingSequenceNumber = Nothing
+    , _gsirqStreamName = pStreamName
+    , _gsirqShardId = pShardId
+    , _gsirqShardIteratorType = pShardIteratorType
     }
 
 -- | The sequence number of the data record in the shard from which to start
 -- reading from.
-gsiStartingSequenceNumber :: Lens' GetShardIterator (Maybe Text)
-gsiStartingSequenceNumber = lens _gsiStartingSequenceNumber (\ s a -> s{_gsiStartingSequenceNumber = a});
+gsirqStartingSequenceNumber :: Lens' GetShardIterator (Maybe Text)
+gsirqStartingSequenceNumber = lens _gsirqStartingSequenceNumber (\ s a -> s{_gsirqStartingSequenceNumber = a});
 
 -- | The name of the stream.
-gsiStreamName :: Lens' GetShardIterator Text
-gsiStreamName = lens _gsiStreamName (\ s a -> s{_gsiStreamName = a});
+gsirqStreamName :: Lens' GetShardIterator Text
+gsirqStreamName = lens _gsirqStreamName (\ s a -> s{_gsirqStreamName = a});
 
 -- | The shard ID of the shard to get the iterator for.
-gsiShardId :: Lens' GetShardIterator Text
-gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a});
+gsirqShardId :: Lens' GetShardIterator Text
+gsirqShardId = lens _gsirqShardId (\ s a -> s{_gsirqShardId = a});
 
 -- | Determines how the shard iterator is used to start reading data records
 -- from the shard.
@@ -142,8 +142,8 @@ gsiShardId = lens _gsiShardId (\ s a -> s{_gsiShardId = a});
 --     shard in the system, which is the oldest data record in the shard.
 -- -   LATEST - Start reading just after the most recent record in the
 --     shard, so that you always read the most recent data in the shard.
-gsiShardIteratorType :: Lens' GetShardIterator ShardIteratorType
-gsiShardIteratorType = lens _gsiShardIteratorType (\ s a -> s{_gsiShardIteratorType = a});
+gsirqShardIteratorType :: Lens' GetShardIterator ShardIteratorType
+gsirqShardIteratorType = lens _gsirqShardIteratorType (\ s a -> s{_gsirqShardIteratorType = a});
 
 instance AWSRequest GetShardIterator where
         type Sv GetShardIterator = Kinesis
@@ -168,10 +168,10 @@ instance ToJSON GetShardIterator where
         toJSON GetShardIterator'{..}
           = object
               ["StartingSequenceNumber" .=
-                 _gsiStartingSequenceNumber,
-               "StreamName" .= _gsiStreamName,
-               "ShardId" .= _gsiShardId,
-               "ShardIteratorType" .= _gsiShardIteratorType]
+                 _gsirqStartingSequenceNumber,
+               "StreamName" .= _gsirqStreamName,
+               "ShardId" .= _gsirqShardId,
+               "ShardIteratorType" .= _gsirqShardIteratorType]
 
 instance ToPath GetShardIterator where
         toPath = const "/"
@@ -185,28 +185,28 @@ instance ToQuery GetShardIterator where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsirShardIterator'
+-- * 'gsirsShardIterator'
 --
--- * 'gsirStatus'
+-- * 'gsirsStatus'
 data GetShardIteratorResponse = GetShardIteratorResponse'
-    { _gsirShardIterator :: !(Maybe Text)
-    , _gsirStatus        :: !Int
+    { _gsirsShardIterator :: !(Maybe Text)
+    , _gsirsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShardIteratorResponse' smart constructor.
 getShardIteratorResponse :: Int -> GetShardIteratorResponse
 getShardIteratorResponse pStatus =
     GetShardIteratorResponse'
-    { _gsirShardIterator = Nothing
-    , _gsirStatus = pStatus
+    { _gsirsShardIterator = Nothing
+    , _gsirsStatus = pStatus
     }
 
 -- | The position in the shard from which to start reading data records
 -- sequentially. A shard iterator specifies this position using the
 -- sequence number of a data record in a shard.
-gsirShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
-gsirShardIterator = lens _gsirShardIterator (\ s a -> s{_gsirShardIterator = a});
+gsirsShardIterator :: Lens' GetShardIteratorResponse (Maybe Text)
+gsirsShardIterator = lens _gsirsShardIterator (\ s a -> s{_gsirsShardIterator = a});
 
 -- | FIXME: Undocumented member.
-gsirStatus :: Lens' GetShardIteratorResponse Int
-gsirStatus = lens _gsirStatus (\ s a -> s{_gsirStatus = a});
+gsirsStatus :: Lens' GetShardIteratorResponse Int
+gsirsStatus = lens _gsirsStatus (\ s a -> s{_gsirsStatus = a});

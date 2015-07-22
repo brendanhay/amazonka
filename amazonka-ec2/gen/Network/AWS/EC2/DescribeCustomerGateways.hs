@@ -31,17 +31,17 @@ module Network.AWS.EC2.DescribeCustomerGateways
     -- ** Request constructor
     , describeCustomerGateways
     -- ** Request lenses
-    , dcgCustomerGatewayIds
-    , dcgFilters
-    , dcgDryRun
+    , dcgrqCustomerGatewayIds
+    , dcgrqFilters
+    , dcgrqDryRun
 
     -- * Response
     , DescribeCustomerGatewaysResponse
     -- ** Response constructor
     , describeCustomerGatewaysResponse
     -- ** Response lenses
-    , dcgrCustomerGateways
-    , dcgrStatus
+    , dcgrsCustomerGateways
+    , dcgrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,31 +53,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcgCustomerGatewayIds'
+-- * 'dcgrqCustomerGatewayIds'
 --
--- * 'dcgFilters'
+-- * 'dcgrqFilters'
 --
--- * 'dcgDryRun'
+-- * 'dcgrqDryRun'
 data DescribeCustomerGateways = DescribeCustomerGateways'
-    { _dcgCustomerGatewayIds :: !(Maybe [Text])
-    , _dcgFilters            :: !(Maybe [Filter])
-    , _dcgDryRun             :: !(Maybe Bool)
+    { _dcgrqCustomerGatewayIds :: !(Maybe [Text])
+    , _dcgrqFilters            :: !(Maybe [Filter])
+    , _dcgrqDryRun             :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCustomerGateways' smart constructor.
 describeCustomerGateways :: DescribeCustomerGateways
 describeCustomerGateways =
     DescribeCustomerGateways'
-    { _dcgCustomerGatewayIds = Nothing
-    , _dcgFilters = Nothing
-    , _dcgDryRun = Nothing
+    { _dcgrqCustomerGatewayIds = Nothing
+    , _dcgrqFilters = Nothing
+    , _dcgrqDryRun = Nothing
     }
 
 -- | One or more customer gateway IDs.
 --
 -- Default: Describes all your customer gateways.
-dcgCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
-dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGatewayIds = a}) . _Default;
+dcgrqCustomerGatewayIds :: Lens' DescribeCustomerGateways [Text]
+dcgrqCustomerGatewayIds = lens _dcgrqCustomerGatewayIds (\ s a -> s{_dcgrqCustomerGatewayIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -109,15 +109,15 @@ dcgCustomerGatewayIds = lens _dcgCustomerGatewayIds (\ s a -> s{_dcgCustomerGate
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-dcgFilters :: Lens' DescribeCustomerGateways [Filter]
-dcgFilters = lens _dcgFilters (\ s a -> s{_dcgFilters = a}) . _Default;
+dcgrqFilters :: Lens' DescribeCustomerGateways [Filter]
+dcgrqFilters = lens _dcgrqFilters (\ s a -> s{_dcgrqFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dcgDryRun :: Lens' DescribeCustomerGateways (Maybe Bool)
-dcgDryRun = lens _dcgDryRun (\ s a -> s{_dcgDryRun = a});
+dcgrqDryRun :: Lens' DescribeCustomerGateways (Maybe Bool)
+dcgrqDryRun = lens _dcgrqDryRun (\ s a -> s{_dcgrqDryRun = a});
 
 instance AWSRequest DescribeCustomerGateways where
         type Sv DescribeCustomerGateways = EC2
@@ -146,34 +146,34 @@ instance ToQuery DescribeCustomerGateways where
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
                  (toQueryList "CustomerGatewayId" <$>
-                    _dcgCustomerGatewayIds),
-               toQuery (toQueryList "Filter" <$> _dcgFilters),
-               "DryRun" =: _dcgDryRun]
+                    _dcgrqCustomerGatewayIds),
+               toQuery (toQueryList "Filter" <$> _dcgrqFilters),
+               "DryRun" =: _dcgrqDryRun]
 
 -- | /See:/ 'describeCustomerGatewaysResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcgrCustomerGateways'
+-- * 'dcgrsCustomerGateways'
 --
--- * 'dcgrStatus'
+-- * 'dcgrsStatus'
 data DescribeCustomerGatewaysResponse = DescribeCustomerGatewaysResponse'
-    { _dcgrCustomerGateways :: !(Maybe [CustomerGateway])
-    , _dcgrStatus           :: !Int
+    { _dcgrsCustomerGateways :: !(Maybe [CustomerGateway])
+    , _dcgrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCustomerGatewaysResponse' smart constructor.
 describeCustomerGatewaysResponse :: Int -> DescribeCustomerGatewaysResponse
 describeCustomerGatewaysResponse pStatus =
     DescribeCustomerGatewaysResponse'
-    { _dcgrCustomerGateways = Nothing
-    , _dcgrStatus = pStatus
+    { _dcgrsCustomerGateways = Nothing
+    , _dcgrsStatus = pStatus
     }
 
 -- | Information about one or more customer gateways.
-dcgrCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
-dcgrCustomerGateways = lens _dcgrCustomerGateways (\ s a -> s{_dcgrCustomerGateways = a}) . _Default;
+dcgrsCustomerGateways :: Lens' DescribeCustomerGatewaysResponse [CustomerGateway]
+dcgrsCustomerGateways = lens _dcgrsCustomerGateways (\ s a -> s{_dcgrsCustomerGateways = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcgrStatus :: Lens' DescribeCustomerGatewaysResponse Int
-dcgrStatus = lens _dcgrStatus (\ s a -> s{_dcgrStatus = a});
+dcgrsStatus :: Lens' DescribeCustomerGatewaysResponse Int
+dcgrsStatus = lens _dcgrsStatus (\ s a -> s{_dcgrsStatus = a});

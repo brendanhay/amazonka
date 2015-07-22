@@ -28,15 +28,15 @@ module Network.AWS.CodePipeline.AcknowledgeJob
     -- ** Request constructor
     , acknowledgeJob
     -- ** Request lenses
-    , ajJobId
-    , ajNonce
+    , ajrqJobId
+    , ajrqNonce
 
     -- * Response
     , AcknowledgeJobResponse
     -- ** Response constructor
     , acknowledgeJobResponse
     -- ** Response lenses
-    , ajrStatus
+    , ajrsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -50,32 +50,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ajJobId'
+-- * 'ajrqJobId'
 --
--- * 'ajNonce'
+-- * 'ajrqNonce'
 data AcknowledgeJob = AcknowledgeJob'
-    { _ajJobId :: !Text
-    , _ajNonce :: !Text
+    { _ajrqJobId :: !Text
+    , _ajrqNonce :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcknowledgeJob' smart constructor.
 acknowledgeJob :: Text -> Text -> AcknowledgeJob
 acknowledgeJob pJobId pNonce =
     AcknowledgeJob'
-    { _ajJobId = pJobId
-    , _ajNonce = pNonce
+    { _ajrqJobId = pJobId
+    , _ajrqNonce = pNonce
     }
 
 -- | The unique system-generated ID of the job for which you want to confirm
 -- receipt.
-ajJobId :: Lens' AcknowledgeJob Text
-ajJobId = lens _ajJobId (\ s a -> s{_ajJobId = a});
+ajrqJobId :: Lens' AcknowledgeJob Text
+ajrqJobId = lens _ajrqJobId (\ s a -> s{_ajrqJobId = a});
 
 -- | A system-generated random number that AWS CodePipeline uses to ensure
 -- that the job is being worked on by only one job worker. This number must
 -- be returned in the response.
-ajNonce :: Lens' AcknowledgeJob Text
-ajNonce = lens _ajNonce (\ s a -> s{_ajNonce = a});
+ajrqNonce :: Lens' AcknowledgeJob Text
+ajrqNonce = lens _ajrqNonce (\ s a -> s{_ajrqNonce = a});
 
 instance AWSRequest AcknowledgeJob where
         type Sv AcknowledgeJob = CodePipeline
@@ -98,7 +98,8 @@ instance ToHeaders AcknowledgeJob where
 
 instance ToJSON AcknowledgeJob where
         toJSON AcknowledgeJob'{..}
-          = object ["jobId" .= _ajJobId, "nonce" .= _ajNonce]
+          = object
+              ["jobId" .= _ajrqJobId, "nonce" .= _ajrqNonce]
 
 instance ToPath AcknowledgeJob where
         toPath = const "/"
@@ -112,18 +113,18 @@ instance ToQuery AcknowledgeJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ajrStatus'
+-- * 'ajrsStatus'
 newtype AcknowledgeJobResponse = AcknowledgeJobResponse'
-    { _ajrStatus :: Int
+    { _ajrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AcknowledgeJobResponse' smart constructor.
 acknowledgeJobResponse :: Int -> AcknowledgeJobResponse
 acknowledgeJobResponse pStatus =
     AcknowledgeJobResponse'
-    { _ajrStatus = pStatus
+    { _ajrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ajrStatus :: Lens' AcknowledgeJobResponse Int
-ajrStatus = lens _ajrStatus (\ s a -> s{_ajrStatus = a});
+ajrsStatus :: Lens' AcknowledgeJobResponse Int
+ajrsStatus = lens _ajrsStatus (\ s a -> s{_ajrsStatus = a});

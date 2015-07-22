@@ -34,20 +34,20 @@ module Network.AWS.EC2.CopyImage
     -- ** Request constructor
     , copyImage
     -- ** Request lenses
-    , ciClientToken
-    , ciDryRun
-    , ciDescription
-    , ciSourceRegion
-    , ciSourceImageId
-    , ciName
+    , cirqClientToken
+    , cirqDryRun
+    , cirqDescription
+    , cirqSourceRegion
+    , cirqSourceImageId
+    , cirqName
 
     -- * Response
     , CopyImageResponse
     -- ** Response constructor
     , copyImageResponse
     -- ** Response lenses
-    , copImageId
-    , copStatus
+    , cirsImageId
+    , cirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -59,67 +59,67 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ciClientToken'
+-- * 'cirqClientToken'
 --
--- * 'ciDryRun'
+-- * 'cirqDryRun'
 --
--- * 'ciDescription'
+-- * 'cirqDescription'
 --
--- * 'ciSourceRegion'
+-- * 'cirqSourceRegion'
 --
--- * 'ciSourceImageId'
+-- * 'cirqSourceImageId'
 --
--- * 'ciName'
+-- * 'cirqName'
 data CopyImage = CopyImage'
-    { _ciClientToken   :: !(Maybe Text)
-    , _ciDryRun        :: !(Maybe Bool)
-    , _ciDescription   :: !(Maybe Text)
-    , _ciSourceRegion  :: !Text
-    , _ciSourceImageId :: !Text
-    , _ciName          :: !Text
+    { _cirqClientToken   :: !(Maybe Text)
+    , _cirqDryRun        :: !(Maybe Bool)
+    , _cirqDescription   :: !(Maybe Text)
+    , _cirqSourceRegion  :: !Text
+    , _cirqSourceImageId :: !Text
+    , _cirqName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyImage' smart constructor.
 copyImage :: Text -> Text -> Text -> CopyImage
 copyImage pSourceRegion pSourceImageId pName =
     CopyImage'
-    { _ciClientToken = Nothing
-    , _ciDryRun = Nothing
-    , _ciDescription = Nothing
-    , _ciSourceRegion = pSourceRegion
-    , _ciSourceImageId = pSourceImageId
-    , _ciName = pName
+    { _cirqClientToken = Nothing
+    , _cirqDryRun = Nothing
+    , _cirqDescription = Nothing
+    , _cirqSourceRegion = pSourceRegion
+    , _cirqSourceImageId = pSourceImageId
+    , _cirqName = pName
     }
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of
 -- the request. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html How to Ensure Idempotency>
 -- in the /Amazon Elastic Compute Cloud User Guide/.
-ciClientToken :: Lens' CopyImage (Maybe Text)
-ciClientToken = lens _ciClientToken (\ s a -> s{_ciClientToken = a});
+cirqClientToken :: Lens' CopyImage (Maybe Text)
+cirqClientToken = lens _cirqClientToken (\ s a -> s{_cirqClientToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ciDryRun :: Lens' CopyImage (Maybe Bool)
-ciDryRun = lens _ciDryRun (\ s a -> s{_ciDryRun = a});
+cirqDryRun :: Lens' CopyImage (Maybe Bool)
+cirqDryRun = lens _cirqDryRun (\ s a -> s{_cirqDryRun = a});
 
 -- | A description for the new AMI in the destination region.
-ciDescription :: Lens' CopyImage (Maybe Text)
-ciDescription = lens _ciDescription (\ s a -> s{_ciDescription = a});
+cirqDescription :: Lens' CopyImage (Maybe Text)
+cirqDescription = lens _cirqDescription (\ s a -> s{_cirqDescription = a});
 
 -- | The name of the region that contains the AMI to copy.
-ciSourceRegion :: Lens' CopyImage Text
-ciSourceRegion = lens _ciSourceRegion (\ s a -> s{_ciSourceRegion = a});
+cirqSourceRegion :: Lens' CopyImage Text
+cirqSourceRegion = lens _cirqSourceRegion (\ s a -> s{_cirqSourceRegion = a});
 
 -- | The ID of the AMI to copy.
-ciSourceImageId :: Lens' CopyImage Text
-ciSourceImageId = lens _ciSourceImageId (\ s a -> s{_ciSourceImageId = a});
+cirqSourceImageId :: Lens' CopyImage Text
+cirqSourceImageId = lens _cirqSourceImageId (\ s a -> s{_cirqSourceImageId = a});
 
 -- | The name of the new AMI in the destination region.
-ciName :: Lens' CopyImage Text
-ciName = lens _ciName (\ s a -> s{_ciName = a});
+cirqName :: Lens' CopyImage Text
+cirqName = lens _cirqName (\ s a -> s{_cirqName = a});
 
 instance AWSRequest CopyImage where
         type Sv CopyImage = EC2
@@ -142,37 +142,37 @@ instance ToQuery CopyImage where
           = mconcat
               ["Action" =: ("CopyImage" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ClientToken" =: _ciClientToken,
-               "DryRun" =: _ciDryRun,
-               "Description" =: _ciDescription,
-               "SourceRegion" =: _ciSourceRegion,
-               "SourceImageId" =: _ciSourceImageId,
-               "Name" =: _ciName]
+               "ClientToken" =: _cirqClientToken,
+               "DryRun" =: _cirqDryRun,
+               "Description" =: _cirqDescription,
+               "SourceRegion" =: _cirqSourceRegion,
+               "SourceImageId" =: _cirqSourceImageId,
+               "Name" =: _cirqName]
 
 -- | /See:/ 'copyImageResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'copImageId'
+-- * 'cirsImageId'
 --
--- * 'copStatus'
+-- * 'cirsStatus'
 data CopyImageResponse = CopyImageResponse'
-    { _copImageId :: !(Maybe Text)
-    , _copStatus  :: !Int
+    { _cirsImageId :: !(Maybe Text)
+    , _cirsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CopyImageResponse' smart constructor.
 copyImageResponse :: Int -> CopyImageResponse
 copyImageResponse pStatus =
     CopyImageResponse'
-    { _copImageId = Nothing
-    , _copStatus = pStatus
+    { _cirsImageId = Nothing
+    , _cirsStatus = pStatus
     }
 
 -- | The ID of the new AMI.
-copImageId :: Lens' CopyImageResponse (Maybe Text)
-copImageId = lens _copImageId (\ s a -> s{_copImageId = a});
+cirsImageId :: Lens' CopyImageResponse (Maybe Text)
+cirsImageId = lens _cirsImageId (\ s a -> s{_cirsImageId = a});
 
 -- | FIXME: Undocumented member.
-copStatus :: Lens' CopyImageResponse Int
-copStatus = lens _copStatus (\ s a -> s{_copStatus = a});
+cirsStatus :: Lens' CopyImageResponse Int
+cirsStatus = lens _cirsStatus (\ s a -> s{_cirsStatus = a});

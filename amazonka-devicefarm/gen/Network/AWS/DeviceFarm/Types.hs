@@ -65,11 +65,11 @@ module Network.AWS.DeviceFarm.Types
     -- * Artifact
     , Artifact
     , artifact
-    , artArn
-    , artUrl
-    , artExtension
-    , artName
-    , artType
+    , aArn
+    , aUrl
+    , aExtension
+    , aName
+    , aType
 
     -- * CPU
     , CPU
@@ -81,31 +81,31 @@ module Network.AWS.DeviceFarm.Types
     -- * Counters
     , Counters
     , counters
-    , couPassed
-    , couSkipped
-    , couWarned
-    , couStopped
-    , couTotal
-    , couFailed
-    , couErrored
+    , cPassed
+    , cSkipped
+    , cWarned
+    , cStopped
+    , cTotal
+    , cFailed
+    , cErrored
 
     -- * Device
     , Device
     , device
-    , devCarrier
-    , devImage
-    , devManufacturer
-    , devPlatform
-    , devArn
-    , devFormFactor
-    , devResolution
-    , devMemory
-    , devRadio
-    , devOs
-    , devName
-    , devModel
-    , devCpu
-    , devHeapSize
+    , dCarrier
+    , dImage
+    , dManufacturer
+    , dPlatform
+    , dArn
+    , dFormFactor
+    , dResolution
+    , dMemory
+    , dRadio
+    , dOs
+    , dName
+    , dModel
+    , dCpu
+    , dHeapSize
 
     -- * DevicePool
     , DevicePool
@@ -147,19 +147,19 @@ module Network.AWS.DeviceFarm.Types
     -- * Location
     , Location
     , location
-    , locLatitude
-    , locLongitude
+    , lLatitude
+    , lLongitude
 
     -- * Problem
     , Problem
     , problem
-    , proDevice
-    , proTest
-    , proResult
-    , proRun
-    , proJob
-    , proMessage
-    , proSuite
+    , pDevice
+    , pTest
+    , pResult
+    , pRun
+    , pJob
+    , pMessage
+    , pSuite
 
     -- * ProblemDetail
     , ProblemDetail
@@ -170,30 +170,30 @@ module Network.AWS.DeviceFarm.Types
     -- * Project
     , Project
     , project
-    , proArn
-    , proCreated
-    , proName
+    , pArn
+    , pCreated
+    , pName
 
     -- * Radios
     , Radios
     , radios
-    , radNfc
-    , radGps
-    , radBluetooth
-    , radWifi
+    , rNfc
+    , rGps
+    , rBluetooth
+    , rWifi
 
     -- * Resolution
     , Resolution
     , resolution
-    , resHeight
-    , resWidth
+    , rHeight
+    , rWidth
 
     -- * Rule
     , Rule
     , rule
-    , rulAttribute
-    , rulOperator
-    , rulValue
+    , rAttribute
+    , rOperator
+    , rValue
 
     -- * Run
     , Run
@@ -215,9 +215,9 @@ module Network.AWS.DeviceFarm.Types
     -- * Sample
     , Sample
     , sample
-    , samArn
-    , samUrl
-    , samType
+    , sArn
+    , sUrl
+    , sType
 
     -- * ScheduleRunConfiguration
     , ScheduleRunConfiguration
@@ -254,16 +254,16 @@ module Network.AWS.DeviceFarm.Types
     -- * Test
     , Test
     , test
-    , tesStatus
-    , tesCounters
-    , tesArn
-    , tesCreated
-    , tesStopped
-    , tesResult
-    , tesName
-    , tesType
-    , tesMessage
-    , tesStarted
+    , tStatus
+    , tCounters
+    , tArn
+    , tCreated
+    , tStopped
+    , tResult
+    , tName
+    , tType
+    , tMessage
+    , tStarted
 
     -- * UniqueProblem
     , UniqueProblem
@@ -274,15 +274,15 @@ module Network.AWS.DeviceFarm.Types
     -- * Upload
     , Upload
     , upload
-    , uplStatus
-    , uplArn
-    , uplCreated
-    , uplUrl
-    , uplName
-    , uplMetadata
-    , uplType
-    , uplMessage
-    , uplContentType
+    , uStatus
+    , uArn
+    , uCreated
+    , uUrl
+    , uName
+    , uMetadata
+    , uType
+    , uMessage
+    , uContentType
     ) where
 
 import           Network.AWS.DeviceFarm.Types.Product

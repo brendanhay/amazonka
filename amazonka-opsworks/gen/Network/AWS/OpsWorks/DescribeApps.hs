@@ -35,16 +35,16 @@ module Network.AWS.OpsWorks.DescribeApps
     -- ** Request constructor
     , describeApps
     -- ** Request lenses
-    , daAppIds
-    , daStackId
+    , darqAppIds
+    , darqStackId
 
     -- * Response
     , DescribeAppsResponse
     -- ** Response constructor
     , describeAppsResponse
     -- ** Response lenses
-    , darApps
-    , darStatus
+    , darsApps
+    , darsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -56,32 +56,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daAppIds'
+-- * 'darqAppIds'
 --
--- * 'daStackId'
+-- * 'darqStackId'
 data DescribeApps = DescribeApps'
-    { _daAppIds  :: !(Maybe [Text])
-    , _daStackId :: !(Maybe Text)
+    { _darqAppIds  :: !(Maybe [Text])
+    , _darqStackId :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApps' smart constructor.
 describeApps :: DescribeApps
 describeApps =
     DescribeApps'
-    { _daAppIds = Nothing
-    , _daStackId = Nothing
+    { _darqAppIds = Nothing
+    , _darqStackId = Nothing
     }
 
 -- | An array of app IDs for the apps to be described. If you use this
 -- parameter, @DescribeApps@ returns a description of the specified apps.
 -- Otherwise, it returns a description of every app.
-daAppIds :: Lens' DescribeApps [Text]
-daAppIds = lens _daAppIds (\ s a -> s{_daAppIds = a}) . _Default;
+darqAppIds :: Lens' DescribeApps [Text]
+darqAppIds = lens _darqAppIds (\ s a -> s{_darqAppIds = a}) . _Default;
 
 -- | The app stack ID. If you use this parameter, @DescribeApps@ returns a
 -- description of the apps in the specified stack.
-daStackId :: Lens' DescribeApps (Maybe Text)
-daStackId = lens _daStackId (\ s a -> s{_daStackId = a});
+darqStackId :: Lens' DescribeApps (Maybe Text)
+darqStackId = lens _darqStackId (\ s a -> s{_darqStackId = a});
 
 instance AWSRequest DescribeApps where
         type Sv DescribeApps = OpsWorks
@@ -105,7 +105,7 @@ instance ToHeaders DescribeApps where
 instance ToJSON DescribeApps where
         toJSON DescribeApps'{..}
           = object
-              ["AppIds" .= _daAppIds, "StackId" .= _daStackId]
+              ["AppIds" .= _darqAppIds, "StackId" .= _darqStackId]
 
 instance ToPath DescribeApps where
         toPath = const "/"
@@ -119,26 +119,26 @@ instance ToQuery DescribeApps where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darApps'
+-- * 'darsApps'
 --
--- * 'darStatus'
+-- * 'darsStatus'
 data DescribeAppsResponse = DescribeAppsResponse'
-    { _darApps   :: !(Maybe [App])
-    , _darStatus :: !Int
+    { _darsApps   :: !(Maybe [App])
+    , _darsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAppsResponse' smart constructor.
 describeAppsResponse :: Int -> DescribeAppsResponse
 describeAppsResponse pStatus =
     DescribeAppsResponse'
-    { _darApps = Nothing
-    , _darStatus = pStatus
+    { _darsApps = Nothing
+    , _darsStatus = pStatus
     }
 
 -- | An array of @App@ objects that describe the specified apps.
-darApps :: Lens' DescribeAppsResponse [App]
-darApps = lens _darApps (\ s a -> s{_darApps = a}) . _Default;
+darsApps :: Lens' DescribeAppsResponse [App]
+darsApps = lens _darsApps (\ s a -> s{_darsApps = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeAppsResponse Int
-darStatus = lens _darStatus (\ s a -> s{_darStatus = a});
+darsStatus :: Lens' DescribeAppsResponse Int
+darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

@@ -27,16 +27,16 @@ module Network.AWS.EMR.DescribeStep
     -- ** Request constructor
     , describeStep
     -- ** Request lenses
-    , dsClusterId
-    , dsStepId
+    , dsrqClusterId
+    , dsrqStepId
 
     -- * Response
     , DescribeStepResponse
     -- ** Response constructor
     , describeStepResponse
     -- ** Response lenses
-    , dsrStep
-    , dsrStatus
+    , dsrsStep
+    , dsrsStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -50,29 +50,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsClusterId'
+-- * 'dsrqClusterId'
 --
--- * 'dsStepId'
+-- * 'dsrqStepId'
 data DescribeStep = DescribeStep'
-    { _dsClusterId :: !Text
-    , _dsStepId    :: !Text
+    { _dsrqClusterId :: !Text
+    , _dsrqStepId    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStep' smart constructor.
 describeStep :: Text -> Text -> DescribeStep
 describeStep pClusterId pStepId =
     DescribeStep'
-    { _dsClusterId = pClusterId
-    , _dsStepId = pStepId
+    { _dsrqClusterId = pClusterId
+    , _dsrqStepId = pStepId
     }
 
 -- | The identifier of the cluster with steps to describe.
-dsClusterId :: Lens' DescribeStep Text
-dsClusterId = lens _dsClusterId (\ s a -> s{_dsClusterId = a});
+dsrqClusterId :: Lens' DescribeStep Text
+dsrqClusterId = lens _dsrqClusterId (\ s a -> s{_dsrqClusterId = a});
 
 -- | The identifier of the step to describe.
-dsStepId :: Lens' DescribeStep Text
-dsStepId = lens _dsStepId (\ s a -> s{_dsStepId = a});
+dsrqStepId :: Lens' DescribeStep Text
+dsrqStepId = lens _dsrqStepId (\ s a -> s{_dsrqStepId = a});
 
 instance AWSRequest DescribeStep where
         type Sv DescribeStep = EMR
@@ -96,7 +96,8 @@ instance ToHeaders DescribeStep where
 instance ToJSON DescribeStep where
         toJSON DescribeStep'{..}
           = object
-              ["ClusterId" .= _dsClusterId, "StepId" .= _dsStepId]
+              ["ClusterId" .= _dsrqClusterId,
+               "StepId" .= _dsrqStepId]
 
 instance ToPath DescribeStep where
         toPath = const "/"
@@ -110,26 +111,26 @@ instance ToQuery DescribeStep where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrStep'
+-- * 'dsrsStep'
 --
--- * 'dsrStatus'
+-- * 'dsrsStatus'
 data DescribeStepResponse = DescribeStepResponse'
-    { _dsrStep   :: !(Maybe Step)
-    , _dsrStatus :: !Int
+    { _dsrsStep   :: !(Maybe Step)
+    , _dsrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStepResponse' smart constructor.
 describeStepResponse :: Int -> DescribeStepResponse
 describeStepResponse pStatus =
     DescribeStepResponse'
-    { _dsrStep = Nothing
-    , _dsrStatus = pStatus
+    { _dsrsStep = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | The step details for the requested step identifier.
-dsrStep :: Lens' DescribeStepResponse (Maybe Step)
-dsrStep = lens _dsrStep (\ s a -> s{_dsrStep = a});
+dsrsStep :: Lens' DescribeStepResponse (Maybe Step)
+dsrsStep = lens _dsrsStep (\ s a -> s{_dsrsStep = a});
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStepResponse Int
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+dsrsStatus :: Lens' DescribeStepResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

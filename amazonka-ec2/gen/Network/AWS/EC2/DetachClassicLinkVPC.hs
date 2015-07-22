@@ -30,17 +30,17 @@ module Network.AWS.EC2.DetachClassicLinkVPC
     -- ** Request constructor
     , detachClassicLinkVPC
     -- ** Request lenses
-    , dclvDryRun
-    , dclvInstanceId
-    , dclvVPCId
+    , dclvrqDryRun
+    , dclvrqInstanceId
+    , dclvrqVPCId
 
     -- * Response
     , DetachClassicLinkVPCResponse
     -- ** Response constructor
     , detachClassicLinkVPCResponse
     -- ** Response lenses
-    , dclvrReturn
-    , dclvrStatus
+    , dclvrsReturn
+    , dclvrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,40 +52,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dclvDryRun'
+-- * 'dclvrqDryRun'
 --
--- * 'dclvInstanceId'
+-- * 'dclvrqInstanceId'
 --
--- * 'dclvVPCId'
+-- * 'dclvrqVPCId'
 data DetachClassicLinkVPC = DetachClassicLinkVPC'
-    { _dclvDryRun     :: !(Maybe Bool)
-    , _dclvInstanceId :: !Text
-    , _dclvVPCId      :: !Text
+    { _dclvrqDryRun     :: !(Maybe Bool)
+    , _dclvrqInstanceId :: !Text
+    , _dclvrqVPCId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachClassicLinkVPC' smart constructor.
 detachClassicLinkVPC :: Text -> Text -> DetachClassicLinkVPC
 detachClassicLinkVPC pInstanceId pVPCId =
     DetachClassicLinkVPC'
-    { _dclvDryRun = Nothing
-    , _dclvInstanceId = pInstanceId
-    , _dclvVPCId = pVPCId
+    { _dclvrqDryRun = Nothing
+    , _dclvrqInstanceId = pInstanceId
+    , _dclvrqVPCId = pVPCId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dclvDryRun :: Lens' DetachClassicLinkVPC (Maybe Bool)
-dclvDryRun = lens _dclvDryRun (\ s a -> s{_dclvDryRun = a});
+dclvrqDryRun :: Lens' DetachClassicLinkVPC (Maybe Bool)
+dclvrqDryRun = lens _dclvrqDryRun (\ s a -> s{_dclvrqDryRun = a});
 
 -- | The ID of the instance to unlink from the VPC.
-dclvInstanceId :: Lens' DetachClassicLinkVPC Text
-dclvInstanceId = lens _dclvInstanceId (\ s a -> s{_dclvInstanceId = a});
+dclvrqInstanceId :: Lens' DetachClassicLinkVPC Text
+dclvrqInstanceId = lens _dclvrqInstanceId (\ s a -> s{_dclvrqInstanceId = a});
 
 -- | The ID of the VPC to which the instance is linked.
-dclvVPCId :: Lens' DetachClassicLinkVPC Text
-dclvVPCId = lens _dclvVPCId (\ s a -> s{_dclvVPCId = a});
+dclvrqVPCId :: Lens' DetachClassicLinkVPC Text
+dclvrqVPCId = lens _dclvrqVPCId (\ s a -> s{_dclvrqVPCId = a});
 
 instance AWSRequest DetachClassicLinkVPC where
         type Sv DetachClassicLinkVPC = EC2
@@ -109,34 +109,34 @@ instance ToQuery DetachClassicLinkVPC where
           = mconcat
               ["Action" =: ("DetachClassicLinkVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dclvDryRun,
-               "InstanceId" =: _dclvInstanceId,
-               "VpcId" =: _dclvVPCId]
+               "DryRun" =: _dclvrqDryRun,
+               "InstanceId" =: _dclvrqInstanceId,
+               "VpcId" =: _dclvrqVPCId]
 
 -- | /See:/ 'detachClassicLinkVPCResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dclvrReturn'
+-- * 'dclvrsReturn'
 --
--- * 'dclvrStatus'
+-- * 'dclvrsStatus'
 data DetachClassicLinkVPCResponse = DetachClassicLinkVPCResponse'
-    { _dclvrReturn :: !(Maybe Bool)
-    , _dclvrStatus :: !Int
+    { _dclvrsReturn :: !(Maybe Bool)
+    , _dclvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachClassicLinkVPCResponse' smart constructor.
 detachClassicLinkVPCResponse :: Int -> DetachClassicLinkVPCResponse
 detachClassicLinkVPCResponse pStatus =
     DetachClassicLinkVPCResponse'
-    { _dclvrReturn = Nothing
-    , _dclvrStatus = pStatus
+    { _dclvrsReturn = Nothing
+    , _dclvrsStatus = pStatus
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-dclvrReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
-dclvrReturn = lens _dclvrReturn (\ s a -> s{_dclvrReturn = a});
+dclvrsReturn :: Lens' DetachClassicLinkVPCResponse (Maybe Bool)
+dclvrsReturn = lens _dclvrsReturn (\ s a -> s{_dclvrsReturn = a});
 
 -- | FIXME: Undocumented member.
-dclvrStatus :: Lens' DetachClassicLinkVPCResponse Int
-dclvrStatus = lens _dclvrStatus (\ s a -> s{_dclvrStatus = a});
+dclvrsStatus :: Lens' DetachClassicLinkVPCResponse Int
+dclvrsStatus = lens _dclvrsStatus (\ s a -> s{_dclvrsStatus = a});

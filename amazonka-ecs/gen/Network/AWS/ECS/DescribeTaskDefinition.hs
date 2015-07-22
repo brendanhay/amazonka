@@ -32,15 +32,15 @@ module Network.AWS.ECS.DescribeTaskDefinition
     -- ** Request constructor
     , describeTaskDefinition
     -- ** Request lenses
-    , dtdTaskDefinition
+    , dtdrqTaskDefinition
 
     -- * Response
     , DescribeTaskDefinitionResponse
     -- ** Response constructor
     , describeTaskDefinitionResponse
     -- ** Response lenses
-    , descTaskDefinition
-    , descStatus
+    , dtdrsTaskDefinition
+    , dtdrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtdTaskDefinition'
+-- * 'dtdrqTaskDefinition'
 newtype DescribeTaskDefinition = DescribeTaskDefinition'
-    { _dtdTaskDefinition :: Text
+    { _dtdrqTaskDefinition :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTaskDefinition' smart constructor.
 describeTaskDefinition :: Text -> DescribeTaskDefinition
 describeTaskDefinition pTaskDefinition =
     DescribeTaskDefinition'
-    { _dtdTaskDefinition = pTaskDefinition
+    { _dtdrqTaskDefinition = pTaskDefinition
     }
 
 -- | The @family@ for the latest @ACTIVE@ revision, @family@ and @revision@
 -- (@family:revision@) for a specific revision in the family, or full
 -- Amazon Resource Name (ARN) of the task definition that you want to
 -- describe.
-dtdTaskDefinition :: Lens' DescribeTaskDefinition Text
-dtdTaskDefinition = lens _dtdTaskDefinition (\ s a -> s{_dtdTaskDefinition = a});
+dtdrqTaskDefinition :: Lens' DescribeTaskDefinition Text
+dtdrqTaskDefinition = lens _dtdrqTaskDefinition (\ s a -> s{_dtdrqTaskDefinition = a});
 
 instance AWSRequest DescribeTaskDefinition where
         type Sv DescribeTaskDefinition = ECS
@@ -94,7 +94,7 @@ instance ToHeaders DescribeTaskDefinition where
 
 instance ToJSON DescribeTaskDefinition where
         toJSON DescribeTaskDefinition'{..}
-          = object ["taskDefinition" .= _dtdTaskDefinition]
+          = object ["taskDefinition" .= _dtdrqTaskDefinition]
 
 instance ToPath DescribeTaskDefinition where
         toPath = const "/"
@@ -106,26 +106,26 @@ instance ToQuery DescribeTaskDefinition where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'descTaskDefinition'
+-- * 'dtdrsTaskDefinition'
 --
--- * 'descStatus'
+-- * 'dtdrsStatus'
 data DescribeTaskDefinitionResponse = DescribeTaskDefinitionResponse'
-    { _descTaskDefinition :: !(Maybe TaskDefinition)
-    , _descStatus         :: !Int
+    { _dtdrsTaskDefinition :: !(Maybe TaskDefinition)
+    , _dtdrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTaskDefinitionResponse' smart constructor.
 describeTaskDefinitionResponse :: Int -> DescribeTaskDefinitionResponse
 describeTaskDefinitionResponse pStatus =
     DescribeTaskDefinitionResponse'
-    { _descTaskDefinition = Nothing
-    , _descStatus = pStatus
+    { _dtdrsTaskDefinition = Nothing
+    , _dtdrsStatus = pStatus
     }
 
 -- | The full task definition description.
-descTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
-descTaskDefinition = lens _descTaskDefinition (\ s a -> s{_descTaskDefinition = a});
+dtdrsTaskDefinition :: Lens' DescribeTaskDefinitionResponse (Maybe TaskDefinition)
+dtdrsTaskDefinition = lens _dtdrsTaskDefinition (\ s a -> s{_dtdrsTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-descStatus :: Lens' DescribeTaskDefinitionResponse Int
-descStatus = lens _descStatus (\ s a -> s{_descStatus = a});
+dtdrsStatus :: Lens' DescribeTaskDefinitionResponse Int
+dtdrsStatus = lens _dtdrsStatus (\ s a -> s{_dtdrsStatus = a});

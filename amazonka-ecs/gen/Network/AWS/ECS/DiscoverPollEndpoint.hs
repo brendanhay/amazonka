@@ -31,17 +31,17 @@ module Network.AWS.ECS.DiscoverPollEndpoint
     -- ** Request constructor
     , discoverPollEndpoint
     -- ** Request lenses
-    , dpeCluster
-    , dpeContainerInstance
+    , dperqCluster
+    , dperqContainerInstance
 
     -- * Response
     , DiscoverPollEndpointResponse
     -- ** Response constructor
     , discoverPollEndpointResponse
     -- ** Response lenses
-    , dperTelemetryEndpoint
-    , dperEndpoint
-    , dperStatus
+    , dpersTelemetryEndpoint
+    , dpersEndpoint
+    , dpersStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -53,25 +53,25 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpeCluster'
+-- * 'dperqCluster'
 --
--- * 'dpeContainerInstance'
+-- * 'dperqContainerInstance'
 data DiscoverPollEndpoint = DiscoverPollEndpoint'
-    { _dpeCluster           :: !(Maybe Text)
-    , _dpeContainerInstance :: !(Maybe Text)
+    { _dperqCluster           :: !(Maybe Text)
+    , _dperqContainerInstance :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiscoverPollEndpoint' smart constructor.
 discoverPollEndpoint :: DiscoverPollEndpoint
 discoverPollEndpoint =
     DiscoverPollEndpoint'
-    { _dpeCluster = Nothing
-    , _dpeContainerInstance = Nothing
+    { _dperqCluster = Nothing
+    , _dperqContainerInstance = Nothing
     }
 
 -- | The cluster that the container instance belongs to.
-dpeCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
-dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a});
+dperqCluster :: Lens' DiscoverPollEndpoint (Maybe Text)
+dperqCluster = lens _dperqCluster (\ s a -> s{_dperqCluster = a});
 
 -- | The container instance UUID or full Amazon Resource Name (ARN) of the
 -- container instance. The ARN contains the @arn:aws:ecs@ namespace,
@@ -79,8 +79,8 @@ dpeCluster = lens _dpeCluster (\ s a -> s{_dpeCluster = a});
 -- the container instance owner, the @container-instance@ namespace, and
 -- then the container instance UUID. For example,
 -- arn:aws:ecs:/region/:/aws_account_id/:container-instance\//container_instance_UUID/.
-dpeContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
-dpeContainerInstance = lens _dpeContainerInstance (\ s a -> s{_dpeContainerInstance = a});
+dperqContainerInstance :: Lens' DiscoverPollEndpoint (Maybe Text)
+dperqContainerInstance = lens _dperqContainerInstance (\ s a -> s{_dperqContainerInstance = a});
 
 instance AWSRequest DiscoverPollEndpoint where
         type Sv DiscoverPollEndpoint = ECS
@@ -107,8 +107,8 @@ instance ToHeaders DiscoverPollEndpoint where
 instance ToJSON DiscoverPollEndpoint where
         toJSON DiscoverPollEndpoint'{..}
           = object
-              ["cluster" .= _dpeCluster,
-               "containerInstance" .= _dpeContainerInstance]
+              ["cluster" .= _dperqCluster,
+               "containerInstance" .= _dperqContainerInstance]
 
 instance ToPath DiscoverPollEndpoint where
         toPath = const "/"
@@ -120,34 +120,34 @@ instance ToQuery DiscoverPollEndpoint where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dperTelemetryEndpoint'
+-- * 'dpersTelemetryEndpoint'
 --
--- * 'dperEndpoint'
+-- * 'dpersEndpoint'
 --
--- * 'dperStatus'
+-- * 'dpersStatus'
 data DiscoverPollEndpointResponse = DiscoverPollEndpointResponse'
-    { _dperTelemetryEndpoint :: !(Maybe Text)
-    , _dperEndpoint          :: !(Maybe Text)
-    , _dperStatus            :: !Int
+    { _dpersTelemetryEndpoint :: !(Maybe Text)
+    , _dpersEndpoint          :: !(Maybe Text)
+    , _dpersStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DiscoverPollEndpointResponse' smart constructor.
 discoverPollEndpointResponse :: Int -> DiscoverPollEndpointResponse
 discoverPollEndpointResponse pStatus =
     DiscoverPollEndpointResponse'
-    { _dperTelemetryEndpoint = Nothing
-    , _dperEndpoint = Nothing
-    , _dperStatus = pStatus
+    { _dpersTelemetryEndpoint = Nothing
+    , _dpersEndpoint = Nothing
+    , _dpersStatus = pStatus
     }
 
 -- | The telemetry endpoint for the Amazon ECS agent.
-dperTelemetryEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
-dperTelemetryEndpoint = lens _dperTelemetryEndpoint (\ s a -> s{_dperTelemetryEndpoint = a});
+dpersTelemetryEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
+dpersTelemetryEndpoint = lens _dpersTelemetryEndpoint (\ s a -> s{_dpersTelemetryEndpoint = a});
 
 -- | The endpoint for the Amazon ECS agent to poll.
-dperEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
-dperEndpoint = lens _dperEndpoint (\ s a -> s{_dperEndpoint = a});
+dpersEndpoint :: Lens' DiscoverPollEndpointResponse (Maybe Text)
+dpersEndpoint = lens _dpersEndpoint (\ s a -> s{_dpersEndpoint = a});
 
 -- | FIXME: Undocumented member.
-dperStatus :: Lens' DiscoverPollEndpointResponse Int
-dperStatus = lens _dperStatus (\ s a -> s{_dperStatus = a});
+dpersStatus :: Lens' DiscoverPollEndpointResponse Int
+dpersStatus = lens _dpersStatus (\ s a -> s{_dpersStatus = a});

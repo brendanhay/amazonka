@@ -39,8 +39,8 @@ module Network.AWS.IAM.AttachRolePolicy
     -- ** Request constructor
     , attachRolePolicy
     -- ** Request lenses
-    , arpRoleName
-    , arpPolicyARN
+    , arprqRoleName
+    , arprqPolicyARN
 
     -- * Response
     , AttachRolePolicyResponse
@@ -57,29 +57,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'arpRoleName'
+-- * 'arprqRoleName'
 --
--- * 'arpPolicyARN'
+-- * 'arprqPolicyARN'
 data AttachRolePolicy = AttachRolePolicy'
-    { _arpRoleName  :: !Text
-    , _arpPolicyARN :: !Text
+    { _arprqRoleName  :: !Text
+    , _arprqPolicyARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachRolePolicy' smart constructor.
 attachRolePolicy :: Text -> Text -> AttachRolePolicy
 attachRolePolicy pRoleName pPolicyARN =
     AttachRolePolicy'
-    { _arpRoleName = pRoleName
-    , _arpPolicyARN = pPolicyARN
+    { _arprqRoleName = pRoleName
+    , _arprqPolicyARN = pPolicyARN
     }
 
 -- | The name (friendly name, not ARN) of the role to attach the policy to.
-arpRoleName :: Lens' AttachRolePolicy Text
-arpRoleName = lens _arpRoleName (\ s a -> s{_arpRoleName = a});
+arprqRoleName :: Lens' AttachRolePolicy Text
+arprqRoleName = lens _arprqRoleName (\ s a -> s{_arprqRoleName = a});
 
 -- | FIXME: Undocumented member.
-arpPolicyARN :: Lens' AttachRolePolicy Text
-arpPolicyARN = lens _arpPolicyARN (\ s a -> s{_arpPolicyARN = a});
+arprqPolicyARN :: Lens' AttachRolePolicy Text
+arprqPolicyARN = lens _arprqPolicyARN (\ s a -> s{_arprqPolicyARN = a});
 
 instance AWSRequest AttachRolePolicy where
         type Sv AttachRolePolicy = IAM
@@ -98,8 +98,8 @@ instance ToQuery AttachRolePolicy where
           = mconcat
               ["Action" =: ("AttachRolePolicy" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "RoleName" =: _arpRoleName,
-               "PolicyArn" =: _arpPolicyARN]
+               "RoleName" =: _arprqRoleName,
+               "PolicyArn" =: _arprqPolicyARN]
 
 -- | /See:/ 'attachRolePolicyResponse' smart constructor.
 data AttachRolePolicyResponse =

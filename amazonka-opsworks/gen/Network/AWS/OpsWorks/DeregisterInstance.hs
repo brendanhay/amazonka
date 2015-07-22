@@ -36,7 +36,7 @@ module Network.AWS.OpsWorks.DeregisterInstance
     -- ** Request constructor
     , deregisterInstance
     -- ** Request lenses
-    , derInstanceId
+    , drqInstanceId
 
     -- * Response
     , DeregisterInstanceResponse
@@ -53,21 +53,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derInstanceId'
+-- * 'drqInstanceId'
 newtype DeregisterInstance = DeregisterInstance'
-    { _derInstanceId :: Text
+    { _drqInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeregisterInstance' smart constructor.
 deregisterInstance :: Text -> DeregisterInstance
 deregisterInstance pInstanceId =
     DeregisterInstance'
-    { _derInstanceId = pInstanceId
+    { _drqInstanceId = pInstanceId
     }
 
 -- | The instance ID.
-derInstanceId :: Lens' DeregisterInstance Text
-derInstanceId = lens _derInstanceId (\ s a -> s{_derInstanceId = a});
+drqInstanceId :: Lens' DeregisterInstance Text
+drqInstanceId = lens _drqInstanceId (\ s a -> s{_drqInstanceId = a});
 
 instance AWSRequest DeregisterInstance where
         type Sv DeregisterInstance = OpsWorks
@@ -88,7 +88,7 @@ instance ToHeaders DeregisterInstance where
 
 instance ToJSON DeregisterInstance where
         toJSON DeregisterInstance'{..}
-          = object ["InstanceId" .= _derInstanceId]
+          = object ["InstanceId" .= _drqInstanceId]
 
 instance ToPath DeregisterInstance where
         toPath = const "/"

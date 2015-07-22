@@ -27,18 +27,18 @@ module Network.AWS.SSM.ListDocuments
     -- ** Request constructor
     , listDocuments
     -- ** Request lenses
-    , ldDocumentFilterList
-    , ldNextToken
-    , ldMaxResults
+    , ldrqDocumentFilterList
+    , ldrqNextToken
+    , ldrqMaxResults
 
     -- * Response
     , ListDocumentsResponse
     -- ** Response constructor
     , listDocumentsResponse
     -- ** Response lenses
-    , ldrDocumentIdentifiers
-    , ldrNextToken
-    , ldrStatus
+    , ldrsDocumentIdentifiers
+    , ldrsNextToken
+    , ldrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -50,41 +50,41 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldDocumentFilterList'
+-- * 'ldrqDocumentFilterList'
 --
--- * 'ldNextToken'
+-- * 'ldrqNextToken'
 --
--- * 'ldMaxResults'
+-- * 'ldrqMaxResults'
 data ListDocuments = ListDocuments'
-    { _ldDocumentFilterList :: !(Maybe (List1 DocumentFilter))
-    , _ldNextToken          :: !(Maybe Text)
-    , _ldMaxResults         :: !(Maybe Nat)
+    { _ldrqDocumentFilterList :: !(Maybe (List1 DocumentFilter))
+    , _ldrqNextToken          :: !(Maybe Text)
+    , _ldrqMaxResults         :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDocuments' smart constructor.
 listDocuments :: ListDocuments
 listDocuments =
     ListDocuments'
-    { _ldDocumentFilterList = Nothing
-    , _ldNextToken = Nothing
-    , _ldMaxResults = Nothing
+    { _ldrqDocumentFilterList = Nothing
+    , _ldrqNextToken = Nothing
+    , _ldrqMaxResults = Nothing
     }
 
 -- | One or more filters. Use a filter to return a more specific list of
 -- results.
-ldDocumentFilterList :: Lens' ListDocuments (Maybe (NonEmpty DocumentFilter))
-ldDocumentFilterList = lens _ldDocumentFilterList (\ s a -> s{_ldDocumentFilterList = a}) . mapping _List1;
+ldrqDocumentFilterList :: Lens' ListDocuments (Maybe (NonEmpty DocumentFilter))
+ldrqDocumentFilterList = lens _ldrqDocumentFilterList (\ s a -> s{_ldrqDocumentFilterList = a}) . mapping _List1;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-ldNextToken :: Lens' ListDocuments (Maybe Text)
-ldNextToken = lens _ldNextToken (\ s a -> s{_ldNextToken = a});
+ldrqNextToken :: Lens' ListDocuments (Maybe Text)
+ldrqNextToken = lens _ldrqNextToken (\ s a -> s{_ldrqNextToken = a});
 
 -- | The maximum number of items to return for this call. The call also
 -- returns a token that you can specify in a subsequent call to get the
 -- next set of results.
-ldMaxResults :: Lens' ListDocuments (Maybe Natural)
-ldMaxResults = lens _ldMaxResults (\ s a -> s{_ldMaxResults = a}) . mapping _Nat;
+ldrqMaxResults :: Lens' ListDocuments (Maybe Natural)
+ldrqMaxResults = lens _ldrqMaxResults (\ s a -> s{_ldrqMaxResults = a}) . mapping _Nat;
 
 instance AWSRequest ListDocuments where
         type Sv ListDocuments = SSM
@@ -110,9 +110,9 @@ instance ToHeaders ListDocuments where
 instance ToJSON ListDocuments where
         toJSON ListDocuments'{..}
           = object
-              ["DocumentFilterList" .= _ldDocumentFilterList,
-               "NextToken" .= _ldNextToken,
-               "MaxResults" .= _ldMaxResults]
+              ["DocumentFilterList" .= _ldrqDocumentFilterList,
+               "NextToken" .= _ldrqNextToken,
+               "MaxResults" .= _ldrqMaxResults]
 
 instance ToPath ListDocuments where
         toPath = const "/"
@@ -124,35 +124,35 @@ instance ToQuery ListDocuments where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ldrDocumentIdentifiers'
+-- * 'ldrsDocumentIdentifiers'
 --
--- * 'ldrNextToken'
+-- * 'ldrsNextToken'
 --
--- * 'ldrStatus'
+-- * 'ldrsStatus'
 data ListDocumentsResponse = ListDocumentsResponse'
-    { _ldrDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
-    , _ldrNextToken           :: !(Maybe Text)
-    , _ldrStatus              :: !Int
+    { _ldrsDocumentIdentifiers :: !(Maybe [DocumentIdentifier])
+    , _ldrsNextToken           :: !(Maybe Text)
+    , _ldrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListDocumentsResponse' smart constructor.
 listDocumentsResponse :: Int -> ListDocumentsResponse
 listDocumentsResponse pStatus =
     ListDocumentsResponse'
-    { _ldrDocumentIdentifiers = Nothing
-    , _ldrNextToken = Nothing
-    , _ldrStatus = pStatus
+    { _ldrsDocumentIdentifiers = Nothing
+    , _ldrsNextToken = Nothing
+    , _ldrsStatus = pStatus
     }
 
 -- | The names of the configuration documents.
-ldrDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
-ldrDocumentIdentifiers = lens _ldrDocumentIdentifiers (\ s a -> s{_ldrDocumentIdentifiers = a}) . _Default;
+ldrsDocumentIdentifiers :: Lens' ListDocumentsResponse [DocumentIdentifier]
+ldrsDocumentIdentifiers = lens _ldrsDocumentIdentifiers (\ s a -> s{_ldrsDocumentIdentifiers = a}) . _Default;
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-ldrNextToken :: Lens' ListDocumentsResponse (Maybe Text)
-ldrNextToken = lens _ldrNextToken (\ s a -> s{_ldrNextToken = a});
+ldrsNextToken :: Lens' ListDocumentsResponse (Maybe Text)
+ldrsNextToken = lens _ldrsNextToken (\ s a -> s{_ldrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ldrStatus :: Lens' ListDocumentsResponse Int
-ldrStatus = lens _ldrStatus (\ s a -> s{_ldrStatus = a});
+ldrsStatus :: Lens' ListDocumentsResponse Int
+ldrsStatus = lens _ldrsStatus (\ s a -> s{_ldrsStatus = a});

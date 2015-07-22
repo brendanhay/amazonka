@@ -38,10 +38,10 @@ module Network.AWS.SDB.Types
     -- * Attribute
     , Attribute
     , attribute
-    , attAlternateValueEncoding
-    , attAlternateNameEncoding
-    , attName
-    , attValue
+    , aAlternateValueEncoding
+    , aAlternateNameEncoding
+    , aName
+    , aValue
 
     -- * DeletableItem
     , DeletableItem
@@ -52,9 +52,9 @@ module Network.AWS.SDB.Types
     -- * Item
     , Item
     , item
-    , iteAlternateNameEncoding
-    , iteName
-    , iteAttributes
+    , iAlternateNameEncoding
+    , iName
+    , iAttributes
 
     -- * ReplaceableAttribute
     , ReplaceableAttribute

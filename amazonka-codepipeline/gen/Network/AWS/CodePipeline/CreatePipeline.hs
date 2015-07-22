@@ -27,15 +27,15 @@ module Network.AWS.CodePipeline.CreatePipeline
     -- ** Request constructor
     , createPipeline
     -- ** Request lenses
-    , cpPipeline
+    , cprqPipeline
 
     -- * Response
     , CreatePipelineResponse
     -- ** Response constructor
     , createPipelineResponse
     -- ** Response lenses
-    , cprPipeline
-    , cprStatus
+    , cprsPipeline
+    , cprsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpPipeline'
+-- * 'cprqPipeline'
 newtype CreatePipeline = CreatePipeline'
-    { _cpPipeline :: PipelineDeclaration
+    { _cprqPipeline :: PipelineDeclaration
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipeline' smart constructor.
 createPipeline :: PipelineDeclaration -> CreatePipeline
 createPipeline pPipeline =
     CreatePipeline'
-    { _cpPipeline = pPipeline
+    { _cprqPipeline = pPipeline
     }
 
 -- | FIXME: Undocumented member.
-cpPipeline :: Lens' CreatePipeline PipelineDeclaration
-cpPipeline = lens _cpPipeline (\ s a -> s{_cpPipeline = a});
+cprqPipeline :: Lens' CreatePipeline PipelineDeclaration
+cprqPipeline = lens _cprqPipeline (\ s a -> s{_cprqPipeline = a});
 
 instance AWSRequest CreatePipeline where
         type Sv CreatePipeline = CodePipeline
@@ -87,7 +87,7 @@ instance ToHeaders CreatePipeline where
 
 instance ToJSON CreatePipeline where
         toJSON CreatePipeline'{..}
-          = object ["pipeline" .= _cpPipeline]
+          = object ["pipeline" .= _cprqPipeline]
 
 instance ToPath CreatePipeline where
         toPath = const "/"
@@ -101,26 +101,26 @@ instance ToQuery CreatePipeline where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cprPipeline'
+-- * 'cprsPipeline'
 --
--- * 'cprStatus'
+-- * 'cprsStatus'
 data CreatePipelineResponse = CreatePipelineResponse'
-    { _cprPipeline :: !(Maybe PipelineDeclaration)
-    , _cprStatus   :: !Int
+    { _cprsPipeline :: !(Maybe PipelineDeclaration)
+    , _cprsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePipelineResponse' smart constructor.
 createPipelineResponse :: Int -> CreatePipelineResponse
 createPipelineResponse pStatus =
     CreatePipelineResponse'
-    { _cprPipeline = Nothing
-    , _cprStatus = pStatus
+    { _cprsPipeline = Nothing
+    , _cprsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cprPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
-cprPipeline = lens _cprPipeline (\ s a -> s{_cprPipeline = a});
+cprsPipeline :: Lens' CreatePipelineResponse (Maybe PipelineDeclaration)
+cprsPipeline = lens _cprsPipeline (\ s a -> s{_cprsPipeline = a});
 
 -- | FIXME: Undocumented member.
-cprStatus :: Lens' CreatePipelineResponse Int
-cprStatus = lens _cprStatus (\ s a -> s{_cprStatus = a});
+cprsStatus :: Lens' CreatePipelineResponse Int
+cprsStatus = lens _cprsStatus (\ s a -> s{_cprsStatus = a});

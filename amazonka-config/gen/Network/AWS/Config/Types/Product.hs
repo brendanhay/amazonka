@@ -659,37 +659,37 @@ instance ToJSON RecordingGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'relResourceId'
+-- * 'rResourceId'
 --
--- * 'relResourceType'
+-- * 'rResourceType'
 --
--- * 'relRelationshipName'
+-- * 'rRelationshipName'
 data Relationship = Relationship'
-    { _relResourceId       :: !(Maybe Text)
-    , _relResourceType     :: !(Maybe ResourceType)
-    , _relRelationshipName :: !(Maybe Text)
+    { _rResourceId       :: !(Maybe Text)
+    , _rResourceType     :: !(Maybe ResourceType)
+    , _rRelationshipName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Relationship' smart constructor.
 relationship :: Relationship
 relationship =
     Relationship'
-    { _relResourceId = Nothing
-    , _relResourceType = Nothing
-    , _relRelationshipName = Nothing
+    { _rResourceId = Nothing
+    , _rResourceType = Nothing
+    , _rRelationshipName = Nothing
     }
 
 -- | The resource ID of the related resource (for example, @sg-xxxxxx@).
-relResourceId :: Lens' Relationship (Maybe Text)
-relResourceId = lens _relResourceId (\ s a -> s{_relResourceId = a});
+rResourceId :: Lens' Relationship (Maybe Text)
+rResourceId = lens _rResourceId (\ s a -> s{_rResourceId = a});
 
 -- | The resource type of the related resource.
-relResourceType :: Lens' Relationship (Maybe ResourceType)
-relResourceType = lens _relResourceType (\ s a -> s{_relResourceType = a});
+rResourceType :: Lens' Relationship (Maybe ResourceType)
+rResourceType = lens _rResourceType (\ s a -> s{_rResourceType = a});
 
 -- | The name of the related resource.
-relRelationshipName :: Lens' Relationship (Maybe Text)
-relRelationshipName = lens _relRelationshipName (\ s a -> s{_relRelationshipName = a});
+rRelationshipName :: Lens' Relationship (Maybe Text)
+rRelationshipName = lens _rRelationshipName (\ s a -> s{_rRelationshipName = a});
 
 instance FromJSON Relationship where
         parseJSON

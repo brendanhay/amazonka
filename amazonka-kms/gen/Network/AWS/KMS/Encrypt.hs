@@ -48,19 +48,19 @@ module Network.AWS.KMS.Encrypt
     -- ** Request constructor
     , encrypt
     -- ** Request lenses
-    , encEncryptionContext
-    , encGrantTokens
-    , encKeyId
-    , encPlaintext
+    , erqEncryptionContext
+    , erqGrantTokens
+    , erqKeyId
+    , erqPlaintext
 
     -- * Response
     , EncryptResponse
     -- ** Response constructor
     , encryptResponse
     -- ** Response lenses
-    , erKeyId
-    , erCiphertextBlob
-    , erStatus
+    , ersKeyId
+    , ersCiphertextBlob
+    , ersStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -72,41 +72,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'encEncryptionContext'
+-- * 'erqEncryptionContext'
 --
--- * 'encGrantTokens'
+-- * 'erqGrantTokens'
 --
--- * 'encKeyId'
+-- * 'erqKeyId'
 --
--- * 'encPlaintext'
+-- * 'erqPlaintext'
 data Encrypt = Encrypt'
-    { _encEncryptionContext :: !(Maybe (Map Text Text))
-    , _encGrantTokens       :: !(Maybe [Text])
-    , _encKeyId             :: !Text
-    , _encPlaintext         :: !(Sensitive Base64)
+    { _erqEncryptionContext :: !(Maybe (Map Text Text))
+    , _erqGrantTokens       :: !(Maybe [Text])
+    , _erqKeyId             :: !Text
+    , _erqPlaintext         :: !(Sensitive Base64)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Encrypt' smart constructor.
 encrypt :: Text -> Base64 -> Encrypt
 encrypt pKeyId pPlaintext =
     Encrypt'
-    { _encEncryptionContext = Nothing
-    , _encGrantTokens = Nothing
-    , _encKeyId = pKeyId
-    , _encPlaintext = _Sensitive # pPlaintext
+    { _erqEncryptionContext = Nothing
+    , _erqGrantTokens = Nothing
+    , _erqKeyId = pKeyId
+    , _erqPlaintext = _Sensitive # pPlaintext
     }
 
 -- | Name\/value pair that specifies the encryption context to be used for
 -- authenticated encryption. If used here, the same value must be supplied
 -- to the @Decrypt@ API or decryption will fail. For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/encrypt-context.html Encryption Context>.
-encEncryptionContext :: Lens' Encrypt (HashMap Text Text)
-encEncryptionContext = lens _encEncryptionContext (\ s a -> s{_encEncryptionContext = a}) . _Default . _Map;
+erqEncryptionContext :: Lens' Encrypt (HashMap Text Text)
+erqEncryptionContext = lens _erqEncryptionContext (\ s a -> s{_erqEncryptionContext = a}) . _Default . _Map;
 
 -- | For more information, see
 -- <http://docs.aws.amazon.com/kms/latest/developerguide/concepts.html#grant_token Grant Tokens>.
-encGrantTokens :: Lens' Encrypt [Text]
-encGrantTokens = lens _encGrantTokens (\ s a -> s{_encGrantTokens = a}) . _Default;
+erqGrantTokens :: Lens' Encrypt [Text]
+erqGrantTokens = lens _erqGrantTokens (\ s a -> s{_erqGrantTokens = a}) . _Default;
 
 -- | A unique identifier for the customer master key. This value can be a
 -- globally unique identifier, a fully specified ARN to either an alias or
@@ -119,12 +119,12 @@ encGrantTokens = lens _encGrantTokens (\ s a -> s{_encGrantTokens = a}) . _Defau
 -- -   Globally Unique Key ID Example -
 --     12345678-1234-1234-1234-123456789012
 -- -   Alias Name Example - alias\/MyAliasName
-encKeyId :: Lens' Encrypt Text
-encKeyId = lens _encKeyId (\ s a -> s{_encKeyId = a});
+erqKeyId :: Lens' Encrypt Text
+erqKeyId = lens _erqKeyId (\ s a -> s{_erqKeyId = a});
 
 -- | Data to be encrypted.
-encPlaintext :: Lens' Encrypt Base64
-encPlaintext = lens _encPlaintext (\ s a -> s{_encPlaintext = a}) . _Sensitive;
+erqPlaintext :: Lens' Encrypt Base64
+erqPlaintext = lens _erqPlaintext (\ s a -> s{_erqPlaintext = a}) . _Sensitive;
 
 instance AWSRequest Encrypt where
         type Sv Encrypt = KMS
@@ -149,9 +149,9 @@ instance ToHeaders Encrypt where
 instance ToJSON Encrypt where
         toJSON Encrypt'{..}
           = object
-              ["EncryptionContext" .= _encEncryptionContext,
-               "GrantTokens" .= _encGrantTokens,
-               "KeyId" .= _encKeyId, "Plaintext" .= _encPlaintext]
+              ["EncryptionContext" .= _erqEncryptionContext,
+               "GrantTokens" .= _erqGrantTokens,
+               "KeyId" .= _erqKeyId, "Plaintext" .= _erqPlaintext]
 
 instance ToPath Encrypt where
         toPath = const "/"
@@ -163,35 +163,35 @@ instance ToQuery Encrypt where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'erKeyId'
+-- * 'ersKeyId'
 --
--- * 'erCiphertextBlob'
+-- * 'ersCiphertextBlob'
 --
--- * 'erStatus'
+-- * 'ersStatus'
 data EncryptResponse = EncryptResponse'
-    { _erKeyId          :: !(Maybe Text)
-    , _erCiphertextBlob :: !(Maybe Base64)
-    , _erStatus         :: !Int
+    { _ersKeyId          :: !(Maybe Text)
+    , _ersCiphertextBlob :: !(Maybe Base64)
+    , _ersStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EncryptResponse' smart constructor.
 encryptResponse :: Int -> EncryptResponse
 encryptResponse pStatus =
     EncryptResponse'
-    { _erKeyId = Nothing
-    , _erCiphertextBlob = Nothing
-    , _erStatus = pStatus
+    { _ersKeyId = Nothing
+    , _ersCiphertextBlob = Nothing
+    , _ersStatus = pStatus
     }
 
 -- | The ID of the key used during encryption.
-erKeyId :: Lens' EncryptResponse (Maybe Text)
-erKeyId = lens _erKeyId (\ s a -> s{_erKeyId = a});
+ersKeyId :: Lens' EncryptResponse (Maybe Text)
+ersKeyId = lens _ersKeyId (\ s a -> s{_ersKeyId = a});
 
 -- | The encrypted plaintext. If you are using the CLI, the value is Base64
 -- encoded. Otherwise, it is not encoded.
-erCiphertextBlob :: Lens' EncryptResponse (Maybe Base64)
-erCiphertextBlob = lens _erCiphertextBlob (\ s a -> s{_erCiphertextBlob = a});
+ersCiphertextBlob :: Lens' EncryptResponse (Maybe Base64)
+ersCiphertextBlob = lens _ersCiphertextBlob (\ s a -> s{_ersCiphertextBlob = a});
 
 -- | FIXME: Undocumented member.
-erStatus :: Lens' EncryptResponse Int
-erStatus = lens _erStatus (\ s a -> s{_erStatus = a});
+ersStatus :: Lens' EncryptResponse Int
+ersStatus = lens _ersStatus (\ s a -> s{_ersStatus = a});

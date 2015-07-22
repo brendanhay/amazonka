@@ -41,15 +41,15 @@ module Network.AWS.Route53.DeleteHostedZone
     -- ** Request constructor
     , deleteHostedZone
     -- ** Request lenses
-    , dhzId
+    , dhzrqId
 
     -- * Response
     , DeleteHostedZoneResponse
     -- ** Response constructor
     , deleteHostedZoneResponse
     -- ** Response lenses
-    , dhzrStatus
-    , dhzrChangeInfo
+    , dhzrsStatus
+    , dhzrsChangeInfo
     ) where
 
 import           Network.AWS.Prelude
@@ -64,21 +64,21 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhzId'
+-- * 'dhzrqId'
 newtype DeleteHostedZone = DeleteHostedZone'
-    { _dhzId :: Text
+    { _dhzrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHostedZone' smart constructor.
 deleteHostedZone :: Text -> DeleteHostedZone
 deleteHostedZone pId =
     DeleteHostedZone'
-    { _dhzId = pId
+    { _dhzrqId = pId
     }
 
 -- | The ID of the hosted zone you want to delete.
-dhzId :: Lens' DeleteHostedZone Text
-dhzId = lens _dhzId (\ s a -> s{_dhzId = a});
+dhzrqId :: Lens' DeleteHostedZone Text
+dhzrqId = lens _dhzrqId (\ s a -> s{_dhzrqId = a});
 
 instance AWSRequest DeleteHostedZone where
         type Sv DeleteHostedZone = Route53
@@ -95,7 +95,8 @@ instance ToHeaders DeleteHostedZone where
 
 instance ToPath DeleteHostedZone where
         toPath DeleteHostedZone'{..}
-          = mconcat ["/2013-04-01/hostedzone/", toText _dhzId]
+          = mconcat
+              ["/2013-04-01/hostedzone/", toText _dhzrqId]
 
 instance ToQuery DeleteHostedZone where
         toQuery = const mempty
@@ -106,27 +107,27 @@ instance ToQuery DeleteHostedZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhzrStatus'
+-- * 'dhzrsStatus'
 --
--- * 'dhzrChangeInfo'
+-- * 'dhzrsChangeInfo'
 data DeleteHostedZoneResponse = DeleteHostedZoneResponse'
-    { _dhzrStatus     :: !Int
-    , _dhzrChangeInfo :: !ChangeInfo
+    { _dhzrsStatus     :: !Int
+    , _dhzrsChangeInfo :: !ChangeInfo
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHostedZoneResponse' smart constructor.
 deleteHostedZoneResponse :: Int -> ChangeInfo -> DeleteHostedZoneResponse
 deleteHostedZoneResponse pStatus pChangeInfo =
     DeleteHostedZoneResponse'
-    { _dhzrStatus = pStatus
-    , _dhzrChangeInfo = pChangeInfo
+    { _dhzrsStatus = pStatus
+    , _dhzrsChangeInfo = pChangeInfo
     }
 
 -- | FIXME: Undocumented member.
-dhzrStatus :: Lens' DeleteHostedZoneResponse Int
-dhzrStatus = lens _dhzrStatus (\ s a -> s{_dhzrStatus = a});
+dhzrsStatus :: Lens' DeleteHostedZoneResponse Int
+dhzrsStatus = lens _dhzrsStatus (\ s a -> s{_dhzrsStatus = a});
 
 -- | A complex type that contains the ID, the status, and the date and time
 -- of your delete request.
-dhzrChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
-dhzrChangeInfo = lens _dhzrChangeInfo (\ s a -> s{_dhzrChangeInfo = a});
+dhzrsChangeInfo :: Lens' DeleteHostedZoneResponse ChangeInfo
+dhzrsChangeInfo = lens _dhzrsChangeInfo (\ s a -> s{_dhzrsChangeInfo = a});

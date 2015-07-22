@@ -30,17 +30,17 @@ module Network.AWS.Route53.GetHostedZone
     -- ** Request constructor
     , getHostedZone
     -- ** Request lenses
-    , ghzId
+    , ghzrqId
 
     -- * Response
     , GetHostedZoneResponse
     -- ** Response constructor
     , getHostedZoneResponse
     -- ** Response lenses
-    , ghzrVPCs
-    , ghzrDelegationSet
-    , ghzrStatus
-    , ghzrHostedZone
+    , ghzrsVPCs
+    , ghzrsDelegationSet
+    , ghzrsStatus
+    , ghzrsHostedZone
     ) where
 
 import           Network.AWS.Prelude
@@ -54,22 +54,22 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghzId'
+-- * 'ghzrqId'
 newtype GetHostedZone = GetHostedZone'
-    { _ghzId :: Text
+    { _ghzrqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostedZone' smart constructor.
 getHostedZone :: Text -> GetHostedZone
 getHostedZone pId =
     GetHostedZone'
-    { _ghzId = pId
+    { _ghzrqId = pId
     }
 
 -- | The ID of the hosted zone for which you want to get a list of the name
 -- servers in the delegation set.
-ghzId :: Lens' GetHostedZone Text
-ghzId = lens _ghzId (\ s a -> s{_ghzId = a});
+ghzrqId :: Lens' GetHostedZone Text
+ghzrqId = lens _ghzrqId (\ s a -> s{_ghzrqId = a});
 
 instance AWSRequest GetHostedZone where
         type Sv GetHostedZone = Route53
@@ -90,7 +90,8 @@ instance ToHeaders GetHostedZone where
 
 instance ToPath GetHostedZone where
         toPath GetHostedZone'{..}
-          = mconcat ["/2013-04-01/hostedzone/", toText _ghzId]
+          = mconcat
+              ["/2013-04-01/hostedzone/", toText _ghzrqId]
 
 instance ToQuery GetHostedZone where
         toQuery = const mempty
@@ -101,45 +102,45 @@ instance ToQuery GetHostedZone where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ghzrVPCs'
+-- * 'ghzrsVPCs'
 --
--- * 'ghzrDelegationSet'
+-- * 'ghzrsDelegationSet'
 --
--- * 'ghzrStatus'
+-- * 'ghzrsStatus'
 --
--- * 'ghzrHostedZone'
+-- * 'ghzrsHostedZone'
 data GetHostedZoneResponse = GetHostedZoneResponse'
-    { _ghzrVPCs          :: !(Maybe (List1 VPC))
-    , _ghzrDelegationSet :: !(Maybe DelegationSet)
-    , _ghzrStatus        :: !Int
-    , _ghzrHostedZone    :: !HostedZone
+    { _ghzrsVPCs          :: !(Maybe (List1 VPC))
+    , _ghzrsDelegationSet :: !(Maybe DelegationSet)
+    , _ghzrsStatus        :: !Int
+    , _ghzrsHostedZone    :: !HostedZone
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetHostedZoneResponse' smart constructor.
 getHostedZoneResponse :: Int -> HostedZone -> GetHostedZoneResponse
 getHostedZoneResponse pStatus pHostedZone =
     GetHostedZoneResponse'
-    { _ghzrVPCs = Nothing
-    , _ghzrDelegationSet = Nothing
-    , _ghzrStatus = pStatus
-    , _ghzrHostedZone = pHostedZone
+    { _ghzrsVPCs = Nothing
+    , _ghzrsDelegationSet = Nothing
+    , _ghzrsStatus = pStatus
+    , _ghzrsHostedZone = pHostedZone
     }
 
 -- | A complex type that contains information about VPCs associated with the
 -- specified hosted zone.
-ghzrVPCs :: Lens' GetHostedZoneResponse (Maybe (NonEmpty VPC))
-ghzrVPCs = lens _ghzrVPCs (\ s a -> s{_ghzrVPCs = a}) . mapping _List1;
+ghzrsVPCs :: Lens' GetHostedZoneResponse (Maybe (NonEmpty VPC))
+ghzrsVPCs = lens _ghzrsVPCs (\ s a -> s{_ghzrsVPCs = a}) . mapping _List1;
 
 -- | A complex type that contains information about the name servers for the
 -- specified hosted zone.
-ghzrDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
-ghzrDelegationSet = lens _ghzrDelegationSet (\ s a -> s{_ghzrDelegationSet = a});
+ghzrsDelegationSet :: Lens' GetHostedZoneResponse (Maybe DelegationSet)
+ghzrsDelegationSet = lens _ghzrsDelegationSet (\ s a -> s{_ghzrsDelegationSet = a});
 
 -- | FIXME: Undocumented member.
-ghzrStatus :: Lens' GetHostedZoneResponse Int
-ghzrStatus = lens _ghzrStatus (\ s a -> s{_ghzrStatus = a});
+ghzrsStatus :: Lens' GetHostedZoneResponse Int
+ghzrsStatus = lens _ghzrsStatus (\ s a -> s{_ghzrsStatus = a});
 
 -- | A complex type that contains the information about the specified hosted
 -- zone.
-ghzrHostedZone :: Lens' GetHostedZoneResponse HostedZone
-ghzrHostedZone = lens _ghzrHostedZone (\ s a -> s{_ghzrHostedZone = a});
+ghzrsHostedZone :: Lens' GetHostedZoneResponse HostedZone
+ghzrsHostedZone = lens _ghzrsHostedZone (\ s a -> s{_ghzrsHostedZone = a});

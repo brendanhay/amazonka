@@ -35,15 +35,15 @@ module Network.AWS.CognitoSync.BulkPublish
     -- ** Request constructor
     , bulkPublish
     -- ** Request lenses
-    , bpIdentityPoolId
+    , bprqIdentityPoolId
 
     -- * Response
     , BulkPublishResponse
     -- ** Response constructor
     , bulkPublishResponse
     -- ** Response lenses
-    , bprIdentityPoolId
-    , bprStatus
+    , bprsIdentityPoolId
+    , bprsStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -57,23 +57,23 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bpIdentityPoolId'
+-- * 'bprqIdentityPoolId'
 newtype BulkPublish = BulkPublish'
-    { _bpIdentityPoolId :: Text
+    { _bprqIdentityPoolId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BulkPublish' smart constructor.
 bulkPublish :: Text -> BulkPublish
 bulkPublish pIdentityPoolId =
     BulkPublish'
-    { _bpIdentityPoolId = pIdentityPoolId
+    { _bprqIdentityPoolId = pIdentityPoolId
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-bpIdentityPoolId :: Lens' BulkPublish Text
-bpIdentityPoolId = lens _bpIdentityPoolId (\ s a -> s{_bpIdentityPoolId = a});
+bprqIdentityPoolId :: Lens' BulkPublish Text
+bprqIdentityPoolId = lens _bprqIdentityPoolId (\ s a -> s{_bprqIdentityPoolId = a});
 
 instance AWSRequest BulkPublish where
         type Sv BulkPublish = CognitoSync
@@ -98,7 +98,7 @@ instance ToJSON BulkPublish where
 instance ToPath BulkPublish where
         toPath BulkPublish'{..}
           = mconcat
-              ["/identitypools/", toText _bpIdentityPoolId,
+              ["/identitypools/", toText _bprqIdentityPoolId,
                "/bulkpublish"]
 
 instance ToQuery BulkPublish where
@@ -110,28 +110,28 @@ instance ToQuery BulkPublish where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bprIdentityPoolId'
+-- * 'bprsIdentityPoolId'
 --
--- * 'bprStatus'
+-- * 'bprsStatus'
 data BulkPublishResponse = BulkPublishResponse'
-    { _bprIdentityPoolId :: !(Maybe Text)
-    , _bprStatus         :: !Int
+    { _bprsIdentityPoolId :: !(Maybe Text)
+    , _bprsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BulkPublishResponse' smart constructor.
 bulkPublishResponse :: Int -> BulkPublishResponse
 bulkPublishResponse pStatus =
     BulkPublishResponse'
-    { _bprIdentityPoolId = Nothing
-    , _bprStatus = pStatus
+    { _bprsIdentityPoolId = Nothing
+    , _bprsStatus = pStatus
     }
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-bprIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
-bprIdentityPoolId = lens _bprIdentityPoolId (\ s a -> s{_bprIdentityPoolId = a});
+bprsIdentityPoolId :: Lens' BulkPublishResponse (Maybe Text)
+bprsIdentityPoolId = lens _bprsIdentityPoolId (\ s a -> s{_bprsIdentityPoolId = a});
 
 -- | FIXME: Undocumented member.
-bprStatus :: Lens' BulkPublishResponse Int
-bprStatus = lens _bprStatus (\ s a -> s{_bprStatus = a});
+bprsStatus :: Lens' BulkPublishResponse Int
+bprsStatus = lens _bprsStatus (\ s a -> s{_bprsStatus = a});

@@ -32,12 +32,12 @@ mLModelAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf descResults) .
+                             (folding (concatOf dmlmrsResults) .
                               mlmStatus . _Just . to toText)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf descResults) .
+                             (folding (concatOf dmlmrsResults) .
                               mlmStatus . _Just . to toText)]
     }
 
@@ -50,12 +50,12 @@ batchPredictionAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf desResults) .
+                             (folding (concatOf dbprsResults) .
                               bpStatus . _Just . to toText)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf desResults) .
+                             (folding (concatOf dbprsResults) .
                               bpStatus . _Just . to toText)]
     }
 
@@ -68,12 +68,12 @@ dataSourceAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf dResults) .
+                             (folding (concatOf ddsrsResults) .
                               dsStatus . _Just . to toText)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf dResults) .
+                             (folding (concatOf ddsrsResults) .
                               dsStatus . _Just . to toText)]
     }
 
@@ -86,11 +86,11 @@ evaluationAvailable =
     , _waitAcceptors = [ matchAll
                              "COMPLETED"
                              AcceptSuccess
-                             (folding (concatOf derrResults) .
-                              evaStatus . _Just . to toText)
+                             (folding (concatOf dersResults) .
+                              eStatus . _Just . to toText)
                        , matchAny
                              "FAILED"
                              AcceptFailure
-                             (folding (concatOf derrResults) .
-                              evaStatus . _Just . to toText)]
+                             (folding (concatOf dersResults) .
+                              eStatus . _Just . to toText)]
     }

@@ -51,16 +51,16 @@ module Network.AWS.Glacier.CreateVault
     -- ** Request constructor
     , createVault
     -- ** Request lenses
-    , cvAccountId
-    , cvVaultName
+    , cvrqAccountId
+    , cvrqVaultName
 
     -- * Response
     , CreateVaultResponse
     -- ** Response constructor
     , createVaultResponse
     -- ** Response lenses
-    , cvrLocation
-    , cvrStatus
+    , cvrsLocation
+    , cvrsStatus
     ) where
 
 import           Network.AWS.Glacier.Types
@@ -74,20 +74,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvAccountId'
+-- * 'cvrqAccountId'
 --
--- * 'cvVaultName'
+-- * 'cvrqVaultName'
 data CreateVault = CreateVault'
-    { _cvAccountId :: !Text
-    , _cvVaultName :: !Text
+    { _cvrqAccountId :: !Text
+    , _cvrqVaultName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVault' smart constructor.
 createVault :: Text -> Text -> CreateVault
 createVault pAccountId pVaultName =
     CreateVault'
-    { _cvAccountId = pAccountId
-    , _cvVaultName = pVaultName
+    { _cvrqAccountId = pAccountId
+    , _cvrqVaultName = pVaultName
     }
 
 -- | The @AccountId@ value is the AWS account ID. This value must match the
@@ -97,12 +97,12 @@ createVault pAccountId pVaultName =
 -- ID associated with the credentials used to sign the request. If you
 -- specify your Account ID, do not include any hyphens (apos-apos) in the
 -- ID.
-cvAccountId :: Lens' CreateVault Text
-cvAccountId = lens _cvAccountId (\ s a -> s{_cvAccountId = a});
+cvrqAccountId :: Lens' CreateVault Text
+cvrqAccountId = lens _cvrqAccountId (\ s a -> s{_cvrqAccountId = a});
 
 -- | The name of the vault.
-cvVaultName :: Lens' CreateVault Text
-cvVaultName = lens _cvVaultName (\ s a -> s{_cvVaultName = a});
+cvrqVaultName :: Lens' CreateVault Text
+cvrqVaultName = lens _cvrqVaultName (\ s a -> s{_cvrqVaultName = a});
 
 instance AWSRequest CreateVault where
         type Sv CreateVault = Glacier
@@ -123,8 +123,8 @@ instance ToJSON CreateVault where
 instance ToPath CreateVault where
         toPath CreateVault'{..}
           = mconcat
-              ["/", toText _cvAccountId, "/vaults/",
-               toText _cvVaultName]
+              ["/", toText _cvrqAccountId, "/vaults/",
+               toText _cvrqVaultName]
 
 instance ToQuery CreateVault where
         toQuery = const mempty
@@ -135,26 +135,26 @@ instance ToQuery CreateVault where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvrLocation'
+-- * 'cvrsLocation'
 --
--- * 'cvrStatus'
+-- * 'cvrsStatus'
 data CreateVaultResponse = CreateVaultResponse'
-    { _cvrLocation :: !(Maybe Text)
-    , _cvrStatus   :: !Int
+    { _cvrsLocation :: !(Maybe Text)
+    , _cvrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVaultResponse' smart constructor.
 createVaultResponse :: Int -> CreateVaultResponse
 createVaultResponse pStatus =
     CreateVaultResponse'
-    { _cvrLocation = Nothing
-    , _cvrStatus = pStatus
+    { _cvrsLocation = Nothing
+    , _cvrsStatus = pStatus
     }
 
 -- | The URI of the vault that was created.
-cvrLocation :: Lens' CreateVaultResponse (Maybe Text)
-cvrLocation = lens _cvrLocation (\ s a -> s{_cvrLocation = a});
+cvrsLocation :: Lens' CreateVaultResponse (Maybe Text)
+cvrsLocation = lens _cvrsLocation (\ s a -> s{_cvrsLocation = a});
 
 -- | FIXME: Undocumented member.
-cvrStatus :: Lens' CreateVaultResponse Int
-cvrStatus = lens _cvrStatus (\ s a -> s{_cvrStatus = a});
+cvrsStatus :: Lens' CreateVaultResponse Int
+cvrsStatus = lens _cvrsStatus (\ s a -> s{_cvrsStatus = a});

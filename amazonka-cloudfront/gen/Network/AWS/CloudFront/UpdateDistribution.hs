@@ -27,18 +27,18 @@ module Network.AWS.CloudFront.UpdateDistribution
     -- ** Request constructor
     , updateDistribution
     -- ** Request lenses
-    , udIfMatch
-    , udDistributionConfig
-    , udId
+    , udrqIfMatch
+    , udrqDistributionConfig
+    , udrqId
 
     -- * Response
     , UpdateDistributionResponse
     -- ** Response constructor
     , updateDistributionResponse
     -- ** Response lenses
-    , udrETag
-    , udrDistribution
-    , udrStatus
+    , udrsETag
+    , udrsDistribution
+    , udrsStatus
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -52,38 +52,38 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udIfMatch'
+-- * 'udrqIfMatch'
 --
--- * 'udDistributionConfig'
+-- * 'udrqDistributionConfig'
 --
--- * 'udId'
+-- * 'udrqId'
 data UpdateDistribution = UpdateDistribution'
-    { _udIfMatch            :: !(Maybe Text)
-    , _udDistributionConfig :: !DistributionConfig
-    , _udId                 :: !Text
+    { _udrqIfMatch            :: !(Maybe Text)
+    , _udrqDistributionConfig :: !DistributionConfig
+    , _udrqId                 :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDistribution' smart constructor.
 updateDistribution :: DistributionConfig -> Text -> UpdateDistribution
 updateDistribution pDistributionConfig pId =
     UpdateDistribution'
-    { _udIfMatch = Nothing
-    , _udDistributionConfig = pDistributionConfig
-    , _udId = pId
+    { _udrqIfMatch = Nothing
+    , _udrqDistributionConfig = pDistributionConfig
+    , _udrqId = pId
     }
 
 -- | The value of the ETag header you received when retrieving the
 -- distribution\'s configuration. For example: E2QWRUHAPOMQZL.
-udIfMatch :: Lens' UpdateDistribution (Maybe Text)
-udIfMatch = lens _udIfMatch (\ s a -> s{_udIfMatch = a});
+udrqIfMatch :: Lens' UpdateDistribution (Maybe Text)
+udrqIfMatch = lens _udrqIfMatch (\ s a -> s{_udrqIfMatch = a});
 
 -- | The distribution\'s configuration information.
-udDistributionConfig :: Lens' UpdateDistribution DistributionConfig
-udDistributionConfig = lens _udDistributionConfig (\ s a -> s{_udDistributionConfig = a});
+udrqDistributionConfig :: Lens' UpdateDistribution DistributionConfig
+udrqDistributionConfig = lens _udrqDistributionConfig (\ s a -> s{_udrqDistributionConfig = a});
 
 -- | The distribution\'s id.
-udId :: Lens' UpdateDistribution Text
-udId = lens _udId (\ s a -> s{_udId = a});
+udrqId :: Lens' UpdateDistribution Text
+udrqId = lens _udrqId (\ s a -> s{_udrqId = a});
 
 instance AWSRequest UpdateDistribution where
         type Sv UpdateDistribution = CloudFront
@@ -102,16 +102,16 @@ instance ToElement UpdateDistribution where
           = mkElement
               "{http://cloudfront.amazonaws.com/doc/2015-04-17/}DistributionConfig"
               .
-              _udDistributionConfig
+              _udrqDistributionConfig
 
 instance ToHeaders UpdateDistribution where
         toHeaders UpdateDistribution'{..}
-          = mconcat ["If-Match" =# _udIfMatch]
+          = mconcat ["If-Match" =# _udrqIfMatch]
 
 instance ToPath UpdateDistribution where
         toPath UpdateDistribution'{..}
           = mconcat
-              ["/2015-04-17/distribution/", toText _udId,
+              ["/2015-04-17/distribution/", toText _udrqId,
                "/config"]
 
 instance ToQuery UpdateDistribution where
@@ -123,34 +123,34 @@ instance ToQuery UpdateDistribution where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udrETag'
+-- * 'udrsETag'
 --
--- * 'udrDistribution'
+-- * 'udrsDistribution'
 --
--- * 'udrStatus'
+-- * 'udrsStatus'
 data UpdateDistributionResponse = UpdateDistributionResponse'
-    { _udrETag         :: !(Maybe Text)
-    , _udrDistribution :: !(Maybe Distribution)
-    , _udrStatus       :: !Int
+    { _udrsETag         :: !(Maybe Text)
+    , _udrsDistribution :: !(Maybe Distribution)
+    , _udrsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDistributionResponse' smart constructor.
 updateDistributionResponse :: Int -> UpdateDistributionResponse
 updateDistributionResponse pStatus =
     UpdateDistributionResponse'
-    { _udrETag = Nothing
-    , _udrDistribution = Nothing
-    , _udrStatus = pStatus
+    { _udrsETag = Nothing
+    , _udrsDistribution = Nothing
+    , _udrsStatus = pStatus
     }
 
 -- | The current version of the configuration. For example: E2QWRUHAPOMQZL.
-udrETag :: Lens' UpdateDistributionResponse (Maybe Text)
-udrETag = lens _udrETag (\ s a -> s{_udrETag = a});
+udrsETag :: Lens' UpdateDistributionResponse (Maybe Text)
+udrsETag = lens _udrsETag (\ s a -> s{_udrsETag = a});
 
 -- | The distribution\'s information.
-udrDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
-udrDistribution = lens _udrDistribution (\ s a -> s{_udrDistribution = a});
+udrsDistribution :: Lens' UpdateDistributionResponse (Maybe Distribution)
+udrsDistribution = lens _udrsDistribution (\ s a -> s{_udrsDistribution = a});
 
 -- | FIXME: Undocumented member.
-udrStatus :: Lens' UpdateDistributionResponse Int
-udrStatus = lens _udrStatus (\ s a -> s{_udrStatus = a});
+udrsStatus :: Lens' UpdateDistributionResponse Int
+udrsStatus = lens _udrsStatus (\ s a -> s{_udrsStatus = a});

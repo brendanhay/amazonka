@@ -39,20 +39,20 @@ module Network.AWS.IAM.ListAttachedUserPolicies
     -- ** Request constructor
     , listAttachedUserPolicies
     -- ** Request lenses
-    , laupPathPrefix
-    , laupMaxItems
-    , laupMarker
-    , laupUserName
+    , lauprqPathPrefix
+    , lauprqMaxItems
+    , lauprqMarker
+    , lauprqUserName
 
     -- * Response
     , ListAttachedUserPoliciesResponse
     -- ** Response constructor
     , listAttachedUserPoliciesResponse
     -- ** Response lenses
-    , lauprAttachedPolicies
-    , lauprMarker
-    , lauprIsTruncated
-    , lauprStatus
+    , lauprsAttachedPolicies
+    , lauprsMarker
+    , lauprsIsTruncated
+    , lauprsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -64,35 +64,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'laupPathPrefix'
+-- * 'lauprqPathPrefix'
 --
--- * 'laupMaxItems'
+-- * 'lauprqMaxItems'
 --
--- * 'laupMarker'
+-- * 'lauprqMarker'
 --
--- * 'laupUserName'
+-- * 'lauprqUserName'
 data ListAttachedUserPolicies = ListAttachedUserPolicies'
-    { _laupPathPrefix :: !(Maybe Text)
-    , _laupMaxItems   :: !(Maybe Nat)
-    , _laupMarker     :: !(Maybe Text)
-    , _laupUserName   :: !Text
+    { _lauprqPathPrefix :: !(Maybe Text)
+    , _lauprqMaxItems   :: !(Maybe Nat)
+    , _lauprqMarker     :: !(Maybe Text)
+    , _lauprqUserName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedUserPolicies' smart constructor.
 listAttachedUserPolicies :: Text -> ListAttachedUserPolicies
 listAttachedUserPolicies pUserName =
     ListAttachedUserPolicies'
-    { _laupPathPrefix = Nothing
-    , _laupMaxItems = Nothing
-    , _laupMarker = Nothing
-    , _laupUserName = pUserName
+    { _lauprqPathPrefix = Nothing
+    , _lauprqMaxItems = Nothing
+    , _lauprqMarker = Nothing
+    , _lauprqUserName = pUserName
     }
 
 -- | The path prefix for filtering the results. This parameter is optional.
 -- If it is not included, it defaults to a slash (\/), listing all
 -- policies.
-laupPathPrefix :: Lens' ListAttachedUserPolicies (Maybe Text)
-laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
+lauprqPathPrefix :: Lens' ListAttachedUserPolicies (Maybe Text)
+lauprqPathPrefix = lens _lauprqPathPrefix (\ s a -> s{_lauprqPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -100,19 +100,19 @@ laupPathPrefix = lens _laupPathPrefix (\ s a -> s{_laupPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-laupMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
-laupMaxItems = lens _laupMaxItems (\ s a -> s{_laupMaxItems = a}) . mapping _Nat;
+lauprqMaxItems :: Lens' ListAttachedUserPolicies (Maybe Natural)
+lauprqMaxItems = lens _lauprqMaxItems (\ s a -> s{_lauprqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-laupMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
-laupMarker = lens _laupMarker (\ s a -> s{_laupMarker = a});
+lauprqMarker :: Lens' ListAttachedUserPolicies (Maybe Text)
+lauprqMarker = lens _lauprqMarker (\ s a -> s{_lauprqMarker = a});
 
 -- | The name (friendly name, not ARN) of the user to list attached policies
 -- for.
-laupUserName :: Lens' ListAttachedUserPolicies Text
-laupUserName = lens _laupUserName (\ s a -> s{_laupUserName = a});
+lauprqUserName :: Lens' ListAttachedUserPolicies Text
+lauprqUserName = lens _lauprqUserName (\ s a -> s{_lauprqUserName = a});
 
 instance AWSRequest ListAttachedUserPolicies where
         type Sv ListAttachedUserPolicies = IAM
@@ -141,9 +141,10 @@ instance ToQuery ListAttachedUserPolicies where
               ["Action" =:
                  ("ListAttachedUserPolicies" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _laupPathPrefix,
-               "MaxItems" =: _laupMaxItems, "Marker" =: _laupMarker,
-               "UserName" =: _laupUserName]
+               "PathPrefix" =: _lauprqPathPrefix,
+               "MaxItems" =: _lauprqMaxItems,
+               "Marker" =: _lauprqMarker,
+               "UserName" =: _lauprqUserName]
 
 -- | Contains the response to a successful ListAttachedUserPolicies request.
 --
@@ -151,46 +152,46 @@ instance ToQuery ListAttachedUserPolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lauprAttachedPolicies'
+-- * 'lauprsAttachedPolicies'
 --
--- * 'lauprMarker'
+-- * 'lauprsMarker'
 --
--- * 'lauprIsTruncated'
+-- * 'lauprsIsTruncated'
 --
--- * 'lauprStatus'
+-- * 'lauprsStatus'
 data ListAttachedUserPoliciesResponse = ListAttachedUserPoliciesResponse'
-    { _lauprAttachedPolicies :: !(Maybe [AttachedPolicy])
-    , _lauprMarker           :: !(Maybe Text)
-    , _lauprIsTruncated      :: !(Maybe Bool)
-    , _lauprStatus           :: !Int
+    { _lauprsAttachedPolicies :: !(Maybe [AttachedPolicy])
+    , _lauprsMarker           :: !(Maybe Text)
+    , _lauprsIsTruncated      :: !(Maybe Bool)
+    , _lauprsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListAttachedUserPoliciesResponse' smart constructor.
 listAttachedUserPoliciesResponse :: Int -> ListAttachedUserPoliciesResponse
 listAttachedUserPoliciesResponse pStatus =
     ListAttachedUserPoliciesResponse'
-    { _lauprAttachedPolicies = Nothing
-    , _lauprMarker = Nothing
-    , _lauprIsTruncated = Nothing
-    , _lauprStatus = pStatus
+    { _lauprsAttachedPolicies = Nothing
+    , _lauprsMarker = Nothing
+    , _lauprsIsTruncated = Nothing
+    , _lauprsStatus = pStatus
     }
 
 -- | A list of the attached policies.
-lauprAttachedPolicies :: Lens' ListAttachedUserPoliciesResponse [AttachedPolicy]
-lauprAttachedPolicies = lens _lauprAttachedPolicies (\ s a -> s{_lauprAttachedPolicies = a}) . _Default;
+lauprsAttachedPolicies :: Lens' ListAttachedUserPoliciesResponse [AttachedPolicy]
+lauprsAttachedPolicies = lens _lauprsAttachedPolicies (\ s a -> s{_lauprsAttachedPolicies = a}) . _Default;
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-lauprMarker :: Lens' ListAttachedUserPoliciesResponse (Maybe Text)
-lauprMarker = lens _lauprMarker (\ s a -> s{_lauprMarker = a});
+lauprsMarker :: Lens' ListAttachedUserPoliciesResponse (Maybe Text)
+lauprsMarker = lens _lauprsMarker (\ s a -> s{_lauprsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-lauprIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
-lauprIsTruncated = lens _lauprIsTruncated (\ s a -> s{_lauprIsTruncated = a});
+lauprsIsTruncated :: Lens' ListAttachedUserPoliciesResponse (Maybe Bool)
+lauprsIsTruncated = lens _lauprsIsTruncated (\ s a -> s{_lauprsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lauprStatus :: Lens' ListAttachedUserPoliciesResponse Int
-lauprStatus = lens _lauprStatus (\ s a -> s{_lauprStatus = a});
+lauprsStatus :: Lens' ListAttachedUserPoliciesResponse Int
+lauprsStatus = lens _lauprsStatus (\ s a -> s{_lauprsStatus = a});

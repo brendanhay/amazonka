@@ -27,22 +27,22 @@ module Network.AWS.CodeDeploy.ListApplicationRevisions
     -- ** Request constructor
     , listApplicationRevisions
     -- ** Request lenses
-    , lisS3KeyPrefix
-    , lisDeployed
-    , lisNextToken
-    , lisSortOrder
-    , lisS3Bucket
-    , lisSortBy
-    , lisApplicationName
+    , larrqS3KeyPrefix
+    , larrqDeployed
+    , larrqNextToken
+    , larrqSortOrder
+    , larrqS3Bucket
+    , larrqSortBy
+    , larrqApplicationName
 
     -- * Response
     , ListApplicationRevisionsResponse
     -- ** Response constructor
     , listApplicationRevisionsResponse
     -- ** Response lenses
-    , larrNextToken
-    , larrRevisions
-    , larrStatus
+    , larrsNextToken
+    , larrsRevisions
+    , larrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -56,46 +56,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lisS3KeyPrefix'
+-- * 'larrqS3KeyPrefix'
 --
--- * 'lisDeployed'
+-- * 'larrqDeployed'
 --
--- * 'lisNextToken'
+-- * 'larrqNextToken'
 --
--- * 'lisSortOrder'
+-- * 'larrqSortOrder'
 --
--- * 'lisS3Bucket'
+-- * 'larrqS3Bucket'
 --
--- * 'lisSortBy'
+-- * 'larrqSortBy'
 --
--- * 'lisApplicationName'
+-- * 'larrqApplicationName'
 data ListApplicationRevisions = ListApplicationRevisions'
-    { _lisS3KeyPrefix     :: !(Maybe Text)
-    , _lisDeployed        :: !(Maybe ListStateFilterAction)
-    , _lisNextToken       :: !(Maybe Text)
-    , _lisSortOrder       :: !(Maybe SortOrder)
-    , _lisS3Bucket        :: !(Maybe Text)
-    , _lisSortBy          :: !(Maybe ApplicationRevisionSortBy)
-    , _lisApplicationName :: !Text
+    { _larrqS3KeyPrefix     :: !(Maybe Text)
+    , _larrqDeployed        :: !(Maybe ListStateFilterAction)
+    , _larrqNextToken       :: !(Maybe Text)
+    , _larrqSortOrder       :: !(Maybe SortOrder)
+    , _larrqS3Bucket        :: !(Maybe Text)
+    , _larrqSortBy          :: !(Maybe ApplicationRevisionSortBy)
+    , _larrqApplicationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationRevisions' smart constructor.
 listApplicationRevisions :: Text -> ListApplicationRevisions
 listApplicationRevisions pApplicationName =
     ListApplicationRevisions'
-    { _lisS3KeyPrefix = Nothing
-    , _lisDeployed = Nothing
-    , _lisNextToken = Nothing
-    , _lisSortOrder = Nothing
-    , _lisS3Bucket = Nothing
-    , _lisSortBy = Nothing
-    , _lisApplicationName = pApplicationName
+    { _larrqS3KeyPrefix = Nothing
+    , _larrqDeployed = Nothing
+    , _larrqNextToken = Nothing
+    , _larrqSortOrder = Nothing
+    , _larrqS3Bucket = Nothing
+    , _larrqSortBy = Nothing
+    , _larrqApplicationName = pApplicationName
     }
 
 -- | A specific key prefix for the set of Amazon S3 objects to limit the
 -- search for revisions.
-lisS3KeyPrefix :: Lens' ListApplicationRevisions (Maybe Text)
-lisS3KeyPrefix = lens _lisS3KeyPrefix (\ s a -> s{_lisS3KeyPrefix = a});
+larrqS3KeyPrefix :: Lens' ListApplicationRevisions (Maybe Text)
+larrqS3KeyPrefix = lens _larrqS3KeyPrefix (\ s a -> s{_larrqS3KeyPrefix = a});
 
 -- | Whether to list revisions based on whether the revision is the target
 -- revision of an deployment group:
@@ -106,14 +106,14 @@ lisS3KeyPrefix = lens _lisS3KeyPrefix (\ s a -> s{_lisS3KeyPrefix = a});
 --     deployment group.
 -- -   ignore: List all revisions, regardless of whether they are target
 --     revisions of a deployment group.
-lisDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
-lisDeployed = lens _lisDeployed (\ s a -> s{_lisDeployed = a});
+larrqDeployed :: Lens' ListApplicationRevisions (Maybe ListStateFilterAction)
+larrqDeployed = lens _larrqDeployed (\ s a -> s{_larrqDeployed = a});
 
 -- | An identifier that was returned from the previous list application
 -- revisions call, which can be used to return the next set of applications
 -- in the list.
-lisNextToken :: Lens' ListApplicationRevisions (Maybe Text)
-lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
+larrqNextToken :: Lens' ListApplicationRevisions (Maybe Text)
+larrqNextToken = lens _larrqNextToken (\ s a -> s{_larrqNextToken = a});
 
 -- | The order to sort the list results by:
 --
@@ -123,14 +123,14 @@ lisNextToken = lens _lisNextToken (\ s a -> s{_lisNextToken = a});
 -- If not specified, the results will be sorted in ascending order.
 --
 -- If set to null, the results will be sorted in an arbitrary order.
-lisSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
-lisSortOrder = lens _lisSortOrder (\ s a -> s{_lisSortOrder = a});
+larrqSortOrder :: Lens' ListApplicationRevisions (Maybe SortOrder)
+larrqSortOrder = lens _larrqSortOrder (\ s a -> s{_larrqSortOrder = a});
 
 -- | A specific Amazon S3 bucket name to limit the search for revisions.
 --
 -- If set to null, then all of the user\'s buckets will be searched.
-lisS3Bucket :: Lens' ListApplicationRevisions (Maybe Text)
-lisS3Bucket = lens _lisS3Bucket (\ s a -> s{_lisS3Bucket = a});
+larrqS3Bucket :: Lens' ListApplicationRevisions (Maybe Text)
+larrqS3Bucket = lens _larrqS3Bucket (\ s a -> s{_larrqS3Bucket = a});
 
 -- | The column name to sort the list results by:
 --
@@ -143,13 +143,13 @@ lisS3Bucket = lens _lisS3Bucket (\ s a -> s{_lisS3Bucket = a});
 --
 -- If not specified or set to null, the results will be returned in an
 -- arbitrary order.
-lisSortBy :: Lens' ListApplicationRevisions (Maybe ApplicationRevisionSortBy)
-lisSortBy = lens _lisSortBy (\ s a -> s{_lisSortBy = a});
+larrqSortBy :: Lens' ListApplicationRevisions (Maybe ApplicationRevisionSortBy)
+larrqSortBy = lens _larrqSortBy (\ s a -> s{_larrqSortBy = a});
 
 -- | The name of an existing AWS CodeDeploy application associated with the
 -- applicable IAM user or AWS account.
-lisApplicationName :: Lens' ListApplicationRevisions Text
-lisApplicationName = lens _lisApplicationName (\ s a -> s{_lisApplicationName = a});
+larrqApplicationName :: Lens' ListApplicationRevisions Text
+larrqApplicationName = lens _larrqApplicationName (\ s a -> s{_larrqApplicationName = a});
 
 instance AWSRequest ListApplicationRevisions where
         type Sv ListApplicationRevisions = CodeDeploy
@@ -177,12 +177,13 @@ instance ToHeaders ListApplicationRevisions where
 instance ToJSON ListApplicationRevisions where
         toJSON ListApplicationRevisions'{..}
           = object
-              ["s3KeyPrefix" .= _lisS3KeyPrefix,
-               "deployed" .= _lisDeployed,
-               "nextToken" .= _lisNextToken,
-               "sortOrder" .= _lisSortOrder,
-               "s3Bucket" .= _lisS3Bucket, "sortBy" .= _lisSortBy,
-               "applicationName" .= _lisApplicationName]
+              ["s3KeyPrefix" .= _larrqS3KeyPrefix,
+               "deployed" .= _larrqDeployed,
+               "nextToken" .= _larrqNextToken,
+               "sortOrder" .= _larrqSortOrder,
+               "s3Bucket" .= _larrqS3Bucket,
+               "sortBy" .= _larrqSortBy,
+               "applicationName" .= _larrqApplicationName]
 
 instance ToPath ListApplicationRevisions where
         toPath = const "/"
@@ -196,37 +197,37 @@ instance ToQuery ListApplicationRevisions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larrNextToken'
+-- * 'larrsNextToken'
 --
--- * 'larrRevisions'
+-- * 'larrsRevisions'
 --
--- * 'larrStatus'
+-- * 'larrsStatus'
 data ListApplicationRevisionsResponse = ListApplicationRevisionsResponse'
-    { _larrNextToken :: !(Maybe Text)
-    , _larrRevisions :: !(Maybe [RevisionLocation])
-    , _larrStatus    :: !Int
+    { _larrsNextToken :: !(Maybe Text)
+    , _larrsRevisions :: !(Maybe [RevisionLocation])
+    , _larrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListApplicationRevisionsResponse' smart constructor.
 listApplicationRevisionsResponse :: Int -> ListApplicationRevisionsResponse
 listApplicationRevisionsResponse pStatus =
     ListApplicationRevisionsResponse'
-    { _larrNextToken = Nothing
-    , _larrRevisions = Nothing
-    , _larrStatus = pStatus
+    { _larrsNextToken = Nothing
+    , _larrsRevisions = Nothing
+    , _larrsStatus = pStatus
     }
 
 -- | If the amount of information that is returned is significantly large, an
 -- identifier will also be returned, which can be used in a subsequent list
 -- application revisions call to return the next set of application
 -- revisions in the list.
-larrNextToken :: Lens' ListApplicationRevisionsResponse (Maybe Text)
-larrNextToken = lens _larrNextToken (\ s a -> s{_larrNextToken = a});
+larrsNextToken :: Lens' ListApplicationRevisionsResponse (Maybe Text)
+larrsNextToken = lens _larrsNextToken (\ s a -> s{_larrsNextToken = a});
 
 -- | A list of revision locations that contain the matching revisions.
-larrRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
-larrRevisions = lens _larrRevisions (\ s a -> s{_larrRevisions = a}) . _Default;
+larrsRevisions :: Lens' ListApplicationRevisionsResponse [RevisionLocation]
+larrsRevisions = lens _larrsRevisions (\ s a -> s{_larrsRevisions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-larrStatus :: Lens' ListApplicationRevisionsResponse Int
-larrStatus = lens _larrStatus (\ s a -> s{_larrStatus = a});
+larrsStatus :: Lens' ListApplicationRevisionsResponse Int
+larrsStatus = lens _larrsStatus (\ s a -> s{_larrsStatus = a});

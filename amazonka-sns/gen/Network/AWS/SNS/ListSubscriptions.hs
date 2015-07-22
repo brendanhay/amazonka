@@ -30,16 +30,16 @@ module Network.AWS.SNS.ListSubscriptions
     -- ** Request constructor
     , listSubscriptions
     -- ** Request lenses
-    , lsNextToken
+    , lsrqNextToken
 
     -- * Response
     , ListSubscriptionsResponse
     -- ** Response constructor
     , listSubscriptionsResponse
     -- ** Response lenses
-    , lsrNextToken
-    , lsrSubscriptions
-    , lsrStatus
+    , lsrsNextToken
+    , lsrsSubscriptions
+    , lsrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -54,28 +54,28 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsNextToken'
+-- * 'lsrqNextToken'
 newtype ListSubscriptions = ListSubscriptions'
-    { _lsNextToken :: Maybe Text
+    { _lsrqNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSubscriptions' smart constructor.
 listSubscriptions :: ListSubscriptions
 listSubscriptions =
     ListSubscriptions'
-    { _lsNextToken = Nothing
+    { _lsrqNextToken = Nothing
     }
 
 -- | Token returned by the previous @ListSubscriptions@ request.
-lsNextToken :: Lens' ListSubscriptions (Maybe Text)
-lsNextToken = lens _lsNextToken (\ s a -> s{_lsNextToken = a});
+lsrqNextToken :: Lens' ListSubscriptions (Maybe Text)
+lsrqNextToken = lens _lsrqNextToken (\ s a -> s{_lsrqNextToken = a});
 
 instance AWSPager ListSubscriptions where
         page rq rs
-          | stop (rs ^. lsrNextToken) = Nothing
-          | stop (rs ^. lsrSubscriptions) = Nothing
+          | stop (rs ^. lsrsNextToken) = Nothing
+          | stop (rs ^. lsrsSubscriptions) = Nothing
           | otherwise =
-            Just $ rq & lsNextToken .~ rs ^. lsrNextToken
+            Just $ rq & lsrqNextToken .~ rs ^. lsrsNextToken
 
 instance AWSRequest ListSubscriptions where
         type Sv ListSubscriptions = SNS
@@ -101,7 +101,7 @@ instance ToQuery ListSubscriptions where
           = mconcat
               ["Action" =: ("ListSubscriptions" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "NextToken" =: _lsNextToken]
+               "NextToken" =: _lsrqNextToken]
 
 -- | Response for ListSubscriptions action
 --
@@ -109,35 +109,35 @@ instance ToQuery ListSubscriptions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lsrNextToken'
+-- * 'lsrsNextToken'
 --
--- * 'lsrSubscriptions'
+-- * 'lsrsSubscriptions'
 --
--- * 'lsrStatus'
+-- * 'lsrsStatus'
 data ListSubscriptionsResponse = ListSubscriptionsResponse'
-    { _lsrNextToken     :: !(Maybe Text)
-    , _lsrSubscriptions :: !(Maybe [Subscription])
-    , _lsrStatus        :: !Int
+    { _lsrsNextToken     :: !(Maybe Text)
+    , _lsrsSubscriptions :: !(Maybe [Subscription])
+    , _lsrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListSubscriptionsResponse' smart constructor.
 listSubscriptionsResponse :: Int -> ListSubscriptionsResponse
 listSubscriptionsResponse pStatus =
     ListSubscriptionsResponse'
-    { _lsrNextToken = Nothing
-    , _lsrSubscriptions = Nothing
-    , _lsrStatus = pStatus
+    { _lsrsNextToken = Nothing
+    , _lsrsSubscriptions = Nothing
+    , _lsrsStatus = pStatus
     }
 
 -- | Token to pass along to the next @ListSubscriptions@ request. This
 -- element is returned if there are more subscriptions to retrieve.
-lsrNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
-lsrNextToken = lens _lsrNextToken (\ s a -> s{_lsrNextToken = a});
+lsrsNextToken :: Lens' ListSubscriptionsResponse (Maybe Text)
+lsrsNextToken = lens _lsrsNextToken (\ s a -> s{_lsrsNextToken = a});
 
 -- | A list of subscriptions.
-lsrSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
-lsrSubscriptions = lens _lsrSubscriptions (\ s a -> s{_lsrSubscriptions = a}) . _Default;
+lsrsSubscriptions :: Lens' ListSubscriptionsResponse [Subscription]
+lsrsSubscriptions = lens _lsrsSubscriptions (\ s a -> s{_lsrsSubscriptions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lsrStatus :: Lens' ListSubscriptionsResponse Int
-lsrStatus = lens _lsrStatus (\ s a -> s{_lsrStatus = a});
+lsrsStatus :: Lens' ListSubscriptionsResponse Int
+lsrsStatus = lens _lsrsStatus (\ s a -> s{_lsrsStatus = a});

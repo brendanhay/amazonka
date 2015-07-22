@@ -27,14 +27,14 @@ module Network.AWS.CloudHSM.DeleteLunaClient
     -- ** Request constructor
     , deleteLunaClient
     -- ** Request lenses
-    , delClientARN
+    , drqClientARN
 
     -- * Response
     , DeleteLunaClientResponse
     -- ** Response constructor
     , deleteLunaClientResponse
     -- ** Response lenses
-    , dlcrStatus
+    , drsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -46,21 +46,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delClientARN'
+-- * 'drqClientARN'
 newtype DeleteLunaClient = DeleteLunaClient'
-    { _delClientARN :: Text
+    { _drqClientARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLunaClient' smart constructor.
 deleteLunaClient :: Text -> DeleteLunaClient
 deleteLunaClient pClientARN =
     DeleteLunaClient'
-    { _delClientARN = pClientARN
+    { _drqClientARN = pClientARN
     }
 
 -- | The ARN of the client to delete.
-delClientARN :: Lens' DeleteLunaClient Text
-delClientARN = lens _delClientARN (\ s a -> s{_delClientARN = a});
+drqClientARN :: Lens' DeleteLunaClient Text
+drqClientARN = lens _drqClientARN (\ s a -> s{_drqClientARN = a});
 
 instance AWSRequest DeleteLunaClient where
         type Sv DeleteLunaClient = CloudHSM
@@ -83,7 +83,7 @@ instance ToHeaders DeleteLunaClient where
 
 instance ToJSON DeleteLunaClient where
         toJSON DeleteLunaClient'{..}
-          = object ["ClientArn" .= _delClientARN]
+          = object ["ClientArn" .= _drqClientARN]
 
 instance ToPath DeleteLunaClient where
         toPath = const "/"
@@ -95,18 +95,18 @@ instance ToQuery DeleteLunaClient where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlcrStatus'
+-- * 'drsStatus'
 newtype DeleteLunaClientResponse = DeleteLunaClientResponse'
-    { _dlcrStatus :: Int
+    { _drsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteLunaClientResponse' smart constructor.
 deleteLunaClientResponse :: Int -> DeleteLunaClientResponse
 deleteLunaClientResponse pStatus =
     DeleteLunaClientResponse'
-    { _dlcrStatus = pStatus
+    { _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dlcrStatus :: Lens' DeleteLunaClientResponse Int
-dlcrStatus = lens _dlcrStatus (\ s a -> s{_dlcrStatus = a});
+drsStatus :: Lens' DeleteLunaClientResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

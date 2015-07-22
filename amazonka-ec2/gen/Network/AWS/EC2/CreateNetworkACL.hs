@@ -33,16 +33,16 @@ module Network.AWS.EC2.CreateNetworkACL
     -- ** Request constructor
     , createNetworkACL
     -- ** Request lenses
-    , cnaDryRun
-    , cnaVPCId
+    , cnarqDryRun
+    , cnarqVPCId
 
     -- * Response
     , CreateNetworkACLResponse
     -- ** Response constructor
     , createNetworkACLResponse
     -- ** Response lenses
-    , cnarNetworkACL
-    , cnarStatus
+    , cnarsNetworkACL
+    , cnarsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -54,32 +54,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cnaDryRun'
+-- * 'cnarqDryRun'
 --
--- * 'cnaVPCId'
+-- * 'cnarqVPCId'
 data CreateNetworkACL = CreateNetworkACL'
-    { _cnaDryRun :: !(Maybe Bool)
-    , _cnaVPCId  :: !Text
+    { _cnarqDryRun :: !(Maybe Bool)
+    , _cnarqVPCId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACL' smart constructor.
 createNetworkACL :: Text -> CreateNetworkACL
 createNetworkACL pVPCId =
     CreateNetworkACL'
-    { _cnaDryRun = Nothing
-    , _cnaVPCId = pVPCId
+    { _cnarqDryRun = Nothing
+    , _cnarqVPCId = pVPCId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cnaDryRun :: Lens' CreateNetworkACL (Maybe Bool)
-cnaDryRun = lens _cnaDryRun (\ s a -> s{_cnaDryRun = a});
+cnarqDryRun :: Lens' CreateNetworkACL (Maybe Bool)
+cnarqDryRun = lens _cnarqDryRun (\ s a -> s{_cnarqDryRun = a});
 
 -- | The ID of the VPC.
-cnaVPCId :: Lens' CreateNetworkACL Text
-cnaVPCId = lens _cnaVPCId (\ s a -> s{_cnaVPCId = a});
+cnarqVPCId :: Lens' CreateNetworkACL Text
+cnarqVPCId = lens _cnarqVPCId (\ s a -> s{_cnarqVPCId = a});
 
 instance AWSRequest CreateNetworkACL where
         type Sv CreateNetworkACL = EC2
@@ -102,32 +102,32 @@ instance ToQuery CreateNetworkACL where
           = mconcat
               ["Action" =: ("CreateNetworkACL" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _cnaDryRun, "VpcId" =: _cnaVPCId]
+               "DryRun" =: _cnarqDryRun, "VpcId" =: _cnarqVPCId]
 
 -- | /See:/ 'createNetworkACLResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cnarNetworkACL'
+-- * 'cnarsNetworkACL'
 --
--- * 'cnarStatus'
+-- * 'cnarsStatus'
 data CreateNetworkACLResponse = CreateNetworkACLResponse'
-    { _cnarNetworkACL :: !(Maybe NetworkACL)
-    , _cnarStatus     :: !Int
+    { _cnarsNetworkACL :: !(Maybe NetworkACL)
+    , _cnarsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACLResponse' smart constructor.
 createNetworkACLResponse :: Int -> CreateNetworkACLResponse
 createNetworkACLResponse pStatus =
     CreateNetworkACLResponse'
-    { _cnarNetworkACL = Nothing
-    , _cnarStatus = pStatus
+    { _cnarsNetworkACL = Nothing
+    , _cnarsStatus = pStatus
     }
 
 -- | Information about the network ACL.
-cnarNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
-cnarNetworkACL = lens _cnarNetworkACL (\ s a -> s{_cnarNetworkACL = a});
+cnarsNetworkACL :: Lens' CreateNetworkACLResponse (Maybe NetworkACL)
+cnarsNetworkACL = lens _cnarsNetworkACL (\ s a -> s{_cnarsNetworkACL = a});
 
 -- | FIXME: Undocumented member.
-cnarStatus :: Lens' CreateNetworkACLResponse Int
-cnarStatus = lens _cnarStatus (\ s a -> s{_cnarStatus = a});
+cnarsStatus :: Lens' CreateNetworkACLResponse Int
+cnarsStatus = lens _cnarsStatus (\ s a -> s{_cnarsStatus = a});

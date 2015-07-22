@@ -65,16 +65,16 @@ module Network.AWS.EC2.CreateDHCPOptions
     -- ** Request constructor
     , createDHCPOptions
     -- ** Request lenses
-    , cdoDryRun
-    , cdoDHCPConfigurations
+    , cdorqDryRun
+    , cdorqDHCPConfigurations
 
     -- * Response
     , CreateDHCPOptionsResponse
     -- ** Response constructor
     , createDHCPOptionsResponse
     -- ** Response lenses
-    , cdorDHCPOptions
-    , cdorStatus
+    , cdorsDHCPOptions
+    , cdorsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -86,32 +86,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdoDryRun'
+-- * 'cdorqDryRun'
 --
--- * 'cdoDHCPConfigurations'
+-- * 'cdorqDHCPConfigurations'
 data CreateDHCPOptions = CreateDHCPOptions'
-    { _cdoDryRun             :: !(Maybe Bool)
-    , _cdoDHCPConfigurations :: ![NewDHCPConfiguration]
+    { _cdorqDryRun             :: !(Maybe Bool)
+    , _cdorqDHCPConfigurations :: ![NewDHCPConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDHCPOptions' smart constructor.
 createDHCPOptions :: CreateDHCPOptions
 createDHCPOptions =
     CreateDHCPOptions'
-    { _cdoDryRun = Nothing
-    , _cdoDHCPConfigurations = mempty
+    { _cdorqDryRun = Nothing
+    , _cdorqDHCPConfigurations = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cdoDryRun :: Lens' CreateDHCPOptions (Maybe Bool)
-cdoDryRun = lens _cdoDryRun (\ s a -> s{_cdoDryRun = a});
+cdorqDryRun :: Lens' CreateDHCPOptions (Maybe Bool)
+cdorqDryRun = lens _cdorqDryRun (\ s a -> s{_cdorqDryRun = a});
 
 -- | A DHCP configuration option.
-cdoDHCPConfigurations :: Lens' CreateDHCPOptions [NewDHCPConfiguration]
-cdoDHCPConfigurations = lens _cdoDHCPConfigurations (\ s a -> s{_cdoDHCPConfigurations = a});
+cdorqDHCPConfigurations :: Lens' CreateDHCPOptions [NewDHCPConfiguration]
+cdorqDHCPConfigurations = lens _cdorqDHCPConfigurations (\ s a -> s{_cdorqDHCPConfigurations = a});
 
 instance AWSRequest CreateDHCPOptions where
         type Sv CreateDHCPOptions = EC2
@@ -134,33 +134,33 @@ instance ToQuery CreateDHCPOptions where
           = mconcat
               ["Action" =: ("CreateDHCPOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _cdoDryRun,
-               toQueryList "item" _cdoDHCPConfigurations]
+               "DryRun" =: _cdorqDryRun,
+               toQueryList "item" _cdorqDHCPConfigurations]
 
 -- | /See:/ 'createDHCPOptionsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cdorDHCPOptions'
+-- * 'cdorsDHCPOptions'
 --
--- * 'cdorStatus'
+-- * 'cdorsStatus'
 data CreateDHCPOptionsResponse = CreateDHCPOptionsResponse'
-    { _cdorDHCPOptions :: !(Maybe DHCPOptions)
-    , _cdorStatus      :: !Int
+    { _cdorsDHCPOptions :: !(Maybe DHCPOptions)
+    , _cdorsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateDHCPOptionsResponse' smart constructor.
 createDHCPOptionsResponse :: Int -> CreateDHCPOptionsResponse
 createDHCPOptionsResponse pStatus =
     CreateDHCPOptionsResponse'
-    { _cdorDHCPOptions = Nothing
-    , _cdorStatus = pStatus
+    { _cdorsDHCPOptions = Nothing
+    , _cdorsStatus = pStatus
     }
 
 -- | A set of DHCP options.
-cdorDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
-cdorDHCPOptions = lens _cdorDHCPOptions (\ s a -> s{_cdorDHCPOptions = a});
+cdorsDHCPOptions :: Lens' CreateDHCPOptionsResponse (Maybe DHCPOptions)
+cdorsDHCPOptions = lens _cdorsDHCPOptions (\ s a -> s{_cdorsDHCPOptions = a});
 
 -- | FIXME: Undocumented member.
-cdorStatus :: Lens' CreateDHCPOptionsResponse Int
-cdorStatus = lens _cdorStatus (\ s a -> s{_cdorStatus = a});
+cdorsStatus :: Lens' CreateDHCPOptionsResponse Int
+cdorsStatus = lens _cdorsStatus (\ s a -> s{_cdorsStatus = a});

@@ -29,7 +29,7 @@ module Network.AWS.S3.DeleteBucket
     -- ** Request constructor
     , deleteBucket
     -- ** Request lenses
-    , dbBucket
+    , dbrqBucket
 
     -- * Response
     , DeleteBucketResponse
@@ -46,21 +46,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbBucket'
+-- * 'dbrqBucket'
 newtype DeleteBucket = DeleteBucket'
-    { _dbBucket :: BucketName
+    { _dbrqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucket' smart constructor.
 deleteBucket :: BucketName -> DeleteBucket
 deleteBucket pBucket =
     DeleteBucket'
-    { _dbBucket = pBucket
+    { _dbrqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-dbBucket :: Lens' DeleteBucket BucketName
-dbBucket = lens _dbBucket (\ s a -> s{_dbBucket = a});
+dbrqBucket :: Lens' DeleteBucket BucketName
+dbrqBucket = lens _dbrqBucket (\ s a -> s{_dbrqBucket = a});
 
 instance AWSRequest DeleteBucket where
         type Sv DeleteBucket = S3
@@ -73,7 +73,7 @@ instance ToHeaders DeleteBucket where
 
 instance ToPath DeleteBucket where
         toPath DeleteBucket'{..}
-          = mconcat ["/", toText _dbBucket]
+          = mconcat ["/", toText _dbrqBucket]
 
 instance ToQuery DeleteBucket where
         toQuery = const mempty

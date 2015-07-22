@@ -27,15 +27,15 @@ module Network.AWS.DirectoryService.DeleteDirectory
     -- ** Request constructor
     , deleteDirectory
     -- ** Request lenses
-    , delDirectoryId
+    , ddrqDirectoryId
 
     -- * Response
     , DeleteDirectoryResponse
     -- ** Response constructor
     , deleteDirectoryResponse
     -- ** Response lenses
-    , dDirectoryId
-    , dStatus
+    , ddrsDirectoryId
+    , ddrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delDirectoryId'
+-- * 'ddrqDirectoryId'
 newtype DeleteDirectory = DeleteDirectory'
-    { _delDirectoryId :: Text
+    { _ddrqDirectoryId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDirectory' smart constructor.
 deleteDirectory :: Text -> DeleteDirectory
 deleteDirectory pDirectoryId =
     DeleteDirectory'
-    { _delDirectoryId = pDirectoryId
+    { _ddrqDirectoryId = pDirectoryId
     }
 
 -- | The identifier of the directory to delete.
-delDirectoryId :: Lens' DeleteDirectory Text
-delDirectoryId = lens _delDirectoryId (\ s a -> s{_delDirectoryId = a});
+ddrqDirectoryId :: Lens' DeleteDirectory Text
+ddrqDirectoryId = lens _ddrqDirectoryId (\ s a -> s{_ddrqDirectoryId = a});
 
 instance AWSRequest DeleteDirectory where
         type Sv DeleteDirectory = DirectoryService
@@ -87,7 +87,7 @@ instance ToHeaders DeleteDirectory where
 
 instance ToJSON DeleteDirectory where
         toJSON DeleteDirectory'{..}
-          = object ["DirectoryId" .= _delDirectoryId]
+          = object ["DirectoryId" .= _ddrqDirectoryId]
 
 instance ToPath DeleteDirectory where
         toPath = const "/"
@@ -101,26 +101,26 @@ instance ToQuery DeleteDirectory where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dDirectoryId'
+-- * 'ddrsDirectoryId'
 --
--- * 'dStatus'
+-- * 'ddrsStatus'
 data DeleteDirectoryResponse = DeleteDirectoryResponse'
-    { _dDirectoryId :: !(Maybe Text)
-    , _dStatus      :: !Int
+    { _ddrsDirectoryId :: !(Maybe Text)
+    , _ddrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDirectoryResponse' smart constructor.
 deleteDirectoryResponse :: Int -> DeleteDirectoryResponse
 deleteDirectoryResponse pStatus =
     DeleteDirectoryResponse'
-    { _dDirectoryId = Nothing
-    , _dStatus = pStatus
+    { _ddrsDirectoryId = Nothing
+    , _ddrsStatus = pStatus
     }
 
 -- | The directory identifier.
-dDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
-dDirectoryId = lens _dDirectoryId (\ s a -> s{_dDirectoryId = a});
+ddrsDirectoryId :: Lens' DeleteDirectoryResponse (Maybe Text)
+ddrsDirectoryId = lens _ddrsDirectoryId (\ s a -> s{_ddrsDirectoryId = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DeleteDirectoryResponse Int
-dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+ddrsStatus :: Lens' DeleteDirectoryResponse Int
+ddrsStatus = lens _ddrsStatus (\ s a -> s{_ddrsStatus = a});

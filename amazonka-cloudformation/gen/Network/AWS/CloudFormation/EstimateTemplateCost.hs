@@ -29,17 +29,17 @@ module Network.AWS.CloudFormation.EstimateTemplateCost
     -- ** Request constructor
     , estimateTemplateCost
     -- ** Request lenses
-    , etcParameters
-    , etcTemplateBody
-    , etcTemplateURL
+    , etcrqParameters
+    , etcrqTemplateBody
+    , etcrqTemplateURL
 
     -- * Response
     , EstimateTemplateCostResponse
     -- ** Response constructor
     , estimateTemplateCostResponse
     -- ** Response lenses
-    , etcrURL
-    , etcrStatus
+    , etcrsURL
+    , etcrsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'etcParameters'
+-- * 'etcrqParameters'
 --
--- * 'etcTemplateBody'
+-- * 'etcrqTemplateBody'
 --
--- * 'etcTemplateURL'
+-- * 'etcrqTemplateURL'
 data EstimateTemplateCost = EstimateTemplateCost'
-    { _etcParameters   :: !(Maybe [Parameter])
-    , _etcTemplateBody :: !(Maybe Text)
-    , _etcTemplateURL  :: !(Maybe Text)
+    { _etcrqParameters   :: !(Maybe [Parameter])
+    , _etcrqTemplateBody :: !(Maybe Text)
+    , _etcrqTemplateURL  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EstimateTemplateCost' smart constructor.
 estimateTemplateCost :: EstimateTemplateCost
 estimateTemplateCost =
     EstimateTemplateCost'
-    { _etcParameters = Nothing
-    , _etcTemplateBody = Nothing
-    , _etcTemplateURL = Nothing
+    { _etcrqParameters = Nothing
+    , _etcrqTemplateBody = Nothing
+    , _etcrqTemplateURL = Nothing
     }
 
 -- | A list of @Parameter@ structures that specify input parameters.
-etcParameters :: Lens' EstimateTemplateCost [Parameter]
-etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a}) . _Default;
+etcrqParameters :: Lens' EstimateTemplateCost [Parameter]
+etcrqParameters = lens _etcrqParameters (\ s a -> s{_etcrqParameters = a}) . _Default;
 
 -- | Structure containing the template body with a minimum length of 1 byte
 -- and a maximum length of 51,200 bytes. (For more information, go to
@@ -82,8 +82,8 @@ etcParameters = lens _etcParameters (\ s a -> s{_etcParameters = a}) . _Default;
 --
 -- Conditional: You must pass @TemplateBody@ or @TemplateURL@. If both are
 -- passed, only @TemplateBody@ is used.
-etcTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
-etcTemplateBody = lens _etcTemplateBody (\ s a -> s{_etcTemplateBody = a});
+etcrqTemplateBody :: Lens' EstimateTemplateCost (Maybe Text)
+etcrqTemplateBody = lens _etcrqTemplateBody (\ s a -> s{_etcrqTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
 -- template located in an S3 bucket in the same region as the stack. For
@@ -93,8 +93,8 @@ etcTemplateBody = lens _etcTemplateBody (\ s a -> s{_etcTemplateBody = a});
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-etcTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
-etcTemplateURL = lens _etcTemplateURL (\ s a -> s{_etcTemplateURL = a});
+etcrqTemplateURL :: Lens' EstimateTemplateCost (Maybe Text)
+etcrqTemplateURL = lens _etcrqTemplateURL (\ s a -> s{_etcrqTemplateURL = a});
 
 instance AWSRequest EstimateTemplateCost where
         type Sv EstimateTemplateCost = CloudFormation
@@ -119,9 +119,9 @@ instance ToQuery EstimateTemplateCost where
               ["Action" =: ("EstimateTemplateCost" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
                "Parameters" =:
-                 toQuery (toQueryList "member" <$> _etcParameters),
-               "TemplateBody" =: _etcTemplateBody,
-               "TemplateURL" =: _etcTemplateURL]
+                 toQuery (toQueryList "member" <$> _etcrqParameters),
+               "TemplateBody" =: _etcrqTemplateBody,
+               "TemplateURL" =: _etcrqTemplateURL]
 
 -- | The output for a EstimateTemplateCost action.
 --
@@ -129,27 +129,27 @@ instance ToQuery EstimateTemplateCost where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'etcrURL'
+-- * 'etcrsURL'
 --
--- * 'etcrStatus'
+-- * 'etcrsStatus'
 data EstimateTemplateCostResponse = EstimateTemplateCostResponse'
-    { _etcrURL    :: !(Maybe Text)
-    , _etcrStatus :: !Int
+    { _etcrsURL    :: !(Maybe Text)
+    , _etcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EstimateTemplateCostResponse' smart constructor.
 estimateTemplateCostResponse :: Int -> EstimateTemplateCostResponse
 estimateTemplateCostResponse pStatus =
     EstimateTemplateCostResponse'
-    { _etcrURL = Nothing
-    , _etcrStatus = pStatus
+    { _etcrsURL = Nothing
+    , _etcrsStatus = pStatus
     }
 
 -- | An AWS Simple Monthly Calculator URL with a query string that describes
 -- the resources required to run the template.
-etcrURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
-etcrURL = lens _etcrURL (\ s a -> s{_etcrURL = a});
+etcrsURL :: Lens' EstimateTemplateCostResponse (Maybe Text)
+etcrsURL = lens _etcrsURL (\ s a -> s{_etcrsURL = a});
 
 -- | FIXME: Undocumented member.
-etcrStatus :: Lens' EstimateTemplateCostResponse Int
-etcrStatus = lens _etcrStatus (\ s a -> s{_etcrStatus = a});
+etcrsStatus :: Lens' EstimateTemplateCostResponse Int
+etcrsStatus = lens _etcrsStatus (\ s a -> s{_etcrsStatus = a});

@@ -27,19 +27,19 @@ module Network.AWS.CloudFormation.ValidateTemplate
     -- ** Request constructor
     , validateTemplate
     -- ** Request lenses
-    , vtTemplateBody
-    , vtTemplateURL
+    , vtrqTemplateBody
+    , vtrqTemplateURL
 
     -- * Response
     , ValidateTemplateResponse
     -- ** Response constructor
     , validateTemplateResponse
     -- ** Response lenses
-    , vtrParameters
-    , vtrCapabilitiesReason
-    , vtrCapabilities
-    , vtrDescription
-    , vtrStatus
+    , vtrsParameters
+    , vtrsCapabilitiesReason
+    , vtrsCapabilities
+    , vtrsDescription
+    , vtrsStatus
     ) where
 
 import           Network.AWS.CloudFormation.Types
@@ -53,20 +53,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vtTemplateBody'
+-- * 'vtrqTemplateBody'
 --
--- * 'vtTemplateURL'
+-- * 'vtrqTemplateURL'
 data ValidateTemplate = ValidateTemplate'
-    { _vtTemplateBody :: !(Maybe Text)
-    , _vtTemplateURL  :: !(Maybe Text)
+    { _vtrqTemplateBody :: !(Maybe Text)
+    , _vtrqTemplateURL  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateTemplate' smart constructor.
 validateTemplate :: ValidateTemplate
 validateTemplate =
     ValidateTemplate'
-    { _vtTemplateBody = Nothing
-    , _vtTemplateURL = Nothing
+    { _vtrqTemplateBody = Nothing
+    , _vtrqTemplateURL = Nothing
     }
 
 -- | Structure containing the template body with a minimum length of 1 byte
@@ -76,8 +76,8 @@ validateTemplate =
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-vtTemplateBody :: Lens' ValidateTemplate (Maybe Text)
-vtTemplateBody = lens _vtTemplateBody (\ s a -> s{_vtTemplateBody = a});
+vtrqTemplateBody :: Lens' ValidateTemplate (Maybe Text)
+vtrqTemplateBody = lens _vtrqTemplateBody (\ s a -> s{_vtrqTemplateBody = a});
 
 -- | Location of file containing the template body. The URL must point to a
 -- template (max size: 460,800 bytes) located in an S3 bucket in the same
@@ -87,8 +87,8 @@ vtTemplateBody = lens _vtTemplateBody (\ s a -> s{_vtTemplateBody = a});
 --
 -- Conditional: You must pass @TemplateURL@ or @TemplateBody@. If both are
 -- passed, only @TemplateBody@ is used.
-vtTemplateURL :: Lens' ValidateTemplate (Maybe Text)
-vtTemplateURL = lens _vtTemplateURL (\ s a -> s{_vtTemplateURL = a});
+vtrqTemplateURL :: Lens' ValidateTemplate (Maybe Text)
+vtrqTemplateURL = lens _vtrqTemplateURL (\ s a -> s{_vtrqTemplateURL = a});
 
 instance AWSRequest ValidateTemplate where
         type Sv ValidateTemplate = CloudFormation
@@ -118,8 +118,8 @@ instance ToQuery ValidateTemplate where
           = mconcat
               ["Action" =: ("ValidateTemplate" :: ByteString),
                "Version" =: ("2010-05-15" :: ByteString),
-               "TemplateBody" =: _vtTemplateBody,
-               "TemplateURL" =: _vtTemplateURL]
+               "TemplateBody" =: _vtrqTemplateBody,
+               "TemplateURL" =: _vtrqTemplateURL]
 
 -- | The output for ValidateTemplate action.
 --
@@ -127,42 +127,42 @@ instance ToQuery ValidateTemplate where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vtrParameters'
+-- * 'vtrsParameters'
 --
--- * 'vtrCapabilitiesReason'
+-- * 'vtrsCapabilitiesReason'
 --
--- * 'vtrCapabilities'
+-- * 'vtrsCapabilities'
 --
--- * 'vtrDescription'
+-- * 'vtrsDescription'
 --
--- * 'vtrStatus'
+-- * 'vtrsStatus'
 data ValidateTemplateResponse = ValidateTemplateResponse'
-    { _vtrParameters         :: !(Maybe [TemplateParameter])
-    , _vtrCapabilitiesReason :: !(Maybe Text)
-    , _vtrCapabilities       :: !(Maybe [Capability])
-    , _vtrDescription        :: !(Maybe Text)
-    , _vtrStatus             :: !Int
+    { _vtrsParameters         :: !(Maybe [TemplateParameter])
+    , _vtrsCapabilitiesReason :: !(Maybe Text)
+    , _vtrsCapabilities       :: !(Maybe [Capability])
+    , _vtrsDescription        :: !(Maybe Text)
+    , _vtrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ValidateTemplateResponse' smart constructor.
 validateTemplateResponse :: Int -> ValidateTemplateResponse
 validateTemplateResponse pStatus =
     ValidateTemplateResponse'
-    { _vtrParameters = Nothing
-    , _vtrCapabilitiesReason = Nothing
-    , _vtrCapabilities = Nothing
-    , _vtrDescription = Nothing
-    , _vtrStatus = pStatus
+    { _vtrsParameters = Nothing
+    , _vtrsCapabilitiesReason = Nothing
+    , _vtrsCapabilities = Nothing
+    , _vtrsDescription = Nothing
+    , _vtrsStatus = pStatus
     }
 
 -- | A list of @TemplateParameter@ structures.
-vtrParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
-vtrParameters = lens _vtrParameters (\ s a -> s{_vtrParameters = a}) . _Default;
+vtrsParameters :: Lens' ValidateTemplateResponse [TemplateParameter]
+vtrsParameters = lens _vtrsParameters (\ s a -> s{_vtrsParameters = a}) . _Default;
 
 -- | The list of resources that generated the values in the @Capabilities@
 -- response element.
-vtrCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
-vtrCapabilitiesReason = lens _vtrCapabilitiesReason (\ s a -> s{_vtrCapabilitiesReason = a});
+vtrsCapabilitiesReason :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrsCapabilitiesReason = lens _vtrsCapabilitiesReason (\ s a -> s{_vtrsCapabilitiesReason = a});
 
 -- | The capabilities found within the template. Currently, AWS
 -- CloudFormation supports only the CAPABILITY_IAM capability. If your
@@ -170,13 +170,13 @@ vtrCapabilitiesReason = lens _vtrCapabilitiesReason (\ s a -> s{_vtrCapabilities
 -- value for this parameter when you use the CreateStack or UpdateStack
 -- actions with your template; otherwise, those actions return an
 -- InsufficientCapabilities error.
-vtrCapabilities :: Lens' ValidateTemplateResponse [Capability]
-vtrCapabilities = lens _vtrCapabilities (\ s a -> s{_vtrCapabilities = a}) . _Default;
+vtrsCapabilities :: Lens' ValidateTemplateResponse [Capability]
+vtrsCapabilities = lens _vtrsCapabilities (\ s a -> s{_vtrsCapabilities = a}) . _Default;
 
 -- | The description found within the template.
-vtrDescription :: Lens' ValidateTemplateResponse (Maybe Text)
-vtrDescription = lens _vtrDescription (\ s a -> s{_vtrDescription = a});
+vtrsDescription :: Lens' ValidateTemplateResponse (Maybe Text)
+vtrsDescription = lens _vtrsDescription (\ s a -> s{_vtrsDescription = a});
 
 -- | FIXME: Undocumented member.
-vtrStatus :: Lens' ValidateTemplateResponse Int
-vtrStatus = lens _vtrStatus (\ s a -> s{_vtrStatus = a});
+vtrsStatus :: Lens' ValidateTemplateResponse Int
+vtrsStatus = lens _vtrsStatus (\ s a -> s{_vtrsStatus = a});

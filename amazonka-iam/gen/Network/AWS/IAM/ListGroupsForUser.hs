@@ -30,19 +30,19 @@ module Network.AWS.IAM.ListGroupsForUser
     -- ** Request constructor
     , listGroupsForUser
     -- ** Request lenses
-    , lgfuMaxItems
-    , lgfuMarker
-    , lgfuUserName
+    , lgfurqMaxItems
+    , lgfurqMarker
+    , lgfurqUserName
 
     -- * Response
     , ListGroupsForUserResponse
     -- ** Response constructor
     , listGroupsForUserResponse
     -- ** Response lenses
-    , lgfurMarker
-    , lgfurIsTruncated
-    , lgfurStatus
-    , lgfurGroups
+    , lgfursMarker
+    , lgfursIsTruncated
+    , lgfursStatus
+    , lgfursGroups
     ) where
 
 import           Network.AWS.IAM.Types
@@ -55,24 +55,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgfuMaxItems'
+-- * 'lgfurqMaxItems'
 --
--- * 'lgfuMarker'
+-- * 'lgfurqMarker'
 --
--- * 'lgfuUserName'
+-- * 'lgfurqUserName'
 data ListGroupsForUser = ListGroupsForUser'
-    { _lgfuMaxItems :: !(Maybe Nat)
-    , _lgfuMarker   :: !(Maybe Text)
-    , _lgfuUserName :: !Text
+    { _lgfurqMaxItems :: !(Maybe Nat)
+    , _lgfurqMarker   :: !(Maybe Text)
+    , _lgfurqUserName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupsForUser' smart constructor.
 listGroupsForUser :: Text -> ListGroupsForUser
 listGroupsForUser pUserName =
     ListGroupsForUser'
-    { _lgfuMaxItems = Nothing
-    , _lgfuMarker = Nothing
-    , _lgfuUserName = pUserName
+    { _lgfurqMaxItems = Nothing
+    , _lgfurqMarker = Nothing
+    , _lgfurqUserName = pUserName
     }
 
 -- | Use this only when paginating results to indicate the maximum number of
@@ -81,25 +81,25 @@ listGroupsForUser pUserName =
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lgfuMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
-lgfuMaxItems = lens _lgfuMaxItems (\ s a -> s{_lgfuMaxItems = a}) . mapping _Nat;
+lgfurqMaxItems :: Lens' ListGroupsForUser (Maybe Natural)
+lgfurqMaxItems = lens _lgfurqMaxItems (\ s a -> s{_lgfurqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lgfuMarker :: Lens' ListGroupsForUser (Maybe Text)
-lgfuMarker = lens _lgfuMarker (\ s a -> s{_lgfuMarker = a});
+lgfurqMarker :: Lens' ListGroupsForUser (Maybe Text)
+lgfurqMarker = lens _lgfurqMarker (\ s a -> s{_lgfurqMarker = a});
 
 -- | The name of the user to list groups for.
-lgfuUserName :: Lens' ListGroupsForUser Text
-lgfuUserName = lens _lgfuUserName (\ s a -> s{_lgfuUserName = a});
+lgfurqUserName :: Lens' ListGroupsForUser Text
+lgfurqUserName = lens _lgfurqUserName (\ s a -> s{_lgfurqUserName = a});
 
 instance AWSPager ListGroupsForUser where
         page rq rs
-          | stop (rs ^. lgfurIsTruncated) = Nothing
-          | isNothing (rs ^. lgfurMarker) = Nothing
+          | stop (rs ^. lgfursIsTruncated) = Nothing
+          | isNothing (rs ^. lgfursMarker) = Nothing
           | otherwise =
-            Just $ rq & lgfuMarker .~ rs ^. lgfurMarker
+            Just $ rq & lgfurqMarker .~ rs ^. lgfursMarker
 
 instance AWSRequest ListGroupsForUser where
         type Sv ListGroupsForUser = IAM
@@ -126,8 +126,9 @@ instance ToQuery ListGroupsForUser where
           = mconcat
               ["Action" =: ("ListGroupsForUser" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "MaxItems" =: _lgfuMaxItems, "Marker" =: _lgfuMarker,
-               "UserName" =: _lgfuUserName]
+               "MaxItems" =: _lgfurqMaxItems,
+               "Marker" =: _lgfurqMarker,
+               "UserName" =: _lgfurqUserName]
 
 -- | Contains the response to a successful ListGroupsForUser request.
 --
@@ -135,46 +136,46 @@ instance ToQuery ListGroupsForUser where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lgfurMarker'
+-- * 'lgfursMarker'
 --
--- * 'lgfurIsTruncated'
+-- * 'lgfursIsTruncated'
 --
--- * 'lgfurStatus'
+-- * 'lgfursStatus'
 --
--- * 'lgfurGroups'
+-- * 'lgfursGroups'
 data ListGroupsForUserResponse = ListGroupsForUserResponse'
-    { _lgfurMarker      :: !(Maybe Text)
-    , _lgfurIsTruncated :: !(Maybe Bool)
-    , _lgfurStatus      :: !Int
-    , _lgfurGroups      :: ![Group]
+    { _lgfursMarker      :: !(Maybe Text)
+    , _lgfursIsTruncated :: !(Maybe Bool)
+    , _lgfursStatus      :: !Int
+    , _lgfursGroups      :: ![Group]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListGroupsForUserResponse' smart constructor.
 listGroupsForUserResponse :: Int -> ListGroupsForUserResponse
 listGroupsForUserResponse pStatus =
     ListGroupsForUserResponse'
-    { _lgfurMarker = Nothing
-    , _lgfurIsTruncated = Nothing
-    , _lgfurStatus = pStatus
-    , _lgfurGroups = mempty
+    { _lgfursMarker = Nothing
+    , _lgfursIsTruncated = Nothing
+    , _lgfursStatus = pStatus
+    , _lgfursGroups = mempty
     }
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-lgfurMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
-lgfurMarker = lens _lgfurMarker (\ s a -> s{_lgfurMarker = a});
+lgfursMarker :: Lens' ListGroupsForUserResponse (Maybe Text)
+lgfursMarker = lens _lgfursMarker (\ s a -> s{_lgfursMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-lgfurIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
-lgfurIsTruncated = lens _lgfurIsTruncated (\ s a -> s{_lgfurIsTruncated = a});
+lgfursIsTruncated :: Lens' ListGroupsForUserResponse (Maybe Bool)
+lgfursIsTruncated = lens _lgfursIsTruncated (\ s a -> s{_lgfursIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lgfurStatus :: Lens' ListGroupsForUserResponse Int
-lgfurStatus = lens _lgfurStatus (\ s a -> s{_lgfurStatus = a});
+lgfursStatus :: Lens' ListGroupsForUserResponse Int
+lgfursStatus = lens _lgfursStatus (\ s a -> s{_lgfursStatus = a});
 
 -- | A list of groups.
-lgfurGroups :: Lens' ListGroupsForUserResponse [Group]
-lgfurGroups = lens _lgfurGroups (\ s a -> s{_lgfurGroups = a});
+lgfursGroups :: Lens' ListGroupsForUserResponse [Group]
+lgfursGroups = lens _lgfursGroups (\ s a -> s{_lgfursGroups = a});

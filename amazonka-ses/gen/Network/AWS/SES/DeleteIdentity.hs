@@ -30,14 +30,14 @@ module Network.AWS.SES.DeleteIdentity
     -- ** Request constructor
     , deleteIdentity
     -- ** Request lenses
-    , diIdentity
+    , dirqIdentity
 
     -- * Response
     , DeleteIdentityResponse
     -- ** Response constructor
     , deleteIdentityResponse
     -- ** Response lenses
-    , dirStatus
+    , dirsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,22 +52,22 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'diIdentity'
+-- * 'dirqIdentity'
 newtype DeleteIdentity = DeleteIdentity'
-    { _diIdentity :: Text
+    { _dirqIdentity :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentity' smart constructor.
 deleteIdentity :: Text -> DeleteIdentity
 deleteIdentity pIdentity =
     DeleteIdentity'
-    { _diIdentity = pIdentity
+    { _dirqIdentity = pIdentity
     }
 
 -- | The identity to be removed from the list of identities for the AWS
 -- Account.
-diIdentity :: Lens' DeleteIdentity Text
-diIdentity = lens _diIdentity (\ s a -> s{_diIdentity = a});
+dirqIdentity :: Lens' DeleteIdentity Text
+dirqIdentity = lens _dirqIdentity (\ s a -> s{_dirqIdentity = a});
 
 instance AWSRequest DeleteIdentity where
         type Sv DeleteIdentity = SES
@@ -89,7 +89,7 @@ instance ToQuery DeleteIdentity where
           = mconcat
               ["Action" =: ("DeleteIdentity" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identity" =: _diIdentity]
+               "Identity" =: _dirqIdentity]
 
 -- | An empty element. Receiving this element indicates that the request
 -- completed successfully.
@@ -98,18 +98,18 @@ instance ToQuery DeleteIdentity where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dirStatus'
+-- * 'dirsStatus'
 newtype DeleteIdentityResponse = DeleteIdentityResponse'
-    { _dirStatus :: Int
+    { _dirsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteIdentityResponse' smart constructor.
 deleteIdentityResponse :: Int -> DeleteIdentityResponse
 deleteIdentityResponse pStatus =
     DeleteIdentityResponse'
-    { _dirStatus = pStatus
+    { _dirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dirStatus :: Lens' DeleteIdentityResponse Int
-dirStatus = lens _dirStatus (\ s a -> s{_dirStatus = a});
+dirsStatus :: Lens' DeleteIdentityResponse Int
+dirsStatus = lens _dirsStatus (\ s a -> s{_dirsStatus = a});

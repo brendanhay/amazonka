@@ -28,29 +28,29 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'artURL'
+-- * 'aURL'
 --
--- * 'artDescription'
+-- * 'aDescription'
 data Artifact = Artifact'
-    { _artURL         :: !(Maybe Text)
-    , _artDescription :: !(Maybe Text)
+    { _aURL         :: !(Maybe Text)
+    , _aDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Artifact' smart constructor.
 artifact :: Artifact
 artifact =
     Artifact'
-    { _artURL = Nothing
-    , _artDescription = Nothing
+    { _aURL = Nothing
+    , _aDescription = Nothing
     }
 
 -- | FIXME: Undocumented member.
-artURL :: Lens' Artifact (Maybe Text)
-artURL = lens _artURL (\ s a -> s{_artURL = a});
+aURL :: Lens' Artifact (Maybe Text)
+aURL = lens _aURL (\ s a -> s{_aURL = a});
 
 -- | FIXME: Undocumented member.
-artDescription :: Lens' Artifact (Maybe Text)
-artDescription = lens _artDescription (\ s a -> s{_artDescription = a});
+aDescription :: Lens' Artifact (Maybe Text)
+aDescription = lens _aDescription (\ s a -> s{_aDescription = a});
 
 instance FromXML Artifact where
         parseXML x

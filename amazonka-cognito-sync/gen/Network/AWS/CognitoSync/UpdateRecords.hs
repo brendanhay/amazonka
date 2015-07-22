@@ -44,21 +44,21 @@ module Network.AWS.CognitoSync.UpdateRecords
     -- ** Request constructor
     , updateRecords
     -- ** Request lenses
-    , urRecordPatches
-    , urDeviceId
-    , urClientContext
-    , urIdentityPoolId
-    , urIdentityId
-    , urDatasetName
-    , urSyncSessionToken
+    , urrqRecordPatches
+    , urrqDeviceId
+    , urrqClientContext
+    , urrqIdentityPoolId
+    , urrqIdentityId
+    , urrqDatasetName
+    , urrqSyncSessionToken
 
     -- * Response
     , UpdateRecordsResponse
     -- ** Response constructor
     , updateRecordsResponse
     -- ** Response lenses
-    , urrRecords
-    , urrStatus
+    , urrsRecords
+    , urrsStatus
     ) where
 
 import           Network.AWS.CognitoSync.Types
@@ -73,77 +73,77 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urRecordPatches'
+-- * 'urrqRecordPatches'
 --
--- * 'urDeviceId'
+-- * 'urrqDeviceId'
 --
--- * 'urClientContext'
+-- * 'urrqClientContext'
 --
--- * 'urIdentityPoolId'
+-- * 'urrqIdentityPoolId'
 --
--- * 'urIdentityId'
+-- * 'urrqIdentityId'
 --
--- * 'urDatasetName'
+-- * 'urrqDatasetName'
 --
--- * 'urSyncSessionToken'
+-- * 'urrqSyncSessionToken'
 data UpdateRecords = UpdateRecords'
-    { _urRecordPatches    :: !(Maybe [RecordPatch])
-    , _urDeviceId         :: !(Maybe Text)
-    , _urClientContext    :: !(Maybe Text)
-    , _urIdentityPoolId   :: !Text
-    , _urIdentityId       :: !Text
-    , _urDatasetName      :: !Text
-    , _urSyncSessionToken :: !Text
+    { _urrqRecordPatches    :: !(Maybe [RecordPatch])
+    , _urrqDeviceId         :: !(Maybe Text)
+    , _urrqClientContext    :: !(Maybe Text)
+    , _urrqIdentityPoolId   :: !Text
+    , _urrqIdentityId       :: !Text
+    , _urrqDatasetName      :: !Text
+    , _urrqSyncSessionToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRecords' smart constructor.
 updateRecords :: Text -> Text -> Text -> Text -> UpdateRecords
 updateRecords pIdentityPoolId pIdentityId pDatasetName pSyncSessionToken =
     UpdateRecords'
-    { _urRecordPatches = Nothing
-    , _urDeviceId = Nothing
-    , _urClientContext = Nothing
-    , _urIdentityPoolId = pIdentityPoolId
-    , _urIdentityId = pIdentityId
-    , _urDatasetName = pDatasetName
-    , _urSyncSessionToken = pSyncSessionToken
+    { _urrqRecordPatches = Nothing
+    , _urrqDeviceId = Nothing
+    , _urrqClientContext = Nothing
+    , _urrqIdentityPoolId = pIdentityPoolId
+    , _urrqIdentityId = pIdentityId
+    , _urrqDatasetName = pDatasetName
+    , _urrqSyncSessionToken = pSyncSessionToken
     }
 
 -- | A list of patch operations.
-urRecordPatches :: Lens' UpdateRecords [RecordPatch]
-urRecordPatches = lens _urRecordPatches (\ s a -> s{_urRecordPatches = a}) . _Default;
+urrqRecordPatches :: Lens' UpdateRecords [RecordPatch]
+urrqRecordPatches = lens _urrqRecordPatches (\ s a -> s{_urrqRecordPatches = a}) . _Default;
 
 -- | The unique ID generated for this device by Cognito.
-urDeviceId :: Lens' UpdateRecords (Maybe Text)
-urDeviceId = lens _urDeviceId (\ s a -> s{_urDeviceId = a});
+urrqDeviceId :: Lens' UpdateRecords (Maybe Text)
+urrqDeviceId = lens _urrqDeviceId (\ s a -> s{_urrqDeviceId = a});
 
 -- | Intended to supply a device ID that will populate the lastModifiedBy
 -- field referenced in other methods. The ClientContext field is not yet
 -- implemented.
-urClientContext :: Lens' UpdateRecords (Maybe Text)
-urClientContext = lens _urClientContext (\ s a -> s{_urClientContext = a});
+urrqClientContext :: Lens' UpdateRecords (Maybe Text)
+urrqClientContext = lens _urrqClientContext (\ s a -> s{_urrqClientContext = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-urIdentityPoolId :: Lens' UpdateRecords Text
-urIdentityPoolId = lens _urIdentityPoolId (\ s a -> s{_urIdentityPoolId = a});
+urrqIdentityPoolId :: Lens' UpdateRecords Text
+urrqIdentityPoolId = lens _urrqIdentityPoolId (\ s a -> s{_urrqIdentityPoolId = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-urIdentityId :: Lens' UpdateRecords Text
-urIdentityId = lens _urIdentityId (\ s a -> s{_urIdentityId = a});
+urrqIdentityId :: Lens' UpdateRecords Text
+urrqIdentityId = lens _urrqIdentityId (\ s a -> s{_urrqIdentityId = a});
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-urDatasetName :: Lens' UpdateRecords Text
-urDatasetName = lens _urDatasetName (\ s a -> s{_urDatasetName = a});
+urrqDatasetName :: Lens' UpdateRecords Text
+urrqDatasetName = lens _urrqDatasetName (\ s a -> s{_urrqDatasetName = a});
 
 -- | The SyncSessionToken returned by a previous call to ListRecords for this
 -- dataset and identity.
-urSyncSessionToken :: Lens' UpdateRecords Text
-urSyncSessionToken = lens _urSyncSessionToken (\ s a -> s{_urSyncSessionToken = a});
+urrqSyncSessionToken :: Lens' UpdateRecords Text
+urrqSyncSessionToken = lens _urrqSyncSessionToken (\ s a -> s{_urrqSyncSessionToken = a});
 
 instance AWSRequest UpdateRecords where
         type Sv UpdateRecords = CognitoSync
@@ -158,23 +158,23 @@ instance AWSRequest UpdateRecords where
 instance ToHeaders UpdateRecords where
         toHeaders UpdateRecords'{..}
           = mconcat
-              ["x-amz-Client-Context" =# _urClientContext,
+              ["x-amz-Client-Context" =# _urrqClientContext,
                "Content-Type" =#
                  ("application/x-amz-json-1.1" :: ByteString)]
 
 instance ToJSON UpdateRecords where
         toJSON UpdateRecords'{..}
           = object
-              ["RecordPatches" .= _urRecordPatches,
-               "DeviceId" .= _urDeviceId,
-               "SyncSessionToken" .= _urSyncSessionToken]
+              ["RecordPatches" .= _urrqRecordPatches,
+               "DeviceId" .= _urrqDeviceId,
+               "SyncSessionToken" .= _urrqSyncSessionToken]
 
 instance ToPath UpdateRecords where
         toPath UpdateRecords'{..}
           = mconcat
-              ["/identitypools/", toText _urIdentityPoolId,
-               "/identities/", toText _urIdentityId, "/datasets/",
-               toText _urDatasetName]
+              ["/identitypools/", toText _urrqIdentityPoolId,
+               "/identities/", toText _urrqIdentityId, "/datasets/",
+               toText _urrqDatasetName]
 
 instance ToQuery UpdateRecords where
         toQuery = const mempty
@@ -185,26 +185,26 @@ instance ToQuery UpdateRecords where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'urrRecords'
+-- * 'urrsRecords'
 --
--- * 'urrStatus'
+-- * 'urrsStatus'
 data UpdateRecordsResponse = UpdateRecordsResponse'
-    { _urrRecords :: !(Maybe [Record])
-    , _urrStatus  :: !Int
+    { _urrsRecords :: !(Maybe [Record])
+    , _urrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateRecordsResponse' smart constructor.
 updateRecordsResponse :: Int -> UpdateRecordsResponse
 updateRecordsResponse pStatus =
     UpdateRecordsResponse'
-    { _urrRecords = Nothing
-    , _urrStatus = pStatus
+    { _urrsRecords = Nothing
+    , _urrsStatus = pStatus
     }
 
 -- | A list of records that have been updated.
-urrRecords :: Lens' UpdateRecordsResponse [Record]
-urrRecords = lens _urrRecords (\ s a -> s{_urrRecords = a}) . _Default;
+urrsRecords :: Lens' UpdateRecordsResponse [Record]
+urrsRecords = lens _urrsRecords (\ s a -> s{_urrsRecords = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-urrStatus :: Lens' UpdateRecordsResponse Int
-urrStatus = lens _urrStatus (\ s a -> s{_urrStatus = a});
+urrsStatus :: Lens' UpdateRecordsResponse Int
+urrsStatus = lens _urrsStatus (\ s a -> s{_urrsStatus = a});

@@ -38,8 +38,8 @@ module Network.AWS.OpsWorks.AssignVolume
     -- ** Request constructor
     , assignVolume
     -- ** Request lenses
-    , avInstanceId
-    , avVolumeId
+    , avrqInstanceId
+    , avrqVolumeId
 
     -- * Response
     , AssignVolumeResponse
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'avInstanceId'
+-- * 'avrqInstanceId'
 --
--- * 'avVolumeId'
+-- * 'avrqVolumeId'
 data AssignVolume = AssignVolume'
-    { _avInstanceId :: !(Maybe Text)
-    , _avVolumeId   :: !Text
+    { _avrqInstanceId :: !(Maybe Text)
+    , _avrqVolumeId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssignVolume' smart constructor.
 assignVolume :: Text -> AssignVolume
 assignVolume pVolumeId =
     AssignVolume'
-    { _avInstanceId = Nothing
-    , _avVolumeId = pVolumeId
+    { _avrqInstanceId = Nothing
+    , _avrqVolumeId = pVolumeId
     }
 
 -- | The instance ID.
-avInstanceId :: Lens' AssignVolume (Maybe Text)
-avInstanceId = lens _avInstanceId (\ s a -> s{_avInstanceId = a});
+avrqInstanceId :: Lens' AssignVolume (Maybe Text)
+avrqInstanceId = lens _avrqInstanceId (\ s a -> s{_avrqInstanceId = a});
 
 -- | The volume ID.
-avVolumeId :: Lens' AssignVolume Text
-avVolumeId = lens _avVolumeId (\ s a -> s{_avVolumeId = a});
+avrqVolumeId :: Lens' AssignVolume Text
+avrqVolumeId = lens _avrqVolumeId (\ s a -> s{_avrqVolumeId = a});
 
 instance AWSRequest AssignVolume where
         type Sv AssignVolume = OpsWorks
@@ -98,8 +98,8 @@ instance ToHeaders AssignVolume where
 instance ToJSON AssignVolume where
         toJSON AssignVolume'{..}
           = object
-              ["InstanceId" .= _avInstanceId,
-               "VolumeId" .= _avVolumeId]
+              ["InstanceId" .= _avrqInstanceId,
+               "VolumeId" .= _avrqVolumeId]
 
 instance ToPath AssignVolume where
         toPath = const "/"

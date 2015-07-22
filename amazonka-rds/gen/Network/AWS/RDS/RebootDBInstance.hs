@@ -44,16 +44,16 @@ module Network.AWS.RDS.RebootDBInstance
     -- ** Request constructor
     , rebootDBInstance
     -- ** Request lenses
-    , rdiForceFailover
-    , rdiDBInstanceIdentifier
+    , rdirqForceFailover
+    , rdirqDBInstanceIdentifier
 
     -- * Response
     , RebootDBInstanceResponse
     -- ** Response constructor
     , rebootDBInstanceResponse
     -- ** Response lenses
-    , rdirDBInstance
-    , rdirStatus
+    , rdirsDBInstance
+    , rdirsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -67,28 +67,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdiForceFailover'
+-- * 'rdirqForceFailover'
 --
--- * 'rdiDBInstanceIdentifier'
+-- * 'rdirqDBInstanceIdentifier'
 data RebootDBInstance = RebootDBInstance'
-    { _rdiForceFailover        :: !(Maybe Bool)
-    , _rdiDBInstanceIdentifier :: !Text
+    { _rdirqForceFailover        :: !(Maybe Bool)
+    , _rdirqDBInstanceIdentifier :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootDBInstance' smart constructor.
 rebootDBInstance :: Text -> RebootDBInstance
 rebootDBInstance pDBInstanceIdentifier =
     RebootDBInstance'
-    { _rdiForceFailover = Nothing
-    , _rdiDBInstanceIdentifier = pDBInstanceIdentifier
+    { _rdirqForceFailover = Nothing
+    , _rdirqDBInstanceIdentifier = pDBInstanceIdentifier
     }
 
 -- | When @true@, the reboot will be conducted through a MultiAZ failover.
 --
 -- Constraint: You cannot specify @true@ if the instance is not configured
 -- for MultiAZ.
-rdiForceFailover :: Lens' RebootDBInstance (Maybe Bool)
-rdiForceFailover = lens _rdiForceFailover (\ s a -> s{_rdiForceFailover = a});
+rdirqForceFailover :: Lens' RebootDBInstance (Maybe Bool)
+rdirqForceFailover = lens _rdirqForceFailover (\ s a -> s{_rdirqForceFailover = a});
 
 -- | The DB instance identifier. This parameter is stored as a lowercase
 -- string.
@@ -98,8 +98,8 @@ rdiForceFailover = lens _rdiForceFailover (\ s a -> s{_rdiForceFailover = a});
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-rdiDBInstanceIdentifier :: Lens' RebootDBInstance Text
-rdiDBInstanceIdentifier = lens _rdiDBInstanceIdentifier (\ s a -> s{_rdiDBInstanceIdentifier = a});
+rdirqDBInstanceIdentifier :: Lens' RebootDBInstance Text
+rdirqDBInstanceIdentifier = lens _rdirqDBInstanceIdentifier (\ s a -> s{_rdirqDBInstanceIdentifier = a});
 
 instance AWSRequest RebootDBInstance where
         type Sv RebootDBInstance = RDS
@@ -122,33 +122,33 @@ instance ToQuery RebootDBInstance where
           = mconcat
               ["Action" =: ("RebootDBInstance" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "ForceFailover" =: _rdiForceFailover,
-               "DBInstanceIdentifier" =: _rdiDBInstanceIdentifier]
+               "ForceFailover" =: _rdirqForceFailover,
+               "DBInstanceIdentifier" =: _rdirqDBInstanceIdentifier]
 
 -- | /See:/ 'rebootDBInstanceResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rdirDBInstance'
+-- * 'rdirsDBInstance'
 --
--- * 'rdirStatus'
+-- * 'rdirsStatus'
 data RebootDBInstanceResponse = RebootDBInstanceResponse'
-    { _rdirDBInstance :: !(Maybe DBInstance)
-    , _rdirStatus     :: !Int
+    { _rdirsDBInstance :: !(Maybe DBInstance)
+    , _rdirsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootDBInstanceResponse' smart constructor.
 rebootDBInstanceResponse :: Int -> RebootDBInstanceResponse
 rebootDBInstanceResponse pStatus =
     RebootDBInstanceResponse'
-    { _rdirDBInstance = Nothing
-    , _rdirStatus = pStatus
+    { _rdirsDBInstance = Nothing
+    , _rdirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rdirDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
-rdirDBInstance = lens _rdirDBInstance (\ s a -> s{_rdirDBInstance = a});
+rdirsDBInstance :: Lens' RebootDBInstanceResponse (Maybe DBInstance)
+rdirsDBInstance = lens _rdirsDBInstance (\ s a -> s{_rdirsDBInstance = a});
 
 -- | FIXME: Undocumented member.
-rdirStatus :: Lens' RebootDBInstanceResponse Int
-rdirStatus = lens _rdirStatus (\ s a -> s{_rdirStatus = a});
+rdirsStatus :: Lens' RebootDBInstanceResponse Int
+rdirsStatus = lens _rdirsStatus (\ s a -> s{_rdirsStatus = a});

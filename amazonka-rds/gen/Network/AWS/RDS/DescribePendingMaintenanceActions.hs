@@ -28,19 +28,19 @@ module Network.AWS.RDS.DescribePendingMaintenanceActions
     -- ** Request constructor
     , describePendingMaintenanceActions
     -- ** Request lenses
-    , dpmaFilters
-    , dpmaMaxRecords
-    , dpmaMarker
-    , dpmaResourceIdentifier
+    , dpmarqFilters
+    , dpmarqMaxRecords
+    , dpmarqMarker
+    , dpmarqResourceIdentifier
 
     -- * Response
     , DescribePendingMaintenanceActionsResponse
     -- ** Response constructor
     , describePendingMaintenanceActionsResponse
     -- ** Response lenses
-    , dpmarPendingMaintenanceActions
-    , dpmarMarker
-    , dpmarStatus
+    , dpmarsPendingMaintenanceActions
+    , dpmarsMarker
+    , dpmarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -54,28 +54,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpmaFilters'
+-- * 'dpmarqFilters'
 --
--- * 'dpmaMaxRecords'
+-- * 'dpmarqMaxRecords'
 --
--- * 'dpmaMarker'
+-- * 'dpmarqMarker'
 --
--- * 'dpmaResourceIdentifier'
+-- * 'dpmarqResourceIdentifier'
 data DescribePendingMaintenanceActions = DescribePendingMaintenanceActions'
-    { _dpmaFilters            :: !(Maybe [Filter])
-    , _dpmaMaxRecords         :: !(Maybe Int)
-    , _dpmaMarker             :: !(Maybe Text)
-    , _dpmaResourceIdentifier :: !(Maybe Text)
+    { _dpmarqFilters            :: !(Maybe [Filter])
+    , _dpmarqMaxRecords         :: !(Maybe Int)
+    , _dpmarqMarker             :: !(Maybe Text)
+    , _dpmarqResourceIdentifier :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePendingMaintenanceActions' smart constructor.
 describePendingMaintenanceActions :: DescribePendingMaintenanceActions
 describePendingMaintenanceActions =
     DescribePendingMaintenanceActions'
-    { _dpmaFilters = Nothing
-    , _dpmaMaxRecords = Nothing
-    , _dpmaMarker = Nothing
-    , _dpmaResourceIdentifier = Nothing
+    { _dpmarqFilters = Nothing
+    , _dpmarqMaxRecords = Nothing
+    , _dpmarqMarker = Nothing
+    , _dpmarqResourceIdentifier = Nothing
     }
 
 -- | A filter that specifies one or more resources to return pending
@@ -87,8 +87,8 @@ describePendingMaintenanceActions =
 --     Amazon Resource Names (ARNs). The results list will only include
 --     pending maintenance actions for the DB instances identified by these
 --     ARNs.
-dpmaFilters :: Lens' DescribePendingMaintenanceActions [Filter]
-dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default;
+dpmarqFilters :: Lens' DescribePendingMaintenanceActions [Filter]
+dpmarqFilters = lens _dpmarqFilters (\ s a -> s{_dpmarqFilters = a}) . _Default;
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -98,19 +98,19 @@ dpmaFilters = lens _dpmaFilters (\ s a -> s{_dpmaFilters = a}) . _Default;
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-dpmaMaxRecords :: Lens' DescribePendingMaintenanceActions (Maybe Int)
-dpmaMaxRecords = lens _dpmaMaxRecords (\ s a -> s{_dpmaMaxRecords = a});
+dpmarqMaxRecords :: Lens' DescribePendingMaintenanceActions (Maybe Int)
+dpmarqMaxRecords = lens _dpmarqMaxRecords (\ s a -> s{_dpmarqMaxRecords = a});
 
 -- | An optional pagination token provided by a previous
 -- @DescribePendingMaintenanceActions@ request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to a
 -- number of records specified by @MaxRecords@.
-dpmaMarker :: Lens' DescribePendingMaintenanceActions (Maybe Text)
-dpmaMarker = lens _dpmaMarker (\ s a -> s{_dpmaMarker = a});
+dpmarqMarker :: Lens' DescribePendingMaintenanceActions (Maybe Text)
+dpmarqMarker = lens _dpmarqMarker (\ s a -> s{_dpmarqMarker = a});
 
 -- | The ARN of a resource to return pending maintenance actions for.
-dpmaResourceIdentifier :: Lens' DescribePendingMaintenanceActions (Maybe Text)
-dpmaResourceIdentifier = lens _dpmaResourceIdentifier (\ s a -> s{_dpmaResourceIdentifier = a});
+dpmarqResourceIdentifier :: Lens' DescribePendingMaintenanceActions (Maybe Text)
+dpmarqResourceIdentifier = lens _dpmarqResourceIdentifier (\ s a -> s{_dpmarqResourceIdentifier = a});
 
 instance AWSRequest DescribePendingMaintenanceActions
          where
@@ -145,10 +145,10 @@ instance ToQuery DescribePendingMaintenanceActions
                  ("DescribePendingMaintenanceActions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _dpmaFilters),
-               "MaxRecords" =: _dpmaMaxRecords,
-               "Marker" =: _dpmaMarker,
-               "ResourceIdentifier" =: _dpmaResourceIdentifier]
+                 toQuery (toQueryList "Filter" <$> _dpmarqFilters),
+               "MaxRecords" =: _dpmarqMaxRecords,
+               "Marker" =: _dpmarqMarker,
+               "ResourceIdentifier" =: _dpmarqResourceIdentifier]
 
 -- | Data returned from the __DescribePendingMaintenanceActions__ action.
 --
@@ -156,37 +156,37 @@ instance ToQuery DescribePendingMaintenanceActions
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dpmarPendingMaintenanceActions'
+-- * 'dpmarsPendingMaintenanceActions'
 --
--- * 'dpmarMarker'
+-- * 'dpmarsMarker'
 --
--- * 'dpmarStatus'
+-- * 'dpmarsStatus'
 data DescribePendingMaintenanceActionsResponse = DescribePendingMaintenanceActionsResponse'
-    { _dpmarPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
-    , _dpmarMarker                    :: !(Maybe Text)
-    , _dpmarStatus                    :: !Int
+    { _dpmarsPendingMaintenanceActions :: !(Maybe [ResourcePendingMaintenanceActions])
+    , _dpmarsMarker                    :: !(Maybe Text)
+    , _dpmarsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePendingMaintenanceActionsResponse' smart constructor.
 describePendingMaintenanceActionsResponse :: Int -> DescribePendingMaintenanceActionsResponse
 describePendingMaintenanceActionsResponse pStatus =
     DescribePendingMaintenanceActionsResponse'
-    { _dpmarPendingMaintenanceActions = Nothing
-    , _dpmarMarker = Nothing
-    , _dpmarStatus = pStatus
+    { _dpmarsPendingMaintenanceActions = Nothing
+    , _dpmarsMarker = Nothing
+    , _dpmarsStatus = pStatus
     }
 
 -- | A list of the pending maintenance actions for the resource.
-dpmarPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
-dpmarPendingMaintenanceActions = lens _dpmarPendingMaintenanceActions (\ s a -> s{_dpmarPendingMaintenanceActions = a}) . _Default;
+dpmarsPendingMaintenanceActions :: Lens' DescribePendingMaintenanceActionsResponse [ResourcePendingMaintenanceActions]
+dpmarsPendingMaintenanceActions = lens _dpmarsPendingMaintenanceActions (\ s a -> s{_dpmarsPendingMaintenanceActions = a}) . _Default;
 
 -- | An optional pagination token provided by a previous
 -- @DescribePendingMaintenanceActions@ request. If this parameter is
 -- specified, the response includes only records beyond the marker, up to a
 -- number of records specified by @MaxRecords@.
-dpmarMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
-dpmarMarker = lens _dpmarMarker (\ s a -> s{_dpmarMarker = a});
+dpmarsMarker :: Lens' DescribePendingMaintenanceActionsResponse (Maybe Text)
+dpmarsMarker = lens _dpmarsMarker (\ s a -> s{_dpmarsMarker = a});
 
 -- | FIXME: Undocumented member.
-dpmarStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
-dpmarStatus = lens _dpmarStatus (\ s a -> s{_dpmarStatus = a});
+dpmarsStatus :: Lens' DescribePendingMaintenanceActionsResponse Int
+dpmarsStatus = lens _dpmarsStatus (\ s a -> s{_dpmarsStatus = a});

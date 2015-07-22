@@ -27,17 +27,17 @@ module Network.AWS.DeviceFarm.ListRuns
     -- ** Request constructor
     , listRuns
     -- ** Request lenses
-    , lrNextToken
-    , lrArn
+    , lrrqNextToken
+    , lrrqArn
 
     -- * Response
     , ListRunsResponse
     -- ** Response constructor
     , listRunsResponse
     -- ** Response lenses
-    , lrrRuns
-    , lrrNextToken
-    , lrrStatus
+    , lrrsRuns
+    , lrrsNextToken
+    , lrrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrNextToken'
+-- * 'lrrqNextToken'
 --
--- * 'lrArn'
+-- * 'lrrqArn'
 data ListRuns = ListRuns'
-    { _lrNextToken :: !(Maybe Text)
-    , _lrArn       :: !Text
+    { _lrrqNextToken :: !(Maybe Text)
+    , _lrrqArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRuns' smart constructor.
 listRuns :: Text -> ListRuns
 listRuns pArn =
     ListRuns'
-    { _lrNextToken = Nothing
-    , _lrArn = pArn
+    { _lrrqNextToken = Nothing
+    , _lrrqArn = pArn
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-lrNextToken :: Lens' ListRuns (Maybe Text)
-lrNextToken = lens _lrNextToken (\ s a -> s{_lrNextToken = a});
+lrrqNextToken :: Lens' ListRuns (Maybe Text)
+lrrqNextToken = lens _lrrqNextToken (\ s a -> s{_lrrqNextToken = a});
 
 -- | The runs\' ARNs.
-lrArn :: Lens' ListRuns Text
-lrArn = lens _lrArn (\ s a -> s{_lrArn = a});
+lrrqArn :: Lens' ListRuns Text
+lrrqArn = lens _lrrqArn (\ s a -> s{_lrrqArn = a});
 
 instance AWSRequest ListRuns where
         type Sv ListRuns = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListRuns where
 instance ToJSON ListRuns where
         toJSON ListRuns'{..}
           = object
-              ["nextToken" .= _lrNextToken, "arn" .= _lrArn]
+              ["nextToken" .= _lrrqNextToken, "arn" .= _lrrqArn]
 
 instance ToPath ListRuns where
         toPath = const "/"
@@ -114,36 +114,36 @@ instance ToQuery ListRuns where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrrRuns'
+-- * 'lrrsRuns'
 --
--- * 'lrrNextToken'
+-- * 'lrrsNextToken'
 --
--- * 'lrrStatus'
+-- * 'lrrsStatus'
 data ListRunsResponse = ListRunsResponse'
-    { _lrrRuns      :: !(Maybe [Run])
-    , _lrrNextToken :: !(Maybe Text)
-    , _lrrStatus    :: !Int
+    { _lrrsRuns      :: !(Maybe [Run])
+    , _lrrsNextToken :: !(Maybe Text)
+    , _lrrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRunsResponse' smart constructor.
 listRunsResponse :: Int -> ListRunsResponse
 listRunsResponse pStatus =
     ListRunsResponse'
-    { _lrrRuns = Nothing
-    , _lrrNextToken = Nothing
-    , _lrrStatus = pStatus
+    { _lrrsRuns = Nothing
+    , _lrrsNextToken = Nothing
+    , _lrrsStatus = pStatus
     }
 
 -- | Information about the runs.
-lrrRuns :: Lens' ListRunsResponse [Run]
-lrrRuns = lens _lrrRuns (\ s a -> s{_lrrRuns = a}) . _Default;
+lrrsRuns :: Lens' ListRunsResponse [Run]
+lrrsRuns = lens _lrrsRuns (\ s a -> s{_lrrsRuns = a}) . _Default;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-lrrNextToken :: Lens' ListRunsResponse (Maybe Text)
-lrrNextToken = lens _lrrNextToken (\ s a -> s{_lrrNextToken = a});
+lrrsNextToken :: Lens' ListRunsResponse (Maybe Text)
+lrrsNextToken = lens _lrrsNextToken (\ s a -> s{_lrrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-lrrStatus :: Lens' ListRunsResponse Int
-lrrStatus = lens _lrrStatus (\ s a -> s{_lrrStatus = a});
+lrrsStatus :: Lens' ListRunsResponse Int
+lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});

@@ -27,9 +27,9 @@ module Network.AWS.EC2.DetachNetworkInterface
     -- ** Request constructor
     , detachNetworkInterface
     -- ** Request lenses
-    , dniForce
-    , dniDryRun
-    , dniAttachmentId
+    , dnirqForce
+    , dnirqDryRun
+    , dnirqAttachmentId
 
     -- * Response
     , DetachNetworkInterfaceResponse
@@ -46,40 +46,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dniForce'
+-- * 'dnirqForce'
 --
--- * 'dniDryRun'
+-- * 'dnirqDryRun'
 --
--- * 'dniAttachmentId'
+-- * 'dnirqAttachmentId'
 data DetachNetworkInterface = DetachNetworkInterface'
-    { _dniForce        :: !(Maybe Bool)
-    , _dniDryRun       :: !(Maybe Bool)
-    , _dniAttachmentId :: !Text
+    { _dnirqForce        :: !(Maybe Bool)
+    , _dnirqDryRun       :: !(Maybe Bool)
+    , _dnirqAttachmentId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DetachNetworkInterface' smart constructor.
 detachNetworkInterface :: Text -> DetachNetworkInterface
 detachNetworkInterface pAttachmentId =
     DetachNetworkInterface'
-    { _dniForce = Nothing
-    , _dniDryRun = Nothing
-    , _dniAttachmentId = pAttachmentId
+    { _dnirqForce = Nothing
+    , _dnirqDryRun = Nothing
+    , _dnirqAttachmentId = pAttachmentId
     }
 
 -- | Specifies whether to force a detachment.
-dniForce :: Lens' DetachNetworkInterface (Maybe Bool)
-dniForce = lens _dniForce (\ s a -> s{_dniForce = a});
+dnirqForce :: Lens' DetachNetworkInterface (Maybe Bool)
+dnirqForce = lens _dnirqForce (\ s a -> s{_dnirqForce = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dniDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
-dniDryRun = lens _dniDryRun (\ s a -> s{_dniDryRun = a});
+dnirqDryRun :: Lens' DetachNetworkInterface (Maybe Bool)
+dnirqDryRun = lens _dnirqDryRun (\ s a -> s{_dnirqDryRun = a});
 
 -- | The ID of the attachment.
-dniAttachmentId :: Lens' DetachNetworkInterface Text
-dniAttachmentId = lens _dniAttachmentId (\ s a -> s{_dniAttachmentId = a});
+dnirqAttachmentId :: Lens' DetachNetworkInterface Text
+dnirqAttachmentId = lens _dnirqAttachmentId (\ s a -> s{_dnirqAttachmentId = a});
 
 instance AWSRequest DetachNetworkInterface where
         type Sv DetachNetworkInterface = EC2
@@ -101,8 +101,8 @@ instance ToQuery DetachNetworkInterface where
               ["Action" =:
                  ("DetachNetworkInterface" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Force" =: _dniForce, "DryRun" =: _dniDryRun,
-               "AttachmentId" =: _dniAttachmentId]
+               "Force" =: _dnirqForce, "DryRun" =: _dnirqDryRun,
+               "AttachmentId" =: _dnirqAttachmentId]
 
 -- | /See:/ 'detachNetworkInterfaceResponse' smart constructor.
 data DetachNetworkInterfaceResponse =

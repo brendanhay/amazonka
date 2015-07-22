@@ -32,18 +32,18 @@ module Network.AWS.EC2.AllocateAddress
     -- ** Request constructor
     , allocateAddress
     -- ** Request lenses
-    , aaDomain
-    , aaDryRun
+    , aarqDomain
+    , aarqDryRun
 
     -- * Response
     , AllocateAddressResponse
     -- ** Response constructor
     , allocateAddressResponse
     -- ** Response lenses
-    , aarAllocationId
-    , aarDomain
-    , aarPublicIP
-    , aarStatus
+    , aarsAllocationId
+    , aarsDomain
+    , aarsPublicIP
+    , aarsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -55,34 +55,34 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aaDomain'
+-- * 'aarqDomain'
 --
--- * 'aaDryRun'
+-- * 'aarqDryRun'
 data AllocateAddress = AllocateAddress'
-    { _aaDomain :: !(Maybe DomainType)
-    , _aaDryRun :: !(Maybe Bool)
+    { _aarqDomain :: !(Maybe DomainType)
+    , _aarqDryRun :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocateAddress' smart constructor.
 allocateAddress :: AllocateAddress
 allocateAddress =
     AllocateAddress'
-    { _aaDomain = Nothing
-    , _aaDryRun = Nothing
+    { _aarqDomain = Nothing
+    , _aarqDryRun = Nothing
     }
 
 -- | Set to @vpc@ to allocate the address for use with instances in a VPC.
 --
 -- Default: The address is for use with instances in EC2-Classic.
-aaDomain :: Lens' AllocateAddress (Maybe DomainType)
-aaDomain = lens _aaDomain (\ s a -> s{_aaDomain = a});
+aarqDomain :: Lens' AllocateAddress (Maybe DomainType)
+aarqDomain = lens _aarqDomain (\ s a -> s{_aarqDomain = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-aaDryRun :: Lens' AllocateAddress (Maybe Bool)
-aaDryRun = lens _aaDryRun (\ s a -> s{_aaDryRun = a});
+aarqDryRun :: Lens' AllocateAddress (Maybe Bool)
+aarqDryRun = lens _aarqDryRun (\ s a -> s{_aarqDryRun = a});
 
 instance AWSRequest AllocateAddress where
         type Sv AllocateAddress = EC2
@@ -107,50 +107,50 @@ instance ToQuery AllocateAddress where
           = mconcat
               ["Action" =: ("AllocateAddress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Domain" =: _aaDomain, "DryRun" =: _aaDryRun]
+               "Domain" =: _aarqDomain, "DryRun" =: _aarqDryRun]
 
 -- | /See:/ 'allocateAddressResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aarAllocationId'
+-- * 'aarsAllocationId'
 --
--- * 'aarDomain'
+-- * 'aarsDomain'
 --
--- * 'aarPublicIP'
+-- * 'aarsPublicIP'
 --
--- * 'aarStatus'
+-- * 'aarsStatus'
 data AllocateAddressResponse = AllocateAddressResponse'
-    { _aarAllocationId :: !(Maybe Text)
-    , _aarDomain       :: !(Maybe DomainType)
-    , _aarPublicIP     :: !(Maybe Text)
-    , _aarStatus       :: !Int
+    { _aarsAllocationId :: !(Maybe Text)
+    , _aarsDomain       :: !(Maybe DomainType)
+    , _aarsPublicIP     :: !(Maybe Text)
+    , _aarsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AllocateAddressResponse' smart constructor.
 allocateAddressResponse :: Int -> AllocateAddressResponse
 allocateAddressResponse pStatus =
     AllocateAddressResponse'
-    { _aarAllocationId = Nothing
-    , _aarDomain = Nothing
-    , _aarPublicIP = Nothing
-    , _aarStatus = pStatus
+    { _aarsAllocationId = Nothing
+    , _aarsDomain = Nothing
+    , _aarsPublicIP = Nothing
+    , _aarsStatus = pStatus
     }
 
 -- | [EC2-VPC] The ID that AWS assigns to represent the allocation of the
 -- Elastic IP address for use with instances in a VPC.
-aarAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
-aarAllocationId = lens _aarAllocationId (\ s a -> s{_aarAllocationId = a});
+aarsAllocationId :: Lens' AllocateAddressResponse (Maybe Text)
+aarsAllocationId = lens _aarsAllocationId (\ s a -> s{_aarsAllocationId = a});
 
 -- | Indicates whether this Elastic IP address is for use with instances in
 -- EC2-Classic (@standard@) or instances in a VPC (@vpc@).
-aarDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
-aarDomain = lens _aarDomain (\ s a -> s{_aarDomain = a});
+aarsDomain :: Lens' AllocateAddressResponse (Maybe DomainType)
+aarsDomain = lens _aarsDomain (\ s a -> s{_aarsDomain = a});
 
 -- | The Elastic IP address.
-aarPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
-aarPublicIP = lens _aarPublicIP (\ s a -> s{_aarPublicIP = a});
+aarsPublicIP :: Lens' AllocateAddressResponse (Maybe Text)
+aarsPublicIP = lens _aarsPublicIP (\ s a -> s{_aarsPublicIP = a});
 
 -- | FIXME: Undocumented member.
-aarStatus :: Lens' AllocateAddressResponse Int
-aarStatus = lens _aarStatus (\ s a -> s{_aarStatus = a});
+aarsStatus :: Lens' AllocateAddressResponse Int
+aarsStatus = lens _aarsStatus (\ s a -> s{_aarsStatus = a});

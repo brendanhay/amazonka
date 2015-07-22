@@ -34,8 +34,8 @@ module Network.AWS.IAM.GetAccountPasswordPolicy
     -- ** Response constructor
     , getAccountPasswordPolicyResponse
     -- ** Response lenses
-    , gapprStatus
-    , gapprPasswordPolicy
+    , gapprsStatus
+    , gapprsPasswordPolicy
     ) where
 
 import           Network.AWS.IAM.Types
@@ -83,26 +83,26 @@ instance ToQuery GetAccountPasswordPolicy where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gapprStatus'
+-- * 'gapprsStatus'
 --
--- * 'gapprPasswordPolicy'
+-- * 'gapprsPasswordPolicy'
 data GetAccountPasswordPolicyResponse = GetAccountPasswordPolicyResponse'
-    { _gapprStatus         :: !Int
-    , _gapprPasswordPolicy :: !PasswordPolicy
+    { _gapprsStatus         :: !Int
+    , _gapprsPasswordPolicy :: !PasswordPolicy
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetAccountPasswordPolicyResponse' smart constructor.
 getAccountPasswordPolicyResponse :: Int -> PasswordPolicy -> GetAccountPasswordPolicyResponse
 getAccountPasswordPolicyResponse pStatus pPasswordPolicy =
     GetAccountPasswordPolicyResponse'
-    { _gapprStatus = pStatus
-    , _gapprPasswordPolicy = pPasswordPolicy
+    { _gapprsStatus = pStatus
+    , _gapprsPasswordPolicy = pPasswordPolicy
     }
 
 -- | FIXME: Undocumented member.
-gapprStatus :: Lens' GetAccountPasswordPolicyResponse Int
-gapprStatus = lens _gapprStatus (\ s a -> s{_gapprStatus = a});
+gapprsStatus :: Lens' GetAccountPasswordPolicyResponse Int
+gapprsStatus = lens _gapprsStatus (\ s a -> s{_gapprsStatus = a});
 
 -- | FIXME: Undocumented member.
-gapprPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
-gapprPasswordPolicy = lens _gapprPasswordPolicy (\ s a -> s{_gapprPasswordPolicy = a});
+gapprsPasswordPolicy :: Lens' GetAccountPasswordPolicyResponse PasswordPolicy
+gapprsPasswordPolicy = lens _gapprsPasswordPolicy (\ s a -> s{_gapprsPasswordPolicy = a});

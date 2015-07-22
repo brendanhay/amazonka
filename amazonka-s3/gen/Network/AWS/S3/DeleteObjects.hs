@@ -28,20 +28,20 @@ module Network.AWS.S3.DeleteObjects
     -- ** Request constructor
     , deleteObjects
     -- ** Request lenses
-    , delMFA
-    , delRequestPayer
-    , delBucket
-    , delDelete
+    , drqMFA
+    , drqRequestPayer
+    , drqBucket
+    , drqDelete
 
     -- * Response
     , DeleteObjectsResponse
     -- ** Response constructor
     , deleteObjectsResponse
     -- ** Response lenses
-    , delRequestCharged
-    , delDeleted
-    , delErrors
-    , delStatus
+    , drsRequestCharged
+    , drsDeleted
+    , drsErrors
+    , drsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -53,46 +53,46 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delMFA'
+-- * 'drqMFA'
 --
--- * 'delRequestPayer'
+-- * 'drqRequestPayer'
 --
--- * 'delBucket'
+-- * 'drqBucket'
 --
--- * 'delDelete'
+-- * 'drqDelete'
 data DeleteObjects = DeleteObjects'
-    { _delMFA          :: !(Maybe Text)
-    , _delRequestPayer :: !(Maybe RequestPayer)
-    , _delBucket       :: !BucketName
-    , _delDelete       :: !Delete
+    { _drqMFA          :: !(Maybe Text)
+    , _drqRequestPayer :: !(Maybe RequestPayer)
+    , _drqBucket       :: !BucketName
+    , _drqDelete       :: !Delete
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObjects' smart constructor.
 deleteObjects :: BucketName -> Delete -> DeleteObjects
 deleteObjects pBucket pDelete =
     DeleteObjects'
-    { _delMFA = Nothing
-    , _delRequestPayer = Nothing
-    , _delBucket = pBucket
-    , _delDelete = pDelete
+    { _drqMFA = Nothing
+    , _drqRequestPayer = Nothing
+    , _drqBucket = pBucket
+    , _drqDelete = pDelete
     }
 
 -- | The concatenation of the authentication device\'s serial number, a
 -- space, and the value that is displayed on your authentication device.
-delMFA :: Lens' DeleteObjects (Maybe Text)
-delMFA = lens _delMFA (\ s a -> s{_delMFA = a});
+drqMFA :: Lens' DeleteObjects (Maybe Text)
+drqMFA = lens _drqMFA (\ s a -> s{_drqMFA = a});
 
 -- | FIXME: Undocumented member.
-delRequestPayer :: Lens' DeleteObjects (Maybe RequestPayer)
-delRequestPayer = lens _delRequestPayer (\ s a -> s{_delRequestPayer = a});
+drqRequestPayer :: Lens' DeleteObjects (Maybe RequestPayer)
+drqRequestPayer = lens _drqRequestPayer (\ s a -> s{_drqRequestPayer = a});
 
 -- | FIXME: Undocumented member.
-delBucket :: Lens' DeleteObjects BucketName
-delBucket = lens _delBucket (\ s a -> s{_delBucket = a});
+drqBucket :: Lens' DeleteObjects BucketName
+drqBucket = lens _drqBucket (\ s a -> s{_drqBucket = a});
 
 -- | FIXME: Undocumented member.
-delDelete :: Lens' DeleteObjects Delete
-delDelete = lens _delDelete (\ s a -> s{_delDelete = a});
+drqDelete :: Lens' DeleteObjects Delete
+drqDelete = lens _drqDelete (\ s a -> s{_drqDelete = a});
 
 instance AWSRequest DeleteObjects where
         type Sv DeleteObjects = S3
@@ -112,17 +112,17 @@ instance ToElement DeleteObjects where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}Delete"
               .
-              _delDelete
+              _drqDelete
 
 instance ToHeaders DeleteObjects where
         toHeaders DeleteObjects'{..}
           = mconcat
-              ["x-amz-mfa" =# _delMFA,
-               "x-amz-request-payer" =# _delRequestPayer]
+              ["x-amz-mfa" =# _drqMFA,
+               "x-amz-request-payer" =# _drqRequestPayer]
 
 instance ToPath DeleteObjects where
         toPath DeleteObjects'{..}
-          = mconcat ["/", toText _delBucket]
+          = mconcat ["/", toText _drqBucket]
 
 instance ToQuery DeleteObjects where
         toQuery = const (mconcat ["delete"])
@@ -131,42 +131,42 @@ instance ToQuery DeleteObjects where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delRequestCharged'
+-- * 'drsRequestCharged'
 --
--- * 'delDeleted'
+-- * 'drsDeleted'
 --
--- * 'delErrors'
+-- * 'drsErrors'
 --
--- * 'delStatus'
+-- * 'drsStatus'
 data DeleteObjectsResponse = DeleteObjectsResponse'
-    { _delRequestCharged :: !(Maybe RequestCharged)
-    , _delDeleted        :: !(Maybe [DeletedObject])
-    , _delErrors         :: !(Maybe [S3ServiceError])
-    , _delStatus         :: !Int
+    { _drsRequestCharged :: !(Maybe RequestCharged)
+    , _drsDeleted        :: !(Maybe [DeletedObject])
+    , _drsErrors         :: !(Maybe [S3ServiceError])
+    , _drsStatus         :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteObjectsResponse' smart constructor.
 deleteObjectsResponse :: Int -> DeleteObjectsResponse
 deleteObjectsResponse pStatus =
     DeleteObjectsResponse'
-    { _delRequestCharged = Nothing
-    , _delDeleted = Nothing
-    , _delErrors = Nothing
-    , _delStatus = pStatus
+    { _drsRequestCharged = Nothing
+    , _drsDeleted = Nothing
+    , _drsErrors = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-delRequestCharged :: Lens' DeleteObjectsResponse (Maybe RequestCharged)
-delRequestCharged = lens _delRequestCharged (\ s a -> s{_delRequestCharged = a});
+drsRequestCharged :: Lens' DeleteObjectsResponse (Maybe RequestCharged)
+drsRequestCharged = lens _drsRequestCharged (\ s a -> s{_drsRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-delDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
-delDeleted = lens _delDeleted (\ s a -> s{_delDeleted = a}) . _Default;
+drsDeleted :: Lens' DeleteObjectsResponse [DeletedObject]
+drsDeleted = lens _drsDeleted (\ s a -> s{_drsDeleted = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-delErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
-delErrors = lens _delErrors (\ s a -> s{_delErrors = a}) . _Default;
+drsErrors :: Lens' DeleteObjectsResponse [S3ServiceError]
+drsErrors = lens _drsErrors (\ s a -> s{_drsErrors = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-delStatus :: Lens' DeleteObjectsResponse Int
-delStatus = lens _delStatus (\ s a -> s{_delStatus = a});
+drsStatus :: Lens' DeleteObjectsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

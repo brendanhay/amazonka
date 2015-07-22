@@ -28,26 +28,26 @@ module Network.AWS.MachineLearning.DescribeEvaluations
     -- ** Request constructor
     , describeEvaluations
     -- ** Request lenses
-    , deEQ
-    , deGE
-    , dePrefix
-    , deGT
-    , deNE
-    , deNextToken
-    , deSortOrder
-    , deLimit
-    , deLT
-    , deFilterVariable
-    , deLE
+    , derqEQ
+    , derqGE
+    , derqPrefix
+    , derqGT
+    , derqNE
+    , derqNextToken
+    , derqSortOrder
+    , derqLimit
+    , derqLT
+    , derqFilterVariable
+    , derqLE
 
     -- * Response
     , DescribeEvaluationsResponse
     -- ** Response constructor
     , describeEvaluationsResponse
     -- ** Response lenses
-    , derrResults
-    , derrNextToken
-    , derrStatus
+    , dersResults
+    , dersNextToken
+    , dersStatus
     ) where
 
 import           Network.AWS.MachineLearning.Types
@@ -60,69 +60,69 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deEQ'
+-- * 'derqEQ'
 --
--- * 'deGE'
+-- * 'derqGE'
 --
--- * 'dePrefix'
+-- * 'derqPrefix'
 --
--- * 'deGT'
+-- * 'derqGT'
 --
--- * 'deNE'
+-- * 'derqNE'
 --
--- * 'deNextToken'
+-- * 'derqNextToken'
 --
--- * 'deSortOrder'
+-- * 'derqSortOrder'
 --
--- * 'deLimit'
+-- * 'derqLimit'
 --
--- * 'deLT'
+-- * 'derqLT'
 --
--- * 'deFilterVariable'
+-- * 'derqFilterVariable'
 --
--- * 'deLE'
+-- * 'derqLE'
 data DescribeEvaluations = DescribeEvaluations'
-    { _deEQ             :: !(Maybe Text)
-    , _deGE             :: !(Maybe Text)
-    , _dePrefix         :: !(Maybe Text)
-    , _deGT             :: !(Maybe Text)
-    , _deNE             :: !(Maybe Text)
-    , _deNextToken      :: !(Maybe Text)
-    , _deSortOrder      :: !(Maybe SortOrder)
-    , _deLimit          :: !(Maybe Nat)
-    , _deLT             :: !(Maybe Text)
-    , _deFilterVariable :: !(Maybe EvaluationFilterVariable)
-    , _deLE             :: !(Maybe Text)
+    { _derqEQ             :: !(Maybe Text)
+    , _derqGE             :: !(Maybe Text)
+    , _derqPrefix         :: !(Maybe Text)
+    , _derqGT             :: !(Maybe Text)
+    , _derqNE             :: !(Maybe Text)
+    , _derqNextToken      :: !(Maybe Text)
+    , _derqSortOrder      :: !(Maybe SortOrder)
+    , _derqLimit          :: !(Maybe Nat)
+    , _derqLT             :: !(Maybe Text)
+    , _derqFilterVariable :: !(Maybe EvaluationFilterVariable)
+    , _derqLE             :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvaluations' smart constructor.
 describeEvaluations :: DescribeEvaluations
 describeEvaluations =
     DescribeEvaluations'
-    { _deEQ = Nothing
-    , _deGE = Nothing
-    , _dePrefix = Nothing
-    , _deGT = Nothing
-    , _deNE = Nothing
-    , _deNextToken = Nothing
-    , _deSortOrder = Nothing
-    , _deLimit = Nothing
-    , _deLT = Nothing
-    , _deFilterVariable = Nothing
-    , _deLE = Nothing
+    { _derqEQ = Nothing
+    , _derqGE = Nothing
+    , _derqPrefix = Nothing
+    , _derqGT = Nothing
+    , _derqNE = Nothing
+    , _derqNextToken = Nothing
+    , _derqSortOrder = Nothing
+    , _derqLimit = Nothing
+    , _derqLT = Nothing
+    , _derqFilterVariable = Nothing
+    , _derqLE = Nothing
     }
 
 -- | The equal to operator. The @Evaluation@ results will have
 -- @FilterVariable@ values that exactly match the value specified with
 -- @EQ@.
-deEQ :: Lens' DescribeEvaluations (Maybe Text)
-deEQ = lens _deEQ (\ s a -> s{_deEQ = a});
+derqEQ :: Lens' DescribeEvaluations (Maybe Text)
+derqEQ = lens _derqEQ (\ s a -> s{_derqEQ = a});
 
 -- | The greater than or equal to operator. The @Evaluation@ results will
 -- have @FilterVariable@ values that are greater than or equal to the value
 -- specified with @GE@.
-deGE :: Lens' DescribeEvaluations (Maybe Text)
-deGE = lens _deGE (\ s a -> s{_deGE = a});
+derqGE :: Lens' DescribeEvaluations (Maybe Text)
+derqGE = lens _derqGE (\ s a -> s{_derqGE = a});
 
 -- | A string that is found at the beginning of a variable, such as @Name@ or
 -- @Id@.
@@ -138,23 +138,23 @@ deGE = lens _deGE (\ s a -> s{_deGE = a});
 --
 -- -   2014-09-09-Holiday
 --
-dePrefix :: Lens' DescribeEvaluations (Maybe Text)
-dePrefix = lens _dePrefix (\ s a -> s{_dePrefix = a});
+derqPrefix :: Lens' DescribeEvaluations (Maybe Text)
+derqPrefix = lens _derqPrefix (\ s a -> s{_derqPrefix = a});
 
 -- | The greater than operator. The @Evaluation@ results will have
 -- @FilterVariable@ values that are greater than the value specified with
 -- @GT@.
-deGT :: Lens' DescribeEvaluations (Maybe Text)
-deGT = lens _deGT (\ s a -> s{_deGT = a});
+derqGT :: Lens' DescribeEvaluations (Maybe Text)
+derqGT = lens _derqGT (\ s a -> s{_derqGT = a});
 
 -- | The not equal to operator. The @Evaluation@ results will have
 -- @FilterVariable@ values not equal to the value specified with @NE@.
-deNE :: Lens' DescribeEvaluations (Maybe Text)
-deNE = lens _deNE (\ s a -> s{_deNE = a});
+derqNE :: Lens' DescribeEvaluations (Maybe Text)
+derqNE = lens _derqNE (\ s a -> s{_derqNE = a});
 
 -- | The ID of the page in the paginated results.
-deNextToken :: Lens' DescribeEvaluations (Maybe Text)
-deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
+derqNextToken :: Lens' DescribeEvaluations (Maybe Text)
+derqNextToken = lens _derqNextToken (\ s a -> s{_derqNextToken = a});
 
 -- | A two-value parameter that determines the sequence of the resulting list
 -- of @Evaluation@.
@@ -163,18 +163,18 @@ deNextToken = lens _deNextToken (\ s a -> s{_deNextToken = a});
 -- -   @dsc@ - Arranges the list in descending order (Z-A, 9-0).
 --
 -- Results are sorted by @FilterVariable@.
-deSortOrder :: Lens' DescribeEvaluations (Maybe SortOrder)
-deSortOrder = lens _deSortOrder (\ s a -> s{_deSortOrder = a});
+derqSortOrder :: Lens' DescribeEvaluations (Maybe SortOrder)
+derqSortOrder = lens _derqSortOrder (\ s a -> s{_derqSortOrder = a});
 
 -- | The maximum number of @Evaluation@ to include in the result.
-deLimit :: Lens' DescribeEvaluations (Maybe Natural)
-deLimit = lens _deLimit (\ s a -> s{_deLimit = a}) . mapping _Nat;
+derqLimit :: Lens' DescribeEvaluations (Maybe Natural)
+derqLimit = lens _derqLimit (\ s a -> s{_derqLimit = a}) . mapping _Nat;
 
 -- | The less than operator. The @Evaluation@ results will have
 -- @FilterVariable@ values that are less than the value specified with
 -- @LT@.
-deLT :: Lens' DescribeEvaluations (Maybe Text)
-deLT = lens _deLT (\ s a -> s{_deLT = a});
+derqLT :: Lens' DescribeEvaluations (Maybe Text)
+derqLT = lens _derqLT (\ s a -> s{_derqLT = a});
 
 -- | Use one of the following variable to filter a list of @Evaluation@
 -- objects:
@@ -193,21 +193,21 @@ deLT = lens _deLT (\ s a -> s{_deLT = a});
 -- -   @DataUri@ - Sets the search criteria to the data file(s) used in
 --     @Evaluation@. The URL can identify either a file or an Amazon Simple
 --     Storage Solution (Amazon S3) bucket or directory.
-deFilterVariable :: Lens' DescribeEvaluations (Maybe EvaluationFilterVariable)
-deFilterVariable = lens _deFilterVariable (\ s a -> s{_deFilterVariable = a});
+derqFilterVariable :: Lens' DescribeEvaluations (Maybe EvaluationFilterVariable)
+derqFilterVariable = lens _derqFilterVariable (\ s a -> s{_derqFilterVariable = a});
 
 -- | The less than or equal to operator. The @Evaluation@ results will have
 -- @FilterVariable@ values that are less than or equal to the value
 -- specified with @LE@.
-deLE :: Lens' DescribeEvaluations (Maybe Text)
-deLE = lens _deLE (\ s a -> s{_deLE = a});
+derqLE :: Lens' DescribeEvaluations (Maybe Text)
+derqLE = lens _derqLE (\ s a -> s{_derqLE = a});
 
 instance AWSPager DescribeEvaluations where
         page rq rs
-          | stop (rs ^. derrNextToken) = Nothing
-          | stop (rs ^. derrResults) = Nothing
+          | stop (rs ^. dersNextToken) = Nothing
+          | stop (rs ^. dersResults) = Nothing
           | otherwise =
-            Just $ rq & deNextToken .~ rs ^. derrNextToken
+            Just $ rq & derqNextToken .~ rs ^. dersNextToken
 
 instance AWSRequest DescribeEvaluations where
         type Sv DescribeEvaluations = MachineLearning
@@ -234,12 +234,13 @@ instance ToHeaders DescribeEvaluations where
 instance ToJSON DescribeEvaluations where
         toJSON DescribeEvaluations'{..}
           = object
-              ["EQ" .= _deEQ, "GE" .= _deGE, "Prefix" .= _dePrefix,
-               "GT" .= _deGT, "NE" .= _deNE,
-               "NextToken" .= _deNextToken,
-               "SortOrder" .= _deSortOrder, "Limit" .= _deLimit,
-               "LT" .= _deLT, "FilterVariable" .= _deFilterVariable,
-               "LE" .= _deLE]
+              ["EQ" .= _derqEQ, "GE" .= _derqGE,
+               "Prefix" .= _derqPrefix, "GT" .= _derqGT,
+               "NE" .= _derqNE, "NextToken" .= _derqNextToken,
+               "SortOrder" .= _derqSortOrder, "Limit" .= _derqLimit,
+               "LT" .= _derqLT,
+               "FilterVariable" .= _derqFilterVariable,
+               "LE" .= _derqLE]
 
 instance ToPath DescribeEvaluations where
         toPath = const "/"
@@ -254,35 +255,35 @@ instance ToQuery DescribeEvaluations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derrResults'
+-- * 'dersResults'
 --
--- * 'derrNextToken'
+-- * 'dersNextToken'
 --
--- * 'derrStatus'
+-- * 'dersStatus'
 data DescribeEvaluationsResponse = DescribeEvaluationsResponse'
-    { _derrResults   :: !(Maybe [Evaluation])
-    , _derrNextToken :: !(Maybe Text)
-    , _derrStatus    :: !Int
+    { _dersResults   :: !(Maybe [Evaluation])
+    , _dersNextToken :: !(Maybe Text)
+    , _dersStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeEvaluationsResponse' smart constructor.
 describeEvaluationsResponse :: Int -> DescribeEvaluationsResponse
 describeEvaluationsResponse pStatus =
     DescribeEvaluationsResponse'
-    { _derrResults = Nothing
-    , _derrNextToken = Nothing
-    , _derrStatus = pStatus
+    { _dersResults = Nothing
+    , _dersNextToken = Nothing
+    , _dersStatus = pStatus
     }
 
 -- | A list of Evaluation that meet the search criteria.
-derrResults :: Lens' DescribeEvaluationsResponse [Evaluation]
-derrResults = lens _derrResults (\ s a -> s{_derrResults = a}) . _Default;
+dersResults :: Lens' DescribeEvaluationsResponse [Evaluation]
+dersResults = lens _dersResults (\ s a -> s{_dersResults = a}) . _Default;
 
 -- | The ID of the next page in the paginated results that indicates at least
 -- one more page follows.
-derrNextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
-derrNextToken = lens _derrNextToken (\ s a -> s{_derrNextToken = a});
+dersNextToken :: Lens' DescribeEvaluationsResponse (Maybe Text)
+dersNextToken = lens _dersNextToken (\ s a -> s{_dersNextToken = a});
 
 -- | FIXME: Undocumented member.
-derrStatus :: Lens' DescribeEvaluationsResponse Int
-derrStatus = lens _derrStatus (\ s a -> s{_derrStatus = a});
+dersStatus :: Lens' DescribeEvaluationsResponse Int
+dersStatus = lens _dersStatus (\ s a -> s{_dersStatus = a});

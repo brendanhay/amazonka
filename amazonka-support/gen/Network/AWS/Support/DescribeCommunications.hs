@@ -39,20 +39,20 @@ module Network.AWS.Support.DescribeCommunications
     -- ** Request constructor
     , describeCommunications
     -- ** Request lenses
-    , dAfterTime
-    , dNextToken
-    , dBeforeTime
-    , dMaxResults
-    , dCaseId
+    , drqAfterTime
+    , drqNextToken
+    , drqBeforeTime
+    , drqMaxResults
+    , drqCaseId
 
     -- * Response
     , DescribeCommunicationsResponse
     -- ** Response constructor
     , describeCommunicationsResponse
     -- ** Response lenses
-    , dcrNextToken
-    , dcrCommunications
-    , dcrStatus
+    , drsNextToken
+    , drsCommunications
+    , drsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -65,65 +65,65 @@ import           Network.AWS.Support.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dAfterTime'
+-- * 'drqAfterTime'
 --
--- * 'dNextToken'
+-- * 'drqNextToken'
 --
--- * 'dBeforeTime'
+-- * 'drqBeforeTime'
 --
--- * 'dMaxResults'
+-- * 'drqMaxResults'
 --
--- * 'dCaseId'
+-- * 'drqCaseId'
 data DescribeCommunications = DescribeCommunications'
-    { _dAfterTime  :: !(Maybe Text)
-    , _dNextToken  :: !(Maybe Text)
-    , _dBeforeTime :: !(Maybe Text)
-    , _dMaxResults :: !(Maybe Nat)
-    , _dCaseId     :: !Text
+    { _drqAfterTime  :: !(Maybe Text)
+    , _drqNextToken  :: !(Maybe Text)
+    , _drqBeforeTime :: !(Maybe Text)
+    , _drqMaxResults :: !(Maybe Nat)
+    , _drqCaseId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommunications' smart constructor.
 describeCommunications :: Text -> DescribeCommunications
 describeCommunications pCaseId =
     DescribeCommunications'
-    { _dAfterTime = Nothing
-    , _dNextToken = Nothing
-    , _dBeforeTime = Nothing
-    , _dMaxResults = Nothing
-    , _dCaseId = pCaseId
+    { _drqAfterTime = Nothing
+    , _drqNextToken = Nothing
+    , _drqBeforeTime = Nothing
+    , _drqMaxResults = Nothing
+    , _drqCaseId = pCaseId
     }
 
 -- | The start date for a filtered date search on support case
 -- communications. Case communications are available for 12 months after
 -- creation.
-dAfterTime :: Lens' DescribeCommunications (Maybe Text)
-dAfterTime = lens _dAfterTime (\ s a -> s{_dAfterTime = a});
+drqAfterTime :: Lens' DescribeCommunications (Maybe Text)
+drqAfterTime = lens _drqAfterTime (\ s a -> s{_drqAfterTime = a});
 
 -- | A resumption point for pagination.
-dNextToken :: Lens' DescribeCommunications (Maybe Text)
-dNextToken = lens _dNextToken (\ s a -> s{_dNextToken = a});
+drqNextToken :: Lens' DescribeCommunications (Maybe Text)
+drqNextToken = lens _drqNextToken (\ s a -> s{_drqNextToken = a});
 
 -- | The end date for a filtered date search on support case communications.
 -- Case communications are available for 12 months after creation.
-dBeforeTime :: Lens' DescribeCommunications (Maybe Text)
-dBeforeTime = lens _dBeforeTime (\ s a -> s{_dBeforeTime = a});
+drqBeforeTime :: Lens' DescribeCommunications (Maybe Text)
+drqBeforeTime = lens _drqBeforeTime (\ s a -> s{_drqBeforeTime = a});
 
 -- | The maximum number of results to return before paginating.
-dMaxResults :: Lens' DescribeCommunications (Maybe Natural)
-dMaxResults = lens _dMaxResults (\ s a -> s{_dMaxResults = a}) . mapping _Nat;
+drqMaxResults :: Lens' DescribeCommunications (Maybe Natural)
+drqMaxResults = lens _drqMaxResults (\ s a -> s{_drqMaxResults = a}) . mapping _Nat;
 
 -- | The AWS Support case ID requested or returned in the call. The case ID
 -- is an alphanumeric string formatted as shown in this example:
 -- case-/12345678910-2013-c4c1d2bf33c5cf47/
-dCaseId :: Lens' DescribeCommunications Text
-dCaseId = lens _dCaseId (\ s a -> s{_dCaseId = a});
+drqCaseId :: Lens' DescribeCommunications Text
+drqCaseId = lens _drqCaseId (\ s a -> s{_drqCaseId = a});
 
 instance AWSPager DescribeCommunications where
         page rq rs
-          | stop (rs ^. dcrNextToken) = Nothing
-          | stop (rs ^. dcrCommunications) = Nothing
+          | stop (rs ^. drsNextToken) = Nothing
+          | stop (rs ^. drsCommunications) = Nothing
           | otherwise =
-            Just $ rq & dNextToken .~ rs ^. dcrNextToken
+            Just $ rq & drqNextToken .~ rs ^. drsNextToken
 
 instance AWSRequest DescribeCommunications where
         type Sv DescribeCommunications = Support
@@ -151,10 +151,11 @@ instance ToHeaders DescribeCommunications where
 instance ToJSON DescribeCommunications where
         toJSON DescribeCommunications'{..}
           = object
-              ["afterTime" .= _dAfterTime,
-               "nextToken" .= _dNextToken,
-               "beforeTime" .= _dBeforeTime,
-               "maxResults" .= _dMaxResults, "caseId" .= _dCaseId]
+              ["afterTime" .= _drqAfterTime,
+               "nextToken" .= _drqNextToken,
+               "beforeTime" .= _drqBeforeTime,
+               "maxResults" .= _drqMaxResults,
+               "caseId" .= _drqCaseId]
 
 instance ToPath DescribeCommunications where
         toPath = const "/"
@@ -168,34 +169,34 @@ instance ToQuery DescribeCommunications where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrNextToken'
+-- * 'drsNextToken'
 --
--- * 'dcrCommunications'
+-- * 'drsCommunications'
 --
--- * 'dcrStatus'
+-- * 'drsStatus'
 data DescribeCommunicationsResponse = DescribeCommunicationsResponse'
-    { _dcrNextToken      :: !(Maybe Text)
-    , _dcrCommunications :: !(Maybe [Communication])
-    , _dcrStatus         :: !Int
+    { _drsNextToken      :: !(Maybe Text)
+    , _drsCommunications :: !(Maybe [Communication])
+    , _drsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCommunicationsResponse' smart constructor.
 describeCommunicationsResponse :: Int -> DescribeCommunicationsResponse
 describeCommunicationsResponse pStatus =
     DescribeCommunicationsResponse'
-    { _dcrNextToken = Nothing
-    , _dcrCommunications = Nothing
-    , _dcrStatus = pStatus
+    { _drsNextToken = Nothing
+    , _drsCommunications = Nothing
+    , _drsStatus = pStatus
     }
 
 -- | A resumption point for pagination.
-dcrNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
-dcrNextToken = lens _dcrNextToken (\ s a -> s{_dcrNextToken = a});
+drsNextToken :: Lens' DescribeCommunicationsResponse (Maybe Text)
+drsNextToken = lens _drsNextToken (\ s a -> s{_drsNextToken = a});
 
 -- | The communications for the case.
-dcrCommunications :: Lens' DescribeCommunicationsResponse [Communication]
-dcrCommunications = lens _dcrCommunications (\ s a -> s{_dcrCommunications = a}) . _Default;
+drsCommunications :: Lens' DescribeCommunicationsResponse [Communication]
+drsCommunications = lens _drsCommunications (\ s a -> s{_drsCommunications = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeCommunicationsResponse Int
-dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});
+drsStatus :: Lens' DescribeCommunicationsResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});

@@ -32,17 +32,17 @@ module Network.AWS.ECS.RegisterTaskDefinition
     -- ** Request constructor
     , registerTaskDefinition
     -- ** Request lenses
-    , rtdVolumes
-    , rtdFamily
-    , rtdContainerDefinitions
+    , rtdrqVolumes
+    , rtdrqFamily
+    , rtdrqContainerDefinitions
 
     -- * Response
     , RegisterTaskDefinitionResponse
     -- ** Response constructor
     , registerTaskDefinitionResponse
     -- ** Response lenses
-    , rtdrTaskDefinition
-    , rtdrStatus
+    , rtdrsTaskDefinition
+    , rtdrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -54,43 +54,43 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtdVolumes'
+-- * 'rtdrqVolumes'
 --
--- * 'rtdFamily'
+-- * 'rtdrqFamily'
 --
--- * 'rtdContainerDefinitions'
+-- * 'rtdrqContainerDefinitions'
 data RegisterTaskDefinition = RegisterTaskDefinition'
-    { _rtdVolumes              :: !(Maybe [Volume])
-    , _rtdFamily               :: !Text
-    , _rtdContainerDefinitions :: ![ContainerDefinition]
+    { _rtdrqVolumes              :: !(Maybe [Volume])
+    , _rtdrqFamily               :: !Text
+    , _rtdrqContainerDefinitions :: ![ContainerDefinition]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterTaskDefinition' smart constructor.
 registerTaskDefinition :: Text -> RegisterTaskDefinition
 registerTaskDefinition pFamily =
     RegisterTaskDefinition'
-    { _rtdVolumes = Nothing
-    , _rtdFamily = pFamily
-    , _rtdContainerDefinitions = mempty
+    { _rtdrqVolumes = Nothing
+    , _rtdrqFamily = pFamily
+    , _rtdrqContainerDefinitions = mempty
     }
 
 -- | A list of volume definitions in JSON format that containers in your task
 -- may use.
-rtdVolumes :: Lens' RegisterTaskDefinition [Volume]
-rtdVolumes = lens _rtdVolumes (\ s a -> s{_rtdVolumes = a}) . _Default;
+rtdrqVolumes :: Lens' RegisterTaskDefinition [Volume]
+rtdrqVolumes = lens _rtdrqVolumes (\ s a -> s{_rtdrqVolumes = a}) . _Default;
 
 -- | You must specify a @family@ for a task definition, which allows you to
 -- track multiple versions of the same task definition. You can think of
 -- the @family@ as a name for your task definition. Up to 255 letters
 -- (uppercase and lowercase), numbers, hyphens, and underscores are
 -- allowed.
-rtdFamily :: Lens' RegisterTaskDefinition Text
-rtdFamily = lens _rtdFamily (\ s a -> s{_rtdFamily = a});
+rtdrqFamily :: Lens' RegisterTaskDefinition Text
+rtdrqFamily = lens _rtdrqFamily (\ s a -> s{_rtdrqFamily = a});
 
 -- | A list of container definitions in JSON format that describe the
 -- different containers that make up your task.
-rtdContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
-rtdContainerDefinitions = lens _rtdContainerDefinitions (\ s a -> s{_rtdContainerDefinitions = a});
+rtdrqContainerDefinitions :: Lens' RegisterTaskDefinition [ContainerDefinition]
+rtdrqContainerDefinitions = lens _rtdrqContainerDefinitions (\ s a -> s{_rtdrqContainerDefinitions = a});
 
 instance AWSRequest RegisterTaskDefinition where
         type Sv RegisterTaskDefinition = ECS
@@ -116,8 +116,9 @@ instance ToHeaders RegisterTaskDefinition where
 instance ToJSON RegisterTaskDefinition where
         toJSON RegisterTaskDefinition'{..}
           = object
-              ["volumes" .= _rtdVolumes, "family" .= _rtdFamily,
-               "containerDefinitions" .= _rtdContainerDefinitions]
+              ["volumes" .= _rtdrqVolumes,
+               "family" .= _rtdrqFamily,
+               "containerDefinitions" .= _rtdrqContainerDefinitions]
 
 instance ToPath RegisterTaskDefinition where
         toPath = const "/"
@@ -129,26 +130,26 @@ instance ToQuery RegisterTaskDefinition where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtdrTaskDefinition'
+-- * 'rtdrsTaskDefinition'
 --
--- * 'rtdrStatus'
+-- * 'rtdrsStatus'
 data RegisterTaskDefinitionResponse = RegisterTaskDefinitionResponse'
-    { _rtdrTaskDefinition :: !(Maybe TaskDefinition)
-    , _rtdrStatus         :: !Int
+    { _rtdrsTaskDefinition :: !(Maybe TaskDefinition)
+    , _rtdrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RegisterTaskDefinitionResponse' smart constructor.
 registerTaskDefinitionResponse :: Int -> RegisterTaskDefinitionResponse
 registerTaskDefinitionResponse pStatus =
     RegisterTaskDefinitionResponse'
-    { _rtdrTaskDefinition = Nothing
-    , _rtdrStatus = pStatus
+    { _rtdrsTaskDefinition = Nothing
+    , _rtdrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rtdrTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition)
-rtdrTaskDefinition = lens _rtdrTaskDefinition (\ s a -> s{_rtdrTaskDefinition = a});
+rtdrsTaskDefinition :: Lens' RegisterTaskDefinitionResponse (Maybe TaskDefinition)
+rtdrsTaskDefinition = lens _rtdrsTaskDefinition (\ s a -> s{_rtdrsTaskDefinition = a});
 
 -- | FIXME: Undocumented member.
-rtdrStatus :: Lens' RegisterTaskDefinitionResponse Int
-rtdrStatus = lens _rtdrStatus (\ s a -> s{_rtdrStatus = a});
+rtdrsStatus :: Lens' RegisterTaskDefinitionResponse Int
+rtdrsStatus = lens _rtdrsStatus (\ s a -> s{_rtdrsStatus = a});

@@ -30,15 +30,15 @@ module Network.AWS.RDS.DeleteDBSnapshot
     -- ** Request constructor
     , deleteDBSnapshot
     -- ** Request lenses
-    , delDBSnapshotIdentifier
+    , ddbsrqDBSnapshotIdentifier
 
     -- * Response
     , DeleteDBSnapshotResponse
     -- ** Response constructor
     , deleteDBSnapshotResponse
     -- ** Response lenses
-    , dDBSnapshot
-    , dStatus
+    , ddbsrsDBSnapshot
+    , ddbsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -52,24 +52,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delDBSnapshotIdentifier'
+-- * 'ddbsrqDBSnapshotIdentifier'
 newtype DeleteDBSnapshot = DeleteDBSnapshot'
-    { _delDBSnapshotIdentifier :: Text
+    { _ddbsrqDBSnapshotIdentifier :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBSnapshot' smart constructor.
 deleteDBSnapshot :: Text -> DeleteDBSnapshot
 deleteDBSnapshot pDBSnapshotIdentifier =
     DeleteDBSnapshot'
-    { _delDBSnapshotIdentifier = pDBSnapshotIdentifier
+    { _ddbsrqDBSnapshotIdentifier = pDBSnapshotIdentifier
     }
 
 -- | The DBSnapshot identifier.
 --
 -- Constraints: Must be the name of an existing DB snapshot in the
 -- @available@ state.
-delDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
-delDBSnapshotIdentifier = lens _delDBSnapshotIdentifier (\ s a -> s{_delDBSnapshotIdentifier = a});
+ddbsrqDBSnapshotIdentifier :: Lens' DeleteDBSnapshot Text
+ddbsrqDBSnapshotIdentifier = lens _ddbsrqDBSnapshotIdentifier (\ s a -> s{_ddbsrqDBSnapshotIdentifier = a});
 
 instance AWSRequest DeleteDBSnapshot where
         type Sv DeleteDBSnapshot = RDS
@@ -92,32 +92,33 @@ instance ToQuery DeleteDBSnapshot where
           = mconcat
               ["Action" =: ("DeleteDBSnapshot" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "DBSnapshotIdentifier" =: _delDBSnapshotIdentifier]
+               "DBSnapshotIdentifier" =:
+                 _ddbsrqDBSnapshotIdentifier]
 
 -- | /See:/ 'deleteDBSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dDBSnapshot'
+-- * 'ddbsrsDBSnapshot'
 --
--- * 'dStatus'
+-- * 'ddbsrsStatus'
 data DeleteDBSnapshotResponse = DeleteDBSnapshotResponse'
-    { _dDBSnapshot :: !(Maybe DBSnapshot)
-    , _dStatus     :: !Int
+    { _ddbsrsDBSnapshot :: !(Maybe DBSnapshot)
+    , _ddbsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteDBSnapshotResponse' smart constructor.
 deleteDBSnapshotResponse :: Int -> DeleteDBSnapshotResponse
 deleteDBSnapshotResponse pStatus =
     DeleteDBSnapshotResponse'
-    { _dDBSnapshot = Nothing
-    , _dStatus = pStatus
+    { _ddbsrsDBSnapshot = Nothing
+    , _ddbsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
-dDBSnapshot = lens _dDBSnapshot (\ s a -> s{_dDBSnapshot = a});
+ddbsrsDBSnapshot :: Lens' DeleteDBSnapshotResponse (Maybe DBSnapshot)
+ddbsrsDBSnapshot = lens _ddbsrsDBSnapshot (\ s a -> s{_ddbsrsDBSnapshot = a});
 
 -- | FIXME: Undocumented member.
-dStatus :: Lens' DeleteDBSnapshotResponse Int
-dStatus = lens _dStatus (\ s a -> s{_dStatus = a});
+ddbsrsStatus :: Lens' DeleteDBSnapshotResponse Int
+ddbsrsStatus = lens _ddbsrsStatus (\ s a -> s{_ddbsrsStatus = a});

@@ -27,17 +27,17 @@ module Network.AWS.EC2.DescribeVPCClassicLink
     -- ** Request constructor
     , describeVPCClassicLink
     -- ** Request lenses
-    , dvclFilters
-    , dvclVPCIds
-    , dvclDryRun
+    , dvclrqFilters
+    , dvclrqVPCIds
+    , dvclrqDryRun
 
     -- * Response
     , DescribeVPCClassicLinkResponse
     -- ** Response constructor
     , describeVPCClassicLinkResponse
     -- ** Response lenses
-    , dvclrVPCs
-    , dvclrStatus
+    , dvclrsVPCs
+    , dvclrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -49,24 +49,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvclFilters'
+-- * 'dvclrqFilters'
 --
--- * 'dvclVPCIds'
+-- * 'dvclrqVPCIds'
 --
--- * 'dvclDryRun'
+-- * 'dvclrqDryRun'
 data DescribeVPCClassicLink = DescribeVPCClassicLink'
-    { _dvclFilters :: !(Maybe [Filter])
-    , _dvclVPCIds  :: !(Maybe [Text])
-    , _dvclDryRun  :: !(Maybe Bool)
+    { _dvclrqFilters :: !(Maybe [Filter])
+    , _dvclrqVPCIds  :: !(Maybe [Text])
+    , _dvclrqDryRun  :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCClassicLink' smart constructor.
 describeVPCClassicLink :: DescribeVPCClassicLink
 describeVPCClassicLink =
     DescribeVPCClassicLink'
-    { _dvclFilters = Nothing
-    , _dvclVPCIds = Nothing
-    , _dvclDryRun = Nothing
+    { _dvclrqFilters = Nothing
+    , _dvclrqVPCIds = Nothing
+    , _dvclrqDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -88,19 +88,19 @@ describeVPCClassicLink =
 -- -   @tag-value@ - The value of a tag assigned to the resource. This
 --     filter is independent of the @tag-key@ filter.
 --
-dvclFilters :: Lens' DescribeVPCClassicLink [Filter]
-dvclFilters = lens _dvclFilters (\ s a -> s{_dvclFilters = a}) . _Default;
+dvclrqFilters :: Lens' DescribeVPCClassicLink [Filter]
+dvclrqFilters = lens _dvclrqFilters (\ s a -> s{_dvclrqFilters = a}) . _Default;
 
 -- | One or more VPCs for which you want to describe the ClassicLink status.
-dvclVPCIds :: Lens' DescribeVPCClassicLink [Text]
-dvclVPCIds = lens _dvclVPCIds (\ s a -> s{_dvclVPCIds = a}) . _Default;
+dvclrqVPCIds :: Lens' DescribeVPCClassicLink [Text]
+dvclrqVPCIds = lens _dvclrqVPCIds (\ s a -> s{_dvclrqVPCIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvclDryRun :: Lens' DescribeVPCClassicLink (Maybe Bool)
-dvclDryRun = lens _dvclDryRun (\ s a -> s{_dvclDryRun = a});
+dvclrqDryRun :: Lens' DescribeVPCClassicLink (Maybe Bool)
+dvclrqDryRun = lens _dvclrqDryRun (\ s a -> s{_dvclrqDryRun = a});
 
 instance AWSRequest DescribeVPCClassicLink where
         type Sv DescribeVPCClassicLink = EC2
@@ -127,34 +127,34 @@ instance ToQuery DescribeVPCClassicLink where
               ["Action" =:
                  ("DescribeVPCClassicLink" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvclFilters),
-               toQuery (toQueryList "VpcId" <$> _dvclVPCIds),
-               "DryRun" =: _dvclDryRun]
+               toQuery (toQueryList "Filter" <$> _dvclrqFilters),
+               toQuery (toQueryList "VpcId" <$> _dvclrqVPCIds),
+               "DryRun" =: _dvclrqDryRun]
 
 -- | /See:/ 'describeVPCClassicLinkResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvclrVPCs'
+-- * 'dvclrsVPCs'
 --
--- * 'dvclrStatus'
+-- * 'dvclrsStatus'
 data DescribeVPCClassicLinkResponse = DescribeVPCClassicLinkResponse'
-    { _dvclrVPCs   :: !(Maybe [VPCClassicLink])
-    , _dvclrStatus :: !Int
+    { _dvclrsVPCs   :: !(Maybe [VPCClassicLink])
+    , _dvclrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCClassicLinkResponse' smart constructor.
 describeVPCClassicLinkResponse :: Int -> DescribeVPCClassicLinkResponse
 describeVPCClassicLinkResponse pStatus =
     DescribeVPCClassicLinkResponse'
-    { _dvclrVPCs = Nothing
-    , _dvclrStatus = pStatus
+    { _dvclrsVPCs = Nothing
+    , _dvclrsStatus = pStatus
     }
 
 -- | The ClassicLink status of one or more VPCs.
-dvclrVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
-dvclrVPCs = lens _dvclrVPCs (\ s a -> s{_dvclrVPCs = a}) . _Default;
+dvclrsVPCs :: Lens' DescribeVPCClassicLinkResponse [VPCClassicLink]
+dvclrsVPCs = lens _dvclrsVPCs (\ s a -> s{_dvclrsVPCs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvclrStatus :: Lens' DescribeVPCClassicLinkResponse Int
-dvclrStatus = lens _dvclrStatus (\ s a -> s{_dvclrStatus = a});
+dvclrsStatus :: Lens' DescribeVPCClassicLinkResponse Int
+dvclrsStatus = lens _dvclrsStatus (\ s a -> s{_dvclrsStatus = a});

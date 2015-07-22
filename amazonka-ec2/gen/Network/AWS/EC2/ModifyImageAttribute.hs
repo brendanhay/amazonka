@@ -31,16 +31,16 @@ module Network.AWS.EC2.ModifyImageAttribute
     -- ** Request constructor
     , modifyImageAttribute
     -- ** Request lenses
-    , miaAttribute
-    , miaUserIds
-    , miaUserGroups
-    , miaValue
-    , miaLaunchPermission
-    , miaOperationType
-    , miaProductCodes
-    , miaDryRun
-    , miaDescription
-    , miaImageId
+    , miarqAttribute
+    , miarqUserIds
+    , miarqUserGroups
+    , miarqValue
+    , miarqLaunchPermission
+    , miarqOperationType
+    , miarqProductCodes
+    , miarqDryRun
+    , miarqDescription
+    , miarqImageId
 
     -- * Response
     , ModifyImageAttributeResponse
@@ -57,101 +57,101 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'miaAttribute'
+-- * 'miarqAttribute'
 --
--- * 'miaUserIds'
+-- * 'miarqUserIds'
 --
--- * 'miaUserGroups'
+-- * 'miarqUserGroups'
 --
--- * 'miaValue'
+-- * 'miarqValue'
 --
--- * 'miaLaunchPermission'
+-- * 'miarqLaunchPermission'
 --
--- * 'miaOperationType'
+-- * 'miarqOperationType'
 --
--- * 'miaProductCodes'
+-- * 'miarqProductCodes'
 --
--- * 'miaDryRun'
+-- * 'miarqDryRun'
 --
--- * 'miaDescription'
+-- * 'miarqDescription'
 --
--- * 'miaImageId'
+-- * 'miarqImageId'
 data ModifyImageAttribute = ModifyImageAttribute'
-    { _miaAttribute        :: !(Maybe Text)
-    , _miaUserIds          :: !(Maybe [Text])
-    , _miaUserGroups       :: !(Maybe [Text])
-    , _miaValue            :: !(Maybe Text)
-    , _miaLaunchPermission :: !(Maybe LaunchPermissionModifications)
-    , _miaOperationType    :: !(Maybe Text)
-    , _miaProductCodes     :: !(Maybe [Text])
-    , _miaDryRun           :: !(Maybe Bool)
-    , _miaDescription      :: !(Maybe AttributeValue)
-    , _miaImageId          :: !Text
+    { _miarqAttribute        :: !(Maybe Text)
+    , _miarqUserIds          :: !(Maybe [Text])
+    , _miarqUserGroups       :: !(Maybe [Text])
+    , _miarqValue            :: !(Maybe Text)
+    , _miarqLaunchPermission :: !(Maybe LaunchPermissionModifications)
+    , _miarqOperationType    :: !(Maybe Text)
+    , _miarqProductCodes     :: !(Maybe [Text])
+    , _miarqDryRun           :: !(Maybe Bool)
+    , _miarqDescription      :: !(Maybe AttributeValue)
+    , _miarqImageId          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyImageAttribute' smart constructor.
 modifyImageAttribute :: Text -> ModifyImageAttribute
 modifyImageAttribute pImageId =
     ModifyImageAttribute'
-    { _miaAttribute = Nothing
-    , _miaUserIds = Nothing
-    , _miaUserGroups = Nothing
-    , _miaValue = Nothing
-    , _miaLaunchPermission = Nothing
-    , _miaOperationType = Nothing
-    , _miaProductCodes = Nothing
-    , _miaDryRun = Nothing
-    , _miaDescription = Nothing
-    , _miaImageId = pImageId
+    { _miarqAttribute = Nothing
+    , _miarqUserIds = Nothing
+    , _miarqUserGroups = Nothing
+    , _miarqValue = Nothing
+    , _miarqLaunchPermission = Nothing
+    , _miarqOperationType = Nothing
+    , _miarqProductCodes = Nothing
+    , _miarqDryRun = Nothing
+    , _miarqDescription = Nothing
+    , _miarqImageId = pImageId
     }
 
 -- | The name of the attribute to modify.
-miaAttribute :: Lens' ModifyImageAttribute (Maybe Text)
-miaAttribute = lens _miaAttribute (\ s a -> s{_miaAttribute = a});
+miarqAttribute :: Lens' ModifyImageAttribute (Maybe Text)
+miarqAttribute = lens _miarqAttribute (\ s a -> s{_miarqAttribute = a});
 
 -- | One or more AWS account IDs. This is only valid when modifying the
 -- @launchPermission@ attribute.
-miaUserIds :: Lens' ModifyImageAttribute [Text]
-miaUserIds = lens _miaUserIds (\ s a -> s{_miaUserIds = a}) . _Default;
+miarqUserIds :: Lens' ModifyImageAttribute [Text]
+miarqUserIds = lens _miarqUserIds (\ s a -> s{_miarqUserIds = a}) . _Default;
 
 -- | One or more user groups. This is only valid when modifying the
 -- @launchPermission@ attribute.
-miaUserGroups :: Lens' ModifyImageAttribute [Text]
-miaUserGroups = lens _miaUserGroups (\ s a -> s{_miaUserGroups = a}) . _Default;
+miarqUserGroups :: Lens' ModifyImageAttribute [Text]
+miarqUserGroups = lens _miarqUserGroups (\ s a -> s{_miarqUserGroups = a}) . _Default;
 
 -- | The value of the attribute being modified. This is only valid when
 -- modifying the @description@ attribute.
-miaValue :: Lens' ModifyImageAttribute (Maybe Text)
-miaValue = lens _miaValue (\ s a -> s{_miaValue = a});
+miarqValue :: Lens' ModifyImageAttribute (Maybe Text)
+miarqValue = lens _miarqValue (\ s a -> s{_miarqValue = a});
 
 -- | A launch permission modification.
-miaLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
-miaLaunchPermission = lens _miaLaunchPermission (\ s a -> s{_miaLaunchPermission = a});
+miarqLaunchPermission :: Lens' ModifyImageAttribute (Maybe LaunchPermissionModifications)
+miarqLaunchPermission = lens _miarqLaunchPermission (\ s a -> s{_miarqLaunchPermission = a});
 
 -- | The operation type.
-miaOperationType :: Lens' ModifyImageAttribute (Maybe Text)
-miaOperationType = lens _miaOperationType (\ s a -> s{_miaOperationType = a});
+miarqOperationType :: Lens' ModifyImageAttribute (Maybe Text)
+miarqOperationType = lens _miarqOperationType (\ s a -> s{_miarqOperationType = a});
 
 -- | One or more product codes. After you add a product code to an AMI, it
 -- can\'t be removed. This is only valid when modifying the @productCodes@
 -- attribute.
-miaProductCodes :: Lens' ModifyImageAttribute [Text]
-miaProductCodes = lens _miaProductCodes (\ s a -> s{_miaProductCodes = a}) . _Default;
+miarqProductCodes :: Lens' ModifyImageAttribute [Text]
+miarqProductCodes = lens _miarqProductCodes (\ s a -> s{_miarqProductCodes = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-miaDryRun :: Lens' ModifyImageAttribute (Maybe Bool)
-miaDryRun = lens _miaDryRun (\ s a -> s{_miaDryRun = a});
+miarqDryRun :: Lens' ModifyImageAttribute (Maybe Bool)
+miarqDryRun = lens _miarqDryRun (\ s a -> s{_miarqDryRun = a});
 
 -- | A description for the AMI.
-miaDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
-miaDescription = lens _miaDescription (\ s a -> s{_miaDescription = a});
+miarqDescription :: Lens' ModifyImageAttribute (Maybe AttributeValue)
+miarqDescription = lens _miarqDescription (\ s a -> s{_miarqDescription = a});
 
 -- | The ID of the AMI.
-miaImageId :: Lens' ModifyImageAttribute Text
-miaImageId = lens _miaImageId (\ s a -> s{_miaImageId = a});
+miarqImageId :: Lens' ModifyImageAttribute Text
+miarqImageId = lens _miarqImageId (\ s a -> s{_miarqImageId = a});
 
 instance AWSRequest ModifyImageAttribute where
         type Sv ModifyImageAttribute = EC2
@@ -171,17 +171,18 @@ instance ToQuery ModifyImageAttribute where
           = mconcat
               ["Action" =: ("ModifyImageAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Attribute" =: _miaAttribute,
-               toQuery (toQueryList "UserId" <$> _miaUserIds),
-               toQuery (toQueryList "UserGroup" <$> _miaUserGroups),
-               "Value" =: _miaValue,
-               "LaunchPermission" =: _miaLaunchPermission,
-               "OperationType" =: _miaOperationType,
+               "Attribute" =: _miarqAttribute,
+               toQuery (toQueryList "UserId" <$> _miarqUserIds),
                toQuery
-                 (toQueryList "ProductCode" <$> _miaProductCodes),
-               "DryRun" =: _miaDryRun,
-               "Description" =: _miaDescription,
-               "ImageId" =: _miaImageId]
+                 (toQueryList "UserGroup" <$> _miarqUserGroups),
+               "Value" =: _miarqValue,
+               "LaunchPermission" =: _miarqLaunchPermission,
+               "OperationType" =: _miarqOperationType,
+               toQuery
+                 (toQueryList "ProductCode" <$> _miarqProductCodes),
+               "DryRun" =: _miarqDryRun,
+               "Description" =: _miarqDescription,
+               "ImageId" =: _miarqImageId]
 
 -- | /See:/ 'modifyImageAttributeResponse' smart constructor.
 data ModifyImageAttributeResponse =

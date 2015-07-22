@@ -160,9 +160,9 @@ module Network.AWS.CodePipeline.Types
     -- * Artifact
     , Artifact
     , artifact
-    , artLocation
-    , artName
-    , artRevision
+    , aLocation
+    , aName
+    , aRevision
 
     -- * ArtifactDetails
     , ArtifactDetails

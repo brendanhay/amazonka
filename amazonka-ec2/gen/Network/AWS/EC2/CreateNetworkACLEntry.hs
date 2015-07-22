@@ -45,15 +45,15 @@ module Network.AWS.EC2.CreateNetworkACLEntry
     -- ** Request constructor
     , createNetworkACLEntry
     -- ** Request lenses
-    , cnaeICMPTypeCode
-    , cnaePortRange
-    , cnaeDryRun
-    , cnaeNetworkACLId
-    , cnaeRuleNumber
-    , cnaeProtocol
-    , cnaeRuleAction
-    , cnaeEgress
-    , cnaeCIdRBlock
+    , cnaerqICMPTypeCode
+    , cnaerqPortRange
+    , cnaerqDryRun
+    , cnaerqNetworkACLId
+    , cnaerqRuleNumber
+    , cnaerqProtocol
+    , cnaerqRuleAction
+    , cnaerqEgress
+    , cnaerqCIdRBlock
 
     -- * Response
     , CreateNetworkACLEntryResponse
@@ -70,94 +70,94 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cnaeICMPTypeCode'
+-- * 'cnaerqICMPTypeCode'
 --
--- * 'cnaePortRange'
+-- * 'cnaerqPortRange'
 --
--- * 'cnaeDryRun'
+-- * 'cnaerqDryRun'
 --
--- * 'cnaeNetworkACLId'
+-- * 'cnaerqNetworkACLId'
 --
--- * 'cnaeRuleNumber'
+-- * 'cnaerqRuleNumber'
 --
--- * 'cnaeProtocol'
+-- * 'cnaerqProtocol'
 --
--- * 'cnaeRuleAction'
+-- * 'cnaerqRuleAction'
 --
--- * 'cnaeEgress'
+-- * 'cnaerqEgress'
 --
--- * 'cnaeCIdRBlock'
+-- * 'cnaerqCIdRBlock'
 data CreateNetworkACLEntry = CreateNetworkACLEntry'
-    { _cnaeICMPTypeCode :: !(Maybe ICMPTypeCode)
-    , _cnaePortRange    :: !(Maybe PortRange)
-    , _cnaeDryRun       :: !(Maybe Bool)
-    , _cnaeNetworkACLId :: !Text
-    , _cnaeRuleNumber   :: !Int
-    , _cnaeProtocol     :: !Text
-    , _cnaeRuleAction   :: !RuleAction
-    , _cnaeEgress       :: !Bool
-    , _cnaeCIdRBlock    :: !Text
+    { _cnaerqICMPTypeCode :: !(Maybe ICMPTypeCode)
+    , _cnaerqPortRange    :: !(Maybe PortRange)
+    , _cnaerqDryRun       :: !(Maybe Bool)
+    , _cnaerqNetworkACLId :: !Text
+    , _cnaerqRuleNumber   :: !Int
+    , _cnaerqProtocol     :: !Text
+    , _cnaerqRuleAction   :: !RuleAction
+    , _cnaerqEgress       :: !Bool
+    , _cnaerqCIdRBlock    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateNetworkACLEntry' smart constructor.
 createNetworkACLEntry :: Text -> Int -> Text -> RuleAction -> Bool -> Text -> CreateNetworkACLEntry
 createNetworkACLEntry pNetworkACLId pRuleNumber pProtocol pRuleAction pEgress pCIdRBlock =
     CreateNetworkACLEntry'
-    { _cnaeICMPTypeCode = Nothing
-    , _cnaePortRange = Nothing
-    , _cnaeDryRun = Nothing
-    , _cnaeNetworkACLId = pNetworkACLId
-    , _cnaeRuleNumber = pRuleNumber
-    , _cnaeProtocol = pProtocol
-    , _cnaeRuleAction = pRuleAction
-    , _cnaeEgress = pEgress
-    , _cnaeCIdRBlock = pCIdRBlock
+    { _cnaerqICMPTypeCode = Nothing
+    , _cnaerqPortRange = Nothing
+    , _cnaerqDryRun = Nothing
+    , _cnaerqNetworkACLId = pNetworkACLId
+    , _cnaerqRuleNumber = pRuleNumber
+    , _cnaerqProtocol = pProtocol
+    , _cnaerqRuleAction = pRuleAction
+    , _cnaerqEgress = pEgress
+    , _cnaerqCIdRBlock = pCIdRBlock
     }
 
 -- | ICMP protocol: The ICMP type and code. Required if specifying ICMP for
 -- the protocol.
-cnaeICMPTypeCode :: Lens' CreateNetworkACLEntry (Maybe ICMPTypeCode)
-cnaeICMPTypeCode = lens _cnaeICMPTypeCode (\ s a -> s{_cnaeICMPTypeCode = a});
+cnaerqICMPTypeCode :: Lens' CreateNetworkACLEntry (Maybe ICMPTypeCode)
+cnaerqICMPTypeCode = lens _cnaerqICMPTypeCode (\ s a -> s{_cnaerqICMPTypeCode = a});
 
 -- | TCP or UDP protocols: The range of ports the rule applies to.
-cnaePortRange :: Lens' CreateNetworkACLEntry (Maybe PortRange)
-cnaePortRange = lens _cnaePortRange (\ s a -> s{_cnaePortRange = a});
+cnaerqPortRange :: Lens' CreateNetworkACLEntry (Maybe PortRange)
+cnaerqPortRange = lens _cnaerqPortRange (\ s a -> s{_cnaerqPortRange = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cnaeDryRun :: Lens' CreateNetworkACLEntry (Maybe Bool)
-cnaeDryRun = lens _cnaeDryRun (\ s a -> s{_cnaeDryRun = a});
+cnaerqDryRun :: Lens' CreateNetworkACLEntry (Maybe Bool)
+cnaerqDryRun = lens _cnaerqDryRun (\ s a -> s{_cnaerqDryRun = a});
 
 -- | The ID of the network ACL.
-cnaeNetworkACLId :: Lens' CreateNetworkACLEntry Text
-cnaeNetworkACLId = lens _cnaeNetworkACLId (\ s a -> s{_cnaeNetworkACLId = a});
+cnaerqNetworkACLId :: Lens' CreateNetworkACLEntry Text
+cnaerqNetworkACLId = lens _cnaerqNetworkACLId (\ s a -> s{_cnaerqNetworkACLId = a});
 
 -- | The rule number for the entry (for example, 100). ACL entries are
 -- processed in ascending order by rule number.
 --
 -- Constraints: Positive integer from 1 to 32766
-cnaeRuleNumber :: Lens' CreateNetworkACLEntry Int
-cnaeRuleNumber = lens _cnaeRuleNumber (\ s a -> s{_cnaeRuleNumber = a});
+cnaerqRuleNumber :: Lens' CreateNetworkACLEntry Int
+cnaerqRuleNumber = lens _cnaerqRuleNumber (\ s a -> s{_cnaerqRuleNumber = a});
 
 -- | The protocol. A value of -1 means all protocols.
-cnaeProtocol :: Lens' CreateNetworkACLEntry Text
-cnaeProtocol = lens _cnaeProtocol (\ s a -> s{_cnaeProtocol = a});
+cnaerqProtocol :: Lens' CreateNetworkACLEntry Text
+cnaerqProtocol = lens _cnaerqProtocol (\ s a -> s{_cnaerqProtocol = a});
 
 -- | Indicates whether to allow or deny the traffic that matches the rule.
-cnaeRuleAction :: Lens' CreateNetworkACLEntry RuleAction
-cnaeRuleAction = lens _cnaeRuleAction (\ s a -> s{_cnaeRuleAction = a});
+cnaerqRuleAction :: Lens' CreateNetworkACLEntry RuleAction
+cnaerqRuleAction = lens _cnaerqRuleAction (\ s a -> s{_cnaerqRuleAction = a});
 
 -- | Indicates whether this is an egress rule (rule is applied to traffic
 -- leaving the subnet).
-cnaeEgress :: Lens' CreateNetworkACLEntry Bool
-cnaeEgress = lens _cnaeEgress (\ s a -> s{_cnaeEgress = a});
+cnaerqEgress :: Lens' CreateNetworkACLEntry Bool
+cnaerqEgress = lens _cnaerqEgress (\ s a -> s{_cnaerqEgress = a});
 
 -- | The network range to allow or deny, in CIDR notation (for example
 -- @172.16.0.0\/24@).
-cnaeCIdRBlock :: Lens' CreateNetworkACLEntry Text
-cnaeCIdRBlock = lens _cnaeCIdRBlock (\ s a -> s{_cnaeCIdRBlock = a});
+cnaerqCIdRBlock :: Lens' CreateNetworkACLEntry Text
+cnaerqCIdRBlock = lens _cnaerqCIdRBlock (\ s a -> s{_cnaerqCIdRBlock = a});
 
 instance AWSRequest CreateNetworkACLEntry where
         type Sv CreateNetworkACLEntry = EC2
@@ -177,15 +177,15 @@ instance ToQuery CreateNetworkACLEntry where
           = mconcat
               ["Action" =: ("CreateNetworkACLEntry" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Icmp" =: _cnaeICMPTypeCode,
-               "PortRange" =: _cnaePortRange,
-               "DryRun" =: _cnaeDryRun,
-               "NetworkAclId" =: _cnaeNetworkACLId,
-               "RuleNumber" =: _cnaeRuleNumber,
-               "Protocol" =: _cnaeProtocol,
-               "RuleAction" =: _cnaeRuleAction,
-               "Egress" =: _cnaeEgress,
-               "CidrBlock" =: _cnaeCIdRBlock]
+               "Icmp" =: _cnaerqICMPTypeCode,
+               "PortRange" =: _cnaerqPortRange,
+               "DryRun" =: _cnaerqDryRun,
+               "NetworkAclId" =: _cnaerqNetworkACLId,
+               "RuleNumber" =: _cnaerqRuleNumber,
+               "Protocol" =: _cnaerqProtocol,
+               "RuleAction" =: _cnaerqRuleAction,
+               "Egress" =: _cnaerqEgress,
+               "CidrBlock" =: _cnaerqCIdRBlock]
 
 -- | /See:/ 'createNetworkACLEntryResponse' smart constructor.
 data CreateNetworkACLEntryResponse =

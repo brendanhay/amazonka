@@ -28,17 +28,17 @@ module Network.AWS.EMR.ListBootstrapActions
     -- ** Request constructor
     , listBootstrapActions
     -- ** Request lenses
-    , lbaMarker
-    , lbaClusterId
+    , lbarqMarker
+    , lbarqClusterId
 
     -- * Response
     , ListBootstrapActionsResponse
     -- ** Response constructor
     , listBootstrapActionsResponse
     -- ** Response lenses
-    , lbarBootstrapActions
-    , lbarMarker
-    , lbarStatus
+    , lbarsBootstrapActions
+    , lbarsMarker
+    , lbarsStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -53,37 +53,37 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lbaMarker'
+-- * 'lbarqMarker'
 --
--- * 'lbaClusterId'
+-- * 'lbarqClusterId'
 data ListBootstrapActions = ListBootstrapActions'
-    { _lbaMarker    :: !(Maybe Text)
-    , _lbaClusterId :: !Text
+    { _lbarqMarker    :: !(Maybe Text)
+    , _lbarqClusterId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBootstrapActions' smart constructor.
 listBootstrapActions :: Text -> ListBootstrapActions
 listBootstrapActions pClusterId =
     ListBootstrapActions'
-    { _lbaMarker = Nothing
-    , _lbaClusterId = pClusterId
+    { _lbarqMarker = Nothing
+    , _lbarqClusterId = pClusterId
     }
 
 -- | The pagination token that indicates the next set of results to retrieve
 -- .
-lbaMarker :: Lens' ListBootstrapActions (Maybe Text)
-lbaMarker = lens _lbaMarker (\ s a -> s{_lbaMarker = a});
+lbarqMarker :: Lens' ListBootstrapActions (Maybe Text)
+lbarqMarker = lens _lbarqMarker (\ s a -> s{_lbarqMarker = a});
 
 -- | The cluster identifier for the bootstrap actions to list .
-lbaClusterId :: Lens' ListBootstrapActions Text
-lbaClusterId = lens _lbaClusterId (\ s a -> s{_lbaClusterId = a});
+lbarqClusterId :: Lens' ListBootstrapActions Text
+lbarqClusterId = lens _lbarqClusterId (\ s a -> s{_lbarqClusterId = a});
 
 instance AWSPager ListBootstrapActions where
         page rq rs
-          | stop (rs ^. lbarMarker) = Nothing
-          | stop (rs ^. lbarBootstrapActions) = Nothing
+          | stop (rs ^. lbarsMarker) = Nothing
+          | stop (rs ^. lbarsBootstrapActions) = Nothing
           | otherwise =
-            Just $ rq & lbaMarker .~ rs ^. lbarMarker
+            Just $ rq & lbarqMarker .~ rs ^. lbarsMarker
 
 instance AWSRequest ListBootstrapActions where
         type Sv ListBootstrapActions = EMR
@@ -111,8 +111,8 @@ instance ToHeaders ListBootstrapActions where
 instance ToJSON ListBootstrapActions where
         toJSON ListBootstrapActions'{..}
           = object
-              ["Marker" .= _lbaMarker,
-               "ClusterId" .= _lbaClusterId]
+              ["Marker" .= _lbarqMarker,
+               "ClusterId" .= _lbarqClusterId]
 
 instance ToPath ListBootstrapActions where
         toPath = const "/"
@@ -126,35 +126,35 @@ instance ToQuery ListBootstrapActions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lbarBootstrapActions'
+-- * 'lbarsBootstrapActions'
 --
--- * 'lbarMarker'
+-- * 'lbarsMarker'
 --
--- * 'lbarStatus'
+-- * 'lbarsStatus'
 data ListBootstrapActionsResponse = ListBootstrapActionsResponse'
-    { _lbarBootstrapActions :: !(Maybe [Command])
-    , _lbarMarker           :: !(Maybe Text)
-    , _lbarStatus           :: !Int
+    { _lbarsBootstrapActions :: !(Maybe [Command])
+    , _lbarsMarker           :: !(Maybe Text)
+    , _lbarsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListBootstrapActionsResponse' smart constructor.
 listBootstrapActionsResponse :: Int -> ListBootstrapActionsResponse
 listBootstrapActionsResponse pStatus =
     ListBootstrapActionsResponse'
-    { _lbarBootstrapActions = Nothing
-    , _lbarMarker = Nothing
-    , _lbarStatus = pStatus
+    { _lbarsBootstrapActions = Nothing
+    , _lbarsMarker = Nothing
+    , _lbarsStatus = pStatus
     }
 
 -- | The bootstrap actions associated with the cluster .
-lbarBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
-lbarBootstrapActions = lens _lbarBootstrapActions (\ s a -> s{_lbarBootstrapActions = a}) . _Default;
+lbarsBootstrapActions :: Lens' ListBootstrapActionsResponse [Command]
+lbarsBootstrapActions = lens _lbarsBootstrapActions (\ s a -> s{_lbarsBootstrapActions = a}) . _Default;
 
 -- | The pagination token that indicates the next set of results to retrieve
 -- .
-lbarMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
-lbarMarker = lens _lbarMarker (\ s a -> s{_lbarMarker = a});
+lbarsMarker :: Lens' ListBootstrapActionsResponse (Maybe Text)
+lbarsMarker = lens _lbarsMarker (\ s a -> s{_lbarsMarker = a});
 
 -- | FIXME: Undocumented member.
-lbarStatus :: Lens' ListBootstrapActionsResponse Int
-lbarStatus = lens _lbarStatus (\ s a -> s{_lbarStatus = a});
+lbarsStatus :: Lens' ListBootstrapActionsResponse Int
+lbarsStatus = lens _lbarsStatus (\ s a -> s{_lbarsStatus = a});

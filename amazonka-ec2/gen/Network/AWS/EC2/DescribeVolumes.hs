@@ -38,20 +38,20 @@ module Network.AWS.EC2.DescribeVolumes
     -- ** Request constructor
     , describeVolumes
     -- ** Request lenses
-    , dvvFilters
-    , dvvVolumeIds
-    , dvvNextToken
-    , dvvDryRun
-    , dvvMaxResults
+    , desrqFilters
+    , desrqVolumeIds
+    , desrqNextToken
+    , desrqDryRun
+    , desrqMaxResults
 
     -- * Response
     , DescribeVolumesResponse
     -- ** Response constructor
     , describeVolumesResponse
     -- ** Response lenses
-    , dvrrNextToken
-    , dvrrVolumes
-    , dvrrStatus
+    , desrsNextToken
+    , desrsVolumes
+    , desrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -63,32 +63,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvvFilters'
+-- * 'desrqFilters'
 --
--- * 'dvvVolumeIds'
+-- * 'desrqVolumeIds'
 --
--- * 'dvvNextToken'
+-- * 'desrqNextToken'
 --
--- * 'dvvDryRun'
+-- * 'desrqDryRun'
 --
--- * 'dvvMaxResults'
+-- * 'desrqMaxResults'
 data DescribeVolumes = DescribeVolumes'
-    { _dvvFilters    :: !(Maybe [Filter])
-    , _dvvVolumeIds  :: !(Maybe [Text])
-    , _dvvNextToken  :: !(Maybe Text)
-    , _dvvDryRun     :: !(Maybe Bool)
-    , _dvvMaxResults :: !(Maybe Int)
+    { _desrqFilters    :: !(Maybe [Filter])
+    , _desrqVolumeIds  :: !(Maybe [Text])
+    , _desrqNextToken  :: !(Maybe Text)
+    , _desrqDryRun     :: !(Maybe Bool)
+    , _desrqMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumes' smart constructor.
 describeVolumes :: DescribeVolumes
 describeVolumes =
     DescribeVolumes'
-    { _dvvFilters = Nothing
-    , _dvvVolumeIds = Nothing
-    , _dvvNextToken = Nothing
-    , _dvvDryRun = Nothing
-    , _dvvMaxResults = Nothing
+    { _desrqFilters = Nothing
+    , _desrqVolumeIds = Nothing
+    , _desrqNextToken = Nothing
+    , _desrqDryRun = Nothing
+    , _desrqMaxResults = Nothing
     }
 
 -- | One or more filters.
@@ -142,27 +142,27 @@ describeVolumes =
 --     General Purpose (SSD) volumes, @io1@ for Provisioned IOPS (SSD)
 --     volumes, or @standard@ for Magnetic volumes.
 --
-dvvFilters :: Lens' DescribeVolumes [Filter]
-dvvFilters = lens _dvvFilters (\ s a -> s{_dvvFilters = a}) . _Default;
+desrqFilters :: Lens' DescribeVolumes [Filter]
+desrqFilters = lens _desrqFilters (\ s a -> s{_desrqFilters = a}) . _Default;
 
 -- | One or more volume IDs.
-dvvVolumeIds :: Lens' DescribeVolumes [Text]
-dvvVolumeIds = lens _dvvVolumeIds (\ s a -> s{_dvvVolumeIds = a}) . _Default;
+desrqVolumeIds :: Lens' DescribeVolumes [Text]
+desrqVolumeIds = lens _desrqVolumeIds (\ s a -> s{_desrqVolumeIds = a}) . _Default;
 
 -- | The @NextToken@ value returned from a previous paginated
 -- @DescribeVolumes@ request where @MaxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
 -- of the previous results that returned the @NextToken@ value. This value
 -- is @null@ when there are no more results to return.
-dvvNextToken :: Lens' DescribeVolumes (Maybe Text)
-dvvNextToken = lens _dvvNextToken (\ s a -> s{_dvvNextToken = a});
+desrqNextToken :: Lens' DescribeVolumes (Maybe Text)
+desrqNextToken = lens _desrqNextToken (\ s a -> s{_desrqNextToken = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvvDryRun :: Lens' DescribeVolumes (Maybe Bool)
-dvvDryRun = lens _dvvDryRun (\ s a -> s{_dvvDryRun = a});
+desrqDryRun :: Lens' DescribeVolumes (Maybe Bool)
+desrqDryRun = lens _desrqDryRun (\ s a -> s{_desrqDryRun = a});
 
 -- | The maximum number of volume results returned by @DescribeVolumes@ in
 -- paginated output. When this parameter is used, @DescribeVolumes@ only
@@ -174,8 +174,8 @@ dvvDryRun = lens _dvvDryRun (\ s a -> s{_dvvDryRun = a});
 -- this parameter is not used, then @DescribeVolumes@ returns all results.
 -- You cannot specify this parameter and the volume IDs parameter in the
 -- same request.
-dvvMaxResults :: Lens' DescribeVolumes (Maybe Int)
-dvvMaxResults = lens _dvvMaxResults (\ s a -> s{_dvvMaxResults = a});
+desrqMaxResults :: Lens' DescribeVolumes (Maybe Int)
+desrqMaxResults = lens _desrqMaxResults (\ s a -> s{_desrqMaxResults = a});
 
 instance AWSRequest DescribeVolumes where
         type Sv DescribeVolumes = EC2
@@ -201,46 +201,47 @@ instance ToQuery DescribeVolumes where
           = mconcat
               ["Action" =: ("DescribeVolumes" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dvvFilters),
-               toQuery (toQueryList "VolumeId" <$> _dvvVolumeIds),
-               "NextToken" =: _dvvNextToken, "DryRun" =: _dvvDryRun,
-               "MaxResults" =: _dvvMaxResults]
+               toQuery (toQueryList "Filter" <$> _desrqFilters),
+               toQuery (toQueryList "VolumeId" <$> _desrqVolumeIds),
+               "NextToken" =: _desrqNextToken,
+               "DryRun" =: _desrqDryRun,
+               "MaxResults" =: _desrqMaxResults]
 
 -- | /See:/ 'describeVolumesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvrrNextToken'
+-- * 'desrsNextToken'
 --
--- * 'dvrrVolumes'
+-- * 'desrsVolumes'
 --
--- * 'dvrrStatus'
+-- * 'desrsStatus'
 data DescribeVolumesResponse = DescribeVolumesResponse'
-    { _dvrrNextToken :: !(Maybe Text)
-    , _dvrrVolumes   :: !(Maybe [Volume])
-    , _dvrrStatus    :: !Int
+    { _desrsNextToken :: !(Maybe Text)
+    , _desrsVolumes   :: !(Maybe [Volume])
+    , _desrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVolumesResponse' smart constructor.
 describeVolumesResponse :: Int -> DescribeVolumesResponse
 describeVolumesResponse pStatus =
     DescribeVolumesResponse'
-    { _dvrrNextToken = Nothing
-    , _dvrrVolumes = Nothing
-    , _dvrrStatus = pStatus
+    { _desrsNextToken = Nothing
+    , _desrsVolumes = Nothing
+    , _desrsStatus = pStatus
     }
 
 -- | The @NextToken@ value to include in a future @DescribeVolumes@ request.
 -- When the results of a @DescribeVolumes@ request exceed @MaxResults@,
 -- this value can be used to retrieve the next page of results. This value
 -- is @null@ when there are no more results to return.
-dvrrNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
-dvrrNextToken = lens _dvrrNextToken (\ s a -> s{_dvrrNextToken = a});
+desrsNextToken :: Lens' DescribeVolumesResponse (Maybe Text)
+desrsNextToken = lens _desrsNextToken (\ s a -> s{_desrsNextToken = a});
 
 -- | Information about the volumes.
-dvrrVolumes :: Lens' DescribeVolumesResponse [Volume]
-dvrrVolumes = lens _dvrrVolumes (\ s a -> s{_dvrrVolumes = a}) . _Default;
+desrsVolumes :: Lens' DescribeVolumesResponse [Volume]
+desrsVolumes = lens _desrsVolumes (\ s a -> s{_desrsVolumes = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dvrrStatus :: Lens' DescribeVolumesResponse Int
-dvrrStatus = lens _dvrrStatus (\ s a -> s{_dvrrStatus = a});
+desrsStatus :: Lens' DescribeVolumesResponse Int
+desrsStatus = lens _desrsStatus (\ s a -> s{_desrsStatus = a});

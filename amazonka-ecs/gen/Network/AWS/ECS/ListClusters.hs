@@ -27,17 +27,17 @@ module Network.AWS.ECS.ListClusters
     -- ** Request constructor
     , listClusters
     -- ** Request lenses
-    , lcNextToken
-    , lcMaxResults
+    , lcrqNextToken
+    , lcrqMaxResults
 
     -- * Response
     , ListClustersResponse
     -- ** Response constructor
     , listClustersResponse
     -- ** Response lenses
-    , lcrClusterARNs
-    , lcrNextToken
-    , lcrStatus
+    , lcrsClusterARNs
+    , lcrsNextToken
+    , lcrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -50,20 +50,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcNextToken'
+-- * 'lcrqNextToken'
 --
--- * 'lcMaxResults'
+-- * 'lcrqMaxResults'
 data ListClusters = ListClusters'
-    { _lcNextToken  :: !(Maybe Text)
-    , _lcMaxResults :: !(Maybe Int)
+    { _lcrqNextToken  :: !(Maybe Text)
+    , _lcrqMaxResults :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClusters' smart constructor.
 listClusters :: ListClusters
 listClusters =
     ListClusters'
-    { _lcNextToken = Nothing
-    , _lcMaxResults = Nothing
+    { _lcrqNextToken = Nothing
+    , _lcrqMaxResults = Nothing
     }
 
 -- | The @nextToken@ value returned from a previous paginated @ListClusters@
@@ -71,8 +71,8 @@ listClusters =
 -- of that parameter. Pagination continues from the end of the previous
 -- results that returned the @nextToken@ value. This value is @null@ when
 -- there are no more results to return.
-lcNextToken :: Lens' ListClusters (Maybe Text)
-lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
+lcrqNextToken :: Lens' ListClusters (Maybe Text)
+lcrqNextToken = lens _lcrqNextToken (\ s a -> s{_lcrqNextToken = a});
 
 -- | The maximum number of cluster results returned by @ListClusters@ in
 -- paginated output. When this parameter is used, @ListClusters@ only
@@ -82,15 +82,15 @@ lcNextToken = lens _lcNextToken (\ s a -> s{_lcNextToken = a});
 -- @nextToken@ value. This value can be between 1 and 100. If this
 -- parameter is not used, then @ListClusters@ returns up to 100 results and
 -- a @nextToken@ value if applicable.
-lcMaxResults :: Lens' ListClusters (Maybe Int)
-lcMaxResults = lens _lcMaxResults (\ s a -> s{_lcMaxResults = a});
+lcrqMaxResults :: Lens' ListClusters (Maybe Int)
+lcrqMaxResults = lens _lcrqMaxResults (\ s a -> s{_lcrqMaxResults = a});
 
 instance AWSPager ListClusters where
         page rq rs
-          | stop (rs ^. lcrNextToken) = Nothing
-          | stop (rs ^. lcrClusterARNs) = Nothing
+          | stop (rs ^. lcrsNextToken) = Nothing
+          | stop (rs ^. lcrsClusterARNs) = Nothing
           | otherwise =
-            Just $ rq & lcNextToken .~ rs ^. lcrNextToken
+            Just $ rq & lcrqNextToken .~ rs ^. lcrsNextToken
 
 instance AWSRequest ListClusters where
         type Sv ListClusters = ECS
@@ -117,8 +117,8 @@ instance ToHeaders ListClusters where
 instance ToJSON ListClusters where
         toJSON ListClusters'{..}
           = object
-              ["nextToken" .= _lcNextToken,
-               "maxResults" .= _lcMaxResults]
+              ["nextToken" .= _lcrqNextToken,
+               "maxResults" .= _lcrqMaxResults]
 
 instance ToPath ListClusters where
         toPath = const "/"
@@ -130,38 +130,38 @@ instance ToQuery ListClusters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcrClusterARNs'
+-- * 'lcrsClusterARNs'
 --
--- * 'lcrNextToken'
+-- * 'lcrsNextToken'
 --
--- * 'lcrStatus'
+-- * 'lcrsStatus'
 data ListClustersResponse = ListClustersResponse'
-    { _lcrClusterARNs :: !(Maybe [Text])
-    , _lcrNextToken   :: !(Maybe Text)
-    , _lcrStatus      :: !Int
+    { _lcrsClusterARNs :: !(Maybe [Text])
+    , _lcrsNextToken   :: !(Maybe Text)
+    , _lcrsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Int -> ListClustersResponse
 listClustersResponse pStatus =
     ListClustersResponse'
-    { _lcrClusterARNs = Nothing
-    , _lcrNextToken = Nothing
-    , _lcrStatus = pStatus
+    { _lcrsClusterARNs = Nothing
+    , _lcrsNextToken = Nothing
+    , _lcrsStatus = pStatus
     }
 
 -- | The list of full Amazon Resource Name (ARN) entries for each cluster
 -- associated with your account.
-lcrClusterARNs :: Lens' ListClustersResponse [Text]
-lcrClusterARNs = lens _lcrClusterARNs (\ s a -> s{_lcrClusterARNs = a}) . _Default;
+lcrsClusterARNs :: Lens' ListClustersResponse [Text]
+lcrsClusterARNs = lens _lcrsClusterARNs (\ s a -> s{_lcrsClusterARNs = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future @ListClusters@ request.
 -- When the results of a @ListClusters@ request exceed @maxResults@, this
 -- value can be used to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-lcrNextToken :: Lens' ListClustersResponse (Maybe Text)
-lcrNextToken = lens _lcrNextToken (\ s a -> s{_lcrNextToken = a});
+lcrsNextToken :: Lens' ListClustersResponse (Maybe Text)
+lcrsNextToken = lens _lcrsNextToken (\ s a -> s{_lcrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-lcrStatus :: Lens' ListClustersResponse Int
-lcrStatus = lens _lcrStatus (\ s a -> s{_lcrStatus = a});
+lcrsStatus :: Lens' ListClustersResponse Int
+lcrsStatus = lens _lcrsStatus (\ s a -> s{_lcrsStatus = a});

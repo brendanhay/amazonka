@@ -29,15 +29,15 @@ module Network.AWS.EMR.DescribeCluster
     -- ** Request constructor
     , describeCluster
     -- ** Request lenses
-    , dcClusterId
+    , dcrqClusterId
 
     -- * Response
     , DescribeClusterResponse
     -- ** Response constructor
     , describeClusterResponse
     -- ** Response lenses
-    , dcrStatus
-    , dcrCluster
+    , dcrsStatus
+    , dcrsCluster
     ) where
 
 import           Network.AWS.EMR.Types
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcClusterId'
+-- * 'dcrqClusterId'
 newtype DescribeCluster = DescribeCluster'
-    { _dcClusterId :: Text
+    { _dcrqClusterId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeCluster' smart constructor.
 describeCluster :: Text -> DescribeCluster
 describeCluster pClusterId =
     DescribeCluster'
-    { _dcClusterId = pClusterId
+    { _dcrqClusterId = pClusterId
     }
 
 -- | The identifier of the cluster to describe.
-dcClusterId :: Lens' DescribeCluster Text
-dcClusterId = lens _dcClusterId (\ s a -> s{_dcClusterId = a});
+dcrqClusterId :: Lens' DescribeCluster Text
+dcrqClusterId = lens _dcrqClusterId (\ s a -> s{_dcrqClusterId = a});
 
 instance AWSRequest DescribeCluster where
         type Sv DescribeCluster = EMR
@@ -88,7 +88,7 @@ instance ToHeaders DescribeCluster where
 
 instance ToJSON DescribeCluster where
         toJSON DescribeCluster'{..}
-          = object ["ClusterId" .= _dcClusterId]
+          = object ["ClusterId" .= _dcrqClusterId]
 
 instance ToPath DescribeCluster where
         toPath = const "/"
@@ -102,26 +102,26 @@ instance ToQuery DescribeCluster where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcrStatus'
+-- * 'dcrsStatus'
 --
--- * 'dcrCluster'
+-- * 'dcrsCluster'
 data DescribeClusterResponse = DescribeClusterResponse'
-    { _dcrStatus  :: !Int
-    , _dcrCluster :: !Cluster
+    { _dcrsStatus  :: !Int
+    , _dcrsCluster :: !Cluster
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeClusterResponse' smart constructor.
 describeClusterResponse :: Int -> Cluster -> DescribeClusterResponse
 describeClusterResponse pStatus pCluster =
     DescribeClusterResponse'
-    { _dcrStatus = pStatus
-    , _dcrCluster = pCluster
+    { _dcrsStatus = pStatus
+    , _dcrsCluster = pCluster
     }
 
 -- | FIXME: Undocumented member.
-dcrStatus :: Lens' DescribeClusterResponse Int
-dcrStatus = lens _dcrStatus (\ s a -> s{_dcrStatus = a});
+dcrsStatus :: Lens' DescribeClusterResponse Int
+dcrsStatus = lens _dcrsStatus (\ s a -> s{_dcrsStatus = a});
 
 -- | This output contains the details for the requested cluster.
-dcrCluster :: Lens' DescribeClusterResponse Cluster
-dcrCluster = lens _dcrCluster (\ s a -> s{_dcrCluster = a});
+dcrsCluster :: Lens' DescribeClusterResponse Cluster
+dcrsCluster = lens _dcrsCluster (\ s a -> s{_dcrsCluster = a});

@@ -27,15 +27,15 @@ module Network.AWS.DeviceFarm.GetJob
     -- ** Request constructor
     , getJob
     -- ** Request lenses
-    , gjArn
+    , gjrqArn
 
     -- * Response
     , GetJobResponse
     -- ** Response constructor
     , getJobResponse
     -- ** Response lenses
-    , gjrJob
-    , gjrStatus
+    , gjrsJob
+    , gjrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gjArn'
+-- * 'gjrqArn'
 newtype GetJob = GetJob'
-    { _gjArn :: Text
+    { _gjrqArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJob' smart constructor.
 getJob :: Text -> GetJob
 getJob pArn =
     GetJob'
-    { _gjArn = pArn
+    { _gjrqArn = pArn
     }
 
 -- | The job\'s ARN.
-gjArn :: Lens' GetJob Text
-gjArn = lens _gjArn (\ s a -> s{_gjArn = a});
+gjrqArn :: Lens' GetJob Text
+gjrqArn = lens _gjrqArn (\ s a -> s{_gjrqArn = a});
 
 instance AWSRequest GetJob where
         type Sv GetJob = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetJob where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetJob where
-        toJSON GetJob'{..} = object ["arn" .= _gjArn]
+        toJSON GetJob'{..} = object ["arn" .= _gjrqArn]
 
 instance ToPath GetJob where
         toPath = const "/"
@@ -99,26 +99,26 @@ instance ToQuery GetJob where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gjrJob'
+-- * 'gjrsJob'
 --
--- * 'gjrStatus'
+-- * 'gjrsStatus'
 data GetJobResponse = GetJobResponse'
-    { _gjrJob    :: !(Maybe Job)
-    , _gjrStatus :: !Int
+    { _gjrsJob    :: !(Maybe Job)
+    , _gjrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetJobResponse' smart constructor.
 getJobResponse :: Int -> GetJobResponse
 getJobResponse pStatus =
     GetJobResponse'
-    { _gjrJob = Nothing
-    , _gjrStatus = pStatus
+    { _gjrsJob = Nothing
+    , _gjrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gjrJob :: Lens' GetJobResponse (Maybe Job)
-gjrJob = lens _gjrJob (\ s a -> s{_gjrJob = a});
+gjrsJob :: Lens' GetJobResponse (Maybe Job)
+gjrsJob = lens _gjrsJob (\ s a -> s{_gjrsJob = a});
 
 -- | FIXME: Undocumented member.
-gjrStatus :: Lens' GetJobResponse Int
-gjrStatus = lens _gjrStatus (\ s a -> s{_gjrStatus = a});
+gjrsStatus :: Lens' GetJobResponse Int
+gjrsStatus = lens _gjrsStatus (\ s a -> s{_gjrsStatus = a});

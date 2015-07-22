@@ -37,8 +37,8 @@ module Network.AWS.OpsWorks.DescribeMyUserProfile
     -- ** Response constructor
     , describeMyUserProfileResponse
     -- ** Response lenses
-    , dmuprUserProfile
-    , dmuprStatus
+    , dmuprsUserProfile
+    , dmuprsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -91,26 +91,26 @@ instance ToQuery DescribeMyUserProfile where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dmuprUserProfile'
+-- * 'dmuprsUserProfile'
 --
--- * 'dmuprStatus'
+-- * 'dmuprsStatus'
 data DescribeMyUserProfileResponse = DescribeMyUserProfileResponse'
-    { _dmuprUserProfile :: !(Maybe SelfUserProfile)
-    , _dmuprStatus      :: !Int
+    { _dmuprsUserProfile :: !(Maybe SelfUserProfile)
+    , _dmuprsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeMyUserProfileResponse' smart constructor.
 describeMyUserProfileResponse :: Int -> DescribeMyUserProfileResponse
 describeMyUserProfileResponse pStatus =
     DescribeMyUserProfileResponse'
-    { _dmuprUserProfile = Nothing
-    , _dmuprStatus = pStatus
+    { _dmuprsUserProfile = Nothing
+    , _dmuprsStatus = pStatus
     }
 
 -- | A @UserProfile@ object that describes the user\'s SSH information.
-dmuprUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
-dmuprUserProfile = lens _dmuprUserProfile (\ s a -> s{_dmuprUserProfile = a});
+dmuprsUserProfile :: Lens' DescribeMyUserProfileResponse (Maybe SelfUserProfile)
+dmuprsUserProfile = lens _dmuprsUserProfile (\ s a -> s{_dmuprsUserProfile = a});
 
 -- | FIXME: Undocumented member.
-dmuprStatus :: Lens' DescribeMyUserProfileResponse Int
-dmuprStatus = lens _dmuprStatus (\ s a -> s{_dmuprStatus = a});
+dmuprsStatus :: Lens' DescribeMyUserProfileResponse Int
+dmuprsStatus = lens _dmuprsStatus (\ s a -> s{_dmuprsStatus = a});

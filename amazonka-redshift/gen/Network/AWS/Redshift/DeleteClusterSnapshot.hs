@@ -36,16 +36,16 @@ module Network.AWS.Redshift.DeleteClusterSnapshot
     -- ** Request constructor
     , deleteClusterSnapshot
     -- ** Request lenses
-    , dcsSnapshotClusterIdentifier
-    , dcsSnapshotIdentifier
+    , dcsrqSnapshotClusterIdentifier
+    , dcsrqSnapshotIdentifier
 
     -- * Response
     , DeleteClusterSnapshotResponse
     -- ** Response constructor
     , deleteClusterSnapshotResponse
     -- ** Response lenses
-    , dcsrSnapshot
-    , dcsrStatus
+    , dcsrsSnapshot
+    , dcsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -59,20 +59,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsSnapshotClusterIdentifier'
+-- * 'dcsrqSnapshotClusterIdentifier'
 --
--- * 'dcsSnapshotIdentifier'
+-- * 'dcsrqSnapshotIdentifier'
 data DeleteClusterSnapshot = DeleteClusterSnapshot'
-    { _dcsSnapshotClusterIdentifier :: !(Maybe Text)
-    , _dcsSnapshotIdentifier        :: !Text
+    { _dcsrqSnapshotClusterIdentifier :: !(Maybe Text)
+    , _dcsrqSnapshotIdentifier        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSnapshot' smart constructor.
 deleteClusterSnapshot :: Text -> DeleteClusterSnapshot
 deleteClusterSnapshot pSnapshotIdentifier =
     DeleteClusterSnapshot'
-    { _dcsSnapshotClusterIdentifier = Nothing
-    , _dcsSnapshotIdentifier = pSnapshotIdentifier
+    { _dcsrqSnapshotClusterIdentifier = Nothing
+    , _dcsrqSnapshotIdentifier = pSnapshotIdentifier
     }
 
 -- | The unique identifier of the cluster the snapshot was created from. This
@@ -81,15 +81,15 @@ deleteClusterSnapshot pSnapshotIdentifier =
 -- cluster name.
 --
 -- Constraints: Must be the name of valid cluster.
-dcsSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
-dcsSnapshotClusterIdentifier = lens _dcsSnapshotClusterIdentifier (\ s a -> s{_dcsSnapshotClusterIdentifier = a});
+dcsrqSnapshotClusterIdentifier :: Lens' DeleteClusterSnapshot (Maybe Text)
+dcsrqSnapshotClusterIdentifier = lens _dcsrqSnapshotClusterIdentifier (\ s a -> s{_dcsrqSnapshotClusterIdentifier = a});
 
 -- | The unique identifier of the manual snapshot to be deleted.
 --
 -- Constraints: Must be the name of an existing snapshot that is in the
 -- @available@ state.
-dcsSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
-dcsSnapshotIdentifier = lens _dcsSnapshotIdentifier (\ s a -> s{_dcsSnapshotIdentifier = a});
+dcsrqSnapshotIdentifier :: Lens' DeleteClusterSnapshot Text
+dcsrqSnapshotIdentifier = lens _dcsrqSnapshotIdentifier (\ s a -> s{_dcsrqSnapshotIdentifier = a});
 
 instance AWSRequest DeleteClusterSnapshot where
         type Sv DeleteClusterSnapshot = Redshift
@@ -114,33 +114,33 @@ instance ToQuery DeleteClusterSnapshot where
               ["Action" =: ("DeleteClusterSnapshot" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "SnapshotClusterIdentifier" =:
-                 _dcsSnapshotClusterIdentifier,
-               "SnapshotIdentifier" =: _dcsSnapshotIdentifier]
+                 _dcsrqSnapshotClusterIdentifier,
+               "SnapshotIdentifier" =: _dcsrqSnapshotIdentifier]
 
 -- | /See:/ 'deleteClusterSnapshotResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcsrSnapshot'
+-- * 'dcsrsSnapshot'
 --
--- * 'dcsrStatus'
+-- * 'dcsrsStatus'
 data DeleteClusterSnapshotResponse = DeleteClusterSnapshotResponse'
-    { _dcsrSnapshot :: !(Maybe Snapshot)
-    , _dcsrStatus   :: !Int
+    { _dcsrsSnapshot :: !(Maybe Snapshot)
+    , _dcsrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteClusterSnapshotResponse' smart constructor.
 deleteClusterSnapshotResponse :: Int -> DeleteClusterSnapshotResponse
 deleteClusterSnapshotResponse pStatus =
     DeleteClusterSnapshotResponse'
-    { _dcsrSnapshot = Nothing
-    , _dcsrStatus = pStatus
+    { _dcsrsSnapshot = Nothing
+    , _dcsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dcsrSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
-dcsrSnapshot = lens _dcsrSnapshot (\ s a -> s{_dcsrSnapshot = a});
+dcsrsSnapshot :: Lens' DeleteClusterSnapshotResponse (Maybe Snapshot)
+dcsrsSnapshot = lens _dcsrsSnapshot (\ s a -> s{_dcsrsSnapshot = a});
 
 -- | FIXME: Undocumented member.
-dcsrStatus :: Lens' DeleteClusterSnapshotResponse Int
-dcsrStatus = lens _dcsrStatus (\ s a -> s{_dcsrStatus = a});
+dcsrsStatus :: Lens' DeleteClusterSnapshotResponse Int
+dcsrsStatus = lens _dcsrsStatus (\ s a -> s{_dcsrsStatus = a});

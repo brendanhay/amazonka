@@ -27,15 +27,15 @@ module Network.AWS.ElasticTranscoder.ReadPreset
     -- ** Request constructor
     , readPreset
     -- ** Request lenses
-    , rpId
+    , rprqId
 
     -- * Response
     , ReadPresetResponse
     -- ** Response constructor
     , readPresetResponse
     -- ** Response lenses
-    , rprPreset
-    , rprStatus
+    , rprsPreset
+    , rprsStatus
     ) where
 
 import           Network.AWS.ElasticTranscoder.Types
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rpId'
+-- * 'rprqId'
 newtype ReadPreset = ReadPreset'
-    { _rpId :: Text
+    { _rprqId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadPreset' smart constructor.
 readPreset :: Text -> ReadPreset
 readPreset pId =
     ReadPreset'
-    { _rpId = pId
+    { _rprqId = pId
     }
 
 -- | The identifier of the preset for which you want to get detailed
 -- information.
-rpId :: Lens' ReadPreset Text
-rpId = lens _rpId (\ s a -> s{_rpId = a});
+rprqId :: Lens' ReadPreset Text
+rprqId = lens _rprqId (\ s a -> s{_rprqId = a});
 
 instance AWSRequest ReadPreset where
         type Sv ReadPreset = ElasticTranscoder
@@ -81,7 +81,7 @@ instance ToHeaders ReadPreset where
 
 instance ToPath ReadPreset where
         toPath ReadPreset'{..}
-          = mconcat ["/2012-09-25/presets/", toText _rpId]
+          = mconcat ["/2012-09-25/presets/", toText _rprqId]
 
 instance ToQuery ReadPreset where
         toQuery = const mempty
@@ -92,27 +92,27 @@ instance ToQuery ReadPreset where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rprPreset'
+-- * 'rprsPreset'
 --
--- * 'rprStatus'
+-- * 'rprsStatus'
 data ReadPresetResponse = ReadPresetResponse'
-    { _rprPreset :: !(Maybe Preset)
-    , _rprStatus :: !Int
+    { _rprsPreset :: !(Maybe Preset)
+    , _rprsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReadPresetResponse' smart constructor.
 readPresetResponse :: Int -> ReadPresetResponse
 readPresetResponse pStatus =
     ReadPresetResponse'
-    { _rprPreset = Nothing
-    , _rprStatus = pStatus
+    { _rprsPreset = Nothing
+    , _rprsStatus = pStatus
     }
 
 -- | A section of the response body that provides information about the
 -- preset.
-rprPreset :: Lens' ReadPresetResponse (Maybe Preset)
-rprPreset = lens _rprPreset (\ s a -> s{_rprPreset = a});
+rprsPreset :: Lens' ReadPresetResponse (Maybe Preset)
+rprsPreset = lens _rprsPreset (\ s a -> s{_rprsPreset = a});
 
 -- | FIXME: Undocumented member.
-rprStatus :: Lens' ReadPresetResponse Int
-rprStatus = lens _rprStatus (\ s a -> s{_rprStatus = a});
+rprsStatus :: Lens' ReadPresetResponse Int
+rprsStatus = lens _rprsStatus (\ s a -> s{_rprsStatus = a});

@@ -27,17 +27,17 @@ module Network.AWS.DeviceFarm.ListTests
     -- ** Request constructor
     , listTests
     -- ** Request lenses
-    , ltNextToken
-    , ltArn
+    , ltrqNextToken
+    , ltrqArn
 
     -- * Response
     , ListTestsResponse
     -- ** Response constructor
     , listTestsResponse
     -- ** Response lenses
-    , ltrTests
-    , ltrNextToken
-    , ltrStatus
+    , ltrsTests
+    , ltrsNextToken
+    , ltrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltNextToken'
+-- * 'ltrqNextToken'
 --
--- * 'ltArn'
+-- * 'ltrqArn'
 data ListTests = ListTests'
-    { _ltNextToken :: !(Maybe Text)
-    , _ltArn       :: !Text
+    { _ltrqNextToken :: !(Maybe Text)
+    , _ltrqArn       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTests' smart constructor.
 listTests :: Text -> ListTests
 listTests pArn =
     ListTests'
-    { _ltNextToken = Nothing
-    , _ltArn = pArn
+    { _ltrqNextToken = Nothing
+    , _ltrqArn = pArn
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-ltNextToken :: Lens' ListTests (Maybe Text)
-ltNextToken = lens _ltNextToken (\ s a -> s{_ltNextToken = a});
+ltrqNextToken :: Lens' ListTests (Maybe Text)
+ltrqNextToken = lens _ltrqNextToken (\ s a -> s{_ltrqNextToken = a});
 
 -- | The tests\' ARNs.
-ltArn :: Lens' ListTests Text
-ltArn = lens _ltArn (\ s a -> s{_ltArn = a});
+ltrqArn :: Lens' ListTests Text
+ltrqArn = lens _ltrqArn (\ s a -> s{_ltrqArn = a});
 
 instance AWSRequest ListTests where
         type Sv ListTests = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListTests where
 instance ToJSON ListTests where
         toJSON ListTests'{..}
           = object
-              ["nextToken" .= _ltNextToken, "arn" .= _ltArn]
+              ["nextToken" .= _ltrqNextToken, "arn" .= _ltrqArn]
 
 instance ToPath ListTests where
         toPath = const "/"
@@ -114,36 +114,36 @@ instance ToQuery ListTests where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltrTests'
+-- * 'ltrsTests'
 --
--- * 'ltrNextToken'
+-- * 'ltrsNextToken'
 --
--- * 'ltrStatus'
+-- * 'ltrsStatus'
 data ListTestsResponse = ListTestsResponse'
-    { _ltrTests     :: !(Maybe [Test])
-    , _ltrNextToken :: !(Maybe Text)
-    , _ltrStatus    :: !Int
+    { _ltrsTests     :: !(Maybe [Test])
+    , _ltrsNextToken :: !(Maybe Text)
+    , _ltrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTestsResponse' smart constructor.
 listTestsResponse :: Int -> ListTestsResponse
 listTestsResponse pStatus =
     ListTestsResponse'
-    { _ltrTests = Nothing
-    , _ltrNextToken = Nothing
-    , _ltrStatus = pStatus
+    { _ltrsTests = Nothing
+    , _ltrsNextToken = Nothing
+    , _ltrsStatus = pStatus
     }
 
 -- | Information about the tests.
-ltrTests :: Lens' ListTestsResponse [Test]
-ltrTests = lens _ltrTests (\ s a -> s{_ltrTests = a}) . _Default;
+ltrsTests :: Lens' ListTestsResponse [Test]
+ltrsTests = lens _ltrsTests (\ s a -> s{_ltrsTests = a}) . _Default;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-ltrNextToken :: Lens' ListTestsResponse (Maybe Text)
-ltrNextToken = lens _ltrNextToken (\ s a -> s{_ltrNextToken = a});
+ltrsNextToken :: Lens' ListTestsResponse (Maybe Text)
+ltrsNextToken = lens _ltrsNextToken (\ s a -> s{_ltrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltrStatus :: Lens' ListTestsResponse Int
-ltrStatus = lens _ltrStatus (\ s a -> s{_ltrStatus = a});
+ltrsStatus :: Lens' ListTestsResponse Int
+ltrsStatus = lens _ltrsStatus (\ s a -> s{_ltrsStatus = a});

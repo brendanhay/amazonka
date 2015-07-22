@@ -85,17 +85,17 @@ module Network.AWS.Kinesis.PutRecords
     -- ** Request constructor
     , putRecords
     -- ** Request lenses
-    , putRecordEntries
-    , putStreamName
+    , prqRecordEntries
+    , prqStreamName
 
     -- * Response
     , PutRecordsResponse
     -- ** Response constructor
     , putRecordsResponse
     -- ** Response lenses
-    , pFailedRecordCount
-    , pStatus
-    , pRecords
+    , prsFailedRecordCount
+    , prsStatus
+    , prsRecords
     ) where
 
 import           Network.AWS.Kinesis.Types
@@ -109,29 +109,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'putRecordEntries'
+-- * 'prqRecordEntries'
 --
--- * 'putStreamName'
+-- * 'prqStreamName'
 data PutRecords = PutRecords'
-    { _putRecordEntries :: !(List1 PutRecordsRequestEntry)
-    , _putStreamName    :: !Text
+    { _prqRecordEntries :: !(List1 PutRecordsRequestEntry)
+    , _prqStreamName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecords' smart constructor.
 putRecords :: NonEmpty PutRecordsRequestEntry -> Text -> PutRecords
 putRecords pRecordEntries pStreamName =
     PutRecords'
-    { _putRecordEntries = _List1 # pRecordEntries
-    , _putStreamName = pStreamName
+    { _prqRecordEntries = _List1 # pRecordEntries
+    , _prqStreamName = pStreamName
     }
 
 -- | The records associated with the request.
-putRecordEntries :: Lens' PutRecords (NonEmpty PutRecordsRequestEntry)
-putRecordEntries = lens _putRecordEntries (\ s a -> s{_putRecordEntries = a}) . _List1;
+prqRecordEntries :: Lens' PutRecords (NonEmpty PutRecordsRequestEntry)
+prqRecordEntries = lens _prqRecordEntries (\ s a -> s{_prqRecordEntries = a}) . _List1;
 
 -- | The stream name associated with the request.
-putStreamName :: Lens' PutRecords Text
-putStreamName = lens _putStreamName (\ s a -> s{_putStreamName = a});
+prqStreamName :: Lens' PutRecords Text
+prqStreamName = lens _prqStreamName (\ s a -> s{_prqStreamName = a});
 
 instance AWSRequest PutRecords where
         type Sv PutRecords = Kinesis
@@ -156,8 +156,8 @@ instance ToHeaders PutRecords where
 instance ToJSON PutRecords where
         toJSON PutRecords'{..}
           = object
-              ["Records" .= _putRecordEntries,
-               "StreamName" .= _putStreamName]
+              ["Records" .= _prqRecordEntries,
+               "StreamName" .= _prqStreamName]
 
 instance ToPath PutRecords where
         toPath = const "/"
@@ -171,34 +171,34 @@ instance ToQuery PutRecords where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'pFailedRecordCount'
+-- * 'prsFailedRecordCount'
 --
--- * 'pStatus'
+-- * 'prsStatus'
 --
--- * 'pRecords'
+-- * 'prsRecords'
 data PutRecordsResponse = PutRecordsResponse'
-    { _pFailedRecordCount :: !(Maybe Nat)
-    , _pStatus            :: !Int
-    , _pRecords           :: !(List1 PutRecordsResultEntry)
+    { _prsFailedRecordCount :: !(Maybe Nat)
+    , _prsStatus            :: !Int
+    , _prsRecords           :: !(List1 PutRecordsResultEntry)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRecordsResponse' smart constructor.
 putRecordsResponse :: Int -> NonEmpty PutRecordsResultEntry -> PutRecordsResponse
 putRecordsResponse pStatus pRecords =
     PutRecordsResponse'
-    { _pFailedRecordCount = Nothing
-    , _pStatus = pStatus
-    , _pRecords = _List1 # pRecords
+    { _prsFailedRecordCount = Nothing
+    , _prsStatus = pStatus
+    , _prsRecords = _List1 # pRecords
     }
 
 -- | The number of unsuccessfully processed records in a @PutRecords@
 -- request.
-pFailedRecordCount :: Lens' PutRecordsResponse (Maybe Natural)
-pFailedRecordCount = lens _pFailedRecordCount (\ s a -> s{_pFailedRecordCount = a}) . mapping _Nat;
+prsFailedRecordCount :: Lens' PutRecordsResponse (Maybe Natural)
+prsFailedRecordCount = lens _prsFailedRecordCount (\ s a -> s{_prsFailedRecordCount = a}) . mapping _Nat;
 
 -- | FIXME: Undocumented member.
-pStatus :: Lens' PutRecordsResponse Int
-pStatus = lens _pStatus (\ s a -> s{_pStatus = a});
+prsStatus :: Lens' PutRecordsResponse Int
+prsStatus = lens _prsStatus (\ s a -> s{_prsStatus = a});
 
 -- | An array of successfully and unsuccessfully processed record results,
 -- correlated with the request by natural ordering. A record that is
@@ -206,5 +206,5 @@ pStatus = lens _pStatus (\ s a -> s{_pStatus = a});
 -- @SequenceNumber@ and @ShardId@ in the result. A record that fails to be
 -- added to your Amazon Kinesis stream includes @ErrorCode@ and
 -- @ErrorMessage@ in the result.
-pRecords :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
-pRecords = lens _pRecords (\ s a -> s{_pRecords = a}) . _List1;
+prsRecords :: Lens' PutRecordsResponse (NonEmpty PutRecordsResultEntry)
+prsRecords = lens _prsRecords (\ s a -> s{_prsRecords = a}) . _List1;

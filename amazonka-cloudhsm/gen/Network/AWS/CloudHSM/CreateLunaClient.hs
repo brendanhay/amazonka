@@ -27,16 +27,16 @@ module Network.AWS.CloudHSM.CreateLunaClient
     -- ** Request constructor
     , createLunaClient
     -- ** Request lenses
-    , clcLabel
-    , clcCertificate
+    , clcrqLabel
+    , clcrqCertificate
 
     -- * Response
     , CreateLunaClientResponse
     -- ** Response constructor
     , createLunaClientResponse
     -- ** Response lenses
-    , clcrClientARN
-    , clcrStatus
+    , clcrsClientARN
+    , clcrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -50,30 +50,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clcLabel'
+-- * 'clcrqLabel'
 --
--- * 'clcCertificate'
+-- * 'clcrqCertificate'
 data CreateLunaClient = CreateLunaClient'
-    { _clcLabel       :: !(Maybe Text)
-    , _clcCertificate :: !Text
+    { _clcrqLabel       :: !(Maybe Text)
+    , _clcrqCertificate :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLunaClient' smart constructor.
 createLunaClient :: Text -> CreateLunaClient
 createLunaClient pCertificate =
     CreateLunaClient'
-    { _clcLabel = Nothing
-    , _clcCertificate = pCertificate
+    { _clcrqLabel = Nothing
+    , _clcrqCertificate = pCertificate
     }
 
 -- | The label for the client.
-clcLabel :: Lens' CreateLunaClient (Maybe Text)
-clcLabel = lens _clcLabel (\ s a -> s{_clcLabel = a});
+clcrqLabel :: Lens' CreateLunaClient (Maybe Text)
+clcrqLabel = lens _clcrqLabel (\ s a -> s{_clcrqLabel = a});
 
 -- | The contents of a Base64-Encoded X.509 v3 certificate to be installed on
 -- the HSMs used by this client.
-clcCertificate :: Lens' CreateLunaClient Text
-clcCertificate = lens _clcCertificate (\ s a -> s{_clcCertificate = a});
+clcrqCertificate :: Lens' CreateLunaClient Text
+clcrqCertificate = lens _clcrqCertificate (\ s a -> s{_clcrqCertificate = a});
 
 instance AWSRequest CreateLunaClient where
         type Sv CreateLunaClient = CloudHSM
@@ -98,8 +98,8 @@ instance ToHeaders CreateLunaClient where
 instance ToJSON CreateLunaClient where
         toJSON CreateLunaClient'{..}
           = object
-              ["Label" .= _clcLabel,
-               "Certificate" .= _clcCertificate]
+              ["Label" .= _clcrqLabel,
+               "Certificate" .= _clcrqCertificate]
 
 instance ToPath CreateLunaClient where
         toPath = const "/"
@@ -113,26 +113,26 @@ instance ToQuery CreateLunaClient where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'clcrClientARN'
+-- * 'clcrsClientARN'
 --
--- * 'clcrStatus'
+-- * 'clcrsStatus'
 data CreateLunaClientResponse = CreateLunaClientResponse'
-    { _clcrClientARN :: !(Maybe Text)
-    , _clcrStatus    :: !Int
+    { _clcrsClientARN :: !(Maybe Text)
+    , _clcrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateLunaClientResponse' smart constructor.
 createLunaClientResponse :: Int -> CreateLunaClientResponse
 createLunaClientResponse pStatus =
     CreateLunaClientResponse'
-    { _clcrClientARN = Nothing
-    , _clcrStatus = pStatus
+    { _clcrsClientARN = Nothing
+    , _clcrsStatus = pStatus
     }
 
 -- | The ARN of the client.
-clcrClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
-clcrClientARN = lens _clcrClientARN (\ s a -> s{_clcrClientARN = a});
+clcrsClientARN :: Lens' CreateLunaClientResponse (Maybe Text)
+clcrsClientARN = lens _clcrsClientARN (\ s a -> s{_clcrsClientARN = a});
 
 -- | FIXME: Undocumented member.
-clcrStatus :: Lens' CreateLunaClientResponse Int
-clcrStatus = lens _clcrStatus (\ s a -> s{_clcrStatus = a});
+clcrsStatus :: Lens' CreateLunaClientResponse Int
+clcrsStatus = lens _clcrsStatus (\ s a -> s{_clcrsStatus = a});

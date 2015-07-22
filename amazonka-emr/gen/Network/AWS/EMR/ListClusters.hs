@@ -31,19 +31,19 @@ module Network.AWS.EMR.ListClusters
     -- ** Request constructor
     , listClusters
     -- ** Request lenses
-    , lcCreatedAfter
-    , lcMarker
-    , lcClusterStates
-    , lcCreatedBefore
+    , lcrqCreatedAfter
+    , lcrqMarker
+    , lcrqClusterStates
+    , lcrqCreatedBefore
 
     -- * Response
     , ListClustersResponse
     -- ** Response constructor
     , listClustersResponse
     -- ** Response lenses
-    , lcrMarker
-    , lcrClusters
-    , lcrStatus
+    , lcrsMarker
+    , lcrsClusters
+    , lcrsStatus
     ) where
 
 import           Network.AWS.EMR.Types
@@ -59,51 +59,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcCreatedAfter'
+-- * 'lcrqCreatedAfter'
 --
--- * 'lcMarker'
+-- * 'lcrqMarker'
 --
--- * 'lcClusterStates'
+-- * 'lcrqClusterStates'
 --
--- * 'lcCreatedBefore'
+-- * 'lcrqCreatedBefore'
 data ListClusters = ListClusters'
-    { _lcCreatedAfter  :: !(Maybe POSIX)
-    , _lcMarker        :: !(Maybe Text)
-    , _lcClusterStates :: !(Maybe [ClusterState])
-    , _lcCreatedBefore :: !(Maybe POSIX)
+    { _lcrqCreatedAfter  :: !(Maybe POSIX)
+    , _lcrqMarker        :: !(Maybe Text)
+    , _lcrqClusterStates :: !(Maybe [ClusterState])
+    , _lcrqCreatedBefore :: !(Maybe POSIX)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClusters' smart constructor.
 listClusters :: ListClusters
 listClusters =
     ListClusters'
-    { _lcCreatedAfter = Nothing
-    , _lcMarker = Nothing
-    , _lcClusterStates = Nothing
-    , _lcCreatedBefore = Nothing
+    { _lcrqCreatedAfter = Nothing
+    , _lcrqMarker = Nothing
+    , _lcrqClusterStates = Nothing
+    , _lcrqCreatedBefore = Nothing
     }
 
 -- | The creation date and time beginning value filter for listing clusters .
-lcCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
-lcCreatedAfter = lens _lcCreatedAfter (\ s a -> s{_lcCreatedAfter = a}) . mapping _Time;
+lcrqCreatedAfter :: Lens' ListClusters (Maybe UTCTime)
+lcrqCreatedAfter = lens _lcrqCreatedAfter (\ s a -> s{_lcrqCreatedAfter = a}) . mapping _Time;
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lcMarker :: Lens' ListClusters (Maybe Text)
-lcMarker = lens _lcMarker (\ s a -> s{_lcMarker = a});
+lcrqMarker :: Lens' ListClusters (Maybe Text)
+lcrqMarker = lens _lcrqMarker (\ s a -> s{_lcrqMarker = a});
 
 -- | The cluster state filters to apply when listing clusters.
-lcClusterStates :: Lens' ListClusters [ClusterState]
-lcClusterStates = lens _lcClusterStates (\ s a -> s{_lcClusterStates = a}) . _Default;
+lcrqClusterStates :: Lens' ListClusters [ClusterState]
+lcrqClusterStates = lens _lcrqClusterStates (\ s a -> s{_lcrqClusterStates = a}) . _Default;
 
 -- | The creation date and time end value filter for listing clusters .
-lcCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
-lcCreatedBefore = lens _lcCreatedBefore (\ s a -> s{_lcCreatedBefore = a}) . mapping _Time;
+lcrqCreatedBefore :: Lens' ListClusters (Maybe UTCTime)
+lcrqCreatedBefore = lens _lcrqCreatedBefore (\ s a -> s{_lcrqCreatedBefore = a}) . mapping _Time;
 
 instance AWSPager ListClusters where
         page rq rs
-          | stop (rs ^. lcrMarker) = Nothing
-          | stop (rs ^. lcrClusters) = Nothing
-          | otherwise = Just $ rq & lcMarker .~ rs ^. lcrMarker
+          | stop (rs ^. lcrsMarker) = Nothing
+          | stop (rs ^. lcrsClusters) = Nothing
+          | otherwise =
+            Just $ rq & lcrqMarker .~ rs ^. lcrsMarker
 
 instance AWSRequest ListClusters where
         type Sv ListClusters = EMR
@@ -128,10 +129,10 @@ instance ToHeaders ListClusters where
 instance ToJSON ListClusters where
         toJSON ListClusters'{..}
           = object
-              ["CreatedAfter" .= _lcCreatedAfter,
-               "Marker" .= _lcMarker,
-               "ClusterStates" .= _lcClusterStates,
-               "CreatedBefore" .= _lcCreatedBefore]
+              ["CreatedAfter" .= _lcrqCreatedAfter,
+               "Marker" .= _lcrqMarker,
+               "ClusterStates" .= _lcrqClusterStates,
+               "CreatedBefore" .= _lcrqCreatedBefore]
 
 instance ToPath ListClusters where
         toPath = const "/"
@@ -146,34 +147,34 @@ instance ToQuery ListClusters where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lcrMarker'
+-- * 'lcrsMarker'
 --
--- * 'lcrClusters'
+-- * 'lcrsClusters'
 --
--- * 'lcrStatus'
+-- * 'lcrsStatus'
 data ListClustersResponse = ListClustersResponse'
-    { _lcrMarker   :: !(Maybe Text)
-    , _lcrClusters :: !(Maybe [ClusterSummary])
-    , _lcrStatus   :: !Int
+    { _lcrsMarker   :: !(Maybe Text)
+    , _lcrsClusters :: !(Maybe [ClusterSummary])
+    , _lcrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListClustersResponse' smart constructor.
 listClustersResponse :: Int -> ListClustersResponse
 listClustersResponse pStatus =
     ListClustersResponse'
-    { _lcrMarker = Nothing
-    , _lcrClusters = Nothing
-    , _lcrStatus = pStatus
+    { _lcrsMarker = Nothing
+    , _lcrsClusters = Nothing
+    , _lcrsStatus = pStatus
     }
 
 -- | The pagination token that indicates the next set of results to retrieve.
-lcrMarker :: Lens' ListClustersResponse (Maybe Text)
-lcrMarker = lens _lcrMarker (\ s a -> s{_lcrMarker = a});
+lcrsMarker :: Lens' ListClustersResponse (Maybe Text)
+lcrsMarker = lens _lcrsMarker (\ s a -> s{_lcrsMarker = a});
 
 -- | The list of clusters for the account based on the given filters.
-lcrClusters :: Lens' ListClustersResponse [ClusterSummary]
-lcrClusters = lens _lcrClusters (\ s a -> s{_lcrClusters = a}) . _Default;
+lcrsClusters :: Lens' ListClustersResponse [ClusterSummary]
+lcrsClusters = lens _lcrsClusters (\ s a -> s{_lcrsClusters = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lcrStatus :: Lens' ListClustersResponse Int
-lcrStatus = lens _lcrStatus (\ s a -> s{_lcrStatus = a});
+lcrsStatus :: Lens' ListClustersResponse Int
+lcrsStatus = lens _lcrsStatus (\ s a -> s{_lcrsStatus = a});

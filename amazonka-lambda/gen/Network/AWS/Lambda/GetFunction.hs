@@ -33,16 +33,16 @@ module Network.AWS.Lambda.GetFunction
     -- ** Request constructor
     , getFunction
     -- ** Request lenses
-    , gfFunctionName
+    , gfrqFunctionName
 
     -- * Response
     , GetFunctionResponse
     -- ** Response constructor
     , getFunctionResponse
     -- ** Response lenses
-    , gfrCode
-    , gfrConfiguration
-    , gfrStatus
+    , gfrsCode
+    , gfrsConfiguration
+    , gfrsStatus
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -54,16 +54,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gfFunctionName'
+-- * 'gfrqFunctionName'
 newtype GetFunction = GetFunction'
-    { _gfFunctionName :: Text
+    { _gfrqFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFunction' smart constructor.
 getFunction :: Text -> GetFunction
 getFunction pFunctionName =
     GetFunction'
-    { _gfFunctionName = pFunctionName
+    { _gfrqFunctionName = pFunctionName
     }
 
 -- | The Lambda function name.
@@ -76,8 +76,8 @@ getFunction pFunctionName =
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-gfFunctionName :: Lens' GetFunction Text
-gfFunctionName = lens _gfFunctionName (\ s a -> s{_gfFunctionName = a});
+gfrqFunctionName :: Lens' GetFunction Text
+gfrqFunctionName = lens _gfrqFunctionName (\ s a -> s{_gfrqFunctionName = a});
 
 instance AWSRequest GetFunction where
         type Sv GetFunction = Lambda
@@ -96,7 +96,7 @@ instance ToHeaders GetFunction where
 instance ToPath GetFunction where
         toPath GetFunction'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _gfFunctionName,
+              ["/2015-03-31/functions/", toText _gfrqFunctionName,
                "/versions/HEAD"]
 
 instance ToQuery GetFunction where
@@ -109,34 +109,34 @@ instance ToQuery GetFunction where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gfrCode'
+-- * 'gfrsCode'
 --
--- * 'gfrConfiguration'
+-- * 'gfrsConfiguration'
 --
--- * 'gfrStatus'
+-- * 'gfrsStatus'
 data GetFunctionResponse = GetFunctionResponse'
-    { _gfrCode          :: !(Maybe FunctionCodeLocation)
-    , _gfrConfiguration :: !(Maybe FunctionConfiguration)
-    , _gfrStatus        :: !Int
+    { _gfrsCode          :: !(Maybe FunctionCodeLocation)
+    , _gfrsConfiguration :: !(Maybe FunctionConfiguration)
+    , _gfrsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFunctionResponse' smart constructor.
 getFunctionResponse :: Int -> GetFunctionResponse
 getFunctionResponse pStatus =
     GetFunctionResponse'
-    { _gfrCode = Nothing
-    , _gfrConfiguration = Nothing
-    , _gfrStatus = pStatus
+    { _gfrsCode = Nothing
+    , _gfrsConfiguration = Nothing
+    , _gfrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gfrCode :: Lens' GetFunctionResponse (Maybe FunctionCodeLocation)
-gfrCode = lens _gfrCode (\ s a -> s{_gfrCode = a});
+gfrsCode :: Lens' GetFunctionResponse (Maybe FunctionCodeLocation)
+gfrsCode = lens _gfrsCode (\ s a -> s{_gfrsCode = a});
 
 -- | FIXME: Undocumented member.
-gfrConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
-gfrConfiguration = lens _gfrConfiguration (\ s a -> s{_gfrConfiguration = a});
+gfrsConfiguration :: Lens' GetFunctionResponse (Maybe FunctionConfiguration)
+gfrsConfiguration = lens _gfrsConfiguration (\ s a -> s{_gfrsConfiguration = a});
 
 -- | FIXME: Undocumented member.
-gfrStatus :: Lens' GetFunctionResponse Int
-gfrStatus = lens _gfrStatus (\ s a -> s{_gfrStatus = a});
+gfrsStatus :: Lens' GetFunctionResponse Int
+gfrsStatus = lens _gfrsStatus (\ s a -> s{_gfrsStatus = a});

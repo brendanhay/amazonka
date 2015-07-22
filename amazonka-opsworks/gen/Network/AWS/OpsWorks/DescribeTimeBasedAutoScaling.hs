@@ -36,15 +36,15 @@ module Network.AWS.OpsWorks.DescribeTimeBasedAutoScaling
     -- ** Request constructor
     , describeTimeBasedAutoScaling
     -- ** Request lenses
-    , dtbasInstanceIds
+    , dtbasrqInstanceIds
 
     -- * Response
     , DescribeTimeBasedAutoScalingResponse
     -- ** Response constructor
     , describeTimeBasedAutoScalingResponse
     -- ** Response lenses
-    , dtbasrTimeBasedAutoScalingConfigurations
-    , dtbasrStatus
+    , dtbasrsTimeBasedAutoScalingConfigurations
+    , dtbasrsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtbasInstanceIds'
+-- * 'dtbasrqInstanceIds'
 newtype DescribeTimeBasedAutoScaling = DescribeTimeBasedAutoScaling'
-    { _dtbasInstanceIds :: [Text]
+    { _dtbasrqInstanceIds :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTimeBasedAutoScaling' smart constructor.
 describeTimeBasedAutoScaling :: DescribeTimeBasedAutoScaling
 describeTimeBasedAutoScaling =
     DescribeTimeBasedAutoScaling'
-    { _dtbasInstanceIds = mempty
+    { _dtbasrqInstanceIds = mempty
     }
 
 -- | An array of instance IDs.
-dtbasInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
-dtbasInstanceIds = lens _dtbasInstanceIds (\ s a -> s{_dtbasInstanceIds = a});
+dtbasrqInstanceIds :: Lens' DescribeTimeBasedAutoScaling [Text]
+dtbasrqInstanceIds = lens _dtbasrqInstanceIds (\ s a -> s{_dtbasrqInstanceIds = a});
 
 instance AWSRequest DescribeTimeBasedAutoScaling
          where
@@ -98,7 +98,7 @@ instance ToHeaders DescribeTimeBasedAutoScaling where
 
 instance ToJSON DescribeTimeBasedAutoScaling where
         toJSON DescribeTimeBasedAutoScaling'{..}
-          = object ["InstanceIds" .= _dtbasInstanceIds]
+          = object ["InstanceIds" .= _dtbasrqInstanceIds]
 
 instance ToPath DescribeTimeBasedAutoScaling where
         toPath = const "/"
@@ -112,27 +112,27 @@ instance ToQuery DescribeTimeBasedAutoScaling where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dtbasrTimeBasedAutoScalingConfigurations'
+-- * 'dtbasrsTimeBasedAutoScalingConfigurations'
 --
--- * 'dtbasrStatus'
+-- * 'dtbasrsStatus'
 data DescribeTimeBasedAutoScalingResponse = DescribeTimeBasedAutoScalingResponse'
-    { _dtbasrTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
-    , _dtbasrStatus                             :: !Int
+    { _dtbasrsTimeBasedAutoScalingConfigurations :: !(Maybe [TimeBasedAutoScalingConfiguration])
+    , _dtbasrsStatus                             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeTimeBasedAutoScalingResponse' smart constructor.
 describeTimeBasedAutoScalingResponse :: Int -> DescribeTimeBasedAutoScalingResponse
 describeTimeBasedAutoScalingResponse pStatus =
     DescribeTimeBasedAutoScalingResponse'
-    { _dtbasrTimeBasedAutoScalingConfigurations = Nothing
-    , _dtbasrStatus = pStatus
+    { _dtbasrsTimeBasedAutoScalingConfigurations = Nothing
+    , _dtbasrsStatus = pStatus
     }
 
 -- | An array of @TimeBasedAutoScalingConfiguration@ objects that describe
 -- the configuration for the specified instances.
-dtbasrTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
-dtbasrTimeBasedAutoScalingConfigurations = lens _dtbasrTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrTimeBasedAutoScalingConfigurations = a}) . _Default;
+dtbasrsTimeBasedAutoScalingConfigurations :: Lens' DescribeTimeBasedAutoScalingResponse [TimeBasedAutoScalingConfiguration]
+dtbasrsTimeBasedAutoScalingConfigurations = lens _dtbasrsTimeBasedAutoScalingConfigurations (\ s a -> s{_dtbasrsTimeBasedAutoScalingConfigurations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dtbasrStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
-dtbasrStatus = lens _dtbasrStatus (\ s a -> s{_dtbasrStatus = a});
+dtbasrsStatus :: Lens' DescribeTimeBasedAutoScalingResponse Int
+dtbasrsStatus = lens _dtbasrsStatus (\ s a -> s{_dtbasrsStatus = a});

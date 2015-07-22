@@ -34,7 +34,7 @@ module Network.AWS.OpsWorks.RebootInstance
     -- ** Request constructor
     , rebootInstance
     -- ** Request lenses
-    , riInstanceId
+    , rirqInstanceId
 
     -- * Response
     , RebootInstanceResponse
@@ -51,21 +51,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'riInstanceId'
+-- * 'rirqInstanceId'
 newtype RebootInstance = RebootInstance'
-    { _riInstanceId :: Text
+    { _rirqInstanceId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootInstance' smart constructor.
 rebootInstance :: Text -> RebootInstance
 rebootInstance pInstanceId =
     RebootInstance'
-    { _riInstanceId = pInstanceId
+    { _rirqInstanceId = pInstanceId
     }
 
 -- | The instance ID.
-riInstanceId :: Lens' RebootInstance Text
-riInstanceId = lens _riInstanceId (\ s a -> s{_riInstanceId = a});
+rirqInstanceId :: Lens' RebootInstance Text
+rirqInstanceId = lens _rirqInstanceId (\ s a -> s{_rirqInstanceId = a});
 
 instance AWSRequest RebootInstance where
         type Sv RebootInstance = OpsWorks
@@ -84,7 +84,7 @@ instance ToHeaders RebootInstance where
 
 instance ToJSON RebootInstance where
         toJSON RebootInstance'{..}
-          = object ["InstanceId" .= _riInstanceId]
+          = object ["InstanceId" .= _rirqInstanceId]
 
 instance ToPath RebootInstance where
         toPath = const "/"

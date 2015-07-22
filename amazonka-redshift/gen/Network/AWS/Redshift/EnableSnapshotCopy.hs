@@ -28,18 +28,18 @@ module Network.AWS.Redshift.EnableSnapshotCopy
     -- ** Request constructor
     , enableSnapshotCopy
     -- ** Request lenses
-    , escRetentionPeriod
-    , escSnapshotCopyGrantName
-    , escClusterIdentifier
-    , escDestinationRegion
+    , escrqRetentionPeriod
+    , escrqSnapshotCopyGrantName
+    , escrqClusterIdentifier
+    , escrqDestinationRegion
 
     -- * Response
     , EnableSnapshotCopyResponse
     -- ** Response constructor
     , enableSnapshotCopyResponse
     -- ** Response lenses
-    , escrCluster
-    , escrStatus
+    , escrsCluster
+    , escrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -53,28 +53,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'escRetentionPeriod'
+-- * 'escrqRetentionPeriod'
 --
--- * 'escSnapshotCopyGrantName'
+-- * 'escrqSnapshotCopyGrantName'
 --
--- * 'escClusterIdentifier'
+-- * 'escrqClusterIdentifier'
 --
--- * 'escDestinationRegion'
+-- * 'escrqDestinationRegion'
 data EnableSnapshotCopy = EnableSnapshotCopy'
-    { _escRetentionPeriod       :: !(Maybe Int)
-    , _escSnapshotCopyGrantName :: !(Maybe Text)
-    , _escClusterIdentifier     :: !Text
-    , _escDestinationRegion     :: !Text
+    { _escrqRetentionPeriod       :: !(Maybe Int)
+    , _escrqSnapshotCopyGrantName :: !(Maybe Text)
+    , _escrqClusterIdentifier     :: !Text
+    , _escrqDestinationRegion     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableSnapshotCopy' smart constructor.
 enableSnapshotCopy :: Text -> Text -> EnableSnapshotCopy
 enableSnapshotCopy pClusterIdentifier pDestinationRegion =
     EnableSnapshotCopy'
-    { _escRetentionPeriod = Nothing
-    , _escSnapshotCopyGrantName = Nothing
-    , _escClusterIdentifier = pClusterIdentifier
-    , _escDestinationRegion = pDestinationRegion
+    { _escrqRetentionPeriod = Nothing
+    , _escrqSnapshotCopyGrantName = Nothing
+    , _escrqClusterIdentifier = pClusterIdentifier
+    , _escrqDestinationRegion = pDestinationRegion
     }
 
 -- | The number of days to retain automated snapshots in the destination
@@ -83,20 +83,20 @@ enableSnapshotCopy pClusterIdentifier pDestinationRegion =
 -- Default: 7.
 --
 -- Constraints: Must be at least 1 and no more than 35.
-escRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
-escRetentionPeriod = lens _escRetentionPeriod (\ s a -> s{_escRetentionPeriod = a});
+escrqRetentionPeriod :: Lens' EnableSnapshotCopy (Maybe Int)
+escrqRetentionPeriod = lens _escrqRetentionPeriod (\ s a -> s{_escrqRetentionPeriod = a});
 
 -- | The name of the snapshot copy grant to use when snapshots of an AWS
 -- KMS-encrypted cluster are copied to the destination region.
-escSnapshotCopyGrantName :: Lens' EnableSnapshotCopy (Maybe Text)
-escSnapshotCopyGrantName = lens _escSnapshotCopyGrantName (\ s a -> s{_escSnapshotCopyGrantName = a});
+escrqSnapshotCopyGrantName :: Lens' EnableSnapshotCopy (Maybe Text)
+escrqSnapshotCopyGrantName = lens _escrqSnapshotCopyGrantName (\ s a -> s{_escrqSnapshotCopyGrantName = a});
 
 -- | The unique identifier of the source cluster to copy snapshots from.
 --
 -- Constraints: Must be the valid name of an existing cluster that does not
 -- already have cross-region snapshot copy enabled.
-escClusterIdentifier :: Lens' EnableSnapshotCopy Text
-escClusterIdentifier = lens _escClusterIdentifier (\ s a -> s{_escClusterIdentifier = a});
+escrqClusterIdentifier :: Lens' EnableSnapshotCopy Text
+escrqClusterIdentifier = lens _escrqClusterIdentifier (\ s a -> s{_escrqClusterIdentifier = a});
 
 -- | The destination region that you want to copy snapshots to.
 --
@@ -104,8 +104,8 @@ escClusterIdentifier = lens _escClusterIdentifier (\ s a -> s{_escClusterIdentif
 -- see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html#redshift_region Regions and Endpoints>
 -- in the Amazon Web Services General Reference.
-escDestinationRegion :: Lens' EnableSnapshotCopy Text
-escDestinationRegion = lens _escDestinationRegion (\ s a -> s{_escDestinationRegion = a});
+escrqDestinationRegion :: Lens' EnableSnapshotCopy Text
+escrqDestinationRegion = lens _escrqDestinationRegion (\ s a -> s{_escrqDestinationRegion = a});
 
 instance AWSRequest EnableSnapshotCopy where
         type Sv EnableSnapshotCopy = Redshift
@@ -129,35 +129,36 @@ instance ToQuery EnableSnapshotCopy where
           = mconcat
               ["Action" =: ("EnableSnapshotCopy" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "RetentionPeriod" =: _escRetentionPeriod,
-               "SnapshotCopyGrantName" =: _escSnapshotCopyGrantName,
-               "ClusterIdentifier" =: _escClusterIdentifier,
-               "DestinationRegion" =: _escDestinationRegion]
+               "RetentionPeriod" =: _escrqRetentionPeriod,
+               "SnapshotCopyGrantName" =:
+                 _escrqSnapshotCopyGrantName,
+               "ClusterIdentifier" =: _escrqClusterIdentifier,
+               "DestinationRegion" =: _escrqDestinationRegion]
 
 -- | /See:/ 'enableSnapshotCopyResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'escrCluster'
+-- * 'escrsCluster'
 --
--- * 'escrStatus'
+-- * 'escrsStatus'
 data EnableSnapshotCopyResponse = EnableSnapshotCopyResponse'
-    { _escrCluster :: !(Maybe Cluster)
-    , _escrStatus  :: !Int
+    { _escrsCluster :: !(Maybe Cluster)
+    , _escrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'EnableSnapshotCopyResponse' smart constructor.
 enableSnapshotCopyResponse :: Int -> EnableSnapshotCopyResponse
 enableSnapshotCopyResponse pStatus =
     EnableSnapshotCopyResponse'
-    { _escrCluster = Nothing
-    , _escrStatus = pStatus
+    { _escrsCluster = Nothing
+    , _escrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-escrCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
-escrCluster = lens _escrCluster (\ s a -> s{_escrCluster = a});
+escrsCluster :: Lens' EnableSnapshotCopyResponse (Maybe Cluster)
+escrsCluster = lens _escrsCluster (\ s a -> s{_escrsCluster = a});
 
 -- | FIXME: Undocumented member.
-escrStatus :: Lens' EnableSnapshotCopyResponse Int
-escrStatus = lens _escrStatus (\ s a -> s{_escrStatus = a});
+escrsStatus :: Lens' EnableSnapshotCopyResponse Int
+escrsStatus = lens _escrsStatus (\ s a -> s{_escrsStatus = a});

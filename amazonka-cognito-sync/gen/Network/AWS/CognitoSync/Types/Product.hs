@@ -92,72 +92,72 @@ instance ToJSON CognitoStreams where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'datLastModifiedDate'
+-- * 'dLastModifiedDate'
 --
--- * 'datNumRecords'
+-- * 'dNumRecords'
 --
--- * 'datDataStorage'
+-- * 'dDataStorage'
 --
--- * 'datDatasetName'
+-- * 'dDatasetName'
 --
--- * 'datCreationDate'
+-- * 'dCreationDate'
 --
--- * 'datLastModifiedBy'
+-- * 'dLastModifiedBy'
 --
--- * 'datIdentityId'
+-- * 'dIdentityId'
 data Dataset = Dataset'
-    { _datLastModifiedDate :: !(Maybe POSIX)
-    , _datNumRecords       :: !(Maybe Integer)
-    , _datDataStorage      :: !(Maybe Integer)
-    , _datDatasetName      :: !(Maybe Text)
-    , _datCreationDate     :: !(Maybe POSIX)
-    , _datLastModifiedBy   :: !(Maybe Text)
-    , _datIdentityId       :: !(Maybe Text)
+    { _dLastModifiedDate :: !(Maybe POSIX)
+    , _dNumRecords       :: !(Maybe Integer)
+    , _dDataStorage      :: !(Maybe Integer)
+    , _dDatasetName      :: !(Maybe Text)
+    , _dCreationDate     :: !(Maybe POSIX)
+    , _dLastModifiedBy   :: !(Maybe Text)
+    , _dIdentityId       :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Dataset' smart constructor.
 dataset :: Dataset
 dataset =
     Dataset'
-    { _datLastModifiedDate = Nothing
-    , _datNumRecords = Nothing
-    , _datDataStorage = Nothing
-    , _datDatasetName = Nothing
-    , _datCreationDate = Nothing
-    , _datLastModifiedBy = Nothing
-    , _datIdentityId = Nothing
+    { _dLastModifiedDate = Nothing
+    , _dNumRecords = Nothing
+    , _dDataStorage = Nothing
+    , _dDatasetName = Nothing
+    , _dCreationDate = Nothing
+    , _dLastModifiedBy = Nothing
+    , _dIdentityId = Nothing
     }
 
 -- | Date when the dataset was last modified.
-datLastModifiedDate :: Lens' Dataset (Maybe UTCTime)
-datLastModifiedDate = lens _datLastModifiedDate (\ s a -> s{_datLastModifiedDate = a}) . mapping _Time;
+dLastModifiedDate :: Lens' Dataset (Maybe UTCTime)
+dLastModifiedDate = lens _dLastModifiedDate (\ s a -> s{_dLastModifiedDate = a}) . mapping _Time;
 
 -- | Number of records in this dataset.
-datNumRecords :: Lens' Dataset (Maybe Integer)
-datNumRecords = lens _datNumRecords (\ s a -> s{_datNumRecords = a});
+dNumRecords :: Lens' Dataset (Maybe Integer)
+dNumRecords = lens _dNumRecords (\ s a -> s{_dNumRecords = a});
 
 -- | Total size in bytes of the records in this dataset.
-datDataStorage :: Lens' Dataset (Maybe Integer)
-datDataStorage = lens _datDataStorage (\ s a -> s{_datDataStorage = a});
+dDataStorage :: Lens' Dataset (Maybe Integer)
+dDataStorage = lens _dDataStorage (\ s a -> s{_dDataStorage = a});
 
 -- | A string of up to 128 characters. Allowed characters are a-z, A-Z, 0-9,
 -- \'_\' (underscore), \'-\' (dash), and \'.\' (dot).
-datDatasetName :: Lens' Dataset (Maybe Text)
-datDatasetName = lens _datDatasetName (\ s a -> s{_datDatasetName = a});
+dDatasetName :: Lens' Dataset (Maybe Text)
+dDatasetName = lens _dDatasetName (\ s a -> s{_dDatasetName = a});
 
 -- | Date on which the dataset was created.
-datCreationDate :: Lens' Dataset (Maybe UTCTime)
-datCreationDate = lens _datCreationDate (\ s a -> s{_datCreationDate = a}) . mapping _Time;
+dCreationDate :: Lens' Dataset (Maybe UTCTime)
+dCreationDate = lens _dCreationDate (\ s a -> s{_dCreationDate = a}) . mapping _Time;
 
 -- | The device that made the last change to this dataset.
-datLastModifiedBy :: Lens' Dataset (Maybe Text)
-datLastModifiedBy = lens _datLastModifiedBy (\ s a -> s{_datLastModifiedBy = a});
+dLastModifiedBy :: Lens' Dataset (Maybe Text)
+dLastModifiedBy = lens _dLastModifiedBy (\ s a -> s{_dLastModifiedBy = a});
 
 -- | A name-spaced GUID (for example,
 -- us-east-1:23EC4050-6AEA-7089-A2DD-08002EXAMPLE) created by Amazon
 -- Cognito. GUID generation is unique within a region.
-datIdentityId :: Lens' Dataset (Maybe Text)
-datIdentityId = lens _datIdentityId (\ s a -> s{_datIdentityId = a});
+dIdentityId :: Lens' Dataset (Maybe Text)
+dIdentityId = lens _dIdentityId (\ s a -> s{_dIdentityId = a});
 
 instance FromJSON Dataset where
         parseJSON
@@ -349,61 +349,61 @@ instance ToJSON PushSync where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'recSyncCount'
+-- * 'rSyncCount'
 --
--- * 'recLastModifiedDate'
+-- * 'rLastModifiedDate'
 --
--- * 'recDeviceLastModifiedDate'
+-- * 'rDeviceLastModifiedDate'
 --
--- * 'recValue'
+-- * 'rValue'
 --
--- * 'recKey'
+-- * 'rKey'
 --
--- * 'recLastModifiedBy'
+-- * 'rLastModifiedBy'
 data Record = Record'
-    { _recSyncCount              :: !(Maybe Integer)
-    , _recLastModifiedDate       :: !(Maybe POSIX)
-    , _recDeviceLastModifiedDate :: !(Maybe POSIX)
-    , _recValue                  :: !(Maybe Text)
-    , _recKey                    :: !(Maybe Text)
-    , _recLastModifiedBy         :: !(Maybe Text)
+    { _rSyncCount              :: !(Maybe Integer)
+    , _rLastModifiedDate       :: !(Maybe POSIX)
+    , _rDeviceLastModifiedDate :: !(Maybe POSIX)
+    , _rValue                  :: !(Maybe Text)
+    , _rKey                    :: !(Maybe Text)
+    , _rLastModifiedBy         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Record' smart constructor.
 record :: Record
 record =
     Record'
-    { _recSyncCount = Nothing
-    , _recLastModifiedDate = Nothing
-    , _recDeviceLastModifiedDate = Nothing
-    , _recValue = Nothing
-    , _recKey = Nothing
-    , _recLastModifiedBy = Nothing
+    { _rSyncCount = Nothing
+    , _rLastModifiedDate = Nothing
+    , _rDeviceLastModifiedDate = Nothing
+    , _rValue = Nothing
+    , _rKey = Nothing
+    , _rLastModifiedBy = Nothing
     }
 
 -- | The server sync count for this record.
-recSyncCount :: Lens' Record (Maybe Integer)
-recSyncCount = lens _recSyncCount (\ s a -> s{_recSyncCount = a});
+rSyncCount :: Lens' Record (Maybe Integer)
+rSyncCount = lens _rSyncCount (\ s a -> s{_rSyncCount = a});
 
 -- | The date on which the record was last modified.
-recLastModifiedDate :: Lens' Record (Maybe UTCTime)
-recLastModifiedDate = lens _recLastModifiedDate (\ s a -> s{_recLastModifiedDate = a}) . mapping _Time;
+rLastModifiedDate :: Lens' Record (Maybe UTCTime)
+rLastModifiedDate = lens _rLastModifiedDate (\ s a -> s{_rLastModifiedDate = a}) . mapping _Time;
 
 -- | The last modified date of the client device.
-recDeviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
-recDeviceLastModifiedDate = lens _recDeviceLastModifiedDate (\ s a -> s{_recDeviceLastModifiedDate = a}) . mapping _Time;
+rDeviceLastModifiedDate :: Lens' Record (Maybe UTCTime)
+rDeviceLastModifiedDate = lens _rDeviceLastModifiedDate (\ s a -> s{_rDeviceLastModifiedDate = a}) . mapping _Time;
 
 -- | The value for the record.
-recValue :: Lens' Record (Maybe Text)
-recValue = lens _recValue (\ s a -> s{_recValue = a});
+rValue :: Lens' Record (Maybe Text)
+rValue = lens _rValue (\ s a -> s{_rValue = a});
 
 -- | The key for the record.
-recKey :: Lens' Record (Maybe Text)
-recKey = lens _recKey (\ s a -> s{_recKey = a});
+rKey :: Lens' Record (Maybe Text)
+rKey = lens _rKey (\ s a -> s{_rKey = a});
 
 -- | The user\/device that made the last change to this record.
-recLastModifiedBy :: Lens' Record (Maybe Text)
-recLastModifiedBy = lens _recLastModifiedBy (\ s a -> s{_recLastModifiedBy = a});
+rLastModifiedBy :: Lens' Record (Maybe Text)
+rLastModifiedBy = lens _rLastModifiedBy (\ s a -> s{_rLastModifiedBy = a});
 
 instance FromJSON Record where
         parseJSON

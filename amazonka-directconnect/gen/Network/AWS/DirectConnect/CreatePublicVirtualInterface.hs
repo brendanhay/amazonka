@@ -30,29 +30,29 @@ module Network.AWS.DirectConnect.CreatePublicVirtualInterface
     -- ** Request constructor
     , createPublicVirtualInterface
     -- ** Request lenses
-    , cpviConnectionId
-    , cpviNewPublicVirtualInterface
+    , cpvirqConnectionId
+    , cpvirqNewPublicVirtualInterface
 
     -- * Response
     , VirtualInterface
     -- ** Response constructor
     , virtualInterface
     -- ** Response lenses
-    , viVirtualGatewayId
-    , viRouteFilterPrefixes
-    , viCustomerAddress
-    , viVlan
-    , viLocation
-    , viAmazonAddress
-    , viVirtualInterfaceState
-    , viConnectionId
-    , viAsn
-    , viVirtualInterfaceType
-    , viAuthKey
-    , viCustomerRouterConfig
-    , viOwnerAccount
-    , viVirtualInterfaceName
-    , viVirtualInterfaceId
+    , cpvirsVirtualGatewayId
+    , cpvirsRouteFilterPrefixes
+    , cpvirsCustomerAddress
+    , cpvirsVlan
+    , cpvirsLocation
+    , cpvirsAmazonAddress
+    , cpvirsVirtualInterfaceState
+    , cpvirsConnectionId
+    , cpvirsAsn
+    , cpvirsVirtualInterfaceType
+    , cpvirsAuthKey
+    , cpvirsCustomerRouterConfig
+    , cpvirsOwnerAccount
+    , cpvirsVirtualInterfaceName
+    , cpvirsVirtualInterfaceId
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -67,31 +67,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpviConnectionId'
+-- * 'cpvirqConnectionId'
 --
--- * 'cpviNewPublicVirtualInterface'
+-- * 'cpvirqNewPublicVirtualInterface'
 data CreatePublicVirtualInterface = CreatePublicVirtualInterface'
-    { _cpviConnectionId              :: !Text
-    , _cpviNewPublicVirtualInterface :: !NewPublicVirtualInterface
+    { _cpvirqConnectionId              :: !Text
+    , _cpvirqNewPublicVirtualInterface :: !NewPublicVirtualInterface
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreatePublicVirtualInterface' smart constructor.
 createPublicVirtualInterface :: Text -> NewPublicVirtualInterface -> CreatePublicVirtualInterface
 createPublicVirtualInterface pConnectionId pNewPublicVirtualInterface =
     CreatePublicVirtualInterface'
-    { _cpviConnectionId = pConnectionId
-    , _cpviNewPublicVirtualInterface = pNewPublicVirtualInterface
+    { _cpvirqConnectionId = pConnectionId
+    , _cpvirqNewPublicVirtualInterface = pNewPublicVirtualInterface
     }
 
 -- | FIXME: Undocumented member.
-cpviConnectionId :: Lens' CreatePublicVirtualInterface Text
-cpviConnectionId = lens _cpviConnectionId (\ s a -> s{_cpviConnectionId = a});
+cpvirqConnectionId :: Lens' CreatePublicVirtualInterface Text
+cpvirqConnectionId = lens _cpvirqConnectionId (\ s a -> s{_cpvirqConnectionId = a});
 
 -- | Detailed information for the public virtual interface to be created.
 --
 -- Default: None
-cpviNewPublicVirtualInterface :: Lens' CreatePublicVirtualInterface NewPublicVirtualInterface
-cpviNewPublicVirtualInterface = lens _cpviNewPublicVirtualInterface (\ s a -> s{_cpviNewPublicVirtualInterface = a});
+cpvirqNewPublicVirtualInterface :: Lens' CreatePublicVirtualInterface NewPublicVirtualInterface
+cpvirqNewPublicVirtualInterface = lens _cpvirqNewPublicVirtualInterface (\ s a -> s{_cpvirqNewPublicVirtualInterface = a});
 
 instance AWSRequest CreatePublicVirtualInterface
          where
@@ -114,9 +114,9 @@ instance ToHeaders CreatePublicVirtualInterface where
 instance ToJSON CreatePublicVirtualInterface where
         toJSON CreatePublicVirtualInterface'{..}
           = object
-              ["connectionId" .= _cpviConnectionId,
+              ["connectionId" .= _cpvirqConnectionId,
                "newPublicVirtualInterface" .=
-                 _cpviNewPublicVirtualInterface]
+                 _cpvirqNewPublicVirtualInterface]
 
 instance ToPath CreatePublicVirtualInterface where
         toPath = const "/"

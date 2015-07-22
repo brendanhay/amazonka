@@ -79,11 +79,11 @@ module Network.AWS.CloudSearch.Types
     -- * DateArrayOptions
     , DateArrayOptions
     , dateArrayOptions
-    , datSourceFields
-    , datReturnEnabled
-    , datFacetEnabled
-    , datSearchEnabled
-    , datDefaultValue
+    , daosSourceFields
+    , daosReturnEnabled
+    , daosFacetEnabled
+    , daosSearchEnabled
+    , daosDefaultValue
 
     -- * DateOptions
     , DateOptions
@@ -131,18 +131,18 @@ module Network.AWS.CloudSearch.Types
     -- * DoubleOptions
     , DoubleOptions
     , doubleOptions
-    , douSourceField
-    , douReturnEnabled
-    , douFacetEnabled
-    , douSearchEnabled
-    , douSortEnabled
-    , douDefaultValue
+    , dSourceField
+    , dReturnEnabled
+    , dFacetEnabled
+    , dSearchEnabled
+    , dSortEnabled
+    , dDefaultValue
 
     -- * Expression
     , Expression
     , expression
-    , expExpressionName
-    , expExpressionValue
+    , eExpressionName
+    , eExpressionValue
 
     -- * ExpressionStatus
     , ExpressionStatus
@@ -205,8 +205,8 @@ module Network.AWS.CloudSearch.Types
     -- * Limits
     , Limits
     , limits
-    , limMaximumReplicationCount
-    , limMaximumPartitionCount
+    , lMaximumReplicationCount
+    , lMaximumPartitionCount
 
     -- * LiteralArrayOptions
     , LiteralArrayOptions
@@ -257,8 +257,8 @@ module Network.AWS.CloudSearch.Types
     -- * Suggester
     , Suggester
     , suggester
-    , sugSuggesterName
-    , sugDocumentSuggesterOptions
+    , sSuggesterName
+    , sDocumentSuggesterOptions
 
     -- * SuggesterStatus
     , SuggesterStatus

@@ -28,19 +28,19 @@ module Network.AWS.EC2.DescribeVPCAttribute
     -- ** Request constructor
     , describeVPCAttribute
     -- ** Request lenses
-    , dvpcaAttribute
-    , dvpcaDryRun
-    , dvpcaVPCId
+    , dvpcarqAttribute
+    , dvpcarqDryRun
+    , dvpcarqVPCId
 
     -- * Response
     , DescribeVPCAttributeResponse
     -- ** Response constructor
     , describeVPCAttributeResponse
     -- ** Response lenses
-    , dvpcarEnableDNSHostnames
-    , dvpcarEnableDNSSupport
-    , dvpcarVPCId
-    , dvpcarStatus
+    , dvpcarsEnableDNSHostnames
+    , dvpcarsEnableDNSSupport
+    , dvpcarsVPCId
+    , dvpcarsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -52,40 +52,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpcaAttribute'
+-- * 'dvpcarqAttribute'
 --
--- * 'dvpcaDryRun'
+-- * 'dvpcarqDryRun'
 --
--- * 'dvpcaVPCId'
+-- * 'dvpcarqVPCId'
 data DescribeVPCAttribute = DescribeVPCAttribute'
-    { _dvpcaAttribute :: !(Maybe VPCAttributeName)
-    , _dvpcaDryRun    :: !(Maybe Bool)
-    , _dvpcaVPCId     :: !Text
+    { _dvpcarqAttribute :: !(Maybe VPCAttributeName)
+    , _dvpcarqDryRun    :: !(Maybe Bool)
+    , _dvpcarqVPCId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCAttribute' smart constructor.
 describeVPCAttribute :: Text -> DescribeVPCAttribute
 describeVPCAttribute pVPCId =
     DescribeVPCAttribute'
-    { _dvpcaAttribute = Nothing
-    , _dvpcaDryRun = Nothing
-    , _dvpcaVPCId = pVPCId
+    { _dvpcarqAttribute = Nothing
+    , _dvpcarqDryRun = Nothing
+    , _dvpcarqVPCId = pVPCId
     }
 
 -- | The VPC attribute.
-dvpcaAttribute :: Lens' DescribeVPCAttribute (Maybe VPCAttributeName)
-dvpcaAttribute = lens _dvpcaAttribute (\ s a -> s{_dvpcaAttribute = a});
+dvpcarqAttribute :: Lens' DescribeVPCAttribute (Maybe VPCAttributeName)
+dvpcarqAttribute = lens _dvpcarqAttribute (\ s a -> s{_dvpcarqAttribute = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dvpcaDryRun :: Lens' DescribeVPCAttribute (Maybe Bool)
-dvpcaDryRun = lens _dvpcaDryRun (\ s a -> s{_dvpcaDryRun = a});
+dvpcarqDryRun :: Lens' DescribeVPCAttribute (Maybe Bool)
+dvpcarqDryRun = lens _dvpcarqDryRun (\ s a -> s{_dvpcarqDryRun = a});
 
 -- | The ID of the VPC.
-dvpcaVPCId :: Lens' DescribeVPCAttribute Text
-dvpcaVPCId = lens _dvpcaVPCId (\ s a -> s{_dvpcaVPCId = a});
+dvpcarqVPCId :: Lens' DescribeVPCAttribute Text
+dvpcarqVPCId = lens _dvpcarqVPCId (\ s a -> s{_dvpcarqVPCId = a});
 
 instance AWSRequest DescribeVPCAttribute where
         type Sv DescribeVPCAttribute = EC2
@@ -112,54 +112,54 @@ instance ToQuery DescribeVPCAttribute where
           = mconcat
               ["Action" =: ("DescribeVPCAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "Attribute" =: _dvpcaAttribute,
-               "DryRun" =: _dvpcaDryRun, "VpcId" =: _dvpcaVPCId]
+               "Attribute" =: _dvpcarqAttribute,
+               "DryRun" =: _dvpcarqDryRun, "VpcId" =: _dvpcarqVPCId]
 
 -- | /See:/ 'describeVPCAttributeResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dvpcarEnableDNSHostnames'
+-- * 'dvpcarsEnableDNSHostnames'
 --
--- * 'dvpcarEnableDNSSupport'
+-- * 'dvpcarsEnableDNSSupport'
 --
--- * 'dvpcarVPCId'
+-- * 'dvpcarsVPCId'
 --
--- * 'dvpcarStatus'
+-- * 'dvpcarsStatus'
 data DescribeVPCAttributeResponse = DescribeVPCAttributeResponse'
-    { _dvpcarEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
-    , _dvpcarEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
-    , _dvpcarVPCId              :: !(Maybe Text)
-    , _dvpcarStatus             :: !Int
+    { _dvpcarsEnableDNSHostnames :: !(Maybe AttributeBooleanValue)
+    , _dvpcarsEnableDNSSupport   :: !(Maybe AttributeBooleanValue)
+    , _dvpcarsVPCId              :: !(Maybe Text)
+    , _dvpcarsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeVPCAttributeResponse' smart constructor.
 describeVPCAttributeResponse :: Int -> DescribeVPCAttributeResponse
 describeVPCAttributeResponse pStatus =
     DescribeVPCAttributeResponse'
-    { _dvpcarEnableDNSHostnames = Nothing
-    , _dvpcarEnableDNSSupport = Nothing
-    , _dvpcarVPCId = Nothing
-    , _dvpcarStatus = pStatus
+    { _dvpcarsEnableDNSHostnames = Nothing
+    , _dvpcarsEnableDNSSupport = Nothing
+    , _dvpcarsVPCId = Nothing
+    , _dvpcarsStatus = pStatus
     }
 
 -- | Indicates whether the instances launched in the VPC get DNS hostnames.
 -- If this attribute is @true@, instances in the VPC get DNS hostnames;
 -- otherwise, they do not.
-dvpcarEnableDNSHostnames :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
-dvpcarEnableDNSHostnames = lens _dvpcarEnableDNSHostnames (\ s a -> s{_dvpcarEnableDNSHostnames = a});
+dvpcarsEnableDNSHostnames :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
+dvpcarsEnableDNSHostnames = lens _dvpcarsEnableDNSHostnames (\ s a -> s{_dvpcarsEnableDNSHostnames = a});
 
 -- | Indicates whether DNS resolution is enabled for the VPC. If this
 -- attribute is @true@, the Amazon DNS server resolves DNS hostnames for
 -- your instances to their corresponding IP addresses; otherwise, it does
 -- not.
-dvpcarEnableDNSSupport :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
-dvpcarEnableDNSSupport = lens _dvpcarEnableDNSSupport (\ s a -> s{_dvpcarEnableDNSSupport = a});
+dvpcarsEnableDNSSupport :: Lens' DescribeVPCAttributeResponse (Maybe AttributeBooleanValue)
+dvpcarsEnableDNSSupport = lens _dvpcarsEnableDNSSupport (\ s a -> s{_dvpcarsEnableDNSSupport = a});
 
 -- | The ID of the VPC.
-dvpcarVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
-dvpcarVPCId = lens _dvpcarVPCId (\ s a -> s{_dvpcarVPCId = a});
+dvpcarsVPCId :: Lens' DescribeVPCAttributeResponse (Maybe Text)
+dvpcarsVPCId = lens _dvpcarsVPCId (\ s a -> s{_dvpcarsVPCId = a});
 
 -- | FIXME: Undocumented member.
-dvpcarStatus :: Lens' DescribeVPCAttributeResponse Int
-dvpcarStatus = lens _dvpcarStatus (\ s a -> s{_dvpcarStatus = a});
+dvpcarsStatus :: Lens' DescribeVPCAttributeResponse Int
+dvpcarsStatus = lens _dvpcarsStatus (\ s a -> s{_dvpcarsStatus = a});

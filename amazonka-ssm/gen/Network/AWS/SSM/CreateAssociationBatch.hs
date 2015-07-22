@@ -36,16 +36,16 @@ module Network.AWS.SSM.CreateAssociationBatch
     -- ** Request constructor
     , createAssociationBatch
     -- ** Request lenses
-    , cabEntries
+    , cabrqEntries
 
     -- * Response
     , CreateAssociationBatchResponse
     -- ** Response constructor
     , createAssociationBatchResponse
     -- ** Response lenses
-    , cabrSuccessful
-    , cabrFailed
-    , cabrStatus
+    , cabrsSuccessful
+    , cabrsFailed
+    , cabrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -57,21 +57,21 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cabEntries'
+-- * 'cabrqEntries'
 newtype CreateAssociationBatch = CreateAssociationBatch'
-    { _cabEntries :: [CreateAssociationBatchRequestEntry]
+    { _cabrqEntries :: [CreateAssociationBatchRequestEntry]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociationBatch' smart constructor.
 createAssociationBatch :: CreateAssociationBatch
 createAssociationBatch =
     CreateAssociationBatch'
-    { _cabEntries = mempty
+    { _cabrqEntries = mempty
     }
 
 -- | One or more associations.
-cabEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
-cabEntries = lens _cabEntries (\ s a -> s{_cabEntries = a});
+cabrqEntries :: Lens' CreateAssociationBatch [CreateAssociationBatchRequestEntry]
+cabrqEntries = lens _cabrqEntries (\ s a -> s{_cabrqEntries = a});
 
 instance AWSRequest CreateAssociationBatch where
         type Sv CreateAssociationBatch = SSM
@@ -97,7 +97,7 @@ instance ToHeaders CreateAssociationBatch where
 
 instance ToJSON CreateAssociationBatch where
         toJSON CreateAssociationBatch'{..}
-          = object ["Entries" .= _cabEntries]
+          = object ["Entries" .= _cabrqEntries]
 
 instance ToPath CreateAssociationBatch where
         toPath = const "/"
@@ -109,34 +109,34 @@ instance ToQuery CreateAssociationBatch where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cabrSuccessful'
+-- * 'cabrsSuccessful'
 --
--- * 'cabrFailed'
+-- * 'cabrsFailed'
 --
--- * 'cabrStatus'
+-- * 'cabrsStatus'
 data CreateAssociationBatchResponse = CreateAssociationBatchResponse'
-    { _cabrSuccessful :: !(Maybe [AssociationDescription])
-    , _cabrFailed     :: !(Maybe [FailedCreateAssociation])
-    , _cabrStatus     :: !Int
+    { _cabrsSuccessful :: !(Maybe [AssociationDescription])
+    , _cabrsFailed     :: !(Maybe [FailedCreateAssociation])
+    , _cabrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateAssociationBatchResponse' smart constructor.
 createAssociationBatchResponse :: Int -> CreateAssociationBatchResponse
 createAssociationBatchResponse pStatus =
     CreateAssociationBatchResponse'
-    { _cabrSuccessful = Nothing
-    , _cabrFailed = Nothing
-    , _cabrStatus = pStatus
+    { _cabrsSuccessful = Nothing
+    , _cabrsFailed = Nothing
+    , _cabrsStatus = pStatus
     }
 
 -- | Information about the associations that succeeded.
-cabrSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
-cabrSuccessful = lens _cabrSuccessful (\ s a -> s{_cabrSuccessful = a}) . _Default;
+cabrsSuccessful :: Lens' CreateAssociationBatchResponse [AssociationDescription]
+cabrsSuccessful = lens _cabrsSuccessful (\ s a -> s{_cabrsSuccessful = a}) . _Default;
 
 -- | Information about the associations that failed.
-cabrFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
-cabrFailed = lens _cabrFailed (\ s a -> s{_cabrFailed = a}) . _Default;
+cabrsFailed :: Lens' CreateAssociationBatchResponse [FailedCreateAssociation]
+cabrsFailed = lens _cabrsFailed (\ s a -> s{_cabrsFailed = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cabrStatus :: Lens' CreateAssociationBatchResponse Int
-cabrStatus = lens _cabrStatus (\ s a -> s{_cabrStatus = a});
+cabrsStatus :: Lens' CreateAssociationBatchResponse Int
+cabrsStatus = lens _cabrsStatus (\ s a -> s{_cabrsStatus = a});

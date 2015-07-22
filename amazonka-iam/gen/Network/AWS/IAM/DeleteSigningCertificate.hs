@@ -34,8 +34,8 @@ module Network.AWS.IAM.DeleteSigningCertificate
     -- ** Request constructor
     , deleteSigningCertificate
     -- ** Request lenses
-    , dscUserName
-    , dscCertificateId
+    , dscrqUserName
+    , dscrqCertificateId
 
     -- * Response
     , DeleteSigningCertificateResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dscUserName'
+-- * 'dscrqUserName'
 --
--- * 'dscCertificateId'
+-- * 'dscrqCertificateId'
 data DeleteSigningCertificate = DeleteSigningCertificate'
-    { _dscUserName      :: !(Maybe Text)
-    , _dscCertificateId :: !Text
+    { _dscrqUserName      :: !(Maybe Text)
+    , _dscrqCertificateId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSigningCertificate' smart constructor.
 deleteSigningCertificate :: Text -> DeleteSigningCertificate
 deleteSigningCertificate pCertificateId =
     DeleteSigningCertificate'
-    { _dscUserName = Nothing
-    , _dscCertificateId = pCertificateId
+    { _dscrqUserName = Nothing
+    , _dscrqCertificateId = pCertificateId
     }
 
 -- | The name of the user the signing certificate belongs to.
-dscUserName :: Lens' DeleteSigningCertificate (Maybe Text)
-dscUserName = lens _dscUserName (\ s a -> s{_dscUserName = a});
+dscrqUserName :: Lens' DeleteSigningCertificate (Maybe Text)
+dscrqUserName = lens _dscrqUserName (\ s a -> s{_dscrqUserName = a});
 
 -- | The ID of the signing certificate to delete.
-dscCertificateId :: Lens' DeleteSigningCertificate Text
-dscCertificateId = lens _dscCertificateId (\ s a -> s{_dscCertificateId = a});
+dscrqCertificateId :: Lens' DeleteSigningCertificate Text
+dscrqCertificateId = lens _dscrqCertificateId (\ s a -> s{_dscrqCertificateId = a});
 
 instance AWSRequest DeleteSigningCertificate where
         type Sv DeleteSigningCertificate = IAM
@@ -96,8 +96,8 @@ instance ToQuery DeleteSigningCertificate where
               ["Action" =:
                  ("DeleteSigningCertificate" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "UserName" =: _dscUserName,
-               "CertificateId" =: _dscCertificateId]
+               "UserName" =: _dscrqUserName,
+               "CertificateId" =: _dscrqCertificateId]
 
 -- | /See:/ 'deleteSigningCertificateResponse' smart constructor.
 data DeleteSigningCertificateResponse =

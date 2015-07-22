@@ -32,16 +32,16 @@ module Network.AWS.Route53.UpdateHostedZoneComment
     -- ** Request constructor
     , updateHostedZoneComment
     -- ** Request lenses
-    , uhzcComment
-    , uhzcId
+    , uhzcrqComment
+    , uhzcrqId
 
     -- * Response
     , UpdateHostedZoneCommentResponse
     -- ** Response constructor
     , updateHostedZoneCommentResponse
     -- ** Response lenses
-    , uhzcrStatus
-    , uhzcrHostedZone
+    , uhzcrsStatus
+    , uhzcrsHostedZone
     ) where
 
 import           Network.AWS.Prelude
@@ -56,29 +56,29 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uhzcComment'
+-- * 'uhzcrqComment'
 --
--- * 'uhzcId'
+-- * 'uhzcrqId'
 data UpdateHostedZoneComment = UpdateHostedZoneComment'
-    { _uhzcComment :: !(Maybe Text)
-    , _uhzcId      :: !Text
+    { _uhzcrqComment :: !(Maybe Text)
+    , _uhzcrqId      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateHostedZoneComment' smart constructor.
 updateHostedZoneComment :: Text -> UpdateHostedZoneComment
 updateHostedZoneComment pId =
     UpdateHostedZoneComment'
-    { _uhzcComment = Nothing
-    , _uhzcId = pId
+    { _uhzcrqComment = Nothing
+    , _uhzcrqId = pId
     }
 
 -- | A comment about your hosted zone.
-uhzcComment :: Lens' UpdateHostedZoneComment (Maybe Text)
-uhzcComment = lens _uhzcComment (\ s a -> s{_uhzcComment = a});
+uhzcrqComment :: Lens' UpdateHostedZoneComment (Maybe Text)
+uhzcrqComment = lens _uhzcrqComment (\ s a -> s{_uhzcrqComment = a});
 
 -- | The ID of the hosted zone you want to update.
-uhzcId :: Lens' UpdateHostedZoneComment Text
-uhzcId = lens _uhzcId (\ s a -> s{_uhzcId = a});
+uhzcrqId :: Lens' UpdateHostedZoneComment Text
+uhzcrqId = lens _uhzcrqId (\ s a -> s{_uhzcrqId = a});
 
 instance AWSRequest UpdateHostedZoneComment where
         type Sv UpdateHostedZoneComment = Route53
@@ -101,14 +101,15 @@ instance ToHeaders UpdateHostedZoneComment where
 
 instance ToPath UpdateHostedZoneComment where
         toPath UpdateHostedZoneComment'{..}
-          = mconcat ["/2013-04-01/hostedzone/", toText _uhzcId]
+          = mconcat
+              ["/2013-04-01/hostedzone/", toText _uhzcrqId]
 
 instance ToQuery UpdateHostedZoneComment where
         toQuery = const mempty
 
 instance ToXML UpdateHostedZoneComment where
         toXML UpdateHostedZoneComment'{..}
-          = mconcat ["Comment" @= _uhzcComment]
+          = mconcat ["Comment" @= _uhzcrqComment]
 
 -- | A complex type containing information about the specified hosted zone
 -- after the update.
@@ -117,26 +118,26 @@ instance ToXML UpdateHostedZoneComment where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uhzcrStatus'
+-- * 'uhzcrsStatus'
 --
--- * 'uhzcrHostedZone'
+-- * 'uhzcrsHostedZone'
 data UpdateHostedZoneCommentResponse = UpdateHostedZoneCommentResponse'
-    { _uhzcrStatus     :: !Int
-    , _uhzcrHostedZone :: !HostedZone
+    { _uhzcrsStatus     :: !Int
+    , _uhzcrsHostedZone :: !HostedZone
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateHostedZoneCommentResponse' smart constructor.
 updateHostedZoneCommentResponse :: Int -> HostedZone -> UpdateHostedZoneCommentResponse
 updateHostedZoneCommentResponse pStatus pHostedZone =
     UpdateHostedZoneCommentResponse'
-    { _uhzcrStatus = pStatus
-    , _uhzcrHostedZone = pHostedZone
+    { _uhzcrsStatus = pStatus
+    , _uhzcrsHostedZone = pHostedZone
     }
 
 -- | FIXME: Undocumented member.
-uhzcrStatus :: Lens' UpdateHostedZoneCommentResponse Int
-uhzcrStatus = lens _uhzcrStatus (\ s a -> s{_uhzcrStatus = a});
+uhzcrsStatus :: Lens' UpdateHostedZoneCommentResponse Int
+uhzcrsStatus = lens _uhzcrsStatus (\ s a -> s{_uhzcrsStatus = a});
 
 -- | FIXME: Undocumented member.
-uhzcrHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
-uhzcrHostedZone = lens _uhzcrHostedZone (\ s a -> s{_uhzcrHostedZone = a});
+uhzcrsHostedZone :: Lens' UpdateHostedZoneCommentResponse HostedZone
+uhzcrsHostedZone = lens _uhzcrsHostedZone (\ s a -> s{_uhzcrsHostedZone = a});

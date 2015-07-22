@@ -34,8 +34,8 @@ module Network.AWS.ElasticBeanstalk.CreateStorageLocation
     -- ** Response constructor
     , createStorageLocationResponse
     -- ** Response lenses
-    , cslrS3Bucket
-    , cslrStatus
+    , cslrsS3Bucket
+    , cslrsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -82,26 +82,26 @@ instance ToQuery CreateStorageLocation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cslrS3Bucket'
+-- * 'cslrsS3Bucket'
 --
--- * 'cslrStatus'
+-- * 'cslrsStatus'
 data CreateStorageLocationResponse = CreateStorageLocationResponse'
-    { _cslrS3Bucket :: !(Maybe Text)
-    , _cslrStatus   :: !Int
+    { _cslrsS3Bucket :: !(Maybe Text)
+    , _cslrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateStorageLocationResponse' smart constructor.
 createStorageLocationResponse :: Int -> CreateStorageLocationResponse
 createStorageLocationResponse pStatus =
     CreateStorageLocationResponse'
-    { _cslrS3Bucket = Nothing
-    , _cslrStatus = pStatus
+    { _cslrsS3Bucket = Nothing
+    , _cslrsStatus = pStatus
     }
 
 -- | The name of the Amazon S3 bucket created.
-cslrS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
-cslrS3Bucket = lens _cslrS3Bucket (\ s a -> s{_cslrS3Bucket = a});
+cslrsS3Bucket :: Lens' CreateStorageLocationResponse (Maybe Text)
+cslrsS3Bucket = lens _cslrsS3Bucket (\ s a -> s{_cslrsS3Bucket = a});
 
 -- | FIXME: Undocumented member.
-cslrStatus :: Lens' CreateStorageLocationResponse Int
-cslrStatus = lens _cslrStatus (\ s a -> s{_cslrStatus = a});
+cslrsStatus :: Lens' CreateStorageLocationResponse Int
+cslrsStatus = lens _cslrsStatus (\ s a -> s{_cslrsStatus = a});

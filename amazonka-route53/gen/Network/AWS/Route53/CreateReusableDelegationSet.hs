@@ -36,17 +36,17 @@ module Network.AWS.Route53.CreateReusableDelegationSet
     -- ** Request constructor
     , createReusableDelegationSet
     -- ** Request lenses
-    , crdsHostedZoneId
-    , crdsCallerReference
+    , crdsrqHostedZoneId
+    , crdsrqCallerReference
 
     -- * Response
     , CreateReusableDelegationSetResponse
     -- ** Response constructor
     , createReusableDelegationSetResponse
     -- ** Response lenses
-    , crdsrStatus
-    , crdsrDelegationSet
-    , crdsrLocation
+    , crdsrsStatus
+    , crdsrsDelegationSet
+    , crdsrsLocation
     ) where
 
 import           Network.AWS.Prelude
@@ -58,26 +58,26 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crdsHostedZoneId'
+-- * 'crdsrqHostedZoneId'
 --
--- * 'crdsCallerReference'
+-- * 'crdsrqCallerReference'
 data CreateReusableDelegationSet = CreateReusableDelegationSet'
-    { _crdsHostedZoneId    :: !(Maybe Text)
-    , _crdsCallerReference :: !Text
+    { _crdsrqHostedZoneId    :: !(Maybe Text)
+    , _crdsrqCallerReference :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReusableDelegationSet' smart constructor.
 createReusableDelegationSet :: Text -> CreateReusableDelegationSet
 createReusableDelegationSet pCallerReference =
     CreateReusableDelegationSet'
-    { _crdsHostedZoneId = Nothing
-    , _crdsCallerReference = pCallerReference
+    { _crdsrqHostedZoneId = Nothing
+    , _crdsrqCallerReference = pCallerReference
     }
 
 -- | The ID of the hosted zone whose delegation set you want to mark as
 -- reusable. It is an optional parameter.
-crdsHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
-crdsHostedZoneId = lens _crdsHostedZoneId (\ s a -> s{_crdsHostedZoneId = a});
+crdsrqHostedZoneId :: Lens' CreateReusableDelegationSet (Maybe Text)
+crdsrqHostedZoneId = lens _crdsrqHostedZoneId (\ s a -> s{_crdsrqHostedZoneId = a});
 
 -- | A unique string that identifies the request and that allows failed
 -- @CreateReusableDelegationSet@ requests to be retried without the risk of
@@ -89,8 +89,8 @@ crdsHostedZoneId = lens _crdsHostedZoneId (\ s a -> s{_crdsHostedZoneId = a});
 -- Valid characters are any Unicode code points that are legal in an XML
 -- 1.0 document. The UTF-8 encoding of the value must be less than 128
 -- bytes.
-crdsCallerReference :: Lens' CreateReusableDelegationSet Text
-crdsCallerReference = lens _crdsCallerReference (\ s a -> s{_crdsCallerReference = a});
+crdsrqCallerReference :: Lens' CreateReusableDelegationSet Text
+crdsrqCallerReference = lens _crdsrqCallerReference (\ s a -> s{_crdsrqCallerReference = a});
 
 instance AWSRequest CreateReusableDelegationSet where
         type Sv CreateReusableDelegationSet = Route53
@@ -121,41 +121,41 @@ instance ToQuery CreateReusableDelegationSet where
 instance ToXML CreateReusableDelegationSet where
         toXML CreateReusableDelegationSet'{..}
           = mconcat
-              ["HostedZoneId" @= _crdsHostedZoneId,
-               "CallerReference" @= _crdsCallerReference]
+              ["HostedZoneId" @= _crdsrqHostedZoneId,
+               "CallerReference" @= _crdsrqCallerReference]
 
 -- | /See:/ 'createReusableDelegationSetResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crdsrStatus'
+-- * 'crdsrsStatus'
 --
--- * 'crdsrDelegationSet'
+-- * 'crdsrsDelegationSet'
 --
--- * 'crdsrLocation'
+-- * 'crdsrsLocation'
 data CreateReusableDelegationSetResponse = CreateReusableDelegationSetResponse'
-    { _crdsrStatus        :: !Int
-    , _crdsrDelegationSet :: !DelegationSet
-    , _crdsrLocation      :: !Text
+    { _crdsrsStatus        :: !Int
+    , _crdsrsDelegationSet :: !DelegationSet
+    , _crdsrsLocation      :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReusableDelegationSetResponse' smart constructor.
 createReusableDelegationSetResponse :: Int -> DelegationSet -> Text -> CreateReusableDelegationSetResponse
 createReusableDelegationSetResponse pStatus pDelegationSet pLocation =
     CreateReusableDelegationSetResponse'
-    { _crdsrStatus = pStatus
-    , _crdsrDelegationSet = pDelegationSet
-    , _crdsrLocation = pLocation
+    { _crdsrsStatus = pStatus
+    , _crdsrsDelegationSet = pDelegationSet
+    , _crdsrsLocation = pLocation
     }
 
 -- | FIXME: Undocumented member.
-crdsrStatus :: Lens' CreateReusableDelegationSetResponse Int
-crdsrStatus = lens _crdsrStatus (\ s a -> s{_crdsrStatus = a});
+crdsrsStatus :: Lens' CreateReusableDelegationSetResponse Int
+crdsrsStatus = lens _crdsrsStatus (\ s a -> s{_crdsrsStatus = a});
 
 -- | A complex type that contains name server information.
-crdsrDelegationSet :: Lens' CreateReusableDelegationSetResponse DelegationSet
-crdsrDelegationSet = lens _crdsrDelegationSet (\ s a -> s{_crdsrDelegationSet = a});
+crdsrsDelegationSet :: Lens' CreateReusableDelegationSetResponse DelegationSet
+crdsrsDelegationSet = lens _crdsrsDelegationSet (\ s a -> s{_crdsrsDelegationSet = a});
 
 -- | The unique URL representing the new reusbale delegation set.
-crdsrLocation :: Lens' CreateReusableDelegationSetResponse Text
-crdsrLocation = lens _crdsrLocation (\ s a -> s{_crdsrLocation = a});
+crdsrsLocation :: Lens' CreateReusableDelegationSetResponse Text
+crdsrsLocation = lens _crdsrsLocation (\ s a -> s{_crdsrsLocation = a});

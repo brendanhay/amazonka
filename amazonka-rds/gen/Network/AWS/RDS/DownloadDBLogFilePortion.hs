@@ -27,20 +27,20 @@ module Network.AWS.RDS.DownloadDBLogFilePortion
     -- ** Request constructor
     , downloadDBLogFilePortion
     -- ** Request lenses
-    , ddlfpNumberOfLines
-    , ddlfpMarker
-    , ddlfpDBInstanceIdentifier
-    , ddlfpLogFileName
+    , ddlfprqNumberOfLines
+    , ddlfprqMarker
+    , ddlfprqDBInstanceIdentifier
+    , ddlfprqLogFileName
 
     -- * Response
     , DownloadDBLogFilePortionResponse
     -- ** Response constructor
     , downloadDBLogFilePortionResponse
     -- ** Response lenses
-    , ddlfprLogFileData
-    , ddlfprAdditionalDataPending
-    , ddlfprMarker
-    , ddlfprStatus
+    , ddlfprsLogFileData
+    , ddlfprsAdditionalDataPending
+    , ddlfprsMarker
+    , ddlfprsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -55,28 +55,28 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddlfpNumberOfLines'
+-- * 'ddlfprqNumberOfLines'
 --
--- * 'ddlfpMarker'
+-- * 'ddlfprqMarker'
 --
--- * 'ddlfpDBInstanceIdentifier'
+-- * 'ddlfprqDBInstanceIdentifier'
 --
--- * 'ddlfpLogFileName'
+-- * 'ddlfprqLogFileName'
 data DownloadDBLogFilePortion = DownloadDBLogFilePortion'
-    { _ddlfpNumberOfLines        :: !(Maybe Int)
-    , _ddlfpMarker               :: !(Maybe Text)
-    , _ddlfpDBInstanceIdentifier :: !Text
-    , _ddlfpLogFileName          :: !Text
+    { _ddlfprqNumberOfLines        :: !(Maybe Int)
+    , _ddlfprqMarker               :: !(Maybe Text)
+    , _ddlfprqDBInstanceIdentifier :: !Text
+    , _ddlfprqLogFileName          :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DownloadDBLogFilePortion' smart constructor.
 downloadDBLogFilePortion :: Text -> Text -> DownloadDBLogFilePortion
 downloadDBLogFilePortion pDBInstanceIdentifier pLogFileName =
     DownloadDBLogFilePortion'
-    { _ddlfpNumberOfLines = Nothing
-    , _ddlfpMarker = Nothing
-    , _ddlfpDBInstanceIdentifier = pDBInstanceIdentifier
-    , _ddlfpLogFileName = pLogFileName
+    { _ddlfprqNumberOfLines = Nothing
+    , _ddlfprqMarker = Nothing
+    , _ddlfprqDBInstanceIdentifier = pDBInstanceIdentifier
+    , _ddlfprqLogFileName = pLogFileName
     }
 
 -- | The number of lines to download.
@@ -101,14 +101,14 @@ downloadDBLogFilePortion pDBInstanceIdentifier pLogFileName =
 --     Marker value for the next request, continuing until the
 --     AdditionalDataPending response element returns false.
 --
-ddlfpNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Int)
-ddlfpNumberOfLines = lens _ddlfpNumberOfLines (\ s a -> s{_ddlfpNumberOfLines = a});
+ddlfprqNumberOfLines :: Lens' DownloadDBLogFilePortion (Maybe Int)
+ddlfprqNumberOfLines = lens _ddlfprqNumberOfLines (\ s a -> s{_ddlfprqNumberOfLines = a});
 
 -- | The pagination token provided in the previous request or \"0\". If the
 -- Marker parameter is specified the response includes only records beyond
 -- the marker until the end of the file or up to NumberOfLines.
-ddlfpMarker :: Lens' DownloadDBLogFilePortion (Maybe Text)
-ddlfpMarker = lens _ddlfpMarker (\ s a -> s{_ddlfpMarker = a});
+ddlfprqMarker :: Lens' DownloadDBLogFilePortion (Maybe Text)
+ddlfprqMarker = lens _ddlfprqMarker (\ s a -> s{_ddlfprqMarker = a});
 
 -- | The customer-assigned name of the DB instance that contains the log
 -- files you want to list.
@@ -118,19 +118,19 @@ ddlfpMarker = lens _ddlfpMarker (\ s a -> s{_ddlfpMarker = a});
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddlfpDBInstanceIdentifier :: Lens' DownloadDBLogFilePortion Text
-ddlfpDBInstanceIdentifier = lens _ddlfpDBInstanceIdentifier (\ s a -> s{_ddlfpDBInstanceIdentifier = a});
+ddlfprqDBInstanceIdentifier :: Lens' DownloadDBLogFilePortion Text
+ddlfprqDBInstanceIdentifier = lens _ddlfprqDBInstanceIdentifier (\ s a -> s{_ddlfprqDBInstanceIdentifier = a});
 
 -- | The name of the log file to be downloaded.
-ddlfpLogFileName :: Lens' DownloadDBLogFilePortion Text
-ddlfpLogFileName = lens _ddlfpLogFileName (\ s a -> s{_ddlfpLogFileName = a});
+ddlfprqLogFileName :: Lens' DownloadDBLogFilePortion Text
+ddlfprqLogFileName = lens _ddlfprqLogFileName (\ s a -> s{_ddlfprqLogFileName = a});
 
 instance AWSPager DownloadDBLogFilePortion where
         page rq rs
-          | stop (rs ^. ddlfprAdditionalDataPending) = Nothing
-          | isNothing (rs ^. ddlfprMarker) = Nothing
+          | stop (rs ^. ddlfprsAdditionalDataPending) = Nothing
+          | isNothing (rs ^. ddlfprsMarker) = Nothing
           | otherwise =
-            Just $ rq & ddlfpMarker .~ rs ^. ddlfprMarker
+            Just $ rq & ddlfprqMarker .~ rs ^. ddlfprsMarker
 
 instance AWSRequest DownloadDBLogFilePortion where
         type Sv DownloadDBLogFilePortion = RDS
@@ -158,10 +158,11 @@ instance ToQuery DownloadDBLogFilePortion where
               ["Action" =:
                  ("DownloadDBLogFilePortion" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "NumberOfLines" =: _ddlfpNumberOfLines,
-               "Marker" =: _ddlfpMarker,
-               "DBInstanceIdentifier" =: _ddlfpDBInstanceIdentifier,
-               "LogFileName" =: _ddlfpLogFileName]
+               "NumberOfLines" =: _ddlfprqNumberOfLines,
+               "Marker" =: _ddlfprqMarker,
+               "DBInstanceIdentifier" =:
+                 _ddlfprqDBInstanceIdentifier,
+               "LogFileName" =: _ddlfprqLogFileName]
 
 -- | This data type is used as a response element to
 -- DownloadDBLogFilePortion.
@@ -170,44 +171,44 @@ instance ToQuery DownloadDBLogFilePortion where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddlfprLogFileData'
+-- * 'ddlfprsLogFileData'
 --
--- * 'ddlfprAdditionalDataPending'
+-- * 'ddlfprsAdditionalDataPending'
 --
--- * 'ddlfprMarker'
+-- * 'ddlfprsMarker'
 --
--- * 'ddlfprStatus'
+-- * 'ddlfprsStatus'
 data DownloadDBLogFilePortionResponse = DownloadDBLogFilePortionResponse'
-    { _ddlfprLogFileData           :: !(Maybe Text)
-    , _ddlfprAdditionalDataPending :: !(Maybe Bool)
-    , _ddlfprMarker                :: !(Maybe Text)
-    , _ddlfprStatus                :: !Int
+    { _ddlfprsLogFileData           :: !(Maybe Text)
+    , _ddlfprsAdditionalDataPending :: !(Maybe Bool)
+    , _ddlfprsMarker                :: !(Maybe Text)
+    , _ddlfprsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DownloadDBLogFilePortionResponse' smart constructor.
 downloadDBLogFilePortionResponse :: Int -> DownloadDBLogFilePortionResponse
 downloadDBLogFilePortionResponse pStatus =
     DownloadDBLogFilePortionResponse'
-    { _ddlfprLogFileData = Nothing
-    , _ddlfprAdditionalDataPending = Nothing
-    , _ddlfprMarker = Nothing
-    , _ddlfprStatus = pStatus
+    { _ddlfprsLogFileData = Nothing
+    , _ddlfprsAdditionalDataPending = Nothing
+    , _ddlfprsMarker = Nothing
+    , _ddlfprsStatus = pStatus
     }
 
 -- | Entries from the specified log file.
-ddlfprLogFileData :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
-ddlfprLogFileData = lens _ddlfprLogFileData (\ s a -> s{_ddlfprLogFileData = a});
+ddlfprsLogFileData :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
+ddlfprsLogFileData = lens _ddlfprsLogFileData (\ s a -> s{_ddlfprsLogFileData = a});
 
 -- | Boolean value that if true, indicates there is more data to be
 -- downloaded.
-ddlfprAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse (Maybe Bool)
-ddlfprAdditionalDataPending = lens _ddlfprAdditionalDataPending (\ s a -> s{_ddlfprAdditionalDataPending = a});
+ddlfprsAdditionalDataPending :: Lens' DownloadDBLogFilePortionResponse (Maybe Bool)
+ddlfprsAdditionalDataPending = lens _ddlfprsAdditionalDataPending (\ s a -> s{_ddlfprsAdditionalDataPending = a});
 
 -- | A pagination token that can be used in a subsequent
 -- DownloadDBLogFilePortion request.
-ddlfprMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
-ddlfprMarker = lens _ddlfprMarker (\ s a -> s{_ddlfprMarker = a});
+ddlfprsMarker :: Lens' DownloadDBLogFilePortionResponse (Maybe Text)
+ddlfprsMarker = lens _ddlfprsMarker (\ s a -> s{_ddlfprsMarker = a});
 
 -- | FIXME: Undocumented member.
-ddlfprStatus :: Lens' DownloadDBLogFilePortionResponse Int
-ddlfprStatus = lens _ddlfprStatus (\ s a -> s{_ddlfprStatus = a});
+ddlfprsStatus :: Lens' DownloadDBLogFilePortionResponse Int
+ddlfprsStatus = lens _ddlfprsStatus (\ s a -> s{_ddlfprsStatus = a});

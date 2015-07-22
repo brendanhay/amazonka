@@ -33,17 +33,17 @@ module Network.AWS.Redshift.CreateSnapshotCopyGrant
     -- ** Request constructor
     , createSnapshotCopyGrant
     -- ** Request lenses
-    , cscgKMSKeyId
-    , cscgTags
-    , cscgSnapshotCopyGrantName
+    , cscgrqKMSKeyId
+    , cscgrqTags
+    , cscgrqSnapshotCopyGrantName
 
     -- * Response
     , CreateSnapshotCopyGrantResponse
     -- ** Response constructor
     , createSnapshotCopyGrantResponse
     -- ** Response lenses
-    , cscgrSnapshotCopyGrant
-    , cscgrStatus
+    , cscgrsSnapshotCopyGrant
+    , cscgrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -57,35 +57,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cscgKMSKeyId'
+-- * 'cscgrqKMSKeyId'
 --
--- * 'cscgTags'
+-- * 'cscgrqTags'
 --
--- * 'cscgSnapshotCopyGrantName'
+-- * 'cscgrqSnapshotCopyGrantName'
 data CreateSnapshotCopyGrant = CreateSnapshotCopyGrant'
-    { _cscgKMSKeyId              :: !(Maybe Text)
-    , _cscgTags                  :: !(Maybe [Tag])
-    , _cscgSnapshotCopyGrantName :: !Text
+    { _cscgrqKMSKeyId              :: !(Maybe Text)
+    , _cscgrqTags                  :: !(Maybe [Tag])
+    , _cscgrqSnapshotCopyGrantName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotCopyGrant' smart constructor.
 createSnapshotCopyGrant :: Text -> CreateSnapshotCopyGrant
 createSnapshotCopyGrant pSnapshotCopyGrantName =
     CreateSnapshotCopyGrant'
-    { _cscgKMSKeyId = Nothing
-    , _cscgTags = Nothing
-    , _cscgSnapshotCopyGrantName = pSnapshotCopyGrantName
+    { _cscgrqKMSKeyId = Nothing
+    , _cscgrqTags = Nothing
+    , _cscgrqSnapshotCopyGrantName = pSnapshotCopyGrantName
     }
 
 -- | The unique identifier of the customer master key (CMK) to which to grant
 -- Amazon Redshift permission. If no key is specified, the default key is
 -- used.
-cscgKMSKeyId :: Lens' CreateSnapshotCopyGrant (Maybe Text)
-cscgKMSKeyId = lens _cscgKMSKeyId (\ s a -> s{_cscgKMSKeyId = a});
+cscgrqKMSKeyId :: Lens' CreateSnapshotCopyGrant (Maybe Text)
+cscgrqKMSKeyId = lens _cscgrqKMSKeyId (\ s a -> s{_cscgrqKMSKeyId = a});
 
 -- | A list of tag instances.
-cscgTags :: Lens' CreateSnapshotCopyGrant [Tag]
-cscgTags = lens _cscgTags (\ s a -> s{_cscgTags = a}) . _Default;
+cscgrqTags :: Lens' CreateSnapshotCopyGrant [Tag]
+cscgrqTags = lens _cscgrqTags (\ s a -> s{_cscgrqTags = a}) . _Default;
 
 -- | The name of the snapshot copy grant. This name must be unique in the
 -- region for the AWS account.
@@ -97,8 +97,8 @@ cscgTags = lens _cscgTags (\ s a -> s{_cscgTags = a}) . _Default;
 -- -   First character must be a letter.
 -- -   Cannot end with a hyphen or contain two consecutive hyphens.
 -- -   Must be unique for all clusters within an AWS account.
-cscgSnapshotCopyGrantName :: Lens' CreateSnapshotCopyGrant Text
-cscgSnapshotCopyGrantName = lens _cscgSnapshotCopyGrantName (\ s a -> s{_cscgSnapshotCopyGrantName = a});
+cscgrqSnapshotCopyGrantName :: Lens' CreateSnapshotCopyGrant Text
+cscgrqSnapshotCopyGrantName = lens _cscgrqSnapshotCopyGrantName (\ s a -> s{_cscgrqSnapshotCopyGrantName = a});
 
 instance AWSRequest CreateSnapshotCopyGrant where
         type Sv CreateSnapshotCopyGrant = Redshift
@@ -123,35 +123,36 @@ instance ToQuery CreateSnapshotCopyGrant where
               ["Action" =:
                  ("CreateSnapshotCopyGrant" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "KmsKeyId" =: _cscgKMSKeyId,
-               "Tags" =: toQuery (toQueryList "Tag" <$> _cscgTags),
+               "KmsKeyId" =: _cscgrqKMSKeyId,
+               "Tags" =:
+                 toQuery (toQueryList "Tag" <$> _cscgrqTags),
                "SnapshotCopyGrantName" =:
-                 _cscgSnapshotCopyGrantName]
+                 _cscgrqSnapshotCopyGrantName]
 
 -- | /See:/ 'createSnapshotCopyGrantResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cscgrSnapshotCopyGrant'
+-- * 'cscgrsSnapshotCopyGrant'
 --
--- * 'cscgrStatus'
+-- * 'cscgrsStatus'
 data CreateSnapshotCopyGrantResponse = CreateSnapshotCopyGrantResponse'
-    { _cscgrSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
-    , _cscgrStatus            :: !Int
+    { _cscgrsSnapshotCopyGrant :: !(Maybe SnapshotCopyGrant)
+    , _cscgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateSnapshotCopyGrantResponse' smart constructor.
 createSnapshotCopyGrantResponse :: Int -> CreateSnapshotCopyGrantResponse
 createSnapshotCopyGrantResponse pStatus =
     CreateSnapshotCopyGrantResponse'
-    { _cscgrSnapshotCopyGrant = Nothing
-    , _cscgrStatus = pStatus
+    { _cscgrsSnapshotCopyGrant = Nothing
+    , _cscgrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cscgrSnapshotCopyGrant :: Lens' CreateSnapshotCopyGrantResponse (Maybe SnapshotCopyGrant)
-cscgrSnapshotCopyGrant = lens _cscgrSnapshotCopyGrant (\ s a -> s{_cscgrSnapshotCopyGrant = a});
+cscgrsSnapshotCopyGrant :: Lens' CreateSnapshotCopyGrantResponse (Maybe SnapshotCopyGrant)
+cscgrsSnapshotCopyGrant = lens _cscgrsSnapshotCopyGrant (\ s a -> s{_cscgrsSnapshotCopyGrant = a});
 
 -- | FIXME: Undocumented member.
-cscgrStatus :: Lens' CreateSnapshotCopyGrantResponse Int
-cscgrStatus = lens _cscgrStatus (\ s a -> s{_cscgrStatus = a});
+cscgrsStatus :: Lens' CreateSnapshotCopyGrantResponse Int
+cscgrsStatus = lens _cscgrsStatus (\ s a -> s{_cscgrsStatus = a});

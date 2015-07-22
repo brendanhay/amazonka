@@ -42,15 +42,15 @@ module Network.AWS.StorageGateway.UpdateGatewaySoftwareNow
     -- ** Request constructor
     , updateGatewaySoftwareNow
     -- ** Request lenses
-    , ugsnGatewayARN
+    , ugsnrqGatewayARN
 
     -- * Response
     , UpdateGatewaySoftwareNowResponse
     -- ** Response constructor
     , updateGatewaySoftwareNowResponse
     -- ** Response lenses
-    , ugsnrGatewayARN
-    , ugsnrStatus
+    , ugsnrsGatewayARN
+    , ugsnrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -64,21 +64,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ugsnGatewayARN'
+-- * 'ugsnrqGatewayARN'
 newtype UpdateGatewaySoftwareNow = UpdateGatewaySoftwareNow'
-    { _ugsnGatewayARN :: Text
+    { _ugsnrqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGatewaySoftwareNow' smart constructor.
 updateGatewaySoftwareNow :: Text -> UpdateGatewaySoftwareNow
 updateGatewaySoftwareNow pGatewayARN =
     UpdateGatewaySoftwareNow'
-    { _ugsnGatewayARN = pGatewayARN
+    { _ugsnrqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-ugsnGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
-ugsnGatewayARN = lens _ugsnGatewayARN (\ s a -> s{_ugsnGatewayARN = a});
+ugsnrqGatewayARN :: Lens' UpdateGatewaySoftwareNow Text
+ugsnrqGatewayARN = lens _ugsnrqGatewayARN (\ s a -> s{_ugsnrqGatewayARN = a});
 
 instance AWSRequest UpdateGatewaySoftwareNow where
         type Sv UpdateGatewaySoftwareNow = StorageGateway
@@ -103,7 +103,7 @@ instance ToHeaders UpdateGatewaySoftwareNow where
 
 instance ToJSON UpdateGatewaySoftwareNow where
         toJSON UpdateGatewaySoftwareNow'{..}
-          = object ["GatewayARN" .= _ugsnGatewayARN]
+          = object ["GatewayARN" .= _ugsnrqGatewayARN]
 
 instance ToPath UpdateGatewaySoftwareNow where
         toPath = const "/"
@@ -117,26 +117,26 @@ instance ToQuery UpdateGatewaySoftwareNow where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ugsnrGatewayARN'
+-- * 'ugsnrsGatewayARN'
 --
--- * 'ugsnrStatus'
+-- * 'ugsnrsStatus'
 data UpdateGatewaySoftwareNowResponse = UpdateGatewaySoftwareNowResponse'
-    { _ugsnrGatewayARN :: !(Maybe Text)
-    , _ugsnrStatus     :: !Int
+    { _ugsnrsGatewayARN :: !(Maybe Text)
+    , _ugsnrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateGatewaySoftwareNowResponse' smart constructor.
 updateGatewaySoftwareNowResponse :: Int -> UpdateGatewaySoftwareNowResponse
 updateGatewaySoftwareNowResponse pStatus =
     UpdateGatewaySoftwareNowResponse'
-    { _ugsnrGatewayARN = Nothing
-    , _ugsnrStatus = pStatus
+    { _ugsnrsGatewayARN = Nothing
+    , _ugsnrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ugsnrGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
-ugsnrGatewayARN = lens _ugsnrGatewayARN (\ s a -> s{_ugsnrGatewayARN = a});
+ugsnrsGatewayARN :: Lens' UpdateGatewaySoftwareNowResponse (Maybe Text)
+ugsnrsGatewayARN = lens _ugsnrsGatewayARN (\ s a -> s{_ugsnrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-ugsnrStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
-ugsnrStatus = lens _ugsnrStatus (\ s a -> s{_ugsnrStatus = a});
+ugsnrsStatus :: Lens' UpdateGatewaySoftwareNowResponse Int
+ugsnrsStatus = lens _ugsnrsStatus (\ s a -> s{_ugsnrsStatus = a});

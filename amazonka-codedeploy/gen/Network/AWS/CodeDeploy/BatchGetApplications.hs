@@ -27,15 +27,15 @@ module Network.AWS.CodeDeploy.BatchGetApplications
     -- ** Request constructor
     , batchGetApplications
     -- ** Request lenses
-    , bgaApplicationNames
+    , bgarqApplicationNames
 
     -- * Response
     , BatchGetApplicationsResponse
     -- ** Response constructor
     , batchGetApplicationsResponse
     -- ** Response lenses
-    , bgarApplicationsInfo
-    , bgarStatus
+    , bgarsApplicationsInfo
+    , bgarsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgaApplicationNames'
+-- * 'bgarqApplicationNames'
 newtype BatchGetApplications = BatchGetApplications'
-    { _bgaApplicationNames :: Maybe [Text]
+    { _bgarqApplicationNames :: Maybe [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetApplications' smart constructor.
 batchGetApplications :: BatchGetApplications
 batchGetApplications =
     BatchGetApplications'
-    { _bgaApplicationNames = Nothing
+    { _bgarqApplicationNames = Nothing
     }
 
 -- | A list of application names, with multiple application names separated
 -- by spaces.
-bgaApplicationNames :: Lens' BatchGetApplications [Text]
-bgaApplicationNames = lens _bgaApplicationNames (\ s a -> s{_bgaApplicationNames = a}) . _Default;
+bgarqApplicationNames :: Lens' BatchGetApplications [Text]
+bgarqApplicationNames = lens _bgarqApplicationNames (\ s a -> s{_bgarqApplicationNames = a}) . _Default;
 
 instance AWSRequest BatchGetApplications where
         type Sv BatchGetApplications = CodeDeploy
@@ -90,7 +90,8 @@ instance ToHeaders BatchGetApplications where
 
 instance ToJSON BatchGetApplications where
         toJSON BatchGetApplications'{..}
-          = object ["applicationNames" .= _bgaApplicationNames]
+          = object
+              ["applicationNames" .= _bgarqApplicationNames]
 
 instance ToPath BatchGetApplications where
         toPath = const "/"
@@ -104,26 +105,26 @@ instance ToQuery BatchGetApplications where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'bgarApplicationsInfo'
+-- * 'bgarsApplicationsInfo'
 --
--- * 'bgarStatus'
+-- * 'bgarsStatus'
 data BatchGetApplicationsResponse = BatchGetApplicationsResponse'
-    { _bgarApplicationsInfo :: !(Maybe [ApplicationInfo])
-    , _bgarStatus           :: !Int
+    { _bgarsApplicationsInfo :: !(Maybe [ApplicationInfo])
+    , _bgarsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'BatchGetApplicationsResponse' smart constructor.
 batchGetApplicationsResponse :: Int -> BatchGetApplicationsResponse
 batchGetApplicationsResponse pStatus =
     BatchGetApplicationsResponse'
-    { _bgarApplicationsInfo = Nothing
-    , _bgarStatus = pStatus
+    { _bgarsApplicationsInfo = Nothing
+    , _bgarsStatus = pStatus
     }
 
 -- | Information about the applications.
-bgarApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
-bgarApplicationsInfo = lens _bgarApplicationsInfo (\ s a -> s{_bgarApplicationsInfo = a}) . _Default;
+bgarsApplicationsInfo :: Lens' BatchGetApplicationsResponse [ApplicationInfo]
+bgarsApplicationsInfo = lens _bgarsApplicationsInfo (\ s a -> s{_bgarsApplicationsInfo = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-bgarStatus :: Lens' BatchGetApplicationsResponse Int
-bgarStatus = lens _bgarStatus (\ s a -> s{_bgarStatus = a});
+bgarsStatus :: Lens' BatchGetApplicationsResponse Int
+bgarsStatus = lens _bgarsStatus (\ s a -> s{_bgarsStatus = a});

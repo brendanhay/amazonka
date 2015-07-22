@@ -57,8 +57,8 @@ module Network.AWS.SWF.DeprecateWorkflowType
     -- ** Request constructor
     , deprecateWorkflowType
     -- ** Request lenses
-    , depDomain
-    , depWorkflowType
+    , drqDomain
+    , drqWorkflowType
 
     -- * Response
     , DeprecateWorkflowTypeResponse
@@ -75,29 +75,29 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'depDomain'
+-- * 'drqDomain'
 --
--- * 'depWorkflowType'
+-- * 'drqWorkflowType'
 data DeprecateWorkflowType = DeprecateWorkflowType'
-    { _depDomain       :: !Text
-    , _depWorkflowType :: !WorkflowType
+    { _drqDomain       :: !Text
+    , _drqWorkflowType :: !WorkflowType
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeprecateWorkflowType' smart constructor.
 deprecateWorkflowType :: Text -> WorkflowType -> DeprecateWorkflowType
 deprecateWorkflowType pDomain pWorkflowType =
     DeprecateWorkflowType'
-    { _depDomain = pDomain
-    , _depWorkflowType = pWorkflowType
+    { _drqDomain = pDomain
+    , _drqWorkflowType = pWorkflowType
     }
 
 -- | The name of the domain in which the workflow type is registered.
-depDomain :: Lens' DeprecateWorkflowType Text
-depDomain = lens _depDomain (\ s a -> s{_depDomain = a});
+drqDomain :: Lens' DeprecateWorkflowType Text
+drqDomain = lens _drqDomain (\ s a -> s{_drqDomain = a});
 
 -- | The workflow type to deprecate.
-depWorkflowType :: Lens' DeprecateWorkflowType WorkflowType
-depWorkflowType = lens _depWorkflowType (\ s a -> s{_depWorkflowType = a});
+drqWorkflowType :: Lens' DeprecateWorkflowType WorkflowType
+drqWorkflowType = lens _drqWorkflowType (\ s a -> s{_drqWorkflowType = a});
 
 instance AWSRequest DeprecateWorkflowType where
         type Sv DeprecateWorkflowType = SWF
@@ -119,8 +119,8 @@ instance ToHeaders DeprecateWorkflowType where
 instance ToJSON DeprecateWorkflowType where
         toJSON DeprecateWorkflowType'{..}
           = object
-              ["domain" .= _depDomain,
-               "workflowType" .= _depWorkflowType]
+              ["domain" .= _drqDomain,
+               "workflowType" .= _drqWorkflowType]
 
 instance ToPath DeprecateWorkflowType where
         toPath = const "/"

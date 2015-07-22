@@ -32,9 +32,9 @@ module Network.AWS.EC2.DeleteSecurityGroup
     -- ** Request constructor
     , deleteSecurityGroup
     -- ** Request lenses
-    , dsgGroupId
-    , dsgGroupName
-    , dsgDryRun
+    , dsgrqGroupId
+    , dsgrqGroupName
+    , dsgrqDryRun
 
     -- * Response
     , DeleteSecurityGroupResponse
@@ -51,41 +51,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsgGroupId'
+-- * 'dsgrqGroupId'
 --
--- * 'dsgGroupName'
+-- * 'dsgrqGroupName'
 --
--- * 'dsgDryRun'
+-- * 'dsgrqDryRun'
 data DeleteSecurityGroup = DeleteSecurityGroup'
-    { _dsgGroupId   :: !(Maybe Text)
-    , _dsgGroupName :: !(Maybe Text)
-    , _dsgDryRun    :: !(Maybe Bool)
+    { _dsgrqGroupId   :: !(Maybe Text)
+    , _dsgrqGroupName :: !(Maybe Text)
+    , _dsgrqDryRun    :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteSecurityGroup' smart constructor.
 deleteSecurityGroup :: DeleteSecurityGroup
 deleteSecurityGroup =
     DeleteSecurityGroup'
-    { _dsgGroupId = Nothing
-    , _dsgGroupName = Nothing
-    , _dsgDryRun = Nothing
+    { _dsgrqGroupId = Nothing
+    , _dsgrqGroupName = Nothing
+    , _dsgrqDryRun = Nothing
     }
 
 -- | The ID of the security group. Required for a nondefault VPC.
-dsgGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgGroupId = lens _dsgGroupId (\ s a -> s{_dsgGroupId = a});
+dsgrqGroupId :: Lens' DeleteSecurityGroup (Maybe Text)
+dsgrqGroupId = lens _dsgrqGroupId (\ s a -> s{_dsgrqGroupId = a});
 
 -- | [EC2-Classic, default VPC] The name of the security group. You can
 -- specify either the security group name or the security group ID.
-dsgGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
-dsgGroupName = lens _dsgGroupName (\ s a -> s{_dsgGroupName = a});
+dsgrqGroupName :: Lens' DeleteSecurityGroup (Maybe Text)
+dsgrqGroupName = lens _dsgrqGroupName (\ s a -> s{_dsgrqGroupName = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsgDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
-dsgDryRun = lens _dsgDryRun (\ s a -> s{_dsgDryRun = a});
+dsgrqDryRun :: Lens' DeleteSecurityGroup (Maybe Bool)
+dsgrqDryRun = lens _dsgrqDryRun (\ s a -> s{_dsgrqDryRun = a});
 
 instance AWSRequest DeleteSecurityGroup where
         type Sv DeleteSecurityGroup = EC2
@@ -105,8 +105,9 @@ instance ToQuery DeleteSecurityGroup where
           = mconcat
               ["Action" =: ("DeleteSecurityGroup" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "GroupId" =: _dsgGroupId,
-               "GroupName" =: _dsgGroupName, "DryRun" =: _dsgDryRun]
+               "GroupId" =: _dsgrqGroupId,
+               "GroupName" =: _dsgrqGroupName,
+               "DryRun" =: _dsgrqDryRun]
 
 -- | /See:/ 'deleteSecurityGroupResponse' smart constructor.
 data DeleteSecurityGroupResponse =

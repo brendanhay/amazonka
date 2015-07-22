@@ -28,16 +28,16 @@ module Network.AWS.SSM.DescribeAssociation
     -- ** Request constructor
     , describeAssociation
     -- ** Request lenses
-    , daName
-    , daInstanceId
+    , darqName
+    , darqInstanceId
 
     -- * Response
     , DescribeAssociationResponse
     -- ** Response constructor
     , describeAssociationResponse
     -- ** Response lenses
-    , darAssociationDescription
-    , darStatus
+    , darsAssociationDescription
+    , darsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -49,29 +49,29 @@ import           Network.AWS.SSM.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'daName'
+-- * 'darqName'
 --
--- * 'daInstanceId'
+-- * 'darqInstanceId'
 data DescribeAssociation = DescribeAssociation'
-    { _daName       :: !Text
-    , _daInstanceId :: !Text
+    { _darqName       :: !Text
+    , _darqInstanceId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAssociation' smart constructor.
 describeAssociation :: Text -> Text -> DescribeAssociation
 describeAssociation pName pInstanceId =
     DescribeAssociation'
-    { _daName = pName
-    , _daInstanceId = pInstanceId
+    { _darqName = pName
+    , _darqInstanceId = pInstanceId
     }
 
 -- | The name of the configuration document.
-daName :: Lens' DescribeAssociation Text
-daName = lens _daName (\ s a -> s{_daName = a});
+darqName :: Lens' DescribeAssociation Text
+darqName = lens _darqName (\ s a -> s{_darqName = a});
 
 -- | The ID of the instance.
-daInstanceId :: Lens' DescribeAssociation Text
-daInstanceId = lens _daInstanceId (\ s a -> s{_daInstanceId = a});
+darqInstanceId :: Lens' DescribeAssociation Text
+darqInstanceId = lens _darqInstanceId (\ s a -> s{_darqInstanceId = a});
 
 instance AWSRequest DescribeAssociation where
         type Sv DescribeAssociation = SSM
@@ -97,7 +97,8 @@ instance ToHeaders DescribeAssociation where
 instance ToJSON DescribeAssociation where
         toJSON DescribeAssociation'{..}
           = object
-              ["Name" .= _daName, "InstanceId" .= _daInstanceId]
+              ["Name" .= _darqName,
+               "InstanceId" .= _darqInstanceId]
 
 instance ToPath DescribeAssociation where
         toPath = const "/"
@@ -109,26 +110,26 @@ instance ToQuery DescribeAssociation where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'darAssociationDescription'
+-- * 'darsAssociationDescription'
 --
--- * 'darStatus'
+-- * 'darsStatus'
 data DescribeAssociationResponse = DescribeAssociationResponse'
-    { _darAssociationDescription :: !(Maybe AssociationDescription)
-    , _darStatus                 :: !Int
+    { _darsAssociationDescription :: !(Maybe AssociationDescription)
+    , _darsStatus                 :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeAssociationResponse' smart constructor.
 describeAssociationResponse :: Int -> DescribeAssociationResponse
 describeAssociationResponse pStatus =
     DescribeAssociationResponse'
-    { _darAssociationDescription = Nothing
-    , _darStatus = pStatus
+    { _darsAssociationDescription = Nothing
+    , _darsStatus = pStatus
     }
 
 -- | Information about the association.
-darAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
-darAssociationDescription = lens _darAssociationDescription (\ s a -> s{_darAssociationDescription = a});
+darsAssociationDescription :: Lens' DescribeAssociationResponse (Maybe AssociationDescription)
+darsAssociationDescription = lens _darsAssociationDescription (\ s a -> s{_darsAssociationDescription = a});
 
 -- | FIXME: Undocumented member.
-darStatus :: Lens' DescribeAssociationResponse Int
-darStatus = lens _darStatus (\ s a -> s{_darStatus = a});
+darsStatus :: Lens' DescribeAssociationResponse Int
+darsStatus = lens _darsStatus (\ s a -> s{_darsStatus = a});

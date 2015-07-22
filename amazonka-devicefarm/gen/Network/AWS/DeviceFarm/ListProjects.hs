@@ -27,17 +27,17 @@ module Network.AWS.DeviceFarm.ListProjects
     -- ** Request constructor
     , listProjects
     -- ** Request lenses
-    , lpArn
-    , lpNextToken
+    , lprqArn
+    , lprqNextToken
 
     -- * Response
     , ListProjectsResponse
     -- ** Response constructor
     , listProjectsResponse
     -- ** Response lenses
-    , lprNextToken
-    , lprProjects
-    , lprStatus
+    , lprsNextToken
+    , lprsProjects
+    , lprsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -51,31 +51,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpArn'
+-- * 'lprqArn'
 --
--- * 'lpNextToken'
+-- * 'lprqNextToken'
 data ListProjects = ListProjects'
-    { _lpArn       :: !(Maybe Text)
-    , _lpNextToken :: !(Maybe Text)
+    { _lprqArn       :: !(Maybe Text)
+    , _lprqNextToken :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListProjects' smart constructor.
 listProjects :: ListProjects
 listProjects =
     ListProjects'
-    { _lpArn = Nothing
-    , _lpNextToken = Nothing
+    { _lprqArn = Nothing
+    , _lprqNextToken = Nothing
     }
 
 -- | The projects\' ARNs.
-lpArn :: Lens' ListProjects (Maybe Text)
-lpArn = lens _lpArn (\ s a -> s{_lpArn = a});
+lprqArn :: Lens' ListProjects (Maybe Text)
+lprqArn = lens _lprqArn (\ s a -> s{_lprqArn = a});
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-lpNextToken :: Lens' ListProjects (Maybe Text)
-lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
+lprqNextToken :: Lens' ListProjects (Maybe Text)
+lprqNextToken = lens _lprqNextToken (\ s a -> s{_lprqNextToken = a});
 
 instance AWSRequest ListProjects where
         type Sv ListProjects = DeviceFarm
@@ -100,7 +100,7 @@ instance ToHeaders ListProjects where
 instance ToJSON ListProjects where
         toJSON ListProjects'{..}
           = object
-              ["arn" .= _lpArn, "nextToken" .= _lpNextToken]
+              ["arn" .= _lprqArn, "nextToken" .= _lprqNextToken]
 
 instance ToPath ListProjects where
         toPath = const "/"
@@ -114,36 +114,36 @@ instance ToQuery ListProjects where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprNextToken'
+-- * 'lprsNextToken'
 --
--- * 'lprProjects'
+-- * 'lprsProjects'
 --
--- * 'lprStatus'
+-- * 'lprsStatus'
 data ListProjectsResponse = ListProjectsResponse'
-    { _lprNextToken :: !(Maybe Text)
-    , _lprProjects  :: !(Maybe [Project])
-    , _lprStatus    :: !Int
+    { _lprsNextToken :: !(Maybe Text)
+    , _lprsProjects  :: !(Maybe [Project])
+    , _lprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListProjectsResponse' smart constructor.
 listProjectsResponse :: Int -> ListProjectsResponse
 listProjectsResponse pStatus =
     ListProjectsResponse'
-    { _lprNextToken = Nothing
-    , _lprProjects = Nothing
-    , _lprStatus = pStatus
+    { _lprsNextToken = Nothing
+    , _lprsProjects = Nothing
+    , _lprsStatus = pStatus
     }
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-lprNextToken :: Lens' ListProjectsResponse (Maybe Text)
-lprNextToken = lens _lprNextToken (\ s a -> s{_lprNextToken = a});
+lprsNextToken :: Lens' ListProjectsResponse (Maybe Text)
+lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 
 -- | Information about the projects.
-lprProjects :: Lens' ListProjectsResponse [Project]
-lprProjects = lens _lprProjects (\ s a -> s{_lprProjects = a}) . _Default;
+lprsProjects :: Lens' ListProjectsResponse [Project]
+lprsProjects = lens _lprsProjects (\ s a -> s{_lprsProjects = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListProjectsResponse Int
-lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});
+lprsStatus :: Lens' ListProjectsResponse Int
+lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

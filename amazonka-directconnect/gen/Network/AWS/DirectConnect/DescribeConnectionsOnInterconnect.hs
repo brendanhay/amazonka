@@ -28,14 +28,14 @@ module Network.AWS.DirectConnect.DescribeConnectionsOnInterconnect
     -- ** Request constructor
     , describeConnectionsOnInterconnect
     -- ** Request lenses
-    , dcoiInterconnectId
+    , dcoirqInterconnectId
 
     -- * Response
     , Connections
     -- ** Response constructor
     , connections
     -- ** Response lenses
-    , conConnections
+    , dcoirsConnections
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -50,16 +50,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dcoiInterconnectId'
+-- * 'dcoirqInterconnectId'
 newtype DescribeConnectionsOnInterconnect = DescribeConnectionsOnInterconnect'
-    { _dcoiInterconnectId :: Text
+    { _dcoirqInterconnectId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeConnectionsOnInterconnect' smart constructor.
 describeConnectionsOnInterconnect :: Text -> DescribeConnectionsOnInterconnect
 describeConnectionsOnInterconnect pInterconnectId =
     DescribeConnectionsOnInterconnect'
-    { _dcoiInterconnectId = pInterconnectId
+    { _dcoirqInterconnectId = pInterconnectId
     }
 
 -- | ID of the interconnect on which a list of connection is provisioned.
@@ -67,8 +67,8 @@ describeConnectionsOnInterconnect pInterconnectId =
 -- Example: dxcon-abc123
 --
 -- Default: None
-dcoiInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
-dcoiInterconnectId = lens _dcoiInterconnectId (\ s a -> s{_dcoiInterconnectId = a});
+dcoirqInterconnectId :: Lens' DescribeConnectionsOnInterconnect Text
+dcoirqInterconnectId = lens _dcoirqInterconnectId (\ s a -> s{_dcoirqInterconnectId = a});
 
 instance AWSRequest DescribeConnectionsOnInterconnect
          where
@@ -93,7 +93,7 @@ instance ToHeaders DescribeConnectionsOnInterconnect
 instance ToJSON DescribeConnectionsOnInterconnect
          where
         toJSON DescribeConnectionsOnInterconnect'{..}
-          = object ["interconnectId" .= _dcoiInterconnectId]
+          = object ["interconnectId" .= _dcoirqInterconnectId]
 
 instance ToPath DescribeConnectionsOnInterconnect
          where

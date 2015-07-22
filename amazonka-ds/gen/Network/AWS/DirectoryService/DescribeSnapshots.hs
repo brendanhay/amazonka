@@ -36,19 +36,19 @@ module Network.AWS.DirectoryService.DescribeSnapshots
     -- ** Request constructor
     , describeSnapshots
     -- ** Request lenses
-    , dsDirectoryId
-    , dsNextToken
-    , dsSnapshotIds
-    , dsLimit
+    , dsrqDirectoryId
+    , dsrqNextToken
+    , dsrqSnapshotIds
+    , dsrqLimit
 
     -- * Response
     , DescribeSnapshotsResponse
     -- ** Response constructor
     , describeSnapshotsResponse
     -- ** Response lenses
-    , desNextToken
-    , desSnapshots
-    , desStatus
+    , dsrsNextToken
+    , dsrsSnapshots
+    , dsrsStatus
     ) where
 
 import           Network.AWS.DirectoryService.Types
@@ -62,48 +62,48 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsDirectoryId'
+-- * 'dsrqDirectoryId'
 --
--- * 'dsNextToken'
+-- * 'dsrqNextToken'
 --
--- * 'dsSnapshotIds'
+-- * 'dsrqSnapshotIds'
 --
--- * 'dsLimit'
+-- * 'dsrqLimit'
 data DescribeSnapshots = DescribeSnapshots'
-    { _dsDirectoryId :: !(Maybe Text)
-    , _dsNextToken   :: !(Maybe Text)
-    , _dsSnapshotIds :: !(Maybe [Text])
-    , _dsLimit       :: !(Maybe Nat)
+    { _dsrqDirectoryId :: !(Maybe Text)
+    , _dsrqNextToken   :: !(Maybe Text)
+    , _dsrqSnapshotIds :: !(Maybe [Text])
+    , _dsrqLimit       :: !(Maybe Nat)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
 describeSnapshots =
     DescribeSnapshots'
-    { _dsDirectoryId = Nothing
-    , _dsNextToken = Nothing
-    , _dsSnapshotIds = Nothing
-    , _dsLimit = Nothing
+    { _dsrqDirectoryId = Nothing
+    , _dsrqNextToken = Nothing
+    , _dsrqSnapshotIds = Nothing
+    , _dsrqLimit = Nothing
     }
 
 -- | The identifier of the directory to retrieve snapshot information for.
-dsDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
-dsDirectoryId = lens _dsDirectoryId (\ s a -> s{_dsDirectoryId = a});
+dsrqDirectoryId :: Lens' DescribeSnapshots (Maybe Text)
+dsrqDirectoryId = lens _dsrqDirectoryId (\ s a -> s{_dsrqDirectoryId = a});
 
 -- | The /DescribeSnapshotsResult.NextToken/ value from a previous call to
 -- DescribeSnapshots. Pass null if this is the first call.
-dsNextToken :: Lens' DescribeSnapshots (Maybe Text)
-dsNextToken = lens _dsNextToken (\ s a -> s{_dsNextToken = a});
+dsrqNextToken :: Lens' DescribeSnapshots (Maybe Text)
+dsrqNextToken = lens _dsrqNextToken (\ s a -> s{_dsrqNextToken = a});
 
 -- | A list of identifiers of the snapshots to obtain the information for. If
 -- this member is null or empty, all snapshots are returned using the
 -- /Limit/ and /NextToken/ members.
-dsSnapshotIds :: Lens' DescribeSnapshots [Text]
-dsSnapshotIds = lens _dsSnapshotIds (\ s a -> s{_dsSnapshotIds = a}) . _Default;
+dsrqSnapshotIds :: Lens' DescribeSnapshots [Text]
+dsrqSnapshotIds = lens _dsrqSnapshotIds (\ s a -> s{_dsrqSnapshotIds = a}) . _Default;
 
 -- | The maximum number of objects to return.
-dsLimit :: Lens' DescribeSnapshots (Maybe Natural)
-dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat;
+dsrqLimit :: Lens' DescribeSnapshots (Maybe Natural)
+dsrqLimit = lens _dsrqLimit (\ s a -> s{_dsrqLimit = a}) . mapping _Nat;
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = DirectoryService
@@ -130,9 +130,10 @@ instance ToHeaders DescribeSnapshots where
 instance ToJSON DescribeSnapshots where
         toJSON DescribeSnapshots'{..}
           = object
-              ["DirectoryId" .= _dsDirectoryId,
-               "NextToken" .= _dsNextToken,
-               "SnapshotIds" .= _dsSnapshotIds, "Limit" .= _dsLimit]
+              ["DirectoryId" .= _dsrqDirectoryId,
+               "NextToken" .= _dsrqNextToken,
+               "SnapshotIds" .= _dsrqSnapshotIds,
+               "Limit" .= _dsrqLimit]
 
 instance ToPath DescribeSnapshots where
         toPath = const "/"
@@ -146,30 +147,30 @@ instance ToQuery DescribeSnapshots where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desNextToken'
+-- * 'dsrsNextToken'
 --
--- * 'desSnapshots'
+-- * 'dsrsSnapshots'
 --
--- * 'desStatus'
+-- * 'dsrsStatus'
 data DescribeSnapshotsResponse = DescribeSnapshotsResponse'
-    { _desNextToken :: !(Maybe Text)
-    , _desSnapshots :: !(Maybe [Snapshot])
-    , _desStatus    :: !Int
+    { _dsrsNextToken :: !(Maybe Text)
+    , _dsrsSnapshots :: !(Maybe [Snapshot])
+    , _dsrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotsResponse' smart constructor.
 describeSnapshotsResponse :: Int -> DescribeSnapshotsResponse
 describeSnapshotsResponse pStatus =
     DescribeSnapshotsResponse'
-    { _desNextToken = Nothing
-    , _desSnapshots = Nothing
-    , _desStatus = pStatus
+    { _dsrsNextToken = Nothing
+    , _dsrsSnapshots = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | If not null, more results are available. Pass this value in the
 -- /NextToken/ member of a subsequent call to DescribeSnapshots.
-desNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
-desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
+dsrsNextToken :: Lens' DescribeSnapshotsResponse (Maybe Text)
+dsrsNextToken = lens _dsrsNextToken (\ s a -> s{_dsrsNextToken = a});
 
 -- | The list of Snapshot objects that were retrieved.
 --
@@ -177,9 +178,9 @@ desNextToken = lens _desNextToken (\ s a -> s{_desNextToken = a});
 -- specified in the /Limit/ member of the request. This occurs if there are
 -- less than the requested number of items left to retrieve, or if the
 -- limitations of the operation have been exceeded.
-desSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
-desSnapshots = lens _desSnapshots (\ s a -> s{_desSnapshots = a}) . _Default;
+dsrsSnapshots :: Lens' DescribeSnapshotsResponse [Snapshot]
+dsrsSnapshots = lens _dsrsSnapshots (\ s a -> s{_dsrsSnapshots = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeSnapshotsResponse Int
-desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+dsrsStatus :: Lens' DescribeSnapshotsResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

@@ -31,17 +31,17 @@ module Network.AWS.IAM.GetSAMLProvider
     -- ** Request constructor
     , getSAMLProvider
     -- ** Request lenses
-    , gsamlpSAMLProviderARN
+    , gsamlprqSAMLProviderARN
 
     -- * Response
     , GetSAMLProviderResponse
     -- ** Response constructor
     , getSAMLProviderResponse
     -- ** Response lenses
-    , gsamlprCreateDate
-    , gsamlprValidUntil
-    , gsamlprSAMLMetadataDocument
-    , gsamlprStatus
+    , gsamlprsCreateDate
+    , gsamlprsValidUntil
+    , gsamlprsSAMLMetadataDocument
+    , gsamlprsStatus
     ) where
 
 import           Network.AWS.IAM.Types
@@ -53,22 +53,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsamlpSAMLProviderARN'
+-- * 'gsamlprqSAMLProviderARN'
 newtype GetSAMLProvider = GetSAMLProvider'
-    { _gsamlpSAMLProviderARN :: Text
+    { _gsamlprqSAMLProviderARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSAMLProvider' smart constructor.
 getSAMLProvider :: Text -> GetSAMLProvider
 getSAMLProvider pSAMLProviderARN =
     GetSAMLProvider'
-    { _gsamlpSAMLProviderARN = pSAMLProviderARN
+    { _gsamlprqSAMLProviderARN = pSAMLProviderARN
     }
 
 -- | The Amazon Resource Name (ARN) of the SAML provider to get information
 -- about.
-gsamlpSAMLProviderARN :: Lens' GetSAMLProvider Text
-gsamlpSAMLProviderARN = lens _gsamlpSAMLProviderARN (\ s a -> s{_gsamlpSAMLProviderARN = a});
+gsamlprqSAMLProviderARN :: Lens' GetSAMLProvider Text
+gsamlprqSAMLProviderARN = lens _gsamlprqSAMLProviderARN (\ s a -> s{_gsamlprqSAMLProviderARN = a});
 
 instance AWSRequest GetSAMLProvider where
         type Sv GetSAMLProvider = IAM
@@ -93,7 +93,7 @@ instance ToQuery GetSAMLProvider where
           = mconcat
               ["Action" =: ("GetSAMLProvider" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "SAMLProviderArn" =: _gsamlpSAMLProviderARN]
+               "SAMLProviderArn" =: _gsamlprqSAMLProviderARN]
 
 -- | Contains the response to a successful GetSAMLProvider request.
 --
@@ -101,43 +101,43 @@ instance ToQuery GetSAMLProvider where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsamlprCreateDate'
+-- * 'gsamlprsCreateDate'
 --
--- * 'gsamlprValidUntil'
+-- * 'gsamlprsValidUntil'
 --
--- * 'gsamlprSAMLMetadataDocument'
+-- * 'gsamlprsSAMLMetadataDocument'
 --
--- * 'gsamlprStatus'
+-- * 'gsamlprsStatus'
 data GetSAMLProviderResponse = GetSAMLProviderResponse'
-    { _gsamlprCreateDate           :: !(Maybe ISO8601)
-    , _gsamlprValidUntil           :: !(Maybe ISO8601)
-    , _gsamlprSAMLMetadataDocument :: !(Maybe Text)
-    , _gsamlprStatus               :: !Int
+    { _gsamlprsCreateDate           :: !(Maybe ISO8601)
+    , _gsamlprsValidUntil           :: !(Maybe ISO8601)
+    , _gsamlprsSAMLMetadataDocument :: !(Maybe Text)
+    , _gsamlprsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSAMLProviderResponse' smart constructor.
 getSAMLProviderResponse :: Int -> GetSAMLProviderResponse
 getSAMLProviderResponse pStatus =
     GetSAMLProviderResponse'
-    { _gsamlprCreateDate = Nothing
-    , _gsamlprValidUntil = Nothing
-    , _gsamlprSAMLMetadataDocument = Nothing
-    , _gsamlprStatus = pStatus
+    { _gsamlprsCreateDate = Nothing
+    , _gsamlprsValidUntil = Nothing
+    , _gsamlprsSAMLMetadataDocument = Nothing
+    , _gsamlprsStatus = pStatus
     }
 
 -- | The date and time when the SAML provider was created.
-gsamlprCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
-gsamlprCreateDate = lens _gsamlprCreateDate (\ s a -> s{_gsamlprCreateDate = a}) . mapping _Time;
+gsamlprsCreateDate :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
+gsamlprsCreateDate = lens _gsamlprsCreateDate (\ s a -> s{_gsamlprsCreateDate = a}) . mapping _Time;
 
 -- | The expiration date and time for the SAML provider.
-gsamlprValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
-gsamlprValidUntil = lens _gsamlprValidUntil (\ s a -> s{_gsamlprValidUntil = a}) . mapping _Time;
+gsamlprsValidUntil :: Lens' GetSAMLProviderResponse (Maybe UTCTime)
+gsamlprsValidUntil = lens _gsamlprsValidUntil (\ s a -> s{_gsamlprsValidUntil = a}) . mapping _Time;
 
 -- | The XML metadata document that includes information about an identity
 -- provider.
-gsamlprSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
-gsamlprSAMLMetadataDocument = lens _gsamlprSAMLMetadataDocument (\ s a -> s{_gsamlprSAMLMetadataDocument = a});
+gsamlprsSAMLMetadataDocument :: Lens' GetSAMLProviderResponse (Maybe Text)
+gsamlprsSAMLMetadataDocument = lens _gsamlprsSAMLMetadataDocument (\ s a -> s{_gsamlprsSAMLMetadataDocument = a});
 
 -- | FIXME: Undocumented member.
-gsamlprStatus :: Lens' GetSAMLProviderResponse Int
-gsamlprStatus = lens _gsamlprStatus (\ s a -> s{_gsamlprStatus = a});
+gsamlprsStatus :: Lens' GetSAMLProviderResponse Int
+gsamlprsStatus = lens _gsamlprsStatus (\ s a -> s{_gsamlprsStatus = a});

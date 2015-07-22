@@ -110,37 +110,37 @@ instance ToXML AliasTarget where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'chaAction'
+-- * 'cAction'
 --
--- * 'chaResourceRecordSet'
+-- * 'cResourceRecordSet'
 data Change = Change'
-    { _chaAction            :: !ChangeAction
-    , _chaResourceRecordSet :: !ResourceRecordSet
+    { _cAction            :: !ChangeAction
+    , _cResourceRecordSet :: !ResourceRecordSet
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'Change' smart constructor.
 change :: ChangeAction -> ResourceRecordSet -> Change
 change pAction pResourceRecordSet =
     Change'
-    { _chaAction = pAction
-    , _chaResourceRecordSet = pResourceRecordSet
+    { _cAction = pAction
+    , _cResourceRecordSet = pResourceRecordSet
     }
 
 -- | The action to perform.
 --
 -- Valid values: @CREATE@ | @DELETE@ | @UPSERT@
-chaAction :: Lens' Change ChangeAction
-chaAction = lens _chaAction (\ s a -> s{_chaAction = a});
+cAction :: Lens' Change ChangeAction
+cAction = lens _cAction (\ s a -> s{_cAction = a});
 
 -- | Information about the resource record set to create or delete.
-chaResourceRecordSet :: Lens' Change ResourceRecordSet
-chaResourceRecordSet = lens _chaResourceRecordSet (\ s a -> s{_chaResourceRecordSet = a});
+cResourceRecordSet :: Lens' Change ResourceRecordSet
+cResourceRecordSet = lens _cResourceRecordSet (\ s a -> s{_cResourceRecordSet = a});
 
 instance ToXML Change where
         toXML Change'{..}
           = mconcat
-              ["Action" @= _chaAction,
-               "ResourceRecordSet" @= _chaResourceRecordSet]
+              ["Action" @= _cAction,
+               "ResourceRecordSet" @= _cResourceRecordSet]
 
 -- | A complex type that contains an optional comment and the changes that
 -- you want to make with a change batch request.

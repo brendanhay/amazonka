@@ -27,14 +27,14 @@ module Network.AWS.CloudHSM.DeleteHAPG
     -- ** Request constructor
     , deleteHAPG
     -- ** Request lenses
-    , dhHAPGARN
+    , dhrqHAPGARN
 
     -- * Response
     , DeleteHAPGResponse
     -- ** Response constructor
     , deleteHAPGResponse
     -- ** Response lenses
-    , dhrStatus
+    , dhrsStatus
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhHAPGARN'
+-- * 'dhrqHAPGARN'
 newtype DeleteHAPG = DeleteHAPG'
-    { _dhHAPGARN :: Text
+    { _dhrqHAPGARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHAPG' smart constructor.
 deleteHAPG :: Text -> DeleteHAPG
 deleteHAPG pHAPGARN =
     DeleteHAPG'
-    { _dhHAPGARN = pHAPGARN
+    { _dhrqHAPGARN = pHAPGARN
     }
 
 -- | The ARN of the high-availability partition group to delete.
-dhHAPGARN :: Lens' DeleteHAPG Text
-dhHAPGARN = lens _dhHAPGARN (\ s a -> s{_dhHAPGARN = a});
+dhrqHAPGARN :: Lens' DeleteHAPG Text
+dhrqHAPGARN = lens _dhrqHAPGARN (\ s a -> s{_dhrqHAPGARN = a});
 
 instance AWSRequest DeleteHAPG where
         type Sv DeleteHAPG = CloudHSM
@@ -84,7 +84,7 @@ instance ToHeaders DeleteHAPG where
 
 instance ToJSON DeleteHAPG where
         toJSON DeleteHAPG'{..}
-          = object ["HapgArn" .= _dhHAPGARN]
+          = object ["HapgArn" .= _dhrqHAPGARN]
 
 instance ToPath DeleteHAPG where
         toPath = const "/"
@@ -98,18 +98,18 @@ instance ToQuery DeleteHAPG where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhrStatus'
+-- * 'dhrsStatus'
 newtype DeleteHAPGResponse = DeleteHAPGResponse'
-    { _dhrStatus :: Int
+    { _dhrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHAPGResponse' smart constructor.
 deleteHAPGResponse :: Int -> DeleteHAPGResponse
 deleteHAPGResponse pStatus =
     DeleteHAPGResponse'
-    { _dhrStatus = pStatus
+    { _dhrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dhrStatus :: Lens' DeleteHAPGResponse Int
-dhrStatus = lens _dhrStatus (\ s a -> s{_dhrStatus = a});
+dhrsStatus :: Lens' DeleteHAPGResponse Int
+dhrsStatus = lens _dhrsStatus (\ s a -> s{_dhrsStatus = a});

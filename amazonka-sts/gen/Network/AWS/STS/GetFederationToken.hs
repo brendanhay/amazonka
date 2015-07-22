@@ -97,19 +97,19 @@ module Network.AWS.STS.GetFederationToken
     -- ** Request constructor
     , getFederationToken
     -- ** Request lenses
-    , gftDurationSeconds
-    , gftPolicy
-    , gftName
+    , gftrqDurationSeconds
+    , gftrqPolicy
+    , gftrqName
 
     -- * Response
     , GetFederationTokenResponse
     -- ** Response constructor
     , getFederationTokenResponse
     -- ** Response lenses
-    , gftrPackedPolicySize
-    , gftrCredentials
-    , gftrFederatedUser
-    , gftrStatus
+    , gftrsPackedPolicySize
+    , gftrsCredentials
+    , gftrsFederatedUser
+    , gftrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -121,24 +121,24 @@ import           Network.AWS.STS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gftDurationSeconds'
+-- * 'gftrqDurationSeconds'
 --
--- * 'gftPolicy'
+-- * 'gftrqPolicy'
 --
--- * 'gftName'
+-- * 'gftrqName'
 data GetFederationToken = GetFederationToken'
-    { _gftDurationSeconds :: !(Maybe Nat)
-    , _gftPolicy          :: !(Maybe Text)
-    , _gftName            :: !Text
+    { _gftrqDurationSeconds :: !(Maybe Nat)
+    , _gftrqPolicy          :: !(Maybe Text)
+    , _gftrqName            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFederationToken' smart constructor.
 getFederationToken :: Text -> GetFederationToken
 getFederationToken pName =
     GetFederationToken'
-    { _gftDurationSeconds = Nothing
-    , _gftPolicy = Nothing
-    , _gftName = pName
+    { _gftrqDurationSeconds = Nothing
+    , _gftrqPolicy = Nothing
+    , _gftrqName = pName
     }
 
 -- | The duration, in seconds, that the session should last. Acceptable
@@ -148,8 +148,8 @@ getFederationToken pName =
 -- a maximum of 3600 seconds (one hour). If the specified duration is
 -- longer than one hour, the session obtained by using AWS account (root)
 -- credentials defaults to one hour.
-gftDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
-gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = a}) . mapping _Nat;
+gftrqDurationSeconds :: Lens' GetFederationToken (Maybe Natural)
+gftrqDurationSeconds = lens _gftrqDurationSeconds (\ s a -> s{_gftrqDurationSeconds = a}) . mapping _Nat;
 
 -- | An IAM policy in JSON format that is passed with the
 -- @GetFederationToken@ call and evaluated along with the policy or
@@ -176,15 +176,15 @@ gftDurationSeconds = lens _gftDurationSeconds (\ s a -> s{_gftDurationSeconds = 
 --
 -- For more information about how permissions work, see
 -- <http://docs.aws.amazon.com/STS/latest/UsingSTS/permissions-get-federation-token.html Permissions for GetFederationToken>.
-gftPolicy :: Lens' GetFederationToken (Maybe Text)
-gftPolicy = lens _gftPolicy (\ s a -> s{_gftPolicy = a});
+gftrqPolicy :: Lens' GetFederationToken (Maybe Text)
+gftrqPolicy = lens _gftrqPolicy (\ s a -> s{_gftrqPolicy = a});
 
 -- | The name of the federated user. The name is used as an identifier for
 -- the temporary security credentials (such as @Bob@). For example, you can
 -- reference the federated user name in a resource-based policy, such as in
 -- an Amazon S3 bucket policy.
-gftName :: Lens' GetFederationToken Text
-gftName = lens _gftName (\ s a -> s{_gftName = a});
+gftrqName :: Lens' GetFederationToken Text
+gftrqName = lens _gftrqName (\ s a -> s{_gftrqName = a});
 
 instance AWSRequest GetFederationToken where
         type Sv GetFederationToken = STS
@@ -210,8 +210,8 @@ instance ToQuery GetFederationToken where
           = mconcat
               ["Action" =: ("GetFederationToken" :: ByteString),
                "Version" =: ("2011-06-15" :: ByteString),
-               "DurationSeconds" =: _gftDurationSeconds,
-               "Policy" =: _gftPolicy, "Name" =: _gftName]
+               "DurationSeconds" =: _gftrqDurationSeconds,
+               "Policy" =: _gftrqPolicy, "Name" =: _gftrqName]
 
 -- | Contains the response to a successful GetFederationToken request,
 -- including temporary AWS credentials that can be used to make AWS
@@ -221,47 +221,47 @@ instance ToQuery GetFederationToken where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gftrPackedPolicySize'
+-- * 'gftrsPackedPolicySize'
 --
--- * 'gftrCredentials'
+-- * 'gftrsCredentials'
 --
--- * 'gftrFederatedUser'
+-- * 'gftrsFederatedUser'
 --
--- * 'gftrStatus'
+-- * 'gftrsStatus'
 data GetFederationTokenResponse = GetFederationTokenResponse'
-    { _gftrPackedPolicySize :: !(Maybe Nat)
-    , _gftrCredentials      :: !(Maybe Credentials)
-    , _gftrFederatedUser    :: !(Maybe FederatedUser)
-    , _gftrStatus           :: !Int
+    { _gftrsPackedPolicySize :: !(Maybe Nat)
+    , _gftrsCredentials      :: !(Maybe Credentials)
+    , _gftrsFederatedUser    :: !(Maybe FederatedUser)
+    , _gftrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetFederationTokenResponse' smart constructor.
 getFederationTokenResponse :: Int -> GetFederationTokenResponse
 getFederationTokenResponse pStatus =
     GetFederationTokenResponse'
-    { _gftrPackedPolicySize = Nothing
-    , _gftrCredentials = Nothing
-    , _gftrFederatedUser = Nothing
-    , _gftrStatus = pStatus
+    { _gftrsPackedPolicySize = Nothing
+    , _gftrsCredentials = Nothing
+    , _gftrsFederatedUser = Nothing
+    , _gftrsStatus = pStatus
     }
 
 -- | A percentage value indicating the size of the policy in packed form. The
 -- service rejects policies for which the packed size is greater than 100
 -- percent of the allowed value.
-gftrPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
-gftrPackedPolicySize = lens _gftrPackedPolicySize (\ s a -> s{_gftrPackedPolicySize = a}) . mapping _Nat;
+gftrsPackedPolicySize :: Lens' GetFederationTokenResponse (Maybe Natural)
+gftrsPackedPolicySize = lens _gftrsPackedPolicySize (\ s a -> s{_gftrsPackedPolicySize = a}) . mapping _Nat;
 
 -- | Credentials for the service API authentication.
-gftrCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
-gftrCredentials = lens _gftrCredentials (\ s a -> s{_gftrCredentials = a});
+gftrsCredentials :: Lens' GetFederationTokenResponse (Maybe Credentials)
+gftrsCredentials = lens _gftrsCredentials (\ s a -> s{_gftrsCredentials = a});
 
 -- | Identifiers for the federated user associated with the credentials (such
 -- as @arn:aws:sts::123456789012:federated-user\/Bob@ or
 -- @123456789012:Bob@). You can use the federated user\'s ARN in your
 -- resource-based policies, such as an Amazon S3 bucket policy.
-gftrFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
-gftrFederatedUser = lens _gftrFederatedUser (\ s a -> s{_gftrFederatedUser = a});
+gftrsFederatedUser :: Lens' GetFederationTokenResponse (Maybe FederatedUser)
+gftrsFederatedUser = lens _gftrsFederatedUser (\ s a -> s{_gftrsFederatedUser = a});
 
 -- | FIXME: Undocumented member.
-gftrStatus :: Lens' GetFederationTokenResponse Int
-gftrStatus = lens _gftrStatus (\ s a -> s{_gftrStatus = a});
+gftrsStatus :: Lens' GetFederationTokenResponse Int
+gftrsStatus = lens _gftrsStatus (\ s a -> s{_gftrsStatus = a});

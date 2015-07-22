@@ -32,16 +32,16 @@ module Network.AWS.DirectConnect.ConfirmPrivateVirtualInterface
     -- ** Request constructor
     , confirmPrivateVirtualInterface
     -- ** Request lenses
-    , cpviVirtualInterfaceId
-    , cpviVirtualGatewayId
+    , cpvirqVirtualInterfaceId
+    , cpvirqVirtualGatewayId
 
     -- * Response
     , ConfirmPrivateVirtualInterfaceResponse
     -- ** Response constructor
     , confirmPrivateVirtualInterfaceResponse
     -- ** Response lenses
-    , cpvirVirtualInterfaceState
-    , cpvirStatus
+    , cpvirsVirtualInterfaceState
+    , cpvirsStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -56,25 +56,25 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpviVirtualInterfaceId'
+-- * 'cpvirqVirtualInterfaceId'
 --
--- * 'cpviVirtualGatewayId'
+-- * 'cpvirqVirtualGatewayId'
 data ConfirmPrivateVirtualInterface = ConfirmPrivateVirtualInterface'
-    { _cpviVirtualInterfaceId :: !Text
-    , _cpviVirtualGatewayId   :: !Text
+    { _cpvirqVirtualInterfaceId :: !Text
+    , _cpvirqVirtualGatewayId   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPrivateVirtualInterface' smart constructor.
 confirmPrivateVirtualInterface :: Text -> Text -> ConfirmPrivateVirtualInterface
 confirmPrivateVirtualInterface pVirtualInterfaceId pVirtualGatewayId =
     ConfirmPrivateVirtualInterface'
-    { _cpviVirtualInterfaceId = pVirtualInterfaceId
-    , _cpviVirtualGatewayId = pVirtualGatewayId
+    { _cpvirqVirtualInterfaceId = pVirtualInterfaceId
+    , _cpvirqVirtualGatewayId = pVirtualGatewayId
     }
 
 -- | FIXME: Undocumented member.
-cpviVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
-cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualInterfaceId = a});
+cpvirqVirtualInterfaceId :: Lens' ConfirmPrivateVirtualInterface Text
+cpvirqVirtualInterfaceId = lens _cpvirqVirtualInterfaceId (\ s a -> s{_cpvirqVirtualInterfaceId = a});
 
 -- | ID of the virtual private gateway that will be attached to the virtual
 -- interface.
@@ -85,8 +85,8 @@ cpviVirtualInterfaceId = lens _cpviVirtualInterfaceId (\ s a -> s{_cpviVirtualIn
 -- action.
 --
 -- Default: None
-cpviVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
-cpviVirtualGatewayId = lens _cpviVirtualGatewayId (\ s a -> s{_cpviVirtualGatewayId = a});
+cpvirqVirtualGatewayId :: Lens' ConfirmPrivateVirtualInterface Text
+cpvirqVirtualGatewayId = lens _cpvirqVirtualGatewayId (\ s a -> s{_cpvirqVirtualGatewayId = a});
 
 instance AWSRequest ConfirmPrivateVirtualInterface
          where
@@ -116,8 +116,8 @@ instance ToHeaders ConfirmPrivateVirtualInterface
 instance ToJSON ConfirmPrivateVirtualInterface where
         toJSON ConfirmPrivateVirtualInterface'{..}
           = object
-              ["virtualInterfaceId" .= _cpviVirtualInterfaceId,
-               "virtualGatewayId" .= _cpviVirtualGatewayId]
+              ["virtualInterfaceId" .= _cpvirqVirtualInterfaceId,
+               "virtualGatewayId" .= _cpvirqVirtualGatewayId]
 
 instance ToPath ConfirmPrivateVirtualInterface where
         toPath = const "/"
@@ -131,26 +131,26 @@ instance ToQuery ConfirmPrivateVirtualInterface where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cpvirVirtualInterfaceState'
+-- * 'cpvirsVirtualInterfaceState'
 --
--- * 'cpvirStatus'
+-- * 'cpvirsStatus'
 data ConfirmPrivateVirtualInterfaceResponse = ConfirmPrivateVirtualInterfaceResponse'
-    { _cpvirVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
-    , _cpvirStatus                :: !Int
+    { _cpvirsVirtualInterfaceState :: !(Maybe VirtualInterfaceState)
+    , _cpvirsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ConfirmPrivateVirtualInterfaceResponse' smart constructor.
 confirmPrivateVirtualInterfaceResponse :: Int -> ConfirmPrivateVirtualInterfaceResponse
 confirmPrivateVirtualInterfaceResponse pStatus =
     ConfirmPrivateVirtualInterfaceResponse'
-    { _cpvirVirtualInterfaceState = Nothing
-    , _cpvirStatus = pStatus
+    { _cpvirsVirtualInterfaceState = Nothing
+    , _cpvirsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-cpvirVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
-cpvirVirtualInterfaceState = lens _cpvirVirtualInterfaceState (\ s a -> s{_cpvirVirtualInterfaceState = a});
+cpvirsVirtualInterfaceState :: Lens' ConfirmPrivateVirtualInterfaceResponse (Maybe VirtualInterfaceState)
+cpvirsVirtualInterfaceState = lens _cpvirsVirtualInterfaceState (\ s a -> s{_cpvirsVirtualInterfaceState = a});
 
 -- | FIXME: Undocumented member.
-cpvirStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
-cpvirStatus = lens _cpvirStatus (\ s a -> s{_cpvirStatus = a});
+cpvirsStatus :: Lens' ConfirmPrivateVirtualInterfaceResponse Int
+cpvirsStatus = lens _cpvirsStatus (\ s a -> s{_cpvirsStatus = a});

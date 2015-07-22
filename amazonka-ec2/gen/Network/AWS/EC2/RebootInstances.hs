@@ -37,8 +37,8 @@ module Network.AWS.EC2.RebootInstances
     -- ** Request constructor
     , rebootInstances
     -- ** Request lenses
-    , rebDryRun
-    , rebInstanceIds
+    , rebrqDryRun
+    , rebrqInstanceIds
 
     -- * Response
     , RebootInstancesResponse
@@ -55,32 +55,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rebDryRun'
+-- * 'rebrqDryRun'
 --
--- * 'rebInstanceIds'
+-- * 'rebrqInstanceIds'
 data RebootInstances = RebootInstances'
-    { _rebDryRun      :: !(Maybe Bool)
-    , _rebInstanceIds :: ![Text]
+    { _rebrqDryRun      :: !(Maybe Bool)
+    , _rebrqInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RebootInstances' smart constructor.
 rebootInstances :: RebootInstances
 rebootInstances =
     RebootInstances'
-    { _rebDryRun = Nothing
-    , _rebInstanceIds = mempty
+    { _rebrqDryRun = Nothing
+    , _rebrqInstanceIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rebDryRun :: Lens' RebootInstances (Maybe Bool)
-rebDryRun = lens _rebDryRun (\ s a -> s{_rebDryRun = a});
+rebrqDryRun :: Lens' RebootInstances (Maybe Bool)
+rebrqDryRun = lens _rebrqDryRun (\ s a -> s{_rebrqDryRun = a});
 
 -- | One or more instance IDs.
-rebInstanceIds :: Lens' RebootInstances [Text]
-rebInstanceIds = lens _rebInstanceIds (\ s a -> s{_rebInstanceIds = a});
+rebrqInstanceIds :: Lens' RebootInstances [Text]
+rebrqInstanceIds = lens _rebrqInstanceIds (\ s a -> s{_rebrqInstanceIds = a});
 
 instance AWSRequest RebootInstances where
         type Sv RebootInstances = EC2
@@ -99,8 +99,8 @@ instance ToQuery RebootInstances where
           = mconcat
               ["Action" =: ("RebootInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rebDryRun,
-               toQueryList "InstanceId" _rebInstanceIds]
+               "DryRun" =: _rebrqDryRun,
+               toQueryList "InstanceId" _rebrqInstanceIds]
 
 -- | /See:/ 'rebootInstancesResponse' smart constructor.
 data RebootInstancesResponse =

@@ -41,18 +41,18 @@ module Network.AWS.EC2.PurchaseReservedInstancesOffering
     -- ** Request constructor
     , purchaseReservedInstancesOffering
     -- ** Request lenses
-    , prioLimitPrice
-    , prioDryRun
-    , prioReservedInstancesOfferingId
-    , prioInstanceCount
+    , priorqLimitPrice
+    , priorqDryRun
+    , priorqReservedInstancesOfferingId
+    , priorqInstanceCount
 
     -- * Response
     , PurchaseReservedInstancesOfferingResponse
     -- ** Response constructor
     , purchaseReservedInstancesOfferingResponse
     -- ** Response lenses
-    , priorReservedInstancesId
-    , priorStatus
+    , priorsReservedInstancesId
+    , priorsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -64,50 +64,50 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prioLimitPrice'
+-- * 'priorqLimitPrice'
 --
--- * 'prioDryRun'
+-- * 'priorqDryRun'
 --
--- * 'prioReservedInstancesOfferingId'
+-- * 'priorqReservedInstancesOfferingId'
 --
--- * 'prioInstanceCount'
+-- * 'priorqInstanceCount'
 data PurchaseReservedInstancesOffering = PurchaseReservedInstancesOffering'
-    { _prioLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
-    , _prioDryRun                      :: !(Maybe Bool)
-    , _prioReservedInstancesOfferingId :: !Text
-    , _prioInstanceCount               :: !Int
+    { _priorqLimitPrice                  :: !(Maybe ReservedInstanceLimitPrice)
+    , _priorqDryRun                      :: !(Maybe Bool)
+    , _priorqReservedInstancesOfferingId :: !Text
+    , _priorqInstanceCount               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedInstancesOffering' smart constructor.
 purchaseReservedInstancesOffering :: Text -> Int -> PurchaseReservedInstancesOffering
 purchaseReservedInstancesOffering pReservedInstancesOfferingId pInstanceCount =
     PurchaseReservedInstancesOffering'
-    { _prioLimitPrice = Nothing
-    , _prioDryRun = Nothing
-    , _prioReservedInstancesOfferingId = pReservedInstancesOfferingId
-    , _prioInstanceCount = pInstanceCount
+    { _priorqLimitPrice = Nothing
+    , _priorqDryRun = Nothing
+    , _priorqReservedInstancesOfferingId = pReservedInstancesOfferingId
+    , _priorqInstanceCount = pInstanceCount
     }
 
 -- | Specified for Reserved Instance Marketplace offerings to limit the total
 -- order and ensure that the Reserved Instances are not purchased at
 -- unexpected prices.
-prioLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
-prioLimitPrice = lens _prioLimitPrice (\ s a -> s{_prioLimitPrice = a});
+priorqLimitPrice :: Lens' PurchaseReservedInstancesOffering (Maybe ReservedInstanceLimitPrice)
+priorqLimitPrice = lens _priorqLimitPrice (\ s a -> s{_priorqLimitPrice = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-prioDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
-prioDryRun = lens _prioDryRun (\ s a -> s{_prioDryRun = a});
+priorqDryRun :: Lens' PurchaseReservedInstancesOffering (Maybe Bool)
+priorqDryRun = lens _priorqDryRun (\ s a -> s{_priorqDryRun = a});
 
 -- | The ID of the Reserved Instance offering to purchase.
-prioReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
-prioReservedInstancesOfferingId = lens _prioReservedInstancesOfferingId (\ s a -> s{_prioReservedInstancesOfferingId = a});
+priorqReservedInstancesOfferingId :: Lens' PurchaseReservedInstancesOffering Text
+priorqReservedInstancesOfferingId = lens _priorqReservedInstancesOfferingId (\ s a -> s{_priorqReservedInstancesOfferingId = a});
 
 -- | The number of Reserved Instances to purchase.
-prioInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
-prioInstanceCount = lens _prioInstanceCount (\ s a -> s{_prioInstanceCount = a});
+priorqInstanceCount :: Lens' PurchaseReservedInstancesOffering Int
+priorqInstanceCount = lens _priorqInstanceCount (\ s a -> s{_priorqInstanceCount = a});
 
 instance AWSRequest PurchaseReservedInstancesOffering
          where
@@ -137,36 +137,36 @@ instance ToQuery PurchaseReservedInstancesOffering
               ["Action" =:
                  ("PurchaseReservedInstancesOffering" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "LimitPrice" =: _prioLimitPrice,
-               "DryRun" =: _prioDryRun,
+               "LimitPrice" =: _priorqLimitPrice,
+               "DryRun" =: _priorqDryRun,
                "ReservedInstancesOfferingId" =:
-                 _prioReservedInstancesOfferingId,
-               "InstanceCount" =: _prioInstanceCount]
+                 _priorqReservedInstancesOfferingId,
+               "InstanceCount" =: _priorqInstanceCount]
 
 -- | /See:/ 'purchaseReservedInstancesOfferingResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'priorReservedInstancesId'
+-- * 'priorsReservedInstancesId'
 --
--- * 'priorStatus'
+-- * 'priorsStatus'
 data PurchaseReservedInstancesOfferingResponse = PurchaseReservedInstancesOfferingResponse'
-    { _priorReservedInstancesId :: !(Maybe Text)
-    , _priorStatus              :: !Int
+    { _priorsReservedInstancesId :: !(Maybe Text)
+    , _priorsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedInstancesOfferingResponse' smart constructor.
 purchaseReservedInstancesOfferingResponse :: Int -> PurchaseReservedInstancesOfferingResponse
 purchaseReservedInstancesOfferingResponse pStatus =
     PurchaseReservedInstancesOfferingResponse'
-    { _priorReservedInstancesId = Nothing
-    , _priorStatus = pStatus
+    { _priorsReservedInstancesId = Nothing
+    , _priorsStatus = pStatus
     }
 
 -- | The IDs of the purchased Reserved Instances.
-priorReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
-priorReservedInstancesId = lens _priorReservedInstancesId (\ s a -> s{_priorReservedInstancesId = a});
+priorsReservedInstancesId :: Lens' PurchaseReservedInstancesOfferingResponse (Maybe Text)
+priorsReservedInstancesId = lens _priorsReservedInstancesId (\ s a -> s{_priorsReservedInstancesId = a});
 
 -- | FIXME: Undocumented member.
-priorStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
-priorStatus = lens _priorStatus (\ s a -> s{_priorStatus = a});
+priorsStatus :: Lens' PurchaseReservedInstancesOfferingResponse Int
+priorsStatus = lens _priorsStatus (\ s a -> s{_priorsStatus = a});

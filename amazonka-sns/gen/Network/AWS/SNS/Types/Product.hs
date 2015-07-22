@@ -27,29 +27,29 @@ import           Network.AWS.SNS.Types.Sum
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'endAttributes'
+-- * 'eAttributes'
 --
--- * 'endEndpointARN'
+-- * 'eEndpointARN'
 data Endpoint = Endpoint'
-    { _endAttributes  :: !(Maybe (Map Text Text))
-    , _endEndpointARN :: !(Maybe Text)
+    { _eAttributes  :: !(Maybe (Map Text Text))
+    , _eEndpointARN :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Endpoint' smart constructor.
 endpoint :: Endpoint
 endpoint =
     Endpoint'
-    { _endAttributes = Nothing
-    , _endEndpointARN = Nothing
+    { _eAttributes = Nothing
+    , _eEndpointARN = Nothing
     }
 
 -- | Attributes for endpoint.
-endAttributes :: Lens' Endpoint (HashMap Text Text)
-endAttributes = lens _endAttributes (\ s a -> s{_endAttributes = a}) . _Default . _Map;
+eAttributes :: Lens' Endpoint (HashMap Text Text)
+eAttributes = lens _eAttributes (\ s a -> s{_eAttributes = a}) . _Default . _Map;
 
 -- | EndpointArn for mobile app and device.
-endEndpointARN :: Lens' Endpoint (Maybe Text)
-endEndpointARN = lens _endEndpointARN (\ s a -> s{_endEndpointARN = a});
+eEndpointARN :: Lens' Endpoint (Maybe Text)
+eEndpointARN = lens _eEndpointARN (\ s a -> s{_eEndpointARN = a});
 
 instance FromXML Endpoint where
         parseXML x
@@ -63,9 +63,8 @@ instance ToQuery Endpoint where
           = mconcat
               ["Attributes" =:
                  toQuery
-                   (toQueryMap "entry" "key" "value" <$>
-                      _endAttributes),
-               "EndpointArn" =: _endEndpointARN]
+                   (toQueryMap "entry" "key" "value" <$> _eAttributes),
+               "EndpointArn" =: _eEndpointARN]
 
 -- | The user-specified message attribute value. For string data types, the
 -- value attribute has the same restrictions on the content as the message
@@ -170,53 +169,53 @@ instance FromXML PlatformApplication where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'subProtocol'
+-- * 'sProtocol'
 --
--- * 'subOwner'
+-- * 'sOwner'
 --
--- * 'subTopicARN'
+-- * 'sTopicARN'
 --
--- * 'subEndpoint'
+-- * 'sEndpoint'
 --
--- * 'subSubscriptionARN'
+-- * 'sSubscriptionARN'
 data Subscription = Subscription'
-    { _subProtocol        :: !(Maybe Text)
-    , _subOwner           :: !(Maybe Text)
-    , _subTopicARN        :: !(Maybe Text)
-    , _subEndpoint        :: !(Maybe Endpoint)
-    , _subSubscriptionARN :: !(Maybe Text)
+    { _sProtocol        :: !(Maybe Text)
+    , _sOwner           :: !(Maybe Text)
+    , _sTopicARN        :: !(Maybe Text)
+    , _sEndpoint        :: !(Maybe Endpoint)
+    , _sSubscriptionARN :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Subscription' smart constructor.
 subscription :: Subscription
 subscription =
     Subscription'
-    { _subProtocol = Nothing
-    , _subOwner = Nothing
-    , _subTopicARN = Nothing
-    , _subEndpoint = Nothing
-    , _subSubscriptionARN = Nothing
+    { _sProtocol = Nothing
+    , _sOwner = Nothing
+    , _sTopicARN = Nothing
+    , _sEndpoint = Nothing
+    , _sSubscriptionARN = Nothing
     }
 
 -- | The subscription\'s protocol.
-subProtocol :: Lens' Subscription (Maybe Text)
-subProtocol = lens _subProtocol (\ s a -> s{_subProtocol = a});
+sProtocol :: Lens' Subscription (Maybe Text)
+sProtocol = lens _sProtocol (\ s a -> s{_sProtocol = a});
 
 -- | The subscription\'s owner.
-subOwner :: Lens' Subscription (Maybe Text)
-subOwner = lens _subOwner (\ s a -> s{_subOwner = a});
+sOwner :: Lens' Subscription (Maybe Text)
+sOwner = lens _sOwner (\ s a -> s{_sOwner = a});
 
 -- | The ARN of the subscription\'s topic.
-subTopicARN :: Lens' Subscription (Maybe Text)
-subTopicARN = lens _subTopicARN (\ s a -> s{_subTopicARN = a});
+sTopicARN :: Lens' Subscription (Maybe Text)
+sTopicARN = lens _sTopicARN (\ s a -> s{_sTopicARN = a});
 
 -- | The subscription\'s endpoint (format depends on the protocol).
-subEndpoint :: Lens' Subscription (Maybe Endpoint)
-subEndpoint = lens _subEndpoint (\ s a -> s{_subEndpoint = a});
+sEndpoint :: Lens' Subscription (Maybe Endpoint)
+sEndpoint = lens _sEndpoint (\ s a -> s{_sEndpoint = a});
 
 -- | The subscription\'s ARN.
-subSubscriptionARN :: Lens' Subscription (Maybe Text)
-subSubscriptionARN = lens _subSubscriptionARN (\ s a -> s{_subSubscriptionARN = a});
+sSubscriptionARN :: Lens' Subscription (Maybe Text)
+sSubscriptionARN = lens _sSubscriptionARN (\ s a -> s{_sSubscriptionARN = a});
 
 instance FromXML Subscription where
         parseXML x
@@ -233,21 +232,21 @@ instance FromXML Subscription where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'topTopicARN'
+-- * 'tTopicARN'
 newtype Topic = Topic'
-    { _topTopicARN :: Maybe Text
+    { _tTopicARN :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Topic' smart constructor.
 topic :: Topic
 topic =
     Topic'
-    { _topTopicARN = Nothing
+    { _tTopicARN = Nothing
     }
 
 -- | The topic\'s ARN.
-topTopicARN :: Lens' Topic (Maybe Text)
-topTopicARN = lens _topTopicARN (\ s a -> s{_topTopicARN = a});
+tTopicARN :: Lens' Topic (Maybe Text)
+tTopicARN = lens _tTopicARN (\ s a -> s{_tTopicARN = a});
 
 instance FromXML Topic where
         parseXML x = Topic' <$> (x .@? "TopicArn")

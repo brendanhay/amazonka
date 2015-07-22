@@ -37,9 +37,9 @@ module Network.AWS.EC2.ModifyVolumeAttribute
     -- ** Request constructor
     , modifyVolumeAttribute
     -- ** Request lenses
-    , mvaAutoEnableIO
-    , mvaDryRun
-    , mvaVolumeId
+    , mvarqAutoEnableIO
+    , mvarqDryRun
+    , mvarqVolumeId
 
     -- * Response
     , ModifyVolumeAttributeResponse
@@ -56,40 +56,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mvaAutoEnableIO'
+-- * 'mvarqAutoEnableIO'
 --
--- * 'mvaDryRun'
+-- * 'mvarqDryRun'
 --
--- * 'mvaVolumeId'
+-- * 'mvarqVolumeId'
 data ModifyVolumeAttribute = ModifyVolumeAttribute'
-    { _mvaAutoEnableIO :: !(Maybe AttributeBooleanValue)
-    , _mvaDryRun       :: !(Maybe Bool)
-    , _mvaVolumeId     :: !Text
+    { _mvarqAutoEnableIO :: !(Maybe AttributeBooleanValue)
+    , _mvarqDryRun       :: !(Maybe Bool)
+    , _mvarqVolumeId     :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ModifyVolumeAttribute' smart constructor.
 modifyVolumeAttribute :: Text -> ModifyVolumeAttribute
 modifyVolumeAttribute pVolumeId =
     ModifyVolumeAttribute'
-    { _mvaAutoEnableIO = Nothing
-    , _mvaDryRun = Nothing
-    , _mvaVolumeId = pVolumeId
+    { _mvarqAutoEnableIO = Nothing
+    , _mvarqDryRun = Nothing
+    , _mvarqVolumeId = pVolumeId
     }
 
 -- | Indicates whether the volume should be auto-enabled for I\/O operations.
-mvaAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
-mvaAutoEnableIO = lens _mvaAutoEnableIO (\ s a -> s{_mvaAutoEnableIO = a});
+mvarqAutoEnableIO :: Lens' ModifyVolumeAttribute (Maybe AttributeBooleanValue)
+mvarqAutoEnableIO = lens _mvarqAutoEnableIO (\ s a -> s{_mvarqAutoEnableIO = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-mvaDryRun :: Lens' ModifyVolumeAttribute (Maybe Bool)
-mvaDryRun = lens _mvaDryRun (\ s a -> s{_mvaDryRun = a});
+mvarqDryRun :: Lens' ModifyVolumeAttribute (Maybe Bool)
+mvarqDryRun = lens _mvarqDryRun (\ s a -> s{_mvarqDryRun = a});
 
 -- | The ID of the volume.
-mvaVolumeId :: Lens' ModifyVolumeAttribute Text
-mvaVolumeId = lens _mvaVolumeId (\ s a -> s{_mvaVolumeId = a});
+mvarqVolumeId :: Lens' ModifyVolumeAttribute Text
+mvarqVolumeId = lens _mvarqVolumeId (\ s a -> s{_mvarqVolumeId = a});
 
 instance AWSRequest ModifyVolumeAttribute where
         type Sv ModifyVolumeAttribute = EC2
@@ -109,8 +109,9 @@ instance ToQuery ModifyVolumeAttribute where
           = mconcat
               ["Action" =: ("ModifyVolumeAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "AutoEnableIO" =: _mvaAutoEnableIO,
-               "DryRun" =: _mvaDryRun, "VolumeId" =: _mvaVolumeId]
+               "AutoEnableIO" =: _mvarqAutoEnableIO,
+               "DryRun" =: _mvarqDryRun,
+               "VolumeId" =: _mvarqVolumeId]
 
 -- | /See:/ 'modifyVolumeAttributeResponse' smart constructor.
 data ModifyVolumeAttributeResponse =

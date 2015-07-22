@@ -27,15 +27,15 @@ module Network.AWS.DeviceFarm.GetDevice
     -- ** Request constructor
     , getDevice
     -- ** Request lenses
-    , gdArn
+    , gdrqArn
 
     -- * Response
     , GetDeviceResponse
     -- ** Response constructor
     , getDeviceResponse
     -- ** Response lenses
-    , gdrDevice
-    , gdrStatus
+    , gdrsDevice
+    , gdrsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdArn'
+-- * 'gdrqArn'
 newtype GetDevice = GetDevice'
-    { _gdArn :: Text
+    { _gdrqArn :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDevice' smart constructor.
 getDevice :: Text -> GetDevice
 getDevice pArn =
     GetDevice'
-    { _gdArn = pArn
+    { _gdrqArn = pArn
     }
 
 -- | The device type\'s ARN.
-gdArn :: Lens' GetDevice Text
-gdArn = lens _gdArn (\ s a -> s{_gdArn = a});
+gdrqArn :: Lens' GetDevice Text
+gdrqArn = lens _gdrqArn (\ s a -> s{_gdrqArn = a});
 
 instance AWSRequest GetDevice where
         type Sv GetDevice = DeviceFarm
@@ -85,7 +85,7 @@ instance ToHeaders GetDevice where
                     ("application/x-amz-json-1.1" :: ByteString)])
 
 instance ToJSON GetDevice where
-        toJSON GetDevice'{..} = object ["arn" .= _gdArn]
+        toJSON GetDevice'{..} = object ["arn" .= _gdrqArn]
 
 instance ToPath GetDevice where
         toPath = const "/"
@@ -99,26 +99,26 @@ instance ToQuery GetDevice where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrDevice'
+-- * 'gdrsDevice'
 --
--- * 'gdrStatus'
+-- * 'gdrsStatus'
 data GetDeviceResponse = GetDeviceResponse'
-    { _gdrDevice :: !(Maybe Device)
-    , _gdrStatus :: !Int
+    { _gdrsDevice :: !(Maybe Device)
+    , _gdrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeviceResponse' smart constructor.
 getDeviceResponse :: Int -> GetDeviceResponse
 getDeviceResponse pStatus =
     GetDeviceResponse'
-    { _gdrDevice = Nothing
-    , _gdrStatus = pStatus
+    { _gdrsDevice = Nothing
+    , _gdrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gdrDevice :: Lens' GetDeviceResponse (Maybe Device)
-gdrDevice = lens _gdrDevice (\ s a -> s{_gdrDevice = a});
+gdrsDevice :: Lens' GetDeviceResponse (Maybe Device)
+gdrsDevice = lens _gdrsDevice (\ s a -> s{_gdrsDevice = a});
 
 -- | FIXME: Undocumented member.
-gdrStatus :: Lens' GetDeviceResponse Int
-gdrStatus = lens _gdrStatus (\ s a -> s{_gdrStatus = a});
+gdrsStatus :: Lens' GetDeviceResponse Int
+gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

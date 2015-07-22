@@ -29,93 +29,93 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'actProgress'
+-- * 'aProgress'
 --
--- * 'actStatusMessage'
+-- * 'aStatusMessage'
 --
--- * 'actDetails'
+-- * 'aDetails'
 --
--- * 'actEndTime'
+-- * 'aEndTime'
 --
--- * 'actDescription'
+-- * 'aDescription'
 --
--- * 'actActivityId'
+-- * 'aActivityId'
 --
--- * 'actAutoScalingGroupName'
+-- * 'aAutoScalingGroupName'
 --
--- * 'actCause'
+-- * 'aCause'
 --
--- * 'actStartTime'
+-- * 'aStartTime'
 --
--- * 'actStatusCode'
+-- * 'aStatusCode'
 data Activity = Activity'
-    { _actProgress             :: !(Maybe Int)
-    , _actStatusMessage        :: !(Maybe Text)
-    , _actDetails              :: !(Maybe Text)
-    , _actEndTime              :: !(Maybe ISO8601)
-    , _actDescription          :: !(Maybe Text)
-    , _actActivityId           :: !Text
-    , _actAutoScalingGroupName :: !Text
-    , _actCause                :: !Text
-    , _actStartTime            :: !ISO8601
-    , _actStatusCode           :: !ScalingActivityStatusCode
+    { _aProgress             :: !(Maybe Int)
+    , _aStatusMessage        :: !(Maybe Text)
+    , _aDetails              :: !(Maybe Text)
+    , _aEndTime              :: !(Maybe ISO8601)
+    , _aDescription          :: !(Maybe Text)
+    , _aActivityId           :: !Text
+    , _aAutoScalingGroupName :: !Text
+    , _aCause                :: !Text
+    , _aStartTime            :: !ISO8601
+    , _aStatusCode           :: !ScalingActivityStatusCode
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Activity' smart constructor.
 activity :: Text -> Text -> Text -> UTCTime -> ScalingActivityStatusCode -> Activity
 activity pActivityId pAutoScalingGroupName pCause pStartTime pStatusCode =
     Activity'
-    { _actProgress = Nothing
-    , _actStatusMessage = Nothing
-    , _actDetails = Nothing
-    , _actEndTime = Nothing
-    , _actDescription = Nothing
-    , _actActivityId = pActivityId
-    , _actAutoScalingGroupName = pAutoScalingGroupName
-    , _actCause = pCause
-    , _actStartTime = _Time # pStartTime
-    , _actStatusCode = pStatusCode
+    { _aProgress = Nothing
+    , _aStatusMessage = Nothing
+    , _aDetails = Nothing
+    , _aEndTime = Nothing
+    , _aDescription = Nothing
+    , _aActivityId = pActivityId
+    , _aAutoScalingGroupName = pAutoScalingGroupName
+    , _aCause = pCause
+    , _aStartTime = _Time # pStartTime
+    , _aStatusCode = pStatusCode
     }
 
 -- | A value between 0 and 100 that indicates the progress of the activity.
-actProgress :: Lens' Activity (Maybe Int)
-actProgress = lens _actProgress (\ s a -> s{_actProgress = a});
+aProgress :: Lens' Activity (Maybe Int)
+aProgress = lens _aProgress (\ s a -> s{_aProgress = a});
 
 -- | A friendly, more verbose description of the activity status.
-actStatusMessage :: Lens' Activity (Maybe Text)
-actStatusMessage = lens _actStatusMessage (\ s a -> s{_actStatusMessage = a});
+aStatusMessage :: Lens' Activity (Maybe Text)
+aStatusMessage = lens _aStatusMessage (\ s a -> s{_aStatusMessage = a});
 
 -- | The details about the activity.
-actDetails :: Lens' Activity (Maybe Text)
-actDetails = lens _actDetails (\ s a -> s{_actDetails = a});
+aDetails :: Lens' Activity (Maybe Text)
+aDetails = lens _aDetails (\ s a -> s{_aDetails = a});
 
 -- | The end time of the activity.
-actEndTime :: Lens' Activity (Maybe UTCTime)
-actEndTime = lens _actEndTime (\ s a -> s{_actEndTime = a}) . mapping _Time;
+aEndTime :: Lens' Activity (Maybe UTCTime)
+aEndTime = lens _aEndTime (\ s a -> s{_aEndTime = a}) . mapping _Time;
 
 -- | A friendly, more verbose description of the activity.
-actDescription :: Lens' Activity (Maybe Text)
-actDescription = lens _actDescription (\ s a -> s{_actDescription = a});
+aDescription :: Lens' Activity (Maybe Text)
+aDescription = lens _aDescription (\ s a -> s{_aDescription = a});
 
 -- | The ID of the activity.
-actActivityId :: Lens' Activity Text
-actActivityId = lens _actActivityId (\ s a -> s{_actActivityId = a});
+aActivityId :: Lens' Activity Text
+aActivityId = lens _aActivityId (\ s a -> s{_aActivityId = a});
 
 -- | The name of the Auto Scaling group.
-actAutoScalingGroupName :: Lens' Activity Text
-actAutoScalingGroupName = lens _actAutoScalingGroupName (\ s a -> s{_actAutoScalingGroupName = a});
+aAutoScalingGroupName :: Lens' Activity Text
+aAutoScalingGroupName = lens _aAutoScalingGroupName (\ s a -> s{_aAutoScalingGroupName = a});
 
 -- | The reason the activity began.
-actCause :: Lens' Activity Text
-actCause = lens _actCause (\ s a -> s{_actCause = a});
+aCause :: Lens' Activity Text
+aCause = lens _aCause (\ s a -> s{_aCause = a});
 
 -- | The start time of the activity.
-actStartTime :: Lens' Activity UTCTime
-actStartTime = lens _actStartTime (\ s a -> s{_actStartTime = a}) . _Time;
+aStartTime :: Lens' Activity UTCTime
+aStartTime = lens _aStartTime (\ s a -> s{_aStartTime = a}) . _Time;
 
 -- | The current status of the activity.
-actStatusCode :: Lens' Activity ScalingActivityStatusCode
-actStatusCode = lens _actStatusCode (\ s a -> s{_actStatusCode = a});
+aStatusCode :: Lens' Activity ScalingActivityStatusCode
+aStatusCode = lens _aStatusCode (\ s a -> s{_aStatusCode = a});
 
 instance FromXML Activity where
         parseXML x
@@ -167,29 +167,29 @@ instance FromXML AdjustmentType where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'alaAlarmName'
+-- * 'aAlarmName'
 --
--- * 'alaAlarmARN'
+-- * 'aAlarmARN'
 data Alarm = Alarm'
-    { _alaAlarmName :: !(Maybe Text)
-    , _alaAlarmARN  :: !(Maybe Text)
+    { _aAlarmName :: !(Maybe Text)
+    , _aAlarmARN  :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Alarm' smart constructor.
 alarm :: Alarm
 alarm =
     Alarm'
-    { _alaAlarmName = Nothing
-    , _alaAlarmARN = Nothing
+    { _aAlarmName = Nothing
+    , _aAlarmARN = Nothing
     }
 
 -- | The name of the alarm.
-alaAlarmName :: Lens' Alarm (Maybe Text)
-alaAlarmName = lens _alaAlarmName (\ s a -> s{_alaAlarmName = a});
+aAlarmName :: Lens' Alarm (Maybe Text)
+aAlarmName = lens _aAlarmName (\ s a -> s{_aAlarmName = a});
 
 -- | The Amazon Resource Name (ARN) of the alarm.
-alaAlarmARN :: Lens' Alarm (Maybe Text)
-alaAlarmARN = lens _alaAlarmARN (\ s a -> s{_alaAlarmARN = a});
+aAlarmARN :: Lens' Alarm (Maybe Text)
+aAlarmARN = lens _aAlarmARN (\ s a -> s{_aAlarmARN = a});
 
 instance FromXML Alarm where
         parseXML x
@@ -707,37 +707,37 @@ instance FromXML EnabledMetric where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'filValues'
+-- * 'fValues'
 --
--- * 'filName'
+-- * 'fName'
 data Filter = Filter'
-    { _filValues :: !(Maybe [Text])
-    , _filName   :: !Text
+    { _fValues :: !(Maybe [Text])
+    , _fName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Filter' smart constructor.
 filter' :: Text -> Filter
 filter' pName =
     Filter'
-    { _filValues = Nothing
-    , _filName = pName
+    { _fValues = Nothing
+    , _fName = pName
     }
 
 -- | The value of the filter.
-filValues :: Lens' Filter [Text]
-filValues = lens _filValues (\ s a -> s{_filValues = a}) . _Default;
+fValues :: Lens' Filter [Text]
+fValues = lens _fValues (\ s a -> s{_fValues = a}) . _Default;
 
 -- | The name of the filter. The valid values are: @\"auto-scaling-group\"@,
 -- @\"key\"@, @\"value\"@, and @\"propagate-at-launch\"@.
-filName :: Lens' Filter Text
-filName = lens _filName (\ s a -> s{_filName = a});
+fName :: Lens' Filter Text
+fName = lens _fName (\ s a -> s{_fName = a});
 
 instance ToQuery Filter where
         toQuery Filter'{..}
           = mconcat
               ["Values" =:
-                 toQuery (toQueryList "member" <$> _filValues),
-               "Name" =: _filName]
+                 toQuery (toQueryList "member" <$> _fValues),
+               "Name" =: _fName]
 
 -- | Describes an EC2 instance.
 --
@@ -745,54 +745,54 @@ instance ToQuery Filter where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'insInstanceId'
+-- * 'iInstanceId'
 --
--- * 'insAvailabilityZone'
+-- * 'iAvailabilityZone'
 --
--- * 'insLifecycleState'
+-- * 'iLifecycleState'
 --
--- * 'insHealthStatus'
+-- * 'iHealthStatus'
 --
--- * 'insLaunchConfigurationName'
+-- * 'iLaunchConfigurationName'
 data Instance = Instance'
-    { _insInstanceId              :: !Text
-    , _insAvailabilityZone        :: !Text
-    , _insLifecycleState          :: !LifecycleState
-    , _insHealthStatus            :: !Text
-    , _insLaunchConfigurationName :: !Text
+    { _iInstanceId              :: !Text
+    , _iAvailabilityZone        :: !Text
+    , _iLifecycleState          :: !LifecycleState
+    , _iHealthStatus            :: !Text
+    , _iLaunchConfigurationName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Instance' smart constructor.
 instance' :: Text -> Text -> LifecycleState -> Text -> Text -> Instance
 instance' pInstanceId pAvailabilityZone pLifecycleState pHealthStatus pLaunchConfigurationName =
     Instance'
-    { _insInstanceId = pInstanceId
-    , _insAvailabilityZone = pAvailabilityZone
-    , _insLifecycleState = pLifecycleState
-    , _insHealthStatus = pHealthStatus
-    , _insLaunchConfigurationName = pLaunchConfigurationName
+    { _iInstanceId = pInstanceId
+    , _iAvailabilityZone = pAvailabilityZone
+    , _iLifecycleState = pLifecycleState
+    , _iHealthStatus = pHealthStatus
+    , _iLaunchConfigurationName = pLaunchConfigurationName
     }
 
 -- | The ID of the instance.
-insInstanceId :: Lens' Instance Text
-insInstanceId = lens _insInstanceId (\ s a -> s{_insInstanceId = a});
+iInstanceId :: Lens' Instance Text
+iInstanceId = lens _iInstanceId (\ s a -> s{_iInstanceId = a});
 
 -- | The Availability Zone in which the instance is running.
-insAvailabilityZone :: Lens' Instance Text
-insAvailabilityZone = lens _insAvailabilityZone (\ s a -> s{_insAvailabilityZone = a});
+iAvailabilityZone :: Lens' Instance Text
+iAvailabilityZone = lens _iAvailabilityZone (\ s a -> s{_iAvailabilityZone = a});
 
 -- | A description of the current lifecycle state. Note that the
 -- @Quarantined@ state is not used.
-insLifecycleState :: Lens' Instance LifecycleState
-insLifecycleState = lens _insLifecycleState (\ s a -> s{_insLifecycleState = a});
+iLifecycleState :: Lens' Instance LifecycleState
+iLifecycleState = lens _iLifecycleState (\ s a -> s{_iLifecycleState = a});
 
 -- | The health status of the instance.
-insHealthStatus :: Lens' Instance Text
-insHealthStatus = lens _insHealthStatus (\ s a -> s{_insHealthStatus = a});
+iHealthStatus :: Lens' Instance Text
+iHealthStatus = lens _iHealthStatus (\ s a -> s{_iHealthStatus = a});
 
 -- | The launch configuration associated with the instance.
-insLaunchConfigurationName :: Lens' Instance Text
-insLaunchConfigurationName = lens _insLaunchConfigurationName (\ s a -> s{_insLaunchConfigurationName = a});
+iLaunchConfigurationName :: Lens' Instance Text
+iLaunchConfigurationName = lens _iLaunchConfigurationName (\ s a -> s{_iLaunchConfigurationName = a});
 
 instance FromXML Instance where
         parseXML x
@@ -1401,129 +1401,129 @@ instance FromXML ProcessType where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'scaEstimatedInstanceWarmup'
+-- * 'sEstimatedInstanceWarmup'
 --
--- * 'scaMinAdjustmentStep'
+-- * 'sMinAdjustmentStep'
 --
--- * 'scaPolicyName'
+-- * 'sPolicyName'
 --
--- * 'scaPolicyType'
+-- * 'sPolicyType'
 --
--- * 'scaStepAdjustments'
+-- * 'sStepAdjustments'
 --
--- * 'scaAdjustmentType'
+-- * 'sAdjustmentType'
 --
--- * 'scaScalingAdjustment'
+-- * 'sScalingAdjustment'
 --
--- * 'scaAutoScalingGroupName'
+-- * 'sAutoScalingGroupName'
 --
--- * 'scaCooldown'
+-- * 'sCooldown'
 --
--- * 'scaPolicyARN'
+-- * 'sPolicyARN'
 --
--- * 'scaAlarms'
+-- * 'sAlarms'
 --
--- * 'scaMetricAggregationType'
+-- * 'sMetricAggregationType'
 --
--- * 'scaMinAdjustmentMagnitude'
+-- * 'sMinAdjustmentMagnitude'
 data ScalingPolicy = ScalingPolicy'
-    { _scaEstimatedInstanceWarmup :: !(Maybe Int)
-    , _scaMinAdjustmentStep       :: !(Maybe Int)
-    , _scaPolicyName              :: !(Maybe Text)
-    , _scaPolicyType              :: !(Maybe Text)
-    , _scaStepAdjustments         :: !(Maybe [StepAdjustment])
-    , _scaAdjustmentType          :: !(Maybe Text)
-    , _scaScalingAdjustment       :: !(Maybe Int)
-    , _scaAutoScalingGroupName    :: !(Maybe Text)
-    , _scaCooldown                :: !(Maybe Int)
-    , _scaPolicyARN               :: !(Maybe Text)
-    , _scaAlarms                  :: !(Maybe [Alarm])
-    , _scaMetricAggregationType   :: !(Maybe Text)
-    , _scaMinAdjustmentMagnitude  :: !(Maybe Int)
+    { _sEstimatedInstanceWarmup :: !(Maybe Int)
+    , _sMinAdjustmentStep       :: !(Maybe Int)
+    , _sPolicyName              :: !(Maybe Text)
+    , _sPolicyType              :: !(Maybe Text)
+    , _sStepAdjustments         :: !(Maybe [StepAdjustment])
+    , _sAdjustmentType          :: !(Maybe Text)
+    , _sScalingAdjustment       :: !(Maybe Int)
+    , _sAutoScalingGroupName    :: !(Maybe Text)
+    , _sCooldown                :: !(Maybe Int)
+    , _sPolicyARN               :: !(Maybe Text)
+    , _sAlarms                  :: !(Maybe [Alarm])
+    , _sMetricAggregationType   :: !(Maybe Text)
+    , _sMinAdjustmentMagnitude  :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ScalingPolicy' smart constructor.
 scalingPolicy :: ScalingPolicy
 scalingPolicy =
     ScalingPolicy'
-    { _scaEstimatedInstanceWarmup = Nothing
-    , _scaMinAdjustmentStep = Nothing
-    , _scaPolicyName = Nothing
-    , _scaPolicyType = Nothing
-    , _scaStepAdjustments = Nothing
-    , _scaAdjustmentType = Nothing
-    , _scaScalingAdjustment = Nothing
-    , _scaAutoScalingGroupName = Nothing
-    , _scaCooldown = Nothing
-    , _scaPolicyARN = Nothing
-    , _scaAlarms = Nothing
-    , _scaMetricAggregationType = Nothing
-    , _scaMinAdjustmentMagnitude = Nothing
+    { _sEstimatedInstanceWarmup = Nothing
+    , _sMinAdjustmentStep = Nothing
+    , _sPolicyName = Nothing
+    , _sPolicyType = Nothing
+    , _sStepAdjustments = Nothing
+    , _sAdjustmentType = Nothing
+    , _sScalingAdjustment = Nothing
+    , _sAutoScalingGroupName = Nothing
+    , _sCooldown = Nothing
+    , _sPolicyARN = Nothing
+    , _sAlarms = Nothing
+    , _sMetricAggregationType = Nothing
+    , _sMinAdjustmentMagnitude = Nothing
     }
 
 -- | The estimated time, in seconds, until a newly launched instance can
 -- contribute to the CloudWatch metrics.
-scaEstimatedInstanceWarmup :: Lens' ScalingPolicy (Maybe Int)
-scaEstimatedInstanceWarmup = lens _scaEstimatedInstanceWarmup (\ s a -> s{_scaEstimatedInstanceWarmup = a});
+sEstimatedInstanceWarmup :: Lens' ScalingPolicy (Maybe Int)
+sEstimatedInstanceWarmup = lens _sEstimatedInstanceWarmup (\ s a -> s{_sEstimatedInstanceWarmup = a});
 
 -- | Available for backward compatibility. Use @MinAdjustmentMagnitude@
 -- instead.
-scaMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
-scaMinAdjustmentStep = lens _scaMinAdjustmentStep (\ s a -> s{_scaMinAdjustmentStep = a});
+sMinAdjustmentStep :: Lens' ScalingPolicy (Maybe Int)
+sMinAdjustmentStep = lens _sMinAdjustmentStep (\ s a -> s{_sMinAdjustmentStep = a});
 
 -- | The name of the scaling policy.
-scaPolicyName :: Lens' ScalingPolicy (Maybe Text)
-scaPolicyName = lens _scaPolicyName (\ s a -> s{_scaPolicyName = a});
+sPolicyName :: Lens' ScalingPolicy (Maybe Text)
+sPolicyName = lens _sPolicyName (\ s a -> s{_sPolicyName = a});
 
 -- | The policy type. Valid values are @SimpleScaling@ and @StepScaling@.
-scaPolicyType :: Lens' ScalingPolicy (Maybe Text)
-scaPolicyType = lens _scaPolicyType (\ s a -> s{_scaPolicyType = a});
+sPolicyType :: Lens' ScalingPolicy (Maybe Text)
+sPolicyType = lens _sPolicyType (\ s a -> s{_sPolicyType = a});
 
 -- | A set of adjustments that enable you to scale based on the size of the
 -- alarm breach.
-scaStepAdjustments :: Lens' ScalingPolicy [StepAdjustment]
-scaStepAdjustments = lens _scaStepAdjustments (\ s a -> s{_scaStepAdjustments = a}) . _Default;
+sStepAdjustments :: Lens' ScalingPolicy [StepAdjustment]
+sStepAdjustments = lens _sStepAdjustments (\ s a -> s{_sStepAdjustments = a}) . _Default;
 
 -- | The adjustment type, which specifies how @ScalingAdjustment@ is
 -- interpreted. Valid values are @ChangeInCapacity@, @ExactCapacity@, and
 -- @PercentChangeInCapacity@.
-scaAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
-scaAdjustmentType = lens _scaAdjustmentType (\ s a -> s{_scaAdjustmentType = a});
+sAdjustmentType :: Lens' ScalingPolicy (Maybe Text)
+sAdjustmentType = lens _sAdjustmentType (\ s a -> s{_sAdjustmentType = a});
 
 -- | The amount by which to scale, based on the specified adjustment type. A
 -- positive value adds to the current capacity while a negative number
 -- removes from the current capacity.
-scaScalingAdjustment :: Lens' ScalingPolicy (Maybe Int)
-scaScalingAdjustment = lens _scaScalingAdjustment (\ s a -> s{_scaScalingAdjustment = a});
+sScalingAdjustment :: Lens' ScalingPolicy (Maybe Int)
+sScalingAdjustment = lens _sScalingAdjustment (\ s a -> s{_sScalingAdjustment = a});
 
 -- | The name of the Auto Scaling group associated with this scaling policy.
-scaAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
-scaAutoScalingGroupName = lens _scaAutoScalingGroupName (\ s a -> s{_scaAutoScalingGroupName = a});
+sAutoScalingGroupName :: Lens' ScalingPolicy (Maybe Text)
+sAutoScalingGroupName = lens _sAutoScalingGroupName (\ s a -> s{_sAutoScalingGroupName = a});
 
 -- | The amount of time, in seconds, after a scaling activity completes
 -- before any further trigger-related scaling activities can start.
-scaCooldown :: Lens' ScalingPolicy (Maybe Int)
-scaCooldown = lens _scaCooldown (\ s a -> s{_scaCooldown = a});
+sCooldown :: Lens' ScalingPolicy (Maybe Int)
+sCooldown = lens _sCooldown (\ s a -> s{_sCooldown = a});
 
 -- | The Amazon Resource Name (ARN) of the policy.
-scaPolicyARN :: Lens' ScalingPolicy (Maybe Text)
-scaPolicyARN = lens _scaPolicyARN (\ s a -> s{_scaPolicyARN = a});
+sPolicyARN :: Lens' ScalingPolicy (Maybe Text)
+sPolicyARN = lens _sPolicyARN (\ s a -> s{_sPolicyARN = a});
 
 -- | The CloudWatch alarms related to the policy.
-scaAlarms :: Lens' ScalingPolicy [Alarm]
-scaAlarms = lens _scaAlarms (\ s a -> s{_scaAlarms = a}) . _Default;
+sAlarms :: Lens' ScalingPolicy [Alarm]
+sAlarms = lens _sAlarms (\ s a -> s{_sAlarms = a}) . _Default;
 
 -- | The aggregation type for the CloudWatch metrics. Valid values are
 -- @Minimum@, @Maximum@, and @Average@.
-scaMetricAggregationType :: Lens' ScalingPolicy (Maybe Text)
-scaMetricAggregationType = lens _scaMetricAggregationType (\ s a -> s{_scaMetricAggregationType = a});
+sMetricAggregationType :: Lens' ScalingPolicy (Maybe Text)
+sMetricAggregationType = lens _sMetricAggregationType (\ s a -> s{_sMetricAggregationType = a});
 
 -- | The minimum number of instances to scale. If the value of
 -- @AdjustmentType@ is @PercentChangeInCapacity@, the scaling policy
 -- changes the @DesiredCapacity@ of the Auto Scaling group by at least this
 -- many instances. Otherwise, the error is @ValidationError@.
-scaMinAdjustmentMagnitude :: Lens' ScalingPolicy (Maybe Int)
-scaMinAdjustmentMagnitude = lens _scaMinAdjustmentMagnitude (\ s a -> s{_scaMinAdjustmentMagnitude = a});
+sMinAdjustmentMagnitude :: Lens' ScalingPolicy (Maybe Int)
+sMinAdjustmentMagnitude = lens _sMinAdjustmentMagnitude (\ s a -> s{_sMinAdjustmentMagnitude = a});
 
 instance FromXML ScalingPolicy where
         parseXML x

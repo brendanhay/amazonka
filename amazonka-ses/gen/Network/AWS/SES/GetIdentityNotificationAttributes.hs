@@ -34,15 +34,15 @@ module Network.AWS.SES.GetIdentityNotificationAttributes
     -- ** Request constructor
     , getIdentityNotificationAttributes
     -- ** Request lenses
-    , ginaIdentities
+    , ginarqIdentities
 
     -- * Response
     , GetIdentityNotificationAttributesResponse
     -- ** Response constructor
     , getIdentityNotificationAttributesResponse
     -- ** Response lenses
-    , ginarStatus
-    , ginarNotificationAttributes
+    , ginarsStatus
+    , ginarsNotificationAttributes
     ) where
 
 import           Network.AWS.Prelude
@@ -54,24 +54,24 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ginaIdentities'
+-- * 'ginarqIdentities'
 newtype GetIdentityNotificationAttributes = GetIdentityNotificationAttributes'
-    { _ginaIdentities :: [Text]
+    { _ginarqIdentities :: [Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityNotificationAttributes' smart constructor.
 getIdentityNotificationAttributes :: GetIdentityNotificationAttributes
 getIdentityNotificationAttributes =
     GetIdentityNotificationAttributes'
-    { _ginaIdentities = mempty
+    { _ginarqIdentities = mempty
     }
 
 -- | A list of one or more identities. You can specify an identity by using
 -- its name or by using its Amazon Resource Name (ARN). Examples:
 -- @user\@example.com@, @example.com@,
 -- @arn:aws:ses:us-east-1:123456789012:identity\/example.com@.
-ginaIdentities :: Lens' GetIdentityNotificationAttributes [Text]
-ginaIdentities = lens _ginaIdentities (\ s a -> s{_ginaIdentities = a});
+ginarqIdentities :: Lens' GetIdentityNotificationAttributes [Text]
+ginarqIdentities = lens _ginarqIdentities (\ s a -> s{_ginarqIdentities = a});
 
 instance AWSRequest GetIdentityNotificationAttributes
          where
@@ -103,7 +103,8 @@ instance ToQuery GetIdentityNotificationAttributes
               ["Action" =:
                  ("GetIdentityNotificationAttributes" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Identities" =: toQueryList "member" _ginaIdentities]
+               "Identities" =:
+                 toQueryList "member" _ginarqIdentities]
 
 -- | Describes whether an identity has Amazon Simple Notification Service
 -- (Amazon SNS) topics set for bounce, complaint, and\/or delivery
@@ -114,26 +115,26 @@ instance ToQuery GetIdentityNotificationAttributes
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ginarStatus'
+-- * 'ginarsStatus'
 --
--- * 'ginarNotificationAttributes'
+-- * 'ginarsNotificationAttributes'
 data GetIdentityNotificationAttributesResponse = GetIdentityNotificationAttributesResponse'
-    { _ginarStatus                 :: !Int
-    , _ginarNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
+    { _ginarsStatus                 :: !Int
+    , _ginarsNotificationAttributes :: !(Map Text IdentityNotificationAttributes)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdentityNotificationAttributesResponse' smart constructor.
 getIdentityNotificationAttributesResponse :: Int -> GetIdentityNotificationAttributesResponse
 getIdentityNotificationAttributesResponse pStatus =
     GetIdentityNotificationAttributesResponse'
-    { _ginarStatus = pStatus
-    , _ginarNotificationAttributes = mempty
+    { _ginarsStatus = pStatus
+    , _ginarsNotificationAttributes = mempty
     }
 
 -- | FIXME: Undocumented member.
-ginarStatus :: Lens' GetIdentityNotificationAttributesResponse Int
-ginarStatus = lens _ginarStatus (\ s a -> s{_ginarStatus = a});
+ginarsStatus :: Lens' GetIdentityNotificationAttributesResponse Int
+ginarsStatus = lens _ginarsStatus (\ s a -> s{_ginarsStatus = a});
 
 -- | A map of Identity to IdentityNotificationAttributes.
-ginarNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
-ginarNotificationAttributes = lens _ginarNotificationAttributes (\ s a -> s{_ginarNotificationAttributes = a}) . _Map;
+ginarsNotificationAttributes :: Lens' GetIdentityNotificationAttributesResponse (HashMap Text IdentityNotificationAttributes)
+ginarsNotificationAttributes = lens _ginarsNotificationAttributes (\ s a -> s{_ginarsNotificationAttributes = a}) . _Map;

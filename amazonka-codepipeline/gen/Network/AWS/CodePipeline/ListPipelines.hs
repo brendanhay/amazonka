@@ -27,16 +27,16 @@ module Network.AWS.CodePipeline.ListPipelines
     -- ** Request constructor
     , listPipelines
     -- ** Request lenses
-    , lpNextToken
+    , lprqNextToken
 
     -- * Response
     , ListPipelinesResponse
     -- ** Response constructor
     , listPipelinesResponse
     -- ** Response lenses
-    , lprPipelines
-    , lprNextToken
-    , lprStatus
+    , lprsPipelines
+    , lprsNextToken
+    , lprsStatus
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -50,22 +50,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lpNextToken'
+-- * 'lprqNextToken'
 newtype ListPipelines = ListPipelines'
-    { _lpNextToken :: Maybe Text
+    { _lprqNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelines' smart constructor.
 listPipelines :: ListPipelines
 listPipelines =
     ListPipelines'
-    { _lpNextToken = Nothing
+    { _lprqNextToken = Nothing
     }
 
 -- | An identifier that was returned from the previous list pipelines call,
 -- which can be used to return the next set of pipelines in the list.
-lpNextToken :: Lens' ListPipelines (Maybe Text)
-lpNextToken = lens _lpNextToken (\ s a -> s{_lpNextToken = a});
+lprqNextToken :: Lens' ListPipelines (Maybe Text)
+lprqNextToken = lens _lprqNextToken (\ s a -> s{_lprqNextToken = a});
 
 instance AWSRequest ListPipelines where
         type Sv ListPipelines = CodePipeline
@@ -91,7 +91,7 @@ instance ToHeaders ListPipelines where
 
 instance ToJSON ListPipelines where
         toJSON ListPipelines'{..}
-          = object ["nextToken" .= _lpNextToken]
+          = object ["nextToken" .= _lprqNextToken]
 
 instance ToPath ListPipelines where
         toPath = const "/"
@@ -105,36 +105,36 @@ instance ToQuery ListPipelines where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lprPipelines'
+-- * 'lprsPipelines'
 --
--- * 'lprNextToken'
+-- * 'lprsNextToken'
 --
--- * 'lprStatus'
+-- * 'lprsStatus'
 data ListPipelinesResponse = ListPipelinesResponse'
-    { _lprPipelines :: !(Maybe [PipelineSummary])
-    , _lprNextToken :: !(Maybe Text)
-    , _lprStatus    :: !Int
+    { _lprsPipelines :: !(Maybe [PipelineSummary])
+    , _lprsNextToken :: !(Maybe Text)
+    , _lprsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListPipelinesResponse' smart constructor.
 listPipelinesResponse :: Int -> ListPipelinesResponse
 listPipelinesResponse pStatus =
     ListPipelinesResponse'
-    { _lprPipelines = Nothing
-    , _lprNextToken = Nothing
-    , _lprStatus = pStatus
+    { _lprsPipelines = Nothing
+    , _lprsNextToken = Nothing
+    , _lprsStatus = pStatus
     }
 
 -- | The list of pipelines.
-lprPipelines :: Lens' ListPipelinesResponse [PipelineSummary]
-lprPipelines = lens _lprPipelines (\ s a -> s{_lprPipelines = a}) . _Default;
+lprsPipelines :: Lens' ListPipelinesResponse [PipelineSummary]
+lprsPipelines = lens _lprsPipelines (\ s a -> s{_lprsPipelines = a}) . _Default;
 
 -- | If the amount of returned information is significantly large, an
 -- identifier is also returned which can be used in a subsequent list
 -- pipelines call to return the next set of pipelines in the list.
-lprNextToken :: Lens' ListPipelinesResponse (Maybe Text)
-lprNextToken = lens _lprNextToken (\ s a -> s{_lprNextToken = a});
+lprsNextToken :: Lens' ListPipelinesResponse (Maybe Text)
+lprsNextToken = lens _lprsNextToken (\ s a -> s{_lprsNextToken = a});
 
 -- | FIXME: Undocumented member.
-lprStatus :: Lens' ListPipelinesResponse Int
-lprStatus = lens _lprStatus (\ s a -> s{_lprStatus = a});
+lprsStatus :: Lens' ListPipelinesResponse Int
+lprsStatus = lens _lprsStatus (\ s a -> s{_lprsStatus = a});

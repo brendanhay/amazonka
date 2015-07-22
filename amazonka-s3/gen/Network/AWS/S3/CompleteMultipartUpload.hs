@@ -27,27 +27,27 @@ module Network.AWS.S3.CompleteMultipartUpload
     -- ** Request constructor
     , completeMultipartUpload
     -- ** Request lenses
-    , comRequestPayer
-    , comMultipartUpload
-    , comBucket
-    , comKey
-    , comUploadId
+    , crqRequestPayer
+    , crqMultipartUpload
+    , crqBucket
+    , crqKey
+    , crqUploadId
 
     -- * Response
     , CompleteMultipartUploadResponse
     -- ** Response constructor
     , completeMultipartUploadResponse
     -- ** Response lenses
-    , cVersionId
-    , cETag
-    , cRequestCharged
-    , cLocation
-    , cExpiration
-    , cBucket
-    , cKey
-    , cSSEKMSKeyId
-    , cServerSideEncryption
-    , cStatus
+    , crsVersionId
+    , crsETag
+    , crsRequestCharged
+    , crsLocation
+    , crsExpiration
+    , crsBucket
+    , crsKey
+    , crsSSEKMSKeyId
+    , crsServerSideEncryption
+    , crsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -59,53 +59,53 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'comRequestPayer'
+-- * 'crqRequestPayer'
 --
--- * 'comMultipartUpload'
+-- * 'crqMultipartUpload'
 --
--- * 'comBucket'
+-- * 'crqBucket'
 --
--- * 'comKey'
+-- * 'crqKey'
 --
--- * 'comUploadId'
+-- * 'crqUploadId'
 data CompleteMultipartUpload = CompleteMultipartUpload'
-    { _comRequestPayer    :: !(Maybe RequestPayer)
-    , _comMultipartUpload :: !(Maybe CompletedMultipartUpload)
-    , _comBucket          :: !BucketName
-    , _comKey             :: !ObjectKey
-    , _comUploadId        :: !Text
+    { _crqRequestPayer    :: !(Maybe RequestPayer)
+    , _crqMultipartUpload :: !(Maybe CompletedMultipartUpload)
+    , _crqBucket          :: !BucketName
+    , _crqKey             :: !ObjectKey
+    , _crqUploadId        :: !Text
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUpload' smart constructor.
 completeMultipartUpload :: BucketName -> ObjectKey -> Text -> CompleteMultipartUpload
 completeMultipartUpload pBucket pKey pUploadId =
     CompleteMultipartUpload'
-    { _comRequestPayer = Nothing
-    , _comMultipartUpload = Nothing
-    , _comBucket = pBucket
-    , _comKey = pKey
-    , _comUploadId = pUploadId
+    { _crqRequestPayer = Nothing
+    , _crqMultipartUpload = Nothing
+    , _crqBucket = pBucket
+    , _crqKey = pKey
+    , _crqUploadId = pUploadId
     }
 
 -- | FIXME: Undocumented member.
-comRequestPayer :: Lens' CompleteMultipartUpload (Maybe RequestPayer)
-comRequestPayer = lens _comRequestPayer (\ s a -> s{_comRequestPayer = a});
+crqRequestPayer :: Lens' CompleteMultipartUpload (Maybe RequestPayer)
+crqRequestPayer = lens _crqRequestPayer (\ s a -> s{_crqRequestPayer = a});
 
 -- | FIXME: Undocumented member.
-comMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
-comMultipartUpload = lens _comMultipartUpload (\ s a -> s{_comMultipartUpload = a});
+crqMultipartUpload :: Lens' CompleteMultipartUpload (Maybe CompletedMultipartUpload)
+crqMultipartUpload = lens _crqMultipartUpload (\ s a -> s{_crqMultipartUpload = a});
 
 -- | FIXME: Undocumented member.
-comBucket :: Lens' CompleteMultipartUpload BucketName
-comBucket = lens _comBucket (\ s a -> s{_comBucket = a});
+crqBucket :: Lens' CompleteMultipartUpload BucketName
+crqBucket = lens _crqBucket (\ s a -> s{_crqBucket = a});
 
 -- | FIXME: Undocumented member.
-comKey :: Lens' CompleteMultipartUpload ObjectKey
-comKey = lens _comKey (\ s a -> s{_comKey = a});
+crqKey :: Lens' CompleteMultipartUpload ObjectKey
+crqKey = lens _crqKey (\ s a -> s{_crqKey = a});
 
 -- | FIXME: Undocumented member.
-comUploadId :: Lens' CompleteMultipartUpload Text
-comUploadId = lens _comUploadId (\ s a -> s{_comUploadId = a});
+crqUploadId :: Lens' CompleteMultipartUpload Text
+crqUploadId = lens _crqUploadId (\ s a -> s{_crqUploadId = a});
 
 instance AWSRequest CompleteMultipartUpload where
         type Sv CompleteMultipartUpload = S3
@@ -132,113 +132,113 @@ instance ToElement CompleteMultipartUpload where
           = mkElement
               "{http://s3.amazonaws.com/doc/2006-03-01/}CompleteMultipartUpload"
               .
-              _comMultipartUpload
+              _crqMultipartUpload
 
 instance ToHeaders CompleteMultipartUpload where
         toHeaders CompleteMultipartUpload'{..}
-          = mconcat ["x-amz-request-payer" =# _comRequestPayer]
+          = mconcat ["x-amz-request-payer" =# _crqRequestPayer]
 
 instance ToPath CompleteMultipartUpload where
         toPath CompleteMultipartUpload'{..}
           = mconcat
-              ["/", toText _comBucket, "/", toText _comKey]
+              ["/", toText _crqBucket, "/", toText _crqKey]
 
 instance ToQuery CompleteMultipartUpload where
         toQuery CompleteMultipartUpload'{..}
-          = mconcat ["uploadId" =: _comUploadId]
+          = mconcat ["uploadId" =: _crqUploadId]
 
 -- | /See:/ 'completeMultipartUploadResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cVersionId'
+-- * 'crsVersionId'
 --
--- * 'cETag'
+-- * 'crsETag'
 --
--- * 'cRequestCharged'
+-- * 'crsRequestCharged'
 --
--- * 'cLocation'
+-- * 'crsLocation'
 --
--- * 'cExpiration'
+-- * 'crsExpiration'
 --
--- * 'cBucket'
+-- * 'crsBucket'
 --
--- * 'cKey'
+-- * 'crsKey'
 --
--- * 'cSSEKMSKeyId'
+-- * 'crsSSEKMSKeyId'
 --
--- * 'cServerSideEncryption'
+-- * 'crsServerSideEncryption'
 --
--- * 'cStatus'
+-- * 'crsStatus'
 data CompleteMultipartUploadResponse = CompleteMultipartUploadResponse'
-    { _cVersionId            :: !(Maybe ObjectVersionId)
-    , _cETag                 :: !(Maybe ETag)
-    , _cRequestCharged       :: !(Maybe RequestCharged)
-    , _cLocation             :: !(Maybe Text)
-    , _cExpiration           :: !(Maybe Text)
-    , _cBucket               :: !(Maybe BucketName)
-    , _cKey                  :: !(Maybe ObjectKey)
-    , _cSSEKMSKeyId          :: !(Maybe (Sensitive Text))
-    , _cServerSideEncryption :: !(Maybe ServerSideEncryption)
-    , _cStatus               :: !Int
+    { _crsVersionId            :: !(Maybe ObjectVersionId)
+    , _crsETag                 :: !(Maybe ETag)
+    , _crsRequestCharged       :: !(Maybe RequestCharged)
+    , _crsLocation             :: !(Maybe Text)
+    , _crsExpiration           :: !(Maybe Text)
+    , _crsBucket               :: !(Maybe BucketName)
+    , _crsKey                  :: !(Maybe ObjectKey)
+    , _crsSSEKMSKeyId          :: !(Maybe (Sensitive Text))
+    , _crsServerSideEncryption :: !(Maybe ServerSideEncryption)
+    , _crsStatus               :: !Int
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'CompleteMultipartUploadResponse' smart constructor.
 completeMultipartUploadResponse :: Int -> CompleteMultipartUploadResponse
 completeMultipartUploadResponse pStatus =
     CompleteMultipartUploadResponse'
-    { _cVersionId = Nothing
-    , _cETag = Nothing
-    , _cRequestCharged = Nothing
-    , _cLocation = Nothing
-    , _cExpiration = Nothing
-    , _cBucket = Nothing
-    , _cKey = Nothing
-    , _cSSEKMSKeyId = Nothing
-    , _cServerSideEncryption = Nothing
-    , _cStatus = pStatus
+    { _crsVersionId = Nothing
+    , _crsETag = Nothing
+    , _crsRequestCharged = Nothing
+    , _crsLocation = Nothing
+    , _crsExpiration = Nothing
+    , _crsBucket = Nothing
+    , _crsKey = Nothing
+    , _crsSSEKMSKeyId = Nothing
+    , _crsServerSideEncryption = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | Version of the object.
-cVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
-cVersionId = lens _cVersionId (\ s a -> s{_cVersionId = a});
+crsVersionId :: Lens' CompleteMultipartUploadResponse (Maybe ObjectVersionId)
+crsVersionId = lens _crsVersionId (\ s a -> s{_crsVersionId = a});
 
 -- | Entity tag of the object.
-cETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
-cETag = lens _cETag (\ s a -> s{_cETag = a});
+crsETag :: Lens' CompleteMultipartUploadResponse (Maybe ETag)
+crsETag = lens _crsETag (\ s a -> s{_crsETag = a});
 
 -- | FIXME: Undocumented member.
-cRequestCharged :: Lens' CompleteMultipartUploadResponse (Maybe RequestCharged)
-cRequestCharged = lens _cRequestCharged (\ s a -> s{_cRequestCharged = a});
+crsRequestCharged :: Lens' CompleteMultipartUploadResponse (Maybe RequestCharged)
+crsRequestCharged = lens _crsRequestCharged (\ s a -> s{_crsRequestCharged = a});
 
 -- | FIXME: Undocumented member.
-cLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
-cLocation = lens _cLocation (\ s a -> s{_cLocation = a});
+crsLocation :: Lens' CompleteMultipartUploadResponse (Maybe Text)
+crsLocation = lens _crsLocation (\ s a -> s{_crsLocation = a});
 
 -- | If the object expiration is configured, this will contain the expiration
 -- date (expiry-date) and rule ID (rule-id). The value of rule-id is URL
 -- encoded.
-cExpiration :: Lens' CompleteMultipartUploadResponse (Maybe Text)
-cExpiration = lens _cExpiration (\ s a -> s{_cExpiration = a});
+crsExpiration :: Lens' CompleteMultipartUploadResponse (Maybe Text)
+crsExpiration = lens _crsExpiration (\ s a -> s{_crsExpiration = a});
 
 -- | FIXME: Undocumented member.
-cBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
-cBucket = lens _cBucket (\ s a -> s{_cBucket = a});
+crsBucket :: Lens' CompleteMultipartUploadResponse (Maybe BucketName)
+crsBucket = lens _crsBucket (\ s a -> s{_crsBucket = a});
 
 -- | FIXME: Undocumented member.
-cKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
-cKey = lens _cKey (\ s a -> s{_cKey = a});
+crsKey :: Lens' CompleteMultipartUploadResponse (Maybe ObjectKey)
+crsKey = lens _crsKey (\ s a -> s{_crsKey = a});
 
 -- | If present, specifies the ID of the AWS Key Management Service (KMS)
 -- master encryption key that was used for the object.
-cSSEKMSKeyId :: Lens' CompleteMultipartUploadResponse (Maybe Text)
-cSSEKMSKeyId = lens _cSSEKMSKeyId (\ s a -> s{_cSSEKMSKeyId = a}) . mapping _Sensitive;
+crsSSEKMSKeyId :: Lens' CompleteMultipartUploadResponse (Maybe Text)
+crsSSEKMSKeyId = lens _crsSSEKMSKeyId (\ s a -> s{_crsSSEKMSKeyId = a}) . mapping _Sensitive;
 
 -- | The Server-side encryption algorithm used when storing this object in S3
 -- (e.g., AES256, aws:kms).
-cServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
-cServerSideEncryption = lens _cServerSideEncryption (\ s a -> s{_cServerSideEncryption = a});
+crsServerSideEncryption :: Lens' CompleteMultipartUploadResponse (Maybe ServerSideEncryption)
+crsServerSideEncryption = lens _crsServerSideEncryption (\ s a -> s{_crsServerSideEncryption = a});
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CompleteMultipartUploadResponse Int
-cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
+crsStatus :: Lens' CompleteMultipartUploadResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

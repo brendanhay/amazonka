@@ -55,9 +55,9 @@ module Network.AWS.SWF.RespondActivityTaskFailed
     -- ** Request constructor
     , respondActivityTaskFailed
     -- ** Request lenses
-    , ratfReason
-    , ratfDetails
-    , ratfTaskToken
+    , ratfrqReason
+    , ratfrqDetails
+    , ratfrqTaskToken
 
     -- * Response
     , RespondActivityTaskFailedResponse
@@ -74,33 +74,33 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ratfReason'
+-- * 'ratfrqReason'
 --
--- * 'ratfDetails'
+-- * 'ratfrqDetails'
 --
--- * 'ratfTaskToken'
+-- * 'ratfrqTaskToken'
 data RespondActivityTaskFailed = RespondActivityTaskFailed'
-    { _ratfReason    :: !(Maybe Text)
-    , _ratfDetails   :: !(Maybe Text)
-    , _ratfTaskToken :: !Text
+    { _ratfrqReason    :: !(Maybe Text)
+    , _ratfrqDetails   :: !(Maybe Text)
+    , _ratfrqTaskToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RespondActivityTaskFailed' smart constructor.
 respondActivityTaskFailed :: Text -> RespondActivityTaskFailed
 respondActivityTaskFailed pTaskToken =
     RespondActivityTaskFailed'
-    { _ratfReason = Nothing
-    , _ratfDetails = Nothing
-    , _ratfTaskToken = pTaskToken
+    { _ratfrqReason = Nothing
+    , _ratfrqDetails = Nothing
+    , _ratfrqTaskToken = pTaskToken
     }
 
 -- | Description of the error that may assist in diagnostics.
-ratfReason :: Lens' RespondActivityTaskFailed (Maybe Text)
-ratfReason = lens _ratfReason (\ s a -> s{_ratfReason = a});
+ratfrqReason :: Lens' RespondActivityTaskFailed (Maybe Text)
+ratfrqReason = lens _ratfrqReason (\ s a -> s{_ratfrqReason = a});
 
 -- | /Optional./ Detailed information about the failure.
-ratfDetails :: Lens' RespondActivityTaskFailed (Maybe Text)
-ratfDetails = lens _ratfDetails (\ s a -> s{_ratfDetails = a});
+ratfrqDetails :: Lens' RespondActivityTaskFailed (Maybe Text)
+ratfrqDetails = lens _ratfrqDetails (\ s a -> s{_ratfrqDetails = a});
 
 -- | The @taskToken@ of the ActivityTask.
 --
@@ -108,8 +108,8 @@ ratfDetails = lens _ratfDetails (\ s a -> s{_ratfDetails = a});
 -- opaque value. If the task is passed to another process, its @taskToken@
 -- must also be passed. This enables it to provide its progress and respond
 -- with results.
-ratfTaskToken :: Lens' RespondActivityTaskFailed Text
-ratfTaskToken = lens _ratfTaskToken (\ s a -> s{_ratfTaskToken = a});
+ratfrqTaskToken :: Lens' RespondActivityTaskFailed Text
+ratfrqTaskToken = lens _ratfrqTaskToken (\ s a -> s{_ratfrqTaskToken = a});
 
 instance AWSRequest RespondActivityTaskFailed where
         type Sv RespondActivityTaskFailed = SWF
@@ -132,8 +132,9 @@ instance ToHeaders RespondActivityTaskFailed where
 instance ToJSON RespondActivityTaskFailed where
         toJSON RespondActivityTaskFailed'{..}
           = object
-              ["reason" .= _ratfReason, "details" .= _ratfDetails,
-               "taskToken" .= _ratfTaskToken]
+              ["reason" .= _ratfrqReason,
+               "details" .= _ratfrqDetails,
+               "taskToken" .= _ratfrqTaskToken]
 
 instance ToPath RespondActivityTaskFailed where
         toPath = const "/"

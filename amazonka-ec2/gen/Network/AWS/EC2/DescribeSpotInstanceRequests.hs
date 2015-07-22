@@ -40,17 +40,17 @@ module Network.AWS.EC2.DescribeSpotInstanceRequests
     -- ** Request constructor
     , describeSpotInstanceRequests
     -- ** Request lenses
-    , dsirFilters
-    , dsirSpotInstanceRequestIds
-    , dsirDryRun
+    , dsirrqFilters
+    , dsirrqSpotInstanceRequestIds
+    , dsirrqDryRun
 
     -- * Response
     , DescribeSpotInstanceRequestsResponse
     -- ** Response constructor
     , describeSpotInstanceRequestsResponse
     -- ** Response lenses
-    , dsirrSpotInstanceRequests
-    , dsirrStatus
+    , dsirrsSpotInstanceRequests
+    , dsirrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -64,24 +64,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsirFilters'
+-- * 'dsirrqFilters'
 --
--- * 'dsirSpotInstanceRequestIds'
+-- * 'dsirrqSpotInstanceRequestIds'
 --
--- * 'dsirDryRun'
+-- * 'dsirrqDryRun'
 data DescribeSpotInstanceRequests = DescribeSpotInstanceRequests'
-    { _dsirFilters                :: !(Maybe [Filter])
-    , _dsirSpotInstanceRequestIds :: !(Maybe [Text])
-    , _dsirDryRun                 :: !(Maybe Bool)
+    { _dsirrqFilters                :: !(Maybe [Filter])
+    , _dsirrqSpotInstanceRequestIds :: !(Maybe [Text])
+    , _dsirrqDryRun                 :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotInstanceRequests' smart constructor.
 describeSpotInstanceRequests :: DescribeSpotInstanceRequests
 describeSpotInstanceRequests =
     DescribeSpotInstanceRequests'
-    { _dsirFilters = Nothing
-    , _dsirSpotInstanceRequestIds = Nothing
-    , _dsirDryRun = Nothing
+    { _dsirrqFilters = Nothing
+    , _dsirrqSpotInstanceRequestIds = Nothing
+    , _dsirrqDryRun = Nothing
     }
 
 -- | One or more filters.
@@ -203,19 +203,19 @@ describeSpotInstanceRequests =
 --
 -- -   @valid-until@ - The end date of the request.
 --
-dsirFilters :: Lens' DescribeSpotInstanceRequests [Filter]
-dsirFilters = lens _dsirFilters (\ s a -> s{_dsirFilters = a}) . _Default;
+dsirrqFilters :: Lens' DescribeSpotInstanceRequests [Filter]
+dsirrqFilters = lens _dsirrqFilters (\ s a -> s{_dsirrqFilters = a}) . _Default;
 
 -- | One or more Spot Instance request IDs.
-dsirSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
-dsirSpotInstanceRequestIds = lens _dsirSpotInstanceRequestIds (\ s a -> s{_dsirSpotInstanceRequestIds = a}) . _Default;
+dsirrqSpotInstanceRequestIds :: Lens' DescribeSpotInstanceRequests [Text]
+dsirrqSpotInstanceRequestIds = lens _dsirrqSpotInstanceRequestIds (\ s a -> s{_dsirrqSpotInstanceRequestIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dsirDryRun :: Lens' DescribeSpotInstanceRequests (Maybe Bool)
-dsirDryRun = lens _dsirDryRun (\ s a -> s{_dsirDryRun = a});
+dsirrqDryRun :: Lens' DescribeSpotInstanceRequests (Maybe Bool)
+dsirrqDryRun = lens _dsirrqDryRun (\ s a -> s{_dsirrqDryRun = a});
 
 instance AWSRequest DescribeSpotInstanceRequests
          where
@@ -243,11 +243,11 @@ instance ToQuery DescribeSpotInstanceRequests where
               ["Action" =:
                  ("DescribeSpotInstanceRequests" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Filter" <$> _dsirFilters),
+               toQuery (toQueryList "Filter" <$> _dsirrqFilters),
                toQuery
                  (toQueryList "SpotInstanceRequestId" <$>
-                    _dsirSpotInstanceRequestIds),
-               "DryRun" =: _dsirDryRun]
+                    _dsirrqSpotInstanceRequestIds),
+               "DryRun" =: _dsirrqDryRun]
 
 -- | Contains the output of DescribeSpotInstanceRequests.
 --
@@ -255,26 +255,26 @@ instance ToQuery DescribeSpotInstanceRequests where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsirrSpotInstanceRequests'
+-- * 'dsirrsSpotInstanceRequests'
 --
--- * 'dsirrStatus'
+-- * 'dsirrsStatus'
 data DescribeSpotInstanceRequestsResponse = DescribeSpotInstanceRequestsResponse'
-    { _dsirrSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
-    , _dsirrStatus               :: !Int
+    { _dsirrsSpotInstanceRequests :: !(Maybe [SpotInstanceRequest])
+    , _dsirrsStatus               :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSpotInstanceRequestsResponse' smart constructor.
 describeSpotInstanceRequestsResponse :: Int -> DescribeSpotInstanceRequestsResponse
 describeSpotInstanceRequestsResponse pStatus =
     DescribeSpotInstanceRequestsResponse'
-    { _dsirrSpotInstanceRequests = Nothing
-    , _dsirrStatus = pStatus
+    { _dsirrsSpotInstanceRequests = Nothing
+    , _dsirrsStatus = pStatus
     }
 
 -- | One or more Spot Instance requests.
-dsirrSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
-dsirrSpotInstanceRequests = lens _dsirrSpotInstanceRequests (\ s a -> s{_dsirrSpotInstanceRequests = a}) . _Default;
+dsirrsSpotInstanceRequests :: Lens' DescribeSpotInstanceRequestsResponse [SpotInstanceRequest]
+dsirrsSpotInstanceRequests = lens _dsirrsSpotInstanceRequests (\ s a -> s{_dsirrsSpotInstanceRequests = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsirrStatus :: Lens' DescribeSpotInstanceRequestsResponse Int
-dsirrStatus = lens _dsirrStatus (\ s a -> s{_dsirrStatus = a});
+dsirrsStatus :: Lens' DescribeSpotInstanceRequestsResponse Int
+dsirrsStatus = lens _dsirrsStatus (\ s a -> s{_dsirrsStatus = a});

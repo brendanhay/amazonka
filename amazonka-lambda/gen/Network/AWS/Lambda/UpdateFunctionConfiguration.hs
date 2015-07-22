@@ -34,28 +34,28 @@ module Network.AWS.Lambda.UpdateFunctionConfiguration
     -- ** Request constructor
     , updateFunctionConfiguration
     -- ** Request lenses
-    , ufcMemorySize
-    , ufcRole
-    , ufcHandler
-    , ufcTimeout
-    , ufcDescription
-    , ufcFunctionName
+    , ufcrqMemorySize
+    , ufcrqRole
+    , ufcrqHandler
+    , ufcrqTimeout
+    , ufcrqDescription
+    , ufcrqFunctionName
 
     -- * Response
     , FunctionConfiguration
     -- ** Response constructor
     , functionConfiguration
     -- ** Response lenses
-    , fcRuntime
-    , fcMemorySize
-    , fcFunctionARN
-    , fcRole
-    , fcFunctionName
-    , fcCodeSize
-    , fcHandler
-    , fcTimeout
-    , fcLastModified
-    , fcDescription
+    , ufcrsRuntime
+    , ufcrsMemorySize
+    , ufcrsFunctionARN
+    , ufcrsRole
+    , ufcrsFunctionName
+    , ufcrsCodeSize
+    , ufcrsHandler
+    , ufcrsTimeout
+    , ufcrsLastModified
+    , ufcrsDescription
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -67,36 +67,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ufcMemorySize'
+-- * 'ufcrqMemorySize'
 --
--- * 'ufcRole'
+-- * 'ufcrqRole'
 --
--- * 'ufcHandler'
+-- * 'ufcrqHandler'
 --
--- * 'ufcTimeout'
+-- * 'ufcrqTimeout'
 --
--- * 'ufcDescription'
+-- * 'ufcrqDescription'
 --
--- * 'ufcFunctionName'
+-- * 'ufcrqFunctionName'
 data UpdateFunctionConfiguration = UpdateFunctionConfiguration'
-    { _ufcMemorySize   :: !(Maybe Nat)
-    , _ufcRole         :: !(Maybe Text)
-    , _ufcHandler      :: !(Maybe Text)
-    , _ufcTimeout      :: !(Maybe Nat)
-    , _ufcDescription  :: !(Maybe Text)
-    , _ufcFunctionName :: !Text
+    { _ufcrqMemorySize   :: !(Maybe Nat)
+    , _ufcrqRole         :: !(Maybe Text)
+    , _ufcrqHandler      :: !(Maybe Text)
+    , _ufcrqTimeout      :: !(Maybe Nat)
+    , _ufcrqDescription  :: !(Maybe Text)
+    , _ufcrqFunctionName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateFunctionConfiguration' smart constructor.
 updateFunctionConfiguration :: Text -> UpdateFunctionConfiguration
 updateFunctionConfiguration pFunctionName =
     UpdateFunctionConfiguration'
-    { _ufcMemorySize = Nothing
-    , _ufcRole = Nothing
-    , _ufcHandler = Nothing
-    , _ufcTimeout = Nothing
-    , _ufcDescription = Nothing
-    , _ufcFunctionName = pFunctionName
+    { _ufcrqMemorySize = Nothing
+    , _ufcrqRole = Nothing
+    , _ufcrqHandler = Nothing
+    , _ufcrqTimeout = Nothing
+    , _ufcrqDescription = Nothing
+    , _ufcrqFunctionName = pFunctionName
     }
 
 -- | The amount of memory, in MB, your Lambda function is given. AWS Lambda
@@ -105,30 +105,30 @@ updateFunctionConfiguration pFunctionName =
 -- requirements. For example, a database operation might need less memory
 -- compared to an image processing function. The default value is 128 MB.
 -- The value must be a multiple of 64 MB.
-ufcMemorySize :: Lens' UpdateFunctionConfiguration (Maybe Natural)
-ufcMemorySize = lens _ufcMemorySize (\ s a -> s{_ufcMemorySize = a}) . mapping _Nat;
+ufcrqMemorySize :: Lens' UpdateFunctionConfiguration (Maybe Natural)
+ufcrqMemorySize = lens _ufcrqMemorySize (\ s a -> s{_ufcrqMemorySize = a}) . mapping _Nat;
 
 -- | The Amazon Resource Name (ARN) of the IAM role that Lambda will assume
 -- when it executes your function.
-ufcRole :: Lens' UpdateFunctionConfiguration (Maybe Text)
-ufcRole = lens _ufcRole (\ s a -> s{_ufcRole = a});
+ufcrqRole :: Lens' UpdateFunctionConfiguration (Maybe Text)
+ufcrqRole = lens _ufcrqRole (\ s a -> s{_ufcrqRole = a});
 
 -- | The function that Lambda calls to begin executing your function. For
 -- Node.js, it is the /module-name.export/ value in your function.
-ufcHandler :: Lens' UpdateFunctionConfiguration (Maybe Text)
-ufcHandler = lens _ufcHandler (\ s a -> s{_ufcHandler = a});
+ufcrqHandler :: Lens' UpdateFunctionConfiguration (Maybe Text)
+ufcrqHandler = lens _ufcrqHandler (\ s a -> s{_ufcrqHandler = a});
 
 -- | The function execution time at which AWS Lambda should terminate the
 -- function. Because the execution time has cost implications, we recommend
 -- you set this value based on your expected execution time. The default is
 -- 3 seconds.
-ufcTimeout :: Lens' UpdateFunctionConfiguration (Maybe Natural)
-ufcTimeout = lens _ufcTimeout (\ s a -> s{_ufcTimeout = a}) . mapping _Nat;
+ufcrqTimeout :: Lens' UpdateFunctionConfiguration (Maybe Natural)
+ufcrqTimeout = lens _ufcrqTimeout (\ s a -> s{_ufcrqTimeout = a}) . mapping _Nat;
 
 -- | A short user-defined function description. AWS Lambda does not use this
 -- value. Assign a meaningful description as you see fit.
-ufcDescription :: Lens' UpdateFunctionConfiguration (Maybe Text)
-ufcDescription = lens _ufcDescription (\ s a -> s{_ufcDescription = a});
+ufcrqDescription :: Lens' UpdateFunctionConfiguration (Maybe Text)
+ufcrqDescription = lens _ufcrqDescription (\ s a -> s{_ufcrqDescription = a});
 
 -- | The name of the Lambda function.
 --
@@ -140,8 +140,8 @@ ufcDescription = lens _ufcDescription (\ s a -> s{_ufcDescription = a});
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-ufcFunctionName :: Lens' UpdateFunctionConfiguration Text
-ufcFunctionName = lens _ufcFunctionName (\ s a -> s{_ufcFunctionName = a});
+ufcrqFunctionName :: Lens' UpdateFunctionConfiguration Text
+ufcrqFunctionName = lens _ufcrqFunctionName (\ s a -> s{_ufcrqFunctionName = a});
 
 instance AWSRequest UpdateFunctionConfiguration where
         type Sv UpdateFunctionConfiguration = Lambda
@@ -156,14 +156,15 @@ instance ToHeaders UpdateFunctionConfiguration where
 instance ToJSON UpdateFunctionConfiguration where
         toJSON UpdateFunctionConfiguration'{..}
           = object
-              ["MemorySize" .= _ufcMemorySize, "Role" .= _ufcRole,
-               "Handler" .= _ufcHandler, "Timeout" .= _ufcTimeout,
-               "Description" .= _ufcDescription]
+              ["MemorySize" .= _ufcrqMemorySize,
+               "Role" .= _ufcrqRole, "Handler" .= _ufcrqHandler,
+               "Timeout" .= _ufcrqTimeout,
+               "Description" .= _ufcrqDescription]
 
 instance ToPath UpdateFunctionConfiguration where
         toPath UpdateFunctionConfiguration'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _ufcFunctionName,
+              ["/2015-03-31/functions/", toText _ufcrqFunctionName,
                "/versions/HEAD/configuration"]
 
 instance ToQuery UpdateFunctionConfiguration where

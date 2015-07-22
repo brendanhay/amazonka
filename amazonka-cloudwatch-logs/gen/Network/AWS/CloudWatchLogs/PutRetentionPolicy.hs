@@ -29,8 +29,8 @@ module Network.AWS.CloudWatchLogs.PutRetentionPolicy
     -- ** Request constructor
     , putRetentionPolicy
     -- ** Request lenses
-    , prpLogGroupName
-    , prpRetentionInDays
+    , prprqLogGroupName
+    , prprqRetentionInDays
 
     -- * Response
     , PutRetentionPolicyResponse
@@ -47,29 +47,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prpLogGroupName'
+-- * 'prprqLogGroupName'
 --
--- * 'prpRetentionInDays'
+-- * 'prprqRetentionInDays'
 data PutRetentionPolicy = PutRetentionPolicy'
-    { _prpLogGroupName    :: !Text
-    , _prpRetentionInDays :: !Int
+    { _prprqLogGroupName    :: !Text
+    , _prprqRetentionInDays :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutRetentionPolicy' smart constructor.
 putRetentionPolicy :: Text -> Int -> PutRetentionPolicy
 putRetentionPolicy pLogGroupName pRetentionInDays =
     PutRetentionPolicy'
-    { _prpLogGroupName = pLogGroupName
-    , _prpRetentionInDays = pRetentionInDays
+    { _prprqLogGroupName = pLogGroupName
+    , _prprqRetentionInDays = pRetentionInDays
     }
 
 -- | The name of the log group to associate the retention policy with.
-prpLogGroupName :: Lens' PutRetentionPolicy Text
-prpLogGroupName = lens _prpLogGroupName (\ s a -> s{_prpLogGroupName = a});
+prprqLogGroupName :: Lens' PutRetentionPolicy Text
+prprqLogGroupName = lens _prprqLogGroupName (\ s a -> s{_prprqLogGroupName = a});
 
 -- | FIXME: Undocumented member.
-prpRetentionInDays :: Lens' PutRetentionPolicy Int
-prpRetentionInDays = lens _prpRetentionInDays (\ s a -> s{_prpRetentionInDays = a});
+prprqRetentionInDays :: Lens' PutRetentionPolicy Int
+prprqRetentionInDays = lens _prprqRetentionInDays (\ s a -> s{_prprqRetentionInDays = a});
 
 instance AWSRequest PutRetentionPolicy where
         type Sv PutRetentionPolicy = CloudWatchLogs
@@ -90,8 +90,8 @@ instance ToHeaders PutRetentionPolicy where
 instance ToJSON PutRetentionPolicy where
         toJSON PutRetentionPolicy'{..}
           = object
-              ["logGroupName" .= _prpLogGroupName,
-               "retentionInDays" .= _prpRetentionInDays]
+              ["logGroupName" .= _prprqLogGroupName,
+               "retentionInDays" .= _prprqRetentionInDays]
 
 instance ToPath PutRetentionPolicy where
         toPath = const "/"

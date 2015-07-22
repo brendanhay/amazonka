@@ -34,15 +34,15 @@ module Network.AWS.CodeCommit.GetRepository
     -- ** Request constructor
     , getRepository
     -- ** Request lenses
-    , grRepositoryName
+    , grrqRepositoryName
 
     -- * Response
     , GetRepositoryResponse
     -- ** Response constructor
     , getRepositoryResponse
     -- ** Response lenses
-    , grrRepositoryMetadata
-    , grrStatus
+    , grrsRepositoryMetadata
+    , grrsStatus
     ) where
 
 import           Network.AWS.CodeCommit.Types
@@ -56,21 +56,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grRepositoryName'
+-- * 'grrqRepositoryName'
 newtype GetRepository = GetRepository'
-    { _grRepositoryName :: Text
+    { _grrqRepositoryName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRepository' smart constructor.
 getRepository :: Text -> GetRepository
 getRepository pRepositoryName =
     GetRepository'
-    { _grRepositoryName = pRepositoryName
+    { _grrqRepositoryName = pRepositoryName
     }
 
 -- | The name of the repository to get information about.
-grRepositoryName :: Lens' GetRepository Text
-grRepositoryName = lens _grRepositoryName (\ s a -> s{_grRepositoryName = a});
+grrqRepositoryName :: Lens' GetRepository Text
+grrqRepositoryName = lens _grrqRepositoryName (\ s a -> s{_grrqRepositoryName = a});
 
 instance AWSRequest GetRepository where
         type Sv GetRepository = CodeCommit
@@ -93,7 +93,7 @@ instance ToHeaders GetRepository where
 
 instance ToJSON GetRepository where
         toJSON GetRepository'{..}
-          = object ["repositoryName" .= _grRepositoryName]
+          = object ["repositoryName" .= _grrqRepositoryName]
 
 instance ToPath GetRepository where
         toPath = const "/"
@@ -107,26 +107,26 @@ instance ToQuery GetRepository where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrRepositoryMetadata'
+-- * 'grrsRepositoryMetadata'
 --
--- * 'grrStatus'
+-- * 'grrsStatus'
 data GetRepositoryResponse = GetRepositoryResponse'
-    { _grrRepositoryMetadata :: !(Maybe RepositoryMetadata)
-    , _grrStatus             :: !Int
+    { _grrsRepositoryMetadata :: !(Maybe RepositoryMetadata)
+    , _grrsStatus             :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetRepositoryResponse' smart constructor.
 getRepositoryResponse :: Int -> GetRepositoryResponse
 getRepositoryResponse pStatus =
     GetRepositoryResponse'
-    { _grrRepositoryMetadata = Nothing
-    , _grrStatus = pStatus
+    { _grrsRepositoryMetadata = Nothing
+    , _grrsStatus = pStatus
     }
 
 -- | Information about the repository.
-grrRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
-grrRepositoryMetadata = lens _grrRepositoryMetadata (\ s a -> s{_grrRepositoryMetadata = a});
+grrsRepositoryMetadata :: Lens' GetRepositoryResponse (Maybe RepositoryMetadata)
+grrsRepositoryMetadata = lens _grrsRepositoryMetadata (\ s a -> s{_grrsRepositoryMetadata = a});
 
 -- | FIXME: Undocumented member.
-grrStatus :: Lens' GetRepositoryResponse Int
-grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
+grrsStatus :: Lens' GetRepositoryResponse Int
+grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

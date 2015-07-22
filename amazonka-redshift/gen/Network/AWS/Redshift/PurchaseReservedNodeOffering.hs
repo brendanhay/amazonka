@@ -36,16 +36,16 @@ module Network.AWS.Redshift.PurchaseReservedNodeOffering
     -- ** Request constructor
     , purchaseReservedNodeOffering
     -- ** Request lenses
-    , prnoNodeCount
-    , prnoReservedNodeOfferingId
+    , prnorqNodeCount
+    , prnorqReservedNodeOfferingId
 
     -- * Response
     , PurchaseReservedNodeOfferingResponse
     -- ** Response constructor
     , purchaseReservedNodeOfferingResponse
     -- ** Response lenses
-    , prnorReservedNode
-    , prnorStatus
+    , prnorsReservedNode
+    , prnorsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -59,32 +59,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prnoNodeCount'
+-- * 'prnorqNodeCount'
 --
--- * 'prnoReservedNodeOfferingId'
+-- * 'prnorqReservedNodeOfferingId'
 data PurchaseReservedNodeOffering = PurchaseReservedNodeOffering'
-    { _prnoNodeCount              :: !(Maybe Int)
-    , _prnoReservedNodeOfferingId :: !Text
+    { _prnorqNodeCount              :: !(Maybe Int)
+    , _prnorqReservedNodeOfferingId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedNodeOffering' smart constructor.
 purchaseReservedNodeOffering :: Text -> PurchaseReservedNodeOffering
 purchaseReservedNodeOffering pReservedNodeOfferingId =
     PurchaseReservedNodeOffering'
-    { _prnoNodeCount = Nothing
-    , _prnoReservedNodeOfferingId = pReservedNodeOfferingId
+    { _prnorqNodeCount = Nothing
+    , _prnorqReservedNodeOfferingId = pReservedNodeOfferingId
     }
 
 -- | The number of reserved nodes you want to purchase.
 --
 -- Default: @1@
-prnoNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
-prnoNodeCount = lens _prnoNodeCount (\ s a -> s{_prnoNodeCount = a});
+prnorqNodeCount :: Lens' PurchaseReservedNodeOffering (Maybe Int)
+prnorqNodeCount = lens _prnorqNodeCount (\ s a -> s{_prnorqNodeCount = a});
 
 -- | The unique identifier of the reserved node offering you want to
 -- purchase.
-prnoReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
-prnoReservedNodeOfferingId = lens _prnoReservedNodeOfferingId (\ s a -> s{_prnoReservedNodeOfferingId = a});
+prnorqReservedNodeOfferingId :: Lens' PurchaseReservedNodeOffering Text
+prnorqReservedNodeOfferingId = lens _prnorqReservedNodeOfferingId (\ s a -> s{_prnorqReservedNodeOfferingId = a});
 
 instance AWSRequest PurchaseReservedNodeOffering
          where
@@ -111,34 +111,34 @@ instance ToQuery PurchaseReservedNodeOffering where
               ["Action" =:
                  ("PurchaseReservedNodeOffering" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "NodeCount" =: _prnoNodeCount,
+               "NodeCount" =: _prnorqNodeCount,
                "ReservedNodeOfferingId" =:
-                 _prnoReservedNodeOfferingId]
+                 _prnorqReservedNodeOfferingId]
 
 -- | /See:/ 'purchaseReservedNodeOfferingResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'prnorReservedNode'
+-- * 'prnorsReservedNode'
 --
--- * 'prnorStatus'
+-- * 'prnorsStatus'
 data PurchaseReservedNodeOfferingResponse = PurchaseReservedNodeOfferingResponse'
-    { _prnorReservedNode :: !(Maybe ReservedNode)
-    , _prnorStatus       :: !Int
+    { _prnorsReservedNode :: !(Maybe ReservedNode)
+    , _prnorsStatus       :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PurchaseReservedNodeOfferingResponse' smart constructor.
 purchaseReservedNodeOfferingResponse :: Int -> PurchaseReservedNodeOfferingResponse
 purchaseReservedNodeOfferingResponse pStatus =
     PurchaseReservedNodeOfferingResponse'
-    { _prnorReservedNode = Nothing
-    , _prnorStatus = pStatus
+    { _prnorsReservedNode = Nothing
+    , _prnorsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-prnorReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
-prnorReservedNode = lens _prnorReservedNode (\ s a -> s{_prnorReservedNode = a});
+prnorsReservedNode :: Lens' PurchaseReservedNodeOfferingResponse (Maybe ReservedNode)
+prnorsReservedNode = lens _prnorsReservedNode (\ s a -> s{_prnorsReservedNode = a});
 
 -- | FIXME: Undocumented member.
-prnorStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
-prnorStatus = lens _prnorStatus (\ s a -> s{_prnorStatus = a});
+prnorsStatus :: Lens' PurchaseReservedNodeOfferingResponse Int
+prnorsStatus = lens _prnorsStatus (\ s a -> s{_prnorsStatus = a});

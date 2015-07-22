@@ -192,8 +192,8 @@ module Network.AWS.ElastiCache.Types
     -- * Endpoint
     , Endpoint
     , endpoint
-    , endAddress
-    , endPort
+    , eAddress
+    , ePort
 
     -- * EngineDefaults
     , EngineDefaults
@@ -206,10 +206,10 @@ module Network.AWS.ElastiCache.Types
     -- * Event
     , Event
     , event
-    , eveSourceType
-    , eveSourceIdentifier
-    , eveDate
-    , eveMessage
+    , eSourceType
+    , eSourceIdentifier
+    , eDate
+    , eMessage
 
     -- * NodeGroup
     , NodeGroup
@@ -245,14 +245,14 @@ module Network.AWS.ElastiCache.Types
     -- * Parameter
     , Parameter
     , parameter
-    , parParameterValue
-    , parMinimumEngineVersion
-    , parSource
-    , parIsModifiable
-    , parAllowedValues
-    , parDataType
-    , parParameterName
-    , parDescription
+    , pParameterValue
+    , pMinimumEngineVersion
+    , pSource
+    , pIsModifiable
+    , pAllowedValues
+    , pDataType
+    , pParameterName
+    , pDescription
 
     -- * ParameterNameValue
     , ParameterNameValue
@@ -328,32 +328,32 @@ module Network.AWS.ElastiCache.Types
     -- * Snapshot
     , Snapshot
     , snapshot
-    , snaCacheNodeType
-    , snaEngineVersion
-    , snaCacheClusterCreateTime
-    , snaAutoMinorVersionUpgrade
-    , snaCacheParameterGroupName
-    , snaSnapshotStatus
-    , snaSnapshotWindow
-    , snaVPCId
-    , snaCacheClusterId
-    , snaEngine
-    , snaPreferredMaintenanceWindow
-    , snaTopicARN
-    , snaCacheSubnetGroupName
-    , snaNodeSnapshots
-    , snaPreferredAvailabilityZone
-    , snaSnapshotRetentionLimit
-    , snaSnapshotName
-    , snaSnapshotSource
-    , snaNumCacheNodes
-    , snaPort
+    , sCacheNodeType
+    , sEngineVersion
+    , sCacheClusterCreateTime
+    , sAutoMinorVersionUpgrade
+    , sCacheParameterGroupName
+    , sSnapshotStatus
+    , sSnapshotWindow
+    , sVPCId
+    , sCacheClusterId
+    , sEngine
+    , sPreferredMaintenanceWindow
+    , sTopicARN
+    , sCacheSubnetGroupName
+    , sNodeSnapshots
+    , sPreferredAvailabilityZone
+    , sSnapshotRetentionLimit
+    , sSnapshotName
+    , sSnapshotSource
+    , sNumCacheNodes
+    , sPort
 
     -- * Subnet
     , Subnet
     , subnet
-    , subSubnetIdentifier
-    , subSubnetAvailabilityZone
+    , sSubnetIdentifier
+    , sSubnetAvailabilityZone
 
     -- * Tag
     , Tag

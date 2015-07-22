@@ -48,18 +48,18 @@ module Network.AWS.EC2.CreateReservedInstancesListing
     -- ** Request constructor
     , createReservedInstancesListing
     -- ** Request lenses
-    , crilReservedInstancesId
-    , crilInstanceCount
-    , crilPriceSchedules
-    , crilClientToken
+    , crilrqReservedInstancesId
+    , crilrqInstanceCount
+    , crilrqPriceSchedules
+    , crilrqClientToken
 
     -- * Response
     , CreateReservedInstancesListingResponse
     -- ** Response constructor
     , createReservedInstancesListingResponse
     -- ** Response lenses
-    , cReservedInstancesListings
-    , cStatus
+    , crilrsReservedInstancesListings
+    , crilrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -71,52 +71,52 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'crilReservedInstancesId'
+-- * 'crilrqReservedInstancesId'
 --
--- * 'crilInstanceCount'
+-- * 'crilrqInstanceCount'
 --
--- * 'crilPriceSchedules'
+-- * 'crilrqPriceSchedules'
 --
--- * 'crilClientToken'
+-- * 'crilrqClientToken'
 data CreateReservedInstancesListing = CreateReservedInstancesListing'
-    { _crilReservedInstancesId :: !Text
-    , _crilInstanceCount       :: !Int
-    , _crilPriceSchedules      :: ![PriceScheduleSpecification]
-    , _crilClientToken         :: !Text
+    { _crilrqReservedInstancesId :: !Text
+    , _crilrqInstanceCount       :: !Int
+    , _crilrqPriceSchedules      :: ![PriceScheduleSpecification]
+    , _crilrqClientToken         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReservedInstancesListing' smart constructor.
 createReservedInstancesListing :: Text -> Int -> Text -> CreateReservedInstancesListing
 createReservedInstancesListing pReservedInstancesId pInstanceCount pClientToken =
     CreateReservedInstancesListing'
-    { _crilReservedInstancesId = pReservedInstancesId
-    , _crilInstanceCount = pInstanceCount
-    , _crilPriceSchedules = mempty
-    , _crilClientToken = pClientToken
+    { _crilrqReservedInstancesId = pReservedInstancesId
+    , _crilrqInstanceCount = pInstanceCount
+    , _crilrqPriceSchedules = mempty
+    , _crilrqClientToken = pClientToken
     }
 
 -- | The ID of the active Reserved Instance.
-crilReservedInstancesId :: Lens' CreateReservedInstancesListing Text
-crilReservedInstancesId = lens _crilReservedInstancesId (\ s a -> s{_crilReservedInstancesId = a});
+crilrqReservedInstancesId :: Lens' CreateReservedInstancesListing Text
+crilrqReservedInstancesId = lens _crilrqReservedInstancesId (\ s a -> s{_crilrqReservedInstancesId = a});
 
 -- | The number of instances that are a part of a Reserved Instance account
 -- to be listed in the Reserved Instance Marketplace. This number should be
 -- less than or equal to the instance count associated with the Reserved
 -- Instance ID specified in this call.
-crilInstanceCount :: Lens' CreateReservedInstancesListing Int
-crilInstanceCount = lens _crilInstanceCount (\ s a -> s{_crilInstanceCount = a});
+crilrqInstanceCount :: Lens' CreateReservedInstancesListing Int
+crilrqInstanceCount = lens _crilrqInstanceCount (\ s a -> s{_crilrqInstanceCount = a});
 
 -- | A list specifying the price of the Reserved Instance for each month
 -- remaining in the Reserved Instance term.
-crilPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
-crilPriceSchedules = lens _crilPriceSchedules (\ s a -> s{_crilPriceSchedules = a});
+crilrqPriceSchedules :: Lens' CreateReservedInstancesListing [PriceScheduleSpecification]
+crilrqPriceSchedules = lens _crilrqPriceSchedules (\ s a -> s{_crilrqPriceSchedules = a});
 
 -- | Unique, case-sensitive identifier you provide to ensure idempotency of
 -- your listings. This helps avoid duplicate listings. For more
 -- information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html Ensuring Idempotency>.
-crilClientToken :: Lens' CreateReservedInstancesListing Text
-crilClientToken = lens _crilClientToken (\ s a -> s{_crilClientToken = a});
+crilrqClientToken :: Lens' CreateReservedInstancesListing Text
+crilrqClientToken = lens _crilrqClientToken (\ s a -> s{_crilrqClientToken = a});
 
 instance AWSRequest CreateReservedInstancesListing
          where
@@ -145,35 +145,35 @@ instance ToQuery CreateReservedInstancesListing where
               ["Action" =:
                  ("CreateReservedInstancesListing" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "ReservedInstancesId" =: _crilReservedInstancesId,
-               "InstanceCount" =: _crilInstanceCount,
-               toQueryList "item" _crilPriceSchedules,
-               "ClientToken" =: _crilClientToken]
+               "ReservedInstancesId" =: _crilrqReservedInstancesId,
+               "InstanceCount" =: _crilrqInstanceCount,
+               toQueryList "item" _crilrqPriceSchedules,
+               "ClientToken" =: _crilrqClientToken]
 
 -- | /See:/ 'createReservedInstancesListingResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cReservedInstancesListings'
+-- * 'crilrsReservedInstancesListings'
 --
--- * 'cStatus'
+-- * 'crilrsStatus'
 data CreateReservedInstancesListingResponse = CreateReservedInstancesListingResponse'
-    { _cReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
-    , _cStatus                    :: !Int
+    { _crilrsReservedInstancesListings :: !(Maybe [ReservedInstancesListing])
+    , _crilrsStatus                    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateReservedInstancesListingResponse' smart constructor.
 createReservedInstancesListingResponse :: Int -> CreateReservedInstancesListingResponse
 createReservedInstancesListingResponse pStatus =
     CreateReservedInstancesListingResponse'
-    { _cReservedInstancesListings = Nothing
-    , _cStatus = pStatus
+    { _crilrsReservedInstancesListings = Nothing
+    , _crilrsStatus = pStatus
     }
 
 -- | Information about the Reserved Instances listing.
-cReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
-cReservedInstancesListings = lens _cReservedInstancesListings (\ s a -> s{_cReservedInstancesListings = a}) . _Default;
+crilrsReservedInstancesListings :: Lens' CreateReservedInstancesListingResponse [ReservedInstancesListing]
+crilrsReservedInstancesListings = lens _crilrsReservedInstancesListings (\ s a -> s{_crilrsReservedInstancesListings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-cStatus :: Lens' CreateReservedInstancesListingResponse Int
-cStatus = lens _cStatus (\ s a -> s{_cStatus = a});
+crilrsStatus :: Lens' CreateReservedInstancesListingResponse Int
+crilrsStatus = lens _crilrsStatus (\ s a -> s{_crilrsStatus = a});

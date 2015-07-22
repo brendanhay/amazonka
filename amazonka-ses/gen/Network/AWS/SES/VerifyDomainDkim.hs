@@ -42,15 +42,15 @@ module Network.AWS.SES.VerifyDomainDkim
     -- ** Request constructor
     , verifyDomainDkim
     -- ** Request lenses
-    , vddDomain
+    , vddrqDomain
 
     -- * Response
     , VerifyDomainDkimResponse
     -- ** Response constructor
     , verifyDomainDkimResponse
     -- ** Response lenses
-    , vddrStatus
-    , vddrDkimTokens
+    , vddrsStatus
+    , vddrsDkimTokens
     ) where
 
 import           Network.AWS.Prelude
@@ -65,21 +65,21 @@ import           Network.AWS.SES.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vddDomain'
+-- * 'vddrqDomain'
 newtype VerifyDomainDkim = VerifyDomainDkim'
-    { _vddDomain :: Text
+    { _vddrqDomain :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainDkim' smart constructor.
 verifyDomainDkim :: Text -> VerifyDomainDkim
 verifyDomainDkim pDomain =
     VerifyDomainDkim'
-    { _vddDomain = pDomain
+    { _vddrqDomain = pDomain
     }
 
 -- | The name of the domain to be verified for Easy DKIM signing.
-vddDomain :: Lens' VerifyDomainDkim Text
-vddDomain = lens _vddDomain (\ s a -> s{_vddDomain = a});
+vddrqDomain :: Lens' VerifyDomainDkim Text
+vddrqDomain = lens _vddrqDomain (\ s a -> s{_vddrqDomain = a});
 
 instance AWSRequest VerifyDomainDkim where
         type Sv VerifyDomainDkim = SES
@@ -104,7 +104,7 @@ instance ToQuery VerifyDomainDkim where
           = mconcat
               ["Action" =: ("VerifyDomainDkim" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
-               "Domain" =: _vddDomain]
+               "Domain" =: _vddrqDomain]
 
 -- | Represents the DNS records that must be published in the domain name\'s
 -- DNS to complete DKIM setup.
@@ -113,25 +113,25 @@ instance ToQuery VerifyDomainDkim where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'vddrStatus'
+-- * 'vddrsStatus'
 --
--- * 'vddrDkimTokens'
+-- * 'vddrsDkimTokens'
 data VerifyDomainDkimResponse = VerifyDomainDkimResponse'
-    { _vddrStatus     :: !Int
-    , _vddrDkimTokens :: ![Text]
+    { _vddrsStatus     :: !Int
+    , _vddrsDkimTokens :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'VerifyDomainDkimResponse' smart constructor.
 verifyDomainDkimResponse :: Int -> VerifyDomainDkimResponse
 verifyDomainDkimResponse pStatus =
     VerifyDomainDkimResponse'
-    { _vddrStatus = pStatus
-    , _vddrDkimTokens = mempty
+    { _vddrsStatus = pStatus
+    , _vddrsDkimTokens = mempty
     }
 
 -- | FIXME: Undocumented member.
-vddrStatus :: Lens' VerifyDomainDkimResponse Int
-vddrStatus = lens _vddrStatus (\ s a -> s{_vddrStatus = a});
+vddrsStatus :: Lens' VerifyDomainDkimResponse Int
+vddrsStatus = lens _vddrsStatus (\ s a -> s{_vddrsStatus = a});
 
 -- | A set of character strings that represent the domain\'s identity. If the
 -- identity is an email address, the tokens represent the domain of that
@@ -146,5 +146,5 @@ vddrStatus = lens _vddrStatus (\ s a -> s{_vddrStatus = a});
 -- For more information about creating DNS records using DKIM tokens, go to
 -- the
 -- <http://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim-dns-records.html Amazon SES Developer Guide>.
-vddrDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
-vddrDkimTokens = lens _vddrDkimTokens (\ s a -> s{_vddrDkimTokens = a});
+vddrsDkimTokens :: Lens' VerifyDomainDkimResponse [Text]
+vddrsDkimTokens = lens _vddrsDkimTokens (\ s a -> s{_vddrsDkimTokens = a});

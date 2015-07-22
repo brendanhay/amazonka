@@ -29,16 +29,16 @@ module Network.AWS.OpsWorks.GrantAccess
     -- ** Request constructor
     , grantAccess
     -- ** Request lenses
-    , gaValidForInMinutes
-    , gaInstanceId
+    , garqValidForInMinutes
+    , garqInstanceId
 
     -- * Response
     , GrantAccessResponse
     -- ** Response constructor
     , grantAccessResponse
     -- ** Response lenses
-    , garTemporaryCredential
-    , garStatus
+    , garsTemporaryCredential
+    , garsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -50,32 +50,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gaValidForInMinutes'
+-- * 'garqValidForInMinutes'
 --
--- * 'gaInstanceId'
+-- * 'garqInstanceId'
 data GrantAccess = GrantAccess'
-    { _gaValidForInMinutes :: !(Maybe Nat)
-    , _gaInstanceId        :: !Text
+    { _garqValidForInMinutes :: !(Maybe Nat)
+    , _garqInstanceId        :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantAccess' smart constructor.
 grantAccess :: Text -> GrantAccess
 grantAccess pInstanceId =
     GrantAccess'
-    { _gaValidForInMinutes = Nothing
-    , _gaInstanceId = pInstanceId
+    { _garqValidForInMinutes = Nothing
+    , _garqInstanceId = pInstanceId
     }
 
 -- | The length of time (in minutes) that the grant is valid. When the grant
 -- expires at the end of this period, the user will no longer be able to
 -- use the credentials to log in. If the user is logged in at the time, he
 -- or she automatically will be logged out.
-gaValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
-gaValidForInMinutes = lens _gaValidForInMinutes (\ s a -> s{_gaValidForInMinutes = a}) . mapping _Nat;
+garqValidForInMinutes :: Lens' GrantAccess (Maybe Natural)
+garqValidForInMinutes = lens _garqValidForInMinutes (\ s a -> s{_garqValidForInMinutes = a}) . mapping _Nat;
 
 -- | The instance\'s AWS OpsWorks ID.
-gaInstanceId :: Lens' GrantAccess Text
-gaInstanceId = lens _gaInstanceId (\ s a -> s{_gaInstanceId = a});
+garqInstanceId :: Lens' GrantAccess Text
+garqInstanceId = lens _garqInstanceId (\ s a -> s{_garqInstanceId = a});
 
 instance AWSRequest GrantAccess where
         type Sv GrantAccess = OpsWorks
@@ -100,8 +100,8 @@ instance ToHeaders GrantAccess where
 instance ToJSON GrantAccess where
         toJSON GrantAccess'{..}
           = object
-              ["ValidForInMinutes" .= _gaValidForInMinutes,
-               "InstanceId" .= _gaInstanceId]
+              ["ValidForInMinutes" .= _garqValidForInMinutes,
+               "InstanceId" .= _garqInstanceId]
 
 instance ToPath GrantAccess where
         toPath = const "/"
@@ -115,28 +115,28 @@ instance ToQuery GrantAccess where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'garTemporaryCredential'
+-- * 'garsTemporaryCredential'
 --
--- * 'garStatus'
+-- * 'garsStatus'
 data GrantAccessResponse = GrantAccessResponse'
-    { _garTemporaryCredential :: !(Maybe TemporaryCredential)
-    , _garStatus              :: !Int
+    { _garsTemporaryCredential :: !(Maybe TemporaryCredential)
+    , _garsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GrantAccessResponse' smart constructor.
 grantAccessResponse :: Int -> GrantAccessResponse
 grantAccessResponse pStatus =
     GrantAccessResponse'
-    { _garTemporaryCredential = Nothing
-    , _garStatus = pStatus
+    { _garsTemporaryCredential = Nothing
+    , _garsStatus = pStatus
     }
 
 -- | A @TemporaryCredential@ object that contains the data needed to log in
 -- to the instance by RDP clients, such as the Microsoft Remote Desktop
 -- Connection.
-garTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
-garTemporaryCredential = lens _garTemporaryCredential (\ s a -> s{_garTemporaryCredential = a});
+garsTemporaryCredential :: Lens' GrantAccessResponse (Maybe TemporaryCredential)
+garsTemporaryCredential = lens _garsTemporaryCredential (\ s a -> s{_garsTemporaryCredential = a});
 
 -- | FIXME: Undocumented member.
-garStatus :: Lens' GrantAccessResponse Int
-garStatus = lens _garStatus (\ s a -> s{_garStatus = a});
+garsStatus :: Lens' GrantAccessResponse Int
+garsStatus = lens _garsStatus (\ s a -> s{_garsStatus = a});

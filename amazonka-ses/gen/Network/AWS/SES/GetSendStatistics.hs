@@ -38,8 +38,8 @@ module Network.AWS.SES.GetSendStatistics
     -- ** Response constructor
     , getSendStatisticsResponse
     -- ** Response lenses
-    , gssrSendDataPoints
-    , gssrStatus
+    , gssrsSendDataPoints
+    , gssrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -89,26 +89,26 @@ instance ToQuery GetSendStatistics where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gssrSendDataPoints'
+-- * 'gssrsSendDataPoints'
 --
--- * 'gssrStatus'
+-- * 'gssrsStatus'
 data GetSendStatisticsResponse = GetSendStatisticsResponse'
-    { _gssrSendDataPoints :: !(Maybe [SendDataPoint])
-    , _gssrStatus         :: !Int
+    { _gssrsSendDataPoints :: !(Maybe [SendDataPoint])
+    , _gssrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSendStatisticsResponse' smart constructor.
 getSendStatisticsResponse :: Int -> GetSendStatisticsResponse
 getSendStatisticsResponse pStatus =
     GetSendStatisticsResponse'
-    { _gssrSendDataPoints = Nothing
-    , _gssrStatus = pStatus
+    { _gssrsSendDataPoints = Nothing
+    , _gssrsStatus = pStatus
     }
 
 -- | A list of data points, each of which represents 15 minutes of activity.
-gssrSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
-gssrSendDataPoints = lens _gssrSendDataPoints (\ s a -> s{_gssrSendDataPoints = a}) . _Default;
+gssrsSendDataPoints :: Lens' GetSendStatisticsResponse [SendDataPoint]
+gssrsSendDataPoints = lens _gssrsSendDataPoints (\ s a -> s{_gssrsSendDataPoints = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-gssrStatus :: Lens' GetSendStatisticsResponse Int
-gssrStatus = lens _gssrStatus (\ s a -> s{_gssrStatus = a});
+gssrsStatus :: Lens' GetSendStatisticsResponse Int
+gssrsStatus = lens _gssrsStatus (\ s a -> s{_gssrsStatus = a});

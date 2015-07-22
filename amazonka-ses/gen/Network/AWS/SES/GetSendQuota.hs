@@ -34,10 +34,10 @@ module Network.AWS.SES.GetSendQuota
     -- ** Response constructor
     , getSendQuotaResponse
     -- ** Response lenses
-    , gsqrMaxSendRate
-    , gsqrSentLast24Hours
-    , gsqrMax24HourSend
-    , gsqrStatus
+    , gsqrsMaxSendRate
+    , gsqrsSentLast24Hours
+    , gsqrsMax24HourSend
+    , gsqrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -86,28 +86,28 @@ instance ToQuery GetSendQuota where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gsqrMaxSendRate'
+-- * 'gsqrsMaxSendRate'
 --
--- * 'gsqrSentLast24Hours'
+-- * 'gsqrsSentLast24Hours'
 --
--- * 'gsqrMax24HourSend'
+-- * 'gsqrsMax24HourSend'
 --
--- * 'gsqrStatus'
+-- * 'gsqrsStatus'
 data GetSendQuotaResponse = GetSendQuotaResponse'
-    { _gsqrMaxSendRate     :: !(Maybe Double)
-    , _gsqrSentLast24Hours :: !(Maybe Double)
-    , _gsqrMax24HourSend   :: !(Maybe Double)
-    , _gsqrStatus          :: !Int
+    { _gsqrsMaxSendRate     :: !(Maybe Double)
+    , _gsqrsSentLast24Hours :: !(Maybe Double)
+    , _gsqrsMax24HourSend   :: !(Maybe Double)
+    , _gsqrsStatus          :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetSendQuotaResponse' smart constructor.
 getSendQuotaResponse :: Int -> GetSendQuotaResponse
 getSendQuotaResponse pStatus =
     GetSendQuotaResponse'
-    { _gsqrMaxSendRate = Nothing
-    , _gsqrSentLast24Hours = Nothing
-    , _gsqrMax24HourSend = Nothing
-    , _gsqrStatus = pStatus
+    { _gsqrsMaxSendRate = Nothing
+    , _gsqrsSentLast24Hours = Nothing
+    , _gsqrsMax24HourSend = Nothing
+    , _gsqrsStatus = pStatus
     }
 
 -- | The maximum number of emails that Amazon SES can accept from the user\'s
@@ -115,18 +115,18 @@ getSendQuotaResponse pStatus =
 --
 -- The rate at which Amazon SES accepts the user\'s messages might be less
 -- than the maximum send rate.
-gsqrMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrMaxSendRate = lens _gsqrMaxSendRate (\ s a -> s{_gsqrMaxSendRate = a});
+gsqrsMaxSendRate :: Lens' GetSendQuotaResponse (Maybe Double)
+gsqrsMaxSendRate = lens _gsqrsMaxSendRate (\ s a -> s{_gsqrsMaxSendRate = a});
 
 -- | The number of emails sent during the previous 24 hours.
-gsqrSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrSentLast24Hours = lens _gsqrSentLast24Hours (\ s a -> s{_gsqrSentLast24Hours = a});
+gsqrsSentLast24Hours :: Lens' GetSendQuotaResponse (Maybe Double)
+gsqrsSentLast24Hours = lens _gsqrsSentLast24Hours (\ s a -> s{_gsqrsSentLast24Hours = a});
 
 -- | The maximum number of emails the user is allowed to send in a 24-hour
 -- interval. A value of -1 signifies an unlimited quota.
-gsqrMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
-gsqrMax24HourSend = lens _gsqrMax24HourSend (\ s a -> s{_gsqrMax24HourSend = a});
+gsqrsMax24HourSend :: Lens' GetSendQuotaResponse (Maybe Double)
+gsqrsMax24HourSend = lens _gsqrsMax24HourSend (\ s a -> s{_gsqrsMax24HourSend = a});
 
 -- | FIXME: Undocumented member.
-gsqrStatus :: Lens' GetSendQuotaResponse Int
-gsqrStatus = lens _gsqrStatus (\ s a -> s{_gsqrStatus = a});
+gsqrsStatus :: Lens' GetSendQuotaResponse Int
+gsqrsStatus = lens _gsqrsStatus (\ s a -> s{_gsqrsStatus = a});

@@ -34,15 +34,15 @@ module Network.AWS.AutoScaling.PutScheduledUpdateGroupAction
     -- ** Request constructor
     , putScheduledUpdateGroupAction
     -- ** Request lenses
-    , psugaTime
-    , psugaStartTime
-    , psugaMaxSize
-    , psugaDesiredCapacity
-    , psugaRecurrence
-    , psugaMinSize
-    , psugaEndTime
-    , psugaAutoScalingGroupName
-    , psugaScheduledActionName
+    , psugarqTime
+    , psugarqStartTime
+    , psugarqMaxSize
+    , psugarqDesiredCapacity
+    , psugarqRecurrence
+    , psugarqMinSize
+    , psugarqEndTime
+    , psugarqAutoScalingGroupName
+    , psugarqScheduledActionName
 
     -- * Response
     , PutScheduledUpdateGroupActionResponse
@@ -59,56 +59,56 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'psugaTime'
+-- * 'psugarqTime'
 --
--- * 'psugaStartTime'
+-- * 'psugarqStartTime'
 --
--- * 'psugaMaxSize'
+-- * 'psugarqMaxSize'
 --
--- * 'psugaDesiredCapacity'
+-- * 'psugarqDesiredCapacity'
 --
--- * 'psugaRecurrence'
+-- * 'psugarqRecurrence'
 --
--- * 'psugaMinSize'
+-- * 'psugarqMinSize'
 --
--- * 'psugaEndTime'
+-- * 'psugarqEndTime'
 --
--- * 'psugaAutoScalingGroupName'
+-- * 'psugarqAutoScalingGroupName'
 --
--- * 'psugaScheduledActionName'
+-- * 'psugarqScheduledActionName'
 data PutScheduledUpdateGroupAction = PutScheduledUpdateGroupAction'
-    { _psugaTime                 :: !(Maybe ISO8601)
-    , _psugaStartTime            :: !(Maybe ISO8601)
-    , _psugaMaxSize              :: !(Maybe Int)
-    , _psugaDesiredCapacity      :: !(Maybe Int)
-    , _psugaRecurrence           :: !(Maybe Text)
-    , _psugaMinSize              :: !(Maybe Int)
-    , _psugaEndTime              :: !(Maybe ISO8601)
-    , _psugaAutoScalingGroupName :: !Text
-    , _psugaScheduledActionName  :: !Text
+    { _psugarqTime                 :: !(Maybe ISO8601)
+    , _psugarqStartTime            :: !(Maybe ISO8601)
+    , _psugarqMaxSize              :: !(Maybe Int)
+    , _psugarqDesiredCapacity      :: !(Maybe Int)
+    , _psugarqRecurrence           :: !(Maybe Text)
+    , _psugarqMinSize              :: !(Maybe Int)
+    , _psugarqEndTime              :: !(Maybe ISO8601)
+    , _psugarqAutoScalingGroupName :: !Text
+    , _psugarqScheduledActionName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutScheduledUpdateGroupAction' smart constructor.
 putScheduledUpdateGroupAction :: Text -> Text -> PutScheduledUpdateGroupAction
 putScheduledUpdateGroupAction pAutoScalingGroupName pScheduledActionName =
     PutScheduledUpdateGroupAction'
-    { _psugaTime = Nothing
-    , _psugaStartTime = Nothing
-    , _psugaMaxSize = Nothing
-    , _psugaDesiredCapacity = Nothing
-    , _psugaRecurrence = Nothing
-    , _psugaMinSize = Nothing
-    , _psugaEndTime = Nothing
-    , _psugaAutoScalingGroupName = pAutoScalingGroupName
-    , _psugaScheduledActionName = pScheduledActionName
+    { _psugarqTime = Nothing
+    , _psugarqStartTime = Nothing
+    , _psugarqMaxSize = Nothing
+    , _psugarqDesiredCapacity = Nothing
+    , _psugarqRecurrence = Nothing
+    , _psugarqMinSize = Nothing
+    , _psugarqEndTime = Nothing
+    , _psugarqAutoScalingGroupName = pAutoScalingGroupName
+    , _psugarqScheduledActionName = pScheduledActionName
     }
 
 -- | This parameter is deprecated; use @StartTime@ instead.
 --
 -- The time for this action to start. If both @Time@ and @StartTime@ are
 -- specified, their values must be identical.
-psugaTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
+psugarqTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
+psugarqTime = lens _psugarqTime (\ s a -> s{_psugarqTime = a}) . mapping _Time;
 
 -- | The time for this action to start, in \"YYYY-MM-DDThh:mm:ssZ\" format in
 -- UTC\/GMT only (for example, @2014-06-01T00:00:00Z@).
@@ -118,16 +118,16 @@ psugaTime = lens _psugaTime (\ s a -> s{_psugaTime = a}) . mapping _Time;
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action starts and stops.
-psugaStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaStartTime = lens _psugaStartTime (\ s a -> s{_psugaStartTime = a}) . mapping _Time;
+psugarqStartTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
+psugarqStartTime = lens _psugarqStartTime (\ s a -> s{_psugarqStartTime = a}) . mapping _Time;
 
 -- | The maximum size for the Auto Scaling group.
-psugaMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
-psugaMaxSize = lens _psugaMaxSize (\ s a -> s{_psugaMaxSize = a});
+psugarqMaxSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
+psugarqMaxSize = lens _psugarqMaxSize (\ s a -> s{_psugarqMaxSize = a});
 
 -- | The number of EC2 instances that should be running in the group.
-psugaDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
-psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapacity = a});
+psugarqDesiredCapacity :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
+psugarqDesiredCapacity = lens _psugarqDesiredCapacity (\ s a -> s{_psugarqDesiredCapacity = a});
 
 -- | The time when recurring future actions will start. Start time is
 -- specified by the user following the Unix cron syntax format. For more
@@ -135,24 +135,24 @@ psugaDesiredCapacity = lens _psugaDesiredCapacity (\ s a -> s{_psugaDesiredCapac
 --
 -- When @StartTime@ and @EndTime@ are specified with @Recurrence@, they
 -- form the boundaries of when the recurring action will start and stop.
-psugaRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
-psugaRecurrence = lens _psugaRecurrence (\ s a -> s{_psugaRecurrence = a});
+psugarqRecurrence :: Lens' PutScheduledUpdateGroupAction (Maybe Text)
+psugarqRecurrence = lens _psugarqRecurrence (\ s a -> s{_psugarqRecurrence = a});
 
 -- | The minimum size for the Auto Scaling group.
-psugaMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
-psugaMinSize = lens _psugaMinSize (\ s a -> s{_psugaMinSize = a});
+psugarqMinSize :: Lens' PutScheduledUpdateGroupAction (Maybe Int)
+psugarqMinSize = lens _psugarqMinSize (\ s a -> s{_psugarqMinSize = a});
 
 -- | The time for this action to end.
-psugaEndTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
-psugaEndTime = lens _psugaEndTime (\ s a -> s{_psugaEndTime = a}) . mapping _Time;
+psugarqEndTime :: Lens' PutScheduledUpdateGroupAction (Maybe UTCTime)
+psugarqEndTime = lens _psugarqEndTime (\ s a -> s{_psugarqEndTime = a}) . mapping _Time;
 
 -- | The name or Amazon Resource Name (ARN) of the Auto Scaling group.
-psugaAutoScalingGroupName :: Lens' PutScheduledUpdateGroupAction Text
-psugaAutoScalingGroupName = lens _psugaAutoScalingGroupName (\ s a -> s{_psugaAutoScalingGroupName = a});
+psugarqAutoScalingGroupName :: Lens' PutScheduledUpdateGroupAction Text
+psugarqAutoScalingGroupName = lens _psugarqAutoScalingGroupName (\ s a -> s{_psugarqAutoScalingGroupName = a});
 
 -- | The name of this scaling action.
-psugaScheduledActionName :: Lens' PutScheduledUpdateGroupAction Text
-psugaScheduledActionName = lens _psugaScheduledActionName (\ s a -> s{_psugaScheduledActionName = a});
+psugarqScheduledActionName :: Lens' PutScheduledUpdateGroupAction Text
+psugarqScheduledActionName = lens _psugarqScheduledActionName (\ s a -> s{_psugarqScheduledActionName = a});
 
 instance AWSRequest PutScheduledUpdateGroupAction
          where
@@ -176,14 +176,16 @@ instance ToQuery PutScheduledUpdateGroupAction where
               ["Action" =:
                  ("PutScheduledUpdateGroupAction" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "Time" =: _psugaTime, "StartTime" =: _psugaStartTime,
-               "MaxSize" =: _psugaMaxSize,
-               "DesiredCapacity" =: _psugaDesiredCapacity,
-               "Recurrence" =: _psugaRecurrence,
-               "MinSize" =: _psugaMinSize,
-               "EndTime" =: _psugaEndTime,
-               "AutoScalingGroupName" =: _psugaAutoScalingGroupName,
-               "ScheduledActionName" =: _psugaScheduledActionName]
+               "Time" =: _psugarqTime,
+               "StartTime" =: _psugarqStartTime,
+               "MaxSize" =: _psugarqMaxSize,
+               "DesiredCapacity" =: _psugarqDesiredCapacity,
+               "Recurrence" =: _psugarqRecurrence,
+               "MinSize" =: _psugarqMinSize,
+               "EndTime" =: _psugarqEndTime,
+               "AutoScalingGroupName" =:
+                 _psugarqAutoScalingGroupName,
+               "ScheduledActionName" =: _psugarqScheduledActionName]
 
 -- | /See:/ 'putScheduledUpdateGroupActionResponse' smart constructor.
 data PutScheduledUpdateGroupActionResponse =

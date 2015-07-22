@@ -33,16 +33,16 @@ module Network.AWS.ELB.AttachLoadBalancerToSubnets
     -- ** Request constructor
     , attachLoadBalancerToSubnets
     -- ** Request lenses
-    , albtsLoadBalancerName
-    , albtsSubnets
+    , albtsrqLoadBalancerName
+    , albtsrqSubnets
 
     -- * Response
     , AttachLoadBalancerToSubnetsResponse
     -- ** Response constructor
     , attachLoadBalancerToSubnetsResponse
     -- ** Response lenses
-    , albtsrSubnets
-    , albtsrStatus
+    , albtsrsSubnets
+    , albtsrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -54,30 +54,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'albtsLoadBalancerName'
+-- * 'albtsrqLoadBalancerName'
 --
--- * 'albtsSubnets'
+-- * 'albtsrqSubnets'
 data AttachLoadBalancerToSubnets = AttachLoadBalancerToSubnets'
-    { _albtsLoadBalancerName :: !Text
-    , _albtsSubnets          :: ![Text]
+    { _albtsrqLoadBalancerName :: !Text
+    , _albtsrqSubnets          :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancerToSubnets' smart constructor.
 attachLoadBalancerToSubnets :: Text -> AttachLoadBalancerToSubnets
 attachLoadBalancerToSubnets pLoadBalancerName =
     AttachLoadBalancerToSubnets'
-    { _albtsLoadBalancerName = pLoadBalancerName
-    , _albtsSubnets = mempty
+    { _albtsrqLoadBalancerName = pLoadBalancerName
+    , _albtsrqSubnets = mempty
     }
 
 -- | The name of the load balancer.
-albtsLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
-albtsLoadBalancerName = lens _albtsLoadBalancerName (\ s a -> s{_albtsLoadBalancerName = a});
+albtsrqLoadBalancerName :: Lens' AttachLoadBalancerToSubnets Text
+albtsrqLoadBalancerName = lens _albtsrqLoadBalancerName (\ s a -> s{_albtsrqLoadBalancerName = a});
 
 -- | The IDs of the subnets to add for the load balancer. You can add only
 -- one subnet per Availability Zone.
-albtsSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
-albtsSubnets = lens _albtsSubnets (\ s a -> s{_albtsSubnets = a});
+albtsrqSubnets :: Lens' AttachLoadBalancerToSubnets [Text]
+albtsrqSubnets = lens _albtsrqSubnets (\ s a -> s{_albtsrqSubnets = a});
 
 instance AWSRequest AttachLoadBalancerToSubnets where
         type Sv AttachLoadBalancerToSubnets = ELB
@@ -105,33 +105,33 @@ instance ToQuery AttachLoadBalancerToSubnets where
               ["Action" =:
                  ("AttachLoadBalancerToSubnets" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
-               "LoadBalancerName" =: _albtsLoadBalancerName,
-               "Subnets" =: toQueryList "member" _albtsSubnets]
+               "LoadBalancerName" =: _albtsrqLoadBalancerName,
+               "Subnets" =: toQueryList "member" _albtsrqSubnets]
 
 -- | /See:/ 'attachLoadBalancerToSubnetsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'albtsrSubnets'
+-- * 'albtsrsSubnets'
 --
--- * 'albtsrStatus'
+-- * 'albtsrsStatus'
 data AttachLoadBalancerToSubnetsResponse = AttachLoadBalancerToSubnetsResponse'
-    { _albtsrSubnets :: !(Maybe [Text])
-    , _albtsrStatus  :: !Int
+    { _albtsrsSubnets :: !(Maybe [Text])
+    , _albtsrsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachLoadBalancerToSubnetsResponse' smart constructor.
 attachLoadBalancerToSubnetsResponse :: Int -> AttachLoadBalancerToSubnetsResponse
 attachLoadBalancerToSubnetsResponse pStatus =
     AttachLoadBalancerToSubnetsResponse'
-    { _albtsrSubnets = Nothing
-    , _albtsrStatus = pStatus
+    { _albtsrsSubnets = Nothing
+    , _albtsrsStatus = pStatus
     }
 
 -- | The IDs of the subnets attached to the load balancer.
-albtsrSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
-albtsrSubnets = lens _albtsrSubnets (\ s a -> s{_albtsrSubnets = a}) . _Default;
+albtsrsSubnets :: Lens' AttachLoadBalancerToSubnetsResponse [Text]
+albtsrsSubnets = lens _albtsrsSubnets (\ s a -> s{_albtsrsSubnets = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-albtsrStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
-albtsrStatus = lens _albtsrStatus (\ s a -> s{_albtsrStatus = a});
+albtsrsStatus :: Lens' AttachLoadBalancerToSubnetsResponse Int
+albtsrsStatus = lens _albtsrsStatus (\ s a -> s{_albtsrsStatus = a});

@@ -29,7 +29,7 @@ module Network.AWS.SNS.DeleteEndpoint
     -- ** Request constructor
     , deleteEndpoint
     -- ** Request lenses
-    , deEndpointARN
+    , derqEndpointARN
 
     -- * Response
     , DeleteEndpointResponse
@@ -48,21 +48,21 @@ import           Network.AWS.SNS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'deEndpointARN'
+-- * 'derqEndpointARN'
 newtype DeleteEndpoint = DeleteEndpoint'
-    { _deEndpointARN :: Text
+    { _derqEndpointARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEndpoint' smart constructor.
 deleteEndpoint :: Text -> DeleteEndpoint
 deleteEndpoint pEndpointARN =
     DeleteEndpoint'
-    { _deEndpointARN = pEndpointARN
+    { _derqEndpointARN = pEndpointARN
     }
 
 -- | EndpointArn of endpoint to delete.
-deEndpointARN :: Lens' DeleteEndpoint Text
-deEndpointARN = lens _deEndpointARN (\ s a -> s{_deEndpointARN = a});
+derqEndpointARN :: Lens' DeleteEndpoint Text
+derqEndpointARN = lens _derqEndpointARN (\ s a -> s{_derqEndpointARN = a});
 
 instance AWSRequest DeleteEndpoint where
         type Sv DeleteEndpoint = SNS
@@ -81,7 +81,7 @@ instance ToQuery DeleteEndpoint where
           = mconcat
               ["Action" =: ("DeleteEndpoint" :: ByteString),
                "Version" =: ("2010-03-31" :: ByteString),
-               "EndpointArn" =: _deEndpointARN]
+               "EndpointArn" =: _derqEndpointARN]
 
 -- | /See:/ 'deleteEndpointResponse' smart constructor.
 data DeleteEndpointResponse =

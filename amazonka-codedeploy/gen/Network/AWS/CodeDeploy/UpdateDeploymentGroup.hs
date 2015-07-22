@@ -27,22 +27,22 @@ module Network.AWS.CodeDeploy.UpdateDeploymentGroup
     -- ** Request constructor
     , updateDeploymentGroup
     -- ** Request lenses
-    , udgServiceRoleARN
-    , udgDeploymentConfigName
-    , udgEc2TagFilters
-    , udgNewDeploymentGroupName
-    , udgOnPremisesInstanceTagFilters
-    , udgAutoScalingGroups
-    , udgApplicationName
-    , udgCurrentDeploymentGroupName
+    , udgrqServiceRoleARN
+    , udgrqDeploymentConfigName
+    , udgrqEc2TagFilters
+    , udgrqNewDeploymentGroupName
+    , udgrqOnPremisesInstanceTagFilters
+    , udgrqAutoScalingGroups
+    , udgrqApplicationName
+    , udgrqCurrentDeploymentGroupName
 
     -- * Response
     , UpdateDeploymentGroupResponse
     -- ** Response constructor
     , updateDeploymentGroupResponse
     -- ** Response lenses
-    , udgrHooksNotCleanedUp
-    , udgrStatus
+    , udgrsHooksNotCleanedUp
+    , udgrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -56,81 +56,81 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udgServiceRoleARN'
+-- * 'udgrqServiceRoleARN'
 --
--- * 'udgDeploymentConfigName'
+-- * 'udgrqDeploymentConfigName'
 --
--- * 'udgEc2TagFilters'
+-- * 'udgrqEc2TagFilters'
 --
--- * 'udgNewDeploymentGroupName'
+-- * 'udgrqNewDeploymentGroupName'
 --
--- * 'udgOnPremisesInstanceTagFilters'
+-- * 'udgrqOnPremisesInstanceTagFilters'
 --
--- * 'udgAutoScalingGroups'
+-- * 'udgrqAutoScalingGroups'
 --
--- * 'udgApplicationName'
+-- * 'udgrqApplicationName'
 --
--- * 'udgCurrentDeploymentGroupName'
+-- * 'udgrqCurrentDeploymentGroupName'
 data UpdateDeploymentGroup = UpdateDeploymentGroup'
-    { _udgServiceRoleARN               :: !(Maybe Text)
-    , _udgDeploymentConfigName         :: !(Maybe Text)
-    , _udgEc2TagFilters                :: !(Maybe [EC2TagFilter])
-    , _udgNewDeploymentGroupName       :: !(Maybe Text)
-    , _udgOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
-    , _udgAutoScalingGroups            :: !(Maybe [Text])
-    , _udgApplicationName              :: !Text
-    , _udgCurrentDeploymentGroupName   :: !Text
+    { _udgrqServiceRoleARN               :: !(Maybe Text)
+    , _udgrqDeploymentConfigName         :: !(Maybe Text)
+    , _udgrqEc2TagFilters                :: !(Maybe [EC2TagFilter])
+    , _udgrqNewDeploymentGroupName       :: !(Maybe Text)
+    , _udgrqOnPremisesInstanceTagFilters :: !(Maybe [TagFilter])
+    , _udgrqAutoScalingGroups            :: !(Maybe [Text])
+    , _udgrqApplicationName              :: !Text
+    , _udgrqCurrentDeploymentGroupName   :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDeploymentGroup' smart constructor.
 updateDeploymentGroup :: Text -> Text -> UpdateDeploymentGroup
 updateDeploymentGroup pApplicationName pCurrentDeploymentGroupName =
     UpdateDeploymentGroup'
-    { _udgServiceRoleARN = Nothing
-    , _udgDeploymentConfigName = Nothing
-    , _udgEc2TagFilters = Nothing
-    , _udgNewDeploymentGroupName = Nothing
-    , _udgOnPremisesInstanceTagFilters = Nothing
-    , _udgAutoScalingGroups = Nothing
-    , _udgApplicationName = pApplicationName
-    , _udgCurrentDeploymentGroupName = pCurrentDeploymentGroupName
+    { _udgrqServiceRoleARN = Nothing
+    , _udgrqDeploymentConfigName = Nothing
+    , _udgrqEc2TagFilters = Nothing
+    , _udgrqNewDeploymentGroupName = Nothing
+    , _udgrqOnPremisesInstanceTagFilters = Nothing
+    , _udgrqAutoScalingGroups = Nothing
+    , _udgrqApplicationName = pApplicationName
+    , _udgrqCurrentDeploymentGroupName = pCurrentDeploymentGroupName
     }
 
 -- | A replacement service role\'s ARN, if you want to change it.
-udgServiceRoleARN :: Lens' UpdateDeploymentGroup (Maybe Text)
-udgServiceRoleARN = lens _udgServiceRoleARN (\ s a -> s{_udgServiceRoleARN = a});
+udgrqServiceRoleARN :: Lens' UpdateDeploymentGroup (Maybe Text)
+udgrqServiceRoleARN = lens _udgrqServiceRoleARN (\ s a -> s{_udgrqServiceRoleARN = a});
 
 -- | The replacement deployment configuration name to use, if you want to
 -- change it.
-udgDeploymentConfigName :: Lens' UpdateDeploymentGroup (Maybe Text)
-udgDeploymentConfigName = lens _udgDeploymentConfigName (\ s a -> s{_udgDeploymentConfigName = a});
+udgrqDeploymentConfigName :: Lens' UpdateDeploymentGroup (Maybe Text)
+udgrqDeploymentConfigName = lens _udgrqDeploymentConfigName (\ s a -> s{_udgrqDeploymentConfigName = a});
 
 -- | The replacement set of Amazon EC2 tags to filter on, if you want to
 -- change them.
-udgEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
-udgEc2TagFilters = lens _udgEc2TagFilters (\ s a -> s{_udgEc2TagFilters = a}) . _Default;
+udgrqEc2TagFilters :: Lens' UpdateDeploymentGroup [EC2TagFilter]
+udgrqEc2TagFilters = lens _udgrqEc2TagFilters (\ s a -> s{_udgrqEc2TagFilters = a}) . _Default;
 
 -- | The new name of the deployment group, if you want to change it.
-udgNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
-udgNewDeploymentGroupName = lens _udgNewDeploymentGroupName (\ s a -> s{_udgNewDeploymentGroupName = a});
+udgrqNewDeploymentGroupName :: Lens' UpdateDeploymentGroup (Maybe Text)
+udgrqNewDeploymentGroupName = lens _udgrqNewDeploymentGroupName (\ s a -> s{_udgrqNewDeploymentGroupName = a});
 
 -- | The replacement set of on-premises instance tags for filter on, if you
 -- want to change them.
-udgOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup [TagFilter]
-udgOnPremisesInstanceTagFilters = lens _udgOnPremisesInstanceTagFilters (\ s a -> s{_udgOnPremisesInstanceTagFilters = a}) . _Default;
+udgrqOnPremisesInstanceTagFilters :: Lens' UpdateDeploymentGroup [TagFilter]
+udgrqOnPremisesInstanceTagFilters = lens _udgrqOnPremisesInstanceTagFilters (\ s a -> s{_udgrqOnPremisesInstanceTagFilters = a}) . _Default;
 
 -- | The replacement list of Auto Scaling groups to be included in the
 -- deployment group, if you want to change them.
-udgAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
-udgAutoScalingGroups = lens _udgAutoScalingGroups (\ s a -> s{_udgAutoScalingGroups = a}) . _Default;
+udgrqAutoScalingGroups :: Lens' UpdateDeploymentGroup [Text]
+udgrqAutoScalingGroups = lens _udgrqAutoScalingGroups (\ s a -> s{_udgrqAutoScalingGroups = a}) . _Default;
 
 -- | The application name corresponding to the deployment group to update.
-udgApplicationName :: Lens' UpdateDeploymentGroup Text
-udgApplicationName = lens _udgApplicationName (\ s a -> s{_udgApplicationName = a});
+udgrqApplicationName :: Lens' UpdateDeploymentGroup Text
+udgrqApplicationName = lens _udgrqApplicationName (\ s a -> s{_udgrqApplicationName = a});
 
 -- | The current name of the existing deployment group.
-udgCurrentDeploymentGroupName :: Lens' UpdateDeploymentGroup Text
-udgCurrentDeploymentGroupName = lens _udgCurrentDeploymentGroupName (\ s a -> s{_udgCurrentDeploymentGroupName = a});
+udgrqCurrentDeploymentGroupName :: Lens' UpdateDeploymentGroup Text
+udgrqCurrentDeploymentGroupName = lens _udgrqCurrentDeploymentGroupName (\ s a -> s{_udgrqCurrentDeploymentGroupName = a});
 
 instance AWSRequest UpdateDeploymentGroup where
         type Sv UpdateDeploymentGroup = CodeDeploy
@@ -157,17 +157,17 @@ instance ToHeaders UpdateDeploymentGroup where
 instance ToJSON UpdateDeploymentGroup where
         toJSON UpdateDeploymentGroup'{..}
           = object
-              ["serviceRoleArn" .= _udgServiceRoleARN,
-               "deploymentConfigName" .= _udgDeploymentConfigName,
-               "ec2TagFilters" .= _udgEc2TagFilters,
+              ["serviceRoleArn" .= _udgrqServiceRoleARN,
+               "deploymentConfigName" .= _udgrqDeploymentConfigName,
+               "ec2TagFilters" .= _udgrqEc2TagFilters,
                "newDeploymentGroupName" .=
-                 _udgNewDeploymentGroupName,
+                 _udgrqNewDeploymentGroupName,
                "onPremisesInstanceTagFilters" .=
-                 _udgOnPremisesInstanceTagFilters,
-               "autoScalingGroups" .= _udgAutoScalingGroups,
-               "applicationName" .= _udgApplicationName,
+                 _udgrqOnPremisesInstanceTagFilters,
+               "autoScalingGroups" .= _udgrqAutoScalingGroups,
+               "applicationName" .= _udgrqApplicationName,
                "currentDeploymentGroupName" .=
-                 _udgCurrentDeploymentGroupName]
+                 _udgrqCurrentDeploymentGroupName]
 
 instance ToPath UpdateDeploymentGroup where
         toPath = const "/"
@@ -181,20 +181,20 @@ instance ToQuery UpdateDeploymentGroup where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udgrHooksNotCleanedUp'
+-- * 'udgrsHooksNotCleanedUp'
 --
--- * 'udgrStatus'
+-- * 'udgrsStatus'
 data UpdateDeploymentGroupResponse = UpdateDeploymentGroupResponse'
-    { _udgrHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
-    , _udgrStatus            :: !Int
+    { _udgrsHooksNotCleanedUp :: !(Maybe [AutoScalingGroup])
+    , _udgrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDeploymentGroupResponse' smart constructor.
 updateDeploymentGroupResponse :: Int -> UpdateDeploymentGroupResponse
 updateDeploymentGroupResponse pStatus =
     UpdateDeploymentGroupResponse'
-    { _udgrHooksNotCleanedUp = Nothing
-    , _udgrStatus = pStatus
+    { _udgrsHooksNotCleanedUp = Nothing
+    , _udgrsStatus = pStatus
     }
 
 -- | If the output contains no data, and the corresponding deployment group
@@ -202,9 +202,9 @@ updateDeploymentGroupResponse pStatus =
 -- removed all corresponding Auto Scaling lifecycle event hooks from the
 -- AWS account. If the output does contain data, AWS CodeDeploy could not
 -- remove some Auto Scaling lifecycle event hooks from the AWS account.
-udgrHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
-udgrHooksNotCleanedUp = lens _udgrHooksNotCleanedUp (\ s a -> s{_udgrHooksNotCleanedUp = a}) . _Default;
+udgrsHooksNotCleanedUp :: Lens' UpdateDeploymentGroupResponse [AutoScalingGroup]
+udgrsHooksNotCleanedUp = lens _udgrsHooksNotCleanedUp (\ s a -> s{_udgrsHooksNotCleanedUp = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-udgrStatus :: Lens' UpdateDeploymentGroupResponse Int
-udgrStatus = lens _udgrStatus (\ s a -> s{_udgrStatus = a});
+udgrsStatus :: Lens' UpdateDeploymentGroupResponse Int
+udgrsStatus = lens _udgrsStatus (\ s a -> s{_udgrsStatus = a});

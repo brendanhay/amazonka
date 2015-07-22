@@ -28,18 +28,18 @@ module Network.AWS.AutoScaling.DescribeNotificationConfigurations
     -- ** Request constructor
     , describeNotificationConfigurations
     -- ** Request lenses
-    , dncAutoScalingGroupNames
-    , dncNextToken
-    , dncMaxRecords
+    , dncrqAutoScalingGroupNames
+    , dncrqNextToken
+    , dncrqMaxRecords
 
     -- * Response
     , DescribeNotificationConfigurationsResponse
     -- ** Response constructor
     , describeNotificationConfigurationsResponse
     -- ** Response lenses
-    , dncrNextToken
-    , dncrStatus
-    , dncrNotificationConfigurations
+    , dncrsNextToken
+    , dncrsStatus
+    , dncrsNotificationConfigurations
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -52,47 +52,47 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dncAutoScalingGroupNames'
+-- * 'dncrqAutoScalingGroupNames'
 --
--- * 'dncNextToken'
+-- * 'dncrqNextToken'
 --
--- * 'dncMaxRecords'
+-- * 'dncrqMaxRecords'
 data DescribeNotificationConfigurations = DescribeNotificationConfigurations'
-    { _dncAutoScalingGroupNames :: !(Maybe [Text])
-    , _dncNextToken             :: !(Maybe Text)
-    , _dncMaxRecords            :: !(Maybe Int)
+    { _dncrqAutoScalingGroupNames :: !(Maybe [Text])
+    , _dncrqNextToken             :: !(Maybe Text)
+    , _dncrqMaxRecords            :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNotificationConfigurations' smart constructor.
 describeNotificationConfigurations :: DescribeNotificationConfigurations
 describeNotificationConfigurations =
     DescribeNotificationConfigurations'
-    { _dncAutoScalingGroupNames = Nothing
-    , _dncNextToken = Nothing
-    , _dncMaxRecords = Nothing
+    { _dncrqAutoScalingGroupNames = Nothing
+    , _dncrqNextToken = Nothing
+    , _dncrqMaxRecords = Nothing
     }
 
 -- | The name of the group.
-dncAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
-dncAutoScalingGroupNames = lens _dncAutoScalingGroupNames (\ s a -> s{_dncAutoScalingGroupNames = a}) . _Default;
+dncrqAutoScalingGroupNames :: Lens' DescribeNotificationConfigurations [Text]
+dncrqAutoScalingGroupNames = lens _dncrqAutoScalingGroupNames (\ s a -> s{_dncrqAutoScalingGroupNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dncNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
-dncNextToken = lens _dncNextToken (\ s a -> s{_dncNextToken = a});
+dncrqNextToken :: Lens' DescribeNotificationConfigurations (Maybe Text)
+dncrqNextToken = lens _dncrqNextToken (\ s a -> s{_dncrqNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dncMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
-dncMaxRecords = lens _dncMaxRecords (\ s a -> s{_dncMaxRecords = a});
+dncrqMaxRecords :: Lens' DescribeNotificationConfigurations (Maybe Int)
+dncrqMaxRecords = lens _dncrqMaxRecords (\ s a -> s{_dncrqMaxRecords = a});
 
 instance AWSPager DescribeNotificationConfigurations
          where
         page rq rs
-          | stop (rs ^. dncrNextToken) = Nothing
-          | stop (rs ^. dncrNotificationConfigurations) =
+          | stop (rs ^. dncrsNextToken) = Nothing
+          | stop (rs ^. dncrsNotificationConfigurations) =
             Nothing
           | otherwise =
-            Just $ rq & dncNextToken .~ rs ^. dncrNextToken
+            Just $ rq & dncrqNextToken .~ rs ^. dncrsNextToken
 
 instance AWSRequest
          DescribeNotificationConfigurations where
@@ -127,43 +127,44 @@ instance ToQuery DescribeNotificationConfigurations
                "Version" =: ("2011-01-01" :: ByteString),
                "AutoScalingGroupNames" =:
                  toQuery
-                   (toQueryList "member" <$> _dncAutoScalingGroupNames),
-               "NextToken" =: _dncNextToken,
-               "MaxRecords" =: _dncMaxRecords]
+                   (toQueryList "member" <$>
+                      _dncrqAutoScalingGroupNames),
+               "NextToken" =: _dncrqNextToken,
+               "MaxRecords" =: _dncrqMaxRecords]
 
 -- | /See:/ 'describeNotificationConfigurationsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dncrNextToken'
+-- * 'dncrsNextToken'
 --
--- * 'dncrStatus'
+-- * 'dncrsStatus'
 --
--- * 'dncrNotificationConfigurations'
+-- * 'dncrsNotificationConfigurations'
 data DescribeNotificationConfigurationsResponse = DescribeNotificationConfigurationsResponse'
-    { _dncrNextToken                  :: !(Maybe Text)
-    , _dncrStatus                     :: !Int
-    , _dncrNotificationConfigurations :: ![NotificationConfiguration]
+    { _dncrsNextToken                  :: !(Maybe Text)
+    , _dncrsStatus                     :: !Int
+    , _dncrsNotificationConfigurations :: ![NotificationConfiguration]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeNotificationConfigurationsResponse' smart constructor.
 describeNotificationConfigurationsResponse :: Int -> DescribeNotificationConfigurationsResponse
 describeNotificationConfigurationsResponse pStatus =
     DescribeNotificationConfigurationsResponse'
-    { _dncrNextToken = Nothing
-    , _dncrStatus = pStatus
-    , _dncrNotificationConfigurations = mempty
+    { _dncrsNextToken = Nothing
+    , _dncrsStatus = pStatus
+    , _dncrsNotificationConfigurations = mempty
     }
 
 -- | The token to use when requesting the next set of items. If there are no
 -- additional items to return, the string is empty.
-dncrNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
-dncrNextToken = lens _dncrNextToken (\ s a -> s{_dncrNextToken = a});
+dncrsNextToken :: Lens' DescribeNotificationConfigurationsResponse (Maybe Text)
+dncrsNextToken = lens _dncrsNextToken (\ s a -> s{_dncrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-dncrStatus :: Lens' DescribeNotificationConfigurationsResponse Int
-dncrStatus = lens _dncrStatus (\ s a -> s{_dncrStatus = a});
+dncrsStatus :: Lens' DescribeNotificationConfigurationsResponse Int
+dncrsStatus = lens _dncrsStatus (\ s a -> s{_dncrsStatus = a});
 
 -- | The notification configurations.
-dncrNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
-dncrNotificationConfigurations = lens _dncrNotificationConfigurations (\ s a -> s{_dncrNotificationConfigurations = a});
+dncrsNotificationConfigurations :: Lens' DescribeNotificationConfigurationsResponse [NotificationConfiguration]
+dncrsNotificationConfigurations = lens _dncrsNotificationConfigurations (\ s a -> s{_dncrsNotificationConfigurations = a});

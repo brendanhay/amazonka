@@ -46,21 +46,21 @@ module Network.AWS.EC2.AssociateAddress
     -- ** Request constructor
     , associateAddress
     -- ** Request lenses
-    , assInstanceId
-    , assAllocationId
-    , assNetworkInterfaceId
-    , assAllowReassociation
-    , assPrivateIPAddress
-    , assPublicIP
-    , assDryRun
+    , arqInstanceId
+    , arqAllocationId
+    , arqNetworkInterfaceId
+    , arqAllowReassociation
+    , arqPrivateIPAddress
+    , arqPublicIP
+    , arqDryRun
 
     -- * Response
     , AssociateAddressResponse
     -- ** Response constructor
     , associateAddressResponse
     -- ** Response lenses
-    , assAssociationId
-    , assStatus
+    , arsAssociationId
+    , arsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -72,82 +72,82 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'assInstanceId'
+-- * 'arqInstanceId'
 --
--- * 'assAllocationId'
+-- * 'arqAllocationId'
 --
--- * 'assNetworkInterfaceId'
+-- * 'arqNetworkInterfaceId'
 --
--- * 'assAllowReassociation'
+-- * 'arqAllowReassociation'
 --
--- * 'assPrivateIPAddress'
+-- * 'arqPrivateIPAddress'
 --
--- * 'assPublicIP'
+-- * 'arqPublicIP'
 --
--- * 'assDryRun'
+-- * 'arqDryRun'
 data AssociateAddress = AssociateAddress'
-    { _assInstanceId         :: !(Maybe Text)
-    , _assAllocationId       :: !(Maybe Text)
-    , _assNetworkInterfaceId :: !(Maybe Text)
-    , _assAllowReassociation :: !(Maybe Bool)
-    , _assPrivateIPAddress   :: !(Maybe Text)
-    , _assPublicIP           :: !(Maybe Text)
-    , _assDryRun             :: !(Maybe Bool)
+    { _arqInstanceId         :: !(Maybe Text)
+    , _arqAllocationId       :: !(Maybe Text)
+    , _arqNetworkInterfaceId :: !(Maybe Text)
+    , _arqAllowReassociation :: !(Maybe Bool)
+    , _arqPrivateIPAddress   :: !(Maybe Text)
+    , _arqPublicIP           :: !(Maybe Text)
+    , _arqDryRun             :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateAddress' smart constructor.
 associateAddress :: AssociateAddress
 associateAddress =
     AssociateAddress'
-    { _assInstanceId = Nothing
-    , _assAllocationId = Nothing
-    , _assNetworkInterfaceId = Nothing
-    , _assAllowReassociation = Nothing
-    , _assPrivateIPAddress = Nothing
-    , _assPublicIP = Nothing
-    , _assDryRun = Nothing
+    { _arqInstanceId = Nothing
+    , _arqAllocationId = Nothing
+    , _arqNetworkInterfaceId = Nothing
+    , _arqAllowReassociation = Nothing
+    , _arqPrivateIPAddress = Nothing
+    , _arqPublicIP = Nothing
+    , _arqDryRun = Nothing
     }
 
 -- | The ID of the instance. This is required for EC2-Classic. For EC2-VPC,
 -- you can specify either the instance ID or the network interface ID, but
 -- not both. The operation fails if you specify an instance ID unless
 -- exactly one network interface is attached.
-assInstanceId :: Lens' AssociateAddress (Maybe Text)
-assInstanceId = lens _assInstanceId (\ s a -> s{_assInstanceId = a});
+arqInstanceId :: Lens' AssociateAddress (Maybe Text)
+arqInstanceId = lens _arqInstanceId (\ s a -> s{_arqInstanceId = a});
 
 -- | [EC2-VPC] The allocation ID. This is required for EC2-VPC.
-assAllocationId :: Lens' AssociateAddress (Maybe Text)
-assAllocationId = lens _assAllocationId (\ s a -> s{_assAllocationId = a});
+arqAllocationId :: Lens' AssociateAddress (Maybe Text)
+arqAllocationId = lens _arqAllocationId (\ s a -> s{_arqAllocationId = a});
 
 -- | [EC2-VPC] The ID of the network interface. If the instance has more than
 -- one network interface, you must specify a network interface ID.
-assNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
-assNetworkInterfaceId = lens _assNetworkInterfaceId (\ s a -> s{_assNetworkInterfaceId = a});
+arqNetworkInterfaceId :: Lens' AssociateAddress (Maybe Text)
+arqNetworkInterfaceId = lens _arqNetworkInterfaceId (\ s a -> s{_arqNetworkInterfaceId = a});
 
 -- | [EC2-VPC] Allows an Elastic IP address that is already associated with
 -- an instance or network interface to be re-associated with the specified
 -- instance or network interface. Otherwise, the operation fails.
 --
 -- Default: @false@
-assAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
-assAllowReassociation = lens _assAllowReassociation (\ s a -> s{_assAllowReassociation = a});
+arqAllowReassociation :: Lens' AssociateAddress (Maybe Bool)
+arqAllowReassociation = lens _arqAllowReassociation (\ s a -> s{_arqAllowReassociation = a});
 
 -- | [EC2-VPC] The primary or secondary private IP address to associate with
 -- the Elastic IP address. If no private IP address is specified, the
 -- Elastic IP address is associated with the primary private IP address.
-assPrivateIPAddress :: Lens' AssociateAddress (Maybe Text)
-assPrivateIPAddress = lens _assPrivateIPAddress (\ s a -> s{_assPrivateIPAddress = a});
+arqPrivateIPAddress :: Lens' AssociateAddress (Maybe Text)
+arqPrivateIPAddress = lens _arqPrivateIPAddress (\ s a -> s{_arqPrivateIPAddress = a});
 
 -- | The Elastic IP address. This is required for EC2-Classic.
-assPublicIP :: Lens' AssociateAddress (Maybe Text)
-assPublicIP = lens _assPublicIP (\ s a -> s{_assPublicIP = a});
+arqPublicIP :: Lens' AssociateAddress (Maybe Text)
+arqPublicIP = lens _arqPublicIP (\ s a -> s{_arqPublicIP = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-assDryRun :: Lens' AssociateAddress (Maybe Bool)
-assDryRun = lens _assDryRun (\ s a -> s{_assDryRun = a});
+arqDryRun :: Lens' AssociateAddress (Maybe Bool)
+arqDryRun = lens _arqDryRun (\ s a -> s{_arqDryRun = a});
 
 instance AWSRequest AssociateAddress where
         type Sv AssociateAddress = EC2
@@ -170,38 +170,38 @@ instance ToQuery AssociateAddress where
           = mconcat
               ["Action" =: ("AssociateAddress" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceId" =: _assInstanceId,
-               "AllocationId" =: _assAllocationId,
-               "NetworkInterfaceId" =: _assNetworkInterfaceId,
-               "AllowReassociation" =: _assAllowReassociation,
-               "PrivateIpAddress" =: _assPrivateIPAddress,
-               "PublicIp" =: _assPublicIP, "DryRun" =: _assDryRun]
+               "InstanceId" =: _arqInstanceId,
+               "AllocationId" =: _arqAllocationId,
+               "NetworkInterfaceId" =: _arqNetworkInterfaceId,
+               "AllowReassociation" =: _arqAllowReassociation,
+               "PrivateIpAddress" =: _arqPrivateIPAddress,
+               "PublicIp" =: _arqPublicIP, "DryRun" =: _arqDryRun]
 
 -- | /See:/ 'associateAddressResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'assAssociationId'
+-- * 'arsAssociationId'
 --
--- * 'assStatus'
+-- * 'arsStatus'
 data AssociateAddressResponse = AssociateAddressResponse'
-    { _assAssociationId :: !(Maybe Text)
-    , _assStatus        :: !Int
+    { _arsAssociationId :: !(Maybe Text)
+    , _arsStatus        :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateAddressResponse' smart constructor.
 associateAddressResponse :: Int -> AssociateAddressResponse
 associateAddressResponse pStatus =
     AssociateAddressResponse'
-    { _assAssociationId = Nothing
-    , _assStatus = pStatus
+    { _arsAssociationId = Nothing
+    , _arsStatus = pStatus
     }
 
 -- | [EC2-VPC] The ID that represents the association of the Elastic IP
 -- address with an instance.
-assAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
-assAssociationId = lens _assAssociationId (\ s a -> s{_assAssociationId = a});
+arsAssociationId :: Lens' AssociateAddressResponse (Maybe Text)
+arsAssociationId = lens _arsAssociationId (\ s a -> s{_arsAssociationId = a});
 
 -- | FIXME: Undocumented member.
-assStatus :: Lens' AssociateAddressResponse Int
-assStatus = lens _assStatus (\ s a -> s{_assStatus = a});
+arsStatus :: Lens' AssociateAddressResponse Int
+arsStatus = lens _arsStatus (\ s a -> s{_arsStatus = a});

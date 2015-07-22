@@ -33,8 +33,8 @@ module Network.AWS.AutoScaling.DescribeScalingProcessTypes
     -- ** Response constructor
     , describeScalingProcessTypesResponse
     -- ** Response lenses
-    , dsptrProcesses
-    , dsptrStatus
+    , dsptrsProcesses
+    , dsptrsStatus
     ) where
 
 import           Network.AWS.AutoScaling.Types
@@ -83,26 +83,26 @@ instance ToQuery DescribeScalingProcessTypes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsptrProcesses'
+-- * 'dsptrsProcesses'
 --
--- * 'dsptrStatus'
+-- * 'dsptrsStatus'
 data DescribeScalingProcessTypesResponse = DescribeScalingProcessTypesResponse'
-    { _dsptrProcesses :: !(Maybe [ProcessType])
-    , _dsptrStatus    :: !Int
+    { _dsptrsProcesses :: !(Maybe [ProcessType])
+    , _dsptrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingProcessTypesResponse' smart constructor.
 describeScalingProcessTypesResponse :: Int -> DescribeScalingProcessTypesResponse
 describeScalingProcessTypesResponse pStatus =
     DescribeScalingProcessTypesResponse'
-    { _dsptrProcesses = Nothing
-    , _dsptrStatus = pStatus
+    { _dsptrsProcesses = Nothing
+    , _dsptrsStatus = pStatus
     }
 
 -- | The names of the process types.
-dsptrProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
-dsptrProcesses = lens _dsptrProcesses (\ s a -> s{_dsptrProcesses = a}) . _Default;
+dsptrsProcesses :: Lens' DescribeScalingProcessTypesResponse [ProcessType]
+dsptrsProcesses = lens _dsptrsProcesses (\ s a -> s{_dsptrsProcesses = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dsptrStatus :: Lens' DescribeScalingProcessTypesResponse Int
-dsptrStatus = lens _dsptrStatus (\ s a -> s{_dsptrStatus = a});
+dsptrsStatus :: Lens' DescribeScalingProcessTypesResponse Int
+dsptrsStatus = lens _dsptrsStatus (\ s a -> s{_dsptrsStatus = a});

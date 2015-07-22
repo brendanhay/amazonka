@@ -28,17 +28,17 @@ module Network.AWS.CodePipeline.ListActionTypes
     -- ** Request constructor
     , listActionTypes
     -- ** Request lenses
-    , latActionOwnerFilter
-    , latNextToken
+    , latrqActionOwnerFilter
+    , latrqNextToken
 
     -- * Response
     , ListActionTypesResponse
     -- ** Response constructor
     , listActionTypesResponse
     -- ** Response lenses
-    , latrNextToken
-    , latrStatus
-    , latrActionTypes
+    , latrsNextToken
+    , latrsStatus
+    , latrsActionTypes
     ) where
 
 import           Network.AWS.CodePipeline.Types
@@ -52,31 +52,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'latActionOwnerFilter'
+-- * 'latrqActionOwnerFilter'
 --
--- * 'latNextToken'
+-- * 'latrqNextToken'
 data ListActionTypes = ListActionTypes'
-    { _latActionOwnerFilter :: !(Maybe ActionOwner)
-    , _latNextToken         :: !(Maybe Text)
+    { _latrqActionOwnerFilter :: !(Maybe ActionOwner)
+    , _latrqNextToken         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListActionTypes' smart constructor.
 listActionTypes :: ListActionTypes
 listActionTypes =
     ListActionTypes'
-    { _latActionOwnerFilter = Nothing
-    , _latNextToken = Nothing
+    { _latrqActionOwnerFilter = Nothing
+    , _latrqNextToken = Nothing
     }
 
 -- | Filters the list of action types to those created by a specified entity.
-latActionOwnerFilter :: Lens' ListActionTypes (Maybe ActionOwner)
-latActionOwnerFilter = lens _latActionOwnerFilter (\ s a -> s{_latActionOwnerFilter = a});
+latrqActionOwnerFilter :: Lens' ListActionTypes (Maybe ActionOwner)
+latrqActionOwnerFilter = lens _latrqActionOwnerFilter (\ s a -> s{_latrqActionOwnerFilter = a});
 
 -- | An identifier that was returned from the previous list action types
 -- call, which can be used to return the next set of action types in the
 -- list.
-latNextToken :: Lens' ListActionTypes (Maybe Text)
-latNextToken = lens _latNextToken (\ s a -> s{_latNextToken = a});
+latrqNextToken :: Lens' ListActionTypes (Maybe Text)
+latrqNextToken = lens _latrqNextToken (\ s a -> s{_latrqNextToken = a});
 
 instance AWSRequest ListActionTypes where
         type Sv ListActionTypes = CodePipeline
@@ -102,8 +102,8 @@ instance ToHeaders ListActionTypes where
 instance ToJSON ListActionTypes where
         toJSON ListActionTypes'{..}
           = object
-              ["actionOwnerFilter" .= _latActionOwnerFilter,
-               "nextToken" .= _latNextToken]
+              ["actionOwnerFilter" .= _latrqActionOwnerFilter,
+               "nextToken" .= _latrqNextToken]
 
 instance ToPath ListActionTypes where
         toPath = const "/"
@@ -117,36 +117,36 @@ instance ToQuery ListActionTypes where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'latrNextToken'
+-- * 'latrsNextToken'
 --
--- * 'latrStatus'
+-- * 'latrsStatus'
 --
--- * 'latrActionTypes'
+-- * 'latrsActionTypes'
 data ListActionTypesResponse = ListActionTypesResponse'
-    { _latrNextToken   :: !(Maybe Text)
-    , _latrStatus      :: !Int
-    , _latrActionTypes :: ![ActionType]
+    { _latrsNextToken   :: !(Maybe Text)
+    , _latrsStatus      :: !Int
+    , _latrsActionTypes :: ![ActionType]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListActionTypesResponse' smart constructor.
 listActionTypesResponse :: Int -> ListActionTypesResponse
 listActionTypesResponse pStatus =
     ListActionTypesResponse'
-    { _latrNextToken = Nothing
-    , _latrStatus = pStatus
-    , _latrActionTypes = mempty
+    { _latrsNextToken = Nothing
+    , _latrsStatus = pStatus
+    , _latrsActionTypes = mempty
     }
 
 -- | If the amount of returned information is significantly large, an
 -- identifier is also returned which can be used in a subsequent list
 -- action types call to return the next set of action types in the list.
-latrNextToken :: Lens' ListActionTypesResponse (Maybe Text)
-latrNextToken = lens _latrNextToken (\ s a -> s{_latrNextToken = a});
+latrsNextToken :: Lens' ListActionTypesResponse (Maybe Text)
+latrsNextToken = lens _latrsNextToken (\ s a -> s{_latrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-latrStatus :: Lens' ListActionTypesResponse Int
-latrStatus = lens _latrStatus (\ s a -> s{_latrStatus = a});
+latrsStatus :: Lens' ListActionTypesResponse Int
+latrsStatus = lens _latrsStatus (\ s a -> s{_latrsStatus = a});
 
 -- | Provides details of the action types.
-latrActionTypes :: Lens' ListActionTypesResponse [ActionType]
-latrActionTypes = lens _latrActionTypes (\ s a -> s{_latrActionTypes = a});
+latrsActionTypes :: Lens' ListActionTypesResponse [ActionType]
+latrsActionTypes = lens _latrsActionTypes (\ s a -> s{_latrsActionTypes = a});

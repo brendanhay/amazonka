@@ -27,15 +27,15 @@ module Network.AWS.ELB.RemoveTags
     -- ** Request constructor
     , removeTags
     -- ** Request lenses
-    , rtLoadBalancerNames
-    , rtTags
+    , rtrqLoadBalancerNames
+    , rtrqTags
 
     -- * Response
     , RemoveTagsResponse
     -- ** Response constructor
     , removeTagsResponse
     -- ** Response lenses
-    , rtrStatus
+    , rtrsStatus
     ) where
 
 import           Network.AWS.ELB.Types
@@ -47,30 +47,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtLoadBalancerNames'
+-- * 'rtrqLoadBalancerNames'
 --
--- * 'rtTags'
+-- * 'rtrqTags'
 data RemoveTags = RemoveTags'
-    { _rtLoadBalancerNames :: ![Text]
-    , _rtTags              :: !(List1 TagKeyOnly)
+    { _rtrqLoadBalancerNames :: ![Text]
+    , _rtrqTags              :: !(List1 TagKeyOnly)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTags' smart constructor.
 removeTags :: NonEmpty TagKeyOnly -> RemoveTags
 removeTags pTags =
     RemoveTags'
-    { _rtLoadBalancerNames = mempty
-    , _rtTags = _List1 # pTags
+    { _rtrqLoadBalancerNames = mempty
+    , _rtrqTags = _List1 # pTags
     }
 
 -- | The name of the load balancer. You can specify a maximum of one load
 -- balancer name.
-rtLoadBalancerNames :: Lens' RemoveTags [Text]
-rtLoadBalancerNames = lens _rtLoadBalancerNames (\ s a -> s{_rtLoadBalancerNames = a});
+rtrqLoadBalancerNames :: Lens' RemoveTags [Text]
+rtrqLoadBalancerNames = lens _rtrqLoadBalancerNames (\ s a -> s{_rtrqLoadBalancerNames = a});
 
 -- | The list of tag keys to remove.
-rtTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
-rtTags = lens _rtTags (\ s a -> s{_rtTags = a}) . _List1;
+rtrqTags :: Lens' RemoveTags (NonEmpty TagKeyOnly)
+rtrqTags = lens _rtrqTags (\ s a -> s{_rtrqTags = a}) . _List1;
 
 instance AWSRequest RemoveTags where
         type Sv RemoveTags = ELB
@@ -93,25 +93,25 @@ instance ToQuery RemoveTags where
               ["Action" =: ("RemoveTags" :: ByteString),
                "Version" =: ("2012-06-01" :: ByteString),
                "LoadBalancerNames" =:
-                 toQueryList "member" _rtLoadBalancerNames,
-               "Tags" =: toQueryList "member" _rtTags]
+                 toQueryList "member" _rtrqLoadBalancerNames,
+               "Tags" =: toQueryList "member" _rtrqTags]
 
 -- | /See:/ 'removeTagsResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtrStatus'
+-- * 'rtrsStatus'
 newtype RemoveTagsResponse = RemoveTagsResponse'
-    { _rtrStatus :: Int
+    { _rtrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemoveTagsResponse' smart constructor.
 removeTagsResponse :: Int -> RemoveTagsResponse
 removeTagsResponse pStatus =
     RemoveTagsResponse'
-    { _rtrStatus = pStatus
+    { _rtrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rtrStatus :: Lens' RemoveTagsResponse Int
-rtrStatus = lens _rtrStatus (\ s a -> s{_rtrStatus = a});
+rtrsStatus :: Lens' RemoveTagsResponse Int
+rtrsStatus = lens _rtrsStatus (\ s a -> s{_rtrsStatus = a});

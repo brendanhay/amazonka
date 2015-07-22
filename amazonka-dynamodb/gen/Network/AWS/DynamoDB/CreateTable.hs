@@ -44,21 +44,21 @@ module Network.AWS.DynamoDB.CreateTable
     -- ** Request constructor
     , createTable
     -- ** Request lenses
-    , ctGlobalSecondaryIndexes
-    , ctLocalSecondaryIndexes
-    , ctStreamSpecification
-    , ctAttributeDefinitions
-    , ctTableName
-    , ctKeySchema
-    , ctProvisionedThroughput
+    , ctrqGlobalSecondaryIndexes
+    , ctrqLocalSecondaryIndexes
+    , ctrqStreamSpecification
+    , ctrqAttributeDefinitions
+    , ctrqTableName
+    , ctrqKeySchema
+    , ctrqProvisionedThroughput
 
     -- * Response
     , CreateTableResponse
     -- ** Response constructor
     , createTableResponse
     -- ** Response lenses
-    , ctrTableDescription
-    , ctrStatus
+    , ctrsTableDescription
+    , ctrsStatus
     ) where
 
 import           Network.AWS.DynamoDB.Types
@@ -72,40 +72,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctGlobalSecondaryIndexes'
+-- * 'ctrqGlobalSecondaryIndexes'
 --
--- * 'ctLocalSecondaryIndexes'
+-- * 'ctrqLocalSecondaryIndexes'
 --
--- * 'ctStreamSpecification'
+-- * 'ctrqStreamSpecification'
 --
--- * 'ctAttributeDefinitions'
+-- * 'ctrqAttributeDefinitions'
 --
--- * 'ctTableName'
+-- * 'ctrqTableName'
 --
--- * 'ctKeySchema'
+-- * 'ctrqKeySchema'
 --
--- * 'ctProvisionedThroughput'
+-- * 'ctrqProvisionedThroughput'
 data CreateTable = CreateTable'
-    { _ctGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
-    , _ctLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
-    , _ctStreamSpecification    :: !(Maybe StreamSpecification)
-    , _ctAttributeDefinitions   :: ![AttributeDefinition]
-    , _ctTableName              :: !Text
-    , _ctKeySchema              :: !(List1 KeySchemaElement)
-    , _ctProvisionedThroughput  :: !ProvisionedThroughput
+    { _ctrqGlobalSecondaryIndexes :: !(Maybe [GlobalSecondaryIndex])
+    , _ctrqLocalSecondaryIndexes  :: !(Maybe [LocalSecondaryIndex])
+    , _ctrqStreamSpecification    :: !(Maybe StreamSpecification)
+    , _ctrqAttributeDefinitions   :: ![AttributeDefinition]
+    , _ctrqTableName              :: !Text
+    , _ctrqKeySchema              :: !(List1 KeySchemaElement)
+    , _ctrqProvisionedThroughput  :: !ProvisionedThroughput
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTable' smart constructor.
 createTable :: Text -> NonEmpty KeySchemaElement -> ProvisionedThroughput -> CreateTable
 createTable pTableName pKeySchema pProvisionedThroughput =
     CreateTable'
-    { _ctGlobalSecondaryIndexes = Nothing
-    , _ctLocalSecondaryIndexes = Nothing
-    , _ctStreamSpecification = Nothing
-    , _ctAttributeDefinitions = mempty
-    , _ctTableName = pTableName
-    , _ctKeySchema = _List1 # pKeySchema
-    , _ctProvisionedThroughput = pProvisionedThroughput
+    { _ctrqGlobalSecondaryIndexes = Nothing
+    , _ctrqLocalSecondaryIndexes = Nothing
+    , _ctrqStreamSpecification = Nothing
+    , _ctrqAttributeDefinitions = mempty
+    , _ctrqTableName = pTableName
+    , _ctrqKeySchema = _List1 # pKeySchema
+    , _ctrqProvisionedThroughput = pProvisionedThroughput
     }
 
 -- | One or more global secondary indexes (the maximum is five) to be created
@@ -146,8 +146,8 @@ createTable pTableName pKeySchema pProvisionedThroughput =
 --     the global secondary index, consisting of read and write capacity
 --     units.
 --
-ctGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
-ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalSecondaryIndexes = a}) . _Default;
+ctrqGlobalSecondaryIndexes :: Lens' CreateTable [GlobalSecondaryIndex]
+ctrqGlobalSecondaryIndexes = lens _ctrqGlobalSecondaryIndexes (\ s a -> s{_ctrqGlobalSecondaryIndexes = a}) . _Default;
 
 -- | One or more local secondary indexes (the maximum is five) to be created
 -- on the table. Each index is scoped to a given hash key value. There is a
@@ -187,8 +187,8 @@ ctGlobalSecondaryIndexes = lens _ctGlobalSecondaryIndexes (\ s a -> s{_ctGlobalS
 --         project the same attribute into two different indexes, this
 --         counts as two distinct attributes when determining the total.
 --
-ctLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
-ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSecondaryIndexes = a}) . _Default;
+ctrqLocalSecondaryIndexes :: Lens' CreateTable [LocalSecondaryIndex]
+ctrqLocalSecondaryIndexes = lens _ctrqLocalSecondaryIndexes (\ s a -> s{_ctrqLocalSecondaryIndexes = a}) . _Default;
 
 -- | The settings for DynamoDB Streams on the table. These settings consist
 -- of:
@@ -212,17 +212,17 @@ ctLocalSecondaryIndexes = lens _ctLocalSecondaryIndexes (\ s a -> s{_ctLocalSeco
 --     -   /NEW_AND_OLD_IMAGES/ - Both the new and the old item images of
 --         the item are written to the stream.
 --
-ctStreamSpecification :: Lens' CreateTable (Maybe StreamSpecification)
-ctStreamSpecification = lens _ctStreamSpecification (\ s a -> s{_ctStreamSpecification = a});
+ctrqStreamSpecification :: Lens' CreateTable (Maybe StreamSpecification)
+ctrqStreamSpecification = lens _ctrqStreamSpecification (\ s a -> s{_ctrqStreamSpecification = a});
 
 -- | An array of attributes that describe the key schema for the table and
 -- indexes.
-ctAttributeDefinitions :: Lens' CreateTable [AttributeDefinition]
-ctAttributeDefinitions = lens _ctAttributeDefinitions (\ s a -> s{_ctAttributeDefinitions = a});
+ctrqAttributeDefinitions :: Lens' CreateTable [AttributeDefinition]
+ctrqAttributeDefinitions = lens _ctrqAttributeDefinitions (\ s a -> s{_ctrqAttributeDefinitions = a});
 
 -- | The name of the table to create.
-ctTableName :: Lens' CreateTable Text
-ctTableName = lens _ctTableName (\ s a -> s{_ctTableName = a});
+ctrqTableName :: Lens' CreateTable Text
+ctrqTableName = lens _ctrqTableName (\ s a -> s{_ctrqTableName = a});
 
 -- | Specifies the attributes that make up the primary key for a table or an
 -- index. The attributes in /KeySchema/ must also be defined in the
@@ -248,12 +248,12 @@ ctTableName = lens _ctTableName (\ s a -> s{_ctTableName = a});
 -- For more information, see
 -- <http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key Specifying the Primary Key>
 -- in the /Amazon DynamoDB Developer Guide/.
-ctKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
-ctKeySchema = lens _ctKeySchema (\ s a -> s{_ctKeySchema = a}) . _List1;
+ctrqKeySchema :: Lens' CreateTable (NonEmpty KeySchemaElement)
+ctrqKeySchema = lens _ctrqKeySchema (\ s a -> s{_ctrqKeySchema = a}) . _List1;
 
 -- | FIXME: Undocumented member.
-ctProvisionedThroughput :: Lens' CreateTable ProvisionedThroughput
-ctProvisionedThroughput = lens _ctProvisionedThroughput (\ s a -> s{_ctProvisionedThroughput = a});
+ctrqProvisionedThroughput :: Lens' CreateTable ProvisionedThroughput
+ctrqProvisionedThroughput = lens _ctrqProvisionedThroughput (\ s a -> s{_ctrqProvisionedThroughput = a});
 
 instance AWSRequest CreateTable where
         type Sv CreateTable = DynamoDB
@@ -278,13 +278,15 @@ instance ToJSON CreateTable where
         toJSON CreateTable'{..}
           = object
               ["GlobalSecondaryIndexes" .=
-                 _ctGlobalSecondaryIndexes,
-               "LocalSecondaryIndexes" .= _ctLocalSecondaryIndexes,
-               "StreamSpecification" .= _ctStreamSpecification,
-               "AttributeDefinitions" .= _ctAttributeDefinitions,
-               "TableName" .= _ctTableName,
-               "KeySchema" .= _ctKeySchema,
-               "ProvisionedThroughput" .= _ctProvisionedThroughput]
+                 _ctrqGlobalSecondaryIndexes,
+               "LocalSecondaryIndexes" .=
+                 _ctrqLocalSecondaryIndexes,
+               "StreamSpecification" .= _ctrqStreamSpecification,
+               "AttributeDefinitions" .= _ctrqAttributeDefinitions,
+               "TableName" .= _ctrqTableName,
+               "KeySchema" .= _ctrqKeySchema,
+               "ProvisionedThroughput" .=
+                 _ctrqProvisionedThroughput]
 
 instance ToPath CreateTable where
         toPath = const "/"
@@ -298,26 +300,26 @@ instance ToQuery CreateTable where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ctrTableDescription'
+-- * 'ctrsTableDescription'
 --
--- * 'ctrStatus'
+-- * 'ctrsStatus'
 data CreateTableResponse = CreateTableResponse'
-    { _ctrTableDescription :: !(Maybe TableDescription)
-    , _ctrStatus           :: !Int
+    { _ctrsTableDescription :: !(Maybe TableDescription)
+    , _ctrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateTableResponse' smart constructor.
 createTableResponse :: Int -> CreateTableResponse
 createTableResponse pStatus =
     CreateTableResponse'
-    { _ctrTableDescription = Nothing
-    , _ctrStatus = pStatus
+    { _ctrsTableDescription = Nothing
+    , _ctrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-ctrTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
-ctrTableDescription = lens _ctrTableDescription (\ s a -> s{_ctrTableDescription = a});
+ctrsTableDescription :: Lens' CreateTableResponse (Maybe TableDescription)
+ctrsTableDescription = lens _ctrsTableDescription (\ s a -> s{_ctrsTableDescription = a});
 
 -- | FIXME: Undocumented member.
-ctrStatus :: Lens' CreateTableResponse Int
-ctrStatus = lens _ctrStatus (\ s a -> s{_ctrStatus = a});
+ctrsStatus :: Lens' CreateTableResponse Int
+ctrsStatus = lens _ctrsStatus (\ s a -> s{_ctrsStatus = a});

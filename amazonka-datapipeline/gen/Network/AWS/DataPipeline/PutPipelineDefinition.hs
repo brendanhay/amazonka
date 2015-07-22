@@ -41,20 +41,20 @@ module Network.AWS.DataPipeline.PutPipelineDefinition
     -- ** Request constructor
     , putPipelineDefinition
     -- ** Request lenses
-    , ppdParameterObjects
-    , ppdParameterValues
-    , ppdPipelineId
-    , ppdPipelineObjects
+    , ppdrqParameterObjects
+    , ppdrqParameterValues
+    , ppdrqPipelineId
+    , ppdrqPipelineObjects
 
     -- * Response
     , PutPipelineDefinitionResponse
     -- ** Response constructor
     , putPipelineDefinitionResponse
     -- ** Response lenses
-    , ppdrValidationErrors
-    , ppdrValidationWarnings
-    , ppdrStatus
-    , ppdrErrored
+    , ppdrsValidationErrors
+    , ppdrsValidationWarnings
+    , ppdrsStatus
+    , ppdrsErrored
     ) where
 
 import           Network.AWS.DataPipeline.Types
@@ -68,46 +68,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ppdParameterObjects'
+-- * 'ppdrqParameterObjects'
 --
--- * 'ppdParameterValues'
+-- * 'ppdrqParameterValues'
 --
--- * 'ppdPipelineId'
+-- * 'ppdrqPipelineId'
 --
--- * 'ppdPipelineObjects'
+-- * 'ppdrqPipelineObjects'
 data PutPipelineDefinition = PutPipelineDefinition'
-    { _ppdParameterObjects :: !(Maybe [ParameterObject])
-    , _ppdParameterValues  :: !(Maybe [ParameterValue])
-    , _ppdPipelineId       :: !Text
-    , _ppdPipelineObjects  :: ![PipelineObject]
+    { _ppdrqParameterObjects :: !(Maybe [ParameterObject])
+    , _ppdrqParameterValues  :: !(Maybe [ParameterValue])
+    , _ppdrqPipelineId       :: !Text
+    , _ppdrqPipelineObjects  :: ![PipelineObject]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutPipelineDefinition' smart constructor.
 putPipelineDefinition :: Text -> PutPipelineDefinition
 putPipelineDefinition pPipelineId =
     PutPipelineDefinition'
-    { _ppdParameterObjects = Nothing
-    , _ppdParameterValues = Nothing
-    , _ppdPipelineId = pPipelineId
-    , _ppdPipelineObjects = mempty
+    { _ppdrqParameterObjects = Nothing
+    , _ppdrqParameterValues = Nothing
+    , _ppdrqPipelineId = pPipelineId
+    , _ppdrqPipelineObjects = mempty
     }
 
 -- | The parameter objects used with the pipeline.
-ppdParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
-ppdParameterObjects = lens _ppdParameterObjects (\ s a -> s{_ppdParameterObjects = a}) . _Default;
+ppdrqParameterObjects :: Lens' PutPipelineDefinition [ParameterObject]
+ppdrqParameterObjects = lens _ppdrqParameterObjects (\ s a -> s{_ppdrqParameterObjects = a}) . _Default;
 
 -- | The parameter values used with the pipeline.
-ppdParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
-ppdParameterValues = lens _ppdParameterValues (\ s a -> s{_ppdParameterValues = a}) . _Default;
+ppdrqParameterValues :: Lens' PutPipelineDefinition [ParameterValue]
+ppdrqParameterValues = lens _ppdrqParameterValues (\ s a -> s{_ppdrqParameterValues = a}) . _Default;
 
 -- | The ID of the pipeline.
-ppdPipelineId :: Lens' PutPipelineDefinition Text
-ppdPipelineId = lens _ppdPipelineId (\ s a -> s{_ppdPipelineId = a});
+ppdrqPipelineId :: Lens' PutPipelineDefinition Text
+ppdrqPipelineId = lens _ppdrqPipelineId (\ s a -> s{_ppdrqPipelineId = a});
 
 -- | The objects that define the pipeline. These objects overwrite the
 -- existing pipeline definition.
-ppdPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
-ppdPipelineObjects = lens _ppdPipelineObjects (\ s a -> s{_ppdPipelineObjects = a});
+ppdrqPipelineObjects :: Lens' PutPipelineDefinition [PipelineObject]
+ppdrqPipelineObjects = lens _ppdrqPipelineObjects (\ s a -> s{_ppdrqPipelineObjects = a});
 
 instance AWSRequest PutPipelineDefinition where
         type Sv PutPipelineDefinition = DataPipeline
@@ -135,10 +135,10 @@ instance ToHeaders PutPipelineDefinition where
 instance ToJSON PutPipelineDefinition where
         toJSON PutPipelineDefinition'{..}
           = object
-              ["parameterObjects" .= _ppdParameterObjects,
-               "parameterValues" .= _ppdParameterValues,
-               "pipelineId" .= _ppdPipelineId,
-               "pipelineObjects" .= _ppdPipelineObjects]
+              ["parameterObjects" .= _ppdrqParameterObjects,
+               "parameterValues" .= _ppdrqParameterValues,
+               "pipelineId" .= _ppdrqPipelineId,
+               "pipelineObjects" .= _ppdrqPipelineObjects]
 
 instance ToPath PutPipelineDefinition where
         toPath = const "/"
@@ -152,47 +152,47 @@ instance ToQuery PutPipelineDefinition where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ppdrValidationErrors'
+-- * 'ppdrsValidationErrors'
 --
--- * 'ppdrValidationWarnings'
+-- * 'ppdrsValidationWarnings'
 --
--- * 'ppdrStatus'
+-- * 'ppdrsStatus'
 --
--- * 'ppdrErrored'
+-- * 'ppdrsErrored'
 data PutPipelineDefinitionResponse = PutPipelineDefinitionResponse'
-    { _ppdrValidationErrors   :: !(Maybe [ValidationError])
-    , _ppdrValidationWarnings :: !(Maybe [ValidationWarning])
-    , _ppdrStatus             :: !Int
-    , _ppdrErrored            :: !Bool
+    { _ppdrsValidationErrors   :: !(Maybe [ValidationError])
+    , _ppdrsValidationWarnings :: !(Maybe [ValidationWarning])
+    , _ppdrsStatus             :: !Int
+    , _ppdrsErrored            :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutPipelineDefinitionResponse' smart constructor.
 putPipelineDefinitionResponse :: Int -> Bool -> PutPipelineDefinitionResponse
 putPipelineDefinitionResponse pStatus pErrored =
     PutPipelineDefinitionResponse'
-    { _ppdrValidationErrors = Nothing
-    , _ppdrValidationWarnings = Nothing
-    , _ppdrStatus = pStatus
-    , _ppdrErrored = pErrored
+    { _ppdrsValidationErrors = Nothing
+    , _ppdrsValidationWarnings = Nothing
+    , _ppdrsStatus = pStatus
+    , _ppdrsErrored = pErrored
     }
 
 -- | The validation errors that are associated with the objects defined in
 -- @pipelineObjects@.
-ppdrValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
-ppdrValidationErrors = lens _ppdrValidationErrors (\ s a -> s{_ppdrValidationErrors = a}) . _Default;
+ppdrsValidationErrors :: Lens' PutPipelineDefinitionResponse [ValidationError]
+ppdrsValidationErrors = lens _ppdrsValidationErrors (\ s a -> s{_ppdrsValidationErrors = a}) . _Default;
 
 -- | The validation warnings that are associated with the objects defined in
 -- @pipelineObjects@.
-ppdrValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
-ppdrValidationWarnings = lens _ppdrValidationWarnings (\ s a -> s{_ppdrValidationWarnings = a}) . _Default;
+ppdrsValidationWarnings :: Lens' PutPipelineDefinitionResponse [ValidationWarning]
+ppdrsValidationWarnings = lens _ppdrsValidationWarnings (\ s a -> s{_ppdrsValidationWarnings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ppdrStatus :: Lens' PutPipelineDefinitionResponse Int
-ppdrStatus = lens _ppdrStatus (\ s a -> s{_ppdrStatus = a});
+ppdrsStatus :: Lens' PutPipelineDefinitionResponse Int
+ppdrsStatus = lens _ppdrsStatus (\ s a -> s{_ppdrsStatus = a});
 
 -- | Indicates whether there were validation errors, and the pipeline
 -- definition is stored but cannot be activated until you correct the
 -- pipeline and call @PutPipelineDefinition@ to commit the corrected
 -- pipeline.
-ppdrErrored :: Lens' PutPipelineDefinitionResponse Bool
-ppdrErrored = lens _ppdrErrored (\ s a -> s{_ppdrErrored = a});
+ppdrsErrored :: Lens' PutPipelineDefinitionResponse Bool
+ppdrsErrored = lens _ppdrsErrored (\ s a -> s{_ppdrsErrored = a});

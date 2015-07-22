@@ -39,17 +39,17 @@ module Network.AWS.EC2.CreateVPC
     -- ** Request constructor
     , createVPC
     -- ** Request lenses
-    , cvInstanceTenancy
-    , cvDryRun
-    , cvCIdRBlock
+    , cvrqInstanceTenancy
+    , cvrqDryRun
+    , cvrqCIdRBlock
 
     -- * Response
     , CreateVPCResponse
     -- ** Response constructor
     , createVPCResponse
     -- ** Response lenses
-    , cvrVPC
-    , cvrStatus
+    , cvrsVPC
+    , cvrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -61,24 +61,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvInstanceTenancy'
+-- * 'cvrqInstanceTenancy'
 --
--- * 'cvDryRun'
+-- * 'cvrqDryRun'
 --
--- * 'cvCIdRBlock'
+-- * 'cvrqCIdRBlock'
 data CreateVPC = CreateVPC'
-    { _cvInstanceTenancy :: !(Maybe Tenancy)
-    , _cvDryRun          :: !(Maybe Bool)
-    , _cvCIdRBlock       :: !Text
+    { _cvrqInstanceTenancy :: !(Maybe Tenancy)
+    , _cvrqDryRun          :: !(Maybe Bool)
+    , _cvrqCIdRBlock       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPC' smart constructor.
 createVPC :: Text -> CreateVPC
 createVPC pCIdRBlock =
     CreateVPC'
-    { _cvInstanceTenancy = Nothing
-    , _cvDryRun = Nothing
-    , _cvCIdRBlock = pCIdRBlock
+    { _cvrqInstanceTenancy = Nothing
+    , _cvrqDryRun = Nothing
+    , _cvrqCIdRBlock = pCIdRBlock
     }
 
 -- | The supported tenancy options for instances launched into the VPC. A
@@ -89,20 +89,20 @@ createVPC pCIdRBlock =
 -- run on single-tenant hardware.
 --
 -- Default: @default@
-cvInstanceTenancy :: Lens' CreateVPC (Maybe Tenancy)
-cvInstanceTenancy = lens _cvInstanceTenancy (\ s a -> s{_cvInstanceTenancy = a});
+cvrqInstanceTenancy :: Lens' CreateVPC (Maybe Tenancy)
+cvrqInstanceTenancy = lens _cvrqInstanceTenancy (\ s a -> s{_cvrqInstanceTenancy = a});
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-cvDryRun :: Lens' CreateVPC (Maybe Bool)
-cvDryRun = lens _cvDryRun (\ s a -> s{_cvDryRun = a});
+cvrqDryRun :: Lens' CreateVPC (Maybe Bool)
+cvrqDryRun = lens _cvrqDryRun (\ s a -> s{_cvrqDryRun = a});
 
 -- | The network range for the VPC, in CIDR notation. For example,
 -- @10.0.0.0\/16@.
-cvCIdRBlock :: Lens' CreateVPC Text
-cvCIdRBlock = lens _cvCIdRBlock (\ s a -> s{_cvCIdRBlock = a});
+cvrqCIdRBlock :: Lens' CreateVPC Text
+cvrqCIdRBlock = lens _cvrqCIdRBlock (\ s a -> s{_cvrqCIdRBlock = a});
 
 instance AWSRequest CreateVPC where
         type Sv CreateVPC = EC2
@@ -125,33 +125,34 @@ instance ToQuery CreateVPC where
           = mconcat
               ["Action" =: ("CreateVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "InstanceTenancy" =: _cvInstanceTenancy,
-               "DryRun" =: _cvDryRun, "CidrBlock" =: _cvCIdRBlock]
+               "InstanceTenancy" =: _cvrqInstanceTenancy,
+               "DryRun" =: _cvrqDryRun,
+               "CidrBlock" =: _cvrqCIdRBlock]
 
 -- | /See:/ 'createVPCResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cvrVPC'
+-- * 'cvrsVPC'
 --
--- * 'cvrStatus'
+-- * 'cvrsStatus'
 data CreateVPCResponse = CreateVPCResponse'
-    { _cvrVPC    :: !(Maybe VPC)
-    , _cvrStatus :: !Int
+    { _cvrsVPC    :: !(Maybe VPC)
+    , _cvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateVPCResponse' smart constructor.
 createVPCResponse :: Int -> CreateVPCResponse
 createVPCResponse pStatus =
     CreateVPCResponse'
-    { _cvrVPC = Nothing
-    , _cvrStatus = pStatus
+    { _cvrsVPC = Nothing
+    , _cvrsStatus = pStatus
     }
 
 -- | Information about the VPC.
-cvrVPC :: Lens' CreateVPCResponse (Maybe VPC)
-cvrVPC = lens _cvrVPC (\ s a -> s{_cvrVPC = a});
+cvrsVPC :: Lens' CreateVPCResponse (Maybe VPC)
+cvrsVPC = lens _cvrsVPC (\ s a -> s{_cvrsVPC = a});
 
 -- | FIXME: Undocumented member.
-cvrStatus :: Lens' CreateVPCResponse Int
-cvrStatus = lens _cvrStatus (\ s a -> s{_cvrStatus = a});
+cvrsStatus :: Lens' CreateVPCResponse Int
+cvrsStatus = lens _cvrsStatus (\ s a -> s{_cvrsStatus = a});

@@ -31,8 +31,8 @@ module Network.AWS.CodeCommit.UpdateDefaultBranch
     -- ** Request constructor
     , updateDefaultBranch
     -- ** Request lenses
-    , udbRepositoryName
-    , udbDefaultBranchName
+    , udbrqRepositoryName
+    , udbrqDefaultBranchName
 
     -- * Response
     , UpdateDefaultBranchResponse
@@ -51,29 +51,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'udbRepositoryName'
+-- * 'udbrqRepositoryName'
 --
--- * 'udbDefaultBranchName'
+-- * 'udbrqDefaultBranchName'
 data UpdateDefaultBranch = UpdateDefaultBranch'
-    { _udbRepositoryName    :: !Text
-    , _udbDefaultBranchName :: !Text
+    { _udbrqRepositoryName    :: !Text
+    , _udbrqDefaultBranchName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UpdateDefaultBranch' smart constructor.
 updateDefaultBranch :: Text -> Text -> UpdateDefaultBranch
 updateDefaultBranch pRepositoryName pDefaultBranchName =
     UpdateDefaultBranch'
-    { _udbRepositoryName = pRepositoryName
-    , _udbDefaultBranchName = pDefaultBranchName
+    { _udbrqRepositoryName = pRepositoryName
+    , _udbrqDefaultBranchName = pDefaultBranchName
     }
 
 -- | The name of the repository to set or change the default branch for.
-udbRepositoryName :: Lens' UpdateDefaultBranch Text
-udbRepositoryName = lens _udbRepositoryName (\ s a -> s{_udbRepositoryName = a});
+udbrqRepositoryName :: Lens' UpdateDefaultBranch Text
+udbrqRepositoryName = lens _udbrqRepositoryName (\ s a -> s{_udbrqRepositoryName = a});
 
 -- | The name of the branch to set as the default.
-udbDefaultBranchName :: Lens' UpdateDefaultBranch Text
-udbDefaultBranchName = lens _udbDefaultBranchName (\ s a -> s{_udbDefaultBranchName = a});
+udbrqDefaultBranchName :: Lens' UpdateDefaultBranch Text
+udbrqDefaultBranchName = lens _udbrqDefaultBranchName (\ s a -> s{_udbrqDefaultBranchName = a});
 
 instance AWSRequest UpdateDefaultBranch where
         type Sv UpdateDefaultBranch = CodeCommit
@@ -95,8 +95,8 @@ instance ToHeaders UpdateDefaultBranch where
 instance ToJSON UpdateDefaultBranch where
         toJSON UpdateDefaultBranch'{..}
           = object
-              ["repositoryName" .= _udbRepositoryName,
-               "defaultBranchName" .= _udbDefaultBranchName]
+              ["repositoryName" .= _udbrqRepositoryName,
+               "defaultBranchName" .= _udbrqDefaultBranchName]
 
 instance ToPath UpdateDefaultBranch where
         toPath = const "/"

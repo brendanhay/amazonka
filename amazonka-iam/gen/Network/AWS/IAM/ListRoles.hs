@@ -33,19 +33,19 @@ module Network.AWS.IAM.ListRoles
     -- ** Request constructor
     , listRoles
     -- ** Request lenses
-    , lrPathPrefix
-    , lrMaxItems
-    , lrMarker
+    , lrrqPathPrefix
+    , lrrqMaxItems
+    , lrrqMarker
 
     -- * Response
     , ListRolesResponse
     -- ** Response constructor
     , listRolesResponse
     -- ** Response lenses
-    , lrrMarker
-    , lrrIsTruncated
-    , lrrStatus
-    , lrrRoles
+    , lrrsMarker
+    , lrrsIsTruncated
+    , lrrsStatus
+    , lrrsRoles
     ) where
 
 import           Network.AWS.IAM.Types
@@ -58,24 +58,24 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrPathPrefix'
+-- * 'lrrqPathPrefix'
 --
--- * 'lrMaxItems'
+-- * 'lrrqMaxItems'
 --
--- * 'lrMarker'
+-- * 'lrrqMarker'
 data ListRoles = ListRoles'
-    { _lrPathPrefix :: !(Maybe Text)
-    , _lrMaxItems   :: !(Maybe Nat)
-    , _lrMarker     :: !(Maybe Text)
+    { _lrrqPathPrefix :: !(Maybe Text)
+    , _lrrqMaxItems   :: !(Maybe Nat)
+    , _lrrqMarker     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRoles' smart constructor.
 listRoles :: ListRoles
 listRoles =
     ListRoles'
-    { _lrPathPrefix = Nothing
-    , _lrMaxItems = Nothing
-    , _lrMarker = Nothing
+    { _lrrqPathPrefix = Nothing
+    , _lrrqMaxItems = Nothing
+    , _lrrqMarker = Nothing
     }
 
 -- | The path prefix for filtering the results. For example, the prefix
@@ -84,8 +84,8 @@ listRoles =
 --
 -- This parameter is optional. If it is not included, it defaults to a
 -- slash (\/), listing all roles.
-lrPathPrefix :: Lens' ListRoles (Maybe Text)
-lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
+lrrqPathPrefix :: Lens' ListRoles (Maybe Text)
+lrrqPathPrefix = lens _lrrqPathPrefix (\ s a -> s{_lrrqPathPrefix = a});
 
 -- | Use this only when paginating results to indicate the maximum number of
 -- items you want in the response. If there are additional items beyond the
@@ -93,20 +93,21 @@ lrPathPrefix = lens _lrPathPrefix (\ s a -> s{_lrPathPrefix = a});
 --
 -- This parameter is optional. If you do not include it, it defaults to
 -- 100.
-lrMaxItems :: Lens' ListRoles (Maybe Natural)
-lrMaxItems = lens _lrMaxItems (\ s a -> s{_lrMaxItems = a}) . mapping _Nat;
+lrrqMaxItems :: Lens' ListRoles (Maybe Natural)
+lrrqMaxItems = lens _lrrqMaxItems (\ s a -> s{_lrrqMaxItems = a}) . mapping _Nat;
 
 -- | Use this parameter only when paginating results and only after you have
 -- received a response where the results are truncated. Set it to the value
 -- of the @Marker@ element in the response you just received.
-lrMarker :: Lens' ListRoles (Maybe Text)
-lrMarker = lens _lrMarker (\ s a -> s{_lrMarker = a});
+lrrqMarker :: Lens' ListRoles (Maybe Text)
+lrrqMarker = lens _lrrqMarker (\ s a -> s{_lrrqMarker = a});
 
 instance AWSPager ListRoles where
         page rq rs
-          | stop (rs ^. lrrIsTruncated) = Nothing
-          | isNothing (rs ^. lrrMarker) = Nothing
-          | otherwise = Just $ rq & lrMarker .~ rs ^. lrrMarker
+          | stop (rs ^. lrrsIsTruncated) = Nothing
+          | isNothing (rs ^. lrrsMarker) = Nothing
+          | otherwise =
+            Just $ rq & lrrqMarker .~ rs ^. lrrsMarker
 
 instance AWSRequest ListRoles where
         type Sv ListRoles = IAM
@@ -132,8 +133,8 @@ instance ToQuery ListRoles where
           = mconcat
               ["Action" =: ("ListRoles" :: ByteString),
                "Version" =: ("2010-05-08" :: ByteString),
-               "PathPrefix" =: _lrPathPrefix,
-               "MaxItems" =: _lrMaxItems, "Marker" =: _lrMarker]
+               "PathPrefix" =: _lrrqPathPrefix,
+               "MaxItems" =: _lrrqMaxItems, "Marker" =: _lrrqMarker]
 
 -- | Contains the response to a successful ListRoles request.
 --
@@ -141,46 +142,46 @@ instance ToQuery ListRoles where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lrrMarker'
+-- * 'lrrsMarker'
 --
--- * 'lrrIsTruncated'
+-- * 'lrrsIsTruncated'
 --
--- * 'lrrStatus'
+-- * 'lrrsStatus'
 --
--- * 'lrrRoles'
+-- * 'lrrsRoles'
 data ListRolesResponse = ListRolesResponse'
-    { _lrrMarker      :: !(Maybe Text)
-    , _lrrIsTruncated :: !(Maybe Bool)
-    , _lrrStatus      :: !Int
-    , _lrrRoles       :: ![Role]
+    { _lrrsMarker      :: !(Maybe Text)
+    , _lrrsIsTruncated :: !(Maybe Bool)
+    , _lrrsStatus      :: !Int
+    , _lrrsRoles       :: ![Role]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListRolesResponse' smart constructor.
 listRolesResponse :: Int -> ListRolesResponse
 listRolesResponse pStatus =
     ListRolesResponse'
-    { _lrrMarker = Nothing
-    , _lrrIsTruncated = Nothing
-    , _lrrStatus = pStatus
-    , _lrrRoles = mempty
+    { _lrrsMarker = Nothing
+    , _lrrsIsTruncated = Nothing
+    , _lrrsStatus = pStatus
+    , _lrrsRoles = mempty
     }
 
 -- | When @IsTruncated@ is @true@, this element is present and contains the
 -- value to use for the @Marker@ parameter in a subsequent pagination
 -- request.
-lrrMarker :: Lens' ListRolesResponse (Maybe Text)
-lrrMarker = lens _lrrMarker (\ s a -> s{_lrrMarker = a});
+lrrsMarker :: Lens' ListRolesResponse (Maybe Text)
+lrrsMarker = lens _lrrsMarker (\ s a -> s{_lrrsMarker = a});
 
 -- | A flag that indicates whether there are more items to return. If your
 -- results were truncated, you can make a subsequent pagination request
 -- using the @Marker@ request parameter to retrieve more items.
-lrrIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
-lrrIsTruncated = lens _lrrIsTruncated (\ s a -> s{_lrrIsTruncated = a});
+lrrsIsTruncated :: Lens' ListRolesResponse (Maybe Bool)
+lrrsIsTruncated = lens _lrrsIsTruncated (\ s a -> s{_lrrsIsTruncated = a});
 
 -- | FIXME: Undocumented member.
-lrrStatus :: Lens' ListRolesResponse Int
-lrrStatus = lens _lrrStatus (\ s a -> s{_lrrStatus = a});
+lrrsStatus :: Lens' ListRolesResponse Int
+lrrsStatus = lens _lrrsStatus (\ s a -> s{_lrrsStatus = a});
 
 -- | A list of roles.
-lrrRoles :: Lens' ListRolesResponse [Role]
-lrrRoles = lens _lrrRoles (\ s a -> s{_lrrRoles = a});
+lrrsRoles :: Lens' ListRolesResponse [Role]
+lrrsRoles = lens _lrrsRoles (\ s a -> s{_lrrsRoles = a});

@@ -27,17 +27,17 @@ module Network.AWS.CloudFront.ListInvalidations
     -- ** Request constructor
     , listInvalidations
     -- ** Request lenses
-    , liMaxItems
-    , liMarker
-    , liDistributionId
+    , lirqMaxItems
+    , lirqMarker
+    , lirqDistributionId
 
     -- * Response
     , ListInvalidationsResponse
     -- ** Response constructor
     , listInvalidationsResponse
     -- ** Response lenses
-    , lirStatus
-    , lirInvalidationList
+    , lirsStatus
+    , lirsInvalidationList
     ) where
 
 import           Network.AWS.CloudFront.Types
@@ -51,30 +51,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'liMaxItems'
+-- * 'lirqMaxItems'
 --
--- * 'liMarker'
+-- * 'lirqMarker'
 --
--- * 'liDistributionId'
+-- * 'lirqDistributionId'
 data ListInvalidations = ListInvalidations'
-    { _liMaxItems       :: !(Maybe Text)
-    , _liMarker         :: !(Maybe Text)
-    , _liDistributionId :: !Text
+    { _lirqMaxItems       :: !(Maybe Text)
+    , _lirqMarker         :: !(Maybe Text)
+    , _lirqDistributionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInvalidations' smart constructor.
 listInvalidations :: Text -> ListInvalidations
 listInvalidations pDistributionId =
     ListInvalidations'
-    { _liMaxItems = Nothing
-    , _liMarker = Nothing
-    , _liDistributionId = pDistributionId
+    { _lirqMaxItems = Nothing
+    , _lirqMarker = Nothing
+    , _lirqDistributionId = pDistributionId
     }
 
 -- | The maximum number of invalidation batches you want in the response
 -- body.
-liMaxItems :: Lens' ListInvalidations (Maybe Text)
-liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
+lirqMaxItems :: Lens' ListInvalidations (Maybe Text)
+lirqMaxItems = lens _lirqMaxItems (\ s a -> s{_lirqMaxItems = a});
 
 -- | Use this parameter when paginating results to indicate where to begin in
 -- your list of invalidation batches. Because the results are returned in
@@ -83,12 +83,12 @@ liMaxItems = lens _liMaxItems (\ s a -> s{_liMaxItems = a});
 -- on. To get the next page of results, set the Marker to the value of the
 -- NextMarker from the current page\'s response. This value is the same as
 -- the ID of the last invalidation batch on that page.
-liMarker :: Lens' ListInvalidations (Maybe Text)
-liMarker = lens _liMarker (\ s a -> s{_liMarker = a});
+lirqMarker :: Lens' ListInvalidations (Maybe Text)
+lirqMarker = lens _lirqMarker (\ s a -> s{_lirqMarker = a});
 
 -- | The distribution\'s id.
-liDistributionId :: Lens' ListInvalidations Text
-liDistributionId = lens _liDistributionId (\ s a -> s{_liDistributionId = a});
+lirqDistributionId :: Lens' ListInvalidations Text
+lirqDistributionId = lens _lirqDistributionId (\ s a -> s{_lirqDistributionId = a});
 
 instance AWSRequest ListInvalidations where
         type Sv ListInvalidations = CloudFront
@@ -107,12 +107,13 @@ instance ToPath ListInvalidations where
         toPath ListInvalidations'{..}
           = mconcat
               ["/2015-04-17/distribution/",
-               toText _liDistributionId, "/invalidation"]
+               toText _lirqDistributionId, "/invalidation"]
 
 instance ToQuery ListInvalidations where
         toQuery ListInvalidations'{..}
           = mconcat
-              ["MaxItems" =: _liMaxItems, "Marker" =: _liMarker]
+              ["MaxItems" =: _lirqMaxItems,
+               "Marker" =: _lirqMarker]
 
 -- | The returned result of the corresponding request.
 --
@@ -120,26 +121,26 @@ instance ToQuery ListInvalidations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'lirStatus'
+-- * 'lirsStatus'
 --
--- * 'lirInvalidationList'
+-- * 'lirsInvalidationList'
 data ListInvalidationsResponse = ListInvalidationsResponse'
-    { _lirStatus           :: !Int
-    , _lirInvalidationList :: !InvalidationList
+    { _lirsStatus           :: !Int
+    , _lirsInvalidationList :: !InvalidationList
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListInvalidationsResponse' smart constructor.
 listInvalidationsResponse :: Int -> InvalidationList -> ListInvalidationsResponse
 listInvalidationsResponse pStatus pInvalidationList =
     ListInvalidationsResponse'
-    { _lirStatus = pStatus
-    , _lirInvalidationList = pInvalidationList
+    { _lirsStatus = pStatus
+    , _lirsInvalidationList = pInvalidationList
     }
 
 -- | FIXME: Undocumented member.
-lirStatus :: Lens' ListInvalidationsResponse Int
-lirStatus = lens _lirStatus (\ s a -> s{_lirStatus = a});
+lirsStatus :: Lens' ListInvalidationsResponse Int
+lirsStatus = lens _lirsStatus (\ s a -> s{_lirsStatus = a});
 
 -- | Information about invalidation batches.
-lirInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
-lirInvalidationList = lens _lirInvalidationList (\ s a -> s{_lirInvalidationList = a});
+lirsInvalidationList :: Lens' ListInvalidationsResponse InvalidationList
+lirsInvalidationList = lens _lirsInvalidationList (\ s a -> s{_lirsInvalidationList = a});

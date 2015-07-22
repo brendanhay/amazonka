@@ -39,18 +39,18 @@ module Network.AWS.EC2.AttachClassicLinkVPC
     -- ** Request constructor
     , attachClassicLinkVPC
     -- ** Request lenses
-    , aclvDryRun
-    , aclvInstanceId
-    , aclvVPCId
-    , aclvGroups
+    , aclvrqDryRun
+    , aclvrqInstanceId
+    , aclvrqVPCId
+    , aclvrqGroups
 
     -- * Response
     , AttachClassicLinkVPCResponse
     -- ** Response constructor
     , attachClassicLinkVPCResponse
     -- ** Response lenses
-    , aclvrReturn
-    , aclvrStatus
+    , aclvrsReturn
+    , aclvrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -62,50 +62,50 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aclvDryRun'
+-- * 'aclvrqDryRun'
 --
--- * 'aclvInstanceId'
+-- * 'aclvrqInstanceId'
 --
--- * 'aclvVPCId'
+-- * 'aclvrqVPCId'
 --
--- * 'aclvGroups'
+-- * 'aclvrqGroups'
 data AttachClassicLinkVPC = AttachClassicLinkVPC'
-    { _aclvDryRun     :: !(Maybe Bool)
-    , _aclvInstanceId :: !Text
-    , _aclvVPCId      :: !Text
-    , _aclvGroups     :: ![Text]
+    { _aclvrqDryRun     :: !(Maybe Bool)
+    , _aclvrqInstanceId :: !Text
+    , _aclvrqVPCId      :: !Text
+    , _aclvrqGroups     :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachClassicLinkVPC' smart constructor.
 attachClassicLinkVPC :: Text -> Text -> AttachClassicLinkVPC
 attachClassicLinkVPC pInstanceId pVPCId =
     AttachClassicLinkVPC'
-    { _aclvDryRun = Nothing
-    , _aclvInstanceId = pInstanceId
-    , _aclvVPCId = pVPCId
-    , _aclvGroups = mempty
+    { _aclvrqDryRun = Nothing
+    , _aclvrqInstanceId = pInstanceId
+    , _aclvrqVPCId = pVPCId
+    , _aclvrqGroups = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-aclvDryRun :: Lens' AttachClassicLinkVPC (Maybe Bool)
-aclvDryRun = lens _aclvDryRun (\ s a -> s{_aclvDryRun = a});
+aclvrqDryRun :: Lens' AttachClassicLinkVPC (Maybe Bool)
+aclvrqDryRun = lens _aclvrqDryRun (\ s a -> s{_aclvrqDryRun = a});
 
 -- | The ID of an EC2-Classic instance to link to the ClassicLink-enabled
 -- VPC.
-aclvInstanceId :: Lens' AttachClassicLinkVPC Text
-aclvInstanceId = lens _aclvInstanceId (\ s a -> s{_aclvInstanceId = a});
+aclvrqInstanceId :: Lens' AttachClassicLinkVPC Text
+aclvrqInstanceId = lens _aclvrqInstanceId (\ s a -> s{_aclvrqInstanceId = a});
 
 -- | The ID of a ClassicLink-enabled VPC.
-aclvVPCId :: Lens' AttachClassicLinkVPC Text
-aclvVPCId = lens _aclvVPCId (\ s a -> s{_aclvVPCId = a});
+aclvrqVPCId :: Lens' AttachClassicLinkVPC Text
+aclvrqVPCId = lens _aclvrqVPCId (\ s a -> s{_aclvrqVPCId = a});
 
 -- | The ID of one or more of the VPC\'s security groups. You cannot specify
 -- security groups from a different VPC.
-aclvGroups :: Lens' AttachClassicLinkVPC [Text]
-aclvGroups = lens _aclvGroups (\ s a -> s{_aclvGroups = a});
+aclvrqGroups :: Lens' AttachClassicLinkVPC [Text]
+aclvrqGroups = lens _aclvrqGroups (\ s a -> s{_aclvrqGroups = a});
 
 instance AWSRequest AttachClassicLinkVPC where
         type Sv AttachClassicLinkVPC = EC2
@@ -129,35 +129,35 @@ instance ToQuery AttachClassicLinkVPC where
           = mconcat
               ["Action" =: ("AttachClassicLinkVPC" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _aclvDryRun,
-               "InstanceId" =: _aclvInstanceId,
-               "VpcId" =: _aclvVPCId,
-               toQueryList "groupId" _aclvGroups]
+               "DryRun" =: _aclvrqDryRun,
+               "InstanceId" =: _aclvrqInstanceId,
+               "VpcId" =: _aclvrqVPCId,
+               toQueryList "groupId" _aclvrqGroups]
 
 -- | /See:/ 'attachClassicLinkVPCResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'aclvrReturn'
+-- * 'aclvrsReturn'
 --
--- * 'aclvrStatus'
+-- * 'aclvrsStatus'
 data AttachClassicLinkVPCResponse = AttachClassicLinkVPCResponse'
-    { _aclvrReturn :: !(Maybe Bool)
-    , _aclvrStatus :: !Int
+    { _aclvrsReturn :: !(Maybe Bool)
+    , _aclvrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AttachClassicLinkVPCResponse' smart constructor.
 attachClassicLinkVPCResponse :: Int -> AttachClassicLinkVPCResponse
 attachClassicLinkVPCResponse pStatus =
     AttachClassicLinkVPCResponse'
-    { _aclvrReturn = Nothing
-    , _aclvrStatus = pStatus
+    { _aclvrsReturn = Nothing
+    , _aclvrsStatus = pStatus
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-aclvrReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
-aclvrReturn = lens _aclvrReturn (\ s a -> s{_aclvrReturn = a});
+aclvrsReturn :: Lens' AttachClassicLinkVPCResponse (Maybe Bool)
+aclvrsReturn = lens _aclvrsReturn (\ s a -> s{_aclvrsReturn = a});
 
 -- | FIXME: Undocumented member.
-aclvrStatus :: Lens' AttachClassicLinkVPCResponse Int
-aclvrStatus = lens _aclvrStatus (\ s a -> s{_aclvrStatus = a});
+aclvrsStatus :: Lens' AttachClassicLinkVPCResponse Int
+aclvrsStatus = lens _aclvrsStatus (\ s a -> s{_aclvrsStatus = a});

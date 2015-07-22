@@ -30,16 +30,16 @@ module Network.AWS.EC2.UnmonitorInstances
     -- ** Request constructor
     , unmonitorInstances
     -- ** Request lenses
-    , uiDryRun
-    , uiInstanceIds
+    , uirqDryRun
+    , uirqInstanceIds
 
     -- * Response
     , UnmonitorInstancesResponse
     -- ** Response constructor
     , unmonitorInstancesResponse
     -- ** Response lenses
-    , uirInstanceMonitorings
-    , uirStatus
+    , uirsInstanceMonitorings
+    , uirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uiDryRun'
+-- * 'uirqDryRun'
 --
--- * 'uiInstanceIds'
+-- * 'uirqInstanceIds'
 data UnmonitorInstances = UnmonitorInstances'
-    { _uiDryRun      :: !(Maybe Bool)
-    , _uiInstanceIds :: ![Text]
+    { _uirqDryRun      :: !(Maybe Bool)
+    , _uirqInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnmonitorInstances' smart constructor.
 unmonitorInstances :: UnmonitorInstances
 unmonitorInstances =
     UnmonitorInstances'
-    { _uiDryRun = Nothing
-    , _uiInstanceIds = mempty
+    { _uirqDryRun = Nothing
+    , _uirqInstanceIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-uiDryRun :: Lens' UnmonitorInstances (Maybe Bool)
-uiDryRun = lens _uiDryRun (\ s a -> s{_uiDryRun = a});
+uirqDryRun :: Lens' UnmonitorInstances (Maybe Bool)
+uirqDryRun = lens _uirqDryRun (\ s a -> s{_uirqDryRun = a});
 
 -- | One or more instance IDs.
-uiInstanceIds :: Lens' UnmonitorInstances [Text]
-uiInstanceIds = lens _uiInstanceIds (\ s a -> s{_uiInstanceIds = a});
+uirqInstanceIds :: Lens' UnmonitorInstances [Text]
+uirqInstanceIds = lens _uirqInstanceIds (\ s a -> s{_uirqInstanceIds = a});
 
 instance AWSRequest UnmonitorInstances where
         type Sv UnmonitorInstances = EC2
@@ -102,33 +102,33 @@ instance ToQuery UnmonitorInstances where
           = mconcat
               ["Action" =: ("UnmonitorInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _uiDryRun,
-               toQueryList "InstanceId" _uiInstanceIds]
+               "DryRun" =: _uirqDryRun,
+               toQueryList "InstanceId" _uirqInstanceIds]
 
 -- | /See:/ 'unmonitorInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'uirInstanceMonitorings'
+-- * 'uirsInstanceMonitorings'
 --
--- * 'uirStatus'
+-- * 'uirsStatus'
 data UnmonitorInstancesResponse = UnmonitorInstancesResponse'
-    { _uirInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _uirStatus              :: !Int
+    { _uirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
+    , _uirsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'UnmonitorInstancesResponse' smart constructor.
 unmonitorInstancesResponse :: Int -> UnmonitorInstancesResponse
 unmonitorInstancesResponse pStatus =
     UnmonitorInstancesResponse'
-    { _uirInstanceMonitorings = Nothing
-    , _uirStatus = pStatus
+    { _uirsInstanceMonitorings = Nothing
+    , _uirsStatus = pStatus
     }
 
 -- | Monitoring information for one or more instances.
-uirInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
-uirInstanceMonitorings = lens _uirInstanceMonitorings (\ s a -> s{_uirInstanceMonitorings = a}) . _Default;
+uirsInstanceMonitorings :: Lens' UnmonitorInstancesResponse [InstanceMonitoring]
+uirsInstanceMonitorings = lens _uirsInstanceMonitorings (\ s a -> s{_uirsInstanceMonitorings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-uirStatus :: Lens' UnmonitorInstancesResponse Int
-uirStatus = lens _uirStatus (\ s a -> s{_uirStatus = a});
+uirsStatus :: Lens' UnmonitorInstancesResponse Int
+uirsStatus = lens _uirsStatus (\ s a -> s{_uirsStatus = a});

@@ -74,16 +74,16 @@ module Network.AWS.SWF.RecordActivityTaskHeartbeat
     -- ** Request constructor
     , recordActivityTaskHeartbeat
     -- ** Request lenses
-    , rathDetails
-    , rathTaskToken
+    , rathrqDetails
+    , rathrqTaskToken
 
     -- * Response
     , RecordActivityTaskHeartbeatResponse
     -- ** Response constructor
     , recordActivityTaskHeartbeatResponse
     -- ** Response lenses
-    , rathrStatus
-    , rathrCancelRequested
+    , rathrsStatus
+    , rathrsCancelRequested
     ) where
 
 import           Network.AWS.Prelude
@@ -95,25 +95,25 @@ import           Network.AWS.SWF.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rathDetails'
+-- * 'rathrqDetails'
 --
--- * 'rathTaskToken'
+-- * 'rathrqTaskToken'
 data RecordActivityTaskHeartbeat = RecordActivityTaskHeartbeat'
-    { _rathDetails   :: !(Maybe Text)
-    , _rathTaskToken :: !Text
+    { _rathrqDetails   :: !(Maybe Text)
+    , _rathrqTaskToken :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordActivityTaskHeartbeat' smart constructor.
 recordActivityTaskHeartbeat :: Text -> RecordActivityTaskHeartbeat
 recordActivityTaskHeartbeat pTaskToken =
     RecordActivityTaskHeartbeat'
-    { _rathDetails = Nothing
-    , _rathTaskToken = pTaskToken
+    { _rathrqDetails = Nothing
+    , _rathrqTaskToken = pTaskToken
     }
 
 -- | If specified, contains details about the progress of the task.
-rathDetails :: Lens' RecordActivityTaskHeartbeat (Maybe Text)
-rathDetails = lens _rathDetails (\ s a -> s{_rathDetails = a});
+rathrqDetails :: Lens' RecordActivityTaskHeartbeat (Maybe Text)
+rathrqDetails = lens _rathrqDetails (\ s a -> s{_rathrqDetails = a});
 
 -- | The @taskToken@ of the ActivityTask.
 --
@@ -121,8 +121,8 @@ rathDetails = lens _rathDetails (\ s a -> s{_rathDetails = a});
 -- opaque value. If the task is passed to another process, its @taskToken@
 -- must also be passed. This enables it to provide its progress and respond
 -- with results.
-rathTaskToken :: Lens' RecordActivityTaskHeartbeat Text
-rathTaskToken = lens _rathTaskToken (\ s a -> s{_rathTaskToken = a});
+rathrqTaskToken :: Lens' RecordActivityTaskHeartbeat Text
+rathrqTaskToken = lens _rathrqTaskToken (\ s a -> s{_rathrqTaskToken = a});
 
 instance AWSRequest RecordActivityTaskHeartbeat where
         type Sv RecordActivityTaskHeartbeat = SWF
@@ -148,8 +148,8 @@ instance ToHeaders RecordActivityTaskHeartbeat where
 instance ToJSON RecordActivityTaskHeartbeat where
         toJSON RecordActivityTaskHeartbeat'{..}
           = object
-              ["details" .= _rathDetails,
-               "taskToken" .= _rathTaskToken]
+              ["details" .= _rathrqDetails,
+               "taskToken" .= _rathrqTaskToken]
 
 instance ToPath RecordActivityTaskHeartbeat where
         toPath = const "/"
@@ -163,26 +163,26 @@ instance ToQuery RecordActivityTaskHeartbeat where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rathrStatus'
+-- * 'rathrsStatus'
 --
--- * 'rathrCancelRequested'
+-- * 'rathrsCancelRequested'
 data RecordActivityTaskHeartbeatResponse = RecordActivityTaskHeartbeatResponse'
-    { _rathrStatus          :: !Int
-    , _rathrCancelRequested :: !Bool
+    { _rathrsStatus          :: !Int
+    , _rathrsCancelRequested :: !Bool
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RecordActivityTaskHeartbeatResponse' smart constructor.
 recordActivityTaskHeartbeatResponse :: Int -> Bool -> RecordActivityTaskHeartbeatResponse
 recordActivityTaskHeartbeatResponse pStatus pCancelRequested =
     RecordActivityTaskHeartbeatResponse'
-    { _rathrStatus = pStatus
-    , _rathrCancelRequested = pCancelRequested
+    { _rathrsStatus = pStatus
+    , _rathrsCancelRequested = pCancelRequested
     }
 
 -- | FIXME: Undocumented member.
-rathrStatus :: Lens' RecordActivityTaskHeartbeatResponse Int
-rathrStatus = lens _rathrStatus (\ s a -> s{_rathrStatus = a});
+rathrsStatus :: Lens' RecordActivityTaskHeartbeatResponse Int
+rathrsStatus = lens _rathrsStatus (\ s a -> s{_rathrsStatus = a});
 
 -- | Set to @true@ if cancellation of the task is requested.
-rathrCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
-rathrCancelRequested = lens _rathrCancelRequested (\ s a -> s{_rathrCancelRequested = a});
+rathrsCancelRequested :: Lens' RecordActivityTaskHeartbeatResponse Bool
+rathrsCancelRequested = lens _rathrsCancelRequested (\ s a -> s{_rathrsCancelRequested = a});

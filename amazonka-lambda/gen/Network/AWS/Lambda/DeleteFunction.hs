@@ -33,7 +33,7 @@ module Network.AWS.Lambda.DeleteFunction
     -- ** Request constructor
     , deleteFunction
     -- ** Request lenses
-    , dfFunctionName
+    , dfrqFunctionName
 
     -- * Response
     , DeleteFunctionResponse
@@ -50,16 +50,16 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dfFunctionName'
+-- * 'dfrqFunctionName'
 newtype DeleteFunction = DeleteFunction'
-    { _dfFunctionName :: Text
+    { _dfrqFunctionName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteFunction' smart constructor.
 deleteFunction :: Text -> DeleteFunction
 deleteFunction pFunctionName =
     DeleteFunction'
-    { _dfFunctionName = pFunctionName
+    { _dfrqFunctionName = pFunctionName
     }
 
 -- | The Lambda function to delete.
@@ -72,8 +72,8 @@ deleteFunction pFunctionName =
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-dfFunctionName :: Lens' DeleteFunction Text
-dfFunctionName = lens _dfFunctionName (\ s a -> s{_dfFunctionName = a});
+dfrqFunctionName :: Lens' DeleteFunction Text
+dfrqFunctionName = lens _dfrqFunctionName (\ s a -> s{_dfrqFunctionName = a});
 
 instance AWSRequest DeleteFunction where
         type Sv DeleteFunction = Lambda
@@ -87,7 +87,7 @@ instance ToHeaders DeleteFunction where
 instance ToPath DeleteFunction where
         toPath DeleteFunction'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _dfFunctionName]
+              ["/2015-03-31/functions/", toText _dfrqFunctionName]
 
 instance ToQuery DeleteFunction where
         toQuery = const mempty

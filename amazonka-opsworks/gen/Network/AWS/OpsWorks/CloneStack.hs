@@ -35,36 +35,36 @@ module Network.AWS.OpsWorks.CloneStack
     -- ** Request constructor
     , cloneStack
     -- ** Request lenses
-    , cloCloneAppIds
-    , cloDefaultInstanceProfileARN
-    , cloDefaultRootDeviceType
-    , cloChefConfiguration
-    , cloVPCId
-    , cloAgentVersion
-    , cloDefaultSSHKeyName
-    , cloCustomJSON
-    , cloClonePermissions
-    , cloCustomCookbooksSource
-    , cloDefaultAvailabilityZone
-    , cloName
-    , cloUseOpsworksSecurityGroups
-    , cloDefaultOS
-    , cloAttributes
-    , cloUseCustomCookbooks
-    , cloDefaultSubnetId
-    , cloRegion
-    , cloConfigurationManager
-    , cloHostnameTheme
-    , cloSourceStackId
-    , cloServiceRoleARN
+    , crqCloneAppIds
+    , crqDefaultInstanceProfileARN
+    , crqDefaultRootDeviceType
+    , crqChefConfiguration
+    , crqVPCId
+    , crqAgentVersion
+    , crqDefaultSSHKeyName
+    , crqCustomJSON
+    , crqClonePermissions
+    , crqCustomCookbooksSource
+    , crqDefaultAvailabilityZone
+    , crqName
+    , crqUseOpsworksSecurityGroups
+    , crqDefaultOS
+    , crqAttributes
+    , crqUseCustomCookbooks
+    , crqDefaultSubnetId
+    , crqRegion
+    , crqConfigurationManager
+    , crqHostnameTheme
+    , crqSourceStackId
+    , crqServiceRoleARN
 
     -- * Response
     , CloneStackResponse
     -- ** Response constructor
     , cloneStackResponse
     -- ** Response lenses
-    , csrStackId
-    , csrStatus
+    , crsStackId
+    , crsStatus
     ) where
 
 import           Network.AWS.OpsWorks.Types
@@ -76,125 +76,125 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cloCloneAppIds'
+-- * 'crqCloneAppIds'
 --
--- * 'cloDefaultInstanceProfileARN'
+-- * 'crqDefaultInstanceProfileARN'
 --
--- * 'cloDefaultRootDeviceType'
+-- * 'crqDefaultRootDeviceType'
 --
--- * 'cloChefConfiguration'
+-- * 'crqChefConfiguration'
 --
--- * 'cloVPCId'
+-- * 'crqVPCId'
 --
--- * 'cloAgentVersion'
+-- * 'crqAgentVersion'
 --
--- * 'cloDefaultSSHKeyName'
+-- * 'crqDefaultSSHKeyName'
 --
--- * 'cloCustomJSON'
+-- * 'crqCustomJSON'
 --
--- * 'cloClonePermissions'
+-- * 'crqClonePermissions'
 --
--- * 'cloCustomCookbooksSource'
+-- * 'crqCustomCookbooksSource'
 --
--- * 'cloDefaultAvailabilityZone'
+-- * 'crqDefaultAvailabilityZone'
 --
--- * 'cloName'
+-- * 'crqName'
 --
--- * 'cloUseOpsworksSecurityGroups'
+-- * 'crqUseOpsworksSecurityGroups'
 --
--- * 'cloDefaultOS'
+-- * 'crqDefaultOS'
 --
--- * 'cloAttributes'
+-- * 'crqAttributes'
 --
--- * 'cloUseCustomCookbooks'
+-- * 'crqUseCustomCookbooks'
 --
--- * 'cloDefaultSubnetId'
+-- * 'crqDefaultSubnetId'
 --
--- * 'cloRegion'
+-- * 'crqRegion'
 --
--- * 'cloConfigurationManager'
+-- * 'crqConfigurationManager'
 --
--- * 'cloHostnameTheme'
+-- * 'crqHostnameTheme'
 --
--- * 'cloSourceStackId'
+-- * 'crqSourceStackId'
 --
--- * 'cloServiceRoleARN'
+-- * 'crqServiceRoleARN'
 data CloneStack = CloneStack'
-    { _cloCloneAppIds               :: !(Maybe [Text])
-    , _cloDefaultInstanceProfileARN :: !(Maybe Text)
-    , _cloDefaultRootDeviceType     :: !(Maybe RootDeviceType)
-    , _cloChefConfiguration         :: !(Maybe ChefConfiguration)
-    , _cloVPCId                     :: !(Maybe Text)
-    , _cloAgentVersion              :: !(Maybe Text)
-    , _cloDefaultSSHKeyName         :: !(Maybe Text)
-    , _cloCustomJSON                :: !(Maybe Text)
-    , _cloClonePermissions          :: !(Maybe Bool)
-    , _cloCustomCookbooksSource     :: !(Maybe Source)
-    , _cloDefaultAvailabilityZone   :: !(Maybe Text)
-    , _cloName                      :: !(Maybe Text)
-    , _cloUseOpsworksSecurityGroups :: !(Maybe Bool)
-    , _cloDefaultOS                 :: !(Maybe Text)
-    , _cloAttributes                :: !(Maybe (Map StackAttributesKeys Text))
-    , _cloUseCustomCookbooks        :: !(Maybe Bool)
-    , _cloDefaultSubnetId           :: !(Maybe Text)
-    , _cloRegion                    :: !(Maybe Text)
-    , _cloConfigurationManager      :: !(Maybe StackConfigurationManager)
-    , _cloHostnameTheme             :: !(Maybe Text)
-    , _cloSourceStackId             :: !Text
-    , _cloServiceRoleARN            :: !Text
+    { _crqCloneAppIds               :: !(Maybe [Text])
+    , _crqDefaultInstanceProfileARN :: !(Maybe Text)
+    , _crqDefaultRootDeviceType     :: !(Maybe RootDeviceType)
+    , _crqChefConfiguration         :: !(Maybe ChefConfiguration)
+    , _crqVPCId                     :: !(Maybe Text)
+    , _crqAgentVersion              :: !(Maybe Text)
+    , _crqDefaultSSHKeyName         :: !(Maybe Text)
+    , _crqCustomJSON                :: !(Maybe Text)
+    , _crqClonePermissions          :: !(Maybe Bool)
+    , _crqCustomCookbooksSource     :: !(Maybe Source)
+    , _crqDefaultAvailabilityZone   :: !(Maybe Text)
+    , _crqName                      :: !(Maybe Text)
+    , _crqUseOpsworksSecurityGroups :: !(Maybe Bool)
+    , _crqDefaultOS                 :: !(Maybe Text)
+    , _crqAttributes                :: !(Maybe (Map StackAttributesKeys Text))
+    , _crqUseCustomCookbooks        :: !(Maybe Bool)
+    , _crqDefaultSubnetId           :: !(Maybe Text)
+    , _crqRegion                    :: !(Maybe Text)
+    , _crqConfigurationManager      :: !(Maybe StackConfigurationManager)
+    , _crqHostnameTheme             :: !(Maybe Text)
+    , _crqSourceStackId             :: !Text
+    , _crqServiceRoleARN            :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloneStack' smart constructor.
 cloneStack :: Text -> Text -> CloneStack
 cloneStack pSourceStackId pServiceRoleARN =
     CloneStack'
-    { _cloCloneAppIds = Nothing
-    , _cloDefaultInstanceProfileARN = Nothing
-    , _cloDefaultRootDeviceType = Nothing
-    , _cloChefConfiguration = Nothing
-    , _cloVPCId = Nothing
-    , _cloAgentVersion = Nothing
-    , _cloDefaultSSHKeyName = Nothing
-    , _cloCustomJSON = Nothing
-    , _cloClonePermissions = Nothing
-    , _cloCustomCookbooksSource = Nothing
-    , _cloDefaultAvailabilityZone = Nothing
-    , _cloName = Nothing
-    , _cloUseOpsworksSecurityGroups = Nothing
-    , _cloDefaultOS = Nothing
-    , _cloAttributes = Nothing
-    , _cloUseCustomCookbooks = Nothing
-    , _cloDefaultSubnetId = Nothing
-    , _cloRegion = Nothing
-    , _cloConfigurationManager = Nothing
-    , _cloHostnameTheme = Nothing
-    , _cloSourceStackId = pSourceStackId
-    , _cloServiceRoleARN = pServiceRoleARN
+    { _crqCloneAppIds = Nothing
+    , _crqDefaultInstanceProfileARN = Nothing
+    , _crqDefaultRootDeviceType = Nothing
+    , _crqChefConfiguration = Nothing
+    , _crqVPCId = Nothing
+    , _crqAgentVersion = Nothing
+    , _crqDefaultSSHKeyName = Nothing
+    , _crqCustomJSON = Nothing
+    , _crqClonePermissions = Nothing
+    , _crqCustomCookbooksSource = Nothing
+    , _crqDefaultAvailabilityZone = Nothing
+    , _crqName = Nothing
+    , _crqUseOpsworksSecurityGroups = Nothing
+    , _crqDefaultOS = Nothing
+    , _crqAttributes = Nothing
+    , _crqUseCustomCookbooks = Nothing
+    , _crqDefaultSubnetId = Nothing
+    , _crqRegion = Nothing
+    , _crqConfigurationManager = Nothing
+    , _crqHostnameTheme = Nothing
+    , _crqSourceStackId = pSourceStackId
+    , _crqServiceRoleARN = pServiceRoleARN
     }
 
 -- | A list of source stack app IDs to be included in the cloned stack.
-cloCloneAppIds :: Lens' CloneStack [Text]
-cloCloneAppIds = lens _cloCloneAppIds (\ s a -> s{_cloCloneAppIds = a}) . _Default;
+crqCloneAppIds :: Lens' CloneStack [Text]
+crqCloneAppIds = lens _crqCloneAppIds (\ s a -> s{_crqCloneAppIds = a}) . _Default;
 
 -- | The ARN of an IAM profile that is the default profile for all of the
 -- stack\'s EC2 instances. For more information about IAM ARNs, see
 -- <http://docs.aws.amazon.com/IAM/latest/UserGuide/Using_Identifiers.html Using Identifiers>.
-cloDefaultInstanceProfileARN :: Lens' CloneStack (Maybe Text)
-cloDefaultInstanceProfileARN = lens _cloDefaultInstanceProfileARN (\ s a -> s{_cloDefaultInstanceProfileARN = a});
+crqDefaultInstanceProfileARN :: Lens' CloneStack (Maybe Text)
+crqDefaultInstanceProfileARN = lens _crqDefaultInstanceProfileARN (\ s a -> s{_crqDefaultInstanceProfileARN = a});
 
 -- | The default root device type. This value is used by default for all
 -- instances in the cloned stack, but you can override it when you create
 -- an instance. For more information, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ComponentsAMIs.html#storage-for-the-root-device Storage for the Root Device>.
-cloDefaultRootDeviceType :: Lens' CloneStack (Maybe RootDeviceType)
-cloDefaultRootDeviceType = lens _cloDefaultRootDeviceType (\ s a -> s{_cloDefaultRootDeviceType = a});
+crqDefaultRootDeviceType :: Lens' CloneStack (Maybe RootDeviceType)
+crqDefaultRootDeviceType = lens _crqDefaultRootDeviceType (\ s a -> s{_crqDefaultRootDeviceType = a});
 
 -- | A @ChefConfiguration@ object that specifies whether to enable Berkshelf
 -- and the Berkshelf version on Chef 11.10 stacks. For more information,
 -- see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-cloChefConfiguration :: Lens' CloneStack (Maybe ChefConfiguration)
-cloChefConfiguration = lens _cloChefConfiguration (\ s a -> s{_cloChefConfiguration = a});
+crqChefConfiguration :: Lens' CloneStack (Maybe ChefConfiguration)
+crqChefConfiguration = lens _crqChefConfiguration (\ s a -> s{_crqChefConfiguration = a});
 
 -- | The ID of the VPC that the cloned stack is to be launched into. It must
 -- be in the specified region. All instances are launched into this VPC,
@@ -221,8 +221,8 @@ cloChefConfiguration = lens _cloChefConfiguration (\ s a -> s{_cloChefConfigurat
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-vpc.html Running a Stack in a VPC>.
 -- For more information on default VPC and EC2 Classic, see
 -- <http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-platforms.html Supported Platforms>.
-cloVPCId :: Lens' CloneStack (Maybe Text)
-cloVPCId = lens _cloVPCId (\ s a -> s{_cloVPCId = a});
+crqVPCId :: Lens' CloneStack (Maybe Text)
+crqVPCId = lens _crqVPCId (\ s a -> s{_crqVPCId = a});
 
 -- | The default AWS OpsWorks agent version. You have the following options:
 --
@@ -241,8 +241,8 @@ cloVPCId = lens _cloVPCId (\ s a -> s{_cloVPCId = a});
 --
 -- You can also specify an agent version when you create or update an
 -- instance, which overrides the stack\'s default setting.
-cloAgentVersion :: Lens' CloneStack (Maybe Text)
-cloAgentVersion = lens _cloAgentVersion (\ s a -> s{_cloAgentVersion = a});
+crqAgentVersion :: Lens' CloneStack (Maybe Text)
+crqAgentVersion = lens _crqAgentVersion (\ s a -> s{_crqAgentVersion = a});
 
 -- | A default Amazon EC2 key pair name. The default value is none. If you
 -- specify a key pair name, AWS OpsWorks installs the public key on the
@@ -254,8 +254,8 @@ cloAgentVersion = lens _cloAgentVersion (\ s a -> s{_cloAgentVersion = a});
 -- You can override this setting by specifying a different key pair, or no
 -- key pair, when you
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workinginstances-add.html create an instance>.
-cloDefaultSSHKeyName :: Lens' CloneStack (Maybe Text)
-cloDefaultSSHKeyName = lens _cloDefaultSSHKeyName (\ s a -> s{_cloDefaultSSHKeyName = a});
+crqDefaultSSHKeyName :: Lens' CloneStack (Maybe Text)
+crqDefaultSSHKeyName = lens _crqDefaultSSHKeyName (\ s a -> s{_crqDefaultSSHKeyName = a});
 
 -- | A string that contains user-defined, custom JSON. It is used to override
 -- the corresponding default stack configuration JSON values. The string
@@ -266,16 +266,16 @@ cloDefaultSSHKeyName = lens _cloDefaultSSHKeyName (\ s a -> s{_cloDefaultSSHKeyN
 --
 -- For more information on custom JSON, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-json.html Use Custom JSON to Modify the Stack Configuration Attributes>
-cloCustomJSON :: Lens' CloneStack (Maybe Text)
-cloCustomJSON = lens _cloCustomJSON (\ s a -> s{_cloCustomJSON = a});
+crqCustomJSON :: Lens' CloneStack (Maybe Text)
+crqCustomJSON = lens _crqCustomJSON (\ s a -> s{_crqCustomJSON = a});
 
 -- | Whether to clone the source stack\'s permissions.
-cloClonePermissions :: Lens' CloneStack (Maybe Bool)
-cloClonePermissions = lens _cloClonePermissions (\ s a -> s{_cloClonePermissions = a});
+crqClonePermissions :: Lens' CloneStack (Maybe Bool)
+crqClonePermissions = lens _crqClonePermissions (\ s a -> s{_crqClonePermissions = a});
 
 -- | FIXME: Undocumented member.
-cloCustomCookbooksSource :: Lens' CloneStack (Maybe Source)
-cloCustomCookbooksSource = lens _cloCustomCookbooksSource (\ s a -> s{_cloCustomCookbooksSource = a});
+crqCustomCookbooksSource :: Lens' CloneStack (Maybe Source)
+crqCustomCookbooksSource = lens _crqCustomCookbooksSource (\ s a -> s{_crqCustomCookbooksSource = a});
 
 -- | The cloned stack\'s default Availability Zone, which must be in the
 -- specified region. For more information, see
@@ -283,12 +283,12 @@ cloCustomCookbooksSource = lens _cloCustomCookbooksSource (\ s a -> s{_cloCustom
 -- If you also specify a value for @DefaultSubnetId@, the subnet must be in
 -- the same zone. For more information, see the @VpcId@ parameter
 -- description.
-cloDefaultAvailabilityZone :: Lens' CloneStack (Maybe Text)
-cloDefaultAvailabilityZone = lens _cloDefaultAvailabilityZone (\ s a -> s{_cloDefaultAvailabilityZone = a});
+crqDefaultAvailabilityZone :: Lens' CloneStack (Maybe Text)
+crqDefaultAvailabilityZone = lens _crqDefaultAvailabilityZone (\ s a -> s{_crqDefaultAvailabilityZone = a});
 
 -- | The cloned stack name.
-cloName :: Lens' CloneStack (Maybe Text)
-cloName = lens _cloName (\ s a -> s{_cloName = a});
+crqName :: Lens' CloneStack (Maybe Text)
+crqName = lens _crqName (\ s a -> s{_crqName = a});
 
 -- | Whether to associate the AWS OpsWorks built-in security groups with the
 -- stack\'s layers.
@@ -311,8 +311,8 @@ cloName = lens _cloName (\ s a -> s{_cloName = a});
 --
 -- For more information, see
 -- <http://docs.aws.amazon.com/opsworks/latest/userguide/workingstacks-creating.html Create a New Stack>.
-cloUseOpsworksSecurityGroups :: Lens' CloneStack (Maybe Bool)
-cloUseOpsworksSecurityGroups = lens _cloUseOpsworksSecurityGroups (\ s a -> s{_cloUseOpsworksSecurityGroups = a});
+crqUseOpsworksSecurityGroups :: Lens' CloneStack (Maybe Bool)
+crqUseOpsworksSecurityGroups = lens _crqUseOpsworksSecurityGroups (\ s a -> s{_crqUseOpsworksSecurityGroups = a});
 
 -- | The stack\'s operating system, which must be set to one of the
 -- following.
@@ -331,17 +331,17 @@ cloUseOpsworksSecurityGroups = lens _cloUseOpsworksSecurityGroups (\ s a -> s{_c
 --
 -- You can specify a different Linux operating system for the cloned stack,
 -- but you cannot change from Linux to Windows or Windows to Linux.
-cloDefaultOS :: Lens' CloneStack (Maybe Text)
-cloDefaultOS = lens _cloDefaultOS (\ s a -> s{_cloDefaultOS = a});
+crqDefaultOS :: Lens' CloneStack (Maybe Text)
+crqDefaultOS = lens _crqDefaultOS (\ s a -> s{_crqDefaultOS = a});
 
 -- | A list of stack attributes and values as key\/value pairs to be added to
 -- the cloned stack.
-cloAttributes :: Lens' CloneStack (HashMap StackAttributesKeys Text)
-cloAttributes = lens _cloAttributes (\ s a -> s{_cloAttributes = a}) . _Default . _Map;
+crqAttributes :: Lens' CloneStack (HashMap StackAttributesKeys Text)
+crqAttributes = lens _crqAttributes (\ s a -> s{_crqAttributes = a}) . _Default . _Map;
 
 -- | Whether to use custom cookbooks.
-cloUseCustomCookbooks :: Lens' CloneStack (Maybe Bool)
-cloUseCustomCookbooks = lens _cloUseCustomCookbooks (\ s a -> s{_cloUseCustomCookbooks = a});
+crqUseCustomCookbooks :: Lens' CloneStack (Maybe Bool)
+crqUseCustomCookbooks = lens _crqUseCustomCookbooks (\ s a -> s{_crqUseCustomCookbooks = a});
 
 -- | The stack\'s default VPC subnet ID. This parameter is required if you
 -- specify a value for the @VpcId@ parameter. All instances are launched
@@ -349,20 +349,20 @@ cloUseCustomCookbooks = lens _cloUseCustomCookbooks (\ s a -> s{_cloUseCustomCoo
 -- instance. If you also specify a value for @DefaultAvailabilityZone@, the
 -- subnet must be in that zone. For information on default values and when
 -- this parameter is required, see the @VpcId@ parameter description.
-cloDefaultSubnetId :: Lens' CloneStack (Maybe Text)
-cloDefaultSubnetId = lens _cloDefaultSubnetId (\ s a -> s{_cloDefaultSubnetId = a});
+crqDefaultSubnetId :: Lens' CloneStack (Maybe Text)
+crqDefaultSubnetId = lens _crqDefaultSubnetId (\ s a -> s{_crqDefaultSubnetId = a});
 
 -- | The cloned stack AWS region, such as \"us-east-1\". For more information
 -- about AWS regions, see
 -- <http://docs.aws.amazon.com/general/latest/gr/rande.html Regions and Endpoints>.
-cloRegion :: Lens' CloneStack (Maybe Text)
-cloRegion = lens _cloRegion (\ s a -> s{_cloRegion = a});
+crqRegion :: Lens' CloneStack (Maybe Text)
+crqRegion = lens _crqRegion (\ s a -> s{_crqRegion = a});
 
 -- | The configuration manager. When you clone a Linux stack we recommend
 -- that you use the configuration manager to specify the Chef version: 0.9,
 -- 11.4, or 11.10. The default value is currently 11.10.
-cloConfigurationManager :: Lens' CloneStack (Maybe StackConfigurationManager)
-cloConfigurationManager = lens _cloConfigurationManager (\ s a -> s{_cloConfigurationManager = a});
+crqConfigurationManager :: Lens' CloneStack (Maybe StackConfigurationManager)
+crqConfigurationManager = lens _crqConfigurationManager (\ s a -> s{_crqConfigurationManager = a});
 
 -- | The stack\'s host name theme, with spaces are replaced by underscores.
 -- The theme is used to generate host names for the stack\'s instances. By
@@ -384,12 +384,12 @@ cloConfigurationManager = lens _cloConfigurationManager (\ s a -> s{_cloConfigur
 --
 -- To obtain a generated host name, call @GetHostNameSuggestion@, which
 -- returns a host name based on the current theme.
-cloHostnameTheme :: Lens' CloneStack (Maybe Text)
-cloHostnameTheme = lens _cloHostnameTheme (\ s a -> s{_cloHostnameTheme = a});
+crqHostnameTheme :: Lens' CloneStack (Maybe Text)
+crqHostnameTheme = lens _crqHostnameTheme (\ s a -> s{_crqHostnameTheme = a});
 
 -- | The source stack ID.
-cloSourceStackId :: Lens' CloneStack Text
-cloSourceStackId = lens _cloSourceStackId (\ s a -> s{_cloSourceStackId = a});
+crqSourceStackId :: Lens' CloneStack Text
+crqSourceStackId = lens _crqSourceStackId (\ s a -> s{_crqSourceStackId = a});
 
 -- | The stack AWS Identity and Access Management (IAM) role, which allows
 -- AWS OpsWorks to work with AWS resources on your behalf. You must set
@@ -403,8 +403,8 @@ cloSourceStackId = lens _cloSourceStackId (\ s a -> s{_cloSourceStackId = a});
 -- You must set this parameter to a valid service role ARN or the action
 -- will fail; there is no default value. You can specify the source
 -- stack\'s service role ARN, if you prefer, but you must do so explicitly.
-cloServiceRoleARN :: Lens' CloneStack Text
-cloServiceRoleARN = lens _cloServiceRoleARN (\ s a -> s{_cloServiceRoleARN = a});
+crqServiceRoleARN :: Lens' CloneStack Text
+crqServiceRoleARN = lens _crqServiceRoleARN (\ s a -> s{_crqServiceRoleARN = a});
 
 instance AWSRequest CloneStack where
         type Sv CloneStack = OpsWorks
@@ -428,31 +428,31 @@ instance ToHeaders CloneStack where
 instance ToJSON CloneStack where
         toJSON CloneStack'{..}
           = object
-              ["CloneAppIds" .= _cloCloneAppIds,
+              ["CloneAppIds" .= _crqCloneAppIds,
                "DefaultInstanceProfileArn" .=
-                 _cloDefaultInstanceProfileARN,
-               "DefaultRootDeviceType" .= _cloDefaultRootDeviceType,
-               "ChefConfiguration" .= _cloChefConfiguration,
-               "VpcId" .= _cloVPCId,
-               "AgentVersion" .= _cloAgentVersion,
-               "DefaultSshKeyName" .= _cloDefaultSSHKeyName,
-               "CustomJson" .= _cloCustomJSON,
-               "ClonePermissions" .= _cloClonePermissions,
-               "CustomCookbooksSource" .= _cloCustomCookbooksSource,
+                 _crqDefaultInstanceProfileARN,
+               "DefaultRootDeviceType" .= _crqDefaultRootDeviceType,
+               "ChefConfiguration" .= _crqChefConfiguration,
+               "VpcId" .= _crqVPCId,
+               "AgentVersion" .= _crqAgentVersion,
+               "DefaultSshKeyName" .= _crqDefaultSSHKeyName,
+               "CustomJson" .= _crqCustomJSON,
+               "ClonePermissions" .= _crqClonePermissions,
+               "CustomCookbooksSource" .= _crqCustomCookbooksSource,
                "DefaultAvailabilityZone" .=
-                 _cloDefaultAvailabilityZone,
-               "Name" .= _cloName,
+                 _crqDefaultAvailabilityZone,
+               "Name" .= _crqName,
                "UseOpsworksSecurityGroups" .=
-                 _cloUseOpsworksSecurityGroups,
-               "DefaultOs" .= _cloDefaultOS,
-               "Attributes" .= _cloAttributes,
-               "UseCustomCookbooks" .= _cloUseCustomCookbooks,
-               "DefaultSubnetId" .= _cloDefaultSubnetId,
-               "Region" .= _cloRegion,
-               "ConfigurationManager" .= _cloConfigurationManager,
-               "HostnameTheme" .= _cloHostnameTheme,
-               "SourceStackId" .= _cloSourceStackId,
-               "ServiceRoleArn" .= _cloServiceRoleARN]
+                 _crqUseOpsworksSecurityGroups,
+               "DefaultOs" .= _crqDefaultOS,
+               "Attributes" .= _crqAttributes,
+               "UseCustomCookbooks" .= _crqUseCustomCookbooks,
+               "DefaultSubnetId" .= _crqDefaultSubnetId,
+               "Region" .= _crqRegion,
+               "ConfigurationManager" .= _crqConfigurationManager,
+               "HostnameTheme" .= _crqHostnameTheme,
+               "SourceStackId" .= _crqSourceStackId,
+               "ServiceRoleArn" .= _crqServiceRoleARN]
 
 instance ToPath CloneStack where
         toPath = const "/"
@@ -466,26 +466,26 @@ instance ToQuery CloneStack where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'csrStackId'
+-- * 'crsStackId'
 --
--- * 'csrStatus'
+-- * 'crsStatus'
 data CloneStackResponse = CloneStackResponse'
-    { _csrStackId :: !(Maybe Text)
-    , _csrStatus  :: !Int
+    { _crsStackId :: !(Maybe Text)
+    , _crsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CloneStackResponse' smart constructor.
 cloneStackResponse :: Int -> CloneStackResponse
 cloneStackResponse pStatus =
     CloneStackResponse'
-    { _csrStackId = Nothing
-    , _csrStatus = pStatus
+    { _crsStackId = Nothing
+    , _crsStatus = pStatus
     }
 
 -- | The cloned stack ID.
-csrStackId :: Lens' CloneStackResponse (Maybe Text)
-csrStackId = lens _csrStackId (\ s a -> s{_csrStackId = a});
+crsStackId :: Lens' CloneStackResponse (Maybe Text)
+crsStackId = lens _crsStackId (\ s a -> s{_crsStackId = a});
 
 -- | FIXME: Undocumented member.
-csrStatus :: Lens' CloneStackResponse Int
-csrStatus = lens _csrStatus (\ s a -> s{_csrStatus = a});
+crsStatus :: Lens' CloneStackResponse Int
+crsStatus = lens _crsStatus (\ s a -> s{_crsStatus = a});

@@ -27,23 +27,23 @@ module Network.AWS.RDS.DescribeDBEngineVersions
     -- ** Request constructor
     , describeDBEngineVersions
     -- ** Request lenses
-    , ddevEngineVersion
-    , ddevDefaultOnly
-    , ddevFilters
-    , ddevEngine
-    , ddevDBParameterGroupFamily
-    , ddevListSupportedCharacterSets
-    , ddevMaxRecords
-    , ddevMarker
+    , ddevrqEngineVersion
+    , ddevrqDefaultOnly
+    , ddevrqFilters
+    , ddevrqEngine
+    , ddevrqDBParameterGroupFamily
+    , ddevrqListSupportedCharacterSets
+    , ddevrqMaxRecords
+    , ddevrqMarker
 
     -- * Response
     , DescribeDBEngineVersionsResponse
     -- ** Response constructor
     , describeDBEngineVersionsResponse
     -- ** Response lenses
-    , ddevrMarker
-    , ddevrDBEngineVersions
-    , ddevrStatus
+    , ddevrsMarker
+    , ddevrsDBEngineVersions
+    , ddevrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -56,64 +56,64 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddevEngineVersion'
+-- * 'ddevrqEngineVersion'
 --
--- * 'ddevDefaultOnly'
+-- * 'ddevrqDefaultOnly'
 --
--- * 'ddevFilters'
+-- * 'ddevrqFilters'
 --
--- * 'ddevEngine'
+-- * 'ddevrqEngine'
 --
--- * 'ddevDBParameterGroupFamily'
+-- * 'ddevrqDBParameterGroupFamily'
 --
--- * 'ddevListSupportedCharacterSets'
+-- * 'ddevrqListSupportedCharacterSets'
 --
--- * 'ddevMaxRecords'
+-- * 'ddevrqMaxRecords'
 --
--- * 'ddevMarker'
+-- * 'ddevrqMarker'
 data DescribeDBEngineVersions = DescribeDBEngineVersions'
-    { _ddevEngineVersion              :: !(Maybe Text)
-    , _ddevDefaultOnly                :: !(Maybe Bool)
-    , _ddevFilters                    :: !(Maybe [Filter])
-    , _ddevEngine                     :: !(Maybe Text)
-    , _ddevDBParameterGroupFamily     :: !(Maybe Text)
-    , _ddevListSupportedCharacterSets :: !(Maybe Bool)
-    , _ddevMaxRecords                 :: !(Maybe Int)
-    , _ddevMarker                     :: !(Maybe Text)
+    { _ddevrqEngineVersion              :: !(Maybe Text)
+    , _ddevrqDefaultOnly                :: !(Maybe Bool)
+    , _ddevrqFilters                    :: !(Maybe [Filter])
+    , _ddevrqEngine                     :: !(Maybe Text)
+    , _ddevrqDBParameterGroupFamily     :: !(Maybe Text)
+    , _ddevrqListSupportedCharacterSets :: !(Maybe Bool)
+    , _ddevrqMaxRecords                 :: !(Maybe Int)
+    , _ddevrqMarker                     :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBEngineVersions' smart constructor.
 describeDBEngineVersions :: DescribeDBEngineVersions
 describeDBEngineVersions =
     DescribeDBEngineVersions'
-    { _ddevEngineVersion = Nothing
-    , _ddevDefaultOnly = Nothing
-    , _ddevFilters = Nothing
-    , _ddevEngine = Nothing
-    , _ddevDBParameterGroupFamily = Nothing
-    , _ddevListSupportedCharacterSets = Nothing
-    , _ddevMaxRecords = Nothing
-    , _ddevMarker = Nothing
+    { _ddevrqEngineVersion = Nothing
+    , _ddevrqDefaultOnly = Nothing
+    , _ddevrqFilters = Nothing
+    , _ddevrqEngine = Nothing
+    , _ddevrqDBParameterGroupFamily = Nothing
+    , _ddevrqListSupportedCharacterSets = Nothing
+    , _ddevrqMaxRecords = Nothing
+    , _ddevrqMarker = Nothing
     }
 
 -- | The database engine version to return.
 --
 -- Example: @5.1.49@
-ddevEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddevEngineVersion = lens _ddevEngineVersion (\ s a -> s{_ddevEngineVersion = a});
+ddevrqEngineVersion :: Lens' DescribeDBEngineVersions (Maybe Text)
+ddevrqEngineVersion = lens _ddevrqEngineVersion (\ s a -> s{_ddevrqEngineVersion = a});
 
 -- | Indicates that only the default version of the specified engine or
 -- engine and major version combination is returned.
-ddevDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
-ddevDefaultOnly = lens _ddevDefaultOnly (\ s a -> s{_ddevDefaultOnly = a});
+ddevrqDefaultOnly :: Lens' DescribeDBEngineVersions (Maybe Bool)
+ddevrqDefaultOnly = lens _ddevrqDefaultOnly (\ s a -> s{_ddevrqDefaultOnly = a});
 
 -- | Not currently supported.
-ddevFilters :: Lens' DescribeDBEngineVersions [Filter]
-ddevFilters = lens _ddevFilters (\ s a -> s{_ddevFilters = a}) . _Default;
+ddevrqFilters :: Lens' DescribeDBEngineVersions [Filter]
+ddevrqFilters = lens _ddevrqFilters (\ s a -> s{_ddevrqFilters = a}) . _Default;
 
 -- | The database engine to return.
-ddevEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddevEngine = lens _ddevEngine (\ s a -> s{_ddevEngine = a});
+ddevrqEngine :: Lens' DescribeDBEngineVersions (Maybe Text)
+ddevrqEngine = lens _ddevrqEngine (\ s a -> s{_ddevrqEngine = a});
 
 -- | The name of a specific DB parameter group family to return details for.
 --
@@ -122,14 +122,14 @@ ddevEngine = lens _ddevEngine (\ s a -> s{_ddevEngine = a});
 -- -   Must be 1 to 255 alphanumeric characters
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddevDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddevDBParameterGroupFamily = lens _ddevDBParameterGroupFamily (\ s a -> s{_ddevDBParameterGroupFamily = a});
+ddevrqDBParameterGroupFamily :: Lens' DescribeDBEngineVersions (Maybe Text)
+ddevrqDBParameterGroupFamily = lens _ddevrqDBParameterGroupFamily (\ s a -> s{_ddevrqDBParameterGroupFamily = a});
 
 -- | If this parameter is specified, and if the requested engine supports the
 -- CharacterSetName parameter for CreateDBInstance, the response includes a
 -- list of supported character sets for each engine version.
-ddevListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
-ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> s{_ddevListSupportedCharacterSets = a});
+ddevrqListSupportedCharacterSets :: Lens' DescribeDBEngineVersions (Maybe Bool)
+ddevrqListSupportedCharacterSets = lens _ddevrqListSupportedCharacterSets (\ s a -> s{_ddevrqListSupportedCharacterSets = a});
 
 -- | The maximum number of records to include in the response. If more than
 -- the @MaxRecords@ value is available, a pagination token called a marker
@@ -139,21 +139,21 @@ ddevListSupportedCharacterSets = lens _ddevListSupportedCharacterSets (\ s a -> 
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-ddevMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Int)
-ddevMaxRecords = lens _ddevMaxRecords (\ s a -> s{_ddevMaxRecords = a});
+ddevrqMaxRecords :: Lens' DescribeDBEngineVersions (Maybe Int)
+ddevrqMaxRecords = lens _ddevrqMaxRecords (\ s a -> s{_ddevrqMaxRecords = a});
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-ddevMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
-ddevMarker = lens _ddevMarker (\ s a -> s{_ddevMarker = a});
+ddevrqMarker :: Lens' DescribeDBEngineVersions (Maybe Text)
+ddevrqMarker = lens _ddevrqMarker (\ s a -> s{_ddevrqMarker = a});
 
 instance AWSPager DescribeDBEngineVersions where
         page rq rs
-          | stop (rs ^. ddevrMarker) = Nothing
-          | stop (rs ^. ddevrDBEngineVersions) = Nothing
+          | stop (rs ^. ddevrsMarker) = Nothing
+          | stop (rs ^. ddevrsDBEngineVersions) = Nothing
           | otherwise =
-            Just $ rq & ddevMarker .~ rs ^. ddevrMarker
+            Just $ rq & ddevrqMarker .~ rs ^. ddevrsMarker
 
 instance AWSRequest DescribeDBEngineVersions where
         type Sv DescribeDBEngineVersions = RDS
@@ -181,17 +181,17 @@ instance ToQuery DescribeDBEngineVersions where
               ["Action" =:
                  ("DescribeDBEngineVersions" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
-               "EngineVersion" =: _ddevEngineVersion,
-               "DefaultOnly" =: _ddevDefaultOnly,
+               "EngineVersion" =: _ddevrqEngineVersion,
+               "DefaultOnly" =: _ddevrqDefaultOnly,
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddevFilters),
-               "Engine" =: _ddevEngine,
+                 toQuery (toQueryList "Filter" <$> _ddevrqFilters),
+               "Engine" =: _ddevrqEngine,
                "DBParameterGroupFamily" =:
-                 _ddevDBParameterGroupFamily,
+                 _ddevrqDBParameterGroupFamily,
                "ListSupportedCharacterSets" =:
-                 _ddevListSupportedCharacterSets,
-               "MaxRecords" =: _ddevMaxRecords,
-               "Marker" =: _ddevMarker]
+                 _ddevrqListSupportedCharacterSets,
+               "MaxRecords" =: _ddevrqMaxRecords,
+               "Marker" =: _ddevrqMarker]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBEngineVersions action.
@@ -200,36 +200,36 @@ instance ToQuery DescribeDBEngineVersions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddevrMarker'
+-- * 'ddevrsMarker'
 --
--- * 'ddevrDBEngineVersions'
+-- * 'ddevrsDBEngineVersions'
 --
--- * 'ddevrStatus'
+-- * 'ddevrsStatus'
 data DescribeDBEngineVersionsResponse = DescribeDBEngineVersionsResponse'
-    { _ddevrMarker           :: !(Maybe Text)
-    , _ddevrDBEngineVersions :: !(Maybe [DBEngineVersion])
-    , _ddevrStatus           :: !Int
+    { _ddevrsMarker           :: !(Maybe Text)
+    , _ddevrsDBEngineVersions :: !(Maybe [DBEngineVersion])
+    , _ddevrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBEngineVersionsResponse' smart constructor.
 describeDBEngineVersionsResponse :: Int -> DescribeDBEngineVersionsResponse
 describeDBEngineVersionsResponse pStatus =
     DescribeDBEngineVersionsResponse'
-    { _ddevrMarker = Nothing
-    , _ddevrDBEngineVersions = Nothing
-    , _ddevrStatus = pStatus
+    { _ddevrsMarker = Nothing
+    , _ddevrsDBEngineVersions = Nothing
+    , _ddevrsStatus = pStatus
     }
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@.
-ddevrMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
-ddevrMarker = lens _ddevrMarker (\ s a -> s{_ddevrMarker = a});
+ddevrsMarker :: Lens' DescribeDBEngineVersionsResponse (Maybe Text)
+ddevrsMarker = lens _ddevrsMarker (\ s a -> s{_ddevrsMarker = a});
 
 -- | A list of @DBEngineVersion@ elements.
-ddevrDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
-ddevrDBEngineVersions = lens _ddevrDBEngineVersions (\ s a -> s{_ddevrDBEngineVersions = a}) . _Default;
+ddevrsDBEngineVersions :: Lens' DescribeDBEngineVersionsResponse [DBEngineVersion]
+ddevrsDBEngineVersions = lens _ddevrsDBEngineVersions (\ s a -> s{_ddevrsDBEngineVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-ddevrStatus :: Lens' DescribeDBEngineVersionsResponse Int
-ddevrStatus = lens _ddevrStatus (\ s a -> s{_ddevrStatus = a});
+ddevrsStatus :: Lens' DescribeDBEngineVersionsResponse Int
+ddevrsStatus = lens _ddevrsStatus (\ s a -> s{_ddevrsStatus = a});

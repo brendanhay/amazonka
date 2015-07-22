@@ -27,18 +27,18 @@ module Network.AWS.DeviceFarm.ListArtifacts
     -- ** Request constructor
     , listArtifacts
     -- ** Request lenses
-    , laNextToken
-    , laArn
-    , laType
+    , larqNextToken
+    , larqArn
+    , larqType
 
     -- * Response
     , ListArtifactsResponse
     -- ** Response constructor
     , listArtifactsResponse
     -- ** Response lenses
-    , larArtifacts
-    , larNextToken
-    , larStatus
+    , larsArtifacts
+    , larsNextToken
+    , larsStatus
     ) where
 
 import           Network.AWS.DeviceFarm.Types
@@ -52,35 +52,35 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'laNextToken'
+-- * 'larqNextToken'
 --
--- * 'laArn'
+-- * 'larqArn'
 --
--- * 'laType'
+-- * 'larqType'
 data ListArtifacts = ListArtifacts'
-    { _laNextToken :: !(Maybe Text)
-    , _laArn       :: !Text
-    , _laType      :: !ArtifactCategory
+    { _larqNextToken :: !(Maybe Text)
+    , _larqArn       :: !Text
+    , _larqType      :: !ArtifactCategory
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListArtifacts' smart constructor.
 listArtifacts :: Text -> ArtifactCategory -> ListArtifacts
 listArtifacts pArn pType =
     ListArtifacts'
-    { _laNextToken = Nothing
-    , _laArn = pArn
-    , _laType = pType
+    { _larqNextToken = Nothing
+    , _larqArn = pArn
+    , _larqType = pType
     }
 
 -- | An identifier that was returned from the previous call to this
 -- operation, which can be used to return the next set of items in the
 -- list.
-laNextToken :: Lens' ListArtifacts (Maybe Text)
-laNextToken = lens _laNextToken (\ s a -> s{_laNextToken = a});
+larqNextToken :: Lens' ListArtifacts (Maybe Text)
+larqNextToken = lens _larqNextToken (\ s a -> s{_larqNextToken = a});
 
 -- | The artifacts\' ARNs.
-laArn :: Lens' ListArtifacts Text
-laArn = lens _laArn (\ s a -> s{_laArn = a});
+larqArn :: Lens' ListArtifacts Text
+larqArn = lens _larqArn (\ s a -> s{_larqArn = a});
 
 -- | The artifacts\' type.
 --
@@ -89,8 +89,8 @@ laArn = lens _laArn (\ s a -> s{_laArn = a});
 -- -   FILE: The artifacts are files.
 -- -   LOG: The artifacts are logs.
 -- -   SCREENSHOT: The artifacts are screenshots.
-laType :: Lens' ListArtifacts ArtifactCategory
-laType = lens _laType (\ s a -> s{_laType = a});
+larqType :: Lens' ListArtifacts ArtifactCategory
+larqType = lens _larqType (\ s a -> s{_larqType = a});
 
 instance AWSRequest ListArtifacts where
         type Sv ListArtifacts = DeviceFarm
@@ -116,8 +116,8 @@ instance ToHeaders ListArtifacts where
 instance ToJSON ListArtifacts where
         toJSON ListArtifacts'{..}
           = object
-              ["nextToken" .= _laNextToken, "arn" .= _laArn,
-               "type" .= _laType]
+              ["nextToken" .= _larqNextToken, "arn" .= _larqArn,
+               "type" .= _larqType]
 
 instance ToPath ListArtifacts where
         toPath = const "/"
@@ -131,36 +131,36 @@ instance ToQuery ListArtifacts where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'larArtifacts'
+-- * 'larsArtifacts'
 --
--- * 'larNextToken'
+-- * 'larsNextToken'
 --
--- * 'larStatus'
+-- * 'larsStatus'
 data ListArtifactsResponse = ListArtifactsResponse'
-    { _larArtifacts :: !(Maybe [Artifact])
-    , _larNextToken :: !(Maybe Text)
-    , _larStatus    :: !Int
+    { _larsArtifacts :: !(Maybe [Artifact])
+    , _larsNextToken :: !(Maybe Text)
+    , _larsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListArtifactsResponse' smart constructor.
 listArtifactsResponse :: Int -> ListArtifactsResponse
 listArtifactsResponse pStatus =
     ListArtifactsResponse'
-    { _larArtifacts = Nothing
-    , _larNextToken = Nothing
-    , _larStatus = pStatus
+    { _larsArtifacts = Nothing
+    , _larsNextToken = Nothing
+    , _larsStatus = pStatus
     }
 
 -- | Information about the artifacts.
-larArtifacts :: Lens' ListArtifactsResponse [Artifact]
-larArtifacts = lens _larArtifacts (\ s a -> s{_larArtifacts = a}) . _Default;
+larsArtifacts :: Lens' ListArtifactsResponse [Artifact]
+larsArtifacts = lens _larsArtifacts (\ s a -> s{_larsArtifacts = a}) . _Default;
 
 -- | If the number of items that are returned is significantly large, this is
 -- an identifier that is also returned, which can be used in a subsequent
 -- call to this operation to return the next set of items in the list.
-larNextToken :: Lens' ListArtifactsResponse (Maybe Text)
-larNextToken = lens _larNextToken (\ s a -> s{_larNextToken = a});
+larsNextToken :: Lens' ListArtifactsResponse (Maybe Text)
+larsNextToken = lens _larsNextToken (\ s a -> s{_larsNextToken = a});
 
 -- | FIXME: Undocumented member.
-larStatus :: Lens' ListArtifactsResponse Int
-larStatus = lens _larStatus (\ s a -> s{_larStatus = a});
+larsStatus :: Lens' ListArtifactsResponse Int
+larsStatus = lens _larsStatus (\ s a -> s{_larsStatus = a});

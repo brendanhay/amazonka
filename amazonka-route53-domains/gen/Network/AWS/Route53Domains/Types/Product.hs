@@ -469,20 +469,20 @@ instance ToJSON ExtraParam where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'namGlueIPs'
+-- * 'nGlueIPs'
 --
--- * 'namName'
+-- * 'nName'
 data Nameserver = Nameserver'
-    { _namGlueIPs :: !(Maybe [Text])
-    , _namName    :: !Text
+    { _nGlueIPs :: !(Maybe [Text])
+    , _nName    :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Nameserver' smart constructor.
 nameserver :: Text -> Nameserver
 nameserver pName =
     Nameserver'
-    { _namGlueIPs = Nothing
-    , _namName = pName
+    { _nGlueIPs = Nothing
+    , _nName = pName
     }
 
 -- | Glue IP address of a name server entry. Glue IP addresses are required
@@ -496,8 +496,8 @@ nameserver pName =
 -- Constraints: The list can contain only one IPv4 and one IPv6 address.
 --
 -- Parent: @Nameservers@
-namGlueIPs :: Lens' Nameserver [Text]
-namGlueIPs = lens _namGlueIPs (\ s a -> s{_namGlueIPs = a}) . _Default;
+nGlueIPs :: Lens' Nameserver [Text]
+nGlueIPs = lens _nGlueIPs (\ s a -> s{_nGlueIPs = a}) . _Default;
 
 -- | The fully qualified host name of the name server.
 --
@@ -506,8 +506,8 @@ namGlueIPs = lens _namGlueIPs (\ s a -> s{_namGlueIPs = a}) . _Default;
 -- Constraint: Maximum 255 characterss
 --
 -- Parent: @Nameservers@
-namName :: Lens' Nameserver Text
-namName = lens _namName (\ s a -> s{_namName = a});
+nName :: Lens' Nameserver Text
+nName = lens _nName (\ s a -> s{_nName = a});
 
 instance FromJSON Nameserver where
         parseJSON
@@ -518,8 +518,7 @@ instance FromJSON Nameserver where
 
 instance ToJSON Nameserver where
         toJSON Nameserver'{..}
-          = object
-              ["GlueIps" .= _namGlueIPs, "Name" .= _namName]
+          = object ["GlueIps" .= _nGlueIPs, "Name" .= _nName]
 
 -- | OperationSummary includes the following elements.
 --

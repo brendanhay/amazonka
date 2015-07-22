@@ -27,14 +27,14 @@ module Network.AWS.CloudTrail.StartLogging
     -- ** Request constructor
     , startLogging
     -- ** Request lenses
-    , staName
+    , srqName
 
     -- * Response
     , StartLoggingResponse
     -- ** Response constructor
     , startLoggingResponse
     -- ** Response lenses
-    , staStatus
+    , srsStatus
     ) where
 
 import           Network.AWS.CloudTrail.Types
@@ -48,21 +48,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staName'
+-- * 'srqName'
 newtype StartLogging = StartLogging'
-    { _staName :: Text
+    { _srqName :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartLogging' smart constructor.
 startLogging :: Text -> StartLogging
 startLogging pName =
     StartLogging'
-    { _staName = pName
+    { _srqName = pName
     }
 
 -- | The name of the trail for which CloudTrail logs AWS API calls.
-staName :: Lens' StartLogging Text
-staName = lens _staName (\ s a -> s{_staName = a});
+srqName :: Lens' StartLogging Text
+srqName = lens _srqName (\ s a -> s{_srqName = a});
 
 instance AWSRequest StartLogging where
         type Sv StartLogging = CloudTrail
@@ -85,7 +85,7 @@ instance ToHeaders StartLogging where
 
 instance ToJSON StartLogging where
         toJSON StartLogging'{..}
-          = object ["Name" .= _staName]
+          = object ["Name" .= _srqName]
 
 instance ToPath StartLogging where
         toPath = const "/"
@@ -100,18 +100,18 @@ instance ToQuery StartLogging where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staStatus'
+-- * 'srsStatus'
 newtype StartLoggingResponse = StartLoggingResponse'
-    { _staStatus :: Int
+    { _srsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'StartLoggingResponse' smart constructor.
 startLoggingResponse :: Int -> StartLoggingResponse
 startLoggingResponse pStatus =
     StartLoggingResponse'
-    { _staStatus = pStatus
+    { _srsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-staStatus :: Lens' StartLoggingResponse Int
-staStatus = lens _staStatus (\ s a -> s{_staStatus = a});
+srsStatus :: Lens' StartLoggingResponse Int
+srsStatus = lens _srsStatus (\ s a -> s{_srsStatus = a});

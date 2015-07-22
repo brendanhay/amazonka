@@ -40,20 +40,20 @@ module Network.AWS.Redshift.DescribeHSMClientCertificates
     -- ** Request constructor
     , describeHSMClientCertificates
     -- ** Request lenses
-    , dhccTagValues
-    , dhccTagKeys
-    , dhccHSMClientCertificateIdentifier
-    , dhccMaxRecords
-    , dhccMarker
+    , dhccrqTagValues
+    , dhccrqTagKeys
+    , dhccrqHSMClientCertificateIdentifier
+    , dhccrqMaxRecords
+    , dhccrqMarker
 
     -- * Response
     , DescribeHSMClientCertificatesResponse
     -- ** Response constructor
     , describeHSMClientCertificatesResponse
     -- ** Response lenses
-    , dhccrMarker
-    , dhccrHSMClientCertificates
-    , dhccrStatus
+    , dhccrsMarker
+    , dhccrsHSMClientCertificates
+    , dhccrsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -68,32 +68,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhccTagValues'
+-- * 'dhccrqTagValues'
 --
--- * 'dhccTagKeys'
+-- * 'dhccrqTagKeys'
 --
--- * 'dhccHSMClientCertificateIdentifier'
+-- * 'dhccrqHSMClientCertificateIdentifier'
 --
--- * 'dhccMaxRecords'
+-- * 'dhccrqMaxRecords'
 --
--- * 'dhccMarker'
+-- * 'dhccrqMarker'
 data DescribeHSMClientCertificates = DescribeHSMClientCertificates'
-    { _dhccTagValues                      :: !(Maybe [Text])
-    , _dhccTagKeys                        :: !(Maybe [Text])
-    , _dhccHSMClientCertificateIdentifier :: !(Maybe Text)
-    , _dhccMaxRecords                     :: !(Maybe Int)
-    , _dhccMarker                         :: !(Maybe Text)
+    { _dhccrqTagValues                      :: !(Maybe [Text])
+    , _dhccrqTagKeys                        :: !(Maybe [Text])
+    , _dhccrqHSMClientCertificateIdentifier :: !(Maybe Text)
+    , _dhccrqMaxRecords                     :: !(Maybe Int)
+    , _dhccrqMarker                         :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMClientCertificates' smart constructor.
 describeHSMClientCertificates :: DescribeHSMClientCertificates
 describeHSMClientCertificates =
     DescribeHSMClientCertificates'
-    { _dhccTagValues = Nothing
-    , _dhccTagKeys = Nothing
-    , _dhccHSMClientCertificateIdentifier = Nothing
-    , _dhccMaxRecords = Nothing
-    , _dhccMarker = Nothing
+    { _dhccrqTagValues = Nothing
+    , _dhccrqTagKeys = Nothing
+    , _dhccrqHSMClientCertificateIdentifier = Nothing
+    , _dhccrqMaxRecords = Nothing
+    , _dhccrqMarker = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching HSM
@@ -103,8 +103,8 @@ describeHSMClientCertificates =
 -- these tag values in the request, Amazon Redshift returns a response with
 -- the HSM client certificates that have either or both of these tag values
 -- associated with them.
-dhccTagValues :: Lens' DescribeHSMClientCertificates [Text]
-dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a}) . _Default;
+dhccrqTagValues :: Lens' DescribeHSMClientCertificates [Text]
+dhccrqTagValues = lens _dhccrqTagValues (\ s a -> s{_dhccrqTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching HSM client
 -- certificates that are associated with the specified key or keys. For
@@ -113,14 +113,14 @@ dhccTagValues = lens _dhccTagValues (\ s a -> s{_dhccTagValues = a}) . _Default;
 -- tag keys in the request, Amazon Redshift returns a response with the HSM
 -- client certificates that have either or both of these tag keys
 -- associated with them.
-dhccTagKeys :: Lens' DescribeHSMClientCertificates [Text]
-dhccTagKeys = lens _dhccTagKeys (\ s a -> s{_dhccTagKeys = a}) . _Default;
+dhccrqTagKeys :: Lens' DescribeHSMClientCertificates [Text]
+dhccrqTagKeys = lens _dhccrqTagKeys (\ s a -> s{_dhccrqTagKeys = a}) . _Default;
 
 -- | The identifier of a specific HSM client certificate for which you want
 -- information. If no identifier is specified, information is returned for
 -- all HSM client certificates owned by your AWS customer account.
-dhccHSMClientCertificateIdentifier :: Lens' DescribeHSMClientCertificates (Maybe Text)
-dhccHSMClientCertificateIdentifier = lens _dhccHSMClientCertificateIdentifier (\ s a -> s{_dhccHSMClientCertificateIdentifier = a});
+dhccrqHSMClientCertificateIdentifier :: Lens' DescribeHSMClientCertificates (Maybe Text)
+dhccrqHSMClientCertificateIdentifier = lens _dhccrqHSMClientCertificateIdentifier (\ s a -> s{_dhccrqHSMClientCertificateIdentifier = a});
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -131,8 +131,8 @@ dhccHSMClientCertificateIdentifier = lens _dhccHSMClientCertificateIdentifier (\
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dhccMaxRecords :: Lens' DescribeHSMClientCertificates (Maybe Int)
-dhccMaxRecords = lens _dhccMaxRecords (\ s a -> s{_dhccMaxRecords = a});
+dhccrqMaxRecords :: Lens' DescribeHSMClientCertificates (Maybe Int)
+dhccrqMaxRecords = lens _dhccrqMaxRecords (\ s a -> s{_dhccrqMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a DescribeHsmClientCertificates
@@ -140,15 +140,15 @@ dhccMaxRecords = lens _dhccMaxRecords (\ s a -> s{_dhccMaxRecords = a});
 -- in the @Marker@ field of the response. You can retrieve the next set of
 -- response records by providing the returned marker value in the @Marker@
 -- parameter and retrying the request.
-dhccMarker :: Lens' DescribeHSMClientCertificates (Maybe Text)
-dhccMarker = lens _dhccMarker (\ s a -> s{_dhccMarker = a});
+dhccrqMarker :: Lens' DescribeHSMClientCertificates (Maybe Text)
+dhccrqMarker = lens _dhccrqMarker (\ s a -> s{_dhccrqMarker = a});
 
 instance AWSPager DescribeHSMClientCertificates where
         page rq rs
-          | stop (rs ^. dhccrMarker) = Nothing
-          | stop (rs ^. dhccrHSMClientCertificates) = Nothing
+          | stop (rs ^. dhccrsMarker) = Nothing
+          | stop (rs ^. dhccrsHSMClientCertificates) = Nothing
           | otherwise =
-            Just $ rq & dhccMarker .~ rs ^. dhccrMarker
+            Just $ rq & dhccrqMarker .~ rs ^. dhccrsMarker
 
 instance AWSRequest DescribeHSMClientCertificates
          where
@@ -180,13 +180,14 @@ instance ToQuery DescribeHSMClientCertificates where
                  ("DescribeHSMClientCertificates" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dhccTagValues),
+                 toQuery
+                   (toQueryList "TagValue" <$> _dhccrqTagValues),
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dhccTagKeys),
+                 toQuery (toQueryList "TagKey" <$> _dhccrqTagKeys),
                "HsmClientCertificateIdentifier" =:
-                 _dhccHSMClientCertificateIdentifier,
-               "MaxRecords" =: _dhccMaxRecords,
-               "Marker" =: _dhccMarker]
+                 _dhccrqHSMClientCertificateIdentifier,
+               "MaxRecords" =: _dhccrqMaxRecords,
+               "Marker" =: _dhccrqMarker]
 
 -- |
 --
@@ -194,24 +195,24 @@ instance ToQuery DescribeHSMClientCertificates where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhccrMarker'
+-- * 'dhccrsMarker'
 --
--- * 'dhccrHSMClientCertificates'
+-- * 'dhccrsHSMClientCertificates'
 --
--- * 'dhccrStatus'
+-- * 'dhccrsStatus'
 data DescribeHSMClientCertificatesResponse = DescribeHSMClientCertificatesResponse'
-    { _dhccrMarker                :: !(Maybe Text)
-    , _dhccrHSMClientCertificates :: !(Maybe [HSMClientCertificate])
-    , _dhccrStatus                :: !Int
+    { _dhccrsMarker                :: !(Maybe Text)
+    , _dhccrsHSMClientCertificates :: !(Maybe [HSMClientCertificate])
+    , _dhccrsStatus                :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeHSMClientCertificatesResponse' smart constructor.
 describeHSMClientCertificatesResponse :: Int -> DescribeHSMClientCertificatesResponse
 describeHSMClientCertificatesResponse pStatus =
     DescribeHSMClientCertificatesResponse'
-    { _dhccrMarker = Nothing
-    , _dhccrHSMClientCertificates = Nothing
-    , _dhccrStatus = pStatus
+    { _dhccrsMarker = Nothing
+    , _dhccrsHSMClientCertificates = Nothing
+    , _dhccrsStatus = pStatus
     }
 
 -- | A value that indicates the starting point for the next set of response
@@ -220,15 +221,15 @@ describeHSMClientCertificatesResponse pStatus =
 -- marker value in the @Marker@ parameter and retrying the command. If the
 -- @Marker@ field is empty, all response records have been retrieved for
 -- the request.
-dhccrMarker :: Lens' DescribeHSMClientCertificatesResponse (Maybe Text)
-dhccrMarker = lens _dhccrMarker (\ s a -> s{_dhccrMarker = a});
+dhccrsMarker :: Lens' DescribeHSMClientCertificatesResponse (Maybe Text)
+dhccrsMarker = lens _dhccrsMarker (\ s a -> s{_dhccrsMarker = a});
 
 -- | A list of the identifiers for one or more HSM client certificates used
 -- by Amazon Redshift clusters to store and retrieve database encryption
 -- keys in an HSM.
-dhccrHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMClientCertificate]
-dhccrHSMClientCertificates = lens _dhccrHSMClientCertificates (\ s a -> s{_dhccrHSMClientCertificates = a}) . _Default;
+dhccrsHSMClientCertificates :: Lens' DescribeHSMClientCertificatesResponse [HSMClientCertificate]
+dhccrsHSMClientCertificates = lens _dhccrsHSMClientCertificates (\ s a -> s{_dhccrsHSMClientCertificates = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dhccrStatus :: Lens' DescribeHSMClientCertificatesResponse Int
-dhccrStatus = lens _dhccrStatus (\ s a -> s{_dhccrStatus = a});
+dhccrsStatus :: Lens' DescribeHSMClientCertificatesResponse Int
+dhccrsStatus = lens _dhccrsStatus (\ s a -> s{_dhccrsStatus = a});

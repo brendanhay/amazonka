@@ -30,8 +30,8 @@ module Network.AWS.SNS.Types
     -- * Endpoint
     , Endpoint
     , endpoint
-    , endAttributes
-    , endEndpointARN
+    , eAttributes
+    , eEndpointARN
 
     -- * MessageAttributeValue
     , MessageAttributeValue
@@ -49,16 +49,16 @@ module Network.AWS.SNS.Types
     -- * Subscription
     , Subscription
     , subscription
-    , subProtocol
-    , subOwner
-    , subTopicARN
-    , subEndpoint
-    , subSubscriptionARN
+    , sProtocol
+    , sOwner
+    , sTopicARN
+    , sEndpoint
+    , sSubscriptionARN
 
     -- * Topic
     , Topic
     , topic
-    , topTopicARN
+    , tTopicARN
     ) where
 
 import           Network.AWS.Prelude

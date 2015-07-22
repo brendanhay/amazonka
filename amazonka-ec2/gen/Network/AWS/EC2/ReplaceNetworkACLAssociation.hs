@@ -31,17 +31,17 @@ module Network.AWS.EC2.ReplaceNetworkACLAssociation
     -- ** Request constructor
     , replaceNetworkACLAssociation
     -- ** Request lenses
-    , rnaaDryRun
-    , rnaaAssociationId
-    , rnaaNetworkACLId
+    , rnaarqDryRun
+    , rnaarqAssociationId
+    , rnaarqNetworkACLId
 
     -- * Response
     , ReplaceNetworkACLAssociationResponse
     -- ** Response constructor
     , replaceNetworkACLAssociationResponse
     -- ** Response lenses
-    , rnaarNewAssociationId
-    , rnaarStatus
+    , rnaarsNewAssociationId
+    , rnaarsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,41 +53,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rnaaDryRun'
+-- * 'rnaarqDryRun'
 --
--- * 'rnaaAssociationId'
+-- * 'rnaarqAssociationId'
 --
--- * 'rnaaNetworkACLId'
+-- * 'rnaarqNetworkACLId'
 data ReplaceNetworkACLAssociation = ReplaceNetworkACLAssociation'
-    { _rnaaDryRun        :: !(Maybe Bool)
-    , _rnaaAssociationId :: !Text
-    , _rnaaNetworkACLId  :: !Text
+    { _rnaarqDryRun        :: !(Maybe Bool)
+    , _rnaarqAssociationId :: !Text
+    , _rnaarqNetworkACLId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLAssociation' smart constructor.
 replaceNetworkACLAssociation :: Text -> Text -> ReplaceNetworkACLAssociation
 replaceNetworkACLAssociation pAssociationId pNetworkACLId =
     ReplaceNetworkACLAssociation'
-    { _rnaaDryRun = Nothing
-    , _rnaaAssociationId = pAssociationId
-    , _rnaaNetworkACLId = pNetworkACLId
+    { _rnaarqDryRun = Nothing
+    , _rnaarqAssociationId = pAssociationId
+    , _rnaarqNetworkACLId = pNetworkACLId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rnaaDryRun :: Lens' ReplaceNetworkACLAssociation (Maybe Bool)
-rnaaDryRun = lens _rnaaDryRun (\ s a -> s{_rnaaDryRun = a});
+rnaarqDryRun :: Lens' ReplaceNetworkACLAssociation (Maybe Bool)
+rnaarqDryRun = lens _rnaarqDryRun (\ s a -> s{_rnaarqDryRun = a});
 
 -- | The ID of the current association between the original network ACL and
 -- the subnet.
-rnaaAssociationId :: Lens' ReplaceNetworkACLAssociation Text
-rnaaAssociationId = lens _rnaaAssociationId (\ s a -> s{_rnaaAssociationId = a});
+rnaarqAssociationId :: Lens' ReplaceNetworkACLAssociation Text
+rnaarqAssociationId = lens _rnaarqAssociationId (\ s a -> s{_rnaarqAssociationId = a});
 
 -- | The ID of the new network ACL to associate with the subnet.
-rnaaNetworkACLId :: Lens' ReplaceNetworkACLAssociation Text
-rnaaNetworkACLId = lens _rnaaNetworkACLId (\ s a -> s{_rnaaNetworkACLId = a});
+rnaarqNetworkACLId :: Lens' ReplaceNetworkACLAssociation Text
+rnaarqNetworkACLId = lens _rnaarqNetworkACLId (\ s a -> s{_rnaarqNetworkACLId = a});
 
 instance AWSRequest ReplaceNetworkACLAssociation
          where
@@ -113,34 +113,34 @@ instance ToQuery ReplaceNetworkACLAssociation where
               ["Action" =:
                  ("ReplaceNetworkACLAssociation" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rnaaDryRun,
-               "AssociationId" =: _rnaaAssociationId,
-               "NetworkAclId" =: _rnaaNetworkACLId]
+               "DryRun" =: _rnaarqDryRun,
+               "AssociationId" =: _rnaarqAssociationId,
+               "NetworkAclId" =: _rnaarqNetworkACLId]
 
 -- | /See:/ 'replaceNetworkACLAssociationResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rnaarNewAssociationId'
+-- * 'rnaarsNewAssociationId'
 --
--- * 'rnaarStatus'
+-- * 'rnaarsStatus'
 data ReplaceNetworkACLAssociationResponse = ReplaceNetworkACLAssociationResponse'
-    { _rnaarNewAssociationId :: !(Maybe Text)
-    , _rnaarStatus           :: !Int
+    { _rnaarsNewAssociationId :: !(Maybe Text)
+    , _rnaarsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReplaceNetworkACLAssociationResponse' smart constructor.
 replaceNetworkACLAssociationResponse :: Int -> ReplaceNetworkACLAssociationResponse
 replaceNetworkACLAssociationResponse pStatus =
     ReplaceNetworkACLAssociationResponse'
-    { _rnaarNewAssociationId = Nothing
-    , _rnaarStatus = pStatus
+    { _rnaarsNewAssociationId = Nothing
+    , _rnaarsStatus = pStatus
     }
 
 -- | The ID of the new association.
-rnaarNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
-rnaarNewAssociationId = lens _rnaarNewAssociationId (\ s a -> s{_rnaarNewAssociationId = a});
+rnaarsNewAssociationId :: Lens' ReplaceNetworkACLAssociationResponse (Maybe Text)
+rnaarsNewAssociationId = lens _rnaarsNewAssociationId (\ s a -> s{_rnaarsNewAssociationId = a});
 
 -- | FIXME: Undocumented member.
-rnaarStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
-rnaarStatus = lens _rnaarStatus (\ s a -> s{_rnaarStatus = a});
+rnaarsStatus :: Lens' ReplaceNetworkACLAssociationResponse Int
+rnaarsStatus = lens _rnaarsStatus (\ s a -> s{_rnaarsStatus = a});

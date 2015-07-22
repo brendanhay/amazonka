@@ -50,21 +50,21 @@ module Network.AWS.EC2.DescribeInstanceStatus
     -- ** Request constructor
     , describeInstanceStatus
     -- ** Request lenses
-    , dissIncludeAllInstances
-    , dissFilters
-    , dissNextToken
-    , dissInstanceIds
-    , dissDryRun
-    , dissMaxResults
+    , disrqIncludeAllInstances
+    , disrqFilters
+    , disrqNextToken
+    , disrqInstanceIds
+    , disrqDryRun
+    , disrqMaxResults
 
     -- * Response
     , DescribeInstanceStatusResponse
     -- ** Response constructor
     , describeInstanceStatusResponse
     -- ** Response lenses
-    , disrInstanceStatuses
-    , disrNextToken
-    , disrStatus
+    , disrsInstanceStatuses
+    , disrsNextToken
+    , disrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -77,44 +77,44 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dissIncludeAllInstances'
+-- * 'disrqIncludeAllInstances'
 --
--- * 'dissFilters'
+-- * 'disrqFilters'
 --
--- * 'dissNextToken'
+-- * 'disrqNextToken'
 --
--- * 'dissInstanceIds'
+-- * 'disrqInstanceIds'
 --
--- * 'dissDryRun'
+-- * 'disrqDryRun'
 --
--- * 'dissMaxResults'
+-- * 'disrqMaxResults'
 data DescribeInstanceStatus = DescribeInstanceStatus'
-    { _dissIncludeAllInstances :: !(Maybe Bool)
-    , _dissFilters             :: !(Maybe [Filter])
-    , _dissNextToken           :: !(Maybe Text)
-    , _dissInstanceIds         :: !(Maybe [Text])
-    , _dissDryRun              :: !(Maybe Bool)
-    , _dissMaxResults          :: !(Maybe Int)
+    { _disrqIncludeAllInstances :: !(Maybe Bool)
+    , _disrqFilters             :: !(Maybe [Filter])
+    , _disrqNextToken           :: !(Maybe Text)
+    , _disrqInstanceIds         :: !(Maybe [Text])
+    , _disrqDryRun              :: !(Maybe Bool)
+    , _disrqMaxResults          :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceStatus' smart constructor.
 describeInstanceStatus :: DescribeInstanceStatus
 describeInstanceStatus =
     DescribeInstanceStatus'
-    { _dissIncludeAllInstances = Nothing
-    , _dissFilters = Nothing
-    , _dissNextToken = Nothing
-    , _dissInstanceIds = Nothing
-    , _dissDryRun = Nothing
-    , _dissMaxResults = Nothing
+    { _disrqIncludeAllInstances = Nothing
+    , _disrqFilters = Nothing
+    , _disrqNextToken = Nothing
+    , _disrqInstanceIds = Nothing
+    , _disrqDryRun = Nothing
+    , _disrqMaxResults = Nothing
     }
 
 -- | When @true@, includes the health status for all instances. When @false@,
 -- includes the health status for running instances only.
 --
 -- Default: @false@
-dissIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
-dissIncludeAllInstances = lens _dissIncludeAllInstances (\ s a -> s{_dissIncludeAllInstances = a});
+disrqIncludeAllInstances :: Lens' DescribeInstanceStatus (Maybe Bool)
+disrqIncludeAllInstances = lens _disrqIncludeAllInstances (\ s a -> s{_disrqIncludeAllInstances = a});
 
 -- | One or more filters.
 --
@@ -158,27 +158,27 @@ dissIncludeAllInstances = lens _dissIncludeAllInstances (\ s a -> s{_dissInclude
 --     @impaired@ | @initializing@ | @insufficient-data@ |
 --     @not-applicable@).
 --
-dissFilters :: Lens' DescribeInstanceStatus [Filter]
-dissFilters = lens _dissFilters (\ s a -> s{_dissFilters = a}) . _Default;
+disrqFilters :: Lens' DescribeInstanceStatus [Filter]
+disrqFilters = lens _disrqFilters (\ s a -> s{_disrqFilters = a}) . _Default;
 
 -- | The token to retrieve the next page of results.
-dissNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
-dissNextToken = lens _dissNextToken (\ s a -> s{_dissNextToken = a});
+disrqNextToken :: Lens' DescribeInstanceStatus (Maybe Text)
+disrqNextToken = lens _disrqNextToken (\ s a -> s{_disrqNextToken = a});
 
 -- | One or more instance IDs.
 --
 -- Default: Describes all your instances.
 --
 -- Constraints: Maximum 100 explicitly specified instance IDs.
-dissInstanceIds :: Lens' DescribeInstanceStatus [Text]
-dissInstanceIds = lens _dissInstanceIds (\ s a -> s{_dissInstanceIds = a}) . _Default;
+disrqInstanceIds :: Lens' DescribeInstanceStatus [Text]
+disrqInstanceIds = lens _disrqInstanceIds (\ s a -> s{_disrqInstanceIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dissDryRun :: Lens' DescribeInstanceStatus (Maybe Bool)
-dissDryRun = lens _dissDryRun (\ s a -> s{_dissDryRun = a});
+disrqDryRun :: Lens' DescribeInstanceStatus (Maybe Bool)
+disrqDryRun = lens _disrqDryRun (\ s a -> s{_disrqDryRun = a});
 
 -- | The maximum number of results to return for the request in a single
 -- page. The remaining results of the initial request can be seen by
@@ -186,15 +186,15 @@ dissDryRun = lens _dissDryRun (\ s a -> s{_dissDryRun = a});
 -- can be between 5 and 1000; if @MaxResults@ is given a value larger than
 -- 1000, only 1000 results are returned. You cannot specify this parameter
 -- and the instance IDs parameter in the same request.
-dissMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
-dissMaxResults = lens _dissMaxResults (\ s a -> s{_dissMaxResults = a});
+disrqMaxResults :: Lens' DescribeInstanceStatus (Maybe Int)
+disrqMaxResults = lens _disrqMaxResults (\ s a -> s{_disrqMaxResults = a});
 
 instance AWSPager DescribeInstanceStatus where
         page rq rs
-          | stop (rs ^. disrNextToken) = Nothing
-          | stop (rs ^. disrInstanceStatuses) = Nothing
+          | stop (rs ^. disrsNextToken) = Nothing
+          | stop (rs ^. disrsInstanceStatuses) = Nothing
           | otherwise =
-            Just $ rq & dissNextToken .~ rs ^. disrNextToken
+            Just $ rq & disrqNextToken .~ rs ^. disrsNextToken
 
 instance AWSRequest DescribeInstanceStatus where
         type Sv DescribeInstanceStatus = EC2
@@ -222,47 +222,47 @@ instance ToQuery DescribeInstanceStatus where
               ["Action" =:
                  ("DescribeInstanceStatus" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "IncludeAllInstances" =: _dissIncludeAllInstances,
-               toQuery (toQueryList "Filter" <$> _dissFilters),
-               "NextToken" =: _dissNextToken,
+               "IncludeAllInstances" =: _disrqIncludeAllInstances,
+               toQuery (toQueryList "Filter" <$> _disrqFilters),
+               "NextToken" =: _disrqNextToken,
                toQuery
-                 (toQueryList "InstanceId" <$> _dissInstanceIds),
-               "DryRun" =: _dissDryRun,
-               "MaxResults" =: _dissMaxResults]
+                 (toQueryList "InstanceId" <$> _disrqInstanceIds),
+               "DryRun" =: _disrqDryRun,
+               "MaxResults" =: _disrqMaxResults]
 
 -- | /See:/ 'describeInstanceStatusResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'disrInstanceStatuses'
+-- * 'disrsInstanceStatuses'
 --
--- * 'disrNextToken'
+-- * 'disrsNextToken'
 --
--- * 'disrStatus'
+-- * 'disrsStatus'
 data DescribeInstanceStatusResponse = DescribeInstanceStatusResponse'
-    { _disrInstanceStatuses :: !(Maybe [InstanceStatus])
-    , _disrNextToken        :: !(Maybe Text)
-    , _disrStatus           :: !Int
+    { _disrsInstanceStatuses :: !(Maybe [InstanceStatus])
+    , _disrsNextToken        :: !(Maybe Text)
+    , _disrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeInstanceStatusResponse' smart constructor.
 describeInstanceStatusResponse :: Int -> DescribeInstanceStatusResponse
 describeInstanceStatusResponse pStatus =
     DescribeInstanceStatusResponse'
-    { _disrInstanceStatuses = Nothing
-    , _disrNextToken = Nothing
-    , _disrStatus = pStatus
+    { _disrsInstanceStatuses = Nothing
+    , _disrsNextToken = Nothing
+    , _disrsStatus = pStatus
     }
 
 -- | One or more instance status descriptions.
-disrInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
-disrInstanceStatuses = lens _disrInstanceStatuses (\ s a -> s{_disrInstanceStatuses = a}) . _Default;
+disrsInstanceStatuses :: Lens' DescribeInstanceStatusResponse [InstanceStatus]
+disrsInstanceStatuses = lens _disrsInstanceStatuses (\ s a -> s{_disrsInstanceStatuses = a}) . _Default;
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-disrNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
-disrNextToken = lens _disrNextToken (\ s a -> s{_disrNextToken = a});
+disrsNextToken :: Lens' DescribeInstanceStatusResponse (Maybe Text)
+disrsNextToken = lens _disrsNextToken (\ s a -> s{_disrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-disrStatus :: Lens' DescribeInstanceStatusResponse Int
-disrStatus = lens _disrStatus (\ s a -> s{_disrStatus = a});
+disrsStatus :: Lens' DescribeInstanceStatusResponse Int
+disrsStatus = lens _disrsStatus (\ s a -> s{_disrsStatus = a});

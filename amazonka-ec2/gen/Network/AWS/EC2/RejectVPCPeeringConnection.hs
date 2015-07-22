@@ -32,16 +32,16 @@ module Network.AWS.EC2.RejectVPCPeeringConnection
     -- ** Request constructor
     , rejectVPCPeeringConnection
     -- ** Request lenses
-    , rvpcDryRun
-    , rvpcVPCPeeringConnectionId
+    , rvpcrqDryRun
+    , rvpcrqVPCPeeringConnectionId
 
     -- * Response
     , RejectVPCPeeringConnectionResponse
     -- ** Response constructor
     , rejectVPCPeeringConnectionResponse
     -- ** Response lenses
-    , rvpcrReturn
-    , rvpcrStatus
+    , rvpcrsReturn
+    , rvpcrsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -53,32 +53,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rvpcDryRun'
+-- * 'rvpcrqDryRun'
 --
--- * 'rvpcVPCPeeringConnectionId'
+-- * 'rvpcrqVPCPeeringConnectionId'
 data RejectVPCPeeringConnection = RejectVPCPeeringConnection'
-    { _rvpcDryRun                 :: !(Maybe Bool)
-    , _rvpcVPCPeeringConnectionId :: !Text
+    { _rvpcrqDryRun                 :: !(Maybe Bool)
+    , _rvpcrqVPCPeeringConnectionId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RejectVPCPeeringConnection' smart constructor.
 rejectVPCPeeringConnection :: Text -> RejectVPCPeeringConnection
 rejectVPCPeeringConnection pVPCPeeringConnectionId =
     RejectVPCPeeringConnection'
-    { _rvpcDryRun = Nothing
-    , _rvpcVPCPeeringConnectionId = pVPCPeeringConnectionId
+    { _rvpcrqDryRun = Nothing
+    , _rvpcrqVPCPeeringConnectionId = pVPCPeeringConnectionId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-rvpcDryRun :: Lens' RejectVPCPeeringConnection (Maybe Bool)
-rvpcDryRun = lens _rvpcDryRun (\ s a -> s{_rvpcDryRun = a});
+rvpcrqDryRun :: Lens' RejectVPCPeeringConnection (Maybe Bool)
+rvpcrqDryRun = lens _rvpcrqDryRun (\ s a -> s{_rvpcrqDryRun = a});
 
 -- | The ID of the VPC peering connection.
-rvpcVPCPeeringConnectionId :: Lens' RejectVPCPeeringConnection Text
-rvpcVPCPeeringConnectionId = lens _rvpcVPCPeeringConnectionId (\ s a -> s{_rvpcVPCPeeringConnectionId = a});
+rvpcrqVPCPeeringConnectionId :: Lens' RejectVPCPeeringConnection Text
+rvpcrqVPCPeeringConnectionId = lens _rvpcrqVPCPeeringConnectionId (\ s a -> s{_rvpcrqVPCPeeringConnectionId = a});
 
 instance AWSRequest RejectVPCPeeringConnection where
         type Sv RejectVPCPeeringConnection = EC2
@@ -103,34 +103,34 @@ instance ToQuery RejectVPCPeeringConnection where
               ["Action" =:
                  ("RejectVPCPeeringConnection" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _rvpcDryRun,
+               "DryRun" =: _rvpcrqDryRun,
                "VpcPeeringConnectionId" =:
-                 _rvpcVPCPeeringConnectionId]
+                 _rvpcrqVPCPeeringConnectionId]
 
 -- | /See:/ 'rejectVPCPeeringConnectionResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rvpcrReturn'
+-- * 'rvpcrsReturn'
 --
--- * 'rvpcrStatus'
+-- * 'rvpcrsStatus'
 data RejectVPCPeeringConnectionResponse = RejectVPCPeeringConnectionResponse'
-    { _rvpcrReturn :: !(Maybe Bool)
-    , _rvpcrStatus :: !Int
+    { _rvpcrsReturn :: !(Maybe Bool)
+    , _rvpcrsStatus :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RejectVPCPeeringConnectionResponse' smart constructor.
 rejectVPCPeeringConnectionResponse :: Int -> RejectVPCPeeringConnectionResponse
 rejectVPCPeeringConnectionResponse pStatus =
     RejectVPCPeeringConnectionResponse'
-    { _rvpcrReturn = Nothing
-    , _rvpcrStatus = pStatus
+    { _rvpcrsReturn = Nothing
+    , _rvpcrsStatus = pStatus
     }
 
 -- | Returns @true@ if the request succeeds; otherwise, it returns an error.
-rvpcrReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
-rvpcrReturn = lens _rvpcrReturn (\ s a -> s{_rvpcrReturn = a});
+rvpcrsReturn :: Lens' RejectVPCPeeringConnectionResponse (Maybe Bool)
+rvpcrsReturn = lens _rvpcrsReturn (\ s a -> s{_rvpcrsReturn = a});
 
 -- | FIXME: Undocumented member.
-rvpcrStatus :: Lens' RejectVPCPeeringConnectionResponse Int
-rvpcrStatus = lens _rvpcrStatus (\ s a -> s{_rvpcrStatus = a});
+rvpcrsStatus :: Lens' RejectVPCPeeringConnectionResponse Int
+rvpcrsStatus = lens _rvpcrsStatus (\ s a -> s{_rvpcrsStatus = a});

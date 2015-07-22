@@ -28,27 +28,27 @@ module Network.AWS.ImportExport.GetShippingLabel
     -- ** Request constructor
     , getShippingLabel
     -- ** Request lenses
-    , gslStreet3
-    , gslAPIVersion
-    , gslPostalCode
-    , gslCountry
-    , gslStateOrProvince
-    , gslStreet2
-    , gslName
-    , gslCompany
-    , gslCity
-    , gslPhoneNumber
-    , gslStreet1
-    , gslJobIds
+    , gslrqStreet3
+    , gslrqAPIVersion
+    , gslrqPostalCode
+    , gslrqCountry
+    , gslrqStateOrProvince
+    , gslrqStreet2
+    , gslrqName
+    , gslrqCompany
+    , gslrqCity
+    , gslrqPhoneNumber
+    , gslrqStreet1
+    , gslrqJobIds
 
     -- * Response
     , GetShippingLabelResponse
     -- ** Response constructor
     , getShippingLabelResponse
     -- ** Response lenses
-    , gslrShippingLabelURL
-    , gslrWarning
-    , gslrStatus
+    , gslrsShippingLabelURL
+    , gslrsWarning
+    , gslrsStatus
     ) where
 
 import           Network.AWS.ImportExport.Types
@@ -60,109 +60,109 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gslStreet3'
+-- * 'gslrqStreet3'
 --
--- * 'gslAPIVersion'
+-- * 'gslrqAPIVersion'
 --
--- * 'gslPostalCode'
+-- * 'gslrqPostalCode'
 --
--- * 'gslCountry'
+-- * 'gslrqCountry'
 --
--- * 'gslStateOrProvince'
+-- * 'gslrqStateOrProvince'
 --
--- * 'gslStreet2'
+-- * 'gslrqStreet2'
 --
--- * 'gslName'
+-- * 'gslrqName'
 --
--- * 'gslCompany'
+-- * 'gslrqCompany'
 --
--- * 'gslCity'
+-- * 'gslrqCity'
 --
--- * 'gslPhoneNumber'
+-- * 'gslrqPhoneNumber'
 --
--- * 'gslStreet1'
+-- * 'gslrqStreet1'
 --
--- * 'gslJobIds'
+-- * 'gslrqJobIds'
 data GetShippingLabel = GetShippingLabel'
-    { _gslStreet3         :: !(Maybe Text)
-    , _gslAPIVersion      :: !(Maybe Text)
-    , _gslPostalCode      :: !(Maybe Text)
-    , _gslCountry         :: !(Maybe Text)
-    , _gslStateOrProvince :: !(Maybe Text)
-    , _gslStreet2         :: !(Maybe Text)
-    , _gslName            :: !(Maybe Text)
-    , _gslCompany         :: !(Maybe Text)
-    , _gslCity            :: !(Maybe Text)
-    , _gslPhoneNumber     :: !(Maybe Text)
-    , _gslStreet1         :: !(Maybe Text)
-    , _gslJobIds          :: ![Text]
+    { _gslrqStreet3         :: !(Maybe Text)
+    , _gslrqAPIVersion      :: !(Maybe Text)
+    , _gslrqPostalCode      :: !(Maybe Text)
+    , _gslrqCountry         :: !(Maybe Text)
+    , _gslrqStateOrProvince :: !(Maybe Text)
+    , _gslrqStreet2         :: !(Maybe Text)
+    , _gslrqName            :: !(Maybe Text)
+    , _gslrqCompany         :: !(Maybe Text)
+    , _gslrqCity            :: !(Maybe Text)
+    , _gslrqPhoneNumber     :: !(Maybe Text)
+    , _gslrqStreet1         :: !(Maybe Text)
+    , _gslrqJobIds          :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShippingLabel' smart constructor.
 getShippingLabel :: GetShippingLabel
 getShippingLabel =
     GetShippingLabel'
-    { _gslStreet3 = Nothing
-    , _gslAPIVersion = Nothing
-    , _gslPostalCode = Nothing
-    , _gslCountry = Nothing
-    , _gslStateOrProvince = Nothing
-    , _gslStreet2 = Nothing
-    , _gslName = Nothing
-    , _gslCompany = Nothing
-    , _gslCity = Nothing
-    , _gslPhoneNumber = Nothing
-    , _gslStreet1 = Nothing
-    , _gslJobIds = mempty
+    { _gslrqStreet3 = Nothing
+    , _gslrqAPIVersion = Nothing
+    , _gslrqPostalCode = Nothing
+    , _gslrqCountry = Nothing
+    , _gslrqStateOrProvince = Nothing
+    , _gslrqStreet2 = Nothing
+    , _gslrqName = Nothing
+    , _gslrqCompany = Nothing
+    , _gslrqCity = Nothing
+    , _gslrqPhoneNumber = Nothing
+    , _gslrqStreet1 = Nothing
+    , _gslrqJobIds = mempty
     }
 
 -- | FIXME: Undocumented member.
-gslStreet3 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet3 = lens _gslStreet3 (\ s a -> s{_gslStreet3 = a});
+gslrqStreet3 :: Lens' GetShippingLabel (Maybe Text)
+gslrqStreet3 = lens _gslrqStreet3 (\ s a -> s{_gslrqStreet3 = a});
 
 -- | FIXME: Undocumented member.
-gslAPIVersion :: Lens' GetShippingLabel (Maybe Text)
-gslAPIVersion = lens _gslAPIVersion (\ s a -> s{_gslAPIVersion = a});
+gslrqAPIVersion :: Lens' GetShippingLabel (Maybe Text)
+gslrqAPIVersion = lens _gslrqAPIVersion (\ s a -> s{_gslrqAPIVersion = a});
 
 -- | FIXME: Undocumented member.
-gslPostalCode :: Lens' GetShippingLabel (Maybe Text)
-gslPostalCode = lens _gslPostalCode (\ s a -> s{_gslPostalCode = a});
+gslrqPostalCode :: Lens' GetShippingLabel (Maybe Text)
+gslrqPostalCode = lens _gslrqPostalCode (\ s a -> s{_gslrqPostalCode = a});
 
 -- | FIXME: Undocumented member.
-gslCountry :: Lens' GetShippingLabel (Maybe Text)
-gslCountry = lens _gslCountry (\ s a -> s{_gslCountry = a});
+gslrqCountry :: Lens' GetShippingLabel (Maybe Text)
+gslrqCountry = lens _gslrqCountry (\ s a -> s{_gslrqCountry = a});
 
 -- | FIXME: Undocumented member.
-gslStateOrProvince :: Lens' GetShippingLabel (Maybe Text)
-gslStateOrProvince = lens _gslStateOrProvince (\ s a -> s{_gslStateOrProvince = a});
+gslrqStateOrProvince :: Lens' GetShippingLabel (Maybe Text)
+gslrqStateOrProvince = lens _gslrqStateOrProvince (\ s a -> s{_gslrqStateOrProvince = a});
 
 -- | FIXME: Undocumented member.
-gslStreet2 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet2 = lens _gslStreet2 (\ s a -> s{_gslStreet2 = a});
+gslrqStreet2 :: Lens' GetShippingLabel (Maybe Text)
+gslrqStreet2 = lens _gslrqStreet2 (\ s a -> s{_gslrqStreet2 = a});
 
 -- | FIXME: Undocumented member.
-gslName :: Lens' GetShippingLabel (Maybe Text)
-gslName = lens _gslName (\ s a -> s{_gslName = a});
+gslrqName :: Lens' GetShippingLabel (Maybe Text)
+gslrqName = lens _gslrqName (\ s a -> s{_gslrqName = a});
 
 -- | FIXME: Undocumented member.
-gslCompany :: Lens' GetShippingLabel (Maybe Text)
-gslCompany = lens _gslCompany (\ s a -> s{_gslCompany = a});
+gslrqCompany :: Lens' GetShippingLabel (Maybe Text)
+gslrqCompany = lens _gslrqCompany (\ s a -> s{_gslrqCompany = a});
 
 -- | FIXME: Undocumented member.
-gslCity :: Lens' GetShippingLabel (Maybe Text)
-gslCity = lens _gslCity (\ s a -> s{_gslCity = a});
+gslrqCity :: Lens' GetShippingLabel (Maybe Text)
+gslrqCity = lens _gslrqCity (\ s a -> s{_gslrqCity = a});
 
 -- | FIXME: Undocumented member.
-gslPhoneNumber :: Lens' GetShippingLabel (Maybe Text)
-gslPhoneNumber = lens _gslPhoneNumber (\ s a -> s{_gslPhoneNumber = a});
+gslrqPhoneNumber :: Lens' GetShippingLabel (Maybe Text)
+gslrqPhoneNumber = lens _gslrqPhoneNumber (\ s a -> s{_gslrqPhoneNumber = a});
 
 -- | FIXME: Undocumented member.
-gslStreet1 :: Lens' GetShippingLabel (Maybe Text)
-gslStreet1 = lens _gslStreet1 (\ s a -> s{_gslStreet1 = a});
+gslrqStreet1 :: Lens' GetShippingLabel (Maybe Text)
+gslrqStreet1 = lens _gslrqStreet1 (\ s a -> s{_gslrqStreet1 = a});
 
 -- | FIXME: Undocumented member.
-gslJobIds :: Lens' GetShippingLabel [Text]
-gslJobIds = lens _gslJobIds (\ s a -> s{_gslJobIds = a});
+gslrqJobIds :: Lens' GetShippingLabel [Text]
+gslrqJobIds = lens _gslrqJobIds (\ s a -> s{_gslrqJobIds = a});
 
 instance AWSRequest GetShippingLabel where
         type Sv GetShippingLabel = ImportExport
@@ -187,49 +187,49 @@ instance ToQuery GetShippingLabel where
               ["Operation=GetShippingLabel",
                "Action" =: ("GetShippingLabel" :: ByteString),
                "Version" =: ("2010-06-01" :: ByteString),
-               "street3" =: _gslStreet3,
-               "APIVersion" =: _gslAPIVersion,
-               "postalCode" =: _gslPostalCode,
-               "country" =: _gslCountry,
-               "stateOrProvince" =: _gslStateOrProvince,
-               "street2" =: _gslStreet2, "name" =: _gslName,
-               "company" =: _gslCompany, "city" =: _gslCity,
-               "phoneNumber" =: _gslPhoneNumber,
-               "street1" =: _gslStreet1,
-               "jobIds" =: toQueryList "member" _gslJobIds]
+               "street3" =: _gslrqStreet3,
+               "APIVersion" =: _gslrqAPIVersion,
+               "postalCode" =: _gslrqPostalCode,
+               "country" =: _gslrqCountry,
+               "stateOrProvince" =: _gslrqStateOrProvince,
+               "street2" =: _gslrqStreet2, "name" =: _gslrqName,
+               "company" =: _gslrqCompany, "city" =: _gslrqCity,
+               "phoneNumber" =: _gslrqPhoneNumber,
+               "street1" =: _gslrqStreet1,
+               "jobIds" =: toQueryList "member" _gslrqJobIds]
 
 -- | /See:/ 'getShippingLabelResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gslrShippingLabelURL'
+-- * 'gslrsShippingLabelURL'
 --
--- * 'gslrWarning'
+-- * 'gslrsWarning'
 --
--- * 'gslrStatus'
+-- * 'gslrsStatus'
 data GetShippingLabelResponse = GetShippingLabelResponse'
-    { _gslrShippingLabelURL :: !(Maybe Text)
-    , _gslrWarning          :: !(Maybe Text)
-    , _gslrStatus           :: !Int
+    { _gslrsShippingLabelURL :: !(Maybe Text)
+    , _gslrsWarning          :: !(Maybe Text)
+    , _gslrsStatus           :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetShippingLabelResponse' smart constructor.
 getShippingLabelResponse :: Int -> GetShippingLabelResponse
 getShippingLabelResponse pStatus =
     GetShippingLabelResponse'
-    { _gslrShippingLabelURL = Nothing
-    , _gslrWarning = Nothing
-    , _gslrStatus = pStatus
+    { _gslrsShippingLabelURL = Nothing
+    , _gslrsWarning = Nothing
+    , _gslrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-gslrShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
-gslrShippingLabelURL = lens _gslrShippingLabelURL (\ s a -> s{_gslrShippingLabelURL = a});
+gslrsShippingLabelURL :: Lens' GetShippingLabelResponse (Maybe Text)
+gslrsShippingLabelURL = lens _gslrsShippingLabelURL (\ s a -> s{_gslrsShippingLabelURL = a});
 
 -- | FIXME: Undocumented member.
-gslrWarning :: Lens' GetShippingLabelResponse (Maybe Text)
-gslrWarning = lens _gslrWarning (\ s a -> s{_gslrWarning = a});
+gslrsWarning :: Lens' GetShippingLabelResponse (Maybe Text)
+gslrsWarning = lens _gslrsWarning (\ s a -> s{_gslrsWarning = a});
 
 -- | FIXME: Undocumented member.
-gslrStatus :: Lens' GetShippingLabelResponse Int
-gslrStatus = lens _gslrStatus (\ s a -> s{_gslrStatus = a});
+gslrsStatus :: Lens' GetShippingLabelResponse Int
+gslrsStatus = lens _gslrsStatus (\ s a -> s{_gslrsStatus = a});

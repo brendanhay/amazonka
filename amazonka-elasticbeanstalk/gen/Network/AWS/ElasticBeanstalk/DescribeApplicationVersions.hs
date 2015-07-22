@@ -27,16 +27,16 @@ module Network.AWS.ElasticBeanstalk.DescribeApplicationVersions
     -- ** Request constructor
     , describeApplicationVersions
     -- ** Request lenses
-    , dVersionLabels
-    , dApplicationName
+    , davsrqVersionLabels
+    , davsrqApplicationName
 
     -- * Response
     , DescribeApplicationVersionsResponse
     -- ** Response constructor
     , describeApplicationVersionsResponse
     -- ** Response lenses
-    , davrApplicationVersions
-    , davrStatus
+    , davsrsApplicationVersions
+    , davsrsStatus
     ) where
 
 import           Network.AWS.ElasticBeanstalk.Types
@@ -50,31 +50,31 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dVersionLabels'
+-- * 'davsrqVersionLabels'
 --
--- * 'dApplicationName'
+-- * 'davsrqApplicationName'
 data DescribeApplicationVersions = DescribeApplicationVersions'
-    { _dVersionLabels   :: !(Maybe [Text])
-    , _dApplicationName :: !(Maybe Text)
+    { _davsrqVersionLabels   :: !(Maybe [Text])
+    , _davsrqApplicationName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationVersions' smart constructor.
 describeApplicationVersions :: DescribeApplicationVersions
 describeApplicationVersions =
     DescribeApplicationVersions'
-    { _dVersionLabels = Nothing
-    , _dApplicationName = Nothing
+    { _davsrqVersionLabels = Nothing
+    , _davsrqApplicationName = Nothing
     }
 
 -- | If specified, restricts the returned descriptions to only include ones
 -- that have the specified version labels.
-dVersionLabels :: Lens' DescribeApplicationVersions [Text]
-dVersionLabels = lens _dVersionLabels (\ s a -> s{_dVersionLabels = a}) . _Default;
+davsrqVersionLabels :: Lens' DescribeApplicationVersions [Text]
+davsrqVersionLabels = lens _davsrqVersionLabels (\ s a -> s{_davsrqVersionLabels = a}) . _Default;
 
 -- | If specified, AWS Elastic Beanstalk restricts the returned descriptions
 -- to only include ones that are associated with the specified application.
-dApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
-dApplicationName = lens _dApplicationName (\ s a -> s{_dApplicationName = a});
+davsrqApplicationName :: Lens' DescribeApplicationVersions (Maybe Text)
+davsrqApplicationName = lens _davsrqApplicationName (\ s a -> s{_davsrqApplicationName = a});
 
 instance AWSRequest DescribeApplicationVersions where
         type Sv DescribeApplicationVersions =
@@ -104,8 +104,9 @@ instance ToQuery DescribeApplicationVersions where
                  ("DescribeApplicationVersions" :: ByteString),
                "Version" =: ("2010-12-01" :: ByteString),
                "VersionLabels" =:
-                 toQuery (toQueryList "member" <$> _dVersionLabels),
-               "ApplicationName" =: _dApplicationName]
+                 toQuery
+                   (toQueryList "member" <$> _davsrqVersionLabels),
+               "ApplicationName" =: _davsrqApplicationName]
 
 -- | Result message wrapping a list of application version descriptions.
 --
@@ -113,26 +114,26 @@ instance ToQuery DescribeApplicationVersions where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'davrApplicationVersions'
+-- * 'davsrsApplicationVersions'
 --
--- * 'davrStatus'
+-- * 'davsrsStatus'
 data DescribeApplicationVersionsResponse = DescribeApplicationVersionsResponse'
-    { _davrApplicationVersions :: !(Maybe [ApplicationVersionDescription])
-    , _davrStatus              :: !Int
+    { _davsrsApplicationVersions :: !(Maybe [ApplicationVersionDescription])
+    , _davsrsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeApplicationVersionsResponse' smart constructor.
 describeApplicationVersionsResponse :: Int -> DescribeApplicationVersionsResponse
 describeApplicationVersionsResponse pStatus =
     DescribeApplicationVersionsResponse'
-    { _davrApplicationVersions = Nothing
-    , _davrStatus = pStatus
+    { _davsrsApplicationVersions = Nothing
+    , _davsrsStatus = pStatus
     }
 
 -- | A list of ApplicationVersionDescription .
-davrApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
-davrApplicationVersions = lens _davrApplicationVersions (\ s a -> s{_davrApplicationVersions = a}) . _Default;
+davsrsApplicationVersions :: Lens' DescribeApplicationVersionsResponse [ApplicationVersionDescription]
+davsrsApplicationVersions = lens _davsrsApplicationVersions (\ s a -> s{_davsrsApplicationVersions = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-davrStatus :: Lens' DescribeApplicationVersionsResponse Int
-davrStatus = lens _davrStatus (\ s a -> s{_davrStatus = a});
+davsrsStatus :: Lens' DescribeApplicationVersionsResponse Int
+davsrsStatus = lens _davsrsStatus (\ s a -> s{_davsrsStatus = a});

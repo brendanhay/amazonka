@@ -32,17 +32,17 @@ module Network.AWS.CognitoIdentity.GetId
     -- ** Request constructor
     , getId
     -- ** Request lenses
-    , giAccountId
-    , giLogins
-    , giIdentityPoolId
+    , girqAccountId
+    , girqLogins
+    , girqIdentityPoolId
 
     -- * Response
     , GetIdResponse
     -- ** Response constructor
     , getIdResponse
     -- ** Response lenses
-    , girIdentityId
-    , girStatus
+    , girsIdentityId
+    , girsStatus
     ) where
 
 import           Network.AWS.CognitoIdentity.Types
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'giAccountId'
+-- * 'girqAccountId'
 --
--- * 'giLogins'
+-- * 'girqLogins'
 --
--- * 'giIdentityPoolId'
+-- * 'girqIdentityPoolId'
 data GetId = GetId'
-    { _giAccountId      :: !(Maybe Text)
-    , _giLogins         :: !(Maybe (Map Text Text))
-    , _giIdentityPoolId :: !Text
+    { _girqAccountId      :: !(Maybe Text)
+    , _girqLogins         :: !(Maybe (Map Text Text))
+    , _girqIdentityPoolId :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetId' smart constructor.
 getId :: Text -> GetId
 getId pIdentityPoolId =
     GetId'
-    { _giAccountId = Nothing
-    , _giLogins = Nothing
-    , _giIdentityPoolId = pIdentityPoolId
+    { _girqAccountId = Nothing
+    , _girqLogins = Nothing
+    , _girqIdentityPoolId = pIdentityPoolId
     }
 
 -- | A standard AWS account ID (9+ digits).
-giAccountId :: Lens' GetId (Maybe Text)
-giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
+girqAccountId :: Lens' GetId (Maybe Text)
+girqAccountId = lens _girqAccountId (\ s a -> s{_girqAccountId = a});
 
 -- | A set of optional name-value pairs that map provider names to provider
 -- tokens.
@@ -90,12 +90,12 @@ giAccountId = lens _giAccountId (\ s a -> s{_giAccountId = a});
 -- -   Amazon: @www.amazon.com@
 -- -   Twitter: @www.twitter.com@
 -- -   Digits: @www.digits.com@
-giLogins :: Lens' GetId (HashMap Text Text)
-giLogins = lens _giLogins (\ s a -> s{_giLogins = a}) . _Default . _Map;
+girqLogins :: Lens' GetId (HashMap Text Text)
+girqLogins = lens _girqLogins (\ s a -> s{_girqLogins = a}) . _Default . _Map;
 
 -- | An identity pool ID in the format REGION:GUID.
-giIdentityPoolId :: Lens' GetId Text
-giIdentityPoolId = lens _giIdentityPoolId (\ s a -> s{_giIdentityPoolId = a});
+girqIdentityPoolId :: Lens' GetId Text
+girqIdentityPoolId = lens _girqIdentityPoolId (\ s a -> s{_girqIdentityPoolId = a});
 
 instance AWSRequest GetId where
         type Sv GetId = CognitoIdentity
@@ -119,8 +119,9 @@ instance ToHeaders GetId where
 instance ToJSON GetId where
         toJSON GetId'{..}
           = object
-              ["AccountId" .= _giAccountId, "Logins" .= _giLogins,
-               "IdentityPoolId" .= _giIdentityPoolId]
+              ["AccountId" .= _girqAccountId,
+               "Logins" .= _girqLogins,
+               "IdentityPoolId" .= _girqIdentityPoolId]
 
 instance ToPath GetId where
         toPath = const "/"
@@ -134,26 +135,26 @@ instance ToQuery GetId where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'girIdentityId'
+-- * 'girsIdentityId'
 --
--- * 'girStatus'
+-- * 'girsStatus'
 data GetIdResponse = GetIdResponse'
-    { _girIdentityId :: !(Maybe Text)
-    , _girStatus     :: !Int
+    { _girsIdentityId :: !(Maybe Text)
+    , _girsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetIdResponse' smart constructor.
 getIdResponse :: Int -> GetIdResponse
 getIdResponse pStatus =
     GetIdResponse'
-    { _girIdentityId = Nothing
-    , _girStatus = pStatus
+    { _girsIdentityId = Nothing
+    , _girsStatus = pStatus
     }
 
 -- | A unique identifier in the format REGION:GUID.
-girIdentityId :: Lens' GetIdResponse (Maybe Text)
-girIdentityId = lens _girIdentityId (\ s a -> s{_girIdentityId = a});
+girsIdentityId :: Lens' GetIdResponse (Maybe Text)
+girsIdentityId = lens _girsIdentityId (\ s a -> s{_girsIdentityId = a});
 
 -- | FIXME: Undocumented member.
-girStatus :: Lens' GetIdResponse Int
-girStatus = lens _girStatus (\ s a -> s{_girStatus = a});
+girsStatus :: Lens' GetIdResponse Int
+girsStatus = lens _girsStatus (\ s a -> s{_girsStatus = a});

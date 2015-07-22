@@ -34,16 +34,16 @@ module Network.AWS.StorageGateway.RetrieveTapeArchive
     -- ** Request constructor
     , retrieveTapeArchive
     -- ** Request lenses
-    , rtaTapeARN
-    , rtaGatewayARN
+    , rtarqTapeARN
+    , rtarqGatewayARN
 
     -- * Response
     , RetrieveTapeArchiveResponse
     -- ** Response constructor
     , retrieveTapeArchiveResponse
     -- ** Response lenses
-    , rtarTapeARN
-    , rtarStatus
+    , rtarsTapeARN
+    , rtarsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -57,26 +57,26 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtaTapeARN'
+-- * 'rtarqTapeARN'
 --
--- * 'rtaGatewayARN'
+-- * 'rtarqGatewayARN'
 data RetrieveTapeArchive = RetrieveTapeArchive'
-    { _rtaTapeARN    :: !Text
-    , _rtaGatewayARN :: !Text
+    { _rtarqTapeARN    :: !Text
+    , _rtarqGatewayARN :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveTapeArchive' smart constructor.
 retrieveTapeArchive :: Text -> Text -> RetrieveTapeArchive
 retrieveTapeArchive pTapeARN pGatewayARN =
     RetrieveTapeArchive'
-    { _rtaTapeARN = pTapeARN
-    , _rtaGatewayARN = pGatewayARN
+    { _rtarqTapeARN = pTapeARN
+    , _rtarqGatewayARN = pGatewayARN
     }
 
 -- | The Amazon Resource Name (ARN) of the virtual tape you want to retrieve
 -- from the virtual tape shelf (VTS).
-rtaTapeARN :: Lens' RetrieveTapeArchive Text
-rtaTapeARN = lens _rtaTapeARN (\ s a -> s{_rtaTapeARN = a});
+rtarqTapeARN :: Lens' RetrieveTapeArchive Text
+rtarqTapeARN = lens _rtarqTapeARN (\ s a -> s{_rtarqTapeARN = a});
 
 -- | The Amazon Resource Name (ARN) of the gateway you want to retrieve the
 -- virtual tape to. Use the ListGateways operation to return a list of
@@ -84,8 +84,8 @@ rtaTapeARN = lens _rtaTapeARN (\ s a -> s{_rtaTapeARN = a});
 --
 -- You retrieve archived virtual tapes to only one gateway and the gateway
 -- must be a gateway-VTL.
-rtaGatewayARN :: Lens' RetrieveTapeArchive Text
-rtaGatewayARN = lens _rtaGatewayARN (\ s a -> s{_rtaGatewayARN = a});
+rtarqGatewayARN :: Lens' RetrieveTapeArchive Text
+rtarqGatewayARN = lens _rtarqGatewayARN (\ s a -> s{_rtarqGatewayARN = a});
 
 instance AWSRequest RetrieveTapeArchive where
         type Sv RetrieveTapeArchive = StorageGateway
@@ -111,8 +111,8 @@ instance ToHeaders RetrieveTapeArchive where
 instance ToJSON RetrieveTapeArchive where
         toJSON RetrieveTapeArchive'{..}
           = object
-              ["TapeARN" .= _rtaTapeARN,
-               "GatewayARN" .= _rtaGatewayARN]
+              ["TapeARN" .= _rtarqTapeARN,
+               "GatewayARN" .= _rtarqGatewayARN]
 
 instance ToPath RetrieveTapeArchive where
         toPath = const "/"
@@ -126,26 +126,26 @@ instance ToQuery RetrieveTapeArchive where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rtarTapeARN'
+-- * 'rtarsTapeARN'
 --
--- * 'rtarStatus'
+-- * 'rtarsStatus'
 data RetrieveTapeArchiveResponse = RetrieveTapeArchiveResponse'
-    { _rtarTapeARN :: !(Maybe Text)
-    , _rtarStatus  :: !Int
+    { _rtarsTapeARN :: !(Maybe Text)
+    , _rtarsStatus  :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RetrieveTapeArchiveResponse' smart constructor.
 retrieveTapeArchiveResponse :: Int -> RetrieveTapeArchiveResponse
 retrieveTapeArchiveResponse pStatus =
     RetrieveTapeArchiveResponse'
-    { _rtarTapeARN = Nothing
-    , _rtarStatus = pStatus
+    { _rtarsTapeARN = Nothing
+    , _rtarsStatus = pStatus
     }
 
 -- | The Amazon Resource Name (ARN) of the retrieved virtual tape.
-rtarTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
-rtarTapeARN = lens _rtarTapeARN (\ s a -> s{_rtarTapeARN = a});
+rtarsTapeARN :: Lens' RetrieveTapeArchiveResponse (Maybe Text)
+rtarsTapeARN = lens _rtarsTapeARN (\ s a -> s{_rtarsTapeARN = a});
 
 -- | FIXME: Undocumented member.
-rtarStatus :: Lens' RetrieveTapeArchiveResponse Int
-rtarStatus = lens _rtarStatus (\ s a -> s{_rtarStatus = a});
+rtarsStatus :: Lens' RetrieveTapeArchiveResponse Int
+rtarsStatus = lens _rtarsStatus (\ s a -> s{_rtarsStatus = a});

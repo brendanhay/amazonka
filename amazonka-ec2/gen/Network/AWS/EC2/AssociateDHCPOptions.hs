@@ -39,9 +39,9 @@ module Network.AWS.EC2.AssociateDHCPOptions
     -- ** Request constructor
     , associateDHCPOptions
     -- ** Request lenses
-    , adoDryRun
-    , adoDHCPOptionsId
-    , adoVPCId
+    , adorqDryRun
+    , adorqDHCPOptionsId
+    , adorqVPCId
 
     -- * Response
     , AssociateDHCPOptionsResponse
@@ -58,41 +58,41 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'adoDryRun'
+-- * 'adorqDryRun'
 --
--- * 'adoDHCPOptionsId'
+-- * 'adorqDHCPOptionsId'
 --
--- * 'adoVPCId'
+-- * 'adorqVPCId'
 data AssociateDHCPOptions = AssociateDHCPOptions'
-    { _adoDryRun        :: !(Maybe Bool)
-    , _adoDHCPOptionsId :: !Text
-    , _adoVPCId         :: !Text
+    { _adorqDryRun        :: !(Maybe Bool)
+    , _adorqDHCPOptionsId :: !Text
+    , _adorqVPCId         :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AssociateDHCPOptions' smart constructor.
 associateDHCPOptions :: Text -> Text -> AssociateDHCPOptions
 associateDHCPOptions pDHCPOptionsId pVPCId =
     AssociateDHCPOptions'
-    { _adoDryRun = Nothing
-    , _adoDHCPOptionsId = pDHCPOptionsId
-    , _adoVPCId = pVPCId
+    { _adorqDryRun = Nothing
+    , _adorqDHCPOptionsId = pDHCPOptionsId
+    , _adorqVPCId = pVPCId
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-adoDryRun :: Lens' AssociateDHCPOptions (Maybe Bool)
-adoDryRun = lens _adoDryRun (\ s a -> s{_adoDryRun = a});
+adorqDryRun :: Lens' AssociateDHCPOptions (Maybe Bool)
+adorqDryRun = lens _adorqDryRun (\ s a -> s{_adorqDryRun = a});
 
 -- | The ID of the DHCP options set, or @default@ to associate no DHCP
 -- options with the VPC.
-adoDHCPOptionsId :: Lens' AssociateDHCPOptions Text
-adoDHCPOptionsId = lens _adoDHCPOptionsId (\ s a -> s{_adoDHCPOptionsId = a});
+adorqDHCPOptionsId :: Lens' AssociateDHCPOptions Text
+adorqDHCPOptionsId = lens _adorqDHCPOptionsId (\ s a -> s{_adorqDHCPOptionsId = a});
 
 -- | The ID of the VPC.
-adoVPCId :: Lens' AssociateDHCPOptions Text
-adoVPCId = lens _adoVPCId (\ s a -> s{_adoVPCId = a});
+adorqVPCId :: Lens' AssociateDHCPOptions Text
+adorqVPCId = lens _adorqVPCId (\ s a -> s{_adorqVPCId = a});
 
 instance AWSRequest AssociateDHCPOptions where
         type Sv AssociateDHCPOptions = EC2
@@ -112,9 +112,9 @@ instance ToQuery AssociateDHCPOptions where
           = mconcat
               ["Action" =: ("AssociateDHCPOptions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _adoDryRun,
-               "DhcpOptionsId" =: _adoDHCPOptionsId,
-               "VpcId" =: _adoVPCId]
+               "DryRun" =: _adorqDryRun,
+               "DhcpOptionsId" =: _adorqDHCPOptionsId,
+               "VpcId" =: _adorqVPCId]
 
 -- | /See:/ 'associateDHCPOptionsResponse' smart constructor.
 data AssociateDHCPOptionsResponse =

@@ -32,7 +32,7 @@ module Network.AWS.OpsWorks.DeleteUserProfile
     -- ** Request constructor
     , deleteUserProfile
     -- ** Request lenses
-    , dupIAMUserARN
+    , duprqIAMUserARN
 
     -- * Response
     , DeleteUserProfileResponse
@@ -49,21 +49,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dupIAMUserARN'
+-- * 'duprqIAMUserARN'
 newtype DeleteUserProfile = DeleteUserProfile'
-    { _dupIAMUserARN :: Text
+    { _duprqIAMUserARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteUserProfile' smart constructor.
 deleteUserProfile :: Text -> DeleteUserProfile
 deleteUserProfile pIAMUserARN =
     DeleteUserProfile'
-    { _dupIAMUserARN = pIAMUserARN
+    { _duprqIAMUserARN = pIAMUserARN
     }
 
 -- | The user\'s IAM ARN.
-dupIAMUserARN :: Lens' DeleteUserProfile Text
-dupIAMUserARN = lens _dupIAMUserARN (\ s a -> s{_dupIAMUserARN = a});
+duprqIAMUserARN :: Lens' DeleteUserProfile Text
+duprqIAMUserARN = lens _duprqIAMUserARN (\ s a -> s{_duprqIAMUserARN = a});
 
 instance AWSRequest DeleteUserProfile where
         type Sv DeleteUserProfile = OpsWorks
@@ -83,7 +83,7 @@ instance ToHeaders DeleteUserProfile where
 
 instance ToJSON DeleteUserProfile where
         toJSON DeleteUserProfile'{..}
-          = object ["IamUserArn" .= _dupIAMUserARN]
+          = object ["IamUserArn" .= _duprqIAMUserARN]
 
 instance ToPath DeleteUserProfile where
         toPath = const "/"

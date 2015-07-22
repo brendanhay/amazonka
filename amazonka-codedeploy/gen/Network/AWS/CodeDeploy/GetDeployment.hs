@@ -27,15 +27,15 @@ module Network.AWS.CodeDeploy.GetDeployment
     -- ** Request constructor
     , getDeployment
     -- ** Request lenses
-    , gdDeploymentId
+    , gdrqDeploymentId
 
     -- * Response
     , GetDeploymentResponse
     -- ** Response constructor
     , getDeploymentResponse
     -- ** Response lenses
-    , gdrDeploymentInfo
-    , gdrStatus
+    , gdrsDeploymentInfo
+    , gdrsStatus
     ) where
 
 import           Network.AWS.CodeDeploy.Types
@@ -49,22 +49,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdDeploymentId'
+-- * 'gdrqDeploymentId'
 newtype GetDeployment = GetDeployment'
-    { _gdDeploymentId :: Text
+    { _gdrqDeploymentId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeployment' smart constructor.
 getDeployment :: Text -> GetDeployment
 getDeployment pDeploymentId =
     GetDeployment'
-    { _gdDeploymentId = pDeploymentId
+    { _gdrqDeploymentId = pDeploymentId
     }
 
 -- | An existing deployment ID associated with the applicable IAM user or AWS
 -- account.
-gdDeploymentId :: Lens' GetDeployment Text
-gdDeploymentId = lens _gdDeploymentId (\ s a -> s{_gdDeploymentId = a});
+gdrqDeploymentId :: Lens' GetDeployment Text
+gdrqDeploymentId = lens _gdrqDeploymentId (\ s a -> s{_gdrqDeploymentId = a});
 
 instance AWSRequest GetDeployment where
         type Sv GetDeployment = CodeDeploy
@@ -87,7 +87,7 @@ instance ToHeaders GetDeployment where
 
 instance ToJSON GetDeployment where
         toJSON GetDeployment'{..}
-          = object ["deploymentId" .= _gdDeploymentId]
+          = object ["deploymentId" .= _gdrqDeploymentId]
 
 instance ToPath GetDeployment where
         toPath = const "/"
@@ -101,26 +101,26 @@ instance ToQuery GetDeployment where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'gdrDeploymentInfo'
+-- * 'gdrsDeploymentInfo'
 --
--- * 'gdrStatus'
+-- * 'gdrsStatus'
 data GetDeploymentResponse = GetDeploymentResponse'
-    { _gdrDeploymentInfo :: !(Maybe DeploymentInfo)
-    , _gdrStatus         :: !Int
+    { _gdrsDeploymentInfo :: !(Maybe DeploymentInfo)
+    , _gdrsStatus         :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GetDeploymentResponse' smart constructor.
 getDeploymentResponse :: Int -> GetDeploymentResponse
 getDeploymentResponse pStatus =
     GetDeploymentResponse'
-    { _gdrDeploymentInfo = Nothing
-    , _gdrStatus = pStatus
+    { _gdrsDeploymentInfo = Nothing
+    , _gdrsStatus = pStatus
     }
 
 -- | Information about the deployment.
-gdrDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
-gdrDeploymentInfo = lens _gdrDeploymentInfo (\ s a -> s{_gdrDeploymentInfo = a});
+gdrsDeploymentInfo :: Lens' GetDeploymentResponse (Maybe DeploymentInfo)
+gdrsDeploymentInfo = lens _gdrsDeploymentInfo (\ s a -> s{_gdrsDeploymentInfo = a});
 
 -- | FIXME: Undocumented member.
-gdrStatus :: Lens' GetDeploymentResponse Int
-gdrStatus = lens _gdrStatus (\ s a -> s{_gdrStatus = a});
+gdrsStatus :: Lens' GetDeploymentResponse Int
+gdrsStatus = lens _gdrsStatus (\ s a -> s{_gdrsStatus = a});

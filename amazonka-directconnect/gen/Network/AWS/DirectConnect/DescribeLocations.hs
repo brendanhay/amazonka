@@ -34,8 +34,8 @@ module Network.AWS.DirectConnect.DescribeLocations
     -- ** Response constructor
     , describeLocationsResponse
     -- ** Response lenses
-    , dlrLocations
-    , dlrStatus
+    , dlrsLocations
+    , dlrsStatus
     ) where
 
 import           Network.AWS.DirectConnect.Types
@@ -85,26 +85,26 @@ instance ToQuery DescribeLocations where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dlrLocations'
+-- * 'dlrsLocations'
 --
--- * 'dlrStatus'
+-- * 'dlrsStatus'
 data DescribeLocationsResponse = DescribeLocationsResponse'
-    { _dlrLocations :: !(Maybe [Location])
-    , _dlrStatus    :: !Int
+    { _dlrsLocations :: !(Maybe [Location])
+    , _dlrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeLocationsResponse' smart constructor.
 describeLocationsResponse :: Int -> DescribeLocationsResponse
 describeLocationsResponse pStatus =
     DescribeLocationsResponse'
-    { _dlrLocations = Nothing
-    , _dlrStatus = pStatus
+    { _dlrsLocations = Nothing
+    , _dlrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dlrLocations :: Lens' DescribeLocationsResponse [Location]
-dlrLocations = lens _dlrLocations (\ s a -> s{_dlrLocations = a}) . _Default;
+dlrsLocations :: Lens' DescribeLocationsResponse [Location]
+dlrsLocations = lens _dlrsLocations (\ s a -> s{_dlrsLocations = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dlrStatus :: Lens' DescribeLocationsResponse Int
-dlrStatus = lens _dlrStatus (\ s a -> s{_dlrStatus = a});
+dlrsStatus :: Lens' DescribeLocationsResponse Int
+dlrsStatus = lens _dlrsStatus (\ s a -> s{_dlrsStatus = a});

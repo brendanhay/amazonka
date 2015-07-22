@@ -32,16 +32,16 @@ module Network.AWS.CloudHSM.ListLunaClients
     -- ** Request constructor
     , listLunaClients
     -- ** Request lenses
-    , llcNextToken
+    , llcrqNextToken
 
     -- * Response
     , ListLunaClientsResponse
     -- ** Response constructor
     , listLunaClientsResponse
     -- ** Response lenses
-    , llcrNextToken
-    , llcrStatus
-    , llcrClientList
+    , llcrsNextToken
+    , llcrsStatus
+    , llcrsClientList
     ) where
 
 import           Network.AWS.CloudHSM.Types
@@ -53,22 +53,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'llcNextToken'
+-- * 'llcrqNextToken'
 newtype ListLunaClients = ListLunaClients'
-    { _llcNextToken :: Maybe Text
+    { _llcrqNextToken :: Maybe Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLunaClients' smart constructor.
 listLunaClients :: ListLunaClients
 listLunaClients =
     ListLunaClients'
-    { _llcNextToken = Nothing
+    { _llcrqNextToken = Nothing
     }
 
 -- | The /NextToken/ value from a previous call to ListLunaClients. Pass null
 -- if this is the first call.
-llcNextToken :: Lens' ListLunaClients (Maybe Text)
-llcNextToken = lens _llcNextToken (\ s a -> s{_llcNextToken = a});
+llcrqNextToken :: Lens' ListLunaClients (Maybe Text)
+llcrqNextToken = lens _llcrqNextToken (\ s a -> s{_llcrqNextToken = a});
 
 instance AWSRequest ListLunaClients where
         type Sv ListLunaClients = CloudHSM
@@ -93,7 +93,7 @@ instance ToHeaders ListLunaClients where
 
 instance ToJSON ListLunaClients where
         toJSON ListLunaClients'{..}
-          = object ["NextToken" .= _llcNextToken]
+          = object ["NextToken" .= _llcrqNextToken]
 
 instance ToPath ListLunaClients where
         toPath = const "/"
@@ -105,35 +105,35 @@ instance ToQuery ListLunaClients where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'llcrNextToken'
+-- * 'llcrsNextToken'
 --
--- * 'llcrStatus'
+-- * 'llcrsStatus'
 --
--- * 'llcrClientList'
+-- * 'llcrsClientList'
 data ListLunaClientsResponse = ListLunaClientsResponse'
-    { _llcrNextToken  :: !(Maybe Text)
-    , _llcrStatus     :: !Int
-    , _llcrClientList :: ![Text]
+    { _llcrsNextToken  :: !(Maybe Text)
+    , _llcrsStatus     :: !Int
+    , _llcrsClientList :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListLunaClientsResponse' smart constructor.
 listLunaClientsResponse :: Int -> ListLunaClientsResponse
 listLunaClientsResponse pStatus =
     ListLunaClientsResponse'
-    { _llcrNextToken = Nothing
-    , _llcrStatus = pStatus
-    , _llcrClientList = mempty
+    { _llcrsNextToken = Nothing
+    , _llcrsStatus = pStatus
+    , _llcrsClientList = mempty
     }
 
 -- | If not null, more results are available. Pass this to ListLunaClients to
 -- retrieve the next set of items.
-llcrNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
-llcrNextToken = lens _llcrNextToken (\ s a -> s{_llcrNextToken = a});
+llcrsNextToken :: Lens' ListLunaClientsResponse (Maybe Text)
+llcrsNextToken = lens _llcrsNextToken (\ s a -> s{_llcrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-llcrStatus :: Lens' ListLunaClientsResponse Int
-llcrStatus = lens _llcrStatus (\ s a -> s{_llcrStatus = a});
+llcrsStatus :: Lens' ListLunaClientsResponse Int
+llcrsStatus = lens _llcrsStatus (\ s a -> s{_llcrsStatus = a});
 
 -- | The list of clients.
-llcrClientList :: Lens' ListLunaClientsResponse [Text]
-llcrClientList = lens _llcrClientList (\ s a -> s{_llcrClientList = a});
+llcrsClientList :: Lens' ListLunaClientsResponse [Text]
+llcrsClientList = lens _llcrsClientList (\ s a -> s{_llcrsClientList = a});

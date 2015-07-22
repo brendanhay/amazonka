@@ -38,16 +38,16 @@ module Network.AWS.StorageGateway.AddWorkingStorage
     -- ** Request constructor
     , addWorkingStorage
     -- ** Request lenses
-    , awsGatewayARN
-    , awsDiskIds
+    , awsrqGatewayARN
+    , awsrqDiskIds
 
     -- * Response
     , AddWorkingStorageResponse
     -- ** Response constructor
     , addWorkingStorageResponse
     -- ** Response lenses
-    , awsrGatewayARN
-    , awsrStatus
+    , awsrsGatewayARN
+    , awsrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -63,31 +63,31 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'awsGatewayARN'
+-- * 'awsrqGatewayARN'
 --
--- * 'awsDiskIds'
+-- * 'awsrqDiskIds'
 data AddWorkingStorage = AddWorkingStorage'
-    { _awsGatewayARN :: !Text
-    , _awsDiskIds    :: ![Text]
+    { _awsrqGatewayARN :: !Text
+    , _awsrqDiskIds    :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddWorkingStorage' smart constructor.
 addWorkingStorage :: Text -> AddWorkingStorage
 addWorkingStorage pGatewayARN =
     AddWorkingStorage'
-    { _awsGatewayARN = pGatewayARN
-    , _awsDiskIds = mempty
+    { _awsrqGatewayARN = pGatewayARN
+    , _awsrqDiskIds = mempty
     }
 
 -- | FIXME: Undocumented member.
-awsGatewayARN :: Lens' AddWorkingStorage Text
-awsGatewayARN = lens _awsGatewayARN (\ s a -> s{_awsGatewayARN = a});
+awsrqGatewayARN :: Lens' AddWorkingStorage Text
+awsrqGatewayARN = lens _awsrqGatewayARN (\ s a -> s{_awsrqGatewayARN = a});
 
 -- | An array of strings that identify disks that are to be configured as
 -- working storage. Each string have a minimum length of 1 and maximum
 -- length of 300. You can get the disk IDs from the ListLocalDisks API.
-awsDiskIds :: Lens' AddWorkingStorage [Text]
-awsDiskIds = lens _awsDiskIds (\ s a -> s{_awsDiskIds = a});
+awsrqDiskIds :: Lens' AddWorkingStorage [Text]
+awsrqDiskIds = lens _awsrqDiskIds (\ s a -> s{_awsrqDiskIds = a});
 
 instance AWSRequest AddWorkingStorage where
         type Sv AddWorkingStorage = StorageGateway
@@ -112,8 +112,8 @@ instance ToHeaders AddWorkingStorage where
 instance ToJSON AddWorkingStorage where
         toJSON AddWorkingStorage'{..}
           = object
-              ["GatewayARN" .= _awsGatewayARN,
-               "DiskIds" .= _awsDiskIds]
+              ["GatewayARN" .= _awsrqGatewayARN,
+               "DiskIds" .= _awsrqDiskIds]
 
 instance ToPath AddWorkingStorage where
         toPath = const "/"
@@ -128,26 +128,26 @@ instance ToQuery AddWorkingStorage where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'awsrGatewayARN'
+-- * 'awsrsGatewayARN'
 --
--- * 'awsrStatus'
+-- * 'awsrsStatus'
 data AddWorkingStorageResponse = AddWorkingStorageResponse'
-    { _awsrGatewayARN :: !(Maybe Text)
-    , _awsrStatus     :: !Int
+    { _awsrsGatewayARN :: !(Maybe Text)
+    , _awsrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'AddWorkingStorageResponse' smart constructor.
 addWorkingStorageResponse :: Int -> AddWorkingStorageResponse
 addWorkingStorageResponse pStatus =
     AddWorkingStorageResponse'
-    { _awsrGatewayARN = Nothing
-    , _awsrStatus = pStatus
+    { _awsrsGatewayARN = Nothing
+    , _awsrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-awsrGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
-awsrGatewayARN = lens _awsrGatewayARN (\ s a -> s{_awsrGatewayARN = a});
+awsrsGatewayARN :: Lens' AddWorkingStorageResponse (Maybe Text)
+awsrsGatewayARN = lens _awsrsGatewayARN (\ s a -> s{_awsrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-awsrStatus :: Lens' AddWorkingStorageResponse Int
-awsrStatus = lens _awsrStatus (\ s a -> s{_awsrStatus = a});
+awsrsStatus :: Lens' AddWorkingStorageResponse Int
+awsrsStatus = lens _awsrsStatus (\ s a -> s{_awsrsStatus = a});

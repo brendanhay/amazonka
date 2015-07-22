@@ -32,21 +32,21 @@ module Network.AWS.SES.Types
     -- * Body
     , Body
     , body
-    , bodText
-    , bodHTML
+    , bText
+    , bHTML
 
     -- * Content
     , Content
     , content
-    , conCharset
-    , conData
+    , cCharset
+    , cData
 
     -- * Destination
     , Destination
     , destination
-    , desBCCAddresses
-    , desCCAddresses
-    , desToAddresses
+    , dBCCAddresses
+    , dCCAddresses
+    , dToAddresses
 
     -- * IdentityDkimAttributes
     , IdentityDkimAttributes
@@ -72,8 +72,8 @@ module Network.AWS.SES.Types
     -- * Message
     , Message
     , message
-    , mesSubject
-    , mesBody
+    , mSubject
+    , mBody
 
     -- * RawMessage
     , RawMessage

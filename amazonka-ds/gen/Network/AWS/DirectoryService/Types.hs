@@ -54,15 +54,15 @@ module Network.AWS.DirectoryService.Types
     -- * Attribute
     , Attribute
     , attribute
-    , attValue
-    , attName
+    , aValue
+    , aName
 
     -- * Computer
     , Computer
     , computer
-    , comComputerId
-    , comComputerAttributes
-    , comComputerName
+    , cComputerId
+    , cComputerAttributes
+    , cComputerName
 
     -- * DirectoryConnectSettings
     , DirectoryConnectSettings
@@ -143,12 +143,12 @@ module Network.AWS.DirectoryService.Types
     -- * Snapshot
     , Snapshot
     , snapshot
-    , snaDirectoryId
-    , snaStatus
-    , snaStartTime
-    , snaName
-    , snaType
-    , snaSnapshotId
+    , sDirectoryId
+    , sStatus
+    , sStartTime
+    , sName
+    , sType
+    , sSnapshotId
 
     -- * SnapshotLimits
     , SnapshotLimits

@@ -39,15 +39,15 @@ module Network.AWS.StorageGateway.ResetCache
     -- ** Request constructor
     , resetCache
     -- ** Request lenses
-    , rcGatewayARN
+    , rcrqGatewayARN
 
     -- * Response
     , ResetCacheResponse
     -- ** Response constructor
     , resetCacheResponse
     -- ** Response lenses
-    , rcrGatewayARN
-    , rcrStatus
+    , rcrsGatewayARN
+    , rcrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -59,21 +59,21 @@ import           Network.AWS.StorageGateway.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcGatewayARN'
+-- * 'rcrqGatewayARN'
 newtype ResetCache = ResetCache'
-    { _rcGatewayARN :: Text
+    { _rcrqGatewayARN :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetCache' smart constructor.
 resetCache :: Text -> ResetCache
 resetCache pGatewayARN =
     ResetCache'
-    { _rcGatewayARN = pGatewayARN
+    { _rcrqGatewayARN = pGatewayARN
     }
 
 -- | FIXME: Undocumented member.
-rcGatewayARN :: Lens' ResetCache Text
-rcGatewayARN = lens _rcGatewayARN (\ s a -> s{_rcGatewayARN = a});
+rcrqGatewayARN :: Lens' ResetCache Text
+rcrqGatewayARN = lens _rcrqGatewayARN (\ s a -> s{_rcrqGatewayARN = a});
 
 instance AWSRequest ResetCache where
         type Sv ResetCache = StorageGateway
@@ -96,7 +96,7 @@ instance ToHeaders ResetCache where
 
 instance ToJSON ResetCache where
         toJSON ResetCache'{..}
-          = object ["GatewayARN" .= _rcGatewayARN]
+          = object ["GatewayARN" .= _rcrqGatewayARN]
 
 instance ToPath ResetCache where
         toPath = const "/"
@@ -108,26 +108,26 @@ instance ToQuery ResetCache where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rcrGatewayARN'
+-- * 'rcrsGatewayARN'
 --
--- * 'rcrStatus'
+-- * 'rcrsStatus'
 data ResetCacheResponse = ResetCacheResponse'
-    { _rcrGatewayARN :: !(Maybe Text)
-    , _rcrStatus     :: !Int
+    { _rcrsGatewayARN :: !(Maybe Text)
+    , _rcrsStatus     :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ResetCacheResponse' smart constructor.
 resetCacheResponse :: Int -> ResetCacheResponse
 resetCacheResponse pStatus =
     ResetCacheResponse'
-    { _rcrGatewayARN = Nothing
-    , _rcrStatus = pStatus
+    { _rcrsGatewayARN = Nothing
+    , _rcrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-rcrGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
-rcrGatewayARN = lens _rcrGatewayARN (\ s a -> s{_rcrGatewayARN = a});
+rcrsGatewayARN :: Lens' ResetCacheResponse (Maybe Text)
+rcrsGatewayARN = lens _rcrsGatewayARN (\ s a -> s{_rcrsGatewayARN = a});
 
 -- | FIXME: Undocumented member.
-rcrStatus :: Lens' ResetCacheResponse Int
-rcrStatus = lens _rcrStatus (\ s a -> s{_rcrStatus = a});
+rcrsStatus :: Lens' ResetCacheResponse Int
+rcrsStatus = lens _rcrsStatus (\ s a -> s{_rcrsStatus = a});

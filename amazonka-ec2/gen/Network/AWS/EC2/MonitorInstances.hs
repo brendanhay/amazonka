@@ -30,16 +30,16 @@ module Network.AWS.EC2.MonitorInstances
     -- ** Request constructor
     , monitorInstances
     -- ** Request lenses
-    , miDryRun
-    , miInstanceIds
+    , mirqDryRun
+    , mirqInstanceIds
 
     -- * Response
     , MonitorInstancesResponse
     -- ** Response constructor
     , monitorInstancesResponse
     -- ** Response lenses
-    , mirInstanceMonitorings
-    , mirStatus
+    , mirsInstanceMonitorings
+    , mirsStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -51,32 +51,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'miDryRun'
+-- * 'mirqDryRun'
 --
--- * 'miInstanceIds'
+-- * 'mirqInstanceIds'
 data MonitorInstances = MonitorInstances'
-    { _miDryRun      :: !(Maybe Bool)
-    , _miInstanceIds :: ![Text]
+    { _mirqDryRun      :: !(Maybe Bool)
+    , _mirqInstanceIds :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MonitorInstances' smart constructor.
 monitorInstances :: MonitorInstances
 monitorInstances =
     MonitorInstances'
-    { _miDryRun = Nothing
-    , _miInstanceIds = mempty
+    { _mirqDryRun = Nothing
+    , _mirqInstanceIds = mempty
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-miDryRun :: Lens' MonitorInstances (Maybe Bool)
-miDryRun = lens _miDryRun (\ s a -> s{_miDryRun = a});
+mirqDryRun :: Lens' MonitorInstances (Maybe Bool)
+mirqDryRun = lens _mirqDryRun (\ s a -> s{_mirqDryRun = a});
 
 -- | One or more instance IDs.
-miInstanceIds :: Lens' MonitorInstances [Text]
-miInstanceIds = lens _miInstanceIds (\ s a -> s{_miInstanceIds = a});
+mirqInstanceIds :: Lens' MonitorInstances [Text]
+mirqInstanceIds = lens _mirqInstanceIds (\ s a -> s{_mirqInstanceIds = a});
 
 instance AWSRequest MonitorInstances where
         type Sv MonitorInstances = EC2
@@ -101,33 +101,33 @@ instance ToQuery MonitorInstances where
           = mconcat
               ["Action" =: ("MonitorInstances" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _miDryRun,
-               toQueryList "InstanceId" _miInstanceIds]
+               "DryRun" =: _mirqDryRun,
+               toQueryList "InstanceId" _mirqInstanceIds]
 
 -- | /See:/ 'monitorInstancesResponse' smart constructor.
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'mirInstanceMonitorings'
+-- * 'mirsInstanceMonitorings'
 --
--- * 'mirStatus'
+-- * 'mirsStatus'
 data MonitorInstancesResponse = MonitorInstancesResponse'
-    { _mirInstanceMonitorings :: !(Maybe [InstanceMonitoring])
-    , _mirStatus              :: !Int
+    { _mirsInstanceMonitorings :: !(Maybe [InstanceMonitoring])
+    , _mirsStatus              :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'MonitorInstancesResponse' smart constructor.
 monitorInstancesResponse :: Int -> MonitorInstancesResponse
 monitorInstancesResponse pStatus =
     MonitorInstancesResponse'
-    { _mirInstanceMonitorings = Nothing
-    , _mirStatus = pStatus
+    { _mirsInstanceMonitorings = Nothing
+    , _mirsStatus = pStatus
     }
 
 -- | Monitoring information for one or more instances.
-mirInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
-mirInstanceMonitorings = lens _mirInstanceMonitorings (\ s a -> s{_mirInstanceMonitorings = a}) . _Default;
+mirsInstanceMonitorings :: Lens' MonitorInstancesResponse [InstanceMonitoring]
+mirsInstanceMonitorings = lens _mirsInstanceMonitorings (\ s a -> s{_mirsInstanceMonitorings = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-mirStatus :: Lens' MonitorInstancesResponse Int
-mirStatus = lens _mirStatus (\ s a -> s{_mirStatus = a});
+mirsStatus :: Lens' MonitorInstancesResponse Int
+mirsStatus = lens _mirsStatus (\ s a -> s{_mirsStatus = a});

@@ -27,7 +27,7 @@ module Network.AWS.S3.DeleteBucketPolicy
     -- ** Request constructor
     , deleteBucketPolicy
     -- ** Request lenses
-    , dbpBucket
+    , dbprqBucket
 
     -- * Response
     , DeleteBucketPolicyResponse
@@ -44,21 +44,21 @@ import           Network.AWS.S3.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dbpBucket'
+-- * 'dbprqBucket'
 newtype DeleteBucketPolicy = DeleteBucketPolicy'
-    { _dbpBucket :: BucketName
+    { _dbprqBucket :: BucketName
     } deriving (Eq,Show,Data,Typeable,Generic)
 
 -- | 'DeleteBucketPolicy' smart constructor.
 deleteBucketPolicy :: BucketName -> DeleteBucketPolicy
 deleteBucketPolicy pBucket =
     DeleteBucketPolicy'
-    { _dbpBucket = pBucket
+    { _dbprqBucket = pBucket
     }
 
 -- | FIXME: Undocumented member.
-dbpBucket :: Lens' DeleteBucketPolicy BucketName
-dbpBucket = lens _dbpBucket (\ s a -> s{_dbpBucket = a});
+dbprqBucket :: Lens' DeleteBucketPolicy BucketName
+dbprqBucket = lens _dbprqBucket (\ s a -> s{_dbprqBucket = a});
 
 instance AWSRequest DeleteBucketPolicy where
         type Sv DeleteBucketPolicy = S3
@@ -72,7 +72,7 @@ instance ToHeaders DeleteBucketPolicy where
 
 instance ToPath DeleteBucketPolicy where
         toPath DeleteBucketPolicy'{..}
-          = mconcat ["/", toText _dbpBucket]
+          = mconcat ["/", toText _dbprqBucket]
 
 instance ToQuery DeleteBucketPolicy where
         toQuery = const (mconcat ["policy"])

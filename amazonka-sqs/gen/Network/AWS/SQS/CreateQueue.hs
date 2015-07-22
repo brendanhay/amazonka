@@ -55,16 +55,16 @@ module Network.AWS.SQS.CreateQueue
     -- ** Request constructor
     , createQueue
     -- ** Request lenses
-    , cqAttributes
-    , cqQueueName
+    , cqrqAttributes
+    , cqrqQueueName
 
     -- * Response
     , CreateQueueResponse
     -- ** Response constructor
     , createQueueResponse
     -- ** Response lenses
-    , cqrQueueURL
-    , cqrStatus
+    , cqrsQueueURL
+    , cqrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -76,20 +76,20 @@ import           Network.AWS.SQS.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cqAttributes'
+-- * 'cqrqAttributes'
 --
--- * 'cqQueueName'
+-- * 'cqrqQueueName'
 data CreateQueue = CreateQueue'
-    { _cqAttributes :: !(Maybe (Map QueueAttributeName Text))
-    , _cqQueueName  :: !Text
+    { _cqrqAttributes :: !(Maybe (Map QueueAttributeName Text))
+    , _cqrqQueueName  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateQueue' smart constructor.
 createQueue :: Text -> CreateQueue
 createQueue pQueueName =
     CreateQueue'
-    { _cqAttributes = Nothing
-    , _cqQueueName = pQueueName
+    { _cqrqAttributes = Nothing
+    , _cqrqQueueName = pQueueName
     }
 
 -- | A map of attributes with their corresponding values.
@@ -120,12 +120,12 @@ createQueue pQueueName =
 --     is 30. For more information about visibility timeout, see
 --     <http://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/AboutVT.html Visibility Timeout>
 --     in the /Amazon SQS Developer Guide/.
-cqAttributes :: Lens' CreateQueue (HashMap QueueAttributeName Text)
-cqAttributes = lens _cqAttributes (\ s a -> s{_cqAttributes = a}) . _Default . _Map;
+cqrqAttributes :: Lens' CreateQueue (HashMap QueueAttributeName Text)
+cqrqAttributes = lens _cqrqAttributes (\ s a -> s{_cqrqAttributes = a}) . _Default . _Map;
 
 -- | The name for the queue to be created.
-cqQueueName :: Lens' CreateQueue Text
-cqQueueName = lens _cqQueueName (\ s a -> s{_cqQueueName = a});
+cqrqQueueName :: Lens' CreateQueue Text
+cqrqQueueName = lens _cqrqQueueName (\ s a -> s{_cqrqQueueName = a});
 
 instance AWSRequest CreateQueue where
         type Sv CreateQueue = SQS
@@ -150,8 +150,8 @@ instance ToQuery CreateQueue where
                "Version" =: ("2012-11-05" :: ByteString),
                toQuery
                  (toQueryMap "Attribute" "Name" "Value" <$>
-                    _cqAttributes),
-               "QueueName" =: _cqQueueName]
+                    _cqrqAttributes),
+               "QueueName" =: _cqrqQueueName]
 
 -- | Returns the QueueUrl element of the created queue.
 --
@@ -159,26 +159,26 @@ instance ToQuery CreateQueue where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'cqrQueueURL'
+-- * 'cqrsQueueURL'
 --
--- * 'cqrStatus'
+-- * 'cqrsStatus'
 data CreateQueueResponse = CreateQueueResponse'
-    { _cqrQueueURL :: !(Maybe Text)
-    , _cqrStatus   :: !Int
+    { _cqrsQueueURL :: !(Maybe Text)
+    , _cqrsStatus   :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'CreateQueueResponse' smart constructor.
 createQueueResponse :: Int -> CreateQueueResponse
 createQueueResponse pStatus =
     CreateQueueResponse'
-    { _cqrQueueURL = Nothing
-    , _cqrStatus = pStatus
+    { _cqrsQueueURL = Nothing
+    , _cqrsStatus = pStatus
     }
 
 -- | The URL for the created Amazon SQS queue.
-cqrQueueURL :: Lens' CreateQueueResponse (Maybe Text)
-cqrQueueURL = lens _cqrQueueURL (\ s a -> s{_cqrQueueURL = a});
+cqrsQueueURL :: Lens' CreateQueueResponse (Maybe Text)
+cqrsQueueURL = lens _cqrsQueueURL (\ s a -> s{_cqrsQueueURL = a});
 
 -- | FIXME: Undocumented member.
-cqrStatus :: Lens' CreateQueueResponse Int
-cqrStatus = lens _cqrStatus (\ s a -> s{_cqrStatus = a});
+cqrsStatus :: Lens' CreateQueueResponse Int
+cqrsStatus = lens _cqrsStatus (\ s a -> s{_cqrsStatus = a});

@@ -116,37 +116,37 @@ module Network.AWS.Redshift.Types
     -- * Cluster
     , Cluster
     , cluster
-    , cluRestoreStatus
-    , cluClusterSnapshotCopyStatus
-    , cluClusterRevisionNumber
-    , cluMasterUsername
-    , cluPubliclyAccessible
-    , cluVPCId
-    , cluClusterSecurityGroups
-    , cluAutomatedSnapshotRetentionPeriod
-    , cluEncrypted
-    , cluClusterIdentifier
-    , cluNumberOfNodes
-    , cluClusterSubnetGroupName
-    , cluPreferredMaintenanceWindow
-    , cluModifyStatus
-    , cluClusterPublicKey
-    , cluClusterParameterGroups
-    , cluAvailabilityZone
-    , cluVPCSecurityGroups
-    , cluKMSKeyId
-    , cluHSMStatus
-    , cluElasticIPStatus
-    , cluClusterVersion
-    , cluNodeType
-    , cluEndpoint
-    , cluClusterCreateTime
-    , cluAllowVersionUpgrade
-    , cluPendingModifiedValues
-    , cluClusterStatus
-    , cluDBName
-    , cluTags
-    , cluClusterNodes
+    , cRestoreStatus
+    , cClusterSnapshotCopyStatus
+    , cClusterRevisionNumber
+    , cMasterUsername
+    , cPubliclyAccessible
+    , cVPCId
+    , cClusterSecurityGroups
+    , cAutomatedSnapshotRetentionPeriod
+    , cEncrypted
+    , cClusterIdentifier
+    , cNumberOfNodes
+    , cClusterSubnetGroupName
+    , cPreferredMaintenanceWindow
+    , cModifyStatus
+    , cClusterPublicKey
+    , cClusterParameterGroups
+    , cAvailabilityZone
+    , cVPCSecurityGroups
+    , cKMSKeyId
+    , cHSMStatus
+    , cElasticIPStatus
+    , cClusterVersion
+    , cNodeType
+    , cEndpoint
+    , cClusterCreateTime
+    , cAllowVersionUpgrade
+    , cPendingModifiedValues
+    , cClusterStatus
+    , cDBName
+    , cTags
+    , cClusterNodes
 
     -- * ClusterNode
     , ClusterNode
@@ -186,11 +186,11 @@ module Network.AWS.Redshift.Types
     -- * ClusterSecurityGroup
     , ClusterSecurityGroup
     , clusterSecurityGroup
-    , cClusterSecurityGroupName
-    , cIPRanges
-    , cEC2SecurityGroups
-    , cDescription
-    , cTags
+    , cluClusterSecurityGroupName
+    , cluIPRanges
+    , cluEC2SecurityGroups
+    , cluDescription
+    , cluTags
 
     -- * ClusterSecurityGroupMembership
     , ClusterSecurityGroupMembership
@@ -246,19 +246,19 @@ module Network.AWS.Redshift.Types
     -- * Endpoint
     , Endpoint
     , endpoint
-    , endAddress
-    , endPort
+    , eAddress
+    , ePort
 
     -- * Event
     , Event
     , event
-    , eveSourceType
-    , eveSeverity
-    , eveSourceIdentifier
-    , eveDate
-    , eveEventCategories
-    , eveMessage
-    , eveEventId
+    , eSourceType
+    , eSeverity
+    , eSourceIdentifier
+    , eDate
+    , eEventCategories
+    , eMessage
+    , eEventId
 
     -- * EventCategoriesMap
     , EventCategoriesMap
@@ -340,15 +340,15 @@ module Network.AWS.Redshift.Types
     -- * Parameter
     , Parameter
     , parameter
-    , parApplyType
-    , parParameterValue
-    , parMinimumEngineVersion
-    , parSource
-    , parIsModifiable
-    , parAllowedValues
-    , parDataType
-    , parParameterName
-    , parDescription
+    , pApplyType
+    , pParameterValue
+    , pMinimumEngineVersion
+    , pSource
+    , pIsModifiable
+    , pAllowedValues
+    , pDataType
+    , pParameterName
+    , pDescription
 
     -- * PendingModifiedValues
     , PendingModifiedValues
@@ -408,34 +408,34 @@ module Network.AWS.Redshift.Types
     -- * Snapshot
     , Snapshot
     , snapshot
-    , snaRestorableNodeTypes
-    , snaStatus
-    , snaAccountsWithRestoreAccess
-    , snaSnapshotIdentifier
-    , snaEncryptedWithHSM
-    , snaMasterUsername
-    , snaSourceRegion
-    , snaVPCId
-    , snaBackupProgressInMegaBytes
-    , snaEncrypted
-    , snaClusterIdentifier
-    , snaNumberOfNodes
-    , snaSnapshotType
-    , snaAvailabilityZone
-    , snaKMSKeyId
-    , snaCurrentBackupRateInMegaBytesPerSecond
-    , snaSnapshotCreateTime
-    , snaClusterVersion
-    , snaOwnerAccount
-    , snaNodeType
-    , snaClusterCreateTime
-    , snaElapsedTimeInSeconds
-    , snaEstimatedSecondsToCompletion
-    , snaTotalBackupSizeInMegaBytes
-    , snaDBName
-    , snaTags
-    , snaActualIncrementalBackupSizeInMegaBytes
-    , snaPort
+    , sRestorableNodeTypes
+    , sStatus
+    , sAccountsWithRestoreAccess
+    , sSnapshotIdentifier
+    , sEncryptedWithHSM
+    , sMasterUsername
+    , sSourceRegion
+    , sVPCId
+    , sBackupProgressInMegaBytes
+    , sEncrypted
+    , sClusterIdentifier
+    , sNumberOfNodes
+    , sSnapshotType
+    , sAvailabilityZone
+    , sKMSKeyId
+    , sCurrentBackupRateInMegaBytesPerSecond
+    , sSnapshotCreateTime
+    , sClusterVersion
+    , sOwnerAccount
+    , sNodeType
+    , sClusterCreateTime
+    , sElapsedTimeInSeconds
+    , sEstimatedSecondsToCompletion
+    , sTotalBackupSizeInMegaBytes
+    , sDBName
+    , sTags
+    , sActualIncrementalBackupSizeInMegaBytes
+    , sPort
 
     -- * SnapshotCopyGrant
     , SnapshotCopyGrant
@@ -447,9 +447,9 @@ module Network.AWS.Redshift.Types
     -- * Subnet
     , Subnet
     , subnet
-    , subSubnetStatus
-    , subSubnetIdentifier
-    , subSubnetAvailabilityZone
+    , sSubnetStatus
+    , sSubnetIdentifier
+    , sSubnetAvailabilityZone
 
     -- * Tag
     , Tag

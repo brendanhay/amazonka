@@ -33,16 +33,16 @@ module Network.AWS.CloudSearch.DescribeServiceAccessPolicies
     -- ** Request constructor
     , describeServiceAccessPolicies
     -- ** Request lenses
-    , dsapDeployed
-    , dsapDomainName
+    , dsaprqDeployed
+    , dsaprqDomainName
 
     -- * Response
     , DescribeServiceAccessPoliciesResponse
     -- ** Response constructor
     , describeServiceAccessPoliciesResponse
     -- ** Response lenses
-    , dsaprStatus
-    , dsaprAccessPolicies
+    , dsaprsStatus
+    , dsaprsAccessPolicies
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -59,30 +59,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsapDeployed'
+-- * 'dsaprqDeployed'
 --
--- * 'dsapDomainName'
+-- * 'dsaprqDomainName'
 data DescribeServiceAccessPolicies = DescribeServiceAccessPolicies'
-    { _dsapDeployed   :: !(Maybe Bool)
-    , _dsapDomainName :: !Text
+    { _dsaprqDeployed   :: !(Maybe Bool)
+    , _dsaprqDomainName :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceAccessPolicies' smart constructor.
 describeServiceAccessPolicies :: Text -> DescribeServiceAccessPolicies
 describeServiceAccessPolicies pDomainName =
     DescribeServiceAccessPolicies'
-    { _dsapDeployed = Nothing
-    , _dsapDomainName = pDomainName
+    { _dsaprqDeployed = Nothing
+    , _dsaprqDomainName = pDomainName
     }
 
 -- | Whether to display the deployed configuration (@true@) or include any
 -- pending changes (@false@). Defaults to @false@.
-dsapDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
-dsapDeployed = lens _dsapDeployed (\ s a -> s{_dsapDeployed = a});
+dsaprqDeployed :: Lens' DescribeServiceAccessPolicies (Maybe Bool)
+dsaprqDeployed = lens _dsaprqDeployed (\ s a -> s{_dsaprqDeployed = a});
 
 -- | The name of the domain you want to describe.
-dsapDomainName :: Lens' DescribeServiceAccessPolicies Text
-dsapDomainName = lens _dsapDomainName (\ s a -> s{_dsapDomainName = a});
+dsaprqDomainName :: Lens' DescribeServiceAccessPolicies Text
+dsaprqDomainName = lens _dsaprqDomainName (\ s a -> s{_dsaprqDomainName = a});
 
 instance AWSRequest DescribeServiceAccessPolicies
          where
@@ -110,8 +110,8 @@ instance ToQuery DescribeServiceAccessPolicies where
               ["Action" =:
                  ("DescribeServiceAccessPolicies" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "Deployed" =: _dsapDeployed,
-               "DomainName" =: _dsapDomainName]
+               "Deployed" =: _dsaprqDeployed,
+               "DomainName" =: _dsaprqDomainName]
 
 -- | The result of a @DescribeServiceAccessPolicies@ request.
 --
@@ -119,26 +119,26 @@ instance ToQuery DescribeServiceAccessPolicies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsaprStatus'
+-- * 'dsaprsStatus'
 --
--- * 'dsaprAccessPolicies'
+-- * 'dsaprsAccessPolicies'
 data DescribeServiceAccessPoliciesResponse = DescribeServiceAccessPoliciesResponse'
-    { _dsaprStatus         :: !Int
-    , _dsaprAccessPolicies :: !AccessPoliciesStatus
+    { _dsaprsStatus         :: !Int
+    , _dsaprsAccessPolicies :: !AccessPoliciesStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeServiceAccessPoliciesResponse' smart constructor.
 describeServiceAccessPoliciesResponse :: Int -> AccessPoliciesStatus -> DescribeServiceAccessPoliciesResponse
 describeServiceAccessPoliciesResponse pStatus pAccessPolicies =
     DescribeServiceAccessPoliciesResponse'
-    { _dsaprStatus = pStatus
-    , _dsaprAccessPolicies = pAccessPolicies
+    { _dsaprsStatus = pStatus
+    , _dsaprsAccessPolicies = pAccessPolicies
     }
 
 -- | FIXME: Undocumented member.
-dsaprStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
-dsaprStatus = lens _dsaprStatus (\ s a -> s{_dsaprStatus = a});
+dsaprsStatus :: Lens' DescribeServiceAccessPoliciesResponse Int
+dsaprsStatus = lens _dsaprsStatus (\ s a -> s{_dsaprsStatus = a});
 
 -- | The access rules configured for the domain specified in the request.
-dsaprAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
-dsaprAccessPolicies = lens _dsaprAccessPolicies (\ s a -> s{_dsaprAccessPolicies = a});
+dsaprsAccessPolicies :: Lens' DescribeServiceAccessPoliciesResponse AccessPoliciesStatus
+dsaprsAccessPolicies = lens _dsaprsAccessPolicies (\ s a -> s{_dsaprsAccessPolicies = a});

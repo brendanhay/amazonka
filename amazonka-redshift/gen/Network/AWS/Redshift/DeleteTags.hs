@@ -28,8 +28,8 @@ module Network.AWS.Redshift.DeleteTags
     -- ** Request constructor
     , deleteTags
     -- ** Request lenses
-    , delResourceName
-    , delTagKeys
+    , drqResourceName
+    , drqTagKeys
 
     -- * Response
     , DeleteTagsResponse
@@ -48,30 +48,30 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'delResourceName'
+-- * 'drqResourceName'
 --
--- * 'delTagKeys'
+-- * 'drqTagKeys'
 data DeleteTags = DeleteTags'
-    { _delResourceName :: !Text
-    , _delTagKeys      :: ![Text]
+    { _drqResourceName :: !Text
+    , _drqTagKeys      :: ![Text]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteTags' smart constructor.
 deleteTags :: Text -> DeleteTags
 deleteTags pResourceName =
     DeleteTags'
-    { _delResourceName = pResourceName
-    , _delTagKeys = mempty
+    { _drqResourceName = pResourceName
+    , _drqTagKeys = mempty
     }
 
 -- | The Amazon Resource Name (ARN) from which you want to remove the tag or
 -- tags. For example, @arn:aws:redshift:us-east-1:123456789:cluster:t1@.
-delResourceName :: Lens' DeleteTags Text
-delResourceName = lens _delResourceName (\ s a -> s{_delResourceName = a});
+drqResourceName :: Lens' DeleteTags Text
+drqResourceName = lens _drqResourceName (\ s a -> s{_drqResourceName = a});
 
 -- | The tag key that you want to delete.
-delTagKeys :: Lens' DeleteTags [Text]
-delTagKeys = lens _delTagKeys (\ s a -> s{_delTagKeys = a});
+drqTagKeys :: Lens' DeleteTags [Text]
+drqTagKeys = lens _drqTagKeys (\ s a -> s{_drqTagKeys = a});
 
 instance AWSRequest DeleteTags where
         type Sv DeleteTags = Redshift
@@ -90,8 +90,8 @@ instance ToQuery DeleteTags where
           = mconcat
               ["Action" =: ("DeleteTags" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
-               "ResourceName" =: _delResourceName,
-               "TagKeys" =: toQueryList "TagKey" _delTagKeys]
+               "ResourceName" =: _drqResourceName,
+               "TagKeys" =: toQueryList "TagKey" _drqTagKeys]
 
 -- | /See:/ 'deleteTagsResponse' smart constructor.
 data DeleteTagsResponse =

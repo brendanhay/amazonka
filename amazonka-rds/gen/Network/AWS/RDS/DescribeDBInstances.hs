@@ -28,19 +28,19 @@ module Network.AWS.RDS.DescribeDBInstances
     -- ** Request constructor
     , describeDBInstances
     -- ** Request lenses
-    , ddbiFilters
-    , ddbiDBInstanceIdentifier
-    , ddbiMaxRecords
-    , ddbiMarker
+    , ddbirqFilters
+    , ddbirqDBInstanceIdentifier
+    , ddbirqMaxRecords
+    , ddbirqMarker
 
     -- * Response
     , DescribeDBInstancesResponse
     -- ** Response constructor
     , describeDBInstancesResponse
     -- ** Response lenses
-    , desDBInstances
-    , desMarker
-    , desStatus
+    , ddbirsDBInstances
+    , ddbirsMarker
+    , ddbirsStatus
     ) where
 
 import           Network.AWS.Pager
@@ -55,33 +55,33 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ddbiFilters'
+-- * 'ddbirqFilters'
 --
--- * 'ddbiDBInstanceIdentifier'
+-- * 'ddbirqDBInstanceIdentifier'
 --
--- * 'ddbiMaxRecords'
+-- * 'ddbirqMaxRecords'
 --
--- * 'ddbiMarker'
+-- * 'ddbirqMarker'
 data DescribeDBInstances = DescribeDBInstances'
-    { _ddbiFilters              :: !(Maybe [Filter])
-    , _ddbiDBInstanceIdentifier :: !(Maybe Text)
-    , _ddbiMaxRecords           :: !(Maybe Int)
-    , _ddbiMarker               :: !(Maybe Text)
+    { _ddbirqFilters              :: !(Maybe [Filter])
+    , _ddbirqDBInstanceIdentifier :: !(Maybe Text)
+    , _ddbirqMaxRecords           :: !(Maybe Int)
+    , _ddbirqMarker               :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBInstances' smart constructor.
 describeDBInstances :: DescribeDBInstances
 describeDBInstances =
     DescribeDBInstances'
-    { _ddbiFilters = Nothing
-    , _ddbiDBInstanceIdentifier = Nothing
-    , _ddbiMaxRecords = Nothing
-    , _ddbiMarker = Nothing
+    { _ddbirqFilters = Nothing
+    , _ddbirqDBInstanceIdentifier = Nothing
+    , _ddbirqMaxRecords = Nothing
+    , _ddbirqMarker = Nothing
     }
 
 -- | This parameter is not currently supported.
-ddbiFilters :: Lens' DescribeDBInstances [Filter]
-ddbiFilters = lens _ddbiFilters (\ s a -> s{_ddbiFilters = a}) . _Default;
+ddbirqFilters :: Lens' DescribeDBInstances [Filter]
+ddbirqFilters = lens _ddbirqFilters (\ s a -> s{_ddbirqFilters = a}) . _Default;
 
 -- | The user-supplied instance identifier. If this parameter is specified,
 -- information from only the specific DB instance is returned. This
@@ -92,8 +92,8 @@ ddbiFilters = lens _ddbiFilters (\ s a -> s{_ddbiFilters = a}) . _Default;
 -- -   Must contain from 1 to 63 alphanumeric characters or hyphens
 -- -   First character must be a letter
 -- -   Cannot end with a hyphen or contain two consecutive hyphens
-ddbiDBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
-ddbiDBInstanceIdentifier = lens _ddbiDBInstanceIdentifier (\ s a -> s{_ddbiDBInstanceIdentifier = a});
+ddbirqDBInstanceIdentifier :: Lens' DescribeDBInstances (Maybe Text)
+ddbirqDBInstanceIdentifier = lens _ddbirqDBInstanceIdentifier (\ s a -> s{_ddbirqDBInstanceIdentifier = a});
 
 -- | The maximum number of records to include in the response. If more
 -- records exist than the specified @MaxRecords@ value, a pagination token
@@ -103,21 +103,21 @@ ddbiDBInstanceIdentifier = lens _ddbiDBInstanceIdentifier (\ s a -> s{_ddbiDBIns
 -- Default: 100
 --
 -- Constraints: minimum 20, maximum 100
-ddbiMaxRecords :: Lens' DescribeDBInstances (Maybe Int)
-ddbiMaxRecords = lens _ddbiMaxRecords (\ s a -> s{_ddbiMaxRecords = a});
+ddbirqMaxRecords :: Lens' DescribeDBInstances (Maybe Int)
+ddbirqMaxRecords = lens _ddbirqMaxRecords (\ s a -> s{_ddbirqMaxRecords = a});
 
 -- | An optional pagination token provided by a previous DescribeDBInstances
 -- request. If this parameter is specified, the response includes only
 -- records beyond the marker, up to the value specified by @MaxRecords@ .
-ddbiMarker :: Lens' DescribeDBInstances (Maybe Text)
-ddbiMarker = lens _ddbiMarker (\ s a -> s{_ddbiMarker = a});
+ddbirqMarker :: Lens' DescribeDBInstances (Maybe Text)
+ddbirqMarker = lens _ddbirqMarker (\ s a -> s{_ddbirqMarker = a});
 
 instance AWSPager DescribeDBInstances where
         page rq rs
-          | stop (rs ^. desMarker) = Nothing
-          | stop (rs ^. desDBInstances) = Nothing
+          | stop (rs ^. ddbirsMarker) = Nothing
+          | stop (rs ^. ddbirsDBInstances) = Nothing
           | otherwise =
-            Just $ rq & ddbiMarker .~ rs ^. desMarker
+            Just $ rq & ddbirqMarker .~ rs ^. ddbirsMarker
 
 instance AWSRequest DescribeDBInstances where
         type Sv DescribeDBInstances = RDS
@@ -145,10 +145,11 @@ instance ToQuery DescribeDBInstances where
               ["Action" =: ("DescribeDBInstances" :: ByteString),
                "Version" =: ("2014-10-31" :: ByteString),
                "Filters" =:
-                 toQuery (toQueryList "Filter" <$> _ddbiFilters),
-               "DBInstanceIdentifier" =: _ddbiDBInstanceIdentifier,
-               "MaxRecords" =: _ddbiMaxRecords,
-               "Marker" =: _ddbiMarker]
+                 toQuery (toQueryList "Filter" <$> _ddbirqFilters),
+               "DBInstanceIdentifier" =:
+                 _ddbirqDBInstanceIdentifier,
+               "MaxRecords" =: _ddbirqMaxRecords,
+               "Marker" =: _ddbirqMarker]
 
 -- | Contains the result of a successful invocation of the
 -- DescribeDBInstances action.
@@ -157,36 +158,36 @@ instance ToQuery DescribeDBInstances where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desDBInstances'
+-- * 'ddbirsDBInstances'
 --
--- * 'desMarker'
+-- * 'ddbirsMarker'
 --
--- * 'desStatus'
+-- * 'ddbirsStatus'
 data DescribeDBInstancesResponse = DescribeDBInstancesResponse'
-    { _desDBInstances :: !(Maybe [DBInstance])
-    , _desMarker      :: !(Maybe Text)
-    , _desStatus      :: !Int
+    { _ddbirsDBInstances :: !(Maybe [DBInstance])
+    , _ddbirsMarker      :: !(Maybe Text)
+    , _ddbirsStatus      :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeDBInstancesResponse' smart constructor.
 describeDBInstancesResponse :: Int -> DescribeDBInstancesResponse
 describeDBInstancesResponse pStatus =
     DescribeDBInstancesResponse'
-    { _desDBInstances = Nothing
-    , _desMarker = Nothing
-    , _desStatus = pStatus
+    { _ddbirsDBInstances = Nothing
+    , _ddbirsMarker = Nothing
+    , _ddbirsStatus = pStatus
     }
 
 -- | A list of DBInstance instances.
-desDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
-desDBInstances = lens _desDBInstances (\ s a -> s{_desDBInstances = a}) . _Default;
+ddbirsDBInstances :: Lens' DescribeDBInstancesResponse [DBInstance]
+ddbirsDBInstances = lens _ddbirsDBInstances (\ s a -> s{_ddbirsDBInstances = a}) . _Default;
 
 -- | An optional pagination token provided by a previous request. If this
 -- parameter is specified, the response includes only records beyond the
 -- marker, up to the value specified by @MaxRecords@ .
-desMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
-desMarker = lens _desMarker (\ s a -> s{_desMarker = a});
+ddbirsMarker :: Lens' DescribeDBInstancesResponse (Maybe Text)
+ddbirsMarker = lens _ddbirsMarker (\ s a -> s{_ddbirsMarker = a});
 
 -- | FIXME: Undocumented member.
-desStatus :: Lens' DescribeDBInstancesResponse Int
-desStatus = lens _desStatus (\ s a -> s{_desStatus = a});
+ddbirsStatus :: Lens' DescribeDBInstancesResponse Int
+ddbirsStatus = lens _ddbirsStatus (\ s a -> s{_ddbirsStatus = a});

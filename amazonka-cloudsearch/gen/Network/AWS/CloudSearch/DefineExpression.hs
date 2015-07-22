@@ -31,16 +31,16 @@ module Network.AWS.CloudSearch.DefineExpression
     -- ** Request constructor
     , defineExpression
     -- ** Request lenses
-    , defDomainName
-    , defExpression
+    , drqDomainName
+    , drqExpression
 
     -- * Response
     , DefineExpressionResponse
     -- ** Response constructor
     , defineExpressionResponse
     -- ** Response lenses
-    , derStatus
-    , derExpression
+    , drsStatus
+    , drsExpression
     ) where
 
 import           Network.AWS.CloudSearch.Types
@@ -56,29 +56,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'defDomainName'
+-- * 'drqDomainName'
 --
--- * 'defExpression'
+-- * 'drqExpression'
 data DefineExpression = DefineExpression'
-    { _defDomainName :: !Text
-    , _defExpression :: !Expression
+    { _drqDomainName :: !Text
+    , _drqExpression :: !Expression
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineExpression' smart constructor.
 defineExpression :: Text -> Expression -> DefineExpression
 defineExpression pDomainName pExpression =
     DefineExpression'
-    { _defDomainName = pDomainName
-    , _defExpression = pExpression
+    { _drqDomainName = pDomainName
+    , _drqExpression = pExpression
     }
 
 -- | FIXME: Undocumented member.
-defDomainName :: Lens' DefineExpression Text
-defDomainName = lens _defDomainName (\ s a -> s{_defDomainName = a});
+drqDomainName :: Lens' DefineExpression Text
+drqDomainName = lens _drqDomainName (\ s a -> s{_drqDomainName = a});
 
 -- | FIXME: Undocumented member.
-defExpression :: Lens' DefineExpression Expression
-defExpression = lens _defExpression (\ s a -> s{_defExpression = a});
+drqExpression :: Lens' DefineExpression Expression
+drqExpression = lens _drqExpression (\ s a -> s{_drqExpression = a});
 
 instance AWSRequest DefineExpression where
         type Sv DefineExpression = CloudSearch
@@ -101,8 +101,8 @@ instance ToQuery DefineExpression where
           = mconcat
               ["Action" =: ("DefineExpression" :: ByteString),
                "Version" =: ("2013-01-01" :: ByteString),
-               "DomainName" =: _defDomainName,
-               "Expression" =: _defExpression]
+               "DomainName" =: _drqDomainName,
+               "Expression" =: _drqExpression]
 
 -- | The result of a @DefineExpression@ request. Contains the status of the
 -- newly-configured expression.
@@ -111,26 +111,26 @@ instance ToQuery DefineExpression where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'derStatus'
+-- * 'drsStatus'
 --
--- * 'derExpression'
+-- * 'drsExpression'
 data DefineExpressionResponse = DefineExpressionResponse'
-    { _derStatus     :: !Int
-    , _derExpression :: !ExpressionStatus
+    { _drsStatus     :: !Int
+    , _drsExpression :: !ExpressionStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DefineExpressionResponse' smart constructor.
 defineExpressionResponse :: Int -> ExpressionStatus -> DefineExpressionResponse
 defineExpressionResponse pStatus pExpression =
     DefineExpressionResponse'
-    { _derStatus = pStatus
-    , _derExpression = pExpression
+    { _drsStatus = pStatus
+    , _drsExpression = pExpression
     }
 
 -- | FIXME: Undocumented member.
-derStatus :: Lens' DefineExpressionResponse Int
-derStatus = lens _derStatus (\ s a -> s{_derStatus = a});
+drsStatus :: Lens' DefineExpressionResponse Int
+drsStatus = lens _drsStatus (\ s a -> s{_drsStatus = a});
 
 -- | FIXME: Undocumented member.
-derExpression :: Lens' DefineExpressionResponse ExpressionStatus
-derExpression = lens _derExpression (\ s a -> s{_derExpression = a});
+drsExpression :: Lens' DefineExpressionResponse ExpressionStatus
+drsExpression = lens _drsExpression (\ s a -> s{_drsExpression = a});

@@ -38,17 +38,17 @@ module Network.AWS.DynamoDBStreams.DescribeStream
     -- ** Request constructor
     , describeStream
     -- ** Request lenses
-    , dsExclusiveStartShardId
-    , dsLimit
-    , dsStreamARN
+    , dsrqExclusiveStartShardId
+    , dsrqLimit
+    , dsrqStreamARN
 
     -- * Response
     , DescribeStreamResponse
     -- ** Response constructor
     , describeStreamResponse
     -- ** Response lenses
-    , dsrStreamDescription
-    , dsrStatus
+    , dsrsStreamDescription
+    , dsrsStatus
     ) where
 
 import           Network.AWS.DynamoDBStreams.Types
@@ -62,39 +62,39 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsExclusiveStartShardId'
+-- * 'dsrqExclusiveStartShardId'
 --
--- * 'dsLimit'
+-- * 'dsrqLimit'
 --
--- * 'dsStreamARN'
+-- * 'dsrqStreamARN'
 data DescribeStream = DescribeStream'
-    { _dsExclusiveStartShardId :: !(Maybe Text)
-    , _dsLimit                 :: !(Maybe Nat)
-    , _dsStreamARN             :: !Text
+    { _dsrqExclusiveStartShardId :: !(Maybe Text)
+    , _dsrqLimit                 :: !(Maybe Nat)
+    , _dsrqStreamARN             :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStream' smart constructor.
 describeStream :: Text -> DescribeStream
 describeStream pStreamARN =
     DescribeStream'
-    { _dsExclusiveStartShardId = Nothing
-    , _dsLimit = Nothing
-    , _dsStreamARN = pStreamARN
+    { _dsrqExclusiveStartShardId = Nothing
+    , _dsrqLimit = Nothing
+    , _dsrqStreamARN = pStreamARN
     }
 
 -- | The shard ID of the first item that this operation will evaluate. Use
 -- the value that was returned for @LastEvaluatedShardId@ in the previous
 -- operation.
-dsExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
-dsExclusiveStartShardId = lens _dsExclusiveStartShardId (\ s a -> s{_dsExclusiveStartShardId = a});
+dsrqExclusiveStartShardId :: Lens' DescribeStream (Maybe Text)
+dsrqExclusiveStartShardId = lens _dsrqExclusiveStartShardId (\ s a -> s{_dsrqExclusiveStartShardId = a});
 
 -- | The maximum number of shard objects to return. The upper limit is 100.
-dsLimit :: Lens' DescribeStream (Maybe Natural)
-dsLimit = lens _dsLimit (\ s a -> s{_dsLimit = a}) . mapping _Nat;
+dsrqLimit :: Lens' DescribeStream (Maybe Natural)
+dsrqLimit = lens _dsrqLimit (\ s a -> s{_dsrqLimit = a}) . mapping _Nat;
 
 -- | The Amazon Resource Name (ARN) for the stream.
-dsStreamARN :: Lens' DescribeStream Text
-dsStreamARN = lens _dsStreamARN (\ s a -> s{_dsStreamARN = a});
+dsrqStreamARN :: Lens' DescribeStream Text
+dsrqStreamARN = lens _dsrqStreamARN (\ s a -> s{_dsrqStreamARN = a});
 
 instance AWSRequest DescribeStream where
         type Sv DescribeStream = DynamoDBStreams
@@ -119,8 +119,9 @@ instance ToHeaders DescribeStream where
 instance ToJSON DescribeStream where
         toJSON DescribeStream'{..}
           = object
-              ["ExclusiveStartShardId" .= _dsExclusiveStartShardId,
-               "Limit" .= _dsLimit, "StreamArn" .= _dsStreamARN]
+              ["ExclusiveStartShardId" .=
+                 _dsrqExclusiveStartShardId,
+               "Limit" .= _dsrqLimit, "StreamArn" .= _dsrqStreamARN]
 
 instance ToPath DescribeStream where
         toPath = const "/"
@@ -134,29 +135,29 @@ instance ToQuery DescribeStream where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsrStreamDescription'
+-- * 'dsrsStreamDescription'
 --
--- * 'dsrStatus'
+-- * 'dsrsStatus'
 data DescribeStreamResponse = DescribeStreamResponse'
-    { _dsrStreamDescription :: !(Maybe StreamDescription)
-    , _dsrStatus            :: !Int
+    { _dsrsStreamDescription :: !(Maybe StreamDescription)
+    , _dsrsStatus            :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeStreamResponse' smart constructor.
 describeStreamResponse :: Int -> DescribeStreamResponse
 describeStreamResponse pStatus =
     DescribeStreamResponse'
-    { _dsrStreamDescription = Nothing
-    , _dsrStatus = pStatus
+    { _dsrsStreamDescription = Nothing
+    , _dsrsStatus = pStatus
     }
 
 -- | A complete description of the stream, including its creation date and
 -- time, the DynamoDB table associated with the stream, the shard IDs
 -- within the stream, and the beginning and ending sequence numbers of
 -- stream records within the shards.
-dsrStreamDescription :: Lens' DescribeStreamResponse (Maybe StreamDescription)
-dsrStreamDescription = lens _dsrStreamDescription (\ s a -> s{_dsrStreamDescription = a});
+dsrsStreamDescription :: Lens' DescribeStreamResponse (Maybe StreamDescription)
+dsrsStreamDescription = lens _dsrsStreamDescription (\ s a -> s{_dsrsStreamDescription = a});
 
 -- | FIXME: Undocumented member.
-dsrStatus :: Lens' DescribeStreamResponse Int
-dsrStatus = lens _dsrStatus (\ s a -> s{_dsrStatus = a});
+dsrsStatus :: Lens' DescribeStreamResponse Int
+dsrsStatus = lens _dsrsStatus (\ s a -> s{_dsrsStatus = a});

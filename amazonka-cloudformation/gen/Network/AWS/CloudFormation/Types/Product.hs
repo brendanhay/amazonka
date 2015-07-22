@@ -27,37 +27,37 @@ import           Network.AWS.Prelude
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'outOutputValue'
+-- * 'oOutputValue'
 --
--- * 'outOutputKey'
+-- * 'oOutputKey'
 --
--- * 'outDescription'
+-- * 'oDescription'
 data Output = Output'
-    { _outOutputValue :: !(Maybe Text)
-    , _outOutputKey   :: !(Maybe Text)
-    , _outDescription :: !(Maybe Text)
+    { _oOutputValue :: !(Maybe Text)
+    , _oOutputKey   :: !(Maybe Text)
+    , _oDescription :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Output' smart constructor.
 output :: Output
 output =
     Output'
-    { _outOutputValue = Nothing
-    , _outOutputKey = Nothing
-    , _outDescription = Nothing
+    { _oOutputValue = Nothing
+    , _oOutputKey = Nothing
+    , _oDescription = Nothing
     }
 
 -- | The value associated with the output.
-outOutputValue :: Lens' Output (Maybe Text)
-outOutputValue = lens _outOutputValue (\ s a -> s{_outOutputValue = a});
+oOutputValue :: Lens' Output (Maybe Text)
+oOutputValue = lens _oOutputValue (\ s a -> s{_oOutputValue = a});
 
 -- | The key associated with the output.
-outOutputKey :: Lens' Output (Maybe Text)
-outOutputKey = lens _outOutputKey (\ s a -> s{_outOutputKey = a});
+oOutputKey :: Lens' Output (Maybe Text)
+oOutputKey = lens _oOutputKey (\ s a -> s{_oOutputKey = a});
 
 -- | User defined description associated with the output.
-outDescription :: Lens' Output (Maybe Text)
-outDescription = lens _outDescription (\ s a -> s{_outDescription = a});
+oDescription :: Lens' Output (Maybe Text)
+oDescription = lens _oDescription (\ s a -> s{_oDescription = a});
 
 instance FromXML Output where
         parseXML x
@@ -71,41 +71,41 @@ instance FromXML Output where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'parParameterValue'
+-- * 'pParameterValue'
 --
--- * 'parParameterKey'
+-- * 'pParameterKey'
 --
--- * 'parUsePreviousValue'
+-- * 'pUsePreviousValue'
 data Parameter = Parameter'
-    { _parParameterValue   :: !(Maybe Text)
-    , _parParameterKey     :: !(Maybe Text)
-    , _parUsePreviousValue :: !(Maybe Bool)
+    { _pParameterValue   :: !(Maybe Text)
+    , _pParameterKey     :: !(Maybe Text)
+    , _pUsePreviousValue :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Parameter' smart constructor.
 parameter :: Parameter
 parameter =
     Parameter'
-    { _parParameterValue = Nothing
-    , _parParameterKey = Nothing
-    , _parUsePreviousValue = Nothing
+    { _pParameterValue = Nothing
+    , _pParameterKey = Nothing
+    , _pUsePreviousValue = Nothing
     }
 
 -- | The value associated with the parameter.
-parParameterValue :: Lens' Parameter (Maybe Text)
-parParameterValue = lens _parParameterValue (\ s a -> s{_parParameterValue = a});
+pParameterValue :: Lens' Parameter (Maybe Text)
+pParameterValue = lens _pParameterValue (\ s a -> s{_pParameterValue = a});
 
 -- | The key associated with the parameter. If you don\'t specify a key and
 -- value for a particular parameter, AWS CloudFormation uses the default
 -- value that is specified in your template.
-parParameterKey :: Lens' Parameter (Maybe Text)
-parParameterKey = lens _parParameterKey (\ s a -> s{_parParameterKey = a});
+pParameterKey :: Lens' Parameter (Maybe Text)
+pParameterKey = lens _pParameterKey (\ s a -> s{_pParameterKey = a});
 
 -- | During a stack update, use the existing parameter value that the stack
 -- is using for a given parameter key. If you specify @true@, do not
 -- specify a parameter value.
-parUsePreviousValue :: Lens' Parameter (Maybe Bool)
-parUsePreviousValue = lens _parUsePreviousValue (\ s a -> s{_parUsePreviousValue = a});
+pUsePreviousValue :: Lens' Parameter (Maybe Bool)
+pUsePreviousValue = lens _pUsePreviousValue (\ s a -> s{_pUsePreviousValue = a});
 
 instance FromXML Parameter where
         parseXML x
@@ -116,9 +116,9 @@ instance FromXML Parameter where
 instance ToQuery Parameter where
         toQuery Parameter'{..}
           = mconcat
-              ["ParameterValue" =: _parParameterValue,
-               "ParameterKey" =: _parParameterKey,
-               "UsePreviousValue" =: _parUsePreviousValue]
+              ["ParameterValue" =: _pParameterValue,
+               "ParameterKey" =: _pParameterKey,
+               "UsePreviousValue" =: _pUsePreviousValue]
 
 -- | A set of criteria that AWS CloudFormation uses to validate parameter
 -- values. Although other constraints might be defined in the stack
@@ -228,129 +228,129 @@ instance FromXML ParameterDeclaration where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'staDisableRollback'
+-- * 'sDisableRollback'
 --
--- * 'staLastUpdatedTime'
+-- * 'sLastUpdatedTime'
 --
--- * 'staNotificationARNs'
+-- * 'sNotificationARNs'
 --
--- * 'staStackStatusReason'
+-- * 'sStackStatusReason'
 --
--- * 'staOutputs'
+-- * 'sOutputs'
 --
--- * 'staParameters'
+-- * 'sParameters'
 --
--- * 'staStackId'
+-- * 'sStackId'
 --
--- * 'staCapabilities'
+-- * 'sCapabilities'
 --
--- * 'staDescription'
+-- * 'sDescription'
 --
--- * 'staTags'
+-- * 'sTags'
 --
--- * 'staTimeoutInMinutes'
+-- * 'sTimeoutInMinutes'
 --
--- * 'staStackName'
+-- * 'sStackName'
 --
--- * 'staCreationTime'
+-- * 'sCreationTime'
 --
--- * 'staStackStatus'
+-- * 'sStackStatus'
 data Stack = Stack'
-    { _staDisableRollback   :: !(Maybe Bool)
-    , _staLastUpdatedTime   :: !(Maybe ISO8601)
-    , _staNotificationARNs  :: !(Maybe [Text])
-    , _staStackStatusReason :: !(Maybe Text)
-    , _staOutputs           :: !(Maybe [Output])
-    , _staParameters        :: !(Maybe [Parameter])
-    , _staStackId           :: !(Maybe Text)
-    , _staCapabilities      :: !(Maybe [Capability])
-    , _staDescription       :: !(Maybe Text)
-    , _staTags              :: !(Maybe [Tag])
-    , _staTimeoutInMinutes  :: !(Maybe Nat)
-    , _staStackName         :: !Text
-    , _staCreationTime      :: !ISO8601
-    , _staStackStatus       :: !StackStatus
+    { _sDisableRollback   :: !(Maybe Bool)
+    , _sLastUpdatedTime   :: !(Maybe ISO8601)
+    , _sNotificationARNs  :: !(Maybe [Text])
+    , _sStackStatusReason :: !(Maybe Text)
+    , _sOutputs           :: !(Maybe [Output])
+    , _sParameters        :: !(Maybe [Parameter])
+    , _sStackId           :: !(Maybe Text)
+    , _sCapabilities      :: !(Maybe [Capability])
+    , _sDescription       :: !(Maybe Text)
+    , _sTags              :: !(Maybe [Tag])
+    , _sTimeoutInMinutes  :: !(Maybe Nat)
+    , _sStackName         :: !Text
+    , _sCreationTime      :: !ISO8601
+    , _sStackStatus       :: !StackStatus
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'Stack' smart constructor.
 stack :: Text -> UTCTime -> StackStatus -> Stack
 stack pStackName pCreationTime pStackStatus =
     Stack'
-    { _staDisableRollback = Nothing
-    , _staLastUpdatedTime = Nothing
-    , _staNotificationARNs = Nothing
-    , _staStackStatusReason = Nothing
-    , _staOutputs = Nothing
-    , _staParameters = Nothing
-    , _staStackId = Nothing
-    , _staCapabilities = Nothing
-    , _staDescription = Nothing
-    , _staTags = Nothing
-    , _staTimeoutInMinutes = Nothing
-    , _staStackName = pStackName
-    , _staCreationTime = _Time # pCreationTime
-    , _staStackStatus = pStackStatus
+    { _sDisableRollback = Nothing
+    , _sLastUpdatedTime = Nothing
+    , _sNotificationARNs = Nothing
+    , _sStackStatusReason = Nothing
+    , _sOutputs = Nothing
+    , _sParameters = Nothing
+    , _sStackId = Nothing
+    , _sCapabilities = Nothing
+    , _sDescription = Nothing
+    , _sTags = Nothing
+    , _sTimeoutInMinutes = Nothing
+    , _sStackName = pStackName
+    , _sCreationTime = _Time # pCreationTime
+    , _sStackStatus = pStackStatus
     }
 
 -- | Boolean to enable or disable rollback on stack creation failures:
 --
 -- -   @true@: disable rollback
 -- -   @false@: enable rollback
-staDisableRollback :: Lens' Stack (Maybe Bool)
-staDisableRollback = lens _staDisableRollback (\ s a -> s{_staDisableRollback = a});
+sDisableRollback :: Lens' Stack (Maybe Bool)
+sDisableRollback = lens _sDisableRollback (\ s a -> s{_sDisableRollback = a});
 
 -- | The time the stack was last updated. This field will only be returned if
 -- the stack has been updated at least once.
-staLastUpdatedTime :: Lens' Stack (Maybe UTCTime)
-staLastUpdatedTime = lens _staLastUpdatedTime (\ s a -> s{_staLastUpdatedTime = a}) . mapping _Time;
+sLastUpdatedTime :: Lens' Stack (Maybe UTCTime)
+sLastUpdatedTime = lens _sLastUpdatedTime (\ s a -> s{_sLastUpdatedTime = a}) . mapping _Time;
 
 -- | SNS topic ARNs to which stack related events are published.
-staNotificationARNs :: Lens' Stack [Text]
-staNotificationARNs = lens _staNotificationARNs (\ s a -> s{_staNotificationARNs = a}) . _Default;
+sNotificationARNs :: Lens' Stack [Text]
+sNotificationARNs = lens _sNotificationARNs (\ s a -> s{_sNotificationARNs = a}) . _Default;
 
 -- | Success\/failure message associated with the stack status.
-staStackStatusReason :: Lens' Stack (Maybe Text)
-staStackStatusReason = lens _staStackStatusReason (\ s a -> s{_staStackStatusReason = a});
+sStackStatusReason :: Lens' Stack (Maybe Text)
+sStackStatusReason = lens _sStackStatusReason (\ s a -> s{_sStackStatusReason = a});
 
 -- | A list of output structures.
-staOutputs :: Lens' Stack [Output]
-staOutputs = lens _staOutputs (\ s a -> s{_staOutputs = a}) . _Default;
+sOutputs :: Lens' Stack [Output]
+sOutputs = lens _sOutputs (\ s a -> s{_sOutputs = a}) . _Default;
 
 -- | A list of @Parameter@ structures.
-staParameters :: Lens' Stack [Parameter]
-staParameters = lens _staParameters (\ s a -> s{_staParameters = a}) . _Default;
+sParameters :: Lens' Stack [Parameter]
+sParameters = lens _sParameters (\ s a -> s{_sParameters = a}) . _Default;
 
 -- | Unique identifier of the stack.
-staStackId :: Lens' Stack (Maybe Text)
-staStackId = lens _staStackId (\ s a -> s{_staStackId = a});
+sStackId :: Lens' Stack (Maybe Text)
+sStackId = lens _sStackId (\ s a -> s{_sStackId = a});
 
 -- | The capabilities allowed in the stack.
-staCapabilities :: Lens' Stack [Capability]
-staCapabilities = lens _staCapabilities (\ s a -> s{_staCapabilities = a}) . _Default;
+sCapabilities :: Lens' Stack [Capability]
+sCapabilities = lens _sCapabilities (\ s a -> s{_sCapabilities = a}) . _Default;
 
 -- | User defined description associated with the stack.
-staDescription :: Lens' Stack (Maybe Text)
-staDescription = lens _staDescription (\ s a -> s{_staDescription = a});
+sDescription :: Lens' Stack (Maybe Text)
+sDescription = lens _sDescription (\ s a -> s{_sDescription = a});
 
 -- | A list of @Tag@s that specify cost allocation information for the stack.
-staTags :: Lens' Stack [Tag]
-staTags = lens _staTags (\ s a -> s{_staTags = a}) . _Default;
+sTags :: Lens' Stack [Tag]
+sTags = lens _sTags (\ s a -> s{_sTags = a}) . _Default;
 
 -- | The amount of time within which stack creation should complete.
-staTimeoutInMinutes :: Lens' Stack (Maybe Natural)
-staTimeoutInMinutes = lens _staTimeoutInMinutes (\ s a -> s{_staTimeoutInMinutes = a}) . mapping _Nat;
+sTimeoutInMinutes :: Lens' Stack (Maybe Natural)
+sTimeoutInMinutes = lens _sTimeoutInMinutes (\ s a -> s{_sTimeoutInMinutes = a}) . mapping _Nat;
 
 -- | The name associated with the stack.
-staStackName :: Lens' Stack Text
-staStackName = lens _staStackName (\ s a -> s{_staStackName = a});
+sStackName :: Lens' Stack Text
+sStackName = lens _sStackName (\ s a -> s{_sStackName = a});
 
 -- | Time at which the stack was created.
-staCreationTime :: Lens' Stack UTCTime
-staCreationTime = lens _staCreationTime (\ s a -> s{_staCreationTime = a}) . _Time;
+sCreationTime :: Lens' Stack UTCTime
+sCreationTime = lens _sCreationTime (\ s a -> s{_sCreationTime = a}) . _Time;
 
 -- | Current status of the stack.
-staStackStatus :: Lens' Stack StackStatus
-staStackStatus = lens _staStackStatus (\ s a -> s{_staStackStatus = a});
+sStackStatus :: Lens' Stack StackStatus
+sStackStatus = lens _sStackStatus (\ s a -> s{_sStackStatus = a});
 
 instance FromXML Stack where
         parseXML x

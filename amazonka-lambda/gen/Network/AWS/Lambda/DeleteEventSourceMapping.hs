@@ -31,21 +31,21 @@ module Network.AWS.Lambda.DeleteEventSourceMapping
     -- ** Request constructor
     , deleteEventSourceMapping
     -- ** Request lenses
-    , desmUUId
+    , desmrqUUId
 
     -- * Response
     , EventSourceMappingConfiguration
     -- ** Response constructor
     , eventSourceMappingConfiguration
     -- ** Response lenses
-    , esmcEventSourceARN
-    , esmcFunctionARN
-    , esmcState
-    , esmcUUId
-    , esmcLastProcessingResult
-    , esmcBatchSize
-    , esmcStateTransitionReason
-    , esmcLastModified
+    , desmrsEventSourceARN
+    , desmrsFunctionARN
+    , desmrsState
+    , desmrsUUId
+    , desmrsLastProcessingResult
+    , desmrsBatchSize
+    , desmrsStateTransitionReason
+    , desmrsLastModified
     ) where
 
 import           Network.AWS.Lambda.Types
@@ -57,21 +57,21 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'desmUUId'
+-- * 'desmrqUUId'
 newtype DeleteEventSourceMapping = DeleteEventSourceMapping'
-    { _desmUUId :: Text
+    { _desmrqUUId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteEventSourceMapping' smart constructor.
 deleteEventSourceMapping :: Text -> DeleteEventSourceMapping
 deleteEventSourceMapping pUUId =
     DeleteEventSourceMapping'
-    { _desmUUId = pUUId
+    { _desmrqUUId = pUUId
     }
 
 -- | The event source mapping ID.
-desmUUId :: Lens' DeleteEventSourceMapping Text
-desmUUId = lens _desmUUId (\ s a -> s{_desmUUId = a});
+desmrqUUId :: Lens' DeleteEventSourceMapping Text
+desmrqUUId = lens _desmrqUUId (\ s a -> s{_desmrqUUId = a});
 
 instance AWSRequest DeleteEventSourceMapping where
         type Sv DeleteEventSourceMapping = Lambda
@@ -87,7 +87,7 @@ instance ToPath DeleteEventSourceMapping where
         toPath DeleteEventSourceMapping'{..}
           = mconcat
               ["/2015-03-31/event-source-mappings/",
-               toText _desmUUId]
+               toText _desmrqUUId]
 
 instance ToQuery DeleteEventSourceMapping where
         toQuery = const mempty

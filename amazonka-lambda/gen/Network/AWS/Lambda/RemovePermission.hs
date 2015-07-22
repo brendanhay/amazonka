@@ -33,8 +33,8 @@ module Network.AWS.Lambda.RemovePermission
     -- ** Request constructor
     , removePermission
     -- ** Request lenses
-    , rpFunctionName
-    , rpStatementId
+    , rprqFunctionName
+    , rprqStatementId
 
     -- * Response
     , RemovePermissionResponse
@@ -51,20 +51,20 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'rpFunctionName'
+-- * 'rprqFunctionName'
 --
--- * 'rpStatementId'
+-- * 'rprqStatementId'
 data RemovePermission = RemovePermission'
-    { _rpFunctionName :: !Text
-    , _rpStatementId  :: !Text
+    { _rprqFunctionName :: !Text
+    , _rprqStatementId  :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'RemovePermission' smart constructor.
 removePermission :: Text -> Text -> RemovePermission
 removePermission pFunctionName pStatementId =
     RemovePermission'
-    { _rpFunctionName = pFunctionName
-    , _rpStatementId = pStatementId
+    { _rprqFunctionName = pFunctionName
+    , _rprqStatementId = pStatementId
     }
 
 -- | Lambda function whose access policy you want to remove a permission
@@ -78,12 +78,12 @@ removePermission pFunctionName pStatementId =
 -- \"account-id:Thumbnail\"). Note that the length constraint applies only
 -- to the ARN. If you specify only the function name, it is limited to 64
 -- character in length.
-rpFunctionName :: Lens' RemovePermission Text
-rpFunctionName = lens _rpFunctionName (\ s a -> s{_rpFunctionName = a});
+rprqFunctionName :: Lens' RemovePermission Text
+rprqFunctionName = lens _rprqFunctionName (\ s a -> s{_rprqFunctionName = a});
 
 -- | Statement ID of the permission to remove.
-rpStatementId :: Lens' RemovePermission Text
-rpStatementId = lens _rpStatementId (\ s a -> s{_rpStatementId = a});
+rprqStatementId :: Lens' RemovePermission Text
+rprqStatementId = lens _rprqStatementId (\ s a -> s{_rprqStatementId = a});
 
 instance AWSRequest RemovePermission where
         type Sv RemovePermission = Lambda
@@ -97,8 +97,8 @@ instance ToHeaders RemovePermission where
 instance ToPath RemovePermission where
         toPath RemovePermission'{..}
           = mconcat
-              ["/2015-03-31/functions/", toText _rpFunctionName,
-               "/versions/HEAD/policy/", toText _rpStatementId]
+              ["/2015-03-31/functions/", toText _rprqFunctionName,
+               "/versions/HEAD/policy/", toText _rprqStatementId]
 
 instance ToQuery RemovePermission where
         toQuery = const mempty

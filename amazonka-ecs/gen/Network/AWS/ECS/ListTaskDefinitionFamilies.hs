@@ -30,18 +30,18 @@ module Network.AWS.ECS.ListTaskDefinitionFamilies
     -- ** Request constructor
     , listTaskDefinitionFamilies
     -- ** Request lenses
-    , ltdfFamilyPrefix
-    , ltdfNextToken
-    , ltdfMaxResults
+    , ltdfrqFamilyPrefix
+    , ltdfrqNextToken
+    , ltdfrqMaxResults
 
     -- * Response
     , ListTaskDefinitionFamiliesResponse
     -- ** Response constructor
     , listTaskDefinitionFamiliesResponse
     -- ** Response lenses
-    , ltdfrFamilies
-    , ltdfrNextToken
-    , ltdfrStatus
+    , ltdfrsFamilies
+    , ltdfrsNextToken
+    , ltdfrsStatus
     ) where
 
 import           Network.AWS.ECS.Types
@@ -54,40 +54,40 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltdfFamilyPrefix'
+-- * 'ltdfrqFamilyPrefix'
 --
--- * 'ltdfNextToken'
+-- * 'ltdfrqNextToken'
 --
--- * 'ltdfMaxResults'
+-- * 'ltdfrqMaxResults'
 data ListTaskDefinitionFamilies = ListTaskDefinitionFamilies'
-    { _ltdfFamilyPrefix :: !(Maybe Text)
-    , _ltdfNextToken    :: !(Maybe Text)
-    , _ltdfMaxResults   :: !(Maybe Int)
+    { _ltdfrqFamilyPrefix :: !(Maybe Text)
+    , _ltdfrqNextToken    :: !(Maybe Text)
+    , _ltdfrqMaxResults   :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitionFamilies' smart constructor.
 listTaskDefinitionFamilies :: ListTaskDefinitionFamilies
 listTaskDefinitionFamilies =
     ListTaskDefinitionFamilies'
-    { _ltdfFamilyPrefix = Nothing
-    , _ltdfNextToken = Nothing
-    , _ltdfMaxResults = Nothing
+    { _ltdfrqFamilyPrefix = Nothing
+    , _ltdfrqNextToken = Nothing
+    , _ltdfrqMaxResults = Nothing
     }
 
 -- | The @familyPrefix@ is a string that is used to filter the results of
 -- @ListTaskDefinitionFamilies@. If you specify a @familyPrefix@, only task
 -- definition family names that begin with the @familyPrefix@ string are
 -- returned.
-ltdfFamilyPrefix :: Lens' ListTaskDefinitionFamilies (Maybe Text)
-ltdfFamilyPrefix = lens _ltdfFamilyPrefix (\ s a -> s{_ltdfFamilyPrefix = a});
+ltdfrqFamilyPrefix :: Lens' ListTaskDefinitionFamilies (Maybe Text)
+ltdfrqFamilyPrefix = lens _ltdfrqFamilyPrefix (\ s a -> s{_ltdfrqFamilyPrefix = a});
 
 -- | The @nextToken@ value returned from a previous paginated
 -- @ListTaskDefinitionFamilies@ request where @maxResults@ was used and the
 -- results exceeded the value of that parameter. Pagination continues from
 -- the end of the previous results that returned the @nextToken@ value.
 -- This value is @null@ when there are no more results to return.
-ltdfNextToken :: Lens' ListTaskDefinitionFamilies (Maybe Text)
-ltdfNextToken = lens _ltdfNextToken (\ s a -> s{_ltdfNextToken = a});
+ltdfrqNextToken :: Lens' ListTaskDefinitionFamilies (Maybe Text)
+ltdfrqNextToken = lens _ltdfrqNextToken (\ s a -> s{_ltdfrqNextToken = a});
 
 -- | The maximum number of task definition family results returned by
 -- @ListTaskDefinitionFamilies@ in paginated output. When this parameter is
@@ -98,15 +98,15 @@ ltdfNextToken = lens _ltdfNextToken (\ s a -> s{_ltdfNextToken = a});
 -- value. This value can be between 1 and 100. If this parameter is not
 -- used, then @ListTaskDefinitionFamilies@ returns up to 100 results and a
 -- @nextToken@ value if applicable.
-ltdfMaxResults :: Lens' ListTaskDefinitionFamilies (Maybe Int)
-ltdfMaxResults = lens _ltdfMaxResults (\ s a -> s{_ltdfMaxResults = a});
+ltdfrqMaxResults :: Lens' ListTaskDefinitionFamilies (Maybe Int)
+ltdfrqMaxResults = lens _ltdfrqMaxResults (\ s a -> s{_ltdfrqMaxResults = a});
 
 instance AWSPager ListTaskDefinitionFamilies where
         page rq rs
-          | stop (rs ^. ltdfrNextToken) = Nothing
-          | stop (rs ^. ltdfrFamilies) = Nothing
+          | stop (rs ^. ltdfrsNextToken) = Nothing
+          | stop (rs ^. ltdfrsFamilies) = Nothing
           | otherwise =
-            Just $ rq & ltdfNextToken .~ rs ^. ltdfrNextToken
+            Just $ rq & ltdfrqNextToken .~ rs ^. ltdfrsNextToken
 
 instance AWSRequest ListTaskDefinitionFamilies where
         type Sv ListTaskDefinitionFamilies = ECS
@@ -133,9 +133,9 @@ instance ToHeaders ListTaskDefinitionFamilies where
 instance ToJSON ListTaskDefinitionFamilies where
         toJSON ListTaskDefinitionFamilies'{..}
           = object
-              ["familyPrefix" .= _ltdfFamilyPrefix,
-               "nextToken" .= _ltdfNextToken,
-               "maxResults" .= _ltdfMaxResults]
+              ["familyPrefix" .= _ltdfrqFamilyPrefix,
+               "nextToken" .= _ltdfrqNextToken,
+               "maxResults" .= _ltdfrqMaxResults]
 
 instance ToPath ListTaskDefinitionFamilies where
         toPath = const "/"
@@ -147,39 +147,39 @@ instance ToQuery ListTaskDefinitionFamilies where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ltdfrFamilies'
+-- * 'ltdfrsFamilies'
 --
--- * 'ltdfrNextToken'
+-- * 'ltdfrsNextToken'
 --
--- * 'ltdfrStatus'
+-- * 'ltdfrsStatus'
 data ListTaskDefinitionFamiliesResponse = ListTaskDefinitionFamiliesResponse'
-    { _ltdfrFamilies  :: !(Maybe [Text])
-    , _ltdfrNextToken :: !(Maybe Text)
-    , _ltdfrStatus    :: !Int
+    { _ltdfrsFamilies  :: !(Maybe [Text])
+    , _ltdfrsNextToken :: !(Maybe Text)
+    , _ltdfrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ListTaskDefinitionFamiliesResponse' smart constructor.
 listTaskDefinitionFamiliesResponse :: Int -> ListTaskDefinitionFamiliesResponse
 listTaskDefinitionFamiliesResponse pStatus =
     ListTaskDefinitionFamiliesResponse'
-    { _ltdfrFamilies = Nothing
-    , _ltdfrNextToken = Nothing
-    , _ltdfrStatus = pStatus
+    { _ltdfrsFamilies = Nothing
+    , _ltdfrsNextToken = Nothing
+    , _ltdfrsStatus = pStatus
     }
 
 -- | The list of task definition family names that match the
 -- @ListTaskDefinitionFamilies@ request.
-ltdfrFamilies :: Lens' ListTaskDefinitionFamiliesResponse [Text]
-ltdfrFamilies = lens _ltdfrFamilies (\ s a -> s{_ltdfrFamilies = a}) . _Default;
+ltdfrsFamilies :: Lens' ListTaskDefinitionFamiliesResponse [Text]
+ltdfrsFamilies = lens _ltdfrsFamilies (\ s a -> s{_ltdfrsFamilies = a}) . _Default;
 
 -- | The @nextToken@ value to include in a future
 -- @ListTaskDefinitionFamilies@ request. When the results of a
 -- @ListTaskDefinitionFamilies@ request exceed @maxResults@, this value can
 -- be used to retrieve the next page of results. This value is @null@ when
 -- there are no more results to return.
-ltdfrNextToken :: Lens' ListTaskDefinitionFamiliesResponse (Maybe Text)
-ltdfrNextToken = lens _ltdfrNextToken (\ s a -> s{_ltdfrNextToken = a});
+ltdfrsNextToken :: Lens' ListTaskDefinitionFamiliesResponse (Maybe Text)
+ltdfrsNextToken = lens _ltdfrsNextToken (\ s a -> s{_ltdfrsNextToken = a});
 
 -- | FIXME: Undocumented member.
-ltdfrStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
-ltdfrStatus = lens _ltdfrStatus (\ s a -> s{_ltdfrStatus = a});
+ltdfrsStatus :: Lens' ListTaskDefinitionFamiliesResponse Int
+ltdfrsStatus = lens _ltdfrsStatus (\ s a -> s{_ltdfrsStatus = a});

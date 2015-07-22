@@ -27,15 +27,15 @@ module Network.AWS.KMS.GenerateRandom
     -- ** Request constructor
     , generateRandom
     -- ** Request lenses
-    , grNumberOfBytes
+    , grrqNumberOfBytes
 
     -- * Response
     , GenerateRandomResponse
     -- ** Response constructor
     , generateRandomResponse
     -- ** Response lenses
-    , grrPlaintext
-    , grrStatus
+    , grrsPlaintext
+    , grrsStatus
     ) where
 
 import           Network.AWS.KMS.Types
@@ -47,22 +47,22 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grNumberOfBytes'
+-- * 'grrqNumberOfBytes'
 newtype GenerateRandom = GenerateRandom'
-    { _grNumberOfBytes :: Maybe Nat
+    { _grrqNumberOfBytes :: Maybe Nat
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateRandom' smart constructor.
 generateRandom :: GenerateRandom
 generateRandom =
     GenerateRandom'
-    { _grNumberOfBytes = Nothing
+    { _grrqNumberOfBytes = Nothing
     }
 
 -- | Integer that contains the number of bytes to generate. Common values are
 -- 128, 256, 512, 1024 and so on. The current limit is 1024 bytes.
-grNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
-grNumberOfBytes = lens _grNumberOfBytes (\ s a -> s{_grNumberOfBytes = a}) . mapping _Nat;
+grrqNumberOfBytes :: Lens' GenerateRandom (Maybe Natural)
+grrqNumberOfBytes = lens _grrqNumberOfBytes (\ s a -> s{_grrqNumberOfBytes = a}) . mapping _Nat;
 
 instance AWSRequest GenerateRandom where
         type Sv GenerateRandom = KMS
@@ -85,7 +85,7 @@ instance ToHeaders GenerateRandom where
 
 instance ToJSON GenerateRandom where
         toJSON GenerateRandom'{..}
-          = object ["NumberOfBytes" .= _grNumberOfBytes]
+          = object ["NumberOfBytes" .= _grrqNumberOfBytes]
 
 instance ToPath GenerateRandom where
         toPath = const "/"
@@ -97,26 +97,26 @@ instance ToQuery GenerateRandom where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'grrPlaintext'
+-- * 'grrsPlaintext'
 --
--- * 'grrStatus'
+-- * 'grrsStatus'
 data GenerateRandomResponse = GenerateRandomResponse'
-    { _grrPlaintext :: !(Maybe (Sensitive Base64))
-    , _grrStatus    :: !Int
+    { _grrsPlaintext :: !(Maybe (Sensitive Base64))
+    , _grrsStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'GenerateRandomResponse' smart constructor.
 generateRandomResponse :: Int -> GenerateRandomResponse
 generateRandomResponse pStatus =
     GenerateRandomResponse'
-    { _grrPlaintext = Nothing
-    , _grrStatus = pStatus
+    { _grrsPlaintext = Nothing
+    , _grrsStatus = pStatus
     }
 
 -- | Plaintext that contains the unpredictable byte string.
-grrPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
-grrPlaintext = lens _grrPlaintext (\ s a -> s{_grrPlaintext = a}) . mapping _Sensitive;
+grrsPlaintext :: Lens' GenerateRandomResponse (Maybe Base64)
+grrsPlaintext = lens _grrsPlaintext (\ s a -> s{_grrsPlaintext = a}) . mapping _Sensitive;
 
 -- | FIXME: Undocumented member.
-grrStatus :: Lens' GenerateRandomResponse Int
-grrStatus = lens _grrStatus (\ s a -> s{_grrStatus = a});
+grrsStatus :: Lens' GenerateRandomResponse Int
+grrsStatus = lens _grrsStatus (\ s a -> s{_grrsStatus = a});

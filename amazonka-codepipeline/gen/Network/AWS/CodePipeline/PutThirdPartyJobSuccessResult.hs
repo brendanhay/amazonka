@@ -28,11 +28,11 @@ module Network.AWS.CodePipeline.PutThirdPartyJobSuccessResult
     -- ** Request constructor
     , putThirdPartyJobSuccessResult
     -- ** Request lenses
-    , ptpjsrContinuationToken
-    , ptpjsrExecutionDetails
-    , ptpjsrCurrentRevision
-    , ptpjsrJobId
-    , ptpjsrClientToken
+    , ptpjsrrqContinuationToken
+    , ptpjsrrqExecutionDetails
+    , ptpjsrrqCurrentRevision
+    , ptpjsrrqJobId
+    , ptpjsrrqClientToken
 
     -- * Response
     , PutThirdPartyJobSuccessResultResponse
@@ -51,57 +51,57 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ptpjsrContinuationToken'
+-- * 'ptpjsrrqContinuationToken'
 --
--- * 'ptpjsrExecutionDetails'
+-- * 'ptpjsrrqExecutionDetails'
 --
--- * 'ptpjsrCurrentRevision'
+-- * 'ptpjsrrqCurrentRevision'
 --
--- * 'ptpjsrJobId'
+-- * 'ptpjsrrqJobId'
 --
--- * 'ptpjsrClientToken'
+-- * 'ptpjsrrqClientToken'
 data PutThirdPartyJobSuccessResult = PutThirdPartyJobSuccessResult'
-    { _ptpjsrContinuationToken :: !(Maybe Text)
-    , _ptpjsrExecutionDetails  :: !(Maybe ExecutionDetails)
-    , _ptpjsrCurrentRevision   :: !(Maybe CurrentRevision)
-    , _ptpjsrJobId             :: !Text
-    , _ptpjsrClientToken       :: !Text
+    { _ptpjsrrqContinuationToken :: !(Maybe Text)
+    , _ptpjsrrqExecutionDetails  :: !(Maybe ExecutionDetails)
+    , _ptpjsrrqCurrentRevision   :: !(Maybe CurrentRevision)
+    , _ptpjsrrqJobId             :: !Text
+    , _ptpjsrrqClientToken       :: !Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'PutThirdPartyJobSuccessResult' smart constructor.
 putThirdPartyJobSuccessResult :: Text -> Text -> PutThirdPartyJobSuccessResult
 putThirdPartyJobSuccessResult pJobId pClientToken =
     PutThirdPartyJobSuccessResult'
-    { _ptpjsrContinuationToken = Nothing
-    , _ptpjsrExecutionDetails = Nothing
-    , _ptpjsrCurrentRevision = Nothing
-    , _ptpjsrJobId = pJobId
-    , _ptpjsrClientToken = pClientToken
+    { _ptpjsrrqContinuationToken = Nothing
+    , _ptpjsrrqExecutionDetails = Nothing
+    , _ptpjsrrqCurrentRevision = Nothing
+    , _ptpjsrrqJobId = pJobId
+    , _ptpjsrrqClientToken = pClientToken
     }
 
 -- | A system-generated token, such as a AWS CodeDeploy deployment ID, that a
 -- job uses in order to continue the job asynchronously.
-ptpjsrContinuationToken :: Lens' PutThirdPartyJobSuccessResult (Maybe Text)
-ptpjsrContinuationToken = lens _ptpjsrContinuationToken (\ s a -> s{_ptpjsrContinuationToken = a});
+ptpjsrrqContinuationToken :: Lens' PutThirdPartyJobSuccessResult (Maybe Text)
+ptpjsrrqContinuationToken = lens _ptpjsrrqContinuationToken (\ s a -> s{_ptpjsrrqContinuationToken = a});
 
 -- | FIXME: Undocumented member.
-ptpjsrExecutionDetails :: Lens' PutThirdPartyJobSuccessResult (Maybe ExecutionDetails)
-ptpjsrExecutionDetails = lens _ptpjsrExecutionDetails (\ s a -> s{_ptpjsrExecutionDetails = a});
+ptpjsrrqExecutionDetails :: Lens' PutThirdPartyJobSuccessResult (Maybe ExecutionDetails)
+ptpjsrrqExecutionDetails = lens _ptpjsrrqExecutionDetails (\ s a -> s{_ptpjsrrqExecutionDetails = a});
 
 -- | FIXME: Undocumented member.
-ptpjsrCurrentRevision :: Lens' PutThirdPartyJobSuccessResult (Maybe CurrentRevision)
-ptpjsrCurrentRevision = lens _ptpjsrCurrentRevision (\ s a -> s{_ptpjsrCurrentRevision = a});
+ptpjsrrqCurrentRevision :: Lens' PutThirdPartyJobSuccessResult (Maybe CurrentRevision)
+ptpjsrrqCurrentRevision = lens _ptpjsrrqCurrentRevision (\ s a -> s{_ptpjsrrqCurrentRevision = a});
 
 -- | The ID of the job that successfully completed. This is the same ID
 -- returned from PollForThirdPartyJobs.
-ptpjsrJobId :: Lens' PutThirdPartyJobSuccessResult Text
-ptpjsrJobId = lens _ptpjsrJobId (\ s a -> s{_ptpjsrJobId = a});
+ptpjsrrqJobId :: Lens' PutThirdPartyJobSuccessResult Text
+ptpjsrrqJobId = lens _ptpjsrrqJobId (\ s a -> s{_ptpjsrrqJobId = a});
 
 -- | The clientToken portion of the clientId and clientToken pair used to
 -- verify that the calling entity is allowed access to the job and its
 -- details.
-ptpjsrClientToken :: Lens' PutThirdPartyJobSuccessResult Text
-ptpjsrClientToken = lens _ptpjsrClientToken (\ s a -> s{_ptpjsrClientToken = a});
+ptpjsrrqClientToken :: Lens' PutThirdPartyJobSuccessResult Text
+ptpjsrrqClientToken = lens _ptpjsrrqClientToken (\ s a -> s{_ptpjsrrqClientToken = a});
 
 instance AWSRequest PutThirdPartyJobSuccessResult
          where
@@ -126,11 +126,11 @@ instance ToHeaders PutThirdPartyJobSuccessResult
 instance ToJSON PutThirdPartyJobSuccessResult where
         toJSON PutThirdPartyJobSuccessResult'{..}
           = object
-              ["continuationToken" .= _ptpjsrContinuationToken,
-               "executionDetails" .= _ptpjsrExecutionDetails,
-               "currentRevision" .= _ptpjsrCurrentRevision,
-               "jobId" .= _ptpjsrJobId,
-               "clientToken" .= _ptpjsrClientToken]
+              ["continuationToken" .= _ptpjsrrqContinuationToken,
+               "executionDetails" .= _ptpjsrrqExecutionDetails,
+               "currentRevision" .= _ptpjsrrqCurrentRevision,
+               "jobId" .= _ptpjsrrqJobId,
+               "clientToken" .= _ptpjsrrqClientToken]
 
 instance ToPath PutThirdPartyJobSuccessResult where
         toPath = const "/"

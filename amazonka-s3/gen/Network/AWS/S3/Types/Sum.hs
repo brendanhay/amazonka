@@ -385,30 +385,30 @@ instance ToXML Payer where
     toXML = toXMLText
 
 data Permission
-    = PerReadAcp
-    | PerWrite
-    | PerWriteAcp
-    | PerFullControl
-    | PerRead
+    = PFullControl
+    | PRead
+    | PWrite
+    | PReadAcp
+    | PWriteAcp
     deriving (Eq,Ord,Read,Show,Enum,Data,Typeable,Generic)
 
 instance FromText Permission where
     parser = takeLowerText >>= \case
-        "full_control" -> pure PerFullControl
-        "read" -> pure PerRead
-        "read_acp" -> pure PerReadAcp
-        "write" -> pure PerWrite
-        "write_acp" -> pure PerWriteAcp
+        "full_control" -> pure PFullControl
+        "read" -> pure PRead
+        "read_acp" -> pure PReadAcp
+        "write" -> pure PWrite
+        "write_acp" -> pure PWriteAcp
         e -> fromTextError $ "Failure parsing Permission from value: '" <> e
            <> "'. Accepted values: full_control, read, read_acp, write, write_acp"
 
 instance ToText Permission where
     toText = \case
-        PerFullControl -> "full_control"
-        PerRead -> "read"
-        PerReadAcp -> "read_acp"
-        PerWrite -> "write"
-        PerWriteAcp -> "write_acp"
+        PFullControl -> "full_control"
+        PRead -> "read"
+        PReadAcp -> "read_acp"
+        PWrite -> "write"
+        PWriteAcp -> "write_acp"
 
 instance Hashable Permission
 instance ToQuery  Permission

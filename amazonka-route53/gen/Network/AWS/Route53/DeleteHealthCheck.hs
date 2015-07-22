@@ -37,14 +37,14 @@ module Network.AWS.Route53.DeleteHealthCheck
     -- ** Request constructor
     , deleteHealthCheck
     -- ** Request lenses
-    , dhcHealthCheckId
+    , dhcrqHealthCheckId
 
     -- * Response
     , DeleteHealthCheckResponse
     -- ** Response constructor
     , deleteHealthCheckResponse
     -- ** Response lenses
-    , dhcrStatus
+    , dhcrsStatus
     ) where
 
 import           Network.AWS.Prelude
@@ -59,21 +59,21 @@ import           Network.AWS.Route53.Types
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhcHealthCheckId'
+-- * 'dhcrqHealthCheckId'
 newtype DeleteHealthCheck = DeleteHealthCheck'
-    { _dhcHealthCheckId :: Text
+    { _dhcrqHealthCheckId :: Text
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHealthCheck' smart constructor.
 deleteHealthCheck :: Text -> DeleteHealthCheck
 deleteHealthCheck pHealthCheckId =
     DeleteHealthCheck'
-    { _dhcHealthCheckId = pHealthCheckId
+    { _dhcrqHealthCheckId = pHealthCheckId
     }
 
 -- | The ID of the health check to delete.
-dhcHealthCheckId :: Lens' DeleteHealthCheck Text
-dhcHealthCheckId = lens _dhcHealthCheckId (\ s a -> s{_dhcHealthCheckId = a});
+dhcrqHealthCheckId :: Lens' DeleteHealthCheck Text
+dhcrqHealthCheckId = lens _dhcrqHealthCheckId (\ s a -> s{_dhcrqHealthCheckId = a});
 
 instance AWSRequest DeleteHealthCheck where
         type Sv DeleteHealthCheck = Route53
@@ -91,7 +91,7 @@ instance ToPath DeleteHealthCheck where
         toPath DeleteHealthCheck'{..}
           = mconcat
               ["/2013-04-01/healthcheck/",
-               toText _dhcHealthCheckId]
+               toText _dhcrqHealthCheckId]
 
 instance ToQuery DeleteHealthCheck where
         toQuery = const mempty
@@ -102,18 +102,18 @@ instance ToQuery DeleteHealthCheck where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dhcrStatus'
+-- * 'dhcrsStatus'
 newtype DeleteHealthCheckResponse = DeleteHealthCheckResponse'
-    { _dhcrStatus :: Int
+    { _dhcrsStatus :: Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DeleteHealthCheckResponse' smart constructor.
 deleteHealthCheckResponse :: Int -> DeleteHealthCheckResponse
 deleteHealthCheckResponse pStatus =
     DeleteHealthCheckResponse'
-    { _dhcrStatus = pStatus
+    { _dhcrsStatus = pStatus
     }
 
 -- | FIXME: Undocumented member.
-dhcrStatus :: Lens' DeleteHealthCheckResponse Int
-dhcrStatus = lens _dhcrStatus (\ s a -> s{_dhcrStatus = a});
+dhcrsStatus :: Lens' DeleteHealthCheckResponse Int
+dhcrsStatus = lens _dhcrsStatus (\ s a -> s{_dhcrsStatus = a});

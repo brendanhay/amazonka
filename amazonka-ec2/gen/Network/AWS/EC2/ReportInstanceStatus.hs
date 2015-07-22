@@ -34,13 +34,13 @@ module Network.AWS.EC2.ReportInstanceStatus
     -- ** Request constructor
     , reportInstanceStatus
     -- ** Request lenses
-    , risStartTime
-    , risEndTime
-    , risDryRun
-    , risDescription
-    , risInstances
-    , risStatus
-    , risReasonCodes
+    , risrqStartTime
+    , risrqEndTime
+    , risrqDryRun
+    , risrqDescription
+    , risrqInstances
+    , risrqStatus
+    , risrqReasonCodes
 
     -- * Response
     , ReportInstanceStatusResponse
@@ -57,68 +57,68 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'risStartTime'
+-- * 'risrqStartTime'
 --
--- * 'risEndTime'
+-- * 'risrqEndTime'
 --
--- * 'risDryRun'
+-- * 'risrqDryRun'
 --
--- * 'risDescription'
+-- * 'risrqDescription'
 --
--- * 'risInstances'
+-- * 'risrqInstances'
 --
--- * 'risStatus'
+-- * 'risrqStatus'
 --
--- * 'risReasonCodes'
+-- * 'risrqReasonCodes'
 data ReportInstanceStatus = ReportInstanceStatus'
-    { _risStartTime   :: !(Maybe ISO8601)
-    , _risEndTime     :: !(Maybe ISO8601)
-    , _risDryRun      :: !(Maybe Bool)
-    , _risDescription :: !(Maybe Text)
-    , _risInstances   :: ![Text]
-    , _risStatus      :: !ReportStatusType
-    , _risReasonCodes :: ![ReportInstanceReasonCodes]
+    { _risrqStartTime   :: !(Maybe ISO8601)
+    , _risrqEndTime     :: !(Maybe ISO8601)
+    , _risrqDryRun      :: !(Maybe Bool)
+    , _risrqDescription :: !(Maybe Text)
+    , _risrqInstances   :: ![Text]
+    , _risrqStatus      :: !ReportStatusType
+    , _risrqReasonCodes :: ![ReportInstanceReasonCodes]
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'ReportInstanceStatus' smart constructor.
 reportInstanceStatus :: ReportStatusType -> ReportInstanceStatus
 reportInstanceStatus pStatus =
     ReportInstanceStatus'
-    { _risStartTime = Nothing
-    , _risEndTime = Nothing
-    , _risDryRun = Nothing
-    , _risDescription = Nothing
-    , _risInstances = mempty
-    , _risStatus = pStatus
-    , _risReasonCodes = mempty
+    { _risrqStartTime = Nothing
+    , _risrqEndTime = Nothing
+    , _risrqDryRun = Nothing
+    , _risrqDescription = Nothing
+    , _risrqInstances = mempty
+    , _risrqStatus = pStatus
+    , _risrqReasonCodes = mempty
     }
 
 -- | The time at which the reported instance health state began.
-risStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
-risStartTime = lens _risStartTime (\ s a -> s{_risStartTime = a}) . mapping _Time;
+risrqStartTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
+risrqStartTime = lens _risrqStartTime (\ s a -> s{_risrqStartTime = a}) . mapping _Time;
 
 -- | The time at which the reported instance health state ended.
-risEndTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
-risEndTime = lens _risEndTime (\ s a -> s{_risEndTime = a}) . mapping _Time;
+risrqEndTime :: Lens' ReportInstanceStatus (Maybe UTCTime)
+risrqEndTime = lens _risrqEndTime (\ s a -> s{_risrqEndTime = a}) . mapping _Time;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-risDryRun :: Lens' ReportInstanceStatus (Maybe Bool)
-risDryRun = lens _risDryRun (\ s a -> s{_risDryRun = a});
+risrqDryRun :: Lens' ReportInstanceStatus (Maybe Bool)
+risrqDryRun = lens _risrqDryRun (\ s a -> s{_risrqDryRun = a});
 
 -- | Descriptive text about the health state of your instance.
-risDescription :: Lens' ReportInstanceStatus (Maybe Text)
-risDescription = lens _risDescription (\ s a -> s{_risDescription = a});
+risrqDescription :: Lens' ReportInstanceStatus (Maybe Text)
+risrqDescription = lens _risrqDescription (\ s a -> s{_risrqDescription = a});
 
 -- | One or more instances.
-risInstances :: Lens' ReportInstanceStatus [Text]
-risInstances = lens _risInstances (\ s a -> s{_risInstances = a});
+risrqInstances :: Lens' ReportInstanceStatus [Text]
+risrqInstances = lens _risrqInstances (\ s a -> s{_risrqInstances = a});
 
 -- | The status of all instances listed.
-risStatus :: Lens' ReportInstanceStatus ReportStatusType
-risStatus = lens _risStatus (\ s a -> s{_risStatus = a});
+risrqStatus :: Lens' ReportInstanceStatus ReportStatusType
+risrqStatus = lens _risrqStatus (\ s a -> s{_risrqStatus = a});
 
 -- | One or more reason codes that describes the health state of your
 -- instance.
@@ -148,8 +148,8 @@ risStatus = lens _risStatus (\ s a -> s{_risStatus = a});
 --
 -- -   @other@: [explain using the description parameter]
 --
-risReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
-risReasonCodes = lens _risReasonCodes (\ s a -> s{_risReasonCodes = a});
+risrqReasonCodes :: Lens' ReportInstanceStatus [ReportInstanceReasonCodes]
+risrqReasonCodes = lens _risrqReasonCodes (\ s a -> s{_risrqReasonCodes = a});
 
 instance AWSRequest ReportInstanceStatus where
         type Sv ReportInstanceStatus = EC2
@@ -169,12 +169,12 @@ instance ToQuery ReportInstanceStatus where
           = mconcat
               ["Action" =: ("ReportInstanceStatus" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "StartTime" =: _risStartTime,
-               "EndTime" =: _risEndTime, "DryRun" =: _risDryRun,
-               "Description" =: _risDescription,
-               toQueryList "InstanceId" _risInstances,
-               "Status" =: _risStatus,
-               toQueryList "item" _risReasonCodes]
+               "StartTime" =: _risrqStartTime,
+               "EndTime" =: _risrqEndTime, "DryRun" =: _risrqDryRun,
+               "Description" =: _risrqDescription,
+               toQueryList "InstanceId" _risrqInstances,
+               "Status" =: _risrqStatus,
+               toQueryList "item" _risrqReasonCodes]
 
 -- | /See:/ 'reportInstanceStatusResponse' smart constructor.
 data ReportInstanceStatusResponse =

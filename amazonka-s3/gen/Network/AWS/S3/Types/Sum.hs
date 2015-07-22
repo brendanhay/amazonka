@@ -44,7 +44,7 @@ instance ToText BucketCannedACL where
         BPublicReadWrite -> "public-read-write"
 
 instance Hashable BucketCannedACL
-instance ToQuery BucketCannedACL
+instance ToQuery  BucketCannedACL
 instance ToHeader BucketCannedACL
 
 instance ToXML BucketCannedACL where
@@ -71,7 +71,7 @@ instance ToText BucketLogsPermission where
         Write -> "write"
 
 instance Hashable BucketLogsPermission
-instance ToQuery BucketLogsPermission
+instance ToQuery  BucketLogsPermission
 instance ToHeader BucketLogsPermission
 
 instance FromXML BucketLogsPermission where
@@ -98,7 +98,7 @@ instance ToText BucketVersioningStatus where
         BVSSuspended -> "suspended"
 
 instance Hashable BucketVersioningStatus
-instance ToQuery BucketVersioningStatus
+instance ToQuery  BucketVersioningStatus
 instance ToHeader BucketVersioningStatus
 
 instance FromXML BucketVersioningStatus where
@@ -128,7 +128,7 @@ instance ToText EncodingType where
         URL -> "url"
 
 instance Hashable EncodingType
-instance ToQuery EncodingType
+instance ToQuery  EncodingType
 instance ToHeader EncodingType
 
 instance FromXML EncodingType where
@@ -165,7 +165,7 @@ instance ToText Event where
         S3ReducedRedundancyLostObject -> "s3:reducedredundancylostobject"
 
 instance Hashable Event
-instance ToQuery Event
+instance ToQuery  Event
 instance ToHeader Event
 
 instance FromXML Event where
@@ -192,7 +192,7 @@ instance ToText ExpirationStatus where
         ESEnabled -> "enabled"
 
 instance Hashable ExpirationStatus
-instance ToQuery ExpirationStatus
+instance ToQuery  ExpirationStatus
 instance ToHeader ExpirationStatus
 
 instance FromXML ExpirationStatus where
@@ -219,7 +219,7 @@ instance ToText MFADelete where
         MDEnabled -> "enabled"
 
 instance Hashable MFADelete
-instance ToQuery MFADelete
+instance ToQuery  MFADelete
 instance ToHeader MFADelete
 
 instance ToXML MFADelete where
@@ -243,7 +243,7 @@ instance ToText MFADeleteStatus where
         MDSEnabled -> "enabled"
 
 instance Hashable MFADeleteStatus
-instance ToQuery MFADeleteStatus
+instance ToQuery  MFADeleteStatus
 instance ToHeader MFADeleteStatus
 
 instance FromXML MFADeleteStatus where
@@ -267,7 +267,7 @@ instance ToText MetadataDirective where
         Replace -> "replace"
 
 instance Hashable MetadataDirective
-instance ToQuery MetadataDirective
+instance ToQuery  MetadataDirective
 instance ToHeader MetadataDirective
 
 instance ToXML MetadataDirective where
@@ -303,7 +303,7 @@ instance ToText ObjectCannedACL where
         OPublicReadWrite -> "public-read-write"
 
 instance Hashable ObjectCannedACL
-instance ToQuery ObjectCannedACL
+instance ToQuery  ObjectCannedACL
 instance ToHeader ObjectCannedACL
 
 instance ToXML ObjectCannedACL where
@@ -330,7 +330,7 @@ instance ToText ObjectStorageClass where
         OSCStandard -> "standard"
 
 instance Hashable ObjectStorageClass
-instance ToQuery ObjectStorageClass
+instance ToQuery  ObjectStorageClass
 instance ToHeader ObjectStorageClass
 
 instance FromXML ObjectStorageClass where
@@ -351,7 +351,7 @@ instance ToText ObjectVersionStorageClass where
         OVSCStandard -> "standard"
 
 instance Hashable ObjectVersionStorageClass
-instance ToQuery ObjectVersionStorageClass
+instance ToQuery  ObjectVersionStorageClass
 instance ToHeader ObjectVersionStorageClass
 
 instance FromXML ObjectVersionStorageClass where
@@ -375,7 +375,7 @@ instance ToText Payer where
         Requester -> "requester"
 
 instance Hashable Payer
-instance ToQuery Payer
+instance ToQuery  Payer
 instance ToHeader Payer
 
 instance FromXML Payer where
@@ -411,7 +411,7 @@ instance ToText Permission where
         PerWriteAcp -> "write_acp"
 
 instance Hashable Permission
-instance ToQuery Permission
+instance ToQuery  Permission
 instance ToHeader Permission
 
 instance FromXML Permission where
@@ -438,7 +438,7 @@ instance ToText Protocol where
         HTTPS -> "https"
 
 instance Hashable Protocol
-instance ToQuery Protocol
+instance ToQuery  Protocol
 instance ToHeader Protocol
 
 instance FromXML Protocol where
@@ -465,7 +465,7 @@ instance ToText ReplicationRuleStatus where
         Enabled -> "enabled"
 
 instance Hashable ReplicationRuleStatus
-instance ToQuery ReplicationRuleStatus
+instance ToQuery  ReplicationRuleStatus
 instance ToHeader ReplicationRuleStatus
 
 instance FromXML ReplicationRuleStatus where
@@ -498,7 +498,7 @@ instance ToText ReplicationStatus where
         Replica -> "replica"
 
 instance Hashable ReplicationStatus
-instance ToQuery ReplicationStatus
+instance ToQuery  ReplicationStatus
 instance ToHeader ReplicationStatus
 
 instance FromXML ReplicationStatus where
@@ -521,7 +521,7 @@ instance ToText RequestCharged where
         RCRequester -> "requester"
 
 instance Hashable RequestCharged
-instance ToQuery RequestCharged
+instance ToQuery  RequestCharged
 instance ToHeader RequestCharged
 
 instance FromXML RequestCharged where
@@ -547,7 +547,7 @@ instance ToText RequestPayer where
         RPRequester -> "requester"
 
 instance Hashable RequestPayer
-instance ToQuery RequestPayer
+instance ToQuery  RequestPayer
 instance ToHeader RequestPayer
 
 instance ToXML RequestPayer where
@@ -568,7 +568,7 @@ instance ToText ServerSideEncryption where
         AES256 -> "aes256"
 
 instance Hashable ServerSideEncryption
-instance ToQuery ServerSideEncryption
+instance ToQuery  ServerSideEncryption
 instance ToHeader ServerSideEncryption
 
 instance FromXML ServerSideEncryption where
@@ -595,7 +595,7 @@ instance ToText StorageClass where
         Standard -> "standard"
 
 instance Hashable StorageClass
-instance ToQuery StorageClass
+instance ToQuery  StorageClass
 instance ToHeader StorageClass
 
 instance FromXML StorageClass where
@@ -619,7 +619,7 @@ instance ToText TransitionStorageClass where
         Glacier -> "glacier"
 
 instance Hashable TransitionStorageClass
-instance ToQuery TransitionStorageClass
+instance ToQuery  TransitionStorageClass
 instance ToHeader TransitionStorageClass
 
 instance FromXML TransitionStorageClass where
@@ -649,7 +649,7 @@ instance ToText Type where
         Group -> "group"
 
 instance Hashable Type
-instance ToQuery Type
+instance ToQuery  Type
 instance ToHeader Type
 
 instance FromXML Type where

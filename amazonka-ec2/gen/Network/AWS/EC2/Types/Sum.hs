@@ -37,7 +37,7 @@ instance ToText AccountAttributeName where
         SupportedPlatforms -> "supported-platforms"
 
 instance Hashable AccountAttributeName
-instance ToQuery AccountAttributeName
+instance ToQuery  AccountAttributeName
 instance ToHeader AccountAttributeName
 
 data AddressStatus
@@ -61,7 +61,7 @@ instance ToText AddressStatus where
         MoveInProgress -> "moveinprogress"
 
 instance Hashable AddressStatus
-instance ToQuery AddressStatus
+instance ToQuery  AddressStatus
 instance ToHeader AddressStatus
 
 instance FromXML AddressStatus where
@@ -85,7 +85,7 @@ instance ToText ArchitectureValues where
         X86_64 -> "x86_64"
 
 instance Hashable ArchitectureValues
-instance ToQuery ArchitectureValues
+instance ToQuery  ArchitectureValues
 instance ToHeader ArchitectureValues
 
 instance FromXML ArchitectureValues where
@@ -115,7 +115,7 @@ instance ToText AttachmentStatus where
         Detaching -> "detaching"
 
 instance Hashable AttachmentStatus
-instance ToQuery AttachmentStatus
+instance ToQuery  AttachmentStatus
 instance ToHeader AttachmentStatus
 
 instance FromXML AttachmentStatus where
@@ -136,7 +136,7 @@ instance ToText AvailabilityZoneState where
         AZSAvailable -> "available"
 
 instance Hashable AvailabilityZoneState
-instance ToQuery AvailabilityZoneState
+instance ToQuery  AvailabilityZoneState
 instance ToHeader AvailabilityZoneState
 
 instance FromXML AvailabilityZoneState where
@@ -172,7 +172,7 @@ instance ToText BatchState where
         BSSubmitted -> "submitted"
 
 instance Hashable BatchState
-instance ToQuery BatchState
+instance ToQuery  BatchState
 instance ToHeader BatchState
 
 instance FromXML BatchState where
@@ -211,7 +211,7 @@ instance ToText BundleTaskState where
         BTSWaitingForShutdown -> "waiting-for-shutdown"
 
 instance Hashable BundleTaskState
-instance ToQuery BundleTaskState
+instance ToQuery  BundleTaskState
 instance ToHeader BundleTaskState
 
 instance FromXML BundleTaskState where
@@ -241,7 +241,7 @@ instance ToText CancelBatchErrorCode where
         UnexpectedError -> "unexpectederror"
 
 instance Hashable CancelBatchErrorCode
-instance ToQuery CancelBatchErrorCode
+instance ToQuery  CancelBatchErrorCode
 instance ToHeader CancelBatchErrorCode
 
 instance FromXML CancelBatchErrorCode where
@@ -274,7 +274,7 @@ instance ToText CancelSpotInstanceRequestState where
         CSIRSOpen -> "open"
 
 instance Hashable CancelSpotInstanceRequestState
-instance ToQuery CancelSpotInstanceRequestState
+instance ToQuery  CancelSpotInstanceRequestState
 instance ToHeader CancelSpotInstanceRequestState
 
 instance FromXML CancelSpotInstanceRequestState where
@@ -295,7 +295,7 @@ instance ToText ContainerFormat where
         Ova -> "ova"
 
 instance Hashable ContainerFormat
-instance ToQuery ContainerFormat
+instance ToQuery  ContainerFormat
 instance ToHeader ContainerFormat
 
 instance FromXML ContainerFormat where
@@ -325,7 +325,7 @@ instance ToText ConversionTaskState where
         CTSCompleted -> "completed"
 
 instance Hashable ConversionTaskState
-instance ToQuery ConversionTaskState
+instance ToQuery  ConversionTaskState
 instance ToHeader ConversionTaskState
 
 instance FromXML ConversionTaskState where
@@ -346,7 +346,7 @@ instance ToText CurrencyCodeValues where
         Usd -> "usd"
 
 instance Hashable CurrencyCodeValues
-instance ToQuery CurrencyCodeValues
+instance ToQuery  CurrencyCodeValues
 instance ToHeader CurrencyCodeValues
 
 instance FromXML CurrencyCodeValues where
@@ -370,7 +370,7 @@ instance ToText DatafeedSubscriptionState where
         DSSInactive -> "inactive"
 
 instance Hashable DatafeedSubscriptionState
-instance ToQuery DatafeedSubscriptionState
+instance ToQuery  DatafeedSubscriptionState
 instance ToHeader DatafeedSubscriptionState
 
 instance FromXML DatafeedSubscriptionState where
@@ -394,7 +394,7 @@ instance ToText DeviceType where
         InstanceStore -> "instance-store"
 
 instance Hashable DeviceType
-instance ToQuery DeviceType
+instance ToQuery  DeviceType
 instance ToHeader DeviceType
 
 instance FromXML DeviceType where
@@ -421,7 +421,7 @@ instance ToText DiskImageFormat where
         VMDK -> "vmdk"
 
 instance Hashable DiskImageFormat
-instance ToQuery DiskImageFormat
+instance ToQuery  DiskImageFormat
 instance ToHeader DiskImageFormat
 
 instance FromXML DiskImageFormat where
@@ -445,7 +445,7 @@ instance ToText DomainType where
         DTVPC -> "vpc"
 
 instance Hashable DomainType
-instance ToQuery DomainType
+instance ToQuery  DomainType
 instance ToHeader DomainType
 
 instance FromXML DomainType where
@@ -478,7 +478,7 @@ instance ToText EventCode where
         SystemReboot -> "system-reboot"
 
 instance Hashable EventCode
-instance ToQuery EventCode
+instance ToQuery  EventCode
 instance ToHeader EventCode
 
 instance FromXML EventCode where
@@ -505,7 +505,7 @@ instance ToText EventType where
         InstanceChange -> "instancechange"
 
 instance Hashable EventType
-instance ToQuery EventType
+instance ToQuery  EventType
 instance ToHeader EventType
 
 instance FromXML EventType where
@@ -532,7 +532,7 @@ instance ToText ExportEnvironment where
         VMware -> "vmware"
 
 instance Hashable ExportEnvironment
-instance ToQuery ExportEnvironment
+instance ToQuery  ExportEnvironment
 instance ToHeader ExportEnvironment
 
 instance FromXML ExportEnvironment where
@@ -562,7 +562,7 @@ instance ToText ExportTaskState where
         ETSCompleted -> "completed"
 
 instance Hashable ExportTaskState
-instance ToQuery ExportTaskState
+instance ToQuery  ExportTaskState
 instance ToHeader ExportTaskState
 
 instance FromXML ExportTaskState where
@@ -589,7 +589,7 @@ instance ToText FlowLogsResourceType where
         FLRTVPC -> "vpc"
 
 instance Hashable FlowLogsResourceType
-instance ToQuery FlowLogsResourceType
+instance ToQuery  FlowLogsResourceType
 instance ToHeader FlowLogsResourceType
 
 data GatewayType =
@@ -607,7 +607,7 @@ instance ToText GatewayType where
         IPsec_1 -> "ipsec.1"
 
 instance Hashable GatewayType
-instance ToQuery GatewayType
+instance ToQuery  GatewayType
 instance ToHeader GatewayType
 
 instance FromXML GatewayType where
@@ -631,7 +631,7 @@ instance ToText HypervisorType where
         Xen -> "xen"
 
 instance Hashable HypervisorType
-instance ToQuery HypervisorType
+instance ToQuery  HypervisorType
 instance ToHeader HypervisorType
 
 instance FromXML HypervisorType where
@@ -670,7 +670,7 @@ instance ToText ImageAttributeName where
         SRIOVNetSupport -> "sriovnetsupport"
 
 instance Hashable ImageAttributeName
-instance ToQuery ImageAttributeName
+instance ToQuery  ImageAttributeName
 instance ToHeader ImageAttributeName
 
 data ImageState
@@ -706,7 +706,7 @@ instance ToText ImageState where
         ISTransient -> "transient"
 
 instance Hashable ImageState
-instance ToQuery ImageState
+instance ToQuery  ImageState
 instance ToHeader ImageState
 
 instance FromXML ImageState where
@@ -733,7 +733,7 @@ instance ToText ImageTypeValues where
         ITVRAMDisk -> "ramdisk"
 
 instance Hashable ImageTypeValues
-instance ToQuery ImageTypeValues
+instance ToQuery  ImageTypeValues
 instance ToHeader ImageTypeValues
 
 instance FromXML ImageTypeValues where
@@ -790,7 +790,7 @@ instance ToText InstanceAttributeName where
         IANUserData -> "userdata"
 
 instance Hashable InstanceAttributeName
-instance ToQuery InstanceAttributeName
+instance ToQuery  InstanceAttributeName
 instance ToHeader InstanceAttributeName
 
 data InstanceLifecycleType =
@@ -808,7 +808,7 @@ instance ToText InstanceLifecycleType where
         Spot -> "spot"
 
 instance Hashable InstanceLifecycleType
-instance ToQuery InstanceLifecycleType
+instance ToQuery  InstanceLifecycleType
 instance ToHeader InstanceLifecycleType
 
 instance FromXML InstanceLifecycleType where
@@ -844,7 +844,7 @@ instance ToText InstanceStateName where
         ISNTerminated -> "terminated"
 
 instance Hashable InstanceStateName
-instance ToQuery InstanceStateName
+instance ToQuery  InstanceStateName
 instance ToHeader InstanceStateName
 
 instance FromXML InstanceStateName where
@@ -1021,7 +1021,7 @@ instance ToText InstanceType where
         T2_Small -> "t2.small"
 
 instance Hashable InstanceType
-instance ToQuery InstanceType
+instance ToQuery  InstanceType
 instance ToHeader InstanceType
 
 instance FromXML InstanceType where
@@ -1051,7 +1051,7 @@ instance ToText ListingState where
         LisSold -> "sold"
 
 instance Hashable ListingState
-instance ToQuery ListingState
+instance ToQuery  ListingState
 instance ToHeader ListingState
 
 instance FromXML ListingState where
@@ -1081,7 +1081,7 @@ instance ToText ListingStatus where
         LSPending -> "pending"
 
 instance Hashable ListingStatus
-instance ToQuery ListingStatus
+instance ToQuery  ListingStatus
 instance ToHeader ListingStatus
 
 instance FromXML ListingStatus where
@@ -1102,7 +1102,7 @@ instance ToText ModifySnapshotAttributeName where
         CreateVolumePermission -> "createvolumepermission"
 
 instance Hashable ModifySnapshotAttributeName
-instance ToQuery ModifySnapshotAttributeName
+instance ToQuery  ModifySnapshotAttributeName
 instance ToHeader ModifySnapshotAttributeName
 
 data MonitoringState
@@ -1129,7 +1129,7 @@ instance ToText MonitoringState where
         MSPending -> "pending"
 
 instance Hashable MonitoringState
-instance ToQuery MonitoringState
+instance ToQuery  MonitoringState
 instance ToHeader MonitoringState
 
 instance FromXML MonitoringState where
@@ -1153,7 +1153,7 @@ instance ToText MoveStatus where
         RestoringToClassic -> "restoringtoclassic"
 
 instance Hashable MoveStatus
-instance ToQuery MoveStatus
+instance ToQuery  MoveStatus
 instance ToHeader MoveStatus
 
 instance FromXML MoveStatus where
@@ -1183,7 +1183,7 @@ instance ToText NetworkInterfaceAttribute where
         NIASourceDestCheck -> "sourcedestcheck"
 
 instance Hashable NetworkInterfaceAttribute
-instance ToQuery NetworkInterfaceAttribute
+instance ToQuery  NetworkInterfaceAttribute
 instance ToHeader NetworkInterfaceAttribute
 
 data NetworkInterfaceStatus
@@ -1210,7 +1210,7 @@ instance ToText NetworkInterfaceStatus where
         NISInUse -> "in-use"
 
 instance Hashable NetworkInterfaceStatus
-instance ToQuery NetworkInterfaceStatus
+instance ToQuery  NetworkInterfaceStatus
 instance ToHeader NetworkInterfaceStatus
 
 instance FromXML NetworkInterfaceStatus where
@@ -1246,7 +1246,7 @@ instance ToText OfferingTypeValues where
         PartialUpfront -> "partial upfront"
 
 instance Hashable OfferingTypeValues
-instance ToQuery OfferingTypeValues
+instance ToQuery  OfferingTypeValues
 instance ToHeader OfferingTypeValues
 
 instance FromXML OfferingTypeValues where
@@ -1267,7 +1267,7 @@ instance ToText PermissionGroup where
         PGAll -> "all"
 
 instance Hashable PermissionGroup
-instance ToQuery PermissionGroup
+instance ToQuery  PermissionGroup
 instance ToHeader PermissionGroup
 
 instance FromXML PermissionGroup where
@@ -1297,7 +1297,7 @@ instance ToText PlacementGroupState where
         PGSPending -> "pending"
 
 instance Hashable PlacementGroupState
-instance ToQuery PlacementGroupState
+instance ToQuery  PlacementGroupState
 instance ToHeader PlacementGroupState
 
 instance FromXML PlacementGroupState where
@@ -1318,7 +1318,7 @@ instance ToText PlacementStrategy where
         Cluster -> "cluster"
 
 instance Hashable PlacementStrategy
-instance ToQuery PlacementStrategy
+instance ToQuery  PlacementStrategy
 instance ToHeader PlacementStrategy
 
 instance FromXML PlacementStrategy where
@@ -1339,7 +1339,7 @@ instance ToText PlatformValues where
         PVWindows -> "windows"
 
 instance Hashable PlatformValues
-instance ToQuery PlatformValues
+instance ToQuery  PlatformValues
 instance ToHeader PlatformValues
 
 instance FromXML PlatformValues where
@@ -1363,7 +1363,7 @@ instance ToText ProductCodeValues where
         Marketplace -> "marketplace"
 
 instance Hashable ProductCodeValues
-instance ToQuery ProductCodeValues
+instance ToQuery  ProductCodeValues
 instance ToHeader ProductCodeValues
 
 instance FromXML ProductCodeValues where
@@ -1393,7 +1393,7 @@ instance ToText RIProductDescription where
         WindowsAmazonVPC -> "windows (amazon vpc)"
 
 instance Hashable RIProductDescription
-instance ToQuery RIProductDescription
+instance ToQuery  RIProductDescription
 instance ToHeader RIProductDescription
 
 instance FromXML RIProductDescription where
@@ -1414,7 +1414,7 @@ instance ToText RecurringChargeFrequency where
         Hourly -> "hourly"
 
 instance Hashable RecurringChargeFrequency
-instance ToQuery RecurringChargeFrequency
+instance ToQuery  RecurringChargeFrequency
 instance ToHeader RecurringChargeFrequency
 
 instance FromXML RecurringChargeFrequency where
@@ -1459,7 +1459,7 @@ instance ToText ReportInstanceReasonCodes where
         Unresponsive -> "unresponsive"
 
 instance Hashable ReportInstanceReasonCodes
-instance ToQuery ReportInstanceReasonCodes
+instance ToQuery  ReportInstanceReasonCodes
 instance ToHeader ReportInstanceReasonCodes
 
 data ReportStatusType
@@ -1480,7 +1480,7 @@ instance ToText ReportStatusType where
         OK -> "ok"
 
 instance Hashable ReportStatusType
-instance ToQuery ReportStatusType
+instance ToQuery  ReportStatusType
 instance ToHeader ReportStatusType
 
 data ReservedInstanceState
@@ -1507,7 +1507,7 @@ instance ToText ReservedInstanceState where
         Retired -> "retired"
 
 instance Hashable ReservedInstanceState
-instance ToQuery ReservedInstanceState
+instance ToQuery  ReservedInstanceState
 instance ToHeader ReservedInstanceState
 
 instance FromXML ReservedInstanceState where
@@ -1528,7 +1528,7 @@ instance ToText ResetImageAttributeName where
         RIANLaunchPermission -> "launchpermission"
 
 instance Hashable ResetImageAttributeName
-instance ToQuery ResetImageAttributeName
+instance ToQuery  ResetImageAttributeName
 instance ToHeader ResetImageAttributeName
 
 data ResourceType
@@ -1594,7 +1594,7 @@ instance ToText ResourceType where
         Volume -> "volume"
 
 instance Hashable ResourceType
-instance ToQuery ResourceType
+instance ToQuery  ResourceType
 instance ToHeader ResourceType
 
 instance FromXML ResourceType where
@@ -1621,7 +1621,7 @@ instance ToText RouteOrigin where
         EnableVGWRoutePropagation -> "enablevgwroutepropagation"
 
 instance Hashable RouteOrigin
-instance ToQuery RouteOrigin
+instance ToQuery  RouteOrigin
 instance ToHeader RouteOrigin
 
 instance FromXML RouteOrigin where
@@ -1645,7 +1645,7 @@ instance ToText RouteState where
         RSBlackhole -> "blackhole"
 
 instance Hashable RouteState
-instance ToQuery RouteState
+instance ToQuery  RouteState
 instance ToHeader RouteState
 
 instance FromXML RouteState where
@@ -1669,7 +1669,7 @@ instance ToText RuleAction where
         Deny -> "deny"
 
 instance Hashable RuleAction
-instance ToQuery RuleAction
+instance ToQuery  RuleAction
 instance ToHeader RuleAction
 
 instance FromXML RuleAction where
@@ -1693,7 +1693,7 @@ instance ToText ShutdownBehavior where
         Terminate -> "terminate"
 
 instance Hashable ShutdownBehavior
-instance ToQuery ShutdownBehavior
+instance ToQuery  ShutdownBehavior
 instance ToHeader ShutdownBehavior
 
 data SnapshotAttributeName
@@ -1714,7 +1714,7 @@ instance ToText SnapshotAttributeName where
         SANProductCodes -> "productcodes"
 
 instance Hashable SnapshotAttributeName
-instance ToQuery SnapshotAttributeName
+instance ToQuery  SnapshotAttributeName
 instance ToHeader SnapshotAttributeName
 
 data SnapshotState
@@ -1738,7 +1738,7 @@ instance ToText SnapshotState where
         SSPending -> "pending"
 
 instance Hashable SnapshotState
-instance ToQuery SnapshotState
+instance ToQuery  SnapshotState
 instance ToHeader SnapshotState
 
 instance FromXML SnapshotState where
@@ -1771,7 +1771,7 @@ instance ToText SpotInstanceState where
         SISOpen -> "open"
 
 instance Hashable SpotInstanceState
-instance ToQuery SpotInstanceState
+instance ToQuery  SpotInstanceState
 instance ToHeader SpotInstanceState
 
 instance FromXML SpotInstanceState where
@@ -1795,7 +1795,7 @@ instance ToText SpotInstanceType where
         Persistent -> "persistent"
 
 instance Hashable SpotInstanceType
-instance ToQuery SpotInstanceType
+instance ToQuery  SpotInstanceType
 instance ToHeader SpotInstanceType
 
 instance FromXML SpotInstanceType where
@@ -1825,7 +1825,7 @@ instance ToText State where
         Pending -> "pending"
 
 instance Hashable State
-instance ToQuery State
+instance ToQuery  State
 instance ToHeader State
 
 instance FromXML State where
@@ -1846,7 +1846,7 @@ instance ToText StatusName where
         Reachability -> "reachability"
 
 instance Hashable StatusName
-instance ToQuery StatusName
+instance ToQuery  StatusName
 instance ToHeader StatusName
 
 instance FromXML StatusName where
@@ -1876,7 +1876,7 @@ instance ToText StatusType where
         Passed -> "passed"
 
 instance Hashable StatusType
-instance ToQuery StatusType
+instance ToQuery  StatusType
 instance ToHeader StatusType
 
 instance FromXML StatusType where
@@ -1900,7 +1900,7 @@ instance ToText SubnetState where
         SubPending -> "pending"
 
 instance Hashable SubnetState
-instance ToQuery SubnetState
+instance ToQuery  SubnetState
 instance ToHeader SubnetState
 
 instance FromXML SubnetState where
@@ -1933,7 +1933,7 @@ instance ToText SummaryStatus where
         SSOK -> "ok"
 
 instance Hashable SummaryStatus
-instance ToQuery SummaryStatus
+instance ToQuery  SummaryStatus
 instance ToHeader SummaryStatus
 
 instance FromXML SummaryStatus where
@@ -1957,7 +1957,7 @@ instance ToText TelemetryStatus where
         UP -> "up"
 
 instance Hashable TelemetryStatus
-instance ToQuery TelemetryStatus
+instance ToQuery  TelemetryStatus
 instance ToHeader TelemetryStatus
 
 instance FromXML TelemetryStatus where
@@ -1981,7 +1981,7 @@ instance ToText Tenancy where
         Default -> "default"
 
 instance Hashable Tenancy
-instance ToQuery Tenancy
+instance ToQuery  Tenancy
 instance ToHeader Tenancy
 
 instance FromXML Tenancy where
@@ -2008,7 +2008,7 @@ instance ToText TrafficType where
         Reject -> "reject"
 
 instance Hashable TrafficType
-instance ToQuery TrafficType
+instance ToQuery  TrafficType
 instance ToHeader TrafficType
 
 instance FromXML TrafficType where
@@ -2032,7 +2032,7 @@ instance ToText VPCAttributeName where
         EnableDNSSupport -> "enablednssupport"
 
 instance Hashable VPCAttributeName
-instance ToQuery VPCAttributeName
+instance ToQuery  VPCAttributeName
 instance ToHeader VPCAttributeName
 
 data VPCPeeringConnectionStateReasonCode
@@ -2074,7 +2074,7 @@ instance ToText VPCPeeringConnectionStateReasonCode where
         VPCSRCRejected -> "rejected"
 
 instance Hashable VPCPeeringConnectionStateReasonCode
-instance ToQuery VPCPeeringConnectionStateReasonCode
+instance ToQuery  VPCPeeringConnectionStateReasonCode
 instance ToHeader VPCPeeringConnectionStateReasonCode
 
 instance FromXML VPCPeeringConnectionStateReasonCode where
@@ -2098,7 +2098,7 @@ instance ToText VPCState where
         VpcPending -> "pending"
 
 instance Hashable VPCState
-instance ToQuery VPCState
+instance ToQuery  VPCState
 instance ToHeader VPCState
 
 instance FromXML VPCState where
@@ -2128,7 +2128,7 @@ instance ToText VPNState where
         VSPending -> "pending"
 
 instance Hashable VPNState
-instance ToQuery VPNState
+instance ToQuery  VPNState
 instance ToHeader VPNState
 
 instance FromXML VPNState where
@@ -2149,7 +2149,7 @@ instance ToText VPNStaticRouteSource where
         Static -> "static"
 
 instance Hashable VPNStaticRouteSource
-instance ToQuery VPNStaticRouteSource
+instance ToQuery  VPNStaticRouteSource
 instance ToHeader VPNStaticRouteSource
 
 instance FromXML VPNStaticRouteSource where
@@ -2173,7 +2173,7 @@ instance ToText VirtualizationType where
         Paravirtual -> "paravirtual"
 
 instance Hashable VirtualizationType
-instance ToQuery VirtualizationType
+instance ToQuery  VirtualizationType
 instance ToHeader VirtualizationType
 
 instance FromXML VirtualizationType where
@@ -2203,7 +2203,7 @@ instance ToText VolumeAttachmentState where
         VASDetaching -> "detaching"
 
 instance Hashable VolumeAttachmentState
-instance ToQuery VolumeAttachmentState
+instance ToQuery  VolumeAttachmentState
 instance ToHeader VolumeAttachmentState
 
 instance FromXML VolumeAttachmentState where
@@ -2227,7 +2227,7 @@ instance ToText VolumeAttributeName where
         VANProductCodes -> "productcodes"
 
 instance Hashable VolumeAttributeName
-instance ToQuery VolumeAttributeName
+instance ToQuery  VolumeAttributeName
 instance ToHeader VolumeAttributeName
 
 data VolumeState
@@ -2260,7 +2260,7 @@ instance ToText VolumeState where
         VolInUse -> "in-use"
 
 instance Hashable VolumeState
-instance ToQuery VolumeState
+instance ToQuery  VolumeState
 instance ToHeader VolumeState
 
 instance FromXML VolumeState where
@@ -2287,7 +2287,7 @@ instance ToText VolumeStatusInfoStatus where
         VSISOK -> "ok"
 
 instance Hashable VolumeStatusInfoStatus
-instance ToQuery VolumeStatusInfoStatus
+instance ToQuery  VolumeStatusInfoStatus
 instance ToHeader VolumeStatusInfoStatus
 
 instance FromXML VolumeStatusInfoStatus where
@@ -2311,7 +2311,7 @@ instance ToText VolumeStatusName where
         IOPerformance -> "io-performance"
 
 instance Hashable VolumeStatusName
-instance ToQuery VolumeStatusName
+instance ToQuery  VolumeStatusName
 instance ToHeader VolumeStatusName
 
 instance FromXML VolumeStatusName where
@@ -2338,7 +2338,7 @@ instance ToText VolumeType where
         Standard -> "standard"
 
 instance Hashable VolumeType
-instance ToQuery VolumeType
+instance ToQuery  VolumeType
 instance ToHeader VolumeType
 
 instance FromXML VolumeType where

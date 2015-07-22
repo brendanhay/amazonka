@@ -40,7 +40,7 @@ instance ToText AppAttributesKeys where
         RailsEnv -> "railsenv"
 
 instance Hashable AppAttributesKeys
-instance ToQuery AppAttributesKeys
+instance ToQuery  AppAttributesKeys
 instance ToHeader AppAttributesKeys
 
 instance ToJSON AppAttributesKeys where
@@ -79,7 +79,7 @@ instance ToText AppType where
         Static -> "static"
 
 instance Hashable AppType
-instance ToQuery AppType
+instance ToQuery  AppType
 instance ToHeader AppType
 
 instance ToJSON AppType where
@@ -106,7 +106,7 @@ instance ToText Architecture where
         X86_64 -> "x86_64"
 
 instance Hashable Architecture
-instance ToQuery Architecture
+instance ToQuery  Architecture
 instance ToHeader Architecture
 
 instance ToJSON Architecture where
@@ -133,7 +133,7 @@ instance ToText AutoScalingType where
         Timer -> "timer"
 
 instance Hashable AutoScalingType
-instance ToQuery AutoScalingType
+instance ToQuery  AutoScalingType
 instance ToHeader AutoScalingType
 
 instance ToJSON AutoScalingType where
@@ -190,7 +190,7 @@ instance ToText DeploymentCommandName where
         UpdateDependencies -> "update_dependencies"
 
 instance Hashable DeploymentCommandName
-instance ToQuery DeploymentCommandName
+instance ToQuery  DeploymentCommandName
 instance ToHeader DeploymentCommandName
 
 instance ToJSON DeploymentCommandName where
@@ -283,7 +283,7 @@ instance ToText LayerAttributesKeys where
         RubygemsVersion -> "rubygemsversion"
 
 instance Hashable LayerAttributesKeys
-instance ToQuery LayerAttributesKeys
+instance ToQuery  LayerAttributesKeys
 instance ToHeader LayerAttributesKeys
 
 instance ToJSON LayerAttributesKeys where
@@ -334,7 +334,7 @@ instance ToText LayerType where
         Web -> "web"
 
 instance Hashable LayerType
-instance ToQuery LayerType
+instance ToQuery  LayerType
 instance ToHeader LayerType
 
 instance ToJSON LayerType where
@@ -361,7 +361,7 @@ instance ToText RootDeviceType where
         InstanceStore -> "instance-store"
 
 instance Hashable RootDeviceType
-instance ToQuery RootDeviceType
+instance ToQuery  RootDeviceType
 instance ToHeader RootDeviceType
 
 instance ToJSON RootDeviceType where
@@ -394,7 +394,7 @@ instance ToText SourceType where
         SVN -> "svn"
 
 instance Hashable SourceType
-instance ToQuery SourceType
+instance ToQuery  SourceType
 instance ToHeader SourceType
 
 instance ToJSON SourceType where
@@ -418,7 +418,7 @@ instance ToText StackAttributesKeys where
         Color -> "color"
 
 instance Hashable StackAttributesKeys
-instance ToQuery StackAttributesKeys
+instance ToQuery  StackAttributesKeys
 instance ToHeader StackAttributesKeys
 
 instance ToJSON StackAttributesKeys where
@@ -445,7 +445,7 @@ instance ToText VirtualizationType where
         Paravirtual -> "paravirtual"
 
 instance Hashable VirtualizationType
-instance ToQuery VirtualizationType
+instance ToQuery  VirtualizationType
 instance ToHeader VirtualizationType
 
 instance FromJSON VirtualizationType where
@@ -472,7 +472,7 @@ instance ToText VolumeType where
         Standard -> "standard"
 
 instance Hashable VolumeType
-instance ToQuery VolumeType
+instance ToQuery  VolumeType
 instance ToHeader VolumeType
 
 instance ToJSON VolumeType where

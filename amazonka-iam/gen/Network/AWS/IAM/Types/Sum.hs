@@ -40,7 +40,7 @@ instance ToText AssignmentStatusType where
         Unassigned -> "unassigned"
 
 instance Hashable AssignmentStatusType
-instance ToQuery AssignmentStatusType
+instance ToQuery  AssignmentStatusType
 instance ToHeader AssignmentStatusType
 
 data EncodingType
@@ -61,7 +61,7 @@ instance ToText EncodingType where
         SSH -> "ssh"
 
 instance Hashable EncodingType
-instance ToQuery EncodingType
+instance ToQuery  EncodingType
 instance ToHeader EncodingType
 
 data EntityType
@@ -91,7 +91,7 @@ instance ToText EntityType where
         User -> "user"
 
 instance Hashable EntityType
-instance ToQuery EntityType
+instance ToQuery  EntityType
 instance ToHeader EntityType
 
 data PolicyScopeType
@@ -115,7 +115,7 @@ instance ToText PolicyScopeType where
         Local -> "local"
 
 instance Hashable PolicyScopeType
-instance ToQuery PolicyScopeType
+instance ToQuery  PolicyScopeType
 instance ToHeader PolicyScopeType
 
 data ReportFormatType =
@@ -133,7 +133,7 @@ instance ToText ReportFormatType where
         TextCSV -> "text/csv"
 
 instance Hashable ReportFormatType
-instance ToQuery ReportFormatType
+instance ToQuery  ReportFormatType
 instance ToHeader ReportFormatType
 
 instance FromXML ReportFormatType where
@@ -160,7 +160,7 @@ instance ToText ReportStateType where
         Started -> "started"
 
 instance Hashable ReportStateType
-instance ToQuery ReportStateType
+instance ToQuery  ReportStateType
 instance ToHeader ReportStateType
 
 instance FromXML ReportStateType where
@@ -184,7 +184,7 @@ instance ToText StatusType where
         Inactive -> "inactive"
 
 instance Hashable StatusType
-instance ToQuery StatusType
+instance ToQuery  StatusType
 instance ToHeader StatusType
 
 instance FromXML StatusType where
@@ -277,7 +277,7 @@ instance ToText SummaryKeyType where
         VersionsPerPolicyQuota -> "versionsperpolicyquota"
 
 instance Hashable SummaryKeyType
-instance ToQuery SummaryKeyType
+instance ToQuery  SummaryKeyType
 instance ToHeader SummaryKeyType
 
 instance FromXML SummaryKeyType where

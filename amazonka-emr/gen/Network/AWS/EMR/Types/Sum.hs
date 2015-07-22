@@ -43,7 +43,7 @@ instance ToText ActionOnFailure where
         TerminateJobFlow -> "terminate_job_flow"
 
 instance Hashable ActionOnFailure
-instance ToQuery ActionOnFailure
+instance ToQuery  ActionOnFailure
 instance ToHeader ActionOnFailure
 
 instance ToJSON ActionOnFailure where
@@ -85,7 +85,7 @@ instance ToText ClusterState where
         Waiting -> "waiting"
 
 instance Hashable ClusterState
-instance ToQuery ClusterState
+instance ToQuery  ClusterState
 instance ToHeader ClusterState
 
 instance ToJSON ClusterState where
@@ -127,7 +127,7 @@ instance ToText ClusterStateChangeReasonCode where
         ValidationError -> "validation_error"
 
 instance Hashable ClusterStateChangeReasonCode
-instance ToQuery ClusterStateChangeReasonCode
+instance ToQuery  ClusterStateChangeReasonCode
 instance ToHeader ClusterStateChangeReasonCode
 
 instance FromJSON ClusterStateChangeReasonCode where
@@ -175,7 +175,7 @@ instance ToText InstanceGroupState where
         IGSTerminating -> "terminating"
 
 instance Hashable InstanceGroupState
-instance ToQuery InstanceGroupState
+instance ToQuery  InstanceGroupState
 instance ToHeader InstanceGroupState
 
 instance FromJSON InstanceGroupState where
@@ -205,7 +205,7 @@ instance ToText InstanceGroupStateChangeReasonCode where
         IGSCRCValidationError -> "validation_error"
 
 instance Hashable InstanceGroupStateChangeReasonCode
-instance ToQuery InstanceGroupStateChangeReasonCode
+instance ToQuery  InstanceGroupStateChangeReasonCode
 instance ToHeader InstanceGroupStateChangeReasonCode
 
 instance FromJSON InstanceGroupStateChangeReasonCode where
@@ -232,7 +232,7 @@ instance ToText InstanceGroupType where
         IGTTask -> "task"
 
 instance Hashable InstanceGroupType
-instance ToQuery InstanceGroupType
+instance ToQuery  InstanceGroupType
 instance ToHeader InstanceGroupType
 
 instance ToJSON InstanceGroupType where
@@ -262,7 +262,7 @@ instance ToText InstanceRoleType where
         Task -> "task"
 
 instance Hashable InstanceRoleType
-instance ToQuery InstanceRoleType
+instance ToQuery  InstanceRoleType
 instance ToHeader InstanceRoleType
 
 instance ToJSON InstanceRoleType where
@@ -295,7 +295,7 @@ instance ToText InstanceState where
         ISTerminated -> "terminated"
 
 instance Hashable InstanceState
-instance ToQuery InstanceState
+instance ToQuery  InstanceState
 instance ToHeader InstanceState
 
 instance FromJSON InstanceState where
@@ -328,7 +328,7 @@ instance ToText InstanceStateChangeReasonCode where
         ISCRCValidationError -> "validation_error"
 
 instance Hashable InstanceStateChangeReasonCode
-instance ToQuery InstanceStateChangeReasonCode
+instance ToQuery  InstanceStateChangeReasonCode
 instance ToHeader InstanceStateChangeReasonCode
 
 instance FromJSON InstanceStateChangeReasonCode where
@@ -352,7 +352,7 @@ instance ToText MarketType where
         Spot -> "spot"
 
 instance Hashable MarketType
-instance ToQuery MarketType
+instance ToQuery  MarketType
 instance ToHeader MarketType
 
 instance ToJSON MarketType where
@@ -391,7 +391,7 @@ instance ToText StepState where
         SSRunning -> "running"
 
 instance Hashable StepState
-instance ToQuery StepState
+instance ToQuery  StepState
 instance ToHeader StepState
 
 instance ToJSON StepState where
@@ -415,7 +415,7 @@ instance ToText StepStateChangeReasonCode where
         None -> "none"
 
 instance Hashable StepStateChangeReasonCode
-instance ToQuery StepStateChangeReasonCode
+instance ToQuery  StepStateChangeReasonCode
 instance ToHeader StepStateChangeReasonCode
 
 instance FromJSON StepStateChangeReasonCode where

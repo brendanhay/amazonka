@@ -46,7 +46,7 @@ instance ToText OperatorType where
         OperatorRefEQ -> "ref_eq"
 
 instance Hashable OperatorType
-instance ToQuery OperatorType
+instance ToQuery  OperatorType
 instance ToHeader OperatorType
 
 instance ToJSON OperatorType where
@@ -73,7 +73,7 @@ instance ToText TaskStatus where
         Finished -> "finished"
 
 instance Hashable TaskStatus
-instance ToQuery TaskStatus
+instance ToQuery  TaskStatus
 instance ToHeader TaskStatus
 
 instance ToJSON TaskStatus where

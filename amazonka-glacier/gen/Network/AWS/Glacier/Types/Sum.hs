@@ -37,7 +37,7 @@ instance ToText ActionCode where
         InventoryRetrieval -> "inventoryretrieval"
 
 instance Hashable ActionCode
-instance ToQuery ActionCode
+instance ToQuery  ActionCode
 instance ToHeader ActionCode
 
 instance FromJSON ActionCode where
@@ -64,7 +64,7 @@ instance ToText StatusCode where
         Succeeded -> "succeeded"
 
 instance Hashable StatusCode
-instance ToQuery StatusCode
+instance ToQuery  StatusCode
 instance ToHeader StatusCode
 
 instance FromJSON StatusCode where

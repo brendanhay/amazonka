@@ -40,7 +40,7 @@ instance ToText ConfigurationDeploymentStatus where
         Pending -> "pending"
 
 instance Hashable ConfigurationDeploymentStatus
-instance ToQuery ConfigurationDeploymentStatus
+instance ToQuery  ConfigurationDeploymentStatus
 instance ToHeader ConfigurationDeploymentStatus
 
 instance FromXML ConfigurationDeploymentStatus where
@@ -64,7 +64,7 @@ instance ToText ConfigurationOptionValueType where
         Scalar -> "scalar"
 
 instance Hashable ConfigurationOptionValueType
-instance ToQuery ConfigurationOptionValueType
+instance ToQuery  ConfigurationOptionValueType
 instance ToHeader ConfigurationOptionValueType
 
 instance FromXML ConfigurationOptionValueType where
@@ -94,7 +94,7 @@ instance ToText EnvironmentHealth where
         Yellow -> "yellow"
 
 instance Hashable EnvironmentHealth
-instance ToQuery EnvironmentHealth
+instance ToQuery  EnvironmentHealth
 instance ToHeader EnvironmentHealth
 
 instance FromXML EnvironmentHealth where
@@ -118,7 +118,7 @@ instance ToText EnvironmentInfoType where
         Tail -> "tail"
 
 instance Hashable EnvironmentInfoType
-instance ToQuery EnvironmentInfoType
+instance ToQuery  EnvironmentInfoType
 instance ToHeader EnvironmentInfoType
 
 instance FromXML EnvironmentInfoType where
@@ -151,7 +151,7 @@ instance ToText EnvironmentStatus where
         Updating -> "updating"
 
 instance Hashable EnvironmentStatus
-instance ToQuery EnvironmentStatus
+instance ToQuery  EnvironmentStatus
 instance ToHeader EnvironmentStatus
 
 instance FromXML EnvironmentStatus where
@@ -187,7 +187,7 @@ instance ToText EventSeverity where
         LevelWarn -> "warn"
 
 instance Hashable EventSeverity
-instance ToQuery EventSeverity
+instance ToQuery  EventSeverity
 instance ToHeader EventSeverity
 
 instance FromXML EventSeverity where
@@ -211,7 +211,7 @@ instance ToText ValidationSeverity where
         Warning -> "warning"
 
 instance Hashable ValidationSeverity
-instance ToQuery ValidationSeverity
+instance ToQuery  ValidationSeverity
 instance ToHeader ValidationSeverity
 
 instance FromXML ValidationSeverity where

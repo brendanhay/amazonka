@@ -40,7 +40,7 @@ instance ToText AttributeAction where
         Put -> "put"
 
 instance Hashable AttributeAction
-instance ToQuery AttributeAction
+instance ToQuery  AttributeAction
 instance ToHeader AttributeAction
 
 instance ToJSON AttributeAction where
@@ -97,7 +97,7 @@ instance ToText ComparisonOperator where
         Null -> "null"
 
 instance Hashable ComparisonOperator
-instance ToQuery ComparisonOperator
+instance ToQuery  ComparisonOperator
 instance ToHeader ComparisonOperator
 
 instance ToJSON ComparisonOperator where
@@ -121,7 +121,7 @@ instance ToText ConditionalOperator where
         OR -> "or"
 
 instance Hashable ConditionalOperator
-instance ToQuery ConditionalOperator
+instance ToQuery  ConditionalOperator
 instance ToHeader ConditionalOperator
 
 instance ToJSON ConditionalOperator where
@@ -151,7 +151,7 @@ instance ToText IndexStatus where
         ISUpdating -> "updating"
 
 instance Hashable IndexStatus
-instance ToQuery IndexStatus
+instance ToQuery  IndexStatus
 instance ToHeader IndexStatus
 
 instance FromJSON IndexStatus where
@@ -175,7 +175,7 @@ instance ToText KeyType where
         Range -> "range"
 
 instance Hashable KeyType
-instance ToQuery KeyType
+instance ToQuery  KeyType
 instance ToHeader KeyType
 
 instance ToJSON KeyType where
@@ -205,7 +205,7 @@ instance ToText ProjectionType where
         KeysOnly -> "keys_only"
 
 instance Hashable ProjectionType
-instance ToQuery ProjectionType
+instance ToQuery  ProjectionType
 instance ToHeader ProjectionType
 
 instance ToJSON ProjectionType where
@@ -251,7 +251,7 @@ instance ToText ReturnConsumedCapacity where
         RCCTotal -> "total"
 
 instance Hashable ReturnConsumedCapacity
-instance ToQuery ReturnConsumedCapacity
+instance ToQuery  ReturnConsumedCapacity
 instance ToHeader ReturnConsumedCapacity
 
 instance ToJSON ReturnConsumedCapacity where
@@ -275,7 +275,7 @@ instance ToText ReturnItemCollectionMetrics where
         RICMSize -> "size"
 
 instance Hashable ReturnItemCollectionMetrics
-instance ToQuery ReturnItemCollectionMetrics
+instance ToQuery  ReturnItemCollectionMetrics
 instance ToHeader ReturnItemCollectionMetrics
 
 instance ToJSON ReturnItemCollectionMetrics where
@@ -308,7 +308,7 @@ instance ToText ReturnValue where
         UpdatedOld -> "updated_old"
 
 instance Hashable ReturnValue
-instance ToQuery ReturnValue
+instance ToQuery  ReturnValue
 instance ToHeader ReturnValue
 
 instance ToJSON ReturnValue where
@@ -335,7 +335,7 @@ instance ToText ScalarAttributeType where
         S -> "s"
 
 instance Hashable ScalarAttributeType
-instance ToQuery ScalarAttributeType
+instance ToQuery  ScalarAttributeType
 instance ToHeader ScalarAttributeType
 
 instance ToJSON ScalarAttributeType where
@@ -368,7 +368,7 @@ instance ToText Select where
         SpecificAttributes -> "specific_attributes"
 
 instance Hashable Select
-instance ToQuery Select
+instance ToQuery  Select
 instance ToHeader Select
 
 instance ToJSON Select where
@@ -398,7 +398,7 @@ instance ToText StreamViewType where
         SVTOldImage -> "old_image"
 
 instance Hashable StreamViewType
-instance ToQuery StreamViewType
+instance ToQuery  StreamViewType
 instance ToHeader StreamViewType
 
 instance ToJSON StreamViewType where
@@ -431,7 +431,7 @@ instance ToText TableStatus where
         Updating -> "updating"
 
 instance Hashable TableStatus
-instance ToQuery TableStatus
+instance ToQuery  TableStatus
 instance ToHeader TableStatus
 
 instance FromJSON TableStatus where

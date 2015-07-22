@@ -37,7 +37,7 @@ instance ToText IdentityType where
         EmailAddress -> "emailaddress"
 
 instance Hashable IdentityType
-instance ToQuery IdentityType
+instance ToQuery  IdentityType
 instance ToHeader IdentityType
 
 data NotificationType
@@ -61,7 +61,7 @@ instance ToText NotificationType where
         Delivery -> "delivery"
 
 instance Hashable NotificationType
-instance ToQuery NotificationType
+instance ToQuery  NotificationType
 instance ToHeader NotificationType
 
 data VerificationStatus
@@ -91,7 +91,7 @@ instance ToText VerificationStatus where
         TemporaryFailure -> "temporaryfailure"
 
 instance Hashable VerificationStatus
-instance ToQuery VerificationStatus
+instance ToQuery  VerificationStatus
 instance ToHeader VerificationStatus
 
 instance FromXML VerificationStatus where

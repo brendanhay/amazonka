@@ -43,7 +43,7 @@ instance ToText BulkPublishStatus where
         Succeeded -> "succeeded"
 
 instance Hashable BulkPublishStatus
-instance ToQuery BulkPublishStatus
+instance ToQuery  BulkPublishStatus
 instance ToHeader BulkPublishStatus
 
 instance FromJSON BulkPublishStatus where
@@ -67,7 +67,7 @@ instance ToText Operation where
         Replace -> "replace"
 
 instance Hashable Operation
-instance ToQuery Operation
+instance ToQuery  Operation
 instance ToHeader Operation
 
 instance ToJSON Operation where
@@ -97,7 +97,7 @@ instance ToText Platform where
         GCM -> "gcm"
 
 instance Hashable Platform
-instance ToQuery Platform
+instance ToQuery  Platform
 instance ToHeader Platform
 
 instance ToJSON Platform where
@@ -121,7 +121,7 @@ instance ToText StreamingStatus where
         Enabled -> "enabled"
 
 instance Hashable StreamingStatus
-instance ToQuery StreamingStatus
+instance ToQuery  StreamingStatus
 instance ToHeader StreamingStatus
 
 instance ToJSON StreamingStatus where

@@ -43,7 +43,7 @@ instance ToText ComparisonOperator where
         LessThanThreshold -> "lessthanthreshold"
 
 instance Hashable ComparisonOperator
-instance ToQuery ComparisonOperator
+instance ToQuery  ComparisonOperator
 instance ToHeader ComparisonOperator
 
 instance FromXML ComparisonOperator where
@@ -70,7 +70,7 @@ instance ToText HistoryItemType where
         StateUpdate -> "stateupdate"
 
 instance Hashable HistoryItemType
-instance ToQuery HistoryItemType
+instance ToQuery  HistoryItemType
 instance ToHeader HistoryItemType
 
 instance FromXML HistoryItemType where
@@ -169,7 +169,7 @@ instance ToText StandardUnit where
         TerabytesSecond -> "terabytes/second"
 
 instance Hashable StandardUnit
-instance ToQuery StandardUnit
+instance ToQuery  StandardUnit
 instance ToHeader StandardUnit
 
 instance FromXML StandardUnit where
@@ -196,7 +196,7 @@ instance ToText StateValue where
         OK -> "ok"
 
 instance Hashable StateValue
-instance ToQuery StateValue
+instance ToQuery  StateValue
 instance ToHeader StateValue
 
 instance FromXML StateValue where
@@ -229,7 +229,7 @@ instance ToText Statistic where
         Sum -> "sum"
 
 instance Hashable Statistic
-instance ToQuery Statistic
+instance ToQuery  Statistic
 instance ToHeader Statistic
 
 instance FromXML Statistic where

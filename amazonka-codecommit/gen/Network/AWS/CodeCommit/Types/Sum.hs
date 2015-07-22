@@ -37,7 +37,7 @@ instance ToText OrderEnum where
         Descending -> "descending"
 
 instance Hashable OrderEnum
-instance ToQuery OrderEnum
+instance ToQuery  OrderEnum
 instance ToHeader OrderEnum
 
 instance ToJSON OrderEnum where
@@ -61,7 +61,7 @@ instance ToText SortByEnum where
         RepositoryName -> "repositoryname"
 
 instance Hashable SortByEnum
-instance ToQuery SortByEnum
+instance ToQuery  SortByEnum
 instance ToHeader SortByEnum
 
 instance ToJSON SortByEnum where

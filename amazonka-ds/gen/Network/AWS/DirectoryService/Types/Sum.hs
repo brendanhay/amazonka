@@ -37,7 +37,7 @@ instance ToText DirectorySize where
         Small -> "small"
 
 instance Hashable DirectorySize
-instance ToQuery DirectorySize
+instance ToQuery  DirectorySize
 instance ToHeader DirectorySize
 
 instance ToJSON DirectorySize where
@@ -91,7 +91,7 @@ instance ToText DirectoryStage where
         DSRestoring -> "restoring"
 
 instance Hashable DirectoryStage
-instance ToQuery DirectoryStage
+instance ToQuery  DirectoryStage
 instance ToHeader DirectoryStage
 
 instance FromJSON DirectoryStage where
@@ -115,7 +115,7 @@ instance ToText DirectoryType where
         SimpleAD -> "simplead"
 
 instance Hashable DirectoryType
-instance ToQuery DirectoryType
+instance ToQuery  DirectoryType
 instance ToHeader DirectoryType
 
 instance FromJSON DirectoryType where
@@ -145,7 +145,7 @@ instance ToText RadiusAuthenticationProtocol where
         Pap -> "pap"
 
 instance Hashable RadiusAuthenticationProtocol
-instance ToQuery RadiusAuthenticationProtocol
+instance ToQuery  RadiusAuthenticationProtocol
 instance ToHeader RadiusAuthenticationProtocol
 
 instance ToJSON RadiusAuthenticationProtocol where
@@ -175,7 +175,7 @@ instance ToText RadiusStatus where
         Failed -> "failed"
 
 instance Hashable RadiusStatus
-instance ToQuery RadiusStatus
+instance ToQuery  RadiusStatus
 instance ToHeader RadiusStatus
 
 instance FromJSON RadiusStatus where
@@ -202,7 +202,7 @@ instance ToText SnapshotStatus where
         SSFailed -> "failed"
 
 instance Hashable SnapshotStatus
-instance ToQuery SnapshotStatus
+instance ToQuery  SnapshotStatus
 instance ToHeader SnapshotStatus
 
 instance FromJSON SnapshotStatus where
@@ -226,7 +226,7 @@ instance ToText SnapshotType where
         Manual -> "manual"
 
 instance Hashable SnapshotType
-instance ToQuery SnapshotType
+instance ToQuery  SnapshotType
 instance ToHeader SnapshotType
 
 instance FromJSON SnapshotType where

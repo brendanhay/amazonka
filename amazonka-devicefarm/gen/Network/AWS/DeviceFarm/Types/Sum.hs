@@ -40,7 +40,7 @@ instance ToText ArtifactCategory where
         ACScreenshot -> "screenshot"
 
 instance Hashable ArtifactCategory
-instance ToQuery ArtifactCategory
+instance ToQuery  ArtifactCategory
 instance ToHeader ArtifactCategory
 
 instance ToJSON ArtifactCategory where
@@ -106,7 +106,7 @@ instance ToText ArtifactType where
         Unknown -> "unknown"
 
 instance Hashable ArtifactType
-instance ToQuery ArtifactType
+instance ToQuery  ArtifactType
 instance ToHeader ArtifactType
 
 instance FromJSON ArtifactType where
@@ -136,7 +136,7 @@ instance ToText DeviceAttribute where
         Platform -> "platform"
 
 instance Hashable DeviceAttribute
-instance ToQuery DeviceAttribute
+instance ToQuery  DeviceAttribute
 instance ToHeader DeviceAttribute
 
 instance ToJSON DeviceAttribute where
@@ -163,7 +163,7 @@ instance ToText DeviceFormFactor where
         Tablet -> "tablet"
 
 instance Hashable DeviceFormFactor
-instance ToQuery DeviceFormFactor
+instance ToQuery  DeviceFormFactor
 instance ToHeader DeviceFormFactor
 
 instance FromJSON DeviceFormFactor where
@@ -184,7 +184,7 @@ instance ToText DevicePlatform where
         Android -> "android"
 
 instance Hashable DevicePlatform
-instance ToQuery DevicePlatform
+instance ToQuery  DevicePlatform
 instance ToHeader DevicePlatform
 
 instance FromJSON DevicePlatform where
@@ -208,7 +208,7 @@ instance ToText DevicePoolType where
         Private -> "private"
 
 instance Hashable DevicePoolType
-instance ToQuery DevicePoolType
+instance ToQuery  DevicePoolType
 instance ToHeader DevicePoolType
 
 instance ToJSON DevicePoolType where
@@ -250,7 +250,7 @@ instance ToText ExecutionResult where
         ERWarned -> "warned"
 
 instance Hashable ExecutionResult
-instance ToQuery ExecutionResult
+instance ToQuery  ExecutionResult
 instance ToHeader ExecutionResult
 
 instance FromJSON ExecutionResult where
@@ -283,7 +283,7 @@ instance ToText ExecutionStatus where
         Scheduling -> "scheduling"
 
 instance Hashable ExecutionStatus
-instance ToQuery ExecutionStatus
+instance ToQuery  ExecutionStatus
 instance ToHeader ExecutionStatus
 
 instance FromJSON ExecutionStatus where
@@ -316,7 +316,7 @@ instance ToText RuleOperator where
         NotIn -> "not_in"
 
 instance Hashable RuleOperator
-instance ToQuery RuleOperator
+instance ToQuery  RuleOperator
 instance ToHeader RuleOperator
 
 instance ToJSON RuleOperator where
@@ -388,7 +388,7 @@ instance ToText SampleType where
         TxRate -> "tx_rate"
 
 instance Hashable SampleType
-instance ToQuery SampleType
+instance ToQuery  SampleType
 instance ToHeader SampleType
 
 instance FromJSON SampleType where
@@ -427,7 +427,7 @@ instance ToText TestType where
         Uiautomator -> "uiautomator"
 
 instance Hashable TestType
-instance ToQuery TestType
+instance ToQuery  TestType
 instance ToHeader TestType
 
 instance ToJSON TestType where
@@ -460,7 +460,7 @@ instance ToText UploadStatus where
         USSucceeded -> "succeeded"
 
 instance Hashable UploadStatus
-instance ToQuery UploadStatus
+instance ToQuery  UploadStatus
 instance ToHeader UploadStatus
 
 instance FromJSON UploadStatus where
@@ -499,7 +499,7 @@ instance ToText UploadType where
         UiautomatorTestPackage -> "uiautomator_test_package"
 
 instance Hashable UploadType
-instance ToQuery UploadType
+instance ToQuery  UploadType
 instance ToHeader UploadType
 
 instance ToJSON UploadType where

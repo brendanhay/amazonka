@@ -28,9 +28,9 @@ module Network.AWS.EC2.DescribeImageAttribute
     -- ** Request constructor
     , describeImageAttribute
     -- ** Request lenses
-    , dia1DryRun
-    , dia1ImageId
-    , dia1Attribute
+    , descDryRun
+    , descImageId
+    , descAttribute
 
     -- * Response
     , DescribeImageAttributeResponse
@@ -57,36 +57,36 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dia1DryRun'
+-- * 'descDryRun'
 --
--- * 'dia1ImageId'
+-- * 'descImageId'
 --
--- * 'dia1Attribute'
+-- * 'descAttribute'
 data DescribeImageAttribute = DescribeImageAttribute'
-    { _dia1DryRun    :: !(Maybe Bool)
-    , _dia1ImageId   :: !Text
-    , _dia1Attribute :: !ImageAttributeName
+    { _descDryRun    :: !(Maybe Bool)
+    , _descImageId   :: !Text
+    , _descAttribute :: !ImageAttributeName
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeImageAttribute' smart constructor.
 describeImageAttribute :: Text -> ImageAttributeName -> DescribeImageAttribute
 describeImageAttribute pImageId pAttribute =
     DescribeImageAttribute'
-    { _dia1DryRun = Nothing
-    , _dia1ImageId = pImageId
-    , _dia1Attribute = pAttribute
+    { _descDryRun = Nothing
+    , _descImageId = pImageId
+    , _descAttribute = pAttribute
     }
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dia1DryRun :: Lens' DescribeImageAttribute (Maybe Bool)
-dia1DryRun = lens _dia1DryRun (\ s a -> s{_dia1DryRun = a});
+descDryRun :: Lens' DescribeImageAttribute (Maybe Bool)
+descDryRun = lens _descDryRun (\ s a -> s{_descDryRun = a});
 
 -- | The ID of the AMI.
-dia1ImageId :: Lens' DescribeImageAttribute Text
-dia1ImageId = lens _dia1ImageId (\ s a -> s{_dia1ImageId = a});
+descImageId :: Lens' DescribeImageAttribute Text
+descImageId = lens _descImageId (\ s a -> s{_descImageId = a});
 
 -- | The AMI attribute.
 --
@@ -94,8 +94,8 @@ dia1ImageId = lens _dia1ImageId (\ s a -> s{_dia1ImageId = a});
 -- attribute may return a @Client.AuthFailure@ error. If this happens, use
 -- DescribeImages to get information about the block device mapping for the
 -- AMI.
-dia1Attribute :: Lens' DescribeImageAttribute ImageAttributeName
-dia1Attribute = lens _dia1Attribute (\ s a -> s{_dia1Attribute = a});
+descAttribute :: Lens' DescribeImageAttribute ImageAttributeName
+descAttribute = lens _descAttribute (\ s a -> s{_descAttribute = a});
 
 instance AWSRequest DescribeImageAttribute where
         type Sv DescribeImageAttribute = EC2
@@ -133,8 +133,8 @@ instance ToQuery DescribeImageAttribute where
               ["Action" =:
                  ("DescribeImageAttribute" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               "DryRun" =: _dia1DryRun, "ImageId" =: _dia1ImageId,
-               "Attribute" =: _dia1Attribute]
+               "DryRun" =: _descDryRun, "ImageId" =: _descImageId,
+               "Attribute" =: _descAttribute]
 
 -- | Describes an image attribute.
 --

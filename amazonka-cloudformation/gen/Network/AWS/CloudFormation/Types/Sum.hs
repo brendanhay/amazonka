@@ -34,7 +34,7 @@ instance ToText Capability where
         CapabilityIAM -> "capability_iam"
 
 instance Hashable Capability
-instance ToQuery Capability
+instance ToQuery  Capability
 instance ToHeader Capability
 
 instance FromXML Capability where
@@ -61,7 +61,7 @@ instance ToText OnFailure where
         Rollback -> "rollback"
 
 instance Hashable OnFailure
-instance ToQuery OnFailure
+instance ToQuery  OnFailure
 instance ToHeader OnFailure
 
 data ResourceSignalStatus
@@ -82,7 +82,7 @@ instance ToText ResourceSignalStatus where
         Success -> "success"
 
 instance Hashable ResourceSignalStatus
-instance ToQuery ResourceSignalStatus
+instance ToQuery  ResourceSignalStatus
 instance ToHeader ResourceSignalStatus
 
 data ResourceStatus
@@ -127,7 +127,7 @@ instance ToText ResourceStatus where
         UpdateInProgress -> "update_in_progress"
 
 instance Hashable ResourceStatus
-instance ToQuery ResourceStatus
+instance ToQuery  ResourceStatus
 instance ToHeader ResourceStatus
 
 instance FromXML ResourceStatus where
@@ -193,7 +193,7 @@ instance ToText StackStatus where
         SSUpdateRollbackInProgress -> "update_rollback_in_progress"
 
 instance Hashable StackStatus
-instance ToQuery StackStatus
+instance ToQuery  StackStatus
 instance ToHeader StackStatus
 
 instance FromXML StackStatus where

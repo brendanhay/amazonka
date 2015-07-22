@@ -41,7 +41,7 @@ instance ToText ChangeAction where
         Upsert -> "upsert"
 
 instance Hashable ChangeAction
-instance ToQuery ChangeAction
+instance ToQuery  ChangeAction
 instance ToHeader ChangeAction
 
 instance ToXML ChangeAction where
@@ -65,7 +65,7 @@ instance ToText ChangeStatus where
         Pending -> "pending"
 
 instance Hashable ChangeStatus
-instance ToQuery ChangeStatus
+instance ToQuery  ChangeStatus
 instance ToHeader ChangeStatus
 
 instance FromXML ChangeStatus where
@@ -89,7 +89,7 @@ instance ToText Failover where
         Secondary -> "secondary"
 
 instance Hashable Failover
-instance ToQuery Failover
+instance ToQuery  Failover
 instance ToHeader Failover
 
 instance FromXML Failover where
@@ -125,7 +125,7 @@ instance ToText HealthCheckType where
         TCP -> "tcp"
 
 instance Hashable HealthCheckType
-instance ToQuery HealthCheckType
+instance ToQuery  HealthCheckType
 instance ToHeader HealthCheckType
 
 instance FromXML HealthCheckType where
@@ -176,7 +176,7 @@ instance ToText RecordType where
         Txt -> "txt"
 
 instance Hashable RecordType
-instance ToQuery RecordType
+instance ToQuery  RecordType
 instance ToHeader RecordType
 
 instance FromXML RecordType where
@@ -203,7 +203,7 @@ instance ToText TagResourceType where
         Hostedzone -> "hostedzone"
 
 instance Hashable TagResourceType
-instance ToQuery TagResourceType
+instance ToQuery  TagResourceType
 instance ToHeader TagResourceType
 
 instance FromXML TagResourceType where
@@ -254,7 +254,7 @@ instance ToText VPCRegion where
         UsWest2 -> "us-west-2"
 
 instance Hashable VPCRegion
-instance ToQuery VPCRegion
+instance ToQuery  VPCRegion
 instance ToHeader VPCRegion
 
 instance FromXML VPCRegion where

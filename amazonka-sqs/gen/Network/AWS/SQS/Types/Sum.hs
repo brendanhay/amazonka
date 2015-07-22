@@ -70,7 +70,7 @@ instance ToText QueueAttributeName where
         VisibilityTimeout -> "visibilitytimeout"
 
 instance Hashable QueueAttributeName
-instance ToQuery QueueAttributeName
+instance ToQuery  QueueAttributeName
 instance ToHeader QueueAttributeName
 
 instance FromXML QueueAttributeName where

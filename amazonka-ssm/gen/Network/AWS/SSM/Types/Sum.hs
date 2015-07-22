@@ -37,7 +37,7 @@ instance ToText AssociationFilterKey where
         AFKName -> "name"
 
 instance Hashable AssociationFilterKey
-instance ToQuery AssociationFilterKey
+instance ToQuery  AssociationFilterKey
 instance ToHeader AssociationFilterKey
 
 instance ToJSON AssociationFilterKey where
@@ -64,7 +64,7 @@ instance ToText AssociationStatusName where
         Success -> "success"
 
 instance Hashable AssociationStatusName
-instance ToQuery AssociationStatusName
+instance ToQuery  AssociationStatusName
 instance ToHeader AssociationStatusName
 
 instance ToJSON AssociationStatusName where
@@ -88,7 +88,7 @@ instance ToText DocumentFilterKey where
         Name -> "name"
 
 instance Hashable DocumentFilterKey
-instance ToQuery DocumentFilterKey
+instance ToQuery  DocumentFilterKey
 instance ToHeader DocumentFilterKey
 
 instance ToJSON DocumentFilterKey where
@@ -115,7 +115,7 @@ instance ToText DocumentStatus where
         Deleting -> "deleting"
 
 instance Hashable DocumentStatus
-instance ToQuery DocumentStatus
+instance ToQuery  DocumentStatus
 instance ToHeader DocumentStatus
 
 instance FromJSON DocumentStatus where
@@ -142,7 +142,7 @@ instance ToText Fault where
         Unknown -> "unknown"
 
 instance Hashable Fault
-instance ToQuery Fault
+instance ToQuery  Fault
 instance ToHeader Fault
 
 instance FromJSON Fault where

@@ -37,7 +37,7 @@ instance ToText CognitoErrorCode where
         InternalServerError -> "internalservererror"
 
 instance Hashable CognitoErrorCode
-instance ToQuery CognitoErrorCode
+instance ToQuery  CognitoErrorCode
 instance ToHeader CognitoErrorCode
 
 instance FromJSON CognitoErrorCode where

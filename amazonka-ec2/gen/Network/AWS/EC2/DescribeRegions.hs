@@ -30,9 +30,9 @@ module Network.AWS.EC2.DescribeRegions
     -- ** Request constructor
     , describeRegions
     -- ** Request lenses
-    , dr1RegionNames
-    , dr1Filters
-    , dr1DryRun
+    , drsRegionNames
+    , drsFilters
+    , drsDryRun
 
     -- * Response
     , DescribeRegionsResponse
@@ -52,29 +52,29 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dr1RegionNames'
+-- * 'drsRegionNames'
 --
--- * 'dr1Filters'
+-- * 'drsFilters'
 --
--- * 'dr1DryRun'
+-- * 'drsDryRun'
 data DescribeRegions = DescribeRegions'
-    { _dr1RegionNames :: !(Maybe [Text])
-    , _dr1Filters     :: !(Maybe [Filter])
-    , _dr1DryRun      :: !(Maybe Bool)
+    { _drsRegionNames :: !(Maybe [Text])
+    , _drsFilters     :: !(Maybe [Filter])
+    , _drsDryRun      :: !(Maybe Bool)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeRegions' smart constructor.
 describeRegions :: DescribeRegions
 describeRegions =
     DescribeRegions'
-    { _dr1RegionNames = Nothing
-    , _dr1Filters = Nothing
-    , _dr1DryRun = Nothing
+    { _drsRegionNames = Nothing
+    , _drsFilters = Nothing
+    , _drsDryRun = Nothing
     }
 
 -- | The names of one or more regions.
-dr1RegionNames :: Lens' DescribeRegions [Text]
-dr1RegionNames = lens _dr1RegionNames (\ s a -> s{_dr1RegionNames = a}) . _Default;
+drsRegionNames :: Lens' DescribeRegions [Text]
+drsRegionNames = lens _drsRegionNames (\ s a -> s{_drsRegionNames = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -83,15 +83,15 @@ dr1RegionNames = lens _dr1RegionNames (\ s a -> s{_dr1RegionNames = a}) . _Defau
 --
 -- -   @region-name@ - The name of the region (for example, @us-east-1@).
 --
-dr1Filters :: Lens' DescribeRegions [Filter]
-dr1Filters = lens _dr1Filters (\ s a -> s{_dr1Filters = a}) . _Default;
+drsFilters :: Lens' DescribeRegions [Filter]
+drsFilters = lens _drsFilters (\ s a -> s{_drsFilters = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-dr1DryRun :: Lens' DescribeRegions (Maybe Bool)
-dr1DryRun = lens _dr1DryRun (\ s a -> s{_dr1DryRun = a});
+drsDryRun :: Lens' DescribeRegions (Maybe Bool)
+drsDryRun = lens _drsDryRun (\ s a -> s{_drsDryRun = a});
 
 instance AWSRequest DescribeRegions where
         type Sv DescribeRegions = EC2
@@ -117,9 +117,9 @@ instance ToQuery DescribeRegions where
               ["Action" =: ("DescribeRegions" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
                toQuery
-                 (toQueryList "RegionName" <$> _dr1RegionNames),
-               toQuery (toQueryList "Filter" <$> _dr1Filters),
-               "DryRun" =: _dr1DryRun]
+                 (toQueryList "RegionName" <$> _drsRegionNames),
+               toQuery (toQueryList "Filter" <$> _drsFilters),
+               "DryRun" =: _drsDryRun]
 
 -- | /See:/ 'describeRegionsResponse' smart constructor.
 --

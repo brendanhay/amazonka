@@ -46,7 +46,7 @@ instance ToText ContactType where
         Reseller -> "reseller"
 
 instance Hashable ContactType
-instance ToQuery ContactType
+instance ToQuery  ContactType
 instance ToHeader ContactType
 
 instance ToJSON ContactType where
@@ -754,7 +754,7 @@ instance ToText CountryCode where
         ZW -> "zw"
 
 instance Hashable CountryCode
-instance ToQuery CountryCode
+instance ToQuery  CountryCode
 instance ToHeader CountryCode
 
 instance ToJSON CountryCode where
@@ -799,7 +799,7 @@ instance ToText DomainAvailability where
         UnavailableRestricted -> "unavailable_restricted"
 
 instance Hashable DomainAvailability
-instance ToQuery DomainAvailability
+instance ToQuery  DomainAvailability
 instance ToHeader DomainAvailability
 
 instance FromJSON DomainAvailability where
@@ -877,7 +877,7 @@ instance ToText ExtraParamName where
         VatNumber -> "vat_number"
 
 instance Hashable ExtraParamName
-instance ToQuery ExtraParamName
+instance ToQuery  ExtraParamName
 instance ToHeader ExtraParamName
 
 instance ToJSON ExtraParamName where
@@ -913,7 +913,7 @@ instance ToText OperationStatus where
         Successful -> "successful"
 
 instance Hashable OperationStatus
-instance ToQuery OperationStatus
+instance ToQuery  OperationStatus
 instance ToHeader OperationStatus
 
 instance FromJSON OperationStatus where
@@ -952,7 +952,7 @@ instance ToText OperationType where
         UpdateNameserver -> "update_nameserver"
 
 instance Hashable OperationType
-instance ToQuery OperationType
+instance ToQuery  OperationType
 instance ToHeader OperationType
 
 instance FromJSON OperationType where

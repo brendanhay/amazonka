@@ -27,11 +27,11 @@ module Network.AWS.AutoScaling.DescribePolicies
     -- ** Request constructor
     , describePolicies
     -- ** Request lenses
-    , descPolicyNames
-    , descNextToken
-    , descMaxRecords
-    , descAutoScalingGroupName
-    , descPolicyTypes
+    , dpsPolicyNames
+    , dpsNextToken
+    , dpsMaxRecords
+    , dpsAutoScalingGroupName
+    , dpsPolicyTypes
 
     -- * Response
     , DescribePoliciesResponse
@@ -53,65 +53,65 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'descPolicyNames'
+-- * 'dpsPolicyNames'
 --
--- * 'descNextToken'
+-- * 'dpsNextToken'
 --
--- * 'descMaxRecords'
+-- * 'dpsMaxRecords'
 --
--- * 'descAutoScalingGroupName'
+-- * 'dpsAutoScalingGroupName'
 --
--- * 'descPolicyTypes'
+-- * 'dpsPolicyTypes'
 data DescribePolicies = DescribePolicies'
-    { _descPolicyNames          :: !(Maybe [Text])
-    , _descNextToken            :: !(Maybe Text)
-    , _descMaxRecords           :: !(Maybe Int)
-    , _descAutoScalingGroupName :: !(Maybe Text)
-    , _descPolicyTypes          :: !(Maybe [Text])
+    { _dpsPolicyNames          :: !(Maybe [Text])
+    , _dpsNextToken            :: !(Maybe Text)
+    , _dpsMaxRecords           :: !(Maybe Int)
+    , _dpsAutoScalingGroupName :: !(Maybe Text)
+    , _dpsPolicyTypes          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribePolicies' smart constructor.
 describePolicies :: DescribePolicies
 describePolicies =
     DescribePolicies'
-    { _descPolicyNames = Nothing
-    , _descNextToken = Nothing
-    , _descMaxRecords = Nothing
-    , _descAutoScalingGroupName = Nothing
-    , _descPolicyTypes = Nothing
+    { _dpsPolicyNames = Nothing
+    , _dpsNextToken = Nothing
+    , _dpsMaxRecords = Nothing
+    , _dpsAutoScalingGroupName = Nothing
+    , _dpsPolicyTypes = Nothing
     }
 
 -- | One or more policy names or policy ARNs to be described. If you omit
 -- this list, all policy names are described. If an group name is provided,
 -- the results are limited to that group. This list is limited to 50 items.
 -- If you specify an unknown policy name, it is ignored with no error.
-descPolicyNames :: Lens' DescribePolicies [Text]
-descPolicyNames = lens _descPolicyNames (\ s a -> s{_descPolicyNames = a}) . _Default;
+dpsPolicyNames :: Lens' DescribePolicies [Text]
+dpsPolicyNames = lens _dpsPolicyNames (\ s a -> s{_dpsPolicyNames = a}) . _Default;
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-descNextToken :: Lens' DescribePolicies (Maybe Text)
-descNextToken = lens _descNextToken (\ s a -> s{_descNextToken = a});
+dpsNextToken :: Lens' DescribePolicies (Maybe Text)
+dpsNextToken = lens _dpsNextToken (\ s a -> s{_dpsNextToken = a});
 
 -- | The maximum number of items to be returned with each call.
-descMaxRecords :: Lens' DescribePolicies (Maybe Int)
-descMaxRecords = lens _descMaxRecords (\ s a -> s{_descMaxRecords = a});
+dpsMaxRecords :: Lens' DescribePolicies (Maybe Int)
+dpsMaxRecords = lens _dpsMaxRecords (\ s a -> s{_dpsMaxRecords = a});
 
 -- | The name of the group.
-descAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
-descAutoScalingGroupName = lens _descAutoScalingGroupName (\ s a -> s{_descAutoScalingGroupName = a});
+dpsAutoScalingGroupName :: Lens' DescribePolicies (Maybe Text)
+dpsAutoScalingGroupName = lens _dpsAutoScalingGroupName (\ s a -> s{_dpsAutoScalingGroupName = a});
 
 -- | One or more policy types. Valid values are @SimpleScaling@ and
 -- @StepScaling@.
-descPolicyTypes :: Lens' DescribePolicies [Text]
-descPolicyTypes = lens _descPolicyTypes (\ s a -> s{_descPolicyTypes = a}) . _Default;
+dpsPolicyTypes :: Lens' DescribePolicies [Text]
+dpsPolicyTypes = lens _dpsPolicyTypes (\ s a -> s{_dpsPolicyTypes = a}) . _Default;
 
 instance AWSPager DescribePolicies where
         page rq rs
           | stop (rs ^. dprNextToken) = Nothing
           | stop (rs ^. dprScalingPolicies) = Nothing
           | otherwise =
-            Just $ rq & descNextToken .~ rs ^. dprNextToken
+            Just $ rq & dpsNextToken .~ rs ^. dprNextToken
 
 instance AWSRequest DescribePolicies where
         type Sv DescribePolicies = AutoScaling
@@ -138,12 +138,12 @@ instance ToQuery DescribePolicies where
               ["Action" =: ("DescribePolicies" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
                "PolicyNames" =:
-                 toQuery (toQueryList "member" <$> _descPolicyNames),
-               "NextToken" =: _descNextToken,
-               "MaxRecords" =: _descMaxRecords,
-               "AutoScalingGroupName" =: _descAutoScalingGroupName,
+                 toQuery (toQueryList "member" <$> _dpsPolicyNames),
+               "NextToken" =: _dpsNextToken,
+               "MaxRecords" =: _dpsMaxRecords,
+               "AutoScalingGroupName" =: _dpsAutoScalingGroupName,
                "PolicyTypes" =:
-                 toQuery (toQueryList "member" <$> _descPolicyTypes)]
+                 toQuery (toQueryList "member" <$> _dpsPolicyTypes)]
 
 -- | /See:/ 'describePoliciesResponse' smart constructor.
 --

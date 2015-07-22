@@ -43,7 +43,7 @@ instance ToText ActivityTaskTimeoutType where
         ATTTStartToClose -> "start_to_close"
 
 instance Hashable ActivityTaskTimeoutType
-instance ToQuery ActivityTaskTimeoutType
+instance ToQuery  ActivityTaskTimeoutType
 instance ToHeader ActivityTaskTimeoutType
 
 instance FromJSON ActivityTaskTimeoutType where
@@ -67,7 +67,7 @@ instance ToText CancelTimerFailedCause where
         CTFCTimerIdUnknown -> "timer_id_unknown"
 
 instance Hashable CancelTimerFailedCause
-instance ToQuery CancelTimerFailedCause
+instance ToQuery  CancelTimerFailedCause
 instance ToHeader CancelTimerFailedCause
 
 instance FromJSON CancelTimerFailedCause where
@@ -91,7 +91,7 @@ instance ToText CancelWorkflowExecutionFailedCause where
         CanUnhandledDecision -> "unhandled_decision"
 
 instance Hashable CancelWorkflowExecutionFailedCause
-instance ToQuery CancelWorkflowExecutionFailedCause
+instance ToQuery  CancelWorkflowExecutionFailedCause
 instance ToHeader CancelWorkflowExecutionFailedCause
 
 instance FromJSON CancelWorkflowExecutionFailedCause where
@@ -118,7 +118,7 @@ instance ToText ChildPolicy where
         Terminate -> "terminate"
 
 instance Hashable ChildPolicy
-instance ToQuery ChildPolicy
+instance ToQuery  ChildPolicy
 instance ToHeader ChildPolicy
 
 instance ToJSON ChildPolicy where
@@ -157,7 +157,7 @@ instance ToText CloseStatus where
         TimedOut -> "timed_out"
 
 instance Hashable CloseStatus
-instance ToQuery CloseStatus
+instance ToQuery  CloseStatus
 instance ToHeader CloseStatus
 
 instance ToJSON CloseStatus where
@@ -184,7 +184,7 @@ instance ToText CompleteWorkflowExecutionFailedCause where
         CWEFCUnhandledDecision -> "unhandled_decision"
 
 instance Hashable CompleteWorkflowExecutionFailedCause
-instance ToQuery CompleteWorkflowExecutionFailedCause
+instance ToQuery  CompleteWorkflowExecutionFailedCause
 instance ToHeader CompleteWorkflowExecutionFailedCause
 
 instance FromJSON CompleteWorkflowExecutionFailedCause where
@@ -229,7 +229,7 @@ instance ToText ContinueAsNewWorkflowExecutionFailedCause where
         CANWEFCWorkflowTypeDoesNotExist -> "workflow_type_does_not_exist"
 
 instance Hashable ContinueAsNewWorkflowExecutionFailedCause
-instance ToQuery ContinueAsNewWorkflowExecutionFailedCause
+instance ToQuery  ContinueAsNewWorkflowExecutionFailedCause
 instance ToHeader ContinueAsNewWorkflowExecutionFailedCause
 
 instance FromJSON ContinueAsNewWorkflowExecutionFailedCause where
@@ -250,7 +250,7 @@ instance ToText DecisionTaskTimeoutType where
         StartToClose -> "start_to_close"
 
 instance Hashable DecisionTaskTimeoutType
-instance ToQuery DecisionTaskTimeoutType
+instance ToQuery  DecisionTaskTimeoutType
 instance ToHeader DecisionTaskTimeoutType
 
 instance FromJSON DecisionTaskTimeoutType where
@@ -304,7 +304,7 @@ instance ToText DecisionType where
         StartTimer -> "starttimer"
 
 instance Hashable DecisionType
-instance ToQuery DecisionType
+instance ToQuery  DecisionType
 instance ToHeader DecisionType
 
 instance ToJSON DecisionType where
@@ -463,7 +463,7 @@ instance ToText EventType where
         WorkflowExecutionTimedOut -> "workflowexecutiontimedout"
 
 instance Hashable EventType
-instance ToQuery EventType
+instance ToQuery  EventType
 instance ToHeader EventType
 
 instance FromJSON EventType where
@@ -487,7 +487,7 @@ instance ToText ExecutionStatus where
         Open -> "open"
 
 instance Hashable ExecutionStatus
-instance ToQuery ExecutionStatus
+instance ToQuery  ExecutionStatus
 instance ToHeader ExecutionStatus
 
 instance FromJSON ExecutionStatus where
@@ -511,7 +511,7 @@ instance ToText FailWorkflowExecutionFailedCause where
         FWEFCUnhandledDecision -> "unhandled_decision"
 
 instance Hashable FailWorkflowExecutionFailedCause
-instance ToQuery FailWorkflowExecutionFailedCause
+instance ToQuery  FailWorkflowExecutionFailedCause
 instance ToHeader FailWorkflowExecutionFailedCause
 
 instance FromJSON FailWorkflowExecutionFailedCause where
@@ -532,7 +532,7 @@ instance ToText RecordMarkerFailedCause where
         RMFCOperationNotPermitted -> "operation_not_permitted"
 
 instance Hashable RecordMarkerFailedCause
-instance ToQuery RecordMarkerFailedCause
+instance ToQuery  RecordMarkerFailedCause
 instance ToHeader RecordMarkerFailedCause
 
 instance FromJSON RecordMarkerFailedCause where
@@ -556,7 +556,7 @@ instance ToText RegistrationStatus where
         Registered -> "registered"
 
 instance Hashable RegistrationStatus
-instance ToQuery RegistrationStatus
+instance ToQuery  RegistrationStatus
 instance ToHeader RegistrationStatus
 
 instance ToJSON RegistrationStatus where
@@ -583,7 +583,7 @@ instance ToText RequestCancelActivityTaskFailedCause where
         RCATFCOperationNotPermitted -> "operation_not_permitted"
 
 instance Hashable RequestCancelActivityTaskFailedCause
-instance ToQuery RequestCancelActivityTaskFailedCause
+instance ToQuery  RequestCancelActivityTaskFailedCause
 instance ToHeader RequestCancelActivityTaskFailedCause
 
 instance FromJSON RequestCancelActivityTaskFailedCause where
@@ -610,7 +610,7 @@ instance ToText RequestCancelExternalWorkflowExecutionFailedCause where
         RCEWEFCUnknownExternalWorkflowExecution -> "unknown_external_workflow_execution"
 
 instance Hashable RequestCancelExternalWorkflowExecutionFailedCause
-instance ToQuery RequestCancelExternalWorkflowExecutionFailedCause
+instance ToQuery  RequestCancelExternalWorkflowExecutionFailedCause
 instance ToHeader RequestCancelExternalWorkflowExecutionFailedCause
 
 instance FromJSON RequestCancelExternalWorkflowExecutionFailedCause where
@@ -661,7 +661,7 @@ instance ToText ScheduleActivityTaskFailedCause where
         SATFCOperationNotPermitted -> "operation_not_permitted"
 
 instance Hashable ScheduleActivityTaskFailedCause
-instance ToQuery ScheduleActivityTaskFailedCause
+instance ToQuery  ScheduleActivityTaskFailedCause
 instance ToHeader ScheduleActivityTaskFailedCause
 
 instance FromJSON ScheduleActivityTaskFailedCause where
@@ -688,7 +688,7 @@ instance ToText SignalExternalWorkflowExecutionFailedCause where
         SEWEFCUnknownExternalWorkflowExecution -> "unknown_external_workflow_execution"
 
 instance Hashable SignalExternalWorkflowExecutionFailedCause
-instance ToQuery SignalExternalWorkflowExecutionFailedCause
+instance ToQuery  SignalExternalWorkflowExecutionFailedCause
 instance ToHeader SignalExternalWorkflowExecutionFailedCause
 
 instance FromJSON SignalExternalWorkflowExecutionFailedCause where
@@ -739,7 +739,7 @@ instance ToText StartChildWorkflowExecutionFailedCause where
         SCWEFCWorkflowTypeDoesNotExist -> "workflow_type_does_not_exist"
 
 instance Hashable StartChildWorkflowExecutionFailedCause
-instance ToQuery StartChildWorkflowExecutionFailedCause
+instance ToQuery  StartChildWorkflowExecutionFailedCause
 instance ToHeader StartChildWorkflowExecutionFailedCause
 
 instance FromJSON StartChildWorkflowExecutionFailedCause where
@@ -769,7 +769,7 @@ instance ToText StartTimerFailedCause where
         TimerIdAlreadyInUse -> "timer_id_already_in_use"
 
 instance Hashable StartTimerFailedCause
-instance ToQuery StartTimerFailedCause
+instance ToQuery  StartTimerFailedCause
 instance ToHeader StartTimerFailedCause
 
 instance FromJSON StartTimerFailedCause where
@@ -790,7 +790,7 @@ instance ToText WorkflowExecutionCancelRequestedCause where
         ChildPolicyApplied -> "child_policy_applied"
 
 instance Hashable WorkflowExecutionCancelRequestedCause
-instance ToQuery WorkflowExecutionCancelRequestedCause
+instance ToQuery  WorkflowExecutionCancelRequestedCause
 instance ToHeader WorkflowExecutionCancelRequestedCause
 
 instance FromJSON WorkflowExecutionCancelRequestedCause where
@@ -817,7 +817,7 @@ instance ToText WorkflowExecutionTerminatedCause where
         WETCOperatorInitiated -> "operator_initiated"
 
 instance Hashable WorkflowExecutionTerminatedCause
-instance ToQuery WorkflowExecutionTerminatedCause
+instance ToQuery  WorkflowExecutionTerminatedCause
 instance ToHeader WorkflowExecutionTerminatedCause
 
 instance FromJSON WorkflowExecutionTerminatedCause where
@@ -838,7 +838,7 @@ instance ToText WorkflowExecutionTimeoutType where
         WETTStartToClose -> "start_to_close"
 
 instance Hashable WorkflowExecutionTimeoutType
-instance ToQuery WorkflowExecutionTimeoutType
+instance ToQuery  WorkflowExecutionTimeoutType
 instance ToHeader WorkflowExecutionTimeoutType
 
 instance FromJSON WorkflowExecutionTimeoutType where

@@ -37,7 +37,7 @@ instance ToText ChronologicalOrder where
         Reverse -> "reverse"
 
 instance Hashable ChronologicalOrder
-instance ToQuery ChronologicalOrder
+instance ToQuery  ChronologicalOrder
 instance ToHeader ChronologicalOrder
 
 instance ToJSON ChronologicalOrder where
@@ -67,7 +67,7 @@ instance ToText ConfigurationItemStatus where
         OK -> "ok"
 
 instance Hashable ConfigurationItemStatus
-instance ToQuery ConfigurationItemStatus
+instance ToQuery  ConfigurationItemStatus
 instance ToHeader ConfigurationItemStatus
 
 instance FromJSON ConfigurationItemStatus where
@@ -94,7 +94,7 @@ instance ToText DeliveryStatus where
         Success -> "success"
 
 instance Hashable DeliveryStatus
-instance ToQuery DeliveryStatus
+instance ToQuery  DeliveryStatus
 instance ToHeader DeliveryStatus
 
 instance FromJSON DeliveryStatus where
@@ -121,7 +121,7 @@ instance ToText RecorderStatus where
         RSSuccess -> "success"
 
 instance Hashable RecorderStatus
-instance ToQuery RecorderStatus
+instance ToQuery  RecorderStatus
 instance ToHeader RecorderStatus
 
 instance FromJSON RecorderStatus where
@@ -181,7 +181,7 @@ instance ToText ResourceType where
         AWSEC2Volume -> "aws::ec2::volume"
 
 instance Hashable ResourceType
-instance ToQuery ResourceType
+instance ToQuery  ResourceType
 instance ToHeader ResourceType
 
 instance ToJSON ResourceType where

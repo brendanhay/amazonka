@@ -38,7 +38,7 @@ instance ToText JobType where
         Import -> "import"
 
 instance Hashable JobType
-instance ToQuery JobType
+instance ToQuery  JobType
 instance ToHeader JobType
 
 instance FromXML JobType where

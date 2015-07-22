@@ -46,7 +46,7 @@ instance ToText ActionCategory where
         Test -> "test"
 
 instance Hashable ActionCategory
-instance ToQuery ActionCategory
+instance ToQuery  ActionCategory
 instance ToHeader ActionCategory
 
 instance ToJSON ActionCategory where
@@ -76,7 +76,7 @@ instance ToText ActionConfigurationPropertyType where
         String -> "string"
 
 instance Hashable ActionConfigurationPropertyType
-instance ToQuery ActionConfigurationPropertyType
+instance ToQuery  ActionConfigurationPropertyType
 instance ToHeader ActionConfigurationPropertyType
 
 instance ToJSON ActionConfigurationPropertyType where
@@ -106,7 +106,7 @@ instance ToText ActionExecutionStatus where
         Succeeded -> "succeeded"
 
 instance Hashable ActionExecutionStatus
-instance ToQuery ActionExecutionStatus
+instance ToQuery  ActionExecutionStatus
 instance ToHeader ActionExecutionStatus
 
 instance FromJSON ActionExecutionStatus where
@@ -133,7 +133,7 @@ instance ToText ActionOwner where
         ThirdParty -> "thirdparty"
 
 instance Hashable ActionOwner
-instance ToQuery ActionOwner
+instance ToQuery  ActionOwner
 instance ToHeader ActionOwner
 
 instance ToJSON ActionOwner where
@@ -157,7 +157,7 @@ instance ToText ArtifactLocationType where
         ALTS3 -> "s3"
 
 instance Hashable ArtifactLocationType
-instance ToQuery ArtifactLocationType
+instance ToQuery  ArtifactLocationType
 instance ToHeader ArtifactLocationType
 
 instance FromJSON ArtifactLocationType where
@@ -178,7 +178,7 @@ instance ToText ArtifactStoreType where
         S3 -> "s3"
 
 instance Hashable ArtifactStoreType
-instance ToQuery ArtifactStoreType
+instance ToQuery  ArtifactStoreType
 instance ToHeader ArtifactStoreType
 
 instance ToJSON ArtifactStoreType where
@@ -202,7 +202,7 @@ instance ToText BlockerType where
         Schedule -> "schedule"
 
 instance Hashable BlockerType
-instance ToQuery BlockerType
+instance ToQuery  BlockerType
 instance ToHeader BlockerType
 
 instance ToJSON BlockerType where
@@ -241,7 +241,7 @@ instance ToText FailureType where
         SystemUnavailable -> "systemunavailable"
 
 instance Hashable FailureType
-instance ToQuery FailureType
+instance ToQuery  FailureType
 instance ToHeader FailureType
 
 instance ToJSON FailureType where
@@ -280,7 +280,7 @@ instance ToText JobStatus where
         JSTimedOut -> "timedout"
 
 instance Hashable JobStatus
-instance ToQuery JobStatus
+instance ToQuery  JobStatus
 instance ToHeader JobStatus
 
 instance FromJSON JobStatus where
@@ -304,7 +304,7 @@ instance ToText StageTransitionType where
         Outbound -> "outbound"
 
 instance Hashable StageTransitionType
-instance ToQuery StageTransitionType
+instance ToQuery  StageTransitionType
 instance ToHeader StageTransitionType
 
 instance ToJSON StageTransitionType where

@@ -37,7 +37,7 @@ instance ToText ParameterApplyType where
         Static -> "static"
 
 instance Hashable ParameterApplyType
-instance ToQuery ParameterApplyType
+instance ToQuery  ParameterApplyType
 instance ToHeader ParameterApplyType
 
 instance FromXML ParameterApplyType where
@@ -67,7 +67,7 @@ instance ToText SourceType where
         ClusterSnapshot -> "cluster-snapshot"
 
 instance Hashable SourceType
-instance ToQuery SourceType
+instance ToQuery  SourceType
 instance ToHeader SourceType
 
 instance FromXML SourceType where

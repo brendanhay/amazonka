@@ -32,11 +32,11 @@ module Network.AWS.Redshift.DescribeSnapshotCopyGrants
     -- ** Request constructor
     , describeSnapshotCopyGrants
     -- ** Request lenses
-    , dscg1TagValues
-    , dscg1TagKeys
-    , dscg1MaxRecords
-    , dscg1Marker
-    , dscg1SnapshotCopyGrantName
+    , dscgsTagValues
+    , dscgsTagKeys
+    , dscgsMaxRecords
+    , dscgsMarker
+    , dscgsSnapshotCopyGrantName
 
     -- * Response
     , DescribeSnapshotCopyGrantsResponse
@@ -59,32 +59,32 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dscg1TagValues'
+-- * 'dscgsTagValues'
 --
--- * 'dscg1TagKeys'
+-- * 'dscgsTagKeys'
 --
--- * 'dscg1MaxRecords'
+-- * 'dscgsMaxRecords'
 --
--- * 'dscg1Marker'
+-- * 'dscgsMarker'
 --
--- * 'dscg1SnapshotCopyGrantName'
+-- * 'dscgsSnapshotCopyGrantName'
 data DescribeSnapshotCopyGrants = DescribeSnapshotCopyGrants'
-    { _dscg1TagValues             :: !(Maybe [Text])
-    , _dscg1TagKeys               :: !(Maybe [Text])
-    , _dscg1MaxRecords            :: !(Maybe Int)
-    , _dscg1Marker                :: !(Maybe Text)
-    , _dscg1SnapshotCopyGrantName :: !(Maybe Text)
+    { _dscgsTagValues             :: !(Maybe [Text])
+    , _dscgsTagKeys               :: !(Maybe [Text])
+    , _dscgsMaxRecords            :: !(Maybe Int)
+    , _dscgsMarker                :: !(Maybe Text)
+    , _dscgsSnapshotCopyGrantName :: !(Maybe Text)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshotCopyGrants' smart constructor.
 describeSnapshotCopyGrants :: DescribeSnapshotCopyGrants
 describeSnapshotCopyGrants =
     DescribeSnapshotCopyGrants'
-    { _dscg1TagValues = Nothing
-    , _dscg1TagKeys = Nothing
-    , _dscg1MaxRecords = Nothing
-    , _dscg1Marker = Nothing
-    , _dscg1SnapshotCopyGrantName = Nothing
+    { _dscgsTagValues = Nothing
+    , _dscgsTagKeys = Nothing
+    , _dscgsMaxRecords = Nothing
+    , _dscgsMarker = Nothing
+    , _dscgsSnapshotCopyGrantName = Nothing
     }
 
 -- | A tag value or values for which you want to return all matching
@@ -93,8 +93,8 @@ describeSnapshotCopyGrants =
 -- @admin@ and @test@. If you specify both of these tag values in the
 -- request, Amazon Redshift returns a response with all resources that have
 -- either or both of these tag values associated with them.
-dscg1TagValues :: Lens' DescribeSnapshotCopyGrants [Text]
-dscg1TagValues = lens _dscg1TagValues (\ s a -> s{_dscg1TagValues = a}) . _Default;
+dscgsTagValues :: Lens' DescribeSnapshotCopyGrants [Text]
+dscgsTagValues = lens _dscgsTagValues (\ s a -> s{_dscgsTagValues = a}) . _Default;
 
 -- | A tag key or keys for which you want to return all matching resources
 -- that are associated with the specified key or keys. For example, suppose
@@ -102,8 +102,8 @@ dscg1TagValues = lens _dscg1TagValues (\ s a -> s{_dscg1TagValues = a}) . _Defau
 -- @environment@. If you specify both of these tag keys in the request,
 -- Amazon Redshift returns a response with all resources that have either
 -- or both of these tag keys associated with them.
-dscg1TagKeys :: Lens' DescribeSnapshotCopyGrants [Text]
-dscg1TagKeys = lens _dscg1TagKeys (\ s a -> s{_dscg1TagKeys = a}) . _Default;
+dscgsTagKeys :: Lens' DescribeSnapshotCopyGrants [Text]
+dscgsTagKeys = lens _dscgsTagKeys (\ s a -> s{_dscgsTagKeys = a}) . _Default;
 
 -- | The maximum number of response records to return in each call. If the
 -- number of remaining response records exceeds the specified @MaxRecords@
@@ -114,8 +114,8 @@ dscg1TagKeys = lens _dscg1TagKeys (\ s a -> s{_dscg1TagKeys = a}) . _Default;
 -- Default: @100@
 --
 -- Constraints: minimum 20, maximum 100.
-dscg1MaxRecords :: Lens' DescribeSnapshotCopyGrants (Maybe Int)
-dscg1MaxRecords = lens _dscg1MaxRecords (\ s a -> s{_dscg1MaxRecords = a});
+dscgsMaxRecords :: Lens' DescribeSnapshotCopyGrants (Maybe Int)
+dscgsMaxRecords = lens _dscgsMaxRecords (\ s a -> s{_dscgsMaxRecords = a});
 
 -- | An optional parameter that specifies the starting point to return a set
 -- of response records. When the results of a @DescribeSnapshotCopyGrant@
@@ -126,12 +126,12 @@ dscg1MaxRecords = lens _dscg1MaxRecords (\ s a -> s{_dscg1MaxRecords = a});
 --
 -- Constraints: You can specify either the __SnapshotCopyGrantName__
 -- parameter or the __Marker__ parameter, but not both.
-dscg1Marker :: Lens' DescribeSnapshotCopyGrants (Maybe Text)
-dscg1Marker = lens _dscg1Marker (\ s a -> s{_dscg1Marker = a});
+dscgsMarker :: Lens' DescribeSnapshotCopyGrants (Maybe Text)
+dscgsMarker = lens _dscgsMarker (\ s a -> s{_dscgsMarker = a});
 
 -- | The name of the snapshot copy grant.
-dscg1SnapshotCopyGrantName :: Lens' DescribeSnapshotCopyGrants (Maybe Text)
-dscg1SnapshotCopyGrantName = lens _dscg1SnapshotCopyGrantName (\ s a -> s{_dscg1SnapshotCopyGrantName = a});
+dscgsSnapshotCopyGrantName :: Lens' DescribeSnapshotCopyGrants (Maybe Text)
+dscgsSnapshotCopyGrantName = lens _dscgsSnapshotCopyGrantName (\ s a -> s{_dscgsSnapshotCopyGrantName = a});
 
 instance AWSRequest DescribeSnapshotCopyGrants where
         type Sv DescribeSnapshotCopyGrants = Redshift
@@ -161,13 +161,13 @@ instance ToQuery DescribeSnapshotCopyGrants where
                  ("DescribeSnapshotCopyGrants" :: ByteString),
                "Version" =: ("2012-12-01" :: ByteString),
                "TagValues" =:
-                 toQuery (toQueryList "TagValue" <$> _dscg1TagValues),
+                 toQuery (toQueryList "TagValue" <$> _dscgsTagValues),
                "TagKeys" =:
-                 toQuery (toQueryList "TagKey" <$> _dscg1TagKeys),
-               "MaxRecords" =: _dscg1MaxRecords,
-               "Marker" =: _dscg1Marker,
+                 toQuery (toQueryList "TagKey" <$> _dscgsTagKeys),
+               "MaxRecords" =: _dscgsMaxRecords,
+               "Marker" =: _dscgsMarker,
                "SnapshotCopyGrantName" =:
-                 _dscg1SnapshotCopyGrantName]
+                 _dscgsSnapshotCopyGrantName]
 
 -- | The result of the snapshot copy grant.
 --

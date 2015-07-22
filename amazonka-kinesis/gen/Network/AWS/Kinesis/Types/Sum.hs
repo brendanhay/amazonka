@@ -43,7 +43,7 @@ instance ToText ShardIteratorType where
         TrimHorizon -> "trim_horizon"
 
 instance Hashable ShardIteratorType
-instance ToQuery ShardIteratorType
+instance ToQuery  ShardIteratorType
 instance ToHeader ShardIteratorType
 
 instance ToJSON ShardIteratorType where
@@ -73,7 +73,7 @@ instance ToText StreamStatus where
         Updating -> "updating"
 
 instance Hashable StreamStatus
-instance ToQuery StreamStatus
+instance ToQuery  StreamStatus
 instance ToHeader StreamStatus
 
 instance FromJSON StreamStatus where

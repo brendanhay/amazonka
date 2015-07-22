@@ -72,7 +72,7 @@ instance ToText ConnectionState where
         CSRequested -> "requested"
 
 instance Hashable ConnectionState
-instance ToQuery ConnectionState
+instance ToQuery  ConnectionState
 instance ToHeader ConnectionState
 
 instance FromJSON ConnectionState where
@@ -119,7 +119,7 @@ instance ToText InterconnectState where
         ISRequested -> "requested"
 
 instance Hashable InterconnectState
-instance ToQuery InterconnectState
+instance ToQuery  InterconnectState
 instance ToHeader InterconnectState
 
 instance FromJSON InterconnectState where
@@ -180,7 +180,7 @@ instance ToText VirtualInterfaceState where
         Verifying -> "verifying"
 
 instance Hashable VirtualInterfaceState
-instance ToQuery VirtualInterfaceState
+instance ToQuery  VirtualInterfaceState
 instance ToHeader VirtualInterfaceState
 
 instance FromJSON VirtualInterfaceState where

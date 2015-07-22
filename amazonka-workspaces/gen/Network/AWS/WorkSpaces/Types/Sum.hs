@@ -40,7 +40,7 @@ instance ToText Compute where
         Value -> "value"
 
 instance Hashable Compute
-instance ToQuery Compute
+instance ToQuery  Compute
 instance ToHeader Compute
 
 instance FromJSON Compute where
@@ -73,7 +73,7 @@ instance ToText WorkspaceDirectoryState where
         Registering -> "registering"
 
 instance Hashable WorkspaceDirectoryState
-instance ToQuery WorkspaceDirectoryState
+instance ToQuery  WorkspaceDirectoryState
 instance ToHeader WorkspaceDirectoryState
 
 instance FromJSON WorkspaceDirectoryState where
@@ -97,7 +97,7 @@ instance ToText WorkspaceDirectoryType where
         SimpleAd -> "simple_ad"
 
 instance Hashable WorkspaceDirectoryType
-instance ToQuery WorkspaceDirectoryType
+instance ToQuery  WorkspaceDirectoryType
 instance ToHeader WorkspaceDirectoryType
 
 instance FromJSON WorkspaceDirectoryType where
@@ -145,7 +145,7 @@ instance ToText WorkspaceState where
         WSUnhealthy -> "unhealthy"
 
 instance Hashable WorkspaceState
-instance ToQuery WorkspaceState
+instance ToQuery  WorkspaceState
 instance ToHeader WorkspaceState
 
 instance FromJSON WorkspaceState where

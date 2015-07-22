@@ -30,10 +30,10 @@ module Network.AWS.AutoScaling.DescribeScalingActivities
     -- ** Request constructor
     , describeScalingActivities
     -- ** Request lenses
-    , dsa1NextToken
-    , dsa1MaxRecords
-    , dsa1AutoScalingGroupName
-    , dsa1ActivityIds
+    , dsasNextToken
+    , dsasMaxRecords
+    , dsasAutoScalingGroupName
+    , dsasActivityIds
 
     -- * Response
     , DescribeScalingActivitiesResponse
@@ -55,57 +55,57 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dsa1NextToken'
+-- * 'dsasNextToken'
 --
--- * 'dsa1MaxRecords'
+-- * 'dsasMaxRecords'
 --
--- * 'dsa1AutoScalingGroupName'
+-- * 'dsasAutoScalingGroupName'
 --
--- * 'dsa1ActivityIds'
+-- * 'dsasActivityIds'
 data DescribeScalingActivities = DescribeScalingActivities'
-    { _dsa1NextToken            :: !(Maybe Text)
-    , _dsa1MaxRecords           :: !(Maybe Int)
-    , _dsa1AutoScalingGroupName :: !(Maybe Text)
-    , _dsa1ActivityIds          :: !(Maybe [Text])
+    { _dsasNextToken            :: !(Maybe Text)
+    , _dsasMaxRecords           :: !(Maybe Int)
+    , _dsasAutoScalingGroupName :: !(Maybe Text)
+    , _dsasActivityIds          :: !(Maybe [Text])
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeScalingActivities' smart constructor.
 describeScalingActivities :: DescribeScalingActivities
 describeScalingActivities =
     DescribeScalingActivities'
-    { _dsa1NextToken = Nothing
-    , _dsa1MaxRecords = Nothing
-    , _dsa1AutoScalingGroupName = Nothing
-    , _dsa1ActivityIds = Nothing
+    { _dsasNextToken = Nothing
+    , _dsasMaxRecords = Nothing
+    , _dsasAutoScalingGroupName = Nothing
+    , _dsasActivityIds = Nothing
     }
 
 -- | The token for the next set of items to return. (You received this token
 -- from a previous call.)
-dsa1NextToken :: Lens' DescribeScalingActivities (Maybe Text)
-dsa1NextToken = lens _dsa1NextToken (\ s a -> s{_dsa1NextToken = a});
+dsasNextToken :: Lens' DescribeScalingActivities (Maybe Text)
+dsasNextToken = lens _dsasNextToken (\ s a -> s{_dsasNextToken = a});
 
 -- | The maximum number of items to return with this call.
-dsa1MaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
-dsa1MaxRecords = lens _dsa1MaxRecords (\ s a -> s{_dsa1MaxRecords = a});
+dsasMaxRecords :: Lens' DescribeScalingActivities (Maybe Int)
+dsasMaxRecords = lens _dsasMaxRecords (\ s a -> s{_dsasMaxRecords = a});
 
 -- | The name of the group.
-dsa1AutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
-dsa1AutoScalingGroupName = lens _dsa1AutoScalingGroupName (\ s a -> s{_dsa1AutoScalingGroupName = a});
+dsasAutoScalingGroupName :: Lens' DescribeScalingActivities (Maybe Text)
+dsasAutoScalingGroupName = lens _dsasAutoScalingGroupName (\ s a -> s{_dsasAutoScalingGroupName = a});
 
 -- | The activity IDs of the desired scaling activities. If this list is
 -- omitted, all activities are described. If the @AutoScalingGroupName@
 -- parameter is provided, the results are limited to that group. The list
 -- of requested activities cannot contain more than 50 items. If unknown
 -- activities are requested, they are ignored with no error.
-dsa1ActivityIds :: Lens' DescribeScalingActivities [Text]
-dsa1ActivityIds = lens _dsa1ActivityIds (\ s a -> s{_dsa1ActivityIds = a}) . _Default;
+dsasActivityIds :: Lens' DescribeScalingActivities [Text]
+dsasActivityIds = lens _dsasActivityIds (\ s a -> s{_dsasActivityIds = a}) . _Default;
 
 instance AWSPager DescribeScalingActivities where
         page rq rs
           | stop (rs ^. dNextToken) = Nothing
           | stop (rs ^. dActivities) = Nothing
           | otherwise =
-            Just $ rq & dsa1NextToken .~ rs ^. dNextToken
+            Just $ rq & dsasNextToken .~ rs ^. dNextToken
 
 instance AWSRequest DescribeScalingActivities where
         type Sv DescribeScalingActivities = AutoScaling
@@ -132,11 +132,11 @@ instance ToQuery DescribeScalingActivities where
               ["Action" =:
                  ("DescribeScalingActivities" :: ByteString),
                "Version" =: ("2011-01-01" :: ByteString),
-               "NextToken" =: _dsa1NextToken,
-               "MaxRecords" =: _dsa1MaxRecords,
-               "AutoScalingGroupName" =: _dsa1AutoScalingGroupName,
+               "NextToken" =: _dsasNextToken,
+               "MaxRecords" =: _dsasMaxRecords,
+               "AutoScalingGroupName" =: _dsasAutoScalingGroupName,
                "ActivityIds" =:
-                 toQuery (toQueryList "member" <$> _dsa1ActivityIds)]
+                 toQuery (toQueryList "member" <$> _dsasActivityIds)]
 
 -- | /See:/ 'describeScalingActivitiesResponse' smart constructor.
 --

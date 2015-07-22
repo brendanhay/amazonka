@@ -39,9 +39,9 @@ module Network.AWS.EC2.DescribeFlowLogs
     -- ** Response constructor
     , describeFlowLogsResponse
     -- ** Response lenses
-    , dflr1NextToken
-    , dflr1FlowLogs
-    , dflr1Status
+    , descNextToken
+    , descFlowLogs
+    , descStatus
     ) where
 
 import           Network.AWS.EC2.Types
@@ -143,35 +143,35 @@ instance ToQuery DescribeFlowLogs where
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'dflr1NextToken'
+-- * 'descNextToken'
 --
--- * 'dflr1FlowLogs'
+-- * 'descFlowLogs'
 --
--- * 'dflr1Status'
+-- * 'descStatus'
 data DescribeFlowLogsResponse = DescribeFlowLogsResponse'
-    { _dflr1NextToken :: !(Maybe Text)
-    , _dflr1FlowLogs  :: !(Maybe [FlowLog])
-    , _dflr1Status    :: !Int
+    { _descNextToken :: !(Maybe Text)
+    , _descFlowLogs  :: !(Maybe [FlowLog])
+    , _descStatus    :: !Int
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeFlowLogsResponse' smart constructor.
 describeFlowLogsResponse :: Int -> DescribeFlowLogsResponse
 describeFlowLogsResponse pStatus =
     DescribeFlowLogsResponse'
-    { _dflr1NextToken = Nothing
-    , _dflr1FlowLogs = Nothing
-    , _dflr1Status = pStatus
+    { _descNextToken = Nothing
+    , _descFlowLogs = Nothing
+    , _descStatus = pStatus
     }
 
 -- | The token to use to retrieve the next page of results. This value is
 -- @null@ when there are no more results to return.
-dflr1NextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
-dflr1NextToken = lens _dflr1NextToken (\ s a -> s{_dflr1NextToken = a});
+descNextToken :: Lens' DescribeFlowLogsResponse (Maybe Text)
+descNextToken = lens _descNextToken (\ s a -> s{_descNextToken = a});
 
 -- | Information about the flow logs.
-dflr1FlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
-dflr1FlowLogs = lens _dflr1FlowLogs (\ s a -> s{_dflr1FlowLogs = a}) . _Default;
+descFlowLogs :: Lens' DescribeFlowLogsResponse [FlowLog]
+descFlowLogs = lens _descFlowLogs (\ s a -> s{_descFlowLogs = a}) . _Default;
 
 -- | FIXME: Undocumented member.
-dflr1Status :: Lens' DescribeFlowLogsResponse Int
-dflr1Status = lens _dflr1Status (\ s a -> s{_dflr1Status = a});
+descStatus :: Lens' DescribeFlowLogsResponse Int
+descStatus = lens _descStatus (\ s a -> s{_descStatus = a});

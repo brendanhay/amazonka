@@ -37,7 +37,7 @@ instance ToText DataKeySpec where
         AES256 -> "aes_256"
 
 instance Hashable DataKeySpec
-instance ToQuery DataKeySpec
+instance ToQuery  DataKeySpec
 instance ToHeader DataKeySpec
 
 instance ToJSON DataKeySpec where
@@ -79,7 +79,7 @@ instance ToText GrantOperation where
         RetireGrant -> "retiregrant"
 
 instance Hashable GrantOperation
-instance ToQuery GrantOperation
+instance ToQuery  GrantOperation
 instance ToHeader GrantOperation
 
 instance ToJSON GrantOperation where
@@ -103,7 +103,7 @@ instance ToText KeyUsageType where
         EncryptDecrypt -> "encrypt_decrypt"
 
 instance Hashable KeyUsageType
-instance ToQuery KeyUsageType
+instance ToQuery  KeyUsageType
 instance ToHeader KeyUsageType
 
 instance ToJSON KeyUsageType where

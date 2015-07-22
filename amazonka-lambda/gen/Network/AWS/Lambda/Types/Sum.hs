@@ -37,7 +37,7 @@ instance ToText EventSourcePosition where
         TrimHorizon -> "trim_horizon"
 
 instance Hashable EventSourcePosition
-instance ToQuery EventSourcePosition
+instance ToQuery  EventSourcePosition
 instance ToHeader EventSourcePosition
 
 instance ToJSON EventSourcePosition where
@@ -64,7 +64,7 @@ instance ToText InvocationType where
         RequestResponse -> "requestresponse"
 
 instance Hashable InvocationType
-instance ToQuery InvocationType
+instance ToQuery  InvocationType
 instance ToHeader InvocationType
 
 instance ToJSON InvocationType where
@@ -88,7 +88,7 @@ instance ToText LogType where
         Tail -> "tail"
 
 instance Hashable LogType
-instance ToQuery LogType
+instance ToQuery  LogType
 instance ToHeader LogType
 
 instance ToJSON LogType where
@@ -112,7 +112,7 @@ instance ToText Runtime where
         Nodejs -> "nodejs"
 
 instance Hashable Runtime
-instance ToQuery Runtime
+instance ToQuery  Runtime
 instance ToHeader Runtime
 
 instance ToJSON Runtime where

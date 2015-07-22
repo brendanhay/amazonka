@@ -37,7 +37,7 @@ instance ToText ApplyMethod where
         PendingReboot -> "pending-reboot"
 
 instance Hashable ApplyMethod
-instance ToQuery ApplyMethod
+instance ToQuery  ApplyMethod
 instance ToHeader ApplyMethod
 
 instance FromXML ApplyMethod where
@@ -67,7 +67,7 @@ instance ToText SourceType where
         DBSnapshot -> "db-snapshot"
 
 instance Hashable SourceType
-instance ToQuery SourceType
+instance ToQuery  SourceType
 instance ToHeader SourceType
 
 instance FromXML SourceType where

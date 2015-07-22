@@ -46,7 +46,7 @@ instance ToText LookupAttributeKey where
         Username -> "username"
 
 instance Hashable LookupAttributeKey
-instance ToQuery LookupAttributeKey
+instance ToQuery  LookupAttributeKey
 instance ToHeader LookupAttributeKey
 
 instance ToJSON LookupAttributeKey where

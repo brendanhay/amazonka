@@ -40,7 +40,7 @@ instance ToText ApplicationRevisionSortBy where
         RegisterTime -> "registertime"
 
 instance Hashable ApplicationRevisionSortBy
-instance ToQuery ApplicationRevisionSortBy
+instance ToQuery  ApplicationRevisionSortBy
 instance ToHeader ApplicationRevisionSortBy
 
 instance ToJSON ApplicationRevisionSortBy where
@@ -67,7 +67,7 @@ instance ToText BundleType where
         Zip -> "zip"
 
 instance Hashable BundleType
-instance ToQuery BundleType
+instance ToQuery  BundleType
 instance ToHeader BundleType
 
 instance ToJSON BundleType where
@@ -127,7 +127,7 @@ instance ToText DeployErrorCode where
         Timeout -> "timeout"
 
 instance Hashable DeployErrorCode
-instance ToQuery DeployErrorCode
+instance ToQuery  DeployErrorCode
 instance ToHeader DeployErrorCode
 
 instance FromJSON DeployErrorCode where
@@ -151,7 +151,7 @@ instance ToText DeploymentCreator where
         User -> "user"
 
 instance Hashable DeploymentCreator
-instance ToQuery DeploymentCreator
+instance ToQuery  DeploymentCreator
 instance ToHeader DeploymentCreator
 
 instance FromJSON DeploymentCreator where
@@ -187,7 +187,7 @@ instance ToText DeploymentStatus where
         Succeeded -> "succeeded"
 
 instance Hashable DeploymentStatus
-instance ToQuery DeploymentStatus
+instance ToQuery  DeploymentStatus
 instance ToHeader DeploymentStatus
 
 instance ToJSON DeploymentStatus where
@@ -217,7 +217,7 @@ instance ToText EC2TagFilterType where
         ValueOnly -> "value_only"
 
 instance Hashable EC2TagFilterType
-instance ToQuery EC2TagFilterType
+instance ToQuery  EC2TagFilterType
 instance ToHeader EC2TagFilterType
 
 instance ToJSON EC2TagFilterType where
@@ -256,7 +256,7 @@ instance ToText InstanceStatus where
         ISUnknown -> "unknown"
 
 instance Hashable InstanceStatus
-instance ToQuery InstanceStatus
+instance ToQuery  InstanceStatus
 instance ToHeader InstanceStatus
 
 instance ToJSON InstanceStatus where
@@ -295,7 +295,7 @@ instance ToText LifecycleErrorCode where
         UnknownError -> "unknownerror"
 
 instance Hashable LifecycleErrorCode
-instance ToQuery LifecycleErrorCode
+instance ToQuery  LifecycleErrorCode
 instance ToHeader LifecycleErrorCode
 
 instance FromJSON LifecycleErrorCode where
@@ -331,7 +331,7 @@ instance ToText LifecycleEventStatus where
         LESUnknown -> "unknown"
 
 instance Hashable LifecycleEventStatus
-instance ToQuery LifecycleEventStatus
+instance ToQuery  LifecycleEventStatus
 instance ToHeader LifecycleEventStatus
 
 instance FromJSON LifecycleEventStatus where
@@ -358,7 +358,7 @@ instance ToText ListStateFilterAction where
         Include -> "include"
 
 instance Hashable ListStateFilterAction
-instance ToQuery ListStateFilterAction
+instance ToQuery  ListStateFilterAction
 instance ToHeader ListStateFilterAction
 
 instance ToJSON ListStateFilterAction where
@@ -382,7 +382,7 @@ instance ToText MinimumHealthyHostsType where
         HostCount -> "host_count"
 
 instance Hashable MinimumHealthyHostsType
-instance ToQuery MinimumHealthyHostsType
+instance ToQuery  MinimumHealthyHostsType
 instance ToHeader MinimumHealthyHostsType
 
 instance ToJSON MinimumHealthyHostsType where
@@ -409,7 +409,7 @@ instance ToText RegistrationStatus where
         Registered -> "registered"
 
 instance Hashable RegistrationStatus
-instance ToQuery RegistrationStatus
+instance ToQuery  RegistrationStatus
 instance ToHeader RegistrationStatus
 
 instance ToJSON RegistrationStatus where
@@ -433,7 +433,7 @@ instance ToText RevisionLocationType where
         S3 -> "s3"
 
 instance Hashable RevisionLocationType
-instance ToQuery RevisionLocationType
+instance ToQuery  RevisionLocationType
 instance ToHeader RevisionLocationType
 
 instance ToJSON RevisionLocationType where
@@ -460,7 +460,7 @@ instance ToText SortOrder where
         Descending -> "descending"
 
 instance Hashable SortOrder
-instance ToQuery SortOrder
+instance ToQuery  SortOrder
 instance ToHeader SortOrder
 
 instance ToJSON SortOrder where
@@ -484,7 +484,7 @@ instance ToText StopStatus where
         SSSucceeded -> "succeeded"
 
 instance Hashable StopStatus
-instance ToQuery StopStatus
+instance ToQuery  StopStatus
 instance ToHeader StopStatus
 
 instance FromJSON StopStatus where
@@ -511,7 +511,7 @@ instance ToText TagFilterType where
         TFTValueOnly -> "value_only"
 
 instance Hashable TagFilterType
-instance ToQuery TagFilterType
+instance ToQuery  TagFilterType
 instance ToHeader TagFilterType
 
 instance ToJSON TagFilterType where

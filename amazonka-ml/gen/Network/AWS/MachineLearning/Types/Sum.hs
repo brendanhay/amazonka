@@ -39,7 +39,7 @@ instance ToText Algorithm where
         Sgd -> "sgd"
 
 instance Hashable Algorithm
-instance ToQuery Algorithm
+instance ToQuery  Algorithm
 instance ToHeader Algorithm
 
 instance FromJSON Algorithm where
@@ -98,7 +98,7 @@ instance ToText BatchPredictionFilterVariable where
         BatchStatus -> "status"
 
 instance Hashable BatchPredictionFilterVariable
-instance ToQuery BatchPredictionFilterVariable
+instance ToQuery  BatchPredictionFilterVariable
 instance ToHeader BatchPredictionFilterVariable
 
 instance ToJSON BatchPredictionFilterVariable where
@@ -150,7 +150,7 @@ instance ToText DataSourceFilterVariable where
         DataStatus -> "status"
 
 instance Hashable DataSourceFilterVariable
-instance ToQuery DataSourceFilterVariable
+instance ToQuery  DataSourceFilterVariable
 instance ToHeader DataSourceFilterVariable
 
 instance ToJSON DataSourceFilterVariable where
@@ -177,7 +177,7 @@ instance ToText DetailsAttributes where
         PredictiveModelType -> "predictivemodeltype"
 
 instance Hashable DetailsAttributes
-instance ToQuery DetailsAttributes
+instance ToQuery  DetailsAttributes
 instance ToHeader DetailsAttributes
 
 instance FromJSON DetailsAttributes where
@@ -217,7 +217,7 @@ instance ToText EntityStatus where
         Pending -> "pending"
 
 instance Hashable EntityStatus
-instance ToQuery EntityStatus
+instance ToQuery  EntityStatus
 instance ToHeader EntityStatus
 
 instance FromJSON EntityStatus where
@@ -275,7 +275,7 @@ instance ToText EvaluationFilterVariable where
         EvalStatus -> "status"
 
 instance Hashable EvaluationFilterVariable
-instance ToQuery EvaluationFilterVariable
+instance ToQuery  EvaluationFilterVariable
 instance ToHeader EvaluationFilterVariable
 
 instance ToJSON EvaluationFilterVariable where
@@ -323,7 +323,7 @@ instance ToText MLModelFilterVariable where
         MLMFVTrainingDataURI -> "trainingdatauri"
 
 instance Hashable MLModelFilterVariable
-instance ToQuery MLModelFilterVariable
+instance ToQuery  MLModelFilterVariable
 instance ToHeader MLModelFilterVariable
 
 instance ToJSON MLModelFilterVariable where
@@ -350,7 +350,7 @@ instance ToText MLModelType where
         Regression -> "regression"
 
 instance Hashable MLModelType
-instance ToQuery MLModelType
+instance ToQuery  MLModelType
 instance ToHeader MLModelType
 
 instance ToJSON MLModelType where
@@ -383,7 +383,7 @@ instance ToText RealtimeEndpointStatus where
         RESUpdating -> "updating"
 
 instance Hashable RealtimeEndpointStatus
-instance ToQuery RealtimeEndpointStatus
+instance ToQuery  RealtimeEndpointStatus
 instance ToHeader RealtimeEndpointStatus
 
 instance FromJSON RealtimeEndpointStatus where
@@ -412,7 +412,7 @@ instance ToText SortOrder where
         Dsc -> "dsc"
 
 instance Hashable SortOrder
-instance ToQuery SortOrder
+instance ToQuery  SortOrder
 instance ToHeader SortOrder
 
 instance ToJSON SortOrder where

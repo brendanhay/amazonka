@@ -392,12 +392,12 @@ imageAvailable =
     , _waitAcceptors = [ matchAll
                              "available"
                              AcceptSuccess
-                             (folding (concatOf descImages) .
+                             (folding (concatOf dir1Images) .
                               imaState . to toText)
                        , matchAny
                              "deregistered"
                              AcceptFailure
-                             (folding (concatOf descImages) .
+                             (folding (concatOf dir1Images) .
                               imaState . to toText)]
     }
 

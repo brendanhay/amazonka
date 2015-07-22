@@ -37,7 +37,7 @@ instance ToText KeyType where
         Range -> "range"
 
 instance Hashable KeyType
-instance ToQuery KeyType
+instance ToQuery  KeyType
 instance ToHeader KeyType
 
 instance FromJSON KeyType where
@@ -64,7 +64,7 @@ instance ToText OperationType where
         Remove -> "remove"
 
 instance Hashable OperationType
-instance ToQuery OperationType
+instance ToQuery  OperationType
 instance ToHeader OperationType
 
 instance FromJSON OperationType where
@@ -94,7 +94,7 @@ instance ToText ShardIteratorType where
         TrimHorizon -> "trim_horizon"
 
 instance Hashable ShardIteratorType
-instance ToQuery ShardIteratorType
+instance ToQuery  ShardIteratorType
 instance ToHeader ShardIteratorType
 
 instance ToJSON ShardIteratorType where
@@ -124,7 +124,7 @@ instance ToText StreamStatus where
         Enabling -> "enabling"
 
 instance Hashable StreamStatus
-instance ToQuery StreamStatus
+instance ToQuery  StreamStatus
 instance ToHeader StreamStatus
 
 instance FromJSON StreamStatus where
@@ -154,7 +154,7 @@ instance ToText StreamViewType where
         OldImage -> "old_image"
 
 instance Hashable StreamViewType
-instance ToQuery StreamViewType
+instance ToQuery  StreamViewType
 instance ToHeader StreamViewType
 
 instance FromJSON StreamViewType where

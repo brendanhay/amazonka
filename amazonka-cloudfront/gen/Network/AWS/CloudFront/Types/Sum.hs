@@ -40,7 +40,7 @@ instance ToText GeoRestrictionType where
         Whitelist -> "whitelist"
 
 instance Hashable GeoRestrictionType
-instance ToQuery GeoRestrictionType
+instance ToQuery  GeoRestrictionType
 instance ToHeader GeoRestrictionType
 
 instance FromXML GeoRestrictionType where
@@ -70,7 +70,7 @@ instance ToText ItemSelection where
         ISWhitelist -> "whitelist"
 
 instance Hashable ItemSelection
-instance ToQuery ItemSelection
+instance ToQuery  ItemSelection
 instance ToHeader ItemSelection
 
 instance FromXML ItemSelection where
@@ -112,7 +112,7 @@ instance ToText Method where
         Put -> "put"
 
 instance Hashable Method
-instance ToQuery Method
+instance ToQuery  Method
 instance ToHeader Method
 
 instance FromXML Method where
@@ -139,7 +139,7 @@ instance ToText MinimumProtocolVersion where
         TLSV1 -> "tlsv1"
 
 instance Hashable MinimumProtocolVersion
-instance ToQuery MinimumProtocolVersion
+instance ToQuery  MinimumProtocolVersion
 instance ToHeader MinimumProtocolVersion
 
 instance FromXML MinimumProtocolVersion where
@@ -166,7 +166,7 @@ instance ToText OriginProtocolPolicy where
         MatchViewer -> "match-viewer"
 
 instance Hashable OriginProtocolPolicy
-instance ToQuery OriginProtocolPolicy
+instance ToQuery  OriginProtocolPolicy
 instance ToHeader OriginProtocolPolicy
 
 instance FromXML OriginProtocolPolicy where
@@ -196,7 +196,7 @@ instance ToText PriceClass where
         PriceClassAll -> "priceclass_all"
 
 instance Hashable PriceClass
-instance ToQuery PriceClass
+instance ToQuery  PriceClass
 instance ToHeader PriceClass
 
 instance FromXML PriceClass where
@@ -223,7 +223,7 @@ instance ToText SSLSupportMethod where
         VIP -> "vip"
 
 instance Hashable SSLSupportMethod
-instance ToQuery SSLSupportMethod
+instance ToQuery  SSLSupportMethod
 instance ToHeader SSLSupportMethod
 
 instance FromXML SSLSupportMethod where
@@ -253,7 +253,7 @@ instance ToText ViewerProtocolPolicy where
         RedirectToHTTPS -> "redirect-to-https"
 
 instance Hashable ViewerProtocolPolicy
-instance ToQuery ViewerProtocolPolicy
+instance ToQuery  ViewerProtocolPolicy
 instance ToHeader ViewerProtocolPolicy
 
 instance FromXML ViewerProtocolPolicy where

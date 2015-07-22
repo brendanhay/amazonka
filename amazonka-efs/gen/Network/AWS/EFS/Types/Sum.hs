@@ -43,7 +43,7 @@ instance ToText LifeCycleState where
         Deleting -> "deleting"
 
 instance Hashable LifeCycleState
-instance ToQuery LifeCycleState
+instance ToQuery  LifeCycleState
 instance ToHeader LifeCycleState
 
 instance FromJSON LifeCycleState where

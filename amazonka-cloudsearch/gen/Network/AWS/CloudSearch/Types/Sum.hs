@@ -43,7 +43,7 @@ instance ToText AlgorithmicStemming where
         ASNone -> "none"
 
 instance Hashable AlgorithmicStemming
-instance ToQuery AlgorithmicStemming
+instance ToQuery  AlgorithmicStemming
 instance ToHeader AlgorithmicStemming
 
 instance FromXML AlgorithmicStemming where
@@ -168,7 +168,7 @@ instance ToText AnalysisSchemeLanguage where
         ZhHant -> "zh-hant"
 
 instance Hashable AnalysisSchemeLanguage
-instance ToQuery AnalysisSchemeLanguage
+instance ToQuery  AnalysisSchemeLanguage
 instance ToHeader AnalysisSchemeLanguage
 
 instance FromXML AnalysisSchemeLanguage where
@@ -223,7 +223,7 @@ instance ToText IndexFieldType where
         TextArray -> "text-array"
 
 instance Hashable IndexFieldType
-instance ToQuery IndexFieldType
+instance ToQuery  IndexFieldType
 instance ToHeader IndexFieldType
 
 instance FromXML IndexFieldType where
@@ -265,7 +265,7 @@ instance ToText OptionState where
         RequiresIndexDocuments -> "requiresindexdocuments"
 
 instance Hashable OptionState
-instance ToQuery OptionState
+instance ToQuery  OptionState
 instance ToHeader OptionState
 
 instance FromXML OptionState where
@@ -309,7 +309,7 @@ instance ToText PartitionInstanceType where
         Search_M3_XLarge -> "search.m3.xlarge"
 
 instance Hashable PartitionInstanceType
-instance ToQuery PartitionInstanceType
+instance ToQuery  PartitionInstanceType
 instance ToHeader PartitionInstanceType
 
 instance FromXML PartitionInstanceType where
@@ -336,7 +336,7 @@ instance ToText SuggesterFuzzyMatching where
         None -> "none"
 
 instance Hashable SuggesterFuzzyMatching
-instance ToQuery SuggesterFuzzyMatching
+instance ToQuery  SuggesterFuzzyMatching
 instance ToHeader SuggesterFuzzyMatching
 
 instance FromXML SuggesterFuzzyMatching where

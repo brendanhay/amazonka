@@ -37,7 +37,7 @@ instance ToText ClientVersion where
         V5_3 -> "5.3"
 
 instance Hashable ClientVersion
-instance ToQuery ClientVersion
+instance ToQuery  ClientVersion
 instance ToHeader ClientVersion
 
 instance ToJSON ClientVersion where
@@ -64,7 +64,7 @@ instance ToText CloudHSMObjectState where
         Updating -> "updating"
 
 instance Hashable CloudHSMObjectState
-instance ToQuery CloudHSMObjectState
+instance ToQuery  CloudHSMObjectState
 instance ToHeader CloudHSMObjectState
 
 instance FromJSON CloudHSMObjectState where
@@ -103,7 +103,7 @@ instance ToText HSMStatus where
         HSUpdating -> "updating"
 
 instance Hashable HSMStatus
-instance ToQuery HSMStatus
+instance ToQuery  HSMStatus
 instance ToHeader HSMStatus
 
 instance FromJSON HSMStatus where
@@ -124,7 +124,7 @@ instance ToText SubscriptionType where
         Production -> "production"
 
 instance Hashable SubscriptionType
-instance ToQuery SubscriptionType
+instance ToQuery  SubscriptionType
 instance ToHeader SubscriptionType
 
 instance ToJSON SubscriptionType where

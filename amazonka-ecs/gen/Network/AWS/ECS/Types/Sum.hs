@@ -49,7 +49,7 @@ instance ToText AgentUpdateStatus where
         AUSUpdating -> "updating"
 
 instance Hashable AgentUpdateStatus
-instance ToQuery AgentUpdateStatus
+instance ToQuery  AgentUpdateStatus
 instance ToHeader AgentUpdateStatus
 
 instance FromJSON AgentUpdateStatus where
@@ -76,7 +76,7 @@ instance ToText DesiredStatus where
         Stopped -> "stopped"
 
 instance Hashable DesiredStatus
-instance ToQuery DesiredStatus
+instance ToQuery  DesiredStatus
 instance ToHeader DesiredStatus
 
 instance ToJSON DesiredStatus where
@@ -100,7 +100,7 @@ instance ToText SortOrder where
         Desc -> "desc"
 
 instance Hashable SortOrder
-instance ToQuery SortOrder
+instance ToQuery  SortOrder
 instance ToHeader SortOrder
 
 instance ToJSON SortOrder where
@@ -124,7 +124,7 @@ instance ToText TaskDefinitionStatus where
         Inactive -> "inactive"
 
 instance Hashable TaskDefinitionStatus
-instance ToQuery TaskDefinitionStatus
+instance ToQuery  TaskDefinitionStatus
 instance ToHeader TaskDefinitionStatus
 
 instance ToJSON TaskDefinitionStatus where
@@ -151,7 +151,7 @@ instance ToText TransportProtocol where
         Udp -> "udp"
 
 instance Hashable TransportProtocol
-instance ToQuery TransportProtocol
+instance ToQuery  TransportProtocol
 instance ToHeader TransportProtocol
 
 instance ToJSON TransportProtocol where

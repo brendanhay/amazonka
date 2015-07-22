@@ -73,13 +73,13 @@ module Network.AWS.EC2.DescribeSnapshots
     -- ** Request constructor
     , describeSnapshots
     -- ** Request lenses
-    , ds1OwnerIds
-    , ds1Filters
-    , ds1NextToken
-    , ds1SnapshotIds
-    , ds1RestorableByUserIds
-    , ds1DryRun
-    , ds1MaxResults
+    , dssOwnerIds
+    , dssFilters
+    , dssNextToken
+    , dssSnapshotIds
+    , dssRestorableByUserIds
+    , dssDryRun
+    , dssMaxResults
 
     -- * Response
     , DescribeSnapshotsResponse
@@ -101,46 +101,46 @@ import           Network.AWS.Response
 --
 -- The fields accessible through corresponding lenses are:
 --
--- * 'ds1OwnerIds'
+-- * 'dssOwnerIds'
 --
--- * 'ds1Filters'
+-- * 'dssFilters'
 --
--- * 'ds1NextToken'
+-- * 'dssNextToken'
 --
--- * 'ds1SnapshotIds'
+-- * 'dssSnapshotIds'
 --
--- * 'ds1RestorableByUserIds'
+-- * 'dssRestorableByUserIds'
 --
--- * 'ds1DryRun'
+-- * 'dssDryRun'
 --
--- * 'ds1MaxResults'
+-- * 'dssMaxResults'
 data DescribeSnapshots = DescribeSnapshots'
-    { _ds1OwnerIds            :: !(Maybe [Text])
-    , _ds1Filters             :: !(Maybe [Filter])
-    , _ds1NextToken           :: !(Maybe Text)
-    , _ds1SnapshotIds         :: !(Maybe [Text])
-    , _ds1RestorableByUserIds :: !(Maybe [Text])
-    , _ds1DryRun              :: !(Maybe Bool)
-    , _ds1MaxResults          :: !(Maybe Int)
+    { _dssOwnerIds            :: !(Maybe [Text])
+    , _dssFilters             :: !(Maybe [Filter])
+    , _dssNextToken           :: !(Maybe Text)
+    , _dssSnapshotIds         :: !(Maybe [Text])
+    , _dssRestorableByUserIds :: !(Maybe [Text])
+    , _dssDryRun              :: !(Maybe Bool)
+    , _dssMaxResults          :: !(Maybe Int)
     } deriving (Eq,Read,Show,Data,Typeable,Generic)
 
 -- | 'DescribeSnapshots' smart constructor.
 describeSnapshots :: DescribeSnapshots
 describeSnapshots =
     DescribeSnapshots'
-    { _ds1OwnerIds = Nothing
-    , _ds1Filters = Nothing
-    , _ds1NextToken = Nothing
-    , _ds1SnapshotIds = Nothing
-    , _ds1RestorableByUserIds = Nothing
-    , _ds1DryRun = Nothing
-    , _ds1MaxResults = Nothing
+    { _dssOwnerIds = Nothing
+    , _dssFilters = Nothing
+    , _dssNextToken = Nothing
+    , _dssSnapshotIds = Nothing
+    , _dssRestorableByUserIds = Nothing
+    , _dssDryRun = Nothing
+    , _dssMaxResults = Nothing
     }
 
 -- | Returns the snapshots owned by the specified owner. Multiple owners can
 -- be specified.
-ds1OwnerIds :: Lens' DescribeSnapshots [Text]
-ds1OwnerIds = lens _ds1OwnerIds (\ s a -> s{_ds1OwnerIds = a}) . _Default;
+dssOwnerIds :: Lens' DescribeSnapshots [Text]
+dssOwnerIds = lens _dssOwnerIds (\ s a -> s{_dssOwnerIds = a}) . _Default;
 
 -- | One or more filters.
 --
@@ -179,33 +179,33 @@ ds1OwnerIds = lens _ds1OwnerIds (\ s a -> s{_ds1OwnerIds = a}) . _Default;
 --
 -- -   @volume-size@ - The size of the volume, in GiB.
 --
-ds1Filters :: Lens' DescribeSnapshots [Filter]
-ds1Filters = lens _ds1Filters (\ s a -> s{_ds1Filters = a}) . _Default;
+dssFilters :: Lens' DescribeSnapshots [Filter]
+dssFilters = lens _dssFilters (\ s a -> s{_dssFilters = a}) . _Default;
 
 -- | The @NextToken@ value returned from a previous paginated
 -- @DescribeSnapshots@ request where @MaxResults@ was used and the results
 -- exceeded the value of that parameter. Pagination continues from the end
 -- of the previous results that returned the @NextToken@ value. This value
 -- is @null@ when there are no more results to return.
-ds1NextToken :: Lens' DescribeSnapshots (Maybe Text)
-ds1NextToken = lens _ds1NextToken (\ s a -> s{_ds1NextToken = a});
+dssNextToken :: Lens' DescribeSnapshots (Maybe Text)
+dssNextToken = lens _dssNextToken (\ s a -> s{_dssNextToken = a});
 
 -- | One or more snapshot IDs.
 --
 -- Default: Describes snapshots for which you have launch permissions.
-ds1SnapshotIds :: Lens' DescribeSnapshots [Text]
-ds1SnapshotIds = lens _ds1SnapshotIds (\ s a -> s{_ds1SnapshotIds = a}) . _Default;
+dssSnapshotIds :: Lens' DescribeSnapshots [Text]
+dssSnapshotIds = lens _dssSnapshotIds (\ s a -> s{_dssSnapshotIds = a}) . _Default;
 
 -- | One or more AWS accounts IDs that can create volumes from the snapshot.
-ds1RestorableByUserIds :: Lens' DescribeSnapshots [Text]
-ds1RestorableByUserIds = lens _ds1RestorableByUserIds (\ s a -> s{_ds1RestorableByUserIds = a}) . _Default;
+dssRestorableByUserIds :: Lens' DescribeSnapshots [Text]
+dssRestorableByUserIds = lens _dssRestorableByUserIds (\ s a -> s{_dssRestorableByUserIds = a}) . _Default;
 
 -- | Checks whether you have the required permissions for the action, without
 -- actually making the request, and provides an error response. If you have
 -- the required permissions, the error response is @DryRunOperation@.
 -- Otherwise, it is @UnauthorizedOperation@.
-ds1DryRun :: Lens' DescribeSnapshots (Maybe Bool)
-ds1DryRun = lens _ds1DryRun (\ s a -> s{_ds1DryRun = a});
+dssDryRun :: Lens' DescribeSnapshots (Maybe Bool)
+dssDryRun = lens _dssDryRun (\ s a -> s{_dssDryRun = a});
 
 -- | The maximum number of snapshot results returned by @DescribeSnapshots@
 -- in paginated output. When this parameter is used, @DescribeSnapshots@
@@ -217,15 +217,15 @@ ds1DryRun = lens _ds1DryRun (\ s a -> s{_ds1DryRun = a});
 -- returned. If this parameter is not used, then @DescribeSnapshots@
 -- returns all results. You cannot specify this parameter and the snapshot
 -- IDs parameter in the same request.
-ds1MaxResults :: Lens' DescribeSnapshots (Maybe Int)
-ds1MaxResults = lens _ds1MaxResults (\ s a -> s{_ds1MaxResults = a});
+dssMaxResults :: Lens' DescribeSnapshots (Maybe Int)
+dssMaxResults = lens _dssMaxResults (\ s a -> s{_dssMaxResults = a});
 
 instance AWSPager DescribeSnapshots where
         page rq rs
           | stop (rs ^. dsr1NextToken) = Nothing
           | stop (rs ^. dsr1Snapshots) = Nothing
           | otherwise =
-            Just $ rq & ds1NextToken .~ rs ^. dsr1NextToken
+            Just $ rq & dssNextToken .~ rs ^. dsr1NextToken
 
 instance AWSRequest DescribeSnapshots where
         type Sv DescribeSnapshots = EC2
@@ -251,16 +251,16 @@ instance ToQuery DescribeSnapshots where
           = mconcat
               ["Action" =: ("DescribeSnapshots" :: ByteString),
                "Version" =: ("2015-04-15" :: ByteString),
-               toQuery (toQueryList "Owner" <$> _ds1OwnerIds),
-               toQuery (toQueryList "Filter" <$> _ds1Filters),
-               "NextToken" =: _ds1NextToken,
+               toQuery (toQueryList "Owner" <$> _dssOwnerIds),
+               toQuery (toQueryList "Filter" <$> _dssFilters),
+               "NextToken" =: _dssNextToken,
                toQuery
-                 (toQueryList "SnapshotId" <$> _ds1SnapshotIds),
+                 (toQueryList "SnapshotId" <$> _dssSnapshotIds),
                toQuery
                  (toQueryList "RestorableBy" <$>
-                    _ds1RestorableByUserIds),
-               "DryRun" =: _ds1DryRun,
-               "MaxResults" =: _ds1MaxResults]
+                    _dssRestorableByUserIds),
+               "DryRun" =: _dssDryRun,
+               "MaxResults" =: _dssMaxResults]
 
 -- | /See:/ 'describeSnapshotsResponse' smart constructor.
 --

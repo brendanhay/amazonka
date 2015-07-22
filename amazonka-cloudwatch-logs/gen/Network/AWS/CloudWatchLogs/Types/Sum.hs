@@ -37,7 +37,7 @@ instance ToText OrderBy where
         LogStreamName -> "logstreamname"
 
 instance Hashable OrderBy
-instance ToQuery OrderBy
+instance ToQuery  OrderBy
 instance ToHeader OrderBy
 
 instance ToJSON OrderBy where

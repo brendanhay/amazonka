@@ -134,11 +134,8 @@ acronymPrefixes r (stripSuffix "Response" -> n)
     | otherwise     = ci types
   where
     requests  = map (<> "rq") types
-    responses = [Text.pack (x : show y) | x <- alpha, y <- numeric]
+    responses = map (<> "rs") types
     types     = xs ++ map suffix ys
-
-    alpha   = "abcdefghijklmnopqrstuvwxyz"
-    numeric = [1..] :: [Int]
 
     ci = map CI.mk
 

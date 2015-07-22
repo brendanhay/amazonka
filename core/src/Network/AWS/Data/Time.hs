@@ -65,6 +65,12 @@ data Format
     | POSIXFormat
       deriving (Eq, Read, Show, Data, Typeable, Generic)
 
+deriving instance Typeable 'RFC822Format
+deriving instance Typeable 'ISO8601Format
+deriving instance Typeable 'BasicFormat
+deriving instance Typeable 'AWSFormat
+deriving instance Typeable 'POSIXFormat
+
 data Time :: Format -> * where
     Time :: UTCTime -> Time a
       deriving (Data, Typeable, Generic)

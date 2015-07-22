@@ -123,14 +123,11 @@ renameReserved x
 
 -- | Acronym preference list.
 acronymPrefixes :: Text -> [CI Text]
-acronymPrefixes n = map CI.mk (rules ++ ordinals)
+acronymPrefixes n = map CI.mk (rules ++ map suffix rules)
   where
     a = camelAcronym n
 
-    -- Append an ordinal to the generated acronyms.
-    ordinals = concatMap ((\i -> map (<> i) rs) . num) [1..3]
-      where
-        rs = catMaybes [r1, r2, r3]
+    suffix x = Text.snoc x (Text.last x)
 
     -- Acronym preference list.
     rules = catMaybes [r1, r2, r3, r4, r5, r6]
@@ -154,9 +151,6 @@ acronymPrefixes n = map CI.mk (rules ++ ordinals)
 
     -- Some -> Some || SomeTestTType -> Some
     r6 = Text.take 4 <$> listToMaybe (splitWords n)
-
-    num :: Int -> Text
-    num = Text.pack . show
 
 camelAcronym :: Text -> Text
 camelAcronym x = replaceAll x xs
